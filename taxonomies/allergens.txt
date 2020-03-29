@@ -1,5 +1,5 @@
 stopwords:en:and,byproducts,other,of,this,product,made,manufactured,in,a,factory,which,also,uses,trace,traces,possible,eventual,potential
-stopwords:de:enthalten,von,und,kann,spuren
+stopwords:de:enthalten,von,und,kann,spuren,andere
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
 stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä
 stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris
@@ -41,7 +41,7 @@ ar:قشريات
 bg:ракообразни
 cs:korýši
 da:krebsdyr
-de:Krebstiere
+de:Krebstiere, Krebstieren
 el:καρκινοειδή
 es:crustáceos, cangrejo, cangrejo de río, gamba, camarón, langosta, langostino
 et:koorikloomad
@@ -133,7 +133,7 @@ ar:فول سوداني
 bg:фъстъци, arachis hypogaea
 cs:jádra podzemnice olejné, arašídy, arachis hypogaea
 da:jordnødder, jordnød, arachis hypogaea
-de:Erdnüsse, Erdnuss, arachis hypogaea, Erdnusskerne
+de:Erdnüsse, Erdnuss, Erdnüssen, arachis hypogaea, Erdnusskerne
 el:αραχίδες, αραχίδα, arachis hypogaea
 es:cacahuetes, cacahuete, arachis hypogaea, aceite de cacahuete, cacahuates, cacahuate, aceite de cacahuate
 et:maapähklid, arachis hypogaea
@@ -225,7 +225,7 @@ ar:بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
 bg:ядки, бадеми, лешници, орехи, кашу, пеканови ядки,  бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд
 cs:skořápkové plody, mandle, lískové ořechy, vlašské ořechy, kešu ořechy, pekanové ořechy,  para ořechy, pistácie, makadamie
 da:nødder, mandler, hasselnødder, valnødder, cashewnødder, pekannødder,  paranødder, pistacienødder, queenslandnødder
-de:Schalenfrüchte, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl
+de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnüssen, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl
 el:καρποί με κέλυφος, αμύγδαλα, φουντούκια, καρύδια, καρύδια κάσιους, καρύδια πεκάν, καρύδια Βραζιλίας, φυστίκια, καρύδια μακαντάμια, καρύδια Κουίνσλαντ
 es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles
 et:pähklid, mandlid, sarapuupähklid, kreeka pähklid, india pähklid, kašupähklid, pekanipähklid,  brasiilia pähklid, parapähklid, pistaatsiapähklid, makadaamiapähklid
