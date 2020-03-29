@@ -204,8 +204,39 @@ my @tests = (
 # Test for process/adjective de:gesalzen, de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
 	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
-[
-]
+	[
+	  {
+	    'id' => "de:hartk\x{e4}se",
+	    'processing' => 'de:gesalzen',
+	    'text' => "hartk\x{e4}se"
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => 'de:gesalzen',
+	    'text' => "haseln\x{fc}sse"
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => 'de:gesalzen',
+	    'text' => "haseln\x{fc}sse"
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => 'de:gesalzen',
+	    'text' => 'haselnusskerne'
+	  },
+	  {
+	    'id' => 'en:shallot',
+	    'processing' => 'de:ungesalzen',
+	    'text' => 'schalotte'
+	  },
+	  {
+	    'id' => 'en:almond',
+	    'processing' => 'de:ungesalzen',
+	    'text' => 'mandeln'
+	  }
+	]
+
 	],
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
