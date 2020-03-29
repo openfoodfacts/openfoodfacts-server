@@ -6958,9 +6958,30 @@ sub display_field($$) {
 			}
 		}
 		my $lang_field = lang($field);
-		if ($lang_field eq '') {
+		if ($lang_field eq '' and $field ne 'states') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
+		
+		# Separate To-Do and Done Status
+		if ($field eq 'states') {
+			my $done_status = '';
+			my $to_do_status = '';
+			my @status_split = split(',', $value);
+			foreach my $val (@status_split) {
+				if (index($val, "to-be") != -1) {
+		 			$to_do_status .=$val . ",";
+  		 		}
+		 		else {
+		 		$done_status .=$val . ",";
+		 		}
+			}
+			$to_do_status =~ s/,$//;
+			$done_status =~ s/,$//;
+			$lang_field = "To Do";
+			$value = $to_do_status;
+			$html .= '<p><span class="field">' . "Done" . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+		}
+		
 		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 
 		if ($field eq 'brands') {
