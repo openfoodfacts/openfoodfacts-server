@@ -17,13 +17,42 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @tests = (
 #                 English
-	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder, sieved ham"}, 
+	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, 
+			courgette powder, sieved ham"}, 
 		[
+	  		{
+	    		'id' => 'en:raw-milk',
+	    		'text' => 'raw milk'
+	  		},
+	  		{
+	    		'id' => 'en:tomato',
+	    		'processing' => 'en:sliced',
+	    		'text' => 'tomatoes'
+	  		},
+	  		{
+	    		'id' => 'en:garlic-powder',
+	    		'text' => 'garlic powder'
+	  		},
+	  		{
+	    		'id' => 'en:aubergine',
+	    		'processing' => 'en:powdered',
+	    		'text' => 'eggplant'
+	  		},
+	  		{
+	    		'id' => 'en:courgette',
+	    		'processing' => 'en:powdered',
+	    		'text' => 'courgette'
+	  		},
+	  		{
+	    		'id' => 'en:ham',
+	    		'processing' => 'en:sieved',
+	    		'text' => 'ham'
+	  		}
 		]
-
 	],
 
-	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, tomates bio pré-cuites, poudre de noisettes"}, 
+	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
+			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 
 [
   {
@@ -46,9 +75,24 @@ my @tests = (
     'id' => 'en:hazelnut',
     'processing' => 'en:powdered',
     'text' => 'noisettes'
+  },
+  {
+    'id' => 'en:banana',
+    'processing' => 'en:sieved',
+    'text' => 'banane'
   }
-]
+		]
 	],
+
+		[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
+			[
+	  			{
+	    			'id' => 'en:banana',
+	    			'processing' => 'en:cooked, en:cut',
+	    			'text' => 'banane'
+	  			}
+			]
+		],
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 [
@@ -79,17 +123,6 @@ my @tests = (
     'id' => 'en:marigold',
     'processing' => 'en:peeled',
     'text' => 'goudsbloem' 
-  }
-]
-
-	],
-
-	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-[
-  {
-    'id' => 'en:banana',
-    'processing' => 'en:cooked, en:cut',
-    'text' => 'banane'
   }
 ]
 
