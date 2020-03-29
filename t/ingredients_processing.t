@@ -309,6 +309,26 @@ my @tests = (
     'text' => 'gurken'
   }
 ]
+	],
+
+[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:grated',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:grated',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:grated',
+    'text' => 'spinat'
+  },
+]
 
 ],
 
