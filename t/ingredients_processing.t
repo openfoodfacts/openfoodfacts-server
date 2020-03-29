@@ -117,7 +117,11 @@ my @tests = (
 ]
 
 	],
-
+##################################################################
+#
+#                  G E R M A N ( D E )
+#
+##################################################################
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
 		[
 	  		{
@@ -197,21 +201,12 @@ my @tests = (
 				}
 			]
 		],
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
-			[
-			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-			
-		],
-
+# Test for process/adjective de:gesalzen, de:ungesalzen
+	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
+	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+[
+]
+	],
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
   {
