@@ -61,6 +61,8 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Traces éventuelles de : épeautre." }, [], ["en:gluten"] ],
 
 	[ { lc => "fr", ingredients_text => "Contient du _lait_." }, ["en:milk"], [] ],
+	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+
 );
 
 foreach my $test_ref (@tests) {
