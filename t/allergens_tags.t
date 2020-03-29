@@ -67,6 +67,9 @@ my @tests = (
 
 	# Currently not supported
 	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
+  
+	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+
 );
 
 foreach my $test_ref (@tests) {
