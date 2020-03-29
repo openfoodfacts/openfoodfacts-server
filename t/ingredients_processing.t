@@ -166,7 +166,7 @@ my @tests = (
   			}
 		]
 	],
-	
+
 	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
 		[
 	  		{
@@ -196,6 +196,21 @@ my @tests = (
 				'text' => 'Schalotte'
 				}
 			]
+		],
+
+# Test for de: ingredients, that should NOT be detected through processing
+		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+			[
+			  	{
+					'id' => 'en:garden-peas',
+					'text' => 'Markerbsen'
+				},
+			  	{
+					'id' => 'de:deutsche-markenbutter',
+					'text' => 'Deutsche Markenbutter'
+				}
+			]
+
 		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
@@ -231,7 +246,6 @@ my @tests = (
 		'processing' => 'en:sliced',
 		'text' => 'Dickmilch'
 	}
-
 ]
 	],
 
