@@ -278,24 +278,24 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
     'text' => 'Schalotte'
   },
   {
-    'id' => 'en:onion',
-    'processing' => 'en:diced',
-    'text' => 'zwiebel'
-  },
-  {
     'id' => 'en:spinach',
     'processing' => 'en:diced',
     'text' => 'spinat'
   },
   {
-    'id' => 'en:almond',
-    'processing' => 'en:diced',
-    'text' => 'mandeln'
-  },
-  {
     'id' => 'en:gherkin',
     'processing' => 'en:diced',
     'text' => 'gurken'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:diced',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:almond',
+    'processing' => 'en:diced',
+    'text' => 'mandeln'
   }
 ]
 
