@@ -157,7 +157,6 @@ my %may_contain_regexps = (
 my %contains_regexps = (
 
 	en => "contains",
-	de => "Kann",
 	es => "contiene",
 	fr => "contient",
 );

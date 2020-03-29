@@ -65,7 +65,8 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "Contains soy, milk and hazelnut. May contain celery." }, ["en:milk", "en:nuts", "en:soybeans"], ["en:celery"] ],
 	[ { lc => "en", ingredients_text => "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard." }, ["en:milk", "en:nuts"], ["en:celery", "en:mustard"] ],
 
-	[ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, ["en:nuts"], [] ],
+	# Currently not supported
+	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
 );
 
 foreach my $test_ref (@tests) {
