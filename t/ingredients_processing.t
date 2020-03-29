@@ -266,10 +266,44 @@ my @tests = (
 		'id' => 'en:soured-milk',
 		'processing' => 'en:sliced',
 		'text' => 'Dickmilch'
-	}
-]
+			}
+		]
 	],
-
+	# All variants of de:rehydriert
+	[ { lc => "de", ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:rehydrated',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:rehydrated',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:rehydrated',
+				'text' => 'spinat'
+			}
+		]
+	],
+	# All variants of de:halbiert
+	[ { lc => "de", ingredients_text => "Schalotte halbiert, zwiebel halbierte" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:halbiert',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'de:halbiert',
+				'text' => 'zwiebel'
+			}
+		]
+	],
 # All variants of de:geschnitten
 [ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
 	fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
