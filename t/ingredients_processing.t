@@ -197,20 +197,6 @@ my @tests = (
 				}
 			]
 		],
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
-			[
-			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-			
-		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
@@ -265,6 +251,26 @@ my @tests = (
     'processing' => 'en:pureed',
     'text' => 'gurken'
   }
+]
+	],
+
+[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:grated',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:grated',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:grated',
+    'text' => 'spinat'
+  },
 ]
 
 ],
