@@ -16,9 +16,10 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
+#                 English
 	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder, sieved ham"}, 
-[
-]
+		[
+		]
 
 	],
 
@@ -184,21 +185,6 @@ my @tests = (
 					]
 
 				],
-
-# Test for de: ingredients, that should NOT be detected through processing
-		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
-			[
-			  	{
-					'id' => 'en:garden-peas',
-					'text' => 'Markerbsen'
-				},
-			  	{
-					'id' => 'de:deutsche-markenbutter',
-					'text' => 'Deutsche Markenbutter'
-				}
-			]
-
-		],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
