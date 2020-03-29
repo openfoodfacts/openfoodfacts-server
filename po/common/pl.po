@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-29 10:16\n"
+"PO-Revision-Date: 2020-03-29 11:34\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3559,7 +3559,7 @@ msgstr "Pusta kolumna"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Kolumny w pliku nie zawierają wpisu."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
@@ -3568,7 +3568,7 @@ msgstr "Trwa import danych"
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Dane produktu zostały odebrane i zostaną zaimportowane na platformę dla producentów."
 
 msgctxt "import_file_status"
 msgid "Status"
@@ -3576,63 +3576,63 @@ msgstr "Status"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Zaplanowane"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "W toku"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Zakończone"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Nie powiodło się"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importuj wyniki"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Produkty dodane"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Produkty zmodyfikowane"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "Nie dodano ani nie zmodyfikowano produktu. Dane zostały prawdopodobnie już wcześniej zaimportowane."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Lista produktów dodanych lub zmodyfikowanych"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "importy"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "importy"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Liczba produktów z błędami jakości danych"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Liczba produktów z ostrzeżeniami dotyczącymi jakości danych"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Liczba produktów z możliwościami poprawy"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
@@ -3677,19 +3677,19 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: tabela wartości odżywczej w języku hiszpańskim."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Dodaj zdjęcia..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Rozpocznij wysyłanie"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Rozpocznij"
 
 msgctxt "close"
 msgid "Close"
@@ -3697,15 +3697,15 @@ msgstr "Zamknij"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Anuluj wysyłanie"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Plik odebrany"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
@@ -3721,11 +3721,11 @@ msgstr ""
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Pozytywne punkty"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Punkty ujemne"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
