@@ -49,6 +49,9 @@ de:gesalzen, gesalzene, gesalzenes, gesalzener
 
 de:ungesalzen, ungesalzene
 
+de:eingelegt, eingelegte
+# de:parse:$ eingelegt, eingelegt $
+
 en:whole
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
@@ -76,13 +79,13 @@ nl:gepelde
 en:crushed
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 
-en:description:To reduce to smaller pieces by crushing with lateral motion.
+# en:description:To reduce to smaller pieces by crushing with lateral motion.
 
 en:ground
 fr:moulu, moulue, moulus, moulues
 nl:gemalen
 # nl:parse:gemalen_$
-en:wiktionary:grind
+# en:wiktionary:grind
 
 # en:description:Cut or diced into small pieces
 en:chopped
@@ -103,15 +106,20 @@ fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 #de:in Sticks geschnitten
 
 en:pureed
-de:püree, puree, püree aus, mark
+de:püree, puree, püree aus
 fr:en purée, purée de, purée d'
 # de:parsing:$püree, püree$
 
+# en:description:The soft center of a fruit
+en:pulp
+de:mark
+
+# en:wiktionary:pulp
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 de:gerieben, geriebener, geriebene
 fr:râpé, râpée, râpés, râpées
-nl:geraspte
+nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
@@ -125,8 +133,12 @@ nl:poeder, poeders, in poedervorm
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
 
+# en:description:Having had the pits removed
 en:pitted
+de:entsteint, entsteinte
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+# de:parsing:$ entsteint, entsteint $
+# en:wiktionary:pitted
 
 en:dried
 fr:séché, séchée, séchés, séchées

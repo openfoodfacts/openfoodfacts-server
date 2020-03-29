@@ -233,11 +233,32 @@ my @tests = (
 	  {
 	    'id' => 'en:almond',
 	    'processing' => 'de:ungesalzen',
-	    'text' => 'mandeln'
-	  }
-	]
-
+				'text' => 'mandeln'
+			}
+		],
 	],
+# Test for process de:entsteint
+	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
+		[
+		 	{
+				'id' => 'en:shallot',
+				'processing' => 'en:pitted',
+				'text' => 'Schalotte'
+			}
+		]
+	],
+
+# Test for process de:eingelegt
+	[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:eingelegt',
+				'text' => 'Schalotte'
+			}
+		],
+	],
+# Various tests
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 [
   {
@@ -329,7 +350,7 @@ my @tests = (
   },
   {
     'id' => 'en:gherkin',
-    'processing' => 'en:pureed',
+    'processing' => 'en:pulp',
     'text' => 'gurken'
   }
 ]
