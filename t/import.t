@@ -5,9 +5,10 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -148,7 +149,7 @@ foreach my $test_ref (@tests) {
 	is ($serving_size, $test_ref->[4]);
 
 	if (not is_deeply($nutrients_ref, $test_ref->[2])) {
-		print STDERR "failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]\n";
+		$log->debug("failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]");
 		# display the results in a format we can easily copy to the test
 		my $results = "{";
 		foreach my $nid (sort keys %$nutrients_ref) {
@@ -159,7 +160,7 @@ foreach my $test_ref (@tests) {
 		}
 		$results =~ s/,$//;
 		$results .= " }";
-		print STDERR $results . "\n";
+		$log->debug($results);
 	}
 }
 
@@ -214,7 +215,7 @@ foreach my $test_ref (@tests) {
 
 foreach my $test_ref (@tests) {
 
-	clean_fields($test_ref->[0]);	
+	clean_fields($test_ref->[0]);
 	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
 
 }

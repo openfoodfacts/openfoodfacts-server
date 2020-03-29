@@ -5,9 +5,10 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
-#use Log::Any::Adapter 'TAP';
-use Log::Any::Adapter 'TAP', filter => 'trace';
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -16,7 +17,7 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-	[ { lc => "en", ingredients_text => "sugar and water"}, 
+	[ { lc => "en", ingredients_text => "sugar and water"},
 [
   {
     'id' => 'en:sugar',
@@ -29,7 +30,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"}, 
+	[ { lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"},
 [
   {
     'id' => 'en:chocolate',
@@ -52,7 +53,7 @@ my @tests = (
 ]
 
 	],
-	[ { lc => "en", ingredients_text => "dough (wheat, water, raising agents: E501, salt), chocolate (cocoa (cocoa butter, cocoa paste), sugar), milk"}, 
+	[ { lc => "en", ingredients_text => "dough (wheat, water, raising agents: E501, salt), chocolate (cocoa (cocoa butter, cocoa paste), sugar), milk"},
 
 [
   {
@@ -115,7 +116,7 @@ my @tests = (
 	],
 
 
-	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico)"}, 
+	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico)"},
 [
   {
     'id' => 'en:salt',
@@ -299,7 +300,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_ingredients_ref = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	$log->debug("ingredients_text: " . $product_ref->{ingredients_text});
 
 	parse_ingredients_text($product_ref);
 
@@ -309,7 +310,7 @@ foreach my $test_ref (@tests) {
 		# inside the test file much easier when tests results need
 		# to be updated. Caveat is that it might interfere with
 		# test output.
-		or print STDERR join("\n", explain $product_ref->{ingredients});
+		or diag join("\n", explain $product_ref->{ingredients});
 }
 
 done_testing();

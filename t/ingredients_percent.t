@@ -5,9 +5,10 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
 use Log::Any::Adapter 'TAP';
-use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -16,7 +17,7 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-	[ { lc => "en", ingredients_text => "sugar"}, 
+	[ { lc => "en", ingredients_text => "sugar"},
 [
   {
     'id' => 'en:sugar',
@@ -421,12 +422,12 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_ingredients_ref = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	$log->debug("ingredients_text: " . $product_ref->{ingredients_text});
 
 	parse_ingredients_text($product_ref);
 	if (compute_ingredients_percent_values(
 		100, 100, $product_ref->{ingredients}) < 0) {
-		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
+		$log->debug("compute_ingredients_percent_values < 0, delete ingredients percent values");
 		delete_ingredients_percent_values($product_ref->{ingredients});
 	}
 
@@ -436,7 +437,7 @@ foreach my $test_ref (@tests) {
 		# inside the test file much easier when tests results need
 		# to be updated. Caveat is that it might interfere with
 		# test output.
-		or print STDERR join("\n", explain $product_ref->{ingredients});
+		or diag join("\n", explain $product_ref->{ingredients});
 }
 
 done_testing();

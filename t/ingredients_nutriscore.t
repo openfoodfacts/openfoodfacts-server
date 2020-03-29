@@ -6,8 +6,7 @@ use warnings;
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP';
-use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -15,12 +14,12 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @ingredients = (
 
-	["en", "bananas", "yes"],	
+	["en", "bananas", "yes"],
 	["en", "flour", undef],
-	["fr", "fraises", "yes"],	
-	["fr", "noisettes", "yes"],	
-	["fr", "légumes", "yes"],	
-	["fr", "pommes de terre", "no"],	
+	["fr", "fraises", "yes"],
+	["fr", "noisettes", "yes"],
+	["fr", "légumes", "yes"],
+	["fr", "pommes de terre", "no"],
 );
 
 foreach my $test_ref (@ingredients) {

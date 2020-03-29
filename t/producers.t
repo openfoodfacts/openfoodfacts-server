@@ -6,7 +6,6 @@ use Modern::Perl '2017';
 
 use Test::More;
 use Test::Number::Delta;
-#use Log::Any::Adapter 'TAP', filter => "none";
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Producers qw/:all/;

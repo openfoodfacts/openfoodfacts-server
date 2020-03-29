@@ -5,9 +5,10 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images qw/:all/;
 
@@ -27,7 +28,7 @@ my @tests = (
 
 foreach my $test_ref (@tests) {
 
-	print STDERR $test_ref->[0] . " " . $test_ref->[1] . "\n";
+	$log->debug($test_ref->[0] . " " . $test_ref->[1]);
 	my ($code, $imagefield) = get_code_and_imagefield_from_file_name(
 		$test_ref->[0], $test_ref->[1]);
 	is ($code, $test_ref->[2]);

@@ -6,8 +6,7 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";
-#use Log::Any::Adapter 'TAP';
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -164,7 +163,7 @@ foreach my $test_ref (@tests) {
 
 	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
 
-	my $product_ref = { 
+	my $product_ref = {
 		lc => $test_ref->[0],
 		$ingredients_lc => $test_ref->[1],
 	};

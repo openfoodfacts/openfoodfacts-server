@@ -5,9 +5,10 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
 use Log::Any::Adapter 'TAP';
-#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -111,7 +112,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_tags = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	$log->debug("ingredients_text: " . $product_ref->{ingredients_text});
 
 	extract_ingredients_from_text($product_ref);
 

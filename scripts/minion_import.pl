@@ -50,8 +50,6 @@ use Getopt::Long;
 use Mojolicious::Lite;
 use Minion;
 
-use Log::Any::Adapter 'TAP', filter => "none";
-
 # Minion backend
 
 if (not defined $server_options{minion_backend}) {

@@ -4,8 +4,10 @@ use Modern::Perl '2017';
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -109,7 +111,7 @@ is_deeply($product_ref,
 
 foreach my $tag (@{$product_ref->{categories_tags}}) {
 
-	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+	$log->debug("tag: $tag\tlevel: " . $level{categories}{$tag});
 }
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
@@ -308,7 +310,7 @@ is_deeply (\@tags, [
 
 foreach my $tag (@tags) {
 
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+	$log->debug("tag: $tag\tlevel: " . $level{ingredients}{$tag});
 }
 
 

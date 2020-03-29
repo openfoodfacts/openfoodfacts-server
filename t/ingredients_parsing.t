@@ -5,6 +5,8 @@ use warnings;
 
 use utf8;
 
+use Log::Any qw($log);
+
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
@@ -12,8 +14,6 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-
-#use Log::Any::Adapter 'TAP', filter => "none";
 
 is (normalize_a_of_b("en", "oil", "olive"), "olive oil");
 is (normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
@@ -211,10 +211,10 @@ foreach my $test_ref (@lists) {
 	my $l = $test_ref->[0]; # Language
 	my $ingredients = $test_ref->[1];
 	my $preparsed = preparse_ingredients_text($l, $ingredients);
-	print STDERR "Ingredients ($l): $ingredients\n";
-	print STDERR "Preparsed: $preparsed\n";
+	$log->debug("Ingredients ($l): $ingredients");
+	$log->debug("Preparsed: $preparsed");
 	my $expected = $test_ref->[2];
-	is (lc($preparsed), lc($expected)) or print STDERR "Original ingredients: $ingredients ($l)\n";
+	is (lc($preparsed), lc($expected)) or diag "Original ingredients: $ingredients ($l)";
 }
 
 

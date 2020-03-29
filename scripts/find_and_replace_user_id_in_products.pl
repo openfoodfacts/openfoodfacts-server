@@ -39,7 +39,6 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
 
 use Log::Any::Adapter 'TAP';
-#use Log::Any::Adapter 'TAP', filter => "none";
 
 my $user_id = $ARGV[0];
 my $new_user_id = $ARGV[1];

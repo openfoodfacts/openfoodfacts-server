@@ -3,6 +3,7 @@
 use Modern::Perl '2017';
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Tags qw/:all/;

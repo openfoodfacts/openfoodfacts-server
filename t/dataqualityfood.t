@@ -3,6 +3,7 @@
 use Modern::Perl '2017';
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -203,12 +204,9 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok( has_tag($product_ref, 'data_quality', 'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
 'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
 
-
-use Log::Any::Adapter 'TAP', filter => "none";
-
 check_quality_and_test_product_has_quality_tag({
 	categories_tags => ["en:cakes"],
-	nutriments => { 
+	nutriments => {
 		salt_100g => 10,
 		fat_100g => 99,
 	},

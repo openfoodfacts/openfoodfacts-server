@@ -86,4 +86,4 @@ jobs:
         perl -CS -I$BUILD_DIR/lib $BUILD_DIR/scripts/build_lang.pl
         node scripts/refresh_taxonomies.js
         # Run unit tests
-        prove -l
+        TAP_LOG_FILTER=error prove -l -j9
