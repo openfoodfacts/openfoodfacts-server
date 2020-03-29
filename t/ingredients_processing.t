@@ -73,7 +73,7 @@ my @tests = (
 ]
 	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, geraspte sjalot, gepelde goudsbloem, gehakte rooibos"}, 
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 [
   {
     'id' => 'en:shallot',
@@ -92,6 +92,11 @@ my @tests = (
     'id' => 'en:rooibos', 
     'processing' => 'en:chopped',
     'text' => 'rooibos'
+  },
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:ground',
+    'text' => 'sjalot'
   },
   {
     'id' => 'en:shallot',
@@ -118,21 +123,240 @@ my @tests = (
 
 	],
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, acerola-pulver"}, 
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
+		[
+	  		{
+	    		'id' => 'en:bourbon-vanilla-powder',
+	    		'text' => 'bourbon-vanillepulver'
+	  		}
+		]
+	],
+
+	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
+	[
+		{
+	   'id' => 'en:buttermilk',
+	   'processing' => 'en:chopped',
+	   'text' => 'Buttermilch'
+	  },
+	],
+	],
+	
+	[ { lc => "de", ingredients_text => "Sauerkrautpulver" }, 
+		[
+  			{
+    			'id' => 'en:sauerkraut',
+    			'processing' => 'en:powdered',
+    			'text' => 'Sauerkraut'
+  			}
+		]
+	],
+	
+	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+		[
+			{
+    			'id' => 'en:passion-fruit',
+    			'processing' => 'en:sliced',
+    			'text' => 'passionsfrucht'
+  			}
+		]
+	],
+	
+	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
+		[
+  			{
+    			'id' => 'en:acerola',
+    			'processing' => 'en:powdered',
+    			'text' => 'acerola'
+  			}
+		]
+	],
+
+	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
+		[
+	  		{
+	    		'id' => 'en:soured-milk',
+	    		'processing' => 'en:chopped',
+	    		'text' => 'Dickmilch'
+	  		}
+		]
+	],
+
+# Test for de:püree (and for process placing de:püree without space)
+	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
+		[
+	  		{
+	    		'id' => 'en:shallot',
+	    		'processing' => 'en:pureed',
+	    		'text' => 'Schalotte'
+	  		}
+		]
+	],
+# Test for process de:püree placing with space (not really necessary as it has been tested with the other)
+	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
+		[
+		  	{
+				'id' => 'en:shallot',
+				'processing' => 'en:pureed',
+				'text' => 'Schalotte'
+				}
+			]
+		],
+# Test for process de:entsteint
+			[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
+				[
+				  	{
+						'id' => 'en:shallot',
+						'processing' => 'en:pitted',
+						'text' => 'Schalotte'
+						}
+					]
+				],
+
+# Test for process de:eingelegt
+		[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
+			[
+			  	{
+					'id' => 'en:shallot',
+					'processing' => 'de:eingelegt',
+					'text' => 'Schalotte'
+					}
+				]
+			],
+
+# Test for de: ingredients, that should NOT be detected through processing
+		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+			[
+			  	{
+					'id' => 'en:garden-peas',
+					'text' => 'Markerbsen'
+				},
+			  	{
+					'id' => 'de:deutsche-markenbutter',
+					'text' => 'Deutsche Markenbutter'
+				}
+			]
+
+		],
+
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
+	gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 [
   {
-    'id' => 'en:bourbon-vanilla-powder',
-    'text' => 'bourbon-vanillepulver'
+    'id' => "de:hartk\x{e4}se",
+    'processing' => 'en:sliced',
+    'text' => "hartk\x{e4}se"
   },
   {
-    'id' => 'en:acerola',
-    'processing' => 'en:powdered',
-    'text' => 'acerola'
+    'id' => 'en:hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:roasted, en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:toasted-hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "ger\x{f6}stete haselnusskerne"
+  },
+  {
+    'id' => 'en:almond',
+    'processing' => 'en:sliced, en:chopped',
+    'text' => 'mandeln'
+  },
+	{
+		'id' => 'en:soured-milk',
+		'processing' => 'en:sliced',
+		'text' => 'Dickmilch'
+	}
+]
+	],
+
+# All variants of de:geschnitten
+[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
+	fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
+	[
+	  {
+	    'id' => 'en:shallot',
+	    'processing' => 'en:cut',
+	    'text' => 'Schalotte'
+	  },
+	  {
+	    'id' => 'en:onion',
+	    'processing' => 'de:mittelfein-geschnittenen',
+	    'text' => 'zwiebel'
+	  },
+	  {
+	    'id' => 'en:spinach',
+	    'processing' => 'de:feingeschnitten',
+	    'text' => 'spinat'
+	  },
+	  {
+	    'id' => 'en:gherkin',
+	    'processing' => 'de:feingeschnitten',
+	    'text' => 'gurken'
+	  },
+	  {
+	    'id' => 'en:almond',
+	    'processing' => 'de:feingeschnitten',
+	    'text' => 'Mandeln'
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => 'de:handgeschnitten',
+	    'text' => "haseln\x{fc}sse"
+	  }
+	]
+	],
+
+[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:pureed',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:pureed',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:pureed',
+    'text' => 'spinat'
+  },
+  {
+    'id' => 'en:gherkin',
+    'processing' => 'en:pulp',
+    'text' => 'gurken'
   }
 ]
-
-
 	],
+
+[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
+[
+  {
+    'id' => 'en:shallot',
+    'processing' => 'en:grated',
+    'text' => 'Schalotte'
+  },
+  {
+    'id' => 'en:onion',
+    'processing' => 'en:grated',
+    'text' => 'zwiebel'
+  },
+  {
+    'id' => 'en:spinach',
+    'processing' => 'en:grated',
+    'text' => 'spinat'
+  },
+]
+
+],
 
 );
 

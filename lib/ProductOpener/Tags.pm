@@ -782,7 +782,6 @@ sub build_tags_taxonomy($$$) {
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype \n";
 
-
 		# 1st phase: read translations and synonyms
 
 		my $line_number = 0;
@@ -917,22 +916,22 @@ sub build_tags_taxonomy($$$) {
 
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
-					print STDERR "new canon_tagid: $canon_tagid\n";
-					if ($synonyms eq 'synonyms:') {
+					# print STDERR "new canon_tagid: $canon_tagid\n";
+					if ((defined $synonyms) and ($synonyms eq 'synonyms:')) {
 						$just_synonyms{$tagtype}{$canon_tagid} = 1;
 					}
 				}
 
 				if (not defined $translations_from{$tagtype}{"$lc:$current_tagid"}) {
 					$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
-					print STDERR "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
+					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
 				}
 
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
 
 				if (not defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
 					$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
-					print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+					# print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
 				}
 
 
@@ -961,7 +960,7 @@ sub build_tags_taxonomy($$$) {
 
 					push @{$synonyms_for{$tagtype}{$lc}{$current_tagid}}, $tag;
 					$synonyms{$tagtype}{$lc}{$tagid} = $current_tagid;
-					print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $current_tagid \n";
+					# print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $current_tagid \n";
 				}
 
 			}
@@ -993,12 +992,12 @@ sub build_tags_taxonomy($$$) {
 
 		#print "synonyms: initializing synonyms_for_extended - tagtype: $tagtype - lc keys: " . scalar(keys %{$synonyms_for{$tagtype}{$lc}}) . "\n";
 
-		my %synonym_contains_synonyms = {};
+		my %synonym_contains_synonyms = ();
 
 		foreach my $lc (sort keys %{$synonyms_for{$tagtype}}) {
 			$synonym_contains_synonyms{$lc} = {};
 			foreach my $current_tagid (sort keys %{$synonyms_for{$tagtype}{$lc}}) {
-				print STDERR "synonyms_for{$tagtype}{$lc} - $current_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$current_tagid}}) . "\n";
+				# print STDERR "synonyms_for{$tagtype}{$lc} - $current_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$current_tagid}}) . "\n";
 
 				(defined $synonyms_for_extended{$tagtype}{$lc}) or $synonyms_for_extended{$tagtype}{$lc} = {};
 
@@ -1006,7 +1005,7 @@ sub build_tags_taxonomy($$$) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
 					(defined $synonyms_for_extended{$tagtype}{$lc}{$current_tagid}) or $synonyms_for_extended{$tagtype}{$lc}{$current_tagid} = {};
 					$synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1;
-					print STDERR "synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1 \n";
+					# print STDERR "synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1 \n";
 				}
 			}
 		}
@@ -1120,7 +1119,7 @@ sub build_tags_taxonomy($$$) {
 									$synonym_contains_synonyms{$lc}{$tagid_new} = {};
 								}
 								$synonym_contains_synonyms{$lc}{$tagid_new}{$tagid2_c} = 1;
-								print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
+								# print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 							}
 						}
 					}
@@ -1148,7 +1147,7 @@ sub build_tags_taxonomy($$$) {
 
 				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
 				}
 
 			}
@@ -1209,7 +1208,7 @@ sub build_tags_taxonomy($$$) {
 			if ($line =~ /^(\s*)$/) {
 				$canon_tagid = undef;
 				%parents = ();
-				print STDERR "taxonomy: next tag\n";
+				#print STDERR "taxonomy: next tag\n";
 				next;
 			}
 

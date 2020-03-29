@@ -276,6 +276,9 @@ fr:pur jus de pommes à cidre bio
 fr:yaourt maigre en poudre
 de:Magermilch-Joghurtpulver
 
+< de:Deutsche Markenbutter
+de:Deutsche Markenbutter mildgesäuert
+
 de:Fruchtzubereitung
 
 < de:Hähnchenfilet
@@ -289,6 +292,8 @@ de:Magermilchjoghurtpulver
 fi:jogurttijauhe rasvattomasta maidosta
 
 de:kakaohaltiges Getränkepulver
+
+de:Markklößchen
 
 de:Nitritpökelsalz
 
@@ -641,6 +646,10 @@ fr:concentré d'algues
 nl:algenconcentraat
 
 < en:Algae
+en:algae extract
+fr:extrait d'algues
+
+< en:Algae
 en:chlorella
 ar:كلوريلا
 be:Хларэла
@@ -755,6 +764,11 @@ zh:海藻
 wikidata:en: Q237169
 wikipedia:en: https://en.wikipedia.org/wiki/Seaweed
 
+< en:Algae extract
+< en:Seaweed
+en:seaweed extract
+fr:extrait d'algues marines
+
 < en:Almond
 < en:Hazelnut
 fr:praliné aux amandes et aux noisettes
@@ -816,7 +830,6 @@ pt:amêndoas laminadas
 
 < en:Almond
 en:ground almonds
-de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen
 es:almendras molidas
 fi:Jauhettua mantelia, jauhettuja manteleita
 fr:amandes hachées, amandes moulues
@@ -1321,7 +1334,7 @@ nl:kalfsstremsel
 en:beef fat
 de:Rinderfett
 fi:naudanrasva
-fr:gras de bœuf, graisse de bœuf
+fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
 it:grasso di manzo
 nl:rundvet
@@ -1655,7 +1668,7 @@ fr:pommes golden
 fr:pulpe de pomme
 de:Apfelmark
 it:polpa di mele
-nl:appelmoes
+nl:appelmoes, appelpuree
 
 < en:Apple
 nl:appels van biologisch-dynamische teelt
@@ -1730,7 +1743,6 @@ fr:demi-abricots
 < en:Apricot
 < en:Purée
 en:apricot purée
-de:Aprikosenpüree
 es:Puré de albaricoques
 fi:aprikoosipyree
 fr:purée d'abricots, purée d'abricot, pulpe d'abricot
@@ -2050,7 +2062,6 @@ nl:gedroogde banaan
 < en:Banana
 < en:Purée
 en:banana puree
-de:Bananenpüree, Bananenmark
 es:Puré de plátano
 fi:banaanipyree
 fr:purée de banane, purée de bananes
@@ -2240,6 +2251,12 @@ nl:Rundvlees
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
+
+< en:Beef fat
+de:Rinderknochenmarkfett
+
+< en:Beef meat
+de:rindergehacktes
 
 < en:Beef meat
 en:beef heart
@@ -2918,7 +2935,6 @@ nl:zwarte bessensap
 < en:Blackcurrant
 < en:Purée
 en:blackcurrant puree
-de:schwarzes Johannisbeerenpüree
 es:puré de cassis
 fi:mustaherukkapyree
 fr:purée de cassis
@@ -3371,6 +3387,18 @@ fr:Pain de mie aux céréales
 < en:Breadmeal
 fr:pain de mie complet
 
+en:breast
+fr:poitrine
+
+< en:Breast
+< en:Pork meat
+en:pork breast
+fr:poitrine de porc
+
+< en:Breast
+en:smoked breast
+fr:poitrine fumée
+
 en:brine
 af:Pekel
 an:Salmuerra
@@ -3745,6 +3773,9 @@ description:sv: Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att v�
 < en:Burbot
 en:lota lota
 la:lota lota
+
+< en:Butter
+de:Deutsche Markenbutter
 
 < en:Butter
 en:churned butter
@@ -4560,6 +4591,9 @@ nl:gekaramelliseerde suiker, gekarameliseerde suikerstroop
 pl:cukier skarmelizowanny
 sv:karamellisoitu sokeri
 
+< en:Caramelised sugar
+es:azucar caramelizado en polvo
+
 < en:Caraway
 fr:graines de carvi
 
@@ -4750,7 +4784,6 @@ nl:wortelextract
 
 < en:Carrot
 en:carrot purée
-de:Karottenpüree
 es:Puré de zanahoria
 fi:porkkanapyree, porkkanasose
 fr:purée de carotte
@@ -4925,7 +4958,6 @@ fr:jus de céleri
 
 < en:Celery
 en:celery puree
-de:Selleriepüree
 fi:selleripyree, sellerisose
 fr:purée de céleri
 
@@ -6967,6 +6999,9 @@ wikidata:en: Q2164539
 wikipedia:en: https://en.wikipedia.org/wiki/Tomme
 
 < en:Cheese
+es:queso fundido en polvo
+
+< en:Cheese
 fr:base aromatisante fromage
 nl:kaassmaak
 
@@ -7073,7 +7108,6 @@ fr:queues de cerise
 < en:Cherry
 < en:Purée
 en:cherry purée
-de:Kirschpüree
 fi:kirsikkapyree, kirsikkasose
 fr:Purée de cerises
 it:purea di ciliegie
@@ -7092,7 +7126,7 @@ nl:kastanjepuree
 
 < en:Chestnut
 fr:marron, marrons
-de:Maronen
+de:Maronen, Marroni
 it:marroni
 wikidata:en: Q3177204
 
@@ -8936,6 +8970,9 @@ it:aroma naturale di cocco
 nl:natuurlijk kokosnoot-aroma
 
 < en:Coconut milk
+es:leche de coco en polvo
+
+< en:Coconut milk
 fr:lait de noix de coco en poudre, lait de coco en poudre
 de:Kokosnussmilchpulver, Kokosmilchpulver
 fi:kookosmaitojauhe
@@ -10129,9 +10166,6 @@ th:กุ้งแดง
 zh:克氏原螯虾
 wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
-
-< en:Cream
-de:Schlagsahne
 
 < en:Cream
 en:cream from Normandy
@@ -11609,6 +11643,9 @@ carbon_footprint_fr_foodges_value:fr: 2.9
 vegan:en: no
 vegetarian:en: yes
 
+< en:Dairy
+es:derivado lacteo en polvo
+
 < en:Dark chocolate
 en:dark chocolate chunks, dark chocolate chips
 de:Bitterschokoladenstückchen
@@ -11646,6 +11683,7 @@ fi:luomutaateli, luomu taateli
 it:datteri bio
 
 < en:Date
+nl:dadelpuree
 fr:jus de dattes concentré
 
 < en:Deep-sea shrimp
@@ -35056,6 +35094,10 @@ wikidata:en: Q201552
 wikipedia:en: https://en.wikipedia.org/wiki/Inulin
 
 < en:Fiber
+en:soy fiber
+fr:
+
+< en:Fiber
 en:vegetable fiber, vegetable fibers, plant fiber
 ca:fibra vegetal
 cs:rostlinná textilní vlákna
@@ -39797,6 +39839,9 @@ de:Galactooligosaccharide aus Lactose
 fr:Galacto-oligosaccharides - issus du lactose
 it:Galatto-oligosaccaridi di lattosio
 
+< en:Galangal
+nl:gemalen galangawortel, laos
+
 en:game animal
 de:Wildtier
 fi:riistaeläin, riista
@@ -39809,6 +39854,9 @@ de:Hirsch
 fi:hirvieläin
 fr:biche
 hu:szarvas
+
+< en:Garden peas
+de:Junge Markerbsen
 
 < en:Garden peas
 fr:petits pois doux
@@ -39856,7 +39904,6 @@ tr:sanmsak tozu
 
 < en:Garlic
 en:garlic puree
-de:Knoblauchpüree
 es:puré de ajo
 fi:valkosipulipyree, valkosipulisose
 fr:purée d'ail
@@ -39976,7 +40023,7 @@ fr:Pâte de gingembre
 < en:Ginger
 en:ginger powder, ground ginger
 de:gemahlener Ingwer, Ingwerpulver
-es:Gengibre en polvo, polvo de gengibre
+es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
@@ -39984,7 +40031,6 @@ nl:gemberpoeder, gemalen gember, gemalen gemberwortel, djahé
 
 < en:Ginger
 en:ginger purée
-de:Ingwerpüree
 es:Puré de gengibre
 fi:inkivääripyree, inkiväärisose
 fr:purée de gingembre
@@ -40786,7 +40832,6 @@ pt:extrato de ché verde em po
 
 < en:Green tomato
 fr:Purée de tomates vertes
-de:Püree aus grünen Tomaten
 fi:vihreä tomaattipyree
 
 < en:Grey shrimp
@@ -40986,7 +41031,6 @@ fr:jambon de porc issu d'animaux nourris sans ogm
 
 < en:Hazelnut
 en:chopped hazelnuts
-de:gehackte Haselnüsse
 fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
 fr:noisettes hachées
 it:nocciole tritate
@@ -43573,7 +43617,6 @@ nl:kiwisap
 < en:Kiwi
 < en:Purée
 fr:purée de kiwi
-de:Kiwipüree
 fi:kiivipyree
 
 < en:Kiwi juice
@@ -45792,7 +45835,6 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 < en:Mango
 < en:Purée
 en:mango puree
-de:Mangopüree, Mangomark
 es:Puré de mango
 fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
@@ -46318,7 +46360,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
 ca:Ferments làctics
 da:yoghurtkultur
-de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät
@@ -46530,15 +46572,6 @@ nl:rauwe melk
 wikipedia:en: https://en.wikipedia.org/wiki/Raw_milk
 
 < en:Milk
-en:reconstituted skimmed milk
-de:rekonstituierte Magermilch
-es:leche desnatada reconstituida
-fr:lait écrémé réhydraté
-hu:visszaállított sovány tej, feloldott sovány tej
-it:latte scremato reidratato
-nl:gerehydrateerde magere melk
-
-< en:Milk
 en:semi-skimmed milk, reduced-fat milk
 de:fettarme Milch, teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada
@@ -46686,7 +46719,7 @@ ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
-es:leche desnatada en polvo
+es:leche desnatada en polvo, leche en polvo desnatada
 et:lössipulber
 fi:rasvaton maitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
@@ -49381,6 +49414,10 @@ fr:Cèpe bronzé
 la:Boletus aereus, aereus
 
 < en:Mushroom
+en:forest mushroom
+fr:champignon forestier, champignons forestiers, champignon des bois, champignopns des bois
+
+< en:Mushroom
 en:golden chanterelle
 ar:فطر الشانتريل
 be:лісічка сапраўдная
@@ -51794,6 +51831,10 @@ it:sciroppo di oligofruttosio
 fr:fibres végétales d'oligofructose
 
 < en:Olive oil
+en:black olives oil, black olive oil
+fr:huile d'olivs noires
+
+< en:Olive oil
 en:organic olive oil
 de:Bio-Olivenöl
 fi:luomu oliiviöljy
@@ -52628,6 +52669,10 @@ wikidata:en: Q7128109
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_stearin
 
 < en:Palm oil
+en:refined palm oil
+fr:huile de palme raffinée
+
+< en:Palm oil
 fr:huile de palme partiellement hydrogénée
 de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
@@ -53117,7 +53162,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
 
 < en:Pea
 en:garden peas
-de:Gartenerbsen
+de:Markerbsen, Gartenerbsen, Markerbsenschoten
 es:Guisantes de jardín
 fi:tarhaherne, tarhaherneet
 fr:petits pois, petit pois, pois doux
@@ -53527,6 +53572,9 @@ fi:pistaasitahna
 
 < en:Pistachio nuts
 fr:pistaches en coques
+
+en:pizza dough
+fr:pâte à pizza
 
 en:plant
 ca:Planta
@@ -54980,11 +55028,15 @@ sv:skinka
 zh:火腿
 
 < en:Pork meat
+en:pork belly, pork bellies
+fr:ventre de porc
+
+< en:Pork meat
 en:pork liver
 de:Schweineleber
 es:Higado de cerdo
 fi:sianmaksa
-fr:poitrine de porc
+fr:foie de porc
 hu:sertésmáj
 nl:varkenslever
 ro:piept de porc, piet porc
@@ -55910,6 +55962,9 @@ nl:plantaardige eiwit
 vegan:en: yes
 vegetarian:en: yes
 
+en:proteins mix
+fr:mélange de protéines
+
 < en:Prune
 en:prune juice
 
@@ -56010,7 +56065,6 @@ bn:পিউরি
 ca:puré
 cs:pyré
 da:puré
-de:Püree
 el:πουρές
 eo:pureo
 es:puré
@@ -56051,13 +56105,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Purée
 < en:Apple
 < en:Purée
 en:apple purée
-de:Apfelpüree
 es:Puré de manzana
 fi:omenapyree
 fr:purée de pomme
 hu:almapüré
 it:purea di mele
-nl:appelmoes
+nl:appelmoes, appelpuree
 
 < en:Blueberry
 < en:Purée
@@ -56069,7 +56122,6 @@ nl:bosbessenpuree, bosbessenmoes
 
 < en:Purée
 en:concentrated purée
-de:Püreekonzentrat
 es:Puré concentrado
 fi:pyreetiiviste
 fr:purée concentrée
@@ -56085,7 +56137,6 @@ it:popa di frutti
 < en:Pear
 < en:Purée
 en:pear puree
-de:Birnenpüree
 es:puré de para
 fi:päärynäpyree
 fr:purée de poires, purée de poire
@@ -56095,7 +56146,6 @@ nl:perenpuree
 < en:Pineapple
 < en:Purée
 fr:purée d'ananas
-de:Ananaspüree
 fi:ananaspyree
 
 < en:Quark
@@ -56399,7 +56449,6 @@ nl:Frambozensap
 < en:Purée
 < en:Raspberry
 en:raspberry puree
-de:Himbeermark, Himbeerpüree
 es:puré de frambuesa
 fi:vadelmapyree
 fr:purée de framboises, purée de framboise
@@ -61605,6 +61654,15 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 la:Solenocera spp
 wikidata:en: Q10673156
 
+< en:Skimmed milk
+en:reconstituted skimmed milk
+de:rekonstituierte Magermilch
+es:leche desnatada reconstituida
+fr:lait écrémé réhydraté
+hu:visszaállított sovány tej, feloldott sovány tej
+it:latte scremato reidratato
+nl:gerehydrateerde magere melk
+
 < en:Pasteurised milk
 < en:Skimmed milk
 en:pasteurized skimmed milk
@@ -61619,6 +61677,9 @@ pt:leite pasteurizado desnatado, leite desnatado pasteurizado
 < en:Skimmed milk powder
 en:caramelised skimmed milk powder
 fi:karamellisoitu rasvaton maitojauhe
+
+< en:Skimmed milk powder
+es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 < en:Skimmed milk powder
 nl:magere melkpoeder van biologische oorsprong, bio magere melkpoeder
@@ -62151,7 +62212,7 @@ fr:sauce au soja et au sésame, sauce au sésame et au soja
 < en:Soy sauce
 en:soy sauce powder
 de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo
+es:Salsa de soya en polvo, salsa de soja en polvo
 fi:soijakastikejauhe
 fr:sauce soja en poudre, sauce de soja en poudre
 nl:sojasauspoeder, soja saus poeder
@@ -62312,6 +62373,7 @@ fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiq
 de:geschälte Sojabohnen
 es:habas de soja descascarilladas
 it:semi di soia decorticati
+nl:gepelde sojabonen
 
 < en:Soya lecithin
 en:GMO-free soy lecithin
@@ -63931,7 +63993,6 @@ fi:mansikoista valmistettu mehu ja viinirypäleet
 < en:Purée
 < en:Strawberry
 en:strawberry puree
-de:Erdbeerpüree
 es:puré de fresa
 fi:mansikkapyree, mansikkasose
 fr:purée de fraise, purée de fraises
@@ -64155,13 +64216,14 @@ ro:zahăr caramelizat
 sv:karamelliserat socker
 
 < en:Sugar
-en:granulated sugar
-de:Zucker mittelgross
-es:Azúcar cristalizado
-fi:kidesokeri
-fr:Sucre cristal
-hu:kristálycukor
-nl:Kristalsuiker
+en:granulated sugar, powdered sugar
+de:Puderzucker, Zucker mittelgross
+es:Azucar en polvo, Azúcar cristalizado
+fi:jauhettu sokeri, kidesokeri
+fr:sucre en poudre, sucre en grains, Sucre cristal
+hu:porcukor, kristálycukor
+it:zucchero semolato
+nl:poedersuiker, Kristalsuiker
 
 < en:Sugar
 en:grape sugar, raisin sugar
@@ -64173,13 +64235,10 @@ it:zucchero d'uva
 
 < en:Sugar
 en:icing sugar
-de:Puderzucker
-es:Azucar en polvo
 fi:tomusokeri
 fr:sucre glace
-hu:porcukor
 it:zucchero a velo
-nl:poedersuiker
+nl:glazuursuiker
 
 < en:Sugar
 en:invert sugar, inverted sugar
@@ -64488,9 +64547,6 @@ fr:sucre du lait
 fr:Sucre en morceaux
 
 < en:Sugar
-fr:sucre en poudre
-
-< en:Sugar
 fr:sucre perlé
 
 < en:Sugar
@@ -64704,7 +64760,7 @@ it:oleo di girasole raffinato
 fr:huile de tournesol oléique désodorisée
 
 < en:Sunflower oil
-fr:huile de tournesol vierge
+fr:huile de tournesol vierge, huile de tournesol vierge première pression à froid
 
 < en:Sunflower oil
 fr:oléisol®
@@ -64981,11 +65037,11 @@ wikidata:en: Q28178875
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarind
 
 < en:Tamarind
-fr:extrait de tamarin
+nl:tamarindepuree, tamarinde-extract
 de:Tamarindenextrakt
 es:Extracto de tamarinado
 fi:tamarindiuute
-nl:tamarinde-extract
+fr:extrait de tamarin
 
 < en:Modified starch
 < en:Tapioca starch
@@ -65636,7 +65692,7 @@ fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
 hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
-nl:tomatenpurée, tomatenconcentraat
+nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:koncentrat pomidorowy
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
@@ -68371,7 +68427,7 @@ el:λίπος shea
 eo:karitea butero
 es:manteca de karité
 fi:karitevoi, sheavoi, shea
-fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité
+fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
 hr:shea maslac
 hu:sheavaj
@@ -69502,6 +69558,10 @@ it:aceto da tavola
 nl:tafelazijn
 
 < en:Vinegar
+en:vinegar powder
+es:vinagre en polvo
+
+< en:Vinegar
 en:white distilled vinegar
 
 < en:Vinegar
@@ -69538,7 +69598,7 @@ da:ekstra jomfruolivenolie
 de:natives Olivenöl Extra, Olivenöl nativ extra
 es:aceite de oliva virgen extra
 fi:ekstra-neitsytoliiviöljy
-fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
+fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
@@ -73260,7 +73320,6 @@ fr:Marrons UE
 
 < fr:Marron
 fr:purée de marrons
-de:Marronipüree
 
 < fr:Marrons entiers
 fr:Marrons entiers bio
@@ -73423,7 +73482,7 @@ fr:purée de pruneaux
 < fr:Purée de fruits
 fr:purées de fruits à base de concentrés
 
-de:Mangopulpe
+de:Mangopulpe, Mangomark
 it:polpa di mango
 
 < fr:Purée de tomate mi-réduite
