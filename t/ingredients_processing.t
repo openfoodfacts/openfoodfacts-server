@@ -208,6 +208,17 @@ my @tests = (
 					]
 				],
 
+# Test for process de:eingelegt
+		[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
+			[
+			  	{
+					'id' => 'en:shallot',
+					'processing' => 'de:eingelegt',
+					'text' => 'Schalotte'
+					}
+				]
+			],
+
 # Test for de: ingredients, that should NOT be detected through processing
 		[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
 			[
