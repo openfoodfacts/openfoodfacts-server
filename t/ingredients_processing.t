@@ -195,8 +195,97 @@ my @tests = (
 				'id' => 'en:shallot',
 				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
-			}
-		]
+				}
+			]
+		],
+
+# Process de:konzentriert (and children) and synonyms
+		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
+		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
+		200fach konzentriertes, eingekochter" }, 
+			[
+  				{
+    				'id' => 'en:shallot',
+    				'processing' => 'en:concentrated',
+    				'text' => 'shallot'
+  				},
+  				{
+    				'id' => 'en:hazelnut',
+    				'processing' => 'en:concentrated',
+    				'text' => "haseln\x{fc}sse"
+  				},
+  				{
+    				'id' => 'en:almond',
+    				'processing' => 'en:concentrated',
+    				'text' => 'mandeln'
+  				},
+  				{
+    				'id' => 'en:acerola',
+    				'processing' => 'en:concentrated',
+    				'text' => 'acerola'
+				},
+				{
+				    'id' => 'de:zweifach konzentriert',
+				    'text' => 'zweifach konzentriert'
+				 },
+				 {
+				    'id' => 'de:2 fach konzentriert',
+				    'text' => '2 fach konzentriert'
+				 },
+				 {
+				    'id' => 'de:doppelt konzentriertes',
+				    'text' => 'doppelt konzentriertes'
+				  },
+				  {
+					'id' => 'de:zweifach konzentriertes',
+					'text' => 'zweifach konzentriertes'
+				 },
+				 {
+				    'id' => 'de:2-fach konzentriert',
+				    'text' => '2-fach konzentriert'
+				 },
+				 {
+				    'id' => 'de:dreifach konzentriert',
+				    'text' => 'dreifach konzentriert'
+				 },
+				 {
+				    'id' => 'de:200fach konzentriertes',
+				    'text' => '200fach konzentriertes'
+				 },
+				 {
+				    'id' => 'de:eingekochter',
+				    'text' => 'eingekochter'
+				 }
+			]	
+		],
+		[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+[
+  {
+    'id' => "de:hartk\x{e4}se",
+    'processing' => 'en:sliced',
+    'text' => "hartk\x{e4}se"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:hazelnut',
+    'processing' => 'en:roasted, en:chopped',
+    'text' => "haseln\x{fc}sse"
+  },
+  {
+    'id' => 'en:toasted-hazelnut',
+    'processing' => 'en:chopped',
+    'text' => "ger\x{f6}stete haselnusskerne"
+  },
+  {
+    'id' => 'en:almond',
+    'processing' => 'en:sliced, en:chopped',
+    'text' => 'mandeln'
+  }
+]
 	],
 	
 
