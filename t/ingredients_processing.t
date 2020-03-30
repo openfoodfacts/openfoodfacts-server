@@ -17,38 +17,35 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @tests = (
 	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder"}, 
-[
-  {
-    'id' => 'en:raw-milk',
-    'text' => 'raw milk'
-  },
-  {
-    'id' => 'en:tomato',
-    'processing' => 'en:sliced',
-    'text' => 'tomatoes'
-  },
-  {
-    'id' => 'en:garlic-powder',
-    'text' => 'garlic powder'
-  },
-  {
-    'id' => 'en:aubergine',
-    'processing' => 'en:powdered',
-    'text' => 'eggplant'
-  },
-  {
-    'id' => 'en:courgette',
-    'processing' => 'en:powdered',
-    'text' => 'courgette'
-  }
-
-]
-
+		[
+			{
+				'id' => 'en:raw-milk',
+				'text' => 'raw milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:sliced',
+				'text' => 'tomatoes'
+			},
+			{
+				'id' => 'en:garlic-powder',
+				'text' => 'garlic powder'
+			},
+			{
+				'id' => 'en:aubergine',
+				'processing' => 'en:powdered',
+				'text' => 'eggplant'
+			},
+			{
+				'id' => 'en:courgette',
+				'processing' => 'en:powdered',
+				'text' => 'courgette'
+			}
+		]
 	],
 
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, tomates bio pré-cuites, poudre de noisettes"}, 
-
-[
+		[
   {
     'id' => 'en:ham',
     'processing' => 'en:diced, en:fried',
@@ -74,48 +71,46 @@ my @tests = (
 	],
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
-[
-  {
-    'id' => 'en:shallot',
-    'text' => 'sjalot',
-    'processing' => 'en:powdered'
-  },
-  {
-    'id' => 'en:whey-powder',
-    'text' => 'wei-poeder'
-  },
-  {
-    'id' => 'en:vanilla-powder',
-    'text' => 'vanillepoeder'
-  },
-  {
-    'id' => 'en:shallot',
-    'processing' => 'en:ground',
-    'text' => 'sjalot'
-  },
-  {
-    'id' => 'en:shallot',
-    'text' => 'sjalot',
-    'processing' => 'en:grated'
-  },
-  {
-    'id' => 'en:marigold',
-    'processing' => 'en:peeled',
-    'text' => 'goudsbloem' 
-  }
-]
-
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:powdered',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:whey-powder',
+				'text' => 'wei-poeder'
+			},
+			{
+				'id' => 'en:vanilla-powder',
+				'text' => 'vanillepoeder'
+			},
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:ground',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:grated',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:marigold',
+				'processing' => 'en:peeled',
+				'text' => 'goudsbloem'
+			}
+		]
 	],
 
 	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-[
-  {
-    'id' => 'en:banana',
-    'processing' => 'en:cooked, en:cut',
-    'text' => 'banane'
-  }
-]
-
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:cooked, en:cut',
+				'text' => 'banane'
+			}
+		]
 	],
 ##################################################################
 #
@@ -204,6 +199,7 @@ my @tests = (
 		]
 	],
 	
+
 # Test for process/adjective de:gesalzen, de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
 	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
@@ -241,6 +237,7 @@ my @tests = (
 		]
 	],
 	
+
 # Test for process de:entsteint
 	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
 		[
@@ -379,29 +376,29 @@ my @tests = (
 		]
 	],
 
-[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
-[
-  {
+	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+		[
+			{
     'id' => 'en:shallot',
     'processing' => 'en:pureed',
     'text' => 'Schalotte'
   },
-  {
+			{
     'id' => 'en:onion',
     'processing' => 'en:pureed',
     'text' => 'zwiebel'
   },
-  {
+			{
     'id' => 'en:spinach',
     'processing' => 'en:pureed',
     'text' => 'spinat'
   },
-  {
+			{
     'id' => 'en:gherkin',
     'processing' => 'en:pulp',
     'text' => 'gurken'
   }
-]
+		]
 	],
 
 # de:gerieben and synonyms tests
@@ -421,6 +418,38 @@ my @tests = (
 				'id' => 'en:spinach',
 				'processing' => 'en:grated',
 				'text' => 'spinat'
+			}
+		]
+	],
+	
+# de würfel and synonyms tests
+	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
+zwiebel in würfel geschnitten, mandeln in würfel" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:diced',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:diced',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'en:diced',
+				'text' => 'gurken'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:diced',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:diced',
+				'text' => 'mandeln'
 			}
 		]
 	]
