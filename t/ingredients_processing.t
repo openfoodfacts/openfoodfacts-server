@@ -137,7 +137,7 @@ my @tests = (
 	],
 ##################################################################
 #
-#                  G E R M A N ( D E )
+#                           G E R M A N ( D E )
 #
 ##################################################################
 
@@ -281,34 +281,73 @@ my @tests = (
 				 }
 			]	
 		],
-		[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
-[
-  {
-    'id' => "de:hartk\x{e4}se",
-    'processing' => 'en:sliced',
-    'text' => "hartk\x{e4}se"
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:chopped',
-    'text' => "haseln\x{fc}sse"
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:roasted, en:chopped',
-    'text' => "haseln\x{fc}sse"
-  },
-  {
-    'id' => 'en:toasted-hazelnut',
-    'processing' => 'en:chopped',
-    'text' => "ger\x{f6}stete haselnusskerne"
-  },
-  {
-    'id' => 'en:almond',
-    'processing' => 'en:sliced, en:chopped',
-    'text' => 'mandeln'
-  }
-]
+
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
+		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+		[
+			{
+				'id' => "de:hartk\x{e4}se",
+				'processing' => 'en:sliced',
+				'text' => "hartk\x{e4}se"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:chopped',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:roasted, en:chopped',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:toasted-hazelnut',
+				'processing' => 'en:chopped',
+				'text' => "ger\x{f6}stete haselnusskerne"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:sliced, en:chopped',
+				'text' => 'mandeln'
+			}
+		]
+	],
+
+# Test for de:gemahlen and synonyms
+	[ { lc => "de", ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel, 
+			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen gurken" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:ground',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:ground',
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:ground',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:fein-gemahlen',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'de:grob-gemahlen',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:frischgemahlen',
+				'text' => 'gurken'
+			}
+		]
 	],
 
 # Test for de:passiert
@@ -321,7 +360,6 @@ my @tests = (
 			}
 		]
 	],
-	
 
 # Test for process/adjective de:gesalzen, de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
