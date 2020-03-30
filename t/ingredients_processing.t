@@ -323,6 +323,31 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
 zwiebel in würfel geschnitten, mandeln in würfel" },
 		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:diced',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:diced',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'en:diced',
+				'text' => 'gurken'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:diced',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:diced',
+				'text' => 'mandeln'
+			}
 		]
 	]
 
