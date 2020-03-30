@@ -112,6 +112,11 @@ my @tests = (
 			}
 		]
 	],
+##################################################################
+#
+#                  G E R M A N ( D E )
+#
+##################################################################
 
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
 		[
@@ -124,17 +129,17 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
 		[
-		{
-	   'id' => 'en:buttermilk',
-	   'processing' => 'en:chopped',
-	   'text' => 'Buttermilch'
-	  },
-	],
+			{
+				'id' => 'en:buttermilk',
+				'processing' => 'en:chopped',
+				'text' => 'Buttermilch'
+			},
+		]
 	],
 	
 	[ { lc => "de", ingredients_text => "Sauerkrautpulver" }, 
 		[
-  			{
+			{
     			'id' => 'en:sauerkraut',
     			'processing' => 'en:powdered',
     			'text' => 'Sauerkraut'
@@ -154,32 +159,32 @@ my @tests = (
 	
 	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
 		[
-  			{
+			{
     			'id' => 'en:acerola',
     			'processing' => 'en:powdered',
     			'text' => 'acerola'
-  			}
+			}
 		]
 	],
 
 	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
 		[
-	  		{
+			{
 	    		'id' => 'en:soured-milk',
 	    		'processing' => 'en:chopped',
 	    		'text' => 'Dickmilch'
-	  		}
+			}
 		]
 	],
 
 # Test for de:püree (and for process placing de:püree without space)
 	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
 		[
-	  		{
+			{
 	    		'id' => 'en:shallot',
 	    		'processing' => 'en:pureed',
 	    		'text' => 'Schalotte'
-	  		}
+			}
 		]
 	],
 	
@@ -194,6 +199,45 @@ my @tests = (
 		]
 	],
 	
+
+# Test for process/adjective de:gesalzen, de:ungesalzen
+	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
+	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+		[
+			{
+				'id' => "de:hartk\x{e4}se",
+				'processing' => 'de:gesalzen',
+				'text' => "hartk\x{e4}se"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gesalzen',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gesalzen',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gesalzen',
+				'text' => 'haselnusskerne'
+			},
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:ungesalzen',
+				'text' => 'schalotte'
+ 			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'de:ungesalzen',
+				'text' => 'mandeln'
+			}
+		]
+	],
+	
+
 # Test for process de:entsteint
 	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
 		[
@@ -215,6 +259,7 @@ my @tests = (
 			}
 		]
 	],
+	
 
 # Test for de: ingredients, that should NOT be detected through processing
 	[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
@@ -230,40 +275,41 @@ my @tests = (
 		]
 	],
 
+	# Various tests
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
 	gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
-  {
-    'id' => "de:hartk\x{e4}se",
-    'processing' => 'en:sliced',
-    'text' => "hartk\x{e4}se"
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:chopped',
-    'text' => "haseln\x{fc}sse"
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:roasted, en:chopped',
-    'text' => "haseln\x{fc}sse"
-  },
-  {
-    'id' => 'en:toasted-hazelnut',
-    'processing' => 'en:chopped',
-    'text' => "ger\x{f6}stete haselnusskerne"
-  },
-  {
-    'id' => 'en:almond',
-    'processing' => 'en:sliced, en:chopped',
-    'text' => 'mandeln'
-  },
-	{
-		'id' => 'en:soured-milk',
-		'processing' => 'en:sliced',
-		'text' => 'Dickmilch'
-	}
-]
+			{
+				'id' => "de:hartk\x{e4}se",
+				'processing' => 'en:sliced',
+				'text' => "hartk\x{e4}se"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:chopped',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:roasted, en:chopped',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:toasted-hazelnut',
+				'processing' => 'en:chopped',
+				'text' => "ger\x{f6}stete haselnusskerne"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:sliced, en:chopped',
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:soured-milk',
+				'processing' => 'en:sliced',
+				'text' => 'Dickmilch'
+			}
+		]
 	],
 	
 	# All variants of de:mariniert
@@ -295,33 +341,33 @@ my @tests = (
 
 # All variants of de:geschnitten
 	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
-	fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
+		fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
 		[
 			{
-	    'id' => 'en:shallot',
-	    'processing' => 'en:cut',
-	    'text' => 'Schalotte'
-	  },
+				'id' => 'en:shallot',
+				'processing' => 'en:cut',
+				'text' => 'Schalotte'
+			},
 			{
-	    'id' => 'en:onion',
-	    'processing' => 'de:mittelfein-geschnittenen',
-	    'text' => 'zwiebel'
-	  },
+				'id' => 'en:onion',
+				'processing' => 'de:mittelfein-geschnittenen',
+				'text' => 'zwiebel'
+			},
 			{
-	    'id' => 'en:spinach',
-	    'processing' => 'de:feingeschnitten',
-	    'text' => 'spinat'
-	  },
+				'id' => 'en:spinach',
+				'processing' => 'de:feingeschnitten',
+				'text' => 'spinat'
+			},
 			{
-	    'id' => 'en:gherkin',
-	    'processing' => 'de:feingeschnitten',
-	    'text' => 'gurken'
-	  },
+				'id' => 'en:gherkin',
+				'processing' => 'de:feingeschnitten',
+				'text' => 'gurken'
+			},
 			{
-	    'id' => 'en:almond',
-	    'processing' => 'de:feingeschnitten',
-	    'text' => 'Mandeln'
-	  },
+				'id' => 'en:almond',
+				'processing' => 'de:feingeschnitten',
+				'text' => 'Mandeln'
+			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:handgeschnitten',
@@ -355,13 +401,14 @@ my @tests = (
 		]
 	],
 
+# de:gerieben and synonyms tests
 	[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
 		[
 			{
 				'id' => 'en:shallot',
 				'processing' => 'en:grated',
 				'text' => 'Schalotte'
-  },
+			},
 			{
 				'id' => 'en:onion',
 				'processing' => 'en:grated',
