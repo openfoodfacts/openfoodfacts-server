@@ -49,11 +49,44 @@ my @tests = (
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:powdered',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:whey-powder',
+				'text' => 'wei-poeder'
+			},
+			{
+				'id' => 'en:vanilla-powder',
+				'text' => 'vanillepoeder'
+			},
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:ground',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:grated',
+				'text' => 'sjalot'
+			},
+			{
+				'id' => 'en:marigold',
+				'processing' => 'en:peeled',
+				'text' => 'goudsbloem'
+			}
 		]
 	],
 
 	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
 		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:cooked, en:cut',
+				'text' => 'banane'
+			}
 		]
 	],
 
