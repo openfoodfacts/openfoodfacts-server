@@ -45,13 +45,28 @@ it:grigliato, grigliata, grigliati, grigliate
 en:cured
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 
+de:gesalzen, gesalzene, gesalzenes, gesalzener
+
+de:ungesalzen, ungesalzene
+
+de:eingelegt, eingelegte
+# de:parse:$ eingelegt, eingelegt $
+
 en:whole
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
 
 en:cut
+de:geschnitten
 fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en morceaux, morceaux de, morceaux d', en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
 it:tagliato, tagliata, tagliati, tagliate
+
+de:mittelfein geschnittenen
+
+# en:finely cut
+de:feingeschnitten, fein geschnittenen, feingeschnittener
+
+de:handgeschnitten, handgeschnittene
 
 # en:description:With the outermost layer or skin removed
 
@@ -64,13 +79,13 @@ nl:gepelde
 en:crushed
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 
-en:description:To reduce to smaller pieces by crushing with lateral motion.
+# en:description:To reduce to smaller pieces by crushing with lateral motion.
 
 en:ground
 fr:moulu, moulue, moulus, moulues
 nl:gemalen
 # nl:parse:gemalen_$
-en:wiktionary:grind
+# en:wiktionary:grind
 
 # en:description:Cut or diced into small pieces
 en:chopped
@@ -81,21 +96,30 @@ nl:gehakt
 # en:wiktionary:chopped
 
 en:sliced
-de:gehobelt, gehobelte
+de:gehobelt, gehobelte, in scheiben geschnitten
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 
 en:diced
+de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 
+#de:in Sticks geschnitten
+
 en:pureed
-de:püree, puree, püree aus, mark
+de:püree, puree, püree aus
 fr:en purée, purée de, purée d'
 # de:parsing:$püree, püree$
 
+# en:description:The soft center of a fruit
+en:pulp
+de:mark
+
+# en:wiktionary:pulp
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
+de:gerieben, geriebener, geriebene
 fr:râpé, râpée, râpés, râpées
-nl:geraspte
+nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
@@ -109,8 +133,12 @@ nl:poeder, poeders, in poedervorm
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
 
+# en:description:Having had the pits removed
 en:pitted
+de:entsteint, entsteinte
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+# de:parsing:$ entsteint, entsteint $
+# en:wiktionary:pitted
 
 en:dried
 fr:séché, séchée, séchés, séchées
@@ -167,3 +195,7 @@ de:eingekochter
 
 en:from-concentrate
 fr:à base de concentré, à partir de concentré
+
+en:marinated
+de:mariniert, marinierte, marinierter, mariniertes
+fr:mariné, marinée, marinés, marinées
