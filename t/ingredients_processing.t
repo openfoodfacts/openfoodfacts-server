@@ -17,38 +17,11 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @tests = (
 	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder"}, 
-[
-  {
-    'id' => 'en:raw-milk',
-    'text' => 'raw milk'
-  },
-  {
-    'id' => 'en:tomato',
-    'processing' => 'en:sliced',
-    'text' => 'tomatoes'
-  },
-  {
-    'id' => 'en:garlic-powder',
-    'text' => 'garlic powder'
-  },
-  {
-    'id' => 'en:aubergine',
-    'processing' => 'en:powdered',
-    'text' => 'eggplant'
-  },
-  {
-    'id' => 'en:courgette',
-    'processing' => 'en:powdered',
-    'text' => 'courgette'
-  }
-
-]
-
+		[
 	],
 
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, tomates bio pré-cuites, poudre de noisettes"}, 
-
-[
+		[
   {
     'id' => 'en:ham',
     'processing' => 'en:diced, en:fried',
@@ -74,41 +47,11 @@ my @tests = (
 	],
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
-[
-  {
-    'id' => 'en:shallot',
-    'text' => 'sjalot',
-    'processing' => 'en:powdered'
-  },
-  {
-    'id' => 'en:whey-powder',
-    'text' => 'wei-poeder'
-  },
-  {
-    'id' => 'en:vanilla-powder',
-    'text' => 'vanillepoeder'
-  },
-  {
-    'id' => 'en:shallot',
-    'processing' => 'en:ground',
-    'text' => 'sjalot'
-  },
-  {
-    'id' => 'en:shallot',
-    'text' => 'sjalot',
-    'processing' => 'en:grated'
-  },
-  {
-    'id' => 'en:marigold',
-    'processing' => 'en:peeled',
-    'text' => 'goudsbloem' 
-  }
-]
-
+		[
 	],
 
 	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-[
+		[
   {
     'id' => 'en:banana',
     'processing' => 'en:cooked, en:cut',
@@ -128,7 +71,7 @@ my @tests = (
 	],
 
 	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
-	[
+		[
 		{
 	   'id' => 'en:buttermilk',
 	   'processing' => 'en:chopped',
@@ -187,6 +130,7 @@ my @tests = (
 	  		}
 		]
 	],
+	
 # Test for process de:püree placing with space (not really necessary as it has been tested with the other)
 	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
 		[
@@ -197,6 +141,7 @@ my @tests = (
 			}
 		]
 	],
+	
 # Test for process de:entsteint
 	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
 		[
@@ -235,7 +180,7 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
 	gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
-[
+		[
   {
     'id' => "de:hartk\x{e4}se",
     'processing' => 'en:sliced',
@@ -268,6 +213,7 @@ my @tests = (
 	}
 ]
 	],
+	
 	# All variants of de:mariniert
 	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter, 
 		mariniertes gurken" },
@@ -296,9 +242,9 @@ my @tests = (
 	],
 
 # All variants of de:geschnitten
-[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
+	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
 	fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
-	[
+		[
 	  {
 	    'id' => 'en:shallot',
 	    'processing' => 'en:cut',
@@ -332,8 +278,8 @@ my @tests = (
 	]
 	],
 
-[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
-[
+	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+		[
   {
     'id' => 'en:shallot',
     'processing' => 'en:pureed',
@@ -357,8 +303,8 @@ my @tests = (
 ]
 	],
 
-[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
-[
+	[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
+		[
   {
     'id' => 'en:shallot',
     'processing' => 'en:grated',
@@ -375,12 +321,12 @@ my @tests = (
     'text' => 'spinat'
   },
 ],
-
+	]
 # de würfel and synonyms tests
 
-[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
+	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
 zwiebel in würfel geschnitten, mandeln in würfel" },
-[
+		[
   {
     'id' => 'en:shallot',
     'processing' => 'en:diced',
@@ -408,7 +354,7 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
   }
 ]
 
-]
+	]
 
 );
 
