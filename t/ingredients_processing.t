@@ -245,37 +245,37 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
 	fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
 		[
-	  {
+			{
 	    'id' => 'en:shallot',
 	    'processing' => 'en:cut',
 	    'text' => 'Schalotte'
 	  },
-	  {
+			{
 	    'id' => 'en:onion',
 	    'processing' => 'de:mittelfein-geschnittenen',
 	    'text' => 'zwiebel'
 	  },
-	  {
+			{
 	    'id' => 'en:spinach',
 	    'processing' => 'de:feingeschnitten',
 	    'text' => 'spinat'
 	  },
-	  {
+			{
 	    'id' => 'en:gherkin',
 	    'processing' => 'de:feingeschnitten',
 	    'text' => 'gurken'
 	  },
-	  {
+			{
 	    'id' => 'en:almond',
 	    'processing' => 'de:feingeschnitten',
 	    'text' => 'Mandeln'
 	  },
-	  {
-	    'id' => 'en:hazelnut',
-	    'processing' => 'de:handgeschnitten',
-	    'text' => "haseln\x{fc}sse"
-	  }
-	]
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:handgeschnitten',
+				'text' => "haseln\x{fc}sse"
+			}
+		]
 	],
 
 	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
@@ -319,7 +319,7 @@ my @tests = (
 				'id' => 'en:spinach',
 				'processing' => 'en:grated',
 				'text' => 'spinat'
-			},
+			}
 		]
 	],
 	
