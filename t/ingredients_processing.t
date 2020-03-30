@@ -374,7 +374,7 @@ my @tests = (
     'processing' => 'en:grated',
     'text' => 'spinat'
   },
-]
+],
 
 # de würfel and synonyms tests
 
