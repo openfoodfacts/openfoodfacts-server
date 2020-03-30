@@ -18,6 +18,7 @@ use ProductOpener::Ingredients qw/:all/;
 my @tests = (
 	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder"}, 
 		[
+		]
 	],
 
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, tomates bio pré-cuites, poudre de noisettes"}, 
@@ -48,17 +49,12 @@ my @tests = (
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 		[
+		]
 	],
 
 	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
 		[
-  {
-    'id' => 'en:banana',
-    'processing' => 'en:cooked, en:cut',
-    'text' => 'banane'
-  }
-]
-
+		]
 	],
 
 	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
@@ -280,35 +276,35 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
 		[
-  {
+			{
     'id' => 'en:shallot',
     'processing' => 'en:pureed',
     'text' => 'Schalotte'
   },
-  {
+			{
     'id' => 'en:onion',
     'processing' => 'en:pureed',
     'text' => 'zwiebel'
   },
-  {
+			{
     'id' => 'en:spinach',
     'processing' => 'en:pureed',
     'text' => 'spinat'
   },
-  {
+			{
     'id' => 'en:gherkin',
     'processing' => 'en:pulp',
     'text' => 'gurken'
   }
-]
+		]
 	],
 
 	[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
 		[
 			{
-    'id' => 'en:shallot',
-    'processing' => 'en:grated',
-    'text' => 'Schalotte'
+				'id' => 'en:shallot',
+				'processing' => 'en:grated',
+				'text' => 'Schalotte'
   },
 			{
 				'id' => 'en:onion',
