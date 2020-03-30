@@ -16,35 +16,43 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, courgette powder"}, 
+#                 English
+	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, 
+			courgette powder, sieved ham"}, 
 		[
-			{
-				'id' => 'en:raw-milk',
-				'text' => 'raw milk'
-			},
-			{
-				'id' => 'en:tomato',
-				'processing' => 'en:sliced',
-				'text' => 'tomatoes'
-			},
-			{
-				'id' => 'en:garlic-powder',
-				'text' => 'garlic powder'
-			},
-			{
-				'id' => 'en:aubergine',
-				'processing' => 'en:powdered',
-				'text' => 'eggplant'
-			},
-			{
-				'id' => 'en:courgette',
-				'processing' => 'en:powdered',
-				'text' => 'courgette'
-			}
+	  		{
+	    		'id' => 'en:raw-milk',
+	    		'text' => 'raw milk'
+	  		},
+	  		{
+	    		'id' => 'en:tomato',
+	    		'processing' => 'en:sliced',
+	    		'text' => 'tomatoes'
+	  		},
+	  		{
+	    		'id' => 'en:garlic-powder',
+	    		'text' => 'garlic powder'
+	  		},
+	  		{
+	    		'id' => 'en:aubergine',
+	    		'processing' => 'en:powdered',
+	    		'text' => 'eggplant'
+	  		},
+	  		{
+	    		'id' => 'en:courgette',
+	    		'processing' => 'en:powdered',
+	    		'text' => 'courgette'
+	  		},
+	  		{
+	    		'id' => 'en:ham',
+	    		'processing' => 'en:sieved',
+	    		'text' => 'ham'
+	  		}
 		]
 	],
 
-	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, tomates bio pré-cuites, poudre de noisettes"}, 
+	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
+			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 		[
   {
     'id' => 'en:ham',
@@ -66,9 +74,24 @@ my @tests = (
     'id' => 'en:hazelnut',
     'processing' => 'en:powdered',
     'text' => 'noisettes'
+  },
+  {
+    'id' => 'en:banana',
+    'processing' => 'en:sieved',
+    'text' => 'banane'
   }
-]
+		]
 	],
+
+		[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
+			[
+	  			{
+	    			'id' => 'en:banana',
+	    			'processing' => 'en:cooked, en:cut',
+	    			'text' => 'banane'
+	  			}
+			]
+		],
 
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 		[
@@ -286,6 +309,17 @@ my @tests = (
     'text' => 'mandeln'
   }
 ]
+	],
+
+# Test for de:passiert
+	[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:sieved',
+				'text' => 'Schalotte'
+			}
+		]
 	],
 	
 
