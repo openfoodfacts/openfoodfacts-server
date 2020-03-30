@@ -305,28 +305,29 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "Schalotte gerieben, geriebener zwiebel, geriebene spinat" },
 		[
-  {
+			{
     'id' => 'en:shallot',
     'processing' => 'en:grated',
     'text' => 'Schalotte'
   },
-  {
-    'id' => 'en:onion',
-    'processing' => 'en:grated',
-    'text' => 'zwiebel'
-  },
-  {
-    'id' => 'en:spinach',
-    'processing' => 'en:grated',
-    'text' => 'spinat'
-  },
-],
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:grated',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:grated',
+				'text' => 'spinat'
+			},
+		]
 	],
 	
 # de würfel and synonyms tests
 	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
 zwiebel in würfel geschnitten, mandeln in würfel" },
 		[
+		]
 	]
 
 );
