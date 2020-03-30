@@ -194,30 +194,44 @@ my @tests = (
 				'id' => 'en:shallot',
 				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
-				}
-			]
-		],
+			}
+		]
+	],
 # Test for process de:entsteint
-			[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
-				[
-				  	{
-						'id' => 'en:shallot',
-						'processing' => 'en:pitted',
-						'text' => 'Schalotte'
-						}
-					]
-				],
+	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
+		[
+		  	{
+				'id' => 'en:shallot',
+				'processing' => 'en:pitted',
+				'text' => 'Schalotte'
+			}
+		]
+	],
 
 # Test for process de:eingelegt
-		[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
-			[
-			  	{
-					'id' => 'en:shallot',
-					'processing' => 'de:eingelegt',
-					'text' => 'Schalotte'
-					}
-				]
-			],
+	[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
+		[
+		  	{
+				'id' => 'en:shallot',
+				'processing' => 'de:eingelegt',
+				'text' => 'Schalotte'
+			}
+		]
+	],
+
+# Test for de: ingredients, that should NOT be detected through processing
+	[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+		[
+			{
+				'id' => 'en:garden-peas',
+				'text' => 'Markerbsen'
+			},
+			{
+				'id' => 'de:deutsche-markenbutter',
+				'text' => 'Deutsche Markenbutter'
+			}
+		]
+	],
 
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
 	gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
@@ -253,6 +267,32 @@ my @tests = (
 		'text' => 'Dickmilch'
 	}
 ]
+	],
+	# All variants of de:mariniert
+	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter, 
+		mariniertes gurken" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:marinated',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:marinated',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:marinated',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'en:marinated',
+				'text' => 'gurken'
+			}
+		]
 	],
 
 # All variants of de:geschnitten
