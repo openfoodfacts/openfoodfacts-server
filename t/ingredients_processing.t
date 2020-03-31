@@ -222,8 +222,8 @@ my @tests = (
 		]
 	],
 
-	# Test for process de:gesüßt placing with space (not really necessary as it has been tested with the other)
-		[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse" }, 
+	# Test for process de:geölt
+		[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
 			[
 				{
 					'id' => 'en:shallot',
@@ -235,11 +235,16 @@ my @tests = (
 					'processing' => 'en:geölte',
 					'text' => "haseln\x{fc}sse"
 				},
+				{
+					'id' => 'en:almond',
+					'processing' => 'de:mit-sonnenblumenöl-geölt',
+					'text' => 'mandeln'
+				}
 			]
 		],
 
-# Test for process de:gesüßt placing with space (not really necessary as it has been tested with the other)
-	[ { lc => "de", ingredients_text => "Schalotte gesüßt,gesüßte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
+# Test for process de:gesüßt 
+	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
 		[
 			{
 				'id' => 'en:shallot',
@@ -250,11 +255,6 @@ my @tests = (
 				'id' => 'en:hazelnut',
 				'processing' => 'de:gesüßt',
 				'text' => "haseln\x{fc}sse"
-			},
-			{
-				'id' => 'en:almond',
-				'processing' => 'de:mit-sonnenblumenöl-geölt',
-				'text' => 'mandeln'
 			}
 		]
 	],
