@@ -350,6 +350,16 @@ my @tests = (
 		]
 	],
 
+	# Test for de:getrocknet and synonyms
+		[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel, 
+				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet, 
+				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
+				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten, 
+				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" }, 
+			[
+			]
+		],
+
 # Test for de:passiert
 	[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
 		[
@@ -361,7 +371,7 @@ my @tests = (
 		]
 	],
 
-# Test for process/adjective de:gesalzen, de:ungesalzen
+# Test for de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
 	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
 		[
