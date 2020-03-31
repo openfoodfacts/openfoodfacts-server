@@ -224,23 +224,23 @@ my @tests = (
 
 	# Test for process de:geölt
 	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
-		[
-			{
-			'id' => 'en:shallot',
-				'processing' => 'de:geölt',
-				'text' => 'Schalotte'
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'de:geölte',
-				'text' => "haselnüsse"
-			},
-			{
-				'id' => 'en:almond',
-				'processing' => 'de:mit-sonnenblumenöl-geölt',
-				'text' => 'mandeln'
-			}
-		]
+	[
+	  {
+	    'id' => 'en:shallot',
+	    'processing' => "de:ge\x{f6}lt",
+	    'text' => 'Schalotte'
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => "de:ge\x{f6}lt",
+	    'text' => "haseln\x{fc}sse"
+	  },
+	  {
+	    'id' => 'en:almond',
+	    'processing' => "de:mit-sonnenblumen\x{f6}l-ge\x{f6}lt",
+	    'text' => 'mandeln'
+	  }
+	]
 	],
 
 # Test for process de:gesüßt 
