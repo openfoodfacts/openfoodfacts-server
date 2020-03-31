@@ -52,12 +52,19 @@ it:grigliato, grigliata, grigliati, grigliate
 en:cured
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 
+de:gesalzen, gesalzene, gesalzenes, gesalzener
+
+de:ungesalzen, ungesalzene
+
 de:eingelegt, eingelegte
 # de:parse:$ eingelegt, eingelegt $
 
 en:whole
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
+
+de:halbiert, halbierte, halbe
+# de:false positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
 
 en:cut
 de:geschnitten
@@ -79,16 +86,27 @@ nl:gepelde
 # nl:parse:gepelde_$
 # en:wiktionary:peeled
 
+en:sieved
+de:passiert
+fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
+
+
 en:crushed
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
-
 en:ground
+de:gemahlen, gemahlene, gemahlener
 fr:moulu, moulue, moulus, moulues
 nl:gemalen
 # nl:parse:gemalen_$
 # en:wiktionary:grind
+
+de:fein gemahlen
+
+de:grob gemahlen
+
+de:frischgemahlen, frishgemahlene
 
 # en:description:Cut or diced into small pieces
 en:chopped
@@ -103,7 +121,7 @@ de:gehobelt, gehobelte, in scheiben geschnitten
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 
 en:diced
-#de:in würfel geschnitten
+de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 
 #de:in Sticks geschnitten
@@ -144,14 +162,26 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 # en:wiktionary:pitted
 
 en:dried
+de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
+
+de:halbgetrocknet, halbgetrocknete, halb getrocknet
+
+de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
+
+de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
+
+de:luftgetrocknet, luftgetrockneter
+
+de:sprühgetrocknet, sprühgetrockneter 
 
 en:dehydrated
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
 
 en:rehydrated
+de:rehydriert, rehydrierte, rehydriertes
 fr:réhydraté, réhydratée, réhydratés, réhydratées
 
 en:reconstituted
@@ -169,11 +199,36 @@ fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 en:granulated
 fr:en granules, granules de, granules d'
 
+en:marinated
+fr:mariné, marinée, marinés, marinées
+
+#######################################################################
+#
+#                H U M I D I T Y   P R O C E S S E S
+#
+#######################################################################
+# Processes that change the humidity level of an ingredient
+
+# en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes
+# de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
+# de:parsing:before and after, space
 fr:concentré, concentrée, concentrés, concentrées, concentré de
+de:einfach konzentriert
+# en:wiktionary:concentrated
+
+de:zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert
+
+de:dreifach konzentriert
+
+de:200fach konzentriertes
+
+de:eingekochter
 
 en:from-concentrate
 fr:à base de concentré, à partir de concentré
 
 en:marinated
+de:mariniert, marinierte, marinierter, mariniertes
 fr:mariné, marinée, marinés, marinées

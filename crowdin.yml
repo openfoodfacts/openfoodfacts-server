@@ -12,7 +12,7 @@ files:
         en-AU: en_AU
         en-US: en_US
         nl-BE: nl_BE
-        nl-NL: nl_NL
+        nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -31,7 +31,7 @@ files:
         zh-CN: zh_CN
         zh-HK: zh_HK
         nl-BE: nl_BE
-        nl-NL: nl_NL
+        nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -48,7 +48,7 @@ files:
         en-GB: en_GB
         en-US: en_US
         nl-BE: nl_BE
-        nl-NL: nl_NL
+        nl: nl_NL
         pt-BR: pt_BR
         pt-PT: pt_PT
         zh-TW: zh_TW
@@ -67,7 +67,7 @@ files:
         en-GB: en_GB
         en-US: en_US
         nl-BE: nl_BE
-        nl-NL: nl_NL
+        nl: nl_NL
         pt-BR: pt_BR
         pt-PT: pt_PT
         zh-TW: zh_TW
@@ -88,7 +88,7 @@ files:
         pt-BR: pt_BR
         pt-PT: pt_PT
         nl-BE: nl_BE
-        nl-NL: nl_NL
+        nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -1031,6 +1031,23 @@ files:
         kmr: kmr
   - source: /lang/en/texts/index-pro.html
     translation: /lang/%two_letters_code%/texts/index-pro.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/help-complete-products.html
+    translation: /lang/%two_letters_code%/texts/help-complete-products.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
