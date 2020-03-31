@@ -218,10 +218,50 @@ my @tests = (
 				'id' => 'en:shallot',
 				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
-				}
+			}
+		]
+	],
+
+	# Test for process de:gesüßt placing with space (not really necessary as it has been tested with the other)
+		[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse" }, 
+			[
+				{
+					'id' => 'en:shallot',
+					'processing' => 'de:geölt',
+					'text' => 'Schalotte'
+				},
+				{
+					'id' => 'en:hazelnut',
+					'processing' => 'en:geölte',
+					'text' => "haseln\x{fc}sse"
+				},
 			]
 		],
 
+# Test for process de:gesüßt placing with space (not really necessary as it has been tested with the other)
+	[ { lc => "de", ingredients_text => "Schalotte gesüßt,gesüßte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gesüßt',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gesüßt',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'de:mit-sonnenblumenöl-geölt',
+				'text' => 'mandeln'
+			}
+		]
+	],
+
+
+		de:
+		
 # Process de:konzentriert (and children) and synonyms
 		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
