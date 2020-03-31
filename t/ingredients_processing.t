@@ -533,7 +533,7 @@ my @tests = (
 
 	# Various tests
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-	gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
@@ -567,8 +567,45 @@ my @tests = (
 			}
 		]
 	],
+
+	# All variants of de:rehydriert
+	[ { lc => "de", ingredients_text => "Schalotte rehydriert, zwiebel rehydrierte, spinat rehydriertes" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:rehydrated',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:rehydrated',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:rehydrated',
+				'text' => 'spinat'
+			}
+		]
+	],
+
+# All variants of de:halbiert
+	[ { lc => "de", ingredients_text => "Schalotte halbiert, zwiebel halbierte" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:halbiert',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'de:halbiert',
+				'text' => 'zwiebel'
+			}
+		]
+	],
 	
-	# All variants of de:mariniert
+# All variants of de:mariniert
 	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter, 
 		mariniertes gurken" },
 		[
@@ -635,25 +672,25 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
 		[
 			{
-    'id' => 'en:shallot',
-    'processing' => 'en:pureed',
-    'text' => 'Schalotte'
-  },
+				'id' => 'en:shallot',
+				'processing' => 'en:pureed',
+				'text' => 'Schalotte'
+			},
 			{
-    'id' => 'en:onion',
-    'processing' => 'en:pureed',
-    'text' => 'zwiebel'
-  },
+				'id' => 'en:onion',
+				'processing' => 'en:pureed',
+				'text' => 'zwiebel'
+			},
 			{
-    'id' => 'en:spinach',
-    'processing' => 'en:pureed',
-    'text' => 'spinat'
-  },
+				'id' => 'en:spinach',
+				'processing' => 'en:pureed',
+				'text' => 'spinat'
+			},
 			{
-    'id' => 'en:gherkin',
-    'processing' => 'en:pulp',
-    'text' => 'gurken'
-  }
+				'id' => 'en:gherkin',
+				'processing' => 'en:pulp',
+				'text' => 'gurken'
+			}
 		]
 	],
 
