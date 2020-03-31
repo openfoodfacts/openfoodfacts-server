@@ -350,6 +350,101 @@ my @tests = (
 		]
 	],
 
+	# Test for de:getrocknet and synonyms
+		[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel, 
+				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet, 
+				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
+				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten, 
+				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" }, 
+				[
+				  {
+				    'id' => 'en:shallot',
+				    'processing' => 'en:dried',
+				    'text' => 'Schalotte'
+				  },
+				  {
+				    'id' => 'en:almond',
+				    'processing' => 'en:dried',
+				    'text' => 'mandeln'
+				  },
+				  {
+				    'id' => 'en:onion',
+				    'processing' => 'en:dried',
+				    'text' => 'zwiebel'
+				  },
+				  {
+				    'id' => 'en:hazelnut',
+				    'processing' => 'en:dried',
+				    'text' => "haseln\x{fc}sse"
+				  },
+				  {
+				    'id' => 'en:spinach',
+				    'processing' => 'de:halbgetrocknet',
+				    'text' => 'spinat'
+				  },
+				  {
+				    'id' => 'en:gherkin',
+				    'processing' => 'de:halbgetrocknet',
+				    'text' => 'gurken'
+				  },
+				  {
+				    'id' => 'en:fig',
+				    'processing' => 'de:halbgetrocknet',
+				    'text' => 'Feigen'
+				  },
+				  {
+				    'id' => 'en:elder',
+				    'processing' => 'de:gefriergetrocknet',
+				    'text' => 'Holunder'
+				  },
+				  {
+				    'id' => 'en:papaya',
+				    'processing' => 'de:gefriergetrocknet',
+				    'text' => 'Papaya'
+				  },
+				  {
+				    'id' => 'en:kiwi',
+				    'processing' => 'de:gefriergetrocknet',
+				    'text' => 'Kiwi'
+				  },
+				  {
+				    'id' => 'en:pineapple',
+				    'processing' => 'de:sonnengetrocknet',
+				    'text' => 'Ananas'
+				  },
+				  {
+				    'id' => 'en:prune',
+				    'processing' => 'de:sonnengetrocknet',
+				    'text' => 'Pflaumen'
+				  },
+				  {
+				    'id' => 'en:grapefruit',
+				    'processing' => 'de:sonnengetrocknet',
+				    'text' => 'Grapefruit'
+				  },
+				  {
+				    'id' => 'en:guava',
+				    'processing' => 'de:luftgetrocknet',
+				    'text' => 'Guaven'
+				  },
+				  {
+				    'id' => 'en:rosehip',
+				    'processing' => 'de:luftgetrocknet',
+				    'text' => 'Hagebutten'
+				  },
+				  {
+				    'id' => 'en:grape',
+				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'text' => 'Traube'
+				  },
+				  {
+				    'id' => 'en:tamarind',
+				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'text' => 'Tamarinde'
+				  }
+			]
+		],
+
 # Test for de:passiert
 	[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
 		[
@@ -361,7 +456,7 @@ my @tests = (
 		]
 	],
 
-# Test for process/adjective de:gesalzen, de:ungesalzen
+# Test for de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
 	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
 		[
