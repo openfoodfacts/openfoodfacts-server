@@ -223,25 +223,25 @@ my @tests = (
 	],
 
 	# Test for process de:geölt
-		[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
-			[
-				{
-					'id' => 'en:shallot',
-					'processing' => 'de:geölt',
-					'text' => 'Schalotte'
-				},
-				{
-					'id' => 'en:hazelnut',
-					'processing' => 'en:geölte',
-					'text' => "haseln\x{fc}sse"
-				},
-				{
-					'id' => 'en:almond',
-					'processing' => 'de:mit-sonnenblumenöl-geölt',
-					'text' => 'mandeln'
-				}
-			]
-		],
+	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
+		[
+			{
+			'id' => 'en:shallot',
+				'processing' => 'de:geölt',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:geölte',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'de:mit-sonnenblumenöl-geölt',
+				'text' => 'mandeln'
+			}
+		]
+	],
 
 # Test for process de:gesüßt 
 	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
@@ -259,9 +259,6 @@ my @tests = (
 		]
 	],
 
-
-		de:
-		
 # Process de:konzentriert (and children) and synonyms
 		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
