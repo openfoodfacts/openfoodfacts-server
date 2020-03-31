@@ -595,6 +595,12 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'processing' => 'de:halbiert',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'de:halbiert',
+				'text' => 'zwiebel'
 			}
 		]
 	],
