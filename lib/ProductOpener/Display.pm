@@ -6977,9 +6977,26 @@ sub display_field($$) {
 			}
 			$to_do_status =~ s/,$//;
 			$done_status =~ s/,$//;
-			$lang_field = "To Do";
-			$value = $to_do_status;
-			$html .= '<p><span class="field">' . "Done" . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+			my $no_entry_to_do_status = $to_do_status;
+			my $no_entry_done_status = $done_status;
+			my $empty = '<a class="tag well_known" href="/state/empty">'."Empty".'</a>';
+			my $incomplete = '<a class="tag well_known" href="/state/to-be-checked">'."To be checked".'</a>';
+			# Regex to extract anchor tag content
+			$empty =~ s/<a[^>]*>|<\/a>//;
+			$incomplete =~ s/<a[^>]*>|<\/a>//;
+			$no_entry_done_status =~ s/<a[^>]*>|<\/a>//;
+			$no_entry_to_do_status =~ s/<a[^>]*>|<\/a>//;
+			if ($no_entry_to_do_status eq $incomplete){
+				$lang_field = "Done";
+				$value = $done_status;
+			}
+			else {
+				$lang_field = "To Do";
+				$value = $to_do_status;
+			}
+			if ($no_entry_done_status ne $empty and $no_entry_to_do_status ne $incomplete){
+				$html .= '<p><span class="field">' . "Done" . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+			}
 		}
 		
 		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
