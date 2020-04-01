@@ -231,37 +231,59 @@ my @tests = (
 	]
 	],
 
-	# de:geschält and variants
-		[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
-					passionsfrucht ungeschält, ungeschälte gurken" }, 
-			[
-				{
-					'id' => 'en:shallot',
-					'processing' => 'de:geschält',
-					'text' => 'Schalotte'
-				},
-				{
-					'id' => 'en:hazelnut',
-					'processing' => 'de:geschält',
-					'text' => "haselnüsse"
-				},
-				{
-					'id' => 'en:almond',
-					'processing' => "de:geschält",
-					'text' => 'mandeln'
-				},
-				{
-					'id' => 'en:passion-fruit',
-					'processing' => 'de:ungeschält',
-					'text' => 'passionsfrucht'
-					},
-				{
-					'id' => 'en:gherkin',
-					'processing' => 'de:ungeschält',
-					'text' => 'gurken'
-				}
-			]
-		],
+# de:gepökelt and variants
+	[ { lc => "de", ingredients_text => "Schalotte gepökelt, gepökeltes haselnüsse, 
+				passionsfrucht ungepökelt" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gepökelt',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gepökelt',
+				'text' => "haselnüsse"
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:ungepökelt',
+				'text' => 'passionsfrucht'
+			}
+		]
+	],
+		
+# de:geschält and variants
+	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
+				passionsfrucht ungeschält, ungeschälte gurken" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:geschält',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:geschält',
+				'text' => "haselnüsse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => "de:geschält",
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:ungeschält',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:ungeschält',
+				'text' => 'gurken'
+			}
+		]
+	],
 
 		# de:geschält and variants
 			[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse, 
