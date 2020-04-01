@@ -8,106 +8,48 @@
 # This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
 # and if "pork" is a known ingredient.
 
+
 # be careful: raw in English can mean "unrefined" as in "raw cane sugar"
 # or uncooked "raw fish"
 # unrefined ingredients like "raw sugar", "raw milk", "raw honey" etc.
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
+
 en:raw
-fr:cru,crue,crus,crues
+fr:cru, crue, crus, crues
 
-en:cooked
-fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
-it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
-
-en:pre-cooked
-fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
-it:precotto, precotta, precotti, precotte
-
-en:fried
-fr:frit, frite, frits, frites
-it:fritto, fritta, fritti, fritte
-
-en:pre-fried
-fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
-
-# nl:sweetened
-de:gesüßt, gesüßte
-
-de:geölt, geölte
-
-#<de:geölt
-de:mit sonnenblumenöl geölt
-
-en:roasted
-de:geröstet, geröstete, geröstetes, gerösteter
-fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
-
-en:toasted
-fr:toasté, toastée, toastés, toastées
-
-en:grilled
-fr:grillé, grillée, grillés, grillées
-it:grigliato, grigliata, grigliati, grigliate
-
-en:cured
-fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
-
-de:gesalzen, gesalzene, gesalzenes, gesalzener
-
-de:ungesalzen, ungesalzene
-
-de:eingelegt, eingelegte
-# de:parse:$ eingelegt, eingelegt $
+#######################################################################
+#
+#                S I Z I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes that change the size of an ingredient. The processes are sorted from large (whole) to small (powdered).
 
 en:whole
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
 
 de:halbiert, halbierte, halbe
-# de:false positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
+# de:false-positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
 
 en:cut
 de:geschnitten
 fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en morceaux, morceaux de, morceaux d', en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
 it:tagliato, tagliata, tagliati, tagliate
 
+# <en:cut
 de:mittelfein geschnittenen
 
+# <en:cut
 # en:finely cut
 de:feingeschnitten, fein geschnittenen, feingeschnittener
 
+# <en:cut
 de:handgeschnitten, handgeschnittene
 
-# en:description:With the outermost layer or skin removed
-
-en:peeled
-fr:pelé, pelée, pelés, pelées
-nl:gepelde
-# nl:parse:gepelde_$
-# en:wiktionary:peeled
-
-en:sieved
-de:passiert
-fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
-
-
-en:crushed
-fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
-
-# en:description:To reduce to smaller pieces by crushing with lateral motion.
-en:ground
-de:gemahlen, gemahlene, gemahlener
-fr:moulu, moulue, moulus, moulues
-nl:gemalen
-# nl:parse:gemalen_$
-# en:wiktionary:grind
-
-de:fein gemahlen
-
-de:grob gemahlen
-
-de:frischgemahlen, frishgemahlene
+en:sliced
+de:gehobelt, gehobelte, in scheiben geschnitten
+fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 
 # en:description:Cut or diced into small pieces
 en:chopped
@@ -117,26 +59,15 @@ nl:gehakt
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
 
-en:sliced
-de:gehobelt, gehobelte, in scheiben geschnitten
-fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
-
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 
 #de:in Sticks geschnitten
 
-en:pureed
-de:püree, puree, püree aus
-fr:en purée, purée de, purée d'
-# de:parsing:$püree, püree$
+en:crushed
+fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 
-# en:description:The soft center of a fruit
-en:pulp
-de:mark
-
-# en:wiktionary:pulp
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 de:gerieben, geriebener, geriebene
@@ -145,12 +76,46 @@ nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
+en:granulated
+fr:en granules, granules de, granules d'
+
+# en:description:To reduce to smaller pieces by crushing with lateral motion.
+en:ground
+de:gemahlen, gemahlene, gemahlener
+fr:moulu, moulue, moulus, moulues
+nl:gemalen
+# nl:parse:gemalen_$
+# en:wiktionary:grind
+
+# <en:ground
+de:fein gemahlen
+
+# <en:ground
+de:grob gemahlen
+
+# <en:ground
+de:frischgemahlen, frishgemahlene
+
+en:pureed
+de:püree, puree, püree aus
+fr:en purée, purée de, purée d'
+# de:parsing:$püree, püree$
+
+
 en:powdered, powder
 de:pulver
 es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
+
+
+#######################################################################
+#
+#                S P L I T T I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes that split an ingredient into different parts
 
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
@@ -162,46 +127,22 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 # de:parsing:$ entsteint, entsteint $
 # en:wiktionary:pitted
 
-en:dried
-de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
-fr:séché, séchée, séchés, séchées
-it:secco, secca, secchi, secche
+# en:description:The soft center of a fruit
+en:pulp
+de:mark
+# en:wiktionary:pulp
 
-de:halbgetrocknet, halbgetrocknete, halb getrocknet
+# en:description:With the outermost layer or skin removed
+en:peeled
+fr:pelé, pelée, pelés, pelées
+nl:gepelde
+# nl:parse:gepelde_$
+# en:wiktionary:peeled
 
-de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
+en:sieved
+de:passiert
+fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
 
-de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
-
-de:luftgetrocknet, luftgetrockneter
-
-de:sprühgetrocknet, sprühgetrockneter 
-
-en:dehydrated
-fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
-it:disidratato, disidratata, disidratati, disidratate
-
-en:rehydrated
-de:rehydriert, rehydrierte, rehydriertes
-fr:réhydraté, réhydratée, réhydratés, réhydratées
-
-en:reconstituted
-fr:reconstitué, reconstituée, reconstitués, reconstituées
-
-en:frozen
-fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
-
-en:unfrozen
-fr:décongelé, décongelée, décongelés, décongelées
-
-en:pasteurised
-fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
-
-en:granulated
-fr:en granules, granules de, granules d'
-
-en:marinated
-fr:mariné, marinée, marinés, marinées
 
 #######################################################################
 #
@@ -219,10 +160,13 @@ fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
 # en:wiktionary:concentrated
 
+# <en:concentrated
 de:zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert
 
+# <en:concentrated
 de:dreifach konzentriert
 
+# <en:concentrated
 de:200fach konzentriertes
 
 de:eingekochter
@@ -230,6 +174,114 @@ de:eingekochter
 en:from-concentrate
 fr:à base de concentré, à partir de concentré
 
+en:dried
+de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
+fr:séché, séchée, séchés, séchées
+it:secco, secca, secchi, secche
+
+# <en:dried
+de:halbgetrocknet, halbgetrocknete, halb getrocknet
+
+# <en:dried
+de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
+
+# <en:dried
+de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
+
+# <en:dried
+de:luftgetrocknet, luftgetrockneter
+
+de:sprühgetrocknet, sprühgetrockneter 
+
+en:dehydrated
+fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
+it:disidratato, disidratata, disidratati, disidratate
+
+en:rehydrated
+de:rehydriert, rehydrierte, rehydriertes
+fr:réhydraté, réhydratée, réhydratés, réhydratées
+
+en:reconstituted
+fr:reconstitué, reconstituée, reconstitués, reconstituées
+
+#######################################################################
+#
+#                H E A T I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes that heat an ingredient (over fire, in water)
+
+en:frozen
+fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+
+en:unfrozen
+fr:décongelé, décongelée, décongelés, décongelées
+
+
+
+en:pasteurised
+fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
+
+en:pre-cooked
+fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
+it:precotto, precotta, precotti, precotte
+
+en:cooked
+fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
+it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+
+en:pre-fried
+fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
+
+en:fried
+fr:frit, frite, frits, frites
+it:fritto, fritta, fritti, fritte
+
+en:roasted
+de:geröstet, geröstete, geröstetes, gerösteter
+fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+
+en:toasted
+fr:toasté, toastée, toastés, toastées
+
+en:grilled
+fr:grillé, grillée, grillés, grillées
+it:grigliato, grigliata, grigliati, grigliate
+
+
+#######################################################################
+#
+#                A D D I T I O N   P R O C E S S E S
+#
+#######################################################################
+# Processes that add another ingredient
+
+de:gesalzen, gesalzene, gesalzenes, gesalzener
+
+de:ungesalzen, ungesalzene
+
+# en:sweetened
+ de:gesüßt, gesüßte
+
+ de:geölt, geölte
+
+ #<de:geölt
+ de:mit sonnenblumenöl geölt
+
+#######################################################################
+#
+#                P R E P A R I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes used multiple processes and ingredients
+
 en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
 fr:mariné, marinée, marinés, marinées
+
+en:cured
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+
+de:eingelegt, eingelegte
+# de:parse:$ eingelegt, eingelegt $
+
