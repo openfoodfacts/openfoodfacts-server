@@ -218,9 +218,46 @@ my @tests = (
 				'id' => 'en:shallot',
 				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
-				}
-			]
-		],
+			}
+		]
+	],
+
+	# Test for process de:geölt
+	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
+	[
+	  {
+	    'id' => 'en:shallot',
+	    'processing' => "de:ge\x{f6}lt",
+	    'text' => 'Schalotte'
+	  },
+	  {
+	    'id' => 'en:hazelnut',
+	    'processing' => "de:ge\x{f6}lt",
+	    'text' => "haseln\x{fc}sse"
+	  },
+	  {
+	    'id' => 'en:almond',
+	    'processing' => "de:mit-sonnenblumen\x{f6}l-ge\x{f6}lt",
+	    'text' => 'mandeln'
+	  }
+	]
+	],
+
+# Test for process de:gesüßt 
+	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gesüßt',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gesüßt',
+				'text' => "haselnüsse"
+			}
+		]
+	],
 
 # Process de:konzentriert (and children) and synonyms
 		[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
