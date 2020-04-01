@@ -141,35 +141,43 @@ my @tests = (
 #
 ##################################################################
 
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver" }, 
+# de:pulver and variants
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver" }, 
 		[
 	  		{
 	    		'id' => 'en:bourbon-vanilla-powder',
 	    		'text' => 'bourbon-vanillepulver'
-	  		}
+	  		},
+			{
+    			'id' => 'en:sauerkraut',
+    			'processing' => 'en:powdered',
+    			'text' => 'Sauerkraut'
+			},
+			{
+    			'id' => 'en:acerola',
+    			'processing' => 'en:powdered',
+    			'text' => 'acerola'
+			}
 		]
 	],
 
-	[ { lc => "de", ingredients_text => "gehacktes Buttermilch"}, 
+# de:gehackt and variants
+	[ { lc => "de", ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"}, 
 		[
 			{
 				'id' => 'en:buttermilk',
 				'processing' => 'en:chopped',
 				'text' => 'Buttermilch'
 			},
-		]
-	],
-	
-	[ { lc => "de", ingredients_text => "Sauerkrautpulver" }, 
-		[
 			{
-    			'id' => 'en:sauerkraut',
-    			'processing' => 'en:powdered',
-    			'text' => 'Sauerkraut'
-  			}
+	    		'id' => 'en:soured-milk',
+	    		'processing' => 'en:chopped',
+	    		'text' => 'Dickmilch'
+			}
 		]
 	],
-	
+
+# de:gehobelt and variants	
 	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
 		[
 			{
@@ -179,26 +187,7 @@ my @tests = (
   			}
 		]
 	],
-	
-	[ { lc => "de", ingredients_text => "acerola-pulver" }, 
-		[
-			{
-    			'id' => 'en:acerola',
-    			'processing' => 'en:powdered',
-    			'text' => 'acerola'
-			}
-		]
-	],
 
-	[ { lc => "de", ingredients_text => "gehackter Dickmilch" }, 
-		[
-			{
-	    		'id' => 'en:soured-milk',
-	    		'processing' => 'en:chopped',
-	    		'text' => 'Dickmilch'
-			}
-		]
-	],
 
 # Test for de:püree (and for process placing de:püree without space)
 	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
@@ -255,6 +244,32 @@ my @tests = (
 				'id' => 'en:hazelnut',
 				'processing' => 'de:gesüßt',
 				'text' => "haselnüsse"
+			}
+		]
+	],
+
+# de:gezuckert and variants
+	[ { lc => "de", ingredients_text => "Schalotte gezuckert, gezuckerte haselnüsse, mandeln leicht gezuckert, passionsfrucht ungezuckert" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gezuckert',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gezuckert',
+				'text' => "haselnüsse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => "de:leicht-gezuckert",
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:ungezuckert',
+				'text' => 'passionsfrucht'
 			}
 		]
 	],
