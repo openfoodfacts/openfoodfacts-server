@@ -3222,7 +3222,7 @@ INFO
 
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 
-		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
 		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
