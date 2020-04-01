@@ -28,14 +28,6 @@ use utf8;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-use Log::Any '$log';
-use Log::Any::Adapter 'Stderr';
-
-#use Log::Log4perl;
-#Log::Log4perl->init("log.conf");
-#use Log::Any::Adapter;
-#Log::Any::Adapter->set('Log4perl');
-
 use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -46,7 +38,7 @@ use JSON;
 use Time::Local;
 use XML::Rules;
 
-
+use Log::Any::Adapter ('Stderr');
 
 # Warning some Auchan XML files are broken with 2 <TabNutXMLPF>.*</TabNutXMLPF>
 
@@ -80,7 +72,7 @@ foreach my $file (@files) {
 
 	# Product data XML files
 	# spec_405692_Barre céréalière boules choco lait ATR_8228-Auchan_11105.xml
-	
+
 	if ($file =~ /spec(.*).xml/) {
 
 		$code = $2;
@@ -95,9 +87,9 @@ foreach my $file (@files) {
 
 	if ($file =~ /spec/) {
 		# General info about the product, ingredients
-		
+
 		#use Data::Dump;
-		#Data::Dump::dump( XML::Rules::inferRulesFromExample($file) ); 
+		#Data::Dump::dump( XML::Rules::inferRulesFromExample($file) );
 		#exit();
 
 		my @xml_rules = (
@@ -256,9 +248,9 @@ Nutriscore => "content",
 Sector => "content",
 Family => "content",
 EstampilleSanitaireLocalisation => "content",
- 
+
 ValidationState => undef,
-ApplicationA => undef, 
+ApplicationA => undef,
 
 UpdateDate => undef,
 
@@ -268,9 +260,9 @@ UpdateDate => undef,
 
 
 		my @xml_fields_mapping = (
-		
+
 			# special field mapping for XML file with multiple products
-			
+
 #<ProductFolder Name="Auchan Cremes Dessert Autres Parfums"/>
 #-<TradeItems>
 #<TradeItem Ean7="" Gtin="3596710402274" Brand="AUCHAN" Packing="" Format="" DenominationCommerciale="CREME DESSERT spÃ©culoos 4X125G"/>
@@ -286,9 +278,9 @@ UpdateDate => undef,
 #<SectionEtiquetage>Crème Dessert Chocolat Caramel Auchan x4</SectionEtiquetage>
 #<ConditionnementConcerne>Chocolat Caramel x 4</ConditionnementConcerne>
 #<DenominationCommerciale>Crème dessert Caram'choc</DenominationCommerciale>
-#<DenominationLegale>Crème dessert aromatisée caramel chocolat</DenominationLegale>	
+#<DenominationLegale>Crème dessert aromatisée caramel chocolat</DenominationLegale>
 
-			[ "multiple_codes", { 
+			[ "multiple_codes", {
 				codes => "codes",	# all sub fields will be moved to the root of the split children
 				fuzzy_match => "etiquettes",	# if exists, specify a field that depends on the child
 				fuzzy_from => "DenominationCommerciale", # value from "codes" that will be fuzzy matched to find the id for "fuzzy_match" hash
@@ -300,32 +292,32 @@ UpdateDate => undef,
 			["ProductClassification.FullName", "ProductClassification"],
 			["GeneralitesEtiquetage.DenominationCommerciale", "product_name_fr"],
 			["GeneralitesEtiquetage.DenominationLegale", "generic_name_fr"],
-	
+
 			["GeneralitesEtiquetage.AvantOuverture", "AvantOuverture"],
 			["GeneralitesEtiquetage.ApresOuverture", "ApresOuverture"],
 			["GeneralitesEtiquetage.TemperatureConservationEmplacement", "TemperatureConservationEmplacement"],
-			
+
 			["GeneralitesEtiquetage.FormulationExactEMetrologiqueEmballage", "FormulationExactEMetrologiqueEmballage"],
 			["GeneralitesEtiquetage.AutreInformationsConsommateurs", "AutreInformationsConsommateurs"],
 			["GeneralitesEtiquetage.AutresMentionsObligatoires", "AutresMentionsObligatoires"],
 			["GeneralitesEtiquetage.AdresseInformationsConsommateur", "customer_service_fr"],
 
-			["GeneralitesEtiquetage.CodeEmballeurLocalisation", "CodeEmballeurLocalisation"],			
+			["GeneralitesEtiquetage.CodeEmballeurLocalisation", "CodeEmballeurLocalisation"],
 			["GeneralitesEtiquetage.EstampilleSanitaireLocalisation", "EstampilleSanitaireLocalisation"],
 			["GeneralitesEtiquetage.Conseils", "preparation_fr"],
-			
+
 			["GeneralitesEtiquetage.PoidsNetUnite", "net_weight_unit"],
 			["GeneralitesEtiquetage.PoidsNetValeur", "net_weight_value"],
 			["GeneralitesEtiquetage.PoidsNetEgouteUnite", "drained_weight_unit"],
 			["GeneralitesEtiquetage.PoidsNetEgouteValeur", "drained_weight_value"],
 			["GeneralitesEtiquetage.PoidsNetUnite", "net_weight_unit"],
-			["GeneralitesEtiquetage.PoidsNetValeur", "net_weight_value"],	
+			["GeneralitesEtiquetage.PoidsNetValeur", "net_weight_value"],
 
 			["GeneralitesEtiquetage.Ingredients", "ingredients_text_fr"],
 
-			
+
 			["LetterNutriscore", "nutriments.nutrition-score-fr-producer"],
-			
+
 			["Nutritionnel.portions.100g.valeurs.EquivalenceSodiumEnSelGrammes", "nutriments.salt_g"],
 			["Nutritionnel.portions.100g.valeurs.AcidesGrasOmega3Grammes", "nutriments.omega-3-fat_g"],
 			["Nutritionnel.portions.100g.valeurs.AcidesGrasOmega6Grammes", "nutriments.omega-6-fat_g"],
@@ -343,14 +335,14 @@ UpdateDate => undef,
 			["Nutritionnel.portions.100g.valeurs.SucresGrammes", "nutriments.sugars_g"],
 			["Nutritionnel.portions.100g.valeurs.FibresAlimTotalGrammes", "nutriments.fiber_g"],
 			["Nutritionnel.portions.100g.valeurs.AlcoolGrammes", "nutriments.alcohol_g"],
-			
+
 			#["Nutritionnel.portions.100g.valeurs.AcideGrasO3ALA", "nutriments."],
 			#["Nutritionnel.portions.100g.valeurs.Erythritol", "nutriments."],
 			#["Nutritionnel.portions.100g.valeurs.Salatrim", "nutriments."],
 			["Nutritionnel.portions.100g.valeurs.AcidesGrasTransGrammes", "nutriments.trans-fat_g"],
 			#["Nutritionnel.portions.100g.valeurs.AcideGrasO3EPADHA", "nutriments."],
-			
-			
+
+
 			["VitaminesMineraux.portions.100g.valeurs.Vit_B8_(H)_-_Biotine_(µg)_-_AJR_:_50_µg", "nutriments."],
 			["VitaminesMineraux.portions.100g.valeurs.Magnésium_(mg)_-_AJR_:_375_mg", "nutriments.magnesium_mg"],
 			["VitaminesMineraux.portions.100g.valeurs.Extrait_sec_(g)", "nutriments.drained_extract_g"],
@@ -379,7 +371,7 @@ UpdateDate => undef,
 			["VitaminesMineraux.portions.100g.valeurs.Vit_B3_(PP)_-_Niacine_(mg)_-_AJR_:_16_mg", "nutriments.vitamin-pp_mg"],
 			["VitaminesMineraux.portions.100g.valeurs.Sélénium_(µg)_-_AJR_:_55_µg", "nutriments.selenium_µg"],
 			["VitaminesMineraux.portions.100g.valeurs.Vit_B2_-_Riboflavine_(mg)_-_AJR_:_1,4_mg", "nutriments.vitamin-b2_mg"],
-			
+
 			#["VitaminesMineraux.portions.100g.valeurs.Sodium_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100g.valeurs.Bicarbonates_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100g.valeurs.Fluor_(mg/l)", "nutriments."],
@@ -389,12 +381,12 @@ UpdateDate => undef,
 			#["VitaminesMineraux.portions.100g.valeurs.Chlorures_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100g.valeurs.Calcium_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100g.valeurs.Magnésium_(mg/l)", "nutriments."],
-			#["VitaminesMineraux.portions.100g.valeurs.Nitrates_(mg/l)", "nutriments."],			
+			#["VitaminesMineraux.portions.100g.valeurs.Nitrates_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100g.valeurs.Résidu_sec_à_180°C_(mg/l)", "nutriments."],
 
-			
+
 			# 100 ml
-			
+
 			["Nutritionnel.portions.100ml.valeurs.EquivalenceSodiumEnSelGrammes", "nutriments.salt_g"],
 			["Nutritionnel.portions.100ml.valeurs.AcidesGrasOmega3Grammes", "nutriments.omega-3-fat_g"],
 			["Nutritionnel.portions.100ml.valeurs.AcidesGrasOmega6Grammes", "nutriments.omega-6-fat_g"],
@@ -412,14 +404,14 @@ UpdateDate => undef,
 			["Nutritionnel.portions.100ml.valeurs.SucresGrammes", "nutriments.sugars_g"],
 			["Nutritionnel.portions.100ml.valeurs.FibresAlimTotalGrammes", "nutriments.fiber_g"],
 			["Nutritionnel.portions.100ml.valeurs.AlcoolGrammes", "nutriments.alcohol_g"],
-			
+
 			#["Nutritionnel.portions.100ml.valeurs.AcideGrasO3ALA", "nutriments."],
 			#["Nutritionnel.portions.100ml.valeurs.Erythritol", "nutriments."],
 			#["Nutritionnel.portions.100ml.valeurs.Salatrim", "nutriments."],
 			["Nutritionnel.portions.100ml.valeurs.AcidesGrasTransGrammes", "nutriments.trans-fat_g"],
 			#["Nutritionnel.portions.100ml.valeurs.AcideGrasO3EPADHA", "nutriments."],
-			
-			
+
+
 			["VitaminesMineraux.portions.100ml.valeurs.Vit_B8_(H)_-_Biotine_(µg)_-_AJR_:_50_µg", "nutriments."],
 			["VitaminesMineraux.portions.100ml.valeurs.Magnésium_(mg)_-_AJR_:_375_mg", "nutriments.magnesium_mg"],
 			["VitaminesMineraux.portions.100ml.valeurs.Extrait_sec_(g)", "nutriments.drained_extract_g"],
@@ -448,7 +440,7 @@ UpdateDate => undef,
 			["VitaminesMineraux.portions.100ml.valeurs.Vit_B3_(PP)_-_Niacine_(mg)_-_AJR_:_16_mg", "nutriments.vitamin-pp_mg"],
 			["VitaminesMineraux.portions.100ml.valeurs.Sélénium_(µg)_-_AJR_:_55_µg", "nutriments.selenium_µg"],
 			["VitaminesMineraux.portions.100ml.valeurs.Vit_B2_-_Riboflavine_(mg)_-_AJR_:_1,4_mg", "nutriments.vitamin-b2_mg"],
-			
+
 			#["VitaminesMineraux.portions.100ml.valeurs.Sodium_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100ml.valeurs.Bicarbonates_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100ml.valeurs.Fluor_(mg/l)", "nutriments."],
@@ -458,16 +450,16 @@ UpdateDate => undef,
 			#["VitaminesMineraux.portions.100ml.valeurs.Chlorures_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100ml.valeurs.Calcium_(mg/l)", "nutriments."],
 			#["VitaminesMineraux.portions.100ml.valeurs.Magnésium_(mg/l)", "nutriments."],
-			#["VitaminesMineraux.portions.100ml.valeurs.Nitrates_(mg/l)", "nutriments."],			
-			#["VitaminesMineraux.portions.100ml.valeurs.Résidu_sec_à_180°C_(mg/l)", "nutriments."],			
-			
-			
+			#["VitaminesMineraux.portions.100ml.valeurs.Nitrates_(mg/l)", "nutriments."],
+			#["VitaminesMineraux.portions.100ml.valeurs.Résidu_sec_à_180°C_(mg/l)", "nutriments."],
+
+
 			# get the code first
 
 			# don't trust the EAN from the XML file, use the one from the file name instead
 			# -> sometimes different
 			#["fields.AL_CODE_EAN.*", "code"],
-			
+
 
 			# we can have multiple files for the same code
 			# e.g. butter from Bretagne and from Normandie
@@ -714,7 +706,7 @@ $fields{other_information_fr} = 1;
 push @fields, "conservation_fr";
 push @fields, "preparation_fr";
 push @fields, "other_information_fr";
-	
+
 
 foreach my $code (sort keys %products) {
 
@@ -725,7 +717,7 @@ foreach my $code (sort keys %products) {
 	#		["GeneralitesEtiquetage.TemperatureConservationEmplacement", "TemperatureConservationEmplacement"],
 	#		["GeneralitesEtiquetage.AutreInformationsConsommateurs", "AutreInformationsConsommateurs"],
 	#		["GeneralitesEtiquetage.AutresMentionsObligatoires", "AutresMentionsObligatoires"],
-	
+
 	if ((defined $product_ref->{TemperatureConservationEmplacement}) and ($product_ref->{TemperatureConservationEmplacement} ne "")) {
 		defined ($product_ref->{conservation_fr}) or $product_ref->{conservation_fr} = "";
 		$product_ref->{conservation_fr} .= $product_ref->{TemperatureConservationEmplacement} . "\n";
@@ -749,13 +741,13 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{AutreInformationsConsommateurs}) and ($product_ref->{AutreInformationsConsommateurs} ne "")) {
 		defined ($product_ref->{other_information_fr}) or $product_ref->{other_information_fr} = "";
 		$product_ref->{other_information_fr} .= $product_ref->{AutreInformationsConsommateurs} . "\n";
-	}	
+	}
 	if ((defined $product_ref->{AutresMentionsObligatoires}) and ($product_ref->{AutresMentionsObligatoires} ne "")) {
 		defined ($product_ref->{other_information_fr}) or $product_ref->{other_information_fr} = "";
 		$product_ref->{other_information_fr} .= $product_ref->{AutresMentionsObligatoires} . "\n";
-	}		
 	}
-	
+	}
+
 	if ((defined $product_ref->{AutresMentionsObligatoires}) and ($product_ref->{AutresMentionsObligatoires} ne "")) {
 		$product_ref->{AutresMentionsObligatoires} =~ s/Nutriscore(\s?): \w/Nutriscore /;
 	}
@@ -763,14 +755,14 @@ foreach my $code (sort keys %products) {
 	if ($product_ref->{product_name_fr} =~ /\bauchan\b/i) {
 		$product_ref->{product_name_fr} =~ s/\bauchan\b//ig;
 	}
-	
+
 	if ($product_ref->{product_name_fr} =~ /\brik et rok\b/i) {
 		$product_ref->{product_name_fr} =~ s/\brik et rok\b//ig;
 		$product_ref->{brands} .= ", Rik et Rok";
-	}	
-	
+	}
+
 	$product_ref->{product_name_fr} =~ s/\r|\n/ /g;
-	
+
 	# quantity
 	$product_ref->{quantity} = $product_ref->{FormulationExactEMetrologiqueEmballage};
 	# en face avant  => 3 mini sachets / 210 g (3 x 70 g)
@@ -865,14 +857,14 @@ foreach my $code (sort keys %products) {
 	if (defined $product_ref->{ProductClassification}) {
 		$product_ref->{ProductClassification} =~ s/.*\d - //;
 	}
-	
+
 	match_taxonomy_tags($product_ref, "ProductClassification", "categories",
 	{
 		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
 		# stopwords =>
 	}
-	);	
-	
+	);
+
 	# also try the product name
 	match_taxonomy_tags($product_ref, "product_name_fr", "categories",
 	{
@@ -920,13 +912,13 @@ foreach my $code (sort keys %products) {
 		# stopwords =>
 	}
 	);
-	
+
 	match_taxonomy_tags($product_ref, "EstampilleSanitaireLocalisation", "emb_codes",
 	{
 		split => ',|( \/ )|\r|\n|\+|:|;|=|\(|\)|\b(et|par|pour|ou|sur|au)\b',
 		# stopwords =>
 	}
-	);	
+	);
 
 	print STDERR "emb_codes : " . $product_ref->{emb_codes} . "\n";
 
