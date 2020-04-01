@@ -225,9 +225,8 @@ my @tests = (
 	    'text' => "haseln\x{fc}sse"
 	  },
 	  {
-	    'id' => 'en:almond',
-	    'processing' => "de:mit-sonnenblumen\x{f6}l-ge\x{f6}lt",
-	    'text' => 'mandeln'
+	    'id' => "de:mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt",
+	    'text' => "mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt"
 	  }
 	]
 	],
