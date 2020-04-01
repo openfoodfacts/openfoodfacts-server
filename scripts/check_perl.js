@@ -1,10 +1,10 @@
 /*eslint no-console: "off"*/
 /*eslint no-await-in-loop: "off"*/
 
-const process = require('process');
-const util = require('util');
-const glob = util.promisify(require('glob').glob);
-const execFile = util.promisify(require('child_process').execFile);
+const process = require("process");
+const util = require("util");
+const glob = util.promisify(require("glob").glob);
+const { spawn } = require("child_process");
 
 async function main() {
   // 0 = node; 1 = check_perl.js
@@ -14,21 +14,22 @@ async function main() {
       const path = files[i];
       console.log(`Checking ${path}`);
       try {
-        const { stdout, stderr } = await execFile(`perl`, ['-c', '-CS', '-Ilib', files[i]]);
-        if (stderr) {
-          console.error(stderr);
-        }
-
-        console.log(stdout);
+        const child = spawn(`perl`, ["-c", "-CS", "-Ilib", path]);
+        child.stdout.on("data", (data) => console.log("[" + path + "] " + data));
+        child.stderr.on("data", (data) => console.error("[" + path + "] " + data));
+        child.on("close", (code) => {
+          console.log("[" + path + "] result: " + code);
+          process.exitCode = code;
+        });
       } catch (e) {
-        console.error(e);
+        console.error("[" + path + "] " + e);
         process.exitCode = e.code;
         throw e;
       }
     }
   }
 
-  console.log('Done!');
+  console.log("Done!");
 }
 
 main();
