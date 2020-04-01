@@ -3146,7 +3146,7 @@ sub preparse_ingredients_text($$) {
 			}
 			$prefixregexp =~ s/^\|//;
 
-			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\s|$symbols_regexp)*";
+			$prefixregexp = '(' . $prefixregexp . ')( bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
 
 			my $suffixregexp = "";
 			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
