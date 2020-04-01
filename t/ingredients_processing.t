@@ -263,6 +263,33 @@ my @tests = (
 			]
 		],
 
+		# de:geschält and variants
+			[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse, 
+						passionsfrucht ungeschwefelt, geschwefelte gurken" }, 
+				[
+					{
+						'id' => 'en:shallot',
+						'processing' => 'de:geschält',
+						'text' => 'Schalotte'
+					},
+					{
+						'id' => 'en:hazelnut',
+						'processing' => 'de:geschält',
+						'text' => "haselnüsse"
+					},
+					{
+						'id' => 'en:passion-fruit',
+						'processing' => 'de:ungeschält',
+						'text' => 'passionsfrucht'
+						},
+					{
+						'id' => 'en:gherkin',
+						'processing' => 'de:ungeschält',
+						'text' => 'gurken'
+					}
+				]
+			],
+
 # Test for process de:gesüßt 
 	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
 		[
