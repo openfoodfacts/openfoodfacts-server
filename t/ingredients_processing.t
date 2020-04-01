@@ -285,32 +285,32 @@ my @tests = (
 		]
 	],
 
-		# de:geschält and variants
-			[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse, 
-						passionsfrucht ungeschwefelt, geschwefelte gurken" }, 
-				[
-					{
-						'id' => 'en:shallot',
-						'processing' => 'de:geschält',
-						'text' => 'Schalotte'
-					},
-					{
-						'id' => 'en:hazelnut',
-						'processing' => 'de:geschält',
-						'text' => "haselnüsse"
-					},
-					{
-						'id' => 'en:passion-fruit',
-						'processing' => 'de:ungeschält',
-						'text' => 'passionsfrucht'
-						},
-					{
-						'id' => 'en:gherkin',
-						'processing' => 'de:ungeschält',
-						'text' => 'gurken'
-					}
-				]
-			],
+# de:geschwefelt and variants
+	[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse, 
+				passionsfrucht ungeschwefelt, geschwefelte gurken" },
+		[
+			{
+			    'id' => 'en:shallot',
+			    'processing' => 'de:geschwefelt',
+			    'text' => 'Schalotte'
+			},
+			{
+			    'id' => 'en:hazelnut',
+			    'processing' => 'de:geschwefelt',
+			    'text' => "haseln\x{fc}sse"
+			},
+			{
+			    'id' => 'en:passion-fruit',
+			    'processing' => 'de:ungeschwefelt',
+			    'text' => 'passionsfrucht'
+			},
+			{
+			    'id' => 'en:gherkin',
+			    'processing' => 'de:geschwefelt',
+			    'text' => 'gurken'
+			}
+		]
+	],
 
 # Test for process de:gesüßt 
 	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
