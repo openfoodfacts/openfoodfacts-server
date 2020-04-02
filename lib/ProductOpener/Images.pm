@@ -1315,6 +1315,12 @@ sub display_image($$$) {
 		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+		if ($id eq ($imagetype . "_" . $display_lc )) {
+			$alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang} . ' - ' .  $display_lc;
+			}
+		elsif ($id eq ($imagetype . "_" . $product_ref->{lc} )) {
+			$alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang} . ' - ' .  $product_ref->{lc};
+			}
 
 		if (not defined $product_ref->{jqm}) {
 			my $noscript = "<noscript>";
