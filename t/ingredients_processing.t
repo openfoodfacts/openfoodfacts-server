@@ -495,58 +495,58 @@ my @tests = (
 						zwiebel zum teil fein zerkleinert,
 						haselnüsse feinst zerkleinert,
 						überwiegend feinst zerkleinert Feigen" }, 
-		[
-			{
-				'id' => 'en:shallot',
-				'processing' => 'de:zerkleinert',
-				'text' => 'Schalotte'
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'de:zerkleinert',
-				'text' => "haselnüsse"
-			},
-			{
-				'id' => 'en:almond',
-				'processing' => "de:zerkleinert",
-				'text' => 'mandeln'
-			},
-			{
-				'id' => 'en:passion-fruit',
-				'processing' => 'de:zerkleinert',
-				'text' => 'passionsfrucht'
-			},
-			{
-				'id' => 'en:gherkin',
-				'processing' => 'de:grob-zerkleinert',
-				'text' => 'gurken'
-			},
-			{
-				'id' => 'en:acerola',
-				'processing' => 'de:fein-zerkleinert',
-				'text' => 'acerola'
-			},
-			{
-				'id' => 'en:spinach',
-				'processing' => 'de:fein-zerkleinert',
-				'text' => 'spinat'
-			},
-			{
-				'id' => 'en:onion',
-				'processing' => 'de:zum-teil-fein-zerkleinert',
-				'text' => 'zwiebel'
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'de:feinst-zerkleinert',
-				'text' => "haselnusskerne"
-			},
-			{
-				'id' => 'en:fig',
-				'processing' => 'de:halbgetrocknet',
-				'text' => 'Feigen'
-			}
-		]
+						[
+						  {
+						    'id' => 'en:shallot',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'Schalotte'
+						  },
+						  {
+						    'id' => 'en:hazelnut',
+						    'processing' => 'de:zerkleinert',
+						    'text' => "haseln\x{fc}sse"
+						  },
+						  {
+						    'id' => 'en:almond',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'mandeln'
+						  },
+						  {
+						    'id' => 'en:passion-fruit',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'passionsfrucht'
+						  },
+						  {
+						    'id' => 'en:gherkin',
+						    'processing' => 'de:grob-zerkleinert',
+						    'text' => 'gurken'
+						  },
+						  {
+						    'id' => 'en:acerola',
+						    'processing' => 'de:fein-zerkleinert',
+						    'text' => 'acerola'
+						  },
+						  {
+						    'id' => 'en:spinach',
+						    'processing' => 'de:fein-zerkleinert',
+						    'text' => 'spinat'
+						  },
+						  {
+						    'id' => 'en:onion',
+						    'processing' => 'de:zum-teil-fein-zerkleinert',
+						    'text' => 'zwiebel'
+						  },
+						  {
+						    'id' => 'en:hazelnut',
+						    'processing' => 'de:feinst-zerkleinert',
+						    'text' => "haseln\x{fc}sse"
+						  },
+						  {
+						    'id' => 'en:fig',
+						    'processing' => "de:\x{fc}berwiegend-feinst-zerkleinert",
+						    'text' => 'Feigen'
+						  }
+						]
 	],
 
 # combinations
