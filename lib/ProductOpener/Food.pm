@@ -3853,7 +3853,7 @@ sub canonicalize_nutriment($$) {
 		}
 	}
 
-	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+	#$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
 
 }
@@ -3876,7 +3876,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+		#$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -3884,7 +3884,7 @@ foreach my $nid (keys %Nutriments) {
 			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
-				$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
+				#$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
 			}
 			if ($sublabel =~ /alpha-/) {
 				$sublabel =~ s/alpha-/a-/;
@@ -3974,7 +3974,7 @@ sub normalize_serving_size($) {
 		$q = unit_to_g($q,$u);
 	}
 
-	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
+	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
 
