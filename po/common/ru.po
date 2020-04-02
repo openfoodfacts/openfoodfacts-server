@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-02 19:59\n"
+"PO-Revision-Date: 2020-04-02 21:57\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1973,7 +1973,7 @@ msgstr "Формат CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Набор символов: Unicode (UTF-8) - Разделитель: табуляция (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2479,7 +2479,7 @@ msgstr "Ошибки при снятии выбора с изображения.
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Включить масштабирование с помощью колеса мыши."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3712,31 +3712,31 @@ msgstr "Файл получен"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Детали расчета Nutri-core"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Этот продукт считается напитком для расчета Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Этот продукт не считается напитком для расчета Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Положительные баллы"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Отрицательные баллы"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Баллы за белки подсчитываются, потому что отрицательные баллы меньше 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Баллы за белки не учитываются, потому что отрицательные баллы больше или равны 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
@@ -3802,7 +3802,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Оценка Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3887,7 +3887,7 @@ msgstr ""
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Модератор платформы производителей"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
@@ -3927,7 +3927,7 @@ msgstr ""
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Модерация платформы производителей"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
@@ -3957,15 +3957,15 @@ msgstr "Пользователь %s не существует"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Идентификатор должен иметь форму user-abc или org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Импорт категорий товаров из общедоступной базы данных"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Добавить категории из общедоступной базы данных в продукты на платформе для производителей."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
@@ -3977,15 +3977,15 @@ msgstr "Оценка Nutri-Score от производителя"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Рассчитанная оценка Nutri-Score"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Оценка Nutri-Score от производителя"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Рассчитанная оценка Nutri-Score"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4045,19 +4045,19 @@ msgstr "Обратите внимание, что это действие не �
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Предупреждение: это действие не может быть отменено. Вы уверены, что хотите удалить все свои продукты из платформы для производителей?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "Эта функция недоступна."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "Ваши товары были удалены из платформы для производителей."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "Подробности анализа ингредиентов"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
