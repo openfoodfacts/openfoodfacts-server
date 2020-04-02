@@ -294,7 +294,39 @@ my @tests = (
 			}
 		]
 	],
-		
+	
+# de:gepoppt and variants
+	[ { lc => "de", ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse, 
+				passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes gurken" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gepufft',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gepufft',
+				'text' => "haselnüsse"
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:gepufft',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:gepufft',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:gepufft',
+				'text' => 'gurken'
+			}
+		]
+	],
+	
 # de:geschält and variants
 	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
 				passionsfrucht ungeschält, ungeschälte gurken" }, 
