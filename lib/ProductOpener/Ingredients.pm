@@ -3146,7 +3146,7 @@ sub preparse_ingredients_text($$) {
 			}
 			$prefixregexp =~ s/^\|//;
 
-			$prefixregexp = "(" . $prefixregexp . ")( bio| biologique| équitable|s|\\s|$symbols_regexp)*";
+			$prefixregexp = '(' . $prefixregexp . ')( bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
 
 			my $suffixregexp = "";
 			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
@@ -3222,7 +3222,7 @@ INFO
 
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 
-		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
 		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
@@ -3358,7 +3358,7 @@ INFO
 						# print STDERR "-- label: $labelid - regexp: $regexp\n";
 						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
 						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
-						if ($after =~ /^($regexp)\s*(\([^\)]+\))?\s*\.?\s*/i) {
+						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
 							$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $product_lc_label = display_taxonomy_tag($product_lc, "labels", $labelid);

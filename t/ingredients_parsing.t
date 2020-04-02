@@ -13,7 +13,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 is (normalize_a_of_b("en", "oil", "olive"), "olive oil");
 is (normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
@@ -173,10 +173,14 @@ my @lists =(
 	["de", "Emulgator (Sojalecithine, Mono - und Diglyceride von Speisefettsäuren, Sorbitantristearat)", "Emulgator (Sojalecithine, mono- und Diglyceride von Speisefettsäuren, Sorbitantristearat)"],
 
 	["fr", "Tomates* (20%). *Ingrédients Bio", "Tomates Bio (20%)."],
+	["fr", "Tomates* (20%). *Ingrédients biologiques", "Tomates Bio (20%)."],
 
 	["fr", "Chocolat. Contient du lait et des noisettes. Peut contenir du blé, du soja et des crustacés.", "Chocolat. Substances ou produits provoquant des allergies ou intolérances : lait, Substances ou produits provoquant des allergies ou intolérances : noisettes. Traces éventuelles : blé, Traces éventuelles : soja, Traces éventuelles : crustacés."],
 
 	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
+
+	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium", 
+	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"]
 );
 
 foreach my $test_ref (@lists) {
