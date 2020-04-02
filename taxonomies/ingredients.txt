@@ -294,7 +294,7 @@ en:agente coagulante, agentes coagulantes
 es:Agentes coagulantes
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
-it:agente coagulante, coagulante
+it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 # <en:function
@@ -311,7 +311,7 @@ fi:happamuudensäätöaine, happamuudensäätöaineet
 fr:correcteur d’acidité, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
-it:correttore di acidità, correttori di acidità, regolatore di acidità
+it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -338,7 +338,7 @@ fi:Paakkuuntumisenestoaine
 fr:antiagglomérant, anti-agglomérants, antiagglomérants, anti-agglomérant
 ga:Oibreán frithstolptha
 hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti
+it:Agenti antiagglomeranti, agente antiagglomerante, antiagglomerante, antiagglomeranti
 lt:Lipnumą reguliuojanti medžiaga
 lv:Pretsalipes viela
 mt:Aġent kontra t-tagħqid
@@ -365,7 +365,7 @@ fi:vaahdonestoaine
 fr:Antimoussant
 ga:Oibreán frithchúrtha
 hu:Habzásgátló
-it:Agenti antischiumogeni
+it:Agenti antischiumogeni, agente antischiumogeno, antischiumogeno, antischiumogeni
 lt:Medžiaga nuo putojimo
 lv:Putu dzēsējs
 mt:Aġent kontra r-ragħwa
@@ -508,7 +508,7 @@ fi:emulgointiaine, emulgointiaineet
 fr:Émulsifiant
 ga:Eiblitheoir
 hu:Emulgeálószer
-it:Emulsionanti, emulsionante
+it:Emulsionanti, emulsionante, agente emulsionante, agenti emulsionanti
 lt:Emulsiklis
 lv:Emulgators
 mt:Emulsifikant
@@ -563,7 +563,7 @@ fi:sakeuttamisaine, sakeuttamisaineet
 fr:épaississant, Épaississant, agent épaississant, agents épaississants, épaissisant
 ga:Tiúsóir
 hu:Sűrítőanyag
-it:Addensante, Addensanti
+it:Addensante, Addensanti, agente addensante, agenti addensanti
 lt:Tirštiklis
 lv:Biezinātājs
 mt:Aġent li jgħaqqad
@@ -607,7 +607,7 @@ de:Backmittel
 fi:vahvenne
 fr:améliorant, améliorants
 hu:javító
-it:miglioranti
+it:miglioranti, migliorante, agente migliorante, agenti miglioranti
 nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
@@ -7974,6 +7974,7 @@ de:pasteurisierte teilentrahmte Milch
 fi:pastöroitu kevytmaito
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi ecreme
 hu:pasztőrözött zsírszegény tej
+it:latte pastorizzato parzialmente scremato, latte parzialmente scremato pastorizzato
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
@@ -8064,6 +8065,7 @@ de:Bio-Vollmilch
 fi:luomu täysmaito
 fr:lait entier bio, lait entier issu de l'agriculture biologique
 hu:bio teljes tej
+it:latte intero biologico, latte biologico intero
 nl:volle melk van biologische oorsprong
 
 <en:whole milk
@@ -8073,6 +8075,7 @@ de:sterilisierte Vollmilch
 fi:steriloitu täysmaito
 fr:lait entier stérilisé
 hu:hőkezelt teljes tej
+it:latte intero sterilizzato, latte sterilizzato intero
 
 <en:whole milk
 <en:UHT pasteurised milk
@@ -13736,6 +13739,20 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:meat
+<en:beef
+en:beef meat, pure beef meat
+de:Rindfleisch
+es:Carne pura de vaca
+fi:naudanliha, naudanlihaa
+fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
+hu:marhahús
+it:carne di manzo, carne bovina
+nl:Rundvlees
+zh:牛肉
+carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr:35.8
+
 
 <en:beef meat
 en:cooked beef meat
@@ -13810,7 +13827,7 @@ de:gekochtes Rindfleisch
 fi:Kypsennetty nauta, kypsennetty naudanliha
 fr:viande de bœuf cuite, viande de boeuf cuite, bœuf cuit, boeuf cuit
 hu:főtt marhahús
-it:manzo cotto
+it:manzo cotto, carne di manzo cotta
 nl:gekookt rundvlees
 # ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
 
@@ -14563,7 +14580,7 @@ hu:szalonna, bacon, bacon szalonna
 id:Bacon
 io:Lardo
 is:Beikon
-it:pancetta, bacon, lardo
+it:pancetta, bacon, speck
 ja:ベーコン
 kk:Бекон
 ko:베이컨
@@ -14673,6 +14690,7 @@ de:Schweinezunge
 fi:sian kieli
 fr:langue de porc
 hu:sertésnyelv, disznónyelv
+it:lingua di maiale
 
 <en:pork meat
 fr:noix de jambon de porc
@@ -14750,6 +14768,7 @@ en:raw ham
 de:Rohschinken
 fi:raakakinkku
 fr:jambon cru
+it:prosciutto crudo
 
 <en:raw ham
 en:Serrano raw ham
@@ -14758,6 +14777,7 @@ fr:jambon cru de Serrano
 <en:raw ham
 en:Italian raw ham
 fr:jambon cru italien
+it:prosciutto crudo italiano
 
 <en:raw ham
 fr:jambon cru fumé
@@ -14768,6 +14788,7 @@ de:gekochter Schinken
 fi:kypsennetty kinkku
 fr:jambon cuit
 hu:főtt sonka
+it:prosciutto cotto
 
 <en:cooked ham
 fr:jambon cuit choix
@@ -14829,7 +14850,7 @@ fr:jarret de porc
 
 <en:pork meat
 fr:cuisse de porc
-it:coscia di suino
+it:coscia di suino, coscia suina
 
 <en:pork meat
 fr:gorge de porc
@@ -14865,6 +14886,7 @@ es:Higado de cerdo
 fi:sianmaksa
 fr:foie de porc
 hu:sertésmáj
+it:fegato di maiale
 nl:varkenslever
 ro:piept de porc, piet porc
 zh:猪肝
@@ -15021,19 +15043,6 @@ fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
-
-<en:meat
-<en:beef
-en:beef meat, pure beef meat
-de:Rindfleisch
-es:Carne pura de vaca
-fi:naudanliha, naudanlihaa
-fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
-hu:marhahús
-nl:Rundvlees
-zh:牛肉
-carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
-carbon_footprint_fr_foodges_value:fr:35.8
 
 # SAUSAGES
 
@@ -15252,7 +15261,7 @@ es:Almidón modificado de maiz
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 hu:módosított kukoricakeményítő
-it:amido modificato di mais
+it:amido modificato di mais, amido di mais modificato
 nl:Gemodificeerd maïszetmeel
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
@@ -15829,7 +15838,7 @@ hr:Svinjska mast
 hu:Disznózsír, sertészsír
 id:Lemak babi
 io:Saimo
-it:strutto, grasso di maiale
+it:strutto, grasso di maiale, grasso di suino, grasso suino
 ja:ラード
 ko:라드
 lb:Schmalz
@@ -17067,7 +17076,7 @@ gl:Aceite de soia
 he:שמן סויה
 hu:szójaolaj, szójababolaj
 id:Minyak kedelai
-it:Olio di semi di soia
+it:Olio di semi di soia, olio di soia
 ja:大豆油
 ko:콩기름
 lt:Sojų aliejus
@@ -17972,7 +17981,9 @@ wikidata:en:Q618322
 wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
 
 <en:balsamic vinegar
+en:balsamic vinegar of modena, modena balsamic vinegar
 fr:vinaigre balsamique de modène
+it:aceto balsamico di modena
 
 <en:balsamic vinegar
 en:white balsamic vinegar
@@ -18139,7 +18150,7 @@ hu:etanol
 hy:Էթիլ սպիրտ
 id:Etanol
 is:Etanól
-it:alcol etilico, etanolo
+it:alcol etilico, etanolo, alcool
 ja:エタノール
 jv:Etanol
 ka:ეთანოლამიდი
@@ -20859,6 +20870,7 @@ es:Sabor res
 fi:naudanliha-aromi
 fr:arôme de boeuf
 hu:természetes marhahús aroma
+it:aroma al manzo
 vegan:en:no
 vegetarian:en:no
 
@@ -22663,6 +22675,7 @@ es:Hojuelas de avena libres de gluten
 fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
+it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
 
 <en:oat
 <en:vegetable fibre
@@ -22686,7 +22699,7 @@ es:Avena integral laminada
 fi:täysjyväkaurahiutale
 fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
 hu:teljes kiőrlésű zabpehely
-it:fiocchi di avena integrale
+it:fiocchi di avena integrale, fiocchi d'avena integrale
 nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
 nn:fullkornshavregryn
 pl:płatki owsiane z pełnego przemiału
@@ -23161,7 +23174,7 @@ fr:farine de blé, farines de blé, farine de froment
 hr:pšenično brašno
 hu:búzaliszt
 is:hveiti
-it:farina di frumento
+it:farina di frumento, farina di grano, farina di grano tenero
 ja:小麦粉
 lt:kviešu milti, kvietiniai
 lv:kvietiniai miltai
@@ -23208,6 +23221,7 @@ fr:farine de blé malté torréfié
 
 
 # the t** is not translated in the ingredients
+# there is a correspondence between french type and italian type but I don't know it
 
 <en:wheat flour
 fr:farine de blé type 45
@@ -23226,6 +23240,14 @@ fr:farine de blé t80
 <en:wheat flour
 fr:farine de blé bio
 nl:biologische tarwemeel
+
+<en:wheat flour
+en:wheat flour type 0, flour type 0
+it:farina di grano tenero tipo 0, farina di grano tipo 0
+
+<en:wheat flour
+en:wheat flour type 00, flour type 00
+it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
 en:durum wheat flour
@@ -23338,7 +23360,7 @@ es:harina de malta de cebada
 fi:ohramallasjauho
 fr:farine de malt d'orge, farine d'orge malté
 hu:árpamalátaliszt
-it:farina di orzo maltato, farina di orzo maltato
+it:farina di orzo maltato, farina d'orzo maltato
 
 <en:barley flour
 fr:farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
@@ -27019,6 +27041,7 @@ en:beef protein
 de:Rindeiweiß
 fi:naudanlihaproteiini, naudan proteiini
 hu:marhafehérje
+it:proteine del manzo, proteine di manzo
 vegetarian:en:no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-proteiini
 # 1 entry @ 2019-10-31
@@ -29015,7 +29038,7 @@ ga:Oibreán éiritheach
 he:התפחה
 hu:Térfogatnövelő szer
 id:Bahan pengembang
-it:Agenti lievitanti
+it:Agenti lievitanti, agente lievitante
 ja:膨張剤
 ko:팽창제
 lt:Tešlos kildymo medžiaga, Puriklis
@@ -30747,7 +30770,7 @@ hy:Սոդա
 ia:Bicarbonato de Sodium
 id:Natrium bikarbonat
 is:Matarsódi
-it:carbonato acido di sodio, bicarbonato di sodio
+it:bicarbonato di sodio, carbonato acido di sodio
 ja:炭酸水素ナトリウム
 kk:Ас содасы
 kn:ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
@@ -30927,7 +30950,7 @@ gl:Bicarbonato amónico
 hi:अमोनियम बाईकार्बोनेट
 hu:ammonium bikarbonat, Ammónium-hidrogén-karbonát
 is:Ammoníumbíkarbónat
-it:bicarbonato di ammonio, Carbonato acido di ammonio
+it:Bicarbonato di ammonio, carbonato acido di ammonio, carbonato acido d'ammonio
 ja:炭酸水素アンモニウム
 ko:탄산 수소 암모늄
 lt:Amonio hidrokarbonatas
@@ -32064,7 +32087,7 @@ id:buah pir
 ig:Ube
 io:Piro
 is:pera
-it:pere
+it:pera, pere
 ja:梨
 ka:მსხალი
 kk:алмұрт
@@ -32857,7 +32880,7 @@ hu:Citrus
 hy:ցիտրուսայիններ
 id:Jeruk
 is:Sítrus
-it:Citrus
+it:agrumi, agrume
 ja:ミカン属
 jv:Sitrus
 ka:ციტრუსოვანი კულტურები
@@ -33900,7 +33923,7 @@ ht:Franbwaz
 hu:málna
 hy:Ազնվամորի
 io:Frambo
-it:lamponi
+it:lamponi, lampone
 ja:ラズベリー
 kk:Таңқурай
 kn:ರಾಸ್‍ಬೆರಿ
@@ -34518,7 +34541,7 @@ ia:ceresia
 id:Ceri
 io:cerizo
 is:Kirsuber
-it:ciliegie
+it:ciliegie, ciliegia
 ja:サクランボ
 jv:Cèri
 ka:ალუბალი
@@ -37934,7 +37957,7 @@ he:ארטישוק
 hu:Articsóka
 id:Artichoke
 io:Artichoko
-it:carciofo
+it:carciofo, carciofi
 ja:アーティチョーク
 kk:Бөрікгүл
 kn:ಆರ್ಟಿಚೋಕ್
@@ -38004,7 +38027,7 @@ cs:Chřest lékařský
 da:Asparges
 de:Spargel, Gemüsespargel
 el:Σπαράγγι
-eo:Asparago
+eo:Asparago, asparagi
 es:espárrago, espárragos
 et:spargel, asparaagus
 eu:Себен үләне
@@ -38187,7 +38210,7 @@ gl:Acelga
 he:סלק עלים
 hr:Blitva
 hu:Mángold
-it:Bietola
+it:Bietola, bietole
 ja:フダンソウ
 kk:Жапырақты қызылша
 ko:근대
@@ -39701,7 +39724,7 @@ fr:chou vert, choux verts, Chou de Milan
 gv:Cabbash chraplit
 hr:Kelj
 hu:Kelkáposzta
-it:verza
+it:verza, verze
 ja:サボイキャベツ
 ko:사보이양배추
 la:Brassica oleracea sabauda
@@ -42453,7 +42476,7 @@ ha:Barkono
 hu:bell paprika
 id:Paprika
 is:Paprika
-it:peperone
+it:Peperone, peperoni
 ja:ピーマン
 kk:Бұрыш
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
@@ -44190,6 +44213,7 @@ en:red beans, red kidney beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
+it:fagioli rossi
 
 <en:red beans
 en:small red beans
@@ -44540,7 +44564,7 @@ hy:ոլոռ
 id:Ercis
 io:Pizo
 is:Gráerta
-it:Pisello, piselli
+it:Pisello, piselli, pisellini
 ja:エンドウ
 ka:ბარდა
 kk:Бұршақ
@@ -44901,7 +44925,7 @@ hi:मसूर
 hr:Leća
 hu:főzeléklencse
 is:Linsubaun
-it:Lenticchia
+it:Lenticchie, lenticchia
 ja:レンズマメ
 kk:Азықтық жасымық
 kn:ಮಸೂರ ಅವರೆ
@@ -45294,7 +45318,7 @@ fi:pistaasipähkinät
 fr:pistache, pistaches
 ga:cnónna pistéise
 hu:pisztácia
-it:pistacchi
+it:pistacchio, pistacchi
 ja:ピスタチオ
 lt:pistacijos
 lv:pistāciju rieksti
@@ -52526,10 +52550,12 @@ fr:thé vert au jasmin
 <en:green tea
 en:decaffeinated green tea
 fr:thé vert décafeiné
+it:te verde decaffeinato, tè verde decaffeinato
 
 <en:black tea
 en:decaffeinated black tea
 fr:thé noir décafeiné
+it:te nero decaffeinato, tè nero decaffeinato
 
 # en:tree sorrel
 # de:Gurkenbaumfrucht
@@ -63033,7 +63059,7 @@ hu:Pulyka
 hy:հնդկահավեր
 id:kalkun
 is:Kalkún
-it:tacchino, manzo
+it:tacchino
 ja:シチメンチョウ属
 jv:kalkun
 ka:ინდაური
@@ -63110,7 +63136,7 @@ fa:گوشت بوقلمون
 fi:kalkkunanliha
 fr:viande de dinde
 id:Daging kalkun
-it:carne di manzo
+it:carne di tacchino
 ja:七面鳥肉
 ko:칠면조고기
 nl:kalkoenvlees
@@ -64123,7 +64149,7 @@ he:מחית
 hu:püré
 hy:Խյուս
 io:Pureo
-it:purè
+it:purè, purea
 ja:ピュレ
 jv:Puré
 ka:პიურე
@@ -66740,7 +66766,7 @@ de:Rinderbrühe, Rindfleischbouillon
 es:Caldo de carne de vaca
 fi:naudanlihaliemi
 fr:bouillon de bœuf, bouillon de boeuf
-it:brodo di carne
+it:brodo di manzo
 # ingredient/fr:bouillon-de-bœuf has 48 products in 4 languages @2019-03-22
 
 <en:broth
