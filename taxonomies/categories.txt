@@ -325,7 +325,7 @@ fr:Menus Légumes pour bébé
 nl:Babygroentemaaltijden, Babygroentemaaltijd
 
 <en:Main meals for babies
-en:Fish menus for babies
+en: menus for babies
 de:Fischgerichte für Babies
 fr:Menus Poissons pour bébé
 nl:Babyvismaaltijden, Babyvismaaltijd
@@ -603,6 +603,8 @@ fr:Pastis
 de:Pastis
 nl:Pastis, Anijsdranken
 ro:Pastis
+ciqual_food_code:en:1000
+ciqual_food_name:en:Pastis (anise-flavoured spirit)
 
 <en:Alcoholic beverages
 en:Sake
@@ -613,6 +615,8 @@ ja:日本酒, にほんしゅ
 nl:Saké
 ro:Sake
 wikidata:en:Q170219
+ciqual_food_code:en:1026
+ciqual_food_name:en:Sake or rice wine
 
 <en:Beers
 <en:Artisanal spirits
@@ -1118,6 +1122,12 @@ zh:硬酒
 wikidata:en:Q2832208
 
 <en:Alcoholic beverages
+en:Pure alcohol
+fr:Alcool pur
+ciqual_food_code:en:1014
+ciqual_food_name:en:Pure alcohol
+
+<en:Alcoholic beverages
 en:Distilled beverages
 de:Spirituosen, Spirituose
 fr:boissons spiritueuses
@@ -1138,10 +1148,12 @@ ro:Tequilla
 wikidata:en:Q122195
 
 <en:Hard liquors
-fr:Eaux-de-vie, Eau-de-vie
+fr:Eaux-de-vie, Eau-de-vie, eau de vie
 de:Eau de vie, Branntwein
 nl:Vruchtendistillaten
 wikidata:en:Q2166541
+ciqual_food_code:en:1001
+ciqual_food_name:en:Clear fruit brandy or eau-de-vie
 
 <fr:Eaux-de-vie
 en:Brandys, Brandies
@@ -1151,6 +1163,8 @@ fr:Brandys
 hu:Brandy
 nl:Brandies, Brandy
 wikidata:en:Q146470
+ciqual_food_code:en:1001
+ciqual_food_name:en:Clear fruit brandy or eau-de-vie
 
 <en:Brandys
 <en:Distilled beverages
@@ -1162,6 +1176,8 @@ no:Obstler
 sv:Obstler
 bar:Obstla
 wikidata:en:Q222216
+ciqual_food_code:en:1001
+ciqual_food_name:en:Clear fruit brandy or eau-de-vie
 
 <en:Fruit brandy
 pl:Palinca
@@ -1207,6 +1223,8 @@ it:Whisky, whiskey
 nl:Whiskey, Whisky
 ro:Whisky, whiskey
 wikidata:en:Q281
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 fr:Blended whisky, blend
@@ -1214,6 +1232,8 @@ de:Blended Whisky
 hu:Kevert Whisky
 nl:Blended whiskies
 wikidata:en:Q883744
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Rye whisky
@@ -1221,24 +1241,32 @@ de:Roggenwhiskey, Rye Whiskey, Rye Whisky
 fr:whisky de seigle
 nl:Rye whisky
 wikidata:en:Q2535077
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Corn whiskey
 de:Mais whiskey
 nl:Maïswhiskey
 wikidata:en:Q1350656
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Wheat whiskey
 de:Weizen-Whiskey
 nl:Tarwewhiskey
 wikidata:en:Q7991845
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Buckwheat whisky
 de:Buchweizen-Whisky
 nl:Boekweitwhiskey
 wikidata:en:Q20713240
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:American whiskeys, American whiskey
@@ -1248,6 +1276,8 @@ fr:Whisky américain
 nl:Amerikaanse whiskies
 ro:Whisky american, whiskey american
 wikidata_category:en:Q8126582
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:American whiskeys
 en:Bourbon whiskeys, Bourbon whiskey
@@ -1257,6 +1287,8 @@ fr:Bourbons
 nl:Bourbons, Bourbon
 ro:Bourbon
 wikidata:en:Q543127
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:American whiskeys
 en:Tennessee whiskey
@@ -1264,12 +1296,16 @@ de:Tennessee Whiskeys
 fr:Whisky du Tennessee
 nl:Tennessee whiskeys, Tennessee whiskey
 wikidata:en:Q1088701
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Belgian Whisky
 de:Belgische Whiskys
 fr:Whisky belge
 nl:Belgische whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Canadian whiskeys
@@ -1279,6 +1315,8 @@ nl:Canadese whiskies
 zh:加拿大威士忌
 wikidata:en:Q536976
 wikipediacategory:en:Q8340945
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Scotch whisky
@@ -1288,6 +1326,8 @@ fi:skottilainen viski
 fr:Whisky écossais
 nl:Schotse whiskies, Schotse whisky
 wikipediacategory:en:Q8718387
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <fr:Blended whisky
 <en:Scotch whisky
@@ -1295,6 +1335,8 @@ en:Blended scotch whisky
 de:Schottische Blended Whiskys
 fr:Blend écossais, Blends écossais
 nl:Schotse blended whiskies, Schotse blended whisky
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:French Whisky
@@ -1303,6 +1345,8 @@ fr:Whisky français
 nl:Franse whiskies
 zh:法国威士忌
 wikipediacategory:en:Q15975338
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:French Whisky
 en:Alsatian whiskey
@@ -1310,30 +1354,40 @@ de:Whisky aus dem Elsass
 fr:Whisky alsacien
 nl:Elzasser whiskies
 zh:阿尔萨斯威士忌
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:French Whisky
 en:Breton whiskey
 de:Whisky aus der Bretagne
 fr:Whisky breton
 nl:Bretonse whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:French Whisky
 en:Corsican whiskey
 de:Whisky aus Korsika
 fr:Whisky corse
 nl:Corsicaanse whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:French Whisky
 en:Whisky from Lorraine
 de:Whisky aus Lothringen
 fr:Whisky lorrain
 nl:Lotharingse whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:French Whisky
 en:Norman Whisky, Whisky from Normandy
 de:Whisky aus der Normandie
 fr:Whisky normand
 nl:Normandische whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Welsh Whisky
@@ -1341,6 +1395,8 @@ de:Whisky aus Wales
 fr:Whisky gallois
 nl:Welshe whiskies
 wikidata:en:Q7982042
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Irish whiskey
@@ -1349,6 +1405,8 @@ es:Whiskies irlandeses
 fr:Whisky irlandais
 nl:Ierse whiskies
 wikidata:en:Q909747
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:Japanese whiskey
@@ -1356,12 +1414,16 @@ de:Japanische Whiskys
 fr:Whisky japonais
 nl:Japanse whiskies
 wikidata:en:Q901367
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <en:Whisky
 en:German Whiskeys, German Whisky, German Whiskey, German Whiskys
 de:Deutsche Whiskys
 fr:Whiskys allemands, Whisky allemand, Whiskey allemand, Whiskeys allemands, Whiskys d’Allemagne, Whisky d’Allemagne, Whiskey d’Allemagne, Whiskeys d’Allemagne
 nl:Duitse whiskies
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
 
 <fr:Eaux-de-vie
 fr:Aquavit
@@ -1681,12 +1743,16 @@ zh:朗姆酒
 arz:روم
 yue:冧酒
 wikidata:en:Q83376
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Barbadian rum
 de:Rum aus Barbados
 fr:Rhums barbadiens, Rhum barbadien
 nl:Barbados rums, Barbados-rum, Barbados rum
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Cuban rums, Rums from Cuba
@@ -1694,24 +1760,32 @@ de:Kubanische Rums
 fr:Rhums cubains,Rhum cubain
 nl:Cubaanse rums, Rum uit Cuba
 ro:Rom cubanez, Rom Cuba
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Dominican rums
 de:Dominikanische Rums
 fr:Rhums dominicains,Rhum dominicain
 nl:Dominicaanse rums, Dominicaanse rum
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:French rums
 de:Französische Rums
 fr:Rhums français, Rhum français
 nl:Franse rums, Franse rum
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Haitian rums, Rums from Haiti
 de:Haitianische Rums
 fr:Rhums haïtiens
 nl:Haitiaanse rums, Rum uit Haïti
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Jamaican rum, Rums from Jamaica
@@ -1719,6 +1793,8 @@ de:Jamaikanische Rums
 fr:Rhums jamaïcains
 nl:Jamaicaanse rums, Rum uit Jamaica
 ro:Rom jamaican, Rom Jamaica
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Agricultural rums, rhums agricoles
@@ -1726,12 +1802,16 @@ de:Rhum agricole, Agricole Rum
 fr:Rhums agricoles, rhum agricole
 nl:Agrarische rums
 wikidata:en:Q3429796
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Amber rum, dark rum
 de:Dunkler Rum
 fr:Rhums ambrés, rhum ambré
 nl:Donkere rums
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:White rums, white rum
@@ -1740,23 +1820,31 @@ fi:vaaleat rommit
 fr:Rhums blancs, rhum blanc
 nl:Blanke rums, Blanke rum
 ro:Rom alb
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:Brown rum
 de:Braune Rums
 fr:Rhums bruns, rhum brun
 nl:Bruine rums, Bruine rum
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 fr:Rhums industriels, rhum industriel
 de:Industrieller Rum
 nl:Industriële rums
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <en:Rums
 en:old rums, old rum
 de:Alter Rum
 fr:Rhums vieux, rhum vieux
 nl:Oude rums, Oude rum
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
 
 <fr:Eaux-de-vie
 en:Vodka
@@ -1770,16 +1858,22 @@ ro:Vodcă, Vodka
 ru:Водка
 zh:伏特加
 wikidata:en:Q374
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Flavored vodka, flavoured vodka
 it:Vodka aromatizzato, Vodka con aroma
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Polish vodkas
 de:Polnische Wodkas
 fr:Vodkas polonaises
 nl:Poolse wodkas, Poolse wodka
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Russian vodkas
@@ -1789,36 +1883,48 @@ nl:Russische wodkas, Russiche wodka
 ro:Vodcă rusească, Vodcă Rusia, Vodca ruseasca, Vodka ruseasca, vodka Rusia
 ru:Русская водка
 zh:俄罗斯伏特加, 俄罗斯伏特加酒
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Ukrainian vodkas
 de:Ukraninische Wodkas
 fr:Vodkas ukrainiennes
 nl:Ukraïnse wodkas
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Estonian vodkas
 de:Estonische Wodkas
 fr:Vodkas estoniennes
 nl:Estse wodkas
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Latvian vodkas
 de:Litauische Wodkas
 fr:Vodkas lettones
 nl:Letse wodkas
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Lettische vodkas
 de:Lettischer Wodka
 fr:Vodkas lithuaniennes
 nl:Litouwse wodkas
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Vodka
 en:Czech vodkas
 de:Tschechische Wodkas
 fr:Vodkas tchèques
 nl:Tsjechische wodkas
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
 
 <en:Hard liquors
 en:Gins, Gin
@@ -1828,6 +1934,8 @@ fr:Gins, Gin
 nl:Gins
 ro:Gin
 wikidata:en:Q959362
+ciqual_food_code:en:1002
+ciqual_food_name:en:Gin
 
 <en:Alcoholic beverages
 en:Wine-based drinks
@@ -18451,13 +18559,20 @@ nl:Chocoladecakes, Chocoladecake
 pt:Bolos de chocolate
 zh:巧克力蛋糕
 wikidata:en:Q30186
+ciqual_food_code:en:23585
+ciqual_food_name:en:Chocolate cake
 
 <en:Chocolate cakes
 fr:Moelleux au chocolat
+en:Chocolate cake w melting centre refrigerated
+ciqual_food_code:en:39234
+ciqual_food_name:en:Chocolate cake w melting centre, refrigerated
 
 <en:Chocolate cakes
 fr: Blondies, Brownies au chocolat blanc, Blondie, Brownie au chocolat blanc
 wikidata:en:Q1709220
+ciqual_food_code:en:23585
+ciqual_food_name:en:Chocolate cake
 
 <en:Chocolate cakes
 fr:Brownies, Brownie
@@ -18465,6 +18580,8 @@ de:Brownies, Brownie
 nl:Brownies, Brownie
 wikidata:en:Q503129
 oqali_family:en: fr:Biscuits et gateaux industriels - Brownies au chocolat
+ciqual_food_code:en:23585
+ciqual_food_name:en:Chocolate cake
 
 <en:Puddings
 en:Christmas Puddings
@@ -18473,7 +18590,6 @@ fr:Puddings de Noël, Pudding de Noël
 nl:Kerstmispuddings
 wikidata:en:Q852576
 pnns_group_2:en:Biscuits and cakes
-
 
 <en:Puddings
 en:Rice puddings
@@ -18546,6 +18662,8 @@ fi:suklaamadeleinet
 fr:Madeleines au chocolat
 nl:Chocolade madeleines
 oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines au chocolat
+ciqual_food_code:en:24631
+ciqual_food_name:en:Madeleine biscuit, with chocolate, prepacked
 
 <en:Cakes
 en:Pound Cake
@@ -19676,6 +19794,9 @@ nl:Kerstmischocola
 <en:Christmas foods and drinks
 en:Yule log
 fr:Bûches de Noël
+en:Christmas log cake
+ciqual_food_code:en:23030
+ciqual_food_name:en:Christmas log cake
 
 <en:Christmas foods and drinks
 en:Advent calendars
@@ -20088,7 +20209,7 @@ es:Semiconservas, Semi-conservas
 fr:Semi-conserves
 nl:Half geconserveerde producten
 
-en:Fish eggs, Roes
+en: eggs, Roes
 de:Fischeier, Rogen
 fi:kalan mädit
 fr:Œufs de poisson
@@ -20096,7 +20217,7 @@ nl:Visseneieren
 zh:鱼卵, 鱼子
 
 <en:Semi-preserved foods
-<en:fish eggs
+<en: eggs
 fr:Œufs de lump, Œufs de Cyclopterus lumpus, Oeufs de lompe
 de:Seehasenrogen
 wikidata:en:Q3594120
@@ -20179,7 +20300,7 @@ fr:Crêpes au jambon
 fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage
 de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
 
-<en:fish eggs
+<en: eggs
 en:Caviars
 de:Kaviar
 fi:kaviaarit
@@ -20227,9 +20348,9 @@ de:Hackleback Kaviar
 fr:Caviar de hackeleback
 
 <fr:Caviars sauvages
-en:Paddlefish caviars
-de:Paddlefish Kaviar, Kaviar vom Löffelstör
-fr:Caviar de paddlefish
+en:Paddle caviars
+de:Paddle Kaviar, Kaviar vom Löffelstör
+fr:Caviar de paddle
 
 <fr:Caviars sauvages
 en:Ossetra caviar
@@ -21848,15 +21969,27 @@ nl:Cheddarplakken
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
 <fr:Fromages du Nord-Pas-de-Calais
+en:Mimolette cheese from cow's milk
 fr:Mimolettes, vieux Hollande, boule de Lille
 de:Mimolette
 hu:Mimolettes sajtok
 nl:Mimolettes, Commissiekazen
 wikidata:en:Q749121
 oqali_family:en: fr:Fromages - Mimolette
+ciqual_food_code:en:12740
+ciqual_food_name:en:Mimolette cheese, from cow's milk
+ciqual_food_name:fr:Mimolette, sans précision
 
 <en:Cheeses
 en:String cheeses
+
+<en:Cheeses
+en:Saint-Paulin cheese from cow's milk (semi-hard cheese)
+fr:Saint-Paulin
+ciqual_food_code:en:12755
+ciqual_food_name:en:Saint-Paulin cheese, from cow's milk (semi-hard cheese)
+ciqual_food_name:fr:Saint-Paulin (fromage à pâte pressée non cuite demi-ferme)
+
 
 <en:Brined cheeses
 <en:String cheeses
@@ -21873,22 +22006,31 @@ ru:Чечил копчёный
 en:Half-aged mimolettes
 fr:Mimolettes demi-vieilles
 nl:Belegen mimolette
+ciqual_food_code:en:12737
+ciqual_food_name:en:Mimolette cheese, half-old, from cow's milk
 
 <fr:Mimolettes
 en:Extra old mimolettes
 fr:Mimolettes extra vieilles
 nl:Extra oude mimolette
+ciqual_food_code:en:12742
+ciqual_food_name:en:Mimolette cheese, extra old, from cow's milk
 
 <fr:Mimolettes
 en:Young mimolettes
 fr:Mimolettes jeunes
 nl:Jonge mimolette
+ciqual_food_code:en:12735
+ciqual_food_name:en:Mimolette cheese, young, from cow's milk
+ciqual_food_name:fr:Mimolette jeune
 
 <fr:Mimolettes
 en:Old mimolettes
 fr:Mimolettes vieilles
 nl:Oude mimolette
 wikidata:en:Q643697
+ciqual_food_code:en:12738
+ciqual_food_name:en:Mimolette cheese, old, from cow's milk
 
 <en:French cheeses
 <en:Cow cheeses
@@ -21989,7 +22131,11 @@ hu:Ementáli
 it:Emmental, emmenthal, emmentaler
 nl:Emmentalers
 wikidata:en:Q932214
-oqali_family:en: fr:Fromages - Emmental
+oqali_family:en: fr:Fromages - EmmentalΩ
+ciqual_food_code:en:12115
+ciqual_food_name:en:Emmental cheese, from cow's milk
+ciqual_food_name:fr:Emmental ou emmenthal
+
 
 <en:Emmentaler
 <en:Cheeses from Switzerland
@@ -22242,6 +22388,10 @@ nl:Kazen uit Corsica
 <en:French cheeses
 fr:Abondance
 country:en:France
+en:Abondance cheese from cow's milk
+ciqual_food_code:en:12112
+ciqual_food_name:en:Abondance cheese, from cow's milk
+
 
 <en:French cheeses
 <en:Soft cheese with a natural rind
@@ -22253,6 +22403,9 @@ country:en:France
 <en:Cooked pressed cheeses
 fr:Beaufort
 country:en:France
+en:Beaufort cheese from cow's milk
+ciqual_food_code:en:12105
+ciqual_food_name:en:Beaufort cheese, from cow's milk
 
 <en:French cheeses
 fr:Bleu des Causses
@@ -22281,6 +22434,9 @@ country:en:France
 <en:Cow cheeses
 fr:Cantal, fourme de Cantal, cantalet, Cantals
 country:en:France
+ciqual_food_code:en:12722
+ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
+ciqual_food_name:fr:Cantal entre-deux
 
 <en:French cheeses
 <en:Soft cheese with a natural rind
@@ -22429,8 +22585,20 @@ oqali_family:en: fr:Fromages - Saint marcellin et assimiles
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Salers
+en:Salers cheese from cow's milk
 country:en:France
 wikidata:en:Q1245627
+ciqual_food_code:en:12725
+ciqual_food_name:en:Salers cheese, from cow's milk
+
+<en:Cow cheeses
+<en:Uncooked pressed cheeses
+<en:French cheeses
+en:Cantal Salers or Laguiole cheese from cow's milk
+fr:Cantal Salers, Laguiole
+ciqual_food_code:en:12723
+ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
+ciqual_food_name:fr:Cantal, Salers ou Laguiole
 
 <en:Goat cheeses
 <en:Soft cheeses with bloomy rind
@@ -22598,6 +22766,18 @@ fr:Maasdam
 nl:Maasdam
 wikidata:en:Q3273732
 oqali_family:en: fr:Fromages - Maasdam
+ciqual_food_code:en:12705
+ciqual_food_name:en:Firm cheese, around 14% fat, Maasdam-type cheese, reduced fat
+ciqual_food_name:fr:Fromage à pâte ferme environ 14% MG type Masdaam à teneur réduite en MG
+
+<en:Uncooked pressed cheeses
+<en:Cow cheeses
+<en:Cheeses of the Netherlands
+en:Firm cheese around 27% fat Maasdam-type cheese
+fr:fromage type Maasdam 27% MG
+ciqual_food_code:en:12741
+ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
+ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
 <en:Cheeses of the Netherlands
 en:Gouda
@@ -22608,6 +22788,8 @@ fr:Goudas
 nl:Goudse Kazen
 wikidata:en:Q593675
 oqali_family:en: fr:Fromages - Gouda
+ciqual_food_code:en:12736
+ciqual_food_name:en:Gouda cheese, from cow's milk
 
 <en:Gouda
 en:Goudas with cumin
@@ -22671,6 +22853,8 @@ hu:Edámi sajt
 nl:Edam
 wikidata:en:Q597473
 oqali_family:en: fr:Fromages - Edam
+ciqual_food_code:en:12729
+ciqual_food_name:en:Edam cheese, from cow's milk
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -22773,6 +22957,98 @@ it:Formaggio di capra
 nl:Geitenkazen
 ru:Сыр из козьего молока
 wikidata:en:Q198815
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Cheese semi-dry from goat's milk
+fr:Fromage de chèvre demi-sec
+ciqual_food_code:en:12810
+ciqual_food_name:en:Cheese, semi-dry, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Cheese dry from goat's milk
+fr:Fromage de chèvre sec
+ciqual_food_code:en:12815
+ciqual_food_name:en:Cheese, dry, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Chabichou cheese from goat's milk
+fr:Chabichou fromage de chèvre
+ciqual_food_code:en:12830
+ciqual_food_name:en:Chabichou cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Pélardon cheese from goat's milk
+fr:Pélardon fromage de chèvre
+ciqual_food_code:en:12831
+ciqual_food_name:en:Pélardon cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Crottin cheese from goat's milk from raw milk
+fr:Crottin de chèvre au lait cru
+ciqual_food_code:en:12832
+ciqual_food_name:en:Crottin cheese, from goat's milk, from raw milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Crottin cheese from goat's milk
+fr:Crottin de chèvre sans précision
+ciqual_food_code:en:12833
+ciqual_food_name:en:Crottin cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Crottin de Chavignol cheese from goat's milk
+fr:Crottin de Chavignol fromage de chèvre
+ciqual_food_code:en:12834
+ciqual_food_name:en:Crottin de Chavignol cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Picodon cheese from goat's milk
+fr:Picodon fromage de chèvre
+ciqual_food_code:en:12836
+ciqual_food_name:en:Picodon cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Pouligny Saint-Pierre cheese from goat's milk
+fr:Pouligny Saint-Pierre fromage de chèvre
+ciqual_food_code:en:12839
+ciqual_food_name:en:Pouligny Saint-Pierre cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Sainte Maure cheese from goat's milk
+fr:Sainte-Maure fromage de chèvre
+ciqual_food_code:en:12842
+ciqual_food_name:en:Sainte Maure cheese, from goat's milk
+
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Selles-sur-Cher cheese from goat's milk
+fr:Selles-sur-Cher fromage de chèvre
+ciqual_food_code:en:12845
+ciqual_food_name:en:Selles-sur-Cher cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Rocamadour cheese from goat's milk
+fr:Rocamadour fromage de chèvre
+ciqual_food_code:en:12847
+ciqual_food_name:en:Rocamadour cheese, from goat's milk
+
+<en:Cheeses
+<fr:Fromages de chèvre
+en:Valençay cheese from goat's milk
+fr:Valençay fromage de chèvre
+ciqual_food_code:en:12848
+ciqual_food_name:en:Valençay cheese, from goat's milk
 
 <en:Goat cheeses
 es:Rulo de cabra, Rulo de queso de cabra
@@ -23095,6 +23371,10 @@ oqali_family:en: fr:Fromages - Mascarpone
 it:Asiago
 country:en:Italy
 #wikidata:en:
+en:Asiago cheese from cow's milk
+fr:Asiago
+ciqual_food_code:en:12761
+ciqual_food_name:en:Asiago cheese, from cow's milk
 
 <en:Italian cheeses
 it:Bitto
@@ -23172,6 +23452,8 @@ nl:Grana Padano
 country:en:Italy
 wikidata:en:Q940319
 oqali_family:en: fr:Fromages - Parmesan et assimiles
+ciqual_food_code:en:12123
+ciqual_food_name:en:Grana Padano cheese, from cow's milk
 
 <en:Italian cheeses
 it:Montasio
@@ -23311,6 +23593,11 @@ wikidata:en:Q2277500
 it:Provolone del Monaco
 country:en:Italy
 #wikidata:en:
+en:Provolone cheese from cow's milk
+fr:Provolone
+ciqual_food_code:en:12716
+ciqual_food_name:en:Provolone cheese, from cow's milk
+ciqual_food_name:fr:Provolone
 
 <en:Italian cheeses
 it:Provolone Valpadana
@@ -26603,6 +26890,8 @@ de:Geröstete Cashews, Geröstete Cashewnüsse
 fi:paahdetut cashew-pähkinät
 fr:Noix de Cajou grillées
 nl:Geroosterde cashewnoten
+ciqual_food_code:en:15019
+ciqual_food_name:en:Cashew nut, grilled, salted
 
 <en:Nuts
 en:Pecan nuts
@@ -27568,7 +27857,7 @@ hu:Liba zsírok
 nl:Ganzenvetten
 
 <en:Animal fats
-en:Fish oils
+en: oils
 de:Fischöle
 fr:Huiles de poissons
 hu:Hal olaj
@@ -27582,7 +27871,7 @@ nl:Botervetten
 nl_be:Botervetten
 zh:黄油脂肪
 
-<en:Fish oils
+<en: oils
 en:Codliver fats, codliver oils
 fr:Huiles de foie de cabillaud, Huiles de foie de morue
 nl:Kabeljauwleveroliën
@@ -29458,13 +29747,22 @@ zh:增稠剂
 
 <en:Thickeners
 <en:Seaweed products
-en:Carrageenans
+en:Carrageenans, Carragheen mosses (Chondrus crispus) dried or dehydrated
 es:Carragenatos, Carragenanos
-fr:Carraghénanes
+fr:Carraghénanes, Lichen de mer ou pioca ou goémon rouge (Chondrus crispus) séché, Lichen de mer ou pioca ou goémon rouge (Chondrus crispus) déshydraté
 la:E-407, E-407a
 nl:Carragenen
 zh:卡拉胶
 wikidata:en:Q421991
+ciqual_food_code:en:20996
+ciqual_food_name:en:Carragheen mosses (Chondrus crispus), dried or dehydrated
+
+<en:Seaweed products
+en:North Atlantic rockweed (Ascophyllum nodosum) dried or dehydrated
+fr:Ascophylle noueux ou goémon noir (Ascophyllum nodosum) séché, Ascophylle noueux ou goémon noir (Ascophyllum nodosum) déshydraté
+ciqual_food_code:en:20998
+ciqual_food_name:en:North Atlantic rockweed (Ascophyllum nodosum), dried or dehydrated
+ciqual_food_name:fr:Ascophylle noueux ou goémon noir (Ascophyllum nodosum), séché ou déshydraté
 
 <en:Thickeners
 en:Gelatin, Gelatine
@@ -30278,14 +30576,18 @@ nl:Diepvriesmaaltijden
 pl:Mrożone dania gotowe
 
 <en:Frozen foods
-<en:Fishes
-en:Frozen fishes
+<en:es
+en:Frozen es
 de:Tiefkühlfisch
 fi:kalapakasteet
 fr:Poissons surgelés
 it:Pesci surgelati
 nl:Diepvriesvis
 pl:Ryby mrożone
+en:Fish in sauce frozen
+ciqual_food_code:en:26054
+ciqual_food_name:en:Fish, in sauce, frozen
+
 
 <en:Frozen foods
 <en:Meats
@@ -32212,7 +32514,7 @@ la:Satureja montana
 nl:Bergbonenkruid
 wikidata:en:Q160186
 
-# description:en:Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
+# description:en:Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, , and egg dishes.
 
 <en:Aromatic herbs
 en:tarragon
@@ -33244,7 +33546,7 @@ nl:Vanillesauzen
 wikidata:en:Q1342574
 
 <en:Sauces
-en:Sauces for fishes, sauces for fish
+en:Sauces for es, sauces for 
 fr:Sauces pour poissons, Sauces pour poisson
 nl:Sauzen voor visgerechten
 
@@ -33260,7 +33562,7 @@ fr:Sauces à l'oseille, Sauce à l'oseille
 <en:Sauces
 fr:Sauces américaines
 
-<en:Sauces for fishes
+<en:Sauces for es
 fr:Sauces armoricaines, Sauce armoricaine, Sauces à l'armoricaine, Sauce à l'armoricaine
 
 <en:Sauces
@@ -33284,7 +33586,7 @@ fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sau
 <en:Sauces
 fr:Sauces basquaises,Sauce basquaise
 
-<en:Sauces for fishes
+<en:Sauces for es
 fr:Sauces au beurre blanc, Sauces beurre blanc, Sauces au beurre blanc, Sauces beurre blanc
 
 <en:Sauces
@@ -34323,39 +34625,109 @@ nl:Kant-en-klaar couscous
 #wikidata:en:
 
 <en:Meals
-en:Meals with shellfish
+en:Meals with shell
 fr:Plats aux fruits de mer
 
-<en:Meals with shellfish
+<en:Meals with shell
 en:Dishes with scallops, prepared dishes with scallops
 es:Platos preparados con vieiras
 fi:kampasimpukkaruokalajit
 fr:Plats aux noix de Saint-Jacques, plats préparés aux noix de Saint-Jacques
 nl:Bereide gerechten met scallops
 
-<en:Meals with shellfish
+<en:Meals with shell
 en:Meals with shrimps
 fr:Plats aux crevettes
 
 <en:Meals
-en:Meals with fish, fish dishes
+en:Meals with dishes, Carp roasted/baked
 ca:Aliments amb peix
 de:Fischmahlzeiten
 es:Comidas con pescado
 fi:Kala-ateriat
-fr:Plats préparés au poisson, plats à base de poisson, Plats préparés à base de poisson
+fr:Plats préparés au poisson, plats à base de poisson, Plats préparés à base de poisson, Carpe rôtie
 hu:Halételek
 it:Pasti con pesce
 nl:Vismaaltijden
 pt:Refeições com peixe, pratos com peixe
 
-<en:Meals with fish
+<en:Meals
+<fr:Plats préparés au poisson
+fr:Carpe rôtie, carte cuite au four
+ciqual_food_code:en:27004
+ciqual_food_name:en:Carp roasted, carp baked
+ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
+"en:Trout roasted/baked
+fr:Truite rôtie, truite cuite au four
+ciqual_food_code:en:27006
+ciqual_food_name:en:Trout, roasted/baked
+
+<en:meals
+<fr:Plats préparés au poisson
+en:Trout steamed
+fr:Truite cuite à la vapeur
+ciqual_food_code:en:27007
+ciqual_food_name:en:Trout, steamed
+
+<en:meals
+<fr:Plats préparés au poisson
+en:Rainbow trout farmed roasted, Rainbow trout farmed baked
+fr:Truite arc en ciel élevage rôtie, truite arc en ciel élevage cuite au four
+ciqual_food_code:en:27014
+ciqual_food_name:en:Rainbow trout, farmed, roasted/baked
+
+<en:meals
+<fr:Plats préparés au poisson
+en:Rainbow trout farmed steamed
+fr:Truite arc en ciel élevage cuite à la vapeur
+ciqual_food_code:en:27015
+ciqual_food_name:en:Rainbow trout, farmed, steamed
+
+<en:Meals with 
 en:Meals with cod
 fr:Plats au cabillaud, plats à la morue
 it:Pasti con merluzzo
 nl:Kabeljauwgerechten
 
-<en:Meals with fish
+<en:meals
+<fr:Plats préparés au poisson
+en:White fish with Provencal-style sauce (tomato sauce)
+fr:Poisson blanc à la provençale ou niçoise (sauce tomate)
+ciqual_food_code:en:25128
+ciqual_food_name:en:White fish with Provencal-style sauce (tomato sauce)
+
+<en:meals
+<fr:Plats préparés au poisson
+en:White fish with Florentine-style sauce (spinach sauce)
+fr:Poisson blanc à la florentine sauce aux épinards
+ciqual_food_code:en:25140
+ciqual_food_name:en:White fish with Florentine-style sauce (spinach sauce)
+ciqual_food_name:fr:Poisson blanc à la florentine (sauce aux épinards)
+
+<en:meals
+<fr:Plats préparés au poisson
+en:White fish with mustard sauce
+fr:Poisson blanc à la sauce moutarde
+ciqual_food_code:en:25142
+ciqual_food_name:en:White fish with mustard sauce
+
+<en:meals
+<fr:Plats préparés au poisson
+en:White fish with tarragon sauce
+fr:Poisson blanc à l'estragon
+ciqual_food_code:en:25145
+ciqual_food_name:en:White fish with tarragon sauce
+ciqual_food_name:fr:Poisson blanc à l'estragon
+
+<en:meals
+<fr:Plats préparés au poisson
+en:White fish with sorrel sauce
+fr:Poisson blanc sauce oseille
+ciqual_food_code:en:25146
+ciqual_food_name:en:White fish with sorrel sauce
+ciqual_food_name:fr:Poisson blanc sauce oseille
+
+<en:Meals with 
 en:Meals with salmon
 fi:lohiateriat
 fr:Plats au saumon
@@ -34365,11 +34737,11 @@ nl:Zalmmaaltijden
 <en:Meals with salmon
 fr:Parmentiers de saumon
 
-<en:Meals with fish
+<en:Meals with 
 en:Meals with tuna
 fr:Plats au thon
 
-<en:Meals with fish
+<en:Meals with 
 en:Cod brandade
 es:Brandade De Bacalao
 fr:Brandades de morue, Brandade de morue
@@ -34544,11 +34916,20 @@ zh:猪肉餐
 <en:Pork meals
 <en:skewers
 en:pork skewers
-fr:Brochettes de porc, brochette de porc, échine de porc rôtie, échine de porc au four
 nl:Varkensspiesjes 
+fr:Brochettes de porc, brochette de porc, 
+
+<en:Pork meals
+fr:échine de porc rôtie, échine de porc au four
 ciqual_food_code:en:28451
 ciqual_food_name:en:Pork, loin, roasted/baked
 ciqual_food_name:fr:Porc, échine, rôtie/cuite au four
+
+<en:Pork meals
+en:Pork shoulder raw
+fr:Porc épaule crue
+ciqual_food_code:en:28001
+ciqual_food_name:en:Pork, shoulder, raw
 
 <en: Pork meals
 en:Pork ham escalope cooked
@@ -34562,12 +34943,13 @@ en:Pork way leg without rind fat and bone raw
 fr:Porc jambon sans jarret sans bateau découenné dégraisssé désossé cru
 ciqual_food_code:en:28473
 ciqual_food_name:en:Pork, way leg, without rind, fat and bone, raw
-ciqual_food_name:fr:Porc, jambon sans jarret, sans bateau, découenné, dégraisssé, désossé, cru
 
 <en:Pork meals
 en:Caramel pork
 fr:Porc au caramel
 nl:Varkensvlees met caramel
+ciqual_food_code:en:25207
+ciqual_food_name:en:Pork with caramel sauce
 
 <en:Meals with meat
 en:Poultry meals
@@ -34863,7 +35245,7 @@ ru:Мисосиру
 wikidata:en:Q471866
 
 <en:Soups
-en:Fish soups
+en: soups
 de:Fischsuppen
 es:Sopa de pescado
 fi:Kalakeitto
@@ -35066,7 +35448,7 @@ nl:Courgette crèmesoepen
 <en:Cream of vegetable soups
 fr:Veloutés de légumes du soleil
 
-# description:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
+# description:en:BROTH is a savory liquid made of water in which bones, meat, , or vegetables have been simmered.
 
 <en:Groceries
 en:broths, broths, stock, bouillon, Stocks
@@ -35376,7 +35758,7 @@ nl:Varkensvleessamosa
 #wikidata:en:
 
 <en:Samosas
-<en:Meals with fish
+<en:Meals with 
 en:Tuna samosas
 fr:Samoussas au thon, samossas au thon
 #wikidata:en:
@@ -35459,10 +35841,13 @@ fr:Tartiflettes en conserve
 nl:Tartiflette in blik
 
 <en:Gratins
-en:Fish gratin
-fr:Gratins de poisson
+en: gratin
+fr:Gratins de poisson, Gratin de poisson, brandade aux pommes de terre, parmentier de poisson
 nl:Visovenschotels
 #wikidata:en:
+en:Fish brandade or fish shepherd's pie
+ciqual_food_code:en:25154
+ciqual_food_name:en:Fish brandade or fish shepherd's pie
 
 <en:Prepared vegetables
 fr:Haricots préparés, Haricots cuisinés
@@ -35505,7 +35890,7 @@ nl:Lasagne met zalm
 #wikidata:en:
 
 <en:Prepared lasagne
-<en:Fish dishes
+<en: dishes
 en:Tuna lasagna
 fr:Lasagnes au thon
 nl:Tonijnlasagna
@@ -35831,17 +36216,17 @@ fr:Quenelles
 wikidata:en:Q12958
 
 <fr:Quenelles
-en:Fish quenelles
+en: quenelles
 es:Quenelles de pescado
 fr:Quenelles de poisson
 nl:Visquenelle
 
-<en:Fish quenelles
+<en: quenelles
 en:Pike quenelles
 fr:Quenelles de brochet
 nl:Snoekquenelles
 
-<en:Fish quenelles
+<en: quenelles
 en:Salmon quenelles
 fr:Quenelles de saumon
 nl:Zalmquenelle
@@ -35886,8 +36271,8 @@ fr:Quiches aux légumes
 nl:Groentequiches
 
 <en:Quiches
-<en:Meals with fish
-en:Quiches with fish
+<en:Meals with 
+en:Quiches with 
 fr:Quiches au saumon, tartes au saumon, Quiche au saumon, tarte au saumon
 nl:Quiche met vis
 
@@ -35913,14 +36298,14 @@ hu:Előkészített saláták
 nl:Opgemaakte salades
 
 <en:Prepared salads
-<en:Meals with fish
-en:Tuna salad, Prepared mixed meat/fish canned drained salad
+<en:Meals with 
+en:Tuna salad, Prepared mixed meat/ canned drained salad
 de:Thunfischsalat
 fi:tonnikalasalaatti
 nl:Tonijnsalades
 fr:Salades au thon, salade composée avec viande apertisée égouttée, salade composée avec poisson appertisée égouttée
 ciqual_food_code:en:25602
-ciqual_food_name:en:Prepared mixed meat/fish canned, drained salad
+ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
 
 
@@ -36279,6 +36664,15 @@ fi:kanin liha
 fr:Viande de lapin, lapin, lapins, viande de lapins, viandes de lapin, viandes de lapins
 nl:Konijn, Konijnenvlezen
 wikidata:en:Q3556748
+ciqual_food_code:en:34001
+ciqual_food_name:en:Rabbit, meat, raw
+
+<en:Meats
+<en:Rabbit meat
+en:Rabbit wild meat raw
+fr:viande de lapin de garenne crue
+ciqual_food_code:en:34003
+ciqual_food_name:en:Rabbit, wild, meat, raw
 
 en:Rabbit liver
 fr:Foies de lapin
@@ -36804,6 +37198,8 @@ fi:kanacurry
 fr:Poulets au curry
 nl:Kipcurry
 zh:鸡咖喱
+ciqual_food_code:en:25174
+ciqual_food_name:en:Chicken with curry and coconut milk sauce
 
 <en:Breaded products
 <en:Cooked chicken
@@ -36830,6 +37226,30 @@ it:Anatre
 nl:Eendevlezen
 zh:鸭肉, 新鸭肉, 鸭
 wikidata:en:Q3736439
+
+<en:Poultries
+<en:Ducks, Duck fresh meat, Duck
+en:Duck meat raw
+fr:viande de canard crue
+ciqual_food_code:en:36201
+ciqual_food_name:en:Duck, meat, raw
+ciqual_food_name:fr:Canard, viande, crue
+
+<en:Poultries
+<en:Ducks, Duck fresh meat, Duck
+en:Duck leg meat and skin raw
+fr:cuisse de canard avec peau sans os crue
+ciqual_food_code:en:36203
+ciqual_food_name:en:Duck, leg, meat and skin, raw
+ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
+
+<en:Poultries
+<en:Ducks, Duck fresh meat, Duck
+en:Duck meat and skin raw
+fr:viande de canard avec peau crue
+ciqual_food_code:en:36204
+ciqual_food_name:en:Duck, meat and skin, raw
+ciqual_food_name:fr:Canard, viande et peau, cru
 
 <en:Ducks
 fr:Filets de canard
@@ -36871,6 +37291,8 @@ nl_be:Kapoen
 pl:Kapłon
 zh:阉鸡
 wikidata:en:Q594676
+ciqual_food_code:en:36050
+ciqual_food_name:en:Capon, meat and skin, raw
 
 <en:Poultries
 en:Geese, Goose
@@ -36879,8 +37301,42 @@ nl:Ganzen
 zh:鹅, 鹅肉
 
 <en:Poultries
+<en:Geese, Goose
+en:Goose meat raw
+fr:viande d'oie crue
+ciqual_food_code:en:36500
+ciqual_food_name:en:Goose, meat, raw
+ciqual_food_name:fr:Oie, viande crue
+
+<en:Poultries
+<en:Geese, Goos
+en:Goose meat and skin raw
+fr:viande et peau d'oie crue
+ciqual_food_code:en:36501
+ciqual_food_name:en:Goose, meat and skin, raw
+ciqual_food_name:fr:Oie, viande et peau, crue
+
+<en:Poultries
 fr:Pintades, Pintade
 nl:Parelhoenders
+en:Guinea fowl raw
+ciqual_food_code:en:36700
+ciqual_food_name:en:Guinea fowl, raw
+
+<en:Poultries
+<fr:Pintades, Pintade
+en:Guinea fowl leg raw
+fr:cuisse de pintade crue
+ciqual_food_code:en:36703
+ciqual_food_name:en:Guinea fowl, leg, raw
+
+<en:Poultries
+<fr:Pintades, Pintade
+en:Guinea fowl breast raw
+fr:pointrine de pintade crue
+ciqual_food_code:en:36702
+ciqual_food_name:en:Guinea fowl, breast, raw
+ciqual_food_name:fr:Pintade, poitrine, crue
 
 <en:Poultries
 en:Chickens, Chicken
@@ -37072,6 +37528,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 # category/chickens has 3369 products in 18 languages @2019-05-18
 
 <en:Poultries
+<en:Chickens, Chicken
+en:Chicken free-range meat and skin raw
+fr:viande de poulet fermier et sa peau crue
+ciqual_food_code:en:36008
+ciqual_food_name:en:Chicken, free-range, meat and skin, raw
+
+<en:Poultries
 <fr:Allumettes de volaille
 fr:Allumettes de poulet, allumettes de poulets
 
@@ -37088,6 +37551,8 @@ fi:wingsit
 fr:Ailes de poulet, aile de poulet
 nl:Kipfilets
 zh:鸡翅
+ciqual_food_code:en:36023
+ciqual_food_name:en:Chicken, wing, meat and skin, raw
 
 <en:Chickens
 en:Chicken thighs, chicken legs
@@ -37097,6 +37562,46 @@ fi:kanan reidet
 fr:Cuisses de poulet
 it:Cosce di pollo, coscia di pollo
 nl:Kippendijen, Kipdij
+ciqual_food_code:en:36002
+ciqual_food_name:en:Chicken, leg, meat and skin, raw
+
+<en:Chickens
+<en:Chicken thighs, chicken legs
+en:Chicken leg meat raw
+fr:Cuisse de poulet crue
+ciqual_food_code:en:36024
+ciqual_food_name:en:Chicken, leg, meat, raw
+ciqual_food_name:fr:Poulet, cuisse, viande, cru
+
+<en:Chickens
+<en:Chicken thighs, chicken legs
+en:Chicken drumstick raw
+fr:pilon de poulet cru
+ciqual_food_code:en:36022
+ciqual_food_name:en:Chicken, drumstick, raw
+ciqual_food_name:fr:Poulet, pilon, cru
+
+<en:Chickens
+<en:Chicken thighs, chicken legs
+en:Chicken stewing leg raw
+fr:Cuisse de poulet crue
+ciqual_food_code:en:36014
+ciqual_food_name:en:Chicken, stewing, leg, raw
+
+<en:Chickens
+<en:Chicken thighs, chicken legs
+en:Chicken high leg meat raw
+fr:haut de cuisse de poulet cru
+ciqual_food_code:en:36019
+ciqual_food_name:en:Chicken high leg, meat, raw
+ciqual_food_name:fr:Poulet, haut de cuisse, viande, cru
+
+<en:Chickens
+en:Chicken eviscerated without offal raw
+fr:Poulet éviscéré sans abats cru
+ciqual_food_code:en:36020
+ciqual_food_name:en:Chicken, eviscerated without offal, raw
+ciqual_food_name:fr:Poulet éviscéré sans abats, cru
 
 <en:Chickens
 en:Chicken ham
@@ -37113,6 +37618,15 @@ fr:Blancs de poulet doré au four, Blanc de poulet doré au four
 en:Smoked chicken breast
 fr:Blancs de poulet fumé, Blanc de poulet fumé
 nl:Gerookte kippenborst
+ciqual_food_code:en:36017
+ciqual_food_name:en:Chicken, breast, without skin, raw
+
+<en:Chicken ham
+en:Chicken breast meat and skin raw
+fr:poitrine de poulet et sa peau crue
+ciqual_food_code:en:36029
+ciqual_food_name:en:Chicken, breast, meat and skin, raw
+ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
 
 <en:Chicken ham
 fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
@@ -37126,6 +37640,21 @@ de:Hähnchenschnitzel
 fi:kanaleikkeleet
 fr:Escalopes de poulet, escalope de poulet
 nl:Kipschnitzel
+
+<en:Chickens
+<en:Chicken ham
+en:Chicken white race meat and skin raw
+fr:viande de poulet blanc et sa peau crue
+ciqual_food_code:en:36007
+ciqual_food_name:en:Chicken, white race, meat and skin, raw
+
+<en:Chickens
+<en:Chicken ham
+en:Chicken cooked ham in slices
+fr:tranche de jambon blanc de poulet
+ciqual_food_code:en:28963
+ciqual_food_name:en:Chicken cooked ham, in slices
+ciqual_food_name:fr:Jambon de poulet ou Blanc de poulet en tranche
 
 <fr:Escalopes de poulet
 en:Breaded chicken cutlets
@@ -37158,15 +37687,20 @@ en:Chicken drumsticks
 fi:kanan koipinuija
 fr:Manchons de poulet, manchon de poulet
 nl:Kippekluifen
+en:Chicken marinated wing roasted/baked
+ciqual_food_code:en:36035
+ciqual_food_name:en:Chicken, marinated wing, roasted/baked
 
 <en:Cooked chicken
-en:Roast chicken
+en:Roast chicken, Chicken meat and skin roasted/baked
 de:Brathähnchen
 fi:paistettu kana
-fr:Poulets rôtis, Poulet rôti
+fr:Poulets rôtis, Poulet rôti, Poulet viande et peau rôti, poulet viande cuite au four
 nl:Gegrilde kip
 zh:烤鸡
 wikidata:en:Q899640
+ciqual_food_code:en:36005
+ciqual_food_name:en:Chicken, meat and skin, roasted/baked
 
 <en:Ducks
 en:Duck legs, duck legs, ducks legs, ducks leg
@@ -37192,21 +37726,44 @@ de:Putenschnitzel
 fi:kalkkunaleikkeleet
 fr:Escalopes de dinde, escalopes de dindes, escalope de dinde, escalope de dindes
 nl:Kalkoenkoteletten, Kalkoenkotelet
+ciqual_food_code:en:36304
+ciqual_food_name:en:Turkey, escalope, raw
 
 <en:Turkeys
 fr:Rôtis de dinde, rôtis de dindes, rôti de dinde, rôti de dindes
+en:Turkey meat roasted/baked
+ciqual_food_code:en:36302
+ciqual_food_name:en:Turkey, meat, roasted/baked
 
 <en:Turkeys
-en:Turkey thighs
+en:Turkey thighs, Turkey leg meat and skin raw
 fr:Cuisses de dinde, cuisses de dindes, cuisse de dinde, cuisse de dindes
 nl:Kalkoendijen
+ciqual_food_code:en:36305
+ciqual_food_name:en:Turkey, leg, meat and skin, raw
+
+<en:Turkeys
+en:Turkey wing raw
+fr:aile de dinde crue
+ciqual_food_code:en:36310
+ciqual_food_name:en:Turkey, wing, raw
+ciqual_food_name:fr:Dinde, aile, crue
 
 <en:Turkeys
 <fr:Allumettes de volaille
-fr:Allumettes de dinde, alumettes de dinde, allumette de dinde, alumette de dinde
+fr:Allumettes de dinde, alumettes de dinde, allumette de dinde, alumette de dinde, dés de jambon de volaille haché
+en:Poultry ham in cube grated or minced
+ciqual_food_code:en:28929
+ciqual_food_name:en:Poultry ham in cube, grated or minced
 
+<en:Turkeys
 <fr:Allumettes de dinde
 fr:Lardons de dinde
+en:Turkey cooked ham in slices
+fr:jambon de dinde, blanc de dinde en tranche 
+ciqual_food_code:en:28964
+ciqual_food_name:en:Turkey cooked ham, in slices
+ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
 
 <en:Turkeys
 fr:Bacons de dindes, bacons de dinde, bacon de dindes, bacon de dinde
@@ -37309,15 +37866,36 @@ it:Prosciutti cotti
 nl:Gekookte ham
 wikidata:en:Q3820622
 
-es:Jamón Curado
-
 <en:Hams
 en:Diced ham, Dices of ham
 fi:kinkkukuutiot
 fr:Dés de jambon, dés de jambons
 nl:Hamblokjes
-
 fr:Jambon de derrière
+
+<en:Hams
+en:Braised ham
+
+<en:Braised ham
+en:Braised ham on the bone
+fr:Jambon à l'os braisé
+ciqual_food_code:en:28905
+ciqual_food_name:en:Braised ham on the bone
+ciqual_food_name:fr:Jambon à l'os braisé
+
+<en:Braised ham
+en:Round of ham cooked
+fr:Rond de jambon cuit
+ciqual_food_code:en:28917
+ciqual_food_name:en:Round of ham, cooked
+ciqual_food_name:fr:Rond de jambon cuit
+
+<en:Braised ham
+en:Knuckle of ham cooked
+fr:Jambonneau cuit
+ciqual_food_code:en:28960
+ciqual_food_name:en:Knuckle of ham, cooked
+ciqual_food_name:fr:Jambonneau, cuit
 
 <en:Hams
 fr:Jambons crus, jambon cru
@@ -37408,7 +37986,7 @@ fr:Charcuteries à teneur réduite en sel
 hu:Feldolgozott hús kevés sóval
 nl:Vleeswaren met minder zout
 
-#do not put it in meat, there are fish rillettes and we separate meat and fish
+#do not put it in meat, there are  rillettes and we separate meat and 
 <en:Salted spreads
 en:Rillettes
 ca:Rostes
@@ -37516,42 +38094,42 @@ fr:Rillettes de langoustine
 <en:Rillettes
 fr:Rillettes de mulet
 
-<en:Fish preparations
+<en: preparations
 <en:Rillettes
-en:Fish rillettes
+en: rillettes
 de:Fisch-Rillettes
 fr:Rillettes de poissons, rillettes de poisson
 nl:Visrillettes
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes d’alose
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes d'anguille
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes d’esturgeon
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de bar sauvage
 
-<en:Fish rillettes
+<en: rillettes
 en:Pike rillettes
 fr:Rillettes de brochet
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de cabillaud, Rillettes de morue
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de maquereau
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de requin
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de sardine
 
-<en:Fish rillettes
+<en: rillettes
 en:Salmon Rillettes
 fr:Rillettes de saumon
 nl:Zalmrillettes
@@ -37559,7 +38137,7 @@ nl:Zalmrillettes
 <en:Salmon Rillettes
 fr:Rillettes de saumon rose
 
-<en:Fish rillettes
+<en: rillettes
 fr:Rillettes de truite
 
 <fr:Rillettes de truite
@@ -37597,13 +38175,19 @@ en:Poultry sausages
 de:Geflügelwürste
 es:Salchichas de aves
 fi:siipikarjamakkarat
-fr:Saucisses de volaille
+fr:Saucisses de volaille, Saucisse de volaille type Knack
 hu:Baromfi kolbász
 nl:Gevogelteworst, Gevogelteworsten
+en:Poultry sausage
+ciqual_food_code:en:30131
+ciqual_food_name:en:Poultry sausage
 
 <en:Sausages
 fr:Saucisses cocktail
 nl:Cocktailworstjes
+en:Cocktail sausage
+ciqual_food_code:en:30746
+ciqual_food_name:en:Cocktail sausage
 
 <en:Sausages
 en:Sausages from Spain, Spanish sausages
@@ -37815,8 +38399,11 @@ nl:Worst uit Straatsburg
 <fr:Saucisses de Strasbourg
 en:Industrial knacks
 es:salchicha cocidas
-fr:Knacks industrielles, Knackis, Knacki
+fr:Knacks industrielles, Knackis, Knacki, Saucisse de Strasbourg, saucisse de Strasbourg Knack
 nl:Industriële knakworst
+"en:Strasbourg sausage
+ciqual_food_code:en:30742
+ciqual_food_name:en:Strasbourg sausage
 
 <en:French sausages
 en:Toulouse sausages
@@ -37875,6 +38462,13 @@ fr:Charcuteries à cuire, charcuterie à cuire
 
 <en:Prepared meats
 fr:Charcuteries cuites, Charcuterie cuite
+
+<en:Prepared meats
+<fr:Charcuteries cuites
+en:Pâté in crust
+fr:Pâté en croûte
+ciqual_food_code:en:8391
+ciqual_food_name:en:Pâté in crust
 
 <fr:Charcuteries cuites
 en:Mortadella
@@ -38115,6 +38709,10 @@ nl:Knoflookworstjes
 <fr:Saucissons
 fr:Saucissons cuits, saucisson cuit
 nl:Gebakken worstjes
+en:Cooked sausage pure pork
+fr:Saucisson pur porc cuit
+ciqual_food_code:en:30701
+ciqual_food_name:en:Cooked sausage, pure pork
 
 <fr:Saucissons
 fr:Saucissons secs, Saucisson sec
@@ -38169,7 +38767,7 @@ fr:Saucissons secs halal
 fr:Saucissons secs cacher
 
 <en:Tunas
-<en:Fish rillettes
+<en: rillettes
 en:Tuna rillettes
 es:Rillettes De atún
 fr:Rillettes de thon
@@ -38276,13 +38874,15 @@ zh:腊肉, 烟熏腊肉
 fr:Allumettes de jambon
 
 <en:Bacon
-en:Sliced bacon
+en:Sliced bacon, Bacon back
 de:Speckscheiben
 fi:siivutettu pekoni
-fr:Bacon en tranche, bacon en tranches
+fr:Bacon en tranche, bacon en tranches, Filet de bacon
 hu:Szeletelt szalonna, Szeletelt bacon
 nl:Ham in plakjes
 zh:切片培根, 培根切片
+ciqual_food_code:en:28727
+ciqual_food_name:en:Bacon, back
 
 <en:Bacon
 en:Smoked bacon
@@ -40169,6 +40769,8 @@ de:Burritos
 fr:Burritos
 nl:Burritos
 wikidata:en:Q390823
+ciqual_food_code:en:25459
+ciqual_food_name:en:Burritos
 
 <en:Sandwiches
 fr:Canapés
@@ -40357,13 +40959,13 @@ fr:Sandwichs au brie
 nl:Sandwiches met Brie
 
 <en:Sandwiches
-en:Fish sandwiches
+en: sandwiches
 de:Fischsemmeln
 fi:kalavoileivät
 fr:Sandwichs au poisson
 nl:Vissandwiches
 
-<en:Fish sandwiches
+<en: sandwiches
 en:Tuna sandwiches
 de:Thunfisch-Sandwich, Thunfischsandwich
 fi:tonnikalavoileivät
@@ -40371,12 +40973,12 @@ fr:Sandwichs au thon
 nl:Tonijnsandwiches
 zh:吞拿鱼三明治
 
-<en:Fish sandwiches
+<en: sandwiches
 en:Salmon sandwiches
 fr:Sandwichs au saumon, sandwich saumon fumé, sandwichs au saumon fumé, sandwich au saumon fumé
 nl:Zalmsandwiches
 
-<en:Fish sandwiches
+<en: sandwiches
 en:Surimi sandwiches
 fr:Sandwichs au surimi
 nl:Surimisandwiches
@@ -40400,14 +41002,14 @@ pt:Frutos do mar
 ru:Рыба и морепродукты
 th:อาหารทะเล
 zh:海鲜
-pnns_group_2:en:Fish and seafood
+pnns_group_2:en: and seafood
 
 <en:Sardines in olive oil
 <en:Sardine fillets
 fr:Filets de sardines à l’huile d’olive
 nl:Sardientjesfilets op olijfolie
 
-<en:Canned fishes
+<en:Canned es
 <en:Mackerels
 en:Tinned Mackerels
 de:Makrelen in Kupferdosen
@@ -40538,7 +41140,7 @@ ciqual_food_name:en:Norway lobster, raw
 ciqual_food_name:fr:Langoustine, crue
 
 <en:Seafood
-en:Fishes, fish
+en:es, 
 ca:Peix
 cs:Ryby
 de:Fisch, Fische
@@ -40557,8 +41159,8 @@ sv:Fisk
 zh:鱼类
 wikidata:en:Q600396
 
-<en:Fishes
-en:Fish preparations
+<en:es
+en: preparations
 ca:Preparacions de peix
 de:Fischzubereitungen
 es:Preparaciones de pescado
@@ -40568,15 +41170,15 @@ nl:Visproducten
 pt:Preparados de peixe
 ro:Preparate din pește
 
-<en:Fish preparations
-en:White fish with shallots mussels and white wine sauce
+<en: preparations
+en:White  with shallots mussels and white wine sauce
 fr:Poisson blanc à la marinière
 ciqual_food_code:en:25141
-ciqual_food_name:en:White fish with shallots, mussels and white wine sauce
+ciqual_food_name:en:White  with shallots, mussels and white wine sauce
 ciqual_food_name:fr:Poisson blanc à la marinière (sauce aux oignons, vin blanc, moules)
 
-<en:Fish preparations
-en:Surimi, crab stick, crab sticks, mock crab, seafood sticks, seafood stick, fish stick, fish sticks, imitation crab, seafood extender, seafood extenders
+<en: preparations
+en:Surimi, crab stick, crab sticks, mock crab, seafood sticks, seafood stick,  stick,  sticks, imitation crab, seafood extender, seafood extenders
 de:Surimi, Krebsfleischimitat
 es:Surimi
 fi:surimi
@@ -40586,47 +41188,58 @@ nl:Surimi
 ru:Сурими, крабовые палочки, крабовое мясо
 wikidata:en:Q815740
 
-<en:Fish preparations
+<en: preparations
 <en:Appetizers
 en:Cod acras, Cod accras
 fr:Acras de morue, Accras de morue, acras de cabillaud
 nl:Kabeljauwacra
 wikidata:en:Q12860188
 
-<en:Fish preparations
+<en: preparations
 fr:Croquettes de poisson
 
 <en:Breaded products
-<en:Fish preparations
-en:Breaded fish
+<en:preparations
+en:Breaded, Fish breaded fried
 de:Panierte Fische, Panierter Fisch
 es:Pescado empanado
 fi:leivitetty kala
 fr:Poissons panés, Poisson pané
 nl:Gepaneerde vis
 sv:Panerad fisk
+ciqual_food_code:en:26030
+ciqual_food_name:en:Fish, breaded, fried
 
-<en:Breaded fish
-en:Breaded cod fish
+<en:Breaded products
+<en:preparations
+en:Fish breaded frozen raw
+fr:Poisson pané surgelé cru
+ciqual_food_code:en:26029
+ciqual_food_name:en:Fish, breaded, frozen, raw
+ciqual_food_name:fr:Poisson pané, surgelé, cru
+
+
+<en:Breaded 
+en:Breaded cod 
 fr:Poissons panés de cabillaud, Poisson pané de cabillaud
 nl:Gepaneerde kabeljauw
 
-<en:Breaded fish
-en:Breaded Hake fish
+<en:Breaded 
+en:Breaded Hake 
 fr:Poissons panés de colin, Poisson pané de colin
 nl:Gepaneerde heek
 
-<en:Breaded fish
+<en:Breaded 
 en:Breaded whiting
 fr:Poissons panés de merlan, Poisson pané de merlan
 nl:Gepaneerde wijting
 
-<en:Breaded fish
+<en:Breaded 
 fr:Poissons panés de merlu, Poisson pané de merlu
 
 <en:Canned foods
-<en:Fishes
-en:Canned fishes, canned fish
+<en:es
+en:Canned es, canned 
 ca:Peix enllaunat
 de:Fischkonserve
 es:Conservas de pescado
@@ -40640,7 +41253,7 @@ ru:Рыбные консервы
 th:ปลากระป๋อง
 zh:罐头鱼
 
-<en:Canned fishes
+<en:Canned es
 <en:Sardines
 en:Canned sardines
 ca:Sardines en conserva
@@ -40712,7 +41325,7 @@ fr:Sardines sans huile, Filets de sardines sans huile
 nl:Sardientjes zonder olie
 ro:Sardine fără ulei
 
-<en:Canned fishes
+<en:Canned es
 <en:Salmons
 en:Canned salmons
 de:Lachs in Dosen, Dosen-Lachs
@@ -40720,7 +41333,7 @@ es:Salmon enlatado
 fr:Saumon en conserve, Saumons en conserve
 nl:Zalm in blik
 
-<en:Canned fishes
+<en:Canned es
 <en:Herring
 en:Canned herrings
 de:Heringe in Dosen
@@ -40729,12 +41342,12 @@ fi:purkitetut sillit
 fr:Harengs en conserve
 nl:Haring in blik
 
-<en:Canned fishes
+<en:Canned es
 en:Canned pacific sauries
 ru:Консервы из сайры тихоокеанской, Консервы из тихоокеанской сайры, Сайра тихоокеанская консервированная
 
-<en:Fishes
-en:Fish fillets
+<en:es
+en: fillets
 ca:Peix en filets
 de:Fischfilets, Fischfilet
 es:Filetes de pescado
@@ -40743,11 +41356,11 @@ fr:Filets de poissons
 hu:Halfilé
 nl:Visfilets
 
-<en:Fish fillets
+<en: fillets
 fr:Filets de harengs
 
-<en:Breaded fish
-en:Fish fingers
+<en:Breaded 
+en: fingers
 de:Fischstäbchen
 fi:kalapuikot
 fr:Batonnets de poisson
@@ -40755,13 +41368,13 @@ nl:Visvingers
 wikidata:en:Q1420441
 
 <en:Pollocks
-<en:Fish fillets
+<en: fillets
 en:Pollock fillets
 de:Seelachsfilets, Seelachsfilet
 fr:Filets de colin
 nl:Koolvisfilets
 
-<en:Fish fillets
+<en: fillets
 en:Anchovy fillets
 de:Sardellenfilets, Sardellenfilet
 es:Filetes de anchoa
@@ -40787,7 +41400,7 @@ fr:Filets d'anchois marinés à la Provençale
 <fr:Filets d'anchois marinés
 fr:Filets d'anchois marinés à la catalane
 
-<en:Fish fillets
+<en: fillets
 en:Cod fillets
 de:Kabeljaufilets, Kabeljaufilet
 es:Filetes de bacalao
@@ -40795,18 +41408,18 @@ fi:turskafileet
 fr:Filets de cabillaud
 nl:Kabeljauwfilets
 
-<en:Fish fillets
+<en: fillets
 en:Whiting fillets
 fr:Filets de merlan
 nl:Wijtingfilets
 
-<en:Fish fillets
+<en: fillets
 en:Iridescent shark fillets
 de:Pangasiusfilets, Pangasiusfilet
 fr:Filets de pangas
 nl:Pangasiusfilets
 
-<en:Fish fillets
+<en: fillets
 <en:Sardines
 en:Sardine fillets
 de:Sardinenfilets, Sardinenfilet
@@ -40815,7 +41428,7 @@ fi:sardiinifileitä
 fr:Filets de sardines
 nl:Sardientjesfilets
 
-<en:Fish fillets
+<en: fillets
 <en:Tunas
 en:Tuna fillets
 de:Thunfischfilets, Thunfischfilet
@@ -40824,13 +41437,13 @@ fi:tonnikalafileet
 fr:Filets de thon
 nl:Tonijnfilets
 
-<en:Fishes
-en:Raw fishes
+<en:es
+en:Raw es
 de:Roher Fisch, Rohe Fische
 fr:Poissons crus
 nl:Rauwe vis
 
-<en:Fishes
+<en:es
 en:Salmons
 ca:Salmó
 de:Lachs, Lachse
@@ -40854,7 +41467,7 @@ nl:Gekweekte zalm
 <en:Salmons
 fr:Pavés de saumon
 
-<en:Fish fillets
+<en: fillets
 <en:Salmons
 en:Salmon fillets
 de:Lachsfilets
@@ -40862,7 +41475,7 @@ fi:lohifileet
 fr:Filets de saumon
 nl:Zalmfilet
 
-<en:Fishes
+<en:es
 en:Anchovy
 de:Sardellen
 es:Anchoa
@@ -40870,7 +41483,7 @@ fi:anjovis
 fr:Anchois
 nl:Ansjovis
 
-<en:Fishes
+<en:es
 en:Sardines
 ca:Sardines
 de:Sardinen, Sardine
@@ -40884,8 +41497,8 @@ pt:Sardinhas
 zh:沙丁鱼
 wikidata:en:Q208600
 
-<en:Fishes
-en:Smoked fishes, smoked fish
+<en:es
+en:Smoked es, smoked 
 ca:Peix fumat
 de:Räucherfisch
 es:Pescado ahumado
@@ -40897,7 +41510,7 @@ nl:Gerookte vis
 zh:烟熏鱼类
 
 <en:Salmons
-<en:Smoked fishes
+<en:Smoked es
 en:Smoked salmons, grilled salmon, pan-fried salmon
 ca:Salmó fumat
 de:Räucherlachs, Geräucherter Lachs
@@ -40914,6 +41527,13 @@ ciqual_food_code:en:26229
 ciqual_food_name:en:Salmon, grilled/pan-fried
 ciqual_food_name:fr:Saumon, grillé/poêlé
 
+<en:Salmons
+en:Salmon steamed
+fr:Saumon cuit à la vapeur
+ciqual_food_code:en:26038
+ciqual_food_name:en:Salmon, steamed
+ciqual_food_name:fr:Saumon, cuit à la vapeur
+
 <en:Smoked salmons
 en:Smoked salmons from farming
 de:Räucherlachs aus Aquakultur
@@ -40922,6 +41542,27 @@ fi:savustetut viljellyt lohet
 fr:Saumons fumés d'élevage, saumon fumé d'élevage, saumons d'élevage fumés, saumons d'élevages fumés
 it:Salmoni affumicati d'allevamenti
 nl:Gerookte kweekzalm
+
+<en:Salmon farmed
+en:Salmon microwaved farmed
+fr:Saumon d'élevage cuit au micro-ondes
+ciqual_food_code:en:26211
+ciqual_food_name:en:Salmon, microwaved, farmed
+ciqual_food_name:fr:Saumon, cuit au micro-ondes, élevage
+
+<en:Salmon farmed
+en:Salmon boiled/cooked in water farmed
+fr:saumon d'élevage cuit à l'eau chaude
+ciqual_food_code:en:26217
+ciqual_food_name:en:Salmon, boiled/cooked in water, farmed
+ciqual_food_name:fr:Saumon, bouilli/cuit à l'eau, élevage
+
+<en:Salmon farmed
+en:Salmon farmed roasted/baked
+fr:saumon d'élevage cuit au four
+ciqual_food_code:en:26230
+ciqual_food_name:en:Salmon, farmed, roasted/baked
+ciqual_food_name:fr:Saumon, élevage, rôti/cuit au four
 
 <en:Smoked salmons
 fr:Saumons fumés de dégustation
@@ -40935,20 +41576,20 @@ fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumon
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
-<en:Smoked fishes
+<en:Smoked es
 fr:Dorades fumées, dorade fumée
 nl:Gerookte brasem
 
-<en:Smoked fishes
-en:Smoked swordfish
+<en:Smoked es
+en:Smoked sword
 fr:Espadons fumés, espadon fumé
 nl:Gerookte zwaardvis
 
-<en:Smoked fishes
+<en:Smoked es
 fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés
 nl:Gerookte schelvis
 
-<en:Smoked fishes
+<en:Smoked es
 <en:Herring
 en:Smoked herrings
 de:Geräucherte Heringe
@@ -40957,22 +41598,22 @@ fi:savustetut sillit
 fr:Harengs fumés, Harengs saur
 nl:Gerookte haring
 
-<en:Smoked fishes
+<en:Smoked es
 en:Smoked mackerels
 de:geräucherte Makrelen
 fr:Maquereaux fumés
 nl:Gerookte makreel
 
-<en:Smoked fishes
+<en:Smoked es
 fr:Marlins fumés, marlin fumé
 nl:Geookte marlijn
 
-<en:Smoked fishes
+<en:Smoked es
 fr:Thazars fumés, thazar fumé, thazards fumés, thazard fumé
 nl:Gerookte spaanse makreel
 
 <en:Trouts
-<en:Smoked fishes
+<en:Smoked es
 en:Smoked trouts
 de:geräucherte Forellen,geräucherte Lachse
 es:Truchas ahumadas
@@ -40981,7 +41622,7 @@ fr:Truites fumées, truite fumée
 it:Trote affumicate
 nl:Gerookte forel
 
-<en:Fishes
+<en:es
 en:Trouts
 de:Forelle, Forellen
 es:Truchas
@@ -40990,7 +41631,7 @@ fr:Truites
 it:Trote, trota
 nl:Forel
 
-<en:Fishes
+<en:es
 en:Tunas, Thunnus
 ca:Tonyina
 de:Thunfische, Thunfisch
@@ -41006,7 +41647,7 @@ th:ทูน่า
 zh:吞拿鱼
 wikidata:en:Q2346039
 
-<en:Fishes
+<en:es
 <en:Tunas
 en:Whole tunas
 de:Ganze Thunfische
@@ -41016,7 +41657,7 @@ it:Tonno intero
 nl:Hele tonijn
 
 <en:Tunas
-<en:Canned fishes
+<en:Canned es
 en:Canned tunas
 de:Thunfischkonserve
 es:Atun en conserva
@@ -41027,6 +41668,8 @@ nl:Tonijn in blik
 ro:Conserve de ton
 ru:Консервы из тунца, Консервы тунцовые
 wikidata:en:Q5711293
+ciqual_food_code:en:26039
+ciqual_food_name:en:Tuna, plain, canned, drained
 
 <en:Canned tunas
 en:Tuna chunks
@@ -41043,7 +41686,7 @@ nl:Blauwvintonijn
 ro:Bucăți de ton
 wikidata:en:Q214415
 
-<en:Smoked fishes
+<en:Smoked es
 <en:Tunas
 en:Smoked tunas
 fr:Thons fumés, thon fumé
@@ -41106,6 +41749,14 @@ fr:Thons blancs au naturel
 it:Tonno bianco al naturale
 nl:Witte tonijn natuur
 
+<en:Tuna in brine
+<fr:Thons blancs au naturel
+en:White fish with Parisian-style sauce (mushrooms sauce)
+fr:Poisson blanc à la parisienne sauce aux champignons
+ciqual_food_code:en:25143
+ciqual_food_name:en:White fish with Parisian-style sauce (mushrooms sauce)
+ciqual_food_name:fr:Poisson blanc à la parisienne (sauce aux champignons)
+
 <en:Tunas
 en:Albacore
 de:Weißer Thun
@@ -41115,6 +41766,8 @@ fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
 la:Thunnus alalunga
 nl:Witte tonijn
 wikidata:en:Q239977
+ciqual_food_code:en:26076
+ciqual_food_name:en:Albacore, raw
 
 <en:Tunas
 es:atún claro
@@ -41131,21 +41784,26 @@ nl:Tropische tonijn
 en:Yellowfin tunas
 de:Gelbflossen-Thuns
 fi:Yellowfin-tonnikalat
-fr:Thons albacore, Thon albacore, thon à nageoires jaunes, Thons jaunes, Thon jaune
+fr:Thons albacore, Thon albacore, thon à nageoires jaunes, Thons jaunes, Thon jaune, Thon albacore naturel appertisé égoutté, thon jaune naturel appertisé égoutté
 la:Thunnus albacares
 nl:Geelvintonijn
 wikidata:en:Q269781
+en:Yellowfin tuna canned in brine drained
+ciqual_food_code:en:26181
+ciqual_food_name:en:Yellowfin tuna, canned in brine, drained
 
 <en:Yellowfin tunas
 fr:Thons albacore au naturel
 
 <en:Tropical tunas
-en:Skipjack tuna
+en:Skipjack tuna, bonito
 de:Echter Bonito
-fr:thons listao, bonite à ventre rayé, listao
+fr:thons listao, bonite à ventre rayé, listao, bonite
 la:Katsuwonus pelamis
 nl:Echte bonito, Bonito, Skipjack, Skipjacktonijn
 wikidata:en:Q633957
+ciqual_food_code:en:26101
+ciqual_food_name:en:Bonito, raw
 
 <en:Tropical tunas
 fr:thons patudo
@@ -41158,27 +41816,27 @@ la:Thunnus obesus
 nl:Grootoogtonijn
 wikidata:en:Q1122241
 
-<en:Fishes
+<en:es
 en:Bass
 de:Barsche, Barsch
 fr:Bars
 nl:Baars
 wikidata:en:Q1224135
 
-<en:Fishes
+<en:es
 en:Pollocks
 de:Seelachse, Seelachs
 fi:lyyraturskat
 fr:Colins
 nl:Heek
 
-<en:Fishes
+<en:es
 en:Breams
 de:Doraden, Dorade
 fr:Dorades, daurades
 nl:Brasem
 
-<en:Fishes
+<en:es
 en:Herring
 de:Heringe, Hering
 es:Arenques
@@ -41207,13 +41865,13 @@ en:Pacific herring
 ru:Сельдь тихоокеанская, тихоокеанская сельдь
 wikidata:en:Q1510347
 
-<en:Fishes
+<en:es
 en:Anglers
 de:Seeteufel
 fr:Lottes
 nl:Kwabaal
 
-<en:Fishes
+<en:es
 en:Mackerels
 de:Makrelen, Makrele
 es:Caballa
@@ -41224,7 +41882,7 @@ ro:Macrou
 wikidata:en:Q8064278
 
 <en:Mackerels
-<en:Fish fillets
+<en: fillets
 en:Mackerels fillets
 de:Makrelenfilets
 es:Filetes De Caballa
@@ -41270,8 +41928,8 @@ en:Plain mackerels fillets
 fr:Filets de maquereaux natures
 nl:Makreelfilets natuur
 
-<en:Fishes
-en:Cods, Codfishes
+<en:es
+en:Cods, Codes
 de:Kabeljau
 es:Bacalaos
 fi:turskat
@@ -41287,7 +41945,7 @@ fr:Foies de morue, foie de morue
 nl:Kabeljauwlevers
 
 <en:Seafood
-en:Jellyfish
+en:Jelly
 de:Quallen
 fr:Méduse
 nl:Kwallen
@@ -42124,16 +42782,19 @@ fr:Pâtes à tartiner au caramel, Pâte à tartiner au caramel, Caramels à tart
 nl:Caramelpastas
 
 <fr:Pâtes à tartiner
-en:Chocolate spreads
+en:Chocolate spreads, Chocolate spread with hazelnuts
 ca:Xocolata per untar
 de:Nougatcremes, Nougatcreme, Nuß-Nougat-Cremes, Nuß-Nougat-Creme, Nussnougatcremes, Nussnougatcreme, Nussnougat-Cremes, Nussnougat-Creme
 es:Cremas de chocolate, Cremas de cacao
 fi:suklaalevitteet
-fr:Pâtes à tartiner au chocolat, pâtes à tartiner au cacao
+fr:Pâtes à tartiner au chocolat, pâtes à tartiner au cacao, Pâte à tartiner chocolat et noisette
 hu:Kenhető csokoládé
 it:Crema con cacao
 nl:Chocopastas, Chocoladepastas
 wikidata:en:Q1754566
+ciqual_food_code:en:31032
+ciqual_food_name:en:Chocolate spread with hazelnuts
+
 
 <fr:Pâtes à tartiner
 en:Almonds spreads
@@ -42141,6 +42802,8 @@ de:Mandel-Crèmes, Crème de Noisettes
 es:Cremas a base de almendras
 fr:Pâtes à tartiner aux amandes
 nl:Amandelpastas
+ciqual_food_code:en:31032
+ciqual_food_name:en:Chocolate spread with hazelnuts
 
 <fr:Pâtes à tartiner
 en:Hazelnut spreads
@@ -42152,6 +42815,8 @@ fr:Pâtes à tartiner aux noisettes, pâte à tartiner aux noisettes
 hu:Kenhető mogyoró
 it:Crema con nocciole, crema alle nocciole
 nl:Hazelnootpastas
+ciqual_food_code:en:31032
+ciqual_food_name:en:Chocolate spread with hazelnuts
 
 <en:Chocolate spreads
 <en:Hazelnut spreads
@@ -42163,12 +42828,16 @@ fr:Pâtes à tartiner aux noisettes et au cacao, pâtes à tartiner aux noisette
 hu:Kenhető csokoládé és mogyoró
 it:Crema con nocciole e cacao
 nl:Choco-hazelnootpastas
+ciqual_food_code:en:31032
+ciqual_food_name:en:Chocolate spread with hazelnuts
 
 <fr:Pâtes à tartiner
 en:Carob spreads
 es:Cremas de algarroba
 fr:Pâtes à tartiner au caroube
 nl:Carobepastas, Johannesbroodboomvruchtenpastas
+ciqual_food_code:en:31032
+ciqual_food_name:en:Chocolate spread with hazelnuts
 
 <en:Spreads
 en:Salted spreads, salty spreads
@@ -43836,7 +44505,7 @@ wikidata:en:Q178547
 # ingredient/endive has 125 products @2019-05-22
 
 
-# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
+# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and  sauce.
 
 <en:Plant-based foods
 # <en:ingredient:en:vegetable
@@ -44597,11 +45266,19 @@ es:Rábanos rojos, Rábanos picantes
 fr:Radis rouges, radis rouge
 la:Raphanus sativus var. sativus
 nl:Radijs
+ciqual_food_code:en:20045
+ciqual_food_name:en:Radish, raw
 
 <en:Radishes
 fr:Radis noirs
 la:Raphanus sativus subsp. niger
 wikidata:en:Q159587
+"en:Radish black raw
+fr:Radis noir cru
+ciqual_food_code:en:20089
+ciqual_food_name:en:Radish, black, raw
+ciqual_food_name:fr:Radis noir, cru
+
 
 <en:Radishes
 en:Daikon radishes, Daikon, White radishes
@@ -46607,13 +47284,16 @@ nl:Kapperappeltjes
 
 <en:Plant-based foods
 <en:Seafood
-en:Seaweeds and their products, Seaweed, Algae
+en:Seaweeds and their products, Seaweed, Algae, Seaweed agar raw
 de:Algen
 es:Algas y sus productos, Algas
 fi:Merilevät ja merilevätuotteet
-fr:Algues et dérivés, Algues
+fr:Algues et dérivés, Algues, algue cru
 nl:Algen
 wikidata:en:Q37868
+ciqual_food_code:en:11084
+ciqual_food_name:en:Seaweed, agar, raw
+ciqual_food_name:fr:Agar (algue), cru
 
 <en:Seaweeds and their products
 <en:Canned plant-based foods
@@ -46621,6 +47301,14 @@ en:Canned seaweeds, Tinned algae
 es:Algas en conserva
 fr:Algues en conserve
 nl:Algen in blik
+
+<en:Seaweeds and theirs products
+en:Gracilaria seaweeds (Gracilaria verrucosa) dried or dehydrated
+fr:Gracilaire ou ogonori (Gracilaria verrucosa) séchée, Gracilaire ou ogonori (Gracilaria verrucosa)déshydratée
+ciqual_food_code:en:20993
+ciqual_food_name:en:Gracilaria seaweeds (Gracilaria verrucosa), dried or dehydrated
+ciqual_food_name:fr:Gracilaire ou ogonori (Gracilaria verrucosa), séchée ou déshydratée
+
 
 <en:Canned seaweeds
 en:Seaweed spread, seaweed tartar, algae tartar
@@ -46679,12 +47367,20 @@ fr:Algues cochayuyo sèches
 nl:Gedroogde Durvillaea antarctica algen
 
 <en:Seaweeds and their products
-en:Dulse seaweeds, Dulse, Dillisk, Dilsk
+en:Dulse seaweeds, Dulse, Dillisk, Dilsk, Dulse (Palmaria palmata) dried or dehydrated
 es:Algas dulse, Dulse
-fr:Algues dulse, Dulse, Goémon à vache, Algue à vache
+fr:Algues dulse, Dulse, Goémon à vache, Algue à vache, Dulse (Palmaria palmata) séchée, Dulse (Palmaria palmata) déshydratée
 la:Palmaria palmata
 nl:Dulse, Rode dulse, Dillisk
 wikidata:en:Q864648
+ciqual_food_code:en:20988
+ciqual_food_name:en:Dulse (Palmaria palmata), dried or dehydrated
+
+<en:Seaweeds and their products
+en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus) dried or dehydrated
+fr:Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus) séché, Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus) déshydraté
+ciqual_food_code:en:20994
+ciqual_food_name:en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus), dried or dehydrated
 
 <en:Dulse seaweeds
 <en:Dried seaweeds
@@ -46750,13 +47446,32 @@ es:Algas musgo de Irlanda en polvo, Algas musgo de Irlanda deshidratadas en polv
 nl:Ierse mospoeders
 
 <en:Seaweeds and their products
-en:Kombu seaweeds, Kombu
+en:Kombu seaweeds, Kombu, Kombu or Japanese kelp (Laminaria japonica) dried or dehydrated
 es:Algas kombu, Kombu
-fr:Algues kombu, Kombu
+fr:Algues kombu, Kombu, kombu japonais (Laminaria japonica) séchée, kombu japonais (Laminaria japonica) déshydratée
 jp:昆布
 ko:다시마
 nl:Kombu, Konbu
 wikidata:en:Q11261547
+ciqual_food_code:en:20990
+ciqual_food_name:en:Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
+
+<en:Seaweeds and their products
+<fr: Algues kombu
+en:Sea belt (Saccharina latissima) dried or dehydrated
+fr:Kombu royal (Saccharina latissima) séchée, Kombu royal (Saccharina latissima) déshydratée
+ciqual_food_code:en:20986
+ciqual_food_name:en:Sea belt (Saccharina latissima), dried or dehydrated
+ciqual_food_name:fr:Kombu royal (Saccharina latissima), séchée ou déshydratée
+
+<en:Seaweeds and their products
+<fr: Algues kombu
+en:Tangle (Laminaria digitata) dried or dehydrated
+fr:Kombu breton (Laminaria digitata) séchée, Kombu breton (Laminaria digitata) déshydratée
+ciqual_food_code:en:20991
+ciqual_food_name:en:Tangle (Laminaria digitata), dried or dehydrated
+ciqual_food_name:fr:Kombu breton (Laminaria digitata), séchée ou déshydratée
+
 
 <en:Kombu seaweeds
 <en:Dried seaweeds
@@ -46803,8 +47518,11 @@ wikidata:en:Q201565
 <en:Dried seaweeds
 en:Dried nori seaweeds
 es:Algas nori deshidratadas
-fr:Algues nori sèches
+fr:Algues nori sèches, :Nori (Porphyra sp.) séchée, Nori (Porphyra sp.) déshydratée
 nl:Gedroogde nori
+en:Laver (Porphyra sp.) dried or dehydrated
+ciqual_food_code:en:20987
+ciqual_food_name:en:Laver (Porphyra sp.), dried or dehydrated
 
 <en:Dried nori seaweeds
 en:Dried nori seaweed flakes
@@ -46825,12 +47543,14 @@ es:Algas nori en polvo, Algas nori deshidratadas en polvo
 nl:Noripoeders
 
 <en:Seaweeds and their products
-en:Sea lettuce seaweeds, Sea lettuce
+en:Sea lettuce seaweeds, Sea lettuce, Sea lettuce (Enteromorpha sp.) dried or dehydrated
 es:Algas lechuga de mar, Lechuga de mar
-fr:Ulves
+fr:Ulves, Ao-nori (Enteromorpha sp.) séchée, Ao-nori (Enteromorpha sp.) déshydratée
 la:Ulva
 nl:Groenwieren
 wikidata:en:Q1109330
+ciqual_food_code:en:20995
+ciqual_food_name:en:Sea lettuce (Enteromorpha sp.), dried or dehydrated
 
 <en:Sea lettuce seaweeds
 <en:Dried seaweeds
@@ -46855,18 +47575,23 @@ wikidata:en:Q852879
 
 <en:Ulva lactuca seaweeds
 <en:Dried sea lettuce seaweeds
-en:Dried ulva lactuca seaweeds
+en:Dried ulva lactuca seaweeds, Sea lettuce (ulva sp.) dried or dehydrated)
 es:Algas lamilla deshidratadas
-fr:Algues laitue de mer sèches
+fr:Algues laitue de mer sèches, Laitue de mer (Ulva sp.) séchée, Laitue de mer (Ulva sp.) déshydratée
 nl:Gedroogde zeesla
+ciqual_food_code:en:20985
+ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated)
+ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
 
 <en:Seaweeds and their products
-en:Sea spaghetti seaweeds, Sea spaghetti, Thongweed, Sea thong
+en:Sea spaghetti seaweeds, Sea spaghetti, Thongweed, Sea thong, Sea thong (Himanthalia elongata) dried or dehydrated
 es:Algas espagueti de mar, Espagueti de mar
-fr:Algues spaghetti de mer, Spaghetti de mer, Haricot de mer
+fr:Algues spaghetti de mer, Spaghetti de mer, Haricot de mer, Haricot de mer (Himanthalia elongata) séchée, Haricot de mer (Himanthalia elongata) déshydratée
 la:Himanthalia elongata
 nl:Riemwieren
 wikidata:en:Q1636443
+ciqual_food_code:en:20992
+ciqual_food_name:en:Sea thong (Himanthalia elongata), dried or dehydrated
 
 <en:Sea spaghetti seaweeds
 <en:Canned seaweeds
@@ -46888,13 +47613,17 @@ es:Algas espagueti de mar en polvo, Algas espagueti de mar deshidratadas en polv
 nl:Riemwierpoeders
 
 <en:Seaweeds and their products
-en:Wakame seaweeds, Wakame
+en:Wakame seaweeds, Wakame, Wakame (Undaria pinnatifida) dried or dehydrated, Atlantic wakame (Alaria esculenta) dried or dehydrated
 de:Wakame
 es:Algas wakame, Wakame
-fr:Algues wakame, Wakame
+fr:Algues wakame, Wakame, Wakamé (Undaria pinnatifida) séchée, Wakamé (Undaria pinnatifida) déshydratée, Wakamé atlantique (Alaria esculenta) séchée, Wakamé atlantique (Alaria esculenta) déshydratée
 la:Undaria pinnatifida
 nl:Wakame
 wikidata:en:Q864682
+ciqual_food_code:en:20984
+ciqual_food_name:en:Wakame (Undaria pinnatifida), dried or dehydrate
+ciqual_food_code:en:20999
+ciqual_food_name:en:Atlantic wakame (Alaria esculenta), dried or dehydrated
 
 <en:Wakame seaweeds
 <en:Canned seaweeds
@@ -48099,7 +48828,7 @@ nl:Galettes
 <en:Galettes
 fr:Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
 
-en:Fish and meat and eggs, Fish meat eggs
+en: and meat and eggs,  meat eggs
 ca:Peix carn i ous
 de:Fisch und Fleisch und Eier, Fisch Fleisch Eier
 es:Pescado carne y huevos
@@ -48107,9 +48836,9 @@ fi:Kala liha ja munat
 fr:Poissons et viandes et oeufs, Poissons viandes oeufs
 hu:Hal, hús, tojás
 nl:Vis vlees en eieren
-pnns_group_1:en:Fish Meat Eggs
+pnns_group_1:en: Meat Eggs
 
-<en:Fish and meat and eggs
+<en: and meat and eggs
 en:Offals
 de:Innereien
 fr:Abats
@@ -48142,7 +48871,7 @@ en:Tripe dishes
 fr:Produits tripiers
 nl:Pensproducten
 
-<en:Fish and meat and eggs
+<en: and meat and eggs
 en:Foies gras
 ca:Foie-gras
 de:Foie gras, Stopfleber
@@ -48571,7 +49300,7 @@ ru:Корм для птиц, Корма для птиц
 wikidata:en:Q471236
 
 <en:Pet food
-en:Fish food
+en: food
 de:Fischfutter
 fr:Nourriture pour poissons
 nl:Visvoeding
@@ -48911,13 +49640,13 @@ fi:villisikaterriinit
 fr:Terrines de sanglier
 nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
 
-<en:Fish terrines
+<en: terrines
 en:Salmon terrines
 fi:lohiterriinit
 fr:Terrines de saumon
 nl:Zalmterrines, Zalmterrine, Zalmvleespotten
 
-<en:Fish terrines
+<en: terrines
 en:Trout terrines
 fr:Terrines de truite
 nl:Forelterinnes, Forelterrine,
@@ -48954,15 +49683,17 @@ zh:膳食补充剂
 wikidata:en:Q645858
 
 <en:Dietary supplements
-en:Spirulina
+en:Spirulina, Spirulina (spirulina sp.) dried
 de:Spirulina
 es:Espirulina, Spirulina
 fi:spirulina
-fr:Spiruline
+fr:Spiruline, Spiruline (Spirulina sp.) séchée, Spiruline (Spirulina sp.) )déshydratée
 nl:Spirulina
 ro:Spirulina
 zh:螺旋藻
 wikidata:en:Q285335
+ciqual_food_code:en:11086
+ciqual_food_name:en:Spirulina, (spirulina sp.), dried
 
 <en:Dietary supplements
 en:Vitamines
@@ -49487,11 +50218,11 @@ fr:Crumbles
 nl:Kruimelschotels, Kruimelschotel
 
 <en:Terrines
-en:Fish terrines
+en: terrines
 fi:kalaterriinit
 fr:Terrines de poisson
 nl:Visterrines
-pnns_group_2:en:Fish and seafood
+pnns_group_2:en: and seafood
 
 <en:Cheeses
 en:Mexican cheeses, cheeses from Mexico
