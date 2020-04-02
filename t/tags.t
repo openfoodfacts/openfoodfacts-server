@@ -5,11 +5,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";;
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 
+init_emb_codes();
 
 ok (is_a( "categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
 ok (! is_a( "categories", "en:beers", "en:milks"), 'en:beers is not a child of en:milk');
@@ -323,7 +324,7 @@ is_deeply (\@tags, [
    'en:sugar',
    'en:salt',
  ]
- ) or diag explain(\@tags);;
+ ) or diag explain(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
@@ -400,7 +401,7 @@ is_deeply($product_ref,
 	      "de:\x{e4}pfel"
 	    ]
 	  }
-	
+
 )
 	or diag explain $product_ref;
 
@@ -410,6 +411,17 @@ compute_field_tags($product_ref, "fr", "stores");
 is_deeply($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2.5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("en", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kefir 2,5%"), "en:kefir-2-5");
+is(canonicalize_taxonomy_tag("fr", "test", "kéfir 2.5%"), "en:kefir-2-5");
+
+# Following should be 2.5% instead of 2.5 % for English
+is(display_taxonomy_tag("en", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+is(display_taxonomy_tag("de", "test", "en:kefir-2-5"), "Kefir 2.5 %");
+# Following string has a lower comma ‚ instead of a normal comma
+is(display_taxonomy_tag("fr", "test", "en:kefir-2-5"), "Kéfir 2‚5 %");
 
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "correcteurs-d-acidite"), "correcteurs-acidite");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-fraise"), "yaourt-fraise");
@@ -430,5 +442,45 @@ is_deeply($tag_ref,  {
    ) or diag explain $tag_ref;
 
 is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
+
+
+@tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
+
+is_deeply (\@tags, [
+   'en:organic',
+   'en:no-gmos',
+ ]
+ ) or diag explain(\@tags);
+
+@tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
+
+is_deeply (\@tags, [
+   'en:organic',
+   'en:fair-trade',
+   'en:label-rouge',
+ ]
+ ) or diag explain(\@tags);
+
+@tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
+
+is_deeply (\@tags, [
+ 'en:not-advised-for-specific-people',
+ 'en:not-advised-for-children-and-pregnant-women'
+ ]
+ ) or diag explain(\@tags);
+
+@tags = gen_tags_hierarchy_taxonomy("fr", "traces", "MOUTARDE ET SULFITES");
+
+is_deeply (\@tags, [
+   'en:mustard',
+   'en:sulphur-dioxide-and-sulphites'
+ ]
+ ) or diag explain(\@tags);
+
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:passion-fruit-yogurts");
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
+is_deeply(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
+is_deeply(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
+
 
 done_testing();

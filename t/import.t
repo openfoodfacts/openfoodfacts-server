@@ -13,6 +13,8 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
+init_emb_codes();
+
 # dummy product for testing
 
 my $product_ref = {
@@ -45,10 +47,22 @@ match_taxonomy_tags($product_ref, "some_field", "emb_codes",
 
 is($product_ref->{emb_codes}, "EMB59481");
 
-$product_ref = { "product_name" => "Champagne brut 35,5 CL" };
-assign_quantity_from_field($product_ref, "product_name");
-is($product_ref->{product_name}, "Champagne brut");
-is($product_ref->{quantity}, "35,5 CL");
+
+my @assign_quantity_tests = (
+
+	["Champagne brut 35,5 CL", "Champagne brut", "35,5 CL"],
+	["NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO 2X125G", "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", "2 X 125 G"],
+	["Barres de Céréales (8+4) x 25g", "Barres de Céréales (8+4) x 25g", undef],
+);
+
+foreach my $test_ref (@assign_quantity_tests) {
+
+	$product_ref = { "product_name" => $test_ref->[0] };
+	assign_quantity_from_field($product_ref, "product_name");
+	is($product_ref->{product_name}, $test_ref->[1]);
+	is($product_ref->{quantity}, $test_ref->[2]);
+
+}
 
 $product_ref = { "lc" => "fr", "product_name_fr" => "Soupe bio" };
 @fields = qw(product_name_fr);
@@ -62,7 +76,7 @@ is($product_ref->{quantity}, "250 g") or diag explain $product_ref;
 $product_ref = { "lc" => "fr", net_weight_value_unit => "250 gr", quantity => "2 tranches" }; clean_weights($product_ref);
 is($product_ref->{quantity}, "2 tranches (250 g)") or diag explain $product_ref;
 
-$product_ref = { "lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)" }; 
+$product_ref = { "lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)" };
 @fields = ("emb_codes");
 clean_fields($product_ref);
 is($product_ref->{emb_codes}, "EMB 60282A") or diag explain $product_ref;
@@ -84,14 +98,14 @@ my @tests = (
 		Sodium (g) : 0,0048
 		Sel (g) : 0.01", { 'carbohydrates'=>['74.8','g',''], 'energy-kcal'=>['401','kcal',''], 'energy-kj'=>['1694','kJ',''], 'fat'=>['5.1','g',''], 'fiber'=>['3.9','g',''], 'proteins'=>['11.9','g',''], 'salt'=>['0.01','g',''], 'saturated-fat'=>['0.6','g',''], 'sodium'=>['0,0048','g',''], 'sugars'=>['7.3','g',''] }],
 	["fr", "pour 100g :
-		Energie (kJ) : 
-		Energie (kcal) : 
-		Graisses (g) : 
-		dont acides gras saturés (g) : 
-		Glucides (g) : 
-		dont sucres (g) : 
-		Fibres alimentaires (g) : 
-		Protéines (g) : 
+		Energie (kJ) :
+		Energie (kcal) :
+		Graisses (g) :
+		dont acides gras saturés (g) :
+		Glucides (g) :
+		dont sucres (g) :
+		Fibres alimentaires (g) :
+		Protéines (g) :
 		Sel (g) :", {}],
 	["fr", "pour 100g :
 		Energie (kJ) : 2989
@@ -104,18 +118,41 @@ my @tests = (
 		Protéines (g) : 0.7
 		Sodium (g) : 0,79
 		Sel (g) : 2", { 'carbohydrates'=>['1','g',''], 'energy-kcal'=>['727','kcal',''], 'energy-kj'=>['2989','kJ',''], 'fat'=>['80','g',''], 'fiber'=>['0','g','~'], 'proteins'=>['0.7','g',''], 'salt'=>['2','g',''], 'saturated-fat'=>['52','g',''], 'sodium'=>['0,79','g',''], 'sugars'=>['0','g',''] }],
+
+	["en", "per serving (20g) : energy 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "20g"],
+	["fr", "à la portion de 40 g: energie 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "40 g"],
+	["fr", "Par portion (40 g), energie 250 kj", {'energy-kj'=>['250','kJ',''] }, "serving", "40 g"],
+
+
+	["fr", "A la portion (0.025L) :
+Energie (kJ) : 285
+Energie (kcal) : 67
+Graisses (g) : 0
+dont acides gras saturés (g) : 0
+Glucides (g) : 16.8
+dont sucres (g) : 16.8
+Fibres alimentaires (g) : 0
+Protéines (g) : 0
+Sel (g) : 0
+Cette bouteille contient 20 portions de 25ml pour un verre de 200ml de sirop dilué (1 volume de sirop + 7 volumes d'eau).", { 'carbohydrates'=>['16.8','g',''], 'energy-kcal'=>['67','kcal',''], 'energy-kj'=>['285','kJ',''], 'fat'=>['0','g',''], 'fiber'=>['0','g',''], 'proteins'=>['0','g',''], 'salt'=>['0','g',''], 'saturated-fat'=>['0','g',''], 'sugars'=>['16.8','g',''] }
+ , "serving", "0.025L"],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $nutrients_ref = {};
-	extract_nutrition_facts_from_text($test_ref->[0], $test_ref->[1], $nutrients_ref);
+	my $nutrition_data_per;
+	my $serving_size;
+	extract_nutrition_facts_from_text($test_ref->[0], $test_ref->[1], $nutrients_ref, \$nutrition_data_per, \$serving_size);
+	is ($nutrition_data_per, $test_ref->[3]);
+	is ($serving_size, $test_ref->[4]);
+
 	if (not is_deeply($nutrients_ref, $test_ref->[2])) {
 		print STDERR "failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]\n";
 		# display the results in a format we can easily copy to the test
 		my $results = "{";
 		foreach my $nid (sort keys %$nutrients_ref) {
-			$results .= " '" . $nid . "'=>['" 
+			$results .= " '" . $nid . "'=>['"
 			. $nutrients_ref->{$nid}[0] . "','"
 			. $nutrients_ref->{$nid}[1] . "','"
 			. $nutrients_ref->{$nid}[2] . "'],"
@@ -125,5 +162,38 @@ foreach my $test_ref (@tests) {
 		print STDERR $results . "\n";
 	}
 }
+
+
+# clean_fields tests
+
+@tests = (
+
+# Lowercase ALL CAPS fields
+[
+	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
+# Remove brand at end of product name
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour"},
+],
+
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+],
+
+
+);
+
+foreach my $test_ref (@tests) {
+
+	clean_fields($test_ref->[0]);	
+	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
+
+}
+
 
 done_testing();

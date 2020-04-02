@@ -56,7 +56,7 @@ my $action = param('action') || 'display';
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
@@ -81,7 +81,7 @@ elsif ($action eq "process") {
 	my $args_ref = {
 		user_id => $User_id,
 		org_id => $Org_id,
-		owner => $owner,
+		owner => $Owner_id,
 		import_id => $import_id,
 	};
 

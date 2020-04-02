@@ -29,7 +29,7 @@ database and file system.
 
     use ProductOpener::Products qw/:all/;
 
-	my $product_ref = init_product($User_id, $Org_id, $code);
+	my $product_ref = init_product($User_id, $Org_id, $code, $countryid);
 
 	$product_ref->{product_name_en} = "Chocolate cookies";
 
@@ -71,10 +71,11 @@ BEGIN
 		&normalize_code
 		&assign_new_code
 		&split_code
-		&product_id_for_user
+		&product_id_for_owner
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&get_owner_id
 		&init_product
 		&retrieve_product
 		&retrieve_product_or_deleted_product
@@ -104,6 +105,7 @@ BEGIN
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
+		&find_and_replace_user_id_in_products
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -208,12 +210,12 @@ sub assign_new_code() {
 		$code = $$internal_code_ref;
 	}
 
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
 
 		$code++;
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
 	store("$data_root/products/internal_code.sto", \$code);
@@ -273,18 +275,47 @@ sub split_code($) {
 	return $path;
 }
 
-sub product_id_for_user($$$) {
 
-	my $userid = shift;
-	my $orgid = shift;
+=head2 product_id_for_owner ( OWNER_ID, CODE )
+
+C<product_id_for_owner()> returns the product id associated with a product barcode.
+
+If the products on the server are public, the product id is equal to the product code.
+
+If the products on the server as private (e.g. on the platform for producers),
+the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
+
+=head3 Parameters
+
+=head4 Owner id
+
+In most cases, pass $Owner_id which is initialized by ProductOpener::Users::init_user()
+
+  undef for public products
+  user-[user id] or org-[organization id] for private products
+
+=head4 Code
+
+Product barcode.
+
+=head3 Return values
+
+The product id.
+
+=cut
+
+sub product_id_for_owner($$) {
+
+	my $ownerid = shift;
 	my $code = shift;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		if (defined $orgid) {
-			return "org-" . $orgid . "/" . $code;
+		if (defined $ownerid) {
+			return $ownerid . "/" . $code;
 		}
 		else {
-			return "user-" . $userid . "/" . $code;
+			# Should not happen
+			die("Owner not set");
 		}
 	}
 	else {
@@ -343,13 +374,45 @@ sub product_exists($) {
 	}
 }
 
-sub init_product($$$) {
+sub get_owner_id($$$) {
+
+	my $userid = shift;
+	my $orgid = shift;
+	my $ownerid = shift;
+
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		if (not defined $ownerid) {
+			if (defined $orgid) {
+				$ownerid = "org-" . $orgid;
+			}
+			else {
+				$ownerid = "user-" . $userid;
+			}
+		}
+	}
+
+	return $ownerid;
+}
+
+
+=head2 init_product ( $userid, $orgid, $code, $countryid )
+
+Initialize and return a $product_ref structure for a new product.
+
+If $countryid is defined and is not "en:world", then assign this country for the countries field.
+Otherwise, use the country associated with the ip address of the user.
+
+=cut
+
+sub init_product($$$$) {
 
 	my $userid = shift;
 	my $orgid = shift;
 	my $code = shift;
+	my $countryid = shift;
 
-	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code }) if $log->is_debug();
+	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code, countryid => $countryid }) if $log->is_debug();
 
 	my $creator = $userid;
 
@@ -367,18 +430,25 @@ sub init_product($$$) {
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-		my $owner = "user-" . $userid;
-		if (defined $orgid) {
-			$owner = "org-" . $orgid;
-		}
-		$product_ref->{owner} = $owner;
-		$product_ref->{_id} = $owner . "/" . $code;
+		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
 
-		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, owner => $owner, product_id => $product_ref->{_id} }) if $log->is_debug();
+		$product_ref->{owner} = $ownerid;
+		$product_ref->{_id} = $ownerid . "/" . $code;
+
+		$log->debug("init_product - private_products enabled", { userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id} }) if $log->is_debug();
 	}
 
-	use ProductOpener::GeoIP;
-	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
+	my $country;
+
+	if ((not defined $countryid) or ($countryid eq "en:world")) {
+
+		use ProductOpener::GeoIP;
+		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
+	}
+	else {
+		$country = $countryid;
+		$country =~ s/^en://;
+	}
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
@@ -449,6 +519,7 @@ sub send_notification_for_product_change($$) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
+		$ua->timeout(2);
 
 		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
 			'barcode' => $product_ref->{code},
@@ -731,7 +802,9 @@ sub store_product($$) {
 
 	compute_languages($product_ref);
 
-	compute_product_history_and_completeness($product_ref, $changes_ref);
+	my $blame_ref = {};
+
+	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
@@ -888,7 +961,14 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $lc = $product_ref->{lc};
 	if (not defined $lc) {
 		# Try lang field
-		$lc = $product_ref->{lang};
+		if (defined $product_ref->{lang}) {
+			$lc = $product_ref->{lang};
+		}
+		else {
+			$lc = "en";
+			$product_ref->{lang} = "en";
+		}
+		$product_ref->{lc} = $lc;
 	}
 
 	# Compute completeness and missing tags
@@ -1077,11 +1157,12 @@ sub get_change_userid_or_uuid($) {
 	# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 	# (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 	# (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid}) and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
+	#
+	# but not:
+	# (app)Updated via Power User Script
+	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
+		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
 		$uuid = $';
-	}
-	elsif ($change_ref->{comment} =~ /(added by|User(\s*)(id)?)(\s*)(:)?(\s*)(\S+)/i) {
-		$uuid = $7;
 	}
 
 	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
@@ -1098,27 +1179,193 @@ sub get_change_userid_or_uuid($) {
 }
 
 
-sub compute_product_history_and_completeness($$) {
+=head2 replace_user_id_in_product ( $product_id, $user_id, $new_user_id )
+
+For a specific product, replace a specific user_id associated with changes (edits, new photos etc.)
+by another user_id.
+
+This can be used when we want to rename a user_id, or when an user asks its data to be deleted:
+we can rename it to a generic user account like openfoodfacts-contributors.
+
+=head3 Parameters
+
+=head4 Product id
+
+=head4 User id
+
+=head3 New user id
+
+=cut
+
+my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags);
+
+sub replace_user_id_in_product($$$) {
+
+	my $product_id = shift;
+	my $user_id = shift;
+	my $new_user_id = shift;
+
+	my $path = product_path_from_id($product_id);
+
+	# List of changes
+
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		$changes_ref = [];
+	}
+
+	my $most_recent_product_ref;
+
+	my $revs = 0;
+
+	foreach my $change_ref (@$changes_ref) {
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $user_id)) {
+			$change_ref->{userid} = $new_user_id;
+		}
+
+		# We need to go through all product revisions to rename all instances of the user id
+
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;	# was not set before June 2012
+		}
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+
+		if (defined $product_ref) {
+
+			my $changes = 0;
+
+			# Product creator etc.
+
+			foreach my $user_field (qw(creator last_modified_by last_editor)) {
+
+				if ((defined $product_ref->{$user_field}) and ($product_ref->{$user_field} eq $user_id)) {
+					$product_ref->{$user_field} = $new_user_id;
+					$changes++;
+				}
+			}
+
+			# Lists of users computed by compute_product_history_and_completeness()
+
+			foreach my $users_field (@users_fields) {
+				if (defined $product_ref->{$users_field}) {
+					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}} ; $i++) {
+						if ($product_ref->{$users_field}[$i] eq $user_id) {
+							$product_ref->{$users_field}[$i] = $new_user_id;
+							$changes++;
+						}
+					}
+				}
+			}
+
+			# Images uploaders
+
+			if (defined $product_ref->{images}) {
+				foreach my $id (sort keys %{$product_ref->{images}}) {
+					if ((defined $product_ref->{images}{$id}{uploader}) and ($product_ref->{images}{$id}{uploader} eq $user_id)) {
+						$product_ref->{images}{$id}{uploader} = $new_user_id;
+						$changes++;
+					}
+				}
+			}
+
+			# Save product
+
+			if ($changes) {
+				store("$data_root/products/$path/$rev.sto", $product_ref);
+			}
+		}
+
+		$most_recent_product_ref = $product_ref;
+	}
+
+	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
+		my $products_collection = get_products_collection();
+		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}}, $most_recent_product_ref, { upsert => 1 });
+	}
+
+	store("$data_root/products/$path/changes.sto", $changes_ref);
+}
+
+
+=head2 find_and_replace_user_id_in_products ( $user_id, $new_user_id )
+
+Find all products changed by a specific user_id, and replace the user_id associated with changes (edits, new photos etc.)
+by another user_id.
+
+This can be used when we want to rename a user_id, or when an user asks its data to be deleted:
+we can rename it to a generic user account like openfoodfacts-contributors.
+
+=head3 Parameters
+
+=head4 User id
+
+=head3 New user id
+
+=cut
+
+sub find_and_replace_user_id_in_products($$) {
+
+	my $user_id = shift;
+	my $new_user_id = shift;
+
+	$log->debug("find_and_replace_user_id_in_products", { user_id => $user_id, new_user_id => $new_user_id } ) if $log->is_debug();
+
+	my $or = [];
+
+	foreach my $users_field (@users_fields) {
+		push @$or, { $users_field => $user_id };
+	}
+
+	my $query_ref = {'$or' => $or};
+
+	my $products_collection = get_products_collection();
+
+	my $count = $products_collection->count_documents($query_ref);
+
+	$log->info("find_and_replace_user_id_in_products - matching products", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+
+	# wait to give time to display the product count
+	sleep(2) if $log->is_debug();
+
+	my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
+	$cursor->immortal(1);
+
+	while (my $product_ref = $cursor->next) {
+
+		my $product_id = $product_ref->{_id};
+
+		# Ignore bogus product that might have been saved in the database
+		next if (not defined $product_id) or ($product_id eq "");
+
+		$log->info("find_and_replace_user_id_in_products - product_id", { user_id => $user_id, new_user_id => $product_id, product_id => $product_id } ) if $log->is_info();
+
+		replace_user_id_in_product($product_id, $user_id, $new_user_id);
+	}
+
+	$log->info("find_and_replace_user_id_in_products - done", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+}
+
+
+
+sub compute_product_history_and_completeness($$$) {
 
 
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
+	my $blame_ref = shift;
 	my $code = $current_product_ref->{code};
 	my $product_id = $current_product_ref->{_id};
 	my $path = product_path($current_product_ref);
 
 	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
+	# Keep track of the last user who modified each field
+	%$blame_ref = ();
+
 	return if not defined $changes_ref;
-
-	#push @$changes_ref, {
-	#	userid=>$User_id,
-	#	ip=>remote_addr(),
-	#	t=>$product_ref->{last_modified_t},
-	#	comment=>$comment,
-	#	rev=>$rev,
-	#};
-
 
 	# Populate the entry_dates_tags field
 
@@ -1196,6 +1443,12 @@ sub compute_product_history_and_completeness($$) {
 
 			if ($change_ref->{t} > $current_product_ref->{last_modified_t}) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
+			}
+
+			# some very early products added in 2012 did not have created_t
+
+			if ((not defined $current_product_ref->{created_t}) or ($current_product_ref->{created_t} == 0)) {
+				$current_product_ref->{created_t} = $change_ref->{t};
 			}
 
 			%current = (rev => $rev, lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
@@ -1280,6 +1533,8 @@ sub compute_product_history_and_completeness($$) {
 
 		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
 
+			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
+
 			my @ids;
 
 			if ($group eq 'fields') {
@@ -1333,18 +1588,34 @@ sub compute_product_history_and_completeness($$) {
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
 					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
 					$diff = 'change';
-
-					# identify products where Yuka removed existing countries to put only France
 				}
 
 				if (defined $diff) {
+
+					# Assign blame
+
+					if (defined $blame_ref->{$group}{$id}) {
+						$blame_ref->{$group}{$id} = {
+							previous_userid => $blame_ref->{$group}{$id}{userid},
+							previous_t => $blame_ref->{$group}{$id}{t},
+							previous_rev => $blame_ref->{$group}{$id}{rev},
+							previous_value => $blame_ref->{$group}{$id}{value},
+						};
+					}
+					else {
+						$blame_ref->{$group}{$id} = {};
+					}
+
+					$blame_ref->{$group}{$id}{userid} = $change_ref->{userid};
+					$blame_ref->{$group}{$id}{t} = $change_ref->{t};
+					$blame_ref->{$group}{$id}{rev} = $change_ref->{rev};
+					$blame_ref->{$group}{$id}{value} = $current{$group}{$id};
+
 					defined $diffs{$group} or $diffs{$group} = {};
 					defined $diffs{$group}{$diff} or $diffs{$group}{$diff} = [];
 					push @{$diffs{$group}{$diff}}, $id;
 
-
 					# Attribution and last_image_t
-
 
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history
@@ -1737,7 +2008,6 @@ sub compute_languages($) {
 
 	foreach my $field (keys %$product_ref) {
 
-
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
@@ -1755,8 +2025,8 @@ sub compute_languages($) {
 	if (defined $product_ref->{images}) {
 		foreach my $id (keys %{ $product_ref->{images}}) {
 
-			if ($id =~ /_([a-z]{2})$/)  {
-				my $language_code = $1;
+			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/)  {
+				my $language_code = $2;
 				my $language = undef;
 				if (defined $language_codes{$language_code}) {
 					$language = $language_codes{$language_code};

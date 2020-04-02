@@ -53,6 +53,7 @@ use Time::Local;
 use XML::Rules;
 
 $lc = "fr";
+$country = "en:france";
 
 my %fleurymichon_nutrients = (
 
@@ -276,7 +277,7 @@ print STDERR "importing products\n";
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($User_id, undef, $code);
+					$product_ref = init_product($User_id, undef, $code, $country);
 					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/09/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -353,7 +354,7 @@ print STDERR "importing products\n";
 								or ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid) ) {
 								print STDERR "assigning image $imgid ($fleury_michon_image_file) to front-fr\n";
 
-								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
+								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 
 								$crop++;
 							}

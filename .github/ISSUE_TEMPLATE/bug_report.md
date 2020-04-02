@@ -36,3 +36,9 @@ If applicable, add screenshots to help explain your problem.
 
 **Additional context**
 Add any other context about the problem here.
+
+**Number of products impacted**
+If relevant, number (or estimate) of products impacted by the bug or feature at the time of creation of the issue
+
+**Timeloss per product**
+Estimate of timeloss provoked or saved by the issue, per product

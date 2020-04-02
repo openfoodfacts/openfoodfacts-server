@@ -59,6 +59,7 @@ my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set bi
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 $lc = "fr";
+$country = "en:france";
 
 $User_id = 'systeme-u';
 
@@ -431,7 +432,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				next;
 			}
 
-			#next if ($code ne "3256220126410");
+			#next if ($code ne "3256220067515");
 
 			# next if ($i < 2665);
 
@@ -470,7 +471,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($User_id, "systeme-u", $code);
+					$product_ref = init_product($User_id, "systeme-u", $code, $country);
 					$product_ref->{interface_version_created} = "import_systemeu.pl - version 2019/12/13";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -532,7 +533,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -545,7 +546,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 
@@ -1347,6 +1348,10 @@ Minéraux  0 , Minéraux Calcium (mg) 4.1 , Minéraux Magnésium (mg) 1.7, Miné
 Energie (kJ)  591 , Energie (kcal)  142 , Protéines (g)  12.5 , Glucides (g)  .7 , Glucides (g) Sucres (g) .7 , Graisses (g)  10 , Graisses (g) Acides gras saturés (g) 2.6 , Graisses (g) Acides gras polyinsaturés (g) 1.9 , Graisses (g) Oméga 3 (g) 485 , Graisses (g) Oméga 3 DHA (g) 132 , Fibres alimentaires (g)  0 , Sel (g)  .3
 
 Energie : 2180 kJ / 5226 kcal Matières grasses : 44 g dont acides gras saturés : 15 g Glucides : 2.4 g dont sucres : 2.3 g Fibres alimentaires : <0.5 g Protéines : 30 g Sel : 4.8 g
+
+
+pour 100g :  Energie (kJ) : Chocolat : 513 /Vanille : 455 Energie (kcal) : Chocolat : 122 / Vanille : 108 Graisses (g) : Chocolat : 3.4/ vanille : 3.7 dont acides gras saturés (g) : Chocolat : 2.2/ Vanille : 2.4 Glucides (g) : Chocolat : 19.5/Vanille : 16.2 dont sucres (g) : Chocolat : 17.1/Vanille : 13.7 Fibres alimentaires (g) : Chocolat : 0.8/Vanille : 0 Protéines (g) : Chocolat : 2.9/ Vanille : 2.5 Sel (g) : Chocolat : 0.13/Vanille : 0.1
+
 TXT
 ;
 
@@ -1394,8 +1399,26 @@ TXT
 			my %found_nids = ();
 
 			my %nutrients = ();
+			my $nutrition_data_per;
+			my $serving_size;
 
-			extract_nutrition_facts_from_text($product_ref->{lc}, $nutrients, \%nutrients);
+			# un verre de 20 mL
+			$nutrients =~ s/verre de 20 mL/verre de 200 mL/gi;
+			extract_nutrition_facts_from_text($product_ref->{lc}, $nutrients, \%nutrients, \$nutrition_data_per, \$serving_size);
+
+			print STDERR "extract_nutrition_facts_from_text - nutrition_data_per : $nutrition_data_per - serving_size : $serving_size\n";
+
+			if ((defined $nutrition_data_per) and ($nutrition_data_per eq "serving")) {
+
+				if ((defined $serving_size) and ($serving_size ne "") and ($product_ref->{serving_size} ne $serving_size)) {
+					$product_ref->{serving_size} = $serving_size;
+					$modified++;
+				}
+				if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne $nutrition_data_per)) {
+					$product_ref->{nutrition_data_per} = $nutrition_data_per;
+					$modified++;
+				}
+			}
 
 			foreach my $nid (sort keys %nutrients) {
 
@@ -1458,7 +1481,9 @@ TXT
 
 						$product_ref->{nutriments}{$nid} = $new_value;
 
-						$product_ref->{nutrition_data_per} = "100g";
+						if (not defined $nutrition_data_per) {
+							$product_ref->{nutrition_data_per} = "100g";
+						}
 
 						print STDERR "Setting $nid to $value $unit\n";
 

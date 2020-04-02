@@ -7,10 +7,13 @@ use utf8;
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+
+init_emb_codes();
 
 # dummy product for testing
 
@@ -20,14 +23,14 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "apple juice, water and sugar. May contain celery, mustard and gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 
 	[ { lc => "fr", ingredients_text => "lait demi-écrémé 67%" }, ["en:semi-skimmed-milk"] ],
-	[ { lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre" }, [ "fr:Saveur vanille", "en:semi-skimmed-milk", "en:sugar", ], ],
+	[ { lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre" }, [ "fr:Saveur vanille", "en:sugar", "en:semi-skimmed-milk" ], ],
 	[ { lc => "fr", ingredients_text => "lécithine de soja"}, [ "en:soya-lecithin", ], ],
 	[ { lc => "fr", ingredients_text => "sel et épices"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "fr", ingredients_text => "cire d'abeille blanche et jaune"}, [ "en:e901", ], ],
 	[ { lc => "fr", ingredients_text => "viande de porc 50% du poids total"}, [ "en:pork-meat" ], ],
 	[ { lc => "fr", ingredients_text => "arôme naturel"}, [ "en:natural-flavouring" ], ],
 	[ { lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"}, [ "en:natural-apple-flavouring", "en:natural-flavouring" ], ],
-	[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"}, [ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:e330", "en:natural-flavouring", "en:tea-extract" ], ],
+	[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"}, [ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring", "en:tea-extract", "en:e330" ], ],
 	[ { lc => "fr", ingredients_text => "jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure, Traces de moutarde"}, [ "en:superior-quality-durum-wheat-semolina" ], ],
 	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"}, [ "en:superior-quality-durum-wheat-semolina",  ], ],
@@ -42,14 +45,14 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."}, [ "en:salt", "en:acid", "en:e330" ], ],
 
 	[ { lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, [ "en:garlic-powder", "en:salt", ], ],
-	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:e300", "en:preservative", "en:e250" ], ],
+	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
 	[ { lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
 
 	[ { lc => "it", ingredients_text => "sale e spezie"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [  ], ],
 
-	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:e300", "en:preservative", "en:e250" ], ],
+	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 
 	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:pasteurized-cream', 'en:salt', 'en:ferment'  ], ],
 	[ { lc => "en", ingredients_text => "Organically grown green tea"}, [ "en:green-tea" ], ],
@@ -75,12 +78,27 @@ my @tests = (
 
 	 [ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
 
+	 [ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
+	 [ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
+	 [ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
+
+	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
+
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
+
+	[ { lc => "fr", ingredients_text => "Fraises. Contient du lait et des noix. Peut contenir : crustacés, céleri et moutarde."}, ["en:strawberry"]],
+	[ { lc => "en", ingredients_text => "Apples. Contains: milk, nuts and mustard. May contains traces of celery."}, ["en:apple"]],
+
+	# Currently "Kann [allergens] enthalten" is not supported
+	# [ { lc => "de", ingredients_text => "Paprikaextrakt. Kann Haselnüsse, Mandeln enthalten."}, ["en:e160c"]],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $product_ref = $test_ref->[0];
 	my $expected_tags = $test_ref->[1];
+
+	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
 	extract_ingredients_from_text($product_ref);
 

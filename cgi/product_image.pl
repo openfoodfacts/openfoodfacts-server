@@ -53,7 +53,7 @@ if (not defined $code) {
 	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $product_ref = retrieve_product($product_id);
 

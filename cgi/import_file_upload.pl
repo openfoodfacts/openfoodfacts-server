@@ -57,7 +57,7 @@ my $html = '';
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
@@ -80,9 +80,9 @@ if ($action eq "process") {
 		$log->debug("processing upload form", { filename => $filename, file_id => $file_id, extension => $extension }) if $log->is_debug();
 
 		(-e "$data_root/import_files") or mkdir("$data_root/import_files", 0755);
-		(-e "$data_root/import_files/$owner") or mkdir("$data_root/import_files/$owner", 0755);
+		(-e "$data_root/import_files/${Owner_id}") or mkdir("$data_root/import_files/${Owner_id}", 0755);
 
-		open (my $out, ">", "$data_root/import_files/$owner/$file_id.$extension") ;
+		open (my $out, ">", "$data_root/import_files/${Owner_id}/$file_id.$extension") ;
 		while (my $chunk = <$file>) {
 			print $out $chunk;
 		}
@@ -94,7 +94,7 @@ if ($action eq "process") {
 
 		# Keep track of uploaded files attributes and status
 
-		my $import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
+		my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
 		if (not defined $import_files_ref) {
 			$import_files_ref = {};
 		}
@@ -105,7 +105,7 @@ if ($action eq "process") {
 			uploaded_t => $uploaded_t,
 		};
 
-		store("$data_root/import_files/$owner/import_files.sto", $import_files_ref);
+		store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 
 	}
 	else {

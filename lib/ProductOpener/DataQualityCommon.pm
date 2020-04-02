@@ -167,6 +167,9 @@ sub check_code_gs1_prefixes($) {
 	elsif ($code =~ /^977[0-9]{9,10}$/) {
 		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-issn-prefix';
 	}
+	elsif ($code =~ /^3600550[0-9]{6}$/) {
+		push @{$product_ref->{data_quality_warnings_tags}}, 'en:cosmetic-product';
+	}
 }
 
 =head2 check_quality_common( PRODUCT_REF )

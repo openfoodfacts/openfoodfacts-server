@@ -143,6 +143,7 @@ ul.products {
   overflow: hidden;
   padding: 10px;
   width: 120px;
+  word-wrap: break-word;
 }
 
 .products div {
@@ -353,6 +354,18 @@ details.recent {
     width: 32px;
     height: 32px;
     vertical-align: middle;
+  }
+
+  &.red {
+    background-color: #ec5656;
+  }
+
+  &.orange {
+    background-color: #f9904c;
+  }
+
+  &.green {
+    background-color: #47a647;
   }
 }
 

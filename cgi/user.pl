@@ -35,6 +35,14 @@ use ProductOpener::Lang qw/:all/;
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
+use Log::Any qw($log);
+
+my $is_pass = param('prdct_mult');
+my $pass;
+if(defined($is_pass)){
+	$pass= param('password');
+	param("password", "");
+}
 
 ProductOpener::Display::init();
 
@@ -47,7 +55,7 @@ my $html = '';
 
 my $user_ref = {};
 
-if ($type eq 'edit') {
+if ($type =~ /^edit/) {
 	$user_ref = retrieve("$data_root/users/$userid.sto");
 	if (not defined $user_ref) {
 		display_error($Lang{error_invalid_user}{$lang}, 404);
@@ -57,7 +65,7 @@ else {
 	$type = 'add';
 }
 
-if (($type eq 'edit') and ($User_id ne $userid) and not $admin) {
+if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
@@ -78,19 +86,24 @@ if ($action eq 'process') {
 		}
 	}
 
-	ProductOpener::Users::check_user_form($user_ref, \@errors);
+	if ($type eq 'edit_owner') {
+		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
+	}
+	else {
+		ProductOpener::Users::check_user_form($user_ref, \@errors);
+	}
 
 	if ($#errors >= 0) {
-		$action = 'display';
+		if ($type eq 'edit_owner') {
+			$action = 'none';
+		}
+		else {
+			$action = 'display';
+		}
 	}
 }
 
-
-if ($action eq 'display') {
-
-	$scripts .= <<SCRIPT
-SCRIPT
-;
+if (($action eq "display") or ($action eq "none")) {
 
 	if ($#errors >= 0) {
 		$html .= "
@@ -104,7 +117,27 @@ SCRIPT
 		}
 		$html .= '</div>';
 	}
+}
 
+if ($action eq 'display') {
+
+	$scripts .= <<SCRIPT
+SCRIPT
+;
+
+	my $user_info = remove_tags_and_quote(param('user_id'));
+	$user_info =~ /^(.+?)@/;
+	if ( defined ($1) ){
+		$user_ref->{email} = $user_info;
+		$user_ref->{userid} = $1;
+		$user_ref->{name} = $1;
+		$user_ref->{password} =$pass;
+	}
+	else{
+		$user_ref->{userid} = $user_info;
+		$user_ref->{name} = $user_info;
+		$user_ref->{password} =$pass;
+	}
 	$html .= start_form()
 	. "<table>";
 
@@ -128,7 +161,7 @@ SCRIPT
 elsif ($action eq 'process') {
 
 	my $dialog = '_user_confirm';
-	if (($type eq 'add') or ($type eq 'edit')) {
+	if (($type eq 'add') or ($type =~ /^edit/)) {
 		if ( ProductOpener::Users::process_user_form($user_ref) ) {
             $dialog = '_user_confirm_no_mail';
         }
@@ -158,9 +191,18 @@ if ($action ne 'display') {
 	$full_width = 0;
 }
 
-display_new( {
-	title=>lang($type . '_user'),
-	content_ref=>\$html,
-	full_width=>$full_width,
-});
+if (($type eq "edit_owner") and ($action eq "process")) {
+	$log->info("redirecting to / after changing owner", { }) if $log->is_info();
 
+	my $r = shift;
+	$r->headers_out->set(Location =>"/");
+	$r->status(301);
+	return 301;
+}
+else {
+	display_new( {
+		title=>lang($type . '_user'),
+		content_ref=>\$html,
+		full_width=>$full_width,
+	});
+}

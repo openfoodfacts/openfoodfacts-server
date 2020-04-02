@@ -7,6 +7,7 @@ use utf8;
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
@@ -42,6 +43,33 @@ my @tests = (
 	# for languages when we don't have a translation for "and" in Ingredients.pm
 	# use " and "
 	[ { lc => "xx", ingredients_text => "NUTS AND SOMETHING" }, [ "en:nuts", ] ],
+
+	[ { lc => "fr", traces => "Traces de lait"}, [], ["en:milk"] ],
+	[ { lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [], ["en:milk", "en:nuts"] ],
+	[ { lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"] ],
+	[ { lc => "fr", ingredients_text => "Traces possibles : céleri", traces => "Lait, Gluten"}, [], ["en:celery", "en:gluten", "en:milk"] ],
+	[ { lc => "fr", ingredients_text => "Traces éventuelles de moutarde, sésame et céleri", traces => "Lait, Gluten"}, [], ["en:celery", "en:gluten", "en:milk", "en:mustard", "en:sesame-seeds"] ],
+
+	[ { lc => "fr", traces => "noisettes et produits à base de noisettes"}, [], ["en:nuts"]],
+	[ { lc => "es", ingredients_text => "traza de nueces"}, [], ["en:nuts"]],
+	[ { lc => "es", traces => "contiene leche y productos derivados"}, [], ["en:milk"]],
+	[ { lc => "es", traces => "contiene leche y productos derivados incluida lactosa"}, [], ["en:milk"]],
+
+	[ { lc => "fr", ingredients_text => "Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri." }, [], ["en:celery", "en:milk", "en:mustard"] ],
+
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_." }, [], ["en:celery"] ],
+	[ { lc => "fr", ingredients_text => "Traces éventuelles de : épeautre." }, [], ["en:gluten"] ],
+
+	[ { lc => "fr", ingredients_text => "Contient du _lait_." }, ["en:milk"], [] ],
+	[ { lc => "fr", ingredients_text => "Contient du lait, du soja et de la moutarde." }, ["en:milk", "en:mustard", "en:soybeans"], [] ],
+	[ { lc => "en", ingredients_text => "Contains soy, milk and hazelnut. May contain celery." }, ["en:milk", "en:nuts", "en:soybeans"], ["en:celery"] ],
+	[ { lc => "en", ingredients_text => "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard." }, ["en:milk", "en:nuts"], ["en:celery", "en:mustard"] ],
+
+	# Currently not supported
+	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
+  
+	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+
 );
 
 foreach my $test_ref (@tests) {

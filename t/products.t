@@ -86,4 +86,20 @@ foreach my $field (@string_fields) {
 
 compute_and_test_completeness($product_ref, 1.0, 'product all fields');
 
+my @get_change_userid_or_uuid_tests = (
+["real-user", "some random comment", "real-user"],
+["stephane", "Updated via Power User Script", "stephane"],
+["kiliweb", "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ", "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ"],
+);
+
+foreach my $test_ref (@get_change_userid_or_uuid_tests) {
+
+	my $change_ref = { userid => $test_ref->[0], comment => $test_ref->[1] };
+
+	my $userid = get_change_userid_or_uuid($change_ref);
+
+	is ($userid, $test_ref->[2]) or diag explain $test_ref;
+
+}
+
 done_testing();

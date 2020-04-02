@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -17,6 +17,26 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=head1 NAME
+
+ProductOpener::Tags - multilingual tags taxonomies (hierarchies of tags)
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Tags> provides functions to build multilingual tags taxonomies from source files,
+to use those taxonomies to canonicalize lists of tags, and to display them in different languages.
+
+    use ProductOpener::Tags qw/:all/;
+
+..
+
+
+=head1 DESCRIPTION
+
+..
+
+=cut
 
 package ProductOpener::Tags;
 
@@ -85,6 +105,7 @@ BEGIN
 					%emb_codes_cities
 					%emb_codes_geo
 					%cities
+					&init_emb_codes
 
 					%tags_fields
 					%hierarchy_fields
@@ -104,6 +125,7 @@ BEGIN
 
 					%loaded_taxonomies
 
+					%stopwords
 					%synonyms_for
 					%just_synonyms
 					%translations_from
@@ -117,6 +139,8 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
+
+					&remove_stopwords_from_start_or_end_of_string
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -185,7 +209,7 @@ my %tags_direct_parents = ();
 my %tags_direct_children = ();
 my %tags_all_parents = ();
 
-my %stopwords = ();
+%stopwords = ();
 %just_synonyms = ();
 my %just_tags = ();	# does not include synonyms that are only synonyms
 my %synonyms = ();
@@ -207,6 +231,10 @@ my %all_parents = ();
 %tags_texts = ();
 
 my $logo_height = 90;
+
+=head1 FUNCTIONS
+
+=cut
 
 sub get_property($$$) {
 
@@ -591,8 +619,69 @@ sub load_tags_hierarchy($$) {
 	}
 }
 
-# Cache the stopwords regexp
+# Cache the stopwords regexps to remove stopwords from strings and tagids
 my %stopwords_regexps = ();
+
+=head2 remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )
+
+Remove stopwords (that are specific to each category) from the start or end of a string that has not been normalized.
+This function differs from remove_stopwords() that works on normalized tags instead of strings and that also removes stopwords in the middle.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $lc - Language code
+
+The language the string is in.
+
+=head4 $string - string
+
+The string to remove stopwords from.
+
+=cut
+
+sub remove_stopwords_from_start_or_end_of_string($$$) {
+
+	my $tagtype = shift;
+	my $lc = shift;
+	my $string = shift;
+
+	if (defined $stopwords{$tagtype}{$lc . ".strings"}) {
+
+		if (not defined $stopwords_regexps{$tagtype . '.' . $lc . '.strings'}) {
+			$stopwords_regexps{$tagtype . '.' . $lc . '.strings'} = join('|', uniq(@{$stopwords{$tagtype}{$lc . '.strings'}}));
+		}
+
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc . '.strings'};
+
+		$string =~ s/^(\b($regexp)\s)+//ig;
+		$string =~ s/(\s($regexp)\b)+$//ig;
+	}
+	return $string;
+}
+
+=head2 remove_stopwords ( $tagtype, $lc, $tagid )
+
+Remove stopwords (that are specific to each category) from a normalized tag.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $lc - Language code
+
+The language the tagid is in.
+
+=head4 $tagid - normalized tag
+
+Lowercased, unaccented depending on language, non-alphanumeric chars turned to dash.
+
+=cut
 
 sub remove_stopwords($$$) {
 
@@ -693,7 +782,6 @@ sub build_tags_taxonomy($$$) {
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype \n";
 
-
 		# 1st phase: read translations and synonyms
 
 		my $line_number = 0;
@@ -764,7 +852,9 @@ sub build_tags_taxonomy($$$) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
 					next if $tagid eq '';
 					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
+					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
 					push @{$stopwords{$tagtype}{$lc}}, $tagid;
+					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
 					print "taxonomy - stopwords - tagtype: $tagtype - lc: $lc - tagid: $tagid\n";
 				}
 			}
@@ -826,22 +916,22 @@ sub build_tags_taxonomy($$$) {
 
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
-					print STDERR "new canon_tagid: $canon_tagid\n";
-					if ($synonyms eq 'synonyms:') {
+					# print STDERR "new canon_tagid: $canon_tagid\n";
+					if ((defined $synonyms) and ($synonyms eq 'synonyms:')) {
 						$just_synonyms{$tagtype}{$canon_tagid} = 1;
 					}
 				}
 
 				if (not defined $translations_from{$tagtype}{"$lc:$current_tagid"}) {
 					$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
-					print STDERR "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
+					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
 				}
 
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
 
 				if (not defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
 					$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
-					print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+					# print STDERR "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
 				}
 
 
@@ -870,7 +960,7 @@ sub build_tags_taxonomy($$$) {
 
 					push @{$synonyms_for{$tagtype}{$lc}{$current_tagid}}, $tag;
 					$synonyms{$tagtype}{$lc}{$tagid} = $current_tagid;
-					print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $current_tagid \n";
+					# print STDERR "taxonomy - synonyms - synonyms{$tagtype}{$lc}{$tagid} = $current_tagid \n";
 				}
 
 			}
@@ -902,12 +992,12 @@ sub build_tags_taxonomy($$$) {
 
 		#print "synonyms: initializing synonyms_for_extended - tagtype: $tagtype - lc keys: " . scalar(keys %{$synonyms_for{$tagtype}{$lc}}) . "\n";
 
-		my %synonym_contains_synonyms = {};
+		my %synonym_contains_synonyms = ();
 
 		foreach my $lc (sort keys %{$synonyms_for{$tagtype}}) {
 			$synonym_contains_synonyms{$lc} = {};
 			foreach my $current_tagid (sort keys %{$synonyms_for{$tagtype}{$lc}}) {
-				print STDERR "synonyms_for{$tagtype}{$lc} - $current_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$current_tagid}}) . "\n";
+				# print STDERR "synonyms_for{$tagtype}{$lc} - $current_tagid - " . scalar(@{$synonyms_for{$tagtype}{$lc}{$current_tagid}}) . "\n";
 
 				(defined $synonyms_for_extended{$tagtype}{$lc}) or $synonyms_for_extended{$tagtype}{$lc} = {};
 
@@ -915,7 +1005,7 @@ sub build_tags_taxonomy($$$) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
 					(defined $synonyms_for_extended{$tagtype}{$lc}{$current_tagid}) or $synonyms_for_extended{$tagtype}{$lc}{$current_tagid} = {};
 					$synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1;
-					print STDERR "synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1 \n";
+					# print STDERR "synonyms_for_extended{$tagtype}{$lc}{$current_tagid}{$tagid} = 1 \n";
 				}
 			}
 		}
@@ -941,7 +1031,9 @@ sub build_tags_taxonomy($$$) {
 			foreach my $tagid (sort { length($a) <=> length($b) || ($a cmp $b) } keys %{$synonyms{$tagtype}{$lc}}) {
 
 				my $max_length = length($tagid) - 3;
-				$max_length > 30 and next; # don't lengthen already long synonyms
+				# don't lengthen already long synonyms
+				# for the first pass, allow longer synonyms
+				$max_length > (60 / $pass) and next;
 
 				# check if the synonym contains another small synonym
 
@@ -951,7 +1043,7 @@ sub build_tags_taxonomy($$$) {
 
 				# Does $tagid have other synonyms?
 				if (scalar @{$synonyms_for{$tagtype}{$lc}{$tagid_c}} > 1) {
-					if (length($tagid) < 15) {
+					if (length($tagid) < (30 / $pass)) {
 						# limit length of synonyms for performance
 						push @smaller_synonyms, $tagid;
 						#print "$tagid (canon: $tagid_c) has other synonyms\n";
@@ -1027,7 +1119,7 @@ sub build_tags_taxonomy($$$) {
 									$synonym_contains_synonyms{$lc}{$tagid_new} = {};
 								}
 								$synonym_contains_synonyms{$lc}{$tagid_new}{$tagid2_c} = 1;
-								print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
+								# print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $tagid_c (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $tagid2_c - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 							}
 						}
 					}
@@ -1055,7 +1147,7 @@ sub build_tags_taxonomy($$$) {
 
 				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
 				}
 
 			}
@@ -1116,7 +1208,7 @@ sub build_tags_taxonomy($$$) {
 			if ($line =~ /^(\s*)$/) {
 				$canon_tagid = undef;
 				%parents = ();
-				print STDERR "taxonomy: next tag\n";
+				#print STDERR "taxonomy: next tag\n";
 				next;
 			}
 
@@ -1384,6 +1476,7 @@ sub build_tags_taxonomy($$$) {
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
 		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
+			next if $lc =~ /\./;	# .orig or .strings
 			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
 		print $OUT "\n\n";
@@ -1764,6 +1857,18 @@ sub gen_tags_hierarchy($$) {
 	return @sorted_list;
 }
 
+my %and = (
+	en => " and ",
+	cs => " a ",
+	da => " og ",
+	de => " und ",
+	es => " y ",
+	fi => " ja ",
+	fr => " et ",
+	it => " e ",
+	nl => " en ",
+	pt => " e ",
+);
 
 sub gen_tags_hierarchy_taxonomy($$$) {
 
@@ -1782,6 +1887,8 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 
 	my %tags = ();
 
+	my $and = $and{$tag_lc} || " and ";
+
 	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
 		my $tag = $tag2;
 		my $l = $tag_lc;
@@ -1790,17 +1897,38 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 			$tag = $';
 		}
 		next if $tag eq '';
-		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
-		my $tagid = get_taxonomyid($l,$tag);
-		next if $tagid eq '';
-		if ($tagid =~ /:$/) {
-			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
-			next;
+		my $canon_tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
+		my @canon_tags = ($canon_tag);
+
+		# Try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
+
+		if (($tag =~ /$and/i) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
+
+			my $tag1 = $`;
+			my $tag2 = $';
+
+			my $canon_tag1 = canonicalize_taxonomy_tag($l, $tagtype, $tag1);
+			my $canon_tag2 = canonicalize_taxonomy_tag($l, $tagtype, $tag2);
+
+			if ( (exists_taxonomy_tag($tagtype, $canon_tag1))
+				and (exists_taxonomy_tag($tagtype, $canon_tag2)) ) {
+				@canon_tags = ($canon_tag1, $canon_tag2);
+			}
 		}
-		$tags{$tag} = 1;
-		if (defined $all_parents{$tagtype}{$tagid}) {
-			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				$tags{$parentid} = 1;
+
+		foreach my $canon_tag_i (@canon_tags) {
+
+			my $tagid = get_taxonomyid($l,$canon_tag_i);
+			next if $tagid eq '';
+			if ($tagid =~ /:$/) {
+				#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
+				next;
+			}
+			$tags{$canon_tag_i} = 1;
+			if (defined $all_parents{$tagtype}{$tagid}) {
+				foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+					$tags{$parentid} = 1;
+				}
 			}
 		}
 	}
@@ -1953,9 +2081,9 @@ sub display_tag_link($$) {
 	}
 
 	if ($tagtype eq 'emb_codes') {
-
 		my $city_code = get_city_code($tagid);
 
+		init_emb_codes() unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -2008,9 +2136,9 @@ sub display_taxonomy_tag_link($$$) {
 	}
 
 	if ($tagtype eq 'emb_codes') {
-
 		my $city_code = get_city_code($tagid);
 
+		init_emb_codes() unless %emb_codes_cities;
 		if (defined $emb_codes_cities{$city_code}) {
 			$html .= " - " . display_tag_link('cities', $emb_codes_cities{$city_code}) ;
 		}
@@ -3009,30 +3137,23 @@ GEXF
 
 }
 
+sub init_emb_codes {
+	return if ((%emb_codes_geo) and (%emb_codes_cities));
+	# Load cities for emb codes
+	$log->info("Loading cities for packaging codes") if $log->is_info();
 
+	# French departements
+	my %departements = ();
+	open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
+	while (<$IN>) {
+		chomp();
+		my ($code, $dep) = split(/\t/);
+		$departements{$code} = $dep;
+	}
+	close ($IN);
 
-
-
-# Load cities for emb codes
-
-$log->info("Loading cities for packaging codes") if $log->is_info();
-
-# French departements
-
-my %departements = ();
-
-open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
-while (<$IN>) {
-	chomp();
-	my ($code, $dep) = split(/\t/);
-	$departements{$code} = $dep;
-}
-close ($IN);
-
-
-# France
-# http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
-
+	# France
+	# http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
 	open ($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
 
 	my @th = split(/\t/, <$IN>);
@@ -3085,11 +3206,9 @@ close ($IN);
 	# geo coordinates
 
 	my @geofiles = ("villes-geo-france-galichon-20130208.csv", "villes-geo-france-complement.csv");
-
-
 	foreach my $geofile (@geofiles) {
-
-		print STDERR "Tags.pm - loading geofile $geofile\n";
+		local $log->context->{geofile} = $geofile;
+		$log->info("loading geofile $geofile") if $log->is_info();
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);
@@ -3120,16 +3239,17 @@ close ($IN);
 
 			$j++;
 			# ($j < 10) and print STDERR "Tags.pm - geo - map - emb_codes_geo: FREMB$insee =  " . $td[$th{"Latitude"}] . " , " . $td[$th{"Longitude"}]. " \n";
-
 		}
+
 		close($IN);
 	}
 
-	# print STDERR "Tags.pm - map - emb_codes_geo total: " . (scalar keys %emb_codes_geo) . "\n";
-
+	$log->debug("Cities for packaging codes loaded") if $log->is_debug();
+}
 
 # nutrient levels
 
+$log->info("Initializing nutrient levels") if $log->is_info();
 foreach my $l (@Langs) {
 
 	$lc = $l;
@@ -3153,6 +3273,8 @@ foreach my $l (@Langs) {
 		}
 	}
 }
+
+$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
 
@@ -3198,9 +3320,7 @@ foreach my $langid (readdir(DH2)) {
 	}
 }
 closedir(DH2);
-
-
-
+$log->debug("tags texts loaded") if $log->is_debug();
 
 sub add_tags_to_field($$$$) {
 
@@ -3279,6 +3399,7 @@ sub compute_field_tags($$$) {
 	my $tag_lc = shift;
 	my $field = shift;
 
+	init_emb_codes() unless %emb_codes_cities;
 	# generate the hierarchy of tags from the field values
 
 	if (defined $taxonomy_fields{$field}) {
@@ -3323,16 +3444,6 @@ sub compute_field_tags($$$) {
 				}
 			}
 		}
-	}
-
-	# special handling for allergens and traces:
-	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
-	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
-	# main language of the product (which may be different than the $tag_lc language of the interface)
-
-	if (($field eq 'allergens') or ($field eq 'traces')) {
-		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
-		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 	}
 
 	# check if we have a previous or a next version and compute differences

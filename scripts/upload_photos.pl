@@ -130,14 +130,14 @@ my $time = time();
 
 if (opendir (DH, "$images_dir")) {
 	foreach my $file (sort readdir(DH)) {
-	
+
 		#next if $file gt "2013-07-13 11.02.07";
 		#next if $file le "DSC_1783.JPG";
-	
+
 		if ($file =~ /\.jpg|jpeg$/i) {
-		
+
 			my $code;
-			
+
 			# we can have the barcode in the image path or in the file name
 			if ($images_dir =~ /\/(\d{8}\d*)(\/|$)/) {
 				$code = $1;
@@ -145,76 +145,76 @@ if (opendir (DH, "$images_dir")) {
 			if ($file =~ /^(\d{8}\d*)/) {
 				$code = $1;
 			}
-			
+
 			if (not defined $code) {
 				$code = scan_code("$images_dir/$file");
 			}
-			
+
 			print $file . "\tcode: " . $code . "\n";
-			
+
 			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
 			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
-						
+
 				$codes{$code}++;
-				
+
 				if ((defined $current_code) and ($code ne $current_code)) {
-				
+
 					$j++;
-				
+
 					if ((defined $last_imgid) and (defined $current_product_ref)) {
-						
+
 						# Select the image only if we don't have a selected image for the front in the target language
-					
+
 						if (($select_front_image) or (
-								(not defined $current_product_ref->{images}) or 
+								(not defined $current_product_ref->{images}) or
 								(not defined $current_product_ref->{images}{"front_$lc"}) ) ) {
 							print STDERR "cropping for code $current_code - front_$lc - , last_imgid: $last_imgid\n";
 							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
 					}
-				
+
 					$previous_code = $current_code;
 					$last_imgid = undef;
 					if ($j > 10000) {
 						print STDERR "stopping - j = $j\n";
 						exit;
 					}
-				}				
-				
+				}
+
 				$current_code = $code;
-				
 
-				
+
+
 				my $product_ref = product_exists($code); # returns 0 if not
-				
 
-		
+
+
 				if (1 and (not $product_ref)) {
 					print STDERR "product code $code does not exist yet, creating product\n";
-					$product_ref = init_product($User_id, undef, $code);
+					$product_ref = init_product($User_id, undef, $code, undef);
 					$product_ref->{interface_version_created} = "upload_photos.pl - version 2019/04/22";
 					$product_ref->{lc} = $global_values{lc};
 					#store_product($product_ref, "Creating product (upload_photos.pl bulk upload) - " . $comment );
-										
-					
+
+
 				}
-				
-				
+
+
 				# Create or update fields
-				
+
 				foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
-						
-					if (defined $global_values{$field}) {				
+
+					if (defined $global_values{$field}) {
 
 						add_tags_to_field($product_ref, $lc, $field, $global_values{$field});
-				
+
 						print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
-						
-						compute_field_tags($product_ref, $lc, $field);						
+
+						compute_field_tags($product_ref, $lc, $field);
 
 					}
 				}
-				
+
 				if (defined $source_id) {
 					if (not defined $product_ref->{sources}) {
 						$product_ref->{sources} = [];
@@ -233,37 +233,37 @@ if (opendir (DH, "$images_dir")) {
 					defined $source_licence and $source_ref->{source_licence} = $source_licence;
 					defined $source_licence_url and $source_ref->{source_licence_url} = $source_licence_url;
 
-					push @{$product_ref->{sources}}, $source_ref;				
+					push @{$product_ref->{sources}}, $source_ref;
 				}
-				
+
 				store_product($product_ref, "Editing product (upload_photos.pl bulk upload) - " . $comment );
-				
+
 				$current_product_ref = $product_ref;
 			} # code found
-			
+
 			if (defined $current_code) {
-			
+
 				my $filetime = $time;
-				
+
 				# skip 0012000031878
 				# skip 2000000023922
 				if (($file !~ /\d(20\d\d)(\d\d)(\d\d)/) and ($file !~ /(20\d\d)(\d\d)(\d\d)\d/)) {
 					# 2013-07-13 11.02.07
 					if (($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) and ($2 <= 12) and ($3 <= 31)) {
 						$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
-					}				
+					}
 					# 20150712_173454.jpg
 					elsif (($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) and ($2 <= 12) and ($3 <= 31)) {
 						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-					}					
+					}
 					elsif (($file =~ /(20\d\d).(\d\d).(\d\d)./) and ($2 <= 12) and ($3 <= 31)) {
 						$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-					}				
+					}
 				}
-			
+
 				my $imgid;
 				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid);
-				
+
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)
 					$last_imgid = $imgid;
@@ -272,12 +272,12 @@ if (opendir (DH, "$images_dir")) {
 				if ($select_front_image) {
 					$last_imgid = $imgid;
 				}
-			}				
-			
+			}
+
 			$i++;
-			
+
 		} #jpg
-		
+
 	}
 	closedir DH;
 }

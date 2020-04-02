@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -35,7 +35,7 @@ eval { Carp::confess("init") };
 
 # used for debugging hanging httpd processes
 # http://perl.apache.org/docs/1.0/guide/debug.html#Detecting_hanging_processes
-$SIG{'USR2'} = sub { 
+$SIG{'USR2'} = sub {
    Carp::confess("caught SIGUSR2!");
 };
 
@@ -68,6 +68,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
@@ -78,7 +79,7 @@ use Apache2::RequestRec ();
 use APR::Table ();
 
 
-$Apache::Registry::NameWithVirtualHost = 0; 
+$Apache::Registry::NameWithVirtualHost = 0;
 
 sub My::ProxyRemoteAddr ($) {
   my $r = shift;
@@ -86,7 +87,7 @@ sub My::ProxyRemoteAddr ($) {
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
   return Apache2::Const::OK
-      unless (($r->useragent_ip eq "127.0.0.1") 
+      unless (($r->useragent_ip eq "127.0.0.1")
 	or 1	# all IPs
 )
           and $r->headers_in->get('X-Forwarded-For');
@@ -99,6 +100,7 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
+init_emb_codes();
 $log->info("product opener started", { version => $ProductOpener::Version::version });
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);

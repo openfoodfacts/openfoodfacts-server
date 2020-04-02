@@ -111,7 +111,7 @@ my %codes = ();
 
 		#next if ($code ne "4072700318675");
 
-		my $product_id = product_id_for_user(undef, undef, $code);
+		my $product_id = product_id_for_owner(undef, $code);
 
 		my $path = product_path_from_id($product_id);
 

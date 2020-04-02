@@ -18,6 +18,28 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Users - manage user profiles and sessions
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Users> contains functions to create and edit user profiles
+and to manage user sessions.
+
+    use ProductOpener::Users qw/:all/;
+
+	[..]
+
+	init_user();
+
+
+=head1 DESCRIPTION
+
+[..]
+
+=cut
+
 package ProductOpener::Users;
 
 use utf8;
@@ -31,17 +53,16 @@ BEGIN
 	@EXPORT_OK = qw(
 					%User
 					$User_id
-					%Visitor
-					$Visitor_id
-					$Facebook_id
 					%Org
 					$Org_id
+					$Owner_id
 
 					$cookie
 
 					&display_user_form
 					&check_user_form
 					&process_user_form
+					&check_edit_owner
 
 					&display_login_form
 
@@ -79,7 +100,7 @@ use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
 
-my @user_groups = qw(producer database app bot moderator);
+my @user_groups = qw(producer database app bot moderator pro_moderator);
 
 sub generate_token {
 	my $name_length = shift;
@@ -166,9 +187,9 @@ sub display_user_form($$) {
 		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
 			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
+	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
+	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 
 
 	;
@@ -274,7 +295,6 @@ sub check_user_form($$) {
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-#	$user_ref->{sex} = param('sex');
 
 	if ($user_ref->{email} ne decode utf8=>param('email')) {
 
@@ -413,6 +433,51 @@ EMAIL
     return $error;
 }
 
+
+sub check_edit_owner($$) {
+
+	my $user_ref = shift;
+	my $errors_ref = shift;
+
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+
+	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+
+	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
+		delete $user_ref->{pro_moderator_owner};
+		# Also edit the current user object so that we can display the current status directly on the form result page
+		delete $User{pro_moderator_owner};
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
+		my $userid = $';
+		# Add check that organization exists when we add org profiles
+
+		if (! -e "$data_root/users/$userid.sto") {
+			push @$errors_ref, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+		}
+		else {
+			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$log->debug("set pro_moderator_owner (user)", { userid => $userid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		}
+	}
+	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+		# Admin mode to see all products from all owners
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+	else {
+		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+}
+
+
+
 sub display_login_form() {
 }
 
@@ -431,8 +496,6 @@ sub init_user()
 
 	$cookie = undef;
 
-	$Visitor_id = undef;
-	$Facebook_id = undef;
 	$User_id = undef;
 	$Org_id = undef;
 	%User = ();
@@ -688,6 +751,42 @@ sub init_user()
 		%Org = ();
 	}
 
+	# if products are private, select the owner used to restrict the product set with the owners_tags field
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		# Producers platform moderators can set the owner to any user or organization
+		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
+			$Owner_id = $User{pro_moderator_owner};
+			if ($Owner_id =~ /^org-/) {
+				$Org_id = $';
+				%Org = ( org => $Org_id, org_id => $Org_id );
+			}
+			elsif ($Owner_id =~ /^user-/) {
+				$Org_id = undef;
+				%Org = ();
+			}
+			elsif ($Owner_id eq 'all') {
+				$Org_id = undef;
+				%Org = ();
+			}
+			else {
+				$Owner_id = undef;
+			}
+		}
+		elsif (defined $Org_id) {
+			$Owner_id = "org-" . $Org_id;
+		}
+		elsif (defined $User_id) {
+			$Owner_id = "user-" . $User_id;
+		}
+		else {
+			$Owner_id = undef;
+		}
+	}
+	else {
+		$Owner_id = undef;
+	}
+
 	return 0;
 }
 
@@ -774,14 +873,8 @@ sub check_session($$) {
 
 sub save_user() {
 
-	if (defined $Facebook_id) {
-		store("$data_root/facebook_users/" . get_string_id_for_lang("no_language", $Facebook_id) . ".sto", \%User);
-	}
-	elsif (defined $User_id) {
+	if (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);
-	}
-	elsif (defined $Visitor_id) {
-		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
 }
 

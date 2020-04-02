@@ -37,7 +37,7 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 
 my $code = normalize_code(param('code'));
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 my $path = product_path_from_id($product_id);
 my $imgid = param('imgid');
 my $angle = param('angle');
