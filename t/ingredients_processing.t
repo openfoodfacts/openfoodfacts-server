@@ -386,7 +386,7 @@ my @tests = (
 		]
 	],
 
-# Test for process de:gesüßt 
+#  de:gesüßt 
 	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
 		[
 			{
@@ -428,7 +428,7 @@ my @tests = (
 		]
 	],
 
-# Process de:konzentriert (and children) and synonyms
+# de:konzentriert (and children) and synonyms
 	[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
@@ -488,19 +488,71 @@ my @tests = (
 		]	
 	],
 
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+# de:zerkleinert and variants
+	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht, 
+						gurken grob zerkleinert, 
+						acerola fein zerkleinert, fein zerkleinerte spinat, 
+						zwiebel zum teil fein zerkleinert,
+						haselnüsse feinst zerkleinert,
+						überwiegend feinst zerkleinert Feigen" }, 
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
+				'id' => 'en:shallot',
+				'processing' => 'de:zerkleinert',
+				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'processing' => 'de:zerkleinert',
+				'text' => "haselnüsse"
 			},
+			{
+				'id' => 'en:almond',
+				'processing' => "de:zerkleinert",
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:zerkleinert',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:grob-zerkleinert',
+				'text' => 'gurken'
+			},
+			{
+				'id' => 'en:acerola',
+				'processing' => 'de:fein-zerkleinert',
+				'text' => 'acerola'
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'de:fein-zerkleinert',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'de:zum-teil-fein-zerkleinert',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:feinst-zerkleinert',
+				'text' => "haselnusskerne"
+			},
+			{
+				'id' => 'en:fig',
+				'processing' => 'de:halbgetrocknet',
+				'text' => 'Feigen'
+			}
+		]
+	],
+
+# combinations
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
+		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+		[
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:roasted, en:chopped',
