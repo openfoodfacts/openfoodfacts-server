@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-21 09:31\n"
+"PO-Revision-Date: 2020-04-02 13:35\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -203,7 +203,7 @@ msgstr "Open Food Facts 프로젝트를 위해 기부할 수도 있습니다."
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>>는 비영리 단체가 운영하고 있습니다. 여러분을 위해, 여러분에 의해 그리고 여러분의 기부에 의해 운영됩니다. <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">Open Beauty Facts에 기부하거나</a><a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">릴로 서치 엔진을 이용해서 저희에게 힘이 되어주세요</a>.<br/><b>감사합니다!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -499,7 +499,7 @@ msgstr "EMB 코드"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "EMB 코드 %s 인 회사가 패키징 한 제품"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
@@ -752,7 +752,7 @@ msgstr "이용 약관"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/이용 약관"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -761,7 +761,7 @@ msgstr "누가 우리가"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/단체 소개"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -775,7 +775,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "오픈 뷰티 팩트 - 화장품"
 
 # Do not translate
 msgctxt "footer_obf_link"
@@ -874,7 +874,7 @@ msgstr ""
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "이 파일은 제품 %s 에 업로드되었으며 %s 라이센스에 따라 라이센스가 부여됩니다."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -926,11 +926,11 @@ msgstr "야자기름이거나 야자기름에서 난 성분일 수 있습니다.
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "야자유 추출 성분:"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "야자유 추출 성분"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -1003,23 +1003,23 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "라벨, 인증, 수상"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "유기농"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "가장 구체적인 카테고리만 표시하세요. 상위 범위의 카테고리는 자동으로 추가됩니다."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "라벨"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "라벨 %s 이(가) 있는 제품"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1027,11 +1027,11 @@ msgstr "상표"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "라벨 추가"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "라벨 %s 이(가) 없는 제품"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1316,7 +1316,7 @@ msgstr "100g에 대한 영양 수준"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/영양소 수치"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1356,7 +1356,7 @@ msgstr ""
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "%의 차이 "
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1376,7 +1376,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10 분위"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1392,7 +1392,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90 분위"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
@@ -1404,7 +1404,7 @@ msgstr "최대로"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "평균"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1433,7 +1433,7 @@ msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "영양 등급"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
@@ -2102,7 +2102,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "유기농"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
