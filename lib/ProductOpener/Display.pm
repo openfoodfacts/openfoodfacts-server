@@ -6968,7 +6968,7 @@ sub display_field($$) {
 			my $to_do_status = '';
 			my @status_split = split(',', $value);
 			foreach my $val (@status_split) {
-				if (index($val, "to-be") != -1) {
+				if ((index($val, "to-be") != -1) or (index($val, "Empty") != -1)) {
 		 			$to_do_status .=$val . ",";
   		 		}
 		 		else {
@@ -6977,12 +6977,16 @@ sub display_field($$) {
 			}
 			$to_do_status =~ s/,$//;
 			$done_status =~ s/,$//;
-			$lang_field = "To Do";
-			$value = $to_do_status;
-			$html .= '<p><span class="field">' . "Done" . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+			if ($to_do_status ne ""){
+				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
+			}
+			if ($done_status ne ""){
+				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+			}	
 		}
-		
-		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		else {
+			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		}
 
 		if ($field eq 'brands') {
 			my $brand = $value;
