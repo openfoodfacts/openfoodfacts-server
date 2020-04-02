@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-02 13:35\n"
+"PO-Revision-Date: 2020-04-02 18:13\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -752,7 +752,7 @@ msgstr "이용 약관"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/이용 약관"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -761,7 +761,7 @@ msgstr "누가 우리가"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/단체 소개"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -775,7 +775,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - 화장품"
+msgstr "오픈 뷰티 팩트 - 화장품"
 
 # Do not translate
 msgctxt "footer_obf_link"
@@ -1316,7 +1316,7 @@ msgstr "100g에 대한 영양 수준"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/영양소 수치"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -4070,3 +4070,12 @@ msgstr ""
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
 msgstr ""
+
+msgctxt "done_status"
+msgid "Done"
+msgstr ""
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr ""
+
