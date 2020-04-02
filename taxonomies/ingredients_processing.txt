@@ -117,8 +117,21 @@ nl:poeder, poeders, in poedervorm
 #######################################################################
 # Processes that split an ingredient into different parts
 
+#de:comment:geschält is a generic term and can mean en:peeled or en:shelled
+de:geschält, geschälte, geschälter
+
+de:ungeschält, ungeschälte
+
+#en:description:To remove the outer covering or shell of something
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
+
+# en:description:With the outermost layer or skin removed
+en:peeled
+fr:pelé, pelée, pelés, pelées
+nl:gepelde
+# nl:parse:gepelde_$
+# en:wiktionary:peeled
 
 # en:description:Having had the pits removed
 en:pitted
@@ -132,12 +145,6 @@ en:pulp
 de:mark
 # en:wiktionary:pulp
 
-# en:description:With the outermost layer or skin removed
-en:peeled
-fr:pelé, pelée, pelés, pelées
-nl:gepelde
-# nl:parse:gepelde_$
-# en:wiktionary:peeled
 
 en:sieved
 de:passiert
@@ -217,8 +224,6 @@ fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, c
 en:unfrozen
 fr:décongelé, décongelée, décongelés, décongelées
 
-
-
 en:pasteurised
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 
@@ -227,8 +232,12 @@ fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuit
 it:precotto, precotta, precotti, precotte
 
 en:cooked
+de:gegart, gegarte, gegarter, gegartes
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+
+# <en:cooked
+de:dampfgegart, dampfgegarte, dampfgegarter
 
 en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
@@ -260,13 +269,28 @@ de:gesalzen, gesalzene, gesalzenes, gesalzener
 
 de:ungesalzen, ungesalzene
 
+de:gepökelt, gepökeltes
+
+de:ungepökelt
+
 # en:sweetened
- de:gesüßt, gesüßte
+de:gesüßt, gesüßte
 
- de:geölt, geölte
+de:geölt, geölte
 
- #<de:geölt
+#<de:geölt
  de:mit sonnenblumenöl geölt
+
+de:geschwefelt, geschwefelte
+
+de:ungeschwefelt, ungeschwefelte
+
+de:gezuckert, gezuckerte
+
+# <de:gezuckert
+de:leicht gezuckert
+
+de:ungezuckert
 
 #######################################################################
 #
