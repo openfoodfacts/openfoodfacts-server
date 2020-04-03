@@ -9817,7 +9817,7 @@ sub display_product_history($$) {
 			$changes_ref = [];
 		}
 
-		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
+		$html .= "<h2 id=\"history\">" . lang("history") . "</h2>\n<ul id=\"history_list\">\n";
 
 		my $current_rev = $product_ref->{rev};
 
