@@ -5740,7 +5740,7 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
