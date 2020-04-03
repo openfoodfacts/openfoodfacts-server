@@ -1197,7 +1197,7 @@ JAVASCRIPT
 
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+	$html .= "<div id=\"product_image\" class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
 
 
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
@@ -1394,7 +1394,7 @@ HTML
 
 	$html .= <<HTML
 
-<div class="fieldset">
+<div id="product_characteristics" class="fieldset">
 <legend>$Lang{product_characteristics}{$lang}</legend>
 HTML
 ;
@@ -1413,7 +1413,7 @@ HTML
 	$html .= "</div><!-- fieldset -->\n";
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
+	$html .= "<div id=\"ingredients\" class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
