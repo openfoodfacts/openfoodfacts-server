@@ -190,9 +190,22 @@ sub display_user_form($$) {
 	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
 	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-
-
 	;
+
+	# On the public web site, but not on the producers platform, offer to be part of a team
+
+	if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+		$html .= "\n<tr><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
+		. lang("teams_description") . "</p><p>" . lang("teams_names_warning") . "</p>"
+		. '<div class="row">';
+
+		for (my $i = 1; $i <= 3; $i++) {
+			$html .= "\n<div class=\"small-3 large-2 xlarge-1 columns\">" . sprintf(lang("team_s"), $i) . lang("sep") . ":</div><div class=\"small-9 large-10 xlarge-11 columns\">"
+			. textfield(-name=>'email', -value=>$user_ref->{"team_" . $i}, -size=>80, -override=>1) . "</div>";
+		}
+
+		$html .= "</div></td></tr>";
+	}
 
 	$$scripts_ref .= <<SCRIPT
 <script type="text/javascript">
@@ -341,8 +354,13 @@ sub check_user_form($$) {
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
-	# Check input parameters, redisplay if necessary
+	for (my $i = 1; $i <= 3; $i++) {
+		if (defined param('team_' . $i)) {
+			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
+		}
+	}
 
+	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
 		push @$errors_ref, $Lang{error_no_name}{$lang};
