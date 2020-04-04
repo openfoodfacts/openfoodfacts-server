@@ -41,6 +41,7 @@ my $cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->fiel
 
 my $n = 0;
 
+my $recent_changes_collection = get_recent_changes_collection();
 $recent_changes_collection->drop;
 
 my $cmd = [
@@ -51,7 +52,6 @@ my $cmd = [
 
 my $database = get_database();
 $database->run_command($cmd);
-$recent_changes_collection = get_receent_changes_collection();
 
 while (my $product_ref = $cursor->next) {
 
