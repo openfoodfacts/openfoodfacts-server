@@ -6938,13 +6938,12 @@ sub display_field($$) {
 			else {
 					push(@done_status, $val);
 			}
-			
 		}
 		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
 		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
 	}
 
-	if (defined $taxonomy_fields{$field} and $field ne 'states') {
+	elsif (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 	}
 	elsif (defined $hierarchy_fields{$field}) {
