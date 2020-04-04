@@ -6923,8 +6923,30 @@ sub display_field($$) {
 			$value =~ s/\n/<br>/g;
 		}
 	}
+	
+	my $to_do_status = '';
+	my $done_status = '';
 
-	if (defined $taxonomy_fields{$field}) {
+	if ($field eq 'states'){
+		my @to_do_status = '';
+		my @done_status = '';
+		my $state_items = $product_ref->{$field . "_hierarchy"};
+		foreach my $val (@$state_items){
+			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+				push(@to_do_status, $val);
+			}
+			else {
+					push(@done_status, $val);
+			}
+			
+		}
+		splice @to_do_status, 0, 1;
+		splice @done_status, 0, 1;
+		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
+		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
+	}
+
+	if (defined $taxonomy_fields{$field} and $field ne 'states') {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 	}
 	elsif (defined $hierarchy_fields{$field}) {
@@ -6964,19 +6986,6 @@ sub display_field($$) {
 		
 		# Separate To-Do and Done Status
 		if ($field eq 'states') {
-			my $done_status = '';
-			my $to_do_status = '';
-			my @status_split = split(',', $value);
-			foreach my $val (@status_split) {
-				if ((index($val, "to-be") != -1) or (index($val, "Empty") != -1)) {
-		 			$to_do_status .=$val . ",";
-  		 		}
-		 		else {
-		 		$done_status .=$val . ",";
-		 		}
-			}
-			$to_do_status =~ s/,$//;
-			$done_status =~ s/,$//;
 			if ($to_do_status ne ""){
 				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
 			}
