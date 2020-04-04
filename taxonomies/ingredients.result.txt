@@ -3564,8 +3564,13 @@ en:beef broth
 de:Rinderbrühe, Rindfleischbouillon
 es:Caldo de carne de vaca
 fi:naudanlihaliemi
-fr:bouillon de boeuf
+fr:bouillon de bœuf
 it:brodo di manzo
+sv:nötköttsbuljong
+
+< en:Broth
+en:cooking broth
+fr:bouillon de cuisson
 
 < en:Broth
 < en:Pork
@@ -4521,6 +4526,10 @@ fr:riz rond de Camargue
 fr:camembert au lait pasteurisé
 
 < en:Cane sugar
+en:blonde cane sugar
+fr:sucre blond de canne, sucre de canne blond
+
+< en:Cane sugar
 en:brown cane sugar
 de:brauner Rohrzucker, Vollrohrzucker
 fr:sucre de canne brun
@@ -4547,11 +4556,11 @@ it:zucchero di cana bio
 nl:biologische rietsuiker, biologisch rietsuiker
 
 < en:Cane sugar
-en:white cane sugar, blonde cane sugar
+en:white cane sugar
 de:weisser Rohrzucker
 es:azúcar de caña blanca
 fi:vaalea ruokosokeri
-fr:sucre de canne blond, sucre de canne blanc, sucre de canne roux clair
+fr:sucre de canne blanc
 hu:fehér nádcukor
 
 < en:Cane sugar
@@ -4996,6 +5005,9 @@ en:concentrated celery juice
 de:Sellerieextrakt
 fi:sellerimehutiiviste
 fr:jus de céleri concentré, jus concentré de céleri
+
+en:Celery salt
+fr:Sel de céleri, sel au céleri
 
 < en:Celery seed
 < fr:Graines de céleri
@@ -7223,6 +7235,10 @@ sv:kycklingfett
 < en:Chicken fillet
 de:hähnchenfilet
 fi:broilerinfilee
+
+< en:Chicken fillet
+en:chicken fillet with skin
+fr:filet de poulet avec peau, filets de poulet avec pea
 
 < en:Chicken fillet
 en:halal chicken filet
@@ -10455,6 +10471,10 @@ it:crosta di formaggio
 nl:kaaskorst
 ru:сырная корочка
 wikidata:en: Q19344541
+
+< en:Crust
+en:inedible crust
+fr:croûte non comestible, crôute non consommable
 
 < en:Crustacean
 en:crab
@@ -24271,7 +24291,7 @@ et:E428, želatiin
 eu:Gelatina
 fa:ژلاتین
 fi:E428, Liivate, Gelatiini, Liivatejauhe, Liivatetta, Gelatiinia, Liivatejauhetta
-fr:E428, Gélatine
+fr:E428, Gélatine, gélatine alimentaire
 fy:sjelatine
 ga:Geilitín
 gl:Xelatina
@@ -24772,9 +24792,10 @@ e_number:en: 440a
 wikidata:en: Q188154
 
 < en:E440a
-fr:pectine de fruit, pectines de fruits
+en:fruit pectin
 de:Fruchtpektin
 fi:hedelmäpektiini, hedelmäpektiinit
+fr:pectine de fruit, pectines de fruits
 hu:gyümölcspektin
 it:pectina di frutta
 nl:vruchtenpectine
@@ -35102,7 +35123,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Inulin
 
 < en:Fiber
 en:soy fiber
-fr:
+fr:fibres de soja
 
 < en:Fiber
 en:vegetable fiber, vegetable fibers, plant fiber
@@ -37154,7 +37175,7 @@ fr:lin jaune
 
 < en:Fleur de sel
 < en:Salt from Guérande
-en:fleur de sel from Guérand
+en:fleur de sel from Guérande
 de:Fleur de Sel aus Guérande, Meersalz aus Guérande
 fr:fleur de sel de Guérande
 nl:fleur de sel uit Guérande
@@ -39826,6 +39847,11 @@ fr:jus concentré de fruits rouges
 < en:Fruit juice concentrate
 fr:jus de fruits rouges à base de concentrés
 
+< en:Apple
+< en:Fruit pectin
+en:apple pectin
+fr:pectine de pomme
+
 en:galacto-oligosaccharides
 de:Galacto-oligosaccharides
 fi:galakto-oligosakkaridit
@@ -39962,6 +39988,9 @@ fr:Ail semoule déshydraté
 fr:extrait d'ail
 de:Knoblauchextrakt
 fi:valkosipuliuute
+
+en:Garlic salt
+fr:Sel à l'ail, sel d'ail
 
 en:Gelling agent, gelifier
 bg:Желиращ агент
@@ -40842,6 +40871,11 @@ pt:extrato de ché verde em po
 < en:Green tomato
 fr:Purée de tomates vertes
 fi:vihreä tomaattipyree
+
+< en:Grey salt
+< en:Salt from Guérande
+en:grey salt from Guérande
+fr:sel gris de Guérande
 
 < en:Grey shrimp
 en:Crangon crangon
@@ -42368,6 +42402,10 @@ it:filetti di aringa
 < en:Organic rice
 en:organic high quality long grain Basmati rice
 fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
+
+< en:Himalayan salt
+< en:Sea salt
+en:Himalayan sea salt
 
 < en:Hom Mali rice
 < en:Parboiled rice
@@ -53576,6 +53614,14 @@ fi:verigreippimehu tiivisteestä
 fr:jus de pamplemousse rose à base de concentré
 it:succo di pompelmo rosa ricavata di concentrato
 
+< en:Himalayan salt
+< en:Pink salt
+en:Himalayan pink salt, Pink Himalayan salt
+de:Himalayasalz
+es:Sal rosa del Himalaya
+fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
+fr:sel rose de l'Himalaya, sel de l'Himalaya rose
+
 < en:Pistachio nuts
 fr:morceaux de pistache
 de:Pistazienstücke
@@ -54918,6 +54964,9 @@ wikidata:en: Q3695900
 
 < en:Pork
 fr:bouillon de porc
+
+< en:Pork
+fr:bouillon de porc déshydraté
 
 < en:Pork
 fr:coeur de porc
@@ -59151,7 +59200,7 @@ fr:pulpe de saumon fumé
 fr:saumon cuit
 de:Lachs gekocht
 
-en:salt, table salt, common salt, cooking salt, dry salt
+en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
 ar:ملح الطعام
@@ -59260,11 +59309,9 @@ fr:Sel fin
 nl:Fijn zout
 
 < en:Salt
-en:Himalayan pink salt
-de:Himalayasalz
-es:Sal rosa del Himalaya
-fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
-fr:sel de l'Himalaya
+en:Himalayan salt
+es:Sal del Himalaya
+fr:Sel de l'Himalaya
 
 < en:Salt
 en:iodised salt, iodized salt
@@ -59304,7 +59351,15 @@ sv:Koshersalt
 wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
 
 < en:Salt
-en:sea salt, bay salt, solar salt
+en:Pink salt
+fr:Sel rose
+
+< en:Salt
+en:refined salt
+fr:sel raffiné
+
+< en:Salt
+en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
 ar:ملح البحر
 ca:Sal marina
 cs:Mořská sůl
@@ -59313,7 +59368,7 @@ es:Sal marina
 eu:Marsalo
 fa:نمک دریایی
 fi:Merisuola
-fr:sel marin, sel de mer, sels minéraux de mer
+fr:sel marin, sel de mer, sels minéraux de mer, sel marin de table
 gl:Sal mariño
 hr:Morska sol
 hu:Tengeri só
@@ -59385,11 +59440,19 @@ wikidata:en: Q390305
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_iodide
 
 < en:Salt
+en:unrefined salt
+fr:sel non raffiné
+
+< en:Salt
 < en:Water
 fr:eau et sel
 
 < en:Salt
 fr:concentré salin liquide
+
+< en:Salt from Guérande
+en:fine salt from Guérande
+fr:sel fin de Guérange, sel de Guérange fin
 
 en:salted anchovy filets
 de:gesalzene Sardellenfilets
@@ -60275,6 +60338,9 @@ wikidata:en: Q1654733
 wikipedia:fr: https://fr.wikipedia.org/wiki/Pagellus
 
 < en:Sea salt
+en:Celtic sea salt
+
+< en:Sea salt
 en:Fleur de sel
 ca:Flor de sal
 de:Fleur de Sel
@@ -60287,6 +60353,16 @@ ja:フルール・ド・セル
 nl:Fleur de sel
 pt:Flor de sal
 wikipedia:en: https://en.wikipedia.org/wiki/Fleur_de_sel
+
+< en:Sea salt
+en:grey salt, sel gris
+fr:sel gris, sel marin gris, sel gris marin
+wikidata:en: Q5493196
+wikipedia:en: https://en.wikipedia.org/wiki/Sel_gris
+
+< en:Sea salt
+en:Mediterranean salt, Mediterranean sea salt
+fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
 
 < en:Sea salt
 en:Salt from Camargue
@@ -60302,13 +60378,12 @@ fr:Sel de Guérande, sel marin de guérande, sel de Guérande IGP
 nl:Zout uit Guérande
 
 < en:Sea salt
-en:unrefined sea salt
-de:Unraffiniertes Meersalz
-es:Sal de mar sin refinar
-fi:raffinoimaton merisuola, puhdistamaton merisuola
-fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine
-hu:finomítatlan tengeri só
-nl:ongeraffineerd zeezout
+en:Salt from Ile de Ré
+fr:Sel de l'Ile de Ré, sel marin de l'Ile de Ré
+
+< en:Sea salt
+en:salt from Noirmoutier, sea salt from Noirmoutier
+fr:sel de Noirmoutier, sel marin de Noirmoutier
 
 < en:Seaweed
 en:Ascophyllum
@@ -66070,6 +66145,16 @@ la:Paratapes undulatus, Paphia undulata
 
 < en:Unrefined cane sugar
 fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
+
+< en:Sea salt
+< en:Unrefined salt
+en:unrefined sea salt
+de:Unraffiniertes Meersalz
+es:Sal de mar sin refinar
+fi:raffinoimaton merisuola, puhdistamaton merisuola
+fr:sel marin non raffiné, sel de mer non raffiné, sel marin non traité, sel marin gris de cuisine
+hu:finomítatlan tengeri só
+nl:ongeraffineerd zeezout
 
 < en:Unrefined sea salt
 en:Unrefined sea salt from the Atlantic
@@ -71919,12 +72004,6 @@ en:white cane sugar from Brazil
 de:weißer Rohrzucker aus Brasilien, brasilianischer Rohrzucker
 fr:sucre de canne blond du Brésil
 
-< en:White cane sugar
-fr:sucre blond de canne biologique
-
-< en:White cane sugar
-fr:sucre-de-canne-blond-equitable
-
 < en:White grape juice
 en:concentrated white grape juice
 de:Weißer Traubensaft aus Konzentrat
@@ -73047,11 +73126,6 @@ fr:pétales de bleuet
 
 fr:bonbon au cacao maigre
 
-fr:bouillon de boeuf
-sv:nötköttsbuljong
-
-fr:bouillon de porc déshydraté
-
 fr:brisures de crêpe dentelle
 es:trozos de barquillo
 nl:gebroken flinterdunne flensjes
@@ -73532,10 +73606,13 @@ fr:riz rond blanc bio
 fr:riz rond biologique de qualité supérieure
 
 < fr:Saucisse de porc
-fr:saucisses de toulouse grillées
+fr:saucisses de Toulouse
 
 < fr:Saucisse de porc
 fr:saucisses pur porc fumées
+
+< fr:Saucisses de Toulouse
+fr:saucisses de toulouse grillées
 
 < fr:Semoule blanche de blé dur
 fr:semoule de blé dur blanche biologique
