@@ -2312,7 +2312,7 @@ et:želatiin
 eu:Gelatina
 fa:ژلاتین
 fi:liivate, Gelatiini
-fr:gélatine
+fr:gélatine, gélatine alimentaire
 fy:sjelatine
 ga:Geilitín
 gl:Xelatina
@@ -2500,6 +2500,7 @@ nl:Niet-geamideerde pectines
 # fr:e440i has 18 products in 5 languages @2018-11-03
 
 <en:pectin
+en:fruit pectin
 fr:pectine de fruit, pectines de fruits
 de:Fruchtpektin
 fi:hedelmäpektiini, hedelmäpektiinit
@@ -2507,6 +2508,11 @@ hu:gyümölcspektin
 it:pectina di frutta
 nl:vruchtenpectine
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
+
+<en:fruit pectin
+<en:apple
+en:apple pectin
+fr:pectine de pomme
 
 <en:pectin
 en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
@@ -13595,6 +13601,14 @@ fr:Sel de Guérande, sel de guérande, sel marin de guérande, sel de Guérande 
 nl:Zout uit Guérande
 
 <en:sea salt
+en:Salt from Ile de Ré
+fr:Sel de l'Ile de Ré, sel marin de l'Ile de Ré
+
+<en:Salt from Guérande
+en:fine salt from Guérande
+fr:sel fin de Guérange, sel de Guérange fin
+
+<en:sea salt
 en:Salt from Camargue
 de:Salz aus der Camargue
 fr:Sel de camargue
@@ -14971,6 +14985,7 @@ fr:viande et gras de porc
 
 
 # <en:broth
+<en:pork
 fr:bouillon de porc déshydraté
 
 <en:pork by-product
@@ -15089,9 +15104,6 @@ it:budello di maiale
 fr:boyau naturel de porc
 
 
-# <en:broth
-fr:bouillon de boeuf
-sv:nötköttsbuljong
 
 fr:extrait de boeuf
 
@@ -15118,6 +15130,9 @@ carbon_footprint_fr_foodges_value:fr:5.5
 fr:saucisses pur porc fumées
 
 <fr:saucisse de porc
+fr:saucisses de Toulouse
+
+<fr:saucisses de Toulouse
 fr:saucisses de toulouse grillées
 # treatment:en:gril
 
@@ -25489,23 +25504,21 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 fr:sucre mi-blanc de canne
 
 <en:cane sugar
-en:white cane sugar, blonde cane sugar
+en:white cane sugar
 de:weisser Rohrzucker
 es:azúcar de caña blanca
 fi:vaalea ruokosokeri
-fr:sucre de canne blond, sucre de canne blanc, sucre de canne roux clair
+fr:sucre de canne blanc
 hu:fehér nádcukor
+
+<en:cane sugar
+en:blonde cane sugar
+fr:sucre blond de canne, sucre de canne blond
 
 <en:white cane sugar
 en:white cane sugar from Brazil
 de:weißer Rohrzucker aus Brasilien, brasilianischer Rohrzucker
 fr:sucre de canne blond du Brésil
-
-<en:white cane sugar
-fr:sucre blond de canne biologique
-
-<en:white cane sugar
-fr:sucre-de-canne-blond-equitable
 
 <en:sugar
 en:unrefined sugar, raw sugar
@@ -26990,7 +27003,7 @@ ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina v
 
 <en:fibers
 en:soy fiber
-fr:protéines de soja
+fr:fibres de soja
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
@@ -62891,6 +62904,10 @@ nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
 
 <en:chicken fillet
+en:chicken fillet with skin
+fr:filet de poulet avec peau, filets de poulet avec pea
+
+<en:chicken fillet
 <de:Hähnchenfleisch
 de:hähnchenfilet
 fi:broilerinfilee
@@ -66826,11 +66843,16 @@ es:Caldo de carne de vaca
 fi:naudanlihaliemi
 fr:bouillon de bœuf, bouillon de boeuf
 it:brodo di manzo
+sv:nötköttsbuljong
 # ingredient/fr:bouillon-de-bœuf has 48 products in 4 languages @2019-03-22
 
 <en:broth
 fr:bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
+
+<en:broth
+en:cooking broth
+fr:bouillon de cuisson
 
 <en:broth
 <en:poultry
@@ -67161,6 +67183,9 @@ nl:kaaskorst
 ru:сырная корочка
 wikidata:en:Q19344541
 
+<en:crust
+en:inedible crust
+fr:croûte non comestible, crôute non consommable
 
 # <en:compound
 fr:crème pâtissière
