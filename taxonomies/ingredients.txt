@@ -13309,7 +13309,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
 # nova
-en:salt, table salt, common salt, cooking salt, dry salt
+en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
 ar:ملح الطعام
@@ -13462,11 +13462,52 @@ fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
 <en:salt
-en:Himalayan pink salt
+en:Himalayan salt
+es:Sal del Himalaya
+fr:Sel de l'Himalaya
+
+<en:sea salt
+en:salt from Noirmoutier, sea salt from Noirmoutier
+fr:sel de Noirmoutier, sel marin de Noirmoutier
+
+<en:salt
+en:Pink salt
+fr:Sel rose
+
+<en:Himalayan salt
+<en:Pink salt
+en:Himalayan pink salt, Pink Himalayan salt
 de:Himalayasalz
 es:Sal rosa del Himalaya
 fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
-fr:sel de l'Himalaya
+fr:sel rose de l'Himalaya, sel de l'Himalaya rose
+
+# same as Himalayan salt?
+<en:Himalayan salt
+<en:sea salt
+en:Himalayan sea salt
+
+<en:salt
+en:refined salt
+fr:sel raffiné
+
+<en:salt
+en:unrefined salt
+fr:sel non raffiné
+
+<en:unrefined salt
+en:unrefined sea salt
+fr:sel marin non raffiné, sel de mer non raffiné
+
+<en:sea salt
+en:Mediterranean salt, Mediterranean sea salt
+fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
+
+en:Garlic salt
+fr:Sel à l'ail, sel d'ail
+
+en:Celery salt
+fr:Sel de céleri, sel au céleri
 
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
@@ -13492,7 +13533,7 @@ hu:Kősó
 # SEA SALT - is salt that is produced by the evaporation of seawater
 
 <en:salt
-en:sea salt, bay salt, solar salt
+en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
 ar:ملح البحر
 ca:Sal marina
 cs:Mořská sůl
@@ -13501,7 +13542,7 @@ es:Sal marina
 eu:Marsalo
 fa:نمک دریایی
 fi:Merisuola
-fr:sel marin, sel de mer, sels minéraux de mer
+fr:sel marin, sel de mer, sels minéraux de mer, sel marin de table
 gl:Sal mariño
 hr:Morska sol
 hu:Tengeri só
@@ -13525,6 +13566,10 @@ zh:海盐
 # zh-min-nan:Hái-iâm
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
 
+# Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is
+# also commonly used on ingredient list
+<en:sea salt
+en:Celtic sea salt
 
 <en:sea salt
 en:unrefined sea salt
@@ -13556,7 +13601,7 @@ fr:Sel de camargue
 nl:Zout uit de Camargue
 
 <en:sea salt
-en:sel gris, grey salt
+en:grey salt, sel gris
 fr:sel gris, sel marin gris, sel gris marin
 wikipedia:en:https://en.wikipedia.org/wiki/Sel_gris
 wikidata:en:Q5493196
@@ -13587,7 +13632,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fleur_de_sel
 
 <en:salt from Guérande
 <en:fleur de sel
-en:fleur de sel from Guérand
+en:fleur de sel from Guérande
 de:Fleur de Sel aus Guérande, Meersalz aus Guérande
 fr:fleur de sel de Guérande
 nl:fleur de sel uit Guérande
