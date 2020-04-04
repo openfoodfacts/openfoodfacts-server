@@ -919,7 +919,64 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 				'text' => 'mandeln'
 			}
 		]
-	]
+	],
+
+	[ { lc => "en", ingredients_text => "smoked sea salt, smoked turkey"},
+[
+  {
+    'id' => 'en:sea-salt',
+    'processing' => 'en:smoked',
+    'text' => 'sea salt'
+  },
+  {
+    'id' => 'en:turkey',
+    'processing' => 'en:smoked',
+    'text' => 'turkey'
+  }
+]
+
+	],
+
+	[ { lc => "fr", ingredients_text => "sel marin fumé, jambon fumé, arôme de fumée, lardons fumés au bois de hêtre "},
+[
+  {
+    'id' => 'en:sea-salt',
+    'processing' => 'en:smoked',
+    'text' => 'sel marin'
+  },
+  {
+    'id' => 'en:ham',
+    'processing' => 'en:smoked',
+    'text' => 'jambon'
+  },
+  {
+    'id' => 'en:smoke-flavouring',
+    'text' => "ar\x{f4}me de fum\x{e9}e"
+  },
+  {
+    'id' => 'en:lardon',
+    'processing' => 'en:beech-smoked',
+    'text' => 'lardons'
+  }
+]
+        ],
+
+
+	[ { lc => "es", ingredients_text => "tofu ahumado, panceta ahumada"},
+[
+  {
+    'id' => 'en:tofu',
+    'processing' => 'en:smoked',
+    'text' => 'tofu'
+  },
+  {
+    'id' => 'en:bacon',
+    'processing' => 'en:smoked',
+    'text' => 'panceta'
+  }
+
+]
+	],
 
 );
 
