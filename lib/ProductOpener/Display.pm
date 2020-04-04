@@ -6928,8 +6928,8 @@ sub display_field($$) {
 	my $done_status = '';
 
 	if ($field eq 'states'){
-		my @to_do_status = '';
-		my @done_status = '';
+		my @to_do_status;
+		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@$state_items){
 			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
@@ -6940,8 +6940,6 @@ sub display_field($$) {
 			}
 			
 		}
-		splice @to_do_status, 0, 1;
-		splice @done_status, 0, 1;
 		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
 		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
 	}
