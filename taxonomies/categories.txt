@@ -25853,6 +25853,12 @@ fr:Crottin de chèvre
 ciqual_food_code:en:12833
 ciqual_food_name:en:Crottin cheese, from goat's milk
 
+<en:Crottin cheese from goat's milk
+en:Crottin cheese from goat's milk from raw milk
+fr:Crottin de chèvre au lait cru
+ciqual_food_code:en:12832
+ciqual_food_name:en:Crottin cheese, from goat's milk, from raw milk
+
 <en:French cheeses
 <en:Soft cheese with a natural rind
 <en:Goat cheeses
@@ -26389,6 +26395,18 @@ it:Formaggio di capra
 nl:Geitenkazen
 ru:Сыр из козьего молока
 wikidata:en:Q198815
+
+<en:Goat cheeses
+en:Cheese semi-dry from goat's milk
+fr:Fromage de chèvre demi-sec
+ciqual_food_code:en:12810
+ciqual_food_name:en:Cheese, semi-dry, from goat's milk
+
+<en:Goat cheeses
+en:Cheese dry from goat's milk
+fr:Fromage de chèvre sec
+ciqual_food_code:en:12815
+ciqual_food_name:en:Cheese, dry, from goat's milk
 
 <en:Goat cheeses
 es:Rulo de cabra, Rulo de queso de cabra
@@ -34345,6 +34363,20 @@ nl:Carragenen
 zh:卡拉胶
 wikidata:en:Q421991
 
+<en:Seaweed products
+en:Dried carragheen mosses (Chondrus crispus), dehydrated carragheen mosses (Chondrus crispus)
+fr:Lichen de mer ou pioca ou goémon rouge (Chondrus crispus) séché, Lichen de mer ou pioca ou goémon rouge (Chondrus crispus) déshydraté
+ciqual_food_code:en:20996
+ciqual_food_name:en:Carragheen mosses (Chondrus crispus), dried or dehydrated
+
+<en:Seaweed products
+en:North Atlantic rockweed (Ascophyllum nodosum) dried or dehydrated
+fr:Ascophylle noueux ou goémon noir (Ascophyllum nodosum) séché, Ascophylle noueux ou goémon noir (Ascophyllum nodosum) déshydraté
+ciqual_food_code:en:20998
+ciqual_food_name:en:North Atlantic rockweed (Ascophyllum nodosum), dried or dehydrated
+ciqual_food_name:fr:Ascophylle noueux ou goémon noir (Ascophyllum nodosum), séché ou déshydraté
+
+
 <en:Thickeners
 en:Gelatin, Gelatine
 de:Gelatine
@@ -40387,6 +40419,39 @@ nl:Vismaaltijden
 pt:Refeições com peixe, pratos com peixe
 
 <en:Meals with fish
+en:White fish with Provencal-style tomato sauce
+fr:Poisson blanc à la provençale, Poisson blanc à la niçoise
+ciqual_food_code:en:25128
+ciqual_food_name:en:White fish with Provencal-style sauce (tomato sauce)
+
+<en:Meals with fish
+en:White fish with Florentine-style sauce, White fish with spinach sauce
+fr:Poisson blanc à la sauce florentine, Poisson blanc à la sauce aux épinards
+ciqual_food_code:en:25140
+ciqual_food_name:en:White fish with Florentine-style sauce (spinach sauce)
+ciqual_food_name:fr:Poisson blanc à la florentine (sauce aux épinards)
+
+<en:Meals with fish
+en:White fish with mustard sauce
+fr:Poisson blanc à la sauce moutarde
+ciqual_food_code:en:25142
+ciqual_food_name:en:White fish with mustard sauce
+
+<en:Meals with fish
+en:White fish with tarragon sauce
+fr:Poisson blanc à l'estragon
+ciqual_food_code:en:25145
+ciqual_food_name:en:White fish with tarragon sauce
+ciqual_food_name:fr:Poisson blanc à l'estragon
+
+<en:Meals with fish
+en:White fish with sorrel sauce
+fr:Poisson blanc sauce oseille
+ciqual_food_code:en:25146
+ciqual_food_name:en:White fish with sorrel sauce
+ciqual_food_name:fr:Poisson blanc sauce oseille
+
+<en:Meals with fish
 en:Meals with cod
 fr:Plats au cabillaud, plats à la morue
 it:Pasti con merluzzo
@@ -41795,7 +41860,12 @@ nl:Tartiflette in blik
 en:Fish gratin
 fr:Gratins de poisson
 nl:Visovenschotels
-#wikidata:en:
+
+<en:Fish gratin
+en:Fish brandade, Fish shepherd's pie
+fr:brandade aux pommes de terre, parmentier de poisson
+ciqual_food_code:en:25154
+ciqual_food_name:en:Fish brandade or fish shepherd's pie
 
 <en:Prepared vegetables
 fr:Haricots préparés, Haricots cuisinés
@@ -42940,6 +43010,14 @@ fi:kanin liha
 fr:Viande de lapin, lapin, lapins, viande de lapins, viandes de lapin, viandes de lapins
 nl:Konijn, Konijnenvlezen
 wikidata:en:Q3556748
+ciqual_food_code:en:34001
+ciqual_food_name:en:Rabbit, meat, raw
+
+<en:Rabbit meat
+en:Wild Rabbit meat
+fr:viande de lapin de garenne crue
+ciqual_food_code:en:34003
+ciqual_food_name:en:Rabbit, wild, meat, raw
 
 en:Rabbit liver
 fr:Foies de lapin
@@ -43268,6 +43346,12 @@ pt:Carne de porco
 ru:Свинина
 zh:猪肉
 
+<en:Pork meals
+en:Raw pork shoulder
+fr:épaules de porc crues
+ciqual_food_code:en:28001
+ciqual_food_name:en:Pork, shoulder, raw
+
 <en:Pork
 fr:Porc de la Sarthe
 protected_name_file_number_en: PGI-FR-0184
@@ -43555,6 +43639,8 @@ fi:kanacurry
 fr:Poulets au curry
 nl:Kipcurry
 zh:鸡咖喱
+ciqual_food_code:en:25174
+ciqual_food_name:en:Chicken with curry and coconut milk sauce
 
 <en:Breaded products
 <en:Cooked chicken
@@ -43576,11 +43662,28 @@ wikidata:en:Q1072190
 <en:Poultries
 en:Ducks, Duck fresh meat, Duck
 fi:ankat
-fr:Canards
+fr:Canards, viande de canard crue
 it:Anatre
 nl:Eendevlezen
 zh:鸭肉, 新鸭肉, 鸭
 wikidata:en:Q3736439
+ciqual_food_code:en:36201
+ciqual_food_name:en:Duck, meat, raw
+ciqual_food_name:fr:Canard, viande, crue
+
+<en:Ducks
+en:Duck leg meat and skin raw
+fr:cuisse de canard avec peau sans os crue
+ciqual_food_code:en:36203
+ciqual_food_name:en:Duck, leg, meat and skin, raw
+ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
+
+<en:Ducks
+en:Duck meat and skin raw
+fr:viande de canard avec peau crue
+ciqual_food_code:en:36204
+ciqual_food_name:en:Duck, meat and skin, raw
+ciqual_food_name:fr:Canard, viande et peau, cru
 
 <en:Ducks
 fr:Filets de canard
@@ -43622,6 +43725,8 @@ nl_be:Kapoen
 pl:Kapłon
 zh:阉鸡
 wikidata:en:Q594676
+ciqual_food_code:en:36050
+ciqual_food_name:en:Capon, meat and skin, raw
 
 <en:Capon
 fr:Chapon du Périgord
@@ -43634,6 +43739,20 @@ en:Geese, Goose
 fr:Oies, oie
 nl:Ganzen
 zh:鹅, 鹅肉
+
+<en:Geese
+en:Goose meat raw
+fr:viande d'oie crue
+ciqual_food_code:en:36500
+ciqual_food_name:en:Goose, meat, raw
+ciqual_food_name:fr:Oie, viande crue
+
+<en:Geese
+en:Goose meat and skin raw
+fr:viande et peau d'oie crue
+ciqual_food_code:en:36501
+ciqual_food_name:en:Goose, meat and skin, raw
+ciqual_food_name:fr:Oie, viande et peau, crue
 
 <en:Poultries
 fr:Pintades, Pintade
@@ -49038,6 +49157,24 @@ fi:taimenet
 fr:Truites
 it:Trote, trota
 nl:Forel
+
+<en:Trouts
+en:Rainbow trout farmed roasted, Rainbow trout farmed baked
+fr:Truite arc en ciel élevage rôtie, truite arc en ciel élevage cuite au four
+ciqual_food_code:en:27014
+ciqual_food_name:en:Rainbow trout, farmed, roasted/baked
+
+<en:Trouts
+en:Steamed Rainbow trout from farming
+fr:Truite arc en ciel d'élevage cuite à la vapeur
+ciqual_food_code:en:27015
+ciqual_food_name:en:Rainbow trout, farmed, steamed
+
+<en:Trouts
+en:Trout steamed
+fr:Truite cuite à la vapeur
+ciqual_food_code:en:27007
+ciqual_food_name:en:Trout, steamed
 
 <en:Fishes
 en:Tunas, Thunnus
