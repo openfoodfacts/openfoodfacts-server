@@ -233,8 +233,23 @@ sub init_allergens_regexps() {
 }
 
 
+# Abbreviations that contain dots.
+# The dots interfere with the parsing: replace them with the full name.
 
 my %abbreviations = (
+
+all => [
+	["B. actiregularis", "bifidus actiregularis"], # Danone trademark
+	["B. lactis", "bifidobacterium lactis"],
+	["L. acidophilus", "lactobacillus acidophilus"],
+	["L. bulgaricus", "lactobacillus bulgaricus"],
+	["L. casei", "lactobacillus casei"],
+	["L. lactis", "lactobacillus lactis"],
+	["L. plantarum", "lactobacillus plantarum"],
+	["L. reuteri", "lactobacillus reuteri"],
+	["L. rhamnosus", "lactobacillus rhamnosus"],
+	["S. thermophilus", "streptococcus thermophilus"],
+],
 
 fr => [
 ["Mat. Gr.", "Matières Grasses"]
@@ -2806,12 +2821,14 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/ \& /$and/g;
 
 	# abbreviations
-	if (defined $abbreviations{$product_lc}) {
-		foreach my $abbreviation_ref (@{$abbreviations{$product_lc}}) {
-			my $source = $abbreviation_ref->[0];
-			my $target = $abbreviation_ref->[1];
-			$source =~ s/\./\\\./g;
-			$text =~ s/$source/$target/ig;
+	foreach my $abbreviations_lc ("all", $product_lc) {
+		if (defined $abbreviations{$abbreviations_lc}) {
+			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
+				my $source = $abbreviation_ref->[0];
+				my $target = $abbreviation_ref->[1];
+				$source =~ s/\. /(\\.| |\\. )/g;
+				$text =~ s/(\b|^)$source(\b|$)/$target/ig;
+			}
 		}
 	}
 
