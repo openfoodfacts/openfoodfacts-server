@@ -5740,7 +5740,7 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6191,7 +6191,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6213,7 +6213,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6235,7 +6235,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6257,7 +6257,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6279,7 +6279,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6302,7 +6302,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6362,7 +6362,7 @@ JS
 
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
@@ -6373,7 +6373,7 @@ HTML
 ;
 
 		my $top_banner_deactivated = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
@@ -6388,7 +6388,7 @@ HTML
 	if ($lc eq 'en') {
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
@@ -6958,10 +6958,35 @@ sub display_field($$) {
 			}
 		}
 		my $lang_field = lang($field);
-		if ($lang_field eq '') {
+		if ($lang_field eq '' and $field ne 'states') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		
+		# Separate To-Do and Done Status
+		if ($field eq 'states') {
+			my $done_status = '';
+			my $to_do_status = '';
+			my @status_split = split(',', $value);
+			foreach my $val (@status_split) {
+				if ((index($val, "to-be") != -1) or (index($val, "Empty") != -1)) {
+		 			$to_do_status .=$val . ",";
+  		 		}
+		 		else {
+		 		$done_status .=$val . ",";
+		 		}
+			}
+			$to_do_status =~ s/,$//;
+			$done_status =~ s/,$//;
+			if ($to_do_status ne ""){
+				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
+			}
+			if ($done_status ne ""){
+				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+			}	
+		}
+		else {
+			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		}
 
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -9792,7 +9817,7 @@ sub display_product_history($$) {
 			$changes_ref = [];
 		}
 
-		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
+		$html .= "<h2 id=\"history\">" . lang("history") . "</h2>\n<ul id=\"history_list\">\n";
 
 		my $current_rev = $product_ref->{rev};
 

@@ -37,7 +37,6 @@ use ProductOpener::Producers qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;

@@ -50,8 +50,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-use Geo::IP;
-my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
+use ProductOpener::GeoIP;
 
 my $year = $ARGV[0];
 
@@ -126,7 +125,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	my %countries = ();
 	foreach my $ip (keys %{$codes{$code}{ips}}) {
-		my $countrycode = $gi->country_code_by_addr($ip);
+		my $countrycode = ProductOpener::GeoIP::get_country_code_for_ip($ip);
 		if ((defined $countrycode) and ($countrycode ne "")) {
 			$countrycode = lc($countrycode);
 			$countries{$countrycode}++;

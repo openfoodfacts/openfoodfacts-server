@@ -2939,6 +2939,12 @@ sub preparse_ingredients_text($$) {
 		# remove stopwords
 		$text =~ s/( en)? proportion(s)? variable(s)?//i;
 
+		# Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.
+		# -> remove the parenthesis
+
+		$text =~ s/dient\(s\)/dients/ig;
+		$text =~ s/\bissu(\(e\))?(\(s\))?/issu/ig;
+
 		# simple plural (just an additional "s" at the end) will be added in the regexp
 		my @prefixes_suffixes_list = (
 # huiles
@@ -3373,9 +3379,9 @@ INFO
 
 	# remove extra spaces
 	$text =~ s/\s(\s)+/ /g;
-	$text =~ s/ (\.|,)( |$)/$1$2/g;
-	$text =~ s/^\s+//;
-	$text =~ s/\s+$//;
+	$text =~ s/ (\.|,|;)( |$)/$1$2/g;
+	$text =~ s/^(\s|\.|,|;|-)+//;
+	$text =~ s/(\s|,|;|-)+$//;
 
 	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 

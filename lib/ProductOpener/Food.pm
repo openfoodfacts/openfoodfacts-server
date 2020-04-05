@@ -18,6 +18,20 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Food - functions related to food products and nutrition
+
+=head1 DESCRIPTION
+
+C<ProductOpener::Food> contains functions specific to food products, in particular
+related to nutrition facts. It does not contain functions related to ingredients which
+are in the C<ProductOpener::Ingredients> module.
+
+..
+
+=cut
+
 package ProductOpener::Food;
 
 use utf8;
@@ -88,6 +102,8 @@ BEGIN
 					&extract_nutrition_from_image
 
 					&default_unit_for_nid
+
+					&create_nutrients_level_taxonomy
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -3853,7 +3869,7 @@ sub canonicalize_nutriment($$) {
 		}
 	}
 
-	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+	#$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
 
 }
@@ -3876,7 +3892,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+		#$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -3884,7 +3900,7 @@ foreach my $nid (keys %Nutriments) {
 			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
-				$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
+				#$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
 			}
 			if ($sublabel =~ /alpha-/) {
 				$sublabel =~ s/alpha-/a-/;
@@ -3902,7 +3918,7 @@ foreach my $nid (keys %Nutriments) {
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
 # Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
 my $chinese_units = qr/
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram) 
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
 	                                        #                      (公克 gōngkè is for "metric gram")
 	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
 	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
@@ -3974,7 +3990,7 @@ sub normalize_serving_size($) {
 		$q = unit_to_g($q,$u);
 	}
 
-	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
+	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
 
@@ -5035,37 +5051,47 @@ sub compute_nutrient_levels($) {
 
 }
 
-# Create food taxonomy
-# runs once at module initialization
 
-my $nutrient_levels_taxonomy = '';
+=head2 create_nutrients_level_taxonomy ()
 
-foreach my $nutrient_level_ref (@nutrient_levels) {
-	my ($nid, $low, $high) = @$nutrient_level_ref;
-	foreach my $level ('low', 'moderate', 'high') {
-		$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
-		foreach my $l (sort keys %Langs) {
-			next if $l eq 'en';
-			my $nutrient_l;
-			if (defined $Nutriments{$nid}{$l}) {
-				$nutrient_l = $Nutriments{$nid}{$l};
+C<create_nutrients_level_taxonomy()> creates the source file for the nutrients level
+taxonomy: /taxonomies/nutrient_levels.txt
+
+It creates entries such as "High in saturated fat" in all languages.
+
+=cut
+
+sub create_nutrients_level_taxonomy() {
+
+	my $nutrient_levels_taxonomy = '';
+
+	foreach my $nutrient_level_ref (@nutrient_levels) {
+		my ($nid, $low, $high) = @$nutrient_level_ref;
+		foreach my $level ('low', 'moderate', 'high') {
+			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
+			foreach my $l (sort keys %Langs) {
+				next if $l eq 'en';
+				my $nutrient_l;
+				if (defined $Nutriments{$nid}{$l}) {
+					$nutrient_l = $Nutriments{$nid}{$l};
+				}
+				else {
+					$nutrient_l = $Nutriments{$nid}{"en"};
+				}
+				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 			}
-			else {
-				$nutrient_l = $Nutriments{$nid}{"en"};
-			}
-			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 		}
 	}
-}
 
-open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
-print $OUT <<TXT
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+	print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm
 
 TXT
 ;
-print $OUT $nutrient_levels_taxonomy;
-close $OUT;
+	print $OUT $nutrient_levels_taxonomy;
+	close $OUT;
+}
 
 sub compute_units_of_alcohol($$) {
 
