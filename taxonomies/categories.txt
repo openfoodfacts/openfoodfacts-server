@@ -40419,6 +40419,11 @@ nl:Vismaaltijden
 pt:Refeições com peixe, pratos com peixe
 
 <en:Meals with fish
+en:Frozen fish in sauce
+ciqual_food_code:en:26054
+ciqual_food_name:en:Fish, in sauce, frozen
+
+<en:Meals with fish
 en:White fish with Provencal-style tomato sauce
 fr:Poisson blanc à la provençale, Poisson blanc à la niçoise
 ciqual_food_code:en:25128
@@ -42504,6 +42509,17 @@ fi:tonnikalasalaatti
 fr:Salades au thon
 nl:Tonijnsalades
 
+en:Prepared and canned salad with meat
+fr:salade composée avec viande apertisée égouttée 
+ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
+ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
+
+en:Prepared and canned salad with fish
+fr:salade composée avec poisson appertisée égouttée
+ciqual_food_code:en:25602
+ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
+ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
+
 <en:Potato salads
 en:Piemontese salads
 fr:Salades piémontaises
@@ -43672,15 +43688,15 @@ ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
 
 <en:Ducks
-en:Duck leg meat and skin raw
-fr:cuisse de canard avec peau sans os crue
+en:Duck leg meat with skin
+fr:cuisse de canard avec peau desossée 
 ciqual_food_code:en:36203
 ciqual_food_name:en:Duck, leg, meat and skin, raw
 ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
 
 <en:Ducks
 en:Duck meat and skin raw
-fr:viande de canard avec peau crue
+fr:Viande de canard avec peau
 ciqual_food_code:en:36204
 ciqual_food_name:en:Duck, meat and skin, raw
 ciqual_food_name:fr:Canard, viande et peau, cru
@@ -43741,14 +43757,14 @@ nl:Ganzen
 zh:鹅, 鹅肉
 
 <en:Geese
-en:Goose meat raw
+en:Raw goose meat
 fr:viande d'oie crue
 ciqual_food_code:en:36500
 ciqual_food_name:en:Goose, meat, raw
 ciqual_food_name:fr:Oie, viande crue
 
 <en:Geese
-en:Goose meat and skin raw
+en:Raw goose meat with skin
 fr:viande et peau d'oie crue
 ciqual_food_code:en:36501
 ciqual_food_name:en:Goose, meat and skin, raw
@@ -43757,6 +43773,23 @@ ciqual_food_name:fr:Oie, viande et peau, crue
 <en:Poultries
 fr:Pintades, Pintade
 nl:Parelhoenders
+en:Guinea fowl
+ciqual_food_code:en:36700
+ciqual_food_name:en:Guinea fowl, raw
+
+<en:Guinea fowl
+en:Guinea fowl leg
+fr:cuisse de pintade
+ciqual_food_code:en:36703
+ciqual_food_name:en:Guinea fowl, leg, raw
+
+<en:Guinea fowl
+en:Guinea fowl breast
+fr:pointrine de pintade
+ciqual_food_code:en:36702
+ciqual_food_name:en:Guinea fowl, breast, raw
+ciqual_food_name:fr:Pintade, poitrine, crue
+
 
 <en:Poultries
 en:Chickens, Chicken
@@ -44203,6 +44236,19 @@ sv:Skinkor, Skinka
 th:แฮม
 zh:火腿
 wikidata:en:Q170486
+
+<en:Pork
+en:Pork ham escalope
+fr:escalope de jambon de porc
+ciqual_food_code:en:28461
+ciqual_food_name:en:Pork, ham escalope, cooked
+ciqual_food_name:fr:Porc, escalope de jambon, cuite
+
+<en:Pork
+en:Pork way leg without rind fat and bone raw
+fr:Porc jambon sans jarret sans bateau découenné dégraisssé désossé cru
+ciqual_food_code:en:28473
+ciqual_food_name:en:Pork, way leg, without rind, fat and bone, raw
 
 <en:Hams
 en:Braised hams
@@ -48197,6 +48243,12 @@ en:British sea products
 <en:Fishes
 en:Pollan, Irish pollan
 
+<en:Fishes
+fr:Carpe rôtie, carpe cuite au four
+ciqual_food_code:en:27004
+ciqual_food_name:en:Carp roasted, carp baked
+ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
+
 <en:British sea products
 <en:Pollan
 en:Lough Neagh Pollan
@@ -49169,6 +49221,12 @@ en:Steamed Rainbow trout from farming
 fr:Truite arc en ciel d'élevage cuite à la vapeur
 ciqual_food_code:en:27015
 ciqual_food_name:en:Rainbow trout, farmed, steamed
+
+<en:Trouts
+en:Roasted trout, baked trout
+fr:Truite rôtie, truite cuite au four
+ciqual_food_code:en:27006
+ciqual_food_name:en:Trout, roasted/baked
 
 <en:Trouts
 en:Trout steamed
