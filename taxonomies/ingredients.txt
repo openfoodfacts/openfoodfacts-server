@@ -294,7 +294,7 @@ en:agente coagulante, agentes coagulantes
 es:Agentes coagulantes
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
-it:agente coagulante, coagulante
+it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 # <en:function
@@ -311,7 +311,7 @@ fi:happamuudensäätöaine, happamuudensäätöaineet
 fr:correcteur d’acidité, régulateur d'acidité
 ga:Rialtán aigéadachta
 hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
-it:correttore di acidità, correttori di acidità, regolatore di acidità
+it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -338,7 +338,7 @@ fi:Paakkuuntumisenestoaine
 fr:antiagglomérant, anti-agglomérants, antiagglomérants, anti-agglomérant
 ga:Oibreán frithstolptha
 hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti
+it:Agenti antiagglomeranti, agente antiagglomerante, antiagglomerante, antiagglomeranti
 lt:Lipnumą reguliuojanti medžiaga
 lv:Pretsalipes viela
 mt:Aġent kontra t-tagħqid
@@ -365,7 +365,7 @@ fi:vaahdonestoaine
 fr:Antimoussant
 ga:Oibreán frithchúrtha
 hu:Habzásgátló
-it:Agenti antischiumogeni
+it:Agenti antischiumogeni, agente antischiumogeno, antischiumogeno, antischiumogeni
 lt:Medžiaga nuo putojimo
 lv:Putu dzēsējs
 mt:Aġent kontra r-ragħwa
@@ -418,7 +418,7 @@ fi:Täyteaine
 fr:agent de charge
 ga:Toirteoir
 hu:Tömegnövelő szer
-it:Agenti di carica
+it:Agente di carica, agenti di carica
 lt:Užpildas
 lv:Apjoma palielinātājs
 mt:Aġent li jżid il-volum
@@ -508,7 +508,7 @@ fi:emulgointiaine, emulgointiaineet
 fr:Émulsifiant
 ga:Eiblitheoir
 hu:Emulgeálószer
-it:Emulsionanti, emulsionante
+it:Emulsionanti, emulsionante, agente emulsionante, agenti emulsionanti
 lt:Emulsiklis
 lv:Emulgators
 mt:Emulsifikant
@@ -563,7 +563,7 @@ fi:sakeuttamisaine, sakeuttamisaineet
 fr:épaississant, Épaississant, agent épaississant, agents épaississants, épaissisant
 ga:Tiúsóir
 hu:Sűrítőanyag
-it:Addensanti
+it:Addensante, Addensanti, agente addensante, agenti addensanti
 lt:Tirštiklis
 lv:Biezinātājs
 mt:Aġent li jgħaqqad
@@ -580,6 +580,7 @@ wikidata:en:Q911138
 fr:substitut du sel
 de:Speisesalzersatz
 hu:Sópótló
+it:sostituto del sale
 # ingredient/fr:substitut-du-sel has 23 products in 3 languages @2019-02-21
 # substitut du sel (chlorure de potassium)
 
@@ -606,13 +607,13 @@ de:Backmittel
 fi:vahvenne
 fr:améliorant, améliorants
 hu:javító
-it:miglioranti
+it:miglioranti, migliorante, agente migliorante, agenti miglioranti
 nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
 
 <en:enhancer
-it: miglioranti per panificazione
+it:miglioranti per panificazione
 
 <en:enhancer
 en:cooking enhancer
@@ -678,6 +679,7 @@ sv:karamellisoitu sokeri
 # <en:caramel
 fr:caramel au lait
 hu:tejkaramella
+it:caramello al latte
 
 
 
@@ -923,7 +925,7 @@ fi:Arominvahvenne
 fr:exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme, exhausteurs de saveur, exhausteur de saveur
 ga:Méadaitheoir blais
 hu:Ízfokozó, ízfokozók
-it:Esaltatori di sapidità
+it:Esaltatore di sapidità, esaltatori di sapidità
 lt:Aromato ir skonio stipriklis
 lv:Garšas pastiprinātājs
 mt:Tejjieb il-ħwawar
@@ -949,7 +951,7 @@ fi:Jauhonparanne
 fr:agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de traitement de la farine e300
 ga:Oibreán plúrchóireála
 hu:Lisztkezelő szer, liszkezelő szerek
-it:Agenti di trattamento della farina
+it:Agente di trattamento della farina, agenti di trattamento della farina
 lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
 mt:Aġent għat-trattament tad-dqiq
@@ -974,7 +976,7 @@ fi:Vaahdotusaine
 fr:agent moussant, pour fouetter
 ga:Oibreáin chúrtha
 hu:Habosítószer
-it:Agenti schiumogeni, per montare
+it:Agente schiumogeno, agenti schiumogeni, per montare
 lt:Putojimą sukelianti medžiaga
 lv:Putu veidotājs
 mt:Aġent li jagħmel ir-ragħwa
@@ -999,7 +1001,7 @@ fi:Hyytelöimisaine
 fr:Gélifiant, agent gélifiant
 ga:Oibreán glóthúcháin
 hu:Zselésítőanyag, zselésítő
-it:Gelificanti, agente gelificante
+it:Gelificanti, agente gelificante, gelificante
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f’ġel
@@ -1020,7 +1022,7 @@ es:ligante
 fi:sideaine, sidonta-aine
 fr:liant
 hu:kötőanyag
-it:legante
+it:legante, leganti
 # ingredient/fr:liant has 52 products in 5 languages @2019-02-05
 # liant (amidon modifié de pomme de terre)
 # legante (gomma di guar, xantano)
@@ -1038,7 +1040,7 @@ fi:Pintakäsittelyaine
 fr:agent d’enrobage, agents d'enrobage
 ga:Oibreán glónrúcháin
 hu:Fényezőanyag
-it:Agenti di rivestimento
+it:Agente di rivestimento, agenti di rivestimento
 lt:Glajinė medžiaga
 lv:Glazētājviela
 mt:Aġent li jagħmel l-ikel ileqq
@@ -1062,7 +1064,7 @@ fi:Kosteudensäilyttäjä
 fr:Humectant
 ga:Taisleán
 hu:Nedvesítőszer
-it:Umidificanti
+it:Umidificanti, umidificante
 lt:Drėgmę išlaikanti medžiaga
 lv:Mitrumuzturētājs
 nl:Bevochtigingsmiddel
@@ -1175,7 +1177,7 @@ fi:stabilointiaine, stabilointiaineet
 fr:Stabilisant, stabilisateur, stabilisateurs
 ga:Cobhsaitheoir
 hu:Stabilizátor
-it:Stabilizzanti
+it:Stabilizzanti, stabilizzante
 lt:Stabilizatorius
 lv:Stabilizētājs
 mt:Stabbilizzatur
@@ -1208,7 +1210,7 @@ fi:makeutusaine, makeutusaineet
 fr:Édulcorant
 ga:Milseoir
 hu:Édesítőszer
-it:Edulcoranti
+it:Edulcoranti, edulcorante, dolcificanti, dolcificante
 lt:Saldiklis
 lv:Saldinātājs
 mt:Dolċifikant
@@ -2310,7 +2312,7 @@ et:želatiin
 eu:Gelatina
 fa:ژلاتین
 fi:liivate, Gelatiini
-fr:gélatine
+fr:gélatine, gélatine alimentaire
 fy:sjelatine
 ga:Geilitín
 gl:Xelatina
@@ -2498,6 +2500,7 @@ nl:Niet-geamideerde pectines
 # fr:e440i has 18 products in 5 languages @2018-11-03
 
 <en:pectin
+en:fruit pectin
 fr:pectine de fruit, pectines de fruits
 de:Fruchtpektin
 fi:hedelmäpektiini, hedelmäpektiinit
@@ -2505,6 +2508,11 @@ hu:gyümölcspektin
 it:pectina di frutta
 nl:vruchtenpectine
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
+
+<en:fruit pectin
+<en:apple
+en:apple pectin
+fr:pectine de pomme
 
 <en:pectin
 en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
@@ -7972,6 +7980,7 @@ de:pasteurisierte teilentrahmte Milch
 fi:pastöroitu kevytmaito
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi ecreme
 hu:pasztőrözött zsírszegény tej
+it:latte pastorizzato parzialmente scremato, latte parzialmente scremato pastorizzato
 nl:gepasteuriseerde halfvolle melk
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
@@ -8062,6 +8071,7 @@ de:Bio-Vollmilch
 fi:luomu täysmaito
 fr:lait entier bio, lait entier issu de l'agriculture biologique
 hu:bio teljes tej
+it:latte intero biologico, latte biologico intero
 nl:volle melk van biologische oorsprong
 
 <en:whole milk
@@ -8071,6 +8081,7 @@ de:sterilisierte Vollmilch
 fi:steriloitu täysmaito
 fr:lait entier stérilisé
 hu:hőkezelt teljes tej
+it:latte intero sterilizzato, latte sterilizzato intero
 
 <en:whole milk
 <en:UHT pasteurised milk
@@ -13304,7 +13315,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
 # nova
-en:salt, table salt, common salt, cooking salt, dry salt
+en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
 ar:ملح الطعام
@@ -13457,11 +13468,52 @@ fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
 <en:salt
-en:Himalayan pink salt
+en:Himalayan salt
+es:Sal del Himalaya
+fr:Sel de l'Himalaya
+
+<en:sea salt
+en:salt from Noirmoutier, sea salt from Noirmoutier
+fr:sel de Noirmoutier, sel marin de Noirmoutier
+
+<en:salt
+en:Pink salt
+fr:Sel rose
+
+<en:Himalayan salt
+<en:Pink salt
+en:Himalayan pink salt, Pink Himalayan salt
 de:Himalayasalz
 es:Sal rosa del Himalaya
 fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
-fr:sel de l'Himalaya
+fr:sel rose de l'Himalaya, sel de l'Himalaya rose
+
+# same as Himalayan salt?
+<en:Himalayan salt
+<en:sea salt
+en:Himalayan sea salt
+
+<en:salt
+en:refined salt
+fr:sel raffiné
+
+<en:salt
+en:unrefined salt
+fr:sel non raffiné
+
+<en:unrefined salt
+en:unrefined sea salt
+fr:sel marin non raffiné, sel de mer non raffiné
+
+<en:sea salt
+en:Mediterranean salt, Mediterranean sea salt
+fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
+
+en:Garlic salt
+fr:Sel à l'ail, sel d'ail
+
+en:Celery salt
+fr:Sel de céleri, sel au céleri
 
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
@@ -13487,7 +13539,7 @@ hu:Kősó
 # SEA SALT - is salt that is produced by the evaporation of seawater
 
 <en:salt
-en:sea salt, bay salt, solar salt
+en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
 ar:ملح البحر
 ca:Sal marina
 cs:Mořská sůl
@@ -13496,7 +13548,7 @@ es:Sal marina
 eu:Marsalo
 fa:نمک دریایی
 fi:Merisuola
-fr:sel marin, sel de mer, sels minéraux de mer
+fr:sel marin, sel de mer, sels minéraux de mer, sel marin de table
 gl:Sal mariño
 hr:Morska sol
 hu:Tengeri só
@@ -13520,6 +13572,10 @@ zh:海盐
 # zh-min-nan:Hái-iâm
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
 
+# Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is
+# also commonly used on ingredient list
+<en:sea salt
+en:Celtic sea salt
 
 <en:sea salt
 en:unrefined sea salt
@@ -13545,10 +13601,32 @@ fr:Sel de Guérande, sel de guérande, sel marin de guérande, sel de Guérande 
 nl:Zout uit Guérande
 
 <en:sea salt
+en:Salt from Ile de Ré
+fr:Sel de l'Ile de Ré, sel marin de l'Ile de Ré
+
+<en:Salt from Guérande
+en:fine salt from Guérande
+fr:sel fin de Guérange, sel de Guérange fin
+
+<en:sea salt
 en:Salt from Camargue
 de:Salz aus der Camargue
 fr:Sel de camargue
 nl:Zout uit de Camargue
+
+<en:sea salt
+en:grey salt, sel gris
+fr:sel gris, sel marin gris, sel gris marin
+wikipedia:en:https://en.wikipedia.org/wiki/Sel_gris
+wikidata:en:Q5493196
+# ingredient/fr:sel-gris-marin has 32 products in french @2020-04-03
+
+<en:sel gris
+<en:Salt from Guérande
+en:grey salt from Guérande
+fr:sel gris de Guérande
+# ingredient/fr:sel-gris-de-guerande has 16 products in french @2020-04-03
+
 
 # FLEUR DE SEL - is a salt that forms as a thin, delicate crust on the surface of seawater as it evaporates.
 
@@ -13568,7 +13646,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fleur_de_sel
 
 <en:salt from Guérande
 <en:fleur de sel
-en:fleur de sel from Guérand
+en:fleur de sel from Guérande
 de:Fleur de Sel aus Guérande, Meersalz aus Guérande
 fr:fleur de sel de Guérande
 nl:fleur de sel uit Guérande
@@ -13734,6 +13812,20 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:meat
+<en:beef
+en:beef meat, pure beef meat
+de:Rindfleisch
+es:Carne pura de vaca
+fi:naudanliha, naudanlihaa
+fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
+hu:marhahús
+it:carne di manzo, carne bovina
+nl:Rundvlees
+zh:牛肉
+carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
+carbon_footprint_fr_foodges_value:fr:35.8
+
 
 <en:beef meat
 en:cooked beef meat
@@ -13808,7 +13900,7 @@ de:gekochtes Rindfleisch
 fi:Kypsennetty nauta, kypsennetty naudanliha
 fr:viande de bœuf cuite, viande de boeuf cuite, bœuf cuit, boeuf cuit
 hu:főtt marhahús
-it:manzo cotto
+it:manzo cotto, carne di manzo cotta
 nl:gekookt rundvlees
 # ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
 
@@ -14561,7 +14653,7 @@ hu:szalonna, bacon, bacon szalonna
 id:Bacon
 io:Lardo
 is:Beikon
-it:pancetta, bacon, lardo
+it:pancetta, bacon, speck
 ja:ベーコン
 kk:Бекон
 ko:베이컨
@@ -14671,6 +14763,7 @@ de:Schweinezunge
 fi:sian kieli
 fr:langue de porc
 hu:sertésnyelv, disznónyelv
+it:lingua di maiale
 
 <en:pork meat
 fr:noix de jambon de porc
@@ -14748,6 +14841,7 @@ en:raw ham
 de:Rohschinken
 fi:raakakinkku
 fr:jambon cru
+it:prosciutto crudo
 
 <en:raw ham
 en:Serrano raw ham
@@ -14756,6 +14850,7 @@ fr:jambon cru de Serrano
 <en:raw ham
 en:Italian raw ham
 fr:jambon cru italien
+it:prosciutto crudo italiano
 
 <en:raw ham
 fr:jambon cru fumé
@@ -14766,6 +14861,7 @@ de:gekochter Schinken
 fi:kypsennetty kinkku
 fr:jambon cuit
 hu:főtt sonka
+it:prosciutto cotto
 
 <en:cooked ham
 fr:jambon cuit choix
@@ -14827,7 +14923,7 @@ fr:jarret de porc
 
 <en:pork meat
 fr:cuisse de porc
-it:coscia di suino
+it:coscia di suino, coscia suina
 
 <en:pork meat
 fr:gorge de porc
@@ -14863,6 +14959,7 @@ es:Higado de cerdo
 fi:sianmaksa
 fr:foie de porc
 hu:sertésmáj
+it:fegato di maiale
 nl:varkenslever
 ro:piept de porc, piet porc
 zh:猪肝
@@ -14888,6 +14985,7 @@ fr:viande et gras de porc
 
 
 # <en:broth
+<en:pork
 fr:bouillon de porc déshydraté
 
 <en:pork by-product
@@ -15006,9 +15104,6 @@ it:budello di maiale
 fr:boyau naturel de porc
 
 
-# <en:broth
-fr:bouillon de boeuf
-sv:nötköttsbuljong
 
 fr:extrait de boeuf
 
@@ -15019,19 +15114,6 @@ fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
-
-<en:meat
-<en:beef
-en:beef meat, pure beef meat
-de:Rindfleisch
-es:Carne pura de vaca
-fi:naudanliha, naudanlihaa
-fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
-hu:marhahús
-nl:Rundvlees
-zh:牛肉
-carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
-carbon_footprint_fr_foodges_value:fr:35.8
 
 # SAUSAGES
 
@@ -15048,6 +15130,9 @@ carbon_footprint_fr_foodges_value:fr:5.5
 fr:saucisses pur porc fumées
 
 <fr:saucisse de porc
+fr:saucisses de Toulouse
+
+<fr:saucisses de Toulouse
 fr:saucisses de toulouse grillées
 # treatment:en:gril
 
@@ -15250,7 +15335,7 @@ es:Almidón modificado de maiz
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 hu:módosított kukoricakeményítő
-it:amido modificato di mais
+it:amido modificato di mais, amido di mais modificato
 nl:Gemodificeerd maïszetmeel
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
@@ -15827,7 +15912,7 @@ hr:Svinjska mast
 hu:Disznózsír, sertészsír
 id:Lemak babi
 io:Saimo
-it:strutto, grasso di maiale
+it:strutto, grasso di maiale, grasso di suino, grasso suino
 ja:ラード
 ko:라드
 lb:Schmalz
@@ -17065,7 +17150,7 @@ gl:Aceite de soia
 he:שמן סויה
 hu:szójaolaj, szójababolaj
 id:Minyak kedelai
-it:Olio di semi di soia
+it:Olio di semi di soia, olio di soia
 ja:大豆油
 ko:콩기름
 lt:Sojų aliejus
@@ -17970,7 +18055,9 @@ wikidata:en:Q618322
 wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
 
 <en:balsamic vinegar
+en:balsamic vinegar of modena, modena balsamic vinegar
 fr:vinaigre balsamique de modène
+it:aceto balsamico di modena
 
 <en:balsamic vinegar
 en:white balsamic vinegar
@@ -18137,7 +18224,7 @@ hu:etanol
 hy:Էթիլ սպիրտ
 id:Etanol
 is:Etanól
-it:alcol etilico, etanolo
+it:alcol etilico, etanolo, alcool
 ja:エタノール
 jv:Etanol
 ka:ეთანოლამიდი
@@ -20493,17 +20580,21 @@ hu:természetes menta aroma
 nl:natuurlijk muntaroma
 
 <en:flavouring
-en:smoke flavouring, smoke flavour, aroma of smoke
+en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 ca:aroma de fum
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
 fi:savuaromi
-fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
+fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
 hu:füst aroma, füst ízesétés, füst íz
 it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
 pt:aroma de fumo
+
+<en:natural flavouring
+en:natural smoke flavouring, natural smoked flavouring
+fr:arôme naturel de fumée, arôme de fumée naturel
 
 <en:flavouring
 <en:smoke flavouring
@@ -20857,6 +20948,7 @@ es:Sabor res
 fi:naudanliha-aromi
 fr:arôme de boeuf
 hu:természetes marhahús aroma
+it:aroma al manzo
 vegan:en:no
 vegetarian:en:no
 
@@ -22661,6 +22753,7 @@ es:Hojuelas de avena libres de gluten
 fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
+it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
 
 <en:oat
 <en:vegetable fibre
@@ -22684,7 +22777,7 @@ es:Avena integral laminada
 fi:täysjyväkaurahiutale
 fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
 hu:teljes kiőrlésű zabpehely
-it:fiocchi di avena integrale
+it:fiocchi di avena integrale, fiocchi d'avena integrale
 nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
 nn:fullkornshavregryn
 pl:płatki owsiane z pełnego przemiału
@@ -23159,7 +23252,7 @@ fr:farine de blé, farines de blé, farine de froment
 hr:pšenično brašno
 hu:búzaliszt
 is:hveiti
-it:farina di frumento
+it:farina di frumento, farina di grano, farina di grano tenero
 ja:小麦粉
 lt:kviešu milti, kvietiniai
 lv:kvietiniai miltai
@@ -23206,6 +23299,7 @@ fr:farine de blé malté torréfié
 
 
 # the t** is not translated in the ingredients
+# there is a correspondence between french type and italian type but I don't know it
 
 <en:wheat flour
 fr:farine de blé type 45
@@ -23224,6 +23318,14 @@ fr:farine de blé t80
 <en:wheat flour
 fr:farine de blé bio
 nl:biologische tarwemeel
+
+<en:wheat flour
+en:wheat flour type 0, flour type 0
+it:farina di grano tenero tipo 0, farina di grano tipo 0
+
+<en:wheat flour
+en:wheat flour type 00, flour type 00
+it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
 en:durum wheat flour
@@ -23336,7 +23438,7 @@ es:harina de malta de cebada
 fi:ohramallasjauho
 fr:farine de malt d'orge, farine d'orge malté
 hu:árpamalátaliszt
-it:farina di orzo maltato, farina di orzo maltato
+it:farina di orzo maltato, farina d'orzo maltato
 
 <en:barley flour
 fr:farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
@@ -25406,23 +25508,21 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 fr:sucre mi-blanc de canne
 
 <en:cane sugar
-en:white cane sugar, blonde cane sugar
+en:white cane sugar
 de:weisser Rohrzucker
 es:azúcar de caña blanca
 fi:vaalea ruokosokeri
-fr:sucre de canne blond, sucre de canne blanc, sucre de canne roux clair
+fr:sucre de canne blanc
 hu:fehér nádcukor
+
+<en:cane sugar
+en:blonde cane sugar
+fr:sucre blond de canne, sucre de canne blond
 
 <en:white cane sugar
 en:white cane sugar from Brazil
 de:weißer Rohrzucker aus Brasilien, brasilianischer Rohrzucker
 fr:sucre de canne blond du Brésil
-
-<en:white cane sugar
-fr:sucre blond de canne biologique
-
-<en:white cane sugar
-fr:sucre-de-canne-blond-equitable
 
 <en:sugar
 en:unrefined sugar, raw sugar
@@ -26907,7 +27007,7 @@ ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina v
 
 <en:fibers
 en:soy fiber
-fr:protéines de soja
+fr:fibres de soja
 
 <en:soy protein
 de:Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
@@ -27017,6 +27117,7 @@ en:beef protein
 de:Rindeiweiß
 fi:naudanlihaproteiini, naudan proteiini
 hu:marhafehérje
+it:proteine del manzo, proteine di manzo
 vegetarian:en:no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-proteiini
 # 1 entry @ 2019-10-31
@@ -29013,7 +29114,7 @@ ga:Oibreán éiritheach
 he:התפחה
 hu:Térfogatnövelő szer
 id:Bahan pengembang
-it:Agenti lievitanti
+it:Agenti lievitanti, agente lievitante
 ja:膨張剤
 ko:팽창제
 lt:Tešlos kildymo medžiaga, Puriklis
@@ -30745,7 +30846,7 @@ hy:Սոդա
 ia:Bicarbonato de Sodium
 id:Natrium bikarbonat
 is:Matarsódi
-it:carbonato acido di sodio, bicarbonato di sodio
+it:bicarbonato di sodio, carbonato acido di sodio
 ja:炭酸水素ナトリウム
 kk:Ас содасы
 kn:ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
@@ -30925,7 +31026,7 @@ gl:Bicarbonato amónico
 hi:अमोनियम बाईकार्बोनेट
 hu:ammonium bikarbonat, Ammónium-hidrogén-karbonát
 is:Ammoníumbíkarbónat
-it:bicarbonato di ammonio, Carbonato acido di ammonio
+it:Bicarbonato di ammonio, carbonato acido di ammonio, carbonato acido d'ammonio
 ja:炭酸水素アンモニウム
 ko:탄산 수소 암모늄
 lt:Amonio hidrokarbonatas
@@ -32062,7 +32163,7 @@ id:buah pir
 ig:Ube
 io:Piro
 is:pera
-it:pere
+it:pera, pere
 ja:梨
 ka:მსხალი
 kk:алмұрт
@@ -32855,7 +32956,7 @@ hu:Citrus
 hy:ցիտրուսայիններ
 id:Jeruk
 is:Sítrus
-it:Citrus
+it:agrumi, agrume
 ja:ミカン属
 jv:Sitrus
 ka:ციტრუსოვანი კულტურები
@@ -33898,7 +33999,7 @@ ht:Franbwaz
 hu:málna
 hy:Ազնվամորի
 io:Frambo
-it:lamponi
+it:lamponi, lampone
 ja:ラズベリー
 kk:Таңқурай
 kn:ರಾಸ್‍ಬೆರಿ
@@ -34516,7 +34617,7 @@ ia:ceresia
 id:Ceri
 io:cerizo
 is:Kirsuber
-it:ciliegie
+it:ciliegie, ciliegia
 ja:サクランボ
 jv:Cèri
 ka:ალუბალი
@@ -37932,7 +38033,7 @@ he:ארטישוק
 hu:Articsóka
 id:Artichoke
 io:Artichoko
-it:carciofo
+it:carciofo, carciofi
 ja:アーティチョーク
 kk:Бөрікгүл
 kn:ಆರ್ಟಿಚೋಕ್
@@ -38002,7 +38103,7 @@ cs:Chřest lékařský
 da:Asparges
 de:Spargel, Gemüsespargel
 el:Σπαράγγι
-eo:Asparago
+eo:Asparago, asparagi
 es:espárrago, espárragos
 et:spargel, asparaagus
 eu:Себен үләне
@@ -38185,7 +38286,7 @@ gl:Acelga
 he:סלק עלים
 hr:Blitva
 hu:Mángold
-it:Bietola
+it:Bietola, bietole
 ja:フダンソウ
 kk:Жапырақты қызылша
 ko:근대
@@ -39699,7 +39800,7 @@ fr:chou vert, choux verts, Chou de Milan
 gv:Cabbash chraplit
 hr:Kelj
 hu:Kelkáposzta
-it:verza
+it:verza, verze
 ja:サボイキャベツ
 ko:사보이양배추
 la:Brassica oleracea sabauda
@@ -40022,6 +40123,7 @@ en:carrot purée
 es:Puré de zanahoria
 fi:porkkanapyree, porkkanasose
 fr:purée de carotte
+it:puré di carote
 # fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
 
 # fr:concentré de carotte usage as a colour is not always mentioned
@@ -40030,7 +40132,7 @@ fr:purée de carotte
 fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
 fi:porkkanatiiviste
-it:concentrato di carota
+it:concentrato di carota, concentrato di carote
 ro:concentrat de morcov
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
@@ -40040,7 +40142,7 @@ de:Karottenextrakt
 es:extracto de zanahorias
 fi:porkkanauute
 fr:extrait de carotte
-it:estratto di carota
+it:estratto di carota, estratto di carote
 nl:wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
@@ -42450,7 +42552,7 @@ ha:Barkono
 hu:bell paprika
 id:Paprika
 is:Paprika
-it:peperone
+it:Peperone, peperoni
 ja:ピーマン
 kk:Бұрыш
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
@@ -44187,6 +44289,7 @@ en:red beans, red kidney beans
 de:Rote Bohnen
 es:Alubias rojas
 fr:haricot rouge, haricots rouges
+it:fagioli rossi
 
 <en:red beans
 en:small red beans
@@ -44537,7 +44640,7 @@ hy:ոլոռ
 id:Ercis
 io:Pizo
 is:Gráerta
-it:Pisello, piselli
+it:Pisello, piselli, pisellini
 ja:エンドウ
 ka:ბარდა
 kk:Бұршақ
@@ -44898,7 +45001,7 @@ hi:मसूर
 hr:Leća
 hu:főzeléklencse
 is:Linsubaun
-it:Lenticchia
+it:Lenticchie, lenticchia
 ja:レンズマメ
 kk:Азықтық жасымық
 kn:ಮಸೂರ ಅವರೆ
@@ -45291,7 +45394,7 @@ fi:pistaasipähkinät
 fr:pistache, pistaches
 ga:cnónna pistéise
 hu:pisztácia
-it:pistacchi
+it:pistacchio, pistacchi
 ja:ピスタチオ
 lt:pistacijos
 lv:pistāciju rieksti
@@ -52523,10 +52626,12 @@ fr:thé vert au jasmin
 <en:green tea
 en:decaffeinated green tea
 fr:thé vert décafeiné
+it:te verde decaffeinato, tè verde decaffeinato
 
 <en:black tea
 en:decaffeinated black tea
 fr:thé noir décafeiné
+it:te nero decaffeinato, tè nero decaffeinato
 
 # en:tree sorrel
 # de:Gurkenbaumfrucht
@@ -62803,6 +62908,10 @@ nl:kipfilet
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
 
 <en:chicken fillet
+en:chicken fillet with skin
+fr:filet de poulet avec peau, filets de poulet avec pea
+
+<en:chicken fillet
 <de:Hähnchenfleisch
 de:hähnchenfilet
 fi:broilerinfilee
@@ -63030,7 +63139,7 @@ hu:Pulyka
 hy:հնդկահավեր
 id:kalkun
 is:Kalkún
-it:tacchino, manzo
+it:tacchino
 ja:シチメンチョウ属
 jv:kalkun
 ka:ინდაური
@@ -63107,7 +63216,7 @@ fa:گوشت بوقلمون
 fi:kalkkunanliha
 fr:viande de dinde
 id:Daging kalkun
-it:carne di manzo
+it:carne di tacchino
 ja:七面鳥肉
 ko:칠면조고기
 nl:kalkoenvlees
@@ -64120,7 +64229,7 @@ he:מחית
 hu:püré
 hy:Խյուս
 io:Pureo
-it:purè
+it:purè, purea
 ja:ピュレ
 jv:Puré
 ka:პიურე
@@ -66737,12 +66846,17 @@ de:Rinderbrühe, Rindfleischbouillon
 es:Caldo de carne de vaca
 fi:naudanlihaliemi
 fr:bouillon de bœuf, bouillon de boeuf
-it:brodo di carne
+it:brodo di manzo
+sv:nötköttsbuljong
 # ingredient/fr:bouillon-de-bœuf has 48 products in 4 languages @2019-03-22
 
 <en:broth
 fr:bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
+
+<en:broth
+en:cooking broth
+fr:bouillon de cuisson
 
 <en:broth
 <en:poultry
@@ -67073,6 +67187,9 @@ nl:kaaskorst
 ru:сырная корочка
 wikidata:en:Q19344541
 
+<en:crust
+en:inedible crust
+fr:croûte non comestible, crôute non consommable
 
 # <en:compound
 fr:crème pâtissière

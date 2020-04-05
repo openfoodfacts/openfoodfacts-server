@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-29 15:55\n"
+"PO-Revision-Date: 2020-04-03 15:24\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3667,12 +3667,12 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: przód produktu w języku niderlandzkim."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: lista składników po francusku."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
@@ -3709,15 +3709,15 @@ msgstr "Plik odebrany"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Szczegółowe informacje dotyczące obliczania Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Produkt ten jest uważany za napój przy obliczaniu Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Produkt ten nie jest uważany za napój przy obliczaniu Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4072,4 +4072,12 @@ msgstr "Zastąp istniejące wartości i wybrane zdjęcia"
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
 msgstr "Zachowaj istniejące wartości i wybrane zdjęcia"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Gotowe"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Do zrobienia"
 
