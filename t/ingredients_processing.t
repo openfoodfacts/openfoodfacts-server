@@ -913,22 +913,6 @@ my @tests = (
 		]
 	],
 
-# All variants of de:halbiert
-	[ { lc => "de", ingredients_text => "Schalotte halbiert, zwiebel halbierte" },
-		[
-			{
-				'id' => 'en:shallot',
-				'processing' => 'de:halbiert',
-				'text' => 'Schalotte'
-			},
-			{
-				'id' => 'en:onion',
-				'processing' => 'de:halbiert',
-				'text' => 'zwiebel'
-			}
-		]
-	],
-	
 # All variants of de:mariniert
 	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter, 
 		mariniertes gurken" },
