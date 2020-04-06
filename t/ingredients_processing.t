@@ -62,6 +62,13 @@ my @tests = (
 		]
 	],
 	
+	
+# en: halved
+	[ { lc => "en", ingredients_text => "halved milk, tomatoes halves"}, 
+		[
+		]
+	],
+
 ##################################################################
 #
 #                           F R E N C H ( F R )
@@ -109,6 +116,22 @@ my @tests = (
 			]
 		],
 
+	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:cooked, en:cut',
+				'text' => 'banane'
+			}
+		]
+	],
+
+##################################################################
+#
+#                           D U T C H ( N L )
+	#
+##################################################################
+
 	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
 		[
 			{
@@ -142,15 +165,6 @@ my @tests = (
 		]
 	],
 
-	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-		[
-			{
-				'id' => 'en:banana',
-				'processing' => 'en:cooked, en:cut',
-				'text' => 'banane'
-			}
-		]
-	],
 ##################################################################
 #
 #                           G E R M A N ( D E )
@@ -441,6 +455,12 @@ my @tests = (
 				'processing' => 'de:ungezuckert',
 				'text' => 'passionsfrucht'
 			}
+		]
+	],
+
+	# de:halbiert and variants
+	[ { lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln" }, 
+		[
 		]
 	],
 
