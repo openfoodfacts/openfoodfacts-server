@@ -1445,7 +1445,7 @@ sub mmoll_to_unit {
 		zh_HK => "糖",
 		zh_TW => "糖",
 	},
-	added-sugars => {
+	"added-sugars" => {
 		en => "Added sugars",
 		fr => "Sucres ajoutés",
 	},
