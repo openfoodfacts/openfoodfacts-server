@@ -16,7 +16,12 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-#                 English
+##################################################################
+#
+#                           E N G L I S H ( E N  )
+#
+##################################################################
+
 	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, 
 			courgette powder, sieved ham"}, 
 		[
@@ -51,6 +56,17 @@ my @tests = (
 		]
 	],
 
+# en: smoked (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"}, 
+		[
+		]
+	],
+	
+##################################################################
+#
+#                           F R E N C H ( F R )
+#
+##################################################################
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
 			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 		[

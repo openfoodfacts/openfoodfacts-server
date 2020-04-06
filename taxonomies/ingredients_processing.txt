@@ -331,19 +331,73 @@ fr:traité en salaison, traitée en salaison, traités en salaison, traitées en
 de:eingelegt, eingelegte
 # de:parse:$ eingelegt, eingelegt $
 
+# en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
 es:ahumada, ahumado, ahumadas, ahumados
 fr:fumé,fumés,fumée,fumées
+#en:false-positive:en:sweet smoked paprike
 
-en:naturally smoked
+# <en:smoked
+en:double smoked
+
+# <en:smoked
+en:naturally smoked, natural smoked, all natural smoked
 fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
 
+#<en:smoked
+en:lightly smoked
+fr:légèrement fumés
+
+#<en:smoked
+en:dry smoked
+
+#<en:smoked
 en:wood smoked
 
-en:hickory smoked
-fr:fumé au bois de caryer
+# <en:wood smoked
+en:natural hardwood smoked, naturally wood smoked
 
-en:mesquite smoked
+#<en:smoked
+en:chardonnay smoked
 
+#<en:smoked
+en:cold smoked with cabernet wine
+
+# <en:wood smoked
+en:alderwood smoked, smoked over alderwood
+
+# <en:wood smoked
+en:apple wood smoked
+
+# <en:wood smoked
 en:beech smoked
 fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre
+
+en:natural beech smoked, 
+
+# <en:wood smoked
+en:cherrywood smoked
+
+# <en:wood smoked
+en:fruitwood smoked
+
+# <en:wood smoked
+en:hickory smoked, hot smoked from hickory
+fr:fumé au bois de caryer
+
+# <en:hickory smoked
+en:natural hickory smoked
+
+# <en:hickory smoked
+en:hickory smoked cured with water
+
+# <en:wood smoked
+en:maple smoked
+
+# <en:wood smoked
+en:mesquite smoked
+
+# <en:wood smoked
+en:oak smoked
+
+en:not smoked, unsmoked
