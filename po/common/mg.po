@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-05 23:53\n"
+"PO-Revision-Date: 2020-04-06 09:46\n"
 "Language-Team: Malagasy\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -17,36 +17,36 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "Vokatra 1"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " sy "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Momba ahy"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Hanampy"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Hanampy fiteny"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Hampiditra vokatra"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Hisoratra anarana"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p> Misaotra amin'ny fidirana. Afaka miditra ao amin'ilay tranokala ianao manomboka izao raha hanampy sy hanova ireo vokatra. </p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,91 +64,105 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Salama <NAME>,\n\n"
+"Misaotra betsaka tamin'ny fidirana amin'ny https://openfoodfacts.org\n"
+"Indreto ny anaran'ny mpampiasa anao:\n\n"
+"Anaran'ny mpampiasa: <USERID>\n\n"
+"Azonao atao ny miditra amin'ny tranokala hanampiana sy hanova ny vokatra.\n\n"
+"<<site_name>> dia tetikasa fiaraha-miasa ahafahanao mitondra betsaka lavitra noho ny vokatra vaovao: ny herinao, ny fahavitrihanao ary ny hevitrao!\n"
+"Mba hifaneraseran'ny mpandray anjara sy ho fampandehanana ny tetikasa dia mampiasa fitaovana fampitana hafatra antsoina hoe Slack: https://slack.openfoodfacts.org\n\n"
+"Azonao atao koa ny miditra amin'ny vondrona Facebook ho an'ny mpandray anjara:\n"
+"https: //www.facebook.com / group / OpenFoodFacts /\n\n"
+"Vaovao: manomboka koa ny Open Beauty Facts izahay mba hamorona tranokala momba ny fikarakaram-batana: savony, dentifrisy, makiazy sns.\n"
+"https://openbeautyfacts.org\n\n"
+"Misaotra indrindra!\n\n"
+"Stéphane sy ny ekipan'ny Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Misaotra nanatevina ny <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Fangaron-tsakafo simika mety hampidi-doza. Ferana ny fampiasana azy."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Fangaron-tsakafo mampidi-doza. Aza ampiasaina."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Fangaron-tsakafo voarara any Eropa. Aza ampiasaina mihitsy."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "fangaron-tsakafo"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "fangaron-tsakafo"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Fikarohana lalindalina"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Fikarohana lalindalina sy kisary"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Manimba fahasalamana ny fisotroana tafahoatra."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Ny iraka atao rehetra"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Singa na vokatra mety hiteraka allergies na tsy fahazakana"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "singa mitondra tsy fahazakana"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "singa mitondra tsy fahazakana"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Vokatra eto amin'ny pejy kirakirain'i"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk-groups-for-food-processing"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Raiso ao amin'ny Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -1161,7 +1175,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Hampiditra vokatra"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
