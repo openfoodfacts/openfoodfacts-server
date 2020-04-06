@@ -59,13 +59,32 @@ my @tests = (
 # en: smoked (children are lef out at the moment)
 	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"}, 
 		[
-		]
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:smoked',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:not-smoked',
+				'text' => 'tomatoes'
+			}
+			]
 	],
-	
-	
+
 # en: halved
 	[ { lc => "en", ingredients_text => "halved milk, tomatoes halves"}, 
 		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:halved',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:halved',
+				'text' => 'tomatoes'
+			}
 		]
 	],
 
@@ -284,23 +303,19 @@ my @tests = (
 	],
 
 # Test for de:geölt
-	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
-	[
-	  {
-	    'id' => 'en:shallot',
-	    'processing' => "de:ge\x{f6}lt",
-	    'text' => 'Schalotte'
-	  },
-	  {
-	    'id' => 'en:hazelnut',
-	    'processing' => "de:ge\x{f6}lt",
-	    'text' => "haseln\x{fc}sse"
-	  },
-	  {
-	    'id' => "de:mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt",
-	    'text' => "mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt"
-	  }
-	]
+	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => "de:ge\x{f6}lt",
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => "de:ge\x{f6}lt",
+				'text' => "haseln\x{fc}sse"
+			}
+		]
 	],
 
 # de:gepökelt and variants
@@ -460,8 +475,18 @@ my @tests = (
 
 	# de:halbiert and variants
 	[ { lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln" }, 
-		[
-		]
+	[
+		{
+			'id' => 'en:shallot',
+			'processing' => 'en:halved',
+			'text' => 'Schalotte'
+		},
+		{
+			'id' => 'en:onion',
+			'processing' => 'en:halved',
+			'text' => 'zwiebel'
+		}
+	]
 	],
 
 # de:konzentriert (and children) and synonyms
