@@ -475,18 +475,23 @@ my @tests = (
 
 	# de:halbiert and variants
 	[ { lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln" }, 
-	[
-		{
-			'id' => 'en:shallot',
-			'processing' => 'en:halved',
-			'text' => 'Schalotte'
-		},
-		{
-			'id' => 'en:onion',
-			'processing' => 'en:halved',
-			'text' => 'zwiebel'
-		}
-	]
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:halved',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:halved',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:halved',
+				'text' => 'mandeln'
+			}
+		]
 	],
 
 # de:konzentriert (and children) and synonyms
