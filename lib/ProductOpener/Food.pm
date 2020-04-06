@@ -4246,7 +4246,6 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
-				or has_tag($product_ref, "ingredients", "added sugar") or has_tag($product_ref, "ingredients", "added sugars")
 				or has_tag($product_ref, "ingredients", "en:sugar")
 				or has_tag($product_ref, "ingredients", "en:glucose")
 				or has_tag($product_ref, "ingredients", "en:fructose")
