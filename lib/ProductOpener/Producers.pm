@@ -142,7 +142,7 @@ sub load_csv_or_excel_file($) {
 				}
 			}
 			else {
-				$results_ref->{error} = "Could not read hader line in CSV $file: $!";
+				$results_ref->{error} = "Could not read header line in CSV $file: $!";
 			}
 		}
 		else {
