@@ -19598,6 +19598,9 @@ fi:ateriakitit
 fr:Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit culinaire
 nl:Maaltijdpakketten
 
+<en:Meal kits
+en:Mexican Dinner Mixes
+
 <en:Beverages
 <en:Dried products to be rehydrated
 en:Dehydrated beverages, dehydrated drinks
@@ -20454,6 +20457,10 @@ ciqual_food_code:en:23050
 ciqual_food_name:en:Savoy-style sponge cake
 ciqual_food_name:fr:Biscuit de Savoie
 
+<en:Biscuits and cakes
+en:Brookies
+fr:Brookies
+
 <fr:Biscuits sablés
 en:Shortbread
 de:Butterkekse
@@ -20741,6 +20748,10 @@ fr:Fajitas
 ciqual_food_code:en:25460
 ciqual_food_name:en:Fajitas
 ciqual_food_name:fr:Fajitas
+
+<en:Meals
+en:Stews
+fr:Ragoûts
 
 <en:Rye-and-wheat breads
 en:Darnitsky bread
@@ -21265,6 +21276,10 @@ fi:lettujauhot
 fr:Préparations pour crêpes
 nl:Pancake mixes
 
+<en:Cakes
+en:Carrot cakes
+fr:Carrot cakes, gâteaux aux carottes
+wikidata:en:Q656071
 
 <en:Cakes
 en:Baumkuchen
@@ -27498,6 +27513,9 @@ ciqual_food_code:en:19666
 ciqual_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
+
+en:Coffee creamers
+
 <en:Dairies
 en:Creams
 ca:Cremes
@@ -27539,13 +27557,6 @@ fr:Crèmes Chantilly, Crème Chantilly, Chantilly
 de:Crème Chantilly
 wikidata:en:Q6384329
 
-<en:Whipped creams
-en:Whipped cream under pressure UHT, Chantilly cream under pressure UHT
-fr:Crème chantilly sous pression UHT
-ciqual_food_code:en:19420
-ciqual_food_name:en:Whipped cream or Chantilly cream, under pressure, UHT
-ciqual_food_name:fr:Crème chantilly, sous pression, UHT
-
 <en:Creams
 fr:Crèmes sous pression
 de:Sprühsahne
@@ -27555,6 +27566,14 @@ en:UHT Creams
 de:H-Sahne,H-Schlagsahne
 fr:Crèmes UHT
 nl:UHT room, UHT romen
+
+<en:UHT Creams
+<fr:Crèmes sous pression
+en:Whipped cream under pressure UHT, Chantilly cream under pressure UHT
+fr:Crèmes sous pression UHT
+ciqual_food_code:en:19420
+ciqual_food_name:en:Whipped cream or Chantilly cream, under pressure, UHT
+ciqual_food_name:fr:Crème chantilly, sous pression, UHT
 
 <en:Creams
 en:Raw creams
@@ -35146,6 +35165,7 @@ pl:Mrożone dania gotowe
 
 <en:Frozen foods
 <en:Fishes
+<en:Frozen seafood
 en:Frozen fishes
 de:Tiefkühlfisch
 fi:kalapakasteet
@@ -40022,6 +40042,21 @@ nl:Verse loempias, springrolls
 ciqual_food_code:en:25419
 ciqual_food_name:en:Spring roll
 ciqual_food_name:fr:Rouleau de printemps
+
+<en:Meals
+en:Moussaka
+da:Musaka
+de:Moussaka
+es:Musaca
+fr:Moussaka
+it:Moussakà
+nl:Moussaka
+pl:Musaka
+pt:Mussaca
+ro:Musaca
+sk:Musaka
+sv:Moussaka
+wikidata:en:Q206918
 
 <en:Meals
 en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes
@@ -46771,7 +46806,6 @@ es:Bolleria
 fi:leivokset
 fr:Pâtisseries, pâtisserie
 nl:Gebak
-pt:Produtos agrícolas
 
 <en:Biscuits and cakes
 en:Biscuit with milk
@@ -48187,6 +48221,9 @@ sv:Fisk
 zh:鱼类
 wikidata:en:Q600396
 
+<en:Seafood
+en:Frozen seafood
+
 <en:Fishes
 en:Fish preparations
 ca:Preparacions de peix
@@ -49406,7 +49443,7 @@ nl:Rozeblaadjesjams
 
 <en:Plant-based spreads
 <en:Sweet spreads
-en:Fruit preserves
+en:Fruit and vegetable preserves, fruit preserves
 ca:Conserves de fruita
 de:Konfitüren und Marmeladen
 es:Preparaciones a base de frutas y verduras
@@ -49420,14 +49457,14 @@ pt:Conservas de fruta
 th:ผลไม้แปรรูป
 
 #uncooked fruit preserve
-<en:Fruit preserves
+<en:Fruit and vegetable preserves
 sv:Rårörda, rårörd
 #fr:Crufitures
 
 <sv:Rårörda
 sv:Rårörda lingon
 
-<en:Fruit preserves
+<en:Fruit and vegetable preserves
 en:Jams
 ca:Melmelades
 de:Konfitüren, Konfitüre
@@ -49467,36 +49504,19 @@ fr:Confitures diététiques
 hu:Diétás lekvárok
 nl:Dieetjams
 
-<en:Fruits based foods
 <en:Jams
-en:Fruit jams
-ca:Melmelades de fruita
-de:Fruchtkonfitüren
-es:Mermeladas y confituras de frutas, Mermeladas de frutas, Confituras de frutas
-fi:hedelmähillot
-fr:Confitures de fruits
-hu:Gyümölcs lekvár
-it:Succo di frutta
-nl:Vruchtenjams
-pl:Dżemy owocowe
-pt:Geléias de fruta
-sv:Fruktsylt
-th:แยมผลไม้
-zh:果酱
-
-<en:Fruit jams
 en:Rosehip jams, rosehip jam
 fr:Confitures d'églantines, Confiture d'églantines, confitures de gratte-cul, confitures de cynorhodons
 hu:Csipkebogyó lekvár
 nl:Rozenbotteljam
 
-<en:Fruit jams
+<en:Jams
 en:Sea-buckthorn jams
 de:Sanddorn Konfitüren
 es:Mermeladas y confituras d'espino amarillo
 fr:Confitures d'argousiers
 
-<en:Fruit jams
+<en:Jams
 en:Berry jams
 ca:Melmelada de baies
 de:Marmeladen aus roten Früchten
@@ -49595,7 +49615,7 @@ it:Confetture di fragole
 nl:Aardbeienjams, Aardbeienjam
 se:Jordgubbssylter, jordgubbssylt
 
-<en:Fruit jams
+<en:Jams
 en:Citrus jams
 de:Zitronenmarmeladen
 es:Mermeladas y confituras de cítricos
@@ -49640,7 +49660,7 @@ it:Confitture di arancia amara
 fr:Confitures de mandarines, confitures de mandarine
 it:Confetture di mandarino
 
-<en:Fruit jams
+<en:Jams
 en:Tropical fruit jams
 de:Exotische Fruchtmarmeladen
 es:Mermeladas y confituras de frutas tropicales, Mermeladas de frutas tropicales, Confituras de frutas tropicales
@@ -49699,7 +49719,7 @@ hu:Mangó dzsem, Mangó lekvár
 it:Confetture di mango
 nl:Mangojams
 
-<en:Fruit jams
+<en:Jams
 en:Apple jams
 de:Apfelmarmeladen
 es:Mermeladas y confituras de manzana, Mermeladas de manzana, Confituras de manzana
@@ -49708,7 +49728,7 @@ hu:Alma lekvár
 it:Confitture di mela
 nl:Appeljams
 
-<en:Fruit jams
+<en:Jams
 en:Apricot jams
 de:Aprikosen Konfitüren, Aprikosenkonfitüren
 es:Confituras de albaricoque
@@ -49721,7 +49741,7 @@ ciqual_food_code:en:31037
 ciqual_food_name:en:Jam, apricot
 ciqual_food_name:fr:Confiture d'abricot (extra ou classique)
 
-<en:Fruit jams
+<en:Jams
 en:Cherry jams
 de:Kirsche Konfitüren, Kirschmarmeladen
 es:Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
@@ -49731,7 +49751,7 @@ hu:Cseresznye lekvár
 it:Confetture di ciliegie
 nl:Kersenjams
 
-<en:Fruit jams
+<en:Jams
 en:Figs jams
 de:Feigenkonfitüren
 es:Mermeladas y confituras de higos, Mermeladas de higos, Confituras de higos
@@ -49741,7 +49761,7 @@ hu:Füge lekár, Füge dzsem
 it:Confetture di fico
 nl:Vijgenjams
 
-<en:Fruit jams
+<en:Jams
 en:Grape jams
 es:Mermeladas y confituras de uvas, Mermeladas de uvas, Confituras de uvas
 fr:Confitures de raisins
@@ -49749,7 +49769,7 @@ hu:Szölő lekvár
 it:Confetture di uva
 nl:Druivenjams
 
-<en:Fruit jams
+<en:Jams
 en:Melon jams
 es:Mermeladas y confituras de melón, Mermeladas de melón, Confituras de melón
 fr:Confitures de melon
@@ -49757,7 +49777,7 @@ hu:Dinnye lekvár
 it:Confitture di melone
 nl:Meloenjams
 
-<en:Fruit jams
+<en:Jams
 en:Peach jams
 de:Pfirsichmarmeladen
 es:Mermeladas y confituras de melocotón, Mermeladas de melocotón, Confituras de melocotón
@@ -49767,7 +49787,7 @@ hu:Őszibarack lekvár, Barack lekvár
 it:Confitture di pesca
 nl:Perzikkenjams
 
-<en:Fruit jams
+<en:Jams
 en:Pear jams
 de:Birnenmarmelade
 es:Mermeladas y confituras de peras, Mermeladas de peras, Confituras de peras
@@ -49777,18 +49797,18 @@ hu:Körte lekvár
 it:Confitture di pera
 nl:Perenjams
 
-<en:Fruit jams
+<en:Jams
 en:Quince jams
 de:Quitte Konfitüren
 fr:Confitures de coings
 hu:Birs lekvár
 
-<en:Fruit jams
+<en:Jams
 en:Kiwi jams, kiwi jam
 de:Kiwi Konfitüren
 fr:Confitures de kiwi, confiture de kiwi, confitures de kiwis
 
-<en:Fruit jams
+<en:Jams
 en:Plum jams
 de:Pflaumenmarmeladen
 es:Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
@@ -49813,7 +49833,7 @@ fr:Confitures de mirabelles
 hu:Damaszkuszi szilvalekvár
 nl:Mirabellenjams
 
-<en:Fruit jams
+<en:Jams
 en:Mixed fruit jams
 de:Multifrucht Konfitüren
 es:Mermeladas y confituras multifruta, Mermeladas multifruta, Confituras multifruta
@@ -49822,7 +49842,46 @@ fr:Confitures multifruits
 hu:Vegyes gyümölcslekvár
 nl:Multifruitjams
 
-<en:Fruit preserves
+<en:Jams
+<en:Onions and their products
+en:Onion jams
+es:Mermeladas y confituras de cebolla, Mermeladas de cebolla, Confituras de cebolla
+fr:Confitures d'oignon
+hu:Hagyma lekvárok
+nl:Uienjams
+
+<en:Jams
+<en:Pumpkins and their products
+en:Pumpkin jams
+es:Mermeladas y confituras de calabaza, Mermeladas de calabaza, Confituras de calabaza
+fr:Confitures de citrouille
+hu:Tök lekvárok
+nl:Pompoenjams
+
+<en:Jams
+en:Rhubarb jams
+de:Rhabarber-Konfitüre
+es:Mermeladas y confituras de ruibarbo, Mermeladas de ruibarbo, Confituras de ruibarbo
+fi:raparperihillot
+fr:Confitures de rhubarbe
+hu:Rebarbara lekvár
+nl:Rabarberjams
+
+<en:Jams
+<en:Tomatoes and their products
+en:Tomato jams, tomate jams
+es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
+fr:Confitures de tomates
+hu:Paradicsom lekvár
+nl:Tomatenjams
+
+<en:Jams
+en:Assorted jams
+es:Surtidos de mermeladas
+fr:Confitures assorties, assortiments de confitures, assortiment de confitures
+nl:Jam-assortimenten
+
+<en:Fruit and vegetable preserves
 en:Marmalades, Marmelades
 de:Marmeladen
 fi:marmelaadit
@@ -49869,61 +49928,13 @@ nl:Citroenmarmelades
 wikidata:en:Q40867220
 
 <en:Vegetables based foods
-<en:Jams
-en:Vegetable jams
-es:Mermeladas y confituras de verduras y hortalizas, Mermeladas de verduras y hortalizas, Confituras de verduras y hortalizas
-fi:kasvishillot
-fr:Confitures de légumes
-hu:Zöldség lekvárok
-nl:Groentejams
-
-<en:Vegetables based foods
 en:Vegetable flans, Vegetable flan
 fr:Flans de légumes, Flans aux légumes, Flan de légumes, Flan aux légumes
 ciqual_food_code:en:8297
 ciqual_food_name:en:Vegetable flan
 ciqual_food_name:fr:Flan de légumes
 
-<en:Vegetable jams
-<en:Onions and their products
-en:Onion jams
-es:Mermeladas y confituras de cebolla, Mermeladas de cebolla, Confituras de cebolla
-fr:Confitures d'oignon
-hu:Hagyma lekvárok
-nl:Uienjams
-
-<en:Vegetable jams
-<en:Pumpkins and their products
-en:Pumpkin jams
-es:Mermeladas y confituras de calabaza, Mermeladas de calabaza, Confituras de calabaza
-fr:Confitures de citrouille
-hu:Tök lekvárok
-nl:Pompoenjams
-
-<en:Vegetable jams
-en:Rhubarb jams
-de:Rhabarber-Konfitüre
-es:Mermeladas y confituras de ruibarbo, Mermeladas de ruibarbo, Confituras de ruibarbo
-fi:raparperihillot
-fr:Confitures de rhubarbe
-hu:Rebarbara lekvár
-nl:Rabarberjams
-
-<en:Vegetable jams
-<en:Tomatoes and their products
-en:Tomate jams
-es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
-fr:Confitures de tomates
-hu:Paradicsom lekvár
-nl:Tomatenjams
-
-<en:Jams
-en:Assorted jams
-es:Surtidos de mermeladas
-fr:Confitures assorties, assortiments de confitures, assortiment de confitures
-nl:Jam-assortimenten
-
-<en:Fruit preserves
+<en:Fruit and vegetable preserves
 en:Fruit jellies, jellies, jelly
 de:Fruchtgelees
 es:Jaleas de frutas
@@ -53841,7 +53852,7 @@ nl:Peulvruchtenkiemen in blik
 en:Canned mung bean sprouts
 es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
 fi:purkitettuja mung-pavun ituja
-fr:Pousses de haricot mungo en conserve, Pousses de haricot mungo, Pousse de haricot mungo, jeunes pousses de haricot mungo, Pousses de soja vert, Pousse de ambérique vert, Pousses de soja
+fr:Pousses de haricot mungo en conserve
 nl:Mungoboonkiemen in blik
 
 <en:Canned legume sprouts
@@ -56186,12 +56197,14 @@ fr:Civet de tangue
 fr:Civet de zourites
 wikidata:en:Q16540075
 
+<en:Biscuits and cakes
 en:Pancakes
 de:Pfannkuchen
 fi:pannukakut
 fr:Pancakes
 nl:Pancakes
 
+<en:Biscuits and cakes
 en:Crêpes and galettes
 ca:Creps i coques
 de:Crêpes und Galetten
@@ -58003,3 +58016,6 @@ fr:Sels liquides
 en:edible tableware
 de:essbares Geschirr
 fr:Couverts comestibles, Vaisselles comestibles
+
+en:stuffing
+fr:farces

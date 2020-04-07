@@ -47,6 +47,24 @@ de:feingeschnitten, fein geschnittenen, feingeschnittener
 # <en:cut
 de:handgeschnitten, handgeschnittene
 
+de:zerkleinert, zerkleinerte, zerkleinerter, zerkleinertes
+
+#<de:zerkleinert
+de:grob zerkleinert
+
+#<de:zerkleinert
+de:fein zerkleinert, fein zerkleinerte
+
+#<de:zerkleinert
+de:zum teil fein zerkleinert
+
+#<de:zerkleinert
+de:feinst zerkleinert
+
+#<de:feinst zerkleinert
+de:überwiegend feinst zerkleinert
+
+
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
@@ -211,6 +229,7 @@ fr:réhydraté, réhydratée, réhydratés, réhydratées
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
+
 #######################################################################
 #
 #                H E A T I N G   P R O C E S S E S
@@ -238,6 +257,8 @@ it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al na
 
 # <en:cooked
 de:dampfgegart, dampfgegarte, dampfgegarter
+
+de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt
 
 en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
@@ -309,3 +330,19 @@ fr:traité en salaison, traitée en salaison, traités en salaison, traitées en
 de:eingelegt, eingelegte
 # de:parse:$ eingelegt, eingelegt $
 
+en:smoked
+es:ahumada, ahumado, ahumadas, ahumados
+fr:fumé,fumés,fumée,fumées
+
+en:naturally smoked
+fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
+
+en:wood smoked
+
+en:hickory smoked
+fr:fumé au bois de caryer
+
+en:mesquite smoked
+
+en:beech smoked
+fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre

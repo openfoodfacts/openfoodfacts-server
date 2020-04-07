@@ -294,7 +294,39 @@ my @tests = (
 			}
 		]
 	],
-		
+	
+# de:gepoppt and variants
+	[ { lc => "de", ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse, 
+				passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes gurken" }, 
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:gepufft',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:gepufft',
+				'text' => "haselnüsse"
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:gepufft',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:gepufft',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:gepufft',
+				'text' => 'gurken'
+			}
+		]
+	],
+	
 # de:geschält and variants
 	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
 				passionsfrucht ungeschält, ungeschälte gurken" }, 
@@ -354,7 +386,7 @@ my @tests = (
 		]
 	],
 
-# Test for process de:gesüßt 
+#  de:gesüßt 
 	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
 		[
 			{
@@ -396,7 +428,7 @@ my @tests = (
 		]
 	],
 
-# Process de:konzentriert (and children) and synonyms
+# de:konzentriert (and children) and synonyms
 	[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
@@ -456,19 +488,71 @@ my @tests = (
 		]	
 	],
 
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
+# de:zerkleinert and variants
+	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht, 
+						gurken grob zerkleinert, 
+						acerola fein zerkleinert, fein zerkleinerte spinat, 
+						zwiebel zum teil fein zerkleinert,
+						haselnüsse feinst zerkleinert,
+						überwiegend feinst zerkleinert Feigen" }, 
+						[
+						  {
+						    'id' => 'en:shallot',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'Schalotte'
+						  },
+						  {
+						    'id' => 'en:hazelnut',
+						    'processing' => 'de:zerkleinert',
+						    'text' => "haseln\x{fc}sse"
+						  },
+						  {
+						    'id' => 'en:almond',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'mandeln'
+						  },
+						  {
+						    'id' => 'en:passion-fruit',
+						    'processing' => 'de:zerkleinert',
+						    'text' => 'passionsfrucht'
+						  },
+						  {
+						    'id' => 'en:gherkin',
+						    'processing' => 'de:grob-zerkleinert',
+						    'text' => 'gurken'
+						  },
+						  {
+						    'id' => 'en:acerola',
+						    'processing' => 'de:fein-zerkleinert',
+						    'text' => 'acerola'
+						  },
+						  {
+						    'id' => 'en:spinach',
+						    'processing' => 'de:fein-zerkleinert',
+						    'text' => 'spinat'
+						  },
+						  {
+						    'id' => 'en:onion',
+						    'processing' => 'de:zum-teil-fein-zerkleinert',
+						    'text' => 'zwiebel'
+						  },
+						  {
+						    'id' => 'en:hazelnut',
+						    'processing' => 'de:feinst-zerkleinert',
+						    'text' => "haseln\x{fc}sse"
+						  },
+						  {
+						    'id' => 'en:fig',
+						    'processing' => "de:\x{fc}berwiegend-feinst-zerkleinert",
+						    'text' => 'Feigen'
+						  }
+						]
+	],
+
+# combinations
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
 		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 		[
-			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:roasted, en:chopped',
@@ -919,7 +1003,64 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 				'text' => 'mandeln'
 			}
 		]
-	]
+	],
+
+	[ { lc => "en", ingredients_text => "smoked sea salt, smoked turkey"},
+[
+  {
+    'id' => 'en:sea-salt',
+    'processing' => 'en:smoked',
+    'text' => 'sea salt'
+  },
+  {
+    'id' => 'en:turkey',
+    'processing' => 'en:smoked',
+    'text' => 'turkey'
+  }
+]
+
+	],
+
+	[ { lc => "fr", ingredients_text => "sel marin fumé, jambon fumé, arôme de fumée, lardons fumés au bois de hêtre "},
+[
+  {
+    'id' => 'en:sea-salt',
+    'processing' => 'en:smoked',
+    'text' => 'sel marin'
+  },
+  {
+    'id' => 'en:ham',
+    'processing' => 'en:smoked',
+    'text' => 'jambon'
+  },
+  {
+    'id' => 'en:smoke-flavouring',
+    'text' => "ar\x{f4}me de fum\x{e9}e"
+  },
+  {
+    'id' => 'en:lardon',
+    'processing' => 'en:beech-smoked',
+    'text' => 'lardons'
+  }
+]
+        ],
+
+
+	[ { lc => "es", ingredients_text => "tofu ahumado, panceta ahumada"},
+[
+  {
+    'id' => 'en:tofu',
+    'processing' => 'en:smoked',
+    'text' => 'tofu'
+  },
+  {
+    'id' => 'en:bacon',
+    'processing' => 'en:smoked',
+    'text' => 'panceta'
+  }
+
+]
+	],
 
 );
 
