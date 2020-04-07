@@ -30272,6 +30272,14 @@ de:leicht gesalzene Butter
 fi:puoliksi suolattu voi
 fr:Beurres demi-sel, beurre demi-sel
 nl:Lichtgezouten roomboters
+ciqual_food_code:en:16402
+ciqual_food_name:en:Butter, 80% fat, lightly salted
+
+<en:Butters
+en:Butter 60-62% fat light lightly salted
+fr:Beurre à 60-62% MG à teneur réduite en matière grasse demi-sel
+ciqual_food_code:en:16411
+ciqual_food_name:en:Butter, 60-62% fat, light, lightly salted
 
 <en:Butters
 en:sour cream butters, sour cream butter
@@ -30299,7 +30307,20 @@ de:Ungesalzene Butter
 fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 nl:Ongezouten roomboter
+ciqual_food_code:en:16400
+ciqual_food_name:en:Butter, 82% fat, unsalted
 
+<en:Butters
+en:Butter 82% fat unsalted easy-to-spread
+fr:Beurre à 82% MG doux tendre
+ciqual_food_code:en:16404
+ciqual_food_name:en:Butter, 82% fat, unsalted, easy-to-spread
+
+<en:Butters
+en:Butter light 39-41% fat unsalted
+fr:Beurre à 39-41% MG léger doux
+ciqual_food_code:en:16415
+ciqual_food_name:en:Butter, light, 39-41% fat, unsalted
 
 <en:Butters
 en:Molded butters
@@ -30319,6 +30340,14 @@ de:Salzbutter, gesalzene Butter
 fi:suolatut voit
 fr:Beurres salés, beurre salé
 nl:Gezouten roomboters
+ciqual_food_code:en:16403
+ciqual_food_name:en:Butter, 80% fat, salted
+
+<en:Butters
+en:Butter 60-62% fat light unsalted
+fr:Beurre à 60-62% MG à teneur réduite en matière grasse doux
+ciqual_food_code:en:16410
+ciqual_food_name:en:Butter, 60-62% fat, light, unsalted
 
 <en:Butters
 en:Three-quarter-fat butter
@@ -34825,6 +34854,19 @@ ciqual_food_code:en:16746
 ciqual_food_name:en:Blended fat (vegetable and animal origins), spreadable, 30-40% fat, lightly salted
 ciqual_food_name:fr:Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG, demi-sel
 
+<en:Fats
+en:Dairy fat 25% fat light spreadable unsalted
+fr:Matière grasse laitière à 25% MG légère ""à tartiner"" doux
+ciqual_food_code:en:16712
+ciqual_food_name:en:Dairy fat 25% fat, light, spreadable, unsalted
+
+<en:Fats
+en:Dairy fat 20% fat light spreadable unsalted
+fr:Matière grasse laitière à 20% MG légère ""à tartiner"" doux
+ciqual_food_code:en:16713
+ciqual_food_name:en:Dairy fat 20% fat, light, spreadable, unsalted
+
+
 <en:Animal fats
 fr:Gras de bœuf, graisse de bœuf, suif de boeuf, blanc de bœuf, matière grasse de bœuf
 nl:Rundvetten
@@ -35229,7 +35271,6 @@ wikidata:en:Q212317
 ciqual_food_code:en:17400
 ciqual_food_name:en:Sesame oil
 ciqual_food_name:fr:Huile de sésame
-
 
 <en:Cereal oils
 en:Wheat germ oils
@@ -35660,7 +35701,11 @@ ciqual_food_code:en:17130
 ciqual_food_name:en:Rapeseed oil
 ciqual_food_name:fr:Huile de colza
 
-
+<en:Fats
+en:Butter oil or concentrated butter
+fr:Huile de beurre, Beurre concentré
+ciqual_food_code:en:16401
+ciqual_food_name:en:Butter oil or concentrated butter
 
 <en:Fats
 en:British oils and fats
@@ -38417,6 +38462,12 @@ fr:Lieu noir cru surgelé
 ciqual_food_code:en:26047
 ciqual_food_name:en:Saithe, frozen, raw
 ciqual_food_name:fr:Lieu noir, surgelé, cru
+
+<en:Fish
+en:Saithe cooked
+fr:Lieu noir cuit
+ciqual_food_code:en:26015
+ciqual_food_name:en:Saithe, cooked
 
 <en:Frozen fishes
 en:Frozen raw hake fillet
