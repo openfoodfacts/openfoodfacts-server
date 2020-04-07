@@ -1303,13 +1303,18 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
+		my $known = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			my $tagid = get_taxonomyid($product_ref->{lc}, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
-			if (not exists_taxonomy_tag("ingredients", $tagid)) {
+			if (exists_taxonomy_tag("ingredients", $tagid)) {
+				$known++;
+			}
+			else {
 				$unknown++;
 			}
 		}
+		$product_ref->{"known_ingredients_n" } = $known;
 		$product_ref->{"unknown_ingredients_n" } = $unknown;
 	}
 
@@ -1327,6 +1332,8 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 	}
 	else {
 		delete $product_ref->{ingredients_n};
+		delete $product_ref->{known_ingredients_n};
+		delete $product_ref->{unknown_ingredients_n};
 		delete $product_ref->{ingredients_n_tags};
 	}
 
