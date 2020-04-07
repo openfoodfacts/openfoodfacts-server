@@ -6924,10 +6924,11 @@ sub display_field($$) {
 		}
 	}
 	
-	my $to_do_status = '';
-	my $done_status = '';
+	
 
 	if ($field eq 'states'){
+		my $to_do_status = '';
+		my $done_status = '';
 		my @to_do_status;
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
@@ -6941,6 +6942,12 @@ sub display_field($$) {
 		}
 		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
 		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
+		if ($to_do_status ne ""){
+				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
+		}
+		if ($done_status ne ""){
+				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+		}
 	}
 
 	elsif (defined $taxonomy_fields{$field}) {
@@ -6981,16 +6988,7 @@ sub display_field($$) {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
 		
-		# Separate To-Do and Done Status
-		if ($field eq 'states') {
-			if ($to_do_status ne ""){
-				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
-			}
-			if ($done_status ne ""){
-				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
-			}	
-		}
-		else {
+		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}
 
