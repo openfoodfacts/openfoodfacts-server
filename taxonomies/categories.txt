@@ -19598,9 +19598,6 @@ fi:ateriakitit
 fr:Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit culinaire
 nl:Maaltijdpakketten
 
-<en:Meal kits
-en:Mexican Dinner Mixes
-
 <en:Beverages
 <en:Dried products to be rehydrated
 en:Dehydrated beverages, dehydrated drinks
@@ -20716,6 +20713,17 @@ nl:Roggebroden, Roggebrood
 ro:Pâine de secară, Pâine cu faină de secară
 ru:Ржаной хлеб, хлеб ржаной, чёрный хлеб
 wikidata:en:Q3893120
+
+<en:Rye breads
+en:Pumpernickel
+de:Pumpernickel
+es:Pumpernickel
+fr:Pumpernickel
+it:Pumpernickel
+nl:Pompernikkel
+pl:Pumpernikiel
+pt:Pumpernickel
+wikidata:en:Q837207
 
 <en:Breads
 en:Rye-and-wheat breads, Rye-and-wheat bread
@@ -27512,9 +27520,6 @@ fr:Fromage frais nature à 10% de matières grasses environ, Petit suisse nature
 ciqual_food_code:en:19666
 ciqual_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
-
-
-en:Coffee creamers
 
 <en:Dairies
 en:Creams
@@ -46807,52 +46812,34 @@ fi:leivokset
 fr:Pâtisseries, pâtisserie
 nl:Gebak
 
-<en:Biscuits and cakes
+<en:Pastries
+en:Churros
+de:Churros
+es:Churros
+fr:Churros
+nl:Churros
+wikidata:en:Q727605
+
+<en:Biscuits
 en:Biscuit with milk
 fr:Biscuit sec au lait
 ciqual_food_code:en:24030
 ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
-<en:Biscuits and cakes
+<en:Biscuits
 en:Diet crispy biscuit without chocolate
 fr:Biscuit sec croquant sans chocolat allégé en matière grasse
 ciqual_food_code:en:24031
 ciqual_food_name:en:Crispy biscuit (cookie), without chocolate, reduced fat
 ciqual_food_name:fr:Biscuit sec croquant (ex : tuile) sans chocolat, allégé en matière grasse
 
-<en:Biscuits and cakes
+<en:Biscuits
 en:Biscuit with nuts, Lightly chocolate-flavoured biscuit with nuts
 fr:Biscuit sec fourré aux noix, Biscuit sec légèrement chocolaté fourré aux noix
 ciqual_food_code:en:24055
 ciqual_food_name:en:Biscuit (cookie) with nuts (no chocolate or lightly chocolate-flavoured)
 ciqual_food_name:fr:Biscuit sec fourré fruits à coque (non ou légèrement chocolaté)
-
-<en:Biscuits and cakes
-en:Wafer biscuit filled with nuts
-fr:Gaufrette fourrée
-ciqual_food_code:en:24312
-ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
-ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with hazelnut
-fr:Gaufrette fourrée à la noisette
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with almond
-fr:Gaufrette fourrée à l'amande
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with praline
-fr:Gaufrette fourrée à la praline
-
-<en:Biscuits and cakes
-en:Wafer biscuit with fruits
-fr:Gaufrette fourrée aux fruits
-ciqual_food_code:en:24320
-ciqual_food_name:en:Wafer biscuit, with fruits
-ciqual_food_name:fr:Gaufrette fourrée, aux fruits
 
 <en:Biscuits and cakes
 en:Biscuit filled with fruit paste, Biscuit filled with fruit puree
@@ -54351,7 +54338,7 @@ ro:Vafe umplute cu miere
 
 <en:Biscuits
 en:Wafers, waffers
-de:Waffeln
+de:Knusprige Waffeln
 fi:vohvelit
 fr:Gaufrettes
 hu:Ostya, ostyák
@@ -54362,7 +54349,7 @@ wikidata:en:Q1226651
 
 <en:Wafers
 en:Stuffed wafers
-de:Gefüllte Waffeln
+de:Gefüllte Knusprige Waffeln
 es:Obleas rellenas
 fi:täytetyt vohvelit
 fr:Gaufrettes fourrées
@@ -54372,7 +54359,7 @@ ro:Napolitane umplute
 
 <en:Stuffed wafers
 en:Caramel stuffed wafers
-de:Karamellgefüllte Waffeln, Waffeln mit Karamell gefüllt
+de:Karamellgefüllte Knusprige Waffeln, Waffeln mit Karamell gefüllt
 fi:kinuskilla täytetyt vohvelit
 fr:Gaufrettes fourrées au caramel
 hu:Karamellel töltött ostyák
@@ -54382,7 +54369,7 @@ ro:Napolitane umplute cu caramel, Napolitane cu caramel
 <en:Stuffed wafers
 <en:Chocolate biscuits
 en:Chocolate stuffed wafers
-de:Waffeln gefüllt mit Schokolade
+de:Knusprige Waffeln gefüllt mit Schokolade
 fi:suklaalla täytetyt vohvelit
 fr:Gaufrettes fourrées au chocolat
 hu:Csokoládéval töltött ostya
@@ -54391,12 +54378,26 @@ ro:Napolitane umplute cu ciocolată, Napolitane cu ciocolată
 
 <en:Stuffed wafers
 en:Vanilla stuffed wafers
-de:Vanillewaffeln
+de:Vanille-gefüllte Knusprige Waffeln
 fi:vaniljalla täytetyt vohvelit
 fr:Gaufrettes fourrées à la vanille
 hu:Vaníliával töltött ostyák
 nl:Wafeltjes met vanille
 ro:Napolitane umplute cu vanilie, Napolitane cu vanilie
+
+<en:Biscuits and cakes
+en:Nut stuffed wafers
+fr:Gaufrettes fourrées aux fruits à coques
+ciqual_food_code:en:24312
+ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
+ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
+
+<en:Biscuits and cakes
+en:Fruits stuffed wafers
+fr:Gaufrette fourrée aux fruits
+ciqual_food_code:en:24320
+ciqual_food_name:en:Wafer biscuit, with fruits
+ciqual_food_name:fr:Gaufrette fourrée, aux fruits
 
 <en:Biscuits
 en:Toaster pastries, Toaster pastry
@@ -56197,14 +56198,12 @@ fr:Civet de tangue
 fr:Civet de zourites
 wikidata:en:Q16540075
 
-<en:Biscuits and cakes
 en:Pancakes
 de:Pfannkuchen
 fi:pannukakut
 fr:Pancakes
 nl:Pancakes
 
-<en:Biscuits and cakes
 en:Crêpes and galettes
 ca:Creps i coques
 de:Crêpes und Galetten
