@@ -394,7 +394,12 @@ XML
 			$nid =~ s/-$//g;
 
 			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-			$csv .= $product_ref->{nutriments}{$nid . "_100g"} . "\t";
+				my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				if ($value =~ /e/) {
+					# 7e-05 1.71e-06
+					$value = sprintf("%.10f", $value);
+				}
+				$csv .= $value . "\t";
 			}
 			else {
 				$csv .= "\t";
