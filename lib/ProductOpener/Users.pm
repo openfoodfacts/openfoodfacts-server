@@ -201,7 +201,7 @@ sub display_user_form($$) {
 
 		for (my $i = 1; $i <= 3; $i++) {
 			$html .= "\n<div class=\"small-3 large-2 xlarge-1 columns\">" . sprintf(lang("team_s"), $i) . lang("sep") . ":</div><div class=\"small-9 large-10 xlarge-11 columns\">"
-			. textfield(-name=>'email', -value=>$user_ref->{"team_" . $i}, -size=>80, -override=>1) . "</div>";
+			. textfield(-name=>"team_" . $i, -value=>$user_ref->{"team_" . $i}, -style=>"max-width:20rem", -override=>1) . "</div>";
 		}
 
 		$html .= "</div></td></tr>";
