@@ -56,6 +56,17 @@ my @tests = (
 		]
 	],
 
+# en:dried (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "dried milk"}, 
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:smoked',
+				'text' => 'milk'
+			}
+			]
+	],
+
 # en: smoked (children are lef out at the moment)
 	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"}, 
 		[
@@ -718,52 +729,52 @@ my @tests = (
 				  },
 				  {
 				    'id' => 'en:elder',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Holunder'
 				  },
 				  {
 				    'id' => 'en:papaya',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Papaya'
 				  },
 				  {
 				    'id' => 'en:kiwi',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Kiwi'
 				  },
 				  {
 				    'id' => 'en:pineapple',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Ananas'
 				  },
 				  {
 				    'id' => 'en:prune',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Pflaumen'
 				  },
 				  {
 				    'id' => 'en:grapefruit',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Grapefruit'
 				  },
 				  {
 				    'id' => 'en:guava',
-				    'processing' => 'de:luftgetrocknet',
+				    'processing' => 'en:air-dried',
 				    'text' => 'Guaven'
 				  },
 				  {
 				    'id' => 'en:rosehip',
-				    'processing' => 'de:luftgetrocknet',
+				    'processing' => 'en:air-dried',
 				    'text' => 'Hagebutten'
 				  },
 				  {
 				    'id' => 'en:grape',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'processing' => "en:spray-dried",
 				    'text' => 'Traube'
 				  },
 				  {
 				    'id' => 'en:tamarind',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'processing' => "en:spray-dried",
 				    'text' => 'Tamarinde'
 				  }
 			]
