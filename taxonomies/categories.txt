@@ -21584,6 +21584,8 @@ fr: Barquettes aux fruits
 
 <fr:Barquettes
 fr:Barquettes au chocolat
+ciqual_food_code:en:24051
+ciqual_food_name:en:Biscuit sponge cake, with chocolate, pre-packed
 
 <fr:Barquettes aux fruits
 <en:Strawberry biscuits
@@ -21854,6 +21856,30 @@ wikidata:en:Q2915670
 ciqual_food_code:en:24071
 ciqual_food_name:en:Shortbread pastry biscuit
 ciqual_food_name:fr:Sablé pâtissier
+
+<en:Biscuits
+en:Biscuit shortbread with butter and chocolate
+fr:sablé au chocolat
+ciqual_food_code:en:24050
+ciqual_food_name:en:Biscuit shortbread, with butter and chocolate
+
+<en:Biscuits
+en:Shortbread cookie with cocoa or chocolate or praline or other
+fr:sablé au cacao et au chocolat
+ciqual_food_code:en:24080
+ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
+
+<en:Biscuits
+en:Biscuit shortbread with chocolate pre-packed
+fr:galette au chocolat
+ciqual_food_code:en:24053
+ciqual_food_name:en:Biscuit shortbread, with chocolate, pre-packed
+
+<en:Biscuits
+en:Biscuit (cookie) snack with dairy or vanilla filling
+fr:biscuit lait vanille
+ciqual_food_code:en:24225
+ciqual_food_name:en:Biscuit (cookie), snack with dairy or vanilla filling
 
 <en:Biscuits
 en:Shortbread cookie with coconut
@@ -23254,6 +23280,8 @@ ciqual_food_name:fr:Beignet à la confiture
 <en:Cakes
 en:Doughnuts filled with chocolate
 fr:Beignets fourrés au chocolat
+ciqual_food_code:en:23885
+ciqual_food_name:en:Doughnut filled with chocolate, prepacked
 
 <en:Cakes
 en:Breton cakes
@@ -44123,6 +44151,12 @@ ciqual_food_code:en:42005
 ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk, milkshake type
 ciqual_food_name:fr:Substitut de repas hypocalorique, poudre reconstituée avec lait écrémé, type milk-shake
 
+<en:Meal replacements
+en:Egg powder
+fr:Oeuf en poudre
+ciqual_food_code:en:22013
+ciqual_food_name:en:Egg, powder
+
 <en:Meals
 en:Sushis and makis, Sushi and Maki
 fr:Sushis et makis
@@ -45176,6 +45210,9 @@ ciqual_food_name:en:Chicken with curry and coconut milk sauce
 
 <en:Meals with chicken
 fr:Poulets basquaise, Poulet basquaise, Poulets basquaises
+en:Chicken Basque style
+ciqual_food_code:en:25190
+ciqual_food_name:en:Chicken, Basque style
 
 <en:Meals with meat
 en:Goat dishes, Goat meals
@@ -50666,6 +50703,13 @@ en:Alsatian liver sausages
 fr:Saucisses de foie alsacienne
 
 <en:French sausages
+en:Smoked Alsatian sausage or Landjäger
+fr:Saucisse alsacienne fumée, Gendarme fumé
+ciqual_food_code:en:30125
+ciqual_food_name:en:Smoked Alsatian sausage or Landjäger
+
+
+<en:French sausages
 en:Liver sausages from Ariége
 fr:Saucisses de foie ariégeoise
 
@@ -50696,6 +50740,8 @@ nl:Worst uit Montbéliard
 protected_name_file_number:en: PGI-FR-0869
 protected_name_type:en: pgi
 origins:en: en:France, fr:Montbéliard
+ciqual_food_code:en:30105
+ciqual_food_name:en:Montbeliard sausage
 
 <en:French sausages
 en:Morteau sausages
@@ -50704,6 +50750,8 @@ nl:Worst uit Morteau, Worsten uit Morteau
 protected_name_file_number:en: PGI-FR-0556
 protected_name_type:en: pgi
 origins:en: en:France
+ciqual_food_code:en:30104
+ciqual_food_name:en:Morteaux sausage
 
 <en:French sausages
 en:Strasbourg sausages
@@ -50830,6 +50878,18 @@ en:Pâté in crust
 fr:Pâté en croûte
 ciqual_food_code:en:8391
 ciqual_food_name:en:Pâté in crust
+
+<fr:Charcuteries cuites
+en:Morteaux sausage boiled/cooked in water
+fr:Saucisse de Morteau bouillie
+ciqual_food_code:en:30108
+ciqual_food_name:en:Morteaux sausage, boiled/cooked in water
+
+<fr:Charcuteries cuites
+en:Swiss sausage intended to be cook
+fr:Saucisse suisse à cuire
+ciqual_food_code:en:30118
+ciqual_food_name:en:Swiss sausage, intended to be cook
 
 <fr:Charcuteries cuites
 en:Mortadella
@@ -50987,6 +51047,8 @@ de:Kaninchenpasteten
 fr:Pâtés de lapin
 nl:Konijnpaté
 ro:Pateu de iepure
+ciqual_food_code:en:8240
+ciqual_food_name:en:Rabbit pâté
 
 <fr:Charcuteries diverses
 en:Chicken Liver Pâté
@@ -53844,7 +53906,44 @@ ciqual_food_code:en:24030
 ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
+
 <en:Biscuits
+en:Crispy biscuit (cookie) with chocolate reduced fat
+fr:Biscuit sec croquant au chocolat allégé en matière grasse
+ciqual_food_code:en:24007
+ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
+
+<en:Biscuits and cakes
+en:Butter biscuit (cookie) with chocolate
+fr:Biscuit sec petit beurre au chocolat
+ciqual_food_code:en:24017
+ciqual_food_name:en:Butter biscuit (cookie), with chocolate
+
+<en:Biscuits and cakes
+en:Biscuit (cookie) with chocolate prepacked
+fr:Biscuit sec au chocolat
+ciqual_food_code:en:24036
+ciqual_food_name:en:Biscuit (cookie), with chocolate, prepacked
+
+<en:Biscuits and cakes
+en:Breakfast biscuit (cookie) with chocolate
+fr:Biscuit sec pour petit déjeuner au chocolat
+ciqual_food_code:en:24040
+ciqual_food_name:en:Breakfast biscuit (cookie), with chocolate
+
+<en:Biscuits and cakes
+en:Biscuit (cookie) snack w chocolate filling
+fr:biscuit chocolat
+ciqual_food_code:en:24231
+ciqual_food_name:en:Biscuit (cookie), snack w chocolate filling
+
+<en:Biscuits and cakes
+en:Coated chocolate bar without biscuit
+fr:barre au chocolat
+ciqual_food_code:en:31001
+ciqual_food_name:en:Coated chocolate bar without biscuit
+
+<en:Biscuits and cakes
 en:Diet crispy biscuit without chocolate
 fr:Biscuit sec croquant sans chocolat allégé en matière grasse
 ciqual_food_code:en:24031
@@ -54493,6 +54592,12 @@ fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au ca
 en:Pear tartlets
 fr:Tartelettes à la poire
 nl:Peertaartjes
+
+<en:Tartlets
+en:Biscuit (small tart) with chocolate pre-packed
+fr:tartelette au chocolat
+ciqual_food_code:en:24052
+ciqual_food_name:en:Biscuit (small tart), with chocolate, pre-packed
 
 <en:Tartlets
 en:Biscuit with fruit covering, Small tart with fruit covering
@@ -55419,6 +55524,10 @@ origins:en: en:Spain
 <en:Sardine fillets
 fr:Filets de sardines à l’huile d’olive
 nl:Sardientjesfilets op olijfolie
+en:sardine fillets in olive oil
+fr:filets de sardine à l'huile d'olive
+ciqual_food_code:en:26231
+ciqual_food_name:en:European pilchard or sardine, fillets without fishbone, in olive oil, canned, drained
 
 <en:Canned fishes
 <en:Mackerels
@@ -56298,6 +56407,12 @@ en:Common sole grilled
 fr:Sole poêlée
 ciqual_food_code:en:26248
 ciqual_food_name:en:Common sole, grilled
+
+<en:Fishes
+en:Common sole roasted/baked
+fr:sole rôtie ou cuite au four
+ciqual_food_code:en:26060
+ciqual_food_name:en:Common sole, roasted/baked
 
 <en:Fishes
 en:Tonguesole raw
@@ -57356,6 +57471,18 @@ fr:Calmar cru, Calamar cru, Encornet cru
 ciqual_food_code:en:10001
 ciqual_food_name:en:Squid, raw
 ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
+
+<en:Mollusc
+en:Squid boiled/cooked in water
+fr:calamar cuit à l'eau, encornet cuit à l'eau, calmar cuit à l'eau
+ciqual_food_code:en:10037
+ciqual_food_name:en:Squid, boiled/cooked in water
+
+<en:Mollusc
+en:Squid fried or pan-fried with fat
+fr:calamar frit ou poêlé
+ciqual_food_code:en:10084
+ciqual_food_name:en:Squid, fried or pan-fried with fat
 
 <en:Seafood
 <en:Salted spreads
@@ -59813,6 +59940,12 @@ nl:Aubergines
 en:Fresh aubergines
 fr:Aubergines fraîches
 season_in_country_fr:en: 6,7,8,9
+
+<en:Aubergines
+en:Eggplant cooked
+fr:Aubergine cuite
+ciqual_food_code:en:20002
+ciqual_food_name:en:Eggplant, cooked
 
 <en:Aubergines
 fr:Ristes d’aubergines
@@ -65425,8 +65558,20 @@ fr:Barres de céréales au chocolat, Barre de céréales au chocolat
 it:Barrette di cereali con cioccolato
 nl:Chocolade graanrepen
 ro:Batoane de cereale cu ciocolată
-ciqual_food_code:en:31000
-ciqual_food_name:en:Chocolate bar with biscuit
+ciqual_food_code:en:31106
+ciqual_food_name:en:Chocolate cereal bar
+
+<en:Cereal bars
+en:Milky cereal breakfast bar with chocolate or not fortified with vitamins and minerals
+fr:barre de céréales au lait et au chocholat
+ciqual_food_code:en:31100
+ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
+
+<en:Cereal bars
+en:Cereal bar with chocolate fortified with vitamins and minerals
+fr:barre de céréales au chocolat renforcée en vitamines et minéraux
+ciqual_food_code:en:31102
+ciqual_food_name:en:Cereal bar with chocolate, fortified with vitamins and minerals
 
 <en:Cereal bars
 en:Chocolate confectionery or bar with dairy filling
@@ -67138,6 +67283,8 @@ en:Rabbit terrines
 fi:kaniterriinit
 fr:Terrines de lapin
 nl:Konijnterrines, Konijnterrine, Konijnevleespotten
+ciqual_food_code:en:8242
+ciqual_food_name:en:Rabbit terrine
 
 <en:Terrines
 <en:Meat-based products
