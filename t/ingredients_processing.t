@@ -61,7 +61,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:milk',
-				'processing' => 'en:smoked',
+				'processing' => 'en:dried',
 				'text' => 'milk'
 			}
 			]
