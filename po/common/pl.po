@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-03 15:24\n"
+"PO-Revision-Date: 2020-04-07 16:27\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -940,6 +940,14 @@ msgstr "Liczba składników"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Liczba składników"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr ""
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -3636,11 +3644,11 @@ msgstr "Liczba produktów z możliwościami poprawy"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "W tej tabeli przedstawiono dostępne możliwości ulepszenia wartości odżywczej, wskaźnika Nutri-Score i składu produktów."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Abu uzyskać odpowiednie wyniki, upewnij się że dane dotyczące produktu są kompletne (wartości odżywcze dla błonnika oraz owoców i warzyw w celu obliczenia Nutri-Score, a także odpowiednia kategoria aby porównywać produkty podobne do siebie)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3649,20 +3657,20 @@ msgstr "Importuj zdjęcia produktów"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Możesz użyć poniższego formularza aby dodać zdjęcia (zdjęcie produktu, skład oraz tabelę wartości odżywczych) do wielu produktów"
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Każda nazwa pliku musi zawierać kod kreskowy produktu."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Możesz też sprecyzować typ zdjęcia w nazwie pliku:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: przód produktu w obecnie wybranym języku."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
@@ -3729,23 +3737,23 @@ msgstr "Punkty ujemne"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Punkty za białka są liczone, ponieważ negatywnych punktów jest mniej niż 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Punkty za białka nie są wliczane, ponieważ negatywnych punktów jest 11 lub więcej."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Punkty za białka są wliczane, ponieważ punkty za owoce, warzywa, orzechy i olej roślinny są maksymalne."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Punkty za białka są wliczane, ponieważ produkt należy do kategorii serów."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Produkt należy do kategorii tłuszczów, punkty za tłuszcz nasycony zastępuje się punktami za stosunek tłuszczu nasyconego do tłuszczu nienasyconego."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"

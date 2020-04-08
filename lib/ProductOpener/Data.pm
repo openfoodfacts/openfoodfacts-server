@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&execute_query
+					&get_database
 					&get_collection
 					&get_products_collection
 					&get_products_tags_collection
@@ -85,6 +86,10 @@ sub get_recent_changes_collection {
 sub get_collection {
 	my ($database, $collection) = @_;
 	return get_mongodb_client()->get_database($database)->get_collection($collection);
+}
+
+sub get_database {
+	return get_mongodb_client()->get_database($mongodb);
 }
 
 sub get_mongodb_client() {
