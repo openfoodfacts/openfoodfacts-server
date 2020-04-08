@@ -820,6 +820,7 @@ sub mmoll_to_unit {
 		'--soluble-fiber-',
 		'--insoluble-fiber-',
 		'-sugars',
+		'-added-sugars',
 		'--sucrose-',
 		'--glucose-',
 		'--fructose-',
@@ -1443,6 +1444,10 @@ sub mmoll_to_unit {
 		zh_CN => "糖",
 		zh_HK => "糖",
 		zh_TW => "糖",
+	},
+	"added-sugars" => {
+		en => "Added sugars",
+		fr => "Sucres ajoutés",
 	},
 	sucrose => {
 		cs => "Sacharóza",
@@ -4241,7 +4246,6 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
-
 				or has_tag($product_ref, "ingredients", "en:sugar")
 				or has_tag($product_ref, "ingredients", "en:glucose")
 				or has_tag($product_ref, "ingredients", "en:fructose")
