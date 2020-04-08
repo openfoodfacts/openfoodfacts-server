@@ -483,12 +483,15 @@ my %units_synonyms = (
 	"grammes" => "g",
 	"mg" => "mg",
 	"mcg" => "mcg",
+	"ug" => "mcg",
 	"percent" => "percent",
 	"kj" => "kj",
 	"kcal" => "kcal",
 	"cal" => "kcal",
 	"calories" => "kcal",
 	"calorie" => "kcal",
+	"iu" => "iu",
+	"ui" => "iu",
 );
 
 
@@ -617,9 +620,7 @@ sub init_nutrients_columns_names_for_lang($) {
 
 					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
 
-					# code with i18n opportunity
-					my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
-
+					my @units = keys %units_synonyms;
 
 					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
 					my $synonym2 = $synonym;
@@ -730,7 +731,7 @@ sub init_other_fields_columns_names_for_lang($) {
 							value_unit => "unit",
 						};
 
-						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+						my @units = keys %units_synonyms;
 
 						foreach my $unit (@units) {
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
