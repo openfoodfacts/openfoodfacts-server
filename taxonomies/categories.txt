@@ -21983,6 +21983,12 @@ de:Panierter Käse
 fr:Fromages panés
 nl:Gepaneerde kazen, Gepaneerde kaas
 
+<en:Breaded products
+en:Cheese and ham breaded
+fr:Fromage pané au jambon
+ciqual_food_code:en:25546
+ciqual_food_name:en:Cheese and ham, breaded
+
 <en:Cereals and potatoes
 en:Breads
 ca:Pans
@@ -28370,11 +28376,12 @@ wikidata:en:Q1412505
 en:Processed cheese
 de:Schmelzkäse
 fi:sulatejuusto
-fr:Fromages à pâte fondue
+fr:Fromages à pâte fondue, snack à base de fromage fondu
 nl:Smeltkazen
 ru:Плавленый сыр
 wikidata:en:Q1570052
-
+ciqual_food_code:en:12356
+ciqual_food_name:en:Processed cheese snack w breadsticks, for children
 
 <en:Processed cheese
 fr:cubic appetizer cheese
@@ -29068,6 +29075,8 @@ fi:sulatettu juusto
 fr:Fromages fondus, Fromage fondu
 nl:Funduekazen
 wikidata:en:Q190531
+ciqual_food_code:en:12355
+ciqual_food_name:en:Processed cheese with fresh cream cheese and walnuts
 
 <en:Cheeses
 en:Industrial cheese
@@ -44609,6 +44618,20 @@ pl:Produkty z mięsem
 pt:Refeições com carne
 zh:肉餐
 
+<en:Meals
+en:skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
+fi:vartaat
+fr:Brochettes, brochette
+nl:Spiesjes
+ciqual_food_code:en:25428
+ciqual_food_name:en:Sandwich made with pita bread, kebab and raw vegetables
+
+<en:Meals
+en:Sandwich made with French bread kebab and raw vegetables
+fr:Sandwich grec non pita, Kebab non pita
+ciqual_food_code:en:25429
+ciqual_food_name:en:Sandwich made with French bread, kebab and raw vegetables
+
 <en:Meals with meat
 en:Sausages with lentils, Sausage with lentils
 de:Würstchen mit Linsen
@@ -44685,6 +44708,26 @@ en:Veal meat dishes
 fi:vasikka-aterioita
 fr:Plats au veau, plats à base de viande de veau, plats à base de veau, plats préparés à base de veau
 nl:Kalfsvleesmaaltijden
+ciqual_food_code:en:8903
+ciqual_food_name:en:Veal quenelle, in sauce
+
+<en:Beef dishes
+en:Veal quenelle in sauce
+fr:Quenelle de veau en sauce
+ciqual_food_code:en:8903
+ciqual_food_name:en:Veal quenelle, in sauce
+
+<en:Meals with meat
+en:Poultry quenelle in sauce
+fr:Quenelle de volaille en sauce
+ciqual_food_code:en:8912
+ciqual_food_name:en:Poultry quenelle, in sauce
+
+<en:Meals with meat
+en:Poultry quenelle raw
+fr:Quenelle de volaille crue
+ciqual_food_code:en:8910
+ciqual_food_name:en:Poultry quenelle, raw
 
 <en:Veal meat dishes
 fr:Veau marengo
@@ -45119,6 +45162,8 @@ en:Chicken tajine
 fr:Tajines de poulet, Tajine de poulet
 nl:Kiptajine
 ro:Tajine de pui
+ciqual_food_code:en:25204
+ciqual_food_name:en:Chicken tagine
 
 <en:Meals with chicken
 en:Chicken curry
@@ -45368,6 +45413,13 @@ zh:鱼汤
 wikidata:en:Q5454668
 ciqual_food_code:en:25904
 ciqual_food_name:en:Soup, fish and/or crustacean, prepacked, to be reheated
+
+<en:Soups
+<en:Fish soups
+en:Soup fish and/or crustacean dehydrated and reconstituted
+fr:soupe de poissons
+ciqual_food_code:en:25919
+ciqual_food_name:en:Soup, fish and/or crustacean, dehydrated and reconstituted
 
 <en:Soups
 <en:Fruits and vegetables based foods
@@ -47966,6 +48018,13 @@ ciqual_food_code:en:34004
 ciqual_food_name:en:Rabbit, wild, meat, cooked
 ciqual_food_name:fr:Lapin de garenne, viande, cuite
 
+<en:Meats
+<en:Rabbit meat
+en:Rabbit with mustard sauce
+fr:Lapin à la moutarde
+ciqual_food_code:en:25063
+ciqual_food_name:en:Rabbit with mustard sauce
+
 en:Rabbit liver
 fr:Foies de lapin
 wikidata:en:Q67883965
@@ -49046,6 +49105,20 @@ hu:Pulykák
 it:Tacchini, Tacchino
 nl:Kalkoenvlezen
 zh:火鸡, 鲜火鸡肉, 鲜火鸡
+ciqual_food_code:en:36300
+ciqual_food_name:en:Turkey, meat and skin, raw
+
+<en:Poultries
+en:Turkey meat raw
+fr:viande de dinde sans peau crue
+ciqual_food_code:en:36301
+ciqual_food_name:en:Turkey, meat, raw
+
+<en:Poultries
+en:Turkey leg meat only raw
+fr:cuisse de dinde sans peau crue
+ciqual_food_code:en:36307
+ciqual_food_name:en:Turkey, leg, meat only, raw
 
 <en:Poultries
 en:Pigeon, pigeon fresh meat
@@ -49337,6 +49410,14 @@ wikidata:en:Q780
 wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 # ingredient/chicken has 872 products @2019-05-18
 # category/chickens has 3369 products in 18 languages @2019-05-18
+ciqual_food_code:en:36016
+ciqual_food_name:en:Chicken, meat and skin, raw
+
+<en:Chickens
+en:Chicken meat raw
+fr:viande de poulet sans peau crue
+ciqual_food_code:en:36003
+ciqual_food_name:en:Chicken, meat, raw
 
 <en:Chickens
 fr:Poulet du Périgord
@@ -50757,6 +50838,26 @@ fi:mortadella
 fr:Mortadelle
 nl:Mortadella
 wikidata:en:Q169757
+ciqual_food_code:en:30789
+ciqual_food_name:en:Mortadella
+
+<fr:Charcuteries cuites
+en:Mortadella pure pork
+fr:Mortadelle pur porc
+ciqual_food_code:en:30790
+ciqual_food_name:en:Mortadella, pure pork
+
+<fr:Charcuteries cuites
+en:Pork and beef mortadella
+fr:Mortadelle porc et boeuf
+ciqual_food_code:en:30791
+ciqual_food_name:en:Pork and beef mortadella
+
+<fr:Charcuteries cuites
+en:Mortadella with pistachios pure pork
+fr:Mortadelle pistachée pur porc
+ciqual_food_code:en:30797
+ciqual_food_name:en:Mortadella with pistachios, pure pork
 
 <fr:Charcuteries cuites
 fr:Andouillettes
@@ -56157,10 +56258,22 @@ nl:Gerookte vis
 zh:烟熏鱼类
 
 <en:Fishes
+en:Surmullet or red mullet raw
+fr:Rouget-barbet de roche cru
+ciqual_food_code:en:26085
+ciqual_food_name:en:Surmullet or red mullet, raw
+
+<en:Fishes
 en:Surmullet or red mullet steamed
 fr:Rouget-barbet de roche vapeur
 ciqual_food_code:en:26110
 ciqual_food_name:en:Surmullet or red mullet, steamed
+
+<en:Fishes
+en:Common sole raw
+fr:Sole crue
+ciqual_food_code:en:26058
+ciqual_food_name:en:Common sole, raw
 
 <en:Fishes
 en:Common sole fried
@@ -56185,6 +56298,12 @@ en:Common sole grilled
 fr:Sole poêlée
 ciqual_food_code:en:26248
 ciqual_food_name:en:Common sole, grilled
+
+<en:Fishes
+en:Tonguesole raw
+fr:sole tropicale crue, sole langue crue
+ciqual_food_code:en:26200
+ciqual_food_name:en:Tonguesole, raw
 
 <en:Salmons
 <en:Smoked fishes
@@ -56394,6 +56513,18 @@ en:Trout steamed
 fr:Truite cuite à la vapeur
 ciqual_food_code:en:27007
 ciqual_food_name:en:Trout, steamed
+
+<en:Fishes
+en:European perch roasted/baked
+fr:Perche rôtie ou cuite au four
+ciqual_food_code:en:27005
+ciqual_food_name:en:European perch, roasted/baked
+
+<en:Fishes
+en:Red gurnard raw
+fr:Grondin cru
+ciqual_food_code:en:26106
+ciqual_food_name:en:Red gurnard, raw
 
 <en:Fishes
 en:Tunas, Thunnus
@@ -56803,6 +56934,8 @@ fi:makrellifileet
 fr:Filets de maquereaux
 nl:Makreelfilets
 pl:Filety z makreli
+ciqual_food_code:en:26123
+ciqual_food_name:en:Mackerel, canned in brine, drained
 
 <en:Mackerels
 en:Raw mackerel
@@ -56968,6 +57101,24 @@ fi:turskat
 fr:Morues, Morue, Cabillauds, Cabillaud
 nl:Kabeljauw
 ro:Cod, Cozi
+
+<en:Fishes
+en:Black seabream raw
+fr:dorade grise crue, daurade grise crue, griset crue
+ciqual_food_code:en:26099
+ciqual_food_name:en:Black seabream, raw
+
+<en:Fishes
+en:Blackspot seabream raw
+fr:dorade rose crue, daurade rose crue
+ciqual_food_code:en:26109
+ciqual_food_name:en:Blackspot seabream, raw
+
+<en:Fishes
+en:Salema raw
+fr:Saupe crue
+ciqual_food_code:en:26111
+ciqual_food_name:en:Salema, raw
 
 <en:Cods
 en:Roasted cods, Baked cods
@@ -67032,8 +67183,10 @@ nl:Gevogelte terrines, Gevogelte terrine, Gevogelte vleespotten
 <en:Prepared meats
 en:Duck terrines
 fi:ankkaterriinit
-fr:Terrines de canard, Terrines de canard au poivre vert
+fr:Terrines de canard
 nl:Eendterrines, Eendterrine, Eendevleespotten
+ciqual_food_code:en:8232
+ciqual_food_name:en:Duck terrine
 
 en:Dietary supplements
 ca:Suplements dietètics
@@ -67266,6 +67419,8 @@ ciqual_food_name:fr:Endive au jambon
 en:Puff pastries with ham and cheese, puff pastry with ham and cheese
 fr:Feuilletés jambon fromage
 nl:Ham-kaas-soesjes
+ciqual_food_code:en:8395
+ciqual_food_name:en:Ham, in a pastry crusty
 
 <en:Puff pastry meals
 en:Cheese soufflé
