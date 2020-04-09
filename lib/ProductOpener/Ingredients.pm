@@ -233,8 +233,23 @@ sub init_allergens_regexps() {
 }
 
 
+# Abbreviations that contain dots.
+# The dots interfere with the parsing: replace them with the full name.
 
 my %abbreviations = (
+
+all => [
+	["B. actiregularis", "bifidus actiregularis"], # Danone trademark
+	["B. lactis", "bifidobacterium lactis"],
+	["L. acidophilus", "lactobacillus acidophilus"],
+	["L. bulgaricus", "lactobacillus bulgaricus"],
+	["L. casei", "lactobacillus casei"],
+	["L. lactis", "lactobacillus lactis"],
+	["L. plantarum", "lactobacillus plantarum"],
+	["L. reuteri", "lactobacillus reuteri"],
+	["L. rhamnosus", "lactobacillus rhamnosus"],
+	["S. thermophilus", "streptococcus thermophilus"],
+],
 
 fr => [
 ["Mat. Gr.", "Matières Grasses"]
@@ -1288,13 +1303,18 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
+		my $known = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			my $tagid = get_taxonomyid($product_ref->{lc}, $tag);
 			push @{$product_ref->{$field . "_tags" }}, $tagid;
-			if (not exists_taxonomy_tag("ingredients", $tagid)) {
+			if (exists_taxonomy_tag("ingredients", $tagid)) {
+				$known++;
+			}
+			else {
 				$unknown++;
 			}
 		}
+		$product_ref->{"known_ingredients_n" } = $known;
 		$product_ref->{"unknown_ingredients_n" } = $unknown;
 	}
 
@@ -1312,6 +1332,8 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 	}
 	else {
 		delete $product_ref->{ingredients_n};
+		delete $product_ref->{known_ingredients_n};
+		delete $product_ref->{unknown_ingredients_n};
 		delete $product_ref->{ingredients_n_tags};
 	}
 
@@ -2806,12 +2828,14 @@ sub preparse_ingredients_text($$) {
 	$text =~ s/ \& /$and/g;
 
 	# abbreviations
-	if (defined $abbreviations{$product_lc}) {
-		foreach my $abbreviation_ref (@{$abbreviations{$product_lc}}) {
-			my $source = $abbreviation_ref->[0];
-			my $target = $abbreviation_ref->[1];
-			$source =~ s/\./\\\./g;
-			$text =~ s/$source/$target/ig;
+	foreach my $abbreviations_lc ("all", $product_lc) {
+		if (defined $abbreviations{$abbreviations_lc}) {
+			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
+				my $source = $abbreviation_ref->[0];
+				my $target = $abbreviation_ref->[1];
+				$source =~ s/\. /(\\.| |\\. )/g;
+				$text =~ s/(\b|^)$source(\b|$)/$target/ig;
+			}
 		}
 	}
 
@@ -4194,7 +4218,7 @@ sub detect_allergens_from_text($) {
 		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
-		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
+		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
 		$product_ref->{$field . "_from_user"} = "($tag_lc) " . $product_ref->{$field};
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
