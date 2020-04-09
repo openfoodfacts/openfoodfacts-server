@@ -493,7 +493,7 @@ improvements
 
 # fields in product edit form, above ingredients and nutrition facts
 
-@product_fields = qw(quantity packaging brands 	brand_owner categories labels origins manufacturing_places
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
  emb_codes link expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
@@ -566,7 +566,6 @@ improvements
 
 @drilldown_fields = qw(
 	brands
-	brand_owner
 	categories
 	labels
 	packaging
