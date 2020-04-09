@@ -303,8 +303,25 @@ de:gepökelt, gepökeltes
 
 de:ungepökelt
 
-# en:sweetened
+en:sweetened
 de:gesüßt, gesüßte
+es:endulzado, endulzada, endulzados, endulzadas
+fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees #better not add fr:sucre and fr:sucres
+nl:gezoet, gezoete
+pt:adoçado, adoçada
+
+en:unsweetened
+nl:ongezoet
+
+
+<en:sweetened
+de:gezuckert, gezuckerte
+
+# <de:gezuckert
+de:leicht gezuckert
+
+# <en:unsweetened
+de:ungezuckert
 
 de:geölt, geölte
 
@@ -313,14 +330,8 @@ de:geölt, geölte
 
 de:geschwefelt, geschwefelte
 
+# <en:sulfite free, unsulphured
 de:ungeschwefelt, ungeschwefelte
-
-de:gezuckert, gezuckerte
-
-# <de:gezuckert
-de:leicht gezuckert
-
-de:ungezuckert
 
 #######################################################################
 #
