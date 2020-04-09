@@ -357,6 +357,9 @@ sub check_user_form($$) {
 	for (my $i = 1; $i <= 3; $i++) {
 		if (defined param('team_' . $i)) {
 			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
+			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
 		}
 	}
 
