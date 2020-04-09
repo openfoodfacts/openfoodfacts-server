@@ -4619,9 +4619,9 @@ sub display_scatter_plot($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_x} =~ /ingredients_n/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
-			$x_title = escape_single_quote(lang("ingredients_n_s"));
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
@@ -4633,9 +4633,9 @@ sub display_scatter_plot($$) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_y} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_y} =~ /ingredients_n/) {
 			$y_allowDecimals = "allowDecimals:false,\n";
-			$y_title = escape_single_quote(lang("ingredients_n_s"));
+			$y_title = escape_single_quote(lang($graph_ref->{axis_y} . "_s"));
 		}
 		else {
 			$y_title = $Nutriments{$graph_ref->{axis_y}}{$lc};
@@ -4655,10 +4655,10 @@ sub display_scatter_plot($$) {
 
 			# Keep only products that have known values for both x and y
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}}))
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
 					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}})) or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 
 				my $url = $formatted_subdomain . product_url($product_ref->{code});
@@ -4713,7 +4713,7 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
+					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
 						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
@@ -4953,9 +4953,9 @@ sub display_histogram($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
-			$x_title = escape_single_quote(lang("ingredients_n_s"));
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
@@ -4982,7 +4982,7 @@ sub display_histogram($$) {
 
 			# Keep only products that have known values for x
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) or
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}})) or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 
@@ -5023,7 +5023,7 @@ sub display_histogram($$) {
 				my $value = 0;
 
 
-					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
+					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
 						$value = $product_ref->{$nid};
 					}
 					elsif ($nid =~ /^nutrition-score/) {
@@ -5740,7 +5740,7 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
+		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6961,7 +6961,7 @@ sub display_field($$) {
 		if ($lang_field eq '' and $field ne 'states') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		
+
 		# Separate To-Do and Done Status
 		if ($field eq 'states') {
 			my $done_status = '';
@@ -6982,7 +6982,7 @@ sub display_field($$) {
 			}
 			if ($done_status ne ""){
 				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
-			}	
+			}
 		}
 		else {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";

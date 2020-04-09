@@ -2689,7 +2689,7 @@ wikidata:en: Q2902072
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
 
 < en:Bifidus
-en:Bifidobacterium lactis, Bifidobacterium animalis
+en:Bifidobacterium lactis, Bifidobacterium animalis, B. lactis, B. animalis
 bg:Bifidobacterium lactis
 de:Bifidobacterium lactis
 es:Bifidobacterium lactis
@@ -2728,7 +2728,7 @@ wikidata:en: Q4904768
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium_longum
 
 < en:Bifidus
-en:bifidus actiregularis
+en:bifidus actiregularis, b. actiregularis
 bg:Bifidus ActiRegularis
 de:Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
 fi:bifidus actiregularis
@@ -37066,13 +37066,13 @@ de:Meeresfrüchtearoma, Meeresfrüchte-Aroma
 fr:arôme de fruits de mer
 
 < en:Flavouring
-en:smoke flavouring, smoke flavour, aroma of smoke
+en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 ca:aroma de fum
 da:røgaroma
 de:Raucharoma
 es:aroma de humo
 fi:savuaromi
-fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee
+fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
 hu:füst aroma, füst ízesétés, füst íz
 it:aroma di affumicato, aroma di affumicatura
 nl:rookaroma
@@ -43838,7 +43838,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en:Lactobacillus
-de:Lactobacillus Helvetica
+de:Lactobacillus Helveticus, L. Helveticus
 fi:lactobacillus helveticus
 fr:Lactobacillus helveticus
 hu:Lactobacillus helveticus
@@ -43894,7 +43894,7 @@ wikidata:en: Q47455075
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
 
 < en:Lactobacillus
-en:lactobacillus casei
+en:lactobacillus casei, L. casei
 ar:ملبنة مجبنة
 bg:Lactobacillus casei
 ca:Lactobacillus casei
@@ -43921,7 +43921,7 @@ wikidata:en: Q139777
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_casei
 
 < en:Lactobacillus
-en:Lactobacillus lactis, Lactobacillus delbrueckii
+en:Lactobacillus lactis, L. lactis, Lactobacillus delbrueckii
 bg:Lactobacillus lactis
 de:Lactobacillus lactis
 es:Lactobacillus lactis
@@ -43937,7 +43937,7 @@ wikidata:en: Q62877111
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii
 
 < en:Lactobacillus
-en:Lactobacillus plantarum
+en:Lactobacillus plantarum, L. plantarum
 bg:Lactobacillus plantarum
 ca:Lactobacillus plantarum
 de:Lactobacillus plantarum
@@ -43959,7 +43959,7 @@ wikidata:en: Q1756682
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_plantarum
 
 < en:Lactobacillus
-en:Lactobacillus reuteri
+en:Lactobacillus reuteri, L. reuteri
 bg:Lactobacillus reuteri
 de:Lactobacillus reuteri
 es:Lactobacillus reuteri
@@ -50496,6 +50496,10 @@ de:natürliches Schalottenaroma, natürliches Schalotten-Aroma
 fi:luontainen salottisipuliaromi
 fr:arôme naturel d'échalotte, arôme naturel d'échalote
 hu:természetes mogyoróhagyma aroma
+
+< en:Natural flavouring
+en:natural smoke flavouring, natural smoked flavouring
+fr:arôme naturel de fumée, arôme de fumée naturel
 
 < en:Natural flavouring
 en:natural sour almond flavouring

@@ -183,6 +183,8 @@ my @lists =(
 	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"],
 
 	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
+
+	["en", "S. thermophilus, L casei, L.bulgaricus", "streptococcus thermophilus, lactobacillus casei, lactobacillus bulgaricus"],
 );
 
 foreach my $test_ref (@lists) {
