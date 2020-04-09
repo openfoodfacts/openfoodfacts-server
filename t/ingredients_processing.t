@@ -83,6 +83,28 @@ my @tests = (
 			]
 	],
 
+# en: smoked (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"}, 
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:sweetened',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:unsweetened',
+				'text' => 'tomatoes'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sugared',
+				'text' => 'ham'
+				
+			}
+			]
+	],
+
 # en: halved
 	[ { lc => "en", ingredients_text => "halved milk, tomatoes halves"}, 
 		[
@@ -95,6 +117,37 @@ my @tests = (
 				'id' => 'en:tomato',
 				'processing' => 'en:halved',
 				'text' => 'tomatoes'
+			}
+		]
+	],
+
+##################################################################
+#
+#                           S P A N I S H   ( E S )
+#
+##################################################################
+
+	[ { lc => "en", ingredients_text => "tomate endulzado, berenjena endulzada, calabacín endulzados, jamón endulzadas" }, 
+		[
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:sweetened',
+				'text' => 'tomate'
+			},
+			{
+				'id' => 'en:aubergine',
+				'processing' => 'en:sweetened',
+				'text' => 'berenjena'
+			},
+			{
+				'id' => 'en:courgette',
+				'processing' => 'en:sweetened',
+				'text' => 'calabacín'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sweetened',
+				'text' => 'jamón'
 			}
 		]
 	],
@@ -447,12 +500,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gesüßt',
+				'processing' => 'en:sweetened',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesüßt',
+				'processing' => 'en:sweetened',
 				'text' => "haselnüsse"
 			}
 		]
