@@ -127,7 +127,7 @@ my @tests = (
 #
 ##################################################################
 
-	[ { lc => "en", ingredients_text => "tomate endulzado, berenjena endulzada, calabacín endulzados, jamón endulzadas" }, 
+	[ { lc => "es", ingredients_text => "tomate endulzado, berenjena endulzada, calabacín endulzados, jamón endulzadas" }, 
 		[
 			{
 				'id' => 'en:tomato',
@@ -516,12 +516,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => "haselnüsse"
 			},
 			{
