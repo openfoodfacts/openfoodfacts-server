@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-10 11:06\n"
+"PO-Revision-Date: 2020-04-10 15:00\n"
 "Language-Team: Malay\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4113,5 +4113,34 @@ msgstr ""
 
 msgctxt "to_do_status"
 msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
 msgstr ""
 
