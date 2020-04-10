@@ -226,6 +226,11 @@ if ($imagefield) {
 				}
 			}
 
+			# Debug message passed back in $imgid?
+			if ((defined $imgid) and ($imgid !~ /^\d/)) {
+				$response_ref->{debug} = $imgid;
+			}
+
 		}
 		else {
 
