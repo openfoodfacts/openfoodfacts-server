@@ -3869,9 +3869,17 @@ sub search_and_display_products($$$$$) {
 			}
 			else {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
-				$count = execute_query(sub {
-					return get_products_collection()->count_documents($query_ref);
-				});
+				# test if query_ref is empty
+				if (keys %{$query_ref} > 0) {
+					$count = execute_query(sub {
+						return get_products_collection()->count_documents($query_ref);
+					});
+				} else {
+				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+					$count = execute_query(sub {
+						return get_products_collection()->estimated_document_count();
+					});
+				}	
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
