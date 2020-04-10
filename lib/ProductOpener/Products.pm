@@ -2441,10 +2441,19 @@ sub add_user_teams ($) {
 
 		for (my $i = 1; $i <= 3; $i++) {
 
+			my $added_teams = 0;
+
 			if (defined $User{"team_" . $i}) {
 
 				my $teamid = get_string_id_for_lang("no_language", $User{"team_" . $i});
-				add_tag($product_ref, "teams", $teamid);
+				if ($teamid ne "") {
+					add_tag($product_ref, "teams", $teamid);
+					$added_teams++;
+				}
+			}
+
+			if ($added_teams) {
+				$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
 			}
 		}
 	}
