@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-07 16:12\n"
+"PO-Revision-Date: 2020-04-09 12:35\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -674,7 +674,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "데이터, API 및 SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -870,7 +870,7 @@ msgstr "바코드를 직접 입력하거나 바코드가 보이는 제품사진�
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "전체 크기"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -934,11 +934,11 @@ msgstr "야자유 추출 성분"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "재료 가지 수"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "재료 가지 수"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
@@ -1456,11 +1456,12 @@ msgstr ""
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p><<site_name>>에 대해 더 알고 싶으신가요? 저희 블로그 <a href=\"https://en.blog.openfoodfacts.org\">를 방문하세요 </a>!</p>\n"
+"<p>최근 소식 :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "뉴스"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1469,7 +1470,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "또는:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1477,15 +1478,15 @@ msgstr "성분의 유래"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "미국 캘리포니아 "
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "각 재료의 원산지를 표시해주세요. "
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "재료 원산지 "
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1497,7 +1498,7 @@ msgstr "성분의 유래"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "원산지를 추가해주세요"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -2482,6 +2483,10 @@ msgstr ""
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
+msgstr ""
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"

@@ -536,6 +536,7 @@ improvements
 	quantity
 	packaging
 	brands
+	brand_owner
 	categories
 	labels
 	origin
@@ -630,6 +631,7 @@ improvements
 	pnns_groups_1
 	pnns_groups_2
 	states
+	brand_owner
 );
 
 

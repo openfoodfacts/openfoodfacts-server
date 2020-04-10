@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-07 16:10\n"
+"PO-Revision-Date: 2020-04-09 12:33\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -46,7 +46,7 @@ msgstr "Daftar"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Terima kasih telah bergabung. Kini Anda dapat masuk ke situs untuk menambahkan dan mengedit produk.</p>"
+msgstr "<p>Terima kasih telah bergabung. Sekarang Anda dapat masuk ke situs untuk menambahkan dan mengedit produk.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -74,7 +74,8 @@ msgstr "Halo <NAME>,\n"
 "Anda juga dapat bergabung dengan grup Facebook untuk para kontributor: https://www.facebook.com/ kelompok / 374350705955208 /\n\n"
 "Baru: kami juga memulai Open Beauty Facts untuk membuat basis data kosmetik: sabun, pasta gigi, tata rias, dll.\n"
 "https://openbeautyfacts.org\n\n"
-"Terima kasih banyak! Stéphane dan tim Open Food Facts\n"
+"Terima kasih banyak!\n\n"
+"Stéphane dan tim Open Food Facts\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
@@ -97,11 +98,11 @@ msgstr "Bahan aditif makanan yang dilarang di Eropa. Jangan digunakan sama sekal
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "aditif"
+msgstr "bahan aditif"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "aditif"
+msgstr "bahan aditif"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -113,7 +114,7 @@ msgstr "Pencarian lanjutan dan grafik"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "Terlalu banyak minum alkohol berbahaya untuk kesehatan."
+msgstr "Terlalu banyak meminum alkohol berbahaya untuk kesehatan."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -941,11 +942,11 @@ msgstr "Jumlah bahan"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Jumlah bahan yang dikenal"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Jumlah bahan yang tidak dikenali"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2484,6 +2485,10 @@ msgstr "Kesalahan ketika membatalkan pilihan gambar."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
+msgstr "Aktifkan perbesaran menggunakan roda tetikus."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
@@ -4071,21 +4076,21 @@ msgstr "Sebagian bahan tidak dapat dikenali."
 # keep the 2 %s : they will be replaced by language names.
 msgctxt "move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr ""
+msgstr "Pindahkan semua data serta foto terpilih dalam %s ke bahasa utama produk: %s"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Ganti nilai dan foto terpilih yang ada"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Pertahankan nilai dan foto terpilih yang ada"
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Selesai"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Yang harus dikerjakan"
 

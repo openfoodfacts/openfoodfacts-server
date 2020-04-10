@@ -204,19 +204,27 @@ en:dried
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
+nl:gedroogd, gedroogde
 
 # <en:dried
 de:halbgetrocknet, halbgetrocknete, halb getrocknet
+nl:halfgedroogd, halfgedroogde
 
 # <en:dried
+en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
 
 # <en:dried
+en:sundried, sun dried
 de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
+nl:zongedroogd, zongedroogde
 
 # <en:dried
+en:air dried
 de:luftgetrocknet, luftgetrockneter
 
+# <en:dried
+en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
 
 en:dehydrated
@@ -295,8 +303,27 @@ de:gepökelt, gepökeltes
 
 de:ungepökelt
 
-# en:sweetened
+en:sweetened
 de:gesüßt, gesüßte
+es:endulzado, endulzada, endulzados, endulzadas
+nl:gezoet, gezoete
+pt:adoçado, adoçada
+
+en:unsweetened
+nl:ongezoet
+
+#<en:sweetened
+en:sugared
+de:gezuckert, gezuckerte
+fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees 
+#better not add fr:sucre and fr:sucres
+nl:gesuikerd, gesuikerde
+
+# <de:gezuckert
+de:leicht gezuckert
+
+# <en:unsweetened
+de:ungezuckert
 
 de:geölt, geölte
 
@@ -305,14 +332,8 @@ de:geölt, geölte
 
 de:geschwefelt, geschwefelte
 
+# <en:sulfite free, unsulphured
 de:ungeschwefelt, ungeschwefelte
-
-de:gezuckert, gezuckerte
-
-# <de:gezuckert
-de:leicht gezuckert
-
-de:ungezuckert
 
 #######################################################################
 #

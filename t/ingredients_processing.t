@@ -56,6 +56,17 @@ my @tests = (
 		]
 	],
 
+# en:dried (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "dried milk"}, 
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:dried',
+				'text' => 'milk'
+			}
+			]
+	],
+
 # en: smoked (children are lef out at the moment)
 	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"}, 
 		[
@@ -72,6 +83,28 @@ my @tests = (
 			]
 	],
 
+# en: smoked (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"}, 
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:sweetened',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:unsweetened',
+				'text' => 'tomatoes'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sugared',
+				'text' => 'ham'
+				
+			}
+			]
+	],
+
 # en: halved
 	[ { lc => "en", ingredients_text => "halved milk, tomatoes halves"}, 
 		[
@@ -84,6 +117,37 @@ my @tests = (
 				'id' => 'en:tomato',
 				'processing' => 'en:halved',
 				'text' => 'tomatoes'
+			}
+		]
+	],
+
+##################################################################
+#
+#                           S P A N I S H   ( E S )
+#
+##################################################################
+
+	[ { lc => "es", ingredients_text => "tomate endulzado, berenjena endulzada, calabacín endulzados, jamón endulzadas" }, 
+		[
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:sweetened',
+				'text' => 'tomate'
+			},
+			{
+				'id' => 'en:aubergine',
+				'processing' => 'en:sweetened',
+				'text' => 'berenjena'
+			},
+			{
+				'id' => 'en:courgette',
+				'processing' => 'en:sweetened',
+				'text' => 'calabacín'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sweetened',
+				'text' => 'jamón'
 			}
 		]
 	],
@@ -436,12 +500,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gesüßt',
+				'processing' => 'en:sweetened',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesüßt',
+				'processing' => 'en:sweetened',
 				'text' => "haselnüsse"
 			}
 		]
@@ -452,12 +516,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => "haselnüsse"
 			},
 			{
@@ -718,52 +782,52 @@ my @tests = (
 				  },
 				  {
 				    'id' => 'en:elder',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Holunder'
 				  },
 				  {
 				    'id' => 'en:papaya',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Papaya'
 				  },
 				  {
 				    'id' => 'en:kiwi',
-				    'processing' => 'de:gefriergetrocknet',
+				    'processing' => 'en:freeze-dried',
 				    'text' => 'Kiwi'
 				  },
 				  {
 				    'id' => 'en:pineapple',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Ananas'
 				  },
 				  {
 				    'id' => 'en:prune',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Pflaumen'
 				  },
 				  {
 				    'id' => 'en:grapefruit',
-				    'processing' => 'de:sonnengetrocknet',
+				    'processing' => 'en:sundried',
 				    'text' => 'Grapefruit'
 				  },
 				  {
 				    'id' => 'en:guava',
-				    'processing' => 'de:luftgetrocknet',
+				    'processing' => 'en:air-dried',
 				    'text' => 'Guaven'
 				  },
 				  {
 				    'id' => 'en:rosehip',
-				    'processing' => 'de:luftgetrocknet',
+				    'processing' => 'en:air-dried',
 				    'text' => 'Hagebutten'
 				  },
 				  {
 				    'id' => 'en:grape',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'processing' => "en:spray-dried",
 				    'text' => 'Traube'
 				  },
 				  {
 				    'id' => 'en:tamarind',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
+				    'processing' => "en:spray-dried",
 				    'text' => 'Tamarinde'
 				  }
 			]
