@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-10 11:43\n"
+"PO-Revision-Date: 2020-04-10 15:40\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4090,4 +4090,33 @@ msgstr "crwdns125344:0crwdne125344:0"
 msgctxt "to_do_status"
 msgid "To do"
 msgstr "crwdns125346:0crwdne125346:0"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "crwdns125368:0crwdne125368:0"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "crwdns125370:0crwdne125370:0"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "crwdns125372:0crwdne125372:0"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "crwdns125374:0crwdne125374:0"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "crwdns125376:0crwdne125376:0"
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "crwdns125378:0crwdne125378:0"
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "crwdns125380:0%scrwdne125380:0"
 
