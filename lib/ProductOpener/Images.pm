@@ -477,6 +477,10 @@ sub process_image_upload($$$$$$) {
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
 
+	# debug message passed back to apps in case of an error
+
+	my $debug = "product_id: $product_id - userid: $userid - imagefield: $imagefield";
+
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
@@ -484,7 +488,6 @@ sub process_image_upload($$$$$$) {
 	my $imgid = -1;
 
 	my $new_product_ref = {};
-
 
 	my $file = undef;
 	my $extension = 'jpg';
@@ -598,6 +601,8 @@ sub process_image_upload($$$$$$) {
 			my $size = -s $img_path;
 			local $log->context->{img_size} = $size;
 
+			$debug .= " - size of image file received: $size";
+
 			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
 				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
@@ -614,6 +619,8 @@ sub process_image_upload($$$$$$) {
 						unlink "$www_root/images/products/$path/$imgid.$extension";
 						rmdir ("$www_root/images/products/$path/$imgid.lock");
 						$$imgid_ref = $i;
+						$debug .= " - we already have an image with this file size: $size - imgid: $i";
+						$$imgid_ref = $debug;
 						return -3;
 					}
 					else {
@@ -622,7 +629,10 @@ sub process_image_upload($$$$$$) {
 				}
 			}
 
-			("$x") and $log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+			if ("$x") {
+				$log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+				$debug .= " - could not read image: $x";
+			}
 
 			# Check the image is big enough so that we do not get thumbnails from other sites
 			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
@@ -630,6 +640,8 @@ sub process_image_upload($$$$$$) {
 					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
 				unlink "$www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$www_root/images/products/$path/$imgid.lock");
+				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
+				$$imgid_ref = $debug;
 				return -4;
 			}
 
@@ -711,6 +723,7 @@ sub process_image_upload($$$$$$) {
 			}
 			else {
 				# Could not read image
+				$debug .= " - could not read image : $x";
 				$imgid = -5;
 			}
 
@@ -727,12 +740,19 @@ sub process_image_upload($$$$$$) {
 	}
 	else {
 		$log->debug("imgupload field not set", { field => "imgupload_$imagefield" }) if $log->is_debug();
+		$debug .= " - no image file for field name imgupload_$imagefield";
 		$imgid = -2;
 	}
 
 	$log->info("upload processed", { imgid => $imgid, imagefield => $imagefield }) if $log->is_info();
 
-	$$imgid_ref = $imgid;
+	if ($imgid > 0) {
+		$$imgid_ref = $imgid;
+	}
+	else {
+		# Pass back a debug message
+		$$imgid_ref = $debug;
+	}
 
 	return $imgid;
 }
