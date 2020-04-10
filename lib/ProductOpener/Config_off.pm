@@ -591,6 +591,7 @@ improvements
 	entry_dates
 	last_edit_dates
 	last_check_dates
+	teams
 );
 
 
