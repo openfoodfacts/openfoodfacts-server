@@ -248,6 +248,34 @@ msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr ""
 
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr ""
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr ""
+
 msgctxt "by"
 msgid "by"
 msgstr ""
@@ -4237,3 +4265,33 @@ msgstr "Done"
 msgctxt "to_do_status"
 msgid "To do"
 msgstr "To do"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Teams"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optional"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "teams"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "team"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Team %s"
+

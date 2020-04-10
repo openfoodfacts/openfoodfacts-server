@@ -106,6 +106,8 @@ BEGIN
 		&change_product_server_or_code
 
 		&find_and_replace_user_id_in_products
+
+		&add_users_team
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -797,6 +799,8 @@ sub store_product($$) {
 		comment => $comment,
 		rev => $rev,
 	};
+
+	add_user_teams($product_ref);
 
 	compute_codes($product_ref);
 
@@ -2421,6 +2425,38 @@ sub compute_changes_diff_text {
 
 	return $diffs;
 
+}
+
+=head2 add_user_teams ( $product_ref )
+
+If the user who add or edits the product belongs to one or more teams, add them to the teams_tags array.
+
+=cut
+
+sub add_user_teams ($) {
+
+	my $product_ref = shift;
+
+	if (defined $User_id) {
+
+		for (my $i = 1; $i <= 3; $i++) {
+
+			my $added_teams = 0;
+
+			if (defined $User{"team_" . $i}) {
+
+				my $teamid = get_string_id_for_lang("no_language", $User{"team_" . $i});
+				if ($teamid ne "") {
+					add_tag($product_ref, "teams", $teamid);
+					$added_teams++;
+				}
+			}
+
+			if ($added_teams) {
+				$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+			}
+		}
+	}
 }
 
 1;
