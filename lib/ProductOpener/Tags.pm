@@ -2063,7 +2063,7 @@ sub display_tag_link($$) {
 		$tag = $';
 	}
 
-	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers|team)$/) {
 		$tag_lc = "no_language";
 	}
 
@@ -3398,6 +3398,11 @@ sub compute_field_tags($$$) {
 	my $product_ref = shift;
 	my $tag_lc = shift;
 	my $field = shift;
+
+	# fields that should not have a different normalization (accentuation etc.) based on language
+	if ($field eq "teams") {
+		$tag_lc = "no_language";
+	}
 
 	init_emb_codes() unless %emb_codes_cities;
 	# generate the hierarchy of tags from the field values

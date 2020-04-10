@@ -184,7 +184,7 @@ sub display_user_form($$) {
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
 	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this)", -autocomplete=>'username')
 			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
 	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
@@ -201,7 +201,7 @@ sub display_user_form($$) {
 
 		for (my $i = 1; $i <= 3; $i++) {
 			$html .= "\n<div class=\"small-3 large-2 xlarge-1 columns\">" . sprintf(lang("team_s"), $i) . lang("sep") . ":</div><div class=\"small-9 large-10 xlarge-11 columns\">"
-			. textfield(-name=>"team_" . $i, -value=>$user_ref->{"team_" . $i}, -style=>"max-width:20rem", -override=>1) . "</div>";
+			. textfield(-name=>"team_" . $i, -value=>$user_ref->{"team_" . $i}, -style=>"max-width:20rem", -override=>1, -onkeyup=>"normalize_string_value(this)") . "</div>";
 		}
 
 		$html .= "</div></td></tr>";
@@ -209,24 +209,33 @@ sub display_user_form($$) {
 
 	$$scripts_ref .= <<SCRIPT
 <script type="text/javascript">
-function update_userid(value) {
 
-var userid = value.toLowerCase();
-userid = userid.replace(new RegExp(" ", 'g'),"-");
-userid = userid.replace(new RegExp("[àáâãäå]", 'g'),"a");
-userid = userid.replace(new RegExp("æ", 'g'),"ae");
-userid = userid.replace(new RegExp("ç", 'g'),"c");
-userid = userid.replace(new RegExp("[èéêë]", 'g'),"e");
-userid = userid.replace(new RegExp("[ìíîï]", 'g'),"i");
-userid = userid.replace(new RegExp("ñ", 'g'),"n");
-userid = userid.replace(new RegExp("[òóôõö]", 'g'),"o");
-userid = userid.replace(new RegExp("œ", 'g'),"oe");
-userid = userid.replace(new RegExp("[ùúûü]", 'g'),"u");
-userid = userid.replace(new RegExp("[ýÿ]", 'g'),"y");
-userid = userid.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-userid = userid.replace(new RegExp("-+", 'g'),"-");
-userid = userid.replace(new RegExp("^-"),"");
-\$('#userid').val(userid);
+function normalize_string_value(inputfield) {
+
+	var value = inputfield.value.toLowerCase();
+
+	value = value.replace(new RegExp(" ", 'g'),"-");
+	value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
+	value = value.replace(new RegExp("æ", 'g'),"ae");
+	value = value.replace(new RegExp("ç", 'g'),"c");
+	value = value.replace(new RegExp("[èéêë]", 'g'),"e");
+	value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
+	value = value.replace(new RegExp("ñ", 'g'),"n");
+	value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
+	value = value.replace(new RegExp("œ", 'g'),"oe");
+	value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
+	value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
+	value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
+	value = value.replace(new RegExp("-+", 'g'),"-");
+	value = value.replace(new RegExp("^-"),"");
+
+	inputfield.value = value;
+}
+
+
+function update_userid(inputfield) {
+
+	normalize_string_value(inputfield);
 
 \$.get("/cgi/check_id.pl", { id: userid, type: 'user' },
    function(data){

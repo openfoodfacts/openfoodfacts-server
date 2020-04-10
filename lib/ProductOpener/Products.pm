@@ -2443,7 +2443,7 @@ sub add_user_teams ($) {
 
 			if (defined $User{"team_" . $i}) {
 
-				my $teamid = get_fileid($User{"team_" . $i});
+				my $teamid = get_string_id_for_lang("no_language", $User{"team_" . $i});
 				add_tag($product_ref, "teams", $teamid);
 			}
 		}
