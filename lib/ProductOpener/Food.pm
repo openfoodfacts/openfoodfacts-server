@@ -1623,7 +1623,7 @@ sub mmoll_to_unit {
 		cs => "Polyalkoholy",
 		da => "Polyoler",
 		de => "mehrwertige Alkohole (Polyole)",
-		en_synonyms => ["Polyole"],
+		de_synonyms => ["Polyole"],
 		el => "Πολυόλες",
 		en => "Sugar alcohols (Polyols)",
 		en_synonyms => ["Polyols"],
