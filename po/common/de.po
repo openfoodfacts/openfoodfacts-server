@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-09 13:59\n"
+"PO-Revision-Date: 2020-04-10 16:15\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -237,6 +237,34 @@ msgstr "Marke hinzufügen"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Produkte, die nicht von der Marke %s sind"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Markeninhaber"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr "Markeninhaber"
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr "Produkte vom %s Markeninhabern"
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr "Markeninhaber"
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr "Markeninhaber hinzufügen"
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -4095,4 +4123,33 @@ msgstr "Fertig"
 msgctxt "to_do_status"
 msgid "To do"
 msgstr "Noch zu erledigen"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Gruppen"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optional"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "Gruppen"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "Gruppe"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Sie können 1 bis 3 Gruppen beitreten. Produkte, die Sie hinzufügen oder bearbeiten, werden Ihnen und Ihrer Gruppe gutgeschrieben. Gruppen können jederzeit geändert werden."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Die Gruppennamen sind öffentlich. Bilden Sie keine Gruppen mit Namen, die persönliche Daten (z.B. Familiennamen), Warenzeichen (es sei denn, sie gehören Ihnen) oder irgendetwas Anstößiges enthalten."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Gruppe %s"
 
