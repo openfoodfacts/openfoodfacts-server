@@ -517,6 +517,13 @@ ciqual_food_name:en:Soup for baby, with vegetables, cereals and milk
 ciqual_food_name:fr:Soupe pour bébé légumes, céréales et lait
 
 <en:Main meals for babies
+en:Soup for baby with vegetables and potatoes
+fr:Soupe pour bébé aux légumes et aux pommes de terre
+ciqual_food_code:en:20252
+ciqual_food_name:en:Soup for baby, with vegetables and potatoes
+ciqual_food_name:fr:Soupe pour bébé légumes et pomme de terre
+
+<en:Main meals for babies
 <en:From 6 months
 en:Vegetable dish for baby with starch and meat or fish
 fr:Plat avec légumes et féculents et viande ou poisson
@@ -3094,6 +3101,13 @@ zh:柠檬汁
 wikidata:en:Q1375049
 
 <en:Apple juices
+en:Pure apple juice
+fr:Jus de pomme pur jus
+ciqual_food_code:en:2074
+ciqual_food_name:en:Apple juice, pure juice
+ciqual_food_name:fr:Jus de pomme, pur jus
+
+<en:Apple juices
 <en:Concentrated fruit juices
 en:Concentrated apple juices
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
@@ -5060,6 +5074,13 @@ ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café expresso, non instantané, non sucré, prêt à boire
 
+<en:Coffees
+en:Ready-to-drink coffee with milk without sugar, Ready-to-drink white coffee without sugar, Ready-to-drink cappuccino without sugar
+fr:Café au lait non sucré prêt à boire, Café crème non sucré prêt à boire, Cappuccino non sucré prêt à boire
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
 <en:Instant beverages
 en:Powdered cappucino
 de:Cappuccinopulver
@@ -5102,6 +5123,19 @@ ciqual_food_code:en:18073
 ciqual_food_name:en:Instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, instantané, non sucré, prêt à boire
 
+<en:Instant coffees
+en:Instant powder for coffee with milk, Instant powder for cappuccino with chocolate
+fr:Café au lait en poudre soluble, Cappuccino au chocolat en poudre soluble
+ciqual_food_code:en:18163
+ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
+ciqual_food_name:fr:Café au lait ou cappuccino au chocolat, poudre soluble
+
+<en:Instant coffees
+en:Instant powder for coffee with milk, Instant powder for cappuccino
+fr:Café au lait en poudre soluble, Cappuccino en poudre soluble
+ciqual_food_code:en:18160
+ciqual_food_name:en:Coffee with milk or Cappuccino, powder, instant
+ciqual_food_name:fr:Café au lait ou cappuccino, poudre soluble
 
 #I don't know if "натуральный" ("natural") makes any difference; most coffees have that anyway.
 <en:Freeze-dried plant-based foods
@@ -24959,6 +24993,13 @@ ciqual_food_code:en:20233
 ciqual_food_name:en:Sweet corn, frozen, raw
 ciqual_food_name:fr:Maïs doux, surgelé, cru
 
+<en:Corn
+en:Raw corn grain, Raw maize grain
+fr:Maïs entier cru
+ciqual_food_code:en:9200
+ciqual_food_name:en:Corn or maize grain, raw
+ciqual_food_name:fr:Maïs entier, cru
+
 <en:Cereal grains
 en:Crabgrass, Finger-grass
 de:Fingerhirsen Digitaria
@@ -25114,6 +25155,13 @@ fr:Quinoa cru
 ciqual_food_code:en:9340
 ciqual_food_name:en:Quinoa, raw
 ciqual_food_name:fr:Quinoa, cru
+
+<en:Quinoa
+en:Unsalted boiled quinoa, Unsalted quinoa cooked in water
+fr:Quinoa bouilli non salé, Quinoa cuit à l'eau non salé
+ciqual_food_code:en:9341
+ciqual_food_name:en:Quinoa, boiled/cooked in water, unsalted
+ciqual_food_name:fr:Quinoa, bouilli/cuit à l'eau, non salé
 
 <en:Quinoa
 en:Red quinoa
@@ -25732,6 +25780,13 @@ ciqual_food_code:en:20066
 ciqual_food_name:en:Sweet corn, canned, drained
 ciqual_food_name:fr:Maïs doux, appertisé, égoutté
 
+<en:Canned vegetables
+<en:White beans
+en:Canned drained haricot beans
+fr:Haricots blancs appertisés égouttés, Haricots blancs en conserve égouttés
+ciqual_food_code:en:20511
+ciqual_food_name:en:Haricot bean, canned, drained
+ciqual_food_name:fr:Haricot blanc, appertisé, égoutté
 
 en:Chips and fries
 ca:Patates fregides i similars
@@ -35559,43 +35614,70 @@ ru:Мука пшеничная, Пшеничная мука
 wikidata:en:Q2249305
 
 <en:Wheat flours
-en:Wheat flour T405
-de:Weizenmehle Type 405
-fr:Farines de blé type T45, Farines de blé T45, Farines de blé type 45, farines à pâtisserie de blé, fleurs de farine de blé
-nl:Tarwemeel T405
+en:Self-raising wheat flour
+fr:Farine de blé tendre avec levure incorporée, Farine de froment avec levure incorporée
+ciqual_food_code:en:9437
+ciqual_food_name:en:Wheat flour, self-raising
+ciqual_food_name:fr:Farine de blé tendre ou froment avec levure incorporée
 
 <en:Wheat flours
-en:White wheat flours
+en:Wheat flour T405, Wheat flour type 45 for pastry
+de:Weizenmehle Type 405
+fr:Farines de blé type T45, Farines de blé T45, Farines de blé type 45, farines à pâtisserie de blé, fleurs de farine de blé, Farine de blé tendre T45 pour pâtisserie, Farine de froment T45 pour pâtisserie
+nl:Tarwemeel T405
+ciqual_food_code:en:9440
+ciqual_food_name:en:Wheat flour, type 45 (for pastry)
+ciqual_food_name:fr:Farine de blé tendre ou froment T45 (pour pâtisserie)
+
+<en:Wheat flours
+en:White wheat flours, Wheat flour type 55 for bread
 de:Weizenmehle Type 550
 es:Harinas de trigo blancas
 fi:valkoiset vehnäjauhot
-fr:Farines de blé type T55, Farines de blé T55, Farines de blé type 55, farines blanches de blé
+fr:Farines de blé type T55, Farines de blé T55, Farines de blé type 55, farines blanches de blé, Farine de blé tendre T55 pour pains
 nl:Witte tarwebloem
+ciqual_food_code:en:9436
+ciqual_food_name:en:Wheat flour, type 55 (for bread)
+ciqual_food_name:fr:Farine de blé tendre ou froment T55 (pour pains)
 
 <en:Wheat flours
-fr:Farines de blé type T65, Farines de blé T65, Farines de blé type 65, farines de tradition française de blé
+en:Wheat flour type 65
+fr:Farines de blé type T65, Farines de blé T65, Farines de blé type 65, farines de tradition française de blé, Farine de blé tendre T65
 de:Weizenmehle Type 812
+ciqual_food_code:en:9435
+ciqual_food_name:en:Wheat flour, type 65
+ciqual_food_name:fr:Farine de blé tendre ou froment T65
 
 <en:Wheat flours
 fr:Farines de blé type T70, Farines de blé T70, Farines de blé type 70, farines de tradition québécoise de blé, farines Reblochonne de blé
 
 <en:Wheat flours
-en:Semi-polished wheat flours
+en:Semi-polished wheat flours, Wheat flour type 80
 es:Harinas de trigo semi-integrales
-fr:Farines de blé type T80, Farines de blé T80, Farines de blé type 80, farines bises de blé, farines semi-complète de blé
+fr:Farines de blé type T80, Farines de blé T80, Farines de blé type 80, farines bises de blé, farines semi-complète de blé, Farine de blé tendre T80
 nl:Half-gepolijst tarwemeel
+ciqual_food_code:en:9445
+ciqual_food_name:en:Wheat flour, type 80
+ciqual_food_name:fr:Farine de blé tendre ou froment T80
 
 <en:Wheat flours
-fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé
+en:Wheat flour type 110
+fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé, Farine de blé tendre T110
 de:Weizenmehle Type 1050
 nl:Volkoren tarwemelen
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Wheat flours
-en:Whole wheat flours
+en:Whole wheat flours, Wheat flour type 150
 de:Weizenmehle Type 1600
 es:Harinas de trigo integrales
-fr:Farines de blé type T150, Farines de blé T150, Farines de blé type 150, farines intégrales de blé
+fr:Farines de blé type T150, Farines de blé T150, Farines de blé type 150, farines intégrales de blé, Farine de blé tendre T150
 nl:Volkoren graanmelen
+ciqual_food_code:en:9415
+ciqual_food_name:en:Wheat flour, type 150
+ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:Wheat flours
 en:Common wheat flours, Bread wheat flours
@@ -35611,35 +35693,50 @@ fr:Farines de froment T45
 
 <en:Common wheat flours
 <en:White wheat flours
-en:White common wheat flours
+en:White common wheat flours, Wheat flour type 55 for bread
 es:Harinas de trigo común blancas, Harinas de trigo harinero blancas
-fr:Farines de froment T55
+fr:Farines de froment T55, Farines de froment T55 pour pains
 nl:Gewone witte tarwemelen
 ro:Faina albă de grâu
+ciqual_food_code:en:9436
+ciqual_food_name:en:Wheat flour, type 55 (for bread)
+ciqual_food_name:fr:Farine de blé tendre ou froment T55 (pour pains)
 
 <en:Common wheat flours
 <fr:Farines de blé type T65
-en:Wheat flour T65
-fr:Farines de froment T65
+en:Wheat flour T65, Wheat flour type 65
+fr:Farines de froment T65, Farine de froment T65
 nl:Tarwemelen T65
+ciqual_food_code:en:9435
+ciqual_food_name:en:Wheat flour, type 65
+ciqual_food_name:fr:Farine de blé tendre ou froment T65
 
 <en:Common wheat flours
 <en:Semi-polished wheat flours
-en:Semi-polished common wheat flours, Wheat flour T80
+en:Semi-polished common wheat flours, Wheat flour T80, Wheat flour type 80
 es:Harinas de trigo común semi-integrales
-fr:Farines de froment T80
+fr:Farines de froment T80, Farine de froment T80
+ciqual_food_code:en:9445
+ciqual_food_name:en:Wheat flour, type 80
+ciqual_food_name:fr:Farine de blé tendre ou froment T80
 
 <en:Common wheat flours
 <fr:Farines de blé type T110
-en:Wheat flour T110
+en:Wheat flour T110, Wheat flour type 110
 fr:Farines de froment T110
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Common wheat flours
 <en:Whole wheat flours
-en:Whole common wheat flours
+en:Whole common wheat flours, Wheat flour type 150
 es:Harinas de trigo común integrales
-fr:Farines de froment T150
+fr:Farines de froment T150, Farine de froment T150
 nl:Gewone volkoren tarwemelen
+ciqual_food_code:en:9415
+ciqual_food_name:en:Wheat flour, type 150
+ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:Common wheat flours
 fr:Farines de blé variété Camp Rémy, Farines issu de la variété de blé Camp Rémy
@@ -36366,6 +36463,13 @@ en:Frozen cooked pre-fried potato cubes
 ciqual_food_code:en:4027
 ciqual_food_name:en:Potato, pre-fried into cubes, frozen, cooked
 ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
+
+<fr:Pommes de terre préfrites surgelées
+en:Frozen raw pre-fried potato cubes
+fr:Pommes de terre rissolée crues surgelées
+ciqual_food_code:en:4043
+ciqual_food_name:en:Potato, pre-fried into cubes, frozen, raw
+ciqual_food_name:fr:Pomme de terre rissolée, surgelée, crue
 
 <fr:Pommes de terre préfrites surgelées
 fr:Croquettes de pommes de terre surgelées
@@ -37491,6 +37595,13 @@ ciqual_food_name:fr:Mûre noire (du mûrier), crue
 fr:Mûres fraîches
 season_in_country_fr:en: 8,9
 
+<en:Blackberries
+en:Raw blackberries
+fr:Mûres de ronce crues
+ciqual_food_code:en:13029
+ciqual_food_name:en:Blackberry, raw
+ciqual_food_name:fr:Mûre (de ronce), crue
+
 <en:Berries
 en:Blackthorns
 es:Endrinas
@@ -37675,6 +37786,13 @@ fr:Cerises dénoyautées crues
 ciqual_food_code:en:13008
 ciqual_food_name:en:Cherry, pitted, raw
 ciqual_food_name:fr:Cerise, dénoyautée, crue
+
+<en:Cherries
+en:Raw morello cherries
+fr:Griottes crues
+ciqual_food_code:en:13110
+ciqual_food_name:en:Morello cherry, raw
+ciqual_food_name:fr:Griotte, crue
 
 <en:Fruits
 en:Citrus
@@ -37868,6 +37986,9 @@ es:Higos
 fr:Figues
 la:Ficus carica
 nl:Vijgen
+ciqual_food_code:en:13012
+ciqual_food_name:en:Fig, raw
+ciqual_food_name:fr:Figue, crue
 
 <en:Figs
 fr:Figues fraîches
@@ -38227,8 +38348,19 @@ fr:Prunes fraîches
 season_in_country_fr:en: 7,8,9
 
 <en:Plums
-fr:Reine-Claudes fraîches
+en:Raw plums
+fr:Prunes crues
+ciqual_food_code:en:13100
+ciqual_food_name:en:Plum, raw
+ciqual_food_name:fr:Prune, crue
+
+<en:Plums
+fr:Reine-Claudes fraîches, Prunes Reine-Claude
+en:Raw greengage plums
 season_in_country_fr:en: 9
+ciqual_food_code:en:13041
+ciqual_food_name:en:Greengage plum, raw
+ciqual_food_name:fr:Prune Reine-Claude, crue
 
 <en:Plums
 fr:Quetsches fraîches
@@ -38247,12 +38379,22 @@ fr:Grenades
 nl:Granaatappels
 
 <en:Fruits
+en:Raw pomegranate pulp and pips
+fr:Pulpe et pépins de grenade crue
+ciqual_food_code:en:13018
+ciqual_food_name:en:Pomegranate, pulp and pips, raw
+ciqual_food_name:fr:Grenade, pulpe et pépins, crue
+
+<en:Fruits
 en:Quinces
 es:Membrillos
 fr:Coings
 la:Cydonia oblonga
 nl:Kweeperen
 wikidata:en:Q43300
+ciqual_food_code:en:13010
+ciqual_food_name:en:Quince, raw
+ciqual_food_name:fr:Coing, cru
 
 <en:Quinces
 fr:Coings frais
@@ -40112,6 +40254,34 @@ en:Iodised salts, iodised salt
 it:Sale iodato
 
 <en:Salts
+en:Sea igneous white salt for human consumption without enrichment, Rock white salt for human consumption without enrichment
+fr:Sel blanc alimentaire marin ignigène non iodé non fluoré, Sel blanc alimentaire marin gemme non iodé non fluoré
+ciqual_food_code:en:11017
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
+
+<en:Salts
+en:Sea igneous white salt for human consumption with added iodine, Rock white salt for human consumption with added iodine
+fr:Sel blanc alimentaire marin ignigène iodé non fluoré, Sel blanc alimentaire marin gemme iodé non fluoré
+ciqual_food_code:en:11058
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
+
+<en:Salts
+en:Sea igneous white salt for human consumption with added iodine, Rock white salt for human consumption with added iodine
+fr:Sel blanc alimentaire marin ignigène iodé non fluoré, Sel blanc alimentaire marin gemme iodé non fluoré
+ciqual_food_code:en:11058
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
+
+<en:Salts
+en:Sea igneous white salt for human consumption with added iodine, Rock white salt for human consumption with added iodine
+fr:Sel blanc alimentaire marin ignigène iodé fluoré à 25 mg /100g, Sel blanc alimentaire marin gemme iodé fluoré à 25 mg /100g
+ciqual_food_code:en:11096
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, iodé, fluoré à 25 mg /100g (marin, ignigène ou gemme)
+
+<en:Salts
 en:Unrefined salts
 de:Unraffinierte Salze, Naturbelassene Salze, Unraffiniertes Salz, Naturbelassenes Salz
 fi:jalostamattomat suolot
@@ -40126,6 +40296,22 @@ en:Fleurs de sel
 de:Salzblume, Fleurs de sel
 fr:Fleurs de sel
 nl:Fleurs de sel, Bloem van het zout
+
+<en:Unrefined salts
+<en:Sea salts
+en:Pure sea salt without enrichment
+fr:Fleur de sel non iodée non fluorée
+ciqual_food_code:en:11082
+ciqual_food_name:en:Pure sea salt, no enrichment
+ciqual_food_name:fr:Fleur de sel, non iodée, non fluorée
+
+<en:Unrefined salts
+<en:Sea salts
+en:Grey sea salt without enrichment
+fr:Sel marin gris non iodé non fluoré
+ciqual_food_code:en:11083
+ciqual_food_name:en:Sea salt, grey, no enrichment
+ciqual_food_name:fr:Sel marin gris, non iodé, non fluoré
 
 <en:Unrefined salts
 en:Unrefined rock salt
@@ -40215,8 +40401,12 @@ fr:Sels de table
 it:Sale da tavola
 nl:Keukenzouten
 
-<en:Condiments
-fr:Sels au céleri
+<en:Salts
+fr:Sels au céleri, Sel au céleri
+en:Celery salt
+ciqual_food_code:en:11044
+ciqual_food_name:en:Celery salt
+ciqual_food_name:fr:Sel au céleri
 
 <en:Condiments
 <en:Plant-based foods
@@ -40454,10 +40644,13 @@ ciqual_food_name:en:Ginger, powder
 ciqual_food_name:fr:Gingembre, poudre
 
 <en:Ginger
-en:Fresh ginger rhizomes
+en:Fresh ginger rhizomes, Raw ginger
 es:Rizomas de jengibre frescos
-fr:Rhizomes de gingembre frais
+fr:Rhizomes de gingembre frais, Racines de gingembre crues
 nl:Verse gemberwortels
+ciqual_food_code:en:11074
+ciqual_food_name:en:Ginger, raw
+ciqual_food_name:fr:Gingembre, racine crue
 
 <en:Ginger
 <en:Plant-based pickles
@@ -43521,6 +43714,13 @@ ciqual_food_name:en:Preserved duck
 ciqual_food_name:fr:Confit de canard
 
 <en:Duck dishes
+en:Reheated duck confit conserved in rendered fat without skin
+fr:Confit de canard sans peau réchauffé
+ciqual_food_code:en:8109
+ciqual_food_name:en:Duck confit (conserved in rendered fat), meat (leg) without skin, reheated
+ciqual_food_name:fr:Confit de canard, viande (cuisse), sans peau, réchauffé
+
+<en:Duck dishes
 fr:Parmentiers de canard, Parmentier de canard
 
 <en:Duck dishes
@@ -43980,6 +44180,13 @@ ciqual_food_name:en:Soup, minestrone, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe minestrone, déshydratée reconstituée
 
 <en:Vegetable soups
+en:Reheatable tomato soup
+fr:Soupe à la tomate à réchauffer
+ciqual_food_code:en:25914
+ciqual_food_name:en:Soup, tomatoes, prepacked, to be reheated
+ciqual_food_name:fr:Soupe à la tomate, préemballée à réchauffer
+
+<en:Vegetable soups
 en:Reheatable tomatoes and vermicelli soup
 fr:Soupe à la tomate et aux vermicelles à réchauffer
 ciqual_food_code:en:25933
@@ -43999,6 +44206,27 @@ fr:Soupe minestrone à réchauffer
 ciqual_food_code:en:25916
 ciqual_food_name:en:Soup, minestrone, prepacked, to be reheated
 ciqual_food_name:fr:Soupe minestrone, préemballée à réchauffer
+
+<en:Soups
+en:Reheatable lentils soup
+fr:Soupe aux lentilles à réchauffer
+ciqual_food_code:en:25900
+ciqual_food_name:en:Soup, lentils, prepacked, to be reheated
+ciqual_food_name:fr:Soupe aux lentilles, préemballée à réchauffer
+
+<en:Soups
+en:Reheatable split peas soup
+fr:Soupe aux pois cassés à réchauffer
+ciqual_food_code:en:25965
+ciqual_food_name:en:Soup, split peas, prepacked, to be reheated
+ciqual_food_name:fr:Soupe aux pois cassés, préemballée à réchauffer
+
+<en:Soups
+en:Reheatable leek and potato soup
+fr:Soupe aux poireaux et aux pommes de terre à réchauffer
+ciqual_food_code:en:25907
+ciqual_food_name:en:Soup, leek and potato, prepacked, to be reheated
+ciqual_food_name:fr:Soupe aux poireaux et pommes de terre, préemballée à réchauffer
 
 <en:Vegetable soups
 en:Tomato soups
@@ -44021,6 +44249,13 @@ fr:Soupes de carottes
 nl:Wortelsoep
 
 <en:Vegetable soups
+en:Reheatable carrot soup
+fr:Soupe à la carotte à réchauffer
+ciqual_food_code:en:25913
+ciqual_food_name:en:Soup, carrots, prepacked, to be reheated
+ciqual_food_name:fr:Soupe à la carotte, préemballée à réchauffer
+
+<en:Vegetable soups
 en:Pumpkin soups
 de:Kürbissuppen
 fr:Soupes de potiron
@@ -44032,6 +44267,13 @@ fr:Soupe au potiron à réchauffer, Soupe au potiron préemballée à réchauffe
 ciqual_food_code:en:25945
 ciqual_food_name:en:Soup, pumpkin, prepacked, to be reheated
 ciqual_food_name:fr:Soupe au potiron, préemballée à réchauffer
+
+<en:Pumpkin soups
+en:Dehydrated and reconstituted pumpkin soup
+fr:Soupe au potiron déshydratée reconstituée
+ciqual_food_code:en:25954
+ciqual_food_name:en:Soup, pumpkin, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe au potiron, déshydratée reconstituée
 
 <en:Vegetable soups
 en:Soups of lentils
@@ -44149,13 +44391,16 @@ wikidata:en:Q413126
 
 <en:Cold soups
 <en:Vegetable soups
-en:Gazpacho
+en:Gazpacho, Cold gazpacho soups
 de:Gazpacho, Gaspacho
 es:Gazpachos
 fi:gazpacho
-fr:Gaspacho, Gaspachos, gazpacho
+fr:Gaspacho, Gaspachos, gazpacho, Soupes froides type Gaspacho, Soupes froides type Gazpacho
 nl:Gazpachos
 wikidata:en:Q202677
+ciqual_food_code:en:25967
+ciqual_food_name:en:Soup, gazpacho, cold
+ciqual_food_name:fr:Soupe froide type Gaspacho ou Gazpacho
 
 <en:Cold soups
 en:Salmorejo
@@ -44394,6 +44639,14 @@ de:Gemüsebouillonpulver, Gemüsefondpulver, Gemüsebouillongranulat, Gemüsefon
 es:Caldos de verduras en polvo, Caldos de verduras granulados
 fr:Bouillons de légumes en poudre
 nl:Groentebouillonpoeders
+
+<en:Bouillon powders
+<en:Dehydrated vegetable bouillons
+en:Dehydrated and reconstituted vegetables bouillon, Dehydrated and reconstituted vegetables broth, Dehydrated and reconstituted vegetables stock
+fr:Bouillon de légumes déshydraté reconstitué
+ciqual_food_code:en:25948
+ciqual_food_name:en:Broth, stock or bouillon, vegetables, dehydrated and reconstituted
+ciqual_food_name:fr:Bouillon de légumes, déshydraté reconstitué
 
 <en:Liquid broths
 <en:Vegetable broths
@@ -50332,6 +50585,14 @@ fr:Champignons frais
 nl:Verse paddestoelen
 
 <en:Mushrooms
+<en:Fresh vegetables
+en:Raw mushrooms
+fr:Champignons crus
+ciqual_food_code:en:20010
+ciqual_food_name:en:Mushroom, all types, raw
+ciqual_food_name:fr:Champignon, tout type, cru
+
+<en:Mushrooms
 en:Bloody milk caps, Lactarius sanguifluus
 es:Rovellones, Rovellón, Lactarius sanguifluus
 fr:Lactaires sanguins, Lactarius sanguifluus
@@ -50347,6 +50608,13 @@ fr:Champignons de Paris, Agaricus bisporus
 la:Agaricus bisporus
 nl:Champignons
 wikidata:en:Q227690
+
+<en:Mushrooms
+en:Raw field mushrooms
+fr:Champignons rosés des prés crus
+ciqual_food_code:en:20161
+ciqual_food_name:en:Field mushroom, raw
+ciqual_food_name:fr:Champignon, rosé des prés, cru
 
 <en:Champignon mushrooms
 fr:Champignon de Paris frais
@@ -50376,6 +50644,13 @@ fr:Champignons de Paris entiers
 nl:Hele champignons
 
 <en:Champignon mushrooms
+en:Raw button mushrooms, Raw cultivated mushrooms
+fr:Champignons de Paris crus, Champignons de couche crus
+ciqual_food_code:en:20056
+ciqual_food_name:en:Button mushroom or cultivated mushroom, raw
+ciqual_food_name:fr:Champignon de Paris ou champignon de couche, cru
+
+<en:Champignon mushrooms
 en:Boiled button mushrooms, Boiled cultivated mushrooms, Button mushrooms cooked in water, Cultivated mushrooms cooked in water
 fr:Champignons de Paris bouillis, Champignons de couche bouillis, Champignons de Paris cuits à l'eau, Champignons de couche cuits à l'eau
 ciqual_food_code:en:20102
@@ -50390,20 +50665,26 @@ ciqual_food_name:en:Button mushroom or cultivated mushroom, sautéed/pan-fried, 
 ciqual_food_name:fr:Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
 
 <en:Mushrooms
-en:Morel, Morchella
+en:Morel, Morchella, Morels
 de:Morcheln, Morchella
 es:Morchella, Morillas
 fr:Morilles, Morille, Morchellas
 it:Morchella
 nl:Morielje, Morille, Morchella
 wikidata:en:Q371101
+ciqual_food_code:en:20105
+ciqual_food_name:en:Morel, raw
+ciqual_food_name:fr:Champignon, morille, crue
 
 <en:Mushrooms
-en:Chanterelles, Golden chanterelles, Girolles, Cantharellus cibarius
+en:Chanterelles, Golden chanterelles, Girolles, Cantharellus cibarius, Raw chanterelles, Raw girolle mushrooms
 es:Rebozuelos, Chantarelas, Cantharellus cibarius
-fr:Girolles, Girolle, Jaunotte, Jauniré, Cantharellus cibarius, Chanterelle ciboire, chevrette, roussotte, gallinace
+fr:Girolles, Girolle, Jaunotte, Jauniré, Cantharellus cibarius, Chanterelle ciboire, chevrette, roussotte, gallinace, Chanterelles crues, Girolles crues, Champignons chanterelles, Champignons girolles
 la:Cantharellus cibarius
 nl:Cantharellen, Hanenkammen
+ciqual_food_code:en:20103
+ciqual_food_name:en:Chanterelle or girolle mushroom, raw
+ciqual_food_name:fr:Champignon chanterelle ou girolle crue
 
 <en:Mushrooms
 en:Horn of plenty mushrooms, Horn of plenty
@@ -50426,11 +50707,25 @@ la:Auricularia auricula-judae
 nl:Judasoren
 
 <en:Mushrooms
+en:Raw oyster mushrooms
+fr:Pleurotes, Champignons pleurotes
+ciqual_food_code:en:20114
+ciqual_food_name:en:Oyster mushroom, raw
+ciqual_food_name:fr:Champignon, pleurote, crue
+
+<en:Mushrooms
 en:King trumpet mushrooms, French horn mushrooms, King oyster mushrooms, King brown mushrooms, Boletus of the steppes, Trumpet royale, Pleurotus eryngii
 es:Setas de cardo, Pleurotus eryngii
 fr:Pleurotes du panicaut, Encore argouane, Bérigoule, Girboulot, Pleurotus eryngii
 la:Pleurotus eryngii
 nl:Kruisdisteloesterzwammen
+
+<en:Mushrooms
+en:Raw Caesar's mushrooms, Raw royal agarics
+fr:Oronges vraies crues, Champignons oronges vraies
+ciqual_food_code:en:20159
+ciqual_food_name:en:Caesar's mushroom or royal agaric, raw
+ciqual_food_name:fr:Champignon, oronge vraie, crue
 
 <en:Mushrooms
 en:Nameko mushrooms, Nameko, Pholiota nameko
@@ -50471,6 +50766,13 @@ es:Boletos comestibles, Boletus comestible, Setas de calabaza, Boletus edulis
 fr:Cèpes de Bordeaux, Boletus edulis
 la:Boletus edulis
 nl:Gewoon eekhoorntjesbrood
+
+<en:Mushrooms
+en:Raw cep mushrooms, Raw boletus mushrooms
+fr:Champignons cèpes crus, Cèpes crus
+ciqual_food_code:en:20160
+ciqual_food_name:en:Cep or boletus mushroom, raw
+ciqual_food_name:fr:Champignon, cèpe, cru
 
 <en:Mushrooms
 en:Red pine mushrooms, Saffron milk caps, Lactarius deliciosus
@@ -56216,6 +56518,13 @@ nl:Pompoenproducten
 wikidata:en:Q5339301
 
 <en:Plant-based foods
+en:Raw pumpkin pulp
+fr:Pulpe de citrouille crue
+ciqual_food_code:en:20166
+ciqual_food_name:en:Pumpkin, pulp, raw
+ciqual_food_name:fr:Citrouille, pulpe, crue
+
+<en:Plant-based foods
 en:Raw pumpkin pulp, Raw cucurbita moschata pulp
 fr:Pulpe de courge musquée
 ciqual_food_code:en:20128
@@ -56244,11 +56553,25 @@ fr:Graines de courge et dérivés
 nl:Pompoenzaden en afgeleiden
 
 <en:Squash plant products
+en:Raw squash
+fr:Courge crue
+ciqual_food_code:en:20139
+ciqual_food_name:en:Squash, all types, raw
+ciqual_food_name:fr:Courge, crue
+
+<en:Squash plant products
 en:Cooked spaghetti squash pulp
 fr:Pulpe de courge spaghetti cuite
 ciqual_food_code:en:20143
 ciqual_food_name:en:Squash, spaghetti, pulp, cooked
 ciqual_food_name:fr:Courge spaghetti, pulpe, cuite
+
+<en:Squash plant products
+en:Raw spaghetti squash pulp
+fr:Pulpe de courge spaghetti crue
+ciqual_food_code:en:20145
+ciqual_food_name:en:Squash, spaghetti, pulp, raw
+ciqual_food_name:fr:Courge spaghetti, pulpe, crue
 
 <en:Pumpkin seeds and their products
 <en:Seeds
@@ -57840,6 +58163,13 @@ la:Brassica oleracea var. gemmifera
 nl:Spruiten
 
 <en:Brussels sprouts
+en:Raw Brussels sprouts
+fr:Choux de Bruxelles crus
+ciqual_food_code:en:20058
+ciqual_food_name:en:Brussels sprout, raw
+ciqual_food_name:fr:Chou de Bruxelles, cru
+
+<en:Brussels sprouts
 <en:Fresh vegetables
 en:Fresh Brussels sprouts
 fr:Choux de Bruxelles frais
@@ -58000,6 +58330,13 @@ ciqual_food_name:en:Glasswort (Salicornia sp.), fresh
 ciqual_food_name:fr:Salicorne (Salicornia sp.), fraîche
 
 <en:Cauliflowers
+en:Raw cauliflowers
+fr:Choux-fleurs crus
+ciqual_food_code:en:20016
+ciqual_food_name:en:Cauliflower, raw
+ciqual_food_name:fr:Chou-fleur, cru
+
+<en:Cauliflowers
 en:Cooked cauliflowers
 fr:Choux-fleurs cuits, Chou-fleur cuit
 ciqual_food_code:en:20017
@@ -58133,6 +58470,13 @@ fr:Bette cuite, Blette cuite
 ciqual_food_code:en:20005
 ciqual_food_name:en:Swiss chard, cooked
 ciqual_food_name:fr:Bette ou blette, cuite
+
+<en:Chards
+en:Raw Swiss chard
+fr:Bette crue, Blette crue
+ciqual_food_code:en:20004
+ciqual_food_name:en:Swiss chard, raw
+ciqual_food_name:fr:Bette ou blette, crue
 
 <en:Vegetables
 en:Cucumbers
@@ -58735,8 +59079,15 @@ fr:Échalotes fraîches
 season_in_country_fr:en: 10,11,12
 
 <en:Shallots
+en:Raw shallots
+fr:Échalotes crues
+ciqual_food_code:en:20097
+ciqual_food_name:en:Shallot, raw
+ciqual_food_name:fr:Échalote, crue
+
+<en:Shallots
 en:Cooked shallots
-fr:Échalote cuites
+fr:Échalotes cuites
 ciqual_food_code:en:20255
 ciqual_food_name:en:Shallot, cooked
 ciqual_food_name:fr:Échalote, cuite
@@ -58949,6 +59300,13 @@ ciqual_food_name:en:Yam or Indian potato, peeled, boiled/cooked in water
 ciqual_food_name:fr:Igname, épluchée, bouillie/cuite à l'eau
 
 <en:Potatoes
+en:Raw peeled yam potato, Raw peeled Indian potato
+fr:Igname épluchée crue
+ciqual_food_code:en:53502
+ciqual_food_name:en:Yam or Indian potato, peeled, raw
+ciqual_food_name:fr:Igname, épluchée, crue
+
+<en:Potatoes
 en:Boiled peeled ware potatoes, Peeled ware potatoes cooked in water
 fr:Pommes de terre de conservation sans peau bouillies, Pommes de terre de conservation sans peau cuites à l'eau
 ciqual_food_code:en:4028
@@ -58968,6 +59326,13 @@ fr:Pommes de terre sans peau cuites au four
 ciqual_food_code:en:4002
 ciqual_food_name:en:Potato, peeled, baked
 ciqual_food_name:fr:Pomme de terre, sans peau, cuite au four
+
+<en:Potatoes
+en:Raw peeled potatoes
+fr:Pommes de terre sans peau crues
+ciqual_food_code:en:4008
+ciqual_food_name:en:Potato, peeled, raw
+ciqual_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Potatoes
 en:Roasted potatoes, Bakes potatoes
@@ -59016,6 +59381,20 @@ fr:Potiron frais
 season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
+en:Raw pumpkin
+fr:Potiron cru
+ciqual_food_code:en:20044
+ciqual_food_name:en:Pumpkin, raw
+ciqual_food_name:fr:Potiron, cru
+
+<en:Pumpkins
+en:Raw pulp of melonnette jaspée from Vendée, Squash of melonnette jaspée from Vendée
+fr:Pulpe de courge melonnette crue
+ciqual_food_code:en:20136
+ciqual_food_name:en:Squash, melonnette jaspée from Vendée, pulp, raw
+ciqual_food_name:fr:Courge melonnette, pulpe, crue
+
+<en:Pumpkins
 en:Cooked pumpkins
 fr:Potirons cuits
 ciqual_food_code:en:20096
@@ -59036,11 +59415,14 @@ en:Courges fraîches
 season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
-en:Butternut squashes, Butternut squash, Butternut pumpkins
+en:Butternut squashes, Butternut squash, Butternut pumpkins, Raw butternut squash, Raw butternut pulp
 es:Calabazas Butternut
-fr:Courges Butternut, Doubeurre, Courge doubeurre
+fr:Courges Butternut, Doubeurre, Courge doubeurre, Pulpe de courge doubeurre crue, Pulpe de courge butternut crue
 nl:Muskaatpompoen
 wikidata:en:Q4169287
+ciqual_food_code:en:20138
+ciqual_food_name:en:Squash, butternut, pulp, raw
+ciqual_food_name:fr:Courge doubeurre (butternut), pulpe, crue
 
 <en:Pumpkins
 en:Spaghetti squashes, Spaghetti squash
@@ -59215,6 +59597,13 @@ nl:Rode kolen
 <en:Fresh vegetables
 en:Fresh red cabbage
 fr:Choux rouges frais
+
+<en:Vegetables
+en:Raw taro tubers
+fr:Tubercules de taro crus
+ciqual_food_code:en:53200
+ciqual_food_name:en:Taro, tuber, raw
+ciqual_food_name:fr:Taro, tubercule, cru
 
 <en:Vegetables
 en:Cooked taro tubes
@@ -59513,6 +59902,14 @@ fr:Tomates
 it:Pomodori
 ja:トマト
 nl:Tomaten
+
+<en:Tomatoes
+<en:Fresh vegetables
+en:Raw tomatoes
+fr:Tomates crues
+ciqual_food_code:en:20047
+ciqual_food_name:en:Tomato, raw
+ciqual_food_name:fr:Tomate, crue
 
 <en:Tomatoes
 <en:Fresh vegetables
@@ -60949,7 +61346,9 @@ zh:豆腐
 # zh-tw:豆腐
 wikidata:en:Q177378
 wikipedia:en:https://en.wikipedia.org/wiki/Tofu
-
+ciqual_food_code:en:20904
+ciqual_food_name:en:Tofu, plain
+ciqual_food_name:fr:Tofu, nature
 
 <en:Legumes and their products
 <en:Meat analogues
@@ -62082,6 +62481,13 @@ fr:Macédoine de légumes surgelée
 ciqual_food_code:en:20271
 ciqual_food_name:en:Mixed diced vegetables, frozen
 ciqual_food_name:fr:Macédoine de légumes, surgelée
+
+<en:Frozen vegetable mixes
+en:Frozen raw thinly-shredded vegetables, Frozen raw diced vegetables
+fr:Julienne de légumes surgelée, Brunoise de légumes surgelée
+ciqual_food_code:en:20265
+ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
+ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 
 <en:Frozen vegetable mixes
 en:Frozen salads
@@ -64944,6 +65350,13 @@ nl:Gevulde wijnbladeren
 en:Brick sheets
 fr:Feuilles de brick
 nl:Brick vellen
+
+<en:Meals
+en:Khatfa, Phyllo pastry, Filo pastry
+fr:Khatfa, Feuilles de brick
+ciqual_food_code:en:51550
+ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
+ciqual_food_name:fr:Khatfa feuille de brick, préemballée
 
 <en:Meals
 en:Banh Bao
