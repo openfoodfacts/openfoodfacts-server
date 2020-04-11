@@ -13,4 +13,4 @@ Product opener is NOT yet released as open source. The instructions are for refe
 
 ### Installation
 
-[Product Opener Installation](https://en.wiki.openfoodfacts.org/Product_Opener/Installation/Issues)
+[Product Opener Installation](https://en.wiki.openfoodfacts.org/Product_Opener/Installation)
