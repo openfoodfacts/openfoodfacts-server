@@ -1926,14 +1926,16 @@ sub index_product($)
 
 	my %keywords;
 
+	my $product_lc = $product_ref->{lc} ||$lc;
+
 	foreach my $field (@string_fields, @tag_fields) {
 		if (defined $product_ref->{$field}) {
-			foreach my $tag (split(/,|'|\s/, $product_ref->{$field} )) {
+			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field} )) {
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
 
-				my $tagid = get_string_id_for_lang($lc, $tag);
+				my $tagid = get_string_id_for_lang($product_lc, $tag);
 				if (length($tagid) >= 2) {
 					$keywords{normalize_search_terms($tagid)} = 1;
 				}
