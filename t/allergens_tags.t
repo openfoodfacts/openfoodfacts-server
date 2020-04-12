@@ -54,6 +54,22 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "traza de nueces"}, [], ["en:nuts"]],
 	[ { lc => "es", traces => "contiene leche y productos derivados"}, [], ["en:milk"]],
 	[ { lc => "es", traces => "contiene leche y productos derivados incluida lactosa"}, [], ["en:milk"]],
+
+	[ { lc => "fr", ingredients_text => "Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri." }, [], ["en:celery", "en:milk", "en:mustard"] ],
+
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_." }, [], ["en:celery"] ],
+	[ { lc => "fr", ingredients_text => "Traces éventuelles de : épeautre." }, [], ["en:gluten"] ],
+
+	[ { lc => "fr", ingredients_text => "Contient du _lait_." }, ["en:milk"], [] ],
+	[ { lc => "fr", ingredients_text => "Contient du lait, du soja et de la moutarde." }, ["en:milk", "en:mustard", "en:soybeans"], [] ],
+	[ { lc => "en", ingredients_text => "Contains soy, milk and hazelnut. May contain celery." }, ["en:milk", "en:nuts", "en:soybeans"], ["en:celery"] ],
+	[ { lc => "en", ingredients_text => "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard." }, ["en:milk", "en:nuts"], ["en:celery", "en:mustard"] ],
+
+	# Currently not supported
+	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
+  
+	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+
 );
 
 foreach my $test_ref (@tests) {

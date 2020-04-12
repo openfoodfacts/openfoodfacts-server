@@ -82,6 +82,15 @@ my @tests = (
 	 [ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
 	 [ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
 
+	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
+
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
+
+	[ { lc => "fr", ingredients_text => "Fraises. Contient du lait et des noix. Peut contenir : crustacés, céleri et moutarde."}, ["en:strawberry"]],
+	[ { lc => "en", ingredients_text => "Apples. Contains: milk, nuts and mustard. May contains traces of celery."}, ["en:apple"]],
+
+	# Currently "Kann [allergens] enthalten" is not supported
+	# [ { lc => "de", ingredients_text => "Paprikaextrakt. Kann Haselnüsse, Mandeln enthalten."}, ["en:e160c"]],
 );
 
 foreach my $test_ref (@tests) {

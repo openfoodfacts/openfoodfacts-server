@@ -202,6 +202,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		$html = <<HTML
 <p>$Lang{login_to_add_products}{$lang}</p>
 
+<div style="display: inline;">
 <form method="post" action="/cgi/session.pl">
 <div class="row">
 <div class="small-12 columns">
@@ -224,7 +225,10 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 <input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
 <input type="hidden" name="code" value="$code" />
 <input type="hidden" name="next_action" value="product_$type" />
+<button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">$Lang{login_create_your_account}{$lc}</button>
+<input type="hidden" name="prdct_mult" value="True" />
 </form>
+</div>
 
 HTML
 ;
@@ -838,7 +842,7 @@ HTML
 <script type="text/javascript" src="/js/dist/cropper.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -1197,7 +1201,7 @@ JAVASCRIPT
 
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+	$html .= "<div id=\"product_image\" class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
 
 
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
@@ -1391,7 +1395,7 @@ HTML
 
 	$html .= <<HTML
 
-<div class="fieldset">
+<div id="product_characteristics" class="fieldset">
 <legend>$Lang{product_characteristics}{$lang}</legend>
 HTML
 ;
@@ -1410,7 +1414,7 @@ HTML
 	$html .= "</div><!-- fieldset -->\n";
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
+	$html .= "<div id=\"ingredients\" class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 18:46\n"
+"PO-Revision-Date: 2020-04-10 20:42\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,34 @@ msgstr "أضف علامة تجارية"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "منتجات ليست من العلامة التجارية %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr ""
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -674,7 +702,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "البيانات وواجهة برمجة التطبيقات وحزمة أدوات تطوير البرامج"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -936,6 +964,14 @@ msgstr "عدد المكونات"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "عدد المكونات"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "عدد المكونات المعترف بها"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "عدد المكونات غير المعترف بها"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1954,23 +1990,23 @@ msgstr "تحميل النتائج"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "قم بتنزيل النتائج بصيغة XLSX أو CSV. يرجى العلم أنه ﻷسباب تتعلق باﻷداء، ستتمكن من تنزيل ما يصل إلى 10,000 نتيجة فقط."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "صيغة XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel أو LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "صيغة XLSX"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "مجموعة الأحرف: Unicode (UTF-8) - الفاصل: الجدول (التبويب)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2188,11 +2224,11 @@ msgstr "حجم الحصة"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "حجم التقديم المحضر"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 جم، 12 أونصة، 20 مل، 2 أونصة سائلة"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
@@ -2472,6 +2508,14 @@ msgstr "إلغاء تحديد الصورة."
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "خطأ أثناء إلغاء تحديد الصورة."
+
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "تمكين التكبير باستخدام عجلة الفأرة."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4054,4 +4098,54 @@ msgstr "تفاصيل تحليل المكونات"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "بعض مكونات لا يمكن التعرف عليها."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "نقل كل البيانات والصور المحدَّدة في %s إلى اللغة الرئيسية للمنتج: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "استبدال القيم الموجودة والصور المحددة"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "الحفاظ على القيم الموجودة والصور المحددة"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "تم"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "قائمة مهام"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
 

@@ -23,6 +23,13 @@
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
+//Polyfill, just in case
+if (!Array.isArray) {
+  Array.isArray = function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+}
+
 var code;
 var current_cropbox;
 var images = [];
@@ -31,6 +38,7 @@ var img_path;
 var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
+var use_low_res_images = false;
 
 var units = [
 	[ 'g', 'mg', "\u00B5g", '% DV' ],
@@ -303,6 +311,18 @@ function change_image(imagefield, imgid) {
 	angles[imagefield] = 0;
 	imagefield_imgid[imagefield] = imgid;
 
+  // load small 400 pixels image if the use_low_res_images checkbox is checked
+
+  var image_size = '';
+  var cropimgdiv_style = '';
+  var coordinates_image_size = "full";
+
+  if ( $("#use_low_res_images_" + imagefield).is(':checked')) {
+      image_size = '.400';
+      cropimgdiv_style = 'style="max-width:400px"';
+      coordinates_image_size = "400";
+  }
+
 	var html = '';
 
   html += '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
@@ -310,6 +330,7 @@ function change_image(imagefield, imgid) {
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+	html += '<br><a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a>';
   html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
   html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
@@ -318,7 +339,7 @@ function change_image(imagefield, imgid) {
 	html += '<div class="cropbutton_' + imagefield + '"></div>';
 	html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
   html += '</div></div>';
-	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv"><img src="' + img_path + image.imgid +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
+	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv" ' + cropimgdiv_style + '><img src="' + img_path + image.imgid + image_size +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
 
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
@@ -361,7 +382,7 @@ function change_image(imagefield, imgid) {
   {
     code: code, id: imagefield, imgid: imgid,
         x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
-        coordinates_image_size : "full",
+        coordinates_image_size : coordinates_image_size,
         angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
     white_magic: $("#white_magic_" + imagefield).prop('checked')
   }, function (data) {
@@ -577,7 +598,7 @@ function initializeTagifyInput(el) {
 		if (obj === null) {
 			obj = {};
 			obj[el.id] = [tag];
-		} else if (obj[el.id] === null) {
+		} else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
 			obj[el.id] = [tag];
 		} else {
 			if (obj[el.id].indexOf(tag) != -1) {
@@ -621,8 +642,7 @@ function get_recents(tagfield) {
 
 	if (
 	obj !== null &&
-	// eslint-disable-next-line no-undefined
-	obj[tagfield] !== undefined &&
+		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
@@ -634,6 +654,10 @@ function get_recents(tagfield) {
 (function( $ ){
 
 	initializeTagifyInputs();
+
+  if ($.cookie('use_low_res_images') !== undefined) {
+      use_low_res_images = true;
+  }
 
 	var settings = {
 		'thumb_width' : 100,
@@ -732,6 +756,9 @@ function get_recents(tagfield) {
 + '</div>';
 
 
+      html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
+      html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
+
       html += '<div class="row">';
 			html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id +'"></div></div>';
 			html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id +'"></div></div>';
@@ -739,6 +766,23 @@ function get_recents(tagfield) {
 			}
 
 			$this.html(html);
+
+      if (use_low_res_images) {
+          $("#use_low_res_images_" + id).prop("checked", true);
+      }
+
+      $("#use_low_res_images_" + id).change(function() {
+        use_low_res_images = $("#use_low_res_images_" + id).is(':checked');
+        if (use_low_res_images) {
+          $.cookie('use_low_res_images', '1', { expires: 180, path: '/' });
+        }
+        else {
+          $.removeCookie('use_low_res_images', { path: '/'});
+        }
+        $(".use_low_res_images").each(function() {
+          $(this).prop( "checked", use_low_res_images );
+        });
+      });
 
       $(document).foundation('equalizer', 'reflow');
 

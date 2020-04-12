@@ -946,6 +946,14 @@ msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Number of ingredients"
 
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Number of recognized ingredients"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Number of unrecognized ingredients"
+
 msgctxt "ingredients_p"
 msgid "ingredients"
 msgstr "ingredients"
@@ -2649,6 +2657,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "Enable zooming with the mouse wheel."
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Load lower resolution images (for slow connections)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4198,3 +4210,41 @@ msgstr "Replace existing values and selected photos"
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
 msgstr "Keep existing values and selected photos"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Done"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "To do"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Teams"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optional"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "teams"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "team"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Team %s"
+
