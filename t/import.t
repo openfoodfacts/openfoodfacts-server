@@ -47,10 +47,22 @@ match_taxonomy_tags($product_ref, "some_field", "emb_codes",
 
 is($product_ref->{emb_codes}, "EMB59481");
 
-$product_ref = { "product_name" => "Champagne brut 35,5 CL" };
-assign_quantity_from_field($product_ref, "product_name");
-is($product_ref->{product_name}, "Champagne brut");
-is($product_ref->{quantity}, "35,5 CL");
+
+my @assign_quantity_tests = (
+
+	["Champagne brut 35,5 CL", "Champagne brut", "35,5 CL"],
+	["NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO 2X125G", "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", "2 X 125 G"],
+	["Barres de Céréales (8+4) x 25g", "Barres de Céréales (8+4) x 25g", undef],
+);
+
+foreach my $test_ref (@assign_quantity_tests) {
+
+	$product_ref = { "product_name" => $test_ref->[0] };
+	assign_quantity_from_field($product_ref, "product_name");
+	is($product_ref->{product_name}, $test_ref->[1]);
+	is($product_ref->{quantity}, $test_ref->[2]);
+
+}
 
 $product_ref = { "lc" => "fr", "product_name_fr" => "Soupe bio" };
 @fields = qw(product_name_fr);
@@ -150,5 +162,38 @@ foreach my $test_ref (@tests) {
 		print STDERR $results . "\n";
 	}
 }
+
+
+# clean_fields tests
+
+@tests = (
+
+# Lowercase ALL CAPS fields
+[
+	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
+# Remove brand at end of product name
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour"},
+],
+
+[
+        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
+        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+],
+
+
+);
+
+foreach my $test_ref (@tests) {
+
+	clean_fields($test_ref->[0]);	
+	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
+
+}
+
 
 done_testing();

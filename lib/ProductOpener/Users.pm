@@ -18,6 +18,28 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Users - manage user profiles and sessions
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Users> contains functions to create and edit user profiles
+and to manage user sessions.
+
+    use ProductOpener::Users qw/:all/;
+
+	[..]
+
+	init_user();
+
+
+=head1 DESCRIPTION
+
+[..]
+
+=cut
+
 package ProductOpener::Users;
 
 use utf8;
@@ -162,43 +184,53 @@ sub display_user_form($$) {
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
 	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
-			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"normalize_string_value(this)", -autocomplete=>'username'))) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
+	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-
-
+	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	;
+
+	# On the public web site, but not on the producers platform, offer to be part of a team
+
+	if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+		$html .= "\n<tr><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
+		. lang("teams_description") . "</p><p>" . lang("teams_names_warning") . "</p>"
+		. '<div class="row">';
+
+		for (my $i = 1; $i <= 3; $i++) {
+			$html .= "\n<div class=\"small-3 large-2 xlarge-1 columns\">" . sprintf(lang("team_s"), $i) . lang("sep") . ":</div><div class=\"small-9 large-10 xlarge-11 columns\">"
+			. textfield(-name=>"team_" . $i, -value=>$user_ref->{"team_" . $i}, -style=>"max-width:20rem", -override=>1, -onkeyup=>"normalize_string_value(this)") . "</div>";
+		}
+
+		$html .= "</div></td></tr>";
+	}
 
 	$$scripts_ref .= <<SCRIPT
 <script type="text/javascript">
-function update_userid(value) {
 
-var userid = value.toLowerCase();
-userid = userid.replace(new RegExp(" ", 'g'),"-");
-userid = userid.replace(new RegExp("[àáâãäå]", 'g'),"a");
-userid = userid.replace(new RegExp("æ", 'g'),"ae");
-userid = userid.replace(new RegExp("ç", 'g'),"c");
-userid = userid.replace(new RegExp("[èéêë]", 'g'),"e");
-userid = userid.replace(new RegExp("[ìíîï]", 'g'),"i");
-userid = userid.replace(new RegExp("ñ", 'g'),"n");
-userid = userid.replace(new RegExp("[òóôõö]", 'g'),"o");
-userid = userid.replace(new RegExp("œ", 'g'),"oe");
-userid = userid.replace(new RegExp("[ùúûü]", 'g'),"u");
-userid = userid.replace(new RegExp("[ýÿ]", 'g'),"y");
-userid = userid.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-userid = userid.replace(new RegExp("-+", 'g'),"-");
-userid = userid.replace(new RegExp("^-"),"");
-\$('#userid').val(userid);
+function normalize_string_value(inputfield) {
 
-\$.get("/cgi/check_id.pl", { id: userid, type: 'user' },
-   function(data){
-	 \$('#useridok').html(data);
-   });
+	var value = inputfield.value.toLowerCase();
 
+	value = value.replace(new RegExp(" ", 'g'),"-");
+	value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
+	value = value.replace(new RegExp("æ", 'g'),"ae");
+	value = value.replace(new RegExp("ç", 'g'),"c");
+	value = value.replace(new RegExp("[èéêë]", 'g'),"e");
+	value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
+	value = value.replace(new RegExp("ñ", 'g'),"n");
+	value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
+	value = value.replace(new RegExp("œ", 'g'),"oe");
+	value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
+	value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
+	value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
+	value = value.replace(new RegExp("-+", 'g'),"-");
+	value = value.replace(new RegExp("^-"),"");
+
+	inputfield.value = value;
 }
+
 </script>
 SCRIPT
 ;
@@ -273,7 +305,6 @@ sub check_user_form($$) {
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-#	$user_ref->{sex} = param('sex');
 
 	if ($user_ref->{email} ne decode utf8=>param('email')) {
 
@@ -320,8 +351,16 @@ sub check_user_form($$) {
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
-	# Check input parameters, redisplay if necessary
+	for (my $i = 1; $i <= 3; $i++) {
+		if (defined param('team_' . $i)) {
+			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
+			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
+		}
+	}
 
+	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
 		push @$errors_ref, $Lang{error_no_name}{$lang};
@@ -420,6 +459,8 @@ sub check_edit_owner($$) {
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
 
+	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+
 	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
 		delete $user_ref->{pro_moderator_owner};
 		# Also edit the current user object so that we can display the current status directly on the form result page
@@ -428,6 +469,7 @@ sub check_edit_owner($$) {
 	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
 		my $orgid = $';
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
 		my $userid = $';
@@ -438,10 +480,17 @@ sub check_edit_owner($$) {
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$log->debug("set pro_moderator_owner (user)", { userid => $userid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 		}
+	}
+	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+		# Admin mode to see all products from all owners
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	else {
 		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 }
 
@@ -731,6 +780,10 @@ sub init_user()
 				%Org = ( org => $Org_id, org_id => $Org_id );
 			}
 			elsif ($Owner_id =~ /^user-/) {
+				$Org_id = undef;
+				%Org = ();
+			}
+			elsif ($Owner_id eq 'all') {
 				$Org_id = undef;
 				%Org = ();
 			}

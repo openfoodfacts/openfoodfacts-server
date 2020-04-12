@@ -142,7 +142,7 @@ sub load_csv_or_excel_file($) {
 				}
 			}
 			else {
-				$results_ref->{error} = "Could not read hader line in CSV $file: $!";
+				$results_ref->{error} = "Could not read header line in CSV $file: $!";
 			}
 		}
 		else {
@@ -255,6 +255,10 @@ sub convert_file($$$$) {
 
 	my $col = 0;
 
+	# Some fields like image_other_url may be present multiple times,
+	# in which case suffix them with .2 , .3 etc.
+	my %seen_fields = ();
+
 	foreach my $column (@$headers_ref) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
@@ -281,6 +285,14 @@ sub convert_file($$$$) {
 			}
 
 			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
+
+			if (defined $seen_fields{$field}) {
+				$seen_fields{$field}++;
+				$field = $field . "." . $seen_fields{$field};
+			}
+			else {
+				$seen_fields{$field} = 1;
+			}
 
 			if (defined $field) {
 				push @headers, $field;
@@ -333,10 +345,6 @@ sub convert_file($$$$) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
-		$log->debug("convert_file - before clean_fields ", { lc => $product_ref->{lc}}) if $log->is_debug();
-		clean_fields($product_ref);
-		$log->debug("convert_file - after clean_fields ", { }) if $log->is_debug();
-
 		my @values = ();
 		foreach my $field (@headers) {
 			push @values, $product_ref->{$field};
@@ -357,17 +365,27 @@ sub normalize_column_name($) {
 
 	my $name = shift;
 
+	# non-alpha chars will be turned to -, change the ones we want to keep
+
 	$name =~ s/%/percent/g;
+	$name =~ s/µg/mcg/ig;
+
+	# estampille(s) sanitaire(s)
+
+	$name =~ s/\(s\)\b/s/ig;
 
 	# remove stopwords
+
+	$name =~ s/\b(vitamina|vitamine|vit(\.)?) /vitamin /ig;
+	$name =~ s/\b(b|k)(-| )(\d+)\b/$1$3/ig;
 
 	# fr
 	$name =~ s/^(teneur|taux) (en |de |d')?//i;
 	$name =~ s/^dont //i;
 	$name =~ s/ en / /i;
 
-	$name =~ s/pourcentage (en |de |d')?/percent /;
-	$name =~ s/pourcentage/percent/;
+	$name =~ s/pourcentage (en |de |d')?/percent /i;
+	$name =~ s/pourcentage/percent/i;
 
 	return $name;
 }
@@ -418,17 +436,37 @@ fr => {
 	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
 	link => ["lien"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
+	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
+	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 },
 
 );
 
+my %prepared_synonyms = (
+	# "" is the default unprepared, it needs to have "" as the first synonym
+	"" => {
+	# code with i18n opportunity
+		en => ["", "unprepared"],
+		fr => ["", "non préparé"],
+	},
+	"_prepared" => {
+	# code with i18n opportunity
+		en => ["prepared"],
+		fr => ["préparé", "préparation"],
+	}
+);
+
 my %per_synonyms = (
+	# per 100g includes an empty "" synonym
+	# may need to be changed for the US, CA etc.
 	"100g" => {
-		en => ["per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
-		fr => ["pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+	# code with i18n opportunity
+		en => ["", "per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 	},
 	"serving" => {
 		en => ["per serving", "serving"],
+		es => ["por porción", "porción"],
 		fr => ["par portion", "pour une portion", "portion"],
 	}
 );
@@ -445,12 +483,15 @@ my %units_synonyms = (
 	"grammes" => "g",
 	"mg" => "mg",
 	"mcg" => "mcg",
+	"ug" => "mcg",
 	"percent" => "percent",
 	"kj" => "kj",
 	"kcal" => "kcal",
 	"cal" => "kcal",
 	"calories" => "kcal",
 	"calorie" => "kcal",
+	"iu" => "iu",
+	"ui" => "iu",
 );
 
 
@@ -504,75 +545,124 @@ sub init_nutrients_columns_names_for_lang($) {
 			unshift @synonyms, $Nutriments{$nid}{$l};
 		}
 
+		# Synonyms for each nutrient
+
 		foreach my $synonym (@synonyms) {
 
 			$synonym = normalize_column_name($synonym);
 
-			my $match_ref = { field => $nid . "_100g_value_unit"};
+			# Product as sold / unprepared or prepared
+			# "" is unprepared
 
-			if ($nid eq "energy-kcal") {
-				$match_ref->{value_unit} = "value_in_kcal";
-			}
-			elsif ($nid eq "energy-kj") {
-				$match_ref->{value_unit} = "value_in_kj";
-			}
+			foreach my $prepared ("", "_prepared") {
 
-			# Energy, saturated fat
-			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)} = $match_ref;
+				# Synonyms for unprepared and prepared
 
-			foreach my $per ("100g", "serving") {
-				if (defined $per_synonyms{$per}{$l}) {
-					foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym)} = {
-							field => $nid . "_" . $per . "_value_unit",
-						};
-						if ($match_ref->{value_unit}) {
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym)}{value_unit} = $match_ref->{value_unit};
-						}
+				if (not defined $prepared_synonyms{$prepared}{$l}) {
+					# We need at least an empty entry for the unprepared ""
+					if ($prepared eq "") {
+						$prepared_synonyms{$prepared}{$l} = [""];
+					}
+					else {
+						$prepared_synonyms{$prepared}{$l} = [];
 					}
 				}
-			}
 
-			# Energy kcal, carbohydrates g, calcium mg
+				foreach my $prepared_synonym (@{$prepared_synonyms{$prepared}{$l}}) {
 
-			my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+					# Nutrients per 100g and per serving
 
-			if ($nid eq "energy-kcal") {
-				@units = qw(kcal cal calories);
-				$synonym =~ s/kcal//;
-			}
-			elsif ($nid eq "energy-kj") {
-				@units = qw(kj);
-				$synonym =~ s/kj//;
-			}
-			elsif ($nid =~ /^energy/) {
-				# Give priority to energy-kj and energy-kcal
-				@units = ();
-			}
+					foreach my $per ("100g", "serving") {
 
-			foreach my $unit (@units) {
-				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
-					field => $nid . "_100g_value_unit",
-					value_unit => "value_in_" . $units_synonyms{$unit},
-				};
+						# Synonyms of per 100g and per serving
 
-				foreach my $per ("100g", "serving") {
-					if (defined $per_synonyms{$per}{$l}) {
+						if (not defined $per_synonyms{$per}{$l}) {
+							# Use the English synonyms if we don't have language specific strings
+							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
+						}
+
 						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit . " " . $per_synonym)} = {
-								field => $nid . "_" . $per . "_value_unit",
-								value_unit => "value_in_" . $units_synonyms{$unit},
+
+							# field name without "unit" or "quantity"
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
+								field => $nid . $prepared . "_" . $per . "_value_unit",
 							};
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $per_synonym . " " . $unit)} = {
-								field => $nid . "_" . $per . "_value_unit",
-								value_unit => "value_in_" . $units_synonyms{$unit},
+							if ($nid eq "energy-kcal") {
+								$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)}{value_unit} = "value_in_kcal";
+							}
+							elsif ($nid eq "energy-kj") {
+								$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)}{value_unit} = "value_in_kj";
+							}
+
+							# field name with "quantity" or "unit" at beginning or end
+
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym . " " . $Lang{value}{$l})} = {
+								field => $nid . $prepared . "_" . $per . "_value_unit",
+								value_unit => "value",
+							};
+
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{value}{$l} . " " . $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
+								field => $nid . $prepared . "_" . $per . "_value_unit",
+								value_unit => "value",
+							};
+
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym . " " . $Lang{unit}{$l})} = {
+								field => $nid . $prepared . "_" . $per . "_value_unit",
+								value_unit => "unit",
+							};
+
+							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{unit}{$l} . " " . $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
+								field => $nid . $prepared . "_" . $per . "_value_unit",
+								value_unit => "unit",
 							};
 						}
 					}
+
+					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
+
+					my @units = keys %units_synonyms;
+
+					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
+					my $synonym2 = $synonym;
+
+					if ($nid eq "energy-kcal") {
+						@units = qw(kcal cal calories);
+						$synonym2 =~ s/kcal//;
+					}
+					elsif ($nid eq "energy-kj") {
+						@units = qw(kj);
+						$synonym2 =~ s/kj//;
+					}
+					elsif ($nid =~ /^energy/) {
+						# Give priority to energy-kj and energy-kcal
+						@units = ();
+					}
+
+					foreach my $unit (@units) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $unit)} = {
+							field => $nid . $prepared . "_100g_value_unit",
+							value_unit => "value_in_" . $units_synonyms{$unit},
+						};
+
+						foreach my $per ("100g", "serving") {
+							if (defined $per_synonyms{$per}{$l}) {
+								foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
+									$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $unit . " " . $per_synonym)} = {
+										field => $nid . $prepared . "_" . $per . "_value_unit",
+										value_unit => "value_in_" . $units_synonyms{$unit},
+									};
+									$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $per_synonym . " " . $unit)} = {
+										field => $nid . $prepared . "_" . $per . "_value_unit",
+										value_unit => "value_in_" . $units_synonyms{$unit},
+									};
+								}
+							}
+						}
+					}
+
+					$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
-
-			$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 		}
 	}
 }
@@ -596,13 +686,17 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
-						$fields_columns_names_for_lang{$l}{$field} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $l)} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . $language_codes{$l})} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 					}
-					else {
+					elsif ($field =~ /image_(other)/) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field};
 					}
 				}
 				elsif ($field =~ /_value_unit$/) {
@@ -637,7 +731,7 @@ sub init_other_fields_columns_names_for_lang($) {
 							value_unit => "unit",
 						};
 
-						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+						my @units = keys %units_synonyms;
 
 						foreach my $unit (@units) {
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
@@ -724,6 +818,16 @@ sub match_column_name_to_field($$) {
 	}
 	elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
 		$results_ref = $fields_columns_names_for_lang{en}{$column_id};
+	}
+	# Try removing ending numbers (e.g. for columns like image_other_url_2)
+	elsif ($column_id =~ /-(\d+)$/) {
+		$column_id = $`;
+		if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
+			$results_ref = $fields_columns_names_for_lang{$l}{$column_id};
+		}
+		elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
+			$results_ref = $fields_columns_names_for_lang{en}{$column_id};
+		}
 	}
 
 	return $results_ref;
@@ -887,6 +991,16 @@ sub init_columns_fields_match($$) {
 				elsif ($columns_fields_ref->{$column}{letters}) {
 					$columns_fields_ref->{$column}{value_unit} = "unit";
 				}
+			}
+
+			# "Nutri-Score" columns sometime contains the nutriscore score (number) or grade (letter)
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_score_producer")
+				and ($columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_grade_producer";
+			}
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_grade_producer")
+				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_score_producer";
 			}
 		}
 
@@ -1143,4 +1257,3 @@ sub import_products_categories_from_public_database_task() {
 
 
 1;
-

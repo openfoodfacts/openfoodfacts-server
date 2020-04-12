@@ -93,7 +93,9 @@ my $skip_if_not_code;
 my $skip_products_without_info = 0;
 my $skip_existing_values = 0;
 my $only_select_not_existing_images = 0;
-
+my $user_id;
+my $org_id;
+my $owner_id;
 
 GetOptions (
 	"import_lc=s" => \$import_lc,

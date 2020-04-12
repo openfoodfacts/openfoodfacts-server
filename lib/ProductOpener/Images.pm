@@ -83,6 +83,9 @@ use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
 
+my $extensions = "gif|jpeg|jpg|png|heic";
+
+
 sub display_select_manage($) {
 
 	my $object_ref = shift;
@@ -391,13 +394,14 @@ sub process_search_image_form($) {
 	my $file = undef;
 	my $code = undef;
 	if ($file = param($imgid)) {
-		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file =~ /\.($extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
 			my $filename = get_string_id_for_lang("no_language", remote_addr(). '_' . $`);
 
+			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
 			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -431,7 +435,14 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
-		$code = normalize_code($1);
+		$code = $1;
+		# Make sure it's not a date like 20200201..
+		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
+			$code = undef;
+		}
+		else {
+			$code = normalize_code($code);
+		}
 	}
 
 	# Check for a specified imagefield
@@ -440,7 +451,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
-	elsif ($filename =~ /^\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.(png|jpg|jpeg|gif)$/i) {
+	# but [code]_2.jpg etc. should not be considered the front image
+	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {	# [code] + number between 0 and 99
 		$imagefield = "front";
 	}
 	else {
@@ -464,6 +477,10 @@ sub process_image_upload($$$$$$) {
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
 
+	# debug message passed back to apps in case of an error
+
+	my $debug = "product_id: $product_id - userid: $userid - imagefield: $imagefield";
+
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
@@ -471,7 +488,6 @@ sub process_image_upload($$$$$$) {
 	my $imgid = -1;
 
 	my $new_product_ref = {};
-
 
 	my $file = undef;
 	my $extension = 'jpg';
@@ -484,7 +500,7 @@ sub process_image_upload($$$$$$) {
 
 		if ($tmp_filename) {
 			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
-			if ($tmp_filename =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($tmp_filename =~ /\.($extensions)$/i) {
 				$extension = lc($1);
 			}
 		}
@@ -513,16 +529,16 @@ sub process_image_upload($$$$$$) {
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
 
-		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
+		if ($file !~ /\.($extensions)$/i) {
 			# We have a "blob" without file name and extension?
 			# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
 			# $file .= ".jpg";
 		}
 
-		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
+		if (1 or ($file =~ /\.($extensions)$/i)) {
 			$log->debug("file type validated") if $log->is_debug();
 
-			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
+			if ($file =~ /\.($extensions)$/i) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
@@ -585,6 +601,8 @@ sub process_image_upload($$$$$$) {
 			my $size = -s $img_path;
 			local $log->context->{img_size} = $size;
 
+			$debug .= " - size of image file received: $size";
+
 			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
 				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
@@ -601,6 +619,8 @@ sub process_image_upload($$$$$$) {
 						unlink "$www_root/images/products/$path/$imgid.$extension";
 						rmdir ("$www_root/images/products/$path/$imgid.lock");
 						$$imgid_ref = $i;
+						$debug .= " - we already have an image with this file size: $size - imgid: $i";
+						$$imgid_ref = $debug;
 						return -3;
 					}
 					else {
@@ -609,7 +629,10 @@ sub process_image_upload($$$$$$) {
 				}
 			}
 
-			("$x") and $log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+			if ("$x") {
+				$log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+				$debug .= " - could not read image: $x";
+			}
 
 			# Check the image is big enough so that we do not get thumbnails from other sites
 			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
@@ -617,6 +640,8 @@ sub process_image_upload($$$$$$) {
 					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
 				unlink "$www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$www_root/images/products/$path/$imgid.lock");
+				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
+				$$imgid_ref = $debug;
 				return -4;
 			}
 
@@ -698,6 +723,7 @@ sub process_image_upload($$$$$$) {
 			}
 			else {
 				# Could not read image
+				$debug .= " - could not read image : $x";
 				$imgid = -5;
 			}
 
@@ -714,12 +740,19 @@ sub process_image_upload($$$$$$) {
 	}
 	else {
 		$log->debug("imgupload field not set", { field => "imgupload_$imagefield" }) if $log->is_debug();
+		$debug .= " - no image file for field name imgupload_$imagefield";
 		$imgid = -2;
 	}
 
 	$log->info("upload processed", { imgid => $imgid, imagefield => $imagefield }) if $log->is_info();
 
-	$$imgid_ref = $imgid;
+	if ($imgid > 0) {
+		$$imgid_ref = $imgid;
+	}
+	else {
+		# Pass back a debug message
+		$$imgid_ref = $debug;
+	}
 
 	return $imgid;
 }
@@ -798,7 +831,7 @@ sub process_image_move($$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$) {
 
 	my $product_id = shift;
 	my $id = shift;
@@ -810,6 +843,16 @@ sub process_image_crop($$$$$$$$$$) {
 	my $y1 = shift;
 	my $x2 = shift;
 	my $y2 = shift;
+	my $coordinates_image_size = shift;
+
+	# The crop coordinates used to be in reference to a smaller image (400x400)
+	# -> $coordinates_image_size = $crop_size
+	# they are now in reference to the full image
+	# -> $coordinates_image_size = "full"
+
+	if (not defined $coordinates_image_size) {
+		$coordinates_image_size = $crop_size;
+	}
 
 	my $path = product_path_from_id($product_id);
 
@@ -857,8 +900,8 @@ sub process_image_crop($$$$$$$$$$) {
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{w};
-	my $h = $new_product_ref->{images}{$imgid}{sizes}{$crop_size}{h};
+	my $w = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -1185,7 +1228,7 @@ sub _set_magickal_options($$) {
 	$magick->Set('png:compression-strategy' => 1);
 	$magick->Set('png:exclude-chunk' => 'all');
 	$magick->Set(interlace => 'none');
-	$magick->Set(colorspace => 'sRGB');
+	# $magick->Set(colorspace => 'sRGB');
 	$magick->Strip();
 
 }
@@ -1292,6 +1335,12 @@ sub display_image($$$) {
 		my $path = product_path($product_ref);
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+		if ($id eq ($imagetype . "_" . $display_lc )) {
+			$alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang} . ' - ' .  $display_lc;
+			}
+		elsif ($id eq ($imagetype . "_" . $product_ref->{lc} )) {
+			$alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang} . ' - ' .  $product_ref->{lc};
+			}
 
 		if (not defined $product_ref->{jqm}) {
 			my $noscript = "<noscript>";
