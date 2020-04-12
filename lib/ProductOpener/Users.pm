@@ -184,8 +184,7 @@ sub display_user_form($$) {
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
 	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this)", -autocomplete=>'username')
-			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"normalize_string_value(this)", -autocomplete=>'username'))) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
 	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
@@ -232,17 +231,6 @@ function normalize_string_value(inputfield) {
 	inputfield.value = value;
 }
 
-
-function update_userid(inputfield) {
-
-	normalize_string_value(inputfield);
-
-\$.get("/cgi/check_id.pl", { id: userid, type: 'user' },
-   function(data){
-	 \$('#useridok').html(data);
-   });
-
-}
 </script>
 SCRIPT
 ;
