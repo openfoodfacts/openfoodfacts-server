@@ -3754,6 +3754,7 @@ sub mmoll_to_unit {
 	},
 	phylloquinone => {
 		en => "Vitamin K1 (Phylloquinone)",
+		en_synonyms => ["Vitamin K1", "phylloquinone"],
 		fi => "K1-vitamiini (Fyllokinoni)",
 		fi_synonyms => ["K1-vitamiini", "Fyllokinoni"],
 		fr => "Vitamine K1",
