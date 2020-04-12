@@ -6535,19 +6535,19 @@ HTML
 					</div>
 					$tagline
 					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="grid-x collapse">
-							<div class="cell small-9">
-								<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-								<input name="search_simple" value="1" type="hidden">
-								<input name="action" value="process" type="hidden">
-							</div>
-							<div class="cell small-2">
-								<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
-							</div>
-							<div class="cell small-1">
-								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
-								</label>
+						<div class="grid-container">
+							<div class="grid-x grid-padding-x">
+								<div class="input-group">
+									<input class="input-group-field" type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
+									<input name="search_simple" value="1" type="hidden">
+									<input name="action" value="process" type="hidden">
+									<div class="input-group-button">
+										<button type="submit" class="button">@{[ display_icon('search') ]}</button>
+									</div>
+									<span class="input-group-label">
+										<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
+									</span>
+								</div>
 							</div>
 						</div>
 					</form>
@@ -6758,17 +6758,18 @@ HTML
 	}
 
 	$html .= <<HTML
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="input-group">
+				<input class="input-group-field" type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
+				<div class="input-group-button">
+					<input type="submit" value="$Lang{add}{$lc}" class="button">
+				</div>
+			</div>
+		</div>
+	</div>
 
-      <div class="grid-x collapse">
-        <div class="cell small-9">
-          <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
-        </div>
-        <div class="cell small-3">
-           <input type="submit" value="$Lang{add}{$lc}" class="button postfix">
-        </div>
-      </div>
-
-	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
+	<input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
 </form>
 HTML
 ;
