@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-09 12:10\n"
+"PO-Revision-Date: 2020-04-10 14:33\n"
 "Language-Team: Bosnian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -221,6 +221,34 @@ msgstr ""
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
+msgstr ""
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr ""
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
 msgstr ""
 
 msgctxt "by"
@@ -4061,5 +4089,34 @@ msgstr ""
 
 msgctxt "to_do_status"
 msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
 msgstr ""
 
