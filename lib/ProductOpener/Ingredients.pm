@@ -216,7 +216,7 @@ sub init_allergens_regexps() {
 
 		$allergens_regexps{$allergens_lc} = "";
 
-		foreach my $suffix (@allergenssuffixes) {
+		foreach my $suffix (sort { length($b) <=> length($a) } @allergenssuffixes) {
 			# simple singulars and plurals
 			my $singular = $suffix;
 			$suffix =~ s/s$//;
