@@ -6495,9 +6495,9 @@ HTML
 
 <nav class="tab-bar show-for-small-only">
 	<div class="left-small" style="padding-top:4px;">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix $torso_class">
+		<button type="button" class="button $torso_class" data-toggle="offCanvas">
 		@{[ display_icon('account_box') ]}
-		</a>
+		</button>
 	</div>
 	<div class="middle tab-bar-section" style="padding-top:4px;">
 		<form action="/cgi/search.pl">
@@ -6519,7 +6519,7 @@ HTML
 </nav>
 
  <div class="off-canvas-wrapper">
-	<aside class="off-canvas position-left" id="offCanvas" data-off-canvas>
+	<aside class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas>
 		<div id="aside_column">
 			$aside_blocks
 		</div>
