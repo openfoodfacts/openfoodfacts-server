@@ -8,6 +8,7 @@ const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
 const modernizr = require("gulp-modernizr");
+const autoprefixer = require("gulp-autoprefixer");
 
 const sassOptions = {
   errLogToConsole: true,
@@ -39,6 +40,7 @@ function css() {
   return src("./scss/**/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on("error", sass.logError))
+    .pipe(autoprefixer())
     .pipe(minifyCSS())
     .pipe(sourcemaps.write("."))
     .pipe(dest("./html/css/dist"));
@@ -115,6 +117,7 @@ function jQueryUiThemes() {
       './node_modules/jquery-ui/themes/base/theme.css',
     ])
     .pipe(sourcemaps.init())
+    .pipe(autoprefixer())
     .pipe(minifyCSS())
     .pipe(concat('jquery-ui.css'))
     .pipe(sourcemaps.write("."))
@@ -131,6 +134,7 @@ function copyCss() {
       "./node_modules/cropper/dist/cropper.css"
     ])
     .pipe(sourcemaps.init())
+    .pipe(autoprefixer())
     .pipe(minifyCSS())
     .pipe(sourcemaps.write("."))
     .pipe(dest("./html/css/dist"));
