@@ -4169,7 +4169,7 @@ sub display_pagination($$$$) {
 
 		for (my $i = 1; $i <= $nb_pages; $i++) {
 			if ($i == $page) {
-				$html_pages .= '<li class="current"><a href="">' . $i . '</a></li>';
+				$html_pages .= '<li class="current">' . $i . '</li>';
 				$skip = 0;
 			}
 			else {
