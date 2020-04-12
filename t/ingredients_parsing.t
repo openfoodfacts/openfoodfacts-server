@@ -185,6 +185,10 @@ my @lists =(
 	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
 
 	["en", "S. thermophilus, L casei, L.bulgaricus", "streptococcus thermophilus, lactobacillus casei, lactobacillus bulgaricus"],
+
+	["fr", "jus de citron*. *Ingrédients issus de l'agriculture biologique Peut contenir : œuf, moutarde, graine de sésame, poisson,soja, lait,fruits à coque, céleri.","jus de citron Bio. , Traces éventuelles : œuf, Traces éventuelles : moutarde, Traces éventuelles : graine de sésame, Traces éventuelles : poisson, Traces éventuelles : soja, Traces éventuelles : lait, Traces éventuelles : fruits à coque, Traces éventuelles : céleri."],
+
+	["fr", "Farine, levure. Peut contenir des traces de _soja_, _amandes_, _noisettes_ et _noix de cajou_.", "Farine, levure. Traces éventuelles : _soja_, Traces éventuelles : _amandes_, Traces éventuelles : _noisettes_, Traces éventuelles : _noix de cajou_."],
 );
 
 foreach my $test_ref (@lists) {
