@@ -37,11 +37,11 @@
     "win32"
   ],
   "dependencies": {
-    "@yaireo/tagify": "^3.6.3",
-    "blueimp-file-upload": "^10.10.0",
+    "@yaireo/tagify": "^3.6.10",
+    "blueimp-file-upload": "^10.13.0",
     "cropper": "^4.1.0",
-    "foundation-sites": "^6.6.1",
-    "jquery": "^3.4.1",
+    "foundation-sites": "^6.6.3",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1",
     "jquery.cookie": "^1.4.1",
     "leaflet": "^1.6.0",
@@ -58,15 +58,15 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
-    "gulp-modernizr": "^3.4.1",
+    "gulp-modernizr": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgmin": "^2.2.0",
     "gulp-terser-js": "^5.1.2",
-    "stylelint": "^13.2.1",
+    "stylelint": "^13.3.2",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.16.0"
+    "stylelint-scss": "^3.16.1"
   },
   "collective": {
     "type": "opencollective",
