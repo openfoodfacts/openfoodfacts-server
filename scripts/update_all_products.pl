@@ -103,6 +103,8 @@ my $fix_rev_not_incremented = '';
 my $fix_yuka_salt = '';
 my $run_ocr = '';
 my $autorotate = '';
+my $remove_team = '';
+
 my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
@@ -132,6 +134,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"run-ocr" => \$run_ocr,
 			"autorotate" => \$autorotate,
 			"fix-yuka-salt" => \$fix_yuka_salt,
+			"remove-team=s" => \$remove_team,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -170,6 +173,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $compute_sort_key)
+	and (not $remove_team)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -195,6 +199,10 @@ foreach my $field (sort keys %$query_ref) {
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
+}
+
+if ((defined $remove_team) and ($remove_team ne "")) {
+	$query_ref->{teams_tags} = $remove_team;
 }
 
 if (defined $key) {
@@ -252,6 +260,11 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		if ((defined $remove_team) and ($remove_team ne "")) {
+			remove_tag($product_ref, "teams", $remove_team);
+			$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+		}
 
 		if ($fix_rev_not_incremented) { # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
 
