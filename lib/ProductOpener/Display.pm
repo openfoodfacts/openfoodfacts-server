@@ -3812,8 +3812,24 @@ sub search_and_display_products($$$$$) {
 	}
 
 	my $count;
+	
+	my $fields_ref;
 
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	#for API (json, xml, rss,...), display all fields
+	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
+		$fields_ref = {};
+	} else {
+	#for HTML, limit the fields we retrieve from MongoDB
+		$fields_ref = {
+		"code" => 1,
+		"product_name" => 1,
+		"product_name_$lc" => 1,
+		"brands" => 1,
+		"images" => 1,
+		"quantity" => 1
+		};
+	}
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
 
 	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
 
@@ -3849,17 +3865,6 @@ sub search_and_display_products($$$$$) {
 			products => [],
 		};
 
-		# Fields displayed in HTML results pages
-		my $fields_html;
-		$fields_html = {
-			"code" => 1,
-			"product_name" => 1,
-			"product_name_$lc" => 1,
-			"brands" => 1,
-			"images" => 1,
-			"quantity" => 1
-		};
-		
 		my $cursor;
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
@@ -3893,19 +3898,10 @@ sub search_and_display_products($$$$$) {
 				}	
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
-				#for API (json, xml, rss,...), display all fields
-				if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
-					$cursor = execute_query(sub {
-						return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-					});
-				} else {
-				#for HTML, limit the fields we retrieve from MongoDB
-					$cursor = execute_query(sub {
-						return get_products_collection()->query($query_ref)->fields($fields_html)->sort($sort_ref)->limit($limit)->skip($skip);
-					});
-
-				}
+				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$cursor = execute_query(sub {
+					return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				});
 				$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 			}
 		};
