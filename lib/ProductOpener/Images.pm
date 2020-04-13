@@ -282,7 +282,7 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expanded" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
+<a href="#" class="button expanded" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
 <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -1351,7 +1351,7 @@ sub display_image($$$) {
 			}
 
 			$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="hide-for-xlarge" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 ;
 

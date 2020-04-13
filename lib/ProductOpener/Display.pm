@@ -5778,7 +5778,7 @@ HTML
 			}
 		}
 		else {
-			$links = '<ul class="side-nav" style="padding-top:0">';
+			$links = '<ul class="vertical menu" style="padding-top:0">';
 			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
 			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
 			$links .= "</ul>";
@@ -5786,7 +5786,7 @@ HTML
 
 		$content .= <<HTML
 <form method="post" action="/cgi/session.pl">
-  <div class="small button-group">
+  <div class="button-group">
     <input type="hidden" name="length" value="logout">
     <input type="submit" name=".submit" value="$signout" class="button">
     <a href="/cgi/user.pl?userid=$User_id&type=edit" class="button" title="$Lang{edit_settings}{$lc}">@{[ display_icon('settings') ]}</a>
@@ -5816,7 +5816,7 @@ sub display_on_the_blog($)
 		my $html = join('', (<$IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
-				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
+				'content'=>lang("on_the_blog_content") . '<ul class="vertical menu">' . $html . '</ul>',
 				'id'=>'on_the_blog',
 		};
 		close $IN;
@@ -6534,7 +6534,7 @@ HTML
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
 					</div>
 					$tagline
-					<form action="/cgi/search.pl" class="hide-for-large-up">
+					<form action="/cgi/search.pl" class="hide-for-large">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="input-group">
@@ -6769,7 +6769,7 @@ HTML
 		</div>
 	</div>
 
-	<input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
+	<input type="submit" value="$Lang{no_barcode}{$lc}" class="button small expanded">
 </form>
 HTML
 ;
@@ -7477,7 +7477,7 @@ HTML
 	$html .= <<HTML
 <h2>$Lang{product_characteristics}{$lc}</h2>
 <div class="grid-x">
-<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell hide-for-large medium-12">$html_image</div>
 <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 $html_fields
 </div>
@@ -7517,7 +7517,7 @@ HTML
 		$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}</h2>
 <div class="grid-x">
-<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell hide-for-large medium-12">$html_image</div>
 <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 HTML
 ;
@@ -7843,7 +7843,7 @@ HTML
 	$html .= <<HTML
 <h2>$Lang{nutrition_data}{$lc}</h2>
 <div class="grid-x">
-<div class="cell hide-for-large-up medium-12">$html_image</div>
+<div class="cell hide-for-large medium-12">$html_image</div>
 <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
 HTML
 ;

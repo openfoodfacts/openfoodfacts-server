@@ -308,6 +308,28 @@ a {
   .menu .menu-text {
     padding: 0;
   }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:visited {
+      color: #000;
+    }
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &.button {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 40.063em) {
@@ -422,6 +444,30 @@ a[aria-controls="idOfLeftMenu"] {
     font-size: 1.8rem;
   }
 
+}
+
+.title-bar {
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:visited {
+      color: #000;
+    }
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &.button {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .no-js {
