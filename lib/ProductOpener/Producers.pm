@@ -530,7 +530,7 @@ sub init_nutrients_columns_names_for_lang($) {
 	$nutriment_table = $cc_nutriment_table{default};
 
 	# Go through the nutriment table
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutriment (sort keys %Nutriments) {
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
