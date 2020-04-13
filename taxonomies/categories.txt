@@ -2689,6 +2689,34 @@ protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Beverages
+en:Still fruit soft drink with sugar
+fr:Boisson plate aux fruits sucrée
+ciqual_food_code:en:18309
+ciqual_food_name:en:Fruit soft drink, still (fruit juice content unspecified), with sugar
+ciqual_food_name:fr:Boisson plate aux fruits (teneur en jus non spécifiée), sucrée
+
+<en:Beverages
+en:Still fruit soft drink with sugar and with less than 10% of fruit juice
+fr:Boisson plate aux fruits sucrée avec moins de 10% de jus
+ciqual_food_code:en:18023
+ciqual_food_name:en:Fruit soft drink, still (less than 10% of fruit juice), with sugar
+ciqual_food_name:fr:Boisson plate aux fruits (à moins de 10% de jus), sucrée
+
+<en:Beverages
+en:Still fruit soft drink with reduced sugar and with 10-50% of fruit juice
+fr:Boisson plate aux fruits avec 10 à 50% de jus à teneur réduite en sucres
+ciqual_food_code:en:18304
+ciqual_food_name:en:Fruit soft drink, still (10-50% of fruit juice), reduced sugar
+ciqual_food_name:fr:Boisson plate aux fruits (10 à 50% de jus), à teneur réduite en sucres
+
+<en:Beverages
+en:Still fruit soft drink with sugar and with 10-50% of fruit juice
+fr:Boisson plate aux fruits sucrée avec 10 à 50% de jus
+ciqual_food_code:en:18339
+ciqual_food_name:en:Fruit soft drink, still (10-50% of fruit juice), with sugar
+ciqual_food_name:fr:Boisson plate aux fruits (10 à 50% de jus), sucrée
+
+<en:Beverages
 en:Carbonated drinks
 ca:Begudes carbonatades
 cs:Sycené nápoje
@@ -2707,7 +2735,7 @@ th:น้ำอัดลม
 zh:碳酸饮料
 
 <en:Carbonated drinks
-en:Sodas, soft drinks, carbonated soft drinks
+en:Sodas, carbonated soft drinks
 ca:Refrescs, refrescs carbonatats
 de:Erfrischungsgetränke, Softdrink, Erfrischungsgetränk
 es:Sodas, Gaseosas
@@ -2725,6 +2753,49 @@ th:น้ำอัดลม
 zh:汽水, 软性饮料, 苏打饮料
 wikidata:en:Q147538
 
+<en:Carbonated drinks
+en:Carbonated soft drinks without fruit juice with sugar
+fr:Boissons gazeuses sucrées sans jus de fruit
+ciqual_food_code:en:18026
+ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar
+ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée
+
+<en:Carbonated drinks
+<en:Diet beverages
+en:Carbonated soft drinks without fruit juice with reduced sugar
+fr:Boissons gazeuses sans jus de fruit à teneur réduite en sucres
+ciqual_food_code:en:18032
+ciqual_food_name:en:Soft drink, carbonated, without fruit juice, reduced sugar
+ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, à teneur réduite en sucres
+
+<en:Carbonated drinks
+en:Carbonated soft drinks without fruit juice with sugar and artificial sweeteners
+fr:Boissons gazeuses sans jus de fruit sucrées avec édulcorants
+ciqual_food_code:en:18078
+ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar and artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée, avec édulcorants
+
+<en:Carbonated drinks
+en:Carbonated fruit soft drinks with sugar with 10-50% of fruit juice
+fr:Boissons gazeuses non sucrées aux fruits avec 10 à 50% de jus
+ciqual_food_code:en:18019
+ciqual_food_name:en:Fruit soft drink, carbonated (10-50% of fruit juice), with sugar
+ciqual_food_name:fr:Boisson gazeuse aux fruits (de 10 à 50% de jus), sucrée
+
+<en:Carbonated drinks
+en:Carbonated fruit soft drink with sugar and artificial sweeteners and with less than 10% of fruit juice
+fr:Boisson gazeuse aux fruits sucrée avec édulcorants et moins de 10% de jus
+ciqual_food_code:en:18033
+ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar and artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée, avec édulcorants
+
+<en:Carbonated drinks
+en:Carbonated fruit soft drink with sugar and less than 10% of fruit juice
+fr:Boisson gazeuse aux fruits sucrée avec moins de 10% de jus
+ciqual_food_code:en:18049
+ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar
+ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée
+
 <en:Sodas
 en:Tonic water
 de:Tonic Water
@@ -2736,6 +2807,27 @@ nl:Tonics, Tonic water
 ru:Тоник
 zh:通宁水
 wikidata:en:Q237315
+
+<en:Tonic water
+en:Tonic drink with sugar
+fr:Tonic sucré, Bitter sucré
+ciqual_food_code:en:18344
+ciqual_food_name:en:Tonic drink, with sugar
+ciqual_food_name:fr:Tonic ou bitter, sucré
+
+<en:Tonic water
+en:Tonic drink without sugar with artificial sweeteners
+fr:Tonic non sucré avec édulcorants, Bitter non sucré avec édulcorants
+ciqual_food_code:en:18013
+ciqual_food_name:en:Tonic drink, without sugar, with artificial sweetener(s)
+ciqual_food_name:fr:Tonic ou bitter, non sucré, avec édulcorants
+
+<en:Tonic water
+en:Tonic drink with sugar and artificial sweeteners
+fr:Tonic sucré avec édulcorants, Bitter sucré avec édulcorants
+ciqual_food_code:en:18014
+ciqual_food_name:en:Tonic drink, with sugar and artificial sweetener(s)
+ciqual_food_name:fr:Tonic ou bitter, sucré, avec édulcorants
 
 <en:Diet beverages
 <en:Sodas
@@ -2771,12 +2863,23 @@ nl:Light vruchtenfrisdranken
 
 <en:Diet sodas
 <en:Colas
-en:Diet cola soft drink
+en:Diet cola soft drink, Cola without sugar and with artificial sweeteners
 de:Kalorienarme Colas, Kalorienreduzierte Colas, Light Colas
 fi:Dieettikola
-fr:Sodas au cola light, colas light, cola light
+fr:Sodas au cola light, colas light, cola light, Cola non sucré avec édulcorants
 nl:Light cola's
 ro:Cola light
+ciqual_food_code:en:18060
+ciqual_food_name:en:Cola, without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Cola, non sucré, avec édulcorants
+
+<en:Diet sodas
+<en:Colas
+en:Cola without sugar with artificial sweeteners and with caffeine
+fr:Cola non sucré avec édulcorants sans caféine
+ciqual_food_code:en:18068
+ciqual_food_name:en:Cola, without sugar, with artificial sweetener(s) and with caffeine
+ciqual_food_name:fr:Cola, non sucré, avec édulcorants, sans caféine
 
 <en:Sodas
 <en:Fruit-based beverages
@@ -2843,6 +2946,21 @@ sv:Energidrycker
 zh:能量饮料
 wikidata:en:Q215754
 wikidata_category:en:Q7214078
+
+<en:Energy drinks
+en:Energy drink with sugar
+fr:Boisson énergisante sucrée
+ciqual_food_code:en:18352
+ciqual_food_name:en:Energy drink, with sugar
+ciqual_food_name:fr:Boisson énergisante, sucrée
+
+<en:Energy drinks
+en:Energy drink without sugar and with artificial sweeteners
+fr:Boisson énergisante non sucrée avec édulcorants
+ciqual_food_code:en:18353
+ciqual_food_name:en:Energy drink, without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Boisson énergisante, non sucrée, avec édulcorants
+
 
 
 # description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
@@ -2921,6 +3039,34 @@ zh:檸檬水
 wikidata:en:Q893
 wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 
+<en:Lemonades
+en:Lemonade with sugar
+fr:Limonade sucrée
+ciqual_food_code:en:18010
+ciqual_food_name:en:Lemonade, with sugar
+ciqual_food_name:fr:Limonade, sucrée
+
+<en:Lemonades
+en:Lemonade with sugar and artificial sweeteners
+fr:Limonade sucrée avec édulcorants
+ciqual_food_code:en:18016
+ciqual_food_name:en:Lemonade, with sugar and artificial sweetener(s)
+ciqual_food_name:fr:Limonade, sucrée, avec édulcorants
+
+<en:Lemonades
+en:Lemonade without sugar with artificial sweeteners
+fr:Limonade non sucrée avec édulcorants
+ciqual_food_code:en:18035
+ciqual_food_name:en:Lemonade, without sugar, with artificial sweetener(s)
+ciqual_food_name:fr:Limonade, non sucrée, avec édulcorants
+
+<en:Lemonades
+en:Lemonade with flavoured syrup
+fr:Diabolo, Limonade et sirop
+ciqual_food_code:en:18039
+ciqual_food_name:en:Lemonade with a flavoured syrup
+ciqual_food_name:fr:Diabolo (limonade et sirop)
+
 <en:Sodas
 en:Colas, Cola
 ca:Cola, Coles
@@ -2934,6 +3080,27 @@ nl_be:Cola's, Colas
 ro:Cola
 zh:可乐
 wikidata:en:Q134041
+
+<en:Colas
+en:Cola with sugar
+fr:Cola sucré
+ciqual_food_code:en:18018
+ciqual_food_name:en:Cola, with sugar
+ciqual_food_name:fr:Cola, sucré
+
+<en:Colas
+en:Cola with sugar and artificial sweetener(s)
+fr:Cola sucré avec édulcorants
+ciqual_food_code:en:18037
+ciqual_food_name:en:Cola, with sugar and artificial sweetener(s)
+ciqual_food_name:fr:Cola, sucré, avec édulcorants
+
+<en:Colas
+en:Cola with sugar and without caffeine
+fr:Cola sucré sans caféine
+ciqual_food_code:en:18067
+ciqual_food_name:en:Cola, with sugar and without caffeine
+ciqual_food_name:fr:Cola, sucré, sans caféine
 
 <en:Colas
 en:Cola sodas without caffeine
@@ -5189,7 +5356,7 @@ cs:Voda
 de:Wasser, Wässer
 es:Aguas, aguas embotelladas, agua embotellada
 fi:vedet
-fr:Eaux, eau, eaux en bouteilles, eau en bouteille
+fr:Eaux, eau, eaux en bouteilles, eau en bouteille, Eau de source en bouteille, Eau de source embouteillée
 hu:Vízek
 it:Acque, acqua, acque in bottiglia, acqua in bottiglia
 nl:Waters, Water
@@ -5200,6 +5367,9 @@ th:น้ำดื่ม
 zh:水
 wikidata:en:Q283
 pnns_group_2:en:Waters and flavored waters
+ciqual_food_code:en:18430
+ciqual_food_name:en:Water, bottled
+ciqual_food_name:fr:Eau embouteillée de source
 
 <en:Waters
 en:Drinking water
@@ -25136,6 +25306,13 @@ la:Panicum miliaceum
 nl:Gierst
 wikidata:en:Q165196
 
+<en:Millet
+en:Unsalted cooked millet
+fr:Mil cuit non salé
+ciqual_food_code:en:9331
+ciqual_food_name:en:Millet, cooked, unsalted
+ciqual_food_name:fr:Mil, cuit, non salé
+
 <en:Cereal grains
 en:Quinoa
 de:Quinoa
@@ -25675,6 +25852,9 @@ it:Grano khorasan
 la:Triticum turanicum, Triticum turgidum subsp. turanicum
 nl:Khorasantarwe, Kamut
 wikidata:en:Q11163068
+ciqual_food_code:en:9003
+ciqual_food_name:en:Khorasan wheat
+ciqual_food_name:fr:Blé de Khorasan, cru
 
 <en:Wheats
 en:Spelts, Spelt flour
@@ -30221,16 +30401,19 @@ fr:Boissons au millet, Boissons végétales de millet, Laits de millet
 nl:Gierstdranken
 
 <en:Cereal milks
-en:Oat milks, Oat drinks
+en:Oat milks, Oat drinks, Plain oat-based drinks
 ca:Beguda de civada
 de:Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
 es:Bebidas de avena, Leches de avena
 fi:kaurajuomat
-fr:Boissons à l'avoine, laits d'avoine, lait d’avoine
+fr:Boissons à l'avoine, laits d'avoine, lait d’avoine, Boissons à base d'avoine
 it:Bevanda di avena
 nl:Havermoutmelken
 se:Havredrycker, havredryck
 zh:燕麦奶
+ciqual_food_code:en:18905
+ciqual_food_name:en:Oat-based drink, plain
+ciqual_food_name:fr:Boisson à base d'avoine, nature
 
 <en:Cereal milks
 en:Quinoa milks, Quinoa drinks
@@ -30311,14 +30494,17 @@ it:Bevanda di farro
 nl:Speltdranken
 
 <en:Plant milks
-en:Coconut milks, Coconut drinks
+en:Coconut milks, Coconut drinks, , Coconut creams
 ca:Beguda de coco
 de:Kokosmilch, Kokosmilche, Kokosmilchen, Kokos-Drinks, Kokos-Drink, Kokosdrink, Kokosdrinks, Kokosnussmilch, Kokosnussmilche, Kokosnussmilchen, Kokosnuss-Drinks, Kokosnuss-Drink, Kokosnussdrink, Kokosnussdrinks
 es:Leches de coco, Bebidas de coco
 fi:kookosjuomat
-fr:Laits de coco, lait de coco
+fr:Laits de coco, lait de coco, Crèmes de coco, Crème de coco
 nl:Kokosnootdranken
 wikidata:en:Q841779
+ciqual_food_code:en:18041
+ciqual_food_name:en:Coconut milk or coconut cream
+ciqual_food_name:fr:Lait de coco ou Crème de coco
 
 <en:Plant milks
 en:Hemp milks, Hemp seed milks
@@ -30344,12 +30530,15 @@ ca:Beguda de soja
 de:Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
 es:Bebidas de soja, bebida de soya, Leches de soja
 fi:soijajuomat
-fr:Boissons végétales de soja, Laits de soja, Lait de soja
+fr:Boissons végétales de soja, Laits de soja, Lait de soja, Boissons au soja
 it:Bevanda di soia
 nl:Sojadranken
 pl:Napoje sojowe, napój sojowy
 se:Sojadrycker, sojadryck
 wikidata:en:Q192199
+ciqual_food_code:en:18900
+ciqual_food_name:en:Soy drink, plain
+ciqual_food_name:fr:Boisson au soja, nature
 
 <en:Soy milks
 en:Unsweetened natural soy milks, Unsweetened natural soy drinks
@@ -30388,6 +30577,20 @@ en:Coffee soy milks, Coffee soy drinks
 es:Bebidas de soja con café, Leches de soja con café
 fr:Boissons végétales de soja avec du café, Laits de soja avec du café
 nl:Koffiesojadranken
+
+<en:Soy milks
+en:Soy drinks flavoured with sugar
+fr:Boissons au soja aromatisées sucrées
+ciqual_food_code:en:18902
+ciqual_food_name:en:Soy drink, flavoured, with sugar
+ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée
+
+<en:Soy milks
+en:Flavoured soy drinks enriched in calcium with sugar, Flavoured soy drinks enriched in calcium with fruit concentrate
+fr:Boissons au soja aromatisées sucrées enrichies en calcium
+ciqual_food_code:en:18903
+ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
+ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
 
 <en:Plant milks
 en:Mixed plant milks, Mixed plant drinks
@@ -34811,6 +35014,13 @@ it:Crusche di segale
 nl:Roggezemelen
 
 <en:Cereal brans
+en:Maize bran, Corn bran
+fr:Son de maïs
+ciqual_food_code:en:9641
+ciqual_food_name:en:Maize/corn bran
+ciqual_food_name:fr:Son de maïs
+
+<en:Cereal brans
 en:Wheat brans, Wheat bran
 es:Salvados de trigo
 fr:Sons de blé, Son des blé, Son de blé
@@ -35970,6 +36180,13 @@ ciqual_food_code:en:9614
 ciqual_food_name:en:Polenta or Maize/corn semolina, pre-cooked, dried
 ciqual_food_name:fr:Polenta ou semoule de maïs, précuite, sèche
 
+<en:Corn semolinas
+en:Unsalted polenta, Cooked unsalted maize semolina
+fr:Polenta non salée, Semoule de maïs cuite non salée
+ciqual_food_code:en:9615
+ciqual_food_name:en:Polenta or maize semolina, cooked, unsalted
+ciqual_food_name:fr:Polenta ou semoule de maïs, cuite, non salée
+
 <en:Cereal semolinas
 en:Rice semolinas
 de:Reisgrieße, Reisgrieß
@@ -35993,12 +36210,33 @@ fr:Semoules de blé dur
 nl:Harde tarwegriesmelen
 wikidata:en:Q381350
 
-<en:Wheat semolinas
+<en:Durum wheat semolinas
 en:Raw durum wheat semolina
 fr:Semoules de blé dur crues
 ciqual_food_code:en:9610
 ciqual_food_name:en:Durum wheat semolina, raw
 ciqual_food_name:fr:Semoule de blé dur, crue
+
+<en:Durum wheat semolinas
+en:Pre-cooked durum wheat whole grain to pan-fry
+fr:Blé dur précuit en grains entiers à poêler
+ciqual_food_code:en:9083
+ciqual_food_name:en:Durum wheat pre-cooked, whole grain, cooked, to pan-fry
+ciqual_food_name:fr:Blé dur précuit, grains entiers, cuisiné, à poêler
+
+<en:Durum wheat semolinas
+en:Pre-cooked durum wheat in a microwaveable bag
+fr:Blé dur précuit en sachet micro-ondable
+ciqual_food_code:en:9082
+ciqual_food_name:en:Durum wheat, pre-cooked, cooked, in a microwaveable bag
+ciqual_food_name:fr:Blé dur précuit cuisiné, en sachet micro-ondable
+
+<en:Durum wheat semolinas
+en:Unsalted pre-cooked durum wheat with whole grain
+fr:Blé dur précuit non salé en grains entiers
+ciqual_food_code:en:9081
+ciqual_food_name:en:Durum wheat pre-cooked, whole grain, cooked, unsalted
+ciqual_food_name:fr:Blé dur précuit, grains entiers, cuit, non salé
 
 <en:Wheat semolinas
 en:Soft wheat semolinas, Soft wheat farina
@@ -36023,11 +36261,25 @@ ciqual_food_name:en:Frik (crushed immature durum wheat), raw
 ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 
 <en:Durum wheat semolinas
+en:Cooked unsalted frik, Cooked unsalted crushed immature durum wheat
+fr:Frik non salé, Blé dur immature concassé cuit non salé
+ciqual_food_code:en:51511
+ciqual_food_name:en:Frik (crushed immature durum wheat), cooked, unsalted
+ciqual_food_name:fr:Frik (blé dur immature concassé), cuit, non salé
+
+<en:Durum wheat semolinas
 en:Raw whole durum wheat
 fr:Blé dur entier cru
 ciqual_food_code:en:9060
 ciqual_food_name:en:Durum wheat, whole, raw
 ciqual_food_name:fr:Blé dur entier, cru
+
+<en:Durum wheat semolinas
+en:Raw pre-cooked whole wheat
+fr:Blé dur précuit entier
+ciqual_food_code:en:9080
+ciqual_food_name:en:Wheat, whole, pre-cooked, raw
+ciqual_food_name:fr:Blé dur précuit, entier, cru
 
 <en:Cereals and their products
 <en:Starches
@@ -36116,6 +36368,13 @@ wikidata:en:Q250432
 ciqual_food_code:en:9690
 ciqual_food_name:en:Wheat bulgur, raw
 ciqual_food_name:fr:Boulgour de blé, cru
+
+<en:Wheat groats
+en:Unsalted cooked wheat bulgur
+fr:Boulgour de blé cuit non salé
+ciqual_food_code:en:9691
+ciqual_food_name:en:Wheat bulgur, cooked, unsalted
+ciqual_food_name:fr:Boulgour de blé, cuit, non salé
 
 <en:Wheat groats
 en:Durum wheat groats
@@ -37481,6 +37740,14 @@ nl:Golden Delicious appels
 wikidata:en:Q201996
 
 <en:Apples
+<en:Sweet Apples
+en:Raw Golden apple pulp and skin
+fr:Pulpe et peau de pomme Golden crue
+ciqual_food_code:en:13620
+ciqual_food_name:en:Apple, var. Golden, pulp and skin, raw
+ciqual_food_name:fr:Pomme Golden, pulpe et peau, crue
+
+<en:Apples
 <en:Acidic apples
 en:Granny Smith apples, Granny Smith
 de:Granny Smith Äpfel, Granny Smith
@@ -37514,6 +37781,15 @@ fr:Pommes Reinettes du Canada, Pommes Canada Grises, Pommes du Canada, Reinettes
 wikidata:en:Q1723442
 
 <en:Apples
+<en:Russet apples
+<en:Acidic apples
+en:Raw Canada apple pulp
+fr:Pulpe de pomme Canada crue
+ciqual_food_code:en:13085
+ciqual_food_name:en:Apple, Canada, pulp, raw
+ciqual_food_name:fr:Pomme Canada, pulpe, crue
+
+<en:Apples
 en:Boiled raw apples without skin, Raw apples without skin cooked in water
 fr:Pulpe de pomme bouillie, Pulpe de pomme cuite à l'eau
 ciqual_food_code:en:13176
@@ -37526,6 +37802,20 @@ fr:Pulpe de pomme rôtie, Pulpe de pomme cuite au four
 ciqual_food_code:en:13175
 ciqual_food_name:en:Apple, pulp, roasted/baked
 ciqual_food_name:fr:Pomme, pulpe, rôtie/cuite au four
+
+<en:Apples
+en:Raw apple pulp and peel
+fr:Pulpe et peau de pomme crue
+ciqual_food_code:en:13039
+ciqual_food_name:en:Apple, pulp and peel, raw
+ciqual_food_name:fr:Pomme, pulpe et peau, crue
+
+<en:Apples
+en:Raw apple pulp
+fr:Pulpe de pomme crue
+ciqual_food_code:en:13050
+ciqual_food_name:en:Apple, pulp, raw
+ciqual_food_name:fr:Pomme, pulpe, crue
 
 <en:Fruits
 en:Apricots
@@ -39196,6 +39486,13 @@ es:Peras en almíbar
 fi:päärynät sokeriliemessä
 fr:Poires au sirop
 nl:Peren op siroop
+
+<en:Pears in syrup
+en:Canned pears in light syrup not drained
+fr:Poires au sirop léger appertisées non égouttées, Poires au sirop léger en conserve non égouttées
+ciqual_food_code:en:13735
+ciqual_food_name:en:Pear, canned in light syrup, not drained
+ciqual_food_name:fr:Poire au sirop léger, appertisée, non égouttée
 
 <en:Fruits in syrup
 en:Grapefruits in syrup
@@ -43199,6 +43496,20 @@ en:Savory semolina dishes
 fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
 
+<en:Meals
+en:Couscous, Durum wheat semolina pre-cooked with steam
+fr:Couscous, Semoule de blé dur roulée précuite à la vapeur
+ciqual_food_code:en:9681
+ciqual_food_name:en:Couscous (durum wheat semolina pre-cooked with steam), raw
+ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur), crue
+
+<en:Meals
+en:Cooked unsalted couscous, Unsalted durum wheat semolina pre-cooked with steam
+fr:Couscous non salé, Semoule de blé dur roulée précuite à la vapeur non salée
+ciqual_food_code:en:9683
+ciqual_food_name:en:Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
+ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
+
 <en:Savory semolina dishes
 en:Prepared couscous
 fi:kypsennetty couscous
@@ -44374,6 +44685,13 @@ ciqual_food_name:en:Soup, pistou (basil, garlic and olive oil), prepacked, to be
 ciqual_food_name:fr:Soupe au pistou, préemballée à réchauffer
 
 <en:Soups
+en:Dehydrated and reconstituted pistou soup, Dehydrated and reconstituted soup with basil garlic and olive oil
+fr:Soupe au pistou déshydratée reconstituée
+ciqual_food_code:en:25917
+ciqual_food_name:en:Soup, pistou (basil, garlic and olive oil), dehydrated and reconstituted
+ciqual_food_name:fr:Soupe au pistou, déshydratée reconstituée
+
+<en:Soups
 en:Cold soups
 de:Kalte Suppen
 es:Sopas frías
@@ -44591,6 +44909,13 @@ es:Caldos en polvo, Caldos granulados, Caldos solubles instantáneos
 fi:liemijauheet
 fr:Bouillons en poudre
 nl:Boullons in poeder
+
+<en:Dehydrated broths
+en:Dehydrated aromatic stock cube for fish
+fr:Court-bouillon pour poissons déshydraté
+ciqual_food_code:en:11172
+ciqual_food_name:en:Aromatic stock cube, for fish, dehydrated
+ciqual_food_name:fr:Court-bouillon pour poissons, déshydraté
 
 <en:Broths
 en:Liquid broths
@@ -57128,6 +57453,13 @@ ciqual_food_name:en:Syrup, with sugar (to be diluted)
 ciqual_food_name:fr:Sirop à diluer, sucré
 
 <en:Syrups
+en:Mint-flavoured syrup with sugar diluted in water, Strawberry-flavoured syrup with sugar diluted in water
+fr:Boisson préparée sucrée à partir de sirop à la menthe à diluer dans l'eau, Boisson préparée sucrée à partir de sirop aux fraises à diluer dans l'eau
+ciqual_food_code:en:18058
+ciqual_food_name:en:Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
+ciqual_food_name:fr:Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
+
+<en:Syrups
 <en:Sweeteners
 en:Simple syrups
 ca:Xarops simples
@@ -57790,6 +58122,13 @@ fr:Panais frais
 season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Vegetables
+en:Raw parsnip
+fr:Panais cru
+ciqual_food_code:en:20181
+ciqual_food_name:en:Parsnip, raw
+ciqual_food_name:fr:Panais, cru
+
+<en:Vegetables
 en:Cooked parsnip
 fr:Panais cuits
 ciqual_food_code:en:20133
@@ -57830,6 +58169,13 @@ fr:Salsifis cuits
 ciqual_food_code:en:20046
 ciqual_food_name:en:Salsify, cooked
 ciqual_food_name:fr:Salsifis, cuit
+
+<en:Salsifis
+en:Raw black salsify
+fr:Salsifis noirs crus
+ciqual_food_code:en:20197
+ciqual_food_name:en:Salsify, black, raw
+ciqual_food_name:fr:Salsifis noir, cru
 
 <en:Vegetable rods
 en:Artichokes
@@ -58226,6 +58572,13 @@ ciqual_food_name:en:Kohlrabi, boiled/cooked in water
 ciqual_food_name:fr:Chou-rave, bouilli/cuit à l'eau
 
 <en:Cabbages
+en:Raw cabbage turnips
+fr:Choux-raves crus, Chou-rave cru
+ciqual_food_code:en:20065
+ciqual_food_name:en:Turnip cabbage, raw
+ciqual_food_name:fr:Chou-rave, cru
+
+<en:Cabbages
 en:Raw Chinese cabbage, Raw nappa cabbage, Raw bok choy
 fr:Chou chinois, Pak-choi, Pé-tsai cru
 ciqual_food_code:en:20167
@@ -58299,6 +58652,13 @@ fr:Carottes cuites
 ciqual_food_code:en:20008
 ciqual_food_name:en:Carrot, cooked
 ciqual_food_name:fr:Carotte, cuite
+
+<en:Carrots
+en:Raw carrots
+fr:Carottes crues
+ciqual_food_code:en:20009
+ciqual_food_name:en:Carrot, raw
+ciqual_food_name:fr:Carotte, crue
 
 <en:Carrots
 <en:Fresh vegetables
@@ -58384,6 +58744,14 @@ ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
 ciqual_food_name:fr:Céleri branche, cru
 
+<en:Celery
+en:Raw celeriac
+fr:Céleri-rave cru
+ciqual_food_code:en:20055
+ciqual_food_name:en:Celeriac, raw
+ciqual_food_name:fr:Céleri-rave, cru
+
+<en:Celery
 en:Cooked celeriac
 fr:Céleri-rave cuit
 ciqual_food_code:en:20025
@@ -58696,8 +59064,11 @@ nl:Knoflook
 <en:Garlic
 <en:Fresh vegetables
 en:Fresh garlic
-fr:Ail frais
+fr:Ail frais, Ail cru
 season_in_country_fr:en: 7,8,9,10,11,12
+ciqual_food_code:en:11000
+ciqual_food_name:en:Garlic, fresh
+ciqual_food_name:fr:Ail, cru
 
 <en:Garlic
 en:Allium neapolitanum
@@ -59058,6 +59429,13 @@ fr:Oignons frais
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 <en:Onions
+en:Raw onions
+fr:Oignons crus
+ciqual_food_code:en:20034
+ciqual_food_name:en:Onion, raw
+ciqual_food_name:fr:Oignon, cru
+
+<en:Onions
 en:Cooked onions
 fr:Oignons cuits
 ciqual_food_code:en:20035
@@ -59356,11 +59734,25 @@ ciqual_food_name:en:Potato, sautéed/pan-fried
 ciqual_food_name:fr:Pomme de terre, sautée/poêlée
 
 <en:Potatoes
+en:Sautéed potato with goose fat, Pan-fried potato with goose fat
+fr:Pommes de terre sautées à la graisse de canard, Pommes de terre poêlées à la graisse de canard
+ciqual_food_code:en:4036
+ciqual_food_name:en:Potato, sautéed/pan-fried, with goose fat
+ciqual_food_name:fr:Pomme de terre sautée/poêlée à la graisse de canard
+
+<en:Potatoes
 en:Vacuum-packed steamed potatoes
 fr:Pommes de terre vapeur sous vide
 ciqual_food_code:en:4014
 ciqual_food_name:en:Potato, steamed, vacuum-packed
 ciqual_food_name:fr:Pomme de terre vapeur, sous vide
+
+<en:Potatoes
+en:Raw new potatoes
+fr:Pommes de terre nouvelles crues
+ciqual_food_code:en:4023
+ciqual_food_name:en:New potato, raw
+ciqual_food_name:fr:Pomme de terre nouvelle, crue
 
 #<en:Potatoes
 it:Patata dell'Alto Viterbese
@@ -59768,10 +60160,25 @@ ciqual_food_name:fr:Épinard, cuit
 
 <en:Spinachs
 <en:Fresh vegetables
+en:Raw spinach
+fr:Épinards crus
+ciqual_food_code:en:20059
+ciqual_food_name:en:Spinach, raw
+ciqual_food_name:fr:Épinard, cru
+
+<en:Spinachs
+<en:Fresh vegetables
 en:Fresh spinachs
 de:Frischer Spinat
 fr:Épinards frais
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
+
+<en:Spinachs
+en:Raw spinach young leaves
+fr:Jeunes pousses d'épinards pour salades
+ciqual_food_code:en:20270
+ciqual_food_name:en:Spinach, young leaves, raw
+ciqual_food_name:fr:Épinard, jeunes pousses pour salades, cru
 
 <en:Cereals and potatoes
 en:Sweet potatoes
@@ -59874,6 +60281,13 @@ wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 
 <en:Turnip
+en:Raw rutabaga, Raw swede
+fr:Rutabaga cru
+ciqual_food_code:en:20201
+ciqual_food_name:en:Rutabaga or Swede, raw
+ciqual_food_name:fr:Rutabaga, cru
+
+<en:Turnip
 en:Cooked rutabaga, Cooked swede
 fr:Rutabaga cuit
 ciqual_food_code:en:20165
@@ -59886,6 +60300,13 @@ fr:Navets cuits
 ciqual_food_code:en:20033
 ciqual_food_name:en:Turnip, cooked
 ciqual_food_name:fr:Navet, cuit
+
+<en:Turnip
+en:Raw peeled turnips
+fr:Navets pelés crus
+ciqual_food_code:en:20064
+ciqual_food_name:en:Turnip, peeled, raw
+ciqual_food_name:fr:Navet, pelé, cru
 
 <en:Turnip
 en:Fresh turnips
@@ -59980,6 +60401,13 @@ en:Fresh zucchini
 de:Frische Zucchini
 fr:Courgettes fraîches
 season_in_country_fr:en: 5,6,7,8,9,10
+
+<en:Zucchini
+en:Raw courgette pulp and peel, Raw zucchini pulp and peel
+fr:Pulpe et peau de courgette crue
+ciqual_food_code:en:20020
+ciqual_food_name:en:Courgette or zucchini, pulp and peel, raw
+ciqual_food_name:fr:Courgette, pulpe et peau, crue
 
 <en:Zucchini
 en:Cooked pulp and peel courgette, Cooked pulp and peel zucchini
@@ -60497,6 +60925,13 @@ pt:Pulsos
 wikidata:en:Q2727662
 
 <en:Pulses
+en:Dried flageolet green beans
+fr:Flageolets verts secs, Haricots flageolets verts secs
+ciqual_food_code:en:20539
+ciqual_food_name:en:Flageolet bean, green, dried
+ciqual_food_name:fr:Haricot flageolet, vert, sec
+
+<en:Pulses
 en:Azuki beans, Adzuki beans
 de:Adzukibohnen
 es:Azukis
@@ -60511,6 +60946,13 @@ fr:Pois cassés secs
 ciqual_food_code:en:20515
 ciqual_food_name:en:Split pea, dried
 ciqual_food_name:fr:Pois cassé, sec
+
+<en:Pulses
+en:Cooked split peas
+fr:Pois cassés cuits
+ciqual_food_code:en:20506
+ciqual_food_name:en:Split pea, cooked
+ciqual_food_name:fr:Pois cassé, cuit
 
 <en:Pulses
 en:Bambara groundnuts, Bambara beans
@@ -60649,6 +61091,13 @@ fr:Haricots rouges
 nl:Nierbonen
 wikidata:en:Q18175531
 
+<en:Red beans
+en:Dried red kidney beans
+fr:Haricots rouges secs
+ciqual_food_code:en:20525
+ciqual_food_name:en:Red kidney bean, dried
+ciqual_food_name:fr:Haricot rouge, sec
+
 <en:Common beans
 en:White beans
 ca:Fesols blanques, Mongetes blanques
@@ -60657,6 +61106,20 @@ es:Alubias blancas, Judías blancas
 fi:valkoiset pavut
 fr:Haricots blancs
 nl:Witte bonen
+
+<en:White beans
+en:Cooked haricot beans
+fr:Haricots blancs cuits
+ciqual_food_code:en:20502
+ciqual_food_name:en:Haricot bean, cooked
+ciqual_food_name:fr:Haricot blanc, cuit
+
+<en:White beans
+en:Dry haricot beans
+fr:Haricots blancs secs
+ciqual_food_code:en:20501
+ciqual_food_name:en:Haricot bean, dry
+ciqual_food_name:fr:Haricot blanc, sec
 
 <en:White beans
 en:White kidney beans
@@ -60982,12 +61445,26 @@ fr:Flageolets en conserve
 nl:Flageoletbonen in blik
 
 <en:Canned common beans
+en:Canned drained flageolet beans
+fr:Flageolets appertisés égouttés, Flageolets en conserve égouttés, Haricots flageolets appertisés égouttés, Haricots flageolets en conserve égouttés
+ciqual_food_code:en:20508
+ciqual_food_name:en:Flageolet bean, canned, drained
+ciqual_food_name:fr:Haricot flageolet, appertisé, égouttés
+
+<en:Canned common beans
 en:Canned kidney common beans
 de:Kidneybohnen in Dosen
 es:Alubias rojas cocidas en conserva
 fi:purkitettuja kidneypapuja
 fr:Haricots rouges en conserve
 nl:Rode bonen in blik
+
+<en:Canned common beans
+en:Canned drained red kidney beans
+fr:Haricots rouges appertisés égouttés
+ciqual_food_code:en:20524
+ciqual_food_name:en:Red kidney bean, canned, drained
+ciqual_food_name:fr:Haricot rouge, appertisé, égoutté
 
 <en:Canned common beans
 en:Canned white common beans
@@ -61007,6 +61484,13 @@ es:Lentejas cocidas en conserva, Lentejas en conserva
 fi:purkitettuja linssejä
 fr:Lentilles en conserve
 nl:Linzen in blik
+
+<en:Canned legumes
+en:Canned drained seasoned lentils
+fr:Lentilles cuisinées appertisées égouttées, Lentilles cuisinées égouttées en conserve
+ciqual_food_code:en:20510
+ciqual_food_name:en:Lentil, seasoned, canned, drained
+ciqual_food_name:fr:Lentille, cuisinée, appertisée, égouttée
 
 <en:Canned legumes
 en:Canned scarlet runner beans, Canned runner beans, Canned multiflora beans
@@ -62855,6 +63339,9 @@ en:Frozen fresh broad beans, Frozen fresh fava beans, Frozen immature broad bean
 es:Habas frescas congeladas, Habitas frescas congeladas, Habas inmaduras congeladas, Habitas inmaduras congeladas, Habas congeladas
 fr:Fèves fraîches surgelées, Féverolles frais surgelés
 nl:Diepvries tuinbonen
+ciqual_food_code:en:20536
+ciqual_food_name:en:Broad bean, fresh, frozen
+ciqual_food_name:fr:Fève, fraîche, surgelée
 
 <en:Frozen vegetables
 <en:Frozen legumes
@@ -62863,6 +63350,30 @@ fr:Fèves pelées surgelées crues
 ciqual_food_code:en:20541
 ciqual_food_name:en:Broad bean, peeled, frozen, raw
 ciqual_food_name:fr:Fève, pelée, surgelée, crue
+
+<en:Frozen vegetables
+<en:Frozen legumes
+en:Frozen water boiled broad beans without peal
+fr:Fèves pelées surgelées cuites à l'eau
+ciqual_food_code:en:20542
+ciqual_food_name:en:Broad bean, without peal, frozen, water boiled
+ciqual_food_name:fr:Fève, pelée, surgelée, cuite à l'eau
+
+<en:Frozen vegetables
+<en:Frozen legumes
+en:Frozen water boiled broad beans
+fr:Fèves surgelées cuites à l'eau
+ciqual_food_code:en:20543
+ciqual_food_name:en:Broad bean, frozen, water boiled
+ciqual_food_name:fr:Fève, surgelée, cuite à l'eau
+
+<en:Frozen vegetables
+<en:Frozen legumes
+en:Frozen flageolet beans
+fr:Haricots flageolets surgelés
+ciqual_food_code:en:20537
+ciqual_food_name:en:flageolet bean, frozen
+ciqual_food_name:fr:Haricot flageolet, surgelé
 
 <en:Frozen vegetables
 <en:Frozen legumes
@@ -65419,6 +65930,13 @@ ciqual_food_code:en:25958
 ciqual_food_name:en:Soup, watercress, prepacked, to be reheated
 ciqual_food_name:fr:Soupe au cresson, préemballée à réchauffer
 
+<en:Soups
+en:Dehydrated and reconstituted watercress soup
+fr:Soupe au cresson déshydratée reconstituée
+ciqual_food_code:en:25957
+ciqual_food_name:en:Soup, watercress, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe au cresson, déshydratée reconstituée
+
 <en:Chocolate bars
 en:Caramel chocolate bars
 de:Schokoriegel mit Karamell, Schokoriegel mit Karamellüberzug, Schokoriegel mit Karamellfüllung
@@ -65443,6 +65961,20 @@ de:Garnierungen
 fi:päällysteet
 fr:Nappages
 nl:Garnering
+
+<en:Cooking helpers
+en:Dehydrated Madeira wine aspic
+fr:Gelée au madère déshydratée
+ciqual_food_code:en:11175
+ciqual_food_name:en:Madeira wine aspic, dehydrated
+ciqual_food_name:fr:Gelée au madère, déshydratée
+
+<en:Cooking helpers
+en:Madeira wine aspic
+fr:Gelée au madère
+ciqual_food_code:en:11176
+ciqual_food_name:en:Madeira wine aspic
+ciqual_food_name:fr:Gelée au madère
 
 <en:Salty snacks
 en:Vegetable cakes
