@@ -198,6 +198,12 @@ foreach my $test_ref (@tests) {
 ],
 
 [
+        { serving_size_value_unit => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size_value_unit => "1 biscuit", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+
+[
         { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
         { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
