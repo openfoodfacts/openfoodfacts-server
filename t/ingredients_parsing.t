@@ -13,7 +13,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 is (normalize_a_of_b("en", "oil", "olive"), "olive oil");
 is (normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
@@ -165,6 +165,36 @@ my @lists =(
 	["fr","Sucre. Fabriqué dans un atelier utilisant des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
 	["fr","Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri.", "Sucre. Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : céleri."],
 	["fr","Sucre. Peut contenir des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
+
+	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
+
+	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
+
+	["de", "Emulgator (Sojalecithine, Mono - und Diglyceride von Speisefettsäuren, Sorbitantristearat)", "Emulgator (Sojalecithine, mono- und Diglyceride von Speisefettsäuren, Sorbitantristearat)"],
+
+	["fr", "Tomates* (20%). *Ingrédients Bio", "Tomates Bio (20%)."],
+	["fr", "Tomates* (20%). *Ingrédients biologiques", "Tomates Bio (20%)."],
+
+	["fr", "Chocolat. Contient du lait et des noisettes. Peut contenir du blé, du soja et des crustacés.", "Chocolat. Substances ou produits provoquant des allergies ou intolérances : lait, Substances ou produits provoquant des allergies ou intolérances : noisettes. Traces éventuelles : blé, Traces éventuelles : soja, Traces éventuelles : crustacés."],
+
+	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
+
+	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium", 
+	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"],
+
+	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
+
+	["en", "S. thermophilus, L casei, L.bulgaricus", "streptococcus thermophilus, lactobacillus casei, lactobacillus bulgaricus"],
+
+	["fr", "jus de citron*. *Ingrédients issus de l'agriculture biologique Peut contenir : œuf, moutarde, graine de sésame, poisson,soja, lait,fruits à coque, céleri.","jus de citron Bio. , Traces éventuelles : œuf, Traces éventuelles : moutarde, Traces éventuelles : graine de sésame, Traces éventuelles : poisson, Traces éventuelles : soja, Traces éventuelles : lait, Traces éventuelles : fruits à coque, Traces éventuelles : céleri."],
+
+	["fr", "Farine, levure. Peut contenir des traces de _soja_, _amandes_, _noisettes_ et _noix de cajou_.", "Farine, levure. Traces éventuelles : _soja_, Traces éventuelles : _amandes_, Traces éventuelles : _noisettes_, Traces éventuelles : _noix de cajou_."],
+
+	# Spanish organic ingredients
+	["es", "Agua, aceite de girasol*. * Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico."],
+	["es", "Agua, aceite de girasol*, arroz* (5 %). (*) Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico, arroz Ecológico (5 %)."],
+	["es", "Tofu* 88% (agua, habas de soja*). *cumple con el reglamento de agricultura ecológica CE 2092/91", "Tofu Ecológico 88% (agua, habas de soja Ecológico )."],
+	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5,5%)."],
 );
 
 foreach my $test_ref (@lists) {

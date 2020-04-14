@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-21 09:16\n"
+"PO-Revision-Date: 2020-04-13 14:38\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -238,6 +238,34 @@ msgstr "ajouter une marque"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Les produits qui ne sont pas de la marque %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr ""
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -943,6 +971,14 @@ msgstr "Nombres d'ingrédients"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Nombre d'ingrédients"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Nombre d'ingrédients reconnus"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Nombre d'ingrédients non reconnus"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2484,7 +2520,11 @@ msgstr "Erreur lors de la déselection de l'image."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Activez le zoom avec la molette de la souris."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Charger les images en basse résolution (pour les connexions lentes)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3358,6 +3398,10 @@ msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Valeur en μg"
 
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr ""
+
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
 msgstr "Valeur en kcal"
@@ -4071,13 +4115,50 @@ msgstr "Certains ingrédients n'ont pas été identifiés."
 # keep the 2 %s : they will be replaced by language names.
 msgctxt "move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr ""
+msgstr "Déplacer toutes les données et les photos sélectionnées dans %s vers la langue principale du produit: %s"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Remplacer les valeurs existantes et les photos sélectionnées"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Conserver les valeurs existantes et les photos sélectionnées"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Fait"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "À faire"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Équipes"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optionnel"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "équipes"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "équipe"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Vous pouvez rejoindre 1 à 3 équipes. Les produits que vous ajouterez ou modifierez vous seront attribués à vous ainsi qu'à votre équipe. Vous pouvez changer d'équipe quand vous voulez."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Les noms d'équipe sont publics. Ne créez pas de noms d'équipe contenant des données personnelles (par ex. noms de famille), des marques déposées (à moins que vous ne les possédiez), ou quoi que ce soit d'offensant."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Équipe %s"
 

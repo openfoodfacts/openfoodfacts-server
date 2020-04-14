@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-21 11:02\n"
+"PO-Revision-Date: 2020-04-13 15:55\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -238,6 +238,34 @@ msgstr "aggiungi una marca"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Prodotti non della marca %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Proprietario della marca"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "The Coca Cola Company"
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr "proprietari della marca"
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr "Prodotti del proprietario della marca %s"
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr "brand_owner"
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr "aggiungi un brand_owner"
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr "Prodotti non del proprietario della marca %s"
 
 msgctxt "by"
 msgid "by"
@@ -941,6 +969,14 @@ msgstr "Numero di ingredienti"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Numero di ingredienti"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Numero di ingredienti riconosciuti"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Numero di ingredienti non riconosciuti"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2483,6 +2519,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "Abilita lo zoom con la rotellina del mouse."
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Carica immagini a risoluzione più bassa (per connessioni lente)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Attenzione: la quantità di fibre non è specificata, il loro possibile contributo positivo al grado non può essere preso in considerazione."
@@ -3355,6 +3395,10 @@ msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Valore in μg"
 
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Valore in UI"
+
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
 msgstr "Valore in kcal"
@@ -4077,4 +4121,41 @@ msgstr "Sostituisci i valori esistenti e le foto selezionate"
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
 msgstr "Mantieni i valori esistenti e le foto selezionate"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Fatto"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Da fare"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Squadra"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "opzionale"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "squadre"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "squadra"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Puoi unirti a 1-3 squadre. I prodotti aggiunti o modificati verranno accreditati a te e alle tue squadre. Le squadre possono essere cambiate in qualsiasi momento."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "I nomi delle squadre sono pubblici. Non creare squadre con nomi contenenti dati personali (ad esempio nomi di famiglia), marchi (a meno che tu non li possieda) o qualcosa di offensivo."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Squadra %s"
 

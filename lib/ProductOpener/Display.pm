@@ -138,7 +138,6 @@ use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
 
 use Cache::Memcached::Fast;
-use Text::Unaccent;
 use Encode;
 use URI::Escape::XS;
 use CGI qw(:cgi :form escapeHTML);
@@ -1622,6 +1621,9 @@ sub display_list_of_tags($$) {
 			#}
 
 			# known tag?
+
+			my $known = 0;
+
 			if ($tagtype eq 'categories') {
 
 				if (defined $request_ref->{stats_nid}) {
@@ -1641,6 +1643,7 @@ sub display_list_of_tags($$) {
 						$td_nutriments .= "<td></td>";
 						$stats{known_tags}++;
 						$stats{known_tags_products} += $count;
+						$known = 1;
 					}
 					else {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
@@ -1655,6 +1658,7 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td></td>";
 					$stats{known_tags}++;
 					$stats{known_tags_products} += $count;
+					$known = 1;
 					# ?missing_property=vegan
 					# keep only known tags without a defined value for the property
 					if ($missing_property) {
@@ -1783,6 +1787,7 @@ sub display_list_of_tags($$) {
 				name => $display,
 				url => $formatted_subdomain . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
+				known => $known,	# 1 if the ingredient exists in the taxonomy, 0 if not
 			};
 
 			if (($#sameAs >= 0)) {
@@ -1875,6 +1880,13 @@ HTML
 					url => "",
 					products => $stats{$tagid} + 0, # + 0 to make the value numeric
 				};
+
+				if ($tagid =~ /_tags_products$/) {
+					$tagentry->{percent} = $stats{$tagid} / $stats{"all_tags_products"} * 100;
+				}
+				else {
+					$tagentry->{percent} = $stats{$tagid} / $stats{"all_tags"} * 100;
+				}
 
 				push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			}
@@ -3857,9 +3869,17 @@ sub search_and_display_products($$$$$) {
 			}
 			else {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
-				$count = execute_query(sub {
-					return get_products_collection()->count_documents($query_ref);
-				});
+				# test if query_ref is empty
+				if (keys %{$query_ref} > 0) {
+					$count = execute_query(sub {
+						return get_products_collection()->count_documents($query_ref);
+					});
+				} else {
+				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+					$count = execute_query(sub {
+						return get_products_collection()->estimated_document_count();
+					});
+				}	
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
@@ -4607,9 +4627,9 @@ sub display_scatter_plot($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_x} =~ /ingredients_n/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
-			$x_title = escape_single_quote(lang("ingredients_n_s"));
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
@@ -4621,9 +4641,9 @@ sub display_scatter_plot($$) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_y} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_y} =~ /ingredients_n/) {
 			$y_allowDecimals = "allowDecimals:false,\n";
-			$y_title = escape_single_quote(lang("ingredients_n_s"));
+			$y_title = escape_single_quote(lang($graph_ref->{axis_y} . "_s"));
 		}
 		else {
 			$y_title = $Nutriments{$graph_ref->{axis_y}}{$lc};
@@ -4643,10 +4663,10 @@ sub display_scatter_plot($$) {
 
 			# Keep only products that have known values for both x and y
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}}))
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
 					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}})) or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 
 				my $url = $formatted_subdomain . product_url($product_ref->{code});
@@ -4701,7 +4721,7 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
+					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
 						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
@@ -4941,9 +4961,9 @@ sub display_histogram($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
-		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+		elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
-			$x_title = escape_single_quote(lang("ingredients_n_s"));
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
@@ -4970,7 +4990,7 @@ sub display_histogram($$) {
 
 			# Keep only products that have known values for x
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) or
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}})) or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 
@@ -5011,7 +5031,7 @@ sub display_histogram($$) {
 				my $value = 0;
 
 
-					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
+					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
 						$value = $product_ref->{$nid};
 					}
 					elsif ($nid =~ /^nutrition-score/) {
@@ -5728,7 +5748,7 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6179,7 +6199,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6201,7 +6221,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6223,7 +6243,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6245,7 +6265,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6267,7 +6287,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6290,7 +6310,7 @@ HTML
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 		$image_banner = <<HTML
-<div class="row">
+<div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
 <div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
@@ -6350,7 +6370,7 @@ JS
 
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
@@ -6361,7 +6381,7 @@ HTML
 ;
 
 		my $top_banner_deactivated = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
@@ -6376,7 +6396,7 @@ HTML
 	if ($lc eq 'en') {
 
 		my $top_banner_deactivated2 = <<HTML
-<div class="row full-width" style="max-width: 100% !important;" >
+<div id="banner" class="row full-width" style="max-width: 100% !important;" >
 
 <div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
 Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
@@ -6912,7 +6932,30 @@ sub display_field($$) {
 		}
 	}
 
-	if (defined $taxonomy_fields{$field}) {
+	if ($field eq 'states'){
+		my $to_do_status = '';
+		my $done_status = '';
+		my @to_do_status;
+		my @done_status;
+		my $state_items = $product_ref->{$field . "_hierarchy"};
+		foreach my $val (@$state_items){
+			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+				push(@to_do_status, $val);
+			}
+			else {
+				push(@done_status, $val);
+			}
+		}
+		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
+		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
+		if ($to_do_status ne ""){
+				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
+		}
+		if ($done_status ne ""){
+				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+		}
+	}
+	elsif (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 	}
 	elsif (defined $hierarchy_fields{$field}) {
@@ -6921,7 +6964,6 @@ sub display_field($$) {
 	elsif ((defined $tags_fields{$field}) and (defined $value)) {
 		$value = display_tags_list($field, $value);
 	}
-
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
@@ -6949,7 +6991,10 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		
+		if ($field ne 'states') {
+			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
+		}
 
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -9780,7 +9825,7 @@ sub display_product_history($$) {
 			$changes_ref = [];
 		}
 
-		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
+		$html .= "<h2 id=\"history\">" . lang("history") . "</h2>\n<ul id=\"history_list\">\n";
 
 		my $current_rev = $product_ref->{rev};
 

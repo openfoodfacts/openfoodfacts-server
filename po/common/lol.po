@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-21 10:12\n"
+"PO-Revision-Date: 2020-04-13 15:23\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -222,6 +222,34 @@ msgstr "crwdns102190:0crwdne102190:0"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "crwdns102192:0%scrwdne102192:0"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "crwdns125354:0crwdne125354:0"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "crwdns125356:0crwdne125356:0"
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr "crwdns125358:0crwdne125358:0"
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr "crwdns125360:0%scrwdne125360:0"
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr "crwdns125362:0crwdne125362:0"
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr "crwdns125364:0crwdne125364:0"
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr "crwdns125366:0%scrwdne125366:0"
 
 msgctxt "by"
 msgid "by"
@@ -922,6 +950,14 @@ msgstr "crwdns102520:0crwdne102520:0"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "crwdns102522:0crwdne102522:0"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "crwdns125348:0crwdne125348:0"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "crwdns125350:0crwdne125350:0"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2448,6 +2484,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "crwdns125136:0crwdne125136:0"
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "crwdns125352:0crwdne125352:0"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "crwdns103330:0crwdne103330:0"
@@ -3320,6 +3360,10 @@ msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "crwdns122274:0crwdne122274:0"
 
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "crwdns125394:0crwdne125394:0"
+
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
 msgstr "crwdns122276:0crwdne122276:0"
@@ -4042,4 +4086,41 @@ msgstr "crwdns125140:0crwdne125140:0"
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
 msgstr "crwdns125142:0crwdne125142:0"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "crwdns125344:0crwdne125344:0"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "crwdns125346:0crwdne125346:0"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "crwdns125368:0crwdne125368:0"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "crwdns125370:0crwdne125370:0"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "crwdns125372:0crwdne125372:0"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "crwdns125374:0crwdne125374:0"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "crwdns125376:0crwdne125376:0"
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "crwdns125378:0crwdne125378:0"
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "crwdns125380:0%scrwdne125380:0"
 

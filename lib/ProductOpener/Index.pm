@@ -57,8 +57,6 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-#use Text::Unaccent::PurePerl "unac_string";
-use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
 use Log::Any qw($log);
@@ -87,7 +85,7 @@ opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
-	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+	#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
 	if (-e "$data_root/lang/$langid/texts") {
@@ -103,7 +101,7 @@ foreach my $langid (readdir(DH2)) {
 				$texts{$textid}{$langid} = $file;
 			}
 
-			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+			#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 		}
 		closedir(DH);
 	}
