@@ -539,6 +539,14 @@ sub clean_weights($) {
 			assign_value($product_ref, $field . "_unit", "g");
 		}
 
+		# We may be passed quantity_value_unit, in that case assign it to quantity
+		if ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value_unit"})
+			and ($product_ref->{$field . "_value_unit"} ne "")) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
+		}
+
 		# for quantity and serving_size, we might have 3 values:
 		# - a quantity with a non normalized unit ("2 biscuits)
 		# - a value and a unit ("30 g")
@@ -560,14 +568,6 @@ sub clean_weights($) {
 			and (defined $product_ref->{$field . "_unit"}) ) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
-		}
-
-		# We may be passed quantity_value_unit, in that case assign it to quantity
-		if ((not defined $product_ref->{$field})
-			and (defined $product_ref->{$field . "_value_unit"})
-			and ($product_ref->{$field . "_value_unit"} ne "")) {
-
-			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {
