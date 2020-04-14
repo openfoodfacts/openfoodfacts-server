@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-13 22:01\n"
+"PO-Revision-Date: 2020-04-14 08:35\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -239,19 +239,19 @@ msgstr "Izdelki, ki niso v blagovni znamki %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Lastnik blagovne znamke"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Podjetje Coca Cola"
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr ""
+msgstr "lastniki blagovnih znamk"
 
 msgctxt "brand_owner_products"
 msgid "Products from the %s brand owner"
-msgstr ""
+msgstr "Izdelki lastnika blagovne znamke %s"
 
 msgctxt "brand_owner_s"
 msgid "brand_owner"
@@ -259,11 +259,11 @@ msgstr ""
 
 msgctxt "brand_owner_tagsinput"
 msgid "add a brand owner"
-msgstr ""
+msgstr "dodaj lastnika blagovne znamke"
 
 msgctxt "brand_owner_without_products"
 msgid "Products not from the %s brand owner"
-msgstr ""
+msgstr "Izdelki, ki niso od lastnika blagovne znamke %s"
 
 msgctxt "by"
 msgid "by"
@@ -2516,7 +2516,7 @@ msgstr "Omogoči povečavo z miškinim kolescom."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Naložite slike nižje ločljivosti (za počasne povezave)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3392,7 +3392,7 @@ msgstr "Vrednost v μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Vrednost v IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4127,30 +4127,30 @@ msgstr "Za narediti"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Skupine"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "neobvezno"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "skupine"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "skupina"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Pridružite se lahko 1 do 3 skupinam. Izdelki, ki jih dodate ali uredite, bodo dobropisani vam in vašim skupinam. Skupine se lahko kadar koli zamenjajo."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Imena skupin so javna. Ne ustvarite skupin z imeni, ki vsebujejo osebne podatke (npr. Priimki), blagovne znamke (razen če jih imate) ali kaj žaljivega."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Skupina %s"
 
