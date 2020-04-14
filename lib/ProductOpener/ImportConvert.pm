@@ -201,6 +201,10 @@ sub assign_value($$$) {
 		elsif (($field =~ /^(.+)_(\w\w)$/) and (defined $language_fields{$1})) {
 			$product_ref->{$field} .= "\n" . $value;
 		}
+		# we have a different value that we cannot append, replace it
+		else {
+			$product_ref->{$field} = $value;
+		}
 	}
 	else {
 		$product_ref->{$field} = $value;
@@ -535,8 +539,22 @@ sub clean_weights($) {
 			assign_value($product_ref, $field . "_unit", "g");
 		}
 
-		# combine value and unit
-		if ((not defined $product_ref->{$field})
+		# for quantity and serving_size, we might have 3 values:
+		# - a quantity with a non normalized unit ("2 biscuits)
+		# - a value and a unit ("30 g")
+		# in this case, we can combine them: "2 biscuits (30 g)"
+
+		if ((($field eq "quantity") or ($field eq "serving_size"))
+			and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+			and (defined $product_ref->{$field . "_value"}) and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"})
+
+			# check we have not already combined the value and unit
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0))	) {
+
+			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
+		}
+		elsif ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value"})
 			and ($product_ref->{$field . "_value"} ne "")
 			and (defined $product_ref->{$field . "_unit"}) ) {
