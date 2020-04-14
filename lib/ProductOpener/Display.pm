@@ -3829,9 +3829,13 @@ sub search_and_display_products($$$$$) {
 		"quantity" => 1
 		};
 	}
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
 
-	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+	# canonical makes JSON::PP sort the keys of hashes
+	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+
+	my $key = $server_domain . "/" . $json;
 
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 
