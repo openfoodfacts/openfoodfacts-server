@@ -322,6 +322,7 @@ JS
 				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
 				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
 				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
+				+ '<option value="value_in_iu">$Lang{value_in_iu}{$lc}</option>'
 				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
 			}
 

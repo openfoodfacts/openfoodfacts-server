@@ -189,6 +189,12 @@ my @lists =(
 	["fr", "jus de citron*. *Ingrédients issus de l'agriculture biologique Peut contenir : œuf, moutarde, graine de sésame, poisson,soja, lait,fruits à coque, céleri.","jus de citron Bio. , Traces éventuelles : œuf, Traces éventuelles : moutarde, Traces éventuelles : graine de sésame, Traces éventuelles : poisson, Traces éventuelles : soja, Traces éventuelles : lait, Traces éventuelles : fruits à coque, Traces éventuelles : céleri."],
 
 	["fr", "Farine, levure. Peut contenir des traces de _soja_, _amandes_, _noisettes_ et _noix de cajou_.", "Farine, levure. Traces éventuelles : _soja_, Traces éventuelles : _amandes_, Traces éventuelles : _noisettes_, Traces éventuelles : _noix de cajou_."],
+
+	# Spanish organic ingredients
+	["es", "Agua, aceite de girasol*. * Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico."],
+	["es", "Agua, aceite de girasol*, arroz* (5 %). (*) Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico, arroz Ecológico (5 %)."],
+	["es", "Tofu* 88% (agua, habas de soja*). *cumple con el reglamento de agricultura ecológica CE 2092/91", "Tofu Ecológico 88% (agua, habas de soja Ecológico )."],
+	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5,5%)."],
 );
 
 foreach my $test_ref (@lists) {

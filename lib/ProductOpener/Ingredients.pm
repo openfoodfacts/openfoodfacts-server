@@ -3378,19 +3378,20 @@ INFO
 	if (defined $labels_regexps{$product_lc}) {
 
 		foreach my $symbol (@symbols) {
-			# Find the last occurence of the symbol
-			if ($text =~ /^(.*)$symbol\s*:?\s*/) {
+			# Find the last occurence of the symbol or symbol in parenthesis:  * (*)
+			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
+			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
 				my $after = $';
-				# print STDERR "symbol: $symbol - after: $after\n";
+				print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					if (defined $regexp) {
-						# print STDERR "-- label: $labelid - regexp: $regexp\n";
+						print STDERR "-- label: $labelid - regexp: $regexp\n";
 						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
 						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
-							$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+							$text =~ s/^(.*)(\($symbol\)|$symbol)(?!\))\s?(:|=)?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $product_lc_label = display_taxonomy_tag($product_lc, "labels", $labelid);
 							$text =~ s/$symbol/ $product_lc_label /g;
 							last;

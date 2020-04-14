@@ -58,6 +58,7 @@ my @tests = (
 ["en", "vitamin c (µg)", { field=>"vitamin-c_100g_value_unit", value_unit=>"value_in_mcg"}],
 ["en", "folates_ug_100g", { 'field' => 'folates_100g_value_unit', 'value_unit' => 'value_in_mcg' }],
 ["en", "vitamin-a_iu_100g", { 'field' => 'vitamin-a_100g_value_unit', 'value_unit' => 'value_in_iu' }],
+["en", "soluble-fiber_g_100g", { 'field' => 'soluble-fiber_100g_value_unit', 'value_unit' => 'value_in_g' }],
 );
 
 foreach my $test_ref (@tests) {
