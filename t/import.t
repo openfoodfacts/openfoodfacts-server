@@ -185,6 +185,24 @@ foreach my $test_ref (@tests) {
         {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
 ],
 
+	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
+
+[
+	{ serving_size_value => "10", serving_size_unit => "g" },
+	{ serving_size => "10 g", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+        { serving_size => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+
 
 );
 
