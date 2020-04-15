@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 16:53\n"
+"PO-Revision-Date: 2020-04-15 17:34\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3293,7 +3293,7 @@ msgstr "Spezifische Kategorien"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Quellenspezifisches Feld"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3326,29 +3326,29 @@ msgstr "nur die Einheit, mit dem Wert in einer anderen Spalte"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Wählen Sie diese Option, wenn die Spalte das Vorhandensein einer bestimmten Kennzeichnung (z.B. Bio, Fair-Trade) anzeigen soll, wenn der Wert entweder „J”, „Ja” oder „1” ist."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Geben Sie den Namen der Kategorie in das Textfeld auf der rechten Seite ein."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Wählen Sie diese Option, wenn die Spalte das Vorhandensein einer bestimmten Kategorie (z.B. Getränke) anzeigen soll, wenn der Wert entweder „J”, „Ja” oder „1” ist."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Geben Sie den Namen der Kategorie in das Textfeld auf der rechten Seite ein."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Wählen Sie diese Option für Felder, die quellenspezifisch sind und die als quellenspezifische Felder beibehalten werden sollen."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Geben Sie den Namen des Zielfeldes in das Textfeld auf der rechten Seite ein oder lassen Sie das Feld leer, um den Namen des Quellfeldes zu verwenden."
 
 msgctxt "value"
 msgid "Value"
