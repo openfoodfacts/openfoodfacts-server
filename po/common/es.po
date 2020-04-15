@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 17:10\n"
+"PO-Revision-Date: 2020-04-15 18:47\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -240,15 +240,15 @@ msgstr "Productos sin las marcas %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Propietario de la marca"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "La compañía Coca Cola"
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr ""
+msgstr "propietarios de la marca"
 
 msgctxt "by"
 msgid "by"
@@ -956,11 +956,11 @@ msgstr "Número de ingredientes"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Número de ingredientes reconocidos"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Número de ingredientes no reconocidos"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2498,11 +2498,11 @@ msgstr "Error al desmarcar la imagen."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Activar la ampliación con la rueda del ratón."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Cargar imágenes de baja resolución (para conexiones lentas)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2510,7 +2510,7 @@ msgstr "Advertencia: la cantidad de fibra no está especificada, su posible cont
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Advertencia: no se especifican las cantidades de fibra y frutas, verduras y nueces, su posible contribución positiva al grado no pudo ser tenida en cuenta."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3292,7 +3292,7 @@ msgstr "Categoría específica"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Campo específico de origen"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3325,7 +3325,7 @@ msgstr "solo la unidad, con el valor en otra columna"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Seleccione esta opción si la columna indica la presencia de una etiqueta específica (por ejemplo, Orgánica, Comercio Justo) cuando el valor es S, Sí o 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
