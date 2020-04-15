@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 17:09\n"
+"PO-Revision-Date: 2020-04-15 17:49\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3290,7 +3290,7 @@ msgstr "Specifična kategorija"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Specifično polje za vir"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3323,29 +3323,29 @@ msgstr "samo enota z vrednostjo v drugem stolpcu"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Izberite to možnost, če stolpec označuje prisotnost posebne oznake (npr. Organic, Fair-Trade), kadar je vrednost Y, Yes ali 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "V besedilno polje na desni vnesite ime nalepke."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Izberite to možnost, če stolpec kaže, da je izdelek v določeni kategoriji (npr. Pijače), če je vrednost Y, da ali 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "V besedilno polje na desni vnesite ime kategorije."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Izberite to možnost za polja, ki so značilna za vir in ki jih želimo obdržati kot izvorna polja."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Vnesite ime ciljnega polja v besedilno polje na desni ali pustite prazno, če želite uporabiti ime izvornega polja."
 
 msgctxt "value"
 msgid "Value"
