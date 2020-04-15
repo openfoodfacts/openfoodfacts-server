@@ -88,85 +88,85 @@ stopwords:zh::配料
 # comment:en:These are words that end ingredient lists.
 
 #de:
-#	'davon ges(â|a|ä)ttigte',
-#	'Durchschnittliche N(â|a|ä)hrwerte',
-#	'Ern(â|a|ä)hrungswerte',
+#	'davon ges(â|a|ä)ttigte'
+#	'Durchschnittliche N(â|a|ä)hrwerte'
+#	'Ern(â|a|ä)hrungswerte'
 #Glutenfrei
 #Kann andere Schalenfrüchte enthalten.
 #Kann spuren von Sellerie und Senf enthalen
 #Milchschokolade: Kakao: 37% mindestens
-#	'Mindestens altbar bis',
-#	'Mindestens haltbar bis',
-#	'Nâhrwerte',
-#	'Vorbereitung Tipps',
+#	'Mindestens altbar bis'
+#	'Mindestens haltbar bis'
+#	'Nâhrwerte'
+#	'Vorbereitung Tipps'
 
 
 #en:
 #allergy advice
-#	'after opening',
+#	'after opening'
 #Gluten free
 #Keep in a cool and dry place.
 #May contain other nuts.
 #May contain traces of celery and mustard
-#	'nutritional values',
-#	'nutrition values',
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+#	'nutritional values'
+#	'nutrition values'
+#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
 
 
 # es:
-#	'conservar en lug(a|e)r fresco y seco',
-#	'conser(y|v)ar entre',
-#	'conservaci(o|ó)n:',
-#	'consumi preferentemente antes del',
-#	'consumir preferentemente antes del',
-#	'de los cuates az(u|ü)cares',
-#	'de las cuales saturadas',
+#	'conservar en lug(a|e)r fresco y seco'
+#	'conser(y|v)ar entre'
+#	'conservaci(o|ó)n:'
+#	'consumi preferentemente antes del'
+#	'consumir preferentemente antes del'
+#	'de los cuates az(u|ü)cares'
+#	'de las cuales saturadas'
 #E producto puede contener trazas de sésamo y leche.
 #	#Envasado por:
-#	#'pa(i|í)s de transformaci(o|ó)n',
-#	'protegido de la luz',
-#	'una vez abierto',
+#	#'pa(i|í)s de transformaci(o|ó)n'
+#	'protegido de la luz'
+#	'una vez abierto'
 
 # fr:
 #Chocolat au lait: cacao: 37% minimum
-#	'(a|à) consommer de préférence',
-#	'(a|à) cons.de préférence avant',
-#	'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+#	'(a|à) consommer de préférence'
+#	'(a|à) cons.de préférence avant'
+#	'(a|à) consommer (cuit|rapidement|dans|jusqu)'
 #Conserver au frais et au sec.
-#	'(a|à) conserver (dans|de|a|à)',
+#	'(a|à) conserver (dans|de|a|à)'
 #	'(a|à)conserver (dans|de|a|à)', #variation
 #	'(a|à)conserver entre
-#	'apport de r(e|é)ference pour un adulte type',
-#	'apr(e|è)s achat',
-#	'apr(e|è)s ouverture',
+#	'apport de r(e|é)ference pour un adulte type'
+#	'apr(e|è)s achat'
+#	'apr(e|è)s ouverture'
 #	'(a|à) protéger de ', # humidité, chaleur, lumière etc.
-#`Conditionné par`,
-#	'conditions de conservation',
-#	'conditionn(e|é) sous atmosph(e|è)re protectrice',
-#	'conseils de pr(e|é)paration',
-#	'conseil de pr(e|é)paration',
+#`Conditionné par`
+#	'conditions de conservation'
+#	'conditionn(e|é) sous atmosph(e|è)re protectrice'
+#	'conseils de pr(e|é)paration'
+#	'conseil de pr(e|é)paration'
 #Consommer cuit a coeur
-#	'dans le compartiment (a|à) gla(c|ç)ons',
-#	'dont sucres',
-#	'dontSUcres',
+#	'dans le compartiment (a|à) gla(c|ç)ons'
+#	'dont sucres'
+#	'dontSUcres'
 #	'dont acides gras satur(e|é)s
 # 	'dont acides ras satur(e|é)s
 #	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
 #Fabriqué dans un atelier utilisant
 # Fabriqué dans un atelier utilisant : moutarde et _fruits à coque_.
 #Ingrédients issus de l'agriculture biologique
-#	'information nutritionnelle',
+#	'information nutritionnelle'
 #Ingrédient décongelé, ne pas recongeler
 # INFORMATIONS SUR LES ALLERGIES
 #La présence de vide au fond du pot est due au procédé de fabrication.
 #Le produit peut contenir traces de sésame et du _lait_
 #Les pourcentages sont exprimés sur les cuisses de
-#	'moyennes pour 100g',
+#	'moyennes pour 100g'
 #	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
 #	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
 #	'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 #	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
-#	'la pr(e|é)sence de vide',
+#	'la pr(e|é)sence de vide'
 #peut contenir des traces de fruits à coque
 #Peut contenir des traces de céleri et de moutarde
 # Peut contenir des traces de céleri, moutarde et fruits à coque.
@@ -175,66 +175,66 @@ stopwords:zh::配料
 #Peut contenir des traces de céleri, moutarde et fruits à coque.
 #Pourcentages exprimés sur letotal de la recette
 #Pourcentages exprimés sur le total de la recette
-#	'pr(e|é)paration au four',
+#	'pr(e|é)paration au four'
 #Présence éventuelle de poissons, cr!Ftù.es, _mollusques_, _moutarde_ et _fruits à coque_.
 #Présence éventuelle de poisson, crustacés, céleri, mollusques, moutarde et fruits à coque.
-#Présence éventuelle de _crustacés_, _soja_, graines de _sésame_, _œufs_, _moutarde_ et _fruits à coque_,
+#Présence éventuelle de _crustacés_, _soja_, graines de _sésame_, _œufs_, _moutarde_ et _fruits à coque_
 #Présence possible de lait, _gluten_, _œuf_, _moutarde_ et _fruits à coque_.
 #Produit issu de l'agriculture biologique
 #Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
 #Sans gluten
 #Sans pectine ajoutée
-#	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
-#	'valeur(s?) (e|é)nerg(e|é)tique',
-#	'valeurs mo(y|v)ennes',
-#	'valeurs moyennes pour 100 g',
-#	'valeur nutritionnelle moyenne par 100 g',
-#	'valeurs nutritionelles moyennes',
-#	'valeur nutritionnelle mo(y|v)enne',
-#	'valeur(s?) nutritives',
-#	`verzadigde vetzuren/ acides gras saturés`,
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+#	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)'
+#	'valeur(s?) (e|é)nerg(e|é)tique'
+#	'valeurs mo(y|v)ennes'
+#	'valeurs moyennes pour 100 g'
+#	'valeur nutritionnelle moyenne par 100 g'
+#	'valeurs nutritionelles moyennes'
+#	'valeur nutritionnelle mo(y|v)enne'
+#	'valeur(s?) nutritives'
+#	`verzadigde vetzuren/ acides gras saturés`
+#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
 #Traces éventuelles de lait
 #Traces possible de fruits à coque
-#'waarvan suikers/dont sucres',
+#'waarvan suikers/dont sucres'
 
 
 #######     it:
 #Cioccolato al latte: cacao: 37% min
-#	'consigli per la preparazione',
-#	'di cui zuccheri',
+#	'consigli per la preparazione'
+#	'di cui zuccheri'
 #Può contenere tracce di sesamo e latte.
 #Può contenere tracce di sedano e senape
-#	'Valori nutritivi',
-#	'valori nutrizionali',
+#	'Valori nutritivi'
+#	'valori nutrizionali'
 
 
 #######     ja:
-#	'栄養価',
+#	'栄養価'
 
 #######     nl:
 #Gemaakt in een bedrijf waar gluten, soja, noten en sesam verwerkt worden
-#	'gemiddelde voedingswaarden',
-#	'gemiddelde voedingswaarde per 100 g',
-#	'voedingswaarden',
-#	'voorbereidingstips',
+#	'gemiddelde voedingswaarden'
+#	'gemiddelde voedingswaarde per 100 g'
+#	'voedingswaarden'
+#	'voorbereidingstips'
 
 
 #######     pt:
-#	'a consumir de prefer(e|ê)ncia antes do',
-#	'consumir de prefer(e|ê)ncia antes do',
-#	'conservar em local fresco',
-#	'conservar em lugar fresco',
-#	'dos quais a(ç|c)(u|ü)ares',
-#	'dos quais a(ç|c)(u|ü)cares',
-#	'informa(ç|c)(a|ã)o nutricional',
-#	'modo de prepara(ç|c)(a|ã)o',
+#	'a consumir de prefer(e|ê)ncia antes do'
+#	'consumir de prefer(e|ê)ncia antes do'
+#	'conservar em local fresco'
+#	'conservar em lugar fresco'
+#	'dos quais a(ç|c)(u|ü)ares'
+#	'dos quais a(ç|c)(u|ü)cares'
+#	'informa(ç|c)(a|ã)o nutricional'
+#	'modo de prepara(ç|c)(a|ã)o'
 #Derivado da agricultura biológica
 
 #######     ro:
-#	'a se agita inainte de deschidere',
-#	'a si pastra la frigider dup(a|ă) deschidere',
-#	'declaratie nutritional(a|ă)',
+#	'a se agita inainte de deschidere'
+#	'a si pastra la frigider dup(a|ă) deschidere'
+#	'declaratie nutritional(a|ă)'
 #Poate contine urme de fructe cu coajă lemnoasă
 
 
@@ -265,7 +265,7 @@ cs:Kyselina
 da:Syre
 de:Säuerungsmittel
 el:Μέσο οξίνισης
-es:Ácido, acidulante, acidulantes
+es:acidulante, acidulantes
 et:Hape
 fi:happo
 fr:acidifiant, acide
@@ -391,7 +391,7 @@ el:Αντιοξειδωτικό
 es:Antioxidante, antioxidantes
 et:Antioksüdant
 fi:hapettumisenestoaine, antioksidantti
-fr:antioxydant, antioxygène, anti-oxydant, antioxidant,
+fr:antioxydant, antioxygène, anti-oxydant, antioxidant
 ga:Frithocsaídeoir
 hu:Antioxidáns
 it:Antiossidanti, antiossidante
@@ -10685,7 +10685,7 @@ fr:emmental français râpé
 # This cheese has translation issues as it is very similar to other fresh cheeses
 
 <en:cheese
-en:fromage blanc,
+en:fromage blanc
 af:Fromage blanc
 de:Frischkäse
 es:Fromage frais, queso fresco
@@ -11923,7 +11923,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-# Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid,
+# Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid
 # and several provitamin A carotenoids (most notably beta-carotene).
 
 <en:vitamins
@@ -14430,7 +14430,7 @@ zu:imvu
 wikidata:en:Q7368
 wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 # ingredient/fr:mouton has 12 products @2019-04-19
-# usage:fr: mouton (graisse et viande),
+# usage:fr: mouton (graisse et viande)
 
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
@@ -16130,8 +16130,8 @@ en:clarified butter
 ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
-de:Butterschmalz,
-es:mantequilla clarificada,
+de:Butterschmalz
+es:mantequilla clarificada
 fi:kirkastettu voi
 fr:beurre clarifié
 he:חמאה מזוקקת
@@ -16904,7 +16904,7 @@ de:Ölrübsenöl
 es:aceite de canola
 fi:Rypsiöljy
 fr:huile de navette, huile de canola
-hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj,
+hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
 nl:raapolie, canola olie, raapzaadolie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
@@ -18065,7 +18065,7 @@ sv:ättiksprit
 <en:alcohol vinegar
 fr:poudre de vinaigre d'alcool
 
-# CIDER VINEGAR, a vinegar made from apples, sugar and yeast,
+# CIDER VINEGAR, a vinegar made from apples, sugar and yeast
 
 <en:vinegar
 en:cider vinegar, apple cider vinegar
@@ -24824,7 +24824,7 @@ nl:gekookte basmatirijst
 
 # <category:en:Jasmine rice
 <en:rice
-en:Thai rice, jasmine rice,
+en:Thai rice, jasmine rice
 de:Thai-Reis, Jasmin-Reis
 es:Arroz jazmín, Arroz tailandes
 fi:Jasmiiniriisi
@@ -25188,7 +25188,7 @@ pt:goma arábica
 
 
 
-# SUGAR is the generic name for sweet-tasting, soluble carbohydrates,
+# SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
 # nova
 en:sugar
@@ -25615,7 +25615,7 @@ de:Rohrohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar
 fi:raakaruokosokeri
-fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne,
+fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
 hu:finomítatlan nádcukor
 it:zucchero di canna grezzo
 nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
@@ -28129,7 +28129,7 @@ nl:stukjes melkchocolade
 pl:kawalki czekolady mlecznej
 pt:pepitas de chocolate de leite
 # ingredient/fr:pépites-de-chocolat-au-lait has 108 products in 7 languages @2019-05-25
-# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, weipoeder, emulgator (zonnebloemlecithine)),
+# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, weipoeder, emulgator (zonnebloemlecithine))
 
 <en:milk chocolate
 de:Feine Milchschokolade, Vollmilchschokolade, Edel-Vollmilchschokolade
@@ -28957,7 +28957,7 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
-# description:en:SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia,
+# description:en:SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia
 
 <en:soya
 en:soya bean, soy beans, soya beans, soybean, soybeans
@@ -29362,7 +29362,7 @@ fi:Luontainen hiiva
 fr:levure naturelle
 it:naturale-fermento, lievito naturale
 
-# Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products,
+# Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
 
 <en:yeast
 en:Baker's yeast
@@ -29954,7 +29954,7 @@ bg:Монокалциев фосфат, Едноосновен калциев ф
 bn:মনোক্যালসিয়াম ফসফেট
 bs:Monokalcij-fosfat
 ca:Fosfat de monocalci
-cs:Fosforečnan monovápenatý,
+cs:Fosforečnan monovápenatý
 da:Monocalciumphosphat, Monobasisk calciumphosphat
 de:Monocalciumphosphat
 el:Δισοξινο φωσφορικο ασβεστιο, Μονοβασικό φωσφορικό ασβέστιο
@@ -31395,7 +31395,7 @@ en:fruit juice from concentrate, fruit juices from concentrate
 de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä
-fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés,
+fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
 it:succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
 nl:vruchtsap van concentraat, vruchtensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
@@ -34489,7 +34489,7 @@ es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 
-# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit,
+# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 <en:fruit
 en:lingonberry
@@ -34523,7 +34523,7 @@ pt:groselha
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
 # 312 products in 6 languages @2018-10-01
 
-# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae,
+# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
 
 <en:fruit
 en:blackberry, blackberries
@@ -38164,7 +38164,7 @@ nl:artisjokharten
 # ingredient/fr:coeurs-d’artichauts has 52 products in 6 languages @2019-04-03
 
 
-# Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis,
+# Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
 # is a spring vegetable, a flowering perennial plant species in the genus Asparagus
 
 <en:vegetable
@@ -39564,7 +39564,7 @@ nl:broccoli cress
 # en:broccoli-cress has 1 product in 1 language @2018-10-16
 
 
-# CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica,
+# CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 
 <en:vegetable
 en:cauliflower
@@ -45879,7 +45879,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiqu
 # 42 products in 4 languages @2018-10-07
 
 <en:hazelnut
-fr:noisettes entières,
+fr:noisettes entières
 de:ganze Haselnüsse, Haselnüsse ganz
 it:nocciole intere
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières
@@ -46112,7 +46112,7 @@ sv:ekologiskt mandelmjöl
 
 <en:almond
 en:ground almonds
-# in processing de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen,
+# in processing de:gemahlene Mandeln, gehackte Mandeln, mandeln gemahlen
 es:almendras molidas
 fi:Jauhettua mantelia, jauhettuja manteleita
 fr:amandes hachées, amandes moulues
@@ -48547,7 +48547,7 @@ nl:mosterdpoeder
 # fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
 # fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
 
-# fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel),
+# fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
 <en:mustard
 fr:moutarde de dijon
@@ -53383,7 +53383,7 @@ fr:extrait d'algues marines
 <en:algae
 en:Lithotamnium calcareum
 de:Rotalge (Lithotamnium calcareum)
-fr:algue lithothamnium calcareum, algue marine lithothamnium calcareum,
+fr:algue lithothamnium calcareum, algue marine lithothamnium calcareum
 la:Lithotamnium calcareum
 # ingredient/fr:Lithotamnium-calcareum has 2 products @2019-01-27
 
@@ -57497,7 +57497,7 @@ de:Echter Bonito (Katsuwonus pelamis)
 fr:Katsuwonus pelamis, Bonite à ventre rayé, Thon listao, Thon rose, Thon rosé
 it:Tonnetto striato
 la:Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
-# Thon listao (Katsuwanus pelamis),
+# Thon listao (Katsuwanus pelamis)
 
 # The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
 
@@ -57547,7 +57547,7 @@ fr:thon au naturel
 # thon au naturel (thon albacore, eau, sel)
 
 
-# The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand,
+# The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
 
 <en:fish
 en:blue grenadier
@@ -58256,7 +58256,7 @@ fr:lieu
 # colin (lieu) de l'Alaska (Theragra chalcogramma)
 # Colin (lieu) (Pollachius virens)
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
-# ... Crabe, lieu, crème liquide, échalotes,
+# ... Crabe, lieu, crème liquide, échalotes
 
 # Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
@@ -59092,7 +59092,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 <en:scallop
 fr:Noix de Saint-Jacques sans corail
 
-# Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop,
+# Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
 
 <en:scallop
 en:Atlantic bay scallop, bay scallop
@@ -59953,7 +59953,7 @@ fr:extrait de crabe
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
-# Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean,
+# Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean
 
 <en:crab
 en:edible crab, brown crab
@@ -60252,7 +60252,7 @@ de:Hummerbouillon
 # compound ingredient
 
 
-# Spiny lobsters, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans,
+# Spiny lobsters, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans
 
 <en:lobster
 en:spiny lobster, langustas, langouste, rock lobsters
@@ -60362,7 +60362,7 @@ zh:挪威海螯蝦
 # zh-hk:挪威海螯蝦
 # ingredient/fr:langoustines has 68 products @2019-01-11
 
-# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long,
+# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
 
 <en:norway lobster
 en:Nephrops norvegicus
@@ -66917,7 +66917,7 @@ wikidata:en:https://en.wikipedia.org/wiki/Broth
 wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # category/broths has 527 products @2019-05-19
 # ingredient/fr:bouillon has 1214 products in 6 languages @2019-02-25
-# brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche),
+# brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
 
 <en:beef
 <en:broth
@@ -67069,7 +67069,7 @@ zh:檸檬水
 wikidata:en:Q893
 wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
-# usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme),
+# usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
 
 # <en:compound
 de:kakaohaltiges Getränkepulver
@@ -67334,7 +67334,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chorizo
 # <en:compound
 # mainIngredient:en:beef meat
 fr:Viande cuisinée
-# usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau,
+# usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau
 
 # description:en:ICE CREAM is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
 
