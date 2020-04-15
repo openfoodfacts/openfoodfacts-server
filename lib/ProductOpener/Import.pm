@@ -280,6 +280,8 @@ sub import_csv_file($) {
 
 	# Read images if supplied
 
+	my @sorted_nutriments = sort keys %Nutriments;
+
 	my $images_ref = {};
 
 	if ((defined $args_ref->{images_dir}) and ($args_ref->{images_dir} ne '')) {
@@ -889,7 +891,7 @@ sub import_csv_file($) {
 		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
 		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
 
-		foreach my $nutriment (@{$nutriments_tables{europe}}, "nutrition-score-fr-producer") {
+		foreach my $nutriment (@sorted_nutriments) {
 
 			next if $nutriment =~ /^\#/;
 
@@ -956,7 +958,7 @@ sub import_csv_file($) {
 					# calcium_100g_value_in_mcg
 
 					if (not defined $values{$type}) {
-						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu') {
 							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
 							if ((defined $value_in_u) and ($value_in_u ne "")) {
 								$values{$type} = $value_in_u;
