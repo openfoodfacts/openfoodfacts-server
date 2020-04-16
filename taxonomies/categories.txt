@@ -2405,6 +2405,12 @@ nl:Draken op basis van wijn
 en:Spritz cocktails
 fr:Cocktails spritz
 
+<en:Alcoholic beverages
+en:Whiskey-based cocktail
+fr:Cocktail à base de whisky
+ciqual_food_code:en:1013
+ciqual_food_name:en:Whiskey-based cocktail
+
 <en:Wine-based drinks
 en:Wine-based aperitif, Vermouth
 fr:Apéritif à base de vin, Vermouth
@@ -2542,6 +2548,8 @@ fr:Liqueurs, liqueur
 nl:Likeuren
 ro:Lichior
 wikidata:en:Q178780
+ciqual_food_code:en:1003
+ciqual_food_name:en:Liqueur
 
 <en:Liqueurs
 en:Portuguese liqueur
@@ -21509,6 +21517,8 @@ hu:Csokoládés kekszek
 nl:Chocolade koekjes, Chocolade koekje
 ro:Prăjituri cu ciocolată
 zh:巧克力曲奇, 巧克力曲奇饼干
+ciqual_food_code:en:24684
+ciqual_food_name:en:Biscuit (cookie), with chocolate drops
 
 <en:Chocolate cookies
 en:Cookies with milk chocolate
@@ -25174,6 +25184,8 @@ fi:mantelimassa
 fr:Pâtes d’amande
 nl:Amandelpasta
 wikidata:en:Q2631692
+ciqual_food_code:en:15201
+ciqual_food_name:en:Almond paste or marzipan, prepacked
 
 <en:Marzipan
 en:Marzipan figures, Marzipan shapes
@@ -25521,6 +25533,12 @@ fr:Omelette aux champignons
 ciqual_food_code:en:22508
 ciqual_food_name:en:Omelette, with mushrooms
 ciqual_food_name:fr:Omelette aux champignons
+
+<en:Meals
+en:Omelette with cheese
+fr:Omelette au fromage
+ciqual_food_code:en:22506
+ciqual_food_name:en:Omelette, with cheese
 
 <en:Meals
 fr:Crêpes au jambon
@@ -27353,21 +27371,29 @@ wikidata:en:Q746471
 en:French blue-veined cheeses
 de:Französischer Blauschimmelkäse
 fi:ranskalaiset sinihomejuustot
-fr:Fromages à pâte persillée français, pâtes à moisissure interne français, bleus français
+fr:Fromages à pâte persillée français, pâtes à moisissure interne français, bleus français, Fromage bleu au lait de vache
 nl:Franse blauwschimmelkazen
+ciqual_food_code:en:12520
+ciqual_food_name:en:Blue cheese, from cow's milk
 
 <en:French blue-veined cheeses
 <en:Cow cheeses
 fr:Bleus d'Auvergne
+en:Auvergne blue cheese from cow's milk
 de:Bleu d'Auvergne
 nl:Bleus d'Auvergne
 wikidata:en:Q883954
 country:en:France
+ciqual_food_code:en:12521
+ciqual_food_name:en:Auvergne blue cheese, from cow's milk
 
 <en:French blue-veined cheeses
 fr:Bleus de Gex, bleus du Haut-Jura, bleus de Septmoncel
+en:Gex blue cheese or Jura blue cheese or Septmoncel blue cheese from cow's milk
 de:Bleu du Haut Jura, Bleu de Gex
 wikidata:en:Q1231078
+ciqual_food_code:en:12526
+ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
 
 <en:French blue-veined cheeses
 fr:Bleus de Laqueuille
@@ -27378,7 +27404,7 @@ fr:Bleus de Termignon
 wikidata:en:Q883926
 
 <en:French blue-veined cheeses
-fr:Bleus des Causses, bleu de l'Aveyron
+fr:bleu de l'Aveyron
 wikidata:en:Q883938
 
 <en:French blue-veined cheeses
@@ -27392,14 +27418,20 @@ wikidata:en:Q2940381
 <en:French blue-veined cheeses
 <en:French cheeses
 fr:Fourme d'Ambert
+en:Fourme d'Ambert cheese from cow's milk
 wikidata:en:Q1245530
 country:en:France
+ciqual_food_code:en:12522
+ciqual_food_name:en:Fourme d'Ambert cheese, from cow's milk
 
 <en:French cheeses
 <en:French blue-veined cheeses
 fr:Fourme de Montbrison
+en:Fourme de Montbrison cheese
 wikidata:en:Q1245441
 country:en:France
+ciqual_food_code:en:12519
+ciqual_food_name:en:Fourme de Montbrison cheese
 
 <en:French blue-veined cheeses
 fr:Fromages de pays
@@ -27424,6 +27456,18 @@ ciqual_food_name:fr:Roquefort
 fr:Tignard
 wikidata:en:Q3528329
 
+<en:French blue-veined cheeses
+en:Bresse blue cheese from cow's milk
+fr:Fromage bleu de Bresse
+ciqual_food_code:en:12527
+ciqual_food_name:en:Bresse blue cheese, from cow's milk
+
+<en:French blue-veined cheeses
+en:Bresse blue cheese from cow's milk reduced fat around 15% fat
+fr:Fromage bleu de Bresse allegé environ 15% MG
+ciqual_food_code:en:12528
+ciqual_food_name:en:Bresse blue cheese, from cow's milk, reduced fat, around 15% fat
+
 <en:Blue-veined cheeses
 <en:Italian cheeses
 en:Gorgonzolas
@@ -27435,6 +27479,8 @@ it:Gorgonzola
 nl:Gorgonzolas, Gorgonzola
 country:en:Italy
 wikidata:en:Q209044
+ciqual_food_code:en:12524
+ciqual_food_name:en:Gorgonzola cheese, from cow's milk
 
 <en:Cheeses
 en:Cow cheeses, Cheeses from cow milk
@@ -27509,6 +27555,8 @@ fr:Saint-Félicien
 nl:Saint-Félicien
 wikidata:en:Q1237731
 oqali_family:en: fr:Fromages - Saint marcellin et assimiles
+ciqual_food_code:en:12052
+ciqual_food_name:en:Saint-Felicien cheese, from cow's milk
 
 <en:Cow cheeses
 <en:Cheeses from England
@@ -27671,8 +27719,15 @@ hu:Camembertek, camembert sajtok
 nl:Camemberts
 wikidata:en:Q131480
 oqali_family:en: fr:Fromages - Camembert
-ciqual_food_code:en:12820
-ciqual_food_name:en:Soft-ripened cheese with bloomy rind, from goat's milk, Camembert-type cheese
+ciqual_food_code:en:12001
+ciqual_food_name:en:Camembert cheese, from cow's milk
+
+<en:Cow cheeses
+<en:Soft cheeses with bloomy rind
+en:Camembert cheese from cow's milk from raw milk
+fr:Camembert au lait cru
+ciqual_food_code:en:12006
+ciqual_food_name:en:Camembert cheese, from cow's milk, from raw milk
 
 <en:Cow cheeses
 <en:Soft cheeses with bloomy rind
@@ -27694,6 +27749,13 @@ en:Soft-ripened round cheese with bloomy rind around 5% fat Camembert-type chees
 fr:Fromage rond à pâte molle et croûte fleurie environ 5% MG type camembert allégé en matière grasse
 ciqual_food_code:en:12013
 ciqual_food_name:en:Soft-ripened round cheese with bloomy rind, around 5% fat, Camembert-type cheese, reduced fat
+
+<en:Cow cheeses
+<en:Soft cheeses with bloomy rind
+en:Soft-ripened washed-rind cheese from pasteurised milk (Vieux pané-type cheese)
+fr:Fromage à pâte molle à croûte lavée au lait pasteurisé (type Vieux Pané)
+ciqual_food_code:en:12047
+ciqual_food_name:en:Soft-ripened washed-rind cheese, from pasteurised milk (Vieux pané-type cheese)
 
 <en:Camemberts
 <en:Unpasteurised cheeses
@@ -27844,15 +27906,20 @@ it:Pont-l'évêque
 nl:Pont-l'Évêque
 country:en:France
 wikidata:en:Q1233145
+ciqual_food_code:en:12042
+ciqual_food_name:en:Pont l'Evêque cheese, from cow's milk
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Reblochons, Reblochon, Reblochons de Savoie, Reblochon de Savoie
+en:Reblochon cheese from cow's milk
 de:Reblochon
 wikidata:en:Q543805
 country:en:France
 oqali_family:en: fr:Fromages - Reblochon
+ciqual_food_code:en:12045
+ciqual_food_name:en:Reblochon cheese, from cow's milk
 
 <en:Sheep Cheeses
 <en:Soft cheeses with bloomy rind
@@ -27886,6 +27953,18 @@ nl:Fetas, Feta's
 wikidata:en:Q182760
 ciqual_food_code:en:12061
 ciqual_food_name:en:Feta cheese, from ewe's milk
+
+<en:Greek cheeses
+en:Feta-type cheese from cow's milk
+fr:Fromage type feta au lait de vache
+ciqual_food_code:en:12060
+ciqual_food_name:en:Feta-type cheese from cow's milk
+
+<en:Greek cheeses
+en:Feta-type cheese from cow's milk in oil and spices
+fr:Fromage type feta au lait de vache à l'huile et aux aromates
+ciqual_food_code:en:12063
+ciqual_food_name:en:Feta-type cheese from cow's milk, in oil and spices
 
 <en:Greek cheeses
 el:Anevato
@@ -28183,7 +28262,10 @@ country:en:France
 
 <en:French cheeses
 fr:Bleu des Causses
+en:Causses blue cheese from cow's milk
 country:en:France
+ciqual_food_code:en:12523
+ciqual_food_name:en:Causses blue cheese, from cow's milk
 
 <en:French cheeses
 fr:Bleu du Haut-Jura, Bleu de Gex, Bleu de Septmoncel
@@ -28251,7 +28333,10 @@ ciqual_food_name:en:Chabichou cheese, from goat's milk
 <en:Soft cheeses with bloomy rind
 <en:Cow cheeses
 fr:Chaource
+en:Chaource cheese from cow's milk
 country:en:France
+ciqual_food_code:en:12028
+ciqual_food_name:en:Chaource cheese, from cow's milk
 
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
@@ -28295,6 +28380,8 @@ fr:Époisses, Epoisses
 nl:Époisse uit de Bourgogne
 country:en:France
 wikidata:en:Q1231414
+ciqual_food_code:en:12038
+ciqual_food_name:en:Époisses cheese, from cow's milk
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -28321,7 +28408,10 @@ ciqual_food_name:fr:Gruyère IGP France
 <en:French cheeses
 <en:Soft cheeses with washed rind
 fr:Langres
+en:Langres cheese from cow's milk
 country:en:France
+ciqual_food_code:en:12040
+ciqual_food_name:en:Langres cheese, from cow's milk
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -28333,12 +28423,19 @@ country:en:France
 <en:Uncooked pressed cheeses
 <en:Cow cheeses
 fr:Morbiers
+en:Morbier cheese from cow's milk
 country:en:France
 wikidata:en:Q177727
+ciqual_food_code:en:12743
+ciqual_food_name:en:Morbier cheese, from cow's milk
 
 <en:French cheeses
 fr:Munster, Munster-Géromé
 country:en:France
+en:Munster cheese from cow's milk
+fr:Munster
+ciqual_food_code:en:12039
+ciqual_food_name:en:Munster cheese, from cow's milk
 
 <en:French cheeses
 fr:Neufchâtel
@@ -28428,9 +28525,12 @@ ciqual_food_name:en:Cheese, from goat's milk
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Saint-Marcellin
+en:Saint-Marcellin cheese from cow's milk
 country:en:France
 wikidata:en:Q510126
 oqali_family:en: fr:Fromages - Saint marcellin et assimiles
+ciqual_food_code:en:12049
+ciqual_food_name:en:Saint-Marcellin cheese, from cow's milk
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -28453,16 +28553,22 @@ wikidata:en:Q1249172
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Tome des Bauges
+en:Tomme cheese (PDO) from the French Bauges mountains
 country:en:France
 wikidata:en:Q524966
+ciqual_food_code:en:12763
+ciqual_food_name:en:Tomme cheese (PDO) from the French Bauges mountains
 
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
 <en:French cheeses
 <en:Unpasteurised cheeses
-fr:Mont d'Or, vacherin du Haut-Doubs
+fr:Mont d'Or, vacherin du Haut-Doubs, Vacherin-Mont d'Or
+en:Vacherin cheese or Mont d'or cheese from cow's milk
 de:Mont d'Or
 wikidata:en:Q2147909
+ciqual_food_code:en:12051
+ciqual_food_name:en:Vacherin cheese or Mont d'or cheese, from cow's milk
 
 <en:French cheeses
 fr:Fromages du Nord-Pas-de-Calais
@@ -28471,9 +28577,12 @@ fr:Fromages du Nord-Pas-de-Calais
 <en:French cheeses
 <en:Soft cheeses with washed rind
 fr:Livarot, Livarots
+en:Livarot cheese from cow's milk
 de:Livarot
 wikidata:en:Q1144668
 country:en:France
+ciqual_food_code:en:12037
+ciqual_food_name:en:Livarot cheese, from cow's milk
 
 <en:Cheeses
 en:Soft cheeses with washed rind
@@ -28542,7 +28651,11 @@ wikidata:en:Q2926318
 
 <en:Cream cheeses
 fr:Faisselles
+en:Drained soft fresh cheese around 6% fat
 wikidata:en:Q3064619
+ciqual_food_code:en:19641
+ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
+
 
 <en:Cheeses
 en:Soft cheeses with bloomy rind, white mold-rind cheese
@@ -28706,8 +28819,27 @@ ciqual_food_name:en:Edam cheese, from cow's milk
 <en:Uncooked pressed cheeses
 <en:French cheeses
 fr:Saint-nectaire, Saint-nectaires, Saints-nectaires
+en:Saint-Nectaire cheese
 de:Saint-Nectaire
 wikidata:en:Q548309
+ciqual_food_code:en:12752
+ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk
+
+<en:Cow cheeses
+<en:Uncooked pressed cheeses
+<en:French cheeses
+en:Saint-Nectaire cheese from cow's milk milks collected in many farms
+fr:Saint-Nectaire laitier
+ciqual_food_code:en:12748
+ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milks collected in many farms
+
+<en:Cow cheeses
+<en:Uncooked pressed cheeses
+<en:French cheeses
+en:Saint-Nectaire cheese from cow's milk milk collected in an unique farm
+fr:Saint-Nectaire fermier
+ciqual_food_code:en:12751
+ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milk collected in an unique farm
 
 <en:Cheeses
 en:Unpasteurised cheeses
@@ -28822,6 +28954,34 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk_cheese
 ciqual_food_code:en:12824
 ciqual_food_name:en:Soft ripened cheese with bloomy rind, from ewe's milk, Camembert-type cheese
 
+<en:Cheeses
+fr:Fondues, fondue, fondues de fromage, fondue de fromage
+nl:Fondus, Kaasfondus
+wikidata:en:Q190531
+en:Processed cheese in slices
+ciqual_food_code:en:12300
+ciqual_food_name:en:Processed cheese, in slices
+
+<en:Cheeses
+en:Processed cheese double cream around 31% fat
+fr:Fromage fondu double crème environ 31% MG
+ciqual_food_code:en:12320
+ciqual_food_name:en:Processed cheese, double cream, around 31% fat
+
+<en:Cheeses
+en:Processed cheese around 20% fat in wedges or cubes
+fr:Fromage fondu en portions ou en cubes environ 20% MG
+ciqual_food_code:en:12310
+ciqual_food_name:en:Processed cheese, around 20% fat, in wedges or cubes
+
+<en:Cheeses
+en:Cheese fondue from Savoy, Savoy-style fondue (cheese wine and bread)
+fr:Fondues savoyardes, fondue savoyarde
+it:Fonduta savoiarda
+nl:Kaasfondue uit de Savoie
+wikidata:en:Q972682
+ciqual_food_code:en:25509
+ciqual_food_name:en:Savoy-style fondue (cheese wine and bread)
 
 <en:Cheeses
 <en:sheep's-milk cheeses, Sheep cheeses, Cheeses from sheep milk
@@ -29267,6 +29427,8 @@ hu:Mascarpone
 nl:Mascarpone
 wikidata:en:Q209889
 oqali_family:en: fr:Fromages - Mascarpone
+ciqual_food_code:en:19584
+ciqual_food_name:en:Mascarpone cheese, from cow's milk
 
 <en:Italian cheeses
 it:Asiago
@@ -29337,6 +29499,10 @@ country:en:Italy
 it:Fontina
 country:en:Italy
 #wikidata:en:
+en:Fontina cheese from cow's milk
+fr:Fontina
+ciqual_food_code:en:12121
+ciqual_food_name:en:Fontina cheese, from cow's milk
 
 <en:Italian cheeses
 it:Formaggella del Luinese
@@ -29389,6 +29555,8 @@ nl:Mozzarella
 sv:Mozzarella
 wikidata:en:Q14088
 oqali_family:en: fr:Fromages - Mozzarella
+ciqual_food_code:en:19590
+ciqual_food_name:en:Mozzarella cheese, from cow's milk
 
 <en:Mozzarella
 <en:Buffalo's milk-cheese
@@ -29576,6 +29744,8 @@ fr:Ricotta
 it:Ricotta
 nl:Ricotta
 wikidata:en:Q216781
+ciqual_food_code:en:19585
+ciqual_food_name:en:Ricotta cheese
 
 <en:Ricotta
 it:Ricotta Romana
@@ -30092,9 +30262,15 @@ nl:Geraspte kzen
 
 <en:French cheeses
 fr:Maroilles, Marolles
-en:Maroilles ""laitier"" cheese
+en:Maroilles 
 country:en:France
 wikidata:en:Q734978
+ciqual_food_code:en:12036
+ciqual_food_name:en:Maroilles cheese, from cow's milk
+
+<en:French cheeses
+en:Maroilles ""laitier"" cheese
+fr:Maroilles laitier
 ciqual_food_code:en:12029
 ciqual_food_name:en:Maroilles ""laitier"" cheese
 
@@ -30106,9 +30282,12 @@ ciqual_food_name:en:Maroilles ""fermier"" cheese
 
 <en:Cheeses
 fr:Raclettes
+en:Raclette cheese from cow's milk
 de:Raclettekäse, Raclette-Käse
 wikidata:en:Q20748
 oqali_family:en: fr:Fromages - Fromage a raclette
+ciqual_food_code:en:12749
+ciqual_food_name:en:Raclette cheese, from cow's milk
 
 <en:Dairy desserts
 en:Petits suisses
@@ -31851,6 +32030,9 @@ nl:Smeerkazen
 
 <en:Cheeses
 fr:Fromages Ail et fines herbes, fromage ail et fines herbes type Boursin, Tartare
+en:Uncured soft cheese spreadable around 30-40% fat flavoured (ex : garlic and herbs)
+ciqual_food_code:en:19530
+ciqual_food_name:en:Uncured soft cheese, spreadable, around 30-40% fat, flavoured (ex : garlic and herbs)
 
 <en:Fermented milk products
 en:Yogurts, yoghourts, yoghurts, yogourts, jogurts
@@ -33734,6 +33916,8 @@ nl:Hazelnoten
 se:Hasselnötter, hasselnöt
 wikidata:en:Q578307
 season_in_country_fr:en: 9,10,11
+ciqual_food_code:en:15004
+ciqual_food_name:en:Hazelnut
 
 <en:Hazelnuts
 fr:Noisettes en poudre
@@ -33783,6 +33967,15 @@ de:geröstete Haselnüsse
 es:Avellanas tostadas
 fr:Noisettes grillées
 nl:Gebrande hazelnoten
+ciqual_food_code:en:15033
+ciqual_food_name:en:Hazelnut, grilled
+
+<en:Shelled hazelnuts
+<en:Roasted nuts
+en:Hazelnut grilled salted
+fr:Noisette grillée salée
+ciqual_food_code:en:15050
+ciqual_food_name:en:Hazelnut, grilled, salted
 
 <en:Roasted hazelnuts
 en:Roasted hazelnuts with skin
@@ -33841,6 +34034,9 @@ ru:Арахис
 se:Jordnötter, jordnöt
 zh:花生
 wikidata:en:Q37383
+ciqual_food_code:en:15001
+ciqual_food_name:en:Peanut
+
 
 <en:Peanuts
 en:Unshelled peanuts
@@ -33879,6 +34075,15 @@ fi:paahdetut maapähkinät
 fr:Cacahuètes grillées
 hu:Pörkölt mogyoró
 nl:Gebrande pinda's
+ciqual_food_code:en:15037
+ciqual_food_name:en:Peanut, grilled
+
+<en:Peanuts
+<en:Roasted nuts
+en:Peanut grilled salted
+fr:Cacahuète grillée salée
+ciqual_food_code:en:15002
+ciqual_food_name:en:Peanut, grilled, salted
 
 <en:Nuts
 <en:Roasted nuts
@@ -33987,6 +34192,8 @@ fr:Pignons de pin
 la:Pinus
 nl:Pijnboompitten
 wikidata:en:Q212933
+ciqual_food_code:en:15025
+ciqual_food_name:en:Pine nuts
 
 <en:Pine nuts
 <en:Shelled nuts
@@ -34849,7 +35056,7 @@ de:Gekochte Eier, Gekochte Hühnereier
 fr:Œufs durs, Oeufs durs
 nl:Gekookte eieren
 zh:水煮蛋
-wikidata:en:Q1062531
+wikidata:en:Q1062531 
 
 <en:Eggs
 de:Eier aus ökologischer Erzeugung
@@ -35965,6 +36172,8 @@ ro:Ulei de floarea soarelui
 ru:Масло подсолнечное, Подсолнечное масло
 zh:葵花籽油
 wikidata:en:Q94787
+ciqual_food_code:en:17440
+ciqual_food_name:en:Sunflower oil
 
 <en:Sunflower oils
 en:Nonrefined sunflower oils, unrefined sunflower oils
@@ -42809,6 +43018,9 @@ fr:Sauces dressing au yaourt
 
 <en:Sauces
 fr:Sauces hollandaise, Sauce hollandaise
+en:Hollandaise sauce
+ciqual_food_code:en:11105
+ciqual_food_name:en:Hollandaise sauce, prepacked
 
 <en:Sauces
 fr:Sauces marchand de vin
@@ -44326,6 +44538,18 @@ fr:Oeuf en poudre
 ciqual_food_code:en:22013
 ciqual_food_name:en:Egg, powder
 
+<en:Meal replacements
+en:Egg white powder
+fr:blanc d'oeuf en poudre
+ciqual_food_code:en:22004
+ciqual_food_name:en:Egg white, powder
+
+<en:Meal replacements
+en:Egg yolk powder
+fr:jaune d'oeuf en poudre
+ciqual_food_code:en:22003
+ciqual_food_name:en:Egg yolk, powder
+
 <en:Meals
 en:Sushis and makis, Sushi and Maki
 fr:Sushis et makis
@@ -44528,6 +44752,23 @@ es:Platos de arroz
 fi:Riisiateriat
 fr:Plats à base de riz, plats préparés à base de riz
 nl:Rijstschotels
+
+<en:Meals
+en:Egg scrambled with added fat
+fr:Oeuf brouillé avec matière grasse
+ciqual_food_code:en:22502
+ciqual_food_name:en:Egg, scrambled, with added fat
+
+<en:Meals
+en:Egg white cooked
+fr:blanc d'oeuf cuit
+ciqual_food_code:en:22008
+ciqual_food_name:en:Egg white, cooked
+
+<en:Meals
+fr:jaune d'oeuf cuit
+ciqual_food_code:en:22009
+ciqual_food_name:en:Egg yolk, cooked
 
 <en:Rice dishes
 en:Rice stuffed tomatoes
@@ -44844,6 +45085,12 @@ nl:Worst met linzen
 ciqual_food_code:en:25010
 ciqual_food_name:en:Salt-cured pork belly with lentils
 ciqual_food_name:fr:Petit salé ou saucisse aux lentilles
+
+<en:Meals with meat
+en:Sausage in a brioche crust cooked
+fr:Saucisson brioché cuit
+ciqual_food_code:en:30707
+ciqual_food_name:en:Sausage in a brioche crust, cooked
 
 <en:Meals with meat
 en:Meals with horse meat
@@ -45185,6 +45432,8 @@ nl:Kippenspiesjes
 en:Yakitori chicken skewers, yakitori chicken
 fr:Brochettes de poulet Yakitori, Yakitori de Poulet, Poulet Yakitori
 nl:Yakitori kipspiesjes
+ciqual_food_code:en:25565
+ciqual_food_name:en:Yakitori (grilled meat on skewers, Japanese-style, with sauce)
 
 <en:Poultry meals
 fr:Coq au vin
@@ -45533,9 +45782,11 @@ ciqual_food_name:fr:Tarte au fromage
 
 <en:Salted pies
 en:Maroilles Tarts
-fr:Tartes au maroilles
+fr:Tartes au maroilles, Flamiche au maroilles
 nl:Maroilletaart
 wikidata:en:Q3515850
+ciqual_food_code:en:25623
+ciqual_food_name:en:Maroilles cheese tart or maroilles cheese flamiche
 
 <en:Salted pies
 en:Tomatoes pies, Tomato tarts
@@ -45570,6 +45821,18 @@ nl:Groentetaarten
 ciqual_food_code:en:25417
 ciqual_food_name:en:Vegetables tart
 ciqual_food_name:fr:Tarte aux légumes
+
+<en:Salted pies
+en:Pastilla filled with chicken (pie)
+fr:Pastilla au poulet
+ciqual_food_code:en:25568
+ciqual_food_name:en:Pastilla, filled with chicken (pie)
+
+<en:Salted pies
+en:Goat cheese and spinach tart
+fr:Tarte épinard chèvre
+ciqual_food_code:en:26267
+ciqual_food_name:en:Goat cheese and spinach tart
 
 <en:Meals
 en:Soups
@@ -52468,9 +52731,18 @@ wikidata:en:Q360910
 
 <en:Mountain cheeses
 fr:Tommes, tomes, Tomme, tome
+en:Tomme cheese from cow's milk
 de:Tomme
 en:Tomme
 wikidata:en:Q2164539
+ciqual_food_code:en:12758
+ciqual_food_name:en:Tomme cheese, from cow's milk
+
+<en:Mountain cheeses
+en:Tomme cheese reduced fat around 13% fat
+fr:Tomme, tome allégée en matière grasse environ 13% MG
+ciqual_food_code:en:12760
+ciqual_food_name:en:Tomme cheese, reduced fat, around 13% fat
 
 <fr:Tommes
 fr:Tomme d’Italie, Tommes d'Italie
@@ -52478,7 +52750,10 @@ fr:Tomme d’Italie, Tommes d'Italie
 <fr:Tommes
 <en:French cheeses
 fr:Tomme de Savoie, Tommes de Savoie
+en:Tomme cheese from mountain or Savoy
 country:en:France
+ciqual_food_code:en:12759
+ciqual_food_name:en:Tomme cheese, from mountain or Savoy
 
 <fr:Tommes
 fr:Tomme de Suisse, Tommes de Suisse
@@ -55008,7 +55283,6 @@ fr:Croque-monsieur, Croque-messieurs, croquemonsieur
 el:Κροκ-μεσιέ
 wikidata:en:Q738
 
-
 <en:Sandwiches
 en:Hamburgers, Burgers
 ca:Hamburgueses
@@ -55037,6 +55311,12 @@ ciqual_food_name:en:Burger, beef based, 15% fat, raw
 ciqual_food_name:fr:Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
 
 <en:Sandwiches
+en:Chicken burger
+fr:Burger au poulet
+ciqual_food_code:en:25502
+ciqual_food_name:en:Chicken burger , fast foods restaurant
+
+<en:Sandwiches
 en:Veggie burgers
 de:Vegetarische Hamburger
 es:Hamburguesas vegetales
@@ -55052,6 +55332,8 @@ fr:Hot-dogs, Hot-dog
 ja:ホットドッグ
 nl:Hotdogs
 wikidata:en:Q181055
+ciqual_food_code:en:25403
+ciqual_food_name:en:Hot-dog
 
 <en:Sandwiches
 en:Vegetarian hot dog sandwiches
@@ -55061,6 +55343,24 @@ nl:Vegetarische hotdogs
 
 <en:Sandwiches
 fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
+
+<en:Sandwiches
+en:Sandwich made with French bread ham and emmental cheese
+fr:Sandwich baguette jambon emmental
+ciqual_food_code:en:25485
+ciqual_food_name:en:Sandwich made with French bread, ham and emmental cheese
+
+<en:Sandwiches
+en:Sandwich made with French bread ham emmental cheese and butter
+fr:Sandwich baguette jambon emmental beurre
+ciqual_food_code:en:25521
+ciqual_food_name:en:Sandwich made with French bread, ham, emmental cheese and butter
+
+<en:Sandwiches
+en:Sandwich made with wholemeal loaf bread ham and cheese
+fr:Sandwich pain de mie complet jambon fromage
+ciqual_food_code:en:25576
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
 
 <en:Sandwiches
 en:Sandwich made with French bread camembert cheese and butter
@@ -55807,6 +56107,34 @@ fr:filets de sardine à l'huile d'olive
 ciqual_food_code:en:26231
 ciqual_food_name:en:European pilchard or sardine, fillets without fishbone, in olive oil, canned, drained
 
+<en:Sardines in olive oil
+<en:Sardine fillets
+en:European pilchard or sardine in oil canned drained
+fr:Sardine à l'huile appertisée égouttée
+ciqual_food_code:en:26034
+ciqual_food_name:en:European pilchard or sardine, in oil, canned, drained
+
+<en:Sardines in olive oil
+<en:Sardine fillets
+en:European pilchard or sardine in olive oil canned drained
+fr:Sardine à l'huile d'olive appertisée égouttée
+ciqual_food_code:en:26040
+ciqual_food_name:en:European pilchard or sardine, in olive oil, canned, drained
+
+<en:Sardines in olive oil
+<en:Sardine fillets
+en:Pilchard in tomato sauce canned drained
+fr:Pilchard sauce tomate appertisé égoutté
+ciqual_food_code:en:26027
+ciqual_food_name:en:Pilchard, in tomato sauce, canned, drained
+
+<en:Sardines in olive oil
+<en:Sardine fillets
+en:European pilchard or sardine in tomato sauce canned drained
+fr:Sardine sauce tomate appertisée égouttée
+ciqual_food_code:en:26035
+ciqual_food_name:en:European pilchard or sardine, in tomato sauce, canned, drained
+
 <en:Canned fishes
 <en:Mackerels
 en:Tinned Mackerels
@@ -56035,6 +56363,25 @@ fr:Croquettes de poisson, beignet de poisson frit, nuggets de poisson frit
 en:Fish croquette fritter, nuggets fried
 ciqual_food_code:en:26028
 ciqual_food_name:en:Fish, croquette, fritter or nuggets, fried
+
+<en:Fish preparations
+en:Meat poultry or fish fritters home-made
+fr:nuggets fait maisons
+ciqual_food_code:en:25551
+ciqual_food_name:en:Meat, poultry or fish fritters, home-made
+
+<en:Fish preparations
+en:Poultry nuggets
+fr:nuggets à la vollaile
+ciqual_food_code:en:25512
+ciqual_food_name:en:Poultry nuggets
+
+<en:Fish preparations
+en:Chicken nugget breaded croquette
+fr:nuggets au poulet
+ciqual_food_code:en:36027
+ciqual_food_name:en:Chicken, nugget, breaded croquette
+
 
 <en:Breaded products
 <en:Fish preparations
@@ -56401,6 +56748,12 @@ ciqual_food_code:en:26146
 ciqual_food_name:en:Snapper, raw
 ciqual_food_name:fr:Vivaneau, cru
 
+<en:Fishes
+en:Snapper cooked
+fr:Vivaneau cuit
+ciqual_food_code:en:26147
+ciqual_food_name:en:Snapper, cooked
+
 <en:Raw fishes
 en:Raw crevalle jack
 fr:Carangue cru
@@ -56760,6 +57113,12 @@ fr:Espadons fumés, espadon fumé
 nl:Gerookte zwaardvis
 
 <en:Smoked fishes
+en:Swordfish roasted/baked
+fr:Espadon rôti, espadon cuit au four
+ciqual_food_code:en:26093
+ciqual_food_name:en:Swordfish, roasted/baked
+
+<en:Smoked fishes
 en:Smoked haddock
 fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés, églefins fumés, églefin fumé
 nl:Gerookte schelvis
@@ -57006,6 +57365,12 @@ fr:Thons fumés, thon fumé
 it:Tonno affumicato
 nl:Gerookte tonijn
 ru:Тунец копчёный, Копчёный тунец
+
+<en:Tunas
+en:Tuna roasted/baked
+fr:Thon rôti, thon cuit au four
+ciqual_food_code:en:26041
+ciqual_food_name:en:Tuna, roasted/baked
 
 <en:Tunas
 en:Longtail tuna
@@ -57335,6 +57700,27 @@ nl:Makreelfilets
 pl:Filety z makreli
 ciqual_food_code:en:26123
 ciqual_food_name:en:Mackerel, canned in brine, drained
+
+<en:Mackerels
+<en:Fish fillets
+en:Mackerel fillet in tomato sauce canned drained
+fr:Maquereau filet sauce tomate appertisé égoutté
+ciqual_food_code:en:26086
+ciqual_food_name:en:Mackerel, fillet, in tomato sauce, canned, drained
+
+<en:Mackerels
+<en:Fish fillets
+en:Mackerel fillet in mustard sauce canned drained
+fr:Maquereau filet sauce moutarde appertisé égoutté
+ciqual_food_code:en:26096
+ciqual_food_name:en:Mackerel, fillet, in mustard sauce, canned, drained
+
+<en:Mackerels
+<en:Fish fillets
+en:Mackerel fillet in white wine canned drained
+fr:Maquereau filet au vin blanc appertisé égoutté
+ciqual_food_code:en:26097
+ciqual_food_name:en:Mackerel, fillet, in white wine, canned, drained
 
 <en:Mackerels
 en:Raw mackerel
@@ -57767,6 +58153,12 @@ en:Squid fried or pan-fried with fat
 fr:calamar frit ou poêlé
 ciqual_food_code:en:10084
 ciqual_food_name:en:Squid, fried or pan-fried with fat
+
+<en:Mollusc
+en:Squid fritter Roman-style
+fr:beignet de calamar à la romaine, encornet à la romaine
+ciqual_food_code:en:10002
+ciqual_food_name:en:Squid fritter, Roman-style
 
 <en:Seafood
 <en:Salted spreads
@@ -60218,6 +60610,8 @@ es:Berenjenas
 fr:Aubergines
 la:Solanum melongena
 nl:Aubergines
+ciqual_food_code:en:20053
+ciqual_food_name:en:Eggplant, raw
 
 <en:Aubergines
 <en:Fresh vegetables
@@ -66068,6 +66462,14 @@ fi:suklaakroisantti
 fr:Pains au chocolat, Chocolatines
 nl:Chocolade croissants, Chocolade croissant
 wikidata:en:Q1190838
+ciqual_food_code:en:7730
+ciqual_food_name:en:Chocolate croissant, puff pastry, from bakery
+
+<en:Viennoiseries
+en:Chocolate croissant prepacked
+fr:Pain au chocolat préemballé
+ciqual_food_code:en:7733
+ciqual_food_name:en:Chocolate croissant, prepacked
 
 <en:Viennoiseries
 en:Milk bread rolls
@@ -66188,6 +66590,12 @@ fr:Couronne de Noël aux fruits confits,  Brioche de Noël aux fruits confits
 ciqual_food_code:en:7744
 ciqual_food_name:en:Christmas brioche with candied fruits, prepacked
 ciqual_food_name:fr:Couronne de Noël (Brioche) aux fruits confits, préemballée
+
+<en:Brioches
+en:Brioche filled with fruits
+fr:Brioche fourrée aux fruits
+ciqual_food_code:en:7738
+ciqual_food_name:en:Brioche, filled with fruits
 
 <en:Viennoiseries
 fr:Gâches
@@ -67914,6 +68322,13 @@ ciqual_food_code:en:25508
 ciqual_food_name:en:Ham and cheese in puffed pastry
 
 <en:Puff pastry meals
+<en:Friands
+en:Fish or seafood in puff pastry
+fr:Feuilleté au poisson et/ou fruits de mer
+ciqual_food_code:en:25151
+ciqual_food_name:en:Fish or seafood in puff pastry
+
+<en:Puff pastry meals
 en:Cornish Pasty
 protected_name_file_number:en: PGI-GB-0727
 protected_name_type:en: pgi
@@ -68116,6 +68531,8 @@ nl:Groentetortellini
 en:Acras, Accras
 fr:Acras, Accras
 nl:Acra
+ciqual_food_code:en:25433
+ciqual_food_name:en:Caribbean-style fish fritters, fish acras
 
 <en:Meals
 en:Truffades
