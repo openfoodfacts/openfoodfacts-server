@@ -433,7 +433,8 @@ my @tests = (
 				'processing' => 'en:puffed',
 				'text' => 'gurken'
 			}
-		],
+		]
+	],
 	
 # de:geschält and variants
 	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
