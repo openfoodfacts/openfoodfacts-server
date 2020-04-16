@@ -240,7 +240,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+	elsif  ((uc($unit) eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
