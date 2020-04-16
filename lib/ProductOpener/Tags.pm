@@ -1140,16 +1140,19 @@ sub build_tags_taxonomy($$$) {
 
 			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
-				# stopwords
+				# remove stopwords
+				# unless we have only 2 words in the label name
+				# check that we have at least 2 word separators (dashes)
+				if ($tagid =~ /-.+-/) {
 
-				my $tagid2 = remove_stopwords($tagtype,$lc,$tagid);
-				$tagid2 = remove_plurals($lc,$tagid2);
+					my $tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+					$tagid2 = remove_plurals($lc,$tagid2);
 
-				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
-					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
+						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					}
 				}
-
 			}
 		}
 
@@ -2683,15 +2686,21 @@ sub canonicalize_taxonomy_tag($$$)
 
 			foreach my $test_lc (@test_languages) {
 
-				# try removing stopwords and plurals
-				my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
-				$tagid2 = remove_plurals($test_lc, $tagid2);
-				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid2})) {
-					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
+				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid})) {
+					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid};
 					$tag_lc = $test_lc;
-					last;
 				}
+				else {
 
+					# try removing stopwords and plurals
+					my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
+					$tagid2 = remove_plurals($test_lc, $tagid2);
+					if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid2})) {
+						$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
+						$tag_lc = $test_lc;
+						last;
+					}
+				}
 			}
 		}
 	}

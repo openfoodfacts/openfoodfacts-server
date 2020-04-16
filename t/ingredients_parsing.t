@@ -195,6 +195,9 @@ my @lists =(
 	["es", "Agua, aceite de girasol*, arroz* (5 %). (*) Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico, arroz Ecológico (5 %)."],
 	["es", "Tofu* 88% (agua, habas de soja*). *cumple con el reglamento de agricultura ecológica CE 2092/91", "Tofu Ecológico 88% (agua, habas de soja Ecológico )."],
 	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5,5%)."],
+
+	# test for bug #3273 that introduced unwanted separators before natural flavor
+	["en", "non-gmo natural flavor", "non-gmo natural flavor"],
 );
 
 foreach my $test_ref (@lists) {
