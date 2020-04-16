@@ -274,6 +274,16 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
+			# Source specific fields
+			elsif ($field eq "sources_fields_specific") {
+				$field = "sources_fields:" . $Owner_id . ":";
+				if (defined $columns_fields_ref->{$column}{tag}) {
+					$field .= $columns_fields_ref->{$column}{tag};
+				}
+				else {
+					$field .= $column;
+				}
+			}
 			elsif ($field =~ /_value_unit/) {
 				$field = $`;
 				if (defined $columns_fields_ref->{$column}{value_unit}) {
@@ -1033,6 +1043,12 @@ sub generate_import_export_columns_groups_for_select2($) {
 		["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
 		],
 	];
+
+	# Special fields only selectable by moderators
+
+	if (defined $User{pro_moderator_owner}) {
+		push @{$fields_groups_ref}, ["other", ["sources_fields_specific"]];
+	}
 
 	# Create an options array for select2
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-10 15:12\n"
+"PO-Revision-Date: 2020-04-13 15:02\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -239,15 +239,15 @@ msgstr "Продукты не марки %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Владелец торговой марки"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Компания Coca Cola"
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr ""
+msgstr "производители"
 
 msgctxt "brand_owner_products"
 msgid "Products from the %s brand owner"
@@ -970,11 +970,11 @@ msgstr "Число ингредиентов"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Количество общепризнанных ингредиентов"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Количество непризнанных ингредиентов"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -3393,6 +3393,10 @@ msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Значение в мкг"
 
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr ""
+
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
 msgstr "Стоимость в ккал"
@@ -3485,7 +3489,7 @@ msgstr "ошибка качества данных"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
@@ -3720,7 +3724,7 @@ msgstr "3001234567890.ingredients_fr.jpg: список ингредиентов 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: таблица питания на испанском языке."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3832,7 +3836,7 @@ msgstr "округленное значение"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Пищевая ценность"
 
 # Do not translate
 msgctxt "nutriscore_grade"
@@ -3959,7 +3963,7 @@ msgstr "Нам нужна ваша поддержка!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Пожалуйста, поддержите"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
@@ -4126,7 +4130,7 @@ msgstr "Выполнить"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Команды"
 
 msgctxt "optional"
 msgid "optional"
@@ -4152,4 +4156,3 @@ msgstr ""
 msgctxt "team_s"
 msgid "Team %s"
 msgstr ""
-
