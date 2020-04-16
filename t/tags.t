@@ -482,5 +482,9 @@ is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-y
 is_deeply(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
 is_deeply(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
 
+is_deeply(canonicalize_taxonomy_tag("en", "labels", "pur jus"), "en:pure-juice");
+# should not be matched to "pur jus" in French and return "en:pure-juice"
+is_deeply(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
+
 
 done_testing();
