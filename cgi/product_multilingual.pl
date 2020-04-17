@@ -244,6 +244,12 @@ my @fields = @ProductOpener::Config::product_fields;
 
 if ($admin) {
 	push @fields, "environment_impact_level";
+
+	# Let admins edit any other fields
+	if (defined param("fields")) {
+		push @fields, split(/,/, param("fields"));
+	}
+
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -1745,6 +1751,10 @@ HTML
 			}
 		}
 
+		if (lc($unit) eq "mcg") {
+			$unit = "µg";
+		}
+
 		my $disabled_backup = $disabled;
 		if ($nid eq 'carbon-footprint') {
 			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
@@ -1793,13 +1803,13 @@ HTML
 
 			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 				or ($nid =~ /^new_/)
-				or ($unit eq '% DV')) {
+				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
 			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
 				or ($nid =~ /^new_/)
-				or ($unit eq 'IU')
-				or ($unit eq 'UI')) {
+				or (uc($unit) eq 'IU')
+				or (uc($unit) eq 'UI')) {
 				push @units, 'IU';
 			}
 
@@ -1828,7 +1838,7 @@ HTML
 
 			foreach my $u (@units) {
 				my $selected = '';
-				if ($unit eq $u) {
+				if (lc($unit) eq lc($u)) {
 					$selected = 'selected="selected" ';
 				}
 				$input .= <<HTML
