@@ -6480,6 +6480,24 @@ sv:Alkoholfria drycker
 th:เครื่องดื่มไม่มีแอลกอฮอล์
 zh:无酒精饮料
 
+<en:Beverages
+en:Still soft drink with tea extract with sugar and artificial sweetener(s)
+fr:Boisson au thé aromatisée sucrée avec édulcorants
+ciqual_food_code:en:18015
+ciqual_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
+
+<en:Beverages
+en:Still soft drink with tea extract flavoured without sugar and with artificial sweeteners
+fr:Boisson au thé aromatisée non sucrée avec édulcorants
+ciqual_food_code:en:18065
+ciqual_food_name:en:Still soft drink with tea extract, flavoured, without sugar and with artificial sweeteners
+
+<en:Beverages
+en:Still soft drink with tea extract flavoured with sugar
+fr:Boisson au thé aromatisée sucrée
+ciqual_food_code:en:18075
+ciqual_food_name:en:Still soft drink with tea extract, flavoured, with sugar
+
 <en:Wines
 <en:Non-Alcoholic beverages
 en:Non-Alcoholic wines, Alcohol-free wines
@@ -22692,6 +22710,26 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crouton
 # ingredient/fr:croûtons has 107 products in 5 languages @2019-04-21
 # category/croutons has 166 products @2019-05-19
 # usage:en:croutons (wheat flour, vegetable fat, edible salt, maltodextrin, grape sugar, onions, herbs, yeast extract, dehydrated garlic, flavoring, yeast, spice extract)
+ciqual_food_code:en:7430
+ciqual_food_name:en:Croutons
+
+<en:Breads
+en:Croutons
+fr:Croûtons à tartiner
+ciqual_food_code:en:7431
+ciqual_food_name:en:Croutons
+
+<en:Breads
+en:Croutons plain prepacked
+fr:Croûtons nature
+ciqual_food_code:en:7432
+ciqual_food_name:en:Croutons, plain, prepacked
+
+<en:Breads
+en:Crouton with garlic herbs or onions prepacked
+fr:Croûton à l'ail aux fines herbes
+ciqual_food_code:en:38500
+ciqual_food_name:en:Crouton with garlic, herbs or onions, prepacked
 
 <en:Breads
 en:Zwieback
@@ -23600,6 +23638,8 @@ ciqual_food_name:fr:Gâteau au citron, tout type
 fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
 wikidata:en:Q588378
 oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
+ciqual_food_code:en:24664
+ciqual_food_name:en:Almond cake
 
 <en:Biscuits
 en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
@@ -24829,6 +24869,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 # category/nougats has 421 products @2019-05-18
 # ingredient/nougat has 52 products in 5 languages @2019-02-08
 # nougat (cane sugar , hazelnuts 33%, cocoa mass, cocoa butter)
+ciqual_food_code:en:31033
+ciqual_food_name:en:Nougat
+
 
 <fr:Nougats
 en:Chocolate nougats
@@ -33884,6 +33927,12 @@ fr:Châtaignes décortiquées
 nl:Gepelde kastanjes
 
 <en:Chestnuts
+en:Chestnut boiled/cooked in water
+fr:Châtaigne bouillie/cuite à l'eau
+ciqual_food_code:en:15020
+ciqual_food_name:en:Chestnut, boiled/cooked in water
+
+<en:Chestnuts
 en:Grilled chestnut
 fr:Châtaigne grillée
 ciqual_food_code:en:15021
@@ -34297,6 +34346,8 @@ en:Chestnut flours
 es:Harinas de castañas
 fr:Farines de châtaignes, Farines de châtaigne
 nl:Gemalen kastanjes
+ciqual_food_code:en:9570
+ciqual_food_name:en:Chestnut flour
 
 #<en:French flours
 <en:Chestnut flours
@@ -35187,6 +35238,17 @@ ciqual_food_code:en:22000
 ciqual_food_name:en:Egg, raw
 ciqual_food_name:fr:Oeuf, cru
 
+<en:Bird eggs
+en:Egg white raw
+fr:Oeuf blanc (blanc d'oeuf) cru
+ciqual_food_code:en:22001
+ciqual_food_name:en:Egg white, raw
+
+<en:Bird eggs
+en:Egg yolk raw
+fr:Oeuf jaune (jaune d'oeuf) cru
+ciqual_food_code:en:22002
+ciqual_food_name:en:Egg yolk, raw
 
 en:Fats
 ca:Greixos
@@ -35682,6 +35744,12 @@ zh:小麦胚芽油
 wikidata:en:Q720761
 
 <en:Vegetable oils
+en:Combined oil (blended vegetable oils)
+fr:Huile combinée (mélange d'huiles)
+ciqual_food_code:en:17700
+ciqual_food_name:en:Combined oil (blended vegetable oils)
+
+<en:Vegetable oils
 en:Cottonseed oils, Cottonseed oil
 es:Aceites de semillas de algodón
 fr:Huiles de coton, Huile de coton
@@ -35782,6 +35850,8 @@ it:Olio di arachide, Olio di semi di arachide
 nl:Pindaoliën, Aardnotenoliën, Arachidëneoliën
 zh:花生油
 wikidata:en:Q265878
+ciqual_food_code:en:17040
+ciqual_food_name:en:Peanut oil
 
 <en:Legume oils
 en:Soybean oils, Soy oil
@@ -35843,6 +35913,8 @@ it:Olio di nocciole
 nl:Hazelnootoliën
 zh:榛子油
 wikidata:en:Q1112606
+ciqual_food_code:en:17210
+ciqual_food_name:en:Hazelnut oil
 
 <en:Nut oils
 en:Macadamia oils
@@ -35886,6 +35958,8 @@ it:Olio di noci
 nl:Walnootoliën
 zh:核桃油
 wikidata:en:Q1434098
+ciqual_food_code:en:17220
+ciqual_food_name:en:Walnut oil
 
 #en:French oils
 
@@ -40631,6 +40705,8 @@ fr:Raisins secs
 it:Uve secche
 nl:Gedroogde rozijnen
 ru:Изюм, виноград сушёный, виноград сушеный, сушеный виноград, сушёный виноград
+ciqual_food_code:en:13046
+ciqual_food_name:en:Raisin
 
 <en:Raisins
 en:Raisins of Corinth
@@ -43212,6 +43288,8 @@ es:Salsa bearnesa
 fi:bernaise-kastike
 fr:Sauces béarnaises, Sauce béarnaise
 nl:Béarnaise saus
+ciqual_food_code:en:11102
+ciqual_food_name:en:Bearnaise sauce, prepacked
 
 <en:Sauces
 nl:Patatje Joppiesaussmaaksauzen
@@ -43266,6 +43344,8 @@ fi:juustokastikkeet
 fr:Sauces au fromage, Sauce au fromage, Sauces aux fromages, Sauce aux fromages
 hu:Sajtosmártások, Sajtmártások
 nl:Kaassauzen
+ciqual_food_code:en:11189
+ciqual_food_name:en:Cheese sauce for risotto or pasta, prepacked
 
 <en:Cheese sauces
 en:Roquefort sauces, Blue cheese sauce
@@ -44701,9 +44781,11 @@ fr:Plats préparés feuilletés
 nl:Kant-en-klaar maaltijden met bladerdeeg
 
 <en:Puff pastry meals
-en:Ham croissants
+en:Ham croissants, Croissant filled with ham
 fr:Croissants au jambon
 nl:Hamcroissants
+ciqual_food_code:en:25418
+ciqual_food_name:en:Croissant filled with ham
 
 <en:Puff pastry meals
 fr:Vol-au-vent, bouchées à la reine, bouchée à la reine
@@ -44712,6 +44794,11 @@ en:Vol-au-vent with fish and seafood
 ciqual_food_code:en:25503
 ciqual_food_name:en:Vol-au-vent with fish and seafood
 
+<en:Puff pastry meals
+en:Vol-au-vent with meat/poultry/quenelle
+fr:Bouchée à la reine à la viande
+ciqual_food_code:en:25412
+ciqual_food_name:en:Vol-au-vent, with meat/poultry/quenelle
 
 <en:Puff pastry meals
 fr:Friands
@@ -44764,6 +44851,18 @@ en:Egg white cooked
 fr:blanc d'oeuf cuit
 ciqual_food_code:en:22008
 ciqual_food_name:en:Egg white, cooked
+
+<en:Meals
+en:Egg poached
+fr:Oeuf poché
+ciqual_food_code:en:22011
+ciqual_food_name:en:Egg, poached
+
+<en:Meals
+en:Egg soft-boiled
+fr:Oeuf à la coque
+ciqual_food_code:en:22014
+ciqual_food_name:en:Egg, soft-boiled
 
 <en:Meals
 fr:jaune d'oeuf cuit
@@ -45341,7 +45440,19 @@ ciqual_food_code:en:40113
 ciqual_food_name:en:Liver, pork, cooked
 ciqual_food_name:fr:Foie, porc, cuit
 
-<en:Pork meats
+<en:Pork meals
+en:Pork liver mousse superior quality
+fr:Mousse de foie de porc supérieure
+ciqual_food_code:en:8312
+ciqual_food_name:en:Pork liver mousse, superior quality
+
+<en:Pork meals
+en:Pork liver mousse
+fr:Mousse de foie de porc
+ciqual_food_code:en:8313
+ciqual_food_name:en:Pork liver mousse
+
+<en:Pork meals
 en:Cooked pork kidney
 fr:Rognon de porc cuit
 ciqual_food_code:en:40405
@@ -45833,6 +45944,12 @@ en:Goat cheese and spinach tart
 fr:Tarte épinard chèvre
 ciqual_food_code:en:26267
 ciqual_food_name:en:Goat cheese and spinach tart
+
+<en:Salted pies
+en:Savoury cake (with cheese vegetables meat fish poultry,etc.)
+fr:Cake salé
+ciqual_food_code:en:7814
+ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
 
 <en:Meals
 en:Soups
@@ -47645,6 +47762,12 @@ ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égout
 en:Piemontese salads
 fr:Salades piémontaises
 nl:Salade uit Piëmont
+
+<en:Potato salads
+en:Prepared potatoes salad home-made
+fr:Salade de pommes de terre maison
+ciqual_food_code:en:25606
+ciqual_food_name:en:Prepared potatoes salad, home-made
 
 <en:Piemontese salads
 en:Potato salad piémontaise-style
@@ -54759,6 +54882,18 @@ ciqual_food_code:en:23455
 ciqual_food_name:en:Pastry cream puff
 ciqual_food_name:fr:Chou à la crème (chantilly ou pâtissière)
 
+<en:Pastries
+en:Profiteroles (chou pastry) with vanilla ice cream and chocolate sauce
+fr:Profiterole avec glace vanille et sauce chocolat
+ciqual_food_code:en:23472
+ciqual_food_name:en:Profiteroles (chou pastry), with vanilla ice cream and chocolate sauce
+
+<en:Pastries
+en:Profiteroles (chou pastry) with custard and chocolate sauce refrigerated
+fr:Profiteroles (crème pâtissière et sauce chocolat) rayon frais
+ciqual_food_code:en:23474
+ciqual_food_name:en:Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
+
 <en:Cream puff
 en:Chou pastry filled with whipped cream
 fr:Choux à la crème chantilly, Chou à la crème chantilly
@@ -54786,7 +54921,10 @@ ciqual_food_name:fr:Rocher coco, Congolais, Petit gâteau à la noix de coco
 
 <en:Pastries
 fr:Paris-Brest
+en:Chou pastry with praline flavoured creme
 wikidata:en:Q1137495
+ciqual_food_code:en:23005
+ciqual_food_name:en:Chou pastry with praline flavoured creme
 
 <en:Pastries
 fr:Éclairs
@@ -55276,12 +55414,24 @@ ciqual_food_name:fr:Pan bagnat
 
 <en:Sandwiches
 fr:Croque-madame, croquemadame
+en:Toasted ham sandwich topped with grated cheese and a fried egg
 wikidata:en:Q746
+ciqual_food_code:en:25542
+ciqual_food_name:en:Toasted ham sandwich topped with grated cheese and a fried egg
 
 <en:Sandwiches
 fr:Croque-monsieur, Croque-messieurs, croquemonsieur
+en:Toasted ham sandwich topped with grated cheese
 el:Κροκ-μεσιέ
 wikidata:en:Q738
+ciqual_food_code:en:25400
+ciqual_food_name:en:Toasted ham sandwich topped with grated cheese
+
+<en:Sandwiches
+en:Grilled cheese & ham sandwich prepacked
+fr:Croque-monsieur frais
+ciqual_food_code:en:25547
+ciqual_food_name:en:Grilled cheese & ham sandwich, prepacked
 
 <en:Sandwiches
 en:Hamburgers, Burgers
@@ -55343,6 +55493,18 @@ nl:Vegetarische hotdogs
 
 <en:Sandwiches
 fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
+
+<en:sandwiches
+en:Sandwich made with French bread salami and butter
+fr:Sandwich baguette salami beurre
+ciqual_food_code:en:25536
+ciqual_food_name:en:Sandwich made with French bread, salami and butter
+
+<en:Sandwiches
+en:Sandwich made with French bread ham and butter
+fr:Sandwich baguette jambon beurre
+ciqual_food_code:en:25517
+ciqual_food_name:en:Sandwich made with French bread, ham and butter
 
 <en:Sandwiches
 en:Sandwich made with French bread ham and emmental cheese
@@ -60508,9 +60670,11 @@ ciqual_food_name:fr:Artichaut, cuit
 
 <en:Artichokes
 <en:Fresh vegetables
-en:Fresh artichokes
+en:Fresh artichokes, Artichoke globe raw
 fr:Artichauts frais
 season_in_country_fr:en: 5,6,7,8,9
+ciqual_food_code:en:20052
+ciqual_food_name:en:Artichoke, globe, raw
 
 <en:Artichokes
 <en:Frozen foods
@@ -61180,7 +61344,11 @@ wikidata:en:Q23425
 
 <en:Cucumbers
 fr:Concombre frais
+en:Cucumbe
 season_in_country_fr:en: 5,6,7,8,9,10
+ciqual_food_code:en:20019
+ciqual_food_name:en:Cucumber, pulp and peel, raw
+
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
@@ -64106,10 +64274,12 @@ fr:Farines de lupin
 nl:Lupinemelen
 
 <en:Legume flours
-en:Soybean flours
+en:Soybean flours, Soya flour
 es:Harinas de soja
 fr:Farines de soja
 nl:Sojaboonmelen
+ciqual_food_code:en:20900
+ciqual_food_name:en:Soya flour
 
 <en:Legumes and their products
 <en:Puffed grains
@@ -65397,6 +65567,8 @@ en:Frozen baked potatoes
 es:Patatas panadera congeladas
 fr:Pommes de terre cuites surgelées, pommes de terre cuites congelées
 nl:Diepvries gebakken aardappelen
+ciqual_food_code:en:4035
+ciqual_food_name:en:Mashed potato balls pre-fried, frozen, cooked
 
 <en:Frozen plant-based foods mixes
 en:Frozen vegetable tempura
@@ -66865,6 +67037,24 @@ en:Ham and mushroom pancake in cheese sauce
 fr:Ficelle picarde
 ciqual_food_code:en:26256
 ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
+
+<en:Crêpes and galettes
+en:Crepe filled with ham
+fr:Galette fourrée béchamel jambon
+ciqual_food_code:en:25409
+ciqual_food_name:en:Crepe, filled with ham
+
+<en:Crêpes and galettes
+en:Crepe or buckwheat crepe filled with cheese ham and bechamel sauce
+fr:Galette fourrée béchamel jambon fromage
+ciqual_food_code:en:25410
+ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
+
+<en:Crêpes and galettes
+en:Crepe or buckwheat crepe filled with mushrooms and bechamel sauce cooked
+fr:Galette fourrée béchamel champignon cuite
+ciqual_food_code:en:25581
+ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel sauce, cooked
 
 <en:Galettes
 fr:Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
@@ -68595,6 +68785,12 @@ fr:Paninis
 nl:Panini
 
 <en:Sandwiches
+en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
+fr:Sandwich panini jambon cru mozzarella tomates
+ciqual_food_code:en:25434
+ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
+
+<en:Sandwiches
 en:Raw vegetable sandwiches
 fi:Raakakasvisvoileivät
 fr:Sandwichs aux crudités
@@ -68656,6 +68852,8 @@ fr:Muffins à la banane
 <en:Fruit muffins
 en:Blueberry Muffins
 fr:Muffins aux myrtilles
+ciqual_food_code:en:23950
+ciqual_food_name:en:Muffin, with blueberry or chocolate
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
@@ -68692,6 +68890,8 @@ en:Almond cakes
 de:Mandelkuchen
 fr:Gâteaux aux amandes
 nl:Amandelcake
+ciqual_food_code:en:24665
+ciqual_food_name:en:Almond cake
 
 <en:Cakes
 en:Soft cake with nuts
