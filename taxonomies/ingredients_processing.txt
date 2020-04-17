@@ -25,19 +25,13 @@ fr:cru, crue, crus, crues
 #######################################################################
 # Processes that change the size of an ingredient. The processes are sorted from large (whole) to small (powdered).
 
-en:whole
-fr:entier, entière, entiers, entières
-it:intero, intera, interi, intere
-# unclear what the dutch variant is
+#################### THE PROCESS ITSELF ##########
 
-en:halved, halves
-de:halbiert, halbierte, halbe
-# de:false-positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
 
 en:cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
 de:geschnitten
-fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en morceaux, morceaux de, morceaux d', en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
+fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
 it:tagliato, tagliata, tagliati, tagliate
 nl:gesneden
 
@@ -73,7 +67,6 @@ de:feinst zerkleinert
 
 #<de:feinst zerkleinert
 de:überwiegend feinst zerkleinert
-
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
@@ -131,6 +124,23 @@ de:püree, puree, püree aus
 fr:en purée, purée de, purée d'
 # de:parsing:$püree, püree$
 
+##################### THE RESULT OF THE PROCESS ##############
+
+en:whole
+fr:entier, entière, entiers, entières
+it:intero, intera, interi, intere
+# unclear what the dutch variant is
+
+en:halved, halves
+de:halbiert, halbierte, halbe
+# de:false-positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
+
+en:pieces
+af:stukkies
+de:stücke, stücken, stückchen, gestückelt
+fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
+nl:stukjes
+# de:false-positive:früchstück
 
 en:powdered, powder
 de:pulver
@@ -238,6 +248,10 @@ de:luftgetrocknet, luftgetrockneter
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
 
+# en:description:cured means dried
+# <en:dried
+en:cured
+
 en:dehydrated
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
@@ -274,11 +288,18 @@ en:cooked
 de:gegart, gegarte, gegarter, gegartes
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+nl:gegaard
 
 # <en:cooked
 de:dampfgegart, dampfgegarte, dampfgegarter
 
+en:puffed
+da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt
+fr:soufflé, soufflée, soufflés, soufflées
+nl:gepoft, gepofte
+se:puffat
+
 
 en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
@@ -309,10 +330,6 @@ it:grigliato, grigliata, grigliati, grigliate
 de:gesalzen, gesalzene, gesalzenes, gesalzener
 
 de:ungesalzen, ungesalzene
-
-de:gepökelt, gepökeltes
-
-de:ungepökelt
 
 en:sweetened
 de:gesüßt, gesüßte
@@ -357,11 +374,21 @@ en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
 fr:mariné, marinée, marinés, marinées
 
-en:cured
-fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+# pickled can be in vinegar or salt
 
-de:eingelegt, eingelegte
-# de:parse:$ eingelegt, eingelegt $
+en:pickled
+de:eingelegt, eingelegte, eingelegter
+es:en escabeche
+
+# en:description:Marinated in salt (note different from en:salted)
+de:gepökelt, gepökeltes
+#de:comment:do not add pökel
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+nl:gepekeld
+
+de:ungepökelt
+
+
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
@@ -434,3 +461,4 @@ en:mesquite smoked
 en:oak smoked
 
 en:not smoked, unsmoked
+

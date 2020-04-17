@@ -410,27 +410,27 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gepufft',
-				'text' => "haselnüsse"
+				'processing' => 'en:puffed',
+				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:gherkin',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'gurken'
 			}
 		]
@@ -898,7 +898,7 @@ my @tests = (
 		[
 		  	{
 				'id' => 'en:shallot',
-				'processing' => 'de:eingelegt',
+				'processing' => 'en:pickled',
 				'text' => 'Schalotte'
 			}
 		]
