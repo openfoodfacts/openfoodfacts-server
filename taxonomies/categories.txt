@@ -5357,7 +5357,7 @@ ciqual_food_code:en:18160
 ciqual_food_name:en:Coffee with milk or Cappuccino, powder, instant
 ciqual_food_name:fr:Café au lait ou cappuccino, poudre soluble
 
-#I don't know if "натуральный" ("natural") makes any difference; most coffees have that anyway.
+#I don't know if натуральный (natural) makes any difference; most coffees have that anyway.
 <en:Freeze-dried plant-based foods
 <en:Instant coffees
 en:Freeze-dried instant coffees
@@ -5389,6 +5389,22 @@ fr:Chicorée instantanée non sucrée prête à boire reconstituée avec du lait
 ciqual_food_code:en:18161
 ciqual_food_name:en:Instant chicory, without sugar and artificial sweeteners, ready-to-drink (reconstituted with standard semi-skimmed milk)
 ciqual_food_name:fr:Chicorée, instantanée, non sucrée, prête à boire (reconstituée avec du lait demi-écrémé standard)
+
+<en:Instant beverages
+<en:Plant-based beverages
+en:Instant chicory with water
+fr:Chicorée soluble, chicorée en poudre
+nl:Oploscichorei
+ru:Цикорий растворимый, растворимый цикорий
+ciqual_food_code:en:18162
+ciqual_food_name:en:Mix of chicory and coffee, instant, without sugar, ready-to-drink (reconstituted with water)
+
+<en:Instant beverages
+<en:Plant-based beverages
+en:Mix of chicory and coffee instant without sugar ready-to-drink (reconstituted with standard semi-skimmed milk)
+fr:Chicorée et café instantané non sucré prête à boire (reconstituée avec du lait demi-écrémé standard)
+ciqual_food_code:en:18153
+ciqual_food_name:en:Mix of chicory and coffee, instant, without sugar, ready-to-drink (reconstituted with standard semi-skimmed milk)
 
 <en:Instant beverages
 <en:Plant-based beverages
@@ -6195,7 +6211,7 @@ it:Acque di sorgente, acqua di sorgente
 nl:Bronwaters, Bronwater
 zh:泉水
 wikidata:en:Q3046697
-#previous german translation "rollwasser" doesn't exist please change category name
+#previous german translation rollwasser doesn't exist please change category name
 
 <en:Waters
 en:Table waters
@@ -21809,7 +21825,7 @@ ciqual_food_name:fr:Biscuit sec pauvre en glucides
 
 <en:Breakfasts
 <fr:Biscuits secs
-"en:Breakfast biscuit with cereals fortified with vitamins and chemical elements, Breakfast cookie with cereals fortified with vitamins and chemical elements
+en:Breakfast biscuit with cereals fortified with vitamins and chemical elements, Breakfast cookie with cereals fortified with vitamins and chemical elements
 fr:Biscuit aux céréales pour petit déjeuner enrichis en vitamines et minéraux
 ciqual_food_code:en:24041
 ciqual_food_name:en:Breakfast biscuit (cookie) with cereals, fortified with vitamins and chemical elements
@@ -21847,7 +21863,7 @@ ciqual_food_name:fr:Florentin (biscuit sec sucré chocolaté aux amandes)
 <fr:Biscuits sablés
 fr:Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
-# description:en:The "PETIT BEURRE", or "Véritable Petit Beurre", also known under the initials "VPB", is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
+# description:en:The PETIT BEURRE, or Véritable Petit Beurre, also known under the initials VPB, is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
 
 # mainIngredient:en:wheat
 <en:Biscuits
@@ -23805,7 +23821,7 @@ ciqual_food_code:en:31092
 ciqual_food_name:en:Melon and almond Candy on a unleavened bread layer
 ciqual_food_name:fr:Calissons d'Aix en Provence
 
-#should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in "Bonbons"
+#should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in Bonbons
 <en:Sugary snacks
 en:Chocolates, chocolate products
 ca:Xocolata
@@ -24137,7 +24153,7 @@ se:Mörk choklad
 th:ดาร์กช็อกโกแลต
 zh:黑巧克力
 wikidata:en:Q2366206
-#if you use all those german synonyms you have nothing left for the subcategories. I'd say "Dunkle Schokoladen" would be enough
+#if you use all those german synonyms you have nothing left for the subcategories. I'd say Dunkle Schokoladen would be enough
 
 <en:Dark chocolates
 en:Extra fine dark chocolates, extra fine black chocolates, bitter chocolates
@@ -25598,6 +25614,12 @@ ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel
 ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel champignon
 
 <en:Meals
+en:Crepe or buckwheat crepe filled with egg ham and cheese
+fr:Crêpe ou Galette complète (œuf jambon fromage)
+ciqual_food_code:en:25562
+ciqual_food_name:en:Crepe or buckwheat crepe, filled with egg, ham and cheese
+
+<en:Meals
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
 fr:Crêpe ou Galette fourrée béchamel fromage
 ciqual_food_code:en:25549
@@ -26933,10 +26955,10 @@ ciqual_food_name:en:Potato crisps
 ciqual_food_name:fr:Chips de pommes de terre, standard
 
 <en:Potato crisps
-en:Potato crisps ""à l'ancienne"", Old-fashioned style potato crisps
+en:Potato crisps à l'ancienne, Old-fashioned style potato crisps
 fr:Chips de pommes de terre à l'ancienne
 ciqual_food_code:en:4037
-ciqual_food_name:en:Potato crisps, ""à l'ancienne"" (old-fashioned style)
+ciqual_food_name:en:Potato crisps, à l'ancienne (old-fashioned style)
 ciqual_food_name:fr:Chips de pommes de terre, à l'ancienne
 
 <en:Potato crisps
@@ -27302,7 +27324,7 @@ fi:siivutetut juustot
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
 nl:Kazen in plakjes
-#previous german word "Schnittkäse" means it's easy to slice but not that it's already sliced
+#previous german word Schnittkäse means it's easy to slice but not that it's already sliced
 
 <en:Fermented milk products
 en:Cheeses
@@ -30312,16 +30334,16 @@ ciqual_food_code:en:12036
 ciqual_food_name:en:Maroilles cheese, from cow's milk
 
 <en:French cheeses
-en:Maroilles ""laitier"" cheese
+en:Maroilles laitier cheese
 fr:Maroilles laitier
 ciqual_food_code:en:12029
-ciqual_food_name:en:Maroilles ""laitier"" cheese
+ciqual_food_name:en:Maroilles laitier cheese
 
 <en:French cheeses
-en:Maroilles ""fermier"" cheese
+en:Maroilles fermier cheese
 fr:Maroilles fermier
 ciqual_food_code:en:12030
-ciqual_food_name:en:Maroilles ""fermier"" cheese
+ciqual_food_name:en:Maroilles fermier cheese
 
 <en:Cheeses
 fr:Raclettes
@@ -32366,7 +32388,7 @@ fr:Yaourts multifruits, yaourts multi-fruits
 de:Mehrfruchtjoghurts, Mehrfruchtjoghurt
 nl:Multifruityoghurts
 
-#should contain only yogurt with real lemon, yogurt with lemon oil, extract or aroma should be in "Flavoured yogurts"
+#should contain only yogurt with real lemon, yogurt with lemon oil, extract or aroma should be in Flavoured yogurts
 <en:Fruit yogurts
 en:Lemon yogurts
 de:Zitronenjoghurt, Zitronenjogurt, Zitronenjoghurts, Zitronenjogurts
@@ -32537,7 +32559,7 @@ it:Yogurt al kiwi
 nl:Kiwiyoghurt, Kiwiyoghurts, Yoghurt met kiwi, Yoghurts met kiwi
 ro:Iaurturi cu kiwi
 
-#should contain only yogurt with real coco, yogurt with lemon extract or aroma should be in "Flavoured yogurts"
+#should contain only yogurt with real coco, yogurt with lemon extract or aroma should be in Flavoured yogurts
 <en:Fruit yogurts
 en:Coconut yogurts
 de:Kokos-Joghurt
@@ -33303,11 +33325,14 @@ ciqual_food_name:fr:Crème dessert au caramel, rayon frais
 <fr:Crèmes dessert chocolat
 fr:Crèmes dessert chocolat noir, Crème dessert chocolat noir, Crèmes dessert au chocolat noir, Crème dessert au chocolat noir
 nl:Chocolade puur vla's
-
+ciqual_food_code:en:39211
+ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
 <en:Dessert creams
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
 nl:vanilla vla's
+ciqual_food_code:en:39211
+ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
 <en:Dessert creams
 fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
@@ -35317,13 +35342,13 @@ ciqual_food_name:fr:Matière grasse mélangée (végétale et laitière), à tar
 
 <en:Fats
 en:Dairy fat 25% fat light spreadable unsalted
-fr:Matière grasse laitière à 25% MG légère ""à tartiner"" doux
+fr:Matière grasse laitière à 25% MG légère à tartiner doux
 ciqual_food_code:en:16712
 ciqual_food_name:en:Dairy fat 25% fat, light, spreadable, unsalted
 
 <en:Fats
 en:Dairy fat 20% fat light spreadable unsalted
-fr:Matière grasse laitière à 20% MG légère ""à tartiner"" doux
+fr:Matière grasse laitière à 20% MG légère à tartiner doux
 ciqual_food_code:en:16713
 ciqual_food_name:en:Dairy fat 20% fat, light, spreadable, unsalted
 
@@ -36435,14 +36460,14 @@ en:Diet chocolate breakfast cereals fortified with vitamins and chemical element
 fr:Céréales au chocolat pour petit-déjeuner équilibré enrichies en vitamines et minéraux
 ciqual_food_code:en:32022
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, fortified with vitamins and chemical elements
-ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat, enrichies en vitamines et minéraux
+ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat, enrichies en vitamines et minéraux
 
 <en:Chocolate cereals
 en:Diet chocolate breakfast cereals not fortified
 fr:Céréales au chocolat pour petit-déjeuner équilibré non enrichies en vitamines et minéraux
 ciqual_food_code:en:32028
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
-ciqual_food_name:fr:Céréales pour petit déjeuner ""équilibre"" au chocolat (non enrichies en vitamines et minéraux)
+ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat (non enrichies en vitamines et minéraux)
 
 <en:Chocolate cereals
 en:Chocolate breakfast cereals with puffed/popped wheat grains fortified with vitamins and chemical elements
@@ -36471,8 +36496,6 @@ fr:Céréales chocolatées pour petit déjeuner non fourrées, enrichies en vita
 ciqual_food_code:en:32001
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
-
-
 
 <en:Breakfast cereals
 en:Cereals with caramel
@@ -36513,6 +36536,108 @@ fr:Céréales pour petit déjeuner fourrées fourrage autre que chocolat enrichi
 ciqual_food_code:en:32018
 ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
+
+<en:Filled cereals
+en:Breakfast cereals popped or puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
+fr:Grains de blé soufflés au miel ou caramel enrichis en vitamines et minéraux
+ciqual_food_code:en:32000
+ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals rich in fibre with or without fruits fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner riches en fibres avec ou sans fruits enrichies en vitamines et minéraux
+ciqual_food_code:en:32002
+ciqual_food_name:en:Breakfast cereals, rich in fibre, with or without fruits, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals corn flakes plain fortified with vitamins and chemical elements
+fr:Pétales de maïs natures enrichis en vitamines et minéraux
+ciqual_food_code:en:32005
+ciqual_food_name:en:Breakfast cereals, corn flakes, plain, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals corn flakes plain (not fortified with vitamins and chemical elements)
+fr:Pétales de maïs natures (non enrichis en vitamines et minéraux)
+ciqual_food_code:en:32014
+ciqual_food_name:en:Breakfast cereals, corn flakes, plain (not fortified with vitamins and chemical elements)
+
+<en:Filled cereals
+en:Breakfast cereals diet plain or with honey fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre nature ou au miel enrichies en vitamines et minéraux
+ciqual_food_code:en:32021
+ciqual_food_name:en:Breakfast cereals, diet, plain or with honey, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals diet with fruits fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre aux fruits enrichies en vitamines et minéraux
+ciqual_food_code:en:32023
+ciqual_food_name:en:Breakfast cereals, diet, with fruits, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals diet with dried fruits fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre aux fruits secs (à coque) enrichis en vitamines et minéraux
+ciqual_food_code:en:32025
+ciqual_food_name:en:Breakfast cereals, diet, with dried fruits, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals diet with fruits not fortified
+fr:Céréales pour petit déjeuner équilibre aux fruits (non enrichies en vitamines et minéraux)
+ciqual_food_code:en:32029
+ciqual_food_name:en:Breakfast cereals, diet, with fruits, not fortified
+
+<en:Filled cereals
+en:Breakfast cereals diet plain not fortified
+fr:Céréales pour petit déjeuner équilibre nature (non enrichies en vitamines et minéraux)
+ciqual_food_code:en:32030
+ciqual_food_name:en:Breakfast cereals, diet, plain, not fortified
+
+<en:Filled cereals
+en:Breakfast cereals corn flakes sugar iced (not fortified with vitamins and chemical elements)
+fr:Pétales de maïs glacés au sucre (non enrichis en vitamines et minéraux)
+ciqual_food_code:en:32107
+ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced (not fortified with vitamins and chemical elements)
+
+<en:Filled cereals
+en:Breakfast cereals very rich in fibre fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner très riches en fibres enrichies en vitamines et minéraux
+ciqual_food_code:en:32116
+ciqual_food_name:en:Breakfast cereals, very rich in fibre, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals corn flakes sugar iced fortified with vitamins and chemical elements
+fr:Pétales de maïs glacés au sucre enrichis en vitamines et minéraux
+ciqual_food_code:en:32121
+ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals wheat flakes with walnuts hazelnuts or almonds fortified with vitamins and chemical elements
+fr:Pétales de blé avec noix noisettes ou amandes enrichis en vitamines et minéraux
+ciqual_food_code:en:32123
+ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals puffed/popped corn with honey (not fortified with vitamins and chemical elements)
+fr:Boules de maïs soufflées au miel (non enrichies en vitamines et minéraux)
+ciqual_food_code:en:32129
+ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey (not fortified with vitamins and chemical elements)
+
+<en:Filled cereals
+en:Breakfast cereals puffed/popped corn with honey fortified with vitamins and chemical elements
+fr:Boules de maïs soufflées au miel enrichies en vitamines et minéraux
+ciqual_food_code:en:32133
+ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals puffed/popped cereals wholemeal fortified with vitamins and chemical elements
+fr:Céréales complètes soufflées enrichies en vitamines et minéraux
+ciqual_food_code:en:32134
+ciqual_food_name:en:Breakfast cereals, puffed/popped cereals, wholemeal, fortified with vitamins and chemical elements
+
+<en:Filled cereals
+en:Breakfast cereals mix of puffed or extruded cereals fortified with vitamins and chemical elements
+fr:Multi-céréales soufflées ou extrudées enrichies en vitamines et minéraux
+ciqual_food_code:en:32135
+ciqual_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements
 
 # description:en:MUESLI is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 
@@ -42885,7 +43010,7 @@ fr:Sauces dessert
 en:Chocolate sauces
 fr:Sauces au chocolat
 
-#"Crème anglaise" is a preparation made from milk or cream, eggs and sugar
+#Crème anglaise is a preparation made from milk or cream, eggs and sugar
 <en:Dairies
 <en:Dessert sauces
 fr:Crèmes anglaises, crèmes anglaise, creme anglaise, Crème anglaise
@@ -43304,6 +43429,8 @@ fi:tartar-kastikkeet
 fr:Sauces tartare
 nl:Tartaarsaus
 pl:Sosy tatarskie, sos tatarski
+ciqual_food_code:en:11051
+ciqual_food_name:en:Tartare sauce, prepacked
 
 <en:Sauces
 en:Aiolis, Aioli sauce, Garlic and olive oil mayonnaise
@@ -43406,6 +43533,14 @@ fr:Sauces au poivre, Sauce au poivre
 hu:Paprikaszósz, Papriaka mártás
 nl:Pepersauzen
 wikidata:en:Q3474121
+ciqual_food_code:en:11182
+ciqual_food_name:en:Sauce, pepper, prepacked
+
+<en:Sauces
+en:Sauce pepper prepacked
+fr:Sauce au poivre condimentaire froide
+ciqual_food_code:en:11212
+ciqual_food_name:en:Sauce, pepper, prepacked
 
 <en:Pepper sauces
 fr:Sauces au poivre vert, sauce poivre vert
@@ -44868,6 +45003,12 @@ ciqual_food_name:en:Egg, soft-boiled
 fr:jaune d'oeuf cuit
 ciqual_food_code:en:22009
 ciqual_food_name:en:Egg yolk, cooked
+
+<en:Meals
+en:Egg fried without added fat
+fr:Oeuf au plat sans matière grasse
+ciqual_food_code:en:22505
+ciqual_food_name:en:Egg, fried without added fat
 
 <en:Rice dishes
 en:Rice stuffed tomatoes
@@ -47617,7 +47758,7 @@ en:Frozen pan-fried vegetables  with mushrooms country-style
 fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
 ciqual_food_code:en:20498
 ciqual_food_name:en:Vegetables pan-fried with mushrooms (country-style), frozen
-ciqual_food_name:fr:Poêlée de légumes assaisonnés aux champignons (""champêtre""), surgelée
+ciqual_food_name:fr:Poêlée de légumes assaisonnés aux champignons (champêtre), surgelée
 
 <fr:Poêlées
 en:Pre-fried potatoes pan-fried with lardoons, Pre-fried potatoes pan-fried with chicken
@@ -50845,11 +50986,24 @@ fr:Rillettes de volaille
 
 <fr:Rillettes de volaille
 fr:Rillettes d'oie, rillettes à l'oie
+en:Rillettes goose
+fr:Rillettes d'oie
+ciqual_food_code:en:8030
+ciqual_food_name:en:Rillettes, goose
+
+<fr:Rillettes de volaille
+en:Rillettes pure goose
+fr:Rillettes pur oie
+ciqual_food_code:en:8025
+ciqual_food_name:en:Rillettes, pure goose
+
 
 <fr:Rillettes de volaille
 en:duck rillettes
 fr:Rillettes de canard, rillettes au canard
 nl:Eendenrillettes
+ciqual_food_code:en:8026
+ciqual_food_name:en:Rillettes, duck
 
 <fr:Rillettes de volaille
 en:Turkey rillettes
@@ -50859,6 +51013,8 @@ fr:Rillettes de dinde
 en:chicken rillettes
 fr:Rillettes de poulet, rillettes au poulet
 nl:Kiprillettes
+ciqual_food_code:en:8040
+ciqual_food_name:en:Rillettes, poultry
 
 <en:chicken rillettes
 fr:Rillettes de poulet rôti, Rillettes poulet rôti
@@ -50888,10 +51044,22 @@ fr:Rillettes de mouton
 <fr:Rillettes de viande rouge
 en:Pork rillettes
 fr:Rillettes de porc, Rillettes de cochon
+ciqual_food_code:en:8000
+ciqual_food_name:en:Rillettes, pork
+
+<en:Rillettes
+<en:Prepared meats
+en:Rillettes pure pork
+fr:Rillettes pur porc
+ciqual_food_code:en:8001
+ciqual_food_name:en:Rillettes, pure pork
 
 <fr:Rillettes de la Sarthe
 <en:Pork rillettes
 fr:Rillettes du Mans
+en:Rillettes from Mans
+ciqual_food_code:en:8015
+ciqual_food_name:en:Rillettes from Mans
 
 <en:Potted meats
 <fr:Rillettes françaises
@@ -50899,6 +51067,8 @@ fr:Rillettes de Tours
 protected_name_file_number:en: PGI-FR-0845
 protected_name_type:en: pgi
 origins:en: en:France, fr:Tours
+ciqual_food_code:en:8010
+ciqual_food_name:en:Rillettes from Tours
 
 <en:Seafood
 <en:Rillettes
@@ -51655,6 +51825,12 @@ ciqual_food_name:en:Country-style pâté with mushrooms
 ciqual_food_name:fr:Pâté ou terrine aux champignons (forestier)
 
 <fr:Charcuteries diverses
+en:Pâté w green pepper
+fr:Pâté au poivre vert
+ciqual_food_code:en:8201
+ciqual_food_name:en:Pâté w green pepper
+
+<fr:Charcuteries diverses
 en:Pork Pâtés
 es:Patés de cerdo
 fr:Pâtés de porc
@@ -51667,14 +51843,48 @@ es:Patés de hígado de cerdo
 fr:Pâtés de foie de porc
 pt:Patês de figado de porco
 ro:Pate de ficat de porc, Pate din ficat de porc
+ciqual_food_code:en:8305
+ciqual_food_name:en:Pork liver pâté
 
 #According to french regulation, pâté de campagne contains only pork meat. Some additives are banned.
 <en:Pork Pâtés
-en:Country-style Pâtés
+en:Country-style Pâtés, terrine
 de:Bauernpasteten
 fi:maaseutupateet
 fr:Pâtés de campagne
 nl:Landelijke pasteien
+ciqual_food_code:en:8211
+ciqual_food_name:en:Country-style pâté or terrine
+
+<fr:Charcuteries diverses
+en:Pork liver pâté superior quality
+fr:Pâté de foie de porc supérieur
+ciqual_food_code:en:8300
+ciqual_food_name:en:Pork liver pâté, superior quality
+
+<fr:Charcuteries diverses
+en:Breton pâté
+fr:Pâté breton
+ciqual_food_code:en:8214
+ciqual_food_name:en:Breton pâté
+
+<fr:Charcuteries diverses
+en:Game pâté
+fr:Pâté de gibier
+ciqual_food_code:en:8245
+ciqual_food_name:en:Game pâté
+
+<fr:Charcuteries diverses
+en:Poultry liver pâté
+fr:Pâté de foie de volaille
+ciqual_food_code:en:8316
+ciqual_food_name:en:Poultry liver pâté
+
+<fr:Charcuteries diverses
+en:Goose liver pâté
+fr:Pâté de foie d'oie
+ciqual_food_code:en:8326
+ciqual_food_name:en:Goose liver pâté
 
 <fr:Charcuteries diverses
 en:Rabbit Pâtés
@@ -54513,6 +54723,8 @@ fr:Soupes de nouilles instantanées, Soupe de nouilles instantanée, Soupe de no
 nl:Instantnoedelsoepen
 ru:Супы быстрого приготовления
 zh:方便面汤, 速食面汤
+ciqual_food_code:en:25955
+ciqual_food_name:en:Soup, Asian-style with noodles, prepacked, to be reheated
 
 <en:Instant noodle soups
 <en:Dried products to be rehydrated
@@ -54637,7 +54849,7 @@ en:Snack biscuit with fruits filling
 fr:Goûter sec fourré parfum fruits, Goûter sec sandwiché parfum fruits
 ciqual_food_code:en:24240
 ciqual_food_name:en:Biscuit (cookie), snack with fruits filling
-ciqual_food_name:fr:Goûter sec fourré (""sandwiché"") parfum fruits
+ciqual_food_name:fr:Goûter sec fourré (sandwiché) parfum fruits
 
 <en:Biscuits and cakes
 en:Biscuit (cookie) covering with a chocolate bar
@@ -57172,6 +57384,12 @@ ciqual_food_code:en:26110
 ciqual_food_name:en:Surmullet or red mullet, steamed
 
 <en:Fishes
+en:Surmullet or red mullet fillet with skin frozen raw (from Thailand or Senegal)
+fr:Rouget-barbet filet avec peau surgelé cru (Thaïlande Sénégal…)
+ciqual_food_code:en:26244
+ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
+
+<en:Fishes
 en:Common sole raw
 fr:Sole crue
 ciqual_food_code:en:26058
@@ -57461,6 +57679,8 @@ pt:Atum
 th:ทูน่า
 zh:吞拿鱼
 wikidata:en:Q2346039
+ciqual_food_code:en:26053
+ciqual_food_name:en:Tuna, raw
 
 <en:Fishes
 <en:Tunas
@@ -57640,6 +57860,12 @@ fr:Thons albacore au naturel, Thon albacore naturel appertisé égoutté, thon j
 ciqual_food_code:en:26181
 ciqual_food_name:en:Yellowfin tuna, canned in brine, drained
 
+<en:Yellowfin tunas
+fr:Thons albacore au naturel, thon jaune cru
+en:Yellowfin tuna raw
+ciqual_food_code:en:26064
+ciqual_food_name:en:Yellowfin tuna, raw
+
 <en:Tropical tunas
 en:Skipjack tuna
 de:Echter Bonito
@@ -57649,6 +57875,10 @@ nl:Echte bonito, Bonito, Skipjack, Skipjacktonijn
 wikidata:en:Q633957
 ciqual_food_code:en:26101
 ciqual_food_name:en:Bonito, raw
+
+#TODO
+#ciqual_food_code:en:26068
+#ciqual_food_name:en:Skipjack tuna, raw
 
 <en:Tropical tunas
 fr:thons patudo
@@ -66182,7 +66412,7 @@ de:Gefrohrene Limabohne
 es:Garrofones congelados, Garrofón congelado, Habones congelados, Judías de Lima congeladas, Habas de Lima congeladas
 fr:Haricots de Lima surgelés
 nl:Diepvrieslimabonen
-#Please don't add Frozen butter beans as synonym of "Frozen lima beans" because this name is also a synonym of yellow "Runner bean"
+#Please don't add Frozen butter beans as synonym of Frozen lima beans because this name is also a synonym of yellow Runner bean
 
 <en:Frozen legumes
 <en:Chickpeas
@@ -66373,10 +66603,10 @@ ciqual_food_name:fr:Barre céréalière aux fruits
 
 <en:Fruits cereal bars
 en:Cereal bar with fruits fortified with vitamins and minerals
-fr:Barre céréalière ""équilibre"" aux fruits enrichie en vitamines et minéraux
+fr:Barre céréalière équilibre aux fruits enrichie en vitamines et minéraux
 ciqual_food_code:en:31101
 ciqual_food_name:en:Cereal bar with fruit, fortified with vitamins and minerals
-ciqual_food_name:fr:Barre céréalière ""équilibre"" aux fruits, enrichie en vitamines et minéraux
+ciqual_food_name:fr:Barre céréalière équilibre aux fruits, enrichie en vitamines et minéraux
 
 <en:Fruits cereal bars
 en:Apricot cereal bars
@@ -66809,7 +67039,7 @@ en:Brioche filled with custard, Chinese brioche
 fr:Brioche fourrée crème pâtissière, Brioche chinois, Chinois brioché, Chinois
 ciqual_food_code:en:7739
 ciqual_food_name:en:Brioche, filled with custard (Chinese brioche type), prepacked
-ciqual_food_name:fr:Brioche fourrée crème pâtissière (type ""chinois""), préemballée
+ciqual_food_name:fr:Brioche fourrée crème pâtissière (type chinois), préemballée
 
 <en:Meat-based products
 en:Jugging
@@ -66864,7 +67094,7 @@ fr:Crêpes et galettes
 nl:Pannekoeken en galettes
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
-# comment:en:A separate category for the dutch category "pannenkoek", might be needed. A french "crepe" is seen as a special "pannenkoek", een "flensje"
+# comment:en:A separate category for the dutch category pannenkoek, might be needed. A french crepe is seen as a special pannenkoek, een flensje
 
 # <en:compound
 <en:Crêpes and galettes
@@ -68128,7 +68358,7 @@ fr:Terrine de fruits de mer avec ou sans poisson
 ciqual_food_code:en:8292
 ciqual_food_name:en:Seafood terrine, with or without fish
 
-#Unlike the term "Pâté de campagne", terrine de campagne is not reglemented in France.
+#Unlike the term Pâté de campagne, terrine de campagne is not reglemented in France.
 <en:Terrines
 <en:Prepared meats
 en:Country terrines
