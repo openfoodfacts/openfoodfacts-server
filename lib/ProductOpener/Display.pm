@@ -623,13 +623,6 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
-	# or a list
-	elsif (0 and (-e ("$data_root/lists/" . $components[0] . ".$cc.$lc.html") ) and (not defined $components[1]))  {
-		$request_ref->{text} = $components[0];
-		$request_ref->{list} = $components[0];
-		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}
-
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
@@ -1078,13 +1071,6 @@ sub display_text($)
 
 	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 
-
-	#list?
-	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
-		$file = "$data_root/lists/$textid.$cc.$lc.html";
-	}
-
-
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
 	close ($IN);
@@ -1096,7 +1082,7 @@ sub display_text($)
 
 	my $title = undef;
 
-	if (($textid eq 'index') or (defined $request_ref->{list})) {
+	if ($textid eq 'index') {
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
