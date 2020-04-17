@@ -3812,7 +3812,7 @@ sub search_and_display_products($$$$$) {
 	}
 
 	my $count;
-	
+
 	my $fields_ref;
 
 	#for API (json, xml, rss,...), display all fields
@@ -3821,6 +3821,7 @@ sub search_and_display_products($$$$$) {
 	} else {
 	#for HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
+		"lc" => 1,
 		"code" => 1,
 		"product_name" => 1,
 		"product_name_$lc" => 1,
@@ -3829,10 +3830,11 @@ sub search_and_display_products($$$$$) {
 		"quantity" => 1
 		};
 	}
+
 	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
 	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
 
-	# canonical makes JSON::PP sort the keys of hashes
+	# Sort the keys of hashes
 	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
 
 	my $key = $server_domain . "/" . $json;
@@ -3899,7 +3901,7 @@ sub search_and_display_products($$$$$) {
 					$count = execute_query(sub {
 						return get_products_collection()->estimated_document_count();
 					});
-				}	
+				}
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
@@ -5334,6 +5336,7 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
+			lc => 1,
 			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
@@ -7011,7 +7014,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		
+
 		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}
