@@ -251,8 +251,18 @@ all => [
 	["S. thermophilus", "streptococcus thermophilus"],
 ],
 
+en => [
+	["vit.", "vitamin"],
+
+],
+
+es => [
+	["vit.", "vitamina"],
+],
+
 fr => [
-["Mat. Gr.", "Matières Grasses"]
+	["vit.", "Vitamine"],
+	["Mat. Gr.", "Matières Grasses"],
 ],
 
 );
@@ -2066,7 +2076,7 @@ sub normalize_vitamins_enumeration($$) {
 	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	else { $split_vitamins_list = "vitamine" }
+	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
 
@@ -2829,14 +2839,18 @@ sub preparse_ingredients_text($$) {
 	# turn & to and
 	$text =~ s/ \& /$and/g;
 
-	# abbreviations
-	foreach my $abbreviations_lc ("all", $product_lc) {
+	# abbreviations, replace language specific abbreviations first
+	foreach my $abbreviations_lc ($product_lc, "all") {
 		if (defined $abbreviations{$abbreviations_lc}) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
 				$source =~ s/\. /(\\.| |\\. )/g;
-				$text =~ s/(\b|^)$source(\b|$)/$target/ig;
+				if ($source =~ /\.$/) {
+					$source =~ s/\.$/(\\. | |\\.)/;
+					$target .= " ";
+				}
+				$text =~ s/(\b|^)$source(?= |\b|$)/$target/ig;
 			}
 		}
 	}
@@ -3282,7 +3296,7 @@ INFO
 "k", "k1", "k2", "k3",
 "p", "pp",
 );
-	my $vitaminsprefixregexp = "vitamine|vitamines";
+	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language
 	if (defined $translations_to{vitamins}) {
@@ -3382,11 +3396,11 @@ INFO
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
 			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
 				my $after = $';
-				print STDERR "symbol: $symbol - after: $after\n";
+				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					if (defined $regexp) {
-						print STDERR "-- label: $labelid - regexp: $regexp\n";
+						#print STDERR "-- label: $labelid - regexp: $regexp\n";
 						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
 						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
