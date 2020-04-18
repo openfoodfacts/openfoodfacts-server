@@ -198,6 +198,10 @@ my @lists =(
 
 	# test for bug #3273 that introduced unwanted separators before natural flavor
 	["en", "non-gmo natural flavor", "non-gmo natural flavor"],
+
+	# vit. e
+	["en", "vit. e, vitamins b2, B3 and K, vit d, vit a & c, vit. B12", "vitamin e, vitamins, vitamin b2, vitamin B3, vitamin K, vitamin d, vitamin a, vitamin c, vitamin B12"],
+	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
 );
 
 foreach my $test_ref (@lists) {
