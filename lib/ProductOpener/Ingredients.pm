@@ -902,6 +902,22 @@ sub parse_ingredients_text($) {
 										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
 										$between = '';
 									}
+									else {
+
+										# processing method?
+										my $processingid = 	canonicalize_taxonomy_tag($product_lc, "ingredients_processing", $between);
+										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
+											if (defined $processing) {
+												$processing .= ", " . $processingid;
+											}
+											else {
+												$processing = $$processingid;
+											}
+											$debug_ingredients and $log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
+											$between = '';
+										}
+									}
+
 								}
 							}
 
