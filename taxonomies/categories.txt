@@ -36570,7 +36570,7 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T45 (pour pâtisserie)
 
 <en:Common wheat flours
 <en:White wheat flours
-en:White wheat flours, Wheat flour type 55 for bread
+en:Wheat flour type 55 for bread
 de:Weizenmehle Type 550
 es:Harinas de trigo blancas
 fi:valkoiset vehnäjauhot
@@ -36594,7 +36594,6 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T55 (pour pains)
 fr:Farines de blé type T70, Farines de blé T70, Farines de blé type 70, farines de tradition québécoise de blé, farines Reblochonne de blé
 
 <en:Common wheat flours
-<en:Semi-polished wheat flours
 en:Semi-polished wheat flours, Wheat flour type 80, Wheat flour T80
 es:Harinas de trigo semi-integrales
 fr:Farines de blé type T80, Farines de blé T80, Farines de blé type 80, farines bises de blé, farines semi-complète de blé, Farine de blé tendre T80
@@ -36646,15 +36645,7 @@ ciqual_food_code:en:9410
 ciqual_food_name:en:Wheat flour, type 110
 ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
-<en:Common wheat flours
-<fr:Farines de blé type T110
-en:Wheat flour T110, Wheat flour type 110
-fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé, Farine de blé tendre T110
-de:Weizenmehle Type 1050
-nl:Volkoren tarwemelen
-ciqual_food_code:en:9410
-ciqual_food_name:en:Wheat flour, type 110
-ciqual_food_name:fr:Farine de blé tendre ou froment T110
+
 
 <en:Common wheat flours
 <en:Whole wheat flours
@@ -36668,7 +36659,7 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:Common wheat flours
 <en:Whole wheat flours
-en:Whole wheat flours, Wheat flour type 150
+en:Wheat flour type 150
 de:Weizenmehle Type 1600
 es:Harinas de trigo integrales
 fr:Farines de blé type T150, Farines de blé T150, Farines de blé type 150, farines intégrales de blé, Farine de blé tendre T150
@@ -36722,6 +36713,15 @@ nl:Eenkoornmelen T70
 en:Semi-polished einkorn wheat flours
 es:Harinas de trigo escaña cultivada semi-integrales
 fr:Farines de petit épeautre T80
+
+<en:Common wheat flours
+en:Wheat flour T110, Wheat flour type 110
+fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé, Farine de blé tendre T110
+de:Weizenmehle Type 1050
+nl:Volkoren tarwemelen
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Einkorn wheat flours
 <fr:Farines de blé type T110
@@ -56892,13 +56892,6 @@ hu:Kézműves lekvárok
 nl:Ambachtelijke jams
 
 <en:Jams
-en:Light jams
-es:Mermeladas y confituras ligeras, Mermeladas y confituras light
-fi:kevythillot
-fr:Confitures allégées
-nl:Suikervrije jams
-
-<en:Jams
 en:Dietary jams
 es:Mermeladas y confituras dietéticas
 fr:Confitures diététiques
@@ -57291,10 +57284,20 @@ es:Surtidos de mermeladas
 fr:Confitures assorties, assortiments de confitures, assortiment de confitures
 nl:Jam-assortimenten
 
-<en:Fruit and vegetable preserves
+<en:Jams
+en:Fruit jams
+
+<en:Jams
+en:Light jams
+es:Mermeladas y confituras ligeras, Mermeladas y confituras light
+fi:kevythillot
+fr:Confitures allégées
+nl:Suikervrije jams
+
+<en:Light jams
 <en:Fruit jams
-en:Low sugar jam, Reduced sugar jam
-fr:Confiture allégée en sucres
+en:Low sugar fruit jam, Reduced sugar fruit jam
+fr:Confiture de fruits allégée en sucres
 ciqual_food_code:en:31110
 ciqual_food_name:en:Jam, reduced sugar
 ciqual_food_name:fr:Confiture, tout type de fruits, allégée en sucres (extra ou classique)
