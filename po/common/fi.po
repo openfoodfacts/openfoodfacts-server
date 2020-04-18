@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 16:50\n"
+"PO-Revision-Date: 2020-04-18 14:55\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4150,4 +4150,9 @@ msgstr "Tiimien nimet ovat julkisia. Älä luo tiimejä joiden nimet sisältäv�
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "Tiimi %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
 
