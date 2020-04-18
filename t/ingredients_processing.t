@@ -1196,6 +1196,16 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 ]
 	],
 
+	[ { lc => "en", ingredients_text => "pasteurized eggs" },
+[
+  {
+    'id' => 'en:egg',
+    'processing' => 'en:pasteurised',
+    'text' => 'eggs'
+  }
+]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
