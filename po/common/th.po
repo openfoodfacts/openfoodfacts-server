@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 17:13\n"
+"PO-Revision-Date: 2020-04-18 15:29\n"
 "Language-Team: Thai\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2233,7 +2233,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "เปิดข้อเท็จจริงเรื่องอาหาร"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -4133,5 +4133,10 @@ msgstr ""
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
 msgstr ""
 
