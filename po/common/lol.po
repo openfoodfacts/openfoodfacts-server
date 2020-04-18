@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-15 17:18\n"
+"PO-Revision-Date: 2020-04-18 15:38\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4120,4 +4120,9 @@ msgstr "crwdns125378:0crwdne125378:0"
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "crwdns125380:0%scrwdne125380:0"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "crwdns125424:0%dcrwdne125424:0"
 
