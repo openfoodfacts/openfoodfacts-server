@@ -251,8 +251,18 @@ all => [
 	["S. thermophilus", "streptococcus thermophilus"],
 ],
 
+en => [
+	["vit.", "vitamin"],
+
+],
+
+es => [
+	["vit.", "vitamina"],
+],
+
 fr => [
-["Mat. Gr.", "Matières Grasses"]
+	["vit.", "Vitamine"],
+	["Mat. Gr.", "Matières Grasses"],
 ],
 
 );
@@ -1135,8 +1145,10 @@ sub parse_ingredients_text($) {
 						}
 					}
 
-					if (not $ingredient_recognized) {
-						# Unknown ingredient, check if it is a label
+					# Unknown ingredient, check if it is a label
+					# -> treat as a label only if there are no sub-ingredients
+					if ((not $ingredient_recognized) and ($between eq "")) {
+
 						# We need to be careful with stopwords, "produit" was a stopword,
 						# and "France" matched "produit de France" / made in France (bug #2927)
 						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
@@ -2064,7 +2076,7 @@ sub normalize_vitamins_enumeration($$) {
 	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	else { $split_vitamins_list = "vitamine" }
+	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
 
@@ -2827,14 +2839,18 @@ sub preparse_ingredients_text($$) {
 	# turn & to and
 	$text =~ s/ \& /$and/g;
 
-	# abbreviations
-	foreach my $abbreviations_lc ("all", $product_lc) {
+	# abbreviations, replace language specific abbreviations first
+	foreach my $abbreviations_lc ($product_lc, "all") {
 		if (defined $abbreviations{$abbreviations_lc}) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
 				$source =~ s/\. /(\\.| |\\. )/g;
-				$text =~ s/(\b|^)$source(\b|$)/$target/ig;
+				if ($source =~ /\.$/) {
+					$source =~ s/\.$/(\\. | |\\.)/;
+					$target .= " ";
+				}
+				$text =~ s/(\b|^)$source(?= |\b|$)/$target/ig;
 			}
 		}
 	}
@@ -2904,8 +2920,6 @@ sub preparse_ingredients_text($$) {
 	# FIXME : should use additives classes
 	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
-	# citric acid natural flavor (may be a typo)
-	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
@@ -3282,7 +3296,7 @@ INFO
 "k", "k1", "k2", "k3",
 "p", "pp",
 );
-	my $vitaminsprefixregexp = "vitamine|vitamines";
+	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language
 	if (defined $translations_to{vitamins}) {
@@ -3382,11 +3396,11 @@ INFO
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
 			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
 				my $after = $';
-				print STDERR "symbol: $symbol - after: $after\n";
+				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					if (defined $regexp) {
-						print STDERR "-- label: $labelid - regexp: $regexp\n";
+						#print STDERR "-- label: $labelid - regexp: $regexp\n";
 						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
 						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
