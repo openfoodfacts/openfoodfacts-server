@@ -91,7 +91,7 @@ if ($action eq "display") {
 		}
 	}
 
-	$html .= sprintf("%d products to export", count_products({}, $query_ref));
+	$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
 
 	$html .= start_multipart_form(-id=>"export_products_form") ;
 
