@@ -127,6 +127,8 @@ fr:en purée, purée de, purée d'
 ##################### THE RESULT OF THE PROCESS ##############
 
 en:whole
+de:ganze
+#ganz is not added as it is used in combination with fats (palm ganz gehärtet)
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
 # unclear what the dutch variant is
@@ -388,7 +390,13 @@ nl:gepekeld
 
 de:ungepökelt
 
+en:flavoured, flavored
+de:aromatisiert, aromatisierte, aromatisiertes
+fr:aromatisé, aromatisée, aromatisées
+# What to do with aromatisé au x and aromatisé de
+nl:gearomatiseerd, gearomatiseerde
 
+en:unflavoured, unflavoured
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
