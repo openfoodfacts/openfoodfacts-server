@@ -86,6 +86,8 @@ BEGIN
 					&display_ingredients_analysis_details
 					&display_ingredients_analysis
 
+					&count_products
+
 					@search_series
 
 					$admin
