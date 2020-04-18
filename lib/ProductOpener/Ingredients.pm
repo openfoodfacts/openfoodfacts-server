@@ -2341,7 +2341,7 @@ fr => [
 '(conditions|conseils) de conservation',
 'conseil d\'utilisation',
 'conservation:',
-'(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
 '(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 'produit conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
