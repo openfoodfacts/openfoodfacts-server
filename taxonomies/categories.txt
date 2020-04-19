@@ -21942,6 +21942,13 @@ zh:牛奶巧克力
 wikidata:en:Q2164820
 
 <en:Milk chocolates
+en:Milk chocolate bar
+fr:Chocolat au lait en tablette
+ciqual_food_code:en:31004
+ciqual_food_name:en:Milk chocolate bar
+ciqual_food_name:fr:Chocolat au lait, tablette
+
+<en:Milk chocolates
 <en:Chocolates with sweeteners
 en:Milk chocolates with sweeteners
 de:Milchschokolade mit Süßstoffen
@@ -21949,6 +21956,14 @@ fr:Chocolats au lait édulcorés, Chocolats au lait aux édulcorants
 hu:Tejes csokoládék édesítőszerekkel
 it:Cioccolato al latte con edulcorante
 nl:Melkchocola met zoetstoffen
+
+<en:Milk chocolates
+<en:Chocolates with sweeteners
+en:Milk chocolate bar without sugar with sweeteners
+fr:Chocolat au lait en tablette sans sucres ajoutés avec édulcorants
+ciqual_food_code:en:31020
+ciqual_food_name:en:Milk chocolate bar, without sugar, with sweeteners
+ciqual_food_name:fr:Chocolat au lait sans sucres ajoutés, avec édulcorants, tablette
 
 <en:Chocolates
 en:Liqueur chocolates
@@ -21977,6 +21992,21 @@ en:Cereal milk chocolates
 fr:Chocolats au lait aux céréales
 it:Cioccolato al latte con cereali
 nl:Melkchocola met granen
+
+<en:Milk chocolates
+<en:Cereal chocolates
+en:Milk chocolate bar with puffed cereals, Milk chocolate bar with popped cereals
+fr:Chocolat au lait en tablette aux céréales croustillantes
+ciqual_food_code:en:31009
+ciqual_food_name:en:Milk chocolate bar, with puffed/popped cereals
+ciqual_food_name:fr:Chocolat au lait aux céréales croustillantes, tablette
+
+<en:Milk chocolates
+en:Milk chocolate bar with dried fruits
+fr:Chocolat au lait en tablette aux fruits secs
+ciqual_food_code:en:31018
+ciqual_food_name:en:Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
 
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
@@ -22141,12 +22171,23 @@ fr:Chocolats noirs fourrés
 nl:Gevulde pure chocola
 
 <en:Filled chocolates
-<en:Milk chocolates
+<en:Milk chocolates, Milk chocolate filled
 en:Filled milk chocolates
 de:Gefüllte Milchschokolade, Milchschokolade mit Füllung
 fi:täytetyt maitosuklaat
-fr:Chocolats au lait fourrés
+fr:Chocolats au lait fourrés, Chocolat au lait fourré
 nl:Gevulde melkchocola
+ciqual_food_code:en:31079
+ciqual_food_name:en:Milk chocolate, filled
+ciqual_food_name:fr:Chocolat au lait fourré
+
+<en:Filled chocolates
+<en:Milk chocolates
+en:Milk chocolate bar filled with praline
+fr:Chocolat au lait en tablette fourré au praliné
+ciqual_food_code:en:31084
+ciqual_food_name:en:Milk chocolate bar, filled with praline
+ciqual_food_name:fr:Chocolat au lait fourré au praliné, tablette
 
 <en:Filled chocolates
 en:Chocolates stuffed with almond paste
@@ -22246,6 +22287,58 @@ en:Dark chocolates with ginger
 de:Dunkle Schokoladen mit Ingwer
 fr:Chocolats noirs au gingembre
 it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
+
+<en:Dark chocolate
+en:Dark chocolate bar with less than 70% cocoa
+fr:Chocolat noir à moins de 70% de cacao en tablette à croquer
+ciqual_food_code:en:31005
+ciqual_food_name:en:Dark chocolate bar, less than 70% cocoa
+ciqual_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
+
+<en:Dark chocolate
+<en:Chocolates with sweeteners
+en:Dark chocolate bar without sugar and with artificial sweeteners
+fr:Chocolat noir en tablette sans sucres ajoutés avec édulcorants
+ciqual_food_code:en:31030
+ciqual_food_name:en:Dark chocolate bar, without sugar and with artificial sweeteners
+ciqual_food_name:fr:Chocolat noir sans sucres ajoutés, avec édulcorants, en tablette
+
+<en:Dark chocolate
+en:Dark chocolate bar with dried fruits
+fr:Chocolat noir en tablette aux fruits secs
+ciqual_food_code:en:31070
+ciqual_food_name:en:Dark chocolate bar, with dried fruits (nuts, almonds, raisin, praline)
+ciqual_food_name:fr:Chocolat noir aux fruits secs (noisettes, amandes, raisins, praline), tablette
+
+<en:Dark chocolate
+<en:Filled chocolates
+en:Dark chocolate filled with mint confectionery
+fr:Chocolat noir fourrage confiseur à la menthe
+ciqual_food_code:en:31072
+ciqual_food_name:en:Dark chocolate, filled with mint confectionery
+ciqual_food_name:fr:Chocolat noir fourrage confiseur à la menthe
+
+<en:Dark chocolate
+en:Dark chocolate bar with more than 70% cocoa
+fr:Chocolat noir en tablette extra dégustation à 70% de cacao minimum
+ciqual_food_code:en:31074
+ciqual_food_name:en:Dark chocolate bar, more than 70% cocoa
+ciqual_food_name:fr:Chocolat noir à 70% cacao minimum, extra, dégustation, tablette
+
+<en:Dark chocolate
+<en:Filled chocolates
+en:Dark chocolate bar filled with praline
+fr:Chocolat noir en tablette fourré au praliné
+ciqual_food_code:en:31080
+ciqual_food_name:en:Dark chocolate bar, filled with praline
+ciqual_food_name:fr:Chocolat noir fourré praliné, tablette
+
+<en:Dark chocolate
+en:Dark chocolate bar for cooking with more than 40% cocoa
+fr:Chocolat noir pâtissier en tablette à 40% de cacao minimum
+ciqual_food_code:en:31085
+ciqual_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
+ciqual_food_name:fr:Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
 <en:Chocolates
 en:Salted chocolates
@@ -31280,13 +31373,6 @@ en:Coconut butters, coconut purees, Coconut butter, coconut puree,
 fr:Purées de noix de coco, Purée de noix de coco, Beurres de noix de coco, Beurre de noix de coco, Purées de coco, Purée de coco, Beurres de coco, Beurre de coco
 nl:Kokosboter' kokosboters
 
-<en:Vegetable fats
-en:Cocoa butter
-fr:Beurre de cacao
-ciqual_food_code:en:16030
-ciqual_food_name:en:Cocoa butter
-ciqual_food_name:fr:Beurre de cacao
-
 <en:Legume butters
 <en:Nut butters
 en:Peanut butters, peanut paste
@@ -32262,6 +32348,9 @@ fr:Beurres de cacao
 it:Burro di cacao
 nl:Cacaoboters
 wikidata:en:Q251106
+ciqual_food_code:en:16030
+ciqual_food_name:en:Cocoa butter
+ciqual_food_name:fr:Beurre de cacao
 
 <en:Vegetable fats
 <en:Plant-based spreads
@@ -36632,6 +36721,13 @@ nl:Gedroogde abrikozen
 ru:Абрикосы сушёные, курага, сушёные абрикосы
 
 <en:Dried fruits
+en:Pitted dried apricots
+fr:Abricots dénoyautés secs
+ciqual_food_code:en:13001
+ciqual_food_name:en:Apricot, pitted, dried
+ciqual_food_name:fr:Abricot, dénoyauté, sec
+
+<en:Dried fruits
 en:Dried bananas, Dried banana chips, Banana crisps
 de:getrocknete Bananen, gedörrte Bananen, Bananenchips
 es:Plátanos deshidratados, Bananas deshidratadas, Rodajas de plátano deshidratadas, Chips de plátano
@@ -40706,6 +40802,13 @@ ciqual_food_name:en:Liver, young cow, cooked
 ciqual_food_name:fr:Foie, génisse, cuit
 
 <en:Meals with meat
+en:Raw young cow liver
+fr:Foie de génisse cru
+ciqual_food_code:en:40104
+ciqual_food_name:en:Liver, young cow, raw
+ciqual_food_name:fr:Foie, génisse, cru
+
+<en:Meals with meat
 en:Beef dishes, Beef meals
 ca:Plats de bou, Menjars amb bou
 de:Rindfleischgerichte
@@ -40788,11 +40891,25 @@ ciqual_food_name:en:Sweetbread, calf, sautéed/pan-fried
 ciqual_food_name:fr:Ris, veau, braisé ou sauté/poêlé
 
 <en:Veal meat dishes
+en:Raw calf sweetbread
+fr:Ris de veau cru
+ciqual_food_code:en:40304
+ciqual_food_name:en:Sweetbread, calf, raw
+ciqual_food_name:fr:Ris, veau, cru
+
+<en:Veal meat dishes
 en:Braised veal knuckle, Braised veal shank, Boiled veal knuckle, Boiled veal shank
 fr:Jarret de veau braisé, Jarret de veau bouilli
 ciqual_food_code:en:6581
 ciqual_food_name:en:Veal, knuckle or shank, braised or boiled
 ciqual_food_name:fr:Veau, jarret, braisé ou bouilli
+
+<en:Veal meat dishes
+en:Raw veal knuckle, Raw veal shank
+fr:Jarret de veau cru
+ciqual_food_code:en:6583
+ciqual_food_name:en:Veal, knuckle or shank, raw
+ciqual_food_name:fr:Veau, jarret, cru
 
 <en:Veal meat dishes
 en:Boiled calf head, Calf head cooked in water
@@ -40809,16 +40926,170 @@ ciqual_food_name:en:Veal, neck, braised or boiled
 ciqual_food_name:fr:Veau, collier, braisé ou bouilli
 
 <en:Veal meat dishes
+en:Raw veal neck
+fr:Collier de veau cru
+ciqual_food_code:en:6590
+ciqual_food_name:en:Veal, neck, raw
+ciqual_food_name:fr:Veau, collier, cru
+
+<en:Veal meat dishes
 en:Grilled veal chop, Pan-fried veal chop
 fr:Côte de veau grillée, Côte de veau poêlée
 ciqual_food_code:en:6511
 ciqual_food_name:en:Veal, chop, grilled/pan-fried
 ciqual_food_name:fr:Veau, côte, grillée/poêlée
 
+<en:Veal meat dishes
+en:Raw veal chop
+fr:Côte de veau crue
+ciqual_food_code:en:6510
+ciqual_food_name:en:Veal, chop, raw
+ciqual_food_name:fr:Veau, côte, crue
+
+<en:Veal meat dishes
+en:Sautéed veal kidney, Pan-fried veal kidney
+fr:Rognons de veau braisés, Rognons de veau sautés, Rognons de veau poêlés
+ciqual_food_code:en:40408
+ciqual_food_name:en:Kidney, veal, sautéed/pan-fried
+ciqual_food_name:fr:Rognon, veau, braisé ou sauté/poêlé
+
+<en:Veal meat dishes
+en:Raw calf kidney
+fr:Rognons de veau crus
+ciqual_food_code:en:40409
+ciqual_food_name:en:Kidney, calf, raw
+ciqual_food_name:fr:Rognon, veau, cru
+
+<en:Veal meat dishes
+en:Cooked calf brain
+fr:Cervelle de veau cuite
+ciqual_food_code:en:40007
+ciqual_food_name:en:Brain, calf, cooked
+ciqual_food_name:fr:Cervelle, veau, cuite
+
+<en:Veal meat dishes
+en:Raw calf brain
+fr:Cervelle de veau crue
+ciqual_food_code:en:40006
+ciqual_food_name:en:Brain, calf, raw
+ciqual_food_name:fr:Cervelle, veau, crue
+
+<en:Veal meat dishes
+en:Cooked calf liver
+fr:Foie de veau cuit
+ciqual_food_code:en:40107
+ciqual_food_name:en:Liver, calf, cooked
+ciqual_food_name:fr:Foie, veau, cuit
+
+<en:Veal meat dishes
+en:Raw calf liver
+fr:Foie de veau cru
+ciqual_food_code:en:40106
+ciqual_food_name:en:Liver, calf, raw
+ciqual_food_name:fr:Foie, veau, cru
+
+<en:Veal meat dishes
+en:Cooked calf tongue
+fr:Langue de veau cuite
+ciqual_food_code:en:40201
+ciqual_food_name:en:Tongue, calf, cooked
+ciqual_food_name:fr:Langue, veau, cuite
+
+<en:Veal meat dishes
+en:Raw calf tongue
+fr:Langue de veau crue
+ciqual_food_code:en:40204
+ciqual_food_name:en:Tongue, calf, raw
+ciqual_food_name:fr:Langue, veau, crue
+
+<en:Veal meat dishes
+en:Sautéed veal loin, Pan-fried veal loin
+fr:Carré de veau sauté, Carré de veau poêlé
+ciqual_food_code:en:6512
+ciqual_food_name:en:Veal, loin, sautéed/pan-fried
+ciqual_food_name:fr:Veau, carré, sauté/poêlé
+
+<en:Veal meat dishes
+en:Raw veal loin
+fr:Carré de veau cru
+ciqual_food_code:en:6513
+ciqual_food_name:en:Veal, loin, raw
+ciqual_food_name:fr:Veau, carré, cru
+
+<en:Veal meat dishes
+en:Grilled veal shoulder, Pan-fried veal shoulder
+fr:Epaule de veau grillée, Epaule de veau poêlée
+ciqual_food_code:en:6562
+ciqual_food_name:en:Veal, shoulder, grilled/pan-fried
+ciqual_food_name:fr:Veau, épaule, grillée/poêlée
+
+<en:Veal meat dishes
+en:Raw veal shoulder
+fr:Epaule de veau crue
+ciqual_food_code:en:6560
+ciqual_food_name:en:Veal, shoulder, raw
+ciqual_food_name:fr:Veau, épaule, crue
+
+<en:Veal meat dishes
+en:Raw calf foot
+fr:Pied de veau cru
+ciqual_food_code:en:6580
+ciqual_food_name:en:Calf, foot, raw
+ciqual_food_name:fr:Veau, pied, cru
+
+<en:Veal meat dishes
+en:Grilled veal tenderloin, Pan-fried veal tenderloin
+fr:Noix de veau grillée, Noix de veau poêlée
+ciqual_food_code:en:6523
+ciqual_food_name:en:Veal, tenderloin, grilled/pan-fried
+ciqual_food_name:fr:Veau, noix, grillée/poêlée
+
+<en:Veal meat dishes
+en:Roasted veal tenderloin
+fr:Noix de veau rôtie
+ciqual_food_code:en:6524
+ciqual_food_name:en:Veal, tenderloin, roasted
+ciqual_food_name:fr:Veau, noix, rôtie
+
+<en:Veal meat dishes
+en:Cooked veal escalope
+fr:Escalope de veau cuite
+ciqual_food_code:en:6520
+ciqual_food_name:en:Veal, escalope, cooked
+ciqual_food_name:fr:Veau, escalope, cuite
+
+<en:Veal meat dishes
+en:Roasted veal fillet, Baked veal fillet
+fr:Filet de veau rôti, Filet de veau cuit au four
+ciqual_food_code:en:6531
+ciqual_food_name:en:Veal fillet, roasted/baked
+ciqual_food_name:fr:Veau, filet, rôti/cuit au four
+
+<en:Veal meat dishes
+en:Raw veal breast
+fr:Poitrine de veau crue
+ciqual_food_code:en:6540
+ciqual_food_name:en:Veal, breast, raw
+ciqual_food_name:fr:Veau, poitrine, crue
+
+<en:Veal meat dishes
+en:Raw veal heart
+fr:Coeur de veau cru
+ciqual_food_code:en:40062
+ciqual_food_name:en:Heart, veal, raw
+ciqual_food_name:fr:Coeur, veau, cru
+
 <en:Beef dishes
 en:Shepherd's pie
 fr:Hachis parmentier, parmentiers de bœuf
 nl:Shepherd's pie
+
+<en:Beef dishes
+en:Ox muzzle in salad dressing sauce
+fr:Museau de boeuf en vinaigrette
+ciqual_food_code:en:25610
+ciqual_food_name:en:Ox muzzle in salad dressing sauce
+ciqual_food_name:fr:Museau de boeuf en vinaigrette
 
 <en:Beef dishes
 en:Beef tongues, Beef tongue
@@ -40827,12 +41098,19 @@ fi:naudan kielet
 fr:Langues de bœuf, Langues de bœuf
 nl:Rundertong
 
-<fr:Langue de bœuf
+<en:Beef tongues
 en:Cooked beef tongue
 fr:Langue de boeuf cuite
 ciqual_food_code:en:40203
 ciqual_food_name:en:Tongue, beef, cooked
 ciqual_food_name:fr:Langue, boeuf, cuite
+
+<en:Beef tongues
+en:Raw beef tongue
+fr:Langue de boeuf crue
+ciqual_food_code:en:40202
+ciqual_food_name:en:Tongue, beef, raw
+ciqual_food_name:fr:Langue, boeuf, crue
 
 <fr:Langue de bœuf
 en:Tongue of beef with hot sauce, Tongue of beef with hot sauce
@@ -40856,6 +41134,13 @@ fr:Boeuf bourguignon cuit, Pot au feu de boeuf cuit
 ciqual_food_code:en:6230
 ciqual_food_name:en:Beef, stewing meat, cooked
 ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cuit
+
+<en:Beef dishes
+en:Raw beef stew meat
+fr:Boeuf bourguignon cru, Pot-au-feu de boeuf cru
+ciqual_food_code:en:6231
+ciqual_food_name:en:Beef, stewing meat, raw
+ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cru
 
 <en:Beef dishes
 en:Beef carpaccio
@@ -40933,11 +41218,25 @@ ciqual_food_name:en:Heart, beef, cooked
 ciqual_food_name:fr:Coeur, boeuf, cuit
 
 <en:Beef dishes
+en:Raw beef heart
+fr:Coeur de boeuf cru
+ciqual_food_code:en:40052
+ciqual_food_name:en:Heart, beef, raw
+ciqual_food_name:fr:Coeur, boeuf, cru
+
+<en:Beef dishes
 en:Cooked beef kidney
 fr:Rognon de boeuf cuit
 ciqual_food_code:en:40403
 ciqual_food_name:en:Kidney, beef, cooked
 ciqual_food_name:fr:Rognon, boeuf, cuit
+
+<en:Beef dishes
+en:Raw beef kidney
+fr:Rognon de boeuf cru
+ciqual_food_code:en:40402
+ciqual_food_name:en:Kidney, beef, raw
+ciqual_food_name:fr:Rognon, boeuf, cru
 
 <en:Beef dishes
 en:Braised beef chuck, Boiled beef chuck
@@ -40989,6 +41288,13 @@ ciqual_food_name:en:Beef, cheek, braised or boiled
 ciqual_food_name:fr:Boeuf, joue, braisée ou bouillie
 
 <en:Beef dishes
+en:Raw beef cheek
+fr:Joue de boeuf crue
+ciqual_food_code:en:6140
+ciqual_food_name:en:Beef, cheek, raw
+ciqual_food_name:fr:Boeuf, joue, crue
+
+<en:Beef dishes
 en:Grilled beef sirloin steak, Pan-fried beef sirloin steak
 fr:Faux-filet de boeuf grillé, Faux-filet de boeuf poêlé
 ciqual_food_code:en:6110
@@ -40996,11 +41302,25 @@ ciqual_food_name:en:Beef, sirloin steak, grilled/pan-fried
 ciqual_food_name:fr:Boeuf, faux-filet, grillé/poêlé
 
 <en:Beef dishes
+en:Raw beef sirloin steak red label
+fr:Faux-filet de boeuf label rouge cru
+ciqual_food_code:en:6112
+ciqual_food_name:en:Beef, sirloin steak, red label, raw
+ciqual_food_name:fr:Boeuf, faux-filet, label rouge, cru
+
+<en:Beef dishes
 en:Grilled beef thin flank, Pan-fried beef thin flank
 fr:Hampe de boeuf grillée, Hampe de boeuf poêlée
 ciqual_food_code:en:6131
 ciqual_food_name:en:Beef, thin flank, grilled/pan-fried
 ciqual_food_name:fr:Boeuf, hampe, grillée/poêlée
+
+<en:Beef dishes
+en:Raw beef thin flank
+fr:Hampe de boeuf crue
+ciqual_food_code:en:6130
+ciqual_food_name:en:Beef, thin flank, raw
+ciqual_food_name:fr:Boeuf, hampe, crue
 
 <en:Beef dishes
 en:Grilled beef topside, Pan-fried beef topside
@@ -41017,6 +41337,13 @@ ciqual_food_name:en:Beef, flank steak, grilled/pan-fried
 ciqual_food_name:fr:Boeuf, bavette d'aloyau, grillée/poêlée
 
 <en:Beef dishes
+en:Raw beef flank steak
+fr:Bavette d'aloyau de boeuf crue
+ciqual_food_code:en:6212
+ciqual_food_name:en:Beef, flank steak, raw
+ciqual_food_name:fr:Boeuf, bavette d'aloyau, crue
+
+<en:Beef dishes
 en:Braised beef
 fr:Boeuf braisé
 ciqual_food_code:en:6101
@@ -41031,6 +41358,13 @@ ciqual_food_name:en:Beef, round, cooked
 ciqual_food_name:fr:Boeuf, gîte à la noix, cuit
 
 <en:Beef dishes
+en:Raw beef round
+fr:Gîte à la noix de boeuf cru
+ciqual_food_code:en:6102
+ciqual_food_name:en:Beef, round, raw
+ciqual_food_name:fr:Boeuf, gîte à la noix, cru
+
+<en:Beef dishes
 en:Roasted beef sirloin steak, Baked beef sirloin steak
 fr:Faux-filet de boeuf rôti, Faux-filet de boeuf cuit au four
 ciqual_food_code:en:6105
@@ -41038,11 +41372,25 @@ ciqual_food_name:en:Beef, sirloin steak, roasted/baked
 ciqual_food_name:fr:Boeuf, faux-filet, rôti/cuit au four
 
 <en:Beef dishes
+en:Raw beef sirloin steak
+fr:Faux-filet de boeuf cru
+ciqual_food_code:en:6111
+ciqual_food_name:en:Beef, sirloin steak, raw
+ciqual_food_name:fr:Boeuf, faux-filet, cru
+
+<en:Beef dishes
 en:Roasted beef topside, Baked beef topside
 fr:Tende de tranche de boeuf rôtie, Tende de tranche de boeuf cuite au four
 ciqual_food_code:en:6162
 ciqual_food_name:en:Beef, topside, roasted/baked
 ciqual_food_name:fr:Boeuf, tende de tranche, rôtie/cuite au four
+
+<en:Beef dishes
+en:Raw beef topside
+fr:Tende de tranche de boeuf crue
+ciqual_food_code:en:6160
+ciqual_food_name:en:Beef, topside, raw
+ciqual_food_name:fr:Boeuf, tende de tranche, crue
 
 <en:Beef dishes
 <en:skewers
@@ -41068,6 +41416,13 @@ ciqual_food_name:en:Beef, hanger steak, grilled
 ciqual_food_name:fr:Boeuf, onglet, grillé
 
 <en:Beef dishes
+en:Raw beef hanger steak
+fr:Onglet de boeuf cru
+ciqual_food_code:en:6204
+ciqual_food_name:en:Beef, hanger steak, raw
+ciqual_food_name:fr:Boeuf, onglet, cru
+
+<en:Beef dishes
 en:Grilled beef rump steak
 fr:Rumsteck de boeuf grillé
 ciqual_food_code:en:6207
@@ -41075,11 +41430,25 @@ ciqual_food_name:en:Beef, rump steak, grilled
 ciqual_food_name:fr:Boeuf, rumsteck, grillé
 
 <en:Beef dishes
+en:Raw beef rump steak
+fr:Rumsteck de boeuf cru
+ciqual_food_code:en:6206
+ciqual_food_name:en:Beef, rump steak, raw
+ciqual_food_name:fr:Boeuf, rumsteck, cru
+
+<en:Beef dishes
 en:Roast beef, Roasted beef, Baked roast beef
 fr:Rosbif rôti, Rosbif cuit au four
 ciqual_food_code:en:6210
 ciqual_food_name:en:Beef, roast beef, roasted/baked
 ciqual_food_name:fr:Boeuf, rosbif, rôti/cuit au four
+
+<en:Beef dishes
+en:Raw beef shoulder
+fr:Epaule de boeuf crue
+ciqual_food_code:en:6002
+ciqual_food_name:en:Beef, shoulder, raw
+ciqual_food_name:fr:Boeuf, épaule, crue
 
 <en:Meals with meat
 en:Pork meals
@@ -41433,6 +41802,9 @@ it:Chili con carne
 nl:Chili con carne
 ro:Chili con carne
 wikidata:en:Q863794
+ciqual_food_code:en:25111
+ciqual_food_name:en:Chili con carne
+ciqual_food_name:fr:Chili con carne
 
 <en:Fresh pasta
 <en:Fresh meals
@@ -43750,6 +44122,13 @@ ciqual_food_code:en:6200
 ciqual_food_name:en:Beef, steak or beef steak, grilled
 ciqual_food_name:fr:Boeuf, steak ou bifteck, grillé
 
+<en:Ground beef steaks
+en:Beef steak, Raw beef steak
+fr:Steak de boeuf cru, Bifteck cru
+ciqual_food_code:en:6201
+ciqual_food_name:en:Beef, steak or beef steak, raw
+ciqual_food_name:fr:Boeuf, steak ou bifteck, cru
+
 <en:Beef preparations
 en:Ground beef preparations, ground beef meat preparations
 de:Rinderhackprodukte, Rinderhackfleisch
@@ -43761,6 +44140,20 @@ nl:Gehakt vleesproducten
 <en:Beef preparations
 en:Roast veal, Roasted veal
 fr:Rôtis de veau, Rôti de veau
+
+<en:Beef preparations
+en:Cooked veal roast
+fr:Rôti de veau cuit
+ciqual_food_code:en:6551
+ciqual_food_name:en:Veal, roast, cooked
+ciqual_food_name:fr:Veau, rôti, cuit
+
+<en:Beef preparations
+en:Raw veal roast
+fr:Rôti de veau cru
+ciqual_food_code:en:6550
+ciqual_food_name:en:Veal, roast, raw
+ciqual_food_name:fr:Veau, rôti, cru
 
 <en:Beef preparations
 en:Veal stock
@@ -43964,6 +44357,13 @@ zh:猪肚, 猪肚肉
 ciqual_food_code:en:28550
 ciqual_food_name:en:Pork belly salt-cured
 ciqual_food_name:fr:Poitrine de porc demi-sel
+
+<en:Pork
+en:Dried pancetta
+fr:Pancetta, Poitrine roulée sèche
+ciqual_food_code:en:28858
+ciqual_food_name:en:Pancetta, dried
+ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
 <en:Pork
 en:Pork tongue
@@ -44728,18 +45128,54 @@ wikidata:en:Q1464898
 
 <en:Prepared meats
 fr:Andouilles
+en:Chitterling sausage
 wikidata:en:Q492769
+ciqual_food_code:en:8500
+ciqual_food_name:en:Chitterling sausage
+ciqual_food_name:fr:Andouille
 
 <fr:Andouilles
 fr:Andouilles de Vire, Andouille de Vire
+en:Chitterling sausage from Vire
+ciqual_food_code:en:8512
+ciqual_food_name:en:Chitterling sausage from Vire
+ciqual_food_name:fr:Andouille de Vire
 
 <fr:Andouilles
 fr:Andouilles de Guémené, Andouille de Guémené
+en:Chitterling sausage from Guéméné
+ciqual_food_code:en:8501
+ciqual_food_name:en:Chitterling sausage from Guéméné
+ciqual_food_name:fr:Andouille de Guéméné
+
+<fr:Andouilles
+en:Pan-reheated chitterling sausage
+fr:Andouille réchauffée à la poêle
+ciqual_food_code:en:8504
+ciqual_food_name:en:Chitterling sausage, pan-reheated
+ciqual_food_name:fr:Andouille, réchauffée à la poêle
+
+<fr:Andouilles
+en:Sautéed chitterling sausage, Pan-fried chitterling sausage
+fr:Andouillette sautée, Andouillette poêlée
+ciqual_food_code:en:8551
+ciqual_food_name:en:Chitterling sausage, sautéed/pan-fried
+ciqual_food_name:fr:Andouillette, sautée/poêlée
+
+<fr:Andouilles
+en:Raw chitterling sausage
+fr:Andouillette crue
+ciqual_food_code:en:8550
+ciqual_food_name:en:Chitterling sausage, raw
+ciqual_food_name:fr:Andouillette, crue
 
 <en:Prepared meats
 en:Capicola, coppa
 fr:Coppa
 nl:Capocollo
+ciqual_food_code:en:28850
+ciqual_food_name:en:Coppa
+ciqual_food_name:fr:Coppa
 
 <en:Capicola
 fr:Coppa de l'Ile de Beauté
@@ -44783,6 +45219,13 @@ en:Pork way leg without rind fat and bone raw
 fr:Porc jambon sans jarret sans bateau découenné dégraisssé désossé cru
 ciqual_food_code:en:28473
 ciqual_food_name:en:Pork, way leg, without rind, fat and bone, raw
+
+<en:Pork
+en:Dry-cured ham with fat and rind removed
+fr:Jambon sec découenné dégraissé
+ciqual_food_code:en:28802
+ciqual_food_name:en:Dry-cured ham, fat and rind removed
+ciqual_food_name:fr:Jambon sec, découenné, dégraissé
 
 <en:Hams
 en:Braised hams
@@ -44874,7 +45317,7 @@ es: jamón de país, jamón salado
 it:Prosciutti crudi
 
 <fr:Jambons crus
-en:Dried hams
+en:Dried hams, Dry-cured hams
 ca:Pernil assecat, Pernil curat
 de:Getrockene Schinken
 es:Jamones secos
@@ -44883,6 +45326,9 @@ fr:Jambons secs, jambon sec
 hu:Szárított sonkák
 nl:Gedroogde hammen, Gedroogde ham
 pt:Presuntos secos
+ciqual_food_code:en:28812
+ciqual_food_name:en:Dry-cured ham
+ciqual_food_name:fr:Jambon sec
 
 <en:Dried hams
 en:Bayonne ham
@@ -44948,10 +45394,14 @@ de:Mainzer Schinken
 wikidata:en:Q1885761
 
 <en:Dried hams
-fr:Jambons de Parme, jambon de parme
+en:Dry-cured Parma ham
+fr:Jambons de Parme, jambon de parme, Jambon sec de Parme
 it:Prosciutto di Parma
 nl:Parmahammen
 wikidata:en:Q13360207
+ciqual_food_code:en:28844
+ciqual_food_name:en:Parma dry-cured ham
+ciqual_food_name:fr:Jambon sec de Parme
 
 <en:Dried hams
 en:Hams of San Daniele
@@ -44971,9 +45421,13 @@ fr:Jambons ibériques de gland, jambon ibérique de gland, jambon ibérique de b
 es: jamón ibérico de bellota
 
 <en:Dried hams
-fr:Jambons Serrano, jambon serrano
-es: jamón serrano
+en:Dry-cured Serrano ham
+fr:Jambons Serrano, jambon serrano, Jambon sec Serrano
+es:Jamón serrano
 wikidata:en:Q584324
+ciqual_food_code:en:28845
+ciqual_food_name:en:Serrano dry-cured ham
+ciqual_food_name:fr:Jambon sec Serrano
 
 <fr:Jambons crus
 fr:Jambons crus fumés, jambon cru fumé, jambons secs fumés, jambon sec fumé
@@ -45242,6 +45696,13 @@ ciqual_food_code:en:30131
 ciqual_food_name:en:Poultry sausage
 
 <en:Sausages
+en:Poultry sausage delicatessen style
+fr:Saucisse de volaille façon charcutière
+ciqual_food_code:en:30130
+ciqual_food_name:en:Poultry sausage, delicatessen style
+ciqual_food_name:fr:Saucisse de volaille, façon charcutière
+
+<en:Sausages
 fr:Saucisses cocktail
 nl:Cocktailworstjes
 en:Cocktail sausage
@@ -45339,6 +45800,13 @@ ciqual_food_code:en:30154
 ciqual_food_name:en:Merguez sausage, beef, mutton and pork, raw
 ciqual_food_name:fr:Merguez, bœuf, mouton et porc, crue
 
+<fr:Merguez
+en:Raw pork and beef merguez sausage
+fr:Merguez de porc et bœuf crue
+ciqual_food_code:en:30153
+ciqual_food_name:en:Merguez sausage, pork and beef, raw
+ciqual_food_name:fr:Merguez, porc et bœuf, crue
+
 <en:Sausages
 fr:Cervelas
 de:Zervelatwurst
@@ -45382,6 +45850,9 @@ fr:Saucisses de foie
 hu:Májkolbászok
 nl:Leverworst
 wikidata:en:Q1570466
+ciqual_food_code:en:30176
+ciqual_food_name:en:Liver sausage
+ciqual_food_name:fr:Saucisse de foie
 
 <en:Liver sausages
 en:Pork liver sausages
@@ -45514,12 +45985,33 @@ fr:Saucisses de Toulouse
 nl:Worsten uit Toulouse, Toulouseworsten
 
 <en:French sausages
+en:Raw Toulouse sausages
+fr:Saucisse de Toulouse crue
+ciqual_food_code:en:30110
+ciqual_food_name:en:Toulouse sausage, raw
+ciqual_food_name:fr:Saucisse de Toulouse, crue
+
+<en:French sausages
+en:Cooked Toulouse sausage
+fr:Saucisses de Toulouse cuites
+ciqual_food_code:en:30011
+ciqual_food_name:en:Toulouse sausage, cooked
+ciqual_food_name:fr:Saucisse de Toulouse, cuite
+
+<en:French sausages
 en:Sausages from Savoy, Savoy sausages
 fr:Saucisses savoyardes, Saucisses de Savoie
 nl:Worst uit de Savoie
 
 <fr:Saucisses savoyardes
 fr:Diots, Diot
+
+<en:French sausages
+en:Raw Viennese pork and veal sausages
+fr:Saucisses viennoises crues
+ciqual_food_code:en:30750
+ciqual_food_name:en:Viennese sausage, pork and veal, raw
+ciqual_food_name:fr:Saucisse viennoise, crue
 
 <en:Sausages
 en:Smoked sausages
@@ -45545,6 +46037,13 @@ protected_name_file_number:en: PGI-FR-0100
 protected_name_type:en: pgi
 origins:en: en:France
 
+<fr:Boudins blancs
+en:Raw truffled white pudding
+fr:Boudin blanc truffé cru
+ciqual_food_code:en:8803
+ciqual_food_name:en:White pudding, truffled, raw
+ciqual_food_name:fr:Boudin blanc truffé, cru
+
 <fr:Boudins
 <en:Tripe dishes
 en:Black pudding
@@ -45553,6 +46052,13 @@ fi:veripalttoo
 fr:Boudins noirs
 nl:Bloedworsten
 wikidata:en:Q154482
+
+<en:Black pudding
+en:Refrigerated black pudding, Refrigerated blood sausage
+fr:Boudin noir rayon frais
+ciqual_food_code:en:8703
+ciqual_food_name:en:Black pudding (blood sausage), refrigerated
+ciqual_food_name:fr:Boudin noir, rayon frais
 
 <en:Black pudding
 en:Black pudding with onions
@@ -45597,6 +46103,13 @@ wikidata:en:Q11164
 
 <fr:Andouillettes
 fr:Andouillettes de Troyes
+
+<fr:Andouillettes
+en:Raw chitterling sausage from Troyes
+fr:Andouillette de Troyes crue
+ciqual_food_code:en:8552
+ciqual_food_name:en:Chitterling sausage from Troyes, raw
+ciqual_food_name:fr:Andouillette de Troyes, crue
 
 <fr:Andouillettes
 fr:Andouillettes provençales, Andouillettes de Provence
@@ -48614,6 +49127,13 @@ ru:Чизбургер
 wikidata:en:Q667478
 
 <en:Sandwiches
+en:Cheeseburger from fast foods restaurant
+fr:Cheeseburger de fast food
+ciqual_food_code:en:25414
+ciqual_food_name:en:Cheeseburger, from fast foods restaurant
+ciqual_food_name:fr:Cheeseburger, provenant de fast food
+
+<en:Sandwiches
 en:Large round sandwich with lettuce tuna anchovy and black olives
 fr:Pan bagnat
 ciqual_food_code:en:25513
@@ -48642,6 +49162,13 @@ ja:ハンバーガー
 nl:Hamburgers
 ru:Гамбургер
 wikidata:en:Q6663
+
+<en:Hamburgers
+en:Hamburger from fast food
+fr:Hamburger de fast food
+ciqual_food_code:en:25413
+ciqual_food_name:en:Hamburger, from fast foods restaurant
+ciqual_food_name:fr:Hamburger, provenant de fast food
 
 <en:Hamburgers
 en:Raw beef based burger with 15% fat
@@ -49020,6 +49547,13 @@ en:Fal Oyster
 protected_name_file_number_en: PDO-GB-0885
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+
+<en:Scallop
+en:Cooked scallop with coral
+fr:Coquille Saint-Jacques cuite avec noix et corail
+ciqual_food_code:en:10004
+ciqual_food_name:en:Scallop, with coral, cooked
+ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, cuite
 
 <en:Scallop
 en:Queen scallops
@@ -50094,6 +50628,13 @@ fr:Thons blancs au naturel
 it:Tonno bianco al naturale
 nl:Witte tonijn natuur
 
+<en:Albacore
+en:Canned drained albacore in olive oil
+fr:Thon germon à l'huile d'olive appertisé égoutté, Thon blanc à l'huile d'olive appertisé égoutté
+ciqual_food_code:en:26179
+ciqual_food_name:en:Albacore, in olive oil, canned, drained
+ciqual_food_name:fr:Thon germon ou thon blanc, à l'huile d'olive, appertisé, égoutté
+
 <en:Tunas
 en:Albacore
 de:Weißer Thun
@@ -50369,6 +50910,27 @@ fr:Filets de maquereaux natures
 nl:Makreelfilets natuur
 
 <en:Fishes
+en:Roasted turbot, Baked turbot
+fr:Turbot rôti, Turbot cuit au four
+ciqual_food_code:en:26094
+ciqual_food_name:en:Turbot, roasted/baked
+ciqual_food_name:fr:Turbot, rôti/cuit au four
+
+<en:Fishes
+en:Cooked Pangasius filets
+fr:Filet de Panga cuit, Filet de Pangasius cuit, Filet de poisson-chat du Mékong cuit
+ciqual_food_code:en:27018
+ciqual_food_name:en:Pangasius, filets, cooked
+ciqual_food_name:fr:Panga, Pangasius, ou poisson-chat du Mékong, filet, cuit
+
+<en:Fishes
+en:Roasted European bass, Baked European bass
+fr:Bar commun rôti, Bar commun cuit au four, Loup rôti, Loup cuit au four
+ciqual_food_code:en:27030
+ciqual_food_name:en:European bass, roasted/baked
+ciqual_food_name:fr:Bar commun ou loup, rôti/cuit au four
+
+<en:Fishes
 en:Cods, Codfishes
 de:Kabeljau
 es:Bacalaos
@@ -50425,6 +50987,34 @@ nl:Mosselen
 wikidata:en:Q15735642
 
 <en:Mussels
+en:Raw common mussels
+fr:Moules communes crues
+ciqual_food_code:en:10014
+ciqual_food_name:en:Mussel, common, raw
+ciqual_food_name:fr:Moule commune, crue
+
+<en:Mussels
+en:Raw Mediterranean mussels
+fr:Moules de Méditerranée crues
+ciqual_food_code:en:10026
+ciqual_food_name:en:Mediterranean mussel, raw
+ciqual_food_name:fr:Moule de Méditerranée, crue
+
+<en:Mussels
+en:Mussels in a shallot and white wine broth
+fr:Moules marinières, Moules aux oignons et au vin blanc
+ciqual_food_code:en:10082
+ciqual_food_name:en:Mussels, in a shallot and white wine broth
+ciqual_food_name:fr:Moules marinières (oignons et vin blanc)
+
+<en:Mussels
+en:Filled mussels, Mussels filled with fat parsley and garlic
+fr:Moules farcies crues, Moules farcies en persillade crues
+ciqual_food_code:en:10083
+ciqual_food_name:en:Mussels, filled (fat, parsley and garlic…)
+ciqual_food_name:fr:Moules farcies (matière grasse persillade…) crues
+
+<en:Mussels
 fr:Moules de Bouchot
 
 <fr:Moules de Bouchot
@@ -50437,6 +51027,13 @@ en:Conwy Mussels
 protected_name_file_number:en: PDO-GB-01304
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+
+<en:Mussels
+en:Boiled mussels, Mussels cooked in water
+fr:Moules bouillies, Moules cuites à l'eau
+ciqual_food_code:en:10013
+ciqual_food_name:en:Mussel, boiled/cooked in water
+ciqual_food_name:fr:Moule, bouillie/cuite à l'eau
 
 <en:Canned foods
 <en:Mussels
@@ -50459,6 +51056,13 @@ ciqual_food_code:en:10028
 ciqual_food_name:en:Mussel, canned, drained
 ciqual_food_name:fr:Moule, appertisée, égouttée
 
+<en:Canned mussels
+en:Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
+fr:Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
+ciqual_food_code:en:10081
+ciqual_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
+ciqual_food_name:fr:Moules à la sauce catalane ou escabèche (tomate), appertisée, égouttée
+
 <en:Mollusc
 en:Oysters
 de:Austern
@@ -50475,6 +51079,27 @@ en:Whitstable oysters
 protected_name_file_number:en: PGI-GB-0371
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Oysters
+en:Raw oysters
+fr:Huîtres crues
+ciqual_food_code:en:10011
+ciqual_food_name:en:Oyster, raw
+ciqual_food_name:fr:Huître, sans précision, crue
+
+<en:Oysters
+en:Raw Pacific oysters
+fr:Huîtres creuses crues
+ciqual_food_code:en:10035
+ciqual_food_name:en:Pacific oyster, raw
+ciqual_food_name:fr:Huître creuse, crue
+
+<en:Oysters
+en:Raw European oysters
+fr:Huîtres plates crues
+ciqual_food_code:en:10036
+ciqual_food_name:en:European oyster, raw
+ciqual_food_name:fr:Huître plate, crue
 
 <en:Mollusc
 en:Raw cuttlefish
@@ -58873,6 +59498,13 @@ fr:Tajine, tagine
 nl:Tajine
 ro:Tajine
 
+<en:Tajine
+en:Mutton tagine
+fr:Tajine de mouton
+ciqual_food_code:en:25159
+ciqual_food_name:en:Mutton tagine
+ciqual_food_name:fr:Tajine de mouton
+
 <en:Meals
 en:Endives with ham, Endive with ham, Chicory with ham
 fr:Endives au jambon, Endive au jambon
@@ -59196,6 +59828,13 @@ en:White chocolates with hazelnuts
 de:Weiße Schokoladen mit Haselnüssen
 fr:Chocolats blancs aux noisettes
 nl:Witte chocola met hazelnoten
+
+<en:White chocolates
+en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux fruits secs
+ciqual_food_code:en:31026
+ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
 
 <en:Stuffed wafers
 en:Stuffed fruits wafers
