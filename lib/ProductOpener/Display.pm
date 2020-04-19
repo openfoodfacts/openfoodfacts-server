@@ -86,8 +86,6 @@ BEGIN
 					&display_ingredients_analysis_details
 					&display_ingredients_analysis
 
-					&count_products
-
 					@search_series
 
 					$admin
@@ -625,6 +623,13 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
+	# or a list
+	elsif (0 and (-e ("$data_root/lists/" . $components[0] . ".$cc.$lc.html") ) and (not defined $components[1]))  {
+		$request_ref->{text} = $components[0];
+		$request_ref->{list} = $components[0];
+		$request_ref->{canon_rel_url} = "/" . $components[0];
+	}
+
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
@@ -1073,6 +1078,13 @@ sub display_text($)
 
 	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 
+
+	#list?
+	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
+		$file = "$data_root/lists/$textid.$cc.$lc.html";
+	}
+
+
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
 	close ($IN);
@@ -1084,7 +1096,7 @@ sub display_text($)
 
 	my $title = undef;
 
-	if ($textid eq 'index') {
+	if (($textid eq 'index') or (defined $request_ref->{list})) {
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
@@ -3801,31 +3813,9 @@ sub search_and_display_products($$$$$) {
 
 	my $count;
 
-	my $fields_ref;
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
 
-	#for API (json, xml, rss,...), display all fields
-	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
-		$fields_ref = {};
-	} else {
-	#for HTML, limit the fields we retrieve from MongoDB
-		$fields_ref = {
-		"lc" => 1,
-		"code" => 1,
-		"product_name" => 1,
-		"product_name_$lc" => 1,
-		"brands" => 1,
-		"images" => 1,
-		"quantity" => 1
-		};
-	}
-
-	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
-
-	# Sort the keys of hashes
-	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
-
-	my $key = $server_domain . "/" . $json;
+	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
 
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 
@@ -3892,9 +3882,9 @@ sub search_and_display_products($$$$$) {
 				}
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
-					return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				});
 				$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 			}
@@ -5324,7 +5314,6 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
-			lc => 1,
 			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
@@ -6077,6 +6066,9 @@ $options{favicons}
 <link rel="canonical" href="$canon_url">
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="$static_subdomain/css/darkMode.css"> <!-- Dark Mode -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 $header
@@ -6177,7 +6169,7 @@ HTML
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
 
-	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
+	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
@@ -6483,6 +6475,12 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+			<li>
+				<div id = "toggle" class = "toggle-container">
+					<input type = "checkbox" id = "switch" name = "theme" />
+					<label for = "switch"> Toggle </label>
+				</div>
+			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
@@ -6683,6 +6681,33 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
+
+/* DARK MODE SCRIPT */
+
+<script>
+/* Check if button is checked. If checked, darkmode. Otherwise, no darkmode. Make separate file*/
+	var check = document.getElementById("switch");
+	check.addEventListener ("click", darkMode);
+
+	function darkMode() {
+		if (check.checked) {
+			document.body.style.backgroundColor = "yellow";
+		}
+		else {
+			document.body.style.backgroundColor = "white";
+
+		}
+	}
+	/* add event listener to the toggle */
+
+	/* if (switch.checked) {
+		console.log("yes, it's checked");
+	}
+	else {
+		console.log("no it's not checked");
+	} */
+</script>
+
 </body>
 </html>
 HTML
