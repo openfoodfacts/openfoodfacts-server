@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 15:34\n"
+"PO-Revision-Date: 2020-04-19 05:02\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -86,7 +86,7 @@ msgstr "Katıldığınız için teşekkür ederiz <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Potansiyel tehlikeli gıda katkı maddesi. Kullanım limiti."
+msgstr "Potansiyel olarak tehlikeli gıda katkı maddesi. Kullanım limiti."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -239,15 +239,15 @@ msgstr "% S markası olmayan ürünler"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Marka sahibi"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Coca Cola şirketi"
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr ""
+msgstr "marka sahipleri"
 
 msgctxt "by"
 msgid "by"
@@ -952,11 +952,11 @@ msgstr "İçindekiler sayısı"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Bilinilen katkı maddesi sayısı"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Bilinilmeyen katkı maddesi sayısı"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2494,11 +2494,11 @@ msgstr "Resimlerin seçimini kaldırırken hata oluştu."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Fare tekerleği ile yakınlaştır."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Daha düşük çözünürlüklü görüntüler yükleyin (yavaş bağlantıdan dolayı)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3288,7 +3288,7 @@ msgstr "Belirli kategori"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Kaynağa özgü alan"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3321,20 +3321,20 @@ msgstr "sadece birim, değer başka bir sütunda"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Değer Y, Yes ya da 1 olduğunda, sütun belirli bir etiketin (örn. Organik, Adil Ticaret) varlığını gösteriyorsa, bu seçeneği seçin."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Etiketin adını sağdaki metin alanına yazın."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Değer Y, Evet veya 1 olduğunda sütun belirli bir kategorinin (örn. İçecekler) varlığını gösteriyorsa bu seçeneği belirleyin."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Kategorinin adını sağdaki metin alanına yazın."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
@@ -4126,7 +4126,7 @@ msgstr ""
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "isteğe bağlı"
 
 msgctxt "teams_p"
 msgid "teams"
@@ -4142,15 +4142,15 @@ msgstr ""
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Takım adları herkese açıktır. Kişisel bilgi (örneğin soyadı), ticari marka (sahip olmadıkça) veya rahatsız edici herhangi bir şey içeren isme sahip takım oluşturmayın."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Takım %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d ürün ihraç edilecektir."
 
