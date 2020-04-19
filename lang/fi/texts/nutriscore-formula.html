@@ -4,54 +4,54 @@
 
 <h1>Nutri-Score Nutritional Score and Color grades</h1>
 
-<h2>A system of grades from A to E to simplify nutritional labeling</h2>
+<h2>Järjestelmä arvosanoja A-E yksinkertaistamaan ravintomerkintöjä</h2>
 
-<p>In the report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
-Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food
-to allow to simply compare the nutritional quality of products.</p>
+<p>Raportissa "Ehdotuksia uudelle sysäykselle Ranskan kansanterveyden ravitsemuspolitiikalle kansallisen terveysstrategian kehyksessä" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
+Professori Serge Hercberg kehottaa ottamaan käyttöön järjestelmän arvosanoja A-E ruoan etuosassa
+tuotteiden ravinnollisen laadun yksinkertaiseen vertailuun.</p>
 
 <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
 
 <p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins
   (high levels are considered good for health).</p>
 
-<p>To learn more:</p>
+<p>Oppiaksesi lisää:</p>
 
 <ul>
 <li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Nutri-Score official presentation</a> and <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Nutri-Score Scientific and Technical FAQ</a> on the web site of the French national public health agency Santé Publique France.</li>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">A 2 minutes video : What labeling for food products?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple , intuitive and understandable by all nutritional labeling on the front of food packages</a>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">2 minuutin video: Minkälaiset merkinnät elintarvikkeille?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Vetoomus yksinkertaiselle, intuitiiviselle ja kaikkien ymmärrettävälle ravintomerkinnöille ruokapakkausten etuosaan</a>
 </li>
 </ul>
 
-<h2>The nutritional score on Open Food Facts</h2>
+<h2>Ravinnolliset pisteet Open Food Factsissa</h2>
 
-<p>The formula for calculating the nutritional score, the thresholds of the grades and the various tweaking proposals were transmitted by Professor Hercberg's team. This formula was the subject of studies and adaptations for the French market.</p>
+<p>Kaava ravinnollisen pisteytyksen laskemiseksi, arvosanojen kynnykset ja sekalaiset säätöehdotukset saatiin Professori Hercbergin tiimiltä. Tämä kaava oli aiheena tutkimuksille ja muunnelmille Ranskan markkinoille.</p>
 
 <p>The version adopted officially and implementated on Open Food Facts is the one from the report
 <a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
 
-<p>However, we calculated the nutritional score for products sold on French soil and referenced in the database Open Food Facts,
-and determined the corresponding A to E grades. This allows in particular to compare the nutritional score and / or notes of different products, and to study the distribution for each product category.</p>
+<p>Kuitenkin, laskimme ravinnolliset pisteet Ranskassa myytäville ja Open Food Factsin tietokannasta löytyville tuotteille,
+ja määrittelimme vastaavat A-E arvosanat. Tämä mahdollistaa erityisesti eri tuotteiden ravinnollisten pisteiden ja / tai merkintöjen vertailun, ja jokaisen tuoteluokan jakauman tutkimisen.</p>
 
-<h2>Formula to calculate the nutritional score</h2>
+<h2>Kaava ravinnollisen pisteytyksen laskemiseksi</h2>
 
-<p>Points are given to the products according to the amount of nutrients they contain per 100 g.</p>
+<p>Pisteitä annetaan tuotteille sen mukaan kuinka paljon ravintoaineita ne sisältävät per 100 g.</p>
 
-<p>A Points are given for the nutrients considered "bad" and C points are given for the "good" nutrients and the content in fruits, vegetables and nuts.</p>
+<p>A-pisteitä annetaan ravintoaineille, joita pidetään "huonoina", ja C-pisteitä annetaan "hyville" ravintoaineille ja pitoisuudelle hedelmiä, kasviksia ja pähkinöitä.</p>
 
-<h3>A Points</h3>
+<h3>A-pisteet</h3>
 
-<p>A points are the sum of points for energy, saturated fat, sugars and sodium.</p>
+<p>A-pisteet ovat summa pisteistä energialle, tyydyttyneelle rasvalle, sokereille ja natriumille.</p>
 
 <table class="points">
 <tbody>
   <tr>
     <th>Pisteet</th>
-    <th>Energy (kJ)</th>
-    <th>Saturated Fat (g)</th>
+    <th>Energia (kJ)</th>
+    <th>Tyydyttynyt rasva (g)</th>
     <th>Sokerit (g)</th>
-    <th>Sodium (mg)</th>
+    <th>Natrium (mg)</th>
   </tr>
 <tr>
   <td>0</td>
@@ -133,17 +133,17 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
   </table>
 
-<h3>C Points</h3>
+<h3>C-pisteet</h3>
 
-<p>The C points are the sum of points for fruits, vegetables and nuts, for fiber and protein.</p>
+<p>C-pisteet ovat summa pisteistä hedelmille, kasviksille ja pähkinöille ja kuidulle ja proteiinille.</p>
 
 <table class="points">
 <tbody>
   <tr>
     <th>Pisteet</th>
-    <th>Fruits, vegetables and nuts (%)</th>
+    <th>Hedelmät, kasvikset ja pähkinät (%)</th>
     <th>Kuitu (g)</th>
-    <th>Protein (g)</th>
+    <th>Proteiini (g)</th>
   </tr>
 <tr>
   <td>0</td>
@@ -184,22 +184,22 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
 </table>
 
-<p>Note: potatoes, sweet potatoes, taro, cassava and tapioca are not included in fruits, vegetables and nuts.</p>
+<p>Huomio: perunat, bataatit, taaro, maniokki ja tapioka eivät sisälly hedelmiin, kasviksiin ja pähkinöihin.</p>
 
-<h3>Nutritional score calculation</h3>
+<h3>Ravinnollisten pisteiden laskeminen</h3>
 
 <ul>
-<li>If A points &lt; 11 then score = A points - C points</li>
-<li>If A points ≥ 11
+<li>Jos A-pisteet &lt; 11 sitten pisteet = A-pisteet - C-pisteet</li>
+<li>Jos A-pisteet ≥ 11
 <ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
+<li>Jos pisteet hedelmille, kasviksille ja pähkinöille = 5, sitten pisteet = A-pisteet - C-pisteet</li>
+<li>Jos pisteet hedelmille, kasviksille ja pähkinöille &lt; 5, sitten pisteet = A-pisteet - (kuitupisteet + pisteet hedelmille, kasviksille ja pähkinöille)</li>
 </ul>
 
 </li>
 </ul>
 
-<h3>Adaptations for the French market</h3>
+<h3>Muunnelmat Ranskan markkinoille</h3>
 
 <p>The formula of nutritional score indicated above corresponds to the formula of the
   nutritional score of the Food Standards Agency (FSA) in the UK.</p>
@@ -207,11 +207,11 @@ and determined the corresponding A to E grades. This allows in particular to com
 <p>The team of Professor Hercberg offers adaptations for the French market that
   are implemented to calculate the score on Open Food Facts.</p>
 
-<h4>Adaptation for cheese</h4>
+<h4>Muunnelma juustolle</h4>
 
-<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
+<p>Juustoille, pisteet proteiineille vähennetään pisteistä vaikka A-pisteet ovat ≥ 11.</p>
 
-<h4>Adaptation for fat</h4>
+<h4>Muunnelma rasvalle</h4>
 
 <p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
   saturated fat higher than the maximum threshold of 10 g,
@@ -221,7 +221,7 @@ and determined the corresponding A to E grades. This allows in particular to com
 <tbody>
   <tr>
     <td>Pisteet</td>
-    <td>Ratio Saturated Fat / Total Fat</td>
+    <td>Tyydyttynyt rasva / Kokonaisrasva -suhde</td>
   </tr>
 <tr>
   <td>0</td>
@@ -270,7 +270,7 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
 </table>
 
-<h4>Adaptations for fruits and vegetables</h4>
+<h4>Muunnelmat hedelmille ja kasviksille</h4>
 
 <p>The nuts are not taken into account for the calculation of the content of fruits and vegetables.</p>
 
@@ -285,7 +285,7 @@ and determined the corresponding A to E grades. This allows in particular to com
 <tbody>
 <tr>
   <th>Pisteet</th>
-  <th>Energy (kJ)</th>
+  <th>Energia (kJ)</th>
   <th>Sokerit (g)</th>
   <th>Fruits, vegetables (%)</th>
 </tr>
