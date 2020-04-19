@@ -1,50 +1,159 @@
-/* Togggle button for dark mode */
-#toggle {margin-top: 5px; display: none;}
+/*CSS file that implements dark mode features*/
 
-#toggle input[type=checkbox]{
-	height: 0;
-	width: 0;
-	visibility: hidden;
+
+/*changes color of topbar*/
+li.name{
+  background:#17223b;
+  color: :white;
+}
+/*changes color of main column*/
+body{
+  background-color: #17223b;
+
+}
+/*changes color of topbar*/
+nav.top-bar.top-bar {
+  background-color: #17223b ;
+
+}
+/*changes some of the plain text*/
+h1{
+  color:white;
+}
+h2{
+  color: white;
+}
+h3{
+  color: white;
 }
 
-label[for="switch"] {
-	cursor: pointer;
-	text-indent: -9999px;
-	width: 45px;
-	height: 25px;
-	background: #ccc;
-	display: block;
-	border-radius: 100px;
-	position: relative;
+p{
+  /*changes the color of the plain text*/
+    color: white;
+}
+a {
+  /* changes some link colors*/
+  color: #FF6768;
 }
 
-label[for="switch"]:after {
-	content: '';
-	position: absolute;
-	top: 3px;
-	left: 3px;
-	width: 20px;
-	height: 20px;
-	background: #fff;
-	border-radius: 90px;
-	transition: 0.3s;
+a.button {
+  /* changes the color of the button to post a picture*/
+  color: #6b778d;
+  background: #263859;
 }
 
-#toggle input:checked + label[for="switch"]{
-	background: #5e6367;
+.top-bar-section .has-form {
+    /* changes the color of the heading on the topbar*/
+    background: #17223b;
 }
 
-#toggle input:checked + label[for="switch"]:after {
-	left: calc(100% - 3px);
-	transform: translateX(-100%);
+.title {
+  /* changes the color of the heading on the footer*/
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+  color: white;
+
 }
 
-label[for="switch"]:active:after {
-	width: 45px;
+.row input{
+  /*changes the coloring of the input boxes*/
+  background-color: #263859;
+}
+#sidebar-whole{
+  /* changes the coloring of the sidebar*/
+  background: #263859 !important;
+}
+nav .title-area li a{
+  /*changes the coloring of the link on the top right corner of the topbar*/
+  color:#FF6768 !important;
 }
 
-@media only screen and (min-width: 640px) {
-  #toggle {
-    display: block;
-  }
+.button {
+  /* changes the coloring on the bottons*/
+  color:#FF6768 !important;
+  background-color: #17223b;
+}
+/*
+.discover-button li a{
+    color:green !important;
+}*/
+input[type=text]:focus{
+  /* changes the background of the login (text-username)*/
+  outline: 2px solid #17223b;
+  background-color:#263859;
+  color: white;
+}
+input[type=password]:focus{
+  /* changes the background of the login (password)*/
+  outline: 2px solid #17223b;     /* oranges! yey */
+  background-color:#263859;
+  color: white;
+}
+.contribute-1 li a{
+    color:#FF6768 !important;
+}
+li a{
+  /* changes color of the links in the footer */
+    color:#FF6768 !important;
+}
+.community p a{
+/* changes color of the links in the footer */
+  color: #FF6768;
+}
+.columns p a{
+/* changes color of the links in the columns */
+  color: #FF6768;
+}
+
+form div .sidebar{
+  /* changes color of the edges around the navbar */
+    color: white;
+    background-color: #263859 ;
+}
+/* changes the background and the text of the accordion search on the product search page.*/
+.accordion li a{
+  color: white;
+  background-color: #263859 !important;
+}
+/* changes the background and the text of the product search page.*/
+select{
+  color: white;
+  background-color: #263859 !important;
+
+}
+/* changes the background of the icon of the top right corner of the webpage.
+selection .top-bar-section{
+  color: red;
+  background-color: green !important;
+}*/
+
+/* changes the background of the buttons on the topbar (discover, search, etc).*/
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: #17223b !important;
+      outline: 2px solid #263859;
+}
+/* changes the background of the icon of the top right corner of the webpage.*/
+.right li a{
+    background-color: #17223b !important;
+}
+
+/* changes the background of button of the search product*/
+form button{
+  background-color: #263859;
+}
+/* the next three attributes changes the background of the text box for country selectio*/
+.select2-selection{
+  background:#263859 !important;
+}
+.select2-search--dropdown{
+  background-color: #263859;
+}
+.select2-results__options {
+  background-color: #263859;
+  color:white;
+}
+
+  /* changes the background of the text next to the checkbox*/
+#hide_image_banner_show{
+  color:#FF6768;
 }
