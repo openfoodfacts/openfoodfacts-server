@@ -6169,7 +6169,7 @@ HTML
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
 
-	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>
+	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
@@ -6475,12 +6475,6 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li>
-				<div id = "toggle" class = "toggle-container">
-					<input type = "checkbox" id = "switch" name = "theme" />
-					<label for = "switch"> Toggle </label>
-				</div>
-			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
@@ -6551,7 +6545,7 @@ HTML
 		$top_banner
 		<!-- main row - comment used to remove left column and center content on some pages -->
 		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+			<div id="sidebar-whole" class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small"  style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 				<div class="sidebar">
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
@@ -6681,33 +6675,6 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
-
-/* DARK MODE SCRIPT */
-
-<script>
-/* Check if button is checked. If checked, darkmode. Otherwise, no darkmode. Make separate file*/
-	var check = document.getElementById("switch");
-	check.addEventListener ("click", darkMode);
-
-	function darkMode() {
-		if (check.checked) {
-			document.body.style.backgroundColor = "yellow";
-		}
-		else {
-			document.body.style.backgroundColor = "white";
-
-		}
-	}
-	/* add event listener to the toggle */
-
-	/* if (switch.checked) {
-		console.log("yes, it's checked");
-	}
-	else {
-		console.log("no it's not checked");
-	} */
-</script>
-
 </body>
 </html>
 HTML
