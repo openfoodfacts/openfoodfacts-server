@@ -6067,10 +6067,14 @@ $options{favicons}
 <link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
 
-<link rel="stylesheet" href="$static_subdomain/css/darkMode.css"> <!-- Dark Mode -->
+<!-- Dark Mode -->
+<link id = "dark" rel="stylesheet" href="$static_subdomain/css/darkMode.css">
+<link rel="stylesheet" href="$static_subdomain/css/dark-toggle.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<script> var stylesheet = document.styleSheets[2]; stylesheet.disabled = true; </script>
+
 $header
 <style media="all">
 HTML
@@ -6169,7 +6173,7 @@ HTML
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
 
-	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
+	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
 	my $twitter_account = lang("twitter_account");
@@ -6475,6 +6479,12 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+			<li>
+				<div id = "toggle" class = "toggle-container">
+					<input type = "checkbox" id = "switch" name = "theme" />
+					<label for = "switch"> Toggle </label>
+				</div>
+			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
@@ -6675,6 +6685,10 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
+
+/* DARK MODE */
+<script src="$static_subdomain/js/darkMode.js"></script>
+
 </body>
 </html>
 HTML
