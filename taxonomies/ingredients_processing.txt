@@ -15,8 +15,32 @@
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
 
+#######################################################################
+#
+#                U N P R O C E S S E D
+#
+#######################################################################
+
 en:raw
 fr:cru, crue, crus, crues
+
+en:fresh
+de:frische
+es:fresco, fresca, frescos, frescas
+it:fresco, fresca, fresche, freschi
+# de:frisch is found in front and in the ingredients
+nl:verse
+pt:fresco
+
+# Often in combination with flavour. It does not seem that it has much meaning.
+en:natural
+# da:naturlig
+de:natürlich, natürliches, naturlich, naturliches
+es:natural, natural de, naturales
+it:naturale
+nl:natuurlijk, natuurlijke
+pl:naturalne
+sv:naturlig, naturliga, naturligt
 
 #######################################################################
 #
@@ -168,28 +192,39 @@ fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, dé
 
 # en:description:With the outermost layer or skin removed
 en:peeled
+es:sin piel
 fr:pelé, pelée, pelés, pelées
-nl:gepelde
-# nl:parse:gepelde_$
+nl:gepeld, gepelde
 # en:wiktionary:peeled
 
 # en:description:Having had the pits removed
 en:pitted
-de:entsteint, entsteinte
+de:entsteint, entsteinte, entkernt
+es:sin hueso
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
-# de:parsing:$ entsteint, entsteint $
+nl:ontpit, ontpitte
+#pt:sem caroço, sem caroco
 # en:wiktionary:pitted
 
 # en:description:The soft center of a fruit
 en:pulp
-de:mark
+de:mark, pulpe
+es:pulpo, pulpa de
+fr:pulpe, pulpe de, pulpe d', en pulpe
+#fr:false:avec pulpe
+it:polpa, polpa di
+#nl:pulp
+#nl:false:met pulp
+pt:polpa de, polpas de
 # en:wiktionary:pulp
 
+fr:sans pulpe
 
 en:sieved
 de:passiert
+es:tamizado, tamizados
 fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
-
+nl:gezeefd, gezeefde
 
 #######################################################################
 #
@@ -278,19 +313,37 @@ en:unfrozen
 fr:décongelé, décongelée, décongelés, décongelées
 
 en:pasteurised, pasteurized
+ca:pasteuritzada
+de:pasteurisiert, pasteurisierte, pasteurisierter
+es:pasteurizado, pasteurizada
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
+it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
+nl:gepasteuriseerd, gepasteuriseerde
+pt:pasteurizado
+ro:pasteurizat, pasteurizata
+
+en:unpasteurized
 
 en:pre-cooked
+de:vorgekocht
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
+nl:voorgekookt, voorgekookte
 
 en:cooked
-de:gegart, gegarte, gegarter, gegartes
+de:gekocht
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+nl:gekookt, gekookte
+
+#<en:cooked
+de:gegart, gegarte, gegarter, gegartes
 nl:gegaard
 
-# <en:cooked
+en:uncooked
+nl:ongekookt, ongekookte
+
+# <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
 
 en:puffed
