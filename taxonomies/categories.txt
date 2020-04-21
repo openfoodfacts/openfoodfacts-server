@@ -21429,11 +21429,35 @@ ciqual_food_name:fr:Génoise sèche fourrée aux fruits et nappée de chocolat
 
 <en:Cakes
 <en:Desserts
+en:Sponge cake filled and covered with chocolate
+fr:Génoise fourrée et nappée au chocolat
+ciqual_food_code:en:23940
+ciqual_food_name:en:Sponge cake filled and covered with chocolate
+ciqual_food_name:fr:Génoise fourrée et nappée au chocolat
+
+<en:Cakes
+<en:Desserts
 en:Soft cake filled with fruit paste and coated with sugar icing, Soft cake filled with fruit puree and coated with sugar icing
 fr:Biscuit moelleux fourré à l'orange et enrobé de sucre glace
 ciqual_food_code:en:24680
 ciqual_food_name:en:Soft cake, filled with fruit paste or fruit puree and sugar icing coated
 ciqual_food_name:fr:Biscuit moelleux fourré à l'orange et enrobé de sucre glace
+
+<en:Cakes
+<en:Desserts
+en:Chocolate soft cake
+fr:Gâteau moelleux au chocolat
+ciqual_food_code:en:23586
+ciqual_food_name:en:Chocolate soft cake, prepacked
+ciqual_food_name:fr:Gâteau moelleux au chocolat, préemballé
+
+<en:Cakes
+<en:Desserts
+en:Soft cake filled with chocolate, Soft cake filled with chocolate drops, Soft cake filled with milk
+fr:Gâteau moelleux fourré au chocolat, Gâteau moelleux fourré aux pépites de chocolat, Gâteau moelleux fourré au lait
+ciqual_food_code:en:23939
+ciqual_food_name:en:Soft cake filled with chocolate or chocolate drops or milk
+ciqual_food_name:fr:Gâteau moelleux fourré au chocolat ou aux pépites de chocolat ou au lait
 
 <en:Cakes
 en:Marble cakes, Marble cake
@@ -25331,10 +25355,14 @@ wikidata:en:Q2797509
 
 <en:French blue-veined cheeses
 <en:Sheep Cheeses
-fr:Roqueforts
+en:Roquefort cheese from ewe's milk
+fr:Roqueforts, Roquefort
 wikidata:en:Q189221
 country:en:France
 oqali_family:en: fr:Fromages - Roquefort
+ciqual_food_code:en:12500
+ciqual_food_name:en:Roquefort cheese, from ewe's milk
+ciqual_food_name:fr:Roquefort
 
 <en:French blue-veined cheeses
 fr:Tignard
@@ -26185,9 +26213,13 @@ country:en:France
 <en:French cheeses
 <en:Uncooked pressed cheeses
 <en:Sheep Cheeses
+en:Ossau-Iraty cheese from ewe's milk
 fr:Ossau-lraty
 country:en:France
 wikidata:en:Q520598
+ciqual_food_code:en:12119
+ciqual_food_name:en:Ossau-Iraty cheese, from ewe's milk
+ciqual_food_name:fr:Ossau-Iraty
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -27653,6 +27685,20 @@ country:en:Slovenia
 <en:Slovenian cheeses
 si:Tolminc
 country:en:Slovenia
+
+<en:sheep's-milk cheeses
+en:Pyrénées cheese from ewe's milk
+fr:Fromage de brebis des Pyrénées
+ciqual_food_code:en:12747
+ciqual_food_name:en:Pyrénées cheese, from ewe's milk
+ciqual_food_name:fr:Fromage de brebis des Pyrénées
+
+<en:sheep's-milk cheeses
+en:Semi-hard cheese from ewe's milk
+fr:Fromage de brebis à pâte pressée
+ciqual_food_code:en:12827
+ciqual_food_name:en:Semi-hard cheese, from ewe's milk
+ciqual_food_name:fr:Fromage de brebis à pâte pressée
 
 <en:Cheeses
 en:Spanish cheeses, cheeses from Spain
@@ -31201,6 +31247,13 @@ fr:Cacahuètes enrobées d'un biscuit pour apéritif
 ciqual_food_code:en:38406
 ciqual_food_name:en:Coated peanuts
 ciqual_food_name:fr:Cacahuètes (arachide) enrobées d'un biscuit, pour apéritif
+
+<en:Peanuts
+en:Peanuts cooked in water with salt, Boiled peanuts with salt
+fr:Arachides bouillies salées, Arachides cuites à l'eau salée, Cacahuètes bouillies salées, Cacahuètes cuites à l'eau salée
+ciqual_food_code:en:20581
+ciqual_food_name:en:Peanut, boiled/cooked in water, w salt
+ciqual_food_name:fr:Arachide, bouillie/cuite à l'eau, salée
 
 <en:Nuts
 en:Roasted nuts
@@ -40861,7 +40914,7 @@ fr:Brochettes, brochette
 nl:Spiesjes
 
 <en:Meals with meat
-en: Sausages with lentils, Sausage with lentils
+en:Sausages with lentils, Sausage with lentils
 de:Würstchen mit Linsen
 fi:linssimakkarat
 fr:Saucisses aux lentilles, saucisse aux lentilles, saucisses avec lentilles, saucisse avec lentilles, saucisses lentilles, saucisse lentilles
@@ -41017,10 +41070,13 @@ fr:Sauté de veau
 fr:Axoa de veau
 
 <en:Veal meat dishes
-en:Veal blanquette, Veal blanquettes
+en:Veal blanquette, Veal blanquettes, Veal stew in white sauce
 fr:Blanquettes de veau, blanquettes de veaux, blanquette de veau
 nl:Witte kalfsvlees
 wikidata:en:Q1191278
+ciqual_food_code:en:25001
+ciqual_food_name:en:Veal stew in white sauce
+ciqual_food_name:fr:Blanquette de veau
 
 <en:Veal meat dishes
 en:Pan-fried calf sweetbread, Sautéed calf sweetbread
@@ -41751,10 +41807,13 @@ th:ผลิตภัณฑ์จากสัตว์ปีก
 
 <en:Poultry meals
 <en:skewers
-en:poultry skewers
+en:poultry skewers, Poultry on skewer
 fi:siipikarjavartaat
 fr:Brochettes de volailles, brochette de volaille
 nl:Gevogeltespiesjes
+ciqual_food_code:en:25504
+ciqual_food_name:en:Poultry on skewer
+ciqual_food_name:fr:Brochette de volaille
 
 <en:Poultry meals
 en:Cooked chicken heart
@@ -41798,6 +41857,13 @@ ciqual_food_code:en:40108
 ciqual_food_name:en:Liver, poultry, raw
 ciqual_food_name:fr:Foie, volaille, cru
 
+<en:Poultry meals
+en:Poultry minced meat
+fr:Haché de volaille
+ciqual_food_code:en:28927
+ciqual_food_name:en:Poultry, minced meat
+ciqual_food_name:fr:Haché de volaille
+
 <en:poultry skewers
 en:chicken skewers
 fr:Brochettes de poulet
@@ -41807,6 +41873,13 @@ nl:Kippenspiesjes
 en:Yakitori chicken skewers, yakitori chicken
 fr:Brochettes de poulet Yakitori, Yakitori de Poulet, Poulet Yakitori
 nl:Yakitori kipspiesjes
+
+<en:Poultry meals
+en:Roasted pheasant meat, Baked pheasant meat
+fr:Viande de faisan rôtie, Viande de faisan cuite au four
+ciqual_food_code:en:36402
+ciqual_food_name:en:Pheasant, meat, roasted/baked
+ciqual_food_name:fr:Faisan, viande, rôtie/cuite au four
 
 <en:Poultry meals
 fr:Coq au vin
@@ -41873,6 +41946,27 @@ fi:ankan rinnat
 fr:Magrets de canard
 nl:Eendenfilets, Eendenborst
 zh:鸭胸
+
+<en:Duck breasts
+en:Smoked duck breast fillet
+fr:Magret de canard fumé
+ciqual_food_code:en:8111
+ciqual_food_name:en:Duck breast fillet, smoked
+ciqual_food_name:fr:Canard, magret fumé
+
+<en:Duck breasts
+en:Duck magret cooked in pan
+fr:Magret de canard grillé, Magret de canard poêlé
+ciqual_food_code:en:36205
+ciqual_food_name:en:Duck, magret, cooked in pan
+ciqual_food_name:fr:Canard, magret, grillé/poêlé
+
+<en:Duck breasts
+en:Duck breast fillet
+fr:Magret de canard cru
+ciqual_food_code:en:36206
+ciqual_food_name:en:Duck, breast fillet
+ciqual_food_name:fr:Canard, magret, cru
 
 <en:Duck dishes
 fr:Tournedos de magret de canard
@@ -41954,6 +42048,13 @@ ciqual_food_name:fr:Foie, dinde, cru
 fr:Poule au pot
 
 <en:Poultry meals
+en:Cooked curing salted roast poultry
+fr:Rôti de volaille en salaison cuit
+ciqual_food_code:en:28976
+ciqual_food_name:en:Salt curing roast poultry, cooked
+ciqual_food_name:fr:Rôti de volaille en salaison, cuit
+
+<en:Poultry meals
 en:Meals with chicken
 ca:Aliments amb pollastre
 de:Hühnerfleischgerichte
@@ -42029,6 +42130,13 @@ wikidata:en:Q863794
 ciqual_food_code:en:25111
 ciqual_food_name:en:Chili con carne
 ciqual_food_name:fr:Chili con carne
+
+<en:Meals with meat
+en:Osso buco
+fr:Osso buco
+ciqual_food_code:en:25164
+ciqual_food_name:en:Osso buco
+ciqual_food_name:fr:Osso buco
 
 <en:Fresh pasta
 <en:Fresh meals
@@ -44552,6 +44660,34 @@ ciqual_food_code:en:28004
 ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
+<en:Pork meals
+en:Cooked pork loin
+fr:Longe de porc cuite
+ciqual_food_code:en:28007
+ciqual_food_name:en:Pork loin, cooked
+ciqual_food_name:fr:Porc, longe, cuite
+
+<en:Pork meals
+en:Cooked pork tenderloin roast
+fr:Filet maigre de porc en rôti cuit
+ciqual_food_code:en:28202
+ciqual_food_name:en:Pork tenderloin roast, cooked
+ciqual_food_name:fr:Porc, filet, maigre, en rôti, cuit
+
+<en:Pork meals
+en:Cooked pork round steak
+fr:Rouelle de jambon cuite, Rouelle de jambon de porc cuite
+ciqual_food_code:en:28103
+ciqual_food_name:en:Pork, round steak, cooked
+ciqual_food_name:fr:Porc, rouelle de jambon, cuite
+
+<en:Pork meals
+en:Cooked pork filet mignon
+fr:Filet mignon de porc cuit
+ciqual_food_code:en:28203
+ciqual_food_name:en:Pork filet mignon, cooked
+ciqual_food_name:fr:Porc, filet mignon, cuit
+
 <en:Pork
 fr:Porc de la Sarthe
 protected_name_file_number_en: PGI-FR-0184
@@ -44596,6 +44732,13 @@ fr:Escalopes de porc
 
 <en:Pork
 fr:Rôtis de porc, rôti de porc
+
+<en:Pork
+en:Cooked pork roast
+fr:Rôti de porc cuit
+ciqual_food_code:en:28301
+ciqual_food_name:en:Pork, roast, cooked
+ciqual_food_name:fr:Porc, rôti, cuit
 
 <en:Pork
 en:Pork ribs
@@ -44888,6 +45031,13 @@ zh:鸡块
 wikidata:en:Q1072190
 
 <en:Poultries
+en:Cooked quail with meat and skin
+fr:Caille cuite avec viande et peau
+ciqual_food_code:en:36102
+ciqual_food_name:en:Quail, meat and skin, cooked
+ciqual_food_name:fr:Caille, viande et peau, cuite
+
+<en:Poultries
 en:Ducks, Duck fresh meat, Duck
 fi:ankat
 fr:Canards, viande de canard crue
@@ -44914,6 +45064,20 @@ ciqual_food_name:en:Duck, meat and skin, raw
 ciqual_food_name:fr:Canard, viande et peau, cru
 
 <en:Ducks
+en:Roasted duck with meat and skin, Baked duck with meat and skin
+fr:Canard rôti avec viande et peau, Canard cuit au four avec viande et peau
+ciqual_food_code:en:36200
+ciqual_food_name:en:Duck, meat and skin, roasted/baked
+ciqual_food_name:fr:Canard, viande et peau, rôti/cuit au four
+
+<en:Ducks
+en:Roasted duck meat, Baked duck meat
+fr:Viande de canard rôtie, Viande de canard cuite au four
+ciqual_food_code:en:36202
+ciqual_food_name:en:Duck, meat, roasted/baked
+ciqual_food_name:fr:Canard, viande, rôtie/cuite au four
+
+<en:Ducks
 fr:Filets de canard
 it:Filetti di anatra
 
@@ -44935,6 +45099,13 @@ fr:Pigeons, viande de pigeon, pigeon
 it:Piccione
 nl:Duifvlezen
 zh:鸽子, 鸽
+
+<en:Pigeon
+en:Roasted pigeon meat, Baked pigeon meat
+fr:Viande de pigeon rôtie, Viande de pigeon cuite au four
+ciqual_food_code:en:36602
+ciqual_food_name:en:Pigeon, meat, roasted/baked
+ciqual_food_name:fr:Pigeon, viande, rôtie/cuite au four
 
 <en:Turkeys
 <en:Breaded products
@@ -44962,6 +45133,13 @@ protected_name_file_number_en: PGI-FR-01377
 protected_name_type:en: pgi
 origins:en: en:France, fr:Périgord
 
+<en:Capon
+en:Baked capon meat and skin, Roasted capon meat and skin
+fr:Chapon rôti avec viande et peau, Chapon cuit au four avec viande et peau
+ciqual_food_code:en:36051
+ciqual_food_name:en:Capon, meat and skin, roasted/baked
+ciqual_food_name:fr:Chapon, viande et peau, rôti/cuit au four
+
 <en:Poultries
 en:Geese, Goose
 fr:Oies, oie
@@ -44981,6 +45159,20 @@ fr:viande et peau d'oie crue
 ciqual_food_code:en:36501
 ciqual_food_name:en:Goose, meat and skin, raw
 ciqual_food_name:fr:Oie, viande et peau, crue
+
+<en:Geese
+en:Roasted goose meat, Baked goose meat
+fr:Viande d'oie rôtie, Viande d'oie cuite au four
+ciqual_food_code:en:36502
+ciqual_food_name:en:Goose, meat, roasted/baked
+ciqual_food_name:fr:Oie, viande, rôtie/cuite au four
+
+<en:Geese
+en:Roasted goose with meat and skin, Baked goose with meat and skin
+fr:Oie rôtie avec viande et peau, Oie cuite au four avec viande et peau
+ciqual_food_code:en:36503
+ciqual_food_name:en:Goose, meat and skin, roasted/baked
+ciqual_food_name:fr:Oie, viande et peau, rôtie/cuite au four
 
 <en:Poultries
 fr:Pintades, Pintade
@@ -45267,9 +45459,12 @@ fr:Escalopes de poulet, escalope de poulet
 nl:Kipschnitzel
 
 <fr:Escalopes de poulet
-en:Breaded chicken cutlets
+en:Breaded chicken cutlets, Breaded turkey escalope
 fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
 nl:Kippenschnitzel
+ciqual_food_code:en:36036
+ciqual_food_name:en:Turkey, breaded escalope
+ciqual_food_name:fr:Poulet, escalope panée
 
 <en:Chickens
 en:Chicken breasts
@@ -45281,6 +45476,55 @@ fr:Filets de poulet, Filet de poulet
 hu:Csirkemellek
 nl:Kippeborst
 zh:鸡胸
+
+<en:Chicken breasts
+en:Cooked chicken breast without skin
+fr:Filet de poulet sans peau cuit
+ciqual_food_code:en:36018
+ciqual_food_name:en:Chicken, breast, without skin, cooked
+ciqual_food_name:fr:Poulet, filet, sans peau, cuit
+
+<en:Chicken breasts
+en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
+fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
+ciqual_food_code:en:36032
+ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
+
+<en:Chicken wings
+en:Roasted chicken wing meat and skin, Baked chicken wing meat and skin
+fr:Aile de poulet avec viande et peau rôtie, Aile de poulet avec viande et peau cuite au four
+ciqual_food_code:en:36033
+ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
+
+<en:Chicken thighs
+en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
+fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
+ciqual_food_code:en:36004
+ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
+
+<en:Chicken thighs
+en:Roasted chicken leg meat, Baked chicken leg meat
+fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
+ciqual_food_code:en:36006
+ciqual_food_name:en:Chicken leg, meat, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
+
+<en:Chicken thighs
+en:Boiled chicken leg meat, Chicken leg meat cooked in water
+fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
+ciqual_food_code:en:36030
+ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
+
+<en:Chicken thighs
+en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
+fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
+ciqual_food_code:en:36031
+ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
 <en:Chickens
 en:Cooked chicken
@@ -45347,6 +45591,20 @@ fr:Escalopes de dinde, escalopes de dindes, escalope de dinde, escalope de dinde
 nl:Kalkoenkoteletten, Kalkoenkotelet
 ciqual_food_code:en:36304
 ciqual_food_name:en:Turkey, escalope, raw
+
+<en:Turkey cutlets
+en:Sautéed turkey escalope with salt, Pan-fried turkey escalope with salt
+fr:Escalope de dinde sautée, Escalope de dinde poêlée
+ciqual_food_code:en:36306
+ciqual_food_name:en:Turkey, escalope, sautéed/pan-fried, with salt
+ciqual_food_name:fr:Dinde, escalope, sautée/poêlée
+
+<en:Turkey cutlets
+en:Roasted turkey escalope, Baked turkey escalope
+fr:Escalope de dinde rôtie, Escalope de dinde cuite au four
+ciqual_food_code:en:36308
+ciqual_food_name:en:Turkey, escalope, roasted/baked
+ciqual_food_name:fr:Dinde, escalope, rôtie/cuite au four
 
 <en:Turkeys
 fr:Rôtis de dinde, rôtis de dindes, rôti de dinde, rôti de dindes
@@ -45983,11 +46241,25 @@ th:ไส้กรอก
 zh:香肠
 
 <en:Sausages
+en:Raw sausage meat with pure pork
+fr:Chair à saucisse pur porc crue
+ciqual_food_code:en:30051
+ciqual_food_name:en:Sausage meat, pure pork, raw
+ciqual_food_name:fr:Chair à saucisse, pur porc, crue
+
+<en:Sausages
 en:Ham sausages, Ham sausage
 fr:Saucisses de jambon pur porc, Saucisse de jambon pur porc
 ciqual_food_code:en:30764
 ciqual_food_name:en:Ham sausage
 ciqual_food_name:fr:Saucisse de jambon pur porc
+
+<en:Sausages
+en:Raw sausage meat with pork and beef
+fr:Chair à saucisse porc et bœuf crue
+ciqual_food_code:en:30052
+ciqual_food_name:en:Sausage meat, pork and beef, raw
+ciqual_food_name:fr:Chair à saucisse, porc et bœuf, crue
 
 <en:Sausages
 en:Beer sausages, Beer sausage
@@ -46247,7 +46519,14 @@ fr:Chipolatas
 <fr:Chipolatas
 fr:Chipolatas aux herbes, Chipolats herbes
 
-<en:French sausages
+<fr:Chipolatas
+en:Raw chipolata slim sausage
+fr:Chipolata crue
+ciqual_food_code:en:30115
+ciqual_food_name:en:Chipolata slim sausage, raw
+ciqual_food_name:fr:Chipolata, crue
+
+<fr:Chipolatas
 en:Cooked chipolata sausages
 fr:Chipolatas cuites
 ciqual_food_code:en:30005
@@ -46261,6 +46540,13 @@ nl:Worst uit de Lorraine
 
 <en:French sausages
 fr:Diot de Savoie
+
+<fr:Diot de Savoie
+en:Raw Diot, Raw sausage from Savoy
+fr:Diot cru
+ciqual_food_code:en:30177
+ciqual_food_name:en:Diot (sausage from Savoy), raw
+ciqual_food_name:fr:Diot, cru
 
 <en:French sausages
 fr:Gandeuillots, Gandoyau
@@ -49930,11 +50216,67 @@ ciqual_food_name:en:Spiny scorpionfish, steamed
 ciqual_food_name:fr:Rascasse, cuite à la vapeur
 
 <en:Fishes
+en:Raw spiny scorpionfish
+fr:Rascasse crue
+ciqual_food_code:en:26063
+ciqual_food_name:en:Spiny scorpionfish, raw
+ciqual_food_name:fr:Rascasse, crue
+
+<en:Fishes
 en:Cooked ling
 fr:Julienne cuite, Lingue cuite
 ciqual_food_code:en:26234
 ciqual_food_name:en:Ling, cooked
 ciqual_food_name:fr:Julienne ou Lingue, cuite
+
+<en:Fishes
+en:Raw ling
+fr:Julienne crue, Lingue crue
+ciqual_food_code:en:26130
+ciqual_food_name:en:Ling, raw
+ciqual_food_name:fr:Julienne ou Lingue, crue
+
+<en:Fishes
+en:Raw blue ling
+fr:Lingue bleue crue, Lingue crue
+ciqual_food_code:en:26194
+ciqual_food_name:en:Blue ling, raw
+ciqual_food_name:fr:Lingue bleue ou Lingue, crue
+
+<en:Fishes
+en:Raw common dentex
+fr:Denté cru
+ciqual_food_code:en:26103
+ciqual_food_name:en:Common dentex, raw
+ciqual_food_name:fr:Denté, cru
+
+<en:Fishes
+en:Raw John Dory
+fr:Saint-Pierre cru
+ciqual_food_code:en:26104
+ciqual_food_name:en:John dory, raw
+ciqual_food_name:fr:Saint-Pierre, cru
+
+<en:Fishes
+en:Raw golden redfish
+fr:Grand sébaste cru, Dorade sébaste cru, Daurade sébaste cru
+ciqual_food_code:en:26132
+ciqual_food_name:en:Golden redfish, raw
+ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
+
+<en:Fishes
+en:Raw golden redfish
+fr:Sébaste du nord crue, Dorade sébaste crue, Daurade sébaste crue
+ciqual_food_code:en:26210
+ciqual_food_name:en:Golden redfish, raw
+ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
+
+<en:Fishes
+en:Raw pouting
+fr:Tacaud cru
+ciqual_food_code:en:26133
+ciqual_food_name:en:Pouting, raw
+ciqual_food_name:fr:Tacaud, cru
 
 <en:Fishes
 en:Pollan, Irish pollan
@@ -49952,6 +50294,20 @@ fr:Carrelet cuit à la vapeur, Plie cuit à la vapeur
 ciqual_food_code:en:26003
 ciqual_food_name:en:European plaice, steamed
 ciqual_food_name:fr:Carrelet ou plie, cuit à la vapeur
+
+<en:Fishes
+en:Raw European plaice
+fr:Carrelet crue, Plie cru
+ciqual_food_code:en:26055
+ciqual_food_name:en:European plaice, raw
+ciqual_food_name:fr:Carrelet ou plie, cru
+
+<en:Fishes
+en:Raw European plaice
+fr:Plie commun cru
+ciqual_food_code:en:26204
+ciqual_food_name:en:European plaice, raw
+ciqual_food_name:fr:Plie commune, crue
 
 <en:Fishes
 fr:Carpe rôtie, carpe cuite au four
@@ -49974,6 +50330,34 @@ ciqual_food_name:en:Lemon sole, steamed
 ciqual_food_name:fr:Limande-sole, cuite à la vapeur
 
 <en:Fishes
+en:Raw lemon sole
+fr:Limande-sole crue
+ciqual_food_code:en:26135
+ciqual_food_name:en:Lemon sole, raw
+ciqual_food_name:fr:Limande-sole, crue
+
+<en:Fishes
+en:Common raw dab
+fr:Limande crue
+ciqual_food_code:en:26057
+ciqual_food_name:en:Common dab, raw
+ciqual_food_name:fr:Limande, crue
+
+<en:Fishes
+en:Raw largehead hairtail
+fr:Sabre cru
+ciqual_food_code:en:26153
+ciqual_food_name:en:Largehead hairtail, raw
+ciqual_food_name:fr:Sabre, cru
+
+<en:Fishes
+en:Raw shark
+fr:Requin cru
+ciqual_food_code:en:26162
+ciqual_food_name:en:Shark, raw
+ciqual_food_name:fr:Requin, cru
+
+<en:Fishes
 en:Roasted ray, Baked ray
 fr:Raie rôtie, Raie cuite au four
 ciqual_food_code:en:26031
@@ -49988,11 +50372,32 @@ ciqual_food_name:en:Ray, cooked in an aromatic stock
 ciqual_food_name:fr:Raie, cuite au court-bouillon
 
 <en:Fishes
+en:Raw ray
+fr:Raie crue
+ciqual_food_code:en:26052
+ciqual_food_name:en:Ray, raw
+ciqual_food_name:fr:Raie, crue
+
+<en:Fishes
 en:Cooked nursehound, Cooked lesser spotted dogfish
 fr:Roussette cuite, Petite roussette cuite, Saumonette cuite
 ciqual_food_code:en:26033
 ciqual_food_name:en:Nursehound or lesser spotted dogfish, cooked
 ciqual_food_name:fr:Roussette ou petite roussette ou saumonette, cuite
+
+<en:Fishes
+en:Raw nursehound, Raw lesser spotted dogfish
+fr:Roussette crue, Petite roussette crue, Saumonette crue
+ciqual_food_code:en:26074
+ciqual_food_name:en:Nursehound or lesser spotted dogfish, raw
+ciqual_food_name:fr:Roussette ou petite roussette ou saumonette, crue
+
+<en:Fishes
+en:Raw megrim
+fr:Cardine franche crue
+ciqual_food_code:en:26084
+ciqual_food_name:en:Megrim, raw
+ciqual_food_name:fr:Cardine franche, crue
 
 <en:British sea products
 <en:Pollan
@@ -50485,6 +50890,13 @@ ciqual_food_code:en:26022
 ciqual_food_name:en:Whiting, steamed
 ciqual_food_name:fr:Merlan, cuit à la vapeur
 
+<en:Fishes
+en:Raw whiting
+fr:Merlan cru
+ciqual_food_code:en:26095
+ciqual_food_name:en:Whiting, raw
+ciqual_food_name:fr:Merlan, cru
+
 <en:Breaded fish
 fr:Poissons panés de merlu, Poisson pané de merlu
 
@@ -50631,6 +51043,27 @@ fi:kalapuikot
 fr:Batonnets de poisson
 nl:Visvingers
 wikidata:en:Q1420441
+
+<en:Pollocks
+en:Raw Alaska pollock
+fr:Lieu d'Alaska cru, Colin d'Alaska cru
+ciqual_food_code:en:26006
+ciqual_food_name:en:Alaska pollock, raw
+ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
+
+<en:Pollocks
+en:Smoked Alaska pollock
+fr:Lieu d'Alaska fumé, Colin d'Alaska fumé
+ciqual_food_code:en:26152
+ciqual_food_name:en:Alaska pollock, smoked
+ciqual_food_name:fr:Lieu ou colin d'Alaska, fumé
+
+<en:Pollocks
+en:Raw pollack
+fr:Lieu jaune cru, Colin cru
+ciqual_food_code:en:26129
+ciqual_food_name:en:Pollack, raw
+ciqual_food_name:fr:Lieu jaune ou colin, cru
 
 <en:Pollocks
 <en:Fish fillets
@@ -50924,6 +51357,48 @@ ciqual_food_name:en:Haddock, steamed
 ciqual_food_name:fr:Églefin, cuit à la vapeur
 
 <en:Fishes
+en:Raw haddock
+fr:Églefin cru
+ciqual_food_code:en:26122
+ciqual_food_name:en:Haddock, raw
+ciqual_food_name:fr:Églefin, cru
+
+<en:Fishes
+en:Raw conger
+fr:Congre cru
+ciqual_food_code:en:26127
+ciqual_food_name:en:Conger, raw
+ciqual_food_name:fr:Congre, cru
+
+<en:Fishes
+en:Raw roundnose grenadier
+fr:Grenadier cru, Grenadier de roche cru
+ciqual_food_code:en:26128
+ciqual_food_name:en:Roundnose grenadier, raw
+ciqual_food_name:fr:Grenadier (de roche), cru
+
+<en:Fishes
+en:Raw grenadier
+fr:Hoki cru
+ciqual_food_code:en:26213
+ciqual_food_name:en:Grenadier, from any fishing spot, raw
+ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
+
+<en:Fishes
+en:Raw tub gurnard
+fr:Grondin perlon cru
+ciqual_food_code:en:26219
+ciqual_food_name:en:Tub gurnard, raw
+ciqual_food_name:fr:Grondin perlon, cru
+
+<en:Fishes
+en:Raw blue shark fillet without skin
+fr:Filet d'empereur sans peau cru
+ciqual_food_code:en:26241
+ciqual_food_name:en:Blue shark, fillet, without skin, raw
+ciqual_food_name:fr:Empereur, filet, sans peau, cru
+
+<en:Fishes
 en:Smoked fishes, smoked fish
 ca:Peix fumat
 de:Räucherfisch
@@ -50989,8 +51464,12 @@ nl:Gerookte zwaardvis
 
 <en:Smoked fishes
 en:Smoked haddock
-fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés
+fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés, églefins fumés, églefin fumé
 nl:Gerookte schelvis
+en:Smoked haddock
+ciqual_food_code:en:26090
+ciqual_food_name:en:Haddock, smoked
+ciqual_food_name:fr:Haddock (fumé) ou églefin fumé
 
 <en:Smoked fishes
 <en:Herring
@@ -51119,6 +51598,27 @@ fi:tonnikalaa paloina
 fr:Miettes de thon
 nl:Tonijnstukjes
 
+<en:Canned tunas
+en:Canned drained tuna in oil
+fr:Thon à l'huile appertisé égoutté, Thon à l'huile égoutté en conserve
+ciqual_food_code:en:26071
+ciqual_food_name:en:Tuna, in oil, canned, drained
+ciqual_food_name:fr:Thon à l'huile, appertisé, égoutté
+
+<en:Canned tunas
+en:Canned drained tuna flaked in tomato sauce
+fr:Miettes de thon à la tomate appertisées, Miettes de thon à la tomate en conserve
+ciqual_food_code:en:26242
+ciqual_food_name:en:Tuna, flaked, in tomato sauce, canned, drained
+ciqual_food_name:fr:Miettes de thon à la tomate, appertisées
+
+<en:Canned tunas
+en:Canned drained tuna flaked in oil
+fr:Miettes de thon à l'huile appertisées, Miettes de thon à l'huile en conserve
+ciqual_food_code:en:26245
+ciqual_food_name:en:Tuna, flaked, in oil, canned, drained
+ciqual_food_name:fr:Miettes de thon à l'huile, appertisées
+
 <en:Tunas
 en:Atlantic bluefin tunas, northern bluefin tunas, giant bluefin tunas
 de:Roter Thun, Großer Thun, Nordatlantischer Thun, Blauflossen-Thunfische
@@ -51197,6 +51697,13 @@ fr:Thon germon à l'huile d'olive appertisé égoutté, Thon blanc à l'huile d'
 ciqual_food_code:en:26179
 ciqual_food_name:en:Albacore, in olive oil, canned, drained
 ciqual_food_name:fr:Thon germon ou thon blanc, à l'huile d'olive, appertisé, égoutté
+
+<en:Albacore
+en:Albacore steamed under pressure
+fr:Thon germon cuit à la vapeur sous pression, Thon blanc cuit à la vapeur sous pression
+ciqual_food_code:en:26077
+ciqual_food_name:en:Albacore, steamed under pressure
+ciqual_food_name:fr:Thon germon ou thon blanc, cuit à la vapeur sous pression
 
 <en:Tunas
 en:Albacore
@@ -51297,6 +51804,13 @@ fr:Bar commun cru d'élevage, Loup de Méditerranée cru d'élevage
 ciqual_food_code:en:26206
 ciqual_food_name:en:Mediterranean bass, raw, farmed
 ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
+
+<en:Fishes
+en:Spotted wolffish
+fr:Loup tacheté cru
+ciqual_food_code:en:26172
+ciqual_food_name:en:Spotted wolffish
+ciqual_food_name:fr:Loup tacheté, cru
 
 <en:Fishes
 en:Pollocks
@@ -51421,6 +51935,13 @@ fr:Lotte grillée, Lotte poêlée, Baudroie grillée, Baudroie poêlée
 ciqual_food_code:en:26081
 ciqual_food_name:en:Anglerfish, grilled
 ciqual_food_name:fr:Lotte ou baudroie, grillée/poêlée
+
+<en:Anglers
+en:Raw anglerfish
+fr:Lotte crue, Baudroie crue
+ciqual_food_code:en:26018
+ciqual_food_name:en:Anglerfish, raw
+ciqual_food_name:fr:Lotte ou baudroie, crue
 
 <en:Fishes
 en:Mackerels
@@ -51592,6 +52113,13 @@ ciqual_food_name:en:Mullet, roasted/baked
 ciqual_food_name:fr:Mulet, rôti/cuit au four
 
 <en:Fishes
+en:Raw mullet
+fr:Mulet cru
+ciqual_food_code:en:26091
+ciqual_food_name:en:Mullet, raw
+ciqual_food_name:fr:Mulet, cru
+
+<en:Fishes
 en:Cods, Codfishes
 de:Kabeljau
 es:Bacalaos
@@ -51615,11 +52143,25 @@ ciqual_food_name:en:Cod, steamed
 ciqual_food_name:fr:Cabillaud, cuit à la vapeur
 
 <en:Cods
+en:Raw cod
+fr:Cabillaud cru
+ciqual_food_code:en:26043
+ciqual_food_name:en:Cod, raw
+ciqual_food_name:fr:Cabillaud, cru
+
+<en:Cods
 en:Salted boiled cod, Salted cod cooked in water
 fr:Morue salée bouillie, Morue salée cuite à l'eau
 ciqual_food_code:en:26024
 ciqual_food_name:en:Cod, salted, boiled/cooked in water
 ciqual_food_name:fr:Morue, salée, bouillie/cuite à l'eau
+
+<en:Cods
+en:Salted dried cod
+fr:Morue salée sèche
+ciqual_food_code:en:26098
+ciqual_food_name:en:Cod, salted, dried
+ciqual_food_name:fr:Morue, salée, sèche
 
 <en:Cods
 en:Cod livers
@@ -54236,6 +54778,13 @@ nl:Bloemkolen
 en:Fresh cauliflowers
 fr:Choux-fleurs frais, Chou-fleur frais
 season_in_country_fr:en: 1,2,3,9,10,11,12
+
+<en:Culinary plants
+en:Fresh glasswort, Fresh salicornia
+fr:Salicorne fraîche, Salicornia fraîche
+ciqual_food_code:en:20283
+ciqual_food_name:en:Glasswort (Salicornia sp.), fresh
+ciqual_food_name:fr:Salicorne (Salicornia sp.), fraîche
 
 <en:Vegetable rods
 <en:Culinary plants
