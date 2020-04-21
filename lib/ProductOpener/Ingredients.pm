@@ -216,7 +216,7 @@ sub init_allergens_regexps() {
 
 		$allergens_regexps{$allergens_lc} = "";
 
-		foreach my $suffix (@allergenssuffixes) {
+		foreach my $suffix (sort { length($b) <=> length($a) } @allergenssuffixes) {
 			# simple singulars and plurals
 			my $singular = $suffix;
 			$suffix =~ s/s$//;
@@ -251,8 +251,18 @@ all => [
 	["S. thermophilus", "streptococcus thermophilus"],
 ],
 
+en => [
+	["vit.", "vitamin"],
+
+],
+
+es => [
+	["vit.", "vitamina"],
+],
+
 fr => [
-["Mat. Gr.", "Matières Grasses"]
+	["vit.", "Vitamine"],
+	["Mat. Gr.", "Matières Grasses"],
 ],
 
 );
@@ -892,6 +902,22 @@ sub parse_ingredients_text($) {
 										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
 										$between = '';
 									}
+									else {
+
+										# processing method?
+										my $processingid = 	canonicalize_taxonomy_tag($product_lc, "ingredients_processing", $between);
+										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
+											if (defined $processing) {
+												$processing .= ", " . $processingid;
+											}
+											else {
+												$processing = $$processingid;
+											}
+											$debug_ingredients and $log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
+											$between = '';
+										}
+									}
+
 								}
 							}
 
@@ -1135,8 +1161,10 @@ sub parse_ingredients_text($) {
 						}
 					}
 
-					if (not $ingredient_recognized) {
-						# Unknown ingredient, check if it is a label
+					# Unknown ingredient, check if it is a label
+					# -> treat as a label only if there are no sub-ingredients
+					if ((not $ingredient_recognized) and ($between eq "")) {
+
 						# We need to be careful with stopwords, "produit" was a stopword,
 						# and "France" matched "produit de France" / made in France (bug #2927)
 						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
@@ -2064,7 +2092,7 @@ sub normalize_vitamins_enumeration($$) {
 	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	else { $split_vitamins_list = "vitamine" }
+	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
 
@@ -2313,8 +2341,8 @@ fr => [
 '(conditions|conseils) de conservation',
 'conseil d\'utilisation',
 'conservation:',
-'(a|à) protéger de ', # humidité, chaleur, lumière etc.
-'conditionn(e|é) sous atmosph(e|è)re protectrice',
+'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
@@ -2827,14 +2855,18 @@ sub preparse_ingredients_text($$) {
 	# turn & to and
 	$text =~ s/ \& /$and/g;
 
-	# abbreviations
-	foreach my $abbreviations_lc ("all", $product_lc) {
+	# abbreviations, replace language specific abbreviations first
+	foreach my $abbreviations_lc ($product_lc, "all") {
 		if (defined $abbreviations{$abbreviations_lc}) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
 				$source =~ s/\. /(\\.| |\\. )/g;
-				$text =~ s/(\b|^)$source(\b|$)/$target/ig;
+				if ($source =~ /\.$/) {
+					$source =~ s/\.$/(\\. | |\\.)/;
+					$target .= " ";
+				}
+				$text =~ s/(\b|^)$source(?= |\b|$)/$target/ig;
 			}
 		}
 	}
@@ -2904,8 +2936,6 @@ sub preparse_ingredients_text($$) {
 	# FIXME : should use additives classes
 	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
-	# citric acid natural flavor (may be a typo)
-	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
@@ -3282,7 +3312,7 @@ INFO
 "k", "k1", "k2", "k3",
 "p", "pp",
 );
-	my $vitaminsprefixregexp = "vitamine|vitamines";
+	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
 
 	# Add synonyms in target language
 	if (defined $translations_to{vitamins}) {
@@ -3378,19 +3408,20 @@ INFO
 	if (defined $labels_regexps{$product_lc}) {
 
 		foreach my $symbol (@symbols) {
-			# Find the last occurence of the symbol
-			if ($text =~ /^(.*)$symbol\s*:?\s*/) {
+			# Find the last occurence of the symbol or symbol in parenthesis:  * (*)
+			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
+			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
 				my $after = $';
-				# print STDERR "symbol: $symbol - after: $after\n";
+				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
 					my $regexp = $labels_regexps{$product_lc}{$labelid};
 					if (defined $regexp) {
-						# print STDERR "-- label: $labelid - regexp: $regexp\n";
+						#print STDERR "-- label: $labelid - regexp: $regexp\n";
 						# try to also match optional precisions like "Issus de l'agriculture biologique (100 % du poids total)"
 						# *Issus du commerce équitable (100 % du poids total avec 93 % SPP).
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
-							$text =~ s/^(.*)$symbol\s?:?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+							$text =~ s/^(.*)(\($symbol\)|$symbol)(?!\))\s?(:|=)?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $product_lc_label = display_taxonomy_tag($product_lc, "labels", $labelid);
 							$text =~ s/$symbol/ $product_lc_label /g;
 							last;

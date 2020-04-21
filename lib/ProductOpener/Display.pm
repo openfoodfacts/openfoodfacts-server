@@ -86,6 +86,8 @@ BEGIN
 					&display_ingredients_analysis_details
 					&display_ingredients_analysis
 
+					&count_products
+
 					@search_series
 
 					$admin
@@ -623,13 +625,6 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
-	# or a list
-	elsif (0 and (-e ("$data_root/lists/" . $components[0] . ".$cc.$lc.html") ) and (not defined $components[1]))  {
-		$request_ref->{text} = $components[0];
-		$request_ref->{list} = $components[0];
-		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}
-
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
@@ -1078,13 +1073,6 @@ sub display_text($)
 
 	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 
-
-	#list?
-	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
-		$file = "$data_root/lists/$textid.$cc.$lc.html";
-	}
-
-
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
 	close ($IN);
@@ -1096,7 +1084,7 @@ sub display_text($)
 
 	my $title = undef;
 
-	if (($textid eq 'index') or (defined $request_ref->{list})) {
+	if ($textid eq 'index') {
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
@@ -3813,9 +3801,31 @@ sub search_and_display_products($$$$$) {
 
 	my $count;
 
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	my $fields_ref;
 
-	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+	#for API (json, xml, rss,...), display all fields
+	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
+		$fields_ref = {};
+	} else {
+	#for HTML, limit the fields we retrieve from MongoDB
+		$fields_ref = {
+		"lc" => 1,
+		"code" => 1,
+		"product_name" => 1,
+		"product_name_$lc" => 1,
+		"brands" => 1,
+		"images" => 1,
+		"quantity" => 1
+		};
+	}
+
+	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
+
+	# Sort the keys of hashes
+	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+
+	my $key = $server_domain . "/" . $json;
 
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 
@@ -3869,14 +3879,22 @@ sub search_and_display_products($$$$$) {
 			}
 			else {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
-				$count = execute_query(sub {
-					return get_products_collection()->count_documents($query_ref);
-				});
+				# test if query_ref is empty
+				if (keys %{$query_ref} > 0) {
+					$count = execute_query(sub {
+						return get_products_collection()->count_documents($query_ref);
+					});
+				} else {
+				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+					$count = execute_query(sub {
+						return get_products_collection()->estimated_document_count();
+					});
+				}
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
-					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+					return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				});
 				$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 			}
@@ -5306,6 +5324,7 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
+			lc => 1,
 			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
@@ -5740,7 +5759,7 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), $User_id);
+		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6924,7 +6943,30 @@ sub display_field($$) {
 		}
 	}
 
-	if (defined $taxonomy_fields{$field}) {
+	if ($field eq 'states'){
+		my $to_do_status = '';
+		my $done_status = '';
+		my @to_do_status;
+		my @done_status;
+		my $state_items = $product_ref->{$field . "_hierarchy"};
+		foreach my $val (@$state_items){
+			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+				push(@to_do_status, $val);
+			}
+			else {
+				push(@done_status, $val);
+			}
+		}
+		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
+		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
+		if ($to_do_status ne ""){
+				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
+		}
+		if ($done_status ne ""){
+				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
+		}
+	}
+	elsif (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 	}
 	elsif (defined $hierarchy_fields{$field}) {
@@ -6933,7 +6975,6 @@ sub display_field($$) {
 	elsif ((defined $tags_fields{$field}) and (defined $value)) {
 		$value = display_tags_list($field, $value);
 	}
-
 
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
@@ -6958,33 +6999,11 @@ sub display_field($$) {
 			}
 		}
 		my $lang_field = lang($field);
-		if ($lang_field eq '' and $field ne 'states') {
+		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
 
-		# Separate To-Do and Done Status
-		if ($field eq 'states') {
-			my $done_status = '';
-			my $to_do_status = '';
-			my @status_split = split(',', $value);
-			foreach my $val (@status_split) {
-				if ((index($val, "to-be") != -1) or (index($val, "Empty") != -1)) {
-		 			$to_do_status .=$val . ",";
-  		 		}
-		 		else {
-		 		$done_status .=$val . ",";
-		 		}
-			}
-			$to_do_status =~ s/,$//;
-			$done_status =~ s/,$//;
-			if ($to_do_status ne ""){
-				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
-			}
-			if ($done_status ne ""){
-				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
-			}
-		}
-		else {
+		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}
 

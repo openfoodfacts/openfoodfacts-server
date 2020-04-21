@@ -170,7 +170,7 @@ binmode STDERR, ":encoding(UTF-8)";
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
- environment_impact_level=>1, data_sources => 1);
+ environment_impact_level=>1, data_sources => 1, teams => 1);
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
@@ -1135,21 +1135,26 @@ sub build_tags_taxonomy($$$) {
 
 		# add more synonyms: remove stopwords and deal with simple plurals
 
-
 		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
 			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
-				# stopwords
+				my $tagid2 = $tagid;
 
-				my $tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+				# remove stopwords
+				# unless we have only 2 words in the tag name
+				# check that we have at least 2 word separators (dashes)
+				if ($tagid2 =~ /-.+-/) {
+
+					$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+				}
+
 				$tagid2 = remove_plurals($lc,$tagid2);
 
 				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
 					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
 				}
-
 			}
 		}
 
@@ -2063,7 +2068,7 @@ sub display_tag_link($$) {
 		$tag = $';
 	}
 
-	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers|team)$/) {
 		$tag_lc = "no_language";
 	}
 
@@ -2683,15 +2688,21 @@ sub canonicalize_taxonomy_tag($$$)
 
 			foreach my $test_lc (@test_languages) {
 
-				# try removing stopwords and plurals
-				my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
-				$tagid2 = remove_plurals($test_lc, $tagid2);
-				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid2})) {
-					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
+				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid})) {
+					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid};
 					$tag_lc = $test_lc;
-					last;
 				}
+				else {
 
+					# try removing stopwords and plurals
+					my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
+					$tagid2 = remove_plurals($test_lc, $tagid2);
+					if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid2})) {
+						$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
+						$tag_lc = $test_lc;
+						last;
+					}
+				}
 			}
 		}
 	}
@@ -3398,6 +3409,11 @@ sub compute_field_tags($$$) {
 	my $product_ref = shift;
 	my $tag_lc = shift;
 	my $field = shift;
+
+	# fields that should not have a different normalization (accentuation etc.) based on language
+	if ($field eq "teams") {
+		$tag_lc = "no_language";
+	}
 
 	init_emb_codes() unless %emb_codes_cities;
 	# generate the hierarchy of tags from the field values

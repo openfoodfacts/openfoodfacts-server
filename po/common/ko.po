@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-07 16:12\n"
+"PO-Revision-Date: 2020-04-18 15:04\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,18 @@ msgstr "브랜드 추가하기"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "%s 브랜드가 아닌 제품"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -674,7 +686,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "데이터, API 및 SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -870,7 +882,7 @@ msgstr "바코드를 직접 입력하거나 바코드가 보이는 제품사진�
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "전체 크기"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -934,11 +946,11 @@ msgstr "야자유 추출 성분"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "재료 가지 수"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "재료 가지 수"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
@@ -1456,11 +1468,12 @@ msgstr ""
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p><<site_name>>에 대해 더 알고 싶으신가요? 저희 블로그 <a href=\"https://en.blog.openfoodfacts.org\">를 방문하세요 </a>!</p>\n"
+"<p>최근 소식 :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "뉴스"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1469,7 +1482,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "또는:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1477,15 +1490,15 @@ msgstr "성분의 유래"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "미국 캘리포니아 "
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "각 재료의 원산지를 표시해주세요. "
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "재료 원산지 "
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1497,7 +1510,7 @@ msgstr "성분의 유래"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "원산지를 추가해주세요"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -2484,6 +2497,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr ""
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr ""
@@ -3270,6 +3287,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr ""
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr ""
@@ -3299,21 +3320,30 @@ msgid "only the unit, with the value in another column"
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3354,6 +3384,10 @@ msgstr ""
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
+msgstr ""
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
 msgstr ""
 
 msgctxt "value_in_kcal"
@@ -4085,5 +4119,39 @@ msgstr ""
 
 msgctxt "to_do_status"
 msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
 msgstr ""
 

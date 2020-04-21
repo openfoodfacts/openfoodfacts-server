@@ -32,15 +32,15 @@ or
 $ git clone https://github.com/openfoodfacts/openfoodfacts-server.git
 ```
 
+If you are running Docker on Windows, please use the following git clone option :
 ```console
-$ cd ./openfoodfacts-server
+$ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
-
 
 ## 3. Build your environment
 The fastest way is to use the ready-to-use scripts on the Open Food Facts GitHub repo.
 ```console
-$ cd ./docker/
+$ cd ./openfoodfacts-server/docker/
 $ ./start_dev.sh
 ```
 The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
@@ -58,6 +58,11 @@ Optionally — recommended —, also install a test product base with product pi
 
 ```console
 $ docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
+```
+
+If you are running Docker on Windows, you should edit your hosts file (C:\Windows\System32\drivers\etc\hosts) and add the following line :
+```text
+127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost 
 ```
 
 You’re done! Check http://localhost/
@@ -113,3 +118,16 @@ Also, you need to add a `cookie_domain` to the `%server_options` the same file, 
 );
 ```
 Once you are done building your environment, go to http://localhost:8080/
+
+
+### 7. Optional - Import full mongodb dump
+The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB).
+```console
+$ wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+$ docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+$ docker exec -it docker_mongodb_1 bash
+$ cd /data/db
+$ tar -xzvf openfoodfacts-mongodbdump.tar.gz 
+$ mongorestore
+$ exit
+```

@@ -126,9 +126,6 @@ foreach my $l ("en", "fr") {
 	$lc = $l;
 	$lang = $l;
 
-	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");
-
-
 	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
 
 	$langs{$l} = 0;
@@ -221,8 +218,6 @@ XML
 	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
 	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
 
-
-
 	foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
 		$nid =~ /^#/ and next;
@@ -236,9 +231,6 @@ XML
 
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
-
-
-
 
 	# Products
 
@@ -327,48 +319,15 @@ XML
 
 		}
 
-
-
-		# Try to get the "main" category: smallest category with at least 10 products with nutrition data
-
-		my @comparisons = ();
-		my %comparisons = ();
+		# "main" category: lowest level category
 
 		my $main_cid = '';
 		my $main_cid_lc = '';
 
 		if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-			$main_cid = $product_ref->{categories_tags}[0];
+			$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
-
-
-			foreach my $cid (@{$product_ref->{categories_tags}}) {
-				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-					push @comparisons, {
-						id => $cid,
-						name => canonicalize_tag2('categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-						count => $categories_nutriments_ref->{$cid}{count},
-						n => $categories_nutriments_ref->{$cid}{n},
-					};
-				}
-			}
-
-			# print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
-
-
-			if ($#comparisons > -1) {
-				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
-				$comparisons[0]{show} = 1;
-				$main_cid = $comparisons[0]{id};
-				# print STDERR "main_cid: $main_cid\n";
-			}
-
-		}
-
-		if ($main_cid ne '') {
 			$main_cid = canonicalize_tag2("categories",$main_cid);
 			$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
 		}
@@ -394,7 +353,14 @@ XML
 			$nid =~ s/-$//g;
 
 			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-			$csv .= $product_ref->{nutriments}{$nid . "_100g"} . "\t";
+				my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				if ($value =~ /e/) {
+					# 7e-05 1.71e-06
+					$value = sprintf("%.10f", $value);
+					# Remove trailing 0s
+					$value =~ s/\.([0-9]+?)0*$/\.$1/g;
+				}
+				$csv .= $value . "\t";
 			}
 			else {
 				$csv .= "\t";
@@ -402,9 +368,6 @@ XML
 		}
 
 		$csv =~ s/\t$/\n/;
-
-
-
 
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
@@ -450,14 +413,12 @@ XML
 
 				$rdf .= "\t<food:$property>" . $product_ref->{nutriments}{$nid . '_100g'} . "</food:$property>\n";
 			}
-
 		}
 
 		$rdf .= "</rdf:Description>\n\n";
 
 		print $OUT $csv;
 		print $RDF $rdf;
-
 	}
 
 	$langs{$l} = $ct;
@@ -512,19 +473,5 @@ XML
 	close $RDF;
 
 }
-
-
-my $html = "<p>$total products:</p>\n";
-foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
-
-	if ($langs{$l} > 0) {
-		$lang = $l;
-		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>\n";
-	}
-
-}
-open (my $OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-print $OUT $html;
-close $OUT;
 
 exit(0);

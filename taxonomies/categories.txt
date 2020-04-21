@@ -4589,7 +4589,7 @@ pnns_group_2:en:Plant-based milk substitutes
 
 
 <en:Milk substitute
-en:Creamer
+en:Creamer, coffee creamers
 de:Getränkeweißer, Kaffeeweiße, Kaffeeweisser
 nl:Creamers, Creamer, Koffiecreamer
 wikidata:en:Q1154989
@@ -19618,9 +19618,6 @@ fi:ateriakitit
 fr:Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit culinaire
 nl:Maaltijdpakketten
 
-<en:Meal kits
-en:Mexican Dinner Mixes
-
 <en:Beverages
 <en:Dried products to be rehydrated
 en:Dehydrated beverages, dehydrated drinks
@@ -20736,6 +20733,17 @@ nl:Roggebroden, Roggebrood
 ro:Pâine de secară, Pâine cu faină de secară
 ru:Ржаной хлеб, хлеб ржаной, чёрный хлеб
 wikidata:en:Q3893120
+
+<en:Rye breads
+en:Pumpernickel
+de:Pumpernickel
+es:Pumpernickel
+fr:Pumpernickel
+it:Pumpernickel
+nl:Pompernikkel
+pl:Pumpernikiel
+pt:Pumpernickel
+wikidata:en:Q837207
 
 <en:Breads
 en:Rye-and-wheat breads, Rye-and-wheat bread
@@ -26939,6 +26947,7 @@ origins:en: en:Italy
 
 <en:Italian cheeses
 <en:Stretched-curd cheeses
+en:Burrata
 fr:Burrata
 de:Burrata
 it:Burrata
@@ -27665,9 +27674,6 @@ fr:Fromage frais nature à 10% de matières grasses environ, Petit suisse nature
 ciqual_food_code:en:19666
 ciqual_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
-
-
-en:Coffee creamers
 
 <en:Dairies
 en:Creams
@@ -36845,7 +36851,9 @@ ru:Вкусовые добавки, Приправы, Пряности, Спец
 zh:调味品, 调料
 
 <en:Condiments
-fr:Crèmes au vinaigre, Crèmes de vinaigre
+en:Glazes with vinegar
+es:Cremas de vinagre, cremas con vinagre
+fr:Crèmes de vinaigre, Crèmes au vinaigre
 
 <en:Condiments
 <en:Plant-based foods
@@ -47196,52 +47204,34 @@ fi:leivokset
 fr:Pâtisseries, pâtisserie
 nl:Gebak
 
-<en:Biscuits and cakes
+<en:Pastries
+en:Churros
+de:Churros
+es:Churros
+fr:Churros
+nl:Churros
+wikidata:en:Q727605
+
+<en:Biscuits
 en:Biscuit with milk
 fr:Biscuit sec au lait
 ciqual_food_code:en:24030
 ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
-<en:Biscuits and cakes
+<en:Biscuits
 en:Diet crispy biscuit without chocolate
 fr:Biscuit sec croquant sans chocolat allégé en matière grasse
 ciqual_food_code:en:24031
 ciqual_food_name:en:Crispy biscuit (cookie), without chocolate, reduced fat
 ciqual_food_name:fr:Biscuit sec croquant (ex : tuile) sans chocolat, allégé en matière grasse
 
-<en:Biscuits and cakes
+<en:Biscuits
 en:Biscuit with nuts, Lightly chocolate-flavoured biscuit with nuts
 fr:Biscuit sec fourré aux noix, Biscuit sec légèrement chocolaté fourré aux noix
 ciqual_food_code:en:24055
 ciqual_food_name:en:Biscuit (cookie) with nuts (no chocolate or lightly chocolate-flavoured)
 ciqual_food_name:fr:Biscuit sec fourré fruits à coque (non ou légèrement chocolaté)
-
-<en:Biscuits and cakes
-en:Wafer biscuit filled with nuts
-fr:Gaufrette fourrée
-ciqual_food_code:en:24312
-ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
-ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with hazelnut
-fr:Gaufrette fourrée à la noisette
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with almond
-fr:Gaufrette fourrée à l'amande
-
-<en:Wafer biscuit filled with nuts
-en:Wafer biscuit filled with praline
-fr:Gaufrette fourrée à la praline
-
-<en:Biscuits and cakes
-en:Wafer biscuit with fruits
-fr:Gaufrette fourrée aux fruits
-ciqual_food_code:en:24320
-ciqual_food_name:en:Wafer biscuit, with fruits
-ciqual_food_name:fr:Gaufrette fourrée, aux fruits
 
 <en:Biscuits and cakes
 en:Biscuit filled with fruit paste, Biscuit filled with fruit puree
@@ -54326,22 +54316,25 @@ nl:Ingemaakte lupine
 <en:Fresh sprouts
 en:Fresh legume sprouts
 es:Germinados de leguminosas frescos
-fr:Pousses de légumineuses frais
+fr:Pousses de légumineuses fraîches
 nl:Peulvruchtenkiemen
 
 <en:Fresh legume sprouts
+<en:Alfalfa sprouts
 en:Fresh alfalfa sprouts
 es:Germinados de alfalfa frescos, Brotes de alfalfa frescos
-fr:Pousses de alfalfa frais, Pousses de luzerne cultivée frais
+fr:Pousses d'alfalfa fraîches, Pousses de luzerne cultivée fraîches
 nl:Alfalfakiemen
 
 <en:Fresh legume sprouts
+<en:Lentil sprouts
 en:Fresh lentil sprouts
 es:Germinados de lentejas frescos, Brotes de lentejas frescos
-fr:Pousses de lentilles frais
+fr:Lentilles germées fraîches, pousses de lentilles fraîches
 nl:Linzenkiemen
 
 <en:Fresh legume sprouts
+<en:Mung bean sprouts
 en:Fresh mung bean sprouts
 es:Germinados de judía mungo frescos, Brotes de judía mungo frescos, Brotes de soja verde frescos
 fr:Pousses de haricot mungo frais
@@ -54356,6 +54349,7 @@ fr:Pousses de légumineuses en conserve
 nl:Peulvruchtenkiemen in blik
 
 <en:Canned legume sprouts
+<en:Mung bean sprouts
 en:Canned mung bean sprouts
 es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
 fi:purkitettuja mung-pavun ituja
@@ -54363,9 +54357,10 @@ fr:Pousses de haricot mungo en conserve
 nl:Mungoboonkiemen in blik
 
 <en:Canned legume sprouts
+<en:Alfalfa sprouts
 en:Canned alfalfa sprouts
 es:Germinados de alfalfa en conserva, Brotes de alfalfa en conserva
-fr:Pousses de alfalfa en conserve, Pousses de luzerne cultivée en conserve
+fr:Pousses d'alfalfa en conserve, Pousses de luzerne cultivée en conserve
 nl:Alfalfakiemen in blik
 
 <en:Legumes and their products
@@ -54858,7 +54853,7 @@ ro:Vafe umplute cu miere
 
 <en:Biscuits
 en:Wafers, waffers
-de:Waffeln
+de:Knusprige Waffeln
 fi:vohvelit
 fr:Gaufrettes
 hu:Ostya, ostyák
@@ -54869,7 +54864,7 @@ wikidata:en:Q1226651
 
 <en:Wafers
 en:Stuffed wafers
-de:Gefüllte Waffeln
+de:Gefüllte Knusprige Waffeln
 es:Obleas rellenas
 fi:täytetyt vohvelit
 fr:Gaufrettes fourrées
@@ -54879,7 +54874,7 @@ ro:Napolitane umplute
 
 <en:Stuffed wafers
 en:Caramel stuffed wafers
-de:Karamellgefüllte Waffeln, Waffeln mit Karamell gefüllt
+de:Karamellgefüllte Knusprige Waffeln, Waffeln mit Karamell gefüllt
 fi:kinuskilla täytetyt vohvelit
 fr:Gaufrettes fourrées au caramel
 hu:Karamellel töltött ostyák
@@ -54889,7 +54884,7 @@ ro:Napolitane umplute cu caramel, Napolitane cu caramel
 <en:Stuffed wafers
 <en:Chocolate biscuits
 en:Chocolate stuffed wafers
-de:Waffeln gefüllt mit Schokolade
+de:Knusprige Waffeln gefüllt mit Schokolade
 fi:suklaalla täytetyt vohvelit
 fr:Gaufrettes fourrées au chocolat
 hu:Csokoládéval töltött ostya
@@ -54898,12 +54893,26 @@ ro:Napolitane umplute cu ciocolată, Napolitane cu ciocolată
 
 <en:Stuffed wafers
 en:Vanilla stuffed wafers
-de:Vanillewaffeln
+de:Vanille-gefüllte Knusprige Waffeln
 fi:vaniljalla täytetyt vohvelit
 fr:Gaufrettes fourrées à la vanille
 hu:Vaníliával töltött ostyák
 nl:Wafeltjes met vanille
 ro:Napolitane umplute cu vanilie, Napolitane cu vanilie
+
+<en:Biscuits and cakes
+en:Nut stuffed wafers
+fr:Gaufrettes fourrées aux fruits à coques
+ciqual_food_code:en:24312
+ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
+ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
+
+<en:Biscuits and cakes
+en:Fruits stuffed wafers
+fr:Gaufrette fourrée aux fruits
+ciqual_food_code:en:24320
+ciqual_food_name:en:Wafer biscuit, with fruits
+ciqual_food_name:fr:Gaufrette fourrée, aux fruits
 
 <en:Biscuits
 en:Toaster pastries, Toaster pastry
@@ -56726,14 +56735,12 @@ fr:Civet de tangue
 fr:Civet de zourites
 wikidata:en:Q16540075
 
-<en:Biscuits and cakes
 en:Pancakes
 de:Pfannkuchen
 fi:pannukakut
 fr:Pancakes
 nl:Pancakes
 
-<en:Biscuits and cakes
 en:Crêpes and galettes
 ca:Creps i coques
 de:Crêpes und Galetten
@@ -57592,11 +57599,26 @@ nl_be:Kiemen
 wikidata:en:Q1057052
 
 <en:Sprouts
+en:Mung bean sprouts
+es:Germinados de judía mungo
+fr:Pousses de haricot mungo, jeunes pousses de haricot mungo, Pousses de soja vert, Pousse de ambérique vert, Pousses de soja
+
+<en:Sprouts
+en:Alfalfa sprouts
+fr:Pousses d'alfalfa
+en:Germinados de alfalfa
+
+<en:Sprouts
+en:lentil sprouts
+es:Germinados de lentejas
+fr:Lentilles germées
+
+<en:Sprouts
 <en:Fresh plant-based foods
 en:Fresh sprouts, Fresh germinated seeds
 de:Rohsprossen
 es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
-fr:Pousses frais, Graines germées frais
+fr:Pousses fraîches, Graines germées fraîches
 nl:Verse kiemen
 
 <en:Sprouts
@@ -57607,6 +57629,10 @@ es:Germinados en conserva, Semillas germinadas en conserva, Brotes en conserva
 fi:purkitettuja ituja
 fr:Pousses en conserve, Graines germées en conserve
 nl:Kiemen in blik
+
+<en:Sprouts
+en:Dried sprouts
+fr:Pousses séchées
 
 <en:Sprouts
 en:Bamboo shoots, Bamboo sprouts

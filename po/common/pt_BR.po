@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-07 16:30\n"
+"PO-Revision-Date: 2020-04-19 04:48\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -237,6 +237,18 @@ msgstr "adicionar uma marca"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Produtos não pertencentes à marca %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Proprietário da marca"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "A empresa Coca Cola"
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr "proprietário da marca"
 
 msgctxt "by"
 msgid "by"
@@ -943,11 +955,11 @@ msgstr "Número de ingrediente"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Número de ingredientes reconhecidos"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Número de ingredientes desconhecidos"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2488,6 +2500,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "Ativar zoom com a roda do mouse."
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Carregar imagens de baixa resolução (para conexões lentas)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Atenção: a quantidade de fibra não está especificada, a sua eventual contribuição positiva não pôde ser considerada para a classificação."
@@ -3274,6 +3290,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Categoria específica"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Campo específico da fonte"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Selecione um campo"
@@ -3303,22 +3323,31 @@ msgid "only the unit, with the value in another column"
 msgstr "apenas a unidade, com o valor em outra coluna"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Selecione esta opção se a coluna indica a presença de uma etiqueta específica (por exemplo Orgânico, Comércio Justo) quando o valor for Y, Sim ou 1."
+msgstr "Selecione esta opção se a coluna indicar a presença de um rótulo específico (por exemplo, Orgânico, Comércio Justo) quando o valor for Y, Sim ou 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Digite o nome do rótulo no campo de texto à direita."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Selecione esta opção se a coluna indica que o produto está numa categoria específica (por exemplo Bebidas) quando o valor for Y, Sim ou 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Selecione esta opção se a coluna indicar a presença de uma categoria específica (por exemplo, Bebidas) quando o valor for Y, Sim ou 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Digite o nome da categoria no campo de texto à direita."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Selecione esta opção para os campos específicos da fonte e que queremos manter como campos específicos da fonte."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Digite o nome do campo de destino no campo de texto à direita ou deixe em branco para usar o nome do campo de origem."
 
 msgctxt "value"
 msgid "Value"
@@ -3359,6 +3388,10 @@ msgstr "Valor em mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Valor em µg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Valor na UI"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4085,9 +4118,43 @@ msgstr "Manter valores existentes e fotos selecionadas"
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Feito"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Para fazer"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Times"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "opicional"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "times"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "time"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Você pode participar de 1 a 3 equipes. Os produtos que você adicionar ou editar serão creditados a você e a suas equipes. As equipes podem ser alteradas a qualquer momento."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Os nomes das equipes são públicos. Não crie equipes com nomes que contenham dados pessoais (por exemplo, nomes de família), marcas registradas (a menos que você os possua) ou qualquer coisa ofensiva."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Time %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d produtos serão exportados."
 

@@ -248,6 +248,18 @@ msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr ""
 
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr ""
+
 msgctxt "by"
 msgid "by"
 msgstr ""
@@ -2597,6 +2609,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "Enable zooming with the mouse wheel."
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Load lower resolution images (for slow connections)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid ""
 "Warning: the amount of fiber is not specified, their possible positive "
@@ -3411,6 +3427,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Specific category"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Source specific field"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Select a field"
@@ -3440,22 +3460,31 @@ msgid "only the unit, with the value in another column"
 msgstr "only the unit, with the value in another column"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Type the name of the label in the text field on the right."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Type the name of the category in the text field on the right."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 
 msgctxt "value"
 msgid "Value"
@@ -3496,6 +3525,10 @@ msgstr "Value in mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Value in μg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Value in IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4233,3 +4266,38 @@ msgstr "Done"
 msgctxt "to_do_status"
 msgid "To do"
 msgstr "To do"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Teams"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optional"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "teams"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "team"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Team %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d products will be exported."
+

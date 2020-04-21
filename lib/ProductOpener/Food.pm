@@ -240,7 +240,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+	elsif  ((uc($unit) eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
@@ -486,6 +486,8 @@ sub mmoll_to_unit {
 		'-starch-',
 		'-polyols-',
 		'fiber',
+		'--soluble-fiber-',
+		'--insoluble-fiber-',
 		'!proteins',
 		'-casein-',
 		'-serum-proteins-',
@@ -1623,9 +1625,12 @@ sub mmoll_to_unit {
 		cs => "Polyalkoholy",
 		da => "Polyoler",
 		de => "mehrwertige Alkohole (Polyole)",
+		de_synonyms => ["Polyole"],
 		el => "Πολυόλες",
 		en => "Sugar alcohols (Polyols)",
+		en_synonyms => ["Polyols"],
 		es => "Azúcares alcohólicos (Polialcoholes)",
+		es_synonyms => ["Polialcoholes"],
 		et => "Polüoolid",
 		fi => "Polyolit",
 		fr => "Polyols",
@@ -1633,6 +1638,7 @@ sub mmoll_to_unit {
 		he => "סוכר אלכוהולי (פוליאול)",
 		hu => "Poliolok",
 		it => "Polialcoli/polioli (alcoli degli zuccheri)",
+		it_synonyms => ["alcoli degli zuccheri"],
 		ja => "糖アルコール (ポリオール)",
 		lt => "Poliolių",
 		lv => "Polioli",
@@ -2676,6 +2682,24 @@ sub mmoll_to_unit {
 		unit => "µg",
 		dv => 80,
 		dv_2016 => 120,
+	},
+	'vitamin-k1' => {
+		fr => "Vitamine K1",
+		en => "Vitamin K1",
+		en_synonyms => ["Vitamin K1", "Phylloquinone"],
+		unit => "µg",
+	},
+	'vitamin-k2' => {
+		fr => "Vitamine K2",
+		en => "Vitamin K2",
+		en_synonyms => ["Vitamin K2", "Menaquinone"],
+		unit => "µg",
+	},
+	'vitamin-k3' => {
+		fr => "Vitamine K3",
+		en => "Vitamin K3",
+		en_synonyms => ["Vitamin K3", "Menadione"],
+		unit => "µg",
 	},
 	'vitamin-c' => {
 		fr => "Vitamine C (acide ascorbique)",

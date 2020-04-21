@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-07 16:29\n"
+"PO-Revision-Date: 2020-04-18 15:16\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,18 @@ msgstr "добавить марку"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Продукты не марки %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Владелец торговой марки"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "Компания Coca Cola"
+
+msgctxt "brands_p"
+msgid "brand owners"
+msgstr "производители"
 
 msgctxt "by"
 msgid "by"
@@ -942,11 +954,11 @@ msgstr "Число ингредиентов"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Количество общепризнанных ингредиентов"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Количество непризнанных ингредиентов"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2489,6 +2501,10 @@ msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
 msgstr "Включить масштабирование с помощью колеса мыши."
 
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Предупреждение: количество питательных волокон не указано, их возможный положительный вклад в оценку не может быть учтен."
@@ -3275,6 +3291,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Конкретная категория"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Выберите поле"
@@ -3304,22 +3324,31 @@ msgid "only the unit, with the value in another column"
 msgstr "только единицы, значения в другом столбце"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "Введите название этикетки в текстовое поле справа."
-
-# Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+# Please do not translate Y, Yes and 1
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
+
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr "Введите название категории в текстовое поле справа."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr ""
 
 msgctxt "value"
 msgid "Value"
@@ -3360,6 +3389,10 @@ msgstr "Значение в мг"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Значение в мкг"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr ""
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3449,15 +3482,15 @@ msgstr "качество данных"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "ошибка качества данных"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "информация о качестве данных"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "ошибка качества данных"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -3688,7 +3721,7 @@ msgstr "3001234567890.ingredients_fr.jpg: список ингредиентов 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: таблица питания на испанском языке."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3800,7 +3833,7 @@ msgstr "округленное значение"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Пищевая ценность"
 
 # Do not translate
 msgctxt "nutriscore_grade"
@@ -3927,7 +3960,7 @@ msgstr "Нам нужна ваша поддержка!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Пожалуйста, поддержите"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
@@ -4091,4 +4124,38 @@ msgstr "Готово"
 msgctxt "to_do_status"
 msgid "To do"
 msgstr "Выполнить"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Команды"
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
 
