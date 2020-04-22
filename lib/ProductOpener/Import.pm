@@ -977,6 +977,19 @@ sub import_csv_file($) {
 					$unit = '% vol';
 				}
 
+				# Standardize units
+				if (defined $unit) {
+					if ($unit eq "kj") {
+						$unit = "kJ";
+					}
+					elsif ($unit eq "mcg") {
+						$unit = "µg";
+					}
+					elsif ($unit eq "iu") {
+						$unit = "IU";
+					}
+				}
+
 				my $modifier = undef;
 
 				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);

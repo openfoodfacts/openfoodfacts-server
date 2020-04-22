@@ -1176,6 +1176,36 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 ]
 	],
 
+	# ingredient with (processing) in parenthesis
+	[ { lc => "en", ingredients_text => "garlic (powdered)",},
+[
+  {
+    'id' => 'en:garlic',
+    'processing' => 'en:powdered',
+    'text' => 'garlic'
+  }
+]
+	],
+	[ { lc => "fr", ingredients_text => "piment (en poudre)"},
+[
+  {
+    'id' => 'en:chili-pepper',
+    'processing' => 'en:powdered',
+    'text' => 'piment'
+  }
+]
+	],
+
+	[ { lc => "en", ingredients_text => "pasteurized eggs" },
+[
+  {
+    'id' => 'en:egg',
+    'processing' => 'en:pasteurised',
+    'text' => 'eggs'
+  }
+]
+	],
+
 );
 
 foreach my $test_ref (@tests) {

@@ -86,6 +86,8 @@ BEGIN
 					&display_ingredients_analysis_details
 					&display_ingredients_analysis
 
+					&count_products
+
 					@search_series
 
 					$admin
@@ -623,13 +625,6 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
-	# or a list
-	elsif (0 and (-e ("$data_root/lists/" . $components[0] . ".$cc.$lc.html") ) and (not defined $components[1]))  {
-		$request_ref->{text} = $components[0];
-		$request_ref->{list} = $components[0];
-		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}
-
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
 		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
@@ -1078,13 +1073,6 @@ sub display_text($)
 
 	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 
-
-	#list?
-	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
-		$file = "$data_root/lists/$textid.$cc.$lc.html";
-	}
-
-
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
 	close ($IN);
@@ -1096,7 +1084,7 @@ sub display_text($)
 
 	my $title = undef;
 
-	if (($textid eq 'index') or (defined $request_ref->{list})) {
+	if ($textid eq 'index') {
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
@@ -3812,7 +3800,7 @@ sub search_and_display_products($$$$$) {
 	}
 
 	my $count;
-	
+
 	my $fields_ref;
 
 	#for API (json, xml, rss,...), display all fields
@@ -3821,6 +3809,7 @@ sub search_and_display_products($$$$$) {
 	} else {
 	#for HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
+		"lc" => 1,
 		"code" => 1,
 		"product_name" => 1,
 		"product_name_$lc" => 1,
@@ -3829,10 +3818,11 @@ sub search_and_display_products($$$$$) {
 		"quantity" => 1
 		};
 	}
+
 	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
 	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
 
-	# canonical makes JSON::PP sort the keys of hashes
+	# Sort the keys of hashes
 	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
 
 	my $key = $server_domain . "/" . $json;
@@ -3899,7 +3889,7 @@ sub search_and_display_products($$$$$) {
 					$count = execute_query(sub {
 						return get_products_collection()->estimated_document_count();
 					});
-				}	
+				}
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
@@ -5334,6 +5324,7 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
+			lc => 1,
 			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
@@ -7011,7 +7002,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		
+
 		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}
