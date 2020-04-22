@@ -105,6 +105,7 @@ my $fix_yuka_salt = '';
 my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
+my $remove_label = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
 
@@ -138,6 +139,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"autorotate" => \$autorotate,
 			"fix-yuka-salt" => \$fix_yuka_salt,
 			"remove-team=s" => \$remove_team,
+			"remove-label=s" => \$remove_label,
 			"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
 			"team=s" => \$team,
 			)
@@ -181,7 +183,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
-	and (not $remove_team)
+	and (not $remove_team) and (not $remove_label)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -211,6 +213,10 @@ foreach my $field (sort keys %$query_ref) {
 
 if ((defined $remove_team) and ($remove_team ne "")) {
 	$query_ref->{teams_tags} = $remove_team;
+}
+
+if ((defined $remove_label) and ($remove_label ne "")) {
+	$query_ref->{labels_tags} = $remove_label;
 }
 
 if (defined $key) {
@@ -272,6 +278,12 @@ while (my $product_ref = $cursor->next) {
 		if ((defined $remove_team) and ($remove_team ne "")) {
 			remove_tag($product_ref, "teams", $remove_team);
 			$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+		}
+
+		if ((defined $remove_label) and ($remove_label ne "")) {
+			remove_tag($product_ref, "labels", $remove_label);
+			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 		}
 
 		# Some Spanish products had their ingredients list wrongly cut after "Ingredientes"
