@@ -1163,7 +1163,8 @@ sub parse_ingredients_text($) {
 
 					# Unknown ingredient, check if it is a label
 					# -> treat as a label only if there are no sub-ingredients
-					if ((not $ingredient_recognized) and ($between eq "")) {
+					if ((not $ingredient_recognized) and ($between eq "") and (length($ingredient) > 5)) {
+						# Avoid matching single letters or too short abbreviations, bug #3300
 
 						# We need to be careful with stopwords, "produit" was a stopword,
 						# and "France" matched "produit de France" / made in France (bug #2927)

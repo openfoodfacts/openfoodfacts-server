@@ -2144,4 +2144,21 @@ is_deeply ($product_ref->{ingredients},
 ) or diag explain $product_ref;
 
 
+# Do not mistake single letters for labels, bug #3300
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,10,100,1000,vt,leaf,something(bio),somethingelse(u)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
+
+is ($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+is_deeply ($product_ref->{labels_tags}, undef) or diag explain $product_ref->{labels_tags};
+
+
 done_testing();
