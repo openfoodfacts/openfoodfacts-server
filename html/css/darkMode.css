@@ -46,6 +46,7 @@ input[type=text]:focus,input[type=password]:focus {
     background: #17223b !important;
     outline: 2px solid #263859;
 }
+
 /* changes the background of the icon of the top right corner of the webpage.*/
 .right li a {background-color: #17223b !important;}
 
@@ -72,6 +73,18 @@ input[type = "submit"],#imgsearchbutton_block_side { background-color: #31456b;}
 
 footer ul {list-style: none !important;}
 
-.tab-bar, .left-off-canvas-toggle  {
-  background-color: #213154;
+.tab-bar, .left-off-canvas-toggle  {background-color: #213154;}
+
+.products li:hover, .products li a:hover {background-color: #35445f;}
+
+.content {background: #2e3e5a !important;}
+
+#search_form label {color:#6a92ad;}
+
+.alert-box.info {
+  background-color: #384761;
+  border: none;
+  color:#a29a9a;
 }
+/*colors in logo */
+#logo {background-color: white; padding: 5px;}

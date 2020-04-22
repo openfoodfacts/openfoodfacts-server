@@ -1,19 +1,30 @@
 var stylesheet = document.styleSheets[2]; // dark-mode stylesheet
 
-$(function(){
-    var test = localStorage.input === 'true'? true: false;
-    $('#switch').prop('checked', test || false);
-    if ($('#switch').is(':checked')) {
-      stylesheet.disabled = false;
-    }
-});
+let darkMode = localStorage.getItem('darkMode');
+const darkToggle = document.getElementById("switch");
 
-$('#switch').on('change', function() {
-    localStorage.input = $(this).is(':checked');
-    if ($('#switch').is(':checked')) {
-      stylesheet.disabled = false;
-    }
-    else {
-      stylesheet.disabled = true;
-    }
+const enableDarkMode = () => {
+  stylesheet.disabled = false;
+  localStorage.setItem('darkMode','enabled');
+}
+
+const disableDarkMode = () => {
+  stylesheet.disabled = true;
+  localStorage.setItem('darkMode',null);
+}
+
+// on page refresh
+if (darkMode === 'enabled') {
+  enableDarkMode();
+  darkToggle.checked = true;
+}
+
+darkToggle.addEventListener("click", () => {
+  darkMode = localStorage.getItem("darkMode");
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+  }
+  else {
+    disableDarkMode();
+  }
 });

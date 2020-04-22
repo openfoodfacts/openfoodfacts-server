@@ -6068,12 +6068,12 @@ $options{favicons}
 <link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
 
 <!-- Dark Mode -->
-<link id = "dark" rel="stylesheet" href="$static_subdomain/css/darkMode.css">
+<link rel="stylesheet" href="$static_subdomain/css/darkMode.css">
 <link rel="stylesheet" href="$static_subdomain/css/dark-toggle.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-<script> var stylesheet = document.styleSheets[2]; stylesheet.disabled = true; </script>
+<script src="$static_subdomain/js/preDarkMode.js"></script>
 
 $header
 <style media="all">
