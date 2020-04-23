@@ -313,10 +313,16 @@ fr:reconstitué, reconstituée, reconstitués, reconstituées
 # Processes that heat an ingredient (over fire, in water)
 
 en:frozen
+de:tiefgevroren
+es:congelado, ultracongelado, ultracongelada
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+nl:diepgevroren
+ro:congelat
 
 en:unfrozen
+es:descongelado, descongelada
 fr:décongelé, décongelée, décongelés, décongelées
+nl:ontdooid
 
 en:pasteurised, pasteurized
 ca:pasteuritzada
@@ -336,6 +342,21 @@ fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuit
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
 
+# Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
+#<en:pre-cooked
+en:parboiled
+de:parboiled
+es:parboiled
+it:parboiled
+
+# prepare (vegetables) for freezing or further cooking by immersing briefly in boiling water.
+# comment:sometimes it seems to mean "the skin removed", used for almonds. Related to en:bleached?
+#<en:pre-cooked
+en:blanched
+de:blanchiert, blanchierte
+fr:blanchi, blanchie, blanchis, blanchies
+nl:geblancheerd
+
 en:cooked
 de:gekocht
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
@@ -344,10 +365,14 @@ nl:gekookt, gekookte
 
 #<en:cooked
 de:gegart, gegarte, gegarter, gegartes
-nl:gegaard
+nl:gegaard, gegaarde
+
 
 en:uncooked
 nl:ongekookt, ongekookte
+
+#<en:uncooked
+fr:non-blanchie
 
 # <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
@@ -364,19 +389,43 @@ en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
 
 en:fried
+es:frito, fritos
 fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
+# nl:gefrituurd
+# en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
 en:roasted
-de:geröstet, geröstete, geröstetes, gerösteter
+de:gebraten, gebratene
+es:asado, asada
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+it:arrostito, arrostite, arrostiti
+nl:gebraden
 
+# en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en:toasted
+de:geröstet, geröstete, geröstetes, gerösteter, getoastet
+es:tostado, tostada, tostados, tostadas
 fr:toasté, toastée, toastés, toastées
+it:tostato, tostati, tostate
+nl:geroosterd, geroosterde
 
+en:untoasted
+nl:ongeroosterd
+
+#<en:toasted
+en:dark toasted
+
+# en:description:To cook food under the element of a stove or only under the top element of an oven.
+#<en:roasted
 en:grilled
+de:gegrillt, gegrillte, gegrillter, gegrilltes
+es:a la parrila
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
+nl:gegrild, gegrilde
+pl:grillowany. grillowana
+sv:grillad
 
 
 #######################################################################
@@ -385,6 +434,21 @@ it:grigliato, grigliata, grigliati, grigliate
 #
 #######################################################################
 # Processes that add another ingredient
+
+# Is mainly used for rice/flour and pasta
+en:enriched
+#en:false_positive:enriched with thiamin
+de:angereichert
+#de:comment:Can also appear in combinations: de:Eiweißangereichertes
+fr:enrichi, enrichie, enrichis
+nl:verrijkt
+
+en:unenriched
+
+en:bromated
+es:bromado
+
+en:unbromated, un-bromated
 
 de:gesalzen, gesalzene, gesalzenes, gesalzener
 
@@ -421,6 +485,21 @@ de:geschwefelt, geschwefelte
 
 # <en:sulfite free, unsulphured
 de:ungeschwefelt, ungeschwefelte
+
+#######################################################################
+#
+#                T R E A T I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes that change the ingredient, but do not add something
+
+en:untreated
+fr:non traitée
+
+en:bleached
+
+en:unbleached, un-bleached
+de:ungebleichtes
 
 #######################################################################
 #
