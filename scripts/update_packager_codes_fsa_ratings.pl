@@ -1,26 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -85,9 +85,9 @@ foreach my $code (@codes) {
 
 	my $orig = $code;
 	$code = normalize_packager_codes($code);
-	$code = get_fileid($code);
+	$code = get_string_id_for_lang("no_language", $code);
 	$code =~ s/-(eg|ce)$/-ec/i;
-	
+
 	print "\n\n$orig --> $code - ";
 
 	if (not defined $packager_codes{$code}) {
@@ -97,27 +97,27 @@ foreach my $code (@codes) {
 		$nfound++;
 		my $name = $packager_codes{$code}{name};
 		# http://ratings.food.gov.uk/enhanced-search/en-GB/Rachels%20Dairy%20Ltd/%5E/Relevance/0/%5E/%5E/1/1/10/json
-		
+
 		my $canon_name = $name;
 		$canon_name =~ s/\s*(\(|\/).*//;
 		$canon_name =~ s/\s+(ltd|limited|plc)(.*)$//i;
-		
+
 		my $uriname = URI::Escape::XS::encodeURIComponent($canon_name);
-		
-		
+
+
 		print "name: $name - $uriname - loading data from ratings.food.gov.uk\n";
-		
-		
+
+
 		my $url = "http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json";
-		
+
 		print "URL: $url\n";
-		
+
 		my $content = get($url);
         if (not defined $content) {
             print "http error, could not load http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json\n";
         }
         else {
-		
+
 			my $example = <<JSON
 {"?xml":{"\@version":"1.0"},"FHRSEstablishment":{
 "Header":{"#text":"","ExtractDate":"2014-10-18","ItemCount":"1","ReturnCode":"Success","PageNumber":"1","PageSize":"10","PageCount":"1"},
@@ -134,34 +134,39 @@ foreach my $code (@codes) {
 JSON
 ;
 			my $json = $content;
-			my $json_ref =  decode_json($json);
-			
+			my $json_ref;
+			# URL: http://ratings.food.gov.uk/enhanced-search/en-GB/Framptons/%5E/Relevance/0/%5E/%5E/1/1/10/json
+			# malformed UTF-8 character in JSON string, at character offset 3698 (before "\x{e9} Bar","Address...") at ./update_packager_codes_fsa_ratings.pl line 137.
+			# put an eval
+			eval { $json_ref = decode_json($json); };
+			next if not $json_ref;
+
 			#use Data::Dumper;
 			#print Dumper($json_ref) . "\n";
-			
+
 			$json_ref = $json_ref->{FHRSEstablishment};
 			print "json - header>ItemCount : " . $json_ref->{Header}{ItemCount} . "\n";
-			
+
 			if ($json_ref->{Header}{ItemCount} > 0) {
 				$nratings++;
 			}
-			
+
 			print "-- $name - local_authority: $packager_codes{$code}{local_authority}\n";
-			
-			my $local_authority1 = get_fileid($packager_codes{$code}{local_authority});
-			
+
+			my $local_authority1 = get_string_id_for_lang("no_language", $packager_codes{$code}{local_authority});
+
 			if ((defined $json_ref->{EstablishmentCollection}) and (defined $json_ref->{EstablishmentCollection}{EstablishmentDetail})) {
-			
+
 				if (ref($json_ref->{EstablishmentCollection}{EstablishmentDetail}) ne 'ARRAY') {
 					# just one result
 					$json_ref->{EstablishmentCollection}{EstablishmentDetail} = [$json_ref->{EstablishmentCollection}{EstablishmentDetail}];
 				}
-			
+
 				foreach my $establishment_ref (@{$json_ref->{EstablishmentCollection}{EstablishmentDetail}}) {
 					print "- $code - $establishment_ref->{FHRSID} - fsa_rating_id $fsa_rating_ids{$code} - Business name: $establishment_ref->{BusinessName} - Business type: $establishment_ref->{BusinessType}\n"
 					. "LocalAuthorityName: $establishment_ref->{LocalAuthorityName} \n";
 					#print "---> '$establishment_ref->{FHRSID}' eq '$fsa_rating_ids{$code}' -- " . ($establishment_ref->{FHRSID} eq $fsa_rating_ids{$code}) . "  -- " . (($establishment_ref->{FHRSID} . '') eq $fsa_rating_ids{$code}) . "\n";
-					
+
 					if ($establishment_ref->{FHRSID} eq $fsa_rating_ids{$code}) {
 						print "\n\nmatch! $code -> $establishment_ref->{FHRSID}\n\n";
 						$packager_codes{$code}{fsa_rating_address} = $establishment_ref->{AddressLine1} . "\n"
@@ -181,7 +186,7 @@ JSON
 						$packager_codes{$code}{fsa_rating_date} = $establishment_ref->{RatingDate};
 						$packager_codes{$code}{fsa_rating_local_authority} = $establishment_ref->{LocalAuthorityName};
 					}
-					
+
 				}
 			}
 		}

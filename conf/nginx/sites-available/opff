@@ -21,8 +21,8 @@ server {
         listen 80 ;
         listen [::]:80 ;
 
-        listen 443 http2 ssl;
-        listen [::]:443 http2 ssl;
+        listen 443 ssl;
+        listen [::]:443 ssl;
 
         include snippets/ssl.openpetfoodfacts.org;
         include snippets/ssl-params-opff.conf;
@@ -38,8 +38,8 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	listen 443 http2 ssl;
-	listen [::]:443 http2 ssl;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
 	server_name *.openpetfoodfacts.org openpetfoodfacts.eu *.openpetfoodfacts.eu;
 
@@ -58,10 +58,10 @@ server {
         include snippets/ssl-params-opff.conf;
 
 
-	root /home/opff/html;
+	root /srv/opff/html;
 
-	access_log /home/opff/logs/nginx.access2.log;
-	error_log /home/opff/logs/nginx.error2.log;
+	access_log /srv/opff/logs/nginx.access2.log;
+	error_log /srv/opff/logs/nginx.error2.log;
 
         # Redirect GET requests to https. POST requests will be transformed
         # to GET by most browsers when redirected, and it breaks apps that
@@ -122,7 +122,7 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
-	location ~* \.(eot|ttf|woff|woff2)$ {
+	location ~* \.(json|csv)$ {
 		add_header Access-Control-Allow-Origin *;
 	}
 

@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Data;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -30,7 +30,10 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&execute_query
+					&get_database
+					&get_collection
 					&get_products_collection
+					&get_products_tags_collection
 					&get_emb_codes_collection
 					&get_recent_changes_collection
 
@@ -68,6 +71,10 @@ sub get_products_collection {
 	return get_collection($mongodb, 'products');
 }
 
+sub get_products_tags_collection {
+	return get_collection($mongodb, 'products_tags');
+}
+
 sub get_emb_codes_collection {
 	return get_collection($mongodb, 'emb_codes');
 }
@@ -79,6 +86,10 @@ sub get_recent_changes_collection {
 sub get_collection {
 	my ($database, $collection) = @_;
 	return get_mongodb_client()->get_database($database)->get_collection($collection);
+}
+
+sub get_database {
+	return get_mongodb_client()->get_database($mongodb);
 }
 
 sub get_mongodb_client() {

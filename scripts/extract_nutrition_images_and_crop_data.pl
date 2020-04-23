@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
@@ -49,8 +49,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -79,16 +78,15 @@ if (! -e $target_dir) {
 #my $query_ref = {entry_dates_tags => "2018-03-02"};
 my $query_ref = {states_tags => "en:complete", lc => "en"};
 
+my $products_collection = get_products_collection();
+
 #my $cursor = $products_collection->query($query_ref)->fields({ code => 1 , images => 1, lc => 1 });;
-my $cursor = $products_collection->query($query_ref);;
+my $cursor = $products_collection->query($query_ref);
 $cursor->immortal(1);
-my $count = $cursor->count();
 
 my $i = 0;
 my $images_copied = 0;
 	
-print STDERR "$count products to update\n";
-
 my $n = 0;
 	
 while (my $product_ref = $cursor->next) {

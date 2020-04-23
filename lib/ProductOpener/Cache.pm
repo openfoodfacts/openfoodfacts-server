@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Cache;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -32,8 +32,7 @@ BEGIN
 					&get_multi_objects
 					
 					$memd
-					
-					);	# symbols to export on request
+	);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -60,8 +59,7 @@ $memd = new Cache::Memcached::Fast {
 # Converting them to global variables.
 # - better solution: create a class?
 
-use vars qw(
-);
+use vars qw();
 
 sub get_multi_objects($)
 {

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -33,14 +33,18 @@ BEGIN
 		@ssl_subdomains
 		$data_root
 		$www_root
+		$geolite2_path
 		$mongodb
 		$mongodb_host
 		$memd_servers
 		$facebook_app_id
-	    $facebook_app_secret
+		$facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
-		
+		$robotoff_url
+
+		%server_options
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -57,6 +61,8 @@ $server_domain = "openfoodfacts.org";
 $www_root = "/home/off/html";
 $data_root = "/home/off";
 
+$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+
 $mongodb = "off";
 $mongodb_host = "mongodb://localhost";
 
@@ -67,5 +73,18 @@ $facebook_app_secret = "";
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';
+
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
+$robotoff_url = '';
+
+%server_options = (
+
+        cookie_domain => "openfoodfacts.dev",   # if not set, default to $server _domain
+        private_products => 1,  # Make products visible only to the owner
+        export_servers => { public => "off", experiment => "off-exp" },
+		ip_whitelist_session_cookie => [ "172.19.0.1" ],
+);
+
 
 1;

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -27,7 +27,7 @@ use utf8;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -39,16 +39,14 @@ use XML::Rules;
 
 # default language (needed for cleaning fields)
 
-$lc = "fr";
-
-my %global_params = (
+%global_params = (
 	lc => 'fr',
 	countries => "France",
 	brands => "Casino",
 	stores => "Casino",
 );
 
-@fields_mapping = (
+my @csv_fields_mapping = (
 
 ["EAN", "code"],
 ["ID", "producer_version_id"],
@@ -124,7 +122,7 @@ my @files = get_list_of_files(@ARGV);
 
 foreach my $file (@files) {
 
-	load_csv_file($file, "UTF-8", "\t", 4);
+	load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines => 4, csv_fields_mapping => \@csv_fields_mapping});
 
 }
 

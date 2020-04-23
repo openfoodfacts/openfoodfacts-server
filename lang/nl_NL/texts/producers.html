@@ -4,340 +4,340 @@
 	
 
 
-<h1>Guide for producers</h1>
+<h1>Gids voor producenten</h1>
 
-<p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
+<p>Deze gids legt uit waarom en hoe producenten foto's en productgegevens direct kunnen integreren in de Open Food Facts-database.</p>
 
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add your product data to Open Food Facts</a></li>
+<li><a href="#introduction">Inleiding</a></li>
+<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Waarom uw productgegevens toevoegen aan Open Food Facts</a></li>
 <ul>
-<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</a></li>
+<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Voorbeelden van producenten die foto's en productgegevens indienen bij Open Food Facts</a></li>
 </ul>
-<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add data for your products in Open Food Facts</a></li>
+<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Hoe u gegevens voor uw producten kunt toevoegen in Open Food Facts</a></li>
 <ul>
-<li><a href="#licence">Licence</a></li>
-<li><a href="#quelles_donnees">What data ?</a></li>
+<li><a href="#licence">Licentie</a></li>
+<li><a href="#quelles_donnees">Welke gegevens?</a></li>
 <ul>
-<li><a href="#une_base_dans_toutes_les_langues">A database in all languages</a></li>
-<li><a href="#photos_et_donnees">Photos and Data</a></li>
+<li><a href="#une_base_dans_toutes_les_langues">Een database in alle talen</a></li>
+<li><a href="#photos_et_donnees">Foto's en gegevens</a></li>
 </ul>
-<li><a href="#ajout_manuel">Manual addition</a></li>
-<li><a href="#ajout_automatise">Automated addition</a></li>
+<li><a href="#ajout_manuel">Handmatige toevoeging</a></li>
+<li><a href="#ajout_automatise">Geautomatiseerde toevoeging</a></li>
 <ul>
-<li><a href="#format_des_images">Picture format</a></li>
+<li><a href="#format_des_images">Afbeeldingsformaat</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">Format of image files</a></li>
-<li><a href="#nom_des_fichiers_images">Name of the image files</a></li>
+<li><a href="#format_des_fichiers_images">Formaat van beeldbestanden</a></li>
+<li><a href="#nom_des_fichiers_images">Naam van de afbeeldingsbestanden</a></li>
 </ul>
-<li><a href="#format_des_donnees">Data format</a></li>
+<li><a href="#format_des_donnees">Data formaat</a></li>
 <ul>
-<li><a href="#champs_obligatoires">Required fields</a></li>
-<li><a href="#champs_optionnels">Optional fields</a></li>
+<li><a href="#champs_obligatoires">Verplichte velden</a></li>
+<li><a href="#champs_optionnels">Optionele velden</a></li>
 </ul>
-<li><a href="#envoi_des_photos_et_des_donnees">Sending photos and data</a></li>
+<li><a href="#envoi_des_photos_et_des_donnees">Foto's en gegevens verzenden</a></li>
 </ul>
 </ul>
 <li><a href="#questions_frequentes">Veelgestelde Vragen</a></li>
 <ul>
-<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
-<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
-<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</a></li>
-<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</a></li>
+<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is de vertonen van producten gratis?</a></li>
+<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Worden de gegevens van de producent overschreven door de bijdragers?</a></li>
+<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is het mogelijk producten te verwijderen die niet meer verkocht worden?</a></li>
+<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Kunnen dierlijke producten, non-foodproducten, cosmetica en andere producten worden geïntegreerd in Open Food Facts?</a></li>
 </ul>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Inleiding</h2>
 
-<p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
+<p>De foto's en gegevens over de voedingsproducten waarnaar wordt verwezen in de Open Food Facts-database zijn afkomstig van 2 bronnen:</p>
 <ul>
-<li>crowdsourcing through mobile apps and the Open Food Facts website: contributors scan barcodes, send product photos, ingredient lists and nutrition charts and then enter the data in a structured way.</li>
-  <li>the addition of data directly from the producers, either manually or automatically.</li>
+<li>crowdsourcing via mobiele apps en de Open Food Facts website: bijdragers scannen barcodes, sturen productfoto's, ingrediëntenlijsten en voedingswaardetabellen op en voeren de gegevens vervolgens op gestructureerde wijze in.</li>
+  <li>de toevoeging van gegevens rechtstreeks van de producenten, hetzij handmatig hetzij automatisch.</li>
 </ul>
 
 
-<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add product data to Open Food Facts</h2>
-<p>There are many benefits to importing date directly from manufacturers:</p>
+<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Waarom uw productgegevens toevoegen aan Open Food Facts</h2>
+<p>Er zijn veel voordelen voor fabrikanten om de gegevens direct te importeren:</p>
 
 <ul>
-<li>The data is complete, up to date, and without risk of error.</li>
-<li>The photos are of better quality than the photos taken by the contributors in very variable conditions.</li>
-<li>The data is then available in more than 100 applications.</li>
-<li>You can easily obtain statistics about your products and export the data of your products supplemented by indicators calculated by Open Food Facts such as the Nutri-Score.</li>
+<li>De gegevens zijn compleet, actueel en zonder risico op fouten.</li>
+<li>De foto's zijn van betere kwaliteit dan de foto's gemaakt door de inzenders in zeer variabele omstandigheden.</li>
+<li>De gegevens zijn dan beschikbaar in meer dan 100 toepassingen.</li>
+<li>U kunt eenvoudig statistieken over uw producten verkrijgen en de gegevens van uw producten exporteren, aangevuld met indicatoren die zijn berekend op basis van Open Food Facts, zoals de Nutri-Score.</li>
 </ul>
   
   
-<h3 id="exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</h3>
+<h3 id="exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Voorbeelden van producenten die foto's en productgegevens indienen bij Open Food Facts</h3>
 
-<p>A growing number of high level French producers are sending us the data of their products: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
+<p>Een groeiend aantal bekende Franse producenten stuurt ons de gegevens van hun producten: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
 
-<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add the data of your products in Open Food Facts</h2>
+<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Hoe u de gegevens van uw producten kunt toevoegen aan Open Food Facts</h2>
 
-<h3 id="licence">Licence</h3>
+<h3 id="licence">Licentie</h3>
   
-<p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
+<p>Alle gegevens die naar Open Food Facts zijn verzonden, worden gepubliceerd onder de Open Database License (ODbL) en de foto's onder de Creative Commons-licentie CC-BY-SA. Met deze licenties kunnen de gegevens vrijelijk worden hergebruikt voor iedereen en voor alle doeleinden. Voor meer informatie, zie de <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Gebruiksvoorwaarden, bijdragen en gebruik.</a></p>
   
-<h3 id="quelles_donnees">What data</h3>
+<h3 id="quelles_donnees">Welke gegevens</h3>
 
-<p>All the data you have can be integrated into Open Food Facts: ingredients and nutritional information of course, but also labels, materials used for packaging, traceability of ingredients, instructions for preparation and recycling, ecological footprint etc.</p>
-<p>We regularly add new fields to the database based on the information on the packages or provided by the manufacturers.</p>
-We have recently added fields on the carbon footprint, and the packaging of products, which are already highlighted on Open Food Facts and in applications that help to change the behavior in terms of recycling.<p></p>
+<p>Alle gegevens die u hebt, kunnen worden geïntegreerd in Open Food Facts: ingrediënten en voedingsinformatie natuurlijk, maar ook labels, materialen die worden gebruikt voor verpakking, traceerbaarheid van ingrediënten, instructies voor bereiding en recycling, ecologische voetafdruk enz.</p>
+<p>We voegen regelmatig nieuwe velden toe aan de database op basis van de informatie op de pakketten of verstrekt door de fabrikanten.</p>
+We hebben onlangs velden toegevoegd voor de CO2-voetafdruk en de verpakking van producten, die nu al worden weergegeven op Open Food Facts en in toepassingen die bijdragen aan het veranderen van het gedrag op het gebied van recycling.<p></p>
 
- <h4 id="une_base_dans_toutes_les_langues">A database in all languages</h4>
+ <h4 id="une_base_dans_toutes_les_langues">Een database in alle talen</h4>
   
-<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
+<p>De Open Food Facts-database, site en mobiele applicaties zijn volledig meertalig en beschikbaar in alle landen. Als u foto's en gegevens in meerdere talen hebt, kunnen we ze ook integreren in Open Food Facts.</p>
 
-<h4 id="photos_et_donnees">Photos and Data</h4>
+<h4 id="photos_et_donnees">Foto's en gegevens</h4>
 
-<p>One of the fundamental principles of Open Food Facts is that the user or contributor must be able to verify the information from a photo.</p>
-<p>We therefore ask you to send us photos of the product and packaging (possibly as a flat file of the packaging) to support the structured data you send.</p>
+<p>Een van de basisprincipes van Open Food Facts is dat de gebruiker of contribuant de informatie van een foto moet kunnen verifiëren.</p>
+<p>Daarom vragen wij u ons foto's van het product en de verpakking (mogelijk als een plat document van de verpakking) te sturen ter ondersteuning van de gestructureerde gegevens die u verzendt.</p>
 
-<h3 id="ajout_manuel">Manual addition</h3>
+<h3 id="ajout_manuel">Handmatige toevoeging</h3>
 
-<p>If you have a small number of products whose formulation does not change often, you can create an account on Open Food Facts and add yourself photos and data of your products.</p>
-<p>Highly recommended method: Add photos and enter information from the <a href="https://world.openfoodfacts.org">Open Food Facts website</a> .</p>
-<p>Alternative method: Use the Android mobile application to scan and then photograph and finally enter a product completely.</p>
-<p>Thank you in advance for telling us if you add your products yourself so that we can identify your account as a producer account, and indicate that the information comes directly from your company.</p>
+<p>Als u een klein aantal producten heeft waarvan de formulering niet vaak verandert, kunt u een account maken op Open Food Facts en uzelf foto's en gegevens van uw producten toevoegen.</p>
+<p>Zeer aan te bevelen methode: voeg foto's toe en voer informatie in van de <a href="https://world.openfoodfacts.org"> Open Food Facts-website </a> .</p>
+<p>Alternatieve methode: gebruik de mobiele Android-, iPhone- of iPad-app om te scannen en vervolgens te fotograferen en uiteindelijk een product volledig in te voeren.</p>
+<p>Bij voorbaat dank voor uw aanmelding als u uw producten zelf toevoegt, zodat we uw account kunnen identificeren als een producentenaccount en aangeven dat de informatie rechtstreeks van uw bedrijf komt.</p>
 
-<h3 id="ajout_automatise">Automated addition</h3>
+<h3 id="ajout_automatise">Geautomatiseerde toevoeging</h3>
 
-To make importing data easier and faster, we have defined a standard format for images and data:
-<h4 id="format_des_images">Picture format</h4>
+Om het importeren van gegevens eenvoudiger en sneller te maken, hebben we een standaardindeling voor afbeeldingen en gegevens gedefinieerd:
+<h4 id="format_des_images">Afbeeldingsformaat</h4>
 
-<p>At least 3 images are required:</p>
+<p>Ten minste 3 afbeeldingen zijn vereist:</p>
 <ul>
-<li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
+<li>Vooraanzicht van product op witte achtergrond (vermijd driekwart weergaven waarbij visuele herkenning van producten niet mogelijk is zonder scannen van barcodes)</li>
 <li>Lijst van ingrediënten</li>
-<li>Nutritional table</li>
+<li>Voedingswaarde tabel</li>
 </ul>
   
-<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>Het vooraanzicht, de ingrediënten en voedingsschema moeten in ten minste de hoofdtaal van het product worden verstrekt. Het wordt aanbevolen dat u ook afbeeldingen voor andere talen opgeeft wanneer deze op het product worden weergegeven.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>Een product dat bedoeld is voor de Belgische markt kan bijvoorbeeld foto's bevatten waarop het product in het Frans is beschreven en in het Nederlands is beschreven.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Andere afbeeldingen kunnen ook worden opgenomen:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Achterkant en andere kanten of weergaven van het product (dit laat met name toe om logo's van labels automatisch te identificeren enz.)</li>
+<li>Vlakke weergave van de verpakking</li>
 </ul>
   
-<h5 id="format_des_fichiers_images">Format of image files</h5>
+<h5 id="format_des_fichiers_images">Formaat van beeldbestanden</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>JPG-, GIF- of PNG-formaat</li>
+  <li>Grootte minimaal 2000 pixels breed of hoog</li>
 </ul>
 
-<h5 id="nom_des_fichiers_images">Name of the image files</h5>
+<h5 id="nom_des_fichiers_images">Naam van de afbeeldingsbestanden</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[barcode]_ [type afbeelding] _ [taalcode]. [Jpg of png]</pre>
 
-  <p>For example :</p>
+  <p>Bijvoorbeeld:</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>3660140808750_front_en.jpg voor de afbeelding van het product waarvan de barcode 3660140808750 is</p>
 
-  <p>The types of images are:</p>
+  <p>De soorten afbeeldingen zijn:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
-  <li>any name you see fit (characters from a to e, no spaces) for other views</li>
+  <li>front: afbeelding van de voorkant</li>
+  <li>ingredients: lijst van ingrediënten</li>
+  <li>nutrition: voedingswaardetabel</li>
+  <li>back: versie</li>
+  <li>elke naam die u geschikt lijkt (tekens van a tot e, geen spaties) voor andere weergaven</li>
 </ul>
   
 
-<h4 id="format_des_donnees">Data format</h4>
+<h4 id="format_des_donnees">Data formaat</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>De data moet worden verstrekt in een tabel in CSV-indeling, met tabellering als veldscheidingsteken en UTF-8-tekencodering.</p>
+<p>De eerste regel bevat de veldnamen en elk van de producten neemt een van de volgende regels in beslag. De volgorde van de velden doet er niet toe, en niet alle kolommen hoeven aanwezig te zijn.</p>
+<p>Sommige velden zijn verplicht en andere zijn optioneel. We raden u aan zoveel mogelijk velden in te vullen, zodat de gegevens door zoveel mogelijk applicaties kunnen worden gebruikt. Als u twijfelt of als u gegevens hebt waarvoor nog geen velden in de database Open Food Facts staan, kunt u contact met ons opnemen zodat we velden kunnen toevoegen en de best mogelijke match kunnen maken.</p>
 
-  <h5 id="champs_obligatoires">Required fields</h5>
+  <h5 id="champs_obligatoires">Verplichte velden</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>code: product barcode zoals deze op de verpakking staat (EAN-13, EAN-8 of anders)</li>
+  <li>lang: 2-letterige code van de hoofdtaal (meest aanwezig op de verpakking) van het product (voorbeeld: fr voor Frans)</li>
+  <li>product_name_ [2-letterige code van de hoofdtaal]: productnaam (in het veld product_name_en voor de naam in het Frans)</li>
+  <li>generic_name_ [2-letterige code van de hoofdtaal]: algemene productnaam </li>
+  <li>brands: merken (verschillende mogelijke waarden voor merken en submerken, te scheiden door komma's)</li>
+  <li>quantity: aantal, specificeer de eenheid en voeg eventueel haakjes toe als het product meerdere eenheden bevat (voorbeeld: 120 g (4 x 30 g))</li>
+  <li>categories: productcategorie, in de taal van het hoofdproduct (voorbeeld: chocoladekoekjes)</li>
+  <li>countries: land waar het product wordt verkocht, in de hoofdtaal van het product (verschillende mogelijke waarden, te scheiden door komma's)</li>
+  <li>ingredients_text_ [2 lettercode van de hoofdtaal]: lijst met ingrediënten (in het veld ingredients_text_fr voor de lijst in het Frans). Allergenen kunnen worden aangegeven in HOOFDLETTERS of tussen underscores "_" </li>
+  <li>allergens: allergenen, in de hoofdtaal van het product, gescheiden door komma's</li>
+  <li>traces: sporen van allergenen, in de hoofdtaal van het product, gescheiden door komma's</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>Onder de verplichte velden vallen de voedingswaarden die op de verpakking voorkomen, per 100 g / 100 ml product zoals verkocht.</p>
+<p>Alle waarden moeten geen eenheid bevatten (de eenheid is kJ voor energie en g voor alle andere velden).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: energie, in kJ</li>
+  <li>fat_100g: vet</li>
+  <li>saturated-fat_100g: verzadigd vet</li>
+  <li>carbohydrates_100g: koolhydraten</li>
+  <li>sugars_100g: suikers</li>
+  <li>proteins_100g: eiwitten</li>
+  <li>salt_100g: zout</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
+<p>Het wordt ten zeerste aanbevolen om ook de vezels en het percentage groenten en fruit aan te geven, zodat met deze informatie rekening kan worden gehouden bij de berekening van Nutri-Score:</p>
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
-  <li>fruits-vegetables-nuts_100g</li>
+  <li>fiber_100g: vezels</li>
+  <li>fruit-vegetables-nuts_100g: fruit, groente en noten</li>
     <!-- Do not translate nutrient field names -->
   </ul>
   
-  <h5 id="champs_optionnels">Optional fields</h5>
+  <h5 id="champs_optionnels">Optionele velden</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
-    <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
-    <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores: places of sale (several possible values, to be separated by commas: names of supermarket chains)</li>
-    <li>nutri_score: Nutri-Score rating from A to E, only in case it is indicated on the package</li>
-    <li>serving_size: quantity of a serving, specify the unit</li>
+    <li>labels: labels, in de hoofdtaal van het product (verschillende mogelijke waarden, te scheiden door komma's) (voorbeeld: AB Bio, MSC, Max Havelaar). Opmerking: de labels moeten op de verpakking van het product verschijnen.</li>
+    <li>origins: oorsprong van de ingrediënten, in de hoofdtaal van het product (verschillende mogelijke waarden, te scheiden door komma's) (voorbeeld: Peru, Périgord)</li>
+    <li>packaging: materialen en vormen van de verpakking van het product, in de hoofdtaal van het product (verschillende mogelijke waarden, te scheiden door komma's) (voorbeeld: blik, aluminium)</li>
+    <li>manufacturing_places: productielocaties, in de hoofdtaal van het product (verschillende mogelijke waarden, te scheiden door komma's: plaatsnamen, landen)</li>
+    <li>emb_codes: verpakkingscodes en Europese sanitaire postzegels (verschillende mogelijke waarden, te scheiden door komma's)</li>
+    <li>stores: verkooppunten (verschillende mogelijke waarden, te scheiden door komma's: namen van supermarktketens)</li>
+    <li>nutri_score: Nutri-Score beoordeling van A tot E, alleen in het geval dit wordt aangegeven op de verpakking</li>
+    <li>serving_size: grootte van een portie, geef de eenheid op</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>Voedingswaarden kunnen ook worden aangegeven voor het bereide product (met water, melk enz.). Voeg dan "_prepared" toe aan de naam van het veld. Bijvoorbeeld energy_prepared_100g.</p>
+<p>Het is ook mogelijk om de waarden voor andere voedingsstoffen aan te geven:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
   
-<li>energy-from-fat_100g</li>
-<li>butyric-acid_100g</li>
-<li>caproic-acid_100g</li>
-<li>caprylic-acid_100g</li>
-<li>capric-acid_100g</li>
-<li>lauric-acid_100g</li>
-<li>myristic-acid_100g</li>
-<li>palmitic-acid_100g</li>
-<li>stearic-acid_100g</li>
-<li>arachidic-acid_100g</li>
-<li>behenic-acid_100g</li>
-<li>lignoceric-acid_100g</li>
-<li>cerotic-acid_100g</li>
-<li>montanic-acid_100g</li>
-<li>melissic-acid_100g</li>
-<li>monounsaturated-fat_100g</li>
-<li>polyunsaturated-fat_100g</li>
-<li>omega-3-fat_100g</li>
-<li>alpha-linolenic-acid_100g</li>
-<li>eicosapentaenoic-acid_100g</li>
-<li>docosahexaenoic-acid_100g</li>
-<li>omega-6-fat_100g</li>
-<li>linoleic-acid_100g</li>
-<li>arachidonic-acid_100g</li>
-<li>gamma-linolenic-acid_100g</li>
-<li>dihomo-gamma-linolenic-acid_100g</li>
-<li>omega-9-fat_100g</li>
-<li>oleic-acid_100g</li>
-<li>elaidic-acid_100g</li>
-<li>gondoic-acid_100g</li>
-<li>mead-acid_100g</li>
-<li>erucic-acid_100g</li>
-<li>nervonic-acid_100g</li>
-<li>trans-fat_100g</li>
-<li>cholesterol_100g</li>
+<li>energie-from-fat_100g - hoeveelheid energie van vetten</li>
+<li>butyric-acid_100g: boterzuur</li>
+<li>caproic-acid_100g: capronzuur</li>
+<li>caprylic-acid_100g: caprylzuur</li>
+<li>capric-acid_100g: caprinezuur</li>
+<li>lauric-acid_100g: laurinezuur</li>
+<li>myristic-acid_100g: myristinezuur</li>
+<li>palmitic-acid_100g: palmitinezuur</li>
+<li>stearic-acid_100g: stearinezuur</li>
+<li>arachidic-acid_100g: arachidinezuur</li>
+<li>behenic-acid_100g: behenic zuur</li>
+<li>lignoceric-acid_100g: lignocarinezuur</li>
+<li>cerotic-acid_100g: cerotinezuur</li>
+<li>montanic-acid_100g: montaanzuur</li>
+<li>melissic-acid_100g: melissylzuur</li>
+<li>monounsaturated-fat_100g: enkelvoudig onverzadigde vetten</li>
+<li>polyunsaturated-fat_100g: meervoudig onverzadigde vetzuren</li>
+<li>omega-3-fat_100g: omega 3 vet</li>
+<li>alpha-linolenic-acid_100g: alfa-linolzuur</li>
+<li>eicosapentaenoic-acid_100g: eicosapentaeenzuur</li>
+<li>docosahexaenoic-acid_100g: docosahexaeenzuur</li>
+<li>omega-6-fat: omega 6 vet</li>
+<li>linoleic-acid_100g: linolzuur</li>
+<li>arachidonic-acid_100g: arachidonzuur</li>
+<li>gamma-linolenic-acid_100g: gamma-linoleenzuur</li>
+<li>dihomo-gamma-linolenic-acid_100g: dihomo-gamma-linoleenzuur</li>
+<li>omega-9-fat_100g: omega 9 vet</li>
+<li>oleic-acid_100g: oliezuur</li>
+<li>elaidic-acid_100g: elaidinezuur</li>
+<li>gondoic-acid_100g: Eicoseenzuur</li>
+<li>mead-acid_100g: meadzuur</li>
+<li>erucic-acid_100g: erucazuur</li>
+<li>nervonic-acid_100g: nervonzuur</li>
+<li>trans-fat_100g: transvetten</li>
+<li>cholesterol_100g: cholesterol</li>
 
-<li>sucrose_100g</li>
-<li>glucose_100g</li>
-<li>fructose_100g</li>
-<li>lactose_100g</li>
-<li>maltose_100g</li>
-<li>maltodextrins_100g</li>
-<li>starch_100g</li>
-<li>polyols_100g</li>
+<li>sucrose_100g: sucrose</li>
+<li>glucose_100g: glucose</li>
+<li>fructose_100g: fructose</li>
+<li>lactose_100g: lactose</li>
+<li>maltose_100g: maltose</li>
+<li>maltodextrins_100g: maltodextrines</li>
+<li>starch_100g: zetmeel</li>
+<li>polyols_100g: polyolen</li>
 
-<li>casein_100g</li>
-<li>serum-proteins_100g</li>
-<li>nucleotides_100g</li>
+<li>casein_100g: caseïne</li>
+<li>serum-proteins_100g: serum proteïnen</li>
+<li>nucleotides_100g: nucleotiden</li>
 
-<li>sodium_100g - in the case the salt_100g is left empty</li>
-<li>alcohol_100g</li>
+<li>natrium_100g - in het geval dat de salt_100g leeg is</li>
+<li>alcohol_100g: alcohol</li>
 
-<li>vitamin-a_100g</li>
-<li>beta-carotene_100g</li>
-<li>vitamin-d_100g</li>
-<li>vitamin-e_100g</li>
-<li>vitamin-k_100g</li>
-<li>vitamin-c_100g</li>
-<li>vitamin-b1_100g</li>
-<li>vitamin-b2_100g</li>
-<li>vitamin-pp_100g</li>
-<li>vitamin-b6_100g</li>
-<li>vitamin-b9_100g</li>
-<li>folates_100g</li>
-<li>vitamin-b12_100g</li>
-<li>biotin_100g</li>
-<li>pantothenic-acid_100g</li>
+<li>vitamine a_100g: vitamine A</li>
+<li>beta-carotene_100g: betacaroteen</li>
+<li>vitamin-d_100g: vitamine D</li>
+<li>vitamin-e_100g: vitamin E</li>
+<li>vitamin-k_100g: vitamine K</li>
+<li>vitamin-c_100g: vitamine C</li>
+<li>vitamin-b1_100g: vitamine B1</li>
+<li>vitamin-b2_100g: vitamine B2</li>
+<li>vitamin-pp_100g: vitamine PP</li>
+<li>vitamin-b6_100g: vitamine B6</li>
+<li>vitamin-b9_100g: vitamine B9</li>
+<li>folates_100g: foliumzuur</li>
+<li>vitamin-b12_100g: vitamine B12</li>
+<li>biotin_100g: biotine</li>
+<li>pantothenic-acid_100g: pantotheenzuur</li>
 
-<li>silica_100g</li>
-<li>bicarbonate_100g</li>
-<li>potassium_100g</li>
-<li>chloride_100g</li>
-<li>calcium_100g</li>
-<li>phosphorus_100g</li>
-<li>iron_100g</li>
-<li>magnesium_100g</li>
-<li>zinc_100g</li>
-<li>copper_100g</li>
-<li>manganese_100g</li>
-<li>fluoride_100g</li>
-<li>selenium_100g</li>
-<li>chromium_100g</li>
-<li>molybdenum_100g</li>
-<li>iodine_100g</li>
-<li>caffeine_100g</li>
-<li>taurine_100g</li>
+<li>silica_100g: Silicium</li>
+<li>bicarbonate_100g: bicarbonaten</li>
+<li>potassium_100g: Kalium</li>
+<li>chloride_100g: Chloor</li>
+<li>calcium_100g: Calcium</li>
+<li>phosphorus_100g: Fosfor</li>
+<li>iron_100g: IJzer</li>
+<li>magnesium_100g: Magnesium</li>
+<li>zinc_100g: Zink</li>
+<li>copper_100g: Koper</li>
+<li>manganese_100g: Mangaan</li>
+<li>fluoride_100g: Fluor</li>
+<li>selenium_100g: Selenium</li>
+<li>chromium_100g: Chroom</li>
+<li>molybdenum_100g: Molybdeen</li>
+<li>iodine_100g: Jodium</li>
+<li>caffeine_100g: caffeïne</li>
+<li>taurine_100g: taurine</li>
 
-<li>ph_100g</li>
-<li>collagen-meat-protein-ratio_100g</li>
-<li>cocoa_100g</li>
-<li>chlorophyl_100g</li>
-<li>carbon-footprint_100g</li>
-<li>glycemic-index_100g</li>
-<li>water-hardness_100g</li>
-<li>choline_100g</li>
-<li>phylloquinone_100g</li>
-<li>beta-glucan_100g</li>
-<li>inositol_100g</li>
-<li>carnitine_100g</li>
+<li>ph_100g: zuurtegraad</li>
+<li>collagen-meat-protein-ratio_100g: collageen vleesproteïne verhouding</li>
+<li>cocoa_100g: cacao</li>
+<li>chlorophyl_100g: chlorophyl</li>
+<li>carbon-footprint_100g: CO2-afdruk</li>
+<li>glycemic-index_100g: glycemische index</li>
+<li>water-hardness_100g: water hardheid</li>
+<li>choline_100g: choline</li>
+<li>phylloquinone_100g: phylloquinone</li>
+<li>beta-glucan_100g: beta-glucaan</li>
+<li>inositol_100g: inositol</li>
+<li>carnitine_100g: carnitine</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<h4 id="envoi_des_photos_et_des_donnees">Sending photos and data</h4>
-<p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
-<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
+<h4 id="envoi_des_photos_et_des_donnees">Foto's en gegevens verzenden</h4>
+<p>Als het aantal producten relatief klein is (minder dan 1000 producten) en de updates niet vaak voorkomen (bijvoorbeeld elke 6 maanden), is het mogelijk om ons de foto's en het CSV-bestand op alle mogelijke manieren toe te sturen (bijvoorbeeld e-mail voor CSV-bestanden en WeTransfer, Google Drive, DropBox etc. voor foto's).</p>
+<p>Voor een groter aantal producten of een meer regelmatige update, kunnen we een SFTP-ruimte maken waar u handmatig of automatisch gegevens en foto's kunt verzenden. Neem contact met ons op zodat we dit kunnen implementeren.</p>
 
-<h2 id="questions_frequentes">Frequently asked Questions</h2>
+<h2 id="questions_frequentes">Veel gestelde vragen</h2>
 
-<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</h3>
-<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
+<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Is de vertonen van producten gratis?</h3>
+<p>Het importeren van de gegevens is volledig gratis. We accepteren geen betaling voor het opnemen van gegevens. We zijn erg blij dat u hebt besloten om de gegevens van uw producten bij te dragen aan de voedsel-inzichtelijkheid en wij danken u daarvoor.</p>
   
-<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</h3>
-<p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>
-<p>Once checked, they will replace and / or supplement the data entered by the contributors.</p>
+<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Worden de gegevens van de producent overschreven door de bijdragers?</h3>
+<p>Producentgegevens worden automatisch beheerd door Open Food Facts met algoritmen voor consistentiecontrole en vervolgens door sommige bijdragers. We hebben het volste vertrouwen in de gegevens die u ons stuurt, maar we weten uit ervaring dat typfouten mogelijk zijn.</p>
+<p>Eenmaal gecontroleerd, zullen uw gegevens die van de bijdragers vervangen en/of aanvullen.</p>
 
-<p>In the case of a regular and automated import, the data will replace at every import the updates by contributors, unless a manifest error (which will be reported to you) is reported on a product by a contributor.</p>
+<p>In het geval van een regelmatige en geautomatiseerde import, zullen uw gegevens die van de bijdragers vervangen, tenzij een werkelijke fout (die aan u wordt gerapporteerd) aan een product wordt gerapporteerd.</p>
 
-<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</h3>
+<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is het mogelijk producten te verwijderen die niet meer verkocht worden?</h3>
 
-<p>When a product disappears from the shelves, it is quickly consumed, and we find that it is quickly no longer scanned.</p>
-<p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
-<p>If you have historical data on your old products or old versions of your products, we would also be very interested in this historical data, in order to be able to go back in time, to allow scientific analyzes on long time, and to make it possible to visualize the evolution some products.</p>
-<p>Producers can also send us the lists of barcodes removed from the sale so that we can label the products appropriately.</p>
+<p>Wanneer een product uit de schappen verdwijnt, dan is het snel op en merken we snel dat het niet meer wordt gescand.</p>
+<p>We archiveren het product vervolgens zodat het beschikbaar blijft als een archief voor wetenschappelijke doeleinden in de context van voedselcohorten die tientallen jaren meegaan. Het is essentieel om de samenstelling van een product op een precieze datum te kunnen verkrijgen, zelfs als het is veranderd of verdwenen.</p>
+<p>Als u historische gegevens over uw oude producten of oude versies van uw producten hebt, zijn we ook erg geïnteresseerd in deze historische gegevens, om terug te kunnen gaan in de tijd, om wetenschappelijke analyses langdurig toe te staan en om het te maken mogelijk om de evolutie van sommige producten te visualiseren.</p>
+<p>Producenten kunnen ons ook de lijsten met barcodes sturen die uit de verkoop zijn verwijderd, zodat we de producten op de juiste manier kunnen labelen.</p>
   
-<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</h3>
-<p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
+<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Kunnen dierlijke producten, non-foodproducten, cosmetica en andere producten worden geïntegreerd in Open Food Facts?</h3>
+<p>We hebben specifieke projecten voor cosmetica, voor diervoeding en voor andere producten (Open Beauty Facts, Open Pet Food Facts en Open Producten). We zijn dan ook blij dat we uw producten kunnen importeren in het project dat bij hen past.</p>
 </div>
