@@ -3813,9 +3813,37 @@ sub search_and_display_products($$$$$) {
 
 	my $count;
 
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	my $fields_ref;
 
-	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+
+	#for API (json, xml, rss,...), display all fields
+	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
+		$fields_ref = {};
+	} else {
+	#for HTML, limit the fields we retrieve from MongoDB
+		$fields_ref = {
+		"lc" => 1,
+		"code" => 1,
+		"product_name" => 1,
+		"product_name_$lc" => 1,
+		"brands" => 1,
+		"images" => 1,
+		"quantity" => 1
+		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
+	}
+
+	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
+
+	# Sort the keys of hashes
+	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+
+	my $key = $server_domain . "/" . $json;
 
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 
@@ -5320,6 +5348,11 @@ sub search_and_graph_products($$$) {
 			labels_tags => 1,
 			images => 1,
 		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
 	}
 
 	foreach my $axis ('x','y') {
@@ -6484,8 +6517,8 @@ HTML
 					<span id="dmtext">Dark</span>
 					<input type = "checkbox" id = "switch" name = "theme" />
 					<label for = "switch"> Toggle </label>
-					
-					
+
+
 				</div>
 			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
