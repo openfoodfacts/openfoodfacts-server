@@ -201,45 +201,6 @@ function add_line() {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-function upload_image (imagefield) {
-
- $('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
- $('.img_input[name="imgupload_' + imagefield + '"]').hide();
- $('div[id="uploadimagemsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image);
- $('div[id="uploadimagemsg_' + imagefield +'"]').show();
-
- $("#product_form").ajaxSubmit({
-
-  url: "/cgi/product_image_upload.pl",
-  data: { imagefield: imagefield },
-  dataType: 'json',
-  beforeSubmit: function() {
-   //o.dataType = 'json';
-  },
-  success: function(data) {
-	//alert(data.status);
-	//alert("input:hidden[name=\"" + data.imagefield + ".imgid\"]");
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_received);
-	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.image.imgid);
-	$([]).selectcrop('add_image',data.image);
-	$(".select_crop").selectcrop('show');
-
-	$('#' + imagefield + '_' + data.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
-	change_image(imagefield, data.image.imgid);
-
-  },
-  error : function() {
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_upload_error);
-  },
-  complete: function() {
-	$('.img_input').prop("disabled", false).show();
-  }
- });
-}
-
-
-
-
 function update_image(imagefield) {
 
 	$('#crop_' + imagefield).attr("src","/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield]
@@ -798,7 +759,7 @@ function get_recents(tagfield) {
         sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product_image_upload.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code} ],
+		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code}, {name: 'source', value: 'product_edit_form'}],
 		resizeMaxWidth : 2000,
 		resizeMaxHeight : 2000,
 

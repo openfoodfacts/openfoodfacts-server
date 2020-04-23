@@ -62,7 +62,7 @@ my @lists =(
 	["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 	["fr","lait demi-écrémé", "lait demi-écrémé"],
 	["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants : alimentaires E124, E122, E133, E104, E110"],
+	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires E124, E122, E133, E104, E110"],
 	["fr","INS 240,241,242b","E240, E241, E242b"],
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
@@ -202,6 +202,9 @@ my @lists =(
 	# vit. e
 	["en", "vit. e, vitamins b2, B3 and K, vit d, vit a & c, vit. B12", "vitamin e, vitamins, vitamin b2, vitamin B3, vitamin K, vitamin d, vitamin a, vitamin c, vitamin B12"],
 	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
+
+	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
+
 );
 
 foreach my $test_ref (@lists) {
