@@ -685,7 +685,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
@@ -935,7 +935,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
