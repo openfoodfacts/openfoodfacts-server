@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 17:24\n"
+"PO-Revision-Date: 2020-04-13 14:39\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -240,15 +240,31 @@ msgstr "מוצרים שאינם מהמותג %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr "בעלות על המותג"
+msgstr ""
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr "חברת קוקה קולה"
+msgstr ""
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr "בעלות על המותג"
+msgstr ""
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr ""
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr ""
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -3291,10 +3307,6 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "קטגוריה מסוימת"
 
-msgctxt "sources_fields_specific"
-msgid "Source specific field"
-msgstr "שדה תלוי מקור"
-
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "בחירת שדה"
@@ -3324,31 +3336,22 @@ msgid "only the unit, with the value in another column"
 msgstr "רק היחידה, בצירוף הערך בעמודה אחרת"
 
 # Please do not translate Y, Yes and 1
-msgctxt "labels_specific_tag"
+msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של תווית מסוימת (למשל: אורגני, סחר הוגן וכו׳) כאשר הערך יכול להיות Y,‏ Yes או 1."
 
-msgctxt "labels_specific_tag_value"
+msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "יש להקליד את שם התווית בשדה הטקסט שמשמאל."
 
 # Please do not translate Y, Yes and 1
-msgctxt "categories_specific_tag"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של קטגוריה מסוימת (למשל: משקאות) כאשר הערך יכול להיות Y,‏ Yes או 1."
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "יש לבחור באפשרות זו אם העמוד מציינת שהמוצר הוא בקטגוריה מסוימת (למשל: משקאות) כאשר הערך יכול להיות Y,‏ Yes או 1."
 
-msgctxt "categories_specific_tag_value"
+msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "יש להקליד את שם הקטגוריה בשדה הטקסט שמשמאל."
-
-# Please do not translate Y, Yes and 1
-msgctxt "sources_fields_specific_tag"
-msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr "יש לבחור את האפשרות הזאת לשדות תלויי מקור ושאנו רוצים להשאיר כשדות תלויי מקור."
-
-msgctxt "sources_fields_specific_tag_value"
-msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr "יש להקליד את שם שדה היעד בשדה הטקסט שמשמאל או להשאיר ריק כדי להשתמש בשם שדה המקור."
 
 msgctxt "value"
 msgid "Value"
@@ -4147,15 +4150,10 @@ msgstr "ניתן להצטרף לבין 1 ל־3 צוותים. מוצרים שית
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr "שמות הצוותים הם ציבוריים. אין ליצור צוותים עם שמות שמכילים פרטים אישיים (למשל: שמות משפחה), סימני מסחר (אלא אם כן הם בבעלותך) או משהו פוגעני."
+msgstr ""
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr "צוות %s"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d מוצרים ייוצאו."
+msgstr ""
 

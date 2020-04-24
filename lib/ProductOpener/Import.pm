@@ -978,16 +978,14 @@ sub import_csv_file($) {
 				}
 
 				# Standardize units
-				if (defined $unit) {
-					if ($unit eq "kj") {
-						$unit = "kJ";
-					}
-					elsif ($unit eq "mcg") {
-						$unit = "µg";
-					}
-					elsif ($unit eq "iu") {
-						$unit = "IU";
-					}
+				if ($unit eq "kj") {
+					$unit = "kJ";
+				}
+				elsif ($unit eq "mcg") {
+					$unit = "µg";
+				}
+				elsif ($unit eq "iu") {
+					$unit = "IU";
 				}
 
 				my $modifier = undef;

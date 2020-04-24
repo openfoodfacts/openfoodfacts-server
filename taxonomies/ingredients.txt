@@ -7265,7 +7265,7 @@ ar:منتجات الألبان
 be:Малочныя прадукты
 br:Boued-laezh
 bs:Mliječni proizvodi
-ca:Làctic, producte làctic, llet i els seus derivats, llet i derivats, derivats làctics, làctics
+ca:Làctic
 cs:Mléčný výrobek
 cy:Cynnyrch llaeth
 da:Mejeriprodukter
@@ -7330,7 +7330,7 @@ es:derivado lacteo en polvo
 <en:dairy
 en:fermented milk products, cultured dairy foods, cultured dairy products, cultured milk products
 be:Кісламалочныя прадукты
-ca:Llet fermentada, productes làctics fermentats
+ca:Llet fermentada
 cs:Kysaný mléčný výrobek
 de:Sauermilchprodukte, Sauermilchprodukt, Sauermilcherzeugnis, Sauermilcherzeugnisse
 es:Producto fermentado de la leche
@@ -7349,8 +7349,6 @@ vegetarian:en:maybe
 
 <en:dairy
 en:powdered milk products, dried milk products, product on base on milk powder
-es:producto lácteo en polvo, producto a base de leche en polvo, productos lácteos en polvo, productos a base de leche en polvo
-ca:producte làctic en pols, producte a base de llet en pols, productes làctics en pols, productes a base de llet en pols
 de:Trockenmilcherzeugnis
 hu:tejpor alapú termékek
 
@@ -7506,7 +7504,6 @@ vegetarian:en:yes
 en:unsalted butter
 de:ungesalzene Butter
 es:Mantequilla sin sal
-ca:mantega sense sal
 fi:suolaamaton voi, suolaton voi
 fr:beurre doux
 hu:sózatlan vaj, sótlan vaj
@@ -7534,7 +7531,6 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_demi-sel
 en:salted butter
 de:gesalzene Butter, gesalzenes Butter
 es:mantequilla salada, Mantequilla con sal
-ca:mantega salada, mantega amb sal
 fi:suolattu voi, voimakassuolainen voi
 fr:beurre salé
 hu:sózott vaj, sós vaj
@@ -7550,7 +7546,6 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_salé
 <en:butter
 en:churned butter
 es:manteca batida
-ca:mantega batuda
 fi:kirnuttu voi, kirnuvoi
 fr:beurre de baratte
 hu:köpült vaj
@@ -7564,8 +7559,6 @@ en:pasteurized butter, pasteurised butter
 de:pasteurisierter Butter
 fi:pastöroitu voi
 fr:beurre pasteurisé
-es:mantequilla pasteurizada
-ca:mantega pasteuritzada
 hu:pasztőrözött vaj, pasztörizált vaj, hőkezelt vaj
 it:burro pastorizzato
 nl:gepasteuriseerde boter
@@ -7575,8 +7568,6 @@ nl:gepasteuriseerde boter
 en:organic pasteurized butter
 de:pasteurisierter Bio Butter
 fr:beurre bio pasteurisé
-es:mantequilla pasteurizada ecológica
-ca:mantega pasteuritzada ecològica
 hu:bio pasztőrözött vaj, bio pasztörizált vaj, bio hőkezelt vaj
 it:burro pastorizzato bio
 
@@ -7609,7 +7600,6 @@ fr:beurre de cuisine, beurre cuisinier
 en:fresh butter
 de:frische Butter
 es:mantequilla fresca
-ca:mantega fresca
 fi:tuore voi
 fr:beurre frais
 hu:friss vaj
@@ -7632,8 +7622,6 @@ en:reconstituted butter
 de:rekonstituierte Butter
 fi:ennastettu voi, rekombinoitu voi
 fr:beurre concentré reconstitué, beurre déshydraté reconstitué
-es:mantequilla deshidratada reconstituida
-ca:mantega deshidratada reconstituïda
 nl:gereconstitueerde boter
 # ingredient/reconstituted-butter has 92 products in 2 languages @2019-07-10
 
@@ -7649,8 +7637,6 @@ wikidata:en:Q26882140
 # <en:compound
 <en:butter
 fr:poudre au beurre, poudre de beurre
-es:mantequilla en polvo
-ca:mantega en pols
 fi:voijauho
 nl:boterpoeder
 # ingredient/fr:poudre-au-beurre has 66 products in 2 languages @2019-07-10
@@ -7849,7 +7835,6 @@ carbon_footprint_fr_foodges_value:fr:1.2
 en:sterilised milk
 de:Sterilisierte Milch
 es:Leche esterilizada
-ca:llet esterilitzada
 fi:steriloitu maito
 fr:lait stérilisé
 hu:hőkezelt tej, sterilizált tej
@@ -7864,7 +7849,6 @@ en:pasteurised milk
 ca:llet pasteuritzada
 de:Pasteurisierte Milch
 es:leche pasteurizada
-ca:llet pasteuritzada
 fi:pastöroitu maito, pastöroidusta maidosta
 fr:lait pasteurisé
 hu:pasztőrözött tej, pasztörizált tej
@@ -7879,8 +7863,6 @@ en:UHT pasteurised milk
 de:UHT Milch
 fi:iskukuumennettu maito, UHT-käsitelty maito, UHT-maito
 fr:lait stérilisé U.H.T
-es:leche esterelizada UHT
-ca:llet esterilitzada UHT
 hu:UHT tej, ultrapasztőrözött tej
 
 #pasteurisation of 15s under 72–74 °C
@@ -7902,8 +7884,6 @@ en:Follow-on milk
 de:Folgemilch
 fi:vieroitusvalmiste
 fr:lait de suite
-es:leche de seguimiento
-ca:llet de seguiment
 it:latte di proseguimento
 # ingredient/fr:lait-de-suite has 54 products in 4 languages @2019-04-05
 
@@ -7912,8 +7892,6 @@ en:organic milk
 de:Bio-milch
 fi:luomumaito
 fr:lait bio, lait issu de l'agriculture biologique
-ca:llet ecològica, llet d'agricultura ecològica
-es:leche ecològica, leche de agricultura ecològica
 hu:bio tej
 it:Latte biologico
 # ingredient/fr:lait-bio has 24 products @2019-02-22
@@ -7929,7 +7907,6 @@ nl:melk uit Frankrijk
 en:fresh milk
 de:Frischmilch
 es:Leche fresca
-ca:llet fresca
 fi:tuore maito
 fr:lait frais
 hu:friss tej
@@ -7940,8 +7917,6 @@ pt:leite fresco
 
 <en:fresh milk
 fr:lait frais pasteurisé
-es:leche fresca pasteurizada
-ca:llet fresca pasteuritzada
 hu:pasztőrözött friss tej
 pt:leite fresco pasteurizado
 
@@ -7967,7 +7942,6 @@ wikidata:en:Q1616491
 en:low-fat milk, 1% fat milk, lowfat milk
 de:fettarme Milch
 es:Leche baja en grasa
-ca:llet baixa en greixos
 fi:Vähärasvainen maito
 fr:lait maigre
 hu:alacsony zsírtartalmú tej
@@ -7987,7 +7961,6 @@ en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
 ar:حليب منزوع الدسم
 de:Magermilch, entrahmte Milch
 es:Leche descremada, Leche desnatada, leche sin grasas
-ca:llet descremada, llet desnatada, llet sense greix
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:rasvaton maito
@@ -8017,8 +7990,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
 <en:pasteurised milk
 en:pasteurized skimmed milk
 de:pasteurisierte Magermilch, pasteurisierter Magermilch
-es:leche desnatada pasteurizada, leche pasteurizada desnatada, leche pasteurizada descremada, leche descremada pasteurizada
-ca:llet desnatada pasteuritzada, llet pasteuritzada desnatada, llet pasteuritzada descremada, llet descremada pasteuritzada
+es:leche desnatada pasteurizada, leche pasteurizada desnatada
 fi:pastöroitu rasvaton maito
 fr:lait écrémé pasteurisé
 hu:pasztőrözött sovány tej, pasztörizál sovány tej, hőkezelt sovány tej
@@ -8030,8 +8002,6 @@ pt:leite pasteurizado desnatado, leite desnatado pasteurizado
 en:UHT sterilised skimmed milk
 de:entrahmte H-Milch
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait stérilisé uht écrémé
-es:leche descremada esterilizada UHT, leche desnatada esterilizada UHT
-ca:llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
 hu:sovány UHT tej
 nl:UHT-gesteriliseerde magere melk
 # ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
@@ -8039,8 +8009,6 @@ nl:UHT-gesteriliseerde magere melk
 <en:UHT sterilised skimmed milk
 en:organic UHT sterilised skimmed milk
 fr:lait écrémé stérilisé uht issu de l'agriculture biologique
-ca:llet desnatada esterilitzada UHT ecològica, llet descremada esterilitzada ecològica
-es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -8050,7 +8018,6 @@ es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ec
 en:semi-skimmed milk, reduced-fat milk
 de:fettarme Milch, teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada
-ca:llet parcialment desnatada, llet semidesnatada
 fi:kevytmaito
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 hu:zsírszegény tej, félzsíros tej
@@ -8064,8 +8031,6 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 <en:semi-skimmed milk
 fr:lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
-es:leche parcialmente desnatada esterilizada UHT, leche semidesnatada esterilizada UHT
-ca:llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
 de:fettarme Haltbarmilch, fettarme H-milch
 nl:halfvolle melk uht verhit
 pt:leite UHT meio gordo, leite meio gordo UHT
@@ -8077,8 +8042,6 @@ fr:lait de montagne demi écrémé stérilisé uht
 en:organic semi-skimmed milk, semi-skimmed milk from organic farming
 de:Fettarme Milch aus biologischer Landwirtschaft
 fr:Lait demi-écrémé issu de l'agriculture biologique
-es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica
-ca:llet parcialment desnatada ecològica, llet semidesnatada ecològica
 hu:bio zsírszegény tej, zsírszegény bio tej
 it:latte parzialmente scremato da agricoltura biologica
 nl:biologische halfvolle melk
@@ -8086,8 +8049,6 @@ nl:biologische halfvolle melk
 
 <en:organic semi-skimmed milk
 fr:lait demi-écrémé stérilisé uht biologique,lait demi-écrémé issu de l'agriculture biologique stérilisé uht, lait demi-écrémé stérilisé uht issu de l'agriculture biologique, lait demi-écrémé biologique
-es:leche semidesnatada esterilizada UHT ecológica, leche parcialmente desnatada esterilizada UHT ecológica
-ca:llet semidesnatada esterilitzada UHT ecològica, llet parcialment desnatada esterilitzada UHT ecològica
 
 # description:en:PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
@@ -8096,8 +8057,6 @@ en:pasteurized semi-skimmed milk
 de:pasteurisierte teilentrahmte Milch
 fi:pastöroitu kevytmaito
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi écrémé
-es:leche parcialmente desnatada pasteurizada, leche semidesnatada pasteurizada, leche pasteurizada parcialmente desnatada, leche pasteurizada semidesnatada
-ca:llet parcialment desnatada pasteuritzada, llet pasteuritzada parcialment desnatada, llet semidesnatada pasteuritzada, llet pasteuritzada semidesnatada
 hu:pasztőrözött zsírszegény tej
 it:latte pastorizzato parzialmente scremato, latte parzialmente scremato pastorizzato
 nl:gepasteuriseerde halfvolle melk
@@ -8108,8 +8067,6 @@ carbon_footprint_fr_foodges_value:fr:1.2
 <en:UHT pasteurised milk
 en:organic UHT pasteurised semi-skimmed milk
 fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t
-es:leche semidesnatada ecológica esterilizada UHT, leche parcialmente desnatada ecológica esterilizada UHT
-ca:llet semidesnatada ecològica esterilitzada UHT, llet parcialment desnatada ecològica esterilitzada UHT
 
 <en:pasteurized skimmed milk
 en:organic pasteurized skimmed milk
@@ -8121,8 +8078,6 @@ fr:lait biologique écrémé et pasteurisé
 en:sterilised semi-skimmed milk
 de:sterilisierte teilentrahmte Milch, teilentrahmte Milch sterilisiert
 fr:lait demi-écrémé stérilisé
-es:leche parcialmente desnatada esterelizada, leche semidesnatada esterilizada, leche esterilizada parcialmente desnatada, leche esterilizada semidesnatada
-ca:llet parcialment desnatada esterilitzada, llet esterilitzada parcialment desnatada, llet semidesnatada esterilitzada
 
 <en:sterilised semi-skimmed milk
 en:organic UHT pasteurised semi-skimmed milk
@@ -8136,9 +8091,7 @@ fr:lait de montagne partiellement écrémé
 <en:pasteurised milk
 en:fresh organic pasteurised semi-skimmed milk
 de:frische entrahmte Bio-Milch pasteurisiert
-fr:lait frais demi-écrémé 
-es:leche fresca semidesnatada, leche fresca parcialmente desnatada
-ca:llet fresca semidesnatada, llet fresca parcialment desnatda
+fr:lait frais demi-écrémé pasteurisé
 
 <en:organic semi-skimmed milk
 <en:fresh milk
@@ -8158,7 +8111,6 @@ cs:Plnotučné mléko
 da:sødmaelk
 de:Vollmilch
 es:leche entera
-ca:llet sencera 
 fi:täysmaito
 fr:lait entier
 hu:teljes tej
@@ -8173,8 +8125,6 @@ de:Frische Vollmilch
 es:Leche entera fresca
 fi:tuore täysmaito
 fr:lait entier frais, lait frais entier
-es:leche entera fresca, leche fresca entera
-ca:llet sencera fresca, llet fresca sencera
 hu:friss teljes tej
 it:latte intero fresco, latte fresco intero
 
@@ -8183,8 +8133,6 @@ fr:lait frais entier microfiltré
 
 <en:fresh whole milk
 fr:lait frais entier pasteurisé, lait frais pasteurisé entier
-es:leche fresca entera pasteurizada, leche fresca pasteurizada entera
-ca:llet frecsa sencera pasteuritzada, llet fresca pasteuritzada sencera
 it:latte intero fresco pastorizzato
 
 <en:fresh whole milk
@@ -8200,8 +8148,6 @@ en:organic whole milk
 de:Bio-Vollmilch
 fi:luomu täysmaito
 fr:lait entier bio, lait entier issu de l'agriculture biologique
-es:leche entera ecológica, leche entera de agricultura ecológica
-ca:llet sencera ecològica, llet sencera d'agricultura ecològica
 hu:bio teljes tej
 it:latte intero biologico, latte biologico intero
 nl:volle melk van biologische oorsprong
@@ -8212,8 +8158,6 @@ en:sterilised whole milk
 de:sterilisierte Vollmilch
 fi:steriloitu täysmaito
 fr:lait entier stérilisé
-es:leche entera esterilizada, leche esterilizada entera
-ca:llet sencera esterilitzada, llet esterolitzada sencera
 hu:hőkezelt teljes tej
 it:latte intero sterilizzato, latte sterilizzato intero
 
@@ -8224,8 +8168,6 @@ de:Haltbare Vollmilch, H-Vollmilch
 fi:iskukuumennettu täysmaito
 fr:lait entier stérilisé uht, lait entier stérilisé u h t, lait stérilisé uht entier
 hu:pasztőrözött UHT teljes tej
-es:leche entera esterilizada UHT, leche esterilizada UHT entera
-ca:llet sencera esterilitzada UHT, llet esterilitzada UHT sencera
 nl:UHT gesteriliseerde volle melk
 # ingredient/fr:lait-entier-sterilise-uht has 20 products in 2 languages @2019-05-23
 
@@ -8233,15 +8175,12 @@ nl:UHT gesteriliseerde volle melk
 en:organic UHT pasteurised whole milk
 fi:iskukuumennettu luomu täysmaito
 fr:lait entier stérilisé uht issu de l'agriculture biologique
-es:leche entera esterilidasa UHT ecológica, leche entera esterilizada de agricultura ecológica
-ca:llet sencera esterilitzada UHT ecològica, llet sencera esterilitzada d'agricultura ecològica
 
 <en:whole milk
 <en:pasteurised milk
 en:pasteurised whole milk, pasteurised whole milk
 de:pasteurisierte Vollmilch
-es:leche entera pasteurizada, leche pasteurizada entera
-ca:llet sencera pasteuritzada, llet pasteuritzada senceea
+es:leche entera pasteurizada
 fi:pastöroitu täysmaito
 fr:lait entier pasteurisé
 hu:pasztőrözött teljes tej
@@ -8262,7 +8201,6 @@ fr:lait entier standardisé
 en:raw milk
 de:Rohmilch
 es:Leche cruda
-ca:llet crua
 fi:raakamaito, tilamaito
 fr:lait cru
 hu:nyers tej
@@ -8273,8 +8211,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 <en:raw milk
 <en:whole milk
 fr:lait cru entier
-es:leche cruda entera
-ca:llet crua sencera
 
 ################################## COW MILKS ###################################
 
@@ -8284,7 +8220,6 @@ ca:llet crua sencera
 en:cow's milk, cows' milk, cow milk
 de:Kuhmilch
 es:leche de vaca
-ca:llet de vaca
 fi:lehmänmaito
 fr:lait de vache
 hu:tehéntej
@@ -8300,8 +8235,6 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 <en:cow's milk
 en:raw cow's milk
 fr:lait de vache cru
-es:leche de vaca cruda
-ca:llet de vaca crua
 
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
@@ -8311,8 +8244,6 @@ de:Kuhrohmilch
 es:leche cruda de vaca
 fi:lehmän raakamaito, raaka lehmänmaito
 fr:lait cru de vache, lait de vache cru
-es:leche cruda de vaca, leche de vaca cruda
-ca:llet crua de vaca, llet de vaca crua
 hu:nyers tehéntej
 nl:rauwe koemelk
 ru:коровье молоко
@@ -8321,8 +8252,6 @@ ru:коровье молоко
 <en:organic milk
 <en:sterilised milk
 fr:lait de vache bio thermisé
-es:leche de vaca ecológica termizada
-ca:llet de vaca ecològica termitzada
 
 # WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
@@ -8330,8 +8259,7 @@ ca:llet de vaca ecològica termitzada
 <en:cow's milk
 en:whole cow's milk
 de:Kuhvollmilch
-es:Leche entera de vaca, leche de vaca entera
-ca:llect de vaca sencera, llet sencera de vaca
+es:Leche entera de vaca
 fi:lehmän täysmaito
 fr:Lait de vache entier, lait entier de vache
 hu:teljes tehéntej
@@ -8341,23 +8269,19 @@ ro:lapte de vacă integral, lapte de vaca integral
 en:raw whole cow's milk
 de:rohe Kuhvollmilch
 fr:lait de vache entier cru
-es:leche de vaca entera cruda, leche entera cruda de vaca
-ca:llet de vaca sencera crua, llet sencera crua de vaca
 # ingredient/fr:lait-de-vache-entier-cru has 10 products @2019-05-27
 
 <en:whole cow's milk
 en:pasteurised whole cow's milk
 de:pasteurisierte Kuhvollmilch
-es:Leche entera pasteurizada de vaca, leche de vaca entera pasteurizada, leche pasteurizada de vaca entera, leche entera de vaca pasteurizada
-ca:llet sencera pasteuritzada de vaca, llet de vaca sencera pasteuritzada, llet pasteuritzada de vaca sencera, llet sencera de vaca pasteuritzada
+es:Leche entera pasteurizada de vaca
 fr:lait de vache entier pasteurisé, lait pasteurisé de vache entier, lait entier de vache pasteurisé, lait entier pasteurisé de vache
 ro:lapte de vacă integral pasteurizat, lapte de vaca integral pasteurizat
 
 <en:cow's milk
 en:semi-skimmed cow's milk
 de:teilentrahmte Kuhmilch, fettarme Kuhmilch
-es:leche semidesnatada de vaca, leche de vaca semidesnatada, leche de vaca parcialmente desnatada, leche parcialmente desnatada de vaca
-ca:llet semidesnatada de vaca, llet de vaca semidesnatada, llet de vaca parcialment desnatada, llet parcialment desnatada de vaca
+es:leche semidesnatada de vaca, leche de vaca semidesnatada
 fr:lait de vache demi écrémé
 
 <en:semi-skimmed cow's milk
@@ -8371,7 +8295,6 @@ fr:lait de vache partiellement écrémé et pasteurisé
 en:pasteurised cow's milk
 de:pasteurisierte Kuhmilch
 es:leche de vaca pasteurizada, leche pasteurizada de vaca
-ca:llet de vaca pasteuritzada, llet pasteuritzada de vaca
 fi:pastöroitu lehmänmaito
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 hu:pasztőrözött tehéntej
@@ -8381,8 +8304,6 @@ sv:pastöriserad komjölk
 
 <en:Cow's milk
 fr:lait de vache thermisé
-es:leche de vaca termizada, leche termizada de vaca
-ca:llet de vaca termitzada, llet termitzada de vaca
 
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
@@ -8396,8 +8317,6 @@ en:raw goat's milk
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
 fi:vuohen raakamaito, raaka vuohenmaito
 fr:lait cru de chèvre
-es:leche cruda de cabra 
-ca:llet crua de cabra 
 hu:nyers kecsketej
 
 # description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
@@ -8406,7 +8325,6 @@ hu:nyers kecsketej
 en:goat's milk
 de:Ziegenmilch
 es:leche de cabra
-ca:llet de cabra
 fi:vuohenmaito
 fr:lait de chèvre
 hu:kecsketej
@@ -8419,16 +8337,12 @@ wikidata:en:Q1418287
 <en:raw milk
 en:raw goat's milk
 fr:lait de chèvre cru
-es:leche de cabra cruda
-ca:llet de cabra crua
 
 <en:goat's milk
 en:whole goat's milk
 de:Ziegenvollmilch, Ziegen-Vollmilch
 fi:vuohen täysmaito
 fr:lait entier de chèvre
-ca:llet sencera de cabra, llet de cabra sencera
-es:leche entera de cabra, leche de cabra entera
 hu:teljes kecsketej
 
 <en:goat's milk
@@ -8436,8 +8350,6 @@ en:semi-skimmed goat's milk
 de:teilentrahmte Ziegenmilch
 fi:vuohen kevytmaito
 fr:lait de chevre demi-écrémé
-es:leche de cabra parcialmente desnatada, leche de cabra semidesnatada, leche parcialmente desnatada de cabra, leche semidesnatada de cabra
-ca:llet de cabra parcialment desnatada, llet de cabra semidestada, llet parcialment desnatada de cabra, llet semidesnatada de cabra
 hu:zsírszegény kecsketej
 
 <en:goat's milk
@@ -8445,8 +8357,6 @@ en:skimmed goat's milk
 de:entrahmte Ziegenmilch
 fi:rasvaton vuohenmaito
 fr:lait de chevre écrémé
-es:leche de cabra descremada, leche de cabra desnatada, leche desnatada de cabra, leche descremada de cabra
-ca:llet de cabra descremada, llet de cabra desnatada, llet desnatada de cabra, llet descremada de cabra
 hu:sovány kecsketej
 
 # description:en:GOATS MILK - raw goat milk that has been treated (pasteurisation)
@@ -8454,8 +8364,7 @@ hu:sovány kecsketej
 <en:goat's milk
 en:pasteurised goat milk, pasteurized goat milk, pasteurised goatmilk
 de:pasteurisierte Ziegenmilch
-es:leche de cabra pasteurizada, leche pasteurizada de cabra
-ca:llet de cabra pasteuritzada, llet pasteuritzada de cabra
+es:leche de cabra pasteurizada
 fi:pastöroitu vuohenmaito
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 hu:pasztőrözött kecsketej
@@ -8466,8 +8375,6 @@ ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 en:organic pasteurised goat milk
 fi:luomu pastöroitu vuohenmaito
 fr:lait de chevre pasteurisé issu de l'agriculture biologique
-es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
-ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica pasteuritzada de vaca
 hu:pasztőrözött bio kecsketej
 
 ################################# SHEEP MILKS ##################################
@@ -8479,8 +8386,6 @@ en:sheeps milk, sheep milk
 de:Schafsmilch, Schafmilch
 fi:lampaanmaito
 fr:lait de brebis
-es:leche de oveja
-ca:lley d'ovella
 hu:juhtej, birkatej
 it:latte di pecora
 nl:schapenmelk
@@ -8495,8 +8400,6 @@ de:roher Schafmilch
 el:ακατέργαστο πρόβειο γάλα
 fi:lampaan raakamaito, raaka lampaanmaito
 fr:lait cru de brebis
-es:leche cruda de oveja, leche de oveja cruda
-ca:llet crua d'ovella, llet d'ovella crua
 hu:nyers juhtej
 nl:rauwe schapenmelk
 
@@ -8505,8 +8408,7 @@ nl:rauwe schapenmelk
 <en:sheeps milk
 en:pasteurized sheeps milk, pasteurised sheep's milk
 de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
-es:Leche de oveja pasteurizada, leche pasteurizada de oveja
-ca:llet d'ovella pasteuritzada, llet pasteuritada d'ovella
+es:Leche de oveja pasteurizada
 fi:pastöroitu lampaanmaito
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 hu:pasztőrözött juhtej
@@ -8515,13 +8417,9 @@ ro:lapte de oaie pasteurizat
 
 <en:sheeps milk
 fr:lait de brebis thermisé
-es:leche de oveja termizada, leche termizada de oveja
-ca:llet d'ovella termitzada, llet termitzada d'ovella
 
 <en:sheeps milk
 fr:lait entier de brebis
-es:leche entera de oveja, leche de oveja entera
-ca:llet sencera d'ovella, llet d'ovella sencera
 
 ################################# BUFFALO MILKS ################################
 
@@ -8529,7 +8427,6 @@ ca:llet sencera d'ovella, llet d'ovella sencera
 en:buffalo milk
 de:Büffelmilch
 es:leche de búfala
-ca:llet de búfala
 fi:puhvelinmaito
 fr:lait de buffle, lait de bufflonne
 hu:bivalytej
@@ -8547,8 +8444,6 @@ en:pasteurised buffalo milk
 de:pasteurisierte Büffelmilch
 fi:pastöroitu puhvelinmaito
 fr:lait de bufflonne pasteurisé
-es:leche de búfala pasteurizada, leche pasteurizada de búfala
-ca:llet de búfala pasteuritzada, llet pasteuritada de búfala
 hu:pasztőrözött bivalytej
 
 
@@ -8560,7 +8455,6 @@ hu:pasztőrözött bivalytej
 en:evaporated milk
 de:evaporierte Milch, evaporierte Kondensmilch
 es:leche evaporada
-ca:llet evaporada
 eu:Esne lurrundu
 fa:شیر تغلیظ‌شده
 fi:Maitotiiviste
@@ -8590,8 +8484,6 @@ en:coffee cream
 de:Kaffeerahm, Kaffeesahne
 fi:kahvikerma
 fr:crème à café
-es:crema de café
-ca:crema de cafè
 hu:kévékrém, kávétejszín
 it:panna da caffè
 nl:koffieroom
@@ -8656,8 +8548,6 @@ de:gezuckerte Kondensmilch, gezuckerte eingedickte Milch
 es:Leche condensada endulzada
 fi:makeutettu kondensoitu maito, makeutettu maitotiiviste
 fr:lait concentré sucré, lait condensé sucré
-es:leche condensada azucarada, leche azucarada condensada
-ca:llet condensada ensucrada, llet ensucrada condensada
 hu:édesített sűrített tej
 it:latte concentrato zuccherato
 nl:gecondenseerde gesuikerde melk, gesuikerde gecondenseerde melk
@@ -8666,8 +8556,6 @@ wikidata:en:Q57271749
 
 <en:condensed milk
 en:condensed semi-skimmed milk
-ca:llet condensada parcialment desnatada, llet condensada semidesnatada, llet parcialment desnatada condensada, llet semidesnatada condensada
-es:leche condensada parcialmente desnatada, leche condensada semidesnatada, leche parcialmente desnatada condesada, leche semidesnatada condensada
 de:Kondensmagermilch, eingedickte entrahmte Milch
 hu:sűrtett zsírszegény tej
 
@@ -8676,8 +8564,6 @@ en:sweetened condensed semi-skimmed milk
 de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
 fi:makeutettu tiivistetty vähärasvainen maito
 fr:lait écrémé condensé sucré, lait concentré sucré écrémé
-es:leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada
-ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada
 hu:sűrtett édesített zsírszegény tej, édesített sűrtett zsírszegény tej
 it:latte magro condensato zuccherato
 nl:gesuikerde gecondenseerde magere melk
@@ -8689,8 +8575,6 @@ en:sweetened condensed whole milk
 de:gezuckerte Kondensvollmilch
 fi:Makeutettu tiivistetty täysmaito
 fr:lait entier condensé sucré, lait entier concentré sucré
-es:leche entera condensada azucadara
-ca:llet sencera condensada ensucrada
 hu:édesített sűrített teljes tej
 it:latte intero condensato zuccherato
 nl:gecondenseerde volle melk met suiker
@@ -8700,15 +8584,12 @@ nl:gecondenseerde volle melk met suiker
 # category:en:en:Milk jams
 <en:sweetened condensed milk
 fr:confiture de lait
-es:confitura de leche, leche confitada
-ca:confitura de llet, llet confitada
 # usage:fr:confiture de lait (lait concentré sucré, sirop de glucose, sucre, eau, correcteur d'acidité : e331, sel, épaississant : pectines)
 
 <en:condensed milk
 en:condensed whole milk
 de:kondensierte Vollmilch
-es:leche entera condensada, leche condensada entera
-ca:llet sencera condensada, llet condensada sencera
+es:leche entera condensada
 fi:Tiivistetty täysmaito
 fr:lait entier condensé, lait entier concentré
 hu:sűrített teljes tej
@@ -8718,8 +8599,7 @@ nl:gecondenseerde volle melk
 <en:condensed milk
 en:condensed semi-skimmed milk
 de:teilentrahmte Kondensmilch
-es:leche semidesnatada condensada, leche parcialmente desnatada condensada, leche condensada semidesnatada, leche condensada parcialmente desnatada
-ca:llet semidesnatada condensada, llet parcialment desnatada condensada, llet condesnada semidesnatada, llet condensada parcialment desnatada
+es:leche semidesnatada condensada
 fr:lait demi-écrémé condensé
 hu:sűrített zsírszegény tej
 nl:gecondenseerde halfvolle melk
@@ -8731,8 +8611,6 @@ de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermi
 es:leche desnatada condensada
 fi:Tiivistetty vähärasvainen maito
 fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
-es:leche descremada condensada, leche desnatada condensada, leche condensada descremada, leche condensada desnatada
-ca:llet descremada condensada, llet desnatada condensada, llet condensada descremada, llet condensada desnatada
 hu:sűrített sovány tej
 it:latte scremato concentrato, latte magro concentrato
 nl:gecondenseerde magere melk
@@ -8746,16 +8624,13 @@ fr:lait écrémé concentré sucré
 <en:condensed milk
 <en:powdered milk
 fr:lait écrémé concentré ou en poudre, lait écrémé condensé sucré
-es:leche en polvo condensada, leche condensada en polvo
-ca:llet en pols condensada, llet condensada en pols
 nl:gecondenseerde magere poedermelk
 
 <en:milk proteins
 <en:lactose
 en:lactose and milk proteins
 de:Milchzucker und Milcheiweiß, Milchzucker und Milcheiweiss
-es:lactosa y proteínas de la leche, proteínas de la leche y lactosa
-ca:lactosa i proteïnes de la llet, proteïnes de la llet i lactosa
+es:lactosa y proteínas de la leche
 fi:laktoosi- ja maitoproteiini
 fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 hu:laktóz és tejfehérje, tejcukor és tejfehérje
@@ -8793,16 +8668,12 @@ fr:lait origine france en poudre écrémé
 
 <en:milk powder
 fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
-es:leche en polvo parcialmente desnatada, leche parcialmente desnatada en polvo, leche en polvo semidesnatada, leche semidesnatada en polvo
-ca:llet en pols parcialment desnatada, llet parcialment desnatada en pols, llet en pols semidesnatada, llet semidesnatada en pols
 nl:halfvolle poedermelk
 pt:leite meio gordo em pó
 # ingredient/fr:lait-en-poudre-demi-ecreme has 8 products @2019-05-31
 
 <en:milk powder
 fr:lait en poudre enrichi en matière grasse
-es:leche en polvo enriquecida en materia grasa
-ca:llet en pols enriquida en matèria grassa
 
 <en:milk powder
 fr:lait maigre en poudre, lait en poudre maigre

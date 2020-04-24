@@ -269,8 +269,6 @@ if ($imagefield) {
 			if ((($imagefield =~ /^front_/) or ($imagefield =~ /^ingredients_/) or ($imagefield =~ /^nutrition_/))
 				# Changed 2020-03-05: overwrite already selected images
 				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
-				# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-				and ((not defined param('source')) or (param('source') ne "product_edit_form") or (not defined $product_ref->{images}{$imagefield}))
 				) {
 				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
 				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
