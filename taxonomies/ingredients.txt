@@ -23829,6 +23829,13 @@ it:farina di fave
 nl:bonenmeel
 
 <en:flour
+<en:flax seed
+en:flax floor, flaxseed floor
+fr:farine de lin, farine de graines de lin
+#openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
+# 57 products (FR) @2020-04-23
+
+<en:flour
 en:soy flour, soya flour
 de:Sojamehl
 es:harina de soja
@@ -33829,6 +33836,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
 
+<en:orange
+en:blood orange
+fr:orange sanguine
+es:naranja sanguina
+it:arancia rossa
+de:Blutorange
+wikidata:en:https://www.wikidata.org/wiki/Q303669
+wikipedia:en:https://en.wikipedia.org/wiki/Blood_orange
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:orange-sanguine
+# 23 products (FR), 8 products (EN), 4 products (ES) @2020-04-23
+
+<en:orange juice
 en:pasteurized orange juice
 fr:jus d'orange pasteurisé
 
@@ -33882,6 +33901,7 @@ nl:Sinaasappelsap zonder vruchtvlees
 # ingredient/fr:jus-d-orange-sans-pulpe products has 12 in french @2019-05-23
 
 <en:orange juice
+<en:blood orange
 de:Blutorangensaft
 fr:jus d'orange sanguine
 it:succo d'arancia sanguigna
@@ -46755,6 +46775,12 @@ wikidata:en:Q2007388
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pavot
 nutriscore_fruits_vegetables_nuts:en:no
 
+
+<en:poppy seed
+en:blue poppy seed
+fr:graine de pavot bleu
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-pavot-bleu
+# 42 products (FR) @2020-04-23
 
 <en:sunflower
 <en:seed
@@ -68641,6 +68667,12 @@ fi:sitruuna-vinaigrette, sitruunavinegretti
 
 <en:sauce
 fr:sauce hamburger
+
+
+<en:sauce
+fr:sauce blanche
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-blanche
+# 58 entries @2020-04-23
 
 <en:sauce
 en:prepared sauce
