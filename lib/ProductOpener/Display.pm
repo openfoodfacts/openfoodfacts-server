@@ -6481,8 +6481,11 @@ HTML
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
 			<li>
 				<div id = "toggle" class = "toggle-container">
+					<p id="dmtext">Dark Mode </p>
 					<input type = "checkbox" id = "switch" name = "theme" />
 					<label for = "switch"> Toggle </label>
+					
+					
 				</div>
 			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
