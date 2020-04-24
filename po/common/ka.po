@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ka\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-13 14:38\n"
+"PO-Revision-Date: 2020-04-23 20:53\n"
 "Language-Team: Georgian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -197,7 +197,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "ბრენდები"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -205,7 +205,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "ბრენდები"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -233,22 +233,6 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brand owners"
-msgstr ""
-
-msgctxt "brand_owner_products"
-msgid "Products from the %s brand owner"
-msgstr ""
-
-msgctxt "brand_owner_s"
-msgid "brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_tagsinput"
-msgid "add a brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_without_products"
-msgid "Products not from the %s brand owner"
 msgstr ""
 
 msgctxt "by"
@@ -289,7 +273,7 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "მონაცემები"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -333,7 +317,7 @@ msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "კოდი"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -1193,7 +1177,7 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "მენიუ"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1264,7 +1248,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 msgctxt "names"
 msgid "Names"
@@ -1284,7 +1268,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "შემდეგი"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -1421,7 +1405,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "საშუალო"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1446,7 +1430,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1926,7 +1910,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -1934,7 +1918,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2291,7 +2275,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "მაღაზია"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2594,7 +2578,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3116,15 +3100,15 @@ msgstr ""
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr ""
+msgstr "დიახ"
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "გამოტოვება"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3274,6 +3258,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr ""
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr ""
@@ -3303,21 +3291,30 @@ msgid "only the unit, with the value in another column"
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3525,12 +3522,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "მინ"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "მაქს"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3874,7 +3871,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "აპი"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4097,7 +4094,7 @@ msgstr ""
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "გუნდები"
 
 msgctxt "optional"
 msgid "optional"
@@ -4105,7 +4102,7 @@ msgstr ""
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "გუნდები"
 
 msgctxt "teams_s"
 msgid "team"
@@ -4122,5 +4119,10 @@ msgstr ""
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
 msgstr ""
 
