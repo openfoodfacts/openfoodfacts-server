@@ -330,22 +330,22 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:cooked',
-				'text' => "haselnüsse"
+				'processing' => 'de:gegart',
+				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:almond',
-				'processing' => "en:cooked",
+				'processing' => 'de:gegart',
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'passionsfrucht'
 			},
 			{
@@ -685,7 +685,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
@@ -935,7 +935,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
