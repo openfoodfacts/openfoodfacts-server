@@ -1,6 +1,5 @@
 # Product Opener
 
-* Documentation started on <https://en.wiki.openfoodfacts.org/Project:ProductOpener>
 * Versions:
 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
@@ -39,7 +38,9 @@ Data about food is of public interest and has to be open. The complete database 
 
 * Feel free to join us on Slack at <https://openfoodfacts.slack.com/> in the channels: #api #productopener #dev
 * If you're looking for the API, look at <https://en.wiki.openfoodfacts.org/API>
-* Summary of set up: <https://en.wiki.openfoodfacts.org/Project:Product_Opener>
+* Summary of set up: 
+   * [45 min Quick Start Guide w/ Docker](installation/dev-environment-quick-start-guide.md)
+   * [Product Opener Guide](installation/product-opener.md)
 * Configuration
 * Dependencies
 * Database configuration
