@@ -1,7 +1,7 @@
 
 /* TOGGLE BUTTON */
 
-#toggle {margin-top: 5px; display: none;}
+#toggle { display: none;}
 
 #toggle input[type=checkbox]{
 	height: 0;
@@ -35,13 +35,13 @@ label[for="switch"]:after {
 	
 }
 
-.dmtext {
-	font-size: 12px;
-	display: inline-flex;
-	margin-left: 5px;
+#dmtext {
+	font-size: 0.8125rem;
+	margin-left: 10px;
+	line-height: 2.8125rem;
 }
 #toggle input:checked + label[for="switch"]{
-	background: #1d961f;
+	background: #374563;
 	
 	
 }
@@ -59,8 +59,7 @@ label[for="switch"]:active:after {
 
 @media only screen and (min-width: 640px) {
   #toggle {
-    display: inline-flex;
-	margin-left: 10px;
-	margin-top: 10px;
+    display: block;
+	
   }
 }

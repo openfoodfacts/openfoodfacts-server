@@ -12,7 +12,7 @@ select, .select2-results__options, input[type = "text"], input[type = "password"
 }
 
 /* changes link colors & Banner text*/
-a, a, a:hover, a:visited, #hide_image_banner_show, #hide_image_banner_hide {color: #FF6768 !important;}
+a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show, #hide_image_banner_hide, #dmtext {color: #FF6768 !important;}
 
 /* changes the color of the heading on the footer*/
 .title {
@@ -42,7 +42,7 @@ input[type=text]:focus,input[type=password]:focus {
 }
 
 /* changes the background of the buttons on the topbar (discover, search, etc).*/
-.top-bar-section li:not(.has-form) a:not(.button) {
+.top-bar-section li:not(.has-form) a:not(.button), .toggle-container{
     background: #17223b !important;
     outline: 2px solid #263859;
 }
