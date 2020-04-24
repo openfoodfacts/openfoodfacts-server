@@ -19,7 +19,6 @@ label[for="switch"] {
 	display: list-item;
 	border-radius: 100px;
 	position: relative;
-	
 }
 
 label[for="switch"]:after {
@@ -32,7 +31,7 @@ label[for="switch"]:after {
 	background: #fff;
 	border-radius: 90px;
 	transition: 0.3s;
-	
+
 }
 
 #dmtext {
@@ -40,10 +39,9 @@ label[for="switch"]:after {
 	margin-left: 10px;
 	line-height: 2.8125rem;
 }
+
 #toggle input:checked + label[for="switch"]{
 	background: #374563;
-	
-	
 }
 
 #toggle input:checked + label[for="switch"]:after {
@@ -53,13 +51,11 @@ label[for="switch"]:after {
 }
 
 label[for="switch"]:active:after {
-	
 	width: 45px;
 }
 
 @media only screen and (min-width: 640px) {
   #toggle {
     display: block;
-	
   }
 }
