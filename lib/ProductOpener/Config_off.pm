@@ -501,7 +501,6 @@ improvements
 @product_other_fields = qw(
 	producer_product_id
 	producer_version_id
-	brand_owner
 	quantity_value
 	quantity_unit
 	serving_size_value
@@ -560,7 +559,6 @@ improvements
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
-	brand_owner
 );
 
 

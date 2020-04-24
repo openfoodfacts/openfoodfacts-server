@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 15:38\n"
+"PO-Revision-Date: 2020-04-13 15:23\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -234,6 +234,22 @@ msgstr "crwdns125356:0crwdne125356:0"
 msgctxt "brands_p"
 msgid "brand owners"
 msgstr "crwdns125358:0crwdne125358:0"
+
+msgctxt "brand_owner_products"
+msgid "Products from the %s brand owner"
+msgstr "crwdns125360:0%scrwdne125360:0"
+
+msgctxt "brand_owner_s"
+msgid "brand_owner"
+msgstr "crwdns125362:0crwdne125362:0"
+
+msgctxt "brand_owner_tagsinput"
+msgid "add a brand_owner"
+msgstr "crwdns125364:0crwdne125364:0"
+
+msgctxt "brand_owner_without_products"
+msgid "Products not from the %s brand owner"
+msgstr "crwdns125366:0%scrwdne125366:0"
 
 msgctxt "by"
 msgid "by"
@@ -3258,10 +3274,6 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "crwdns122232:0crwdne122232:0"
 
-msgctxt "sources_fields_specific"
-msgid "Source specific field"
-msgstr "crwdns125410:0crwdne125410:0"
-
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "crwdns122234:0crwdne122234:0"
@@ -3291,31 +3303,22 @@ msgid "only the unit, with the value in another column"
 msgstr "crwdns122246:0crwdne122246:0"
 
 # Please do not translate Y, Yes and 1
-msgctxt "labels_specific_tag"
+msgctxt "specific_tag_label"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "crwdns125412:0crwdne125412:0"
+msgstr "crwdns122248:0crwdne122248:0"
 
-msgctxt "labels_specific_tag_value"
+msgctxt "specific_tag_label_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "crwdns125414:0crwdne125414:0"
+msgstr "crwdns122250:0crwdne122250:0"
 
 # Please do not translate Y, Yes and 1
-msgctxt "categories_specific_tag"
-msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "crwdns125416:0crwdne125416:0"
+msgctxt "specific_tag_category"
+msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "crwdns122292:0crwdne122292:0"
 
-msgctxt "categories_specific_tag_value"
+msgctxt "specific_tag_category_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr "crwdns125418:0crwdne125418:0"
-
-# Please do not translate Y, Yes and 1
-msgctxt "sources_fields_specific_tag"
-msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr "crwdns125420:0crwdne125420:0"
-
-msgctxt "sources_fields_specific_tag_value"
-msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr "crwdns125422:0crwdne125422:0"
+msgstr "crwdns122254:0crwdne122254:0"
 
 msgctxt "value"
 msgid "Value"
@@ -4120,9 +4123,4 @@ msgstr "crwdns125378:0crwdne125378:0"
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "crwdns125380:0%scrwdne125380:0"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "crwdns125424:0%dcrwdne125424:0"
 

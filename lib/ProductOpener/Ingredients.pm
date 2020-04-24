@@ -1163,8 +1163,7 @@ sub parse_ingredients_text($) {
 
 					# Unknown ingredient, check if it is a label
 					# -> treat as a label only if there are no sub-ingredients
-					if ((not $ingredient_recognized) and ($between eq "") and (length($ingredient) > 5)) {
-						# Avoid matching single letters or too short abbreviations, bug #3300
+					if ((not $ingredient_recognized) and ($between eq "")) {
 
 						# We need to be careful with stopwords, "produit" was a stopword,
 						# and "France" matched "produit de France" / made in France (bug #2927)
@@ -2342,8 +2341,8 @@ fr => [
 '(conditions|conseils) de conservation',
 'conseil d\'utilisation',
 'conservation:',
-'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
-'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
+'(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 '(a|à) conserver (dans|de|a|à)',
@@ -2936,7 +2935,7 @@ sub preparse_ingredients_text($$) {
 
 	# FIXME : should use additives classes
 	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
-	# $text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
 
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
