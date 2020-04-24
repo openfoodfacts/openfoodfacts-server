@@ -10,18 +10,20 @@
 }
 
 label[for="switch"] {
+	content: 'Light Mode';
 	cursor: pointer;
 	text-indent: -9999px;
 	width: 45px;
 	height: 25px;
 	background: #ccc;
-	display: block;
+	display: list-item;
 	border-radius: 100px;
 	position: relative;
+	
 }
 
 label[for="switch"]:after {
-	content: '';
+	content: 'Dark Mode';
 	position: absolute;
 	top: 3px;
 	left: 3px;
@@ -30,23 +32,35 @@ label[for="switch"]:after {
 	background: #fff;
 	border-radius: 90px;
 	transition: 0.3s;
+	
 }
 
+.dmtext {
+	font-size: 12px;
+	display: inline-flex;
+	margin-left: 5px;
+}
 #toggle input:checked + label[for="switch"]{
-	background: #374563;
+	background: #1d961f;
+	
+	
 }
 
 #toggle input:checked + label[for="switch"]:after {
 	left: calc(100% - 3px);
+	content: 'Night Mode';
 	transform: translateX(-100%);
 }
 
 label[for="switch"]:active:after {
+	
 	width: 45px;
 }
 
 @media only screen and (min-width: 640px) {
   #toggle {
-    display: block;
+    display: inline-flex;
+	margin-left: 10px;
+	margin-top: 10px;
   }
 }
