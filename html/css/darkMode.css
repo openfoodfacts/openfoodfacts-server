@@ -1,7 +1,90 @@
 /*CSS file that implements the dark mode feature*/
 
+/*changes color of main column and nav*/
+body, nav.top-bar, li.name {background-color: #17223b;}
 
-/* take the line off below*/
-body {
-  background-color: red;
+.top-bar-section .has-form {background: #17223b;}
+
+/*changes plain text*/
+h1, h2, h3, p,li.name,.title, form div .sidebar,.accordion li a,
+select, .select2-results__options, input[type = "text"], input[type = "password"] {
+  color:white;
 }
+
+/* changes link colors & Banner text*/
+a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show, #hide_image_banner_hide, #dmtext {color: #FF6768 !important;}
+
+/* changes the color of the heading on the footer*/
+.title {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+/*changes the coloring of the input boxes*/
+.row input{ border-color: #495d86;}
+
+/* changes the coloring of the sidebar*/
+#sidebar-whole{ background: #263859 !important;}
+
+/*changes the coloring of the link on the top right corner of the topbar & button */
+nav .title-area li a, .button { color:#FF6768 !important;}
+
+.row input, form div .sidebar { background-color: #263859;}
+
+/* changes the background of the login */
+input[type=text]:focus,input[type=password]:focus {
+  background-color:#35496d;
+}
+
+/* changes the background and the text of the accordion search on the product search page.*/
+.accordion li a , form div .sidebar, select {
+  background-color: #263859 !important;
+}
+
+/* changes the background of the buttons on the topbar (discover, search, etc).*/
+.top-bar-section li:not(.has-form) a:not(.button), .toggle-container{
+    background: #17223b !important;
+    outline: 2px solid #263859;
+}
+
+/* changes the background of the icon of the top right corner of the webpage.*/
+.right li a {background-color: #17223b !important;}
+
+/* the next three attributes changes the background of the text box for country selectio*/
+.select2-selection{ background:#263859 !important;}
+.select2-search--dropdown, .select2-results__options, form button, button[type = "submit"] {
+  background-color: #263859 !important;
+}
+
+.sidebar form label {color: #7b93c3;}
+
+form button:hover, input[type = "submit"]:hover, .button:focus, .button:hover,
+button:focus, button:hover, #imgsearchbutton_block_side:hover {
+	background-color: #445780;
+}
+
+input[type = "submit"],#imgsearchbutton_block_side { background-color: #31456b;}
+
+.name h2 {background-color: #1b3061; margin-right: 5px !important;}
+
+::placeholder {color: #698bd2;}
+
+.right li:first-child { margin-right: 5px;}
+
+footer ul {list-style: none !important;}
+
+.tab-bar, .left-off-canvas-toggle  {background-color: #213154;}
+
+.products li:hover, .products li a:hover {background-color: #35445f;}
+
+.content {background: #2e3e5a !important;}
+
+#search_form label {color:#6a92ad;}
+
+.alert-box.info {
+  background-color: #384761;
+  border: none;
+  color:#a29a9a;
+}
+/*colors in logo */
+#logo {background-color: white; padding: 5px;}
