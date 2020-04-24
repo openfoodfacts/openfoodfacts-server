@@ -3817,6 +3817,11 @@ sub search_and_display_products($$$$$) {
 		"images" => 1,
 		"quantity" => 1
 		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
 	}
 
 	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
@@ -5331,6 +5336,11 @@ sub search_and_graph_products($$$) {
 			labels_tags => 1,
 			images => 1,
 		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
 	}
 
 	foreach my $axis ('x','y') {
