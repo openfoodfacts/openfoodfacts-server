@@ -6481,7 +6481,7 @@ HTML
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
 			<li>
 				<div id = "toggle" class = "toggle-container">
-					<span id="dmtext">Dark Mode </span>
+					<span id="dmtext">Dark</span>
 					<input type = "checkbox" id = "switch" name = "theme" />
 					<label for = "switch"> Toggle </label>
 					
