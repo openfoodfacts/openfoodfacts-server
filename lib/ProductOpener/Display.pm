@@ -6090,7 +6090,13 @@ $options{favicons}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 $header
+<!-- Dark Mode -->
+<link rel="stylesheet" href="$static_subdomain/css/darkMode.css">
+<link rel="stylesheet" href="$static_subdomain/css/dark-toggle.css">
+<script src="$static_subdomain/js/preDarkMode.js"></script>
+
 <style media="all">
+
 HTML
 ;
 
@@ -6493,6 +6499,13 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+			<li>
+				<div id = "toggle" class = "toggle-container">
+					<span id="dmtext">Dark</span>
+					<input type = "checkbox" id = "switch" name = "theme" />
+					<label for = "switch"> Toggle </label>
+				</div>
+			</li>
 			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
@@ -6693,6 +6706,10 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
+
+/* DARK MODE */
+<script src="$static_subdomain/js/darkMode.js"></script>
+
 </body>
 </html>
 HTML
