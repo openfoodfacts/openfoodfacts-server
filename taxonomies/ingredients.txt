@@ -8856,7 +8856,7 @@ cs:sušené plnotučné mléko
 da:sødmælkspulver
 de:Vollmilchpulver, Voll_milch_pulver
 el:γάλα σε σκόνη
-es:leche entera en polvo
+es:leche entera en polvo, leche en polvo entera
 et:täispiimapulber
 fi:täysmaitojauhe, kuivattu täysmaito
 fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
@@ -8884,7 +8884,8 @@ nl:gereconstitueerde melk
 <en:skimmed milk
 en:reconstituted skimmed milk
 de:rekonstituierte Magermilch
-es:leche desnatada reconstituida
+es:leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
+ca:llet desnatada reconstituida, llet desnatada rehidratada, llet descremada rehidratada, llet descremada reconstituida
 fr:lait écrémé réhydraté
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
@@ -8892,6 +8893,7 @@ nl:gerehydrateerde magere melk
 
 <en:skimmed milk powder
 es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
+ca:llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
 
 fr:matière grasse de lait anhydre
 
@@ -8900,11 +8902,14 @@ fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
 
 <en:milk
 fr:lait entier en poudre reconstitué, lait entier reconstitué
+es:leche entera en polvo reconstituida, leche en polvo rehidratada
+ca:llet sencera en pols reconstituida, llet en pols rehidratada
 
 <en:milk
 en:modified milk ingredients
 de:Modifizierte Milchbestandteile
 es:Ingredientes de leche modificados
+ca:Ingredients de la llet modificats
 fi:Muunnettuja maitoaineksia
 fr:substances laitières modifiées
 hu:módosított tej összetevők
@@ -8912,9 +8917,13 @@ hu:módosított tej összetevők
 
 <en:milk
 fr:lait écrémé caillé
+es:leche desnatada cuajada, leche descremada cuajada, leche cuajada desnatada, leche cuahada descremada
+ca:llet desnatada cuallada, llet descremada cuallada, llet cuallada desnatada, llet cuallada descremada
 
 <en:milk
 fr:produits laitiers
+es:productos lácteos
+ca:productes làctics
 
 ######################### MILK and CREAM related stuff #########################
 
@@ -8923,6 +8932,7 @@ fr:produits laitiers
 en:pasteurized milk and cream
 de:pasteurisiert Milch und Rahm
 es:Leche y nata pasteurizadas, Leche y crema pasteurizadas
+ca:llet i nata pasteuritzats, llet i crema pasteuritzats
 fi:pastöroitu maito ja kerma
 fr:lait et crème pasteurisé
 hu:pasztőrözött tej és tejszín
@@ -8938,6 +8948,7 @@ pt:Leite e natas pateurizados
 en:Disaccharide
 de:Disaccharid
 es:Disacárido
+ca:Disacàrid
 fi:disakkaridi
 fr:Disaccharide, diholoside
 hu:diszacharid
@@ -9053,6 +9064,8 @@ en:Lactose powder, powdered lactose
 de:Milchpulver
 fi:laktoosijauhe
 fr:poudre de lactose
+es:lactosa en polvo
+ca:lactosa en pols
 hu:laktózpor
 nl:Lactosepoeder
 
@@ -9061,6 +9074,7 @@ nl:Lactosepoeder
 en:milk minerals
 de:Milchmineralien
 es:minerales de la leche
+ca:minerals de la llet
 fi:maidon kivennäisaine, maidon kivennäisaineet
 fr:minéraux du lait
 hu:tejből kivont ásványi anyagok, ásványi anyagok tejből
@@ -9076,6 +9090,7 @@ vegetarian:en:yes
 en:milk mineral concentrate
 de:Milchmineralkonzentrat
 es:Concentrado de minerales de leche
+ca:concentrat de minerals de la llet
 fr:concentré des minéraux du lait, concentré de minéraux du lait
 it:concentrato minerale di latte
 nl:melkmineralenconcentraat
@@ -9085,6 +9100,7 @@ nl:melkmineralenconcentraat
 <en:milk minerals
 fr:lactose et minéraux du lait
 es:lactosa y minerales de la leche
+ca:lactosa i minerals de la llet
 nl:lactose en melkmineralen
 # ingredient/fr:lactose-et-minéraux-du-lait has 139 products in 5 languages @2019-04-16
 
@@ -9096,6 +9112,7 @@ en:yogurt, yoghurt, yogourt, yoghourt
 cs:Jogurt
 de:Joghurt, Jogurt
 es:Yogur
+ca:Iogurt
 fi:jogurtti, jukurtti, jugurtti
 fr:yaourt
 hu:joghurt
@@ -9115,25 +9132,35 @@ vegan:en:no
 en:organic yogurt
 fi:luomujogurtti, luomu jogurtti
 hu:bio joghurt
+es:yogur ecológico, yogur eco
+ca:iogurt ecològic, iogurt eco
 nl:biologische yoghurt
 
 <en:yogurt
 fr:yogourt maigre
 de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
 it:yogurt magro
+es:yogur magro
+ca:iogurt magre
 nl:magere yoghurt
 # ingredient/nl:magere-yoghurt has 1 product @2019-05-24
 
 <fr:yaourt maigre
 fr:yaourt maigre en poudre
+es:yogur magro en polvo
+ca:iogurt magre en pols
 de:Magermilch-Joghurtpulver
 
 <en:yogurt
 fr:yogourt au lait pasteurisé
+es:yogur de leche pasteurizada
+ca:iogurt de llet pasteuritzada
 de:Joghurt aus pasteurisierter MIlch
 
 <en:yogurt
 fr:yogourt partiellement écrémé
+es:yogur parcialmente desnatado, yogur semidesnatado
+ca:iogurt parcialment desnatat, iogurt semidesnatat
 
 <en:yogurt
 en:skimmed yogurt
@@ -9148,16 +9175,22 @@ en:whole milk yogurt
 de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt
 fi:täysmaitojogurtti
 fr:yogourt au lait entier
+es:yogur de leche entera
+ca:iogurt de llet sencera
 hu:teljes joghurt
 
 <en:yogurt
 de:Joghurtpulver
 fi:jogurttijauhe
 fr:yaourt en poudre
+es:yogur en polvo
+ca:iogurt en pols
 hu:joghurtpor
 
 <en:whole milk yogurt
 en:whole milk yogurt powder
+es:yogur de leche entera en polvo
+ca:iogurt de llet sencera en pols
 de:Vollmilchjoghurtpulver
 fi:täysmaitojogurttijauhe
 
@@ -9173,11 +9206,15 @@ en:whole yogurt
 de:Rahmjoghurt, Sahnejoghurt
 fi:täysjogurtti, kermajogurtti
 fr:yaourt entier
+es:yogur entero
+ca:iogurt sencer
 hu:teljes joghurt
 it:yogurt intero
 
 <en:yogurt
 fr:yaourt au lait entier
+es:yogur de leche entera
+ca:iogurt de llet sencera
 de:Joghurt aus Vollmilch, Vollmilchjoghurt
 
 # mild yogurt is a fermented milk product using other species of lactobacillus than Lactobacillus bulgaricus. See https://de.wikipedia.org/wiki/Sauermilchprodukte#G%C3%A4rung_mit_speziellen_Kulturen (German)
@@ -9185,15 +9222,21 @@ de:Joghurt aus Vollmilch, Vollmilchjoghurt
 en:mild yogurt
 de:Joghurt mild
 fr:yaourt doux
+es:yogur azucarado
+ca:iogurt ensucrat
 nl:milde yogurt
 # ingredient/nl:milde-yoghurt has 1 product @2019-05-24
 
 <en:mild yogurt
 en:skimmed mild yogurt
+es:yogur descremado, yogur desnatado
+ca:iogurt descremat, iogurt desnatat
 de:Joghurt mild aus entrahmter Milch, Joghurt mild aus Magermilch
 
 <en:mild yogurt
 en:semi-skimmed mild yogurt
+es:yogur semidesnatado, yogur parcialmente desnatado
+ca:iogurt semidesnatat, iogurt parcialment desnatat
 de:Fettarmer Joghurt mild
 
 <en:mild yogurt
@@ -9272,15 +9315,21 @@ vegetarian:en:maybe
 
 <en:kefir
 en:whole kefir
+es:kéfir entero
+ca:Quèfir de llet sencer
 de:Sahnekefir
 hu:teljes kefir
 
 <en:whole kefir
 en:mild whole kefir
+es:kéfir semidesnatado, kéfir parcialmente desnatado
+ca:Quèfir de la llet semidesnatat, quèfir de la llet parcialment desnatat
 de:Sahnekefir mild, milder Sahnekefir
 
 <en:kefir
 en:mild kefir
+es:kéfir desnatado, kéfir descremado
+ca:quèfir de la llet desnatat, quèfir de la llet descremat
 de:Kefir mild, milder Kefir
 
 ################################## WHEY related stuff ##########################
@@ -9388,6 +9437,8 @@ de:eiweißangereichertes Molkenpulver
 en:partially demineralized powdered whey
 de:Molkenpulver teilentmineralisiert
 fr:lactosérum en poudre partiellement déminéralisé
+es:seuro de lleche en polvo parcialmente desmineralizado, lactosuero en polvo parcialmente desmineralizado
+ca:sèrum de la llet en pols parcialment desmineralitzat
 it:siero di latte polvere parzialmente demineralizzato
 
 <en:whey
@@ -9398,12 +9449,15 @@ en:sweet whey
 de:Süßmolke, Süssmolke
 fi:makea hera, makeutettu hera
 fr:lactosérum doux
+es:suero de leche azucarado, lactosuero azucarado
+ca:sèrum de la llet ensucrat
 
 <en:sweet whey
 en:sweet whey powder
 de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver
 fi:makea herajauhe, makeutettu herajauhe
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
+es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 it:siero di latte in polvere
 nl:Zoete weipoeder
 
@@ -9413,6 +9467,8 @@ de:gefiltertes Molkepulver
 es:suero de leche en polvo
 fi:suodatettu herajauhe
 fr:petit-lait filtré en poudre, lactosérum filtré en poudre
+es:suero de leche en polvo filtrado, lactosuero en polvo filtrado
+ca:sèrum de la llet en pols filtrat
 it:filtrato di siero di latte in polvere
 nl:weifiltraatpoeder
 
@@ -9420,6 +9476,8 @@ nl:weifiltraatpoeder
 en:Demineralised whey
 de:entsalzte Molke
 fr:lactosérum déminéralisé
+es:suero de la leche desmineralizado, lactosuero desmineralizado
+ca:sèrum de la llet desmineralitzat
 nl:Gedemineraliseerde wei
 
 <en:Demineralised whey
@@ -9431,6 +9489,8 @@ en:Concentrated whey
 de:konzentrierte Molke
 fi:heratiiviste
 fr:lactosérum concentré
+es:lactosuero concentrado, suero de la leche concentrado
+ca:sèrum de la llet concentrat
 hu:sűrített tejsavó
 it:siero di latte concentrato
 nl:Geconcentreerde wei
@@ -9443,6 +9503,7 @@ en:whey product, whey based formula
 cs:Syrovátkový produkt
 de:Molkenerzeugnis, formel auf molkebasis
 es:Producto de suero
+ca:producte del sèrum de la llet
 fi:heratuote, herapohjainen korvike
 fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum, dérivé de lactosérum
 hu:tejsavó alapú termék
@@ -9456,6 +9517,8 @@ en:whey permeate, milk permeate
 de:Molkepermeat, Milchpermeat
 fi:herapermeaatti, maitopermeaatti
 fr:perméat de petit lait
+es:permeado de suero
+ca:permeat de sèrum de la llet
 nl:melkweipermeaat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
 
@@ -9464,6 +9527,8 @@ en:whey permeate powder
 de:Molkepermeat Pulver
 fi:herapermeaattijauhe
 fr:perméat de petit lait en poudre
+es:permeado de suero en polvo
+ca:permeta de sèrum de llet en pols
 nl:weipermeaat poeder
 
 ################################## CREAM related stuff #########################
@@ -9557,7 +9622,8 @@ carbon_footprint_fr_foodges_value:fr:4.2
 <en:cream
 en:pasteurized cream
 de:pasteurisierte Sahne
-es:nata pasteurizada, crema pasteurizada
+es:nata pasteurizada, crema de leche pasteurizada
+ca:nata pasteuritzada, crema de llet pasteuritzada
 fi:pastöroitu kerma
 fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
 hu:pasztőrözött tejszín, pasztörizált tejszín, hőkezelt tejszín
@@ -9570,7 +9636,8 @@ sv:pastöriserad grädde
 <en:cream
 en:cream powder, Powdered cream
 de:Cremepulver, Sahnepulver
-es:nata en polvo
+es:nata en polvo, crema de llet en polvo
+ca:nata en pols, crema de llet en polvo
 fi:kermajauhe
 fr:crème en poudre, crème en poudre, poudre de crème
 hu:tejszínpor
@@ -9581,6 +9648,8 @@ nl:roompoeder, poederroom
 <en:cream powder
 en:rehydrated cream powder
 fr:crème en poudre réhydratée
+es:crema de leche en polvo rehidratada, crema de leche en polvo reconstituida, nata en pols rehidratada, nata en pols reconstituida
+ca:crema de llet en pols rehidratada, crema de llet en pols reconstituida, nata en pols rehidratada, nata en pols reconstituida
 # ingredient/rehydrated-cream-powder has 2 products @2019-07-12
 
 <en:cream
@@ -9594,12 +9663,16 @@ nl:room uit Normandië
 <en:cream
 en:raw cream
 fr:crème crue, crème de lait cru
+es:nata cruda, crema de leche cruda
+ca:nata crua, crema de llet crua
 
 <en:cream
 en:sterilized cream
 de:sterilisierte Sahne, sterilisierte Schlagsahne
 fi:sterilisoitu kerma
 fr:crème stérilisée
+es:nata esterilizada, crema de leche esterilizada
+ca:nata esterilitzada, crema de llet esterilitzada
 hu:hőkezelt tejszín
 # ingredient/fr:crème-stérilisée has 56 products in french @2019-07-12
 
@@ -9608,6 +9681,8 @@ en:UHT cream
 de:H-Schlagsahne, H-Sahne
 fi:UHT kerma, iskukuumennettu kerma, UHT-käsitelty kerma
 fr:crème uht
+es:crema de leche UHT, nata UHT
+ca:crema de llet UHT, nata UHT
 hu:UHT tejszín
 # ingredient/fr:crème-uht has 114 products in french @2019-07-12
 
@@ -9617,15 +9692,20 @@ en:sterilized UHT cream
 de:sterilisierte H-Sahne
 fi:sterilisoitu UHT kerma, sterilisoitu iskukuumennettu kerma, sterilisoitu UHT-käsitelty kerma
 fr:crème stérilisée uht
+es:crema de leche esterilizada UHT, nata esterilizada UHT
+ca:crema de llet esterilitzada UHT, nata esterilitzada UHT
 # ingredient/fr:crème-stérilisée-uht has 10 products in french @2019-07-12
 
 <en:cream
 fr:Crème fraîche liquide
+es:crema de leche fresca líquida, nata fresca líquida
+ca:crema de llet fresca líquida, nata fresca líquida
 
 <en:cream
 en:light cream
 de:leichte Sahne
-es:Nata ligera
+es:Nata ligera, crema de leche ligera
+ca:nata lleugera, crema de llet lleugera
 fi:kevytkerma
 fr:crème légère, Crème fraîche légère, Crème légère fraîche
 hu:főzőtejszín
@@ -9635,6 +9715,8 @@ nl:Lichte room
 
 <en:light cream
 fr:crème fraîche légère epaisse
+es:crema de leche ligera espesa, nata ligera espesa
+ca:crema de llet lleugera espessa, nata lleugera espessa
 # ingredient/fr:crème-fraîche-légère-epaisse has 13 products in french @2019-07-12
 
 # Recipes calling for 'single cream' are referring to pure or thickened cream with about 35% fat.
@@ -9642,7 +9724,8 @@ fr:crème fraîche légère epaisse
 <en:cream
 en:single cream
 de:Halbrahm, Haldsahne
-es:Nata ligera
+es:Nata ligera, crema de leche ligera
+ca:nata lleugera, crema de llet lleugera
 fi:ruokakerma
 fr:crème liquide, demi-crème
 hu:habtejszín
@@ -9658,6 +9741,8 @@ en:whole cream, full cream
 de:Vollrahm, ganze Sahne
 fi:täyskerma, täysrasvainen kerma
 fr:crème entière
+es:crema de leche entera, nata entera
+ca:crema de llet sencera, nata sencera
 hu:teljes tejszín
 it:panna intera
 nl:volle room
@@ -9669,6 +9754,8 @@ en:whipped cream
 de:Schlagsahne
 fi:kermavaahto
 fr:crème fouettée
+es:crema de leche montada, nata montada
+ca:crema de llet montada, nata montada
 hu:tejszínhab
 
 <en:skimmed milk
@@ -9677,12 +9764,15 @@ en:Skim milk and pasteurized cream
 de:Magermilch und pasteurisiertes Sahne
 fi:rasvaton maito ja pastöroitu kerma
 fr:lait écrémé et crème pasteurisés
+es:crema de leche desnatada pasteurizada, nata desnatada pasteurizada
+ca:crema de llet desnatat pasteuritzat, nata desnatat pasteuritzat
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
 <en:cream
 en:fresh cream
 de:Sahne
-es:Crema fresca
+es:Crema fresca, nata fresca
+ca:nata fresca, crema de llet fresca
 fi:ranskankerma
 fr:crème fraîche
 hu:friss tejszín
@@ -9787,7 +9877,8 @@ af:Crème fraîche
 cs:Crème fraîche
 da:Cremefraiche, creme fraiche
 de:Crème fraîche
-es:Crème fraîche
+es:Nata, crema de leche
+ca:nata, crema de llet
 eu:Esne-gain gordina, esne-gain freskoa
 fi:crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
@@ -9820,6 +9911,8 @@ de:pasteurisierte Crème fraîche, Crème fraîche pasteurisiert
 es:Crema fresca pasteurizada
 fi:pastöroitu crème fraîche
 fr:creme fraiche pasteurisée
+es:crema de leche fresca pasteurizada, nata fresca pasteurizada
+ca:crema de llet fresca pasteuritzada, nata fresca pasteuritzada
 it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
@@ -9834,6 +9927,7 @@ cv:Турăх
 da:Tykmælk
 de:Dickmilch, Setzmilch, Stockmilch, Sauermilch
 es:Leche agria
+ca:llet àcida
 et:Hapupiim
 fi:piimä
 fr:lait fermenté, lait aigre, lait caillé
@@ -9956,9 +10050,10 @@ en:buttermilk powder
 da:kæarnemælkpulver
 de:Buttermilchpulver
 el:αποβουτυρωμενο γάλα σεβσκόνη
-es:suero de mantequilla en polvo
+es:suero de mantequilla en polvo, suero de mantequilla rehidratada
 fi:kirnupiimäjauhe
 fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
+ca:sèrum de mantega en pols, sèrum de mantega deshidratada
 hu:írópor
 it:latticello in polvere
 nl:karnemelkpoeder
@@ -10203,6 +10298,8 @@ vegan:en:no
 
 <en:cheese
 fr:fromages râpées séchés
+es:queso rallado seco
+ca:formatge ratllat sec
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
 carbon_footprint_fr_foodges_value:fr:5.6
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
@@ -10213,6 +10310,7 @@ carbon_footprint_fr_foodges_value:fr:4.3
 en:cheese made from pasteurized milk
 de:Käse aus pasteurisierter Milch
 es:queso elaborado con leche pasteurizada
+ca:formatge elaborat amb llet pasteuritzada
 fi:pastöroidusta maidosta valmistetut juustot
 hu:pasztőrözött tejből készült sajt
 
@@ -10221,12 +10319,15 @@ en:Soft cheese made from pasteurized milk
 de:Weichkäse aus pasteurisierter Milch
 fi:pastöroidusta maidosta valmistetut pehmeät juustot
 fr:fromage à pâte molle au lait pasteurisé
+es:queso blando de leche pasteurizada
+ca:formatge suau de llet pasteuritzada
 hu:pasztőrözött tejből készült lágysajt
 it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
 
 <en:cheese
 es:queso fundido en polvo
+ca:formatge fos en pols
 
 <en:cheese
 de:Bergkäse
@@ -10240,6 +10341,8 @@ en:cow cheese
 de:Käse aus Kuhmilch
 fi:lehmänmaitojuusto, lehmänmaidosta valmistettu juusto
 fr:fromage de vache
+es:queso de vaca
+ca:formatge de vaca
 hu:tehénsajt
 nl:koekaas
 
@@ -10298,23 +10401,33 @@ carbon_footprint_fr_foodges_value:fr:3.6
 
 <en:goat cheese
 fr:fromage de chèvre frais
+es:queso fresco de cabra
+ca:formatge fresc de llet de cabra
 
 <en:goat cheese
 # <en:pasteurized
 fr:fromage de chèvre au lait pasteurisé, fromage au lait de chèvre pasteurisé
+es:queso de leche de cabra pasteurizada
+ca:formatge de llet de cabra pasteuritzada
 # fr:fromage-de-chèvre-au-lait-pasteurisé has 44 products in 1 language @2018-10-27
 
 <en:cheese
 fr:fromage au lait de vache bio thermisé
+es:queso de leche de vaca ecológica
+ca:formatge de llet de vaca ecológic
 
 <en:cheese
 # <en:cow's milk
 # <en:pasteurized
 fr:fromage au lait de vache pasteurisé
+es:queso de leche de vaca pasteurizada
+ca:formatge de llet de vaca pasteuritzada
 # fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
 
 <en:cheese
 fr:Fromage au lait cru de vache
+es:queso de leche de vaca cruda
+ca:formatge de llet de vaca crua
 # ingredient/fr:fromage-au-lait-cru-de-vache has 15 products in french @2019-05-24
 
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
@@ -10323,11 +10436,11 @@ fr:Fromage au lait cru de vache
 # <en:sheeps milk
 # <en:category:en:Cheeses
 en:sheep's-milk cheese, Sheep Cheeses, Cheeses from sheep milk
-ca:formatge de llet d'ovella
+ca:formatge de llet d'ovella, formatges d'ovella, formatges de llet d'ovella, formatge d'ovella
 cs:ovčí sýr
 de:Schafskäse, Schafkäse, Schafmilchkäse, Käse aus Schafsmilch
 el:πρόβειο τυρί
-es:queso de leche de oveja, Quesos de oveja, Quesos de leche de oveja
+es:queso de leche de oveja, Quesos de oveja, Quesos de leche de oveja, queso de oveja
 fa:پنیر شیر گوسفند
 fi:lampaanjuusto, lampaanmaitojuusto, juusto lampaanmaidosta
 fr:Fromages de brebis, fromage de brebis, fromage au lait de brebis, Fromages au lait de brebis
@@ -10352,12 +10465,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk_cheese
 
 <en:sheep's-milk cheese
 fr:fromage de brebis au lait pasteurisé
+es:queso de leche de oveja pasteurizada
+ca:formatge de llet d'ovella pasteuritzada
 # ingredient/fr:fromage-de-brebis-au-lait-pasteurise has 14 products in french @2019-05-24
 
 <en:cheese
 en:soft white cheese
 de:Frischkäse
-es:Queso blanco blando
+es:Queso blanco blando, queso fresco
+ca:formatge blanc suau, formatge fresc
 fi:tuorejuusto, salaattijuusto
 fr:fromage frais
 hu:fehér lágysajt
@@ -10369,24 +10485,33 @@ carbon_footprint_fr_foodges_value:fr:3.5
 
 <en:soft white cheese
 fr:fromage frais au lait demi-écrémé
+es:queso fresco semidesnatado, queso fresco parcialmente desnatado
+ca:formatge fresc semidesnatat, formatge fresc parcialment desnatat
 
 <en:soft white cheese
 fr:fromage frais au lait demi-écrémé pasteurisé, Fromage frais nature au lait demi-écrémé pasteurisé
+es:queso fresco semidesnatado pasteurizado, queso fresco parcialmente desnatado pasteurizada
+ca:formatge fresc semidesnatat pasteuritzat, formatge fresc parcialment desnatat pasteuritzat
 
 <en:soft white cheese
 fr:fromage frais à 0% de matière grasse
+es:queso fresco con 0% matéria grasa
+ca:formatge fresc amb un 0% matéria grassa
 
 <en:soft white cheese
 fr:fromage frais à la ciboulette
 
 <en:soft white cheese
 fr:fromage frais au lait pasteurisé
+es:queso fresco pasteurizado
+ca:formatge fresc pasteuritzat
 
 # <en:compound
 <en:cheese
 en:melted cheese
 de:Schmelzkäse
 es:Queso derretido
+ca:formatge fos
 fi:sulatejuusto
 fr:fromage fondu
 hu:ömlesztett sajt
@@ -10399,6 +10524,8 @@ en:melted powdered cheese
 de:Schmelzkäsepulver
 fi:sulatejuustojauhe
 fr:fromage fondu en poudre
+es:queso fundido en polvo
+ca:formatge fos en pols
 hu:ömlesztett porított sajt
 it:formaggio fuso in polvere
 nl:poeder van gesmolten kazen
@@ -10406,6 +10533,8 @@ nl:poeder van gesmolten kazen
 
 <en:cheese
 fr:fromage maigre
+es:queso magro
+ca:formatge magre
 de:fettarmer Käse
 # fr:fromage maigre has 33 products in 3 languages @2018-10-28
 
@@ -10415,12 +10544,16 @@ fr:fromage à pâte pressée cuite
 
 <en:cheese
 fr:fromage au lait cru
+es:queso de leche cruda
+ca:formatge de llet crua
 # ingredient/fr:fromage-au-lait-cru has 14 products in french @2019-05-27
 
 # comment:en:sometimes this is the description of the products
 
 <en:cheese
 fr:fromage au lait pasteurisé
+es:queso de leche pasteurizada
+ca:formatge de llet pasteuritzada
 # fr:fromage-au-lait-pasteurisé has 55 products in 1 language @2018-10-28
 
 <en:cheese
@@ -10429,6 +10562,7 @@ da:ostepulver, ostpulver
 de:Käsepulver
 el:τυρί σε σκόνη
 es:queso en polvo
+ca:formatge en pols
 fi:juustojauhe
 fr:fromage en poudre, poudre de fromage
 hu:sajtpor, porított sajt
@@ -10445,6 +10579,8 @@ en:hard cheese
 de:Hartkäse
 fi:kova juusto
 fr:fromage à pâte dure
+ca:formatge de pasta dura, formatge dur
+es:queso duro, queso de pasa dura
 hu:keménysajt
 it:formaggio a pasta dura
 pt:queijo de pasta dura
@@ -10453,6 +10589,8 @@ sv:Hårdost
 
 <en:cheese
 fr:fromage râpé
+es:queso rallado
+ca:formatge ratllat
 de:geriebener Käse
 it:formaggio grattugiato
 nl:geraspte kaas
@@ -10460,6 +10598,8 @@ nl:geraspte kaas
 
 <en:cheese
 fr:fromage suisse
+es:queso suizo
+ca:formatge suís
 de:Schweizer Käse
 it:formaggio svizzero, formaggi svizzeri
 # fr:fromage-suisse has 21 products in 3 languages @2018-10-27
@@ -10469,6 +10609,8 @@ it:formaggio svizzero, formaggi svizzeri
 <en:cheese
 en:Beaufort
 de:Beaufort
+ca:formatge Beaufort DOP
+es:queso Beaufort DOP
 fr:beaufort, beaufort aop, Beaufort Appellation d'Origine Protégée, Beaufort ROP/BOB, Beaufort au lait cru Appellation d'Origine Protégée
 hu:Beaufort, Beaufort sajt
 wikipedia:en:https://en.wikipedia.org/wiki/Beaufort_cheese
@@ -10545,6 +10687,8 @@ carbon_footprint_fr_foodges_value:fr:4.3
 
 <en:camembert
 fr:camembert au lait pasteurisé
+es:camembert de leche pasteurizada
+ca:camembert de llet pasteuritzada
 # ingredient/fr:camembert-au-lait-pasteurisé has 15 products in 4 languages @2019-02-17
 
 
@@ -10621,6 +10765,8 @@ fr:cheddar orange fondu
 
 <en:cheddar
 fr:cheddar fondu
+es:queso cheddar fundido
+ca:cheddar fos
 # fr:cheddar-fondu has 75 products in 1 language @2018-10-27
 
 # COMTÉ (or Gruyère de Comté) is a French cheese made from unpasteurized cow's milk in the Franche-Comté region of eastern France.
@@ -10654,6 +10800,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Comté_cheese
 
 <en:Comté cheese
 fr:comté aop
+ca:comté DOP
+es:comté DOP
 nl:Comté AOC
 # fr:comté-aop has 40 products in 1 language @2018-10-27
 
@@ -10778,6 +10926,8 @@ en:Emmental from France
 de:Emmentaler aus Frankreich, französischer Emmentaler
 fi:Ranskalaista emmentalia
 fr:Emmental de France, emmental français
+es:emmental francés, emmenthal francés
+ca:emmental francès
 it:Emmental francese
 nl:Emmental uit Frankrijk
 # fr:emmental-français has 47 products in 3 languages @2018-10-27
@@ -10788,7 +10938,8 @@ fr:emmental de Savoie IGP
 <en:emmental
 en:melted Emmental cheese
 de:geschmolzener Emmentaler-Käse
-es:emmenthal fundido
+es:emmenthal fundido, emmental fundido
+ca:emmental fos
 fi:emmental sulatejuusto
 fr:emmental fondu
 hu:ömlesztett ementáli
@@ -10797,7 +10948,8 @@ hu:ömlesztett ementáli
 <en:cheese
 en:grated emmental cheese
 de:geriebener Emmentaler, geriebener Emmentaler-Käse
-es:queso emmental rallado
+es:queso emmental rallado, queso emmenthal rallado
+ca:formatge emmental rallat, emmental ratllat
 fi:emmentalraaste
 fr:emmental râpé
 hu:reszelt ementáli
@@ -10807,6 +10959,8 @@ nl:geraspte emmentaler
 <fr:emmental râpé
 <fr:emmental français
 fr:emmental français râpé
+es:queso emmental francés rallado, queso emmenthal francés rallado
+ca:emmental francès ratllat, formatge emmental ratllat
 # fr:emmental-français-râpé has 43 products in 1 language @2018-10-27
 
 
@@ -10818,6 +10972,7 @@ en:fromage blanc
 af:Fromage blanc
 de:Frischkäse
 es:Fromage frais, queso fresco
+ca:formatge fresc
 fr:fromage blanc
 ga:Fromage frais
 is:Fromage frais
@@ -10834,6 +10989,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fromage_blanc
 
 <en:fromage blanc
 fr:fromage blanc frais
+ca:formatge blanc fresc
+es:queso blanco fresco
 # fr:fromage blanc frais has 60 products in 1 language @2018-10-28
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
@@ -10850,6 +11007,7 @@ de:Quark, Weißkäse, Topfen, Schotten, Speisequark
 es:Queso quark
 fi:Rahka
 fr:quark
+ca:formatge quark
 he:גבינה לבנה
 hu:túró
 hy:Կաթնաշոռ
@@ -10935,7 +11093,7 @@ da:Feta
 de:Feta, Feta-Käse
 el:Φέτα
 eo:Feta-fromaĝo
-es:Sirene
+es:Sirene, queso feta
 et:Feta
 eu:Feta
 fa:پنیر فتا
@@ -11155,6 +11313,8 @@ en:Grana Padano PDO cheese, grana padano cheese pdo
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
 fi:Grana Padano -juusto
 fr:fromage grana padano aop, fr:grana padano dop, Grana Padano AOP
+ca:formatge grana padano DOP
+es:queso grana padano DOP
 it:grana padano dop
 pt:queijo Grana Padano DOP
 # fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
@@ -11210,6 +11370,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gruyère_cheese
 
 <fr:gruyère
 fr:gruyère aop
+es:gruyer DOP
+ca:gruyère DOP
 de:Gruyère AOP
 it:Gruyère AOP
 # fr:gruyère-aop has 16 products in 3 languages @2018-10-27
@@ -11226,6 +11388,7 @@ da:Maasdammer
 de:Maasdamer
 eo:Maasdam
 es:Queso maasdam
+ca:formatge maasdam
 eu:Maasdam gazta
 fi:maasdam
 fr:maasdam
@@ -11242,6 +11405,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Maasdam_cheese
 
 <en:maasdam
 fr:Maasdam râpé
+es:queso maasdam rallado
+ca:formatge maasdam ratllat
 nl:geraspte Maasdam
 
 # Maroilles is a cow's-milk cheese made in the regions of Picardy and Nord-Pas-de-Calais in northern France.
@@ -11339,6 +11504,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mascarpone
 
 <en:cheese
 fr:mimolette
+es:queso mimolette
+ca:formatge mimolette
 
 # MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
 
@@ -11439,6 +11606,8 @@ sv:skivbar mozzarella
 
 <en:mozzarella
 fr:mozzarella râpée
+es:mozzarella rallada
+ca:mozzarella ratllada
 
 # PARMIGIANO-REGGIANO is an Italian hard, granular cheese.
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
@@ -11907,12 +12076,16 @@ fi:sinihomejuusto
 # <en:compound
 <en:cheese
 fr:base aromatisante fromage
+es:base aromatizante de queso
+ca:base aromatitzant de formatge
 nl:kaassmaak
 # fr:base-aromatisante-fromage has 28 products @2018-10-27
 
 # <en:compound
 <en:cheese
 fr:préparation fromagère
+es:preparación de quesos
+ca:preparació de formatges
 # fr:préparation-fromagère has 40 products in 1 language @2018-10-28
 
 
@@ -12062,7 +12235,7 @@ ar:فيتامين ألف
 az:A vitamini
 bg:витамин А
 bs:Vitamin A
-ca:Vitamina A
+ca:Vitamina A, Vitamina A (Retinol)
 cs:vitamín A
 cy:Fitamin A
 da:Vitamin A
@@ -12153,6 +12326,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_A
 en:retinyl acetate
 de:Retinylacetat
 es:acetato de retinilo
+ca:acetat de retinol
 fa:استات رتینیل
 fi:retinyyliasetaatti
 fr:acétate de rétinol
@@ -12195,7 +12369,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
 <en:carotene
 en:beta-carotene
 bg:Бета каротин
-ca:beta-carotè
+ca:beta-carotè, beta-carotens
 cs:beta-karoten
 da:Betakaroten
 de:Beta-Carotin
@@ -12253,6 +12427,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beta-Carotene
 
 <en:beta-carotene
 en:provitamin A
+ca:provitamina A
+es:provitamina A
 de:Provitamin A
 fi:provitamiini A, A-vitamiinin provitamiini
 fr:pro-vitamine A
@@ -12266,6 +12442,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beta-Carotene
 en:beta-carotene dye
 de:Farbstoff Beta-Carotin
 fr:colorant bêta-carotène
+es:colorante de beta-caroteno
+ca:colorant de beta-carotè
 hu:béta-karotin színezék
 # fr:colorant-bêta-carotène has 71 products in 4 languages @2019-03-27
 
@@ -12358,6 +12536,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Thiamine
 en:Thiamin mononitrate
 de:Thiaminmononitrat
 fr:mononitrate de thiamine
+es:mononitrato de tiamina
+ca:mononitrat de tiamina
 hu:tiamin-mononitrát
 it:mononitrato di tiamina
 # ingredient/fr:mononitrate-de-thiamine has 83 products in 4 languages @2019-03-11
@@ -12553,7 +12733,7 @@ en:Pantothenic acid, vitamin B5, B5
 ar:فيتامين بي5
 bg:Пантотенова киселина, витамин B5, B5
 bs:Vitamin B5
-ca:àcid pantotènic
+ca:àcid pantotènic, vitamina B5, B5
 cs:kyselina pantothenová, vitamín B5, B5
 cy:Asid pantothenig, Fitamin B5, B5
 de:Pantothensäure, Vitamin B5, B5
@@ -12627,6 +12807,7 @@ en:calcium pantothenate
 de:Calcium-Pantothenat
 fi:kalsiumpantotenaatti, kalsium-d-pantotenaatti
 fr:pantothénate de calcium
+es:pantotenato de calcio
 hu:kalcium-pantotenát
 it:pantotenato di calcio
 nn:kalsiumpantotenat
@@ -12645,12 +12826,12 @@ az:Piridoksalfosfat
 bg:Витамин B6
 bn:পাইরিডক্সিন
 bs:Vitamin B6
-ca:vitamina B6
+ca:vitamina B6, piridoxina, B6
 cs:vitamín B6
 de:Vitamin B6
 dv:ވިޓަމިން ބީ6
 eo:vitamino B6
-es:vitamina b6, piridoxina
+es:vitamina b6, piridoxina, B6
 et:Vitamiin B6
 eu:B6 bitamina
 fa:ویتامین ب۶
@@ -12734,14 +12915,14 @@ ar:بيوتين
 be:біятын
 bg:биотин
 bs:Biotin
-ca:biotina
+ca:biotina, vitamina B7, biotina, Vitamina H, B7
 cy:Biotin cs:Biotin, vitamin B7, vitamin H
 da:Biotin
 de:Biotin, Vitamin B7, Vitamin H
 dv:ވިޓަމިން ބީ7
 el:βιοτίνη
 eo:biotino
-es:Biotina, Vitamina B7, Vitamina H
+es:Biotina, Vitamina B7, Vitamina H, B7
 et:Biotiin, B7-vitamiin, H-vitamiin
 eu:Biotina, B7 bitamina
 fa:بیوتین
@@ -12804,7 +12985,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Biotin
 <en:vitamins
 en:vitamin b8, B8
 de:Vitamin B8
-es:vitamina b8
+es:vitamina b8 B8
+ca:vitamina B8, B8
 fi:B8-vitamiini, B8
 fr:vitamine b8, b8
 hu:B8-vitamin, B8
@@ -12821,7 +13003,7 @@ be:Фоліевая кіслата
 bg:Фолиева киселина
 bn:ফলিক এসিড
 bs:Folna kiselina
-ca:àcid fòlic
+ca:àcid fòlic, vitamina B9, B9, vitamina M
 cs:kyselina listová, vitamín B9
 cy:Asid Ffolig
 da:Folsyre, folinsyre
@@ -12829,7 +13011,7 @@ de:Folsäure
 dv:ވިޓަމިން ބީ9
 el:Φυλλικό οξύ, Βιταμίνη Β9
 eo:foliata acido
-es:Ácido fólico
+es:Ácido fólico, vitamina B9, B9, vitamina M
 et:Foolhape
 eu:Azido foliko
 fa:اسید فولیک
@@ -12912,7 +13094,8 @@ da:Vitamin B12
 de:Cobalamine, Vitamin B12
 dv:ވިޓަމިން ބީ12
 eo:Kobalamino, Vitamino B12
-es:cobalamina, vitamina B12, cianocobalamina
+es:cobalamina, vitamina B12, cianocobalamina, B12
+ca:cobalamina, vitamina B12, cianocobalamina, B12
 et:B12-vitamiin, Vitamiin B12
 eu:Kobalamina, B12 bitamina
 fa:ویتامین ب۱۲
@@ -12989,7 +13172,7 @@ az:C vitamini
 bg:Витамин C, Аскорбинова киселина
 bn:ভিটামিন সি
 bs:Vitamin C, Askorbinska kiselina
-ca:vitamina C
+ca:vitamina C,, àcid ascòrbic
 cs:vitamín C, Kyselina askorbová
 cy:Fitamin C
 da:C-vitamin, ascorbinsyre
@@ -13175,13 +13358,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 <en:vitamin D
 en:Ergocalciferol, Vitamin D2, D2
 ar:إرغوكالسيفيرول
-ca:Ergocalciferol
+ca:Ergocalciferol, vitamina D2, D2
 cs:ergokalciferol, Vitamín D2
 cy:ergocalcifferol
 de:Ergocalciferol, Vitamin D2
 el:εργοκαλσιφερόλη
 eo:Ergokalciferolo
-es:ergocalciferol, vitamina D2
+es:ergocalciferol, vitamina D2, D2
 fa:ارگوکالسیفرول
 fi:Ergokalsiferoli, D2-vitamiini
 fr:ergocalciférol, vitamine D2
@@ -13224,13 +13407,13 @@ ar:كوليكالسيفيرول
 az:D3 vitamini
 bg:Витамин D3
 bs:Holekalciferol, Vitamin D3
-ca:Cholecalciferol, vitamina D3
+ca:Colecalciferol, vitamina D3, D3
 cs:cholekalciferol, Vitamín D3
 cy:colecalcifferol, Fitamin D3
 de:Cholecalciferol, Vitamin D3
 el:χοληκαλσιφερόλη, Βιταμίνη D3
 eo:Vitamino D3
-es:colecalciferol, vitamina D3
+es:colecalciferol, vitamina D3, D3
 fa:کلکلسیفرول
 fi:kolekalsiferoli, D3-vitamiini
 fr:cholécalciférol, Vitamine D3
@@ -13300,6 +13483,8 @@ da:vitamin A og D
 de:Vitamin A und D
 fi:A- ja D-vitamiini
 fr:vitamines A et D, A et D
+es:vitaminas A y D, A y D
+ca:vitamines A i D, A i D
 nl:vitamine A en D, A en D
 sv:vitamin A och D, vitamin A och vitamin D
 
@@ -13318,7 +13503,7 @@ de:Vitamin E
 dv:ވިޓަމިން އީ
 el:τοκοφερολεσ
 eo:Tokoferolo, vitamino E
-es:vitamina e
+es:vitamina e, tocoferol
 et:Tokoferoolid, E-vitamiin, Vitamiin E
 eu:E bitamina
 fa:ویتامین ای
@@ -13475,12 +13660,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_K
 en:phylloquinone, vitamin K1, K1
 ar:فايتوميناديون
 bg:Филохинон, фитоменадион
-ca:filloquinona, Vitamina K1
+ca:filloquinona, Vitamina K1, K1
 cs:fyllochinon, fytomenadion, Vitamin K1
 da:Fyllokinon
 de:Phyllochinon, Phytomenadion, Vitamin K1
 el:φυλλοκινόνη, φυτομεναδιόνη
-es:filoquinona, fitomenadiona
+es:filoquinona, fitomenadiona, vitamina K1, K1
 et:füllokinoon, fütomenadioon
 fa:فیلوکینون
 fi:fyllokinoni, fytomenadioni, K1-vitamiini
@@ -13655,6 +13840,8 @@ en:finegrained salt
 de:feinkörniges Salz
 fi:hienojakoinen suola
 fr:Sel fin
+es:sal fina
+ca:sal fina
 nl:Fijn zout
 
 
@@ -13664,6 +13851,7 @@ nl:Fijn zout
 en:Smoked salt
 de:Rauchsalz, Hickorysalz, Smoked Salt
 es:Sal ahumada
+ca:sal fumada
 fi:savusuola
 fr:Sel fumé
 hu:Füst ízű só
@@ -13677,6 +13865,7 @@ fr:concentré salin liquide
 <en:salt
 en:Himalayan salt
 es:Sal del Himalaya
+ca:Sal de l'Himalaya
 fr:Sel de l'Himalaya
 
 <en:sea salt
@@ -13686,12 +13875,15 @@ fr:sel de Noirmoutier, sel marin de Noirmoutier
 <en:salt
 en:Pink salt
 fr:Sel rose
+es:Sal rosa
+ca:Sal rosa
 
 <en:Himalayan salt
 <en:Pink salt
 en:Himalayan pink salt, Pink Himalayan salt
 de:Himalayasalz
 es:Sal rosa del Himalaya
+ca:Sal rosa de l'Himalaya
 fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
 fr:sel rose de l'Himalaya, sel de l'Himalaya rose
 
@@ -13699,28 +13891,42 @@ fr:sel rose de l'Himalaya, sel de l'Himalaya rose
 <en:Himalayan salt
 <en:sea salt
 en:Himalayan sea salt
+ca:Sal de mar de l'Himalaya
+es:Sal de mar del Himalaya
 
 <en:salt
 en:refined salt
 fr:sel raffiné
+es:sal refinada
+ca:sal refinada
 
 <en:salt
 en:unrefined salt
 fr:sel non raffiné
+es:sal no refinada
+ca:sal no refinada
 
 <en:unrefined salt
 en:unrefined sea salt
 fr:sel marin non raffiné, sel de mer non raffiné
+ca:sal de mar no refinada
+es:sal de mar no refinada
 
 <en:sea salt
 en:Mediterranean salt, Mediterranean sea salt
 fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
+es:Sal de la mar mediterránea, sal mediterránea
+ca:sal de la mar Mediterrània, sal mediterrània
 
 en:Garlic salt
 fr:Sel à l'ail, sel d'ail
+es:sal de ajo
+ca:sal d'all
 
 en:Celery salt
 fr:Sel de céleri, sel au céleri
+ca:sal d'api
+es:sal de apio
 
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
@@ -13731,6 +13937,7 @@ ar:ملح كوشير
 de:Koscheres Salz
 eo:Koŝera salo
 es:Sal kosher
+ca:sal kosher
 fi:koshersuola
 fr:Sel casher
 hu:Kóser só
@@ -13748,10 +13955,10 @@ hu:Kősó
 <en:salt
 en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
 ar:ملح البحر
-ca:Sal marina
+ca:Sal marina, sal maria de taula
 cs:Mořská sůl
 de:Meersalz
-es:Sal marina
+es:Sal marina, sal marina de mesa
 eu:Marsalo
 fa:نمک دریایی
 fi:Merisuola
@@ -13783,11 +13990,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
 # also commonly used on ingredient list
 <en:sea salt
 en:Celtic sea salt
+es:sal marina celta
+ca:sal marina celta
 
 <en:sea salt
 en:unrefined sea salt
 de:Unraffiniertes Meersalz
-es:Sal de mar sin refinar
+es:Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
+ca:sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
 fi:raffinoimaton merisuola, puhdistamaton merisuola
 fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine
 hu:finomítatlan tengeri só
@@ -13798,22 +14008,29 @@ en:Unrefined sea salt from the Atlantic
 de:unraffiniertes Atlantiksalz
 fi:atlantin raffinoimaton merisuola, atlantin puhdistamaton merisuola
 fr:Sel marin non raffiné de l'atlantique
+es:sal marina sin refinar del Atlántico, sal de mar sin refinar del Atlántico, sal de mesa sin refinar del Atlántico
+ca:sal marina sense refinar de l'Atlàntic, sal de mar sense refinar de l'Atlàntic, sa de taula sense refinar de l'Atlàntic
 nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
 
 <en:sea salt
 en:Salt from Guérande
 de:Salz aus Guérande
 es:Sal de Guérande
+ca:Sal de Guérande
 fr:Sel de Guérande, sel de guérande, sel marin de guérande, sel de Guérande IGP
 nl:Zout uit Guérande
 
 <en:sea salt
 en:Salt from Ile de Ré
 fr:Sel de l'Ile de Ré, sel marin de l'Ile de Ré
+es:sal de la isla de Ré, sal marina de la isla de Ré, sal de mesa de la isla de Ré
+ca:sal de la illa de Ré, sal marina de la illa de Ré, sal de taula de la illa de Ré
 
 <en:Salt from Guérande
 en:fine salt from Guérande
 fr:sel fin de Guérange, sel de Guérange fin
+es:sal fina de Guérange
+ca:sal fina de Guérange
 
 <en:sea salt
 en:Salt from Camargue
@@ -13824,6 +14041,8 @@ nl:Zout uit de Camargue
 <en:sea salt
 en:grey salt, sel gris
 fr:sel gris, sel marin gris, sel gris marin
+es:sal gris, sal de mar gris, sal marina gris
+ca:sal grisa sal de mar grisa, sal marina grisa 
 wikipedia:en:https://en.wikipedia.org/wiki/Sel_gris
 wikidata:en:Q5493196
 # ingredient/fr:sel-gris-marin has 32 products in french @2020-04-03
@@ -13831,6 +14050,8 @@ wikidata:en:Q5493196
 <en:sel gris
 <en:Salt from Guérande
 en:grey salt from Guérande
+es:sal gris de Guérande
+ca:sal grisa de Guérande
 fr:sel gris de Guérande
 # ingredient/fr:sel-gris-de-guerande has 16 products in french @2020-04-03
 
@@ -13856,6 +14077,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fleur_de_sel
 en:fleur de sel from Guérande
 de:Fleur de Sel aus Guérande, Meersalz aus Guérande
 fr:fleur de sel de Guérande
+es:flor de sal de Guérande
+ca:flor de sal de Guérande
 nl:fleur de sel uit Guérande
 
 
@@ -13921,6 +14144,7 @@ ar:ملح معالج باليود
 cs:Jodidovaná sůl
 de:Jodsalz, Iodsalz,jodiertes Speisesalz
 es:Sal yodada
+ca:sal iodada
 fa:نمک یددار
 fi:jodioitu suola
 fr:Sel iodé, sel de cuisine iodé
@@ -13946,6 +14170,8 @@ de:Nitritpökelsalz
 <en:iodised salt
 en:iodised sea salt, iodized sea salt
 de:jodiertes Meersalz
+es:sal marina yodada, sal de mar yodada
+ca:sal marina iodada, sal de mar iodada
 fi:jodioitu merisuola
 hu:jódozott tengeri só
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:jodioitu-merisuola
@@ -13968,7 +14194,7 @@ it:Animale
 nl:dier
 
 en:meat
-ca:Lecitina de soja, E-322
+ca:Carn
 cs:Maso
 de:Fleisch
 es:carne
@@ -13989,6 +14215,7 @@ vegetarian:en:no
 en:beef, steers
 de:Rind
 es:carne de vaca
+ca:carn de vaca
 fi:nauta, naudan, härkä, härän
 fr:bœuf, boeuf, Boeufs
 hu:marha, marhahús
@@ -14005,15 +14232,21 @@ vegetarian:en:no
 <en:beef
 en:grass-fed beef
 fr:bœuf nourri à l'herbe
+es:carne de res alimentada con pasto
+ca:res alimentat amb herba
 
 <en:beef
 fr:pur boeuf
+es:res puro
+ca:res pura
 
 <en:beef
 en:beef extract
 de:Rindfleischextrakt
 fi:naudanlihauute, häränlihauute
 fr:extrait de bœuf, extrait de boeuf
+es:extracto de res
+ca:extracte de res
 hu:marhahúskivont
 it:estratto di manzo
 nl:rundvleesextrakt
@@ -14024,6 +14257,7 @@ nl:rundvleesextrakt
 en:beef meat, pure beef meat
 de:Rindfleisch
 es:Carne pura de vaca
+ca:carn pura de vaca
 fi:naudanliha, naudanlihaa
 fr:viande de bœuf, viande de boeuf, viande bovine, pure viande bovine, pure viande de boeuf
 hu:marhahús
@@ -14038,6 +14272,8 @@ carbon_footprint_fr_foodges_value:fr:35.8
 en:cooked beef meat
 fi:Kypsennetty nauta, kypsennetty naudanliha
 fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
+es:carne de res cocida, res cocido
+ca:vedella cuita, carn de vedella cuita
 hu:főtt marhahús
 
 <en:beef meat
@@ -14051,21 +14287,30 @@ fr:viande bovine hachée
 
 <en:beef meat
 fr:viande bovine origine france
+es:carne de res francesa
+ca:carn de res francès
 
 <en:beef meat
 fr:viande bovine halal
+es:carne de res halal
+ca:carn de res halal
 
 <en:beef meat
 fr:carpaccio de boeuf
+es:carpaccio de ternera
 
 <en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
+es:carne molida de ternera
+ca:carn molta de vedella
 
 <en:beef meat
 en:beef tongue
 de:Kalbszunge, Kalbzunge
 fi:naudan kieli, härän kieli
 fr:langue de bœuf, langue de boeuf
+es:lengua de ternera
+ca:llengua de vedella
 hu:marhanyelv
 
 <en:beef meat
@@ -14076,6 +14321,8 @@ en:beef heart
 de:Rinderherz
 fi:naudan sydän
 fr:Cœur de bœuf
+es:corazón de res, corazón de ternera
+ca:cor de vedella
 hu:marhaszív
 wikidata:en:Q63327617
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-syd%C3%A4n
@@ -14086,12 +14333,16 @@ en:beef meat extract
 de:Rindfleisch-Extrakt
 fi:Naudanlihatiiviste
 fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
+es:extracto de res, extracto de ternera
+ca:extracte de res, extracte de vedella
 hu:marhahúskivonat
 vegan:en:no
 vegetarian:en:no
 
 <fr:viande hachée de bœuf
 fr:préparation viande hachée de boeuf
+es:preparación de carne molida de res
+ca:preparació de carn molta de res
 
 # <en:compound
 fr:préparation de viande de boeuf cuite
@@ -14119,6 +14370,8 @@ fr:viande de boeuf en poudre, viande de boeuf déshydratée
 
 <en:beef
 fr:foie de boeuf
+es:foie de res, higado de res
+ca:foie de res, fetge de res
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
 
 <fr:foie de boeuf
@@ -14126,6 +14379,8 @@ en:calf's liver
 de:kalbsleber
 fi:vasikanmaksa
 fr:foie de veau
+es:higado de ternera, foie de ternera
+ca:fetge de vedella, foie de vedella
 hu:borjúmáj
 it:fegato di maiale
 
@@ -14202,6 +14457,7 @@ wikidata:en:Q4575936
 <en:lamb
 en:lamb meat
 cs:jehněčí maso
+ca:carn de xai
 da:lammekød
 de:Lammfleisch
 es:carne de cordero
@@ -14366,6 +14622,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
 en:rabbit meat
 de:Hasenfleisch
 es:Carne de conejo
+ca:carn de conill
 fi:kaninliha
 fr:viande de lapin
 hu:nyúlhús
@@ -14673,16 +14930,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Merguez
 
 <en:meat
 fr:steak haché
+es:filete picado stick tartar
+ca:filet mòlt, stick tartar
 # ingredient/fr:steak-haché has 18 products in french @2019-02-07
 
 <fr:steak haché
 fr:Steak haché pur boeuf, pure viande de boeuf hachée, viande hachée pur bœuf
+es:stick tartar de ternera, stick tartar de res, filete picado de ternera, filete picado de res
+ca:stick tartar de vedella, stick tartar de res, filet mòlt de vedella, filet mòlt de res
 # ingredient/fr:steak-hache-pur-boeuf has 12 in french products @2019-05-24
 
 <en:meat
 en:goat meat
 de:Ziegenfleisch
 es:carne de cabra
+ca:carn de cabra
 fi:vuohenliha
 hu:kecskehús
 nl:geitenvlees
@@ -14907,6 +15169,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bacon
 en:smoked bacon
 de:geräucherter Speck
 es:Tocino ahumado
+ca:cansalada fumada
 fi:savustettu pekoni
 fr:lard fumé
 hu:füstölt bacon, füstölt bacon szalonna
@@ -14938,7 +15201,7 @@ carbon_footprint_fr_foodges_value:fr:5.6
 <en:lardon
 en:smoked lardoons
 de:geräucherter Speck
-es:Lardoons ahumados
+es:tocino ahumado
 fr:lardon fumé, lardons fumés
 
 <en:lardon
@@ -14951,24 +15214,33 @@ fr:lardons cuits
 en:smoked cooked lardoons
 de:Speckwürfel gekocht und geräuchert
 fr:lardons cuits fumés, lardons cuits fumés rissolés
+es:tocino ahumado frito
+ca:cansalada fumat fregit
 pt:toucinho cozido fumado
 # ingredient/fr:lardons-cuits-fumés has 168 products in 8 languages @2019-05-10
 # usage:de:Speckwürfel gekocht und geräuchert (Schweinebrust, Wasser, Glukosesirup, Salz, natürliche Aromen, Gemüsebrühe, Fermente)
 
 <en:pork meat
 fr:rognons de porc
+es:riñones de cerdo
+ca:ronyons de porc
 
 <en:pork meat
 fr:jarret avant de porc
+es:pierna de cerdo
 
 <en:pork meat
 fr:pièces de tête de porc, morceaux de tête de porc
+es:cabeza de cerdo
+ca:cap de porc
 
 <en:pork meat
 en:pork tongue
 de:Schweinezunge
 fi:sian kieli
 fr:langue de porc
+es:lengua de cerdo
+ca:llengua de por
 hu:sertésnyelv, disznónyelv
 it:lingua di maiale
 
@@ -14977,12 +15249,16 @@ fr:noix de jambon de porc
 
 <en:pork meat
 fr:filet et pointe de porc
+es:lomo de cerdo
+ca:llom de porc
 
 <en:pork meat
 fr:palette de porc
 
 <en:pork meat
 fr:Côtes de porc
+es:costillas de cerdo
+ca:costelles de porc
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
 <en:pork meat
@@ -14990,9 +15266,13 @@ fr:carré de porc, carré
 
 <en:pork meat
 fr:viande porc
+es:carne de cerdo
+ca:carn de porc
 
 <en:pork meat
 fr:poitrine de porc fumée
+es:panceta de cerdo ahumada
+ca:cansalda de por fumat
 
 <en:pork meat
 fr:filet mignon de porc
@@ -15002,12 +15282,18 @@ fr:échine de porc
 
 <en:pork meat
 fr:viande de porc cuite
+es:cerdo cocido
+ca:porc cuit
 
 <en:pork meat
 fr:viande de porc traitée en salaison
+es:cerdo curado
+ca:porc curat
 
 <fr:viande de porc traitée en salaison
 fr:viande de porc traitée en salaison et précuite
+es:cerdo curado y precocido
+ca:porc curat i precuit
 
 <en:pork meat
 fr:chipolatas
@@ -15021,12 +15307,15 @@ en:stewed porc
 de:geschmortes Schweinefleisch
 fi:haudutettu sianliha
 fr:viandes de porc à l'étouffée
+es:estofado de cerdo
+ca:estofat de porc
 it:maiale in umido
 
 <en:pork meat
 en:ham
 de:Schinken
 es:Jamón
+ca:pernil
 fi:kinkku, kinkkua, siankinkku
 fr:jambon de porc, jambon
 hu:sonka
@@ -15045,6 +15334,8 @@ fr:jambon de porc français
 
 <en:ham
 en:raw ham
+es:jamón crudo
+ca:pernil cru
 de:Rohschinken
 fi:raakakinkku
 fr:jambon cru
@@ -15052,6 +15343,8 @@ it:prosciutto crudo
 
 <en:raw ham
 en:Serrano raw ham
+es:jamón serrano
+ca:pernil serrà
 fr:jambon cru de Serrano
 
 <en:raw ham
@@ -23827,6 +24120,13 @@ fr:farine de fève, farine de fèves
 hu:lóbabliszt, széles bab liszt
 it:farina di fave
 nl:bonenmeel
+
+<en:flour
+<en:flax seed
+en:flax floor, flaxseed floor
+fr:farine de lin, farine de graines de lin
+#openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
+# 57 products (FR) @2020-04-23
 
 <en:flour
 en:soy flour, soya flour
@@ -33829,6 +34129,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
 
+<en:orange
+en:blood orange
+fr:orange sanguine
+es:naranja sanguina
+it:arancia rossa
+de:Blutorange
+wikidata:en:https://www.wikidata.org/wiki/Q303669
+wikipedia:en:https://en.wikipedia.org/wiki/Blood_orange
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:orange-sanguine
+# 23 products (FR), 8 products (EN), 4 products (ES) @2020-04-23
+
+<en:orange juice
 en:pasteurized orange juice
 fr:jus d'orange pasteurisé
 
@@ -33882,6 +34194,7 @@ nl:Sinaasappelsap zonder vruchtvlees
 # ingredient/fr:jus-d-orange-sans-pulpe products has 12 in french @2019-05-23
 
 <en:orange juice
+<en:blood orange
 de:Blutorangensaft
 fr:jus d'orange sanguine
 it:succo d'arancia sanguigna
@@ -46755,6 +47068,12 @@ wikidata:en:Q2007388
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pavot
 nutriscore_fruits_vegetables_nuts:en:no
 
+
+<en:poppy seed
+en:blue poppy seed
+fr:graine de pavot bleu
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-pavot-bleu
+# 42 products (FR) @2020-04-23
 
 <en:sunflower
 <en:seed
@@ -68641,6 +68960,12 @@ fi:sitruuna-vinaigrette, sitruunavinegretti
 
 <en:sauce
 fr:sauce hamburger
+
+
+<en:sauce
+fr:sauce blanche
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-blanche
+# 58 entries @2020-04-23
 
 <en:sauce
 en:prepared sauce

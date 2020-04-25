@@ -15,8 +15,32 @@
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
 
+#######################################################################
+#
+#                U N P R O C E S S E D
+#
+#######################################################################
+
 en:raw
 fr:cru, crue, crus, crues
+
+en:fresh
+de:frische
+es:fresco, fresca, frescos, frescas
+it:fresco, fresca, fresche, freschi
+# de:frisch is found in front and in the ingredients
+nl:verse
+pt:fresco
+
+# Often in combination with flavour. It does not seem that it has much meaning.
+#en:natural
+## da:naturlig
+#de:natürlich, natürliches, naturlich, naturliches
+#es:natural, natural de, naturales
+#it:naturale
+#nl:natuurlijk, natuurlijke
+#pl:naturalne
+#sv:naturlig, naturliga, naturligt
 
 #######################################################################
 #
@@ -151,7 +175,6 @@ fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
 
-
 #######################################################################
 #
 #                S P L I T T I N G   P R O C E S S E S
@@ -170,28 +193,46 @@ fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, dé
 
 # en:description:With the outermost layer or skin removed
 en:peeled
+es:sin piel
 fr:pelé, pelée, pelés, pelées
-nl:gepelde
-# nl:parse:gepelde_$
+nl:gepeld, gepelde
 # en:wiktionary:peeled
 
 # en:description:Having had the pits removed
 en:pitted
-de:entsteint, entsteinte
+de:entsteint, entsteinte, entkernt
+es:sin hueso
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
-# de:parsing:$ entsteint, entsteint $
+nl:ontpit, ontpitte
+#pt:sem caroço, sem caroco
 # en:wiktionary:pitted
 
 # en:description:The soft center of a fruit
 en:pulp
-de:mark
+de:mark, pulpe
+es:pulpo, pulpa de
+fr:pulpe, pulpe de, pulpe d', en pulpe
+#fr:false:avec pulpe
+it:polpa, polpa di
+#nl:pulp
+#nl:false:met pulp
+pt:polpa de, polpas de
 # en:wiktionary:pulp
 
+fr:sans pulpe
 
 en:sieved
 de:passiert
+es:tamizado, tamizados
 fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
+nl:gezeefd, gezeefde
 
+
+de:extrahiert, extrahierte, extrahierter, extrahiertes
+sv:extraherad, extraherade
+
+#<de:extrahiert
+de:kaltextrahiert, kaltextrahierter
 
 #######################################################################
 #
@@ -274,25 +315,68 @@ fr:reconstitué, reconstituée, reconstitués, reconstituées
 # Processes that heat an ingredient (over fire, in water)
 
 en:frozen
+de:tiefgevroren
+es:congelado, ultracongelado, ultracongelada
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+nl:diepgevroren
+ro:congelat
 
 en:unfrozen
+es:descongelado, descongelada
 fr:décongelé, décongelée, décongelés, décongelées
+nl:ontdooid
 
 en:pasteurised, pasteurized
+ca:pasteuritzada
+de:pasteurisiert, pasteurisierte, pasteurisierter
+es:pasteurizado, pasteurizada
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
+it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
+nl:gepasteuriseerd, gepasteuriseerde
+pt:pasteurizado
+ro:pasteurizat, pasteurizata
+
+en:unpasteurized
 
 en:pre-cooked
+de:vorgekocht
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
+nl:voorgekookt, voorgekookte
+
+# Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
+#<en:pre-cooked
+en:parboiled
+de:parboiled
+es:parboiled
+it:parboiled
+
+# prepare (vegetables) for freezing or further cooking by immersing briefly in boiling water.
+# comment:sometimes it seems to mean "the skin removed", used for almonds. Related to en:bleached?
+#<en:pre-cooked
+en:blanched
+de:blanchiert, blanchierte
+fr:blanchi, blanchie, blanchis, blanchies
+nl:geblancheerd
 
 en:cooked
-de:gegart, gegarte, gegarter, gegartes
+de:gekocht
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
-nl:gegaard
+nl:gekookt, gekookte
 
-# <en:cooked
+#<en:cooked
+de:gegart, gegarte, gegarter, gegartes
+nl:gegaard, gegaarde
+
+
+en:uncooked
+nl:ongekookt, ongekookte
+
+#<en:uncooked
+fr:non-blanchie
+
+# <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
 
 en:puffed
@@ -307,19 +391,43 @@ en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
 
 en:fried
+es:frito, fritos
 fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
+# nl:gefrituurd
+# en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
 en:roasted
-de:geröstet, geröstete, geröstetes, gerösteter
+de:gebraten, gebratene
+es:asado, asada
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+it:arrostito, arrostite, arrostiti
+nl:gebraden
 
+# en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en:toasted
+de:geröstet, geröstete, geröstetes, gerösteter, getoastet
+es:tostado, tostada, tostados, tostadas
 fr:toasté, toastée, toastés, toastées
+it:tostato, tostati, tostate
+nl:geroosterd, geroosterde
 
+en:untoasted
+nl:ongeroosterd
+
+#<en:toasted
+en:dark toasted
+
+# en:description:To cook food under the element of a stove or only under the top element of an oven.
+#<en:roasted
 en:grilled
+de:gegrillt, gegrillte, gegrillter, gegrilltes
+es:a la parrila
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
+nl:gegrild, gegrilde
+pl:grillowany. grillowana
+sv:grillad
 
 
 #######################################################################
@@ -328,6 +436,21 @@ it:grigliato, grigliata, grigliati, grigliate
 #
 #######################################################################
 # Processes that add another ingredient
+
+# Is mainly used for rice/flour and pasta
+en:enriched
+#en:false_positive:enriched with thiamin
+de:angereichert
+#de:comment:Can also appear in combinations: de:Eiweißangereichertes
+fr:enrichi, enrichie, enrichis
+nl:verrijkt
+
+en:unenriched
+
+en:bromated
+es:bromado
+
+en:unbromated, un-bromated
 
 de:gesalzen, gesalzene, gesalzenes, gesalzener
 
@@ -364,6 +487,21 @@ de:geschwefelt, geschwefelte
 
 # <en:sulfite free, unsulphured
 de:ungeschwefelt, ungeschwefelte
+
+#######################################################################
+#
+#                T R E A T I N G   P R O C E S S E S
+#
+#######################################################################
+# Processes that change the ingredient, but do not add something
+
+en:untreated
+fr:non traitée
+
+en:bleached
+
+en:unbleached, un-bleached
+de:ungebleichtes
 
 #######################################################################
 #
