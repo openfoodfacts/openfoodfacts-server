@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-25 14:31\n"
+"PO-Revision-Date: 2020-04-25 14:41\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3392,7 +3392,7 @@ msgstr "Значение в мкг"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Значение в МЕ"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3429,17 +3429,17 @@ msgstr "Платформа для производителей"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Платформа для производителей позволяет производителям легко управлять фотографиями и данными своих продуктов на Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Данные о продукте и фотографии, отправленные на платформу для производителей, хранятся в частной базе данных. Вы сможете проверить, что все данные верны, прежде чем сделать их доступными в базе данных Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Данные и фотографии продукта станут общедоступными в базе данных Open Food Facts под лицензией <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Отдельное содержимое базы данных доступно под <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Лицензией на содержимое базы данных</a> а изображения продуктов доступны под <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">лицензией Creative Commons Attribution ShareAlike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3684,7 +3684,7 @@ msgstr "В таблице перечислены возможные способ
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Чтобы получить релевантные результаты, пожалуйста, убедитесь, что данные о продукте в полном составе (данные о питании со значениями для клетчатки и фруктов и овощей для расчета показателя Nutri-Score, а также точная категория для сравнения каждого продукта с аналогичными продуктами)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3781,15 +3781,15 @@ msgstr "Баллы за белки не учитываются, потому ч�
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Баллы за белки подсчитываются, потому что баллы за фрукты, овощи, рапсовое/ореховое/оливковое масло находятся на максимуме."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Баллы за белки засчитываются, потому что продукт относится к категории сыров."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Продукт относится к категории жиров, баллы за насыщенные жиры заменяются баллами за соотношение насыщенных жиров и жиров."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
