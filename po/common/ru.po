@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-25 14:21\n"
+"PO-Revision-Date: 2020-04-25 14:31\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2700,7 +2700,7 @@ msgstr "Группы NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "Группы Nova для классификации полуфабрикатов"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3204,7 +3204,7 @@ msgstr "Загрузите файл электронной таблицы (фа�
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Вы можете загрузить таблицу с форматом импорта столбцов Open Food Facts, или вы можете загрузить таблицу в любом формате, а затем выбрать столбцы для импорта."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
@@ -3293,7 +3293,7 @@ msgstr "Конкретная категория"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Специфичное поле источника"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3335,7 +3335,7 @@ msgstr "Введите наивенование этикетки в тексто
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Выберите этот параметр, если в столбце указано наличие определенной категории (например, напитки), когда значение равно Д, Да или 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
@@ -3344,11 +3344,11 @@ msgstr "Введите название категории в текстовое
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Выберите эту опцию для полей, относящихся к источнику и которые мы хотим сохранить в качестве полей, специфичных для источника."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Введите имя целевого поля в текстовое поле справа или оставьте пустым, чтобы использовать имя исходного поля."
 
 msgctxt "value"
 msgid "Value"
