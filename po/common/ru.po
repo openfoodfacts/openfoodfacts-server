@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-25 14:51\n"
+"PO-Revision-Date: 2020-04-25 15:31\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3880,7 +3880,7 @@ msgstr "Оценка Nutri-Score может быть изменена с %s на
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Платформа для производителей все еще находится в стадии разработки, и мы проводим ручные проверки перед импортом продуктов в общедоступную базу данных. Пожалуйста, напишите нам по электронной почте по адресу <a href=\"mailto:producers@openfoodfacts.org\">produk@openfoodfacts.org</a> чтобы обновить публичную базу данных."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -3892,7 +3892,7 @@ msgstr "Изготовитель"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Должно быть проверено только для счетов производителей, которые редактируют свои собственные продукты. Владелец продукта будет присваиваться производителям при добавлении или редактировании продукта."
 
 msgctxt "user_group_database"
 msgid "Database"
@@ -3900,7 +3900,7 @@ msgstr "База данных"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Для внешних источников данных. Право собственности импортируемых продуктов не изменится."
 
 msgctxt "user_group_app"
 msgid "App"
@@ -3924,7 +3924,7 @@ msgstr "Модератор"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Модераторы имеют доступ к специальным функциям для редактирования и просмотра продуктов."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
@@ -3932,7 +3932,7 @@ msgstr "Модератор платформы производителей"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Модераторы платформы производителей могут просматривать и редактировать частные продукты всех пользователей и организаций на платформе производителей."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -3940,19 +3940,19 @@ msgstr "Я уже пожертвовал или мне не интересно. 
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "Эй, снять флажок?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "Независимый и общественный проект по обеспечению информации о продуктах питания?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Данные о пищевых продуктах для исследований, направленных на улучшение здоровья населения?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Более легкий и лучший выбор продуктов питания по вашим собственным критериям?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
@@ -3964,7 +3964,7 @@ msgstr "Пожалуйста, поддержите"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "Чрезмерное употребление алкоголя вредно для здоровья, его следует употреблять умеренно."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -3980,7 +3980,7 @@ msgstr "Вы просматриваете свои продукты."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Чтобы увидеть товары от конкретного пользователя или организации, введите его идентификатор ниже. Оставьте пустым для снятия."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
@@ -4042,7 +4042,7 @@ msgstr "Использовать предыдущий код"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Вы можете указать значения поля, которые будут добавлены ко всем товарам, для которых вы будете отправлять изображения."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4062,7 +4062,7 @@ msgstr "Использовать предыдущий код"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Вы можете указать значения поля, которые будут добавлены ко всем товарам, для которых вы будете отправлять изображения."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4074,11 +4074,11 @@ msgstr "Удалить все продукты"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Удалить все ваши продукты с платформы для производителей"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Вы можете удалить все свои продукты с платформы для производителей, например, чтобы начать с чистого листа, если возникли проблемы с импортом. Это не повлияет на ваши продукты в публичной базе данных."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4152,10 +4152,10 @@ msgstr "Названия команд являются общедоступны�
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Команда %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "Будет экспортировано %d товаров."
 
