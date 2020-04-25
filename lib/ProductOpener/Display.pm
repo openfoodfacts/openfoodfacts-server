@@ -222,7 +222,7 @@ foreach my $file (sort keys %file_timestamps) {
 		$file_timestamps{$file} = (stat "$www_root/$file")[9];
 	}
 	else {
-		$log->info("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_info();
+		#$log->trace("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_trace();
 		$file_timestamps{$file} = $start_time;
 	}
 }
@@ -1697,7 +1697,6 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
-				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
