@@ -222,7 +222,7 @@ foreach my $file (sort keys %file_timestamps) {
 		$file_timestamps{$file} = (stat "$www_root/$file")[9];
 	}
 	else {
-		#$log->trace("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_trace();
+		$log->info("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_info();
 		$file_timestamps{$file} = $start_time;
 	}
 }
@@ -1330,7 +1330,8 @@ sub get_cache_results($$){
 	# disable caching if ?nocache=1
 	# or if the user is logged in and nocache is different from 0
 	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0))) 	
+		) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -1345,8 +1346,8 @@ sub get_cache_results($$){
 		else {
 			$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
 		}
-		return $results;
 	}
+	return $results;
 }
 
 sub set_cache_results($$){
@@ -1388,8 +1389,8 @@ sub query_list_of_tags($$) {
 	# define limit and skip values
 	my $limit;
 	my $tags_page_size = 10000;
-	#If ?stats=1 than do not limit results size
-	if (defined $request_ref->{stats}) {
+	#If ?stats=1 or ?filter=  than do not limit results size
+	if ((defined $request_ref->{stats}) or (defined $request_ref->{filter}) ) {
 		$limit = 999999999999;
 	}
 	elsif (defined $request_ref->{tags_page_size}) {
@@ -1449,6 +1450,27 @@ sub query_list_of_tags($$) {
 			];
 	}
 
+	#get total count for aggregate (without limit) and put result in cache
+	my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
+	$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
+	$key_count = md5_hex($key_count);
+	$results_count = get_cache_results($key_count,$request_ref);
+	if (not defined $results_count) {
+		eval {
+			$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+			$results = execute_query(sub {
+				return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+			});
+			$results = [$results->all]->[0];
+			$request_ref->{structured_response}{count} = $results->{$groupby_tagtype . "_tags"};
+			set_cache_results($key_count,$request_ref->{structured_response}{count});
+			}
+	}
+	else {
+		$request_ref->{structured_response}{count} = $results_count;
+	}
+
+	#get cache results for aggregate query
 	my $key = $server_domain . "/" . freeze($aggregate_parameters);
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 	$key = md5_hex($key);
@@ -1461,7 +1483,8 @@ sub query_list_of_tags($$) {
 		# do not used the smaller cached products_ tags collection if ?nocache=1
 		# or if the user is logged in and nocache is different from 0
 		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))  
+			) {
 
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
@@ -1473,23 +1496,6 @@ sub query_list_of_tags($$) {
 		else {
 
 			eval {
-				#get total count for aggregate (without limit) and put result in cache
-				my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
-				$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
-				$key_count = md5_hex($key_count);
-				my $results_count = get_cache_results($key_count,$request_ref);
-				if (not defined $results_count) {
-					$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
-					$results = execute_query(sub {
-						return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
-					});
-					$results = [$results->all]->[0];
-					$request_ref->{structured_response}{count} = $results->{$groupby_tagtype . "_tags"};
-					set_cache_results($key_count,$request_ref->{structured_response}{count})
-				}
-				else {
-					$request_ref->{structured_response}{count} = $results_count;
-				}
 				$log->debug("Executing MongoDB aggregate query on products_tags collection", { query => $aggregate_parameters }) if $log->is_debug();
 				$results = execute_query(sub {
 					return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
@@ -1575,8 +1581,8 @@ sub display_list_of_tags($$) {
 
 		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
 		my $tags_page_size = 10000;
-		# if there are more than $tags_page_size lines, add pagination. Except for stats display
-		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats})) {
+		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats}) and not (defined $request_ref->{filter})) {
 			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
 		}
 
@@ -1778,6 +1784,7 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
+				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -4381,7 +4388,6 @@ sub search_and_export_products($$$) {
 
 	my $count;
 
-	# First count results to make sure we have less than the export limit
 	eval {
 		$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 		$count = execute_query(sub {
