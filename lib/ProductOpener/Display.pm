@@ -86,6 +86,8 @@ BEGIN
 					&display_ingredients_analysis_details
 					&display_ingredients_analysis
 
+					&count_products
+
 					@search_series
 
 					$admin
@@ -220,9 +222,16 @@ foreach my $file (sort keys %file_timestamps) {
 		$file_timestamps{$file} = (stat "$www_root/$file")[9];
 	}
 	else {
-		$log->info("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_info();
+		#$log->trace("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_trace();
 		$file_timestamps{$file} = $start_time;
 	}
+}
+
+# On demand exports can be very big, limit the number of products
+my $export_limit = 10000;
+
+if (defined $options{export_limit}) {
+	$export_limit = $options{export_limit};
 }
 
 
@@ -621,13 +630,6 @@ sub analyze_request($)
 		}
 
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
-	}
-
-	# or a list
-	elsif (0 and (-e ("$data_root/lists/" . $components[0] . ".$cc.$lc.html") ) and (not defined $components[1]))  {
-		$request_ref->{text} = $components[0];
-		$request_ref->{list} = $components[0];
-		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
 
 	# Renamed text?
@@ -1078,13 +1080,6 @@ sub display_text($)
 
 	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 
-
-	#list?
-	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
-		$file = "$data_root/lists/$textid.$cc.$lc.html";
-	}
-
-
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
 	close ($IN);
@@ -1096,7 +1091,7 @@ sub display_text($)
 
 	my $title = undef;
 
-	if (($textid eq 'index') or (defined $request_ref->{list})) {
+	if ($textid eq 'index') {
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
@@ -1702,7 +1697,6 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
-				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -3813,9 +3807,36 @@ sub search_and_display_products($$$$$) {
 
 	my $count;
 
-	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	my $fields_ref;
 
-	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+	#for API (json, xml, rss,...), display all fields
+	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
+		$fields_ref = {};
+	} else {
+	#for HTML, limit the fields we retrieve from MongoDB
+		$fields_ref = {
+		"lc" => 1,
+		"code" => 1,
+		"product_name" => 1,
+		"product_name_$lc" => 1,
+		"brands" => 1,
+		"images" => 1,
+		"quantity" => 1
+		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
+	}
+
+	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, fields => $fields_ref, sort => freeze($sort_ref), limit => $limit, skip => $skip ];
+
+	# Sort the keys of hashes
+	my $json = JSON::PP->new->utf8->canonical->encode($mongodb_query_ref);
+
+	my $key = $server_domain . "/" . $json;
 
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 
@@ -3879,12 +3900,12 @@ sub search_and_display_products($$$$$) {
 					$count = execute_query(sub {
 						return get_products_collection()->estimated_document_count();
 					});
-				}	
+				}
 				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
-					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+					return get_products_collection()->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				});
 				$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 			}
@@ -3955,11 +3976,14 @@ sub search_and_display_products($$$$$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; " . lang("search_download_results") . "</a><br>"
-				. "<ul>"
+			$html .= "&rarr; " . lang("search_download_results") . "<br>";
+
+			if ($count <= $export_limit) {
+				$html .= "<ul>"
 				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
 				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
-				. "</ul>"
+				. "</ul>";
+			}
 		}
 
 		if ($log->is_debug()) {
@@ -4282,41 +4306,25 @@ sub search_and_export_products($$$) {
 
 	$log->debug("search_and_export_products - MongoDB query", { format => $format, query => $query_ref }) if $log->is_debug();
 
-	my $cursor;
+	my $count;
 
+	# First count results to make sure we have less than the export limit
 	eval {
-		$cursor = execute_query(sub {
-			# disabling sort for CSV export, as we get memory errors
-			# MongoDB::DatabaseError: Runner error: Overflow sort stage buffered data usage of 33572508 bytes exceeds internal limit of 33554432 bytes
-			# return get_products_collection()->query($query_ref)->sort($sort_ref);
-			return get_products_collection()->query($query_ref);
+		$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
+		$count = execute_query(sub {
+							return get_products_collection()->count_documents($query_ref);
 		});
-	};
-	if ($@) {
-		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
-	}
-	else {
-		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
-	}
+		$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
 
-	my @products = $cursor->all;
-	my $count = @products;
-	$request_ref->{count} = $count;
+	};
 
 	my $html = '';
 
-	if ($count < 0) {
+	if ((not defined $count) or ($count < 0)) {
 		$html .= "<p>" . lang("error_database") . "</p>";
 	}
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
-	}
-
-	# On demand exports can be very big, limit the number of products
-	my $export_limit = 100000;
-
-	if (defined $options{export_limit}) {
-		$export_limit = $options{export_limit};
 	}
 
 	if ($count > $export_limit) {
@@ -4336,8 +4344,29 @@ sub search_and_export_products($$$) {
 		display_new($request_ref);
 		return;
 	}
+	else {
 
-	if ($count > 0) {
+		# Count is greater than 0
+
+		my $cursor;
+
+		eval {
+			$cursor = execute_query(sub {
+				# disabling sort for CSV export, as we get memory errors
+				# MongoDB::DatabaseError: Runner error: Overflow sort stage buffered data usage of 33572508 bytes exceeds internal limit of 33554432 bytes
+				# return get_products_collection()->query($query_ref)->sort($sort_ref);
+				return get_products_collection()->query($query_ref);
+			});
+		};
+		if ($@) {
+			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
+		}
+		else {
+			$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
+		}
+
+		my @products = $cursor->all;
+		$request_ref->{count} = $count;
 
 		# Send the CSV file line by line
 
@@ -4474,51 +4503,16 @@ sub search_and_export_products($$$) {
 				}
 			}
 
-			# Try to get the "main" category: smallest category with at least 10 products with nutrition data
-
-			my @comparisons = ();
-			my %comparisons = ();
+			# "main" category: lowest level category
 
 			my $main_cid = '';
+			my $main_cid_lc = '';
 
-			if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
-			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+			if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-				$main_cid = $product_ref->{categories_tags}[0];
-				if (not defined $main_cid) {
-					$main_cid = "";
-				}
+				$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
-
-				foreach my $cid (@{$product_ref->{categories_tags}}) {
-					if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-						push @comparisons, {
-							id => $cid,
-							name => display_taxonomy_tag($lc,'categories', $cid),
-							link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
-							nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-							count => $categories_nutriments_ref->{$cid}{count},
-							n => $categories_nutriments_ref->{$cid}{n},
-						};
-						#print STDERR "compare category: cid: $cid - name " . display_taxonomy_tag($lc,'categories', $cid) . "\n";
-
-					}
-				}
-
-				local $log->context->{main_cid_orig} = $main_cid;
-				local $log->context->{comparisons} = $#comparisons;
-				if ($#comparisons > -1) {
-					@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
-					$comparisons[0]{show} = 1;
-					$main_cid = $comparisons[0]{id};
-				}
-
-				local $log->context->{main_cid} = $main_cid;
-				$log->debug("final main_cid determined") if $log->is_debug();
-			}
-
-			if ($main_cid ne '') {
-				$main_cid = canonicalize_tag2("categories",$main_cid);
+				$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
 			}
 
 			push @row, $main_cid;
@@ -5314,12 +5308,18 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{axis_y} ne 'products_n') {
 
 		$fields_ref	= {
+			lc => 1,
 			code => 1,
 			product_name => 1,
 			"product_name_$lc" => 1,
 			labels_tags => 1,
 			images => 1,
 		};
+
+		# For the producer platform, we also need the owner
+		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+			$fields_ref->{owner} = 1;
+		}
 	}
 
 	foreach my $axis ('x','y') {
@@ -6991,7 +6991,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		
+
 		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}

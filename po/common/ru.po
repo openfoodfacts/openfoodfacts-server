@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-13 15:02\n"
+"PO-Revision-Date: 2020-04-25 12:41\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -248,22 +248,6 @@ msgstr "Компания Coca Cola"
 msgctxt "brands_p"
 msgid "brand owners"
 msgstr "производители"
-
-msgctxt "brand_owner_products"
-msgid "Products from the %s brand owner"
-msgstr ""
-
-msgctxt "brand_owner_s"
-msgid "brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_tagsinput"
-msgid "add a brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_without_products"
-msgid "Products not from the %s brand owner"
-msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -1993,7 +1977,7 @@ msgstr "Скачать результаты"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Загрузить результаты в формате XLSX или CSV. Обратите внимание, что по соображениям производительности вы можете загрузить только до 10.000 результатов."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
@@ -2527,7 +2511,7 @@ msgstr "Предупреждение: количество питательны�
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано, их возможный положительный вклад в оценку не может быть учтен."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3125,7 +3109,7 @@ msgstr "Помогите перевести %s на %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "Вы можете предложить переводы для записей ниже, которые еще не были переведены на ваш язык. Синяя ссылка и черный текст (и то, и другое на английском языке) отображают соответствующие не переведенные продукты и исходную запись с необязательными синонимами, разделенными запятыми. Введите перевод в текстовое поле с необязательными синонимами и нажмите кнопку «Сохранить». Спасибо!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3307,6 +3291,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Конкретная категория"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Выберите поле"
@@ -3336,22 +3324,31 @@ msgid "only the unit, with the value in another column"
 msgstr "только единицы, значения в другом столбце"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Отметьте этот параметр, если столбец показывает наличие определенной этикетки (например, Органическая, Fair Trade), когда значение равно Y, Да или 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "Введите название этикетки в текстовое поле справа."
+msgstr "Введите наивенование этикетки в текстовое поле справа."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Введите название категории в текстовое поле справа."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr ""
 
 msgctxt "value"
 msgid "Value"
@@ -3939,7 +3936,7 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Я уже пожертвовал или мне не интересно. Скрыть баннер."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
@@ -4134,25 +4131,31 @@ msgstr "Команды"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "опционально"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "команды"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "команда"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Вы можете присоединиться к одной, двум или трем командам. Продукты, которые вы добавляете или редактируете будут учтены у вас и ваших команд. Команды могут быть изменены в любое время."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Названия команд являются общедоступными. Не создавайте команды с именами, содержащими личные данные (например, фамилии), товарные знаки (если вы ими не владеете) или что-нибудь оскорбительное."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
 msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
