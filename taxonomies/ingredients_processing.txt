@@ -472,8 +472,13 @@ es:bromado
 en:unbromated, un-bromated
 
 de:gesalzen, gesalzene, gesalzenes, gesalzener
+nl:gezouten
+
+#<de:gesalzen
+nl:lichtgezouten, licht gezouten
 
 de:ungesalzen, ungesalzene
+nl:ongezouten
 
 en:sweetened
 de:gesüßt, gesüßte
@@ -514,6 +519,9 @@ de:ungeschwefelt, ungeschwefelte
 #######################################################################
 # Processes that change the ingredient, but do not add something
 
+en:treated
+nl:bewerkt
+
 en:untreated
 fr:non traitée
 
@@ -543,7 +551,10 @@ fr:non-maltées
 
 en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
+es:marinado, marinada, marinados, marinadas
 fr:mariné, marinée, marinés, marinées
+it:marinato, marinata
+nl:gemarineerd, gemarineerde
 
 # pickled can be in vinegar or salt
 
@@ -569,14 +580,18 @@ en:unflavoured, unflavoured
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
+de:gerauchert
+#de:comment:Various rauch appear as separate ingredients
 es:ahumada, ahumado, ahumadas, ahumados
 fr:fumé,fumés,fumée,fumées
+it:affumicato, affumicate, affumicata
+nl:gerookt, gerookte
 #en:false-positive:en:sweet smoked paprike
 
-# <en:smoked
+#<en:smoked
 en:double smoked
 
-# <en:smoked
+#<en:smoked
 en:naturally smoked, natural smoked, all natural smoked
 fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
 
@@ -590,7 +605,7 @@ en:dry smoked
 #<en:smoked
 en:wood smoked
 
-# <en:wood smoked
+#<en:wood smoked
 en:natural hardwood smoked, naturally wood smoked
 
 #<en:smoked
@@ -599,33 +614,37 @@ en:chardonnay smoked
 #<en:smoked
 en:cold smoked with cabernet wine
 
-# <en:wood smoked
+#<en:wood smoked
 en:alderwood smoked, smoked over alderwood
 
 # <en:wood smoked
 en:apple wood smoked
 
-# <en:wood smoked
+#<en:wood smoked
 en:beech smoked
 fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre
+nl:gerookt op beukenhout
 
-# <en:beech smoked
+#<en:beech smoked
 en:natural beech smoked, 
 
-# <en:wood smoked
+#<en:wood smoked
 en:cherrywood smoked
 
-# <en:wood smoked
+#<en:wood smoked
+de:edelholzrauch
+
+#<en:wood smoked
 en:fruitwood smoked
 
-# <en:wood smoked
+#<en:wood smoked
 en:hickory smoked, hot smoked from hickory
 fr:fumé au bois de caryer
 
-# <en:hickory smoked
+#<en:hickory smoked
 en:natural hickory smoked
 
-# <en:hickory smoked
+#<en:hickory smoked
 en:hickory smoked cured with water
 
 # <en:wood smoked
@@ -637,5 +656,8 @@ en:mesquite smoked
 # <en:wood smoked
 en:oak smoked
 
+# <en:wood smoked
+
+#<en:smoked
 en:not smoked, unsmoked
 
