@@ -35,7 +35,7 @@ pt:fresco
 # Often in combination with flavour. It does not seem that it has much meaning.
 #en:natural
 ## da:naturlig
-#de:natürlich, natürliches, naturlich, naturliches
+#de:natürlich, natürliches, naturlich, naturliches, naturbelassen
 #es:natural, natural de, naturales
 #it:naturale
 #nl:natuurlijk, natuurlijke
@@ -198,6 +198,8 @@ fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
 # en:wiktionary:peeled
 
+en:entspeltzt
+
 # en:description:Having had the pits removed
 en:pitted
 de:entsteint, entsteinte, entkernt
@@ -233,6 +235,7 @@ sv:extraherad, extraherade
 
 #<de:extrahiert
 de:kaltextrahiert, kaltextrahierter
+
 
 #######################################################################
 #
@@ -283,16 +286,16 @@ en:sundried, sun dried
 de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
 nl:zongedroogd, zongedroogde
 
-# <en:dried
+#<en:dried
 en:air dried
 de:luftgetrocknet, luftgetrockneter
 
-# <en:dried
+#<en:dried
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
 
 # en:description:cured means dried
-# <en:dried
+#<en:dried
 en:cured
 
 en:dehydrated
@@ -306,10 +309,26 @@ fr:réhydraté, réhydratée, réhydratés, réhydratées
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
+en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
+de:extrakt, extrakte, extrakt aus
+es:extracto, extracto de, extractos
+fr:extrait de, extrait d'
+#fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
+it:estratto di, estratti di
+#it:falsePositive:antiossidante estratto ricco di tocoferolo
+nl:extract
+ro:extract de
+sv:extrakt, extrakt av
+
+#<en:extract
+#<en:natural
+fr:extrait naturel de, extrait naturel d'
+
+#fr:obtenu par extraction hydrique
 
 #######################################################################
 #
-#                H E A T I N G   P R O C E S S E S
+#                T E M P E R A T U R E   P R O C E S S E S
 #
 #######################################################################
 # Processes that heat an ingredient (over fire, in water)
@@ -502,6 +521,18 @@ en:bleached
 
 en:unbleached, un-bleached
 de:ungebleichtes
+
+#en:comment:be careful for maltitol
+en:malted
+#en:falsePositive:malt
+de:gemälzt, gemälzte, gemälztes
+es:malteado, malteada
+fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
+it:maltato, maltata
+nl:gemout, gemoute
+#nl:falsePositive:moutmeel
+
+fr:non-maltées
 
 #######################################################################
 #
