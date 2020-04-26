@@ -46,6 +46,7 @@ function css() {
 function copyJs() {
   return src(
     [
+      "./node_modules/@webcomponents/custom-elements/custom-elements.min.js",
       "./node_modules/foundation-sites/js/vendor/*.js",
       "./node_modules/foundation-sites/js/foundation.js",
       "./node_modules/papaparse/papaparse.js",
