@@ -111,64 +111,64 @@ Tehdäksemme tietojen tuomisesta helpompaa ja nopeampaa, olemme määritelleet s
 <li>Ravintosisältö</li>
 </ul>
   
-<p>Etunäkymä, ainesosat ja ravintotaulukko täytyy toimittaa vähintään tuotteen pääkielellä. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>Etunäkymä, ainesosat ja ravintotaulukko täytyy toimittaa vähintään tuotteen pääkielellä. On suositeltavaa, että toimitatte kuvat myös muille kielille, jos ne esiintyvät tuotteessa.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>Esimerkiksi, Belgian markkinoille tarkoitetussa tuotteessa voi olla kuvia, jossa tuote on kirjoitettu ranskaksi ja hollanniksi.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Muitakin kuvia voi sisällyttää:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Takaosa ja muita näkymiä tuotteesta (ne mahdollistavat erityisesti merkkien logojen jne. tunnistuksen)</li>
+<li>Litteän näkymän pakkauksesta</li>
 </ul>
   
 <h5 id="format_des_fichiers_images">Kuvatiedostojen muoto</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>JPEG- tai PNG-muoto</li>
+  <li>Koko vähintään 2000 pikseliä leveä tai korkea</li>
 </ul>
 
-<h5 id="nom_des_fichiers_images">Kuvatiedostojen nimi</h5>
+<h5 id="nom_des_fichiers_images">Kuvatiedostojen nimet</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[viivakoodi]_[kuvan tyyppi]_[kielikoodi].[jpg tai png]</pre>
 
-  <p>For example :</p>
+  <p>Esimerkiksi:</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>3660140808750_front_en.jpg etukuvalle tuotteelle, jonka viivakoodi on 3660140808750</p>
 
-  <p>The types of images are:</p>
+  <p>Kuvien tyypit ovat:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
-  <li>any name you see fit (characters from a to e, no spaces) for other views</li>
+  <li>front: etukuva</li>
+  <li>ingredients: ainesosaluettelo</li>
+  <li>nutrition: ravintotaulukko</li>
+  <li>back: takaosa</li>
+  <li>mikä tahansa nimi, jota pidätte sopivana (merkit a-e, ei välilyöntejä) muille näkymille</li>
 </ul>
   
 
 <h4 id="format_des_donnees">Tietomuoto</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>Tiedot täytyy toimittaa taulukossa CSV-muodossa, sarkain kenttäerottimena ja UTF-8-merkkikoodauksella.</p>
+<p>Ensimmäinen rivi sisältää kenttien nimet, ja jokainen tuotteista on yhdellä seuraavista riveistä. Kenttien järjestyksellä ei ole väliä, ja kaikkien sarakkeiden ei tarvitse olla täytetty.</p>
+<p>Jotkut kentät ovat pakollisia ja jotkut ovat valinnaisia. Suosittelemme, että täytätte mahdollisimman monta kenttää jotta tietoja voi käyttää mahdollisimman monessa sovelluksessa. Jos ette ole varmoja, tai jos teillä on tietoja joille ei ole vielä kenttiä Open Food Facts -tietokannassa, voitte ottaa meihin yhteyttä, jotta voimme lisätä kenttiä ja tehdä parhaimman mahdollisen yhteensopivuuden.</p>
 
   <h5 id="champs_obligatoires">Vaaditut kentät</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>code: tuotteen viivakoodi kuten se esiintyy pakkauksessa (EAN-13, EAN-8 tai muu)</li>
+  <li>lang: 2 kirjaiminen koodi tuotteen pääkielelle (eniten näkyvillä pakkauksessa) (esimerkki: fr ranskankielelle)</li>
+  <li>product_name_ [2 kirjaiminen koodi pääkielelle]: tuotteen nimi (kentässä product_name_en nimelle englanniksi)</li>
+  <li>generic_name_ [2 kirjaiminen koodi pääkielelle]: Tuotteen yleisnimi </li>
+  <li>brands: tuotemerkit (useampi mahdollinen arvo tuotemerkeille ja alituotemerkeille, eroteltuna pilkuilla)</li>
+  <li>quantity: määrä, määrittele yksikkö, ja mahdollisesti lisää sulkeet, jos tuote sisältää useita yksikköjä (esimerkki: 120 g (4 x 30 g))</li>
+  <li>categories: tuoteluokka, tuotteen pääkielellä (esimerkki: suklaakakut)</li>
+  <li>countries: maa, jossa tuotetta myydään, tuotteen pääkielellä (useita mahdollisia arvoja, eroteltuina pilkuilla)</li>
+  <li>ingredients_text_ [2 kirjaiminen koodi pääkielelle]: ainesosaluettelo (ingredients_text_fr kenttä luettelolle ranskaksi). Allergeenit voi merkitä ISOILLA KIRJAIMILLA tai alaviivojen välissä </li>
+  <li>allergens: allergeenit, tuotteen pääkielellä, eroteltuna pilkuilla</li>
+  <li>traces: allergeenien jäämät, tuotteen pääkielellä, eroteltuna pilkuilla</li>
 </ul>
 
 <p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
