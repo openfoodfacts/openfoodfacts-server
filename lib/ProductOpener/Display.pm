@@ -1097,7 +1097,7 @@ sub display_text($)
 
 	# Add org name to index title on producers platform
 
-	if ($textid eq 'index-pro') {
+	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
 			$owner_user_or_org = $Org{org};
@@ -1140,11 +1140,15 @@ sub display_text($)
 
 	};
 
-	if (($file =~ /\/index-pro/) and (defined $Org_id)) {
-		$html .= display_index_for_producer($request_ref);
-		$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+	if ($file =~ /\/index-pro/) {
+		# Display products only if the owner is logged in
+		if (defined $Owner_id) {
+			$html .= display_index_for_producer($request_ref);
+			$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
+		}
 	}
 	elsif ($file =~ /\/index/) {
+		# Display all products
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 
