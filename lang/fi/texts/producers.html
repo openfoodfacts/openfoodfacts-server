@@ -171,26 +171,26 @@ Tehdäksemme tietojen tuomisesta helpompaa ja nopeampaa, olemme määritelleet s
   <li>traces: allergeenien jäämät, tuotteen pääkielellä, eroteltuna pilkuilla</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>Pakollisten kenttien joukossa ovat ravinnolliset arvot, jotka näkyvät pakkauksessa, per 100g / 100ml myytävää tuotetta.</p>
+<p>Millään arvoista ei saa olla yksikköä (kJ on yksikkö energialle ja g kaikille muille kentille).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: energia, kJ:na</li>
+  <li>fat_100g: rasva</li>
+  <li>saturated-fat_100g: tyydyttynyt rasva</li>
+  <li>carbohydrates_100g: hiilihydraatit</li>
+  <li>sugars_100g: sokerit</li>
+  <li>proteins_100g: proteiinit</li>
+  <li>salt_100g: suola</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
+<p>Suositeltavaa on myös merkitä kuidut ja %-osuus hedelmiä ja kasviksia, jotta ne tiedot voidaan ottaa huomioon Nutri-Scoren laskemisessa:</p>
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
+  <li>fiber_100g: kuidut</li>
   <li>fruits-vegetables-nuts_100g</li>
     <!-- Do not translate nutrient field names -->
   </ul>
@@ -198,18 +198,18 @@ Tehdäksemme tietojen tuomisesta helpompaa ja nopeampaa, olemme määritelleet s
   <h5 id="champs_optionnels">Valinnaiset kentät</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
-    <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
-    <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores: places of sale (several possible values, to be separated by commas: names of supermarket chains)</li>
-    <li>nutri_score: Nutri-Score rating from A to E, only in case it is indicated on the package</li>
-    <li>serving_size: quantity of a serving, specify the unit</li>
+    <li>labels: merkit, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: AB Bio, MSC, Max Havelaar). Huomio: merkkien täytyy näkyä tuotteen pakkauksessa.</li>
+    <li>origins: ainesosien alkuperät, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: Peru, Périgord)</li>
+    <li>packaging: pakkauksen materiaali ja muodot, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: tölkki, alumiini)</li>
+    <li>manufacturing_places: valmistussijainnit, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla: kaupunkien nimet, maat)</li>
+    <li>emb_codes: pakkaajankoodit ja Euroopan saniteettileimat (monta mahdollista arvoa, eroteltuina pilkuilla)</li>
+    <li>stores: myyntipaikat (monta mahdollista arvoa, eroteltuina pilkuilla: supermarketketjujen nimet)</li>
+    <li>nutri_score: Nutri-Score-arvostelu A-E, vain jos se on merkitty pakkaukseen</li>
+    <li>serving_size: annoskoko, määritelkää yksikkö</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>Ravinnolliset arvot voidaan myös merkitä valmistetulle tuotteelle (lisätyllä vedellä, maidolla jne.). Siinä tapauksessa lisätkää "_prepared" kentän nimeen. Esimerkiksi energy_prepared_100g.</p>
+<p>On myös mahdollista merkitä arvot muille ravintoaineille:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
@@ -263,7 +263,7 @@ Tehdäksemme tietojen tuomisesta helpompaa ja nopeampaa, olemme määritelleet s
 <li>serum-proteins_100g</li>
 <li>nucleotides_100g</li>
 
-<li>sodium_100g - in the case the salt_100g is left empty</li>
+<li>sodium_100g - jos salt_100g on jätetty tyhjäksi</li>
 <li>alcohol_100g</li>
 
 <li>vitamin-a_100g</li>
