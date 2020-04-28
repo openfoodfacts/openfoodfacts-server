@@ -222,13 +222,15 @@ foreach my $file (sort keys %file_timestamps) {
 		$file_timestamps{$file} = (stat "$www_root/$file")[9];
 	}
 	else {
-		$log->info("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_info();
+		#$log->trace("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_trace();
 		$file_timestamps{$file} = $start_time;
 	}
 }
 
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
+
+my $tags_page_size = 10000;
 
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
@@ -1334,7 +1336,7 @@ sub get_cache_results($$){
 	# disable caching if ?nocache=1
 	# or if the user is logged in and nocache is different from 0
 	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0))) 	
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
 		) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
@@ -1369,10 +1371,9 @@ sub query_list_of_tags($$) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
-	my $results_count;
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 	my $page = $request_ref->{page};
-	
+
 	# Add a meta robot noindex for pages related to users
 	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)) {
 
@@ -1392,9 +1393,9 @@ sub query_list_of_tags($$) {
 
 	# define limit and skip values
 	my $limit;
-	my $tags_page_size = 10000;
+
 	#If ?stats=1 or ?filter=  than do not limit results size
-	if ((defined $request_ref->{stats}) or (defined $request_ref->{filter}) ) {
+	if ((defined $request_ref->{stats}) or (defined $request_ref->{filter}) or (defined $request_ref->{status}) or (defined $request_ref->{translate}) ) {
 		$limit = 999999999999;
 	}
 	elsif (defined $request_ref->{tags_page_size}) {
@@ -1416,10 +1417,7 @@ sub query_list_of_tags($$) {
 		$page = 1;
 	}
 
-
 	# groupby_tagtype
-
-	my $results;
 
 	my $aggregate_count_parameters = [
 			{ "\$match" => $query_ref },
@@ -1454,40 +1452,18 @@ sub query_list_of_tags($$) {
 			];
 	}
 
-	#get total count for aggregate (without limit) and put result in cache
-	my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
-	$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
-	$key_count = md5_hex($key_count);
-	$results_count = get_cache_results($key_count,$request_ref);
-	if (not defined $results_count) {
-		eval {
-			$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
-			$results = execute_query(sub {
-				return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
-			});
-			$results = [$results->all]->[0];
-			$request_ref->{structured_response}{count} = $results->{$groupby_tagtype . "_tags"};
-			set_cache_results($key_count,$request_ref->{structured_response}{count});
-			}
-	}
-	else {
-		$request_ref->{structured_response}{count} = $results_count;
-	}
-
 	#get cache results for aggregate query
 	my $key = $server_domain . "/" . freeze($aggregate_parameters);
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 	$key = md5_hex($key);
-	$results = get_cache_results($key,$request_ref);
+	my $results = get_cache_results($key,$request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
-
-		$results = undef;
 
 		# do not used the smaller cached products_ tags collection if ?nocache=1
 		# or if the user is logged in and nocache is different from 0
 		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))  
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
 			) {
 
 			eval {
@@ -1517,10 +1493,6 @@ sub query_list_of_tags($$) {
 
 		$log->trace("aggregate query done") if $log->is_trace();
 
-		if ($admin) {
-			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();
-		}
-
 		# the return value of aggregate has changed from version 0.702
 		# and v1.4.5 of the perl MongoDB module
 		if (defined $results) {
@@ -1532,10 +1504,69 @@ sub query_list_of_tags($$) {
 		}
 		else {
 			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-
 		}
 	}
-	
+
+	# If it is the first page and the number of results we got is inferior to the limit
+	# we do not need to count the results
+
+	my $number_of_results;
+
+	if (defined $results) {
+		$number_of_results = scalar @{$results};
+		$log->debug("MongoDB query results count", { number_of_results => $number_of_results }) if $log->is_debug();
+	}
+
+	if (($skip == 0) and (defined $number_of_results) and ($number_of_results < $limit)) {
+			$request_ref->{structured_response}{count} = $number_of_results;
+			$log->debug("Directly setting structured_response count", { number_of_results => $number_of_results }) if $log->is_debug();
+	}
+	else {
+
+		#get total count for aggregate (without limit) and put result in cache
+		my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
+		$log->debug("MongoDB aggregate count query key", { key => $key_count }) if $log->is_debug();
+		$key_count = md5_hex($key_count);
+		my $results_count = get_cache_results($key_count,$request_ref);
+
+		if (not defined $results_count) {
+
+			my $count_results;
+
+			# do not used the smaller cached products_ tags collection if ?nocache=1
+			# or if the user is logged in and nocache is different from 0
+			if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+				or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
+				) {
+				eval {
+					$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+					$count_results = execute_query(sub {
+						return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+					});
+				}
+			}
+			else {
+				eval {
+					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+					$count_results = execute_query(sub {
+						return get_products_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+					});
+				}
+			}
+			if ((not $@) and (defined $count_results)) {
+
+				$count_results = [$count_results->all]->[0];
+				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
+				set_cache_results($key_count,$request_ref->{structured_response}{count});
+				$log->debug("Set cached aggregate count for query key", { key => $key_count, results_count => $request_ref->{structured_response}{count}, count_results => $count_results }) if $log->is_debug();
+			}
+		}
+		else {
+			$request_ref->{structured_response}{count} = $results_count;
+			$log->debug("Got cached aggregate count for query key", { key => $key_count, results_count => $results_count }) if $log->is_debug();
+		}
+	}
+
 	return $results;
 }
 
@@ -1570,7 +1601,7 @@ sub display_list_of_tags($$) {
 		if (not defined $request_ref->{structured_response}{count} ) {
 			$request_ref->{structured_response}{count} = ($#tags + 1);
 		}
-		
+
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
 		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
@@ -1584,11 +1615,6 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
-		my $tags_page_size = 10000;
-		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
-		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats}) and not (defined $request_ref->{filter})) {
-			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
-		}
 
 		my $th_nutriments = '';
 
@@ -1788,7 +1814,6 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
-				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -1926,6 +1951,11 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
+
+		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats}) and not (defined $request_ref->{filter})) {
+			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
+		}
 
 		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
 			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
@@ -4274,6 +4304,13 @@ sub display_pagination($$$$) {
 
 	my $next_page_url;
 
+	# To avoid robots to query and index too many pages,
+	# make links to subsequent pages nofollow for list of tags (not lists of products)
+	my $nofollow = '';
+	if (defined $request_ref->{groupby_tagtype}) {
+		$nofollow = ' nofollow';
+	}
+
 	if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
 
 		my $prev = '';
@@ -4330,10 +4367,10 @@ sub display_pagination($$$$) {
 					$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
 
 					if ($i == $page - 1) {
-						$prev = '<li><a href="' . $link . '" rel="prev">' . lang("previous") . '</a></li>';
+						$prev = '<li><a href="' . $link . '" rel="prev$nofollow">' . lang("previous") . '</a></li>';
 					}
 					elsif ($i == $page + 1) {
-						$next = '<li><a href="' . $link . '" rel="next">' . lang("next") . '</a></li>';
+						$next = '<li><a href="' . $link . '" rel="next$nofollow">' . lang("next") . '</a></li>';
 						$next_page_url = $link;
 					}
 				}
