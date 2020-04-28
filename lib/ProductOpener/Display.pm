@@ -222,7 +222,7 @@ foreach my $file (sort keys %file_timestamps) {
 		$file_timestamps{$file} = (stat "$www_root/$file")[9];
 	}
 	else {
-		#$log->trace("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_trace();
+		$log->info("A timestamped file does not exist. Falling back to process start time, in case we are running in different Docker containers.", { path => "$www_root/$file", source => $file_timestamps{$file}, fallback => $start_time }) if $log->is_info();
 		$file_timestamps{$file} = $start_time;
 	}
 }
@@ -701,6 +701,14 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} = '';
 		my $canon_rel_url_suffix = '';
 
+		#check if last field is number
+		if (($#components >=1) and ($components[$#components] =~ /^\d+$/)) {
+			#if first field or third field is tags (plural) then last field is page number
+			if (defined $tag_type_from_plural{$lc}{$components[0]} or defined $tag_type_from_plural{"en"}{$components[0]} or defined $tag_type_from_plural{$lc}{$components[2]} or defined $tag_type_from_plural{"en"}{$components[2]}) {
+			$request_ref->{page} = pop @components;
+			$log->debug("get page number", { $request_ref->{page} }) if $log->is_debug();
+			}
+		}
 		# list of tags? (plural of tagtype must be the last field)
 
 		$log->debug("checking last component", { last_component => $components[$#components], is_plural => $tag_type_from_plural{$lc}{$components[$#components]} }) if $log->is_debug();
@@ -1315,7 +1323,43 @@ sub display_mission($)
 	exit();
 }
 
+sub get_cache_results($$){
 
+	my $key = shift;
+	my $request_ref = shift;
+	my $results;
+
+	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
+
+	# disable caching if ?nocache=1
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0))) 	
+		) {
+
+		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
+
+	}
+	else {
+
+		$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+		$results = $memd->get($key);
+		if (not defined $results) {
+			$log->debug("Did not find a value for MongoDB query key", { key => $key }) if $log->is_debug();
+		}
+		else {
+			$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
+		}
+	}
+	return $results;
+}
+
+sub set_cache_results($$){
+	my $key = shift;
+	my $results = shift;
+	$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
+	$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+}
 
 sub query_list_of_tags($$) {
 
@@ -1325,8 +1369,10 @@ sub query_list_of_tags($$) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
+	my $results_count;
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
-
+	my $page = $request_ref->{page};
+	
 	# Add a meta robot noindex for pages related to users
 	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)) {
 
@@ -1344,15 +1390,51 @@ sub query_list_of_tags($$) {
 		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 	}
 
+	# define limit and skip values
+	my $limit;
+	my $tags_page_size = 10000;
+	#If ?stats=1 or ?filter=  than do not limit results size
+	if ((defined $request_ref->{stats}) or (defined $request_ref->{filter}) ) {
+		$limit = 999999999999;
+	}
+	elsif (defined $request_ref->{tags_page_size}) {
+		$limit = $request_ref->{tags_page_size};
+	}
+	else {
+		$limit = $tags_page_size;
+	}
+
+	my $skip = 0;
+	if (defined $page) {
+		$skip = ($page - 1) * $limit;
+	}
+	elsif (defined $request_ref->{page}) {
+		$page = $request_ref->{page};
+		$skip = ($page - 1) * $limit;
+	}
+	else {
+		$page = 1;
+	}
+
+
 	# groupby_tagtype
 
 	my $results;
+
+	my $aggregate_count_parameters = [
+			{ "\$match" => $query_ref },
+			{ "\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
+			{ "\$group" => { "_id" => ("\$" . $groupby_tagtype . "_tags")}},
+			{ "\$count" => ($groupby_tagtype . "_tags") }
+			];
 
 	my $aggregate_parameters = [
 			{ "\$match" => $query_ref },
 			{ "\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
 			{ "\$group" => { "_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => { "\$sum" => 1 }}},
-			{ "\$sort" => { "count" => -1 }}
+			{ "\$sort" => { "count" => -1 }},
+			{ "\$skip" => $skip },
+			{ "\$limit" => $limit }
 			];
 
 	if ($groupby_tagtype eq 'users') {
@@ -1372,39 +1454,41 @@ sub query_list_of_tags($$) {
 			];
 	}
 
-	my $mongodb_query_ref = $aggregate_parameters;
-
-	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
-
-	$log->debug("MongoDB aggregate query key", { key => $key }) if $log->is_debug();
-
-	$key = md5_hex($key);
-
-	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
-
-	# disable caching if ?nocache=1
-	# or if the user is logged in and nocache is different from 0
-	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
-
-		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
-
+	#get total count for aggregate (without limit) and put result in cache
+	my $key_count = $server_domain . "/" . freeze($aggregate_count_parameters);
+	$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
+	$key_count = md5_hex($key_count);
+	$results_count = get_cache_results($key_count,$request_ref);
+	if (not defined $results_count) {
+		eval {
+			$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+			$results = execute_query(sub {
+				return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+			});
+			$results = [$results->all]->[0];
+			$request_ref->{structured_response}{count} = $results->{$groupby_tagtype . "_tags"};
+			set_cache_results($key_count,$request_ref->{structured_response}{count});
+			}
 	}
 	else {
-
-		$results = $memd->get($key);
+		$request_ref->{structured_response}{count} = $results_count;
 	}
+
+	#get cache results for aggregate query
+	my $key = $server_domain . "/" . freeze($aggregate_parameters);
+	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
+	$key = md5_hex($key);
+	$results = get_cache_results($key,$request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
 		$results = undef;
 
-		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-
 		# do not used the smaller cached products_ tags collection if ?nocache=1
 		# or if the user is logged in and nocache is different from 0
 		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))  
+			) {
 
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
@@ -1443,9 +1527,7 @@ sub query_list_of_tags($$) {
 			$results = [$results->all];
 
 			if (defined $results->[0]) {
-				$log->debug("Setting value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-
-				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+				set_cache_results($key,$results);
 			}
 		}
 		else {
@@ -1453,10 +1535,7 @@ sub query_list_of_tags($$) {
 
 		}
 	}
-	else {
-		$log->debug("Found a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-	}
-
+	
 	return $results;
 }
 
@@ -1488,8 +1567,10 @@ sub display_list_of_tags($$) {
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
 
-		$request_ref->{structured_response}{count} = ($#tags + 1);
-
+		if (not defined $request_ref->{structured_response}{count} ) {
+			$request_ref->{structured_response}{count} = ($#tags + 1);
+		}
+		
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
 		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
@@ -1502,9 +1583,15 @@ sub display_list_of_tags($$) {
 			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
 		}
 
-		$html .= "<p>" . "<nb_tags>" . " ". $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		my $tags_page_size = 10000;
+		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats}) and not (defined $request_ref->{filter})) {
+			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
+		}
 
 		my $th_nutriments = '';
+
 
 		#if ($tagtype eq 'categories') {
 		#	$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
@@ -1701,6 +1788,7 @@ sub display_list_of_tags($$) {
 				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				$link = "/$path/" . $tag_ref->{tagurl};
 				$css_class = $tag_ref->{css_class};
+				$log->info("tag ref: " . Dumper($tag_ref)) if $log->is_info();
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
@@ -1836,9 +1924,6 @@ sub display_list_of_tags($$) {
 				}
 			}
 		}
-
-		my $nb_tags = $stats{all_tags}++;
-		$html =~ s/<nb_tags>/$nb_tags/;
 
 		$html .= "</tbody></table></div>";
 
@@ -3846,26 +3931,9 @@ sub search_and_display_products($$$$$) {
 
 	$key = md5_hex($key);
 
-	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
-
-	# disable caching if ?nocache=1
-	# or if the user is logged in and nocache is different from 0
-	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
-
-		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
-
-	}
-	else {
-
-		$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
-		$request_ref->{structured_response} = $memd->get($key);
-	}
-
+	$request_ref->{structured_response} = get_cache_results($key,$request_ref);
 
 	if (not defined $request_ref->{structured_response}) {
-
-		$log->debug("Did not find value for MongoDB query key", { key => $key }) if $log->is_debug();
 
 		$request_ref->{structured_response} = {
 			page => $page,
@@ -3896,9 +3964,19 @@ sub search_and_display_products($$$$$) {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				# test if query_ref is empty
 				if (keys %{$query_ref} > 0) {
-					$count = execute_query(sub {
-						return get_products_collection()->count_documents($query_ref);
-					});
+					#check if count results is in cache
+					my $key_count = $server_domain . "/" . freeze($query_ref);
+					$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
+					$key_count = md5_hex($key_count);
+					my $results_count = get_cache_results($key_count,$request_ref);
+					if (not defined $results_count) {
+						$count = execute_query(sub {
+							return get_products_collection()->count_documents($query_ref);
+						});
+						set_cache_results($key_count,$count);
+					} else {
+						$count = $results_count
+					}
 				} else {
 				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
 					$count = execute_query(sub {
@@ -3925,14 +4003,8 @@ sub search_and_display_products($$$$$) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 			}
 			$request_ref->{structured_response}{count} = $count;
-
-			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
-
-			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+			set_cache_results($key,$request_ref->{structured_response})
 		}
-  }
-  else {
-    $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
   }
 
 	$count = $request_ref->{structured_response}{count};
@@ -4189,6 +4261,9 @@ sub display_pagination($$$$) {
 	my $nb_pages = int (($count - 1) / $limit) + 1;
 
 	my $current_link = $request_ref->{current_link};
+	if (not defined $current_link) {
+		$current_link = $request_ref->{world_current_link};
+	}
 	my $current_link_query = $request_ref->{current_link_query};
 
 	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
@@ -4222,8 +4297,13 @@ sub display_pagination($$$$) {
 					my $link;
 
 					if (defined $current_link) {
-
 						$link = $current_link;
+						#check if groupby_tag is used
+						if (defined $request_ref->{groupby_tagtype}) {
+							if (("/" . $request_ref->{groupby_tagtype}) ne $current_link) {
+								$link = $current_link . "/" . $request_ref->{groupby_tagtype}
+							}
+						}
 						if ($i > 1) {
 							$link .= "/$i";
 						}
@@ -4312,7 +4392,6 @@ sub search_and_export_products($$$) {
 
 	my $count;
 
-	# First count results to make sure we have less than the export limit
 	eval {
 		$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 		$count = execute_query(sub {
@@ -7146,6 +7225,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
+<script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
