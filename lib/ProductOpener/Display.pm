@@ -1460,7 +1460,7 @@ sub query_list_of_tags($$) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
-		# do not used the smaller cached products_ tags collection if ?nocache=1
+		# do not used the smaller cached products_tags collection if ?nocache=1
 		# or if the user is logged in and nocache is different from 0
 		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
 			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
@@ -1533,23 +1533,23 @@ sub query_list_of_tags($$) {
 
 			my $count_results;
 
-			# do not used the smaller cached products_ tags collection if ?nocache=1
+			# do not used the smaller cached products_tags collection if ?nocache=1
 			# or if the user is logged in and nocache is different from 0
 			if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
 				or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
 				) {
 				eval {
-					$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
 					$count_results = execute_query(sub {
-						return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+						return get_products_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
 					});
 				}
 			}
 			else {
 				eval {
-					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
+					$log->debug("Executing MongoDB aggregate count query on products_tags collection", { query => $aggregate_count_parameters }) if $log->is_debug();
 					$count_results = execute_query(sub {
-						return get_products_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
+						return get_products_tags_collection()->aggregate( $aggregate_count_parameters, { allowDiskUse => 1 } );
 					});
 				}
 			}
