@@ -7146,6 +7146,7 @@ sub display_product($)
 	my $description = "";
 
 		$scripts .= <<SCRIPTS
+<script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
