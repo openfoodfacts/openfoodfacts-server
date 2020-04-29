@@ -113,6 +113,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use HTML::Entities qw(decode_entities);
 
 %fields = ();
 @fields = ();
@@ -774,6 +775,12 @@ sub clean_fields($) {
 	foreach my $field (keys %$product_ref) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		# HTML entities
+		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
+		if ($product_ref->{$field} =~ /\&/) {
+			$product_ref->{$field} = decode_entities($product_ref->{$field});
+		}
 
 		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 		$product_ref->{$field} =~ s/’/'/g;
