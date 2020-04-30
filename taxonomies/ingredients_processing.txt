@@ -168,12 +168,18 @@ fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 nl:stukjes
 # de:false-positive:früchstück
 
+en:peeling
+fr:brisures
+nl:schilfers
+
 en:powdered, powder
 de:pulver
 es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
+
+#en:granules
 
 #######################################################################
 #
@@ -208,6 +214,29 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 nl:ontpit, ontpitte
 #pt:sem caroço, sem caroco
 # en:wiktionary:pitted
+
+en:peel, peels, peel of
+#en:false:peeled, with peel, peel oil, unpeeled
+#de:schale, schalen
+#de:false:schalenfrüchten, schalentieren, in der schale
+el:φλούδα
+es:piel de, corteza de
+#es:false:cáscaras
+fi:kuoret
+fr:écorce de, écorces de, écorces d'
+it:scorza di, scorze di
+nl:schil, schillen
+#nl:false:schildje, met schil
+pt:raspas
+ro:piele de
+#sv:skal
+#sv:false:skallops, skalade, skalfrugi
+
+#<en:peel
+it:scorzette
+nl:schilletjes
+
+en:zest
 
 # en:description:The soft center of a fruit
 en:pulp
@@ -700,3 +729,11 @@ en:oak smoked
 #<en:smoked
 en:not smoked, unsmoked
 
+#en:candied
+#da:kandiserede
+#de:kandierte
+#es:confitada
+#it:canditi
+#nl:gekonfijt
+#sv:kanderade
+#en:fibers
