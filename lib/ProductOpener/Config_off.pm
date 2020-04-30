@@ -560,7 +560,6 @@ improvements
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
-	brand_owner
 );
 
 

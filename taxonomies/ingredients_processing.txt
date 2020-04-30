@@ -117,7 +117,7 @@ fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, bro
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
-de:gerieben, geriebener, geriebene
+de:gerieben, geriebener, geriebene, geraspelt
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
 # nl:parse:geraspte_$
@@ -142,6 +142,7 @@ de:grob gemahlen
 
 # <en:ground
 de:frischgemahlen, frishgemahlene
+
 
 en:pureed
 de:püree, puree, püree aus
@@ -171,6 +172,9 @@ nl:stukjes
 en:peeling
 fr:brisures
 nl:schilfers
+
+#de:comment:result of grating
+de:raspel, raspeln
 
 en:powdered, powder
 de:pulver
@@ -250,6 +254,7 @@ it:polpa, polpa di
 pt:polpa de, polpas de
 # en:wiktionary:pulp
 
+#<en:pulp
 fr:sans pulpe
 
 en:sieved
@@ -265,6 +270,19 @@ sv:extraherad, extraherade
 #<de:extrahiert
 de:kaltextrahiert, kaltextrahierter
 
+en:defatted
+de:entfettet, entfettete, entfettetes
+es:desengrasado, desengrasada
+fr:dégraissé, dégraissée, dégraissés, dégraissées
+it:sgrassato, sgrassata
+nl:ontvet, ontvette
+pt:desengordurado, desengordurada
+ro:degresat
+
+#<en:defatted
+en:partially defatted
+de:teilentfettet, teilentfettetes
+ro:demidegresat
 
 #######################################################################
 #
