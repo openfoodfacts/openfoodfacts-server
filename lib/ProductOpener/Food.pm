@@ -105,6 +105,8 @@ BEGIN
 
 					&create_nutrients_level_taxonomy
 
+					&assign_category_properties_to_product
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -4175,6 +4177,8 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 
+	assign_category_properties_to_product($product_ref);
+
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
 	delete $product_ref->{pnns_groups_2};
@@ -5645,6 +5649,52 @@ sub extract_nutrition_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
 
 		# TODO: extract the nutrition facts values
+	}
+}
+
+=head2 assign_category_properties_to_product ( PRODUCT_REF )
+
+Go through the categories of a product to apply category properties at the product level.
+The most specific categories are checked first. If the category has
+a value for the property, it is assigned to the product and the processing stop.
+
+This function was first designed to assign a CIQUAL category to products, based on
+the mapping of the Open Food Facts categories to the French CIQUAL categories.
+
+It may be used for other properties in the future.
+=cut
+
+sub assign_category_properties_to_product($) {
+
+	my $product_ref = shift;
+
+	$product_ref->{category_properties} = {};
+
+	foreach my $property ("ciqual_food_code:en:", "ciqual_food_name:en", "ciqual_food_name:fr") {
+
+		# Find the first category with a defined value for the property
+
+		if (defined $product_ref->{categories_tags}) {
+			foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+				if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{$property})) {
+					$product_ref->{category_properties}{$property} = $properties{categories}{$categoryid}{$property};
+					last;
+				}
+			}
+		}
+
+		# Create facet tags for some properties
+
+		if ($property =~ /^(ciqual_food_name):en$/) {
+			my $tagtype = $1;
+			if (defined $product_ref->{category_properties}{$property}) {
+				$product_ref->{$tagtype . "_tags"} = get_string_id_for_lang("no_language", [$product_ref->{category_properties}{$property}]);
+			}
+			else {
+				$product_ref->{$tagtype . "_tags"} = "unknown";
+			}
+		}
+
 	}
 }
 
