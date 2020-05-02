@@ -5192,7 +5192,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey";
 
 sub normalize_packager_codes($) {
 
