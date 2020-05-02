@@ -90,8 +90,8 @@ my @lists =(
 	["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 	["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
-	["fi","Vitamiinit A, B ja C", "Vitamiinit, Vitamiini A, Vitamiini B, Vitamiini C"],
-	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, Vitamiini B1, Vitamiini B2, Vitamiini B6"],
+	["fi","Vitamiinit A, B ja C", "Vitamiinit, A-Vitamiini, B-Vitamiini, C-Vitamiini"],
+	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, B1-Vitamiini, B2-Vitamiini, B6-Vitamiini"],
 	["fi","mansikat 30%", "mansikat 30%"],
 	["fi","sakeuttamisaine pektiini", "sakeuttamisaine : pektiini"],
 	["fi","sakeuttamisaine (pektiini)", "sakeuttamisaine (pektiini)"],
@@ -148,7 +148,7 @@ my @lists =(
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
 	["fr","huile biologique (tournesol, olive)","huile biologique de tournesol, huile biologique d'olive"],
-	
+
 	# xyz: test an unrecognized oil -> do not change
 	["fr","huile biologique (tournesol, xyz)","huile biologique (tournesol, xyz)"],
 	["fr","huiles biologiques (tournesol, olive)","huiles biologiques de tournesol, huiles biologiques d'olive"],
@@ -179,7 +179,7 @@ my @lists =(
 
 	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
 
-	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium", 
+	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium",
 	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"],
 
 	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
