@@ -5688,10 +5688,10 @@ sub assign_category_properties_to_product($) {
 		if ($property =~ /^(ciqual_food_name):en$/) {
 			my $tagtype = $1;
 			if (defined $product_ref->{category_properties}{$property}) {
-				$product_ref->{$tagtype . "_tags"} = get_string_id_for_lang("no_language", [$product_ref->{category_properties}{$property}]);
+				$product_ref->{$tagtype . "_tags"} = [get_string_id_for_lang("no_language", $product_ref->{category_properties}{$property})];
 			}
 			else {
-				$product_ref->{$tagtype . "_tags"} = "unknown";
+				$product_ref->{$tagtype . "_tags"} = ["unknown"];
 			}
 		}
 
