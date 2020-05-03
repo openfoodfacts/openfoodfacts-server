@@ -47998,7 +47998,7 @@ pt:Carnes secas
 en:Beef jerkies, beef jerky
 de:Trockenfleisch vom Rind
 fi:kuivalihat
-fr:Viande de Bœuf séchée
+fr:Viande de bœuf séchée
 nl:Beef jerkies, Beef jerky
 
 <en:Meats
@@ -48835,7 +48835,12 @@ en:poultry skewers
 fi:siipikarjavartaat
 fr:Brochettes de volailles, brochette de volaille
 nl:Gevogeltespiesjes
-<en:poultry skewers
+ciqual_food_code:en:25504
+ciqual_food_name:en:Poultry on skewer
+ciqual_food_name:fr:Brochette de volaille
+
+<en:Chicken preparations
+<en:Poultry skewers
 en:chicken skewers
 fr:Brochettes de poulet
 nl:Kippenspiesjes
@@ -48846,16 +48851,6 @@ fr:Brochettes de poulet Yakitori, Yakitori de Poulet, Poulet Yakitori
 nl:Yakitori kipspiesjes
 ciqual_food_code:en:25565
 ciqual_food_name:en:Yakitori (grilled meat on skewers, Japanese-style, with sauce)
-
-<en:Poultries
-<en:Meat skewers
-en:poultry skewers, Poultry on skewer
-fi:siipikarjavartaat
-fr:Brochettes de volailles, brochette de volaille
-nl:Gevogeltespiesjes
-ciqual_food_code:en:25504
-ciqual_food_name:en:Poultry on skewer
-ciqual_food_name:fr:Brochette de volaille
 
 <en:Beef preparations
 en:Ox muzzle in salad dressing sauce
@@ -49155,10 +49150,20 @@ nl:Varken, Varkensvlezen
 pt:Carne de porco
 ru:Свинина
 zh:猪肉
+
+<en:Raw meats
+<en:Pork
+en:Raw pork meat
+fr:Viande de porc crue
 ciqual_food_code:en:28472
 ciqual_food_name:en:Pork, shoulder lower half, without rind, fat and bone, raw
 
+<en:Cooked meats
 <en:Pork
+en:Cooked pork meat
+fr:Viande de porc cuite
+
+<en:Cooked pork meat
 fr:échine de porc rôtie, échine de porc au four
 ciqual_food_code:en:28451
 ciqual_food_name:en:Pork, loin, roasted/baked
@@ -49171,7 +49176,7 @@ fr:Roulade de porc pistachée
 ciqual_food_code:en:8373
 ciqual_food_name:en:Rolled escalope of pork with pistachios
 
-<en:Pork
+<en:Raw pork meat
 en:Pork ham escalope raw
 fr:escalope de porc crue
 ciqual_food_code:en:28460
@@ -49183,56 +49188,56 @@ en:pork skewers
 fr:Brochettes de porc, brochette de porc
 nl:Varkensspiesjes
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork racks
 fr:Carrés de porc cuits
 ciqual_food_code:en:28105
 ciqual_food_name:en:Pork, rack, cooked
 ciqual_food_name:fr:Porc, carré, cuit
 
-<en:Pork
+<en:Cooked pork meat
 en:Braised pork spare-ribs
 fr:Travers de porc braisés
 ciqual_food_code:en:28401
 ciqual_food_name:en:Pork, spare-ribs, braised
 ciqual_food_name:fr:Porc, travers, braisé
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork spare-ribs
 fr:Travers de porc crus
 ciqual_food_code:en:28400
 ciqual_food_name:en:Pork, spare-ribs, raw
 ciqual_food_name:fr:Porc, travers, cru
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork knuckle, Raw pork shank
 fr:Jarret de porc cru
 ciqual_food_code:en:28004
 ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
-<en:Pork
+<en:Cooked pork meat 
 en:Cooked pork loin
 fr:Longe de porc cuite
 ciqual_food_code:en:28007
 ciqual_food_name:en:Pork loin, cooked
 ciqual_food_name:fr:Porc, longe, cuite
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork tenderloin roast
 fr:Filet maigre de porc en rôti cuit
 ciqual_food_code:en:28202
 ciqual_food_name:en:Pork tenderloin roast, cooked
 ciqual_food_name:fr:Porc, filet, maigre, en rôti, cuit
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork round steak
 fr:Rouelle de jambon cuite, Rouelle de jambon de porc cuite
 ciqual_food_code:en:28103
 ciqual_food_name:en:Pork, round steak, cooked
 ciqual_food_name:fr:Porc, rouelle de jambon, cuite
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork filet mignon
 fr:Filet mignon de porc cuit
 ciqual_food_code:en:28203
@@ -49288,14 +49293,14 @@ ciqual_food_code:en:28540
 ciqual_food_name:en:Pork trotters salt-cured
 ciqual_food_name:fr:Pied de porc demi-sel
 
-<en:Pork
+<en:Raw pork meat
 en:Raw rindless pork jowl
 fr:Gorge de porc découennée crue
 ciqual_food_code:en:28471
 ciqual_food_name:en:Pork, jowl, rindless, raw
 ciqual_food_name:fr:Porc, gorge, découennée, crue
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork liver
 fr:Foie de porc cuit
 ciqual_food_code:en:40113
@@ -49314,7 +49319,7 @@ fr:Mousse de foie de porc
 ciqual_food_code:en:8313
 ciqual_food_name:en:Pork liver mousse
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork kidney
 fr:Rognon de porc cuit
 ciqual_food_code:en:40405
@@ -49328,55 +49333,55 @@ ciqual_food_code:en:28530
 ciqual_food_name:en:Pork ear sat-cured
 ciqual_food_name:fr:Oreille de porc demi-sel
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork rind
 fr:Couenne de porc crue
 ciqual_food_code:en:28478
 ciqual_food_name:en:Pork, rind, raw
 ciqual_food_name:fr:Porc, couenne, crue
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork belly with flank removed, Raw pork belly flank off
 fr:Poitrine de porc crue sans mouille, Poitrine de porc crue cutter
 ciqual_food_code:en:28479
 ciqual_food_name:en:Pork, belly, flank removed, raw
 ciqual_food_name:fr:Porc, poitrine cutter, sans mouille, crue
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork rind
 fr:Couenne de porc crue
 ciqual_food_code:en:28478
 ciqual_food_name:en:Pork, rind, raw
 ciqual_food_name:fr:Porc, couenne, crue
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork belly with flank removed, Raw pork belly flank off
 fr:Poitrine de porc crue sans mouille, Poitrine de porc crue cutter
 ciqual_food_code:en:28479
 ciqual_food_name:en:Pork, belly, flank removed, raw
 ciqual_food_name:fr:Porc, poitrine cutter, sans mouille, crue
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork shoulders, Raw pork shoulder
 fr:Epaule de porc crue, épaules de porc crues
 ciqual_food_code:en:28001
 ciqual_food_name:en:Pork, shoulder, raw
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork shoulder
 fr:Epaule de porc cuite
 ciqual_food_code:en:28010
 ciqual_food_name:en:Pork, shoulder, cooked
 ciqual_food_name:fr:Porc, épaule, cuite
 
-<en:Pork
+<en:Raw pork meat
 en:Raw smoked pork belly
 fr:Poitrine de porc fumée crue
 ciqual_food_code:en:28502
 ciqual_food_name:en:Pork belly, smoked, raw
 ciqual_food_name:fr:Poitrine de porc, fumée, crue
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork shoulder standard rind less and fatless
 fr:Épaule de porc cuite standard découennée dégraissée
 ciqual_food_code:en:28924
@@ -49388,7 +49393,7 @@ en:Pork roast raw
 ciqual_food_code:en:28300
 ciqual_food_name:en:Pork, roast, raw
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork roast
 fr:Rôti de porc cuit
 ciqual_food_code:en:28301
@@ -49403,6 +49408,7 @@ nl:Varkenskarbonade
 zh:排骨, 猪排骨
 
 <en:Pork ribs
+<en:Cooked pork meat
 en:Grilled pork chops, Grilled pork ribs
 fr:Côtes de porc grillées
 ciqual_food_code:en:28101
@@ -49410,13 +49416,14 @@ ciqual_food_name:en:Pork, chop, grilled
 ciqual_food_name:fr:Porc, côte, grillée
 
 <en:Pork ribs
+<en:Raw pork meat
 en:Raw pork chops, Raw pork ribs
 fr:Côtes de porc crues
 ciqual_food_code:en:28100
 ciqual_food_name:en:Pork, chop, raw
 ciqual_food_name:fr:Porc, côte, crue
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork racks
 fr:Carrés de porc crus
 ciqual_food_code:en:28104
@@ -49442,12 +49449,13 @@ ciqual_food_name:en:Pancetta, dried
 ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
 <en:Pork belly
+<en:Raw pork meat
 en:Pork belly raw
 fr:poitrine de porc crue
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 
-<en:Pork
+<en:Raw pork meat
 en:Pork loin raw
 fr:longue de porc crue
 ciqual_food_code:en:28003
@@ -49459,13 +49467,13 @@ fr:rouelle de porc crue
 ciqual_food_code:en:28102
 ciqual_food_name:en:Pork, round steak, raw
 
-<en:Pork
+<en:Raw pork meat
 en:Pork tenderloin lean raw
 fr:filet de porc cru
 ciqual_food_code:en:28201
 ciqual_food_name:en:Pork tenderloin, lean, raw
 
-<en:Pork
+<en:Cooked pork meat
 en:Pork eye of shortloin raw
 fr:filet de porc rôti avec chaînette
 ciqual_food_code:en:28480
@@ -49477,13 +49485,13 @@ fr:filet mingon de porc
 ciqual_food_code:en:28204
 ciqual_food_name:en:Pork filet mignon, raw
 
-<en:Pork
+<en:Raw pork meat
 en:Pork 90/10 trimming raw
 fr:Porc maigre 90/10 cru
 ciqual_food_code:en:28475
 ciqual_food_name:en:Pork, 90/10 trimming, raw
 
-<en:Pork
+<en:Raw pork meat
 en:Pork 80/20 trimming raw
 fr:Porc maigre 80/20 cru
 ciqual_food_code:en:28476
@@ -49501,7 +49509,7 @@ fr:Langue de porc
 nl:Varkenstong
 zh:猪舌, 口条
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork tongue
 fr:Langue de porc crue
 ciqual_food_code:en:40205
@@ -49522,35 +49530,35 @@ ciqual_food_code:en:8120
 ciqual_food_name:en:Preserved pork liver
 ciqual_food_name:fr:Confit de foie de porc
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork liver
 fr:Foie de porc cru
 ciqual_food_code:en:40119
 ciqual_food_name:en:Liver, pork, raw
 ciqual_food_name:fr:Foie, porc, cru
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork liver
 fr:Foie de porc cuit
 ciqual_food_code:en:40113
 ciqual_food_name:en:Liver, pork, cooked
 ciqual_food_name:fr:Foie, porc, cuit
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork heart
 fr:Coeur de porc cru
 ciqual_food_code:en:40060
 ciqual_food_name:en:Heart, pork, raw
 ciqual_food_name:fr:Coeur, porc, cru
 
-<en:Pork
+<en:Cooked pork meat
 en:Cooked pork kidneys
 fr:Rognons de porc cuits
 ciqual_food_code:en:40405
 ciqual_food_name:en:Kidney, pork, cooked
 ciqual_food_name:fr:Rognon, porc, cuit
 
-<en:Pork
+<en:Raw pork meat
 en:Raw pork kidney
 fr:Rognons de porc crus
 ciqual_food_code:en:40404
