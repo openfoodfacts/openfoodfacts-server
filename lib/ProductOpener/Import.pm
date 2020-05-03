@@ -946,12 +946,29 @@ sub import_csv_file($) {
 						$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
 					}
 
+					# Energy can be: 852KJ/ 203Kcal
 					# calcium_100g_value_unit = 50 mg
+					# 10g
 					if (not defined $values{$type}) {
-						if ((defined $imported_product_ref->{$nid . $type . $per . "_value_unit"})
-							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(.*) ([a-z]+)$/)) {
-							$values{$type} = $1;
-							$unit = $2;
+						if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
+
+							# Assign energy-kj and energy-kcal values from energy field
+
+							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i)) {
+								if (not defined $imported_product_ref->{$nid . "-j" . $type . $per . "_value_unit"}) {
+									$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
+								}
+							}
+							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kcal/i)) {
+								if (not defined $imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"}) {
+									$imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"} = $1 . " kcal";
+								}
+							}
+
+							if ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i) {
+								$values{$type} = $1;
+								$unit = $5;
+							}
 						}
 					}
 

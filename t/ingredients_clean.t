@@ -152,8 +152,11 @@ foreach my $test_ref (@tests) {
 	["en", "NA.", ""],
 
 	# 4 arguments: call clean_ingredients_text_for_field instead of clean_fields
-	# e.g. for OCR, we all clean_ingredients_text_for_field insted of clean_fields
+	# e.g. for OCR, we call clean_ingredients_text_for_field instead of clean_fields
 	["de", "ZUTATEN: 67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen.", "", "67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."],
+
+	# HTML entities
+	["fr", "P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma", "Pâtes alimentaires cuites aromatisées au curcuma"],
 
 );
 

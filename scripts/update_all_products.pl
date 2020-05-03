@@ -108,6 +108,7 @@ my $remove_team = '';
 my $remove_label = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
+my $assign_category_properties = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -120,6 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
+			"assign-category-properties" => \$assign_category_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
@@ -184,6 +186,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label)
+	and (not $assign_category_properties)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -613,17 +616,18 @@ while (my $product_ref = $cursor->next) {
 		if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
+		if ($assign_category_properties) {
+			# assign_category_properties_to_product() is already called by special_process_product
+		}
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 			push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 		}
 
-
 		if ($clean_ingredients) {
 			clean_ingredients_text($product_ref);
 		}
-
 
 		if ($process_ingredients) {
 			# Ingredients classes

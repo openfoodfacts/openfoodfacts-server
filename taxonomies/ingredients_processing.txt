@@ -117,7 +117,7 @@ fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, bro
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
-de:gerieben, geriebener, geriebene
+de:gerieben, geriebener, geriebene, geraspelt
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
 # nl:parse:geraspte_$
@@ -143,6 +143,7 @@ de:grob gemahlen
 # <en:ground
 de:frischgemahlen, frishgemahlene
 
+
 en:pureed
 de:püree, puree, püree aus
 fr:en purée, purée de, purée d'
@@ -167,6 +168,9 @@ de:stücke, stücken, stückchen, gestückelt
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 nl:stukjes
 # de:false-positive:früchstück
+
+#de:comment:result of grating
+de:raspel, raspeln
 
 en:powdered, powder
 de:pulver
@@ -221,6 +225,7 @@ it:polpa, polpa di
 pt:polpa de, polpas de
 # en:wiktionary:pulp
 
+#<en:pulp
 fr:sans pulpe
 
 en:sieved
@@ -236,6 +241,19 @@ sv:extraherad, extraherade
 #<de:extrahiert
 de:kaltextrahiert, kaltextrahierter
 
+en:defatted
+de:entfettet, entfettete, entfettetes
+es:desengrasado, desengrasada
+fr:dégraissé, dégraissée, dégraissés, dégraissées
+it:sgrassato, sgrassata
+nl:ontvet, ontvette
+pt:desengordurado, desengordurada
+ro:degresat
+
+#<en:defatted
+en:partially defatted
+de:teilentfettet, teilentfettetes
+ro:demidegresat
 
 #######################################################################
 #
@@ -423,6 +441,9 @@ fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréf
 it:arrostito, arrostite, arrostiti
 nl:gebraden
 
+#<en:roasted
+en:dry roasted
+
 # en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en:toasted
 de:geröstet, geröstete, geröstetes, gerösteter, getoastet
@@ -464,20 +485,51 @@ de:angereichert
 fr:enrichi, enrichie, enrichis
 nl:verrijkt
 
+#<en:unadded
 en:unenriched
 
 en:bromated
 es:bromado
 
+#<en:unadded
 en:unbromated, un-bromated
 
+#en:comment:salt has been added to the ingredient
+#<en:added
+en:salted
 de:gesalzen, gesalzene, gesalzenes, gesalzener
+es:salado, salada, salados, saladas
+# es:comment:careful for es:ensalada
+fr:salé, salée, salés, salées, sales, salees
+it:salato, salata, salate, salati
 nl:gezouten
+pt:salgado, salgada, salgados, salgadas
 
-#<de:gesalzen
+#<en:salted
+en:sea salted
+
+#<en:sea salted
+#<en:lightly salted
+en:lightly sea salted
+
+#<en:salted
+en:lightly salted
 nl:lichtgezouten, licht gezouten
 
+#<en:salted
+en:half salted, half-salted
+
+#<en:salted
+en:desalted
+fr:dessalée, dessalee
+
+#<en:salted
+fr:présalée
+
+#<en:salted
+en:unsalted, un-salted
 de:ungesalzen, ungesalzene
+fr:non salée, non-salée
 nl:ongezouten
 
 en:sweetened
@@ -512,12 +564,13 @@ de:geschwefelt, geschwefelte
 # <en:sulfite free, unsulphured
 de:ungeschwefelt, ungeschwefelte
 
+
 #######################################################################
 #
 #                T R E A T I N G   P R O C E S S E S
 #
 #######################################################################
-# Processes that change the ingredient, but do not add something
+# Processes used during production, but do not add something
 
 en:treated
 nl:bewerkt
@@ -541,6 +594,10 @@ nl:gemout, gemoute
 #nl:falsePositive:moutmeel
 
 fr:non-maltées
+
+
+#en:comment:http://animalsmart.org/feeding-the-world/food-safety/rbst
+en:rbst-free
 
 #######################################################################
 #

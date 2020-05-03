@@ -850,32 +850,32 @@ my @tests = (
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "hartk\x{e4}se"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => 'haselnusskerne'
 			},
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'schalotte'
  			},
 			{
 				'id' => 'en:almond',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'mandeln'
 			}
 		]
