@@ -62,15 +62,24 @@ def get_diff(
     }
 
 
-@click.group()
+@click.group(help="Manage non-EU packager code data.")
 def main():
     pass
 
 
-@main.command()
+@main.command(
+    help="Show local data status as compared to remote source.\n\n"
+         "DATA_DIR is the path to the local packager code data storage.",
+    no_args_is_help=True,
+)
 @click.argument("data_dir", type=click.Path(file_okay=False))
 @click.option(
-    "--output-format", "-f", type=click.Choice(["summary", "json"]), default="summary"
+    "--output-format",
+    "-f",
+    type=click.Choice(["summary", "json"]),
+    default="summary",
+    help="Command output format.",
+    show_default=True,
 )
 def status(data_dir: str, output_format: str) -> None:
     data_dir = Path(data_dir)
@@ -100,7 +109,11 @@ def status(data_dir: str, output_format: str) -> None:
         click.echo(text)
 
 
-@main.command()
+@main.command(
+    help="Download packager code files.\n\n"
+         "DEST_DIR is the path of the local directory in which to download data.",
+    no_args_is_help=True,
+)
 @click.argument("dest_dir", type=click.Path(file_okay=False))
 def download(dest_dir: str) -> None:
     dest_dir = Path(dest_dir)
