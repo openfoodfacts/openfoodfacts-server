@@ -9,6 +9,7 @@ from urllib.request import urlopen
 import click
 
 
+logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
