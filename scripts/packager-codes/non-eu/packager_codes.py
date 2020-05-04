@@ -3,7 +3,7 @@ import json
 import logging
 from pathlib import Path
 import subprocess
-from typing import Any, Mapping, Sequence
+from typing import Any, List, Mapping, Sequence
 from urllib.request import urlopen
 
 import click
@@ -16,7 +16,7 @@ logger.setLevel(logging.INFO)
 JSONObject = Mapping[str, Any]
 
 
-def scrape_document_info() -> Sequence[JSONObject]:
+def scrape_document_info() -> List[JSONObject]:
     logger.info("Scraping document information")
     # Try importing scrapy to check for dependency
     import scrapy  # noqa
@@ -41,9 +41,9 @@ def download_documents(document_info: Sequence[JSONObject], dest_dir: Path) -> N
             dest_file.write(response.read())
 
 
-def get_diff(
+def document_info_diff(
     scraped: Sequence[JSONObject], local: Sequence[JSONObject]
-) -> Mapping[str, Sequence[JSONObject]]:
+) -> Mapping[str, List[JSONObject]]:
     scraped_docs = {d["file_path"]: d for d in scraped}
     local_docs = {d["file_path"]: d for d in local}
 
@@ -52,14 +52,31 @@ def get_diff(
     updated_names = [
         doc_name
         for doc_name, doc in local_docs.items()
-        if scraped_docs[doc_name]["publication_date"] > doc["publication_date"]
+        if (
+            doc_name not in removed_names
+            and scraped_docs[doc_name]["publication_date"] > doc["publication_date"]
+        )
     ]
+    unchanged_names = set(local_docs.keys()).difference(removed_names).difference(
+        updated_names
+    )
 
     return {
         "new": [scraped_docs[n] for n in new_names],
         "removed": [local_docs[n] for n in removed_names],
         "updated": [scraped_docs[n] for n in updated_names],
+        "unchanged": [local_docs[n] for n in unchanged_names],
     }
+
+
+def load_local_meta(data_dir: Path) -> JSONObject:
+    meta_path = data_dir / "meta.json"
+    logger.info("Loading local metadata from '%s'", meta_path)
+    if not meta_path.exists():
+        return {"document_info": []}
+    else:
+        with meta_path.open("r") as meta_file:
+            return json.load(meta_file)
 
 
 @click.group(help="Manage non-EU packager code data.")
@@ -84,47 +101,49 @@ def main():
 def status(data_dir: str, output_format: str) -> None:
     data_dir = Path(data_dir)
 
-    meta_path = data_dir / "meta.json"
-    logger.info("Loading local metadata from '%s'", meta_path)
-    if not meta_path.exists():
-        local_meta = {"document_info": []}
-    else:
-        with meta_path.open("r") as meta_file:
-            local_meta = json.load(meta_file)
-
+    local_meta = load_local_meta(data_dir)
     scraped_info = scrape_document_info()
-    doc_diff = get_diff(scraped_info, local_meta["document_info"])
+    doc_diff = document_info_diff(scraped_info, local_meta["document_info"])
 
     if output_format == "json":
         from pprint import pprint
 
         pprint(doc_diff)
     else:
-        text = "Last updated: {}\nNew: {}, Removed: {}, Updated: {}".format(
-            local_meta.get("updated", "never"),
-            len(doc_diff["new"]),
-            len(doc_diff["removed"]),
-            len(doc_diff["updated"]),
+        text = (
+            "Last updated: {}\nNew: {}, Removed: {}, Updated: {}, Unchanged: {}".format(
+                local_meta.get("updated", "never"),
+                len(doc_diff["new"]),
+                len(doc_diff["removed"]),
+                len(doc_diff["updated"]),
+                len(doc_diff["unchanged"]),
+            )
         )
         click.echo(text)
 
 
 @main.command(
-    help="Download packager code files.\n\n"
+    help="Sync packager code files with remote.\n\n"
          "DEST_DIR is the path of the local directory in which to download data.",
     no_args_is_help=True,
 )
 @click.argument("dest_dir", type=click.Path(file_okay=False))
-def download(dest_dir: str) -> None:
+def sync(dest_dir: str) -> None:
     dest_dir = Path(dest_dir)
-    if dest_dir.exists():
-        raise click.ClickException(
-            "destination directory '{}' already exists".format(dest_dir)
-        )
-    dest_dir.mkdir()
+    dest_dir.mkdir(exist_ok=True)
 
+    local_meta = load_local_meta(dest_dir)
     document_info = scrape_document_info()
-    download_documents(document_info, dest_dir)
+    doc_diff = document_info_diff(document_info, local_meta["document_info"])
+
+    logger.info("Deleting %s removed documents", len(doc_diff["removed"]))
+    for removed_doc in doc_diff["removed"]:
+        doc_path = dest_dir / removed_doc["file_path"]
+        logger.info("Deleting '%s'", doc_path)
+        doc_path.unlink()
+
+    changed_docs = doc_diff["new"] + doc_diff["updated"]
+    download_documents(changed_docs, dest_dir)
 
     meta_path = dest_dir / "meta.json"
     logger.info("Writing metadata in '%s'", meta_path)

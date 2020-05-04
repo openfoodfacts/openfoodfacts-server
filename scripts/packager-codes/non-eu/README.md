@@ -21,10 +21,10 @@ pip install -r requirements.txt
 
 Simply run `python packager_codes.py --help` to see the main help.
 
-To download packager code files in the directory `packager_codes_data`:
+To download or update packager code files in the directory `packager_codes_data`:
 
 ```shell script
-python packager_codes.py download packager_codes_data
+python packager_codes.py sync packager_codes_data
 ```
 
 To display the status of the locally downloaded files as compared to the remote:
