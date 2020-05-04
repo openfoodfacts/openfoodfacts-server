@@ -9,7 +9,6 @@ from urllib.request import urlopen
 import click
 
 
-logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
@@ -44,21 +43,21 @@ def download_documents(document_info: Sequence[JSONObject], dest_dir: Path) -> N
 def get_diff(
     scraped: Sequence[JSONObject], local: Sequence[JSONObject]
 ) -> Mapping[str, Sequence[JSONObject]]:
-    scraped_names = {d["file_path"]: d for d in scraped}
-    local_names = {d["file_path"]: d for d in local}
+    scraped_docs = {d["file_path"]: d for d in scraped}
+    local_docs = {d["file_path"]: d for d in local}
 
-    new_docs = set(scraped_names.keys()).difference(local_names.keys())
-    removed_docs = set(local_names.keys()).difference(scraped_names.keys())
-    updated_docs = [
+    new_names = set(scraped_docs.keys()).difference(local_docs.keys())
+    removed_names = set(local_docs.keys()).difference(scraped_docs.keys())
+    updated_names = [
         doc_name
-        for doc_name, doc in local_names.items()
-        if scraped_names[doc_name]["publication_date"] > doc["publication_date"]
+        for doc_name, doc in local_docs.items()
+        if scraped_docs[doc_name]["publication_date"] > doc["publication_date"]
     ]
 
     return {
-        "new": [scraped_names[n] for n in new_docs],
-        "removed": [local_names[n] for n in removed_docs],
-        "updated": [scraped_names[n] for n in updated_docs],
+        "new": [scraped_docs[n] for n in new_names],
+        "removed": [local_docs[n] for n in removed_names],
+        "updated": [scraped_docs[n] for n in updated_names],
     }
 
 
