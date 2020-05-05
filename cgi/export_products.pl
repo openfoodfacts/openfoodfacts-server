@@ -158,7 +158,7 @@ elsif (($action eq "process") and ($User{moderator})) {
 		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
 			$args_ref->{manufacturer} = 1;
 		}
-		$args_ref->{source_id} = $Org_id;
+		$args_ref->{source_id} = "org-" . $Org_id;
 		$args_ref->{source_name} = $Org_id;
 	}
 	else {
