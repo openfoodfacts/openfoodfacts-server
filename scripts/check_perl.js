@@ -1,6 +1,5 @@
 /*eslint no-console: "off"*/
 /*eslint no-await-in-loop: "off"*/
-/*global process*/
 
 const process = require('process');
 const util = require('util');
@@ -9,7 +8,7 @@ const execFile = util.promisify(require('child_process').execFile);
 
 async function main() {
   // 0 = node; 1 = check_perl.js
-  for (let arg of process.argv.slice(2)) {
+  for (const arg of process.argv.slice(2)) {
     const files = await glob(arg);
     for (var i = 0; i < files.length; ++i) {
       const path = files[i];
