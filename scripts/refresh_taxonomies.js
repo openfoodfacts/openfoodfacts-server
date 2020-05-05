@@ -1,6 +1,6 @@
 /*eslint no-console: "off"*/
 /*eslint no-await-in-loop: "off"*/
-/*global process require*/
+/*global process */
 
 const util = require('util');
 const { spawn, execFile } = require('child_process');
