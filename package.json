@@ -19,7 +19,9 @@
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:cgi": "node scripts/check_perl.js cgi/*.pl",
     "perlc:scripts": "node scripts/check_perl.js scripts/*.pl",
-    "postinstall": "opencollective-postinstall"
+    "postinstall": "opencollective-postinstall",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -48,7 +50,8 @@
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "^3.0.0-beta.4",
-    "papaparse": "^5.2.0"
+    "papaparse": "^5.2.0",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -67,5 +70,6 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/openfoodfacts-server"
-  }
+  },
+  "snyk": true
 }
