@@ -135,8 +135,8 @@ is_deeply($product_ref->{categories_tags},
    'en:berries',
    'en:tropical-fruits',
    'en:bananas',
-   'en:plums',
    'en:raspberries',
+   'en:plums',
  ]
 
 ) or diag explain $product_ref->{categories_tags};
@@ -158,14 +158,14 @@ is_deeply($product_ref->{categories_tags},
    'en:tropical-fruits',
    'en:bananas',
    'en:lemons',
+   'en:raspberries',
    'en:oranges',
    'en:plums',
-   'en:raspberries',
  ]
 
 ) or diag explain $product_ref->{categories_tags};
 
-is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, naranjas, limones");
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Frambuesas, Ciruelas, naranjas, limones");
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, limone");
 compute_field_tags($product_ref, "it", "categories");
@@ -183,9 +183,9 @@ is_deeply($product_ref->{categories_tags},
    'en:tropical-fruits',
    'en:bananas',
    'en:lemons',
+   'en:raspberries',
    'en:oranges',
    'en:plums',
-   'en:raspberries',
    'it:bogus',
  ]
 
@@ -481,6 +481,10 @@ is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:pa
 is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
 is_deeply(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
 is_deeply(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
+
+is_deeply(canonicalize_taxonomy_tag("en", "labels", "pur jus"), "en:pure-juice");
+# should not be matched to "pur jus" in French and return "en:pure-juice"
+is_deeply(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
 
 
 done_testing();

@@ -244,6 +244,9 @@ server {
 	location = /haz-su-donacion-a-open-food-facts {
 			try_files /donate/es.html =404;
 	}
+	location = /hunger-game {
+		return 301 https://hunger.openfoodfacts.org;
+	}
   
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different

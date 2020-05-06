@@ -185,9 +185,10 @@ while (my $product_ref = $cursor->next) {
 		#print STDERR "code $code seen $codes{$code} times!\n";
 	}
 
+	# Products with nutriments
 	if ((defined $code) and (defined $product_ref->{nutriments})
-		and (($product_ref->{nutriments}{alcohol} ne '') or
-		(($product_ref->{nutriments}{energy} ne '')))) {
+		and (((defined $product_ref->{nutriments}{alcohol}) and ($product_ref->{nutriments}{alcohol} ne '')) or
+		((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} ne '')))) {
 
 		$products_nutriments{$code} = {};
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
@@ -349,9 +350,9 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if (($product_ref->{complete} > 0) and ((not defined $product_ref->{completed_t}) or ($product_ref->{completed_t} <= 0)) ) {
-		print "product $code - complete: $product_ref->{complete} , completed_t: $product_ref->{completed_t}\n";
+		#print "product $code - complete: $product_ref->{complete} , completed_t: $product_ref->{completed_t}\n";
 	}
-	elsif ($product_ref->{completed_t} > 0) {
+	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
 		print "completed products: $complete\n";
 	}
@@ -491,170 +492,6 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 			#print "dates_current_$cc lc: $cc - date: $date - start: $start - end: $end - i: $i - $current\n";
 		}
 	}
-
-	store("$data_root/index/countries/tags_count.$cc.sto", $countries_tags{$country});
-
-	# generate a file for each official language + English;
-
-	my @languages =  (split(",", $properties{countries}{$country}{"languages:en"}));
-	if ($properties{countries}{$country}{"languages:en"} !~ /en/) {
-		push @languages, 'en';
-	}
-
-	foreach my $language (@languages) {
-
-	$lang = $language;
-	$lc = $language;
-
-	foreach my $tagtype (@fields) {
-
-		my @tags;
-
-		if (not defined $taxonomy_fields{$tagtype}) {
-			@tags = sort ({$a cmp $b} keys %{$countries_tags{$country}{$tagtype}});
-		}
-		else {
-			@tags = sort ( { ($countries_tags{$country}{$tagtype}{$b} <=> $countries_tags{$country}{$tagtype}{$a}) || ($a cmp $b)  } keys %{$countries_tags{$country}{$tagtype}});
-		}
-
-		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
-
-		if (-e "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<$IN>));
-			close $IN;
-		}
-
-		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
-
-		print "tagtype: $tagtype - " . $Lang{$tagtype . "_p"}{$lang} . " - count: " . ($#tags + 1) . "\n";
-
-		my $th_nutriments = '';
-
-		if ($tagtype eq 'categories') {
-			$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
-		}
-
-		if ($tagtype eq 'categories') {
-			$th_nutriments .= "<th>*</th>";
-		}
-
-		if ($tagtype eq 'additives') {
-			$th_nutriments .= "<th>" . lang("risk_level") . "</th>";
-		}
-
-		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang}) . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . $th_nutriments . "</tr></thead>\n<tbody>\n";
-
-#var availableTags = [
-#      "ActionScript",
-#      "Scala",
-#      "Scheme"
-#    ];
-		my $js = <<JS
-var ${tagtype}Tags = [
-JS
-;
-
-		foreach my $tagid (@tags) {
-
-			my $products = $countries_tags{$country}{$tagtype}{$tagid};
-			if ($products == 0) {
-				$products = "";
-			}
-
-			my $td_nutriments = '';
-			if ($tagtype eq 'categories') {
-				$td_nutriments .= "<td style=\"text-align:right\">" . $countries_tags{$country}{$tagtype . "_nutriments"}{$tagid} . "</td>";
-			}
-
-			# known tag?
-			if ($tagtype eq 'categories') {
-				if ((defined $canon_tags{$lc}) and (defined $canon_tags{$lc}{$tagtype}) and (defined $canon_tags{$lc}{$tagtype}{$tagid})) {
-					$td_nutriments .= "<td></td>";
-				}
-				else {
-					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
-				}
-			}
-
-			my $info = '';
-			my $extra_td = '';
-
-			if ($tagtype eq 'additives') {
-				if ($tags_levels{$lc}{$tagtype}{$tagid}) {
-					# $info = ' class="additives_' . $ingredients_classes{$tagtype}{$tagid}{level} . '" title="' . $ingredients_classes{$tagtype}{$tagid}{warning} . '" ';
-					my $risk_level = lang("risk_level_" . $tags_levels{$lc}{$tagtype}{$tagid});
-					$risk_level =~ s/ /\&nbsp;/g;
-					$extra_td = '<td class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '">' . $risk_level . '</td>';
-				}
-				else {
-					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';
-					$extra_td = '<td></td>';
-				}
-			}
-
-				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
-					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-				}
-
-			if (defined $taxonomy_fields{$tagtype}) {
-				$html .= "<tr><td>" . display_taxonomy_tag_link($lc,$tagtype,$tagid) . "</td><td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
-				$js .= "\n\"" . display_taxonomy_tag($lc,$tagtype, $tagid) . "\",";
-			}
-			else {
-				my $link = canonicalize_tag_link($tagtype, $tagid);
-				$html .= "<tr><td><a href=\"$link\"$info>" . canonicalize_tag2($tagtype, $tagid) . "</a></td><td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
-			$js .= "\n\"" . canonicalize_tag2($tagtype, $tagid) . "\",";
-			}
-		}
-
-		$html .= "</tbody></table></div>";
-
-		if ($tagtype eq 'categories') {
-			$html .= "<p>La colonne * indique que la catégorie ne fait pas partie de la hiérarchie de la catégorie. S'il y a une *, la catégorie n'est pas dans la hiérarchie.</p>";
-		}
-
-		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
-
-		$html .= <<HTML
-<initjs>
-oTable = \$('#tagstable').DataTable({
-	language: {
-		search: "$Lang{tagstable_search}{$lang}",
-		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	},
-	paging: false
-});
-</initjs>
-<scripts>
-<script src="/js/datatables.min.js"></script>
-</scripts>
-<header>
-<link rel="stylesheet" href="/js/datatables.min.css" />
-</header>
-HTML
-;
-
-		 open (my $OUT, ">:encoding(UTF-8)", "$data_root/lists/" . get_string_id_for_lang("no_language", lang($tagtype . "_p")) . ".$cc.$lang.html");
-		 print $OUT $html;
-		 close $OUT;
-
-		$js =~ s/,$//;
-		$js .= <<JS
-];
-JS
-;
-
-		(-e "$www_root/js/countries/$cc") or mkdir ("$www_root/js/countries/$cc", 0755);
-		(-e "$www_root/js/countries/$cc/$lang") or mkdir ("$www_root/js/countries/$cc/$lang", 0755);
-		 open (my $OUT, ">:encoding(UTF-8)", "$www_root/js/countries/$cc/$lang$tagtype.js");
-		 print $OUT $js;
-		 close $OUT;
-
-
-	}
-	} # languages
 }
 
 

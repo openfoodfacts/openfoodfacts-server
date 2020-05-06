@@ -113,6 +113,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use HTML::Entities qw(decode_entities);
 
 %fields = ();
 @fields = ();
@@ -200,6 +201,10 @@ sub assign_value($$$) {
 		# language field?
 		elsif (($field =~ /^(.+)_(\w\w)$/) and (defined $language_fields{$1})) {
 			$product_ref->{$field} .= "\n" . $value;
+		}
+		# we have a different value that we cannot append, replace it
+		else {
+			$product_ref->{$field} = $value;
 		}
 	}
 	else {
@@ -535,21 +540,35 @@ sub clean_weights($) {
 			assign_value($product_ref, $field . "_unit", "g");
 		}
 
-		# combine value and unit
-		if ((not defined $product_ref->{$field})
-			and (defined $product_ref->{$field . "_value"})
-			and ($product_ref->{$field . "_value"} ne "")
-			and (defined $product_ref->{$field . "_unit"}) ) {
-
-			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
-		}
-
 		# We may be passed quantity_value_unit, in that case assign it to quantity
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value_unit"})
 			and ($product_ref->{$field . "_value_unit"} ne "")) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
+		}
+
+		# for quantity and serving_size, we might have 3 values:
+		# - a quantity with a non normalized unit ("2 biscuits)
+		# - a value and a unit ("30 g")
+		# in this case, we can combine them: "2 biscuits (30 g)"
+
+		if ((($field eq "quantity") or ($field eq "serving_size"))
+			and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+			and (defined $product_ref->{$field . "_value"}) and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"})
+
+			# check we have not already combined the value and unit
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0))	) {
+
+			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
+		}
+		elsif ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value"})
+			and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"}) ) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {
@@ -756,6 +775,12 @@ sub clean_fields($) {
 	foreach my $field (keys %$product_ref) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		# HTML entities
+		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
+		if ($product_ref->{$field} =~ /\&/) {
+			$product_ref->{$field} = decode_entities($product_ref->{$field});
+		}
 
 		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 		$product_ref->{$field} =~ s/’/'/g;

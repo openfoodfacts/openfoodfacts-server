@@ -105,6 +105,8 @@ BEGIN
 
 					&create_nutrients_level_taxonomy
 
+					&assign_category_properties_to_product
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -240,7 +242,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+	elsif  ((uc($unit) eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
@@ -486,6 +488,8 @@ sub mmoll_to_unit {
 		'-starch-',
 		'-polyols-',
 		'fiber',
+		'--soluble-fiber-',
+		'--insoluble-fiber-',
 		'!proteins',
 		'-casein-',
 		'-serum-proteins-',
@@ -2686,19 +2690,19 @@ sub mmoll_to_unit {
 		en => "Vitamin K1",
 		en_synonyms => ["Vitamin K1", "Phylloquinone"],
 		unit => "µg",
-	},		
+	},
 	'vitamin-k2' => {
 		fr => "Vitamine K2",
 		en => "Vitamin K2",
 		en_synonyms => ["Vitamin K2", "Menaquinone"],
 		unit => "µg",
-	},	
+	},
 	'vitamin-k3' => {
 		fr => "Vitamine K3",
 		en => "Vitamin K3",
 		en_synonyms => ["Vitamin K3", "Menadione"],
 		unit => "µg",
-	},	
+	},
 	'vitamin-c' => {
 		fr => "Vitamine C (acide ascorbique)",
 		fr_synonyms => ["Vitamine C", "acide ascorbique"],
@@ -4173,6 +4177,8 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 
+	assign_category_properties_to_product($product_ref);
+
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
 	delete $product_ref->{pnns_groups_2};
@@ -5190,7 +5196,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey";
 
 sub normalize_packager_codes($) {
 
@@ -5643,6 +5649,52 @@ sub extract_nutrition_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
 
 		# TODO: extract the nutrition facts values
+	}
+}
+
+=head2 assign_category_properties_to_product ( PRODUCT_REF )
+
+Go through the categories of a product to apply category properties at the product level.
+The most specific categories are checked first. If the category has
+a value for the property, it is assigned to the product and the processing stop.
+
+This function was first designed to assign a CIQUAL category to products, based on
+the mapping of the Open Food Facts categories to the French CIQUAL categories.
+
+It may be used for other properties in the future.
+=cut
+
+sub assign_category_properties_to_product($) {
+
+	my $product_ref = shift;
+
+	$product_ref->{category_properties} = {};
+
+	foreach my $property ("ciqual_food_code:en:", "ciqual_food_name:en", "ciqual_food_name:fr") {
+
+		# Find the first category with a defined value for the property
+
+		if (defined $product_ref->{categories_tags}) {
+			foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+				if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{$property})) {
+					$product_ref->{category_properties}{$property} = $properties{categories}{$categoryid}{$property};
+					last;
+				}
+			}
+		}
+
+		# Create facet tags for some properties
+
+		if ($property =~ /^(ciqual_food_name):en$/) {
+			my $tagtype = $1;
+			if (defined $product_ref->{category_properties}{$property}) {
+				$product_ref->{$tagtype . "_tags"} = [get_string_id_for_lang("no_language", $product_ref->{category_properties}{$property})];
+			}
+			else {
+				$product_ref->{$tagtype . "_tags"} = ["unknown"];
+			}
+		}
+
 	}
 }
 

@@ -47,6 +47,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --fix-serving-size-mg-to-ml
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
 --user		create a separate .sto file and log the change in the product history, with the corresponding user
+--team		optional team for the user that is credited with the change
 --comment	comment for change in product history
 --pretend	do not actually update products
 TXT
@@ -103,6 +104,12 @@ my $fix_rev_not_incremented = '';
 my $fix_yuka_salt = '';
 my $run_ocr = '';
 my $autorotate = '';
+my $remove_team = '';
+my $remove_label = '';
+my $fix_spanish_ingredientes = '';
+my $team = '';
+my $assign_category_properties = '';
+
 my $query_ref = {};	# filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
@@ -114,6 +121,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
+			"assign-category-properties" => \$assign_category_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
@@ -132,6 +140,10 @@ GetOptions ("key=s"   => \$key,      # string
 			"run-ocr" => \$run_ocr,
 			"autorotate" => \$autorotate,
 			"fix-yuka-salt" => \$fix_yuka_salt,
+			"remove-team=s" => \$remove_team,
+			"remove-label=s" => \$remove_label,
+			"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
+			"team=s" => \$team,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -141,12 +153,14 @@ print Dumper(\@fields_to_update);
 
 @fields_to_update = split(/,/,join(',',@fields_to_update));
 
-
 use Data::Dumper;
 
     # simple procedural interface
     print Dumper(\@fields_to_update);
 
+if ((defined $team) and ($team ne "")) {
+	$User{"team_1"} = $team;
+}
 
 print "Updating fields: " . join(", ", @fields_to_update) . "\n\n";
 
@@ -169,7 +183,10 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
+	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
+	and (not $remove_team) and (not $remove_label)
+	and (not $assign_category_properties)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -195,6 +212,14 @@ foreach my $field (sort keys %$query_ref) {
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
+}
+
+if ((defined $remove_team) and ($remove_team ne "")) {
+	$query_ref->{teams_tags} = $remove_team;
+}
+
+if ((defined $remove_label) and ($remove_label ne "")) {
+	$query_ref->{labels_tags} = $remove_label;
 }
 
 if (defined $key) {
@@ -252,6 +277,51 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		if ((defined $remove_team) and ($remove_team ne "")) {
+			remove_tag($product_ref, "teams", $remove_team);
+			$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+		}
+
+		if ((defined $remove_label) and ($remove_label ne "")) {
+			remove_tag($product_ref, "labels", $remove_label);
+			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		# Some Spanish products had their ingredients list wrongly cut after "Ingredientes"
+		# before: Brócoli*. (* Ingredientes procedentes de la agricultura ecológica). Categoría I.
+		# after: procedentes de la agricultura ecológica). Categoría I.
+
+		if (($fix_spanish_ingredientes) and (defined $product_ref->{ingredients_text_es}) and ($product_ref->{ingredients_text_es} ne "")) {
+			my $current_ingredients = $product_ref->{ingredients_text_es};
+			my $length_current_ingredients = length($product_ref->{ingredients_text_es});
+
+			my $rev = $product_ref->{rev} - 1;
+			while ($rev >= 1) {
+				my $rev_product_ref = retrieve("$data_root/products/$path/$rev.sto");
+				if ((defined $rev_product_ref) and (defined $rev_product_ref->{ingredients_text_es})) {
+					my $rindex = rindex($rev_product_ref->{ingredients_text_es}, $current_ingredients);
+
+					if (($rindex > 15) and ($rindex == length($rev_product_ref->{ingredients_text_es}) - $length_current_ingredients)
+						and (substr($rev_product_ref->{ingredients_text_es}, $rindex - 13, 13) =~ /^ingredientes $/i)) {
+						# print $rev_product_ref->{ingredients_text_es} . "\n" . $current_ingredients . "\n\n";
+						$product_ref->{ingredients_text_es} = $rev_product_ref->{ingredients_text_es};
+						if ($product_ref->{lc} eq "es") {
+							$product_ref->{ingredients_text} = $product_ref->{ingredients_text_es};
+						}
+						$product_values_changed = 1;
+						extract_ingredients_from_text($product_ref);
+						extract_ingredients_classes_from_text($product_ref);
+						compute_nova_group($product_ref);
+						compute_languages($product_ref); # need languages for allergens detection
+						detect_allergens_from_text($product_ref);
+						last;
+					}
+				}
+				$rev--;
+			}
+		}
 
 		if ($fix_rev_not_incremented) { # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
 
@@ -546,17 +616,18 @@ while (my $product_ref = $cursor->next) {
 		if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
+		if ($assign_category_properties) {
+			# assign_category_properties_to_product() is already called by special_process_product
+		}
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 			push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 		}
 
-
 		if ($clean_ingredients) {
 			clean_ingredients_text($product_ref);
 		}
-
 
 		if ($process_ingredients) {
 			# Ingredients classes

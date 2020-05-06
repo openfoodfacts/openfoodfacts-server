@@ -330,22 +330,22 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:cooked',
-				'text' => "haselnüsse"
+				'processing' => 'de:gegart',
+				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:almond',
-				'processing' => "en:cooked",
+				'processing' => 'de:gegart',
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'passionsfrucht'
 			},
 			{
@@ -410,27 +410,27 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gepufft',
-				'text' => "haselnüsse"
+				'processing' => 'en:puffed',
+				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:gherkin',
-				'processing' => 'de:gepufft',
+				'processing' => 'en:puffed',
 				'text' => 'gurken'
 			}
 		]
@@ -685,7 +685,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
@@ -850,32 +850,32 @@ my @tests = (
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "hartk\x{e4}se"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => 'haselnusskerne'
 			},
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'schalotte'
  			},
 			{
 				'id' => 'en:almond',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'mandeln'
 			}
 		]
@@ -898,7 +898,7 @@ my @tests = (
 		[
 		  	{
 				'id' => 'en:shallot',
-				'processing' => 'de:eingelegt',
+				'processing' => 'en:pickled',
 				'text' => 'Schalotte'
 			}
 		]
@@ -935,7 +935,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
+				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
@@ -1173,6 +1173,36 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
     'text' => 'panceta'
   }
 
+]
+	],
+
+	# ingredient with (processing) in parenthesis
+	[ { lc => "en", ingredients_text => "garlic (powdered)",},
+[
+  {
+    'id' => 'en:garlic',
+    'processing' => 'en:powdered',
+    'text' => 'garlic'
+  }
+]
+	],
+	[ { lc => "fr", ingredients_text => "piment (en poudre)"},
+[
+  {
+    'id' => 'en:chili-pepper',
+    'processing' => 'en:powdered',
+    'text' => 'piment'
+  }
+]
+	],
+
+	[ { lc => "en", ingredients_text => "pasteurized eggs" },
+[
+  {
+    'id' => 'en:egg',
+    'processing' => 'en:pasteurised',
+    'text' => 'eggs'
+  }
 ]
 	],
 

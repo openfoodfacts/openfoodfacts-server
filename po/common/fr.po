@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-10 23:10\n"
+"PO-Revision-Date: 2020-04-29 15:57\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -241,31 +241,11 @@ msgstr "Les produits qui ne sont pas de la marque %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Propriétaire de la marque"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
-
-msgctxt "brands_p"
-msgid "brand owners"
-msgstr ""
-
-msgctxt "brand_owner_products"
-msgid "Products from the %s brand owner"
-msgstr ""
-
-msgctxt "brand_owner_s"
-msgid "brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_tagsinput"
-msgid "add a brand_owner"
-msgstr ""
-
-msgctxt "brand_owner_without_products"
-msgid "Products not from the %s brand owner"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -3312,6 +3292,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Catégorie spécifique"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Champ spécifique à la source"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Sélectionnez un champ"
@@ -3341,22 +3325,31 @@ msgid "only the unit, with the value in another column"
 msgstr "seulement l'unité, avec la valeur dans une autre colonne"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Sélectionnez cette option si la colonne indique la présence d'un label spécifique (par exemple : Biologique, Commerce équitable) lorsque la valeur est O, Oui ou 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "Saisissez le nom du label dans le champ texte à droite."
+msgstr "Saisissez le nom de la catégorie dans le champ texte à droite."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Sélectionnez cette option si la colonne indique que le produit appartient à une catégorie spécifique (par exemple : Boissons) lorsque la valeur est O, Oui ou 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Sélectionnez cette option si la colonne indique la présence d’une catégorie spécifique (par exemple : Boissons) lorsque la valeur est O, Oui ou 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Saisissez le nom de la catégorie dans le champ texte à droite."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Sélectionnez cette option pour les champs spécifiques à la source et que nous voulons conserver comme champs spécifiques à la source."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Tapez le nom du champ cible dans le champ de texte à droite, ou laissez vide pour utiliser le nom du champ source."
 
 msgctxt "value"
 msgid "Value"
@@ -3397,6 +3390,10 @@ msgstr "Valeur en mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Valeur en μg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Valeur en UI"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4157,4 +4154,9 @@ msgstr "Les noms d'équipe sont publics. Ne créez pas de noms d'équipe contena
 msgctxt "team_s"
 msgid "Team %s"
 msgstr "Équipe %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d produits seront exportés."
 
