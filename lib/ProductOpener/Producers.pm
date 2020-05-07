@@ -382,6 +382,9 @@ sub normalize_column_name($) {
 	$name =~ s/%/percent/g;
 	$name =~ s/µg/mcg/ig;
 
+	# nutrient in unit
+	$name =~ s/ in / /i;
+
 	# estampille(s) sanitaire(s)
 
 	$name =~ s/\(s\)\b/s/ig;
@@ -413,6 +416,7 @@ my %fields_synonyms = (
 en => {
 	lc => ["lang"],
 	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	product_name_en => ["name", "name of the product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
