@@ -12,14 +12,16 @@
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display*.js",
+    "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display*.js scripts/*.js",
     "lint:css": "stylelint html/css/product-multilingual.css",
     "lint:scss": "stylelint scss/app.scss",
     "perlc": "npm run perlc:startup && npm run perlc:cgi && npm run perlc:scripts",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:cgi": "node check_perl.js cgi/*.pl",
-    "perlc:scripts": "node check_perl.js scripts/*.pl",
-    "postinstall": "opencollective-postinstall"
+    "perlc:cgi": "node scripts/check_perl.js cgi/*.pl",
+    "perlc:scripts": "node scripts/check_perl.js scripts/*.pl",
+    "postinstall": "opencollective-postinstall",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -48,7 +50,8 @@
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "^3.0.0-beta.4",
-    "papaparse": "^5.2.0"
+    "papaparse": "^5.2.0",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -67,5 +70,6 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/openfoodfacts-server"
-  }
+  },
+  "snyk": true
 }
