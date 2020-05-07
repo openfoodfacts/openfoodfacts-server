@@ -106,11 +106,13 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_nutrient = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
 my $assign_category_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
+my $all_owners = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -144,10 +146,12 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-yuka-salt" => \$fix_yuka_salt,
 			"remove-team=s" => \$remove_team,
 			"remove-label=s" => \$remove_label,
+			"remove-nutrient=s" => \$remove_nutrient,
 			"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
 			"team=s" => \$team,
 			"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 			"delete-debug-tags" => \$delete_debug_tags,
+			"all-owners" => \$all_owners,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -189,7 +193,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
-	and (not $remove_team) and (not $remove_label)
+	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $assign_category_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
@@ -215,6 +219,15 @@ foreach my $field (sort keys %$query_ref) {
 	}
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
+	}
+}
+
+# On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
+
+if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ((not $all_owners) and (not defined $query_ref->{owners_tags})) {
+		print STDERR "On producers platform, --query owners_tags=... or --all-owners must be set.\n";
+		exit();
 	}
 }
 
@@ -294,6 +307,17 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "labels", $remove_label);
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
+			if (defined $product_ref->{nutriments}) {
+				delete $product_ref->{nutriments}{$remove_nutrient};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_value"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_unit"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_100g"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_serving"};
+				$product_values_changed = 1;
+			}
 		}
 
 		# Some Spanish products had their ingredients list wrongly cut after "Ingredientes"
