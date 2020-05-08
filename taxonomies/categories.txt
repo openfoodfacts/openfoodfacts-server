@@ -32297,17 +32297,15 @@ nl:Drinkyoghurts
 <en:Drinkable yogurts
 fr:Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 en:Dairy drink with sugar and fruits, Fermented milk with sugar and fruits, Yogurt with sugar and fruits
-fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits
+fr:Boisson lactée sucrée au lait fermenté et aux fruits, Yaourt à boire sucré aux fruits, Lait fermenté sucré aux fruits, yaourts-a-boire-aux-fruits
 ciqual_food_code:en:19535
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, with fruits, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux fruits, sucré
-
 
 <en:Drinkable yogurts
 fr:Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire saveur vanille
 ciqual_food_code:en:19508
-ciqual_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
-ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+
+<en:Drinkable yogurts
+fr:Yaourts à boire goût framboise, yaourts-a-boire-gout-framboise
 
 <en:Drinkable yogurts
 fr:Yaourts à boire sans sucres
@@ -32329,7 +32327,7 @@ ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux frui
 
 <en:Drinkable yogurts
 en:Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
-fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés
+fr:Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés, laits-fermentes-sucres
 ciqual_food_code:en:19537
 ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
 ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré
@@ -32350,8 +32348,8 @@ fr:Yaourts au Bifidus
 nl:Bifidus yoghurts
 
 <en:Bifidus yogurts
-fr:Yaourts au bifidus nature, Lait fermenté de type yaourt nature au bifidus, spécialité laitière de type yaourt nature au bifidus
 en:Sweetened plain bifidus yogurts, Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus nature, Lait fermenté de type yaourt nature au bifidus, spécialité laitière de type yaourt nature au bifidus
 ciqual_food_code:en:19546
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
@@ -32640,6 +32638,7 @@ fr:Yaourts au caramel
 hu:Karamellás  joghurtok
 it:Yogurt al caramello
 nl:Yoghurt met caramel
+ciqual_food_code:en:39247
 
 <en:Yogurts
 en:Honey yogurts
@@ -32651,8 +32650,14 @@ it:Yogurt al miele
 nl:Honingyoghurts
 ro:Iaurturi cu miere
 ciqual_food_code:en:19575
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
+
+<en:Yogurts
+fr: Yaourts à la confiture de lait, yaourts-a-la-confiture-de-lait
+ciqual_food_code:en:19575
+
+<en:Yogurts
+fr:Yaourts sucrés au sucre de canne, yaourts-nature-sucres-au-sucre-de-canne, yaourts-sucres-au-sucre-de-canne
+ciqual_food_code:en:19575
 
 <en:Yogurts
 en:Greek yogurts, Greek yogurt, Plain Greek-style Yogurt
@@ -32761,6 +32766,17 @@ de:Cremiger Früchtejoghurt
 fi:sekoitetut hedelmäjugurtit
 fr:Yaourts brassés aux fruits, Yaourt brassé aux fruits
 nl:Vruchtenroeryoghurts, Vruchtenroeryoghurt
+
+<en:Stirred yogurts
+<en:Drinkable yogurts
+en:Stirred yogurt drinks, Stirred yoghurt drinks
+fr:Yaourts brassés à boire, yaourt-brasse-a-boire
+ciqual_food_code:en:19537
+
+<en:Vanilla yogurt
+<en:Stirred yogurts
+en:Stirred vanilla yogurt drinks, Stirred vanilla yoghurt drinks
+fr:Yaourts brassés à la vanille, yaourts-brasses-a-la-vanille, yaourts-brasses-vanille
 
 <en:Yogurts
 en:Sweetened yogurts, sweet yogurts
@@ -33355,7 +33371,7 @@ ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
 
 <en:Dessert creams
 en:Refrigerated coffee custard dessert
-fr:Crème dessert au café rayon frais
+fr:Crèmes dessert au café rayon frais, Crème dessert au café rayon frais, yaourts-au-cafe
 ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
@@ -33719,8 +33735,6 @@ fr:Yaourts soja natures, Yaourts au soja natures
 hu:Természetes szójatej
 nl:Naturel sojayoghurts
 ciqual_food_code:en:19693
-ciqual_food_name:en:Soy dessert, plain, refrigerated
-ciqual_food_name:fr:Dessert au soja, nature, rayon frais
 
 <en:Soy milk yogurts
 en:Fruit soy yogurts
@@ -33730,8 +33744,6 @@ fi:hedelmä-soijajugurtit
 fr:Yaourts de soja aux fruits, Yaourts soja aux fruits, Yaourts au soja aux fruits
 nl:Fruit sojayoghurts
 ciqual_food_code:en:19692
-ciqual_food_name:en:Soy dessert, w fruits, refrigerated
-ciqual_food_name:fr:Dessert au soja, aux fruits, rayon frais
 
 <en:Fruit soy yogurts
 en:Strawberry soy yogurts
@@ -33791,6 +33803,7 @@ de:Soja-Joghurt mit gemischten Früchten
 es:Yogures de soja con frutas variadas
 fr:Yaourts soja aux fruits mixés
 nl:Multifruitsojayoghurts, multivruchtensojayoghurts
+ciqual_food_code:en:19692
 
 <en:Mixed fruit soy yogurts
 en:Berries soy yogurts
