@@ -123,7 +123,7 @@ nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
-en:granulated
+en:granulated, granules
 fr:en granules, granules de, granules d'
 
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
@@ -183,7 +183,6 @@ fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
 
-#en:granules
 
 #######################################################################
 #
@@ -220,7 +219,7 @@ nl:ontpit, ontpitte
 # en:wiktionary:pitted
 
 en:peel, peels, peel of
-#en:false:peeled, with peel, peel oil, unpeeled
+#en:false:peeled, with peel, peel oil, unpeeled, mixed peel
 #de:schale, schalen
 #de:false:schalenfrüchten, schalentieren, in der schale
 el:φλούδα
@@ -577,8 +576,22 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 nl:gesuikerd, gesuikerde
 
-# <de:gezuckert
+#<en:sugared
 de:leicht gezuckert
+
+#<en:sugared
+en:candied
+da:kandiserede
+de:kandiert, kandierte, kandierten, kandierter
+#es:confitada
+it:candito, candita, canditi, candite
+nl:gekonfijt, gekonfijte
+sv:kanderad, kanderade
+
+#<en:candied
+en:semi candied, semi-candied
+
+#en:crystallized
 
 # <en:unsweetened
 de:ungezuckert
@@ -624,6 +637,16 @@ nl:gemout, gemoute
 
 fr:non-maltées
 
+en:deodorized
+de:desodoriert, desodoriertes
+es:desodorizado, desodorizada
+fr:désodorisé, désodorisée
+it:deodorato
+nl:ontgeurde
+pt:desodorizado
+ro:deodorizat
+
+fr:non-désodorisée
 
 #en:comment:http://animalsmart.org/feeding-the-world/food-safety/rbst
 en:rbst-free
@@ -747,11 +770,4 @@ en:oak smoked
 #<en:smoked
 en:not smoked, unsmoked
 
-#en:candied
-#da:kandiserede
-#de:kandierte
-#es:confitada
-#it:canditi
-#nl:gekonfijt
-#sv:kanderade
 #en:fibers
