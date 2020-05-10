@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-10 12:11\n"
+"PO-Revision-Date: 2020-05-10 12:21\n"
 "Language-Team: Norwegian Bokmal\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1913,11 +1913,11 @@ msgstr "Lagre"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Lagret."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Lagrer."
 
 msgctxt "search"
 msgid "Search"
@@ -1933,7 +1933,7 @@ msgstr "Søk"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "inneholder"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -1941,19 +1941,19 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts produktsøk"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "inneholder ikke"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Last ned resultater"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
@@ -1977,7 +1977,7 @@ msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Endre søkekriterier"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2001,7 +2001,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Resultater på en graf"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2018,7 +2018,7 @@ msgstr ""
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Vis resultater på en graf"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
@@ -2026,7 +2026,7 @@ msgstr ""
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Likegyldig"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2058,7 +2058,7 @@ msgstr ""
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Vis resultater på et kart"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
@@ -2078,27 +2078,27 @@ msgstr "Resultater per side"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Produktsøk"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Søkeresultater"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Bruk en annen farge for følgende produkter:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Andre produkter"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "Fair trade"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2118,15 +2118,15 @@ msgstr "Med søtningsmidler"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "velg et kriterium..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kriterier"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Søkeord"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
@@ -2146,23 +2146,23 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Søkeverktøy"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "verdi"
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "Med"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "Uten"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "Se produktsiden"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2174,15 +2174,15 @@ msgstr "Språk"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Sende et bilde..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Feil ved opplasting"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Sender bilde"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2190,7 +2190,7 @@ msgstr "Porsjonstørrelse"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Forberedt serveringsstørrelse"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2382,23 +2382,23 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Brukernavn eller e-postadresse"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Produkter som ble lagt til av brukeren %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "Produkter som ikke ble lagt til av brukeren %s"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Produkter som ble redigert av brukeren %s"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Produkter som ikke ble redigert av brukeren %s"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2406,7 +2406,7 @@ msgstr "bidragere"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "Produkter lagt til av %s"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2414,11 +2414,11 @@ msgstr "bidrager"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Produkter ikke lagt til av %s"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "vis"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2448,7 +2448,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Få den fra Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2457,7 +2457,7 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Du er koblet til som %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2521,11 +2521,11 @@ msgstr ""
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Sletter produkt"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "har slettet produktet"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2533,7 +2533,7 @@ msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Slett brukeren"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2569,15 +2569,15 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Nylige endringer"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Våre oversettere"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
@@ -2593,7 +2593,7 @@ msgstr "Navn"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Oversatt (ord)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
@@ -2703,71 +2703,71 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Eldre"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "Fra 65 år og eldre"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Ungdom"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 til 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "Fra 10 år til og med 17 år"
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Barn"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 til 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "Fra 36 måneder til og med 9 år"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Småbarn"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 til 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "Fra 12 måneder til og med 35 måneder"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Spedbarn"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "Fra mer enn 12 uker til og med 11 måneder"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "EFSA-evaluering"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "Risiko for overeksponering"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
@@ -3803,7 +3803,7 @@ msgstr "Protein"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "verdi"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
