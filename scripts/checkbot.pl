@@ -21,7 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# See: https://en.wiki.openfoodfacts.org/Verification/Bots#Checkbot
+# See: https://wiki.openfoodfacts.org/Verification/Bots#Checkbot
 
 use CGI::Carp qw(fatalsToBrowser);
 
