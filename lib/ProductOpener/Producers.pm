@@ -351,7 +351,9 @@ sub convert_file($$$$) {
 		}
 
 		# Make sure we have a value for lc, as it is needed for clean_fields()
-		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")) {
+		# if lc is not a 2 letter code, use the default value
+		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")
+			or ($product_ref->{lc} !~ /^[a-z]{2}$/)) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
@@ -379,6 +381,9 @@ sub normalize_column_name($) {
 
 	$name =~ s/%/percent/g;
 	$name =~ s/µg/mcg/ig;
+
+	# nutrient in unit
+	$name =~ s/ in / /i;
 
 	# estampille(s) sanitaire(s)
 
@@ -411,6 +416,7 @@ my %fields_synonyms = (
 en => {
 	lc => ["lang"],
 	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	product_name_en => ["name", "name of the product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -430,7 +436,7 @@ fr => {
 	code => ["codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	categories => ["Catégorie(s)"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
-	generic_name_fr => ["dénomination légale", "déno légale"],
+	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
@@ -444,10 +450,11 @@ fr => {
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
 	conservation_conditions_fr => ["Conditions de conservation et d'utilisation"],
 	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
-	link => ["lien"],
-	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
+	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
+	lc => ["langue", "langue du produit"],
 },
 
 );

@@ -2068,7 +2068,7 @@ sub normalize_vitamin($$) {
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
-		($lc eq 'fi') and return "vitamiini $a";
+		($lc eq 'fi') and return "$a-vitamiini";
 		return "vitamin $a";
 	}
 	else {

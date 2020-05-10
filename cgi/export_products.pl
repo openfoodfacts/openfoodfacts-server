@@ -140,7 +140,7 @@ elsif (($action eq "process") and ($User{moderator})) {
 		owner_id => $Owner_id,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
+		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};
@@ -158,7 +158,7 @@ elsif (($action eq "process") and ($User{moderator})) {
 		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
 			$args_ref->{manufacturer} = 1;
 		}
-		$args_ref->{source_id} = $Org_id;
+		$args_ref->{source_id} = "org-" . $Org_id;
 		$args_ref->{source_name} = $Org_id;
 	}
 	else {

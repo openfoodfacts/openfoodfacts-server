@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 14:48\n"
+"PO-Revision-Date: 2020-05-03 10:01\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -240,15 +240,11 @@ msgstr "非%s的產品"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "品牌所有者"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
-
-msgctxt "brands_p"
-msgid "brand owners"
-msgstr ""
+msgstr "可口可樂公司"
 
 msgctxt "by"
 msgid "by"
@@ -444,7 +440,7 @@ msgstr "捐助Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -665,7 +661,7 @@ msgstr "若數據有誤或不全面，您可以編輯此頁修正。"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "以及 <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook 的協作者群組</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -885,7 +881,7 @@ msgstr "原始大小"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "此檔案已上傳到產品 %s 並已獲得 %s 的許可。"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -4147,5 +4143,17 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

@@ -48,6 +48,7 @@ my @tests = (
 	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
 	[ { lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+	[ { lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"}, [ "en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300",  "en:ergocalciferol"], ],
 
 	[ { lc => "it", ingredients_text => "sale e spezie"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [  ], ],
