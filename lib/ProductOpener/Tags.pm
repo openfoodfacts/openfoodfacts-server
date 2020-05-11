@@ -1286,11 +1286,13 @@ sub build_tags_taxonomy($$$) {
 
 					}
 
-
-
-
 					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (sort keys %parents) {
+						# Make sure the parent is not equal to the child
+						if ($parentid eq $canon_tagid) {
+							$errors .= "ERROR - $canon_tagid is a parent of itself\n";
+							next;
+						}
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
 						defined $direct_children{$tagtype}{$parentid} or $direct_children{$tagtype}{$parentid} = {};
