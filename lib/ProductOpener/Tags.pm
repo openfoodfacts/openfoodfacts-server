@@ -257,8 +257,11 @@ sub get_inherited_property($$$) {
 	my $property = shift;
 
 	my @parents = ($canon_tagid);
+	my %seen = ();
 
  	foreach my $tagid (@parents) {
+		defined $seen{$tagid} and next;
+		$seen{$tagid} = 1;
 		if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
 
 			if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
