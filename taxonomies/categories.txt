@@ -263,19 +263,15 @@ nl:Baby-vruchtentoetjes, Baby-vruchtentoetje
 ro:Deserturi cu fructe pentru bebeluși, Deserturi cu fructe bebeluși
 
 <en:Snacks and desserts for babies
-en:Baby dairy desserts, Dairy desserts for babies
+en:Baby dairy desserts, Dairy desserts for babies, Dairy dessert for baby with custard
 ca:Postres lactis per a nadons
 de:Milchdesserts für Babies
 es:Postres lácteos para bebe, Postres lácteos para bebes
 fi:Maitopohjaiset vauvan jälkiruuat
-fr:Desserts lactés pour bébé
+fr:Desserts lactés pour bébé, Dessert lacté pour bébé, Crème dessert pour bébé
 hu:Baba gyümölcs desszertek
 nl:Babymelktoetjes, Babymelktoetje
 ro:Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
-
-<en:Snacks and desserts for babies
-en:Dairy dessert for baby with custard
-fr:Dessert lacté pour bébé, Crème dessert pour bébé
 ciqual_food_code:en:13164
 ciqual_food_name:en:Dairy dessert for baby, custard type
 ciqual_food_name:fr:Dessert lacté infantile type crème dessert
@@ -29007,7 +29003,7 @@ ciqual_food_code:en:19649
 ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
 ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
 
-<fr:Fromages blancs
+<fr:Fromages blancs aux fruits
 en:Fresh cream cheese with fruits and sugar around 7% fat
 fr:Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
 ciqual_food_code:en:19659
@@ -30378,8 +30374,8 @@ fr:Fromages râpés, fromage rapé
 nl:Geraspte kzen
 
 <en:French cheeses
-fr:Maroilles, Marolles
 en:Maroilles
+fr:Maroilles, Marolles
 country:en:France
 wikidata:en:Q734978
 ciqual_food_code:en:12036
@@ -32257,7 +32253,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits
 
 <en:Yogurts
 en:Plain fermented milk yogurt with sugar, Plain dairy specialty with sugar
-fr:Yaourt sucré au lait fermenté, Spécialité laitière nature sucrée
+fr:Yaourt sucré au lait fermenté, Spécialité laitière nature sucrée, yaourts-nature-sucres
 ciqual_food_code:en:19599
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
@@ -32285,7 +32281,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 
 <en:Yogurts
 <en:Fermented milk drinks
-en:Drinkable yogurts
+en:Drinkable yogurts, yogurt-drink
 ca:Iogurt per beure
 de:Trinkjoghurt, Trinkjogurt, Trinkjoghurts, Trinkjogurts
 es:Yogures para beber
@@ -32308,8 +32304,17 @@ ciqual_food_code:en:19508
 fr:Yaourts à boire goût framboise, yaourts-a-boire-gout-framboise
 
 <en:Drinkable yogurts
+fr:Yaourts à boire goût chocolat, yaourts-a-boire-au-chocolat
+
+<en:Drinkable yogurts
 fr:Yaourts à boire sans sucres
 # A verifier ajoute depuis Nutrinet
+
+<en:Drinkable yogurts
+fr:Yaourts à boire allégés en matières grasses, yaourts-a-boire-alleges-en-matiere-grasse
+
+<en:Drinkable yogurts
+fr:Yaourts à boire nature bio, yaourts-a-boire-nature-bio
 
 <en:Drinkable yogurts
 en:Flavoured dairy drinks with sugar, Flavoured fermented milks with sugar, Flavoured yogurts with sugar
@@ -32392,7 +32397,7 @@ cs:Ovocné jogurty
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:hedelmäjugurtit
-fr:Yaourts aux fruits, Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
+fr:Yaourts aux fruits, Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits, Yaourts mixés
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
 nl:Vruchtenyoghurts
@@ -32742,7 +32747,7 @@ ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
 en:Stirred yogurts
 de:cremiger Joghurt
 fi:sekoitetut jugurtit
-fr:Yaourts brassés, Yaourt brassé
+fr:Yaourts brassés, Yaourt brassé, brasse
 nl:Roeryoghurts
 
 <ru:Йогурт
@@ -32824,7 +32829,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Yogurts
 en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream
-fr:Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème
+fr:Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème, laits-fermentes
 ciqual_food_code:en:19598
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w cream
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, à la crème
@@ -33484,6 +33489,7 @@ de:Milchschokoladendesserts, Desserts mit Michschokolade
 fi:Suklaiset maitopohjaiset jälkiruuat
 fr:Desserts lactés au chocolat, desserts au chocolat et au lait
 nl:Desserts op basis van melk en chocola
+ciqual_food_code:en:39200
 
 <en:Dairy desserts
 <en:Coffee desserts
@@ -33715,6 +33721,7 @@ nl:Plantaardige yoghurts, plantaardige yoghurt
 
 <en:Non-dairy yogurts
 en:Almond milk yogurts
+ciqual_food_code:en:18107
 
 <en:Non-dairy yogurts
 en:Soy milk yogurts, soy yogurts, soya yogurts, soygurts, yofu
@@ -33777,6 +33784,7 @@ de:Kirsch-Soja-Joghurt
 es:Yogures de soja con cerezas
 fr:Yaourts de soja aux cerises
 nl:Kersensojayoghurts
+ciqual_food_code:en:19692
 
 <en:Fruit soy yogurts
 en:Peach soy yogurts
@@ -33796,6 +33804,7 @@ de:Heidelbeer-Soja-Joghurt
 es:Yogures de soja con arándanos
 fr:Yaourts de soja à la myrtille
 nl:Bosbessensojayoghurts
+ciqual_food_code:en:19692
 
 <en:Fruit soy yogurts
 en:Mixed fruit soy yogurts
@@ -69258,7 +69267,7 @@ fr:Oeufs au lait
 <en:Yogurts
 en:Yogurts with cereals, Fermented milk yogurt with cereals, Dairy specialty with cereals
 de:Joghurt mit Müsli
-fr:Yaourts aux céréales, Yaourt au lait fermenté aux céréales, Spécialité laitière aux céréales
+fr:Yaourts aux céréales, Yaourt au lait fermenté aux céréales, Spécialité laitière aux céréales, yaourts-aux-graines
 nl:Yoghurt met granen
 ro:Iaurturi cu cereale
 ciqual_food_code:en:19579
