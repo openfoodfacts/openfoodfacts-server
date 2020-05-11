@@ -1079,7 +1079,7 @@ nl:dier
 en:beef, steers
 ca:carn de vaca
 de:Rind
-es:carne de vaca
+es:carne de vaca, carne de vacuno, carne bovina, Carne pura de vaca
 fi:nauta, naudan, härkä, härän
 fr:bœuf, Boeufs
 hu:marha, marhahús
@@ -2084,7 +2084,7 @@ es:harina de malta de cebada
 fi:ohramallasjauho
 fr:farine de malt d'orge, farine d'orge malté
 hu:árpamalátaliszt
-it:farina di orzo maltato, farina d'orzo maltato
+it:farina di orzo maltato, farina d'orzo maltato, farina di malto d'orzo
 
 < en:Barley flour
 en:dextrinated barley flour
@@ -2183,7 +2183,11 @@ fr:haricots noirs
 en:great northern beans
 
 < en:Beans
-en:green beans
+en:green bean, green beans
+es:judía verde, judías verdes
+fr:haricot vert, haricots verts
+carbon_footprint_fr_foodges_ingredient:fr: Haricot vert importé par avion
+carbon_footprint_fr_foodges_value:fr: 22.8
 
 < en:Beans
 en:lima beans
@@ -2211,11 +2215,6 @@ fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
 
 < en:Beans
 fr:haricot mungo
-
-< en:Beans
-fr:haricot vert, haricots verts
-carbon_footprint_fr_foodges_ingredient:fr: Haricot vert importé par avion
-carbon_footprint_fr_foodges_value:fr: 22.8
 
 < en:Beans
 fr:haricots beurre
@@ -2261,11 +2260,11 @@ es:res puro
 en:beef meat, pure beef meat
 ca:carn pura de vaca
 de:Rindfleisch
-es:Carne pura de vaca
+es:carne de vaca, carne de vacuno, carne bovina, Carne pura de vaca
 fi:naudanliha, naudanlihaa
 fr:viande de bœuf, viande bovine, pure viande bovine, pure viande de boeuf
 hu:
-it:carne di manzo, carne bovina
+it:carne di manzo, carne bovina, carne di bovino
 nl:Rundvlees
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
@@ -3428,6 +3427,7 @@ fr:poitrine
 < en:Breast
 < en:Pork meat
 en:pork breast
+es:panceta de cerdo
 fr:poitrine de porc
 
 < en:Breast
@@ -5783,7 +5783,7 @@ it:farina di miglio
 en:oat flour
 cs:Ovesná mouka
 de:Hafermehl
-es:farina de avena
+es:harina de avena
 fi:kaurajauho
 fr:farine d'avoine
 hu:zabliszt
@@ -7364,6 +7364,13 @@ fi:broilerinliha
 de:Hühnerfleischpulver
 
 < en:Chicken meat
+en:chicken breast
+es:pechuga de pollo
+fr:blanc de poulet
+carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
+
+< en:Chicken meat
 en:chicken cutlet
 fi:kanaleike
 fr:Escalopes de poulet
@@ -7388,11 +7395,6 @@ fr:aiguillette de poulet
 
 < en:Chicken meat
 fr:aiguillettes de poulet
-
-< en:Chicken meat
-fr:blanc de poulet
-carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
-carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Chicken meat
 fr:blanc de poulet cuit de qualite superieure traite en salaison et filet interne de poulet
@@ -10026,7 +10028,7 @@ en:cornmeal, corn grits, corn semolina
 da:groftmalet majs
 de:Maisgrieß, Maiskörner, Maisgriess
 el:σιμιγδάλι αραβοσίτου
-es:granos de maíz
+es:semola de maíz, granos de maíz
 fi:maissirouhe
 fr:semoule de mais
 hu:kukoricadara
@@ -34188,6 +34190,12 @@ fi:suuri muna, suuret munat
 fr:gros oeufs
 
 < en:Egg
+en:pasteurized liquid egg
+es:huevo líquido pasteurizado
+fr:œuf liquide pasteurisé
+nl:gepasteuriseerd vloeibaar ei
+
+< en:Egg
 en:Quail eggs, Quail egg
 de:Wachteleier, Wachtelei
 fi:viiriäisenmuna
@@ -34216,10 +34224,6 @@ nl:hele eieren, geheel eieren
 
 < en:Egg
 es:productos derivados de huevo
-
-< en:Egg
-fr:œuf liquide pasteurisé
-nl:gepasteuriseerd vloeibaar ei
 
 < en:Egg
 fr:œuf pasteurisé, œufs pasteurisés
@@ -35199,7 +35203,7 @@ hy:մանրաթելեր
 id:Serat
 io:Fibro
 is:Trefjar
-it:fibra
+it:fibra, fibra alimentare
 ja:繊維
 kk:Волокнит
 kn:ನಾರು
@@ -40046,6 +40050,10 @@ ca:pectina de poma
 es:pectina de manzana
 fr:pectine de pomme
 
+en:fruits preparation
+fr:préparation de fruits
+it:preparazione di frutta
+
 en:galacto-oligosaccharides
 de:Galacto-oligosaccharides
 fi:galakto-oligosakkaridit
@@ -40982,9 +40990,21 @@ la:Pecten maximus
 < en:Green asparagus
 es:Espárragos verdes sin pelar
 
-< en:Green beans
-en:flat green beans
-fr:haricots plats coupés
+< en:Green bean
+en:flat green beans, flat beans
+fr:haricots verts plats, haricots plats
+
+< en:Green bean
+fr:haricots verts coupés
+
+< en:Green bean
+fr:haricots verts extra-fins
+
+< en:Green bean
+fr:haricots verts très fins
+
+< en:Green bean
+fr:haricots verts tres fins issus de l'agriculture biologique
 
 < en:Green flageolets
 fr:flageolets verts extra-fins
@@ -41364,7 +41384,7 @@ en:herb
 ca:Herbes, herbes aromàtiques
 cs:Bylina
 de:Gewürz, Kräuter
-es:hierbas
+es:hierba, hierbas, plantas aromáticas, planta aromática
 fi:yrtti, yrtit, mausteyrtit
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, herbes aromatiques
 hu:gyógynövény, gyógynövények
@@ -43495,7 +43515,9 @@ ca:sal marina iodada, sal de mar iodada
 de:jodiertes Meersalz
 es:sal marina yodada, sal de mar yodada
 fi:jodioitu merisuola
+fr:sel marin iodé
 hu:jódozott tengeri só
+it:sale marino iodato
 
 < en:Iron
 en:elemental iron
@@ -46224,6 +46246,7 @@ de:Pflanzliche Margarine
 es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
+it:margarina vegetale
 vegan:en: yes
 vegetarian:en: yes
 
@@ -49517,7 +49540,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta
+es:seta, champinon
 et:Söögiseen
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -55399,9 +55422,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bacon
 en:ham
 ca:pernil
 de:Schinken
-es:Jamón
+es:Jamón, jamón de cerdo
 fi:kinkku, kinkkua, siankinkku
-fr:jambon de porc, jambon
+fr:jambon, jambon de porc
 hu:sonka
 it:prosciutto
 sv:skinka
@@ -62812,7 +62835,7 @@ cs:Sója luštinatá, sójové boby
 da:Sojabønne
 de:Sojabohne, Sojabohnen, Sojakerne
 eo:Sojfabo
-es:granos de soja, habas de soja, habas de soya
+es:granos de soja, habas de soja, habas de soya, semillas de soja
 et:Sojauba, sojaoad
 fi:Soijapapu, soijapavut
 fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja, grains de soja
@@ -65214,6 +65237,7 @@ en:high oleic sunflower oil
 de:High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
+it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
 
 < en:Sunflower oil
@@ -66500,8 +66524,9 @@ fr:viande séparée mécaniquement de dinde
 it:carne di tacchino separata meccanicamente
 
 < en:Turkey meat
-en:Turkey fillet
+en:turkey breast, turkey fillet
 de:Putenfilet
+es:pechuga de pavo
 fi:kalkkunanfilee, kalkkunan filee
 fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde
 it:Filetto di tacchino
@@ -66568,6 +66593,7 @@ es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal d
 fi:raffinoimaton merisuola, puhdistamaton merisuola
 fr:sel marin non raffiné, sel de mer non raffiné, sel marin non traité, sel marin gris de cuisine
 hu:finomítatlan tengeri só
+it:sale marino integrale
 nl:ongeraffineerd zeezout
 
 < en:Unrefined sea salt
@@ -67410,13 +67436,13 @@ hu:borjúhús
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 carbon_footprint_fr_foodges_value:fr: 20.5
 
-en:vegetable
+en:vegetable, vegetables
 ca:Vegetals, Verdures
 cs:Zelenina
 de:Gemüse
-es:verduras
+es:verduras, hortalizas
 fi:kasvis
-fr:légume
+fr:légume, légumes
 hu:zöldség, zöldségek
 it:vegetale
 nl:Groente, groenten
@@ -67677,7 +67703,7 @@ hy:բադրիջան
 id:Terung
 io:Berenjeno
 is:Eggaldin
-it:melanzana
+it:melanzana, melanzane
 ja:ナス
 jv:Térong
 ka:ბადრიჯანი
@@ -68385,6 +68411,11 @@ wikidata:en: Q2735883
 wikipedia:en: https://en.wikipedia.org/wiki/Cucumber
 
 < en:Vegetable
+en:curly endive
+es:escarola rizada
+fr:endive frisée
+
+< en:Vegetable
 en:endive, Endives
 ca:endívia
 cy:Endif
@@ -68838,6 +68869,11 @@ it:succo di verdura
 nl:Groentensap
 
 < en:Vegetable
+en:vegetables in variable proportion
+es:verduras en proporción variable, hortalizas en proporción variable
+fr:légumes en proportions variables, légumes en proportion variable
+
+< en:Vegetable
 en:Watercress
 af:Bronkors
 an:Berro
@@ -68882,9 +68918,6 @@ fi:kasvimehutiiviste
 < en:Vegetable
 fr:légume déshydraté, légumes déshydratés, légumes séchés
 fi:kuivatut kasvikset
-
-< en:Vegetable
-fr:légumes en proportions variables, légumes en proportion variable
 
 < en:Vegetable
 fr:légumes et jus de cuisson de légumes
@@ -70120,7 +70153,7 @@ es:aceite de oliva virgen extra
 fi:ekstra-neitsytoliiviöljy
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
-it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva
+it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
 
 < en:Vitamin A
@@ -71655,6 +71688,11 @@ zh:碳酸水
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
 < en:Water
+en:cooking water
+es:agua de cocción
+fr:eau de cuisson
+
+< en:Water
 en:filtered water, purified water
 de:gefiltertes Wasser, gereinigtes Wasser
 es:agua filtrada, agua purificada
@@ -71844,9 +71882,6 @@ en:water like ice wrap
 de:Wasser als Schutzglasur
 fr:eau comme glaçure d'enrobage
 it:acqua come involucro di ghiaccio
-
-< en:Water
-fr:eau de cuisson
 
 < en:Water
 fr:Eau du robinet
@@ -73785,18 +73820,6 @@ fr:Gratinage
 
 < fr:Haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
-
-< fr:Haricot vert
-fr:haricots verts coupés
-
-< fr:Haricot vert
-fr:haricots verts extra-fins
-
-< fr:Haricot vert
-fr:haricots verts très fins
-
-< fr:Haricot vert
-fr:haricots verts tres fins issus de l'agriculture biologique
 
 < fr:Haricots mogettes
 fr:haricots mogettes de Vendée, mogettes de Vendée
