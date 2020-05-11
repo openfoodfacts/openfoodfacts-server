@@ -402,9 +402,14 @@ HTML
 	return false;
 });
 
+var images_processed = 0;
+
 \$('#fileupload')
-    .bind('fileuploadadd', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
-    .bind('fileuploadstart', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadadd', function (e, data) { console.log("fileuploadadd"); })
+    .bind('fileuploadstart', function (e, data) { console.log("fileuploadstart");})
+    .bind('fileuploadprocessstart', function (e, data) { console.log("fileuploadstart"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessstop', function (e, data) { console.log("fileuploadprocessstop"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessalways', function (e, data) { console.log("fileuploadprocessalways"); images_processed++; if (images_processed % 20 === 0) { \$(document).foundation('equalizer', 'reflow'); }})
 	.bind('fileuploadalways', function (e, data) {
 		lastFileUploaded++;
 		console.log("always - lastFileUploaded: " + lastFileUploaded);
