@@ -39432,6 +39432,7 @@ fr:Myrtilles des marais
 la:Vaccinium uliginosum
 nl:Rijsbessen
 
+# Rubus fruticosus
 <en:Berries
 en:Blackberries
 de:Brombeeren
@@ -39439,22 +39440,23 @@ es:Moras
 fr:Mûres
 nl:Bramen
 ro:Mure
-
-<en:Berries
-en:Raw black mulberries
-fr:Mûres noires
-ciqual_food_code:en:13071
-ciqual_food_name:en:Black mulberry, raw
-ciqual_food_name:fr:Mûre noire (du mûrier), crue
+ciqual_food_code:en:13029
+ciqual_food_name:en:Blackberry, raw
+ciqual_food_name:fr:Mûre (de ronce), crue
 
 <en:Blackberries
 <en:Fresh fruits, Raw blackberries
 en:Fresh blackberries
 fr:Mûres fraîches, Mûres de ronce crues
 season_in_country_fr:en: 8,9
-ciqual_food_code:en:13029
-ciqual_food_name:en:Blackberry, raw
-ciqual_food_name:fr:Mûre (de ronce), crue
+
+# Morus nigra?
+<en:Berries
+en:Black mulberries, Raw black mulberries
+fr:Mûres noires
+ciqual_food_code:en:13071
+ciqual_food_name:en:Black mulberry, raw
+ciqual_food_name:fr:Mûre noire (du mûrier), crue
 
 <en:Berries
 en:Blackthorns
@@ -39481,13 +39483,6 @@ ciqual_food_name:fr:Myrtille, crue
 en:Fresh blueberries
 fr:Myrtilles fraîches
 season_in_country_fr:en: 7,8,9
-
-<en:Blueberries
-en:Frozen raw bluberries, Frozen raw blueberry
-fr:Myrtilles surgelées crues, Myrtille surgelée crue
-ciqual_food_code:en:13132
-ciqual_food_name:en:Blueberry, frozen, raw
-ciqual_food_name:fr:Myrtille, surgelée, crue
 
 <en:Berries
 <en:Elderberry products
@@ -39684,7 +39679,7 @@ ru:Лимоны
 
 <en:Lemons
 <en:Fresh fruits
-en:Fresh limons
+en:Fresh lemons
 fr:Citrons frais
 season_in_country_fr:en: 1,2,11,12
 
@@ -39968,7 +39963,7 @@ nl:Kiwis
 
 <en:Kiwifruits
 <en:Fresh fruits
-en:Fresh kiwifruits
+en:Fresh kiwifruits, fresh kiwis
 fr:Kiwis frais
 season_in_country_fr:en: 1,2,3,11,12
 
@@ -40577,25 +40572,24 @@ nl:Bevroren bosvruchten
 
 <en:Frozen berries
 <en:Blackberries
-en:Frozen blackberries
+en:Frozen blackberries, Frozen raw blackberries
 es:Moras congeladas
-fr:Mûres surgelées
+fr:Mûres surgelées, Mûres de ronce surgelées
 nl:Bevroren bramen
-
-<en:Frozen berries
-en:Frozen raw blackberries
-fr:Mûres de ronce surgelées
 ciqual_food_code:en:13150
 ciqual_food_name:en:Blackberry, frozen, raw
 ciqual_food_name:fr:Mûre (de ronce), surgelée, crue
 
 <en:Frozen berries
 <en:Blueberries
-en:Frozen blueberries
+en:Frozen blueberries, Frozen raw bluberries, Frozen raw blueberry
 de:Tiefkühl-Heidelbeeren, Tiefkühl-Blaubeeren
 es:Arándanos congelados
-fr:Myrtilles surgelées
+fr:Myrtilles surgelées, Myrtilles surgelées crues, Myrtille surgelée crue
 nl:Bevroren bosbessen
+ciqual_food_code:en:13132
+ciqual_food_name:en:Blueberry, frozen, raw
+ciqual_food_name:fr:Myrtille, surgelée, crue
 
 <en:Frozen berries
 <en:Raspberries
