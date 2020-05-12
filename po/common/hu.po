@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:00\n"
+"PO-Revision-Date: 2020-05-08 12:22\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -142,7 +142,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -239,11 +239,11 @@ msgstr "Nem a(z) %s márka termékei"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Márka tulajdonos"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -439,7 +439,7 @@ msgstr "Adományozzon az Open Food Facts programnak"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -777,8 +777,8 @@ msgstr "<<site_name>> wiki (angolul)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -788,7 +788,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -950,11 +950,11 @@ msgstr "Összetevők száma"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Felismert összetevők száma"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Nem felismert összetevők száma"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1973,15 +1973,15 @@ msgstr ""
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSX formátum"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel vagy LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSV formátum"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
@@ -2461,7 +2461,7 @@ msgstr "/images/misc/microsoft/Hungarian.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Szerezze be a Microsoft-tól"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2490,7 +2490,7 @@ msgstr "Hiba történt a kép kiválasztásának megszüntetése közben."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Nagyítás engedélyezése az egérgörgővel."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
@@ -2996,7 +2996,7 @@ msgstr "A termékeket nem fotózta: %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s oldala"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
@@ -3736,7 +3736,7 @@ msgstr ""
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Információ"
 
 msgctxt "file_received"
 msgid "File received"
@@ -3887,7 +3887,7 @@ msgstr ""
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Adatbázis"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
@@ -3895,7 +3895,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Alkalmazás"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -3903,7 +3903,7 @@ msgstr ""
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Robot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -3911,7 +3911,7 @@ msgstr ""
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Moderátor"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
@@ -4110,7 +4110,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Kész"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4148,5 +4148,17 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

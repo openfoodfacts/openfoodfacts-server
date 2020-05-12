@@ -257,8 +257,11 @@ sub get_inherited_property($$$) {
 	my $property = shift;
 
 	my @parents = ($canon_tagid);
+	my %seen = ();
 
  	foreach my $tagid (@parents) {
+		defined $seen{$tagid} and next;
+		$seen{$tagid} = 1;
 		if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
 
 			if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
@@ -1283,11 +1286,13 @@ sub build_tags_taxonomy($$$) {
 
 					}
 
-
-
-
 					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (sort keys %parents) {
+						# Make sure the parent is not equal to the child
+						if ($parentid eq $canon_tagid) {
+							$errors .= "ERROR - $canon_tagid is a parent of itself\n";
+							next;
+						}
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
 						defined $direct_children{$tagtype}{$parentid} or $direct_children{$tagtype}{$parentid} = {};
@@ -3464,11 +3469,14 @@ sub compute_field_tags($$$) {
 
 	# check if we have a previous or a next version and compute differences
 
+	my $debug_tags = 0;
+
 	$product_ref->{$field . "_debug_tags"} = [];
 
 	# previous version
 
 	if (exists $loaded_taxonomies{$field . "_prev"}) {
+
 		$product_ref->{$field . "_prev_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_prev", $product_ref->{$field}) ];
 		$product_ref->{$field . "_prev_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_prev_hierarchy" }}) {
@@ -3481,6 +3489,7 @@ sub compute_field_tags($$$) {
 				my $tagid = $tag;
 				$tagid =~ s/:/-/;
 				push @{$product_ref->{$field . "_debug_tags"}}, "added-$tagid";
+				$debug_tags++;
 			}
 		}
 		foreach my $tag (@{$product_ref->{$field . "_prev_tags"}}) {
@@ -3488,6 +3497,7 @@ sub compute_field_tags($$$) {
 				my $tagid = $tag;
 				$tagid =~ s/:/-/;
 				push @{$product_ref->{$field . "_debug_tags"}}, "removed-$tagid";
+				$debug_tags++;
 			}
 		}
 	}
@@ -3499,6 +3509,7 @@ sub compute_field_tags($$$) {
 	# next version
 
 	if (exists $loaded_taxonomies{$field . "_next"}) {
+
 		$product_ref->{$field . "_next_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_next", $product_ref->{$field}) ];
 		$product_ref->{$field . "_next_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_next_hierarchy" }}) {
@@ -3511,6 +3522,7 @@ sub compute_field_tags($$$) {
 				my $tagid = $tag;
 				$tagid =~ s/:/-/;
 				push @{$product_ref->{$field . "_debug_tags"}}, "will-remove-$tagid";
+				$debug_tags++;
 			}
 		}
 		foreach my $tag (@{$product_ref->{$field . "_next_tags"}}) {
@@ -3518,6 +3530,7 @@ sub compute_field_tags($$$) {
 				my $tagid = $tag;
 				$tagid =~ s/:/-/;
 				push @{$product_ref->{$field . "_debug_tags"}}, "will-add-$tagid";
+				$debug_tags++;
 			}
 		}
 	}
@@ -3526,7 +3539,7 @@ sub compute_field_tags($$$) {
 		delete $product_ref->{$field . "_next_tags" };
 	}
 
-	if (not defined $product_ref->{$field . "_debug_tags"}[0]) {
+	if ($debug_tags == 0) {
 		delete $product_ref->{$field . "_debug_tags"};
 	}
 

@@ -123,7 +123,7 @@ nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
-en:granulated
+en:granulated, granules
 fr:en granules, granules de, granules d'
 
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
@@ -169,6 +169,10 @@ fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 nl:stukjes
 # de:false-positive:früchstück
 
+en:peeling
+fr:brisures
+nl:schilfers
+
 #de:comment:result of grating
 de:raspel, raspeln
 
@@ -178,6 +182,7 @@ es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
+
 
 #######################################################################
 #
@@ -212,6 +217,29 @@ fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 nl:ontpit, ontpitte
 #pt:sem caroço, sem caroco
 # en:wiktionary:pitted
+
+en:peel, peels, peel of
+#en:false:peeled, with peel, peel oil, unpeeled, mixed peel
+#de:schale, schalen
+#de:false:schalenfrüchten, schalentieren, in der schale
+el:φλούδα
+es:piel de, corteza de
+#es:false:cáscaras
+fi:kuoret
+fr:écorce de, écorces de, écorces d'
+it:scorza di, scorze di
+nl:schil, schillen
+#nl:false:schildje, met schil
+pt:raspas
+ro:piele de
+#sv:skal
+#sv:false:skallops, skalade, skalfrugi
+
+#<en:peel
+it:scorzette
+nl:schilletjes
+
+en:zest
 
 # en:description:The soft center of a fruit
 en:pulp
@@ -548,8 +576,22 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 nl:gesuikerd, gesuikerde
 
-# <de:gezuckert
+#<en:sugared
 de:leicht gezuckert
+
+#<en:sugared
+en:candied
+da:kandiserede
+de:kandiert, kandierte, kandierten, kandierter
+#es:confitada
+it:candito, candita, canditi, candite
+nl:gekonfijt, gekonfijte
+sv:kanderad, kanderade
+
+#<en:candied
+en:semi candied, semi-candied
+
+#en:crystallized
 
 # <en:unsweetened
 de:ungezuckert
@@ -595,6 +637,16 @@ nl:gemout, gemoute
 
 fr:non-maltées
 
+en:deodorized
+de:desodoriert, desodoriertes
+es:desodorizado, desodorizada
+fr:désodorisé, désodorisée
+it:deodorato
+nl:ontgeurde
+pt:desodorizado
+ro:deodorizat
+
+fr:non-désodorisée
 
 #en:comment:http://animalsmart.org/feeding-the-world/food-safety/rbst
 en:rbst-free
@@ -718,3 +770,4 @@ en:oak smoked
 #<en:smoked
 en:not smoked, unsmoked
 
+#en:fibers

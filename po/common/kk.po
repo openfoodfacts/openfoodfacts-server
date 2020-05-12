@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:16\n"
+"PO-Revision-Date: 2020-05-09 12:21\n"
 "Language-Team: Kazakh\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -46,7 +46,7 @@ msgstr "Тіркелу"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Қосылғаныңызға рахмет. Енді өнімдерді қосу және өңдеу үшін сайтқа кіре аласыз.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,24 +64,38 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Сәлем <NAME>,\n\n"
+"https://openfoodfacts.org сайтына қосылғаныңыз үшін көп рахмет\n"
+"Міне сіздің атыңыз:\n\n"
+"Пайдаланушының аты: <USERID>\n\n"
+"Енді сіз сайтқа кіріп, өнімдерді өңдеу үшін кіре аласыз.\n\n"
+"<<site_name>> бұл бірлескен жоба, оған жаңа өнімдерден гөрі көп нәрсені әкелуге болады: сіздің энергияңыз, ынтаңыз және идеяларыңыз!\n"
+"Салымшылар арасында талқылап, жобаны алға жылжыту үшін біз Slack деп аталатын өте ыңғайлы хабар алмасу жүйесін қолданамыз: https://slack.openfoodfacts.org\n\n"
+"Сонымен қатар Facebook-тің салымшылары тобына қосыла аласыз:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Жаңа: біз косметика: сабын, тіс пастасы, макияж және т.б. туралы мәліметтер базасын құру үшін сұлулық туралы фактілерді ашуды бастаймыз.\n"
+"https://openbeautyfacts.org\n\n"
+"Сізге үлкен рахмет!\n\n"
+"Стефан және Ашық Open Food Facts тобы\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "<<site_name>> қосылғаныңыз үшін рахмет"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Ықтимал қауіпті тағам қоспасы. Пайдалануды шектеулі."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Қауіпті тағамдық қоспалар. Аулақ болыңыз."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Еуропада тағамдық қоспаларға тыйым салынған. Қандай болмасын жол бермеңіз."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -89,23 +103,23 @@ msgstr "қоспалар"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "қоспа"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Кеңейтілген іздеу"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Кеңейтілген іздеу және графиктер"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Артық ішу денсаулыққа зиянды."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Барлық миссиялар"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -113,67 +127,68 @@ msgstr "Аллергия туғызатын немесе көтере алмай
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "аллергендер"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "аллерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Өнім беті де өңделген"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/kk_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Google Play арқылы алыңыз"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Бұл өнім әлі <<site_name>> деректер базасында жоқ. Сіз оны қосу үшін өнім, штрих-код, ингредиенттер тізбесі мен тамақтану кейбір фактілерді түсіргенді өтсеңіз <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Алдын-ала рахмет!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Суретке түсіру"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Сіз жолдаған фотосуреттер Creative Commons Attribution және ShareAlike лицензияға сай жарияланды."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Сіз суреттер қоса аласыз:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Көлденең ось"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Тік ось"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -181,19 +196,19 @@ msgstr "Штрих-код"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Штрих-код нөмірі:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Сондай-ақ, Open Food Facts жобасын қаржыландыруға көмектесе аласыз"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> саладан тәуелсіз коммерциялық емес бірлестік жасайды. Ол барлығына жасалды, және ол бәрінен қаржыландырылады. Сіз біздің жұмысты қолдай алады <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">Ашық Азық-түлік фактілер қайырымдылық</a> сондай-ақ арқылы <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo іздеу жүйесін пайдалана отырып,</a>.<br/><b>Рахмет!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Біздің жұмысымызды қолдау үшін қайырымдылық жасаңыз"
 
 msgctxt "brands"
 msgid "Brands"
@@ -201,7 +216,7 @@ msgstr "Сауда маркалары"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -209,31 +224,31 @@ msgstr "сауда маркалары"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "%s маркасының өнімдері"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "Бренд"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "бренд қосыңыз"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "%s маркалы емес тауарлар"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Бренд иесі"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Coca Cola компаниясы"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "бойынша"
 
 msgctxt "categories"
 msgid "Categories"
@@ -241,11 +256,11 @@ msgstr "Санаттар"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Зәйтүн майындағы сардиндер, концентраттан алынған апельсин шырыны"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Тек ерекше категорияны көрсетіңіз. «Ата-аналар» санаттары автоматты түрде қосылады."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -253,43 +268,43 @@ msgstr "санаттар"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "%s маркасының өнімдері"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "санаттар"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "санат қосыңыз"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "%s санатына жатпайтын тауарлар"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Деректер"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Қоректік заттар"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Таңдалған суреттер"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Жүктелген суреттер"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "дойбы"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "тексеруші"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -497,16 +512,16 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB коды"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB коды"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 HOLAT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -761,7 +776,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
@@ -2051,7 +2066,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Қоректік заттар"
 
 msgctxt "search_or"
 msgid "or"
@@ -4120,5 +4135,17 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 
