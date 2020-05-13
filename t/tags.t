@@ -135,8 +135,8 @@ is_deeply($product_ref->{categories_tags},
    'en:berries',
    'en:tropical-fruits',
    'en:bananas',
-   'en:raspberries',
    'en:plums',
+   'en:raspberries',
  ]
 
 ) or diag explain $product_ref->{categories_tags};
@@ -158,8 +158,8 @@ is_deeply($product_ref->{categories_tags},
    'en:tropical-fruits',
    'en:bananas',
    'en:lemons',
-   'en:raspberries',
    'en:oranges',
+   'en:raspberries',
    'en:plums',
  ]
 
@@ -183,9 +183,9 @@ is_deeply($product_ref->{categories_tags},
    'en:tropical-fruits',
    'en:bananas',
    'en:lemons',
-   'en:raspberries',
    'en:oranges',
    'en:plums',
+   'en:raspberries',
    'it:bogus',
  ]
 
