@@ -1,43 +1,39 @@
 /*CSS file that implements the dark mode feature*/
 
 /*changes color of main column and nav*/
-body {background-color: #151E29 !important;}
- nav.top-bar, li.name {
+body {background-color: #151E29 !important;color:#bfc3ca;}
+nav.top-bar, li.name {
    background-color: #1B2737 !important;
-
 }
-
-
-
 .top-bar-section .has-form {background: #1B2737;}
 
 /*changes plain text*/
 h1, h2, h3,h4,li.name,.title, form div .sidebar,.accordion li a,
 select, .select2-results__options, input[type = "text"], input[type = "password"] {
   color:#bfc3ca;
+}
 
-}
- table thead,  table thead tr th{
-  background-color: #1B2737 !important;
-  color: #bfc3ca;
-}
+table thead, table thead tr th { background-color: #1B2737 !important; color: #bfc3ca;}
 
 /*fixes the product page: still need to fix bacgrounds on tags*/
-.data_table .nutriment_sub, .data_table .nutriment_sub t, div.alert-box.info, #warning_3rd_party_content, #product_image.fieldset, #tabs_front_image, #tabs_content_front_image, #product_characteristics, #tabs_content_ingredients_image, #tabs_ingredients_image, #tabs_front_image_fr_tab, #tabs_content_product,#tabs_product, #licence_accept, .example, #fixed_bar,#tabs_content_nutrition_image, #tabs_nutrition_image,span.tagify__tag-text, #ingredients_text_fr{
-background-color: #1B2737 !important;
-color:#bfc3ca;
+div.alert-box.info, #warning_3rd_party_content, #product_image.fieldset,
+#tabs_front_image, #tabs_content_front_image, #product_characteristics,
+#tabs_content_ingredients_image, #tabs_ingredients_image, #tabs_front_image_fr_tab,
+#tabs_content_product,#tabs_product, #licence_accept, .example, #fixed_bar,
+#tabs_content_nutrition_image, #tabs_nutrition_image,span.tagify__tag-text,
+#ingredients_text_fr {
+  background-color: #1B2737 !important;
+  color:#bfc3ca;
   outline: 2px solid #263859;
   border: 2px solid  #1B2737 !important;
 }
 
 /* changes link colors & Banner text*/
-a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show, #hide_image_banner_hide, #dmtext {color: #556c7d !important;}
+a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show,
+#hide_image_banner_hide, #dmtext {color: #556c7d !important;}
 
 /* changes the color of the heading on the footer*/
-.title {
-  font-size: 1.25rem;
-  margin-bottom: 5px;
-}
+.title { font-size: 1.25rem; margin-bottom: 5px;}
 element.style {
     float: right;
     width: 300px;
@@ -48,55 +44,31 @@ element.style {
     background-color: red !important;
 }
 
-/*changes the coloring of the input boxes*/
-.row input{ border-color:#151E29;
-background-color: #1B2737 !important;
-outline: 2px solid #1B2737;
-}
-
 /* changes the coloring of the sidebar*/
 #sidebar-whole { background: #1B2737 !important;}
-.element.style {
-    background-color: red !important;
-}
-body{
-  color:#bfc3ca;
-}
+
 table, table tr td{
   background-color:  #1B2737 ;
   color:#556c7d !important;
-  border: 2px solid  #151E29;
+  border: none;
 }
-label{
-    color:#556c7d !important;
-}
+
+label{ color:#556c7d !important;}
 /*changes the coloring of the link on the top right corner of the topbar & button */
 nav .title-area li a, .button {
-  color:#556c7d !important;
-    background-color:  #1B2737 !important;
-  outline: 2px solid #17223b !important;
-
+  background-color:  #1B2737 !important;
 }
-
-.row input, form div .sidebar { background-color: #1B2737;}
-
-/* changes the background of the login */
-input[type=text]:focus,input[type=password]:focus {
-  background-color:#1B2737;
-}
+.select2-selection__placeholder, nav .title-area li a, .button  {color:#556c7d !important;}
 
 /* changes the background and the text of the accordion search on the product search page.*/
-.accordion li a , form div .sidebar, select {
+  .accordion li a , form div .sidebar, select {
   background-color: #1B2737 !important;
-    border: 2px solid  #1B2737;
-  outline: 2px solid #151E29;
+  border: 2px solid  #1B2737;
 }
 
 /* changes the background of the buttons on the topbar (discover, search, etc).*/
 .top-bar-section li:not(.has-form) a:not(.button), .toggle-container{
-    background: #1B2737 !important;
-    outline: 2px solid #1B2737;
-}
+    background: #1B2737 !important; outline: 2px solid #1B2737; }
 
 /* changes the background of the icon of the top right corner of the webpage.*/
 .right li a {
@@ -104,20 +76,12 @@ input[type=text]:focus,input[type=password]:focus {
 }
 
 /* the next three attributes changes the background of the text box for country selectio*/
-.select2-selection{ background:#1B2737 !important;}
+.select2-selection { background:#213044 !important;}
 .select2-search--dropdown, .select2-results__options, form button, button[type = "submit"] {
-  background-color: #1B2737 !important;
-    outline: 2px solid #151E29;
+  background-color: #223044 !important;
 }
 
 .sidebar form label {color: #7b93c3;}
-
-form button:hover, input[type = "submit"]:hover, .button:focus, .button:hover,
-button:focus, button:hover, #imgsearchbutton_block_side:hover {
-	background-color: #1B2737;
-}
-
-input[type = "submit"],#imgsearchbutton_block_side { background-color: #31456b;}
 
 .name h2 {background-color: #1B2737; margin-right: 5px !important;}
 
@@ -127,18 +91,49 @@ input[type = "submit"],#imgsearchbutton_block_side { background-color: #31456b;}
 
 footer ul {list-style: none !important;}
 
-.tab-bar, .left-off-canvas-toggle  {background-color: #213154;}
+.tab-bar, .left-off-canvas-toggle  {background-color: #1c2633;}
 
-.products li:hover, .products li a:hover {background-color: #35445f;}
+.products li:hover, .products li a:hover {background-color: #1c2531;}
 
 .content {background: #1B2737 !important;}
 
 #search_form label {color:#6a92ad;}
 
-.alert-box.info {
-  background-color: #384761;
-  border: none;
-  color:#a29a9a;
+.alert-box.info { background-color: #384761; border: none; color:#a29a9a;}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected]{background-color: #3c4d5f;}
+ul.button-group li:first-child div {background-color: #212f42!important;}
+.select2-container--default .select2-selection--single,.select2-dropdown {border: none;}
+
+ul.right button[type = "submit"]:hover{background-color: #25354c!important;}
+
+.sidebar form input, ul.right form input,.middle form input, #search_form input[type = "text"], table input,
+.row input[type = "text"], .row input[type = "password"] {
+  background-color: #212e40!important; border: none!important;
 }
-/*colors in logo */
-#logo {background-color: #1B2737; padding: 5px;}
+.sidebar form input:focus, ul.right form input:focus,.middle form input:focus,table input:focus,
+.row input[type = "text"]:focus, .row input[type = "password"]:focus {
+  background: #2b3a50!important;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover{background-color: #1f2f42!important;}
+ul.right{overflow: auto;}
+
+.f-dropdown { border: none; background: #1b2737;}
+.f-dropdown li:focus, .f-dropdown li:hover { background: #263346;}
+
+ul.pagination li.current a {background: #2b3a50!important;}
+
+.sidebar form input[type ="submit"], #imgsearchbutton_block_side,
+table input[type = "submit"] {background-color: #293546!important;}
+
+.data_table .nutriment_main {border-top: none;}
+#search_form input[type = "submit"] { background-color: #213146!important;}
+.accordion select { background-color: #212f42 !important;}
+.subheader {color: #6d7177}
+
+.data_table .nutriment_sub, .data_table .nutriment_sub td { background-color: #212f42;}
+#nutrition_data_table,  #nutrition_data_table tr td{ border: 2px solid  #151E29;}
+ul.pagination li:hover a, ul.pagination li:hover button {
+  background-color: #b0b4b9;
+}
