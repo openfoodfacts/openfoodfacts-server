@@ -1,73 +1,127 @@
 /*CSS file that implements the dark mode feature*/
 
 /*changes color of main column and nav*/
-body, nav.top-bar, li.name {background-color: #17223b;}
+body {background-color: #151E29 !important;}
+ nav.top-bar, li.name {
+   background-color: #1B2737 !important;
 
-.top-bar-section .has-form {background: #17223b;}
+}
+
+
+
+.top-bar-section .has-form {background: #1B2737;}
 
 /*changes plain text*/
-h1, h2, h3, p,li.name,.title, form div .sidebar,.accordion li a,
+h1, h2, h3,h4,li.name,.title, form div .sidebar,.accordion li a,
 select, .select2-results__options, input[type = "text"], input[type = "password"] {
-  color:white;
+  color:#bfc3ca;
+
+}
+ table thead,  table thead tr th{
+  background-color: #1B2737 !important;
+  color: #bfc3ca;
+}
+
+/*fixes the product page: still need to fix bacgrounds on tags*/
+.data_table .nutriment_sub, .data_table .nutriment_sub t, div.alert-box.info, #warning_3rd_party_content, #product_image.fieldset, #tabs_front_image, #tabs_content_front_image, #product_characteristics, #tabs_content_ingredients_image, #tabs_ingredients_image, #tabs_front_image_fr_tab, #tabs_content_product,#tabs_product, #licence_accept, .example, #fixed_bar,#tabs_content_nutrition_image, #tabs_nutrition_image,span.tagify__tag-text, #ingredients_text_fr{
+background-color: #1B2737 !important;
+color:#bfc3ca;
+  outline: 2px solid #263859;
+  border: 2px solid  #1B2737 !important;
 }
 
 /* changes link colors & Banner text*/
-a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show, #hide_image_banner_hide, #dmtext {color: #FF6768 !important;}
+a, a, a:hover, a:visited, #dmdiscriminator, #hide_image_banner_show, #hide_image_banner_hide, #dmtext {color: #556c7d !important;}
 
 /* changes the color of the heading on the footer*/
 .title {
   font-size: 1.25rem;
   margin-bottom: 5px;
 }
+element.style {
+    float: right;
+    width: 300px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #cbe7ff;
+    background-color: red !important;
+}
 
 /*changes the coloring of the input boxes*/
-.row input{ border-color: #495d86;}
+.row input{ border-color:#151E29;
+background-color: #1B2737 !important;
+outline: 2px solid #1B2737;
+}
 
 /* changes the coloring of the sidebar*/
-#sidebar-whole{ background: #263859 !important;}
-
+#sidebar-whole { background: #1B2737 !important;}
+.element.style {
+    background-color: red !important;
+}
+body{
+  color:#bfc3ca;
+}
+table, table tr td{
+  background-color:  #1B2737 ;
+  color:#556c7d !important;
+  border: 2px solid  #151E29;
+}
+label{
+    color:#556c7d !important;
+}
 /*changes the coloring of the link on the top right corner of the topbar & button */
-nav .title-area li a, .button { color:#FF6768 !important;}
+nav .title-area li a, .button {
+  color:#556c7d !important;
+    background-color:  #1B2737 !important;
+  outline: 2px solid #17223b !important;
 
-.row input, form div .sidebar { background-color: #263859;}
+}
+
+.row input, form div .sidebar { background-color: #1B2737;}
 
 /* changes the background of the login */
 input[type=text]:focus,input[type=password]:focus {
-  background-color:#35496d;
+  background-color:#1B2737;
 }
 
 /* changes the background and the text of the accordion search on the product search page.*/
 .accordion li a , form div .sidebar, select {
-  background-color: #263859 !important;
+  background-color: #1B2737 !important;
+    border: 2px solid  #1B2737;
+  outline: 2px solid #151E29;
 }
 
 /* changes the background of the buttons on the topbar (discover, search, etc).*/
 .top-bar-section li:not(.has-form) a:not(.button), .toggle-container{
-    background: #17223b !important;
-    outline: 2px solid #263859;
+    background: #1B2737 !important;
+    outline: 2px solid #1B2737;
 }
 
 /* changes the background of the icon of the top right corner of the webpage.*/
-.right li a {background-color: #17223b !important;}
+.right li a {
+  background-color: #1B2737 !important;
+}
 
 /* the next three attributes changes the background of the text box for country selectio*/
-.select2-selection{ background:#263859 !important;}
+.select2-selection{ background:#1B2737 !important;}
 .select2-search--dropdown, .select2-results__options, form button, button[type = "submit"] {
-  background-color: #263859 !important;
+  background-color: #1B2737 !important;
+    outline: 2px solid #151E29;
 }
 
 .sidebar form label {color: #7b93c3;}
 
 form button:hover, input[type = "submit"]:hover, .button:focus, .button:hover,
 button:focus, button:hover, #imgsearchbutton_block_side:hover {
-	background-color: #445780;
+	background-color: #1B2737;
 }
 
 input[type = "submit"],#imgsearchbutton_block_side { background-color: #31456b;}
 
-.name h2 {background-color: #1b3061; margin-right: 5px !important;}
+.name h2 {background-color: #1B2737; margin-right: 5px !important;}
 
-::placeholder {color: #698bd2;}
+::placeholder {color: #556c7d;}
 
 .right li:first-child { margin-right: 5px;}
 
@@ -77,7 +131,7 @@ footer ul {list-style: none !important;}
 
 .products li:hover, .products li a:hover {background-color: #35445f;}
 
-.content {background: #2e3e5a !important;}
+.content {background: #1B2737 !important;}
 
 #search_form label {color:#6a92ad;}
 
@@ -87,4 +141,4 @@ footer ul {list-style: none !important;}
   color:#a29a9a;
 }
 /*colors in logo */
-#logo {background-color: white; padding: 5px;}
+#logo {background-color: #1B2737; padding: 5px;}
