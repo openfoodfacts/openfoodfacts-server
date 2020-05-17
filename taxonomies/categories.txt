@@ -24034,10 +24034,22 @@ it:Cioccolato bianco con edulcorante
 nl:Witte chocola met zoetstoffen
 
 <en:White chocolates
+en:White chocolate with coconut pieces
 fr:Chocolats blancs à la noix de coco
 de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
 hu:Fehér csokoládé kókusszal
 it:Cioccolato bianco al cocco
+
+<en:White chocolates
+en:White chocolates with hazelnuts
+de:Weiße Schokoladen mit Haselnüssen
+fr:Chocolats blancs aux noisettes
+nl:Witte chocola met hazelnoten
+
+<en:White chocolates
+<en:Filled chocolates
+en:Filled white chocolates
+fr:Chocolats blancs fourrés
 
 <en:Easter food
 <en:Chocolate molds
@@ -25782,6 +25794,28 @@ pt:Cereais e Batatas
 ru:Зерновые и картофель
 th:ธัญพืชและมันฝรั่ง
 pnns_group_1:en:Cereals and potatoes
+
+<en:Cereals and potatoes
+en:Yam potatoes
+fr:Ignames
+
+<en:Yam potatoes
+en:Fresh yam potatoes
+fr:Ignames frais
+
+<en:Yam potatoes
+en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
+fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
+ciqual_food_code:en:53503
+ciqual_food_name:en:Yam or Indian potato, peeled, boiled/cooked in water
+ciqual_food_name:fr:Igname, épluchée, bouillie/cuite à l'eau
+
+<en:Yam potatoes
+en:Raw peeled yam potato, Raw peeled Indian potato
+fr:Igname épluchée crue
+ciqual_food_code:en:53502
+ciqual_food_name:en:Yam or Indian potato, peeled, raw
+ciqual_food_name:fr:Igname, épluchée, crue
 
 <en:Cereals and potatoes
 en:Gnocchi
@@ -50802,6 +50836,13 @@ ciqual_food_name:en:Chitterling sausage, raw
 ciqual_food_name:fr:Andouillette, crue
 
 <en:Prepared meats
+en:Porchetta
+es:Porchetta
+fr:Porchetta
+it:Porchetta
+wikidata:en:Q1106345
+
+<en:Prepared meats
 en:Capicola, coppa
 fr:Coppa
 nl:Capocollo
@@ -59634,11 +59675,16 @@ pl:Słone smarowidła, słone pasty do smarowania
 pt:Produtos salgados para barrar
 pnns_group_2:en:Salty and fatty products
 
-<en:Salted spreads
+<en:Plant-based spreads
 <en:Onions and their products
 en:Onion chutneys
 fr:Confits d'oignons, Chutneys d'oignons
 nl:Uienchutney
+
+<en:Plant-based spreads
+<en:Tomatoes and their products
+en:Tomato chutneys
+fr:Confits de tomates
 
 <en:Salted spreads
 en:Artichoke spreads
@@ -60603,14 +60649,14 @@ ciqual_food_name:fr:Oignon, séché
 en:French vegetables
 
 <en:French vegetables
-<en:onions
+<en:Onions
 fr:Oignon de Roscoff
 protected_name_file_number:en: PDO-FR-0812
 protected_name_type:en: pdo
 origins:en: en:France, fr:Roscoff
 
 <en:French vegetables
-<en:Onions and their products
+<en:Onions
 fr:Oignon doux des Cévennes
 protected_name_file_number:en: PDO-FR-0314
 protected_name_type:en: pdo
@@ -61691,7 +61737,7 @@ ciqual_food_name:en:Celery stalk, cooked
 ciqual_food_name:fr:Céleri branche, cuit
 
 <en:Celery
-en:Raw celery stalk
+en:Celery stalk, Raw celery stalk
 fr:Céleris branche
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
@@ -61810,14 +61856,14 @@ la:Cucumis sativus
 nl:Komkommers
 ru:Огурцы, Огурец
 wikidata:en:Q23425
-
-<en:Cucumbers
-fr:Concombre frais
-en:Cucumbe
-season_in_country_fr:en: 5,6,7,8,9,10
 ciqual_food_code:en:20019
 ciqual_food_name:en:Cucumber, pulp and peel, raw
 
+<en:Cucumbers
+<en:Fresh vegetables
+en:Fresh cucumbers
+fr:Concombre frais
+season_in_country_fr:en: 5,6,7,8,9,10
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
@@ -62360,21 +62406,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
 
-<en:onions
-en:Yellow Onions, yellow onion
+<en:Onions
+en:Yellow onions, yellow onion
 de:gelbe Zwiebel
 fr:Oignons jaunes, oignon jaune
 wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
 wikidata:en:Q8051898
 
-<en:onions
-en:White Onions, white onion
+<en:Onions
+en:White onions, white onion
 fr:Oignons blancs, oignon blanc
 wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 wikidata:en:Q7995660
 
-<en:onions
-en:Red Onions, red onion, purple onions, Bombay onions
+<en:Onions
+en:Red onions, red onion, purple onions, Bombay onions
 fr:Oignons rouges, oignon rouge
 wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 wikidata:en:Q622350
@@ -62384,6 +62430,16 @@ wikidata:en:Q622350
 en:Fresh onions
 fr:Oignons frais
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
+
+<en:Fresh onions
+<en:White onions
+en:Fresh white onions
+fr:Oignons blancs frais
+
+<en:Fresh onions
+<en:Red onions
+en:Fresh red onions
+fr:Oignons rouges frais
 
 <en:Onions
 en:Raw onions
@@ -62410,6 +62466,8 @@ nl:Sjalotjes
 wikidata:en:Q193498
 
 <en:Shallots
+<en:Fresh vegetables
+en:Fresh shallots
 fr:Échalotes fraîches
 season_in_country_fr:en: 10,11,12
 
@@ -62579,6 +62637,13 @@ se:Potatisar, potatis
 pnns_group_2:en:Potatoes
 
 <en:Potatoes
+en:Fresh potatoes
+fr:Pommes de terre fraîches
+
+<en:Potatoes
+fr:Pommes de terre primeurs, Pommes de terre de primeur
+
+<en:Potatoes
 en:Jersey Royal potatoes
 protected_name_file_number:en: PDO-GB-0027
 protected_name_type:en: pdo
@@ -62617,29 +62682,12 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:île de Ré
 wikidata:en:Q3395977
 
-<fr:Pommes de terre de l'île de Ré
-fr:Pommes de terre primeurs, Pommes de terre de primeur
-
 <en:Potatoes
 en:Boiled potatoes, Potatoes cooked in water
 fr:Pommes de terre bouillies, Pommes de terre cuites à l'eau
 ciqual_food_code:en:4003
 ciqual_food_name:en:Potato, boiled/cooked in water
 ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
-
-<en:Potatoes
-en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
-fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
-ciqual_food_code:en:53503
-ciqual_food_name:en:Yam or Indian potato, peeled, boiled/cooked in water
-ciqual_food_name:fr:Igname, épluchée, bouillie/cuite à l'eau
-
-<en:Potatoes
-en:Raw peeled yam potato, Raw peeled Indian potato
-fr:Igname épluchée crue
-ciqual_food_code:en:53502
-ciqual_food_name:en:Yam or Indian potato, peeled, raw
-ciqual_food_name:fr:Igname, épluchée, crue
 
 <en:Potatoes
 en:Boiled peeled ware potatoes, Peeled ware potatoes cooked in water
@@ -62909,6 +62957,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
 <en:Radishes
+<en:Fresh vegetables
+en:Fresh radishes
 fr:Radis frais
 season_in_country_fr:en: 3,4,5,6
 
@@ -63271,6 +63321,7 @@ ciqual_food_name:en:Turnip, peeled, raw
 ciqual_food_name:fr:Navet, pelé, cru
 
 <en:Turnip
+<en:Fresh vegetables
 en:Fresh turnips
 fr:Navets frais
 season_in_country_fr:en: 1,2,3,4,5,10,11,12
@@ -63287,7 +63338,6 @@ ja:トマト
 nl:Tomaten
 
 <en:Tomatoes
-<en:Fresh vegetables
 en:Raw tomatoes
 fr:Tomates crues
 ciqual_food_code:en:20047
@@ -63805,8 +63855,9 @@ fr:Petits pois
 nl:Verse doperwten
 
 <en:Green peas
+<en:Fresh vegetables
 en:Fresh green peas
-fr:Petits pois frais
+fr:Petits pois frais, petit pois frais
 season_in_country_fr:en: 5,6,7
 
 <en:Green peas
@@ -69242,6 +69293,7 @@ ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
 ciqual_food_name:fr:Haricot beurre, surgelé, cru
 
 <en:Frozen vegetables
+<en:Onions
 en:Frozen raw onions
 fr:Oignons surgelés crus
 ciqual_food_code:en:20235
@@ -69332,12 +69384,6 @@ ciqual_food_name:en:Muffin, with blueberry or chocolate
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
-
-<en:White chocolates
-en:White chocolates with hazelnuts
-de:Weiße Schokoladen mit Haselnüssen
-fr:Chocolats blancs aux noisettes
-nl:Witte chocola met hazelnoten
 
 <en:White chocolates
 en:White chocolate bar with dried fruits
