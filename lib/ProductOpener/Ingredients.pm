@@ -260,6 +260,11 @@ es => [
 	["vit.", "vitamina"],
 ],
 
+fi => [
+	["mm.", "muun muassa"],
+	["sis.", "sisältää"],
+],
+
 fr => [
 	["vit.", "Vitamine"],
 	["Mat. Gr.", "Matières Grasses"],
