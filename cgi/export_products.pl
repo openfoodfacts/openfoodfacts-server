@@ -75,11 +75,30 @@ if ($action eq "display") {
 
 	if ($User{moderator}) {
 
+	# Query filters
+
+	my $query_ref = {};
+
+	my $html_hidden = "";
+
+	foreach my $param (multi_param()) {
+		if ($param =~ /^query_/) {
+			my $query = $';
+			my $value = remove_tags_and_quote(decode utf8=>param($param));
+			$html .= "<p>Query filter $query : $value</p>";
+			$html_hidden .= hidden(-name => "query_" . $query, -value => $value);
+			$query_ref->{$query} = $value;
+		}
+	}
+
+	$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
+
 	$html .= start_multipart_form(-id=>"export_products_form") ;
 
 	$html .= <<HTML
 <input type="submit" class="button small" value="$Lang{export_product_data_photos}{$lc}">
 <input type="hidden" name="action" value="process">
+$html_hidden
 HTML
 ;
 	$html .= end_form();
@@ -106,8 +125,11 @@ elsif (($action eq "process") and ($User{moderator})) {
 	# Set the user to the owner userid or org
 
 	my $user_id = $User_id;
-	if ($Owner_id =~ /^(org|user)-/) {
+	if ($Owner_id =~ /^(user)-/) {
 		$user_id = $';
+	}
+	elsif ($Owner_id =~ /^(org)-/) {
+		$user_id = $Owner_id;
 	}
 
 	# First export the data locally
@@ -118,14 +140,26 @@ elsif (($action eq "process") and ($User{moderator})) {
 		owner_id => $Owner_id,
 		csv_file => $exported_file,
 		export_id => $export_id,
-		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
+		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 		comment => "Import from producers platform",
 		include_images_paths => 1,	# Export file paths to images
 	};
 
+	# Add query filters
+
+	foreach my $param (multi_param()) {
+		if ($param =~ /^query_/) {
+			my $query = $';
+			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>param($param));
+		}
+	}
+
 	if (defined $Org_id) {
-		$args_ref->{manufacturer} = 1;
-		$args_ref->{source_id} = $Org_id;
+		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
+			$args_ref->{manufacturer} = 1;
+		}
+		$args_ref->{source_id} = "org-" . $Org_id;
+		$args_ref->{source_name} = $Org_id;
 	}
 	else {
 		$args_ref->{no_source} = 1;

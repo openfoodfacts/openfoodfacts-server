@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:36\n"
+"PO-Revision-Date: 2020-05-03 10:18\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -222,6 +222,14 @@ msgstr "crwdns102190:0crwdne102190:0"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "crwdns102192:0%scrwdne102192:0"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "crwdns125354:0crwdne125354:0"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "crwdns125356:0crwdne125356:0"
 
 msgctxt "by"
 msgid "by"
@@ -753,7 +761,7 @@ msgstr "crwdns102450:0crwdne102450:0"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr "crwdns102452:0crwdne102452:0"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
@@ -922,6 +930,14 @@ msgstr "crwdns102520:0crwdne102520:0"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "crwdns102522:0crwdne102522:0"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "crwdns125348:0crwdne125348:0"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "crwdns125350:0crwdne125350:0"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2444,6 +2460,14 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "crwdns103328:0crwdne103328:0"
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "crwdns125136:0crwdne125136:0"
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "crwdns125352:0crwdne125352:0"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "crwdns103330:0crwdne103330:0"
@@ -3230,6 +3254,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "crwdns122232:0crwdne122232:0"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "crwdns125410:0crwdne125410:0"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "crwdns122234:0crwdne122234:0"
@@ -3259,22 +3287,31 @@ msgid "only the unit, with the value in another column"
 msgstr "crwdns122246:0crwdne122246:0"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "crwdns122248:0crwdne122248:0"
+msgstr "crwdns125412:0crwdne125412:0"
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "crwdns122250:0crwdne122250:0"
+msgstr "crwdns125414:0crwdne125414:0"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "crwdns122292:0crwdne122292:0"
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "crwdns125416:0crwdne125416:0"
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr "crwdns122254:0crwdne122254:0"
+msgstr "crwdns125418:0crwdne125418:0"
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "crwdns125420:0crwdne125420:0"
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "crwdns125422:0crwdne125422:0"
 
 msgctxt "value"
 msgid "Value"
@@ -3315,6 +3352,10 @@ msgstr "crwdns122272:0crwdne122272:0"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "crwdns122274:0crwdne122274:0"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "crwdns125394:0crwdne125394:0"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4025,4 +4066,71 @@ msgstr "crwdns125088:0crwdne125088:0"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "crwdns125090:0crwdne125090:0"
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "crwdns125138:0%scrwdnd125138:0%scrwdne125138:0"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "crwdns125140:0crwdne125140:0"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "crwdns125142:0crwdne125142:0"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "crwdns125344:0crwdne125344:0"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "crwdns125346:0crwdne125346:0"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "crwdns125368:0crwdne125368:0"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "crwdns125370:0crwdne125370:0"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "crwdns125372:0crwdne125372:0"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "crwdns125374:0crwdne125374:0"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "crwdns125376:0crwdne125376:0"
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "crwdns125378:0crwdne125378:0"
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "crwdns125380:0%scrwdne125380:0"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "crwdns125424:0%dcrwdne125424:0"
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "crwdns125492:0crwdne125492:0"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "crwdns125494:0crwdne125494:0"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "crwdns125496:0crwdne125496:0"
 

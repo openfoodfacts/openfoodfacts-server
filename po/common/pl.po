@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:13\n"
+"PO-Revision-Date: 2020-05-03 09:43\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -143,7 +143,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -204,7 +204,7 @@ msgstr "Możesz także pomóc w sfinansowaniu projektu Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> jest tworzona przez organizację non-profit, niezwiązaną z przemysłem. Jest tworzona przez nas, dla nas, wspierana finansowo przez nas wszystkich. Możesz wesprzeć nasz rozwój klikając <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> datek na rzecz Open Food Facts </a> także <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> korzystając z wyszukiwarki Lilo </a>.<br/><b> Dziękujemy za pomoc!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -237,6 +237,14 @@ msgstr "dodaj markę"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Produkty spoza %s marki"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Właściciel marki"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -432,7 +440,7 @@ msgstr "Darowizna na Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -561,7 +569,7 @@ msgstr "Hasło oraz hasło potwierdzające są różne."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Adres e-mail jest używany przez innego użytkownika. Może masz już konto? Możesz <a href=\"\"<a href=\"/cgi/reset_password.pl\"> zresetować hasło </a> do swojego konta."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -675,7 +683,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Dane, API i SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -770,18 +778,18 @@ msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Kosmetyki"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -940,6 +948,14 @@ msgstr "Liczba składników"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Liczba składników"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Ilość rozpoznanych składników"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Ilość nierozpoznanych składników"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1955,23 +1971,23 @@ msgstr "Pobierz wyniki"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Pobierz wyniki w formacie XLSX lub CSV. Pamiętaj, że ze względu na wydajność można pobrać tylko do 10 000 wyników."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Format XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel lub LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Format CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Zestaw znaków: Unicode (UTF-8) - Separator: tabulacja (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2447,7 +2463,7 @@ msgstr "/images/misc/microsoft/Polish.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Pobierz z Windows Phone"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2474,13 +2490,21 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Błąd w trakcie odznaczana obrazu."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Włącz powiększanie za pomocą rolki myszy."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Prześlij obrazy o niższej rozdzielczości (w przypadku wolniejszego połączenia)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Ostrzeżenie: ilość błonnika jest nieoznaczona, nie można brać pod uwagę jego pozytywnego wpływu na stopień."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Ostrzeżenie: ilości błonnika oraz owoców, warzyw i orzechów nie są określone, ich ewentualny pozytywny wpływ na ocenę nie może być brany pod uwagę."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2669,7 +2693,7 @@ msgstr "Grupy NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "NOVA - klasyfikacja stopnia przetworzenia żywności"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3078,7 +3102,7 @@ msgstr "Pomóż przetłumaczyć %s na %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "Możesz zaproponować tłumaczenia poniższych wpisów, które nie zostały jeszcze przetłumaczone na Twój język. Niebieski link i czarny tekst (oba w języku angielskim) pokazują odpowiednio produkt niezlokalizowany i oryginalny wpis zawierający opcjonalne synonimy oddzielone przecinkami. Wprowadź tłumaczenie w polu tekstowym, włącznie z opcjonalnymi synonimami, a następnie kliknij przycisk Zapisz. Dziękujemy za twoją pomoc!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3260,6 +3284,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Określ kategorię"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Zaznacz pole"
@@ -3289,21 +3317,30 @@ msgid "only the unit, with the value in another column"
 msgstr "tylko jednostka, z wartością w innej kolumnie"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Wybierz tę opcję, jeśli kolumna wskazuje na obecność konkretnej etykiety (np. Ekologiczne - Organic, Sprawiedliwy Handel - Fair-Trade), gdy wartość wynosi Y, Tak lub 1."
+msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Wybierz tę opcję, jeśli kolumna wskazuje na obecność konkretnej etykiety (np. Ekologiczne - Organic, Sprawiedliwy Handel - Fair-Trade), gdy wartość wynosi Y, Tak lub 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3346,6 +3383,10 @@ msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Wartość w μg"
 
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr ""
+
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
 msgstr "Wartość w kcal"
@@ -3381,17 +3422,17 @@ msgstr "Platforma dla producentów"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Platforma dla producentów umożliwia producentom łatwo zarządzać zdjęciami produktów i danymi zgromadzonymi w Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Dane produktu i zdjęcia, które wysyłasz z platformy dla producentów, są przechowywane w prywatnej bazie danych. Przed udostępnieniem danych w publicznej bazie danych Open Food Facts będziesz mógł sprawdzić, czy wszystkie dane są poprawne."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Dane produktu i zdjęcia staną się publicznie dostępne w bazie danych Open Food Facts na licencji <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Indywidualna zawartość bazy danych jest dostępna na licencji <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a>, a obrazy produktów są dostępne na licencji <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3418,7 +3459,7 @@ msgstr "Anuluj"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Collapsed changes"
 
 msgctxt "data_quality_p"
 msgid "data quality"
@@ -3529,114 +3570,114 @@ msgstr "możliwe ulepszenia"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Dodaj lub zaktualizuj produkty"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Twoje produkty"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Twoje konto nie jest jeszcze powiązane z firmą. Wyślij wiadomość e-mail na adres <a href=\"mailto:producers@openfoodfacts.org\">producentów@openfoodfacts.org</a> aby aktywować bezpłatny dostęp do platformy dla producentów."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Import produktów"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Pusta kolumna"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Kolumny w pliku nie zawierają wpisu."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Trwa import danych"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Dane produktu zostały odebrane i zostaną zaimportowane na platformę dla producentów."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Zaplanowane"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "W toku"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Zakończone"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Nie powiodło się"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importuj wyniki"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Produkty dodane"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Produkty zmodyfikowane"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "Nie dodano ani nie zmodyfikowano produktu. Dane zostały prawdopodobnie już wcześniej zaimportowane."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Lista produktów dodanych lub zmodyfikowanych"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "importy"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "importy"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Liczba produktów z błędami jakości danych"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Liczba produktów z ostrzeżeniami dotyczącymi jakości danych"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Liczba produktów z możliwościami poprawy"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "W tej tabeli przedstawiono dostępne możliwości ulepszenia wartości odżywczej, wskaźnika Nutri-Score i składu produktów."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Abu uzyskać odpowiednie wyniki, upewnij się że dane dotyczące produktu są kompletne (wartości odżywcze dla błonnika oraz owoców i warzyw w celu obliczenia Nutri-Score, a także odpowiednia kategoria aby porównywać produkty podobne do siebie)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3645,47 +3686,47 @@ msgstr "Importuj zdjęcia produktów"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Możesz użyć poniższego formularza aby dodać zdjęcia (zdjęcie produktu, skład oraz tabelę wartości odżywczych) do wielu produktów"
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Każda nazwa pliku musi zawierać kod kreskowy produktu."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Możesz też sprecyzować typ zdjęcia w nazwie pliku:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: przód produktu w obecnie wybranym języku."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: przód produktu w języku niderlandzkim."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: lista składników po francusku."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: tabela wartości odżywczej w języku hiszpańskim."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Dodaj zdjęcia..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Rozpocznij wysyłanie"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Rozpocznij"
 
 msgctxt "close"
 msgid "Close"
@@ -3693,55 +3734,55 @@ msgstr "Zamknij"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Anuluj wysyłanie"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Plik odebrany"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Szczegółowe informacje dotyczące obliczania Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Produkt ten jest uważany za napój przy obliczaniu Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Produkt ten nie jest uważany za napój przy obliczaniu Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Pozytywne punkty"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Punkty ujemne"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Punkty za białka są liczone, ponieważ negatywnych punktów jest mniej niż 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Punkty za białka nie są wliczane, ponieważ negatywnych punktów jest 11 lub więcej."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Punkty za białka są wliczane, ponieważ punkty za owoce, warzywa, orzechy i olej roślinny są maksymalne."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Punkty za białka są wliczane, ponieważ produkt należy do kategorii serów."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Produkt należy do kategorii tłuszczów, punkty za tłuszcz nasycony zastępuje się punktami za stosunek tłuszczu nasyconego do tłuszczu nienasyconego."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3757,7 +3798,7 @@ msgstr "Tłuszcz nasycony"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Stosunek tłuszczu nasyconego do tłuszczu"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3765,15 +3806,15 @@ msgstr "Sód"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Owoce, warzywa, orzechy i olej rzepakowy/olej z orzechów włoskich/oliwa z oliwek"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Błonnik pokarmowy"
+msgstr "Błonnik"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Proteiny"
+msgstr "Białko"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3781,36 +3822,36 @@ msgstr "wartość"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "wartość zaokrąglona"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Ocena wartości odżywczej"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Wynik Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts jest w 100% bezpłatny i niezależny."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Potrzebujemy twojej pomocy i darowizn</a> aby kontynuować rozwój projektu."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3818,25 +3859,25 @@ msgstr "Dziękuję!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Wartość dla produktu"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Średnia wartość w kategorii %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Nutri-Score może ulec zmianie z %s na %s, zmieniając wartość %s z %s na %s (%s różnica procentowa)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Platforma dla producentów jest w dalszym ciągu rozwijana. Produkty przed dodaniem do publicznej bazy danych są one indywidualnie sprawdzane. Napisz do nas na adres <a href=\"mailto:producers@openfoodfacts.org\">producent@openfoodfacts.org</a>, aby zaktualizować publiczną bazę danych."
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Grupy"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3844,215 +3885,282 @@ msgstr "Producent"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Należy sprawdzić tylko w przypadku kont producentów, którzy edytują własne produkty. Prawo własności produktu zostanie przypisana producentom, gdy dodają lub edytują produkt."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Baza danych"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Dla zewnętrznych źródeł danych. Informacje o własności produktów importowanych nie ulegną nadpisaniu."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "App"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Dla aplikacji."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Bot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Do botów, skryptów itd."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Moderator"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Moderatorzy mają dostęp do dodatkowych narzędzi edycji i przeglądania produktów."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Moderator platformy producentów"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Moderatorzy platformy producentów mogą podejrzeć oraz edytować własne produkty wszystkich użytkowników i organizacji na platformie producentów."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Już przekazałem darowiznę lub nie jestem zainteresowany. Ukryj baner."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "Hej, pole wyboru do odznaczania?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "Niezależny i kierowany przez obywateli projekt na rzecz przejrzystości żywności?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Dane dotyczące produktów żywnościowych na potrzeby badań, które poprawiają zdrowie publiczne?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Łatwiejszy i lepszy wybór żywności zgodnie z Państwa własnymi kryteriami?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Potrzebujemy Waszego wsparcia!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Proszę przekaż darowiznę"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "Spożywanie alkoholu, zwłaszcza nadmierne jest szkodliwe dla zdrowia."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Moderacja platformy producentów"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Aktualnie oglądasz produkty od %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Obecnie oglądasz własne produkty."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Aby zobaczyć produkty określonego użytkownika lub organizacji, wpisz poniżej jego identyfikator. Leave field empty to unset."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Zmiana"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc lub org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Użytkownik %s nie istnieje"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Identyfikator musi mieć postać user-abc lub org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Importuj kategorie produktów z publicznej bazy danych"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Dodaj kategorie z publicznej bazy danych do produktów na platformie dla producentów."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Importuj kategorie"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "Wynik Nutri-Score od producenta"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Obliczony wynik Nutri-Score"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Ocena Nutri-Score od producenta"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Obliczona ocena Nutri-Score"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Zeskanowany kod"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Kod z nazwy pliku"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Używanie poprzedniego kodu"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Możesz określić wartości pól, które zostaną dodane do wszystkich produktów, dla których będziesz wysyłać obrazy."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Dodaj pole"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Zeskanowany kod"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Kod z nazwy pliku"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Używanie poprzedniego kodu"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Możesz określić wartości pól, które zostaną dodane do wszystkich produktów, dla których będziesz wysyłać obrazy."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Dodaj pole"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "Usuń wszystkie produkty"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Usuń wszystkie swoje produkty z platformy dla producentów"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Możesz usunąć wszystkie swoje produkty z platformy dla producentów, na przykład, aby rozpocząć od czystej listy, jeśli wystąpiły problemy z importem. Nie wpłynie to na twoje produkty w publicznej bazie danych."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "Pamiętaj, że tej czynności nie można cofnąć."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Ostrzeżenie: tej czynności nie można cofnąć. Czy na pewno chcesz usunąć wszystkie swoje produkty z platformy dla producentów?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "Funkcja niedostępna."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "Twoje produkty zostały usunięte z platformy dla producentów."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "Szczegóły analizy składników"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
+msgstr "Niektóre składniki nie mogły zostać rozpoznane."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Przenieś wszystkie dane i wybrane zdjęcia w %s do głównego języka produktu: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Zastąp istniejące wartości i wybrane zdjęcia"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Zachowaj istniejące wartości i wybrane zdjęcia"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Gotowe"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Do zrobienia"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

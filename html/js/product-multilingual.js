@@ -23,6 +23,13 @@
 /*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
+//Polyfill, just in case
+if (!Array.isArray) {
+  Array.isArray = function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+}
+
 var code;
 var current_cropbox;
 var images = [];
@@ -31,6 +38,7 @@ var img_path;
 var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
+var use_low_res_images = false;
 
 var units = [
 	[ 'g', 'mg', "\u00B5g", '% DV' ],
@@ -108,6 +116,8 @@ function add_language_tab (lc, language) {
     $(".select_crop").filter(":visible").selectcrop('show');
 
   });
+
+  update_move_data_and_images_to_main_language_message();
 
   $(document).foundation('tab', 'reflow');
 }
@@ -191,53 +201,6 @@ function add_line() {
 	$(document).foundation('equalizer', 'reflow');
 }
 
-function upload_image (imagefield) {
-
- $('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
- $('.img_input[name="imgupload_' + imagefield + '"]').hide();
- $('div[id="uploadimagemsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image);
- $('div[id="uploadimagemsg_' + imagefield +'"]').show();
-
- $("#product_form").ajaxSubmit({
-
-  url: "/cgi/product_image_upload.pl",
-  data: { imagefield: imagefield },
-  dataType: 'json',
-  beforeSubmit: function() {
-   //o.dataType = 'json';
-  },
-  success: function(data) {
-	//alert(data.status);
-	//alert("input:hidden[name=\"" + data.imagefield + ".imgid\"]");
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_received);
-	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.image.imgid);
-	$([]).selectcrop('add_image',data.image);
-	$(".select_crop").selectcrop('show');
-
-	$('#' + imagefield + '_' + data.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
-	change_image(imagefield, data.image.imgid);
-
-  },
-  error : function() {
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_upload_error);
-  },
-  complete: function() {
-	$('.img_input').prop("disabled", false).show();
-  }
- });
-}
-
-
-function init_image_area_select(imagefield) {
-
-	$('img#crop_' + imagefield).cropper({
-		"strict": false, "guides": false, "autoCrop": false, "zoomable": false, "mouseWheelZoom": false, "touchDragZoom": false, "toggleDragModeOnDblclick": false, built: function () {
-		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
-		}
-	});
-
-}
-
 function update_image(imagefield) {
 
 	$('#crop_' + imagefield).attr("src","/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield]
@@ -309,18 +272,44 @@ function change_image(imagefield, imgid) {
 	angles[imagefield] = 0;
 	imagefield_imgid[imagefield] = imgid;
 
-	var html = '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
+  // load small 400 pixels image if the use_low_res_images checkbox is checked
+
+  var image_size = '';
+  var cropimgdiv_style = '';
+  var coordinates_image_size = "full";
+
+  if ( $("#use_low_res_images_" + imagefield).is(':checked')) {
+      image_size = '.400';
+      cropimgdiv_style = 'style="max-width:400px"';
+      coordinates_image_size = "400";
+  }
+
+	var html = '';
+
+  html += '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
+
+  html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+	html += '<br><a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a>';
+  html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
+  html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
-	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
-	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a><br/>';
-	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label></div><br/>';
+  html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right">';
+
+	html += '<div class="cropbutton_' + imagefield + '"></div>';
+	html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
+  html += '</div></div>';
+	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv" ' + cropimgdiv_style + '><img src="' + img_path + image.imgid + image_size +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
+
+  html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
+	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
 	html +=	'<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield
 		+ '" style="display:inline">' + lang().product_js_image_white_magic + '</label>';
-	html += '<div id="cropbutton_' + imagefield + '"></div>';
-	html += '<div id="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
-
+  html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right;padding-top:1rem">';
+	html += '<div class="cropbutton_' + imagefield + '"></div>';
+	html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
+  html += '</div></div>';
 
 	if (current_cropbox) {
 		$('div[id="' + current_cropbox + '"]').html('');
@@ -330,46 +319,59 @@ function change_image(imagefield, imgid) {
 	$('div[id="cropimgdiv_' + imagefield +'"]').height($('div[id="cropimgdiv_' + imagefield +'"]').width());
 
 	$("#white_magic_" + imagefield).change(function() {
-			$('div[id="cropbuttonmsg_' + imagefield +'"]').hide();
+			$('.cropbuttonmsg_' + imagefield).hide();
 	} );
 
-			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + lang().product_js_image_save + '</button>');
-			$("#" + id).click({imagefield:imagefield},function(event) {
-				event.stopPropagation();
-				event.preventDefault();
-				var imgid = imagefield_imgid[imagefield];
+  var crop_button = 'crop_' + imagefield + '_button';
+  $('.cropbutton_' + imagefield).html('<button class="' + crop_button + ' small button" type="button">' + lang().product_js_image_save + '</button>');
+  $("." + crop_button).click({imagefield:imagefield},function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var imgid = imagefield_imgid[imagefield];
 
-				var selection = $('img#crop_' + imagefield ).cropper('getData');
+    var selection = $('img#crop_' + imagefield ).cropper('getData');
 
-				if (! selection) {
-					selection = {'x1':-1,'y1':-1,'x2':-1,'y2':-1};
-				}
-				// alert(event.data.imagefield);
-				$("#" + id).blur();
-				$('div[id="cropbutton_' + imagefield +'"]').hide();
-				$('div[id="cropbuttonmsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
-				$('div[id="cropbuttonmsg_' + imagefield +'"]').show();
-				$.post('/cgi/product_image_crop.pl',
-			{
-				code: code, id: imagefield, imgid: imgid,
-						x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
-						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
-				white_magic: $("#white_magic_" + imagefield).prop('checked')
-			}, function (data) {
+    if (! selection) {
+      selection = {'x1':-1,'y1':-1,'x2':-1,'y2':-1};
+    }
+    // alert(event.data.imagefield);
+    $("." + crop_button).blur();
+    $('.cropbutton_' + imagefield).hide();
+    $('.cropbuttonmsg_' + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
+    $('.cropbuttonmsg_' + imagefield).show();
+    $.post('/cgi/product_image_crop.pl',
+  {
+    code: code, id: imagefield, imgid: imgid,
+        x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
+        coordinates_image_size : coordinates_image_size,
+        angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
+    white_magic: $("#white_magic_" + imagefield).prop('checked')
+  }, function (data) {
 
-					imagefield_url[imagefield] = data.image.display_url;
-					update_display(imagefield, false);
-					$('div[id="cropbutton_' + imagefield +'"]').show();
-					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(lang().product_js_image_saved);
-					$(document).foundation('equalizer', 'reflow');
-				}, 'json');
-			});
+      imagefield_url[imagefield] = data.image.display_url;
+      update_display(imagefield, false);
+      $('.cropbutton_' + imagefield).show();
+      $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
+      $(document).foundation('equalizer', 'reflow');
+    }, 'json');
+  });
 
 	$("#rotate_left_" + imagefield).click({imagefield:imagefield, angle:-90}, rotate_image);
 	$("#rotate_right_" + imagefield).click({imagefield:imagefield, angle:90}, rotate_image);
 
-	init_image_area_select(imagefield);
+  $('img#crop_' + imagefield).click(function() {
+    $('img#crop_' + imagefield ).cropper('clear');
+  });
+
+	$('img#crop_' + imagefield).cropper({
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+	});
+
+	$("#zoom_on_wheel_" + imagefield).change(function() {
+    var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
+    $('img#crop_' + imagefield).cropper('destroy').cropper({
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+	});	} );
 
 	$(document).foundation('equalizer', 'reflow');
 }
@@ -411,6 +413,12 @@ function update_display(imagefield, first_display) {
 				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
 			}
 		}
+	}
+
+	if (stringStartsWith(imagefield, 'ingredients')) {
+
+    var full_url = display_url.replace(/\.400\./, ".full.");
+    $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="ingredients_image_full"/>');
 	}
 
 	$('div[id="display_' + imagefield +'"]').html(html);
@@ -551,7 +559,7 @@ function initializeTagifyInput(el) {
 		if (obj === null) {
 			obj = {};
 			obj[el.id] = [tag];
-		} else if (obj[el.id] === null) {
+		} else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
 			obj[el.id] = [tag];
 		} else {
 			if (obj[el.id].indexOf(tag) != -1) {
@@ -595,7 +603,7 @@ function get_recents(tagfield) {
 
 	if (
 		obj !== null &&
-		obj[tagfield] !== undefined &&
+		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
 		return obj[tagfield];
@@ -607,6 +615,10 @@ function get_recents(tagfield) {
 (function( $ ){
 
 	initializeTagifyInputs();
+
+  if ($.cookie('use_low_res_images') !== undefined) {
+      use_low_res_images = true;
+  }
 
 	var settings = {
 		'thumb_width' : 100,
@@ -705,13 +717,35 @@ function get_recents(tagfield) {
 + '</div>';
 
 
-			html += '<div class="cropbox" id="cropbox_' + id +'"></div>';
-			html += '<div class="display" id="display_' + id +'"></div>';
+      html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
+      html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
 
-
+      html += '<div class="row">';
+			html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id +'"></div></div>';
+			html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id +'"></div></div>';
+      html += '</div>';
 			}
 
 			$this.html(html);
+
+      if (use_low_res_images) {
+          $("#use_low_res_images_" + id).prop("checked", true);
+      }
+
+      $("#use_low_res_images_" + id).change(function() {
+        use_low_res_images = $("#use_low_res_images_" + id).is(':checked');
+        if (use_low_res_images) {
+          $.cookie('use_low_res_images', '1', { expires: 180, path: '/' });
+        }
+        else {
+          $.removeCookie('use_low_res_images', { path: '/'});
+        }
+        $(".use_low_res_images").each(function() {
+          $(this).prop( "checked", use_low_res_images );
+        });
+      });
+
+      $(document).foundation('equalizer', 'reflow');
 
 			if (! stringStartsWith(id, 'manage')) {
 
@@ -725,7 +759,7 @@ function get_recents(tagfield) {
         sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product_image_upload.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code} ],
+		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code}, {name: 'source', value: 'product_edit_form'}],
 		resizeMaxWidth : 2000,
 		resizeMaxHeight : 2000,
 
@@ -837,7 +871,52 @@ function get_recents(tagfield) {
 
   initLanguageAdding();
 
+  update_move_data_and_images_to_main_language_message();
+
+  $("#lang").change(update_move_data_and_images_to_main_language_message);
+
 })( jQuery );
+
+function update_move_data_and_images_to_main_language_message () {
+
+  var main_language_id = $("#lang").val();
+  var main_language_text = $("#lang option:selected").text();
+  $('.main_language').text(main_language_text);
+  $('.move_data_and_images_to_main_language').each(function() {
+    var divid = $(this).attr('id');
+    if (divid === "move_" + main_language_id + "_data_and_images_to_main_language_div") {
+      $(this).hide();
+    }
+    else {
+      $(this).show();
+    }
+  });
+
+  $('.move_data_and_images_to_main_language_checkbox').each(function() {
+
+    var divradioid = $(this).attr('id') + "_radio";
+
+    var $th = $(this);
+    if ( $(this).is(':checked')) {
+        $("#" + divradioid).show();
+    }
+    else {
+       $("#" + divradioid).hide();
+    }
+
+    $th.change(function() {
+      var divradioid = $(this).attr('id') + "_radio";
+      if ( $(this).is(':checked')) {
+          $("#" + divradioid).show();
+      }
+      else {
+         $("#" + divradioid).hide();
+      }
+    }
+    );
+
+  });
+}
 
 function initLanguageAdding() {
   const Lang = lang();

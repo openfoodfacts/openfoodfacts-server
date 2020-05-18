@@ -142,7 +142,7 @@ sub load_csv_or_excel_file($) {
 				}
 			}
 			else {
-				$results_ref->{error} = "Could not read hader line in CSV $file: $!";
+				$results_ref->{error} = "Could not read header line in CSV $file: $!";
 			}
 		}
 		else {
@@ -274,6 +274,16 @@ sub convert_file($$$$) {
 					$field = undef;
 				}
 			}
+			# Source specific fields
+			elsif ($field eq "sources_fields_specific") {
+				$field = "sources_fields:" . $Owner_id . ":";
+				if (defined $columns_fields_ref->{$column}{tag}) {
+					$field .= $columns_fields_ref->{$column}{tag};
+				}
+				else {
+					$field .= $column;
+				}
+			}
 			elsif ($field =~ /_value_unit/) {
 				$field = $`;
 				if (defined $columns_fields_ref->{$column}{value_unit}) {
@@ -341,7 +351,9 @@ sub convert_file($$$$) {
 		}
 
 		# Make sure we have a value for lc, as it is needed for clean_fields()
-		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")) {
+		# if lc is not a 2 letter code, use the default value
+		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")
+			or ($product_ref->{lc} !~ /^[a-z]{2}$/)) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
@@ -369,6 +381,9 @@ sub normalize_column_name($) {
 
 	$name =~ s/%/percent/g;
 	$name =~ s/µg/mcg/ig;
+
+	# nutrient in unit
+	$name =~ s/ in / /i;
 
 	# estampille(s) sanitaire(s)
 
@@ -401,6 +416,7 @@ my %fields_synonyms = (
 en => {
 	lc => ["lang"],
 	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	product_name_en => ["name", "name of the product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -420,7 +436,7 @@ fr => {
 	code => ["codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	categories => ["Catégorie(s)"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
-	generic_name_fr => ["dénomination légale", "déno légale"],
+	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
@@ -434,10 +450,11 @@ fr => {
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
 	conservation_conditions_fr => ["Conditions de conservation et d'utilisation"],
 	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
-	link => ["lien"],
-	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
+	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
+	lc => ["langue", "langue du produit"],
 },
 
 );
@@ -452,7 +469,7 @@ my %prepared_synonyms = (
 	"_prepared" => {
 	# code with i18n opportunity
 		en => ["prepared"],
-		fr => ["préparé"],
+		fr => ["préparé", "préparation"],
 	}
 );
 
@@ -483,12 +500,15 @@ my %units_synonyms = (
 	"grammes" => "g",
 	"mg" => "mg",
 	"mcg" => "mcg",
+	"ug" => "mcg",
 	"percent" => "percent",
 	"kj" => "kj",
 	"kcal" => "kcal",
 	"cal" => "kcal",
 	"calories" => "kcal",
 	"calorie" => "kcal",
+	"iu" => "iu",
+	"ui" => "iu",
 );
 
 
@@ -527,7 +547,7 @@ sub init_nutrients_columns_names_for_lang($) {
 	$nutriment_table = $cc_nutriment_table{default};
 
 	# Go through the nutriment table
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutriment (sort keys %Nutriments) {
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -617,9 +637,7 @@ sub init_nutrients_columns_names_for_lang($) {
 
 					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
 
-					# code with i18n opportunity
-					my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
-
+					my @units = keys %units_synonyms;
 
 					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
 					my $synonym2 = $synonym;
@@ -730,7 +748,7 @@ sub init_other_fields_columns_names_for_lang($) {
 							value_unit => "unit",
 						};
 
-						my @units = ("g", "gr", "grams", "grammes", "mg", "mcg", "percent");
+						my @units = keys %units_synonyms;
 
 						foreach my $unit (@units) {
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $unit)} = {
@@ -1032,6 +1050,12 @@ sub generate_import_export_columns_groups_for_select2($) {
 		["other", ["conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
 		],
 	];
+
+	# Special fields only selectable by moderators
+
+	if (defined $User{pro_moderator_owner}) {
+		push @{$fields_groups_ref}, ["other", ["sources_fields_specific"]];
+	}
 
 	# Create an options array for select2
 

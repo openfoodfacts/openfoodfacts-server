@@ -49,8 +49,6 @@ Log::Log4perl->easy_init(Log::Log4perl::Level::to_priority( 'TRACE' ));
 Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 
 
-$lc = 'fr';
-
 %global_params = (
 	lc => 'fr',
 	countries => "France",

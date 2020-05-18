@@ -52,6 +52,7 @@ my @assign_quantity_tests = (
 
 	["Champagne brut 35,5 CL", "Champagne brut", "35,5 CL"],
 	["NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO 2X125G", "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", "2 X 125 G"],
+	["Barres de Céréales (8+4) x 25g", "Barres de Céréales (8+4) x 25g", undef],
 );
 
 foreach my $test_ref (@assign_quantity_tests) {
@@ -183,6 +184,30 @@ foreach my $test_ref (@tests) {
         {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
         {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
 ],
+
+	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
+
+[
+	{ serving_size_value => "10", serving_size_unit => "g" },
+	{ serving_size => "10 g", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+        { serving_size => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+        { serving_size_value_unit => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size_value_unit => "1 biscuit", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+
+[
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+        { serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
 
 
 );

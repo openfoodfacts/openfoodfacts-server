@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 17:08\n"
+"PO-Revision-Date: 2020-05-04 08:01\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -237,6 +237,14 @@ msgstr "הוספת מותג"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "מוצרים שאינם מהמותג %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "בעלות על המותג"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "חברת קוקה קולה"
 
 msgctxt "by"
 msgid "by"
@@ -769,8 +777,8 @@ msgstr "הוויקי של <<site_name>> (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -939,6 +947,14 @@ msgstr "מספר המרכיבים"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "מספר המרכיבים"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "מספר הרכיבים המזוהים"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "מספר הרכיבים הבלתי מזוהים"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2477,6 +2493,14 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "שגיאה בעת ביטול בחירת התמונה."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "הפעלת תקריב באמצעות גלגלת העכבר."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "טעינת תמונות ברזולוציה נמוכה יותר (לחיבורים אטיים)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "אזהרה: כמות הסיבים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
@@ -3263,6 +3287,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "קטגוריה מסוימת"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "שדה תלוי מקור"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "בחירת שדה"
@@ -3292,22 +3320,31 @@ msgid "only the unit, with the value in another column"
 msgstr "רק היחידה, בצירוף הערך בעמודה אחרת"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של תווית מסוימת (למשל: אורגני, סחר הוגן וכו׳) כאשר הערך יכול להיות Y,‏ Yes או 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "יש להקליד את שם התווית בשדה הטקסט שמשמאל."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "יש לבחור באפשרות זו אם העמוד מציינת שהמוצר הוא בקטגוריה מסוימת (למשל: משקאות) כאשר הערך יכול להיות Y,‏ Yes או 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של קטגוריה מסוימת (למשל: משקאות) כאשר הערך יכול להיות Y,‏ Yes או 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "יש להקליד את שם הקטגוריה בשדה הטקסט שמשמאל."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "יש לבחור את האפשרות הזאת לשדות תלויי מקור ושאנו רוצים להשאיר כשדות תלויי מקור."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "יש להקליד את שם שדה היעד בשדה הטקסט שמשמאל או להשאיר ריק כדי להשתמש בשם שדה המקור."
 
 msgctxt "value"
 msgid "Value"
@@ -3348,6 +3385,10 @@ msgstr "ערך במ״ג"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "ערך במיקרוגרמים"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "ערך ביחידה בינלאומית"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3969,19 +4010,19 @@ msgstr "ייבוא הקטגוריות"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "ציון Nutri-Score מהיצרן"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "ציון Nutri-Score מחושב"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "דירוג Nutri-Score מהיצרן"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "דירוג Nutri-Score מחושב"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4058,4 +4099,71 @@ msgstr "פירוט ניתוח הרכיבים"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "הזיהוי של כמה מהרכיבים לא הצליח."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "העברת כל הנתונים והתמונות הנבחרות שבתוך %s לשפה העיקרית של המוצר: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "החלפת הערכים הנוכחיים והתמונות הנבחרות"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "שמירת הערכים הנוכחיים והתמונות הנבחרות"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "בוצע"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "לבצע"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "צוותים"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "רשות"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "צוותים"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "צוות"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "ניתן להצטרף לבין 1 ל־3 צוותים. מוצרים שיתווספו ייערכו על ידיך יתועדו לזכותך ולזכות הצוותים אליהם הצטרפת. ניתן לעבור בין צוותים בכל עת."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "שמות הצוותים הם ציבוריים. אין ליצור צוותים עם שמות שמכילים פרטים אישיים (למשל: שמות משפחה), סימני מסחר (אלא אם כן הם בבעלותך) או משהו פוגעני."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "צוות %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d מוצרים ייוצאו."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "שם המאכל ב‏־CIQUAL"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "שם המאכל ב‏־CIQUAL"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "שמות המאכלים ב־CIQUAL"
 

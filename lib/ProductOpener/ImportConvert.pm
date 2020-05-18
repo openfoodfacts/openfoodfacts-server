@@ -113,6 +113,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use HTML::Entities qw(decode_entities);
 
 %fields = ();
 @fields = ();
@@ -200,6 +201,10 @@ sub assign_value($$$) {
 		# language field?
 		elsif (($field =~ /^(.+)_(\w\w)$/) and (defined $language_fields{$1})) {
 			$product_ref->{$field} .= "\n" . $value;
+		}
+		# we have a different value that we cannot append, replace it
+		else {
+			$product_ref->{$field} = $value;
 		}
 	}
 	else {
@@ -456,19 +461,31 @@ sub assign_quantity_from_field($$) {
 	if ((defined $product_ref->{$field}) and ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq ""))) {
 
 		if ($product_ref->{$field} =~ /\b\(?((\d+)\s?x\s?)?(\d+\.?\,?\d*)\s?(g|gr|kg|kgr|l|cl|ml|dl)\s?(x\s?(\d+))?\)?\s*$/i) {
-			$product_ref->{$field} = $`;
 
-			if (defined $2) {
-				assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
-			}
-			elsif (defined $6) {
-				assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
-			}
-			else {
-				assign_value($product_ref, "quantity", $3 . " " . $4);
-			}
+			my $before = $`;
 
-			$product_ref->{$field} =~ s/\s+$//;
+			# If we have something too complex, don't do anything
+			# e.g. Barres de Céréales (8+4) x 25g
+
+			# if we have a single x or a * before, skip
+			if (not (
+				($before =~ /(\sx|\*)\s*$/i)
+					)) {
+
+				$product_ref->{$field} = $before;
+
+				if (defined $2) {
+					assign_value($product_ref, "quantity", $2 . " X " . $3 . " " . $4);
+				}
+				elsif (defined $6) {
+					assign_value($product_ref, "quantity", $6 . " X " . $3 . " " . $4);
+				}
+				else {
+					assign_value($product_ref, "quantity", $3 . " " . $4);
+				}
+
+				$product_ref->{$field} =~ s/\s+$//;
+			}
 		}
 
 	}
@@ -523,21 +540,35 @@ sub clean_weights($) {
 			assign_value($product_ref, $field . "_unit", "g");
 		}
 
-		# combine value and unit
-		if ((not defined $product_ref->{$field})
-			and (defined $product_ref->{$field . "_value"})
-			and ($product_ref->{$field . "_value"} ne "")
-			and (defined $product_ref->{$field . "_unit"}) ) {
-
-			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
-		}
-
 		# We may be passed quantity_value_unit, in that case assign it to quantity
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value_unit"})
 			and ($product_ref->{$field . "_value_unit"} ne "")) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
+		}
+
+		# for quantity and serving_size, we might have 3 values:
+		# - a quantity with a non normalized unit ("2 biscuits)
+		# - a value and a unit ("30 g")
+		# in this case, we can combine them: "2 biscuits (30 g)"
+
+		if ((($field eq "quantity") or ($field eq "serving_size"))
+			and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+			and (defined $product_ref->{$field . "_value"}) and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"})
+
+			# check we have not already combined the value and unit
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0))	) {
+
+			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
+		}
+		elsif ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value"})
+			and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"}) ) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {
@@ -745,6 +776,12 @@ sub clean_fields($) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
+		# HTML entities
+		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
+		if ($product_ref->{$field} =~ /\&/) {
+			$product_ref->{$field} = decode_entities($product_ref->{$field});
+		}
+
 		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 		$product_ref->{$field} =~ s/’/'/g;
 
@@ -858,13 +895,13 @@ sub clean_fields($) {
 				$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
 				$product_ref->{$field} = ucfirst($product_ref->{$field});
 
-				# $log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+				$log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 				# Missing spaces
 				# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 				$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
 
-				# $log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+				$log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 			}
 
@@ -1496,7 +1533,7 @@ sub load_csv_file($) {
 	}
 }
 
-
+sub recursive_list($$);
 sub recursive_list($$) {
 
 	my $list_ref = shift;

@@ -41,8 +41,6 @@ use Log::Any::Adapter ('Stderr');
 
 # default language (needed for cleaning fields)
 
-$lc = "fr";
-
 %global_params = (
 	# params below are already in the csv file
 	# lc => 'de',

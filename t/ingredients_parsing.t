@@ -13,7 +13,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 is (normalize_a_of_b("en", "oil", "olive"), "olive oil");
 is (normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
@@ -62,7 +62,7 @@ my @lists =(
 	["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 	["fr","lait demi-écrémé", "lait demi-écrémé"],
 	["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants : alimentaires E124, E122, E133, E104, E110"],
+	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires E124, E122, E133, E104, E110"],
 	["fr","INS 240,241,242b","E240, E241, E242b"],
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
@@ -90,8 +90,8 @@ my @lists =(
 	["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 	["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
-	["fi","Vitamiinit A, B ja C", "Vitamiinit, Vitamiini A, Vitamiini B, Vitamiini C"],
-	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, Vitamiini B1, Vitamiini B2, Vitamiini B6"],
+	["fi","Vitamiinit A, B ja C", "Vitamiinit, A-Vitamiini, B-Vitamiini, C-Vitamiini"],
+	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, B1-Vitamiini, B2-Vitamiini, B6-Vitamiini"],
 	["fi","mansikat 30%", "mansikat 30%"],
 	["fi","sakeuttamisaine pektiini", "sakeuttamisaine : pektiini"],
 	["fi","sakeuttamisaine (pektiini)", "sakeuttamisaine (pektiini)"],
@@ -148,7 +148,7 @@ my @lists =(
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
 	["fr","huile biologique (tournesol, olive)","huile biologique de tournesol, huile biologique d'olive"],
-	
+
 	# xyz: test an unrecognized oil -> do not change
 	["fr","huile biologique (tournesol, xyz)","huile biologique (tournesol, xyz)"],
 	["fr","huiles biologiques (tournesol, olive)","huiles biologiques de tournesol, huiles biologiques d'olive"],
@@ -156,6 +156,54 @@ my @lists =(
 	["fr","huiles* (tournesol*, olive vierge extra), sel marin. *issus de l'agriculture biologique.","huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra), sel marin."],
 	["fr","riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
 	["fr","cacao (1), sucre (2), beurre de cacao (1). (1) : Commerce équitable. (2) Issue de l'agriculture biologique.", "cacao Commerce équitable, sucre Bio, beurre de cacao Commerce équitable."],
+
+	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63,7% (BLE complet 50,5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3,9% Bio, cacao en poudre 1,7% Bio, sel, arôme naturel."],
+
+	["fr","émulsifiant : mono - et diglycérides d'acides gras.","émulsifiant : mono- et diglycérides d'acides gras."],
+
+	["fr","Sucre. Fabriqué dans un atelier qui utilise des fruits à coques.", "Sucre. Traces éventuelles : fruits à coques."],
+	["fr","Sucre. Fabriqué dans un atelier utilisant des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
+	["fr","Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri.", "Sucre. Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : céleri."],
+	["fr","Sucre. Peut contenir des fruits à coques et du sésame.", "Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."],
+
+	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
+
+	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
+
+	["de", "Emulgator (Sojalecithine, Mono - und Diglyceride von Speisefettsäuren, Sorbitantristearat)", "Emulgator (Sojalecithine, mono- und Diglyceride von Speisefettsäuren, Sorbitantristearat)"],
+
+	["fr", "Tomates* (20%). *Ingrédients Bio", "Tomates Bio (20%)."],
+	["fr", "Tomates* (20%). *Ingrédients biologiques", "Tomates Bio (20%)."],
+
+	["fr", "Chocolat. Contient du lait et des noisettes. Peut contenir du blé, du soja et des crustacés.", "Chocolat. Substances ou produits provoquant des allergies ou intolérances : lait, Substances ou produits provoquant des allergies ou intolérances : noisettes. Traces éventuelles : blé, Traces éventuelles : soja, Traces éventuelles : crustacés."],
+
+	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
+
+	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium",
+	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"],
+
+	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
+
+	["en", "S. thermophilus, L casei, L.bulgaricus", "streptococcus thermophilus, lactobacillus casei, lactobacillus bulgaricus"],
+
+	["fr", "jus de citron*. *Ingrédients issus de l'agriculture biologique Peut contenir : œuf, moutarde, graine de sésame, poisson,soja, lait,fruits à coque, céleri.","jus de citron Bio. , Traces éventuelles : œuf, Traces éventuelles : moutarde, Traces éventuelles : graine de sésame, Traces éventuelles : poisson, Traces éventuelles : soja, Traces éventuelles : lait, Traces éventuelles : fruits à coque, Traces éventuelles : céleri."],
+
+	["fr", "Farine, levure. Peut contenir des traces de _soja_, _amandes_, _noisettes_ et _noix de cajou_.", "Farine, levure. Traces éventuelles : _soja_, Traces éventuelles : _amandes_, Traces éventuelles : _noisettes_, Traces éventuelles : _noix de cajou_."],
+
+	# Spanish organic ingredients
+	["es", "Agua, aceite de girasol*. * Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico."],
+	["es", "Agua, aceite de girasol*, arroz* (5 %). (*) Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico, arroz Ecológico (5 %)."],
+	["es", "Tofu* 88% (agua, habas de soja*). *cumple con el reglamento de agricultura ecológica CE 2092/91", "Tofu Ecológico 88% (agua, habas de soja Ecológico )."],
+	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5,5%)."],
+
+	# test for bug #3273 that introduced unwanted separators before natural flavor
+	["en", "non-gmo natural flavor", "non-gmo natural flavor"],
+
+	# vit. e
+	["en", "vit. e, vitamins b2, B3 and K, vit d, vit a & c, vit. B12", "vitamin e, vitamins, vitamin b2, vitamin B3, vitamin K, vitamin d, vitamin a, vitamin c, vitamin B12"],
+	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
+
+	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
 
 );
 

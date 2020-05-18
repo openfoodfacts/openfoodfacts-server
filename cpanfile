@@ -6,7 +6,6 @@ requires 'LWP::Simple'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
-requires 'Text::Unaccent'; # libtext-unaccent-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
@@ -52,6 +51,7 @@ requires 'File::Copy::Recursive';
 requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
 requires 'Excel::Writer::XLSX';
+requires 'Pod::Simple::HTMLBatch';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

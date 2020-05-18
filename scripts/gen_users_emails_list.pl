@@ -27,7 +27,6 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use Geo::IP;
 
 my @userids;
 

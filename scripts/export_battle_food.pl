@@ -106,7 +106,7 @@ foreach my $l (values %lang_lc) {
 		
 	while (my $product_ref = $cursor->next) {
 		
-		if ((n <= 10) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		if (($n <= 10) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 		
 			my $path = product_path($product_ref->{code});

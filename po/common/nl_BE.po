@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 17:02\n"
+"PO-Revision-Date: 2020-05-03 10:07\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -237,6 +237,14 @@ msgstr "voeg merk toe"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Producten niet van het merk %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Merk eigenaar"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -770,8 +778,8 @@ msgstr "<<site_name>> wiki (nl)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -940,6 +948,14 @@ msgstr "Ingrediëntgetallen"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "aantal_ingrediënten"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Aantal herkende ingrediënten"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Aantal niet herkende ingrediënten"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2475,6 +2491,14 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Fout tijdens het deselecteren van de afbeelding."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Inzoomen met muiswiel inschakelen."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Laad afbeeldingen met een lagere resolutie (voor langzame verbindingen)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, hun mogelijke positieve bijdrage aan de klasse kan niet in aanmerking worden genomen."
@@ -3261,6 +3285,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Specifieke categorie"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Bronspecifiek veld"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Selecteer een veld"
@@ -3290,22 +3318,31 @@ msgid "only the unit, with the value in another column"
 msgstr "alleen de eenheid, met de waarde in een andere kolom"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Selecteer deze optie als de kolom de aanwezigheid van een specifiek label aangeeft (bijvoorbeeld Organic, Fair-Trade) wanneer de waarde Y, Ja of 1 is."
+msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "Typ de naam van de categorie in het tekstveld aan de rechterkant."
+msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Selecteer deze optie als de kolom aangeeft dat het product zich in een specifieke categorie bevindt (bijvoorbeeld Dranken) wanneer de waarde Y, Ja of 1 is."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr "Typ de naam van de categorie in het tekstveld aan de rechterkant."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr ""
 
 msgctxt "value"
 msgid "Value"
@@ -3346,6 +3383,10 @@ msgstr "Waarde in mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Waarde in μg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr ""
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4056,4 +4097,71 @@ msgstr "Details van de analyse van de ingrediënten"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Sommige ingrediënten konden niet worden herkend."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr ""
+
+msgctxt "done_status"
+msgid "Done"
+msgstr ""
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr "optioneel"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
 

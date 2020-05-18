@@ -1,4 +1,4 @@
-"use strict";
+/*global exports */
 
 const { src, dest, series, parallel } = require("gulp");
 const concat = require("gulp-concat");
@@ -15,8 +15,8 @@ const sassOptions = {
 };
 
 function icons() {
-  return src("*.svg", { cwd: "./icons" })
-    .pipe(
+  return src("*.svg", { cwd: "./icons" }).
+    pipe(
       svgmin({
       plugins: [
         { removeMetadata: false },
@@ -30,22 +30,23 @@ function icons() {
           }
       ]
       })
-    )
-    .pipe(dest("./html/images/icons/dist"));
+    ).
+    pipe(dest("./html/images/icons/dist"));
 }
 
 function css() {
-  return src("./scss/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on("error", sass.logError))
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/css/dist"));
+  return src("./scss/**/*.scss").
+    pipe(sourcemaps.init()).
+    pipe(sass(sassOptions).on("error", sass.logError)).
+    pipe(minifyCSS()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/css/dist"));
 }
 
 function copyJs() {
   return src(
     [
+      "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
       "./node_modules/foundation-sites/js/vendor/*.js",
       "./node_modules/foundation-sites/js/foundation.js",
       "./node_modules/papaparse/papaparse.js",
@@ -56,12 +57,13 @@ function copyJs() {
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
-      "./node_modules/@yaireo/tagify/dist/tagify.min.js"
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(terser())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/js/dist"));
+      "./node_modules/@yaireo/tagify/dist/tagify.min.js",
+      "./node_modules/cropper/dist/*.js"
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(terser()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/js/dist"));
 }
 
 function buildJs() {
@@ -69,11 +71,11 @@ function buildJs() {
     './html/js/display*.js',
     './html/js/product-multilingual.js',
     './html/js/search.js'
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(sourcemaps.write("."))
-  .pipe(dest("./html/js/dist"));
+  ]).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest("./html/js/dist"));
 }
 
 function buildjQueryUi() {
@@ -86,12 +88,12 @@ function buildjQueryUi() {
     './node_modules/jquery-ui/ui/safe-active-element.js',
     './node_modules/jquery-ui/ui/widgets/autocomplete.js',
     './node_modules/jquery-ui/ui/widgets/menu.js'
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(concat('jquery-ui.js'))
-  .pipe(sourcemaps.write("."))
-  .pipe(dest('./html/js/dist'))
+  ]).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(concat('jquery-ui.js')).
+  pipe(sourcemaps.write(".")).
+  pipe(dest('./html/js/dist'));
 }
 
 function jQueryUiThemes() {
@@ -100,12 +102,12 @@ function jQueryUiThemes() {
       './node_modules/jquery-ui/themes/base/autocomplete.css',
       './node_modules/jquery-ui/themes/base/menu.css',
       './node_modules/jquery-ui/themes/base/theme.css',
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(minifyCSS())
-    .pipe(concat('jquery-ui.css'))
-    .pipe(sourcemaps.write("."))
-    .pipe(dest('./html/css/dist/jqueryui/themes/base'));
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(minifyCSS()).
+    pipe(concat('jquery-ui.css')).
+    pipe(sourcemaps.write(".")).
+    pipe(dest('./html/css/dist/jqueryui/themes/base'));
 }
 
 function copyCss() {
@@ -113,19 +115,19 @@ function copyCss() {
       "./node_modules/leaflet/dist/leaflet.css",
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/@yaireo/tagify/dist/tagify.css"
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/css/dist"));
+      "./node_modules/@yaireo/tagify/dist/tagify.css",
+      "./html/css/product-multilingual.css",
+      "./node_modules/cropper/dist/cropper.css"
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(minifyCSS()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/css/dist"));
 }
 
 function copyImages() {
-  return src([
-      "./node_modules/leaflet/dist/**/*.png"
-    ])
-    .pipe(dest("./html/css/dist"));
+  return src(["./node_modules/leaflet/dist/**/*.png"]).
+    pipe(dest("./html/css/dist"));
 }
 
 exports.copyJs = copyJs;

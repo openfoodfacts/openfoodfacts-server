@@ -18,6 +18,20 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Food - functions related to food products and nutrition
+
+=head1 DESCRIPTION
+
+C<ProductOpener::Food> contains functions specific to food products, in particular
+related to nutrition facts. It does not contain functions related to ingredients which
+are in the C<ProductOpener::Ingredients> module.
+
+..
+
+=cut
+
 package ProductOpener::Food;
 
 use utf8;
@@ -86,6 +100,12 @@ BEGIN
 					&special_process_product
 
 					&extract_nutrition_from_image
+
+					&default_unit_for_nid
+
+					&create_nutrients_level_taxonomy
+
+					&assign_category_properties_to_product
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -167,6 +187,8 @@ sub default_unit_for_nid($) {
 
 	my $nid = shift;
 
+	$nid =~ s/_prepared//;
+
 	if ($nid eq "energy-kj") {
 		return "kJ";
 	}
@@ -220,7 +242,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+	elsif  ((uc($unit) eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
@@ -251,6 +273,14 @@ sub get_nutrient_label {
 	}
 }
 
+=head2 unit_to_g($$)
+
+Converts <xx><unit> into <xx>grams. Eg.:
+unit_to_g(2,kg) => returns 2000
+unit_to_g(520,mg) => returns 0.52
+
+=cut
+
 sub unit_to_g($$) {
 	my $value = shift;
 	my $unit = shift;
@@ -268,20 +298,34 @@ sub unit_to_g($$) {
 	$value eq '' and return $value;
 
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
+	# kg = 公斤 - gōngjīn = кг
 	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value * 1000;
+	# 斤 - jīn = 500 Grams
 	$unit eq "\N{U+65A4}" and return $value * 500;
+	# mg = 毫克 - háokè = мг
 	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value / 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value / 1000000;
 	$unit eq 'oz' and return $value * 28.349523125;
 
+	# l = 公升 - gōngshēng = л = liter
 	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value * 1000;
 	(($unit eq 'dl') or ($unit eq 'дл')) and return $value * 100;
 	(($unit eq 'cl') or ($unit eq 'кл')) and return $value * 10;
 	$unit eq 'fl oz' and return $value * 30;
+
+	# return value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
 
+
+=head2 g_to_unit($$)
+
+Converts <xx>grams into <xx><unit>. Eg.:
+g_to_unit(2000,kg) => returns 2
+g_to_unit(0.52,mg) => returns 520
+
+=cut
 
 sub g_to_unit($$) {
 	my $value = shift;
@@ -301,16 +345,22 @@ sub g_to_unit($$) {
 	$value eq '' and return $value;
 
 	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
+	# kg = 公斤 - gōngjīn = кг
 	(($unit eq 'kg') or ($unit eq "\N{U+516C}\N{U+65A4}") or ($unit eq 'кг')) and return $value / 1000;
+	# 斤 - jīn = 500 Grams
 	$unit eq "\N{U+65A4}" and return $value / 500;
+	# mg = 毫克 - háokè = мг
 	(($unit eq 'mg') or ($unit eq "\N{U+6BEB}\N{U+514B}") or ($unit eq 'мг')) and return $value * 1000;
 	(($unit eq 'mcg') or ($unit eq 'µg')) and return $value * 1000000;
 	$unit eq 'oz' and return $value / 28.349523125;
 
+	# l = 公升 - gōngshēng = л = liter
 	(($unit eq 'l') or ($unit eq "\N{U+516C}\N{U+5347}") or ($unit eq 'л')) and return $value / 1000;
 	(($unit eq 'dl') or ($unit eq 'дл')) and return $value / 100;
 	(($unit eq 'cl') or ($unit eq 'кл')) and return $value / 10;
 	$unit eq 'fl oz' and return $value / 30;
+
+	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
 	return $value + 0; # + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
 }
@@ -380,6 +430,7 @@ sub mmoll_to_unit {
 	ca => "ca",
 	ru => "ru",
 	us => "us",
+	hk => "hk",
 );
 
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
@@ -437,6 +488,8 @@ sub mmoll_to_unit {
 		'-starch-',
 		'-polyols-',
 		'fiber',
+		'--soluble-fiber-',
+		'--insoluble-fiber-',
 		'!proteins',
 		'-casein-',
 		'-serum-proteins-',
@@ -771,6 +824,7 @@ sub mmoll_to_unit {
 		'--soluble-fiber-',
 		'--insoluble-fiber-',
 		'-sugars',
+		'-added-sugars',
 		'--sucrose-',
 		'--glucose-',
 		'--fructose-',
@@ -945,6 +999,40 @@ sub mmoll_to_unit {
 		'beta-glucan-',
 		'inositol-',
 		'carnitine-',
+	)],
+	hk => [(
+		'!energy-kj',
+		'!energy-kcal',
+		'!proteins',
+		'!fat',
+		'-saturated-fat',
+		'-polyunsaturated-fat-',
+		'-monounsaturated-fat-',
+		'-trans-fat',
+		'cholesterol',
+		'!carbohydrates',
+		'-sugars',
+		'-fiber',
+		'salt-',
+		'sodium',
+		'#vitamins',
+		'vitamin-a',
+		'vitamin-d-',
+		'vitamin-c',
+		'vitamin-b1-',
+		'vitamin-b2-',
+		'vitamin-pp-',
+		'vitamin-b6-',
+		'vitamin-b9-',
+		'folates-',
+		'vitamin-b12-',
+		'#minerals',
+		'calcium',
+		'potassium-',
+		'phosphorus-',
+		'iron',
+		'alcohol',
+		'nutrition-score-fr-',
 	)],
 );
 
@@ -1361,6 +1449,10 @@ sub mmoll_to_unit {
 		zh_HK => "糖",
 		zh_TW => "糖",
 	},
+	"added-sugars" => {
+		en => "Added sugars",
+		fr => "Sucres ajoutés",
+	},
 	sucrose => {
 		cs => "Sacharóza",
 		de => "Saccharose",
@@ -1535,9 +1627,12 @@ sub mmoll_to_unit {
 		cs => "Polyalkoholy",
 		da => "Polyoler",
 		de => "mehrwertige Alkohole (Polyole)",
+		de_synonyms => ["Polyole"],
 		el => "Πολυόλες",
 		en => "Sugar alcohols (Polyols)",
+		en_synonyms => ["Polyols"],
 		es => "Azúcares alcohólicos (Polialcoholes)",
+		es_synonyms => ["Polialcoholes"],
 		et => "Polüoolid",
 		fi => "Polyolit",
 		fr => "Polyols",
@@ -1545,6 +1640,7 @@ sub mmoll_to_unit {
 		he => "סוכר אלכוהולי (פוליאול)",
 		hu => "Poliolok",
 		it => "Polialcoli/polioli (alcoli degli zuccheri)",
+		it_synonyms => ["alcoli degli zuccheri"],
 		ja => "糖アルコール (ポリオール)",
 		lt => "Poliolių",
 		lv => "Polioli",
@@ -2589,6 +2685,24 @@ sub mmoll_to_unit {
 		dv => 80,
 		dv_2016 => 120,
 	},
+	'vitamin-k1' => {
+		fr => "Vitamine K1",
+		en => "Vitamin K1",
+		en_synonyms => ["Vitamin K1", "Phylloquinone"],
+		unit => "µg",
+	},
+	'vitamin-k2' => {
+		fr => "Vitamine K2",
+		en => "Vitamin K2",
+		en_synonyms => ["Vitamin K2", "Menaquinone"],
+		unit => "µg",
+	},
+	'vitamin-k3' => {
+		fr => "Vitamine K3",
+		en => "Vitamin K3",
+		en_synonyms => ["Vitamin K3", "Menadione"],
+		unit => "µg",
+	},
 	'vitamin-c' => {
 		fr => "Vitamine C (acide ascorbique)",
 		fr_synonyms => ["Vitamine C", "acide ascorbique"],
@@ -2752,7 +2866,7 @@ sub mmoll_to_unit {
 	},
 	'vitamin-b9' => {
 		fr => "Vitamine B9 (Acide folique)",
-		fr_synonyms => ["Vitamine B9", "Acide folique"],
+		fr_synonyms => ["Vitamine B9", "Acide folique", "Acide folique, équivalents alimentaires d'acide folique"],
 		en => "Vitamin B9 (Folic acid)",
 		en_synonyms => ["Vitamin B9", "Folic acid"],
 		es => "Vitamina B9 (Ácido fólico)",
@@ -3520,15 +3634,19 @@ sub mmoll_to_unit {
 		ro => "Fructe, legume, nuci uscate",
 		unit => "%",
 	},
-
 	"fruits-vegetables-nuts-estimate" => {
-		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)",
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (manual estimate from ingredients list)",
 		fi => "Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)",
-		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation avec la liste des ingrédients)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation manuelle avec la liste des ingrédients)",
 		es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
 		nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		unit => "%",
+	},
+	"fruits-vegetables-nuts-estimate-from-ingredients" => {
+		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)",
+		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation par analyse de la liste des ingrédients)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -3782,7 +3900,7 @@ sub canonicalize_nutriment($$) {
 		}
 	}
 
-	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+	#$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
 
 }
@@ -3805,7 +3923,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+		#$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -3813,7 +3931,7 @@ foreach my $nid (keys %Nutriments) {
 			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
-				$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
+				#$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
 			}
 			if ($sublabel =~ /alpha-/) {
 				$sublabel =~ s/alpha-/a-/;
@@ -3829,17 +3947,29 @@ foreach my $nid (keys %Nutriments) {
 }
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
-my $chinese_units = qr/(?:\N{U+6BEB}?\N{U+514B})|(?:\N{U+516C}?\N{U+65A4})|(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|\N{U+5428}/i;
+# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
+my $chinese_units = qr/
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
+	                                        #                      (公克 gōngkè is for "metric gram")
+	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
+	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
+	\N{U+5428}                              # 吨                    (ton?)
+	/ix;
 my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
 my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
+
+=head2 normalize_quantity($)
+
+Return the size in g or ml for the whole product. Eg.:
+normalize_quantity(1 barquette de 40g) returns 40
+normalize_quantity(20 tranches 500g)   returns 500
+normalize_quantity(6x90g)              returns 540
+normalize_quantity(2kg)                returns 2000
+
+=cut
+
 sub normalize_quantity($) {
-
-	# return the size in g or ml for the whole product
-
-	# 1 barquette de 40g
-	# 20 tranches 500g
-	# 6x90g --> return 540
 
 	my $quantity = shift;
 
@@ -3869,6 +3999,14 @@ sub normalize_quantity($) {
 }
 
 
+=head2 normalize_serving_size($)
+
+Returns the size in g or ml for the serving. Eg.:
+normalize_serving_size(1 barquette de 40g) returns 40
+normalize_serving_size(2.5kg)              returns 2500
+
+=cut
+
 sub normalize_serving_size($) {
 
 	my $serving = shift;
@@ -3883,7 +4021,7 @@ sub normalize_serving_size($) {
 		$q = unit_to_g($q,$u);
 	}
 
-	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
+	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
 
@@ -4039,6 +4177,8 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 
+	assign_category_properties_to_product($product_ref);
+
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
 	delete $product_ref->{pnns_groups_2};
@@ -4134,7 +4274,6 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
-
 				or has_tag($product_ref, "ingredients", "en:sugar")
 				or has_tag($product_ref, "ingredients", "en:glucose")
 				or has_tag($product_ref, "ingredients", "en:fructose")
@@ -4358,6 +4497,8 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
 	delete $product_ref->{nutriscore_grade};
@@ -4506,10 +4647,16 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		if (defined $fruits) {
-			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		# Use the estimate from the ingredients list if we have one
+		if ((not defined $fruits)
+			and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
+			$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
 		}
-		else {
+
+		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
@@ -4603,6 +4750,10 @@ sub compute_serving_size_data($) {
 		(defined $product_ref->{serving_size}) and ($product_ref->{serving_size} eq "") and delete $product_ref->{serving_size};
 	}
 
+	# Record if we have nutrient values for as sold or prepared types,
+	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
+	my %nutrition_data = ();
+
 	foreach my $product_type ("", "_prepared") {
 
 		# Energy
@@ -4612,7 +4763,10 @@ sub compute_serving_size_data($) {
 		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
 
 		# If we have a value for energy-kj, use it for energy
-		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type}) {
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
@@ -4620,6 +4774,9 @@ sub compute_serving_size_data($) {
 		}
 		# Otherwise use the energy-kcal value for energy
 		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+			}
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
@@ -4649,7 +4806,6 @@ sub compute_serving_size_data($) {
 				}
 				$nid =~ s/_prepared$//;
 
-
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type};
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
@@ -4662,6 +4818,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
@@ -4688,6 +4847,9 @@ sub compute_serving_size_data($) {
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 
 			}
@@ -4720,6 +4882,13 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"}
 				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
+		}
+	}
+
+	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
+	foreach my $product_type (sort keys %nutrition_data) {
+		if ((not defined $product_ref->{"nutrition_data" . $product_type}) or ($product_ref->{"nutrition_data" . $product_type} ne "on")) {
+			$product_ref->{"nutrition_data" . $product_type} = 'on';
 		}
 	}
 }
@@ -4914,37 +5083,47 @@ sub compute_nutrient_levels($) {
 
 }
 
-# Create food taxonomy
-# runs once at module initialization
 
-my $nutrient_levels_taxonomy = '';
+=head2 create_nutrients_level_taxonomy ()
 
-foreach my $nutrient_level_ref (@nutrient_levels) {
-	my ($nid, $low, $high) = @$nutrient_level_ref;
-	foreach my $level ('low', 'moderate', 'high') {
-		$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
-		foreach my $l (sort keys %Langs) {
-			next if $l eq 'en';
-			my $nutrient_l;
-			if (defined $Nutriments{$nid}{$l}) {
-				$nutrient_l = $Nutriments{$nid}{$l};
+C<create_nutrients_level_taxonomy()> creates the source file for the nutrients level
+taxonomy: /taxonomies/nutrient_levels.txt
+
+It creates entries such as "High in saturated fat" in all languages.
+
+=cut
+
+sub create_nutrients_level_taxonomy() {
+
+	my $nutrient_levels_taxonomy = '';
+
+	foreach my $nutrient_level_ref (@nutrient_levels) {
+		my ($nid, $low, $high) = @$nutrient_level_ref;
+		foreach my $level ('low', 'moderate', 'high') {
+			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
+			foreach my $l (sort keys %Langs) {
+				next if $l eq 'en';
+				my $nutrient_l;
+				if (defined $Nutriments{$nid}{$l}) {
+					$nutrient_l = $Nutriments{$nid}{$l};
+				}
+				else {
+					$nutrient_l = $Nutriments{$nid}{"en"};
+				}
+				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 			}
-			else {
-				$nutrient_l = $Nutriments{$nid}{"en"};
-			}
-			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 		}
 	}
-}
 
-open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
-print $OUT <<TXT
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+	print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm
 
 TXT
 ;
-print $OUT $nutrient_levels_taxonomy;
-close $OUT;
+	print $OUT $nutrient_levels_taxonomy;
+	close $OUT;
+}
 
 sub compute_units_of_alcohol($$) {
 
@@ -5017,7 +5196,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey";
 
 sub normalize_packager_codes($) {
 
@@ -5470,6 +5649,52 @@ sub extract_nutrition_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
 
 		# TODO: extract the nutrition facts values
+	}
+}
+
+=head2 assign_category_properties_to_product ( PRODUCT_REF )
+
+Go through the categories of a product to apply category properties at the product level.
+The most specific categories are checked first. If the category has
+a value for the property, it is assigned to the product and the processing stop.
+
+This function was first designed to assign a CIQUAL category to products, based on
+the mapping of the Open Food Facts categories to the French CIQUAL categories.
+
+It may be used for other properties in the future.
+=cut
+
+sub assign_category_properties_to_product($) {
+
+	my $product_ref = shift;
+
+	$product_ref->{category_properties} = {};
+
+	foreach my $property ("ciqual_food_code:en:", "ciqual_food_name:en", "ciqual_food_name:fr") {
+
+		# Find the first category with a defined value for the property
+
+		if (defined $product_ref->{categories_tags}) {
+			foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+				if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{$property})) {
+					$product_ref->{category_properties}{$property} = $properties{categories}{$categoryid}{$property};
+					last;
+				}
+			}
+		}
+
+		# Create facet tags for some properties
+
+		if ($property =~ /^(ciqual_food_name):en$/) {
+			my $tagtype = $1;
+			if (defined $product_ref->{category_properties}{$property}) {
+				$product_ref->{$tagtype . "_tags"} = [get_string_id_for_lang("no_language", $product_ref->{category_properties}{$property})];
+			}
+			else {
+				$product_ref->{$tagtype . "_tags"} = ["unknown"];
+			}
+		}
+
 	}
 }
 

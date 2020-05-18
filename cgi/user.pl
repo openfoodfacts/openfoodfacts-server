@@ -37,10 +37,21 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
-
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
+
+# If the "Create user" form was submitted from the product edit page
+# save the password parameter and unset it so that the ProductOpener::Display::init()
+# function does not try to authenticate the user (which does not exist yet) with that password
+
+my $new_user_password;
+if (($type eq "add") and (defined param('prdct_mult'))) {
+
+	$new_user_password = param('password');
+	param("password", "");
+}
+
+ProductOpener::Display::init();
 
 my $userid = get_fileid(param('userid'), 1);
 
@@ -117,6 +128,26 @@ if ($action eq 'display') {
 	$scripts .= <<SCRIPT
 SCRIPT
 ;
+
+	# We can pre-fill the form to create an account using the username and password
+	# passed in a form to open a session.
+	# e.g. when a non-logged user clicks on the "Edit product" button
+
+	if (($type eq "add") and (defined param("user_id"))) {
+		my $user_info = remove_tags_and_quote(param('user_id'));
+		$user_info =~ /^(.+?)@/;
+		if ( defined ($1) ){
+			$user_ref->{email} = $user_info;
+			$user_ref->{userid} = $1;
+			$user_ref->{name} = $1;
+			$user_ref->{password} = $new_user_password;
+		}
+		else{
+			$user_ref->{userid} = $user_info;
+			$user_ref->{name} = $user_info;
+			$user_ref->{password} = $new_user_password;
+		}
+	}
 
 	$html .= start_form()
 	. "<table>";

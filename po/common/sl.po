@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 16:28\n"
+"PO-Revision-Date: 2020-05-03 09:48\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,14 @@ msgstr "dodajte blagovno znamko"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Izdelki, ki niso v blagovni znamki %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Lastnik blagovne znamke"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "Podjetje Coca Cola"
 
 msgctxt "by"
 msgid "by"
@@ -769,8 +777,8 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -939,6 +947,14 @@ msgstr "Število sestavin"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Število sestavin"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Število prepoznanih sestavin"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Število neprepoznanih sestavin"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2474,6 +2490,14 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Napaka pri odstranjevanju slike."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Omogoči povečavo z miškinim kolescom."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Naložite slike nižje ločljivosti (za počasne povezave)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Opozorilo: količina vlaknin ni določena, njenega možnega pozitivnega učinka k razredu ni mogoče upoštevati."
@@ -3260,6 +3284,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Specifična kategorija"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Specifično polje za vir"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Izberi polje"
@@ -3289,22 +3317,31 @@ msgid "only the unit, with the value in another column"
 msgstr "samo enota z vrednostjo v drugem stolpcu"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Izberite to možnost, če stolpec označuje prisotnost posebne oznake (npr. Organic, Fair-Trade), kadar je vrednost Y, Yes ali 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "V besedilno polje na desni vnesite ime nalepke."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr "Izberite to možnost, če stolpec kaže, da je izdelek v določeni kategoriji (npr. Pijače), če je vrednost Y, da ali 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "V besedilno polje na desni vnesite ime kategorije."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Izberite to možnost za polja, ki so značilna za vir in ki jih želimo obdržati kot izvorna polja."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Vnesite ime ciljnega polja v besedilno polje na desni ali pustite prazno, če želite uporabiti ime izvornega polja."
 
 msgctxt "value"
 msgid "Value"
@@ -3345,6 +3382,10 @@ msgstr "Vrednost v mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Vrednost v μg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Vrednost v IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4055,4 +4096,71 @@ msgstr "Podrobnosti o analizi sestavin"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Nekaterih sestavin ni bilo mogoče prepoznati."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Premaknite vse podatke in izbrane fotografije pod %s v glavni jezik izdelka: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Zamenjaj obstoječe vrednosti in izbrane fotografije"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Obdrži obstoječe vrednosti in izbrane fotografije"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Opravljeno"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Za narediti"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Skupine"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "neobvezno"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "skupine"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "skupina"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Pridružite se lahko 1 do 3 skupinam. Izdelki, ki jih dodate ali uredite, bodo dobropisani vam in vašim skupinam. Skupine se lahko kadar koli zamenjajo."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Imena skupin so javna. Ne ustvarite skupin z imeni, ki vsebujejo osebne podatke (npr. Priimki), blagovne znamke (razen če jih imate) ali kaj žaljivega."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Skupina %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
 

@@ -106,6 +106,8 @@ BEGIN
 		&change_product_server_or_code
 
 		&find_and_replace_user_id_in_products
+
+		&add_users_team
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -798,6 +800,8 @@ sub store_product($$) {
 		rev => $rev,
 	};
 
+	add_user_teams($product_ref);
+
 	compute_codes($product_ref);
 
 	compute_languages($product_ref);
@@ -961,7 +965,14 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $lc = $product_ref->{lc};
 	if (not defined $lc) {
 		# Try lang field
-		$lc = $product_ref->{lang};
+		if (defined $product_ref->{lang}) {
+			$lc = $product_ref->{lang};
+		}
+		else {
+			$lc = "en";
+			$product_ref->{lang} = "en";
+		}
+		$product_ref->{lc} = $lc;
 	}
 
 	# Compute completeness and missing tags
@@ -1438,6 +1449,12 @@ sub compute_product_history_and_completeness($$$) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
 			}
 
+			# some very early products added in 2012 did not have created_t
+
+			if ((not defined $current_product_ref->{created_t}) or ($current_product_ref->{created_t} == 0)) {
+				$current_product_ref->{created_t} = $change_ref->{t};
+			}
+
 			%current = (rev => $rev, lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 
 			# Uploaded images
@@ -1909,14 +1926,16 @@ sub index_product($)
 
 	my %keywords;
 
+	my $product_lc = $product_ref->{lc} ||$lc;
+
 	foreach my $field (@string_fields, @tag_fields) {
 		if (defined $product_ref->{$field}) {
-			foreach my $tag (split(/,|'|\s/, $product_ref->{$field} )) {
+			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field} )) {
 				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
 					$tag =~ s/^\w\w://;
 				}
 
-				my $tagid = get_string_id_for_lang($lc, $tag);
+				my $tagid = get_string_id_for_lang($product_lc, $tag);
 				if (length($tagid) >= 2) {
 					$keywords{normalize_search_terms($tagid)} = 1;
 				}
@@ -2408,6 +2427,38 @@ sub compute_changes_diff_text {
 
 	return $diffs;
 
+}
+
+=head2 add_user_teams ( $product_ref )
+
+If the user who add or edits the product belongs to one or more teams, add them to the teams_tags array.
+
+=cut
+
+sub add_user_teams ($) {
+
+	my $product_ref = shift;
+
+	if (defined $User_id) {
+
+		for (my $i = 1; $i <= 3; $i++) {
+
+			my $added_teams = 0;
+
+			if (defined $User{"team_" . $i}) {
+
+				my $teamid = get_string_id_for_lang("no_language", $User{"team_" . $i});
+				if ($teamid ne "") {
+					add_tag($product_ref, "teams", $teamid);
+					$added_teams++;
+				}
+			}
+
+			if ($added_teams) {
+				$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+			}
+		}
+	}
 }
 
 1;

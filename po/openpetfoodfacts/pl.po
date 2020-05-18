@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-12-17 10:38\n"
+"PO-Revision-Date: 2020-04-03 15:24\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -73,7 +73,7 @@ msgstr "https://apps.apple.com/pl/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -86,7 +86,7 @@ msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> jest tworzony przez stowarzyszenie non-profit, niezależne od przemysłu. Jest on realizowany przez wszystkich i finansowany przez wszystkich. Możesz wspierać naszą pracę przez <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">przekazując darowiznę na Open Beauty Facts</a> oraz <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">korzystając z wyszukiwarki Lilo</a>.<br/><b>Dziękujemy!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
@@ -129,8 +129,8 @@ msgid "A collaborative, free and open database of pet food products from around 
 msgstr "Wspólna, darmowa i otwarta baza produktów spożywczych dla zwierząt z całego świata."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"

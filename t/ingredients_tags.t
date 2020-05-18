@@ -48,6 +48,7 @@ my @tests = (
 	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
 	[ { lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+	[ { lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"}, [ "en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300",  "en:ergocalciferol"], ],
 
 	[ { lc => "it", ingredients_text => "sale e spezie"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [  ], ],
@@ -78,6 +79,31 @@ my @tests = (
 
 	 [ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
 
+	 [ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
+	 [ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
+	 [ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
+
+	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
+
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
+
+	[ { lc => "fr", ingredients_text => "Fraises. Contient du lait et des noix. Peut contenir : crustacés, céleri et moutarde."}, ["en:strawberry"]],
+	[ { lc => "en", ingredients_text => "Apples. Contains: milk, nuts and mustard. May contains traces of celery."}, ["en:apple"]],
+
+	# Currently "Kann [allergens] enthalten" is not supported
+	# [ { lc => "de", ingredients_text => "Paprikaextrakt. Kann Haselnüsse, Mandeln enthalten."}, ["en:e160c"]],
+
+	# issue with "Organic 100% juice" being turned into the en:pure-juice label
+	# and all sub-ingredients being discarded
+	[ { lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."}, ['en:juice','en:natural-flavouring','en:pear','en:apple']],
+	[ { lc => "en", ingredients_text => "au jus (beef stock, water)"}, [ 'en:au jus', 'en:beef-broth', 'en:water' ]],
+	# pure juice is a label, and currently not an ingredient
+	# it makes the sub ingredients being discarded
+	# recognize unknown ingredients that are labels as labels only if they
+	# don't have sub-ingredients
+	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
+	# using vegan in case we add "pure juice" as an ingredient at some point
+	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:vegan', 'en:orange-juice' ]],
 );
 
 foreach my $test_ref (@tests) {

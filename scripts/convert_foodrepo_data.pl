@@ -45,8 +45,6 @@ use Log::Any::Adapter ('Stderr');
 
 # default language (needed for cleaning fields)
 
-$lc = "fr";
-
 %global_params = (
 #	lc => 'fr',
 	countries => "Switzerland",

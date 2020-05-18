@@ -20,13 +20,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 my $tagtype = $ARGV[0];
 my $publish = $ARGV[1];
@@ -42,6 +41,11 @@ binmode STDOUT, ":encoding(UTF-8)";
 
 
 my $file = $tagtype . ".txt";
+
+# The nutrients_taxonomy.txt source file is created from values in the .po files
+if ($tagtype eq "nutrient_levels") {
+	create_nutrients_level_taxonomy();
+}
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 

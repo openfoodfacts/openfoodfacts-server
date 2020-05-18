@@ -1,3 +1,4 @@
+/*global db*/
 /*
 	Name				: refresh_products_tags.js
 	Description : Refresh products_tags collection by copying *_tags fields from products collection
@@ -61,7 +62,8 @@ db.products.aggregate( [
 	data_quality_bugs_tags:1,
 	data_quality_info_tags:1,
 	data_quality_warnings_tags:1,
-	data_quality_errors_tags:1
+	data_quality_errors_tags:1,
+	teams_tags:1
 	}},
 {"$out": "products_tags"}
 ]);
@@ -124,5 +126,6 @@ db.products_tags.createIndex({data_quality_bugs_tags:1}, { background: true });
 db.products_tags.createIndex({data_quality_info_tags:1}, { background: true });
 db.products_tags.createIndex({data_quality_warnings_tags:1}, { background: true });
 db.products_tags.createIndex({data_quality_errors_tags:1}, { background: true });
+db.products_tags.createIndex({teams_tags:1}, { background: true });
 
 print(Date() + ' : Refresh done.');

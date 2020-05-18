@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:33\n"
+"PO-Revision-Date: 2020-05-06 16:01\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -86,7 +86,7 @@ msgstr "Katıldığınız için teşekkür ederiz <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Potansiyel tehlikeli gıda katkı maddesi. Kullanım limiti."
+msgstr "Potansiyel olarak tehlikeli gıda katkı maddesi. Kullanım limiti."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -94,7 +94,7 @@ msgstr "Tehlikeli gıda katkı maddesi. Önlemek."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Avrupa'da gıda katkı maddesi yasaklandı. Her ne pahasına olsada kaçının."
+msgstr "Avrupa'da gıda katkı maddesi yasaklandı. Her ne pahasına olsa da kaçının."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -236,6 +236,14 @@ msgstr "marka ekle"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "% S markası olmayan ürünler"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Marka sahibi"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "Coca Cola şirketi"
 
 msgctxt "by"
 msgid "by"
@@ -665,7 +673,7 @@ msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "Davranış kodu"
+msgstr "Davranış kuralları"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -692,7 +700,7 @@ msgstr "Sıkça sorulan sorular"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr "/sss"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -767,8 +775,8 @@ msgstr "<<site_name>> wiki (tr)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -937,6 +945,14 @@ msgstr "İçindekiler sayısı"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "İçindekiler sayısı"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Belirlenen katkı maddesi sayısı"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Belirlenemeyen katkı maddesi sayısı"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2472,13 +2488,21 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Resimlerin seçimini kaldırırken hata oluştu."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Fare tekerleği ile yakınlaştır."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Daha düşük çözünürlüklü görüntüler yükleyin (yavaş bağlantıdan dolayı)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Uyarı: lif miktarı belirtilmediği için, olası olumlu katkı notuna dahil edilemedi."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Uyarı: Lif, meyve, sebze ve çerez miktarı belirtilmedi. Puanlamaya olası olumlu katkıları hesaba katılmamıştır."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -3258,6 +3282,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Belirli kategori"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Kaynağa özgü alan"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Bir alan seçin"
@@ -3287,22 +3315,31 @@ msgid "only the unit, with the value in another column"
 msgstr "sadece birim, değer başka bir sütunda"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr "Değer Y, Yes ya da 1 olduğunda, sütun belirli bir etiketin (örn. Organik, Adil Ticaret) varlığını gösteriyorsa, bu seçeneği seçin."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Etiketin adını sağdaki metin alanına yazın."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Değer Y, Yes ya da 1 olduğunda, sütun ürünün belirli bir kategoride (örn. İçecekler) olduğunu gösteriyorsa, bu seçeneği seçin."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Değer Y, Evet veya 1 olduğunda sütun belirli bir kategorinin (örn. İçecekler) varlığını gösteriyorsa bu seçeneği belirleyin."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Kategorinin adını sağdaki metin alanına yazın."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Kaynağa özgü olan ve kaynağa özgü alanlar olarak tutmak istediğimiz alanlar için bu seçeneği belirleyin."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Sağdaki metin alanına hedef alanın adını yazın veya kaynak alanının adını kullanmak için boş bırakın."
 
 msgctxt "value"
 msgid "Value"
@@ -3343,6 +3380,10 @@ msgstr "mg cinsinden değer"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "μg cinsinden değer"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "IU cinsinden değer"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3703,7 +3744,7 @@ msgstr "Dosya alındı"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score hesaplamasının detayları"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -4020,37 +4061,104 @@ msgstr "Bir alan ekle"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "Tüm ürünleri kaldırın"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Üreticiler için tüm ürünlerinizi platformdan kaldırın"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Tüm ürünlerinizi üretici platformundan kaldırabilirsiniz, örneğin bir içe aktarmayla ilgili bazı sorunlar varsa temiz bir sayfa ile başlamak için. Bu, genel veritabanınızdaki ürünlerinizi etkilemez."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "Lütfen bu işlemin geri alınamayacağını unutmayın."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Uyarı: bu eylem geri alınamaz. Tüm ürünlerinizi üretici platformundan kaldırmak istediğinizden emin misiniz?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "Bu işlev kullanılabilir değil."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "Ürünleriniz üreticiler için platformdan kaldırıldı."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "İçerik analizlerinin detayları"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
-msgstr ""
+msgstr "Bazı içerikler tanınamadı."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Tüm verileri ve seçilen fotoğrafları %s dilinden ürünün ana diline: %s taşı"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Mevcut değerleri ve seçilen fotoğrafları değiştir"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Mevcut değerleri ve seçilen fotoğrafları koru"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Yapıldı"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Yapılacak"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Takımlar"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "isteğe bağlı"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "takımlar"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "takım"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "1 ila 3 takıma katılabilirsiniz. Eklediğiniz veya düzenlediğiniz ürünler size ve takımlarınıza aktarılacaktır. Takımlar her zaman değiştirilebilir."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Takım adları herkese açıktır. Kişisel bilgi (örneğin soyadı), ticari marka (sahip olmadıkça) veya rahatsız edici herhangi bir şey içeren isme sahip takım oluşturmayın."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Takım %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d ürün ihraç edilecektir."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "CIQUAL yiyecek adı"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "CIQUAL yiyecek adı"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "CIQUAL yiyecek isimleri"
 

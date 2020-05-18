@@ -262,10 +262,13 @@ function init_select_field_option(col) {
 JS
 ;
 
-	foreach my $tagtype ("categories", "labels") {
+	foreach my $tagtype ("sources_fields", "categories", "labels") {
 
 		my $tagtype_specific = $tagtype . "_specific";
 		my $placeholder = $Lang{$tagtype . "_s"}{$lc};
+		my $specific_tag = $Lang{$tagtype . "_specific_tag"}{$lc};
+		my $specific_tag_value = $Lang{$tagtype . "_specific_tag_value"}{$lc};
+
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
@@ -285,8 +288,8 @@ JS
 				columns_fields[column]["tag"] = \$(this).val();
 			});
 
-			instructions += "<p>$Lang{specific_tag_label}{$lc}</p>"
-			+ "<p>$Lang{specific_tag_label_value}{$lc}</p>";
+			instructions += "<p>$specific_tag</p>"
+			+ "<p>$specific_tag_value</p>";
 		}
 JS
 ;
@@ -322,6 +325,7 @@ JS
 				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
 				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
 				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
+				+ '<option value="value_in_iu">$Lang{value_in_iu}{$lc}</option>'
 				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
 			}
 

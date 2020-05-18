@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:58\n"
+"PO-Revision-Date: 2020-05-03 09:40\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,14 @@ msgstr "tilføj et varemærke"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "Produkter ikke fra %s merkevare"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "Mærkeejer"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "Coca Cola"
 
 msgctxt "by"
 msgid "by"
@@ -769,8 +777,8 @@ msgstr "<<site_name>>-wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -939,6 +947,14 @@ msgstr "Antal ingredienser"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "Antal ingredienser"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Antal genkendte ingredienser"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Antal ikke-genkendte ingredienser"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2476,6 +2492,14 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "Fejl under fravælgelse af foto."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "Aktivér zoom via musehjulet."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "Indlæs lavopløsningsbilleder (til langsomme forbindelser)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Advarsel: Mængden af ​​fiber er ikke specificeret, deres mulige positive bidrag til kvaliteten kunne ikke tages i betragtning."
@@ -3262,6 +3286,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr "Specifik kategori"
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "Kildespecifikt felt"
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr "Vælg et felt"
@@ -3291,22 +3319,31 @@ msgid "only the unit, with the value in another column"
 msgstr "kun enheden med værdien i en anden kolonne"
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr "Vælg denne indstilling, hvis kolonnen angiver tilstedeværelsen af en bestemt etiket (f.eks. Organisk, Fair-Trade), når værdien er enten J, Ja eller 1."
+msgstr "Vælg denne indstilling, hvis kolonnen angiver tilstedeværelsen af en bestemt etiket (f.eks. Organisk, Fair-Trade), når indholdet er enten J, Ja eller 1."
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr "Angiv navnet på etiketten i tekstfeltet til højre."
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr "Vælg denne indstilling, hvis kolonnen angiver, at produktet tilhører en bestemt kategori (f.eks. Organisk, Fair-Trade), når værdien er enten J, Ja eller 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "Vælg denne indstilling, hvis kolonnen angiver tilstedeværelsen af en bestemt kategori (f.eks. Drikkevare), når indholdet er enten J, Ja eller 1."
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
 msgstr "Angiv navnet på kategorien i tekstfeltet til højre."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "Vælg denne indstilling for felter, som er specifikke for kilden, og som der skal beholdes som kildespecifikke felter."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "Angiv navnet på målfeltet i tekstfeltet til højre, eller lad det være tomt for at anvende kildefeltsnavnet."
 
 msgctxt "value"
 msgid "Value"
@@ -3347,6 +3384,10 @@ msgstr "Værdi i mg"
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr "Værdi i μg"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "Værdi i IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4057,4 +4098,71 @@ msgstr "Oplysninger ingrediensanalysen"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Ikke alle ingredienser kunne genkendes."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "Flyt alle data og valgte fotos i %s til produktets hovedsprog: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "Erstat eksisterende værdier og valgte fotos"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "Behold eksisterende værdier og valgte fotos"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "Færdiggjort"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "Resterer"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "Teams"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "valgfrit"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "teams"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "team"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "Du kan deltage i 1 til 3 teams. Produkter, du tilføjer eller redigerer, tilskrives dig og dine teams. Teams til enhver tid ændres."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "Teamnavne er offentlige. Opret ikke teams med navne, som indeholder personlige data (f.eks. Familienavne), varemærker (medmindre du ejer dem) eller er stødende."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "Team %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
 

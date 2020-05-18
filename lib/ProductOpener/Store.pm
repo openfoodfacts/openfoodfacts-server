@@ -46,7 +46,6 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 use ProductOpener::Config qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
-#use Text::Unaccent "unac_string";
 use Encode;
 use Encode::Punycode;
 use URI::Escape::XS;

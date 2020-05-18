@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 18:46\n"
+"PO-Revision-Date: 2020-05-04 08:01\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -236,6 +236,14 @@ msgstr "أضف علامة تجارية"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "منتجات ليست من العلامة التجارية %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "مالك العلامة التجارية"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "شركة كوكا كولا"
 
 msgctxt "by"
 msgid "by"
@@ -674,7 +682,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "البيانات وواجهة برمجة التطبيقات وحزمة أدوات تطوير البرامج"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -767,8 +775,8 @@ msgstr "<<site_name>> ويكيبيديا (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -936,6 +944,14 @@ msgstr "عدد المكونات"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "عدد المكونات"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "عدد المكونات المعترف بها"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "عدد المكونات غير المعترف بها"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1954,23 +1970,23 @@ msgstr "تحميل النتائج"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "قم بتنزيل النتائج بصيغة XLSX أو CSV. يرجى العلم أنه ﻷسباب تتعلق باﻷداء، ستتمكن من تنزيل ما يصل إلى 10,000 نتيجة فقط."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "صيغة XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel أو LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "صيغة XLSX"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "مجموعة الأحرف: Unicode (UTF-8) - الفاصل: الجدول (التبويب)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2188,15 +2204,15 @@ msgstr "حجم الحصة"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "حجم التقديم المحضر"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 جم، 12 أونصة، 20 مل، 2 أونصة سائلة"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "إذا كان جدول معلومات التغذية يحتوي على قيم للمنتج المُعد ، فهي تشير إلى الحجم الكلي لحصة تقديم المنتج المُعد (بما في ذلك الماء أو الحليب المُضاف)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2236,7 +2252,7 @@ msgstr "ترتيب حسب"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "اكتمال"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2446,7 +2462,7 @@ msgstr "/images/misc/microsoft/Arabic.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "احصل عليه من Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2472,6 +2488,14 @@ msgstr "إلغاء تحديد الصورة."
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "خطأ أثناء إلغاء تحديد الصورة."
+
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "تمكين التكبير باستخدام عجلة الفأرة."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2551,7 +2575,7 @@ msgstr "تم توفير بعض البيانات الخاصة بهذا المنت
 
 msgctxt "sources_collaboration"
 msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgstr "تم جمع بعض البيانات لهذا المنتج بالتعاون مع %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2559,7 +2583,7 @@ msgstr "هذه الصفحة المنتج ليست كاملة. يمكنك الم�
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2668,7 +2692,7 @@ msgstr "مجموعة NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "مجموعات نوفا للصناعات الغذائية"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -2677,7 +2701,7 @@ msgstr "شركاء"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2813,7 +2837,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "بعض الأشخاص"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -2849,19 +2873,19 @@ msgstr "تم فحص الصور والبيانات"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "راجعت الصور والبيانات."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "لقد قمت بالتحقق من الصور والبيانات مرة أخرى."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "تواريخ الفحص الأخير"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "تاريخ الفحص الأخير"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -2869,7 +2893,7 @@ msgstr ""
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "معلومات أخرى"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
@@ -2881,7 +2905,7 @@ msgstr ""
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "الوزن الصافي"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
@@ -2889,15 +2913,15 @@ msgstr ""
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "الحجم"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "معلومات أخرى"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "شروط الحفظ"
 
 msgctxt "warning"
 msgid "Warning"
@@ -2905,7 +2929,7 @@ msgstr "تحذير"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "التحضير"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
@@ -2913,35 +2937,35 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "الأصل"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "خدمة العملاء"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "المنتج"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "تعليمات إعادة التدوير - لإعادة التدوير"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "تعليمات إعادة التدوير - للتخلص"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "تم فحص المنتجات بواسطة %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "لم يتم فحص المنتجات بواسطة %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "تم تصحيح المنتجات بواسطة %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
@@ -3073,7 +3097,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "ساعد في ترجمة %s إلى %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -3089,7 +3113,7 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "مترجم"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
@@ -3097,7 +3121,7 @@ msgstr ""
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "الترجمة الحالية"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3109,23 +3133,23 @@ msgstr "لا"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "تخطي"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "شعبية"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "شعبية"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "تحليل المكونات"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "تحليل المكونات"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3133,31 +3157,31 @@ msgstr "تحليل المكونات"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "يعتمد التحليل فقط على المكونات المدرجة ولا يأخذ في الاعتبار طرق المعالجة."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "أنت تعرض نسخة قديمة من صفحة المنتج هذه!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "رقم المراجعة: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "تم التعديل بواسطة: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "إصدار سابق"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "الإصدار التالي"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "أحدث إصدار"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
@@ -3229,7 +3253,7 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "معلومات أخرى"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
@@ -3257,6 +3281,10 @@ msgstr ""
 
 msgctxt "categories_specific"
 msgid "Specific category"
+msgstr ""
+
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
 msgstr ""
 
 msgctxt "select_a_field"
@@ -3288,21 +3316,30 @@ msgid "only the unit, with the value in another column"
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3344,6 +3381,10 @@ msgstr ""
 msgctxt "value_in_mcg"
 msgid "Value in μg"
 msgstr ""
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "القيمة بالوحدة الدولية"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3839,7 +3880,7 @@ msgstr ""
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "المنتج"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
@@ -4054,4 +4095,71 @@ msgstr "تفاصيل تحليل المكونات"
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "بعض مكونات لا يمكن التعرف عليها."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "نقل كل البيانات والصور المحدَّدة في %s إلى اللغة الرئيسية للمنتج: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "استبدال القيم الموجودة والصور المحددة"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "الحفاظ على القيم الموجودة والصور المحددة"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "تم"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "قائمة مهام"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "اسم طعام CIQUAL"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "اسم طعام CIQUAL"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "أسماء أطعمة CIQUAL"
 

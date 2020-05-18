@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 14:57\n"
+"PO-Revision-Date: 2020-05-06 09:42\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -237,6 +237,14 @@ msgstr "添加品牌"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "非%s的产品"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "品牌拥有者"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "可口可乐有限公司"
 
 msgctxt "by"
 msgid "by"
@@ -561,7 +569,7 @@ msgstr "新密码和确认密码不匹配"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "这个电子邮件地址已将被其他用户使用了。或许您已经有一个账户了？您可以点击<a href=\"/cgi/reset_password.pl\">来重置您其他账户的密码d</a>"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -675,7 +683,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "数据，API和SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -708,7 +716,8 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "关注我们请点击 <a href=\"https://twitter.com/openfoodfacts\">推特请点击</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">,脸书</a> 和<a href=\"https://www.instagram.com/open.food.facts/\">instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -729,7 +738,7 @@ msgstr "相关法律"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -751,7 +760,7 @@ msgstr "使用条款"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -760,7 +769,7 @@ msgstr "我们是谁"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -768,18 +777,18 @@ msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - 化妆品"
 
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -803,7 +812,7 @@ msgstr "一回见！"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d的产品符合搜索条件，%i的产品已经定义了图形轴的值。"
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -868,11 +877,11 @@ msgstr "当条形码可见时，您必须输入条形码的字符或者发送产
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "完整大小"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "此文件已上载到产品 %s ，并获得 %s 许可证的许可。"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -884,11 +893,11 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(原始形象)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "照片详情和属性信息"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -938,6 +947,14 @@ msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "陈分数量"
 
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "認識された成分の数"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "未识别成分的数量"
+
 msgctxt "ingredients_p"
 msgid "ingredients"
 msgstr "成分"
@@ -985,11 +1002,11 @@ msgstr "/images/misc/appstore/black/appstore_CN_SC.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "在app商店下载"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1009,7 +1026,7 @@ msgstr "有机产品"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "只显示最具体的标签。“父”标签会自动添加进去"
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1071,7 +1088,9 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "通过添加信息，数据和/或图像，您同意将您的贡献不可撤销地置于 <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License 1.0</a> 许可\n"
+"用于信息和数据，以及 <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution-ShareAlike 3.0</a> 图像许可。\n"
+"您接受链接到您正在贡献的产品的链接，以得到重新使用者的信任。"
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1191,7 +1210,7 @@ msgstr "贡献"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1200,7 +1219,7 @@ msgstr "发现"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1240,7 +1259,7 @@ msgstr "将图片移动到另外一个产品上"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s的产品"
 
 msgctxt "name"
 msgid "Name"
@@ -1313,7 +1332,7 @@ msgstr "每一百克含有的营养成分"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1615,7 +1634,7 @@ msgstr "贡献者和国家排名"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s是%d国家的探险者以及%d国家的大使"
 
 msgctxt "previous"
 msgid "Previous"
@@ -1947,23 +1966,23 @@ msgstr "下载结果"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "以XLSX或CSV格式下载结果。请注意，出于性能原因，您最多只能下载10.000个结果。"
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSX格式"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel或LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSV格式"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "字符集：Unicode(UTF-8)-分隔符：制表(tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -1987,7 +2006,7 @@ msgstr "散点"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→要了解更多信息 <<site_name>> 请访问<a href=\"/graphs-in-3-clicks\">点击</a>(博客)</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2180,7 +2199,7 @@ msgstr "分量"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "准备的份量"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2188,7 +2207,7 @@ msgstr "60 克, 12 盎司, 200毫升, 2 盎司"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "如果营养事实表中包含配制产品的数值，请注明配制产品的总食用量（包括添加的水或牛奶）。"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2228,7 +2247,7 @@ msgstr "排序方式"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "完整性"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2320,7 +2339,7 @@ msgstr "牛奶，面筋，坚果"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "从 \"可能含有\"、\"在也使用 \"的工厂制造 \"等提法中注明成分。"
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2438,7 +2457,7 @@ msgstr "/images/misc/microsoft/Chinese_Simplified.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "从 Microsoft 获取"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
@@ -2465,13 +2484,21 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "取消选择图片时出错。"
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "使用鼠标滚轮启用缩放。"
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "加载较低分辨率的图像（用于缓慢的连接)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "警告：未指定纤维数量，它们对营养等级可能的正向贡献或许不被考虑在内。"
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "警告：没有说明纤维和水果、蔬菜和坚果的含量，不能考虑到它们可能对等级的积极贡献。"
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2551,7 +2578,7 @@ msgstr "此产品页面不完整。 您可以通过编辑它并从我们的照�
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2563,7 +2590,7 @@ msgstr "翻译人员"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "我们想对那些能用所有这些不同语言向您介绍Open Food Facts，Open Beauty Facts和Open Pet Food Facts的出色翻译表示感谢！ <a href=\"https://translate.openfoodfacts.org/\">您可以与我们一同努力：翻译它不需要任何技术知识。</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2631,7 +2658,7 @@ msgstr "添加的其他营养物质"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "已售出的"
 
 msgctxt "prepared_product"
 msgid "Prepared"
@@ -2643,28 +2670,28 @@ msgstr "单位"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "营养事实是针对所售产品所规定的。"
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "营养事实是为准备好的产品规定的。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA集团"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA集团"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "用于食品加工的NOVA小组"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "合作伙伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2693,11 +2720,11 @@ msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "65岁及以上的老年人"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "青少年"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
@@ -2705,7 +2732,7 @@ msgstr "10至17岁"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "10岁至17岁（含17岁）；"
 
 msgctxt "children"
 msgid "Children"
@@ -2717,11 +2744,11 @@ msgstr "3至9岁"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "从36个月到9岁（含9岁）；"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "幼儿"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
@@ -2733,7 +2760,7 @@ msgstr "从 12 岁到 35 岁（含 35 岁）"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "婴幼儿"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2741,15 +2768,15 @@ msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "12周以上至11个月大的婴儿"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "欧洲食品安全局的评价"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "过度暴露的风险"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
@@ -2773,51 +2800,51 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "过度暴露的高风险"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "过度接触风险适中"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过每日可接受摄入量的风险 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "超过最大剂量而无不良效应的风险（无观察到的不良效应水平 - NOAEL）"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过50%以上的成员超过可接受的日摄入量的群体 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过5%以上的成员超过可接受的日摄入量的群体 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "50%以上的成员超过最大剂量而无不良反应的组别（无观察到的不良反应水平 - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "超过5%的成员超过最大剂量而无不良反应的组别（无观察到的不良反应水平 - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "一些人"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "超过 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "大多数人"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "超过 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -2825,71 +2852,71 @@ msgstr "维基百科"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "功能"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "照片和数据检查"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "产品页面可以由有经验的投稿人进行标记检查，确认选取了最新的照片并进行了裁剪，并且能从产品照片中推断出的产品数据都已经填好了，而且是正确的。"
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "已检查照片和数据"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "我已检查照片和数据。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "我又检查了一下照片和数据。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "最后检查日期"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "最后检查日期"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "最近一次修改产品页面在..."
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "生产者版本标识符"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
-msgstr ""
+msgstr "生产者版本标识符"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "净重:"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "沥干物重"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "容量"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "保存条件"
 
 msgctxt "warning"
 msgid "Warning"
@@ -2897,111 +2924,111 @@ msgstr "警告"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "准备"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "配方想法"
 
 msgctxt "origin"
 msgid "Origin"
-msgstr ""
+msgstr "起源"
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "客户服务"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "制造商"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "回收说明-回收"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "回收指导-想要丢弃"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "检查的产品达到%s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "未检查的产品达到%s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "纠正过的产品达到%s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "未纠正过的产品达到%s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "产品编辑达到%s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "产品未编辑到达%s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "纠正过的产品达到%s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "未完成的产品达到%s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "拍照过的产品达到%s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "未拍照过的产品达到%s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s页"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "产品不再发售了"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "提款日期"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "格式：YYYY-MM-DD或YYYY-MM或YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30或2019-09或2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "重要提示：本产品已不再销售。该数据仅作为参考资料保存。本产品不在常规搜索中出现，不计入统计。"
 
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "获取应用"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "创建 Android 应用"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "获取 iPhone 应用"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "获取 iPad 应用"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3009,15 +3036,15 @@ msgstr ""
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
-msgstr ""
+msgstr "环境信息卡"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr ""
+msgstr "移动应用中环境信息卡的HTML代码"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "环境影响水平"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
@@ -3025,7 +3052,7 @@ msgstr ""
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "肉类或鱼类产生的碳影响"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3065,7 +3092,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "帮助将 %s 翻译为 %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -3073,23 +3100,23 @@ msgstr ""
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "仅显示没有待处理翻译的条目。"
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "同时显示来自您或其他用户的待处理翻译的条目。"
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "已翻译"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "待翻译"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "当前翻译"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3101,7 +3128,7 @@ msgstr "不"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "跳过"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3113,11 +3140,11 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "配料分析"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "配料分析"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3133,33 +3160,33 @@ msgstr ""
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "修订编号："
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "编辑者："
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "之前的版本"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "下一个版本"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "最新版本"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "导入产品数据文件"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "上传一个包含产品数据的表格文件（Excel 文件或以制表符分割数据的 UTF-8 编码 CSV 文件）。"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3169,19 +3196,19 @@ msgstr ""
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "上传包含产品数据的文件"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "正在上传文件。"
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "此文件无法上传。"
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "选择并导入数据"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
@@ -3189,7 +3216,7 @@ msgstr ""
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "导入数据"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
@@ -3221,11 +3248,11 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "其他信息"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "产品照片"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -3249,6 +3276,10 @@ msgstr ""
 
 msgctxt "categories_specific"
 msgid "Specific category"
+msgstr ""
+
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
 msgstr ""
 
 msgctxt "select_a_field"
@@ -3280,21 +3311,30 @@ msgid "only the unit, with the value in another column"
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3335,6 +3375,10 @@ msgstr ""
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
+msgstr ""
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
 msgstr ""
 
 msgctxt "value_in_kcal"
@@ -3831,7 +3875,7 @@ msgstr ""
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "制造商"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
@@ -4045,5 +4089,72 @@ msgstr ""
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
+msgstr ""
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr ""
+
+msgctxt "done_status"
+msgid "Done"
+msgstr ""
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

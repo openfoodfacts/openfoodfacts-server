@@ -56,8 +56,6 @@ use XML::Rules;
 
 
 
-$lc = 'fr';
-
 %global_params = (
 	lc => 'fr',
 #	countries => "France",	# -> will be assigned based on which language fields are present

@@ -54,11 +54,26 @@ my @tests = (
 ["es", "Valor Energético KJ / 100 gr", { field=>"energy-kj_100g_value_unit", value_unit=>'value_in_kj'}],
 ["es", "Valor Energético KJ / 100gr", { field=>"energy-kj_100g_value_unit", value_unit=>'value_in_kj'}],
 ["es", "Valor Energético KJ por porción", { field=>"energy-kj_serving_value_unit", value_unit=>'value_in_kj'}],
+
+["en", "vitamin c (µg)", { field=>"vitamin-c_100g_value_unit", value_unit=>"value_in_mcg"}],
+["en", "folates_ug_100g", { 'field' => 'folates_100g_value_unit', 'value_unit' => 'value_in_mcg' }],
+["en", "vitamin-a_iu_100g", { 'field' => 'vitamin-a_100g_value_unit', 'value_unit' => 'value_in_iu' }],
+["en", "soluble-fiber_g_100g", { 'field' => 'soluble-fiber_100g_value_unit', 'value_unit' => 'value_in_g' }],
+
+# English fields in another language
+["fr", "name", {'field' => 'product_name_fr'}],
+["fr", "product name", {'field' => 'product_name_fr'}],
+
+# nutrient in unit
+["en", "energy in kJ", { 'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj'}],
+["en", "carbohydrates in mg", { 'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_mg' }],
+["fr", "énergie en kJ", {  'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj' }],
+
 );
 
 foreach my $test_ref (@tests) {
 
-	my $fieldid = get_string_id_for_lang("no_language", $test_ref->[1]);
+	my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
 	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);	
 	is_deeply($result_ref, $test_ref->[2])
 		or diag explain { test => $test_ref, fieldid => $fieldid, result => $result_ref };

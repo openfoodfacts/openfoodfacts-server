@@ -39,8 +39,6 @@ use XML::Rules;
 
 # default language (needed for cleaning fields)
 
-$lc = "fr";
-
 %global_params = (
 	lc => 'fr',
 	countries => "France",

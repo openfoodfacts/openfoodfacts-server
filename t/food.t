@@ -38,32 +38,37 @@ delta_ok( unit_to_mmoll(1, 'gpg'), 0.171 );
 is( mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056 );
 
 # Chinese Measurements Source: http://www.new-chinese.org/lernwortschatz-chinesisch-masseinheiten.html
-# kè - gram
+# kè - gram - 克
 is( normalize_quantity("42\N{U+514B}"), 42 );
 is( normalize_serving_size("42\N{U+514B}"), 42 );
 is( unit_to_g(42, "\N{U+514B}"), 42 );
 is( g_to_unit(42, "\N{U+514B}"), 42 );
-# héokè - milligram
+# gōngkè - gram - 公克 (in use at least in Taïwan)
+is( normalize_quantity("42\N{U+516C}\N{U+514B}"), 42 );
+is( normalize_serving_size("42\N{U+516C}\N{U+514B}"), 42 );
+is( unit_to_g(42, "\N{U+516C}\N{U+514B}"), 42 );
+is( g_to_unit(42, "\N{U+516C}\N{U+514B}"), 42 );
+# héokè - milligram - 毫克
 is( normalize_quantity("42000\N{U+6BEB}\N{U+514B}"), 42 );
 is( normalize_serving_size("42000\N{U+6BEB}\N{U+514B}"), 42 );
 is( unit_to_g(42000, "\N{U+6BEB}\N{U+514B}"), 42 );
 is( g_to_unit(42, "\N{U+6BEB}\N{U+514B}"), 42000 );
-# jīn - pound 500 g
+# jīn - pound 500 g - 斤
 is( normalize_quantity("84\N{U+65A4}"), 42000 );
 is( normalize_serving_size("84\N{U+65A4}"), 42000 );
 is( unit_to_g(84, "\N{U+65A4}"), 42000 );
 is( g_to_unit(42000, "\N{U+65A4}"), 84 );
-# gōngjīn - kg
+# gōngjīn - kg - 公斤
 is( normalize_quantity("42\N{U+516C}\N{U+65A4}"), 42000 );
 is( normalize_serving_size("42\N{U+516C}\N{U+65A4}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+65A4}"), 42000 );
 is( g_to_unit(42000, "\N{U+516C}\N{U+65A4}"), 42 );
-# háoshēng - milliliter
+# háoshēng - milliliter - 毫升
 is( normalize_quantity("42\N{U+6BEB}\N{U+5347}"), 42 );
 is( normalize_serving_size("42\N{U+6BEB}\N{U+5347}"), 42 );
 is( unit_to_g(42, "\N{U+6BEB}\N{U+5347}"), 42 );
 is( g_to_unit(42, "\N{U+6BEB}\N{U+5347}"), 42 );
-# gōngshēng - liter
+# gōngshēng - liter - 公升
 is( normalize_quantity("42\N{U+516C}\N{U+5347}"), 42000 );
 is( normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000 );
 is( unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000 );
@@ -296,6 +301,14 @@ is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-7
 is (normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
 is (localize_packager_code(normalize_packager_codes("PL 14281601 WE")), "PL 14281601 WE", "PL: normalized code correctly");
 
+is (normalize_packager_codes("FI 4201 EY"), "FI 4201 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI 305-1 EY"), "FI 305-1 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI F07551 EY"), "FI F07551 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI FI219 EY"), "FI FI219 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI S837106 EY"), "FI S837106 EC", "FI: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("FI 4201 EY")), "FI 4201 EC", "FI: normalizing code twice does not change it any more than normalizing once");
+is (localize_packager_code(normalize_packager_codes("FI 4201 EY")), "FI 4201 EY", "FI: round-tripped code correctly");
+
 $product_ref = {
     nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };
@@ -341,6 +354,82 @@ my $expected_product_ref =
   }
 
  ;
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
+
+$product_ref = {
+	nutriments => { "sugars" => 4},
+	nutrition_data_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref =
+
+ {
+   'nutriments' => {
+     'sugars' => 4,
+     'sugars_100g' => 16,
+     'sugars_serving' => 4
+   },
+   'nutrition_data' => 'on',
+   'nutrition_data_per' => 'serving',
+   'nutrition_data_prepared_per' => '100g',
+   'product_quantity' => 100,
+   'quantity' => '100 g',
+   'serving_quantity' => 25,
+   'serving_size' => '25 g'
+  }
+
+ ;
+
+is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
+
+$product_ref = {
+	nutriments => { "energy-kcal_prepared" => 58, "energy-kcal_prepared_value" => 58, "salt_prepared" => 10, "salt_prepared_value" => 10 },
+	nutrition_data_prepared_per => "serving",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+my $expected_product_ref =
+ {
+   'nutriments' => {
+     'energy-kcal_prepared' => 58,
+     'energy-kcal_prepared_100g' => 232,
+     'energy-kcal_prepared_serving' => 58,
+     'energy-kcal_prepared_unit' => 'kcal',
+     'energy-kcal_prepared_value' => 58,
+     'energy_prepared' => 243,
+     'energy_prepared_100g' => 972,
+     'energy_prepared_serving' => 243,
+     'energy_prepared_unit' => 'kcal',
+     'energy_prepared_value' => 58,
+     'salt_prepared' => 10,
+     'salt_prepared_100g' => 40,
+     'salt_prepared_serving' => 10,
+     'salt_prepared_value' => 10
+   },
+   'nutrition_data_per' => '100g',
+   'nutrition_data_prepared' => 'on',
+   'nutrition_data_prepared_per' => 'serving',
+   'product_quantity' => 100,
+   'quantity' => '100 g',
+   'serving_quantity' => 25,
+   'serving_size' => '25 g'
+ }
+
+;
+
+is(default_unit_for_nid("sugars"), "g");
+is(default_unit_for_nid("energy-kj"), "kJ");
+is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 

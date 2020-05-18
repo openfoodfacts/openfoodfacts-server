@@ -93,7 +93,7 @@ elsif ($action eq "process") {
 	my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
 	(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
 
-	$log->debug("Moving data to deleted dir", { owner_id => $Owner_id, deleted_dir => $deleted_dir }) if $log->is_debug();
+	$log->debug("Moving data to deleted dir", { owners_tags => $Owner_id, deleted_dir => $deleted_dir }) if $log->is_debug();
 
 	mkdir($deleted_dir, oct(755));
 

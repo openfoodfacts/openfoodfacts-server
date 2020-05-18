@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-03-07 15:12\n"
+"PO-Revision-Date: 2020-05-03 10:09\n"
 "Language-Team: Malagasy\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -17,36 +17,36 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "Vokatra 1"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " sy "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Momba ahy"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Hanampy"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Hanampy fiteny"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Hampiditra vokatra"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Hisoratra anarana"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p> Misaotra amin'ny fidirana. Afaka miditra ao amin'ilay tranokala ianao manomboka izao raha hanampy sy hanova ireo vokatra. </p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,72 +64,86 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Salama <NAME>,\n\n"
+"Misaotra betsaka tamin'ny fidirana amin'ny https://openfoodfacts.org\n"
+"Indreto ny anaran'ny mpampiasa anao:\n\n"
+"Anaran'ny mpampiasa: <USERID>\n\n"
+"Azonao atao ny miditra amin'ny tranokala hanampiana sy hanova ny vokatra.\n\n"
+"<<site_name>> dia tetikasa fiaraha-miasa ahafahanao mitondra betsaka lavitra noho ny vokatra vaovao: ny herinao, ny fahavitrihanao ary ny hevitrao!\n"
+"Mba hifaneraseran'ny mpandray anjara sy ho fampandehanana ny tetikasa dia mampiasa fitaovana fampitana hafatra antsoina hoe Slack: https://slack.openfoodfacts.org\n\n"
+"Azonao atao koa ny miditra amin'ny vondrona Facebook ho an'ny mpandray anjara:\n"
+"https://www.facebook.com/group/OpenFoodFacts/\n\n"
+"Vaovao: manomboka koa ny Open Beauty Facts izahay mba hamorona tranokala momba ny fikarakaram-batana: savony, dentifrisy, makiazy sns.\n"
+"https://openbeautyfacts.org\n\n"
+"Misaotra indrindra!\n\n"
+"Stéphane sy ny ekipan'ny Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Misaotra nanatevina ny <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Fangaron-tsakafo simika mety hampidi-doza. Ferana ny fampiasana azy."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Fangaron-tsakafo mampidi-doza. Aza ampiasaina."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Fangaron-tsakafo voarara any Eropa. Aza ampiasaina mihitsy."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "fangaron-tsakafo"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "fangaron-tsakafo"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Fikarohana lalindalina"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Fikarohana lalindalina sy kisary"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Manimba fahasalamana ny fisotroana tafahoatra."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Ny iraka atao rehetra"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Singa na vokatra mety hiteraka allergies na tsy fahazakana"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "singa mitondra tsy fahazakana"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "singa mitondra tsy fahazakana"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Vokatra eto amin'ny pejy kirakirain'i"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -139,325 +153,334 @@ msgstr ""
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Raiso ao amin'ny Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p> Mbola tsy tafiditra ao amin'ny firaketana <<site_name>> ity vokatra ity. Azonao atao ve ny maka sary vitsivitsy momba io vokatra io, ny code barre, ny lisitry ny fangaro ary ny zava-misy momba azy mba hanatevenana ny firaketana <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p>\n"
+"<p> Misaotra mialoha! </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Makà sary"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Fanamarihana: ireo sary alefanao dia mivoaka eo ambany fahazoamampiasa maimaim-poana Creative Commons Attribution sy ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Azonao atao ny manampy sary:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Tsipika marindrano"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Tsipika mitsangana"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Kaody bara"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Laharana kaody bara:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Azonao atao koa ny manampy amin'ny famatsiam-bola ny tetikasa Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> <1 /> </a> <p> <<site_name>> dia novolavolaina fikambanana tsy mitady tombony, tsy miankina amin'ny orinasa. Natao ho an'ny rehetra, avy amin'ny rehetra, ary vatsian'ny rehetra. Azonao atao ny manohana ny asanay amin'ny <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> fanomezana ho an'ny Open Beauty Facts </a> ary amin'ny alàlan'ny <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> mampiasa ny milina fikarohana an'ny Lilo koa </a>. <5 /> <b> Misaotra! </b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Manomeza fanohanana hanatanterahana ny tetikasanay"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Marika"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "marika"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Vokatra avy amin'ny marika %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "marika"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "hanampy marika iray"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
+msgstr "Vokatra tsy avy amin'ny marika %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr ""
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
 msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "avy amin'ny"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Sokajy"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardina menaka oliva, ranom-boasary avy amin'ny akora marihitra"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Lazao fotsiny ny sokajy mampiavaka azy indrindra. Hampiana ho azy ny sokajy \"Reniny\"."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "sokajy"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Vokatra avy amin'ny sokajy %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "sokajy"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "ampio sokajy iray"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Vokatra tsy avy amin'ny sokajy %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Firaketana"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Hentin'ny sakafo"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Sary voafantina"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Hampiditra sary"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "mpanamarina"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "mpanamarina"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "tanàna nanaovana ny famonosana"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Vokatra nofonosina tao an-tanànan'ny %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "tanàna nanaovana ny famonosana"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Vokatra tsy nofonosina tao an-tanànan'ny %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Kaody"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kaody"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "nahavita %d iraka:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Niditra tamin'ny kaontinao Facebook ianao."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Mpandray anjara hatramin'ny"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "Adikao ny firaketana avy amin'ny vokatra efa misy mankany amin'ny vokatra vaovao"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Azafady ahitsy ireto fahadisoana manaraka ireto:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "mpanintsy"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "mpanintsy"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Firenana ivarotana"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "Firenena izay misy ny vokatra ary misy azy betsaka (tsy anisan'izany ireo fivarotana manokana momba ny vokatra avy any ivelany)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "firenena"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Varotra amidy ao %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "firenena"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Varotra tsy amidy ao %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Loharanom-kevitra"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "loharanom-kevitra"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "loharanon-kevitra"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "debug"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "debug"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Antony hanalàna azy"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Hamafa vokatra"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Hamafa ny takelaka"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Hamafa ny sary"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Hanala mpampiasa iray"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Nampiana:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Novaina:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Nalana:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Hanome fanampiana ny Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Dia ekolojika"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Raha voafaritra amin'ny mari-pamantarana ny dia karbônina (zara raha misy amin'izao fotoana izao) dia ampahafantaro ny habetsaky ny otrikaina."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "ovana"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Fanovana famintinana"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Hanova vokatra"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Hanova ny takila"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Hanova ny mombamomba anao"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Voatahiry ny fanovana amin'ny mombamomba anao."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Hita eto amin'ny mombamomba anao ny fanazavana eto ambany."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Hanova ny mombamomba ny kaontinao"
 
 msgctxt "edit_user"
 msgid "Account parameters"
@@ -753,7 +776,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
@@ -922,6 +945,14 @@ msgstr ""
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr ""
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "Isan'ny fangaro azo ekena"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "Isan'ny singa tsy fantatra"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1161,7 +1192,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Hampiditra vokatra"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1786,7 +1817,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Varotra amidy ao %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1798,7 +1829,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Varotra tsy amidy ao %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2035,7 +2066,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Hentin'ny sakafo"
 
 msgctxt "search_or"
 msgid "or"
@@ -2191,7 +2222,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Hiala"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2442,6 +2473,14 @@ msgstr ""
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
+msgstr ""
+
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr ""
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
@@ -3230,6 +3269,10 @@ msgctxt "categories_specific"
 msgid "Specific category"
 msgstr ""
 
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr ""
+
 msgctxt "select_a_field"
 msgid "Select a field"
 msgstr ""
@@ -3259,21 +3302,30 @@ msgid "only the unit, with the value in another column"
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_label"
+msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_label_value"
+msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
 msgstr ""
 
 # Please do not translate Y, Yes and 1
-msgctxt "specific_tag_category"
-msgid "Select this option if the column indicates that the product is in a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
 msgstr ""
 
-msgctxt "specific_tag_category_value"
+msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
+msgstr ""
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr ""
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
 msgstr ""
 
 msgctxt "value"
@@ -3314,6 +3366,10 @@ msgstr ""
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
+msgstr ""
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
 msgstr ""
 
 msgctxt "value_in_kcal"
@@ -4024,5 +4080,72 @@ msgstr ""
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
+msgstr ""
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr ""
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr ""
+
+msgctxt "done_status"
+msgid "Done"
+msgstr ""
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr ""
+
+msgctxt "teams"
+msgid "Teams"
+msgstr ""
+
+msgctxt "optional"
+msgid "optional"
+msgstr ""
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr ""
+
+msgctxt "teams_s"
+msgid "team"
+msgstr ""
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr ""
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr ""
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr ""
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

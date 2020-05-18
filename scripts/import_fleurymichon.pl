@@ -354,7 +354,7 @@ print STDERR "importing products\n";
 								or ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid) ) {
 								print STDERR "assigning image $imgid ($fleury_michon_image_file) to front-fr\n";
 
-								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
+								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 
 								$crop++;
 							}

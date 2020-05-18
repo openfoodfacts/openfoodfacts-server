@@ -280,6 +280,8 @@ sub import_csv_file($) {
 
 	# Read images if supplied
 
+	my @sorted_nutriments = sort keys %Nutriments;
+
 	my $images_ref = {};
 
 	if ((defined $args_ref->{images_dir}) and ($args_ref->{images_dir} ne '')) {
@@ -604,13 +606,31 @@ sub import_csv_file($) {
 			}
 		}
 
-		# Record fields that are set by the owner
-		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
+		# Record fields that are set by the owner, when the owner is a producer org
+		# (and not a database or label org)
+		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
+			and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/) ) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
 			$product_ref->{owner} = $args_ref->{owner_id};
 			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
+		# We can have source specific fields of the form : sources_fields:org-database-usda:fdc_category
+		# Transfer them directly
+		foreach my $field (sort keys %$imported_product_ref) {
+			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
+				my $source_id = $1;
+				my $source_field = $';
+				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
+				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
+				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
+					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
+					$modified++;
+				}
+			}
+		}
+
+		# Go through all the possible fields that can be imported
 		foreach my $field (@param_fields) {
 
 			# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
@@ -654,7 +674,11 @@ sub import_csv_file($) {
 				if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
 					and ($field ne "imports")	# "imports" contains the timestamp of each import
 					) {
-					$product_ref->{owner_fields}{$field} = $time;
+
+					# Don't set owner_fields for labels and databases, only for producers
+					if (($args_ref->{owner_id} !~ /^org-label-/) and ($args_ref->{owner_id} !~ /^org-database-/)) {
+						$product_ref->{owner_fields}{$field} = $time;
+					}
 
 					# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
 					if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
@@ -867,7 +891,7 @@ sub import_csv_file($) {
 		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
 		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
 
-		foreach my $nutriment (@{$nutriments_tables{europe}}, "nutrition-score-fr-producer") {
+		foreach my $nutriment (@sorted_nutriments) {
 
 			next if $nutriment =~ /^\#/;
 
@@ -890,6 +914,7 @@ sub import_csv_file($) {
 				$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
 				$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
 				$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
+				$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
 			);
 
 			# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
@@ -904,6 +929,13 @@ sub import_csv_file($) {
 
 					next if (defined $values{$type});
 
+					# Skip serving values if we have 100g values
+					if ((defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
+						and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
+						and ($per eq "_serving")) {
+						next;
+					}
+
 					if ((defined $imported_product_ref->{$nid . $type . $per . "_value"})
 						and ($imported_product_ref->{$nid . $type . $per . "_value"} ne "")) {
 						$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
@@ -914,19 +946,36 @@ sub import_csv_file($) {
 						$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
 					}
 
+					# Energy can be: 852KJ/ 203Kcal
 					# calcium_100g_value_unit = 50 mg
+					# 10g
 					if (not defined $values{$type}) {
-						if ((defined $imported_product_ref->{$nid . $type . $per . "_value_unit"})
-							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(.*) ([a-z]+)$/)) {
-							$values{$type} = $1;
-							$unit = $2;
+						if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
+
+							# Assign energy-kj and energy-kcal values from energy field
+
+							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i)) {
+								if (not defined $imported_product_ref->{$nid . "-j" . $type . $per . "_value_unit"}) {
+									$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
+								}
+							}
+							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kcal/i)) {
+								if (not defined $imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"}) {
+									$imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"} = $1 . " kcal";
+								}
+							}
+
+							if ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i) {
+								$values{$type} = $1;
+								$unit = $5;
+							}
 						}
 					}
 
 					# calcium_100g_value_in_mcg
 
 					if (not defined $values{$type}) {
-						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml') {
+						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu') {
 							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
 							if ((defined $value_in_u) and ($value_in_u ne "")) {
 								$values{$type} = $value_in_u;
@@ -945,6 +994,19 @@ sub import_csv_file($) {
 					$unit = '% vol';
 				}
 
+				# Standardize units
+				if (defined $unit) {
+					if ($unit eq "kj") {
+						$unit = "kJ";
+					}
+					elsif ($unit eq "mcg") {
+						$unit = "µg";
+					}
+					elsif ($unit eq "iu") {
+						$unit = "IU";
+					}
+				}
+
 				my $modifier = undef;
 
 				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
@@ -960,7 +1022,8 @@ sub import_csv_file($) {
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
-					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)) {
+					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
+						and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}
@@ -977,6 +1040,7 @@ sub import_csv_file($) {
 					$stats{products_nutrition_changed}{$code} = 1;
 					$modified++;
 					$nutrients_edited{$code}++;
+					push @modified_fields, "nutrients.$field";
 				}
 				elsif ((defined $product_ref->{nutriments}{$field}) and ($product_ref->{nutriments}{$field} ne "")
 					and ((not defined $original_values{$field})	or ($original_values{$field} eq ''))) {
@@ -985,12 +1049,14 @@ sub import_csv_file($) {
 					$stats{products_nutrition_added}{$code} = 1;
 					$modified++;
 					$nutrients_edited{$code}++;
+					push @modified_fields, "nutrients.$field";
 				}
 				elsif ((not defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field}) and ($original_values{$field} ne '')) {
 					$log->debug("deleted nutrient value", { field => $field, old => $original_values{$field} }) if $log->is_debug();
 					$stats{products_nutrition_updated}{$code} = 1;
 					$modified++;
 					$nutrients_edited{$code}++;
+					push @modified_fields, "nutrients.$field";
 				}
 			}
 		}
@@ -1353,6 +1419,7 @@ sub import_csv_file($) {
 						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
 						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
 						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+						my $coordinates_image_size = $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
 						my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
 						my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
 						my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
@@ -1368,7 +1435,7 @@ sub import_csv_file($) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
@@ -1391,7 +1458,7 @@ sub import_csv_file($) {
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -1404,7 +1471,7 @@ sub import_csv_file($) {
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2); };
+							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {
