@@ -45302,6 +45302,13 @@ fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
 
 <en:Meals
+en:Pork chop suey, Chicken chop suey
+fr:Chop suey de porc, Chop suey de poulet, Chop suey au porc, Chop suey au poulet
+ciqual_food_code:en:25205
+ciqual_food_name:en:Chop suey (pork or chicken)
+ciqual_food_name:fr:Chop suey (porc ou poulet)
+
+<en:Meals
 en:Couscous, Durum wheat semolina pre-cooked with steam
 fr:Couscous, Semoule de blé dur roulée précuite à la vapeur
 ciqual_food_code:en:9681
@@ -45420,6 +45427,20 @@ ciqual_food_code:en:26054
 ciqual_food_name:en:Fish, in sauce, frozen
 
 <en:Meals with fish
+en:Cooked white fish without skin
+fr:Poisson blanc cuit, Poisson blanc cuit sans la peau
+ciqual_food_code:en:26249
+ciqual_food_name:en:Fish, white, without skin, cooked
+ciqual_food_name:fr:Poisson blanc, cuit (aliment moyen)
+
+<en:Meals with fish
+en:Cooked marine white fish without skin
+fr:Poisson blanc de mer cuit
+ciqual_food_code:en:26250
+ciqual_food_name:en:Marine fish, white, without skin, cooked
+ciqual_food_name:fr:Poisson blanc, de mer, cuit (aliment moyen)
+
+<en:Meals with fish
 en:White fish with Provencal-style tomato sauce
 fr:Poisson blanc à la provençale, Poisson blanc à la niçoise
 ciqual_food_code:en:25128
@@ -45467,6 +45488,13 @@ nl:Zalmmaaltijden
 
 <en:Meals with salmon
 fr:Parmentiers de saumon
+
+<en:Meals with salmon
+en:Stuffed salmon
+fr:Saumon farci
+ciqual_food_code:en:25210
+ciqual_food_name:en:Stuffed salmon
+ciqual_food_name:fr:Saumon farci
 
 <en:Meals with fish
 en:Meals with tuna
@@ -45684,9 +45712,12 @@ ciqual_food_name:en:Beef stew with carrots
 ciqual_food_name:fr:Boeuf aux carottes
 
 <en:Beef dishes
-en:Beef carpaccio
-fr:Carpaccio de boeuf
+en:Beef carpaccio, Beef carpaccio with marinade
+fr:Carpaccio de boeuf, Carpaccio de bœuf, Carpaccio de bœuf avec marinade
 nl:Rundvleescarpaccio
+ciqual_food_code:en:25538
+ciqual_food_name:en:Beef carpaccio, w marinade
+ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
 
 <en:Meals with meat
 en:Pork meals
@@ -45912,6 +45943,14 @@ ciqual_food_code:en:25164
 ciqual_food_name:en:Osso buco
 ciqual_food_name:fr:Osso buco
 
+<en:Meals with meat
+<en:meat dishes, no garnish
+en:Molokhia, Jute and beef-based meal
+fr:Meloukhia, Plat à base de bœuf et de corète, Plat à base de boeuf et de corete
+ciqual_food_code:en:25175
+ciqual_food_name:en:Molokhia, jute and beef-based meal
+ciqual_food_name:fr:Meloukhia, plat à base de boeuf et corete
+
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
@@ -46039,6 +46078,10 @@ ru:Супы, Суп
 sv:Soppor, soppa
 th:ซุป
 zh:汤
+fr:Soupe
+ciqual_food_code:en:25969
+ciqual_food_name:en:Soup (average)
+ciqual_food_name:fr:Soupe (aliment moyen)
 
 <en:Soups
 <en:Canned meals
@@ -46088,6 +46131,9 @@ fr:Soupe miso
 nl:Miso soepen
 ru:Мисосиру
 wikidata:en:Q471866
+ciqual_food_code:en:25972
+ciqual_food_name:en:Miso soup
+ciqual_food_name:fr:Soupe miso
 
 <en:Soups
 en:Dehydrated and reconstituted Moroccan soup
@@ -48103,6 +48149,13 @@ en:Cooked meats
 fr:Viandes cuites
 
 <en:Meats
+en:Meats in sauce, Meat in sauce
+fr:Viandes en sauce, Viande en sauce
+ciqual_food_code:en:25172
+ciqual_food_name:en:Meat in sauce (average)
+ciqual_food_name:fr:Viande en sauce (aliment moyen)
+
+<en:Meats
 en:Dried meats
 ca:Carns assecades
 de:Trockenfleisch
@@ -48421,9 +48474,12 @@ nl:Kalfstong in pikante saus
 
 <en:Beef tongues
 <en:Beef preparations
-en:Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce
-fr:Langue de bœuf sauce madère, Langue de bœuf sauce madère
+en:Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
+fr:Langues de bœuf sauce madère, Langue de bœuf sauce madère
 nl:Rundertong op basis van Madeirasaus
+ciqual_food_code:en:25201
+ciqual_food_name:en:Beef tongue with Madeira wine sauce
+ciqual_food_name:fr:Langue de bœuf sauce madère
 
 <en:Raw beef meat
 en:Raw beef knuckle
@@ -49620,6 +49676,13 @@ en:Pork shoulder upper half without rind fat and bone raw
 fr:palette de porc
 ciqual_food_code:en:28477
 ciqual_food_name:en:Pork, shoulder upper half, without rind, fat and bone, raw
+
+<en:Pork
+en:Devilled pork shoulder in mustard sauce
+fr:Palette à la diable
+ciqual_food_code:en:25200
+ciqual_food_name:en:Devilled pork shoulder in mustard sauce
+ciqual_food_name:fr:Palette à la diable
 
 <en:Pork
 en:Pork tongue
@@ -56933,9 +56996,12 @@ nl:Pandalis Borealis
 
 <en:Shrimps
 <en:skewers
-en:shrimp skewers
-fr:Brochettes de crevettes, brochette de crevettes
+en:Shrimps on skewer, Shrimp skewers
+fr:Brochettes de crevettes, Brochette de crevettes
 nl:Inktivisspiesjes
+ciqual_food_code:en:25540
+ciqual_food_name:en:Shrimps on skewer
+ciqual_food_name:fr:Brochette de crevettes
 
 <en:Shrimps
 en:Prawns
@@ -57009,6 +57075,14 @@ wikidata:en:Q600396
 
 <en:Seafood
 en:Frozen seafood
+
+<en:Fishes
+en:Cooked fish
+fr:Poisson cuit
+ciqual_food_code:en:26140
+ciqual_food_name:en:Fish, cooked (average)
+ciqual_food_name:fr:Poisson cuit (aliment moyen)
+
 
 <en:Fishes
 <en:skewers
@@ -63565,6 +63639,15 @@ ciqual_food_code:en:25604
 ciqual_food_name:en:Green salad, raw, without seasoning
 ciqual_food_name:fr:Salade verte, crue, sans assaisonnement
 
+<en:Salads
+<en:Leaf vegetables
+<en:mixed salads
+en:Salad without dressing
+fr:Crudités sans assaisonnement
+ciqual_food_code:en:25616
+ciqual_food_name:en:Salad, vegetable, without dressing (average)
+ciqual_food_name:fr:Crudité, sans assaisonnement (aliment moyen)
+
 # <en:vegetable
 <en:Leaf vegetables
 en:corn salad, common cornsalad, lamb's lettuce, fetticus, feldsalat, nut lettuce, field salad, rapunzel, doucette, raiponce
@@ -67812,9 +67895,12 @@ fr:Steaks végétaux, steaks végétaux pour hamburgers
 nl:Plantaardige steaks voor hamburgers
 
 <en:Veggie patties
-en:Soy steak
-fr:Galettes de soja, steaks de soja
+en:Soy steak, Soy burger, Vegetable escalope
+fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
 nl:Sojasteaks
+ciqual_food_code:en:20914
+ciqual_food_name:en:Soy burger or vegetable escalope
+ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
 fr:Galettes de tofu, steaks de tofu
