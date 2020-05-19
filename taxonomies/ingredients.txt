@@ -1170,7 +1170,7 @@ pt:Gás propulsor
 ro:Agent de propulsare
 sk:Hnací plyn
 sl:Konzervans
-sv:Drivgas
+sv:Konserveringsmedel
 wikidata:en:Q50419221
 
 
@@ -6293,6 +6293,7 @@ lt:fermentas
 lv:ferments
 nl:Ferment
 pl:Fermentacja
+pt:fermento
 sv:jäsa
 tt:Фермент
 uk:Ферменти
@@ -9656,7 +9657,7 @@ nb:Fløte
 nl:room
 nn:Kremfløyte
 pl:Śmietanka
-pt:nata, creme de leite
+pt:nata, creme de leite, natas
 qu:Nata
 ro:Smântână
 ru:Сливки
@@ -13860,7 +13861,7 @@ or:ଲୁଣ
 pa:ਲੂਣ
 pl:sól, sól kuchenna
 ps:مالگه
-pt:Sal de cozinha, sal de cosina, sal de taula
+pt:sal, sal de cozinha, sal de cosina, sal de taula
 ro:sare, Sare de bucătărie
 ru:Поваренная соль
 rw:Umunyu
@@ -15112,7 +15113,7 @@ hu:sertéshús, disznóhús
 it:carne di suino
 nl:Varkensvlees
 pl:Wieprzowina
-pt:Carne de porco
+pt:carne de suíno, carne de porco
 ro:carne de porc, carne porc
 ru:Свинина
 sv:griskött
@@ -15526,6 +15527,10 @@ fr:jambon cuit supérieur
 
 <en:superior cooked ham
 fr:jambon cuit de qualité supérieure avec couenne jambon de porc
+
+#type of dried ham from portugal
+<en:ham
+pt:presunto
 
 <en:pork
 en:pork by-product
@@ -16889,7 +16894,7 @@ it:grassi vegetali
 nl:plantaardige vetten
 nn:vegetabilisk fett
 pl:Tłuszcz roślinny
-pt:gorduras vegetais, matérias gordas vegetais
+pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
 ro:grăsime vegetală
 ru:растительные жиры
 sv:vegetabiliska fetter
@@ -21232,6 +21237,7 @@ it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
+pt:aroma de baunilha natural
 sv:naturlig vanilijarom
 vegan:en:yes
 vegetarian:en:yes
@@ -26209,6 +26215,7 @@ hu:invertcukor
 it:zucchero invertito
 nl:Invertsuiker
 pl:Cukier inwertowany
+pt:açúcar invertido
 ro:zahăr invertit, zahar invertit
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
@@ -42341,7 +42348,7 @@ hu:szárított hagyma, dehidratált hagyma
 it:cipolle disidratate
 nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
 pl:Suszona cebula
-pt:cebola seca
+pt:cebola desidratada, cebola seca
 sv:torkad lök
 # ingredient/fr:oignons-déshydratés has 679 products @2018-12-06
 # ingredient/fr:oignons-séchés has 53 products in 6 languages @2018-11-06
@@ -42437,14 +42444,12 @@ sv:lök brynt i solrosolja
 # fr:oignons-grillés is a compound ingredient, eg:Zwiebeln gegrillt (Zwiebeln, Palmöl, Weizenmehl, Kochsalz)
 
 <en:onion
-en:fried onion
 de:Zwiebeln gegrillt
-es:cebollas fritas
 fi:paahdettu sipuli
 fr:oignon grillé, oignons grillés
 it:cipolle grigliate
-nl:Gefrituurde ui
-pt:cebolas fritas
+nl:gebakken ui, gebakken uien
+pt:cebolas grelhadas
 # ingredient/fr:oignons-grillés has 111 products in 4 languages @2018-12-06
 
 <en:fried onion
@@ -42452,11 +42457,15 @@ fr:oignon grillé en poudre
 
 # fr:oignon-frit is a compound ingredient, eg:gefrituurde uien ( uien, raapzaadolie, zonnebloemolie, zout)
 
+#is fried and grilled onion the same thing?
 <en:onion
+en:fried onion
+es:cebollas fritas
 fr:oignon frit, oignons frits, oignon frit
 de:frittierte Zwiebeln
 hu:Sült hagyma
-nl:gebakken ui, gebakken uien, gefrituurde uien
+nl:gefrituurde ui, gefrituurde uien
+pt:cebolas fritas
 # ingredient/fr:oignon-frit has 347 products @2018-12-6
 
 
@@ -44577,6 +44586,7 @@ fi:kuorittu tomaatti, kuoritut tomaatit
 fr:tomates pelées, tomate pelée
 it:pomodori pelati
 nl:gepelde tomaten
+pt:tomate pelado
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:tomate-pelée has 195 products in 2 languages @2018-12-26
@@ -44657,6 +44667,7 @@ fi:Tomaattisose
 fr:pulpe de tomate
 it:polpa di pomodoro
 nl:tomatenpulp
+pt:polpa de tomate
 sv:krossade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr:1.4
@@ -48506,6 +48517,7 @@ hu:gyógynövény, gyógynövények
 it:erba, piante aromatiche
 nl:Kruiden
 pl:Zioło
+pt:plantas aromáticas
 sv:örter
 vegan:en:yes
 vegetarian:en:yes
