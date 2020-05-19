@@ -21091,6 +21091,7 @@ ciqual_food_code:en:4103
 ciqual_food_name:en:Sweet potato, puree, cooked with cream
 ciqual_food_name:fr:Patate douce, purée, cuisinée à la crème
 
+<en:Cooked vegetables
 <en:Sweet potatoes
 en:Cooked sweet potatoes
 fr:Patates douces cuites
@@ -22095,6 +22096,9 @@ th:กลุ่มผลิตภัณฑ์ขนมปัง
 zh:面包
 wikidata:en:Q7802
 pnns_group_2:en:Bread
+ciqual_food_code:en:7000
+ciqual_food_name:en:Bread (average)
+ciqual_food_name:fr:Pain (aliment moyen)
 
 <en:Appetizers
 en:Filled fougasse
@@ -22262,6 +22266,9 @@ zh:麵包屑
 # yue:麪包糠
 wikidata:en:Q658413
 wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
+ciqual_food_code:en:7500
+ciqual_food_name:en:Breadcrumbs
+ciqual_food_name:fr:Chapelure
 
 <en:Bread crumbs
 en:Wheat crumbs
@@ -25849,6 +25856,13 @@ it:Gnocchi
 nl:Gnocchi
 
 <en:Gnocchi
+en:Cooked gnocchis
+fr:Gnocchis cuits
+ciqual_food_code:en:25579
+ciqual_food_name:en:Gnocchi, cooked (average)
+ciqual_food_name:fr:Gnocchi, cuit (aliment moyen)
+
+<en:Gnocchi
 en:Potato gnocchi, Gnocchi from potato
 de:Kartoffelgnocchi
 fi:perunagnocchi
@@ -25860,9 +25874,9 @@ ciqual_food_code:en:26264
 ciqual_food_name:en:Gnocchi, from potato, raw
 ciqual_food_name:fr:Gnocchi à la pomme de terre, cru
 
-<en:Gnocchi
-en:Cooked gnocchi from potato
-fr:Gnocchi sà la pomme de terre cuits
+<en:Cooked gnocchis
+en:Cooked gnocchis from potato
+fr:Gnocchis à la pomme de terre cuits
 ciqual_food_code:en:25510
 ciqual_food_name:en:Gnocchi, from potato, cooked
 ciqual_food_name:fr:Gnocchi à la pomme de terre, cuit
@@ -25875,9 +25889,9 @@ fr:Gnocchi de semoule de blé dur
 nl:Gnocchi van durum tarwe
 pnns_group_2:en:Cereals
 
-<en:Gnocchi
+<en:Cooked gnocchis
 <en:Cereals and their products
-en:Cooked gnocchi from semolina
+en:Cooked gnocchis from semolina
 fr:Gnocchis à la semoule cuits
 ciqual_food_code:en:25479
 ciqual_food_name:en:Gnocchi, from semolina, cooked
@@ -36530,6 +36544,23 @@ pt:Cereias para pequeno-almoçco
 sv:Frukostflingor
 th:อาหารเช้าธัญพืช
 pnns_group_2:en:Breakfast cereals
+ciqual_food_code:en:32003
+ciqual_food_name:en:Breakfast cereals, sweet (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner (aliment moyen)
+
+<en:Breakfast cereals
+en:Sweet breakfast cereals fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner enrichies en vitamines et minéraux
+ciqual_food_code:en:32031
+ciqual_food_name:en:Breakfast cereals, sweet, fortified with vitamins and chemical elements (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et minéraux (aliment moyen)
+
+<en:Breakfast cereals
+en:Sweet breakfast cereals not fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner non enrichies en vitamines et minéraux
+ciqual_food_code:en:32032
+ciqual_food_name:en:Breakfast cereals, sweet, not fortified with vitamins and chemical elements (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines et minéraux (aliment moyen)
 
 <en:Breakfast cereals
 en:Chocolate cereals
@@ -36568,11 +36599,28 @@ ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
 ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat (non enrichies en vitamines et minéraux)
 
 <en:Chocolate cereals
-en:Chocolate breakfast cereals with puffed/popped wheat grains fortified with vitamins and chemical elements
+<en:Puffed cereals
+en:Chocolate breakfast cereals with puffed wheat grains fortified with vitamins and chemical elements, Chocolate breakfast cereals with popped wheat grains fortified with vitamins and chemical elements
 fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
 ciqual_food_code:en:32115
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
+
+<en:Chocolate cereals
+<en:Puffed cereals
+en:Breakfast cereals with chocolate puffed rice not fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice not fortified with vitamins and chemical elements
+fr:Riz soufflé chocolaté non enrichi en vitamines et minéraux
+ciqual_food_code:en:32012
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr:Riz soufflé chocolaté (non enrichi en vitamines et minéraux)
+
+<en:Chocolate cereals
+<en:Puffed cereals
+en:Breakfast cereals with chocolate puffed rice fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice fortified with vitamins and chemical elements
+fr:Riz soufflé chocolaté enrichi en vitamines et minéraux
+ciqual_food_code:en:32131
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Riz soufflé chocolaté, enrichi en vitamines et minéraux
 
 <en:Chocolate cereals
 en:Breakfast chocolate cereals with wheat grain flakes fortified with vitamins and chemical elements
@@ -36636,7 +36684,7 @@ ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolat
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
 
 <en:Filled cereals
-en:Breakfast cereals popped or puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
+en:Breakfast cereals popped wheat grain with honey or caramel fortified with vitamins and chemical elements, Breakfast cereals puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au miel ou caramel enrichis en vitamines et minéraux
 ciqual_food_code:en:32000
 ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
@@ -36714,25 +36762,25 @@ ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped corn with honey (not fortified with vitamins and chemical elements)
+en:Breakfast cereals puffed corn with honey not fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey not fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel (non enrichies en vitamines et minéraux)
 ciqual_food_code:en:32129
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey (not fortified with vitamins and chemical elements)
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped corn with honey fortified with vitamins and chemical elements
+en:Breakfast cereals puffed corn with honey fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel enrichies en vitamines et minéraux
 ciqual_food_code:en:32133
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped cereals wholemeal fortified with vitamins and chemical elements
+en:Breakfast cereals puffed cereals wholemeal fortified with vitamins and chemical elements, Breakfast cereals popped cereals wholemeal fortified with vitamins and chemical elements
 fr:Céréales complètes soufflées enrichies en vitamines et minéraux
 ciqual_food_code:en:32134
 ciqual_food_name:en:Breakfast cereals, puffed/popped cereals, wholemeal, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals mix of puffed or extruded cereals fortified with vitamins and chemical elements
+en:Breakfast cereals mix of puffed cereals fortified with vitamins and chemical elements, Breakfast cereals mix of extruded cereals fortified with vitamins and chemical elements
 fr:Multi-céréales soufflées ou extrudées enrichies en vitamines et minéraux
 ciqual_food_code:en:32135
 ciqual_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements
@@ -36792,6 +36840,9 @@ zh:木斯里
 # pt-br:muesli
 wikidata:en:Q52406
 wikipedia:en:https://en.wikipedia.org/wiki/Muesli
+ciqual_food_code:en:32004
+ciqual_food_name:en:Muesli (average)
+ciqual_food_name:fr:Muesli (aliment moyen)
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
@@ -36834,20 +36885,34 @@ ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (no
 ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
-en:Bircher-style muesli flakes
-fr:Muesli floconneux
+en:Muesli flakes, Bircher-style muesli flakes
+fr:Muesli floconneux, Muesli en flocons, Flocons de muesli
 ciqual_food_code:en:32128
 ciqual_food_name:en:Muesli, flakes (Bircher-style)
 ciqual_food_name:fr:Muesli floconneux ou de type traditionnel
 
-<en:Mueslis
+<en:Muesli flakes
+en:Muesli flakes fortified with vitamins and chemical elements
+fr:Muesli enrichi en vitamines et minéraux
+ciqual_food_code:en:32139
+ciqual_food_name:en:Muesli, flakes, fortified with vitamins and chemical elements (average food)
+ciqual_food_name:fr:Muesli enrichi en vitamines et minéraux (aliment moyen)
+
+<en:Muesli flakes
+en:Muesli flakes not fortified with vitamins and chemical elements
+fr:Muesli non enrichi en vitamines et minéraux
+ciqual_food_code:en:32141
+ciqual_food_name:en:Muesli, flakes, not fortified with vitamins and chemical elements (average food)
+ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
+
+<en:Muesli flakes
 en:Bircher-style muesli flakes with fruits fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits fortified with vitamins and chemical elements
 fr:Muesli floconneux aux fruits enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs enrichi en vitamines et minéraux
 ciqual_food_code:en:32110
 ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
-<en:Mueslis
+<en:Muesli flakes
 en:Bircher-style sugar free Muesli flakes with fruits, Bircher-style sugar free Muesli flakes with dried fruits
 fr:Muesli floconneux aux fruits sans sucres ajoutés, Muesli floconneux aux fruits secs sans sucres ajoutés
 ciqual_food_code:en:32113
@@ -36861,7 +36926,7 @@ ciqual_food_code:en:32111
 ciqual_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
-<en:Mueslis
+<en:Muesli flakes
 en:Bircher-style muesli flakes with fruits not fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits not fortified with vitamins and chemical elements
 fr:Muesli floconneux aux fruits non enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs non enrichi en vitamines et minéraux
 ciqual_food_code:en:32138
@@ -37034,6 +37099,13 @@ es:Mezclas de cereales inflados
 fr:Mélanges de céréales soufflés
 nl:Gepofte granenmelanges
 
+<en:Puffed cereals
+en:Breakfast cereals with puffed rice fortified with vitamins and chemical elements, Breakfast cereals with popped rice fortified with vitamins and chemical elements
+fr:Riz soufflé nature enrichi en vitamines et minéraux
+ciqual_food_code:en:32006
+ciqual_food_name:en:Breakfast cereals, puffed/popped rice, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Riz soufflé nature, enrichi en vitamines et minéraux
+
 <en:Snacks
 en:Popcorn, pop-corn, Popped popcorn
 ca:Crispetes
@@ -37135,10 +37207,13 @@ fr:Blé soufflé
 nl:Gepofte tarwe
 
 <en:Puffed wheat
-en:Puffed Khorasan wheat, Puffed Kamut
+en:Puffed Khorasan wheat, Puffed Kamut, Wholemeal puffed khorasan wheat, Wholemeal popped khorasan wheat
 es:Trigo de Jorasán inflado, Trigo de Jorasán hinchado, Kamut inflado, Kamut hinchado
-fr:Blé de khorasan soufflé, blé de khorasan soufflé
+fr:Blé de khorasan soufflé, blé de khorasan soufflé, Blé khorasan complet soufflé
 nl:Gepofte Khorosan
+ciqual_food_code:en:32130
+ciqual_food_name:en:Khorasan wheat, wholemeal, puffed/popped
+ciqual_food_name:fr:Blé khorasan complet soufflé
 
 <en:Puffed wheat
 en:Puffed spelt
@@ -45108,9 +45183,13 @@ ciqual_food_name:en:Moussaka
 ciqual_food_name:fr:Moussaka
 
 <en:Meals
-en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes
+en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes, Puff pastry, Savoury
 fr:Plats préparés feuilletés
 nl:Kant-en-klaar maaltijden met bladerdeeg
+fr:Feuilleté salé
+ciqual_food_code:en:25578
+ciqual_food_name:en:Puff pastry, savoury (average)
+ciqual_food_name:fr:Feuilleté salé (aliment moyen)
 
 <en:Puff pastry meals
 en:Ham croissants, Croissant filled with ham
@@ -45120,15 +45199,22 @@ ciqual_food_code:en:25418
 ciqual_food_name:en:Croissant filled with ham
 
 <en:Puff pastry meals
-fr:Vol-au-vent, bouchées à la reine, bouchée à la reine
+en:Vol-au-vent, Filled vol-au-vent
+fr:Bouchée à la reine, Bouchée à la reine garnie
 nl:Vol au vent
+ciqual_food_code:en:25580
+ciqual_food_name:en:Vol-au-vent, filled (average)
+ciqual_food_name:fr:Bouchée à la reine, garnie (aliment moyen)
+
+<en:Vol-au-vent
 en:Vol-au-vent with fish and seafood
+fr:Bouchées à la reine au poisson et aux fruits de mer, Bouchées à la reine au poisson, Bouchées à la reine aux fruits de mer
 ciqual_food_code:en:25503
 ciqual_food_name:en:Vol-au-vent with fish and seafood
 
-<en:Puff pastry meals
+<en:Vol-au-vent
 en:Vol-au-vent with meat/poultry/quenelle
-fr:Bouchée à la reine à la viande
+fr:Bouchées à la reine à la viande, Bouchée à la reine à la viande
 ciqual_food_code:en:25412
 ciqual_food_name:en:Vol-au-vent, with meat/poultry/quenelle
 
@@ -45380,6 +45466,7 @@ ciqual_food_name:en:Couscous with meat or chicken, light
 ciqual_food_name:fr:Couscous à la viande ou au poulet, allégé
 
 <en:Prepared couscous
+<en:Cooked vegetables
 en:Cooked mixed vegetables for couscous
 fr:Légumes cuits pour couscous
 ciqual_food_code:en:20497
@@ -45944,7 +46031,6 @@ ciqual_food_name:en:Osso buco
 ciqual_food_name:fr:Osso buco
 
 <en:Meals with meat
-<en:meat dishes, no garnish
 en:Molokhia, Jute and beef-based meal
 fr:Meloukhia, Plat à base de bœuf et de corète, Plat à base de boeuf et de corete
 ciqual_food_code:en:25175
@@ -45960,13 +46046,16 @@ nl:Verse raviolis
 
 <en:Pies
 <en:Pizzas pies and quiches
-en:Salted pies
+en:Salted pies, Savoury tarts
 de:Herzhafte Kuchen
 es:Tartas saladas
 fi:suolaiset piiraat
-fr:Tartes salées
+fr:Tartes salées, Tarte salée, Quiches salées, Quiches, Quiche salée, Quiche
 nl:Hartige taarten
 pnns_group_2:en:Pizza pies and quiches
+ciqual_food_code:en:25573
+ciqual_food_name:en:Savoury tart (average food)
+ciqual_food_name:fr:Tarte ou quiche salée (aliment moyen)
 
 <en:Salted pies
 en:Pizza with onion and anchovy and black olives
@@ -46906,7 +46995,7 @@ fr:Choucroutes
 nl:Zuurkolen
 
 <en:Sauerkrauts
-fr:Choucroutes garnies,Choucroute garnie
+fr:Choucroutes garnies, Choucroute garnie
 en:Sauerkraut with garnish
 ciqual_food_code:en:25003
 ciqual_food_name:en:Sauerkraut, with garnish
@@ -46918,6 +47007,13 @@ fr:Choucroutes sans garniture égouttées
 ciqual_food_code:en:25004
 ciqual_food_name:en:Sauerkraut, without garnish, drained
 ciqual_food_name:fr:Choucroute, sans garniture, égouttée
+
+<en:Sauerkrauts
+en:Cooked drained sauerkraut without garnish
+fr:Choucroute, sans garniture égouttée cuite
+ciqual_food_code:en:25220
+ciqual_food_name:en:Sauerkraut, without garnish, drained, cooked
+ciqual_food_name:fr:Choucroute, sans garniture, égouttée, cuite
 
 <en:Meals
 en:Starters
@@ -47310,6 +47406,13 @@ pt:Legumes preparados
 #wikidata:en:
 
 <en:Prepared vegetables
+en:Cooked vegetables
+fr:Légumes cuits
+ciqual_food_code:en:20499
+ciqual_food_name:en:Vegetable, cooked (average)
+ciqual_food_name:fr:Légume cuit (aliment moyen)
+
+<en:Prepared vegetables
 <en:Tomatoes and their products
 en:Stuffed tomatoes, Stuffed tomato
 fr:Tomates farcies, Tomate farcie
@@ -47434,6 +47537,9 @@ ru:Пицца
 sv:Pizzor, Pizza
 zh:比萨
 wikidata:en:Q177
+ciqual_food_code:en:25516
+ciqual_food_name:en:Pizza (average)
+ciqual_food_name:fr:Pizza (aliment moyen)
 
 <en:Pizzas
 en:Regina pizza, Pizza with ham and cheese and mushrooms
@@ -54708,7 +54814,7 @@ th:กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
 
 # <en:compound
 <en:Stuffed Pastas
-en:ravioli
+en:ravioli, Cooked filled pasta
 ar:رافيولي
 bg:Равиоли
 ca:ravioli
@@ -54720,7 +54826,7 @@ eo:Ravioloj
 es:Ravioli
 fa:راویولی
 fi:Ravioli, raviolis
-fr:ravioli
+fr:ravioli, Pâtes fraîches farcies cuites
 gl:Ravioli
 he:רביולי
 hu:Ravioli
@@ -54750,6 +54856,9 @@ zh:意大利餃
 # zh-hant:意大利餃
 wikidata:en:Q20053
 wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
+ciqual_food_code:en:25216
+ciqual_food_name:en:Pasta (e.g. ravioli), filled, cooked
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
@@ -55143,6 +55252,20 @@ en:Whole Wheat Noodles
 de:Vollkornnudeln
 fr:Nouilles de blé complet, nouilles au blé complet
 nl:Volkorennoedels
+
+<en:Noodles
+en:Unsalted cooked soy noodles
+fr:Vermicelles de soja cuites non salées
+ciqual_food_code:en:9903
+ciqual_food_name:en:Soy noodle, cooked, unsalted
+ciqual_food_name:fr:Vermicelle de soja, cuite, non salée
+
+<en:Noodles
+en:Dried soy vermicelli, Dried soy noodles
+fr:Vermicelles de soja sèches
+ciqual_food_code:en:9902
+ciqual_food_name:en:Soy vermicelli or soy noodle, dried
+ciqual_food_name:fr:Vermicelle de soja, sèche
 
 <en:Meals
 en:Pasta dishes
@@ -55946,7 +56069,7 @@ hu:Gluténmentes termékek
 nl:Glute vrije producten
 pl:Produkty bezglutenowe
 
-en:Sandwiches
+en:Sandwiches, Sandwich
 ca:Sanvitxos, entrepans
 de:Sandwiches
 es:Sándwiches, Sándwich
@@ -55959,6 +56082,9 @@ zh:三明治
 wikidata:en:Q28803
 pnns_group_2:en:Sandwiches
 nova:en:3
+ciqual_food_code:en:25522
+ciqual_food_name:en:Sandwich (average)
+ciqual_food_name:fr:Sandwich (aliment moyen)
 
 <en:Sandwiches
 en:Burritos
@@ -56099,25 +56225,32 @@ nl:Vegetarische hotdogs
 <en:Sandwiches
 fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
 
-<en:sandwiches
+<en:Sandwiches
+en:French bread sandwiches, French bread sandwich, Sandwiches on French bread, Sandwiches made with French bread, Sandwich on French bread, Sandwich made with French bread
+fr:Sandwich baguette
+ciqual_food_code:en:25543
+ciqual_food_name:en:Sandwich on french bread (average)
+ciqual_food_name:fr:Sandwich baguette (aliment moyen)
+
+<en:French bread sandwiches
 en:Sandwich made with French bread salami and butter
 fr:Sandwich baguette salami beurre
 ciqual_food_code:en:25536
 ciqual_food_name:en:Sandwich made with French bread, salami and butter
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham and butter
 fr:Sandwich baguette jambon beurre
 ciqual_food_code:en:25517
 ciqual_food_name:en:Sandwich made with French bread, ham and butter
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham and emmental cheese
 fr:Sandwich baguette jambon emmental
 ciqual_food_code:en:25485
 ciqual_food_name:en:Sandwich made with French bread, ham and emmental cheese
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham emmental cheese and butter
 fr:Sandwich baguette jambon emmental beurre
 ciqual_food_code:en:25521
@@ -56129,28 +56262,28 @@ fr:Sandwich pain de mie complet jambon fromage
 ciqual_food_code:en:25576
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread camembert cheese and butter
 fr:Sandwich baguette camembert beurre
 ciqual_food_code:en:25518
 ciqual_food_name:en:Sandwich made with French bread, camembert cheese and butter
 ciqual_food_name:fr:Sandwich baguette, camembert, beurre
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
 fr:Sandwich baguette jambon oeuf dur crudités beurre
 ciqual_food_code:en:25475
 ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and tuna and raw vegetables and mayonnaise
 fr:Sandwich baguette thon crudités mayonnaise
 ciqual_food_code:en:25431
 ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and tuna and sweet corn and raw vegetables
 fr:Sandwich baguette thon maïs crudités
 ciqual_food_code:en:25490
@@ -56164,20 +56297,21 @@ ciqual_food_code:en:25575
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
 ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and egg and raw vegetables and mayonnaise
 fr:Sandwich baguette oeuf crudités mayonnaise
 ciqual_food_code:en:25532
 ciqual_food_name:en:Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and smoked salmon and butter
 fr:Sandwich baguette saumon fumé beurre
 ciqual_food_code:en:25488
 ciqual_food_name:en:Sandwich made with French bread, smoked salmon and butter
 ciqual_food_name:fr:Sandwich baguette, saumon fumé, beurre
 
+<en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with French bread pork and raw vegetables and mayonnaise
 fr:Sandwich baguette porc crudités mayonnaise
@@ -56185,6 +56319,7 @@ ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
+<en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with French bread and turkey and raw vegetables and mayonnaise
 fr:Sandwich baguette dinde crudités mayonnaise
@@ -56192,6 +56327,7 @@ ciqual_food_code:en:25531
 ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
+<en:French bread sandwiches
 <en:Sandwiches
 en:Sandwich made with French bread with raw vegetables and mayonnaise
 fr:Sandwich baguette crudités mayonnaise
@@ -56242,6 +56378,7 @@ fr:Sandwichs au bacon
 nl:Speksandwiches
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and dry sausage and butter
 fr:Sandwich baguette saucisson beurre
 ciqual_food_code:en:25520
@@ -56249,6 +56386,7 @@ ciqual_food_name:en:Sandwich made with French bread, dry sausage and butter
 ciqual_food_name:fr:Sandwich baguette, saucisson, beurre
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and merguez sausage and ketchup and mustard
 fr:Sandwich baguette merguez au ketchup et à la moutarde
 ciqual_food_code:en:25535
@@ -56256,6 +56394,7 @@ ciqual_food_name:en:Sandwich made with French bread, merguez sausage, ketchup an
 ciqual_food_name:fr:Sandwich baguette, merguez, ketchup moutarde
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread pâté and pickles
 fr:Sandwich baguette pâté cornichons
 ciqual_food_code:en:25519
@@ -56271,6 +56410,7 @@ fr:Sandwichs au jambon
 nl:Hamsandwiches
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
 fr:Sandwich baguette poulet crudités mayonnaise
 ciqual_food_code:en:25476
@@ -61015,11 +61155,14 @@ fr:Poivrons rouges en conserve
 nl:Rode pepers in blik
 
 <en:Canned plant-based foods
-<en:Cereals and potatoes
-en:Canned potatoes
+<en:Potatoes
+en:Canned potatoes, Canned drained potatoes
 es:Patatas en conserva
-fr:Pommes de terre en conserve
+fr:Pommes de terre en conserve, Pommes de terre appertisées égouttées
 nl:Aardappel in blik
+ciqual_food_code:en:4011
+ciqual_food_name:en:Potato, canned, drained
+ciqual_food_name:fr:Pomme de terre, appertisée, égouttée
 
 <en:Canned vegetables
 en:Canned salsifis
@@ -61237,21 +61380,21 @@ ciqual_food_code:en:20181
 ciqual_food_name:en:Parsnip, raw
 ciqual_food_name:fr:Panais, cru
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked parsnip
 fr:Panais cuits
 ciqual_food_code:en:20133
 ciqual_food_name:en:Parsnip, cooked
 ciqual_food_name:fr:Panais, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked red kidney beans
 fr:Haricots rouges cuits
 ciqual_food_code:en:20503
 ciqual_food_name:en:Red kidney bean, cooked
 ciqual_food_name:fr:Haricot rouge, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked broad beans
 fr:Fèves cuites
 ciqual_food_code:en:20500
@@ -61287,6 +61430,7 @@ fr:Salsifis frais
 season_in_country_fr:en: 1,2,11,12
 
 <en:Salsifis
+<en:Cooked vegetables
 en:Cooked salsify
 fr:Salsifis cuits
 ciqual_food_code:en:20046
@@ -61318,6 +61462,7 @@ fr:Coeurs d'artichauts, Fonds d'artichauts
 nl:Artisjokharten
 
 <en:artichokes
+<en:Cooked vegetables
 en:Cooked globe artichoke
 fr:Artichaut cuit
 ciqual_food_code:en:20000
@@ -61476,7 +61621,7 @@ ciqual_food_code:en:20091
 ciqual_food_name:en:Beetroot, raw
 ciqual_food_name:fr:Betterave rouge, crue
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked beetroots
 fr:Betteraves rouges cuites
 ciqual_food_code:en:20003
@@ -61633,6 +61778,7 @@ ciqual_food_name:en:Broccoli, raw
 ciqual_food_name:fr:Brocoli, cru
 
 <en:Broccoli
+<en:Cooked vegetables
 en:Cooked broccoli
 fr:Brocolis cuits
 ciqual_food_code:en:20006
@@ -61726,6 +61872,7 @@ ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 
 <en:Cabbages
+<en:Cooked vegetables
 en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
 fr:Chou chinois (pak-choi ou pé-tsai) cuit
 ciqual_food_code:en:20221
@@ -61733,6 +61880,7 @@ ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
 ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
 
 <en:Cabbages
+<en:Cooked vegetables
 en:Cooked curly kale
 fr:Chou frisé cuit
 ciqual_food_code:en:20219
@@ -61767,6 +61915,7 @@ ciqual_food_name:en:Cardoon, raw
 ciqual_food_name:fr:Cardon, cru
 
 <en:Cardoons
+<en:Cooked vegetables
 en:Cooked cardoons
 fr:Cardons cuits
 ciqual_food_code:en:20241
@@ -61787,6 +61936,7 @@ ru:Морковь
 sv:Morötter, morot
 
 <en:Carrots
+<en:Cooked vegetables
 en:Cooked carrots
 fr:Carottes cuites
 ciqual_food_code:en:20008
@@ -61837,6 +61987,7 @@ ciqual_food_name:en:Cauliflower, raw
 ciqual_food_name:fr:Chou-fleur, cru
 
 <en:Cauliflowers
+<en:Cooked vegetables
 en:Cooked cauliflowers
 fr:Choux-fleurs cuits, Chou-fleur cuit
 ciqual_food_code:en:20017
@@ -61871,6 +62022,7 @@ ciqual_food_name:en:Celery stalk, canned, drained
 ciqual_food_name:fr:Céleri branche, appertisé, égoutté
 
 <en:Celery
+<en:Cooked vegetables
 en:Cooked celery stalks
 fr:Céleri-branche cuit
 ciqual_food_code:en:20024
@@ -61892,6 +62044,7 @@ ciqual_food_name:en:Celeriac, raw
 ciqual_food_name:fr:Céleri-rave, cru
 
 <en:Celery
+<en:Cooked vegetables
 en:Cooked celeriac
 fr:Céleri-rave cuit
 ciqual_food_code:en:20025
@@ -61973,6 +62126,7 @@ fr:Blettes fraîches
 season_in_country_fr:en: 6,7,8,9,10,11
 
 <en:Chards
+<en:Cooked vegetables
 en:Cooked Swiss chard
 fr:Bette cuite, Blette cuite
 ciqual_food_code:en:20005
@@ -62346,6 +62500,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 # category/leeks has 34 products @2019-05-22
 
 <en:Leeks
+<en:Cooked vegetables
 en:Cooked leeks
 fr:Poireaux cuits
 ciqual_food_code:en:20040
@@ -62590,6 +62745,7 @@ ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
 
 <en:Onions
+<en:Cooked vegetables
 en:Cooked onions
 fr:Oignons cuits
 ciqual_food_code:en:20035
@@ -62620,6 +62776,7 @@ ciqual_food_name:en:Shallot, raw
 ciqual_food_name:fr:Échalote, crue
 
 <en:Shallots
+<en:Cooked vegetables
 en:Cooked shallots
 fr:Échalotes cuites
 ciqual_food_code:en:20255
@@ -62649,6 +62806,7 @@ fr:Poivrons verts
 nl:Groene paprikas
 
 <en:Sweet Peppers
+<en:Cooked vegetables
 en:Cooked sweet green peppers
 fr:Poivrons verts cuits
 ciqual_food_code:en:20086
@@ -62698,6 +62856,7 @@ fr:Poivrons rouges
 nl:Rode paprikas
 
 <en:Sweet Peppers
+<en:Cooked vegetables
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
 ciqual_food_code:en:20088
@@ -62776,6 +62935,14 @@ nl:Aardappelen
 nl_be:Aardappelen
 sv:Potatisar, potatis
 pnns_group_2:en:Potatoes
+
+<en:Potatoes
+<en:Cooked vegetables
+en:Cooked potatoes
+fr:Pommes de terre cuites
+ciqual_food_code:en:4048
+ciqual_food_name:en:Potato, cooked (average food)
+ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
 
 <en:Potatoes
 en:Fresh potatoes
@@ -62933,6 +63100,7 @@ ciqual_food_name:en:Squash, melonnette jaspée from Vendée, pulp, raw
 ciqual_food_name:fr:Courge melonnette, pulpe, crue
 
 <en:Pumpkins
+<en:Cooked vegetables
 en:Cooked pumpkins
 fr:Potirons cuits
 ciqual_food_code:en:20096
@@ -63145,14 +63313,14 @@ ciqual_food_code:en:53200
 ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked taro tubes
 fr:Tubercules de taro cuits
 ciqual_food_code:en:53201
 ciqual_food_name:en:Taro, tuber, cooked
 ciqual_food_name:fr:Taro, tubercule, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked cassava, Cooked manioc roots
 fr:Manioc, Racine cuite
 ciqual_food_code:en:54034
@@ -63280,6 +63448,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallion
 # category/scallions has 7 products @2019-05-22
 
 <en:Leaf vegetables
+<en:Cooked vegetables
 en:Cooked New Zealand spinach
 fr:Tétragone cornue cuite
 ciqual_food_code:en:20158
@@ -63305,6 +63474,7 @@ ciqual_food_name:en:Spinach w cream sauce
 ciqual_food_name:fr:Épinards à la crème
 
 <en:Spinachs
+<en:Cooked vegetables
 en:Cooked spinach
 fr:Épinards cuits
 ciqual_food_code:en:20027
@@ -63441,6 +63611,7 @@ ciqual_food_name:en:Rutabaga or Swede, raw
 ciqual_food_name:fr:Rutabaga, cru
 
 <en:Turnip
+<en:Cooked vegetables
 en:Cooked rutabaga, Cooked swede
 fr:Rutabaga cuit
 ciqual_food_code:en:20165
@@ -63448,6 +63619,7 @@ ciqual_food_name:en:Rutabaga or Swede, cooked
 ciqual_food_name:fr:Rutabaga, cuit
 
 <en:Turnip
+<en:Cooked vegetables
 en:Cooked turnips
 fr:Navets cuits
 ciqual_food_code:en:20033
@@ -63563,6 +63735,7 @@ ciqual_food_name:en:Courgette or zucchini, pulp and peel, raw
 ciqual_food_name:fr:Courgette, pulpe et peau, crue
 
 <en:Zucchini
+<en:Cooked vegetables
 en:Cooked pulp and peel courgette, Cooked pulp and peel zucchini
 fr:Pulpe et peau de courgette cuite
 ciqual_food_code:en:20021
@@ -63963,6 +64136,7 @@ ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
 
 <en:Green beans
+<en:Cooked vegetables
 en:Cooked French beans
 fr:Haricots verts cuits
 ciqual_food_code:en:20030
@@ -64017,6 +64191,7 @@ ciqual_food_name:en:Garden peas, raw
 ciqual_food_name:fr:Petits pois, crus
 
 <en:Green peas
+<en:Cooked vegetables
 en:Cooked garden peas
 fr:Petits pois cuits
 ciqual_food_code:en:20037
@@ -64087,21 +64262,28 @@ pt:Pulsos
 wikidata:en:Q2727662
 
 <en:Pulses
+en:Cooked pulses
+fr:Légumes secs cuits
+ciqual_food_code:en:20700
+ciqual_food_name:en:Legume, cooked (average)
+ciqual_food_name:fr:Légume sec, cuit (aliment moyen)
+
+<en:Pulses
 en:Dried flageolet green beans
 fr:Flageolets verts secs, Haricots flageolets verts secs
 ciqual_food_code:en:20539
 ciqual_food_name:en:Flageolet bean, green, dried
 ciqual_food_name:fr:Haricot flageolet, vert, sec
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked flageolet beans
 fr:Flageolets cuits, Haricots flageolets cuits
 ciqual_food_code:en:20513
 ciqual_food_name:en:Flageolet bean, cooked
 ciqual_food_name:fr:Haricot flageolet, cuit
 
-<en:Pulses
-en:Cooked flageolet bean greens
+<en:Cooked pulses
+en:Cooked flageolet green beans
 fr:Flageolets verts cuits, Haricots flageolets verts cuits
 ciqual_food_code:en:20540
 ciqual_food_name:en:Flageolet bean, green, cooked
@@ -64123,7 +64305,7 @@ ciqual_food_code:en:20515
 ciqual_food_name:en:Split pea, dried
 ciqual_food_name:fr:Pois cassé, sec
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked split peas
 fr:Pois cassés cuits
 ciqual_food_code:en:20506
@@ -64183,6 +64365,7 @@ ciqual_food_name:en:Chick pea, dried
 ciqual_food_name:fr:Pois chiche, sec
 
 <en:Chickpeas
+<en:Cooked vegetables
 en:Cooked chick peas
 fr:Pois chiche cuits
 ciqual_food_code:en:20507
@@ -64284,6 +64467,7 @@ fr:Haricots blancs
 nl:Witte bonen
 
 <en:White beans
+<en:Cooked vegetables
 en:Cooked haricot beans
 fr:Haricots blancs cuits
 ciqual_food_code:en:20502
@@ -64372,6 +64556,7 @@ ciqual_food_name:en:Lentil, dried
 ciqual_food_name:fr:Lentille, sèche
 
 <en:Lentils
+<en:Cooked vegetables
 en:Cooked lentils
 fr:Lentilles cuites
 ciqual_food_code:en:20505
@@ -64411,6 +64596,7 @@ ciqual_food_name:en:Lentil, blond, dried
 ciqual_food_name:fr:Lentille blonde, sèche
 
 <en:Blonde lentils
+<en:Cooked vegetables
 en:Cooked blond lentils
 fr:Lentilles blondes cuites
 ciqual_food_code:en:20588
@@ -64438,6 +64624,7 @@ ciqual_food_name:en:Lentil, pink or red, dried
 ciqual_food_name:fr:Lentille corail, sèche
 
 <en:Red lentils
+<en:Cooked vegetables
 en:Cooked pink lentils, Cooked red lentils
 fr:Lentille corail cuites
 ciqual_food_code:en:20589
@@ -64463,6 +64650,7 @@ nl:Groenlinzen
 pt:Lentilhas verde
 
 <en:Lentils
+<en:Cooked vegetables
 en:Cooked green lentils
 fr:Lentilles vertes cuites
 ciqual_food_code:en:20587
@@ -64524,7 +64712,7 @@ la:Vigna radiata
 nl:Mungbonen
 wikidata:en:Q484447
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked Mung beans
 fr:Haricots mungo cuits
 ciqual_food_code:en:20531
@@ -64630,7 +64818,7 @@ ciqual_food_code:en:20216
 ciqual_food_name:en:Snow pea, boiled/cooked in water
 ciqual_food_name:fr:Pois mange-tout ou pois gourmand, bouilli/cuit à l'eau
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked snow peas
 fr:Pois mange-tout cuits, Pois gourmands cuits
 ciqual_food_code:en:20243
@@ -66459,6 +66647,7 @@ ciqual_food_name:en:Brussels sprout, frozen, raw
 ciqual_food_name:fr:Chou de Bruxelles, surgelé, cru
 
 <en:Brussels sprouts
+<en:Cooked vegetables
 en:Cooked Brussels sprouts
 fr:Choux de Bruxelles cuits
 ciqual_food_code:en:20013
@@ -66755,6 +66944,13 @@ de:Gefrohrene Kartoffeln
 es:Patatas congeladas
 fr:Pommes de terre surgelés
 nl:Diepvriesaardappelen
+
+<en:Frozen potatoes
+en:Frozen cooked spiced potato chips, Frozen cooked spiced potato wedges, Frozen cooked spiced potato quarters
+fr:Potatoes épicées cuites surgelées, Potatoes wedges épicées cuites surgelées, Quartiers de pommes de terre épicés cuits surgelés
+ciqual_food_code:en:4025
+ciqual_food_name:en:Potato chip, quarter, spiced, frozen, cooked
+ciqual_food_name:fr:Potatoes ou Wedges ou Quartiers de pommes de terre épicés, surgelées, cuites
 
 <en:Frozen vegetables
 <en:Pumpkins
@@ -67206,7 +67402,7 @@ fr:Barres aux fruits, Barre aux fruits
 nl:Vruchtenrepen
 
 <en:Sugary snacks
-en:Viennoiseries, viennoiserie, puff pastries, puff pastry
+en:Viennoiseries, viennoiserie, puff pastries, puff pastry, Pastries
 ca:Brioixeria
 de:Viennoiseries, Blätterteige
 es:Pasteles
@@ -67215,6 +67411,9 @@ it:Pasta sfoglia
 nl:Viennoiseries
 pt:Produtos para barrar à base de plantas, Produtos para barrar vegetais, patés vegetais
 pnns_group_2:en:pastries
+ciqual_food_code:en:7600
+ciqual_food_name:en:Pastry, average food
+ciqual_food_name:fr:Viennoiserie (aliment moyen)
 
 <en:Viennoiseries
 en:Croissants
@@ -68083,6 +68282,13 @@ nl:Zoutjes
 sv:Kex
 
 <en:Crackers
+en:Wheat crackers
+fr:Crackers de table au froment
+ciqual_food_code:en:7351
+ciqual_food_name:en:Wheat crackers
+ciqual_food_name:fr:Crackers de table au froment
+
+<en:Crackers
 en:Plain salty snacks, Plain salty crackers
 fr:Biscuits apéritifs nature, Crackers nature
 ciqual_food_code:en:38402
@@ -68512,6 +68718,14 @@ nl_be:Kiemen
 wikidata:en:Q1057052
 
 <en:Sprouts
+<en:Wheats
+en:Raw sprouted wheat
+fr:Blé germé cru
+ciqual_food_code:en:9011
+ciqual_food_name:en:Wheat sprouted, raw
+ciqual_food_name:fr:Blé germé, cru
+
+<en:Sprouts
 en:Alfalfa sprouts
 fr:Pousses d'alfalfa
 en:Germinados de alfalfa
@@ -68579,12 +68793,15 @@ wikidata:en:Q636056
 en:Mashed potatoes
 de:Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi:perunamuusit
-fr:Purées de pommes de terre
+fr:Purées de pommes de terre, Purée de pommes de terre
 nl:Aardappelpureeën
 nl_be:Aardappelpuree
 ru:Пюре картофельное, Картофельное пюре
 sv:Potatismos
 pnns_group_2:en:Potatoes
+ciqual_food_code:en:4047
+ciqual_food_name:en:Mashed potatoes (average)
+ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
 
 <fr:Purées
 <en:Prepared vegetables
@@ -69234,6 +69451,13 @@ fr:Khatfa
 ciqual_food_code:en:51550
 ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
 ciqual_food_name:fr:Khatfa feuille de brick, préemballée
+
+<en:Meals
+en:Dolmas, Drained vine leaf stuffed wih rice
+fr:Dolmas, Feuille de vigne égouttée farcie au riz
+ciqual_food_code:en:25217
+ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
+ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
 
 <en:Meals
 en:Banh Bao
