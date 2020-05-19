@@ -56,6 +56,7 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/
+ENV PERL5LIB /opt/perl/local/lib/perl5/
 
 EXPOSE 80
 

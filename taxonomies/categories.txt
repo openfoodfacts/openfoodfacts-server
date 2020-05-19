@@ -674,7 +674,7 @@ zh:蜂王漿
 # zh-hk:蜂王漿
 # zh-sg:蜂王浆
 # zh-tw:蜂王漿
-wikipedia:en:https://en.wikipedia.org/wiki/
+wikipedia:en:https://en.wikipedia.org/wiki/Royal_jelly
 wikidata:en:Q202501
 
 <en:Bee products
@@ -4955,6 +4955,7 @@ zh:薄荷茶
 wikidata:en:Q937101
 
 <en:Mint teas
+<en:Green teas
 en:Green teas with mint
 de:Grüntees mit Minze
 fi:Vihreät teet mintulla
@@ -7787,9 +7788,9 @@ grapevariety:fr:sémillon, sauvignon, muscadelle
 fr:Cahors
 country:en:France
 
-<en:Wines from France
-fr:Cassis
-country:en:France
+#<en:Wines from France
+#fr:Cassis
+#country:en:France
 
 <en:Bordeaux wines
 <en:Dessert wines
@@ -24033,10 +24034,22 @@ it:Cioccolato bianco con edulcorante
 nl:Witte chocola met zoetstoffen
 
 <en:White chocolates
+en:White chocolate with coconut pieces
 fr:Chocolats blancs à la noix de coco
 de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
 hu:Fehér csokoládé kókusszal
 it:Cioccolato bianco al cocco
+
+<en:White chocolates
+en:White chocolates with hazelnuts
+de:Weiße Schokoladen mit Haselnüssen
+fr:Chocolats blancs aux noisettes
+nl:Witte chocola met hazelnoten
+
+<en:White chocolates
+<en:Filled chocolates
+en:Filled white chocolates
+fr:Chocolats blancs fourrés
 
 <en:Easter food
 <en:Chocolate molds
@@ -24397,7 +24410,7 @@ ca:Barretes de xocolata
 de:Schokoriegel, Schokoladenriegel
 es:Barritas de chocolate
 fi:suklaapatukat
-fr:Barres chocolatées, barres au chocolat 
+fr:Barres chocolatées, barres au chocolat
 hu:Csokoládés szelet, Csoki
 nl:Chocorepen
 pt:Barras de chocolate
@@ -25781,6 +25794,28 @@ pt:Cereais e Batatas
 ru:Зерновые и картофель
 th:ธัญพืชและมันฝรั่ง
 pnns_group_1:en:Cereals and potatoes
+
+<en:Cereals and potatoes
+en:Yam potatoes
+fr:Ignames
+
+<en:Yam potatoes
+en:Fresh yam potatoes
+fr:Ignames frais
+
+<en:Yam potatoes
+en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
+fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
+ciqual_food_code:en:53503
+ciqual_food_name:en:Yam or Indian potato, peeled, boiled/cooked in water
+ciqual_food_name:fr:Igname, épluchée, bouillie/cuite à l'eau
+
+<en:Yam potatoes
+en:Raw peeled yam potato, Raw peeled Indian potato
+fr:Igname épluchée crue
+ciqual_food_code:en:53502
+ciqual_food_name:en:Yam or Indian potato, peeled, raw
+ciqual_food_name:fr:Igname, épluchée, crue
 
 <en:Cereals and potatoes
 en:Gnocchi
@@ -30379,7 +30414,7 @@ nl:Geraspte kzen
 
 <en:French cheeses
 fr:Maroilles, Marolles
-en:Maroilles 
+en:Maroilles
 country:en:France
 wikidata:en:Q734978
 ciqual_food_code:en:12036
@@ -32227,20 +32262,6 @@ fr:Yaourts sans lactose
 it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
 
-<en:Flavoured yogurts
-en:Yogurt type fermented flavoured milk with sugar with bifidus, Yogurt type flavoured dairy specialty with sugar with bifidus
-fr:Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
-ciqual_food_code:en:19539
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
-
-<en:Fruit yogurts
-en:Yogurt type fermented milk with fruits with sugar with bifidus, Yogurt type dairy specialty with fruits with sugar with bifidus
-fr:Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
-ciqual_food_code:en:19542
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
-
 <en:Fruit yogurts
 en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
 fr:Yaourt au lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
@@ -32269,20 +32290,6 @@ ciqual_food_code:en:19592
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 
-<en:Fruit yogurts
-en:Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
-fr:Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
-ciqual_food_code:en:19587
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
-
-<en:Yogurts
-en:Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
-fr:Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
-ciqual_food_code:en:19546
-ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
-ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
-
 <en:Yogurts
 en:Plain fermented milk yogurt with sugar, Plain dairy specialty with sugar
 fr:Yaourt sucré au lait fermenté, Spécialité laitière nature sucrée
@@ -32297,13 +32304,6 @@ ciqual_food_code:en:19594
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, fat free
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, 0% MG
 
-<en:Yogurts
-en:Plain fermented milk yogurt, Plain dairy specialty
-fr:Yaourt au lait fermenté nature, Spécialité laitière nature
-ciqual_food_code:en:19593
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
-
 <en:Flavoured yogurts
 en:Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
 fr:Yaourt au lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
@@ -32312,25 +32312,11 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with s
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, avec édulcorants, 0% MG
 
 <en:Flavoured yogurts
-en:Fermented milk yogurt with chocolate shavings and cream and sugar, Dairy specialty with chocolate shavings and cream and sugar
-fr:Yaourt sucré au lait fermenté aux copeaux de chocolat et à la crème, Spécialité laitière aux copeaux de chocolat et à la crème
-ciqual_food_code:en:19580
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with chocolate shavings, with cream, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux copeaux de chocolat, à la crème, sucré
-
-<en:Flavoured yogurts
 en:Fermented milk flavoured yogurt with sugar and cream, Flavoured dairy specialty with sugar and cream
 fr:Yaourt sucré aromatisé au lait fermenté et à la crème, Spécialité laitière aromatisée sucrée à la crème
 ciqual_food_code:en:19577
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, w sugar, with cream
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré, à la crème
-
-<en:Flavoured yogurts
-en:Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
-fr:Yaourt aromatisé sucré au lait fermenté, Spécialité laitière aromatisée sucrée
-ciqual_food_code:en:19575
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
 
 <en:Yogurts
 <en:Fermented milk drinks
@@ -32393,26 +32379,49 @@ nl:Bifidus yoghurts
 fr:Yaourts au bifidus nature
 
 <en:Bifidus yogurts
-fr:Yaourts au bifidus aromatisés
+<en:Fruit yogurts
+en:Fruit bifidus yogurts, Yogurt type fermented milk with fruits with sugar with bifidus, Yogurt type dairy specialty with fruits with sugar with bifidus
+fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
+ciqual_food_code:en:19542
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, with fruits, with sugar, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fruits, sucré, au bifidus
+
+<en:Bifidus yogurts
+<en:Flavoured yogurts
+en:Flavoured bifidus yogurts, Yogurt type fermented flavoured milk with sugar with bifidus, Yogurt type flavoured dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
+ciqual_food_code:en:19539
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
+
+<en:Bifidus yogurts
+en:Sweetened plain bifidus yogurts, Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
+fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
+ciqual_food_code:en:19546
+ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, plain, with bifidus
+ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
 
 <en:Yogurts
-en:Flavoured yogurts
+en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dairy specialty with sugar
 de:aromatisierte Joghurts
 es:Yogures de sabores
 fi:maustetut jugurtit
-fr:Yaourts aromatisés
+fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté, Spécialité laitière aromatisée sucrée
 nl:Gearomatiseerde yoghurts
 pt:Iogurtes aromatizados
 zh:调味酸奶
+ciqual_food_code:en:19575
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
 
 <en:Yogurts
-en:Fruit yogurts, yogurts with fruits
+en:Fruit yogurts, yogurts with fruits, Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
 ca:Iogurs de fruita, iogurs amb fruita
 cs:Ovocné jogurty
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:hedelmäjugurtit
-fr:Yaourts aux fruits
+fr:Yaourts aux fruits, Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
 nl:Vruchtenyoghurts
@@ -32421,6 +32430,9 @@ ro:Iaurturi cu fructe, Iaurt cu fructe
 ru:Фруктовые йогурты, Фруктовый йогурт, Йогурт с фруктами, Йогурты с фруктами
 th:โยเกิร์ตผลไม้
 zh:水果酸奶
+ciqual_food_code:en:19587
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
 
 <en:Fruit yogurts
 en:Fruit yogurts with fruit chunks
@@ -32637,13 +32649,16 @@ nl:Kastanjeyoghurts, Kastanjeyoghurt
 ro:Iaurturi cu castane
 
 <en:Yogurts
-en:Chocolate yogurts
+en:Chocolate chunks yogurts, Chocolate yogurts, Fermented milk yogurt with chocolate shavings and cream and sugar, Dairy specialty with chocolate shavings and cream and sugar
 de:Schokoladenjoghurte
-fr:Yaourts au chocolat
+fr:Yaourts aux copeaux de chocolat, yaourts au chocolat, Yaourt sucré au lait fermenté aux copeaux de chocolat et à la crème, Spécialité laitière aux copeaux de chocolat et à la crème
 hu:Csokoládés joghurtok
 it:Yogurt al cioccolato
 nl:Yoghurt met chocolade
 ro:Iaurturi cu ciocolată
+ciqual_food_code:en:19580
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with chocolate shavings, with cream, with sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux copeaux de chocolat, à la crème, sucré
 
 <en:Yogurts
 en:Caramel yogurts
@@ -32800,17 +32815,20 @@ it:Yogurt intero
 nl:Volle yoghurts
 
 <en:Yogurts
-en:Plain yogurts, plain unsweetened yogurts
+en:Plain yogurts, plain unsweetened yogurts, Plain fermented milk yogurt, Plain dairy specialty
 ca:Iogurts naturals
 de:Naturjogurts
 es:Yogures naturales
 fi:luonnon jugurtit
-fr:Yaourts natures, Yaourt nature
+fr:Yaourts natures, Yaourt nature, Yaourt au lait fermenté nature, Spécialité laitière nature
 it:Yogurt intero
 nl:Naturelyoghurts
 pl:Jogurty naturalne, Jogurt naturalny
 pt:Iogurtes naturales, iogurte naturale
 ro:Iaurturi naturale
+ciqual_food_code:en:19593
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Yogurts
 en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream
@@ -35183,7 +35201,7 @@ de:Gekochte Eier, Gekochte Hühnereier
 fr:Œufs durs, Oeufs durs
 nl:Gekookte eieren
 zh:水煮蛋
-wikidata:en:Q1062531 
+wikidata:en:Q1062531
 
 <en:Eggs
 de:Eier aus ökologischer Erzeugung
@@ -37732,19 +37750,22 @@ fr:Semoules de blé, semoules
 nl:Tarwegriesmelen
 
 <en:Wheat semolinas
-en:Durum wheat semolinas
+en:Durum wheat semolinas, Raw durum wheat semolina
 de:Hartweizengrieße, Hartweizengrieß
 es:Sémolas y semolinas de trigo duro, Sémolas de trigo duro, Sémola de trigo duro
-fr:Semoules de blé dur
+fr:Semoules de blé dur, Semoules de blé dur crues
 nl:Harde tarwegriesmelen
 wikidata:en:Q381350
-
-<en:Durum wheat semolinas
-en:Raw durum wheat semolina
-fr:Semoules de blé dur crues
 ciqual_food_code:en:9610
 ciqual_food_name:en:Durum wheat semolina, raw
 ciqual_food_name:fr:Semoule de blé dur, crue
+
+<en:Durum wheat semolinas
+en:Durum wheat semolinas for couscous
+de:Hartweizengrieße für Couscous, Hartweizengrieß für Couscous
+es:Sémolas de trigo duro para couscous
+fr:Semoules de blé dur pour couscous
+nl:Harde tarwe griesmelen voor couscous
 
 <en:Durum wheat semolinas
 en:Pre-cooked durum wheat whole grain to pan-fry
@@ -37774,13 +37795,6 @@ es:Sémolas y semolinas de trigo blando, Sémolas de trigo blando, Sémola de tr
 fr:Semoules de blé tendre
 nl:Zachte tarwegriesmelen
 wikidata:en:Q3505415
-
-<en:Durum wheat semolinas
-en:Durum wheat semolinas for couscous
-de:Hartweizengrieße für Couscous, Hartweizengrieß für Couscous
-es:Sémolas de trigo duro para couscous
-fr:Semoules de blé dur pour couscous
-nl:Harde tarwe griesmelen voor couscous
 
 <en:Durum wheat semolinas
 en:Raw frik, Raw crushed immature durum wheat
@@ -39202,31 +39216,32 @@ pt:Alimentos à base de frutas
 pnns_group_2:en:Fruits
 
 <en:Fruits based foods
-en:Fruits, fresh fruits
+en:Fruits
 ca:Fruita fresca
 cs:Ovoce
 de:Früchte
 es:Frutas
 fi:hedelmät
-fr:Fruits, fruits frais
+fr:Fruits
 hu:Gyümölcsök
 it:Frutta
 nl:Fruit
 pl:Owoce
-pt:Frutas, Frutas frescas
+pt:Frutas
 ro:Fructe
-ru:Фрукты, Фрукты свежие, Свежие фрукты
+ru:Фрукты
 sv:Frukter
 th:ผลไม้
 zh:水果
 wikidata:en:Q1364
 
 <en:Fruits
-en:French fruits
+en:Fresh fruits
+es:Frutas frescas
+fr:Fruits frais
 
 <en:Fruits
-fr:Cassis frais
-season_in_country_fr:en: 6,7,8
+en:French fruits
 
 <en:Fruits
 en:British fruit
@@ -39236,6 +39251,19 @@ en:Armagh Bramley Apples
 protected_name_file_number:en: PGI-GB-0792
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Berries
+en:Blackcurrants, Raw black currant
+fr:Cassis, Cassis cru
+ciqual_food_code:en:13007
+ciqual_food_name:en:Black currant, raw
+ciqual_food_name:fr:Cassis, cru
+
+<en:Fresh fruits
+<en:Blackcurrants
+en:Fresh blackcurrants
+fr:Cassis frais
+season_in_country_fr:en: 6,7,8
 
 <en:Fruits
 en:Raw kumquat without pips
@@ -39258,6 +39286,8 @@ ru:Яблоки
 wikidata:en:Q89
 
 <en:Apples
+<en:Fresh fruits
+en:Fresh apples
 fr:Pommes fraîches
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
@@ -39394,6 +39424,8 @@ nl:Abrikozen
 wikidata:en:Q3733836
 
 <en:Apricots
+<en:Fresh fruits
+en:Fresh apricots
 fr:Abricots frais
 season_in_country_fr:en: 6,7,8
 
@@ -39433,6 +39465,7 @@ fr:Myrtilles des marais
 la:Vaccinium uliginosum
 nl:Rijsbessen
 
+# Rubus fruticosus
 <en:Berries
 en:Blackberries
 de:Brombeeren
@@ -39440,24 +39473,23 @@ es:Moras
 fr:Mûres
 nl:Bramen
 ro:Mure
-
-<en:Berries
-en:Raw black mulberries
-fr:Mûres noires
-ciqual_food_code:en:13071
-ciqual_food_name:en:Black mulberry, raw
-ciqual_food_name:fr:Mûre noire (du mûrier), crue
-
-<en:Blackberries
-fr:Mûres fraîches
-season_in_country_fr:en: 8,9
-
-<en:Blackberries
-en:Raw blackberries
-fr:Mûres de ronce crues
 ciqual_food_code:en:13029
 ciqual_food_name:en:Blackberry, raw
 ciqual_food_name:fr:Mûre (de ronce), crue
+
+<en:Blackberries
+<en:Fresh fruits
+en:Fresh blackberries
+fr:Mûres fraîches
+season_in_country_fr:en: 8,9
+
+# Morus nigra?
+<en:Berries
+en:Black mulberries, Raw black mulberries
+fr:Mûres noires, Mûres noires crues
+ciqual_food_code:en:13071
+ciqual_food_name:en:Black mulberry, raw
+ciqual_food_name:fr:Mûre noire (du mûrier), crue
 
 <en:Berries
 en:Blackthorns
@@ -39480,15 +39512,10 @@ ciqual_food_name:en:Blueberry, raw
 ciqual_food_name:fr:Myrtille, crue
 
 <en:Blueberries
+<en:Fresh fruits
+en:Fresh blueberries
 fr:Myrtilles fraîches
 season_in_country_fr:en: 7,8,9
-
-<en:Blueberries
-en:Frozen raw Blueberry
-fr:Myrtille surgelée crue
-ciqual_food_code:en:13132
-ciqual_food_name:en:Blueberry, frozen, raw
-ciqual_food_name:fr:Myrtille, surgelée, crue
 
 <en:Berries
 <en:Elderberry products
@@ -39508,20 +39535,21 @@ la:Vaccinium corymbosum
 nl:Blauwe bessen
 
 <en:Berries
-en:Cranberries
+en:Cranberries, Raw cranberries
 de:Cranberry, Moosbeeren, Kranbeeren
 es:Arándanos rojos
-fr:Canneberges
+fr:Canneberges, Canneberges crues
 la:Vaccinium oxycoccus
 nl:Cranberries
 ro:Merișoare
-
-<en:Berries
-en:Raw cranberries
-fr:Canneberges crues
 ciqual_food_code:en:13113
 ciqual_food_name:en:Cranberry, raw
 ciqual_food_name:fr:Canneberge ou cranberry, crue
+
+<en:Cranberries
+<en:Fresh fruits
+en:Fresh cranberries
+fr:Canneberges fraîches
 
 <en:Berries
 en:Lingonberries, Cowberries
@@ -39544,6 +39572,8 @@ ciqual_food_name:en:Raspberry, raw
 ciqual_food_name:fr:Framboise, crue
 
 <en:Raspberries
+<en:Fresh fruits
+en:Fresh raspberries
 fr:Framboises fraîches
 season_in_country_fr:en: 6,7,8
 
@@ -39565,14 +39595,9 @@ ciqual_food_code:en:13019
 ciqual_food_name:en:Red currant, raw
 ciqual_food_name:fr:Groseille, crue
 
-<en:Berries
-en:Raw black currant
-fr:Cassis cru
-ciqual_food_code:en:13007
-ciqual_food_name:en:Black currant, raw
-ciqual_food_name:fr:Cassis, cru
-
 <en:Redcurrants
+<en:Fresh fruits
+en:Fresh redcurrants
 fr:Groseilles fraîches
 season_in_country_fr:en: 6,7,8
 
@@ -39599,6 +39624,8 @@ ciqual_food_name:en:Strawberry, raw
 ciqual_food_name:fr:Fraise, crue
 
 <en:Strawberries
+<en:Fresh fruits
+en:Fresh strawberries
 fr:Fraises fraîches
 season_in_country_fr:en: 5,6,7
 
@@ -39634,6 +39661,8 @@ nl:Kersen
 ro:Cireșe
 
 <en:Cherries
+<en:Fresh fruits
+en:Fresh cherries
 fr:Cerises fraîches
 season_in_country_fr:en: 6,7
 
@@ -39682,6 +39711,8 @@ ro:Lămâi
 ru:Лимоны
 
 <en:Lemons
+<en:Fresh fruits
+en:Fresh lemons
 fr:Citrons frais
 season_in_country_fr:en: 1,2,11,12
 
@@ -39691,13 +39722,6 @@ fr:Pulpe de citron
 ciqual_food_code:en:13009
 ciqual_food_name:en:Lemon, pulp, raw
 ciqual_food_name:fr:Citron, pulpe, cru
-
-<en:Lemons
-en:Lime pulp
-fr:Pulpe de citron vert
-ciqual_food_code:en:13067
-ciqual_food_name:en:Lime, pulp, raw
-ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
 
 <en:Lemons
 en:Lemon zest
@@ -39716,6 +39740,13 @@ nl:Limoenen
 ro:Lime, Lămâi verzi
 ru:Лаймы, Лайм
 
+<en:Limes
+en:Lime pulp
+fr:Pulpe de citron vert
+ciqual_food_code:en:13067
+ciqual_food_name:en:Lime, pulp, raw
+ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
+
 <en:Citrus
 en:Mandarin oranges, Mandarins, Mandarines
 de:Mandarinen
@@ -39729,6 +39760,8 @@ ro:Mandarine
 ru:Мандарины
 
 <en:Mandarin oranges
+<en:Fresh fruits
+en:Fresh mandarin oranges
 fr:Mandarines fraîches
 season_in_country_fr:en: 1,2,11,12
 
@@ -39749,6 +39782,8 @@ la:Citrus x clementina
 nl:Clementines
 
 <en:Clementines
+<en:Fresh fruits
+en:Fresh clementines
 fr:Clémentines fraîches
 season_in_country_fr:en: 1,2,11,12
 
@@ -39786,6 +39821,8 @@ nl:Sinaasappels
 ru:Апельсины
 
 <en:Oranges
+<en:Fresh fruits
+en:Fresh oranges
 fr:Oranges fraîches
 season_in_country_fr:en: 1,2,3,12
 
@@ -39805,6 +39842,8 @@ la:Citrus maxima
 nl:Grapefruits
 
 <en:Pomelos
+<en:Fresh fruits
+en:Fresh pomelos
 fr:Pamplemousses frais
 season_in_country_fr:en: 2,3,4,5,6
 
@@ -39848,6 +39887,8 @@ ciqual_food_name:en:Fig, raw
 ciqual_food_name:fr:Figue, crue
 
 <en:Figs
+<en:Fresh fruits
+en:Fresh figs
 fr:Figues fraîches
 season_in_country_fr:en: 7,8,9,10
 
@@ -39857,13 +39898,6 @@ fr:Figue de Solliès
 protected_name_file_number:en: PDO-FR-0544
 protected_name_type:en: pdo
 origins:en: en:France
-
-<en:Figs
-en:Dried fig
-fr:Figue sèche
-ciqual_food_code:en:13013
-ciqual_food_name:en:Fig, dried
-ciqual_food_name:fr:Figue, sèche
 
 <en:Fruits
 en:Grapes
@@ -39953,7 +39987,7 @@ fr:Physalis
 nl:Kaapse goudbessen
 
 <en:Fruits
-en:Kiwifruits, kiwis
+en:Kiwifruits, kiwis, kiwi fruits
 de:Kiwifrüchte, Kiwis
 es:kiwis
 fi:kiivihedelmät
@@ -39961,6 +39995,8 @@ fr:Kiwis
 nl:Kiwis
 
 <en:Kiwifruits
+<en:Fresh fruits
+en:Fresh kiwifruits, fresh kiwis
 fr:Kiwis frais
 season_in_country_fr:en: 1,2,3,11,12
 
@@ -39987,6 +40023,8 @@ fr:Pêches
 nl:Perzikken
 
 <en:Peaches
+<en:Fresh fruits
+en:Fresh peaches
 fr:Pêches fraîches
 season_in_country_fr:en: 6,7,8,9
 
@@ -40013,6 +40051,8 @@ la:Prunus persica var. nucipersica, Prunus persica var. nectarina
 nl:Nectarines
 
 <en:Nectarines
+<en:Fresh peaches
+en:Fresh nectarines
 fr:Nectarines fraîches
 season_in_country_fr:en: 7,8
 
@@ -40068,6 +40108,8 @@ nl:Suikermeloenen
 wikidata:en:Q81602
 
 <en:Muskmelons
+<en:Fresh fruits
+en:Fresh muskmelons
 fr:Melons frais
 season_in_country_fr:en: 6,7,8,9
 
@@ -40185,6 +40227,8 @@ ru:Груши
 wikidata:en:Q13099586
 
 <en:Pears
+<en:Fresh fruits
+en:Fresh pears
 fr:Poires fraîches
 season_in_country_fr:en: 1,2,3,8,9,10,11,12
 
@@ -40217,11 +40261,13 @@ fr:Prunes
 nl:Pruimen
 ru:Сливы
 
-<en:Plums
+<en:Fresh plums
 fr:Mirabelles fraîches
 season_in_country_fr:en: 8,9
 
 <en:Plums
+<en:Fresh fruits
+en:Fresh plums
 fr:Prunes fraîches
 season_in_country_fr:en: 7,8,9
 
@@ -40232,7 +40278,7 @@ ciqual_food_code:en:13100
 ciqual_food_name:en:Plum, raw
 ciqual_food_name:fr:Prune, crue
 
-<en:Plums
+<en:Fresh plums
 fr:Reine-Claudes fraîches, Prunes Reine-Claude
 en:Raw greengage plums
 season_in_country_fr:en: 9
@@ -40240,7 +40286,7 @@ ciqual_food_code:en:13041
 ciqual_food_name:en:Greengage plum, raw
 ciqual_food_name:fr:Prune Reine-Claude, crue
 
-<en:Plums
+<en:Fresh plums
 fr:Quetsches fraîches
 season_in_country_fr:en: 8,9,10
 
@@ -40255,6 +40301,11 @@ en:Pomegranates
 es:Granadas
 fr:Grenades
 nl:Granaatappels
+
+<en:Pomegranates
+<en:Fresh fruits
+en:Fresh pomegranates
+fr:Grenades fraîches
 
 <en:Fruits
 en:Raw pomegranate pulp and pips
@@ -40275,6 +40326,8 @@ ciqual_food_name:en:Quince, raw
 ciqual_food_name:fr:Coing, cru
 
 <en:Quinces
+<en:Fresh fruits
+en:Fresh quinces
 fr:Coings frais
 season_in_country_fr:en: 10
 
@@ -40461,6 +40514,11 @@ fr:Mangues
 nl:Mangos
 nl_be:Mangos
 
+<en:Mangoes
+<en:Fresh fruits
+en:Fresh mangoes
+fr:Mangues fraîches
+
 <en:Tropical fruits
 en:Raw mango pulp
 fr:Pulpe de mangue crue
@@ -40475,6 +40533,11 @@ es:Papayas
 fr:Papayes
 nl:Papayas
 nl_be:Papayas
+
+<en:Papayas
+<en:Fresh fruits
+en:Fresh papayas
+fr:Papayes fraîches
 
 <en:Tropical fruits
 en:Raw papaya pulp
@@ -40510,13 +40573,18 @@ nl:Ananassen
 nl_be:Ananassen
 
 <en:Pineapple
+<en:Fresh fruits
+en:Fresh pineapple
+fr:Ananas frais
+
+<en:Pineapple
 en:Pineapple pulp, Raw pineapple pulp
 fr:Pulpe d'ananas, Pulpe d'ananas cru
 ciqual_food_code:en:13002
 ciqual_food_name:en:Pineapple, pulp, raw
 ciqual_food_name:fr:Ananas, pulpe, cru
 
-<en:Fruits based foods
+<en:Fruits
 <en:Frozen plant-based foods
 en:Frozen fruits
 de:Gefrorene Früchte
@@ -40536,26 +40604,28 @@ fr:Fruits rouges surgelés
 nl:Bevroren bosvruchten
 
 <en:Frozen berries
-en:Frozen blackberries
+<en:Blackberries
+en:Frozen blackberries, Frozen raw blackberries
 es:Moras congeladas
-fr:Mûres surgelées
+fr:Mûres surgelées, Mûres de ronce surgelées
 nl:Bevroren bramen
-
-<en:Frozen berries
-en:Frozen raw blackberries
-fr:Mûres de ronce surgelées
 ciqual_food_code:en:13150
 ciqual_food_name:en:Blackberry, frozen, raw
 ciqual_food_name:fr:Mûre (de ronce), surgelée, crue
 
 <en:Frozen berries
-en:Frozen blueberries
+<en:Blueberries
+en:Frozen blueberries, Frozen raw bluberries, Frozen raw blueberry
 de:Tiefkühl-Heidelbeeren, Tiefkühl-Blaubeeren
 es:Arándanos congelados
-fr:Myrtilles surgelées
+fr:Myrtilles surgelées, Myrtilles surgelées crues, Myrtille surgelée crue
 nl:Bevroren bosbessen
+ciqual_food_code:en:13132
+ciqual_food_name:en:Blueberry, frozen, raw
+ciqual_food_name:fr:Myrtille, surgelée, crue
 
 <en:Frozen berries
+<en:Raspberries
 en:Frozen raspberries, Frozen red raspberries
 de:Gefrorene Himbeeren
 es:Frambuesas congeladas
@@ -40563,12 +40633,14 @@ fr:Framboises surgelées
 nl:Bevroren frambozen
 
 <en:Frozen berries
+<en:Redcurrants
 en:Frozen redcurrants
 es:Grosellas congeladas
 fr:Groseilles surgelées
 nl:Bevroren aalbessen
 
 <en:Frozen berries
+<en:Strawberries
 en:Frozen strawberries
 de:Gefrorene Erdbeeren
 es:Fresas congeladas
@@ -40576,12 +40648,14 @@ fr:Fraises surgelées
 nl:Bevroren aardbeien
 
 <en:Frozen fruits
+<en:Citrus
 en:Frozen citrus
 es:Cítricos congelados
 fr:Agrumes surgelés
 nl:Bevroren citrusfruit
 
 <en:Frozen fruits
+<en:Pomegranates
 en:Frozen pomegranates
 es:Granadas congeladas
 fr:Grenades surgelées
@@ -40589,6 +40663,7 @@ nl:Bevroren granaatappels
 pt:Romãs congeladas
 
 <en:Frozen fruits
+<en:Tropical fruits
 en:Frozen tropical fruits
 de:Gefrorene Tropenfrüchte
 es:Frutas tropicales congeladas
@@ -40596,12 +40671,14 @@ fr:Fruits tropicaux surgelés, fruits exotiques surgelés
 nl:Bevroren tropische vruchten
 
 <en:Frozen tropical fruits
+<en:Avocados
 en:Frozen avocados
 es:Aguacates congelados
 fr:Avocats surgelés
 nl:Bevroren avocados
 
 <en:Frozen tropical fruits
+<en:Pineapple
 en:Frozen pineapples
 de:Gefrorene Ananas
 es:Piñas congeladas
@@ -40808,14 +40885,17 @@ fr:Farine de noix de coco séchée
 nl:Gedroogde kokosmelen
 
 <en:Dried fruits
-en:Dried figs
+en:Dried figs, Dried fig
 de:getrocknete Feigen, gedörrte Feigen
 es:Higos secos
 fi:kuivatut viikunat
-fr:Figues sèches
+fr:Figues sèches, Figue sèche
 it:Fichi secchi
 nl:Gedroogde vijgen
 ru:Инжир сушёный, сушёные инжир
+ciqual_food_code:en:13013
+ciqual_food_name:en:Fig, dried
+ciqual_food_name:fr:Figue, sèche
 
 <en:Dried fruits
 en:Dried goji, Dried goji berries, Goji
@@ -40921,7 +41001,6 @@ es:Uvas pasas sultanas, Pasas sultanas
 fr:Raisins secs Sultanines, Raisins Sultanines
 nl:Sultanas
 
-<en:Fruits based foods
 <en:Canned plant-based foods
 en:Canned fruits
 ca:Fruita en conserva
@@ -45663,13 +45742,6 @@ ciqual_food_code:en:25099
 ciqual_food_name:en:White bean stew, with duck or goose, canned
 ciqual_food_name:fr:Cassoulet au canard ou oie, appertisé
 
-<en:Ducks
-<en:Sausages
-en:Duck sausages
-fi:Ankkamakkarat
-fr:Saucisses de canard
-nl:Eendenworst
-
 <en:Duck dishes
 en:Blanquettes of duck, Blanquette of duck
 fr:Blanquettes de canard, Blanquette de canard
@@ -46499,7 +46571,7 @@ zh:清汤
 # zh-hk:清湯
 # zh-sg:清汤
 # zh-tw:清湯
-wikidata:en:https://en.wikipedia.org/wiki/Broth
+wikidata:en:Q275068
 wikipedia:en:https://en.wikipedia.org/wiki/Broth
 # category/broths has 527 products @2019-05-19
 
@@ -49216,7 +49288,7 @@ ciqual_food_code:en:28004
 ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
-<en:Cooked pork meat 
+<en:Cooked pork meat
 en:Cooked pork loin
 fr:Longe de porc cuite
 ciqual_food_code:en:28007
@@ -49954,7 +50026,7 @@ wikidata:en:Q3736439
 
 <en:Ducks
 <en:Raw meats
-en:Raw duck meat, Duck fresh meat
+en:Raw duck meat
 fr:Viande de canard crue
 ciqual_food_code:en:36201
 ciqual_food_name:en:Duck, meat, raw
@@ -49998,23 +50070,23 @@ nl:Eendenfilets, Eendenborst
 zh:鸭胸
 
 <en:Duck breasts
-en:Smoked duck breast fillet
-fr:Magret de canard fumé
+en:Smoked duck brests, Smoked duck breast fillet
+fr:Magrets de canard fumés, Magret de canard fumé
 ciqual_food_code:en:8111
 ciqual_food_name:en:Duck breast fillet, smoked
 ciqual_food_name:fr:Canard, magret fumé
 
 <en:Duck breasts
-en:Duck magret cooked in pan
-fr:Magret de canard grillé, Magret de canard poêlé
+en:Duck brests cooked in pan, Duck magret cooked in pan
+fr:Magrets de canard grillés, Magret de canard grillé, Magret de canard poêlé
 ciqual_food_code:en:36205
 ciqual_food_name:en:Duck, magret, cooked in pan
 ciqual_food_name:fr:Canard, magret, grillé/poêlé
 
 <en:Raw duck meat
 <en:Duck breasts
-en:Duck breast fillet
-fr:Magret de canard cru
+en:Raw duck breasts
+fr:Magrets de canard crus, Magret de canard cru
 ciqual_food_code:en:36206
 ciqual_food_name:en:Duck, breast fillet
 ciqual_food_name:fr:Canard, magret, cru
@@ -50056,6 +50128,14 @@ ciqual_food_name:fr:Canard, viande, rôtie/cuite au four
 <en:Ducks
 fr:Filets de canard
 it:Filetti di anatra
+
+<en:Ducks
+<en:Sausages
+en:Duck sausages
+fi:Ankkamakkarat
+fr:Saucisses de canard
+nl:Eendenworst
+
 
 <en:Poultries
 en:Turkeys, Turkey, Turkey fresh meat, Fresh Turkey
@@ -50207,7 +50287,6 @@ fr:Foie d'oie cru
 ciqual_food_code:en:40120
 ciqual_food_name:en:Liver, goose, raw
 ciqual_food_name:fr:Foie, oie, cru
-
 
 <en:Poultries
 fr:Pintades, Pintade
@@ -50422,7 +50501,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 <en:Chickens
 <en:Raw meats
 en:Raw chicken meat
-fr:Viande de poulet crue avec peau
+fr:Viande de poulet crue
 ciqual_food_code:en:36016
 ciqual_food_name:en:Chicken, meat and skin, raw
 
@@ -50757,6 +50836,13 @@ ciqual_food_name:en:Chitterling sausage, raw
 ciqual_food_name:fr:Andouillette, crue
 
 <en:Prepared meats
+en:Porchetta
+es:Porchetta
+fr:Porchetta
+it:Porchetta
+wikidata:en:Q1106345
+
+<en:Prepared meats
 en:Capicola, coppa
 fr:Coppa
 nl:Capocollo
@@ -50883,7 +50969,7 @@ ciqual_food_name:en:Cooked ham, Parisian-style, rind less and fatless
 
 <en:Hams
 en:Pork ham intended to be cooked or pork ham intended to be roast/bake
-fr:Jambon de porc à cuire 
+fr:Jambon de porc à cuire
 ciqual_food_code:en:28700
 ciqual_food_name:en:Pork ham, intended to be cooked or pork ham, intended to be roast/bake
 
@@ -52338,7 +52424,7 @@ protected_name_type:en: pgi
 origins:en: en:France, fr:Auvergne
 
 <fr:Saucissons secs
-fr:Saucisson sec de l'Ile de Beauté, Salciccia de l'Ile de Beauté 
+fr:Saucisson sec de l'Ile de Beauté, Salciccia de l'Ile de Beauté
 protected_name_file_number:en: PGI-FR-02431
 protected_name_type:en: pgi
 origins:en: en:France, fr:Corse
@@ -52403,7 +52489,7 @@ ciqual_food_name:fr:Rillettes de thon
 <en:Tunas
 <en:Fish rillettes
 en:Tuna in Catalan-style or in tomato sauce canned
-fr:Thon à la catalane 
+fr:Thon à la catalane
 ciqual_food_code:en:26243
 ciqual_food_name:en:Tuna, in Catalan-style or in tomato sauce, canned
 
@@ -54770,7 +54856,7 @@ ciqual_food_name:en:Carbonara-style pasta (spaghetti, tagliatelle…)
 
 <en:Pasta dishes
 en:Pasta with cheese sauce (spaghetti tagliatelle…)
-fr:Pâtes en sauce aux fromages 
+fr:Pâtes en sauce aux fromages
 ciqual_food_code:en:25198
 ciqual_food_name:en:Pasta with cheese sauce (spaghetti, tagliatelle…)
 
@@ -59372,19 +59458,11 @@ fr:Confitures assorties, assortiments de confitures, assortiment de confitures
 nl:Jam-assortimenten
 
 <en:Jams
-en:Fruit jams
-
-<en:Jams
-en:Light jams
+en:Low sugar fruit jam, Reduced sugar fruit jam, Light jams
 es:Mermeladas y confituras ligeras, Mermeladas y confituras light
 fi:kevythillot
-fr:Confitures allégées
+fr:Confiture de fruits allégée en sucres, Confitures allégées
 nl:Suikervrije jams
-
-<en:Light jams
-<en:Fruit jams
-en:Low sugar fruit jam, Reduced sugar fruit jam
-fr:Confiture de fruits allégée en sucres
 ciqual_food_code:en:31110
 ciqual_food_name:en:Jam, reduced sugar
 ciqual_food_name:fr:Confiture, tout type de fruits, allégée en sucres (extra ou classique)
@@ -59597,11 +59675,16 @@ pl:Słone smarowidła, słone pasty do smarowania
 pt:Produtos salgados para barrar
 pnns_group_2:en:Salty and fatty products
 
-<en:Salted spreads
+<en:Plant-based spreads
 <en:Onions and their products
 en:Onion chutneys
 fr:Confits d'oignons, Chutneys d'oignons
 nl:Uienchutney
+
+<en:Plant-based spreads
+<en:Tomatoes and their products
+en:Tomato chutneys
+fr:Confits de tomates
 
 <en:Salted spreads
 en:Artichoke spreads
@@ -60566,14 +60649,14 @@ ciqual_food_name:fr:Oignon, séché
 en:French vegetables
 
 <en:French vegetables
-<en:onions
+<en:Onions
 fr:Oignon de Roscoff
 protected_name_file_number:en: PDO-FR-0812
 protected_name_type:en: pdo
 origins:en: en:France, fr:Roscoff
 
 <en:French vegetables
-<en:Onions and their products
+<en:Onions
 fr:Oignon doux des Cévennes
 protected_name_file_number:en: PDO-FR-0314
 protected_name_type:en: pdo
@@ -61654,7 +61737,7 @@ ciqual_food_name:en:Celery stalk, cooked
 ciqual_food_name:fr:Céleri branche, cuit
 
 <en:Celery
-en:Raw celery stalk
+en:Celery stalk, Raw celery stalk
 fr:Céleris branche
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
@@ -61773,14 +61856,14 @@ la:Cucumis sativus
 nl:Komkommers
 ru:Огурцы, Огурец
 wikidata:en:Q23425
-
-<en:Cucumbers
-fr:Concombre frais
-en:Cucumbe
-season_in_country_fr:en: 5,6,7,8,9,10
 ciqual_food_code:en:20019
 ciqual_food_name:en:Cucumber, pulp and peel, raw
 
+<en:Cucumbers
+<en:Fresh vegetables
+en:Fresh cucumbers
+fr:Concombre frais
+season_in_country_fr:en: 5,6,7,8,9,10
 
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 
@@ -61926,7 +62009,7 @@ zh:小茴香
 # yue:茴香
 # zh-tw:茴香
 wikipedia:en:https://en.wikipedia.org/wiki/Fennel
-wikidata:en:https://www.wikidata.org/wiki/Q43511
+wikidata:en:Q43511
 # fr:fenouil has 634 products in 6 languages @2018-10-21
 ciqual_food_code:en:20028
 ciqual_food_name:en:Fennel, raw
@@ -62323,21 +62406,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
 
-<en:onions
-en:Yellow Onions, yellow onion
+<en:Onions
+en:Yellow onions, yellow onion
 de:gelbe Zwiebel
 fr:Oignons jaunes, oignon jaune
 wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
 wikidata:en:Q8051898
 
-<en:onions
-en:White Onions, white onion
+<en:Onions
+en:White onions, white onion
 fr:Oignons blancs, oignon blanc
 wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 wikidata:en:Q7995660
 
-<en:onions
-en:Red Onions, red onion, purple onions, Bombay onions
+<en:Onions
+en:Red onions, red onion, purple onions, Bombay onions
 fr:Oignons rouges, oignon rouge
 wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 wikidata:en:Q622350
@@ -62347,6 +62430,16 @@ wikidata:en:Q622350
 en:Fresh onions
 fr:Oignons frais
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
+
+<en:Fresh onions
+<en:White onions
+en:Fresh white onions
+fr:Oignons blancs frais
+
+<en:Fresh onions
+<en:Red onions
+en:Fresh red onions
+fr:Oignons rouges frais
 
 <en:Onions
 en:Raw onions
@@ -62373,6 +62466,8 @@ nl:Sjalotjes
 wikidata:en:Q193498
 
 <en:Shallots
+<en:Fresh vegetables
+en:Fresh shallots
 fr:Échalotes fraîches
 season_in_country_fr:en: 10,11,12
 
@@ -62542,6 +62637,13 @@ se:Potatisar, potatis
 pnns_group_2:en:Potatoes
 
 <en:Potatoes
+en:Fresh potatoes
+fr:Pommes de terre fraîches
+
+<en:Potatoes
+fr:Pommes de terre primeurs, Pommes de terre de primeur
+
+<en:Potatoes
 en:Jersey Royal potatoes
 protected_name_file_number:en: PDO-GB-0027
 protected_name_type:en: pdo
@@ -62580,29 +62682,12 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:île de Ré
 wikidata:en:Q3395977
 
-<fr:Pommes de terre de l'île de Ré
-fr:Pommes de terre primeurs, Pommes de terre de primeur
-
 <en:Potatoes
 en:Boiled potatoes, Potatoes cooked in water
 fr:Pommes de terre bouillies, Pommes de terre cuites à l'eau
 ciqual_food_code:en:4003
 ciqual_food_name:en:Potato, boiled/cooked in water
 ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
-
-<en:Potatoes
-en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
-fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
-ciqual_food_code:en:53503
-ciqual_food_name:en:Yam or Indian potato, peeled, boiled/cooked in water
-ciqual_food_name:fr:Igname, épluchée, bouillie/cuite à l'eau
-
-<en:Potatoes
-en:Raw peeled yam potato, Raw peeled Indian potato
-fr:Igname épluchée crue
-ciqual_food_code:en:53502
-ciqual_food_name:en:Yam or Indian potato, peeled, raw
-ciqual_food_name:fr:Igname, épluchée, crue
 
 <en:Potatoes
 en:Boiled peeled ware potatoes, Peeled ware potatoes cooked in water
@@ -62865,13 +62950,15 @@ zh:萝卜
 # szl:Radiska
 # yue:蘿蔔
 # zh-tw:蘿蔔
-wikidata:en:Q7224565 # for the plant
+wikidata:en:Q7224565
 wikipedia:en:https://en.wikipedia.org/wiki/Radish
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
 <en:Radishes
+<en:Fresh vegetables
+en:Fresh radishes
 fr:Radis frais
 season_in_country_fr:en: 3,4,5,6
 
@@ -62977,6 +63064,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
 # ingredient/fr:rhubarbe has 191 products in 4  languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
 season_in_country_fr:en: 4,5,6
+
+<en:Rhubarbs
+<en:Fresh fruits
+en:Fresh rhubarbs
+fr:Rhubarbes fraîches
 
 <en:Vegetable rods
 en:Rhubarb stalk cooked with sugar
@@ -63229,6 +63321,7 @@ ciqual_food_name:en:Turnip, peeled, raw
 ciqual_food_name:fr:Navet, pelé, cru
 
 <en:Turnip
+<en:Fresh vegetables
 en:Fresh turnips
 fr:Navets frais
 season_in_country_fr:en: 1,2,3,4,5,10,11,12
@@ -63245,7 +63338,6 @@ ja:トマト
 nl:Tomaten
 
 <en:Tomatoes
-<en:Fresh vegetables
 en:Raw tomatoes
 fr:Tomates crues
 ciqual_food_code:en:20047
@@ -63763,8 +63855,9 @@ fr:Petits pois
 nl:Verse doperwten
 
 <en:Green peas
+<en:Fresh vegetables
 en:Fresh green peas
-fr:Petits pois frais
+fr:Petits pois frais, petit pois frais
 season_in_country_fr:en: 5,6,7
 
 <en:Green peas
@@ -69200,6 +69293,7 @@ ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
 ciqual_food_name:fr:Haricot beurre, surgelé, cru
 
 <en:Frozen vegetables
+<en:Onions
 en:Frozen raw onions
 fr:Oignons surgelés crus
 ciqual_food_code:en:20235
@@ -69290,12 +69384,6 @@ ciqual_food_name:en:Muffin, with blueberry or chocolate
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
-
-<en:White chocolates
-en:White chocolates with hazelnuts
-de:Weiße Schokoladen mit Haselnüssen
-fr:Chocolats blancs aux noisettes
-nl:Witte chocola met hazelnoten
 
 <en:White chocolates
 en:White chocolate bar with dried fruits
