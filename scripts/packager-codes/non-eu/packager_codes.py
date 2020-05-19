@@ -17,7 +17,7 @@ JSONObject = Mapping[str, Any]
 
 
 def scrape_document_info() -> List[JSONObject]:
-    logger.info("Scraping document information")
+    logger.info("Scraping remote document information")
     # Try importing scrapy to check for dependency
     import scrapy  # noqa
 
@@ -57,8 +57,8 @@ def document_info_diff(
             and scraped_docs[doc_name]["publication_date"] > doc["publication_date"]
         )
     ]
-    unchanged_names = set(local_docs.keys()).difference(removed_names).difference(
-        updated_names
+    unchanged_names = (
+        set(local_docs.keys()).difference(removed_names).difference(updated_names)
     )
 
     return {
@@ -86,7 +86,7 @@ def main():
 
 @main.command(
     help="Show local data status as compared to remote source.\n\n"
-         "DATA_DIR is the path to the local packager code data storage.",
+    "DATA_DIR is the path to the local packager code data storage.",
     no_args_is_help=True,
 )
 @click.argument("data_dir", type=click.Path(file_okay=False))
@@ -106,46 +106,44 @@ def status(data_dir: str, output_format: str) -> None:
     doc_diff = document_info_diff(scraped_info, local_meta["document_info"])
 
     if output_format == "json":
-        from pprint import pprint
-
-        pprint(doc_diff)
+        click.echo(json.dumps(doc_diff, indent=2))
     else:
         text = (
-            "Last updated: {}\nNew: {}, Removed: {}, Updated: {}, Unchanged: {}".format(
-                local_meta.get("updated", "never"),
-                len(doc_diff["new"]),
-                len(doc_diff["removed"]),
-                len(doc_diff["updated"]),
-                len(doc_diff["unchanged"]),
-            )
+            "Last updated: {}\nNew: {}, Removed: {}, Updated: {}, Unchanged: {}"
+        ).format(
+            local_meta.get("updated", "never"),
+            len(doc_diff["new"]),
+            len(doc_diff["removed"]),
+            len(doc_diff["updated"]),
+            len(doc_diff["unchanged"]),
         )
         click.echo(text)
 
 
 @main.command(
     help="Sync packager code files with remote.\n\n"
-         "DEST_DIR is the path of the local directory in which to download data.",
+    "DATA_DIR is the path of the local directory in which to sync data.",
     no_args_is_help=True,
 )
-@click.argument("dest_dir", type=click.Path(file_okay=False))
-def sync(dest_dir: str) -> None:
-    dest_dir = Path(dest_dir)
-    dest_dir.mkdir(exist_ok=True)
+@click.argument("data_dir", type=click.Path(file_okay=False))
+def sync(data_dir: str) -> None:
+    data_dir = Path(data_dir)
+    data_dir.mkdir(exist_ok=True)
 
-    local_meta = load_local_meta(dest_dir)
+    local_meta = load_local_meta(data_dir)
     document_info = scrape_document_info()
     doc_diff = document_info_diff(document_info, local_meta["document_info"])
 
     logger.info("Deleting %s removed documents", len(doc_diff["removed"]))
     for removed_doc in doc_diff["removed"]:
-        doc_path = dest_dir / removed_doc["file_path"]
+        doc_path = data_dir / removed_doc["file_path"]
         logger.info("Deleting '%s'", doc_path)
         doc_path.unlink()
 
     changed_docs = doc_diff["new"] + doc_diff["updated"]
-    download_documents(changed_docs, dest_dir)
+    download_documents(changed_docs, data_dir)
 
-    meta_path = dest_dir / "meta.json"
+    meta_path = data_dir / "meta.json"
     logger.info("Writing metadata in '%s'", meta_path)
     meta = {
         "description": "OpenFoodFacts non-EU packager codes",
@@ -153,7 +151,7 @@ def sync(dest_dir: str) -> None:
         "document_info": document_info,
     }
     with meta_path.open("w") as meta_file:
-        json.dump(meta, meta_file)
+        json.dump(meta, meta_file, indent=2)
 
 
 if __name__ == "__main__":
