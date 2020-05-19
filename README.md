@@ -1,7 +1,5 @@
 # Product Opener
 
-* Versions:
-
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
