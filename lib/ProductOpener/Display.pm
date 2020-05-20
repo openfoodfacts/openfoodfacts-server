@@ -7772,9 +7772,7 @@ JS
 
 	$html .= display_ingredients_analysis($product_ref);
 
-	if (defined $User_id) {
-		$html .= display_ingredients_analysis_details($product_ref);
-	}
+	$html .= display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
 
@@ -10471,8 +10469,9 @@ sub display_ingredients_analysis_details($) {
 
 	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
 
-	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a><p>"
-	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+
+	my $unknown_ingredients_html = '';
+	my $unknown_ingredients_help_html = '';
 
 	if ($ingredients_text =~ /unknown_ingredient/) {
 
@@ -10482,8 +10481,24 @@ sub display_ingredients_analysis_details($) {
 }
 CSS
 ;
-		$html .= '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>';
+		$unknown_ingredients_help_html = " <b>" . lang("we_need_your_help") . "</b>";
+
+		$unknown_ingredients_html = '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>'
+		. '<div class="callout panel">'
+		. '<h3>' . lang("we_need_your_help") . '</h3>'
+		. '<p>' . lang("you_can_help_improve_ingredients_analysis") . '</p>'
+		. '<ul>'
+		. '<li>' . lang("help_improve_ingredients_analysis_1") . '</li>'
+		. '<li>' . lang("help_improve_ingredients_analysis_2") . '</li>'
+		. '</ul>'
+		. '<p>' . lang("help_improve_ingredients_analysis_instructions") . '</p>'
+		. '</div>';
 	}
+
+
+	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
+	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">'
+	. $unknown_ingredients_html;
 
 	$html .= "<p>" . $ingredients_text . "</p>";
 
