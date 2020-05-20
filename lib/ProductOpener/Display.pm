@@ -10395,7 +10395,7 @@ sub display_ingredient_analysis($$$) {
 	my $ingredients_text_ref = shift;
 	my $ingredients_list_ref = shift;
 
-	$$ingredients_list_ref .= "<ol>\n";
+	$$ingredients_list_ref .= "<ol id=\"ordered_ingredients_list\">\n";
 
 	my $i = 0;
 
@@ -10495,12 +10495,11 @@ CSS
 		. '</div>';
 	}
 
-
-	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
+	my $html = '<p><a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
 	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">'
 	. $unknown_ingredients_html;
 
-	$html .= "<p>" . $ingredients_text . "</p>";
+	$html .= '<p id="ingredients_analysis_ingredients_text">' . $ingredients_text . "</p>";
 
 	$html .= $ingredients_list;
 
@@ -10601,7 +10600,7 @@ sub display_ingredients_analysis($) {
 
 		if ($html_analysis ne "") {
 
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}
