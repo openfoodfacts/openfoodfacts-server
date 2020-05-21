@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-16 09:43\n"
+"PO-Revision-Date: 2020-05-21 09:31\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -524,7 +524,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "유럽에서는 2 개 국가 이니셜 뒤에 타원을 사용하고 숫자와 CE를 사용합니다."
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -532,7 +532,7 @@ msgstr "포장 코드"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Emb 코드가 %s제품"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -540,11 +540,11 @@ msgstr "포장 코드"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "Emb 코드가없는 제품 %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "입국 날짜"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
@@ -886,11 +886,11 @@ msgstr "이 파일은 제품 %s 에 업로드되었으며 %s 라이센스에 따
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "기여 : 사진 %s개당 %s 개"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "저작자 : 사진 %s 에 의해 추가 수정과 %s 당 %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
@@ -898,7 +898,7 @@ msgstr "(원본 이미지)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "사진 상세 및 속성 정보"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -950,11 +950,11 @@ msgstr "재료 가지 수"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "인식 된 성분의 수"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "인식 할 수없는 성분의 수"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -962,7 +962,7 @@ msgstr "성분"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "영양소 %s가 포함된 제품"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -978,11 +978,11 @@ msgstr "성분 중요성 (수량)의 순서로 나열되어 있습니다."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "곡물 85.5 % (_ 밀가루, 통 밀가루 11 %), 맥아 추출물, 코코아 4,8 %, 아스코르브 산"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "순서를 유지하고 지정된 경우 %를 표시하고 쉼표로 구분하거나-성분의 성분에 ()을 사용하고 _milk_로 알레르겐을 둘러싸십시오."
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -990,7 +990,7 @@ msgstr "야자 기름일지도 모르는 성분"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "팜유에서 유래 된 성분"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1011,11 +1011,11 @@ msgstr "https://apps.apple.com/kr/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "알려진 영양소"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "알려진 영양소"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -1368,7 +1368,7 @@ msgstr "영양 성분 표시"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "영양사실을 알고 있는 %s 카테고리 %d 제품(%d 제품 중)의 평균 영양성분."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1376,7 +1376,7 @@ msgstr "%의 차이 "
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "100g / 100ml에 대한 값"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1384,11 +1384,11 @@ msgstr "같은 카테고리에 있는 제품들의 평균 값과 비교한 결�
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "참고 : 각 영양소에 대한 평균은 해당 범주의 모든 제품이 아니라 영양 량을 알고있는 제품에 대해 계산됩니다."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "사진이 충분히 선명하고 수평이면 사진에서 영양 성분을 자동으로 추출 할 수 있습니다."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1400,11 +1400,11 @@ msgstr "100G / 100 ㎖"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup></sup>"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "중앙값"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1412,7 +1412,7 @@ msgstr "90 분위"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>th</sup>"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
