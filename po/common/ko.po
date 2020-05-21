@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 12:21\n"
+"PO-Revision-Date: 2020-05-21 12:31\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2907,11 +2907,11 @@ msgstr "생산자 제품 식별자"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "순중량"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "배수 중량"
 
 msgctxt "volume"
 msgid "Volume"
@@ -2923,7 +2923,7 @@ msgstr "다른 정보"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "보존 조건"
 
 msgctxt "warning"
 msgid "Warning"
@@ -2951,7 +2951,7 @@ msgstr "생산자"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "재활용 지침 - 재활용 방법"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
@@ -2959,63 +2959,63 @@ msgstr "재활용 지침-폐기"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "%s에서 확인 된 제품"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "%s에서 확인 되지 않은 제품"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "%s에 의해 수정된 제품"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "%s에 의해 수정되지 않은 제품"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "%s에 의해 편집된 제품"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "%s에 의해 편집되지 않은 제품"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "%s의해 완성 된 제품"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "%s에 의해 완성되지 않은 제품"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "%s에 의해 촬영된 제품"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "%s에 의해 촬영되지 않은 제품"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "%s의 페이지"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "해당 상품은 더이상 판매되지 않습니다."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "철회 날짜"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "형식 : YYYY-MM-DD 또는 YYYY-MM 또는 YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 또는 2019-09 또는 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3188,34 +3188,34 @@ msgstr "최신 버전"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "제품 데이터 파일 가져오기"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "스프레드시트 파일(Excel 파일 또는 탭으로 구분된 UTF-8 인코딩 CSV 파일)을 제품 데이터와 함께 업로드하십시오."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Open Food Facts 가져오기 형식이 있는 표을 업로드하거나, 어떤 형식으로든 표을 업로드한 다음 가져올 열을 선택할 수 있습니다."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "제품 데이터가 포함된 파일 업로드"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "파일을 업로드하는 중."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "파일을 업로드할 수 없습니다."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "데이터 선택 및 가져 오기"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
