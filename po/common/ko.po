@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 12:31\n"
+"PO-Revision-Date: 2020-05-21 12:42\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3219,7 +3219,7 @@ msgstr "데이터 선택 및 가져 오기"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "가져올 열과 포함할 데이터를 나타내려면 아래 양식을 사용하세요."
 
 msgctxt "import_data"
 msgid "Import data"
@@ -3227,19 +3227,19 @@ msgstr "데이터 불러오기"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "업로드된 파일에는 %s 행과 %s 열이 포함되어 있습니다."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "%s  중 %s 열을 선택되어 가져옵니다."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "제품 식별"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "근원"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3251,7 +3251,7 @@ msgstr "영양 성분 표시"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "선택적 영양 사실"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3259,43 +3259,43 @@ msgstr "다른 정보"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "제품 사진"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "전면 제품 사진링크"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "성분 목록 사진 링크"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "영양 사실 표 사진 링크"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "다른 제품 사진으로 연결"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "특정 라벨"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "특정 카테고리"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "특정한 소스 필드"
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "필드를 선택하세요"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "지정"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
@@ -3516,35 +3516,35 @@ msgstr ""
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 # abbreviation for Minimum
 msgctxt "min"
@@ -3558,55 +3558,55 @@ msgstr "최대"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "가능한 개선"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "가능한 개선"
 
 msgctxt "improvements"
 msgid "possible improvements"
-msgstr ""
+msgstr "가능한 개선"
 
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/수입품"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "제품 추가 또는 업데이트"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "당신의 제품"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "당신의 계정은 아직 회사와 연결되지 않았습니다. 생산자를 위한 플랫폼에 대한 무료 액세스를 활성화하려면 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>으로 이메일을 보내주십시오."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "수입품"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "빈 열"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "파일에 이 열에 값이 없습니다."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "데이터 가져오기 진행 중"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "제품 데이터가 수신되어 생산자를 위해 플랫폼에서 가져옵니다."
 
 msgctxt "import_file_status"
 msgid "Status"
@@ -3614,7 +3614,7 @@ msgstr "상태"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "예정"
 
 msgctxt "job_status_active"
 msgid "In progress"
