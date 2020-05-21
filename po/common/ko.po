@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 13:01\n"
+"PO-Revision-Date: 2020-05-21 13:12\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3320,115 +3320,115 @@ msgstr "다른 열에 값이 있는 단위만"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "값이 Y, 예 또는 1 일 때 열에 특정 레이블 (예 : 유기농, 공정 거래)이 있음을 나타내는 경우이 옵션을 선택하십시오."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "오른쪽의 텍스트 필드에 레이블 이름을 입력하십시오."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "값이 Y, 예 또는 1 일 때 열에 특정 카테고리(예 : 음료)가 있음을 나타내는 경우이 옵션을 선택하십시오."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "오른쪽의 텍스트 필드에 카테고리 이름을 입력하십시오."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "원본 관련 필드 및 원본 특정 필드로 유지하려는 필드에 대해 이 필드는 원본 특정 필드로 유지하십시오."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "소스 필드의 이름을 사용하려면 오른쪽의 텍스트 필드에 대상 필드 이름을 입력하거나 비워 두십시오."
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "값"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "값 + 단위"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "값(L)"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "값(dl)"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "값(cl)"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "값(ml)"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "값(kg)"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "값(g)"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "값(mg)"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "값(μg)"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "값(IU)"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "값(kcal)"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "값(kJ)"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "값(%)"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "이 기능을 사용하려면 로그인하십시오."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "조직"
 
 msgctxt "column_in_file"
 msgid "Column in file"
-msgstr ""
+msgstr "파일의 열"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "%s필드"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr ""
+msgstr "생산자를위한 플랫폼"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "생산자를위한 플랫폼을 통해 제조업체는 Open Food Facts에서 제품 사진과 데이터를 쉽게 관리 할 수 있습니다."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "생산자를 위해 플랫폼에서 보내는 제품 데이터 및 사진은 개인 데이터베이스에 저장됩니다. 공개 Open Food Facts 데이터베이스에서 모든 데이터를 사용 가능하게하기 전에 모든 데이터가 올바른지 확인할 수 있습니다."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
@@ -3438,21 +3438,21 @@ msgstr "<a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "제품 데이터 가져 오기"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "제품 사진 가져 오기"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "제품 데이터 및 사진을 공개 데이터베이스로 내보내기"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "제작자를위한 플랫폼의 데이터가 공개 데이터베이스로 내보내기 전에 올바른지 확인하십시오."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3460,59 +3460,59 @@ msgstr "취소"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "축소된 변경 사항"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "데이터 품질"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "데이터 품질"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "데이터 품질"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "데이터 품질 버그"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "데이터 품질 버그"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "데이터 품질 버그"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "데이터 품질 정보"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "데이터 품질 정보"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "데이터 품질 정보"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "데이터 품질 경고"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "데이터 품질 오류"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
@@ -3759,31 +3759,31 @@ msgstr "이 제품은 Nutri-Score 계산을위한 음료로 간주되지 않습�
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "긍정적인 포인트"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "부정적인 포인트"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "단백질에 대한 점수은 음수가 11보다 작기 때문에 계산됩니다."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "음수가 11보다 크거나 같기 때문에 단백질에 대한 점수는 계산되지 않습니다."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "과일, 야채, 견과류 및 콜자 / 호두 / 올리브 오일에 대한 점수가 최대이기 때문에 단백질 점수가 계산됩니다."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "제품이 치즈 카테고리에 있기 때문에 단백질에 대한 점수가 계산됩니다."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "제품이 지방 범주에 있고 포화 지방의 포인트가 포화 지방 / 지방 비율의 포인트로 대체됩니다."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3799,7 +3799,7 @@ msgstr "포화 지방"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "포화 지방 / 지방 비율"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4020,19 +4020,19 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "계산된 Nutri-Score 등급"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "코드 스캔"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "파일 이름의 코드"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "이전 코드 사용"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
