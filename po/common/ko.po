@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 13:12\n"
+"PO-Revision-Date: 2020-05-21 13:22\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3807,7 +3807,7 @@ msgstr "나트륨"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "과일, 야채, 견과류 및 평지씨/월넛/올리브 오일"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3823,11 +3823,11 @@ msgstr "값"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "반올림 값"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "영양 점수"
 
 # Do not translate
 msgctxt "nutriscore_grade"
@@ -3837,7 +3837,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Nutri-Score 점수"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -3847,12 +3847,12 @@ msgstr "Nutri-Score"
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts는 100 % 무료이며 독립적입니다."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">프로젝트를 계속 발전 시키려면 여러분의 도움과 기부가 필요합니다</a>."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3860,17 +3860,17 @@ msgstr "감사합니다!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "제품의 가치"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "%s 카테고리의 평균값"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "%s 값을 %s(%s 차이)에서 %s(%s 차이)로 변경하여 뉴트리-스코어를 %s에서 %s(%s 차이)로 변경할 수 있습니다."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -3878,7 +3878,7 @@ msgstr "생산업체들을 위한 플랫폼은 아직 개발 중이며 올리기
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "그룹"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3886,15 +3886,15 @@ msgstr "생산자"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "자신의 제품을 편집하는 생산자의 계정에 대해서만 확인되어야 합니다. 제품 소유권은 생산자가 제품을 추가하거나 편집 할 때 발생합니다."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "데이터베이스"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "외부 데이터 소스 용. 수입 제품의 제품 소유권은 변경되지 않습니다."
 
 msgctxt "user_group_app"
 msgid "App"
@@ -3902,59 +3902,59 @@ msgstr "앱"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "어플용"
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "봇"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "로봇, 스크립트 등"
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "중재자"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "중재자는 제품을 편집하고 검토 할 수있는 특수 기능에 액세스 할 수 있습니다."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "생산자 플랫폼의 중재자"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "생산자 플랫폼의 중재자는 생산자 플랫폼에서 모든 사용자 및 조직의 개인 제품을보고 편집 할 수 있습니다."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "이미 기부했거나 관심이 없습니다. 배너를 숨깁니다."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "체크 박스를 해제 하시겠습니까?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "식품 투명성을 위한 독립적인 시민 주도의 프로젝트?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "공중 보건을 향상시키는 연구를위한 식품 데이터?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "자신의 기준에 따라 더 쉽고 더 나은 음식 선택?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "우리는 당신의 지원이 필요합니다!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "기부를 부탁합니다"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
