@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 09:31\n"
+"PO-Revision-Date: 2020-05-21 09:42\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1441,7 +1441,8 @@ msgstr "영양 성분 표시"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "표에는 기본적으로 자주 지정되는 영양분이 나열되어 있습니다. 레이블이없는 경우 필드를 비워 두십시오. <br/>표의 마지막 행에 이름의 첫 글자를 입력하여 영양분 (비타민, 미네랄, 콜레스테롤 등)\n"
+"을 추가 할 수 있습니다."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1453,12 +1454,12 @@ msgstr "영양 등급"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "영양 등급"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -1474,7 +1475,8 @@ msgstr "뉴스"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "2015 년 2 월 21 일 토요일부터 2015 년 3 월 1 일 일요일까지 <<site_name>>의 <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> 입니다! 기고자에게는 추가 한 제품에 대해\n"
+"탐험가 포인트가, 새로 모집 한 신규 기고자에 대한 대사 포인트가 부여됩니다. 포인트는 30 분마다 업데이트됩니다."
 
 msgctxt "or"
 msgid "or:"
@@ -1498,7 +1500,7 @@ msgstr "재료 원산지 "
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "성분이 %s에서 유래 한 제품"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1510,7 +1512,7 @@ msgstr "원산지를 추가해주세요"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "성분이 %s아닌 제품"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1518,11 +1520,11 @@ msgstr "포장"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "신선한, 통조림, 냉동, 병, 상자, 유리, 플라스틱 ..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "포장 유형, 형식, 재료"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -1530,7 +1532,7 @@ msgstr "포장"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "포장이 %s 제품"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1538,15 +1540,15 @@ msgstr "포장"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "유형, 모양 또는 재료 추가"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "%s 포장 없는 제품"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "페이지 %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
