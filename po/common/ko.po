@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 09:42\n"
+"PO-Revision-Date: 2020-05-21 09:52\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1552,7 +1552,7 @@ msgstr "페이지 %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "페이지 %d 중 %d"
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1568,23 +1568,23 @@ msgstr "비밀번호 확인"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "개봉 후 기간"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "여러 달 동안 열린 컨테이너 로고에서 발견 : 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "개봉 후 기간"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "개봉 후 기간"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "사진 작가"
 
 msgctxt "photographers_s"
 msgid "photographer"
@@ -1604,15 +1604,15 @@ msgstr "PNNS 그룹 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "PNNS 그룹 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "PNNS 그룹 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "PNNS 그룹 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
@@ -1900,11 +1900,11 @@ msgstr "비밀번호를 잊어버린 경우 사용자 이름 또는 이메일 �
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "위험"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "완료"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -1920,7 +1920,7 @@ msgstr "높은 위험도"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "소금 당량"
 
 msgctxt "save"
 msgid "Save"
@@ -1948,7 +1948,7 @@ msgstr "검색하기"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "포함"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -1956,11 +1956,11 @@ msgstr "특정 브랜드, 카테고리, 라벨, 원산지, 제조 장소 등이�
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts 제품 검색"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "포함되어 있지 않다"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -1980,7 +1980,7 @@ msgstr "XLSX 형식"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "엑셀 또는 리브레 오피스"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
@@ -2533,11 +2533,11 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "제품 삭제"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "제품 삭제"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
