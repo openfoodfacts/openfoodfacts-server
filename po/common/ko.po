@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 11:32\n"
+"PO-Revision-Date: 2020-05-21 11:42\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2025,23 +2025,23 @@ msgstr "가로축에 그래프로 표시할 항목을 선택하여 히스토그�
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "이메일 및 소셜 네트워크에서 공유 할 수있는이 그래프에 대한 영구 링크"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "그래프는 표시된 값은 오직 알려진 제품만 보여줍니다."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "그래프에 결과 표시"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "참고: 이것은 사용자 생성 그래프입니다. 제목, 대표 제품 및 시각화 축은 그래프 작성자에 의해 선정되었습니다."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "무관심"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2049,7 +2049,7 @@ msgstr "성분"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "이메일 및 소셜 네트워크에서 공유할 수 있는 이러한 결과에 대한 영구적인 링크"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2093,15 +2093,15 @@ msgstr "페이지 당 결과"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "제품 검색"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "검색 결과"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "다음 제품에 다른 색상을 사용하십시오."
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2117,7 +2117,7 @@ msgstr "공정-무역"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "영양 등급 색상 사용"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2125,31 +2125,31 @@ msgstr "유기농"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "유기농"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "감미료"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "기준을 선택하십시오 ..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "기준"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "검색어"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "제품 이름, 일반 이름, 브랜드, 카테고리, 원산지 및 라벨에있는 단어 검색"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "제품, 브랜드, 성분, 영양소 등 검색"
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2165,15 +2165,15 @@ msgstr "검색 도구"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "값"
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "와"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "없이"
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2193,7 +2193,7 @@ msgstr "사진 전송하기"
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "업로드 오류"
 
 msgctxt "sending_image"
 msgid "Sending image"
@@ -2455,7 +2455,7 @@ msgstr "제품의 정보 및 데이터는 제품 포장지나 라벨에 적혀�
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
+msgstr "사이트 또는 블로그 주소"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_icon_url"
@@ -2464,16 +2464,16 @@ msgstr "/images/misc/microsoft/Korean.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Microsoft에서 제공"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "%s으로 연결되었습니다."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2529,7 +2529,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "NutriScore 영양 등급"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
@@ -2955,7 +2955,7 @@ msgstr ""
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "재활용 지침-폐기"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3819,7 +3819,7 @@ msgstr "단백질"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "값"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
