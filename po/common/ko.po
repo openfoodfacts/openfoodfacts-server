@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 12:51\n"
+"PO-Revision-Date: 2020-05-21 13:01\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3299,23 +3299,23 @@ msgstr "지정"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "오른쪽 드롭다운 메뉴에서 열에 다음 항목이 포함되어 있는지 지정하십시오."
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "값과 단위"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "특정 단위의 값"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "단위가 다른 열에 있는 값만"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "다른 열에 값이 있는 단위만"
 
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
@@ -4036,132 +4036,132 @@ msgstr ""
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "이미지를 보낼 모든 제품에 추가 될 필드 값을 지정할 수 있습니다."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "필드 추가"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "코드 스캔"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "파일 이름의 코드"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "이전 코드 사용"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "이미지를 보낼 모든 제품에 추가 될 필드 값을 지정할 수 있습니다."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "필드 추가"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "모든 제품을 제거"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "생산자용 플랫폼에서 모든 제품 제거"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "생산자용 플랫폼에서 모든 제품 제거생산자용 플랫폼에서 모든 제품을 제거할 수 있으며, 예를 들어 수입에 문제가 있다면 처음부터 완전히 새로 시작할 수 있습니다. 이것은 공공 데이터베이스에 있는 당신의 제품에 영향을 미치지 않을 것입니다."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "이 작업은 취소할 수 없다는 점에 유의하세요."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "경고: 이 작업은 되돌릴 수 없습니다. 생산자용 플랫폼에서 모든 제품을 제거하시겠습니까?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "이 기능은 사용할 수 없습니다."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "당신의 제품은 생산자들을 위한 플랫폼에서 제거되었습니다."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "성분 분석의 세부 사항"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
-msgstr ""
+msgstr "일부 성분을 인식 할 수 없습니다."
 
 # keep the 2 %s : they will be replaced by language names.
 msgctxt "move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr ""
+msgstr "%s의 모든 데이터 및 선택한 사진을 제품의 기본 언어로 이동: %s"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "기존 값 및 선택한 사진 교체"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "기존 값과 선택한 사진 유지"
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "완료"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "할 것"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "팀"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "선택 사항"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "팀"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "운영진"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "1~3개 팀에 가입할 수 있습니다다. 당신이 추가하거나 편집한 제품은 당신과 당신의 팀에게 인정되어 적립됩니다. 팀은 언제든지 바뀔 수 있습니다."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "팀 이름은 공개되어 있습니다. 개인 데이터(예: 가족 이름), 상표(소유하지 않은 경우)를 포함하거나 불쾌감을 주는 이름을 가진 팀을 만들지 마세요."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "팀 %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d 상품을 내보냅니다."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL 음식 이름"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL 음식 이름"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL 음식 이름"
 
