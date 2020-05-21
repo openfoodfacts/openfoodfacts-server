@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-21 12:42\n"
+"PO-Revision-Date: 2020-05-21 12:51\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3630,100 +3630,100 @@ msgstr "실패함"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "결과 가져오기"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "추가된 제품"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "수정된 제품"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "추가되거나 수정된 제품은 없습니다. 이 데이터는 이미 이전에 가져온 것입니다."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "추가 또는 수정된 제품 목록"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "불러오기"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "불러오기"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "불러오기"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "데이터 품질 오류가있는 제품 수"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "데이터 품질 경고가 있는 제품 수"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "개선 기회가 있는 제품 수"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "이 표에는 영양 품질, Nutri-Score 및 식품 구성을 개선 할 수있는 기회가 나와 있습니다."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "관련 결과를 얻으려면 제품 데이터가 완전해야합니다 (Nutri-Score를 계산하기 위해 섬유 및 과일 과 야채에 대한 값과 영양 성분 및 각 제품을 유사한 제품과 비교하는 정확한 범주)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "제품 사진 가져오기"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "아래 양식을 사용하여 많은 제품에 대한 사진(제품 앞면, 성분 목록, 영양 성분 표)을 쉽게 업로드할 수 있습니다."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "각 파일 이름에는 제품의 바코드가 포함되어야합니다."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "또한 파일 이름에 사진 유형을 지정할 수 있습니다."
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: 현재 언어로 된 제품 앞면"
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg : 네덜란드어로 된 제품 전면"
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: 프랑스어로 된 성분 목록"
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg : 스페인어로 된 영양 표."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "사진 추가하기..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "업로드를 시작하기"
 
 msgctxt "start"
 msgid "Start"
@@ -3735,27 +3735,27 @@ msgstr "닫기"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "업로드 취소하기"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "정보"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "받은 파일"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score의 계산 세부 사항"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "이 제품은 Nutri-Score 계산을위한 음료로 간주됩니다."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "이 제품은 Nutri-Score 계산을위한 음료로 간주되지 않습니다."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
