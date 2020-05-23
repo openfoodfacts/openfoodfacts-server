@@ -2216,7 +2216,7 @@ uz:Apilak
 vi:Sữa ong chúa
 zh:蜂王漿
 wikidata:en: Q202501
-wikipedia:en: https://en.wikipedia.org/wiki/
+wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 
 < en:Beef
 en:Beef bacon
@@ -7777,6 +7777,13 @@ ciqual_food_name:en: Celery stalk, canned, drained
 ciqual_food_name:fr: Céleri branche, appertisé, égoutté
 
 < en:Celery
+en:Celery stalk, Raw celery stalk
+fr:Céleris branche
+ciqual_food_code:en: 20023
+ciqual_food_name:en: Celery stalk, raw
+ciqual_food_name:fr: Céleri branche, cru
+
+< en:Celery
 en:Cooked celeriac
 fr:Céleri-rave cuit
 ciqual_food_code:en: 20025
@@ -7802,13 +7809,6 @@ fr:Céleri-rave cru
 ciqual_food_code:en: 20055
 ciqual_food_name:en: Celeriac, raw
 ciqual_food_name:fr: Céleri-rave, cru
-
-< en:Celery
-en:Raw celery stalk
-fr:Céleris branche
-ciqual_food_code:en: 20023
-ciqual_food_name:en: Celery stalk, raw
-ciqual_food_name:fr: Céleri branche, cru
 
 < en:Celery
 fr:Céleri frais
@@ -8788,6 +8788,10 @@ la:Ipomoea batatas
 nl:Zoete aardappelen
 pnns_group_2:en: Potatoes
 wikidata:en: Q37937
+
+< en:Cereals and potatoes
+en:Yam potatoes
+fr:Ignames
 
 < en:Breakfasts
 < en:Cereals and their products
@@ -13832,10 +13836,9 @@ fr:Langoustes
 nl:Rivierkreeftjes
 
 < en:Cucumbers
+< en:Fresh vegetables
+en:Fresh cucumbers
 fr:Concombre frais
-en:Cucumbe
-ciqual_food_code:en: 20019
-ciqual_food_name:en: Cucumber, pulp and peel, raw
 season_in_country_fr:en: 5‚6,7‚8,9‚10
 
 < en:Culinary plants
@@ -15999,13 +16002,6 @@ fr:Blé dur précuit en grains entiers à poêler
 ciqual_food_code:en: 9083
 ciqual_food_name:en: Durum wheat pre-cooked, whole grain, cooked, to pan-fry
 ciqual_food_name:fr: Blé dur précuit, grains entiers, cuisiné, à poêler
-
-< en:Durum wheat semolinas
-en:Raw durum wheat semolina
-fr:Semoules de blé dur crues
-ciqual_food_code:en: 9610
-ciqual_food_name:en: Durum wheat semolina, raw
-ciqual_food_name:fr: Semoule de blé dur, crue
 
 < en:Durum wheat semolinas
 en:Raw frik, Raw crushed immature durum wheat
@@ -19604,7 +19600,7 @@ protected_name_file_number:en: PDO-FR-0812
 protected_name_type:en: pdo
 
 < en:French vegetables
-< en:Onions and their products
+< en:Onions
 fr:Oignon doux des Cévennes
 origins:en: en:France, fr:Cévennes
 protected_name_file_number:en: PDO-FR-0314
@@ -19868,6 +19864,16 @@ es:Hierbabuena fresca
 fr:Menthe verte fraîche
 nl:Verse groene munt
 
+< en:Fresh onions
+< en:Red onions
+en:Fresh red onions
+fr:Oignons rouges frais
+
+< en:Fresh onions
+< en:White onions
+en:Fresh white onions
+fr:Oignons blancs frais
+
 < en:Fresh pasta
 en:Fresh cooked unsalted egg pasta
 fr:Pâtes fraîches aux œufs cuites non salées
@@ -20090,14 +20096,6 @@ de:Frische Tomaten
 fr:Tomates fraîches
 nl:Verse tomaten, Verse tomaat
 season_in_country_fr:en: 6‚7,8‚9
-
-< en:Fresh vegetables
-< en:Tomatoes
-en:Raw tomatoes
-fr:Tomates crues
-ciqual_food_code:en: 20047
-ciqual_food_name:en: Tomato, raw
-ciqual_food_name:fr: Tomate, crue
 
 < en:Fresh vegetables sprouts
 < en:Onions and their products
@@ -21260,13 +21258,6 @@ fr:Légumes pour couscous surgelés crus
 ciqual_food_code:en: 20496
 ciqual_food_name:en: Mixed vegetables for couscous, frozen, raw
 ciqual_food_name:fr: Légumes pour couscous, surgelés, crus
-
-< en:Frozen vegetables
-en:Frozen raw onions
-fr:Oignons surgelés crus
-ciqual_food_code:en: 20235
-ciqual_food_name:en: Onion, frozen, raw
-ciqual_food_name:fr: Oignon, surgelé, cru
 
 < en:Frozen flat green beans
 < en:Frozen whole green beans
@@ -23752,6 +23743,12 @@ nl:Doperwten in blik
 ru:Горошек консервированный, зелёный горошек консервированный, консервированный зелёный горошек
 wikidata:en: Q4145855
 
+< en:Fresh vegetables
+< en:Green peas
+en:Fresh green peas
+fr:Petits pois frais, petit pois frais
+season_in_country_fr:en: 5‚6,7
+
 < en:Frozen legumes
 < en:Frozen vegetables
 < en:Green peas
@@ -23790,11 +23787,6 @@ fr:Petits pois cuits
 ciqual_food_code:en: 20037
 ciqual_food_name:en: Garden peas, cooked
 ciqual_food_name:fr: Petits pois, cuits
-
-< en:Green peas
-en:Fresh green peas
-fr:Petits pois frais
-season_in_country_fr:en: 5‚6,7
 
 < en:Green peas
 en:Raw garden peas
@@ -23995,7 +23987,7 @@ uz:sho'rva
 vi:canh
 yi:יויך
 zh:清汤
-wikidata:en: https://en.wikipedia.org/wiki/Broth
+wikidata:en: Q275068
 wikipedia:en: https://en.wikipedia.org/wiki/Broth
 
 < en:Groceries
@@ -31004,6 +30996,7 @@ es:Menta seca molida
 fr:Menthe sèche moulue
 nl:Gemalen gedroogde munt
 
+< en:Green teas
 < en:Mint teas
 en:Green teas with mint
 de:Grüntees mit Minze
@@ -33307,6 +33300,14 @@ es:Cebollas troceadas congeladas, Cebollas congeladas troceadas
 fr:Oignons hachés surgelés
 nl:Diepvries gehakte uien
 
+< en:Frozen vegetables
+< en:Onions
+en:Frozen raw onions
+fr:Oignons surgelés crus
+ciqual_food_code:en: 20235
+ciqual_food_name:en: Onion, frozen, raw
+ciqual_food_name:fr: Oignon, surgelé, cru
+
 < en:Onions
 en:Cooked onions
 fr:Oignons cuits
@@ -33322,7 +33323,7 @@ ciqual_food_name:en: Onion, raw
 ciqual_food_name:fr: Oignon, cru
 
 < en:Onions
-en:Red Onions, red onion, purple onions, Bombay onions
+en:Red onions, red onion, purple onions, Bombay onions
 fr:Oignons rouges, oignon rouge
 wikidata:en: Q622350
 wikipedia:en: https://en.wikipedia.org/wiki/Red_onion
@@ -33338,17 +33339,23 @@ nl:Sjalotjes
 wikidata:en: Q193498
 
 < en:Onions
-en:White Onions, white onion
+en:White onions, white onion
 fr:Oignons blancs, oignon blanc
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
 < en:Onions
-en:Yellow Onions, yellow onion
+en:Yellow onions, yellow onion
 de:gelbe Zwiebel
 fr:Oignons jaunes, oignon jaune
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
+
+< en:Onions and their products
+< en:Plant-based spreads
+en:Onion chutneys
+fr:Confits d'oignons, Chutneys d'oignons
+nl:Uienchutney
 
 < en:Culinary plants
 < en:Onions and their products
@@ -33400,12 +33407,6 @@ fi:paistetut sipulit
 fr:Oignons frits
 hu:Sült hagyma
 nl:Gebakken ui
-
-< en:Onions and their products
-< en:Salted spreads
-en:Onion chutneys
-fr:Confits d'oignons, Chutneys d'oignons
-nl:Uienchutney
 
 < en:Open Beauty Facts
 en:Medicine
@@ -35539,7 +35540,7 @@ zh:小茴香
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
 ciqual_food_name:fr: Fenouil, cru
-wikidata:en: https://www.wikidata.org/wiki/Q43511
+wikidata:en: Q43511
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
 
 < en:Plant-based foods
@@ -37072,6 +37073,10 @@ nl:Charlotte aardappel
 wikidata:en: Q1067085
 
 < en:Potatoes
+en:Fresh potatoes
+fr:Pommes de terre fraîches
+
+< en:Potatoes
 en:Jersey Royal potatoes
 origins:en: en:United Kingdom
 protected_name_file_number:en: PDO-GB-0027
@@ -37083,13 +37088,6 @@ fr:Pommes de terre primeur sans peau bouillies, Pommes de terre primeur sans pea
 ciqual_food_code:en: 4029
 ciqual_food_name:en: Early potato, boiled/cooked in water, peeled
 ciqual_food_name:fr: Pomme de terre primeur, sans peau, bouillie/cuite à l'eau
-
-< en:Potatoes
-en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
-fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
-ciqual_food_code:en: 53503
-ciqual_food_name:en: Yam or Indian potato, peeled, boiled/cooked in water
-ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
 
 < en:Potatoes
 en:Plain dehydrated potato flakes
@@ -37111,13 +37109,6 @@ fr:Pommes de terre sans peau crues
 ciqual_food_code:en: 4008
 ciqual_food_name:en: Potato, peeled, raw
 ciqual_food_name:fr: Pomme de terre, sans peau, crue
-
-< en:Potatoes
-en:Raw peeled yam potato, Raw peeled Indian potato
-fr:Igname épluchée crue
-ciqual_food_code:en: 53502
-ciqual_food_name:en: Yam or Indian potato, peeled, raw
-ciqual_food_name:fr: Igname, épluchée, crue
 
 < en:Potatoes
 en:Roasted potatoes, Bakes potatoes
@@ -37160,6 +37151,9 @@ origins:en: en:France, fr:île de Ré
 protected_name_file_number:en: PDO-FR-0065
 protected_name_type:en: pdo
 wikidata:en: Q3395977
+
+< en:Potatoes
+fr:Pommes de terre primeurs, Pommes de terre de primeur
 
 < en:Pots
 en:Rice in a box
@@ -38008,6 +38002,13 @@ sv:Skinkor, Skinka
 th:แฮม
 zh:火腿
 wikidata:en: Q170486
+
+< en:Prepared meats
+en:Porchetta
+es:Porchetta
+fr:Porchetta
+it:Porchetta
+wikidata:en: Q1106345
 
 < en:Prepared meats
 en:Sausages
@@ -39335,6 +39336,12 @@ ciqual_food_code:en: 34003
 ciqual_food_name:en: Rabbit, wild, meat, raw
 ciqual_food_name:fr: Lapin de garenne, viande, crue
 
+< en:Fresh vegetables
+< en:Radishes
+en:Fresh radishes
+fr:Radis frais
+season_in_country_fr:en: 3‚4,5‚6
+
 < en:Radishes
 en:Daikon radishes, Daikon, White radishes
 es:Rábanos blancos, Rábanos japoneses, Daikon
@@ -39348,10 +39355,6 @@ es:Rábanos rojos, Rábanos picantes
 fr:Radis rouges, radis rouge
 la:Raphanus sativus var. sativus
 nl:radijs
-
-< en:Radishes
-fr:Radis frais
-season_in_country_fr:en: 3‚4,5‚6
 
 < en:Radishes
 fr:Radis noirs
@@ -43563,6 +43566,12 @@ zh:烤芝麻
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
 
+< en:Fresh vegetables
+< en:Shallots
+en:Fresh shallots
+fr:Échalotes fraîches
+season_in_country_fr:en: 10‚11‚12
+
 < en:Shallots
 en:Cooked shallots
 fr:Échalotes cuites
@@ -43576,10 +43585,6 @@ fr:Échalotes crues
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
-
-< en:Shallots
-fr:Échalotes fraîches
-season_in_country_fr:en: 10‚11‚12
 
 < en:Sheep dishes
 fr:Tripoux, Tripous
@@ -48301,7 +48306,19 @@ ciqual_food_name:en: Tomato, green, raw
 ciqual_food_name:fr: Tomate verte, crue
 
 < en:Tomatoes
+en:Raw tomatoes
+fr:Tomates crues
+ciqual_food_code:en: 20047
+ciqual_food_name:en: Tomato, raw
+ciqual_food_name:fr: Tomate, crue
+
+< en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
+
+< en:Plant-based spreads
+< en:Tomatoes and their products
+en:Tomato chutneys
+fr:Confits de tomates
 
 < en:Tomatoes and their products
 en:Boiled tomato pulp and peel, Tomato pulp and peel cooked in water
@@ -49089,6 +49106,12 @@ nl:Kurkumawortels
 en:Canned turnips
 fr:Navets en conserve
 
+< en:Fresh vegetables
+< en:Turnip
+en:Fresh turnips
+fr:Navets frais
+season_in_country_fr:en: 1‚2,3‚4,5‚10‚11‚12
+
 < en:Frozen vegetables
 < en:Turnip
 en:Frozen raw turnips
@@ -49117,11 +49140,6 @@ fr:Navets cuits
 ciqual_food_code:en: 20033
 ciqual_food_name:en: Turnip, cooked
 ciqual_food_name:fr: Navet, cuit
-
-< en:Turnip
-en:Fresh turnips
-fr:Navets frais
-season_in_country_fr:en: 1‚2,3‚4,5‚10‚11‚12
 
 < en:Turnip
 en:Raw peeled turnips
@@ -50744,6 +50762,8 @@ hu:Uborka
 la:Cucumis sativus
 nl:Komkommers
 ru:Огурцы, Огурец
+ciqual_food_code:en: 20019
+ciqual_food_name:en: Cucumber, pulp and peel, raw
 wikidata:en: Q23425
 
 < en:Vegetables based foods
@@ -50925,7 +50945,7 @@ wa:Rådisse
 yi:רעטעך
 za:lauxbaeg
 zh:萝卜
-wikidata:en: Q7224565 # for the plant
+wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
 < en:Vegetables based foods
@@ -51994,11 +52014,14 @@ es:Pastas de trigo duro integrales o semi-integrales
 nl:Harde Volkorenpastas
 
 < en:Wheat semolinas
-en:Durum wheat semolinas
+en:Durum wheat semolinas, Raw durum wheat semolina
 de:Hartweizengrieße, Hartweizengrieß
 es:Sémolas y semolinas de trigo duro, Sémolas de trigo duro, Sémola de trigo duro
-fr:Semoules de blé dur
+fr:Semoules de blé dur, Semoules de blé dur crues
 nl:Harde tarwegriesmelen
+ciqual_food_code:en: 9610
+ciqual_food_name:en: Durum wheat semolina, raw
+ciqual_food_name:fr: Semoule de blé dur, crue
 wikidata:en: Q381350
 
 < en:Wheat semolinas
@@ -52271,16 +52294,22 @@ ciqual_food_name:en: White chocolate bar, with dried fruits -nuts, almonds, rais
 ciqual_food_name:fr: Chocolat blanc aux fruits secs -noisettes, amandes, raisins, praliné- , tablette
 
 < en:White chocolates
+en:White chocolate with coconut pieces
+de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
+fr:Chocolats blancs à la noix de coco
+hu:Fehér csokoládé kókusszal
+it:Cioccolato bianco al cocco
+
+< en:White chocolates
 en:White chocolates with hazelnuts
 de:Weiße Schokoladen mit Haselnüssen
 fr:Chocolats blancs aux noisettes
 nl:Witte chocola met hazelnoten
 
+< en:Filled chocolates
 < en:White chocolates
-fr:Chocolats blancs à la noix de coco
-de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
-hu:Fehér csokoládé kókusszal
-it:Cioccolato bianco al cocco
+en:Filled white chocolates
+fr:Chocolats blancs fourrés
 
 < en:White hams
 en:White smoked hams
@@ -59535,6 +59564,24 @@ origins:en: en:Spain
 protected_name_file_number:en: PDO-ES-A0606
 protected_name_type:en: pdo
 
+< en:Yam potatoes
+en:Fresh yam potatoes
+fr:Ignames frais
+
+< en:Yam potatoes
+en:Peeled boiled yam potato, Peeled yam potato cooked in water, Peeled boiled Indian potato, Peeled Indian potato cooked in water
+fr:Igname épluchée bouillie, Igname épluchée cuite à l'eau
+ciqual_food_code:en: 53503
+ciqual_food_name:en: Yam or Indian potato, peeled, boiled/cooked in water
+ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
+
+< en:Yam potatoes
+en:Raw peeled yam potato, Raw peeled Indian potato
+fr:Igname épluchée crue
+ciqual_food_code:en: 53502
+ciqual_food_name:en: Yam or Indian potato, peeled, raw
+ciqual_food_name:fr: Igname, épluchée, crue
+
 < en:Yellowfin tunas
 fr:Thons albacore au naturel, Thon albacore naturel appertisé égoutté, thon jaune naturel appertisé égoutté, thon jaune cru
 en:Yellowfin tuna raw
@@ -65044,9 +65091,6 @@ origins:en: en:France
 protected_name_file_number:en: PDO-FR-0548
 protected_name_type:en: pdo
 wikidata:en: Q2929377
-
-< fr:Pommes de terre de l'île de Ré
-fr:Pommes de terre primeurs, Pommes de terre de primeur
 
 < en:Red wines
 < fr:Porto
