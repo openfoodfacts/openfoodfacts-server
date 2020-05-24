@@ -1261,6 +1261,10 @@ sk:Sladidlo
 wikidata:en:Q626292
 #wikidata:en:Q4368298
 
+<en:citric acid
+en:citric acid, E330
+es:acido citrico
+wikipedia:en:https://en.wikipedia.org/wiki/Citric_acid
 
 # comment:en:The generic form of sodium citrates should be written in plural, do distinguish them from sodium citrate.
 
@@ -15442,6 +15446,10 @@ fr:chipolatas
 <en:pork meat
 fr:chipolatas aux herbes
 
+<en:pork skin
+en:pork skin, sausage skin
+es:tripa de cerdo, tripa natural de cerdo
+
 # <en:compound
 <en:pork meat
 en:stewed porc
@@ -16587,7 +16595,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:manteca de cerdo
+es:grasa de cerdo, manteca de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -17196,7 +17204,7 @@ ca:Oli de palmist
 cs:Palmojádrový olej
 da:Palmeolie
 de:Palmkernöl, Palmkern
-es:palmiste
+es:palmiste, aceite vegetal de coco
 eu:Palmiste olio
 fa:روغن هسته پالم
 fi:palmuydinöljy, palmuydin
@@ -17527,7 +17535,7 @@ en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 ca:Oli de colza
 da:rapsolie
 de:Rapsöl
-es:Aceite de colza
+es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de colza ou canola
 he:שמן לפתית
@@ -20561,7 +20569,7 @@ en:natural flavouring, natural flavour, natural flavor, natural flavoring, natur
 ca:Aroma natural, aromes naturals
 da:naturlig aroma
 de:natürliches Aroma
-es:aroma natural, aromas naturales
+es:aroma natural, aromas naturales, aromas naturales conservadores
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
 fr:arôme naturel, arômes naturels
 he:חומרי טעם טבעיים
@@ -21497,6 +21505,7 @@ hu:természetes ánizs aroma
 
 <en:flavouring
 en:raspberry flavouring
+es:sabor a frambuesa
 de:Himbeeraroma, Himbeer-Aroma
 fi:vadelma-aromi
 fr:arôme framboise
@@ -22503,7 +22512,7 @@ vegetarian:en:yes
 en:durum wheat semolina
 de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
-es:sémola de trigo duro
+es:sémola de trigo duro, semola de trigo
 fi:durumvehnäsuurimo
 fr:semoule de blé dur
 hr:krupica durum pšenice
@@ -22768,6 +22777,11 @@ de:Emmer
 fr:blé amidonnier, amidonnier
 ru:двузернянка
 
+<en:cereal
+en:teff
+es:teff, semilla de teff
+wikipedia:en:https://en.wikipedia.org/wiki/Teff
+ 
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -23272,7 +23286,7 @@ fr:blé malté concassé
 en:barley malt extract
 ca:extracte de malta d'ordi
 de:Gerstenmalzextrakt
-es:extracto de malta de cebada, extracto de cebada malteada
+es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada
 et:odralinnaseekstrakt
 fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
@@ -23317,7 +23331,7 @@ en:buckwheat
 ar:حنطة سوداء
 da:boghvede
 de:Buchweizen
-es:sarraceno
+es:sarraceno, trigo sarraceno
 fi:tattari, viljatar
 fr:sarrasin
 hu:hajdina
@@ -23333,6 +23347,7 @@ fr:graines de sarrasin
 
 <en:buckwheat
 en:organic buckwheat
+es:trigo sarraceno organico
 fi:luomu tattari
 fr:sarrasin biologique
 hu:bio hajdina
@@ -23593,6 +23608,10 @@ fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
 it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
+
+<en:oat
+en:oat oil
+es:aceite vegetal avena
 
 <en:oat
 <en:vegetable fibre
@@ -23858,7 +23877,7 @@ wikidata:en:Q158767
 <en:spelt
 en:organic spelt
 de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
-es:Espelta orgánica
+es:Espelta orgánica, trigo espelta troceado
 fi:luomu speltti
 fr:épeautre biologique
 hu:bio tönkölybúza
@@ -24521,7 +24540,7 @@ ca:farina de blat de moro
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
-es:harina de maíz
+es:harina de maíz, harina maiz
 fi:maissijauho, maissijauhoa
 fr:farine de maïs, farine de mais
 hu:kukoricaliszt
@@ -24627,6 +24646,7 @@ it:Farina di quinoa
 
 <en:flour
 en:pea flour
+es:harina de guisantes
 de:Erbsenmehl
 fi:hernejauho
 fr:farine de pois
@@ -27653,7 +27673,7 @@ ar:شراب أغاف
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup
-es:jarabe de agave
+es:jarabe de agave, concentrado de agave
 fa:اگاو
 fi:agavesiirappi
 fr:sirop d’agave
@@ -29826,7 +29846,7 @@ cy:Soia
 da:soja
 de:Soja
 el:σόγια
-es:soja, soya
+es:soja, soya, soja-ecologica
 et:soja
 eu:Soja
 fi:soija, soijasta
@@ -30481,6 +30501,7 @@ de:Roggensauerteig
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
+es:masa madre de trigo
 
 <de:Roggensauerteig
 fr:levain de seigle dévitalisé
@@ -32263,6 +32284,10 @@ fi:kandeeratut hedelmät
 it:frutta candita
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-confits
 # 75 products in 3 languages @2018-10-02
+
+<en:fruit
+en:medlar, loquat
+es:nispero
 
 <en:fruit
 fr:fruits exotiques
@@ -34383,7 +34408,7 @@ ca:Suc de llimona
 cs:Citronová šťáva
 da:citronsaft
 de:Zitronensaft
-es:zumo de limón
+es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
 hu:Citromlé
@@ -34436,7 +34461,7 @@ sv:torkad citronjuice
 en:concentrated lemon juice, lemon extract
 ca:Suc de llimona concentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón
+es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado 
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
@@ -34495,6 +34520,10 @@ wikidata:en:Q206496
 # 1 entry @ 2019-10-31
 
 # The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+<en:fruit
+<en:citrus fruit
+en:bitter orange
+es:naranja amarga, naranjas amargas de sevilla
 
 <en:fruit
 <en:citrus fruit
@@ -35622,6 +35651,7 @@ fr:jus de mûre à base de jus concentré
 
 <en:fruit
 en:gooseberry, gooseberries
+es:grosella espinosa
 da:Stikkelsbær
 de:Stachelbeere, Stachelbeeren
 ee:karusmari
@@ -36912,6 +36942,17 @@ zh:梅乾
 wikidata:en:Q6766526
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
 # 35 products in 1 language @2018-09-30
+
+<en:fruit
+en:custard apple, cherimoya, persimmon
+es:chirimoya
+wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
+
+<en:fruit
+en:sharon fruit
+es:kaki
+wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
+
 
 <en:prune
 en:prune juice
@@ -39452,6 +39493,17 @@ wikidata:en:Q1474
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
 
+
+<en:vegetable
+en:borage
+es:borraja
+wikipedia:en:https://en.wikipedia.org/wiki/Borage
+
+<en:vegetable
+en:cardoon, artichoke thistle
+es:cardo
+wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
+
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
 # <en:Vegetable rods
@@ -39906,6 +39958,13 @@ sl:česen v prahu
 sv:vitlökspulver
 tr:sanmsak tozu
 # fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
+
+<en:garlic
+en:black garlic
+es:ajo negro
+
+<en:garlic
+es:ajo tierno
 
 <en:garlic
 fr:ail des ours
@@ -40766,7 +40825,7 @@ ca:col llombarda
 da:Rødkål
 de:Rotkohl
 eo:ruĝa brasiko
-es:cacho lombarda
+es:cacho lombarda, col lombarda
 fa:کلم‌قرمز
 fi:Punakaali
 fr:chou rouge
@@ -42495,7 +42554,7 @@ da:pastinak
 de:Pastinake, Pastinaken
 el:Παστινάκη
 eo:pastinako
-es:Pastinaca
+es:Pastinaca, chirivia
 et:Aed-moorputk
 eu:Txiribi
 fa:شقاقل
@@ -42907,6 +42966,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 
 <en:salad
 en:iceberg lettuce
+es:lechuga iceberg, iceberg
 de:Eisbergsalat
 eo:glacilaktuko
 fi:Jäävuorisalaatti
@@ -42939,7 +42999,7 @@ da:rucola
 de:Rucola
 el:Ρόκα
 eo:Kultiva eruko
-es:Rúcula
+es:Rúcula, rucula
 et:rukola
 fa:منداب
 fi:sinappikaali
@@ -44610,7 +44670,7 @@ en:chopped tomatoes
 da:Hakkede tomater
 de:gehackte Tomaten, Tomatenhack, Tomatenfruchtfleisch, zerkleinerte Tomaten
 el:ψιλοκαμμένη ντομάτα
-es:Tomates en trozos
+es:Tomates en trozos, tomate troceado
 fi:pilkottu tomaatti, pilkotut tomaatit
 fr:tomate concassée, tomates concassées, tomates concassées, concassé de tomates
 hu:szeletelt paradicsom
@@ -44694,7 +44754,7 @@ en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 da:tomatpuré, tomatkoncentrat
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
-es:concentrado de tomate
+es:concentrado de tomate, pasta de tomate
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 he:מחית עגבניות
@@ -44826,9 +44886,10 @@ fr:fibres de tomate, fibre de tomate
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
 <en:root vegetable
-en:rutabaga
+en:rutabaga, swede
 de:Kohlrübe
 fr:rutabaga
+es:colinabo
 
 <en:root vegetable
 en:turnip, turnips
@@ -45254,6 +45315,7 @@ fr:courgettes en rondelles
 
 <en:Courgette
 en:dried courgette
+es:calabacin deshidritado
 de:getrocknete Zucchini
 fi:kuivattu kesäkurpitsa
 fr:courgettes séchées
@@ -45563,7 +45625,7 @@ fr:haricots verts plats, haricots plats
 
 en:green peas
 de:grüne Erbsen
-es:Guisantes verdes
+es:judias verdes
 fi:Vihreät herneey
 fr:Petits pois
 vegan:en:yes
@@ -45572,7 +45634,7 @@ vegetarian:en:yes
 <en:beans
 en:white beans
 de:weiße Bohnen
-es:Alubias blancas
+es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
 it:Fagioli bianchi
@@ -45606,9 +45668,14 @@ nl:Zwarte bonen
 <en:beans
 en:red beans, red kidney beans
 de:Rote Bohnen
-es:Alubias rojas
+es:Alubias rojas, judias rojas
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
+
+<en:mung bean
+en:mung bean
+es:habas de mungo
+wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 
 <en:red beans
 en:small red beans
@@ -46060,8 +46127,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 fr:extrait de pois
 
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
-
-<en:pea
+# chickpea parent is NOT pea
+<en:chickpea
 en:chickpea, chickpeas
 am:ሽምብራ
 ar:حمص شائع
@@ -47883,7 +47950,7 @@ fi:luomu kurpitsansiemen
 <en:seed
 en:poppy seed, poppy seeds, poppy
 de:Mohnsamen, Mohn
-es:semillas de amapola
+es:semillas de amapola, amapola
 fi:unikonsiemen, unikonsiemenet
 fr:graines de pavot, pavot
 it:semi di papavero, papavero
@@ -48485,6 +48552,10 @@ fr:assaisonnement saveur barbecue
 
 <en:condiment
 fr:assaisonnement goût salé
+
+<en:condiment
+es:salt and spices
+es:sal aromas
 
 <en:condiment
 fr:assaisonnement goût fromage
@@ -49412,7 +49483,7 @@ da:Kryddernellike
 de:Nelken, Gewürznelken
 dv:ކަރަންފޫ
 eo:Kariofilo
-es:clavos de olor
+es:clavos de olor, clavo
 et:Nelk
 eu:Iltze
 fa:میخک صدپر
@@ -51530,7 +51601,7 @@ ca:Llorer
 cs:Bobkový list
 da:Laurbær, laurbærblade
 de:Lorbeer, Lorbeerblatt
-es:Hoja de laurel
+es:Hoja de laurel, laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
 hi:तेज पत्ता
@@ -54999,6 +55070,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 <en:seaweed
 en:wakame
+es:wakame, alga wakame
 ar:واكامي
 de:wakame
 eo:Vakameo
@@ -66584,6 +66656,7 @@ carbon_footprint_fr_foodges_value:fr:0.5
 
 <en:pasta
 en:durum wheat semolina pasta
+es:semolina de trigo
 de:Teigwaren aus Hartweizengrieß
 fr:Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 it:pasta di semola di grano duro
