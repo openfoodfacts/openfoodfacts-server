@@ -644,7 +644,7 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-		if ($server_domain =~ /openfoodfacts/) {
+		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
 		if ($assign_category_properties) {

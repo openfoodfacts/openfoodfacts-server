@@ -476,5 +476,6 @@ $options{import_export_fields_groups} = [
 	} },
 
 );
+$options{product_type} = "food";
 
 1;

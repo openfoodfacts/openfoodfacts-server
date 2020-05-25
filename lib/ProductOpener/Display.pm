@@ -159,6 +159,7 @@ use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
+use Template;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -8633,80 +8634,116 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
+
+# NutritionScore Template Starts
+	
+sub template(){	
+	my $config = {
+		INCLUDE_PATH => $data_root.'/templates:../../templates:/templates:',
+		INTERPOLATE => 0,
+	};
+	my $tt = Template->new($config);
+
+	my $var = {
+		name => 'Areesha',
+		points => [ {'positive', ['proteins, fiber, fruits_vegetables_nuts_colza_walnut_olive_oils']}, 
+					{'negative', ['energy, sugars, saturated_fat, sodium']}
+				]
+	};
+	my $out;
+	my $debug;
+	
+	$debug .= "<p>" . "Process Error" . "</p>" . $data_root;
+	$tt->process('nutrition_score.tt',$var, \$out) || return $debug;
+	$out .= "<p>" . "Kya pta hogya ho" . "</p>";
+	return $out;
+}
+
+# NutritionS Template Ends
+
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
+	
+	return template();
+	# my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . $out. " &raquo;</a><p>"
+	# . '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
 
-	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . " &raquo;</a><p>"
-	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+	# $html .= $out;
+	# return $html;
+	# return [['Content-Type' => 'text/html' ],\$out];
 
-	if ($nutriscore_data_ref->{is_beverage}) {
-		$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
-	}
-	else {
-		$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
-	}
+	# if ($nutriscore_data_ref->{is_beverage}) {
+	# 	$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
+	# }
+	# else {
+	#	$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
+	# }
+	# filename
+	
 
-	if ($nutriscore_data_ref->{is_fat}) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
-	}
+	# if ($nutriscore_data_ref->{is_fat}) {
+	#	$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
+	# }
 
-	my @points = (
-		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
-		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
-	);
+	# my @points = (
+	#	["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
+	#	["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
+	# );
 
-	foreach my $points_ref (@points) {
+	# foreach my $points_ref (@points) {
 
-		$html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
-		. $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
+		# $html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
+		# . $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
 
-		foreach my $nutrient (@{$points_ref->[1]}) {
+		# foreach my $nutrient (@{$points_ref->[1]}) {
 
-			my $nutrient_threshold_id = $nutrient;
+		# 	my $nutrient_threshold_id = $nutrient;
 
-			if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
-				and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
-				$nutrient_threshold_id .= "_beverages";
-			}
-			if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
-				$nutrient = "saturated_fat_ratio";
-				$nutrient_threshold_id = "saturated_fat_ratio";
-			}
+		# 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+		# 		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+		# 		$nutrient_threshold_id .= "_beverages";
+		# 	}
+		# 	if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
+		# 		$nutrient = "saturated_fat_ratio";
+		# 		$nutrient_threshold_id = "saturated_fat_ratio";
+		# 	}
 
-			$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
-			. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
-			. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
-			. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
-		}
+		# 	$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
+		# 	. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
+		# 	. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
+		# 	. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
+		# }
 
-		$html .= "</ul>";
-	}
+		# $html .= "</ul>";
+	# }
 
-	if ($nutriscore_data_ref->{negative_points} < 11) {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
-	}
-	elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
-	}
-	elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
-			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
-		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
-			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
-		$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
-	}
-	else {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
-	}
+	# if ($nutriscore_data_ref->{negative_points} < 11) {
+	# 	$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
+	# }
+	# elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
+	# 	$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
+	# }
+	# elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
+	# 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
+	# 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+	# 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
+	# 	$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
+	# }
+	# else {
+	# 	$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
+	# }
 
-	$html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
-	. "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
+	# $html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
+	# . "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
 
-	$html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
+	# $html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
 
-	$html .= "</div>";
+	# $html .= "</div>";
 
-	return $html;
+	# return $html;
+	
+	 
 }
 
 
@@ -9206,8 +9243,18 @@ JS
 		}
 	}
 
-	my $empty_cols = '';
-	my $html2 = '';
+	 my $empty_cols = '';
+	 my $html2 = '';
+
+	# NTemplate Starts
+	# my %var = {
+		
+	# }
+	# my $tt = Template->new({INCLUDE_PATH => '../../templates',EVAL_PERL    => 1,}) || die $Template::ERROR, "\n";
+	# filename
+	# $tt->process('nutrition_facts_table.tt',\%var) || die $tt->error(), "\n";
+
+	# NTemplate Ends
 
 	$html .= <<HTML
 <table id="nutrition_data_table" class="data_table">

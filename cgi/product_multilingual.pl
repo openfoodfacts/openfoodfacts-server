@@ -437,7 +437,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$log->debug("Food::special_process_product") if $log->is_debug();
 		ProductOpener::Food::special_process_product($product_ref);
 	}
