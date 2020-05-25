@@ -1641,7 +1641,7 @@ bg:слънчогледов леситин
 ca:lecitina de gira-sol, lecitines de gira-sol
 cs:Slunečnicový lecitin
 da:solsikkelecithin
-de:Sonnenblumenlecithine, Sonnenblumenlecithin
+de:Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol, lecitinas de girasol
 et:päevalilleletsitiin
@@ -20560,7 +20560,7 @@ wikidata:en:Q2596994
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
 da:naturlig aroma
-de:natürliches Aroma
+de:natürliches Aroma, natürliche Aromen
 es:aroma natural, aromas naturales
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
 fr:arôme naturel, arômes naturels
@@ -21165,6 +21165,7 @@ hu:természetes bazsaliom aroma
 it:aroma naturale del basilico
 
 <en:natural flavouring
+de:natürliches Kaffee-Aroma
 fr:arôme naturel de café
 fi:luontainen kahviaromi
 hu:természetes kávé aroma
@@ -24605,7 +24606,7 @@ fr:farine de riz blanc
 
 <en:rice flour
 en:brown rice flour, full rice flour
-de:braunes Reismehl, volles Reismehl
+de:Reisvollkornmehl, braunes Reismehl, volles Reismehl
 es:harina de arroz integral
 fi:tumma riisijauho, täysjyväriisijauho
 fr:farine de riz complet
@@ -24866,7 +24867,7 @@ de:Maisgrieß, Maiskörner, Maisgriess
 el:σιμιγδάλι αραβοσίτου
 es:semola de maíz, granos de maíz
 fi:maissirouhe
-fr:semoule de mais
+fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits
@@ -24886,6 +24887,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cornmeal
 fr:semoule de maïs précuite
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-maïs-précuite
 # 27 products in 1 language @2018-09-24
+
+<en:cornmeal
+de:Maisvollkorngriess
+fr:semoule de maïs complet
 
 <en:cornmeal
 en:dextrinated cornmeal
@@ -26409,7 +26414,7 @@ nl:biologische rietsuiker, biologisch rietsuiker
 
 <en:cane sugar
 en:brown cane sugar
-de:brauner Rohrzucker, Vollrohrzucker
+de:Brauner Rohrzucker, Vollrohrzucker
 es:Azúcar moreno de caña
 fr:sucre de canne brun
 hu:barna nádcukor
@@ -26451,7 +26456,7 @@ nl:ongeraffineerde suiker, ruwe suiker
 en:unrefined cane sugar, raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
-de:Rohrohrzucker, roher Rohrzucker
+de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar
 fi:raakaruokosokeri
@@ -26502,10 +26507,10 @@ fr:sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut
 <en:palm sugar
 en:coconut sugar, coconut palm sugar
 ca:Sucre de coco
-de:Kokosnusszucker
+de:Kokosblütenzucker
 es:Azucar de coco
 fi:kookossokeri
-fr:sucre de fleur de cocotier, sucre de fleur de Coco, sucre de coco
+fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
 id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
@@ -27045,7 +27050,7 @@ bg:глюкозе сироп
 ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup
-de:Glukosesirup, Glucosesirup
+de:Glukosesirup, Glucosesirup, Glukose-Sirup
 el:σιρόπι γλυκόζης
 es:jarabe de glucosa
 et:glükoosisiirup
@@ -28375,7 +28380,7 @@ fr:Cacao alcalinisé
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa
 da:fedtfattig kakao
-de:fettarmer Kakao
+de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
 fi:vähärasvainen kaakao
 fr:cacao maigre, cacao dégraissé
@@ -39378,7 +39383,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Asparagus
 
 <en:asparagus
 en:green asparagus
-de:Grüne Spargeln
+de:grüner Spargel, Grüne Spargeln
 es:espárragos verdes
 fi:vihreä parsa
 fr:asperges vertes
@@ -42452,7 +42457,7 @@ sv:lök brynt i solrosolja
 # fr:oignons-grillés is a compound ingredient, eg:Zwiebeln gegrillt (Zwiebeln, Palmöl, Weizenmehl, Kochsalz)
 
 <en:onion
-de:Zwiebeln gegrillt
+de:Zwiebeln gegrillt, Röstzwiebeln
 fi:paahdettu sipuli
 fr:oignon grillé, oignons grillés
 it:cipolle grigliate
@@ -51659,7 +51664,14 @@ it:erba cipollina essiccata
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette-déshydratée
 # 69 products in 3 languages @2018-10-08
 
+<en:herb
+de:Borretsch
+fr:bourrache
 
+<en:herb
+en:burnet
+de:Pimpinelle
+fr:pimprenelle
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -68038,6 +68050,14 @@ wikidata:en:Q106252
 wikipedia:en:https://en.wikipedia.org/wiki/Marzipan
 # ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
 
+# description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels. 
+
+en:persipan
+es:persipan
+de:Persipan
+fr:persipan
+wikidata:en:Q1929741
+wikipedia:en:https://en.wikipedia.org/wiki/Persipan
 
 # description:en:NOUGAT is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit.
 
