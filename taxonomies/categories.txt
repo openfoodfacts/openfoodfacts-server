@@ -5431,6 +5431,13 @@ nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
 
 <en:Beverages
+en:Municipal water
+fr:Eau du robinet
+ciqual_food_code:en:18066
+ciqual_food_name:en:Water, municipal
+ciqual_food_name:fr:Eau du robinet
+
+<en:Beverages
 en:Waters, bottled waters, bottled water
 ca:Aigua envasada
 cs:Voda
@@ -5448,6 +5455,11 @@ th:น้ำดื่ม
 zh:水
 wikidata:en:Q283
 pnns_group_2:en:Waters and flavored waters
+ciqual_food_code:en:18008
+ciqual_food_name:en:Water, bottled (average)
+ciqual_food_name:fr:Eau de source, embouteillée (aliment moyen)
+
+<en:Waters
 ciqual_food_code:en:18430
 ciqual_food_name:en:Water, bottled
 ciqual_food_name:fr:Eau embouteillée de source
@@ -5464,27 +5476,30 @@ wikidata:en:Q7892
 
 <en:Carbonated drinks
 <en:Waters
-en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters
+en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters, Bottled mineral water carbonated
 de:Selterswasser, Selterswässer, Sodawasser, Sodawässer,Sprudel, Sprudelwasser, Sprudelwässer
 es:Aguas carbonatadas, Agua carbonatada
 fi:hiilihapotetut vedet
-fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
+fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante, Eau minérale gazeuse
 hu:Szénsavas vízek
 it:Acque frizzanti, acqua frizzante
 nl:Koolzuurhoudende waters, Koolzuurhoudend water
 pl:Woda gazowana
 ru:Газированная вода
 wikidata:en:Q264554
+ciqual_food_code:en:18046
+ciqual_food_name:en:Water, mineral, carbonated, bottled (average)
+ciqual_food_name:fr:Eau minérale, gazeuse (aliment moyen)
 
 <en:Waters
 <en:Spring waters
-en:Mineral waters
+en:Mineral waters, Bottled mineral waters
 ca:Aigües minerals
 cs:Minerální vody
 de:Mineralwasser, Mineralwässer
 es:Aguas minerales
 fi:kivennäisvedet
-fr:Eaux minérales, eau minérale
+fr:Eaux minérales, eau minérale, Eau minérale en bouteille
 hu:Ásványvízek
 it:Acque minerali, acqua minerale
 nl:Mineraalwaters, Mineraalwater, Mineraal water
@@ -5492,6 +5507,16 @@ pt:Água Mineral
 ru:Минеральная вода, Минеральные воды, Минералка
 zh:矿泉水, 矿物质水
 wikidata:en:Q178921
+ciqual_food_code:en:18044
+ciqual_food_name:en:Water, mineral, bottled (average)
+ciqual_food_name:fr:Eau minérale (aliment moyen)
+
+<en:Mineral waters
+en:Low mineral bottled waters, Bottled waters with low mineralization levels
+fr:Eau minérale embouteillée faiblement minéralisée
+ciqual_food_code:en:18009
+ciqual_food_name:en:Water, bottled, low mineral (average)
+ciqual_food_name:fr:Eau minérale, embouteillée, faiblement minéralisée (aliment moyen)
 
 <en:Carbonated waters
 <en:Mineral waters
@@ -5537,35 +5562,35 @@ ciqual_food_code:en:18030
 ciqual_food_name:en:Bottled water, flavoured, without sugar and with artificial sweeteners
 ciqual_food_name:fr:Boisson à l'eau minérale ou de source, aromatisée, non sucrée, avec édulcorants
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Abatilles
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Abatilles Arcachon 33
 ciqual_food_code:en:76000
 ciqual_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Avra
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Avra Grèce
 ciqual_food_code:en:76062
 ciqual_food_name:en:Mineral still water (Avra), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Avra, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Beckerich
 fr:Eau minérale Beckerich embouteillée non gazeuse faiblement minéralisée Luxembourg
 ciqual_food_code:en:76063
 ciqual_food_name:en:Mineral still water (Beckerich), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Beckerich, embouteillée, non gazeuse, faiblement minéralisée (Luxembourg)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Caramulo
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Caramulo Portugal
 ciqual_food_code:en:76064
 ciqual_food_name:en:Mineral still water (Caramulo), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Caramulo, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chaudfontaine
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chaudfontaine Belgique
 ciqual_food_code:en:76065
@@ -5586,56 +5611,56 @@ ciqual_food_code:en:76067
 ciqual_food_name:en:Mineral still water (Courmayer), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Courmayeur, embouteillée, non gazeuse, fortement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Highland spring
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Highland spring Écosse
 ciqual_food_code:en:76068
 ciqual_food_name:en:Mineral still water (Highland spring), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Highland spring, embouteillée, non gazeuse, faiblement minéralisée (Écosse)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Levissima
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Levissima Italie
 ciqual_food_code:en:76069
 ciqual_food_name:en:Mineral still water (Levissima), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Levissima, embouteillée, non gazeuse, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Luso
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Luso Portugal
 ciqual_food_code:en:76070
 ciqual_food_name:en:Mineral still water (Luso), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Luso, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Néro
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Néro Grèce
 ciqual_food_code:en:76071
 ciqual_food_name:en:Mineral still water (Néro), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Néro, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Penacova
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Penacova Portugal
 ciqual_food_code:en:76072
 ciqual_food_name:en:Mineral still water (Penacova), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Penacova, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized water San Benedetto
 fr:Eau minérale embouteillée faiblement minéralisée San Benedetto Italie
 ciqual_food_code:en:76073
 ciqual_food_name:en:Mineral water (San Benedetto), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale San Benedetto, embouteillée, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Aix-les-Bains
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Aix-les-Bains 73
 ciqual_food_code:en:76001
 ciqual_food_name:en:Mineral still water (Aix-les-Bains), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Aix-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Aix-les-Bains, 73)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized water San Bernardo
 fr:Eau minérale embouteillée très faiblement minéralisée San Bernardo Italie
 ciqual_food_code:en:76074
@@ -5656,7 +5681,7 @@ ciqual_food_code:en:76077
 ciqual_food_name:en:Mineral still water (Talians), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Talians, embouteillée, non gazeuse, fortement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Valvert
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Valvert Belgique
 ciqual_food_code:en:76078
@@ -5677,7 +5702,7 @@ ciqual_food_code:en:76080
 ciqual_food_name:en:Spring still water (Cristaline), bottled
 ciqual_food_name:fr:Eau de source Cristaline, embouteillée, non gazeuse
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Biovive
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Biovive Dax 40
 ciqual_food_code:en:76081
@@ -5698,21 +5723,21 @@ ciqual_food_code:en:76085
 ciqual_food_name:en:Mineral still water (La Française), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale La Française, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Montcalm
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Montcalm Auzat 09
 ciqual_food_code:en:76086
 ciqual_food_name:en:Mineral still water (Montcalm), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Montcalm, embouteillée, non gazeuse, très faiblement minéralisée (Auzat, 09)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Mineral still water bottled lightly mineralized Montclar
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée (Montclar 04)
 ciqual_food_code:en:76087
 ciqual_food_name:en:Mineral still water (Montclar), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Montclar, embouteillée, non gazeuse, faiblement minéralisée (Montclar, 04)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Ogeu
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Ogeu-les-Bains 64
 ciqual_food_code:en:76090
@@ -5726,7 +5751,7 @@ ciqual_food_code:en:76091
 ciqual_food_name:en:Mineral still water (Prince Noir), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Prince Noir, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Treignac
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Treignac 19
 ciqual_food_code:en:76095
@@ -5747,14 +5772,14 @@ ciqual_food_code:en:76100
 ciqual_food_name:en:Water, mineral, carbonated ou non-carbonated, CAROLA
 ciqual_food_name:fr:Eau minérale Carola, embouteillée, gazeuse ou non gazeuse, moyennement minéralisée (Ribeauville, 68)
 
-<en:Mineral waters
+<en:Non-carbonated natural mineral waters
 en:Non-carbonated mineral water Mont-Blanc
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Mont-Blanc Italie
 ciqual_food_code:en:76101
 ciqual_food_name:en:Water, mineral, non-carbonated, MONT-BLANC
 ciqual_food_name:fr:Eau minérale Mont-Blanc, embouteillée, non gazeuse, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Non-carbonated natural mineral waters
 en:Non-carbonated mineral water Eden
 fr:Eau minérale Eden embouteillée non gazeuse faiblement minéralisée La Goa Suisse
 ciqual_food_code:en:76102
@@ -5801,7 +5826,7 @@ ciqual_food_code:en:76094
 ciqual_food_name:en:Mineral sparkling water (St-Michel-de-Mourcairol), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale St-Michel-de-Mourcairol, embouteillée, gazeuse, moyennement minéralisée (Les Aires, 34)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Ogeu
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ogeu-les-Bains 64
@@ -5817,7 +5842,7 @@ ciqual_food_code:en:76083
 ciqual_food_name:en:Mineral sparkling water (Cilaos), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Cilaos, embouteillée, gazeuse, fortement minéralisée (Cilaos, 974)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Aziac
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Aizac 07
@@ -5841,7 +5866,7 @@ ciqual_food_code:en:76061
 ciqual_food_name:en:Mineral sparkling water (Badoit), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale Badoit, embouteillée, gazeuse, moyennement minéralisée (St-Galmier, 42)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Perrier
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Perrier Vergèse 30
@@ -5881,6 +5906,7 @@ ciqual_food_name:en:Mineral sparkling water (Auvergne), bottled, strongly minera
 ciqual_food_name:fr:Eau minérale Auvergne, embouteillée, gazeuse, fortement minéralisée (Cornillon, 38)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Celtic
 fr:Eau minérale embouteillée très faiblement minéralisée Celtic Niederbronn 67
 ciqual_food_code:en:76010
@@ -5888,6 +5914,7 @@ ciqual_food_name:en:Mineral still water (Celtic), bottled, very lightly minerali
 ciqual_food_name:fr:Eau minérale Celtic, embouteillée, gazeuse ou non gazeuse, très faiblement minéralisée (Niederbronn, 67)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chambon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chambon 45
 ciqual_food_code:en:76011
@@ -5895,6 +5922,7 @@ ciqual_food_name:en:Mineral still water (Chambon), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Chambon, embouteillée, non gazeuse, faiblement minéralisée (Chambon, 45)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chantemerle
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chantemerle Le Pestrin 07
 ciqual_food_code:en:76012
@@ -5923,6 +5951,7 @@ ciqual_food_name:en:Mineral still water (Didier), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Didier, embouteillée non gazeuse, fortement minéralisée (Martinique)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Evian
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Evian 74
 ciqual_food_code:en:76020
@@ -5944,6 +5973,7 @@ ciqual_food_name:en:Mineral still water (Vittel), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale Vittel, embouteillée, non gazeuse, moyennement minéralisée (Vittel, 88)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Volvic
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Volvic 63
 ciqual_food_code:en:76057
@@ -5951,6 +5981,7 @@ ciqual_food_name:en:Mineral still water (Volvic), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Volvic, embouteillée, non gazeuse, faiblement minéralisée (Volvic, 63)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Luchon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Luchon 31
 ciqual_food_code:en:76025
@@ -5958,6 +5989,7 @@ ciqual_food_name:en:Mineral still water (Luchon), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Luchon, embouteillée, non gazeuse, faiblement minéralisée (Luchon, 31)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized water Mont-Roucous
 fr:Eau minérale embouteillée très faiblement minéralisée Mont-Roucous Lacaune 81
 ciqual_food_code:en:76027
@@ -5965,6 +5997,7 @@ ciqual_food_name:en:Mineral water (Mont-Roucous, bottled, very lightly mineraliz
 ciqual_food_name:fr:Eau minérale Mont-Roucous, embouteillée, très faiblement minéralisée (Lacaune, 81)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized spring water Ogeu
 fr:Eau de source embouteillée faiblement minéralisée Ogeu 64
 ciqual_food_code:en:76028
@@ -5979,6 +6012,7 @@ ciqual_food_name:en:Mineral still water (Orée du bois), bottled, averagely mine
 ciqual_food_name:fr:Eau minérale Orée du bois, embouteillée, non gazeuse, moyennement minéralisée (St-Amand, 59)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Plancoet
 fr:Eau minérale embouteillée faiblement minéralisée Plancoet 22
 ciqual_food_code:en:76032
@@ -5993,6 +6027,7 @@ ciqual_food_name:en:Mineral still water (Propiac), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Propiac, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Sail-les-Bains
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Sail-les-Bains 42
 ciqual_food_code:en:76038
@@ -6000,6 +6035,7 @@ ciqual_food_name:en:Mineral still water (Sail-les-Bains), bottled, lightly miner
 ciqual_food_name:fr:Eau minérale Sail-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Sail-les-Bains, 42)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Wattwiller
 fr:Eau minérale embouteillée faiblement minéraliséee Wattwiller 68
 ciqual_food_code:en:76059
@@ -6021,6 +6057,7 @@ ciqual_food_name:en:Mineral still water (St-Antonin), bottled, strongly minerali
 ciqual_food_name:fr:Eau minérale St-Antonin, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Thonon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Thonon 74
 ciqual_food_code:en:76050
@@ -6037,6 +6074,7 @@ ciqual_food_name:fr:Eau minérale St-Diéry, embouteillée, gazeuse, fortement m
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Ventadour
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ventadour Le Pestrin 07
 ciqual_food_code:en:76053
@@ -6045,6 +6083,7 @@ ciqual_food_name:fr:Eau minérale Ventadour, embouteillée, gazeuse, faiblement 
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Vernet
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Vernet Prades 07
 ciqual_food_code:en:76054
@@ -6077,6 +6116,7 @@ ciqual_food_name:fr:Eau minérale St-Yorre, embouteillée, gazeuse, fortement mi
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Volvic active
 fr:Eau minérale active embouteillée gazeuse faiblement minéralisée Volvic 63
 ciqual_food_code:en:76058
@@ -6204,11 +6244,14 @@ fr:Eau minérale naturelle légèrement gazéifiée
 nl:Met weinig koolzuur versterkte mineraalwaters, Met weinig koolzuur versterkt mineraalwater
 
 <en:Natural mineral waters
-en:Non-carbonated natural mineral waters
+en:Non-carbonated natural mineral waters, Bottled mineral water non-carbonated
 de:natürliches Mineralwasser ohne Kohlensäure, natürliche Mineralwässer ohne Kohlensäure, stilles natürliches Mineralwasser, stille natürliche Mineralwässer
 fi:hiilihapottamattomat luontaiset kivennäisvedet
-fr:Eau minérale naturelle non gazeuse
+fr:Eau minérale naturelle non gazeuse, Eau minérale plate
 nl:Koolzuurvrije natuurlijke mineraalwaters, Koolzuurvrij natuurlijk mineraalwater, Natuurlijke mineraalwaters zonder koolzuur
+ciqual_food_code:en:18045
+ciqual_food_name:en:Water, mineral, non-carbonated, bottled (average)
+ciqual_food_name:fr:Eau minérale, plate (aliment moyen)
 
 <en:Waters
 en:Spring waters
@@ -23176,6 +23219,13 @@ fr:Préparations pour gâteaux, préparation pour gâteau
 nl:Cake mix
 
 <en:Dessert mixes
+en:Base formulation for chocolate mousse
+fr:Préparation pour mousse au chocolat
+ciqual_food_code:en:39242
+ciqual_food_name:en:base formulation for chocolate mousse
+ciqual_food_name:fr:Préparation pour mousse au chocolat
+
+<en:Dessert mixes
 fr:Préparations pour entremets
 
 <en:Dessert mixes
@@ -25657,6 +25707,13 @@ fr:Omelettes espagnoles sans oeuf
 nl:Spaanse tortillas zonder ei
 
 <en:Meals
+en:Omelette with vegetables and cheese and meat
+fr:Omelette avec garniture, Omelette avec légumes et fromages et viandes
+ciqual_food_code:en:22511
+ciqual_food_name:en:Omelette, with vegetables, cheese, meat
+ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
+
+<en:Meals
 en:Herb omelette
 fr:Omelette aux fines herbes
 ciqual_food_code:en:22509
@@ -27350,6 +27407,9 @@ ro:Kefir
 ru:Кефир
 sv:Kefir
 wikidata:en:Q185749
+ciqual_food_code:en:19865
+ciqual_food_name:en:Kefir
+ciqual_food_name:fr:Kéfir
 
 <en:Kefir
 en:Kefir 1 %
@@ -27523,6 +27583,9 @@ lmo:Furmai
 wikidata:en:Q10943
 pnns_group_2:en:Cheese
 nova:en:3
+ciqual_food_code:en:12999
+ciqual_food_name:en:Cheese (average)
+ciqual_food_name:fr:Fromage (aliment moyen)
 
 <en:Cheeses
 fr:Fromages pour enfants
@@ -28793,10 +28856,13 @@ ciqual_food_code:en:12037
 ciqual_food_name:en:Livarot cheese, from cow's milk
 
 <en:Cheeses
-en:Soft cheeses with washed rind
+en:Soft cheeses with washed rind, Soft-ripened cheeses with washed rind
 de:Weichkäse mit gewaschener Rinde
 fr:Fromages à pâte molle à croûte lavée
 nl:Zachte gewassen korstkazen
+ciqual_food_code:en:12034
+ciqual_food_name:en:Soft-ripened cheese, washed rind (average)
+ciqual_food_name:fr:Fromage à pâte molle et croûte lavée (aliment moyen)
 
 <en:Cheeses
 en:Stretched-curd cheeses, Pulled-curd cheeses, Plastic-curd cheeses
@@ -28826,13 +28892,16 @@ fr:Fromages apéritif
 
 <en:Processed cheese
 <en:French cheeses
-en:Cancoillottes, Cancoyottes
+en:Cancoillottes, Cancoyottes, Processed cheese from cow's milk
 de:Kochkäse
 es:Cancoillottes, Cancoyottes
-fr:Cancoillottes
+fr:Cancoillottes, Cancoillotte, Spécialité fromagère fondue
 nl:Cancoillotes
 wikidata:en:Q688947
 oqali_family:en: fr:Fromages - Cancoillotte
+ciqual_food_code:en:12325
+ciqual_food_name:en:Cancoillotte (processed cheese), from cow's milk
+ciqual_food_name:fr:Cancoillotte (spécialité fromagère fondue)
 
 <en:Cheeses
 en:Cream cheeses
@@ -28897,14 +28966,17 @@ nl:Zachte kazen met natuurlijke korst
 wikidata:en:Q3088326
 
 <en:Cheeses
-en:Cooked pressed cheeses
+en:Cooked pressed cheeses, Hard cheese
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 fi:kypsennetyt prässätyt juustot
-fr:Fromages à pâte pressée cuite
+fr:Fromages à pâte pressée cuite, Fromage à pâte pressée cuite
 nl:Verhitte geperste kazen
 pt:Queijos cozidos e premidos
 wikidata:en:Q3088330
+ciqual_food_code:en:12100
+ciqual_food_name:en:Hard cheese (average)
+ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
 
 <en:Cheeses
 en:Half-cooked pressed cheeses
@@ -30990,7 +31062,7 @@ wikidata:en:Q742127
 
 <en:Cream cheeses
 # <en:ingredient:en:cheese
-en:Quark
+en:Quark, Plain quark, Quark with fruits
 ar:كوارك
 az:Kəsmik
 be:тварог
@@ -30999,7 +31071,7 @@ da:Kvark
 de:Quark, Weißkäse, Topfen, Schotten, Speisequark
 es:Queso quark
 fi:Rahka
-fr:quark
+fr:quark, Fromage blanc nature, Fromage blanc aux fruits
 he:גבינה לבנה
 hy:Կաթնաշոռ
 id:Quark
@@ -31035,6 +31107,9 @@ zh:奶渣
 # pt-br:Quark
 wikidata:en:Q259642
 wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
+ciqual_food_code:en:19501
+ciqual_food_name:en:Quark, plain or fruit (average)
+ciqual_food_name:fr:Fromage blanc nature ou aux fruits (aliment moyen)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
 
@@ -31111,6 +31186,13 @@ fr:Babeurres, Laits battus, Laits de beurre, Laits ribots
 it:Latticelli, Laticello
 nl:Karnemelken, Botermelken
 wikidata:en:Q106612
+
+<en:Dairies
+en:Eggnog without alcohol
+fr:Lait de poule sans alcool
+ciqual_food_code:en:39400
+ciqual_food_name:en:Eggnog, without alcohol
+ciqual_food_name:fr:Lait de poule, sans alcool
 
 <en:Dairies
 en:Milks
@@ -31396,6 +31478,13 @@ ciqual_food_code:en:19250
 ciqual_food_name:en:Sheep milk, whole
 ciqual_food_name:fr:Lait de brebis, entier
 
+<en:Whole milks
+en:Whole mare's milk
+fr:Lait de jument entier
+ciqual_food_code:en:19225
+ciqual_food_name:en:Mare's milk, whole
+ciqual_food_name:fr:Lait de jument, entier
+
 <en:Milks
 en:Skimmed milks
 ca:Llet desnatada
@@ -31552,7 +31641,7 @@ fr:Lait longue conservation
 nl:Langhoudbare melken
 
 <en:homogenized milks
-en:UHT Milks
+en:UHT Milks, Sterilized Milks
 ca:Llet UHT
 cs:Trvanlivá mléka
 de:H-Milch, H-Milche, H-Milchen, Haltbarmilch, Haltbarmilche, Haltbarmilchen, UHT-Milch, UHT-Milche, UHT-Milchen, Up-Milch, Up-Milche, Up-Milchen
@@ -31567,6 +31656,9 @@ pt:Leites UHT
 ru:Молоко ультрапастеризованное, ультрапастеризованное молоко
 sv:H-mjölk, UHT-mjölk
 wikidata:en:Q13616188
+ciqual_food_code:en:19039
+ciqual_food_name:en:Milk, fat content unknown, UHT sterilized
+ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen)
 
 <en:Creams
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
@@ -32309,6 +32401,9 @@ ceb:Yogur
 lad:Yaúrt
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13317
+ciqual_food_code:en:19624
+ciqual_food_name:en:Yoghurt, plain or fruit (average)
+ciqual_food_name:fr:Yaourt ou spécialité laitière nature ou aux fruits (aliment moyen)
 
 <en:Yogurts
 en:Lactose-free yogurts
@@ -32316,6 +32411,13 @@ es:Yogures sin lactosa
 fr:Yaourts sans lactose
 it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
+
+<en:Yogurts
+en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
+fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
+ciqual_food_code:en:19675
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sweetener (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, avec édulcorants (aliment moyen)
 
 <en:Fruit yogurts
 en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
@@ -32470,13 +32572,13 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with s
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
 
 <en:Yogurts
-en:Fruit yogurts, yogurts with fruits, Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
+en:Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured, Dairy specialty with fruits, Dairy specialty fruit flavoured
 ca:Iogurs de fruita, iogurs amb fruita
 cs:Ovocné jogurty
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:hedelmäjugurtit
-fr:Yaourts aux fruits, Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
+fr:Yaourts aux fruits, Yaourt aromatisé , Yaourt aux fruits, Lait fermenté aromatisé, Lait fermenté aux fruits, Spécialité laitière aromatisée, Spécialité laitière aux fruits
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
 nl:Vruchtenyoghurts
@@ -32485,9 +32587,37 @@ ro:Iaurturi cu fructe, Iaurt cu fructe
 ru:Фруктовые йогурты, Фруктовый йогурт, Йогурт с фруктами, Йогурты с фруктами
 th:โยเกิร์ตผลไม้
 zh:水果酸奶
+ciqual_food_code:en:19682
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits (aliment moyen)
+
+<en:Fruit yogurts
+en:Yogurt with fruits no 0% fat, Yogurt fruit flavoured no 0% fat, Fermented milk with fruits no 0% fat, Fermented milk fruit flavoured no 0% fat, Dairy specialty with fruits no 0% fat, Dairy specialty fruit flavoured no 0% fat
+fr:Yaourt aromatisé aux fruits non allégé en matières grasses, Yaourt aux fruits non allégé en matières grasses, Lait fermenté aromatisé aux fruits non allégé en matières grasses, Lait fermenté aux fruits non allégé en matières grasses, Spécialité laitière aromatisée aux fruits non allégée en matières grasses, Spécialité laitière aux fruits non allégée en matières grasses
+ciqual_food_code:en:19672
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, non allégé en MG (aliment moyen)
+
+<en:Fruit yogurts
+en:Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
+fr:Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
 ciqual_food_code:en:19587
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
+
+<en:Fruit yogurts
+en:Yogurt with fruits and sugar, Yogurt fruit flavoured with sugar, Fermented milk with fruits and sugar, Fermented milk fruit flavoured with sugar, Dairy specialty with fruits and sugar, Dairy specialty fruit flavoured with sugar
+fr:Yaourt aromatisé sucré, Yaourt aux fruits sucré, Lait fermenté aromatisé sucré, Lait fermenté aux fruits sucré, Spécialité laitière aromatisée sucrée, Spécialité laitière aux fruits sucrée
+ciqual_food_code:en:19676
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré (aliment moyen)
+
+<en:Fruit yogurts
+en:Yogurt with fruits and sugar no 0% fat, Yogurt fruit flavoured with sugar no 0% fat, Fermented milk with fruits and sugar no 0% fat, Fermented milk fruit flavoured with sugar no 0% fat, Dairy specialty with fruits and sugar no 0% fat, Dairy specialty fruit flavoured with sugar no 0% fat
+fr:Yaourt aromatisé sucré non allégé en matières grasses, Yaourt aux fruits sucré non allégé en matières grasses, Lait fermenté aromatisé sucré non allégé en matières grasses, Lait fermenté aux fruits sucré non allégé en matières grasses, Spécialité laitière aromatisée sucrée non allégé en matières grasses, Spécialité laitière aux fruits sucrée non allégé en matières grasses
+ciqual_food_code:en:19677
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
 
 <en:Fruit yogurts
 en:Fruit yogurts with fruit chunks
@@ -32499,8 +32629,12 @@ hu:Gyümölcs joghurtok gyümölcsdarabokkal
 nl:Vruchtenyoghurt met stukjes
 
 <en:Fruit yogurts
-fr:Yaourts sur lit de fruits, yaourts sur lits de fruits,Yaourts sut lit de fruits
+fr:Yaourts sur lit de fruits, yaourts sur lits de fruits, Yaourts sut lit de fruits, Spécialités laitières sucrées riches en protéines sur lit de fruits
+en:Yoghurts high in protein on a fruit layer
 nl:Yoghurts op een laag fruit
+ciqual_food_code:en:19669
+ciqual_food_name:en:Yoghurt, high in protein, on a fruit layer
+ciqual_food_name:fr:Spécialité laitière type encas, riche en protéines, sur lit de fruits, sucrée
 
 <en:Fruit yogurts
 fr:Yaourts multifruits, yaourts multi-fruits
@@ -32764,13 +32898,16 @@ ciqual_food_name:en:Yogurt, Greek-style, on a bed of fruits
 ciqual_food_name:fr:Yaourt à la grecque, sur lit de fruits
 
 <en:Yogurts
-en:Low-fat yogurts
+en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
 de:fettarme Joghurt, fettarme Jogurt, fettarme Joghurts, fettarme Jogurts
 es:Yogures bajos en grasa
 fi:Matalarasvaiset jugurtit
-fr:Yaourts allégés en matière grasse, Yaourts allégés en matières grasses, Yaourts allégés
+fr:Yaourts allégés en matière grasse, Yaourts allégés en matières grasses, Yaourts allégés, Yaourt aromatisé à 0% de matières grasses, Yaourt aux fruits à 0% de matières grasses, Lait fermenté aromatisé à 0% de matières grasses, Lait fermenté aux fruits à 0% de matières grasses, Spécialité laitière aromatisée à 0% de matières grasses, Spécialité laitière aux fruits à 0% de matières grasses
 hu:Alacsony zsírtartalmú joghurtok
 nl:Light youghurts
+ciqual_food_code:en:19671
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, 0% MG (aliment moyen)
 
 <en:Yogurts
 en:Mixed yogurts
@@ -32870,6 +33007,13 @@ it:Yogurt intero
 nl:Volle yoghurts
 
 <en:Yogurts
+en:Plain yogurts, Plain yoghurts
+fr:Yaourts nature, Spécialités laitières nature, Yaourt nature, Spécialité laitière nature
+ciqual_food_code:en:19600
+ciqual_food_name:en:Yoghurt, plain (average)
+ciqual_food_name:fr:Yaourt ou spécialité laitière nature (aliment moyen)
+
+<en:Plain yogurts
 en:Plain yogurts, plain unsweetened yogurts, Plain fermented milk yogurt, Plain dairy specialty
 ca:Iogurts naturals
 de:Naturjogurts
@@ -33370,13 +33514,30 @@ it:Composte mela e caramello
 fr:Compotes pommes prune
 
 <en:Dairy desserts
-en:Dessert creams
+en:Dessert creams, Custard desserts
 ca:Postres cremoses
 de:Cremedesserts
 es:Postres de cremas
 fi:jälkiruokakermat
 fr:Crèmes dessert, Crèmes desserts, Crèmes dessert lactées, crèmes dessert à base de lait, crèmes dessert au lait
 nl:Vla's
+ciqual_food_code:en:39511
+ciqual_food_name:en:Custard dessert, refrigerated or canned (average)
+ciqual_food_name:fr:Crème dessert, rayon frais ou appertisée (aliment moyen)
+
+<en:Dessert creams
+en:Refrigerated dessert creams, Refrigerated custard desserts
+fr:Crèmes dessert rayon frais
+ciqual_food_code:en:39230
+ciqual_food_name:en:Custard dessert, refrigerated (average)
+ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
+
+<en:Dessert creams
+en:Canned custard desserts
+fr:Crèmes dessert appertisées, Crèmes dessert en conserve
+ciqual_food_code:en:39505
+ciqual_food_name:en:Custard dessert, canned (average)
+ciqual_food_name:fr:Crème dessert, appertisée (aliment moyen)
 
 <en:Desserts
 en:Sweet mousses, sweet mousse, sugary mousses, sugary mousse
@@ -33395,7 +33556,7 @@ fr:Mousses lactées, mousses au lait, mousses à base de lait
 nl:Mousses op basis van melk
 
 <en:Chocolate desserts
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated chocolate custard dessert
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
 nl:Chocolade vla's
@@ -33404,43 +33565,43 @@ ciqual_food_name:en:Custard dessert, chocolate, refrigerated
 ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
 
 <en:Chocolate desserts
-<en:Dessert creams
+<en:Canned custard desserts
 en:Canned chocolate custard dessert
 fr:Crème dessert au chocolat appertisée
 ciqual_food_code:en:39506
 ciqual_food_name:en:Custard dessert, chocolate, canned
 ciqual_food_name:fr:Crème dessert au chocolat, appertisée
 
-<en:Dessert creams
+<en:Canned custard desserts
 en:Canned vanilla custard dessert
 fr:Crème dessert à la vanille appertisée
 ciqual_food_code:en:39214
 ciqual_food_name:en:Custard dessert, vanilla, canned
 ciqual_food_name:fr:Crème dessert à la vanille, appertisée
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated custard dessert with reduced fat
 fr:Crème dessert allégée en matières grasses rayon frais
 ciqual_food_code:en:19673
 ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
 ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated vanilla custard dessert
 fr:Crème dessert à la vanille rayon frais
 ciqual_food_code:en:39229
 ciqual_food_name:en:Custard dessert, vanilla, refrigerated
 ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated coffee custard dessert
 fr:Crème dessert au café rayon frais
 ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
 
-<en:Dessert creams
-en:Reefrigerated caramel custard dessert
+<en:Refrigerated dessert creams
+en:Refrigerated caramel custard dessert
 fr:Crème dessert au caramel rayon frais
 ciqual_food_code:en:39247
 ciqual_food_name:en:Custard dessert, caramel, refrigerated
@@ -33452,7 +33613,7 @@ nl:Chocolade puur vla's
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
 nl:vanilla vla's
 ciqual_food_code:en:39211
@@ -35309,6 +35470,13 @@ zh:鹌鹑蛋
 wikidata:en:Q1572135
 wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 # ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
+
+<en:Quail eggs
+en:Raw quail eggs, Raw quail egg
+fr:Oeufs de caille crus, Oeuf de caille cru
+ciqual_food_code:en:22050
+ciqual_food_name:en:Quail egg, raw
+ciqual_food_name:fr:Oeuf de caille, cru
 
 <en:Bird eggs
 en:Duck eggs
@@ -48266,7 +48434,7 @@ nl:Falafelsandwiches
 en:Falafel mixes
 de:Mischung für Falafel
 es:Preparados para falafel
-fr:Préparations pour falafels, Préparation pour falafel,
+fr:Préparations pour falafels, Préparation pour falafel
 nl:Falafelmixes
 
 <en:Plant-based meals
@@ -70564,7 +70732,7 @@ ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini
 
 <en:Sweet mousses
 en:Fruit mousses, Refrigerated fruit mousse
-fr: Mousses aux fruits, Mousse aux fruits rayon frais
+fr:Mousses aux fruits, Mousse aux fruits rayon frais
 nl:Vruchtenmousse
 ciqual_food_code:en:39228
 ciqual_food_name:en:Fruit mousse, refrigerated
