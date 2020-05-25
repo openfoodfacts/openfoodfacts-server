@@ -45392,7 +45392,7 @@ ciqual_food_name:en:Moussaka
 ciqual_food_name:fr:Moussaka
 
 <en:Meals
-en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes, Puff pastry, Savoury, puff pastries, Pastries
+en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes, Puff pastry, Savoury, Puff pastries
 fr:Plats préparés feuilletés
 nl:Kant-en-klaar maaltijden met bladerdeeg
 fr:Feuilleté salé
@@ -53254,17 +53254,31 @@ ciqual_food_name:fr:Agneau, côte ou côtelette, cuite (aliment moyen)
 
 <en:Cooked lamb meat
 en:Grilled lamb chops, Grilled lamb chop
-fr:Côtes d'agneau grillées, Côtelettes d'agneau grillées, Côtes d'agneau poêlées, Côtelettes d'agneau poêlées, Côte d'agneau grillée, Côtelette d'agneau grillée, Côte d'agneau poêlée, Côtelette d'agneau poêlée
+fr:Côtes d'agneau grillées, Côtelettes d'agneau grillées, Côtes d'agneau poêlées, Côtelettes d'agneau poêlées, Côte d'agneau grillée, Côte d'agneau poêlée, Côtelette d'agneau poêlée
 ciqual_food_code:en:21524
 ciqual_food_name:en:Lamb, chop, grilled (average)
 ciqual_food_name:fr:Agneau, côte ou côtelette, grillée/poêlée (aliment moyen)
 
+<en:Grilled lamb chops
+en:Grilled lamb cutlet
+fr:Côtelette d'agneau grillée
+ciqual_food_code:en:21501
+ciqual_food_name:en:Lamb cutlet, grilled
+ciqual_food_name:fr:Agneau, côtelette, grillée
+
 <en:Lamb meat
 en:Raw lamb chop
-fr:Côtes d'agneau crues, Côtelettes d'agneau crues, Côte d'agneau crue, Côtelette d'agneau crue
+fr:Côtes d'agneau crues, Côtelettes d'agneau crues, Côte d'agneau crue
 ciqual_food_code:en:21521
 ciqual_food_name:en:Lamb, chop, raw (average)
 ciqual_food_name:fr:Agneau, côte ou côtelette, crue (aliment moyen)
+
+<en:Lamb meat
+en:Raw lamb cutlet
+fr:Côtelette d'agneau crue
+ciqual_food_code:en:21500
+ciqual_food_name:en:Lamb, cutlet, raw
+ciqual_food_name:fr:Agneau, côtelette, crue
 
 <en:Lamb meat
 en:Orkney lamb
@@ -53594,20 +53608,6 @@ fr:Rognons d'agneau crus
 ciqual_food_code:en:40407
 ciqual_food_name:en:Kidney, lamb, raw
 ciqual_food_name:fr:Rognon, agneau, cru
-
-<en:Grilled lamb chops
-en:Grilled lamb cutlet
-fr:Côtelette d'agneau grillée
-ciqual_food_code:en:21501
-ciqual_food_name:en:Lamb cutlet, grilled
-ciqual_food_name:fr:Agneau, côtelette, grillée
-
-<en:Lamb meat
-en:Raw lamb cutlet
-fr:Côtelette d'agneau crue
-ciqual_food_code:en:21500
-ciqual_food_name:en:Lamb, cutlet, raw
-ciqual_food_name:fr:Agneau, côtelette, crue
 
 <en:Cooked lamb meat
 en:Roasted lamb shoulders, baked lamb shoulders
