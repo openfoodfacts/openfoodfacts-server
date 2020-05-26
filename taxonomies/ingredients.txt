@@ -45,10 +45,10 @@ vegetarian:en:ignore
 stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo
+stopwords:en:contains, contain, from, with, produced with, with added
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves,dont,avec,autres,d'autres,d'
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -1260,7 +1260,6 @@ ru:подсластитель, подсластители, заменитель 
 sk:Sladidlo
 wikidata:en:Q626292
 #wikidata:en:Q4368298
-
 
 # comment:en:The generic form of sodium citrates should be written in plural, do distinguish them from sodium citrate.
 
@@ -15446,6 +15445,10 @@ fr:chipolatas
 <en:pork meat
 fr:chipolatas aux herbes
 
+<en:pork
+en:pork skin, sausage skin
+es:tripa de cerdo, tripa natural de cerdo
+
 # <en:compound
 <en:pork meat
 en:stewed porc
@@ -16067,7 +16070,7 @@ en:tapioca starch, tapioca, manioc starch
 da:tapiokastivelse
 de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
-es:almidón de tapioca
+es:almidón de tapioca, almidón de mandioca
 fi:tapiokatärkkelys
 fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
 hu:tápiókakeményítő
@@ -16591,7 +16594,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:manteca de cerdo
+es:grasa de cerdo, manteca de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -17288,7 +17291,7 @@ ca:Oli de coco, oli de copra, copra
 cs:Kokosový olej
 da:kokosolie
 de:Kokosnussöl, Kokosöl
-es:aceite de coco
+es:aceite de coco, aceite vegetal de coco
 et:Kookosõli
 eu:Koko olio
 fa:روغن نارگیل
@@ -17531,7 +17534,7 @@ en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 ca:Oli de colza
 da:rapsolie
 de:Rapsöl
-es:Aceite de colza
+es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de colza ou canola
 he:שמן לפתית
@@ -18007,7 +18010,7 @@ bg:Масло от ший
 de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
-es:manteca de karité
+es:manteca de karité, grasa de karite
 fi:karitevoi, sheavoi, shea
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
@@ -21502,6 +21505,7 @@ hu:természetes ánizs aroma
 
 <en:flavouring
 en:raspberry flavouring
+es:sabor a frambuesa
 de:Himbeeraroma, Himbeer-Aroma
 fi:vadelma-aromi
 fr:arôme framboise
@@ -22773,6 +22777,11 @@ de:Emmer
 fr:blé amidonnier, amidonnier
 ru:двузернянка
 
+<en:cereal
+en:teff
+es:teff, semilla de teff
+wikipedia:en:https://en.wikipedia.org/wiki/Teff
+ 
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -23277,7 +23286,7 @@ fr:blé malté concassé
 en:barley malt extract
 ca:extracte de malta d'ordi
 de:Gerstenmalzextrakt
-es:extracto de malta de cebada, extracto de cebada malteada
+es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada
 et:odralinnaseekstrakt
 fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
@@ -23322,7 +23331,7 @@ en:buckwheat
 ar:حنطة سوداء
 da:boghvede
 de:Buchweizen
-es:sarraceno
+es:sarraceno, trigo sarraceno
 fi:tattari, viljatar
 fr:sarrasin
 hu:hajdina
@@ -23338,6 +23347,7 @@ fr:graines de sarrasin
 
 <en:buckwheat
 en:organic buckwheat
+es:trigo sarraceno organico
 fi:luomu tattari
 fr:sarrasin biologique
 hu:bio hajdina
@@ -23598,6 +23608,10 @@ fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
 it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
+
+<en:oat
+en:oat oil
+es:aceite vegetal avena
 
 <en:oat
 <en:vegetable fibre
@@ -23863,7 +23877,7 @@ wikidata:en:Q158767
 <en:spelt
 en:organic spelt
 de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
-es:Espelta orgánica
+es:Espelta orgánica, trigo espelta troceado
 fi:luomu speltti
 fr:épeautre biologique
 hu:bio tönkölybúza
@@ -24526,7 +24540,7 @@ ca:farina de blat de moro
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
-es:harina de maíz
+es:harina de maíz, harina maiz
 fi:maissijauho, maissijauhoa
 fr:farine de maïs, farine de mais
 hu:kukoricaliszt
@@ -24632,6 +24646,7 @@ it:Farina di quinoa
 
 <en:flour
 en:pea flour
+es:harina de guisantes
 de:Erbsenmehl
 fi:hernejauho
 fr:farine de pois
@@ -27422,7 +27437,6 @@ fr:sirop de candi, sirop de sucre candi
 en:maple syrup
 da:Ahornsirup, ahornsirup
 de:Ahornsirup
-es:jarabe de arce
 fi:vaahterasiirappi
 fr:sirop d’érable
 hu:juharszirup
@@ -27434,6 +27448,7 @@ vegetarian:en:yes
 <en:maple syrup
 en:canadian maple syrup
 de:Kanadischer Ahornsirup
+es:jarabe de arce, savia de arce
 fi:kanadalainen vaahterasiirappi
 fr:sirop d’érable canadien
 hu:kanadai juharszirup
@@ -27441,7 +27456,7 @@ hu:kanadai juharszirup
 <en:maple syrup
 en:pure maple syrup
 de:reiner Ahornsirup
-es:Jarabe puro de maple
+es:Jarabe puro de arce
 fi:Puhdas vaahterasiirappi
 fr:Sirop d'érable pur
 # ingredient/fr:sirop-d-erable-pur has 20 products in french @2019-05-23
@@ -27662,7 +27677,7 @@ ar:شراب أغاف
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup
-es:jarabe de agave
+es:jarabe de agave, concentrado de agave
 fa:اگاو
 fi:agavesiirappi
 fr:sirop d’agave
@@ -29993,6 +30008,9 @@ de:Sojaerzeugnis
 <en:soya
 de:Sojakleie
 
+<en:soya
+es:concentrado de soja
+
 # fr:Jus de soja is a compound ingredient:soybean + water
 
 <en:soya
@@ -30251,6 +30269,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yeast
 <en:Baker's yeast
 en:fresh yeast
 de:Frischhefe
+es:levadura fresca
 fi:tuorehiiva
 fr:levure fraîche
 
@@ -30490,6 +30509,7 @@ de:Roggensauerteig
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
+es:masa madre de trigo
 
 <de:Roggensauerteig
 fr:levain de seigle dévitalisé
@@ -31253,7 +31273,7 @@ cs:Xanthanová guma, Xanthan
 da:Xanthangummi
 de:Xanthan, Xanthangummi
 el:Ξανθανικο κομμι
-es:goma xantana
+es:goma de xantano
 et:Ksantaankummi
 fa:صمغ زانتان
 fi:Ksantaanikumi
@@ -32274,6 +32294,10 @@ it:frutta candita
 # 75 products in 3 languages @2018-10-02
 
 <en:fruit
+en:medlar, loquat
+es:nispero
+
+<en:fruit
 fr:fruits exotiques
 fi:eksoottiset hedelmät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
@@ -32289,7 +32313,8 @@ fr:fruits et légumes concentrés, concentrés de fruits et de légumes
 <en:fruit
 en:dried fruits
 de:Trockenfrüchte
-es:frutos secos, otros frutos secos
+#in Spanish dried fruit is fruta seca, nuts are frutos secos
+es:frutas secas, otras frutas secas
 fi:kuivatut hedelmät
 fr:fruits séchés, fruits secs, autres fruits secs
 it:frutta secca
@@ -32310,7 +32335,7 @@ ru:Сок
 
 en:concentrated juice
 de:konzentrierter Saft
-es:Zumo a partir de concentrado
+es:Zumo a partir de concentrado, zumo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
@@ -32658,7 +32683,7 @@ dv:ދޮންކެޔޮ
 ee:Akɔɖu
 el:μπανάνες, Μπανάνα
 eo:Banano
-es:plátano
+es:plátano, banana
 et:Banaan
 eu:Banana
 fa:موز
@@ -32789,6 +32814,7 @@ carbon_footprint_fr_foodges_value:fr:1.2
 <en:banana
 en:dried banana, dried bananas
 de:Bananen getrocknet
+es:plátano seco
 fi:kuivattu banaani, kuivatut banaanit
 fr:bananes séchées
 it:banane secche
@@ -32885,7 +32911,7 @@ cy:Llugaeron
 da:Tranebær
 de:Moosbeeren, Cranberry, Cranberrys
 eo:Oksikoko
-es:arándano rojo
+es:arándano rojo, arándano
 et:Jõhvikas, Harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
@@ -33319,7 +33345,7 @@ fr:poires en cubes
 <en:purée
 en:pear puree
 de:Birnenpüree
-es:puré de para
+es:puré de pera
 fi:päärynäpyree
 fr:purée de poires, purée de poire
 it:purea di pere
@@ -33378,6 +33404,7 @@ ca:Codony
 da:Kvæde
 de:Quitten
 el:Κυδώνι
+es:membrillo
 et:Aiva
 fi:kvitteni
 fr:coing, coings
@@ -33857,6 +33884,7 @@ fr:moût de pomme concentré
 <en:apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
+es:manzana golden
 fi:golden delicious -omena
 fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 # ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
@@ -33865,6 +33893,7 @@ fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 <en:apple
 en:Gala apple, Gala apples
 de:Gala Apfel
+es:manzana gala
 fr:pomme Gala, pommes Gala
 nl:Gala appel
 
@@ -34303,7 +34332,7 @@ zh:柠檬
 wikidata:en:Q1093742
 
 <en:lemon
-en:lemon peel
+en:lemon peel, lemon zest
 da:citronskal
 de:Zitronenschalen
 es:Cáscara de limón
@@ -34392,7 +34421,7 @@ ca:Suc de llimona
 cs:Citronová šťáva
 da:citronsaft
 de:Zitronensaft
-es:zumo de limón
+es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
 hu:Citromlé
@@ -34445,7 +34474,7 @@ sv:torkad citronjuice
 en:concentrated lemon juice, lemon extract
 ca:Suc de llimona concentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón
+es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado 
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
@@ -34504,6 +34533,10 @@ wikidata:en:Q206496
 # 1 entry @ 2019-10-31
 
 # The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+<en:fruit
+<en:citrus fruit
+en:bitter orange
+es:naranja amarga, naranjas amargas de sevilla
 
 <en:fruit
 <en:citrus fruit
@@ -35631,6 +35664,7 @@ fr:jus de mûre à base de jus concentré
 
 <en:fruit
 en:gooseberry, gooseberries
+es:grosella espinosa
 da:Stikkelsbær
 de:Stachelbeere, Stachelbeeren
 ee:karusmari
@@ -36921,6 +36955,17 @@ zh:梅乾
 wikidata:en:Q6766526
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
 # 35 products in 1 language @2018-09-30
+
+<en:fruit
+en:custard apple, cherimoya, persimmon
+es:chirimoya
+wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
+
+<en:fruit
+en:sharon fruit
+es:kaki
+wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
+
 
 <en:prune
 en:prune juice
@@ -39461,6 +39506,17 @@ wikidata:en:Q1474
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
 
+
+<en:vegetable
+en:borage
+es:borraja
+wikipedia:en:https://en.wikipedia.org/wiki/Borage
+
+<en:vegetable
+en:cardoon, artichoke thistle
+es:cardo
+wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
+
 # description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 
 # <en:Vegetable rods
@@ -39915,6 +39971,13 @@ sl:česen v prahu
 sv:vitlökspulver
 tr:sanmsak tozu
 # fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
+
+<en:garlic
+en:black garlic
+es:ajo negro
+
+<en:garlic
+es:ajo tierno
 
 <en:garlic
 fr:ail des ours
@@ -40775,7 +40838,7 @@ ca:col llombarda
 da:Rødkål
 de:Rotkohl
 eo:ruĝa brasiko
-es:cacho lombarda
+es:cacho lombarda, col lombarda
 fa:کلم‌قرمز
 fi:Punakaali
 fr:chou rouge
@@ -42504,7 +42567,7 @@ da:pastinak
 de:Pastinake, Pastinaken
 el:Παστινάκη
 eo:pastinako
-es:Pastinaca
+es:Pastinaca, chirivia
 et:Aed-moorputk
 eu:Txiribi
 fa:شقاقل
@@ -42916,6 +42979,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 
 <en:salad
 en:iceberg lettuce
+es:lechuga iceberg, iceberg
 de:Eisbergsalat
 eo:glacilaktuko
 fi:Jäävuorisalaatti
@@ -42948,7 +43012,7 @@ da:rucola
 de:Rucola
 el:Ρόκα
 eo:Kultiva eruko
-es:Rúcula
+es:Rúcula, rucula
 et:rukola
 fa:منداب
 fi:sinappikaali
@@ -44510,7 +44574,7 @@ en:chopped tomatoes
 da:Hakkede tomater
 de:gehackte Tomaten, Tomatenhack, Tomatenfruchtfleisch, zerkleinerte Tomaten
 el:ψιλοκαμμένη ντομάτα
-es:Tomates en trozos
+es:Tomates en trozos, tomate troceado
 fi:pilkottu tomaatti, pilkotut tomaatit
 fr:tomate concassée, tomates concassées, tomates concassées, concassé de tomates
 hu:szeletelt paradicsom
@@ -44594,7 +44658,7 @@ en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 da:tomatpuré, tomatkoncentrat
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
-es:concentrado de tomate
+es:concentrado de tomate, pasta de tomate
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 he:מחית עגבניות
@@ -44726,9 +44790,10 @@ fr:fibres de tomate, fibre de tomate
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
 <en:root vegetable
-en:rutabaga
+en:rutabaga, swede
 de:Kohlrübe
 fr:rutabaga
+es:colinabo
 
 <en:root vegetable
 en:turnip, turnips
@@ -45154,6 +45219,7 @@ fr:courgettes en rondelles
 
 <en:Courgette
 en:dried courgette
+es:calabacin deshidritado
 de:getrocknete Zucchini
 fi:kuivattu kesäkurpitsa
 fr:courgettes séchées
@@ -45463,7 +45529,7 @@ fr:haricots verts plats, haricots plats
 
 en:green peas
 de:grüne Erbsen
-es:Guisantes verdes
+es:judias verdes
 fi:Vihreät herneey
 fr:Petits pois
 vegan:en:yes
@@ -45472,7 +45538,7 @@ vegetarian:en:yes
 <en:beans
 en:white beans
 de:weiße Bohnen
-es:Alubias blancas
+es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
 it:Fagioli bianchi
@@ -45506,9 +45572,14 @@ nl:Zwarte bonen
 <en:beans
 en:red beans, red kidney beans
 de:Rote Bohnen
-es:Alubias rojas
+es:Alubias rojas, judias rojas
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
+
+<en:mung bean
+en:mung bean
+es:habas de mungo
+wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 
 <en:red beans
 en:small red beans
@@ -45960,8 +46031,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 fr:extrait de pois
 
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
-
-<en:pea
+# chickpea parent is NOT pea
+<en:legume
 en:chickpea, chickpeas
 am:ሽምብራ
 ar:حمص شائع
@@ -46421,7 +46492,7 @@ da:nød, nødder
 de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht, Schalenfrüchte, Nüsse, Schalenfrüchten
 el:Κάρυο, καρποί με κέλυφος, καρύδια
 eo:nukso
-es:nuez, nueces, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
+es:frutos secos, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
 et:pähkel, pähklid
 eu:fruitu oskoldun
 fa:فندقی
@@ -47043,6 +47114,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-
 
 <en:hazelnut
 en:chopped hazelnuts
+es:avellanas troceados
 de:Gehackte Haselnüsse
 fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
 fr:noisettes hachées
@@ -47192,6 +47264,7 @@ carbon_footprint_fr_foodges_value:fr:5.9
 
 <en:almond
 en:raw almonds
+es:almendras crudas
 de:rohe Mandeln
 fr:Amandes crues
 
@@ -47320,6 +47393,7 @@ pt:amêndoas laminadas
 <en:nut
 en:bitter almond
 de:Bittermandeln
+es:almendras amargas
 fi:Karvasmanteli
 fr:amandes amères
 it:mandorle amare, Armellina
@@ -47598,6 +47672,7 @@ nl:korianderzaad
 <en:coriander seeds
 en:coriander powder
 de:Korianderpulver
+es:cilantro en polvo
 fi:korianterijauhe
 fr:coriandre en poudre, coriandre moulue
 nl:korianderpoeder
@@ -47661,7 +47736,7 @@ en:cumin seeds, cumin
 ca:llavors de comí
 da:Spidskommen
 de:Kümmelkörnen, Kreuzkümmel
-es:comino
+es:comino, semillas de comino
 fi:kumina, kuminan siemen
 fr:graines de cumin, cumin
 hu:köménymag
@@ -47679,6 +47754,10 @@ it:cumino macinato
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 # 52 products in 3 languages @2018-10-07
 
+#<en:seed
+#en:cumin powder
+#fr:cumin en poudre
+#es:comino en polvo
 
 # Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
@@ -47764,7 +47843,7 @@ nl:hennepzaad
 en:pumpkin seed
 da:Græskarkerner
 de:Kürbiskerne
-es:semillas de calebaza
+es:semillas de calabaza
 fi:kurpitsansiemen, kurpitsansiemenet
 fr:graine de courge, graines de courge, graines de potiron, graines de citrouille
 it:semi di zucca
@@ -47783,7 +47862,7 @@ fi:luomu kurpitsansiemen
 <en:seed
 en:poppy seed, poppy seeds, poppy
 de:Mohnsamen, Mohn
-es:semillas de amapola
+es:semillas de amapola, amapola
 fi:unikonsiemen, unikonsiemenet
 fr:graines de pavot, pavot
 it:semi di papavero, papavero
@@ -47811,7 +47890,7 @@ en:sunflower seed, sunflower seeds, sunflower kernels
 ca:llavors de gira-sol, pipes de gira-sol
 da:Solsikkekerner
 de:Sonnenblumenkerne
-es:semillas de girasol, pipas de girasol
+es:semillas de girasol, pipas de girasol, pipas
 fi:auringonkukansiemen, auringonkukansiemenet
 fr:graines de tournesol
 hu:napraforgómag
@@ -47934,6 +48013,7 @@ wikidata:en:Q3143131
 <en:pepper
 en:peppercorns
 de:Pfefferkörner
+es:pimienta en grano
 fi:Pippureita
 fr:grains de poivre
 
@@ -47973,6 +48053,7 @@ sv:vitpeppar
 <fr:poivre blanc
 en:ground white pepper
 de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
+es:pimienta blanca molida
 fi:valkopippurijauhe, jauhettu valkopippuri
 fr:poivre blanc moulu
 nl:gemalen witte peper
@@ -48260,7 +48341,7 @@ da:tahini
 de:Tahina
 el:Ταχίνι
 eo:Sezama pasto
-es:Tahina
+es:Tahini
 et:tahhiini
 fa:ارده
 fi:tahini
@@ -49296,7 +49377,7 @@ da:Kryddernellike
 de:Nelken, Gewürznelken
 dv:ކަރަންފޫ
 eo:Kariofilo
-es:clavos de olor
+es:clavos de olor, clavo
 et:Nelk
 eu:Iltze
 fa:میخک صدپر
@@ -50214,7 +50295,7 @@ da:mynte
 de:Minze, Minzen
 el:Μέντα
 eo:Mento
-es:menta
+es:menta, hierba buena
 et:münt
 eu:Menda
 fa:نعنا
@@ -51081,7 +51162,7 @@ da:Løvstikke
 de:Liebstöckel
 el:Λεβιστικόν το φαρμακευτικόν
 eo:Levistiko
-es:apio
+es:levistico
 et:Harilik leeskputk
 fa:انجدان رومی
 fi:liperi, lipstikka
@@ -51153,6 +51234,7 @@ cy:Glas yr ŷd
 da:kornblomst
 de:Kornblume, Kornblumen
 eo:Cejano
+es:aciano
 et:Rukkilill
 eu:Nabar-lore
 fa:گل گندم
@@ -51223,6 +51305,7 @@ da:Have-Morgenfrue
 de:Ringelblume, Ringelblumen
 el:Καλέντουλα η φαρμακευτική
 eo:Kalendulo
+es:calendula, caléndula
 et:Harilik saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
@@ -51414,7 +51497,7 @@ ca:Llorer
 cs:Bobkový list
 da:Laurbær, laurbærblade
 de:Lorbeer, Lorbeerblatt
-es:Hoja de laurel
+es:Hoja de laurel, laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
 hi:तेज पत्ता
@@ -51874,7 +51957,7 @@ da:humle
 de:Hopfen
 el:λυκίσκος
 eo:lupolo
-es:lúpolo, lupolo
+es:lúpulo, lupulo
 et:humal
 fi:humala
 fr:houblon
@@ -51913,7 +51996,7 @@ bg:экстракт хмеля, хмелевой екстракт
 cs:chmelový ekstrakt
 da:humle-ekstrakt
 de:Hopfenextrakt
-es:extracto de lupolo
+es:extracto de lupulo
 fi:humalauute, humalauutteet
 fr:extrait de houblon, extraits de houblon
 it:estratto di luppolo
@@ -51925,7 +52008,7 @@ sk:chmelovy extract
 <en:hops
 en:organic hops
 de:biologische Hopfen, bio Hopfen
-es:lúpolo bio
+es:lúpulo bio
 fi:luomuhumala, luomu humala
 fr:houblon bio
 it:luppolo biologico, luppolo bio
@@ -52346,6 +52429,7 @@ fr:jeunes pousses de laitue verte
 en:iceberg lettuce
 de:Eisbergsalat
 eo:glacilaktuko
+es:lechuga iceberg
 fi:Jäävuorisalaatti
 fr:laitue iceberg, iceberg
 it:insalata iceberg
@@ -54309,7 +54393,7 @@ da:Alge
 de:Alge
 el:Φύκη
 eo:algo
-es:alga
+es:alga, algas
 et:Vetikad
 eu:alga
 fa:جلبک
@@ -54537,7 +54621,7 @@ cy:Gwymon
 da:tang
 de:Seetang
 eo:Makroalgoj
-es:Macroalga
+es:Macroalga, alga marina, algas de mar
 et:Adru
 eu:Itsas belar
 fa:جلبک دریایی
@@ -54602,6 +54686,7 @@ nl:algenconcentraat
 <en:seaweed
 en:dehydrated seaweed
 de:Seetang getrocknet
+es:alga marina deshidritada
 fi:kuivattu merilevä
 fr:algues déshydratées
 it:alghe disidratate
@@ -54890,6 +54975,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 <en:seaweed
 en:wakame
+es:wakame, alga wakame
 ar:واكامي
 de:wakame
 eo:Vakameo
@@ -55003,7 +55089,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta, champinon
+es:seta, champinon, champiñon
 et:Söögiseen
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -55496,14 +55582,14 @@ ar:فطر زعفراني حليبي الغطاء
 az:Narıncı südləyən
 be:Рыжык
 bg:обикновена млечница
-ca:pinetell
+ca:pinetell, rovellon
 co:Lattaghjolu
 cs:ryzec pravý
 cv:Хыр кăмпи
 cy:Cap llaeth saffrwm
 de:Edel-Reizker
 el:Κουμαρίτες
-es:Nícalo
+es:níscalo
 et:Porgandriisikas
 eu:Esnegorri
 fa:شیر-زعفران کلاه
@@ -55704,6 +55790,10 @@ zh:鱗傘屬
 wikipedia:en:https://en.wikipedia.org/wiki/Pholiota
 # ingredient/fr:pholiotes has 69 products in french @2019-01-22
 
+<en:mushroom
+en:portobello
+es:portobello
+la:agaricus brunnescens
 
 # Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
 
@@ -55872,7 +55962,7 @@ wikidata:en:Q1142857
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
-es:setas negro
+es:shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
@@ -56204,6 +56294,12 @@ fr:penicillium roqueforti
 la:pencillium roqueforti
 # ingredient/fr:penicillium-roqueforti has 103 products @2019-01-30
 
+<en:mushroom
+en:yellow foot
+ca:camagroc
+es:camagroc
+la:cantharellus lutescens
+wikipedia:es:https://es.wikipedia.org/wiki/Cantharellus_lutescens
 
 # QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
 
@@ -58891,7 +58987,7 @@ cy:Macrell
 da:Makrel
 de:Makrele, Makrelenfilet, Makrelenfilets
 el:Σκουμπρί
-es:Verdel
+es:Verdel, caballa
 et:Makrell
 eu:Berdel
 fi:Makrilli
@@ -58935,6 +59031,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
 <en:mackarel
 en:mackarel fillet
 de:Makrelenfilet
+es:filete de caballa
 fi:makrillifilee
 fr:filets de maquereaux
 
@@ -59003,6 +59100,7 @@ ca:Espàrid
 de:Meerbrassen
 el:Σπαρίδες
 eo:Sparedoj
+es:dorada
 et:Merikogerlased
 eu:Sparidae
 fa:شانک‌ماهیان
@@ -60103,6 +60201,7 @@ ak:Posena
 bg:Octopus
 de:Krake
 eo:Polpo
+es:pulpo
 fi:tursas
 fr:poulpe, poulpes
 hi:ऑक्टोपस
@@ -61381,7 +61480,7 @@ da:hummer
 de:Hummer
 el:Αστακός
 eo:Omaro
-es:langosta
+es:langosta, bogavante
 et:Homaar
 eu:Misera
 fa:شاه‌میگو
@@ -61679,7 +61778,7 @@ cs:krevety
 da:Reje, rejer
 de:Garnele, crevetten
 eo:salikoko
-es:gamba, langostino
+es:gamba, langostino, gambon
 eu:Izkira
 fa:میگو
 fi:katkarapu, katkaravut
@@ -61723,6 +61822,17 @@ zh:虾
 wikidata:en:Q1517781
 wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 # ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
+
+<en:prawn
+en:red prawn
+es:gamba roja
+
+<en:crustacean
+<en:shrimp
+en:scarlet shrimp
+es:carabinero
+la:plesiopenaeus edwardsianus
+wikipedia:es:https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
 
 <en:shrimp
 en:shrimp paste
@@ -62701,6 +62811,9 @@ nl:voorjaarshoning
 <en:honey
 fr:Miel et propolis verte
 
+en:propolis
+es:propóleo, propoleo
+wikipedia:es:https://es.wikipedia.org/wiki/Propóleo
 
 # description:en:ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
 
