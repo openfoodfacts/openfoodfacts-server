@@ -45,10 +45,10 @@ vegetarian:en:ignore
 stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,procedente,agricultura,ecologic,ecologica,puede,contener
+stopwords:en:contains, contain, from, with, produced with, with added
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves,dont,avec,autres,d'autres,d'
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -16066,7 +16066,7 @@ en:tapioca starch, tapioca, manioc starch
 da:tapiokastivelse
 de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
-es:almidón de tapioca
+es:almidón de tapioca, almidón de mandioca
 fi:tapiokatärkkelys
 fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
 hu:tápiókakeményítő
@@ -18006,7 +18006,7 @@ bg:Масло от ший
 de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
-es:manteca de karité
+es:manteca de karité, grasa de karite
 fi:karitevoi, sheavoi, shea
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
@@ -29999,6 +29999,9 @@ de:Sojaerzeugnis
 <en:soya
 de:Sojakleie
 
+<en:soya
+es:concentrado de soja
+
 # fr:Jus de soja is a compound ingredient:soybean + water
 
 <en:soya
@@ -32313,7 +32316,7 @@ it:frutta secca
 
 en:juice
 de:Saft
-es:Zumo, nectar
+es:Zumo
 fi:mehu
 fr:jus
 it:succo
@@ -33881,6 +33884,7 @@ fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
 <en:apple
 en:Gala apple, Gala apples
 de:Gala Apfel
+es:manzana gala
 fr:pomme Gala, pommes Gala
 nl:Gala appel
 
@@ -51274,7 +51278,7 @@ da:Løvstikke
 de:Liebstöckel
 el:Λεβιστικόν το φαρμακευτικόν
 eo:Levistiko
-es:apio
+es:levistico
 et:Harilik leeskputk
 fa:انجدان رومی
 fi:liperi, lipstikka
