@@ -187,6 +187,13 @@ ciqual_food_name:en:Biscuit for baby
 ciqual_food_name:fr:Biscuit pour bébé
 
 <en:Snacks and desserts for babies
+en:Cocoa powder for baby beverage
+fr:Poudre cacaotée pour bébé
+ciqual_food_code:en:42501
+ciqual_food_name:en:Cocoa powder for baby beverage
+ciqual_food_name:fr:Poudre cacaotée pour bébé
+
+<en:Snacks and desserts for babies
 en:Baby drinks
 ca:Begudes per a nadons
 de:Getränke für Babies
@@ -197,13 +204,27 @@ nl:Babydranken, Babydrank
 ro:Băuturi pentru bebeluși, Băuturi bebeluși
 
 <en:Baby drinks
+en:Plant-based beverage for baby
+fr:Boisson à base de plantes pour bébé
+ciqual_food_code:en:13160
+ciqual_food_name:en:Plant-based beverage for baby
+ciqual_food_name:fr:Boisson à base de plantes pour bébé
+
+<en:Baby drinks
+en:Milky cereal-based beverages, Milky cereal-based beverage
+fr:Boisson infantile lactée aux céréales, Boisson infantile lactée aux céréales
+ciqual_food_code:en:13182
+ciqual_food_name:en:Milky cereal-based beverage(average)
+ciqual_food_name:fr:Boisson infantile céréales lactées (aliment moyen)
+
+<en:Milky cereal-based beverages
 en:Dairy cereal-based beverage for baby's breakfast
 fr:Boisson lactée pour petit-déjeuner bébé avec céréales
 ciqual_food_code:en:13173
 ciqual_food_name:en:Dairy cereal-based beverage for baby's breakfast
 ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeuner
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 fr:Boisson lactée pour goûter bébé dès 4/6 mois avec céréales et fruits
@@ -211,7 +232,7 @@ ciqual_food_code:en:13162
 ciqual_food_name:en:Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 ciqual_food_name:fr:Boisson infantile céréales lactées aux fruits pour le goûter dès 4/6 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 fr:Boisson lactée pour dîner bébé dès 4/6 mois avec céréales et légumes
@@ -219,7 +240,7 @@ ciqual_food_code:en:13161
 ciqual_food_name:en:Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 ciqual_food_name:fr:Boisson infantile céréales lactées aux légumes pour dîner dès 4/6 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage for baby's breakfast from 4/6 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 4/6 mois avec céréales
@@ -235,8 +256,7 @@ ciqual_food_code:en:13159
 ciqual_food_name:en:Fruit-based beverage for baby from 4/6 months
 ciqual_food_name:fr:Boisson aux fruits pour bébé dès 4/6mois
 
-
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 8 months
 en:Dairy cereal-based beverage for baby's breakfast from 8/9 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 8/9 mois avec céréales
@@ -244,7 +264,7 @@ ciqual_food_code:en:13169
 ciqual_food_name:en:Dairy cereal-based beverage for baby's breakfast from 8/9 months
 ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeuner dès 8/9 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 12 months old
 en:Dairy cereal-based beverage for baby's breakfast from 12 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 12 mois avec céréales
@@ -687,6 +707,20 @@ nl_be:Pollen
 ro:Polen
 zh:花粉
 wikidata:en:Q79932
+
+<en:Pollens
+en:Partially dried pollen
+fr:Pollen partiellement séché
+ciqual_food_code:en:31109
+ciqual_food_name:en:Pollen, partially dried
+ciqual_food_name:fr:Pollen, partiellement séché
+
+<en:Pollens
+en:Fresh pollen
+fr:Pollen frais
+ciqual_food_code:en:31111
+ciqual_food_name:en:Pollen, fresh
+ciqual_food_name:fr:Pollen,frais
 
 <en:Bee products
 en:Propolis
@@ -2414,11 +2448,18 @@ ciqual_food_code:en:1013
 ciqual_food_name:en:Whiskey-based cocktail
 
 <en:Wine-based drinks
-en:Wine-based aperitif, Vermouth
-fr:Apéritif à base de vin, Vermouth
+en:Vermouth
+fr:Vermouth
 ciqual_food_code:en:1007
 ciqual_food_name:en:Wine-based aperitif
 ciqual_food_name:fr:Apéritif à base de vin ou vermouth
+
+<en:Wine-based drinks
+en:Wine-based aperitif, Fortified wine-based aperitif
+fr:Apéritif anisé sans alcool
+ciqual_food_code:en:1011
+ciqual_food_name:en:Wine or fortified wine-based aperitif
+ciqual_food_name:fr:Apéritif anisé sans alcool
 
 <en:Alcoholic beverages
 en:Ciders
@@ -2794,6 +2835,20 @@ ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar and 
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée, avec édulcorants
 
 <en:Carbonated drinks
+en:Carbonated soft drink without fruit juice without sugar and with artificial sweeteners
+fr:Boisson gazeuse sans jus de fruit non sucrée avec édulcorants
+ciqual_food_code:en:18001
+ciqual_food_name:en:Soft drink, carbonated, without fruit juice, without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, non sucrée, avec édulcorants
+
+<en:Carbonated drinks
+en:Carbonated fruit soft drink with sugar
+fr:Boisson gazeuse aux fruits sucrée
+ciqual_food_code:en:18048
+ciqual_food_name:en:Fruit soft drink, carbonated (fruit juice content unknown), with sugar
+ciqual_food_name:fr:Boisson gazeuse aux fruits (teneur en jus non spécifiée), sucrée (aliment moyen)
+
+<en:Carbonated drinks
 en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
 fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
 ciqual_food_code:en:18340
@@ -3112,6 +3167,9 @@ nl_be:Cola's, Colas
 ro:Cola
 zh:可乐
 wikidata:en:Q134041
+ciqual_food_code:en:18063
+ciqual_food_name:en:Cola, sugar and sweetener(s) content (average)
+ciqual_food_name:fr:Cola, teneur en sucre et édulcorant inconnue (aliment moyen)
 
 <en:Colas
 en:Cola with sugar
@@ -3168,6 +3226,9 @@ fr:Eaux de coco, Eau de coco, Eaux de noix de coco, Eau de noix de coco
 it:Acqua di cocco
 nl:Kokoswater
 wikidata:en:Q633401
+ciqual_food_code:en:18011
+ciqual_food_name:en:Coconut water
+ciqual_food_name:fr:Eau de coco
 
 <en:Plant-based beverages
 en:Juices and nectars, fruit-juices-and-nectars
@@ -3316,6 +3377,9 @@ sv:Fruktsafter, fruktsaft
 th:น้ำผลไม้
 zh:水果汁, 果汁
 pnns_group_2:en:Fruit juices
+ciqual_food_code:en:2004
+ciqual_food_name:en:Fruit juice (average)
+ciqual_food_name:fr:Jus de fruits (aliment moyen)
 
 <en:Fruit juices
 en:Apple juices
@@ -3341,6 +3405,31 @@ fr:Jus de clémentine, jus de clémentines
 hu:Clementine gyümölcslevek
 nl:Clementinesappen, Clementinesap
 
+<en:Clementine juices
+en:Pure clementine juice
+fr:Jus de clémentine pur jus
+ciqual_food_code:en:2034
+ciqual_food_name:en:Mandarin or clementine juice, pure juice
+ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
+
+<en:Fruit juices
+en:Lime juice
+fr:Jus de citron vert
+
+<en:Lime juice
+en:Home-made lime juice
+fr:Jus de citron vert maison
+ciqual_food_code:en:2030
+ciqual_food_name:en:Lime juice, home-made
+ciqual_food_name:fr:Jus de citron vert, maison
+
+<en:Lime juice
+en:Pure lime juice
+fr:Jus de citron vert pur jus
+ciqual_food_code:en:2031
+ciqual_food_name:en:Lime juice, pure juice
+ciqual_food_name:fr:Jus de citron vert, pur jus
+
 <en:Fruit juices
 en:Lemon juice
 ca:Suc de llimona
@@ -3354,9 +3443,23 @@ ru:Лимонный сок
 zh:柠檬汁
 wikidata:en:Q1375049
 
+<en:Lemon juice
+en:Home-made lemon juice
+fr:Jus de citron maison
+ciqual_food_code:en:2007
+ciqual_food_name:en:Lemon juice, home-made
+ciqual_food_name:fr:Jus de citron, maison
+
+<en:Lemon juice
+en:Pure lemon juice
+fr:Jus de citron pur jus
+ciqual_food_code:en:2028
+ciqual_food_name:en:Lemon juice, pure juice
+ciqual_food_name:fr:Jus de citron, pur jus
+
 <en:Apple juices
 <en:Concentrated fruit juices
-en:Concentrated apple juices
+en:Concentrated apple juices, Apple juices reconstituted from a concentrate
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
 es:Zumos de manzana procedentes de concentrado
 fi:omenamehutiivisteet
@@ -3364,6 +3467,9 @@ fr:Jus de pomme à base de concentré, jus de pomme à base de jus concentré
 it:Succo di mela da concentrato
 nl:Geconcentreerd appelsap
 nl_be:Geconcentreerd appelsap
+ciqual_food_code:en:2014
+ciqual_food_name:en:Apple juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de pomme, à base de concentré
 
 <en:Apple juices
 <en:Refrigerated squeezed juices
@@ -3428,7 +3534,7 @@ fr:Jus de myrtilles pur jus
 nl:Geperste blauwe bessensappen, Geperste blauwe bessensap
 
 <en:Fruit juices
-en:Concentrated fruit juices, Concentrate fruit juices
+en:Concentrated fruit juices, Concentrate fruit juices, Fruit juices from concentrate
 ca:Suc de fruita concentrat
 de:Fruchtsäfte aus Konzentrat
 es:Zumos procedentes de concentrado
@@ -3438,16 +3544,22 @@ hu:Gyümölcslé koncentrátumok
 it:Succo di frutta da concentrato
 nl:Vruchtensappen op basis van concentraat, Vruchtensap op basis van concentraat
 pl:Zagęszczone soki owocowe
+ciqual_food_code:en:2077
+ciqual_food_name:en:Fruit juice, from concentrate (average)
+ciqual_food_name:fr:Jus de fruits, à base de concentré (aliment moyen)
 
 <en:Concentrated fruit juices
 <en:Orange juices
-en:Concentrated orange juices
+en:Concentrated orange juices, Orange juices reconstituted from a concentrate
 de:Orangensäfte aus Konzentrat
 es:Zumos de naranja procedente de concentrado
 fi:appelsiinimehutiivisteet
 fr:Jus d'orange à base de concentré
 it:Succo di arancia da concentrato
 nl:Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
+ciqual_food_code:en:2012
+ciqual_food_name:en:Orange juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus d'orange, à base de concentré
 
 <en:Fruit juices
 en:Grape juices
@@ -3462,13 +3574,23 @@ zh:葡萄汁
 wikidata:en:Q1209756
 
 <en:Grape juices
+en:Pure grape juice
+fr:Jus de raisin pur jus
+ciqual_food_code:en:2016
+ciqual_food_name:en:Grape juice, pure juice
+ciqual_food_name:fr:Jus de raisin, pur jus
+
+<en:Grape juices
 <en:Concentrated fruit juices
-en:Concentrated grape juices
+en:Concentrated grape juices, Grape juices reconstituted from a concentrate
 de:Traubensäfte aus Konzentrat, Traubensaft aus Konzentrat
 es:Zumos de uva procedente de concentrado
 fr:Jus de raisin à base de concentré, Jus de raisins à base de concentré
 it:Succo di uva da concentrato
 nl:Druivensappen uit concentraat, Druivensap uit concentraat
+ciqual_food_code:en:2019
+ciqual_food_name:en:Grape juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de raisin, à base de concentré
 
 <en:Grape juices
 <en:Squeezed juices
@@ -3490,12 +3612,15 @@ wikidata:en:Q1138468
 
 <en:Grapefruit juices
 <en:Concentrated fruit juices
-en:Concentrated grapefruit juices
+en:Concentrated grapefruit juices, Grapefruit juice reconstituted from a concentrate
 de:Grapefruitsäfte aus Konzentrat
 es:Zumos de pomelo procedente de concentrado
 fr:Jus de pamplemousse à base de concentré, jus de pamplemousses à base de concentré, jus de pamplemousse à base de jus concentré
 nl:Grapefruitsappen uit concentraat, Grapefruitsap uit concentraat
 ru:Сок грейпфрутовый концентрированный, концентрированный грейпфрутовый сок
+ciqual_food_code:en:2015
+ciqual_food_name:en:Grapefruit juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de pamplemousse (pomélo), à base de concentré
 
 <en:Grapefruit juices
 <en:Refrigerated squeezed juices
@@ -3504,6 +3629,20 @@ de:Gekühlte Grapefruitdirektsäfte, Frische Grapefruitdirektsäfte
 es:Zumos de pomelo exprimido refrigerados
 fr:Jus de pamplemousse frais, Jus de pamplemousses frais
 nl:Verse grapefruitsappen, Verse grapefruitsap
+
+<en:Grapefruit juices
+en:Home-made grapefruit juice
+fr:Jus de pamplemousse maison
+ciqual_food_code:en:2025
+ciqual_food_name:en:Grapefruit juice, home-made
+ciqual_food_name:fr:Jus de pamplemousse (pomélo), maison
+
+<en:Grapefruit juices
+en:Pure grapefruit juice
+fr:Jus de pamplemousse pur jus
+ciqual_food_code:en:2027
+ciqual_food_name:en:Grapefruit juice, pure juice
+ciqual_food_name:fr:Jus de pamplemousse (pomelo), pur jus
 
 
 <en:Grapefruit juices
@@ -3528,6 +3667,13 @@ es:Zumos de mango procedente de concentrado
 fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
 it:Succo di mango da concentrato
 nl:Mangosappen uit concentraat, Mangosap uit concentraat
+
+<en:Mango juices
+en:Fresh mango juice
+fr:Jus de mangue frais
+ciqual_food_code:en:2023
+ciqual_food_name:en:Mango juice, fresh
+ciqual_food_name:fr:Jus de mangue, frais
 
 <en:Fruit juices
 en:Multifruit juices
@@ -3695,12 +3841,15 @@ wikidata:en:Q3190226
 
 <en:Concentrated fruit juices
 <en:Pineapple juices
-en:Concentrated pineapple juices
+en:Concentrated pineapple juices, Pineapple juice reconstituted from a concentrate
 de:Ananassäfte aus Konzentrat
 es:Zumos de piña procedente de concentrado
 fr:Jus d'ananas à base de concentré
 it:Succo di ananas da concentrato
 nl:Ananassappen uit concentraat, Ananassap uit concentraat
+ciqual_food_code:en:2000
+ciqual_food_name:en:Pineapple juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:Pineapple juices
 <en:Refrigerated squeezed juices
@@ -3709,6 +3858,20 @@ de:Gekühlte Ananasdirektsäfte, Gekühlter gepresster Ananassaft
 es:Zumos de piña exprimidos refrigerados
 fr:Jus d'ananas frais
 nl:Verse Ananassappen, Verse Ananassap
+
+<en:Pineapple juices
+en:Pure pineapple juices
+fr:Jus d'ananas pur jus
+ciqual_food_code:en:2073
+ciqual_food_name:en:Pineapple juice, pure juice
+ciqual_food_name:fr:Jus d'ananas, pur jus
+
+<en:Pineapple juices
+en:Pineapple juice for canned pineapple
+fr:Jus d'ananas pour ananas appertisé, Jus d'ananas pour ananas en conserve
+ciqual_food_code:en:20920
+ciqual_food_name:en:Pineapple juice for canned pineapple
+ciqual_food_name:fr:Jus d'ananas pour ananas appertisé au jus
 
 <en:Fruit juices
 en:Plum juices
@@ -3723,6 +3886,9 @@ de:Backpflaumensäfte, Dörrpflaumensäfte
 fi:luumumehu
 fr:Jus de pruneaux
 nl:Pruimedantensappen, Pruimedantensap
+ciqual_food_code:en:2018
+ciqual_food_name:en:Prune juice
+ciqual_food_name:fr:Jus de pruneau
 
 <en:Plum juices
 <en:Concentrated fruit juices
@@ -3749,6 +3915,20 @@ fr:Jus de grenade, jus de grenades
 nl:Granaatappelsappen, Granaatappelsap
 ru:Сок гранатовый, Гранатовый сок
 wikidata:en:Q3567034
+
+<en:Pomegranate juices
+en:Fresh pomegranate juice
+fr:Jus de grenade frais
+ciqual_food_code:en:2039
+ciqual_food_name:en:Pomegranate juice, fresh
+ciqual_food_name:fr:Jus de grenade, frais
+
+<en:Pomegranate juices
+en:Pure pomegranate juice
+fr:Jus de grenade pur jus
+ciqual_food_code:en:2017
+ciqual_food_name:en:Pomegranate juice, pure juice
+ciqual_food_name:fr:Jus de grenade, pur jus
 
 <en:Pomegranate juices
 <en:Concentrated fruit juices
@@ -3783,7 +3963,7 @@ fr:Jus d'orange frais, jus d'oranges frais
 nl:Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
 
 <en:Fruit juices
-en:Squeezed juices, Non-refrigerated squeezed juices
+en:Squeezed juices, Non-refrigerated squeezed juices, Pure fruit juices
 ca:Sucs expremuts, sucs espremuts no refrigerats
 de:Direktsäfte, Ungekühlte Direktsäfte
 es:Zumos exprimidos no refrigerados, Zumos exprimidos, Zumos exprimidos ambiente, Zumos exprimidos a temperatura ambiente
@@ -3793,6 +3973,9 @@ hu:Préselt gyümöcslevek
 nl:Verse ongekoelde vruchtensappen, Verse ongekoelde vruchtensap
 pl:Świeżo wyciskane soki
 zh:鲜榨果汁
+ciqual_food_code:en:2072
+ciqual_food_name:en:Fruit juice, pure juice (average)
+ciqual_food_name:fr:Jus de fruits, pur jus (aliment moyen)
 
 <en:Grapefruit juices
 <en:Squeezed juices
@@ -3805,12 +3988,15 @@ nl:Verse grapefruitsappen
 
 <en:Orange juices
 <en:Squeezed juices
-en:Squeezed orange juices, Non-refrigerated squeezed orange juices
+en:Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
 de:Orangendirektsäfte
 es:Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
 fi:puristetut appelsiinimehut
 fr:Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges
 nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
+ciqual_food_code:en:2070
+ciqual_food_name:en:Orange juice, pure juice
+ciqual_food_name:fr:Jus d'orange, pur jus
 
 <en:Pineapple juices
 <en:Squeezed juices
@@ -3830,6 +4016,13 @@ nl:Mandarijnensappen, Mandarijnensap
 ro:Suc de mandarine, Suc cu mandarine
 zh:橘子汁, 柑橘汁
 wikidata:en:Q40866122
+
+<en:Tangerine juices
+en:Pure mandarin juice
+fr:Jus de mandarine pur jus
+ciqual_food_code:en:2034
+ciqual_food_name:en:Mandarin or clementine juice, pure juice
+ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
 
 <en:Tangerine juices
 <en:Concentrated fruit juices
@@ -3889,6 +4082,16 @@ fi:aprikoosinektarit
 fr:Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot
 it:Nettare di albicocca
 nl:Abrikozennectars, Abrikozennectar
+ciqual_food_code:en:2043
+ciqual_food_name:en:Apricot nectar
+ciqual_food_name:fr:Nectar d'abricot
+
+<en:Fruit nectars
+en:Papaya nectars
+fr:Nectars de papaye
+ciqual_food_code:en:2045
+ciqual_food_name:en:Papaya nectar
+ciqual_food_name:fr:Nectar de papaye
 
 <en:Fruit nectars
 en:Banana nectars
@@ -3898,6 +4101,9 @@ fr:Nectars de banane, nectar de banane, nectar banane, nectars banane
 it:Nettare di banana
 nl:Bananennectars, Bananennectar
 zh:香蕉花蜜
+ciqual_food_code:en:2366
+ciqual_food_name:en:Banana nectar
+ciqual_food_name:fr:Nectar de banane
 
 <en:Fruit nectars
 en:Blueberry nectars
@@ -3933,6 +4139,9 @@ fi:guavanektarit
 fr:Nectars de goyave, nectar de goyave, nectar goyave
 it:Nettare di guaiava
 nl:Guavanectars, Guavanectar
+ciqual_food_code:en:2367
+ciqual_food_name:en:Guava nectar
+ciqual_food_name:fr:Nectar de goyave
 
 <en:Fruit nectars
 en:Mango nectars
@@ -3943,6 +4152,9 @@ fr:Nectars de mangue, nectar de mangue, nectar mangue, nectars mangue
 it:Nettare di mango
 nl:Mangonectars, Mangonectar
 zh:芒果花蜜
+ciqual_food_code:en:2370
+ciqual_food_name:en:Mango nectar
+ciqual_food_name:fr:Nectar de mangue
 
 <en:Fruit nectars
 en:Melon nectars
@@ -3981,6 +4193,9 @@ fr:Nectars d'orange
 it:Nettare di arancia
 nl:Sinaasappelnectars, Sinaasappelnectar
 zh:橙花蜜, 橙子花蜜
+ciqual_food_code:en:2375
+ciqual_food_name:en:Orange nectar
+ciqual_food_name:fr:Nectar d'orange
 
 <en:Fruit nectars
 en:Passion fruit nectars, Passionfruit nectars
@@ -3988,6 +4203,16 @@ de:Maracujanektare, Passionsfruchtnektare
 es:Néctares de maracuyá, Néctares de fruta de la pasión
 fr:Nectars de fruit de la passion, nectar de fruit de la passion, nectar fruit de la passion, nectar passion, nectars passion, nectars de fruits de la passion
 nl:Passievruchtnectars, Passievruchtnectar
+ciqual_food_code:en:2365
+ciqual_food_name:en:Passion fruit nectar
+ciqual_food_name:fr:Nectar de fruit de la passion ou maracuja
+
+<en:Passion fruit nectars
+en:Fresh passion fruit juices
+fr:Jus de fruit de la passion frais
+ciqual_food_code:en:2024
+ciqual_food_name:en:Passion fruit juice, fresh
+ciqual_food_name:fr:Jus de fruit de la passion ou maracudja, frais
 
 <en:Fruit nectars
 en:Peach nectars
@@ -3998,6 +4223,9 @@ fr:Nectars de pêche, nectar de pêche, nectar pêche
 it:Nettare di pesca
 nl:Perzikkennectars, Perzikkennectar
 zh:桃花蜜, 桃子花蜜
+ciqual_food_code:en:2371
+ciqual_food_name:en:Peach nectar
+ciqual_food_name:fr:Nectar de pêche
 
 <en:Fruit nectars
 en:Pear nectars
@@ -4008,6 +4236,9 @@ fr:Nectars de poire
 it:Nettare di pera
 nl:Perennectars, Perennectar
 zh:梨花蜜, 梨子花蜜
+ciqual_food_code:en:2054
+ciqual_food_name:en:Pear nectar
+ciqual_food_name:fr:Nectar de poire
 
 <en:Fruit nectars
 en:Strawberry nectars
@@ -4069,11 +4300,14 @@ en:Vegetable juices
 de:Gemüsesäfte
 es:Zumos de verduras y hortalizas
 fi:kasvismehut
-fr:Jus de légumes
+fr:Jus de légumes, Jus de légumes pur jus
 it:Succhi di verdura, succo di verdura
 nl:Groentesappen, Groentesap, Groentensap
 zh:蔬菜汁
 wikidata:en:Q1501257
+ciqual_food_code:en:2075
+ciqual_food_name:en:Vegetable juice (average)
+ciqual_food_name:fr:Jus de légumes, pur jus (aliment moyen)
 
 <en:Vegetable juices
 en:Carrot juices
@@ -4093,6 +4327,13 @@ es:Zumos de zanahoria procedente de concentrado
 fr:Jus de carotte à base de concentré, jus de carottes à base de concentré
 it:Succo di carota da concentrato
 nl:Wortelsappen uit concentraat, Wortelsap uit concentraat
+
+<en:Carrot juices
+en:Pure carrot juice
+fr:Jus de carotte pur jus
+ciqual_food_code:en:2006
+ciqual_food_name:en:Carrot juice, pure juice
+ciqual_food_name:fr:Jus de carotte, pur jus
 
 <en:Vegetable juices
 fr:Jus de betterave
@@ -4119,6 +4360,27 @@ de:Tomatensaft aus Tomatensaftkonzentrat
 es:Zumos de tomate procedente de concentrado
 fr:Jus de tomates à base de concentré, jus de tomate à base de concentré
 nl:Tomatensappen uit concentraat, Tomatensap uit concentraat
+
+<en:Tomato juices
+en:Pure tomato juices
+fr:Jus de tomate pur jus
+ciqual_food_code:en:2053
+ciqual_food_name:en:Tomato juice, pure juice (average)
+ciqual_food_name:fr:Jus de tomate, pur jus (aliment moyen)
+
+<en:Pure tomato juices
+en:Pure tomato juice with 3 g salt/L, Pure tomato juice with 3 grams of salt per liter
+fr:Jus de tomate pur jus salé à 3 g/L, Jus de tomate pur jus salé à 3 grammes de sel par litre
+ciqual_food_code:en:2026
+ciqual_food_name:en:Tomato juice, pure juice, 3 g salt/L
+ciqual_food_name:fr:Jus de tomate, pur jus, salé à 3 g/L
+
+<en:Pure tomato juices
+en:Pure tomato juice with 6 g salt/L, Pure tomato juice with 6 grams of salt per liter
+fr:Jus de tomate pur jus salé à 6 g/L, Jus de tomate pur jus salé à 6 grammes de sel par litre
+ciqual_food_code:en:2032
+ciqual_food_name:en:Tomato juice, pure juice, salted : 6g/L
+ciqual_food_name:fr:Jus de tomate, pur jus, salé à 6g/L
 
 <en:Tomatoes and their products
 en:Strained tomatoes, Passata, Canned tomato coulis semi-reduced to 11%, Canned tomato puree semi-reduced to 11%
@@ -6405,6 +6667,9 @@ th:ไวน์
 zh:葡萄酒
 wikidata:en:Q282
 nova:en:3
+ciqual_food_code:en:5210
+ciqual_food_name:en:Wine (average)
+ciqual_food_name:fr:Vin (aliment moyen)
 
 <en:Wines
 en:Wine without geographic indication
@@ -6550,20 +6815,23 @@ ru:Безалкогольные напитки
 sv:Alkoholfria drycker
 th:เครื่องดื่มไม่มีแอลกอฮอล์
 zh:无酒精饮料
+ciqual_food_code:en:18029
+ciqual_food_name:en:Non-alcoholic beverage (average)
+ciqual_food_name:fr:Boisson rafraîchissante sans alcool (aliment moyen)
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract with sugar and artificial sweetener(s)
 fr:Boisson au thé aromatisée sucrée avec édulcorants
 ciqual_food_code:en:18015
 ciqual_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract flavoured without sugar and with artificial sweeteners
 fr:Boisson au thé aromatisée non sucrée avec édulcorants
 ciqual_food_code:en:18065
 ciqual_food_name:en:Still soft drink with tea extract, flavoured, without sugar and with artificial sweeteners
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract flavoured with sugar
 fr:Boisson au thé aromatisée sucrée
 ciqual_food_code:en:18075
@@ -17939,6 +18207,13 @@ ciqual_food_name:en:Marsala wine
 ciqual_food_name:fr:Marsala
 
 <en:Wines from Italy
+en:Marsala with eggs
+fr:Marsala aux oeufs
+ciqual_food_code:en:1016
+ciqual_food_name:en:Marsala w eggs
+ciqual_food_name:fr:Marsala aux oeufs
+
+<en:Wines from Italy
 it:Martina, Martina Franca
 country:en:Italy
 #wikidata:en:
@@ -21382,12 +21657,15 @@ pnns_group_2:en:Teas and herbal teas and coffees
 <en:Beverages
 #Do not put tea beverages under teas
 #<en:Teas
-en:Tea-based beverages, Tea beverages
+en:Tea-based beverages, Tea beverages, Still soft drinks with tea extract and sugar and sweeteners
 de:Teegetränke, Teebasierte Getränke
 fi:tee-pohjaiset juomat
-fr:Boissons au thé, Thés infusés, boissons à base de thé
+fr:Boissons au thé, Thés infusés, boissons à base de thé, Boissons aromatisées au thé
 nl:Dranken op basis van thee
 pnns_group_2:en:Teas and herbal teas and coffees
+ciqual_food_code:en:18062
+ciqual_food_name:en:Still soft drink with tea extract, sugar and sweetener(s) content (average)
+ciqual_food_name:fr:Boisson au thé, aromatisée, teneur en sucre et édulcorant inconnue (aliment moyen)
 
 <en:Beverages
 #Do not put herbal tea beverages under herbal teas
@@ -23076,6 +23354,13 @@ ciqual_food_code:en:18168
 ciqual_food_name:en:Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins
 ciqual_food_name:fr:Poudre cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines
 
+<en:Cocoa and chocolate powders
+en:Malted cocoa with sugar, Chocolate powder with sugar for beverage
+fr:Poudre maltée sucrée pour boisson enrichie en vitamines et minéraux, Poudre cacaotée sucrée pour boisson enrichie en vitamines et minéraux, Poudre au chocolat sucrée pour boisson enrichie en vitamines et minéraux
+ciqual_food_code:en:18102
+ciqual_food_name:en:Malted cocoa or chocolate powder for beverage, with sugar
+ciqual_food_name:fr:Poudre maltée, cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines et minéraux
+
 <en:Instant beverages
 en:Ready-to-drink instant cocoa with sugar reconstituted with standard semi-skimmed milk, Ready-to-drink instant chocolate beverage with sugar reconstituted with standard semi-skimmed milk
 fr:Boisson cacaotée instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard, Boisson au chocolat instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard
@@ -23874,6 +24159,13 @@ th:ขนมหวาน
 pnns_group_2:en:Sweets
 
 <en:Confectioneries
+en:Candied orange zest
+fr:Zeste d'orange confit
+ciqual_food_code:en:31021
+ciqual_food_name:en:Candied orange zest
+ciqual_food_name:fr:Zeste d'orange confit
+
+<en:Confectioneries
 en:Cotton candy, fairy floss, candy floss
 de:Zuckerwatte, Gesponnener Zucker
 es:Algodón de azúcar, nube de algodón
@@ -24494,13 +24786,16 @@ ca:Barretes de xocolata
 de:Schokoriegel, Schokoladenriegel
 es:Barritas de chocolate
 fi:suklaapatukat
-fr:Barres chocolatées, barres au chocolat
+fr:Barres chocolatées, barres au chocolat, Chocolat en tablette
 hu:Csokoládés szelet, Csoki
 nl:Chocorepen
 pt:Barras de chocolate
 zh:巧克力棒
 wikidata:en:Q1361086
 #, barre chocolatée, barre au chocolat, barres au chocolat
+ciqual_food_code:en:31120
+ciqual_food_name:en:Chocolate bar
+ciqual_food_name:fr:Chocolat, en tablette (aliment moyen)
 
 <en:Chocolate bars
 en:Chocolate biscuity bars
@@ -24892,6 +25187,9 @@ fr:Chewing-gum, gomme à mâcher, pâte à mâcher, chiclette, chique, chiclet, 
 nl:Kauwgom
 ro:Gumă de mestecat
 wikidata:en:Q130878
+ciqual_food_code:en:31121
+ciqual_food_name:en:Chewing gum, sugar level unknown (average)
+ciqual_food_name:fr:Chewing-gum, teneur en sucre inconnue (aliment moyen)
 
 <en:Chewing gum
 en:Sugar-free chewing gum, Chewing gum without sugar
@@ -25097,13 +25395,16 @@ ru:Подсолнечная халва, Халва подсолнечная
 
 <en:Confectioneries
 <en:Fruits based foods
-en:Candied fruit
+en:Candied fruits
 de:Kandierte Früchte
 es:Frutas confitadas
 fi:sokeroidut hedelmät
 fr:Fruits confits
 nl:Gekonfijt fruit
 wikidata:en:Q1163138
+ciqual_food_code:en:31027
+ciqual_food_name:en:Candied fruits
+ciqual_food_name:fr:Fruit confit
 
 <en:Candied fruit
 fr:Citron confit
@@ -30904,11 +31205,14 @@ wikidata:en:Q34172
 fr:Beurres de baratte
 
 <en:Butters
-en:light butter
+en:Light butter, Low-fat butter spread
 de:fettarme Butter, Halbfettbutter
 fi:kevytvoi
-fr:Beurres allégés, Beurre allegé
+fr:Beurres allégés, Beurre allegé, Beurre doux allégé léger, Beurre doux allégé à teneur reduite en matière grasse
 nl:Light roomboters
+ciqual_food_code:en:16412
+ciqual_food_name:en:Butter spread, low-fat (average)
+ciqual_food_name:fr:Beurre ou assimilé allégé (léger ou à teneur reduite en matière grasse), doux (aliment moyen)
 
 <en:Butters
 en:Half-salted butter
@@ -30916,6 +31220,13 @@ de:leicht gesalzene Butter
 fi:puoliksi suolattu voi
 fr:Beurres demi-sel, beurre demi-sel
 nl:Lichtgezouten roomboters
+ciqual_food_code:en:16413
+ciqual_food_name:en:Butter, unknown fat content , half-salted (average)
+ciqual_food_name:fr:Beurre à teneur en matière grasse inconnue (allégé ou non), demi-sel (aliment moyen)
+
+<en:Half-salted butter
+en:Butter 80% fat lightly salted
+fr:Beurre à 80% MG demi-sel
 ciqual_food_code:en:16402
 ciqual_food_name:en:Butter, 80% fat, lightly salted
 
@@ -30951,16 +31262,23 @@ de:Ungesalzene Butter
 fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 nl:Ongezouten roomboter
+ciqual_food_code:en:16414
+ciqual_food_name:en:Butter, unknown fat content , unsalted (average)
+ciqual_food_name:fr:Beurre ou assimilé à teneur en matière grasse inconnue, doux (aliment moyen)
+
+<en:Unsalted butters
+en:Butter 82% fat unsalted
+fr:Beurre à 82% MG doux
 ciqual_food_code:en:16400
 ciqual_food_name:en:Butter, 82% fat, unsalted
 
-<en:Butters
+<en:Unsalted butters
 en:Butter 82% fat unsalted easy-to-spread
 fr:Beurre à 82% MG doux tendre
 ciqual_food_code:en:16404
 ciqual_food_name:en:Butter, 82% fat, unsalted, easy-to-spread
 
-<en:Butters
+<en:Unsalted butters
 en:Butter light 39-41% fat unsalted
 fr:Beurre à 39-41% MG léger doux
 ciqual_food_code:en:16415
@@ -31294,12 +31612,15 @@ zh:奶饮料, 乳饮料
 pnns_group_2:en:Milk and yogurt
 
 <en:Dairy drinks
-en:Flavoured milks, Flavored milks
+en:Flavoured milks, Flavored milks, Flavoured milks with sugar partially skimmed fortified with vitamins and chemicals elements
 ca:Llet aromatitzada
 de:Aromatisierte Milch
 fi:maustetut maidot
-fr:Laits aromatisés, lait aromatisé
+fr:Laits aromatisés, lait aromatisé, Boissons lactées aromatisées sucrées au lait partiellement écrémé enrichies en vitamines et minéraux
 nl:Zuiveldranken
+ciqual_food_code:en:19120
+ciqual_food_name:en:Flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
+ciqual_food_name:fr:Boisson lactée aromatisée (arôme inconnu), sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux (aliment moyen)
 
 <en:Flavoured milks
 en:Refrigerated flavoured renneted milks
@@ -32054,6 +32375,13 @@ fr:Boissons au soja aromatisées sucrées enrichies en calcium
 ciqual_food_code:en:18903
 ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
 ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
+
+<en:Soy milks
+en:Soy drinks with concentrated fruit juice
+fr:Boissons au soja et jus de fruits concentrés
+ciqual_food_code:en:29209
+ciqual_food_name:en:Soy drink, w concentrated fruit juice
+ciqual_food_name:fr:Boisson au soja et jus de fruits concentrés
 
 <en:Plant milks
 en:Mixed plant milks, Mixed plant drinks
@@ -34046,6 +34374,13 @@ de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
 fr:Boissons light
 nl:Light dranken
 
+<en:Diet beverages
+en:Dietary drink for sport
+fr:Boisson diététique pour le sport
+ciqual_food_code:en:18350
+ciqual_food_name:en:Dietary drink for sport
+ciqual_food_name:fr:Boisson diététique pour le sport
+
 <en:Snacks
 en:Salty snacks
 ca:Aperitius salats
@@ -34845,11 +35180,14 @@ wikidata:en:Q5875513
 oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
 
 <en:Nut confectioneries
-en:Marrons glacés, Marrón glacé, Candied chesnuts
+en:Marrons glacés, Marrón glacé, Candied chesnuts, Iced chestnuts
 es:Castañas confitadas, Castañas glaseadas, Marrón glacé, Marrons glacés
 fr:Marrons glacés, Marrón glacé
 nl:Suikerkastanjes
 wikidata:en:Q2334489
+ciqual_food_code:en:31023
+ciqual_food_name:en:Iced chestnut
+ciqual_food_name:fr:Marron glacé
 
 <en:Dragées
 <en:Nut confectioneries
@@ -35797,6 +36135,9 @@ es:Margarinas sin sal
 fr:Margarines sans sel
 it:Margarina senza sale
 nl:Ongezouten margarine
+ciqual_food_code:en:16719
+ciqual_food_name:en:Vegetable fat (margarine type), spreadable, fat content unknown, light, unsalted
+ciqual_food_name:fr:Matière grasse végétale (type margarine), teneur en matière grasse inconue, doux (aliment moyen)
 
 <en:Margarines
 en:Salted margarines
@@ -35805,32 +36146,36 @@ es:Margarinas con sal
 fr:Margarines salées
 nl:Gezouten margarine
 
-<en:Unsalted margarines
 <en:Light margarines
+<en:Unsalted margarines
+en:Light unsalted margarines, Light unsalted spreadable vegetable fat, Unsalted spreadfat
+fr:Matière grasse végétale de type margarine doux à teneur réduite en matière grasse
+ciqual_food_code:en:16725
+ciqual_food_name:en:Fat spreadfat content unknown, unsalted (average)
+ciqual_food_name:fr:Matière grasse végétale (type margarine), teneur réduite en matière grasse inconnue, doux (aliment moyen)
+
+<en:Light unsalted margarines
 en:60% unsalted vegetable fat margarine type with sunflowerseed
 fr:Matière grasse végétale allégée à 60% type margarine doux au tournesol
 ciqual_food_code:en:16654
 ciqual_food_name:en:Vegetable fat (margarine type), 60% fat, unsalted, sunflowerseed
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 60% de MG, allégée, au tournesol, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type
 fr:Matière grasse végétale légère à 30-40% type margarine doux
 ciqual_food_code:en:16733
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type with plant sterols esters
 fr:Matière grasse végétale légère à 30-40% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16735
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux, aux esters de stérol végétal
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type high in omega 3
 fr:Matière grasse végétale légère à 30-40% type margarine doux riche en oméga 3
 ciqual_food_code:en:16736
@@ -35890,24 +36235,21 @@ ciqual_food_code:en:16616
 ciqual_food_name:en:Vegetable fat (margarine type), 70% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type high in omega 3
 fr:Matière grasse végétale allégée à 50-63% de matières grasses riche en oméga 3, margarine douce
 ciqual_food_code:en:16737
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type with plant sterols esters
 fr:Matière grasse végétale allégée à 50-63% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16739
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, aux esters de stérol végétal
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type
 fr:Matière grasse végétale allégée à 50-63% type margarine doux
 ciqual_food_code:en:16741
@@ -35960,12 +36302,22 @@ sv:Vegetabiliska oljor, vegetabilisk olja
 th:น้ำมันพืช
 zh:植物油
 wikidata:en:Q4739805
+ciqual_food_code:en:17001
+ciqual_food_name:en:Vegetable oil (average)
+ciqual_food_name:fr:Huile végétale (aliment moyen)
 
 <en:Vegetable oils
 fr:Huiles aromatisées
 
 <en:Vegetable oils
 fr:Huiles pimentées
+
+<en:Vegetable oils
+en:Apricot kernel oil
+fr:Huile d'amandes d'abricot
+ciqual_food_code:en:17020
+ciqual_food_name:en:Apricot kernel oil
+ciqual_food_name:fr:Huile d'amandes d'abricot
 
 <en:Vegetable oils
 en:Argan oils
@@ -35975,6 +36327,9 @@ it:Olio di argan
 nl:Arganoliën
 sv:Arganoljor, Arganolja
 wikidata:en:Q45418
+ciqual_food_code:en:17900
+ciqual_food_name:en:Argan oil
+ciqual_food_name:fr:Huile d'argan ou d'argane
 
 <en:Vegetable oils
 en:Borage seed oils, Borage oils
@@ -36063,10 +36418,13 @@ ciqual_food_name:fr:Huile de sésame
 <en:Cereal oils
 en:Wheat germ oils
 es:Aceites de germen de trigo
-fr:Huiles de germe de blé
+fr:Huiles de germe de blé, Huile de germe de blé
 nl:Tarwekiemoliën
 zh:小麦胚芽油
 wikidata:en:Q720761
+ciqual_food_code:en:17110
+ciqual_food_name:en:Wheat germ oil
+ciqual_food_name:fr:Huile de germe de blé
 
 <en:Vegetable oils
 en:Combined oil (blended vegetable oils)
@@ -36100,10 +36458,13 @@ zh:水果和水果籽油
 en:Avocado oils
 de:Avocadoöle
 es:Aceites de aguacate
-fr:Huiles d'avocat
+fr:Huiles d'avocat, Huile d'avocat
 nl:Avocado-oliën
 zh:鳄梨油
 wikidata:en:Q2918735
+ciqual_food_code:en:17100
+ciqual_food_name:en:Avocado oil
+ciqual_food_name:fr:Huile d'avocat
 
 <en:Fruit and fruit seed oils
 en:Coconut oils
@@ -36234,6 +36595,9 @@ nl:Amandeloliën
 sv:Mandeloljor, Mandelolja
 zh:杏仁油
 wikidata:en:Q1164590
+ciqual_food_code:en:17030
+ciqual_food_name:en:Almond oil
+ciqual_food_name:fr:Huile d'amande
 
 <en:Nut oils
 en:Hazelnut oils
@@ -36518,6 +36882,13 @@ ciqual_food_code:en:16401
 ciqual_food_name:en:Butter oil or concentrated butter
 
 <en:Fats
+en:Paraffin oil
+fr:Huile de paraffine
+ciqual_food_code:en:17999
+ciqual_food_name:en:Paraffin oil
+ciqual_food_name:fr:Huile de paraffine
+
+<en:Fats
 en:British oils and fats
 
 <en:British oils and fats
@@ -36560,10 +36931,13 @@ nl:Raapoliën
 en:Safflower oils
 de:Distelöle, Safloröle
 es:Aceites de cártamo
-fr:Huiles de carthame
+fr:Huiles de carthame, Huile de carthame
 it:Olio di cartamo
 nl:Saffloeroliën
 wikidata:en:Q16642513
+ciqual_food_code:en:17126
+ciqual_food_name:en:Safflower oil
+ciqual_food_name:fr:Huile de carthame
 
 <en:Vegetable oils
 <en:Sunflower seeds and their products
@@ -36658,7 +37032,15 @@ fr:Farines de souchet
 <en:Flours
 fr:Farines de patate douce
 
+<en:Plant-based foods
+en:Bran
+fr:Son
+ciqual_food_code:en:9647
+ciqual_food_name:en:Bran (average)
+ciqual_food_name:fr:Son (aliment moyen)
+
 <en:Cereals and their products
+<en:Bran
 en:Cereal brans
 de:Kleien
 es:Salvados de cereales
@@ -37999,6 +38381,9 @@ en:Wheat germ
 es:Germen de trigo
 fr:Germe de blé
 nl:Tarwekiemen
+ciqual_food_code:en:9660
+ciqual_food_name:en:Wheat germ
+ciqual_food_name:fr:Germe de blé
 
 <en:Cereals and their products
 en:Cereal semolinas
@@ -38411,6 +38796,13 @@ nl:Bindmiddelen
 zh:增稠剂
 
 <en:Thickeners
+en:Gelling agent for jam
+fr:Gélifiant pour confitures
+ciqual_food_code:en:31047
+ciqual_food_name:en:Gelling agent for jam
+ciqual_food_name:fr:Gélifiant pour confitures
+
+<en:Thickeners
 <en:Seaweed products
 en:Carrageenans
 es:Carragenatos, Carragenanos
@@ -38690,12 +39082,12 @@ ciqual_food_name:en:Frozen dessert, ice cream with meringue, vacherin ice cream 
 ciqual_food_name:fr:Dessert glacé type mystère ou vacherin
 
 <en:Frozen desserts
-en:Ice creams and sorbets
+en:Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
 ca:Sorbets i gelats
 de:Speiseeis und Sorbets, Eiskrem und Sorbets
 es:Helados y sorbetes
 fi:jäätelöt ja sorbetit
-fr:Glaces et sorbets, glace et sorbet, sorbets et glaces
+fr:Glaces et sorbets, glace et sorbet, sorbets et glaces, Glaces à l'eau, Sorbets, Crèmes glacées
 hu:Jégkrém és parfé
 it:Gelati e sorbetti
 nl:IJs en sorbets
@@ -38704,6 +39096,9 @@ pt:Gelados e sorvetes
 sv:Glass och sorbet
 zh:冰淇淋和果汁冰糕
 pnns_group_2:en:Ice cream
+ciqual_food_code:en:39500
+ciqual_food_name:en:Ice cream or sorbet or ice pop, flavoured (average)
+ciqual_food_name:fr:Glace à l'eau ou sorbet ou crème glacée, tout parfum (aliment moyen)
 
 <en:Frozen desserts
 en:Frozen dessert puff pastry to share
@@ -38953,14 +39348,17 @@ ciqual_food_name:en:Ice cream, cone, mini
 ciqual_food_name:fr:Glace ou crème glacée, mini cône
 
 <en:Ice creams
-en:Ice cream tubs
+en:Ice cream tubs, Ice cream cups
 ca:Terrines de gelat
 de:Eisbecher, Eispackungen
 es:Tarrinas y bloques de helado, Tarrinas de helado, Bloques de helado
 fi:jäätelöveneet
-fr:Crèmes glacées en pot, crème glacée en pot
+fr:Crèmes glacées en pot, Crème glacée en pot, Glaces en pot
 nl:Roomijs
 sv:Glassbyttor, Glassbytta
+ciqual_food_code:en:39527
+ciqual_food_name:en:Ice cream, box or cup (average)
+ciqual_food_name:fr:Glace ou crème glacée, bac ou pot (aliment moyen)
 
 <en:Ice creams
 en:Ice cream in a box
@@ -41659,16 +42057,19 @@ nl:Aromatische planten in pot
 pt:Plantas aromáticas em vaso
 
 <en:Aromatic plants
-en:Aromatic herbs, Herbs
+en:Aromatic herbs, Herbs, Fresh herbs
 de:Kräuter
 es:Hierbas aromáticas
 fi:mausteyrtit
-fr:Herbes aromatiques
+fr:Herbes aromatiques, Herbes aromatiques fraîches
 nl:Kruiden
 nl_be:Kruiden
 pt:Ervas aromáticas
 zh:香草
 wikidata:en:Q207123
+ciqual_food_code:en:11080
+ciqual_food_name:en:Herbs, fresh (average)
+ciqual_food_name:fr:Herbes aromatiques fraîches (aliment moyen)
 
 <en:Aromatic herbs
 en:Basil, Thai basil, Sweet basil
@@ -41935,6 +42336,14 @@ zh:薄荷
 wikidata:en:Q47859
 
 <en:Mint
+<en:Dried aromatic plants
+en:Dried mint
+fr:Menthe séchée
+ciqual_food_code:en:11029
+ciqual_food_name:en:Mint, dried
+ciqual_food_name:fr:Menthe, séchée
+
+<en:Mint
 <en:Fresh aromatic plants
 en:Fresh mint
 de:frische Minze
@@ -41950,7 +42359,7 @@ ciqual_food_name:fr:Menthe, fraîche
 en:Frozen mint
 de:gefrorene Minze
 es:Menta congelada
-fr:Menthe surgelé
+fr:Menthe surgelée
 hu:Fagyasztott menta
 nl:Bevroren munt
 
@@ -42496,6 +42905,13 @@ nl:Kruiderijen
 wikidata:en:Q773108
 
 <en:Condiments
+en:Capers pickled in vinegar
+fr:Câpres au vinaigre
+ciqual_food_code:en:11040
+ciqual_food_name:en:Capers, pickled in vinegar
+ciqual_food_name:fr:Câpres, au vinaigre
+
+<en:Condiments
 en:Salts, Salt
 ca:Sal, sals
 de:Salze, Salz
@@ -42722,6 +43138,9 @@ nl:Specerijen
 nl_be:Specerijen
 pt:Temperos
 wikidata:en:Q42527
+ciqual_food_code:en:11081
+ciqual_food_name:en:Spice (average)
+ciqual_food_name:fr:Epice (aliment moyen)
 
 <en:Spices
 <en:Herbal teas
@@ -43486,6 +43905,13 @@ pnns_group_2:en:Dressings and sauces
 wikidata:en:Q178359
 
 <en:Sauces
+en:Warm sauces
+fr:Sauces chaudes
+ciqual_food_code:en:11218
+ciqual_food_name:en:Sauce, warm (average)
+ciqual_food_name:fr:Sauce chaude (aliment moyen)
+
+<en:Sauces
 en:Dessert sauces
 fr:Sauces dessert
 
@@ -43526,6 +43952,13 @@ fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande type V
 
 <en:Sauces
 fr:Sauces à l'oseille, Sauce à l'oseille
+
+<en:Warm sauces
+en:Molokhia sauce, Home-made molokhia sauce
+fr:Sauce meloukhia artisanale
+ciqual_food_code:en:51502
+ciqual_food_name:en:Molokhia sauce, home-made
+ciqual_food_name:fr:Meloukhia, sauce, artisanale
 
 <en:Sauces
 en:Kebab sauce
@@ -43752,6 +44185,13 @@ ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
 ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
 
 <en:Sauces
+en:Salad dressing with reduced fat and 25-50% of oil
+fr:Sauce vinaigrette allégée en matière grasse avec 25 à 50% d'huile
+ciqual_food_code:en:11109
+ciqual_food_name:en:Salad dressing, reduced fat (25-50% of oil), prepacked
+ciqual_food_name:fr:Sauce vinaigrette allégée en MG (25 à 50% d'huile), préemballée
+
+<en:Sauces
 en:Mustard sauce
 fr:Sauce moutarde
 ciqual_food_code:en:11157
@@ -43866,6 +44306,9 @@ es:Salsas Teriyaki
 fi:teriyaki-kastikkeet
 fr:Sauces Teriyaki
 nl:Teriyakisaus
+ciqual_food_code:en:11301
+ciqual_food_name:en:Teriyaki sauce, prepacked
+ciqual_food_name:fr:Sauce teriyaki, préemballée
 
 <en:Sauces
 en:Yakitori sauces
@@ -45047,6 +45490,13 @@ es:Tomate natural triturado
 fi:tomaattipureet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate
 nl:Tomatenpuree
+
+<en:Tomato purées
+en:Tomato caviar, Seasonned tomato puree
+fr:Caviars de tomates, Caviar de tomates
+ciqual_food_code:en:11215
+ciqual_food_name:en:Tomato caviar (a seasonned tomato puree)
+ciqual_food_name:fr:Caviar de tomates
 
 <en:Tomatoes and their products
 en:Tomato pastes, Canned concentrated tomato paste
@@ -61373,6 +61823,13 @@ la:E-950
 wikidata:en:Q132037
 
 <en:Artificial sugar substitutes
+en:Stevia sweetener
+fr:Édulcorant à base d'extrait de stévia
+ciqual_food_code:en:31087
+ciqual_food_name:en:Stevia sweetener
+ciqual_food_name:fr:Édulcorant à base d'extrait de stévia
+
+<en:Artificial sugar substitutes
 en:Aspartame
 de:Aspartam
 es:Aspartamo
@@ -61380,6 +61837,27 @@ fr:Aspartames
 la:E-951
 nl:Aspartaam
 wikidata:en:Q182040
+
+<en:Aspartame
+en:Aspartame sweetener in tablets
+fr:Édulcorant à l'aspartame en pastilles
+ciqual_food_code:en:11506
+ciqual_food_name:en:Aspartame sweetener, in tablets
+ciqual_food_name:fr:Édulcorant à l'aspartame, en pastilles
+
+<en:Aspartame
+en:Aspartame in powder
+fr:Édulcorant à l'aspartame en poudre
+ciqual_food_code:en:11509
+ciqual_food_name:en:Aspartame, in powder
+ciqual_food_name:fr:Édulcorant à l'aspartame, en poudre
+
+<en:Aspartame
+en:Light sugar with aspartame
+fr:Sucre allégé à l'aspartame
+ciqual_food_code:en:31076
+ciqual_food_name:en:Sugar, light, with aspartame
+ciqual_food_name:fr:Sucre allégé à l'aspartame
 
 <en:Artificial sugar substitutes
 en:Neohesperidin DC, NHDC, Neohesperidin dihydrochalcone
@@ -61528,6 +62006,13 @@ zh:糖浆
 wikidata:en:Q6584340
 
 <en:Syrups
+en:Concentrate syrup without sugar and with artificial sweeteners
+fr:Boisson concentrée à diluer sans sucres ajoutés avec édulcorants, Sirop concentré à diluer sans sucres ajoutés avec édulcorants
+ciqual_food_code:en:18059
+ciqual_food_name:en:Concentrate beverage (to be diluted), without sugar and with artificial sweeteners, ""syrup 0%"" type
+ciqual_food_name:fr:Boisson concentrée à diluer, sans sucres ajoutés, avec édulcorants, type ""sirop 0%""
+
+<en:Syrups
 en:Syrup with sugar to be diluted
 fr:Sirop à diluer sucré
 ciqual_food_code:en:18017
@@ -61561,6 +62046,9 @@ it:Sciroppi d'agave
 nl:Agavesiropen
 nl_be:Agavesiropen
 wikidata:en:Q392001
+ciqual_food_code:en:31089
+ciqual_food_name:en:Syrup, agave
+ciqual_food_name:fr:Sirop d'agave
 
 <en:Simple syrups
 en:Birch syrups
@@ -61657,6 +62145,9 @@ fr:Sirops d'érable, sirop d'érable
 nl:Esdoornstropen
 wikidata:en:Q402563
 nova:en:2
+ciqual_food_code:en:31034
+ciqual_food_name:en:Syrup, maple
+ciqual_food_name:fr:Sirop d'érable
 
 <en:Maple syrups
 en:Maple syrups from Québec
@@ -62109,10 +62600,13 @@ nl:Ingemaakte Augurken
 wikidata:en:Q1365891
 
 <en:Gherkins
-en:Pickled gherkins
+en:Pickled gherkins, Gherkins pickled in vinegar
 de:Gewürzgurken,Cornichons
 fr:Cornichons au vinaigre
 nl:Zure Augurken
+ciqual_food_code:en:11004
+ciqual_food_name:en:Gherkin, pickled in vinegar
+ciqual_food_name:fr:Cornichon, au vinaigre
 
 <en:Gherkins
 en:Extra-fine gherkins
@@ -62124,8 +62618,12 @@ nl:Zeer fijne augurken
 fr:Cornichons malossol
 
 <en:Gherkins
-fr:Cornichons aigres-doux
+en:Gherkins in sweet and sour sauce
+fr:Cornichons aigres-doux, Cornichon aigre-doux
 nl:Zoetzure augurken
+ciqual_food_code:en:11097
+ciqual_food_name:en:Gherkin, in sweet and sour sauce
+ciqual_food_name:fr:Cornichon, aigre-doux
 
 <en:Vegetable pickles
 en:Pickled eggplants
@@ -62146,6 +62644,13 @@ en:Pickled onions
 es:Cebollas encurtidas, Cebollitas encurtidas
 fr:Oignons au vinaigre
 nl:Ingemaakte ui
+
+<en:Pickled onions
+en:Onions pickled in vinegar
+fr:Oignons au vinaigre
+ciqual_food_code:en:11055
+ciqual_food_name:en:Onion, pickled in vinegar
+ciqual_food_name:fr:Oignon au vinaigre
 
 <en:Vegetable pickles
 en:Pickled peppers
@@ -62791,6 +63296,13 @@ de:Frische Karotten
 fr:Carottes fraîches
 it:Carote fresche
 season_in_country_fr:en: 1,2,3,9,10,11,12
+
+<en:Carrots
+en:Dehydrated carrots
+fr:Carottes déshydratées
+ciqual_food_code:en:20092
+ciqual_food_name:en:Carrot, dehydrated
+ciqual_food_name:fr:Carotte, déshydratée
 
 <en:Leaf vegetables
 en:Cauliflowers
@@ -66615,6 +67127,20 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:Nyons
 
 <en:Black olives
+en:Black olives in brine
+fr:Olives noires en saumure
+ciqual_food_code:en:13032
+ciqual_food_name:en:Olives, black, in brine
+ciqual_food_name:fr:Olive noire, en saumure
+
+<en:Black olives
+en:Black olives in oil, Greek olives
+fr:Olives noires à l'huile, Olives noires à la grecque
+ciqual_food_code:en:13131
+ciqual_food_name:en:Olives, black, in oil (Greek olive)
+ciqual_food_name:fr:Olive noire, à l'huile (à la grecque)
+
+<en:Black olives
 <en:Chopped olives
 en:Black chopped olives, chopped black olives
 es:Aceitunas negras troceadas, Aceitunas negras en rodajas
@@ -66752,6 +67278,9 @@ en:Green olives in brine
 fr:Olives vertes en saumure
 it:Olive verdi in salamoia
 nl:Groene olijven op zout
+ciqual_food_code:en:13033
+ciqual_food_name:en:Olives, green, in brine
+ciqual_food_name:fr:Olive verte, en saumure
 
 <en:Olives
 en:Marinated olives
@@ -70241,9 +70770,12 @@ zh:食品装饰品
 
 <en:Food decorations
 <en:Pastry helpers
-en:Sprinkles, Chocolat or sugar sprinkles
-fr:Vermicelles en chocolat ou en sucre
+en:Sprinkles, Chocolat or sugar sprinkles, Multi-coloured vermicelli
+fr:Vermicelles en chocolat ou en sucre, Vermicelles multicolores
 nl:Chocolade of suiker hagel
+ciqual_food_code:en:11510
+ciqual_food_name:en:Multi-coloured vermicelli
+ciqual_food_name:fr:Vermicelles multicolores
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
