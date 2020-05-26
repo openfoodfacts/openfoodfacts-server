@@ -43794,9 +43794,10 @@ carbon_footprint_fr_foodges_value:fr:1.3
 
 # description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 # comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word
+# do not make pepper a synonym of bell pepper
 
 <en:vegetable
-en:bell pepper, pepper
+en:bell pepper
 af:Soetrissie
 an:Pimiento
 ar:فلفل حلو
@@ -43866,13 +43867,6 @@ carbon_footprint_fr_foodges_value:fr:0.9
 # fr:poivron has 1581 products in 11 languages @2018-10-15
 
 <en:bell pepper
-en:dehydrated bell pepper
-de:getrocknete Paprika
-es:Pimiento deshidratado
-fi:kuivattu paprika
-fr:poivron déshydraté, poivrons déshydratés
-
-<en:bell pepper
 en:sweet peppers
 de:Gemüsepaprika
 es:pimientos dulces
@@ -43881,8 +43875,11 @@ fr:piment doux
 it:peperoni dolci
 # ingredient/fr:piment-doux has 309 products in 6 languages @2019-04-14
 
+# make "yellow bell pepper" the canonical name
+# "yellow pepper" can probably be safely assumed to be a synonym for "yellow bell pepper"
+
 <en:bell pepper
-en:yellow pepper
+en:yellow bell pepper, yellow pepper
 de:gelbe Paprika
 es:pimiento amarillo
 fi:keltainen paprika
@@ -43891,17 +43888,10 @@ it:peperone giallo
 nl:gele paprika
 # fr:poivron-jaune has 93 products in 1 language @2018-10-15
 
-<fr:poivron jaune
-en:grilled yellow pepper
-de:Gelbe Peperoni gegrillt
-fi:grillattu keltainen paprika
-fr:poivrons jaunes grillés
-it:peperoni gialli grigliati
-# fr:poivrons-jaunes-grillés has 60 products in 4 languages @2018-10-15
-# treatment:en:en:gril
+# green pepper should not be a synonym of green bell pepper
 
 <en:pepper
-en:green pepper, green bell pepper
+en:green bell pepper
 da:Grøn peber
 de:grüne Peperoni
 es:pimiento verde
@@ -43915,7 +43905,7 @@ sv:Grön paprika
 # fr:poivron-vert has 480 products in 5 languages @2018-10-15
 
 <en:pepper
-en:red pepper, red bell pepper
+en:red bell pepper, red pepper
 ca:pebrot vermell
 da:rød peberfrugt
 de:rote Paprika, roter Paprika
@@ -43933,37 +43923,9 @@ ru:Красный перец
 sv:röd paprika
 # fr:poivron-rouge has 1987 products in 13 languages @2018-10-15
 
-<en:red pepper
-fr:poivrons rouges grillés
-de:Rote Peperoni gegrillt
-fi:grillattu punainen paprika
-it:peperoni rossi grigliati
-# fr:poivrons-rouges-grillés has 124 products in 3 languages @2018-10-15
-
-<en:red pepper
-fr:poivrons rouges déshydratés
-fi:kuivattu punainen paprika, kuivatut punaiset paprikat
-# fr:poivrons-rouges-déshydratés has 45 products in 1 language @2018-10-15
-
-<en:pepper
-en:grilled pepper, grilled bell pepper
-de:gegrillte Paprika
-es:pimiento asado
-fi:grillattu paprika
-fr:poivron grillé, poivrons grillés
-nl:gegrilde paprika
-# en:grilled-pepper has 12 products in 3 languages @2018-10-15
-# treatment:en:en:gril
-
-<en:pepper
-en:fried pepper
-de:Frittierter Paprika
-fi:paahdettu paprika
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:paahdettu-paprika
-# 1 entry @ 2019-10-31
-
-<en:red pepper
-<en:green pepper
+<en:red bell pepper
+<en:green bell pepper
+en:red and green bell peppers, green and red bell peppers
 fr:poivrons rouges et verts, poivrons verts et rouges
 de:rote und grüne Peperoni
 fi:punainen ja vihreä paprika, punaiset ja vihreät paprikat
@@ -43973,16 +43935,11 @@ nl:rode en groene paprika's
 
 <en:red pepper
 <en:yellow pepper
-fr:poivrons rouges et jaunes
+en:red and yellow bell peppers, yellow and red bell peppers
+fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 de:Peperoni rot und gelb
 it:peperoni rossi e gialli
 # fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
-
-<fr:poivrons rouges et jaunes
-fr:poivrons rouges et jaunes grillés
-pt:pimentos vermelhos e amarelos grelhados
-# fr:poivrons-rouges-et-jaunes-grillés has 21 products in 2 languages @2018-10-15
-
 
 
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
@@ -44094,32 +44051,12 @@ carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr:3.4
 
 <en:chili pepper
-en:smoked chili pepper
-de:geräucherte Chilischote
-fi:savuchili, savustettu chili
-fr:piment fumé
-
-<en:chili pepper
 fr:extrait de piment
 de:Chiliextrakt
 fi:chiliuute
 it:estratto di peperoncino
 nl:pimentextract
 # ingredient/fr:extrait-de-piment has 72 products in 6 languages @2019-04-15
-
-<en:chili pepper
-en:chilli powder
-da:chilipulver
-de:Chilipulver, gemahlener Chili, Chillipulver
-es:chile en polvo, chile molido
-fi:chilijauhe
-fr:poudre de piment, piment en poudre
-hu:chilipaprikapor
-it:peperoncino en polvere, peperoncino macinato
-nl:chilipoeder, gemalen chili, chilipeperpoeder, pimentpoeder
-pt:malagueta em pó
-sv:chilipulver
-# ingredient/fr:poudre-de-piment has 221 products in 13 languages @2019-04-15
 
 <en:chili pepper
 en:chili puree, chilli puree
@@ -44129,14 +44066,6 @@ fr:purée de piments
 it:purea di peperoncino
 # ingredient/fr:purée-de-piments has 136 products in 4 languages @2019-04-15
 # usage:fr:purée de piments (piments, sel)
-
-<en:chili pepper
-en:dried chili pepper
-de:getrocknete Chilischoten
-fi:kuivattu chili
-fr:piment rouge séché
-nl:gedroogde chilipeper
-# ingredient/fr:piment-rouge-séché has 16 products in 4 languages @2019-04-15
 
 <en:chili pepper
 en:preserved chili pepper
@@ -44307,24 +44236,6 @@ fr:paprika doux
 es:pimentón dulce
 # fr:paprika-doux has 44 products in 2 languages @2018-10-15
 
-<en:paprika
-en:paprika powder
-de:Paprikapulver
-es:pimentón en polvo
-fi:paprikajauhe
-fr:paprika en poudre, poudre de paprika
-it:paprica en polvere
-nl:paprikapoeder, paprika poeder
-pl:papryka w proszku
-pt:pimentão doce em pó
-sk:paprika v prahu
-sv:paprikapulver
-# fr:paprika-en-poudre has 100 products in 12 languages @2018-10-15
-# fr:poudre-de-paprika has 75 products in 5 languages @2018-10-15
-
-<en:paprika powder
-de:scharfes Paprikapulver
-
 # The paprika extract can be found under the section colour E160c
 
 <en:paprika
@@ -44334,26 +44245,6 @@ fi:paprikatahna
 fr:Pâte de paprika
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:paprikatahna
 # 1 entry @ 2019-10-31
-
-<en:paprika
-en:smoked paprika
-de:geräucherter Paprika
-es:Pimentón ahumado
-fi:savupaprika, savustettu paprika, savutettu paprika
-fr:paprika fumé
-it:paprica affumicata
-nl:Gerookte paprika
-# fr:paprika-fumé 55 products in 4 languages @2018-10-14
-
-<en:smoked paprika
-en:organic smoked paprika
-fi:luomu savutettu paprika
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomu-savutettu-paprika
-# 1 entry @ 2019-10-31
-
-<en:paprika powder
-<en:turmeric powder
-fr:paprika et curcuma déshydratés
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
@@ -48092,6 +47983,8 @@ fi:musta- ja valkopippuri
 fr:Poivres noir et blanc
 
 <en:pepper
+en:green pepper
+es:pimienta verde
 fr:poivre vert
 de:grüner Pfeffer
 fi:viherpippuri
@@ -48099,13 +47992,10 @@ fi:viherpippuri
 # 193 products @2018-10-08
 
 <en:pepper
+en:grey pepper, gray pepper
 fr:poivre gris
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
 # 53 products in 1 language @2018-10-08
-
-<fr:poivre gris
-fr:Poivre gris moulu
-# 7@2019-06-04
 
 <en:pepper
 en:black pepper
@@ -48155,16 +48045,6 @@ nl:grove zwarte peper
 # 64 products @2018-10-08
 
 <en:black pepper
-en:ground black pepper
-de:gemahlener schwarzer Pfeffer, schwarzer Pfeffer gemahlen
-es:pimienta negra molida
-fi:mustapippurijauhe, jauhettu mustapippuri
-fr:poivre noir moulu
-nl:Gemalen zwarte peper
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-moulu
-# 106 products in 4 languages @2018-10-08
-
-<en:black pepper
 en:black pepper extract
 de:schwarzer Pfefferextrakt
 es:extracto de pimienta negra
@@ -48176,10 +48056,11 @@ nl:zwarte peperextract
 
 <en:black pepper
 <en:green pepper
-en:black and green pepper
+en:black and green pepper,green and black pepper
 fi:musta- ja viherpippuri
 
 <en:pepper
+en:pink pepper
 fr:poivre rose
 
 <en:seed
@@ -48190,12 +48071,6 @@ es:semilla de fenegreco, semilla de fenegreco seca
 fi:sarviapilan siemen, sarviapilan siemenet
 fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
 nl:fenegriekzaad, gedroogd fenegriekzaad
-
-<en:fenugreek seed
-en:organic fenugreek seed
-fi:luomu sarviapilan siemen
-nl:biologisch fenegriekzaad
-# ingredient/nl:biologisch-fenegriekzaad has 1 product @2019-05-24
 
 <en:fenugreek seed
 de:gemahlen Bockshornkleesamen
