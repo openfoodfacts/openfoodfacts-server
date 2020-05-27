@@ -1,9 +1,47 @@
  <!DOCTYPE html>
  <html>
     <body>
-        <p> 
-        Testing Nutriscore calculation
-        </p?
+        <p>
+        <a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false"> Nutriscore_calculation_details &raquo</a>
+        </p>
+        <div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+          Nutrition Ref:  [% nutriscore_data_ref %] <br>
+          Test [% nutriscore_data_ref . fruits_vegetables_nuts_colza_walnut_olive_oils %]  <br>
+          
+          [% IF nutriscore_data_ref . is_beverage %]
+          <p> [% mylang('nutriscore_is_beverage') %] </p>
+          [% ELSE %]
+          <p> [% mylang('nutriscore_is_not_beverage') %] </p>
+          [% END %]
+          [% IF nutriscore_data_ref . is_fat %]
+          <p> [% mylang('nutriscore_proteins_is_added_fat') %] </p>
+          [% END %]
+          [% FOREACH variable IN points %]
+          <p><strong> [% variable.0 %] </strong></p>
+            <ul>
+            [% FOREACH nutrient IN variable.1 %]
+              [% nutrient_threshold_id = nutrient %]
+              
+              [% IF (nutriscore_data_ref . is_beverage) %]
+                [% beverages = '_beverages' %]
+                [% nutrient_threshold_id = nutrient.beverages %]
+                
+              [% END %]
+              [% IF (nutriscore_data_ref . is_fat . defined) and (nutrient == 'saturated_fat') %]
+                [% nutrient_threshold_id = "saturated_fat_ratio" %]
+                [% nutrient = "saturated_fat_ratio" %]
+              [% END %]
+              [% nutrient_points = nutrient _ '_points' %] <br>
+              
+              [% nutriscore_data_ref1 = nutriscore_data_ref . nutrient_points %]
+            <li><strong>[% nutrient %] : [% nutriscore_data_ref1 %] </strong> </li>  
+            [% END %]
+            </ul>
+            [% END %]
+          
+        </div>
+        
+
 
    </body>
  </html>
