@@ -3568,6 +3568,11 @@ ciqual_food_name:en: Biscuit -cookie- with nuts -no chocolate or lightly chocola
 ciqual_food_name:fr: Biscuit sec fourré fruits à coque -non ou légèrement chocolaté-
 
 < en:Biscuits
+en:Cantucci, cantuccini
+fr:Cantucci, cantuccini
+it:Cantucci, cantuccini
+
+< en:Biscuits
 en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
 de:Katzenzungen
 fr:Langues de chat, Langue de chat
@@ -3802,10 +3807,10 @@ ro:Produse de patiserie, Produs de patiserie
 wikidata:en: Q7811427
 
 < en:Biscuits
-en:Wafers, waffers
+en:Wafers, waffers, wafer biscuit
 de:Knusprige Waffeln
 fi:vohvelit
-fr:Gaufrettes
+fr:Gaufrettes, gaufrette
 hu:Ostya, ostyák
 it:Wafer
 nl:Waveltjes
@@ -3986,6 +3991,14 @@ ciqual_food_name:en: Crispy biscuit -cookie-, without chocolate, reduced fat
 ciqual_food_name:fr: Biscuit sec croquant -ex : tuile- sans chocolat, allégé en matière grasse
 
 < en:Biscuits and cakes
+< en:Frozen foods
+en:Frozen cakes and pastries, frozen cakes, frozen pastries
+de:Tiefkühlgebäck
+fi:Pakastekakut ja -leivonnaiset
+fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
+nl:Diepvriesgebak
+
+< en:Biscuits and cakes
 en:Fruit biscuit with reduced fat
 fr:Biscuit sec fourré aux fruits allégé en matière grasse
 ciqual_food_code:en: 24008
@@ -4036,6 +4049,13 @@ es:Bolleria
 fi:leivokset
 fr:Pâtisseries, pâtisserie
 nl:Gebak
+
+< en:Biscuits and cakes
+en:Plain wafers, Wafer biscuit without filling
+fr:Gaufrettes natures, Gaufrette sans fourrage, Eventail sans fourrage
+ciqual_food_code:en: 24300
+ciqual_food_name:en: Wafer biscuit without filling
+ciqual_food_name:fr: Gaufrette ou éventail sans fourrage
 
 < en:Biscuits and cakes
 en:Reduced fat biscuit bar filled with fruits
@@ -4131,23 +4151,6 @@ fr:Biscuit sec aux fruits, Sablé aux fruits, Galette aux fruits, Palet aux frui
 ciqual_food_code:en: 24616
 ciqual_food_name:en: Biscuit -cookie-, thin, w fruits
 ciqual_food_name:fr: Biscuit sec type tuile, aux fruits
-
-< en:Biscuits and cakes
-en:wafer biscuit
-fr:Gaufrette
-
-< en:Biscuits and cakes
-en:Wafer biscuit filled with chocolate prepacked
-fr:Gaufrette fourrée au chocolat
-ciqual_food_code:en: 24311
-ciqual_food_name:en: Wafer biscuit, filled with chocolate, prepacked
-
-< en:Biscuits and cakes
-en:Wafer biscuit without filling
-fr:Gaufrette sans fourrage, Eventail sans fourrage
-ciqual_food_code:en: 24300
-ciqual_food_name:en: Wafer biscuit without filling
-ciqual_food_name:fr: Gaufrette ou éventail sans fourrage
 
 < en:Black grapes
 < en:Seedless grapes
@@ -6379,14 +6382,6 @@ en:Fars, Far, Fars bretons, breton fars
 fr:Fars, Far, Fars bretons
 nl:Fars
 wikidata:en: Q1396059
-
-< en:Cakes
-< en:Frozen foods
-en:Frozen cakes and pastries, frozen cakes, frozen pastries
-de:Tiefkühlgebäck
-fi:Pakastekakut ja -leivonnaiset
-fr:Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
-nl:Diepvriesgebak
 
 < en:Cakes
 en:Fruit cakes, Fruit cake
@@ -11448,6 +11443,11 @@ it:Cioccolato al latte con mandorle
 nl:Melkchocola met amandelen
 se:Mjölkchoklad med mandlar
 
+< en:Chocolates with almonds
+< en:White chocolates
+en:White chocolates with almonds
+fr:Chocolats blancs aux amandes
+
 < en:Chocolates with hazelnuts
 < en:Dark chocolates
 en:Dark chocolates with hazelnuts
@@ -11468,6 +11468,13 @@ fr:Chocolats au lait aux noisettes
 hu:Tejcsokoládé mogyoróval
 it:Cioccolato al latte con nocciole
 nl:Melkchocola met hazelnoot
+
+< en:Chocolates with hazelnuts
+< en:White chocolates
+en:White chocolates with hazelnuts
+de:Weiße Schokoladen mit Haselnüssen
+fr:Chocolats blancs aux noisettes
+nl:Witte chocola met hazelnoten
 
 < en:Chocolates with sweeteners
 < en:Dark chocolates
@@ -30569,6 +30576,10 @@ nl:Lactose-arme melk
 ru:молоко низколактозное, низколактозное молоко
 
 < en:Milks
+en:Microfiltered milks
+fr:Laits microfiltrés
+
+< en:Milks
 en:non-homogenized milks, non-homogenized milk
 de:nicht homogenisierte Milch, nicht homogenisierte Milche, nicht homogenisierte Milchen
 fr:Lait non homogénéisé
@@ -33735,6 +33746,15 @@ wikidata:en: Q20029
 en:Chinese pasta
 
 < en:Pastas
+en:Conchiglie
+de:Conchiglie
+es:Conchiglie
+fr:Conchiglie
+it:Conchiglie
+nl:Conchiglie
+wikidata:en: Q19962
+
+< en:Pastas
 en:Cooked unsalted dried pasta
 fr:Pâtes sèches cuites non salées
 ciqual_food_code:en: 9811
@@ -33976,6 +33996,12 @@ fr:Camemberts pasteurisés, camembert pasteurisé
 hu:Pasztőrözött camembert
 nl:Gepasteuriseerde camemberts
 wikidata:en: Q47472053
+
+< en:Pastries
+de:Mandelhörnchen
+
+< en:Pastries
+de:Nussecken
 
 < en:Pastries
 en:Basque cake with cherries, Shortbread with cherries
@@ -46544,7 +46570,7 @@ wikidata:en: Q3606669
 
 < en:Stuffed wafers
 en:Caramel stuffed wafers
-de:Karamellgefüllte Knusprige Waffeln, Waffeln mit Karamell gefüllt
+de:Knusprige Waffeln mit Karamellfüllung, Karamellgefüllte Knusprige Waffeln, Waffeln mit Karamell gefüllt
 fi:kinuskilla täytetyt vohvelit
 fr:Gaufrettes fourrées au caramel
 hu:Karamellel töltött ostyák
@@ -46559,7 +46585,7 @@ nl:Vruchtenwafeltjes
 
 < en:Stuffed wafers
 en:Vanilla stuffed wafers
-de:Vanille-gefüllte Knusprige Waffeln
+de:Knusprige Waffeln mit Vanillefüllung, Vanille-gefüllte Knusprige Waffeln
 fi:vaniljalla täytetyt vohvelit
 fr:Gaufrettes fourrées à la vanille
 hu:Vaníliával töltött ostyák
@@ -46569,12 +46595,14 @@ ro:Napolitane umplute cu vanilie, Napolitane cu vanilie
 < en:Chocolate biscuits
 < en:Stuffed wafers
 en:Chocolate stuffed wafers
-de:Knusprige Waffeln gefüllt mit Schokolade
+de:Knusprige Waffeln mit Schokoladenfüllung, Knusprige Waffeln gefüllt mit Schokolade
 fi:suklaalla täytetyt vohvelit
-fr:Gaufrettes fourrées au chocolat
+fr:Gaufrettes fourrées au chocolat, Gaufrette fourrée au chocolat
 hu:Csokoládéval töltött ostya
 nl:Wafeltjes gevuld met chocola
 ro:Napolitane umplute cu ciocolată, Napolitane cu ciocolată
+ciqual_food_code:en: 24311
+ciqual_food_name:en: Wafer biscuit, filled with chocolate, prepacked
 
 en:stuffing
 fr:farces
@@ -51617,20 +51645,6 @@ origins:en: en:Sweden
 protected_name_file_number:en: PGI-SE-01926
 protected_name_type:en: gi
 
-< en:Wafer biscuit
-en:plain wafer biscuit
-fr:Gaufrette
-ciqual_food_code:en: 24313
-ciqual_food_name:en: Wafer biscuit, plain or vanilla flavoured, prepacked
-ciqual_food_name:fr: Gaufrette, fourrée vanille, préemballée
-
-< en:Wafer biscuit
-en:Vanilla flavoured wafer biscuit
-fr:Gaufrette fourrée vanille
-ciqual_food_code:en: 24313
-ciqual_food_name:en: Wafer biscuit, plain or vanilla flavoured, prepacked
-ciqual_food_name:fr: Gaufrette, fourrée vanille, préemballée
-
 < en:Wafers
 en:Stuffed wafers
 de:Gefüllte Knusprige Waffeln
@@ -51640,6 +51654,13 @@ fr:Gaufrettes fourrées
 hu:Töltött ostya, Töltött ostyák
 nl:Gevulde waveltjes
 ro:Napolitane umplute
+
+< en:Wafers
+en:Vanilla flavoured wafer biscuit
+fr:Gaufrette fourrée vanille
+ciqual_food_code:en: 24313
+ciqual_food_name:en: Wafer biscuit, plain or vanilla flavoured, prepacked
+ciqual_food_name:fr: Gaufrette, fourrée vanille, préemballée
 
 < en:Waffles
 en:Chocolate coated waffles, Chocolate waffles, Thin crunchy wafer biscuit with chocolate, Dry crunchy wafer biscuit with chocolate
@@ -52299,12 +52320,6 @@ de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
 fr:Chocolats blancs à la noix de coco
 hu:Fehér csokoládé kókusszal
 it:Cioccolato bianco al cocco
-
-< en:White chocolates
-en:White chocolates with hazelnuts
-de:Weiße Schokoladen mit Haselnüssen
-fr:Chocolats blancs aux noisettes
-nl:Witte chocola met hazelnoten
 
 < en:Filled chocolates
 < en:White chocolates
