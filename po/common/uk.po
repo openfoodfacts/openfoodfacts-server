@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:08\n"
+"PO-Revision-Date: 2020-05-23 14:37\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -777,7 +777,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
@@ -3437,7 +3437,7 @@ msgstr ""
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Будь ласка, переконайтеся, що дані на платформі виробників правильні перед тим, як експортувати їх у загальну базу даних."
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3445,19 +3445,19 @@ msgstr "Скасувати"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Згорнуті зміни"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "якість даних"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "якість даних"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "якість даних"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
@@ -3668,51 +3668,51 @@ msgstr ""
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "Імпортувати з Фотографій"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Ви можете використати нижченаведену форму, щоб легко завантажувати фотографії (передня продукту, список інгредієнтів та фактів харчування) для багатьох продуктів."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Кожне ім'я файлу має містити штрихкод товару."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "Також ви можете вказати тип фото у імені файлу:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: навпроти товару поточною мовою."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: передня частина продукту голландською мовою."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: список компонентів французькою мовою."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: таблиця харчування іспанською."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Додати фотографії"
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Почати завантаження"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Старт"
 
 msgctxt "close"
 msgid "Close"
@@ -3720,23 +3720,23 @@ msgstr "Закрити"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Скасувати завантаження"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Відомості"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "Файл отримано"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Деталі розрахунку Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Цей товар вважається важелем для обчислення Нутрі-Скора."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
@@ -4136,5 +4136,17 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:01\n"
+"PO-Revision-Date: 2020-05-16 09:48\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -569,7 +569,7 @@ msgstr "La contrasenya i la contrasenya de confirmació són diferents."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Aquesta adreça ja l'està fent servir un altre usuari. Potser ja hi tens un compte? Pots <a href=\"/cgi/reset_password.pl\">reiniciar la contrasenya</a> del teu altre compte."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -684,7 +684,7 @@ msgstr "/codi-de-conducta"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Dades, API i SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -717,7 +717,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Segueix-nos a <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> i\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -777,8 +779,8 @@ msgstr "Wiki <<site_name>> (en anglès)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -4152,4 +4154,16 @@ msgstr ""
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
 msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "Nom CIQUAL de l'aliment"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "Nom CIQUAL de l'aliment"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "Noms CIQUAL de l'aliment"
 

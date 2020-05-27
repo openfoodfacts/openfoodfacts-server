@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:08\n"
+"PO-Revision-Date: 2020-05-13 06:47\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -777,8 +777,8 @@ msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -949,11 +949,11 @@ msgstr "陈分数量"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "認識された成分の数"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "未识别成分的数量"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2207,7 +2207,7 @@ msgstr "60 克, 12 盎司, 200毫升, 2 盎司"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "如果营养事实表中包含配制产品的数值，请注明配制产品的总食用量（包括添加的水或牛奶）。"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2247,7 +2247,7 @@ msgstr "排序方式"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "完整性"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2339,7 +2339,7 @@ msgstr "牛奶，面筋，坚果"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "从 \"可能含有\"、\"在也使用 \"的工厂制造 \"等提法中注明成分。"
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2490,7 +2490,7 @@ msgstr "使用鼠标滚轮启用缩放。"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "加载较低分辨率的图像（用于缓慢的连接)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2498,7 +2498,7 @@ msgstr "警告：未指定纤维数量，它们对营养等级可能的正向贡
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "警告：没有说明纤维和水果、蔬菜和坚果的含量，不能考虑到它们可能对等级的积极贡献。"
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2658,7 +2658,7 @@ msgstr "添加的其他营养物质"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "已售出的"
 
 msgctxt "prepared_product"
 msgid "Prepared"
@@ -2670,28 +2670,28 @@ msgstr "单位"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "营养事实是针对所售产品所规定的。"
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "营养事实是为准备好的产品规定的。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA集团"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA集团"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "用于食品加工的NOVA小组"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "合作伙伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2720,11 +2720,11 @@ msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "65岁及以上的老年人"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "青少年"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
@@ -2732,7 +2732,7 @@ msgstr "10至17岁"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "10岁至17岁（含17岁）；"
 
 msgctxt "children"
 msgid "Children"
@@ -2744,11 +2744,11 @@ msgstr "3至9岁"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "从36个月到9岁（含9岁）；"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "幼儿"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
@@ -2760,7 +2760,7 @@ msgstr "从 12 岁到 35 岁（含 35 岁）"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "婴幼儿"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2768,15 +2768,15 @@ msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "12周以上至11个月大的婴儿"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "欧洲食品安全局的评价"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "过度暴露的风险"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
@@ -2800,35 +2800,35 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "过度暴露的高风险"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "过度接触风险适中"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过每日可接受摄入量的风险 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "超过最大剂量而无不良效应的风险（无观察到的不良效应水平 - NOAEL）"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过50%以上的成员超过可接受的日摄入量的群体 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "超过5%以上的成员超过可接受的日摄入量的群体 (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "50%以上的成员超过最大剂量而无不良反应的组别（无观察到的不良反应水平 - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "超过5%的成员超过最大剂量而无不良反应的组别（无观察到的不良反应水平 - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -2852,7 +2852,7 @@ msgstr "维基百科"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "功能"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
@@ -2860,7 +2860,7 @@ msgstr "照片和数据检查"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "产品页面可以由有经验的投稿人进行标记检查，确认选取了最新的照片并进行了裁剪，并且能从产品照片中推断出的产品数据都已经填好了，而且是正确的。"
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
@@ -2872,7 +2872,7 @@ msgstr "我已检查照片和数据。"
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "我又检查了一下照片和数据。"
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
@@ -3012,7 +3012,7 @@ msgstr "2019-09-30或2019-09或2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "重要提示：本产品已不再销售。该数据仅作为参考资料保存。本产品不在常规搜索中出现，不计入统计。"
 
 msgctxt "get_the_app"
 msgid "Get the app"
@@ -3040,11 +3040,11 @@ msgstr "环境信息卡"
 
 msgctxt "environment_infocard_note"
 msgid "HTML code for the environment infocard in the mobile application"
-msgstr ""
+msgstr "移动应用中环境信息卡的HTML代码"
 
 msgctxt "environment_impact_level"
 msgid "Environment impact level"
-msgstr ""
+msgstr "环境影响水平"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
@@ -3052,7 +3052,7 @@ msgstr ""
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "肉类或鱼类产生的碳影响"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -4144,5 +4144,17 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
 msgstr ""
 

@@ -4,4 +4,4 @@ Product opener is released under the AGPL license and is being developed as [Fre
 
 ### Installation
 Installation Instructions for Product Opener
-[Product Opener Installation](https://en.wiki.openfoodfacts.org/Product_Opener/Installation)
+[Product Opener Installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)

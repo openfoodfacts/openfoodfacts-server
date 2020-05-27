@@ -3644,9 +3644,12 @@ sub mmoll_to_unit {
 		de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
 		unit => "%",
 	},
+	
 	"fruits-vegetables-nuts-estimate-from-ingredients" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)",
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation par analyse de la liste des ingrédients)",
+		de => "Früchte, Gemüse, Nüsse und Raps, Walnuss- und Olivenöl (Schätzung aus der Analyse der Zutatenliste)",
+		es => "Frutas, verduras, nueces y aceites de canola, nueces y oliva (estimado del análisis en la lista de ingredientes)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {

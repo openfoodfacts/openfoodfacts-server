@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 15:58\n"
+"PO-Revision-Date: 2020-05-13 07:21\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -777,8 +777,8 @@ msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -902,7 +902,7 @@ msgstr "Valokuvan tiedot ja attribuutiotiedot"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "Tuotteita, jotka olet lisännyt ja kaipaavat täydentämistä"
+msgstr "Lisäämäsi täydennettävät tuotteet"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -4151,4 +4151,16 @@ msgstr "Tiimi %s"
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
 msgstr "%d tuotetta viedään."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "CIQUAL -ruoannimi"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "CIQUAL -ruoannimi"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "CIQUAL -ruoannimet"
 

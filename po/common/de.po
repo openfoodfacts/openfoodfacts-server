@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:01\n"
+"PO-Revision-Date: 2020-05-13 07:21\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -46,7 +46,7 @@ msgstr "Registrieren"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Danke fürs Mitmachen. Sie können sich jetzt auf der Website anmelden, um Produkte hinzuzufügen und zu bearbeiten.</p>"
+msgstr "<p>Vielen Dank für Ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder bearbeiten.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -244,7 +244,7 @@ msgstr "Markeninhaber"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca-Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -778,8 +778,8 @@ msgstr "<<site_name>> Wiki (de)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -3388,7 +3388,7 @@ msgstr "Wert in µg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Wert in IE"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -4154,4 +4154,16 @@ msgstr "Gruppe %s"
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
 msgstr "%d Produkte werden exportiert."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "CIQUAL Lebensmittelname"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "CIQUAL Lebensmittelname"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "CIQUAL Lebensmittelnamen"
 
