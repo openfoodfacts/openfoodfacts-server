@@ -1,6 +1,7 @@
  <!DOCTYPE html>
  <html>
     <body>
+    [% USE scalar %]
         <p>
         <a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false"> Nutriscore_calculation_details &raquo</a>
         </p>
@@ -17,28 +18,38 @@
           <p> [% mylang('nutriscore_proteins_is_added_fat') %] </p>
           [% END %]
           [% FOREACH variable IN points %]
-          <p><strong> [% variable.0 %] </strong></p>
+          <!-- <p><strong> [% mylang("nutriscore_" _ variable.0 _ "_points") %] [% mylang('sep') %]: [% nutriscore_data_ref _ variable.0 _ "_points"%] </p></strong> -->
+            <p><strong> [% mylang("nutriscore_" _ variable.0 _ "_points") %] [% mylang('sep') %]: </p></strong>
             <ul>
             [% FOREACH nutrient IN variable.1 %]
-              [% nutrient_threshold_id = nutrient %]
+              <!--[% nutrient_threshold_id = nutrient %]
               
-              [% IF (nutriscore_data_ref . is_beverage) %]
-                [% beverages = '_beverages' %]
-                [% nutrient_threshold_id = nutrient.beverages %]
+               [% IF (nutriscore_data_ref . is_beverage) %]
+              //   [% beverages = '_beverages' %]
+              //   [% nutrient_threshold_id = nutrient.beverages %]
                 
-              [% END %]
-              [% IF (nutriscore_data_ref . is_fat . defined) and (nutrient == 'saturated_fat') %]
-                [% nutrient_threshold_id = "saturated_fat_ratio" %]
-                [% nutrient = "saturated_fat_ratio" %]
-              [% END %]
+              // [% END %]
+              // [% IF (nutriscore_data_ref . is_fat . defined) and (nutrient == 'saturated_fat') %]
+              //   [% nutrient_threshold_id = "saturated_fat_ratio" %]
+              //   [% nutrient = "saturated_fat_ratio" %]
+              // [% END %] 
               [% nutrient_points = nutrient _ '_points' %] <br>
               
-              [% nutriscore_data_ref1 = nutriscore_data_ref . nutrient_points %]
-            <li><strong>[% nutrient %] : [% nutriscore_data_ref1 %] </strong> </li>  
+              [% nutriscore_data_ref1 = nutriscore_data_ref . nutrient_points %] 
+            <li><strong>[% nutrient %] : [% nutriscore_data_ref1 %] </strong> </li>  -->
+            <li><strong> [% mylang("nutriscore_points_for_" _ nutrient) %] [% mylang('sep') %]: [% nutriscore_data_ref . nutrient _ "_points" %] &nbsp </strong>
+            /&nbsp [% points_thresholds.nutrient_threshold_id.scalar %] [% mylang("points") %] ([% mylang("nutriscore_source_value") %] [% mylang("sep") %]: [% nutriscore_data_ref . nutrient %], [% mylang('nutriscore_rounded_value') %]
+            [% mylang('sep') %]: [% nutriscore_data_ref . nutrient _ "_value" %])
+            </li>
             [% END %]
             </ul>
             [% END %]
-          
+            <p>[% nutriscore_protein_info %] <br></p>
+            <p><strong> [% mylang('nutriscore_score') %] [% mylang('sep') %]: [% nutriscore_data_ref . score %] </strong> ( 
+              [% nutriscore_data_ref . negative_points %] - [% nutriscore_data_ref . positive_points %])
+            <br>
+            <strong> [% mylang('nutriscore_grade') %] [% mylang('sep') %]: [% nutriscore_data_ref . grade.upper %] </strong>
+            </p>
         </div>
         
 

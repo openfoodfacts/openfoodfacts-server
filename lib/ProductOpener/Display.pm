@@ -8635,10 +8635,6 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 =cut
 
 
-# 	 Starts
-	
-# NutritionS Template Ends
-
 sub mylang($){
 	my $input_string = shift;
 	my $output_string = lang($input_string);
@@ -8648,44 +8644,6 @@ sub mylang($){
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
-	my $html .= "<p>" . Dumper($nutriscore_data_ref) . "</p>";
-	my $config = {
-		INCLUDE_PATH => $data_root.'/templates',
-		INTERPOLATE => 0,
-		EVAL_PERL    => 1,
-	};
-	my $tt = Template->new($config);
-
-	my $var = {
-		name => 'Areesha',
-		points => [['positive' , ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]], 
-					['negative' , ["energy", "sugars", "saturated_fat", "sodium"]]],
-		nutriscore_data_ref =>  Dumper($nutriscore_data_ref),
-		points_thresholds => {
-			# negative points
-			energy => [335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350],
-			energy_beverages => [0, 30, 60, 90, 120, 150, 180, 210, 240, 270],
-			sugars => [4.5, 9, 13.5, 18, 22.5, 27, 31, 36, 40, 45],
-			sugars_beverages => [0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5],
-			saturated_fat => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-			saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],
-			sodium => [90, 180, 270, 360, 450, 540, 630, 720, 810, 900],
-
-			# positive points
-			fruits_vegetables_nuts_colza_walnut_olive_oils => [40, 60, 80, 80, 80],
-			fruits_vegetables_nuts_colza_walnut_olive_oils_beverages => [40, 40, 60, 60, 80, 80, 80, 80, 80, 80],
-			fiber => [0.9, 1.9, 2.8, 3.7, 4.7],
-			proteins => [1.6, 3.2, 4.8, 6.4, 8.0]
-		},
-		mylang=> \&mylang,
-	};
-	my $out;
-	my $debug;
-	
-	$debug .= "<p>" . "Process Error" . "</p>" . $data_root;
-	$tt->process('nutrition_score.tt',$var, \$out) || return $debug . " error: " . $tt->error();
-	 return $out;
-
 	# my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . " &raquo;</a><p>"
 	# . '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
 
@@ -8706,7 +8664,7 @@ sub display_nutriscore_calculation_details($) {
 		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
 		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
 	 );
-
+	my $nutrient_threshold_id;
 	foreach my $points_ref (@points) {
 
 		# $html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
@@ -8714,7 +8672,7 @@ sub display_nutriscore_calculation_details($) {
 
 		 foreach my $nutrient (@{$points_ref->[1]}) {
 
-		 	my $nutrient_threshold_id = $nutrient;
+		 	$nutrient_threshold_id = $nutrient;
 
 		 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
 		 		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
@@ -8733,22 +8691,27 @@ sub display_nutriscore_calculation_details($) {
 
 		# $html .= "</ul>";
 	 }
+	 my $nutriscore_protein_info;
 
-	# if ($nutriscore_data_ref->{negative_points} < 11) {
+	 if ($nutriscore_data_ref->{negative_points} < 11) {
 	# 	$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
-	# }
-	# elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_less_than_11");
+	 }
+	 elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
 	# 	$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
-	# }
-	# elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
-	# 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
-	# 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
-	# 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
+		$nutriscore_protein_info = lang("nutriscore_proteins_is_cheese");
+	 }
+	 elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
+	 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
+	 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+	 		and ($nutriscore_data_ref->{fruits_vegetableutriscore_proteins_negative_points_less_than_1utriscore_proteins_negative_points_less_than_1s_nuts_colza_walnut_olive_oils_points} == 5)) ) {
 	# 	$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
-	# }
-	# else {
+		$nutriscore_protein_info = lang("nutriscore_proteins_maximum_fruits_points");
+	 }
+	 else {
 	# 	$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
-	# }
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
+	 }
 
 	# $html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
 	# . "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
@@ -8758,8 +8721,32 @@ sub display_nutriscore_calculation_details($) {
 	# $html .= "</div>";
 
 	# return $html;
+
+	# Nutrition Score Calculation Template::Toolkit
+	my $config = {
+		INCLUDE_PATH => $data_root.'/templates',
+		INTERPOLATE => 1,
+		EVAL_PERL    => 1,
+	};
+	my $tt = Template->new($config);
+
+	my $var = {
+		
+		points => [['positive' , ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]], 
+					['negative' , ["energy", "sugars", "saturated_fat", "sodium"]]],
+		nutriscore_data_ref =>  Dumper($nutriscore_data_ref),
+		points_thresholds => Dumper($points_thresholds),
+		mylang=> \&mylang,
+		nutrient_threshold_id=> Dumper($nutrient_threshold_id),
+		nutriscore_protein_info=> Dumper($nutriscore_protein_info),
+		
+	};
+	my $out;
+	my $debug;
 	
-	 
+	$debug .= "<p>" . "Process Error" . "</p>" . $data_root;
+	$tt->process('nutrition_score.tt',$var, \$out) || return $debug . " error: " . $tt->error();
+	return $out;
 }
 
 
