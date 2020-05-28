@@ -201,6 +201,10 @@ sub load_csv_or_excel_file($) {
 				# May need to deal with possible empty lines before header
 
 				while ($row_ref = $csv->getline ($io)) {
+					
+					# Skip empty lines or lines without a barcode (at least 8 digits)
+					next if (join(" ", @$row_ref) !~ /[0-9]{8}/);
+					
 					push @$rows_ref, $row_ref;
 				}
 			}
