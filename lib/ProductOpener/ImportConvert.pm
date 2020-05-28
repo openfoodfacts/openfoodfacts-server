@@ -368,7 +368,7 @@ sub match_specific_taxonomy_tags($$$$) {
 
 	my $tag_lc = $product_ref->{lc};
 
-	$log->trace("match_specific_taxonomy_tags - start", { source => $source, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
+	$log->trace("match_specific_taxonomy_tags - start", { source => $source, source_value => $product_ref->{$source}, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
 
 	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
 
@@ -406,9 +406,9 @@ sub match_specific_taxonomy_tags($$$$) {
 				$log->trace("match_specific_taxonomy_tags - regexp", { tag_regexp => $tag_regexp}) if $log->is_trace();
 				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
 
-				if ($product_ref->{$source} =~ /\b${tag_regexp}\b/i) {
+				if ($product_ref->{$source} =~ /\b(${tag_regexp})\b/i) {
+					$log->info("match_specific_taxonomy_tags: assigning value", { matching => $1, source => $source, value => $tagid, target => $target}) if $log->is_info();					
 					assign_value($product_ref, $target, $tagid);
-					$log->info("match_specific_taxonomy_tags: assigning value", { source => $source, value => $tagid, target => $target}) if $log->is_info();
 				}
 			}
 		}
