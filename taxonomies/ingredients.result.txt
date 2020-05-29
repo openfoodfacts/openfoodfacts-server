@@ -2,13 +2,13 @@ stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:of
-stopwords:en:contains, contain, from, with, produced with
+stopwords:en:contains, contain, from, with, produced with, with added
 stopwords:es:de,del,la,las,los,una
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo
-stopwords:fi:sisältää,sis.,mm.,valio,snellmanin
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
+stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:la,les,des,du,de,d
 stopwords:fr:de,d,des,du,le,la,les,a,aux
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets souleves,dont,avec,autres,d'autres,d'
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -510,7 +510,7 @@ ar:شراب أغاف
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup
-es:jarabe de agave
+es:jarabe de agave, concentrado de agave
 fa:اگاو
 fi:agavesiirappi
 fr:sirop d'agave
@@ -559,6 +559,542 @@ de:Weißer-Thun (Thunnus alalonga)
 fr:Thunnus alalunga, Germon
 la:Thunnus alalonga
 
+en:alcohol
+de:Alkohol
+es:alcohol
+fi:alkoholi
+fr:alcool
+hu:alkohol
+it:Alcol or alcool
+nl:alcohol
+vegan:en: maybe
+vegetarian:en: yes
+
+< en:Alcohol
+en:absinthe, absinth
+de:Absinth
+es:absenta
+fi:absintti
+fr:absinthe
+hu:abszint
+it:Assenzio
+nl:absinth
+pt:absinto
+wikidata:en: Q170210
+wikipedia:en: https://en.wikipedia.org/wiki/Absinthe
+
+< en:Alcohol
+en:armagnac
+de:Armagnac
+es:Armagnac
+fi:armanjakki
+fr:armagnac
+hu:armagnac
+nl:armagnac
+
+< en:Alcohol
+en:beer
+da:øl
+de:Bier
+es:Cerveza
+fi:olut
+fr:bière
+hu:sör
+it:birra
+nl:Bier
+ru:Пиво
+carbon_footprint_fr_foodges_ingredient:fr: Bière
+carbon_footprint_fr_foodges_value:fr: 2.7
+
+< en:Alcohol
+en:calvados
+de:Calvados
+es:calvados
+fi:calvados
+fr:calvados
+hu:calvados
+it:calvados
+nl:calvados
+
+< en:Alcohol
+en:Campari
+de:Campari
+es:Campari
+fi:campari
+fr:Campari
+hu:Campari
+nl:Campari
+
+< en:Alcohol
+en:champagne
+an:Champán
+ar:شامبانيا
+az:Şampan şərabı
+be:Шампанскае
+bg:Шампанско вино
+bo:ཤམ་ཕེན་ཆང་།
+ca:xampany
+cs:šampaňské víno
+cv:Шампанское
+cy:Siampaen
+da:Champagne
+de:Champagner
+el:Σαμπάνια
+eo:Ĉampano
+es:champán
+et:Šampanja
+eu:Xanpaina
+fa:شامپاین
+fi:Samppanja
+fo:Sjampanja
+fr:champagne
+ga:Seaimpéin
+gl:Champaña
+gu:શેમ્પેન
+he:שמפניה
+hr:šampanjac
+hu:pezsgő
+hy:շամպայն
+id:Sampanye
+io:Champanio
+is:Kampavín
+it:champagne
+ja:シャンパン
+jv:Sampanye
+ka:შამპანური
+ko:샴페인
+lb:Champagne
+lt:Šampanas
+lv:šampanietis
+mk:Шампањ
+ml:ഷാംപെയ്ൻ
+mn:Шампанск
+nb:champagne
+nl:champagne
+nn:Champagne
+pa:ਸ਼ੈਮਪੇਨ
+pl:Szampan
+pt:Champanhe
+ro:Șampanie
+ru:Шампанское
+sh:Šampanjac
+sk:Šampanské
+sq:Shampanja
+sv:Champagne
+tr:Şampanya
+tt:Шампан
+uk:Шампанське
+vi:Sâm panh
+zh:香槟酒
+wikidata:en: Q134862
+wikipedia:en: https://en.wikipedia.org/wiki/Champagne
+
+< en:Alcohol
+en:cider
+de:Apfelmost
+fr:cidre
+
+< en:Alcohol
+en:cognac
+de:Cognac
+es:coñac
+fi:konjakki
+fr:cognac
+hu:cognac, konyak
+it:Cognac
+nl:cognac
+
+< en:Alcohol
+en:Cointreau
+de:Cointreau
+es:Cointreau
+fi:cointreau
+fr:Cointreau
+hu:Cointreau
+nl:Cointreau
+
+< en:Alcohol
+en:eau de vie
+de:Obstbrand
+es:eau de vie
+fr:eau-de-vie
+nl:eau de vie
+
+< en:Alcohol
+en:gin
+ar:جن
+be:Джын
+bg:Джин
+ca:ginebra
+cs:gin
+cv:Джин
+cy:Jin
+da:gin
+de:Gin
+el:Τζιν
+eo:ĝino
+es:ginebra
+et:Džinn
+eu:gin
+fa:جین
+fi:gini
+fo:Ginn
+fr:gin, london-dry-gin
+gl:Xenebra
+gv:Jeneeve
+he:ג'ין
+hu:gin
+hy:Ջին
+id:Gin
+io:Jino
+is:Gin
+it:gin
+ja:ジン
+ka:ჯინი
+kk:Джин
+ko:진
+la:Gin
+lt:Džinas
+lv:džins
+mk:Џин
+my:ဂျင်
+nb:gin
+nl:gin
+nn:gin
+oc:Gin
+pl:gin
+pt:gim
+ro:Gin
+ru:джин
+sh:Džin
+sk:Gin
+sl:Gin
+sr:Џин
+sv:Gin
+ta:ஜின்
+th:ยิน
+tr:Cin
+uk:Джин
+vi:Gin
+yi:דזשין
+zh:琴酒
+wikidata:en: Q959362
+wikipedia:en: https://en.wikipedia.org/wiki/Gin
+
+< en:Alcohol
+en:kirsch
+af:Kirsch
+be:Кіршвасэр
+ca:kirsch
+cv:kirsch
+de:Kirschwasser
+eo:kirŝo
+es:kirsch
+eu:Kirsch
+fa:کیرش
+fi:kirsch, kirsikkaviina
+fr:kirsch
+gl:Kirsch
+he:קירשווסר
+hu:cseresznye
+id:Kirsch
+io:Kirsho
+it:kirsch
+ja:キルシュヴァッサー
+ko:키르시바서
+nb:Kirschwasser
+nl:kirsch
+pl:kirsch
+pt:kirsch
+ru:Киршвассер
+sv:kirschwasser
+zh:櫻桃白蘭地
+wikidata:en: Q279034
+wikipedia:en: https://en.wikipedia.org/wiki/Kirsch
+
+< en:Alcohol
+en:liqueur
+af:Likeur
+ar:ليكير
+az:Likör
+be:Лікёр
+bg:Ликьор
+bs:Liker
+ca:licor
+cs:likér
+cy:Gwirodlyn
+da:likør
+de:Likör
+el:λικέρ
+eo:likvoro
+es:licor
+et:liköör
+eu:likore
+fa:لیکور
+fi:likööri
+fr:liqueur
+ga:Licéar
+gl:Licor
+he:ליקר
+hi:शराब्
+hr:liker
+hu:likőr
+hy:Լիկյոր
+id:Likeur
+io:liquoro
+it:liquore
+ja:リキュール
+ka:ლიქიორი
+kk:Ликёр
+kn:ಮದ್ಯ
+ko:리큐어
+ky:Ликер
+la:anisatum
+lt:likeris
+lv:liķieris
+mk:Ликер
+nb:likør
+nl:likeur
+nn:likør
+oc:Liquor
+pl:likier
+pt:licor
+ro:Lichior
+ru:ликёр
+sa:मद्य
+sc:Licòri
+sh:Liker
+sk:likér
+sl:Liker
+sr:ликер
+sv:likör
+tr:likör
+uk:лікер
+uz:Likyor
+vi:rượu mùi
+yi:ליקער
+zh:力娇酒
+wikidata:en: Q178780
+wikipedia:en: https://en.wikipedia.org/wiki/Liqueur
+
+< en:Alcohol
+en:pomace brandy
+de:Tresterbrand
+fi:pomace brandy, marc
+fr:marc
+hu:törkölypárlat
+it:Marc, grappa
+ja:ポマース・ブランデー
+ko:포도박 브랜디
+lb:Trester-Branntewäin
+lt:Išspaudų brendis
+nb:Marc
+nl:Marc
+pl:Marc
+pt:Bagaceira
+sv:Marc
+wikidata:en: Q525397
+wikipedia:en: https://en.wikipedia.org/wiki/Pomace_brandy
+
+< en:Alcohol
+en:rhum
+da:Rom
+de:Rum
+es:Ron
+fi:rommi
+fr:rhum
+hu:rum
+it:rum
+nl:Rum
+pl:Rum
+ru:Ром
+
+< en:Alcohol
+en:tequila
+ar:تيكيلا
+az:Tekila
+be:Тэкіла
+bg:Текила
+bn:টাকিলা
+bs:Tekila
+ca:tequila
+cs:tequila
+cv:Текила
+cy:Tekila
+da:tequila
+de:Tequila
+el:Τεκίλα
+eo:tekilo
+es:tequila
+et:tequila
+eu:Tekila
+fa:تکیلا
+fi:tequila
+fo:Tequila
+fr:tequila
+gl:Tequila
+he:טקילה
+hi:टकीला
+hr:Tequila
+hu:tequila
+hy:Տեկիլա
+id:Tequila
+is:Tekíla
+it:tequila
+ja:テキーラ
+ka:ტეკილა
+kk:Текила
+km:តេគីឡា
+kn:ಟಕಿಲಾ
+ko:테킬라
+lb:Tequila
+lt:Tekila
+lv:Tekila
+mk:Текила
+ml:ടെക്കീല
+nb:Tequila
+ne:टेकिला
+nl:tequila
+oc:Tequila
+pl:tequila
+pt:tequila
+ro:tequila
+ru:Текила
+si:ටෙකීලා
+sl:tequila
+sr:Текила
+sv:tequila
+ta:டெக்கீலா
+th:เตกิลา
+tr:Tekila
+uk:Текіла
+vi:Tequila
+zh:龍舌蘭酒
+wikidata:en: Q122195
+wikipedia:en: https://en.wikipedia.org/wiki/Tequila
+
+< en:Alcohol
+en:vermouth
+de:Wermut
+fi:vermutti
+fr:vermouth
+hu:vermut
+
+< en:Alcohol
+en:whiskey, whiskeys
+de:Whiskey
+es:Whiskey
+fi:viski
+fr:whisky, whiskys
+hu:whisky, whiskey-k
+
+< en:Alcohol
+en:wine
+af:wyn
+am:የወይን ጠጅ
+an:Vin
+ar:نبيذ
+az:Şərab
+ba:Шарап
+be:віно
+bg:вино
+bn:মদ
+br:Gwin
+bs:Vino
+ca:vi
+ce:ЧагӀар
+cs:víno
+cv:Эрех
+cy:gwin
+da:vin
+de:Wein
+el:κρασί
+eo:vino
+es:vino
+et:vein
+eu:ardo
+fa:شراب
+fi:viini
+fo:Vín
+fr:vin
+fy:Wyn
+ga:Fíon
+gd:Fìon
+gl:Viño
+gv:Feeyn
+he:יין
+hi:शराब
+hr:vino
+ht:Diven
+hu:bor
+hy:գինի
+ia:vino
+io:vino
+is:vín
+it:vino
+ja:ワイン
+ka:ღვინო
+kk:Шарап
+km:ស្រា
+ko:포도주
+ku:Şerab
+ky:Шарап
+la:vinum
+lb:Wäin
+li:Wien
+lt:vynas
+lv:vīns
+mk:вино
+ml:വീഞ്ഞ്
+mn:Дарс
+mr:वाईन
+ms:Wain
+mt:nbid
+my:ဝိုင်
+nb:vin
+ne:वाइन
+nl:wijn
+nn:vin
+oc:vin
+pa:ਵਾਈਨ
+pl:wino
+pt:vinho
+qu:Winu
+ro:vin
+ru:вино
+sc:Binu
+se:Viidna
+sh:Vino
+sk:víno
+sl:vino
+sq:vera
+sr:вино
+sv:vin
+sw:divai
+ta:வைன்
+tg:Шароб
+th:ไวน์
+tl:Alak
+tr:şarap
+tt:Шәраб
+ug:ۋىنو
+uk:вино
+ur:شراب
+uz:Sharob
+vi:rượu vang
+vo:Vein
+wa:Vén
+xh:Iveyn
+yi:וויין
+zh:葡萄酒
+carbon_footprint_fr_foodges_ingredient:fr: Vin France
+carbon_footprint_fr_foodges_value:fr: 1.4
+wikidata:en: Q282
+wikipedia:en: https://en.wikipedia.org/wiki/Wine
+
+< en:Alcohol
+fr:brandy
+
 < en:Alcohol vinegar
 fr:poudre de vinaigre d'alcool
 
@@ -578,7 +1114,7 @@ da:Alge
 de:Alge
 el:Φύκη
 eo:algo
-es:alga
+es:alga, algas
 et:Vetikad
 eu:alga
 fa:جلبک
@@ -739,7 +1275,7 @@ cy:Gwymon
 da:tang
 de:Seetang
 eo:Makroalgoj
-es:Macroalga
+es:Macroalga, alga marina, algas de mar
 et:Adru
 eu:Itsas belar
 fa:جلبک دریایی
@@ -878,6 +1414,7 @@ sv:mandelpulver
 < en:Almond
 en:raw almonds
 de:rohe Mandeln
+es:almendras crudas
 fr:Amandes crues
 
 < en:Almond
@@ -1064,7 +1601,7 @@ lt:Europinis ančiuvis
 pl:Sardela europejska
 ru:Европейский анчоус
 uk:Анчоус європейський
-wikidata:en: 188387 translations can not be trusted
+wikidata:en: 188387
 wikipedia:en: https://en.wikipedia.org/wiki/European_anchovy
 
 < en:Anchovy
@@ -1391,7 +1928,7 @@ cv:Смалец
 da:
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:
+es:grasa de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -1654,12 +2191,14 @@ ru:Сушеное яблоко
 < en:Apple
 en:Gala apple, Gala apples
 de:Gala Apfel
+es:manzana gala
 fr:pomme Gala
 nl:Gala appel
 
 < en:Apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
+es:manzana golden
 fi:golden delicious -omena
 fr:pomme Golden Delicious, pommes Golden Delicious
 
@@ -1869,7 +2408,7 @@ pl:Naturalne i sztuczne aromaty
 
 < en:Asparagus
 en:green asparagus
-de:Grüne Spargeln
+de:grüner Spargel, Grüne Spargeln
 es:espárragos verdes
 fi:vihreä parsa
 fr:asperges vertes
@@ -2023,6 +2562,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Barde_-cuisine-
 < en:Baker's yeast
 en:fresh yeast
 de:Frischhefe
+es:levadura fresca
 fi:tuorehiiva
 fr:levure fraîche
 
@@ -2119,6 +2659,7 @@ it:fiocchi di banane
 < en:Banana
 en:dried banana, dried bananas
 de:Bananen getrocknet
+es:plátano seco
 fi:kuivattu banaani, kuivatut banaanit
 fr:bananes séchées
 it:banane secche
@@ -2245,7 +2786,7 @@ fr:Haricots blancs, lingots blancs, haricots lingots, cocos blancs
 
 < en:Beans
 en:green bean, green beans
-es:judía verde, judías verdes
+es:judía verde
 fr:haricot vert, haricots verts
 carbon_footprint_fr_foodges_ingredient:fr: Haricot vert importé par avion
 carbon_footprint_fr_foodges_value:fr: 22.8
@@ -2269,14 +2810,14 @@ fr:Haricots pinto
 < en:Beans
 en:red beans, red kidney beans
 de:Rote Bohnen
-es:Alubias rojas
+es:Alubias rojas, judias rojas
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
 
 < en:Beans
 en:white beans
 de:weiße Bohnen
-es:Alubias blancas
+es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
 fr:Haricots blancs, lingots blancs, haricots lingots, cocos blancs
 it:Fagioli bianchi
@@ -2468,97 +3009,6 @@ fi:punajuurimehu
 it:succo di barbabietola
 
 < en:Bell pepper
-en:black pepper
-ca:Pebre negre
-da:sort peber
-de:schwarzer Pfeffer, Pfeffer schwarz
-el:μαύρο πιπέρι
-eo:nigra pipro
-es:pimienta negra
-et:must pipar
-fi:mustapippuri
-fr:poivre noir
-hu:feketebors
-it:pepe nero
-lt:juodieji piperai
-nl:zwarte peper
-nn:svart pepper
-pl:czamy pieprz, pieprz czarny
-pt:pimenta preta
-ro:piper negru
-ru:Черный перец
-sl:cmi poper
-sv:svartpeppar
-tr:karabiber
-zh:黑胡椒
-
-< en:Bell pepper
-en:dehydrated bell pepper
-de:getrocknete Paprika
-es:Pimiento deshidratado
-fi:kuivattu paprika
-fr:poivron déshydraté, poivrons déshydratés
-
-< en:Bell pepper
-en:fried pepper
-de:Frittierter Paprika
-fi:paahdettu paprika
-
-< en:Bell pepper
-en:green pepper, green bell pepper
-da:Grøn peber
-de:grüne Peperoni
-es:pimiento verde
-fi:vihreä paprika
-fr:poivron vert, poivrons verts
-it:peperoni verdi
-nl:groene paprika
-pl:Zielona papryka
-pt:pimentos verdes
-sv:Grön paprika
-
-< en:Bell pepper
-en:grilled pepper, grilled bell pepper
-de:gegrillte Paprika
-es:pimiento asado
-fi:grillattu paprika
-fr:poivron grillé, poivrons grillés
-nl:gegrilde paprika
-
-< en:Bell pepper
-en:pepper extract
-de:Pfefferextrakt
-es:extracto de pimienta
-fi:pippuriuute
-fr:extrait de poivre
-it:estratto di pepe
-nl:peperextract
-
-< en:Bell pepper
-en:peppercorns
-de:Pfefferkörner
-fi:Pippureita
-fr:grains de poivre
-
-< en:Bell pepper
-en:red pepper, red bell pepper
-ca:pebrot vermell
-da:rød peberfrugt
-de:rote Paprika, roter Paprika
-el:κόκκινη πιπεριά
-es:pimiento rojo, pimiento morrón rojo
-fi:punainen paprika
-fr:poivron rouge, poivrons rouge
-hu:kaliforniai paprika, piros bell paprika
-it:peperoni rossi
-lv:sarkanā paprika
-nl:rode paprika
-pl:Papryka czerwona
-pt:pimento vermelho
-ru:Красный перец
-sv:röd paprika
-
-< en:Bell pepper
 en:sweet peppers
 de:Gemüsepaprika
 es:pimientos dulces
@@ -2567,38 +3017,13 @@ fr:piment doux
 it:peperoni dolci
 
 < en:Bell pepper
-en:white pepper
-cs:Bílý pepř
-da:Hvid peber
-de:weißer Pfeffer, weisser Pfeffer
-es:Pimienta blanca
-fi:valkopippuri
-fr:poivre blanc
-hu:fehérbors
-it:pepe bianco
-nl:witte peper
-pl:Pieprz biały
-sv:vitpeppar
-
-< en:Bell pepper
-en:yellow pepper
+en:yellow bell pepper, yellow pepper
 de:gelbe Paprika
 es:pimiento amarillo
 fi:keltainen paprika
 fr:poivron jaune, poivrons jaunes
 it:peperone giallo
 nl:gele paprika
-
-< en:Bell pepper
-fr:poivre gris
-
-< en:Bell pepper
-fr:poivre rose
-
-< en:Bell pepper
-fr:poivre vert
-de:grüner Pfeffer
-fi:viherpippuri
 
 < en:Berries
 < en:Fruit
@@ -2609,7 +3034,7 @@ cs:Borůvka
 da:blåbær
 de:Heidelbeer, Heidelbeeren, Heidelbeere
 eo:mirtelo
-es:arándano, arándano azul, mora azul
+es:arándano azul, mora azul
 fa:بیل‌بری
 fi:mustikka
 fr:myrtille
@@ -2989,14 +3414,6 @@ de:zerstoßener schwarzer Pfeffer, schwarzer Pfeffer zerstoßen
 fi:mustapippurirouhe, rouhittu mustapippuri
 fr:poivre noir concassé
 nl:grove zwarte peper
-
-< en:Black pepper
-en:ground black pepper
-de:gemahlener schwarzer Pfeffer, schwarzer Pfeffer gemahlen
-es:pimienta negra molida
-fi:mustapippurijauhe, jauhettu mustapippuri
-fr:poivre noir moulu
-nl:Gemalen zwarte peper
 
 < en:Black rice
 < en:Thai rice
@@ -3691,7 +4108,7 @@ uz:sho'rva
 vi:canh
 yi:יויך
 zh:清汤
-wikidata:en: https://en.wikipedia.org/wiki/Broth
+wikidata:en: Q275068
 wikipedia:en: https://en.wikipedia.org/wiki/Broth
 
 < en:Beef
@@ -3832,6 +4249,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kasha
 
 < en:Buckwheat
 en:organic buckwheat
+es:trigo sarraceno organico
 fi:luomu tattari
 fr:sarrasin biologique
 hu:bio hajdina
@@ -3986,7 +4404,7 @@ hu:sózott vaj, sós vaj
 ja:塩バター
 nl:gezouten boter
 pt:manteiga com sal
-wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_salé
+wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_salé
 
 < en:Butter
 en:sweet cream butter
@@ -4008,7 +4426,7 @@ nl:ongezouten boter
 carbon_footprint_fr_foodges_ingredient:fr: Beurre doux
 carbon_footprint_fr_foodges_value:fr: 9.5
 wikidata:en: Q57312618
-wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_doux
+wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_doux
 
 < en:Butter
 fr:beurre d'isigny AOP
@@ -4111,7 +4529,7 @@ te:నెయ్యి
 uk:Ґгі, Гхі, Ґі
 ur:گھی
 zh:酥油
-wikidata:en: https://www.wikidata.org/wiki/Q323225
+wikidata:en: Q323225
 
 < en:Buttermilk
 en:buttermilk powder
@@ -4293,7 +4711,7 @@ ca:col llombarda
 da:Rødkål
 de:Rotkohl
 eo:ruĝa brasiko
-es:cacho lombarda
+es:cacho lombarda, col lombarda
 fa:کلم‌قرمز
 fi:Punakaali
 fr:chou rouge
@@ -4695,13 +5113,13 @@ fr:sucre blond de canne, sucre de canne blond
 
 < en:Cane sugar
 en:brown cane sugar
-de:brauner Rohrzucker, Vollrohrzucker
+de:Brauner Rohrzucker, Vollrohrzucker
 es:Azúcar moreno de caña
 fr:sucre de canne brun
 hu:barna nádcukor
 it:zucchero di canna grezzo
 nl:Bruine rietsuiker
-wikipedia:en: https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
+wikipedia:fr: https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 
 < en:Cane sugar
 en:cane sugar cubes
@@ -4759,6 +5177,7 @@ fr:sirop de caramel, sirop caramel
 hu:karamellszirup, karamell szirup, karamella szirup
 it:sciroppo di caramello
 nl:Karamel siroop
+pt:xarope de caramelo
 ru:Карамельный сироп
 
 < en:Caramel syrup
@@ -5092,7 +5511,7 @@ it:budello di manzo
 < en:Pork
 en:pork casing, pork gut
 de:Schweinedarm
-es:Tripa de cerdo
+es:tripa de cerdo, tripa natural de cerdo
 fi:porsaansuoli, porsaan suolessa
 fr:boyau de porc
 hu:sertésbél, disznóbél
@@ -5274,7 +5693,7 @@ en:buckwheat
 ar:حنطة سوداء
 da:boghvede
 de:Buchweizen
-es:sarraceno
+es:sarraceno, trigo sarraceno
 fi:tattari, viljatar
 fr:sarrasin
 hu:hajdina
@@ -5762,6 +6181,11 @@ wa:Speate
 zh:斯佩耳特小麦
 wikidata:en: Q158767
 wikipedia:en: https://en.wikipedia.org/wiki/Spelt
+
+< en:Cereal
+en:teff
+es:teff, semilla de teff
+wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
 < en:Cereal
 en:wheat
@@ -6629,7 +7053,7 @@ fi:kova juusto
 fr:fromage à pâte dure
 hu:keménysajt
 it:formaggio a pasta dura
-pt:queijo de pasta dura
+pt:queijo de pasta dura, queijo duro
 sv:Hårdost
 
 < en:Cheese
@@ -7324,7 +7748,7 @@ ja:ヴァシュラン・フリブール
 ko:바슈랭 프리부르주아
 nl:Vacherin fribourgeois AOP
 wikidata:en: Q677647
-wikipedia:en: https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
+wikipedia:fr: https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 
 < en:Cheese made from pasteurized milk
 en:Soft cheese made from pasteurized milk
@@ -7684,26 +8108,6 @@ fr:purée de piments
 it:purea di peperoncino
 
 < en:Chili pepper
-en:chilli powder
-da:chilipulver
-de:Chilipulver, gemahlener Chili, Chillipulver
-es:chile en polvo, chile molido
-fi:chilijauhe
-fr:poudre de piment, piment en poudre
-hu:chilipaprikapor
-it:peperoncino en polvere, peperoncino macinato
-nl:chilipoeder, gemalen chili, chilipeperpoeder, pimentpoeder
-pt:malagueta em pó
-sv:chilipulver
-
-< en:Chili pepper
-en:dried chili pepper
-de:getrocknete Chilischoten
-fi:kuivattu chili
-fr:piment rouge séché
-nl:gedroogde chilipeper
-
-< en:Chili pepper
 en:Espelette chili pepper
 de:Gorria
 es:Pimiento de Espelette
@@ -7763,12 +8167,6 @@ es:chile rojo, chiles rojos
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
-
-< en:Chili pepper
-en:smoked chili pepper
-de:geräucherte Chilischote
-fi:savuchili, savustettu chili
-fr:piment fumé
 
 < en:Chili pepper
 fr:extrait de piment
@@ -8219,6 +8617,7 @@ fi:Tomaattisose
 fr:pulpe de tomate
 it:polpa di pomodoro
 nl:tomatenpulp
+pt:polpa de tomate
 sv:krossade tomater
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr: 1.4
@@ -8374,6 +8773,11 @@ fr:arôme naturel d'agrumes, arômes naturels d'agrumes
 hu:természetes citrus aroma
 
 < en:Citrus fruit
+< en:Fruit
+en:bitter orange
+es:naranja amarga, naranjas amargas de sevilla
+
+< en:Citrus fruit
 en:citrus fruit extract
 de:Citrusextrakt
 fi:sitrushedelmäuute
@@ -8419,7 +8823,7 @@ th:คลีเมนไทน์
 uk:Клементин
 vi:Clementine
 zh:克里曼丁红橘
-wikidata:en: https://www.wikidata.org/wiki/Q460517
+wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 
 < en:Citrus fruit
@@ -8600,7 +9004,7 @@ sw:Mchenza
 uk:мандарин
 carbon_footprint_fr_foodges_ingredient:fr: Mandarine
 carbon_footprint_fr_foodges_value:fr: 1.3
-wikidata:en: https://www.wikidata.org/wiki/Q190024
+wikidata:en: Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
 < en:Citrus fruit
@@ -9085,13 +9489,14 @@ fr:Cacao alcalinisé
 < en:Cocoa
 en:fat reduced cocoa, reduced fat cocoa
 da:fedtfattig kakao
-de:fettarmer Kakao
+de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
 fi:vähärasvainen kaakao
 fr:cacao maigre, cacao dégraissé
 it:cacao magro
 nb:fedtfattig kakao
 nl:vetarme cacao
+pt:cacau magro
 sv:fettreducerad kakao
 
 < en:Cocoa
@@ -9286,6 +9691,7 @@ fi:kookosraaste
 fr:noix de coco râpée
 it:cocco grattugiato
 nl:Gemalen kokos
+pt:coco ralado
 
 < en:Coconut
 fr:pâte de noix de coco
@@ -9944,7 +10350,7 @@ fr:moût de raisin concentré et cuit
 
 en:concentrated juice
 de:konzentrierter Saft
-es:Zumo a partir de concentrado
+es:Zumo a partir de concentrado, zumo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
@@ -10238,6 +10644,7 @@ nl:korianderzaad
 < en:Coriander seeds
 en:coriander powder
 de:Korianderpulver
+es:cilantro en polvo
 fi:korianterijauhe
 fr:coriandre en poudre, coriandre moulue
 nl:korianderpoeder
@@ -10273,7 +10680,7 @@ de:Maisgrieß, Maiskörner, Maisgriess
 el:σιμιγδάλι αραβοσίτου
 es:semola de maíz, granos de maíz
 fi:maissirouhe
-fr:semoule de mais
+fr:semoule de maïs
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits
@@ -10320,7 +10727,7 @@ ca:farina de blat de moro
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
-es:harina de maíz
+es:harina de maíz, harina maiz
 fi:maissijauho, maissijauhoa
 fr:farine de maïs
 hu:kukoricaliszt
@@ -10415,6 +10822,10 @@ nl:biologische gesproeidroogde maisstroop
 fr:bleuets
 
 < en:Cornmeal
+de:Maisvollkorngriess
+fr:semoule de maïs complet
+
+< en:Cornmeal
 en:dextrinated cornmeal
 de:dextriniertes Maismehl
 es:harina de maíz dextrinada
@@ -10439,6 +10850,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cilus_gilberti
 < en:Courgette
 en:dried courgette
 de:getrocknete Zucchini
+es:calabacin deshidritado
 fi:kuivattu kesäkurpitsa
 fr:courgettes séchées
 
@@ -11011,7 +11423,7 @@ da:hummer
 de:Hummer
 el:Αστακός
 eo:Omaro
-es:langosta
+es:langosta, bogavante
 et:Homaar
 eu:Misera
 fa:شاه‌میگو
@@ -11079,7 +11491,7 @@ cs:krevety
 da:Reje, rejer
 de:Garnele, crevetten
 eo:salikoko
-es:gamba, langostino
+es:gamba, langostino, gambon
 eu:Izkira
 fa:میگو
 fi:katkarapu, katkaravut
@@ -11665,6 +12077,7 @@ zh:乾酪
 zu:Ushizi
 vegan:en: no
 vegetarian:en: maybe
+wikidata:en: Q10943
 wikipedia:en: https://en.wikipedia.org/wiki/Cheese
 
 < en:Dairy
@@ -11710,7 +12123,7 @@ nb:Fløte
 nl:room
 nn:Kremfløyte
 pl:Śmietanka
-pt:nata, creme de leite
+pt:nata, creme de leite, natas
 qu:Nata
 ro:Smântână
 ru:Сливки
@@ -11807,7 +12220,7 @@ zh:克非尔
 vegan:en: no
 vegetarian:en: maybe
 wikidata:en: Q185749
-wikipedia:en: https://de.wikipedia.org/wiki/Kefir
+wikipedia:de: https://de.wikipedia.org/wiki/Kefir
 
 < en:Dairy
 en:milk
@@ -11942,6 +12355,7 @@ hu:tejpor
 it:latte in polvere
 nl:melkpoeder
 pl:mleko w proszku
+pt:leite em pó
 ru:сухое молоко
 sv:mjölkpulver
 nova:en: 3
@@ -12422,7 +12836,7 @@ sw:Tambi
 ta:நூடுல்ஸ்
 carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
 carbon_footprint_fr_foodges_value:fr: 7.3
-wikidata:en: https://www.wikidata.org/wiki/Q192874
+wikidata:en: Q192874
 wikipedia:en: https://en.wikipedia.org/wiki/Noodle
 
 < en:Dough
@@ -15211,7 +15625,7 @@ sh:Trietil citrat
 sk:E1505, Trietylcitrát
 sl:E1505, Trietilcitrat
 sr:Trietil citrat
-sv:E1505, Trietylcitrat, Trietylcitrat (E1505)‚, E 1505
+sv:E1505, Trietylcitrat
 zh:檸檬酸三乙酯
 additives_classes:en: en:carrier, en:emulsifier, en:sequestrant, en:stabilizer
 e_number:en: 1505
@@ -15371,7 +15785,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q420079
 
-en:E1510, Ethanon, ethanol, ethyl alcohol, spirits, drinking alcohol, pure alcohol, grain alcohol, ethyl, alcohol, Methylcarbinol, Ethyl hydroxide, Ethyl hydrate, Algrain, Anhydrol, Tecsol
+en:E1510, Ethanol, ethyl alcohol, Methylcarbinol, Ethyl hydroxide, Ethyl hydrate
 af:etanol
 ak:Nsa
 an:Etanol
@@ -15386,18 +15800,18 @@ bo:ཨ་རག་ཉིང་ཁུ།
 br:Etanol
 bs:Etanol
 ca:Etanol
-cs:E1510, ethanol, Etanol, Ethylalkohol, Etylalkohol, C2H5OH, alkohol
+cs:E1510, ethanol, Etanol, Ethylalkohol, Etylalkohol, C2H5OH
 cy:Ethanol
 da:E1510, Ethanol
-de:E1510, Ethanol, Äthanol, Ethylalkohol, Alkohol
+de:E1510, Ethanol, Äthanol, Ethylalkohol
 el:E1510, Αιθανόλη
 eo:etanolo
-es:E1510, etanol, alcohol etílico, EtOH, alcohol
+es:E1510, etanol, alcohol etílico, EtOH
 et:E1510, Etanool
 eu:etanol
 fa:اتانول
-fi:E1510, etanoli, etyylialkoholi, etanolia, etyylialkoholia, alkoholi
-fr:E1510, Éthanol, alcool éthylique, Esprit-de-vin, Alcool de grain, 64-17-5, E 1510, Flegmasse, EtOH, alcool
+fi:E1510, etanoli, etyylialkoholi, etanolia, etyylialkoholia
+fr:E1510, Éthanol, alcool éthylique, 64-17-5, E 1510, Flegmasse, EtOH
 fy:Etanol
 ga:Eatánól
 gl:Etanol
@@ -15405,11 +15819,11 @@ gu:ઇથેનોલ
 he:אתנול
 hi:इथेनॉल
 hr:etanol
-hu:E1510, etanol, etil-alkohol, borszesz, borlang, alkohol
+hu:E1510, etanol, etil-alkohol, borszesz, borlang
 hy:Էթիլ սպիրտ
 id:Etanol
 is:Etanól
-it:E1510, etanolo, alcol etilico, alcol puro, Alcool etilico, Coma etilico, Alcol denaturato, C2H5OH, Alcol or alcool, alcool
+it:E1510, etanolo, alcol etilico, Alcool etilico, Alcol denaturato, C2H5OH, alcool
 ja:エタノール
 jv:Etanol
 ka:ეთანოლამიდი
@@ -15428,7 +15842,7 @@ mt:E1510, E1510 food additive
 my:အီသနောလ်
 nb:etanol
 ne:इथानोल
-nl:E1510, ethanol, alcohol, ethylalcohol
+nl:E1510, ethanol, ethylalcohol
 nn:etanol
 oc:etanòl
 pa:ਈਥੇਨੋਲ
@@ -15444,7 +15858,7 @@ sk:E1510, Etanol, Ethanol
 sl:E1510, Etanol
 sq:Etanoli
 sr:етанол
-sv:E1510, Etanol, alkohol
+sv:E1510, Etanol
 sw:Ethanoli
 ta:எத்தனால்
 te:ఇతనోల్
@@ -15463,531 +15877,6 @@ organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q153
-
-< en:E1510
-en:absinthe, absinth
-de:Absinth
-es:absenta
-fi:absintti
-fr:absinthe
-hu:abszint
-it:Assenzio
-nl:absinth
-pt:absinto
-wikidata:en: Q170210
-wikipedia:en: https://en.wikipedia.org/wiki/Absinthe
-
-< en:E1510
-en:armagnac
-de:Armagnac
-es:Armagnac
-fi:armanjakki
-fr:armagnac
-hu:armagnac
-nl:armagnac
-
-< en:E1510
-en:beer
-da:øl
-de:Bier
-es:Cerveza
-fi:olut
-fr:bière
-hu:sör
-it:birra
-nl:Bier
-ru:Пиво
-carbon_footprint_fr_foodges_ingredient:fr: Bière
-carbon_footprint_fr_foodges_value:fr: 2.7
-
-< en:E1510
-en:calvados
-de:Calvados
-es:calvados
-fi:calvados
-fr:calvados
-hu:calvados
-it:calvados
-nl:calvados
-
-< en:E1510
-en:Campari
-de:Campari
-es:Campari
-fi:campari
-fr:Campari
-hu:Campari
-nl:Campari
-
-< en:E1510
-en:champagne
-an:Champán
-ar:شامبانيا
-az:Şampan şərabı
-be:Шампанскае
-bg:Шампанско вино
-bo:ཤམ་ཕེན་ཆང་།
-ca:xampany
-cs:šampaňské víno
-cv:Шампанское
-cy:Siampaen
-da:Champagne
-de:Champagner
-el:Σαμπάνια
-eo:Ĉampano
-es:champán
-et:Šampanja
-eu:Xanpaina
-fa:شامپاین
-fi:Samppanja
-fo:Sjampanja
-fr:champagne
-ga:Seaimpéin
-gl:Champaña
-gu:શેમ્પેન
-he:שמפניה
-hr:šampanjac
-hu:pezsgő
-hy:շամպայն
-id:Sampanye
-io:Champanio
-is:Kampavín
-it:champagne
-ja:シャンパン
-jv:Sampanye
-ka:შამპანური
-ko:샴페인
-lb:Champagne
-lt:Šampanas
-lv:šampanietis
-mk:Шампањ
-ml:ഷാംപെയ്ൻ
-mn:Шампанск
-nb:champagne
-nl:champagne
-nn:Champagne
-pa:ਸ਼ੈਮਪੇਨ
-pl:Szampan
-pt:Champanhe
-ro:Șampanie
-ru:Шампанское
-sh:Šampanjac
-sk:Šampanské
-sq:Shampanja
-sv:Champagne
-tr:Şampanya
-tt:Шампан
-uk:Шампанське
-vi:Sâm panh
-zh:香槟酒
-wikidata:en: Q134862
-wikipedia:en: https://en.wikipedia.org/wiki/Champagne
-
-< en:E1510
-en:cider
-de:Apfelmost
-fr:cidre
-
-< en:E1510
-en:cognac
-de:Cognac
-es:coñac
-fi:konjakki
-fr:cognac
-hu:cognac, konyak
-it:Cognac
-nl:cognac
-
-< en:E1510
-en:Cointreau
-de:Cointreau
-es:Cointreau
-fi:cointreau
-fr:Cointreau
-hu:Cointreau
-nl:Cointreau
-
-< en:E1510
-en:eau de vie
-de:Obstbrand
-es:eau de vie
-fr:eau-de-vie
-nl:eau de vie
-
-< en:E1510
-en:gin
-ar:جن
-be:Джын
-bg:Джин
-ca:ginebra
-cs:gin
-cv:Джин
-cy:Jin
-da:gin
-de:Gin
-el:Τζιν
-eo:ĝino
-es:ginebra
-et:Džinn
-eu:gin
-fa:جین
-fi:gini
-fo:Ginn
-fr:gin, london-dry-gin
-gl:Xenebra
-gv:Jeneeve
-he:ג'ין
-hu:gin
-hy:Ջին
-id:Gin
-io:Jino
-is:Gin
-it:gin
-ja:ジン
-ka:ჯინი
-kk:Джин
-ko:진
-la:Gin
-lt:Džinas
-lv:džins
-mk:Џин
-my:ဂျင်
-nb:gin
-nl:gin
-nn:gin
-oc:Gin
-pl:gin
-pt:gim
-ro:Gin
-ru:джин
-sh:Džin
-sk:Gin
-sl:Gin
-sr:Џин
-sv:Gin
-ta:ஜின்
-th:ยิน
-tr:Cin
-uk:Джин
-vi:Gin
-yi:דזשין
-zh:琴酒
-wikidata:en: Q959362
-wikipedia:en: https://en.wikipedia.org/wiki/Gin
-
-< en:E1510
-en:kirsch
-af:Kirsch
-be:Кіршвасэр
-ca:kirsch
-cv:kirsch
-de:Kirschwasser
-eo:kirŝo
-es:kirsch
-eu:Kirsch
-fa:کیرش
-fi:kirsch, kirsikkaviina
-fr:kirsch
-gl:Kirsch
-he:קירשווסר
-hu:cseresznye
-id:Kirsch
-io:Kirsho
-it:kirsch
-ja:キルシュヴァッサー
-ko:키르시바서
-nb:Kirschwasser
-nl:kirsch
-pl:kirsch
-pt:kirsch
-ru:Киршвассер
-sv:kirschwasser
-zh:櫻桃白蘭地
-wikidata:en: Q279034
-wikipedia:en: https://en.wikipedia.org/wiki/Kirsch
-
-< en:E1510
-en:liqueur
-af:Likeur
-ar:ليكير
-az:Likör
-be:Лікёр
-bg:Ликьор
-bs:Liker
-ca:licor
-cs:likér
-cy:Gwirodlyn
-da:likør
-de:Likör
-el:λικέρ
-eo:likvoro
-es:licor
-et:liköör
-eu:likore
-fa:لیکور
-fi:likööri
-fr:liqueur
-ga:Licéar
-gl:Licor
-he:ליקר
-hi:शराब्
-hr:liker
-hu:likőr
-hy:Լիկյոր
-id:Likeur
-io:liquoro
-it:liquore
-ja:リキュール
-ka:ლიქიორი
-kk:Ликёр
-kn:ಮದ್ಯ
-ko:리큐어
-ky:Ликер
-la:anisatum
-lt:likeris
-lv:liķieris
-mk:Ликер
-nb:likør
-nl:likeur
-nn:likør
-oc:Liquor
-pl:likier
-pt:licor
-ro:Lichior
-ru:ликёр
-sa:मद्य
-sc:Licòri
-sh:Liker
-sk:likér
-sl:Liker
-sr:ликер
-sv:likör
-tr:likör
-uk:лікер
-uz:Likyor
-vi:rượu mùi
-yi:ליקער
-zh:力娇酒
-wikidata:en: Q178780
-wikipedia:en: https://en.wikipedia.org/wiki/Liqueur
-
-< en:E1510
-en:pomace brandy
-de:Tresterbrand
-fi:pomace brandy, marc
-fr:marc
-hu:törkölypárlat
-it:Marc, grappa
-ja:ポマース・ブランデー
-ko:포도박 브랜디
-lb:Trester-Branntewäin
-lt:Išspaudų brendis
-nb:Marc
-nl:Marc
-pl:Marc
-pt:Bagaceira
-sv:Marc
-wikidata:en: Q525397
-wikipedia:en: https://en.wikipedia.org/wiki/Pomace_brandy
-
-< en:E1510
-en:rhum
-da:Rom
-de:Rum
-es:Ron
-fi:rommi
-fr:rhum
-hu:rum
-it:rum
-nl:Rum
-pl:Rum
-ru:Ром
-
-< en:E1510
-en:tequila
-ar:تيكيلا
-az:Tekila
-be:Тэкіла
-bg:Текила
-bn:টাকিলা
-bs:Tekila
-ca:tequila
-cs:tequila
-cv:Текила
-cy:Tekila
-da:tequila
-de:Tequila
-el:Τεκίλα
-eo:tekilo
-es:tequila
-et:tequila
-eu:Tekila
-fa:تکیلا
-fi:tequila
-fo:Tequila
-fr:tequila
-gl:Tequila
-he:טקילה
-hi:टकीला
-hr:Tequila
-hu:tequila
-hy:Տեկիլա
-id:Tequila
-is:Tekíla
-it:tequila
-ja:テキーラ
-ka:ტეკილა
-kk:Текила
-km:តេគីឡា
-kn:ಟಕಿಲಾ
-ko:테킬라
-lb:Tequila
-lt:Tekila
-lv:Tekila
-mk:Текила
-ml:ടെക്കീല
-nb:Tequila
-ne:टेकिला
-nl:tequila
-oc:Tequila
-pl:tequila
-pt:tequila
-ro:tequila
-ru:Текила
-si:ටෙකීලා
-sl:tequila
-sr:Текила
-sv:tequila
-ta:டெக்கீலா
-th:เตกิลา
-tr:Tekila
-uk:Текіла
-vi:Tequila
-zh:龍舌蘭酒
-wikidata:en: Q122195
-wikipedia:en: https://en.wikipedia.org/wiki/Tequila
-
-< en:E1510
-en:vermouth
-de:Wermut
-fi:vermutti
-fr:vermouth
-hu:vermut
-
-< en:E1510
-en:whiskey, whiskeys
-de:Whiskey
-es:Whiskey
-fi:viski
-fr:whisky, whiskys
-hu:whisky, whiskey-k
-
-< en:E1510
-en:wine
-af:wyn
-am:የወይን ጠጅ
-an:Vin
-ar:نبيذ
-az:Şərab
-ba:Шарап
-be:віно
-bg:вино
-bn:মদ
-br:Gwin
-bs:Vino
-ca:vi
-ce:ЧагӀар
-cs:víno
-cv:Эрех
-cy:gwin
-da:vin
-de:Wein
-el:κρασί
-eo:vino
-es:vino
-et:vein
-eu:ardo
-fa:شراب
-fi:viini
-fo:Vín
-fr:vin
-fy:Wyn
-ga:Fíon
-gd:Fìon
-gl:Viño
-gv:Feeyn
-he:יין
-hi:शराब
-hr:vino
-ht:Diven
-hu:bor
-hy:գինի
-ia:vino
-io:vino
-is:vín
-it:vino
-ja:ワイン
-ka:ღვინო
-kk:Шарап
-km:ស្រា
-ko:포도주
-ku:Şerab
-ky:Шарап
-la:vinum
-lb:Wäin
-li:Wien
-lt:vynas
-lv:vīns
-mk:вино
-ml:വീഞ്ഞ്
-mn:Дарс
-mr:वाईन
-ms:Wain
-mt:nbid
-my:ဝိုင်
-nb:vin
-ne:वाइन
-nl:wijn
-nn:vin
-oc:vin
-pa:ਵਾਈਨ
-pl:wino
-pt:vinho
-qu:Winu
-ro:vin
-ru:вино
-sc:Binu
-se:Viidna
-sh:Vino
-sk:víno
-sl:vino
-sq:vera
-sr:вино
-sv:vin
-sw:divai
-ta:வைன்
-tg:Шароб
-th:ไวน์
-tl:Alak
-tr:şarap
-tt:Шәраб
-ug:ۋىنو
-uk:вино
-ur:شراب
-uz:Sharob
-vi:rượu vang
-vo:Vein
-wa:Vén
-xh:Iveyn
-yi:וויין
-zh:葡萄酒
-carbon_footprint_fr_foodges_ingredient:fr: Vin France
-carbon_footprint_fr_foodges_value:fr: 1.4
-wikidata:en: Q282
-wikipedia:en: https://en.wikipedia.org/wiki/Wine
-
-< en:E1510
-fr:brandy
 
 en:E1517, Glyceryl diacetate
 bg:E1517, Глицерил диацетат
@@ -20989,6 +20878,7 @@ fi:
 fr:lécithine de colza, lécithines de colza
 hu:repce lecitin
 nl:raapzaadlecithine
+pt:lecitina de colza
 ro:lecitină din rapiță, lecitina din rapita
 sr:lecitin uljane repice
 vegan:en: yes
@@ -21028,7 +20918,7 @@ bg:слънчогледов леситин
 ca:lecitina de gira-sol, lecitines de gira-sol
 cs:Slunečnicový lecitin
 da:solsikkelecithin
-de:Sonnenblumenlecithine, Sonnenblumenlecithin
+de:Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine
 el:λεκιθίνες ηλιστροπιου
 es:lecitinas de girasol
 et:päevalilleletsitiin
@@ -24174,7 +24064,7 @@ cs:E415, Xanthan, Xanthanová guma, E 415, Xantan
 da:E415, Xanthangummi
 de:E415, Xanthan, Xanthangummi, E 415, Xantan
 el:E415, Ξανθανικο κομμι, uc
-es:E415, Goma xantana, Xantano, Xantana, E 415
+es:E415, Goma xantana, Xantano, Xantana, E 415, goma de xantano
 et:E415, Ksantaankummi, Ksantaan
 fa:صمغ زانتان
 fi:E415, Ksantaanikumi, Ksantaanikumia
@@ -34619,6 +34509,7 @@ it:tuorlo d'uova fresche
 fr:jaune d'œuf pasteurisé
 de:Pasteurisierter Eigelb Eier
 it:tuorlo d'uovo pastorizzato
+pt:gema de ovo pasteurizado
 
 < en:Egg yolk
 fr:jaune d'œuf salé, jaunes d'œufs salés
@@ -35422,11 +35313,6 @@ nl:fenegriekzaad, gedroogd fenegriekzaad
 < en:Fenugreek seed
 de:gemahlen Bockshornkleesamen
 
-< en:Fenugreek seed
-en:organic fenugreek seed
-fi:luomu sarviapilan siemen
-nl:biologisch fenegriekzaad
-
 en:ferment
 az:fermentlər
 ba:Ферменттар
@@ -35446,6 +35332,7 @@ lt:fermentas
 lv:ferments
 nl:Ferment
 pl:Fermentacja
+pt:fermento, fermentos
 sv:jäsa
 tt:Фермент
 uk:Ферменти
@@ -35638,7 +35525,7 @@ ru:растительное волокно
 sv:Växtfibrer
 vegan:en: yes
 vegetarian:en: yes
-wikipedia:en: Q20026824
+wikidata:en: Q20026824
 
 < en:Fiber
 fr:fibres solubles
@@ -36506,7 +36393,7 @@ cy:Macrell
 da:Makrel
 de:Makrele, Makrelenfilet, Makrelenfilets
 el:Σκουμπρί
-es:Verdel
+es:Verdel, caballa
 et:Makrell
 eu:Berdel
 fi:Makrilli
@@ -36721,7 +36608,7 @@ th:ปลาน้ำเค็ม
 vi:Cá biển
 yi:ים–פיש
 zh:海水魚
-wikipedia:en: Q5364423
+wikidata:en: Q5364423
 wikipedia:fr: https://fr.wikipedia.org/wiki/Liste_des_poissons_de_mer_utilisés_en_cuisine
 
 < en:Fish
@@ -36812,6 +36699,7 @@ th:วงศ์ปลาแมงป่อง
 uk:скорпенові
 vi:Họ Cá mù làn
 zh:鮋科
+wikidata:en: Q386535
 wikipedia:en: https://en.wikipedia.org/wiki/Scorpaenidae
 
 < en:Fish
@@ -36824,6 +36712,7 @@ ca:Espàrid
 de:Meerbrassen
 el:Σπαρίδες
 eo:Sparedoj
+es:dorada
 et:Merikogerlased
 eu:Sparidae
 fa:شانک‌ماهیان
@@ -37490,7 +37379,7 @@ hu:menta aroma
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
 da:naturlig aroma
-de:natürliches Aroma
+de:natürliches Aroma, natürliche Aromen
 es:aroma natural, aromas naturales
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
 fr:arôme naturel, arômes naturels
@@ -37500,6 +37389,7 @@ hu:természetes aroma, természetes aromák, természetazonos aroma, természeta
 it:aroma naturale, aromi naturali
 nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
 pl:Naturalny aromat
+pt:aroma natural
 ro:aromă naturală, aroma naturala
 ru:Натуральный ароматизатор
 sv:naturlig arom, naturliga aromer
@@ -37569,6 +37459,7 @@ hu:borsmenta aroma
 < en:Flavouring
 en:raspberry flavouring
 de:Himbeeraroma, Himbeer-Aroma
+es:sabor a frambuesa
 fi:vadelma-aromi
 fr:arôme framboise
 hu:málna aroma
@@ -37849,6 +37740,7 @@ sv:spannmålsmjöl
 < en:Flour
 en:pea flour
 de:Erbsenmehl
+es:harina de guisantes
 fi:hernejauho
 fr:farine de pois
 hu:borsóliszt
@@ -38398,7 +38290,7 @@ it:sciroppo di glucosio-fruttosio
 nl:glucose-fructosestroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
-pt:xarope de glucose-frutose
+pt:xarope de glucose-frutose, xarope de glucose e frutose
 ru:глюкозно-фруктозный сироп
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
@@ -38781,7 +38673,7 @@ dv:ދޮންކެޔޮ
 ee:Akɔɖu
 el:μπανάνες, Μπανάνα
 eo:Banano
-es:plátano
+es:plátano, banana
 et:Banaan
 eu:Banana
 fa:موز
@@ -39184,7 +39076,7 @@ sv:Kokosnöt, Kokos
 za:Makyehswj
 zh:椰子
 wikidata:en: Q3342808
-wikipedia:en: https://fr.wikipedia.org/wiki/Noix_de_coco
+wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 
 < en:Fruit
 en:cranberry, cranberries
@@ -39198,7 +39090,7 @@ cy:Llugaeron
 da:Tranebær
 de:Moosbeeren, Cranberry, Cranberrys
 eo:Oksikoko
-es:arándano rojo
+es:arándano rojo, arándano
 et:Jõhvikas, Harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
@@ -39240,6 +39132,11 @@ wikidata:en: Q13181
 wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
 
 < en:Fruit
+en:custard apple, cherimoya, persimmon
+es:chirimoya
+wikipedia:en: https://en.wikipedia.org/wiki/Custard_apple
+
+< en:Fruit
 en:date, dates
 ar:تمر
 be:Фінікі
@@ -39279,7 +39176,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Date_palm#Fruits
 < en:Fruit
 en:dried fruits
 de:Trockenfrüchte
-es:frutos secos, otros frutos secos
+es:frutas secas, otras frutas secas
 fi:kuivatut hedelmät
 fr:fruits séchés, fruits secs, autres fruits secs
 it:frutta secca
@@ -39393,6 +39290,7 @@ en:gooseberry, gooseberries
 da:Stikkelsbær
 de:Stachelbeere, Stachelbeeren
 ee:karusmari
+es:grosella espinosa
 fi:karviainen
 fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
 nl:kruisbes
@@ -39809,6 +39707,10 @@ wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
 
 < en:Fruit
+en:medlar, loquat
+es:nispero
+
+< en:Fruit
 en:melon
 ba:Баҡса культуралары
 be:Гарбузіна
@@ -40160,6 +40062,7 @@ ca:Codony
 da:Kvæde
 de:Quitten
 el:Κυδώνι
+es:membrillo
 et:Aiva
 fi:kvitteni
 fr:coing, coings
@@ -40228,6 +40131,11 @@ sv:Nypon
 uk:Шипшина
 zh:蔷薇果
 wikidata:en: Q46740
+
+< en:Fruit
+en:sharon fruit
+es:kaki
+wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
 
 < en:Fruit
 en:sweet cherry
@@ -40384,7 +40292,7 @@ ca:Suc de llimona
 cs:Citronová šťáva
 da:citronsaft
 de:Zitronensaft
-es:zumo de limón
+es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
 hu:Citromlé
@@ -40495,6 +40403,10 @@ fr:petits pois fins
 fr:petits pois très fins
 
 < en:Garlic
+en:black garlic
+es:ajo negro
+
+< en:Garlic
 en:garlic paste
 de:Knoblauchpaste
 es:Pasta de ajo
@@ -40550,6 +40462,9 @@ es:ajo orgánico
 fi:luomuvalkosipuli, luomu valkosipuli
 fr:ail bio
 nl:biologische knoflook
+
+< en:Garlic
+es:ajo tierno
 
 < en:Garlic
 fr:ail des ours
@@ -40876,7 +40791,7 @@ bg:глюкозе сироп
 ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup
-de:Glukosesirup, Glucosesirup
+de:Glukosesirup, Glucosesirup, Glukose-Sirup
 el:σιρόπι γλυκόζης
 es:jarabe de glucosa
 et:glükoosisiirup
@@ -41415,6 +41330,14 @@ fr:haricots verts très fins
 < en:Green bean
 fr:haricots verts tres fins issus de l'agriculture biologique
 
+< en:Green bell pepper
+< en:Red bell pepper
+en:red and green bell peppers, green and red bell peppers
+de:rote und grüne Peperoni
+fi:punainen ja vihreä paprika, punaiset ja vihreät paprikat
+fr:poivrons rouges et verts, poivrons verts et rouges
+nl:rode en groene paprika's
+
 < en:Green flageolets
 fr:flageolets verts extra-fins
 nl:extra fijne groene flageolets
@@ -41452,7 +41375,7 @@ fr:Oignon de printemps séché
 
 en:green peas
 de:grüne Erbsen
-es:Guisantes verdes
+es:judias verdes
 fi:Vihreät herneey
 fr:Petits pois, petit pois, pois doux
 vegan:en: yes
@@ -41460,7 +41383,7 @@ vegetarian:en: yes
 
 < en:Black pepper
 < en:Green pepper
-en:black and green pepper
+en:black and green pepper, green and black pepper
 fi:musta- ja viherpippuri
 
 < en:Green split pea
@@ -41731,9 +41654,13 @@ fr:jambon de porc français
 < en:Ham
 fr:jambon de porc issu d'animaux nourris sans ogm
 
+< en:Ham
+pt:presunto
+
 < en:Hazelnut
 en:chopped hazelnuts
 de:Gehackte Haselnüsse
+es:avellanas troceados
 fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
 fr:noisettes hachées
 it:nocciole tritate
@@ -41757,7 +41684,7 @@ hu:mogyoromassza
 it:pasta di nocciole
 nl:hazelnootpasta
 pl:masa orzechowa
-pt:pasta de avelã
+pt:pasta de avelãs, pasta de avelã
 ro:
 sk:oriešková pasta
 
@@ -41815,6 +41742,7 @@ hu:gyógynövény, gyógynövények
 it:erba, piante aromatiche
 nl:Kruiden
 pl:Zioło
+pt:plantas aromáticas
 sv:örter
 vegan:en: yes
 vegetarian:en: yes
@@ -41879,6 +41807,10 @@ wa:Mariolinne
 zh:墨角蘭
 wikidata:en: Q22694
 wikipedia:en: https://en.wikipedia.org/wiki/Marjoram
+
+< en:Herb
+de:Borretsch
+fr:bourrache
 
 < en:Herb
 en:basil
@@ -41974,7 +41906,7 @@ ca:Llorer
 cs:Bobkový list
 da:Laurbær, laurbærblade
 de:Lorbeer, Lorbeerblatt
-es:Hoja de laurel
+es:Hoja de laurel, laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
 hi:तेज पत्ता
@@ -42015,6 +41947,11 @@ ko:청호로파
 la:Trigonella caerulea
 ru:Пажитник голубой
 tr:Mavi çemenotu
+
+< en:Herb
+en:burnet
+de:Pimpinelle
+fr:pimprenelle
 
 < en:Herb
 en:camomile, chamomile
@@ -42170,6 +42107,7 @@ cy:Glas yr ŷd
 da:kornblomst
 de:Kornblume, Kornblumen
 eo:Cejano
+es:aciano
 et:Rukkilill
 eu:Nabar-lore
 fa:گل گندم
@@ -42490,7 +42428,7 @@ da:Løvstikke
 de:Liebstöckel
 el:Λεβιστικόν το φαρμακευτικόν
 eo:Levistiko
-es:apio
+es:levistico
 et:Harilik leeskputk
 fa:انجدان رومی
 fi:liperi, lipstikka
@@ -42532,6 +42470,7 @@ da:Have-Morgenfrue
 de:Ringelblume, Ringelblumen
 el:Καλέντουλα η φαρμακευτική
 eo:Kalendulo
+es:calendula
 et:Harilik saialill
 eu:Ilen kultibatu
 fa:گل همیشه‌بهار
@@ -42568,7 +42507,7 @@ uk:Нагідки лікарські
 ur:گل اشرفی
 zh:金盞花
 wikidata:en: Q145930
-wikipedia:en: hia:en:https://en.wikipedia.org/wiki/Calendula_officinalis
+wikipedia:en: https://en.wikipedia.org/wiki/Calendula_officinalis
 
 < en:Herb
 en:mint
@@ -42589,7 +42528,7 @@ da:mynte
 de:Minze, Minzen
 el:Μέντα
 eo:Mento
-es:menta
+es:menta, hierba buena
 et:münt
 eu:Menda
 fa:نعنا
@@ -43453,7 +43392,7 @@ bg:экстракт хмеля, хмелевой екстракт
 cs:chmelový ekstrakt
 da:humle-ekstrakt
 de:Hopfenextrakt
-es:extracto de lupolo
+es:extracto de lupulo
 fi:humalauute, humalauutteet
 fr:extrait de houblon, extraits de houblon
 it:estratto di luppolo
@@ -43464,7 +43403,7 @@ sk:chmelovy extract
 < en:Hops
 en:organic hops
 de:biologische Hopfen, bio Hopfen
-es:lúpolo bio
+es:lúpulo bio
 fi:luomuhumala, luomu humala
 fr:houblon bio
 it:luppolo biologico, luppolo bio
@@ -45120,6 +45059,88 @@ fr:haricots bruns
 nl:bruine bonen
 
 < en:Legume
+en:chickpea, chickpeas
+am:ሽምብራ
+ar:حمص شائع
+az:Qoyunnoxudu
+be:нут культурны
+bg:нахут
+bn:ছোলা
+bs:Leblebija
+ca:cigró
+cs:cizrna beraní
+cy:Gwygbysen gwygbys
+da:kikærter
+de:Kichererbse, Kichererbsen
+dv:ސަނާ މުގު
+el:ρεβίθι, Ρεβιθιά
+es:garbanzo, garbanzos, garbanzo beans
+et:Harilik kikerhernes
+eu:Txitxirio
+fa:نخود
+fi:kikherne
+fr:pois chiche, pois chiches
+ga:Piseánach
+gl:Garavanzo
+gu:ચણા
+he:חמצה
+hi:चना
+hr:Slanutak
+hu:Csicseriborsó
+id:kacang arab
+io:Garbanzo
+is:Kjúklingabaun
+it:ceci
+ja:ヒヨコマメ
+kk:Нұт
+kn:ಕಡಲೆ
+ko:병아리콩
+ku:Nok
+lb:Käicher
+lt:avinžirniai
+lv:auna zirņi
+mk:леблебија
+ml:കടല
+ms:Kacang kuda
+nb:kikert
+ne:चना
+nl:kikkererwt, kikkererwten
+nn:kikert
+oc:Céser
+or:ଚଣା
+pa:ਛੋਲੇ
+pl:Ciecierzyca
+ps:نخود
+pt:Grão-de-bico
+ro:Năut
+ru:нут
+sa:चणकः
+sh:Slanutak
+si:කඩල
+sl:Čičerika
+so:Shunburo
+sq:Qiqra
+sr:леблебија
+sv:kikärter
+sw:Mnjegere mkubwa
+ta:கொண்டைக் கடலை
+te:శనగలు
+tg:Нахӯд
+th:ถั่วหัวช้าง
+tl:Garbansos
+tr:nohut
+tt:Бәрән ногыты
+uk:нут
+ur:چنا
+vi:Đậu gà
+wa:Poes d' souke
+yi:נאהיט
+zh:鹰嘴豆
+carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
+carbon_footprint_fr_foodges_value:fr: 1.5
+wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
+
+< en:Legume
 en:flageolets
 de:Flageolette
 es:habichuelas
@@ -45371,7 +45392,7 @@ fr:Extrait de citron concentré
 en:concentrated lemon juice, lemon extract
 ca:Suc de llimona concentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón
+es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
@@ -45381,7 +45402,7 @@ pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy
 ru:Концентрированный лимонный сок
 
 < en:Lemon
-en:lemon peel
+en:lemon peel, lemon zest
 da:citronskal
 de:Zitronenschalen
 es:Cáscara de limón
@@ -45614,6 +45635,7 @@ fr:lentillons
 en:iceberg lettuce
 de:Eisbergsalat
 eo:glacilaktuko
+es:lechuga iceberg, iceberg
 fi:Jäävuorisalaatti
 fr:laitue iceberg, iceberg
 it:insalata iceberg
@@ -46078,7 +46100,7 @@ ar:اسقمري معروف
 cs:makrela obecná
 da:atlantisk makrel
 de:atlantische Makrele
-es:caballa
+es:
 fa:ماهی خال‌خالی اطلس
 fi:atlantin makrilli
 fr:Maquereau de l'Atlantique
@@ -46099,6 +46121,7 @@ wikidata:en: Q30153
 < en:Mackarel
 en:mackarel fillet
 de:
+es:filete de caballa
 fi:makrillifilee
 fr:filets de maquereaux
 
@@ -46370,7 +46393,7 @@ fr:vinaigre de malt d'orge
 en:barley malt extract
 ca:extracte de malta d'ordi
 de:Gerstenmalzextrakt
-es:extracto de malta de cebada
+es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada
 et:odralinnaseekstrakt
 fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
@@ -46425,6 +46448,7 @@ de:Mais-Maltodextrin
 es:maltodextrina de maiz
 fi:maissimaltodekstriini
 fr:maltodextrine de maïs, malto-dextrine de maïs
+pt:maltodextrina de milho
 
 < en:Maltodextrins
 en:potato maltodextrin
@@ -46647,7 +46671,6 @@ nl:mangopuree
 en:maple syrup
 da:Ahornsirup
 de:Ahornsirup
-es:jarabe de arce
 fi:vaahterasiirappi
 fr:sirop d'érable
 hu:juharszirup
@@ -46659,6 +46682,7 @@ vegetarian:en: yes
 < en:Maple syrup
 en:canadian maple syrup
 de:Kanadischer Ahornsirup
+es:jarabe de arce, savia de arce
 fi:kanadalainen vaahterasiirappi
 fr:sirop d'érable canadien
 hu:kanadai juharszirup
@@ -46672,7 +46696,7 @@ hu:bio juharszirup
 < en:Maple syrup
 en:pure maple syrup
 de:reiner Ahornsirup
-es:Jarabe puro de maple
+es:Jarabe puro de arce
 fi:Puhdas vaahterasiirappi
 fr:Sirop d'érable pur
 
@@ -46747,6 +46771,7 @@ es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
 it:margarina vegetale
+pt:margarina vegetal
 vegan:en: yes
 vegetarian:en: yes
 
@@ -47297,7 +47322,7 @@ ru:коровье молоко
 sv:Komjölk
 uk:Коров'яче молоко
 zh:牛奶
-wikipedia:en: https://fr.wikipedia.org/wiki/Lait_de_vache
+wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_de_vache
 
 < en:Milk
 en:evaporated milk
@@ -47429,7 +47454,7 @@ nl:halfvolle melk, gedeeltelijk afgeroomde melk
 pt:leite meio gordo
 sv:mellanmjölk
 wikidata:en: Q10572454
-wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
+wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
 en:sheeps milk, sheep milk
@@ -47779,14 +47804,14 @@ ar:فطر زعفراني حليبي الغطاء
 az:Narıncı südləyən
 be:Рыжык
 bg:обикновена млечница
-ca:pinetell
+ca:pinetell, rovellon
 co:Lattaghjolu
 cs:ryzec pravý
 cv:Хыр кăмпи
 cy:Cap llaeth saffrwm
 de:Edel-Reizker
 el:Κουμαρίτες
-es:Nícalo
+es:níscalo
 et:Porgandriisikas
 eu:Esnegorri
 fa:شیر-زعفران کلاه
@@ -48203,6 +48228,7 @@ vi:crom
 yi:כראם
 yo:Krómíọ̀mù
 zh:铬
+wikidata:en: Q725
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
 < en:Minerals
@@ -49285,7 +49311,7 @@ ur:خارصین
 uz:Rux
 vi:kẽm
 zh:锌
-wikidata:en: https://en.wikipedia.org/wiki/Zinc
+wikidata:en: Q758
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc
 
 < en:Mint
@@ -49304,7 +49330,7 @@ cy:Mintys poeth
 da:Pebermynte
 de:Pfefferminz, Pfefferminze
 eo:Pipromento
-es:menta
+es:menta, hierba buena
 et:Piparmünt
 eu:Mendafin
 fa:نعنای فلفلی
@@ -49597,6 +49623,7 @@ ak:Posena
 bg:Octopus
 de:Krake
 eo:Polpo
+es:pulpo
 fi:tursas
 fr:poulpe, poulpes
 hi:ऑक्टोपस
@@ -50056,6 +50083,10 @@ zh:木斯里
 wikidata:en: Q52406
 wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 
+en:mung bean
+es:habas de mungo
+wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
+
 en:mushroom
 an:Potrecón
 ar:عيش الغراب
@@ -50228,6 +50259,7 @@ uk:Білий гриб
 vi:Nấm thông
 wa:Magnåve bolet
 zh:美味牛肝菌
+wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 
 < en:Mushroom
@@ -50503,6 +50535,11 @@ fr:Bolet pinicole
 la:Boletus pinophilus, Boletus pinicola, pinicola
 
 < en:Mushroom
+en:portobello
+es:portobello
+la:agaricus brunnescens
+
+< en:Mushroom
 en:Scotch bonnet
 bg:обикновена челядинка
 ca:cama-sec
@@ -50535,7 +50572,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 < en:Mushroom
 en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
-es:setas negro
+es:shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
@@ -50725,12 +50762,19 @@ zh:黑木耳
 wikidata:en: Q321342
 wikipedia:en: https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 
+< en:Mushroom
+en:yellow foot
+ca:camagroc
+es:camagroc
+la:cantharellus lutescens
+wikipedia:es: https://es.wikipedia.org/wiki/Cantharellus_lutescens
+
 < en:Musky octopus
 en:Eledone moschata
 de:Moschuskrake (Eledone moschata)
 fr:Eledone moschata, Pieuvre musquée
 la:Eledone moschata
-wikidata:en: https://www.wikidata.org/wiki/Q2296077
+wikidata:en: Q2296077
 wikipedia:en: https://en.wikipedia.org/wiki/Eledone_moschata
 
 < en:Mussel
@@ -50919,6 +50963,13 @@ de:natürliches Selleriearoma
 fi:luontainen selleriaromi
 hu:természetes zeller aroma
 nl:natuurlijk selderijaroma
+
+< en:Natural flavouring
+de:natürliches Kaffee-Aroma
+fi:luontainen kahviaromi
+fr:arôme naturel de café
+hu:természetes kávé aroma
+nl:natuurlijk koffie aroma
 
 < en:Natural flavouring
 en:butter natural flavouring
@@ -51420,12 +51471,6 @@ nl:natuurlijke aroma's van citrusvruchten
 fr:arôme naturel d'aneth
 
 < en:Natural flavouring
-fr:arôme naturel de café
-fi:luontainen kahviaromi
-hu:természetes kávé aroma
-nl:natuurlijk koffie aroma
-
-< en:Natural flavouring
 fr:arôme naturel de cassis
 de:natürliches Cassisaroma
 hu:természetes fekete ribizli aroma
@@ -51813,7 +51858,8 @@ tr:İnosinik asit
 zh:肌苷酸
 vegan:en: no
 vegetarian:en: no
-wikidata:en: https://en.wikipedia.org/wiki/Inosinic_acid
+wikidata:en: Q255933
+wikipedia:en: https://en.wikipedia.org/wiki/Inosinic_acid
 
 < en:Nucleotides
 en:uridine monophosphate, uridine-5'-monophosphate, uridine 5'-phosphoric acid, UMP
@@ -51857,7 +51903,7 @@ da:nød, nødder
 de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht, Schalenfrüchte, Nüsse, Schalenfrüchten
 el:Κάρυο, καρποί με κέλυφος, καρύδια
 eo:nukso
-es:nuez, nueces, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
+es:frutos secos, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
 et:pähkel, pähklid
 eu:fruitu oskoldun
 fa:فندقی
@@ -51981,6 +52027,7 @@ wikidata:en: Q184357
 < en:Nut
 en:bitter almond
 de:Bittermandeln
+es:almendras amargas
 fi:Karvasmanteli
 fr:amandes amères
 it:mandorle amare, Armellina
@@ -52107,7 +52154,7 @@ ne:क‌‌‌टुस
 nl:hazelnoot, hazelnoten
 nv:Neeshchʼíínímazí
 pl:orzechy laskowe, Leszczyna pospolita
-pt:avelãs
+pt:avelã, avelãs
 ro:alune de pădure
 ru:лесной орех, лесньым орехом
 sk:lieskové oriešky
@@ -52226,7 +52273,7 @@ da:valnødder
 de:Walnuss, Walnüsse, Walnusskerne
 el:Καρύδι
 eo:juglandonukso
-es:nuez, nueces, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados
+es:nuez, nueces
 et:Kreeka pähklid
 eu:Intxaur
 fa:مغز گردو
@@ -52316,6 +52363,10 @@ uk:Вівсяні пластівці
 zh:大燕麥片
 wikidata:en: Q1208221
 wikipedia:en: https://en.wikipedia.org/wiki/Rolled_oats
+
+< en:Oat
+en:oat oil
+es:aceite vegetal avena
 
 < en:Oat
 en:organic oat
@@ -52870,6 +52921,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Omelette
 fr:oignon et ail en poudre
 
 < en:Onion
+de:Zwiebeln gegrillt, Röstzwiebeln
+fi:paahdettu sipuli
+fr:oignon grillé, oignons grillés
+it:cipolle grigliate
+nl:gebakken ui, gebakken uien
+pt:cebolas grelhadas
+
+< en:Onion
 en:dehydrated onion, dried onion
 ca:Ceba deshidratada
 de:Zwiebeln getrocknet, Trockenzwiebeln
@@ -52880,7 +52939,7 @@ hu:szárított hagyma, dehidratált hagyma
 it:cipolle disidratate
 nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
 pl:Suszona cebula
-pt:cebola seca
+pt:cebola desidratada, cebola seca
 sv:torkad lök
 
 < en:Onion
@@ -52893,13 +52952,12 @@ it:cipolla fresca
 
 < en:Onion
 en:fried onion
-de:Zwiebeln gegrillt
+de:frittierte Zwiebeln
 es:cebollas fritas
-fi:paahdettu sipuli
-fr:oignon grillé, oignons grillés
-it:cipolle grigliate
-nl:Gefrituurde ui
-pt:cebolas fritas
+fr:oignon frit, oignons frits
+hu:Sült hagyma
+nl:gefrituurde ui, gefrituurde uien
+pt:cebola frita, cebolas fritas
 
 < en:Onion
 en:green onion, scallions, spring onion, Spring onions, Green onions
@@ -53082,12 +53140,6 @@ de:Zwiebelsaftkonzentrat
 fi:sipulimehutiiviste
 nl:geconcentreerd uiensap
 sv:lökjuicekoncentrat
-
-< en:Onion
-fr:oignon frit, oignons frits
-de:frittierte Zwiebeln
-hu:Sült hagyma
-nl:gebakken ui, gebakken uien, gefrituurde uien
 
 < en:Onion
 fr:oignon fumé en poudre
@@ -53734,10 +53786,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Palm_oil
 < en:Palm sugar
 en:coconut sugar, coconut palm sugar
 ca:Sucre de coco
-de:Kokosnusszucker
+de:Kokosblütenzucker
 es:Azucar de coco
 fi:kookossokeri
-fr:sucre de fleur de cocotier, sucre de fleur de Coco, sucre de coco
+fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
 id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
@@ -53842,33 +53894,8 @@ fi:paprikatahna
 fr:Pâte de paprika
 
 < en:Paprika
-en:paprika powder
-de:Paprikapulver
-es:pimentón en polvo
-fi:paprikajauhe
-fr:paprika en poudre, poudre de paprika
-it:paprica en polvere
-nl:paprikapoeder, paprika poeder
-pl:papryka w proszku
-pt:pimentão doce em pó
-sk:paprika v prahu
-sv:paprikapulver
-
-< en:Paprika
-en:smoked paprika
-de:geräucherter Paprika
-es:Pimentón ahumado
-fi:savupaprika, savustettu paprika, savutettu paprika
-fr:paprika fumé
-it:paprica affumicata
-nl:Gerookte paprika
-
-< en:Paprika
 fr:paprika doux
 es:pimentón dulce
-
-< en:Paprika powder
-de:scharfes Paprikapulver
 
 < en:Parboiled long grain rice
 en:superior quality long grain parboiled rice
@@ -54066,88 +54093,6 @@ fr:Doryteuthis gahi
 la:Doryteuthis gahi, Loligo Gahi
 wikidata:en: Q13596602
 wikipedia:en: https://en.wikipedia.org/wiki/Doryteuthis_gahi
-
-< en:Pea
-en:chickpea, chickpeas
-am:ሽምብራ
-ar:حمص شائع
-az:Qoyunnoxudu
-be:нут культурны
-bg:нахут
-bn:ছোলা
-bs:Leblebija
-ca:cigró
-cs:cizrna beraní
-cy:Gwygbysen gwygbys
-da:kikærter
-de:Kichererbse, Kichererbsen
-dv:ސަނާ މުގު
-el:ρεβίθι, Ρεβιθιά
-es:garbanzo, garbanzos, garbanzo beans
-et:Harilik kikerhernes
-eu:Txitxirio
-fa:نخود
-fi:kikherne
-fr:pois chiche, pois chiches
-ga:Piseánach
-gl:Garavanzo
-gu:ચણા
-he:חמצה
-hi:चना
-hr:Slanutak
-hu:Csicseriborsó
-id:kacang arab
-io:Garbanzo
-is:Kjúklingabaun
-it:ceci
-ja:ヒヨコマメ
-kk:Нұт
-kn:ಕಡಲೆ
-ko:병아리콩
-ku:Nok
-lb:Käicher
-lt:avinžirniai
-lv:auna zirņi
-mk:леблебија
-ml:കടല
-ms:Kacang kuda
-nb:kikert
-ne:चना
-nl:kikkererwt, kikkererwten
-nn:kikert
-oc:Céser
-or:ଚଣା
-pa:ਛੋਲੇ
-pl:Ciecierzyca
-ps:نخود
-pt:Grão-de-bico
-ro:Năut
-ru:нут
-sa:चणकः
-sh:Slanutak
-si:කඩල
-sl:Čičerika
-so:Shunburo
-sq:Qiqra
-sr:леблебија
-sv:kikärter
-sw:Mnjegere mkubwa
-ta:கொண்டைக் கடலை
-te:శనగలు
-tg:Нахӯд
-th:ถั่วหัวช้าง
-tl:Garbansos
-tr:nohut
-tt:Бәрән ногыты
-uk:нут
-ur:چنا
-vi:Đậu gà
-wa:Poes d' souke
-yi:נאהיט
-zh:鹰嘴豆
-carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
-carbon_footprint_fr_foodges_value:fr: 1.5
-wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
 
 < en:Pea
 en:garden peas
@@ -54420,6 +54365,154 @@ de:pencillium roqueforti (Edelschimmel)
 fr:penicillium roqueforti
 la:pencillium roqueforti
 
+< en:Pepper
+en:black pepper
+ca:Pebre negre
+da:sort peber
+de:schwarzer Pfeffer, Pfeffer schwarz
+el:μαύρο πιπέρι
+eo:nigra pipro
+es:pimienta negra
+et:must pipar
+fi:mustapippuri
+fr:poivre noir
+hu:feketebors
+it:pepe nero
+lt:juodieji piperai
+nl:zwarte peper
+nn:svart pepper
+pl:czamy pieprz, pieprz czarny
+pt:pimenta preta
+ro:piper negru
+ru:Черный перец
+sl:cmi poper
+sv:svartpeppar
+tr:karabiber
+zh:黑胡椒
+
+< en:Pepper
+en:green bell pepper
+da:Grøn peber
+de:grüne Peperoni
+es:pimiento verde
+fi:vihreä paprika
+fr:poivron vert, poivrons verts
+it:peperoni verdi
+nl:groene paprika
+pl:Zielona papryka
+pt:pimentos verdes
+sv:Grön paprika
+
+< en:Pepper
+en:green pepper
+de:grüner Pfeffer
+es:pimienta verde
+fi:viherpippuri
+fr:poivre vert
+
+< en:Pepper
+en:grey pepper, gray pepper
+fr:poivre gris
+
+< en:Pepper
+en:pepper extract
+de:Pfefferextrakt
+es:extracto de pimienta
+fi:pippuriuute
+fr:extrait de poivre
+it:estratto di pepe
+nl:peperextract
+
+< en:Pepper
+en:peppercorns
+de:Pfefferkörner
+es:pimienta en grano
+fi:Pippureita
+fr:grains de poivre
+
+< en:Pepper
+en:pink pepper
+fr:poivre rose
+
+< en:Pepper
+en:red bell pepper, red pepper
+ca:pebrot vermell
+da:rød peberfrugt
+de:rote Paprika, roter Paprika
+el:κόκκινη πιπεριά
+es:pimiento rojo, pimiento morrón rojo
+fi:punainen paprika
+fr:poivron rouge, poivrons rouge
+hu:kaliforniai paprika, piros bell paprika
+it:peperoni rossi
+lv:sarkanā paprika
+nl:rode paprika
+pl:Papryka czerwona
+pt:pimento vermelho
+ru:Красный перец
+sv:röd paprika
+
+< en:Pepper
+en:white pepper
+cs:Bílý pepř
+da:Hvid peber
+de:weißer Pfeffer, weisser Pfeffer
+es:Pimienta blanca
+fi:valkopippuri
+fr:poivre blanc
+hu:fehérbors
+it:pepe bianco
+nl:witte peper
+pl:Pieprz biały
+sv:vitpeppar
+
+< en:Pepper
+< en:Spice
+en:paprika
+ar:بابريكا
+az:paprika
+bg:червен пипер
+br:paprika
+bs:paprika
+ca:piment vermell
+cs:paprika
+cy:Paprica
+da:paprika
+de:
+el:πάπρικα
+eo:papriko
+es:pimentón
+et:paprika
+eu:piperrauts
+fa:پاپریکا
+fi:paprika, paprikaa
+fr:paprika
+ga:pemento
+he:פפריקה
+hu:fűszerpaprika-őrlemény
+io:papriko
+it:paprika
+ja:パプリカ
+ko:파프리카
+lt:paprika
+lv:paprika
+mk:црвен пипер
+ms:paprika
+nl:paprika
+pl:papryka
+pt:paprica
+ro:boia
+ru:паприка
+sl:paprika
+sr:паприка
+sv:paprika
+tg:паприка
+tl:Paprika
+uk:паприка
+zh:辣椒粉
+wikidata:en: Q3127593
+wikipedia:en: https://en.wikipedia.org/wiki/Paprika
+
 < en:Pepper extract
 fr:extrait naturel de poivre
 fi:luontainen pippuriuute
@@ -54457,6 +54550,13 @@ de:Bio-Pfefferminzöl
 fi:luomu piparminttuöljy
 fr:huile de menthe poivrée biologique
 nl:biologische pepermuntolie
+
+en:persipan
+de:Persipan
+es:persipan
+fr:persipan
+wikidata:en: Q1929741
+wikipedia:en: https://en.wikipedia.org/wiki/Persipan
 
 en:Petit-Beurre
 de:Butterkekse, Butterkeks
@@ -54694,7 +54794,7 @@ da:humle
 de:Hopfen
 el:λυκίσκος
 eo:lupolo
-es:lúpolo
+es:lúpulo
 et:humal
 fi:humala
 fr:houblon
@@ -55933,6 +56033,10 @@ zu:Couenne
 wikidata:en: Q3695900
 
 < en:Pork
+en:pork skin, sausage skin
+es:tripa de cerdo, tripa natural de cerdo
+
+< en:Pork
 fr:bouillon de porc
 
 < en:Pork
@@ -55959,7 +56063,7 @@ hu:sertéshús, disznóhús
 it:carne di suino
 nl:Varkensvlees
 pl:Wieprzowina
-pt:Carne de porco
+pt:carne de suíno, carne de porco
 ro:carne de porc, carne porc
 ru:Свинина
 sv:griskött
@@ -56915,6 +57019,10 @@ description:sl: Potisni plini so plini, razen zraka, ki potisnejo živilo iz emb
 description:sv: Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 wikidata:en: Q50419221
 
+en:propolis
+es:propóleo
+wikipedia:es: https://es.wikipedia.org/wiki/Propóleo
+
 en:protein, proteins
 af:Proteïen
 an:Proteína
@@ -57105,7 +57213,7 @@ he:בקבוקון מיץ
 nl:vruchtvlees, pulp
 sk:Dužnina
 sv:Fruktkött
-wikipedia:en: Q1470757
+wikidata:en: Q1470757
 
 < en:Carrot
 < en:Pumpkin
@@ -57116,7 +57224,7 @@ fr:concentré de carotte et de citrouille
 en:pumpkin seed
 da:Græskarkerner
 de:Kürbiskerne
-es:semillas de calebaza
+es:semillas de calabaza
 fi:kurpitsansiemen, kurpitsansiemenet
 fr:graine de courge, graines de courge, graines de potiron, graines de citrouille
 it:semi di zucca
@@ -57244,7 +57352,7 @@ it:popa di frutti
 < en:Purée
 en:pear puree
 de:Birnenpüree
-es:puré de para
+es:puré de pera
 fi:päärynäpyree
 fr:purée de poires, purée de poire
 it:purea di pere
@@ -57481,7 +57589,7 @@ en:canola oil
 ca:Oli de canola
 da:rapsolie
 de:Ölrübsenöl
-es:aceite de canola
+es:
 fi:Rypsiöljy
 fr:huile de navette, huile de canola
 hu:kanolaolaj, canolaolaj, canola olaj, kanola olaj
@@ -57502,7 +57610,7 @@ cs:řepkový olej
 da:rapsolie
 de:Rapsöl
 el:κραμβέλαιο
-es:Aceite de colza, aceite de nabina
+es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza
 hr:repičino ulje
@@ -57749,23 +57857,6 @@ fr:lentilles rouges décortiquées
 < en:Red onion
 en:marinated red onion
 fi:marinoitu punasipuli
-
-< en:Red pepper
-fr:poivrons rouges déshydratés
-fi:kuivattu punainen paprika, kuivatut punaiset paprikat
-
-< en:Red pepper
-fr:poivrons rouges grillés
-de:Rote Peperoni gegrillt
-fi:grillattu punainen paprika
-it:peperoni rossi grigliati
-
-< en:Green pepper
-< en:Red pepper
-fr:poivrons rouges et verts, poivrons verts et rouges
-de:rote und grüne Peperoni
-fi:punainen ja vihreä paprika, punaiset ja vihreät paprikat
-nl:rode en groene paprika's
 
 < en:Red port
 en:modified red port
@@ -58253,7 +58344,7 @@ fr:riz semi-complet
 
 < en:Rice flour
 en:brown rice flour, full rice flour
-de:braunes Reismehl, volles Reismehl
+de:Reisvollkornmehl, braunes Reismehl, volles Reismehl
 es:harina de arroz integral
 fi:tumma riisijauho, täysjyväriisijauho
 fr:farine de riz complet
@@ -58763,7 +58854,7 @@ tr:Rezene
 uk:фенхель
 ur:سونف
 zh:小茴香
-wikidata:en: https://www.wikidata.org/wiki/Q43511
+wikidata:en: Q43511
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
 
 < en:Root vegetable
@@ -59148,7 +59239,7 @@ da:pastinak
 de:Pastinake, Pastinaken
 el:Παστινάκη
 eo:pastinako
-es:Pastinaca
+es:Pastinaca, chirivia
 et:Aed-moorputk
 eu:Txiribi
 fa:شقاقل
@@ -59361,7 +59452,7 @@ za:lauxbaeg
 zh:萝卜
 carbon_footprint_fr_foodges_ingredient:fr: Radis serre chauffée
 carbon_footprint_fr_foodges_value:fr: 8.4
-wikidata:en: Q7224565 # for the plant
+wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
 < en:Root vegetable
@@ -59380,8 +59471,9 @@ wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
 < en:Root vegetable
-en:rutabaga
+en:rutabaga, swede
 de:Kohlrübe
+es:colinabo
 fr:rutabaga
 
 < en:Root vegetable
@@ -59784,7 +59876,7 @@ vi:Sữa ong chúa
 zh:蜂王漿
 vegetarian:en: yes
 wikidata:en: Q202501
-wikipedia:en: https://en.wikipedia.org/wiki/
+wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 
 < en:Rye
 de:Roggengrießkleie
@@ -60372,7 +60464,7 @@ or:ଲୁଣ
 pa:ਲੂਣ
 pl:sól, sól kuchenna
 ps:مالگه
-pt:Sal de cozinha, sal de cosina, sal de taula
+pt:sal, sal de cozinha, sal de cosina, sal de taula
 ro:sare, Sare de bucătărie
 ru:Поваренная соль
 rw:Umunyu
@@ -61551,6 +61643,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ascophyllum
 < en:Seaweed
 en:dehydrated seaweed
 de:Seetang getrocknet
+es:alga marina deshidritada
 fi:kuivattu merilevä
 fr:algues déshydratées
 it:alghe disidratate
@@ -61719,6 +61812,7 @@ en:wakame
 ar:واكامي
 de:wakame
 eo:Vakameo
+es:wakame, alga wakame
 fa:واکامه
 fi:wakame
 fr:wakamé
@@ -61862,7 +61956,7 @@ en:cumin seeds, cumin
 ca:llavors de comí
 da:Spidskommen
 de:Kümmelkörnen, Kreuzkümmel
-es:comino
+es:comino, semillas de comino
 fi:kumina, kuminan siemen
 fr:graines de cumin, cumin
 hu:köménymag
@@ -61912,6 +62006,35 @@ it:semi di canapa
 nl:hennepzaad
 
 < en:Seed
+en:pepper
+ak:moko
+ca:pebre
+de:Pfeffer
+ee:ableh
+eo:pipro
+es:pimienta
+et:Pipar
+fi:pippuri
+fr:poivre, poivres
+gl:Pementa
+ht:Pwav
+it:pepe
+lt:Pipirai
+lv:pipari
+ms:Lada
+nb:Pepper
+nl:peper
+nn:Pepar
+oc:Pebre
+pl:pieprz
+pt:pimenta
+ro:piper
+sl:poper
+sv:peppar
+tr:biber
+wikidata:en: Q3143131
+
+< en:Seed
 en:pine nuts
 ar:حبوب الصنوبر
 ba:кедр сәтләүеге
@@ -61954,7 +62077,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
 < en:Seed
 en:poppy seed, poppy seeds, poppy
 de:Mohnsamen, Mohn
-es:semillas de amapola
+es:semillas de amapola, amapola
 fi:unikonsiemen, unikonsiemenet
 fr:graines de pavot, pavot
 it:semi di papavero, papavero
@@ -62376,7 +62499,7 @@ da:tahini
 de:Tahina
 el:Ταχίνι
 eo:Sezama pasto
-es:Tahina
+es:Tahini
 et:tahhiini
 fa:ارده
 fi:tahini
@@ -62838,7 +62961,7 @@ fr:Pandalus jordani
 is:Bleikrækja
 nl:Pandalus jordani
 wikidata:en: Q4470579
-wikipedia:en: https://nl.wikipedia.org/wiki/Pandalus_jordani
+wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 
 < en:Shrimp
 en:Parapenaeopsis stylifera
@@ -62886,6 +63009,17 @@ fr:Crevette arc-en-ciel
 la:Parapenaeopsis sculptilis, Parapenaeopsis, Parapenaeopsis spp
 wikidata:en: Q14025149
 wikipedia:en: https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
+
+< en:Shrimp
+en:red prawn
+es:gamba roja
+
+< en:Crustacean
+< en:Shrimp
+en:scarlet shrimp
+es:carabinero
+la:plesiopenaeus edwardsianus
+wikipedia:es: https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
 
 < en:Shrimp
 en:shrimp paste
@@ -63090,10 +63224,6 @@ de:Speckwürfel gekocht und geräuchert
 es:tocino ahumado frito
 fr:lardons cuits fumés, lardons cuits fumés rissolés
 pt:toucinho cozido fumado
-
-< en:Smoked paprika
-en:organic smoked paprika
-fi:luomu savutettu paprika
 
 < en:Smoked salmon
 fr:chutes de saumon fumé
@@ -63384,6 +63514,7 @@ de:Natursauerteig
 
 < en:Sourdough
 de:Roggensauerteig
+es:masa madre de trigo
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
@@ -63646,6 +63777,9 @@ wikidata:en: Q11006
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean
 
 < en:Soya
+es:concentrado de soja
+
+< en:Soya
 fr:jus de soja
 es:zumo de soja
 
@@ -63772,7 +63906,7 @@ fr:flocons d'épeautre complet
 < en:Spelt
 en:organic spelt
 de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
-es:Espelta orgánica
+es:Espelta orgánica, trigo espelta troceado
 fi:luomu speltti
 fr:épeautre biologique
 hu:bio tönkölybúza
@@ -63835,53 +63969,6 @@ carbon_footprint_fr_foodges_value:fr: 2.2
 nutriscore_fruits_vegetables_nuts:en: no
 vegan:en: yes
 vegetarian:en: yes
-
-< en:Bell pepper
-< en:Spice
-en:paprika
-ar:بابريكا
-az:paprika
-bg:червен пипер
-br:paprika
-bs:paprika
-ca:piment vermell
-cs:paprika
-cy:Paprica
-da:paprika
-de:
-el:πάπρικα
-eo:papriko
-es:pimentón
-et:paprika
-eu:piperrauts
-fa:پاپریکا
-fi:paprika, paprikaa, pippuri
-fr:paprika
-ga:pemento
-he:פפריקה
-hu:fűszerpaprika-őrlemény
-io:papriko
-it:paprika
-ja:パプリカ
-ko:파프리카
-lt:paprika
-lv:paprika
-mk:црвен пипер
-ms:paprika
-nl:paprika, peper
-pl:papryka
-pt:paprica
-ro:boia
-ru:паприка
-sl:paprika
-sr:паприка
-sv:paprika, peppar
-tg:паприка
-tl:Paprika
-uk:паприка
-zh:辣椒粉
-wikidata:en: Q3127593
-wikipedia:en: https://en.wikipedia.org/wiki/Paprika
 
 < en:Spice
 en:caraway
@@ -64148,7 +64235,7 @@ da:Kryddernellike
 de:Nelken, Gewürznelken
 dv:ކަރަންފޫ
 eo:Kariofilo
-es:clavos de olor
+es:clavos de olor, clavo
 et:Nelk
 eu:Iltze
 fa:میخک صدپر
@@ -65222,7 +65309,7 @@ en:tapioca starch, tapioca, manioc starch
 da:tapiokastivelse
 de:Tapiocastärke, Tapiokastärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
-es:almidón de tapioca
+es:almidón de tapioca, almidón de mandioca
 fi:tapiokatärkkelys
 fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
 hu:tápiókakeményítő
@@ -65299,7 +65386,7 @@ de:Dunkelstreifiger Scheidling (Volvariella Volvacea)
 fr:Volvariella volvacea, Volvaire cultivée, Volvaire asiatique
 la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en: Q641656
-wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
+wikipedia:en: https://en.wikipedia.org/wiki/Volvariella_volvacea
 
 < en:Strawberry
 de:Erdbeerpulver
@@ -65596,6 +65683,7 @@ hu:invertcukor
 it:zucchero invertito
 nl:Invertsuiker
 pl:Cukier inwertowany
+pt:açúcar invertido
 ro:zahăr invertit, zahar invertit
 wikipedia:en: https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
@@ -66003,7 +66091,7 @@ en:sunflower seed, sunflower seeds, sunflower kernels
 ca:llavors de gira-sol, pipes de gira-sol
 da:Solsikkekerner
 de:Sonnenblumenkerne
-es:semillas de girasol, pipas de girasol
+es:semillas de girasol, pipas de girasol, pipas
 fi:auringonkukansiemen, auringonkukansiemenet
 fr:graines de tournesol
 hu:napraforgómag
@@ -66970,7 +67058,7 @@ en:chopped tomatoes
 da:Hakkede tomater
 de:gehackte Tomaten, Tomatenhack, Tomatenfruchtfleisch, zerkleinerte Tomaten
 el:ψιλοκαμμένη ντομάτα
-es:Tomates en trozos
+es:Tomates en trozos, tomate troceado
 fi:pilkottu tomaatti, pilkotut tomaatit
 fr:tomate concassée, tomates concassées, concassé de tomates
 hu:szeletelt paradicsom
@@ -67025,6 +67113,7 @@ fi:kuorittu tomaatti, kuoritut tomaatit
 fr:tomates pelées, tomate pelée
 it:pomodori pelati
 nl:gepelde tomaten
+pt:tomate pelado
 carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr: 1.4
 
@@ -67072,7 +67161,7 @@ en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 da:tomatpuré, tomatkoncentrat
 de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
-es:concentrado de tomate
+es:concentrado de tomate, pasta de tomate
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste
 fr:Purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
 he:מחית עגבניות
@@ -67080,6 +67169,7 @@ hu:paradicsompüré, paradicsomszósz
 it:passata di pomodoro, concentrato di pomodoro
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:koncentrat pomidorowy
+pt:concentrado de tomate
 ru:Томатная паста
 sv:tomatpuré
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
@@ -67422,10 +67512,6 @@ fi:kurkumajauhe
 fr:poudre de curcuma, curcuma moulu, curcuma déshydraté
 it:curcuma in polvere
 
-< en:Paprika powder
-< en:Turmeric powder
-fr:paprika et curcuma déshydratés
-
 < en:UHT pasteurised whole milk
 en:organic UHT pasteurised whole milk
 ca:llet sencera esterilitzada UHT ecològica, llet sencera esterilitzada d'agricultura ecològica
@@ -67474,7 +67560,7 @@ nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
 en:unrefined cane sugar, raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
-de:Rohrohrzucker, roher Rohrzucker
+de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar
 fi:raakaruokosokeri
@@ -67621,6 +67707,7 @@ it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma
 pl:naturalny aromat wanilii
+pt:aroma de baunilha natural, aromatizante de baunilha natural
 sv:naturlig vanilijarom
 vegan:en: yes
 vegetarian:en: yes
@@ -68187,7 +68274,7 @@ sv:Pinot noir
 uk:Піно Нуар
 zh:黑比诺
 wikidata:en: Q223701
-wikipedia:en: https://world.openfoodfacts.org/ingredient/fr:pinot-noir
+wikipedia:en: https://en.wikipedia.org/wiki/Pinot_noir
 
 < en:Varietal
 en:Poulsard
@@ -68773,56 +68860,47 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q1474
 
 < en:Vegetable
-en:bell pepper, pepper
+en:bell pepper
 af:Soetrissie
-ak:moko
 an:Pimiento
 ar:فلفل حلو
-ca:Pebrot morro de bou, pebre
+ca:Pebrot morro de bou
 cs:kapie
 da:paprika
-de:peberfrugt, Paprika, Pfeffer
-ee:ableh
-eo:Kapsiko, pipro
-es:Pimiento, morrón, Pimiento morrón, pimienta
-et:Pipar
+de:peberfrugt, Paprika
+eo:Kapsiko
+es:Pimiento, morrón, Pimiento morrón
 fa:فلفل دلمه‌ای
-fi:paprika, paprikaa, pippuri
-fr:poivron, poivrons, poivre, poivres
-gl:Pementa
+fi:paprika, paprikaa
+fr:poivron, poivrons
 ha:Barkono
 he:גמבה, פלפל
-ht:Pwav
 hu:bell paprika
 id:Paprika
 is:Paprika
-it:Peperone, peperoni, pepe
+it:Peperone, peperoni
 ja:ピーマン
 kk:Бұрыш
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
 ko:단고추
-lt:Saldžioji paprika, Pipirai
-lv:pipari
+lt:Saldžioji paprika
 mk:бабура
 mr:ढोबळी मिरची
-ms:Lada
-nb:Paprika, Pepper
-nl:paprika, peper
-nn:Paprika, Pepar
-oc:Pebron, Pebre
-pl:pieprz
+nb:Paprika
+nl:paprika
+nn:Paprika
+oc:Pebron
 ps:خواږه مرچ
-pt:pimentão, pimenta
-ro:piper
+pt:pimentão
 ru:перец овощной
 sa:महामरीचिका
-sl:Kapia, poper
-sv:paprika, peppar
+sl:Kapia
+sv:paprika
 ta:குடைமிளகாய்
 te:కూరమిరప
 th:พริกหยวก
 tl:Siling-pula
-tr:Dolma biber, biber
+tr:Dolma biber
 uk:овочевий перець
 uz:Shirin qalampir
 vi:Ớt chuông
@@ -68833,6 +68911,11 @@ carbon_footprint_fr_foodges_ingredient:fr: Poivron
 carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q1548030
 wikipedia:en: https://en.wikipedia.org/wiki/Bell_pepper
+
+< en:Vegetable
+en:borage
+es:borraja
+wikipedia:en: https://en.wikipedia.org/wiki/Borage
 
 < en:Vegetable
 en:broccoli
@@ -68945,6 +69028,11 @@ to:Kāpisi
 tr:Lahana
 wikidata:en: Q14328596
 wikipedia:en: https://en.wikipedia.org/wiki/Cabbage
+
+< en:Vegetable
+en:cardoon, artichoke thistle
+es:cardo
+wikipedia:en: https://en.wikipedia.org/wiki/Cardoon
 
 < en:Vegetable
 en:cauliflower
@@ -69871,7 +69959,7 @@ bg:Масло от ший
 de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
-es:manteca de karité
+es:manteca de karité, grasa de karite
 fi:karitevoi, sheavoi, shea
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
@@ -70091,7 +70179,7 @@ ca:Oli de coco, oli de copra, copra
 cs:Kokosový olej
 da:kokosolie
 de:Kokosnussöl, Kokosöl
-es:aceite de coco
+es:aceite de coco, aceite vegetal de coco
 et:Kookosõli
 eu:Koko olio
 fa:روغن نارگیل
@@ -70680,7 +70768,7 @@ en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 ca:Oli de colza
 da:rapsolie
 de:Rapsöl
-es:Aceite de colza, aceite de nabina
+es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de colza ou canola
 he:שמן לפתית
@@ -70708,7 +70796,7 @@ it:grassi vegetali
 nl:plantaardige vetten
 nn:vegetabilisk fett
 pl:Tłuszcz roślinny
-pt:gorduras vegetais, matérias gordas vegetais
+pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
 ro:grăsime vegetală
 ru:растительные жиры
 sv:vegetabiliska fetter
@@ -70747,7 +70835,7 @@ ms:Minyak sayur
 nl:plantaardige olie, Spijsolie
 nn:vegetabilisk olie
 pl:Oleje roślinne
-pt:Óleo vegetal
+pt:Óleo vegetal, óleos vegetais
 ro:Ulei vegetal, uleiuri vegetale
 ru:растительные масла, Растительное масло
 sh:Biljno ulje
@@ -70797,6 +70885,7 @@ fr:protéine de blé, protéines de froment
 hu:búzafehérje
 it:proteine del grano
 nl:graneneiwit
+pt:proteína de trigo
 
 < en:Vegetable protein
 fr:protéines de blé
@@ -72582,13 +72671,13 @@ carbon_footprint_fr_foodges_value:fr: 0.4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q283
-wikipedia:en: en.wikipedia.org/wiki/Water
+wikipedia:en: https://en.wikipedia.org/wiki/Water
 
 < en:Water
 en:Brewing water
 de:Brauwasser
 fr:Eau de brassage
-wikipedia:en: https://de.wikipedia.org/wiki/Brauwasser
+wikipedia:de: https://de.wikipedia.org/wiki/Brauwasser
 
 < en:Water
 en:Carbonated water
@@ -73258,6 +73347,10 @@ fr:lactosérum déminéralisé
 nl:Gedemineraliseerde wei
 
 < en:Whey
+en:sheep's whey, Sheep's milk serum
+es:suero láctico de oveja
+
+< en:Whey
 en:sweet whey
 ca:sèrum de la llet ensucrat
 de:Süßmolke, Süssmolke
@@ -73455,19 +73548,20 @@ fi:vaalea rypälemehutiiviste
 fr:jus de raisin blanc concentré
 nl:Geconcentreerd grapefruitsap
 
-< en:White pepper
-en:ground white pepper
-de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
-fi:valkopippurijauhe, jauhettu valkopippuri
-fr:poivre blanc moulu
-nl:gemalen witte peper
-
 < en:Black pepper
 < en:White pepper
 en:black and white pepper
 de:schwarzer und weißer Pfeffer
 fi:musta- ja valkopippuri
 fr:Poivres noir et blanc
+
+< en:White pepper
+en:ground white pepper
+de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
+es:pimienta blanca molida
+fi:valkopippurijauhe, jauhettu valkopippuri
+fr:poivre blanc moulu
+nl:gemalen witte peper
 
 < en:Red quinoa
 < en:White quinoa
@@ -74234,17 +74328,11 @@ fi:Hiivauutejauhe
 fr:extrait de levure en poudre
 it:estratto di lievito in polvere
 
-< en:Yellow pepper
-en:grilled yellow pepper
-de:Gelbe Peperoni gegrillt
-fi:grillattu keltainen paprika
-fr:poivrons jaunes grillés
-it:peperoni gialli grigliati
-
-< en:Red pepper
-< en:Yellow pepper
-fr:poivrons rouges et jaunes
+< en:Red bell pepper
+< en:Yellow bell pepper
+en:red and yellow bell peppers, yellow and red bell peppers
 de:Peperoni rot und gelb
+fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 it:peperoni rossi e gialli
 
 < en:Yellowfin tuna
@@ -74993,7 +75081,7 @@ fr:oeufs de cabillaud salés et fumés
 fr:œufs de lompe
 vegan:en: no
 vegetarian:en: no
-wikipedia:en: https://fr.wikipedia.org/wiki/Œufs_de_lump
+wikipedia:fr: https://fr.wikipedia.org/wiki/Œufs_de_lump
 
 < fr:Œufs de lompe
 fr:oeufs de lompe noirs
@@ -75036,13 +75124,6 @@ pt:flocos de trigo integral
 fr:petits pois doux extra fins
 
 fr:plasma déshydraté
-
-< fr:Poivre gris
-fr:Poivre gris moulu
-
-< fr:Poivrons rouges et jaunes
-fr:poivrons rouges et jaunes grillés
-pt:pimentos vermelhos e amarelos grelhados
 
 < fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
@@ -75133,6 +75214,7 @@ de:Speisesalzersatz
 hu:Sópótló
 it:sostituto del sale
 
+fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 it:zucchero di fiori di cocco, zucchero di cocco
 nl:biologische kokosbloesem siroop
 

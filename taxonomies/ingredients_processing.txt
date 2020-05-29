@@ -99,9 +99,15 @@ nl:schijfjes
 
 # en:description:Cut or diced into small pieces
 en:chopped
+da:hakket
 de:gehackt, gehackte, gehackter, gehacktes
+# es:picadas
+fi:pilkotut
 fr:hâché, hâchée, hâchés, hâchées
 nl:gehakt
+nn:hakkede
+pt:picadas
+sv:hackade
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
 
@@ -129,6 +135,7 @@ fr:en granules, granules de, granules d'
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
 en:ground
 de:gemahlen, gemahlene, gemahlener
+es:molido, molidos, molida, molidas
 fr:moulu, moulue, moulus, moulues
 nl:gemalen
 # nl:parse:gemalen_$
@@ -182,6 +189,10 @@ es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
+pl:w proszku
+pt:em pó
+sk:v prahu
+sv:pulver
 
 
 #######################################################################
@@ -315,6 +326,8 @@ fr:à base de concentré, à partir de concentré
 
 en:dried
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
+es:seco, seca, secos, secas
+fi:kuivattu
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
 nl:gedroogd, gedroogde
@@ -345,6 +358,7 @@ de:sprühgetrocknet, sprühgetrockneter
 en:cured
 
 en:dehydrated
+es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
 
@@ -372,6 +386,44 @@ fr:extrait naturel de, extrait naturel d'
 
 #fr:obtenu par extraction hydrique
 
+en:pressed, extraite par pression
+# en:false:compressed
+de:abgepresste
+es:espremido de
+fr:pressé, pressée, pressées
+#fr:false:à pâte pressée, fromage pressé
+it:spremuto di
+sv:presset
+
+#<en:pressed
+
+#<en:pressed
+en:fresh pressed
+de:direkt gepresst
+sv:nypressad
+
+#<en:pressed
+en:mechanically pressed
+
+#<en:pressed
+en:naturally pressed
+
+#<en:pressed
+en:expeller pressed
+
+#<en:pressed
+en:cold pressed
+de:kaltgepresst, kaltgepresstes
+fr:pression à froid, pressée à froid, obtenue par pression à froid, pressé à froid
+nl:koud geperst
+sv:kallpressad
+
+<en:cold pressed
+en:first cold pressed
+de:erste kalte pressung
+fr:première pression à froid, 1ère pression à froid, de première pression à froid
+
+
 #######################################################################
 #
 #                T E M P E R A T U R E   P R O C E S S E S
@@ -394,7 +446,7 @@ nl:ontdooid
 en:pasteurised, pasteurized
 ca:pasteuritzada
 de:pasteurisiert, pasteurisierte, pasteurisierter
-es:pasteurizado, pasteurizada
+es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 nl:gepasteuriseerd, gepasteuriseerde
@@ -456,7 +508,9 @@ en:pre-fried
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
 
 en:fried
-es:frito, fritos
+de:frittierter
+es:frito, fritos, frita, fritas
+fi:paahdettu
 fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
 # nl:gefrituurd
@@ -464,7 +518,7 @@ it:fritto, fritta, fritti, fritte
 
 en:roasted
 de:gebraten, gebratene
-es:asado, asada
+es:asado, asada, asados, asadas
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden
@@ -491,6 +545,7 @@ en:dark toasted
 en:grilled
 de:gegrillt, gegrillte, gegrillter, gegrilltes
 es:a la parrila
+fi:grillattu
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
 nl:gegrild, gegrilde
@@ -689,7 +744,7 @@ en:unflavoured, unflavoured
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
-de:gerauchert
+de:geräuchert, geräucherte
 #de:comment:Various rauch appear as separate ingredients
 es:ahumada, ahumado, ahumadas, ahumados
 fr:fumé,fumés,fumée,fumées

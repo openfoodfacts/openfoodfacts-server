@@ -6,6 +6,8 @@ de:dampfgegart, dampfgegarte, dampfgegarter
 
 de:dreifach konzentriert
 
+de:edelholzrauch
+
 de:eingekochter
 
 de:extrahiert, extrahierte, extrahierter, extrahiertes
@@ -28,8 +30,6 @@ de:gepökelt, gepökeltes
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 nl:gepekeld
 
-de:gesalzen, gesalzene, gesalzenes, gesalzener
-
 de:geschwefelt, geschwefelte
 
 de:geschält, geschälte, geschälter
@@ -51,9 +51,9 @@ de:leicht gezuckert
 
 de:mittelfein geschnittenen
 
-de:ungepökelt
+de:raspel, raspeln
 
-de:ungesalzen, ungesalzene
+de:ungepökelt
 
 de:ungeschwefelt, ungeschwefelte
 
@@ -78,6 +78,7 @@ en:apple wood smoked
 
 en:beech smoked
 fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre
+nl:gerookt op beukenhout
 
 en:blanched
 de:blanchiert, blanchierte
@@ -88,6 +89,13 @@ en:bleached
 
 en:bromated
 es:bromado
+
+en:candied
+da:kandiserede
+de:kandiert, kandierte, kandierten, kandierter
+it:candito, candita, canditi, candite
+nl:gekonfijt, gekonfijte
+sv:kanderad, kanderade
 
 en:chardonnay smoked
 
@@ -123,9 +131,31 @@ nl:gesneden
 
 en:dark toasted
 
+en:defatted
+de:entfettet, entfettete, entfettetes
+es:desengrasado, desengrasada
+fr:dégraissé, dégraissée, dégraissés, dégraissées
+it:sgrassato, sgrassata
+nl:ontvet, ontvette
+pt:desengordurado, desengordurada
+ro:degresat
+
 en:dehydrated
+es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
+
+en:deodorized
+de:desodoriert, desodoriertes
+es:desodorizado, desodorizada
+fr:désodorisé, désodorisée
+it:deodorato
+nl:ontgeurde
+pt:desodorizado
+ro:deodorizat
+
+en:desalted
+fr:dessalée
 
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
@@ -136,9 +166,13 @@ en:double smoked
 
 en:dried
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
+es:seco, seca, secos, secas
+fi:kuivattu
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
 nl:gedroogd, gedroogde
+
+en:dry roasted
 
 en:dry smoked
 
@@ -146,6 +180,17 @@ en:enriched
 de:angereichert
 fr:enrichi, enrichie, enrichis
 nl:verrijkt
+
+en:entspeltzt
+
+en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
+de:extrakt, extrakte, extrakt aus
+es:extracto, extracto de, extractos
+fr:extrait de, extrait d'
+it:estratto di, estratti di
+nl:extract
+ro:extract de
+sv:extrakt, extrakt av
 
 en:flavoured, flavored
 de:aromatisiert, aromatisierte, aromatisiertes
@@ -163,7 +208,9 @@ nl:verse
 pt:fresco
 
 en:fried
-es:frito, fritos
+de:frittierter
+es:frito, fritos, frita, fritas
+fi:paahdettu
 fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
 
@@ -179,17 +226,18 @@ ro:congelat
 
 en:fruitwood smoked
 
-en:granulated
+en:granulated, granules
 fr:en granules, granules de, granules d'
 
 en:grated
-de:gerieben, geriebener, geriebene
+de:gerieben, geriebener, geriebene, geraspelt
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
 
 en:grilled
 de:gegrillt, gegrillte, gegrillter, gegrilltes
 es:a la parrila
+fi:grillattu
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
 nl:gegrild, gegrilde
@@ -198,8 +246,11 @@ sv:grillad
 
 en:ground
 de:gemahlen, gemahlene, gemahlener
+es:molido, molidos, molida, molidas
 fr:moulu, moulue, moulus, moulues
 nl:gemalen
+
+en:half salted
 
 en:halved, halves
 de:halbiert, halbierte, halbe
@@ -209,14 +260,29 @@ fr:fumé au bois de caryer
 
 en:hickory smoked cured with water
 
+en:lightly salted
+nl:lichtgezouten, licht gezouten
+
+en:lightly sea salted
+
 en:lightly smoked
 fr:légèrement fumés
+
+en:malted
+de:gemälzt, gemälzte, gemälztes
+es:malteado, malteada
+fr:malté, maltée, maltés, maltées
+it:maltato, maltata
+nl:gemout, gemoute
 
 en:maple smoked
 
 en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
+es:marinado, marinada, marinados, marinadas
 fr:mariné, marinée, marinés, marinées
+it:marinato, marinata
+nl:gemarineerd, gemarineerde
 
 en:mesquite smoked
 
@@ -238,20 +304,38 @@ de:parboiled
 es:parboiled
 it:parboiled
 
+en:partially defatted
+de:teilentfettet, teilentfettetes
+ro:demidegresat
+
 en:pasteurised, pasteurized
 ca:pasteuritzada
 de:pasteurisiert, pasteurisierte, pasteurisierter
-es:pasteurizado, pasteurizada
+es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 nl:gepasteuriseerd, gepasteuriseerde
 pt:pasteurizado
 ro:pasteurizat, pasteurizata
 
+en:peel, peels, peel of
+el:φλούδα
+es:piel de, corteza de
+fi:kuoret
+fr:écorce de, écorces de, écorces d'
+it:scorza di, scorze di
+nl:schil, schillen
+pt:raspas
+ro:piele de
+
 en:peeled
 es:sin piel
 fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
+
+en:peeling
+fr:brisures
+nl:schilfers
 
 en:pickled
 de:eingelegt, eingelegte, eingelegter
@@ -275,6 +359,10 @@ es:en polvo, polvo de
 fr:en poudre, poudre de, poudre d'
 it:in polvere, polvere di, polvere d'
 nl:poeder, poeders, in poedervorm
+pl:w proszku
+pt:em pó
+sk:v prahu
+sv:pulver
 
 en:pre-cooked
 de:vorgekocht
@@ -306,6 +394,8 @@ fr:en purée, purée de, purée d'
 en:raw
 fr:cru, crue, crus, crues
 
+en:rbst-free
+
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
@@ -315,10 +405,22 @@ fr:réhydraté, réhydratée, réhydratés, réhydratées
 
 en:roasted
 de:gebraten, gebratene
-es:asado, asada
+es:asado, asada, asados, asadas
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden
+
+en:salted
+de:gesalzen, gesalzene, gesalzenes, gesalzener
+es:salado, salada, salados, saladas
+fr:salé, salée, salés, salées
+it:salato, salata, salate, salati
+nl:gezouten
+pt:salgado, salgada, salgados, salgadas
+
+en:sea salted
+
+en:semi candied
 
 en:shelled
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
@@ -335,8 +437,11 @@ fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lani
 nl:schijfjes
 
 en:smoked
+de:geräuchert, geräucherte
 es:ahumada, ahumado, ahumadas, ahumados
 fr:fumé, fumés, fumée, fumées
+it:affumicato, affumicate, affumicata
+nl:gerookt, gerookte
 
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter
@@ -365,6 +470,9 @@ fr:toasté, toastée, toastés, toastées
 it:tostato, tostati, tostate
 nl:geroosterd, geroosterde
 
+en:treated
+nl:bewerkt
+
 en:unbleached, un-bleached
 de:ungebleichtes
 
@@ -384,6 +492,11 @@ nl:ontdooid
 
 en:unpasteurized
 
+en:unsalted, un-salted
+de:ungesalzen, ungesalzene
+fr:non salée
+nl:ongezouten
+
 en:unsweetened
 nl:ongezoet
 
@@ -400,9 +513,22 @@ it:intero, intera, interi, intere
 
 en:wood smoked
 
+en:zest
+
+fr:extrait naturel de, extrait naturel d'
+
 fr:non-blanchie
 
+fr:non-désodorisée
+
+fr:non-maltées
+
+fr:présalée
+
 fr:sans pulpe
+
+it:scorzette
+nl:schilletjes
 
 nl:zeer fijn gesneden
 
