@@ -9860,7 +9860,6 @@ ca:nata fresca, crema de llet fresca
 da:frisk fløde
 de:Sahne
 es:Crema fresca, nata fresca
-fi:ranskankerma
 fr:crème fraîche
 hu:friss tejszín
 nl:verse room
@@ -9874,9 +9873,11 @@ sv:Färsk grädde
 en:sour cream, soured cream, grade a cultured cream
 ar:كريمة حامضة
 ca:Crema agra, crema àcida
+da:syrnet fløde
 de:saure Sahne, Sauerrahm
+el:κρέμα γαλακτοσ
 eo:Acidkremo
-es:Crema agria, nata agria
+es:Crema agria, nata agria, nata ácida
 fa:خامه ترش
 fi:Hapankerma
 fr:Crème aigre, crème sure, crème acidulée
@@ -9888,7 +9889,8 @@ it:Panna acida
 ko:사워크림
 ms:Krim masam
 nl:Zure room
-pt:Creme azedo
+nn:romme
+pt:Creme azedo, nata ácida
 ru:Сметана
 sk:Kyslá smotana
 sv:Gräddfil
@@ -9970,7 +9972,7 @@ da:Cremefraiche, creme fraiche
 de:Crème fraîche
 es:Nata, crema de leche
 eu:Esne-gain gordina, esne-gain freskoa
-fi:crème fraîche
+fi:ranskankerma, crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
 he:קרם פרש
 hu:creme fraiche, crème fraîche
@@ -18699,6 +18701,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr:4.2
 
 <en:vinegar
+en:white vinegar
+
+<en:white vinegar
 en:white distilled vinegar
 de:weißer destillierter Essig
 es:vinagre blanco destilado
@@ -18725,6 +18730,7 @@ hu:borecet
 it:aceto di vino
 nl:wijnazijn
 pl:Ocet winny
+pt:vinagre de vinho
 ru:Винный уксус
 sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
@@ -34421,6 +34427,7 @@ ca:Suc de llimona
 cs:Citronová šťáva
 da:citronsaft
 de:Zitronensaft
+el:χυμός λεμονιού
 es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
@@ -44506,15 +44513,17 @@ nl:gegrilde tomaat
 
 <en:tomato
 en:cherry tomato, cherry tomatoes
-da:körsbärstomater
-de:Kirschtomaten
-es:tomates cerezas, tomate cherry
+da:körsbärstomater, cocktailtomater
+de:Kirschtomaten, Cocktailtomaten
+el:τομάτες τσέρυ
+es:tomates cerezas, tomate cherry, tomates cherry
 fi:kirsikkatomaatti, kirsikkatomaatit
 fr:tomate cerise, tomates cerises, tomates cerise
 it:pomodorini, pomodorini ciliegia
-nl:kerstomaatjes, cherry tomaat, cheryytomaatjes
-pt:tomates cerejas
-sv:cherrytomater
+nl:kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten
+nn:cocktailtomater
+pt:tomates cerejas, tomates cereja
+sv:cherrytomater, cocktailtomater
 # ingredient/fr:tomates-cerise has 432 products in 10 languages @2018-12-26
 
 <en:tomato
@@ -44610,6 +44619,7 @@ nl:tomatenblokjes in tomatensap van biologische oorsprong
 en:crushed tomato
 da:Flåede tomater, flåede tomater
 de:stückige Tomaten, Tomaten stückig
+el:πουρές τομάτας
 es:Puré de tomate
 fi:tomaattimurska
 fr:Purée de tomate
@@ -44648,7 +44658,12 @@ carbon_footprint_fr_foodges_value:fr:1.4
 <en:tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
+es:tomates tamizados
 it:passata di pomodoro
+nl:gezeefde tomaten
+nn:mosede tomater
+pt:tomates passados
+se:mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:coulis-de-tomates has 165 products in 4 languages @2018-12-26
@@ -51459,12 +51474,14 @@ en:oregano
 ca:orenga, herba musca, roca morera
 da:oregano
 de:Oregano
+el:ρίξανη
 es:orégano
 fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
 nl:oregano
+nn:oregano
 pl:Oregano
 pt:orégãos
 ru:Орегано
