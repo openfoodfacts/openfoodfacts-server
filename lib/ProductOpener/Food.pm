@@ -106,6 +106,8 @@ BEGIN
 					&create_nutrients_level_taxonomy
 
 					&assign_category_properties_to_product
+					
+					&remove_insignificant_digits
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -125,6 +127,69 @@ use Hash::Util;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
+
+
+=head2 remove_insignificant_digits($)
+
+Some apps send us nutrient values that they have stored internally as
+floating point numbers.
+
+So we get values like:
+
+2.9000000953674
+1.6000000238419
+0.89999997615814
+0.359999990463256
+2.5999999046326
+
+On the other hand, when we get values like 2.0, 2.50 or 2.500,
+we want to keep the trailing 0s.
+
+The goal is to keep the precision if it makes sense. The tricky part
+is that we do not know in advance how many significant digits we can have,
+it varies from products to products, and even nutrients to nutrients.
+
+The desired output is thus:
+
+2.9000000953674 -> 2.9
+1.6000000238419 -> 1.6
+0.89999997615814 -> 0.9
+0.359999990463256 -> 0.36
+2.5999999046326 -> 2.6
+2 -> 2
+2.0 -> 2.0
+2.000 -> 2.000
+2.0001 -> 2
+0.0001 -> 0.0001
+
+=cut
+
+
+sub remove_insignificant_digits($) {
+
+	my $value = shift;
+	
+	# Make the value a string
+	$value .= '';
+	
+	# Very small values may have been converted to scientific notation
+	
+	if ($value =~ /\.(\d*?[1-9]\d*?)0{3}/) {
+		$value = $`. '.' . $1;
+	}
+	elsif ($value =~ /([1-9]0*)\.0{3}/) {
+		$value = $`. $1;
+	}
+	elsif ($value =~ /\.(\d*)([0-8]+)9999/) {
+		$value = $`. '.' . $1 . ($2 + 1);
+	}
+	elsif ($value =~ /\.9999/) {
+		$value = $` + 1;
+	}
+	return $value;
+}
+
+
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,

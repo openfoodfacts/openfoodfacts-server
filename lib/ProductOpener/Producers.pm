@@ -114,12 +114,23 @@ sub load_csv_or_excel_file($) {
 	$extension = lc($extension);
 
 	my $encoding = "UTF-8";
+	
+	# By default, assume the separator is a comma
+	my $separator = ",";
+	
+	# If there are tabs in the first line, assume the separator is tab
+	if (open (my $io, "<:encoding($encoding)", $file)) {
+		my $line = <$io>;
+		if ($line =~ /\t/) {
+			$separator = "\t";
+		}
+	}
 
 	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
 
 		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };	# should set binary attribute.
+		my $csv_options_ref = { binary => 1 , sep_char => $separator };	# should set binary attribute.
 
 		my $csv = Text::CSV->new ( $csv_options_ref )
 			or die("Cannot use CSV: " . Text::CSV->error_diag ());
@@ -190,6 +201,10 @@ sub load_csv_or_excel_file($) {
 				# May need to deal with possible empty lines before header
 
 				while ($row_ref = $csv->getline ($io)) {
+					
+					# Skip empty lines or lines without a barcode (at least 8 digits)
+					next if (join(" ", @$row_ref) !~ /[0-9]{8}/);
+					
 					push @$rows_ref, $row_ref;
 				}
 			}
