@@ -8746,7 +8746,7 @@ sub display_nutrient_levels($) {
 			return "";
 	}
 
-	# do not compute a score for dehydra 	ted products to be rehydrated (e.g. dried soups, coffee, tea)
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	# unless we have nutrition data for the prepared product
 
 	my $prepared = "";
