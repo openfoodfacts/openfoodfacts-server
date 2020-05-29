@@ -9229,19 +9229,6 @@ JS
 		}
 	}
 
-	 my $empty_cols = '';
-	 my $html2 = '';
-
-	# NTemplate Starts
-	# my %var = {
-		
-	# }
-	# my $tt = Template->new({INCLUDE_PATH => '../../templates',EVAL_PERL    => 1,}) || die $Template::ERROR, "\n";
-	# filename
-	# $tt->process('nutrition_facts_table.tt',\%var) || die $tt->error(), "\n";
-
-	# NTemplate Ends
-
 	$html .= <<HTML
 <table id="nutrition_data_table" class="data_table">
 <thead class="nutriment_header">
