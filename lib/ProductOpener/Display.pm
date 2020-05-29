@@ -8655,7 +8655,7 @@ sub display_nutriscore_calculation_details($) {
 	}
 	else {
 		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
-	}	
+	}
 	
 	# Generate a data structure that we will pass to the template engine
 	
