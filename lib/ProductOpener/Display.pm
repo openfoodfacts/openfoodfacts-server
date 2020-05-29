@@ -8635,16 +8635,11 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 =cut
 
 
-sub mylang($){
-	my $input_string = shift;
-	my $output_string = lang($input_string);
-	return $output_string;
-}
-
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
-
+	my @innerNutrients=();
+	my @outerNutrients=();
 	my @points = (
 		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
 		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
@@ -8654,9 +8649,7 @@ sub display_nutriscore_calculation_details($) {
 	foreach my $points_ref (@points) {
 
 		 foreach my $nutrient (@{$points_ref->[1]}) {
-
 		 	$nutrient_threshold_id[$i] = $nutrient;
-
 		 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
 		 		and (defined $points_thresholds{$nutrient_threshold_id[$i] . "_beverages"})) {
 		 		$nutrient_threshold_id[$i] .= "_beverages";
@@ -8665,12 +8658,20 @@ sub display_nutriscore_calculation_details($) {
 		 		$nutrient = "saturated_fat_ratio";
 		 		$nutrient_threshold_id[$i] = "saturated_fat_ratio";
 		 	}
+
+			push @innerNutrients,  {
+						id => $nutrient,
+						points => $nutriscore_data_ref->{$nutrient . "_points"},
+						maximum => scalar(@{$points_thresholds{$nutrient_threshold_id[0]}}),
+						value => $nutriscore_data_ref->{$nutrient},
+						rounded => $nutriscore_data_ref->{$nutrient . "_value"},
+					};
+
 			$i++;
 		 }
-
+		 
 	 }
 	 my $nutriscore_protein_info;
-
 	 if ($nutriscore_data_ref->{negative_points} < 11) {
 		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_less_than_11");
 	 }
@@ -8680,22 +8681,22 @@ sub display_nutriscore_calculation_details($) {
 	 elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
 	 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
 	 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
-	 		and ($nutriscore_data_ref->{fruits_vegetableutriscore_proteins_negative_points_less_than_1utriscore_proteins_negative_points_less_than_1s_nuts_colza_walnut_olive_oils_points} == 5)) ) {
+	 		and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
 		$nutriscore_protein_info = lang("nutriscore_proteins_maximum_fruits_points");
 	 }
 	 else {
 		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
 	 }
 
-
-	# Nutrition Score Calculation Template::Toolkit
+	# Nutrition Score Calculation Template
 	my $config = {
 		INCLUDE_PATH => $data_root.'/templates',
 		INTERPOLATE => 1,
 		EVAL_PERL    => 1,
 	};
 	my $tt = Template->new($config);
-
+	
+	# Passing the variables to the template
 	my $var = {
 		
 		is_beverage => $nutriscore_data_ref->{is_beverage},
@@ -8762,14 +8763,12 @@ sub display_nutriscore_calculation_details($) {
 					},
 					]
 			},
-
 		],
-
 		score => $nutriscore_data_ref->{score},
 		grade => uc($nutriscore_data_ref->{grade}),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
-		mylang => \&mylang,
+		lang => \&lang,
 		nutriscore_protein_info => $nutriscore_protein_info,
 		
 	};
@@ -8781,7 +8780,6 @@ sub display_nutriscore_calculation_details($) {
 	$tt->process('nutrition_score.tt',$var, \$out) || return $debug . " error: " . $tt->error();
 	return $out;
 }
-
 
 sub display_nutrient_levels($) {
 
