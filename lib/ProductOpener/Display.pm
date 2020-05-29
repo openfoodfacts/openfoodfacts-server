@@ -9229,6 +9229,10 @@ JS
 		}
 	}
 
+	 my $empty_cols = '';
+	 my $html2 = '';
+
+
 	$html .= <<HTML
 <table id="nutrition_data_table" class="data_table">
 <thead class="nutriment_header">
