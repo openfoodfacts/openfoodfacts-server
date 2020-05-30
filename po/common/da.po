@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-19 22:14\n"
+"PO-Revision-Date: 2020-05-29 17:41\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3193,7 +3193,7 @@ msgstr "Importér en produktdatafil"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
 msgstr "Upload en regnearksfil (Excel-fil eller tabulatorsepareret UTF-8 kodet CSV-fil) med produktdata."
 
 # "product data" in this sentence means data for many products, not just one product
@@ -4165,4 +4165,21 @@ msgstr "CIQUAL-fødevarenavn"
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr "CIQUAL-fødevarenavn"
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr "Du kan hjælpe os med at genkende flere ingredienser og bedre analysere ingredienslisten til dette produkt og andre ved at:"
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr "Redigere denne produktside for at rette stavefejl på ingredienslisten og/eller for at fjerne ingredienser på andre sprog samt sætninger, som ikke er relateret til ingredienserne."
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr "Tilføj nye poster, synonymer eller oversættelser til vores flersprogede ingredienslister, ingrediensforarbejdningsmetoder og etiketter."
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr "Deltag i #ingredients-kanalen i <a href=\"https://slack.openfoodfacts.org\">vores Slack-debatrum</a> og/eller lær om <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediensanalyse via vores wiki</a>, hvis du gerne vil hjælpe. Tak!"
 

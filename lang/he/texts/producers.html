@@ -79,18 +79,18 @@
   
 <h3 id="quelles_donnees">אילו נתונים</h3>
 
-<p>All the data you have can be integrated into Open Food Facts: ingredients and nutritional information of course, but also labels, materials used for packaging, traceability of ingredients, instructions for preparation and recycling, ecological footprint etc.</p>
+<p>את כל הנתונים שבידך ניתן לשלב ב־Open Food Facts: רכיבים ומידע תזונתי כמובן, אך גם תוויות, חומרים שמשמשים לאריזה, יכולת מעקב אחר רכיבים, הוראות הכנה ומחזור, טביעת רגל אקולוגית ועוד.</p>
 <p>אנו בדרך כלל מוסיפים שדות חדשים למסד הנתונים על סמך המידע שעל האריזות או מזה שמסופק לנו על ידי היצרנים.</p>
-We have recently added fields on the carbon footprint, and the packaging of products, which are already highlighted on Open Food Facts and in applications that help to change the behavior in terms of recycling.<p></p>
+לאחרונה הוספנו את טביעת הרגל הפחמנית ואת אריזות המוצרים, שכבר מודגשות ב־Open Food Facts ובשלל יישומים שמסייעים לשנות את ההתנהגות בהיבט של מיחזור.<p></p>
 
  <h4 id="une_base_dans_toutes_les_langues">מסד נתונים בכל השפות</h4>
   
-<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
+<p>מסד הנתונים, האתר והיישומונים לניידים של Open Food Facts הם גם רב־לשוניים וזמינים בכל מדינות העולם. אם יש לך תמונות ונתונים במגוון שפות, אנו יכולים לשלב גם אותם ב־Open Food Facts.</p>
 
 <h4 id="photos_et_donnees">תמונות ונתונים</h4>
 
-<p>One of the fundamental principles of Open Food Facts is that the user or contributor must be able to verify the information from a photo.</p>
-<p>We therefore ask you to send us photos of the product and packaging (possibly as a flat file of the packaging) to support the structured data you send.</p>
+<p>אחד העקרונות הבסיסיים של Open Food Facts היא שהמשתמש או המתנדב חייב לאמת את המידע מתוך תמונה.</p>
+<p>לכן אנו מבקשים ממך לשלוח תמונות של המוצר ושל האריזה (כקובץ מושטח של האריזה עד כמה שניתן) כדי לתמוך בנתונים המובנים שנשלחים על ידיך.</p>
 
 <h3 id="ajout_manuel">הוספה ידנית</h3>
 
@@ -106,14 +106,14 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 
 <p>נדרשות לפחות 3 תמונות:</p>
 <ul>
-<li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
+<li>תצוגת חזית על רקע לבן (יש להימנע מתצוגות שלושה רבעים שלא מאפשרות זיהוי חזותי של מוצרים מבלי לסרוק את הברקוד)</li>
 <li>רשימת מרכיבים</li>
 <li>טבלת ערכים תזונתיים</li>
 </ul>
   
-<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>יש לספק את תצוגת החזית, הרכיבים והטבלה התזונתית לפחות בשפה העיקרית של המוצר. מומלץ לספק תמונות לשפות אחרות כשאלו מופיעות על המוצר.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>למשל, למוצר שמיועד לשוק הבלגי עשויות להיות תמונות שמציגות את המוצר כתוב בצרפתית וכתוב בהולנדית.</p>
 
   <p>ניתן להוסיף עוד תמונות:</p>
 <ul>
@@ -130,11 +130,11 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 <h5 id="nom_des_fichiers_images">שמות קובצי התמונות</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>‎[ברקוד]_[סוג התמונה]_[קוד השפה].[jpg או png]</pre>
 
   <p>למשל:</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>‎3660140808750_front_he.jpg עבור תמונת החזית של המוצר עם הברקוד 3660140808750</p>
 
   <p>סוגי התמונות הן:</p>
 
@@ -150,25 +150,25 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 
 <h4 id="format_des_donnees">מבנה נתונים</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. סדר השדות לא משנה ולא כל העמודות חייבות להיות נוכחות.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>יש לספק את הנתונים בטבלה בתצורת CSV, עם סימוני הטבלה כתווים מפרידים בין שדות ובקידוד UTF-8.</p>
+<p>השורה הראשונה מכילה את שמות השדות וכל אחד מהמוצרים מאכלס את אחת מהשורות הבאות. סדר השדות לא משנה ולא כל העמודות חייבות להיות נוכחות.</p>
+<p>חלק מהשדות הם בגדר חובה וחלק מהם רשות. אנו מעודדים אותך למלא שדות רבים ככל הניתן כדי שהנתונים ישמשו כמה שיותר יישומים. במקרה של ספק או אם יש לך נתונים שלא מתאימים לשדות במד הנתונים של Open Food Facts, ניתן ליצור אתנו קשר כדי שנוסיף שדות ונגיע לתוצאה המיטבית.</p>
 
   <h5 id="champs_obligatoires">שדות נדרשים</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
+  <li>code: קוד המוצר כפי שמופיע על האריזה (EAN-13,‏ EAN-8 או אחרים)</li>
+  <li>lang: קוד השפה (העיקרית על האריזה) של המוצר בשני תווים (למשל: he לעברית)</li>
+  <li>product_name_ [קוד שפה עיקרית בשני תווים]: שם המוצר (בשדה product_name_en כדי לציין את השם באנגלית)</li>
+  <li>generic_name_ [קוד שפה עיקרית בשני תווים]: השם הגנרי של המוצר </li>
+  <li>brands: מותגים (כאן ניתן לציין מספר ערכים ותת־ערכים, יש להפריד בפסיקים)</li>
+  <li>quantity: כמות, עם סימון היחידה, אפשר גם לציין בסוגריים אם על המוצר מופיעות מספר יחידות (למשל: 120 גרם (4 × 30 גרם))</li>
+  <li>categories: קטגוריית המוצר, בשפה העיקרית של המוצר (למשל: עוגות שוקולד)</li>
+  <li>countries: המדינה בה נמכר המוצר, בשפה העיקרית של המוצר (אפשרות למגוון ערכים, יש להפריד בפסיקים)</li>
   <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>allergens: מעוררי רגישות (אלרגנים), בשפה העיקרית של המוצר</li>
+  <li>traces: עקבות של מעוררי רגישות (אלרגנים), בשפה העיקרית של המוצר</li>
 </ul>
 
 <p>בין שדות החובה ישנם גם הערכים התזונתיים שמופיעים על האריזה, ל־100 גרם / מיליליטר של מוצר כפי שנמכר.</p>
@@ -198,7 +198,7 @@ We have recently added fields on the carbon footprint, and the packaging of prod
   <h5 id="champs_optionnels">שדות רשות</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
+    <li>labels: תוויות, בשפה העיקרית של המוצר (אפשר לציין מספר ערכים, יש להפריד בפסיקים) (לדוגמה: שומן בכמות גבוהה, כשר, Vegan Friendly). נא לשים לב: התוויות חייבות להופיע על אריזת המוצר.</li>
     <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
     <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
     <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
@@ -208,8 +208,8 @@ We have recently added fields on the carbon footprint, and the packaging of prod
     <li>serving_size: כמות למנה, יש לציין יחידה</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>ניתן לציין את הערכים התזונתיים גם עבור המזון המוכן (עם מים, חלב וכו׳). לשם כך יש להוסיף את הביטוי „‎_prepared” לשם השדה. למשל energy_prepared_100g (אנרגיה של מזון מוכן 100 גרם).</p>
+<p>אפשר לציין את הערכים לחומרי הזנה נוספים:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
@@ -318,12 +318,12 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 
 <h4 id="envoi_des_photos_et_des_donnees">שליחת תמונות ונתונים</h4>
 <p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
-<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
+<p>למספר גדול של מוצרים או לעדכון בתדירות גבוהה יותר, יש לנו אפשרות ליצור נפח עם גישה ב־SFTP בו ניתן לשלוח נתונים ותמונות ידנית או אוטומטית. יש ליצור אתנו קשר כדי שנתכונן להעברה שכזאת.</p>
 
-<h2 id="questions_frequentes">Frequently asked Questions</h2>
+<h2 id="questions_frequentes">שאלות ותשובות נפוצות</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">האם הוספת מוצרים לרשימה היא בחינם?</h3>
-<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
+<p>ייבוא הנתונים הוא בחינם לחלוטין. איננו מקבלים אף תגמול בגין הוספת נתונים. אנו מאוד מרוצים מכך שבחרת לתרום את נתוני המוצרים שלך לטובת שקיפות מזון ואנו מודים לך על כך.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">האם נתוני היצרן ידרסו את הנתונים שנוספו על ידי מתנדבים?</h3>
 <p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>
