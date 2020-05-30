@@ -7388,10 +7388,11 @@ vegetarian:en:maybe
 
 <en:dairy
 en:powdered milk products, dried milk products, product on base on milk powder
+# en:process:en:powder
 ca:producte làctic en pols, producte a base de llet en pols, productes làctics en pols, productes a base de llet en pols
 de:Trockenmilcherzeugnis
 es:producto lácteo en polvo, producto a base de leche en polvo, productos lácteos en polvo, productos a base de leche en polvo
-fr:produits laitiers en poudre
+#fr:produits laitiers en poudre
 hu:tejpor alapú termékek
 
 
@@ -8805,7 +8806,8 @@ fr:lait écrémé concentré sucré
 
 <en:condensed milk
 <en:powdered milk
-fr:lait écrémé concentré ou en poudre, lait écrémé condensé sucré
+#en:process:en:powder
+fr:lait écrémé concentré ou en poudre
 ca:llet en pols condensada, llet condensada en pols
 es:leche en polvo condensada, leche condensada en polvo
 nl:gecondenseerde magere poedermelk
@@ -8833,30 +8835,36 @@ vegetarian:en:yes
 # nova:en:milk-powder
 <en:dairy
 en:milk powder, powdered milk, dry milk
-ca:Llet en pols
-cs:Sušené mléko
-da:mælkepulver
-de:Milchpulver
-es:Leche en polvo
-fi:maitojauhe
-fr:lait en poudre, poudre de lait
+#en:process:en:powder
+#ca:Llet en pols
+#da:mælkepulver
+#de:Milchpulver
+#es:Leche en polvo
+#fi:maitojauhe
+#fr:lait en poudre, poudre de lait
 he:אבקת חלב
-hu:tejpor
-it:latte in polvere
-nl:melkpoeder
-pl:mleko w proszku
-pt:leite em pó
-ru:сухое молоко
-sv:mjölkpulver
+#hu:tejpor
+#it:latte in polvere
+#nl:melkpoeder
+#pl:mleko w proszku
+#pt:leite em pó
+#sv:mjölkpulver
 vegan:en:no
 vegetarian:en:yes
 nova:en:3
 
+<en:dairy
+en:dried milk
+cs:Sušené mléko
+ru:сухое молоко
+
 <en:whole milk powder
 <en:milk from France
+#en:process:en:powder
 fr:lait origine france en poudre écrémé
 
 <en:milk powder
+#en:process:en:powder
 fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
 ca:llet en pols parcialment desnatada, llet parcialment desnatada en pols, llet en pols semidesnatada, llet semidesnatada en pols
 es:leche en polvo parcialmente desnatada, leche parcialmente desnatada en polvo, leche en polvo semidesnatada, leche semidesnatada en polvo
@@ -9127,15 +9135,16 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
+# en:processing:en:powder
 en:Lactose powder, powdered lactose
-ca:lactosa en pols
-da:laktosepulver
-de:Milchpulver
-es:lactosa en polvo
-fi:laktoosijauhe
-fr:poudre de lactose
-hu:laktózpor
-nl:Lactosepoeder
+#ca:lactosa en pols
+#da:laktosepulver
+# de:Milchpulver
+# es:lactosa en polvo
+#fi:laktoosijauhe
+# fr:poudre de lactose
+# hu:laktózpor
+# nl:Lactosepoeder
 
 
 # <from:en:milk
@@ -9251,8 +9260,10 @@ fr:yogourt au lait entier
 hu:teljes joghurt
 
 <en:yogurt
-de:Joghurtpulver
+en:yogurt powder
+#en:process:en:powder
 ca:iogurt en pols
+de:Joghurtpulver
 es:yogur en polvo
 fi:jogurttijauhe
 fr:yaourt en poudre
@@ -9260,12 +9271,14 @@ hu:joghurtpor
 
 <en:whole milk yogurt
 en:whole milk yogurt powder
-ca:iogurt de llet sencera en pols
-de:Vollmilchjoghurtpulver
-es:yogur de leche entera en polvo
-fi:täysmaitojogurttijauhe
+#en:process:en:powder
+#ca:iogurt de llet sencera en pols
+#de:Vollmilchjoghurtpulver
+#es:yogur de leche entera en polvo
+#fi:täysmaitojogurttijauhe
 
-<de:Joghurtpulver
+<en:yogurt powder
+#en:process:en:powder
 de:Magermilchjoghurtpulver
 fi:jogurttijauhe rasvattomasta maidosta
 
@@ -9437,7 +9450,7 @@ fr:petit-lait, lactosérum, sérum de lait, lactoserum
 fy:Waai
 gl:Soro de leite, lactosoro
 he:מי גבינה
-hu:savó, tejsavó
+hu:savó, tejsavó, étkezési savó
 id:Whey, laktoserum
 io:selakto
 is:Mysa
@@ -9486,22 +9499,24 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey
-ca:Xerigot en pols, sèrum en pols
-da:Vallepulver
-de:Molkenpulver, Molkepulver
-es:suero de leche en polvo
-fi:herajauhe
-fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
-hu:tejsavópor, savópor, étkezési savópor
-it:siero di latte in polvere
-nl:weipoeder, wei poeder
-pl:Serwatka w proszku
-pt:soro de leite em pó
-sv:vasslepulver
+#en:process:en:powder
+#ca:Xerigot en pols, sèrum en pols
+#da:Vallepulver
+#de:Molkenpulver, Molkepulver
+#es:suero de leche en polvo
+#fi:herajauhe
+#fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
+#hu:tejsavópor, savópor, étkezési savópor
+#it:siero di latte in polvere
+#nl:weipoeder, wei poeder
+#pl:Serwatka w proszku
+#pt:soro de leite em pó
+#sv:vasslepulver
 vegan:en:no
 vegetarian:en:maybe
 
 <en:whey powder
+#en:process:en:powder
 nl:vegetarisch weipoeder
 vegan:en:no
 vegetarian:en:yes
@@ -9512,9 +9527,11 @@ vegan:en:no
 vegetarian:en:yes
 
 <en:whey powder
+#en:process:en:powder
 de:eiweißangereichertes Molkenpulver
 
 <en:whey powder
+#en:process:en:powder
 en:partially demineralized powdered whey
 ca:sèrum de la llet en pols parcialment desmineralitzat
 de:Molkenpulver teilentmineralisiert
@@ -9535,15 +9552,16 @@ fr:lactosérum doux
 
 <en:sweet whey
 en:sweet whey powder
+#en:process:en:powder
 de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver
 es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 fi:makea herajauhe, makeutettu herajauhe
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
-it:siero di latte in polvere
 nl:Zoete weipoeder
 
 <en:whey powder
 en:filtered whey powder
+#en:process:en:powder
 ca:sèrum de la llet en pols filtrat
 de:gefiltertes Molkepulver
 es:suero de leche en polvo filtrado, lactosuero en polvo filtrado
@@ -9599,17 +9617,18 @@ de:Molkepermeat, Milchpermeat
 es:permeado de suero
 fi:herapermeaatti, maitopermeaatti
 fr:perméat de petit lait
-nl:melkweipermeaat
+nl:melkweipermeaat, weipermeaat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
 
 <en:whey permeate
 en:whey permeate powder
-ca:permeta de sèrum de llet en pols
-de:Molkepermeat Pulver
-es:permeado de suero en polvo
-fi:herapermeaattijauhe
-fr:perméat de petit lait en poudre
-nl:weipermeaat poeder
+#en:process:en:powder
+#ca:permeta de sèrum de llet en pols
+#de:Molkepermeat Pulver
+#es:permeado de suero en polvo
+#fi:herapermeaattijauhe
+#fr:perméat de petit lait en poudre
+#nl:weipermeaat poeder
 
 <en:whey
 en:sheep's whey, Sheep's milk serum
@@ -9628,11 +9647,11 @@ ba:Ҡаймаҡ
 be:Вяршкі
 bg:Сметана
 br:dienn
-ca:nata, crema de la llet, crespell, cresp de la llet, doga
+ca:nata, crema de la llet, crespell, cresp de la llet, doga, crema de llet
 cs:Smetana
 cy:Hufen
 da:Fløde
-de:Rahm, Sahne, Obers, Nidel, Nidle
+de:Rahm, Sahne, Obers, Nidel, Nidle, Creme
 el:Κρέμα γάλακτος
 eo:kremo
 es:crema de leche, nata
@@ -9719,14 +9738,15 @@ sv:pastöriserad grädde
 
 <en:cream
 en:cream powder, Powdered cream
-ca:nata en pols, crema de llet en polvo
-de:Cremepulver, Sahnepulver
-es:nata en polvo, crema de llet en polvo
-fi:kermajauhe
-fr:crème en poudre, crème en poudre, poudre de crème
-hu:tejszínpor
-it:panna in polvere
-nl:roompoeder, poederroom
+#en:process:en:pwder
+#ca:nata en pols, crema de llet en polvo
+#de:Cremepulver, Sahnepulver
+#es:nata en polvo, crema de leche en polvo
+#fi:kermajauhe
+#fr:crème en poudre, crème en poudre, poudre de crème
+#hu:tejszínpor
+#it:panna in polvere
+#nl:roompoeder, poederroom
 # ingredient/cream-powder has 910 products in 6 languages @2019-07-12
 
 <en:cream powder
@@ -9955,9 +9975,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
 <en:Sour cream
 en:sour cream powder
+#en:process:en:pwder
 de:Sauerrahmpulver
 fi:hapankermajauhe
-fr:poudre de crème fraîche
 
 # comment:en:fr:Creme fraiche is often translated into creme.
 # description:en:Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
@@ -10008,6 +10028,9 @@ it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
+<en:Crème fraîche
+fr:poudre de crème fraîche
+
 ############################## SOURED MILK related stuff #######################
 
 <en:dairy
@@ -10030,7 +10053,7 @@ lt:Rūgpienis
 mk:Кисело млеко
 nl:Dikmelk, Hangop, gefermenteerde melk
 nn:Surmjølk
-no:Kulturmelk
+nb:Kulturmelk
 pl:Zsiadłe mleko
 pt:Leite fermentado
 ro:Lapte acru
@@ -10065,6 +10088,7 @@ cv:Уйран
 cy:Llaeth enwyn
 da:Kærnemælk
 de:Buttermilch, Reine Buttermilch
+el:αποβουτυρωμενο γάλα
 eo:Buterlakto
 es:Suero de mantequilla
 et:Pett
@@ -10104,7 +10128,7 @@ ru:Пахта
 sa:तक्रम्
 sk:Cmar
 sl:Pinjenec
-sv:Kärnmjölk
+sv:Kärnmjölk, kärnemjölks
 ta:மோர்
 te:మజ్జిగ
 uk:Сколотини
@@ -10137,22 +10161,28 @@ fr:babeurre pasteurisé
 
 <en:buttermilk
 en:buttermilk powder
-ca:sèrum de mantega en pols, sèrum de mantega deshidratada
-da:kæarnemælkpulver
-de:Buttermilchpulver
-el:αποβουτυρωμενο γάλα σεβσκόνη
-es:suero de mantequilla en polvo, suero de mantequilla rehidratada
-fi:kirnupiimäjauhe
-fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
-hu:írópor
-it:latticello in polvere
-nl:karnemelkpoeder
-nn:pulverisert kjernemelk
-pt:leitelho em pó
-sv:kärnemjölkspulver
+#en:process:en:powder
+#ca:sèrum de mantega en pols, 
+#da:kæarnemælkpulver
+#de:Buttermilchpulver
+#el:αποβουτυρωμενο γάλα σε σκόνη
+#es:suero de mantequilla en polvo
+#fi:kirnupiimäjauhe
+#fr:babeurre en poudre, poudre de babeurre
+#hu:írópor
+#it:latticello in polvere
+#nl:karnemelkpoeder
+#nn:pulverisert kjernemelk
+#pt:leitelho em pó
+#sv:kärnemjölkspulver
 # ingredient/fr:babeurre-en-poudre has 116 products in 12 languages @2018-12-15
 
+<en:buttermilk
+ca:sèrum de mantega deshidratada
+fr:babeurre déshydraté
 
+<en:buttermilk
+es:suero de mantequilla rehidratada
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -56643,13 +56673,14 @@ fi:kalauute
 nl:visextract
 # ingredient/fr:extrait-de-poisson has 123 products in 3 languages @2018-12-29
 
-<en:fish
-en:fishpowder, powdered fish
-de:Fischpulver
-fi:kalajauhe, jauhettu kala
-fr:poisson en poudre, poudre de poisson, poisson déshydraté
-it:pesce in polvere
-nl:vispoeder
+#<en:fish
+#en:processing:en:powdered
+#en:fishpowder, powdered fish
+#de:Fischpulver
+#fi:kalajauhe, jauhettu kala
+#fr:poisson en poudre, poudre de poisson, poisson déshydraté
+#it:pesce in polvere
+#nl:vispoeder
 # ingredient/fr:poisson-en-poudre has 97 products in 4 languages @2019-04-08
 # ingredient/fr:poudre-de-poisson has 31 products in 2 languages @2019-02-03
 
@@ -65148,19 +65179,20 @@ nl:gepasteuriseerd vloeibaar ei
 # ingredient/fr:oeuf-liquide-pasteurisé has 50 products in 2 languages @2018-12-18
 
 <en:egg
+# en:processing:powder
 en:egg powder, powdered egg
-da:æggepulver
-de:Eipulver, Volleipulver
+#da:æggepulver
+#de:Eipulver, Volleipulver
 el:αλεύρι σίτου αυγό σκόνη
-es:huevo en polvo
-fi:munajauhe, kananmunajauhe
-fr:œuf en poudre, œuf en poudre, œufs en poudre, poudre d'œuf, poudre d'œuf, oeuf en poudre, oeuf en poudre, oeufs en poudre, poudre d'oeuf, poudre d'oeuf
-it:uova in polvere
-lv:kiausšinių milteliai
-nl:eipoeder, ei-poeder
-pt:ovo em pó
-ru:Яичный порошок
-sv:äggpulve
+#es:huevo en polvo
+#fi:munajauhe, kananmunajauhe
+#fr:œuf en poudre, œuf en poudre, œufs en poudre, poudre d'œuf, poudre d'œuf, oeuf en poudre, oeuf en poudre, oeufs en poudre, poudre d'oeuf, poudre d'oeuf
+#it:uova in polvere
+#lv:kiausšinių milteliai
+#nl:eipoeder, ei-poeder
+#pt:ovo em pó
+#ru:Яичный порошок
+#sv:äggpulve
 # ingredient/powdered-egg has 623 products in 12 languages @2018-12-18
 
 <en:egg
@@ -65183,16 +65215,18 @@ it:uovo intero pastorizzato
 
 <en:whole egg
 en:whole powdered egg
-de:Volleipulver
-es:Huevo entero en polvo
+# en:processing:powder
+#de:Volleipulver
+#es:Huevo entero en polvo
 fi:Kokonainen kuivattu muna
-fr:œuf entier en poudre, œufs entiers en poudre, poudre d'œuf entier, poudre d'œufs entiers, oeuf entier en poudre, oeufs entiers en poudre, poudre d'oeuf entier, poudre d'oeufs entiers
-it:uovo intero in polvere
-nl:heeleipoeder
+#fr:œuf entier en poudre, œufs entiers en poudre, poudre d'œuf entier, poudre d'œufs entiers, oeuf entier en poudre, oeufs entiers en poudre, poudre d'oeuf entier, poudre d'oeufs entiers
+#it:uovo intero in polvere
+#nl:heeleipoeder
 # ingredient/fr:œuf-entier-en-poudre has 592 products in 7 languages @2018-12-18
 
 <en:whole powdered egg
 en:whole powdered chicken egg
+
 de:Hühnervolleipulver
 fr:poudre d’œuf de poules
 nl:kipheeleipoeder
@@ -65344,32 +65378,40 @@ fi:kananmunanvalkuainen
 fr:Blanc d’œuf de poules
 
 <en:egg white
-en:powdered egg white, dehydrated egg white
-ca:clara d'ou en pols
-de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
-el:ασπράδι αυγού σε σκόν
-es:clara de huevo en polvo, clara de huevos en polvo
-fi:munanvalkuaisjauhe, kananmunanvalkuaisjauhe, kuivattu munanvalkuainen
-fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre
-hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
-it:albume d'uovo in polvere, albume in polvere
-nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
-sv:äggvita i pulver
+en:egg white powder
+# en:processing:powder
+#ca:clara d'ou en pols
+#de:Eiweißpulver, Eiweisspulver, Eiklarpulver
+#el:ασπράδι αυγού σε σκόνη
+#es:clara de huevo en polvo, clara de huevos en polvo
+#fi:munanvalkuaisjauhe, kananmunanvalkuaisjauhe
+#fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeufs en poudre
+#hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
+#it:albume d'uovo in polvere, albume in polvere
+#nl:eiwitpoeder, eiwit in poeder
+#sv:äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
+
+<en:egg white
+en:dehydrated egg white
+de:Trockeneiweiß, Eiklar getrocknet
+fi:kuivattu munanvalkuainen
+fr:blanc d'œuf déshydraté, blanc d'oeuf déshydraté
+hu:szárított tojásfehérje
+nl:gedroogd ei-eiwit
 
 <en:chicken egg white
 nl:scharrelkipeiwit
 
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
-
-<en:powdered egg white
+<en:egg white powder
+<en:chicken egg white
 de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss
 nl:kippenei-eiwitpoeder
 
 <de:Hühnerei-Trockeneiweiß
 nl:scharrelkipeiwitpoeder
 
-<en:powdered egg white
+<en:egg white powder
 en:rehydrated egg white
 de:rehydratisiertes Eiklar
 es:Clara de huevo rehidratada
@@ -65379,17 +65421,21 @@ it:albume reidratato
 nl:gerehydrateerd eiwit
 # ingredient/rehydrated-egg-white has 150 products in 5 languages @2018-12-18
 
-<en:powdered egg white
-en:pasteurised powdered egg white
+<en:egg white powder
+en:pasteurised egg white powder
+# en:processing:powder
 de:pasteurisiertes Eiweißpulver
 fi:pastöroitu munanvalkuaisjauhe
 fr:blanc d'oeuf en poudre pasteurisé
 
-<en:powdered egg white
+<en:egg white powder
+# en:processing:powder
 nl:scharrelei-eiwitpoeder
 
-<en:powdered egg white
+<en:egg white powder
+# en:processing:powder
 nl:vrije uitloopeiwitpoeder
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:egg white
 fr:blancs d'œufs pasteurisés, blancs d'oeufs pasteurisés
@@ -65517,9 +65563,10 @@ fr:jaune d’œuf de poules
 
 <en:chicken egg yolk
 en:chicken egg yolk powder
-de:Hühnereigelbpulver
-fi:kananmunankeltuaisjauhe
-fr:poudre de jaune d’œuf de poules
+# en:processing:powder
+#de:Hühnereigelbpulver
+#fi:kananmunankeltuaisjauhe
+#fr:poudre de jaune d’œuf de poules
 
 <en:free range egg yolk
 en:free range chicken egg yolk
@@ -65545,19 +65592,21 @@ it:turolo d'uova fresche
 
 <en:egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
-ca:gema d'ou en pols
-de:Eigelbpulver
-es:yema de huevo en polvo
-fi:munankeltuaisjauhe
-fr:jaune d'œuf en poudre, jaunes d'œufs en poudre, poudre de jaunes d'œufs, jaune d'œufs en poudre, poudre de jaune d’œuf, jaune d'oeuf en poudre, jaunes d'oeufs en poudre, poudre de jaunes d'oeufs, jaune d'oeufs en poudre, poudre de jaune d’oeuf
-it:tuorli in polvere
-nl:eigeelpoeder
-pt:gemas de ovo em pó
+# en:processing:powder
+#ca:gema d'ou en pols
+#de:Eigelbpulver
+#es:yema de huevo en polvo
+#fi:munankeltuaisjauhe
+#fr:jaune d'œuf en poudre, jaunes d'œufs en poudre, poudre de jaunes d'œufs, jaune d'œufs en poudre, poudre de jaune d’œuf, jaune d'oeuf en poudre, jaunes d'oeufs en poudre, poudre de jaunes d'oeufs, jaune d'oeufs en poudre, poudre de jaune d’oeuf
+#it:tuorli in polvere
+#nl:eigeelpoeder
+#pt:gemas de ovo em pó
 # ingredient/fr:poudre-de-jaunes-d’oeufs has 17 products in 3 languages @2018-12-17
 # ingredient/fr:jaunes-d’oeufs-en-poudre has 541 products in 7 languages @2018-12-17
 
 <en:egg yolk powder
 en:eggs yolk powder from free range hens
+# en:processing:powder
 
 <en:egg yolk
 fr:jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
@@ -69630,6 +69679,7 @@ nl:sambal
 
 <en:sauce
 en:soy sauce, soya sauce
+# en:process:en:powder
 ar:صلصة الصويا
 be:соевы соус
 bg:Соев сос
@@ -69637,7 +69687,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs
-de:Sojasauce, Sojasoße, Sojasosse
+de:Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja
@@ -69666,7 +69716,7 @@ mr:सोया सॉस
 ms:kicap
 mt:zalza tas-soja
 nb:soyasaus
-nl:Sojasaus
+nl:Sojasaus, soja saus
 pa:ਸੋਇਆ ਸੌਸ
 pl:sos sojowy
 pt:molho de soja
@@ -69705,7 +69755,6 @@ zh:酱油
 # zh-hans:酱油
 # zh-hant:醬油
 # zh-tw:醬油
-# en:process:en:powder
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
@@ -69718,12 +69767,13 @@ fr:sauce au soja et au sésame, sauce au sésame et au soja
 
 <en:soy sauce
 en:soy sauce powder
-de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
-es:Salsa de soya en polvo, salsa de soja en polvo
-fi:soijakastikejauhe
-fr:sauce soja en poudre, sauce de soja en poudre
-nl:sojasauspoeder, soja saus poeder
-sv:sojasåspulver
+# en:process:en:powder
+#de:Soja Sosse Pulver, Sojasoßenpulver, Sojasossenpulver, Sojasaucenpulver
+#es:Salsa de soya en polvo, salsa de soja en polvo
+#fi:soijakastikejauhe
+#fr:sauce soja en poudre, sauce de soja en poudre
+#nl:sojasauspoeder, soja saus poeder
+#sv:sojasåspulver
 
 
 # description:en:TAMARI is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance.
