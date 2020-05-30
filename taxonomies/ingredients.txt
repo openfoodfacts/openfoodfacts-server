@@ -8832,7 +8832,7 @@ vegetarian:en:yes
 
 # nova:en:milk-powder
 <en:dairy
-en:milk powder, powdered milk
+en:milk powder, powdered milk, dry milk
 ca:Llet en pols
 cs:Sušené mléko
 da:mælkepulver
@@ -8883,7 +8883,7 @@ fr:produits laitiers en poudre
 fr:poudre de lait réhydratée
 
 <en:milk powder
-en:skimmed milk powder
+en:skimmed milk powder, nonfat dry milk
 bg:обезмаслено сухо мляко
 ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
@@ -8916,7 +8916,7 @@ de:Karamellisiertes entrahmtes Milchpulver
 fi:karamellisoitu rasvaton maitojauhe
 
 <en:milk powder
-en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
+en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
 bg:пълномаслено мляко на прах
 ca:Llet sencera en pols, llet en pols sencera
 cs:sušené plnotučné mléko
@@ -10011,7 +10011,7 @@ it:panna fresca pastorizzata
 ############################## SOURED MILK related stuff #######################
 
 <en:dairy
-en:soured milk
+en:soured milk, cultured milk, fermented milk
 bg:Кисело мляко
 ca:llet àcida
 cv:Турăх
@@ -18703,6 +18703,13 @@ carbon_footprint_fr_foodges_value:fr:4.2
 <en:vinegar
 en:white vinegar
 
+<en:vinegar
+en:distilled vinegar
+de:destillierter Essig
+es:vinagre destilado
+fr:vinaigre distillé
+
+<en:distilled vinegar
 <en:white vinegar
 en:white distilled vinegar
 de:weißer destillierter Essig
@@ -24321,7 +24328,7 @@ hu:teljes kiőrlésű árpaliszt
 nl:volkoren gerstemeel
 
 <en:barley flour
-en:barley malt flour
+en:barley malt flour, malted barley flour
 de:Gerstenmalzmehl
 es:harina de malta de cebada
 fi:ohramallasjauho
@@ -27423,8 +27430,8 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
 
 <en:corn syrup
-nl:biologische gesproeidroogde maisstroop
-# ingredient/nl:biologische-gesproeidroogde-maisstroop has 1 product @2019-05-24
+en:corn syrup solids
+fr:solides de sirop de maïs
 
 fr:sirop d'amidon
 
@@ -31211,7 +31218,7 @@ wikidata:en:Q9189390
 
 #   GUM ARABIC  , also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
 
-en:gum arabic, Acacia gum, E414, E-414, E 414, INS414, INS 414
+en:gum arabic, Acacia gum, gum acacia, E414, E-414, E 414, INS414, INS 414
 ar:صمغ عربي
 be:Гуміарабік
 bg:Гума арабика, Акациева гума
@@ -31869,7 +31876,7 @@ wikidata:en:Q190227
 # On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
 <en:sodium carbonates
-en:sodium hydrogen carbonate, E500ii
+en:baking soda, sodium hydrogen carbonate, E500ii
 af:Natriumbikarbonaat
 ar:بيكربونات الصوديوم
 bg:Натриев бикарбонат
@@ -70185,7 +70192,6 @@ en:raw kombucha
 de:Roher Kombucha
 fr:Combucha cru, Kombucha cru
 
-
 en:proteins mix
 fr:mélange de protéines
 it:Mix di proteine
@@ -70199,3 +70205,14 @@ en:fruits preparation
 fr:préparation de fruits
 it:preparazione di frutta
 
+en:tapioca syrup
+fr:sirop de tapioca
+vegan:en:yes
+vegetarian:en:yes
+from_palm_oil:en:no
+
+en:peanut butter
+fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
+vegan:en:yes
+vegetarian:en:yes
+from_palm_oil:en:no

@@ -1,12 +1,13 @@
 stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
+stopwords:en:a,an,for,added,to
 stopwords:en:of
 stopwords:en:contains, contain, from, with, produced with, with added
 stopwords:es:de,del,la,las,los,una
 stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
-stopwords:fr:la,les,des,du,de,d
+stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:fr:de,d,des,du,le,la,les,a,aux
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -2677,7 +2678,7 @@ it:purea di banana
 nl:Bananenpuree
 
 < en:Barley flour
-en:barley malt flour
+en:barley malt flour, malted barley flour
 de:Gerstenmalzmehl
 es:harina de malta de cebada
 fi:ohramallasjauho
@@ -8605,6 +8606,7 @@ pl:siekane i prażone orzeszki ziemne
 en:crushed tomato
 da:Flåede tomater
 de:stückige Tomaten, Tomaten stückig
+el:πουρές τομάτας
 es:Puré de tomate
 fi:tomaattimurska
 fr:Purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
@@ -10155,7 +10157,7 @@ vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Collagen
 
-en:Colour, color, colouring, coloring, decorative pigment, surface colorant, colours, colors, coloring food
+en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added, colours, colors, coloring food
 bg:Оцветител
 ca:Colorant, Color, colors, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
 cs:Barvivo
@@ -10811,11 +10813,12 @@ wikidata:en: Q618739
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_syrup
 
 < en:Corn syrup
-< en:Glucose
-fr:sirop de glucose de maïs
+en:corn syrup solids
+fr:solides de sirop de maïs
 
 < en:Corn syrup
-nl:biologische gesproeidroogde maisstroop
+< en:Glucose
+fr:sirop de glucose de maïs
 
 < en:Blueberry
 < en:Cornflower
@@ -10984,7 +10987,6 @@ ca:nata fresca, crema de llet fresca
 da:frisk fløde
 de:
 es:Crema fresca, nata fresca
-fi:ranskankerma
 fr:crème fraîche
 hu:friss tejszín
 nl:verse room
@@ -11060,9 +11062,11 @@ sv:flytande grädde
 en:sour cream, soured cream, grade a cultured cream
 ar:كريمة حامضة
 ca:Crema agra, crema àcida
+da:syrnet fløde
 de:saure Sahne, Sauerrahm
+el:κρέμα γαλακτοσ
 eo:Acidkremo
-es:Crema agria, nata agria
+es:Crema agria, nata agria, nata ácida
 fa:خامه ترش
 fi:Hapankerma
 fr:Crème aigre, crème sure, crème acidulée
@@ -11074,7 +11078,8 @@ it:Panna acida
 ko:사워크림
 ms:Krim masam
 nl:Zure room
-pt:Creme azedo
+nn:romme
+pt:Creme azedo, nata ácida
 ru:Сметана
 sk:Kyslá smotana
 sv:Gräddfil
@@ -12342,7 +12347,7 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en:Dairy
-en:milk powder, powdered milk
+en:milk powder, powdered milk, dry milk
 ca:Llet en pols
 cs:Sušené mléko
 da:mælkepulver
@@ -12371,7 +12376,7 @@ fr:produits laitiers en poudre
 hu:tejpor alapú termékek
 
 < en:Dairy
-en:soured milk
+en:soured milk, cultured milk, fermented milk
 bg:Кисело мляко
 ca:llet àcida
 cv:Турăх
@@ -12703,6 +12708,13 @@ en:Bractechlamys vexillum
 la:Bractechlamys vexillum
 wikidata:en: Q13444410
 wikipedia:nl: https://nl.wikipedia.org/wiki/Bractechlamys_vexillum
+
+< en:Distilled vinegar
+< en:White vinegar
+en:white distilled vinegar
+de:weißer destillierter Essig
+es:vinagre blanco destilado
+fr:Vinaigre blanc distillé
 
 en:dough
 ak:mori
@@ -13836,44 +13848,44 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q929052
 
-en:E120, Cochineal, carminic acid, carmines, Natural Red 4, Cochineal Red
+en:E120, Cochineal, carminic acid, carmines, Natural Red 4, Cochineal Red, E124, Ponceau 4r, cochineal red a, CI Food Red 7, Brilliant Scarlet 4R, Ponceau
 be:E120, Кармін
-bg:E120, Кохинил, карминова киселина, кармини
+bg:E120, Кохинил, карминова киселина, кармини, E124, Понсо 4r, кохинил червено а, CI хранително червено 7
 bs:E120, Karmin
-ca:E120, Carmí, Cotxinilla, àcid carmí, carmi, acid carmi
-cs:E120, Košenila, kyselina karmínová, karmíny
-da:E120, karminer, Carminer, carminsyre, cochenille
-de:E120, echtes Karmin, Karminsäure, Carminsäure
-el:E120, Κοχενιλη, καρμινικο οξυ, καρμινες
+ca:E120, Carmí, Cotxinilla, àcid carmí, carmi, acid carmi, E124, Vermell cotxinilla A, Vermell Ponceau 4R
+cs:E120, Košenila, kyselina karmínová, karmíny, E124, Ponceau 4r, košenilová červeň a, CI potravinářská červeň 7
+da:E120, karminer, Carminer, carminsyre, cochenille, E124, Ponceau 4r (cochenillerød a), CI Food Red 7, Ponceau 4R
+de:E120, echtes Karmin, Karminsäure, Carminsäure, E124, Cochenillerot a (ponceau 4r), Food Red 7, Cochenillerot A
+el:E120, Κοχενιλη, καρμινικο οξυ, καρμινες, E124, Πονσω 4r, ερυθρο της κοχενιλης α, Κόκκινο CI food 7
 eo:E120, karmino
-es:E120, Cochinilla, ácido carmínico, carmines
-et:E120, Košenill, karmiinhape, karmiinid
+es:E120, Cochinilla, ácido carmínico, carmines, E124, Ponceau 4r, rojo cochinilla a
+et:E120, Košenill, karmiinhape, karmiinid, E124, Erkpunane 4r, košenillpunane a, CI punane toiduvärv 7, erkpunane
 eu:E120, Gorrimin
-fi:E120, Karmiinit, Kokkiniili, karmiinihappo, Karmiini, Karmiinia, Karmiineja, Kokkiniiliä, karmiinihappoa, CI 75470
-fr:E120, Acide carminique, carmin, carmins, Rouge cochenille, cochenille, Carmine, Crimson Lake, Cochineal, Natural Red 4, C.I. 75470, Rouge naturel CI n°4, 1260-17-9, colorant e120, carmin de cochenille
+fi:E120, Karmiinit, Kokkiniili, karmiinihappo, Karmiini, Karmiinia, Karmiineja, Kokkiniiliä, karmiinihappoa, CI 75470, E124, Uuskokkiini, Uuskokkiinia, kokkeniilipunainen a, Ponceau 4r, CI Food Red 7
+fr:E120, Acide carminique, carmin, carmins, Rouge cochenille, cochenille, Carmine, Crimson Lake, Cochineal, Natural Red 4, C.I. 75470, Rouge naturel CI n°4, 1260-17-9, colorant e120, carmin de cochenille, E124, Ponceau 4R, Rouge cochenille A, cochenille nouvelle, CI No. 16255, CI Food Red 7, CAS 2611-28-7, rouge ponceau
 he:E120, קרמין
-hu:E120, Kosnil, kárminsav, kárminok, Kárminvörös
+hu:E120, Kosnil, kárminsav, kárminok, Kárminvörös, E124, Ponceau 4R, Kosnilvörös A, CI Food Red 7, Neukokcin
 hy:E120, Կարմին
 ia:E120, carmin
 io:E120, Karmino
-it:E120, Cocciniglia, acido carminico, vari tipi di carminio, C22H20O13
+it:E120, Cocciniglia, acido carminico, vari tipi di carminio, C22H20O13, E124, Ponceau 4r, rosso cocciniglia a, CI rosso per alimenti 7
 ja:E120, コチニール色素
 ky:E120, Кармин
-lt:E120, Košenilis, karmino rūgštis, karminai
-lv:E120, Košenils, karmīnskābe, karmīni
+lt:E120, Košenilis, karmino rūgštis, karminai, E124, Ponso 4r, košenilis raudonasis a, Maistinis raudonasis CI Nr. 7, Raudonasis ponso
+lv:E120, Košenils, karmīnskābe, karmīni, E124, Kumačs 4r, košinela sarkanais a, CI Pārtikas sarkanais 7
 mk:E120, кармин
-mt:E120, Kuċċinilja, aċidu karminiku, karminji
+mt:E120, Kuċċinilja, aċidu karminiku, karminji, E124, Ponceau 4r, aħmar tal-kuċċinilja a
 nb:E120, karmin
-nl:E120, Cochenille, karmijnzuur, karmijn
+nl:E120, Cochenille, karmijnzuur, karmijn, E124, Ponceau 4r, cochenillerood a, CI Food Red 7
 oc:E120, Carmin
-pl:E120, Koszenila, kwas karminowy, karminy, Koszelina, Karmina
-pt:E120, Cochonilha, ácido carmínico, carminas
-ro:E120, Coșenilă, acid carminic, carmine, Acidului carminic
+pl:E120, Koszenila, kwas karminowy, karminy, Koszelina, Karmina, E124, Pąs 4r, czerwień koszenilowa a, CI czerwień spożywcza 7
+pt:E120, Cochonilha, ácido carmínico, carminas, E124, Ponceau 4r, vermelho de cochonilha a, Vermelho alimentar CI 7
+ro:E120, Coșenilă, acid carminic, carmine, Acidului carminic, E124, Ponceau 4r, Coșenilă roșie a, Colorant alimentar roșu CI 7, Roșu ponceau
 ru:E120, Кошениль, карминовая кислота, кармин
 sh:E120, Carmine
-sk:E120, Košenila, kyselina karmínová, karmíny
-sl:E120, Košenilja, karminska kislina, karmini
-sv:E120, Karmin, karminsyra, E 120
+sk:E120, Košenila, kyselina karmínová, karmíny, E124, Ponceau 4r, košenilová červeň a, CI potravinárska červená 7
+sl:E120, Košenilja, karminska kislina, karmini, E124, Rdeče 4r, košenil rdeče a
+sv:E120, Karmin, karminsyra, E 120, E124, Nykockin, CI Food Red 7, ponceau 4R
 th:E120, ชาดลิ้นจี่
 tr:E120, Karmin
 uk:E120, Кармін
@@ -14166,40 +14178,6 @@ mandatory_additive_class:en: en:colour
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q421074
-
-en:E124, Ponceau 4r, cochineal red a, CI Food Red 7, Brilliant Scarlet 4R, Ponceau
-bg:E124, Понсо 4r, кохинил червено а, CI хранително червено 7
-ca:E124, Vermell cotxinilla A, Vermell Ponceau 4R
-cs:E124, Ponceau 4r, košenilová červeň a, CI potravinářská červeň 7
-da:E124, Ponceau 4r (cochenillerød a), CI Food Red 7, Ponceau 4R
-de:E124, Cochenillerot a (ponceau 4r), Food Red 7, Cochenillerot A
-el:E124, Πονσω 4r, ερυθρο της κοχενιλης α, Κόκκινο CI food 7
-es:E124, Ponceau 4r, rojo cochinilla a
-et:E124, Erkpunane 4r, košenillpunane a, CI punane toiduvärv 7, erkpunane
-fi:E124, Uuskokkiini, Uuskokkiinia, kokkeniilipunainen a, Ponceau 4r, CI Food Red 7
-fr:E124, Ponceau 4R, Rouge cochenille A, cochenille nouvelle, CI No. 16255, CI Food Red 7, CAS 2611-28-7, rouge ponceau
-hu:E124, Ponceau 4R, Kosnilvörös A, CI Food Red 7, Neukokcin
-it:E124, Ponceau 4r, rosso cocciniglia a, CI rosso per alimenti 7
-lt:E124, Ponso 4r, košenilis raudonasis a, Maistinis raudonasis CI Nr. 7, Raudonasis ponso
-lv:E124, Kumačs 4r, košinela sarkanais a, CI Pārtikas sarkanais 7
-mt:E124, Ponceau 4r, aħmar tal-kuċċinilja a
-nl:E124, Ponceau 4r, cochenillerood a, CI Food Red 7
-pl:E124, Pąs 4r, czerwień koszenilowa a, CI czerwień spożywcza 7
-pt:E124, Ponceau 4r, vermelho de cochonilha a, Vermelho alimentar CI 7
-ro:E124, Ponceau 4r, Coșenilă roșie a, Colorant alimentar roșu CI 7, Roșu ponceau
-sk:E124, Ponceau 4r, košenilová červeň a, CI potravinárska červená 7
-sl:E124, Rdeče 4r, košenil rdeče a
-sv:E124, Nykockin, CI Food Red 7, ponceau 4R
-additives_classes:en: en:colour
-colour_index:en: CI 16255
-e_number:en: 124
-efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1328.pdf
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of Ponceau 4R -E 124- as a food additive
-efsa_evaluation_date:en: 2009-11-12
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2009.1328
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q384709
 
 en:E125, Scarlet GN, C.I. Food Red 1, Ponceau SX, FD&C Red No. 4, C.I. 14700
 bg:E125, E125 food additive
@@ -23968,7 +23946,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q423901
 
-en:E414, Acacia gum, gum arabic, E-414, INS414, INS 414
+en:E414, Acacia gum, gum arabic, gum acacia, E-414, INS414, INS 414
 ar:صمغ عربي
 be:Гуміарабік
 bg:E414, Акациева гума, Гума арабика
@@ -27601,7 +27579,7 @@ it:difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
 nl:difosfaten en natriumcarbonaten# fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
 
 < en:E500
-en:E500ii, Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda
+en:E500ii, Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 af:Natriumbikarbonaat
 ar:بيكربونات الصوديوم
 bg:E500ii, Натриев хидроген карбонат, Натриев бикарбонат, натриев кисел карбонат, сода бикарбонат
@@ -40292,6 +40270,7 @@ ca:Suc de llimona
 cs:Citronová šťáva
 da:citronsaft
 de:Zitronensaft
+el:χυμός λεμονιού
 es:zumo de limón, jugo de limón
 fi:sitruunamehu, sitruunatäysmehu
 fr:jus de citron
@@ -42602,12 +42581,14 @@ en:oregano
 ca:orenga, herba musca, roca morera
 da:oregano
 de:Oregano
+el:ρίξανη
 es:orégano
 fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
 nl:oregano
+nn:oregano
 pl:Oregano
 pt:orégãos
 ru:Орегано
@@ -44213,6 +44194,10 @@ sv:ferrofumarat
 zh:延胡索酸亚铁
 wikidata:en: Q416370
 wikipedia:en: https://en.wikipedia.org/wiki/IronII_fumarate
+
+< en:Iron
+en:reduced iron
+fr:fer réduit
 
 en:juice
 de:Saft
@@ -47602,7 +47587,7 @@ it:concentrato minerale di latte
 nl:melkmineralenconcentraat
 
 < en:Milk powder
-en:skimmed milk powder
+en:skimmed milk powder, nonfat dry milk
 bg:обезмаслено сухо мляко
 ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
@@ -47626,7 +47611,7 @@ ru:обезжиренный молоко-порошок
 sv:skummjölkspulver
 
 < en:Milk powder
-en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
+en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
 bg:пълномаслено мляко на прах
 ca:Llet sencera en pols, llet en pols sencera
 cs:sušené plnotučné mléko
@@ -54266,6 +54251,12 @@ nl:Pinda's in de dop
 < en:Peanut
 fr:farine d'arachide
 
+en:peanut butter
+fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
+from_palm_oil:en: no
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Pear
 en:conference pear
 de:Conference-Birne
@@ -57512,7 +57503,7 @@ fr:concentré de raisin
 < en:Raisin
 fr:raisins secs réhydratés
 
-en:Raising agent, leavening agent
+en:Raising agent, leavening, leavening agent
 ar:عامل نفاشية
 bg:Набухвател
 cs:Kypřicí látka, Kypřidlo
@@ -63406,7 +63397,7 @@ da:Cremefraiche, creme fraiche
 de:Crème fraîche
 es:
 eu:Esne-gain gordina, esne-gain freskoa
-fi:crème fraîche
+fi:ranskankerma, crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
 he:קרם פרש
 hu:creme fraiche, crème fraîche
@@ -66516,6 +66507,12 @@ nl:gemodificeerd tapiocazetmeel
 pl:Skrobia modyfikowana z tapioki
 pt:amido modificado de tapioca
 
+en:tapioca syrup
+fr:sirop de tapioca
+from_palm_oil:en: no
+vegan:en: yes
+vegetarian:en: yes
+
 < en:Tarragon
 en:tarragon leaves
 de:Estragonblätter
@@ -67043,15 +67040,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 
 < en:Tomato
 en:cherry tomato, cherry tomatoes
-da:körsbärstomater
-de:Kirschtomaten
-es:tomates cerezas, tomate cherry
+da:körsbärstomater, cocktailtomater
+de:Kirschtomaten, Cocktailtomaten
+el:τομάτες τσέρυ
+es:tomates cerezas, tomate cherry, tomates cherry
 fi:kirsikkatomaatti, kirsikkatomaatit
 fr:tomate cerise, tomates cerises, tomates cerise
 it:pomodorini, pomodorini ciliegia
-nl:kerstomaatjes, cherry tomaat, cheryytomaatjes
-pt:tomates cerejas
-sv:cherrytomater
+nl:kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten
+nn:cocktailtomater
+pt:tomates cerejas, tomates cereja
+sv:cherrytomater, cocktailtomater
 
 < en:Tomato
 en:chopped tomatoes
@@ -67178,7 +67177,12 @@ carbon_footprint_fr_foodges_value:fr: 2.9
 < en:Tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
+es:tomates tamizados
 it:passata di pomodoro, concentrato di pomodoro
+nl:gezeefde tomaten
+nn:mosede tomater
+pt:tomates passados
+se:mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
 
@@ -71075,6 +71079,12 @@ wikidata:en: Q618322
 wikipedia:en: https://en.wikipedia.org/wiki/Apple_cider_vinegar
 
 < en:Vinegar
+en:distilled vinegar
+de:destillierter Essig
+es:vinagre destilado
+fr:vinaigre distillé
+
+< en:Vinegar
 en:malt vinegar
 de:Malzessig
 fi:mallasetikka
@@ -71146,10 +71156,7 @@ es:vinagre en polvo
 fr:Poudre de vinaigre
 
 < en:Vinegar
-en:white distilled vinegar
-de:weißer destillierter Essig
-es:vinagre blanco destilado
-fr:Vinaigre blanc distillé
+en:white vinegar
 
 < en:Vinegar
 en:wine vinegar
@@ -71163,6 +71170,7 @@ hu:borecet
 it:aceto di vino
 nl:wijnazijn
 pl:Ocet winny
+pt:vinagre de vinho
 ru:Винный уксус
 sv:vinsvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
@@ -71239,7 +71247,7 @@ wikidata:en: Q7316808
 wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_acetate
 
 < en:Vitamin A
-en:retinyl palmitate
+en:retinyl palmitate, Vitamine A palmitate
 bg:Ретинил палмитат
 cs:retinyl-palmitát
 de:Retinylpalmitat

@@ -2,8 +2,8 @@
 # FAO reference: http://www.fao.org/gsfaonline/reference/techfuncs.html?lang=en
 
 # agent de blanchiment de la farine
-stopwords:fr:la,les,des,du,de,d
-
+stopwords:en:a,an,for,added,to
+stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:es:de,del,la,las,los,una
 
 en: Acid, Acidifier
@@ -297,7 +297,7 @@ description:en:A food additive used to dissolve, dilute, disperse or otherwise p
 description:es:Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función (y sin generar por sí mismos efecto tecnológico alguno) con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr:Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction (et sans produire lui-même d’effet technologique) afin de faciliter sa manipulation, son application ou son utilisationde l’additif alimentaire ou du nutriment.
 
-en: Colour, color, colouring, coloring, decorative pigment, surface colorant
+en: Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added
 ca: Colorant
 ga: Dath
 de: Farbstoff, Farbstoffe
@@ -868,7 +868,7 @@ description:sk:Hnacie plyny (propelanty) sú plyny iné ako vzduch, ktoré vytl�
 description:sl:Potisni plini so plini, razen zraka, ki potisnejo živilo iz embalaže.
 description:sv:Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 
-en: Raising agent
+en: Raising agent, leavening
 ga: Oibreán éiritheach
 de: Treibgas
 da: Drivgas
