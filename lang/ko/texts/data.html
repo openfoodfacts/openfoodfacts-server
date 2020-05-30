@@ -9,21 +9,21 @@
 <p>데이터를 다시 사용하기 전에 <a href="https://world.openfoodfacts.org/terms-of-use">이용 약관을 읽고</a> 다시 사용하십시오.</p> 
 
 
-<p>우리는 Open Food Facts 데이터가 무엇에 사용되는지 배우는 것에 매우 관심이 있습니다. 가영 바보</p>
+<p>우리는 Open Food Facts 데이터가 무엇에 사용되는지 배우는 것에 매우 관심이 있습니다. 의무사항은 아니지만, Open Food Facts 커뮤니티와 공유할 수 있도록 <a href="mailto:contact@openfoodfacts.org">재사용에 대해 알려주시면</a> 감사하겠습니다.</p>
 
-<h2>Open Food Facts data exports</h2>
+<h2>Open Food Facts 데이터 내보내기</h2>
 
-<p>Database dumps and exports are generated nightly.</p>
+<p>데이터베이스 덤프 및 내보내기는 밤마다 생성됩니다.</p>
 
-<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+<p>MongoDB 덤프 및 CSV 엑스포트의 다양한 분야에 대한 정보는 <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a>에서 확인할 수 있습니다.</p>
 
 
-<h3>MongoDB dump</h3>
+<h3>MongoDB 덤프</h3>
 
-<p>Data for all products is available in a MongoDB database dump.</p>
+<p>모든 제품의 데이터는 MongoDB 데이터베이스 덤프에서 이용할 수 있습니다.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
  <dt>sha256sum</dt>
  <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
@@ -31,11 +31,11 @@
  <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
 </dl>
 
-<h4>Delta Export</h4>
+<h4>델타(Delta) 내보내기</h4>
 
-<p>Daily delta exports are provided for the previous 14 days. The list of currently available delta files can be found at
- <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+<p>지난 14 일 동안 매일 델타 내보내기가 제공되었습니다. 현재 사용 가능한 델타 파일 목록은 
+<a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>에서 찾을 수 있습니다.
+ 각 줄은 <code>https://static.openfoodfacts.org/data/delta/{filename}</code>에서 사용할 수 있는 파일을 나타냅니다.
  The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
  be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
 <p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
@@ -47,7 +47,7 @@
  through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
  
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
@@ -60,7 +60,7 @@
 <p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
