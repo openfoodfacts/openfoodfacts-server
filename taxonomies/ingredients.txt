@@ -18188,6 +18188,10 @@ zh:亞麻子油
 wikidata:en:Q818405
 from_palm_oil:en:no
 
+<en:linseed
+en:linseed-seeds
+es:semillas-de-linaza
+
 <en:linseed oil
 en:Organic linseed oil
 fi:luomu pellavaöljy
@@ -22956,6 +22960,10 @@ pl:jeçzmien z pełnego przemiału
 pt:cevada integral
 
 <en:barley
+en:chopped barley
+es:cebada trocead
+
+<en:barley
 de:Gerstenflocken
 fi:ohrahiutale
 fr:flocons d'orge, flocon d'orge
@@ -23138,6 +23146,10 @@ hu:teljes kiőrlésű rozs
 nl:volkorenrogge
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle-complet/
 # 37 entries @ 2018-09-22
+
+<en:rye
+en:rye flakes
+es:copos de centeno
 
 <en:wholemeal rye
 de:Roggenvollkornschrot, Roggenvollkornflocken
@@ -23673,6 +23685,10 @@ hu:zabkorpa
 it:crusca d'avena
 nl:Haverzemelen
 
+<en:oat
+en:wholemeal oat
+es:copos de avena integral, copos de avena integral laminados
+
 <en:oat bran
 nl:Haverzemelen met kiem
 # ingredient/nl:haverzemelen-met-kiem has 1 product @2019-5-24
@@ -23813,6 +23829,10 @@ pt:quinoa branco
 # 63 products in 4 languages @2018-09-22
 
 <en:quinoa
+en:white quinoa flour
+es:harina de quinoa blanca
+
+<en:quinoa
 fr:quinoa cuit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
 # 49 products in 1 language @2018-09-22
@@ -23919,6 +23939,10 @@ fr:flocons d'épeautre complet
 <en:spelt
 de:dinkelkleie
 nl:speltzemelen
+
+<en:spelt
+en:inflated spelt
+es:espelta inflada
 
 <en:cereal
 bg:камут
@@ -25330,6 +25354,10 @@ fr:Riz moyen à grains noirs complet étuvé
 it:Riso Venere Integrale Parboiled
 pt:Arroz Integral Venere Parboiled
 
+<en:rice
+en:extruded rice
+es:arroz extruido
+
 ########################### LONG GRAIN RICES #######################
 
 <en:rice
@@ -26479,7 +26507,7 @@ fr:sucre de canne blond du Brésil
 <en:sugar
 en:unrefined sugar, raw sugar
 de:unraffinierter Zucker
-es:Azúcar sin refinar
+es:Azúcar sin refinar, azucar integral
 fi:Ruokosokeri
 fr:sucre non raffiné, sucre brut, sucre complet
 nl:ongeraffineerde suiker, ruwe suiker
@@ -26491,7 +26519,7 @@ cs:nerafinovaný třtinový cukr
 da:rå rørsukker
 de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
-es:Azucar de caña sin refinar
+es:Azucar de caña sin refinar, azucar de caña no refinada
 fi:raakaruokosokeri
 fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
 hu:finomítatlan nádcukor
@@ -27085,7 +27113,7 @@ cs:glukózový sirup
 da:glukosesirup
 de:Glukosesirup, Glucosesirup, Glukose-Sirup
 el:σιρόπι γλυκόζης
-es:jarabe de glucosa
+es:jarabe de glucosa, sirope de glucosa
 et:glükoosisiirup
 eu:Almibar
 fi:glukoosisiirappi
@@ -27136,6 +27164,10 @@ nl:tarweglucosestrooppoeder
 sv:glukossirap från vetemjöl
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-blé-en-poudre
 # 49 products in 3 languages @2018-09-24
+
+<en:glucose syrup
+en:dried glucose syrup
+es:jarabe de glucosa deshidritado
 
 <en:corn syrup
 <en:glucose
@@ -27545,6 +27577,9 @@ fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
 
 <en:sorbitol
 fr:sirop de sorbitol de blé
+
+en:rice-glucose-syrup
+es:sirope-de-glucosa-de-arroz
 
 en:rice syrup
 de:Reissirup
@@ -28935,6 +28970,10 @@ sv:Choklad bitar
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 
 <en:chocolate
+en:milk chocolate chips
+es:pepitas de chocolate con leche
+
+<en:chocolate
 en:chocolate filling, filling cream with chocolate
 de:Schokoladenfüllung
 es:Relleno de chocolate
@@ -29864,7 +29903,7 @@ cy:Soia
 da:soja
 de:Soja
 el:σόγια
-es:soja, soya
+es:soja, soya, soja ecológica
 et:soja
 eu:Soja
 fi:soija, soijasta
@@ -30024,6 +30063,10 @@ de:Sojakleie
 
 <en:soya
 es:concentrado de soja
+
+<en:soya
+en:soya base
+es:base de soja
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
@@ -30288,6 +30331,8 @@ fi:tuorehiiva
 fr:levure fraîche
 
 <en:yeast
+en:deactivated yeast
+es:levadura inactiva
 fr:levure inactivée, levure désactivée
 de:inaktivierte Hefe, inaktiveirte Hefe
 it:lievito inattivo
@@ -30523,6 +30568,9 @@ de:Roggensauerteig
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
+
+<en:sourdough
+en:wheat sourdough
 es:masa madre de trigo
 
 <de:Roggensauerteig
@@ -36895,7 +36943,7 @@ fi:ananaspyree
 en:pineapple juice
 da:Ananasjuice
 de:Ananassaft
-es:Zumo de piña
+es:Zumo de piña, jugo de piña
 fi:ananasmehu
 fr:jus d'ananas
 it:succo di ananas
@@ -37412,7 +37460,7 @@ da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas
+es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -37717,7 +37765,7 @@ wikidata:en:Q278818
 <en:must
 en:concentrated grape must
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
-es:Mosto de uvas desde concentrado
+es:Mosto de uvas desde concentrado, mosto concentrado de uva
 fi:rypäleen puristemehuntiiviste
 fr:moût de raisin concentré
 it:mosto d'uva concentrato
@@ -39032,6 +39080,9 @@ fr:Chips de coco
 <en:coconut
 fr:pâte de noix de coco
 
+<en:coconut
+es:nectar del brote de la flor del coco
+
 <en:fruit
 en:acai berry, açaí berries, acai
 de:Acai-Beeren, Açai-Beeren, Acai, Açai
@@ -39171,7 +39222,7 @@ fr:légumes et jus de cuisson de légumes
 en:vegetable juice
 da:Grøntsagsjuice
 de:Gemüsesaft
-es:Zumo vegetal
+es:Zumo vegetal, caldo vegetal
 fi:kasvismehu
 fr:Jus de légumes
 it:succo di verdura
@@ -41670,6 +41721,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Céleri
 carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:celery
+en:celery leaves
+es:apio hoja
+
+<en:celery
 fr:céleri branche
 de:Stangensellerie
 # fr:céleri-branche has 50 products in 3 languages @2018-10-21
@@ -44006,6 +44061,14 @@ ru:Красный перец
 sv:röd paprika
 # fr:poivron-rouge has 1987 products in 13 languages @2018-10-15
 
+<en:pepper
+en:pink pepper
+es:pimienta rosa
+
+<en:bell pepper
+en:piquillo-pepper
+es:pimiento-del-piquillo
+
 <en:red bell pepper
 <en:green bell pepper
 en:red and green bell peppers, green and red bell peppers
@@ -44151,6 +44214,10 @@ it:purea di peperoncino
 # usage:fr:purée de piments (piments, sel)
 
 <en:chili pepper
+en:chili in vinegar
+es:guindillas en vinagre
+
+<en:chili pepper
 en:preserved chili pepper
 de:konservierter Chilipfeffer
 fi:säilötty chili
@@ -44158,7 +44225,7 @@ fi:säilötty chili
 <en:chili pepper
 en:red chili pepper
 de:roter Chili, rote Chili-Schoten
-es:chile rojo, chiles rojos
+es:chile rojo, chiles rojos, red-chili
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
@@ -44719,6 +44786,7 @@ fr:purée de tomates mi-réduite reconstituée
 <en:tomato purée
 en:concentrated tomato purée
 de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat
+es:tomate-concentrado
 fi:tiivistetty tomaattipyree
 fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
 hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
@@ -44731,7 +44799,7 @@ sv:koncentrerad tomatpuré
 en:double concentrated tomato
 da:dobbelt koncentreret tomatpuré
 de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
-es:tomate doble concentrado
+es:tomate doble concentrado, concentrado doble de tomate
 fi:tuplatiivistetty tomaattipyree
 fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
 it:doppio concentrato di pomodore
@@ -47147,6 +47215,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées
 # 44 products @2018-10-07
 
 <en:chopped hazelnuts
+en:chopped toasted hazelnuts
+es:avellana picada y tostadas
+
+<en:chopped hazelnuts
 en:roasted nibbed hazelnuts
 de:geröstete Haselnüsse
 fr:noisettes hachées grillées, noisettes hachées et grillées
@@ -47878,6 +47950,10 @@ pl:Nasiona dyni, nasiona dyni
 <en:pumpkin seed
 en:organic pumpkin seed
 fi:luomu kurpitsansiemen
+
+<en:pumpkin seed
+en:chopped pumpkin seed
+es:semillas de calabaza troceadas
 
 # POPPY SEED is an oilseed obtained from the poppy (Papaver somniferum).
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -55987,7 +56063,7 @@ wikidata:en:Q1142857
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
-es:shiitake
+es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, , Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
@@ -56943,6 +57019,10 @@ de:Sardellenfilets
 fi:anjovisfilee
 it:Filetti d'acciuga
 # ingredient/fr:filets-d'anchois has 36 products in 4 languages @2019-01-06
+
+<en:anchovy
+en:anchovy filets
+es:filetes de anchoas
 
 en:salted anchovy filets
 de:gesalzene Sardellenfilets
@@ -58847,7 +58927,7 @@ cy:Marlin
 de:Echter Bonito
 dv:ކަޅުބިލަ މަސް
 eo:Vera bonito
-es:Bonito de altura, listado
+es:Bonito de altura, listado, bonito del norte
 eu:Lanpo sabelmarradun
 fa:هوور مسقطی
 fi:Boniitti
@@ -66475,6 +66555,9 @@ zh:生麵團
 # zh-tw:生麵團
 wikidata:en:Q178024
 wikipedia:en:https://en.wikipedia.org/wiki/Dough
+
+en:inactive dough
+es:masa madre inactiva
 
 <en:pasta
 en:cooked pasta
