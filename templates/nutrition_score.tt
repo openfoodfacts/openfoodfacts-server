@@ -1,14 +1,10 @@
-
 <p>
   <a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false"> [% lang('nutriscore_calculation_details') %] &raquo</a>
 </p>
 <div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-  [% IF is_beverage %]
-    <p> [% lang('nutriscore_is_beverage') %] </p>
-  [% ELSE %]
-    <p> [% lang('nutriscore_is_not_beverage') %] </p>
-  [% END %]
+  <p> [% is_beverage %] </p>
+  
   [% IF is_fat %]
     <p> [% lang('nutriscore_proteins_is_added_fat') %] </p>
   [% END %]
@@ -16,14 +12,14 @@
   [% FOREACH group IN points_groups %]
 
     <p> 
-      <strong> [% lang("nutriscore_" _ group.type _ "_points") %][% lang('sep') %]: [% group.points %]  </strong> 
+      <strong> [% lang("nutriscore_${group.type}_points") %][% lang('sep') %]: [% group.points %]  </strong> 
     </p>
 
     <ul>
       [% FOREACH nutrient IN group.nutrients %]
         <li>
-          <strong> [% lang("nutriscore_points_for_" _ nutrient.id) %][% lang('sep') %]: [% nutrient.points %]&nbsp</strong>
-          /&nbsp [% nutrient.maximum %][% lang("points") %] ([% lang("nutriscore_source_value") %][% lang("sep") %]: [% nutrient.value %], 
+          <strong> [% lang("nutriscore_points_for_${nutrient.id}") %][% lang('sep') %]: [% nutrient.points %]&nbsp;</strong>
+          /&nbsp; [% nutrient.maximum %][% lang("points") %] ([% lang("nutriscore_source_value") %][% lang("sep") %]: [% nutrient.value %], 
           [% lang('nutriscore_rounded_value') %][% lang('sep') %]: [% nutrient.rounded %])
         </li>
       [% END %]

@@ -8636,6 +8636,15 @@ sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
 	
+	my $is_beverage;
+	
+	if ($nutriscore_data_ref->{is_beverage}) {
+		$is_beverage = lang("nutriscore_is_beverage");
+	}
+	else {
+		$is_beverage = lang("nutriscore_is_not_beverage");
+	}
+
 	# Select message that explains the reason why the proteins points have been counted or not
 	
 	my $nutriscore_protein_info;
@@ -8662,7 +8671,7 @@ sub display_nutriscore_calculation_details($) {
 		
 		lang => \&lang,
 				
-		is_beverage => $nutriscore_data_ref->{is_beverage},
+		is_beverage => $is_beverage,
 		is_fat => $nutriscore_data_ref->{is_fat},
 		
 		nutriscore_protein_info => $nutriscore_protein_info,
@@ -8716,8 +8725,9 @@ sub display_nutriscore_calculation_details($) {
 		 
 		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
 	 }
+
 	# Nutrition Score Calculation Template
-		my $config = {
+	my $config = {
 		INCLUDE_PATH => $data_root . '/templates',
 		INTERPOLATE => 1,
 		EVAL_PERL => 1,
