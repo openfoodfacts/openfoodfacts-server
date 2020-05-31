@@ -1206,6 +1206,16 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 ]
 	],
 
+	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" },
+[
+  {
+    'id' => 'en:yellow-bell-pepper',
+    'processing' => 'en:dehydrated',
+    'text' => 'pimientos amarillos'
+  }
+]
+	],
+
 );
 
 foreach my $test_ref (@tests) {

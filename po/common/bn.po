@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bn\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:08\n"
+"PO-Revision-Date: 2020-05-29 13:03\n"
 "Language-Team: Bengali\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -134,11 +134,11 @@ msgstr "পণ্য পাতাটি যারা সম্পাদনা �
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "অ্যান্ড্রয়েড এপিকে"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -148,11 +148,11 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/bn_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "গুগল প্লে-তে পান"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -199,11 +199,11 @@ msgstr "আপনি ওপেন ফুড ফ্যাক্টস প্র�
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> একটি অলাভজনক প্রতিষ্ঠান দ্বারা তৈরি, যা অন্যান্য শিল্প থেকে স্বাধীন। এটা সকলের জন্য, সকলের দ্বারবং সকলের অর্থায়নে তৈরি। আপনি আমাদের সাহায্য করতে পারেন <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> - এখানে ডোনেট করার মাধ্যমে।</a> এবং <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">লিলো সার্চ ইঞ্জিন ব্যবহার করার মাধ্যমেও </a>। <br/><b>ধন্যবাদ!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "আমাদের কাজে সমর্থন করার জন্য ডোনেট করুন"
 
 msgctxt "brands"
 msgid "Brands"
@@ -235,11 +235,11 @@ msgstr "পণ্য %s থেকে নয়"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "ব্র্যান্ডের মালিক"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "কোকা কোলা সংস্থা"
 
 msgctxt "by"
 msgid "by"
@@ -383,11 +383,11 @@ msgstr "তথ্যের উৎস"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "তথ্যের উৎসসমূহ"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "তথ্যের উৎস"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -435,7 +435,7 @@ msgstr "Open Food Facts কে দান করুন"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -771,8 +771,8 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -1210,7 +1210,7 @@ msgstr "খুঁজুন"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/খুঁজুন"
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -3171,7 +3171,7 @@ msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
 msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
@@ -4130,5 +4130,34 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr ""
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
 msgstr ""
 

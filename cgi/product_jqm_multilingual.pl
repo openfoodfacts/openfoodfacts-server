@@ -333,7 +333,7 @@ else {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		ProductOpener::Food::special_process_product($product_ref);
 	}
 

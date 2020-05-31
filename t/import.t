@@ -6,8 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -219,5 +219,12 @@ foreach my $test_ref (@tests) {
 
 }
 
+# test match_specific_taxonomy_tags / match_labels_in_product_name
+
+$product_ref = { lc => "fr", product_name_fr => "NUGGETS DE POULET, poulet élevé sans traitement antibiotique"};
+
+match_labels_in_product_name($product_ref);
+
+is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
 
 done_testing();

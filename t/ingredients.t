@@ -2087,6 +2087,93 @@ is_deeply ($product_ref->{ingredients},
 ) or diag explain $product_ref;
 
 
+# bug #3432 - mm. should not match Myanmar
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "mausteet (mm. kurkuma, inkivääri, paprika, valkosipuli, korianteri, sinapinsiemen)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
+is_deeply ($product_ref->{ingredients},
+[
+     {
+       'has_sub_ingredients' => 'yes',
+       'id' => 'en:spice',
+       'ingredients' => [
+         {
+           'id' => 'en:e100',
+           'text' => 'muun muassa kurkuma'
+         },
+         {
+           'id' => 'en:ginger',
+           'text' => "inkiv\x{e4}\x{e4}ri"
+         },
+         {
+           'id' => 'en:bell-pepper',
+           'text' => 'paprika'
+         },
+         {
+           'id' => 'en:garlic',
+           'text' => 'valkosipuli'
+         },
+         {
+           'id' => 'en:coriander',
+           'text' => 'korianteri'
+         },
+         {
+           'id' => 'en:mustard-seed',
+           'text' => 'sinapinsiemen'
+         }
+       ],
+       'rank' => 1,
+       'text' => 'mausteet',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:e100',
+       'text' => 'muun muassa kurkuma',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:ginger',
+       'text' => "inkiv\x{e4}\x{e4}ri",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:bell-pepper',
+       'text' => 'paprika',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:garlic',
+       'text' => 'valkosipuli',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:coriander',
+       'text' => 'korianteri',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:mustard-seed',
+       'text' => 'sinapinsiemen',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     }
+   ],
+) or diag explain $product_ref;
+
+
 $product_ref = {
         lc => "fr",
         ingredients_text => "oeufs (d'élevage au sol, Suisse, France)",

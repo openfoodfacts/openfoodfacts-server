@@ -1,7 +1,5 @@
 # Product Opener
 
-* Versions:
-
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
@@ -24,7 +22,7 @@ Open Food Facts is a database of food products with ingredients, allergens, nutr
 ### Made by everyone
 
 Open Food Facts is a non-profit association of volunteers.
-25.000+ contributors like you have added 868.000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+25.000+ contributors like you have added 1,3 million + products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
 
 ### For everyone
 
@@ -37,7 +35,7 @@ Data about food is of public interest and has to be open. The complete database 
 ### How do I get set up?
 
 * Feel free to join us on Slack at <https://openfoodfacts.slack.com/> in the channels: #api #productopener #dev
-* If you're looking for the API, look at <https://en.wiki.openfoodfacts.org/API>
+* If you're looking for the API, look at <https://wiki.openfoodfacts.org/API>
 * Summary of set up: 
    * [45 min Quick Start Guide w/ Docker](installation/dev-environment-quick-start-guide.md)
    * [Product Opener Guide](installation/product-opener.md)

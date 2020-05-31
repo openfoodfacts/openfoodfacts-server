@@ -106,9 +106,13 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_nutrient = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
 my $assign_category_properties = '';
+my $restore_values_deleted_by_user = '';
+my $delete_debug_tags = '';
+my $all_owners = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -142,8 +146,12 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-yuka-salt" => \$fix_yuka_salt,
 			"remove-team=s" => \$remove_team,
 			"remove-label=s" => \$remove_label,
+			"remove-nutrient=s" => \$remove_nutrient,
 			"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
 			"team=s" => \$team,
+			"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
+			"delete-debug-tags" => \$delete_debug_tags,
+			"all-owners" => \$all_owners,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -185,8 +193,8 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
-	and (not $remove_team) and (not $remove_label)
-	and (not $assign_category_properties)
+	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
+	and (not $assign_category_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -211,6 +219,15 @@ foreach my $field (sort keys %$query_ref) {
 	}
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
+	}
+}
+
+# On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
+
+if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ((not $all_owners) and (not defined $query_ref->{owners_tags})) {
+		print STDERR "On producers platform, --query owners_tags=... or --all-owners must be set.\n";
+		exit();
 	}
 }
 
@@ -250,6 +267,9 @@ my $m = 0;	# number of products with a new version created
 
 my $fix_rev_not_incremented_fixed = 0;
 
+# Used to get stats on fields deleted by an user
+my %deleted_fields = ();
+
 while (my $product_ref = $cursor->next) {
 
 	my $productid = $product_ref->{_id};
@@ -287,6 +307,17 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "labels", $remove_label);
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
+			if (defined $product_ref->{nutriments}) {
+				delete $product_ref->{nutriments}{$remove_nutrient};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_value"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_unit"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_100g"};
+				delete $product_ref->{nutriments}{$remove_nutrient . "_serving"};
+				$product_values_changed = 1;
+			}
 		}
 
 		# Some Spanish products had their ingredients list wrongly cut after "Ingredientes"
@@ -613,7 +644,7 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-		if ($server_domain =~ /openfoodfacts/) {
+		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
 		if ($assign_category_properties) {
@@ -787,6 +818,77 @@ while (my $product_ref = $cursor->next) {
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
 
+		if ($restore_values_deleted_by_user) {
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+
+			# Go through all revisions, keep the latest value of all fields
+
+			my %deleted_values = ();
+			my $previous_rev_product_ref = {};
+			my $revs = 0;
+
+			foreach my $change_ref (@$changes_ref) {
+				$revs++;
+				my $rev = $change_ref->{rev};
+				if (not defined $rev) {
+					$rev = $revs;	# was not set before June 2012
+				}
+
+				my $rev_product_ref = retrieve("$data_root/products/$path/$rev.sto");
+
+				if (defined $rev_product_ref) {
+
+					if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $restore_values_deleted_by_user)) {
+
+						foreach my $field (sort keys %$previous_rev_product_ref) {
+
+							next if $field =~ /debug/;
+							next if $field =~ /_n$/;
+							next if $field =~/^(ingredients_percent|nova|nutriscore|pnns|nutrition|ingredients_text_with_allergens)/;
+							next if not defined $previous_rev_product_ref->{$field};
+							next if ref($previous_rev_product_ref->{$field}) ne ""; # if it is not a reference, it is a scalar
+							next if $previous_rev_product_ref->{$field} eq "";
+
+							if ((not defined $rev_product_ref->{$field}) or ($rev_product_ref->{$field} eq "")) {
+								# print to STDOUT so that we can do further processing (e.g. grep etc.)
+								print "product code $code - deleted value for field $field : " . $previous_rev_product_ref->{$field} . "\n";
+								$deleted_values{$field} = $previous_rev_product_ref->{$field};
+								defined $deleted_fields{$field} or $deleted_fields{$field} = 0;
+								$deleted_fields{$field}++;
+							}
+						}
+					}
+					$previous_rev_product_ref = $rev_product_ref;
+				}
+			}
+
+			if ((scalar keys %deleted_values) == 0) {
+				next;
+			}
+
+			foreach my $field (sort keys %deleted_values) {
+				if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
+					$product_ref->{$field} = $deleted_values{$field};
+					if (defined $tags_fields{$field}) {
+						compute_field_tags($product_ref, $product_ref->{lc}, $field);
+					}
+					$product_values_changed = 1;
+				}
+			}
+		}
+
+		# Delete old debug tags (many were created by error)
+		if ($delete_debug_tags) {
+			foreach my $field (sort keys %$product_ref) {
+				if ($field =~ /_debug_tags/) {
+					delete $product_ref->{$field};
+				}
+			}
+		}
+
 		if ($compute_sort_key) {
 			compute_sort_key($product_ref);
 		}
@@ -829,6 +931,14 @@ print "$n products updated (pretend: $pretend) - $m new versions created\n";
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";
+}
+
+if ($restore_values_deleted_by_user) {
+
+	print STDERR "\n\ndeleted fields:\n";
+	foreach my $field (sort keys %deleted_fields) {
+		print STDERR "$deleted_fields{$field}\t$field\n";
+	}
 }
 
 exit(0);
