@@ -8636,13 +8636,13 @@ sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
 	
-	my $is_beverage;
-	
+	my $beverage_view;
+
 	if ($nutriscore_data_ref->{is_beverage}) {
-		$is_beverage = lang("nutriscore_is_beverage");
+		$beverage_view = lang("nutriscore_is_beverage");
 	}
 	else {
-		$is_beverage = lang("nutriscore_is_not_beverage");
+		$beverage_view = lang("nutriscore_is_not_beverage");
 	}
 
 	# Select message that explains the reason why the proteins points have been counted or not
@@ -8671,7 +8671,7 @@ sub display_nutriscore_calculation_details($) {
 		
 		lang => \&lang,
 				
-		is_beverage => $is_beverage,
+		beverage_view => $beverage_view,
 		is_fat => $nutriscore_data_ref->{is_fat},
 		
 		nutriscore_protein_info => $nutriscore_protein_info,

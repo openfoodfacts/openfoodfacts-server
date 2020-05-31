@@ -3,7 +3,7 @@
 </p>
 <div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-  <p> [% is_beverage %] </p>
+  <p> [% beverage_view %] </p>
   
   [% IF is_fat %]
     <p> [% lang('nutriscore_proteins_is_added_fat') %] </p>
