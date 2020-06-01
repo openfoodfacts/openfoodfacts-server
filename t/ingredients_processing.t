@@ -36,7 +36,6 @@ my @tests = (
 	  		},
 	  		{
 	    		'id' => 'en:garlic-powder',
-	    		'processing' => 'en:powder',
 	    		'text' => 'garlic powder'
 	  		},
 	  		{
@@ -225,7 +224,8 @@ my @tests = (
 			},
 			{
 				'id' => 'en:whey-powder',
-				'text' => 'wei-poeder'
+				'processing' => 'en:powder',
+				'text' => 'wei'
 			},
 			{
 				'id' => 'en:vanilla-powder',

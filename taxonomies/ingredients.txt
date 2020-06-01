@@ -40644,7 +40644,7 @@ it:Galatto-oligosaccaridi di lattosio
 en:beetroot, beet
 af:Beet
 da:Rødbede, rødbeder
-de:Rüben, Randen
+de:Rüben, Randen, Rote-Bete
 es:remolacha
 fi:punajuuri
 fr:betterave, betteraves
@@ -40663,10 +40663,11 @@ carbon_footprint_fr_foodges_value:fr:0.2
 
 <en:beetroot
 en:beetroot powder
+#en:processing:en:powder
 de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver
-es:Remolacha en polvo
-fi:punajuurijauhe
-fr:poudre de betterave
+#es:remolacha en polvo
+#fi:punajuurijauhe
+#fr:poudre de betterave
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
 
 <en:beetroot
@@ -41777,15 +41778,16 @@ fr:jus de céleri
 
 <en:celery juice
 en:concentrated celery juice
-de:Sellerieextrakt
+de:Sellerieextrakt, Konzentriertes Selleriesaft
 fi:sellerimehutiiviste
 fr:jus de céleri concentré, jus concentré de céleri
 # fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
 
 <en:concentrated celery juice
 en:powdered concentrated celery juice
-de:Konzentriertes Selleriesaftpulver
-fr:jus concentré de céleri en poudre
+#en:processing:en:powder
+#de:Konzentriertes Selleriesaftpulver
+#fr:jus concentré de céleri en poudre
 
 <en:celery
 de:Selleriesaft
@@ -42266,7 +42268,7 @@ cs:cibule
 cy:Nionyn
 da:løg
 de:Zwiebel, Zwiebeln
-el:κρεμμύδι
+el:κρεμμύδι, κρεμμύδια
 eo:cepo
 es:cebolla, Cebollas
 et:sibul
@@ -42387,7 +42389,7 @@ fi:punasipuli
 fr:oignon rouge, oignons rouges
 he:בצל סגול
 hi:लाल प्याज
-hu:lilahagyma
+hu:lilahagyma, vöröshagyma
 is:rauðlaukur
 it:cipolla rossa
 ja:赤たまねぎ
@@ -42414,15 +42416,16 @@ fi:marinoitu punasipuli
 
 <en:onion
 en:Roscoff onions
-de:Roscoff Zwiebeln
+de:Roscoff Zwiebeln, Roscoff Zwiebel
 fr:oignon de Roscoff
-nl:Roscoffui
+nl:Roscoffui, Roscoff ui
 
 <en:Roscoff onions
 en:Roscoff onion powder
-de:Roscoff Zwiebelpulver
-fr:oignon de Roscoff en poudre
-nl:Roscoff ui in poedervorm
+#en:processing:en:powder
+#de:Roscoff Zwiebelpulver
+#fr:oignon de Roscoff en poudre
+#nl:Roscoff ui in poedervorm
 
 <en:Roscoff onions
 en:Roscoff PDO onions
@@ -42511,6 +42514,7 @@ sv:lökjuicekoncentrat
 <en:onion
 en:dehydrated onion, dried onion
 ca:Ceba deshidratada
+cs:Sušená cibule
 de:Zwiebeln getrocknet, Trockenzwiebeln
 es:cebolla deshidratada
 fi:kuivattu sipuli
@@ -42520,6 +42524,7 @@ it:cipolle disidratate
 nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
 pl:Suszona cebula
 pt:cebola desidratada, cebola seca
+sk:sušená cibuľa
 sv:torkad lök
 # ingredient/fr:oignons-déshydratés has 679 products @2018-12-06
 # ingredient/fr:oignons-séchés has 53 products in 6 languages @2018-11-06
@@ -42528,28 +42533,30 @@ sv:torkad lök
 # <en:Onions and their products
 <en:onion
 en:onion powder, Granulated onion, Dried minced onion
-ca:ceba en pols
-cs:Sušená cibule
-da:løgpulver
-de:Zwiebelpulver
-el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
-eo:pulvorigita cepo
-es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
-fi:sipulijauhe
-fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
-hu:vöröshagymapor
-it:cipolla en polvere
-ms:Serbuk bawang
-nl:uienpoeder, uipoeder, Uienpoeders
-pl:Cebula w proszku
-pt:cebola em pó
-ru:Луковый порошок
-sk:sušená cibuľa
-sl:čebula v prahu
-sv:lökpulver
+#en:processing:en:powder
+#ca:ceba en pols
+#da:løgpulver
+#de:Zwiebelpulver
+#el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
+#eo:pulvorigita cepo
+#es:cebolla en polvo, Cebollas secas en polvo
+#fi:sipulijauhe
+#fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
+#hu:hagymapor
+#it:cipolla en polvere
+#ms:Serbuk bawang
+#nl:uienpoeder, uipoeder, uienpoeders
+#pl:Cebula w proszku
+#pt:cebola em pó
+#ru:Луковый порошок
+#sl:čebula v prahu
+#sv:lökpulver
 wikidata:en:Q7093931
 # ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
 # category/onion-powder has 11 products @2019-05-12
+
+<en:onion
+es:Cebolla seca molida,
 
 <en:onion powder
 de:Röstzwiebelpulver

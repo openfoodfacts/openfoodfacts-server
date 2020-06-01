@@ -217,13 +217,15 @@ my @tests = (
     'id' => 'en:fat-reduced-cocoa-powder',
     'labels' => 'en:organic',
     'percent' => '3.9',
-    'text' => 'cacao maigre en poudre'
+	'processing' => 'en:powder',
+    'text' => 'cacao maigre'
   },
   {
     'id' => 'en:cocoa-powder',
     'labels' => 'en:organic',
     'percent' => '1.7',
-    'text' => 'cacao en poudre'
+    'processing' => 'en:powder',
+    'text' => 'cacao'
   },
   {
     'id' => 'en:salt',
