@@ -13,6 +13,8 @@ Generalities:
 - fields that end with _100g correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
 - fields that end with _serving correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
 
+Please do not use _unit and _value. Those are NOT normalized values. Please use _100g fields
+
 List of fields:
 
 # general information:
