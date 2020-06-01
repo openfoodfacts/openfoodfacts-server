@@ -10632,7 +10632,7 @@ es:queso fresco pasteurizado
 en:melted cheese
 ca:formatge fos
 de:Schmelzkäse
-es:Queso derretido
+es:queso fundido, Queso derretido
 fi:sulatejuusto
 fr:fromage fondu
 hu:ömlesztett sajt
@@ -10641,15 +10641,16 @@ nl:smeltkaas
 # fr:fromage-fondu has 420 products in 5 languages @2018-10-28
 
 <en:melted cheese
+#en:process:en:powder
 en:melted powdered cheese
-ca:formatge fos en pols
-de:Schmelzkäsepulver
-es:queso fundido en polvo
-fi:sulatejuustojauhe
-fr:fromage fondu en poudre
-hu:ömlesztett porított sajt
-it:formaggio fuso in polvere
-nl:poeder van gesmolten kazen
+#ca:formatge fos en pols
+#de:Schmelzkäsepulver
+#es:queso fundido en polvo
+#fi:sulatejuustojauhe
+#fr:fromage fondu en poudre
+#hu:ömlesztett porított sajt
+#it:formaggio fuso in polvere
+#nl:poeder van gesmolten kazen
 # fr:fromage-fondu-en-poudre has 98 products in 6 languages @2018-10-28
 
 <en:cheese
@@ -10679,21 +10680,22 @@ es:queso de leche pasteurizada
 
 <en:cheese
 en:cheese powder
-ca:formatge en pols
-da:ostepulver, ostpulver
-de:Käsepulver
-el:τυρί σε σκόνη
-es:queso en polvo
-fi:juustojauhe
-fr:fromage en poudre, poudre de fromage
-hu:sajtpor, porított sajt
-it:formaggio in polvere
-nl:kaaspoeder
-pl:ser w proszku
-pt:queijo em pó
-ru:Сырный порошок
-sk:sirotka v prahu
-sv:ostpulver
+#en:processing:en:powder
+#ca:formatge en pols
+#da:ostepulver, ostpulver
+#de:Käsepulver
+#el:τυρί σε σκόνη
+#es:queso en polvo
+#fi:juustojauhe
+#fr:fromage en poudre, poudre de fromage
+#hu:sajtpor, porított sajt
+#it:formaggio in polvere
+#nl:kaaspoeder
+#pl:ser w proszku
+#pt:queijo em pó
+#ru:Сырный порошок
+#sk:sirotka v prahu
+#sv:ostpulver
 # fr:fromage en poudre has 200 products in 14 languages @2018-10-28
 
 <en:cheese
@@ -18751,9 +18753,10 @@ nl:gebufferde azijnpoeder
 
 <en:vinegar
 en:vinegar powder
-de:Essigpulver
-es:vinagre en polvo
-fr:Poudre de vinaigre
+#en:processing:en:powder
+#de:Essigpulver
+#es:vinagre en polvo
+#fr:Poudre de vinaigre
 
 <en:vinegar
 en:wine vinegar
@@ -18830,13 +18833,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Apple_cider_vinegar
 
 <en:cider vinegar
 en:cider vinegar powder
-de:Apfelessigpulver
-es:vinagre de sidra en polvo
-fi:siiderietikkajauhe
-fr:poudre de vinaigre de cidre
-hu:almaecet por
-it:aceto sidro en polvo
-nl:appelazijnpoeder
+#en:processing:en:powder
+#de:Apfelessigpulver
+#es:vinagre de sidra en polvo
+#fi:siiderietikkajauhe
+#fr:poudre de vinaigre de cidre
+#hu:almaecet por
+#it:aceto sidro en polvo
+#nl:appelazijnpoeder
 
 # Balsamic vinegar is a very dark, concentrated, and intensely flavoured vinegar originating in Italy, made wholly or partially from grape must, grape juice with all the skins, seeds and stems.
 
@@ -26357,11 +26361,12 @@ fr:sucre caramélisé en poudre
 
 <en:sugar
 en:granulated sugar, powdered sugar
+#en:processing:en:powder
 de:Puderzucker
-es:Azucar en polvo
-fi:jauhettu sokeri
-fr:sucre en poudre, sucre en grains
-hu:porcukor
+#es:Azucar en polvo
+#fi:jauhettu sokeri
+#fr:sucre en poudre, sucre en grains
+#hu:porcukor
 it:zucchero semolato
 nl:poedersuiker
 
@@ -27144,14 +27149,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 wikidata:en:Q14770547
 
 <en:glucose syrup
-en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
+en:dehydrated glucose syrup, dried glucose syrup
 da:tørret glukosesirup
 de:getrockneter Glukosesirup, dehydrierter Glukosesirup
 es:Sirope deshidratado de glucosa
 fi:kuivattu glukoosisiirappi
-fr:sirop de glucose déshydraté, sirop de glucose en poudre
+fr:sirop de glucose déshydraté
 hu:dehidratált glükózszirup, szárított glükózszirup, dehidratált glükóz szirup, szárított glükóz szirup
-it:sciroppo di glucosio disidratato, sciroppo di glucosio in polvere
+it:sciroppo di glucosio disidratato
 nl:gedroogde glucosestroop
 sv:torkad glukossirap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/powdered-glucose-syrup
@@ -27159,10 +27164,22 @@ sv:torkad glukossirap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dehydrated-glucose-syrup
 # 350 products in 8 languages
 
-<en:powdered glucose syrup
-fr:sirop de glucose de blé en poudre
-nl:tarweglucosestrooppoeder
+<en:glucose syrup
+en:powdered glucose syrup
+#en:processing:en:powder
+#fr:sirop de glucose en poudre
+#it:sciroppo di glucosio in polvere
+
+<en:glucose syrup
+fr:sirop de glucose de blé
+nl:tarweglucosestroop
 sv:glukossirap från vetemjöl
+
+<en:cereal glucose syrup
+<en:powdered glucose syrup
+#en:processing:en:powder
+#fr:sirop de glucose de blé en poudre
+#nl:tarweglucosestrooppoeder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-blé-en-poudre
 # 49 products in 3 languages @2018-09-24
 
@@ -28435,9 +28452,9 @@ es:Cacao procesado con álcali
 fr:Cacao alcalinisé
 
 <en:cocoa-powder
+#en:processing:en:powder
 en:cocoa powder processed with alkali, alkalized cocoa powder
-es:Cacao en polvo procesado con álcali
-fr:Cacao alcalinisé
+#es:Cacao en polvo procesado con álcali
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa
@@ -28583,72 +28600,92 @@ fr:pâte de cacao bio
 
 <en:cocoa
 en:cocoa powder
+#en:processing:en:powder
 ar:مسحوق الكاكاو
 az:Kakao tozu
-be:Какава-парашок
-ca:cacau en pols
+#be:Какава-парашок
+#ca:cacau en pols
 cs:Kakaový prášek
-da:Kakaopulver
-de:Kakaopulver
-el:σκόνη κακάο
-es:cacao en polvo
+#da:Kakaopulver
+#de:Kakaopulver
+#el:σκόνη κακάο
+#es:cacao en polvo
 fa:پودر کاکائو
-fi:kaakaojauhe
-fr:poudre de cacao, cacao en poudre
-hu:kakaópor
+#fi:kaakaojauhe
+#fr:poudre de cacao, cacao en poudre
+#hu:kakaópor
 id:Kakao padat
-it:cacao in polvere
+#it:cacao in polvere
 ja:ココアパウダー
 ko:코코아 가루
 ms:Pepejal koko
-nl:cacaopoeder
-pl:kakao w proszku, Proszek kakaowy
-pt:cacau em pó
-ro:pudră de cacao, pudra de cacao, cacao pudră, cacao pudra
-ru:какао-порошок
-sv:kakaopulver
-uk:Какао-порошок
+#nl:cacaopoeder
+#pl:kakao w proszku, Proszek kakaowy
+#pt:cacau em pó
+#ro:pudră de cacao, pudra de cacao, cacao pudră, cacao pudra
+#ru:какао-порошок
+#sv:kakaopulver
+#uk:Какао-порошок
 # be-tarask:Какава-парашок
 # nds-nl:Kakoupouder
 wikidata:en:Q1062396
 # ingredient/cocoa-powder has 4521 products in 23 languages @2019-05-25
 
 <en:cocoa powder
-fr:poudre de cacao cru
-
-<en:cocoa powder
 en:raw cacao powder
+#en:processing:en:powder
 de:Rohes Kakaopulver
-fr:Poudre de cacao brute
+fr:Poudre de cacao brute, poudre de cacao cru
 
 <en:cocoa powder
-en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
-bg:обеэмаслено какао на прах
-ca:cacau desgreixat en pols
-cs:Kakaový prášek se sníženým obsahem tuku
-da:skummet kakaopulver
-de:fettarmes Kakaopulver, Kakaopulver stark entölt, mageres Kakaopulver, fettreduziertes Kakaopulver, Magerkakaopulver
-es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
-et:lahja kakaopulber
-fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
-fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé
-hr:kakao u prahu smanjene masnoce
-hu:zsírszegény kakaópor
-it:cacao magro in polvere, cacao scremato in polvere
-lt:liesi kakavos milteliai
-lv:kakao pulveris ar zemu tauku saturu
-nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
-pl:niskotłuszczowe kakao w proszku
-pt:cacau magro em pó
-ro:cacao pudra degresata
-ru:обезжиренный какаопорошок
-sv:fettreducerat kakaopulver, skummet kakaopulver
+en:fat reduced cocoa, low-fat cocoa, low fat cocoa
+bg:обеэмаслено какао
+ca:cacau desgreixat
+cs:Kakaový se sníženým obsahem tuku
+da:skummet kakao
+de:fettarmes Kakao, Kakao stark entölt, mageres Kakao, fettreduziertes Kakao, Magerkakao
+es:cacao magro, cacao desgrasado
+et:lahja kakao
+fi:vähärasvainen kaakao, vähärasvaista kaakao
+fr:cacao maigre, cacao dégraissé, cacao sec dégraissé
+hr:kakao smanjene masnoce
+hu:zsírszegény kakaó
+it:cacao magro, cacao scremato
+lt:liesi kakavos
+lv:kakao ar zemu tauku saturu
+nl:magere cacao, cacao met verminderd vetgehalte
+pl:niskotłuszczowe kakao
+pt:cacau magro
+ro:cacao degresata
+ru:обезжиренный какао
+sv:fettreducerat kakao, skummet kakao
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
-<en:fat reduced cocoa powder
-fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
-de:stark entöltes Kakaopulver
-it:cacao fortemente sgrassato ed cacao in polvere
+<en:cocoa powder
+<en:fat reduced cocoa
+en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
+#en:processing:en:powder
+#bg:обеэмаслено какао на прах
+#ca:cacau desgreixat en pols
+#cs:Kakaový prášek se sníženým obsahem tuku
+#da:skummet kakaopulver
+#de:fettarmes Kakaopulver, Kakaopulver stark entölt, mageres Kakaopulver, fettreduziertes Kakaopulver, Magerkakaopulver, stark entöltes Kakaopulver
+#es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
+#et:lahja kakaopulber
+#fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
+#fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
+#hr:kakao u prahu smanjene masnoce
+#hu:zsírszegény kakaópor
+#it:cacao magro in polvere, cacao scremato in polvere, cacao fortemente sgrassato ed cacao in polvere
+#lt:liesi kakavos milteliai
+#lv:kakao pulveris ar zemu tauku saturu
+#nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
+#pl:niskotłuszczowe kakao w proszku
+#pt:cacau magro em pó
+#ro:cacao pudra degresata
+#ru:обезжиренный какаопорошок
+#sv:fettreducerat kakaopulver, skummet kakaopulver
+# ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 <en:cocoa paste
@@ -28933,16 +28970,17 @@ vegetarian:en:yes
 
 <en:chocolate
 en:chocolate powder
-da:chokoladepulver
-de:Schokoladenpulver
-es:chocolate en polvo
-fi:suklaajauhe
-fr:chocolat en poudre, poudre de chocolat
-it:cioccolato in polvere
-nl:chocoladepoeder
-ro:ciocolata pudra
-ru:Шоколадный порошок
-sv:Chokladpulver
+#en:processing:en:powder
+#da:chokoladepulver
+#de:Schokoladenpulver
+#es:chocolate en polvo
+#fi:suklaajauhe
+#fr:chocolat en poudre, poudre de chocolat
+#it:cioccolato in polvere
+#nl:chocoladepoeder
+#ro:ciocolata pudra
+#ru:Шоколадный порошок
+#sv:Chokladpulver
 zh:巧克力粉
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 carbon_footprint_fr_foodges_value:fr:4.7
@@ -29145,7 +29183,7 @@ bn:সাদা চকোলেট
 ca:xocolata blanca
 cs:bílá čokoláda
 da:hvid chokolade
-de:Weiße Schokolade, weisse Schokolade
+de:Weiße Schokolade, weisse Schokolade, weißes Schokoladen
 eo:blanka ĉokolado
 es:chocolate blanco
 et:valge šokolaad
@@ -29196,10 +29234,11 @@ carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:chocolate
 en:white chocolate powder
-da:hvidt chokoladepulver
-de:weißes Schokoladenpulver
-fi:valkosuklaajauhe
-fr:chocolat blanc en poudre
+#en:processing:en:powder
+#da:hvidt chokoladepulver
+#de:weißes Schokoladenpulver
+#fi:valkosuklaajauhe
+#fr:chocolat blanc en poudre
 
 <en:chocolate
 en:chocolate sauce
@@ -30331,21 +30370,24 @@ de:Nährhefepulver
 
 <en:yeast
 en:yeast powder, raising powder
+#en:processing:en:powder
 da:Tørret gær
-de:Hefepulver
-el:μαγιά σκόνη
-es:levadura en polvo
-fi:hiivajauhe
+#de:Hefepulver
+#el:μαγιά σκόνη
+#es:levadura en polvo
+#fi:hiivajauhe
 fr:poudre de levure, levure en poudre, poudres levantes, poudre à lever, poudres à lever, poudre levante
-hu:porélesztő, élesztőpor
-it:lievito in polvere
-nl:gistpoeder
-pl:Drożdże w proszku
-pt:levedura em pó
-ru:Дрожжевой порошок
-sv:jästpulver
+#hu:porélesztő, élesztőpor
+#it:lievito in polvere
+#nl:gistpoeder
+#pl:Drożdże w proszku
+#pt:levedura em pó
+#ru:Дрожжевой порошок
+#sv:jästpulver
 
 en:baking powder
+#en:processing:en:powder
+#en:comment:misses a parent, so entries can not be removed
 da:Bagepulver
 de:Backpulver
 es:Levadura en polvo
@@ -30476,10 +30518,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yeast_extract
 
 <en:yeast extract
 en:yeast extract powder
-de:Hefeextraktpulver
-fi:Hiivauutejauhe
-fr:extrait de levure en poudre
-it:estratto di lievito in polvere
+#en:processing:en:powder
+#de:Hefeextraktpulver
+#fi:Hiivauutejauhe
+#fr:extrait de levure en poudre
+#it:estratto di lievito in polvere
 
 
 
@@ -34569,9 +34612,10 @@ fr:Extrait de citron concentré
 
 <en:lemon
 en:lemon powder
-de:Zitronenpulver, Zitronenfruchtpulver
-fi:sitruunajauhe
-fr:Poudre de citron
+#en:processing:en:powder
+#de:Zitronenpulver, Zitronenfruchtpulver
+#fi:sitruunajauhe
+#fr:Poudre de citron
 wikidata:en:Q206496
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
 # 1 entry @ 2019-10-31
@@ -38855,7 +38899,6 @@ nl:acerola-extract
 pl:Sok z aceroli, sok z aceroli
 ru:Сок ацеролы
 # ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-# en:process:en:powdered
 ƒ
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
@@ -38863,15 +38906,17 @@ ru:Сок ацеролы
 
 <en:acerola
 en:acerola powder
-de:Acerolapulver
-fi:akerola-jauhe, acerola-jauhe
-fr:poudre d'acérola
-it:acerola in polvere
-nl:acerolapoeder
+#en:processing:en:powder
+#de:Acerolapulver
+#fi:akerola-jauhe, acerola-jauhe
+#fr:poudre d'acérola
+#it:acerola in polvere
+#nl:acerolapoeder
 # ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
 
-<fr:poudre d'acérola
+<en:acerola powder
 en:acerola powder on manioc starch
+#en:processing:en:powder
 de:Acerolapulver auf Maniokstärke
 fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
 it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
@@ -39011,12 +39056,13 @@ ro:nuca de cocos deshidratata
 
 <en:coconut
 en:coconut powder
-de:Kokosnussepulver
-es:Coco en polvo
-fi:kookosjauhe
-fr:noix de coco en poudre
-it:noce di cocco in polvere
-nl:kokospoeder
+#en:processing:en:powder
+#de:Kokosnussepulver
+#es:Coco en polvo
+#fi:kookosjauhe
+#fr:noix de coco en poudre
+#it:noce di cocco in polvere
+#nl:kokospoeder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
 # 86 products in 5 languages @2108-10-03
 
@@ -39811,13 +39857,13 @@ co:Aglia
 cs:česnek kuchyňský
 cv:Ыхра
 cy:Garlleg
-da:hvidløg
+da:hvidløg, hvidløgs
 de:Knoblauch
 dv:ލޮނުމެދު
 el:Σκόρδο
 eo:ajlo
 es:ajo
-et:küüslauk
+et:küüslauk, küüslaugu
 eu:baratxuri
 fa:سیر
 fi:valkosipuli, valkosipulia
@@ -39835,7 +39881,7 @@ he:שום
 hi:लहसुन
 hr:Češnjak
 ht:Lay
-hu:Fokhagyma
+hu:fokhagyma
 hy:Սխտոր
 id:Bawang putih
 io:Alio
@@ -39855,7 +39901,7 @@ lb:Knuewelek
 lg:Emisuwa egikaluba
 li:witlouk
 lo:ຜັກທຽມ
-lt:Valgomasis česnakas
+lt:Valgomasis česnakas, česnakų
 lv:ķiploks
 mk:Лук
 ml:വെളുത്തുള്ളി
@@ -39867,7 +39913,7 @@ my:ကြက်သွန်ဖြူ
 nb:hvitløk
 ne:लसुन
 nl:knoflook
-nn:hvitløk
+nn:hvitløk, hvitløks
 nv:Tłʼohchin díchʼííʼí
 oc:Alh cultivat
 or:ରସୁଣ
@@ -39878,7 +39924,7 @@ ps:هوږه
 pt:alho
 qu:Ahus
 ro:usturoi
-ru:чеснок
+ru:чеснок, чесночный
 sa:लशुनम्
 sc:Azu
 sd:ٿوم
@@ -39889,7 +39935,7 @@ sl:Česen
 so:Toon
 sq:hudhra
 sr:бели лук
-sv:vitlök
+sv:vitlök, vitlöks
 sw:Kitunguu saumu
 ta:பூண்டு
 te:వెల్లులి
@@ -39991,29 +40037,28 @@ fr:Ail semoule déshydraté
 
 <en:garlic
 en:garlic powder
-bs:bijeli luk u prahu
-ca:All en pols
-cs:Sušený česnek
-da:hvidløgspulver
-de:Knoblauchpulver
-el:σκόρδο σκόνη, σκόρδο σε σκόνη
-es:ajo en polvo
-et:küüslaugupulber
-fi:valkosipulijauhe
-fr:poudre d'ail, ail en poudre
-hu:fokhagymapor
-it:aglio in polvere, polvere di aglio
-lt:česnakų milteliai
-nl:knoflookpoeder
-nn:hvitløkspulver
-pl:czosnek sproszkowany
-pt:alho em pó
-ro:pudră de usturoi
-ru:Чесночный порошок
-sk:sušený cesnak
-sl:česen v prahu
-sv:vitlökspulver
-tr:sanmsak tozu
+#en:processing:en:powder
+#bs:bijeli luk u prahu
+#ca:All en pols
+#da:hvidløgspulver
+#de:Knoblauchpulver
+#el:σκόρδο σκόνη, σκόρδο σε σκόνη
+#es:ajo en polvo
+#et:küüslaugupulber
+#fi:valkosipulijauhe
+#fr:poudre d'ail, ail en poudre
+#hu:fokhagymapor
+#it:aglio in polvere, polvere di aglio
+#lt:česnakų milteliai
+#nl:knoflookpoeder
+#nn:hvitløkspulver
+#pl:czosnek sproszkowany
+#pt:alho em pó
+#ro:pudră de usturoi
+#ru:Чесночный порошок
+#sl:česen v prahu
+#sv:vitlökspulver
+#tr:sarimsak tozu
 # fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 
 <en:garlic
@@ -40040,6 +40085,7 @@ nl:biologische knoflook
 
 <en:garlic
 fr:ail séché, ail déshydraté
+cs:Sušený česnek
 da:tørret hvitløg
 de:getrockneter Knoblauch, Knoblauch getrocknet
 es:ajo deshidratado
@@ -40047,6 +40093,7 @@ fi:kuivattu valkosipuli
 it:aglio essicato, aglio secco
 nl:gedroogde knoflook
 nn:tørket hvitløk
+sk:sušený cesnak
 sv:torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
 
