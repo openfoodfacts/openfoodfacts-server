@@ -2912,6 +2912,8 @@ wikidata:en:Q380778
 fr:Nature et Progrès
 wikidata:en:Q3337101
 
+en:Farm Verified Organic
+
 # The entry below is needed to correctly parse ingredients lists that
 # have things like: * issus du commerce équitable et de l'agriculture biologique
 # the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
@@ -15731,6 +15733,7 @@ nl:Canada Biologisch, Canada Organic
 
 <en:Organic
 fr:Bio-Cohérence
+wikidata:en:Q30751117
 
 <en:Organic
 fr:Bio-Solidaire, biosolidaire
@@ -16371,7 +16374,7 @@ pl:najwyższa jakość
 en:Dolphin Safe, Dolphin Friendly
 de:Sicher für Delfine, Delfinfreundlich
 fi:Delfiini-ystävällinen, delfiinejä vaarantamaton
-fr: Protection des dauphins
+fr:Protection des dauphins
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -16396,6 +16399,7 @@ en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
+wikidata:en:Q2941001
 
 en:Pelagic net fishing
 de:Pelagische Netzfischerei
@@ -16409,6 +16413,7 @@ fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+wikidata:en:Q11997909
 
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
@@ -16439,6 +16444,7 @@ en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
+wikidata:en:Q1269057
 
 en:Pair trawling
 fi:Paritroolattu
@@ -16661,9 +16667,15 @@ it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
 wikidata:en:Q443112
 
+#https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 <en:European Vegetarian Union
 en:European Vegetarian Union - Vegetarian
 fr:Union Végétarienne Européenne - Végétarien
+
+#https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
+<en:European Vegetarian Union
+en:European Vegetarian Union - Vegan
+fr:Union Végétarienne Européenne - Vegan
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
