@@ -5264,7 +5264,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
 
 sub normalize_packager_codes($) {
 
@@ -5368,6 +5368,7 @@ sub normalize_packager_codes($) {
 
 my %local_ec = (
 	DE => "EG",
+	EE => "EÜ",
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
