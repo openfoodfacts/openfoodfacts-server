@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-02 18:52\n"
+"PO-Revision-Date: 2020-06-02 19:01\n"
 "Language-Team: Czech\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -89,19 +89,19 @@ msgstr "Potenciálně nebezpečné aditivum. Omezte používání."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Nebezpečná potravinová přísada. Vyhýbat se."
+msgstr "Nebezpečné aditivum. Raději se vyhněte."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Potravinářská přísada zakázaná v Evropě. Vyhněte se za každou cenu."
+msgstr "Aditivum zakázané v Evropě. Vyhněte se za každou cenu."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "přísady"
+msgstr "aditiva"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "přísada"
+msgstr "aditivum"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -133,7 +133,7 @@ msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "Stránka produktu také editoval(a)"
+msgstr "Stránka výrobku také upravoval(a)"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -165,7 +165,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tento produkt dosud není v databázi <<site_name>>. Mohli byste, prosím, pořídit nějaké obrázky produktu, čárového kódu, seznamu ingrediencí a nutriční tabulky a přidat je na <a href=\"https://world-cs.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Předem děkujeme! </p>\n"
+msgstr "<p>Tento výrobek ještě není v databázi <<site_name>>. Můžete prosím pořídit nějaké obrázky produktu, čárového kódu, složení a tabulky výživových údajů a přidat je na <a href=\"https://world-cs.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Děkujeme! </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -173,7 +173,7 @@ msgstr "Vyfotit"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Poznámka: Obrázky, které odesíláte jsou zveřejňovány pod svobodnou licencí \"Creative Commons Uveďte původ-Zachovejte licenci\" (CC BY-SA 2.5)."
+msgstr "Poznámka: Obrázky, které odesíláte jsou zveřejňovány pod svobodnou licencí \"Creative Commons Attribution and ShareAlike\"."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -197,7 +197,7 @@ msgstr "Číslo čárového kódu:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Můžete také pomoct s financováním projektu Open Food Facts"
+msgstr "Můžete také pomoci s financováním projektu Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -1321,7 +1321,7 @@ msgstr "%s v %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Nutriční hodnoty pro 100 g"
+msgstr "Výživové údaje na 100 g"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
