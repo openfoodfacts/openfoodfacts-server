@@ -1,6 +1,6 @@
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
+stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
@@ -47,7 +47,7 @@ synonyms:fr:GMS, glutamate monosodique, glutamate mono-sodique, glutamate, msg
 synonyms:ru:глутамат, глютамат, глутаминат натрия
 
 synonyms:en:preservatives, conservatives
-synonyms:es:conservador, conservadores, preservador
+synonyms:es:conservador, conservadores
 synonyms:fi:säilöntäaineita
 synonyms:ru:консерванты, консервантов
 
@@ -263,6 +263,7 @@ en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
+wikidata:en: Q1269057
 
 en:Brazilian Beer Awards
 
@@ -13390,12 +13391,12 @@ fi:Euroopan vegetaariliitto lakto-ovo-vegetaarinen, EVU lakto-ovo-vegetaarinen
 
 < en:European Vegetarian Union
 < en:Vegan
-en:European Vegetarian Union Vegan
+en:European Vegetarian Union - Vegan
 ca:Unió Vegana Vegetariana Europea
 de:Europäische Vegetarier-Union Vegan
 es:Unión Vegetariana y vegana Europea
 fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
-fr:Union Végétarienne Européenne - Végétalien
+fr:Union Végétarienne Européenne - Vegan
 nl:Europese Vegetarische Unie Vegan, EVU Vegan
 
 < en:European Vegetarian Union
@@ -13480,6 +13481,8 @@ en:TransFer, TransFer Canada
 
 < en:Fairtrade International
 en:Fairtrade USA
+
+en:Farm Verified Organic
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -14007,6 +14010,12 @@ de:DLG Goldener Preis 2019
 fi:Saksan maatalousyhdistyksen kultamitali 2019
 fr:Médaille d'or 2019 de la Société Allemande d'Agriculture
 
+< en:Gold medal of the German Agricultural Society
+en:2020 Gold medal of the German Agricultural Society
+de:DLG Goldener Preis 2020
+fi:Saksan maatalousyhdistyksen kultamitali 2020
+fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+
 en:GOST
 fr:GOST
 it:GOST
@@ -14151,6 +14160,7 @@ fr:Récolté en France
 origins:en: en:France
 
 en:Health Star Rating, Health Star Rating System, HSR
+wikidata:en: Q85846088
 
 en:Health Star Rating 1
 
@@ -15474,6 +15484,7 @@ he:Nutriscore
 it:Nutriscore
 nl:Nutriscore
 pl:Nutriscore
+wikidata:en: Q46577569
 
 < en:Nutriscore
 en:Nutriscore Grade A
@@ -15642,7 +15653,7 @@ en:Organic, organically grown, organically produced, ingredient produced organic
 ca:Orgànic
 cs:Bio
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
-es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
 fi:Luomu
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique
 he:אורגני
@@ -15782,9 +15793,14 @@ wikidata:en: Q3336915
 
 < en:Organic
 fr:Bio-Cohérence
+wikidata:en: Q30751117
 
 < en:Organic
 fr:Bio-Solidaire, biosolidaire
+
+< en:Organic
+fr:Nature et Progrès
+wikidata:en: Q3337101
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
@@ -16165,6 +16181,7 @@ pt:Carne de porco pura
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+wikidata:en: Q11997909
 
 en:Qualité France (French quality)
 es:Calidad francesa
@@ -17049,6 +17066,7 @@ en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
+wikidata:en: Q2941001
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -17652,6 +17670,9 @@ fr:Approuvé par les familles 2018
 < fr:Approuvé par les familles
 fr:Approuvé par les familles 2019
 
+< fr:Approuvé par les familles
+fr:Approuvé par les familles 2020
+
 fr:Association des vins naturels, AVN
 
 fr:Baco - Bacchus, Concours international des vins et vins primeurs de Madrid
@@ -17792,6 +17813,9 @@ fr:Fumage naturel, fumé naturellement
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
 fr:Grand cru
+
+fr:Haute Valeur Environnementale
+wikidata:en: Q3128557
 
 fr:Imprim'Vert
 wikidata:en: Q3149493
