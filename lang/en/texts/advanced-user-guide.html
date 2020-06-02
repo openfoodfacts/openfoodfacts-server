@@ -1,0 +1,1015 @@
+<style type="text/css">
+  .simple-bold {
+    font-weight: bold;
+  }
+  .image {
+    margin-left: 0px;
+    margin-top: 0px;
+    transform: rotate(0rad) translateZ(0px);
+    -webkit-transform: rotate(0rad) translateZ(0px);
+  }
+</style>
+
+<img
+  alt="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356x300.png"
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image9.png"
+  style="width: 356.00px; height:300.00px;"
+  title=""
+/>
+<h1 style="color: #191919;">USER GUIDE</h1>
+
+A simple guide for Open Food Facts contributors
+
+<h2 style="color: #ed7d31;">ABSTRACT</h2>
+
+This document includes an overview of Open Food Facts user interfaces, rules,
+processes, step by step guides, useful links and other information related to
+the project
+
+<h3 style="color: #2e75b5; font-weight: bold;">
+  <a id="table-of-contents">Table of Contents</a>
+</h3>
+
+<ul>
+  <li>
+    <a href="#General">
+      <span class="simple-bold">General</span>
+    </a>
+    <ul>
+      <li>
+        <a href="#Introduction">
+          <span class="simple-bold">Introduction</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Sister-projects">
+          <span class="simple-bold">Sister projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Resources">
+          <span class="simple-bold">Resources</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#Open-Food-Facts-contributors-overview">
+      <span class="simple-bold">Open Food Facts contributors overview</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="#Open-Food-Facts-101">
+      <span class="simple-bold">Open Food Facts 101</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="#The-app">
+      <span class="simple-bold">The &lsquo;app&rsquo;.</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="#The-website">
+      <span class="simple-bold">The website</span>
+    </a>
+    <ul>
+      <li>
+        <a href="#Basic-rules">
+          <span class="simple-bold">Basic rules</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Useful link">
+          <span class="simple-bold">Useful links</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#Step by step example">
+      <span class="simple-bold">Step by step example</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="#Each field in details">
+      <span class="simple-bold">Each field in details</span>
+    </a>
+    <ul>
+      <li>
+        <a href="#Main language">
+          <span class="simple-bold">Main language</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#Manage images">
+          <span class="simple-bold">Manage images</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Product picture">
+          <span class="simple-bold">Product picture</span>
+        </a>
+        <ul>
+          <li>
+            <a href="#Add Language">Add Language</a>
+          </li>
+          <li>
+            <a href="#Front picture">Front picture</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#Product characteristics">
+          <span class="simple-bold">Product characteristics</span>
+        </a>
+        <ul>
+          <li>
+            <a href="#Product name">Product name</a>
+          </li>
+          <li>
+            <a href="#Common name">Common name</a>
+          </li>
+          <li>
+            <a href="#Quantity">Quantity</a>
+          </li>
+          <li>
+            <a href="#Packaging">Packaging</a>
+          </li>
+          <li>
+            <a href="#Brands">Brands</a>
+          </li>
+          <li>
+            <a href="#Categories">Categories</a>
+          </li>
+          <li>
+            <a href="#Labels, certifications, awards"
+              >Labels, certifications, awards</a
+            >
+          </li>
+          <li>
+            <a href="#Origin of ingredients">Origin of ingredients</a>
+          </li>
+          <li>
+            <a href="#Manufacturing or processing places"
+              >Manufacturing or processing places</a
+            >
+          </li>
+          <li>
+            <a href="#EMB code">EMB code</a>
+          </li>
+          <li>
+            <a
+              href="#Link to the product page on the official site of the producer"
+              >Link to the product page on the official site of the producer</a
+            >
+          </li>
+          <li>
+            <a href="#Best before date">Best before date</a>
+          </li>
+          <li>
+            <a href="#City, state and country where purchased"
+              >City, state and country where purchased</a
+            >
+          </li>
+          <li>
+            <a href="#Stores">Stores</a>
+          </li>
+          <li>
+            <a href="#Countries where sold">Countries where sold</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#Ingredients">
+          <span class="simple-bold">Ingredients</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Nutrition facts">
+          <span class="simple-bold">Nutrition facts</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#Miscellaneous">
+      <span class="simple-bold">Miscellaneous</span>
+    </a>
+    <ul>
+      <li>
+        <a href="#Useful links">
+          <span class="simple-bold">Useful links</span>
+        </a>
+        <ul>
+          <li>
+            <a href="#Products you added a picture to"
+              >Products you added a picture to</a
+            >
+          </li>
+          <li>
+            <a href="#Products you edited">Products you edited</a>
+          </li>
+          <li>
+            <a href="#Informer">Informer</a>
+          </li>
+          <li>
+            <a href="#Noteworthy products">Noteworthy products</a>
+          </li>
+          <li>
+            <a href="#Useful queries">Useful queries</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a id="General">General</a></h2>
+
+<h3><a id="Introduction">Introduction</a></h3>
+<p>
+  Open Food Facts is an open data initiative which aims to gather data on food
+  products. All the data is published under an open data licence which allows
+  anyone to re-use the data and build new apps, services and products on top of
+  it. There are now more than 30 re-uses for things we could not have imagined,
+  from health and fitness apps, special diet apps, to connected objects,
+  scientific studies, and press investigations.
+</p>
+<p>
+  Two main sets of data that the project aims to gather are the nutrition facts
+  - energy, amount of fat, proteins, etc. - and the ingredients, however other
+  interesting data such as labels (bio, suitable for vegetarians, AOC, others)
+  should be recorded. Having said that, the keen contributor- whether new to the
+  project or experienced - may be sometimes confused on how to enter the data in
+  the most correct way. This manual aims to be used as a reference that the
+  contributor can come back to when needed.
+</p>
+<a href="#table-of-contents">Up to the table of contents</a><br />
+
+<h2><a id="Sister projects"></a>Sister projects</h2>
+
+<p>
+  <a href="about:blank">
+    <span style="color: #0563c1;">Open Beauty Facts</span></a
+  >: Open Beauty Facts gathers data on cosmetic products from around the world.
+</p>
+<p>
+  <a href="https://combiendesucres.fr/">
+    <span style="color: #0563c1;">Combien de SUCRES?</span></a
+  >: A game (in French) to challenge you to guess how much sugar is in food
+  products.
+</p>
+<p>
+  <a href="https://howmuchsugar.in/"
+    ><span style="color: #0563c1;">How much SUGAR? In</span></a
+  >: A game (in English) to challenge yyou to guess how much sugar is in food
+  products.
+</p>
+<p>
+  <a href="https://madenear.me/">
+    <span style="color: #0563c1;">Made Near Me</span></a
+  >: <em>Made Near Me</em> shows on a map where the food products you eat every
+  day are made, transformed and/or packaged.
+</p>
+<p>
+  <a href="https://cestemballepresdechezvous.fr/">
+    <span style="color: #0563c1;"
+      >C&rsquo;est emball&eacute; pr&egrave;s de chez vous</span
+    ></a
+  >: Same as
+
+  <span style="font-style: italic;">Made Near Me</span>, in the French language.
+</p>
+<a href="#table-of-contents">Up to the table of contents</a>
+
+<h2><a id="Resources">Resources</a></h2>
+
+<p>
+  <a href="https://slack.openfoodfacts.org/">
+    <span style="color: #0563c1;">Open Food Facts slack</span></a
+  >: Collaboration tool used by Open Food Facts contributors to discuss any kind
+  of issue related to the project. This collaboration tool is based on channels.
+  There are channels based on many topics, such as French (#fr), Open Food Facts
+  core development (#productopener), China (#china), iOS (#ios), Android
+  (#android), &hellip;
+</p>
+<a href="#table-of-contents">Up to the table of contents</a>
+<h2>
+  <a id="Open Food Facts contributors overview"
+    >Open Food Facts contributors overview</a
+  >
+</h2>
+
+<p>
+  People who want to contribute to the Open Food Facts database can do so in
+  many ways:
+</p>
+<ul>
+  <li>
+    Using the mobile apps to take pictures and enter basic information of
+    products
+  </li>
+  <li>Using the openfoodfacts.org website in cases such as:</li>
+  <ul>
+    <li>
+      Adding additional information that can&rsquo;t be added using the mobile
+      apps
+    </li>
+    <li>adding a product that doesn&rsquo;t have a bar code</li>
+    <li>
+      adding a product by uploading pictures, including the picture of the
+      barcode.
+    </li>
+    <li>using the mass upload tool to upload several products in one go.</li>
+  </ul>
+</ul>
+<a href="#table-of-contents">Up to the table of contents</a>
+
+<h2><a id="Open Food Facts 101">Open Food Facts 101</a></h2>
+
+<p>
+  When using the Open Food Facts mobile application (Android, iOS, Windows -
+  insert links) the recommended way is to:
+</p>
+<ul>
+  <li class="simple-bold">scan the product&rsquo;s barcode</li>
+  <li class="simple-bold">take pictures of:</li>
+  <ul>
+    <li>the front of the product</li>
+    <li>the ingredients</li>
+    <li>the nutrition facts</li>
+  </ul>
+</ul>
+<p>
+  Once those three pictures are taken the most valuable information is already
+  sent to Open Food Facts servers.
+</p>
+<p>
+  For those who want/can do more, take a picture of any other additional
+  information available on the package such as:
+</p>
+<ul>
+  <li>
+    labels: Bio, suitable for vegetarian, fins friendly, free range, &hellip;
+  </li>
+  <li>Packaging code</li>
+  <li>official website of the product/producer</li>
+  <li>any other relevant data</li>
+</ul>
+<ul>
+  <strong>press the save button.</strong>
+</ul>
+<p>
+  <span style="text-decoration: underline;">Note:</span> it is recommended to
+  use the mobile application, as well as the website, being logged in, that way
+  the contributor will be able to easily retrieved their products and edit them
+  later on.
+</p>
+
+<a href="#table-of-contents">Up to the table of contents</a>
+
+<h2><a id="The app">The &lsquo;app&rsquo;.</a></h2>
+
+<p>
+  Open Food Facts has mobile applications for iOS, Android and Windows phones.
+</p>
+
+<h2><a id="The website">The website</a></h2>
+
+<p>
+  Once a contributor has used the mobile application to enter the basic data,
+  they may go to openfoodfacts.org to edit the product they added and complete
+  all fields.
+</p>
+
+<h3><a id="Basic rules">Basic rules</a></h3>
+
+<ul>
+  <li>Only the data available on the package should be added.</li>
+</ul>
+<ul>
+  <li>
+    3 pictures are key: front, nutrition facts, ingredients. However other
+    pictures which display information such as labels (Bio, Free Range,
+    vegetarian&hellip;), EMB code, manufacturing location, etc. would be useful
+    for tracking purposes. More pictures the better, don&rsquo;t be shy adding
+    pictures.
+  </li>
+  <li>
+    Once pictures are added it is great to go to the openfoodfacts.org website
+    to type the information, however it is not mandatory, any information is
+    good information. If you do not have time to type the information you
+    shouldn&rsquo;t feel guilty, the pictures are already of great help.
+  </li>
+</ul>
+
+<h3><a id="Useful links">Useful links</a></h3>
+
+<h2><a id="Step by step example">Step by step example</a></h2>
+
+<p>
+  <span style="font-style: italic;"
+    >Here is an overview of the process to add a product to the Open Food Facts
+    database. Most of the fields to fill in are pretty much self-explanatory,
+    however go to section 7 for details and tips on each of the fields available
+    on the web interface.</span
+  >
+</p>
+<ul>
+  <li>
+    <strong>Make sure you are logged in</strong>
+    <p>
+      Using the app while logged in will allow you to easily track the products
+      you added or edited on OpenFoodFacts.org website.
+    </p>
+    <p>Scan three, or more, pictures with your phone</p>
+    <img
+      alt="https://world.openfoodfacts.org/images/products/500/016/911/6531/front_en.8.400.jpg"
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image11.jpg"
+      style="width: 168.11px; height: 283.34px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+      title=""
+    />
+    <img
+      alt="https://world.openfoodfacts.org/images/products/500/016/911/6531/2.jpg"
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image10.jpg"
+      style="width: 215.04px; height: 287.33px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+      title=""
+    />
+    <img
+      alt="https://world.openfoodfacts.org/images/products/500/016/911/6531/3.jpg"
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image13.jpg"
+      style="width: 224.92px; height: 300.63px; margin-left: -0.00px; margin-top: -8.33px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+      title=""
+    />
+  </li>
+  <li>
+    <strong>Look for &lsquo;your&rsquo; product</strong>
+    <p>
+      On xx.openfoodfacts.org, where xx is a country code such as uk, fr, cn,
+      &hellip;, or &lsquo;word&rsquo;, click on the &lsquo;Products you added
+      that need to be completed&rsquo; link
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image12.png"
+      style="width: 325.33px; height: 89.33px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      This will display the list of products you added when logged in. Go click
+      on the product you want to complete.
+    </p>
+    <p>
+      <span style="text-decoration: underline;">Note:</span> the list of
+      Products you added that need to be completed is displayed only if you are
+      logged in to openfoodfacts.org.
+    </p>
+  </li>
+
+  <li>
+    <strong>Front picture</strong>
+
+    <p>
+      Select the front picture then, using the mouse cursor, select the area of
+      interest to remove the uninteresting background. For instance:
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image14.png"
+      style="width: 305.81px; height: 515.24px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      After cropping the picture and clicked on &lsquo;Validate and/or resize
+      image&rsquo; button the new front picture will be:
+    </p>
+    <img
+      alt="https://world.openfoodfacts.org/images/products/500/016/911/6531/front_en.8.400.jpg"
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image11.jpg"
+      style="width: 213.26px; height: 359.43px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+      title=""
+    />
+    <p>
+      Checking the &lsquo;Normalize colors&rsquo; button is usually efficient as
+      it makes the image sharper in most cases.
+    </p>
+  </li>
+  <li>
+    <strong>Fill the general information</strong>
+    <p>
+      Fill the information as displayed on the packaging, try to fill as much
+      information as available. For instance:
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image16.png"
+      style="width: 601.33px; height: 223.80px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      The full name, as displayed on the packaging, was filled. In the
+      &lsquo;common name&rsquo; section try to put a name as used in the common
+      language. It is fine to leave the field blank if no common name seems to
+      be relevant to you.
+    </p>
+    <p>
+      Do note that some fields are normalised, this is useful to ensure as much
+      consistency across all products.
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image15.png"
+      style="width: 601.33px; height: 323.07px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      For such fields, start typing words that seem relevant to you and select
+      the most appropriate(s) entry(ies) for the product you are editing.
+    </p>
+  </li>
+  <li>
+    <strong>Ingredients</strong>
+    <p>
+      Select the image and crop it to show only the relevant information as you
+      did for Step 4:.
+    </p>
+    <p>
+      Type all the ingredients as displayed on the package, however use coma as
+      a separator. On some products &lsquo;;&rsquo;, &lsquo;-&lsquo;, or
+      anything else are used as separator, instead use a coma &lsquo;,&rsquo;.
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image6.png"
+      style="width: 601.33px; height: 223.27px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      When allergens are highlighted on the product, surround the ingredient
+      with the underscore character as highlighted in the image above. This
+      allows the app, Open Food facts one or third parties, to alert users who
+      need such information.
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image7.png"
+      style="width: 601.33px; height: 187.67px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      <span style="color: #ff0000; font-weight: bold;">Tip:</span>after saving
+      the Ingredients image, if it doesn&rsquo;t show above the input text box,
+      but instead it is displayed on the right of the original image, then
+      slightly resize your browser window (make it smaller) until the image is
+      displayed above the input text box. This might make it easier to type the
+      information depending on your screen size and resolution.
+    </p>
+    <p>From:</p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image17.png"
+      style="width: 297.73px; height: 313.05px; "
+      class="image-prop"
+      title=""
+    />
+    <p>To:</p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image18.png"
+      style="width: 210.17px; height: 558.78px; "
+      class="image-prop"
+      title=""
+    />
+  </li>
+  <li>
+    <strong>Nutrition facts</strong>
+    <p>
+      If available, type the nutrition facts as displayed on the packaging,
+      otherwise check the &lsquo;Nutrition facts are not specified on the
+      product&rsquo; box.
+    </p>
+  </li>
+
+  <li>
+    <strong>Save and review </strong>
+
+    <p>
+      Once it is all done, click on the save button. You&rsquo;ll be redirected
+      to a page confirming that the document was correctly saved.
+    </p>
+    <img
+      alt=""
+      src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image19.png"
+      style="width: 280.71px; height: 200.35px; "
+      class="image-prop"
+      title=""
+    />
+    <p>
+      Click on &lsquo;See the product page&rsquo; to review the information. If
+      everything looks OK, you are done! Thanks for contributing.
+    </p>
+  </li>
+</ul>
+
+<h2><a id="Each field in details">Each field in details</a></h2>
+
+<h3><a id="Main language">Main language</a></h3>
+
+<p>
+  If the mobile application you use is set with the same language as the product
+  you enter than you should be fine. However, if the language is not the right
+  one, you can change it using the drop down list.
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image20.png"
+  style="width: 601.33px; height: 278.73px; "
+  class="image-prop"
+  title=""
+/>
+<p>
+  <span style="color: #44546a; font-style: italic;"
+    >Figure 1: Change the main language</span
+  >
+</p>
+
+<h3><a id="Manage images">Manage images</a></h3>
+
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image21.png"
+  style="width: 601.33px; height: 328.80px; "
+  class="image-prop"
+  title=""
+/>
+<p>
+  <span style="color: #44546a; font-style: italic;"
+    >Figure 2: Manage images</span
+  >
+</p>
+<p>
+  Here you can delete images as well as copy, or move, images from one product
+  to another product in case pictures were mixed up or any other special case.
+</p>
+
+<h3><a id="Product picture">Product picture</a></h3>
+
+<h4><a id="Add Language">Add Language</a></h4>
+
+<p>
+  If the product already exists in one language and you are adding data in
+  another language from the same product/barcode, click on the &lsquo;add
+  language&rsquo; button and edit the data with the right language tab chosen.
+</p>
+
+<h4><a id="Front picture">Front picture</a></h4>
+
+<p>
+  Select the front picture then, using the mouse cursor, select the area of
+  interest to remove the uninteresting background. For instance:
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image14.png"
+  style="width: 305.81px; height: 515.24px; "
+  class="image-prop"
+  title=""
+/>
+<p>
+  After cropping the picture and clicked on &lsquo;Validate and/or resize
+  image&rsquo; button the new front picture will be:
+</p>
+<img
+  alt="https://world.openfoodfacts.org/images/products/500/016/911/6531/front_en.8.400.jpg"
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image11.jpg"
+  style="width: 207.24px; height: 349.29px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+  title=""
+/>
+<p>
+  Checking the &lsquo;Normalize colors&rsquo; button is usually efficient as it
+  makes the image sharper in most cases.
+</p>
+
+<h3><a id="Product characteristics">Product characteristics</a></h3>
+
+<h4><a id="Product name">Product name</a></h4>
+
+<p>Enter the product name as displayed on the packaging.</p>
+
+<h4><a id="Common name">Common name</a></h4>
+
+<p>Enter a name as used in day to day life. Leave blank if irrelevant.</p>
+
+<h4><a id="Quantity">Quantity</a></h4>
+
+<p>Enter the quantity with the unit. Here are some examples:</p>
+<ul>
+  <li><span class="simple-bold">400g</span>: simple case.</li>
+  <li>
+    <span class="simple-bold">400g(235g)</span>: in some cases, you may see:
+    total weight 400g, 235g when dried.
+  </li>
+  <li>
+    <span class="simple-bold">6</span>: when there is no unit available, for
+    instance with eggs.
+  </li>
+  <li>
+    <span class="simple-bold">180 capsules</span>: dietary supplements often
+    don&rsquo;t display the weight but instead show the number of capsules in
+    the box.
+  </li>
+</ul>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image1.png"
+  style="width: 178.64px; height: 223.95px; margin-left: -21.57px; margin-top: -19.41px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+  title=""
+/>
+
+<h4><a id="Packaging">Packaging</a></h4>
+
+<p>
+  In the ideal case the information is displayed on the packaging, in that case
+  you just need to type what is displayed. For instance, &lsquo;Sleeve
+  board&rsquo; and &lsquo;plastic tray&rsquo;.
+</p>
+<p>
+  When the information is not displayed try to put the most accurate information
+  possible&nbsp;
+</p>
+
+<h4><a id="Brands">Brands</a></h4>
+
+<p>
+  Type the brands as displayed on the packaging. Sometimes products seem to have
+  multiple brands, in that case it is OK to type more than one brand.
+</p>
+
+<h4><a id="Categories">Categories</a></h4>
+
+<p>
+  Categories are normalised, start typing a word and a list of suggestions will
+  appear. Most categories should already be present so there is, in most cases,
+  no need to enter a new category. It is better to try to stick to the existing
+  categories where possible.
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image15.png"
+  style="width: 601.33px; height: 323.07px; "
+  class="image-prop"
+  title=""
+/>
+<p>
+  You may want to try different combination of word to find the right category.
+  For instance, you may start typing &lsquo;red w&rsquo; to list red wines,
+  instead of typing &lsquo;wine&rsquo;. In case of doubt you can ask on
+
+  <a href="https://openfoodfacts.slack.com/messages/general/">
+    <span style="color: #0563c1;">slack</span>
+  </a>
+  in the #general channel.
+</p>
+<h4>
+  <a id="Labels, certifications, awards">Labels, certifications, awards</a>
+</h4>
+
+<p>
+  This field is also normalised, same as for Categories you should start typing
+  the category name, as displayed on the packaging, and the system should
+  auto-complete the name for you.
+</p>
+
+<h4><a id="Origin of ingredients">Origin of ingredients</a></h4>
+
+<p>
+  As usual, enter the information as displayed on the label. For instance, if
+  you see &lsquo;made in Austria&rsquo;, type &lsquo;Austria&rsquo;. Leave blank
+  if there is no information displayed.
+</p>
+
+<h4>
+  <a id="Manufacturing or processing places"
+    >Manufacturing or processing places</a
+  >
+</h4>
+
+<p>same as for Origin of ingredients.</p>
+
+<h4><a id="EMB code">EMB code</a></h4>
+
+<p>
+  In Europe, code in an ellipse with the 2 country initials followed by a number
+  and CE.
+</p>
+<p>
+  For eggs you may see two packaging codes which are not EMB codes, please enter
+  them. Here is an example of such information:
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image2.png"
+  style="width: 172.00px; height: 165.33px; "
+  class="image-prop"
+  title=""
+/>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image3.png"
+  style="width: 416.06px; height: 152.68px; "
+  class="image-prop"
+  title=""
+/>
+<p>Figure 3: 1UK21006 &amp; 1UK1000L</p>
+<p>
+  The image is blurry due t the poor quality of the camera&rsquo;s author,
+  however the information was entered that way:
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image4.png"
+  style="width: 285.33px; height: 108.00px; "
+  class="image-prop"
+  title=""
+/>
+
+<h4>
+  <a id="Link to the product page on the official site of the producer"></a>Link
+  to the product page on the official site of the producer
+</h4>
+
+<h4><a id="Best before date"></a>Best before date</h4>
+
+<p>
+  This field is not yet normalised; however, the recommended format is:
+  &lt;DDMMMYYYY&gt;.&nbsp;
+</p>
+<p>Example: 02NOV2016</p>
+
+<h4>
+  <a id="City, state and country where purchase"></a>City, state and country
+  where purchased
+</h4>
+
+<p>
+  Country, city, state, borough, or any other relevant geographical data where
+  you bought or scanned the product.
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image5.png"
+  style="width: 481.23px; height: 121.17px; "
+  class="image-prop"
+  title=""
+/>
+
+<h4><a id="Stores"></a>Stores</h4>
+<h4><a id="Countries where sold"></a>Countries where sold</h4>
+
+<p>
+  Enter the country where you bought or scanned the product.
+
+  <span class="simple-bold">Do not guess </span>where it is available. Because
+  of product has ingredients in German, French and Dutch does not mean that it
+  is sold in The Netherlands. It could be a product sold only in Luxembourg. As
+  for all other fields, only input the data you know is 100% right.
+</p>
+
+<h3><a id="Ingredients"></a>Ingredients</h3>
+
+<p>
+  Select the image and crop it to show only the relevant information as you did
+  for Step 3:.
+</p>
+<p>
+  Type all the ingredients as displayed on the package, however use coma as a
+  separator. On some products &lsquo;;&rsquo;, &lsquo;-&lsquo;, or anything else
+  are used as separator, instead use a coma &lsquo;,&rsquo;.
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image6.png"
+  style="width: 601.33px; height: 223.27px; "
+  class="image-prop"
+  title=""
+/>
+<p>
+  <span class="simple-bold">Important</span>: When allergens are highlighted on
+  the product, surround the ingredient with the underscore character as
+  highlighted in the image above. This allows apps, Open Food facts one or third
+  parties, to alert users who need such information.
+</p>
+<p>
+  <span style="color: #ff0000; font-weight: bold;">Tip:</span>after saving the
+  Ingredients image, if it doesn&rsquo;t show above the input text box, but
+  instead it is displayed on the right of the original image, then slightly
+  resize your browser window (make it smaller) until the image is displayed
+  above the input text box. This might make it easier to type the information
+  depending on your screen size and resolution.
+</p>
+
+<h3><a id="Nutrition facts"></a>Nutrition facts</h3>
+
+<p>
+  If available, type the nutrition facts as displayed on the packaging,
+  otherwise check the &lsquo;Nutrition facts are not specified on the
+  product&rsquo; box.
+</p>
+<p>
+  If a nutrient is not pre-listed just start typing it and Open Food Fact system
+  will autocomplete it for you as most nutrients are normalised (note: not fully
+  available for all for all languages).
+</p>
+<img
+  alt=""
+  src="https://static.openfoodfacts.org/images/misc/advanced-user-guide/image8.png"
+  style="width: 601.33px; height: 362.33px; "
+  class="image-prop"
+  title=""
+/>
+
+<h2><a id="Miscellaneous"></a>Miscellaneous</h2>
+
+<h3><a id="Useful links"></a>Useful links</h3>
+
+<h4>
+  <a id="Products you added a picture to"></a>Products you added a picture to
+</h4>
+
+<p>
+  <a href="https://world.openfoodfacts.org/photographer/USERNAME">
+    <span style="color: #0563c1;"
+      >https://world.openfoodfacts.org/photographer/USERNAME</span
+    >
+  </a>
+</p>
+<p>
+  <a href="https://world.openfoodfacts.org/photographer/bcatelin/entry-dates">
+    <span style="color: #0563c1;"
+      >https://world.openfoodfacts.org/photographer/bcatelin/entry-dates</span
+    >
+  </a>
+</p>
+
+<h4><a id="Products you edited"></a>Products you edited</h4>
+
+<p>
+  <a href="https://world.openfoodfacts.org/editor/bcatelin">
+    <span style="color: #0563c1;"
+      >https://world.openfoodfacts.org/editor/bcatelin</span
+    >
+  </a>
+</p>
+
+<h4><a id="Informer"></a>Informer</h4>
+
+<p>
+  <a href="https://world.openfoodfacts.org/informer/bcatelin/">
+    <span style="color: #0563c1;"
+      >https://world.openfoodfacts.org/informer/bcatelin/</span
+    >
+  </a>
+</p>
+<p>Note: not sure what&rsquo;s the difference with editor</p>
+
+<h4><a id="Noteworthy products"></a>Noteworthy products</h4>
+
+<p>
+  <a href="https://en.wiki.openfoodfacts.org/Noteworthy_Products">
+    <span style="color: #0563c1;"
+      >https://en.wiki.openfoodfacts.org/Noteworthy_Products</span
+    > </a
+  >: sometimes products have rather &lsquo;-non-standard&rsquo; information
+  which makes it difficult to type the information. When that occurs simply go
+  to this page and add the product to the list.
+</p>
+
+<h4><a id="Useful queries"></a>Useful queries</h4>
+
+<p>
+  <a href="https://en.wiki.openfoodfacts.org/Useful_queries">
+    <span style="color: #0563c1;">Useful queries - Open Food Facts EN</span>
+  </a>
+  : a page where you could find many queries of the
+
+  <a href="https://world.openfoodfacts.org/cgi/search.pl">
+    <span style="color: #0563c1;">search tool</span> </a
+  >. It is a good place to find queries you may want to use as a template for
+  your own ones.
+</p>
+
+<a href="#table-of-contents">Up to the table of contents</a>
