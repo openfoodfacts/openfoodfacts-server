@@ -951,7 +951,6 @@ sub build_tags_taxonomy($$$) {
 						if (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
 								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
-								. " (" . $translations_from{$tagtype}{"$lc:$tagid"} . ")"
 								. " - cannot make a synonym of $current_tagid for $canon_tagid\n";
 								$errors .= "ERROR - " . $msg;
 								next;
@@ -1502,11 +1501,13 @@ sub build_tags_taxonomy($$$) {
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
-					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
-					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
-					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
+					}
+					else {
+						print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+						push @{$taxonomy_json{$tagid}{parents}}, $parentid;
+						push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;						
 					}
 				}
 			}
