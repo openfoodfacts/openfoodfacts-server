@@ -23,7 +23,7 @@
 
 en:raw
 fr:cru, crue, crus, crues
-es:crudo, cruda
+es:crudo, cruda, crudos, crudas
 
 en:fresh
 de:frische
@@ -63,14 +63,14 @@ nl:gesneden
 
 # <en:cut
 en:thick cut
-es:cotrada gruesa,cortado grueso
+es:cotrada gruesa,cortado grueso, cortados gruesos,cortadas gruesas 
 
 # <en:cut
 de:mittelfein geschnittenen
 
 <en:cut
 en:finely cut
-es:cortado fino, cortada fina
+es:cortado fino, cortada fina,cortados finos, cortadas finas
 
 de:feingeschnitten, fein geschnittenen, feingeschnittener
 
@@ -99,7 +99,7 @@ de:überwiegend feinst zerkleinert
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
-es:lamina,laminado, laminadas,laminados
+es:lamina,laminada,laminado, laminadas,laminados
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 nl:schijfjes
 
@@ -121,7 +121,7 @@ en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 nl:blokjes, in blokjes, blokje
-es:troceado, troceada
+es:troceado, troceada,troceados, troceadas
 
 #de:in Sticks geschnitten
 
@@ -132,13 +132,14 @@ es:aplastada, aplastado,aplastadas, aplastados
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 de:gerieben, geriebener, geriebene, geraspelt
-es:rallada, rallado
+es:rallada, rallado,ralladas, rallados
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
 # nl:parse:geraspte_$
 # en:wiktionary:grated
 
 en:granulated, granules
+es:granulado,granulada,granulados,granuladas
 fr:en granules, granules de, granules d'
 
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
@@ -319,7 +320,7 @@ en:concentrated
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado
+es:concentrado,concentrada
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
 # en:wiktionary:concentrated
@@ -336,7 +337,7 @@ de:200fach konzentriertes
 de:eingekochter
 
 en:from-concentrate
-es:a base de concentrado
+es:a base de concentrado,a base de concentrada
 fr:à base de concentré, à partir de concentré
 
 en:dried
@@ -373,7 +374,7 @@ de:sprühgetrocknet, sprühgetrockneter
 en:cured
 
 en:dehydrated
-es:deshidratado, deshidratada, deshidratados, deshidratadas
+es:deshidratado, deshidritada, deshidritados, deshidritadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
 
@@ -419,6 +420,7 @@ sv:nypressad
 
 #<en:pressed
 en:mechanically pressed
+es:prensado mecánicamente, prensada mecánicamente
 
 #<en:pressed
 en:naturally pressed
@@ -429,7 +431,7 @@ en:expeller pressed
 #<en:pressed
 en:cold pressed
 de:kaltgepresst, kaltgepresstes
-es:prensado en frio, prensada en frio
+es:prensado en frio, prensada en frio,prensados en frio, prensadas en frio
 fr:pression à froid, pressée à froid, obtenue par pression à froid, pressé à froid
 nl:koud geperst
 sv:kallpressad
@@ -449,13 +451,13 @@ fr:première pression à froid, 1ère pression à froid, de première pression �
 
 en:frozen
 de:tiefgevroren
-es:congelado, conjelada, ultracongelado, ultracongelada
+es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 nl:diepgevroren
 ro:congelat
 
 en:unfrozen
-es:descongelado, descongelada
+es:descongelado, descongelada,descongelados, descongeladas
 fr:décongelé, décongelée, décongelés, décongelées
 nl:ontdooid
 
@@ -473,7 +475,7 @@ en:unpasteurized
 
 en:pre-cooked
 de:vorgekocht
-es:pre cocido, pre cocida
+es:pre cocido, pre cocida,pre cocidos, pre cocidas
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
@@ -564,7 +566,7 @@ en:dark toasted
 #<en:roasted
 en:grilled
 de:gegrillt, gegrillte, gegrillter, gegrilltes
-es:a la parrila
+es:a la parrila, a la brasa
 fi:grillattu
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
@@ -572,6 +574,8 @@ nl:gegrild, gegrilde
 pl:grillowany. grillowana
 sv:grillad
 
+<en:grilled
+es:barbeque,barbequed
 
 #######################################################################
 #
@@ -632,6 +636,7 @@ fr:présalée
 #<en:salted
 en:unsalted, un-salted
 de:ungesalzen, ungesalzene
+es:sin sal
 fr:non salée, non-salée
 nl:ongezouten
 
@@ -695,6 +700,7 @@ es:tratada,tratado,tratadas,tratados
 nl:bewerkt
 
 en:untreated
+es:sin tratar
 fr:non traitée
 
 en:bleached
@@ -706,7 +712,7 @@ de:ungebleichtes
 en:malted
 #en:falsePositive:malt
 de:gemälzt, gemälzte, gemälztes
-es:malteado, malteada
+es:malteado, malteada,malteados, malteadas
 fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
 it:maltato, maltata
 nl:gemout, gemoute
@@ -716,7 +722,7 @@ fr:non-maltées
 
 en:deodorized
 de:desodoriert, desodoriertes
-es:desodorizado, desodorizada
+es:desodorizado, desodorizada,desodorizados, desodorizadas
 fr:désodorisé, désodorisée
 it:deodorato
 nl:ontgeurde
@@ -777,6 +783,7 @@ nl:gerookt, gerookte
 
 #<en:smoked
 en:double smoked
+es:doble ahumado,doble ahumada,doble ahumados,doble ahumadas
 
 #<en:smoked
 en:naturally smoked, natural smoked, all natural smoked
@@ -850,3 +857,7 @@ en:oak smoked
 en:not smoked, unsmoked
 
 #en:fibers
+
+#process of removing the bone from meat
+en:boned
+es:deshuesado
