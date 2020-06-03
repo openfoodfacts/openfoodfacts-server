@@ -2007,99 +2007,115 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# nutrition grades colors histogram
+		# Nutri-Score nutrition grades colors histogram / NOVA groups histogram
 
-		if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
+				
+			my $categories;
+			my $series_data;
+			my $colors;
 
-		my $categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-		my $series_data = '';
-		foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
-			$series_data .= ($products{$nutrition_grade} + 0) . ',';
-		}
-		$series_data =~ s/,$//;
+			my $y_title = lang("number_of_products");
+			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-		my $y_title = lang("number_of_products");
-		my $x_title = lang("nutrition_grades_p");
-
-		my $sep = separator_before_colon($lc);
-
-		my $js = <<JS
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'column',
-            },
-			legend: {
-				enabled: false
-			},
-            title: {
-                text: '$request_ref->{title}'
-            },
-            subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
-            },
-            xAxis: {
-                title: {
-                    enabled: true,
-                    text: '${x_title}'
-                },
-				categories: [
-					$categories
-				]
-            },
-            colors: [
-                '#00ff00',
-                '#ffff00',
-                '#ff6600',
-				'#ff0180',
-				'#ff0000',
-				'#808080'
-            ],
-            yAxis: {
-
-				min:0,
-                title: {
-                    text: '${y_title}'
-                }
-            },
-
-            plotOptions: {
-    column: {
-       colorByPoint: true,
-        groupPadding: 0,
-        shadow: false,
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: false,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black, 0 0 3px black'
-                    }
-                }
-    }
-            },
-			series: [
-				{
-					name: "${y_title}",
-					data: [$series_data]
+			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
-			]
-        });
+			}
+			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
+				$categories = "'NOVA 1','NOVA 2','NOVA 3','NOVA 4','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nova_group (
+					"en:1-unprocessed-or-minimally-processed-foods",
+					"en:2-processed-culinary-ingredients",
+					"en:3-processed-foods",
+					"en:4-ultra-processed-food-and-drink-products",) {
+					$series_data .= ($products{$nova_group} + 0) . ',';
+				}				
+			}
+			
+			$series_data =~ s/,$//;
+
+			my $sep = separator_before_colon($lc);
+
+			my $js = <<JS
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container',
+					type: 'column',
+				},
+				legend: {
+					enabled: false
+				},
+				title: {
+					text: '$request_ref->{title}'
+				},
+				subtitle: {
+					text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+				},
+				xAxis: {
+					title: {
+						enabled: true,
+						text: '${x_title}'
+					},
+					categories: [
+						$categories
+					]
+				},
+				colors: [
+					$colors
+				],
+				yAxis: {
+
+					min:0,
+					title: {
+						text: '${y_title}'
+					}
+				},
+
+				plotOptions: {
+		column: {
+		   colorByPoint: true,
+			groupPadding: 0,
+			shadow: false,
+					stacking: 'normal',
+					dataLabels: {
+						enabled: false,
+						color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+						style: {
+							textShadow: '0 0 3px black, 0 0 3px black'
+						}
+					}
+		}
+				},
+				series: [
+					{
+						name: "${y_title}",
+						data: [$series_data]
+					}
+				]
+			});
 JS
 ;
-		$initjs .= $js;
+			$initjs .= $js;
 
-		$scripts .= <<SCRIPTS
+			$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
 
-		$html = <<HTML
+			$html = <<HTML
 <div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
-	. $html;
+		. $html;
 
 		}
 
