@@ -950,8 +950,9 @@ sub build_tags_taxonomy($$$) {
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						if (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
-								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
-								. " - cannot make a synonym of $current_tagid for $canon_tagid\n";
+								my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
+								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+								. " - $lc:$current_tagid cannot be mapped to entry $canon_tagid\n";
 								$errors .= "ERROR - " . $msg;
 								next;
 							}
