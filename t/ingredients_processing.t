@@ -155,7 +155,7 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" }, 
 		[
 			{
-				'id' => 'en:yellow bell pepper',
+				'id' => 'en:yellow-bell-pepper',
 				'processing' => 'en:dehydrated',
 				'text' => 'pimientos amarillos'
 			}
