@@ -40,12 +40,12 @@ my @tests = (
 	  		},
 	  		{
 	    		'id' => 'en:aubergine',
-	    		'processing' => 'en:powdered',
+	    		'processing' => 'en:powder',
 	    		'text' => 'eggplant'
 	  		},
 	  		{
 	    		'id' => 'en:courgette',
-	    		'processing' => 'en:powdered',
+	    		'processing' => 'en:powder',
 	    		'text' => 'courgette'
 	  		},
 	  		{
@@ -188,7 +188,7 @@ my @tests = (
   },
   {
     'id' => 'en:hazelnut',
-    'processing' => 'en:powdered',
+    'processing' => 'en:powder',
     'text' => 'noisettes'
   },
   {
@@ -229,12 +229,13 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'sjalot'
 			},
 			{
 				'id' => 'en:whey-powder',
-				'text' => 'wei-poeder'
+				'processing' => 'en:powder',
+				'text' => 'wei'
 			},
 			{
 				'id' => 'en:vanilla-powder',
@@ -273,12 +274,12 @@ my @tests = (
 	  		},
 			{
     			'id' => 'en:sauerkraut',
-    			'processing' => 'en:powdered',
+    			'processing' => 'en:powder',
     			'text' => 'Sauerkraut'
 			},
 			{
     			'id' => 'en:acerola',
-    			'processing' => 'en:powdered',
+    			'processing' => 'en:powder',
     			'text' => 'acerola'
 			}
 		]
@@ -1191,7 +1192,7 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 [
   {
     'id' => 'en:garlic',
-    'processing' => 'en:powdered',
+    'processing' => 'en:powder',
     'text' => 'garlic'
   }
 ]
@@ -1200,7 +1201,7 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 [
   {
     'id' => 'en:chili-pepper',
-    'processing' => 'en:powdered',
+    'processing' => 'en:powder',
     'text' => 'piment'
   }
 ]
