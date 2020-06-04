@@ -242,7 +242,7 @@ my @tests = (
 
 [
   {
-    'id' => 'es:Hortalizas frescas',
+    'id' => 'en:vegetable',
     'ingredients' => [
       {
         'id' => 'en:tomato',
@@ -262,7 +262,8 @@ my @tests = (
       }
     ],
     'percent' => '91',
-    'text' => 'Hortalizas frescas'
+    'text' => 'Hortalizas',
+    'processing' => 'en:fresh'
   },
   {
     'id' => 'en:extra-virgin-olive-oil',

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:07\n"
+"PO-Revision-Date: 2020-05-31 10:18\n"
 "Language-Team: Chinese Traditional\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -200,7 +200,7 @@ msgstr "條碼"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "你也可以贊助Open Food Facts的專案"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -208,7 +208,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "捐款支持我們的工作"
 
 msgctxt "brands"
 msgid "Brands"
@@ -240,11 +240,11 @@ msgstr "非 %s 品牌的產品"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "品牌所有者"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "可口可樂公司"
 
 msgctxt "by"
 msgid "by"
@@ -388,11 +388,11 @@ msgstr "資料來源"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "資料來源"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "資料來源"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -440,7 +440,7 @@ msgstr "捐贈到 Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -569,7 +569,7 @@ msgstr "密碼與確認密碼不符"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "該電子郵件已被其他用戶使用。也許您已經有一個帳戶？您可以使用 <a href=\"/cgi/reset_password.pl\">來重置其他帳戶密碼</a>。"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -661,7 +661,7 @@ msgstr "若日期有誤或不正確，您可以藉由編輯此頁來修正它。
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "以及 <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook 的協作者群組</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -670,7 +670,7 @@ msgstr "<<site_name>> 部落格"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -683,7 +683,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "數據，API和SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -716,7 +716,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "在 <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>、\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> 與 \n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Google+</a> 上追蹤我們\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -776,18 +778,17 @@ msgstr "<site_name> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "http://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "http://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - 化妝品"
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -881,7 +882,7 @@ msgstr "原始大小"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "此檔案已上傳到產品 %s 並已獲得 %s 的許可。"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -3185,7 +3186,7 @@ msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
 msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
@@ -4144,5 +4145,34 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr ""
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
 msgstr ""
 

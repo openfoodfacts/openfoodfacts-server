@@ -965,9 +965,14 @@ sub import_csv_file($) {
 								}
 							}
 
-							if ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i) {
+							if ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(~?<?>?=?\s?([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i) {
 								$values{$type} = $1;
 								$unit = $5;
+							}
+							# We might have only a number even if the field is set to value_unit
+							# in that case, use the default unit
+							elsif ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)$/i) {
+								$values{$type} = $1;
 							}
 						}
 					}

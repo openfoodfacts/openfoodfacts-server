@@ -1,5 +1,6 @@
+stopwords:en:a,an,for,added,to
 stopwords:es:de,del,la,las,los,una
-stopwords:fr:la,les,des,du,de,d
+stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 
 
 en:Acid, Acidifier
@@ -312,7 +313,7 @@ description:en: A food additive used to dissolve, dilute, disperse or otherwise 
 description:es: Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función -y sin generar por sí mismos efecto tecnológico alguno- con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction -et sans produire lui-même d'effet technologique- afin de faciliter sa manipulation, son application ou son utilisationde l'additif alimentaire ou du nutriment.
 
-en:Colour, color, colouring, coloring, decorative pigment, surface colorant
+en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added
 bg:Оцветител
 ca:Colorant
 cs:Barvivo
@@ -722,6 +723,7 @@ en:Humectant, moisture retention agent, water retention agent, wetting agent
 bg:Влагозадържащ агент
 ca:Humectant
 cs:Zvlhčující látka
+da:Fugtighedsbevarende middel
 de:Feuchthaltemittel
 el:Υγροσκοπικό μέσο
 es:Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad
@@ -738,6 +740,7 @@ pl:Substancja utrzymująca wilgoć, Substancje utrzymujące wilgoć
 pt:Humidificante
 ro:Agent de umezire
 sk:Zvlhčovadlo
+sv:Fuktighetsbevarande medel
 description:cs: Zvlhčujícími látkami se rozumějí látky, které chrání potravinu před vysycháním tím, že působí proti účinkům vzduchu s nízkou relativní vlhkostí nebo podporují rozpouštění práškovitých potravin ve vodném prostředí.
 description:da: Fugtighedsbevarende midler: stoffer, som beskytter fødevarer mod udtørring ved at reducere virkningen af omgivelser med lav fugtighedsgrad, eller som gør opløsning af et pulver i et vandigt medium lettere.
 description:de: Feuchthaltemittel sind Stoffe, die das Austrocknen von Lebensmitteln verhindern, indem sie die Auswirkungen einer Atmosphäre mit geringem Feuchtigkeitsgehalt ausgleichen, oder Stoffe, die die Auflösung eines Pulvers in einem wässrigen Medium fördern.
@@ -785,7 +788,7 @@ en:Modified starch
 bg:Модифицирано нишесте
 ca:Midó modificat
 cs:Modifikovaný škrob
-da:Fugtighedsbevarende middel
+da:Modificeret stivelse
 de:Modifizierte Stärke, Modifizierte Stärken
 el:Τροποποιημένο άμυλο
 es:Almidón modificado
@@ -803,7 +806,8 @@ pl:Skrobia modyfikowana
 pt:Amido modificado
 ro:Amidon modificat
 sk:Modifikovaný škrob
-sv:Fuktighetsbevarande medel
+sl:Modificirani škrob
+sv:Modifierad stärkelse
 wikidata:en: Q415766
 
 en:Nucleotides
@@ -849,7 +853,7 @@ en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould 
 bg:Консервант
 ca:Conservant, conservador
 cs:Konzervant
-da:Modificeret stivelse
+da:Konserveringsmiddel
 de:Konservierungsstoff, Konservierungsstoffe
 el:Συντηρητικό
 es:Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores
@@ -867,8 +871,8 @@ pl:Substancja konserwująca, Substancje konserwujące
 pt:Conservante
 ro:Conservant
 sk:Konzervačná látka
-sl:Modificirani škrob
-sv:Modifierad stärkelse
+sl:Konzervans
+sv:Konserveringsmedel
 description:cs: Konzervanty se rozumějí látky, které prodlužují trvanlivost potravin tím, že je chrání proti zkáze způsobené mikroorganismy, nebo které potraviny chrání před růstem patogenních mikroorganismů.
 description:da: Konserveringsmidler: stoffer, som forlænger en fødevares holdbarhed ved at beskytte den mod ødelæggelse forårsaget af mikroorganismer, og/eller som beskytter mod vækst af patogene mikroorganismer.
 description:de: Konservierungsstoffe sind Stoffe, die die Haltbarkeit von Lebensmitteln verlängern, indem sie sie vor den schädlichen Auswirkungen von Mikroorganismen schützen, und/oder vor dem Wachstum pathogener Mikroorganismen schützen.
@@ -893,8 +897,8 @@ wikidata:en: Q274579
 en:Propellent gas, propellant gas, propellent, propellant
 bg:Опаковъчен газ
 cs:Balicí plyn
-da:Konserveringsmiddel
-de:Backtriebmittel
+da:Drivgas
+de:Treibgas
 el:Προωστικό αέριο
 es:Gas propulsor
 et:Propellent
@@ -911,8 +915,6 @@ pl:Gaz nośny, Gazy nośne
 pt:Gás propulsor
 ro:Agent de propulsare
 sk:Hnací plyn
-sl:Konzervans
-sv:Konserveringsmedel
 description:cs: Propelenty se rozumějí plyny jiné než vzduch, které vytlačují potravinu z obalu.
 description:da: Drivgasser: andre gasser end luft, som presser en fødevare ud af en beholder.
 description:de: Treibgase sind andere Gase als Luft, die ein Lebensmittel aus seinem Behältnis herauspressen.
@@ -934,11 +936,11 @@ description:sl: Potisni plini so plini, razen zraka, ki potisnejo živilo iz emb
 description:sv: Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 wikidata:en: Q50419221
 
-en:Raising agent
+en:Raising agent, leavening
 bg:Набухвател
 cs:Kypřicí látka
-da:Drivgas
-de:Treibgas
+da:Hævemiddel
+de:Backtriebmittel
 el:Διογκωτικό αρτοποιίας
 es:Gasificante, Leudante, Agente leudante
 et:Kergitusaine, kergitusained
@@ -982,7 +984,7 @@ en:Sequestrant
 bg:Комплексообразуватели
 ca:Segrestant
 cs:Sekvestrant
-da:Hævemiddel
+da:Kompleksdannere
 de:Komplexbildner
 el:Συμπλοκοποιητές
 es:Secuestrante
@@ -1001,7 +1003,7 @@ pt:Sequestrante
 ro:Agenți de sechestrare
 sk:Komplexotvorné látky, sekvestranty
 sl:Sredstvo za vzhajanje
-sv:Bakpulver
+sv:Komplexbildare
 description:cs: Sekvestranty se rozumějí látky, které vytvářejí chemické komplexy s ionty kovů.
 description:da: Kompleksdannere: stoffer, der danner kemiske kompleksforbindelser med metalioner.
 description:de: Komplexbildner sind Stoffe, die mit Metallionen chemische Komplexe bilden.
@@ -1027,7 +1029,7 @@ en:Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, fo
 bg:Стабилизатор
 ca:Estabilitzador, estabilitzant
 cs:Stabilizátor
-da:Kompleksdannere
+da:Stabilisator, Stabilisatorer
 de:Stabilisator, Stabilisatoren
 el:Σταθεροποιητής
 es:Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas estabilizadores, estabilizante, estabilizantes
@@ -1046,7 +1048,7 @@ pt:Estabilizador
 ro:Stabilizator
 sk:Stabilizátor
 sl:Vezivo
-sv:Komplexbildare
+sv:Stabiliseringsmedel
 description:cs: Stabilizátory se rozumějí látky, které umožňují udržovat fyzikálně-chemický stav potraviny; mezi stabilizátory patří látky, které umožňují udržet jednotný rozptyl dvou nebo více navzájem se nesměšujících látek v potravinách, látky, které stabilizují, udržují nebo zintenzivňují stávající barvu potravin, a látky, které zvyšují pojivost určité potraviny, včetně vytváření vzájemných vazeb mezi bílkovinami, které umožňují spojení kusů potravin do rekonstituované potraviny.
 description:da: Stabilisatorer: stoffer, hvormed man kan opretholde en fødevares fysisk-kemiske tilstand. Til stabilisatorer hører stoffer, hvormed der kan opretholdes en homogen fordeling af to eller flere ikke-blandbare stoffer i en fødevare, stoffer, som stabiliserer, bevarer eller forstærker en fødevares farve, og stoffer, som øger fødevarens bindeevne, herunder dannelse af tværbindinger mellem proteiner, der kan binde fødevarestykker i rekonstituerede fødevarer.
 description:de: Stabilisatoren sind Stoffe, die es ermöglichen, den physikalisch-chemischen Zustand eines Lebensmittels aufrechtzuerhalten. Zu den Stabilisatoren zählen Stoffe, die es ermöglichen, die einheitliche Dispersion zweier oder mehrerer nicht mischbarer Phasen in einem Lebensmittel aufrechtzuerhalten, Stoffe, durch welche die vorhandene Farbe eines Lebensmittels stabilisiert, bewahrt oder intensiviert wird, und Stoffe, die die Bindefähigkeit eines Lebensmittels verbessern, einschließlich der Bildung von Proteinvernetzungen, die die Bindung von Lebensmittelstücken in rekonstituierten Lebensmitteln ermöglichen.
@@ -1072,7 +1074,7 @@ en:Sweetener, bulk sweetener, intense sweetener
 bg:Подсладител
 ca:Edulcorant
 cs:Sladidlo
-da:Kompleksdannere
+da:Sødestoffer
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
@@ -1091,7 +1093,7 @@ pt:Edulcorante
 ro:Îndulcitor
 sk:Sladidlo
 sl:Stabilizator
-sv:Stabiliseringsmedel
+sv:Sötningsmedel
 description:cs: Náhradními sladidly se rozumějí látky používané k tomu, aby se potravinám nebo stolním sladidlům dodala sladká chuť.
 description:da: Sødestoffer: stoffer, der anvendes til at give fødevarer en sød smag eller i sødestoffer til bordbrug.
 description:de: Süßungsmittel sind Stoffe, die zum Süßen von Lebensmitteln und in Tafelsüßen verwendet werden.
@@ -1136,7 +1138,7 @@ pt:Espessante
 ro:Agent de îngroșare
 sk:Zahusťovadlo
 sl:Sladilo
-sv:Sötningsmedel
+sv:Förtjockningsmedel
 description:cs: Zahušťovadly se rozumějí látky, které zvyšují viskozitu potraviny.
 description:da: Fortykningsmidler: stoffer, der øger en fødevares viskositet.
 description:de: Verdickungsmittel sind Stoffe, die die Viskosität eines Lebensmittels erhöhen.

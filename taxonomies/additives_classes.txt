@@ -2,8 +2,8 @@
 # FAO reference: http://www.fao.org/gsfaonline/reference/techfuncs.html?lang=en
 
 # agent de blanchiment de la farine
-stopwords:fr:la,les,des,du,de,d
-
+stopwords:en:a,an,for,added,to
+stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:es:de,del,la,las,los,una
 
 en: Acid, Acidifier
@@ -297,7 +297,7 @@ description:en:A food additive used to dissolve, dilute, disperse or otherwise p
 description:es:Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función (y sin generar por sí mismos efecto tecnológico alguno) con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr:Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction (et sans produire lui-même d’effet technologique) afin de faciliter sa manipulation, son application ou son utilisationde l’additif alimentaire ou du nutriment.
 
-en: Colour, color, colouring, coloring, decorative pigment, surface colorant
+en: Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added
 ca: Colorant
 ga: Dath
 de: Farbstoff, Farbstoffe
@@ -707,6 +707,7 @@ description:sv:Ytbehandlingsmedel (inklusive smörjmedel): ämnen som ger ett bl
 en: Humectant, moisture retention agent, water retention agent, wetting agent
 ca: Humectant
 ga: Taisleán
+da: Fugtighedsbevarende middel
 de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
 es: Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad
@@ -722,6 +723,7 @@ hu: Nedvesítőszer
 pl: Substancja utrzymująca wilgoć, Substancje utrzymujące wilgoć
 lt: Drėgmę išlaikanti medžiaga
 sk: Zvlhčovadlo
+sv: Fuktighetsbevarande medel
 ro: Agent de umezire
 bg: Влагозадържащ агент
 wikidata:en:Q911854
@@ -749,7 +751,7 @@ en: Modified starch
 ca: Midó modificat
 ga: Stáirse modhnaithe
 de: Modifizierte Stärke, Modifizierte Stärken
-da: Fugtighedsbevarende middel
+da: Modificeret stivelse 
 el: Τροποποιημένο άμυλο
 es: Almidón modificado
 fi: Muunnettu tärkkelys, Muunnettua tärkkelystä, Muunnetut tärkkelykset, Muunnettuja tärkkelyksiä
@@ -757,7 +759,6 @@ fr: Amidon modifié
 it: Amido modificato, amidi modificati
 nl: Gemodificeerd zetmeel
 pt: Amido modificado
-sv: Fuktighetsbevarande medel
 lv: Modificēta ciete
 cs: Modifikovaný škrob
 et: Modifitseeritud tärklis
@@ -766,6 +767,8 @@ pl: Skrobia modyfikowana
 lt: Modifikuotas krakmolas
 mt: Lamtu mmodifikat
 sk: Modifikovaný škrob
+sl: Modificirani škrob
+sv: Modifierad stärkelse
 ro: Amidon modificat
 bg: Модифицирано нишесте
 wikidata:en:Q415766
@@ -783,7 +786,7 @@ en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould
 ca: Conservant, conservador
 ga: Leasaitheach
 de: Konservierungsstoff, Konservierungsstoffe
-da: Modificeret stivelse
+da: Konserveringsmiddel
 el: Συντηρητικό
 es: Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores
 fi: Säilöntäaine, Säilöntäainetta, Säilöntäaineet, Säilöntäaineita
@@ -791,13 +794,13 @@ fr: Conservateur, agent antimoisissure et antifilant, agent antimoisissure, anti
 it: Conservante, conservanti, agente conservante, agenti conservanti
 nl: Conserveermiddel
 pt: Conservante
-sv: Modifierad stärkelse
+sv: Konserveringsmedel
 lv: Konservants
 cs: Konzervant
 et: Säilitusaine
 hu: Tartósítószer
 pl: Substancja konserwująca, Substancje konserwujące
-sl: Modificirani škrob
+sl: Konzervans
 lt: Konservantas
 mt: Preservattiv
 sk: Konzervačná látka
@@ -826,8 +829,8 @@ description:sv:Konserveringsmedel: ämnen som förlänger hållbarheten hos livs
 
 en: Propellent gas, propellant gas, propellent, propellant
 ga: Gás tiomána
-de: Backtriebmittel
-da: Konserveringsmiddel
+de: Treibgas
+da: Drivgas
 el: Προωστικό αέριο
 es: Gas propulsor
 fi: Ponneaine, Ponneainetta, Ponneaineet, Ponneaineita
@@ -835,13 +838,11 @@ fr: Gaz propulseur, Propulseur
 it: Gas propulsore
 nl: Drijfgas
 pt: Gás propulsor
-sv: Konserveringsmedel
 lv: Propelents
 cs: Balicí plyn
 et: Propellent
 hu: Hajtógáz
 pl: Gaz nośny, Gazy nośne
-sl: Konzervans
 lt: Suslėgtosios dujos
 mt: Gass propellent
 sk: Hnací plyn
@@ -868,10 +869,10 @@ description:sk:Hnacie plyny (propelanty) sú plyny iné ako vzduch, ktoré vytl�
 description:sl:Potisni plini so plini, razen zraka, ki potisnejo živilo iz embalaže.
 description:sv:Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 
-en: Raising agent
+en: Raising agent, leavening
 ga: Oibreán éiritheach
-de: Treibgas
-da: Drivgas
+de: Backtriebmittel 
+da: Hævemiddel
 el: Διογκωτικό αρτοποιίας
 es: Gasificante, Leudante, Agente leudante
 fi: Nostatusaine, Nostatusainetta, Nostatusaineet, Nostatusaineita
@@ -889,6 +890,7 @@ sl: Potisni plin
 lt: Tešlos kildymo medžiaga
 mt: Aġent li jgħolli l-ikel
 sk: Kypriaca látka
+sv: Bakpulver
 ro: Agent de afânare
 bg: Набухвател
 wikidata:en:Q908833
@@ -916,7 +918,7 @@ en: Sequestrant
 ca: Segrestant
 ga: Leithliseoir
 de: Komplexbildner
-da: Hævemiddel
+da: Kompleksdannere
 el: Συμπλοκοποιητές
 es: Secuestrante
 fi: Kompleksinmuodostaja, Kompleksinmuodostajaa, Kompleksinmuodostajat, Kompleksinmuodostajia
@@ -924,7 +926,6 @@ fr: Séquestrant
 it: Sequestrante, sequestranti, agente sequestrante, agenti sequestranti
 nl: Complexvormer
 pt: Sequestrante
-sv: Bakpulver
 lv: Sekvestrants
 cs: Sekvestrant
 et: Sekvestrant
@@ -934,6 +935,7 @@ sl: Sredstvo za vzhajanje
 lt: Atskyriklis
 mt: Aġenti sekwestranti
 sk: Komplexotvorné látky, sekvestranty
+sv: Komplexbildare
 ro: Agenți de sechestrare
 bg: Комплексообразуватели
 wikidata:en:Q905648
@@ -961,7 +963,7 @@ en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, f
 bg: Стабилизатор
 ca: Estabilitzador, estabilitzant
 cs: Stabilizátor
-da: Kompleksdannere
+da: Stabilisator, Stabilisatorer
 de: Stabilisator, Stabilisatoren
 el: Σταθεροποιητής
 es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas estabilizadores, estabilizante, estabilizantes
@@ -980,7 +982,7 @@ pl: Stabilizator, Stabilizatory
 ro: Stabilizator
 sk: Stabilizátor
 sl: Vezivo
-sv: Komplexbildare
+sv: Stabiliseringsmedel
 wikidata:en:Q7595716
 description:en:Stabilisers are substances which make it possible to maintain the physico-chemical state of a foodstuff; stabilisers include substances which enable the maintenance of a homogenous dispersion of two or more immiscible substances in a foodstuff, substances which stabilise, retain or intensify an existing colour of a foodstuff and substances which increase the binding capacity of the food, including the formation of cross-links between proteins enabling the binding of food pieces into re-constituted food.
 description:cs:Stabilizátory se rozumějí látky, které umožňují udržovat fyzikálně-chemický stav potraviny; mezi stabilizátory patří látky, které umožňují udržet jednotný rozptyl dvou nebo více navzájem se nesměšujících látek v potravinách, látky, které stabilizují, udržují nebo zintenzivňují stávající barvu potravin, a látky, které zvyšují pojivost určité potraviny, včetně vytváření vzájemných vazeb mezi bílkovinami, které umožňují spojení kusů potravin do rekonstituované potraviny.
@@ -1005,8 +1007,8 @@ description:sv:Stabiliseringsmedel: ämnen som gör det möjligt att bevara ett 
 en: Sweetener, bulk sweetener, intense sweetener
 ca: Edulcorant
 ga: Milseoir
+da: Sødestoffer
 de: Süßungsmittel
-da: Kompleksdannere
 el: Γλυκαντικό
 es: Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
 fi: Makeutusaine, Makeutusainetta, Makeutusaineet, Makeutusaineita
@@ -1014,7 +1016,6 @@ fr: Édulcorant, édulcorant de charge, édulcorant intense
 it: Edulcorante, edulcoranti, dolcificante, dolcificanti
 nl: Zoetstof
 pt: Edulcorante
-sv: Stabiliseringsmedel
 lv: Saldinātājs
 cs: Sladidlo
 et: Magusaine
@@ -1024,6 +1025,7 @@ sl: Stabilizator
 lt: Saldiklis
 mt: Dolċifikant
 sk: Sladidlo
+sv: Sötningsmedel
 ro: Îndulcitor
 bg: Подсладител
 wikidata:en:Q626292
@@ -1060,7 +1062,6 @@ fr: Épaississant, agent de texture, épaississan synergiste, raffermissant
 it: Addensante, addensanti, agente addensante, agenti addensanti
 nl: Verdikkingsmiddel
 pt: Espessante
-sv: Sötningsmedel
 lv: Biezinātājs
 cs: Zahušťovadlo
 et: Paksendaja, Paksendajad
@@ -1070,6 +1071,7 @@ sl: Sladilo
 lt: Tirštiklis
 mt: Aġent li jgħaqqad
 sk: Zahusťovadlo
+sv:Förtjockningsmedel
 ro: Agent de îngroșare
 bg: Сгъстител
 wikidata:en:Q911138

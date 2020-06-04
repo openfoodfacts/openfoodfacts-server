@@ -151,6 +151,16 @@ my @tests = (
 		]
 	],
 
+	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" }, 
+		[
+			{
+				'id' => 'en:yellow-bell-pepper',
+				'processing' => 'en:dehydrated',
+				'text' => 'pimientos amarillos'
+			}
+		]
+	],
+	
 ##################################################################
 #
 #                           F R E N C H ( F R )
@@ -1201,6 +1211,16 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
     'id' => 'en:egg',
     'processing' => 'en:pasteurised',
     'text' => 'eggs'
+  }
+]
+	],
+
+	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" },
+[
+  {
+    'id' => 'en:yellow-bell-pepper',
+    'processing' => 'en:dehydrated',
+    'text' => 'pimientos amarillos'
   }
 ]
 	],

@@ -220,5 +220,12 @@ foreach my $test_ref (@tests) {
 
 }
 
+# test match_specific_taxonomy_tags / match_labels_in_product_name
+
+$product_ref = { lc => "fr", product_name_fr => "NUGGETS DE POULET, poulet élevé sans traitement antibiotique"};
+
+match_labels_in_product_name($product_ref);
+
+is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
 
 done_testing();

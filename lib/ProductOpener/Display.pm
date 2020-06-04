@@ -2007,99 +2007,115 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# nutrition grades colors histogram
+		# Nutri-Score nutrition grades colors histogram / NOVA groups histogram
 
-		if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
+				
+			my $categories;
+			my $series_data;
+			my $colors;
 
-		my $categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-		my $series_data = '';
-		foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
-			$series_data .= ($products{$nutrition_grade} + 0) . ',';
-		}
-		$series_data =~ s/,$//;
+			my $y_title = lang("number_of_products");
+			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-		my $y_title = lang("number_of_products");
-		my $x_title = lang("nutrition_grades_p");
-
-		my $sep = separator_before_colon($lc);
-
-		my $js = <<JS
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'column',
-            },
-			legend: {
-				enabled: false
-			},
-            title: {
-                text: '$request_ref->{title}'
-            },
-            subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
-            },
-            xAxis: {
-                title: {
-                    enabled: true,
-                    text: '${x_title}'
-                },
-				categories: [
-					$categories
-				]
-            },
-            colors: [
-                '#00ff00',
-                '#ffff00',
-                '#ff6600',
-				'#ff0180',
-				'#ff0000',
-				'#808080'
-            ],
-            yAxis: {
-
-				min:0,
-                title: {
-                    text: '${y_title}'
-                }
-            },
-
-            plotOptions: {
-    column: {
-       colorByPoint: true,
-        groupPadding: 0,
-        shadow: false,
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: false,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black, 0 0 3px black'
-                    }
-                }
-    }
-            },
-			series: [
-				{
-					name: "${y_title}",
-					data: [$series_data]
+			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
-			]
-        });
+			}
+			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
+				$categories = "'NOVA 1','NOVA 2','NOVA 3','NOVA 4','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nova_group (
+					"en:1-unprocessed-or-minimally-processed-foods",
+					"en:2-processed-culinary-ingredients",
+					"en:3-processed-foods",
+					"en:4-ultra-processed-food-and-drink-products",) {
+					$series_data .= ($products{$nova_group} + 0) . ',';
+				}				
+			}
+			
+			$series_data =~ s/,$//;
+
+			my $sep = separator_before_colon($lc);
+
+			my $js = <<JS
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container',
+					type: 'column',
+				},
+				legend: {
+					enabled: false
+				},
+				title: {
+					text: '$request_ref->{title}'
+				},
+				subtitle: {
+					text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+				},
+				xAxis: {
+					title: {
+						enabled: true,
+						text: '${x_title}'
+					},
+					categories: [
+						$categories
+					]
+				},
+				colors: [
+					$colors
+				],
+				yAxis: {
+
+					min:0,
+					title: {
+						text: '${y_title}'
+					}
+				},
+
+				plotOptions: {
+		column: {
+		   colorByPoint: true,
+			groupPadding: 0,
+			shadow: false,
+					stacking: 'normal',
+					dataLabels: {
+						enabled: false,
+						color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+						style: {
+							textShadow: '0 0 3px black, 0 0 3px black'
+						}
+					}
+		}
+				},
+				series: [
+					{
+						name: "${y_title}",
+						data: [$series_data]
+					}
+				]
+			});
 JS
 ;
-		$initjs .= $js;
+			$initjs .= $js;
 
-		$scripts .= <<SCRIPTS
+			$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
 
-		$html = <<HTML
+			$html = <<HTML
 <div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
-	. $html;
+		. $html;
 
 		}
 
@@ -7772,9 +7788,7 @@ JS
 
 	$html .= display_ingredients_analysis($product_ref);
 
-	if (defined $User_id) {
-		$html .= display_ingredients_analysis_details($product_ref);
-	}
+	$html .= display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
 
@@ -10397,7 +10411,7 @@ sub display_ingredient_analysis($$$) {
 	my $ingredients_text_ref = shift;
 	my $ingredients_list_ref = shift;
 
-	$$ingredients_list_ref .= "<ol>\n";
+	$$ingredients_list_ref .= "<ol id=\"ordered_ingredients_list\">\n";
 
 	my $i = 0;
 
@@ -10471,8 +10485,9 @@ sub display_ingredients_analysis_details($) {
 
 	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
 
-	my $html = '<p><a data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a><p>"
-	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+
+	my $unknown_ingredients_html = '';
+	my $unknown_ingredients_help_html = '';
 
 	if ($ingredients_text =~ /unknown_ingredient/) {
 
@@ -10482,10 +10497,25 @@ sub display_ingredients_analysis_details($) {
 }
 CSS
 ;
-		$html .= '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>';
+		$unknown_ingredients_help_html = " <b>" . lang("we_need_your_help") . "</b>";
+
+		$unknown_ingredients_html = '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>'
+		. '<div class="callout panel">'
+		. '<h3>' . lang("we_need_your_help") . '</h3>'
+		. '<p>' . lang("you_can_help_improve_ingredients_analysis") . '</p>'
+		. '<ul>'
+		. '<li>' . lang("help_improve_ingredients_analysis_1") . '</li>'
+		. '<li>' . lang("help_improve_ingredients_analysis_2") . '</li>'
+		. '</ul>'
+		. '<p>' . lang("help_improve_ingredients_analysis_instructions") . '</p>'
+		. '</div>';
 	}
 
-	$html .= "<p>" . $ingredients_text . "</p>";
+	my $html = '<p><a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
+	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">'
+	. $unknown_ingredients_html;
+
+	$html .= '<p id="ingredients_analysis_ingredients_text">' . $ingredients_text . "</p>";
 
 	$html .= $ingredients_list;
 
@@ -10586,7 +10616,7 @@ sub display_ingredients_analysis($) {
 
 		if ($html_analysis ne "") {
 
-			$html .= "<p><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}

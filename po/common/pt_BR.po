@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-29 16:07\n"
+"PO-Revision-Date: 2020-05-31 10:17\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -778,7 +778,7 @@ msgstr "wiki (en) <<nome_site>>"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr "https://pt.wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
@@ -786,7 +786,6 @@ msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr "Open Beauty Facts - Cosméticos"
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
@@ -3193,8 +3192,8 @@ msgstr "Importar um ficheiro de dados do produto"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr "Envie um ficheiro de planilha (ficheiro Excel ou um ficheiro CSV codificado em UTF-8 separado por tabulação) com dados do produto."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
+msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -4153,4 +4152,33 @@ msgstr "Time %s"
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
 msgstr "%d produtos serão exportados."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "Nome do alimento na tabela CIQUAL"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "Nome do alimento na tabela CIQUAL"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "Nomes dos alimentos na tabela CIQUAL"
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr "Você pode nos ajudar a reconhecer mais ingredientes e analisar melhor a lista de ingredientes para este produto e outros:"
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr "Edite esta página do produto para corrigir erros ortográficos na lista de ingredientes e / ou remover ingredientes em outros idiomas e frases que não estejam relacionadas aos ingredientes."
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr ""
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr ""
 
