@@ -15796,6 +15796,18 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 # SAUSAGES
 
 # <en:compound
+
+<en:meat
+en:botifarra
+es:butifarra, butifarras
+wikipedia:en:https://en.wikipedia.org/wiki/Botifarra
+wikidata:en:Q7046
+
+<en:meat
+es:chistorra
+wikipedia:en:https://en.wikipedia.org/wiki/Chistorra
+wikidata:en:Q590686
+ 
 <en:meat
 fr:saucisses fumées
 
@@ -24553,7 +24565,8 @@ nl:bonenmeel
 
 <en:flour
 <en:flax seed
-en:flax floor, flaxseed floor
+en:flax flour, flaxseed flour
+es:semilla de lino amarillo, semillas de lino amarillo, semilla de lino, semillas de lino
 fr:farine de lin, farine de graines de lin
 #openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
 # 57 products (FR) @2020-04-23
@@ -26530,6 +26543,10 @@ it:zucchero di canna grezzo
 nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
 pl:Cukier trzcinowy nierafinowany
 sv:rårörsocker
+
+<en:cane sugar
+en:whole cane sugar
+es:azucar de caña integral
 
 <en:unrefined cane sugar
 fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
@@ -33249,6 +33266,10 @@ es:paraguayo,chato
 wikipedia:en:https://en.wikipedia.org/wiki/Saturn_Peach
 
 <en:peach
+en:pitted peach
+es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, melocotónes sin hueso
+
+<en:peach
 <en:purée
 en:peach puree
 de:Pfirsichpurée
@@ -36006,6 +36027,10 @@ pl:wiśnie
 pt:ginjas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
+
+<en:cherry
+en:pitted cherry
+es:cereza deshuesada, cereza sin hueso, cerezas deshuesadas, cerezas sin hueso
 
 <en:sour cherry
 en:sour cherry juice
@@ -46889,7 +46914,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
 
 <en:walnut
-en:wallnuts shelled
+en:walnuts shelled
 de:Walnusskerne
 fi:kuoreton saksanpähkinä, kuorettomat saksanpähkinät
 fr:cerneaux de noix
@@ -53059,6 +53084,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kalamata_olive
 <en:olive
 fr:olives farcies
 # usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
+
+#in Spanish pitted olive can be aceituna sin hueso or aceituna deshuesada. To avoid mis-interpretation in the processing (which could translate to boned) it's added here
+<en:olive
+en:pitted olive
+es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
 
 <en:plant
 en:orange leaves
