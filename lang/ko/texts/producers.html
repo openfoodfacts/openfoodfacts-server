@@ -27,8 +27,8 @@
 <ul>
 <li><a href="#format_des_images">사진 형식</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">이미지 파일의 형식</a></li>
-<li><a href="#nom_des_fichiers_images">이미지 파일의 이름</a></li>
+<li><a href="#format_des_fichiers_images">사진 파일의 형식</a></li>
+<li><a href="#nom_des_fichiers_images">사진 파일의 이름</a></li>
 </ul>
 <li><a href="#format_des_donnees">데이터 형식</a></li>
 <ul>
@@ -89,70 +89,70 @@
 
 <h4 id="photos_et_donnees">사진 및 데이터</h4>
 
-<p>One of the fundamental principles of Open Food Facts is that the user or contributor must be able to verify the information from a photo.</p>
-<p>We therefore ask you to send us photos of the product and packaging (possibly as a flat file of the packaging) to support the structured data you send.</p>
+<p>Open Food Facts의 기본 원칙 중 하나는 사용자나 기여자가 사진에서 정보를 확인할 수 있어야 한다는 것입니다.</p>
+<p>따라서 보내주신 구조화된 데이터를 지원하기 위해 제품과 포장의 사진(포장물의 플랫 파일일 가능성이 있음) 을 보내주시기를 요청합니다.</p>
 
 <h3 id="ajout_manuel">수동 추가 기능</h3>
 
-<p>If you have a small number of products whose formulation does not change often, you can create an account on Open Food Facts and add yourself photos and data of your products.</p>
-<p>Highly recommended method: Add photos and enter information from the <a href="https://world.openfoodfacts.org">Open Food Facts website</a> .</p>
-<p>Alternative method: Use the Android mobile application to scan and then photograph and finally enter a product completely.</p>
-<p>Thank you in advance for telling us if you add your products yourself so that we can identify your account as a producer account, and indicate that the information comes directly from your company.</p>
+<p>제형이 자주 변경되지 않는 소수의 제품이 있는 경우, Open Food Facts에 대한 계정을 만들고 제품의 사진과 데이터를 추가할 수 있습니다.</p>
+<p>권장되는 방법: 사진을 추가하고 <a href="https://world.openfoodfacts.org">Open Food Facts 웹 사이트</a>에서 정보를 입력합니다.</p>
+<p>다른 방법: 안드로이드 모바일 응용 프로그램을 사용하여 스캔한 다음 사진을 찍고 최종적으로 제품을 완전히 입력합니다.</p>
+<p>우리가 당신의 계정을 생산자 계정으로 식별할 수 있도록 당신이 직접 제품을 추가했는지, 그리고 그 정보가 당신의 회사에서 직접 온 것임을 우리에게 미리 알려 주셔서 감사합니다.</p>
 
 <h3 id="ajout_automatise">자동 추가 기능</h3>
 
-To make importing data easier and faster, we have defined a standard format for images and data:
+데이터를 보다 쉽고 빠르게 가져오기 위해 이미지 및 데이터의 표준 형식을 정의했습니다:
 <h4 id="format_des_images">사진 형식</h4>
 
-<p>At least 3 images are required:</p>
+<p>적어도 3개의 사진이 필요합니다:</p>
 <ul>
-<li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
-<li>List of ingredients</li>
-<li>Nutritional table</li>
+<li>흰색 바탕에 있는 제품의 전면 모습(바코드 스캔 없이 제품을 시각적으로 인식할 수 없는 3/4 모습은 제외) 입니다.</li>
+<li>성분 목록</li>
+<li>영양 표</li>
 </ul>
   
-<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>정면도, 성분, 영양도 등은 최소한 제품의 주요 언어로 제공되어야 합니다. 제품에 나타날 때 다른 언어의 이미지도 제공하는 것이 좋습니다.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>예를 들어 벨기에 시장을 대상으로 한 제품의 경우 프랑스어로 작성되고 네덜란드어로 작성된 제품을 보여주는 사진이 있을 수 있습니다.</p>
 
-  <p>Other images may also be included:</p>
+  <p>다른 사진도 포함될 수 있습니다:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Verso 및 제품의 다른 보기(특히 라벨 로고 등을 자동으로 식별할 수 있습니다.)</li>
+<li>포장의 평면도</li>
 </ul>
   
-<h5 id="format_des_fichiers_images">이미지 파일의 형식</h5>
+<h5 id="format_des_fichiers_images">사진 파일의 형식</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>JPEG or PNG 형식</li>
+  <li>너비 또는 높이가 최소 2000 픽셀 이상</li>
 </ul>
 
-<h5 id="nom_des_fichiers_images">이미지 파일의 이름</h5>
+<h5 id="nom_des_fichiers_images">사진 파일의 이름</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[barcode]_[이미지 유형]_[언어 코드].[jpg or png]</pre>
 
-  <p>For example :</p>
+  <p>예시:</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>3660140808750_front_en.jpg는 바코드가 3660140808750인 제품의 전면 사진입니다.</p>
 
-  <p>The types of images are:</p>
+  <p>사진 유형은 다음과 같습니다:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
-  <li>any name you see fit (characters from a to e, no spaces) for other views</li>
+  <li>front: 앞면 사진</li>
+  <li>ingredients: 재료 목록</li>
+  <li>nutrition: 영양 표</li>
+  <li>back: 버전</li>
+  <li>다른 보기에 적합한 이름(a에서 e로, 공백 없음)</li>
 </ul>
   
 
 <h4 id="format_des_donnees">데이터 형식</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>데이터는 필드 구분 문자 및 UTF-8 문자 인코딩으로 표 형식으로 CSV 형식의 표로 제공되어야 합니다.</p>
+<p>첫 번째 줄에는 필드 이름이 포함되며 각 제품은 다음 줄 중 하나를 차지합니다. 필드의 순서는 중요하지 않으며 모든 열이 있을 필요는 없습니다.</p>
+<p>일부 필드는 필수 항목이고 다른 필드는 선택 사항입니다. 가능한 많은 응용 프로그램에서 데이터를 사용할 수 있도록 가능한 한 많은 필드를 입력하는 것이 좋습니다. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
   <h5 id="champs_obligatoires">필수 입력 사항</h5>
 
