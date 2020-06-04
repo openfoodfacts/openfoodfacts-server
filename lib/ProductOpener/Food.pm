@@ -3794,8 +3794,8 @@ sub mmoll_to_unit {
 	},
 	"alcohol-units" => {
 		en => "Alcohol units",
-		de => "Alkoholeinheit",
-		fr => "Unité d'alcool",
+		de => "Alkoholeinheiten",
+		fr => "Unités d'alcool",
 	unit => "",
 	},
 	"choline" => {
