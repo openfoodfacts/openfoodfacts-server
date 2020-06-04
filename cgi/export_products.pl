@@ -155,11 +155,30 @@ elsif (($action eq "process") and ($User{moderator})) {
 	}
 
 	if (defined $Org_id) {
-		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
-			$args_ref->{manufacturer} = 1;
-		}
+
 		$args_ref->{source_id} = "org-" . $Org_id;
 		$args_ref->{source_name} = $Org_id;
+
+		# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
+		# in the mean time, use a naming convention:  label-something, database-something and treat
+		# everything else as a producers
+		if ($Org_id =~ /^app-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
+		}
+		elsif ($Org_id =~ /^database-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
+		}	
+		elsif ($Org_id =~ /^label-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
+		}
+		else {
+			$args_ref->{manufacturer} = 1;
+			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+		}		
+		
 	}
 	else {
 		$args_ref->{no_source} = 1;

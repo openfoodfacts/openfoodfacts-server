@@ -607,9 +607,11 @@ sub import_csv_file($) {
 		}
 
 		# Record fields that are set by the owner, when the owner is a producer org
-		# (and not a database or label org)
+		# (and not an app, a database or label org)
 		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-			and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/) ) {
+			and ($args_ref->{owner_id} !~ /^org-app-/)
+			and ($args_ref->{owner_id} !~ /^org-database-/)
+			and ($args_ref->{owner_id} !~ /^org-label-/) ) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
 			$product_ref->{owner} = $args_ref->{owner_id};
 			$product_ref->{owners_tags} = $product_ref->{owner};
@@ -675,8 +677,10 @@ sub import_csv_file($) {
 					and ($field ne "imports")	# "imports" contains the timestamp of each import
 					) {
 
-					# Don't set owner_fields for labels and databases, only for producers
-					if (($args_ref->{owner_id} !~ /^org-label-/) and ($args_ref->{owner_id} !~ /^org-database-/)) {
+					# Don't set owner_fields for apps, labels and databases, only for producers
+					if (($args_ref->{owner_id} !~ /^org-app-/)
+						and ($args_ref->{owner_id} !~ /^org-database-/)
+						and ($args_ref->{owner_id} !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$field} = $time;
 					}
 
@@ -1028,7 +1032,9 @@ sub import_csv_file($) {
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
 					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-						and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/)) {
+						and ($args_ref->{owner_id} !~ /^org-app-/)
+						and ($args_ref->{owner_id} !~ /^org-database-/)
+						and ($args_ref->{owner_id} !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}

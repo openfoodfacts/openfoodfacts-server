@@ -446,6 +446,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 	}
 
 	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
 	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
