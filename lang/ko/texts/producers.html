@@ -152,54 +152,54 @@
 
 <p>데이터는 필드 구분 문자 및 UTF-8 문자 인코딩으로 표 형식으로 CSV 형식의 표로 제공되어야 합니다.</p>
 <p>첫 번째 줄에는 필드 이름이 포함되며 각 제품은 다음 줄 중 하나를 차지합니다. 필드의 순서는 중요하지 않으며 모든 열이 있을 필요는 없습니다.</p>
-<p>일부 필드는 필수 항목이고 다른 필드는 선택 사항입니다. 가능한 많은 응용 프로그램에서 데이터를 사용할 수 있도록 가능한 한 많은 필드를 입력하는 것이 좋습니다. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>일부 필드는 필수 항목이고 다른 필드는 선택 사항입니다. 가능한 많은 응용 프로그램에서 데이터를 사용할 수 있도록 가능한 한 많은 필드를 입력하는 것이 좋습니다. 의심스러운 경우 또는 Open Food Facts 데이터베이스에 아직 필드가 없는 데이터가 있는 경우, 당사에 연락하여 필드를 추가하고 최대한 일치시킬 수 있습니다.</p>
 
   <h5 id="champs_obligatoires">필수 입력 사항</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>code: 제품 바코드가 포장에 표시되는 대로 표시됩니다(EAN-13, EAN-8 또는 기타)</li>
+  <li>lang: 제품의 주요 언어(포장에 가장 많이 있음) 의 2글자 코드입니다(예: 프랑스어의 경우 fr)</li>
+  <li>product_name_ [기본 언어의 2 문자 코드]: 제품 이름 (프랑스어 이름의 경우 product_name_en 필드에 있음)</li>
+  <li>generic_name_ [기본 언어의 2글자 코드]: 일반 제품 이름 </li>
+  <li>brands: 브랜드(브랜드 및 하위 브랜드에 대해 가능한 가치를 나타내며, 쉼표로 구분)</li>
+  <li>quantity: 수량, 단위를 지정하고 제품에 여러 단위가 포함된 경우 괄호 안에 추가할 수 있습니다(예: 120g(4 x 30g)).</li>
+  <li>categories: 주요 제품 언어의 제품 카테고리, (예: 초콜릿 케이크)</li>
+  <li>countries: 제품이 판매되는 국가이며, 제품의 주요 언어로 표시됨(가능한 값을 나타내며, 쉼표로 구분됨)</li>
+  <li>ingredients_text_ [주 언어의 2문자 코드]: 재료 목록(프랑스어로 리스트에 대한 ingredients_text_fr 필드에 있음) 알레르겐은 대문자로 또는 사이에 표시 될 수 있습니다 </li>
+  <li>allergens: 알레르는 제품의 주요 언어로 쉼표로 구분</li>
+  <li>traces: 제품의 주요 언어로, 쉼표로 구분된 알레르기의 흔적</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>필수 필드 중에는 패키지에 표시된 영양가치가 판매된 제품 100g/100ml당 포함됩니다.</p>
+<p>모든 값에는 단위가 없어야 합니다(단위는 에너지의 경우 kJ, 다른 모든 필드의 경우 g).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: kJ 단위의 에너지</li>
+  <li>fat_100g: 지방</li>
+  <li>saturated-fat_100g: 포화 지방</li>
+  <li>carbohydrates_100g: 탄수화물</li>
+  <li>sugars_100g: 설탕</li>
+  <li>proteins_100g: 단백질</li>
+  <li>salt_100g: 소금</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
+<p>또한 과일 및 야채의 섬유질과 백분율을 표시하여 Nutri-Score의 계산에서 이 정보를 고려할 수 있도록 하는 것이 좋습니다:</p>
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
-  <li>fruits-vegetables-nuts_100g</li>
+  <li>fiber_100g: 섬유질</li>
+  <li>fruits-vegetables-nuts_100g: 과일-야채-견과</li>
     <!-- Do not translate nutrient field names -->
   </ul>
   
   <h5 id="champs_optionnels">선택 입력 사항</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
+    <li>labels: 제품의 주요 언어로 라벨을 표시(여러 깂은 쉼표로 구분)(예: AB Bio, MSC, Max Havlaar). 참고: 제품 포장에 라벨이 표시되어야 합니다.</li>
+    <li>origins: 성분의 원산지를 제품의 주요 언어로 표시합니다(몇 가지 가능한 값,쉼표로 구분)(예: Peru, Périgord).</li>
     <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
     <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
     <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
