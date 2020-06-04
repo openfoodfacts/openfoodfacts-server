@@ -3793,6 +3793,7 @@ sub mmoll_to_unit {
 		unit => "",
 	},
 	"alcohol-units" => {
+		en => "Alcohol units",
 		de => "Alkoholeinheit",
 		fr => "Unité d'alcool",
 	unit => "'",
