@@ -3796,7 +3796,7 @@ sub mmoll_to_unit {
 		en => "Alcohol units",
 		de => "Alkoholeinheit",
 		fr => "Unité d'alcool",
-	unit => "'",
+	unit => "",
 	},
 	"choline" => {
 		ar => "كولين",
