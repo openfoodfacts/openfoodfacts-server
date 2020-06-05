@@ -1065,11 +1065,11 @@ sub display_index_for_producer($) {
 
 		if ($count > 0) {
 			$html .= "<p>&rarr; <a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">"
-			. lang("number_of_products_with_" . $tagtype) . lang("sep") . ": " . $count . "</a></p>";
+			. lang("number_of_products_with_" . $tagtype) . separator_before_colon($lc) . ": " . $count . "</a></p>";
 		}
 	}
 
-	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	return $html;
@@ -1615,7 +1615,7 @@ sub display_list_of_tags($$) {
 			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
 		}
 
-		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . separator_before_colon($lc) . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -5918,7 +5918,7 @@ HTML
 			}
 
 			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
 			}
 			else {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
@@ -7168,12 +7168,12 @@ sub display_data_quality_description($$) {
 	my $html = "";
 
 	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . lang("sep") . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . lang("sep") . ": " . $product_ref->{nutriscore_score} . "</p>";
+		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
+			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
 	}
 	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
+		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
+			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
 	}
 
 	return $html;
@@ -7199,9 +7199,9 @@ sub display_possible_improvement_description($$) {
 		# Comparison of product nutrition facts to other products of the same category
 
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
-			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			$html .= "<p>" . lang("value_for_the_product") . separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
 			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
-			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
 		}
 
@@ -8686,6 +8686,7 @@ sub display_nutriscore_calculation_details($) {
 	my $template_data_ref = {
 		
 		lang => \&lang,
+		sep => separator_before_colon($lc),
 				
 		beverage_view => $beverage_view,
 		is_fat => $nutriscore_data_ref->{is_fat},
