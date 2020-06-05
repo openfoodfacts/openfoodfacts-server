@@ -1377,7 +1377,8 @@ sub import_csv_file($) {
 
 			$stats{products_with_images}{$code} = 1;
 
-			if (not $args_ref->{test}) {
+			if ((not $args_ref->{test})
+				and (not ((defined $args_ref->{do_not_upload_images}) and ($args_ref->{do_not_upload_images})))) {
 
 				$log->debug("uploading images for product", { code => $code }) if $log->is_debug();
 
@@ -1439,8 +1440,8 @@ sub import_csv_file($) {
 
 						# select the photo
 						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
-							((not $args_ref->{only_select_not_existing_images})
-								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) )){
+							( (not ((defined $args_ref->{only_select_not_existing_images}) and ($args_ref->{only_select_not_existing_images})))
+								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) ) ) {
 
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
