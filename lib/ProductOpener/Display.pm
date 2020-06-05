@@ -237,7 +237,13 @@ if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
 
-
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+});
+	
 # Initialize exported variables
 $memd = new Cache::Memcached::Fast {
 	'servers' => $memd_servers,
@@ -8743,17 +8749,8 @@ sub display_nutriscore_calculation_details($) {
 		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
 	 }
 
-	# Nutrition Score Calculation Template
-	my $config = {
-		INCLUDE_PATH => $data_root . '/templates',
-		INTERPOLATE => 1,
-		EVAL_PERL => 1,
-	};
-	
-	my $tt = Template->new($config);
-	
 	my $html;
-	$tt->process('nutrition_score.tt', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	$tt->process('nutrition_score.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
 	return $html;
 } 
