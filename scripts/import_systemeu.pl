@@ -526,7 +526,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 							# upload a photo
 							my $imgid;
-							my $return_code = process_image_upload("org-systeme-u/" . $code, "$imagedir/$file", $User_id, undef, $comment, \$imgid);
+							my $debug;
+							my $return_code = process_image_upload("org-systeme-u/" . $code, "$imagedir/$file", $User_id, undef, $comment, \$imgid, \$debug);
 							print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
 
 

@@ -1420,8 +1420,9 @@ sub import_csv_file($) {
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
-						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+						my $debug;
+						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid, \$debug);
+						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, debug => $debug }) if $log->is_debug();
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 							$stats{products_images_added}{$code} = 1;
