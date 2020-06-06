@@ -49,7 +49,7 @@ stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -13832,7 +13832,7 @@ da:Husholdningssalt, køkkensalt, bordsalt, salt
 de:Speisesalz, Kochsalz, Tafelsalz, Salz
 el:Αλάτι
 eo:Salo, Komuna salo
-es:Sal, sal común, sal de mesa
+es:Sal, sal común, sal de mesa,sales
 et:Söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
@@ -15144,6 +15144,16 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
+<en:meat
+<en:pork
+en:pork shoulder
+es:paleta de cerdo
+
+<en:meat
+<en:pork
+en:pig cheek
+es:galtes,galets
+
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
 # comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
@@ -15554,6 +15564,10 @@ fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 #type of dried ham from portugal
 <en:ham
 pt:presunto
+
+<en:ham
+en:cured ham
+es:jamon serrano,jamon curado
 
 <en:pork
 en:pork by-product
@@ -16619,7 +16633,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:grasa de cerdo, manteca de cerdo
+es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -17033,7 +17047,7 @@ cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
 eo:Palmoleo
-es:aceite de palma, grasa de palma
+es:aceite de palma, grasa de palma, aceite vegetal de palma
 et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
@@ -20368,6 +20382,8 @@ fr:porto rouge modifié
 # usage:en:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
 
 <en:alcohol
+en:brandy
+es:brandy
 fr:brandy
 
 
@@ -20385,6 +20401,7 @@ fr:eau de vie de vin
 <en:alcohol
 en:vermouth
 de:Wermut
+es:vermut
 fi:vermutti
 fr:vermouth
 hu:vermut
@@ -20630,7 +20647,7 @@ en:artificial flavouring, artificial flavour, artificial flavor, artificial flav
 ca:Oli i greix de palma
 da:kunstig smag
 de:künstliches Aroma
-es:aroma artificial
+es:aroma artificial, saborizante artificial
 fi:keinotekoinen aromi, keinotekoiset aromit
 fr:arôme artificiel, arômes artificiels
 hu:mesterséges aroma, mesterséges aromák
@@ -22012,7 +22029,7 @@ fr:billes de céréales
 <en:cereal
 en:wholemeal cereal
 de:Vollkorngetreide
-es:Cereal integral
+es:Cereal integral,cereales integrales
 fi:täysjyvävilja
 fr:céréale complète, céréales complètes
 hu:teljes kiőrlésű gabona
@@ -23714,6 +23731,10 @@ es:copos de avena integral, copos de avena integral laminados
 <en:oat bran
 nl:Haverzemelen met kiem
 # ingredient/nl:haverzemelen-met-kiem has 1 product @2019-5-24
+
+<en:oat
+en:oat milk
+es:bebida de avena
 
 <en:cereal
 en:millet
@@ -29018,6 +29039,10 @@ fr:chocolat pur beurre de cacao
 it:cioccolato puro burro di cacao
 nl:chocolade met pure cacaoboter
 # ingredient/fr:chocolat-pur-beurre-de-cacao has 45 products in 6 languages @2019-05-25
+
+<en:chocolate
+en:chocolate cream
+es:crema de chocolate
 
 # description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
 
@@ -39017,7 +39042,12 @@ zh:椰子奶
 # 87 products @2018-10-03
 
 <en:coconut milk
+en:powdered coconut milk
 es:leche de coco en polvo
+
+<en:coconut milk
+en:coconut milk drink
+es:bebida de coco
 
 <en:coconut
 en:coconut water
@@ -40902,7 +40932,7 @@ en:cabbage
 ca:Col
 da:kål
 de:Kohl
-es:Col
+es:Col,repollo
 fi:kaali
 fr:chou, choux
 hu:fejeskáposzta
@@ -41107,7 +41137,7 @@ cy:Ysgewyll
 da:Rosenkål
 de:Rosenkohl
 eo:Burĝonbrasiko
-es:Col de Bruselas
+es:Col de Bruselas, coles de bruselas
 et:Rooskapsas
 eu:Bruselaza
 fa:کلم بروکسل
@@ -43878,6 +43908,11 @@ nutriscore_fruits_vegetables_nuts:en:no
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
 
+<en:potato
+<en:flour
+en:potato flour
+es:harina de patata
+
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
 
@@ -45393,7 +45428,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 en:Rapeseed, rape, oilseed rape
 da:raps
 de:Raps
-es:Colza
+es:Colza,nabina
 fi:rapsi
 fr:Colza
 it:Colza
@@ -46301,6 +46336,10 @@ de:rehydrierte Kichererbsen
 it:ceci reidratati
 # ingredient/fr:poi-chiches-réhydratés has 55 products in 4 languages @2019-02-15
 
+<en:chickpea
+<en:flour
+en:chickpea flour
+es:harina de garbanzo
 
 <en:pea
 en:garden peas
@@ -65845,7 +65884,7 @@ fr:extraits naturels
 <en:extract
 en:vegetable extract, vegetable extracts
 de:Pflanzenextrakt, Pflanzenextrakte, Gemüseextrakte
-es:Extracto vegetal
+es:Extracto vegetal, extratos vegetales
 fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 it:estratto vegetale, estratti vegetali
