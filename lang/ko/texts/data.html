@@ -1,30 +1,29 @@
 
 <h1>데이터</h1>
 
-<p>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
-The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br/>
-Products images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.
-They may contain graphical elements subject to copyright or other rights, that may in some cases be reproduced (quotation rights or fair use).</p>
+<p>Open Food Facts 데이터베이스는 <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>에 따라 제공됩니다.<br/>
+데이터베이스의 개별 내용은 <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>에 따라 사용 가능합니다.<br/>
+제품 이미지는 <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>에 따라 제공됩니다.
+여기엔 저작권이나 다른 권리의 영향을 받는 그래픽 요소를 포함할 수 있으며, 경우에 따라 복제될 수 있습니다(인용 권리 또는 공정한 사용).</p>
 
-<p>Please read <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and re-use</a> before re-using the data.</p> 
-
-
-<p>We are very interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
-with the Open Food Facts community.</p>
-
-<h2>Open Food Facts data exports</h2>
-
-<p>Database dumps and exports are generated nightly.</p>
-
-<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+<p>데이터를 다시 사용하기 전에 <a href="https://world.openfoodfacts.org/terms-of-use">이용 약관을 읽고</a> 다시 사용하십시오.</p> 
 
 
-<h3>MongoDB dump</h3>
+<p>우리는 Open Food Facts 데이터가 무엇에 사용되는지 배우는 것에 매우 관심이 있습니다. 의무사항은 아니지만, Open Food Facts 커뮤니티와 공유할 수 있도록 <a href="mailto:contact@openfoodfacts.org">재사용에 대해 알려주시면</a> 감사하겠습니다.</p>
 
-<p>Data for all products is available in a MongoDB database dump.</p>
+<h2>Open Food Facts 데이터 내보내기</h2>
+
+<p>데이터베이스 덤프 및 내보내기는 밤마다 생성됩니다.</p>
+
+<p>MongoDB 덤프 및 CSV 엑스포트의 다양한 분야에 대한 정보는 <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a>에서 확인할 수 있습니다.</p>
+
+
+<h3>MongoDB 덤프</h3>
+
+<p>모든 제품의 데이터는 MongoDB 데이터베이스 덤프에서 이용할 수 있습니다.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
  <dt>sha256sum</dt>
  <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
@@ -32,68 +31,65 @@ with the Open Food Facts community.</p>
  <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
 </dl>
 
-<h4>Delta Export</h4>
+<h4>델타(Delta) 내보내기</h4>
 
-<p>Daily delta exports are provided for the previous 14 days. The list of currently available delta files can be found at
- <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
- be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
-<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
- deleted products from your database, you will need to import the full MongoDB dump.</p>
+<p>지난 14 일 동안 매일 델타 내보내기가 제공되었습니다. 현재 사용 가능한 델타 파일 목록은 
+<a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>에서 찾을 수 있습니다.
+ 각 줄은 <code>https://static.openfoodfacts.org/data/delta/{filename}</code>에서 사용할 수 있는 파일을 나타냅니다.
+ 파일 이름에는 JSON 파일에 포함된 첫 번째 및 마지막 변경사항의 UNIX 타임스탬프가 포함되어 있어, 델타 파일을 알파벳 순서로 <code>mongoimport</code>로 불러올 수 있습니다(추출 후).</p>
+<p><code>mongoexport</code>의 특성상 델타 파일이 삭제된 제품에 대해 알려줄 수 없다는 점에 유의하십시오. 삭제된 제품을 데이터베이스에서 제거하려면 전체 MongoDB 덤프를 가져와야 합니다.</p>
  
-<h3>CSV Data Export</h3>
+<h3>CSV 데이터 내보내기</h3>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
+<p>모든 제품 또는 일부 제품에 대한 데이터는 <a href="https://world.openfoodfacts.org/cgi/search.pl">고급 검색 양식을 통해</a> CSV 형식(OpenOffice, Excel 및 기타 많은 소프트웨어로 읽을 수 있음)으로 다운로드할 수 있습니다.</p>
  
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>파일 인코딩은 유니코드 UTF-8입니다. 필드를 구분하는 문자는 &lt;tab&gt;(표)이다.</p>
 
 
 
-<h3>RDF Data Export</h3>
+<h3>RDF 데이터 내보내기</h3>
 
-<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
+<p>데이터베이스도 RDF 형식으로 이용할 수 있다. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>링크</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Live JSON API</h2>
+<h2>라이브 JSON API</h2>
 
-<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
+<p>제품의 데이터를 읽는 데 JSON API를 사용할 수도 있습니다. 이 API는 특히 아이폰과 안드로이드용 오픈 푸드 팩트 모바일 앱에서 많이 쓰입니다.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>API를 시간 경과에 따라 변경하지만 이전 버전과의 호환성을 유지하기 위해 주의를 기울입니다. 잠재적 변경에 대해 알려줄 수 있도록 사용하는 경우 알려주십시오.</p>
 
-<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+<p>제품 데이터를 읽을 수있는 URL: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
-<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+<p>예시: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
-A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
-<p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
-Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
-<p>Also, sending an HTTP header with your API call is a good way we can get in touch, should any issue arise.</p>
-<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
+추가 문서는 <a href="https://wiki.openfoodfacts.org/API">위키에서 이용</a>할 수 있습니다. (중요 참고: READ와 WRITE의 하위 페이지로 구분됩니다) 
+제품을 표시하고 사용하는 사례와 사용자가 Nutri-Score, 노바 그룹 및 첨가물을 얻는 데 필요한 데이터를 추가할 수 있는 더 나은 문서가 개발되고 있습니다.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">여기서 접속할 수 있습니다.</a>
+<p>사용자가 1 번의 API 호출 = 1 번의 실제 스캔을하는 한 프로덕션 사례에 API를 사용하는 것이 매우 좋습니다.
+이 페이지에서 매일 전체 내보내기를 사용할 수 있으므로 API를 사용하여 데이터베이스를 긁어 내려는 시도가 차단 될 가능성이 큽니다.</p>
+<p>또한, 당신의 API 호출과 함께 HTTP 헤더를 보내는 것은 문제가 발생할 경우 연락할 수 있는 좋은 방법입니다.</p>
+<p>어떤 것에 대해 확신이 없거나 질문이 있다면(어리석은 질문은 없으니) Slack에 자유롭게 물어보십시오 :-)</p>
 
-<h2>Android and iPhone mobile app</h2>
+<h2>안드로이드와 아이폰 모바일 앱</h2>
 
-<p>The code for the Open Food Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
-The app allows users to scan the barcode of products, to view the product information, and to take and send pictures and data for missing products.</p>
+<p>Open Food Facts 모바일 앱의 코드는 GitHub(<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a>과 <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>)에서 이용할 수 있습니다.
+이 앱은 사용자가 제품의 바코드를 스캔하고, 제품 정보를 볼 수 있으며, 누락된 제품에 대한 사진과 데이터를 촬영해 보낼 수 있게 해줍니다.</p>
 
-<p>The app for iOS is developed in Swift.</p>
-<p>The app for Android is developed in Java.</p>
-<p>You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.
+<p>iOS용 앱은 Swift로 개발되었습니다.</p>
+<p>Android용 앱은 자바로 개발되었습니다.</p>
+<p>코드를 다시 사용하고(오픈 소스) 지구상의 모든 사람들을 위해 우리가 코드를 개선하도록 도와주십시오.
 
-<h2>Wrappers and SDKs</h2>
-<p>We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it.</p>
+<h2>Wrappers 및 SDKs</h2>
+<p>우리는 아마도 당신이 가장 좋아하는 프로그래밍 언어의 wrapper를 가지고 있을 것입니다. If we do, you can use it and improve it. If we don't, you can help create it.</p>
 <p>They will let you consume data, as well as let your users contribute new data</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>

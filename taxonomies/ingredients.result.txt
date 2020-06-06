@@ -183,6 +183,7 @@ synonyms:en:no8, n8, 8
 synonyms:en:no9, n9, 9
 
 synonyms:en:pasteurised, pasteurized
+synonyms:es:zumo, jugo
 
 synonyms:en:sulfide, sulphide
 
@@ -220,6 +221,10 @@ pl:Mąka jęczmienna
 pt:farinha de cevada
 ro:făină de orz
 ru:Ячменная мука
+
+< :
+en:linseed seeds
+es:semillas de linaza
 
 < :
 en:Oncorhynchus gorbuscha
@@ -1577,6 +1582,10 @@ fi:anjovisuute
 fr:extrait d'anchois
 it:estratto d'acciughe
 nl:ansjovisextract
+
+< en:Anchovy
+en:anchovy filets
+es:filetes de anchoas
 
 < en:Anchovy
 en:anchovy paste
@@ -3008,6 +3017,10 @@ fr:jus de betterave
 de:Randensaft
 fi:punajuurimehu
 it:succo di barbabietola
+
+< en:Bell pepper
+en:piquillo-pepper
+es:pimiento-del-piquillo
 
 < en:Bell pepper
 en:sweet peppers
@@ -5573,6 +5586,10 @@ es:Jugo de apio
 fr:jus de céleri
 
 < en:Celery
+en:celery leaves
+es:apio hoja
+
+< en:Celery
 en:celery puree
 de:Selleriepüree
 fi:selleripyree, sellerisose
@@ -8102,6 +8119,10 @@ fr:piments verts, piment vert
 it:peperoncino verde
 
 < en:Chili pepper
+en:chili in vinegar
+es:guindillas en vinagre
+
+< en:Chili pepper
 en:chili puree, chilli puree
 de:Chilipaste, Chilipüree
 fi:chilipyree, chilisose
@@ -8164,7 +8185,7 @@ fi:säilötty chili
 < en:Chili pepper
 en:red chili pepper
 de:roter Chili, rote Chili-Schoten
-es:chile rojo, chiles rojos
+es:chile rojo, chiles rojos, red-chili
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
@@ -8425,6 +8446,10 @@ carbon_footprint_fr_foodges_value:fr: 5.9
 vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q2164820
+
+< en:Chocolate
+en:milk chocolate chips
+es:pepitas de chocolate con leche
 
 < en:Chocolate
 en:pure cocoa butter chocolate
@@ -9694,6 +9719,9 @@ fr:noix de coco râpée
 it:cocco grattugiato
 nl:Gemalen kokos
 pt:coco ralado
+
+< en:Coconut
+es:nectar del brote de la flor del coco
 
 < en:Coconut
 fr:pâte de noix de coco
@@ -14799,7 +14827,7 @@ cs:E1404, Oxidovaný škrob
 da:E1404, Oxideret stivelse, Oxideret stivelse er stivelse
 de:E1404, Oxidierte stärke, modifizierte Kartoffelstärke
 el:E1404, Οξειδωμενο αμυλο
-es:E1404, Almidón oxidado
+es:E1404, Almidón oxidado, almidón modificado de patata
 et:E1404, Oksüdeeritud tärklis
 fi:E1404, Hapetettu tärkkelys, Hapetettua tärkkelystä, muunnettu perunatärkkelys
 fr:E1404, Amidon oxydé, amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre
@@ -40772,7 +40800,7 @@ cs:glukózový sirup
 da:glukosesirup
 de:Glukosesirup, Glucosesirup, Glukose-Sirup
 el:σιρόπι γλυκόζης
-es:jarabe de glucosa
+es:jarabe de glucosa, sirope de glucosa
 et:glükoosisiirup
 eu:Almibar
 fi:glukoosisiirappi
@@ -40837,7 +40865,7 @@ sv:glukos-fruktossirap
 en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
 da:tørret glukosesirup
 de:getrockneter Glukosesirup, dehydrierter Glukosesirup
-es:Sirope deshidratado de glucosa
+es:Sirope deshidratado de glucosa, jarabe de glucosa deshidritado
 fi:kuivattu glukoosisiirappi
 fr:sirop de glucose déshydraté, sirop de glucose en poudre
 hu:dehidratált glükózszirup, szárított glükózszirup, dehidratált glükóz szirup, szárított glükóz szirup
@@ -41073,7 +41101,7 @@ da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas
+es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -43409,6 +43437,7 @@ en:Humectant, moisture retention agent, water retention agent, wetting agent
 bg:Влагозадържащ агент
 ca:Humectant
 cs:Zvlhčující látka
+da:Fugtighedsbevarende middel
 de:Feuchthaltemittel
 el:Υγροσκοπικό μέσο
 es:Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad
@@ -43425,6 +43454,7 @@ pl:Substancja utrzymująca wilgoć, Substancje utrzymujące wilgoć
 pt:Humidificante
 ro:Agent de umezire
 sk:Zvlhčovadlo
+sv:Fuktighetsbevarande medel
 description:cs: Zvlhčujícími látkami se rozumějí látky, které chrání potravinu před vysycháním tím, že působí proti účinkům vzduchu s nízkou relativní vlhkostí nebo podporují rozpouštění práškovitých potravin ve vodném prostředí.
 description:da: Fugtighedsbevarende midler: stoffer, som beskytter fødevarer mod udtørring ved at reducere virkningen af omgivelser med lav fugtighedsgrad, eller som gør opløsning af et pulver i et vandigt medium lettere.
 description:de: Feuchthaltemittel sind Stoffe, die das Austrocknen von Lebensmitteln verhindern, indem sie die Auswirkungen einer Atmosphäre mit geringem Feuchtigkeitsgehalt ausgleichen, oder Stoffe, die die Auflösung eines Pulvers in einem wässrigen Medium fördern.
@@ -43683,6 +43713,9 @@ sl:Imazalil
 wikidata:en: Q421576
 wikipedia:en: https://en.wikipedia.org/wiki/Enilconazole
 
+en:inactive dough
+es:masa madre inactiva
+
 < en:Indian squid
 en:Uroteuthis duvaucelii
 de:Uroteuthis duvaucelii
@@ -43722,6 +43755,7 @@ sk:obsahuje, Zloženie
 sl:vsebuje, Sestavine
 sv:innehåller, Ingredienser, innehåll
 tg:Таркиб
+th:ส่วนประกอบ
 tr:lcindekiler
 uz:Tarkib
 zh::配料
@@ -44201,7 +44235,7 @@ fr:fer réduit
 
 en:juice
 de:Saft
-es:Zumo
+es:zumo, jugo
 fi:mehu
 fr:jus
 it:succo
@@ -50557,7 +50591,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 < en:Mushroom
 en:shiitake, lentinula edodes, lentinus edodes
 de:shiitake, schwarzer Pilz
-es:shiitake
+es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
 it:funghi shiitake
@@ -50832,7 +50866,7 @@ fr:moût de pomme concentré
 < en:Must
 en:concentrated grape must
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
-es:Mosto de uvas desde concentrado
+es:Mosto de uvas desde concentrado, mosto concentrado de uva
 fi:rypäleen puristemehuntiiviste
 fr:moût de raisin concentré
 it:mosto d'uva concentrato
@@ -52386,7 +52420,7 @@ sv:fullkornshavregryn
 < en:Oat
 en:wholemeal oat
 de:Vollkornhafer, Vollkorn-Hafer
-es:Avena integral
+es:Avena integral, copos de avena integral, copos de avena integral laminados
 fi:täysjyväkaura
 fr:avoine complète
 hu:teljes kiőrlésű zab
@@ -54148,6 +54182,11 @@ it:Succo di pesca
 ru:Персиковый сок
 
 < en:Peach
+en:saturn peach, donut peach, paraguayo
+es:paraguayo, chato
+wikipedia:en: https://en.wikipedia.org/wiki/Saturn_Peach
+
+< en:Peach
 fr:demi-pêches
 
 < en:Peach
@@ -54423,6 +54462,7 @@ fr:grains de poivre
 
 < en:Pepper
 en:pink pepper
+es:pimienta rosa
 fr:poivre rose
 
 < en:Pepper
@@ -54623,7 +54663,7 @@ fr:segments d'ananas
 en:pineapple juice
 da:Ananasjuice
 de:Ananassaft
-es:Zumo de piña
+es:Zumo de piña, jugo de piña
 fi:ananasmehu
 fr:jus d'ananas
 it:succo di ananas
@@ -55171,6 +55211,7 @@ nl:plantextracten
 < en:Plant
 en:plantain
 de:Plantainbanane
+es:platano macho
 fi:ratamo
 fr:plantain
 it:piantaggine
@@ -56916,7 +56957,7 @@ en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould 
 bg:Консервант
 ca:Conservant, conservador, conservadors, conservants
 cs:Konzervant
-da:Modificeret stivelse
+da:Konserveringsmiddel
 de:Konservierungsstoff, Konservierungsstoffe
 el:Συντηρητικό
 es:Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores, conservantes, agentes conservadores
@@ -56937,8 +56978,8 @@ pt:Conservante, conservantes
 ro:Conservant
 ru:Консервант
 sk:Konzervačná látka
-sl:Modificirani škrob
-sv:Modifierad stärkelse
+sl:Konzervans
+sv:Konserveringsmedel
 description:cs: Konzervanty se rozumějí látky, které prodlužují trvanlivost potravin tím, že je chrání proti zkáze způsobené mikroorganismy, nebo které potraviny chrání před růstem patogenních mikroorganismů.
 description:da: Konserveringsmidler: stoffer, som forlænger en fødevares holdbarhed ved at beskytte den mod ødelæggelse forårsaget af mikroorganismer, og/eller som beskytter mod vækst af patogene mikroorganismer.
 description:de: Konservierungsstoffe sind Stoffe, die die Haltbarkeit von Lebensmitteln verlängern, indem sie sie vor den schädlichen Auswirkungen von Mikroorganismen schützen, und/oder vor dem Wachstum pathogener Mikroorganismen schützen.
@@ -56969,8 +57010,8 @@ en:Propellent gas, propellant gas, propellent, propellant
 bg:Опаковъчен газ
 ca:gas propellent
 cs:Balicí plyn
-da:Konserveringsmiddel
-de:Backtriebmittel
+da:Drivgas
+de:Treibgas
 el:Προωστικό αέριο
 es:Gas propulsor
 et:Propellent
@@ -57456,6 +57497,10 @@ hu:fehér kinoa
 pt:quinoa branco
 
 < en:Quinoa
+en:white quinoa flour
+es:harina de quinoa blanca
+
+< en:Quinoa
 fr:quinoa cuit
 
 en:Quorn mushroom product, quorn
@@ -57508,8 +57553,8 @@ ar:عامل نفاشية
 bg:Набухвател
 cs:Kypřicí látka, Kypřidlo
 cy:Lefain
-da:Drivgas
-de:Treibgas, Backpulver, Triebmittel
+da:Hævemiddel
+de:Backtriebmittel, Backpulver, Triebmittel
 el:Διογκωτικό αρτοποιίας
 es:Gasificante, Leudante, Agente leudante, agentes gasificantes
 et:Kergitusaine, kergitusained
@@ -57535,7 +57580,7 @@ ro:Agent de afânare
 ru:Разрыхлитель
 sk:Kypriaca látka
 sl:Potisni plin, Kvas
-sv:Drivgas, Jäsmedel
+sv:Drivgas, Bakpulver, Jäsmedel
 tl:Pampaalsa
 tr:Kabartma ajanı
 uk:Розпушувач харчовий
@@ -58153,6 +58198,10 @@ fi:kypsennetty riisi
 fr:riz cuisiné, riz cuit
 hu:főtt rizs
 
+< en:Rice
+en:extruded rice
+es:arroz extruido
+
 < en:Flour
 < en:Rice
 en:rice flour
@@ -58386,6 +58435,9 @@ fi:arborio-riisi
 fr:riz arborio
 hu:Arborio rizs
 it:Riso Arborio
+
+en:rice-glucose-syrup
+es:sirope-de-glucosa-de-arroz
 
 < en:Modified starch
 < en:Rice starch
@@ -59565,13 +59617,13 @@ bn:মিষ্টি আলু
 bo:ཞོག་མངར།
 br:patatez dous
 bs:Batat
-ca:moniato
+ca:moniato, muniato
 cs:povijnice batátová
 da:sød kartoffel
 de:Süßkartoffel, Süsskartoffeln
 el:Γλυκοπατάτα
 eo:Batato
-es:patata dulce
+es:patata dulce, batata, boniato
 et:bataat
 eu:Batata
 fa:سیب‌زمینی شیرین
@@ -59883,6 +59935,10 @@ de:Roggenvollkorn
 fi:ruislese
 fr:Son de seigle
 hu:rozskorpa
+
+< en:Rye
+en:rye flakes
+es:copos de centeno
 
 < en:Rye
 en:wholemeal rye
@@ -62384,7 +62440,7 @@ en:Sequestrant
 bg:Комплексообразуватели
 ca:Segrestant, quelant, quelants, agent quelant, agents quelants
 cs:Sekvestrant
-da:Hævemiddel
+da:Kompleksdannere
 de:Komplexbildner
 el:Συμπλοκοποιητές
 es:Secuestrante, secuestrantes, agente quelante, agentes quelantes, agente secuestrante, agentes secuestrantes
@@ -62403,7 +62459,7 @@ pt:Sequestrante
 ro:Agenți de sechestrare
 sk:Komplexotvorné látky, sekvestranty
 sl:Sredstvo za vzhajanje
-sv:Bakpulver
+sv:Komplexbildare
 description:cs: Sekvestranty se rozumějí látky, které vytvářejí chemické komplexy s ionty kovů.
 description:da: Kompleksdannere: stoffer, der danner kemiske kompleksforbindelser med metalioner.
 description:de: Komplexbildner sind Stoffe, die mit Metallionen chemische Komplexe bilden.
@@ -63505,7 +63561,6 @@ de:Natursauerteig
 
 < en:Sourdough
 de:Roggensauerteig
-es:masa madre de trigo
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
@@ -63515,6 +63570,10 @@ de:Sauerteig getrocknet
 fr:levain sec, levain déshydraté
 it:lievito naturale secco
 nl:zuurdesempoeder
+
+< en:Sourdough
+en:wheat sourdough
+es:masa madre de trigo
 
 < en:Sourdough
 fr:levain de blé
@@ -63732,6 +63791,10 @@ it:fiocchi di soia
 nl:Sojavlokken
 
 < en:Soya
+en:soya base
+es:base de soja
+
+< en:Soya
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
 ca:Soia, soja
@@ -63893,6 +63956,10 @@ nl:speltzemelen
 < en:Spelt
 de:Dinkelvollkornflocken, Dinkelvollkornschrot
 fr:flocons d'épeautre complet
+
+< en:Spelt
+en:inflated spelt
+es:espelta inflada
 
 < en:Spelt
 en:organic spelt
@@ -65058,7 +65125,7 @@ en:Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, fo
 bg:Стабилизатор
 ca:Estabilitzador, estabilitzant, estabilitzadors
 cs:Stabilizátor
-da:Kompleksdannere, Kunstigt sødemiddel
+da:Stabilisator, Stabilisatorer
 de:Stabilisator, Stabilisatoren, Bindemittel
 el:Σταθεροποιητής
 es:Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas estabilizadores, estabilizante, estabilizantes, ligante
@@ -65077,7 +65144,7 @@ pt:Estabilizador
 ro:Stabilizator
 sk:Stabilizátor
 sl:Vezivo
-sv:Komplexbildare
+sv:Stabiliseringsmedel
 description:cs: Stabilizátory se rozumějí látky, které umožňují udržovat fyzikálně-chemický stav potraviny; mezi stabilizátory patří látky, které umožňují udržet jednotný rozptyl dvou nebo více navzájem se nesměšujících látek v potravinách, látky, které stabilizují, udržují nebo zintenzivňují stávající barvu potravin, a látky, které zvyšují pojivost určité potraviny, včetně vytváření vzájemných vazeb mezi bílkovinami, které umožňují spojení kusů potravin do rekonstituované potraviny.
 description:da: Stabilisatorer: stoffer, hvormed man kan opretholde en fødevares fysisk-kemiske tilstand. Til stabilisatorer hører stoffer, hvormed der kan opretholdes en homogen fordeling af to eller flere ikke-blandbare stoffer i en fødevare, stoffer, som stabiliserer, bevarer eller forstærker en fødevares farve, og stoffer, som øger fødevarens bindeevne, herunder dannelse af tværbindinger mellem proteiner, der kan binde fødevarestykker i rekonstituerede fødevarer.
 description:de: Stabilisatoren sind Stoffe, die es ermöglichen, den physikalisch-chemischen Zustand eines Lebensmittels aufrechtzuerhalten. Zu den Stabilisatoren zählen Stoffe, die es ermöglichen, die einheitliche Dispersion zweier oder mehrerer nicht mischbarer Phasen in einem Lebensmittel aufrechtzuerhalten, Stoffe, durch welche die vorhandene Farbe eines Lebensmittels stabilisiert, bewahrt oder intensiviert wird, und Stoffe, die die Bindefähigkeit eines Lebensmittels verbessern, einschließlich der Bildung von Proteinvernetzungen, die die Bindung von Lebensmittelstücken in rekonstituierten Lebensmitteln ermöglichen.
@@ -65217,7 +65284,7 @@ ar:نشا معدل
 bg:Модифицирано нишесте, E14XX
 ca:Midó modificat, E14XX, mido modificat, Midons modificats, Fècula modificada, fècules modificades
 cs:Modifikovaný škrob, E14XX
-da:Fugtighedsbevarende middel, E14XX, E14XX food additive
+da:Modificeret stivelse, E14XX, E14XX food additive
 de:Modifizierte Stärke, Modifizierte Stärken, E14XX
 el:Τροποποιημένο άμυλο, E14XX
 es:Almidón modificado, E14XX
@@ -65239,8 +65306,8 @@ pl:Skrobia modyfikowana, E14XX, modyfikowana skrobia
 pt:Amido modificado, E14XX
 ro:Amidon modificat, E14XX
 sk:Modifikovaný škrob, E14XX, Modifikované škroby
-sl:E14XX, Modificiran skrob
-sv:Fuktighetsbevarande medel, E14XX
+sl:Modificirani škrob, E14XX, Modificiran skrob
+sv:Modifierad stärkelse, E14XX
 zh:化製澱粉
 wikidata:en: Q415766
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_starch
@@ -65936,7 +66003,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Trehalose
 < en:Sugar
 en:unrefined sugar, raw sugar
 de:unraffinierter Zucker
-es:Azúcar sin refinar
+es:Azúcar sin refinar, azucar integral
 fi:ruokosokeri
 fr:sucre non raffiné, sucre brut, sucre complet
 nl:ongeraffineerde suiker, ruwe suiker
@@ -66282,7 +66349,7 @@ en:Sweetener, bulk sweetener, intense sweetener
 bg:Подсладител
 ca:Edulcorant, esdulcorants
 cs:Sladidlo
-da:Kompleksdannere, Kunstigt sødemiddel
+da:Sødestoffer, Kunstigt sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo, edulcorantes, endulzantes
@@ -66302,7 +66369,7 @@ ro:Îndulcitor
 ru:подсластитель, подсластители, заменитель сахара
 sk:Sladidlo
 sl:Stabilizator
-sv:Stabiliseringsmedel
+sv:Sötningsmedel
 description:cs: Náhradními sladidly se rozumějí látky používané k tomu, aby se potravinám nebo stolním sladidlům dodala sladká chuť.
 description:da: Sødestoffer: stoffer, der anvendes til at give fødevarer en sød smag eller i sødestoffer til bordbrug.
 description:de: Süßungsmittel sind Stoffe, die zum Süßen von Lebensmitteln und in Tafelsüßen verwendet werden.
@@ -66901,7 +66968,7 @@ ro:Agent de îngroșare
 ru:Загуститель
 sk:Zahusťovadlo
 sl:Sladilo
-sv:Sötningsmedel
+sv:Förtjockningsmedel
 description:cs: Zahušťovadly se rozumějí látky, které zvyšují viskozitu potraviny.
 description:da: Fortykningsmidler: stoffer, der øger en fødevares viskositet.
 description:de: Verdickungsmittel sind Stoffe, die die Viskosität eines Lebensmittels erhöhen.
@@ -67218,6 +67285,7 @@ fr:pulpe de tomates avec morceaux et purée de tomates
 < en:Tomato purée
 en:concentrated tomato purée
 de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat
+es:tomate-concentrado
 fi:tiivistetty tomaattipyree
 fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
 hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
@@ -67227,7 +67295,7 @@ sv:koncentrerad tomatpuré
 en:double concentrated tomato
 da:dobbelt koncentreret tomatpuré
 de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
-es:tomate doble concentrado
+es:tomate doble concentrado, concentrado doble de tomate
 fi:tuplatiivistetty tomaattipyree
 fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
 it:doppio concentrato di pomodore
@@ -67372,7 +67440,7 @@ cy:Marlin
 de:Echter Bonito
 dv:ކަޅުބިލަ މަސް
 eo:Vera bonito
-es:Bonito de altura, listado
+es:Bonito de altura, listado, bonito del norte
 eu:Lanpo sabelmarradun
 fa:هوور مسقطی
 fi:Boniitti
@@ -67566,7 +67634,7 @@ cs:nerafinovaný třtinový cukr
 da:rå rørsukker
 de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
-es:Azucar de caña sin refinar
+es:Azucar de caña sin refinar, azucar de caña no refinada
 fi:raakaruokosokeri
 fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
 hu:finomítatlan nádcukor
@@ -69846,7 +69914,7 @@ wikidata:en: Q20638126
 en:vegetable juice
 da:Grøntsagsjuice
 de:Gemüsesaft
-es:Zumo vegetal
+es:Zumo vegetal, caldo vegetal
 fi:kasvismehu
 fr:Jus de légumes
 it:succo di verdura
@@ -74270,6 +74338,13 @@ nl:biergist
 pt:levedura de cerveja
 
 < en:Yeast
+en:deactivated yeast
+de:inaktivierte Hefe, inaktiveirte Hefe
+es:levadura inactiva
+fr:levure inactivée, levure désactivée
+it:lievito inattivo
+
+< en:Yeast
 en:natural yeast
 de:natürliche Hefe
 es:Levadura natural
@@ -74323,11 +74398,6 @@ pl:Drożdże w proszku
 pt:levedura em pó
 ru:Дрожжевой порошок
 sv:jästpulver
-
-< en:Yeast
-fr:levure inactivée, levure désactivée
-de:inaktivierte Hefe, inaktiveirte Hefe
-it:lievito inattivo
 
 < en:Yeast extract
 en:yeast extract powder

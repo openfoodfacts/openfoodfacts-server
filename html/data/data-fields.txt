@@ -10,8 +10,10 @@ Generalities:
 - fields that end with _datetime are dates in the iso8601 format: yyyy-mm-ddThh:mn:ssZ
 - fields that end with _tags are comma separated list of tags (e.g. categories_tags is the set of normalized tags computer from the categories field)
 - fields that end with a language 2 letter code (e.g. fr for French) is the set of tags in that language
-- fields that end with _100g correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
-- fields that end with _serving correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
+- fields that end with _100g correspond to the amount of a nutriment (in g, or kJ for energy, or kJ for energy-kj or kcal for energy-kcal) for 100 g or 100 ml of product
+- fields that end with _serving correspond to the amount of a nutriment (in g, or kJ for energy, or kJ for energy-kj or kcal for energy-kcal) for 1 serving of the product
+
+Please do not use _unit and _value. Those are NOT normalized values. Please use _100g fields (or _serving when relevant)
 
 List of fields:
 

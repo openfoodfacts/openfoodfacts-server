@@ -1,7 +1,7 @@
 # Please note: English needs to be first.
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
+stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
@@ -39,7 +39,7 @@ synonyms:es:GMS, glutamato, glutamato monosódico
 synonyms:en:preservatives, conservatives
 synonyms:fi:säilöntäaineita
 synonyms:ru:консерванты, консервантов
-synonyms:es:conservador, conservadores, preservador
+synonyms:es:conservador, conservadores
 
 synonyms:en:seafood, sea food
 synonyms:fi:merenantimet, merenelävät
@@ -200,6 +200,10 @@ de:Aus Freilandeiern, Enhält Freilandeier, Mit Freilandeiern gebacken
 fi:valmistettu käyttäen ulkokananmunia, ulkokananmunista valmistettu, leivottu käyttäen ulkokananmunia
 fr:Fait avec des œufs de poules élevées en plein air, Fait avec des œufs de poules en liberté, Cuisiné avec des œufs de plein air, Fait avec des œufs de poules élevées en liberté
 pt:Feito com ovos criados em liberdade
+
+#in Spanish eggshell is cascara de huevo. To avoid mis-interpretation in the processing (which could translate to peel) it's added here
+en:May contain eggshell, may contain egg shell
+es:Puede contener cáscara de huevo
 
 <en:Free range
 fr:Cultivé en plein air
@@ -2896,7 +2900,7 @@ en:Organic, organically grown, organically produced, ingredient produced organic
 ca:Orgànic
 cs:Bio
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
-es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
 fi:Luomu
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique
 he:אורגני
@@ -2907,6 +2911,12 @@ pt:Orgânico
 th:ออร์แกนิค
 zh:有机
 wikidata:en:Q380778
+
+<en:Organic
+fr:Nature et Progrès
+wikidata:en:Q3337101
+
+en:Farm Verified Organic
 
 # The entry below is needed to correctly parse ingredients lists that
 # have things like: * issus du commerce équitable et de l'agriculture biologique
@@ -15727,6 +15737,7 @@ nl:Canada Biologisch, Canada Organic
 
 <en:Organic
 fr:Bio-Cohérence
+wikidata:en:Q30751117
 
 <en:Organic
 fr:Bio-Solidaire, biosolidaire
@@ -16367,7 +16378,7 @@ pl:najwyższa jakość
 en:Dolphin Safe, Dolphin Friendly
 de:Sicher für Delfine, Delfinfreundlich
 fi:Delfiini-ystävällinen, delfiinejä vaarantamaton
-fr: Protection des dauphins
+fr:Protection des dauphins
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -16392,6 +16403,7 @@ en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
+wikidata:en:Q2941001
 
 en:Pelagic net fishing
 de:Pelagische Netzfischerei
@@ -16405,6 +16417,7 @@ fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+wikidata:en:Q11997909
 
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
@@ -16435,6 +16448,7 @@ en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
+wikidata:en:Q1269057
 
 en:Pair trawling
 fi:Paritroolattu
@@ -16657,9 +16671,15 @@ it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
 wikidata:en:Q443112
 
+#https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 <en:European Vegetarian Union
 en:European Vegetarian Union - Vegetarian
 fr:Union Végétarienne Européenne - Végétarien
+
+#https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
+<en:European Vegetarian Union
+en:European Vegetarian Union - Vegan
+fr:Union Végétarienne Européenne - Vegan
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
