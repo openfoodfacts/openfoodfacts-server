@@ -47,7 +47,7 @@ stopwords:da:av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -10968,7 +10968,7 @@ da:emmental, Emmentaler
 de:Emmentaler
 el:Έμενταλ
 eo:Emental
-es:emmenthal, emmental
+es:emmenthal, emmental, queso emmental
 eu:Emmental
 fa:پنیر امنتال
 fi:emmental, emmentaljuusto
@@ -14519,6 +14519,9 @@ fr:foie de veau
 hu:borjúmáj
 it:fegato di maiale
 
+en:cow
+es:vaca
+
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
 <en:meat
@@ -15087,6 +15090,10 @@ es:carne de cabra
 fi:vuohenliha
 hu:kecskehús
 nl:geitenvlees
+
+<en:meat
+en:goat
+es:cabra
 
 <en:animal
 en:pork
@@ -26076,7 +26083,7 @@ da:Sukker
 de:Zucker
 el:Ζάχαρη
 eo:Sukero
-es:azúcar
+es:azúcar,azúcares
 et:Suhkrud
 eu:Azukre
 fa:شکر
@@ -27720,6 +27727,7 @@ nl:biologische agave
 # ingredient/nl:biologische-agave has 2 products @2019-05-24
 
 <en:agave syrup
+es:sirope de agave
 fr:jus d'agave concentré
 de:Agavendicksaft
 it:succo di agave concentrato
@@ -33407,6 +33415,9 @@ nl:perensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-à-base-de-concentré
 # 23 products in 4 languages @2018-09-28
 
+<en:fruit
+en:plumb
+es:ciruela
 
 # The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 
@@ -45426,7 +45437,7 @@ da:Bønne
 de:Bohnen, Bohne, Gartenbohne
 el:Φασολιά
 eo:Fazeolo
-es:fríjol
+es:fríjol,alubia
 et:Harilik aeduba
 eu:Babarrun
 fa:لوبیا
@@ -46748,6 +46759,12 @@ de:Pistazienstücke
 # 5 products in 2 languages @2018-10-07
 
 <en:nut
+en:tigernut
+ca:xufa,xufas
+es:chufa,xufa,chufas,xufas
+wikipedia:en:https://en.wikipedia.org/wiki/Cyperus_esculentus
+
+<en:nut
 en:walnut, walnuts
 af:Okkerneut
 ar:جوز
@@ -47525,7 +47542,7 @@ da:frø
 de:Kernen, Samen
 el:Σπόρος
 eo:semo
-es:semilla, semillas
+es:semilla, semillas, pipa, pipas
 et:Seeme
 eu:Hazi
 fa:بذر
@@ -54269,6 +54286,10 @@ sv:vaniljstång
 carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
 carbon_footprint_fr_foodges_value:fr:2.6
 
+<en:vanilla
+en:vanilla vein
+es: vaina de vainilla, vainas de vainilla
+
 <en:vanilla pod
 de:Vanilleschotenpulver
 
@@ -55114,7 +55135,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta, champinon, champiñon
+es:seta, champinon, champiñon, champiñones
 et:Söögiseen
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -63534,12 +63555,15 @@ nl:koffie van biologische oorsprong
 # ingredient/nl:koffie-van-biologische-oorsprong has 1 product @2019-05-24
 
 <en:coffee
+en:decaffeinated coffee
+es:cafe descafeinado
 fr:café décaféiné
 fi:kofeiiniton kahvi
 nl:Cafeïnevrije koffie
 # ingredient/fr:cafe-decafeine has 8 products @2019-06-03
 
 <en:instant coffee
+es:cafe instantáneo
 <fr:café décaféiné
 fr:café soluble décaféiné
 
@@ -65299,7 +65323,7 @@ da:æggehvide
 de:Eiklar, Eiweiß, Eiweiss
 el:ασπράδι αυγού
 eo:ovoblanko
-es:clara de huevo
+es:clara de huevo, albumina de huevo
 eu:Zuringo
 fa:سفیده تخم‌مرغ
 fi:munanvalkuainen
