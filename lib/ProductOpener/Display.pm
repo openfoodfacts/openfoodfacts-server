@@ -8750,7 +8750,7 @@ sub display_nutriscore_calculation_details($) {
 	 }
 
 	my $html;
-	$tt->process('nutrition_score.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
 	return $html;
 } 
