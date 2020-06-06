@@ -75,3 +75,14 @@ table, table tr td {background-color: #1B2737; color: #556c7d; border: none;}
 .accordion .accordion-navigation.active>a, .accordion .accordion-navigation>a:hover
 {background: #1d2b3c; text-decoration-color: #556c7d;}
 .accordion .accordion-navigation>.content.active {background: #18232f;}
+
+#main_column div{
+  background-color: #151E29 !important;
+  border-color: #151E29 !important;
+
+}
+div#highcharts-container{
+  background-color: #151E29 !important;
+  border-color: #151E29 !important;
+  color: white !important;
+}
