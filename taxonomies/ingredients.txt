@@ -2,6 +2,7 @@
 
 synonyms:en:pasteurised, pasteurized
 synonyms:es:zumo, jugo
+synonyms:en:aroma,smell,scent
 
 # comment:en:These are words that start a list of ingredients
 
@@ -9639,7 +9640,7 @@ da:Fløde
 de:Rahm, Sahne, Obers, Nidel, Nidle
 el:Κρέμα γάλακτος
 eo:kremo
-es:crema de leche, nata
+es:crema de leche, nata, crema
 eu:esne-gaina
 fa:خامه
 fi:Kerma
@@ -16009,7 +16010,7 @@ cs:Kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 eo:Maizamelo
-es:almidón de maíz, Maicena
+es:almidón de maíz, Maicena, almidon de maiz modificado
 eu:Maizena
 fa:نشاسته ذرت
 fi:Maissitärkkelys
@@ -18226,7 +18227,7 @@ from_palm_oil:en:no
 
 <en:linseed
 en:linseed seeds
-es:semillas de linaza
+es:semillas de linaza, linaza
 
 <en:linseed oil
 en:Organic linseed oil
@@ -29008,7 +29009,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 en:chocolate pieces, chocolate chips
 da:Chokoladestykker
 de:Schokoladenstücke, Schokoladenstückchen
-es:copos de chocolate
+es:copos de chocolate, pepitas de chocolate
 fi:suklaarouhe
 fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 it:pezzi di cioccolato, goccie di cioccolato
@@ -34660,6 +34661,10 @@ wikidata:en:Q206496
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
 # 1 entry @ 2019-10-31
 
+<en:lemon
+en:lemon scent
+es:aroma de limon
+
 # The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
 <en:fruit
 <en:citrus fruit
@@ -39221,7 +39226,7 @@ ca:Vegetals, Verdures
 cs:Zelenina
 da:Grøntsag
 de:Gemüse
-es:verduras, hortalizas
+es:verduras, hortalizas, vegetales
 fi:kasvis
 fr:légume, légumes
 he:ירק
@@ -44182,7 +44187,7 @@ da:Chili
 de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
-es:guindilla, ají, chile
+es:guindilla, ají, chile, pimenton picante
 et:tšilli
 eu:Pipermin
 fa:فلفل تند
