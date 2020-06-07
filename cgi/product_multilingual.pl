@@ -132,7 +132,8 @@ if ($type eq 'search_or_add') {
 			# If we got a barcode image, upload it
 			if (defined $filename) {
 				my $imgid;
-				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
+				my $debug;
+				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid, \$debug);
 			}
 		}
 	}
