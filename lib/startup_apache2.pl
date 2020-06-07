@@ -107,7 +107,7 @@ init_emb_codes();
 # if it does not exist, as well as sub-directories for the Template module
 # We need to set more permissive permissions so that it can be writable by the Apache user.
 
-chmod_recursive( 0777, "$data_root/tmp" );
+chmod_recursive( oct(777), "$data_root/tmp" );
 
 $log->info("product opener started", { version => $ProductOpener::Version::version });
 
