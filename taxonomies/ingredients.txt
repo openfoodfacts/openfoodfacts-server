@@ -47,7 +47,7 @@ vegetarian:en:ignore
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
 stopwords:da:av
-stopwords:de:und, mit, von, aus, enthält, enthalten
+stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
 stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -63731,7 +63731,6 @@ nl:Cafeïnevrije koffie
 # ingredient/fr:cafe-decafeine has 8 products @2019-06-03
 
 <en:instant coffee
-es:cafe instantáneo
 <fr:café décaféiné
 fr:café soluble décaféiné
 
@@ -65894,7 +65893,7 @@ fr:extraits naturels
 <en:extract
 en:vegetable extract, vegetable extracts
 de:Pflanzenextrakt, Pflanzenextrakte, Gemüseextrakte
-es:Extracto vegetal, extratos vegetales
+es:Extrato vegetal, extratos vegetales
 fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 it:estratto vegetale, estratti vegetali
