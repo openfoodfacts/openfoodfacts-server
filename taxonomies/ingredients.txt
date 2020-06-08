@@ -45,7 +45,7 @@ vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
-stopwords:da:av
+stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
@@ -308,7 +308,7 @@ en:Acidity regulator
 bg:Регулатор на киселинност
 ca:Corrector d'acidesa, regulador d'acidesa
 cs:Regulátor kyselosti
-da:Surhedsregulerende middel
+da:Surhedsregulerende middel, surhedsregulerende midler
 de:Säureregulator
 el:Ρυθμιστής οξύτητας
 es:Corrector de acidez, regulador de acidez
@@ -574,7 +574,7 @@ en:thickener
 bg:Сгъстител
 ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs:Zahušťovadlo
-da:Sødestof
+da:fortykningsmiddel, fortykningsmidler
 de:Verdickungsmittel
 el:Πυκνωτικό μέσο
 es:Espesante, espesantes, agente espesante, agentes espesantes
@@ -1116,7 +1116,7 @@ en:preservative
 bg:Консервант
 ca:Conservant, conservador, conservadors, conservants
 cs:Konzervant
-da:Konserveringsmiddel
+da:Konserveringsmiddel, konserveringsmidler
 de:Konservierungsstoff
 el:Συντηρητικό
 es:Conservante, conservantes, conservador, conservadores, agente conservador, agentes conservadores
@@ -1242,7 +1242,7 @@ en:Sweetener
 bg:Подсладител
 ca:Edulcorant, esdulcorants
 cs:Sladidlo
-da:Kunstigt sødemiddel
+da:Sødestof, sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, edulcorantes, endulzante, endulzantes
@@ -2570,6 +2570,7 @@ nl:Niet-geamideerde pectines
 <en:pectin
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
+da:frugtpektin
 de:Fruchtpektin
 es:pectina de fruta, pectinas de frutas
 fi:hedelmäpektiini, hedelmäpektiinit
@@ -20599,7 +20600,7 @@ wikidata:en:Q2596994
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
-da:naturlig aroma
+da:naturlig aroma, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen
 es:aroma natural, aromas naturales
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
@@ -41672,7 +41673,7 @@ bs:Celer
 ca:Api
 cs:Miřík celer, celer
 cy:Seleri
-da:sellerie
+da:selleri
 de:Sellerie, Staudensellerie
 el:Σέλινο
 eo:celerio
@@ -44132,7 +44133,7 @@ br:pimant
 bs:Čili
 ca:bitxo
 cs:chilli paprička
-da:Chili
+da:Chili, chilipeber
 de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
@@ -48112,6 +48113,7 @@ fr:lin brun et lin jaune
 en:pepper
 ak:moko
 ca:pebre
+da:peber
 de:Pfeffer
 ee:ableh
 eo:pipro
@@ -65562,7 +65564,7 @@ bs:Žumance
 ca:rovell d'ou, gema d'ou
 cs:žloutek
 cy:melynwy
-da:æggeblomme
+da:æggeblomme, æggeblommer
 de:Eigelb
 el:κρόκος αυγού
 eo:ovoflavo
