@@ -3844,7 +3844,7 @@ sub mmoll_to_unit {
 		en => "Carnitine",
 		fi => "Karnitiini"
 	},
-"cellulose" => {
+cellulose => {
 	af => "Sellulose",
 	ar => "سليولوز",
 	az => "Sellüloza",
@@ -3874,7 +3874,7 @@ sub mmoll_to_unit {
 	hi => "सेलुलोस",
 	hr => "Celuloza",
 	ht => "Seliloz",
-	hu => "Cellulóz,
+	hu => "Cellulóz",
 	hy => "Բջջանյութ",
 	id => "Selulosa",
 	ie => "Cellulose",
