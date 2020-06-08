@@ -197,13 +197,14 @@ if ($imagefield) {
 		}
 
 		my $imgid;
+		my $debug_string;
 
 		my $imagefield_or_filename = $imagefield;
 		(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
 
-		my $imgid_returncode = process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid);
+		my $imgid_returncode = process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid, \$debug_string);
 
-		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode }) if $log->is_debug();
+		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode, debug_string => $debug_string }) if $log->is_debug();
 
 		my $data;
 		my $response_ref;
@@ -226,9 +227,8 @@ if ($imagefield) {
 				}
 			}
 
-			# Debug message passed back in $imgid?
-			if ((defined $imgid) and ($imgid !~ /^\d/)) {
-				$response_ref->{debug} = $imgid;
+			if (defined $debug_string) {
+				$response_ref->{debug} = $debug_string;
 			}
 
 		}
