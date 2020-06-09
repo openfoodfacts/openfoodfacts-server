@@ -9047,7 +9047,6 @@ sub display_nutrition_table($$) {
 	}
 
 
-
 	foreach my $product_type (@displayed_product_types) {
 
 		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
@@ -9109,35 +9108,17 @@ sub display_nutrition_table($$) {
 		'max' => 'stats',
 	);
 
-	my @comparison_ref_temp;
-	my $comp_ref_count = 0;
-	my $comparsion_ref_defined = 0;
-	my @table_ref2;
+	my $comparsion_ref_defined;
 	my $carbon_footprint = 0;
-	
-	my $template_data_ref = {
-		
-		lang => \&lang,
 
-		comparison_ref_temp => \@comparison_ref_temp,
-		table_ref2 => \@table_ref2,
-
-		comp_ref_count => $comp_ref_count,
-		comparsion_ref_defined => $comparsion_ref_defined,
-		carbon_footprint => $carbon_footprint,
-
-		table_group => [],
+	my $comparison_ref = {
+		values => [],
 	};
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
 	my $comparison_val;
-
 	if ((defined $comparisons_ref) and (scalar @$comparisons_ref > 0)) {
-		$comparsion_ref_defined = 1;
-
-		# $html .= "<p>" . lang("nutrition_data_comparison_with_categories") . "</p>";
-		# $comparison_val = lang("nutrition_data_comparison_with_categories");
 
 		my $i = 0;
 
@@ -9167,43 +9148,18 @@ CSS
 				$checked_html = ' checked="checked"';
 			}
 
-			push (@comparison_ref_temp, { 
+			push @{$comparison_ref->{values}}, {
 				name => $colid,
 				checked_html => $checked_html,
 				id => $colid,
 				compname => $comparison_ref->{name},
 				link => $comparison_ref->{link},
 				count => $comparison_ref->{count},
-
-			});
-
-			# $html .= <<HTML
-# <label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison"> $comparison_ref->{name}</label>
-# HTML
-# ;
-
-			if (defined $comparison_ref->{count}) {
-				$comp_ref_count = 1;
-
-				# $html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
-			}
-			# $html .= "<br>";
+		
+			};
 
 			$i++;
 		}
-
-# 		$html .= <<HTML
-# <br>
-# <input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
-# <label for="nutrition_data_compare_percent">$Lang{nutrition_data_compare_percent}{$lang}</label>
-
-# <input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
-# <label for="nutrition_data_compare_value">$Lang{nutrition_data_compare_value}{$lang}</label>
-
-# HTML
-# ;
-
-		# $html .= "<p class=\"note\">&rarr; " . lang("nutrition_data_comparison_with_categories_note") . "</p>";
 
 		# \$( ".show_comparison" ).button();
 
@@ -9223,9 +9179,6 @@ CSS
 
 }
 );
-
-
-
 
 
 \$(".show_comparison").change(function () {
@@ -9253,11 +9206,6 @@ JS
 		}
 
 		if ($product_ref->{id} ne 'search') {
-
-			$html .= "<div><input id=\"show_stats\" type=\"checkbox\"><label for=\"show_stats\">"
-			. lang("show_category_stats")
-			. '<span class="show-for-xlarge-up">'
-			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 
 			$initjs .= <<JS
 
@@ -9298,6 +9246,10 @@ JS
 		rows => [],
 	};
 
+	my $carbon_row_ref = {
+		row => [],
+	};
+
 	my $empty_cols = '';
 	my $html2 = '';
 	
@@ -9308,10 +9260,8 @@ JS
 		if (defined $col_class{$col}) {
 			$col_class = ' ' . $col_class{$col} ;
 		}
-		my $col_name = $col_name{$col};
 
-		# $html .= '<th class="nutriment_value' . ${col_class} . ' ' . $col . '">' . $col_name . '</th>';
-		# $empty_cols .= "<td></td>";
+		my $col_name = $col_name{$col};
 
 		push (@columnValue, { 
 			colclass => $col_class,
@@ -9325,13 +9275,6 @@ JS
 		title => lang("nutrition_data_table"),
 		columnValue => \@columnValue,
 	};
-
-# 	$html .= <<HTML
-# </tr>
-# </thead>
-# <tbody>
-# HTML
-# ;
 
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
@@ -9410,39 +9353,22 @@ JS
 				$shown = 0;
 			}
 			else {
-				$label = <<HTML
-<td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
-HTML
-;
 				$label_temp = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';
 			
 			}
 		}
 
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-			$label = <<HTML
-<td class="nutriment_label">${prefix}$Nutriments{$nid}{$lang}</td>
-HTML
-;		
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {	
 			$label_temp = $prefix.$Nutriments{$nid}{$lang};
 
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$label = <<HTML
-<td class="nutriment_label">$prefix.$Nutriments{$nid}{en}</td>
-HTML
-;
 			$label_temp = $prefix.$Nutriments{$nid}{en};
 
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-			$label = <<HTML
-<td class="nutriment_label">$label_value</td>
-HTML
-;
 			$label_temp = $label_value;
-
 
 		}
 
@@ -9456,18 +9382,18 @@ HTML
 			$unit = $product_ref->{nutriments}{$nid . "_unit"};
 		}
 
-		my $values = '';
-		my $values2 = '';
+		my $values_temp;
+		my $values2_temp;
 		my @values_template_ref;
 		my @values2_template_ref;
-		my @carbon_template_ref;
+		my @carbon_ref;
 
 		my $decf = get_decimal_formatter($lc);
 		my $perf = get_percent_formatter($lc, 0);
 
 		foreach my $col (@cols) {
-			my $values_temp = '';
-			my $values2_temp = '';
+			$values_temp = '';
+			$values2_temp = '';
 			my $col_class = '';
 			my $percent = '';
 			my $property = '';
@@ -9521,7 +9447,6 @@ HTML
 					if ($percent_numeric_value > 0 ) {
 						$percent = "+" . $percent;
 					}
-					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
 				else {
 					$percent = "";
@@ -9633,7 +9558,6 @@ HTML
 					else {
 						$salt = "?";
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . "</td>";
 					$values2_temp .= $salt;
 				}
 				elsif ($nid eq 'salt') {
@@ -9655,7 +9579,6 @@ HTML
 					else {
 						$sodium = "?";
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . "</td>";
 					$values2_temp .= $sodium ;
 				}
 				elsif ($nid eq 'nutrition-score-fr') {
@@ -9674,21 +9597,16 @@ HTML
 					if (defined $product_ref->{categories_tags}) {
 
 						if ($col eq "std") {
-							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 							$values2_temp .= '';
 						}
 						else {
 							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
 								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
-							$values2 .= "<td class=\"nutriment_value${col_class}\">"
-							. uc ($nutriscore_grade) # ! prepared
-							. "</td>";	
 
 							$values2_temp .= uc ($nutriscore_grade);
 						}
 					}
 					else {
-						$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 						$values2_temp .= '';
 					}
 				}
@@ -9706,136 +9624,127 @@ HTML
 					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 				}
 
-				$values .= "<td class=\"nutriment_value${col_class}\"$rdfa>$value_unit</td>";
 				$values_temp .= $value_unit;
 			}
 
+			if (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')){
+				push (@carbon_ref, {
+					rowvalue => $values_temp,
+					colclass => $col_class,
+					percent => $percent,
+					property => $property,
+				});
+			}
+
+			push (@values_template_ref, {
+				rowvalue => $values_temp,
+				colclass => $col_class,
+				percent => $percent,
+				property => $property,
+				rdfa => $rdfa,
+			});
+
+			push (@values2_template_ref, {
+				rowvalue => $values2_temp,
+				colclass => $col_class,
+				percent => $percent,
+				property => $property,
+			});
+		}
+
+		my $empty = 0;
+		foreach my $x (@values_template_ref){
+			foreach my $y ($x -> {rowvalue}){
+				if ($y ne '?'){
+					$empty = 1;
+				}
+			}	
+		}
+
+		if ($empty eq 1){
+
 			if (($nid ne 'carbon-footprint') and ($nid ne 'carbon-footprint-from-meat-or-fish')) {
-				push (@values_template_ref, {
-					rowvalue => $values_temp,
-					colclass => $col_class,
-					percent => $percent,
-					property => $property,
-					rdfa => $rdfa,
-				});
 
-				push (@values2_template_ref, {
-					rowvalue => $values2_temp,
-					colclass => $col_class,
-					percent => $percent,
-					property => $property,
-				});
+				push @{$table_ref -> {rows}}, {
+					nid => $nid,
+					class => $class,
+					name => $label_temp,
+					value => \@values_template_ref,
+
+				};
+
+				if (($nid eq 'sodium') and ($values2_temp ne '')) {
+
+					push @{$table_ref -> {rows}}, {
+						name => lang("salt_equivalent"),
+						nid => "salt_equivalent",
+						class => "sub",
+						value => \@values2_template_ref,
+					};
+				}
+
+				if (($nid eq 'salt') and ($values2_temp ne '')) {
+
+					push @{$table_ref -> {rows}}, {
+						name => $Nutriments{sodium}{$lang},
+						nid => "sodium",
+						class => "sub",
+						value => \@values2_template_ref,
+
+					};
+				}
+
+				if (($nid eq 'nutrition-score-fr') and ($values2_temp ne '')) {
+
+					push @{$table_ref -> {rows}}, {
+						name => "Nutri-Score",
+						nid => "nutriscore",
+						class => "sub",
+						value => \@values2_template_ref,
+
+					};
+				}
 			}
-			else {
-				push (@carbon_template_ref, {
-					rowvalue => $values_temp,
-					colclass => $col_class,
-					percent => $percent,
-					property => $property,
-				});
 
+			else{
+
+				push @{$carbon_row_ref -> {row}}, {
+					nid => $nid,
+					class => $class,
+					name => $label_temp,
+					value => \@carbon_ref,
+
+				};
+			
 			}
 
 		}
 
-my $empty = 0;
-foreach my $x (@values_template_ref){
-	foreach my $y ($x -> {rowvalue}){
-		if ($y ne '?'){
-			$empty = 1;
-		}
-	}	
-}
-
-if ($empty eq 1){
-
-	if (($nid ne 'carbon-footprint') and ($nid ne 'carbon-footprint-from-meat-or-fish')) {
-
-		push @{$table_ref -> {rows}}, {
-			nid => $nid,
-			class => $class,
-			name => $label_temp,
-			value => \@values_template_ref,
-
-		};
-
-		if (($nid eq 'sodium') and ($values2 ne '')) {
-
-			push @{$table_ref -> {rows}}, {
-				name => lang("salt_equivalent"),
-				nid => "salt_equivalent",
-				class => "sub",
-				value => \@values2_template_ref,
-			};
-		}
-
-		if (($nid eq 'salt') and ($values2 ne '')) {
-
-			push @{$table_ref -> {rows}}, {
-				name => $Nutriments{sodium}{$lang},
-				nid => "sodium",
-				class => "sub",
-				value => \@values2_template_ref,
-
-			};
-		}
-
-		if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
-
-			push @{$table_ref -> {rows}}, {
-				name => "Nutri-Score",
-				nid => "nutriscore",
-				class => "sub",
-				value => \@values2_template_ref,
-
-			};
-		}
 	}
 
-	else {
-		$carbon_footprint = 1;
+	my $template_data_ref = {
+		
+		lang => \&lang,
 
-		push (@table_ref2, {
-			nid => $nid,
-			class => $class,
-			name => $label_temp,
-			value => \@carbon_template_ref,
-		});
-	
-	}
+		comparisons_ref => $comparisons_ref,
+		comparisons_ref_len => scalar @$comparisons_ref,
 
-}
+		product_id => $product_ref->{id},
+		product_stats => $product_ref->{stats},
 
-# my $input;
-# 		if (not $shown) {
-# 			#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
-# 		}
-# 		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
+		comparison_group => [],
+		table_group => [],
+		carbon_footprint => [],
+	};
 
-# 			$html2 .= <<HTML
-# <tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>
-# HTML
-# 			. $input;
 
-# 		}
-# 		else  {
-# 			$html .= $input;
-# 		}
+	push @{$template_data_ref->{comparison_group}}, $comparison_ref;
+	push @{$template_data_ref->{table_group}}, $table_ref;
+	push @{$template_data_ref->{carbon_footprint}}, $carbon_row_ref;
 
-	}
+	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
-# 	$html .= <<HTML
-# $html2
-# </tbody>
-# </table>
-# HTML
-# ;
-
-push @{$template_data_ref->{table_group}}, $table_ref;
-
-$tt->process('nutrition_facts_table.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
-
-return $html;
+	return $html;
 
 }
 

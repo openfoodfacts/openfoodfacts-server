@@ -1,0 +1,128 @@
+[% IF $comparisons_ref.defined && comparisons_ref_len > 0 %]
+    <p> [% lang('nutrition_data_comparison_with_categories') %] </p>
+
+    [% FOREACH group IN comparison_group %]
+        [% FOREACH comparison IN group.values %]
+            <label style="display:inline;font-size:1rem;"><input type="checkbox" name=[% comparison.name %] value="on" [% comparison.checked_html %] id=[% comparison.id %] class="show_comparison"> [% comparison.compname %] </label>
+
+            [% IF comparison.count.defined %]
+                <a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
+            [% END %]
+
+        <br>
+
+        [% END %]
+    [% END %]
+
+    <br>
+    <input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
+    <label for="nutrition_data_compare_percent">[% lang('nutrition_data_compare_percent') %]</label>
+    <input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
+    <label for="nutrition_data_compare_value">[% lang('nutrition_data_compare_value') %]</label>
+
+    <p class="note">&rarr; [% lang('nutrition_data_comparison_with_categories_note') %]</p>
+
+[% END %]
+
+[% IF product_stats.defined %]
+
+    [% IF product_id != 'search' %]
+
+        <div><input id="show_stats" type="checkbox">
+            [% lang('show_category_stats') %]
+            <label for="show_stats"><span class="show-for-xlarge-up"> 
+                [% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
+            </span></label>
+        </div>>
+
+    [% END %]
+
+[% END %]
+
+<table id="nutrition_data_table" class="data_table">
+
+    [% FOREACH group IN table_group %]
+
+        [% FOREACH tablehead IN group.header %]
+            <tr>
+                <thead class="nutriment_header">
+
+                    <th>
+                        [% tablehead.title %]
+                    </th>
+                    
+                    [% FOREACH tableheadvalue IN tablehead.columnValue %]
+                        <th class = "nutriment_value" [% tableheadvalue.colclass %] [% tableheadvalue.col %]>
+                            [% tableheadvalue.colname %]
+                        </th>
+                    [% END %]
+
+                </thead>
+            </tr>
+        [% END %]
+
+        [% FOREACH tablerow IN group.rows %]
+        
+            <tr id=[% "nutriment_" _ tablerow.nid _ "_tr" %]  class=[% "nutriment_" _ tablerow.class %]>
+            
+                <td class="nutriment_label">
+                    [% tablerow.name %]
+                </td>
+                
+                [% FOREACH tablevalue IN tablerow.value %]
+                    <td class=[% "nutriment_value" _ tablevalue.colclass %] property =[% tablevalue.property %]>
+                        <span class="compare_percent"> 
+                            [% tablevalue.percent %]
+                        </span>
+                        <span class="compare_value"> 
+                            [% tablevalue.rowvalue %]
+                        </span>
+                    </td>
+                [% END %]
+            
+            </tr>
+        
+        [% END %]
+    
+    [% END %]
+
+    [% FOREACH group IN carbon_footprint %]
+        <tr id="ecological_footprint">
+            <td style="padding-top:10px;font-weight:bold;">
+                [% lang('ecological_data_table') %]
+            </td>
+
+            [% FOREACH rowvalue IN group.row %]
+                [% FOREACH value IN rowvalue.value %]
+                    <td>
+                    </td>
+
+                [% END %]
+            [% END %]
+            
+        </tr>
+        [% FOREACH tablerow IN group.row %]
+            <tr id=[% "nutriment_" _ tablerow.nid _ "_tr" %]  class=[% "nutriment_" _ tablerow.class %]>
+
+                <td class="nutriment_label">
+                    [% tablerow.name %]
+                </td>
+                
+                [% FOREACH tablevalue IN tablerow.value %]
+                    <td class=[% "nutriment_value" _ tablevalue.colclass %] property =[% tablevalue.property %]>
+                        <span class="compare_percent"> 
+                            [% tablevalue.percent %]
+                        </span>
+                        <span class="compare_value"> 
+                            [% tablevalue.rowvalue %]
+                        </span>
+                    </td>
+
+                [% END %]
+
+            </tr>
+        [% END %]
+
+    [% END %]
+    
+</table>
