@@ -87,6 +87,9 @@ nl:geblancheerd
 
 en:bleached
 
+en:boned
+es:deshuesado
+
 en:bromated
 es:bromado
 
@@ -115,7 +118,7 @@ sv:hackade
 
 en:cold pressed
 de:kaltgepresst, kaltgepresstes
-es:prensado en frio, prensada en frio
+es:prensado en frio, prensada en frio, prensados en frio, prensadas en frio
 fr:pression à froid, pressée à froid, obtenue par pression à froid, pressé à froid
 nl:koud geperst
 sv:kallpressad
@@ -129,7 +132,7 @@ en:cold smoked with cabernet wine
 
 en:concentrated
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes
-es:concentrado
+es:concentrado, concentrada
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 
 en:cooked
@@ -138,6 +141,9 @@ es:cocido, cocida, cocidos, cocidas
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 nl:gekookt, gekookte
+
+en:covered, coated
+es:cobertura
 
 en:crushed
 es:aplastada, aplastado, aplastadas, aplastados
@@ -154,7 +160,7 @@ nl:gesneden
 
 < en:Cut
 en:finely cut
-es:cortado fino, cortada fina
+es:cortado fino, cortada fina, cortados finos, cortadas finas
 
 en:dark toasted
 
@@ -174,7 +180,7 @@ it:disidratato, disidratata, disidratati, disidratate
 
 en:deodorized
 de:desodoriert, desodoriertes
-es:desodorizado, desodorizada
+es:desodorizado, desodorizada, desodorizados, desodorizadas
 fr:désodorisé, désodorisée
 it:deodorato
 nl:ontgeurde
@@ -186,11 +192,12 @@ fr:dessalée
 
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
-es:troceado, troceada
+es:troceado, troceada, troceados, troceadas
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 nl:blokjes, in blokjes, blokje
 
 en:double smoked
+es:doble ahumado, doble ahumada, doble ahumados, doble ahumadas
 
 en:dried
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
@@ -250,12 +257,12 @@ fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
 
 en:from-concentrate
-es:a base de concentrado
+es:a base de concentrado, a base de concentrada
 fr:à base de concentré, à partir de concentré
 
 en:frozen
 de:tiefgevroren
-es:congelado, conjelada, ultracongelado, ultracongelada
+es:congelado, conjelada, congelados, conjeladas, ultracongelado, ultracongelada
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 nl:diepgevroren
 ro:congelat
@@ -263,23 +270,27 @@ ro:congelat
 en:fruitwood smoked
 
 en:granulated, granules
+es:granulado, granulada, granulados, granuladas
 fr:en granules, granules de, granules d'
 
 en:grated
 de:gerieben, geriebener, geriebene, geraspelt
-es:rallada, rallado
+es:rallada, rallado, ralladas, rallados
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
 
 en:grilled
 de:gegrillt, gegrillte, gegrillter, gegrilltes
-es:a la parrila
+es:a la parrila, a la brasa
 fi:grillattu
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
 nl:gegrild, gegrilde
 pl:grillowany. grillowana
 sv:grillad
+
+< en:Grilled
+es:barbeque, barbequed
 
 en:ground
 de:gemahlen, gemahlene, gemahlener
@@ -297,6 +308,9 @@ fr:fumé au bois de caryer
 
 en:hickory smoked cured with water
 
+en:inflated
+es:hinchado, hinchada, hinchados, hinchadas
+
 en:lightly salted
 nl:lichtgezouten, licht gezouten
 
@@ -307,7 +321,7 @@ fr:légèrement fumés
 
 en:malted
 de:gemälzt, gemälzte, gemälztes
-es:malteado, malteada
+es:malteado, malteada, malteados, malteadas
 fr:malté, maltée, maltés, maltées
 it:maltato, maltata
 nl:gemout, gemoute
@@ -322,6 +336,10 @@ it:marinato, marinata
 nl:gemarineerd, gemarineerde
 
 en:mechanically pressed
+es:prensado mecánicamente, prensada mecánicamente
+
+en:melted
+es:fundido
 
 en:mesquite smoked
 
@@ -361,7 +379,7 @@ ro:pasteurizat, pasteurizata
 
 en:peel, peels, peel of
 el:φλούδα
-es:piel de, corteza de, cascara de
+es:piel de, corteza de
 fi:kuoret
 fr:écorce de, écorces de, écorces d'
 it:scorza di, scorze di
@@ -370,7 +388,7 @@ pt:raspas
 ro:piele de
 
 en:peeled
-es:sin piel
+es:sin piel, repelada, repelado, repeladas, repelados, descascarrilado, descascarrilada, descascarrilados, descascarriladas
 fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
 
@@ -391,7 +409,6 @@ nl:stukjes
 
 en:pitted
 de:entsteint, entsteinte, entkernt
-es:sin hueso
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 nl:ontpit, ontpitte
 
@@ -408,7 +425,7 @@ sv:pulver
 
 en:pre-cooked
 de:vorgekocht
-es:pre cocido, pre cocida
+es:pre cocido, pre cocida, pre cocidos, pre cocidas
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
@@ -440,11 +457,11 @@ pt:polpa de, polpas de
 
 en:pureed
 de:püree, puree, püree aus
-es:pure
+es:pure, pure de
 fr:en purée, purée de, purée d'
 
 en:raw
-es:crudo, cruda
+es:crudo, cruda, crudos, crudas
 fr:cru, crue, crus, crues
 
 en:rbst-free
@@ -476,7 +493,7 @@ en:sea salted
 en:semi candied
 
 en:shelled
-es:sin cascara
+es:sin cascara, pelada, pelado, peladas, pelados
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
 
 en:sieved
@@ -487,7 +504,7 @@ nl:gezeefd, gezeefde
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
-es:lamina, laminado, laminadas, laminados
+es:lamina, laminada, laminado, laminadas, laminados
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 nl:schijfjes
 
@@ -518,7 +535,7 @@ nl:gezoet, gezoete
 pt:adoçado, adoçada
 
 en:thick cut
-es:cotrada gruesa, cortado grueso
+es:cortada gruesa, cortado grueso, cortados gruesos, cortadas gruesas
 
 en:toasted
 de:geröstet, geröstete, geröstetes, gerösteter, getoastet
@@ -545,7 +562,7 @@ en:unenriched
 en:unflavoured
 
 en:unfrozen
-es:descongelado, descongelada
+es:descongelado, descongelada, descongelados, descongeladas
 fr:décongelé, décongelée, décongelés, décongelées
 nl:ontdooid
 
@@ -553,6 +570,7 @@ en:unpasteurized
 
 en:unsalted, un-salted
 de:ungesalzen, ungesalzene
+es:sin sal
 fr:non salée
 nl:ongezouten
 
@@ -563,6 +581,7 @@ en:untoasted
 nl:ongeroosterd
 
 en:untreated
+es:sin tratar
 fr:non traitée
 
 en:whole
@@ -575,6 +594,8 @@ en:wood smoked
 es:humo de leña
 
 en:zest
+
+es:deshuesado
 
 fr:extrait naturel de, extrait naturel d'
 
