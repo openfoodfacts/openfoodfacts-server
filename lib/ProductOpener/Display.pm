@@ -159,6 +159,7 @@ use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
+use Template;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -236,6 +237,15 @@ if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
 
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
 
 # Initialize exported variables
 $memd = new Cache::Memcached::Fast {
@@ -1064,11 +1074,11 @@ sub display_index_for_producer($) {
 
 		if ($count > 0) {
 			$html .= "<p>&rarr; <a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">"
-			. lang("number_of_products_with_" . $tagtype) . lang("sep") . ": " . $count . "</a></p>";
+			. lang("number_of_products_with_" . $tagtype) . separator_before_colon($lc) . ": " . $count . "</a></p>";
 		}
 	}
 
-	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	return $html;
@@ -1614,7 +1624,7 @@ sub display_list_of_tags($$) {
 			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
 		}
 
-		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . separator_before_colon($lc) . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -5917,7 +5927,7 @@ HTML
 			}
 
 			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
 			}
 			else {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
@@ -6723,6 +6733,7 @@ HTML
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
+			<li><a href="$Lang{footer_producers_link}{$lc}">$Lang{footer_producers}{$lc}</a></li>
 		</ul>
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
@@ -7167,12 +7178,12 @@ sub display_data_quality_description($$) {
 	my $html = "";
 
 	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . lang("sep") . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . lang("sep") . ": " . $product_ref->{nutriscore_score} . "</p>";
+		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
+			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
 	}
 	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
+		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
+			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
 	}
 
 	return $html;
@@ -7198,9 +7209,9 @@ sub display_possible_improvement_description($$) {
 		# Comparison of product nutrition facts to other products of the same category
 
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
-			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			$html .= "<p>" . lang("value_for_the_product") . separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
 			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
-			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
 		}
 
@@ -8650,79 +8661,103 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
-
-	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . " &raquo;</a><p>"
-	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+	
+	my $beverage_view;
 
 	if ($nutriscore_data_ref->{is_beverage}) {
-		$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
+		$beverage_view = lang("nutriscore_is_beverage");
 	}
 	else {
-		$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
+		$beverage_view = lang("nutriscore_is_not_beverage");
 	}
 
-	if ($nutriscore_data_ref->{is_fat}) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
-	}
-
-	my @points = (
-		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
-		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
-	);
-
-	foreach my $points_ref (@points) {
-
-		$html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
-		. $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
-
-		foreach my $nutrient (@{$points_ref->[1]}) {
-
-			my $nutrient_threshold_id = $nutrient;
-
-			if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
-				and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
-				$nutrient_threshold_id .= "_beverages";
-			}
-			if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
-				$nutrient = "saturated_fat_ratio";
-				$nutrient_threshold_id = "saturated_fat_ratio";
-			}
-
-			$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
-			. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
-			. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
-			. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
-		}
-
-		$html .= "</ul>";
-	}
-
+	# Select message that explains the reason why the proteins points have been counted or not
+	
+	my $nutriscore_protein_info;
 	if ($nutriscore_data_ref->{negative_points} < 11) {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_less_than_11");
 	}
 	elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_is_cheese");
 	}
 	elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
-		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+	 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
-		$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
+				
+		$nutriscore_protein_info = lang("nutriscore_proteins_maximum_fruits_points");
 	}
 	else {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
 	}
+	
+	# Generate a data structure that we will pass to the template engine
+	
+	my $template_data_ref = {
+		
+		lang => \&lang,
+		sep => separator_before_colon($lc),
+				
+		beverage_view => $beverage_view,
+		is_fat => $nutriscore_data_ref->{is_fat},
+		
+		nutriscore_protein_info => $nutriscore_protein_info,
+		
+		score => $nutriscore_data_ref->{score},
+		grade => uc($nutriscore_data_ref->{grade}),
+		positive_points => $nutriscore_data_ref->{positive_points},
+		negative_points => $nutriscore_data_ref->{negative_points},
+		
+		# Details of positive and negative points, filled dynamically below
+		# as the nutrients and thresholds are different for some products (beverages and fats)
+		points_groups => []
+	};
+	
+	my %points_groups = (
+		"positive" => ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"],
+		"negative" => ["energy", "sugars", "saturated_fat", "sodium"],
+	);
+	
+	foreach my $type ("positive", "negative") {
+				
+		# Initiate a data structure for the points of the group
+		
+		my $points_group_ref = {
+			type => $type,
+			points => $nutriscore_data_ref->{$type . "_points"},
+			nutrients => [],
+		};
+		
+		# Add the nutrients for the group
+		foreach my $nutrient (@{$points_groups{$type}}) {
+			
+			my $nutrient_threshold_id = $nutrient;
+			
+		 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+		 		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+		 		$nutrient_threshold_id .= "_beverages";
+		 	}
+		 	if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
+		 		$nutrient = "saturated_fat_ratio";
+		 		$nutrient_threshold_id = "saturated_fat_ratio";
+		 	}
+			push @{$points_group_ref->{nutrients}}, {
+				id => $nutrient,
+				points => $nutriscore_data_ref->{$nutrient . "_points"},
+				maximum => scalar(@{$points_thresholds{$nutrient_threshold_id}}),
+				value => $nutriscore_data_ref->{$nutrient},
+				rounded => $nutriscore_data_ref->{$nutrient . "_value"},
+			};
+		 }
+		 
+		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
+	 }
 
-	$html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
-	. "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
-
-	$html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
-
-	$html .= "</div>";
-
+	my $html;
+	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	
 	return $html;
-}
-
+} 
 
 sub display_nutrient_levels($) {
 

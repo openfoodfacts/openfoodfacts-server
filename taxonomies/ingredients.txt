@@ -11,7 +11,7 @@ bg:Състав
 bs:Sastoji
 ca:Ingredient, ingredients, composició
 cs:Složení
-da:indeholder
+da:ingredienser, indeholder
 de:Zutaten, Zusammensetzung
 es:ingrediente, composición, ingredientes
 et:Koostisainsd, koostis, Koostisosad
@@ -45,7 +45,7 @@ vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
-stopwords:da:av
+stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
@@ -297,7 +297,7 @@ en:coagulum, coagulating agent
 ca:Agent coagulant, agents coagulants
 de:Koagulat
 en:agente coagulante, agentes coagulantes
-es:Agente coagulante, agentes coagulantes, 
+es:Agente coagulante, agentes coagulantes,
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
@@ -308,7 +308,7 @@ en:Acidity regulator
 bg:Регулатор на киселинност
 ca:Corrector d'acidesa, regulador d'acidesa
 cs:Regulátor kyselosti
-da:Surhedsregulerende middel
+da:Surhedsregulerende middel, surhedsregulerende midler
 de:Säureregulator
 el:Ρυθμιστής οξύτητας
 es:Corrector de acidez, regulador de acidez
@@ -458,7 +458,7 @@ en:colour, color, colouring, coloring, colours, colors, coloring food
 bg:Оцветител
 ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
 cs:Barvivo
-da:Farve
+da:Farvestof
 de:Farbstoff, färbende Lebensmittel, färbendes Lebensmittel
 el:Χρωστική ουσία
 es:Color, colores, colorante, colorantes, colorante alimentario, colorantes alimentarios
@@ -574,7 +574,7 @@ en:thickener
 bg:Сгъстител
 ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs:Zahušťovadlo
-da:Sødestof
+da:fortykningsmiddel, fortykningsmidler
 de:Verdickungsmittel
 el:Πυκνωτικό μέσο
 es:Espesante, espesantes, agente espesante, agentes espesantes
@@ -1116,7 +1116,7 @@ en:preservative
 bg:Консервант
 ca:Conservant, conservador, conservadors, conservants
 cs:Konzervant
-da:Konserveringsmiddel
+da:Konserveringsmiddel, konserveringsmidler
 de:Konservierungsstoff
 el:Συντηρητικό
 es:Conservante, conservantes, conservador, conservadores, agente conservador, agentes conservadores
@@ -1242,7 +1242,7 @@ en:Sweetener
 bg:Подсладител
 ca:Edulcorant, esdulcorants
 cs:Sladidlo
-da:Kunstigt sødemiddel
+da:Sødestof, sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, edulcorantes, endulzante, endulzantes
@@ -2570,6 +2570,7 @@ nl:Niet-geamideerde pectines
 <en:pectin
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
+da:frugtpektin
 de:Fruchtpektin
 es:pectina de fruta, pectinas de frutas
 fi:hedelmäpektiini, hedelmäpektiinit
@@ -8193,7 +8194,7 @@ en:fresh organic pasteurised semi-skimmed milk
 ca:llet fresca semidesnatada, llet fresca parcialment desnatda
 de:frische entrahmte Bio-Milch pasteurisiert
 es:leche fresca semidesnatada, leche fresca parcialmente desnatada
-fr:lait frais demi-écrémé 
+fr:lait frais demi-écrémé
 
 <en:organic semi-skimmed milk
 <en:fresh milk
@@ -8209,7 +8210,7 @@ de:Frische fettarme Milch
 
 <en:milk
 en:whole milk
-ca:llet sencera 
+ca:llet sencera
 cs:Plnotučné mléko
 da:sødmaelk
 de:Vollmilch
@@ -8452,9 +8453,9 @@ fr:lait frais de nos vaches non homogeneise
 
 <en:goat's milk
 en:raw goat's milk
-ca:llet crua de cabra 
+ca:llet crua de cabra
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra 
+es:leche cruda de cabra
 fi:vuohen raakamaito, raaka vuohenmaito
 fr:lait cru de chèvre
 hu:nyers kecsketej
@@ -14158,7 +14159,7 @@ nl:Zout uit de Camargue
 
 <en:sea salt
 en:grey salt, sel gris
-ca:sal grisa sal de mar grisa, sal marina grisa 
+ca:sal grisa sal de mar grisa, sal marina grisa
 es:sal gris, sal de mar gris, sal marina gris
 fr:sel gris, sel marin gris, sel gris marin
 it:Sale grigio
@@ -15828,7 +15829,7 @@ wikidata:en:Q7046
 es:chistorra
 wikipedia:en:https://en.wikipedia.org/wiki/Chistorra
 wikidata:en:Q590686
- 
+
 <en:meat
 fr:saucisses fumées
 
@@ -20623,7 +20624,7 @@ wikidata:en:Q2596994
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
-da:naturlig aroma
+da:naturlig aroma, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen
 es:aroma natural, aromas naturales
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
@@ -22838,7 +22839,7 @@ ru:двузернянка
 en:teff
 es:teff, semilla de teff
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
- 
+
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -34602,7 +34603,7 @@ sv:torkad citronjuice
 en:concentrated lemon juice, lemon extract
 ca:Suc de llimona concentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado 
+es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
@@ -41718,7 +41719,7 @@ bs:Celer
 ca:Api
 cs:Miřík celer, celer
 cy:Seleri
-da:sellerie
+da:selleri
 de:Sellerie, Staudensellerie
 el:Σέλινο
 eo:celerio
@@ -44183,7 +44184,7 @@ br:pimant
 bs:Čili
 ca:bitxo
 cs:chilli paprička
-da:Chili
+da:Chili, chilipeber
 de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
@@ -48177,6 +48178,7 @@ fr:lin brun et lin jaune
 en:pepper
 ak:moko
 ca:pebre
+da:peber
 de:Pfeffer
 ee:ableh
 eo:pipro
@@ -48654,7 +48656,7 @@ fr:assaisonnement goût fromage
 en:spice, spices
 ca:Espècies
 cs:Koření
-da:krydderi
+da:krydderi, krydderier
 de:Gewürze
 es:especias
 fi:mauste, mausteet
@@ -65633,7 +65635,7 @@ bs:Žumance
 ca:rovell d'ou, gema d'ou
 cs:žloutek
 cy:melynwy
-da:æggeblomme
+da:æggeblomme, æggeblommer
 de:Eigelb
 el:κρόκος αυγού
 eo:ovoflavo
@@ -68260,7 +68262,7 @@ wikidata:en:Q106252
 wikipedia:en:https://en.wikipedia.org/wiki/Marzipan
 # ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
 
-# description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels. 
+# description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels.
 
 en:persipan
 es:persipan
