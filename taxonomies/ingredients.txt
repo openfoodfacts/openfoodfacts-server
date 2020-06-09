@@ -268,7 +268,7 @@ cs:Kyselina
 da:Syre
 de:Säuerungsmittel
 el:Μέσο οξίνισης
-es:acidulante, acidulantes
+es:acidulante, acidulantes,acidificante
 et:Hape
 fi:happo
 fr:acidifiant, acide
@@ -296,7 +296,7 @@ wikidata:en:Q337038
 en:coagulum, coagulating agent
 ca:Agent coagulant, agents coagulants
 de:Koagulat
-en:agente coagulante, agentes coagulantes
+en:agente coagulante, agentes coagulantes,coagulante
 es:Agente coagulante, agentes coagulantes,
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
@@ -7978,6 +7978,10 @@ de:Milch aus Frankreich
 fr:lait origine france
 nl:melk uit Frankrijk
 
+<en:milk
+en:origin of the milk
+es:origen de la leche
+
 # comment:en:Any milk can be fresh (whatever that means)
 <en:milk
 en:fresh milk
@@ -15153,7 +15157,7 @@ es:paleta de cerdo
 <en:meat
 <en:pork
 en:pig cheek
-es:galtes,galets
+es:galtes,galets,papada de cerdo
 
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -16634,7 +16638,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo
+es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo,tocino,magro de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -16714,7 +16718,7 @@ bg:млечна мазнина
 cs:mléčný tuk
 da:mælkefedt
 de:Milchfett
-es:materia grasa láctea
+es:materia grasa láctea, grasa de leche,grasa lactea
 et:piimarasv
 fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
@@ -16778,6 +16782,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 vegan:en:no
 vegetarian:en:yes
 # ingredient/butterfat has 9828 products in 35 languages @2019-07-10
+
+<en:milk
+en:milk solids
+es:solidos lacteos
 
 # decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -18249,7 +18257,7 @@ cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
 el:ηλιέλαιο, Ηλιέλαιο
-es:aceite de girasol
+es:aceite de girasol,aceite vegetal de girasol,aceite de semillas de girasol
 et:Päevalilleõli
 eu:ekilore-olio
 fa:روغن آفتاب‌گردان
@@ -18351,7 +18359,7 @@ fr:tournesol oléique
 <en:sunflower oil
 en:high oleic sunflower oil
 de:High Oleic-Sonnenblumenöl
-es:aceite de girasol alto oleico
+es:aceite de girasol alto oleico,aceite refinado de girasol alto oleic
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
 it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
@@ -20581,7 +20589,7 @@ ca:Aromes, aroma
 cs:Aroma
 da:smagsstof
 de:Aroma, Aromen
-es:aroma, aromas
+es:aroma, aromas, aromatizante, sustancias-aromatizantes
 et:lōhna- ja maitseaine
 fi:aromi, aromit
 fr:arôme, arômes
@@ -21685,6 +21693,10 @@ de:natürliches Kräutergewürz
 fi:luontainen yrttiaromi
 fr:arôme naturel d'herbes
 hu:természetes gyógynövény aroma
+
+<en:natural flavouring
+en:aromatic herbs
+es:hierbas-aromaticas
 
 <en:natural flavouring
 en:natural goat cheese flavouring
@@ -22848,7 +22860,7 @@ fr:préparation pain d'épices
 # The translations taken from wikipedia need to be checked. They can refer to the plant species.
 
 <en:cereal
-en:rye
+en:barley
 am:ገብስ
 an:hordio
 ar:شعير
@@ -24194,7 +24206,7 @@ cs:pšeničná mouka
 da:Hvedemel
 de:Weizenmehl, Weizen-mehl
 el:αλεύρι σίτου
-es:harina de trigo
+es:harina de trigo,harina de trigo blando
 et:nisujahu
 eu:Gari-irin
 fa:آرد گندم
@@ -30252,7 +30264,7 @@ cy:Lefain
 da:Drivgas
 de:Backpulver, Backtriebmittel, Triebmittel
 el:Διογκωτικό αρτοποιίας
-es:Gasificante, Agente leudante, agentes gasificantes
+es:Gasificante, Agente leudante, agentes gasificantes,gasificantes
 et:Kergitusaine
 fa:عامل ورآورنده
 fi:nostatusaine, nostatusaineet
@@ -31684,6 +31696,7 @@ fr:diphosphate disodique et carbonate acide de sodium
 
 en:triphosphates, triphosphate, E451, e 451, e-451
 de:Triphosphate
+es:trifosfatos
 fi:trifosfaatit
 fr:triphosphate, triphosphates
 it:trifosfat
@@ -37514,6 +37527,10 @@ fi:vaalea viinirypäle
 fr:raisin blanc, raisins blancs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin-blanc
 # 81 products in 2 languages @2018-10-02
+
+<en:grape
+en:grapes of other varieties
+es:uva de otras variedades
 
 <en:grape
 fr:raisins noirs
@@ -46827,6 +46844,11 @@ wikidata:en:Q3177204
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
 # 218 products in 5 languages @2018-10-07
 
+<en:nut
+en:cola nut
+es:nuez de cola
+wikipedia:en:https://en.wikipedia.org/wiki/Kola_nut
+
 <fr:marron
 fr:Marrons UE
 
@@ -55242,6 +55264,7 @@ la:Porphyra yezoensis
 en:Aspergillus oryzae, a. oryzae
 ar:رشاشية أوريزه
 de:Aspergillus oryzae
+es:koji
 fi:aspergillus oryzae
 fr:koji
 ja:ニホンコウジカビ
@@ -70408,3 +70431,7 @@ fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 vegan:en:yes
 vegetarian:en:yes
 from_palm_oil:en:no
+
+#Stuff that doesn't seem to fit anywhere..
+en:rind unedible
+es:corteza no comestible
