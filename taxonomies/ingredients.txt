@@ -9009,6 +9009,9 @@ fr:produits laitiers
 ca:productes làctics
 es:productos lácteos
 
+en:clotting agents
+es:agentes cuajantes,coagulante,coagulantes
+
 ######################### MILK and CREAM related stuff #########################
 
 <en:dairy
@@ -17583,6 +17586,10 @@ hu:bio olívaolaj
 nl:olie van biologische olijven
 # ingredient/nl:olie-van-biologische-olijven has 2 products @2019-05-24
 
+<en:olive oil
+en:refined olive oil
+es:aceite de oliva refinado
+
 <en:organic olive oil
 en:organic extra virgin olive oil
 de:Natives Bio-Olivenöl Extra
@@ -26101,7 +26108,7 @@ vegetarian:en:yes
 en:carob flour
 cs:Karobová mouka
 de:Johannisbrotkernmehl, Carobpulver
-es:Harina de algarroba
+es:Harina de algarroba, harina de garrofin
 fi:johanneksenleipäpuujauhe
 fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
 hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt
@@ -50090,6 +50097,10 @@ pl:Gorczyca
 pt:Semente de mostarda
 sl:gorčično seme
 sv:senapsfrö
+
+<en:mustard
+en:mustard flour
+es:harina de mostaza
 
 <en:mustard seed
 fr:Graines de moutarde issues de l'agriculture durable
