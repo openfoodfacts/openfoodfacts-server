@@ -605,43 +605,36 @@ elsif ($action eq 'process') {
 			}
 
 			if ($tagid ne '') {
+				
+				my $suffix = "";
+				
+				if (defined $tags_fields{$tagtype}) {
+					$suffix = "_tags";
+				}
 
-				if (not defined $tags_fields{$tagtype}) {
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype} = $tagid;
+				# 2 or more criteria on the same field?
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
 					}
-					else {
-						$query_ref->{$tagtype} =  { '$ne' => $tagid };
-					}
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+				}
 
+				if ($contains eq 'contains') {
+					$query_ref->{$tagtype . $suffix} = $tagid;
 				}
 				else {
-
-					# 2 or more criteria on the same field?
-					my $remove = 0;
-					if (defined $query_ref->{$tagtype . "_tags"}) {
-						$remove = 1;
-						if (not defined $and) {
-							$and = [];
-						}
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-					}
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype . "_tags"} = $tagid;
-					}
-					else {
-						$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
-					}
-
-					if ($remove) {
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-						delete $query_ref->{$tagtype . "_tags"};
-						$query_ref->{"\$and"} = $and;
-					}
-
+					$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
 				}
+
+				if ($remove) {
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);
 
