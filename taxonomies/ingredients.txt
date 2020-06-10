@@ -5639,6 +5639,8 @@ pl:ekstrakt ze Stevii Rebaudiana
 <en:steviol glycosides
 de:Süssungsmittel Steviol Glycoside
 
+en:steviol
+es:estevia
 
 # description:en:ASPARTAME-ACESULFAME SALT is an artificial sweetener marketed under the name Twinsweet. The rights to aspartame-acesulfame are now owned by The NutraSweet Company Inc.
 
@@ -10400,6 +10402,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cheese
 vegetarian:en:maybe
 vegan:en:no
 # en:cheese has 579 products in 10 languages @2018-10-28
+
+<en:cheese
+en:cured cheese,mature cheese
+es:queso curado
 
 <en:cheese
 en:blue cheese
@@ -16648,7 +16654,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo,tocino,magro de cerdo
+es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo,tocino,magro de cerdo,manteca
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -17153,6 +17159,7 @@ hu:pálma
 it:palma
 nl:palm
 pl:palma
+pt:palma
 ru:пальмовое
 sk:palma
 sv:Palm
@@ -20648,7 +20655,7 @@ en:natural flavouring, natural flavour, natural flavor, natural flavoring, natur
 ca:Aroma natural, aromes naturals
 da:naturlig aroma, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen
-es:aroma natural, aromas naturales
+es:aroma natural, aromas naturales,saborizante natural
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
 fr:arôme naturel, arômes naturels
 he:חומרי טעם טבעיים
@@ -22043,6 +22050,11 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Mélange de céréales
 carbon_footprint_fr_foodges_value:fr:0.3
+
+#probably more for mixed cereals
+<en:cereal
+en:crunchy cereals
+es:cereales crujientes
 
 # <en:compound
 <en:cereal
@@ -23766,7 +23778,7 @@ es:bebida de avena
 <en:cereal
 en:millet
 de:Hirse
-es:mijo
+es:mijo,semillas de mijo
 fi:hirssi
 fr:millet
 hu:köles
@@ -24461,7 +24473,7 @@ fr:Farine de blé d'épeautre T110
 <en:spelt flour
 en:wholemeal spelt flour
 de:Dinkelvollkornmehl
-es:harina de espelta integral
+es:harina de espelta integral,harina integral de espelta
 fi:täysjyväspelttijauho
 fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
 hu:teljes kiőrlésű tönkölyliszt
@@ -24486,7 +24498,7 @@ en:oat flour
 cs:Ovesná mouka
 da:Havremel
 de:Hafermehl
-es:harina de avena,harina de avena integral
+es:harina de avena,harina de avena integral,harina integral de avena
 fi:kaurajauho
 fr:farine d'avoine
 hu:zabliszt
@@ -26352,7 +26364,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 en:invert sugar, inverted sugar
 ca:sucre invertit
 de:Invertzucker
-es:azúcar invertido
+es:azúcar invertido,azucar liquido invertido
 fi:inverttisokeri
 fr:sucre inverti
 hu:invertcukor
@@ -29541,6 +29553,10 @@ wikidata:en:Q283
 carbon_footprint_fr_foodges_ingredient:fr:Eau en bouteille PET, plate, 0.5 L
 carbon_footprint_fr_foodges_value:fr:0.4
 
+<en:water
+en:distilled water
+es:agua desmineralizada
+
 <en:Water
 en:water like ice wrap
 de:Wasser als Schutzglasur
@@ -30330,7 +30346,7 @@ bg:Дрожди
 bn:ইস্ট
 br:Goell
 bs:Kvasci
-ca:Rent
+ca:Rent,llevat
 cs:Kvasinky
 cy:Burum
 da:Gærsvamp
@@ -30654,7 +30670,7 @@ nl:roggezuurdesem
 
 <en:sourdough
 en:wheat sourdough
-es:masa madre de trigo
+es:masa madre de trigo,masa madre natural de trigo
 
 <de:Roggensauerteig
 fr:levain de seigle dévitalisé
@@ -33286,7 +33302,7 @@ da:Pære
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
-es:Melocotón
+es:Melocotón,melocotones
 fi:persikka
 fr:pêche
 gl:Pexego
@@ -35227,7 +35243,7 @@ fi:klementiinimehu
 en:blackcurrant
 da:solbær
 de:schwarze Johannisbeere, schwarze Johannisbeeren
-es:grosella negra
+es:grosella negra,grosellas negras
 fi:mustaherukka, mustaherukkaa
 fr:cassis
 hu:fekete ribizli
@@ -35773,7 +35789,7 @@ nl:vossebes, rode bosbes
 en:redcurrant, red currant
 da:røde bær
 de:rote Johannisbeeren
-es:grosella, Grosellas
+es:grosella roja, grosellas rojas
 fi:Punaherukka
 fr:groseille, groseilles, groseilles rouges
 it:ribes rosso
@@ -39677,6 +39693,10 @@ carbon_footprint_fr_foodges_value:fr:2.4
 en:curly endive
 es:escarola rizada
 fr:endive frisée
+
+<en:vegetable
+en:flat endive
+es:escarola lisa
 
 <en:vegetable
 en:Belgian endive
@@ -45743,9 +45763,13 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:green beans
-en:flat green beans, flat beans
+en:flat green beans, flat beans,runner beans
 es:judia verde plana
 fr:haricots verts plats, haricots plats
+
+<en:green beans
+en:round green beans
+es:judia verde redonda
 
 en:green peas
 de:grüne Erbsen
@@ -53379,6 +53403,11 @@ de:Spitzwegerich (Plantago lanceolata)
 la:Plantago lanceolata
 wikipedia:en:https://en.wikipedia.org/wiki/Plantago_lanceolata
 
+<en:plant
+en:hibiscus
+es:hibisco
+wikipedia:en:https://en.wikipedia.org/wiki/Hibiscus
+
 # description:en:ROOIBOS (Aspalathus linearis), meaning 'red bush'; is a broom-like member of the Fabaceae family of plants that grows in South Africa's fynbos. The leaves are used to make a herbal tea that is called by the names:rooibos, bush tea (especially in Southern Africa), red tea, or redbush tea. The tea has a taste and color somewhat similar to hibiscus tea, with more or less of an earthy flavor like yerba mate.
 
 <en:plant
@@ -58724,7 +58753,7 @@ da:Sardin
 de:Sardine, Sardinen
 el:Σαρδέλα
 eo:Sardino
-es:sardina, sardines
+es:sardina,sardines,sardina pilchardus walbaum
 eu:Sardina
 fa:ساردین
 fi:sardiini, sardiinit
@@ -64793,6 +64822,10 @@ fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
 
+<en:chicken meat
+en:chicken thigh,chicken drumstick
+es:muslo de pollo
+
 <en:chicken
 fr:extrait de poulet
 
@@ -64821,6 +64854,7 @@ fr:viande de poulet séparée mécaniquement
 
 <en:chicken meat
 de:Hühnerfleischpulver
+
 
 ######################### Duck ####################
 
@@ -65744,6 +65778,10 @@ zh:蛋黃
 # zh-tw:蛋黃
 wikidata:en:Q1302994
 # ingredient/egg-yolk has 6004 products in 13 languages @2018-12-17
+
+<en:egg
+en:liquid egg
+es:huevo liquido
 
 <en:egg yolk
 en:free range egg yolk
@@ -69084,6 +69122,11 @@ wikidata:en:Q23374
 wikipedia:en:https://en.wikipedia.org/wiki/Chorizo
 # ingredient/fr:chorizo has 210 products in 6 languages @2019-04-24
 # usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
+
+<en:meat
+en:black pudding
+ca:baldana
+es:morcilla
 
 # <en:compound
 # mainIngredient:en:beef meat
