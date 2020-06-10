@@ -90,6 +90,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -112,7 +113,6 @@ sub create_password_hash($) {
 
 	my $password = shift;
 	scrypt_hash($password);
-
 }
 
 sub check_password_hash($$) {
@@ -190,6 +190,51 @@ sub display_user_form($$) {
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
 	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	;
+	
+	# Professional account
+	
+	$html .= "\n<tr><td>Professional account</td><td>";
+	
+	$html .= "<p>If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers.</p>"
+	. "<p>The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products.</p>";
+	
+	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
+		# Existing user with an accepted organization
+		
+		$html .= sprintf("<p>This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers.</p>", $user_ref->{org});
+	}
+	else {
+		# New user or existing user without an accepted organization
+		
+		my $pro_checked = '';
+		if ($user_ref->{pro}) {
+			$pro_checked = "checked";
+		}
+		
+		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
+		. "<label for=\"pro\">This is a producer or brand account.</label>"
+		. "<p id=\"org-field\">Producer or brand: "
+		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1) 
+		. "</p>";
+			
+		$html .= "<div id=\"existing_org_warning\">";
+			
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		
+		if (defined $requested_org_ref) {		
+			
+			$html .= sprintf("<p>There is already an existing organization with the name %s.</p>", org_link($requested_org_ref))
+			. "<p>Your request to join the organization is pending approval of the organization administrator.</p>"
+			. "<p>Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question.</p>";
+		}
+		else {
+			$html .= "<p>Please enter the name of your organization (company name or brand).</p>";
+		}
+		
+		$html .= "</div>";
+		
+		$html .= "</td></tr>";
+	}
 
 	# On the public web site, but not on the producers platform, offer to be part of a team
 
@@ -205,6 +250,7 @@ sub display_user_form($$) {
 
 		$html .= "</div></td></tr>";
 	}
+	
 
 	$$scripts_ref .= <<SCRIPT
 <script type="text/javascript">
