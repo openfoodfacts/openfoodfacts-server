@@ -517,7 +517,7 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # nova:en:emulsifier
 en:emulsifier
 bg:Емулгатор
-ca:Emulsionant, emulgent, emulsiu, agent dispersant, agents dispersants
+ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
 cs:Emulgátor
 da:Emulgator
 de:Emulgator, Emulgatoren
@@ -15175,6 +15175,10 @@ es:paleta de cerdo
 en:pig cheek
 es:galtes,galets,papada de cerdo
 
+<en:animal protein
+<en:pork
+en:pigs blood
+es:sangre de cerdo
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
 # comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
@@ -15296,7 +15300,7 @@ da:Bacon, svinefedt
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
-es:panceta, manteca de cerdo, tocino de cerdo
+es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -22303,7 +22307,7 @@ fr:Grains de blé dur précuits
 fr:blé dur concassé précuit
 
 <en:wheat
-en:whole wheat
+en:whole wheat, whole grain wheat
 de:Vollkornweizen
 el:Σίτος ολικής αλέσεως
 es:trigo integral
@@ -23433,9 +23437,10 @@ fi:ruismallas ja ruismallasuute
 <en:cereal
 en:buckwheat
 ar:حنطة سوداء
+ca:fajol
 da:boghvede
 de:Buchweizen
-es:sarraceno, trigo sarraceno
+es:sarraceno, trigo sarraceno,alforfon
 fi:tattari, viljatar
 fr:sarrasin
 hu:hajdina
@@ -23754,6 +23759,10 @@ es:Avena entera en grano
 fr:Flocon d'avoine complet
 
 <en:oat
+en:whole grain oat flakes
+es:copos de avena integrales
+
+<en:oat
 en:oat bran
 de:Haferkleie
 es:Salvado de avena
@@ -23902,7 +23911,7 @@ de:Quinoa gegart
 <en:quinoa
 en:white quinoa
 de:weiße Quinoa
-es:quinoa blanco
+es:quinoa blanca
 fi:valkoinen kvinoa
 fr:quinoa blanc
 hu:fehér kinoa
@@ -24524,7 +24533,7 @@ pt:farinha de aveia integral
 en:buckwheat flour
 da:boghvedemel
 de:Buchweizenmehl
-es:harina de sarraceno
+es:harina de sarraceno, harina de alforfon
 fi:tattarijauho
 fr:farine de sarrasin, farine de blé noir
 hu:hajdinaliszt
@@ -29321,7 +29330,7 @@ fr:sauce au chocolat, sauce parfum chocolat
 
 # description:en:WATER is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
 
-en:water
+en:water, drinking water
 ab:Аӡы
 af:Water
 am:ውሃ
@@ -29354,7 +29363,7 @@ de:Wasser, Trinkwasser
 dv:ފެން
 el:Νερό
 eo:Akvo
-es:agua
+es:agua, agua potable
 et:Vesi
 eu:Ur
 fa:آب
@@ -30054,6 +30063,13 @@ vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
+
+<en:soya
+en:texturised soya protein, texturised vegetable protein
+es:proteina de soja texturizada
+vegan:en:yes
+vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 
 # description:en:SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia
 
@@ -34509,7 +34525,7 @@ wikidata:en:Q1093742
 en:lemon peel, lemon zest
 da:citronskal
 de:Zitronenschalen
-es:Cáscara de limón
+es:Cáscara de limón, ralladura de limon
 fi:sitruunankuori
 fr:Zeste de citron
 nl:Citroenschil
@@ -44251,7 +44267,7 @@ da:Chili, chilipeber
 de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
-es:guindilla, ají, chile, pimenton picante
+es:guindilla, ají, chile, pimenton picante,pimiento picante
 et:tšilli
 eu:Pipermin
 fa:فلفل تند
@@ -50571,7 +50587,7 @@ da:mynte
 de:Minze, Minzen
 el:Μέντα
 eo:Mento
-es:menta, hierba buena
+es:menta
 et:münt
 eu:Menda
 fa:نعنا
@@ -50681,6 +50697,7 @@ cy:Mintys ysbigog
 da:Grøn Mynte
 de:grüne Minze
 el:Δυόσμος
+es:menta verde
 et:Rohemünt
 eu:Mendabeltz
 fa:نعناع زینتی
@@ -50740,7 +50757,7 @@ cy:Mintys poeth
 da:Pebermynte
 de:Pfefferminz, Pfefferminze
 eo:Pipromento
-es:Menta
+es:hierbabuena
 et:Piparmünt
 eu:Mendafin
 fa:نعنای فلفلی
@@ -52510,7 +52527,7 @@ de:Zitronenmelisse
 el:Μελισσόχορτο
 en:lemon balm
 eo:Citronmeliso
-es:Toronjil
+es:Toronjil,melisa
 et:Sidrunmeliss
 eu:Garraiska
 fa:بادرنجبویه
@@ -59281,7 +59298,7 @@ cy:Macrell
 da:Makrel
 de:Makrele, Makrelenfilet, Makrelenfilets
 el:Σκουμπρί
-es:Verdel, caballa
+es:Verdel, caballa,caballa del sur
 et:Makrell
 eu:Berdel
 fi:Makrilli
@@ -67728,7 +67745,7 @@ en:coating, seasoning
 bg:Покритие
 bs:smjesa za paniranje
 de:Beschichtung
-es:envolviendo, sobrimiento
+es:envolviendo, sobrimiento,sazonador
 et:kate
 fi:päällyste
 fr:enrobage, enrobant, décor, decor, chemisage
@@ -69929,7 +69946,7 @@ da:sojasovs
 de:Sojasauce, Sojasoße, Sojasosse
 el:Σάλτσα σόγιας
 eo:sojsaŭco
-es:salsa de soya, salsa de soja
+es:salsa de soya, salsa de soja,shoyu
 et:sojakaste
 eu:Soja-saltsa
 fa:سس سویا
