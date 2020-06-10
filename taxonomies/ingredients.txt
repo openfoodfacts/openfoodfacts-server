@@ -23901,14 +23901,19 @@ nutriscore_fruits_vegetables_nuts:en:no
 de:Quinoa gepufft
 
 <en:quinoa
+en:quinoa seeds
+es:semillas de quinoa
+
+<en:quinoa
 en:red quinoa
 de:rotes Quinoa
 es:Quinoa roja
 fi:punainen kvinoa
 fr:quinoa rouge
 hu:vörös kinoa
-# ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
 
+
+# ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
 <en:red quinoa
 fr:quinoa rouge précuit
 de:Quinoa gegart
@@ -25020,7 +25025,7 @@ nl:maïspoeder
 # Is wongly translated in wikipedia as a flour
 
 <en:corn
-en:cornmeal, corn grits, corn semolina
+en:cornmeal, corn grits, corn semolina, corn meal
 da:groftmalet majs
 de:Maisgrieß, Maiskörner, Maisgriess
 el:σιμιγδάλι αραβοσίτου
@@ -30315,6 +30320,7 @@ fr:maltodextrine de blé
 en:raising agent, Raising agent, leavening agent
 ar:عامل نفاشية
 bg:Набухвател
+ca:gasificants
 cs:Kypřicí látka, Kypřidlo
 cy:Lefain
 da:Drivgas
@@ -39839,7 +39845,7 @@ ca:endívia
 cy:Endif
 de:Endivien, Endivie
 eo:Endivio
-es:Escarolas
+es:Escarolas,endibia,endibias
 eu:Osterzuri
 fa:اندیو
 fi:Endiivi
@@ -47625,6 +47631,10 @@ sv:mandelpulver
 <en:almond
 en:almond paste
 es:pasta de almendra
+
+<en:almond
+en:almond flour
+es:harina de almendra
 
 <en:almond
 en:organic almond flour
@@ -55854,6 +55864,7 @@ en:Tremella fuciformis
 la:Tremella fuciformis
 
 
+
 # LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
 
 <en:mushroom
@@ -56566,6 +56577,9 @@ fr:chanterelles
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chanterelle
 # ingredient/fr:chanterelles has 51 products @2019-04-06
 
+en:rhizopus
+es:rhizopus
+wikipedia:en:https://en.wikipedia.org/wiki/Rhizopus
 
 # Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -62506,7 +62520,7 @@ dv:މާމުއި
 ee:Anyitsi
 el:μέλι
 eo:mielo
-es:miel
+es:miel,miel de azahar
 et:mesi
 eu:Ezti
 fa:عسل
