@@ -948,7 +948,7 @@ en:flavour enhancer, flavor enhancers
 bg:Овкусител
 ca:Potenciador del gust, potenciadors del gust, potenciadors del sabor
 cs:Látka zvýrazňující chuť a vůni
-da:Smagsforstærker
+da:Smagsforstærker, smagsforstærkere
 de:Geschmacksverstärker
 el:Ενισχυτικό γεύσης
 es:Potenciador del sabor, potenciadores del sabor, intensificador del sabor, intensificadores del sabor
@@ -1155,7 +1155,7 @@ en:Propellent gas, packaging gas
 bg:Опаковъчен газ
 ca:gas propellent
 cs:Balicí plyn
-da:Konserveringsmiddel
+da:Drivgas
 de:Treibgas
 el:Προωστικό αέριο
 es:Gas propulsor
@@ -1173,9 +1173,12 @@ pl:Gaz nośny
 pt:Gás propulsor
 ro:Agent de propulsare
 sk:Hnací plyn
-sl:Konzervans
-sv:Konserveringsmedel
-wikidata:en:Q50419221
+sv:Drivgas
+wikidata:en:Q1875049
+wikipedia:de:https://de.wikipedia.org/wiki/Treibgas
+# https://www.wikidata.org/wiki/Q1875049
+# https://de.wikipedia.org/wiki/Treibgas
+
 
 
 # nova:en:sequestrant
@@ -1202,7 +1205,6 @@ ro:Agenți de sechestrare
 sk:Komplexotvorné látky
 sl:Sredstvo za vzhajanje
 sv:Bakpulver
-# da:Hævemiddel
 wikidata:en:Q905648
 
 en:stabilizer, stabiliser, stabilizers
@@ -30216,7 +30218,7 @@ ar:عامل نفاشية
 bg:Набухвател
 cs:Kypřicí látka, Kypřidlo
 cy:Lefain
-da:Drivgas
+da:Hævemiddel, hævemidler
 de:Backpulver, Backtriebmittel, Triebmittel
 el:Διογκωτικό αρτοποιίας
 es:Gasificante, Agente leudante, agentes gasificantes
@@ -30243,7 +30245,7 @@ ro:Agent de afânare
 ru:Разрыхлитель
 sk:Kypriaca látka
 sl:Potisni plin, Kvas
-sv:Drivgas, Jäsmedel
+sv:Jäsmedel
 tl:Pampaalsa
 tr:Kabartma ajanı
 uk:Розпушувач харчовий
@@ -44079,7 +44081,7 @@ sv:Grön paprika
 <en:pepper
 en:red bell pepper, red pepper
 ca:pebrot vermell
-da:rød peberfrugt
+da:rød peberfrugt, rød peber
 de:rote Paprika, roter Paprika
 el:κόκκινη πιπεριά
 es:pimiento rojo, pimiento morrón rojo
@@ -45696,6 +45698,7 @@ nl:Zwarte bonen
 
 <en:beans
 en:red beans, red kidney beans
+da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen
 es:Alubias rojas, judias rojas
 fr:haricot rouge, haricots rouges
