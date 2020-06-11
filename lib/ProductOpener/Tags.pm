@@ -849,7 +849,6 @@ sub build_tags_taxonomy($$$) {
 				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$'\n";
 				$line = $';
 				$line =~ s/^\s+//;
-				print "taxonomy - stopwords - tagtype: $tagtype - lc: $lc - $lc.orig: " . $stopwords{$tagtype}{$lc . ".orig"} . "\n";
 				my @tags = split(/\s*,\s*/, $line);
 				foreach my $tag (@tags) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
@@ -858,7 +857,6 @@ sub build_tags_taxonomy($$$) {
 					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
 					push @{$stopwords{$tagtype}{$lc}}, $tagid;
 					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
-					print "taxonomy - stopwords - tagtype: $tagtype - lc: $lc - tagid: $tagid\n";
 				}
 			}
 			elsif ($line =~ /^(synonyms:)?(\w\w):/) {
@@ -902,14 +900,14 @@ sub build_tags_taxonomy($$$) {
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$current_tagid = $possible_canon_tagid;
-							print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							# we already have a canon_tagid $canon_tagid for the tag
 							last;
 						}
 					}
 
 
 					# do we already have a translation from a previous definition?
-					if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+					if ((defined $canon_tagid) and (defined $translations_to{$tagtype}{$canon_tagid}{$lc})) {
 						$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
 						$current_tagid = get_string_id_for_lang($lc, $current_tag);
 					}
@@ -952,9 +950,9 @@ sub build_tags_taxonomy($$$) {
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
 						if (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
-								my $msg = "$lc:$tagid already is a synonym of " . $synonyms{$tagtype}{$lc}{$tagid}
-								. " (" . $translations_from{$tagtype}{"$lc:$tagid"} . ")"
-								. " - cannot make a synonym of $current_tagid for $canon_tagid\n";
+								my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
+								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+								. " - $lc:$current_tagid cannot be mapped to entry $canon_tagid\n";
 								$errors .= "ERROR - " . $msg;
 								next;
 							}
@@ -1240,7 +1238,6 @@ sub build_tags_taxonomy($$$) {
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
 				# display a warning if the same parent is specified twice?
-				print STDERR "taxonomy: tagtype: $tagtype - lc: $lc - parent: $parent - parentid: $parentid - canon_parentid: $canon_parentid - main_parentid: $main_parentid\n";
 			}
 			elsif ($line =~ /^(\w\w):/) {
 				my $lc = $1;
@@ -1297,7 +1294,6 @@ sub build_tags_taxonomy($$$) {
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
 						defined $direct_children{$tagtype}{$parentid} or $direct_children{$tagtype}{$parentid} = {};
 						$direct_children{$tagtype}{$parentid}{$canon_tagid} = 1;
-						print STDERR "taxonomy: $parentid > $canon_tagid\n";
 					}
 				}
 			}
@@ -1309,7 +1305,6 @@ sub build_tags_taxonomy($$$) {
 				next if $property eq 'synonyms';
 				next if $property eq 'stopwords';
 
-				print STDERR "taxonomy - property - tagtype: $tagtype - lc: $lc - property: $property\n";
 				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
 				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 			}
@@ -1393,7 +1388,7 @@ sub build_tags_taxonomy($$$) {
 				next if $property eq 'synonyms';
 				next if $property eq 'stopwords';
 
-				print STDERR "taxonomy - property - tagtype: $tagtype - canon_tagid: $canon_tagid - lc: $lc - property: $property\n";
+				#print STDERR "taxonomy - property - tagtype: $tagtype - canon_tagid: $canon_tagid - lc: $lc - property: $property\n";
 				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
 				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 			}
@@ -1502,24 +1497,23 @@ sub build_tags_taxonomy($$$) {
 
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				print "taxonomy - direct_parents\n";
 				$taxonomy_json{$tagid}{parents} = [];
 				$taxonomy_full_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
-					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
-					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
-					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
-					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
+					}
+					else {
+						print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+						push @{$taxonomy_json{$tagid}{parents}}, $parentid;
+						push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;						
 					}
 				}
 			}
 
 			if (defined $direct_children{$tagtype}{$tagid}) {
-				print "taxonomy - direct_children\n";
 				$taxonomy_json{$tagid}{children} = [];
 				$taxonomy_full_json{$tagid}{children} = [];
 				foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {

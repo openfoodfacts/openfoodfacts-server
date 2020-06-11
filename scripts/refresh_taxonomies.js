@@ -51,13 +51,11 @@ async function main() {
       console.log(`${txtPath} needs to be rebuilt; ${txtMtimeMs} vs ${stoMtimeMs}`);
 
       try {
-        // Launch the Perl script to rebuild the taxonomy and output STDOUT
-        // and STDERR to /dev/null, because Travis CI cannot take that much
-        // build log information.
+        // Launch the Perl script to rebuild the taxonomy 
         const perl = spawn(
           'perl',
           ['-CS', '-Ilib', 'scripts/build_tags_taxonomy.pl', file, '1'],
-          { stdio: ['pipe', 'ignore', 'ignore'] }
+          { stdio: ['pipe', 'inherit', 'inherit'] }
         );
         spawns.push(perl);
 

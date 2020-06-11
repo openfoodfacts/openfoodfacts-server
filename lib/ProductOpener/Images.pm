@@ -446,6 +446,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 	}
 
 	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
 	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
@@ -466,7 +469,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 }
 
 
-sub process_image_upload($$$$$$) {
+sub process_image_upload($$$$$$$) {
 
 	my $product_id = shift;
 	my $imagefield = shift;
@@ -474,6 +477,7 @@ sub process_image_upload($$$$$$) {
 	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
+	my $debug_string_ref = shift;	# to return debug information to clients
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
 
@@ -620,7 +624,7 @@ sub process_image_upload($$$$$$) {
 						rmdir ("$www_root/images/products/$path/$imgid.lock");
 						$$imgid_ref = $i;
 						$debug .= " - we already have an image with this file size: $size - imgid: $i";
-						$$imgid_ref = $debug;
+						$$debug_string_ref = $debug;
 						return -3;
 					}
 					else {
@@ -641,7 +645,7 @@ sub process_image_upload($$$$$$) {
 				unlink "$www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$www_root/images/products/$path/$imgid.lock");
 				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
-				$$imgid_ref = $debug;
+				$$debug_string_ref = $debug;
 				return -4;
 			}
 
@@ -750,8 +754,9 @@ sub process_image_upload($$$$$$) {
 		$$imgid_ref = $imgid;
 	}
 	else {
+		$$imgid_ref = $imgid;
 		# Pass back a debug message
-		$$imgid_ref = $debug;
+		$$debug_string_ref = $debug;
 	}
 
 	return $imgid;
@@ -792,9 +797,12 @@ sub process_image_move($$$$) {
 		if (defined $product_ref->{images}{$imgid}) {
 
 			my $ok = 1;
+			
+			my $new_imgid;
+			my $debug;
 
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
 					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}

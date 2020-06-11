@@ -11,7 +11,7 @@ bg:Състав
 bs:Sastoji
 ca:Ingredient, ingredients, composició
 cs:Složení
-da:indeholder
+da:ingredienser, indeholder
 de:Zutaten, Zusammensetzung
 es:ingrediente, composición, ingredientes
 et:Koostisainsd, koostis, Koostisosad
@@ -45,11 +45,11 @@ vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
-stopwords:da:av
-stopwords:de:und, mit, von, aus, enthält, enthalten
+stopwords:da:av, bl. a
+stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por
+stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -297,7 +297,7 @@ en:coagulum, coagulating agent
 ca:Agent coagulant, agents coagulants
 de:Koagulat
 en:agente coagulante, agentes coagulantes
-es:Agente coagulante, agentes coagulantes, 
+es:Agente coagulante, agentes coagulantes,
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
@@ -308,7 +308,7 @@ en:Acidity regulator
 bg:Регулатор на киселинност
 ca:Corrector d'acidesa, regulador d'acidesa
 cs:Regulátor kyselosti
-da:Surhedsregulerende middel
+da:Surhedsregulerende middel, surhedsregulerende midler
 de:Säureregulator
 el:Ρυθμιστής οξύτητας
 es:Corrector de acidez, regulador de acidez
@@ -458,7 +458,7 @@ en:colour, color, colouring, coloring, colours, colors, coloring food
 bg:Оцветител
 ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
 cs:Barvivo
-da:Farve
+da:Farvestof
 de:Farbstoff, färbende Lebensmittel, färbendes Lebensmittel
 el:Χρωστική ουσία
 es:Color, colores, colorante, colorantes, colorante alimentario, colorantes alimentarios
@@ -574,7 +574,7 @@ en:thickener
 bg:Сгъстител
 ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs:Zahušťovadlo
-da:Sødestof
+da:fortykningsmiddel, fortykningsmidler
 de:Verdickungsmittel
 el:Πυκνωτικό μέσο
 es:Espesante, espesantes, agente espesante, agentes espesantes
@@ -1116,7 +1116,7 @@ en:preservative
 bg:Консервант
 ca:Conservant, conservador, conservadors, conservants
 cs:Konzervant
-da:Konserveringsmiddel
+da:Konserveringsmiddel, konserveringsmidler
 de:Konservierungsstoff
 el:Συντηρητικό
 es:Conservante, conservantes, conservador, conservadores, agente conservador, agentes conservadores
@@ -1242,7 +1242,7 @@ en:Sweetener
 bg:Подсладител
 ca:Edulcorant, esdulcorants
 cs:Sladidlo
-da:Kunstigt sødemiddel
+da:Sødestof, sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, edulcorantes, endulzante, endulzantes
@@ -2570,6 +2570,7 @@ nl:Niet-geamideerde pectines
 <en:pectin
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
+da:frugtpektin
 de:Fruchtpektin
 es:pectina de fruta, pectinas de frutas
 fi:hedelmäpektiini, hedelmäpektiinit
@@ -8193,7 +8194,7 @@ en:fresh organic pasteurised semi-skimmed milk
 ca:llet fresca semidesnatada, llet fresca parcialment desnatda
 de:frische entrahmte Bio-Milch pasteurisiert
 es:leche fresca semidesnatada, leche fresca parcialmente desnatada
-fr:lait frais demi-écrémé 
+fr:lait frais demi-écrémé
 
 <en:organic semi-skimmed milk
 <en:fresh milk
@@ -8209,7 +8210,7 @@ de:Frische fettarme Milch
 
 <en:milk
 en:whole milk
-ca:llet sencera 
+ca:llet sencera
 cs:Plnotučné mléko
 da:sødmaelk
 de:Vollmilch
@@ -8452,9 +8453,9 @@ fr:lait frais de nos vaches non homogeneise
 
 <en:goat's milk
 en:raw goat's milk
-ca:llet crua de cabra 
+ca:llet crua de cabra
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra 
+es:leche cruda de cabra
 fi:vuohen raakamaito, raaka vuohenmaito
 fr:lait cru de chèvre
 hu:nyers kecsketej
@@ -9639,7 +9640,7 @@ da:Fløde
 de:Rahm, Sahne, Obers, Nidel, Nidle
 el:Κρέμα γάλακτος
 eo:kremo
-es:crema de leche, nata
+es:crema de leche, nata, crema
 eu:esne-gaina
 fa:خامه
 fi:Kerma
@@ -10971,7 +10972,7 @@ da:emmental, Emmentaler
 de:Emmentaler
 el:Έμενταλ
 eo:Emental
-es:emmenthal, emmental
+es:emmenthal, emmental, queso emmental
 eu:Emmental
 fa:پنیر امنتال
 fi:emmental, emmentaljuusto
@@ -13832,7 +13833,7 @@ da:Husholdningssalt, køkkensalt, bordsalt, salt
 de:Speisesalz, Kochsalz, Tafelsalz, Salz
 el:Αλάτι
 eo:Salo, Komuna salo
-es:Sal, sal común, sal de mesa
+es:Sal, sal común, sal de mesa,sales
 et:Söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
@@ -14158,7 +14159,7 @@ nl:Zout uit de Camargue
 
 <en:sea salt
 en:grey salt, sel gris
-ca:sal grisa sal de mar grisa, sal marina grisa 
+ca:sal grisa sal de mar grisa, sal marina grisa
 es:sal gris, sal de mar gris, sal marina gris
 fr:sel gris, sel marin gris, sel gris marin
 it:Sale grigio
@@ -14521,6 +14522,9 @@ fi:vasikanmaksa
 fr:foie de veau
 hu:borjúmáj
 it:fegato di maiale
+
+en:cow
+es:vaca
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
@@ -15091,6 +15095,10 @@ fi:vuohenliha
 hu:kecskehús
 nl:geitenvlees
 
+<en:meat
+en:goat
+es:cabra
+
 <en:animal
 en:pork
 ca:Porc
@@ -15136,6 +15144,16 @@ carbon_footprint_fr_foodges_value:fr:7.4
 carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
+
+<en:meat
+<en:pork
+en:pork shoulder
+es:paleta de cerdo
+
+<en:meat
+<en:pork
+en:pig cheek
+es:galtes,galets
 
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -15548,6 +15566,10 @@ fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 <en:ham
 pt:presunto
 
+<en:ham
+en:cured ham
+es:jamon serrano,jamon curado
+
 <en:pork
 en:pork by-product
 de:Nebenprodukt aus Schweinefleisch
@@ -15796,6 +15818,18 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 # SAUSAGES
 
 # <en:compound
+
+<en:meat
+en:botifarra
+es:butifarra, butifarras
+wikipedia:en:https://en.wikipedia.org/wiki/Botifarra
+wikidata:en:Q7046
+
+<en:meat
+es:chistorra
+wikipedia:en:https://en.wikipedia.org/wiki/Chistorra
+wikidata:en:Q590686
+
 <en:meat
 fr:saucisses fumées
 
@@ -15976,7 +16010,7 @@ cs:Kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 eo:Maizamelo
-es:almidón de maíz, Maicena
+es:almidón de maíz, Maicena, almidon de maiz modificado
 eu:Maizena
 fa:نشاسته ذرت
 fi:Maissitärkkelys
@@ -16600,7 +16634,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:grasa de cerdo, manteca de cerdo
+es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:Silava
@@ -17014,7 +17048,7 @@ cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
 eo:Palmoleo
-es:aceite de palma, grasa de palma
+es:aceite de palma, grasa de palma, aceite vegetal de palma
 et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
@@ -18193,7 +18227,7 @@ from_palm_oil:en:no
 
 <en:linseed
 en:linseed seeds
-es:semillas de linaza
+es:semillas de linaza, linaza
 
 <en:linseed oil
 en:Organic linseed oil
@@ -20349,6 +20383,8 @@ fr:porto rouge modifié
 # usage:en:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
 
 <en:alcohol
+en:brandy
+es:brandy
 fr:brandy
 
 
@@ -20366,6 +20402,7 @@ fr:eau de vie de vin
 <en:alcohol
 en:vermouth
 de:Wermut
+es:vermut
 fi:vermutti
 fr:vermouth
 hu:vermut
@@ -20587,7 +20624,7 @@ wikidata:en:Q2596994
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
-da:naturlig aroma
+da:naturlig aroma, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen
 es:aroma natural, aromas naturales
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit
@@ -20611,7 +20648,7 @@ en:artificial flavouring, artificial flavour, artificial flavor, artificial flav
 ca:Oli i greix de palma
 da:kunstig smag
 de:künstliches Aroma
-es:aroma artificial
+es:aroma artificial, saborizante artificial
 fi:keinotekoinen aromi, keinotekoiset aromit
 fr:arôme artificiel, arômes artificiels
 hu:mesterséges aroma, mesterséges aromák
@@ -21993,7 +22030,7 @@ fr:billes de céréales
 <en:cereal
 en:wholemeal cereal
 de:Vollkorngetreide
-es:Cereal integral
+es:Cereal integral,cereales integrales
 fi:täysjyvävilja
 fr:céréale complète, céréales complètes
 hu:teljes kiőrlésű gabona
@@ -22802,7 +22839,7 @@ ru:двузернянка
 en:teff
 es:teff, semilla de teff
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
- 
+
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -23696,6 +23733,10 @@ es:copos de avena integral, copos de avena integral laminados
 nl:Haverzemelen met kiem
 # ingredient/nl:haverzemelen-met-kiem has 1 product @2019-5-24
 
+<en:oat
+en:oat milk
+es:bebida de avena
+
 <en:cereal
 en:millet
 de:Hirse
@@ -24553,7 +24594,8 @@ nl:bonenmeel
 
 <en:flour
 <en:flax seed
-en:flax floor, flaxseed floor
+en:flax flour, flaxseed flour
+es:semilla de lino amarillo, semillas de lino amarillo, semilla de lino, semillas de lino
 fr:farine de lin, farine de graines de lin
 #openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
 # 57 products (FR) @2020-04-23
@@ -26107,7 +26149,7 @@ da:Sukker
 de:Zucker
 el:Ζάχαρη
 eo:Sukero
-es:azúcar
+es:azúcar,azúcares
 et:Suhkrud
 eu:Azukre
 fa:شکر
@@ -26530,6 +26572,10 @@ it:zucchero di canna grezzo
 nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
 pl:Cukier trzcinowy nierafinowany
 sv:rårörsocker
+
+<en:cane sugar
+en:whole cane sugar
+es:azucar de caña integral
 
 <en:unrefined cane sugar
 fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
@@ -27758,6 +27804,7 @@ nl:biologische agave
 # ingredient/nl:biologische-agave has 2 products @2019-05-24
 
 <en:agave syrup
+es:sirope de agave
 fr:jus d'agave concentré
 de:Agavendicksaft
 it:succo di agave concentrato
@@ -28962,7 +29009,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 en:chocolate pieces, chocolate chips
 da:Chokoladestykker
 de:Schokoladenstücke, Schokoladenstückchen
-es:copos de chocolate
+es:copos de chocolate, pepitas de chocolate
 fi:suklaarouhe
 fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 it:pezzi di cioccolato, goccie di cioccolato
@@ -28993,6 +29040,10 @@ fr:chocolat pur beurre de cacao
 it:cioccolato puro burro di cacao
 nl:chocolade met pure cacaoboter
 # ingredient/fr:chocolat-pur-beurre-de-cacao has 45 products in 6 languages @2019-05-25
+
+<en:chocolate
+en:chocolate cream
+es:crema de chocolate
 
 # description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
 
@@ -33249,6 +33300,10 @@ es:paraguayo,chato
 wikipedia:en:https://en.wikipedia.org/wiki/Saturn_Peach
 
 <en:peach
+en:pitted peach
+es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, melocotónes sin hueso
+
+<en:peach
 <en:purée
 en:peach puree
 de:Pfirsichpurée
@@ -33463,6 +33518,9 @@ nl:perensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-à-base-de-concentré
 # 23 products in 4 languages @2018-09-28
 
+<en:fruit
+en:plumb
+es:ciruela
 
 # The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 
@@ -34545,7 +34603,7 @@ sv:torkad citronjuice
 en:concentrated lemon juice, lemon extract
 ca:Suc de llimona concentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado 
+es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
@@ -34602,6 +34660,11 @@ fr:Poudre de citron
 wikidata:en:Q206496
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
 # 1 entry @ 2019-10-31
+
+<en:flavourings
+<en:lemon
+en:lemon scent
+es:aroma de limon
 
 # The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
 <en:fruit
@@ -36006,6 +36069,10 @@ pl:wiśnie
 pt:ginjas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
+
+<en:cherry
+en:pitted cherry
+es:cereza deshuesada, cereza sin hueso, cerezas deshuesadas, cerezas sin hueso
 
 <en:sour cherry
 en:sour cherry juice
@@ -38981,7 +39048,12 @@ zh:椰子奶
 # 87 products @2018-10-03
 
 <en:coconut milk
+en:powdered coconut milk
 es:leche de coco en polvo
+
+<en:coconut milk
+en:coconut milk drink
+es:bebida de coco
 
 <en:coconut
 en:coconut water
@@ -39155,7 +39227,7 @@ ca:Vegetals, Verdures
 cs:Zelenina
 da:Grøntsag
 de:Gemüse
-es:verduras, hortalizas
+es:verduras, hortalizas, vegetales
 fi:kasvis
 fr:légume, légumes
 he:ירק
@@ -40866,7 +40938,7 @@ en:cabbage
 ca:Col
 da:kål
 de:Kohl
-es:Col
+es:Col,repollo
 fi:kaali
 fr:chou, choux
 hu:fejeskáposzta
@@ -41071,7 +41143,7 @@ cy:Ysgewyll
 da:Rosenkål
 de:Rosenkohl
 eo:Burĝonbrasiko
-es:Col de Bruselas
+es:Col de Bruselas, coles de bruselas
 et:Rooskapsas
 eu:Bruselaza
 fa:کلم بروکسل
@@ -41647,7 +41719,7 @@ bs:Celer
 ca:Api
 cs:Miřík celer, celer
 cy:Seleri
-da:sellerie
+da:selleri
 de:Sellerie, Staudensellerie
 el:Σέλινο
 eo:celerio
@@ -43842,6 +43914,11 @@ nutriscore_fruits_vegetables_nuts:en:no
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
 
+<en:potato
+<en:flour
+en:potato flour
+es:harina de patata
+
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
 
@@ -44107,11 +44184,11 @@ br:pimant
 bs:Čili
 ca:bitxo
 cs:chilli paprička
-da:Chili
+da:Chili, chilipeber
 de:Peperoni, chilischoten, Pfefferoni, Chili, Piment
 el:Τσίλι
 eo:Kapsiketo
-es:guindilla, ají, chile
+es:guindilla, ají, chile, pimenton picante
 et:tšilli
 eu:Pipermin
 fa:فلفل تند
@@ -45357,7 +45434,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 en:Rapeseed, rape, oilseed rape
 da:raps
 de:Raps
-es:Colza
+es:Colza,nabina
 fi:rapsi
 fr:Colza
 it:Colza
@@ -45502,7 +45579,7 @@ da:Bønne
 de:Bohnen, Bohne, Gartenbohne
 el:Φασολιά
 eo:Fazeolo
-es:fríjol
+es:fríjol,alubia
 et:Harilik aeduba
 eu:Babarrun
 fa:لوبیا
@@ -46265,6 +46342,10 @@ de:rehydrierte Kichererbsen
 it:ceci reidratati
 # ingredient/fr:poi-chiches-réhydratés has 55 products in 4 languages @2019-02-15
 
+<en:chickpea
+<en:flour
+en:chickpea flour
+es:harina de garbanzo
 
 <en:pea
 en:garden peas
@@ -46824,6 +46905,12 @@ de:Pistazienstücke
 # 5 products in 2 languages @2018-10-07
 
 <en:nut
+en:tigernut
+ca:xufa,xufas
+es:chufa,xufa,chufas,xufas
+wikipedia:en:https://en.wikipedia.org/wiki/Cyperus_esculentus
+
+<en:nut
 en:walnut, walnuts
 af:Okkerneut
 ar:جوز
@@ -46889,7 +46976,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
 
 <en:walnut
-en:wallnuts shelled
+en:walnuts shelled
 de:Walnusskerne
 fi:kuoreton saksanpähkinä, kuorettomat saksanpähkinät
 fr:cerneaux de noix
@@ -47436,6 +47523,10 @@ sv:mandelpulver
 # ingredient/fr:amande-en-poudre has 233 products in 8 languages @2018-10-06
 
 <en:almond
+en:almond paste
+es:pasta de almendra
+
+<en:almond
 en:organic almond flour
 da:økologisk mandelmel
 de:Bio-Mandelmehl
@@ -47605,7 +47696,7 @@ da:frø
 de:Kernen, Samen
 el:Σπόρος
 eo:semo
-es:semilla, semillas
+es:semilla, semillas, pipa, pipas
 et:Seeme
 eu:Hazi
 fa:بذر
@@ -48087,6 +48178,7 @@ fr:lin brun et lin jaune
 en:pepper
 ak:moko
 ca:pebre
+da:peber
 de:Pfeffer
 ee:ableh
 eo:pipro
@@ -48564,7 +48656,7 @@ fr:assaisonnement goût fromage
 en:spice, spices
 ca:Espècies
 cs:Koření
-da:krydderi
+da:krydderi, krydderier
 de:Gewürze
 es:especias
 fi:mauste, mausteet
@@ -53060,6 +53152,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kalamata_olive
 fr:olives farcies
 # usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
 
+#in Spanish pitted olive can be aceituna sin hueso or aceituna deshuesada. To avoid mis-interpretation in the processing (which could translate to boned) it's added here
+<en:olive
+en:pitted olive
+es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
+
 <en:plant
 en:orange leaves
 de:Orangenblätter
@@ -54354,6 +54451,10 @@ sv:vaniljstång
 carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
 carbon_footprint_fr_foodges_value:fr:2.6
 
+<en:vanilla
+en:vanilla vein
+es: vaina de vainilla, vainas de vainilla
+
 <en:vanilla pod
 de:Vanilleschotenpulver
 
@@ -55199,7 +55300,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta, champinon, champiñon
+es:seta, champinon, champiñon, champiñones
 et:Söögiseen
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -63623,6 +63724,8 @@ nl:koffie van biologische oorsprong
 # ingredient/nl:koffie-van-biologische-oorsprong has 1 product @2019-05-24
 
 <en:coffee
+en:decaffeinated coffee
+es:cafe descafeinado
 fr:café décaféiné
 fi:kofeiiniton kahvi
 nl:Cafeïnevrije koffie
@@ -65388,7 +65491,7 @@ da:æggehvide
 de:Eiklar, Eiweiß, Eiweiss
 el:ασπράδι αυγού
 eo:ovoblanko
-es:clara de huevo
+es:clara de huevo, albumina de huevo
 eu:Zuringo
 fa:سفیده تخم‌مرغ
 fi:munanvalkuainen
@@ -65532,7 +65635,7 @@ bs:Žumance
 ca:rovell d'ou, gema d'ou
 cs:žloutek
 cy:melynwy
-da:æggeblomme
+da:æggeblomme, æggeblommer
 de:Eigelb
 el:κρόκος αυγού
 eo:ovoflavo
@@ -65791,7 +65894,7 @@ fr:extraits naturels
 <en:extract
 en:vegetable extract, vegetable extracts
 de:Pflanzenextrakt, Pflanzenextrakte, Gemüseextrakte
-es:Extracto vegetal
+es:Extrato vegetal, extratos vegetales
 fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 it:estratto vegetale, estratti vegetali
@@ -68159,7 +68262,7 @@ wikidata:en:Q106252
 wikipedia:en:https://en.wikipedia.org/wiki/Marzipan
 # ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
 
-# description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels. 
+# description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels.
 
 en:persipan
 es:persipan
