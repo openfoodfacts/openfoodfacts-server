@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-03 16:03\n"
+"PO-Revision-Date: 2020-06-11 15:34\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -397,7 +397,7 @@ msgstr "source de données"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr "débogages"
+msgstr "débogage"
 
 msgctxt "debug_s"
 msgid "debug"
@@ -3460,6 +3460,14 @@ msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr "Merci de vérifier que les données sur la plate-forme pour les producteurs sont correctes avant de les exporter vers la base de données publique."
 
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
+
 msgctxt "cancel"
 msgid "Cancel"
 msgstr "Annuler"
@@ -3656,7 +3664,7 @@ msgstr "Liste des produits ajoutés ou modifiés"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr "imports"
+msgstr "importations"
 
 msgctxt "imports_s"
 msgid "import"
@@ -3664,7 +3672,7 @@ msgstr "import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr "imports"
+msgstr "importations"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -4187,4 +4195,12 @@ msgstr "Ajoutez de nouvelles entrées, synonymes ou traductions à nos listes mu
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
 msgstr "Rejoignez le canal #ingredients dans <a href=\"https://slack.openfoodfacts.org\">notre espace de discussion Slack</a> et apprenez-en plus sur <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">l'analyse des ingrédients sur notre wiki</a>, si vous désirez nous aider. Merci !"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
+msgstr ""
 
