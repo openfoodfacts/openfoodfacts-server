@@ -21,7 +21,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "Laitue, Carmine" }, [ ] ],
 [ { lc => "fr", ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)" }, ["en:e503ii", "en:e500ii", "en:e330" ] ],
 [ { lc => "fr", ingredients_text => "Saumon Atlantique* 97% (salmo salar), sel. poissons. Saumon élevé en/au : voir sur la face avant. INFORMATIONS : A consommerjusqu'au / NO de lot : voir sur la face avant. A conserver entre OOC et +40C avant et" }, [ ] ],
-[ { lc => "fr", ingredients_text => "Liste des ingrédients : viande de porc, sel, lactose, épices, sucre, dextrose, ail, conservateurs : nitrate de potassium et nitrite de sodium, ferments, boyau naturel de porc. Poudre de fleurage : talc et carbonate de calcium. 164 g de viande de porc utilisée poudre 100 g de produit fini. Substances ou produits provoquant des allergies ou intolérances : Lait" }, [ "en:e252", "en:e250", "en:e553b", "en:e170" ] ],
+[ { lc => "fr", ingredients_text => "Liste des ingrédients : viande de porc, sel, lactose, épices, sucre, dextrose, ail, conservateurs : nitrate de potassium et nitrite de sodium, ferments, boyau naturel de porc. Poudre de fleurage : talc et carbonate de calcium. 164 g de viande de porc utilisée poudre 100 g de produit fini. Substances ou produits provoquant des allergies ou intolérances : Lait" }, [ "en:e252", "en:e250", "en:e553b", "en:e170i" ] ],
 [ { lc => "fr", ingredients_text => "conservateurs: nitrate de potassium et nitrite de sodium" }, [ "en:e252", "en:e250" ] ],
 
 # currently does not pass

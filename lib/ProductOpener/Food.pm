@@ -63,6 +63,9 @@ BEGIN
 
 					&unit_to_g
 					&g_to_unit
+					
+					&unit_to_kcal
+					&kcal_to_unit
 
 					&unit_to_mmoll
 					&mmoll_to_unit
@@ -314,6 +317,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	if ($nid eq 'water-hardness') {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
+	elsif ($nid eq 'energy-kcal') {
+		# energy-kcal is stored in kcal
+		$product_ref->{nutriments}{$nid} = unit_to_kcal($value, $unit) + 0;
+	}	
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
@@ -336,6 +343,40 @@ sub get_nutrient_label {
 	else {
 		return;
 	}
+}
+
+=head2 unit_to_kcal($$)
+
+Converts <xx><unit> into <xx> kcal.
+
+=cut
+
+sub unit_to_kcal($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+
+	($unit eq 'kj') and return int($value / 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
+}
+
+sub kcal_to_unit($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+	
+	print STDERR "value: $value - unit: $unit\n";
+
+	($unit eq 'kj') and return int($value * 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
 }
 
 =head2 unit_to_g($$)
@@ -4848,7 +4889,8 @@ sub compute_serving_size_data($) {
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});		}
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});
+		}
 		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
 		elsif ((defined $product_ref->{nutriments}{"energy" . $product_type . "_value"}) and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"})) {
 
