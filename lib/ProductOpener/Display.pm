@@ -8016,15 +8016,28 @@ HTML
 
 	my @comparisons = ();
 
+	# $html .="<p> Comparisons 1 </p>";
+
 	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
 			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
+		# $html .="<p> Comparisons 2 </p>";
+
 		if (defined $categories_nutriments_ref) {
 
+			# $html .="<p> Comparisons 3 </p>";
+
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				# $html .="<p> Comparisons 4: cid = $cid </p>";
+
+
 				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
+
+					# $html .="<p> Comparisons 5: cid = $cid </p>";
+
 					push @comparisons, {
 						id => $cid,
 						name => display_taxonomy_tag($lc,'categories', $cid),
@@ -9109,9 +9122,7 @@ sub display_nutrition_table($$) {
 	);
 
 	my $comparsion_ref_defined;
-	my $carbon_footprint = 0;
-
-	my $comparison_ref = {
+	my $comparison = {
 		values => [],
 	};
 
@@ -9148,7 +9159,7 @@ CSS
 				$checked_html = ' checked="checked"';
 			}
 
-			push @{$comparison_ref->{values}}, {
+			push @{$comparison->{values}}, {
 				name => $colid,
 				checked_html => $checked_html,
 				id => $colid,
@@ -9382,8 +9393,8 @@ JS
 			$unit = $product_ref->{nutriments}{$nid . "_unit"};
 		}
 
-		my $values_temp;
-		my $values2_temp;
+		my $values;
+		my $values2;
 		my @values_template_ref;
 		my @values2_template_ref;
 		my @carbon_ref;
@@ -9392,12 +9403,13 @@ JS
 		my $perf = get_percent_formatter($lc, 0);
 
 		foreach my $col (@cols) {
-			$values_temp = '';
-			$values2_temp = '';
+			$values = '';
+			$values2 = '';
 			my $col_class = '';
 			my $percent = '';
 			my $property = '';
 			my $rdfa = '';
+			my $col_type = '';
 
 			if (defined $col_class{$col}) {
 				$col_class = ' ' . $col_class{$col} ;
@@ -9405,6 +9417,8 @@ JS
 			}
 
 			if ($col =~ /compare_(.*)/) {	#comparisons
+
+				$col_type = "compare";
 
 				my $comparison_ref = $comparisons_ref->[$1];
 
@@ -9420,9 +9434,9 @@ JS
 
 				# 0.045 g	0.0449 g
 
-				my $value_unit = "$value $unit";
+				$values2 = "$value $unit";
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-					$value_unit = '?';
+					$values2 = '?';
 				}
 				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 					# Use the actual value in kcal if we have it
@@ -9434,7 +9448,7 @@ JS
 					else {
 						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
 					}
-					$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
+					$values2 .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 				}
 
 				$percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
@@ -9454,19 +9468,19 @@ JS
 				
 				if ($nid eq 'sodium') {
 					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-						$values2_temp .= '?';
+						$values2 .= '?';
 					}
 					else {
-						$values2_temp .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
+						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
 						
 					}
 				}
 				if ($nid eq 'salt') {
 					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-						$values2_temp .= '?';
+						$values2 .= '?';
 					}
 					else {
-						$values2_temp .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
+						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
 
 					}
 				}
@@ -9489,13 +9503,15 @@ JS
 						my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_100g"},
 							is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
-						$values2_temp .= uc ($nutriscore_grade);
+						# $col_type = "noncompare";
+						$values2 .= uc ($nutriscore_grade);
+						#$values = uc ($nutriscore_grade);
 					}
 				}
 
 			}
 			else {
-
+				$col_type = "noncompare";
 				my $value_unit = "";
 				
 
@@ -9558,7 +9574,7 @@ JS
 					else {
 						$salt = "?";
 					}
-					$values2_temp .= $salt;
+					$values2 .= $salt;
 				}
 				elsif ($nid eq 'salt') {
 					my $sodium;
@@ -9579,7 +9595,7 @@ JS
 					else {
 						$sodium = "?";
 					}
-					$values2_temp .= $sodium ;
+					$values2 .= $sodium ;
 				}
 				elsif ($nid eq 'nutrition-score-fr') {
 					# We need to know the category in order to select the right thresholds for the nutrition grades
@@ -9597,17 +9613,17 @@ JS
 					if (defined $product_ref->{categories_tags}) {
 
 						if ($col eq "std") {
-							$values2_temp .= '';
+							$values2 .= '';
 						}
 						else {
 							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
 								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
-							$values2_temp .= uc ($nutriscore_grade);
+							$values2 .= uc ($nutriscore_grade);
 						}
 					}
 					else {
-						$values2_temp .= '';
+						$values2 .= '';
 					}
 				}
 				elsif ($col eq $product_ref->{nutrition_data_per}) {
@@ -9624,38 +9640,42 @@ JS
 					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 				}
 
-				$values_temp .= $value_unit;
+				$values .= $value_unit;
 			}
-
+			
 			if (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')){
 				push (@carbon_ref, {
-					rowvalue => $values_temp,
+					rowvalue => $values,
 					colclass => $col_class,
 					percent => $percent,
 					property => $property,
+					coltype => $col_type,
 				});
 			}
 
 			push (@values_template_ref, {
-				rowvalue => $values_temp,
+				rowvalue => $values,
+				valueunit => $values2,
 				colclass => $col_class,
 				percent => $percent,
 				property => $property,
 				rdfa => $rdfa,
+				coltype => $col_type,
 			});
 
 			push (@values2_template_ref, {
-				rowvalue => $values2_temp,
+				rowvalue => $values2,
 				colclass => $col_class,
 				percent => $percent,
 				property => $property,
+				coltype => $col_type,
 			});
 		}
 
 		my $empty = 0;
 		foreach my $x (@values_template_ref){
 			foreach my $y ($x -> {rowvalue}){
-				if ($y ne '?'){
+				if (($y ne '?') and ($y ne '')){
 					$empty = 1;
 				}
 			}	
@@ -9673,7 +9693,7 @@ JS
 
 				};
 
-				if (($nid eq 'sodium') and ($values2_temp ne '')) {
+				if (($nid eq 'sodium') and ($values2 ne '')) {
 
 					push @{$table_ref -> {rows}}, {
 						name => lang("salt_equivalent"),
@@ -9683,7 +9703,7 @@ JS
 					};
 				}
 
-				if (($nid eq 'salt') and ($values2_temp ne '')) {
+				if (($nid eq 'salt') and ($values2 ne '')) {
 
 					push @{$table_ref -> {rows}}, {
 						name => $Nutriments{sodium}{$lang},
@@ -9694,7 +9714,7 @@ JS
 					};
 				}
 
-				if (($nid eq 'nutrition-score-fr') and ($values2_temp ne '')) {
+				if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
 
 					push @{$table_ref -> {rows}}, {
 						name => "Nutri-Score",
@@ -9726,8 +9746,8 @@ JS
 		
 		lang => \&lang,
 
-		comparisons_ref => $comparisons_ref,
-		comparisons_ref_len => scalar @$comparisons_ref,
+		comparisons_len => scalar @$comparisons_ref,
+		
 
 		product_id => $product_ref->{id},
 		product_stats => $product_ref->{stats},
@@ -9738,7 +9758,7 @@ JS
 	};
 
 
-	push @{$template_data_ref->{comparison_group}}, $comparison_ref;
+	push @{$template_data_ref->{comparison_group}}, $comparison;
 	push @{$template_data_ref->{table_group}}, $table_ref;
 	push @{$template_data_ref->{carbon_footprint}}, $carbon_row_ref;
 
