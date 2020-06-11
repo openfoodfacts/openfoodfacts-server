@@ -212,7 +212,9 @@ sub display_user_form($$) {
 		}
 		
 		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
-		. "<label for=\"pro\">This is a producer or brand account.</label>"
+		. "<label for=\"pro\">"
+		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
+		. "This is a producer or brand account.</label>"
 		. "<p id=\"org-field\">Producer or brand: "
 		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1) 
 		. "</p>";
@@ -323,9 +325,11 @@ sub display_user_form_admin_only($) {
 	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
 
 	if (($type eq 'add') or ($type eq 'edit')) {
+		
+		$html .= "\n<tr><td colspan=\"2\" style=\"background-color:#ffcccc\">Administrator fields</td></tr>";
 
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
-		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+		. textfield(-id=>'org', -name=>'org', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'org', -override=>1) . "</td></tr>";
 
 		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
 
@@ -369,6 +373,34 @@ sub check_user_form($$) {
 		$user_ref->{twitter} =~ s/^http:\/\/twitter.com\///;
 		$user_ref->{twitter} =~ s/^\@//;
 	}
+	
+	# Is there a checkbox to make a professional account
+	if (defined param("pro_checkbox")) {
+		
+		if (param("pro")) {
+			$user_ref->{pro} = 1;
+		}
+		else {
+			delete $user_ref->{pro};
+		}
+		
+		if (defined param("requested_org")) {
+			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
+			
+			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+			
+			if ($requested_org_id ne "") {
+				$user_ref->{requested_org_id} = $requested_org_id;
+			}
+			else {
+				push @$errors_ref, "error_missing_org";
+			}
+		}
+		else {
+			delete $user_ref->{requested_org_id}
+		}
+	}
+	
 
 	if (($type eq 'add') or ($type eq 'suggest')) {
 		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
@@ -381,9 +413,12 @@ sub check_user_form($$) {
 	}
 
 	if ($admin) {
-		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('organization'));
+		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+			# Admin field for org overrides the requested org field
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id}
 		}
 		else {
 			delete $user_ref->{org};
@@ -457,6 +492,43 @@ sub process_user_form($) {
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
+    
+    # Professional account with requested org?
+    
+    if (defined $user_ref->{requested_org_id}) {
+		
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+		
+		if (defined $requested_org_ref) {
+			# The requested org already exists
+			
+			my $admin_mail_body = <<EMAIL
+requested_org_id: $user_ref->{requested_org_id}
+name: $user_ref->{name}
+email: $user_ref->{email}
+lc: $user_ref->{initial_lc}
+cc: $user_ref->{initial_cc}
+EMAIL
+;
+			send_email_to_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+		}
+		else {
+			# The requested org does not exist, create it
+			
+			my $org_ref = {
+				created_t => time(),
+				creator => $User_id,
+				org_id => $user_ref->{requested_org_id},
+				name => $user_ref->{requested_org},
+				admins => { $userid => 1 },
+				members => { $userid => 1},
+			};
+			
+			store_org($org_ref);
+			
+			$user_ref->{org} = $user_ref->{requested_org_id};
+		}
+	}
 
 	store("$data_root/users/$userid.sto", $user_ref);
 
