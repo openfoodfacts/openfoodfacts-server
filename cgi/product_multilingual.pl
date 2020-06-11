@@ -1723,6 +1723,11 @@ HTML
 			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
+		elsif ($nid eq 'energy-kcal') {
+			# energy-kcal is already in kcal
+			$value = $product_ref->{nutriments}{$nid};
+			$valuep = $product_ref->{nutriments}{$nidp};
+		}
 		else {
 			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
