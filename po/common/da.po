@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-31 10:07\n"
+"PO-Revision-Date: 2020-06-11 15:41\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3454,6 +3454,14 @@ msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr "Tjek, at dataene på producentplatformen er korrekte, før de eksporteres til den offentlige database."
 
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
+
 msgctxt "cancel"
 msgid "Cancel"
 msgstr "Annullér"
@@ -4181,4 +4189,12 @@ msgstr "Tilføj nye poster, synonymer eller oversættelser til vores flersproged
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
 msgstr "Deltag i #ingredients-kanalen i <a href=\"https://slack.openfoodfacts.org\">vores Slack-debatrum</a> og/eller lær om <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediensanalyse via vores wiki</a>, hvis du gerne vil hjælpe. Tak!"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
+msgstr ""
 
