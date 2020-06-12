@@ -9039,9 +9039,18 @@ sub display_nutrition_table($$) {
 	my $comparisons_ref = shift;
 
 	my $html = '';
-
+	
+	# This function populates a data structure that is used by the template to display the nutrition facts table
+	
+	my $template_data_ref = {
+		
+		lang => \&lang,
+				
+		table_group => [],
+		carbon_footprint => [],
+	};	
+	
 	my @cols;
-
 
 	my %col_name = (
 	);
@@ -9120,16 +9129,14 @@ sub display_nutrition_table($$) {
 		'90' => 'stats',
 		'max' => 'stats',
 	);
-
-	my $comparsion_ref_defined;
-	my $comparison = {
-		values => [],
-	};
-
+	
 	# Comparisons with other products, categories, recommended daily values etc.
 
-	my $comparison_val;
 	if ((defined $comparisons_ref) and (scalar @$comparisons_ref > 0)) {
+
+		# Add a comparisons array to the template data structure
+		
+		$template_data_ref->{comparisons} = [];
 
 		my $i = 0;
 
@@ -9159,14 +9166,12 @@ CSS
 				$checked_html = ' checked="checked"';
 			}
 
-			push @{$comparison->{values}}, {
-				name => $colid,
-				checked_html => $checked_html,
+			push @{$template_data_ref->{comparisons}}, {
 				id => $colid,
-				compname => $comparison_ref->{name},
+				checked => $checked,
+				name => $comparison_ref->{name},
 				link => $comparison_ref->{link},
 				count => $comparison_ref->{count},
-		
 			};
 
 			$i++;
@@ -9217,6 +9222,10 @@ JS
 		}
 
 		if ($product_ref->{id} ne 'search') {
+			
+			# Show checkbox to display/hide stats for the category
+			
+			$template_data_ref->{category_stats} = 1;
 
 			$initjs .= <<JS
 
@@ -9742,27 +9751,12 @@ JS
 
 	}
 
-	my $template_data_ref = {
-		
-		lang => \&lang,
-
-		comparisons_len => scalar @$comparisons_ref,
-		
-
-		product_id => $product_ref->{id},
-		product_stats => $product_ref->{stats},
-
-		comparison_group => [],
-		table_group => [],
-		carbon_footprint => [],
-	};
-
-
-	push @{$template_data_ref->{comparison_group}}, $comparison;
 	push @{$template_data_ref->{table_group}}, $table_ref;
 	push @{$template_data_ref->{carbon_footprint}}, $carbon_row_ref;
 
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 
 	return $html;
 
