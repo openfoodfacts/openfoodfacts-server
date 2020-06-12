@@ -2984,7 +2984,14 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
-	if ($product_lc eq 'fr') {
+	if ($product_lc eq 'es') {
+
+		# Special handling for sal as it can mean salt or shorea robusta
+		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)
+		$text =~  s/\bsal \(shorea robusta\)/shorea robusta/ig;
+		$text =~  s/\bshorea robusta \(sal\)/shorea robusta/ig;
+	}
+	elsif ($product_lc eq 'fr') {
 
 		# huiles de palme et de
 
@@ -3032,6 +3039,7 @@ sub preparse_ingredients_text($$) {
 "mangue",
 "noisette",
 "noix",
+"noyaux de mangue",
 "olive",
 "olive extra",
 "olive vierge",

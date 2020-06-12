@@ -18470,6 +18470,19 @@ hu:mangómagolaj, mangóolaj
 # matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
 from_palm_oil:en:no
 
+# Warning: do not put "sal" as a synonym in languages where it also means salt
+
+en:sal tree, shorea robusta
+es:sala, shorea robusta
+fr:sal, shorea robusta
+it:Shorea robusta
+
+<en:vegetable oil
+en:Shorea robusta seed oil, Shorea robusta oil, Sal tree oil, Sal oil
+es:Aceite de shorea robusta, aceite de sal
+fr:Huile de sal, huile végétale de sal
+it:Olio di shorea robusta
+
 # ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
 # removing essential oils from vegetable oils (stephane 20190617)
