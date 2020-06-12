@@ -3,7 +3,7 @@
 
         [% FOREACH comparison IN comparisons %]
             <label style="display:inline;font-size:1rem;">
-				<input type="checkbox" id="[% comparison.id %]" name="[% comparison.id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> [% comparison.name %]</label>
+				<input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> [% comparison.name %]</label>
 
             [% IF comparison.count.defined %]
                 <a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
@@ -34,98 +34,46 @@
         
 [% END %]
 
+[% FOREACH table IN tables %]
 
-<table id="nutrition_data_table" class="data_table">
+<table id="[% table.id %]_data_table" class="data_table">
 
-    [% FOREACH group IN table_group %]
+	<thead class="nutriment_header">
+		<tr>
+			<th>[% table.header.name %]</th>
+			[% FOREACH column IN table.header.columns %]
+			<th class="nutriment_value [% column.class %]">[% column.name %]</th>
+			[% END %]
+		</tr>
+	</thead>
 
-        [% FOREACH tablehead IN group.header %]
-            <thead class="nutriment_header">
-                <tr>
-                    <th>
-                        [% tablehead.title %]
-                    </th>
-                    
-                    [% FOREACH tableheadvalue IN tablehead.columnValue %]
-                        <th class = "nutriment_value [% tableheadvalue.colclass %] [% tableheadvalue.col %]">
-                            [% tableheadvalue.colname %]
-                        </th>
-                    [% END %]
+	<tbody>
+		[% FOREACH row IN table.rows %]
 
-                </tr>
-            </thead>
-            
-        [% END %]
+			<tr id="nutriment_[% row.nid %]_tr" class="nutriment_[% row.class %]">
+			
+				<td class="nutriment_label">
+					[% row.name %]
+				</td>
+				
+				[% FOREACH column IN row.columns %]
+					[% IF column.type == 'normal' %]
+						<td class="nutriment_value [% column.class %]"[% tablevalue.rdfa %]>
+							[% column.value %]
+						</td>
+					[% ELSE %]
+						<td class="nutriment_value [% column.class %]">
+							<span class="compare_percent">[% column.percent %]</span>
+							<span class="compare_value" style="display:none">[% column.value %]</span>
+						</td>
+					[% END %]
+						 
+				[% END %]
+			
+			</tr>
 
-        <tbody>
-            [% FOREACH tablerow IN group.rows %]
-
-                <tr id=[% "nutriment_" _ tablerow.nid _ "_tr" %]  class=[% "nutriment_" _ tablerow.class %]>
-                
-                    <td class="nutriment_label">
-                        [% tablerow.name %]
-                    </td>
-                    
-                    [% FOREACH tablevalue IN tablerow.value %]
-                        [% IF tablevalue.coltype == 'noncompare' %]
-                            <td class="nutriment_value[% tablevalue.colclass %]"[% tablevalue.rdfa %]>
-                                [% tablevalue.rowvalue %]
-                            </td>
-                        [% ELSE %]
-                            <td class="nutriment_value[% tablevalue.colclass %]">
-                                <span class="compare_percent">[% tablevalue.percent %]</span>
-                                <span class="compare_value" style="display:none">[% tablevalue.valueunit %]</span>
-                            </td>
-                        [% END %]
-                             
-                    [% END %]
-                
-                </tr>
-
-            [% END %]
-        </tbody>
-    
-    [% END %]
-
-[% FOREACH group IN carbon_footprint %]
-    
-    <tr id="ecological_footprint">
-        <td style="padding-top:10px;font-weight:bold;">
-            [% lang('ecological_data_table') %]
-        </td>
-
-        [% FOREACH rowvalue IN group.row %]
-            [% FOREACH value IN rowvalue.value %]
-                <td>
-                </td>
-
-            [% END %]
-        [% END %]
-    
-    </tr>
-    [% FOREACH tablerow IN group.row %]
-        <tr id=[% "nutriment_" _ tablerow.nid _ "_tr" %]  class=[% "nutriment_" _ tablerow.class %]>
-
-            <td class="nutriment_label">
-                [% tablerow.name %]
-            </td>
-            
-            [% FOREACH tablevalue IN tablerow.value %]
-                [% IF tablevalue.coltype == 'noncompare' %]
-                    <td class="nutriment_value[% tablevalue.colclass %]"[% tablevalue.rdfa %]>
-                        [% tablevalue.rowvalue %]
-                    </td>
-                [% ELSE %]
-                    <td class="nutriment_value[% tablevalue.colclass %]">
-                        <span class="compare_percent">[% tablevalue.percent %]</span>
-                        <span class="compare_value" style="display:none">[% tablevalue.valueunit %]</span>
-                    </td>
-                [% END %]
-
-            [% END %]
-
-        </tr>
-    [% END %]
-[% END %]
-    
+		[% END %]
+	</tbody>
 </table>
+
+[% END %]    
