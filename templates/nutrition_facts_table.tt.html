@@ -1,9 +1,9 @@
-[% IF comparisons_len >0 %]
+[% IF comparisons.defined %]
     <p> [% lang('nutrition_data_comparison_with_categories') %] </p>
 
-    [% FOREACH group IN comparison_group %]
-        [% FOREACH comparison IN group.values %]
-            <label style="display:inline;font-size:1rem;"><input type="checkbox" name="[% comparison.name %]"" value="on" [% comparison.checked_html %] id="[% comparison.id %]" class="show_comparison"> [% comparison.compname %] </label>
+        [% FOREACH comparison IN comparisons %]
+            <label style="display:inline;font-size:1rem;">
+				<input type="checkbox" id="[% comparison.id %]" name="[% comparison.id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> [% comparison.name %]</label>
 
             [% IF comparison.count.defined %]
                 <a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
@@ -12,8 +12,7 @@
         <br>
 
         [% END %]
-    [% END %]
-   
+
 [% END %]
 
     <br>
@@ -24,9 +23,7 @@
 
     <p class="note">&rarr; [% lang('nutrition_data_comparison_with_categories_note') %]</p>
 
-[% IF product_stats.defined %]
-
-    [% IF product_id != 'search' %]
+[% IF category_stats.defined %]
 
         <div><input id="show_stats" type="checkbox">
             [% lang('show_category_stats') %]
@@ -34,10 +31,9 @@
                 [% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
             </span></label>
         </div>>
-
-    [% END %]
-
+        
 [% END %]
+
 
 <table id="nutrition_data_table" class="data_table">
 
