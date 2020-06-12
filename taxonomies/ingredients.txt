@@ -8056,7 +8056,7 @@ ar:حليب منزوع الدسم
 ca:llet descremada, llet desnatada, llet sense greix
 da:skummetmælk
 de:Magermilch, entrahmte Milch
-es:Leche descremada, Leche desnatada, leche sin grasas
+es:Leche descremada, Leche desnatada, leche sin grasas, leche desnatada de vaca
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:rasvaton maito
@@ -10626,6 +10626,10 @@ fr:fromage frais à la ciboulette
 fr:fromage frais au lait pasteurisé
 ca:formatge fresc pasteuritzat
 es:queso fresco pasteurizado
+
+<en:soft white cheese
+en:skimmed soft white cheese
+es:queso fresco desnatado
 
 # <en:compound
 <en:cheese
@@ -16767,7 +16771,7 @@ vegetarian:en:yes
 # comment:en:BUTTERFAT seems to be more than just butter, water has been removed
 
 <en:milkfat
-en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter,anhydrous butter
 bg:безводно масло
 bs:mliječna mast
 cs:mléčný tuk
@@ -16776,7 +16780,7 @@ da:smørolie
 de:Butterreinfett, wasserfreies Milchfett
 el:βούτυρο τηγμένο
 eo:laktograso
-es:grasa butírica, mantequilla concentrada
+es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 fi:voirasva, tiivistetty voi
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
 hu:vajzsír, vajolaj, derített vaj
@@ -23422,6 +23426,10 @@ de:getrockneter Gerstenmalzextrakt
 <en:barley malt extract
 fr:extrait de malte d'orge houblonné
 
+<en:malted barley
+en:malted barley flour
+es:harina de malta
+
 <en:rye
 <en:malt
 en:rye malt
@@ -23914,6 +23922,10 @@ es:Quinoa roja
 fi:punainen kvinoa
 fr:quinoa rouge
 hu:vörös kinoa
+
+<en:quinoa
+en:black quinoa
+es:quinoa negra
 
 
 # ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
@@ -24582,7 +24594,7 @@ ru:Ржаная мука
 <en:wholemeal flour
 en:wholemeal rye flour
 de:Roggenvollkornmehl
-es:flor de harina integral de centeno
+es:flor de harina integral de centeno,harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
 fr:farine de seigle complète, farine complète de seigle
 hu:teljes kiőrlésű rozsliszt
@@ -27673,6 +27685,7 @@ nl:Maltitolstroop
 
 en:sorbitol
 de:Sorbit
+es:sorbitol,sorbitoles
 fi:sorbitoli
 fr:sorbitol
 hu:szorbit, szorbitol
@@ -37625,7 +37638,7 @@ da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas
+es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas, uva desecada
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -44406,7 +44419,7 @@ fi:säilötty chili
 <en:chili pepper
 en:red chili pepper
 de:roter Chili, rote Chili-Schoten
-es:chile rojo, chiles rojos, red-chili
+es:chile rojo, chiles rojos, red-chili,chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
@@ -45856,8 +45869,12 @@ it:fagioli rossi
 
 <en:mung bean
 en:mung bean
-es:habas de mungo
+es:habas de mungo,judias mungo
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
+
+<en:mung bean
+en:Mung bean sprout,bean sprouts
+es:brotes de judia mungo
 
 <en:red beans
 en:small red beans
@@ -52038,7 +52055,7 @@ cs:kapary
 da:kapers
 de:Kapern
 eo:Kaporo
-es:Alcaparras
+es:Alcaparras,bayas de alcaparra
 fi:kapris
 fr:câpre, câpres
 io:Kapero
@@ -70552,6 +70569,7 @@ vegetarian:en:yes
 from_palm_oil:en:no
 
 en:peanut butter
+es:crema de cacahuete
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 vegan:en:yes
 vegetarian:en:yes
