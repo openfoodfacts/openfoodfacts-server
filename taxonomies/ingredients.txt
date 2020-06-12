@@ -46,11 +46,12 @@ vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
+stopwords:ca:i
 stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -6076,6 +6077,7 @@ nl:maïsdextrine
 <en:modified starch
 <en:potato starch
 en:modified potato starch, E1404
+ca:mido de patata
 de:modifizierte Kartoffelstärke
 es:almidón modificado de patata,almidon de patata modificado
 fi:muunnettu perunatärkkelys
@@ -8056,7 +8058,7 @@ ar:حليب منزوع الدسم
 ca:llet descremada, llet desnatada, llet sense greix
 da:skummetmælk
 de:Magermilch, entrahmte Milch
-es:Leche descremada, Leche desnatada, leche sin grasas
+es:Leche descremada, Leche desnatada, leche sin grasas, leche desnatada de vaca
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:rasvaton maito
@@ -10626,6 +10628,10 @@ fr:fromage frais à la ciboulette
 fr:fromage frais au lait pasteurisé
 ca:formatge fresc pasteuritzat
 es:queso fresco pasteurizado
+
+<en:soft white cheese
+en:skimmed soft white cheese
+es:queso fresco desnatado
 
 # <en:compound
 <en:cheese
@@ -16767,7 +16773,7 @@ vegetarian:en:yes
 # comment:en:BUTTERFAT seems to be more than just butter, water has been removed
 
 <en:milkfat
-en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter,anhydrous butter
 bg:безводно масло
 bs:mliječna mast
 cs:mléčný tuk
@@ -16776,7 +16782,7 @@ da:smørolie
 de:Butterreinfett, wasserfreies Milchfett
 el:βούτυρο τηγμένο
 eo:laktograso
-es:grasa butírica, mantequilla concentrada
+es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 fi:voirasva, tiivistetty voi
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
 hu:vajzsír, vajolaj, derített vaj
@@ -16811,6 +16817,10 @@ vegetarian:en:yes
 <en:milk
 en:milk solids
 es:solidos lacteos
+
+<en:milk
+en:lactose-free milk
+es:leche sin lactosa
 
 # decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -18384,12 +18394,13 @@ fr:tournesol oléique
 # ingredient/fr:tournesol-oléique has 55 products in french @2019-02-22
 # huiles végétales (tournesol oléique, colza, tournesol)
 
+
 # has a higher oleic oil fraction
 
 <en:sunflower oil
 en:high oleic sunflower oil
 de:High Oleic-Sonnenblumenöl
-es:aceite de girasol alto oleico,aceite refinado de girasol alto oleic
+es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
 it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
@@ -20032,7 +20043,7 @@ ca:vi negre
 da:rødvin
 de:Rotwein
 eo:ruĝa vino
-es:vino tinto
+es:vino tinto,vino tinto Mencia
 eu:ardo beltz
 fa:شراب سرخ
 fi:punaviini
@@ -23421,6 +23432,10 @@ de:getrockneter Gerstenmalzextrakt
 <en:barley malt extract
 fr:extrait de malte d'orge houblonné
 
+<en:malted barley
+en:malted barley flour
+es:harina de malta
+
 <en:rye
 <en:malt
 en:rye malt
@@ -23913,6 +23928,10 @@ es:Quinoa roja
 fi:punainen kvinoa
 fr:quinoa rouge
 hu:vörös kinoa
+
+<en:quinoa
+en:black quinoa
+es:quinoa negra
 
 
 # ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
@@ -24581,7 +24600,7 @@ ru:Ржаная мука
 <en:wholemeal flour
 en:wholemeal rye flour
 de:Roggenvollkornmehl
-es:flor de harina integral de centeno
+es:flor de harina integral de centeno,harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
 fr:farine de seigle complète, farine complète de seigle
 hu:teljes kiőrlésű rozsliszt
@@ -27672,6 +27691,7 @@ nl:Maltitolstroop
 
 en:sorbitol
 de:Sorbit
+es:sorbitol,sorbitoles
 fi:sorbitoli
 fr:sorbitol
 hu:szorbit, szorbitol
@@ -33373,7 +33393,7 @@ fr:pêches en cubes
 
 <en:peach
 en:saturn peach, donut peach, paraguayo
-es:paraguayo,chato
+es:paraguaya,chato
 wikipedia:en:https://en.wikipedia.org/wiki/Saturn_Peach
 
 <en:peach
@@ -37624,7 +37644,7 @@ da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas
+es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas, uva desecada
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -41853,7 +41873,7 @@ nv:Hazaʼaleehtsoh
 oc:Api
 os:Маламар
 pl:Selery zwyczajne, seler
-pt:aipo
+pt:aipo,aipos
 qu:Apiyu
 ro:Țelină
 ru:Сельдерей пахучий, сельдерей
@@ -44405,7 +44425,7 @@ fi:säilötty chili
 <en:chili pepper
 en:red chili pepper
 de:roter Chili, rote Chili-Schoten
-es:chile rojo, chiles rojos, red-chili
+es:chile rojo, chiles rojos, red-chili,chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
@@ -45855,8 +45875,12 @@ it:fagioli rossi
 
 <en:mung bean
 en:mung bean
-es:habas de mungo
+es:habas de mungo,judias mungo
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
+
+<en:mung bean
+en:Mung bean sprout,bean sprouts
+es:brotes de judia mungo
 
 <en:red beans
 en:small red beans
@@ -47019,6 +47043,11 @@ en:tigernut
 ca:xufa,xufas
 es:chufa,xufa,chufas,xufas
 wikipedia:en:https://en.wikipedia.org/wiki/Cyperus_esculentus
+
+<en:tigernut
+en:tigernut milk
+ca:orxata de chufa, orxata de xufa
+es:horchata de chufa
 
 <en:nut
 en:walnut, walnuts
@@ -48873,7 +48902,7 @@ ca:Herbes, herbes aromàtiques
 cs:Bylina
 da:urt
 de:Gewürz
-es:hierbas
+es:hierbas,finas hierbas
 fi:yrtti, yrtit, mausteyrtit
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
 he:עשב
@@ -52037,7 +52066,7 @@ cs:kapary
 da:kapers
 de:Kapern
 eo:Kaporo
-es:Alcaparras
+es:Alcaparras,bayas de alcaparra
 fi:kapris
 fr:câpre, câpres
 io:Kapero
@@ -59568,7 +59597,7 @@ de:Schwertfisch
 dv:ތުންގަނޑު ހިބަރު
 el:Ξιφίας
 eo:Spadofiŝo
-es:pez espada
+es:pez espada,emperador
 et:Mõõkkala
 eu:Ezpata-arrain
 fa:شمشیرماهی
@@ -61380,6 +61409,9 @@ wikidata:en:Q13596602
 wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
 
+<en:mollusc
+en:cephalopod ink
+es:tinta de cefalopodo
 
 # Clam is a common name for several kinds of bivalve molluscs.
 
@@ -67822,7 +67854,7 @@ da:Rasp
 de:Paniermehl, Panur, Semmelbrösel
 el:ψίχουλα ψωμιού
 eo:raspaĵo
-es:pan rallado
+es:pan rallado,migas de pan
 eu:Ogi birrindu
 fa:آرد سوخاری
 fi:Korppujauho
@@ -70551,6 +70583,7 @@ vegetarian:en:yes
 from_palm_oil:en:no
 
 en:peanut butter
+es:crema de cacahuete
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 vegan:en:yes
 vegetarian:en:yes
