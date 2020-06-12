@@ -46,6 +46,7 @@ vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
+stopwords:ca:i
 stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
@@ -6076,6 +6077,7 @@ nl:maïsdextrine
 <en:modified starch
 <en:potato starch
 en:modified potato starch, E1404
+ca:mido de patata
 de:modifizierte Kartoffelstärke
 es:almidón modificado de patata,almidon de patata modificado
 fi:muunnettu perunatärkkelys
@@ -33391,7 +33393,7 @@ fr:pêches en cubes
 
 <en:peach
 en:saturn peach, donut peach, paraguayo
-es:paraguayo,chato
+es:paraguaya,chato
 wikipedia:en:https://en.wikipedia.org/wiki/Saturn_Peach
 
 <en:peach
@@ -59595,7 +59597,7 @@ de:Schwertfisch
 dv:ތުންގަނޑު ހިބަރު
 el:Ξιφίας
 eo:Spadofiŝo
-es:pez espada
+es:pez espada,emperador
 et:Mõõkkala
 eu:Ezpata-arrain
 fa:شمشیرماهی
@@ -67852,7 +67854,7 @@ da:Rasp
 de:Paniermehl, Panur, Semmelbrösel
 el:ψίχουλα ψωμιού
 eo:raspaĵo
-es:pan rallado
+es:pan rallado,migas de pan
 eu:Ogi birrindu
 fa:آرد سوخاری
 fi:Korppujauho
