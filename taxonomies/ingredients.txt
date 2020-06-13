@@ -14737,7 +14737,7 @@ es:res puro
 
 <en:beef
 en:beef extract
-ca:extracte de res
+ca:extracte de res,extracte de bou
 de:Rindfleischextrakt
 es:extracto de res
 fi:naudanlihauute, häränlihauute
@@ -16408,6 +16408,7 @@ fr:coeur de porc
 <en:veal
 <en:meat
 en:veal meat
+ca:carn de vedella
 da:kalvekød
 de:Kalbsfleisch
 es:carne de ternera
@@ -18362,6 +18363,10 @@ de:Spanisches Bio-Olivenöl
 fi:luomu espanjalainen oliiviöljy
 nl:olie van biologische Spaanse olijven
 # nl:olie-van-biologische-spaanse-olijven has 2 products @2019-05-24
+
+<en:olive oil
+ca:oli de pinyolada d oliva
+es:aceite orujo de oliva
 
 <en:vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
@@ -30716,6 +30721,10 @@ en:milk chocolate chips
 es:pepitas de chocolate con leche
 
 <en:chocolate
+en:sugar free chocolate chips
+es:chispas de chocolate sin azucar
+
+<en:chocolate
 en:chocolate filling, filling cream with chocolate
 de:Schokoladenfüllung
 es:Relleno de chocolate
@@ -34826,7 +34835,7 @@ cy:Llugaeron
 da:Tranebær
 de:Moosbeeren, Cranberry, Cranberrys
 eo:Oksikoko
-es:arándano rojo, arándano
+es:arándano rojo, arándano,arandano,arandanos
 et:Jõhvikas, Harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
@@ -35666,6 +35675,14 @@ wikidata:en:Q89
 wikipedia:en:https://en.wikipedia.org/wiki/Apple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple
 # 5809 products in 12 languages @2018-10-05
+
+<en:apple
+en:green apple
+es:manzana verde, manzanas verdes
+
+<en:apple
+en:red apple
+es:manzana roja,manzanas rojas
 
 <en:apple
 nl:appels van biologisch-dynamische teelt
@@ -37601,7 +37618,7 @@ cs:Borůvka
 da:blåbær
 de:Heidelbeer, Heidelbeeren, Heidelbeere
 eo:mirtelo
-es:arándano, arándano azul, mora azul
+es:arándano azul, arándanos azules, arándano azul, mora azul
 fa:بیل‌بری
 fi:mustikka, pensasmustikka
 fr:myrtille
@@ -67802,6 +67819,7 @@ zh:禽类肝脏
 <en:poultry meat
 <en:chicken
 en:chicken meat
+ca:carn de pollastre
 da:Kylling
 de:Pouletfleisch, Hühnerfleisch
 es:Carne de pollo
