@@ -14419,6 +14419,9 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:beef
+en:roasted beef including beef juices
+
 <en:meat
 <en:beef
 en:beef meat, pure beef meat
@@ -15604,6 +15607,9 @@ pt:presunto
 <en:ham
 en:cured ham
 es:jamon serrano,jamon curado
+
+<en:ham
+en:smoked ham with natural juices
 
 <en:pork
 en:pork by-product
@@ -32355,10 +32361,11 @@ nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
+en:fruit and vegetable
 
 # FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
 
+<en:fruit and vegetable
 en:fruit
 ak:Aduaba
 an:Fruita
@@ -32529,8 +32536,7 @@ fi:eksoottiset hedelmät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
-<en:fruit
-<en:vegetable
+<en:fruit and vegetable
 fr:fruits et légumes concentrés, concentrés de fruits et de légumes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-et-légumes-concentrés
 # 18 products in 1 language @2018-10-02
@@ -39344,6 +39350,7 @@ it:bacche di goji essiccate
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+<en:fruit and vegetable
 en:vegetable, vegetables
 ca:Vegetals, Verdures
 cs:Zelenina
@@ -45071,6 +45078,10 @@ fi:tomaattimehu tiivisteestä
 it:succo di pomodoro ricavato da concentrato
 nl:tomatensap uit sapconcentraat
 # ingredient/fr:jus-de-tomate-à-partir-de-concentré has 149 products @2018-12-26
+
+<en:tomato juice
+<en:tomato
+en:tomatoes-in-tomato-juice
 
 <en:tomato purée
 <en:tomato pulp
@@ -64788,6 +64799,15 @@ fr:viande de cuisse de poulet
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
+<en:chicken meat
+en:chicken meat including chicken juices
+
+<en:chicken meat including chicken juices
+en:chicken meat including natural chicken juices, chicken meat and natural chicken juices, chicken meat with natural juices
+
+<en:chicken meat including chicken juices
+en:cooked chicken with natural juices
+
 # <en:broth
 <en:chicken
 en:Chicken Stock
@@ -65206,6 +65226,9 @@ fr:Escalopes de dinde
 <en:turkey meat
 fr:jambon de dinde cuit standard goût fumé
 # usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
+
+<en:turkey
+en:roasted turkey including natural turkey juices
 
 <en:poultry
 fr:caille, cailles
