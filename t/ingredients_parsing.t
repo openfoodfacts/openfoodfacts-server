@@ -205,6 +205,8 @@ my @lists =(
 
 	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
 
+	["es", "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216).", "Agua, edulcorantes (e420, e960, e952, e954, e950, e955), conservantes (e218, e202, e216)."],
+
 );
 
 foreach my $test_ref (@lists) {
