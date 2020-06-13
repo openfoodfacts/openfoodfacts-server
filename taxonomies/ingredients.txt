@@ -14105,7 +14105,7 @@ ca:Sal marina, sal maria de taula
 cs:Mořská sůl
 da:Havsalt
 de:Meersalz
-es:Sal marina, sal marina de mesa
+es:Sal marina, sal marina de mesa,sal del mar
 eu:Marsalo
 fa:نمک دریایی
 fi:Merisuola
@@ -14651,6 +14651,9 @@ carbon_footprint_fr_foodges_value:fr:55
 # fr:cotelettes d'agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
+<en:lamb
+en:lamb gut
+es:tripa nayural de cordero
 
 # description:en:RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
 
@@ -16046,7 +16049,7 @@ cs:Kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 eo:Maizamelo
-es:almidón de maíz, Maicena, almidon de maiz modificado,fecula de maiz
+es:almidón de maíz, Maicena, almidon de maiz modificado,fecula de maiz,almidones de maiz modificados
 eu:Maizena
 fa:نشاسته ذرت
 fi:Maissitärkkelys
@@ -17092,7 +17095,7 @@ cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
 eo:Palmoleo
-es:aceite de palma, grasa de palma, aceite vegetal de palma
+es:aceite de palma, grasa de palma, aceite vegetal de palma,aceite de nuez de palma
 et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
@@ -18569,7 +18572,7 @@ from_palm_oil:en:no
 <en:essential oil
 en:orange essential oil
 de:Orangenöl
-es:aceite esencial de naranja
+es:aceite esencial de naranja,aceite esencial de piel de naranja
 fi:appelsiiniöljy
 fr:huile essentielle d'orange
 hu:narancs illóolaj, narancsos illóolaj
@@ -24533,6 +24536,7 @@ fr:Farine de blé d'épeautre T110
 <en:wholemeal flour
 <en:spelt flour
 en:wholemeal spelt flour
+ca:farina de blat d'espelta integral
 de:Dinkelvollkornmehl
 es:harina de espelta integral,harina integral de espelta
 fi:täysjyväspelttijauho
@@ -24598,6 +24602,7 @@ fr:galette en blé noir
 
 <en:cereal flour
 en:rye flour
+ca:farina de blat de sègol,farina de blat de segol
 da:Rugmel
 de:Roggenmehl
 es:harina de centeno
@@ -29243,7 +29248,7 @@ da:mælkechokolade
 de:Milchschokolade, Vollmilch-Schokolade
 el:Σοκολάτα γάλακτος
 eo:laktoĉokolado
-es:chocolate con leche
+es:chocolate con leche,chocolate con leche extrafino
 eu:Esnedun txokolate
 fi:maitosuklaa
 fr:chocolat au lait, Chocolat au lait extra fin
@@ -30744,6 +30749,7 @@ nl:roggezuurdesem
 
 <en:sourdough
 en:wheat sourdough
+ca:massa mare de blat
 es:masa madre de trigo,masa madre natural de trigo
 
 <de:Roggensauerteig
@@ -48001,6 +48007,14 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
+<en:aniseed
+en:aniseed oil
+de:anisol
+es:aceite de anis
+fr:huile essentielle d'anis
+it:olio de semi di anice
+nl:anijsolie
+
 <en:mustard seed
 en:yellow mustard seed
 de:gelbes Senfkorn
@@ -49239,7 +49253,7 @@ ca:Macís
 cs:Muškátový květ
 de:Macis
 eo:Maciso
-es:Macis
+es:Macis,maza
 fi:muskottikukka
 fr:macis
 it:Macis
@@ -58374,6 +58388,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
 fr:limande
 
 <en:fish
+en:monkfish
+es:rape
+wikipedia:en:https://en.wikipedia.org/wiki/Lophius
+
+<en:fish
 en:oarfish
 ar:سمك مجدافي
 ca:Regalècid
@@ -64966,6 +64985,9 @@ fr:viande de poulet séparée mécaniquement
 <en:chicken meat
 de:Hühnerfleischpulver
 
+<en:chicken
+en:chicken protein
+es:proteina de pollo
 
 ######################### Duck ####################
 
@@ -65738,7 +65760,7 @@ de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
 fi:munanvalkuaisjauhe, kananmunanvalkuaisjauhe, kuivattu munanvalkuainen
-fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre
+fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre,poudre d'albumen
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
 nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
