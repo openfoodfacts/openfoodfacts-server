@@ -121,8 +121,6 @@ sub get_string_id_for_lang {
 		$string =~ s/œ|Œ/oe/g;
 		$string =~ s/æ|Æ/ae/g;
 		$string =~ s/ß|\N{U+1E9E}/ss/g;
-		# Remove diacritics marks -> use Unicode::Normalize instead
-		#$string =~ s/\N{COMBINING ACUTE ACCENT}|\N{COMBINING GRAVE ACCENT}|\N{COMBINING CIRCUMFLEX ACCENT}|\N{COMBINING TILDE}|\N{COMBINING DIAERESIS}//g;
 	}
 
 	# turn special chars and zero width space to -
