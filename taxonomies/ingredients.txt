@@ -51,7 +51,7 @@ stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added
-stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,nativa,por,categoria,calibre,minimo,min,vereidad,nota
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -18309,7 +18309,7 @@ cs:Slunečnicový olej
 da:solsikkeolie
 de:Sonnenblumenöl
 el:ηλιέλαιο, Ηλιέλαιο
-es:aceite de girasol,aceite vegetal de girasol,aceite de semillas de girasol
+es:aceite de girasol,aceite vegetal de girasol,aceite de semillas de girasol,aceite de maravilla
 et:Päevalilleõli
 eu:ekilore-olio
 fa:روغن آفتاب‌گردان
@@ -22084,6 +22084,10 @@ fr:son
 hu:korpa
 # ingredient/fr:son has 38 products in 2 languages @2019-02-10
 
+<en:bran
+en:bran flour
+es:harina de salvado
+
 en:cereal
 ca:Cereal
 cs:Cereálie
@@ -23736,7 +23740,7 @@ da:Havregryn
 de:Haferflocken
 el:νιφάφες βρώμης
 eo:Avenflokoj
-es:copos de avena
+es:copos de avena,hojuela de Avena
 eu:Olo-malutak
 fi:kaurahiutale, kaurahiutaleet
 fr:flocons d'avoine, flocon d'avoine
@@ -37779,6 +37783,10 @@ en:raisin concentrate
 de:Rosinenkonzentrat
 fi:rusinatiiviste
 fr:concentré de raisin
+
+<en:rasin
+en:rasin juice
+es:jugo de pasas
 
 # 1314 products in 6 languages @2018-10-02
 
@@ -62621,7 +62629,7 @@ dv:މާމުއި
 ee:Anyitsi
 el:μέλι
 eo:mielo
-es:miel,miel de azahar
+es:miel,miel de azahar,miel de abeja,miel de abejas
 et:mesi
 eu:Ezti
 fa:عسل
