@@ -47,24 +47,26 @@ vegetarian:en:ignore
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
 stopwords:ca:i
-stopwords:da:av, bl. a
-stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
+stopwords:da:av, blandt andet, bl a, inklusive, heraf
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added
+stopwords:en:contains, contain, from, with, produced with, with added, minimum
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
-stopwords:fi:sisältää,muun muassa,valio,snellmanin
+stopwords:fi:sisältää,muun muassa,valio,snellmanin, jossa
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
+stopwords:is:úr
 stopwords:it:contiene, nella
+stopwords:nb:av, fra, bl a, blant annet
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen
 stopwords:nn:av
-stopwords:pl:w tym
+stopwords:pl:w tym, zawiera
 stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
-stopwords:sv:från, med
+stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad
 stopwords:zh::配料
 
 # comment:en:Words that specify the ingredient before the preceding comma or ()
