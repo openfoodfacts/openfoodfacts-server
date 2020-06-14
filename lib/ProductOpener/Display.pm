@@ -99,6 +99,7 @@ BEGIN
 					$styles
 					$header
 					$bodyabout
+					$debug_template
 
 					$original_subdomain
 					$subdomain
@@ -287,6 +288,7 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
+	$debug_template = undef;
 
 	my $r = shift;
 
@@ -549,7 +551,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -562,6 +564,11 @@ sub analyze_request($)
 			# If the parameter is field decode "%2C" to ","
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
+			}
+			
+			if ($parameter eq "debug_template") {
+				# Use a global variable so that we can access it in functions that do not have $request_ref as a parameter
+				$debug_template = $request_ref->{$parameter};
 			}
 
 			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
@@ -9046,7 +9053,25 @@ sub display_nutrition_table($$) {
 		
 		lang => \&lang,
 				
-		table_group => [],
+		tables => [
+			{
+				id => "nutrition",
+				header => {
+					name => lang('nutrition_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},
+			{
+				id => "ecological",
+				header => {
+					name => lang('ecological_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},			
+		],
+		
 		carbon_footprint => [],
 	};	
 	
@@ -9142,13 +9167,13 @@ sub display_nutrition_table($$) {
 
 		foreach my $comparison_ref (@$comparisons_ref) {
 
-			my $colid = "compare_" . $i;
+			my $col_id = "compare_" . $i;
 
-			push @cols, $colid;
-			$col_class{$colid} = $colid;
-			$col_name{$colid} =  $comparison_ref->{name};
+			push @cols, $col_id;
+			$col_class{$col_id} = $col_id;
+			$col_name{$col_id} =  $comparison_ref->{name};
 
-			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
+			$log->debug("displaying nutrition table comparison column", { colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 
 			my $checked = 0;
 			if (defined $comparison_ref->{show}) {
@@ -9156,7 +9181,7 @@ sub display_nutrition_table($$) {
 			}
 			else {
 				$styles .= <<CSS
-.$colid { display:none }
+.$col_id { display:none }
 CSS
 ;
 			}
@@ -9167,7 +9192,7 @@ CSS
 			}
 
 			push @{$template_data_ref->{comparisons}}, {
-				id => $colid,
+				col_id => $col_id,
 				checked => $checked,
 				name => $comparison_ref->{name},
 				link => $comparison_ref->{link},
@@ -9260,42 +9285,22 @@ JS
 
 		}
 	}
-
-	my $table_ref = {
-		header => [],
-		rows => [],
-	};
-
-	my $carbon_row_ref = {
-		row => [],
-	};
-
-	my $empty_cols = '';
-	my $html2 = '';
 	
-	my @columnValue;
+	# Tables header columns (for 2 columns: nutrition + ecological)
+	
+	for (my $i = 0; $i <2 ; $i++) {
+	
+		foreach my $col (@cols) {
 
-	foreach my $col (@cols) {
-		my $col_class = '';
-		if (defined $col_class{$col}) {
-			$col_class = ' ' . $col_class{$col} ;
+			push (@{$template_data_ref->{tables}[$i]{header}{columns}}, { 
+				col_id => $col,
+				class => $col_class{$col},
+				name => $col_name{$col},
+			});
 		}
-
-		my $col_name = $col_name{$col};
-
-		push (@columnValue, { 
-			colclass => $col_class,
-			col => $col,
-			colname => $col_name,
-		});
-
 	}
-
-	push @{$table_ref->{header}}, {
-		title => lang("nutrition_data_table"),
-		columnValue => \@columnValue,
-	};
-
+	
+	# Tables body columns
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -9322,6 +9327,9 @@ JS
 			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
 		}
 	}
+	
+	my $decf = get_decimal_formatter($lc);
+	my $perf = get_percent_formatter($lc, 0);	
 
 	foreach my $nutriment (@nutriments) {
 
@@ -9331,7 +9339,7 @@ JS
 		$nid =~ s/-$//g;
 
 		next if $nid eq 'sodium';
-
+		
 		my $class = 'main';
 		my $prefix = '';
 
@@ -9362,8 +9370,7 @@ JS
 			}
 		}
 
-		my $label = '';
-		my $label_temp;
+		my $name;
 
 		# display nutrition score only when the country is matching
 
@@ -9373,23 +9380,20 @@ JS
 				$shown = 0;
 			}
 			else {
-				$label_temp = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';
-			
+				$name = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';		
 			}
 		}
 
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {	
-			$label_temp = $prefix.$Nutriments{$nid}{$lang};
+			$name = $prefix . $Nutriments{$nid}{$lang};
 
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$label_temp = $prefix.$Nutriments{$nid}{en};
+			$name = $prefix . $Nutriments{$nid}{en};
 
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-			$label_temp = $label_value;
-
+			$name = $product_ref->{nutriments}{$nid . "_label"};
 		}
 
 		my $unit = 'g';
@@ -9404,30 +9408,30 @@ JS
 
 		my $values;
 		my $values2;
-		my @values_template_ref;
-		my @values2_template_ref;
-		my @carbon_ref;
-
-		my $decf = get_decimal_formatter($lc);
-		my $perf = get_percent_formatter($lc, 0);
+		
+		my @columns;
+		my @extra_row_columns;
+		my @ecological_impact_columns;
 
 		foreach my $col (@cols) {
-			$values = '';
-			$values2 = '';
+			
+			$values = '';	# Value for row
+			$values2 = '';	# Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 			my $col_class = '';
 			my $percent = '';
-			my $property = '';
-			my $rdfa = '';
-			my $col_type = '';
+
+			my $rdfa = '';	# RDFA property for row
+			my $rdfa2 = '';	# RDFA property for extra row
+			
+			my $col_type;
 
 			if (defined $col_class{$col}) {
 				$col_class = ' ' . $col_class{$col} ;
-				
 			}
 
 			if ($col =~ /compare_(.*)/) {	#comparisons
 
-				$col_type = "compare";
+				$col_type = "comparison";
 
 				my $comparison_ref = $comparisons_ref->[$1];
 
@@ -9443,9 +9447,9 @@ JS
 
 				# 0.045 g	0.0449 g
 
-				$values2 = "$value $unit";
+				$values = "$value $unit";
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-					$values2 = '?';
+					$values = '?';
 				}
 				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 					# Use the actual value in kcal if we have it
@@ -9457,7 +9461,7 @@ JS
 					else {
 						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
 					}
-					$values2 .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
+					$values .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 				}
 
 				$percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
@@ -9481,7 +9485,6 @@ JS
 					}
 					else {
 						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
-						
 					}
 				}
 				if ($nid eq 'salt') {
@@ -9490,7 +9493,6 @@ JS
 					}
 					else {
 						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
-
 					}
 				}
 
@@ -9512,17 +9514,13 @@ JS
 						my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_100g"},
 							is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
-						# $col_type = "noncompare";
 						$values2 .= uc ($nutriscore_grade);
-						#$values = uc ($nutriscore_grade);
 					}
 				}
-
 			}
 			else {
-				$col_type = "noncompare";
+				$col_type = "normal";
 				my $value_unit = "";
-				
 
 				# Nutriscore: per serving = per 100g
 				if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
@@ -9572,11 +9570,10 @@ JS
 					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 					}
-					$property = '';
 					if (defined $salt) {
 						$salt = $decf->format(g_to_unit($salt, $unit));
 						if ($col eq '100g') {
-							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+							$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
 						}
 						$salt .= " " . $unit;
 					}
@@ -9593,11 +9590,10 @@ JS
 					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 					}
-					$property = '';
 					if (defined $sodium) {
 						$sodium = $decf->format(g_to_unit($sodium, $unit));
 						if ($col eq '100g') {
-							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+							$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 						}
 						$sodium .= " " . $unit;
 					}
@@ -9621,18 +9617,13 @@ JS
 
 					if (defined $product_ref->{categories_tags}) {
 
-						if ($col eq "std") {
-							$values2 .= '';
-						}
-						else {
+						if ($col ne "std") {
+
 							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
 								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
 							$values2 .= uc ($nutriscore_grade);
 						}
-					}
-					else {
-						$values2 .= '';
 					}
 				}
 				elsif ($col eq $product_ref->{nutrition_data_per}) {
@@ -9653,113 +9644,99 @@ JS
 			}
 			
 			if (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')){
-				push (@carbon_ref, {
-					rowvalue => $values,
-					colclass => $col_class,
+				push (@ecological_impact_columns, {
+					value => $values,
+					class => $col_class,
 					percent => $percent,
-					property => $property,
-					coltype => $col_type,
+					type => $col_type,
 				});
 			}
 
-			push (@values_template_ref, {
-				rowvalue => $values,
-				valueunit => $values2,
-				colclass => $col_class,
-				percent => $percent,
-				property => $property,
+			push (@columns, {
+				value => $values,
 				rdfa => $rdfa,
-				coltype => $col_type,
-			});
-
-			push (@values2_template_ref, {
-				rowvalue => $values2,
-				colclass => $col_class,
+				class => $col_class,
 				percent => $percent,
-				property => $property,
-				coltype => $col_type,
+				type => $col_type,
+			});
+
+			push (@extra_row_columns, {
+				value => $values2,
+				rdfa => $rdfa2,
+				class => $col_class,
+				percent => $percent,
+				type => $col_type,
 			});
 		}
 
-		my $empty = 0;
-		foreach my $x (@values_template_ref){
-			foreach my $y ($x -> {rowvalue}){
-				if (($y ne '?') and ($y ne '')){
-					$empty = 1;
-				}
-			}	
-		}
-
-		if ($empty eq 1){
+		if ($shown) {
 
 			if (($nid ne 'carbon-footprint') and ($nid ne 'carbon-footprint-from-meat-or-fish')) {
 
-				push @{$table_ref -> {rows}}, {
+				push @{$template_data_ref->{tables}[0]{rows}}, {
 					nid => $nid,
 					class => $class,
-					name => $label_temp,
-					value => \@values_template_ref,
-
+					name => $name,
+					columns => \@columns,
 				};
 
 				if (($nid eq 'sodium') and ($values2 ne '')) {
 
-					push @{$table_ref -> {rows}}, {
+					push @{$template_data_ref->{tables}[0]{rows}}, {
 						name => lang("salt_equivalent"),
 						nid => "salt_equivalent",
 						class => "sub",
-						value => \@values2_template_ref,
+						columns => \@extra_row_columns,
 					};
 				}
 
 				if (($nid eq 'salt') and ($values2 ne '')) {
 
-					push @{$table_ref -> {rows}}, {
+					push @{$template_data_ref->{tables}[0]{rows}}, {
 						name => $Nutriments{sodium}{$lang},
 						nid => "sodium",
 						class => "sub",
-						value => \@values2_template_ref,
-
+						columns => \@extra_row_columns,
 					};
 				}
 
 				if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
 
-					push @{$table_ref -> {rows}}, {
+					push @{$template_data_ref->{tables}[0]{rows}}, {
 						name => "Nutri-Score",
 						nid => "nutriscore",
 						class => "sub",
-						value => \@values2_template_ref,
-
+						columns => \@extra_row_columns,
 					};
 				}
 			}
 
-			else{
+			else {
 
-				push @{$carbon_row_ref -> {row}}, {
+				push @{$template_data_ref->{tables}[1]->{rows}}, {
 					nid => $nid,
 					class => $class,
-					name => $label_temp,
-					value => \@carbon_ref,
-
-				};
-			
+					name => $name,
+					columns => \@ecological_impact_columns,
+				};	
 			}
-
 		}
-
 	}
-
-	push @{$template_data_ref->{table_group}}, $table_ref;
-	push @{$template_data_ref->{carbon_footprint}}, $carbon_row_ref;
+	
+	# Remove the ecological table if we have no rows
+	
+	if (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0) {
+		pop @{$template_data_ref->{tables}};
+	}
 
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
-	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	if ((defined $debug_template)
+		and ($debug_template eq "nutrition_facts_table")) {
+		$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	}
 
 	return $html;
-
 }
 
 
