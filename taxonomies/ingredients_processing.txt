@@ -331,10 +331,16 @@ en:juice, juices, juices of, juice from
 #en:comment:juice and mango pulp, juices and purees of fruit, vegetable juice color, chicken-meat-including-chicken-juices, juice-concentrates, reconstituted-vegetable-juice-blend, tomatoes-in-tomato-juice, chicken-meat-including-natural-chicken-juices, fruit-and-vegetable-juice-color, beet-juice-color
 da:saft
 de:saft
-es:zumo de, zumo, jugo, jugo de
+es:jugo, jugo de
 fr:jus de, jus d'
+it:succo, succo di, succo d'
 nl:sap
 sv:juice
+
+
+<en:juice
+#en:description: es:zumo is kept separate from the more generic es:jugo. It is only applicable to fruit.
+es:zumo de, zumo
 
 <en:juice
 de:direktsaft
@@ -344,6 +350,7 @@ de:dicksaft
 nl:diksap
 
 en:juice solids
+es:solidos de jugo
 
 en:juice crystals
 
