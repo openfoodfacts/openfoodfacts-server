@@ -487,6 +487,9 @@ zh:色素
 wikidata:en:Q753009
 # ingredient/fr:colorant-alimentaire has 67 products in 5 languages @2019-03-27
 
+<en:colour
+en:oncentrated plant colour
+de:färbendes Pflanzenkonzentrat
 
 <en:colour
 en:natural colours
@@ -28209,9 +28212,12 @@ ru:Гороховый протеин
 sv:Ärtprotein
 
 <en:pea protein
+en:pea protein isolate
+es:aislado de proteina de guisante
 fr:isolat de proteines de pois
 fi:herneproteiini-isolaatti
 hu:borsófehérje izolátum
+wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -39437,7 +39443,7 @@ ca:Vegetals, Verdures
 cs:Zelenina
 da:Grøntsag
 de:Gemüse
-es:verduras, hortalizas, vegetal,vegetales
+es:verduras, hortaliza,hortalizas, vegetal,vegetales
 fi:kasvis
 fr:légume, légumes
 he:ירק
@@ -39582,6 +39588,10 @@ zh:根菜
 # h-hant:根菜
 wikidata:en:Q20136
 wikipedia:en:https://en.wikipedia.org/wiki/List_of_root_vegetables
+
+<en:vegetable
+en:tuber,tubers
+es:tubérculo,tubérculos 
 
 # description:en:Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
 
@@ -40283,6 +40293,11 @@ zh:蒜
 wikidata:en:Q21546392
 wikipedia:en:https://en.wikipedia.org/wiki/Garlic
 # en:garlic has 22470 products in 18 languages @2018-10-23
+
+<en:garlic
+en:tender garlic
+es:ajo tierno,ajete
+
 
 <en:garlic
 en:garlic puree
@@ -42590,12 +42605,12 @@ fr:oignon fumé en poudre
 
 # <en:Vegetables
 <en:onion
-en:green onion, scallions, spring onion, Spring onions, Green onions
+en:green onion, scallions, spring onion, Spring onions, Green onions,chive
 ar:البصل الاخضر
 da:Forårs-Løg
 de:Frühlingszwiebeln
 eo:Askolonio
-es:Cebolla de primavera, Cebolletas tiernas
+es:Cebolla de primavera, Cebolletas tiernas,cebollino
 et:Roheline sibul
 fa:پیازچه
 fi:Vihersipuli, vihersipulit
@@ -67713,9 +67728,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Neapolitan_wafer
 # usage:de:Waffel (Weizenmehl, Zucker, Hühnereigelbpulver, Palmöl, Rahmpulver, Emulgator:Sojalecithin, Backtriebmittel:E500ii , Caramelzuckersirup, Kochsalz jodiert)
 
 # <en:compound
-en:wafers
+en:wafer,wafers
 de:oblaten
-es:pan ácimo
+es:oblea,obleas
 fi:Vohvelit
 fr:pain azyme
 it:wafer
