@@ -14375,6 +14375,12 @@ zh:肉
 vegan:en:no
 vegetarian:en:no
 
+en:offal
+es:visceras
+fr:abats
+vegan:en:no
+vegetarian:en:no
+wikipedia:en:https://en.wikipedia.org/wiki/Offal
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate.
 
@@ -14498,6 +14504,8 @@ es:corazón de res, corazón de ternera
 fi:naudan sydän
 fr:Cœur de bœuf
 hu:marhaszív
+vegan:en:no
+vegetarian:en:no
 wikidata:en:Q63327617
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-syd%C3%A4n
 # 1 entry @ 2019-11-02
@@ -15191,7 +15199,15 @@ es:paleta de cerdo
 <en:meat
 <en:pork
 en:pig cheek
-es:galtes,galets,papada de cerdo
+ca:galtes,galets
+es:galtes,galets,carrillada de cerdo
+vegan:en:no
+vegetarian:en:no
+
+<en:pork
+en:dewlap
+es:papada de cerdo
+wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
 
 <en:animal protein
 <en:pork
@@ -15371,14 +15387,30 @@ zh:煙肉
 # sco:baucon
 # wuu:烟肉
 # yue:煙肉
+vegan:en:no
+vegetarian:en:no
 wikidata:en:Q11106
 wikipedia:en:https://en.wikipedia.org/wiki/Bacon
 # ingredient/bacon has 807 products in 16 languages @2019-05-10
 
 <en:pork
+en:pork heart
+fr:coeur de porc
+vegan:en:no
+vegetarian:en:no
+
+<en:pork
+en:pork kidney
+fr:rogons de porc
+vegan:en:no
+vegetarian:en:no
+
+<en:pork
 en:pepperoni
 es:pepperoni
 wikipedia:en:https://en.wikipedia.org/wiki/Pepperoni
+vegan:en:no
+vegetarian:en:no
 
 <en:bacon
 en:smoked bacon
@@ -49111,7 +49143,7 @@ da:Cayennepeber
 de:Cayennepfeffer
 el:Καγιέν
 eo:Kajena pipro
-es:pimienta de cayena, pimienta roja,cayena
+es:pimienta de cayena, pimienta roja,cayena,ají cayena
 eu:Kaiena
 fi:Cayennepippuri
 fr:piment de Cayenne, cayenne, poivre de cayenne
