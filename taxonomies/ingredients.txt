@@ -2619,6 +2619,19 @@ de:Apfelpectin
 es:pectina de manzana
 fr:pectine de pomme
 
+# description:en:Modified citrus pectin (also known as CITRUS PECTIN, Pecta-Sol and MCP) is a modified, more digestible form of pectin. It is obtained from the peels, seeds and pulp of citrus fruits using a chemical extraction process.
+
+<en:fruit pectin
+<en:citrus
+en:citrus pectin, modified citrus pectin
+de:zitruspektin, citrus-pektin
+fi:sitruspektiini
+fr:pectine d'agrumes
+sv:citruspektin
+wikidata:en:Q6889398
+wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
+# ingredient/en:citrus-pectin has 328 products in 3 languages @2020-05-21
+
 <en:pectin
 en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
 bg:Амидиран пектин
@@ -6438,6 +6451,21 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
 
 <en:lactic ferments
+en:skyr cultures
+da:skyr kultur
+de:Skyr-Kulturen
+fi:skyrhapatteet
+fr:cultures de skyr
+is:skyrgerlar
+nl:skyr-culturen
+# ingredient/fr:cultures-de-skyr has 8 products in 3 languages @2020-06-08
+
+<en:lactic ferments
+en:sourdough starter, sourdough culture
+da:surdejskultur
+# ingredient/en:sourdough-culture has 43 products in 2 languages @2020-06-08
+
+<en:lactic ferments
 en:vegan lactic ferments
 da:vegansk yoghurtkultur
 de:vegane Joghurtkulturen
@@ -6854,6 +6882,11 @@ uk:Lactobacillus rhamnosus
 wikidata:en:Q1607640
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
 
+<en:Lactobacillus rhamnosus
+en:Lactobacillus rhamnosus GG
+fi:Lactobacillus rhamnosus GG
+# ingredient/fi:Lactobacillus-rhamnosus-GG has 1 product in 2 languages @2020-06-08
+
 # description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
 
 <en:lactic ferments
@@ -7152,6 +7185,15 @@ sv:mikrobiell ostlöpe, mikrobiellt ystenzym, mikrobiellt löpe
 vegan:en:yes
 vegetarian:en:yes
 
+<en:rennet
+en:vegetable rennet
+da:vegetabilsk osteløbe
+fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
+fr:présure végétale
+sv:vegetabiliskt ystenzym
+vegan:en:yes
+vegetarian:en:yes
+# ingredient/en:vegetable-rennet has 133 products in 1 language @2020-06-08
 
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 # coment:en:when indicated, probably alpha-amylase is meant
@@ -8647,6 +8689,14 @@ fr:lait entier de brebis
 ca:llet sencera d'ovella, llet d'ovella sencera
 es:leche entera de oveja, leche de oveja entera
 
+# <en:aggregate
+<en:goat's milk
+<en:sheeps milk
+en:sheep and goat milk, goat and sheep milk
+fi:vuohen ja lampaan maito, lampaan ja vuohen maito
+fr:lait de brebis et de chèvre
+# ingredient/en:sheep-and-goat-milk has 7 products in 1 language @2020-05-21
+
 ################################# BUFFALO MILKS ################################
 
 <en:milk
@@ -9715,6 +9765,11 @@ nl:weipermeaat poeder
 en:sheep's whey, Sheep's milk serum
 es:suero láctico de oveja
 
+<en:whey
+en:condensed whey
+fi:kondensoitu hera
+# ingredient/en:condensed-whey has 55 products in 7 languages @2020-05-24
+
 ################################## CREAM related stuff #########################
 
 # description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
@@ -9939,6 +9994,19 @@ it:panna intera
 nl:volle room
 # ingredient/whole-cream has 66 products in 4 languages @2019-07-12
 
+<en:cream
+en:whipping cream
+da:piskefløde
+fi:kuohukerma
+fr:crème à fouetter
+sv:vispgrädde
+# ingredient/fr:creme-a-fouetter has 21 products in 5 languages @2020-05-21
+
+<en:whipping cream
+en:pasteurized whipping cream
+fi:pastöroitu kuohukerma
+sv:pastöriserad vispgrädde
+# ingredient/sv:pastöriserad-vispgrädde has 2 products in 2 languages @2020-05-25
 
 <en:cream
 en:whipped cream
@@ -12308,6 +12376,86 @@ de:käsezubereitung
 es:preparación de quesos
 # fr:préparation-fromagère has 40 products in 1 language @2018-10-28
 
+# MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
+
+<en:cheese
+en:monterey jack, monterey jack cheese
+de:monterey jack
+es:monterey jack
+fi:monterey jack
+fr:monterey jack
+it:monterey jack
+ja:モントレー・ジャック
+ko:몬터레이 잭
+nb:monterey jack
+pl:monterey jack
+th:มอนเตอเรย์แจ็ก
+tr:monterey jack
+zh:傑克芝士
+wikidata:en:Q1056415
+wikipedia:en:https://en.wikipedia.org/wiki/Monterey_Jack
+# ingredient/en:monterey-jack has 55 products in 1 language @2020-06-08
+
+<en:monterey jack
+en:pepper jack, pepper jack cheese
+# ingredient/en:pepper-jack has 5 products in 1 language @2020-06-08
+
+# HALLOUMI or haloumi is a semi-hard, unripened, brined cheese made from a mixture of goat's and sheep's milk, and sometimes also cow's milk.
+
+<en:cheese
+en:halloumi, halloumi cheese
+af:halloumi
+ar:حلوم
+bg:халуми
+ca:hellim
+cs:halloumi
+cy:halloumi
+de:halloumi
+el:χαλλούμι
+eo:halumo
+es:halloumi
+fi:halloumi
+fr:halloumi
+he:חלומי
+id:halloumi
+is:halloumi
+it:halloumi
+ja:ハルーミ
+ko:할루미
+ku:helîme
+la:chalumium
+nb:halloumi
+nl:halloumi
+pl:halloumi
+pt:halloumi
+ru:халлуми
+sv:halloumi
+tr:hellim
+uk:халлумі
+ur:حلومی
+zh:哈羅米芝士
+wikidata:en:Q549793
+wikipedia:en:https://en.wikipedia.org/wiki/Halloumi
+# ingredient/fr:halloumi has 1 product in 1 language @2020-06-08
+
+# description:en:VÄSTERBOTTEN CHEESE is a cheese from the Västerbotten region of Sweden.
+
+<en:cheese
+en:västerbotten cheese
+da:västerbottensost
+de:västerbotten-käse
+es:queso västerbotten
+fi:västerbotten-juusto
+fr:västerbottensost
+id:keju västerbotten
+ja:ヴェステルボッテン・チーズ
+la:caseus botniae occidentalis
+ro:brânza västerbotten
+sv:västerbottensost
+# bar:västerbotten kaas
+wikidata:en:Q2096655
+wikipedia:en:https://en.wikipedia.org/wiki/V%C3%A4sterbotten_cheese
+# ingredient/sv:västerbottensost has 2 products in 1 language @2020-06-08
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -14321,6 +14469,10 @@ fr:fleur de sel de Guérande
 nl:fleur de sel uit Guérande
 
 
+<en:sea salt
+en:sea salt flakes
+sv:saltflingor
+# ingredient/en:sea-salt-flakes has 4 products in 2 languages @2020-06-08
 
 # Sodium iodide (chemical formula NaI) is an ionic compound formed from the chemical reaction of sodium metal and iodine.
 
@@ -14481,6 +14633,70 @@ uk:М'ясо
 zh:肉
 vegan:en:no
 vegetarian:en:no
+
+# <en:compound
+en:meat preparation
+fi:lihavalmiste
+fr:préparation de viande
+wikidata:en:Q12553507
+
+#comment:en:Finnish regulatory labeling for meat products
+
+#comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
+#comment:en:usually around 90% meat
+<en:meat
+fi:kokolihavalmiste
+sv:helköttsprodukt
+# ingredient/sv:helköttsprodukt has 1 product in 2 languages @2020-05-21
+
+#comment:en:'ham preparation' or 'ham cut' is used for a meat preparation containing ham and in addition meat protein or other protein preparations or other binders (fiber preparations and modified starches), and which differs from sliced sausage in terms of degree of mincing and  the method of preparation.
+#comment:en:usually 65 - 80 % meat
+<en:meat preparation
+fi:kinkkuvalmiste, kinkkuleike
+sv:skinkprodukt
+
+<en:meat
+fi:ruokamakkara
+
+# description:en:A MEATBALL is ground meat rolled into a small ball, sometimes along with other ingredients, such as bread crumbs, minced onion, eggs, butter, and seasoning.
+
+<en:meat
+en:meatball, meatballs
+ar:كرات اللحم
+az:tefteli
+be:тэфтэлі
+bg:кюфте
+ca:mandonguilla
+cs:masové koule
+de:fleischklößchen
+el:κεφτές
+eo:viandobulo
+es:albóndiga
+eu:haragi-bola
+fa:کله‌گنجشکی
+fi:lihapulla, lihapullat, lihapyörykkä, lihapyörykät
+fr:boulette de viande
+gl:albóndega
+gn:so'o josopy
+id:bola daging
+ja:ミートボール
+kk:тефтели
+ko:고기완자
+nl:gehaktbal
+pt:almôndega
+ro:pârjoală
+ru:тефтели
+sv:köttbulle, köttbullar
+tl:almondigas
+uk:тефтелі
+vi:thịt viên
+zh:肉丸
+# ceb:bolabola
+# hak:ngiuk-yèn
+# zh_yue:肉丸
+wikidata:en:Q4831844
+wikipedia:en:https://en.wikipedia.org/wiki/Meatball
+# ingredient/en:meatball has 22 products in 1 language @2020-06-13
 
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate.
@@ -14676,6 +14892,13 @@ it:fegato di maiale
 
 en:cow
 es:vaca
+
+<en:bone
+<en:beef
+en:beef bones
+fi:naudan luut, naudan lihaisat luut
+fr:os de boeuf
+sv:ben av nöt, köttiga ben av nöt
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
@@ -15194,6 +15417,37 @@ wikidata:en:Q2296872
 wikipedia:en:https://en.wikipedia.org/wiki/Venison
 # ingredient/fr:viande-de-cerf has 26 products in 4 languages @2019-04-16
 
+<en:deer
+en:reindeer, caribou
+da:rensdyr
+de:ren
+es:reno
+fi:poro
+fr:renne
+nb:rein
+pl:ren
+sv:ren
+wikidata:en:Q5410921
+wikipedia:en:https://en.wikipedia.org/wiki/Reindeer
+# ingredient/fr:renne has 1 product in 1 language @2020-06-08
+
+<en:venison
+<en:reindeer
+en:reindeer meat, caribou meat
+fi:poronliha
+fr:viande de renne
+sv:renkött
+wikidata:en:Q10650944
+# <category:en:Reindeer meat
+# ingredient/fi:poronliha has 3 products in 2 languages @2020-05-21
+
+<en:reindeer meat
+en:reindeer shoulder
+fi:poron lapa
+fr:épaule de renne
+sv:renbog
+# ingredient/fi:poron-lapa has 1 product in 2 languages @2020-06-08
+
 <en:sheeps meat
 <en:sheeps fat
 fr:viande et gras de mouton
@@ -15223,6 +15477,264 @@ uk:Мергези
 wikipedia:en:https://en.wikipedia.org/wiki/Merguez
 # ingredient/fr:merguez has 63 products in french @2019-03–22
 
+<en:animal
+en:horse
+af:perd
+am:ፈረስ
+an:equus caballus
+ar:خيل
+as:ঘোঁৰা
+av:чу
+ay:kawallu
+az:ev atı
+ba:йорт аты
+be:конь свойскі
+bg:кон
+bi:horse
+bn:ঘোড়া
+bo:རྟ།
+br:marc'h
+bs:konj
+ca:cavall
+co:cavaddu
+cs:kůň
+cv:килти лаша
+cy:ceffyl
+da:hest
+de:hauspferd
+el:άλογο
+eo:ĉevalo
+es:equus ferus caballus
+et:hobune
+eu:zaldi
+fa:اسب
+fi:hevonen
+fj:ose
+fo:ross
+fr:cheval
+fy:hynder
+ga:capall
+gd:each
+gl:cabalo
+gn:kavaju
+gu:ઘોડો
+gv:cabbyl
+he:סוס הבית
+hi:घोड़ा
+hr:domaći konj
+ht:cheval
+hu:ló
+hy:ձի
+ia:cavallo
+id:kuda
+ik:tuttuqpak
+io:kavalo
+is:hestur
+it:equus ferus caballus
+ja:ウマ
+jv:jaran
+ka:შინაური ცხენი
+kk:жылқы
+kn:ಕುದುರೆ
+ko:말
+ks:گُر
+ku:hesp
+kv:вӧв
+kw:margh
+ky:жылкы
+la:equus ferus caballus
+li:taam peerd
+ln:farása
+lo:ມ້າ
+lt:naminis arklys
+lv:mājas zirgs
+mg:soavaly
+mk:коњ
+ml:കുതിര
+mn:адуу
+mr:घोडा
+ms:kuda
+mt:żiemel
+my:မြင်း
+nb:hest
+ne:घोडा
+nl:paard
+nn:hest
+nv:łį́į́ʼ
+oc:equus caballus
+or:ଘୋଡ଼ା
+os:бæх
+pa:ਘੋੜਾ
+pl:koń
+ps:آس
+pt:cavalo
+qu:kawallu
+rm:chaval
+ro:cal
+ru:домашняя лошадь
+rw:ifarashi
+sa:अश्वः
+sc:caddu
+sd:گهوڙو
+se:heabuš
+sg:mbarata
+sh:domaći konj
+sk:kôň
+sl:domači konj
+sm:solofanua
+sn:bhiza
+so:faras
+sq:kali
+sr:домаћи коњ
+su:kuda
+sv:häst
+sw:farasi
+ta:குதிரை
+te:గుర్రము
+tg:асп
+th:ม้า
+tl:kabayo
+tr:at
+tt:йорт аты
+ug:ئات
+uk:кінь свійський
+ur:گھوڑا
+uz:ot (hayvon)
+vi:ngựa
+vo:jevod
+wa:tchivå
+wo:fas w
+yi:פערד
+yo:ẹṣin
+za:max
+zh:马
+# ace:guda
+# als:hauspferd
+# ang:hors
+# arc:ܣܘܣܝܐ
+# arz:حصان
+# ast:equus ferus caballus
+# azb:آت
+# bar:roß
+# bat_smg:arklīs
+# bcl:kabayo
+# be_x_old:конь
+# bjn:kuda
+# bxr:адуу
+# cdo:mā
+# ceb:equus caballus
+# chr:ꮠꮘꮅ
+# chy:mo'éhno'ha
+# ckb:ئەسپ
+# csb:domôcy kóń
+# diq:estor
+# eml:cavàl
+# ext:equus ferus caballus
+# fiu_vro:hopõn
+# frr:hingst
+# gan:馬
+# glk:اسب
+# gor:wadala
+# hak:mâ
+# haw:lio
+# hif:ghorra
+# hyw:ձի
+# ilo:kabalio
+# jam:aas
+# jbo:xirma
+# kab:ayis
+# kbd:шы
+# kbp:kpaŋnɔ
+# koi:вӧв
+# lad:kavayo
+# lbe:чу
+# lfn:cavalo
+# lij:cavallo
+# lmo:equus ferus caballus
+# mai:घोड़ा
+# map_bms:jaran
+# mdf:лишме
+# mhr:имне
+# min:kudo
+# mrj:имни
+# myv:лишме
+# mzn:اسپ
+# nah:cahuayoh
+# nds_nl:peerd
+# nds:peerd
+# new:सल
+# nrm:j'va
+# olo:hebo
+# pam:kabayu
+# pcd:cvau
+# pdc:gaul
+# pfl:pferd
+# pih:hoss
+# pms:caval
+# pnb:گھوڑا
+# rmy:gray
+# roa_rup:calu
+# rue:кінь
+# sah:ат
+# sat:ᱥᱟᱫᱚᱢ
+# scn:cavaddu
+# sco:horse
+# simple:horse
+# srn:asi (pardi)
+# stq:hoangst (suugediert)
+# szl:kůń
+# tcy:ಕುದುರೆ
+# tyv:чылгы
+# udm:вал
+# vec:caval
+# vep:hebo
+# vls:peird
+# war:kabayo
+# wuu:马
+# xal:мөрн
+# zea:paerd
+# zh_min_nan:bé
+# zh_yue:馬
+wikidata:en:Q726
+wikipedia:en:https://en.wikipedia.org/wiki/Horse
+# ingredient/fr:cheval has 4 products in 1 language @2020-05-21
+
+<en:horse
+<en:meat
+en:horse meat
+ar:لحم خيل
+az:at əti
+cs:koňské maso
+de:pferdefleisch
+el:κρέας αλόγου
+eo:ĉevalaĵo
+es:carne de caballo
+et:hobuseliha
+fa:گوشت اسب
+fi:hevosenliha
+fr:viande de cheval
+hy:ձիու միս
+id:daging kuda
+it:carne di cavallo
+ja:馬肉
+kk:жылқы еті
+ko:말고기
+ms:daging kuda
+nl:paardenvlees
+pl:konina
+pt:carne equina
+ru:конина
+sk:konské mäso
+sv:hästkött
+tr:at eti
+uk:конина
+uz:qazi
+vi:thịt ngựa
+zh:马肉
+# diq:goştê estori
+wikidata:en:Q1124327
+wikipedia:https://en.wikipedia.org/wiki/Horse_meat
+# ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
 
 <en:meat
 fr:steak haché
@@ -16407,6 +16919,13 @@ sv:ärtstärkelse
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
 # 1 entry @ 2019-11-02
 
+<en:starch
+en:barley starch
+fi:ohratärkkelys
+fr:amidon d'orge
+sv:kornstärkelse
+# ingredient/fr:amidon-d'orge has 1 product in 1 language @2020-06-08
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                 O I L S   A N D   F A T S   S E C T I O N
@@ -17185,6 +17704,14 @@ hu:teljesen hidrogénezett növényi zsír
 it:grassi vegetali totalmente idrogenati
 nl:volledig gehydrogeneerde plantaardig vet
 
+<en:hydrogenated vegetable fat
+en:partially hydrogenated vegetable fat
+es:grasa vegetal parcialmente hidrogenada
+fi:osittain kovetettu kasvirasva
+fr:graisse végétale partiellement hydrogénée
+sv:delvis härdade vegetabiliska fetter
+# ingredient/fr:graisse-vegetale-partiellement-hydrogenee has 34 products in 1 language @2020-06-10
+
 <en:vegetable fat
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 de:ungehärtete Pflanzenfette
@@ -17207,6 +17734,15 @@ it:oli vegetali non idrogenati
 <en:hydrogenated oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
+
+<fr:huile végétale hydrogénée
+en:fully hydrogenated vegetable oils
+da:helt hærdet vegetabilsk olie
+fi:kokonaan kovetetut kasviöljyt
+fr:huiles végétales totalement hydrogénées
+nb:fullherdet vegetabilske oljer
+sv:fullhärdade vegetabiliska oljor
+# ingredient/en:fully-hydrogenated-vegetable-oils has 130 products in 2 languages @2020-06-08
 
 # description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
@@ -17395,6 +17931,13 @@ hu:nem hidrogénezett pálmazsír
 it:grasso di palma non idrogenato
 
 <en:palm fat
+en:hydrogenated palm fat
+fi:kovetettu palmurasva
+fr:graisse de palme hydrogénée
+sv:hydrerad palmfett
+# ingredient/en:hydrogenated-palm-fat has 43 products in 4 languages @2020-06-08
+
+<en:palm fat
 en:totally hydrogenated palm fat
 da:helt hærdet palmefedt
 de:vollständig gehärtetes Palmfett
@@ -17489,7 +18032,14 @@ fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, gr
 hu:pálmamagzsír, pálmamag-zsír, pálmamag zsír
 
 <en:palm kernel oil
-fr:palmiste totalement hydrogénée
+en:hydrogenated palm kernel oil, hydrogenated palm kernel
+fi:kovettu palmuydinöljy, kovetettu palmuydin
+fr:huile de palmiste hydrogénée
+sv:härdat palmkärnolja, härdat palmkärna
+# ingredient/en:hydrogenated-palm-kernel-oil has 1820 products in 2 languages @2020-06-08
+
+<en:palm kernel oil
+fr:palmiste totalement hydrogénée, huile de palmiste entièrement hydrogénée
 
 # The and/or ingredients, also used as a container
 
@@ -17620,6 +18170,13 @@ sv:fullhärdad kokosolja
 <en:coconut oil
 fr:huile de noix de coco totalement hydrogénée et non-hydrogénée
 
+<en:coconut oil
+en:fractionated coconut oil
+fi:fraktioitu kookosöljy
+fr:huile de coco fractionnée
+sv:fraktionerad kokosolja
+# ingredient/en:fractionated-coconut-oil has 153 products in 1 language @2020-06-08
+
 <en:vegetable fat
 # producedFrom:en:coconut
 en:coconut fat
@@ -17634,6 +18191,18 @@ sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
 from_palm_oil:en:no
+
+<en:coconut fat
+en:fully hydrogenated coconut fat
+da:fuldhærdet kokosfett
+de:ganz gehärtetes kokosfett
+es:grasa de coco totalmente hidrogenada
+fi:kokonaan kovetettu kookosrasva, kokonaan kovetettua kookosrasvaa
+fr:graisse de coco totalement hydrogénée
+nb:fullherdet kokosfett
+nl:geheel gehard kokosvet
+sv:fullhärdat kokosfett
+# ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
 # description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
@@ -17834,6 +18403,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
 
+<en:canola oil
+en:fully hydrogenated canola oil
+fi:kokonaan kovetettu rypsiöljy
+sv:fullhärdad rypsolja
+# ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
+
+# <en:compound
+en:canola oil preparation
+fi:rypsiöljyvalmiste
+sv:rypsoljeberedning
+# usage:fi:rypsiöljyvalmiste (rypsiöljy, voiaromi)
+# mainIngredient:en:canola oil
+# ingredient/fi:rypsiöljyvalmiste has 2 products in 1 language @2020-06-08
+
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
 <en:rapeseed oil
@@ -17906,6 +18489,11 @@ de:Mono- und Diglyceride von Raps
 hu:repce mono- és digliceridjei
 # ingredient/fr:monodiglycérides-de-colza has 16 products in 2 languages @2019-02-18
 
+<en:rapeseed oil
+en:non-hydrogenated rapeseed oil
+fi:kovettamaton rapsiöljy
+sv:ohärdad rapsolja
+# ingredient/en:non-hydrogenated-rapeseed-oil has 4 products in 4 languages @2020-06-08
 
 <en:palm oil and fat
 en:palm and rapeseed
@@ -18824,6 +19412,50 @@ fi:pippuriöljy
 hu:paprika illóolaj
 nl:peperolie
 
+# ANISEED OIL is an essential oil, which is obtained by steam distillation from the crushed fruits of the anise (Pimpinella anisum) and the real star anise (Illicium verum)
+
+<en:essential oil
+en:aniseed oil, anise oil
+de:anisöl
+es:acelte de anis
+fi:anisöljy, anisöljyä
+fr:huile d’anis
+sv:anisolja
+wikidata:Q549313
+# derivedFrom:en:aniseed
+# ingredient/en:aniseed-oil has 27 products in 3 languages @2020-06-08
+
+<en:essential oil
+en:lime oil
+fi:limettiöljy, limeöljy
+sv:limeolja
+# ingredient/en:lime-oil has 484 products in 1 language @2020-06-08
+
+# EUCALYPTUS OIL is the generic name for distilled oil from the leaf of Eucalyptus, a genus of the plant family Myrtaceae native to Australia and cultivated worldwide. Eucalyptus oil has a history of wide application, as a pharmaceutical, antiseptic, repellent, flavouring, fragrance and industrial uses.
+
+<en:essential oil
+en:eucalyptus oil
+az:eucalyptus oil
+be:эўкаліптавы алей
+de:eukalyptusöl
+et:eukalüptiõli
+fi:eukalyptusöljy
+fr:huile essentielle d'eucalyptus
+hu:eukaliptuszolaj
+hy:նվենու յուղ
+pl:olejek eukaliptusowy
+ru:эвкалиптовое масло
+sl:evkaliptusovo olje
+sv:eukalyptusolja
+te:నీలగిరి తైలం
+uk:евкаліптова олія
+uz:efir moyli ekinlar
+vi:dầu khuynh diệp
+wikidata:en:Q511687
+wikipedia:en:https://en.wikipedia.org/wiki/Eucalyptus_oil
+# derivedFrom:en:eucalyptus
+# ingredient/fr:huile-essentielle-d'eucalyptus has 20 products in 2 languages @2020-06-08
+
 # FISH OIL is oil derived from the tissues of oily fish
 
 <en:oil
@@ -19296,6 +19928,14 @@ it:aceto di acqua-vite
 nl:Brandewijnazijn
 pl:Ocet spirytusowy
 
+<en:vinegar
+en:tarragon vinegar
+da:estragoneddike
+de:estragonessig
+fi:rakuunaetikka
+fr:vinaigre à l'estragon
+sv:dragonvinäger
+# ingredient/en:tarragon-vinegar has 4 products in 1 language @2020-06-08
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -20692,6 +21332,58 @@ de:modifizierter roter Portwein
 fr:porto rouge modifié
 # usage:en:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
 
+# description:en:SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
+
+<en:liqueur wine
+en:sherry
+af:sjerrie
+bg:шери
+br:gwin jerez
+ca:xerès
+cs:sherry
+cv:херес
+cy:sieri
+da:sherry
+de:sherry
+eo:ŝereo
+es:jerez
+et:šerri
+eu:jerez
+fi:sherry
+fr:xérès
+ga:seiris
+gl:xerez
+he:שרי
+hu:sherry
+hy:խերես
+id:sherry
+it:sherry
+ja:シェリー
+kk:херес
+ko:셰리
+lb:sherry
+lt:cheresas
+ms:syeri
+nb:sherry
+nl:sherry
+nn:sherry
+pl:sherry
+pt:xerez
+ru:херес
+sh:šeri
+sl:šeri
+sv:sherry
+uk:херес
+ur:شیری
+vi:sherry
+zh:雪利酒
+# frr:sherry
+# simple:sherry
+# zh_yue:些厘酒
+wikidata:en:Q16398
+wikipedia:en:https://en.wikipedia.org/wiki/Sherry
+# ingredient/en:sherry has 78 products in 1 language @2020-05-24
+
 # BRANDY is a spirit produced by distilling wine. Brandy generally contains 35–60% alcohol by volume (70–120 US proof) and is typically consumed as an after-dinner digestif.
 
 <en:alcohol
@@ -21846,6 +22538,13 @@ fr:arôme naturel de menthe poivrée
 hu:természetes borsmenta aroma
 sv:naturlig pepparmintsarom
 
+<en:natural peppermint flavouring
+<en:natural flavouring
+en:natural peppermint flavouring with other natural flavourings
+fi:luontainen piparminttuaromi ja muita luontaisia aromeja
+sv:naturlig pepparmintsarom med andra naturliga aromer
+# ingredient/sv:naturlig-pepparmintsarom-med-andra-naturliga-aromer has 1 product in 1 language @2020-05-25
+
 <en:natural flavouring
 <en:mint flavouring
 en:natural mint flavouring, natural mint flavours, natural mints flavor
@@ -22266,6 +22965,146 @@ hu:természetes rózsa aroma
 <en:natural flavouring
 fr:arôme naturel de vin blanc
 
+<en:flavouring
+en:butter flavouring
+de:butteraroma, butter-aroma
+fi:voiaromi
+fr:arôme de beurre
+sv:smörarom
+# ingredient/fr:arome-de-beurre has 25 products in 5 languages @2020-06-08
+
+<en:flavouring
+en:garlic flavouring
+fi:valkosipuliaromi
+fr:arôme d'ail
+sv:vitlökarom, vitlöksarom
+# ingredient/fr:arome-d'ail has 21 products in 4 languages @2020-06-13
+
+<en:flavouring
+en:blackcurrant flavouring
+da:solbæraroma
+es:aroma de grosella
+fi:mustaherukka-aromi, mustaherukka-aromia
+fr:arôme cassis
+nb:solbær aroma
+pl:aromat czarnej porzeczki
+sv:svartvinbärsarom
+# ingredient/fr:arome-cassis has 17 products in 4 languages @2020-06-13
+
+<en:flavouring
+en:mango flavouring
+fi:mangoaromi
+fr:arôme de mangue
+sv:mangoarom
+# ingredient/fr:arome-de-mangue has 6 products in 4 languages @2020-05-25
+
+<en:flavouring
+en:lime flavouring
+de:limettenaroma
+fi:limettiaromi
+fr:arôme de citron vert
+sv:limearom
+# ingredient/fr:arome-de-citron-vert has 6 products in 1 language @2020-06-08
+
+<en:flavouring
+en:blueberry flavouring
+fi:mustikka-aromi
+fr:arôme de myrtille
+sv:blåbärsarom
+# ingredient/fr:arome-de-myrtille has 2 products in 2 languages @2020-06-08
+
+<en:orange flavouring
+en:essential orange oil flavour
+da:aæterisk appelsinolie aroma
+fi:eteerinen appelsiiniöljyaromi
+nb:naturling smak fra eterisk appelsinolje
+sv:smak från eterisk apelsinolja
+# ingredient/fi:eteerinen-appelsiiniöljyaromi has 1 product in 1 language @2020-06-08
+
+<en:flavouring
+en:dill flavouring
+fi:tilliaromi
+fr:arôme d'aneth
+sv:dillarom
+# ingredient/sv:dillarom has 7 products in 1 language @2020-05-21
+
+<en:natural flavouring
+en:natural sea-buckthorn flavouring
+fi:luontainen tyrniaromi
+fr:arôme naturel de baie d'argousier
+sv:naturlig havtornsarom
+# ingredient/fr:arome-naturel-de-baie-d'argousier has 1 product in 1 language @2020-06-08
+
+<en:flavouring
+en:juniper berry flavouring
+fi:katajanmarja-aromi
+sv:enbärsarom
+# ingredient/fi:katajanmarja-aromi has 1 product in 1 language @2020-06-08
+
+<en:flavouring
+en:horseradish flavouring
+fi:piparjuuriaromi
+sv:pepparrotsarom
+# ingredient/fi:piparjuuriaromi has 1 product in 1 language @2020-06-08
+
+<en:natural flavouring
+en:natural hops flavouring
+fi:luontainen humala-aromi
+fr:arôme naturel de houblon
+sv:naturlig humlearom
+# ingredient/sv:naturlig-humlearom has 1 product in 1 language @2020-05-23
+
+<en:flavouring
+en:malt flavouring
+fi:mallasaromi
+fr:arôme de malt
+sv:maltarom
+# ingredient/fr:arome-de-malt has 4 products in 2 languages @2020-05-23
+
+<en:natural flavouring
+en:natural malt flavouring
+fi:luontainen mallasaromi
+fr:arôme naturel de malt
+sv:naturlig maltarom
+# ingredient/fr:arome-naturel-de-malt has 1 product in 1 language @2020-05-24
+
+<en:flavouring
+en:cream flavouring
+da:flødearoma
+de:sahnearoma
+fi:kerma-aromi
+fr:arôme de crème
+it:aroma di panna
+# ingredient/fr:arome-de-creme has 4 products in 4 languages @2020-05-27
+
+<en:flavouring
+en:shrimp flavouring
+fi:katkarapuaromi
+fr:arôme de crevette
+sv:räkarom
+# ingredient/fr:arome-de-crevette has 3 products in 1 language @2020-05-28
+
+<en:natural flavouring
+en:natural asparagus flavouring
+fi:luontainen parsa-aromi
+sv:naturlig sparrisarom
+# ingredient/sv:naturlig-sparrisarom has 1 product in 1 language @2020-06-10
+
+<en:natural flavouring
+en:natural parsley flavouring
+de:natürliches petersilienaroma
+fi:luontainen persilja-aromi
+fr:arôme naturel de persil
+sv:naturlig persiljearom
+# ingredient/fr:arome-naturel-de-persil has 6 products in 2 languages @2020-06-11
+
+<en:flavouring
+en:mushroom flavouring
+fi:sieniaromi
+fr:arôme champignon
+sv:champinjonarom
+# ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
+
 # description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
 # comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
 
@@ -22508,6 +23347,14 @@ fi:viljahiutaleet
 fr:flocons de céréales
 it:fiocchi di cereali
 sv:spannmålsflingor
+
+<en:wholemeal cereal
+<de:Getreideflocken
+en:wholemeal cereal flakes
+fi:täysjyvähiutaleet, täysjyvähiutale
+fr:flocons de céréales complètes
+sv:fullkornsflingor
+# ingredient/fr:flocons-de-cereales-completes has 26 products in 6 languages @2020-06-08
 
 # no gluten
 <en:cereal
@@ -22816,6 +23663,11 @@ it:friscello di grano duro
 # https://world.openfoodfacts.org/ingredient/fr:fins-finots-de-blé-dur/
 # 17 products in 3 languages @20180922
 
+<en:durum wheat
+en:whole grain durum wheat
+fi:täysjyvädurumvehnä
+fr:blé dur complet
+# ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
 # description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
 
@@ -23459,6 +24311,14 @@ nl:gerstvlokken
 pl:płatki jęczmienne
 sv:kornflingor
 
+<en:wholemeal barley
+en:whole grain barley flakes, wholegrain barley flakes
+de:vollkorn-gerstenflocken, vollkorngerstenflocken
+fi:täysjyväohrahiutale
+fr:flocons d'orge complète
+sv:fullkornskornflingor
+# ingredient/fr:flocons-d'orge-complete has 16 products in 4 languages @2020-06-08
+
 <en:barley
 en:Pearl Barley
 de:Perlgerste, Rollgerste
@@ -23669,6 +24529,12 @@ en:malted wholemeal rye flakes and flour
 de:Gemahlenes Vollkornroggenmehl und -flocken
 fi:mallastettu täysjyväruishiutale ja -jauho
 
+<en:wholemeal rye
+en:wholemeal rye groats
+da:groftmalet fuldkornsrugmel
+fi:täysjyväruisrouhe, täysjyväruisrouhetta
+sv:fullkornsrågkross
+
 # Malt is germinated cereal grains that have been dried in a process known as "malting".
 
 <en:cereal
@@ -23765,6 +24631,14 @@ hu:szárított malátakivonat
 it:estratto di malto in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
 
+<en:malt
+en:caramel malt
+de:karamellmalz
+fi:karamellimallas
+fr:malt caramel
+sv:karamellmalt
+# ingredient/en:caramel-malt has 11 products in 1 language @2020-06-08
+
 # Question
 
 <en:wheat
@@ -23840,6 +24714,19 @@ fr:extrait de malte d'orge houblonné
 en:malted barley flour
 es:harina de malta
 
+<en:barley malt extract
+<en:syrup
+en:barley malt syrup
+bn:বার্লি মল্ট সিরাপ
+cy:surop heiddfrag
+da:bygmaltsirup
+fa:شربت مالت جو
+fi:ohramallassiirappi
+fr:sirop d'orge malté
+# ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
+wikidata:en:Q3485291
+wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
+
 <en:rye
 <en:malt
 en:rye malt
@@ -23860,6 +24747,13 @@ hu:rozsmaláta kivonat
 <en:rye malt
 <en:rye malt extract
 fi:ruismallas ja ruismallasuute
+
+<en:rye malt
+en:rye malt grist
+de:roggenmalzschrot
+fi:ruismallasrouhe, kaljamallas
+sv:rågmaltkross
+# ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
 
 # BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
 
@@ -24220,6 +25114,20 @@ nl:Haverzemelen met kiem
 <en:oat
 en:oat milk
 es:bebida de avena
+
+# <en:compound
+en:oat base
+de:haferbasis
+es:base de avena
+fi:kaurapohja
+fr:jus d'avoine, base d'avoine
+it:base de avena
+nl:haverbasis
+pt:bebida de aveia
+sv:havrebas
+# usage:en:oat base (water, oats)
+# mainIngredient:en:water
+# ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
 <en:cereal
 en:millet
@@ -24656,6 +25564,16 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
 
+# <en:compound
+<en:flour
+en:flour blend, flour mix
+de:mehlmischung
+fi:jauhoseos
+fr:mélange de farine
+sv:mjölblanding
+# usage:en:flour blend (wheat flour, rye flour)
+# ingredient/fr:melange-de-farine has 7 products in 1 language @2020-06-08
+
 <en:flour
 en:cereal flour
 ca:Farina de cereal
@@ -24757,6 +25675,10 @@ fr:farine de blé malté torréfié
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-blé-malté-torréfié
 # 33 products in 3 languages @2018-09-22 (has translation issues)
 
+<en:malted wheat flour
+en:caramelized wheat malt flour
+fi:karamellisoitu vehnämallasjauho
+sv:karamelliserat vetemaltmjöl
 
 # the t** is not translated in the ingredients
 # there is a correspondence between french type and italian type but I don't know it
@@ -24800,6 +25722,11 @@ hu:durumbúzaliszt
 it:farina di grano duro
 nl:durum tarwemeel
 sv:durumvetemjöl, mjöl av durumvete
+
+<en:durum wheat flour
+en:dark durum wheat flour
+fi:tumma durumvehnäjauho
+sv:mörkt durumvetemjöl
 
 <en:cereal flour
 en:wholemeal flour
@@ -24875,6 +25802,12 @@ fr:farine blanche
 hu:fehérliszt
 it:farina bianca
 ro:făină albă
+
+<en:wheat flour
+en:dark wheat flour, yeast bread wheat flour
+fi:hiivaleipäjauho, tumma vehnäjauho, hiivaleipävehnäjauho, vehnähiivaleipäjauho
+sv:jästbrödsvetemjöl, vetejästbrödmjöl
+# ingredient/fi:hiivaleipäjauho has 1 product in 1 language @2020-06-08
 
 <en:cereal flour
 <en:barley
@@ -25066,6 +25999,12 @@ nl:gemoute roggemeel
 sv:rågmaltmjöl
 # ingredient/fr:farine-de-seigle-maltée has 44 products in 2 languages @2018-09-22
 
+<en:rye flour
+en:sifted rye flour
+da:sigtet rugmel
+fi:lestyruisjauho, ruissihtijauho
+sv:siktat rågmjöl, rågsiktmjöl
+
 <en:cereal flour
 en:millet flour
 de:Hirsemehl
@@ -25128,6 +26067,14 @@ fr:farine de lin, farine de graines de lin
 sv:linfrömjöl
 #openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
 # 57 products (FR) @2020-04-23
+
+<en:flour
+<en:sunflower seed
+en:sunflower seed flour
+fi:auringonkukansiemenjauho
+fr:farine de graines de tournesol
+sv:solrosfrömjöl
+# ingredient/en:sunflower-seed-flour has 14 products in 1 language @2020-05-24
 
 <en:flour
 en:soy flour, soya flour
@@ -25205,6 +26152,13 @@ it:farina di mais bianco
 nb:hvitt maismel
 nl:wit maïsmeel
 sv:vitt majsmjöl
+
+<en:corn flour
+en:whole grain corn flour
+fi:täysjyvämaissijauho
+fr:farine de mais compléte
+sv:fullkornsmajsmjöl
+# ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
 
 <en:flour
 <en:rice
@@ -25290,6 +26244,15 @@ fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
 sv:potatismjöl
 # ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
 
+<en:flour
+<en:coconut
+en:coconut flour
+de:kokosmehl, kokosnussmehl
+et:kookosjahu
+fi:kookosjauho
+fr:farine de noix de coco, farine de coco
+sv:kokosmjöl
+# ingredient/fr:farine-de-noix-de-coco has 24 products in 2 languages @2020-06-08
 
 # description:en:Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
 # comment:en:On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
@@ -27190,6 +28153,16 @@ fi:luomu raakaruokosokeri
 fr:Sucre roux de canne issu de l'agriculture biologique, Sucre de canne biologique non raffiné, sucre de canne roux bio
 hu:finomítatlan bio nádcukor
 
+<en:unrefined cane sugar
+en:demerara sugar
+ca:sucre demerara
+de:demerara-zucker, demerera-zucker
+fi:demerarasokeri
+fr:sucre demerara
+sv:demerarasocker
+wikidata:en:Q837194
+# ingredient/fr:sucre-demerara has 36 products in 3 languages @2020-06-08
+
 
 <en:sugar
 en:beet sugar
@@ -28281,6 +29254,23 @@ hu:karamellizált rizsszirup
 nl:gekarameliseerde suikerstroop
 sv:karamelliserat sockersirap
 
+<en:syrup
+en:sugar beet syrup
+de:zuckerrübensirup
+fi:sokerijuurikassiirappi
+fr:sirop de betterave
+sv:sockerbetssirap
+# ingredient/fr:sirop-de-betterave has 11 products in 4 languages @2020-06-08
+
+<en:sugar syrup
+en:brown sugar syrup
+da:mørk sirup
+de:brauner zuckersirup
+fi:ruskea sokerisiirappi
+nb:mørk sirup
+sv:mörk sirap
+# ingredient/en:brown-sugar-syrup has 386 products in 3 languages @2020-06-08
+
 # Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
 
 # nova:en:dextrose
@@ -28683,6 +29673,26 @@ fr:isolat de proteines de pois
 fi:herneproteiini-isolaatti
 hu:borsófehérje izolátum
 
+<en:pea protein
+en:rehydrated pea protein
+fi:vedellä turvotettu herneproteiini
+sv:rehydrerat ärtprotein
+# ingredient/fi:vedellä-turvotettu-herneproteiini has 1 product in 1 language @2020-05-25
+
+<en:vegetable protein
+en:broad bean protein
+fi:härkäpapuproteiini
+fr:protéine de fèves, protéines de fèves
+sv:protein från bondböna
+# ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
+
+<en:vegetable protein
+en:potato protein
+de:kartoffelprotein
+fi:perunaproteiini
+fr:protéine de pomme de terre, protéines de pomme de terre
+# ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
+
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
 <en:vegetable protein
@@ -28781,6 +29791,19 @@ it:proteine del grano
 nl:graneneiwit
 pt:proteína de trigo
 sv:veteprotein
+
+<en:wheat protein
+en:rehydrated wheat protein
+fi:vedellä turvotettu vehnäproteiini
+fr:protéines de blé réhydratees, protéine de blé réhydratees
+sv:rehydrerat veteprotein
+# ingredient/fr:proteines-de-ble-rehydratees has 3 products in 1 language @2020-06-08
+
+<en:wheat protein
+en:textured wheat protein
+da:textureret hvedeprotein
+fr:protéines de blé texturées
+# ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
 <en:vegetable hydrolysed protein
 <en:wheat protein
@@ -29069,6 +30092,19 @@ wikidata:en: Q63120038
 # ingredient/fr:caséinate-de-sodium has 130 products in 4 languages @2019-04-13
 # usage:fr: caséinate de sodium (de lait)
 
+<en:vegetable protein
+en:oat protein
+de:haferprotein
+fi:kauraproteiini
+fr:protéine d'avoine, protéines d'avoine
+sv:havreprotein
+# ingredient/fr:proteine-d'avoine has 3 products in 1 language @2020-06-08
+
+<en:vegetable protein
+en:rapeseed protein
+fi:rapsiproteiini
+fr:protéine de colza, protéines de colza
+sv:rapsprotein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -33108,6 +34144,29 @@ wikipedia:en:https://en.wikipedia.org/wiki/Berry
 <en:berries
 fr:fruits rouges lyophilisés
 
+# <en:compound
+<en:berries
+en:berry blend, berry mix
+fi:marjaseos
+fr:mélange de fruits rouges
+sv:bärblandning
+# usage:en:berry blend (strawberries, blueberries, blackberries, black currants, raspberries)
+# ingredient/fr:melange-de-fruits-rouges has 8 products in 2 languages @2020-06-08
+
+# <en:compound
+en:seed and berry mix
+fi:siemen-marjaseos
+sv:frö-bärblandning
+# usage:fi:siemen-marjaseos: auringonkukansiemen, kurpitsansiemen, omena, vadelma.
+
+# <en:compound
+en:berry preparation
+fi:marjavalmiste
+fr:préparation de fruits rouges
+sv:bärsprodukt
+# usage:fr:préparation de fruits rouges 11 % (sirop de glucose-fructose, fruits 4,4 %* (fraise, mûre, myrtille, framboise)
+# ingredient/fr:preparation-de-fruits-rouges has 5 products in 2 languages @2020-06-08
+
 # <compound:en:This is a compound ingredient
 <en:fruit
 fr:fruits confits
@@ -33128,9 +34187,16 @@ fi:eksoottiset hedelmät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
-<en:fruit
-<en:vegetable
+<en:fruit concentrates
+<en:vegetable concentrate
+en:fruit and vegetable concentrates, vegetable and fruit concentrates
+da:frugt- og grøntsagskoncentrater
+de:obst- und gemüsekonzentrate
+es:concentrados de frutas y vegetales
+fi:hedelmä- ja kasvistiivisteet, kasvis- ja hedelmätiivisteet
 fr:fruits et légumes concentrés, concentrés de fruits et de légumes
+nl:groente- en fruitconcentraten
+sv:frukt- och grönsakskoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-et-légumes-concentrés
 # 18 products in 1 language @2018-10-02
 
@@ -33262,6 +34328,7 @@ fi:hedelmäliha
 # Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
 <en:fruit concentrates
+<en:plant concentrates
 en:fruit and plant concentrates
 de:Frucht- und Pflanzenkonzentrate
 es:Concentrado de frutas y plantas
@@ -33282,6 +34349,14 @@ fr:concentrés de fruits
 it:concentrati di frutta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
+
+<en:plant
+en:plant concentrates
+da:plantekoncentrater
+de:pflanzenkonzentrate
+fi:kasvitiivisteet, kasvitiiviste
+fr:concentrés de plantes
+sv:växtkoncentrat, plantkoncentrat
 
 <en:fruit
 fr:specialité de fruits pomme poire
@@ -33677,6 +34752,14 @@ nl:Bananenpuree
 <en:banana
 de:Bananenpulver
 fi:banaanijauhe
+
+<en:banana
+<en:fruit juice
+en:banana juice
+de:bananensaft
+fi:banaanimehu, banaanitäysmehu
+fr:jus de banane
+# ingredient/fr:jus-de-banane has 10 products in 4 languages @2020-06-13
 
 # description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
@@ -34769,6 +35852,13 @@ fr:fibre de pomme, fibres de pomme
 it:fibre di mele
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-fiber
 # 106 products in 7 languages @2018-10-04
+
+# <en:compound
+fi:omenavalmiste
+fr:préparation à base de pommes
+sv:äpple preparat
+# usage:fr:préparation à base de pommes [fruits (pomme, citron), sucre, raisins, dextrose, amidon transformé de maïs, acidifiant : acide citrique, arôme anti-oxydant : acide ascorbique]
+# mainIngredient:en:apple
 
 <en:fruit juice
 <en:apple
@@ -35933,6 +37023,64 @@ fi:klementiinimehu
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
 # 75 products in 2 languages @2018-10-01
 
+# BITTER ORANGE, Seville orange, sour orange, bigarade orange, or marmalade orange is the citrus tree Citrus × aurantium and its fruit.
+
+<en:fruit
+en:bitter orange
+ar:نارنج
+az:narınc
+bo:ཚ་ལུ་མ་སྐྱུར་མོ།
+ca:taronger agre
+ch:kahet
+co:citronu
+cs:pomerančovník hořký
+da:pomerans
+de:bitterorange
+el:νεραντζιά
+eo:bigarado
+es:citrus × aurantium
+et:pomerantsipuu
+eu:laranja mingots
+fa:نارنج
+fi:pomeranssi
+fr:bigaradier
+gl:laranxeira amarga
+he:חושחש
+hr:gorka naranča
+ht:zoranj konmenn
+hu:keserű narancs
+id:jeruk pahit
+it:citrus × aurantium
+kk:бигарадия
+ko:쓴귤
+kv:померанец
+la:aurantium
+lt:karčiavaisis citrinmedis
+lv:rūgtais apelsīns
+nb:pomerans
+ne:मुन्तला
+nl:zure sinaasappel
+nn:pomerans
+oc:bigaradièr
+pl:pomarańcza gorzka
+ps:نارنج
+pt:laranja-azeda
+ru:померанец
+sc:aranzu
+sv:pomerans
+sw:mdanzi
+ta:நரந்தம்
+te:చేదు నారింజ
+th:ส้มซ่า
+to:kola
+tr:turunç
+uk:померанець
+ur:کنو
+vi:cam chua
+zh:苦橙
+wikidata:en:Q147096
+wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
+# ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
 
 # The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
 
@@ -36212,6 +37360,36 @@ de:Himbeerpulver, Himbeerfruchtpulver
 fi:vadelmajauhe
 sv:hallonpulver
 
+# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+
+<en:fruit
+<fr:fruit rouge
+en:boysenberry, boysenberries
+bg:бойсен
+ca:boysenberry
+da:boysenbær
+de:boysenbeere, boysenbeeren
+fi:boysenmarja
+fr:boysenberry
+it:boysenberry
+ja:ボイセンベリー
+ko:보이즌베리
+nb:boysenbær
+nl:boysenbes
+pl:boysenberry
+pt:boysenberry
+ru:бойзенова ягода
+sv:boysenbär
+wikidata:en:Q896083
+wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
+# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+
+<en:fruit juice
+<en:boysenberry
+en:boysenberry juice
+fi:boysenmarjamehu, boysenmarjatäysmehu
+sv:boysenbärsjuice
+
 en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
 
 <en:fruit
@@ -36344,6 +37522,18 @@ fr:nappage à la fraise
 
 <en:strawberry
 <en:fruit juice
+en:strawberry juice
+fi:mansikkamehu
+fr:jus de fraise
+sv:jordgubbsjuice, jordgubbssaft
+
+<en:strawberry juice
+en:strawberry juice concentrate, concentrated strawberry juice
+de:erdbeersaftkonzentrat
+fi:mansikkamehutiiviste, mansikkatäysmehutiiviste
+fr:concentré de jus de fraise
+
+<en:strawberry juice concentrate
 en:strawberry juice from concentrate
 fr:jus de fraise à base de concentré
 de:Erdbeersaft aus Konzentrat
@@ -36480,8 +37670,13 @@ ru:Черничный сок
 # ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
 
 <en:blueberry juice
+en:concentrated blueberry juice
+de:Heidelbeer-Saftkonzentrat
+sv:blåbärssaftkoncentrat
+
+<en:blueberry juice
 en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeer-Saftkonzentrat
+de:Heidelbeersaft aus Heidelbeerkonzentrat 
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
@@ -36507,6 +37702,12 @@ sv:lingon
 # No products
 # <en:fruit
 # fr:purée de myrtille rouge
+
+<en:lingonberry
+<en:fruit juice
+en:lingonberry juice
+fi:puolukkamehu, puolukkatäysmehu
+sv:lingonjuice
 
 # The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
 
@@ -36566,6 +37767,119 @@ zh:黑莓
 <en:juice
 fr:jus de mûre à base de jus concentré
 
+# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
+
+<en:fruit
+en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+az:rubus chamaemorus
+ba:мораҡ
+be:марошка
+ca:móra vermella
+cs:ostružiník moruška
+cy:llwyn mwyar y berwyn
+da:multebær
+de:moltebeere
+eo:kamemoro
+es:rubus chamaemorus
+et:rabamurakas
+fa:تمشک شمالی
+fi:lakka, hilla
+fr:plaquebière
+ga:eithreog shléibhe
+ik:aqpik
+is:múltuber
+it:rubus chamaemorus
+ja:ホロムイイチゴ
+ko:진들딸기
+kv:мырпом
+lt:paprastoji tekšė
+lv:lācene
+ms:rubus chamaemorus
+nb:multe
+nl:kruipbraam
+nn:molte
+os:цъымарайы мæнæргъы
+pl:malina moroszka
+pt:rubus chamaemorus
+ru:морошка
+se:luomi
+sl:barjanska robida
+sr:rubus chamaemorus
+sv:hjortron
+tr:rubus chamaemorus
+tt:морак
+uk:морошка
+vi:rubus chamaemorus
+zh:雲莓
+# ast:rubus chamaemorus
+# atj:cikotai
+# bat_smg:vištkuojis
+# be_x_old:марошка
+# ceb:rubus chamaemorus
+# fiu_vro:molohk
+# hsb:žołty ćernjowc
+# olo:muur'oi
+# sah:бөллөхүнэ
+# simple:cloudberry
+# species:rubus chamaemorus
+# vep:murašk
+# war:rubus chamaemorus
+wikidata:en:Q160092
+wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
+# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+
+# Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
+
+<en:fruit
+en:sea-buckthorn
+ar:أبو فايس
+az:murdarçayabənzər çaytikanı
+ba:һырғанаҡ
+be:абляпіха крушынападобная
+bg:облепиха
+ca:arç groc
+cs:rakytník řešetlákový
+da:havtorn
+de:sanddorn
+eo:ramnoida hipofeo
+et:harilik astelpaju
+fa:سنجد تلخ
+fi:tyrni
+fr:argousier
+gl:espiñeiro marítimo
+gv:bugogue varrey
+hr:pasji trn
+hu:európai homoktövis
+hy:չիչխան սովորական
+kk:шырғанақ
+ky:сары чычырканак
+lt:dygliuotasis šaltalankis
+lv:pabērzu smiltsērkšķis
+nb:tindved
+ne:मलो
+nl:duindoorn
+nn:tindved
+pl:rokitnik zwyczajny
+ps:اکبار
+ro:cătină albă
+ru:облепиха крушиновидная
+sl:navadni rakitovec
+sr:пасји трн
+sv:havtorn
+tg:ангат
+uk:обліпиха звичайна
+zh:沙棘
+wikidata:en:Q165378
+wikipedia:en:https://en.wikipedia.org/wiki/Hippophae_rhamnoides
+# ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
+
+<en:sea-buckthorn
+<en:fruit juice
+en:sea-buckthorn juice
+fi:tyrnimehu, tyrnitäysmehu
+sv:havtornsjuice
+wikidata:Q68192318
+
 # The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
 
 <en:fruit
@@ -36579,6 +37893,12 @@ fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseille
 nl:kruisbes
 no:stikkelsbær
 sv:Krusbär
+
+<en:gooseberry
+<en:fruit juice
+en:gooseberry juice
+fi:karviaismehu, karviaistäysmehu
+sv:krusbärjuice
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
@@ -42188,6 +43508,33 @@ wikidata:en:Q154013
 wikipedia:en:https://en.wikipedia.org/wiki/Savoy_cabbage
 # fr:chou-vert has 99 products @2018-10-17
 
+# GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
+
+<en:cabbage
+en:gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
+ca:bròquil xinès
+de:kai-lan
+eo:ĉina brokolo
+es:brassica oleracea var. alboglabra
+eu:kai-lan
+fa:کلم‌برگ چینی
+fi:härmekaali, kiinanbrokkoli, kailaan
+fr:brocoli chinois
+he:ברוקולי סיני
+id:kailan
+it:brassica oleracea var. alboglabra
+ja:カイラン
+ko:가이란
+ms:kailan
+nl:kailan
+sv:daggkål, kinesisk broccoli
+th:คะน้า
+za:byaekgaiqlanz
+zh:芥藍
+wikidata:en:Q1677369
+wikipedia:en:https://en.wikipedia.org/wiki/Gai_lan
+# ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
+
 # SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
 
 # en:sauerkraut can be a compound ingredient, i.e. Sauerkraut (Weißkohl, Salz)
@@ -45415,6 +46762,71 @@ wikidata:en:Q504133
 wikipedia:en:https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
 
+<en:jalapeno peppers
+en:green jalapeno peppers, green jalapeno
+de:grüne jalapenos
+fi:vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
+fr:piment jalapeño vert
+sv:grön jalapeño
+# ingredient/en:green-jalapeno-peppers has 103 products in 1 language @2020-05-24
+
+# description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
+
+<en:jalapeno peppers
+en:chipotle
+ca:chipotle
+cs:chipotle
+da:chipotle
+el:τσιπότλε
+es:chile chipotle
+fi:chipotle, chipotle chili
+fr:chipotle
+gl:chipotle
+he:צ'יפוטלה
+hu:chipotle
+it:chipotle
+ja:チポトレ
+kn:ಚಿಪೋಟ್ಲೆ
+ko:치폴레
+nb:chipotle
+nl:chipotle
+pt:chipotle
+ru:чипотле
+sv:chipotle
+th:ชิโปตเล
+uk:чипотле
+# nah:chīlpoctli
+wikidata:en:Q860808
+wikipedia:en:https://en.wikipedia.org/wiki/Chipotle
+
+# description:en:BIRD'S EYE CHILI, bird eye chili, bird's chili or Thai chili  is a chili pepper, a variety from the species Capsicum annuum, commonly found in Ethiopia and across Southeast Asia. It is used extensively in many Asian cuisines.
+
+<en:chili pepper
+en:bird's eye chili, thai chili
+bn:থাই মরিচ
+da:thai chili
+es:chile ojo de pájaro
+fi:rawit, thai-chili, thai chili
+fr:piment œil d'oiseau
+hu:thai paprika
+id:cabai rawit
+it:thai pepper
+jv:lombok rawit
+ko:새눈고추
+ms:cili padi
+nl:rawit
+ru:птичий глаз
+su:céngék
+sv:thai chili
+th:พริกขี้หนู
+tl:siling thai
+vi:ớt hiểm
+# bcl:siling labuyo
+# bjn:lombok parawit
+# min:lado kutu
+wikidata:en:Q432426
+wikipedia:en:https://en.wikipedia.org/wiki/Bird%27s_eye_chili
+# ingredient/en:thai-chili has 5 products in 1 language @2020-05-25
 
 # description:en:ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
 
@@ -45445,6 +46857,24 @@ wikidata:Q764375
 # scoville:en:100000-350000
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:habanero-chili
 # 1 entry @ 2019-10-31
+
+# A PIMIENTO, pimento, or cherry pepper is a variety of large, red, heart-shaped chili pepper (Capsicum annuum) that measures 3 to 4 in (7 to 10 cm) long and 2 to 3 in (5 to 7 cm) wide (medium, elongate).
+
+<en:chili pepper
+en:pimiento, pimientos, pimento, pimentos
+ar:فلفل إسباني
+fi:pimento, pimento-chili
+hu:pimiento paprika
+id:cabai ceri
+ja:ピメント
+ko:체리고추
+nl:pimentpasta
+sv:pimento, pimento chili
+uk:пім'єнто
+vi:ớt pimiento
+wikidata:en:Q1236127
+wikipedia:en:https://en.wikipedia.org/wiki/Pimiento
+# ingredient/en:pimiento has 268 products in 2 languages @2020-06-13
 
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
@@ -46891,6 +48321,17 @@ fr:haricots vertes très fins coupés, haricots verts extra fines coupés
 <fr:haricot vert
 fr:haricots verts extra-fins
 
+# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape. 
+
+en:flat bean, helda bean, romano bean
+fi:romanopapu, romanopavut
+nl:snijboon
+nn:snittebønne
+sv:romanabönor
+# nds_nl:klemboon
+wikidata:en:Q1828227
+wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
+
 
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
@@ -47714,6 +49155,14 @@ sv:röda linser
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
 
+# <en:aggregate
+<en:green lentils
+<en:red lentils
+en:green and red lentils
+fi:vihreät ja punaiset linssit
+sv:gröna och röda linser
+# ingredient/sv:gröna-och-röda-linser has 1 product in 2 languages @2020-06-13
+
 <en:red lentils
 en:organic red lentils
 fi:punainen luomulinssi, punaiset luomulinssit
@@ -48268,6 +49717,14 @@ en:peanut flour
 fr:farine d'arachide
 # ingredient/en:peanut-flour has 786 products in 3 languages @2020-06-11
 
+# <en:compound
+# <en:roasted peanuts
+en:honey roasted peanuts
+fi:hunajapaahdettu maapähkinä
+sv:honungsrostade jordnötter
+# usage:en:honey roasted peanuts (peanuts, honey, sugar, corn starch, cottonseed oil and salt)
+# mainIngredient:en:peanuts
+
 <en:nut
 en:cashew nuts, cashews, cashew
 ar:كاجو
@@ -48716,6 +50173,13 @@ wikidata:en:Q902704
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-amères
 # 39 products in 3 languages @2018-10-06
 
+<en:nut
+en:sweet almond
+fr:amande douce, amandes douces
+fi:makea manteli, makeat mantelit
+sv:sötmandel
+# ingredient/fr:amande-douce has 5 products in 1 language @2020-06-13
+
 # fr:pâte d'amande can be a compound ingredient
 
 <en:almond
@@ -49083,6 +50547,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 #en:cumin powder
 #fr:cumin en poudre
 #es:comino en polvo
+
+<en:seed
+<en:melon
+en:melon seed
+fi:meloninsiemen
+fr:graines de melon
+sv:melonfrön
+# ingredient/en:melon-seed has 4 products in 1 language @2020-06-13
 
 # Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
@@ -49708,6 +51180,13 @@ sv:tahini
 th:ทาฮีนี
 tr:Tahin
 uk:Тахіні
+
+<en:seed
+en:cardamom seed, cardamom seeds
+fi:kardemumman siemen, kardemumman siemeniä
+fr:graines de cardamome
+# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -49793,6 +51272,55 @@ fr:assaisonnement goût salé
 
 <en:condiment
 fr:assaisonnement goût fromage
+
+# MISO is a traditional Japanese seasoning produced by fermenting soybeans with salt and kōji (the fungus Aspergillus oryzae) and sometimes rice, barley, seaweed or other ingredients.
+
+<en:condiment
+en:miso, miso paste
+ar:ميسو
+az:miso şorbası
+bg:мисо
+ca:miso
+cs:miso
+da:miso
+de:miso
+eo:misoo
+es:miso
+eu:miso
+fa:میسو
+fi:miso, misotahna
+fr:miso, pâte miso
+gd:miso
+gl:miso
+he:מיסו
+hu:miszo
+id:miso
+it:miso
+ja:味噌
+ko:미소
+lb:miso
+lt:sojų pasta
+ms:miso
+my:မီဆို
+nb:miso
+nl:miso
+pl:miso
+pt:missô
+ru:мисо
+sl:miso
+sv:miso, misopasta
+th:มิโซะ
+tl:miso
+tr:miso
+uk:місо
+vi:miso
+zh:味噌
+# hak:mí-chiòng
+# zh_min_nan:mí-so͘h
+# zh_yue:麪豉
+wikidata:en:Q235169
+wikipedia:en:https://en.wikipedia.org/wiki/Miso
+# ingredient/fr:miso has 46 products in 2 languages @2020-06-13
 
 en:spice, spices
 ca:Espècies
@@ -49906,6 +51434,25 @@ nl:gemengde specerijen
 sv:kryddblandning, kryddmix
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
+# description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns. 
+
+# <en:compound
+<en:mixed spices
+en:lemon pepper, lemon pepper seasoning
+af:suurlemoenpeper
+ar:فلفل الليمون
+de:zitronenpfeffer
+es:pimienta con limón
+fi:sitruunapippuri
+fr:poivre au citron
+lv:citronpipari
+sv:citronpeppar
+wikidata:en:Q206491
+wikipedia:en:https://en.wikipedia.org/wiki/Lemon_pepper
+# usage:en:lemon pepper(salt, sugar, citric acd, black pepper, garlic, celery seed, onion, tricalcium phosphate, and silicone dioxide (to make free flowing), lemon oil, and yellow lake #5)
+# mainIngredient:en:salt
+# ingredient/en:lemon-pepper has 29 products in 1 language @2020-05-21
+
 <en:spice
 fr:épices et arômes, aromates et épices
 
@@ -49925,6 +51472,14 @@ pl:Zioło
 
 <en:spice
 fr:épices moulues
+
+# <en:compound
+en:spice paste
+fi:maustetahna
+fr:pâte d'épices
+sv:kryddpasta
+# usage:en:Spice Paste (14%) [Ginger, Garlic, Acidity Regulator (260), Vegetable Gum (415), Salt, Water)].
+# ingredient/en:spice-paste has 1 product in 1 language @2020-06-13
 
 <en:plant
 en:plant extracts
@@ -50210,6 +51765,30 @@ wikidata:en:Q1144935
 wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
+
+# description:en:CURRY PASTE usually refers to a paste used as a cooking ingredient in the preparation of a curry.
+
+<en:spice
+en:curry paste
+de:currypaste
+es:pasta de curry
+fi:currytahna
+fr:pâte de curry
+ko:커리 페이스트
+nb:karripasta
+sv:currypasta, curry pasta
+wikidata:en:Q5195232
+wikipedia:en:https://en.wikipedia.org/wiki/Curry_paste
+# ingredient/en:curry-paste has 39 products in 1 language @2020-06-08
+
+<en:curry paste
+en:red curry paste
+de:rote currypaste
+fi:punainen currytahna
+fr:pâte de curry rouge
+sv:röd currypasta
+wikidata:en:Q67201118
+# ingredient/en:red-curry-paste has 66 products in 1 language @2020-06-08
 
 # description:fr:Le MACIS, également appelé « fleur de muscade », est l’épice obtenue à partir du tégument de la noix de muscade. Plus raffiné que la noix de muscade, on l'utilise en cuisine dans les plats salés, sucrés-salés, mais aussi sucrés.
 
@@ -51042,6 +52621,19 @@ fr:Pâte de gingembre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:inkiv%C3%A4%C3%A4ritahna
 # 1 entry @ 2019-10-31
 
+<en:ginger
+en:ginger juice
+fi:inkiväärimehu, inkivääritäysmehu
+sv:ingefärsjuice
+# ingredient/en:ginger-juice has 304 products in 2 languages @2020-05-23
+
+<en:spice
+en:lime leaf
+da:limeblad
+fi:limetinlehti, limenlehti
+sv:limeblad
+# ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
+
 <en:spice
 en:kaffir lime leaf
 de:Zitronenblatt
@@ -51183,6 +52775,15 @@ en:brown mustard seed
 de:Braunsenfsaat
 fi:ruskea sinapinsiemen
 fr:Graines de moutarde brune
+
+# <en:aggregate
+<en:yellow mustard seed
+<en:brown mustard seed
+en:yellow and brown mustard seeds
+fi:keltaiset ja ruskeat sinapinsiemenet
+fr:graines de moutarde jaune et brune
+sv:gult och brunt senapsfrö
+# ingredient/fr:graines-de-moutarde-jaune-et-brune has 11 products in 1 language @2020-06-11
 
 <en:mustard
 fr:sons de moutarde
@@ -52583,6 +54184,15 @@ de:Getrockneter Liebstöckel
 fi:kuivattu liperi
 fr:livèche séchée
 
+<en:lovage
+en:lovage root
+da:løvstikkerod
+de:liebstöckelwurzel
+fi:lipstikanjuuri
+fr:racine de livèche
+sv:libbstickarot
+# ingredient/fr:racine-de-liveche has 40 products in 4 languages @2020-05-24
+
 # Comment:en:In french bleuets are either en:cornflower or en:blueberry
 
 <en:cornflower
@@ -53011,6 +54621,64 @@ en:burnet
 de:Pimpinelle
 fr:pimprenelle
 
+# SUGAR BEET is a plant whose root contains a high concentration of sucrose and which is grown commercially for sugar production.
+
+<en:root vegetable
+en:sugar beet
+ar:شمندر سكري
+az:şəkər çuğunduru
+be:цукровы бурак
+bg:захарно цвекло
+bs:šećerna repa
+ca:remolatxa sucrera
+cs:cukrová řepa
+da:sukkerroe
+de:zuckerrübe
+el:ζαχαρότευτλο
+eo:sukerbeto
+et:suhkrupeet
+eu:azukre-erremolatxa
+fa:چغندر قند
+fi:sokerijuurikas
+fr:betterave sucrière
+gl:remolacha azucreira
+gv:beetys shugyr
+he:סלק סוכר
+hr:šećerna repa
+hu:cukorrépa
+hy:շաքարի ճակնդեղ
+io:betravo
+is:sykurrófa
+it:barbabietola da zucchero
+ja:テンサイ
+ka:შაქრის ჭარხალი
+kk:қант қызылшасы
+ko:사탕무
+ky:кант кызылчасы
+lt:cukrinis runkelis
+mk:шеќерна репка
+ml:ഷുഗർ ബീറ്റ്
+nb:sukkerbete
+nl:suikerbiet
+nn:sukkerbete
+os:сæкæры цæхæра
+pl:burak cukrowy
+pt:beterraba-sacarina
+ro:sfeclă de zahăr
+ru:сахарная свёкла
+sh:šećerna repa
+sk:cukrová repa
+sr:šećerna repa
+sv:sockerbeta
+tr:şeker pancarı
+uk:цукровий буряк
+ur:چقندر شکر
+uz:qand lavlagi
+vi:củ cải đường
+yi:בוריק
+zh:糖用甜菜
+wikidata:en:Q151964
+wikipedia:en:https://en.wikipedia.org/wiki/Sugar_beet
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -53087,6 +54755,57 @@ sv:kamomill
 wikipedia:en:https://en.wikipedia.org/wiki/Chamomile
 # ingredient/fr:camomille has 92 products in 4 languages @2018-12-28
 
+<en:camomile
+en:camomile flower
+da:kamilleblomst
+fi:kamomillankukka
+nb:kamilleblomst
+sv:kamomillblomma
+
+# Arctium is a genus of biennial plants commonly known as BURDOCK, family Asteraceae.
+
+<en:plant
+en:burdock, arctium
+ar:أرقطيون
+az:atpıtrağı, bardana, lappa
+be:лопух
+br:seregenn-vras
+bs:arctium
+ca:arctium
+da:burre
+de:kletten
+es:arctium
+et:takjas
+fa:بابا آدم
+fi:takiaiset, takiainen
+fr:bardane
+hr:čičak
+io:bardano
+it:arctium, bardana
+kk:шоңайна
+ku:gula fişek
+ky:уйгак
+lt:varnalėša
+ml:ആർക്ടിയം
+nl:klit
+nn:borreslekta
+os:залмысыф
+pl:łopian
+pt:arctium
+ro:arctium
+ru:лопух
+sh:čičak
+sr:чичак
+sv:kardborresläktet, kardborrar, kardborre
+tg:мушхор
+tl:mores
+uk:лопух
+uz:qariqiz
+vi:chi ngưu bàng
+zh:牛蒡属
+wikidata:en:Q27257
+wikipedia:en:https://en.wikipedia.org/wiki/Arctium
+# ingredient/fr:bardane has 11 products in 1 language @2020-06-13
 
 # Capparis spinosa, the caper bush is best known for the edible flower buds (capers), often used as a seasoning, and the fruit (caper berries)
 
@@ -53242,6 +54961,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coriander
 fr:arôme de coriandre
 es:aroma de cilantro
 # ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
+
+<en:coriander
+en:coriander paste
+fi:korianteritahna
+# ingredient/fi:korianteritahna has 1 product in 1 language @2020-06-13
 
 <en:plant
 fr:feuilles de mûrier
@@ -53400,6 +55124,12 @@ fr:houblon bio
 it:luppolo biologico, luppolo bio
 nl:biologische hop, bio hop
 sv:organisk humle
+
+<en:hops
+en:hop oil
+fi:humalaöljy
+sv:humleolja
+# ingredient/en:hop-oil has 1 product in 1 language @2020-06-13
 
 <en:plant
 fr:pétales de jasmin
@@ -53596,6 +55326,16 @@ zh:薰衣草
 wikidata:en:Q171892
 wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
 # ingredient/lavender has 99 products in 4 languages @2019-01-21
+
+<en:lavender
+en:lavender flower, lavender flowers
+da:lavendelblomst
+de:lavendelblüten
+fi:laventelinkukka
+fr:fleurs de lavande
+nb:lavendelblomst
+sv:lavendelblomma
+# ingredient/fr:fleurs-de-lavande has 23 products in 5 languages @2020-06-13
 
 
 # description:en:LEMON BALM (Melissa officinalis), is a perennial herbaceous plant in the mint family Lamiaceae. Lemon balm is used as a flavouring in ice cream and herbal teas, both hot and iced, often in combination with other herbs such as spearmint. In alternative medicine it is used as a sleep aid and digestive aid.
@@ -54000,6 +55740,12 @@ fi:lakritsijauhe
 nl:zoethoutpoeder
 sv:lakritspulver
 
+# <en:compound
+en:liquorice dragées
+fi:lakritsirae
+sv:lakritsdragé
+# usage:fi:lakritsirae (sokeri, glukoosi-fruktoosisiirappi, melassi, vehnäjauho, vesi, modifioitu perunatärkkelys, maissitärkkelys, kasviöljy (palmu), ammoniumkloridi (salmiakki), liivate, emulgointiaine (E471), lakritsiuute, sakeuttamisaine (E414), suola, aromi, väri (E171))
+
 # description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 
 <en:plant
@@ -54346,6 +56092,14 @@ wikidata:en:Q6350358
 wikipedia:en:https://en.wikipedia.org/wiki/Kalamata_olive
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kalamataoliivi
 # 1 entry @ 2019-10-31
+
+<en:black olive
+en:kalamon olive
+de:kalamon oliven
+fi:kalamon-oliivi, kalamonoliivi
+fr:olives noires kalamon
+sv:kalamonoliver
+# ingredient/fr:olives-noires-kalamon has 3 products in 1 language @2020-05-25
 
 # <en:compound
 <en:olive
@@ -55799,6 +57553,98 @@ zh:山葵
 wikipedia:en:https://en.wikipedia.org/wiki/Wasabi
 # ingredient/wasabi has 132 products in 5 languages @2019-03-13
 
+# description:en:RHODIOLA ROSEA (commonly golden root, rose root, roseroot, Aaron's rod, Arctic root, king's crown, lignum rhodium, orpin rose) is a perennial flowering plant in the family Crassulaceae.
+
+en:rhodiola rosea
+az:çəhrayı rodiola
+ba:алтын тамыр
+ca:rhodiola rosea
+cs:rozchodnice růžová
+cy:pren y ddannoedd
+da:almindelig rosenrod
+de:rosenwurz
+el:ροδιόλα η ροδόχρους
+es:rhodiola rosea
+et:roosilõhnaline kuldjuur
+eu:rhodiola rosea
+fi:ruusujuuri
+fr:rhodiola rosea
+hi:रोडियोला रोजिया
+hr:ružičasti žednjak
+hu:illatos rózsásvarjúháj
+is:burnirót
+it:rhodiola rosea
+ja:イワベンケイ
+kk:алтын тамыр
+kl:tullerunnaq
+ko:돌꽃
+ky:алтын тамыр
+ml:റോഡിയോള റോസിയ
+mn:алтан гагнуур
+nb:rosenrot
+nl:rozewortel
+nn:rosenrot
+pl:różeniec górski
+ro:rhodiola rosea
+ru:родиола розовая
+se:gálberássi
+sl:rožni koren
+sv:rosenrot
+uk:родіола рожева
+zh:红景天
+# ast:rhodiola rosea
+# be_x_old:ружавая радыёла
+# ceb:rhodiola rosea
+# hsb:róžatka
+# sco:rhodiola rosea
+# war:rhodiola rosea
+wikidata:en:Q161665
+wikipedia:en:https://en.wikipedia.org/wiki/Rhodiola_rosea
+# ingredient/en:rhodiola-rosea has 8 products in 1 language @2020-06-13
+
+# Withania somnifera, known commonly as ASHWAGANDHA, Indian ginseng, poison gooseberry, or winter cherry, is a plant in the Solanaceae or nightshade family.
+
+<en:plant
+en:ashwagandha, withania somnifera
+am:ጊዜዋ
+ar:عبعب منوم
+as:অশ্বগন্ধা
+bn:অশ্বগন্ধা
+ca:bufera
+cs:withanie snodárná
+de:schlafbeere
+es:withania somnifera
+et:uimastav juustumari
+fa:گیلاس زمستانی
+fi:rohtokoisio, ashwagandha
+fr:ashwagandha
+gu:અશ્વગંધા
+he:ויתניה משכרת
+hi:अश्वगंधा
+hu:álombogyó
+it:withania somnifera
+ja:アシュワガンダ
+kn:ಅಶ್ವಗಂಧಾ
+ml:അമുക്കുരം
+mr:आसकंद
+ne:अश्वगन्धा
+nl:ashwaganda
+pa:ਅਸ਼ਵਗੰਧਾ
+pl:witania ospała
+pt:withania somnifera
+si:අමුක්කරා
+sv:withania somnifera
+ta:அமுக்கிரா
+te:అశ్వగంధ
+uk:withania somnifera
+vi:sâm ấn độ
+zh:睡茄
+# ast:withania somnifera
+# ceb:withania somnifera
+# war:withania somnifera
+wikidata:en:Q852660
+wikipedia:en:https://en.wikipedia.org/wiki/Withania_somnifera
+# ingredient/en:ashwagandha has 16 products in 2 languages @2020-06-13
 
 # Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
@@ -57601,10 +59447,49 @@ wikidata:en:Q321342
 wikipedia:en:https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 # fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
 
+# description:en:A TRUFFLE is the fruiting body of a subterranean ascomycete fungus, predominantly one of the many species of the genus Tuber. In addition to Tuber, many other genera of fungi are classified as truffles including Geopora, Peziza, Choiromyces, Leucangium, and over a hundred others.
+
+<en:mushroom
+en:truffle
+ar:ترافل
+ca:tòfona
+da:trøffel
+de:trüffel
+el:τρούφα
+et:trühvel
+eu:boilur
+fr:truffe
+ga:strufal
+he:כמהין
+hi:ट्रफल
+hu:szarvasgomba
+hy:տրյուֆելներ
+id:truffle
+io:truflo
+kk:трюфели
+ko:서양송로
+li:truffel
+nl:truffel
+nn:trøffel
+ru:трюфели
+sr:tartuf
+sv:tryffel
+ta:ராபுள்
+tl:trupo
+tr:trüf mantarı
+uk:трюфелі
+vi:truffle
+zh:松露
+# fiu_vro:trühvli
+# zh_yue:松露
+wikidata:en:Q2690965
+wikipedia:en:https://en.wikipedia.org/wiki/Truffle
+# ingredient/en:truffle has 14 products in 2 languages @2020-06-13
+
 
 # description:en:tuber melanosporum, called the BLACK TRUFFLE, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
 
-<en:mushroom
+<en:truffle
 en:black truffle
 ca:tòfona negra
 cy:Cloronen Ffrengig
@@ -57641,7 +59526,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuber_melanosporum
 
 # description:en:The SUMMER TRUFFLE (Tuber aestivum) is a species of truffle, found in almost all European countries.
 
-<en:mushroom
+<en:truffle
 en:summer truffle
 az:Yay dombalanı
 be:Труфля летняя
@@ -57727,6 +59612,16 @@ de:pencillium roqueforti (Edelschimmel)
 fr:penicillium roqueforti
 la:pencillium roqueforti
 # ingredient/fr:penicillium-roqueforti has 103 products @2019-01-30
+
+<en:penicillium
+en:penicillium candidum
+ia:penicillium candidum
+la:penicillium candidum
+nl:penicillium candidum
+pt:penicillium candida
+sv:penicillium candida, penicillium candidum
+wikidata:en:Q3942999
+# ingredient/en:penicillium-candidum has 25 products in 1 language @2020-05-25
 
 <en:mushroom
 en:yellow foot
@@ -58084,6 +59979,15 @@ fr:fumet de poissons de la Méditerranée
 
 <fr:fumet de poisson
 fr:fumet de poisson aromatisé
+
+<en:fish
+# <en:broth
+en:fish stock
+de:fischbrühe
+fi:kalaliemi
+fr:bouillon de poisson
+sv:fiskbuljong
+# ingredient/en:fish-stock has 54 products in 2 languages @2020-06-13
 
 <en:fish
 de:Fischmuskeleiweiß
@@ -65182,6 +67086,81 @@ fi:kylmäuutettu kahvi
 fr:Café infusé à froid
 wikidata:en:Q5142444
 
+# description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue. 
+
+en:creatine
+ar:كرياتين
+be:крэацін
+bg:креатин
+ca:creatina
+cs:kreatin
+da:kreatin
+de:kreatin
+el:κρεατίνη
+eo:kreatino
+es:creatina
+et:kreatiin
+fa:کراتین فسفات
+fi:kreatiini
+fr:créatine
+gl:creatina
+he:קראטין
+hr:kreatin
+hu:kreatin
+hy:կրեատին
+id:kreatina
+it:creatina
+ja:クレアチン
+ko:크레아틴
+lt:kreatinas
+lv:kreatīns
+mk:креатин
+ml:ക്രിയാറ്റിനിൻ
+ms:kreatina
+nb:kreatin
+nl:creatine
+pl:kreatyna
+pt:creatina
+ro:creatină
+ru:креатин
+sh:kreatin
+sk:kreatín
+sr:kreatin
+sv:kreatin
+tr:kreatin
+uk:креатин
+vi:creatine
+zh:肌酸
+# ast:creatina
+# azb:کراتین فوسفات
+# simple:creatine
+wikidata:en:Q223600
+wikipedia:en:https://en.wikipedia.org/wiki/Creatine
+# ingredient/fr:creatine has 9 products in 1 language @2020-05-23
+
+<en:creatine
+en:creatine monohydrate
+de:kreatin-monohydrat
+fi:kreatiinimonohydraatti
+fr:créatine monohydrate, mono-hydrate de créatine
+wikidata:en:Q27271832
+# ingredient/fr:creatine-monohydrate has 23 products in 3 languages @2020-05-23
+
+en:plant stanol
+fi:kasvistanoli, kasvistanolit
+fr:stanols végétaux
+pl:stanole roślinne
+sv:växtstanol
+# ingredient/fr:stanols-vegetaux has 3 products in 2 languages @2020-06-13
+
+<en:plant stanol
+en:plant stanol ester
+fi:kasvistanoliesteri, kasvistanoliesterit
+fr:esters de stanols végétaux
+pl:estry stanoli roślinnych
+sv:växtstanolester
+# ingredient/fr:esters-de-stanols-vegetaux has 4 products in 3 languages @2020-06-13
+
 # description:en:CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae. In general cultivation, cucumbers are classified into three main cultivar groups:"slicing", "pickling", and "burpless". In a 100-gram serving, raw cucumber (with peel) is 95% water, provides 67 kilojoules (16 kilocalories) and supplies low content of essential nutrients, as it is notable only for vitamin K at 16% of the Daily Value.
 
 <en:vegetable
@@ -66025,6 +68004,13 @@ fr:viande de poulet séparée mécaniquement
 <en:chicken meat
 de:Hühnerfleischpulver
 
+<en:chicken fillet
+en:chicken breast fillet
+da:kyllingebrystfilet
+fi:broilerin rintafilee, broilerin rintafileetä
+fr:filet de poitrine de poulet
+sv:kycklingbröstfilé
+# ingredient/fr:filet-de-poitrine-de-poulet has 9 products in 2 languages @2020-06-13
 
 ######################### Duck ####################
 
@@ -66287,6 +68273,13 @@ fr:Escalopes de dinde
 fr:jambon de dinde cuit standard goût fumé
 # usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
 
+<en:turkey meat
+en:turkey breast, turkey breast meat
+da:kalkunbryst
+fi:kalkkunanrinta, kalkkunan rintaliha
+sv:kalkonbröst
+# ingredient/en:turkey-breast has 1255 products in 3 languages @2020-06-13
+
 <en:poultry
 fr:caille, cailles
 nl:kwartel, kwartels
@@ -66533,6 +68526,10 @@ fr:oeufs frais de poules élevées en cage, oeufs de poules élevées en cage
 <fr:oeufs de poules élevées en cage
 fr:Oeufs frais datés du jour de ponte de poules élevées en cage
 # 2019-05-31
+
+# comment:en:furnished cages
+<fr:œufs de poules élevées en cage
+fi:virikehäkkikanan muna, virikehäkkikanojen munia
 
 <en:chicken egg
 <en:free range eggs
@@ -67482,6 +69479,17 @@ nl:erwtenvezel
 ro:fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
+<en:vegetable fiber
+en:sugar beet fibre, sugar beet fiber
+da:sukkerroefiber
+de:zuckerrübenfaser
+fi:sokerijuurikaskuitu
+fr:fibre de betterave sucrière
+it:fibra de barbabietola
+nb:sukkerbetefiber
+nl:suikerbietvezel
+sv:sockerbetsfiber
+# ingredient/en:sugar-beet-fibre has 10 products in 2 languages @2020-06-13
 
 # <en:part
 # en:animal part
@@ -67702,6 +69710,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Collagen
 vegan:en:no
 vegetarian:en:no
 
+<en:collagen
+en:hydrolyzed collagen
+ar:كولاجين متحلل
+de:kollagen-hydrolysat
+es:colágeno hidrolizado
+vi:collagen peptide
+sv:kollagenpeptider
+wikidata:en:Q1779264
+# ingredient/en:hydrolyzed-collagen has 106 products in 3 languages @2020-06-13
+
 # description:en:NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
 # comment:en:The wikidata item does not match the words on packages.
 
@@ -67795,6 +69813,15 @@ pt:recheio de leite
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
 vegan:en:no
+
+<en:filling
+en:raspberry filling
+fi:vadelmatäyte
+fr:garniture aux framboises
+sv:hallonfyllning
+# usage:en:raspberry filling (raspberries, water, granulated sugar, pectin, and citric acid)
+# mainIngredient:en:raspberry
+# ingredient/en:raspberry-filling has 112 products in 1 language @2020-06-13
 
 # description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
@@ -68110,7 +70137,42 @@ fr:pâtes fraîches aux oeufs
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
 
+# TAGLIATELLE and tagliolini (from the Italian tagliare, meaning "to cut") are a traditional type of pasta from the Emilia-Romagna and Marche regions of Italy.
+
 <en:pasta
+en:tagliatelle
+af:tagliatelle
+ar:تالياتيلي
+ca:tallarina
+cs:tagliatelle
+de:tagliatelle
+el:ταλιατέλες
+es:tallarines
+fa:تالیاتله
+fi:tagliatelle
+fr:tagliatelle
+hu:tagliatelle
+id:tagliatelle
+is:tagliatelle
+it:tagliatelle
+ja:タリアテッレ
+ko:탈리아텔레
+nb:tagliatelle
+nl:tagliatelle
+pl:tagliatelle
+pt:tagliatelle
+ru:тальятелле
+sv:tagliatelle
+th:ตัลยาเตลเล
+uk:тальятеле
+# lfn:talieta
+# scn:tagghiateddi
+# zh_yue:細闊麪
+wikidata:en:Q20044
+wikipedia:en:https://en.wikipedia.org/wiki/Tagliatelle
+# ingredient/fr:tagliatelle has 5 products in 1 language @2020-06-13
+
+<en:tagliatelle
 en:cooked tagliatelle
 de:Tagliatelle gekocht, Bandnudeln gekocht
 fi:kypsennetty tagliatelle
@@ -68123,6 +70185,221 @@ it:tagliatelle cotte
 # category:en:en:Cannelloni
 <en:pasta
 fr:canneloni
+
+<en:pasta
+en:risoni
+fi:risoni, risonipasta
+wikidata:en:Q1317552
+wikipedia:en:https://en.wikipedia.org/wiki/Orzo
+
+# SPAGHETTI is a long, thin, solid, cylindrical pasta. It is a staple food of traditional Italian cuisine. Like other pasta, spaghetti is made of milled wheat and water and sometimes enriched with vitamins and minerals.
+
+<en:pasta
+en:spaghetti
+af:spaghetti
+ar:سباغيتي
+be:спагеці
+bg:спагети
+ca:espagueti
+cs:špagety
+da:spaghetti
+de:spaghetti
+el:σπαγγέτι
+eo:spagetoj
+es:espagueti
+eu:espageti
+fa:اسپاگتی
+fi:spagetti
+fr:spaghetti
+gl:espaguetes
+he:ספגטי
+hi:स्पगैटी
+hr:špageti
+hu:spagetti
+hy:սպագետտի
+ia:spaghetti
+id:spageti
+is:spaghettí
+it:spaghetti
+ja:スパゲッティ
+jv:spagèti
+kk:спагетти
+ko:스파게티
+ky:спагетти
+la:pasta vermiculata
+lb:spaghetti
+lt:spagečiai
+lv:spageti
+mk:шпагети
+ms:spaghetti
+my:စပါဂတီခေါက်ဆွဲ
+nb:spagetti
+nl:spaghetti
+nn:spagetti
+nv:kʼíneeshbízhiinééz
+pl:spaghetti
+pt:espaguete
+ro:spaghete
+ru:спагетти
+se:spaghetti
+sk:špageta
+sl:špageti
+sr:шпагети
+su:spaghetti
+sv:spagetti
+sw:spaghetti
+ta:ஸ்பாகெட்டி
+th:สปาเกตตี
+tl:ispageti
+tr:spagetti
+uk:спагеті
+vi:spaghetti
+zh:意大利粉
+# atj:spaktci
+# bcl:spaghetti
+# be_x_old:спагецьці
+# ilo:spaghetti
+# jbo:cidjrspageti
+# sah:спагетти
+# sco:spaghetti
+# vec:spagheti
+# vls:spaghetti
+# war:spaghetti
+# wuu:意大利面
+# zh_min_nan:spaghetti
+# zh_yue:意粉
+wikidata:en:Q20026
+wikipedia:en:https://en.wikipedia.org/wiki/Spaghetti
+# ingredient/en:spaghetti has 30 products in 1 language @2020-06-13
+
+# description:en:LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
+
+<en:pasta
+en:lasagne, lasagna, lasagna pasta, lasagne sheets
+af:lasagne
+ar:لازانيا
+az:lazanya
+be:лазанья
+bg:лазаня
+br:lasagne al forno
+ca:lasanya
+cs:lasagne
+cy:lasagna
+da:lasagne
+de:lasagne, lasagneblätter
+eo:lasanjoj
+es:lasaña
+et:lasanje
+eu:lasagna
+fa:لازانیا
+fi:lasagne, lasagnelevyt
+fr:lasagnes, feuilles de lasagnes
+gl:lasaña
+he:לזניה
+hi:लज़ान्या
+hy:լազանյա
+id:lasagna
+is:lasanja
+it:lasagne al forno
+ja:ラザニア
+jv:lasagna
+kn:ಲಜ಼ಾನ್ಯಾ
+ko:라자냐
+la:laganum
+li:lezanja
+lt:lazanija
+mk:лазањи
+ms:lasagna
+nb:lasagne
+nl:lasagne
+pl:lasagne
+pt:lasanha
+ru:лазанья
+se:lasagne
+sk:lazane
+sr:лазање
+sv:lasagne, lasagneplattor
+tl:lasagne
+tr:lazanya
+uk:лазанья
+vi:lasagna
+zh:千層麵
+# ast:lasaña
+# bat_smg:lazanėjė
+# hyw:լազանիա
+# sco:lasagne
+# tyv:лазанья
+# zh_yue:千層麪
+wikidata:en:Q20034
+wikipedia:en:https://en.wikipedia.org/wiki/Lasagne
+# ingredient/fr:lasagnes has 4 products in 2 languages @2020-06-13
+
+# description:en:PENNE is an extruded type of pasta with cylinder-shaped pieces, their ends cut at a bias.  Penne is the plural form of the Italian penna (meaning feather but pen as well), deriving from Latin penna (meaning "feather" or "quill"), and is a cognate of the English word pen. When this format was created, it was intended to imitate the then-ubiquitous fountain pen's steel nibs.
+
+<en:pasta
+en:penne
+af:penne
+ar:بيني
+ca:macarró
+cs:penne
+de:penne
+el:πέννες
+es:penne
+fa:پنه
+fi:penne
+fr:penne
+he:פנה
+id:penne
+it:penne
+ja:ペンネ
+jv:pénné
+ko:펜네
+ms:penne
+nb:penne
+nl:penne
+pl:penne
+pt:penne
+ru:пенне
+sk:penne
+sv:penne, pennepasta
+th:เปนเน
+uk:пенне
+zh:直通粉
+wikidata:en:Q1063736
+wikipedia:en:https://en.wikipedia.org/wiki/Penne
+# ingredient/fr:penne has 21 products in 1 language @2020-06-12
+
+# description:en:LINGUINE is a type of pasta similar to fettuccine and trenette but elliptical in section rather than flat.
+
+<en:pasta
+en:linguine
+ar:لنغويني
+ca:linguine
+de:linguine
+eo:langetoj
+es:linguine
+fa:لینگوئینی
+fr:linguine
+he:לינגוויני
+is:linguine
+it:linguine
+ja:リングイネ
+ko:링귀네
+lt:linguine
+ms:linguine
+nb:linguini
+nl:linguine
+pl:linguine
+pt:linguine
+ru:лингуине
+sv:linguine, linguini, linguinipasta
+th:ลิงกวีเน
+uk:лінґвіне
+# simple:linguine
+# zh_yue:扁意粉
+wikidata:en:Q20035
+wikipedia:en:https://en.wikipedia.org/wiki/Linguine
+# ingredient/fr:linguine has 7 products in 1 language @2020-06-12
 
 <en:dough
 fr:pâte crue
@@ -68604,6 +70881,65 @@ en:grated rye bread
 fi:ruisleipäraaste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:ruisleip%C3%A4raaste
 # 1 entry @ 2019-10-31
+
+<en:rye bread
+en:wholemeal rye bread
+fi:täysjyväruisleipä
+sv:fullkornsrågbröd
+# usage:fi:täysjyväruisleipä [täysjyväruisjauho, -rouhe ja ruislese, vesi, vehnäjauho, vehnägluteeni, hiiva, jodioitu merisuola, ruismallas, RUISMALLASUUTE]
+# mainIngredient:en:wholemeal rye flour
+
+# PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
+
+<en:bread
+en:pita, pitta
+az:pita
+be:піта
+bg:пита
+br:pita
+ca:pita
+cs:pita
+cy:bara pita
+da:pita
+de:pita
+el:πίτα
+eo:pita
+es:pita
+fa:نان پیتا
+fi:pitaleipä
+fr:pain pita
+gl:pita
+he:פיתה
+hy:պիտա
+id:pita
+it:pita
+ja:ピタ
+kk:питта
+ko:피타
+lv:pita
+mk:пита
+ms:roti pita
+nb:pita
+nl:pitabroodje
+nn:pita
+pl:pita
+pt:pita
+ru:пита
+sq:pitja
+sr:лепиња
+sv:pitabröd
+th:พีตา
+tl:pita
+tr:pita
+uk:піта
+ur:پیتا
+zh:皮塔饼
+# sco:pita
+# zh_min_nan:pita
+# zh_yue:比得包
+wikidata:en:Q211340
+wikipedia:en:https://en.wikipedia.org/wiki/Pita
+# ingredient/fr:pain-pita has 3 products in 1 language @2020-06-13
 
 # description:en:A waffle is a dish made from leavened batter or dough that is cooked between two plates that are patterned to give a characteristic size, shape, and surface impression.
 
@@ -69708,6 +72044,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Glaze_(cooking_technique)
 # ingredient/fr:glaçage has 86 products in 4 languages @2019-02-15
 # glassa (massa di cacao magro, zucchero, grasso vegetale)
 
+<en:glaze
+en:chocolate glaze
+et:šokolaadikate
+fi:suklaakuorrute, suklaanmakuinen kuorrute, suklaakuorrutus
+sv:chokladglasyr, kakaoglasyr
+# usage:en:chocolate glaze (sugar, soybean oil, cocoa powder processed with alkali, palm oil, soy lecithin, vanilla)
+# ingredient/en:chocolate-glaze has 4 products in 1 language @2020-06-13
+
 # mainIngredient:en:cacao
 # <en:compound
 fr:décoration au cacao
@@ -69975,6 +72319,13 @@ fr:jus cuisiné
 # ingredient/fr:jus-cuisiné has 56 products in french @2019-03-29
 # usage:fr:jus cuisiné (eau, bouillon de poulet [sel, dextrose, graisse et viande de Poulet, arômes naturels, épices, plante aromatique], carottes, oignons, concentré de tomates)
 
+<en:broth
+en:meat stock, meat broth
+fi:lihaliemi
+fr:bouillon de viande
+sv:köttbuljong, köttfond
+wikidata:en:Q67860017
+# ingredient/fr:bouillon-de-viande has 22 products in 4 languages @2020-06-13
 
 # description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
 
@@ -70764,6 +73115,28 @@ wikipedia:en:https://en.wikipedia.org/wiki/Harissa
 # ingredient/fr:harissa has 66 products in 5 languages @2019-04-05
 # usage:fr:harissa (piment, ail, coriandre, sel, carvi)
 
+# description:en:ESPAGNOLE SAUCE is a basic brown sauce, and is one of Auguste Escoffier's five mother sauces of classic French cooking.
+
+<en:sauce
+en:espagnole sauce
+ca:salsa espanyola
+es:salsa española
+fa:سس اسپانیول
+fi:sauce espagnole
+fr:sauce espagnole
+he:רוטב אספניול
+id:saus espagnole
+it:salsa spagnola
+ja:エスパニョールソース
+ms:sos espagnole
+pt:molho espanhol
+ru:эспаньоль
+sv:espagnole
+tr:espagnole sosu
+uk:еспаньйол
+zh:棕醬
+wikidata:en:Q2452555
+wikipedia:en:https://en.wikipedia.org/wiki/Espagnole_sauce
 
 # description:en:KETCHUP is a sauce used as a condiment. Ketchup is a sweet and tangy sauce now typically made from tomatoes, sugar, and vinegar, with assorted seasonings and spices. The specific spices and flavors vary, but commonly include onions, allspice, coriander, cloves, cumin, garlic, and mustard; and sometimes include celery, cinnamon or ginger.
 
@@ -71011,6 +73384,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mayonnaise
 fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses
 # ingredient/fr:mayonnaise-allégée-en-matière-grasse has 266 products in french @2019-04-11
 
+<en:mayonnaise
+en:harissa mayonnaise
+fi:harissamajoneesi
+sv:harissamajonnäs
+
+<en:mayonnaise
+en:chili mayonnaise
+da:chilimayonnaise
+fi:chilimajoneesi
+sv:chilimajonnäs
 
 # description:en:MIRIN is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
 
@@ -71544,6 +73927,156 @@ de:gesalzebe Karamellbuttersauce
 fr:sauce au caramel au beurre salé
 # usage:fr:sauce au caramel au beurre salé 1,5% (caramel au beurre salé 0,5% (sucre, lait concentré sucré, beurre salé 0,1% (beurre, sel)), eau, sirop de glucose, amidon modifié de maïs, sucre, sucre caramélisé, émulsifiant : E471, correcteur d´acidité : acide lactique, épaississant : gomme xanthane, arômes naturels)
 
+<en:sauce
+en:cream sauce
+da:flødesauce
+de:rahmsauce
+es:salsa de crema
+et:koorekastmes
+fi:kermakastike
+fr:sauce à la crème
+nl:crèmesaus
+sv:gräddsås
+wikidata:en:Q10509700
+# ingredient/fr:sauce-a-la-creme has 7 products in 1 language @2020-06-13
+
+# HOT SAUCE, also known as chili sauce or pepper sauce, is any condiment, seasoning, or salsa made from chili peppers and other ingredients.
+
+<en:sauce
+en:hot sauce, chili sauce
+ar:شطة
+ca:salsa picant
+da:chilisauce
+de:chilisauce
+eo:kapsiketa saŭco
+es:salsa picante
+fi:chilikastike
+fr:sauce chili
+he:רוטב צ'ילי
+id:saus pedas
+it:salsa chili
+ja:チリソース
+ko:핫소스
+nb:chilisaus
+nl:chilisaus
+pl:sos chili
+sv:chilisås, stark sås
+tr:acı sos
+vi:tương ớt
+zh:辣醬
+# zh_yue:辣醬
+wikidata:en:Q522171
+wikipedia:https://en.wikipedia.org/wiki/Hot_sauce
+# usage:en:chili sauce [red chili peppers, distilled vinegar, garlic powder, sugar, salt, spice]
+# ingredient/en:hot-sauce has 488 products in 1 language @2020-06-13
+
+# description:en:BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
+
+<en:sauce
+en:béarnaise sauce
+be:беарнскі соус
+bg:беарнез
+ca:salsa bearnesa
+cs:bearnéská omáčka
+da:bearnaisesauce
+de:sauce béarnaise
+eo:bearnezo
+es:salsa bearnesa
+eu:saltsa bearnes
+fa:سس برنیز
+fi:béarnaisekastike
+fr:sauce béarnaise
+gl:salsa bearnesa
+he:רוטב ביארנז
+it:salsa bernese
+ja:ベアルネーズソース
+kk:беарнэз
+ko:베아르네즈 소스
+nb:béarnaisesaus
+nl:bearnaisesaus
+nn:bearnés
+pl:sos bearneński
+ro:sos bearnez
+ru:беарнский соус
+se:béarnaisebuonjus
+sv:bearnaisesås
+tr:béarnaise sosu
+# simple:béarnaise sauce
+# zh_yue:賓利士汁
+wikidata:en:Q58265
+wikipedia:en:https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
+# ingredient/fr:sauce-bearnaise has 6 products in 1 language @2020-05-24
+
+# description:en:PESTO, or to refer to the original dish pesto alla genovese, is a sauce originating in Genoa, the capital city of Liguria, Italy. It traditionally consists of crushed garlic, European pine nuts, coarse salt, basil leaves, hard cheese such as Parmigiano-Reggiano (also known as Parmesan cheese) or Pecorino Sardo (cheese made from sheep's milk), all blended with olive oil.
+
+<en:sauce
+en:pesto, pesto sauce
+af:pesto
+ar:البيستو
+az:pesto
+ba:песто
+be:песта
+bg:песто
+bs:pesto
+ca:pesto
+cs:pesto
+da:pesto
+de:pesto
+el:πέστο
+eo:pesto
+es:pesto
+et:pesto
+eu:pesto
+fa:پستو
+fi:pesto
+fr:pesto
+fy:pesto
+gl:pesto
+he:פסטו
+hu:pesto
+hy:պեստո
+id:pesto
+is:pestó
+it:pesto
+ja:ペスト・ジェノヴェーゼ
+ko:페스토
+ms:pesto
+nb:pesto
+nl:pesto
+oc:pesto
+pl:pesto
+pt:pesto
+ru:песто
+sk:pesto
+sl:pesto
+sv:pesto
+th:เปสโต
+tl:pesto
+tr:pesto
+uk:песто
+vi:pesto
+zh:香蒜醬
+# ast:pesto
+# lij:pesto
+# nap:pisto
+# sco:pesto
+# simple:pesto
+# zh_yue:羅勒醬
+wikidata:en:Q9896
+wikipedia:en:https://en.wikipedia.org/wiki/Pesto
+# ingredient/fr:pesto has 40 products in 1 language @2020-05-25
+# <category:en:Pestos
+# usage:en:pesto 19% (olive oil, parmesan, basil, butter, walnut kernel, garlic)
+
+<en:sauce
+en:cheese sauce
+fi:juustokastike
+fr:sauce au fromage
+nl:kaassaus
+sv:ostsås
+wikidata:en:Q27972032
+# ingredient/en:cheese-sauce has 425 products in 2 languages @2020-06-07
+
 # description:en:MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
 
 en:Margarine
@@ -71690,6 +74223,38 @@ en:fruits preparation
 fr:préparation de fruits
 it:preparazione di frutta
 sv:fruktberedning
+
+# NONPAREILS (or hundreds and thousands outside North America) are a decorative confectionery of tiny balls made with sugar and starch, traditionally an opaque white but now available in many colors.
+
+# <en:compound
+en:nonpareils, nonpareilles
+de:liebesperlen, nonpareille
+fi:nonparelli
+fr:nonpareille
+it:palline di zucchero
+nl:musketzaad
+sv:nonparell
+wikidata:en:Q316561
+wikipedia:en:https://en.wikipedia.org/wiki/Nonpareils
+# usage:en:nonpareils (sugar, corn starch, carnauba wax)
+# mainIngredient:en:sugar
+# ingredient/en:nonpareils has 87 products in 1 language @2020-06-13
+
+#<en:compound
+en:dill butter
+fi:tillivoi
+sv:dillsmör
+# usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+# mainIngredient:en:butter
+
+#<en:compound
+en:pizza base
+fi:pizzapohja
+fr:fond de pizza
+sv:pizzabotten
+# ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
+# usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
+# mainIngredient:en:wheat flour
 
 en:tapioca syrup
 fr:sirop de tapioca
