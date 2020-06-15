@@ -237,6 +237,15 @@ if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
 
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
 
 # Initialize exported variables
 $memd = new Cache::Memcached::Fast {
@@ -1065,11 +1074,11 @@ sub display_index_for_producer($) {
 
 		if ($count > 0) {
 			$html .= "<p>&rarr; <a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">"
-			. lang("number_of_products_with_" . $tagtype) . lang("sep") . ": " . $count . "</a></p>";
+			. lang("number_of_products_with_" . $tagtype) . separator_before_colon($lc) . ": " . $count . "</a></p>";
 		}
 	}
 
-	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	return $html;
@@ -1615,7 +1624,7 @@ sub display_list_of_tags($$) {
 			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
 		}
 
-		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . separator_before_colon($lc) . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -4677,10 +4686,6 @@ sub search_and_export_products($$$) {
 				$nid =~ s/-$//g;
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
 					my $value = $product_ref->{nutriments}{"${nid}_100g"};
-					# for energy-kcal, we need the value in kcal (the energy-kcal_100g is in kJ)
-					if ($nid eq "energy-kcal") {
-						$value = $product_ref->{nutriments}{"${nid}_value"};
-					}
 					push @row, $value;
 				}
 				else {
@@ -5918,7 +5923,7 @@ HTML
 			}
 
 			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
 			}
 			else {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
@@ -6724,6 +6729,7 @@ HTML
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
+			<li><a href="$Lang{footer_producers_link}{$lc}">$Lang{footer_producers}{$lc}</a></li>
 		</ul>
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
@@ -7168,12 +7174,12 @@ sub display_data_quality_description($$) {
 	my $html = "";
 
 	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . lang("sep") . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . lang("sep") . ": " . $product_ref->{nutriscore_score} . "</p>";
+		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
+			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
 	}
 	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
+		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
+			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
 	}
 
 	return $html;
@@ -7199,9 +7205,9 @@ sub display_possible_improvement_description($$) {
 		# Comparison of product nutrition facts to other products of the same category
 
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
-			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			$html .= "<p>" . lang("value_for_the_product") . separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
 			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
-			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
 		}
 
@@ -8707,6 +8713,7 @@ sub display_nutriscore_calculation_details($) {
 	my $template_data_ref = {
 		
 		lang => \&lang,
+		sep => separator_before_colon($lc),
 				
 		beverage_view => $beverage_view,
 		is_fat => $nutriscore_data_ref->{is_fat},
@@ -8766,7 +8773,7 @@ sub display_nutriscore_calculation_details($) {
 	# Nutrition Score Calculation Template
 	
 	my $html;
-	$tt->process('nutrition_score.tt', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
 	return $html;
 } 
@@ -9424,7 +9431,13 @@ JS
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $comparison_ref->{nutriments}{$nid . "_100g"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					}
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -9442,7 +9455,7 @@ JS
 					# Use the actual value in kcal if we have it
 					my $value_in_kcal;
 					if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
-						$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+						$value_in_kcal = $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"};
 					}
 					# Otherwise convert the value in kj
 					else {
@@ -9527,7 +9540,15 @@ JS
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					my $value;
+					
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $product_ref->{nutriments}{$nid . "_$col"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					}
 
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -9545,7 +9566,7 @@ JS
 						# Use the actual value in kcal if we have it
 						my $value_in_kcal;
 						if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
-							$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+							$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_$col"};
 						}
 						# Otherwise convert the value in kj
 						else {

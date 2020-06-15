@@ -1197,7 +1197,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e252",
 	"en:e250",
 	"en:e553b",
-	"en:e170",
+	"en:e170i",
                               ],
 );
 

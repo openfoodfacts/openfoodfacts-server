@@ -150,6 +150,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mineral
 vegan:en:yes
 vegetarian:en:yes
 
+en:ammonium bicarbonate
+es:bicarbonato amonico,bicarbonato amonio
+
 # description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 
 <en:mineral
@@ -886,6 +889,10 @@ ro:clorură de calciu
 sk:chlorid vápenatý
 sl:kalcijev klorid
 sv:kalciumklorid
+
+<en:calcium
+en:calcium salts
+es:sales de calcio
 
 # <en:Calcium
 #en:calcium salts of citric acid
@@ -2482,6 +2489,13 @@ sv:ferro-L-pidolat
 en:reduced iron
 fr:fer réduit
 
+<en:iron
+en:iron salts
+es:sales de hierro
+
+en:phosphor
+es:fosforo
+
 # comment:en:Probably plural is preferred on mineral waters.
 
 <en:mineral
@@ -2943,7 +2957,6 @@ sk:uhličitan zinočnatý
 sl:cinkov karbonat
 sv:zinkkarbonat
 
-
 # description:en:ZINC SULFATE has the formula ZnSO4 as well as any of three hydrates. As a supplement it is used to treat zinc deficiency and to prevent the condition in those at high risk.
 
 <en:zinc
@@ -2961,7 +2974,7 @@ el:θειικός ψευδάργυρος
 # en-ca:zinc sulfate
 # en-gb:zinc sulfate
 eo:zinka sulfato
-es:sulfato de cinc
+es:sulfato de cinc,sulfato de zinc
 et:tsinksulfaat
 fa:روی سولفات
 fi:sinkkisulfaatti
@@ -4934,7 +4947,7 @@ bg:Натриев бикарбонат
 cs:hydrogenuhličitan sodný
 de:Natriumbicarbonat
 el:διττανθρακικό νάτριο
-es:bicarbonato de sodio
+es:bicarbonato de sodio,bicarbonatos de sodico
 et:naatriumvesinikkarbonaat
 fi:natriumbikarbonaatti
 fr:bicarbonate de sodium
@@ -4990,7 +5003,7 @@ da:natriumklorid
 de:Natriumchlorid
 el:χλωριούχο νάτριο
 eo:natria klorido
-es:Cloruro de sodio
+es:Cloruro de sodio,cloruro sodico
 et:naatriumkloriid
 eu:sodio kloruro
 fa:سدیم کلرید

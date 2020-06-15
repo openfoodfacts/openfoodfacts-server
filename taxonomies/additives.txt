@@ -1674,7 +1674,7 @@ cs:E150d, Amoniak-sulfitový karamel
 da:E150d, Ammonieret sulfiteret karamel
 de:E150d, Ammoniumsulfit-Zuckerkulör, Zuckerkulör E150d, Ammoniumsulfit-Zuckercouleur
 el:E150d, Εναμμωνιο θειωδες καραμελοχρωμα
-es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco, caramelo clase iv, Caramelo sulfito de amoníaco, caramelo a prueba de ácidos, caramelo de bebidas gaseosas
+es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco, caramelo clase iv, Caramelo sulfito de amoníaco, caramelo a prueba de ácidos, caramelo de bebidas gaseosas,caramelo e150d
 et:E150d, Ammooniumsulfitkaramell
 fi:E150d, Ammoniumsulfiittimenetelmän sokerikulööri, Ammoniumsulfiittimenetelmän sokerikulööriä
 fr:E150d, Caramel au sulfite d'ammonium, Caramel E150d, E150d (caramel), E150d caramel, Caramel IV - procédé au sulfite ammoniacal, Caramel IV, C.I. Natural Brown 10, FEMA no. 2235, colorant e150d
@@ -3027,29 +3027,35 @@ e_number:en:166
 vegan:en:yes
 vegetarian:en:yes
 
-en:E170, Calcium carbonate, CI Pigment White 18, Chalk
-bg:E170, Калциев карбонат, CI бял пигмент 18
-ca:E170, Carbonat de calci
-cs:E170, Uhličitan vápenatý, CI bílý pigment 18
-da:E170, Calciumcarbonat, CI Pigment White 18
-de:E170, Calciumcarbonat, Pigment White 18, Kalk
-el:E170, Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
-es:E170, Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
-et:E170, Kaltsiumkarbonaat, CI valge pigment 18
-fi:E170, Kalsiumkarbonaatti, Kalsiumkarbonaattia, CI Pigment White 18
-fr:E170, Carbonate de calcium, Carbonate acide de calcium, Pigment blanc C. I. no 18
-hu:E170, Kalcium-karbonát, CI Pigment White 18
-it:E170, Carbonato di calcio, CI pigmento bianco 18
-lt:E170, Kalcio karbonatas, Baltasis pigmentas CI Nr. 18
-lv:E170, Kalcija karbonāts, CI baltais pigments 18
-mt:E170, Karbonat tal-kalċju, CI Pigment White 18
-nl:E170, Calciumcarbonaat, CI Pigment White 18
-pl:E170, Węglan wapnia, CI Pigment biały 18
-pt:E170, Carbonato de cálcio, Pigmento branco CI 18
-ro:E170, Carbonat de calciu, Pigment alb CI 18
-sk:E170, Uhličitan vápenatý, CI pigment biely 18
-sl:E170, Kalcijev karbonat, CI Pigment White 18
-sv:E170, Kalciumkarbonat, CI Pigment White 18
+en:E170, Calcium carbonates
+es:E170, Carbonatos de calcio
+fr:E170, Carbonates de calcium
+nl:E170, Calciumcarbonaten
+
+<en:E170
+en:E170(i), Calcium carbonate, CI Pigment White 18, Chalk
+bg:E170(i), Калциев карбонат, CI бял пигмент 18
+ca:E170(i), Carbonat de calci
+cs:E170(i), Uhličitan vápenatý, CI bílý pigment 18
+da:E170(i), Calciumcarbonat, CI Pigment White 18
+de:E170(i), Calciumcarbonat, Pigment White 18, Kalk
+el:E170(i), Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
+es:E170(i), Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
+et:E170(i), Kaltsiumkarbonaat, CI valge pigment 18
+fi:E170(i), Kalsiumkarbonaatti, Kalsiumkarbonaattia, CI Pigment White 18
+fr:E170(i), Carbonate de calcium, Carbonate acide de calcium, Pigment blanc C. I. no 18
+hu:E170(i), Kalcium-karbonát, CI Pigment White 18
+it:E170(i), Carbonato di calcio, CI pigmento bianco 18
+lt:E170(i), Kalcio karbonatas, Baltasis pigmentas CI Nr. 18
+lv:E170(i), Kalcija karbonāts, CI baltais pigments 18
+mt:E170(i), Karbonat tal-kalċju, CI Pigment White 18
+nl:E170(i), Calciumcarbonaat, CI Pigment White 18
+pl:E170(i), Węglan wapnia, CI Pigment biały 18
+pt:E170(i), Carbonato de cálcio, Pigmento branco CI 18
+ro:E170(i), Carbonat de calciu, Pigment alb CI 18
+sk:E170(i), Uhličitan vápenatý, CI pigment biely 18
+sl:E170(i), Kalcijev karbonat, CI Pigment White 18
+sv:E170(i), Kalciumkarbonat, CI Pigment White 18
 e_number:en:170
 mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabilizer, en:firming-agent, en:flour-treatment-agent, en:glazing-agent, en:colour
 wikidata:en:Q23767
@@ -3064,6 +3070,39 @@ organic_eu:en:authorized
 #https://www.vrg.org/blog/2011/12/12/calcium-carbonate-in-most-soy-rice-beverages-and-in-calcium-supplements-derived-from-a-mineral-source-not-oyster-shell-source-does-not-have-to-be-labeled/
 vegan:en:maybe
 vegetarian:en:maybe
+
+<en:E170
+en:E170(ii), Calcium hydrogen carbonate, Calcium bicarbonate, Calcium acid carbonate
+ar:E170(ii), بيكربونات الكالسيوم
+#azb:E170(ii), کلسیوم بیکربونات
+ca:E170(ii), Hidrogencarbonat de calci
+cs:E170(ii), Hydrogenuhličitan vápenatý
+da:E170(ii), calciumhydrogencarbonat
+de:E170(ii), Calciumhydrogencarbonat, Calciumbicarbonat
+el:E170(ii), όξινο ανθρακικό ασβέστιο
+eo:E170(ii), kalcia hidrogenkarbonato
+es:E170(ii), carbonato ácido de calcio
+eu:E170(ii), kaltzio hidrogenokarbonato
+fa:E170(ii), کلسیم بی‌کربنات
+fi:E170(ii), kalsiumvetykarbonaatti
+fr:E170(ii), carbonate acide de calcium, bicarbonate de calcium
+it:E170(ii), idrogenocarbonato di calcio, bicarbonato di calcio
+ja:E170(ii), 炭酸水素カルシウム
+ms:E170(ii), kalsium hidrogen karbonat, Kalsium bikarbonat
+nl:E170(ii), calciumwaterstofcarbonaat, calciumbicarbonaat
+pl:E170(ii), Wodorowęglan wapnia
+pt:E170(ii), carbonato ácido de cálcio
+ru:E170(ii), Гидрокарбонат кальция
+sh:E170(ii), Kalcijum bikarbonat
+sr:E170(ii), Kalcijum bikarbonat
+sv:E170(ii), kalciumvätekarbonat, kalciumbikarbonat
+ta:E170(ii), கால்சியம் பைகார்பனேட்டு
+th:E170(ii), แคลเซียมไบคาร์บอเนต
+uk:E170(ii), Калійні солі
+vi:E170(ii), Canxi bicacbonat
+zh:E170(ii), 碳酸氫鈣
+#wuu:E170(ii), 碳酸氢钙
+wikidata:en:Q415144
 
 # description:en:  TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
 # comment:en:A translation with dioxide in it is preferred
@@ -4246,7 +4285,7 @@ da:E223, Natriumdisulfit, Pyrosulfit
 de:E223, Natriummetabisulfit, Pyrosulfit, Natriumdisulfit
 el:E223, Μεταδιθειωδες νατριο
 eo:E223, Natria pirosulfito
-es:E223, Metabisulfito sódico, Pirosulfito, Metabisulfito de sodio, Disulfito de sodio
+es:E223, Metabisulfito sódico, Pirosulfito, Metabisulfito de sodio, Disulfito de sodio, disulfito sodico
 et:E223, Naatriumdisulfit, Naatriumpürosulfit
 fa:E223, سدیم متابی‌سولفیت
 fi:E223, Natriumdisulfiitti, Natriummetabisulfiitti, Pyrosulfiitti, Natriumpyrosulfiitti, Natriumdisulfiittia, Natriummetabisulfiittia, Pyrosulfiittia, Natriumpyrosulfiittia
@@ -5656,7 +5695,7 @@ da:E270, Mælkesyre, Laktat
 de:E270, Milchsäure, L-Lactat, 2-Hydroxypropionsäure, 2-Hydroxypropansäure, Hydroxypropansäure
 el:E270, Γαλακτικο οξυ, 2-υδροξυπροπανικό οξύ, Κρεωγαλακτικό οξύ
 eo:E270, Lakta acido
-es:E270, Ácido láctico, Conservante E270, Acido 2 hidroxipropanoico, Ácido 2 propanoloico, E-270, Conservante E 270, Lactato
+es:E270, Ácido láctico, Conservante E270, Acido 2 hidroxipropanoico, Ácido 2 propanoloico, E-270, Conservante E 270, Lactato,e270 de origen vegetal
 et:E270, Piimhape, 2-hüdroksüpropaanhape
 fa:E270, اسید لاکتیک
 fi:E270, Maitohappo, L(+) -maitohappo, Laktaatti, Maitohappoa, Laktaattia
@@ -6920,11 +6959,11 @@ da:E316, Natriumerythorbat
 de:E316, Natriumisoascorbat, Natriumerythorbat
 el:E316, Ερυθορβικο νατριο
 eo:E316, Natria eritorbato
-es:E316, eritorbato sódico
+es:E316, eritorbato sódico, isoascorbate de sodio
 et:E316, Naatriumerütorbaat
 fa:E316, سدیم اریتوربات
 fi:E316, Natriumerytorbaatti, Natriumerytorbaattia
-fr:E316, érythorbate de sodium, isoascorbate de sodium
+fr:E316, érythorbate de sodium
 hu:E316, Nátrium-eritroaszkorbát
 it:E316, eritorbato di sodio
 ja:E316, エリソルビン酸ナトリウム
@@ -7463,14 +7502,14 @@ az:E330, Limon turşusu
 be:E330, Лімонная кіслата
 bg:E330, Лимонена киселина, Лимонова киселина
 bn:E330, সাইট্রিক অ্যাসিড
-ca:E330, Àcid cítric, acid citric
+ca:E330, acid citric,àcid citric
 cs:E330, Kyselina citronová, Citrát
 cy:E330, Asid sitrig
 da:E330, Citronsyre, Citrat
 de:E330, Citronensäure, 2-Hydroxypropan-1\,2\,3-tricarbonsäure, Zitronensäure, 3-Carboxy-3-hydroxyglutarsäure, Zitronensalz, 2-Hydroxy-1\,2\,3-propantricarbonsäure, Zitrat, Citrate, Citrat, 3-Carboxy-3-hydroxypentandisäure
 el:E330, Κιτρικο οξυ
 eo:E330, Citra acido
-es:E330, Ácido cítrico
+es:E330, Ácido cítrico,acido citrico e330
 et:E330, Sidrunhape, 2-hüdroksüpropaan-1\,2\,3-trikarboksüülhape
 eu:E330, azido zitriko
 fa:E330, سیتریک اسید
@@ -7571,7 +7610,7 @@ cs:E331, E331 food additive
 da:E331, E331 food additive
 de:E331, Natriumcitrat, Natriumzitrat
 el:E331, E331 food additive
-es:E331, Citratos de sodio
+es:E331, Citratos de sodio, citrato sodico
 et:E331, Naatriumtsitraat
 fi:E331, Natriumsitraatti, Natriumsitraattia
 fr:E331, Citrates de sodium
@@ -10311,7 +10350,7 @@ cs:E420, Sorbitol, D-glucitol, E 420, Sorbit
 da:E420, Sorbitol
 de:E420, Sorbit, Sorbitintoleranz, Glucitol, Hexanhexol, Hexanhexaol, Sorbitol, Sorbitmalabsorption
 el:E420, E420 food additive
-es:E420, Sorbitol, Glucitol
+es:E420, Sorbitol, Glucitol,sorbitoles
 et:E420, E420 food additive
 fi:E420, Sorbitoli, Glusitoli, Sorbitolia, Glusitolia, Sorbitolit, Sorbitoleja
 fr:E420, Sorbitol, Sirop de sorbitol, sorbitols, D-glucitol, Glucitol, E 420, 50-70-4, Gulitol, E420(i), E420(ii)
@@ -11636,7 +11675,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E450
-en:E450(i), Disodium diphosphate
+en:E450(i), Disodium diphosphate,Sodium Acid Pyrophosphate
 bg:E450(i), Динатриев дифосфат
 cs:E450(i), Dihydrogenfosforečnan sodný
 da:E450(i), Dinatriumdiphosphat
@@ -11858,7 +11897,7 @@ cs:E451, E451 food additive
 da:E451, E451 food additive
 de:E451, Pentanatriumtriphosphat, Na5P3O10, Natriumtripolyphosphat
 el:E451, E451 food additive
-es:E451, Tripolifosfato de sodio
+es:E451, Tripolifosfato de sodio,trifosfato pentasodico
 et:E451, E451 food additive
 fi:E451, Trifosfaatit, Trifosfaatteja
 fr:E451, Triphosphates, E450b, Tripolyphosphates, triphosphate de sodium
@@ -13801,7 +13840,7 @@ wikidata:en:Q18601524
 vegan:en:yes
 vegetarian:en:yes
 
-en:E500, Sodium carbonates, sodium carbonate
+en:E500, Sodium carbonates
 bg:E500, Натриев карбонат, Калцинирана сода, Динатриев карбонат
 ca:E500, Carbonat de sodi
 cs:E500, Uhličitan sodný, Na2CO3, Soda na praní
@@ -18485,7 +18524,7 @@ cs:E952, Kyselina cyklamová a její sodná a vápenatá sůl
 da:E952, Cyclaminsyre samt na- og ca-salte deraf
 de:E952, Cyclamat, Cyclaminsäure, Cyclohexylsulfaminsäure, N-Cyclohexylsulfaminsäure
 el:E952, Κυκλαμικο οξυ και τα αλατα του με νατριο και ασβεστιο, Κυκλαμικό οξύ
-es:E952, Ciclamato, Ciclamatos, Ácido ciclámico y sus sales de sodio y calcio
+es:E952, Ciclamato, Ciclamatos, Ácido ciclámico y sus sales de sodio y calcio,cyclamato sodico	
 et:E952, Tsüklamiinhape ning selle naatrium- ja kaltsiumsoolad i)
 fi:E952, Syklamaatti, Syklamaatit, Syklaamihappo, Kalsiumsyklamaatti, Natriumsyklamaatti, Syklamaattia, Syklamaatteja, Syklaamihappoa, Kalsiumsyklamaattia, Natriumsyklamaattia
 fr:E952, Acide cyclamique et ses sels, cyclamates, Acide cyclamique, Cyclamate de calcium, Cyclamate de potassium, Cyclamate de sodium, Acide cyclamique et ses sels de na et de ca
@@ -20563,3 +20602,7 @@ efsa_evaluation_date:en: 2018/06/22
 efsa_evaluation:en: Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive
 vegan:en:yes
 vegetarian:en:yes
+
+en:isomaltose
+es:isomaltosa
+wikipedia:en:https://en.wikipedia.org/wiki/Isomaltose
