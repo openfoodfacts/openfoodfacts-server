@@ -2666,6 +2666,10 @@ wikidata:en:Q42807519
 en:citric pectin
 es:pectina de citricos
 
+<en:pectin
+en:lemon pectin
+es:pectina de limon
+
 # The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
 en:ammonium phosphatide, ammonium phosphatides, E442, E 442, E-442
@@ -7674,7 +7678,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_demi-sel
 en:salted butter
 ca:mantega salada, mantega amb sal
 de:gesalzene Butter, gesalzenes Butter
-es:mantequilla salada, Mantequilla con sal
+es:mantequilla salada, Mantequilla con sal,mantequilla con sal marina
 fi:suolattu voi, voimakassuolainen voi
 fr:beurre salé
 hu:sózott vaj, sós vaj
@@ -31873,6 +31877,7 @@ fr:soja vert
 
 <en:soya
 en:soy flakes
+es:escamas de soja
 de:Sojaflocken
 fi:soijahiutaleet
 fr:flocons de soja
@@ -42088,7 +42093,7 @@ it:Cicoria
 en:chicory fibre
 da:cikoriefibre
 de:Zichorienfäser
-es:fibra de la raíz de achicoria
+es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée
 nl:chicoreivezel
@@ -49573,6 +49578,7 @@ af:Okkerneut
 ar:جوز
 bg:орехи
 bn:আখরোট
+ca:nous
 co:Noce
 cs:vlašský ořech, vlašské ořechy
 da:valnødder
@@ -50738,12 +50744,21 @@ fr:pignons de pin décortiqués
 <en:seed
 en:hemp seed
 de:Hanfsamen
-es:Semilla de cáñamo
+es:Semilla de cáñamo,semillas de Cáñamo Sativa L
 fi:hampunsiemen, hampunsiemenet
 fr:graines de chanvre
 it:semi di canapa
 nl:hennepzaad
 # 35@2019-06-07
+
+<en:hemp seed
+en:hemp seed flour
+es:harina de semillas de Cáñamo Sativa L
+
+<en:hemp seed
+en:hemp seed oil
+es:aciete de semillas de Cáñamo Sativa L
+
 
 <en:pumpkin
 <en:seed
@@ -58806,7 +58821,7 @@ en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus
 af:Sampioen
 ar:غاريقون ثنائي البوغ
 bg:култивирана печурка
-ca:xampinyó
+ca:xampinyó,bolet cultivat
 cs:pečárka dvouvýtrusá
 cy:Madarch meithrin
 da:Havechampignon, champignon, champignoner
