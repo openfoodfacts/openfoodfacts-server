@@ -209,7 +209,7 @@ my @tests = (
     'text' => 'sucre'
   },
   {
-    'id' => 'fr:sirop-de-ble',
+    'id' => 'en:wheat-syrup',
     'labels' => 'en:organic',
     'text' => 'sirop de BLE'
   },
