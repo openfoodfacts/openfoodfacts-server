@@ -1,3 +1,4 @@
+stopwords:ca:i
 stopwords:da:av, bl. a
 stopwords:de:und, mit, von, aus, enthält, enthalten,mindestens
 stopwords:el:περιέχει
@@ -5,7 +6,7 @@ stopwords:en:a,an,for,added,to
 stopwords:en:of
 stopwords:en:contains, contain, from, with, produced with, with added
 stopwords:es:de,del,la,las,los,una
-stopwords:es:contiene,de,del,la,el,las,los,con,y,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:fr:de,d,des,du,le,la,les,a,aux
@@ -2696,15 +2697,6 @@ pl:Mąka jęczmienna
 pt:farinha de cevada
 ro:făină de orz
 ru:Ячменная мука
-
-< en:Barley flour
-en:barley malt flour, malted barley flour
-de:Gerstenmalzmehl
-es:harina de malta de cebada
-fi:ohramallasjauho
-fr:farine de malt d'orge, farine d'orge malté
-hu:árpamalátaliszt
-it:farina di orzo maltato, farina d'orzo maltato, farina di malto d'orzo
 
 < en:Barley flour
 en:dextrinated barley flour
@@ -8319,7 +8311,7 @@ fi:säilötty chili
 < en:Chili pepper
 en:red chili pepper
 de:roter Chili, rote Chili-Schoten
-es:chile rojo, chiles rojos, red-chili
+es:chile rojo, chiles rojos, red-chili, chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
@@ -9430,7 +9422,7 @@ da:Rasp
 de:Paniermehl, Panur, Semmelbrösel
 el:ψίχουλα ψωμιού
 eo:raspaĵo
-es:pan rallado, migaja de pan rallado
+es:pan rallado, migaja de pan rallado, migas de pan
 eu:Ogi birrindu
 fa:آرد سوخاری
 fi:Korppujauho
@@ -14980,7 +14972,7 @@ vegetarian:en: yes
 
 en:E1404, Oxidised starch, modified potato starch
 bg:E1404, Окислено нишесте, Окисленото нишесте е нишесте
-ca:E1404, Midó oxidat, mido oxidat
+ca:E1404, Midó oxidat, mido oxidat, mido de patata
 cs:E1404, Oxidovaný škrob
 da:E1404, Oxideret stivelse, Oxideret stivelse er stivelse
 de:E1404, Oxidierte stärke, modifizierte Kartoffelstärke
@@ -37065,7 +37057,7 @@ de:Schwertfisch
 dv:ތުންގަނޑު ހިބަރު
 el:Ξιφίας
 eo:Spadofiŝo
-es:pez espada
+es:pez espada, emperador
 et:Mõõkkala
 eu:Ezpata-arrain
 fa:شمشیرماهی
@@ -41352,7 +41344,7 @@ da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas
+es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas, uva desecada
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -42005,7 +41997,7 @@ ca:Herbes, herbes aromàtiques
 cs:Bylina
 da:urt
 de:Gewürz, Kräuter
-es:hierba, hierbas, plantas aromáticas, planta aromática, hierbas aromaticas
+es:hierba, hierbas, plantas aromáticas, planta aromática, hierbas aromaticas, finas hierbas
 fi:yrtti, yrtit, mausteyrtit
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, herbes aromatiques
 he:עשב
@@ -46706,6 +46698,15 @@ ro:extract din malț de orz, extract din malt de orz, extract de malț de orz, e
 zh:大麥芽精
 
 < en:Malted barley
+en:malted barley flour, barley malt flour
+de:Gerstenmalzmehl
+es:harina de malta, harina de malta de cebada
+fi:ohramallasjauho
+fr:farine de malt d'orge, farine d'orge malté
+hu:árpamalátaliszt
+it:farina di orzo maltato, farina d'orzo maltato, farina di malto d'orzo
+
+< en:Malted barley
 fr:blé malté concassé
 
 < en:Malted barley
@@ -47714,6 +47715,10 @@ it:latte fieno
 wikidata:en: Q1616491
 
 < en:Milk
+en:lactose-free milk
+es:leche sin lactosa
+
+< en:Milk
 en:low-fat milk, 1% fat milk, lowfat milk
 ca:llet baixa en greixos
 de:fettarme Milch, teilentrahmte milch
@@ -47800,7 +47805,7 @@ ar:حليب منزوع الدسم
 ca:llet descremada, llet desnatada, llet sense greix
 da:skummetmælk
 de:Magermilch, entrahmte Milch
-es:Leche descremada, Leche desnatada, leche sin grasas
+es:Leche descremada, Leche desnatada, leche sin grasas, leche desnatada de vaca
 et:Lõss
 fa:شیر خشک بدون چربی
 fi:rasvaton maito
@@ -48165,7 +48170,7 @@ wikidata:en: Q62138
 wikipedia:en: https://en.wikipedia.org/wiki/Lactarius_deliciosus
 
 < en:Milkfat
-en:butterfat, pastry butter, anhydrous milk fat, concentrated butter
+en:butterfat, pastry butter, anhydrous milk fat, concentrated butter, anhydrous butter
 bg:безводно масло
 bs:mliječna mast
 cs:mléčný tuk
@@ -48174,7 +48179,7 @@ da:smørolie
 de:Butterreinfett, wasserfreies Milchfett
 el:βούτυρο τηγμένο
 eo:laktograso
-es:grasa butírica, mantequilla concentrada
+es:grasa butírica, mantequilla concentrada, mantequilla anhidra
 fi:voirasva, tiivistetty voi
 fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
 hu:vajzsír, vajolaj, derített vaj
@@ -49795,6 +49800,10 @@ ja:アワビ
 wikipedia:en: https://en.wikipedia.org/wiki/Abalone
 
 < en:Mollusc
+en:cephalopod ink
+es:tinta de cefalopodo
+
+< en:Mollusc
 en:clam, clams
 ar:محار ملزمي
 ca:cloïssa
@@ -50409,8 +50418,12 @@ wikidata:en: Q52406
 wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 
 en:mung bean
-es:habas de mungo
+es:habas de mungo, judias mungo
 wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
+
+< en:Mung bean
+en:Mung bean sprout, bean sprouts
+es:brotes de judia mungo
 
 en:mushroom
 an:Potrecón
@@ -54524,7 +54537,7 @@ es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, meloco
 
 < en:Peach
 en:saturn peach, donut peach, paraguayo
-es:paraguayo, chato
+es:paraguaya, chato
 wikipedia:en: https://en.wikipedia.org/wiki/Saturn_Peach
 
 < en:Peach
@@ -54632,6 +54645,7 @@ nl:Pinda's in de dop
 fr:farine d'arachide
 
 en:peanut butter
+es:crema de cacahuete
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 from_palm_oil:en: no
 vegan:en: yes
@@ -55093,7 +55107,7 @@ cs:kapary
 da:kapers
 de:Kapern
 eo:Kaporo
-es:Alcaparras
+es:Alcaparras, bayas de alcaparra
 fi:kapris
 fr:câpre, câpres
 io:Kapero
@@ -57832,6 +57846,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Quinoa
 
 < en:Quinoa
 de:Quinoa gepufft
+
+< en:Quinoa
+en:black quinoa
+es:quinoa negra
 
 < en:Flour
 < en:Quinoa
@@ -63800,6 +63818,10 @@ sl:natrijeve soli ortofosforne kisline
 sv:natriumsalter av ortofosforsyra
 
 < en:Soft white cheese
+en:skimmed soft white cheese
+es:queso fresco desnatado
+
+< en:Soft white cheese
 fr:fromage frais à 0% de matière grasse
 ca:formatge fresc amb un 0% matéria grassa
 es:queso fresco con 0% matéria grasa
@@ -66621,7 +66643,7 @@ fr:tournesol oléique
 < en:Sunflower oil
 en:high oleic sunflower oil
 de:High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
-es:aceite de girasol alto oleico, aceite refinado de girasol alto oleic
+es:aceite de girasol alto oleico, aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
 it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
@@ -67426,6 +67448,11 @@ fr:thym en poudre
 < en:Honey from Spain
 < en:Thyme honey
 fr:miel de thym d'Espagne
+
+< en:Tigernut
+en:tigernut milk
+ca:orxata de chufa, orxata de xufa
+es:horchata de chufa
 
 en:tofu, Tofus, bean curds
 an:Tofu
@@ -69575,7 +69602,7 @@ nv:Hazaʼaleehtsoh
 oc:Api
 os:Маламар
 pl:Selery zwyczajne, seler
-pt:aipo
+pt:aipo, aipos
 qu:Apiyu
 ro:Țelină
 ru:Сельдерей пахучий, сельдерей
@@ -70844,7 +70871,7 @@ wikidata:en: Q818405
 en:mango kernel oil, mango oil
 de:Mangokernöl
 fi:mangoydinöljy, mangoöljy
-fr:huile de noyaux de mangue, huile végétale de noyau de mangue
+fr:huile de noyaux de mangue, huile végétale de noyau de mangue, graisses végétales de noyaux de mangue, matières grasses de noyaux de mangue, matières grasses végétales de noyaux de mangue, graisses végétales de noyau de mangue, matières grasses de noyau de mangue
 hu:mangómagolaj, mangóolaj
 from_palm_oil:en: no
 
@@ -71084,7 +71111,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
 < en:Vegetable oil
 en:Shorea robusta seed oil, Shorea robusta oil, Sal tree oil, Sal oil
 es:Aceite de shorea robusta, aceite de sal
-fr:Huile de sal, huile végétale de sal
+fr:Huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
 it:Olio di shorea robusta
 
 < en:Vegetable oil
@@ -74331,7 +74358,7 @@ fr:yaourt doux entier
 < en:Wholemeal flour
 en:wholemeal rye flour
 de:Roggenvollkornmehl
-es:flor de harina integral de centeno
+es:flor de harina integral de centeno, harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
 fr:farine de seigle complète, farine complète de seigle
 hu:teljes kiőrlésű rozsliszt
@@ -74414,7 +74441,7 @@ ca:vi negre
 da:rødvin
 de:Rotwein
 eo:ruĝa vino
-es:vino tinto
+es:vino tinto, vino tinto Mencia
 eu:ardo beltz
 fa:شراب سرخ
 fi:punaviini
