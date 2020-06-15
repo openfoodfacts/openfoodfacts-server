@@ -8023,27 +8023,16 @@ HTML
 
 	my @comparisons = ();
 
-	# $html .="<p> Comparisons 1 </p>";
-
 	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
 			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
-		# $html .="<p> Comparisons 2 </p>";
-
 		if (defined $categories_nutriments_ref) {
-
-			# $html .="<p> Comparisons 3 </p>";
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
 
-				# $html .="<p> Comparisons 4: cid = $cid </p>";
-
-
 				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-
-					# $html .="<p> Comparisons 5: cid = $cid </p>";
 
 					push @comparisons, {
 						id => $cid,
