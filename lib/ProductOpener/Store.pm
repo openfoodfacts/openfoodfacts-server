@@ -49,6 +49,7 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use Encode;
 use Encode::Punycode;
 use URI::Escape::XS;
+use Unicode::Normalize;
 use Log::Any qw($log);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
@@ -86,6 +87,10 @@ sub get_string_id_for_lang {
 	if (not defined $string) {
 		return "";
 	}
+	
+	# Normalize Unicode characters
+	# Form NFC
+	$string = NFC($string); 
 
 	my $unaccent = $string_normalization_for_lang{default}{unaccent};
 	my $lowercase = $string_normalization_for_lang{default}{lowercase};

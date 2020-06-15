@@ -5525,10 +5525,10 @@ sub search_and_graph_products($$$) {
 
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-		# 1 axis: histogram / bar chart
+		# 1 axis: histogram / bar chart -> axis_y == "product_n" or is empty
 		# 2 axis: scatter plot
 
-		if ($graph_ref->{axis_y} eq 'products_n') {
+		if ((not defined $graph_ref->{axis_y}) or ($graph_ref->{axis_y} eq "") or ($graph_ref->{axis_y} eq 'products_n')) {
 			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {

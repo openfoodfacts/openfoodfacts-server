@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-31 12:41\n"
+"PO-Revision-Date: 2020-06-11 18:31\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3455,6 +3455,14 @@ msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr ""
 
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr "Exporta fotos a la base de dades pública"
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr "Substitueix les fotos seleccionades existents"
+
 msgctxt "cancel"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -4182,4 +4190,12 @@ msgstr "Afegiu entrades, sinònims o traduccions noves a les nostres llistes mul
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
 msgstr "Uniu-vos al canal #ingredients del <a href=\"https://slack.openfoodfacts.org\">nostre espai de discussió a Slack</a> i/o apreneu sobre <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">l'anàlisi dels ingredients en la nostra wiki</a>, si voleu ajudar. Gràcies!"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
+msgstr "Productors"
 
