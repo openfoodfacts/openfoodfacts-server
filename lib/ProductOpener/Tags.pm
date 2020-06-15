@@ -2679,14 +2679,35 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 		else {
 
-			# try a few languages
-			my @test_languages = ("en", "fr", "de", "es", "pt", "it", "nl", "ru", "la");
-			# ingredients: the taxonomy is not complete, only try English and Latin (for OBF) to avoid false positives
-			if ($tagtype eq "ingredients") {
-				@test_languages = ("en", "la");
+			# try matching in other languages
+			my @test_languages = ();
+			
+			if (defined $options{product_type}) {
+				
+				if ($options{product_type} eq "food") {
+				
+					if ($tagtype eq "ingredients") {
+						@test_languages = ("la");
+					}
+					elsif ($tagtype eq "additives") {
+						@test_languages = ("en");
+					}				
+				}
+				elsif ($options{product_type} eq "beauty") {
+				
+					# Beauty products ingredients are often in English
+					if ($tagtype eq "ingredients") {
+						@test_languages = ("en", "la");
+					}
+					elsif ($tagtype eq "additives") {
+						@test_languages = ("en");
+					}				
+				}
 			}
 
 			foreach my $test_lc (@test_languages) {
+				
+				next if ($test_lc eq $tag_lc);
 
 				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid})) {
 					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid};
