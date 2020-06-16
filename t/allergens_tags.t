@@ -40,10 +40,6 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ ], [ "en:celery", "en:mustard"] ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [ ], [ "en:eggs", "en:nuts", "en:sesame-seeds", "en:soybeans"] ],
 
-	# for languages when we don't have a translation for "and" in Ingredients.pm
-	# use " and "
-	[ { lc => "xx", ingredients_text => "NUTS AND SOMETHING" }, [ "en:nuts", ] ],
-
 	[ { lc => "fr", traces => "Traces de lait"}, [], ["en:milk"] ],
 	[ { lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [], ["en:milk", "en:nuts"] ],
 	[ { lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"] ],
