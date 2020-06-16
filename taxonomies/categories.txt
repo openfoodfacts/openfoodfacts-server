@@ -187,6 +187,13 @@ ciqual_food_name:en:Biscuit for baby
 ciqual_food_name:fr:Biscuit pour bébé
 
 <en:Snacks and desserts for babies
+en:Cocoa powder for baby beverage
+fr:Poudre cacaotée pour bébé
+ciqual_food_code:en:42501
+ciqual_food_name:en:Cocoa powder for baby beverage
+ciqual_food_name:fr:Poudre cacaotée pour bébé
+
+<en:Snacks and desserts for babies
 en:Baby drinks
 ca:Begudes per a nadons
 de:Getränke für Babies
@@ -197,13 +204,27 @@ nl:Babydranken, Babydrank
 ro:Băuturi pentru bebeluși, Băuturi bebeluși
 
 <en:Baby drinks
+en:Plant-based beverage for baby
+fr:Boisson à base de plantes pour bébé
+ciqual_food_code:en:13160
+ciqual_food_name:en:Plant-based beverage for baby
+ciqual_food_name:fr:Boisson à base de plantes pour bébé
+
+<en:Baby drinks
+en:Milky cereal-based beverages, Milky cereal-based beverage
+fr:Boisson infantile lactée aux céréales, Boisson infantile lactée aux céréales
+ciqual_food_code:en:13182
+ciqual_food_name:en:Milky cereal-based beverage(average)
+ciqual_food_name:fr:Boisson infantile céréales lactées (aliment moyen)
+
+<en:Milky cereal-based beverages
 en:Dairy cereal-based beverage for baby's breakfast
 fr:Boisson lactée pour petit-déjeuner bébé avec céréales
 ciqual_food_code:en:13173
 ciqual_food_name:en:Dairy cereal-based beverage for baby's breakfast
 ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeuner
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 fr:Boisson lactée pour goûter bébé dès 4/6 mois avec céréales et fruits
@@ -211,7 +232,7 @@ ciqual_food_code:en:13162
 ciqual_food_name:en:Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 ciqual_food_name:fr:Boisson infantile céréales lactées aux fruits pour le goûter dès 4/6 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 fr:Boisson lactée pour dîner bébé dès 4/6 mois avec céréales et légumes
@@ -219,7 +240,7 @@ ciqual_food_code:en:13161
 ciqual_food_name:en:Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 ciqual_food_name:fr:Boisson infantile céréales lactées aux légumes pour dîner dès 4/6 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 4 months
 en:Dairy cereal-based beverage for baby's breakfast from 4/6 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 4/6 mois avec céréales
@@ -235,8 +256,7 @@ ciqual_food_code:en:13159
 ciqual_food_name:en:Fruit-based beverage for baby from 4/6 months
 ciqual_food_name:fr:Boisson aux fruits pour bébé dès 4/6mois
 
-
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 8 months
 en:Dairy cereal-based beverage for baby's breakfast from 8/9 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 8/9 mois avec céréales
@@ -244,7 +264,7 @@ ciqual_food_code:en:13169
 ciqual_food_name:en:Dairy cereal-based beverage for baby's breakfast from 8/9 months
 ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeuner dès 8/9 mois
 
-<en:Baby drinks
+<en:Milky cereal-based beverages
 <en:From 12 months old
 en:Dairy cereal-based beverage for baby's breakfast from 12 months
 fr:Boisson lactée pour petit-déjeuner bébé dès 12 mois avec céréales
@@ -687,6 +707,20 @@ nl_be:Pollen
 ro:Polen
 zh:花粉
 wikidata:en:Q79932
+
+<en:Pollens
+en:Partially dried pollen
+fr:Pollen partiellement séché
+ciqual_food_code:en:31109
+ciqual_food_name:en:Pollen, partially dried
+ciqual_food_name:fr:Pollen, partiellement séché
+
+<en:Pollens
+en:Fresh pollen
+fr:Pollen frais
+ciqual_food_code:en:31111
+ciqual_food_name:en:Pollen, fresh
+ciqual_food_name:fr:Pollen,frais
 
 <en:Bee products
 en:Propolis
@@ -2414,11 +2448,18 @@ ciqual_food_code:en:1013
 ciqual_food_name:en:Whiskey-based cocktail
 
 <en:Wine-based drinks
-en:Wine-based aperitif, Vermouth
-fr:Apéritif à base de vin, Vermouth
+en:Vermouth
+fr:Vermouth
 ciqual_food_code:en:1007
 ciqual_food_name:en:Wine-based aperitif
 ciqual_food_name:fr:Apéritif à base de vin ou vermouth
+
+<en:Wine-based drinks
+en:Wine-based aperitif, Fortified wine-based aperitif
+fr:Apéritif anisé sans alcool
+ciqual_food_code:en:1011
+ciqual_food_name:en:Wine or fortified wine-based aperitif
+ciqual_food_name:fr:Apéritif anisé sans alcool
 
 <en:Alcoholic beverages
 en:Ciders
@@ -2794,6 +2835,20 @@ ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar and 
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée, avec édulcorants
 
 <en:Carbonated drinks
+en:Carbonated soft drink without fruit juice without sugar and with artificial sweeteners
+fr:Boisson gazeuse sans jus de fruit non sucrée avec édulcorants
+ciqual_food_code:en:18001
+ciqual_food_name:en:Soft drink, carbonated, without fruit juice, without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, non sucrée, avec édulcorants
+
+<en:Carbonated drinks
+en:Carbonated fruit soft drink with sugar
+fr:Boisson gazeuse aux fruits sucrée
+ciqual_food_code:en:18048
+ciqual_food_name:en:Fruit soft drink, carbonated (fruit juice content unknown), with sugar
+ciqual_food_name:fr:Boisson gazeuse aux fruits (teneur en jus non spécifiée), sucrée (aliment moyen)
+
+<en:Carbonated drinks
 en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
 fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
 ciqual_food_code:en:18340
@@ -3112,6 +3167,9 @@ nl_be:Cola's, Colas
 ro:Cola
 zh:可乐
 wikidata:en:Q134041
+ciqual_food_code:en:18063
+ciqual_food_name:en:Cola, sugar and sweetener(s) content (average)
+ciqual_food_name:fr:Cola, teneur en sucre et édulcorant inconnue (aliment moyen)
 
 <en:Colas
 en:Cola with sugar
@@ -3168,6 +3226,9 @@ fr:Eaux de coco, Eau de coco, Eaux de noix de coco, Eau de noix de coco
 it:Acqua di cocco
 nl:Kokoswater
 wikidata:en:Q633401
+ciqual_food_code:en:18011
+ciqual_food_name:en:Coconut water
+ciqual_food_name:fr:Eau de coco
 
 <en:Plant-based beverages
 en:Juices and nectars, fruit-juices-and-nectars
@@ -3316,6 +3377,9 @@ sv:Fruktsafter, fruktsaft
 th:น้ำผลไม้
 zh:水果汁, 果汁
 pnns_group_2:en:Fruit juices
+ciqual_food_code:en:2004
+ciqual_food_name:en:Fruit juice (average)
+ciqual_food_name:fr:Jus de fruits (aliment moyen)
 
 <en:Fruit juices
 en:Apple juices
@@ -3341,6 +3405,31 @@ fr:Jus de clémentine, jus de clémentines
 hu:Clementine gyümölcslevek
 nl:Clementinesappen, Clementinesap
 
+<en:Clementine juices
+en:Pure clementine juice
+fr:Jus de clémentine pur jus
+ciqual_food_code:en:2034
+ciqual_food_name:en:Mandarin or clementine juice, pure juice
+ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
+
+<en:Fruit juices
+en:Lime juice
+fr:Jus de citron vert
+
+<en:Lime juice
+en:Home-made lime juice
+fr:Jus de citron vert maison
+ciqual_food_code:en:2030
+ciqual_food_name:en:Lime juice, home-made
+ciqual_food_name:fr:Jus de citron vert, maison
+
+<en:Lime juice
+en:Pure lime juice
+fr:Jus de citron vert pur jus
+ciqual_food_code:en:2031
+ciqual_food_name:en:Lime juice, pure juice
+ciqual_food_name:fr:Jus de citron vert, pur jus
+
 <en:Fruit juices
 en:Lemon juice
 ca:Suc de llimona
@@ -3354,9 +3443,23 @@ ru:Лимонный сок
 zh:柠檬汁
 wikidata:en:Q1375049
 
+<en:Lemon juice
+en:Home-made lemon juice
+fr:Jus de citron maison
+ciqual_food_code:en:2007
+ciqual_food_name:en:Lemon juice, home-made
+ciqual_food_name:fr:Jus de citron, maison
+
+<en:Lemon juice
+en:Pure lemon juice
+fr:Jus de citron pur jus
+ciqual_food_code:en:2028
+ciqual_food_name:en:Lemon juice, pure juice
+ciqual_food_name:fr:Jus de citron, pur jus
+
 <en:Apple juices
 <en:Concentrated fruit juices
-en:Concentrated apple juices
+en:Concentrated apple juices, Apple juices reconstituted from a concentrate
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
 es:Zumos de manzana procedentes de concentrado
 fi:omenamehutiivisteet
@@ -3364,6 +3467,9 @@ fr:Jus de pomme à base de concentré, jus de pomme à base de jus concentré
 it:Succo di mela da concentrato
 nl:Geconcentreerd appelsap
 nl_be:Geconcentreerd appelsap
+ciqual_food_code:en:2014
+ciqual_food_name:en:Apple juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de pomme, à base de concentré
 
 <en:Apple juices
 <en:Refrigerated squeezed juices
@@ -3428,7 +3534,7 @@ fr:Jus de myrtilles pur jus
 nl:Geperste blauwe bessensappen, Geperste blauwe bessensap
 
 <en:Fruit juices
-en:Concentrated fruit juices, Concentrate fruit juices
+en:Concentrated fruit juices, Concentrate fruit juices, Fruit juices from concentrate
 ca:Suc de fruita concentrat
 de:Fruchtsäfte aus Konzentrat
 es:Zumos procedentes de concentrado
@@ -3438,16 +3544,22 @@ hu:Gyümölcslé koncentrátumok
 it:Succo di frutta da concentrato
 nl:Vruchtensappen op basis van concentraat, Vruchtensap op basis van concentraat
 pl:Zagęszczone soki owocowe
+ciqual_food_code:en:2077
+ciqual_food_name:en:Fruit juice, from concentrate (average)
+ciqual_food_name:fr:Jus de fruits, à base de concentré (aliment moyen)
 
 <en:Concentrated fruit juices
 <en:Orange juices
-en:Concentrated orange juices
+en:Concentrated orange juices, Orange juices reconstituted from a concentrate
 de:Orangensäfte aus Konzentrat
 es:Zumos de naranja procedente de concentrado
 fi:appelsiinimehutiivisteet
 fr:Jus d'orange à base de concentré
 it:Succo di arancia da concentrato
 nl:Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
+ciqual_food_code:en:2012
+ciqual_food_name:en:Orange juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus d'orange, à base de concentré
 
 <en:Fruit juices
 en:Grape juices
@@ -3462,13 +3574,23 @@ zh:葡萄汁
 wikidata:en:Q1209756
 
 <en:Grape juices
+en:Pure grape juice
+fr:Jus de raisin pur jus
+ciqual_food_code:en:2016
+ciqual_food_name:en:Grape juice, pure juice
+ciqual_food_name:fr:Jus de raisin, pur jus
+
+<en:Grape juices
 <en:Concentrated fruit juices
-en:Concentrated grape juices
+en:Concentrated grape juices, Grape juices reconstituted from a concentrate
 de:Traubensäfte aus Konzentrat, Traubensaft aus Konzentrat
 es:Zumos de uva procedente de concentrado
 fr:Jus de raisin à base de concentré, Jus de raisins à base de concentré
 it:Succo di uva da concentrato
 nl:Druivensappen uit concentraat, Druivensap uit concentraat
+ciqual_food_code:en:2019
+ciqual_food_name:en:Grape juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de raisin, à base de concentré
 
 <en:Grape juices
 <en:Squeezed juices
@@ -3490,12 +3612,15 @@ wikidata:en:Q1138468
 
 <en:Grapefruit juices
 <en:Concentrated fruit juices
-en:Concentrated grapefruit juices
+en:Concentrated grapefruit juices, Grapefruit juice reconstituted from a concentrate
 de:Grapefruitsäfte aus Konzentrat
 es:Zumos de pomelo procedente de concentrado
 fr:Jus de pamplemousse à base de concentré, jus de pamplemousses à base de concentré, jus de pamplemousse à base de jus concentré
 nl:Grapefruitsappen uit concentraat, Grapefruitsap uit concentraat
 ru:Сок грейпфрутовый концентрированный, концентрированный грейпфрутовый сок
+ciqual_food_code:en:2015
+ciqual_food_name:en:Grapefruit juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus de pamplemousse (pomélo), à base de concentré
 
 <en:Grapefruit juices
 <en:Refrigerated squeezed juices
@@ -3504,6 +3629,20 @@ de:Gekühlte Grapefruitdirektsäfte, Frische Grapefruitdirektsäfte
 es:Zumos de pomelo exprimido refrigerados
 fr:Jus de pamplemousse frais, Jus de pamplemousses frais
 nl:Verse grapefruitsappen, Verse grapefruitsap
+
+<en:Grapefruit juices
+en:Home-made grapefruit juice
+fr:Jus de pamplemousse maison
+ciqual_food_code:en:2025
+ciqual_food_name:en:Grapefruit juice, home-made
+ciqual_food_name:fr:Jus de pamplemousse (pomélo), maison
+
+<en:Grapefruit juices
+en:Pure grapefruit juice
+fr:Jus de pamplemousse pur jus
+ciqual_food_code:en:2027
+ciqual_food_name:en:Grapefruit juice, pure juice
+ciqual_food_name:fr:Jus de pamplemousse (pomelo), pur jus
 
 
 <en:Grapefruit juices
@@ -3528,6 +3667,13 @@ es:Zumos de mango procedente de concentrado
 fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
 it:Succo di mango da concentrato
 nl:Mangosappen uit concentraat, Mangosap uit concentraat
+
+<en:Mango juices
+en:Fresh mango juice
+fr:Jus de mangue frais
+ciqual_food_code:en:2023
+ciqual_food_name:en:Mango juice, fresh
+ciqual_food_name:fr:Jus de mangue, frais
 
 <en:Fruit juices
 en:Multifruit juices
@@ -3695,12 +3841,15 @@ wikidata:en:Q3190226
 
 <en:Concentrated fruit juices
 <en:Pineapple juices
-en:Concentrated pineapple juices
+en:Concentrated pineapple juices, Pineapple juice reconstituted from a concentrate
 de:Ananassäfte aus Konzentrat
 es:Zumos de piña procedente de concentrado
 fr:Jus d'ananas à base de concentré
 it:Succo di ananas da concentrato
 nl:Ananassappen uit concentraat, Ananassap uit concentraat
+ciqual_food_code:en:2000
+ciqual_food_name:en:Pineapple juice, reconstituted from a concentrate
+ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:Pineapple juices
 <en:Refrigerated squeezed juices
@@ -3709,6 +3858,20 @@ de:Gekühlte Ananasdirektsäfte, Gekühlter gepresster Ananassaft
 es:Zumos de piña exprimidos refrigerados
 fr:Jus d'ananas frais
 nl:Verse Ananassappen, Verse Ananassap
+
+<en:Pineapple juices
+en:Pure pineapple juices
+fr:Jus d'ananas pur jus
+ciqual_food_code:en:2073
+ciqual_food_name:en:Pineapple juice, pure juice
+ciqual_food_name:fr:Jus d'ananas, pur jus
+
+<en:Pineapple juices
+en:Pineapple juice for canned pineapple
+fr:Jus d'ananas pour ananas appertisé, Jus d'ananas pour ananas en conserve
+ciqual_food_code:en:20920
+ciqual_food_name:en:Pineapple juice for canned pineapple
+ciqual_food_name:fr:Jus d'ananas pour ananas appertisé au jus
 
 <en:Fruit juices
 en:Plum juices
@@ -3723,6 +3886,9 @@ de:Backpflaumensäfte, Dörrpflaumensäfte
 fi:luumumehu
 fr:Jus de pruneaux
 nl:Pruimedantensappen, Pruimedantensap
+ciqual_food_code:en:2018
+ciqual_food_name:en:Prune juice
+ciqual_food_name:fr:Jus de pruneau
 
 <en:Plum juices
 <en:Concentrated fruit juices
@@ -3749,6 +3915,20 @@ fr:Jus de grenade, jus de grenades
 nl:Granaatappelsappen, Granaatappelsap
 ru:Сок гранатовый, Гранатовый сок
 wikidata:en:Q3567034
+
+<en:Pomegranate juices
+en:Fresh pomegranate juice
+fr:Jus de grenade frais
+ciqual_food_code:en:2039
+ciqual_food_name:en:Pomegranate juice, fresh
+ciqual_food_name:fr:Jus de grenade, frais
+
+<en:Pomegranate juices
+en:Pure pomegranate juice
+fr:Jus de grenade pur jus
+ciqual_food_code:en:2017
+ciqual_food_name:en:Pomegranate juice, pure juice
+ciqual_food_name:fr:Jus de grenade, pur jus
 
 <en:Pomegranate juices
 <en:Concentrated fruit juices
@@ -3783,7 +3963,7 @@ fr:Jus d'orange frais, jus d'oranges frais
 nl:Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
 
 <en:Fruit juices
-en:Squeezed juices, Non-refrigerated squeezed juices
+en:Squeezed juices, Non-refrigerated squeezed juices, Pure fruit juices
 ca:Sucs expremuts, sucs espremuts no refrigerats
 de:Direktsäfte, Ungekühlte Direktsäfte
 es:Zumos exprimidos no refrigerados, Zumos exprimidos, Zumos exprimidos ambiente, Zumos exprimidos a temperatura ambiente
@@ -3793,6 +3973,9 @@ hu:Préselt gyümöcslevek
 nl:Verse ongekoelde vruchtensappen, Verse ongekoelde vruchtensap
 pl:Świeżo wyciskane soki
 zh:鲜榨果汁
+ciqual_food_code:en:2072
+ciqual_food_name:en:Fruit juice, pure juice (average)
+ciqual_food_name:fr:Jus de fruits, pur jus (aliment moyen)
 
 <en:Grapefruit juices
 <en:Squeezed juices
@@ -3805,12 +3988,15 @@ nl:Verse grapefruitsappen
 
 <en:Orange juices
 <en:Squeezed juices
-en:Squeezed orange juices, Non-refrigerated squeezed orange juices
+en:Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
 de:Orangendirektsäfte
 es:Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
 fi:puristetut appelsiinimehut
 fr:Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges
 nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
+ciqual_food_code:en:2070
+ciqual_food_name:en:Orange juice, pure juice
+ciqual_food_name:fr:Jus d'orange, pur jus
 
 <en:Pineapple juices
 <en:Squeezed juices
@@ -3830,6 +4016,13 @@ nl:Mandarijnensappen, Mandarijnensap
 ro:Suc de mandarine, Suc cu mandarine
 zh:橘子汁, 柑橘汁
 wikidata:en:Q40866122
+
+<en:Tangerine juices
+en:Pure mandarin juice
+fr:Jus de mandarine pur jus
+ciqual_food_code:en:2034
+ciqual_food_name:en:Mandarin or clementine juice, pure juice
+ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
 
 <en:Tangerine juices
 <en:Concentrated fruit juices
@@ -3889,6 +4082,16 @@ fi:aprikoosinektarit
 fr:Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot
 it:Nettare di albicocca
 nl:Abrikozennectars, Abrikozennectar
+ciqual_food_code:en:2043
+ciqual_food_name:en:Apricot nectar
+ciqual_food_name:fr:Nectar d'abricot
+
+<en:Fruit nectars
+en:Papaya nectars
+fr:Nectars de papaye
+ciqual_food_code:en:2045
+ciqual_food_name:en:Papaya nectar
+ciqual_food_name:fr:Nectar de papaye
 
 <en:Fruit nectars
 en:Banana nectars
@@ -3898,6 +4101,9 @@ fr:Nectars de banane, nectar de banane, nectar banane, nectars banane
 it:Nettare di banana
 nl:Bananennectars, Bananennectar
 zh:香蕉花蜜
+ciqual_food_code:en:2366
+ciqual_food_name:en:Banana nectar
+ciqual_food_name:fr:Nectar de banane
 
 <en:Fruit nectars
 en:Blueberry nectars
@@ -3933,6 +4139,9 @@ fi:guavanektarit
 fr:Nectars de goyave, nectar de goyave, nectar goyave
 it:Nettare di guaiava
 nl:Guavanectars, Guavanectar
+ciqual_food_code:en:2367
+ciqual_food_name:en:Guava nectar
+ciqual_food_name:fr:Nectar de goyave
 
 <en:Fruit nectars
 en:Mango nectars
@@ -3943,6 +4152,9 @@ fr:Nectars de mangue, nectar de mangue, nectar mangue, nectars mangue
 it:Nettare di mango
 nl:Mangonectars, Mangonectar
 zh:芒果花蜜
+ciqual_food_code:en:2370
+ciqual_food_name:en:Mango nectar
+ciqual_food_name:fr:Nectar de mangue
 
 <en:Fruit nectars
 en:Melon nectars
@@ -3981,6 +4193,9 @@ fr:Nectars d'orange
 it:Nettare di arancia
 nl:Sinaasappelnectars, Sinaasappelnectar
 zh:橙花蜜, 橙子花蜜
+ciqual_food_code:en:2375
+ciqual_food_name:en:Orange nectar
+ciqual_food_name:fr:Nectar d'orange
 
 <en:Fruit nectars
 en:Passion fruit nectars, Passionfruit nectars
@@ -3988,6 +4203,16 @@ de:Maracujanektare, Passionsfruchtnektare
 es:Néctares de maracuyá, Néctares de fruta de la pasión
 fr:Nectars de fruit de la passion, nectar de fruit de la passion, nectar fruit de la passion, nectar passion, nectars passion, nectars de fruits de la passion
 nl:Passievruchtnectars, Passievruchtnectar
+ciqual_food_code:en:2365
+ciqual_food_name:en:Passion fruit nectar
+ciqual_food_name:fr:Nectar de fruit de la passion ou maracuja
+
+<en:Passion fruit nectars
+en:Fresh passion fruit juices
+fr:Jus de fruit de la passion frais
+ciqual_food_code:en:2024
+ciqual_food_name:en:Passion fruit juice, fresh
+ciqual_food_name:fr:Jus de fruit de la passion ou maracudja, frais
 
 <en:Fruit nectars
 en:Peach nectars
@@ -3998,6 +4223,9 @@ fr:Nectars de pêche, nectar de pêche, nectar pêche
 it:Nettare di pesca
 nl:Perzikkennectars, Perzikkennectar
 zh:桃花蜜, 桃子花蜜
+ciqual_food_code:en:2371
+ciqual_food_name:en:Peach nectar
+ciqual_food_name:fr:Nectar de pêche
 
 <en:Fruit nectars
 en:Pear nectars
@@ -4008,6 +4236,9 @@ fr:Nectars de poire
 it:Nettare di pera
 nl:Perennectars, Perennectar
 zh:梨花蜜, 梨子花蜜
+ciqual_food_code:en:2054
+ciqual_food_name:en:Pear nectar
+ciqual_food_name:fr:Nectar de poire
 
 <en:Fruit nectars
 en:Strawberry nectars
@@ -4069,11 +4300,14 @@ en:Vegetable juices
 de:Gemüsesäfte
 es:Zumos de verduras y hortalizas
 fi:kasvismehut
-fr:Jus de légumes
+fr:Jus de légumes, Jus de légumes pur jus
 it:Succhi di verdura, succo di verdura
 nl:Groentesappen, Groentesap, Groentensap
 zh:蔬菜汁
 wikidata:en:Q1501257
+ciqual_food_code:en:2075
+ciqual_food_name:en:Vegetable juice (average)
+ciqual_food_name:fr:Jus de légumes, pur jus (aliment moyen)
 
 <en:Vegetable juices
 en:Carrot juices
@@ -4093,6 +4327,13 @@ es:Zumos de zanahoria procedente de concentrado
 fr:Jus de carotte à base de concentré, jus de carottes à base de concentré
 it:Succo di carota da concentrato
 nl:Wortelsappen uit concentraat, Wortelsap uit concentraat
+
+<en:Carrot juices
+en:Pure carrot juice
+fr:Jus de carotte pur jus
+ciqual_food_code:en:2006
+ciqual_food_name:en:Carrot juice, pure juice
+ciqual_food_name:fr:Jus de carotte, pur jus
 
 <en:Vegetable juices
 fr:Jus de betterave
@@ -4119,6 +4360,27 @@ de:Tomatensaft aus Tomatensaftkonzentrat
 es:Zumos de tomate procedente de concentrado
 fr:Jus de tomates à base de concentré, jus de tomate à base de concentré
 nl:Tomatensappen uit concentraat, Tomatensap uit concentraat
+
+<en:Tomato juices
+en:Pure tomato juices
+fr:Jus de tomate pur jus
+ciqual_food_code:en:2053
+ciqual_food_name:en:Tomato juice, pure juice (average)
+ciqual_food_name:fr:Jus de tomate, pur jus (aliment moyen)
+
+<en:Pure tomato juices
+en:Pure tomato juice with 3 g salt/L, Pure tomato juice with 3 grams of salt per liter
+fr:Jus de tomate pur jus salé à 3 g/L, Jus de tomate pur jus salé à 3 grammes de sel par litre
+ciqual_food_code:en:2026
+ciqual_food_name:en:Tomato juice, pure juice, 3 g salt/L
+ciqual_food_name:fr:Jus de tomate, pur jus, salé à 3 g/L
+
+<en:Pure tomato juices
+en:Pure tomato juice with 6 g salt/L, Pure tomato juice with 6 grams of salt per liter
+fr:Jus de tomate pur jus salé à 6 g/L, Jus de tomate pur jus salé à 6 grammes de sel par litre
+ciqual_food_code:en:2032
+ciqual_food_name:en:Tomato juice, pure juice, salted : 6g/L
+ciqual_food_name:fr:Jus de tomate, pur jus, salé à 6g/L
 
 <en:Tomatoes and their products
 en:Strained tomatoes, Passata, Canned tomato coulis semi-reduced to 11%, Canned tomato puree semi-reduced to 11%
@@ -5431,6 +5693,13 @@ nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
 
 <en:Beverages
+en:Municipal water
+fr:Eau du robinet
+ciqual_food_code:en:18066
+ciqual_food_name:en:Water, municipal
+ciqual_food_name:fr:Eau du robinet
+
+<en:Beverages
 en:Waters, bottled waters, bottled water
 ca:Aigua envasada
 cs:Voda
@@ -5448,6 +5717,11 @@ th:น้ำดื่ม
 zh:水
 wikidata:en:Q283
 pnns_group_2:en:Waters and flavored waters
+ciqual_food_code:en:18008
+ciqual_food_name:en:Water, bottled (average)
+ciqual_food_name:fr:Eau de source, embouteillée (aliment moyen)
+
+<en:Waters
 ciqual_food_code:en:18430
 ciqual_food_name:en:Water, bottled
 ciqual_food_name:fr:Eau embouteillée de source
@@ -5464,7 +5738,7 @@ wikidata:en:Q7892
 
 <en:Carbonated drinks
 <en:Waters
-en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters
+en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters, Bottled mineral water carbonated
 de:Selterswasser, Selterswässer, Sodawasser, Sodawässer,Sprudel, Sprudelwasser, Sprudelwässer
 es:Aguas carbonatadas, Agua carbonatada
 fi:hiilihapotetut vedet
@@ -5475,16 +5749,19 @@ nl:Koolzuurhoudende waters, Koolzuurhoudend water
 pl:Woda gazowana
 ru:Газированная вода
 wikidata:en:Q264554
+ciqual_food_code:en:18046
+ciqual_food_name:en:Water, mineral, carbonated, bottled (average)
+ciqual_food_name:fr:Eau minérale, gazeuse (aliment moyen)
 
 <en:Waters
 <en:Spring waters
-en:Mineral waters
+en:Mineral waters, Bottled mineral waters
 ca:Aigües minerals
 cs:Minerální vody
 de:Mineralwasser, Mineralwässer
 es:Aguas minerales
 fi:kivennäisvedet
-fr:Eaux minérales, eau minérale
+fr:Eaux minérales, eau minérale, Eau minérale en bouteille
 hu:Ásványvízek
 it:Acque minerali, acqua minerale
 nl:Mineraalwaters, Mineraalwater, Mineraal water
@@ -5492,6 +5769,16 @@ pt:Água Mineral
 ru:Минеральная вода, Минеральные воды, Минералка
 zh:矿泉水, 矿物质水
 wikidata:en:Q178921
+ciqual_food_code:en:18044
+ciqual_food_name:en:Water, mineral, bottled (average)
+ciqual_food_name:fr:Eau minérale (aliment moyen)
+
+<en:Mineral waters
+en:Low mineral bottled waters, Bottled waters with low mineralization levels
+fr:Eau minérale embouteillée faiblement minéralisée
+ciqual_food_code:en:18009
+ciqual_food_name:en:Water, bottled, low mineral (average)
+ciqual_food_name:fr:Eau minérale, embouteillée, faiblement minéralisée (aliment moyen)
 
 <en:Carbonated waters
 <en:Mineral waters
@@ -5537,35 +5824,35 @@ ciqual_food_code:en:18030
 ciqual_food_name:en:Bottled water, flavoured, without sugar and with artificial sweeteners
 ciqual_food_name:fr:Boisson à l'eau minérale ou de source, aromatisée, non sucrée, avec édulcorants
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Abatilles
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Abatilles Arcachon 33
 ciqual_food_code:en:76000
 ciqual_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Avra
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Avra Grèce
 ciqual_food_code:en:76062
 ciqual_food_name:en:Mineral still water (Avra), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Avra, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Beckerich
 fr:Eau minérale Beckerich embouteillée non gazeuse faiblement minéralisée Luxembourg
 ciqual_food_code:en:76063
 ciqual_food_name:en:Mineral still water (Beckerich), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Beckerich, embouteillée, non gazeuse, faiblement minéralisée (Luxembourg)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Caramulo
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Caramulo Portugal
 ciqual_food_code:en:76064
 ciqual_food_name:en:Mineral still water (Caramulo), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Caramulo, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chaudfontaine
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chaudfontaine Belgique
 ciqual_food_code:en:76065
@@ -5586,56 +5873,56 @@ ciqual_food_code:en:76067
 ciqual_food_name:en:Mineral still water (Courmayer), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Courmayeur, embouteillée, non gazeuse, fortement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Highland spring
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Highland spring Écosse
 ciqual_food_code:en:76068
 ciqual_food_name:en:Mineral still water (Highland spring), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Highland spring, embouteillée, non gazeuse, faiblement minéralisée (Écosse)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Levissima
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Levissima Italie
 ciqual_food_code:en:76069
 ciqual_food_name:en:Mineral still water (Levissima), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Levissima, embouteillée, non gazeuse, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Luso
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Luso Portugal
 ciqual_food_code:en:76070
 ciqual_food_name:en:Mineral still water (Luso), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Luso, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Néro
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Néro Grèce
 ciqual_food_code:en:76071
 ciqual_food_name:en:Mineral still water (Néro), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Néro, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Penacova
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Penacova Portugal
 ciqual_food_code:en:76072
 ciqual_food_name:en:Mineral still water (Penacova), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Penacova, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized water San Benedetto
 fr:Eau minérale embouteillée faiblement minéralisée San Benedetto Italie
 ciqual_food_code:en:76073
 ciqual_food_name:en:Mineral water (San Benedetto), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale San Benedetto, embouteillée, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Aix-les-Bains
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Aix-les-Bains 73
 ciqual_food_code:en:76001
 ciqual_food_name:en:Mineral still water (Aix-les-Bains), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Aix-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Aix-les-Bains, 73)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized water San Bernardo
 fr:Eau minérale embouteillée très faiblement minéralisée San Bernardo Italie
 ciqual_food_code:en:76074
@@ -5656,7 +5943,7 @@ ciqual_food_code:en:76077
 ciqual_food_name:en:Mineral still water (Talians), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Talians, embouteillée, non gazeuse, fortement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Valvert
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Valvert Belgique
 ciqual_food_code:en:76078
@@ -5677,7 +5964,7 @@ ciqual_food_code:en:76080
 ciqual_food_name:en:Spring still water (Cristaline), bottled
 ciqual_food_name:fr:Eau de source Cristaline, embouteillée, non gazeuse
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Biovive
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Biovive Dax 40
 ciqual_food_code:en:76081
@@ -5698,21 +5985,21 @@ ciqual_food_code:en:76085
 ciqual_food_name:en:Mineral still water (La Française), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale La Française, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Montcalm
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Montcalm Auzat 09
 ciqual_food_code:en:76086
 ciqual_food_name:en:Mineral still water (Montcalm), bottled, very lightly mineralized
 ciqual_food_name:fr:Eau minérale Montcalm, embouteillée, non gazeuse, très faiblement minéralisée (Auzat, 09)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Mineral still water bottled lightly mineralized Montclar
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée (Montclar 04)
 ciqual_food_code:en:76087
 ciqual_food_name:en:Mineral still water (Montclar), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Montclar, embouteillée, non gazeuse, faiblement minéralisée (Montclar, 04)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Ogeu
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Ogeu-les-Bains 64
 ciqual_food_code:en:76090
@@ -5726,7 +6013,7 @@ ciqual_food_code:en:76091
 ciqual_food_name:en:Mineral still water (Prince Noir), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Prince Noir, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Treignac
 fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Treignac 19
 ciqual_food_code:en:76095
@@ -5747,14 +6034,14 @@ ciqual_food_code:en:76100
 ciqual_food_name:en:Water, mineral, carbonated ou non-carbonated, CAROLA
 ciqual_food_name:fr:Eau minérale Carola, embouteillée, gazeuse ou non gazeuse, moyennement minéralisée (Ribeauville, 68)
 
-<en:Mineral waters
+<en:Non-carbonated natural mineral waters
 en:Non-carbonated mineral water Mont-Blanc
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Mont-Blanc Italie
 ciqual_food_code:en:76101
 ciqual_food_name:en:Water, mineral, non-carbonated, MONT-BLANC
 ciqual_food_name:fr:Eau minérale Mont-Blanc, embouteillée, non gazeuse, faiblement minéralisée (Italie)
 
-<en:Mineral waters
+<en:Non-carbonated natural mineral waters
 en:Non-carbonated mineral water Eden
 fr:Eau minérale Eden embouteillée non gazeuse faiblement minéralisée La Goa Suisse
 ciqual_food_code:en:76102
@@ -5801,7 +6088,7 @@ ciqual_food_code:en:76094
 ciqual_food_name:en:Mineral sparkling water (St-Michel-de-Mourcairol), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale St-Michel-de-Mourcairol, embouteillée, gazeuse, moyennement minéralisée (Les Aires, 34)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Ogeu
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ogeu-les-Bains 64
@@ -5817,7 +6104,7 @@ ciqual_food_code:en:76083
 ciqual_food_name:en:Mineral sparkling water (Cilaos), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Cilaos, embouteillée, gazeuse, fortement minéralisée (Cilaos, 974)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Aziac
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Aizac 07
@@ -5841,7 +6128,7 @@ ciqual_food_code:en:76061
 ciqual_food_name:en:Mineral sparkling water (Badoit), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale Badoit, embouteillée, gazeuse, moyennement minéralisée (St-Galmier, 42)
 
-<en:Mineral waters
+<en:Low mineral bottled waters
 <en:Carbonated waters
 en:Bottled lightly mineralized sparkling water Perrier
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Perrier Vergèse 30
@@ -5881,6 +6168,7 @@ ciqual_food_name:en:Mineral sparkling water (Auvergne), bottled, strongly minera
 ciqual_food_name:fr:Eau minérale Auvergne, embouteillée, gazeuse, fortement minéralisée (Cornillon, 38)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized still water Celtic
 fr:Eau minérale embouteillée très faiblement minéralisée Celtic Niederbronn 67
 ciqual_food_code:en:76010
@@ -5888,6 +6176,7 @@ ciqual_food_name:en:Mineral still water (Celtic), bottled, very lightly minerali
 ciqual_food_name:fr:Eau minérale Celtic, embouteillée, gazeuse ou non gazeuse, très faiblement minéralisée (Niederbronn, 67)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chambon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chambon 45
 ciqual_food_code:en:76011
@@ -5895,6 +6184,7 @@ ciqual_food_name:en:Mineral still water (Chambon), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Chambon, embouteillée, non gazeuse, faiblement minéralisée (Chambon, 45)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Chantemerle
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chantemerle Le Pestrin 07
 ciqual_food_code:en:76012
@@ -5923,6 +6213,7 @@ ciqual_food_name:en:Mineral still water (Didier), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Didier, embouteillée non gazeuse, fortement minéralisée (Martinique)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Evian
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Evian 74
 ciqual_food_code:en:76020
@@ -5944,6 +6235,7 @@ ciqual_food_name:en:Mineral still water (Vittel), bottled, averagely mineralized
 ciqual_food_name:fr:Eau minérale Vittel, embouteillée, non gazeuse, moyennement minéralisée (Vittel, 88)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Volvic
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Volvic 63
 ciqual_food_code:en:76057
@@ -5951,6 +6243,7 @@ ciqual_food_name:en:Mineral still water (Volvic), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Volvic, embouteillée, non gazeuse, faiblement minéralisée (Volvic, 63)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Luchon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Luchon 31
 ciqual_food_code:en:76025
@@ -5958,6 +6251,7 @@ ciqual_food_name:en:Mineral still water (Luchon), bottled, lightly mineralized
 ciqual_food_name:fr:Eau minérale Luchon, embouteillée, non gazeuse, faiblement minéralisée (Luchon, 31)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled very lightly mineralized water Mont-Roucous
 fr:Eau minérale embouteillée très faiblement minéralisée Mont-Roucous Lacaune 81
 ciqual_food_code:en:76027
@@ -5965,6 +6259,7 @@ ciqual_food_name:en:Mineral water (Mont-Roucous, bottled, very lightly mineraliz
 ciqual_food_name:fr:Eau minérale Mont-Roucous, embouteillée, très faiblement minéralisée (Lacaune, 81)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized spring water Ogeu
 fr:Eau de source embouteillée faiblement minéralisée Ogeu 64
 ciqual_food_code:en:76028
@@ -5979,6 +6274,7 @@ ciqual_food_name:en:Mineral still water (Orée du bois), bottled, averagely mine
 ciqual_food_name:fr:Eau minérale Orée du bois, embouteillée, non gazeuse, moyennement minéralisée (St-Amand, 59)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Plancoet
 fr:Eau minérale embouteillée faiblement minéralisée Plancoet 22
 ciqual_food_code:en:76032
@@ -5993,6 +6289,7 @@ ciqual_food_name:en:Mineral still water (Propiac), bottled, strongly mineralized
 ciqual_food_name:fr:Eau minérale Propiac, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Sail-les-Bains
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Sail-les-Bains 42
 ciqual_food_code:en:76038
@@ -6000,6 +6297,7 @@ ciqual_food_name:en:Mineral still water (Sail-les-Bains), bottled, lightly miner
 ciqual_food_name:fr:Eau minérale Sail-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Sail-les-Bains, 42)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Wattwiller
 fr:Eau minérale embouteillée faiblement minéraliséee Wattwiller 68
 ciqual_food_code:en:76059
@@ -6021,6 +6319,7 @@ ciqual_food_name:en:Mineral still water (St-Antonin), bottled, strongly minerali
 ciqual_food_name:fr:Eau minérale St-Antonin, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
 
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized still water Thonon
 fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Thonon 74
 ciqual_food_code:en:76050
@@ -6037,6 +6336,7 @@ ciqual_food_name:fr:Eau minérale St-Diéry, embouteillée, gazeuse, fortement m
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Ventadour
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ventadour Le Pestrin 07
 ciqual_food_code:en:76053
@@ -6045,6 +6345,7 @@ ciqual_food_name:fr:Eau minérale Ventadour, embouteillée, gazeuse, faiblement 
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Vernet
 fr:Eau minérale embouteillée gazeuse faiblement minéralisée Vernet Prades 07
 ciqual_food_code:en:76054
@@ -6077,6 +6378,7 @@ ciqual_food_name:fr:Eau minérale St-Yorre, embouteillée, gazeuse, fortement mi
 
 <en:Carbonated waters
 <en:Natural mineral waters
+<en:Low mineral bottled waters
 en:Bottled lightly mineralized sparkling water Volvic active
 fr:Eau minérale active embouteillée gazeuse faiblement minéralisée Volvic 63
 ciqual_food_code:en:76058
@@ -6204,11 +6506,14 @@ fr:Eau minérale naturelle légèrement gazéifiée
 nl:Met weinig koolzuur versterkte mineraalwaters, Met weinig koolzuur versterkt mineraalwater
 
 <en:Natural mineral waters
-en:Non-carbonated natural mineral waters
+en:Non-carbonated natural mineral waters, Bottled mineral water non-carbonated
 de:natürliches Mineralwasser ohne Kohlensäure, natürliche Mineralwässer ohne Kohlensäure, stilles natürliches Mineralwasser, stille natürliche Mineralwässer
 fi:hiilihapottamattomat luontaiset kivennäisvedet
-fr:Eau minérale naturelle non gazeuse
+fr:Eau minérale naturelle non gazeuse, Eau minérale plate
 nl:Koolzuurvrije natuurlijke mineraalwaters, Koolzuurvrij natuurlijk mineraalwater, Natuurlijke mineraalwaters zonder koolzuur
+ciqual_food_code:en:18045
+ciqual_food_name:en:Water, mineral, non-carbonated, bottled (average)
+ciqual_food_name:fr:Eau minérale, plate (aliment moyen)
 
 <en:Waters
 en:Spring waters
@@ -6362,6 +6667,9 @@ th:ไวน์
 zh:葡萄酒
 wikidata:en:Q282
 nova:en:3
+ciqual_food_code:en:5210
+ciqual_food_name:en:Wine (average)
+ciqual_food_name:fr:Vin (aliment moyen)
 
 <en:Wines
 en:Wine without geographic indication
@@ -6507,20 +6815,23 @@ ru:Безалкогольные напитки
 sv:Alkoholfria drycker
 th:เครื่องดื่มไม่มีแอลกอฮอล์
 zh:无酒精饮料
+ciqual_food_code:en:18029
+ciqual_food_name:en:Non-alcoholic beverage (average)
+ciqual_food_name:fr:Boisson rafraîchissante sans alcool (aliment moyen)
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract with sugar and artificial sweetener(s)
 fr:Boisson au thé aromatisée sucrée avec édulcorants
 ciqual_food_code:en:18015
 ciqual_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract flavoured without sugar and with artificial sweeteners
 fr:Boisson au thé aromatisée non sucrée avec édulcorants
 ciqual_food_code:en:18065
 ciqual_food_name:en:Still soft drink with tea extract, flavoured, without sugar and with artificial sweeteners
 
-<en:Beverages
+<en:Tea-based beverages
 en:Still soft drink with tea extract flavoured with sugar
 fr:Boisson au thé aromatisée sucrée
 ciqual_food_code:en:18075
@@ -17896,6 +18207,13 @@ ciqual_food_name:en:Marsala wine
 ciqual_food_name:fr:Marsala
 
 <en:Wines from Italy
+en:Marsala with eggs
+fr:Marsala aux oeufs
+ciqual_food_code:en:1016
+ciqual_food_name:en:Marsala w eggs
+ciqual_food_name:fr:Marsala aux oeufs
+
+<en:Wines from Italy
 it:Martina, Martina Franca
 country:en:Italy
 #wikidata:en:
@@ -21091,6 +21409,7 @@ ciqual_food_code:en:4103
 ciqual_food_name:en:Sweet potato, puree, cooked with cream
 ciqual_food_name:fr:Patate douce, purée, cuisinée à la crème
 
+<en:Cooked vegetables
 <en:Sweet potatoes
 en:Cooked sweet potatoes
 fr:Patates douces cuites
@@ -21338,12 +21657,15 @@ pnns_group_2:en:Teas and herbal teas and coffees
 <en:Beverages
 #Do not put tea beverages under teas
 #<en:Teas
-en:Tea-based beverages, Tea beverages
+en:Tea-based beverages, Tea beverages, Still soft drinks with tea extract and sugar and sweeteners
 de:Teegetränke, Teebasierte Getränke
 fi:tee-pohjaiset juomat
-fr:Boissons au thé, Thés infusés, boissons à base de thé
+fr:Boissons au thé, Thés infusés, boissons à base de thé, Boissons aromatisées au thé
 nl:Dranken op basis van thee
 pnns_group_2:en:Teas and herbal teas and coffees
+ciqual_food_code:en:18062
+ciqual_food_name:en:Still soft drink with tea extract, sugar and sweetener(s) content (average)
+ciqual_food_name:fr:Boisson au thé, aromatisée, teneur en sucre et édulcorant inconnue (aliment moyen)
 
 <en:Beverages
 #Do not put herbal tea beverages under herbal teas
@@ -22095,6 +22417,9 @@ th:กลุ่มผลิตภัณฑ์ขนมปัง
 zh:面包
 wikidata:en:Q7802
 pnns_group_2:en:Bread
+ciqual_food_code:en:7000
+ciqual_food_name:en:Bread (average)
+ciqual_food_name:fr:Pain (aliment moyen)
 
 <en:Appetizers
 en:Filled fougasse
@@ -22262,6 +22587,9 @@ zh:麵包屑
 # yue:麪包糠
 wikidata:en:Q658413
 wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
+ciqual_food_code:en:7500
+ciqual_food_name:en:Breadcrumbs
+ciqual_food_name:fr:Chapelure
 
 <en:Bread crumbs
 en:Wheat crumbs
@@ -23026,6 +23354,13 @@ ciqual_food_code:en:18168
 ciqual_food_name:en:Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins
 ciqual_food_name:fr:Poudre cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines
 
+<en:Cocoa and chocolate powders
+en:Malted cocoa with sugar fortified with vitamins and chemical elements
+fr:Poudre maltée cacaotée sucrée pour boisson enrichie en vitamines et minéraux
+ciqual_food_code:en:18102
+ciqual_food_name:en:Malted cocoa or chocolate powder for beverage, with sugar
+ciqual_food_name:fr:Poudre maltée, cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines et minéraux
+
 <en:Instant beverages
 en:Ready-to-drink instant cocoa with sugar reconstituted with standard semi-skimmed milk, Ready-to-drink instant chocolate beverage with sugar reconstituted with standard semi-skimmed milk
 fr:Boisson cacaotée instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard, Boisson au chocolat instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard
@@ -23146,6 +23481,9 @@ zh:蛋糕
 # yue:蛋糕
 wikidata:en:Q13276
 wikipedia:en:https://en.wikipedia.org/wiki/Cake
+ciqual_food_code:en:23000
+ciqual_food_name:en:Cake (average)
+ciqual_food_name:fr:Gâteau (aliment moyen)
 # category/cakes has 6408 products @2019-05-20
 # ingredient/fr:gâteau has 59 products in french @2019-02-06
 
@@ -23164,6 +23502,13 @@ de:Backmischungen für Kuchen, Kuchenbackmischungen
 fi:kakkujauhosekoitukset
 fr:Préparations pour gâteaux, préparation pour gâteau
 nl:Cake mix
+
+<en:Dessert mixes
+en:Base formulation for chocolate mousse
+fr:Préparation pour mousse au chocolat
+ciqual_food_code:en:39242
+ciqual_food_name:en:base formulation for chocolate mousse
+ciqual_food_name:fr:Préparation pour mousse au chocolat
 
 <en:Dessert mixes
 fr:Préparations pour entremets
@@ -23814,6 +24159,13 @@ th:ขนมหวาน
 pnns_group_2:en:Sweets
 
 <en:Confectioneries
+en:Candied orange zest
+fr:Zeste d'orange confit
+ciqual_food_code:en:31021
+ciqual_food_name:en:Candied orange zest
+ciqual_food_name:fr:Zeste d'orange confit
+
+<en:Confectioneries
 en:Cotton candy, fairy floss, candy floss
 de:Zuckerwatte, Gesponnener Zucker
 es:Algodón de azúcar, nube de algodón
@@ -24434,13 +24786,16 @@ ca:Barretes de xocolata
 de:Schokoriegel, Schokoladenriegel
 es:Barritas de chocolate
 fi:suklaapatukat
-fr:Barres chocolatées, barres au chocolat
+fr:Barres chocolatées, barres au chocolat, Chocolat en tablette
 hu:Csokoládés szelet, Csoki
 nl:Chocorepen
 pt:Barras de chocolate
 zh:巧克力棒
 wikidata:en:Q1361086
 #, barre chocolatée, barre au chocolat, barres au chocolat
+ciqual_food_code:en:31120
+ciqual_food_name:en:Chocolate bar
+ciqual_food_name:fr:Chocolat, en tablette (aliment moyen)
 
 <en:Chocolate bars
 en:Chocolate biscuity bars
@@ -24832,6 +25187,9 @@ fr:Chewing-gum, gomme à mâcher, pâte à mâcher, chiclette, chique, chiclet, 
 nl:Kauwgom
 ro:Gumă de mestecat
 wikidata:en:Q130878
+ciqual_food_code:en:31121
+ciqual_food_name:en:Chewing gum, sugar level unknown (average)
+ciqual_food_name:fr:Chewing-gum, teneur en sucre inconnue (aliment moyen)
 
 <en:Chewing gum
 en:Sugar-free chewing gum, Chewing gum without sugar
@@ -25037,13 +25395,16 @@ ru:Подсолнечная халва, Халва подсолнечная
 
 <en:Confectioneries
 <en:Fruits based foods
-en:Candied fruit
+en:Candied fruits
 de:Kandierte Früchte
 es:Frutas confitadas
 fi:sokeroidut hedelmät
 fr:Fruits confits
 nl:Gekonfijt fruit
 wikidata:en:Q1163138
+ciqual_food_code:en:31027
+ciqual_food_name:en:Candied fruits
+ciqual_food_name:fr:Fruit confit
 
 <en:Candied fruit
 fr:Citron confit
@@ -25531,11 +25892,31 @@ fr:Œufs de poisson
 nl:Visseneieren
 zh:鱼卵, 鱼子
 
+<en:Fish eggs
+<en:Semi-preserved foods
+en:Semi-preserved salmon roe
+fr:Oeufs de saumon en semi-conserve
+ciqual_food_code:en:26275
+ciqual_food_name:en:Salmon roe, semi-preserved
+ciqual_food_name:fr:Oeufs de saumon, semi-conserve
+
+<en:Fish eggs
+<en:Semi-preserved foods
+en:Semi-preserved smoked cod roe
+fr:Oeufs de cabillaud fumés en semi-conserve
+ciqual_food_code:en:26056
+ciqual_food_name:en:Cod roe, smoked, semi-preserved
+ciqual_food_name:fr:Oeufs de cabillaud, fumés, semi-conserve
+
 <en:Semi-preserved foods
 <en:fish eggs
-fr:Œufs de lump, Œufs de Cyclopterus lumpus, Oeufs de lompe
+fr:Œufs de lump, Œufs de Cyclopterus lumpus, Oeufs de lompe, Œufss de lompe, Oeufs de lompe en semi-conserve
+en:Semi-preserved lump roe
 de:Seehasenrogen
 wikidata:en:Q3594120
+ciqual_food_code:en:26004
+ciqual_food_name:en:Lump roe, semi-preserved
+ciqual_food_name:fr:Oeufs de lompe, semi-conserve
 
 <en:Canned meals
 <en:Ravioli
@@ -25625,6 +26006,13 @@ de:Eierfreie Kartoffel Tortillas
 es:Tortillas de patata sin huevo
 fr:Omelettes espagnoles sans oeuf
 nl:Spaanse tortillas zonder ei
+
+<en:Meals
+en:Omelette with vegetables and cheese and meat
+fr:Omelette avec garniture, Omelette avec légumes et fromages et viandes
+ciqual_food_code:en:22511
+ciqual_food_name:en:Omelette, with vegetables, cheese, meat
+ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
 
 <en:Meals
 en:Herb omelette
@@ -25724,6 +26112,14 @@ fr:Caviars, Caviar
 nl:Kaviaar
 ro:Caviar
 wikidata:en:Q186385
+
+<en:Caviars
+<en:Semi-preserved foods
+en:Semi-preserved caviar
+fr:Caviar en semi-conserve
+ciqual_food_code:en:26005
+ciqual_food_name:en:Caviar, semi-preserved
+ciqual_food_name:fr:Caviar, semi-conserve
 
 <en:Caviars
 en:Farmed caviars
@@ -25849,6 +26245,13 @@ it:Gnocchi
 nl:Gnocchi
 
 <en:Gnocchi
+en:Cooked gnocchis
+fr:Gnocchis cuits
+ciqual_food_code:en:25579
+ciqual_food_name:en:Gnocchi, cooked (average)
+ciqual_food_name:fr:Gnocchi, cuit (aliment moyen)
+
+<en:Gnocchi
 en:Potato gnocchi, Gnocchi from potato
 de:Kartoffelgnocchi
 fi:perunagnocchi
@@ -25860,9 +26263,9 @@ ciqual_food_code:en:26264
 ciqual_food_name:en:Gnocchi, from potato, raw
 ciqual_food_name:fr:Gnocchi à la pomme de terre, cru
 
-<en:Gnocchi
-en:Cooked gnocchi from potato
-fr:Gnocchi sà la pomme de terre cuits
+<en:Cooked gnocchis
+en:Cooked gnocchis from potato
+fr:Gnocchis à la pomme de terre cuits
 ciqual_food_code:en:25510
 ciqual_food_name:en:Gnocchi, from potato, cooked
 ciqual_food_name:fr:Gnocchi à la pomme de terre, cuit
@@ -25875,9 +26278,9 @@ fr:Gnocchi de semoule de blé dur
 nl:Gnocchi van durum tarwe
 pnns_group_2:en:Cereals
 
-<en:Gnocchi
+<en:Cooked gnocchis
 <en:Cereals and their products
-en:Cooked gnocchi from semolina
+en:Cooked gnocchis from semolina
 fr:Gnocchis à la semoule cuits
 ciqual_food_code:en:25479
 ciqual_food_name:en:Gnocchi, from semolina, cooked
@@ -27305,6 +27708,9 @@ ro:Kefir
 ru:Кефир
 sv:Kefir
 wikidata:en:Q185749
+ciqual_food_code:en:19865
+ciqual_food_name:en:Kefir
+ciqual_food_name:fr:Kéfir
 
 <en:Kefir
 en:Kefir 1 %
@@ -27478,6 +27884,9 @@ lmo:Furmai
 wikidata:en:Q10943
 pnns_group_2:en:Cheese
 nova:en:3
+ciqual_food_code:en:12999
+ciqual_food_name:en:Cheese (average)
+ciqual_food_name:fr:Fromage (aliment moyen)
 
 <en:Cheeses
 fr:Fromages pour enfants
@@ -28748,10 +29157,13 @@ ciqual_food_code:en:12037
 ciqual_food_name:en:Livarot cheese, from cow's milk
 
 <en:Cheeses
-en:Soft cheeses with washed rind
+en:Soft cheeses with washed rind, Soft-ripened cheeses with washed rind
 de:Weichkäse mit gewaschener Rinde
 fr:Fromages à pâte molle à croûte lavée
 nl:Zachte gewassen korstkazen
+ciqual_food_code:en:12034
+ciqual_food_name:en:Soft-ripened cheese, washed rind (average)
+ciqual_food_name:fr:Fromage à pâte molle et croûte lavée (aliment moyen)
 
 <en:Cheeses
 en:Stretched-curd cheeses, Pulled-curd cheeses, Plastic-curd cheeses
@@ -28781,13 +29193,16 @@ fr:Fromages apéritif
 
 <en:Processed cheese
 <en:French cheeses
-en:Cancoillottes, Cancoyottes
+en:Cancoillottes, Cancoyottes, Processed cheese from cow's milk
 de:Kochkäse
 es:Cancoillottes, Cancoyottes
-fr:Cancoillottes
+fr:Cancoillottes, Cancoillotte, Spécialité fromagère fondue
 nl:Cancoillotes
 wikidata:en:Q688947
 oqali_family:en: fr:Fromages - Cancoillotte
+ciqual_food_code:en:12325
+ciqual_food_name:en:Cancoillotte (processed cheese), from cow's milk
+ciqual_food_name:fr:Cancoillotte (spécialité fromagère fondue)
 
 <en:Cheeses
 en:Cream cheeses
@@ -28852,14 +29267,17 @@ nl:Zachte kazen met natuurlijke korst
 wikidata:en:Q3088326
 
 <en:Cheeses
-en:Cooked pressed cheeses
+en:Cooked pressed cheeses, Hard cheese
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 fi:kypsennetyt prässätyt juustot
-fr:Fromages à pâte pressée cuite
+fr:Fromages à pâte pressée cuite, Fromage à pâte pressée cuite
 nl:Verhitte geperste kazen
 pt:Queijos cozidos e premidos
 wikidata:en:Q3088330
+ciqual_food_code:en:12100
+ciqual_food_name:en:Hard cheese (average)
+ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
 
 <en:Cheeses
 en:Half-cooked pressed cheeses
@@ -30787,11 +31205,14 @@ wikidata:en:Q34172
 fr:Beurres de baratte
 
 <en:Butters
-en:light butter
+en:Light butter, Low-fat butter spread
 de:fettarme Butter, Halbfettbutter
 fi:kevytvoi
-fr:Beurres allégés, Beurre allegé
+fr:Beurres allégés, Beurre allegé, Beurre doux allégé léger, Beurre doux allégé à teneur reduite en matière grasse
 nl:Light roomboters
+ciqual_food_code:en:16412
+ciqual_food_name:en:Butter spread, low-fat (average)
+ciqual_food_name:fr:Beurre ou assimilé allégé (léger ou à teneur reduite en matière grasse), doux (aliment moyen)
 
 <en:Butters
 en:Half-salted butter
@@ -30799,6 +31220,13 @@ de:leicht gesalzene Butter
 fi:puoliksi suolattu voi
 fr:Beurres demi-sel, beurre demi-sel
 nl:Lichtgezouten roomboters
+ciqual_food_code:en:16413
+ciqual_food_name:en:Butter, unknown fat content , half-salted (average)
+ciqual_food_name:fr:Beurre à teneur en matière grasse inconnue (allégé ou non), demi-sel (aliment moyen)
+
+<en:Half-salted butter
+en:Butter 80% fat lightly salted
+fr:Beurre à 80% MG demi-sel
 ciqual_food_code:en:16402
 ciqual_food_name:en:Butter, 80% fat, lightly salted
 
@@ -30834,16 +31262,23 @@ de:Ungesalzene Butter
 fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 nl:Ongezouten roomboter
+ciqual_food_code:en:16414
+ciqual_food_name:en:Butter, unknown fat content , unsalted (average)
+ciqual_food_name:fr:Beurre ou assimilé à teneur en matière grasse inconnue, doux (aliment moyen)
+
+<en:Unsalted butters
+en:Butter 82% fat unsalted
+fr:Beurre à 82% MG doux
 ciqual_food_code:en:16400
 ciqual_food_name:en:Butter, 82% fat, unsalted
 
-<en:Butters
+<en:Unsalted butters
 en:Butter 82% fat unsalted easy-to-spread
 fr:Beurre à 82% MG doux tendre
 ciqual_food_code:en:16404
 ciqual_food_name:en:Butter, 82% fat, unsalted, easy-to-spread
 
-<en:Butters
+<en:Unsalted butters
 en:Butter light 39-41% fat unsalted
 fr:Beurre à 39-41% MG léger doux
 ciqual_food_code:en:16415
@@ -30945,7 +31380,7 @@ wikidata:en:Q742127
 
 <en:Cream cheeses
 # <en:ingredient:en:cheese
-en:Quark
+en:Quark, Plain quark, Quark with fruits
 ar:كوارك
 az:Kəsmik
 be:тварог
@@ -30954,7 +31389,7 @@ da:Kvark
 de:Quark, Weißkäse, Topfen, Schotten, Speisequark
 es:Queso quark
 fi:Rahka
-fr:quark
+fr:quark, Fromage blanc nature, Fromage blanc aux fruits
 he:גבינה לבנה
 hy:Կաթնաշոռ
 id:Quark
@@ -30990,6 +31425,9 @@ zh:奶渣
 # pt-br:Quark
 wikidata:en:Q259642
 wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
+ciqual_food_code:en:19501
+ciqual_food_name:en:Quark, plain or fruit (average)
+ciqual_food_name:fr:Fromage blanc nature ou aux fruits (aliment moyen)
 # ingredient/nl:kwark has 2 products @2019-05-24
 # category/quark has 221 products @2019-05-24
 
@@ -31066,6 +31504,13 @@ fr:Babeurres, Laits battus, Laits de beurre, Laits ribots
 it:Latticelli, Laticello
 nl:Karnemelken, Botermelken
 wikidata:en:Q106612
+
+<en:Dairies
+en:Eggnog without alcohol
+fr:Lait de poule sans alcool
+ciqual_food_code:en:39400
+ciqual_food_name:en:Eggnog, without alcohol
+ciqual_food_name:fr:Lait de poule, sans alcool
 
 <en:Dairies
 en:Milks
@@ -31167,12 +31612,15 @@ zh:奶饮料, 乳饮料
 pnns_group_2:en:Milk and yogurt
 
 <en:Dairy drinks
-en:Flavoured milks, Flavored milks
+en:Flavoured milks, Flavored milks, Flavoured milks with sugar partially skimmed fortified with vitamins and chemicals elements
 ca:Llet aromatitzada
 de:Aromatisierte Milch
 fi:maustetut maidot
-fr:Laits aromatisés, lait aromatisé
+fr:Laits aromatisés, lait aromatisé, Boissons lactées aromatisées sucrées au lait partiellement écrémé enrichies en vitamines et minéraux
 nl:Zuiveldranken
+ciqual_food_code:en:19120
+ciqual_food_name:en:Flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
+ciqual_food_name:fr:Boisson lactée aromatisée (arôme inconnu), sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux (aliment moyen)
 
 <en:Flavoured milks
 en:Refrigerated flavoured renneted milks
@@ -31351,6 +31799,13 @@ ciqual_food_code:en:19250
 ciqual_food_name:en:Sheep milk, whole
 ciqual_food_name:fr:Lait de brebis, entier
 
+<en:Whole milks
+en:Whole mare's milk
+fr:Lait de jument entier
+ciqual_food_code:en:19225
+ciqual_food_name:en:Mare's milk, whole
+ciqual_food_name:fr:Lait de jument, entier
+
 <en:Milks
 en:Skimmed milks
 ca:Llet desnatada
@@ -31507,7 +31962,7 @@ fr:Lait longue conservation
 nl:Langhoudbare melken
 
 <en:homogenized milks
-en:UHT Milks
+en:UHT Milks, Sterilized Milks
 ca:Llet UHT
 cs:Trvanlivá mléka
 de:H-Milch, H-Milche, H-Milchen, Haltbarmilch, Haltbarmilche, Haltbarmilchen, UHT-Milch, UHT-Milche, UHT-Milchen, Up-Milch, Up-Milche, Up-Milchen
@@ -31522,6 +31977,9 @@ pt:Leites UHT
 ru:Молоко ультрапастеризованное, ультрапастеризованное молоко
 sv:H-mjölk, UHT-mjölk
 wikidata:en:Q13616188
+ciqual_food_code:en:19039
+ciqual_food_name:en:Milk, fat content unknown, UHT sterilized
+ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen)
 
 <en:Creams
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
@@ -31918,6 +32376,13 @@ ciqual_food_code:en:18903
 ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
 ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
 
+<en:Soy milks
+en:Soy drinks with concentrated fruit juice
+fr:Boissons au soja et jus de fruits concentrés
+ciqual_food_code:en:29209
+ciqual_food_name:en:Soy drink, w concentrated fruit juice
+ciqual_food_name:fr:Boisson au soja et jus de fruits concentrés
+
 <en:Plant milks
 en:Mixed plant milks, Mixed plant drinks
 es:Mezclas de leches vegetales, Mezclas de bebidas vegetales
@@ -32264,6 +32729,9 @@ ceb:Yogur
 lad:Yaúrt
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13317
+ciqual_food_code:en:19624
+ciqual_food_name:en:Yoghurt, plain or fruit (average)
+ciqual_food_name:fr:Yaourt ou spécialité laitière nature ou aux fruits (aliment moyen)
 
 <en:Yogurts
 en:Lactose-free yogurts
@@ -32271,6 +32739,13 @@ es:Yogures sin lactosa
 fr:Yaourts sans lactose
 it:Yogurt senza lattosio
 nl:Lactose-vrije yoghurt, Lactose-vrije yoghurts, Yoghurt zonder lactose, Yoghurts zonder lactose
+
+<en:Yogurts
+en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
+fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
+ciqual_food_code:en:19675
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sweetener (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, avec édulcorants (aliment moyen)
 
 <en:Fruit yogurts
 en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
@@ -32416,7 +32891,7 @@ en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar, Flavoured dair
 de:aromatisierte Joghurts
 es:Yogures de sabores
 fi:maustetut jugurtit
-fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté, Spécialité laitière aromatisée sucrée
+fr:Yaourts aromatisés, Yaourt aromatisé sucré au lait fermenté, Spécialité laitière sucrée aromatisée
 nl:Gearomatiseerde yoghurts
 pt:Iogurtes aromatizados
 zh:调味酸奶
@@ -32425,13 +32900,13 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with s
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
 
 <en:Yogurts
-en:Fruit yogurts, yogurts with fruits, Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
+en:Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured, Dairy specialty with fruits, Dairy specialty fruit flavoured
 ca:Iogurs de fruita, iogurs amb fruita
 cs:Ovocné jogurty
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es:Yogures de frutas
 fi:hedelmäjugurtit
-fr:Yaourts aux fruits, Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
+fr:Yaourts aux fruits, Yaourt aromatisé , Yaourt aux fruits, Lait fermenté aromatisé, Lait fermenté aux fruits, Spécialité laitière aromatisée, Spécialité laitière aux fruits
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
 nl:Vruchtenyoghurts
@@ -32440,9 +32915,37 @@ ro:Iaurturi cu fructe, Iaurt cu fructe
 ru:Фруктовые йогурты, Фруктовый йогурт, Йогурт с фруктами, Йогурты с фруктами
 th:โยเกิร์ตผลไม้
 zh:水果酸奶
+ciqual_food_code:en:19682
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits (aliment moyen)
+
+<en:Fruit yogurts
+en:Yogurt with fruits no 0% fat, Yogurt fruit flavoured no 0% fat, Fermented milk with fruits no 0% fat, Fermented milk fruit flavoured no 0% fat, Dairy specialty with fruits no 0% fat, Dairy specialty fruit flavoured no 0% fat
+fr:Yaourt aromatisé aux fruits non allégé en matières grasses, Yaourt aux fruits non allégé en matières grasses, Lait fermenté aromatisé aux fruits non allégé en matières grasses, Lait fermenté aux fruits non allégé en matières grasses, Spécialité laitière aromatisée aux fruits non allégée en matières grasses, Spécialité laitière aux fruits non allégée en matières grasses
+ciqual_food_code:en:19672
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, non allégé en MG (aliment moyen)
+
+<en:Fruit yogurts
+en:Fermented milk yogurt with fruits and sugar, Dairy specialty with fruits and sugar
+fr:Yaourt sucré au lait fermenté et aux fruits, Spécialité laitière sucrée aux fruits
 ciqual_food_code:en:19587
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
+
+<en:Fruit yogurts
+en:Yogurt with fruits and sugar, Yogurt fruit flavoured with sugar, Fermented milk with fruits and sugar, Fermented milk fruit flavoured with sugar, Dairy specialty with fruits and added sugar, Dairy specialty fruit flavoured with sugar
+fr:Yaourt aromatisé sucré, Yaourt aux fruits sucré, Lait fermenté aromatisé sucré, Lait fermenté aux fruits sucré, Spécialité laitière aromatisée sucrée, Spécialité laitière aux fruits sucrée
+ciqual_food_code:en:19676
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré (aliment moyen)
+
+<en:Fruit yogurts
+en:Yogurt with fruits and sugar no 0% fat, Yogurt fruit flavoured with sugar no 0% fat, Fermented milk with fruits and sugar no 0% fat, Fermented milk fruit flavoured with sugar no 0% fat, Dairy specialty with fruits and sugar no 0% fat, Dairy specialty fruit flavoured with sugar no 0% fat
+fr:Yaourt aromatisé sucré non allégé en matières grasses, Yaourt aux fruits sucré non allégé en matières grasses, Lait fermenté aromatisé sucré non allégé en matières grasses, Lait fermenté aux fruits sucré non allégé en matières grasses, Spécialité laitière aromatisée sucrée non allégée en matières grasses, Spécialité laitière aux fruits sucrée non allégée en matières grasses
+ciqual_food_code:en:19677
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
 
 <en:Fruit yogurts
 en:Fruit yogurts with fruit chunks
@@ -32454,8 +32957,12 @@ hu:Gyümölcs joghurtok gyümölcsdarabokkal
 nl:Vruchtenyoghurt met stukjes
 
 <en:Fruit yogurts
-fr:Yaourts sur lit de fruits, yaourts sur lits de fruits,Yaourts sut lit de fruits
+fr:Yaourts sur lit de fruits, yaourts sur lits de fruits, Yaourts sut lit de fruits, Spécialités laitières sucrées riches en protéines sur lit de fruits
+en:Yoghurts high in protein on a fruit layer
 nl:Yoghurts op een laag fruit
+ciqual_food_code:en:19669
+ciqual_food_name:en:Yoghurt, high in protein, on a fruit layer
+ciqual_food_name:fr:Spécialité laitière type encas, riche en protéines, sur lit de fruits, sucrée
 
 <en:Fruit yogurts
 fr:Yaourts multifruits, yaourts multi-fruits
@@ -32719,13 +33226,16 @@ ciqual_food_name:en:Yogurt, Greek-style, on a bed of fruits
 ciqual_food_name:fr:Yaourt à la grecque, sur lit de fruits
 
 <en:Yogurts
-en:Low-fat yogurts
+en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
 de:fettarme Joghurt, fettarme Jogurt, fettarme Joghurts, fettarme Jogurts
 es:Yogures bajos en grasa
 fi:Matalarasvaiset jugurtit
-fr:Yaourts allégés en matière grasse, Yaourts allégés en matières grasses, Yaourts allégés
+fr:Yaourts allégés en matière grasse, Yaourts allégés en matières grasses, Yaourts allégés, Yaourt aromatisé à 0% de matières grasses, Yaourt aux fruits à 0% de matières grasses, Lait fermenté aromatisé à 0% de matières grasses, Lait fermenté aux fruits à 0% de matières grasses, Spécialité laitière aromatisée à 0% de matières grasses, Spécialité laitière aux fruits à 0% de matières grasses
 hu:Alacsony zsírtartalmú joghurtok
 nl:Light youghurts
+ciqual_food_code:en:19671
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, 0% fat (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, 0% MG (aliment moyen)
 
 <en:Yogurts
 en:Mixed yogurts
@@ -32825,12 +33335,19 @@ it:Yogurt intero
 nl:Volle yoghurts
 
 <en:Yogurts
-en:Plain yogurts, plain unsweetened yogurts, Plain fermented milk yogurt, Plain dairy specialty
+en:Plain yogurts, Plain yoghurts
+fr:Yaourts nature, Yaourt nature
+ciqual_food_code:en:19600
+ciqual_food_name:en:Yoghurt, plain (average)
+ciqual_food_name:fr:Yaourt ou spécialité laitière nature (aliment moyen)
+
+<en:Plain yogurts
+en:Plain unsweetened yogurts, Plain fermented milk yogurt, Plain dairy specialty
 ca:Iogurts naturals
 de:Naturjogurts
 es:Yogures naturales
 fi:luonnon jugurtit
-fr:Yaourts natures, Yaourt nature, Yaourt au lait fermenté nature, Spécialité laitière nature
+fr:Yaourts au lait fermenté nature, Spécialités laitières nature
 it:Yogurt intero
 nl:Naturelyoghurts
 pl:Jogurty naturalne, Jogurt naturalny
@@ -33325,13 +33842,30 @@ it:Composte mela e caramello
 fr:Compotes pommes prune
 
 <en:Dairy desserts
-en:Dessert creams
+en:Dessert creams, Custard desserts
 ca:Postres cremoses
 de:Cremedesserts
 es:Postres de cremas
 fi:jälkiruokakermat
 fr:Crèmes dessert, Crèmes desserts, Crèmes dessert lactées, crèmes dessert à base de lait, crèmes dessert au lait
 nl:Vla's
+ciqual_food_code:en:39511
+ciqual_food_name:en:Custard dessert, refrigerated or canned (average)
+ciqual_food_name:fr:Crème dessert, rayon frais ou appertisée (aliment moyen)
+
+<en:Dessert creams
+en:Refrigerated dessert creams, Refrigerated custard desserts
+fr:Crèmes dessert rayon frais
+ciqual_food_code:en:39230
+ciqual_food_name:en:Custard dessert, refrigerated (average)
+ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
+
+<en:Dessert creams
+en:Canned custard desserts
+fr:Crèmes dessert appertisées, Crèmes dessert en conserve
+ciqual_food_code:en:39505
+ciqual_food_name:en:Custard dessert, canned (average)
+ciqual_food_name:fr:Crème dessert, appertisée (aliment moyen)
 
 <en:Desserts
 en:Sweet mousses, sweet mousse, sugary mousses, sugary mousse
@@ -33350,7 +33884,7 @@ fr:Mousses lactées, mousses au lait, mousses à base de lait
 nl:Mousses op basis van melk
 
 <en:Chocolate desserts
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated chocolate custard dessert
 fr:Crèmes dessert chocolat, Crème dessert chocolat, Crèmes dessert au chocolat, Crème dessert au chocolat
 nl:Chocolade vla's
@@ -33359,43 +33893,43 @@ ciqual_food_name:en:Custard dessert, chocolate, refrigerated
 ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
 
 <en:Chocolate desserts
-<en:Dessert creams
+<en:Canned custard desserts
 en:Canned chocolate custard dessert
 fr:Crème dessert au chocolat appertisée
 ciqual_food_code:en:39506
 ciqual_food_name:en:Custard dessert, chocolate, canned
 ciqual_food_name:fr:Crème dessert au chocolat, appertisée
 
-<en:Dessert creams
+<en:Canned custard desserts
 en:Canned vanilla custard dessert
 fr:Crème dessert à la vanille appertisée
 ciqual_food_code:en:39214
 ciqual_food_name:en:Custard dessert, vanilla, canned
 ciqual_food_name:fr:Crème dessert à la vanille, appertisée
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated custard dessert with reduced fat
 fr:Crème dessert allégée en matières grasses rayon frais
 ciqual_food_code:en:19673
 ciqual_food_name:en:Custard dessert, reduced fat, refrigerated
 ciqual_food_name:fr:Crème dessert, allégée en MG, rayon frais
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated vanilla custard dessert
 fr:Crème dessert à la vanille rayon frais
 ciqual_food_code:en:39229
 ciqual_food_name:en:Custard dessert, vanilla, refrigerated
 ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 en:Refrigerated coffee custard dessert
 fr:Crème dessert au café rayon frais
 ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
 
-<en:Dessert creams
-en:Reefrigerated caramel custard dessert
+<en:Refrigerated dessert creams
+en:Refrigerated caramel custard dessert
 fr:Crème dessert au caramel rayon frais
 ciqual_food_code:en:39247
 ciqual_food_name:en:Custard dessert, caramel, refrigerated
@@ -33407,7 +33941,7 @@ nl:Chocolade puur vla's
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
 
-<en:Dessert creams
+<en:Refrigerated dessert creams
 fr:Crèmes dessert vanille, Crème dessert vanille, Crèmes dessert à la vanille, Crème dessert à la vanille
 nl:vanilla vla's
 ciqual_food_code:en:39211
@@ -33839,6 +34373,13 @@ en:Diet beverages, Diet drinks
 de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
 fr:Boissons light
 nl:Light dranken
+
+<en:Diet beverages
+en:Dietary drink for sport
+fr:Boisson diététique pour le sport
+ciqual_food_code:en:18350
+ciqual_food_name:en:Dietary drink for sport
+ciqual_food_name:fr:Boisson diététique pour le sport
 
 <en:Snacks
 en:Salty snacks
@@ -34639,11 +35180,14 @@ wikidata:en:Q5875513
 oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
 
 <en:Nut confectioneries
-en:Marrons glacés, Marrón glacé, Candied chesnuts
+en:Marrons glacés, Marrón glacé, Candied chesnuts, Iced chestnuts
 es:Castañas confitadas, Castañas glaseadas, Marrón glacé, Marrons glacés
 fr:Marrons glacés, Marrón glacé
 nl:Suikerkastanjes
 wikidata:en:Q2334489
+ciqual_food_code:en:31023
+ciqual_food_name:en:Iced chestnut
+ciqual_food_name:fr:Marron glacé
 
 <en:Dragées
 <en:Nut confectioneries
@@ -35265,6 +35809,13 @@ wikidata:en:Q1572135
 wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 # ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
 
+<en:Quail eggs
+en:Raw quail eggs, Raw quail egg
+fr:Oeufs de caille crus, Oeuf de caille cru
+ciqual_food_code:en:22050
+ciqual_food_name:en:Quail egg, raw
+ciqual_food_name:fr:Oeuf de caille, cru
+
 <en:Bird eggs
 en:Duck eggs
 fr:Oeufs de cane
@@ -35584,6 +36135,9 @@ es:Margarinas sin sal
 fr:Margarines sans sel
 it:Margarina senza sale
 nl:Ongezouten margarine
+ciqual_food_code:en:16719
+ciqual_food_name:en:Vegetable fat (margarine type), spreadable, fat content unknown, light, unsalted
+ciqual_food_name:fr:Matière grasse végétale (type margarine), teneur en matière grasse inconue, doux (aliment moyen)
 
 <en:Margarines
 en:Salted margarines
@@ -35592,32 +36146,36 @@ es:Margarinas con sal
 fr:Margarines salées
 nl:Gezouten margarine
 
-<en:Unsalted margarines
 <en:Light margarines
+<en:Unsalted margarines
+en:Light unsalted margarines, Light unsalted spreadable vegetable fat, Unsalted spreadfat
+fr:Matière grasse végétale de type margarine doux à teneur réduite en matière grasse
+ciqual_food_code:en:16725
+ciqual_food_name:en:Fat spreadfat content unknown, unsalted (average)
+ciqual_food_name:fr:Matière grasse végétale (type margarine), teneur réduite en matière grasse inconnue, doux (aliment moyen)
+
+<en:Light unsalted margarines
 en:60% unsalted vegetable fat margarine type with sunflowerseed
 fr:Matière grasse végétale allégée à 60% type margarine doux au tournesol
 ciqual_food_code:en:16654
 ciqual_food_name:en:Vegetable fat (margarine type), 60% fat, unsalted, sunflowerseed
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 60% de MG, allégée, au tournesol, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type
 fr:Matière grasse végétale légère à 30-40% type margarine doux
 ciqual_food_code:en:16733
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type with plant sterols esters
 fr:Matière grasse végétale légère à 30-40% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16735
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux, aux esters de stérol végétal
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:30-40% unsalted vegetable fat margarine type high in omega 3
 fr:Matière grasse végétale légère à 30-40% type margarine doux riche en oméga 3
 ciqual_food_code:en:16736
@@ -35677,24 +36235,21 @@ ciqual_food_code:en:16616
 ciqual_food_name:en:Vegetable fat (margarine type), 70% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type high in omega 3
 fr:Matière grasse végétale allégée à 50-63% de matières grasses riche en oméga 3, margarine douce
 ciqual_food_code:en:16737
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type with plant sterols esters
 fr:Matière grasse végétale allégée à 50-63% type margarine doux aux esters de stérol végétal
 ciqual_food_code:en:16739
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, aux esters de stérol végétal
 
-<en:Unsalted margarines
-<en:Light margarines
+<en:Light unsalted margarines
 en:50-63% unsalted vegetable fat margarine type
 fr:Matière grasse végétale allégée à 50-63% type margarine doux
 ciqual_food_code:en:16741
@@ -35747,12 +36302,22 @@ sv:Vegetabiliska oljor, vegetabilisk olja
 th:น้ำมันพืช
 zh:植物油
 wikidata:en:Q4739805
+ciqual_food_code:en:17001
+ciqual_food_name:en:Vegetable oil (average)
+ciqual_food_name:fr:Huile végétale (aliment moyen)
 
 <en:Vegetable oils
 fr:Huiles aromatisées
 
 <en:Vegetable oils
 fr:Huiles pimentées
+
+<en:Vegetable oils
+en:Apricot kernel oil
+fr:Huile d'amandes d'abricot
+ciqual_food_code:en:17020
+ciqual_food_name:en:Apricot kernel oil
+ciqual_food_name:fr:Huile d'amandes d'abricot
 
 <en:Vegetable oils
 en:Argan oils
@@ -35762,6 +36327,9 @@ it:Olio di argan
 nl:Arganoliën
 sv:Arganoljor, Arganolja
 wikidata:en:Q45418
+ciqual_food_code:en:17900
+ciqual_food_name:en:Argan oil
+ciqual_food_name:fr:Huile d'argan ou d'argane
 
 <en:Vegetable oils
 en:Borage seed oils, Borage oils
@@ -35850,10 +36418,13 @@ ciqual_food_name:fr:Huile de sésame
 <en:Cereal oils
 en:Wheat germ oils
 es:Aceites de germen de trigo
-fr:Huiles de germe de blé
+fr:Huiles de germe de blé, Huile de germe de blé
 nl:Tarwekiemoliën
 zh:小麦胚芽油
 wikidata:en:Q720761
+ciqual_food_code:en:17110
+ciqual_food_name:en:Wheat germ oil
+ciqual_food_name:fr:Huile de germe de blé
 
 <en:Vegetable oils
 en:Combined oil (blended vegetable oils)
@@ -35887,10 +36458,13 @@ zh:水果和水果籽油
 en:Avocado oils
 de:Avocadoöle
 es:Aceites de aguacate
-fr:Huiles d'avocat
+fr:Huiles d'avocat, Huile d'avocat
 nl:Avocado-oliën
 zh:鳄梨油
 wikidata:en:Q2918735
+ciqual_food_code:en:17100
+ciqual_food_name:en:Avocado oil
+ciqual_food_name:fr:Huile d'avocat
 
 <en:Fruit and fruit seed oils
 en:Coconut oils
@@ -36021,6 +36595,9 @@ nl:Amandeloliën
 sv:Mandeloljor, Mandelolja
 zh:杏仁油
 wikidata:en:Q1164590
+ciqual_food_code:en:17030
+ciqual_food_name:en:Almond oil
+ciqual_food_name:fr:Huile d'amande
 
 <en:Nut oils
 en:Hazelnut oils
@@ -36305,6 +36882,13 @@ ciqual_food_code:en:16401
 ciqual_food_name:en:Butter oil or concentrated butter
 
 <en:Fats
+en:Paraffin oil
+fr:Huile de paraffine
+ciqual_food_code:en:17999
+ciqual_food_name:en:Paraffin oil
+ciqual_food_name:fr:Huile de paraffine
+
+<en:Fats
 en:British oils and fats
 
 <en:British oils and fats
@@ -36347,10 +36931,13 @@ nl:Raapoliën
 en:Safflower oils
 de:Distelöle, Safloröle
 es:Aceites de cártamo
-fr:Huiles de carthame
+fr:Huiles de carthame, Huile de carthame
 it:Olio di cartamo
 nl:Saffloeroliën
 wikidata:en:Q16642513
+ciqual_food_code:en:17126
+ciqual_food_name:en:Safflower oil
+ciqual_food_name:fr:Huile de carthame
 
 <en:Vegetable oils
 <en:Sunflower seeds and their products
@@ -36445,7 +37032,15 @@ fr:Farines de souchet
 <en:Flours
 fr:Farines de patate douce
 
+<en:Plant-based foods
+en:Bran
+fr:Son
+ciqual_food_code:en:9647
+ciqual_food_name:en:Bran (average)
+ciqual_food_name:fr:Son (aliment moyen)
+
 <en:Cereals and their products
+<en:Bran
 en:Cereal brans
 de:Kleien
 es:Salvados de cereales
@@ -36530,6 +37125,23 @@ pt:Cereias para pequeno-almoçco
 sv:Frukostflingor
 th:อาหารเช้าธัญพืช
 pnns_group_2:en:Breakfast cereals
+ciqual_food_code:en:32003
+ciqual_food_name:en:Breakfast cereals, sweet (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner (aliment moyen)
+
+<en:Breakfast cereals
+en:Sweet breakfast cereals fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner enrichies en vitamines et minéraux
+ciqual_food_code:en:32031
+ciqual_food_name:en:Breakfast cereals, sweet, fortified with vitamins and chemical elements (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et minéraux (aliment moyen)
+
+<en:Breakfast cereals
+en:Sweet breakfast cereals not fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner non enrichies en vitamines et minéraux
+ciqual_food_code:en:32032
+ciqual_food_name:en:Breakfast cereals, sweet, not fortified with vitamins and chemical elements (average)
+ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines et minéraux (aliment moyen)
 
 <en:Breakfast cereals
 en:Chocolate cereals
@@ -36568,11 +37180,28 @@ ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
 ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat (non enrichies en vitamines et minéraux)
 
 <en:Chocolate cereals
-en:Chocolate breakfast cereals with puffed/popped wheat grains fortified with vitamins and chemical elements
+<en:Puffed cereals
+en:Chocolate breakfast cereals with puffed wheat grains fortified with vitamins and chemical elements, Chocolate breakfast cereals with popped wheat grains fortified with vitamins and chemical elements
 fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
 ciqual_food_code:en:32115
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
+
+<en:Chocolate cereals
+<en:Puffed cereals
+en:Breakfast cereals with chocolate puffed rice not fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice not fortified with vitamins and chemical elements
+fr:Riz soufflé chocolaté non enrichi en vitamines et minéraux
+ciqual_food_code:en:32012
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr:Riz soufflé chocolaté (non enrichi en vitamines et minéraux)
+
+<en:Chocolate cereals
+<en:Puffed cereals
+en:Breakfast cereals with chocolate puffed rice fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice fortified with vitamins and chemical elements
+fr:Riz soufflé chocolaté enrichi en vitamines et minéraux
+ciqual_food_code:en:32131
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Riz soufflé chocolaté, enrichi en vitamines et minéraux
 
 <en:Chocolate cereals
 en:Breakfast chocolate cereals with wheat grain flakes fortified with vitamins and chemical elements
@@ -36636,7 +37265,7 @@ ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolat
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
 
 <en:Filled cereals
-en:Breakfast cereals popped or puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
+en:Breakfast cereals popped wheat grain with honey or caramel fortified with vitamins and chemical elements, Breakfast cereals puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au miel ou caramel enrichis en vitamines et minéraux
 ciqual_food_code:en:32000
 ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
@@ -36714,25 +37343,25 @@ ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped corn with honey (not fortified with vitamins and chemical elements)
+en:Breakfast cereals puffed corn with honey not fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey not fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel (non enrichies en vitamines et minéraux)
 ciqual_food_code:en:32129
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey (not fortified with vitamins and chemical elements)
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped corn with honey fortified with vitamins and chemical elements
+en:Breakfast cereals puffed corn with honey fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel enrichies en vitamines et minéraux
 ciqual_food_code:en:32133
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals puffed/popped cereals wholemeal fortified with vitamins and chemical elements
+en:Breakfast cereals puffed cereals wholemeal fortified with vitamins and chemical elements, Breakfast cereals popped cereals wholemeal fortified with vitamins and chemical elements
 fr:Céréales complètes soufflées enrichies en vitamines et minéraux
 ciqual_food_code:en:32134
 ciqual_food_name:en:Breakfast cereals, puffed/popped cereals, wholemeal, fortified with vitamins and chemical elements
 
 <en:Filled cereals
-en:Breakfast cereals mix of puffed or extruded cereals fortified with vitamins and chemical elements
+en:Breakfast cereals mix of puffed cereals fortified with vitamins and chemical elements, Breakfast cereals mix of extruded cereals fortified with vitamins and chemical elements
 fr:Multi-céréales soufflées ou extrudées enrichies en vitamines et minéraux
 ciqual_food_code:en:32135
 ciqual_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements
@@ -36792,6 +37421,9 @@ zh:木斯里
 # pt-br:muesli
 wikidata:en:Q52406
 wikipedia:en:https://en.wikipedia.org/wiki/Muesli
+ciqual_food_code:en:32004
+ciqual_food_name:en:Muesli (average)
+ciqual_food_name:fr:Muesli (aliment moyen)
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
@@ -36834,20 +37466,34 @@ ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (no
 ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
-en:Bircher-style muesli flakes
-fr:Muesli floconneux
+en:Muesli flakes, Bircher-style muesli flakes
+fr:Muesli floconneux, Muesli en flocons, Flocons de muesli
 ciqual_food_code:en:32128
 ciqual_food_name:en:Muesli, flakes (Bircher-style)
 ciqual_food_name:fr:Muesli floconneux ou de type traditionnel
 
-<en:Mueslis
+<en:Muesli flakes
+en:Muesli flakes fortified with vitamins and chemical elements
+fr:Muesli enrichi en vitamines et minéraux
+ciqual_food_code:en:32139
+ciqual_food_name:en:Muesli, flakes, fortified with vitamins and chemical elements (average food)
+ciqual_food_name:fr:Muesli enrichi en vitamines et minéraux (aliment moyen)
+
+<en:Muesli flakes
+en:Muesli flakes not fortified with vitamins and chemical elements
+fr:Muesli non enrichi en vitamines et minéraux
+ciqual_food_code:en:32141
+ciqual_food_name:en:Muesli, flakes, not fortified with vitamins and chemical elements (average food)
+ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
+
+<en:Muesli flakes
 en:Bircher-style muesli flakes with fruits fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits fortified with vitamins and chemical elements
 fr:Muesli floconneux aux fruits enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs enrichi en vitamines et minéraux
 ciqual_food_code:en:32110
 ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
-<en:Mueslis
+<en:Muesli flakes
 en:Bircher-style sugar free Muesli flakes with fruits, Bircher-style sugar free Muesli flakes with dried fruits
 fr:Muesli floconneux aux fruits sans sucres ajoutés, Muesli floconneux aux fruits secs sans sucres ajoutés
 ciqual_food_code:en:32113
@@ -36861,7 +37507,7 @@ ciqual_food_code:en:32111
 ciqual_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
-<en:Mueslis
+<en:Muesli flakes
 en:Bircher-style muesli flakes with fruits not fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits not fortified with vitamins and chemical elements
 fr:Muesli floconneux aux fruits non enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs non enrichi en vitamines et minéraux
 ciqual_food_code:en:32138
@@ -37034,6 +37680,13 @@ es:Mezclas de cereales inflados
 fr:Mélanges de céréales soufflés
 nl:Gepofte granenmelanges
 
+<en:Puffed cereals
+en:Breakfast cereals with puffed rice fortified with vitamins and chemical elements, Breakfast cereals with popped rice fortified with vitamins and chemical elements
+fr:Riz soufflé nature enrichi en vitamines et minéraux
+ciqual_food_code:en:32006
+ciqual_food_name:en:Breakfast cereals, puffed/popped rice, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Riz soufflé nature, enrichi en vitamines et minéraux
+
 <en:Snacks
 en:Popcorn, pop-corn, Popped popcorn
 ca:Crispetes
@@ -37135,10 +37788,13 @@ fr:Blé soufflé
 nl:Gepofte tarwe
 
 <en:Puffed wheat
-en:Puffed Khorasan wheat, Puffed Kamut
+en:Puffed Khorasan wheat, Puffed Kamut, Wholemeal puffed khorasan wheat, Wholemeal popped khorasan wheat
 es:Trigo de Jorasán inflado, Trigo de Jorasán hinchado, Kamut inflado, Kamut hinchado
-fr:Blé de khorasan soufflé, blé de khorasan soufflé
+fr:Blé de khorasan soufflé, blé de khorasan soufflé, Blé khorasan complet soufflé
 nl:Gepofte Khorosan
+ciqual_food_code:en:32130
+ciqual_food_name:en:Khorasan wheat, wholemeal, puffed/popped
+ciqual_food_name:fr:Blé khorasan complet soufflé
 
 <en:Puffed wheat
 en:Puffed spelt
@@ -37725,6 +38381,9 @@ en:Wheat germ
 es:Germen de trigo
 fr:Germe de blé
 nl:Tarwekiemen
+ciqual_food_code:en:9660
+ciqual_food_name:en:Wheat germ
+ciqual_food_name:fr:Germe de blé
 
 <en:Cereals and their products
 en:Cereal semolinas
@@ -37853,6 +38512,13 @@ ciqual_food_code:en:9080
 ciqual_food_name:en:Wheat, whole, pre-cooked, raw
 ciqual_food_name:fr:Blé dur précuit, entier, cru
 
+<en:Starches
+en:Potato starches, Potato starches
+fr:Fécules de pomme de terre, Fécule de pomme de terre
+ciqual_food_code:en:4090
+ciqual_food_name:en:Potato starch
+ciqual_food_name:fr:Fécule de pomme de terre
+
 <en:Cereals and their products
 <en:Starches
 en:Cereal starches
@@ -37878,6 +38544,9 @@ de:Reisstärke
 es:Almidón de arroz
 fr:Amidon de riz
 nl:Rijstzetmelen
+ciqual_food_code:en:96781
+ciqual_food_name:en:Rice starch
+ciqual_food_name:fr:Amidon de riz
 
 <en:Cereal starches
 en:Wheat starch
@@ -38125,6 +38794,13 @@ fi:sakeutusaineet
 fr:Gélifiants
 nl:Bindmiddelen
 zh:增稠剂
+
+<en:Thickeners
+en:Gelling agent for jam
+fr:Gélifiant pour confitures
+ciqual_food_code:en:31047
+ciqual_food_name:en:Gelling agent for jam
+ciqual_food_name:fr:Gélifiant pour confitures
 
 <en:Thickeners
 <en:Seaweed products
@@ -38406,12 +39082,12 @@ ciqual_food_name:en:Frozen dessert, ice cream with meringue, vacherin ice cream 
 ciqual_food_name:fr:Dessert glacé type mystère ou vacherin
 
 <en:Frozen desserts
-en:Ice creams and sorbets
+en:Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
 ca:Sorbets i gelats
 de:Speiseeis und Sorbets, Eiskrem und Sorbets
 es:Helados y sorbetes
 fi:jäätelöt ja sorbetit
-fr:Glaces et sorbets, glace et sorbet, sorbets et glaces
+fr:Glaces et sorbets, Sorbets et glaces
 hu:Jégkrém és parfé
 it:Gelati e sorbetti
 nl:IJs en sorbets
@@ -38420,6 +39096,9 @@ pt:Gelados e sorvetes
 sv:Glass och sorbet
 zh:冰淇淋和果汁冰糕
 pnns_group_2:en:Ice cream
+ciqual_food_code:en:39500
+ciqual_food_name:en:Ice cream or sorbet or ice pop, flavoured (average)
+ciqual_food_name:fr:Glace à l'eau ou sorbet ou crème glacée, tout parfum (aliment moyen)
 
 <en:Frozen desserts
 en:Frozen dessert puff pastry to share
@@ -38669,14 +39348,17 @@ ciqual_food_name:en:Ice cream, cone, mini
 ciqual_food_name:fr:Glace ou crème glacée, mini cône
 
 <en:Ice creams
-en:Ice cream tubs
+en:Ice cream tubs, Ice cream cups
 ca:Terrines de gelat
 de:Eisbecher, Eispackungen
 es:Tarrinas y bloques de helado, Tarrinas de helado, Bloques de helado
 fi:jäätelöveneet
-fr:Crèmes glacées en pot, crème glacée en pot
+fr:Crèmes glacées en pot, Crème glacée en pot, Glaces en pot
 nl:Roomijs
 sv:Glassbyttor, Glassbytta
+ciqual_food_code:en:39527
+ciqual_food_name:en:Ice cream, box or cup (average)
+ciqual_food_name:fr:Glace ou crème glacée, bac ou pot (aliment moyen)
 
 <en:Ice creams
 en:Ice cream in a box
@@ -41375,16 +42057,19 @@ nl:Aromatische planten in pot
 pt:Plantas aromáticas em vaso
 
 <en:Aromatic plants
-en:Aromatic herbs, Herbs
+en:Aromatic herbs, Herbs, Fresh herbs
 de:Kräuter
 es:Hierbas aromáticas
 fi:mausteyrtit
-fr:Herbes aromatiques
+fr:Herbes aromatiques, Herbes aromatiques fraîches
 nl:Kruiden
 nl_be:Kruiden
 pt:Ervas aromáticas
 zh:香草
 wikidata:en:Q207123
+ciqual_food_code:en:11080
+ciqual_food_name:en:Herbs, fresh (average)
+ciqual_food_name:fr:Herbes aromatiques fraîches (aliment moyen)
 
 <en:Aromatic herbs
 en:Basil, Thai basil, Sweet basil
@@ -41651,6 +42336,14 @@ zh:薄荷
 wikidata:en:Q47859
 
 <en:Mint
+<en:Dried aromatic plants
+en:Dried mint
+fr:Menthe séchée
+ciqual_food_code:en:11029
+ciqual_food_name:en:Mint, dried
+ciqual_food_name:fr:Menthe, séchée
+
+<en:Mint
 <en:Fresh aromatic plants
 en:Fresh mint
 de:frische Minze
@@ -41666,7 +42359,7 @@ ciqual_food_name:fr:Menthe, fraîche
 en:Frozen mint
 de:gefrorene Minze
 es:Menta congelada
-fr:Menthe surgelé
+fr:Menthe surgelée
 hu:Fagyasztott menta
 nl:Bevroren munt
 
@@ -42212,6 +42905,13 @@ nl:Kruiderijen
 wikidata:en:Q773108
 
 <en:Condiments
+en:Capers pickled in vinegar
+fr:Câpres au vinaigre
+ciqual_food_code:en:11040
+ciqual_food_name:en:Capers, pickled in vinegar
+ciqual_food_name:fr:Câpres, au vinaigre
+
+<en:Condiments
 en:Salts, Salt
 ca:Sal, sals
 de:Salze, Salz
@@ -42438,6 +43138,9 @@ nl:Specerijen
 nl_be:Specerijen
 pt:Temperos
 wikidata:en:Q42527
+ciqual_food_code:en:11081
+ciqual_food_name:en:Spice (average)
+ciqual_food_name:fr:Epice (aliment moyen)
 
 <en:Spices
 <en:Herbal teas
@@ -43202,6 +43905,13 @@ pnns_group_2:en:Dressings and sauces
 wikidata:en:Q178359
 
 <en:Sauces
+en:Warm sauces
+fr:Sauces chaudes
+ciqual_food_code:en:11218
+ciqual_food_name:en:Sauce, warm (average)
+ciqual_food_name:fr:Sauce chaude (aliment moyen)
+
+<en:Sauces
 en:Dessert sauces
 fr:Sauces dessert
 
@@ -43242,6 +43952,13 @@ fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande type V
 
 <en:Sauces
 fr:Sauces à l'oseille, Sauce à l'oseille
+
+<en:Warm sauces
+en:Molokhia sauce, Home-made molokhia sauce
+fr:Sauce meloukhia artisanale
+ciqual_food_code:en:51502
+ciqual_food_name:en:Molokhia sauce, home-made
+ciqual_food_name:fr:Meloukhia, sauce, artisanale
 
 <en:Sauces
 en:Kebab sauce
@@ -43468,6 +44185,13 @@ ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
 ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
 
 <en:Sauces
+en:Salad dressing with reduced fat and 25-50% of oil
+fr:Sauce vinaigrette allégée en matière grasse avec 25 à 50% d'huile
+ciqual_food_code:en:11109
+ciqual_food_name:en:Salad dressing, reduced fat (25-50% of oil), prepacked
+ciqual_food_name:fr:Sauce vinaigrette allégée en MG (25 à 50% d'huile), préemballée
+
+<en:Sauces
 en:Mustard sauce
 fr:Sauce moutarde
 ciqual_food_code:en:11157
@@ -43582,6 +44306,9 @@ es:Salsas Teriyaki
 fi:teriyaki-kastikkeet
 fr:Sauces Teriyaki
 nl:Teriyakisaus
+ciqual_food_code:en:11301
+ciqual_food_name:en:Teriyaki sauce, prepacked
+ciqual_food_name:fr:Sauce teriyaki, préemballée
 
 <en:Sauces
 en:Yakitori sauces
@@ -44764,6 +45491,13 @@ fi:tomaattipureet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate
 nl:Tomatenpuree
 
+<en:Tomato purées
+en:Tomato caviar, Seasonned tomato puree
+fr:Caviars de tomates, Caviar de tomates
+ciqual_food_code:en:11215
+ciqual_food_name:en:Tomato caviar (a seasonned tomato puree)
+ciqual_food_name:fr:Caviar de tomates
+
 <en:Tomatoes and their products
 en:Tomato pastes, Canned concentrated tomato paste
 de:Tomatenmark
@@ -45108,9 +45842,13 @@ ciqual_food_name:en:Moussaka
 ciqual_food_name:fr:Moussaka
 
 <en:Meals
-en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes
+en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes, Puff pastry, Savoury, Puff pastries
 fr:Plats préparés feuilletés
 nl:Kant-en-klaar maaltijden met bladerdeeg
+fr:Feuilleté salé
+ciqual_food_code:en:25578
+ciqual_food_name:en:Puff pastry, savoury (average)
+ciqual_food_name:fr:Feuilleté salé (aliment moyen)
 
 <en:Puff pastry meals
 en:Ham croissants, Croissant filled with ham
@@ -45120,15 +45858,22 @@ ciqual_food_code:en:25418
 ciqual_food_name:en:Croissant filled with ham
 
 <en:Puff pastry meals
-fr:Vol-au-vent, bouchées à la reine, bouchée à la reine
+en:Vol-au-vent, Filled vol-au-vent
+fr:Bouchée à la reine, Bouchée à la reine garnie
 nl:Vol au vent
+ciqual_food_code:en:25580
+ciqual_food_name:en:Vol-au-vent, filled (average)
+ciqual_food_name:fr:Bouchée à la reine, garnie (aliment moyen)
+
+<en:Vol-au-vent
 en:Vol-au-vent with fish and seafood
+fr:Bouchées à la reine au poisson et aux fruits de mer, Bouchées à la reine au poisson, Bouchées à la reine aux fruits de mer
 ciqual_food_code:en:25503
 ciqual_food_name:en:Vol-au-vent with fish and seafood
 
-<en:Puff pastry meals
+<en:Vol-au-vent
 en:Vol-au-vent with meat/poultry/quenelle
-fr:Bouchée à la reine à la viande
+fr:Bouchées à la reine à la viande, Bouchée à la reine à la viande
 ciqual_food_code:en:25412
 ciqual_food_name:en:Vol-au-vent, with meat/poultry/quenelle
 
@@ -45302,6 +46047,13 @@ fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
 
 <en:Meals
+en:Pork chop suey, Chicken chop suey
+fr:Chop suey de porc, Chop suey de poulet, Chop suey au porc, Chop suey au poulet
+ciqual_food_code:en:25205
+ciqual_food_name:en:Chop suey (pork or chicken)
+ciqual_food_name:fr:Chop suey (porc ou poulet)
+
+<en:Meals
 en:Couscous, Durum wheat semolina pre-cooked with steam
 fr:Couscous, Semoule de blé dur roulée précuite à la vapeur
 ciqual_food_code:en:9681
@@ -45373,6 +46125,7 @@ ciqual_food_name:en:Couscous with meat or chicken, light
 ciqual_food_name:fr:Couscous à la viande ou au poulet, allégé
 
 <en:Prepared couscous
+<en:Cooked vegetables
 en:Cooked mixed vegetables for couscous
 fr:Légumes cuits pour couscous
 ciqual_food_code:en:20497
@@ -45418,6 +46171,20 @@ pt:Refeições com peixe, pratos com peixe
 en:Frozen fish in sauce
 ciqual_food_code:en:26054
 ciqual_food_name:en:Fish, in sauce, frozen
+
+<en:Meals with fish
+en:Cooked white fish without skin
+fr:Poisson blanc cuit, Poisson blanc cuit sans la peau
+ciqual_food_code:en:26249
+ciqual_food_name:en:Fish, white, without skin, cooked
+ciqual_food_name:fr:Poisson blanc, cuit (aliment moyen)
+
+<en:Meals with fish
+en:Cooked marine white fish without skin
+fr:Poisson blanc de mer cuit
+ciqual_food_code:en:26250
+ciqual_food_name:en:Marine fish, white, without skin, cooked
+ciqual_food_name:fr:Poisson blanc, de mer, cuit (aliment moyen)
 
 <en:Meals with fish
 en:White fish with Provencal-style tomato sauce
@@ -45467,6 +46234,13 @@ nl:Zalmmaaltijden
 
 <en:Meals with salmon
 fr:Parmentiers de saumon
+
+<en:Meals with salmon
+en:Stuffed salmon
+fr:Saumon farci
+ciqual_food_code:en:25210
+ciqual_food_name:en:Stuffed salmon
+ciqual_food_name:fr:Saumon farci
 
 <en:Meals with fish
 en:Meals with tuna
@@ -45646,6 +46420,13 @@ ciqual_food_name:en:Veal stew in white sauce
 ciqual_food_name:fr:Blanquette de veau
 
 <en:Beef dishes
+en:Corned-beef
+fr:Corned-beef, Corned-beef appertisé, Corned-beef en conserve
+ciqual_food_code:en:28505
+ciqual_food_name:en:Corned-beef
+ciqual_food_name:fr:Corned-beef, appertisé
+
+<en:Beef dishes
 en:Shepherd's pie, Cottage pie with meat
 fr:Hachis parmentier, parmentiers de bœuf, Hachis Parmentier au boeuf
 nl:Shepherd's pie
@@ -45684,9 +46465,12 @@ ciqual_food_name:en:Beef stew with carrots
 ciqual_food_name:fr:Boeuf aux carottes
 
 <en:Beef dishes
-en:Beef carpaccio
-fr:Carpaccio de boeuf
+en:Beef carpaccio, Beef carpaccio with marinade
+fr:Carpaccio de boeuf, Carpaccio de bœuf, Carpaccio de bœuf avec marinade
 nl:Rundvleescarpaccio
+ciqual_food_code:en:25538
+ciqual_food_name:en:Beef carpaccio, w marinade
+ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
 
 <en:Meals with meat
 en:Pork meals
@@ -45912,6 +46696,13 @@ ciqual_food_code:en:25164
 ciqual_food_name:en:Osso buco
 ciqual_food_name:fr:Osso buco
 
+<en:Meals with meat
+en:Molokhia, Jute and beef-based meal
+fr:Meloukhia, Plat à base de bœuf et de corète, Plat à base de boeuf et de corete
+ciqual_food_code:en:25175
+ciqual_food_name:en:Molokhia, jute and beef-based meal
+ciqual_food_name:fr:Meloukhia, plat à base de boeuf et corete
+
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
@@ -45921,11 +46712,11 @@ nl:Verse raviolis
 
 <en:Pies
 <en:Pizzas pies and quiches
-en:Salted pies
+en:Salted pies, Savoury tarts
 de:Herzhafte Kuchen
 es:Tartas saladas
 fi:suolaiset piiraat
-fr:Tartes salées
+fr:Tartes salées, Tarte salée
 nl:Hartige taarten
 pnns_group_2:en:Pizza pies and quiches
 
@@ -46039,6 +46830,9 @@ ru:Супы, Суп
 sv:Soppor, soppa
 th:ซุป
 zh:汤
+ciqual_food_code:en:25969
+ciqual_food_name:en:Soup (average)
+ciqual_food_name:fr:Soupe (aliment moyen)
 
 <en:Soups
 <en:Canned meals
@@ -46088,6 +46882,9 @@ fr:Soupe miso
 nl:Miso soepen
 ru:Мисосиру
 wikidata:en:Q471866
+ciqual_food_code:en:25972
+ciqual_food_name:en:Miso soup
+ciqual_food_name:fr:Soupe miso
 
 <en:Soups
 en:Dehydrated and reconstituted Moroccan soup
@@ -46860,7 +47657,7 @@ fr:Choucroutes
 nl:Zuurkolen
 
 <en:Sauerkrauts
-fr:Choucroutes garnies,Choucroute garnie
+fr:Choucroutes garnies, Choucroute garnie
 en:Sauerkraut with garnish
 ciqual_food_code:en:25003
 ciqual_food_name:en:Sauerkraut, with garnish
@@ -46872,6 +47669,13 @@ fr:Choucroutes sans garniture égouttées
 ciqual_food_code:en:25004
 ciqual_food_name:en:Sauerkraut, without garnish, drained
 ciqual_food_name:fr:Choucroute, sans garniture, égouttée
+
+<en:Sauerkrauts
+en:Cooked drained sauerkraut without garnish
+fr:Choucroute, sans garniture égouttée cuite
+ciqual_food_code:en:25220
+ciqual_food_name:en:Sauerkraut, without garnish, drained, cooked
+ciqual_food_name:fr:Choucroute, sans garniture, égouttée, cuite
 
 <en:Meals
 en:Starters
@@ -47264,6 +48068,13 @@ pt:Legumes preparados
 #wikidata:en:
 
 <en:Prepared vegetables
+en:Cooked vegetables
+fr:Légumes cuits
+ciqual_food_code:en:20499
+ciqual_food_name:en:Vegetable, cooked (average)
+ciqual_food_name:fr:Légume cuit (aliment moyen)
+
+<en:Prepared vegetables
 <en:Tomatoes and their products
 en:Stuffed tomatoes, Stuffed tomato
 fr:Tomates farcies, Tomate farcie
@@ -47388,6 +48199,9 @@ ru:Пицца
 sv:Pizzor, Pizza
 zh:比萨
 wikidata:en:Q177
+ciqual_food_code:en:25516
+ciqual_food_name:en:Pizza (average)
+ciqual_food_name:fr:Pizza (aliment moyen)
 
 <en:Pizzas
 en:Regina pizza, Pizza with ham and cheese and mushrooms
@@ -47742,9 +48556,12 @@ ciqual_food_name:fr:Quenelle nature, crue
 en:Quiches
 de:Quiches
 fi:suolaiset piirakat
-fr:Quiches
+fr:Quiches, Quiches salées, Quiche salée, Quiche
 nl:Quiches
 wikidata:en:Q722595
+ciqual_food_code:en:25573
+ciqual_food_name:en:Savoury tart (average food)
+ciqual_food_name:fr:Tarte ou quiche salée (aliment moyen)
 
 <en:Quiches
 en:Lorraine quiche, Quiche Lorraine, Eggs and lardoons quiche
@@ -48067,7 +48884,7 @@ nl:Falafelsandwiches
 en:Falafel mixes
 de:Mischung für Falafel
 es:Preparados para falafel
-fr:Préparations pour falafels, Préparation pour falafel,
+fr:Préparations pour falafels, Préparation pour falafel
 nl:Falafelmixes
 
 <en:Plant-based meals
@@ -48099,8 +48916,18 @@ en:Raw meats
 fr:Viandes crues
 
 <en:Meats
-en:Cooked meats
-fr:Viandes cuites
+en:Cooked meats, Cooked meat
+fr:Viandes cuites, Viande cuite
+ciqual_food_code:en:6999
+ciqual_food_name:en:Meat, cooked (average)
+ciqual_food_name:fr:Viande cuite (aliment moyen)
+
+<en:Meats
+en:Meats in sauce, Meat in sauce
+fr:Viandes en sauce, Viande en sauce
+ciqual_food_code:en:25172
+ciqual_food_name:en:Meat in sauce (average)
+ciqual_food_name:fr:Viande en sauce (aliment moyen)
 
 <en:Meats
 en:Dried meats
@@ -48171,6 +48998,20 @@ ciqual_food_code:en:25399
 ciqual_food_name:en:Snails in puff pastry
 ciqual_food_name:fr:Feuilleté aux escargots
 
+<en:Snails
+en:Cooked snail without added fat
+fr:Escargots cuits sans matière grasse ajoutée
+ciqual_food_code:en:10099
+ciqual_food_name:en:Snail, without added fat, cooked
+ciqual_food_name:fr:Escargot, sans matière grasse ajoutée, cuit
+
+<en:Snails
+en:Raw snail
+fr:Escargots crus
+ciqual_food_code:en:10008
+ciqual_food_name:en:Snail, raw
+ciqual_food_name:fr:Escargot, cru
+
 <en:Meats
 en:Insects
 de:Insekten
@@ -48201,6 +49042,20 @@ fr:Autruche, viande d'autruche
 nl:Struisvogel
 zh:鸵鸟
 
+<en:Ostrich
+en:Cooked ostrich meat
+fr:Viande d'autruche cuite
+ciqual_food_code:en:36801
+ciqual_food_name:en:Ostrich, meat, cooked
+ciqual_food_name:fr:Autruche, viande cuite
+
+<en:Ostrich
+en:Raw ostrich meat
+fr:Viande d'autruche crue
+ciqual_food_code:en:36800
+ciqual_food_name:en:Ostrich, meat, raw
+ciqual_food_name:fr:Autruche, viande crue
+
 <en:Meats
 en:Frogs, Frog meat
 de:Frösche
@@ -48214,6 +49069,13 @@ de:Froschschenkel
 fr:Cuisses de Grenouilles
 nl:Kikkerbillen
 zh:青蛙腿, 蛙腿
+
+<en:Frog legs
+en:Raw frog legs
+fr:Cuisses de grenouilles crues
+ciqual_food_code:en:34500
+ciqual_food_name:en:Frog, leg, raw
+ciqual_food_name:fr:Grenouille, cuisse, crue
 
 <en:meats
 en:Belgian fresh meat and offal
@@ -48289,6 +49151,22 @@ fr:Boulettes au bœuf à la sauce tomate
 ciqual_food_code:en:25211
 ciqual_food_name:en:Meat balls, beef, with tomato sauce
 ciqual_food_name:fr:Boulettes au bœuf, à la sauce tomate
+
+<en:Meat balls
+<en:Beef
+en:Swedish-style pork and beef meat balls
+fr:Boulettes crues au porc et au bœuf à la suédoise
+ciqual_food_code:en:25186
+ciqual_food_name:en:Meat balls, pork and beef, (Swedish-style)
+ciqual_food_name:fr:Boulettes au porc et au bœuf (à la suédoise), crues
+
+<en:Meat balls
+<en:Beef
+en:Kefta, Raw beef and lamb meat balls
+fr:Kefta, Boulettes crues au bœuf et à l'agneau
+ciqual_food_code:en:25194
+ciqual_food_name:en:Meat balls, beef and lamb (kefta type), raw
+ciqual_food_name:fr:Boulettes au bœuf et à l'agneau (type kefta), crues
 
 <en:Meats
 en:Beef, Beef meat
@@ -48381,9 +49259,65 @@ en:Raw beef meat
 fr:Viande de boeuf crue
 
 <en:Beef
-<en:Cooked meats
+<en:Cooked red meat
 en:Cooked beef meat
 fr:Viande de boeuf cuite
+
+<en:Cooked meats
+en:Roasted horse meat, Baked horse meat
+fr:Viande de cheval rôtie, Viande de cheval cuite au four
+ciqual_food_code:en:6902
+ciqual_food_name:en:Horse, meat, roasted/baked
+ciqual_food_name:fr:Cheval, viande, rôtie/cuite au four
+
+<en:Cooked meats
+en:Grilled horse topside, Pan-fried horse topside
+fr:Tende de cheval grillée, Tende de cheval poêlée
+ciqual_food_code:en:6906
+ciqual_food_name:en:Horse, topside, grilled/pan-fried
+ciqual_food_name:fr:Cheval, tende de tranche, grillée/poêlée
+
+<en:Cooked meats
+en:Grilled horse sirloin steak, Pan-fried horse sirloin steak
+fr:Faux-filet de cheval grillé, Faux-filet de cheval poêlé
+ciqual_food_code:en:6907
+ciqual_food_name:en:Horse, sirloin steak, grilled/pan-fried
+ciqual_food_name:fr:Cheval, faux-filet, grillé/poêlé
+
+<en:Cooked meats
+en:Grilled horse rib steak, Pan-fried horse rib steak
+fr:Entrecôte de cheval grillée, Entrecôté de cheval poêlée
+ciqual_food_code:en:6908
+ciqual_food_name:en:Horse, rib steak, grilled/pan-fried
+ciqual_food_name:fr:Cheval, entrecôte, grillée/poêlée
+
+<en:Cooked meats
+en:Roasted horse sirloin steak, Baked horse sirloin steak
+fr:Faux-filet de cheval rôti, Faux-filet de cheval cuit au four
+ciqual_food_code:en:6909
+ciqual_food_name:en:Horse, sirloin steak, roasted/baked
+ciqual_food_name:fr:Cheval, faux-filet, rôti/cuit au four
+
+<en:Cooked meats
+en:Roasted horse topside, Baked horse topside
+fr:Tende de cheval rôtie, Tende de cheval cuite au four
+ciqual_food_code:en:6910
+ciqual_food_name:en:Horse, topside, roasted/baked
+ciqual_food_name:fr:Cheval, tende de tranche, rôtie/cuite au four
+
+<en:Cooked meats
+en:Cooked white meat
+fr:Viande blanche cuite
+ciqual_food_code:en:6584
+ciqual_food_name:en:white meat, cooked (average)
+ciqual_food_name:fr:Viande blanche, cuite (aliment moyen)
+
+<en:Cooked meats
+en:Cooked red meat
+fr:Viande rouge cuite
+ciqual_food_code:en:6585
+ciqual_food_name:en:Red meat, cooked (average)
+ciqual_food_name:fr:Viande rouge, cuite (aliment moyen)
 
 <en:Beef
 en:Beef bacon
@@ -48421,9 +49355,12 @@ nl:Kalfstong in pikante saus
 
 <en:Beef tongues
 <en:Beef preparations
-en:Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce
-fr:Langue de bœuf sauce madère, Langue de bœuf sauce madère
+en:Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
+fr:Langues de bœuf sauce madère, Langue de bœuf sauce madère
 nl:Rundertong op basis van Madeirasaus
+ciqual_food_code:en:25201
+ciqual_food_name:en:Beef tongue with Madeira wine sauce
+ciqual_food_name:fr:Langue de bœuf sauce madère
 
 <en:Raw beef meat
 en:Raw beef knuckle
@@ -48744,14 +49681,14 @@ ciqual_food_code:en:40110
 ciqual_food_name:en:Liver, rabbit, raw
 ciqual_food_name:fr:Foie, lapin, cru
 
-<en:Rabbit meat
+<en:Cooked rabbit meat
 en:Braised rabbit meat
 fr:Viande de lapin braisée
 ciqual_food_code:en:34000
 ciqual_food_name:en:Rabbit, meat, braised
 ciqual_food_name:fr:Lapin, viande braisée
 
-<en:Rabbit meat
+<en:Cooked rabbit meat
 en:Cooked rabbit meat
 fr:Viande de lapin cuite
 ciqual_food_code:en:34002
@@ -48765,7 +49702,7 @@ ciqual_food_code:en:34003
 ciqual_food_name:en:Rabbit, wild, meat, raw
 ciqual_food_name:fr:Lapin de garenne, viande, crue
 
-<en:Rabbit meat
+<en:Cooked rabbit meat
 en:Cooked wild rabbit meat
 fr:Viande de lapin de garenne cuite
 ciqual_food_code:en:34004
@@ -48784,10 +49721,41 @@ fr:Foies de lapin
 wikidata:en:Q67883965
 
 <en:Fresh meats
-en:Horse fresh meat
-fr:Viande de cheval fraîche
+en:Horse fresh meat, Raw horse meat
+fr:Viande de cheval fraîche, Viande de cheval crue
 nl:Verse paardevlezen
 zh:鲜马肉
+ciqual_food_code:en:6900
+ciqual_food_name:en:Horse, meat, raw
+ciqual_food_name:fr:Cheval, viande, crue
+
+<en:Horse fresh meat
+en:Raw horse steak
+fr:Steak de cheval cru
+ciqual_food_code:en:6901
+ciqual_food_name:en:Horse, steak, raw
+ciqual_food_name:fr:Cheval, steak, cru
+
+<en:Horse fresh meat
+en:Raw horse topside
+fr:Tende de cheval crue
+ciqual_food_code:en:6903
+ciqual_food_name:en:Horse, topside, raw
+ciqual_food_name:fr:Cheval, tende de tranche, crue
+
+<en:Horse fresh meat
+en:Raw horse sirloin steak
+fr:Faux-filet de cheval cru
+ciqual_food_code:en:6904
+ciqual_food_name:en:Horse, sirloin steak, raw
+ciqual_food_name:fr:Cheval, faux-filet, cru
+
+<en:Horse fresh meat
+en:Raw horse rib steak
+fr:Entrecôte de cheval crue
+ciqual_food_code:en:6905
+ciqual_food_name:en:Horse, rib steak, raw
+ciqual_food_name:fr:Cheval, entrecôte, crue
 
 <en:Meats
 en:Goat meat
@@ -48977,6 +49945,13 @@ ciqual_food_code:en:25610
 ciqual_food_name:en:Ox muzzle in salad dressing sauce
 ciqual_food_name:fr:Museau de boeuf en vinaigrette
 
+<en:Beef preparations
+en:Ox muzzle
+fr:Museau de boeuf
+ciqual_food_code:en:8450
+ciqual_food_name:en:Ox muzzle
+ciqual_food_name:fr:Museau de boeuf
+
 <en:Meat preparations
 en:Ground meat preparations
 de:Hackfleisch, Hackepeter
@@ -49004,12 +49979,15 @@ nl:Rundvleesproducten
 
 <en:Beef preparations
 <en:Dried meats
-en:Meat of the grisons
+en:Meat of the grisons, Viande des Grisons, Bündnerfleisch, Dried beef meat
 de:Bündnerfleisch
 es:Bindenfleisch
 fr:Viande des grisons
 nl:Rundvlees uit Graubünden
 wikidata:en:Q390726
+ciqual_food_code:en:28860
+ciqual_food_name:en:Viande des Grisons or Bündnerfleisch or dried beef meat
+ciqual_food_name:fr:Viande des Grisons
 
 <en:Beef preparations
 <en:Dried meats
@@ -49034,6 +50012,13 @@ fr:Steaks de bœuf hachés, steaks hachés de bœuf, Steak de bœuf haché, stea
 nl:Rundertartaarsteaks
 
 <en:Ground beef steaks
+en:Cooked ground beef steaks
+fr:Steaks de bœuf hachés cuits, steaks hachés de bœuf cuits, Steak de bœuf haché cuit, steak haché de bœuf cuit
+ciqual_food_code:en:6259
+ciqual_food_name:en:Beef, ground, cooked (average)
+ciqual_food_name:fr:Bœuf, steak haché, cuit (aliment moyen)
+
+<en:Cooked ground beef steaks
 en:Cooked minced beef steak with 5% fat
 fr:Steak haché de bœuf cuit à 5% de matières grasses
 ciqual_food_code:en:6251
@@ -49047,7 +50032,7 @@ ciqual_food_code:en:6250
 ciqual_food_name:en:Beef, minced steak, 5% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 5% MG, cru
 
-<en:Ground beef steaks
+<en:Cooked ground beef steaks
 en:Cooked minced beef steak with 10% fat
 fr:Steak haché de bœuf cuit à 10% de matières grasses
 ciqual_food_code:en:6253
@@ -49061,7 +50046,7 @@ ciqual_food_code:en:6252
 ciqual_food_name:en:Beef, minced steak, 10% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 10% MG, cru
 
-<en:Ground beef steaks
+<en:Cooked ground beef steaks
 en:Cooked minced beef steak with 15% fat
 fr:Steak haché de bœuf cuit à 15% de matières grasses
 ciqual_food_code:en:6255
@@ -49075,7 +50060,7 @@ ciqual_food_code:en:6254
 ciqual_food_name:en:Beef, minced steak, 15% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 15% MG, cru
 
-<en:Ground beef steaks
+<en:Cooked ground beef steaks
 en:Cooked minced beef steak with 20% fat
 fr:Steak haché de bœuf cuit à 20% de matières grasses
 ciqual_food_code:en:6257
@@ -49089,7 +50074,7 @@ ciqual_food_code:en:6256
 ciqual_food_name:en:Beef, minced steak, 20% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 20% MG, cru
 
-<en:Ground beef steaks
+<en:Cooked ground beef steaks
 en:Beef steak, Grilled beef steak
 fr:Steak de boeuf grillé, Bifteck de boeuf grillé
 ciqual_food_code:en:6200
@@ -49276,10 +50261,13 @@ fr:Viande de porc crue
 ciqual_food_code:en:28472
 ciqual_food_name:en:Pork, shoulder lower half, without rind, fat and bone, raw
 
-<en:Cooked meats
+<en:Cooked white meat
 <en:Pork
 en:Cooked pork meat
 fr:Viande de porc cuite
+ciqual_food_code:en:28205
+ciqual_food_name:en:Pork, meat, cooked (average)
+ciqual_food_name:fr:Porc, viande, cuite (aliment moyen)
 
 <en:Cooked pork meat
 fr:échine de porc rôtie, échine de porc au four
@@ -49622,6 +50610,13 @@ ciqual_food_code:en:28477
 ciqual_food_name:en:Pork, shoulder upper half, without rind, fat and bone, raw
 
 <en:Pork
+en:Devilled pork shoulder in mustard sauce
+fr:Palette à la diable
+ciqual_food_code:en:25200
+ciqual_food_name:en:Devilled pork shoulder in mustard sauce
+ciqual_food_name:fr:Palette à la diable
+
+<en:Pork
 en:Pork tongue
 fr:Langue de porc
 nl:Varkenstong
@@ -49670,6 +50665,7 @@ ciqual_food_name:en:Heart, pork, raw
 ciqual_food_name:fr:Coeur, porc, cru
 
 <en:Cooked pork meat
+<en:Cooked kidneys
 en:Cooked pork kidneys
 fr:Rognons de porc cuits
 ciqual_food_code:en:40405
@@ -49717,6 +50713,13 @@ pt:Avícolas
 sv:Kycklingkött
 th:สัตว์ปีก
 zh:家禽
+
+<en:Poultries
+en:Cooked poultries, Cooked poultry
+fr:Volailles cuites, Volaille cuite
+ciqual_food_code:en:36900
+ciqual_food_name:en:Poultry, cooked (average)
+ciqual_food_name:fr:Volaille, cuite (aliment moyen)
 
 <en:Poultries
 en:Poultries from Ancenis
@@ -49909,6 +50912,7 @@ ciqual_food_code:en:36001
 ciqual_food_name:en:Hen, meat only, raw
 ciqual_food_name:fr:Poule, viande ,crue
 
+<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken heart
 fr:Coeur de poulet cuit
@@ -49923,6 +50927,7 @@ ciqual_food_code:en:40054
 ciqual_food_name:en:Heart, chicken, raw
 ciqual_food_name:fr:Coeur, poulet, cru
 
+<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken liver
 fr:Foie de poulet cuit
@@ -49951,6 +50956,7 @@ ciqual_food_code:en:40108
 ciqual_food_name:en:Liver, poultry, raw
 ciqual_food_name:fr:Foie, volaille, cru
 
+<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken heart
 fr:Coeur de poulet cuit
@@ -49965,6 +50971,7 @@ ciqual_food_code:en:40054
 ciqual_food_name:en:Heart, chicken, raw
 ciqual_food_name:fr:Coeur, poulet, cru
 
+<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken liver
 fr:Foie de poulet cuit
@@ -50043,7 +51050,7 @@ en:Turkey nuggets
 fr:Nuggets de dinde
 nl:Kalkoennuggets
 
-<en:Poultries
+<en:Cooked poultries
 en:Cooked quail with meat and skin
 fr:Caille cuite avec viande et peau
 ciqual_food_code:en:36102
@@ -50051,9 +51058,40 @@ ciqual_food_name:en:Quail, meat and skin, cooked
 ciqual_food_name:fr:Caille, viande et peau, cuite
 
 <en:Poultries
+en:Raw quail meat and skin
+fr:Viande et peau de caille crue
+ciqual_food_code:en:36100
+ciqual_food_name:en:Quail, meat and skin, raw
+ciqual_food_name:fr:Caille, viande et peau, crue
+
+<en:Poultries
+en:Raw quail meat
+fr:Viande de caille crue
+ciqual_food_code:en:36101
+ciqual_food_name:en:Quail, meat, raw
+ciqual_food_name:fr:Caille, viande, crue
+
+<en:Poultries
 en:Pheasant
 fr:Faisans
 
+<en:Game
+<en:Pheasant
+en:Raw pheasant meat
+fr:Viande de faisan crue
+ciqual_food_code:en:36401
+ciqual_food_name:en:Pheasant, meat, raw
+ciqual_food_name:fr:Faisan, viande, cru
+
+<en:Game
+<en:Pheasant
+en:Raw pheasant meat and skin
+fr:Viande et peau de faisan crue
+ciqual_food_code:en:36403
+ciqual_food_name:en:Pheasant, meat and skin, raw
+ciqual_food_name:fr:Faisan, viande et peau, cru
+
+<en:Cooked poultries
 <en:Pheasant
 en:Roasted pheasant meat, Baked pheasant meat
 fr:Viande de faisan rôtie, Viande de faisan cuite au four
@@ -50157,6 +51195,7 @@ ciqual_food_code:en:36204
 ciqual_food_name:en:Duck, meat and skin, raw
 ciqual_food_name:fr:Canard, viande et peau, cru
 
+<en:Cooked poultries
 <en:Ducks
 en:Roasted duck with meat and skin, Baked duck with meat and skin
 fr:Canard rôti avec viande et peau, Canard cuit au four avec viande et peau
@@ -50164,6 +51203,7 @@ ciqual_food_code:en:36200
 ciqual_food_name:en:Duck, meat and skin, roasted/baked
 ciqual_food_name:fr:Canard, viande et peau, rôti/cuit au four
 
+<en:Cooked poultries
 <en:Ducks
 en:Roasted duck meat, Baked duck meat
 fr:Viande de canard rôtie, Viande de canard cuite au four
@@ -50202,6 +51242,7 @@ fr:Viande de dinde crue
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
+<en:Cooked poultries
 <en:Turkeys
 en:Cooked turkey heart
 fr:Coeur de dinde cuit
@@ -50216,6 +51257,7 @@ ciqual_food_code:en:40055
 ciqual_food_name:en:Heart, turkey, raw
 ciqual_food_name:fr:Coeur, dinde, cru
 
+<en:Cooked poultries
 <en:Turkey dishes
 en:Cooked turkey liver
 fr:Foie de dinde cuit
@@ -50249,6 +51291,14 @@ it:Piccione
 nl:Duifvlezen
 zh:鸽子, 鸽
 
+<en:Poultries
+en:Raw pigeon
+fr:Pigeon cru
+ciqual_food_code:en:36600
+ciqual_food_name:en:Pigeon, raw
+ciqual_food_name:fr:Pigeon, cru
+
+<en:Cooked poultries
 <en:Pigeon
 en:Roasted pigeon meat, Baked pigeon meat
 fr:Viande de pigeon rôtie, Viande de pigeon cuite au four
@@ -50282,6 +51332,7 @@ protected_name_file_number_en: PGI-FR-01377
 protected_name_type:en: pgi
 origins:en: en:France, fr:Périgord
 
+<en:Cooked poultries
 <en:Capon
 en:Baked capon meat and skin, Roasted capon meat and skin
 fr:Chapon rôti avec viande et peau, Chapon cuit au four avec viande et peau
@@ -50309,6 +51360,7 @@ ciqual_food_code:en:36501
 ciqual_food_name:en:Goose, meat and skin, raw
 ciqual_food_name:fr:Oie, viande et peau, crue
 
+<en:Cooked poultries
 <en:Geese
 en:Roasted goose meat, Baked goose meat
 fr:Viande d'oie rôtie, Viande d'oie cuite au four
@@ -50316,6 +51368,7 @@ ciqual_food_code:en:36502
 ciqual_food_name:en:Goose, meat, roasted/baked
 ciqual_food_name:fr:Oie, viande, rôtie/cuite au four
 
+<en:Cooked poultries
 <en:Geese
 en:Roasted goose with meat and skin, Baked goose with meat and skin
 fr:Oie rôtie avec viande et peau, Oie cuite au four avec viande et peau
@@ -50349,7 +51402,7 @@ ciqual_food_name:en:Guinea fowl, leg, raw
 
 <en:Guinea fowl
 en:Guinea fowl breast
-fr:pointrine de pintade
+fr:poitrine de pintade
 ciqual_food_code:en:36702
 ciqual_food_name:en:Guinea fowl, breast, raw
 ciqual_food_name:fr:Pintade, poitrine, crue
@@ -50612,17 +51665,21 @@ zh:鸡火腿
 <en:Chicken ham
 fr:Blancs de poulet doré au four, Blanc de poulet doré au four
 
+<en:Cooked poultries
 <en:Chicken ham
 en:Smoked chicken breast
 fr:Blancs de poulet fumé, Blanc de poulet fumé
 nl:Gerookte kippenborst
 
+<en:Cooked poultries
 <en:Chicken ham
 fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
 
+<en:Cooked poultries
 <en:Chicken ham
 fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
 
+<en:Cooked poultries
 <en:Chickens
 en:Chicken cutlets
 de:Hähnchenschnitzel
@@ -50649,6 +51706,7 @@ hu:Csirkemellek
 nl:Kippeborst
 zh:鸡胸
 
+<en:Cooked poultries
 <en:Chicken breasts
 en:Cooked chicken breast without skin
 fr:Filet de poulet sans peau cuit
@@ -50656,6 +51714,7 @@ ciqual_food_code:en:36018
 ciqual_food_name:en:Chicken, breast, without skin, cooked
 ciqual_food_name:fr:Poulet, filet, sans peau, cuit
 
+<en:Cooked poultries
 <en:Chicken breasts
 en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
 fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
@@ -50663,6 +51722,7 @@ ciqual_food_code:en:36032
 ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
 ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
 
+<en:Cooked poultries
 <en:Chicken wings
 en:Roasted chicken wing meat and skin, Baked chicken wing meat and skin
 fr:Aile de poulet avec viande et peau rôtie, Aile de poulet avec viande et peau cuite au four
@@ -50670,6 +51730,7 @@ ciqual_food_code:en:36033
 ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
 ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
 
+<en:Cooked poultries
 <en:Chicken thighs
 en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
 fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
@@ -50677,6 +51738,7 @@ ciqual_food_code:en:36004
 ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
 
+<en:Cooked poultries
 <en:Chicken thighs
 en:Roasted chicken leg meat, Baked chicken leg meat
 fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
@@ -50684,6 +51746,7 @@ ciqual_food_code:en:36006
 ciqual_food_name:en:Chicken leg, meat, roasted/baked
 ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
 
+<en:Cooked poultries
 <en:Chicken thighs
 en:Boiled chicken leg meat, Chicken leg meat cooked in water
 fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
@@ -50691,6 +51754,7 @@ ciqual_food_code:en:36030
 ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
 ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
 
+<en:Cooked poultries
 <en:Chicken thighs
 en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
 fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
@@ -50698,6 +51762,7 @@ ciqual_food_code:en:36031
 ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
+<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken
 ca:Pollastre precuinat
@@ -50764,6 +51829,7 @@ nl:Kalkoenkoteletten, Kalkoenkotelet
 ciqual_food_code:en:36304
 ciqual_food_name:en:Turkey, escalope, raw
 
+<en:Cooked poultries
 <en:Turkey cutlets
 en:Sautéed turkey escalope with salt, Pan-fried turkey escalope with salt
 fr:Escalope de dinde sautée, Escalope de dinde poêlée
@@ -50771,6 +51837,7 @@ ciqual_food_code:en:36306
 ciqual_food_name:en:Turkey, escalope, sautéed/pan-fried, with salt
 ciqual_food_name:fr:Dinde, escalope, sautée/poêlée
 
+<en:Cooked poultries
 <en:Turkey cutlets
 en:Roasted turkey escalope, Baked turkey escalope
 fr:Escalope de dinde rôtie, Escalope de dinde cuite au four
@@ -50781,6 +51848,7 @@ ciqual_food_name:fr:Dinde, escalope, rôtie/cuite au four
 #ciqual_food_code:en:36318
 #ciqual_food_name:en:Milanese-style turkey escalope or breaded veal escalope
 
+<en:Cooked poultries
 <en:Turkeys
 fr:Rôtis de dinde, rôtis de dindes, rôti de dinde, rôti de dindes
 en:Roasted turkey meat, baked turkey meat
@@ -50819,12 +51887,12 @@ fr:Filets mignons de dinde
 # Embutidos seems to be sausages
 
 <en:Meats
-en:Prepared meats, processed meats
+en:Prepared meats, processed meats, Cured meat and sausages
 ca:Carns preparades, processades
 de:Zubereitetes Fleisch, verarbeitetes Fleisch
 es:Embutidos, Fiambre
 fi:Prosessoidut lihat
-fr:Charcuteries
+fr:Charcuteries, Charcuterie
 hu:Feldolgozott húsok
 it:Carni preparate
 nl:Verwerkte vleesproducten
@@ -50832,6 +51900,9 @@ pl:Mięsa przetworzone
 pt:Carnes preparadas, carnes processadas
 pnns_group_2:en:Processed meat
 nova:en:3
+ciqual_food_code:en:30900
+ciqual_food_name:en:Cured meat and sausages (average)
+ciqual_food_name:fr:Charcuterie (aliment moyen)
 
 <en:Prepared meats
 fr:Fricadelles, fricandelles
@@ -51013,10 +52084,17 @@ ciqual_food_code:en:28925
 ciqual_food_name:en:Cooked ham, Parisian-style, rind less and fatless
 
 <en:Hams
-en:Pork ham intended to be cooked or pork ham intended to be roast/bake
+en:Pork ham intended to be cooked, Pork ham intended to be roasted, Pork ham intended to be baked
 fr:Jambon de porc à cuire
 ciqual_food_code:en:28700
 ciqual_food_name:en:Pork ham, intended to be cooked or pork ham, intended to be roast/bake
+
+<en:Hams
+en:Pork ham with parsley and jelly
+fr:Jambon persillé en gelée
+ciqual_food_code:en:8429
+ciqual_food_name:en:Pork ham w parsley and jelly
+ciqual_food_name:fr:Jambon persillé en gelée
 
 <en:Hams
 en:Cooked ham superior quality
@@ -51403,6 +52481,10 @@ fr:Rillettes de crustacés
 
 <fr:Rillettes de crustacés
 fr:Rillettes de crabe, Rillettes de chair de crabe, Rillettes au crabe
+en:Crab rillettes
+ciqual_food_code:en:8059
+ciqual_food_name:en:Rillettes, crab
+ciqual_food_name:fr:Rillettes de crabe
 
 <fr:Rillettes de crustacés
 fr:Rillettes de crevette
@@ -51506,6 +52588,9 @@ pt:Salsichas
 sv:Korvar, korv
 th:ไส้กรอก
 zh:香肠
+ciqual_food_code:en:30780
+ciqual_food_name:en:Sausage (average)
+ciqual_food_name:fr:Saucisse (aliment moyen)
 
 <en:Sausages
 en:Raw sausage meat with pure pork
@@ -51583,6 +52668,13 @@ en:Sausages from Spain, Spanish sausages
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
+
+<en:Sausages
+en:Tongue sausage with pistachios
+fr:Saucisse de langue à la pistache
+ciqual_food_code:en:30778
+ciqual_food_name:en:Tongue sausage w pistachios
+ciqual_food_name:fr:Saucisse de langue à la pistache
 
 <en:Sausages
 <en:Veal meat
@@ -51950,7 +53042,11 @@ fr:Saucisses fumées
 nl:Gerookte worsten
 
 <en:Prepared meats
-fr:Boudins, Boudin
+en:Sautéed black pudding, Sautéed white pudding, Sautéed blood sausage
+fr:Boudins, Boudin, Boudin noir sauté, Boudin noir poêlé, Boudin blanc sauté, Boudin blanc poêlé
+ciqual_food_code:en:8705
+ciqual_food_name:en:Black or white pudding (blood sausage), sautéed (average)
+ciqual_food_name:fr:Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
 <fr:Boudins
 fr:Boudins blancs
@@ -52092,6 +53188,13 @@ fr:Grenier médocain
 wikidata:en:Q3116472
 
 <fr:Charcuteries diverses
+en:Galantine
+fr:Galantine
+ciqual_food_code:en:8350
+ciqual_food_name:en:Galantine (average)
+ciqual_food_name:fr:Galantine (aliment moyen)
+
+<fr:Charcuteries diverses
 fr:Allumettes de porc
 
 <fr:Allumettes de porc
@@ -52141,7 +53244,7 @@ en:Poultry lardons
 fr:Lardons de volaille
 nl:Gevogeltespekjes
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Head cheese, Head-cheese pâté, Brawn pâté
 fr:Pâtés de tête, Pâté de tête, Fromage de tête
 nl:Hoofdkazen
@@ -52150,20 +53253,20 @@ ciqual_food_code:en:8400
 ciqual_food_name:en:Head-cheese pâté or brawn
 ciqual_food_name:fr:Fromage de tête
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Country-style pâté with mushrooms
 fr:Pâté forestier, Terrine forestière, Pâté aux champignons, Terrine aux champignons
 ciqual_food_code:en:8250
 ciqual_food_name:en:Country-style pâté with mushrooms
 ciqual_food_name:fr:Pâté ou terrine aux champignons (forestier)
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Pâté w green pepper
 fr:Pâté au poivre vert
 ciqual_food_code:en:8201
 ciqual_food_name:en:Pâté w green pepper
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Pork Pâtés
 es:Patés de cerdo
 fr:Pâtés de porc
@@ -52189,37 +53292,37 @@ nl:Landelijke pasteien
 ciqual_food_code:en:8211
 ciqual_food_name:en:Country-style pâté or terrine
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Pork liver pâté superior quality
 fr:Pâté de foie de porc supérieur
 ciqual_food_code:en:8300
 ciqual_food_name:en:Pork liver pâté, superior quality
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Breton pâté
 fr:Pâté breton
 ciqual_food_code:en:8214
 ciqual_food_name:en:Breton pâté
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Game pâté
 fr:Pâté de gibier
 ciqual_food_code:en:8245
 ciqual_food_name:en:Game pâté
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Poultry liver pâté
 fr:Pâté de foie de volaille
 ciqual_food_code:en:8316
 ciqual_food_name:en:Poultry liver pâté
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Goose liver pâté
 fr:Pâté de foie d'oie
 ciqual_food_code:en:8326
 ciqual_food_name:en:Goose liver pâté
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Rabbit Pâtés
 de:Kaninchenpasteten
 fr:Pâtés de lapin
@@ -52228,11 +53331,11 @@ ro:Pateu de iepure
 ciqual_food_code:en:8240
 ciqual_food_name:en:Rabbit pâté
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Chicken Liver Pâté
 ro:Pate de ficat de pui
 
-<fr:Charcuteries diverses
+<fr:Pâté
 en:Duck Pâtés
 de:Entenpasteten
 fr:Pâtés de canard
@@ -52586,6 +53689,48 @@ nl:Schapevlezen
 zh:羊肉, 羊, 羊羔, 羊羔肉
 
 <en:Lamb meat
+en:Cooked lamb meat
+fr:Viandes d'agneau cuites, Viande d'agneau cuite
+ciqual_food_code:en:21523
+ciqual_food_name:en:Lamb, meat, cooked (average)
+ciqual_food_name:fr:Agneau, viande, cuite (aliment moyen)
+
+<en:Cooked lamb meat
+en:Cooked lamb chops, Cooked lamb chop
+fr:Côtes d'agneau cuites, Côtelettes d'agneau cuites, Côte d'agneau cuite, Côtelette d'agneau cuite
+ciqual_food_code:en:21522
+ciqual_food_name:en:Lamb, chop, cooked (average)
+ciqual_food_name:fr:Agneau, côte ou côtelette, cuite (aliment moyen)
+
+<en:Cooked lamb meat
+en:Grilled lamb chops, Grilled lamb chop
+fr:Côtes d'agneau grillées, Côtelettes d'agneau grillées, Côtes d'agneau poêlées, Côtelettes d'agneau poêlées, Côte d'agneau grillée, Côte d'agneau poêlée, Côtelette d'agneau poêlée
+ciqual_food_code:en:21524
+ciqual_food_name:en:Lamb, chop, grilled (average)
+ciqual_food_name:fr:Agneau, côte ou côtelette, grillée/poêlée (aliment moyen)
+
+<en:Grilled lamb chops
+en:Grilled lamb cutlet
+fr:Côtelette d'agneau grillée
+ciqual_food_code:en:21501
+ciqual_food_name:en:Lamb cutlet, grilled
+ciqual_food_name:fr:Agneau, côtelette, grillée
+
+<en:Lamb meat
+en:Raw lamb chop
+fr:Côtes d'agneau crues, Côtelettes d'agneau crues, Côte d'agneau crue
+ciqual_food_code:en:21521
+ciqual_food_name:en:Lamb, chop, raw (average)
+ciqual_food_name:fr:Agneau, côte ou côtelette, crue (aliment moyen)
+
+<en:Lamb meat
+en:Raw lamb cutlet
+fr:Côtelette d'agneau crue
+ciqual_food_code:en:21500
+ciqual_food_name:en:Lamb, cutlet, raw
+ciqual_food_name:fr:Agneau, côtelette, crue
+
+<en:Lamb meat
 en:Orkney lamb
 protected_name_file_number_en: PDO-GB-0273
 protected_name_type:en: pdo
@@ -52660,6 +53805,7 @@ origins:en: en:Sweden
 <en:Lamb meat
 fr:Ris d'agneau
 
+<en:Cooked lamb meat
 <fr:Ris d'agneau
 en:Cooked lamb sweetbread
 fr:Ris d'agneau cuit
@@ -52681,14 +53827,14 @@ ciqual_food_code:en:21516
 ciqual_food_name:en:Lamb, chop fillet, raw
 ciqual_food_name:fr:Agneau, côte filet, crue
 
-<en:Lamb meat
+<en:Grilled lamb chops
 en:Grilled lamb chop fillet, Pan-fried lamb chop fillet
 fr:Côte de filet d'agneau grillée, Côte de filet d'agneau poêlée
 ciqual_food_code:en:21509
 ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
 
-<en:Lamb meat
+<en:Grilled lamb chops
 en:Chop grilled lamb rib, Pan-fried lamb rib
 fr:Côte première d'agneau grillée, Côte première d'agneau poêlée
 ciqual_food_code:en:21512
@@ -52702,7 +53848,7 @@ ciqual_food_code:en:21517
 ciqual_food_name:en:Lamb, rib chop, raw
 ciqual_food_name:fr:Agneau, côte première, crue
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Grilled lamb leg, Pan-fried lamb leg
 fr:Gigot d'agneau grillé, Gigot d'agneau poêlé
 ciqual_food_code:en:21518
@@ -52723,42 +53869,42 @@ ciqual_food_code:en:21515
 ciqual_food_name:en:Lamb, saddle, raw
 ciqual_food_name:fr:Agneau, selle, crue
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Grilled lamb saddle, Pan-fried lamb saddle
 fr:Selle d'agneau partie maigre grillée, Selle d'agneau partie maigre poêlée
 ciqual_food_code:en:21520
 ciqual_food_name:en:Lamb, saddle, grilled/pan-fried
 ciqual_food_name:fr:Agneau, selle, partie maigre, grillée/poêlée
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Roasted lean lamb saddle, Baked lean lamb saddle
 fr:Selle d'agneau partie maigre rôtie, Selle d'agneau partie maigre cuite au four
 ciqual_food_code:en:21513
 ciqual_food_name:en:Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr:Agneau, selle, partie maigre, rôtie/cuite au four
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Roasted lamb leg, Baked lamb leg
 fr:Gigot d'agneau rôti au four, Gigot d'agneau cuit au four
 ciqual_food_code:en:21503
 ciqual_food_name:en:Lamb, leg, roasted/baked
 ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Braised lamb leg
 fr:Gigot d'agneau braisé
 ciqual_food_code:en:21519
 ciqual_food_name:en:Lamb, leg, braised
 ciqual_food_name:fr:Agneau, gigot, braisé
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Braised lamb neck, Boiled lamb neck
 fr:Collier d'agneau braisé, Collier d'agneau bouilli
 ciqual_food_code:en:21508
 ciqual_food_name:en:Lamb, neck, braised or boiled
 ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Raw lamb neck
 fr:Collier d'agneau cru
 ciqual_food_code:en:21514
@@ -52773,7 +53919,7 @@ ciqual_food_code:en:25541
 ciqual_food_name:en:Lamb on skewer
 ciqual_food_name:fr:Brochette d'agneau
 
-<en:Lamb meat
+<en:Cooked lamb meat
 fr:gigot d'agneau braisé
 ciqual:fr:Agneau, gigot, braisé
 ciqual:en:Lamb, leg, braised
@@ -52870,7 +54016,7 @@ ciqual_food_code:en:40002
 ciqual_food_name:en:Brain, lamb, raw
 ciqual_food_name:fr:Cervelle, agneau, crue
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Cooked lamb hearts
 fr:Coeurs d'agneau cuits
 ciqual_food_code:en:40059
@@ -52884,7 +54030,7 @@ ciqual_food_code:en:40058
 ciqual_food_name:en:Heart, lamb, raw
 ciqual_food_name:fr:Coeur, agneau, cru
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Cooked lamb liver
 fr:Foie d'agneau cuit
 ciqual_food_code:en:40103
@@ -52898,7 +54044,8 @@ ciqual_food_code:en:40102
 ciqual_food_name:en:Liver, lamb, raw
 ciqual_food_name:fr:Foie, agneau, cru
 
-<en:Lamb meat
+<en:Cooked lamb meat
+<en:Cooked kidneys
 en:Braised lamb kidneys
 fr:Rognons d'agneau braisés
 ciqual_food_code:en:40406
@@ -52912,28 +54059,14 @@ ciqual_food_code:en:40407
 ciqual_food_name:en:Kidney, lamb, raw
 ciqual_food_name:fr:Rognon, agneau, cru
 
-<en:Lamb meat
-en:Grilled lamb cutlet
-fr:Côtelette d'agneau grillée
-ciqual_food_code:en:21501
-ciqual_food_name:en:Lamb cutlet, grilled
-ciqual_food_name:fr:Agneau, côtelette, grillée
-
-<en:Lamb meat
-en:Raw lamb cutlet
-fr:Côtelette d'agneau crue
-ciqual_food_code:en:21500
-ciqual_food_name:en:Lamb, cutlet, raw
-ciqual_food_name:fr:Agneau, côtelette, crue
-
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Roasted lamb shoulders, baked lamb shoulders
 fr:Epaules rôties d'agneau, Epaules d'agneau cuites au four
 ciqual_food_code:en:21506
 ciqual_food_name:en:Lamb, shoulder, roasted/baked
 ciqual_food_name:fr:Agneau, épaule, rôtie/cuite au four
 
-<en:Lamb meat
+<en:Cooked lamb meat
 en:Roasted lean lamb shoulders, Baked lean lamb shoulders
 fr:Epaules d'agneau maigres rôties, Epaules d'agneau maigres cuites au four
 ciqual_food_code:en:21507
@@ -53052,7 +54185,15 @@ fi:vasikanliha
 fr:Viandes de veau, veau
 nl:Kalfsvlezen
 
-<en:Veal meat
+<en:Meats
+<en:Cooked white meat
+en:Cooked veal meat
+fr:Viandes de veau cuites, Viande de veau cuite
+ciqual_food_code:en:6564
+ciqual_food_name:en:Veal, meat, cooked (average)
+ciqual_food_name:fr:Veau, viande, cuite (aliment moyen)
+
+<en:Cooked veal meat
 en:Pan-fried calf sweetbread, Sautéed calf sweetbread
 fr:Ris de veau braisé, Ris de veau sauté, Ris de veau poêlé
 ciqual_food_code:en:40305
@@ -53066,7 +54207,7 @@ ciqual_food_code:en:40304
 ciqual_food_name:en:Sweetbread, calf, raw
 ciqual_food_name:fr:Ris, veau, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Braised veal knuckle, Braised veal shank, Boiled veal knuckle, Boiled veal shank
 fr:Jarret de veau braisé, Jarret de veau bouilli
 ciqual_food_code:en:6581
@@ -53080,14 +54221,14 @@ ciqual_food_code:en:6583
 ciqual_food_name:en:Veal, knuckle or shank, raw
 ciqual_food_name:fr:Veau, jarret, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Boiled calf head, Calf head cooked in water
 fr:Tête de veau bouillie, Tête de veau cuite à l'eau
 ciqual_food_code:en:6582
 ciqual_food_name:en:Calf, head, boiled/cooked in water
 ciqual_food_name:fr:Veau, tête, bouillie/cuite à l'eau
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Braised veal neck, Boiled veal neck
 fr:Collier de veau braisé, Collier de veau bouilli
 ciqual_food_code:en:6591
@@ -53101,7 +54242,7 @@ ciqual_food_code:en:6590
 ciqual_food_name:en:Veal, neck, raw
 ciqual_food_name:fr:Veau, collier, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Grilled veal chop, Pan-fried veal chop
 fr:Côte de veau grillée, Côte de veau poêlée
 ciqual_food_code:en:6511
@@ -53115,7 +54256,8 @@ ciqual_food_code:en:6510
 ciqual_food_name:en:Veal, chop, raw
 ciqual_food_name:fr:Veau, côte, crue
 
-<en:Veal meat
+<en:Cooked veal meat
+<en:Cooked kidneys
 en:Sautéed veal kidney, Pan-fried veal kidney
 fr:Rognons de veau braisés, Rognons de veau sautés, Rognons de veau poêlés
 ciqual_food_code:en:40408
@@ -53129,7 +54271,7 @@ ciqual_food_code:en:40409
 ciqual_food_name:en:Kidney, calf, raw
 ciqual_food_name:fr:Rognon, veau, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Cooked calf brain
 fr:Cervelle de veau cuite
 ciqual_food_code:en:40007
@@ -53143,7 +54285,7 @@ ciqual_food_code:en:40006
 ciqual_food_name:en:Brain, calf, raw
 ciqual_food_name:fr:Cervelle, veau, crue
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Cooked calf liver
 fr:Foie de veau cuit
 ciqual_food_code:en:40107
@@ -53157,7 +54299,7 @@ ciqual_food_code:en:40106
 ciqual_food_name:en:Liver, calf, raw
 ciqual_food_name:fr:Foie, veau, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Cooked calf tongue
 fr:Langue de veau cuite
 ciqual_food_code:en:40201
@@ -53171,7 +54313,7 @@ ciqual_food_code:en:40204
 ciqual_food_name:en:Tongue, calf, raw
 ciqual_food_name:fr:Langue, veau, crue
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Sautéed veal loin, Pan-fried veal loin
 fr:Carré de veau sauté, Carré de veau poêlé
 ciqual_food_code:en:6512
@@ -53185,7 +54327,7 @@ ciqual_food_code:en:6513
 ciqual_food_name:en:Veal, loin, raw
 ciqual_food_name:fr:Veau, carré, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Grilled veal shoulder, Pan-fried veal shoulder
 fr:Epaule de veau grillée, Epaule de veau poêlée
 ciqual_food_code:en:6562
@@ -53206,14 +54348,14 @@ ciqual_food_code:en:6580
 ciqual_food_name:en:Calf, foot, raw
 ciqual_food_name:fr:Veau, pied, cru
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Grilled veal tenderloin, Pan-fried veal tenderloin
 fr:Noix de veau grillée, Noix de veau poêlée
 ciqual_food_code:en:6523
 ciqual_food_name:en:Veal, tenderloin, grilled/pan-fried
 ciqual_food_name:fr:Veau, noix, grillée/poêlée
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Roasted veal tenderloin
 fr:Noix de veau rôtie
 ciqual_food_code:en:6524
@@ -53227,7 +54369,7 @@ ciqual_food_code:en:6522
 ciqual_food_name:en:Veal, tenderloin, raw
 ciqual_food_name:fr:Veau, noix, crue
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Cooked veal escalopes
 fr:Escalopes de veau cuites
 ciqual_food_code:en:6520
@@ -53241,14 +54383,14 @@ ciqual_food_code:en:6521
 ciqual_food_name:en:Veal, escalope, raw
 ciqual_food_name:fr:Veau, escalope, crue
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Cooked veal bread escalopes
 fr:Escalopes panées de veau cuites
 ciqual_food_code:en:25173
 ciqual_food_name:en:Veal, bread escalope, cooked
 ciqual_food_name:fr:Veau, escalope panée, cuite
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Roasted veal fillet, Baked veal fillet
 fr:Filets de veau rôtis, Filets de veau cuits au four
 ciqual_food_code:en:6531
@@ -53283,7 +54425,7 @@ ciqual_food_code:en:25125
 ciqual_food_name:en:Veal olive or veal paupiette
 ciqual_food_name:fr:Paupiette de veau
 
-<en:Veal meat
+<en:Cooked veal meat
 en:Veal paupiette cooked in oven
 fr:Paupiette de veau cuite au four
 ciqual_food_code:en:25213
@@ -53305,6 +54447,73 @@ fr:Steak haché de veau cru à 15% de matières grasses
 ciqual_food_code:en:6536
 ciqual_food_name:en:Veal, minced steak, 15% fat, raw
 ciqual_food_name:fr:Veau, steak haché 15% MG, cru
+
+<en:Meats
+en:Game
+fr:Gibiers, Gibier
+
+<en:Game
+en:Raw hare meat
+fr:Viande de lièvre crue
+ciqual_food_code:en:14004
+ciqual_food_name:en:Hare, meat, raw
+ciqual_food_name:fr:Lièvre, viande crue
+
+<en:Game
+en:Raw wild boar
+fr:Sanglier cru
+ciqual_food_code:en:14002
+ciqual_food_name:en:Wild boar, raw
+ciqual_food_name:fr:Sanglier, cru
+
+<en:Game
+en:Raw venison, Raw roebuck
+fr:Chevreuil cru
+ciqual_food_code:en:14005
+ciqual_food_name:en:Venison (roebuck), raw
+ciqual_food_name:fr:Chevreuil, cru
+
+<en:Game
+en:Raw hart
+fr:Cerf cru
+ciqual_food_code:en:14006
+ciqual_food_name:en:Venison (hart), raw
+ciqual_food_name:fr:Cerf, cru
+
+<en:Game
+en:Cooked game
+fr:Gibier à poils cuit
+ciqual_food_code:en:14008
+ciqual_food_name:en:Game, cooked (average)
+ciqual_food_name:fr:Gibier à poil, cuit (aliment moyen)
+
+<en:Game
+en:Cooked feathered game, Cooked feathered game meat
+fr:Gibier à plumes cuit, Viande de gibier à plumes cuit
+ciqual_food_code:en:36603
+ciqual_food_name:en:Feathered game, meat, cooked (average)
+ciqual_food_name:fr:Gibier à plumes, viande, cuit (aliment moyen)
+
+<en:Cooked game
+en:Roasted venison, Baked venison, Roasted roebuck, Baked roebuck
+fr:Chevreuil rôti, Chevreuil cuit au four
+ciqual_food_code:en:14000
+ciqual_food_name:en:Venison (roebuck), roasted/baked
+ciqual_food_name:fr:Chevreuil, rôti/cuit au four
+
+<en:Cooked game
+en:Roasted wild boar, Baked wild boar
+fr:Sanglier rôti, Sanglier cuit au four
+ciqual_food_code:en:14003
+ciqual_food_name:en:Wild boar, roasted/baked
+ciqual_food_name:fr:Sanglier, rôti/cuit au four
+
+<en:Cooked game
+en:Roasted hart, Baked hart
+fr:Cerf rôti, Cerf cuit au four
+ciqual_food_code:en:14007
+ciqual_food_name:en:Venison (hart), roasted/baked
+ciqual_food_name:fr:Cerf, rôti/cuit au four
 
 en:Products with reduced salt
 de:Prudukte mit weniger Salz
@@ -54645,7 +55854,7 @@ th:กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
 
 # <en:compound
 <en:Stuffed Pastas
-en:ravioli
+en:ravioli, Cooked filled pasta
 ar:رافيولي
 bg:Равиоли
 ca:ravioli
@@ -54657,7 +55866,7 @@ eo:Ravioloj
 es:Ravioli
 fa:راویولی
 fi:Ravioli, raviolis
-fr:ravioli
+fr:ravioli, Pâtes fraîches farcies cuites
 gl:Ravioli
 he:רביולי
 hu:Ravioli
@@ -54687,6 +55896,9 @@ zh:意大利餃
 # zh-hant:意大利餃
 wikidata:en:Q20053
 wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
+ciqual_food_code:en:25216
+ciqual_food_name:en:Pasta (e.g. ravioli), filled, cooked
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
@@ -55081,6 +56293,20 @@ de:Vollkornnudeln
 fr:Nouilles de blé complet, nouilles au blé complet
 nl:Volkorennoedels
 
+<en:Noodles
+en:Unsalted cooked soy noodles
+fr:Vermicelles de soja cuites non salées
+ciqual_food_code:en:9903
+ciqual_food_name:en:Soy noodle, cooked, unsalted
+ciqual_food_name:fr:Vermicelle de soja, cuite, non salée
+
+<en:Noodles
+en:Dried soy vermicelli, Dried soy noodles
+fr:Vermicelles de soja sèches
+ciqual_food_code:en:9902
+ciqual_food_name:en:Soy vermicelli or soy noodle, dried
+ciqual_food_name:fr:Vermicelle de soja, sèche
+
 <en:Meals
 en:Pasta dishes
 ca:Plats de pasta
@@ -55111,6 +56337,9 @@ es:Bolleria
 fi:leivokset
 fr:Pâtisseries, pâtisserie
 nl:Gebak
+ciqual_food_code:en:23900
+ciqual_food_name:en:Pastry (average)
+ciqual_food_name:fr:Pâtisserie (aliment moyen)
 
 <en:Pastries
 de:Nussecken
@@ -55883,7 +57112,7 @@ hu:Gluténmentes termékek
 nl:Glute vrije producten
 pl:Produkty bezglutenowe
 
-en:Sandwiches
+en:Sandwiches, Sandwich
 ca:Sanvitxos, entrepans
 de:Sandwiches
 es:Sándwiches, Sándwich
@@ -55896,6 +57125,9 @@ zh:三明治
 wikidata:en:Q28803
 pnns_group_2:en:Sandwiches
 nova:en:3
+ciqual_food_code:en:25522
+ciqual_food_name:en:Sandwich (average)
+ciqual_food_name:fr:Sandwich (aliment moyen)
 
 <en:Sandwiches
 en:Burritos
@@ -56036,25 +57268,32 @@ nl:Vegetarische hotdogs
 <en:Sandwiches
 fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
 
-<en:sandwiches
+<en:Sandwiches
+en:French bread sandwiches, French bread sandwich, Sandwiches on French bread, Sandwiches made with French bread, Sandwich on French bread, Sandwich made with French bread
+fr:Sandwich baguette
+ciqual_food_code:en:25543
+ciqual_food_name:en:Sandwich on french bread (average)
+ciqual_food_name:fr:Sandwich baguette (aliment moyen)
+
+<en:French bread sandwiches
 en:Sandwich made with French bread salami and butter
 fr:Sandwich baguette salami beurre
 ciqual_food_code:en:25536
 ciqual_food_name:en:Sandwich made with French bread, salami and butter
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham and butter
 fr:Sandwich baguette jambon beurre
 ciqual_food_code:en:25517
 ciqual_food_name:en:Sandwich made with French bread, ham and butter
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham and emmental cheese
 fr:Sandwich baguette jambon emmental
 ciqual_food_code:en:25485
 ciqual_food_name:en:Sandwich made with French bread, ham and emmental cheese
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread ham emmental cheese and butter
 fr:Sandwich baguette jambon emmental beurre
 ciqual_food_code:en:25521
@@ -56066,28 +57305,28 @@ fr:Sandwich pain de mie complet jambon fromage
 ciqual_food_code:en:25576
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread camembert cheese and butter
 fr:Sandwich baguette camembert beurre
 ciqual_food_code:en:25518
 ciqual_food_name:en:Sandwich made with French bread, camembert cheese and butter
 ciqual_food_name:fr:Sandwich baguette, camembert, beurre
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
 fr:Sandwich baguette jambon oeuf dur crudités beurre
 ciqual_food_code:en:25475
 ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and tuna and raw vegetables and mayonnaise
 fr:Sandwich baguette thon crudités mayonnaise
 ciqual_food_code:en:25431
 ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and tuna and sweet corn and raw vegetables
 fr:Sandwich baguette thon maïs crudités
 ciqual_food_code:en:25490
@@ -56101,20 +57340,21 @@ ciqual_food_code:en:25575
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
 ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and egg and raw vegetables and mayonnaise
 fr:Sandwich baguette oeuf crudités mayonnaise
 ciqual_food_code:en:25532
 ciqual_food_name:en:Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
 
-<en:Sandwiches
+<en:French bread sandwiches
 en:Sandwich made with French bread and smoked salmon and butter
 fr:Sandwich baguette saumon fumé beurre
 ciqual_food_code:en:25488
 ciqual_food_name:en:Sandwich made with French bread, smoked salmon and butter
 ciqual_food_name:fr:Sandwich baguette, saumon fumé, beurre
 
+<en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with French bread pork and raw vegetables and mayonnaise
 fr:Sandwich baguette porc crudités mayonnaise
@@ -56122,6 +57362,7 @@ ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
+<en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with French bread and turkey and raw vegetables and mayonnaise
 fr:Sandwich baguette dinde crudités mayonnaise
@@ -56129,6 +57370,7 @@ ciqual_food_code:en:25531
 ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
+<en:French bread sandwiches
 <en:Sandwiches
 en:Sandwich made with French bread with raw vegetables and mayonnaise
 fr:Sandwich baguette crudités mayonnaise
@@ -56179,6 +57421,7 @@ fr:Sandwichs au bacon
 nl:Speksandwiches
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and dry sausage and butter
 fr:Sandwich baguette saucisson beurre
 ciqual_food_code:en:25520
@@ -56186,6 +57429,7 @@ ciqual_food_name:en:Sandwich made with French bread, dry sausage and butter
 ciqual_food_name:fr:Sandwich baguette, saucisson, beurre
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and merguez sausage and ketchup and mustard
 fr:Sandwich baguette merguez au ketchup et à la moutarde
 ciqual_food_code:en:25535
@@ -56193,6 +57437,7 @@ ciqual_food_name:en:Sandwich made with French bread, merguez sausage, ketchup an
 ciqual_food_name:fr:Sandwich baguette, merguez, ketchup moutarde
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread pâté and pickles
 fr:Sandwich baguette pâté cornichons
 ciqual_food_code:en:25519
@@ -56208,6 +57453,7 @@ fr:Sandwichs au jambon
 nl:Hamsandwiches
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
 en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
 fr:Sandwich baguette poulet crudités mayonnaise
 ciqual_food_code:en:25476
@@ -56344,7 +57590,7 @@ cs:Mořské plody
 de:Fisch und Meeresfrüchte
 es:Productos del mar
 fi:merenelävät
-fr:Produits de la mer, produit de la mer
+fr:Produits de la mer, produit de la mer, Fruits de mer
 hu:Tenger gyümölcsei, Tengeri ételek
 it:Frutti di mare
 nl:Vis en zeevruchten
@@ -56354,6 +57600,13 @@ ru:Рыба и морепродукты
 th:อาหารทะเล
 zh:海鲜
 pnns_group_2:en:Fish and seafood
+
+<en:Seafood
+en:Frozen cooked seafood
+fr:Fruits de mer cuits surgelés
+ciqual_food_code:en:10080
+ciqual_food_name:en:Seafood, cooked, frozen
+ciqual_food_name:fr:Fruits de mer, cuits, surgelés
 
 <en:Seafood
 en:Armenian sea products
@@ -56387,6 +57640,41 @@ origins:en: en:Brazil
 
 <en:Seafood
 en:British sea products
+
+<en:Fishes
+en:Raw tilapia
+fr:Tilapia cru
+ciqual_food_code:en:27019
+ciqual_food_name:en:Tilapia, raw
+ciqual_food_name:fr:Tilapia, cru
+
+<en:Fishes
+en:Raw lump fish
+fr:Lompe crue
+ciqual_food_code:en:26168
+ciqual_food_name:en:Lump fish, raw
+ciqual_food_name:fr:Lompe, crue
+
+<en:Fishes
+en:Raw sturgeon
+fr:Esturgeon cru
+ciqual_food_code:en:27012
+ciqual_food_name:en:Sturgeon, raw
+ciqual_food_name:fr:Esturgeon, cru
+
+<en:Fishes
+en:Raw European whitefish
+fr:Lavaret cru
+ciqual_food_code:en:26150
+ciqual_food_name:en:European whitefish, raw
+ciqual_food_name:fr:Lavaret, cru
+
+<en:Fishes
+en:Raw European whitefish
+fr:Corégone lavaret cru
+ciqual_food_code:en:26175
+ciqual_food_name:en:European whitefish, raw
+ciqual_food_name:fr:Corégone lavaret, cru
 
 <en:Fishes
 en:Steamed spiny scorpionfish
@@ -56656,6 +57944,34 @@ origins:en: en:United Kingdom
 en:Eels
 fr:Anguilles
 
+<en:Fishes
+en:Raw eels, Raw eel
+fr:Anguilles crues, Anguille crue
+ciqual_food_code:en:27016
+ciqual_food_name:en:Eel, raw
+ciqual_food_name:fr:Anguille, crue
+
+<en:Eels
+en:Cooked eels, Cooked eel
+fr:Anguilles cuites, Anguille cuite
+ciqual_food_code:en:26999
+ciqual_food_name:en:Eel, cooked (average)
+ciqual_food_name:fr:Anguille, cuite (aliment moyen)
+
+<en:Cooked eels
+en:Roasted eel, Baked eal
+fr:Anguille rôtie, Anguille cuite au four
+ciqual_food_code:en:27000
+ciqual_food_name:en:Eel, roasted/baked
+ciqual_food_name:fr:Anguille, rôtie/cuite au four
+
+<en:Cooked eels
+en:Boiled eel, Eel cooked in water
+fr:Anguille bouillie, Anguille cuite à l'eau
+ciqual_food_code:en:27001
+ciqual_food_name:en:Eel, boiled/cooked in water
+ciqual_food_name:fr:Anguille, bouillie/cuite à l'eau
+
 <en:British sea products
 <en:Eels
 en:Lough Neagh Eel
@@ -56694,6 +58010,34 @@ zh:盐城龙虾, Yancheng Long Xia
 protected_name_file_number_en: PGI-CN-0625
 protected_name_type:en: pgi
 origins:en: en:China, en:Yancheng
+
+<en:Lobsters
+en:Raw lobster
+fr:Homard cru
+ciqual_food_code:en:10010
+ciqual_food_name:en:Lobster, raw
+ciqual_food_name:fr:Homard, cru
+
+<en:Lobsters
+en:Boiled lobster, Lobster cooked in water
+fr:Homard bouilli, Homard cuit à l'eau
+ciqual_food_code:en:10009
+ciqual_food_name:en:Lobster, boiled/cooked in water
+ciqual_food_name:fr:Homard, bouilli/cuit à l'eau
+
+<en:Spiny lobsters
+en:Boiled spiny lobster, Spiny lobster cooked in water
+fr:Langouste bouillie, Langouste cuite à l'eau
+ciqual_food_code:en:10022
+ciqual_food_name:en:Spiny lobster, boiled/cooked in water
+ciqual_food_name:fr:Langouste, bouillie/cuite à l'eau
+
+<en:Spiny lobsters
+en:Raw spiny lobster
+fr:Langouste crue
+ciqual_food_code:en:10015
+ciqual_food_name:en:Spiny lobster, raw
+ciqual_food_name:fr:Langouste, crue
 
 <en:Seafood
 en:Finnish sea products
@@ -56859,6 +58203,8 @@ it:Crostacei
 nl:Kreeftachtigen
 pt:Crustáceos, crustáceo
 sv:Kräftdjur
+se:Kräftdjur
+ciqual_food_code:en:10043
 
 <en:Crustaceans
 en:Spider crab
@@ -56880,6 +58226,41 @@ en:Preparations made from crabs
 es:Preparado hechos de cangrejos
 fr:Préparations à base de crabes
 nl:Krab-producten
+
+<en:Preparations made from crabs
+en:Canned drained flaked crab, Canned drained decorticated crab leg
+fr:Miettes de crabe égouttées appertisées, Pattes de crabe décortiquées appertisées égouttées
+ciqual_food_code:en:10005
+ciqual_food_name:en:Flaked crab and/or decorticated crab leg, canned, drained
+ciqual_food_name:fr:Crabe, miettes et ou pattes décortiquées, appertisé, égoutté
+
+<en:Crab
+en:Boiled crab, Crab cooked in water
+fr:Crabe bouilli, Crabe cuit à l'eau, Tourteau bouilli, Tourteau cuit à l'eau
+ciqual_food_code:en:10025
+ciqual_food_name:en:Crab, boiled/cooked in water
+ciqual_food_name:fr:Crabe ou Tourteau, bouilli/cuit à l'eau
+
+<en:Crab
+en:Raw crab
+fr:Crabe cru
+ciqual_food_code:en:10039
+ciqual_food_name:en:Crab, raw
+ciqual_food_name:fr:Crabe, cru
+
+<en:Crustaceans
+en:Cooked crayfish
+fr:Écrevisse cuite
+ciqual_food_code:en:10031
+ciqual_food_name:en:Crayfish, cooked
+ciqual_food_name:fr:Écrevisse, cuite
+
+<en:Crustaceans
+en:Raw crayfish
+fr:Écrevisse crue
+ciqual_food_code:en:10030
+ciqual_food_name:en:Crayfish, raw
+ciqual_food_name:fr:Écrevisse, crue
 
 <en:Crustaceans
 en:Shrimps
@@ -56933,9 +58314,12 @@ nl:Pandalis Borealis
 
 <en:Shrimps
 <en:skewers
-en:shrimp skewers
-fr:Brochettes de crevettes, brochette de crevettes
+en:Shrimps on skewer, Shrimp skewers
+fr:Brochettes de crevettes, Brochette de crevettes
 nl:Inktivisspiesjes
+ciqual_food_code:en:25540
+ciqual_food_name:en:Shrimps on skewer
+ciqual_food_name:fr:Brochette de crevettes
 
 <en:Shrimps
 en:Prawns
@@ -56988,6 +58372,13 @@ ciqual_food_code:en:10024
 ciqual_food_name:en:Norway lobster, raw
 ciqual_food_name:fr:Langoustine, crue
 
+<en:Crustaceans
+en:Breaded fried scampi
+fr:Langoustines panées frites
+ciqual_food_code:en:10012
+ciqual_food_name:en:Scampi, breaded, fried
+ciqual_food_name:fr:Langoustine, panée, frite
+
 <en:Seafood
 en:Fishes, fish
 ca:Peix
@@ -57009,6 +58400,27 @@ wikidata:en:Q600396
 
 <en:Seafood
 en:Frozen seafood
+
+<en:Fishes
+en:Cooked fish
+fr:Poisson cuit
+ciqual_food_code:en:26140
+ciqual_food_name:en:Fish, cooked (average)
+ciqual_food_name:fr:Poisson cuit (aliment moyen)
+
+<en:Fishes
+en:Roasted northern pike, Baked northern pike
+fr:Brochet rôti, Brochet cuit au four
+ciqual_food_code:en:27002
+ciqual_food_name:en:Northern pike, roasted/baked
+ciqual_food_name:fr:Brochet, rôti/cuit au four
+
+<en:Fishes
+en:Raw northern pike
+fr:Brochet cru
+ciqual_food_code:en:27011
+ciqual_food_name:en:Northern pike, raw
+ciqual_food_name:fr:Brochet, cru
 
 <en:Fishes
 <en:skewers
@@ -57323,6 +58735,7 @@ fr:Filets d’anchois
 nl:Ansjovisfilets
 
 <en:Anchovy fillets
+<en:Semi-preserved foods
 en:Semi-preserved drained anchovy fillets rolled with capers
 fr:Filets d'anchois roulés aux câpres égouttés en semi-conserve
 ciqual_food_code:en:25999
@@ -57330,6 +58743,7 @@ ciqual_food_name:en:Anchovy, fillets, rolled with capers, semi-preserved, draine
 ciqual_food_name:fr:Anchois, filets roulés aux câpres, semi-conserve, égoutté
 
 <en:Anchovy fillets
+<en:Semi-preserved foods
 en:Semi-preserved drained anchovy fillets in oil
 fr:Filets d'anchois égouttés à l'huile en semi-conserve
 ciqual_food_code:en:26000
@@ -57501,13 +58915,20 @@ pt:Salmões, salmão
 zh:三文鱼
 
 <en:Salmons
+en:Cooked salmons, Cooked salmon
+fr:Saumons cuits, Saumon cuit
+ciqual_food_code:en:25996
+ciqual_food_name:en:Salmon, cooked (average)
+ciqual_food_name:fr:Saumon, cuit, sans précision (aliment moyen)
+
+<en:Cooked salmons
 en:grilled salmon, pan-fried salmon
 fr:saumon grillé, saumé poêlé
 ciqual_food_code:en:26229
 ciqual_food_name:en:Salmon, grilled/pan-fried
 ciqual_food_name:fr:Saumon, grillé/poêlé
 
-<en:Salmons
+<en:Cooked salmons
 en:Steamed salmon
 fr:Saumon cuit à la vapeur
 ciqual_food_code:en:26038
@@ -57525,6 +58946,7 @@ ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
 
 <en:Salmons from farming
+<en:Cooked salmons
 en:Salmons from farming microwaved
 fr:Saumon d'élevage cuit au micro-ondes
 ciqual_food_code:en:26211
@@ -57532,6 +58954,7 @@ ciqual_food_name:en:Salmon, microwaved, farmed
 ciqual_food_name:fr:Saumon, cuit au micro-ondes, élevage
 
 <en:Salmons from farming
+<en:Cooked salmons
 en:Salmons from farming boiled, Salmons from farming cooked in water
 fr:Saumon d'élevage bouilli, Saumon d'élevage cuit à l'eau chaude
 ciqual_food_code:en:26217
@@ -57539,6 +58962,7 @@ ciqual_food_name:en:Salmon, boiled/cooked in water, farmed
 ciqual_food_name:fr:Saumon, bouilli/cuit à l'eau, élevage
 
 <en:Salmons from farming
+<en:Cooked salmons
 en:Farmed salmon farmed roasted/baked
 fr:saumon d'élevage cuit au four
 ciqual_food_code:en:26230
@@ -57600,6 +59024,7 @@ ciqual_food_name:en:Common anchovy, raw
 ciqual_food_name:fr:Anchois commun, cru
 
 <en:Anchovy
+<en:Semi-preserved foods
 en:Semi-preserved anchovy in salt
 fr:Anchois au sel, Anchoité semi-conserve
 ciqual_food_code:en:26177
@@ -58376,6 +59801,13 @@ ciqual_food_name:en:Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Fishes
+en:Raw pike-perch
+fr:Sandre cru
+ciqual_food_code:en:27024
+ciqual_food_name:en:Pike-perch, raw
+ciqual_food_name:fr:Sandre, cru
+
+<en:Fishes
 en:Anglers
 de:Seeteufel
 fr:Lottes
@@ -58394,6 +59826,13 @@ fr:Lotte crue, Baudroie crue
 ciqual_food_code:en:26018
 ciqual_food_name:en:Anglerfish, raw
 ciqual_food_name:fr:Lotte ou baudroie, crue
+
+<en:Anglers
+en:Raw burbot
+fr:Lotte de rivière crue
+ciqual_food_code:en:27023
+ciqual_food_name:en:Burbot, raw
+ciqual_food_name:fr:Lotte de rivière, crue
 
 <en:Fishes
 en:Mackerels
@@ -58603,6 +60042,13 @@ fr:Morues, Morue, Cabillauds, Cabillaud
 nl:Kabeljauw
 ro:Cod, Cozi
 
+<en:Cods
+en:Cooked cods, Cooked cod
+fr:Cabillauds cuits, Cabillaud cuit
+ciqual_food_code:en:25997
+ciqual_food_name:en:Cod, cooked (average)
+ciqual_food_name:fr:Cabillaud, cuit, sans précision (aliment moyen)
+
 <en:Fishes
 en:Black seabream raw
 fr:dorade grise crue, daurade grise crue, griset crue
@@ -58621,14 +60067,14 @@ fr:Saupe crue
 ciqual_food_code:en:26111
 ciqual_food_name:en:Salema, raw
 
-<en:Cods
+<en:Cooked cods
 en:Roasted cods, Baked cods
 fr:Cabillauds rôtis, Cabillauds cuits au four
 ciqual_food_code:en:26023
 ciqual_food_name:en:Cod, roasted/baked
 ciqual_food_name:fr:Cabillaud, rôti/cuit au four
 
-<en:Cods
+<en:Cooked cods
 en:Steamed cods
 fr:Cabillauds cuits à la vapeur
 ciqual_food_code:en:26025
@@ -58663,6 +60109,20 @@ fi:turskanmaksat
 fr:Foies de morue, foie de morue
 nl:Kabeljauwlevers
 
+<en:Cod livers
+en:Raw cod liver
+fr:Foie de morue cru
+ciqual_food_code:en:26141
+ciqual_food_name:en:Cod liver, raw
+ciqual_food_name:fr:Foie de morue, cru
+
+<en:Cod livers
+en:Canned drained cod liver
+fr:Foie de morue appertisé égoutté
+ciqual_food_code:en:26142
+ciqual_food_name:en:Cod liver, canned, drained
+ciqual_food_name:fr:Foie de morue, appertisé, égoutté
+
 <en:Seafood
 en:Jellyfish
 de:Quallen
@@ -58682,6 +60142,16 @@ nl:Weekdieren
 ro:Moluscă
 ru:Моллюски
 wikidata:en:Q25326
+ciqual_food_code:en:10043
+ciqual_food_name:en:Crustacean or mollusk (average)
+ciqual_food_name:fr:Fruits de mer (aliment moyen)
+
+<en:Mollusc
+en:Raw abalone, Raw ormer, Raw sea ear
+fr:Ormeau cru
+ciqual_food_code:en:10041
+ciqual_food_name:en:Abalone or ormer or sea ear, raw
+ciqual_food_name:fr:Ormeau, cru
 
 <en:Mollusc
 fr:Coques
@@ -58692,6 +60162,34 @@ en:Scallop, Noix de Saint-Jacques
 es:Vieira
 fr:Noix de Saint-Jacques
 nl:Scallop
+
+<en:Mollusc
+en:Boiled clam, Clam cooked in water
+fr:Palourde bouillie, Palourde cuite à l'eau, Praire bouillie, Praire cuite à l'eau, Clam bouilli, Clam cuit à l'eau
+ciqual_food_code:en:10027
+ciqual_food_name:en:Clam, boiled/cooked in water
+ciqual_food_name:fr:Clam, Praire ou Palourde, bouilli/cuit à l'eau
+
+<en:Mollusc
+en:Raw clam
+fr:Palourde crue, Praire crue, Clam cru
+ciqual_food_code:en:10017
+ciqual_food_name:en:Clam, raw
+ciqual_food_name:fr:Clam, Praire ou Palourde, cru
+
+<en:Mollusc
+en:Cooked whelk
+fr:Bulot cuit, Buccin cuit
+ciqual_food_code:en:10020
+ciqual_food_name:en:Whelk, cooked
+ciqual_food_name:fr:Bulot ou Buccin, cuit
+
+<en:Mollusc
+en:Raw whelk
+fr:Bulot cru, Buccin cru
+ciqual_food_code:en:10019
+ciqual_food_name:en:Whelk, raw
+ciqual_food_name:fr:Bulot ou Buccin, cru
 
 <en:Mollusc
 en:Mussels
@@ -60325,6 +61823,13 @@ la:E-950
 wikidata:en:Q132037
 
 <en:Artificial sugar substitutes
+en:Stevia sweetener
+fr:Édulcorant à base d'extrait de stévia
+ciqual_food_code:en:31087
+ciqual_food_name:en:Stevia sweetener
+ciqual_food_name:fr:Édulcorant à base d'extrait de stévia
+
+<en:Artificial sugar substitutes
 en:Aspartame
 de:Aspartam
 es:Aspartamo
@@ -60332,6 +61837,27 @@ fr:Aspartames
 la:E-951
 nl:Aspartaam
 wikidata:en:Q182040
+
+<en:Aspartame
+en:Aspartame sweetener in tablets
+fr:Édulcorant à l'aspartame en pastilles
+ciqual_food_code:en:11506
+ciqual_food_name:en:Aspartame sweetener, in tablets
+ciqual_food_name:fr:Édulcorant à l'aspartame, en pastilles
+
+<en:Aspartame
+en:Aspartame in powder
+fr:Édulcorant à l'aspartame en poudre
+ciqual_food_code:en:11509
+ciqual_food_name:en:Aspartame, in powder
+ciqual_food_name:fr:Édulcorant à l'aspartame, en poudre
+
+<en:Aspartame
+en:Light sugar with aspartame
+fr:Sucre allégé à l'aspartame
+ciqual_food_code:en:31076
+ciqual_food_name:en:Sugar, light, with aspartame
+ciqual_food_name:fr:Sucre allégé à l'aspartame
 
 <en:Artificial sugar substitutes
 en:Neohesperidin DC, NHDC, Neohesperidin dihydrochalcone
@@ -60480,6 +62006,13 @@ zh:糖浆
 wikidata:en:Q6584340
 
 <en:Syrups
+en:Concentrate syrup without sugar and with artificial sweeteners
+fr:Boisson concentrée à diluer sans sucres ajoutés avec édulcorants, Sirop concentré à diluer sans sucres ajoutés avec édulcorants
+ciqual_food_code:en:18059
+ciqual_food_name:en:Concentrate beverage (to be diluted), without sugar and with artificial sweeteners, ""syrup 0%"" type
+ciqual_food_name:fr:Boisson concentrée à diluer, sans sucres ajoutés, avec édulcorants, type ""sirop 0%""
+
+<en:Syrups
 en:Syrup with sugar to be diluted
 fr:Sirop à diluer sucré
 ciqual_food_code:en:18017
@@ -60513,6 +62046,9 @@ it:Sciroppi d'agave
 nl:Agavesiropen
 nl_be:Agavesiropen
 wikidata:en:Q392001
+ciqual_food_code:en:31089
+ciqual_food_name:en:Syrup, agave
+ciqual_food_name:fr:Sirop d'agave
 
 <en:Simple syrups
 en:Birch syrups
@@ -60609,6 +62145,9 @@ fr:Sirops d'érable, sirop d'érable
 nl:Esdoornstropen
 wikidata:en:Q402563
 nova:en:2
+ciqual_food_code:en:31034
+ciqual_food_name:en:Syrup, maple
+ciqual_food_name:fr:Sirop d'érable
 
 <en:Maple syrups
 en:Maple syrups from Québec
@@ -60941,11 +62480,14 @@ fr:Poivrons rouges en conserve
 nl:Rode pepers in blik
 
 <en:Canned plant-based foods
-<en:Cereals and potatoes
-en:Canned potatoes
+<en:Potatoes
+en:Canned potatoes, Canned drained potatoes
 es:Patatas en conserva
-fr:Pommes de terre en conserve
+fr:Pommes de terre en conserve, Pommes de terre appertisées égouttées
 nl:Aardappel in blik
+ciqual_food_code:en:4011
+ciqual_food_name:en:Potato, canned, drained
+ciqual_food_name:fr:Pomme de terre, appertisée, égouttée
 
 <en:Canned vegetables
 en:Canned salsifis
@@ -61058,10 +62600,13 @@ nl:Ingemaakte Augurken
 wikidata:en:Q1365891
 
 <en:Gherkins
-en:Pickled gherkins
+en:Pickled gherkins, Gherkins pickled in vinegar
 de:Gewürzgurken,Cornichons
 fr:Cornichons au vinaigre
 nl:Zure Augurken
+ciqual_food_code:en:11004
+ciqual_food_name:en:Gherkin, pickled in vinegar
+ciqual_food_name:fr:Cornichon, au vinaigre
 
 <en:Gherkins
 en:Extra-fine gherkins
@@ -61073,8 +62618,12 @@ nl:Zeer fijne augurken
 fr:Cornichons malossol
 
 <en:Gherkins
-fr:Cornichons aigres-doux
+en:Gherkins in sweet and sour sauce
+fr:Cornichons aigres-doux, Cornichon aigre-doux
 nl:Zoetzure augurken
+ciqual_food_code:en:11097
+ciqual_food_name:en:Gherkin, in sweet and sour sauce
+ciqual_food_name:fr:Cornichon, aigre-doux
 
 <en:Vegetable pickles
 en:Pickled eggplants
@@ -61095,6 +62644,13 @@ en:Pickled onions
 es:Cebollas encurtidas, Cebollitas encurtidas
 fr:Oignons au vinaigre
 nl:Ingemaakte ui
+
+<en:Pickled onions
+en:Onions pickled in vinegar
+fr:Oignons au vinaigre
+ciqual_food_code:en:11055
+ciqual_food_name:en:Onion, pickled in vinegar
+ciqual_food_name:fr:Oignon au vinaigre
 
 <en:Vegetable pickles
 en:Pickled peppers
@@ -61163,21 +62719,21 @@ ciqual_food_code:en:20181
 ciqual_food_name:en:Parsnip, raw
 ciqual_food_name:fr:Panais, cru
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked parsnip
 fr:Panais cuits
 ciqual_food_code:en:20133
 ciqual_food_name:en:Parsnip, cooked
 ciqual_food_name:fr:Panais, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked red kidney beans
 fr:Haricots rouges cuits
 ciqual_food_code:en:20503
 ciqual_food_name:en:Red kidney bean, cooked
 ciqual_food_name:fr:Haricot rouge, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked broad beans
 fr:Fèves cuites
 ciqual_food_code:en:20500
@@ -61213,6 +62769,7 @@ fr:Salsifis frais
 season_in_country_fr:en: 1,2,11,12
 
 <en:Salsifis
+<en:Cooked vegetables
 en:Cooked salsify
 fr:Salsifis cuits
 ciqual_food_code:en:20046
@@ -61244,6 +62801,7 @@ fr:Coeurs d'artichauts, Fonds d'artichauts
 nl:Artisjokharten
 
 <en:artichokes
+<en:Cooked vegetables
 en:Cooked globe artichoke
 fr:Artichaut cuit
 ciqual_food_code:en:20000
@@ -61402,7 +62960,7 @@ ciqual_food_code:en:20091
 ciqual_food_name:en:Beetroot, raw
 ciqual_food_name:fr:Betterave rouge, crue
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked beetroots
 fr:Betteraves rouges cuites
 ciqual_food_code:en:20003
@@ -61559,6 +63117,7 @@ ciqual_food_name:en:Broccoli, raw
 ciqual_food_name:fr:Brocoli, cru
 
 <en:Broccoli
+<en:Cooked vegetables
 en:Cooked broccoli
 fr:Brocolis cuits
 ciqual_food_code:en:20006
@@ -61652,6 +63211,7 @@ ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 
 <en:Cabbages
+<en:Cooked vegetables
 en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
 fr:Chou chinois (pak-choi ou pé-tsai) cuit
 ciqual_food_code:en:20221
@@ -61659,6 +63219,7 @@ ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
 ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
 
 <en:Cabbages
+<en:Cooked vegetables
 en:Cooked curly kale
 fr:Chou frisé cuit
 ciqual_food_code:en:20219
@@ -61693,6 +63254,7 @@ ciqual_food_name:en:Cardoon, raw
 ciqual_food_name:fr:Cardon, cru
 
 <en:Cardoons
+<en:Cooked vegetables
 en:Cooked cardoons
 fr:Cardons cuits
 ciqual_food_code:en:20241
@@ -61713,6 +63275,7 @@ ru:Морковь
 sv:Morötter, morot
 
 <en:Carrots
+<en:Cooked vegetables
 en:Cooked carrots
 fr:Carottes cuites
 ciqual_food_code:en:20008
@@ -61733,6 +63296,13 @@ de:Frische Karotten
 fr:Carottes fraîches
 it:Carote fresche
 season_in_country_fr:en: 1,2,3,9,10,11,12
+
+<en:Carrots
+en:Dehydrated carrots
+fr:Carottes déshydratées
+ciqual_food_code:en:20092
+ciqual_food_name:en:Carrot, dehydrated
+ciqual_food_name:fr:Carotte, déshydratée
 
 <en:Leaf vegetables
 en:Cauliflowers
@@ -61763,6 +63333,7 @@ ciqual_food_name:en:Cauliflower, raw
 ciqual_food_name:fr:Chou-fleur, cru
 
 <en:Cauliflowers
+<en:Cooked vegetables
 en:Cooked cauliflowers
 fr:Choux-fleurs cuits, Chou-fleur cuit
 ciqual_food_code:en:20017
@@ -61797,6 +63368,7 @@ ciqual_food_name:en:Celery stalk, canned, drained
 ciqual_food_name:fr:Céleri branche, appertisé, égoutté
 
 <en:Celery
+<en:Cooked vegetables
 en:Cooked celery stalks
 fr:Céleri-branche cuit
 ciqual_food_code:en:20024
@@ -61818,6 +63390,7 @@ ciqual_food_name:en:Celeriac, raw
 ciqual_food_name:fr:Céleri-rave, cru
 
 <en:Celery
+<en:Cooked vegetables
 en:Cooked celeriac
 fr:Céleri-rave cuit
 ciqual_food_code:en:20025
@@ -61899,6 +63472,7 @@ fr:Blettes fraîches
 season_in_country_fr:en: 6,7,8,9,10,11
 
 <en:Chards
+<en:Cooked vegetables
 en:Cooked Swiss chard
 fr:Bette cuite, Blette cuite
 ciqual_food_code:en:20005
@@ -62272,6 +63846,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Poireau
 # category/leeks has 34 products @2019-05-22
 
 <en:Leeks
+<en:Cooked vegetables
 en:Cooked leeks
 fr:Poireaux cuits
 ciqual_food_code:en:20040
@@ -62516,6 +64091,7 @@ ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
 
 <en:Onions
+<en:Cooked vegetables
 en:Cooked onions
 fr:Oignons cuits
 ciqual_food_code:en:20035
@@ -62546,6 +64122,7 @@ ciqual_food_name:en:Shallot, raw
 ciqual_food_name:fr:Échalote, crue
 
 <en:Shallots
+<en:Cooked vegetables
 en:Cooked shallots
 fr:Échalotes cuites
 ciqual_food_code:en:20255
@@ -62575,6 +64152,7 @@ fr:Poivrons verts
 nl:Groene paprikas
 
 <en:Sweet Peppers
+<en:Cooked vegetables
 en:Cooked sweet green peppers
 fr:Poivrons verts cuits
 ciqual_food_code:en:20086
@@ -62624,6 +64202,7 @@ fr:Poivrons rouges
 nl:Rode paprikas
 
 <en:Sweet Peppers
+<en:Cooked vegetables
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
 ciqual_food_code:en:20088
@@ -62702,6 +64281,14 @@ nl:Aardappelen
 nl_be:Aardappelen
 sv:Potatisar, potatis
 pnns_group_2:en:Potatoes
+
+<en:Potatoes
+<en:Cooked vegetables
+en:Cooked potatoes
+fr:Pommes de terre cuites
+ciqual_food_code:en:4048
+ciqual_food_name:en:Potato, cooked (average food)
+ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
 
 <en:Potatoes
 en:Fresh potatoes
@@ -62859,6 +64446,7 @@ ciqual_food_name:en:Squash, melonnette jaspée from Vendée, pulp, raw
 ciqual_food_name:fr:Courge melonnette, pulpe, crue
 
 <en:Pumpkins
+<en:Cooked vegetables
 en:Cooked pumpkins
 fr:Potirons cuits
 ciqual_food_code:en:20096
@@ -63071,14 +64659,14 @@ ciqual_food_code:en:53200
 ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked taro tubes
 fr:Tubercules de taro cuits
 ciqual_food_code:en:53201
 ciqual_food_name:en:Taro, tuber, cooked
 ciqual_food_name:fr:Taro, tubercule, cuit
 
-<en:Vegetables
+<en:Cooked vegetables
 en:Cooked cassava, Cooked manioc roots
 fr:Manioc, Racine cuite
 ciqual_food_code:en:54034
@@ -63206,6 +64794,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallion
 # category/scallions has 7 products @2019-05-22
 
 <en:Leaf vegetables
+<en:Cooked vegetables
 en:Cooked New Zealand spinach
 fr:Tétragone cornue cuite
 ciqual_food_code:en:20158
@@ -63231,6 +64820,7 @@ ciqual_food_name:en:Spinach w cream sauce
 ciqual_food_name:fr:Épinards à la crème
 
 <en:Spinachs
+<en:Cooked vegetables
 en:Cooked spinach
 fr:Épinards cuits
 ciqual_food_code:en:20027
@@ -63367,6 +64957,7 @@ ciqual_food_name:en:Rutabaga or Swede, raw
 ciqual_food_name:fr:Rutabaga, cru
 
 <en:Turnip
+<en:Cooked vegetables
 en:Cooked rutabaga, Cooked swede
 fr:Rutabaga cuit
 ciqual_food_code:en:20165
@@ -63374,6 +64965,7 @@ ciqual_food_name:en:Rutabaga or Swede, cooked
 ciqual_food_name:fr:Rutabaga, cuit
 
 <en:Turnip
+<en:Cooked vegetables
 en:Cooked turnips
 fr:Navets cuits
 ciqual_food_code:en:20033
@@ -63489,6 +65081,7 @@ ciqual_food_name:en:Courgette or zucchini, pulp and peel, raw
 ciqual_food_name:fr:Courgette, pulpe et peau, crue
 
 <en:Zucchini
+<en:Cooked vegetables
 en:Cooked pulp and peel courgette, Cooked pulp and peel zucchini
 fr:Pulpe et peau de courgette cuite
 ciqual_food_code:en:20021
@@ -63564,6 +65157,15 @@ nl:Bladsla
 ciqual_food_code:en:25604
 ciqual_food_name:en:Green salad, raw, without seasoning
 ciqual_food_name:fr:Salade verte, crue, sans assaisonnement
+
+<en:Salads
+<en:Leaf vegetables
+<en:mixed salads
+en:Salad without dressing
+fr:Crudités sans assaisonnement
+ciqual_food_code:en:25616
+ciqual_food_name:en:Salad, vegetable, without dressing (average)
+ciqual_food_name:fr:Crudité, sans assaisonnement (aliment moyen)
 
 # <en:vegetable
 <en:Leaf vegetables
@@ -63880,6 +65482,7 @@ ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
 
 <en:Green beans
+<en:Cooked vegetables
 en:Cooked French beans
 fr:Haricots verts cuits
 ciqual_food_code:en:20030
@@ -63934,6 +65537,7 @@ ciqual_food_name:en:Garden peas, raw
 ciqual_food_name:fr:Petits pois, crus
 
 <en:Green peas
+<en:Cooked vegetables
 en:Cooked garden peas
 fr:Petits pois cuits
 ciqual_food_code:en:20037
@@ -64004,21 +65608,28 @@ pt:Pulsos
 wikidata:en:Q2727662
 
 <en:Pulses
+en:Cooked pulses
+fr:Légumes secs cuits
+ciqual_food_code:en:20700
+ciqual_food_name:en:Legume, cooked (average)
+ciqual_food_name:fr:Légume sec, cuit (aliment moyen)
+
+<en:Pulses
 en:Dried flageolet green beans
 fr:Flageolets verts secs, Haricots flageolets verts secs
 ciqual_food_code:en:20539
 ciqual_food_name:en:Flageolet bean, green, dried
 ciqual_food_name:fr:Haricot flageolet, vert, sec
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked flageolet beans
 fr:Flageolets cuits, Haricots flageolets cuits
 ciqual_food_code:en:20513
 ciqual_food_name:en:Flageolet bean, cooked
 ciqual_food_name:fr:Haricot flageolet, cuit
 
-<en:Pulses
-en:Cooked flageolet bean greens
+<en:Cooked pulses
+en:Cooked flageolet green beans
 fr:Flageolets verts cuits, Haricots flageolets verts cuits
 ciqual_food_code:en:20540
 ciqual_food_name:en:Flageolet bean, green, cooked
@@ -64040,7 +65651,7 @@ ciqual_food_code:en:20515
 ciqual_food_name:en:Split pea, dried
 ciqual_food_name:fr:Pois cassé, sec
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked split peas
 fr:Pois cassés cuits
 ciqual_food_code:en:20506
@@ -64100,6 +65711,7 @@ ciqual_food_name:en:Chick pea, dried
 ciqual_food_name:fr:Pois chiche, sec
 
 <en:Chickpeas
+<en:Cooked vegetables
 en:Cooked chick peas
 fr:Pois chiche cuits
 ciqual_food_code:en:20507
@@ -64201,6 +65813,7 @@ fr:Haricots blancs
 nl:Witte bonen
 
 <en:White beans
+<en:Cooked vegetables
 en:Cooked haricot beans
 fr:Haricots blancs cuits
 ciqual_food_code:en:20502
@@ -64289,6 +65902,7 @@ ciqual_food_name:en:Lentil, dried
 ciqual_food_name:fr:Lentille, sèche
 
 <en:Lentils
+<en:Cooked vegetables
 en:Cooked lentils
 fr:Lentilles cuites
 ciqual_food_code:en:20505
@@ -64328,6 +65942,7 @@ ciqual_food_name:en:Lentil, blond, dried
 ciqual_food_name:fr:Lentille blonde, sèche
 
 <en:Blonde lentils
+<en:Cooked vegetables
 en:Cooked blond lentils
 fr:Lentilles blondes cuites
 ciqual_food_code:en:20588
@@ -64355,6 +65970,7 @@ ciqual_food_name:en:Lentil, pink or red, dried
 ciqual_food_name:fr:Lentille corail, sèche
 
 <en:Red lentils
+<en:Cooked vegetables
 en:Cooked pink lentils, Cooked red lentils
 fr:Lentille corail cuites
 ciqual_food_code:en:20589
@@ -64380,6 +65996,7 @@ nl:Groenlinzen
 pt:Lentilhas verde
 
 <en:Lentils
+<en:Cooked vegetables
 en:Cooked green lentils
 fr:Lentilles vertes cuites
 ciqual_food_code:en:20587
@@ -64441,7 +66058,7 @@ la:Vigna radiata
 nl:Mungbonen
 wikidata:en:Q484447
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked Mung beans
 fr:Haricots mungo cuits
 ciqual_food_code:en:20531
@@ -64547,7 +66164,7 @@ ciqual_food_code:en:20216
 ciqual_food_name:en:Snow pea, boiled/cooked in water
 ciqual_food_name:fr:Pois mange-tout ou pois gourmand, bouilli/cuit à l'eau
 
-<en:Pulses
+<en:Cooked pulses
 en:Cooked snow peas
 fr:Pois mange-tout cuits, Pois gourmands cuits
 ciqual_food_code:en:20243
@@ -65510,6 +67127,20 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:Nyons
 
 <en:Black olives
+en:Black olives in brine
+fr:Olives noires en saumure
+ciqual_food_code:en:13032
+ciqual_food_name:en:Olives, black, in brine
+ciqual_food_name:fr:Olive noire, en saumure
+
+<en:Black olives
+en:Black olives in oil, Greek olives
+fr:Olives noires à l'huile, Olives noires à la grecque
+ciqual_food_code:en:13131
+ciqual_food_name:en:Olives, black, in oil (Greek olive)
+ciqual_food_name:fr:Olive noire, à l'huile (à la grecque)
+
+<en:Black olives
 <en:Chopped olives
 en:Black chopped olives, chopped black olives
 es:Aceitunas negras troceadas, Aceitunas negras en rodajas
@@ -65647,6 +67278,9 @@ en:Green olives in brine
 fr:Olives vertes en saumure
 it:Olive verdi in salamoia
 nl:Groene olijven op zout
+ciqual_food_code:en:13033
+ciqual_food_name:en:Olives, green, in brine
+ciqual_food_name:fr:Olive verte, en saumure
 
 <en:Olives
 en:Marinated olives
@@ -66376,6 +68010,7 @@ ciqual_food_name:en:Brussels sprout, frozen, raw
 ciqual_food_name:fr:Chou de Bruxelles, surgelé, cru
 
 <en:Brussels sprouts
+<en:Cooked vegetables
 en:Cooked Brussels sprouts
 fr:Choux de Bruxelles cuits
 ciqual_food_code:en:20013
@@ -66672,6 +68307,13 @@ de:Gefrohrene Kartoffeln
 es:Patatas congeladas
 fr:Pommes de terre surgelés
 nl:Diepvriesaardappelen
+
+<en:Frozen potatoes
+en:Frozen cooked spiced potato chips, Frozen cooked spiced potato wedges, Frozen cooked spiced potato quarters
+fr:Potatoes épicées cuites surgelées, Potatoes wedges épicées cuites surgelées, Quartiers de pommes de terre épicés cuits surgelés
+ciqual_food_code:en:4025
+ciqual_food_name:en:Potato chip, quarter, spiced, frozen, cooked
+ciqual_food_name:fr:Potatoes ou Wedges ou Quartiers de pommes de terre épicés, surgelées, cuites
 
 <en:Frozen vegetables
 <en:Pumpkins
@@ -67018,30 +68660,30 @@ ciqual_food_code:en:31106
 ciqual_food_name:en:Chocolate cereal bar
 
 <en:Cereal bars
-en:Milky cereal breakfast bar with chocolate or not fortified with vitamins and minerals
+en:Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
 fr:barre de céréales au lait et au chocholat
 ciqual_food_code:en:31100
 ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
 
-<en:Cereal bars
+<en:Chocolate cereal bars
 en:Cereal bar with chocolate fortified with vitamins and minerals
 fr:barre de céréales au chocolat renforcée en vitamines et minéraux
 ciqual_food_code:en:31102
 ciqual_food_name:en:Cereal bar with chocolate, fortified with vitamins and minerals
 
-<en:Cereal bars
+<en:Chocolate cereal bars
 en:Chocolate confectionery or bar with dairy filling
 fr:Barres ou confiserie chocolatées au lait
 ciqual_food_code:en:31012
 ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
 
-<en:Cereal bars
+<en:Chocolate cereal bars
 en:Chocolate snack bar dairy filling
 fr:barre de chocolat au lait frais
 ciqual_food_code:en:31073
 ciqual_food_name:en:Chocolate snack bar, dairy filling
 
-<en:Cereal bars
+<en:Chocolate cereal bars
 en:Chocolate snack bar dairy filling with sponge cake
 fr:barre de chocolat au lait frais avec génoise
 ciqual_food_code:en:31099
@@ -67052,6 +68694,13 @@ en:Nuts cereal bars
 fr:Barres de céréales aux fruits à coques
 nl:Graanrepen met noten
 ro:Batoane de cereale cu nuci
+
+<en:Cereal bars
+en:Low calorie cereal bar
+fr:Barre céréalière diététique hypocalorique
+ciqual_food_code:en:31104
+ciqual_food_name:en:Cereal bar, low calorie
+ciqual_food_name:fr:Barre céréalière diététique hypocalorique
 
 <en:Nuts cereal bars
 en:Cereal bar with almonds or hazelnuts
@@ -67123,7 +68772,7 @@ fr:Barres aux fruits, Barre aux fruits
 nl:Vruchtenrepen
 
 <en:Sugary snacks
-en:Viennoiseries, viennoiserie, puff pastries, puff pastry
+en:Viennoiseries, viennoiserie
 ca:Brioixeria
 de:Viennoiseries, Blätterteige
 es:Pasteles
@@ -67132,6 +68781,9 @@ it:Pasta sfoglia
 nl:Viennoiseries
 pt:Produtos para barrar à base de plantas, Produtos para barrar vegetais, patés vegetais
 pnns_group_2:en:pastries
+ciqual_food_code:en:7600
+ciqual_food_name:en:Pastry, average food
+ciqual_food_name:fr:Viennoiserie (aliment moyen)
 
 <en:Viennoiseries
 en:Croissants
@@ -67689,6 +69341,21 @@ nl:Orgaanvlezen, Orgaanvlees, Slachtafval
 pnns_group_2:en:Offals
 
 <en:Offals
+en:Cooked offal
+fr:Abats cuits
+ciqual_food_code:en:40601
+ciqual_food_name:en:Offal, cooked (average)
+ciqual_food_name:fr:Abat, cuit (aliment moyen)
+
+<en:Offals
+<en:Cooked kidneys
+en:Cooked kidneys, Cooked kidney
+fr:Rognons cuits, Rognon cuit
+ciqual_food_code:en:40401
+ciqual_food_name:en:Kidney, all types, cooked
+ciqual_food_name:fr:Rognon, cuit (aliment moyen)
+
+<en:Offals
 en:Gizzards
 fr:Gésiers
 nl:Spiermaag
@@ -67702,6 +69369,13 @@ nl:Ganzenspiermaag
 en:Duck gizzards
 fr:Gésiers de canard
 nl:Eendenspiermaag
+
+<en:Duck gizzards
+en:Canned preserved duck gizzards
+fr:Gésiers de canard confits appertisés, Gésiers de canard confits en conserve
+ciqual_food_code:en:40701
+ciqual_food_name:en:Preserved gizzards, duck, canned
+ciqual_food_name:fr:Gésier, canard, confit, appertisé
 
 <en:Gizzards
 en:Chicken gizzards, Raw chicken gizzards
@@ -67751,13 +69425,16 @@ fr:Foies gras cuits, foies gras cuit, foie gras cuit
 nl:Gekookte foie gras
 
 <en:Foies gras
-en:Foies gras from ducks, fat liver from ducks
+en:Foies gras from ducks, fat liver from ducks, Block of foie gras
 ca:Foie-gras d'ànec, Foie de fetge d'ànec
 de:Gänseleber, Gänseleberpastete, Fettleber von der Ente
 fi:ankanmaksapateija ankoista
-fr:Foies gras de canard, Foie gras de canard
+fr:Foies gras de canard, Foie gras de canard, Bloc de foie gras de canard
 hu:Zsíros kacsamáj
 nl:Eendenfoie gras
+ciqual_food_code:en:8331
+ciqual_food_name:en:Foie gras, block (average)
+ciqual_food_name:fr:Foie gras, canard, bloc (aliment moyen)
 
 <en:Foie gras from ducks
 <en:Whole foies gras
@@ -67765,6 +69442,42 @@ en:Whole foies gras from ducks, whole fat liver from ducks
 de:Entenstopflebern am Stück, Ganze Entenstopflebern
 fi:ankan rasvamaksa, kokonainen
 fr:Foies gras de canard entiers, Foie gras de canard entier
+
+<en:Foie gras from ducks
+<en:Whole foies gras
+en:Whole cooked duck liver foie gras
+fr:Foie gras de canard entier cuit
+ciqual_food_code:en:8321
+ciqual_food_name:en:Foie gras, duck's liver, whole, cooked
+ciqual_food_name:fr:Foie gras, canard, entier, cuit
+
+<en:Foie gras from ducks
+en:Duck liver foie gras without pieces
+fr:Bloc de foie gras de canard sans morceaux
+ciqual_food_code:en:8323
+ciqual_food_name:en:Foie gras, duck's liver, without pieces
+ciqual_food_name:fr:Foie gras, canard, bloc, sans morceaux
+
+<en:Foie gras from ducks
+en:Duck liver foie gras with 30% pieces
+fr:Bloc de foie gras de canard avec 30% de morceaux
+ciqual_food_code:en:8324
+ciqual_food_name:en:Foie gras, duck's liver, 30% pieces
+ciqual_food_name:fr:Foie gras, canard, bloc, 30% de morceaux
+
+<en:Foie gras from ducks
+en:Duck liver foie gras with 50% pieces
+fr:Bloc de foie gras de canard avec 50% de morceaux
+ciqual_food_code:en:8325
+ciqual_food_name:en:Foie gras, duck's liver, 50% pieces
+ciqual_food_name:fr:Foie gras, canard, bloc, 50% de morceaux
+
+<en:Foie gras from ducks
+en:Raw duck foie gras
+fr:Foie gras de canard cru
+ciqual_food_code:en:8328
+ciqual_food_name:en:Foie gras, duck, raw
+ciqual_food_name:fr:Foie gras de canard, cru
 
 <en:Foies gras
 en:Foies gras from gooses, fat liver from gooses
@@ -67812,9 +69525,12 @@ fr:Steaks végétaux, steaks végétaux pour hamburgers
 nl:Plantaardige steaks voor hamburgers
 
 <en:Veggie patties
-en:Soy steak
-fr:Galettes de soja, steaks de soja
+en:Soy steak, Soy burger, Vegetable escalope
+fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
 nl:Sojasteaks
+ciqual_food_code:en:20914
+ciqual_food_name:en:Soy burger or vegetable escalope
+ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
 fr:Galettes de tofu, steaks de tofu
@@ -67995,6 +69711,16 @@ hu:Krékerek
 it:Crackers
 nl:Zoutjes
 sv:Kex
+ciqual_food_code:en:38399
+ciqual_food_name:en:Salty snacks
+ciqual_food_name:fr:Biscuit apéritif (aliment moyen)
+
+<en:Crackers
+en:Wheat crackers
+fr:Crackers de table au froment
+ciqual_food_code:en:7351
+ciqual_food_name:en:Wheat crackers
+ciqual_food_name:fr:Crackers de table au froment
 
 <en:Crackers
 en:Plain salty snacks, Plain salty crackers
@@ -68426,6 +70152,14 @@ nl_be:Kiemen
 wikidata:en:Q1057052
 
 <en:Sprouts
+<en:Wheats
+en:Raw sprouted wheat
+fr:Blé germé cru
+ciqual_food_code:en:9011
+ciqual_food_name:en:Wheat sprouted, raw
+ciqual_food_name:fr:Blé germé, cru
+
+<en:Sprouts
 en:Alfalfa sprouts
 fr:Pousses d'alfalfa
 en:Germinados de alfalfa
@@ -68493,12 +70227,15 @@ wikidata:en:Q636056
 en:Mashed potatoes
 de:Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi:perunamuusit
-fr:Purées de pommes de terre
+fr:Purées de pommes de terre, Purée de pommes de terre
 nl:Aardappelpureeën
 nl_be:Aardappelpuree
 ru:Пюре картофельное, Картофельное пюре
 sv:Potatismos
 pnns_group_2:en:Potatoes
+ciqual_food_code:en:4047
+ciqual_food_name:en:Mashed potatoes (average)
+ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
 
 <fr:Purées
 <en:Prepared vegetables
@@ -69033,9 +70770,12 @@ zh:食品装饰品
 
 <en:Food decorations
 <en:Pastry helpers
-en:Sprinkles, Chocolat or sugar sprinkles
-fr:Vermicelles en chocolat ou en sucre
+en:Sprinkles, Chocolat or sugar sprinkles, Multi-coloured vermicelli
+fr:Vermicelles en chocolat ou en sucre, Vermicelles multicolores
 nl:Chocolade of suiker hagel
+ciqual_food_code:en:11510
+ciqual_food_name:en:Multi-coloured vermicelli
+ciqual_food_name:fr:Vermicelles multicolores
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
@@ -69138,9 +70878,12 @@ de:Gefüllte Weinblätter
 fr:Feuilles de vigne farcies
 nl:Gevulde wijnbladeren
 
-en:Brick sheets
-fr:Feuilles de brick
+en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
+fr:Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
 nl:Brick vellen
+ciqual_food_code:en:23430
+ciqual_food_name:en:Filo or phyllo pastry sheets, baked, without fat
+ciqual_food_name:fr:Feuille de brick, cuite à sec sans matière grasse
 
 <en:Meals
 en:Khatfa, Phyllo pastry, Filo pastry
@@ -69148,6 +70891,13 @@ fr:Khatfa
 ciqual_food_code:en:51550
 ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
 ciqual_food_name:fr:Khatfa feuille de brick, préemballée
+
+<en:Meals
+en:Dolmas, Drained vine leaf stuffed wih rice
+fr:Dolmas, Feuille de vigne égouttée farcie au riz
+ciqual_food_code:en:25217
+ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
+ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
 
 <en:Meals
 en:Banh Bao
@@ -69345,8 +71095,15 @@ ciqual_food_code:en:4041
 ciqual_food_name:en:Mashed potatoes w fresh tome cheese
 ciqual_food_name:fr:Aligot (purée de pomme de terre à la tomme fraîche)
 
-<fr:Charcuteries diverses
+<fr:Pâté
 fr:Pâtés de foie
+
+<fr:Charcuteries diverses
+en:Paté, Pâté
+fr:Pâté
+ciqual_food_code:en:8332
+ciqual_food_name:en:Paté (average)
+ciqual_food_name:fr:Pâté (aliment moyen)
 
 <fr:Saucisses sèches
 fr:Saucisses sèches de jambon
@@ -69507,7 +71264,7 @@ ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini
 
 <en:Sweet mousses
 en:Fruit mousses, Refrigerated fruit mousse
-fr: Mousses aux fruits, Mousse aux fruits rayon frais
+fr:Mousses aux fruits, Mousse aux fruits rayon frais
 nl:Vruchtenmousse
 ciqual_food_code:en:39228
 ciqual_food_name:en:Fruit mousse, refrigerated
