@@ -112,7 +112,7 @@ nl:schijfjes
 en:chopped
 da:hakket
 de:gehackt, gehackte, gehackter, gehacktes
-es:picada, picado, picadas, picados
+es:picada, picado, picadas, picados,trocitos,trocitas
 fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées
 is:hakkaðar
@@ -217,6 +217,7 @@ es:entero, entera, enteros, enteras
 fi:kokonainen, kokonaiset
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
+pt:inteiro
 sv:hel, hela
 # unclear what the dutch variant is
 
@@ -286,7 +287,7 @@ fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, dé
 
 # en:description:With the outermost layer or skin removed
 en:peeled
-es:sin piel, repelada, repelado, repeladas, repelados, descascarrilado, descascarrilada, descascarrilados, descascarriladas
+es:sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas
 fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
 # en:wiktionary:peeled
@@ -383,7 +384,7 @@ en:boned
 # Processes that change the humidity level of an ingredient
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
-en:concentrated
+en:concentrated,concentrate
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
@@ -393,6 +394,10 @@ fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
 sv:koncentrerad
 # en:wiktionary:concentrated
+
+<en:concentrated
+en:double concentrated
+es:doble concentrado,doble concentrada
 
 # <en:concentrated
 de:zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert
@@ -409,6 +414,7 @@ en:from-concentrate
 es:a base de concentrado,a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+pt:a partir de concentrado
 sv:från koncentrat
 
 en:dried
@@ -446,6 +452,10 @@ de:luftgetrocknet, luftgetrockneter
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
 
+en:semi-dried
+es:semiseco
+fr:semi-déshydratées
+
 # en:description:cured means dried
 #<en:dried
 en:cured
@@ -464,6 +474,7 @@ en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
+ca:xtracte
 da:ekstrakt
 de:extrakt, extrakte, extrakt aus
 es:extracto, extracto de, extractos
@@ -540,7 +551,7 @@ sv:maskinurbenat
 
 en:frozen
 de:tiefgevroren
-es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada
+es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,ultracongelados, ultracongeladas
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 nl:diepgevroren
 ro:congelat
@@ -858,6 +869,9 @@ en:rbst-free
 #
 #######################################################################
 # Processes used multiple processes and ingredients
+
+en:fermented
+es:fermentado
 
 en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
