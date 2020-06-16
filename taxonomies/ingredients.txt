@@ -5785,7 +5785,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylitol
 # E965 is moved to the additives taxonomy
 en:E965
 
-# description:en:  ERYTHRITOL  is a sugar alcohol (or polyol) that is considered safe (GRAS) as a food additive in the United States and throughout much of the world. It occurs naturally in some fruit and fermented foods. At the industrial level, it is produced from glucose by fermentation with a yeast, Moniliella pollinis. Erythritol is 60–70% as sweet as sucrose (table sugar) yet it is almost noncaloric, does not affect blood sugar, does not cause tooth decay, and is partially absorbed by the body, excreted in urine and feces.
+# description:en:  ERYTHRITOL is a sugar alcohol (or polyol) that is considered safe (GRAS) as a food additive in the United States and throughout much of the world. It occurs naturally in some fruit and fermented foods. At the industrial level, it is produced from glucose by fermentation with a yeast, Moniliella pollinis. Erythritol is 60–70% as sweet as sucrose (table sugar) yet it is almost noncaloric, does not affect blood sugar, does not cause tooth decay, and is partially absorbed by the body, excreted in urine and feces.
 
 <en:sweetener
 en:Erythritol, E968, E-968, E 968
@@ -14764,6 +14764,9 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:beef
+en:roasted beef including beef juices
+
 <en:meat
 <en:beef
 en:beef meat, pure beef meat
@@ -16297,6 +16300,9 @@ pt:presunto
 <en:ham
 en:cured ham
 es:jamon serrano,jamon curado
+
+<en:ham
+en:smoked ham with natural juices
 
 <en:pork
 en:pork by-product
@@ -34109,7 +34115,6 @@ nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-
 # FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
 
 en:fruit
@@ -34309,6 +34314,7 @@ fi:eksoottiset hedelmät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
+# <en:fruit and vegetable
 <en:fruit concentrates
 <en:vegetable concentrate
 en:fruit and vegetable concentrates, vegetable and fruit concentrates
@@ -47585,6 +47591,10 @@ fi:tomaattimehu tiivisteestä
 it:succo di pomodoro ricavato da concentrato
 nl:tomatensap uit sapconcentraat
 # ingredient/fr:jus-de-tomate-à-partir-de-concentré has 149 products @2018-12-26
+
+<en:tomato juice
+<en:tomato
+en:tomatoes-in-tomato-juice
 
 <en:tomato purée
 <en:tomato pulp
@@ -68033,6 +68043,15 @@ fr:viande de cuisse de poulet
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
+<en:chicken meat
+en:chicken meat including chicken juices
+
+<en:chicken meat including chicken juices
+en:chicken meat including natural chicken juices, chicken meat and natural chicken juices, chicken meat with natural juices
+
+<en:chicken meat including chicken juices
+en:cooked chicken with natural juices
+
 # <en:broth
 <en:chicken
 en:Chicken Stock
@@ -68466,6 +68485,9 @@ fr:Escalopes de dinde
 <en:turkey meat
 fr:jambon de dinde cuit standard goût fumé
 # usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
+
+<en:turkey
+en:roasted turkey including natural turkey juices
 
 <en:turkey meat
 en:turkey breast, turkey breast meat
