@@ -848,7 +848,6 @@ HTML
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>

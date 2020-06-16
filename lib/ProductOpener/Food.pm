@@ -5560,22 +5560,29 @@ sub compute_nova_group($) {
 		}
 	}
 
-	# Also loop through ingredients to see if the ingredients taxonomy has associated minimum NOVA grades
+	# Also loop through categories and ingredients to see if the taxonomy has associated minimum NOVA grades
+	# Categories need to be first, so that we can identify group 2 foods such as salt, sugar, fats etc.
+	# Group 2 foods should then not be moved to group 3
+	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+	
+	foreach my $tag_type ("categories", "ingredients") {
 
-	if ((defined $product_ref->{ingredients_tags}) and (defined $properties{ingredients})) {
+		if ((defined $product_ref->{$tag_type . "_tags"}) and (defined $properties{$tag_type})) {
 
-		foreach my $ingredient_tag (@{$product_ref->{ingredients_tags}}) {
+			foreach my $tag (@{$product_ref->{$tag_type . "_tags"}}) {
 
-			if ( (defined $properties{ingredients})
-				and (defined $properties{ingredients}{$ingredient_tag})
-				and (defined $properties{ingredients}{$ingredient_tag}{"nova:en"})
-				and ($properties{ingredients}{$ingredient_tag}{"nova:en"} > $product_ref->{nova_group}) ) {
-				$product_ref->{nova_group_debug} .= " -- ingredient: $ingredient_tag : " . $properties{ingredients}{$ingredient_tag}{"nova:en"} ;
-				$product_ref->{nova_group} = $properties{ingredients}{$ingredient_tag}{"nova:en"};
+				if ( (defined $properties{$tag_type}{$tag})
+					and (defined $properties{$tag_type}{$tag}{"nova:en"})
+					and ($properties{$tag_type}{$tag}{"nova:en"} > $product_ref->{nova_group})
+					# don't move group 2 to group 3
+					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
+					) {
+					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
+				}
 			}
 		}
 	}
-
 
 	# Group 1
 	# Unprocessed or minimally processed foods
