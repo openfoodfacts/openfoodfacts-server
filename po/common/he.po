@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-23 18:51\n"
+"PO-Revision-Date: 2020-06-12 08:11\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -785,7 +785,6 @@ msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr "Open Beauty Facts - טיפוח"
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
@@ -3194,8 +3193,8 @@ msgstr "ייבוא קובץ נתוני מוצרים"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr "יש להעלות גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה בטאבים בקידוד UTF-8) עם נתוני מוצרים."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
+msgstr "יש להעלות גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה בפסיקים או טאבים בקידוד UTF-8) עם נתוני מוצרים."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3455,6 +3454,14 @@ msgstr "ייצוא נתונים ותמונות של מוצרים למסד הנת
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr "נא לוודא שהנתונים בפלטפורמה ליצרנים נכונים בטרם הייצוא למסד הנתונים הציבורי."
+
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr "ייצוא תמונות למסד הנתונים הציבורי"
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr "החלפת התמונות הנבחרות הנוכחיות"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4166,4 +4173,29 @@ msgstr "שם המאכל ב‏־CIQUAL"
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr "שמות המאכלים ב־CIQUAL"
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr "יש לך אפשרות לסייע לנו לזהות יותר רכיבים ולנתח את רשימת הרכיבים למוצר הזה ואחרים על ידי:"
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr "ניתן לערוך עמוד מוצר זה כדי לתקן שגיאות כתיב ברשימת הרכיבים ו/או להסיר רכיבים בשפות אחרות ומשפטים שאינם קשורים לרכיבים."
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr "ניתן להוסיף רשומות חדשות, שמות נרדפים או תרגומים לרשימת הרכיבים הרב־לשונית שלנו, שיטות עיבוד רכיבים ותוויות."
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr "מומלץ להצטרף לערוץ ‎#ingredients ב<a href=\"https://slack.openfoodfacts.org\">מתחם הדיונים שלנו ב־Slack</a> ו/או ללמוד על <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ניתוח רכיבים בוויקי שלנו</a>, אם מעניין אותך לסייע. אנו מודים לך!"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr "https://il.pro.openfoodfacts.org/"
+
+msgctxt "footer_producers"
+msgid "Producers"
+msgstr "יצרנים"
 

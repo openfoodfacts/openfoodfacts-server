@@ -309,6 +309,10 @@ is (normalize_packager_codes("FI S837106 EY"), "FI S837106 EC", "FI: normalized 
 is (normalize_packager_codes(normalize_packager_codes("FI 4201 EY")), "FI 4201 EC", "FI: normalizing code twice does not change it any more than normalizing once");
 is (localize_packager_code(normalize_packager_codes("FI 4201 EY")), "FI 4201 EY", "FI: round-tripped code correctly");
 
+is (normalize_packager_codes("EE 110 EÜ"), "EE 110 EC", "EE: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")), "EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
+is (localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
+
 $product_ref = {
     nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };

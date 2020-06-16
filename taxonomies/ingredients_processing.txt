@@ -22,7 +22,13 @@
 #######################################################################
 
 en:raw
+da:rå
+fi:raaka
 fr:cru, crue, crus, crues
+es:crudo, cruda, crudos, crudas
+# da:parse:rå$
+# fi:parse:raaka$
+# sv:parse:rå$
 
 en:fresh
 de:frische
@@ -55,18 +61,22 @@ pt:fresco
 en:cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
 de:geschnitten
+es:cortado,cortada,cortados,cortadas
 fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
 it:tagliato, tagliata, tagliati, tagliate
 nl:gesneden
 
 # <en:cut
 en:thick cut
+es:cortada gruesa,cortado grueso, cortados gruesos,cortadas gruesas 
 
 # <en:cut
 de:mittelfein geschnittenen
 
-# <en:cut
-# en:finely cut
+<en:cut
+en:finely cut
+es:cortado fino, cortada fina,cortados finos, cortadas finas
+
 de:feingeschnitten, fein geschnittenen, feingeschnittener
 
 # <en:cut
@@ -94,44 +104,82 @@ de:überwiegend feinst zerkleinert
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
+es:lamina,laminada,laminado, laminadas,laminados
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 nl:schijfjes
 
 # en:description:Cut or diced into small pieces
 en:chopped
+da:hakket
 de:gehackt, gehackte, gehackter, gehacktes
+es:picada, picado, picadas, picados,trocitos,trocitas
+fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées
+is:hakkaðar
+nb:hakkede
 nl:gehakt
+nn:hakkede
+pt:picadas
+sv:hackade
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
 
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
+fi:kuutioitu, kuutioidut
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 nl:blokjes, in blokjes, blokje
+es:troceado, troceada,troceados, troceadas
+sv:tärnad
 
 #de:in Sticks geschnitten
 
 en:crushed
+es:aplastada, aplastado,aplastadas, aplastados,triturado,triturada,triturados,trituradas
+fi:murskattu, murskatut
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
+pt:triturado
+sv:krossad
+
+#en:blended
+#es:triturado,triturada,triturados,trituradas
+
+en:rolled
+es:arollada
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 de:gerieben, geriebener, geriebene, geraspelt
+es:rallada, rallado,ralladas, rallados
+fi:raastettu, raastetut, raaste
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
+sv:riven
 # nl:parse:geraspte_$
+# fi:parse:raastettu $, $raaste
+# sv:parse:riven $
 # en:wiktionary:grated
 
 en:granulated, granules
+da:granulat
+es:granulado,granulada,granulados,granuladas
+fi:rae
 fr:en granules, granules de, granules d'
+sv:granulat
+# da:parse:$granulat
+# fi:parse:$rae
+# sv:parse:$granulat
 
 # en:description:To reduce to smaller pieces by crushing with lateral motion.
 en:ground
+da:formalede
 de:gemahlen, gemahlene, gemahlener
 es:molido, molidos, molida, molidas
+fi:jauhettu, jauhetut
 fr:moulu, moulue, moulus, moulues
+is:muldar
 nl:gemalen
+sv:mald, malda, malen
 # nl:parse:gemalen_$
 # en:wiktionary:grind
 
@@ -146,17 +194,31 @@ de:frischgemahlen, frishgemahlene
 
 
 en:pureed
+da:puré, pure
 de:püree, puree, püree aus
+es:pure, pure de
+fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
+nb:puré
+sv:puré
+# da:parsing:$pure
 # de:parsing:$püree, püree$
+# fi:parsing:$sose
+# nb:parsing:$puré
+# sv:parsing:$puré
 
 ##################### THE RESULT OF THE PROCESS ##############
 
 en:whole
+da:hele
 de:ganze
 #ganz is not added as it is used in combination with fats (palm ganz gehärtet)
+es:entero, entera, enteros, enteras
+fi:kokonainen, kokonaiset
 fr:entier, entière, entiers, entières
 it:intero, intera, interi, intere
+pt:inteiro
+sv:hel, hela
 # unclear what the dutch variant is
 
 en:halved, halves
@@ -166,8 +228,10 @@ de:halbiert, halbierte, halbe
 en:pieces
 af:stukkies
 de:stücke, stücken, stückchen, gestückelt
+es:trozo,troza,trozos,trozas
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
 nl:stukjes
+sv:bitar, i bitar
 # de:false-positive:früchstück
 
 en:peeling
@@ -178,15 +242,24 @@ nl:schilfers
 de:raspel, raspeln
 
 en:powdered, powder
+da:pulver
 de:pulver
 es:en polvo, polvo de
+fi:jauhe
 fr:en poudre, poudre de, poudre d'
+is:duft
 it:in polvere, polvere di, polvere d'
+nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó
 sk:v prahu
 sv:pulver
+# da:parse:$pulver
+# fi:parse:$jauhe
+# is:parse:$duft
+# nb:parse:$pulver
+# sv:parse:$pulver
 
 
 #######################################################################
@@ -196,31 +269,41 @@ sv:pulver
 #######################################################################
 # Processes that split an ingredient into different parts
 
+en:split,broken
+es:partido,partida,partidos,partidas
+
 #de:comment:geschält is a generic term and can mean en:peeled or en:shelled
 de:geschält, geschälte, geschälter
 
 de:ungeschält, ungeschälte
 
+#es:comment:deshuesadas is a generic term and can mean en:pitted or en:boned
+es:deshuesado
+
 #en:description:To remove the outer covering or shell of something
 en:shelled
+es:sin cascara, pelada, pelado, peladas, pelados
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
 
 # en:description:With the outermost layer or skin removed
 en:peeled
-es:sin piel
+es:sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas
 fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
 # en:wiktionary:peeled
 
 en:entspeltzt
 
+#In Spanish sin hueso can be pitted or boned. Removed from here to remove confusion.
 # en:description:Having had the pits removed
+# <es:deshuesadas
 en:pitted
 de:entsteint, entsteinte, entkernt
-es:sin hueso
+#es:sin hueso
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
 nl:ontpit, ontpitte
 #pt:sem caroço, sem caroco
+sv:urkärnad
 # en:wiktionary:pitted
 
 en:peel, peels, peel of
@@ -230,7 +313,7 @@ en:peel, peels, peel of
 el:φλούδα
 es:piel de, corteza de
 #es:false:cáscaras
-fi:kuoret
+fi:kuori, kuoret, kuorta
 fr:écorce de, écorces de, écorces d'
 it:scorza di, scorze di
 nl:schil, schillen
@@ -239,6 +322,7 @@ pt:raspas
 ro:piele de
 #sv:skal
 #sv:false:skallops, skalade, skalfrugi
+# fi:parse:$kuori
 
 #<en:peel
 it:scorzette
@@ -250,6 +334,7 @@ en:zest
 en:pulp
 de:mark, pulpe
 es:pulpo, pulpa de
+fi:hedelmäliha
 fr:pulpe, pulpe de, pulpe d', en pulpe
 #fr:false:avec pulpe
 it:polpa, polpa di
@@ -263,7 +348,7 @@ fr:sans pulpe
 
 en:sieved
 de:passiert
-es:tamizado, tamizados
+es:tamizado, tamizados, tamizar, tamizada
 fr:tamisé, tamisée, tamisés, tamisées, finement tamisé
 nl:gezeefd, gezeefde
 
@@ -288,6 +373,9 @@ en:partially defatted
 de:teilentfettet, teilentfettetes
 ro:demidegresat
 
+# <es:deshuesado
+en:boned
+
 #######################################################################
 #
 #                H U M I D I T Y   P R O C E S S E S
@@ -296,13 +384,20 @@ ro:demidegresat
 # Processes that change the humidity level of an ingredient
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
-en:concentrated
+en:concentrated,concentrate
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
+es:concentrado,concentrada
+fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
+sv:koncentrerad
 # en:wiktionary:concentrated
+
+<en:concentrated
+en:double concentrated
+es:doble concentrado,doble concentrada
 
 # <en:concentrated
 de:zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert
@@ -316,15 +411,22 @@ de:200fach konzentriertes
 de:eingekochter
 
 en:from-concentrate
+es:a base de concentrado,a base de concentrada, a partir de concentrado, a partir de concentrada
+fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+pt:a partir de concentrado
+sv:från koncentrat
 
 en:dried
+da:tørret
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
-es:seco, seca, secos, secas
-fi:kuivattu
+es:seco, seca, secos, secas, secados, secadas
+fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
+nb:tørkede
 nl:gedroogd, gedroogde
+sv:torkad
 
 # <en:dried
 de:halbgetrocknet, halbgetrocknete, halb getrocknet
@@ -333,10 +435,13 @@ nl:halfgedroogd, halfgedroogde
 # <en:dried
 en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
+fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
+nb:frysetørkede
 
 # <en:dried
 en:sundried, sun dried
 de:sonnengetrocknet, sonnengetrocknete, an der Sonne getrocknete
+fi:aurinkokuivattu, aurinkokuivatut
 nl:zongedroogd, zongedroogde
 
 #<en:dried
@@ -346,6 +451,10 @@ de:luftgetrocknet, luftgetrockneter
 #<en:dried
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
+
+en:semi-dried
+es:semiseco
+fr:semi-déshydratées
 
 # en:description:cured means dried
 #<en:dried
@@ -359,26 +468,79 @@ it:disidratato, disidratata, disidratati, disidratate
 en:rehydrated
 de:rehydriert, rehydrierte, rehydriertes
 fr:réhydraté, réhydratée, réhydratés, réhydratées
+sv:rehydrerat, rehydrerad
 
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
+ca:xtracte
+da:ekstrakt
 de:extrakt, extrakte, extrakt aus
 es:extracto, extracto de, extractos
+fi:uute, uutetta, uutteet
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
 it:estratto di, estratti di
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
+nb:ekstrakt, ekstrakter
 nl:extract
 ro:extract de
 sv:extrakt, extrakt av
+# da:parse:$ekstrakt
+# fi:parse:$uute
+# nb:parse:$ekstrakt
+# sv:parse:$extrakt
 
 #<en:extract
 #<en:natural
 fr:extrait naturel de, extrait naturel d'
 
 #fr:obtenu par extraction hydrique
+
+en:pressed, extraite par pression
+# en:false:compressed
+da:presset, pressede
+de:abgepresste
+es:espremido de, prensado, prensada
+fr:pressé, pressée, pressées
+#fr:false:à pâte pressée, fromage pressé
+it:spremuto di
+sv:presset
+
+#<en:pressed
+
+#<en:pressed
+en:fresh pressed
+de:direkt gepresst
+sv:nypressad
+
+#<en:pressed
+en:mechanically pressed
+es:prensado mecánicamente, prensada mecánicamente
+
+#<en:pressed
+en:naturally pressed
+
+#<en:pressed
+en:expeller pressed
+
+#<en:pressed
+en:cold pressed
+de:kaltgepresst, kaltgepresstes
+es:prensado en frio, prensada en frio,prensados en frio, prensadas en frio
+fr:pression à froid, pressée à froid, obtenue par pression à froid, pressé à froid
+nl:koud geperst
+sv:kallpressad
+
+<en:cold pressed
+en:first cold pressed
+de:erste kalte pressung
+fr:première pression à froid, 1ère pression à froid, de première pression à froid
+
+en:mechanically separated
+es:separada mechanicamente
+sv:maskinurbenat
 
 #######################################################################
 #
@@ -389,30 +551,37 @@ fr:extrait naturel de, extrait naturel d'
 
 en:frozen
 de:tiefgevroren
-es:congelado, ultracongelado, ultracongelada
+es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,ultracongelados, ultracongeladas
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 nl:diepgevroren
 ro:congelat
 
 en:unfrozen
-es:descongelado, descongelada
+es:descongelado, descongelada,descongelados, descongeladas
 fr:décongelé, décongelée, décongelés, décongelées
 nl:ontdooid
 
 en:pasteurised, pasteurized
 ca:pasteuritzada
+da:pasteuriseret
 de:pasteurisiert, pasteurisierte, pasteurisierter
-es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas
+es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada
+fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
+nb:pasteurisert
 nl:gepasteuriseerd, gepasteuriseerde
 pt:pasteurizado
 ro:pasteurizat, pasteurizata
+sv:pastöriserad
 
 en:unpasteurized
 
 en:pre-cooked
+da:forkogte
 de:vorgekocht
+es:pre cocido, pre cocida,pre cocidos, pre cocidas
+fi:esikypsennetty, esikypsennetyt
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
@@ -422,6 +591,7 @@ nl:voorgekookt, voorgekookte
 en:parboiled
 de:parboiled
 es:parboiled
+fi:parboil-käsitelty
 it:parboiled
 
 # prepare (vegetables) for freezing or further cooking by immersing briefly in boiling water.
@@ -434,9 +604,12 @@ nl:geblancheerd
 
 en:cooked
 de:gekocht
+es:cocido, cocida, cocidos,cocidas
+fi:paistettu, keitetty
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 nl:gekookt, gekookte
+sv:kokt, kokta
 
 #<en:cooked
 de:gegart, gegarte, gegarter, gegartes
@@ -445,6 +618,7 @@ nl:gegaard, gegaarde
 
 en:uncooked
 nl:ongekookt, ongekookte
+es:sin cocer
 
 #<en:uncooked
 fr:non-blanchie
@@ -455,20 +629,23 @@ de:dampfgegart, dampfgegarte, dampfgegarter
 en:puffed
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt
+es:hinchado,hinchada,hinchados,hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
 nl:gepoft, gepofte
 se:puffat
 
 
 en:pre-fried
+es:prefrito,prefrita,prefritos,prefritas
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
+sv:förfriterad
 
 en:fried
 de:frittierter
 es:frito, fritos, frita, fritas
-fi:paahdettu
 fr:frit, frite, frits, frites
 it:fritto, fritta, fritti, fritte
+sv:friterad, stekt
 # nl:gefrituurd
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
@@ -478,6 +655,7 @@ es:asado, asada, asados, asadas
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden
+sv:rostat, rostade
 
 #<en:roasted
 en:dry roasted
@@ -486,8 +664,10 @@ en:dry roasted
 en:toasted
 de:geröstet, geröstete, geröstetes, gerösteter, getoastet
 es:tostado, tostada, tostados, tostadas
+fi:paahdettu, paahdetut
 fr:toasté, toastée, toastés, toastées
 it:tostato, tostati, tostate
+nb:ristet, ristede
 nl:geroosterd, geroosterde
 
 en:untoasted
@@ -500,13 +680,19 @@ en:dark toasted
 #<en:roasted
 en:grilled
 de:gegrillt, gegrillte, gegrillter, gegrilltes
-es:a la parrila
+es:a la parrila, a la brasa
 fi:grillattu
 fr:grillé, grillée, grillés, grillées
 it:grigliato, grigliata, grigliati, grigliate
 nl:gegrild, gegrilde
 pl:grillowany. grillowana
 sv:grillad
+
+<en:grilled
+es:barbeque,barbequed
+
+en:melted
+es:fundido
 
 
 #######################################################################
@@ -520,6 +706,7 @@ sv:grillad
 en:enriched
 #en:false_positive:enriched with thiamin
 de:angereichert
+es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
 fr:enrichi, enrichie, enrichis
 nl:verrijkt
@@ -533,6 +720,9 @@ es:bromado
 #<en:unadded
 en:unbromated, un-bromated
 
+en:covered,coated
+es:cobertura
+
 #en:comment:salt has been added to the ingredient
 #<en:added
 en:salted
@@ -543,6 +733,7 @@ fr:salé, salée, salés, salées, sales, salees
 it:salato, salata, salate, salati
 nl:gezouten
 pt:salgado, salgada, salgados, salgadas
+sv:saltat
 
 #<en:salted
 en:sea salted
@@ -568,14 +759,17 @@ fr:présalée
 #<en:salted
 en:unsalted, un-salted
 de:ungesalzen, ungesalzene
+es:sin sal
 fr:non salée, non-salée
 nl:ongezouten
 
 en:sweetened
 de:gesüßt, gesüßte
 es:endulzado, endulzada, endulzados, endulzadas
+fi:makeutettu, makeutetut
 nl:gezoet, gezoete
 pt:adoçado, adoçada
+sv:sötad
 
 en:unsweetened
 nl:ongezoet
@@ -583,9 +777,12 @@ nl:ongezoet
 #<en:sweetened
 en:sugared
 de:gezuckert, gezuckerte
+es:azucarado,azucarada,azucarados,azucaradas
+fi:sokeroitu, sokeroidut, sokeroitua, sokeroituja
 fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees 
 #better not add fr:sucre and fr:sucres
 nl:gesuikerd, gesuikerde
+sv:sockrad
 
 #<en:sugared
 de:leicht gezuckert
@@ -594,7 +791,7 @@ de:leicht gezuckert
 en:candied
 da:kandiserede
 de:kandiert, kandierte, kandierten, kandierter
-#es:confitada
+es:confitado,confitada,confitados,confitadas
 it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
 sv:kanderad, kanderade
@@ -626,9 +823,11 @@ de:ungeschwefelt, ungeschwefelte
 # Processes used during production, but do not add something
 
 en:treated
+es:tratada,tratado,tratadas,tratados
 nl:bewerkt
 
 en:untreated
+es:sin tratar
 fr:non traitée
 
 en:bleached
@@ -640,17 +839,19 @@ de:ungebleichtes
 en:malted
 #en:falsePositive:malt
 de:gemälzt, gemälzte, gemälztes
-es:malteado, malteada
+es:malteado, malteada,malteados, malteadas
+fi:mallastettu
 fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
 it:maltato, maltata
 nl:gemout, gemoute
+sv:mältat
 #nl:falsePositive:moutmeel
 
 fr:non-maltées
 
 en:deodorized
 de:desodoriert, desodoriertes
-es:desodorizado, desodorizada
+es:desodorizado, desodorizada,desodorizados, desodorizadas
 fr:désodorisé, désodorisée
 it:deodorato
 nl:ontgeurde
@@ -669,18 +870,24 @@ en:rbst-free
 #######################################################################
 # Processes used multiple processes and ingredients
 
+en:fermented
+es:fermentado
+
 en:marinated
 de:mariniert, marinierte, marinierter, mariniertes
 es:marinado, marinada, marinados, marinadas
+fi:marinoitu, marinoidut
 fr:mariné, marinée, marinés, marinées
 it:marinato, marinata
 nl:gemarineerd, gemarineerde
+sv:marinerad
 
 # pickled can be in vinegar or salt
 
 en:pickled
+da:syltede
 de:eingelegt, eingelegte, eingelegter
-es:en escabeche
+es:en escabeche, en vinagre
 
 # en:description:Marinated in salt (note different from en:salted)
 de:gepökelt, gepökeltes
@@ -692,6 +899,7 @@ de:ungepökelt
 
 en:flavoured, flavored
 de:aromatisiert, aromatisierte, aromatisiertes
+es:sabour,saboreado,saboreada
 fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
 nl:gearomatiseerd, gearomatiseerde
@@ -700,16 +908,20 @@ en:unflavoured, unflavoured
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
+da:røget, røgede
 de:geräuchert, geräucherte
 #de:comment:Various rauch appear as separate ingredients
 es:ahumada, ahumado, ahumadas, ahumados
+fi:savustettu, savustetut, savustettua
 fr:fumé,fumés,fumée,fumées
 it:affumicato, affumicate, affumicata
 nl:gerookt, gerookte
+sv:rökt
 #en:false-positive:en:sweet smoked paprike
 
 #<en:smoked
 en:double smoked
+es:doble ahumado,doble ahumada,doble ahumados,doble ahumadas
 
 #<en:smoked
 en:naturally smoked, natural smoked, all natural smoked
@@ -718,12 +930,14 @@ fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées natu
 #<en:smoked
 en:lightly smoked
 fr:légèrement fumés
+nb:lettrøkt, lettrøkte
 
 #<en:smoked
 en:dry smoked
 
 #<en:smoked
 en:wood smoked
+es:humo de leña
 
 #<en:wood smoked
 en:natural hardwood smoked, naturally wood smoked
@@ -744,6 +958,7 @@ en:apple wood smoked
 en:beech smoked
 fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre
 nl:gerookt op beukenhout
+sv:bokspånsrökt
 
 #<en:beech smoked
 en:natural beech smoked, 
@@ -782,3 +997,11 @@ en:oak smoked
 en:not smoked, unsmoked
 
 #en:fibers
+
+#process of removing the bone from meat
+en:boned
+es:deshuesado
+es:sin hueso
+
+en:inflated
+es:hinchado,hinchada,hinchados,hinchadas

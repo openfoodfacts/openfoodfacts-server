@@ -159,6 +159,7 @@ use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
+use Template;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -236,6 +237,15 @@ if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
 
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
 
 # Initialize exported variables
 $memd = new Cache::Memcached::Fast {
@@ -1064,11 +1074,11 @@ sub display_index_for_producer($) {
 
 		if ($count > 0) {
 			$html .= "<p>&rarr; <a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">"
-			. lang("number_of_products_with_" . $tagtype) . lang("sep") . ": " . $count . "</a></p>";
+			. lang("number_of_products_with_" . $tagtype) . separator_before_colon($lc) . ": " . $count . "</a></p>";
 		}
 	}
 
-	$html .= "<h2>" . lang("your_products") . lang("sep") . ":" . "</h2>";
+	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
 
 	return $html;
@@ -1614,7 +1624,7 @@ sub display_list_of_tags($$) {
 			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
 		}
 
-		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . lang("sep") . ":</p>";
+		$html .= "<p>". $request_ref->{structured_response}{count} . " " . $Lang{$tagtype . "_p"}{$lang} . separator_before_colon($lc) . ":</p>";
 
 		my $th_nutriments = '';
 
@@ -2007,99 +2017,115 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# nutrition grades colors histogram
+		# Nutri-Score nutrition grades colors histogram / NOVA groups histogram
 
-		if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
+				
+			my $categories;
+			my $series_data;
+			my $colors;
 
-		my $categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-		my $series_data = '';
-		foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
-			$series_data .= ($products{$nutrition_grade} + 0) . ',';
-		}
-		$series_data =~ s/,$//;
+			my $y_title = lang("number_of_products");
+			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-		my $y_title = lang("number_of_products");
-		my $x_title = lang("nutrition_grades_p");
-
-		my $sep = separator_before_colon($lc);
-
-		my $js = <<JS
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'column',
-            },
-			legend: {
-				enabled: false
-			},
-            title: {
-                text: '$request_ref->{title}'
-            },
-            subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
-            },
-            xAxis: {
-                title: {
-                    enabled: true,
-                    text: '${x_title}'
-                },
-				categories: [
-					$categories
-				]
-            },
-            colors: [
-                '#00ff00',
-                '#ffff00',
-                '#ff6600',
-				'#ff0180',
-				'#ff0000',
-				'#808080'
-            ],
-            yAxis: {
-
-				min:0,
-                title: {
-                    text: '${y_title}'
-                }
-            },
-
-            plotOptions: {
-    column: {
-       colorByPoint: true,
-        groupPadding: 0,
-        shadow: false,
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: false,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black, 0 0 3px black'
-                    }
-                }
-    }
-            },
-			series: [
-				{
-					name: "${y_title}",
-					data: [$series_data]
+			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
-			]
-        });
+			}
+			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
+				$categories = "'NOVA 1','NOVA 2','NOVA 3','NOVA 4','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $nova_group (
+					"en:1-unprocessed-or-minimally-processed-foods",
+					"en:2-processed-culinary-ingredients",
+					"en:3-processed-foods",
+					"en:4-ultra-processed-food-and-drink-products",) {
+					$series_data .= ($products{$nova_group} + 0) . ',';
+				}				
+			}
+			
+			$series_data =~ s/,$//;
+
+			my $sep = separator_before_colon($lc);
+
+			my $js = <<JS
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container',
+					type: 'column',
+				},
+				legend: {
+					enabled: false
+				},
+				title: {
+					text: '$request_ref->{title}'
+				},
+				subtitle: {
+					text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+				},
+				xAxis: {
+					title: {
+						enabled: true,
+						text: '${x_title}'
+					},
+					categories: [
+						$categories
+					]
+				},
+				colors: [
+					$colors
+				],
+				yAxis: {
+
+					min:0,
+					title: {
+						text: '${y_title}'
+					}
+				},
+
+				plotOptions: {
+		column: {
+		   colorByPoint: true,
+			groupPadding: 0,
+			shadow: false,
+					stacking: 'normal',
+					dataLabels: {
+						enabled: false,
+						color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+						style: {
+							textShadow: '0 0 3px black, 0 0 3px black'
+						}
+					}
+		}
+				},
+				series: [
+					{
+						name: "${y_title}",
+						data: [$series_data]
+					}
+				]
+			});
 JS
 ;
-		$initjs .= $js;
+			$initjs .= $js;
 
-		$scripts .= <<SCRIPTS
+			$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
 SCRIPTS
 ;
 
 
-		$html = <<HTML
+			$html = <<HTML
 <div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 HTML
-	. $html;
+		. $html;
 
 		}
 
@@ -4660,10 +4686,6 @@ sub search_and_export_products($$$) {
 				$nid =~ s/-$//g;
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
 					my $value = $product_ref->{nutriments}{"${nid}_100g"};
-					# for energy-kcal, we need the value in kcal (the energy-kcal_100g is in kJ)
-					if ($nid eq "energy-kcal") {
-						$value = $product_ref->{nutriments}{"${nid}_value"};
-					}
 					push @row, $value;
 				}
 				else {
@@ -5503,10 +5525,10 @@ sub search_and_graph_products($$$) {
 
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-		# 1 axis: histogram / bar chart
+		# 1 axis: histogram / bar chart -> axis_y == "product_n" or is empty
 		# 2 axis: scatter plot
 
-		if ($graph_ref->{axis_y} eq 'products_n') {
+		if ((not defined $graph_ref->{axis_y}) or ($graph_ref->{axis_y} eq "") or ($graph_ref->{axis_y} eq 'products_n')) {
 			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {
@@ -5901,7 +5923,7 @@ HTML
 			}
 
 			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . lang("sep") . ": " . $Org{org};
+				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
 			}
 			else {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
@@ -6707,6 +6729,7 @@ HTML
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
+			<li><a href="$Lang{footer_producers_link}{$lc}">$Lang{footer_producers}{$lc}</a></li>
 		</ul>
 	</div>
 	<div class="small-12 medium-6 large-3 columns app">
@@ -7151,12 +7174,12 @@ sub display_data_quality_description($$) {
 	my $html = "";
 
 	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . lang("sep") . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . lang("sep") . ": " . $product_ref->{nutriscore_score} . "</p>";
+		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
+			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
 	}
 	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . lang("sep") . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
+		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
+			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
 	}
 
 	return $html;
@@ -7182,9 +7205,9 @@ sub display_possible_improvement_description($$) {
 		# Comparison of product nutrition facts to other products of the same category
 
 		if ($tagid =~ /^en:nutrition-(very-)?high/) {
-			$html .= "<p>" . lang("value_for_the_product") . lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
+			$html .= "<p>" . lang("value_for_the_product") . separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
 			. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
-			. lang("sep") . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
+			. separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
 			. "</p>\n";
 		}
 
@@ -8634,79 +8657,103 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
-
-	my $html = '<p><a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">' . lang("nutriscore_calculation_details") . " &raquo;</a><p>"
-	. '<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">';
+	
+	my $beverage_view;
 
 	if ($nutriscore_data_ref->{is_beverage}) {
-		$html .= "<p>" . lang("nutriscore_is_beverage") . "</p>";
+		$beverage_view = lang("nutriscore_is_beverage");
 	}
 	else {
-		$html .= "<p>" . lang("nutriscore_is_not_beverage") . "</p>";
+		$beverage_view = lang("nutriscore_is_not_beverage");
 	}
 
-	if ($nutriscore_data_ref->{is_fat}) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_added_fat") . "</p>";
-	}
-
-	my @points = (
-		["positive", ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"]],
-		["negative", ["energy", "sugars", "saturated_fat", "sodium"]],
-	);
-
-	foreach my $points_ref (@points) {
-
-		$html .= "<p><strong>" . lang("nutriscore_" . $points_ref->[0] . "_points") . lang("sep") . ": "
-		. $nutriscore_data_ref->{$points_ref->[0] . "_points"} . "</strong></p><ul>";
-
-		foreach my $nutrient (@{$points_ref->[1]}) {
-
-			my $nutrient_threshold_id = $nutrient;
-
-			if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
-				and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
-				$nutrient_threshold_id .= "_beverages";
-			}
-			if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
-				$nutrient = "saturated_fat_ratio";
-				$nutrient_threshold_id = "saturated_fat_ratio";
-			}
-
-			$html .= "<li><strong>" . lang("nutriscore_points_for_" . $nutrient) . lang("sep") . ": "
-			. $nutriscore_data_ref->{$nutrient . "_points"} . "&nbsp;</strong>/&nbsp;" . scalar(@{$points_thresholds{$nutrient_threshold_id}}) . lang("points")
-			. " (" . lang("nutriscore_source_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient} . ", "
-			. lang("nutriscore_rounded_value") . lang("sep") . ": " . $nutriscore_data_ref->{$nutrient . "_value"} . ")" . "</li>";
-		}
-
-		$html .= "</ul>";
-	}
-
+	# Select message that explains the reason why the proteins points have been counted or not
+	
+	my $nutriscore_protein_info;
 	if ($nutriscore_data_ref->{negative_points} < 11) {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_less_than_11") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_less_than_11");
 	}
 	elsif ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese})) {
-		$html .= "<p>" . lang("nutriscore_proteins_is_cheese") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_is_cheese");
 	}
 	elsif ((((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
-		or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
+	 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
-		$html .= "<p>" . lang("nutriscore_proteins_maximum_fruits_points") . "</p>";
+				
+		$nutriscore_protein_info = lang("nutriscore_proteins_maximum_fruits_points");
 	}
 	else {
-		$html .= "<p>" . lang("nutriscore_proteins_negative_points_greater_or_equal_to_11") . "</p>";
+		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
 	}
+	
+	# Generate a data structure that we will pass to the template engine
+	
+	my $template_data_ref = {
+		
+		lang => \&lang,
+		sep => separator_before_colon($lc),
+				
+		beverage_view => $beverage_view,
+		is_fat => $nutriscore_data_ref->{is_fat},
+		
+		nutriscore_protein_info => $nutriscore_protein_info,
+		
+		score => $nutriscore_data_ref->{score},
+		grade => uc($nutriscore_data_ref->{grade}),
+		positive_points => $nutriscore_data_ref->{positive_points},
+		negative_points => $nutriscore_data_ref->{negative_points},
+		
+		# Details of positive and negative points, filled dynamically below
+		# as the nutrients and thresholds are different for some products (beverages and fats)
+		points_groups => []
+	};
+	
+	my %points_groups = (
+		"positive" => ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"],
+		"negative" => ["energy", "sugars", "saturated_fat", "sodium"],
+	);
+	
+	foreach my $type ("positive", "negative") {
+				
+		# Initiate a data structure for the points of the group
+		
+		my $points_group_ref = {
+			type => $type,
+			points => $nutriscore_data_ref->{$type . "_points"},
+			nutrients => [],
+		};
+		
+		# Add the nutrients for the group
+		foreach my $nutrient (@{$points_groups{$type}}) {
+			
+			my $nutrient_threshold_id = $nutrient;
+			
+		 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
+		 		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
+		 		$nutrient_threshold_id .= "_beverages";
+		 	}
+		 	if (($nutriscore_data_ref->{is_fat}) and ($nutrient eq "saturated_fat")) {
+		 		$nutrient = "saturated_fat_ratio";
+		 		$nutrient_threshold_id = "saturated_fat_ratio";
+		 	}
+			push @{$points_group_ref->{nutrients}}, {
+				id => $nutrient,
+				points => $nutriscore_data_ref->{$nutrient . "_points"},
+				maximum => scalar(@{$points_thresholds{$nutrient_threshold_id}}),
+				value => $nutriscore_data_ref->{$nutrient},
+				rounded => $nutriscore_data_ref->{$nutrient . "_value"},
+			};
+		 }
+		 
+		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
+	 }
 
-	$html .= "<p><strong>" . lang("nutriscore_score") . lang("sep"). ": " . ($nutriscore_data_ref->{score})
-	. "</strong> (" . $nutriscore_data_ref->{negative_points} . " - " . $nutriscore_data_ref->{positive_points} . ")<p>";
-
-	$html .= "<p><strong>" . lang("nutriscore_grade") . lang("sep"). ": " . uc($nutriscore_data_ref->{grade}) . "</strong></p>";
-
-	$html .= "</div>";
-
+	my $html;
+	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	
 	return $html;
-}
-
+} 
 
 sub display_nutrient_levels($) {
 
@@ -9366,7 +9413,13 @@ HTML
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $comparison_ref->{nutriments}{$nid . "_100g"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					}
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -9384,7 +9437,7 @@ HTML
 					# Use the actual value in kcal if we have it
 					my $value_in_kcal;
 					if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
-						$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+						$value_in_kcal = $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"};
 					}
 					# Otherwise convert the value in kj
 					else {
@@ -9472,7 +9525,15 @@ HTML
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					my $value;
+					
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $product_ref->{nutriments}{$nid . "_$col"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					}
 
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -9490,7 +9551,7 @@ HTML
 						# Use the actual value in kcal if we have it
 						my $value_in_kcal;
 						if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
-							$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+							$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_$col"};
 						}
 						# Otherwise convert the value in kj
 						else {

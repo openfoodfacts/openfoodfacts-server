@@ -51,6 +51,7 @@ use XML::Encoding ();
 use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+use File::chmod::Recursive;
 
 use ProductOpener::Config qw/:all/;
 
@@ -101,6 +102,13 @@ sub My::ProxyRemoteAddr ($) {
 }
 
 init_emb_codes();
+
+# This startup script is run as root, it will create the $data_root/tmp directory
+# if it does not exist, as well as sub-directories for the Template module
+# We need to set more permissive permissions so that it can be writable by the Apache user.
+
+chmod_recursive( oct(777), "$data_root/tmp" );
+
 $log->info("product opener started", { version => $ProductOpener::Version::version });
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
