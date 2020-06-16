@@ -20804,6 +20804,10 @@ carbon_footprint_fr_foodges_value:fr:1.4
 # en:wine has 4233 products in 6 languages @2018-10-29
 
 <en:wine
+en:pedro ximenez wine
+es:vino Pedro Ximenez
+
+<en:wine
 fr:vin doux naturel
 
 <en:wine
@@ -27032,7 +27036,7 @@ es:arroz extruido
 <en:rice
 en:long grain rice
 de:Langkornreis
-es:Arros de grano largo
+es:Arros de grano largo,arroz largo
 fi:pitkäjyväinen riisi
 fr:riz long grain, riz long blanc, riz long, riz aux grains longs, riz a grain long
 hu:hosszú szemű rizs
@@ -30018,6 +30022,9 @@ nova:en:4
 vegetarian:en:yes
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
 
+<en:milk protein
+en:milk protein isolate
+
 <en:milk proteins
 en:organic milk proteins
 fi:luomumaitoproteiini, luomu maitoproteiini
@@ -30308,7 +30315,7 @@ fr:cacao fortement dégraissé
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 <en:cocoa
-en:cocoa butter
+en:cocoa butter,cacao butter
 ar:زبدة الكاكاو
 bg:какаово масло
 ca:mantega de cacau
@@ -47606,7 +47613,7 @@ et:kaalikas
 da:kålroe
 fi:lanttu
 fr:rutabaga
-es:colinabo
+es:colinabo,nabicol
 nb:kålrot
 sv:kålrot
 
@@ -64633,7 +64640,9 @@ la:Paratapes undulatus, Paphia undulata
 <en:clam
 fr:palourdes précuites
 
-
+<en:clam
+en:pink clam
+es:almejas rosadas,machas
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
