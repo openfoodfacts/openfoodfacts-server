@@ -51,7 +51,7 @@ stopwords:da:av, blandt andet, bl a, inklusive, heraf
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum
-stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin, jossa
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -27745,6 +27745,7 @@ hu:xantángumi
 
 <en:gum arabic
 de:Verdickungsmittel Gummi arabicum
+es:goma árabe
 fr:épaississant gomme arabique
 it:addensante gomma arabica
 nl:arabische gom
@@ -34222,6 +34223,10 @@ wikidata:en:Q1364
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruit
+en:mixed fruit
+es:mix de frutas,mezcla de frutas
+
+<en:fruit
 fr:fruits des bois
 nl:bosvruchten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-des-bois
@@ -35181,6 +35186,7 @@ nl:perziken
 oc:Persec
 pl:Brzoskwinia
 pt:pêssegos
+ro:piersici
 ru:персик
 sk:Broskyňa
 sv:persika, persikor
@@ -51303,7 +51309,7 @@ es:Tahini
 et:tahhiini
 fa:ارده
 fi:tahini
-fr:tahini
+fr:tahini,crème de sésame
 gl:Tahini
 he:טחינה
 hi:ताहिनी
@@ -56192,7 +56198,7 @@ en:green olives
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
 de:Grüne Oliven
-es:aceituna verde, aceitunas verdes, olivas verdes,aceitunas verdes manzanilla
+es:aceituna verde, aceitunas verdes, olivas verdes,aceituna verde manzanilla,aceitunas verdes manzanilla
 fi:vihreä oliivi
 fr:olive verte, olives vertes
 it:olive verdi
