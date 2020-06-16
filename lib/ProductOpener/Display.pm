@@ -9044,9 +9044,7 @@ sub display_nutrition_table($$) {
 	my $html = '';
 	
 	# This function populates a data structure that is used by the template to display the nutrition facts table
-	
 	my $template_data_ref = {
-		
 		lang => \&lang,
 				
 		tables => [
@@ -9073,8 +9071,7 @@ sub display_nutrition_table($$) {
 	
 	my @cols;
 
-	my %col_name = (
-	);
+	my %col_name = ();
 
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();

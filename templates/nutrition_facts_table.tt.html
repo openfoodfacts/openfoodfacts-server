@@ -1,9 +1,13 @@
+<!-- Nutrition facts table -->
 [% IF comparisons.defined %]
+<!-- Comparison to category block -->
     <p> [% lang('nutrition_data_comparison_with_categories') %] </p>
 
         [% FOREACH comparison IN comparisons %]
             <label style="display:inline;font-size:1rem;">
-				<input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> [% comparison.name %]</label>
+                <input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> 
+                [% comparison.name %]
+            </label>
 
             [% IF comparison.count.defined %]
                 <a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
