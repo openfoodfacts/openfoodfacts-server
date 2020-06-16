@@ -2133,7 +2133,7 @@ sub display_taxonomy_tag_link($$$) {
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
 	my $html;
-	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
+	if ((defined $tag_lc) and ($tag_lc ne $target_lc)) {
 		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
@@ -2191,15 +2191,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 			and (defined $tag_lc) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";
-			if ($tag_lc eq 'en') {
-				# for English, use English tag without prefix as it will be recognized
-				$display = $translations_to{$tagtype}{$tagid}{$tag_lc};
-				$display_lc = 'en';
-			}
-			else {
-				$display = "$tag_lc:" . $translations_to{$tagtype}{$tagid}{$tag_lc};
-				$display_lc = $tag_lc;
-			}
+
+			$display = "$tag_lc:" . $translations_to{$tagtype}{$tagid}{$tag_lc};
+
 			$exists_in_taxonomy = 1;
 		}
 		else {
@@ -2682,6 +2676,11 @@ sub canonicalize_taxonomy_tag($$$)
 			# try matching in other languages
 			my @test_languages = ();
 			
+			if (($tagtype eq "countries") or ($tagtype eq "languages")
+				or ($tagtype eq "labels") or ($tagtype eq "origins")) {
+				@test_languages = ("en");
+			}
+			
 			if (defined $options{product_type}) {
 				
 				if ($options{product_type} eq "food") {
@@ -2689,7 +2688,7 @@ sub canonicalize_taxonomy_tag($$$)
 					if ($tagtype eq "ingredients") {
 						@test_languages = ("la");
 					}
-					elsif ($tagtype eq "additives") {
+					elsif (($tagtype eq "additives") or ($tagtype eq "minerals")) {
 						@test_languages = ("en");
 					}				
 				}
@@ -2979,8 +2978,8 @@ sub display_taxonomy_tag($$$)
 		$tag = $';
 	}
 	else {
-		# print STDERR "WARNING - display_taxonomy_tag - $tag has no language code, assuming lc: $lc\n";
-		$tag_lc = $lc;
+		# print STDERR "WARNING - display_taxonomy_tag - $tag has no language code, assuming target_lc: $lc\n";
+		$tag_lc = $target_lc;
 	}
 
 	my $tagid = $tag_lc . ':' . get_string_id_for_lang($tag_lc, $tag);
@@ -2997,13 +2996,8 @@ sub display_taxonomy_tag($$$)
 		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";
-			if ($tag_lc eq 'en') {
-				# for English, use English tag without prefix as it will be recognized
-				$display = $translations_to{$tagtype}{$tagid}{$tag_lc};
-			}
-			else {
-				$display = "$tag_lc:" . $translations_to{$tagtype}{$tagid}{$tag_lc};
-			}
+
+			$display = "$tag_lc:" . $translations_to{$tagtype}{$tagid}{$tag_lc};
 		}
 		else {
 			$display = $tag;
@@ -3404,6 +3398,8 @@ sub add_tags_to_field($$$$) {
 			# we do not know the language of the current value of $product_ref->{$field}
 			# so regenerate it in the current language used by the interface / caller
 			$value = display_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
+			print STDERR "add_tags_to_fields value: $value\n";
+			
 			# Remove tags
 			$value =~ s/<(([^>]|\n)*)>//g;
 		}
