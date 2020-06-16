@@ -49688,7 +49688,7 @@ ciqual_food_code:en:34000
 ciqual_food_name:en:Rabbit, meat, braised
 ciqual_food_name:fr:Lapin, viande braisée
 
-<en:Cooked rabbit meat
+<en:rabbit meat
 en:Cooked rabbit meat
 fr:Viande de lapin cuite
 ciqual_food_code:en:34002
@@ -65160,7 +65160,7 @@ ciqual_food_name:fr:Salade verte, crue, sans assaisonnement
 
 <en:Salads
 <en:Leaf vegetables
-<en:mixed salads
+# <en:mixed salads
 en:Salad without dressing
 fr:Crudités sans assaisonnement
 ciqual_food_code:en:25616
@@ -69347,8 +69347,10 @@ ciqual_food_code:en:40601
 ciqual_food_name:en:Offal, cooked (average)
 ciqual_food_name:fr:Abat, cuit (aliment moyen)
 
-<en:Offals
-<en:Cooked kidneys
+<en:offals
+en:kidneys
+
+<en:kidneys
 en:Cooked kidneys, Cooked kidney
 fr:Rognons cuits, Rognon cuit
 ciqual_food_code:en:40401
