@@ -2137,6 +2137,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'is') and return "$a-vítamín";
 		return "vitamin $a";
 	}
 	else {
@@ -2158,9 +2159,11 @@ sub normalize_vitamins_enumeration($$) {
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list;
 
-	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
+	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') { $split_vitamins_list = "vitaminer" }
+	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
+	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
