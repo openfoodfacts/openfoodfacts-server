@@ -109,7 +109,7 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('xml')) and (not defined param('rss')) and
 	($search_terms =~ /^(\d{8})\d*$/)) {
 
-		my $code = $search_terms;
+		my $code = normalize_code($search_terms);
 
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
