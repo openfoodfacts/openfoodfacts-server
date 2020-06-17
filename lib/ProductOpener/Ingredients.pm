@@ -1279,6 +1279,10 @@ sub parse_ingredients_text($) {
 								'^Täysmehu(?:osuus|pitoisuus)',
 								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
 								'^Kuiva-aineiden täysjyväpitoisuus',
+								'^Valmistettu myllyssä', # Valmistettu myllyssä, jossa käsitellään vehnää.
+								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
+								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 							],
 
 						);
