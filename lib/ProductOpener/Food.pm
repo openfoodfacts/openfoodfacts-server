@@ -63,6 +63,9 @@ BEGIN
 
 					&unit_to_g
 					&g_to_unit
+					
+					&unit_to_kcal
+					&kcal_to_unit
 
 					&unit_to_mmoll
 					&mmoll_to_unit
@@ -314,6 +317,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	if ($nid eq 'water-hardness') {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
+	elsif ($nid eq 'energy-kcal') {
+		# energy-kcal is stored in kcal
+		$product_ref->{nutriments}{$nid} = unit_to_kcal($value, $unit) + 0;
+	}	
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
@@ -336,6 +343,40 @@ sub get_nutrient_label {
 	else {
 		return;
 	}
+}
+
+=head2 unit_to_kcal($$)
+
+Converts <xx><unit> into <xx> kcal.
+
+=cut
+
+sub unit_to_kcal($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+
+	($unit eq 'kj') and return int($value / 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
+}
+
+sub kcal_to_unit($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+	
+	print STDERR "value: $value - unit: $unit\n";
+
+	($unit eq 'kj') and return int($value * 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
 }
 
 =head2 unit_to_g($$)
@@ -4848,7 +4889,8 @@ sub compute_serving_size_data($) {
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});		}
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});
+		}
 		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
 		elsif ((defined $product_ref->{nutriments}{"energy" . $product_type . "_value"}) and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"})) {
 
@@ -5518,22 +5560,29 @@ sub compute_nova_group($) {
 		}
 	}
 
-	# Also loop through ingredients to see if the ingredients taxonomy has associated minimum NOVA grades
+	# Also loop through categories and ingredients to see if the taxonomy has associated minimum NOVA grades
+	# Categories need to be first, so that we can identify group 2 foods such as salt, sugar, fats etc.
+	# Group 2 foods should then not be moved to group 3
+	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+	
+	foreach my $tag_type ("categories", "ingredients") {
 
-	if ((defined $product_ref->{ingredients_tags}) and (defined $properties{ingredients})) {
+		if ((defined $product_ref->{$tag_type . "_tags"}) and (defined $properties{$tag_type})) {
 
-		foreach my $ingredient_tag (@{$product_ref->{ingredients_tags}}) {
+			foreach my $tag (@{$product_ref->{$tag_type . "_tags"}}) {
 
-			if ( (defined $properties{ingredients})
-				and (defined $properties{ingredients}{$ingredient_tag})
-				and (defined $properties{ingredients}{$ingredient_tag}{"nova:en"})
-				and ($properties{ingredients}{$ingredient_tag}{"nova:en"} > $product_ref->{nova_group}) ) {
-				$product_ref->{nova_group_debug} .= " -- ingredient: $ingredient_tag : " . $properties{ingredients}{$ingredient_tag}{"nova:en"} ;
-				$product_ref->{nova_group} = $properties{ingredients}{$ingredient_tag}{"nova:en"};
+				if ( (defined $properties{$tag_type}{$tag})
+					and (defined $properties{$tag_type}{$tag}{"nova:en"})
+					and ($properties{$tag_type}{$tag}{"nova:en"} > $product_ref->{nova_group})
+					# don't move group 2 to group 3
+					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
+					) {
+					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
+				}
 			}
 		}
 	}
-
 
 	# Group 1
 	# Unprocessed or minimally processed foods

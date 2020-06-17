@@ -4686,10 +4686,6 @@ sub search_and_export_products($$$) {
 				$nid =~ s/-$//g;
 				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
 					my $value = $product_ref->{nutriments}{"${nid}_100g"};
-					# for energy-kcal, we need the value in kcal (the energy-kcal_100g is in kJ)
-					if ($nid eq "energy-kcal") {
-						$value = $product_ref->{nutriments}{"${nid}_value"};
-					}
 					push @row, $value;
 				}
 				else {
@@ -5529,10 +5525,10 @@ sub search_and_graph_products($$$) {
 
 		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-		# 1 axis: histogram / bar chart
+		# 1 axis: histogram / bar chart -> axis_y == "product_n" or is empty
 		# 2 axis: scatter plot
 
-		if ($graph_ref->{axis_y} eq 'products_n') {
+		if ((not defined $graph_ref->{axis_y}) or ($graph_ref->{axis_y} eq "") or ($graph_ref->{axis_y} eq 'products_n')) {
 			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {
@@ -9417,7 +9413,13 @@ HTML
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $comparison_ref->{nutriments}{$nid . "_100g"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+					}
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -9435,7 +9437,7 @@ HTML
 					# Use the actual value in kcal if we have it
 					my $value_in_kcal;
 					if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
-						$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}, 'kcal');
+						$value_in_kcal = $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"};
 					}
 					# Otherwise convert the value in kj
 					else {
@@ -9523,7 +9525,15 @@ HTML
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					my $value;
+					
+					# energy-kcal is already in kcal
+					if ($nid eq 'energy-kcal') {
+						$value = $product_ref->{nutriments}{$nid . "_$col"};
+					}
+					else {
+						$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					}
 
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -9541,7 +9551,7 @@ HTML
 						# Use the actual value in kcal if we have it
 						my $value_in_kcal;
 						if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
-							$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "-kcal" . "_$col"}, 'kcal');
+							$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_$col"};
 						}
 						# Otherwise convert the value in kj
 						else {

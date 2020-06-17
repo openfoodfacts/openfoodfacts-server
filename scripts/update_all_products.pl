@@ -113,6 +113,7 @@ my $assign_category_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
+my $reassign_energy_kcal = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -129,6 +130,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
+			"reassign-energy-kcal" => \$reassign_energy_kcal,
 			"compute-data-sources" => \$compute_data_sources,
 			"compute-nova" => \$compute_nova,
 			"compute-codes" => \$compute_codes,
@@ -187,7 +189,7 @@ if ($unknown_fields > 0) {
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
 	and (not $clean_ingredients)
-	and (not $compute_serving_size)
+	and (not $compute_serving_size) and (not $reassign_energy_kcal)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
@@ -696,6 +698,27 @@ while (my $product_ref = $cursor->next) {
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};
 			delete $product_ref->{environment_infocard_fr};
+		}
+
+		# Fix energy-kcal values so that energy-kcal and energy-kcal/100g is stored in kcal instead of kJ
+		if ($reassign_energy_kcal) {
+			foreach my $product_type ("", "_prepared") {
+
+				# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/3561
+				# for details
+				
+				if (defined $product_ref->{nutriments}{"energy-kcal" . $product_type }) {
+					if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+					}
+					# Reassign so that the energy-kcal field is recomputed
+					assign_nid_modifier_value_and_unit($product_ref, "energy-kcal" . $product_type,
+						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});
+				}
+			}
+			ProductOpener::Food::compute_serving_size_data($product_ref);		
 		}
 
 		if ($compute_serving_size) {

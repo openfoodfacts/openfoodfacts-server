@@ -2,10 +2,11 @@
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
-stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
+stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
+stopwords:sv:certifierad, ingrediens, godkänd, råvara, enlighet, med, kriterierna, produkt
 
 synonyms:en:coloring, colouring, color, colour
 synonyms:ru:окраска, цвет
@@ -165,6 +166,7 @@ wikidata:en:Q4969906
 
 en:Free range
 ca:Rang lliure
+es:de corral
 de:Freiland
 fi:vapaana laiduntava, ulkoilma
 fr:Plein air
@@ -794,6 +796,7 @@ pl:Bezglutenowy
 pt:Sem gluten, Isento de gluten
 ru:Без глютена
 sk: Bez lepku
+sv:Glutenfri
 th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
@@ -964,6 +967,7 @@ fr:Riche en fibres
 he:עתיר בסיבים תזונתיים
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
+nb:Fiberrik, rik på fiber
 nl:Vezelrijk, Rijk aan vezels
 pl:wysoka zawartość błonnika
 pt:Rico em fibras
@@ -1205,11 +1209,12 @@ en:Enriched wih vitamins
 ca:Enriquit amb vitamines
 de:Mit Vitaminen angereichert
 es:Enriquecido con vitaminas
-fi:Lisätty vitamiineja
+fi:Vitaminoitu, Lisätty vitamiineja
 fr:Enrichi en vitamines
 he:מועשר בוויטמינים
 hu:Vitaminokkal dúsított
 it:Arricchito con vitamine
+sv:Vitaminberikat, Vitaminberikad
 
 en:Enriched wih minerals
 fi:Lisätty kivennäisaineita
@@ -1963,6 +1968,7 @@ it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers
 pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
+sv:Utan tillsatt socker
 th:ไม่เติมน้ำตาล
 zh:无添糖
 
@@ -2647,6 +2653,7 @@ pl:Bez laktozy
 pt:Sem lactose
 ru:Без лактозы
 sk:Bez laktozy
+sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
 
 en:No lecithine, lecithine-free
@@ -2679,6 +2686,7 @@ hu:Tej nélkül, tejmentes
 it:Senza latte
 nl:Melkvrij
 ru:Без молока
+sv:Mjölkfri, Fri från mjölk
 th:ไม่มีส่วนผสมของนม
 
 fr:Contrat Biolait
@@ -2897,17 +2905,19 @@ ru:Не рекомендовано для детей младше 3 лет
 th:ไม่แนะนำสำหรับเด็กอายุต่ำกว่า 3 ปี
 
 en:Organic, organically grown, organically produced, ingredient produced organically
-ca:Orgànic
+ca:Orgànic,de cultiu ecologic
 cs:Bio
+da:Økologisk
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
-es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
-fi:Luomu
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica
+fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
 nl:Biologisch
 pt:Orgânico
+sv:Ekologisk, ekologiskt
 th:ออร์แกนิค
 zh:有机
 wikidata:en:Q380778
@@ -2974,6 +2984,7 @@ he:אורגני בתקן אירופאי
 it:Biologico UE
 nl:EU Organic
 pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
+sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
@@ -15816,6 +15827,7 @@ nl:Zonder palmolie, Palmolie-vrij
 pl:Wolne od oleju palmowego, bez oleju palmowego
 pt:Sem óleo de palma
 ru:Без пальмового масла
+sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
 
@@ -16383,7 +16395,7 @@ fr:Protection des dauphins
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
-fi:troolattu
+fi:troolattu, pyydetty troolilla
 fr:Pêché au chalut, Pêchés au chalut, Pêchée au chalut, Pêchées au chalut, Pêché par chalutage, Pêchés par chalutage
 hu:Vonóhálós halászat
 
@@ -16624,6 +16636,7 @@ fr:Végétalien, Végan, végétal
 he:טבעוני, מתאים לטבעונים
 hu:Vegán
 it:Vegano, Vegan
+nb:Vegan, Vegansk
 nl:Veganistisch
 pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
@@ -16756,6 +16769,7 @@ fr:Contient des sulfites, Présence de sulfites
 hu:Szulfitokat tartalmaz, szulfitokkal
 it:Contiene solfiti, con solfiti
 pt:Com sulfitos, contém sulfitos
+sv:Innehåller sulfiter, Innehåller sulfit
 th:ใช้ซัลไฟต์
 
 <en:With sulfites
@@ -16807,6 +16821,7 @@ pt:Com óleo de girassol
 
 en:With sweeteners
 ca:Amb edulcorants
+da:Inneholder søtstoff
 de:Mit Süßstoffen
 es:Con edulcorantes, Con endulzantes artificiales
 fi:sisältää makeutusaineita, sisältää makeutusainetta
@@ -16817,6 +16832,7 @@ it:Con dolcificanti
 nl:Met kunstmatige zoetstoffen
 pt:Com adoçantes
 th:ใช้น้ำตาลเทียม
+sv:Innehåller sötningsmedel
 
 en:Without sweeteners
 ca:Sense edulcorants
@@ -16894,6 +16910,7 @@ fi:Savustettu pyökillä
 fr:Fumé au bois de hêtre, fumage au bois de hêtre
 he:מעושן עם עץ אשור
 hu:Bükkfán füstölt
+sv:Bokspånsrökt
 
 en:Smoked with oak wood
 fi:savustettu tammella, tammella savustettu
@@ -18236,16 +18253,21 @@ fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Ir
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina
+da:Indeholder en phenylalaninkilde
 de:Enthält eine Phenylalaninquelle, Das produkt enthält eine Phenylalaninquelle
+es:contiene una fuente de fenilalanina
 fi:Sisältää fenyylialaniinin lähteen
 fr:Contient une source de phénylalanine
 it:Contiene una fonte di fenilalanina
+nb:Inneholder en fenylalaninkilde
+sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
 en:Excessive consumption can have laxative effects
 ca:El consum excessiu pot produir efectes laxants
 fi:liiallisella kulutuksella saattaa olla laksatiivisia vaikutuksia, liiallisella käytöllä voi olla laksatiivisia vaikutuksia
 fr:Une consommation excessive peut avoir des effets laxatifs
 it:Un consumo eccessivo puù avere effetti lassativi
+sv:Överdriven konsumtion kan ha laxerande verkan
 
 en:Cocoa Life
 de:Cocoa Life

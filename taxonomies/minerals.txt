@@ -104,7 +104,7 @@ so:Macdan
 sq:Minerali
 sr:Минерал
 su:Mineral
-sv:Mineral, Mineraler
+sv:Mineral, Mineraler, Mineralämne
 sw:Madini
 ta:கனிமம்
 te:మినరల్
@@ -149,6 +149,9 @@ zh:礦物
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
 vegan:en:yes
 vegetarian:en:yes
+
+en:ammonium bicarbonate
+es:bicarbonato amonico,bicarbonato amonio
 
 # description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 
@@ -886,6 +889,10 @@ ro:clorură de calciu
 sk:chlorid vápenatý
 sl:kalcijev klorid
 sv:kalciumklorid
+
+<en:calcium
+en:calcium salts
+es:sales de calcio
 
 # <en:Calcium
 #en:calcium salts of citric acid
@@ -2377,7 +2384,7 @@ pt:difisato de ferro, pirofosfato férrico
 ro:difosfat feric, pirofosfat feric
 sk:difosforečnan železitý, pyrofosforečnan železitý
 sl:železov difosfat, železov pirofosfat
-sv:ferridifosfat, ferripyrofosfat
+sv:ferridifosfat, ferripyrofosfat, järndifosfat
 ta:இரும்பு பைரோபாசுபேட்டு
 zh:焦磷酸铁
 wikidata:en:Q9207442
@@ -2481,6 +2488,13 @@ sv:ferro-L-pidolat
 <en:iron
 en:reduced iron
 fr:fer réduit
+
+<en:iron
+en:iron salts
+es:sales de hierro
+
+en:phosphor
+es:fosforo
 
 # comment:en:Probably plural is preferred on mineral waters.
 
@@ -2960,7 +2974,7 @@ el:θειικός ψευδάργυρος
 # en-ca:zinc sulfate
 # en-gb:zinc sulfate
 eo:zinka sulfato
-es:sulfato de cinc,sulfoto de zinc
+es:sulfato de cinc,sulfato de zinc
 et:tsinksulfaat
 fa:روی سولفات
 fi:sinkkisulfaatti
@@ -4216,6 +4230,7 @@ cs:Chlorid chromitý
 de:Chrom-III-chlorid
 el:Τριχλωριούχο χρώμιο
 fa:کلرید کروم(III)
+fi:Kromi(III)kloridi
 fr:chlorure de chrome (III)
 it:cloruro di cromo (III), Tricloruro di cromo
 nl:Chroom(III)chloride
@@ -4933,7 +4948,7 @@ bg:Натриев бикарбонат
 cs:hydrogenuhličitan sodný
 de:Natriumbicarbonat
 el:διττανθρακικό νάτριο
-es:bicarbonato de sodio
+es:bicarbonato de sodio,bicarbonatos de sodico
 et:naatriumvesinikkarbonaat
 fi:natriumbikarbonaatti
 fr:bicarbonate de sodium
@@ -4989,7 +5004,7 @@ da:natriumklorid
 de:Natriumchlorid
 el:χλωριούχο νάτριο
 eo:natria klorido
-es:Cloruro de sodio
+es:Cloruro de sodio,cloruro sodico
 et:naatriumkloriid
 eu:sodio kloruro
 fa:سدیم کلرید
@@ -5029,7 +5044,7 @@ sh:Natrijum-hlorid
 sk:chlorid sodný
 sl:natrijev klorid
 sq:Klouri i natriumit
-sv:natriumklorid
+sv:natriumklorid, nacl
 ta:சோடியம் குளோரைடு
 th:โซเดียมคลอไรด์
 tl:Sodium chloride
