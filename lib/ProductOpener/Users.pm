@@ -178,8 +178,6 @@ sub display_user_form($$) {
 
 	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"
 	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
-#	. "\n<tr><td>$Lang{sex}{$lang}</td><td>"
-#	. radio_group(-name=>'sex', -values=>['f','m'], -labels=>{'f'=>$Lang{female}{$lang},'m'=>$Lang{male}{$lang}}, -default=>$user_ref->{sex}, -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{email}{$lang}</td><td>"
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
@@ -193,18 +191,20 @@ sub display_user_form($$) {
 	
 	# Professional account
 	
-	$html .= "\n<tr><td>Professional account</td><td>";
+	$html .= "\n<tr><td>" . lang("pro_account") . "</td><td>";
 	
-	$html .= "<p>If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers.</p>"
-	. "<p>The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products.</p>";
+	$html .= "<p>" . lang("if_you_work_for_a_producer") . "</p>"
+	. "<p>" . lang("producers_platform_description_long") . "</p>";
 	
 	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
 		# Existing user with an accepted organization
 		
-		$html .= sprintf("<p>This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers.</p>",
-			"<b>" . $user_ref->{org} . "</b>");
+		$html .= "<p>" . sprintf(lang("this_is_a_pro_account_for_org"),	"<b>" . $user_ref->{org} . "</b>") . "</p>";
 	}
-	else {
+	
+	# Pro platform is only for food right now
+	
+	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		# New user or existing user without an accepted organization
 		
 		my $pro_checked = '';
@@ -218,9 +218,9 @@ sub display_user_form($$) {
 		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
 		. "<label for=\"pro\">"
 		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
-		. "This is a producer or brand account.</label>"
+		. lang("this_is_a_pro_account") . "</label>"
 		. "<div id=\"pro_org\" $pro_org_display>"
-		. "<p id=\"org-field\">Producer or brand: "
+		. "<p id=\"org-field\">" . lang("producer_or_brand") . separator_before_colon($lc) . ": "
 		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1) 
 		. "</p>";
 						
@@ -229,13 +229,13 @@ sub display_user_form($$) {
 		if (defined $requested_org_ref) {		
 			
 			$html .= "<div id=\"existing_org_warning\">"
-			. sprintf("<p>There is already an existing organization with the name %s.</p>", org_link($requested_org_ref))
-			. "<p>Your request to join the organization is pending approval of the organization administrator.</p>"
-			. "<p>Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question.</p>"
+			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
+			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
+			. "<p>" .lang("please_email_producers") . "</p>"
 			. "</div>";
 		}
 		else {
-			$html .= "<p>Please enter the name of your organization (company name or brand).</p>";
+			$html .= "<p>" . lang("enter_name_of_org") . "</p>";
 		}
 		
 		$html .= "</div>";
@@ -564,7 +564,15 @@ EMAIL
 	store("$data_root/users_emails.sto", $emails_ref);
 
 
-	if ((param('type') eq 'add') or (param('type') eq 'suggest')) {
+	if (param('type') eq 'add') {
+		
+		# Initialize the session to send a session cookie back
+		# so that newly created users do not have to login right after
+		
+		param("user_id", $userid);
+		init_user();
+		
+		
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
