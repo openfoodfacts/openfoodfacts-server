@@ -167,6 +167,7 @@ my @tests = (
 #                           F R E N C H ( F R )
 #
 ##################################################################
+
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
 			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 		[
@@ -216,6 +217,12 @@ my @tests = (
 				'processing' => 'en:cooked, en:cut',
 				'text' => 'banane'
 			}
+		]
+	],
+
+# test for jus and concentré with extra "de"
+	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"}, 
+		[
 		]
 	],
 
