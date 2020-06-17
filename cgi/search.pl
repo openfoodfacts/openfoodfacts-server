@@ -544,8 +544,10 @@ HTML
 </ul>
 </form>
 
+
 HTML
 ;
+
 
 	$styles .= <<CSS
 .select2-container--default .select2-results > .select2-results__options {
@@ -575,6 +577,8 @@ var select2_options = {
 JS
 ;
 
+$tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
+print "HISH $html";
 
 	${$request_ref->{content_ref}} .= $html;
 
@@ -912,7 +916,7 @@ HTML
 		}
 	}
 }
-
+ 
 #my $out;
-$tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
-print "Template Result, $html, are";
+# $tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
+# print "Template Result, $html, are";
