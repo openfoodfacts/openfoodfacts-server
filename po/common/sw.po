@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sw\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-29 13:19\n"
+"PO-Revision-Date: 2020-06-11 16:49\n"
 "Language-Team: Swahili\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -17,36 +17,36 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "Bidhaa moja"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " alafu "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Kunihusu"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Ongeza"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Ongeza lugha"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Ongeza bidhaa"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Sajili"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "Asante kwa ajili ya kujiunga. Sasa unaweza kuingia kwenye wavuti kuongeza na kuhariri bidhaa"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -769,7 +769,6 @@ msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr ""
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
@@ -1177,7 +1176,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Ongeza bidhaa"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -3423,6 +3422,14 @@ msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr ""
 
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
+
 msgctxt "cancel"
 msgid "Cancel"
 msgstr ""
@@ -4149,5 +4156,13 @@ msgstr ""
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr ""
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
 msgstr ""
 

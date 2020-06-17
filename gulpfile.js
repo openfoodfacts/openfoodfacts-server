@@ -58,12 +58,12 @@ function copyJs() {
       "./node_modules/osmtogeojson/osmtogeojson.js",
       "./node_modules/leaflet/dist/leaflet.js",
       "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
-      "./node_modules/blueimp-tmpl/js/*.js",
+      "./node_modules/blueimp-tmpl/js/tmpl.js",
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
-      "./node_modules/cropper/dist/*.js"
+      "./node_modules/cropper/dist/cropper.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ti\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-29 13:24\n"
+"PO-Revision-Date: 2020-06-11 17:07\n"
 "Language-Team: Tigrinya\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -769,7 +769,6 @@ msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr ""
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
@@ -3423,6 +3422,14 @@ msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr ""
 
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
+
 msgctxt "cancel"
 msgid "Cancel"
 msgstr ""
@@ -4149,5 +4156,13 @@ msgstr ""
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr ""
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
 msgstr ""
 

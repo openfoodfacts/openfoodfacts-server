@@ -2907,10 +2907,11 @@ sub preparse_ingredients_text($$) {
 
 	# colorants alimentaires E (124,122,133,104,110)
 	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
-	$text =~ s/\b(e|ins|sin)(:|\(|\[| )+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
+	$text =~ s/\b(e|ins|sin)(:|\(|\[| | n| nb|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
-	$text =~ s/\b(ins|sin)( |-)?(\d)/E$3/ig;
+	# also INS N°420, bug #3618
+	$text =~ s/\b(ins|sin)( |-| n| nb|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -2984,7 +2985,14 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
-	if ($product_lc eq 'fr') {
+	if ($product_lc eq 'es') {
+
+		# Special handling for sal as it can mean salt or shorea robusta
+		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)
+		$text =~  s/\bsal \(shorea robusta\)/shorea robusta/ig;
+		$text =~  s/\bshorea robusta \(sal\)/shorea robusta/ig;
+	}
+	elsif ($product_lc eq 'fr') {
 
 		# huiles de palme et de
 
@@ -3032,6 +3040,7 @@ sub preparse_ingredients_text($$) {
 "mangue",
 "noisette",
 "noix",
+"noyaux de mangue",
 "olive",
 "olive extra",
 "olive vierge",

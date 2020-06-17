@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-29 13:00\n"
+"PO-Revision-Date: 2020-06-11 17:30\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -244,7 +244,7 @@ msgstr "Właściciel marki"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -786,7 +786,6 @@ msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr "Open Beauty Facts - Kosmetyki"
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
@@ -2360,7 +2359,7 @@ msgstr "Nazwa użytkownika na Twitter (opcjonalnie)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
+msgstr "OpenFoodFactsPL"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -3192,7 +3191,7 @@ msgstr "Zaimportuj plik z danymi produktów"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Prześlij plik arkusza kalkulacyjnego (plik Excel lub plik CSV w formacie UTF-8) z danymi produktów."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3286,7 +3285,7 @@ msgstr "Określ kategorię"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Pole źródłowe"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3319,29 +3318,29 @@ msgstr "tylko jednostka, z wartością w innej kolumnie"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Wybierz tę opcję, jeśli kolumna wskazuje na obecność konkretnej etykiety (np. Ekologiczne - Organic, Sprawiedliwy Handel - Fair-Trade), gdy wartość wynosi Y, Tak lub 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Wpisz nazwę kategorii w polu tekstowym po prawej stronie."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Wybierz tę opcję, jeśli kolumna wskazuje na obecność konkretnej kategorii (np. Napoje - Beverages), gdy wartość wynosi Y, Tak lub 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Wpisz nazwę kategorii w polu tekstowym po prawej stronie."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Wybierz tę opcję dla pól, które są specyficzne dla źródła, i że chcemy zachować jako pola źródłowe."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Wpisz nazwę pola docelowego w polu tekstowym po prawej stronie lub pozostaw puste, aby użyć nazwy pola źródłowego."
 
 msgctxt "value"
 msgid "Value"
@@ -3385,7 +3384,7 @@ msgstr "Wartość w μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Wartość w j.m."
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3452,6 +3451,14 @@ msgstr "Eksportuj dane produktów i zdjęcia do publicznej bazy danych"
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr "Proszę sprawdzić, czy dane na platformie producenta są poprawne przed wyeksportowaniem ich do publicznej bazy danych."
+
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4120,37 +4127,37 @@ msgstr "Do zrobienia"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Zespoły"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "opcjonalnie"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "zespoły"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "zespół"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Możesz dołączyć od jednego do trzech zespołów. Produkty które dodasz lub zedytujesz zostaną przyznane Tobie i Twoim zespołom. Możesz zmieniać zespoły w dowolnym momencie."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Nazwiska drużyn są publiczne. Nie twórz drużyn z nazwiskami zawierającymi dane osobowe (np. nazwiska rodziny), znaki towarowe (chyba że jesteś ich właścicielem) lub cokolwiek obraźliwego."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Zespół %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d produktów zostanie wyeksportowanych."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4166,18 +4173,26 @@ msgstr ""
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Możesz pomóc nam rozpoznać więcej składników i lepiej analizować listę składników dla tego produktu i innych produktów poprzez:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Edytuj tę stronę produktu, aby poprawić błędy pisowni na liście składników, i/lub usunąć składniki w innych językach i zdaniach, które nie są związane ze składnikami."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Dodawaj nowe wpisy, synonimy lub tłumaczenia do naszych wielojęzycznych list składników, metod ich przetwarzania i etykiet."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr "Jeżeli chcesz pomóc, dołącz do kanału #ingredients na <a href=\"https://slack.openfoodfacts.org\">naszej grupie dyskusyjnej na Slack</a> i/lub dowiedz się więcej<a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\"> na temat analizy składników na naszej wiki</a>. Dziękujemy!"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
 msgstr ""
 

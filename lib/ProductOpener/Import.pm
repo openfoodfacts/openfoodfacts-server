@@ -607,9 +607,11 @@ sub import_csv_file($) {
 		}
 
 		# Record fields that are set by the owner, when the owner is a producer org
-		# (and not a database or label org)
+		# (and not an app, a database or label org)
 		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-			and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/) ) {
+			and ($args_ref->{owner_id} !~ /^org-app-/)
+			and ($args_ref->{owner_id} !~ /^org-database-/)
+			and ($args_ref->{owner_id} !~ /^org-label-/) ) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
 			$product_ref->{owner} = $args_ref->{owner_id};
 			$product_ref->{owners_tags} = $product_ref->{owner};
@@ -675,8 +677,10 @@ sub import_csv_file($) {
 					and ($field ne "imports")	# "imports" contains the timestamp of each import
 					) {
 
-					# Don't set owner_fields for labels and databases, only for producers
-					if (($args_ref->{owner_id} !~ /^org-label-/) and ($args_ref->{owner_id} !~ /^org-database-/)) {
+					# Don't set owner_fields for apps, labels and databases, only for producers
+					if (($args_ref->{owner_id} !~ /^org-app-/)
+						and ($args_ref->{owner_id} !~ /^org-database-/)
+						and ($args_ref->{owner_id} !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$field} = $time;
 					}
 
@@ -1028,7 +1032,9 @@ sub import_csv_file($) {
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
 					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-						and ($args_ref->{owner_id} !~ /^org-database-/) and ($args_ref->{owner_id} !~ /^org-label-/)) {
+						and ($args_ref->{owner_id} !~ /^org-app-/)
+						and ($args_ref->{owner_id} !~ /^org-database-/)
+						and ($args_ref->{owner_id} !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}
@@ -1371,7 +1377,8 @@ sub import_csv_file($) {
 
 			$stats{products_with_images}{$code} = 1;
 
-			if (not $args_ref->{test}) {
+			if ((not $args_ref->{test})
+				and (not ((defined $args_ref->{do_not_upload_images}) and ($args_ref->{do_not_upload_images})))) {
 
 				$log->debug("uploading images for product", { code => $code }) if $log->is_debug();
 
@@ -1413,8 +1420,9 @@ sub import_csv_file($) {
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid);
-						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc }) if $log->is_debug();
+						my $debug;
+						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid, \$debug);
+						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, debug => $debug }) if $log->is_debug();
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 							$stats{products_images_added}{$code} = 1;
@@ -1433,8 +1441,8 @@ sub import_csv_file($) {
 
 						# select the photo
 						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
-							((not $args_ref->{only_select_not_existing_images})
-								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) )){
+							( (not ((defined $args_ref->{only_select_not_existing_images}) and ($args_ref->{only_select_not_existing_images})))
+								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) ) ) {
 
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 

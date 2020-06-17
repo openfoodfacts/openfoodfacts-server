@@ -307,11 +307,11 @@ HTML
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="/js/dist/tmpl.min.js"></script>
+    <script src="/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
     <script src="/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="/js/dist/canvas-to-blob.min.js"></script>
+    <script src="/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="/js/dist/jquery.iframe-transport.js"></script>

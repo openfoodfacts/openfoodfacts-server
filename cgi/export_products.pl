@@ -75,33 +75,45 @@ if ($action eq "display") {
 
 	if ($User{moderator}) {
 
-	# Query filters
+		# Query filters
 
-	my $query_ref = {};
+		my $query_ref = {};
 
-	my $html_hidden = "";
+		my $html_hidden = "";
 
-	foreach my $param (multi_param()) {
-		if ($param =~ /^query_/) {
-			my $query = $';
-			my $value = remove_tags_and_quote(decode utf8=>param($param));
-			$html .= "<p>Query filter $query : $value</p>";
-			$html_hidden .= hidden(-name => "query_" . $query, -value => $value);
-			$query_ref->{$query} = $value;
+		foreach my $param (multi_param()) {
+			if ($param =~ /^query_/) {
+				my $query = $';
+				my $value = remove_tags_and_quote(decode utf8=>param($param));
+				$html .= "<p>Query filter $query : $value</p>";
+				$html_hidden .= hidden(-name => "query_" . $query, -value => $value);
+				$query_ref->{$query} = $value;
+			}
 		}
-	}
 
-	$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
+		$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
 
-	$html .= start_multipart_form(-id=>"export_products_form") ;
+		$html .= start_multipart_form(-id=>"export_products_form") ;
+		
+		my $export_photos_value = "";
+		my $replace_selected_photos_value = "";
+		if ((defined $Org_id)
+			and ($Org_id !~ /^(app|database|label)-/)) {
+			$export_photos_value = "checked";
+			$replace_selected_photos_value = "checked";
+		}
 
-	$html .= <<HTML
+		$html .= <<HTML
+<input type="checkbox" name="export_photos" $export_photos_value>	
+<label for="export_photos">$Lang{export_photos}{$lc}</label><br>
+<input type="checkbox" name="replace_selected_photos" $replace_selected_photos_value>	
+<label for="replace_selected_photos">$Lang{replace_selected_photos}{$lc}</label><br>
 <input type="submit" class="button small" value="$Lang{export_product_data_photos}{$lc}">
 <input type="hidden" name="action" value="process">
 $html_hidden
 HTML
 ;
-	$html .= end_form();
+		$html .= end_form();
 
 	}
 	else {
@@ -153,13 +165,38 @@ elsif (($action eq "process") and ($User{moderator})) {
 			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>param($param));
 		}
 	}
+	if (not ((defined param("export_photos")) and (param("export_photos")))) {
+		$args_ref->{do_not_upload_images} = 1;
+	}
+	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
+		$args_ref->{only_select_not_existing_images} = 1;
+	}	
 
 	if (defined $Org_id) {
-		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
-			$args_ref->{manufacturer} = 1;
-		}
+
 		$args_ref->{source_id} = "org-" . $Org_id;
 		$args_ref->{source_name} = $Org_id;
+
+		# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
+		# in the mean time, use a naming convention:  label-something, database-something and treat
+		# everything else as a producers
+		if ($Org_id =~ /^app-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
+		}
+		elsif ($Org_id =~ /^database-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
+		}	
+		elsif ($Org_id =~ /^label-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
+		}
+		else {
+			$args_ref->{manufacturer} = 1;
+			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+		}		
+		
 	}
 	else {
 		$args_ref->{no_source} = 1;
