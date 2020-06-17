@@ -145,7 +145,7 @@ sv:krossad
 #es:triturado,triturada,triturados,trituradas
 
 en:rolled
-es:arollada
+es:arrollada,arrollado
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
@@ -161,6 +161,7 @@ sv:riven
 # en:wiktionary:grated
 
 en:granulated, granules
+de:granulat
 da:granulat
 es:granulado,granulada,granulados,granuladas
 fi:rae
@@ -292,7 +293,7 @@ fr:pelé, pelée, pelés, pelées
 nl:gepeld, gepelde
 # en:wiktionary:peeled
 
-en:entspeltzt
+de:entspeltzt
 
 #In Spanish sin hueso can be pitted or boned. Removed from here to remove confusion.
 # en:description:Having had the pits removed
@@ -361,7 +362,7 @@ de:kaltextrahiert, kaltextrahierter
 
 en:defatted
 de:entfettet, entfettete, entfettetes
-es:desengrasado, desengrasada
+es:desengrasado, desengrasada,desgrasado,desgrasada
 fr:dégraissé, dégraissée, dégraissés, dégraissées
 it:sgrassato, sgrassata
 nl:ontvet, ontvette
@@ -376,6 +377,38 @@ ro:demidegresat
 # <es:deshuesado
 en:boned
 
+#en:description:Sap is the fluid that comes from trees
+en:sap
+
+en:juice, juices, juices of, juice from
+#en:comment:juice and mango pulp, juices and purees of fruit, vegetable juice color, chicken-meat-including-chicken-juices, juice-concentrates, reconstituted-vegetable-juice-blend, tomatoes-in-tomato-juice, chicken-meat-including-natural-chicken-juices, fruit-and-vegetable-juice-color, beet-juice-color
+da:saft
+de:saft
+es:jugo, jugo de
+fi:mehu
+fr:jus de, jus d'
+it:succo, succo di, succo d'
+nl:sap
+nn:juice
+sv:juice
+
+
+<en:juice
+#en:description: es:zumo is kept separate from the more generic es:jugo. It is only applicable to fruit.
+es:zumo de, zumo
+
+<en:juice
+de:direktsaft
+
+<en:juice
+de:dicksaft
+nl:diksap
+
+en:juice solids
+es:solidos de jugo
+
+en:juice crystals
+
 #######################################################################
 #
 #                H U M I D I T Y   P R O C E S S E S
@@ -384,11 +417,11 @@ en:boned
 # Processes that change the humidity level of an ingredient
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
-en:concentrated,concentrate
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes
+en:concentrated, concentrate, concentrates
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado,concentrada
+es:concentrado,concentrada, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
@@ -408,8 +441,11 @@ de:dreifach konzentriert
 # <en:concentrated
 de:200fach konzentriertes
 
+#en:not from concentrate
+
 de:eingekochter
 
+#en:description:Water has been added to concentrate
 en:from-concentrate
 es:a base de concentrado,a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
@@ -461,7 +497,7 @@ fr:semi-déshydratées
 en:cured
 
 en:dehydrated
-es:deshidratado, deshidratada, deshidratados, deshidratadas
+es:deshidratado, deshidratada, deshidratados, deshidratadas,desecado,desecada,desecados,desecadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
 
@@ -863,6 +899,10 @@ fr:non-désodorisée
 #en:comment:http://animalsmart.org/feeding-the-world/food-safety/rbst
 en:rbst-free
 
+#en:clarified
+
+#en:deionized
+
 #######################################################################
 #
 #                P R E P A R I N G   P R O C E S S E S
@@ -1005,3 +1045,5 @@ es:sin hueso
 
 en:inflated
 es:hinchado,hinchada,hinchados,hinchadas
+
+#en:for color, added for color, colored with

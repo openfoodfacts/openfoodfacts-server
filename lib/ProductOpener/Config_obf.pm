@@ -175,6 +175,8 @@ use ProductOpener::Config2;
 
 );
 
+$options{product_type} = "beauty";
+
 @edit_rules = ();
 
 

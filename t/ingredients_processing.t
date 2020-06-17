@@ -569,14 +569,14 @@ my @tests = (
 	],
 
 # de:konzentriert (and children) and synonyms
-	[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
+	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
 		[
 			{
 				'id' => 'en:shallot',
 				'processing' => 'en:concentrated',
-				'text' => 'shallot'
+				'text' => 'schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
@@ -591,7 +591,7 @@ my @tests = (
 			{
 				'id' => 'en:acerola',
 				'processing' => 'en:concentrated',
-				'text' => 'acerola'
+				'text' => 'acerolakirschen'
 			},
 			{
 			    'id' => 'de:zweifach konzentriert',
@@ -631,7 +631,7 @@ my @tests = (
 # de:zerkleinert and variants
 	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht, 
 						gurken grob zerkleinert, 
-						acerola fein zerkleinert, fein zerkleinerte spinat, 
+						acerolakirschen fein zerkleinert, fein zerkleinerte spinat, 
 						zwiebel zum teil fein zerkleinert,
 						haselnüsse feinst zerkleinert,
 						überwiegend feinst zerkleinert Feigen" }, 
@@ -664,7 +664,7 @@ my @tests = (
 						  {
 						    'id' => 'en:acerola',
 						    'processing' => 'de:fein-zerkleinert',
-						    'text' => 'acerola'
+						    'text' => 'acerolakirschen'
 						  },
 						  {
 						    'id' => 'en:spinach',
@@ -751,7 +751,7 @@ my @tests = (
 	# Test for de:getrocknet and synonyms
 		[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel, 
 				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet, 
-				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
+				 Holunder gefriergetrocknet, gefriergetrocknete Papaye, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
 				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten, 
 				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" }, 
 				[
@@ -798,7 +798,7 @@ my @tests = (
 				  {
 				    'id' => 'en:papaya',
 				    'processing' => 'en:freeze-dried',
-				    'text' => 'Papaya'
+				    'text' => 'Papaye'
 				  },
 				  {
 				    'id' => 'en:kiwi',

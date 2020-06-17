@@ -51,7 +51,7 @@ stopwords:da:av, blandt andet, bl a, inklusive, heraf
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum
-stopwords:es:contiene,de,del,la,el,las,los,con,y,e,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin, jossa
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
 stopwords:hr:sastojci
@@ -496,7 +496,7 @@ wikidata:en:Q753009
 # ingredient/fr:colorant-alimentaire has 67 products in 5 languages @2019-03-27
 
 <en:colour
-en:oncentrated plant colour
+en:concentrated plant colour
 de:färbendes Pflanzenkonzentrat
 
 <en:colour
@@ -5785,7 +5785,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xylitol
 # E965 is moved to the additives taxonomy
 en:E965
 
-# description:en:  ERYTHRITOL  is a sugar alcohol (or polyol) that is considered safe (GRAS) as a food additive in the United States and throughout much of the world. It occurs naturally in some fruit and fermented foods. At the industrial level, it is produced from glucose by fermentation with a yeast, Moniliella pollinis. Erythritol is 60–70% as sweet as sucrose (table sugar) yet it is almost noncaloric, does not affect blood sugar, does not cause tooth decay, and is partially absorbed by the body, excreted in urine and feces.
+# description:en:  ERYTHRITOL is a sugar alcohol (or polyol) that is considered safe (GRAS) as a food additive in the United States and throughout much of the world. It occurs naturally in some fruit and fermented foods. At the industrial level, it is produced from glucose by fermentation with a yeast, Moniliella pollinis. Erythritol is 60–70% as sweet as sucrose (table sugar) yet it is almost noncaloric, does not affect blood sugar, does not cause tooth decay, and is partially absorbed by the body, excreted in urine and feces.
 
 <en:sweetener
 en:Erythritol, E968, E-968, E 968
@@ -14764,6 +14764,9 @@ it:estratto di manzo
 nl:rundvleesextrakt
 # ingredient/fr:extrait-de-bœuf has 110 products in 4 languages @2019-04-14
 
+<en:beef
+en:roasted beef including beef juices
+
 <en:meat
 <en:beef
 en:beef meat, pure beef meat
@@ -16298,6 +16301,9 @@ pt:presunto
 en:cured ham
 es:jamon serrano,jamon curado
 
+<en:ham
+en:smoked ham with natural juices
+
 <en:pork
 en:pork by-product
 de:Nebenprodukt aus Schweinefleisch
@@ -16375,7 +16381,7 @@ ro:ficat de porc, ficat porc
 <en:pork meat
 en:pork liver
 de:Schweineleber
-es:Higado de cerdo
+es:Higado de cerdo,tocino de hígado de cerdo
 fi:sianmaksa
 fr:foie de porc
 hu:sertésmáj
@@ -20802,6 +20808,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wine
 carbon_footprint_fr_foodges_ingredient:fr:Vin France
 carbon_footprint_fr_foodges_value:fr:1.4
 # en:wine has 4233 products in 6 languages @2018-10-29
+
+<en:wine
+en:pedro ximenez wine
+es:vino Pedro Ximenez
 
 <en:wine
 fr:vin doux naturel
@@ -25267,7 +25277,7 @@ da:Quinoa
 de:Quinoa
 el:Κινόα
 eo:Kvinoo
-es:quinua, quinoa real
+es:Quinoa, quinua, quinoa real
 et:kinoa, Tšiili hanemalts
 eu:Kinoa
 fa:کینوآ
@@ -26561,6 +26571,10 @@ fr:maïs torréfié concassé
 <en:corn
 nl:maïspoeder
 
+<en:corn
+en:corn molasses
+fr:mélasse de mais
+
 # CORN MEAL is a meal (coarse flour) ground from dried maize (corn).
 # Is wongly translated in wikipedia as a flour
 
@@ -27028,7 +27042,7 @@ es:arroz extruido
 <en:rice
 en:long grain rice
 de:Langkornreis
-es:Arros de grano largo
+es:Arros de grano largo,arroz largo
 fi:pitkäjyväinen riisi
 fr:riz long grain, riz long blanc, riz long, riz aux grains longs, riz a grain long
 hu:hosszú szemű rizs
@@ -27745,6 +27759,7 @@ hu:xantángumi
 
 <en:gum arabic
 de:Verdickungsmittel Gummi arabicum
+es:goma árabe
 fr:épaississant gomme arabique
 it:addensante gomma arabica
 nl:arabische gom
@@ -30013,6 +30028,9 @@ nova:en:4
 vegetarian:en:yes
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
 
+<en:milk protein
+en:milk protein isolate
+
 <en:milk proteins
 en:organic milk proteins
 fi:luomumaitoproteiini, luomu maitoproteiini
@@ -30303,7 +30321,7 @@ fr:cacao fortement dégraissé
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 <en:cocoa
-en:cocoa butter
+en:cocoa butter,cacao butter
 ar:زبدة الكاكاو
 bg:какаово масло
 ca:mantega de cacau
@@ -34097,7 +34115,6 @@ nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-
 # FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
 
 en:fruit
@@ -34222,6 +34239,10 @@ wikidata:en:Q1364
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruit
+en:mixed fruit
+es:mix de frutas,mezcla de frutas
+
+<en:fruit
 fr:fruits des bois
 nl:bosvruchten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-des-bois
@@ -34293,6 +34314,7 @@ fi:eksoottiset hedelmät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
+# <en:fruit and vegetable
 <en:fruit concentrates
 <en:vegetable concentrate
 en:fruit and vegetable concentrates, vegetable and fruit concentrates
@@ -35181,6 +35203,7 @@ nl:perziken
 oc:Persec
 pl:Brzoskwinia
 pt:pêssegos
+ro:piersici
 ru:персик
 sk:Broskyňa
 sv:persika, persikor
@@ -41179,7 +41202,7 @@ fr:Jus concentré d'aronia
 
 <en:fruit
 en:acerola
-de:Acerolakirschen
+de:Acerolakirschen, acerola
 es:acerola
 fi:akerola, acerola
 fr:acérola
@@ -44829,6 +44852,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallion
 # ingredient/fr:oignons-de-printemps has 47 products @2018-12-06
 # category/scallions has 7 products @2019-05-22
 
+<en:onion
+en:onion sproute
+es:Germinados de cebolla
+
 <en:green onion
 en:dried spring onion
 de:getrocknete Frühlingszwiebel
@@ -46633,6 +46660,7 @@ sv:röd paprika
 <en:pepper
 en:pink pepper
 es:pimienta rosa
+pt:pimenta rosa
 
 <en:bell pepper
 en:piquillo pepper
@@ -47564,6 +47592,10 @@ it:succo di pomodoro ricavato da concentrato
 nl:tomatensap uit sapconcentraat
 # ingredient/fr:jus-de-tomate-à-partir-de-concentré has 149 products @2018-12-26
 
+<en:tomato juice
+<en:tomato
+en:tomatoes-in-tomato-juice
+
 <en:tomato purée
 <en:tomato pulp
 fr:purée et pulpe de tomates
@@ -47592,7 +47624,7 @@ et:kaalikas
 da:kålroe
 fi:lanttu
 fr:rutabaga
-es:colinabo
+es:colinabo,nabicol
 nb:kålrot
 sv:kålrot
 
@@ -49752,7 +49784,7 @@ da:jordnødder, jordnød, peanuts
 de:Erdnuss, Erdnüsse, Erdnusse, Erdnusskerne
 el:αραχίδες, αραχίδα, αραπικα φιστικια
 eo:ternukso
-es:cacahuetes, cacahuete, cacahuates, cacahuate
+es:cacahuetes, cacahuete, cacahuates, cacahuate,maní
 et:Maapähkel, maapähklid
 fi:maapähkinä, maapähkinät, maapähkinää
 fr:arachides, arachide, cacahuètes, cacahuète, cacahouètes, cacahouète
@@ -51303,7 +51335,7 @@ es:Tahini
 et:tahhiini
 fa:ارده
 fi:tahini
-fr:tahini
+fr:tahini,crème de sésame
 gl:Tahini
 he:טחינה
 hi:ताहिनी
@@ -56192,7 +56224,7 @@ en:green olives
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
 de:Grüne Oliven
-es:aceituna verde, aceitunas verdes, olivas verdes,aceitunas verdes manzanilla
+es:aceituna verde, aceitunas verdes, olivas verdes,aceituna verde manzanilla,aceitunas verdes manzanilla
 fi:vihreä oliivi
 fr:olive verte, olives vertes
 it:olive verdi
@@ -64545,6 +64577,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 en:cephalopod ink
 es:tinta de cefalopodo
 
+<en:mollusc
+en:squid ink
+es:tinta de calamar
+
 # Clam is a common name for several kinds of bivalve molluscs.
 
 <en:mollusc
@@ -64615,7 +64651,9 @@ la:Paratapes undulatus, Paphia undulata
 <en:clam
 fr:palourdes précuites
 
-
+<en:clam
+en:pink clam
+es:almejas rosadas,machas
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -68005,6 +68043,15 @@ fr:viande de cuisse de poulet
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
+<en:chicken meat
+en:chicken meat including chicken juices
+
+<en:chicken meat including chicken juices
+en:chicken meat including natural chicken juices, chicken meat and natural chicken juices, chicken meat with natural juices
+
+<en:chicken meat including chicken juices
+en:cooked chicken with natural juices
+
 # <en:broth
 <en:chicken
 en:Chicken Stock
@@ -68438,6 +68485,9 @@ fr:Escalopes de dinde
 <en:turkey meat
 fr:jambon de dinde cuit standard goût fumé
 # usage:fr:jambon de dinde cuit standard 10% (viande de dinde 8% ; eau ; sirop de glucose ; sel ; dextrose ; stabilisants : e451, e450 ; protéines de ble ; arômes ; antioxydant : e316 ; conservateur : e250)
+
+<en:turkey
+en:roasted turkey including natural turkey juices
 
 <en:turkey meat
 en:turkey breast, turkey breast meat
