@@ -147,18 +147,24 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en => "possible traces|traces|may contain",
+	da => "kan indeholde spor|kan indeholde",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
-	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
+	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	is => "getur innihaldið leifar|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
 
 	en => "contains",
+	da => "indeholder",
 	es => "contiene",
 	fr => "contient",
+	sv => "innehåller",
 );
 
 my %contains_or_may_contain_regexps = (
