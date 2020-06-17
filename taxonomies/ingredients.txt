@@ -3,6 +3,7 @@
 synonyms:en:pasteurised, pasteurized
 synonyms:es:zumo, jugo
 synonyms:es:sirope,jarabe
+synonyms:fr:jus,jugo
 
 # comment:en:These are words that start a list of ingredients
 
@@ -38452,7 +38453,7 @@ en:passion fruit
 da:Passionsfrugt
 de:Passionsfrucht
 eo:Pasifrukto
-es:maracuyá
+es:maracuyá,fruta de la pasion
 fi:passiohedelmä, passionhedelmä, kärsimyshedelmä
 fr:fruit de la passion, passion, fruits de la passion
 it:frutto della passione
@@ -46929,6 +46930,10 @@ wikidata:en:Q504133
 wikipedia:en:https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
 
+<en:chile pepper
+en:chile sauce
+es:salsa de chile
+
 <en:jalapeno peppers
 en:green jalapeno peppers, green jalapeno
 de:grüne jalapenos
@@ -54305,6 +54310,11 @@ de:Salbeiextrakt
 fi:salviauute
 fr:extrait de sauge
 
+<en:herb
+en:tulsi
+fr:tulsi
+wikipedia:en:https://en.wikipedia.org/wiki/Ocimum_tenuiflorum
+
 # Lovage, Levisticum officinale, is a tall perennial plant, the sole species in the genus Levisticum in the family Apiaceae
 
 <en:herb
@@ -55157,6 +55167,11 @@ fr:feuilles de mûrier
 
 <en:plant
 fr:feuilles de mûres douces
+
+<en:plant
+en:dandelion
+es:diente de león
+fr:pissenlit
 
 
 # GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
@@ -62230,7 +62245,7 @@ en:tuna
 af:Tuna
 ar:تن
 bg:Тунец
-ca:Túnid
+ca:tonyina
 da:Tunfisk
 de:Thunfisch
 eo:Tinuso
@@ -74294,6 +74309,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pesto
 
 <en:sauce
 en:cheese sauce
+es:salsa de queso
 fi:juustokastike
 fr:sauce au fromage
 nl:kaassaus
