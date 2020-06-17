@@ -251,6 +251,13 @@ all => [
 	["S. thermophilus", "streptococcus thermophilus"],
 ],
 
+da => [
+	[ "bl. a", "blandt andet" ],
+	[ "inkl.", "inklusive" ],
+	[ "mod.",  "modificeret" ],
+	[ "past.", "pasteuriserede" ],
+],
+
 en => [
 	["vit.", "vitamin"],
 
@@ -261,8 +268,9 @@ es => [
 ],
 
 fi => [
-	["mm.", "muun muassa"],
-	["sis.", "sisältää"],
+	[ "mikro.", "mikrobiologinen" ],
+	[ "mm.",    "muun muassa" ],
+	[ "sis.",   "sisältää" ],
 ],
 
 fr => [
@@ -270,6 +278,26 @@ fr => [
 	["Mat. Gr.", "Matières Grasses"],
 ],
 
+nb => [
+	[ "bl. a", "blant annet" ],
+	[ "inkl.", "inklusive" ],
+	[ "papr.", "paprika" ],
+],
+
+sv => [
+	[ "bl. a",            "bland annat" ],
+	[ "förtjockn.medel",  "förtjockningsmedel" ],
+	[ "inkl.",            "inklusive" ],
+	[ "kons.medel",       "konserveringsmedel" ],
+	[ "max.",             "maximum" ],
+	[ "mikrob.",          "mikrobiellt" ],
+	[ "min.",             "minimum" ],
+	[ "mod.",             "modifierad" ],
+	[ "past.",            "pastöriserad" ],
+	[ "stabil.",          "stabiliseringsämne" ],
+	[ "surhetsreg.",      "surhetsreglerande" ],
+	[ "veg.",             "vegetabilisk" ],
+],
 );
 
 my %of = (
