@@ -201,33 +201,38 @@ sub display_user_form($$) {
 	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
 		# Existing user with an accepted organization
 		
-		$html .= sprintf("<p>This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers.</p>", $user_ref->{org});
+		$html .= sprintf("<p>This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers.</p>",
+			"<b>" . $user_ref->{org} . "</b>");
 	}
 	else {
 		# New user or existing user without an accepted organization
 		
 		my $pro_checked = '';
+		my $pro_org_display = 'style="display:none"';
+		
 		if ($user_ref->{pro}) {
 			$pro_checked = "checked";
+			$pro_org_display = "";
 		}
 		
 		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
 		. "<label for=\"pro\">"
 		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
 		. "This is a producer or brand account.</label>"
+		. "<div id=\"pro_org\" $pro_org_display>"
 		. "<p id=\"org-field\">Producer or brand: "
 		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1) 
 		. "</p>";
-			
-		$html .= "<div id=\"existing_org_warning\">";
-			
+						
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		
 		if (defined $requested_org_ref) {		
 			
-			$html .= sprintf("<p>There is already an existing organization with the name %s.</p>", org_link($requested_org_ref))
+			$html .= "<div id=\"existing_org_warning\">"
+			. sprintf("<p>There is already an existing organization with the name %s.</p>", org_link($requested_org_ref))
 			. "<p>Your request to join the organization is pending approval of the organization administrator.</p>"
-			. "<p>Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question.</p>";
+			. "<p>Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question.</p>"
+			. "</div>";
 		}
 		else {
 			$html .= "<p>Please enter the name of your organization (company name or brand).</p>";
@@ -236,6 +241,19 @@ sub display_user_form($$) {
 		$html .= "</div>";
 		
 		$html .= "</td></tr>";
+		
+		$initjs .= <<JAVASCRIPT
+\$('#pro').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#pro_org').show();
+	} else {
+		\$('#pro_org').hide();
+	}
+	\$(document).foundation('equalizer', 'reflow');
+});
+JAVASCRIPT
+;		
+
 	}
 
 	# On the public web site, but not on the producers platform, offer to be part of a team
@@ -335,7 +353,7 @@ sub display_user_form_admin_only($) {
 
 		foreach my $group (@user_groups) {
 			$html .= "<li>"
-			. checkbox(-name=>"user_group_$group", -label=>lang("user_group_$group") . lang("sep") . ": " . lang("user_group_${group}_description")
+			. checkbox(-name=>"user_group_$group", -label=>" " . lang("user_group_$group") . separator_before_colon($lc) . " " . lang("user_group_${group}_description")
 				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
 		}
 
@@ -527,6 +545,10 @@ EMAIL
 			store_org($org_ref);
 			
 			$user_ref->{org} = $user_ref->{requested_org_id};
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+			
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id}
 		}
 	}
 
