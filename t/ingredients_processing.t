@@ -221,10 +221,10 @@ my @tests = (
 	],
 
 # test for jus and concentré with extra "de"
-	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"}, 
-		[
-		]
-	],
+#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+#		[
+#		]
+#	],
 
 ##################################################################
 #
@@ -233,10 +233,10 @@ my @tests = (
 ##################################################################
 # test for mehu inside an ingredient
 
-	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"}, 
-		[
-		]
-	],
+#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"}, 
+#		[
+#		]
+#	],
 
 ##################################################################
 #
