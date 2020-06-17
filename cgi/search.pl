@@ -42,6 +42,28 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+use Template;
+use Data::Dumper;
+
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
+
+my $template_data_ref = {
+		
+	lang => \&lang,
+		
+};
+
+#my $criteria;
+
+my $html;
 
 if (0) {
 if (param('jqm')) {
@@ -890,3 +912,7 @@ HTML
 		}
 	}
 }
+
+#my $out;
+$tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
+print "Template Result, $html, are";
