@@ -303,39 +303,55 @@ sv => [
 my %of = (
 	en => " of ",
 	ca => " de ",
+	da => " af ",
 	de => " von ",
 	es => " de ",
 	fr => " de la | de | du | des | d'",
+	is => " af ",
 	it => " di | d'",
+	nb => " av ",
+	sv => " av ",
 );
 
 my %and = (
 	en => " and ",
 	ca => " i ",
+	da => " og ",
 	de => " und ",
 	es => " y ",	# Spanish "e" before "i" and "hi" is handled by preparse_text()
 	fi => " ja ",
 	fr => " et ",
+	is => " og ",
 	it => " e ",
+	nb => " og ",
 	pt => " e ",
+	sv => " och ",
 );
 
 my %and_of = (
 	en => " and of ",
 	ca => " i de ",
+	da => " og af ",
 	de => " und von ",
 	es => " y de ",
 	fr => " et de la | et de l'| et du | et des | et d'| et de ",
+	is => " og af ",
 	it => " e di | e d'",
+	nb => " og av ",
+	sv => " och av ",
 );
 
 my %and_or = (
 	en => " and | or | and/or | and / or ",
+	da => " og | eller | og/eller | og / eller ",
 	de => " und | oder | und/oder | und / oder ",
 	es => " y | e | o | y/o | y / o ",
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
+	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
+	nb => " og | eller | og/eller | og / eller ",
+	sv => " och | eller | och/eller | och / eller ",
 );
 
 
