@@ -274,6 +274,7 @@ fr => [
 
 my %of = (
 	en => " of ",
+	ca => " de ",
 	de => " von ",
 	es => " de ",
 	fr => " de la | de | du | des | d'",
@@ -282,15 +283,18 @@ my %of = (
 
 my %and = (
 	en => " and ",
+	ca => " i ",
 	de => " und ",
-	es => " y ",
+	es => " y ",	# Spanish "e" before "i" and "hi" is handled by preparse_text()
 	fi => " ja ",
 	fr => " et ",
 	it => " e ",
+	pt => " e ",
 );
 
 my %and_of = (
 	en => " and of ",
+	ca => " i de ",
 	de => " und von ",
 	es => " y de ",
 	fr => " et de la | et de l'| et du | et des | et d'| et de ",
@@ -2855,14 +2859,20 @@ sub preparse_ingredients_text($$) {
 	if (defined $and_of{$product_lc}) {
 		$and_of = $and_of{$product_lc};
 	}
+	
+	# Spanish "and" is y or e when before "i" or "hi"
+	# E can also be in a vitamin enumeration (vitamina B y E)
+	# colores E (120, 124 y 125)
+	# color E 120
 
-	# replace and / or by and
+	# replace "and / or" by "and"
+	# except if followed by a separator, a digit, or "and", to avoid false positives
 	my $and_or = ' - ';
 	if (defined $and_or{$product_lc}) {
 		$and_or = $and_or{$product_lc};
-		$text =~ s/$and_or/$and/ig;
+		$text =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
 	}
-
+	
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/’/'/g;
 
@@ -3389,7 +3399,7 @@ INFO
 
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	#$log->debug("vitamins text", { text => $text }) if $log->is_debug();
-
+	
 	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($product_lc,$3)/ieg;
 
 
