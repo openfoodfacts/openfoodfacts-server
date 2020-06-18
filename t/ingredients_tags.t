@@ -104,6 +104,10 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
 	# using vegan in case we add "pure juice" as an ingredient at some point
 	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:vegan', 'en:orange-juice' ]],
+
+	# Spanish and is "e" before "i" or "hi"
+	[ { lc => "es", ingredients_text => "agua de coco e hielo"} , ['en:coconut-water', 'en:ice']],
+
 );
 
 foreach my $test_ref (@tests) {

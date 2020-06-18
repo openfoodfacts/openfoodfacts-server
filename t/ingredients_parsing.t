@@ -207,6 +207,12 @@ my @lists =(
 
 	["es", "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216).", "Agua, edulcorantes (e420, e960, e952, e954, e950, e955), conservantes (e218, e202, e216)."],
 
+	# Spanish Vitamin E can be mistaken for "e" meaning "and"
+	["es", "Vitamina E y C", "vitaminas, vitamina E, vitamina C"],
+	["es", "color E 124", "color : e124"],
+	["es", "colores E (124, 125)", "colores e124, e125"],
+	["it", "vitamine A, B, E e K", "vitamins, vitamin A, vitamin B, vitamin E, vitamin K"],
+
 );
 
 foreach my $test_ref (@lists) {
