@@ -487,5 +487,34 @@ is_deeply(canonicalize_taxonomy_tag("fr", "labels", "pur jus"), "en:pure-juice")
 # should not be matched to "pur jus" in French and return "en:pure-juice"
 is_deeply(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
 
+# Test add_tags_to_field
+
+$product_ref = {
+	lc => "fr",
+          'categories_hierarchy' => [
+                                 'en:meals',
+                               ],
+};
+
+
+add_tags_to_field($product_ref, "fr", "categories", "pommes");
+compute_field_tags($product_ref, "fr", "categories");
+
+add_tags_to_field($product_ref, "en", "categories", "bananas");
+compute_field_tags($product_ref, "en", "categories");
+
+is_deeply($product_ref->{categories_tags},  [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:meals',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:apples',
+     'en:tropical-fruits',
+     'en:bananas'
+   ],
+) or diag explain $product_ref;
+
 
 done_testing();
