@@ -690,12 +690,19 @@ sub extract_ingredients_from_image($$$$) {
 }
 
 
+my %min_regexp = (
+	en => "min|min\.minimum",
+	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
+	fr => "min|min\.|mini|minimum",
+);
+
 # Words that can be ignored after a percent
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
 	en => "of (the )?total weight",
-	fr => "(min|min\.|mini|minimum)|(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	es => "(en el chocolate( con leche)?)",
+	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
 );
 
 
@@ -760,10 +767,17 @@ sub parse_ingredients_text($) {
 
 	my $and = $and{$product_lc} || " and ";
 
+	
+	my $min_regexp = "";
+	if (defined $min_regexp{$product_lc}) {
+		$min_regexp = $min_regexp{$product_lc};
+	}
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
-		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
+		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
+	
+	my $percent_regexp = '(<|' . $min_regexp . '|\s)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -836,8 +850,9 @@ sub parse_ingredients_text($) {
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
-					if (($between =~ $separators) and ($` =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i)) {
-						$percent = $1;
+					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
+						
+						$percent = $2;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients and $log->debug("separator found after percent", { between => $between, percent => $percent }) if $log->is_debug();
@@ -861,9 +876,9 @@ sub parse_ingredients_text($) {
 						# no separator found : 34% ? or single ingredient
 						$debug_ingredients and $log->debug("between does not contain a separator", { between => $between }) if $log->is_debug();
 
-						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
+						if ($between =~ /^$percent_regexp$/i) {
 
-							$percent = $1;
+							$percent = $2;
 							$debug_ingredients and $log->debug("between is a percent", { between => $between, percent => $percent }) if $log->is_debug();
 							$between = '';
 						}
@@ -943,8 +958,8 @@ sub parse_ingredients_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
-				$percent = $1;
+			if ($after =~ /^$percent_regexp($separators|$)/i) {
+				$percent = $2;
 				$after = $';
 				$debug_ingredients and $log->debug("after started with a percent", { after => $after, percent => $percent }) if $log->is_debug();
 			}
@@ -974,9 +989,9 @@ sub parse_ingredients_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient =~ s/$percent_regexp$//i;
+			$ingredient1 =~ s/$percent_regexp$//i;
+			$ingredient2 =~ s/$percent_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1040,8 +1055,8 @@ sub parse_ingredients_text($) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
-					$percent = $1;
+				if ($ingredient =~ /$percent_regexp$/i) {
+					$percent = $2;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
 				}

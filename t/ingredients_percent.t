@@ -411,8 +411,45 @@ my @tests = (
   }
 ]
 
-]
+],
 
+	[ { lc=>"es", ingredients_text=>"Leche. Cacao: 27% mínimo"},
+[
+  {
+    'id' => 'en:milk',
+    'percent_max' => 73,
+    'percent_min' => 73,
+    'text' => 'Leche'
+  },
+  {
+    'id' => 'en:cocoa',
+    'percent' => '27',
+    'percent_max' => 27,
+    'percent_min' => 27,
+    'text' => 'Cacao'
+  }
+]
+],
+
+	[ { lc=>"es", ingredients_text=>"Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 3%)"},
+[
+  {
+    'id' => 'en:milk',
+    'percent' => '12.2',
+    'text' => 'Leche'
+  },
+  {
+    'id' => 'en:cocoa',
+    'percent' => '7',
+    'text' => 'Cacao'
+  },
+  {
+    'id' => 'en:hazelnut',
+    'percent' => '3',
+    'text' => 'Avellanas'
+  }
+]
+],
 
 );
 
