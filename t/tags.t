@@ -547,4 +547,29 @@ is_deeply($product_ref->{categories_tags}, [
      'en:strawberries'
 ]) or diag explain $product_ref;
 
+$product_ref = {
+'categories' => "Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon, Lasagnes au saumon",
+'categories_lc' => 'fr',
+         'categories_tags' => [
+                                 'en:meals',
+                                 'en:pasta-dishes',
+                                 'en:prepared-lasagne',
+                                 'en:meals-with-fish',
+                                 'en:meals-with-salmon',
+                                 'en:salmon-lasagne'
+                               ],
+
+lc => 'fr',
+lang => 'fr',
+
+};
+
+add_tags_to_field($product_ref, "en", "categories", "Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon,Salmon lasagne");
+
+diag explain $product_ref;
+
+compute_field_tags($product_ref, "en", "categories");
+
+diag explain $product_ref;
+
 done_testing();
