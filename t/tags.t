@@ -524,5 +524,27 @@ is_deeply($product_ref->{categories_tags},  [
    ],
 ) or diag explain $product_ref;
 
+$product_ref = {
+	lc => "fr",
+	categories => "pommes, bananes, en:pears, fr:fraises, es:limones",
+};
+
+compute_field_tags($product_ref, "fr", "categories");
+
+is_deeply($product_ref->{categories_tags}, [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:apples',
+     'en:berries',
+     'en:citrus',
+     'en:tropical-fruits',
+     'en:bananas',
+     'en:lemons',
+     'en:pears',
+     'en:strawberries'
+]) or diag explain $product_ref;
 
 done_testing();
