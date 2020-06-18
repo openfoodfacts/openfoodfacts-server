@@ -215,9 +215,8 @@ elsif ($action eq 'process') {
 				
 				# We are on the public platform, link to the producers platform
 				
-				my $pro_url = "https://" . $server_domain . "/";
-				$pro_url =~ s/\.open/\.pro\.open/;
-				$html .= "<p>" . sprintf(lang("add_user_you_can_edit_pro_promo")), $pro_url . "</p>";
+				my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+				$html .= "<p>" . sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url) . "</p>";
 			}
 		}
 		else {

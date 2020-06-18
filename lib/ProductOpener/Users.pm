@@ -172,7 +172,7 @@ sub display_user_form($$) {
 	my $user_ref = shift;
 	my $scripts_ref = shift;
 
-	my $type = param('type');
+	my $type = param('type') || 'add';
 
 	my $html = '';
 
@@ -196,6 +196,8 @@ sub display_user_form($$) {
 	$html .= "<p>" . lang("if_you_work_for_a_producer") . "</p>"
 	. "<p>" . lang("producers_platform_description_long") . "</p>";
 	
+	my $teams_display = '';
+	
 	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
 		# Existing user with an accepted organization
 		
@@ -210,11 +212,15 @@ sub display_user_form($$) {
 		my $pro_checked = '';
 		my $pro_org_display = 'style="display:none"';
 		
-		if ($user_ref->{pro}) {
+		# Check the "pro account" checkbox for register screen on the producers platform
+		
+		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
+			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
 			$pro_checked = "checked";
 			$pro_org_display = "";
+			$teams_display = 'style="display:none"';
 		}
-		
+				
 		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
 		. "<label for=\"pro\">"
 		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
@@ -246,8 +252,10 @@ sub display_user_form($$) {
 \$('#pro').change(function() {
 	if (\$(this).prop('checked')) {
 		\$('#pro_org').show();
+		\$('#tr_teams').hide();
 	} else {
 		\$('#pro_org').hide();
+		\$('#tr_teams').show();
 	}
 	\$(document).foundation('equalizer', 'reflow');
 });
@@ -259,7 +267,7 @@ JAVASCRIPT
 	# On the public web site, but not on the producers platform, offer to be part of a team
 
 	if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
-		$html .= "\n<tr><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
+		$html .= "\n<tr id=\"tr_teams\" $teams_display><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
 		. lang("teams_description") . "</p><p>" . lang("teams_names_warning") . "</p>"
 		. '<div class="row">';
 
@@ -316,7 +324,7 @@ sub display_user_form_optional($) {
 	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
 	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 
 		$html .=
 		"\n<tr><td colspan=\"2\">" . checkbox(-name=>'newsletter', -label=>lang("newsletter_description"), -checked=>'on') . "<br />
@@ -369,7 +377,7 @@ sub check_user_form($$) {
 	my $user_ref = shift;
 	my $errors_ref = shift;
 
-	my $type = param('type');
+	my $type = param('type') || 'add';
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
@@ -397,30 +405,31 @@ sub check_user_form($$) {
 		
 		if (param("pro")) {
 			$user_ref->{pro} = 1;
+			
+			if (defined param("requested_org")) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
+				
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+				
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+				}
+				else {
+					push @$errors_ref, "error_missing_org";
+				}
+			}
+			else {
+				delete $user_ref->{requested_org_id}
+			}			
 		}
 		else {
 			delete $user_ref->{pro};
-		}
-		
-		if (defined param("requested_org")) {
-			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
-			
-			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
-			
-			if ($requested_org_id ne "") {
-				$user_ref->{requested_org_id} = $requested_org_id;
-			}
-			else {
-				push @$errors_ref, "error_missing_org";
-			}
-		}
-		else {
 			delete $user_ref->{requested_org_id}
 		}
 	}
 	
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(param('discussion'));
 		$user_ref->{ip} = remote_addr();
@@ -474,7 +483,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_invalid_email}{$lang};
 	}
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
