@@ -83,7 +83,7 @@ sub retrieve_org($) {
 
 	$log->debug("retrieve_org", { org_id => $org_id } ) if $log->is_debug();
 	
-	not (defined $org_id) and return undef;
+	not (defined $org_id) and return;
 
 	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
 
