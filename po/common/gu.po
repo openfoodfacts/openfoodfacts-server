@@ -5,48 +5,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-11 15:43\n"
+"PO-Revision-Date: 2020-06-18 09:31\n"
 "Language-Team: Gujarati\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: gu-IN\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1_ઉત્પાદન"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " અને "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "મારા વિશે"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "ઉમેરો"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "ભાષા ઉમેરો"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "ઉત્પાદન ઉમેરો"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "નોંધણી કરો"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>જોડાવા બદલ આભાર. હવે તમે ઉત્પાદનો ઉમેરવા અને સંપાદિત કરવા માટે સાઇટ પર સાઇન ઇન કરી શકો છો.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -64,602 +66,617 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "હેલો <NAME>,\n\n"
+"https://openfoodfacts.org માં જોડાવા માટે ખૂબ ખૂબ આભાર\n"
+"અહીં તમારું વપરાશકર્તા નામ છે:\n\n"
+"વપરાશકર્તા નામ: <USERID>\n\n"
+"તમે હવે ઉત્પાદનો ઉમેરવા અને સંપાદિત કરવા માટે સાઇટ પર સાઇન ઇન કરી શકો છો.\n\n"
+"<<site_name>> એક સહયોગી પ્રોજેક્ટ છે જેમાં તમે નવા ઉત્પાદનો કરતાં ઘણું લાવી શકો છો: તમારી energyર્જા, ઉત્સાહ અને વિચારો!\n"
+"ફાળો આપનારાઓ વચ્ચે ચર્ચા કરવા અને પ્રોજેક્ટને આગળ વધારવા માટે, અમે ઘણી અનુકૂળ મેસેજિંગ સિસ્ટમનો ઉપયોગ કરીએ છીએ જેને સ્લેક: https://slack.openfoodfacts.org\n\n"
+"ફાળો આપવા માટે તમે ફેસબુક જૂથમાં પણ જોડાઇ શકો છો:\n"
+"https: //www.facebook.com / જૂથો / ઓપનફૂડફેક્ટ્સ /\n\n"
+"નવું: અમે સૌંદર્ય પ્રસાધનોનો ડેટાબેઝ બનાવવા માટે ખુલ્લા બ્યૂટી ફેક્ટ્સ શરૂ કરી રહ્યા છીએ: સાબુ, ટૂથપેસ્ટ, મેકઅપની વગેરે.\n"
+"https://openbeautyfacts.org\n\n"
+"ખૂબ ખૂબ આભાર!\n\n"
+"સ્ટેફની અને ઓપન ફૂડ ફેક્ટ્સ ટીમ\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "<<site_name>> જોડાવા બદલ આભાર"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "સંભવિત જોખમી ખોરાક ઉત્પાદનો ઉપયોગ મર્યાદિત કરો."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "જોખમી ખોરાક ‌ઉત્પાદન ટાળો."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "યુરોપમાં ફૂડ કલર પર પ્રતિબંધ છે. કોઈપણ કિંમતે ટાળો."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "ઉમેરણો"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "ઉમેરણો"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "અદ્યતન શોધ"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "અદ્યતન શોધ અને આલેખ"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "વધારે પીવું આરોગ્ય માટે હાનિકારક છે."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "બધા કર્તવ્ય"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "એલર્જી અથવા અસહિષ્ણુતા પેદા કરનાર પદાર્થો અથવા ઉત્પાદનો"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "એલર્જન"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "એલર્જન"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "ઉત્પાદન પૃષ્ઠ પણ દ્વારા સંપાદિત"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "ગૂગલ પ્લે પર મેળવો"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>આ ઉત્પાદન હજી સુધી <<site_name>> ડેટાબેઝમાં નથી. કૃપા કરીને તમે તેને <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>પર ઉમેરવા માટે ઉત્પાદન, બારકોડ, ઘટકોની સૂચિ અને પોષણના તથ્યોની કેટલીક તસવીરો લઈ શકો છો?</p>\n"
+"<p>અગાઉથી આભાર!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "ફોટો પાડો"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "નોંધ: તમે મોકલો છો તે ચિત્રો ફ્રી લાઇસન્સ ક્રિએટીવ એટ્રિબ્યુશન અને શેરઅલાઈક હેઠળ પ્રકાશિત થાય છે."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "તમે ચિત્રો ઉમેરી શકો છો:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "આડું અક્ષ"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "ભી અક્ષ"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "બારકોડ"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "બારકોડ નંબર:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "તમે ઓપન ફૂડ ફેક્ટ્સ પ્રોજેક્ટને ભંડોળ આપવામાં પણ મદદ કરી શકો છો"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> બિન-લાભકારી સંગઠન દ્વારા બનાવવામાં આવે છે, જે ઉદ્યોગથી સ્વતંત્ર છે. તે બધા માટે, બધા દ્વારા બનાવવામાં આવે છે, અને તે બધા દ્વારા ભંડોળ પૂરું પાડવામાં આવે છે. તમે અમારા કામ આધાર આપી શકે છે <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">ઓપન ફૂડ હકીકતો દાન</a> અને એ પણ દ્વારા <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">લિલો શોધ એન્જિનનો ઉપયોગ કરીને</a>.<br/><b>આભાર!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "અમારા કાર્યને ટેકો આપવા દાન કરો"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "બ્રાન્ડ"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "કિન્ડર બ્યુએનો વ્હાઇટ, કિન્ડર બ્યુએનો, કાઇન્ડર, ફેરેરો"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "બ્રાન્ડ"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "%s બ્રાન્ડના ઉત્પાદનો"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "બ્રાન્ડ"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "એક બ્રાન્ડ ઉમેરો"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "%s બ્રાન્ડના ના હોય તેવા ઉત્પાદનો"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "બ્રાન્ડ માલિક"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "કોકા કોલા કંપની"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "દ્વારા"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "શ્રેણીઓ"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "ઓલિવ તેલમાંથી સારડિન્સ, કેન્દ્રિત માંથી નારંગીનો રસ"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "ફક્ત સૌથી વિશિષ્ટ કેટેગરી સૂચવો. \"માતાપિતા\" કેટેગરીઝ આપમેળે ઉમેરવામાં આવશે."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "શ્રેણીઓ"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "%s શ્રેણીના ઉત્પાદનો"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "વર્ગ"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "નવી શ્રેણી ઉમેરો"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "%s બ્રાન્ડના ના હોય તેવા ઉત્પાદનો"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "માહિતી"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "પોષક તત્વો"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "પસંદ કરેલી છબીઓ"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "અપલોડ કરેલી છબીઓ"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "શોધ કરનારાઓ"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "તપાસનાર"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "પેકેજિંગ શહેરો"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "%sના શહેરમાં પેકેજ કરેલા ઉત્પાદનો"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "પેકેજિંગ શહેર"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "ઉત્પાદનો %sના શહેરમાં પેકેજ કરેલા નથી"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "કોડ્સ"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "કોડ"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "પૂર્ણ %d મિશન:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "તમે તમારા ફેસબુક એકાઉન્ટ સાથે જોડાયેલા છો."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "યોગદાનકર્તાઓ"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "વર્તમાન ઉત્પાદનથી નવા ઉત્પાદની નકલ કરો"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "કૃપા કરીને નીચેની ભૂલો સુધારો:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "સુધારકો"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "સુધારકો"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "દેશો જ્યાં વેચાય છે"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "દેશો જ્યાં ઉત્પાદન વ્યાપકરૂપે ઉપલબ્ધ છે (વિદેશી ઉત્પાદનોમાં વિશેષતા ધરાવતા સ્ટોર્સ શામેલ નથી)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "દેશો"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "પ્રોડક્ટ્સ %sમાં વેચાયા છે"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "દેશ"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "પ્રોડક્ટ્સ %sમાં વેચાયા નથી"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "માહિતીનું પ્રાપ્તિસ્થાન"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "માહિતી સ્ત્રોતો"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "માહિતીનું પ્રાપ્તિસ્થાન"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "ડીબગ"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "ડીબગ"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "વળતર માટે કારણ"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "ઉત્પાદન કાઢી નાંખો"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "પૃષ્ઠ હટાવો"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "છબીઓ કાઢી નાખો"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "વપરાશકર્તા કાઢી નાંખો"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "ઉમેર્યું:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "બદલાયેલ:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "કાઢી નાખેલ:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "ફૂડ ફેક્ટ્સ ખોલવા માટે દાન કરો"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "ઇકોલોજીકલ ફૂટપ્રિન્ટ"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "જો લેબલ પર કાર્બન ફૂટપ્રિન્ટ સ્પષ્ટ થયેલ છે (આ સમયે ભાગ્યે જ), તો પોષક રચના કરતાં સમાન જથ્થા માટે સૂચવો."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "ફેરફાર કરો"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "ફેરફારો સારાંશ"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "ઉત્પાદન ઉમેરો"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "પૃષ્ઠ સંપાદિત કરો"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "તમારી સાર્વજનિક પ્રોફાઇલને સંપાદિત કરો"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "તમારી સાર્વજનિક પ્રોફાઇલ પરના ફેરફારો સાચવવામાં આવ્યા છે."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "નીચેની માહિતી તમારી સાર્વજનિક પ્રોફાઇલમાં દૃશ્યમાન છે."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "તમારા એકાઉન્ટ પરિમાણો બદલો"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "એકાઉન્ટ પરિમાણો"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>તમારા ખાતાના પરિમાણો બદલાયા છે.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "સંપાદકો"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "સંપાદકો"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "ઈ - મેઈલ સરનામું"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "ઇએમબી કોડ્સ"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "કંપનીએ એમ્બ કોડ %sસાથે પેકેજ કરેલા ઉત્પાદનો"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "ઇએમબી કોડ્સ"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "ઇએમબી કોડ્સ"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "ઇએમબી 53062, એફઆર 62.448.034 સીઇ, 84 આર 20, 33 રિકોલ્ટન્ટ 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "યુરોપમાં, 2 દેશના આરંભ સાથેનો લંબગોળ કોડ, ત્યારબાદ સંખ્યા અને સીઈ."
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "પેકેજર કોડ્સ"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "એમ્બિડ કોડ %sસાથેના ઉત્પાદનો"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "પેકેજર કોડ"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "એમ્બિડ કોડ %sસાથેના ઉત્પાદનો"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "પ્રવેશ તારીખો"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "પ્રવેશ તારીખો"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "ક્ષતિ"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "યુસર નેમ અને પાસવર્ડ ખોટો છે. <a href=\"/cgi/reset_password.pl\">પાસવર્ડ ભૂલી ગયા છો?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "ડેટા વાંચતી વખતે ભૂલ આવી, પૃષ્ઠને તાજું કરવાનો પ્રયાસ કરો."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "નવો પાસવર્ડ અને પુષ્ટિકરણ પાસવર્ડ મેળ ખાતો નથી."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "ઇ-મેઇલ સરનામું પહેલાથી જ બીજા વપરાશકર્તા દ્વારા ઉપયોગમાં લેવાય છે. કદાચ તમારી પાસે પહેલેથી એકાઉન્ટ છે? તમે કરી શકો છો <a href=\"/cgi/reset_password.pl\">પાસવર્ડ રીસેટ</a> તમારા અન્ય એકાઉન્ટ."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "અમાન્ય સરનામું."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "અમાન્ય ઇમેઇલ સરનામું"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr ""
+msgstr "પાસવર્ડ ઓછામાં ઓછો 6 અક્ષરો લાંબો હોવો જોઈએ."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "અમાન્ય વપરાશકર્તા Id."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "વપરાશકર્તા નામમાં ફક્ત બિનઆકાશી અક્ષરો, અંકો અને ડેશ્સ હોવા જોઈએ."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "નવા કોડ સાથે ઉત્પાદન પહેલેથી જ અસ્તિત્વમાં છે"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "તમારે વપરાશકર્તા નામ દાખલ કરવાની જરૂર છે."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "પરવાનગી નકારવામાં આવી છે."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "તમારે વપરાશકર્તા નામ દાખલ કરવાની જરૂર છે"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "તમે પહેલાથી સાઇન ઇન છો."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "રીસેટ પાસવર્ડ લિંક અમાન્ય છે અથવા સમાપ્ત થઈ ગઈ છે."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "આ ઇમેઇલ સાથે કોઈ એકાઉન્ટ નથી"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "આ વપરાશકર્તા નામ અસ્તિત્વમાં નથી."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "આ વપરાશકર્તા નામ પહેલેથી અસ્તિત્વમાં છે, કૃપા કરીને બીજું પસંદ કરો."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "ઉદાહરણ:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "ઉદાહરણો:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "તારીખ પહેલાં શ્રેષ્ઠ"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "સમયસમાપ્તિની તારીખ એ ઉત્પાદન સાથે બદલાવને ટ્રેક કરવાનો અને એકદમ તાજેતરના સંસ્કરણને ઓળખવાનો માર્ગ છે."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr ""
+msgstr "દ્વારા ઉત્પાદનોમાં ડ્રિલડાઉન..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "en_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "જો ડેટા અપૂર્ણ અથવા ખોટો છે, તો તમે આ પૃષ્ઠને સંપાદિત કરીને તેને પૂર્ણ અથવા સુધારી શકો છો."
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "અને <a href=\"https://www.facebook.com/groups/openfoodfacts/\">ફાળો આપનારાઓ માટે ફેસબુક જૂથ</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> બ્લોગ"
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "આચાર સંહિતા"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -668,7 +685,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "ડેટા, એપીઆઈ અને એસડીકે"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -677,20 +694,20 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "પ્રોજેક્ટ શોધો"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "વારંવાર પૂછાતા પ્રશ્નો"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/ Faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "અનુવાદકો"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -726,7 +743,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "દબાવો"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -771,7 +788,7 @@ msgstr ""
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -908,206 +925,208 @@ msgstr ""
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "ઘટકો અથવા તે પામ તેલમાંથી હોઈ શકે છે"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "ઘટકો અથવા તે પામ તેલમાંથી હોઈ શકે છે"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "પામ તેલ માંથી ઘટકો"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "પામ તેલ માંથી ઘટકો"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "ઘટકોની સંખ્યા"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "ઘટકોની સંખ્યા"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "માન્ય ઘટકોની સંખ્યા"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "અજાણ્યા ઘટકોની સંખ્યા"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ઘટકો"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "ઉત્પાદનો જેમાં ઘટક %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ઘટક"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "ઘટકોની સૂચિ"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "ઘટકોને મહત્વ (જથ્થા) ના ક્રમમાં સૂચિબદ્ધ કર્યા છે."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "અનાજ 85.5% (_ ગરમ-લોટ, આખું _ ગરમ-લોટ 11%), માલ્ટ અર્ક, કોકો 4,8%, એસ્કોર્બિક એસિડ"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "ઓર્ડર રાખો,% સ્પષ્ટ કરો ત્યારે સૂચવો, અલ્પવિરામથી અલગ કરો અથવા -, ઘટકના ઘટકો માટે () નો ઉપયોગ કરો, _ દા.ત. _ મિલ્ક_ સાથે એલર્જનની આસપાસ"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "ઘટકો પામ તેલમાંથી હોઈ શકે છે"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "ઘટકો પામ તેલમાંથી હોઈ શકે છે"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "એવા ઉત્પાદનો કે જેમાં ઘટક %sહોતો નથી"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_US.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "એપ સ્ટોર પર ડાઉનલોડ કરો"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "જાણીતા પોષક તત્વો"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "જાણીતા પોષક તત્વો"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "લેબલ્સ, પ્રમાણપત્રો, એવોર્ડ"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "ઓર્ગેનિક"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "ફક્ત સૌથી વિશિષ્ટ કેટેગરી સૂચવો. \"માતાપિતા\" કેટેગરીઝ આપમેળે ઉમેરવામાં આવશે."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "લેબલ્સ"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "એવા ઉત્પાદનો કે જેમાં લેબલ %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "સુચિ"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "એક લેબલ ઉમેરો"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "એવા ઉત્પાદનો કે જેની પાસે લેબલ નથી %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "મુખ્ય ભાષા"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "પ્રોડક્ટ પર સૌથી વધુ હાજર અને સૌથી વધુ પ્રકાશિત ભાષા"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "યુ. એસ"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "ભાષાઓ"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "ભાષા"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "છેલ્લી સંપાદન તારીખો"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "છેલ્લી સંપાદન તારીખ"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "છેલ્લી ચિત્રની તારીખો"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "છેલ્લી ચિત્ર તારીખ"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "માહિતી, ડેટા અને / અથવા છબીઓ ઉમેરીને, તમે માહિતી અને ડેટા માટે <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">ડેટાબેઝ સમાવિષ્ટો લાઇસેંસ 1.0</a> લાઇસેંસ\n"
+"હેઠળ અને છબીઓ માટે <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">ક્રિએટિવ કonsમન્સ એટ્રિબ્યુશન - શેરઅલેક 3.0. 3.0</a> લાઇસન્સ હેઠળ અયોગ્ય રીતે તમારું યોગદાન આપવાનું સ્વીકારો છો.\n"
+"તમે જે પ્રદાનમાં ફાળો આપી રહ્યાં છો તેની લિંક દ્વારા ફરીથી વપરાશકર્તાઓ દ્વારા ક્રેડિટ થવાનું સ્વીકારો છો."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "નિર્માતાની સત્તાવાર સાઇટ પરના ઉત્પાદન પૃષ્ઠ સાથે લિંક"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "%sની સૂચિ"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "વધુ પરિણામો લોડ કરો"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "સાઇન-ઇન કરો અને ઉત્પાદન ઉમેરો"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "સાઇન-ઇન કરો અને ઉત્પાદનને સંપાદિત કરો"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "તમારું ખાતું બનાવો."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "હજી નોંધાયેલ નથી?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "સાઇન ઇન કરો"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr ""
+msgstr "ઉત્પાદનો ઉમેરવા અથવા સંપાદિત કરવા માટે સાઇન ઇન કરો."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1176,7 +1195,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "ઉત્પાદન ઉમેરો"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1320,31 +1339,31 @@ msgstr ""
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "પોષક સ્તર"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "પોષક તત્વો"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "એવા ઉત્પાદનો કે જેમાં પોષક તત્વો %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "પોષક તત્વો"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "એવા ઉત્પાદનો કે જેમાં ઘટક %sહોતો નથી"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1801,7 +1820,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "પ્રોડક્ટ્સ %sમાં વેચાયા છે"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1813,7 +1832,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "પ્રોડક્ટ્સ %sમાં વેચાયા નથી"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2050,7 +2069,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "પોષક તત્વો"
 
 msgctxt "search_or"
 msgid "or"
@@ -2090,7 +2109,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "ઓર્ગેનિક"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
