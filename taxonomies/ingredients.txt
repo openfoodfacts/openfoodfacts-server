@@ -1234,7 +1234,7 @@ wikidata:en:Q905648
 
 en:stabilizer, stabiliser, stabilizers
 bg:Стабилизатор
-ca:Estabilitzador, estabilitzadors,estabilizants,estabilitzants
+ca:Estabilitzador, estabilitzadors,estabilizants,estabilitzantsestabilitzat
 cs:Stabilizátor
 da:stabilisator, stabilisatorer
 de:Stabilisator, Stabilisatoren
@@ -10642,7 +10642,7 @@ nl:koekaas
 en:goat cheese, chèvre cheese
 ar:جبن الماعز
 bn:ছাগল পনির
-ca:formatge de llet de cabra
+ca:formatge de llet de cabra,formatge de cabra
 cs:kozí sýr
 da:gedeost
 de:Ziegenkäse
@@ -15860,6 +15860,7 @@ vegetarian:en:no
 
 <en:pork
 en:dewlap
+ca:papada de porc
 es:papada de cerdo
 wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
 
@@ -16579,9 +16580,14 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 
 <en:meat
 en:botifarra
+ca:botifarra
 es:butifarra, butifarras
 wikipedia:en:https://en.wikipedia.org/wiki/Botifarra
 wikidata:en:Q7046
+
+<en:meat
+en:black botifarra
+ca:botifarra negra
 
 <en:meat
 es:chistorra
@@ -17462,6 +17468,7 @@ nl:kalfsvet
 
 <en:animal fat
 en:beef fat
+ca:greix de bou
 de:Rinderfett
 es:Grasa de vacuno
 fi:naudanrasva
@@ -19248,6 +19255,7 @@ fr:tournesol oléique
 
 <en:sunflower oil
 en:high oleic sunflower oil
+ca:oli refinat de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico,huile de tournesol haut oléique
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
@@ -22538,7 +22546,7 @@ en:Vanillin
 ar:فانيلين
 be:Ванілін
 bg:Ванилин
-ca:vanillina
+ca:vanillina,vaínilla
 cs:Vanilin
 da:Vanillin
 de:Vanillin, Aroma Vanillin
@@ -31861,7 +31869,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 <en:soya
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
-ca:soia, soja
+ca:soia, soja,faves de soja
 cs:Sója luštinatá, sójové boby
 da:Sojabønne
 de:Sojabohne, Sojabohnen, Sojakerne, Sojakerne
@@ -34354,6 +34362,7 @@ sv:frukt- och grönsakskoncentrat
 
 <en:fruit
 en:dried fruits
+ca:fruita seca
 de:Trockenfrüchte
 #in Spanish dried fruit is fruta seca, nuts are frutos secos
 es:frutas secas, otras frutas secas
@@ -34728,7 +34737,7 @@ bn:কলা
 bo:ངང་ལག
 br:Bananez
 bs:Banana
-ca:Banana
+ca:Banana,plàtan
 ce:Банан
 co:Banana
 cs:Banán
@@ -36393,6 +36402,7 @@ carbon_footprint_fr_foodges_value:fr:0.9
 # <en:lime
 <en:fruit juice
 en:lime juice
+ca:suc de lima
 da:Limesaft
 de:Limettensaft
 es:Zumo de lima
@@ -37001,6 +37011,7 @@ it:polpe d'arancia
 
 <en:orange
 en:orange zest, orange peel
+ca:pell de taronja
 da:orangeskal
 de:Orangenschale, Orangenschalen
 es:cáscara de naranja, corteza de naranja
@@ -39817,7 +39828,7 @@ az:Kişmiş
 be:Разынкі
 bg:Стафида
 bs:Grožđica
-ca:pansa
+ca:pansa,panses sultanes
 cs:rozinka
 da:Rosin
 de:Rosine, Rosinen
@@ -48809,7 +48820,7 @@ bn:মটরশুঁটি
 bo:བོད་སྲན།
 br:Piz-bihan
 bs:Grašak
-ca:pèsol
+ca:pèsol,pèsols
 co:Piseddu
 cs:hrách
 cv:Пăрçа
@@ -72518,6 +72529,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broth
 
 <en:beef
 <en:broth
+ca:brou de bou
 en:beef broth
 de:Rinderbrühe, Rindfleischbouillon
 es:Caldo de carne de vaca
@@ -72561,6 +72573,7 @@ fr:bouillon de volaille déshydraté
 <en:poultry broth
 <en:chickens
 en:chicken broth
+ca:brou de pollastre
 da:Kyllingebouillon
 de:Hühnersuppe
 es:Caldo de pollo
@@ -74553,3 +74566,19 @@ from_palm_oil:en:no
 #Stuff that doesn't seem to fit anywhere..
 en:rind unedible
 es:corteza no comestible
+
+
+########################################################
+#
+# Jams and marmalades
+#
+########################################################
+
+en:strawberry jam
+ca:melmelada de maduixa
+es:mermelada de fresa
+
+en:orange marmalade
+es:mermelada de naranja
+
+
