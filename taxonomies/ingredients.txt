@@ -6376,6 +6376,9 @@ vegan:en:maybe
 vegetarian:en:maybe
 # ingredient/ferment has 33576 products in 28 languages @2019-07-08
 
+<en:ferments
+en:yogurt ferments
+es:ferments del yogur
 
 # comment:en:The list of products is very very wrong. So uncommenting it for the moment.
 # comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
@@ -19115,7 +19118,7 @@ wikidata:en:Q818405
 from_palm_oil:en:no
 
 <en:linseed
-en:linseed seeds
+en:linseed seeds, linseeds
 es:semillas de linaza, linaza
 
 <en:linseed oil
@@ -30336,7 +30339,7 @@ da:kakaosmør
 de:Kakaobutter
 el:βούτυρο κακάου
 eo:kakaa butero
-es:manteca de cacao
+es:manteca de cacaomanteca de cacao pura
 et:kakaovōi, Kakaoõli
 eu:Kakao-gurin
 fa:کره کاکائو
@@ -30804,6 +30807,7 @@ vegetarian:en:yes
 
 <en:chocolate
 en:chocolate powder
+ca:xocolata en pols
 da:chokoladepulver
 de:Schokoladenpulver
 es:chocolate en polvo
@@ -30822,6 +30826,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 
 <en:chocolate
 en:chocolate pieces, chocolate chips
+ca:xips de xocolata
 da:Chokoladestykker, stykker af chokolade
 de:Schokoladenstücke, Schokoladenstückchen
 es:copos de chocolate, pepitas de chocolate,gotas de chocolate
@@ -46801,6 +46806,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr:3.4
 
+<en:chile pepper
+en:tabasco chile
+es:chiles tabasco
+
 <en:chili pepper
 fr:extrait de piment
 de:Chiliextrakt
@@ -46899,7 +46908,7 @@ cs:jalapeño
 da:jalapeno, jalapeño
 de:Jalapeno-Chilis
 eo:ĥalapenjokapsiko
-es:Pimientos Jalapeños,jalapeno
+es:Pimientos Jalapeños,jalapeno,pimiento jalapeño rojo
 et:jalapeño, jalapeno
 fa:هالاپینو
 fi:jalapeño, jalapeno, jalapenot
@@ -48795,7 +48804,7 @@ de:Erbse, Erbsen
 dv:ފެހި އޮށް
 el:αρακάς
 eo:pizo
-es:guisante
+es:guisante,guisante verde
 et:hernes
 eu:Ilar
 fa:نخود فرنگی
@@ -57717,7 +57726,7 @@ et:Vasaabi
 eu:Wasabi
 fa:ואסאבי
 fi:maustekrassi, wasabi, japaninpiparjuuri
-fr:wasabi
+fr:wasabi,raifort japonais
 gl:Wasabi
 he:वसाबी
 hi:वसाबी
@@ -57732,7 +57741,8 @@ ms:Wasabi
 nb:Wasabi
 nl:wasabi
 nn:Wasabi
-oc:Wasabi pt:Wasabi
+oc:Wasabi
+pt:Wasabi
 ru:Васаби
 sk:Wasabi
 sv:Wasabi
@@ -68200,7 +68210,7 @@ fr:viande de poulet traitée en salaison et précuite
 <en:chicken meat
 en:chicken breast
 es:pechuga de pollo
-fr:blanc de poulet
+fr:blanc de poulet,poitrine de poulet
 sv:kycklingbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
@@ -68471,7 +68481,7 @@ en:turkey breast, turkey fillet
 de:Putenfilet
 es:pechuga de pavo
 fi:kalkkunanfilee, kalkkunan filee, kalkkuna filee
-fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde
+fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde,poitrine de dinde
 it:Filetto di tacchino
 nl:Kalkoenfilet
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
