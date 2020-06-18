@@ -503,6 +503,12 @@ compute_field_tags($product_ref, "fr", "categories");
 add_tags_to_field($product_ref, "en", "categories", "bananas");
 compute_field_tags($product_ref, "en", "categories");
 
+add_tags_to_field($product_ref, "en", "categories", "en:pears");
+compute_field_tags($product_ref, "en", "categories");
+
+add_tags_to_field($product_ref, "es", "categories", "en:peaches");
+compute_field_tags($product_ref, "es", "categories");
+
 is_deeply($product_ref->{categories_tags},  [
      'en:plant-based-foods-and-beverages',
      'en:plant-based-foods',
@@ -511,8 +517,10 @@ is_deeply($product_ref->{categories_tags},  [
      'en:fruits-based-foods',
      'en:fruits',
      'en:apples',
+     'en:peaches',
      'en:tropical-fruits',
-     'en:bananas'
+     'en:bananas',
+     'en:pears',
    ],
 ) or diag explain $product_ref;
 
