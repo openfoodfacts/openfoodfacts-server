@@ -274,6 +274,7 @@ fr => [
 
 my %of = (
 	en => " of ",
+	ca => " de ",
 	de => " von ",
 	es => " de ",
 	fr => " de la | de | du | des | d'",
@@ -282,15 +283,18 @@ my %of = (
 
 my %and = (
 	en => " and ",
+	ca => " i ",
 	de => " und ",
-	es => " y ",
+	es => " y ",	# Spanish "e" before "i" and "hi" is handled by preparse_text()
 	fi => " ja ",
 	fr => " et ",
 	it => " e ",
+	pt => " e ",
 );
 
 my %and_of = (
 	en => " and of ",
+	ca => " i de ",
 	de => " und von ",
 	es => " y de ",
 	fr => " et de la | et de l'| et du | et des | et d'| et de ",
@@ -300,7 +304,7 @@ my %and_of = (
 my %and_or = (
 	en => " and | or | and/or | and / or ",
 	de => " und | oder | und/oder | und / oder ",
-	es => " y | o | y/o | y / o ",
+	es => " y | e | o | y/o | y / o ",
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
 	it => " e | o | e/o | e / o",
@@ -690,12 +694,19 @@ sub extract_ingredients_from_image($$$$) {
 }
 
 
+my %min_regexp = (
+	en => "min|min\.minimum",
+	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
+	fr => "min|min\.|mini|minimum",
+);
+
 # Words that can be ignored after a percent
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
 	en => "of (the )?total weight",
-	fr => "(min|min\.|mini|minimum)|(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	es => "(en el chocolate( con leche)?)",
+	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
 );
 
 
@@ -760,10 +771,17 @@ sub parse_ingredients_text($) {
 
 	my $and = $and{$product_lc} || " and ";
 
+	
+	my $min_regexp = "";
+	if (defined $min_regexp{$product_lc}) {
+		$min_regexp = $min_regexp{$product_lc};
+	}
 	my $ignore_strings_after_percent = "";
 	if (defined $ignore_strings_after_percent{$product_lc}) {
-		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc}
+		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
+	
+	my $percent_regexp = '(<|' . $min_regexp . '|\s)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -836,8 +854,9 @@ sub parse_ingredients_text($) {
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
-					if (($between =~ $separators) and ($` =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i)) {
-						$percent = $1;
+					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
+						
+						$percent = $2;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients and $log->debug("separator found after percent", { between => $between, percent => $percent }) if $log->is_debug();
@@ -861,9 +880,9 @@ sub parse_ingredients_text($) {
 						# no separator found : 34% ? or single ingredient
 						$debug_ingredients and $log->debug("between does not contain a separator", { between => $between }) if $log->is_debug();
 
-						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*$/i) {
+						if ($between =~ /^$percent_regexp$/i) {
 
-							$percent = $1;
+							$percent = $2;
 							$debug_ingredients and $log->debug("between is a percent", { between => $between, percent => $percent }) if $log->is_debug();
 							$between = '';
 						}
@@ -943,8 +962,8 @@ sub parse_ingredients_text($) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*($separators|$)/i) {
-				$percent = $1;
+			if ($after =~ /^$percent_regexp($separators|$)/i) {
+				$percent = $2;
 				$after = $';
 				$debug_ingredients and $log->debug("after started with a percent", { after => $after, percent => $percent }) if $log->is_debug();
 			}
@@ -974,9 +993,9 @@ sub parse_ingredients_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
-			$ingredient1 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
-			$ingredient2 =~ s/\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$//i;
+			$ingredient =~ s/$percent_regexp$//i;
+			$ingredient1 =~ s/$percent_regexp$//i;
+			$ingredient2 =~ s/$percent_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1040,8 +1059,8 @@ sub parse_ingredients_text($) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*($ignore_strings_after_percent|\s|\)|\]|\}|\*)*$/i) {
-					$percent = $1;
+				if ($ingredient =~ /$percent_regexp$/i) {
+					$percent = $2;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
 				}
@@ -2840,14 +2859,20 @@ sub preparse_ingredients_text($$) {
 	if (defined $and_of{$product_lc}) {
 		$and_of = $and_of{$product_lc};
 	}
+	
+	# Spanish "and" is y or e when before "i" or "hi"
+	# E can also be in a vitamin enumeration (vitamina B y E)
+	# colores E (120, 124 y 125)
+	# color E 120
 
-	# replace and / or by and
+	# replace "and / or" by "and"
+	# except if followed by a separator, a digit, or "and", to avoid false positives
 	my $and_or = ' - ';
 	if (defined $and_or{$product_lc}) {
 		$and_or = $and_or{$product_lc};
-		$text =~ s/$and_or/$and/ig;
+		$text =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
 	}
-
+	
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/’/'/g;
 
@@ -3374,7 +3399,7 @@ INFO
 
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	#$log->debug("vitamins text", { text => $text }) if $log->is_debug();
-
+	
 	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($product_lc,$3)/ieg;
 
 

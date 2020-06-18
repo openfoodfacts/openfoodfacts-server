@@ -167,6 +167,7 @@ my @tests = (
 #                           F R E N C H ( F R )
 #
 ##################################################################
+
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
 			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 		[
@@ -218,6 +219,24 @@ my @tests = (
 			}
 		]
 	],
+
+# test for jus and concentré with extra "de"
+#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+#		[
+#		]
+#	],
+
+##################################################################
+#
+#                           F I N N I SH ( F I )
+	#
+##################################################################
+# test for mehu inside an ingredient
+
+#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"}, 
+#		[
+#		]
+#	],
 
 ##################################################################
 #
