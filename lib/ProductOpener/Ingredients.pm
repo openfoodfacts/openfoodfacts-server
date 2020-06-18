@@ -1196,7 +1196,6 @@ sub parse_ingredients_text($) {
 						if (exists_taxonomy_tag("labels", $label_id)) {
 							# Add the label to the product
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-							compute_field_tags($product_ref, $product_lc, "labels");
 							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
 						}

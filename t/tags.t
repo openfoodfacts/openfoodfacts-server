@@ -66,7 +66,29 @@ add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 is_deeply($product_ref,
 {
    'categories' => 'pommes, bananes',
-   'lc' => 'fr'
+   'lc' => 'fr',
+   'categories_hierarchy' => [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:apples',
+     'en:tropical-fruits',
+     'en:bananas'
+   ],
+   'categories_lc' => 'fr',
+   'categories_tags' => [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:apples',
+     'en:tropical-fruits',
+     'en:bananas'
+   ],
+
 }
 ) or diag explain $product_ref;
 
@@ -137,6 +159,7 @@ is_deeply($product_ref->{categories_tags},
    'en:bananas',
    'en:plums',
    'en:raspberries',
+   'en:strawberries',
  ]
 
 ) or diag explain $product_ref->{categories_tags};
@@ -161,11 +184,12 @@ is_deeply($product_ref->{categories_tags},
    'en:oranges',
    'en:plums',
    'en:raspberries',
+   'en:strawberries',
  ]
 
 ) or diag explain $product_ref->{categories_tags};
 
-is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, naranjas, limones");
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Manzanas, Frutas del bosque, Frutas tropicales, Plátanos, Ciruelas, Frambuesas, Fresas, naranjas, limones");
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
 compute_field_tags($product_ref, "it", "categories");
@@ -186,6 +210,7 @@ is_deeply($product_ref->{categories_tags},
    'en:oranges',
    'en:plums',
    'en:raspberries',
+   'en:strawberries',
    'it:bogus',
  ]
 
@@ -202,7 +227,30 @@ add_tags_to_field($product_ref, "fr", "countries", "france, en:spain, deutschlan
 is_deeply($product_ref,
 {
    'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
-   'lc' => 'fr'
+   'lc' => 'fr',
+   'countries_hierarchy' => [
+     'en:bolivia',
+     'en:colombia',
+     'en:france',
+     'en:italy',
+     'en:spain',
+     'en:switzerland',
+     'fr:bidon',
+     'fr:deutschland'
+   ],
+   'countries_lc' => 'fr',
+   'countries_tags' => [
+     'en:bolivia',
+     'en:colombia',
+     'en:france',
+     'en:italy',
+     'en:spain',
+     'en:switzerland',
+     'fr:bidon',
+     'fr:deutschland'
+   ],
+
+
 }) or diag explain($product_ref);
 
 
@@ -249,6 +297,11 @@ add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
 is_deeply($product_ref,
 {
    'brands' => 'Baba, Bobo',
+  'brands_tags' => [
+     'baba',
+     'bobo'
+   ],
+
    'lc' => 'fr'
 }) or diag explain($product_ref);
 
@@ -271,7 +324,8 @@ is_deeply($product_ref,
    'brands' => 'Baba, Bobo, Bibi',
    'brands_tags' => [
      'baba',
-     'bobo'
+     'bobo',
+     'bibi',
    ],
 
    'lc' => 'fr'
@@ -548,7 +602,7 @@ is_deeply($product_ref->{categories_tags}, [
 ]) or diag explain $product_ref;
 
 $product_ref = {
-'categories' => "Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon, Lasagnes au saumon",
+'categories' => "Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon",
 'categories_lc' => 'fr',
          'categories_tags' => [
                                  'en:meals',
@@ -556,7 +610,6 @@ $product_ref = {
                                  'en:prepared-lasagne',
                                  'en:meals-with-fish',
                                  'en:meals-with-salmon',
-                                 'en:salmon-lasagne'
                                ],
 
 lc => 'fr',
@@ -564,12 +617,17 @@ lang => 'fr',
 
 };
 
-add_tags_to_field($product_ref, "en", "categories", "Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon,Salmon lasagne");
+add_tags_to_field($product_ref, "en", "categories", "Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon");
 
-diag explain $product_ref;
+is_deeply($product_ref->{categories_tags}, 
+[
+     'en:meals',
+     'en:pasta-dishes',
+     'en:prepared-lasagne',
+     'en:meals-with-fish',
+     'en:meals-with-salmon',
 
-compute_field_tags($product_ref, "en", "categories");
-
-diag explain $product_ref;
+]
+) or diag explain $product_ref;
 
 done_testing();

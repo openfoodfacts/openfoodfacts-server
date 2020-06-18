@@ -3407,14 +3407,15 @@ sub add_tags_to_field($$$$) {
 			$value = $product_ref->{$field};
 		}
 		(defined $value) or $value = "";
-
+		
 		$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
+		
+		if ($product_ref->{$field} =~ /^, /) {
+			$product_ref->{$field} = $';
+		}
+		
+		compute_field_tags($product_ref, $tag_lc, $field);
 	}
-
-	if ($product_ref->{$field} =~ /^, /) {
-		$product_ref->{$field} = $';
-	}
-
 }
 
 
