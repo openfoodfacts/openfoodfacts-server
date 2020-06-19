@@ -469,6 +469,25 @@ sub init()
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
+	
+	# Producers platform: not logged in users, or users with no permission to add products
+	
+	if (($server_options{producers_platform})
+		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
+		$styles .= <<CSS
+.hide-when-no-access-to-producers-platform {display:none}
+CSS
+;
+	}
+	else {
+		$styles .= <<CSS
+.show-when-no-access-to-producers-platform {display:none}
+CSS
+;
+	}
+	
+	
+	# Not logged in users
 
 	if (defined $User_id) {
 		$styles .= <<CSS
@@ -1161,8 +1180,9 @@ sub display_text($)
 	};
 
 	if ($file =~ /\/index-pro/) {
-		# Display products only if the owner is logged in
-		if (defined $Owner_id) {
+		# On the producers platform, display products only if the owner is logged in
+		# and has an associated org or is a moderator
+		if ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})) {
 			$html .= display_index_for_producer($request_ref);
 			$html .= search_and_display_products( $request_ref, {}, "last_modified_t", undef, undef);
 		}
@@ -6888,6 +6908,13 @@ HTML
 sub display_product_search_or_add($)
 {
 	my $blocks_ref = shift;
+
+	# Producer platform and no org or not admin: do not offer to add products
+	
+	if (($server_options{producers_platform})
+		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
+		return "";
+	}
 
 	my $title = lang("add_product");
 
