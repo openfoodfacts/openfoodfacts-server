@@ -9027,7 +9027,7 @@ fr:produits laitiers en poudre
 fr:poudre de lait réhydratée
 
 <en:milk powder
-en:skimmed milk powder, nonfat dry milk
+en:skimmed milk powder, nonfat dry milk,skimmed cow's milk powder
 bg:обезмаслено сухо мляко
 ca:llet desnatada en pols
 cs:Sušené odstředěné mléko
@@ -9087,6 +9087,9 @@ ro:lapte praf integral
 ru:цельное сухое молоко, сухое цельное молоко
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver, fetthaltigt mjölkpulver, sötmjölkspulver
+
+<en:whole milk powder
+en:whole cow's milk powder
 
 <en:whole milk powder
 <en:skimmed milk powder
@@ -9571,7 +9574,7 @@ es:kéfir desnatado, kéfir descremado
 
 # nova:en:whey
 <en:dairy
-en:whey
+en:whey,milk whey
 an:Siero de leit
 ar:مصل اللبن
 be:Сыроватка
@@ -9792,7 +9795,7 @@ fi:kondensoitu hera
 # comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
 
 <en:dairy
-en:cream
+en:cream,milk cream
 af:Room
 ar:قشدة
 ba:Ҡаймаҡ
@@ -17605,6 +17608,9 @@ zh:无水黄油
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
+<en:clarified butter
+en:clarified cow's butter
+
 # description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
 
 <en:butterfat
@@ -20499,6 +20505,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Champagne
 <en:champagne
 fr:champagne brut
 # ingredient/fr:champagne-brut has 18 products @2019-05-29
+
+<en:alcohol
+en:cava
+ca:cava
+es:cava
 
 # description:en:Pomace brandy is a liquor distilled from pomace that is left over from winemaking, after the grapes are pressed.
 
@@ -41521,6 +41532,9 @@ fr:pâte de noix de coco
 <en:coconut
 es:nectar del brote de la flor del coco
 
+<en:coconut
+en:coconut butter
+
 <en:fruit
 en:acai berry, açaí berries, acai
 de:Acai-Beeren, Açai-Beeren, Acai, Açai
@@ -46733,7 +46747,7 @@ sv:röd paprika
 # fr:poivron-rouge has 1987 products in 13 languages @2018-10-15
 
 <en:pepper
-en:pink pepper
+en:pink pepper,rose pepper
 es:pimienta rosa
 pt:pimenta rosa
 
@@ -69302,7 +69316,7 @@ fi:kananmunankeltuainen
 fr:jaune d’œuf de poules
 
 <en:chicken egg yolk
-en:chicken egg yolk powder
+en:chicken egg yolk powder,hen's egg yolk powder
 de:Hühnereigelbpulver
 fi:kananmunankeltuaisjauhe
 fr:poudre de jaune d’œuf de poules
@@ -74609,6 +74623,10 @@ fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 vegan:en:yes
 vegetarian:en:yes
 from_palm_oil:en:no
+
+<en:peanut butter
+en:crunchy peanut butter
+
 
 #Stuff that doesn't seem to fit anywhere..
 en:rind unedible
