@@ -50,7 +50,7 @@ stopwords:ca:i,de
 stopwords:da:av, blandt andet, bl a, inklusive, heraf
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum
+stopwords:en:contains, contain, from, with, produced with, with added, minimum,including
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio,snellmanin, jossa
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d'
@@ -265,7 +265,7 @@ fr:additifs alimentaires
 
 
 # <en:function
-en:Acid, Acidifier
+en:Acid, Acidifier,corrector of acidity
 bg:Киселина
 ca:Àcid, acidulant
 cs:Kyselina
@@ -298,7 +298,7 @@ wikidata:en:Q337038
 
 
 # <en:function
-en:coagulum, coagulating agent
+en:coagulum, coagulating agent,coagulant
 ca:Agent coagulant, agents coagulants
 de:Koagulat
 en:agente coagulante, agentes coagulantes,coagulante
@@ -462,7 +462,7 @@ de:Kohlendioxid
 
 # nova:en:colour
 # <en:function
-en:colour, color, colouring, coloring, colours, colors, coloring food, colouring food
+en:colour, color, colouring, coloring, colours, colors, coloring food, colouring food,colorant
 bg:Оцветител
 ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
 cs:Barvivo
@@ -9639,7 +9639,7 @@ vegan:en:no
 vegetarian:en:yes
 
 <en:whey
-en:whey powder, powdered whey
+en:whey powder, powdered whey,milk whey powder
 ca:Xerigot en pols, sèrum en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -26352,6 +26352,10 @@ it:farina di piselli
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
 
+<en:flour	
+<en:green peas
+en:whole green pea flour
+
 <en:flour
 en:chick pea flour
 da:kikærtemel
@@ -27701,6 +27705,7 @@ fr:riz riceberry mélangé
 # question
 
 en:carob
+ca:garrofa
 cs:carubin
 de:Johannisbrotbaum
 es:Algarroba
@@ -27717,6 +27722,7 @@ vegetarian:en:yes
 <en:flour
 <en:carob
 en:carob flour
+ca:farina de garrofa
 cs:Karobová mouka
 de:Johannisbrotkernmehl, Carobpulver
 es:Harina de algarroba, harina de garrofin
@@ -27763,12 +27769,17 @@ ro:gumă guar, guma guar, gumă de guar, guma de guar
 fr:farine de graines de caroube et farine de graines de guar
 
 <en:carob
-en:locust bean gum
+en:locust bean gum,garrofin gum
 de:Johannisbrotgummi
+es:goma de garrofina
 el:κόμμι γκουάρ
 fi:johanneksenleipäpuujauhe
 fr:gomme de caroube
 it:farina di semi di carruba
+
+<en:locust bean gum
+en:peruvian carob gum
+
 
 # en:xanthan gum is listed under its E-number 415
 
@@ -30324,6 +30335,9 @@ en:cocoa powder processed with alkali, alkalized cocoa powder
 es:Cacao en polvo procesado con álcali
 fr:Cacao alcalinisé
 
+<en:cocoa-powder
+en:skimmed cocoa powder
+
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa
 da:fedtfattig kakao
@@ -30840,7 +30854,7 @@ carbon_footprint_fr_foodges_value:fr:4.7
 # usage:en:chocolate powder (sugar, cocoa powder)
 
 <en:chocolate
-en:chocolate pieces, chocolate chips
+en:chocolate pieces, chocolate chips,semisweet Chocolate Chips
 ca:xips de xocolata
 da:Chokoladestykker, stykker af chokolade
 de:Schokoladenstücke, Schokoladenstückchen
@@ -30855,7 +30869,7 @@ sv:Choklad bitar, chokladbitar
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 
 <en:chocolate
-en:milk chocolate chips
+en:milk chocolate chips,milk chocolate drops
 es:pepitas de chocolate con leche
 
 <en:chocolate
@@ -30887,7 +30901,7 @@ es:crema de chocolate
 # description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
 
 <en:chocolate
-en:dark chocolate, black chocolate
+en:dark chocolate, black chocolate,plain chocolate
 ar:شوكولاتة داكنة
 bn:ডার্ক চকোলেট
 ca:Xocolata negra
@@ -34893,6 +34907,9 @@ fr:flocons de banane
 it:fiocchi di banane
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-flakes
 # 38 products in 4 languages @2018-09-26
+
+<en:banana
+en:banana chips
 
 <en:banana
 <en:purée
@@ -52962,6 +52979,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mustard_(condiment)
 carbon_footprint_fr_foodges_ingredient:fr:Moutarde
 carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
+
+<en:mustard
+en:dijon mustard
 
 # <en:seed
 <en:mustard
