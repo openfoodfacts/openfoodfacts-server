@@ -10,7 +10,7 @@ ul.button-group button, ul.button-group button:hover, ul.button-group button:foc
 #top-bar, .name, #select_country_li, .top-bar-section li:not(.has-form) a:not(.button)
 {background: #1B2737; color: #556c7d;}
 .top-bar-section li:not(.has-form) a:not(.button):hover {background-color: #1f2f42; color: #556c7d;}
-
+.top-bar-section>ul>.divider, .top-bar-section>ul>[role=separator] {border-right-color: #1b2837;}
   /* Search button */
 .right button[type = "submit"], button.button.postfix {background-color: #223044;}
 .right button[type = "submit"]:hover, button.button.postfix:hover {background-color: #25354c;}
@@ -47,6 +47,7 @@ span.select2-dropdown.select2-dropdown--below {background-color: #233143; border
 
 #drop1 {background: #1B2737; border: none;}
 #drop1 li:hover {background-color: #263346;}
+button.button.dropdown.small {border-left: none;}
 
 /* Pagination */
 ul.pagination li.current a, ul.pagination li.current a:hover {background: #2b3a50;}
@@ -76,13 +77,6 @@ table, table tr td {background-color: #1B2737; color: #556c7d; border: none;}
 {background: #1d2b3c; text-decoration-color: #556c7d;}
 .accordion .accordion-navigation>.content.active {background: #18232f;}
 
-#main_column div{
-  background-color: #151E29 !important;
-  border-color: #151E29 !important;
-
-}
-div#highcharts-container{
-  background-color: #151E29 !important;
-  border-color: #151E29 !important;
-  color: white !important;
-}
+/* charts */
+.highcharts-container rect {fill: #1b2431;}
+.highcharts-container text {color: #647182!important; fill: #647182!important;}
