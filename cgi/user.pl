@@ -31,6 +31,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -171,17 +172,68 @@ SCRIPT
 }
 elsif ($action eq 'process') {
 
-	my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		if ( ProductOpener::Users::process_user_form($user_ref) ) {
-            $dialog = '_user_confirm_no_mail';
-        }
+		ProductOpener::Users::process_user_form($user_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
 
-	$html .= lang($type . $dialog);
+	$html .= "<p>" . lang($type . '_user_result') . "</p>";
+	
+	if ($type eq 'add') {
+		
+		# Show different messages depending on whether it is a pro account
+		# and whether we are on the public platform or the pro platform
+		
+		if (defined $user_ref->{requested_org}) {		
+			
+			# Pro account, but the requested org already exists
+			
+			my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+			
+			$html .= "<div id=\"existing_org_warning\">"
+			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
+			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
+			. "<p>" .lang("please_email_producers") . "</p>"
+			. "</div>";
+		}		
+		elsif (defined $user_ref->{org}) {
+			
+			# Pro-account, with a newly created org
+			
+			if (defined $server_options{producers_platform}) {
+				
+				# We are on the producers platform
+				# Suggest next steps:
+				# - import product data
+				
+				$html .= "<p>" . lang("add_user_you_can_edit_pro") . "</p>";
+				$html .= "<p>&rarr; <a href=\"/cgi/import_file_upload.pl\">" . lang("import_product_data") . "</a></p>";
+			}
+			else {
+				
+				# We are on the public platform, link to the producers platform
+				
+				my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+				$html .= "<p>" . sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url) . "</p>";
+			}
+		}
+		else {
+			# Personal account
+			
+			# Suggest next steps:
+			# - add or edit products on the web site or through the app
+			# - join us on Slack
+			
+			$html .= "<p>" . sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link")) . "</p>";	
+			
+			$html .= "<p>" . sprintf(lang("add_user_join_the_project"), lang("site_name")) . "</p>";
+			
+			$html .= "<p>" . lang("add_user_join_us_on_slack") . "</p>";
+			$html .= "<p>&rarr; <a href=\"https://slack.openfoodfacts.org\">" . lang("join_us_on_slack") . "</a></p>";
+		}
+	}
 
 	if (($type eq 'add') or ($type eq 'edit')) {
 
@@ -211,8 +263,11 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 	return 301;
 }
 else {
+	
+	my $title = lang($type . '_user_' . $action);
+	
 	display_new( {
-		title=>lang($type . '_user'),
+		title=>$title,
 		content_ref=>\$html,
 		full_width=>$full_width,
 	});
