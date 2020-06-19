@@ -55,6 +55,10 @@ FROM modperl AS runnable
 # Prepare Apache to include our custom config
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
+# Reduce the number of Apache processes
+RUN sed -i 's/StartServers\s*2/StartServers 1/' /etc/apache2/mods-enabled/mpm_event.conf
+RUN sed -i 's/MaxRequestWorkers\s*150/MaxRequestWorkers 25/' /etc/apache2/mods-enabled/mpm_event.conf
+
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/
 ENV PERL5LIB /opt/perl/local/lib/perl5/
