@@ -1237,6 +1237,7 @@ sub parse_ingredients_text($) {
 							
 							'nl' => [
 								'in wisselende verhoudingen',
+								'harde fractie',
 							],
 
 						);
@@ -2480,6 +2481,8 @@ fi => [
 ],
 
 nl => [
+'Beter Leven keurmerk 1 ster.',
+'Beter Leven keurmerk 3 sterren',
 'Cacao: ten minste ',
 'Droog bewaren',
 'E = door EU goedgekeurde hulpstof.',
@@ -2488,6 +2491,7 @@ nl => [
 'gemiddelde voedingswaarde per 100 g',
 'Na openen beperkt houdbaar',
 'ten minste',
+'ten minste houdbaar tot',
 'Verpakt onder beschermende atmosfeer',
 'voedingswaarden',
 'voedingswaarde',
