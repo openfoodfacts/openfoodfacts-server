@@ -279,6 +279,7 @@ my %of = (
 	es => " de ",
 	fr => " de la | de | du | des | d'",
 	it => " di | d'",
+	nl => " of ",
 );
 
 my %and = (
@@ -289,6 +290,7 @@ my %and = (
 	fi => " ja ",
 	fr => " et ",
 	it => " e ",
+	nl => " en ",
 	pt => " e ",
 );
 
@@ -308,6 +310,7 @@ my %and_or = (
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
 	it => " e | o | e/o | e / o",
+	nl => " en/of | en / of ",
 );
 
 
@@ -316,6 +319,7 @@ my %the = (
 	es => " el | la | los | las ",
 	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
+	nl => " de | het ",
 );
 
 
@@ -2433,25 +2437,26 @@ es => [
 
 de => [
 'Ern(â|a|ä)hrungswerte',
-'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
+'davon ges(â|a|ä)ttigte',
+'Durchschnittlich enthalten 100 (ml|g)',
 'Durchschnittliche N(â|a|ä)hrwerte',
 'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
-'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
+'mindestens',
 'k(u|ü)hl und trocken lagern',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
-'zu verbrauchen bis',
 'verbrauchen bis',
+'Vorbereitung Tipps',
+'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
-'Durchschnittlich enthalten 100 (ml|g)',
-'davon ges(â|a|ä)tigte Fettsäuren',
-'davon Zuckerarten',
 ],
 
 fi => [
@@ -2471,12 +2476,18 @@ fi => [
 ],
 
 nl => [
-'voedingswaarden',
-'voedingswaarde',
-'voorbereidingstips',
+'Cacao: ten minste ',
+'Droog bewaren',
+'E = door EU goedgekeurde hulpstof.',
 'gemiddelde voedingswaarden',
 'Gemiddeldevoedingswaardel',
 'gemiddelde voedingswaarde per 100 g',
+'Na openen beperkt houdbaar',
+'ten minste',
+'Verpakt onder beschermende atmosfeer',
+'voedingswaarden',
+'voedingswaarde',
+'voorbereidingstips',
 #'waarvan suikers',
 ],
 
