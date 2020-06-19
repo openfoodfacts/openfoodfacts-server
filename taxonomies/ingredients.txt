@@ -2562,7 +2562,7 @@ ky:Пектиндер
 lt:Pektinas
 lv:pektīnvielas
 nb:pektin
-nl:pectine, pectines
+nl:pectine, pectines, pectinen
 nn:pektin
 pl:Pektyny
 pt:pectina, pectinas
@@ -8051,7 +8051,15 @@ sv:opastöriserad mjölk
 <en:sterilised milk
 fr:lait thermisé
 
+
 <en:milk
+en:milk solids
+es:solidos lacteos
+
+<en:milk
+en:lactose-free milk
+es:leche sin lactosa
+
 en:Follow-on milk
 ca:llet de seguiment
 de:Folgemilch
@@ -10010,6 +10018,7 @@ en:whipping cream
 da:piskefløde
 fi:kuohukerma
 fr:crème à fouetter
+nl:slagroom
 sv:vispgrädde
 # ingredient/fr:creme-a-fouetter has 21 products in 5 languages @2020-05-21
 
@@ -17050,7 +17059,7 @@ hu:növényi olaj és zsír
 it:oli e grassi vegetali, olio e grasso vegetale
 lv:Augu eļļas un tauki
 mt:xaħam u żejt veġetali
-nl:plantaardige vetten en olie
+nl:plantaardige vetten en olie, plantaardige oliën en vetten
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
 ru:Растительные масла и жиры
@@ -17504,6 +17513,8 @@ sv:mjölkfett
 vegan:en:no
 vegetarian:en:yes
 
+<en:milkfat
+nl:gefractioneerd melkvet
 
 # description:en:BUTTERFAT - the fatty portion of milk.
 # comment:en:BUTTERFAT seems to be more than just butter, water has been removed
@@ -17551,13 +17562,6 @@ vegan:en:no
 vegetarian:en:yes
 # ingredient/butterfat has 9828 products in 35 languages @2019-07-10
 
-<en:milk
-en:milk solids
-es:solidos lacteos
-
-<en:milk
-en:lactose-free milk
-es:leche sin lactosa
 
 # decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -17725,7 +17729,7 @@ it:grassi vegetali
 lt:augaliniai riebalai
 lv:augu tauki
 nb:vegetabilsk fett, vegetabilskt fett
-nl:plantaardige vetten
+nl:plantaardige vetten, plantaardig vet
 nn:vegetabilisk fett
 pl:tłuszcz roślinny, tłuszcze roślinne
 pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
@@ -18010,6 +18014,7 @@ de:vollständig gehärtetes Palmfett
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
 fr:graisse de palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmazsír, teljesen hidrogénezett pálmazsír, teljes mértékben hidrogénezett pálmamag-zsír
+nl:volledig geharde palm, geheel gehard palmvet
 sv:fullhärdat palmfett
 
 <en:palm oil
@@ -18253,6 +18258,7 @@ fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
 hu:kókuszzsír
 it:grasso di cocco
+nl:kokosvet
 sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
@@ -23882,6 +23888,10 @@ fr:semoule de blé tendre
 # 20 products in 1 language @20180922
 
 <en:semolina
+en:Durum wheat flour
+nl:durum tarwegriesmeel
+
+<en:Durum wheat flour
 en:Durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
 fi:täysjyvädurumvehnäjauho
@@ -25124,7 +25134,7 @@ ko:납작귀리
 lt:avižiniai dribsniai
 ms:Emping oat
 nb:havreflak, havregryn
-nl:havermoutvlokken, havermout
+nl:havermoutvlokken, havermout, havervlokken
 pl:płatki owsiane
 pt:flocos de aveia
 ro:Haferflocken
@@ -25594,7 +25604,7 @@ mt:dqiq
 my:မှုန့်
 nb:mel
 ne:पिठो
-nl:meel
+nl:meel, bloem
 nn:mjøl
 nv:Akʼáán
 oc:farina
@@ -25864,7 +25874,7 @@ fi:täysjyvävehnäjauho
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
 hu:teljes kiőrlélsű búzaliszt
 it:farina integrale di frumento, farina di frumento integrale
-nl:volkorentarwemeel
+nl:volkorentarwemeel, volkoren tarwemeel
 pt:farinha de trigo integral, farinha integral de trigo
 sv:fullkornsvetemjöl, grahamsmjöl av vete
 
@@ -29337,7 +29347,7 @@ fi:sorbitoli
 fr:sorbitol
 hu:szorbit, szorbitol
 it:sorbitolo
-nl:Sorbitol
+nl:Sorbitol, sorbitolen
 
 <en:sorbitol
 en:sorbitol syrup
@@ -30322,7 +30332,7 @@ fi:vähärasvainen kaakao
 fr:cacao maigre, cacao dégraissé
 it:cacao magro
 nb:fedtfattig kakao
-nl:vetarme cacao
+nl:vetarme cacao, magere cacao
 pt:cacau magro
 sv:fettreducerad kakao
 
@@ -31519,7 +31529,7 @@ ml:സോഡാജലം
 mr:सोडा
 ms:Air berkarbonat, Air bergas, air seltzer, seltzer, air soda
 nb:Kullsyreholdig vann
-nl:Sodawater, gazeuse, bruiswater, spuitwater
+nl:Sodawater, gazeuse, bruiswater, spuitwater, koolzuurhoudend water
 pl:Woda gazowana
 pt:Água gaseificada
 ro:Sifon, Apa carbonatată, apa gazoasă, sifonul
@@ -36094,7 +36104,7 @@ es:jarabe de manzana
 fi:omenamehutiiviste
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
-nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap
+nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelconcentraat
 pl:Sok jabłkowy z koncentratu
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
@@ -46749,7 +46759,7 @@ ms:Cili
 my:ငရုတ်
 nb:paprikaslekten
 ne:खुर्सानी
-nl:pepers, peperoni, chilipeper
+nl:pepers, peperoni, chilipeper, piment
 nn:chilipepar
 nv:Azeedíchʼííʼ
 oc:Piment
@@ -46843,6 +46853,7 @@ fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
 nb:rød chili
+nl:rode peper
 sv:röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
@@ -53121,7 +53132,8 @@ zh:八角
 wikidata:en:Q1760637
 # fr:anis-étoilé has 72 products in 4 languages @2018-10-24
 
-
+<en:spice
+nl:speculaaskruiden
 
 #
 <en:herb
@@ -69579,7 +69591,7 @@ ml:നാര്
 ms:Serat
 nb:fiber
 ne:रेसा
-nl:vezel
+nl:vezel, voedingsvezel
 nn:fiber
 oc:fibra
 pl:włókno
@@ -69695,7 +69707,7 @@ it:fibre vegetali, fibra vegetale
 ja:植物繊維
 ko:식물섬유
 nb:vegetabilsk fiber, plantefiber
-nl:plantaardige vezel
+nl:plantaardige vezel, plantaardige vezels
 nn:plantefiber
 pl:Błonnik roślinny
 pt:fibra vegetal
@@ -70758,11 +70770,11 @@ carbon_footprint_fr_foodges_value:fr:7.3
 <en:pasta
 en:egg pastas
 af:eier pasta
-de: Eierteigwaren
+de:Eierteigwaren
 fi:munapasta
 fr:pâtes aux œufs, pâtes aux oeufs
-id: pasta telur
-it: pasta all'uovo
+id:pasta telur
+it:pasta all'uovo
 nl:eierpasta
 wikidata:en: Q53619707
 # ingredient/egg-pastas has 49 products in 4 languages @2019-04-03

@@ -1234,6 +1234,10 @@ sub parse_ingredients_text($) {
 								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
 								'^Kuiva-aineiden täysjyväpitoisuus',
 							],
+							
+							'nl' => [
+								'in wisselende verhoudingen',
+							],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
