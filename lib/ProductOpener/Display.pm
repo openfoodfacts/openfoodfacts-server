@@ -4877,8 +4877,17 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
+					
+					# number of ingredients, additives etc. (ingredients_n)
+					if ($nid =~ /_n$/) {
 						$data{$axis} = $product_ref->{$nid};
+					}
+					# energy-kcal is already in kcal
+					elsif ($nid eq 'energy-kcal') {
+						$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
+					}
+					elsif ($nid =~ /^nutrition-score/) {
+						$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
 					}
 					else {
 						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
@@ -5183,19 +5192,22 @@ sub display_histogram($$) {
 
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 
-
 				my $value = 0;
 
-
-					if (($nid eq 'additives_n') or ($nid =~ /ingredients_n$/)) {
-						$value = $product_ref->{$nid};
-					}
-					elsif ($nid =~ /^nutrition-score/) {
-						$value = $product_ref->{nutriments}{"${nid}_100g"};
-					}
-					else {
-						$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
-					}
+				# number of ingredients, additives etc. (ingredients_n)
+				if ($nid =~ /_n$/) {
+					$value = $product_ref->{$nid};
+				}
+				# energy-kcal is already in kcal
+				elsif ($nid eq 'energy-kcal') {
+					$value = $product_ref->{nutriments}{"${nid}_100g"};
+				}
+				elsif ($nid =~ /^nutrition-score/) {
+					$value = $product_ref->{nutriments}{"${nid}_100g"};
+				}
+				else {
+					$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+				}
 
 				if ($value < $min) {
 					$min = $value;
