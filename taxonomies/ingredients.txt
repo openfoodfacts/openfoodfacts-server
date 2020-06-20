@@ -9591,7 +9591,7 @@ da:Valle
 de:Molke, Molken, Käsemilch, Schotte, Sirte, Waddike, Wedicke, Zieger
 el:Τυρόγαλα
 eo:selakto, laktosero
-es:Suero de leche, lactosuero, suero lácteo
+es:Suero de leche, lactosuero, suero lácteo,suero de leche rico en calcio
 et:Vadak
 eu:Esne-gazur
 fa:آب‌پنیر
@@ -13320,7 +13320,7 @@ de:Biotin, Vitamin B7, Vitamin H
 dv:ވިޓަމިން ބީ7
 el:βιοτίνη
 eo:biotino
-es:Biotina, Vitamina B7, Vitamina H, B7
+es:Biotina, Vitamina B7, Vitamina H, B7,D-biotina
 et:Biotiin, B7-vitamiin, H-vitamiin
 eu:Biotina, B7 bitamina
 fa:بیوتین
@@ -14126,7 +14126,7 @@ da:Husholdningssalt, køkkensalt, bordsalt, salt
 de:Speisesalz, Kochsalz, Tafelsalz, Salz
 el:Αλάτι
 eo:Salo, Komuna salo
-es:Sal, sal común, sal de mesa,sales,sal de cocina
+es:Sal, sal común, sal de mesa,sales,sal de cocina,sal de grano
 et:sool, söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
@@ -14322,7 +14322,7 @@ en:Mediterranean salt, Mediterranean sea salt
 ca:sal de la mar Mediterrània, sal mediterrània
 da:middelhavssalt
 de:Mediterranes Meersalz
-es:Sal de la mar mediterránea, sal mediterránea
+es:Sal de la mar mediterránea, sal mediterránea,sal marina del mar mediterráneo
 fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
 
 en:Garlic salt
@@ -18040,6 +18040,7 @@ sv:hydrerad palmfett
 en:totally hydrogenated palm fat
 da:helt hærdet palmefedt
 de:vollständig gehärtetes Palmfett
+es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
 fr:graisse de palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmazsír, teljesen hidrogénezett pálmazsír, teljes mértékben hidrogénezett pálmamag-zsír
@@ -18425,6 +18426,9 @@ hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
+
+<en:en:extra virgin olive oil
+es:aceite de oliva virgen extra de Lubrín
 
 <en:extra virgin olive oil
 en:organic extra virgin olive oil
@@ -19283,7 +19287,7 @@ fr:tournesol oléique
 en:high oleic sunflower oil
 ca:oli refinat de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl
-es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico,huile de tournesol haut oléique
+es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico,huile de tournesol haut oléique,omega 9
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
 it:olio di girasole alto oleico
 nl:high oleic zonnebloemolie
@@ -19579,7 +19583,7 @@ cs:Rybí tuk
 da:Fiskeolie
 de:Fischöl
 eo:fiŝoleo
-es:Aceite de pescado
+es:Aceite de pescado,aceite de pescado azul
 fa:روغن ماهی
 fi:Kalaöljy
 fr:huile de poisson
@@ -23905,6 +23909,10 @@ pl:Kasza manna
 sv:semolinagryn
 vegan:en:yes
 vegetarian:en:yes
+
+<en:semolina
+en:semolina flour
+es:harina de sémola
 
 # Question
 
@@ -51677,6 +51685,10 @@ carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
 nutriscore_fruits_vegetables_nuts:en:no
 
+<en:spices
+en:natural spices
+es:especias naturales
+
 en:herb
 ca:Herbes, herbes aromàtiques
 cs:Bylina
@@ -51753,7 +51765,7 @@ sv:kryddor och kryddextrakt
 en:mixed spices
 da:krydderimix
 de:gemischte Gewürze
-es:Mezcla de especias
+es:Mezcla de especias,preparado aromatico de especias
 fi:mausteseos
 fr:mélange d'épices
 nb:krydderimix
