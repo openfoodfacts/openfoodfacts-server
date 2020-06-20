@@ -2262,26 +2262,51 @@ en => [
 'ingredient(s?)',
 ],
 
-fr => [
-'ingr(e|é)dient(s?)',
-'Quels Ingr(e|é)dients ?', # In Casino packagings
-'composition',
+cs => [
+'složení',
 ],
 
 de => [
 'zutat(en)?',
 ],
 
+dk => [
+'ingredienser',
+],
+
+el => [
+'Συστατικά',
+],
+
 es => [
 'ingredientes',
+],
+
+fi => [
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'valmistusaineet',
+],
+
+fr => [
+'ingr(e|é)dient(s?)',
+'Quels Ingr(e|é)dients ?', # In Casino packagings
+'composition',
+],
+
+hr => [
+'(ö|ő|o)sszetev(ö|ő|o)k',
 ],
 
 it => [
 'ingredienti',
 ],
 
-cs => [
-'složení',
+is => [
+'Innihaldslýsing',
+],
+
+nl => [
+'ingredi(e|ë)nten',
 ],
 
 pt => [
@@ -2296,38 +2321,13 @@ si => [
 'sestavine',
 ],
 
-it => [
-'ingredienti',
-],
-
-nl => [
-'ingredi(e|ë)nten',
-],
-
-fi => [
-'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
-'valmistusaineet',
-],
-
-sv => [
-'ingredienser',
-],
-
-dk => [
-'ingredienser',
-],
-
 ru => [
 'Состав',
 'Ингредиенты',
 ],
 
-hr => [
-'(ö|ő|o)sszetev(ö|ő|o)k',
-],
-
-el => [
-'Συστατικά',
+sv => [
+'ingredienser',
 ],
 
 );
