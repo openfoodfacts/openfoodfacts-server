@@ -2081,7 +2081,7 @@ cs:Karagen
 de:Carrageen
 el:Καραγενάνη
 eo:Karageno
-es:Carragenano, carragenanos, carragenato, carragenatos, carragenina, carrageninas
+es:Carragenano, carragenanos, carragenato, carragenatos, carragenina, carrageninas,carragen
 et:Karraginaanid
 fa:کاراگینان
 fi:karrageeni, karrageenit
@@ -8032,6 +8032,10 @@ ru:Пастеризованное молоко
 sv:pastöriserad mjölk
 
 <en:pasteurised milk
+en:pasteurised cows milk
+es:leche pasteurizada de vaca
+
+<en:pasteurised milk
 en:UHT pasteurised milk
 ca:llet esterilitzada UHT
 de:UHT Milch
@@ -11585,7 +11589,7 @@ cs:Grana Padano
 cv:Грана Падано
 de:Grana Padano
 eo:Грана Падано
-es:Grana Padano
+es:Grana Padano,queso Grana Padano
 et:Grana Padano
 fi:Grana Padano, Grana Padano -juusto
 fr:grana padano, fromage grana padano
@@ -17078,6 +17082,10 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
 # ingredient/vegetable-oil-and-fat has 120986 products @2019-07-10
+
+<en:oil and fat
+en:refined vegetable oil
+es:grasas vegetales refinadas
 
 # description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
@@ -22575,7 +22583,7 @@ da:Vanillin
 de:Vanillin, Aroma Vanillin
 el:βανιλλίνη, βανιλίνη
 eo:Vanilino
-es:vainillina
+es:vainillina,,aroma vainillina
 eu:Bainilina
 fa:وانیلین
 fi:vanilliini, vaniliini
@@ -23007,6 +23015,10 @@ de:natürliches Feigenaroma, natürliches Feigen-Aroma
 fi:luontainen viikuna-aromi
 fr:arôme naturel de figue
 hu:természetes füge aroma
+
+<en:flavouring
+en:cheese flavouring
+es:aromas con sabor a queso
 
 <en:natural flavouring
 en:natural cheddar flavouring
@@ -26978,6 +26990,10 @@ carbon_footprint_fr_foodges_value:fr:1.4
 vegan:en:yes
 vegetarian:en:yes
 
+<en:rice
+en:rice proteins
+es:proteinas de arroz
+
 # comment:en:organic is an independent aspect of all rices
 <en:rice
 en:organic rice
@@ -27484,6 +27500,7 @@ hu:fekete jázminrizs, fekete jázmin rizs
 
 <en:Thai rice
 en:Thai long grain rice
+es:Arroz de grano largo Thai
 de:Langkorn Thai-Reis
 fi:pitkäjyväinen jasmiiniriisi
 fr:riz thai long grain, riz long grain thai, riz long thai, Riz long grain de Thailande
@@ -29441,6 +29458,7 @@ sv:karamelliserat sockersirap
 <en:syrup
 en:sugar beet syrup
 de:zuckerrübensirup
+es:jarabe de remolacha azucarera
 fi:sokerijuurikassiirappi
 fr:sirop de betterave
 sv:sockerbetssirap
@@ -29851,6 +29869,10 @@ nl:boneneiwit
 pl:Białko grochu
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
+
+<en:pea protein
+en:hydrolised pea protein
+es:proteína de guisante hidrolizada,proteínas de guisante hidrolizadas
 
 <en:pea protein
 en:pea protein isolate
@@ -30314,7 +30336,7 @@ da:kakao
 de:Kakao
 el:κακάο
 eo:kakao
-es:cacao
+es:cacao,cocoa
 fa:کاکائو
 fi:kaakao
 fo:Kakao
@@ -30391,6 +30413,10 @@ sv:fettreducerad kakao
 en:highly fat reduced cocoa, highly reduced fat cocoa
 de:Sehr fettarme Kokosnuss
 fr:cacao fortement dégraissé
+
+<en:cocoa
+en:cocoa cream
+es:crema de cacao
 
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
@@ -30990,7 +31016,7 @@ fr:chocolat noir à 70 de cacao
 # <en:chocolate chips
 en:dark chocolate chunks, dark chocolate chips
 de:Bitterschokoladenstückchen
-es:Trozos de chocolate negro
+es:Trozos de chocolate negro,pepitas de chocolate negro
 fi:tumma suklaarouhe
 fr:morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
 it:pezzetti di cioccolato fondente
@@ -37379,7 +37405,7 @@ nl:zwarte bessensap op basis van concentraat
 en:blackcurrant puree
 da:solbærpuré
 de:schwarzes Johannesbeerpüree
-es:puré de cassis
+es:puré de grosella negra
 fi:mustaherukkapyree
 fr:purée de cassis
 nl:Zwarte bessenpuree
@@ -38996,6 +39022,9 @@ sv:fikon
 wikidata:en:Q2746643
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fig
 # 570 products @2018-09-29
+
+<en:fig
+es:higos pajarero
 
 <en:fig
 fr:figues séchées, figues sèches
@@ -47925,7 +47954,7 @@ de:Kürbis, Kürbisse
 dv:ބަރަބޯ
 dz:ཀ་ཀུ་རུ
 eo:kukurbo
-es:calabaza, calabaza gigante
+es:calabaza, calabaza gigante,zapallo
 et:Kõrvits
 eu:Kuia
 fa:کدو تنبل
@@ -49455,7 +49484,9 @@ fr:lentillons
 
 <en:lentils
 en:lentil flour
+ca:farina de llentia
 de:Linsenmehl
+es:harina de lenteja
 fi:linssijauho
 fr:farine de lentilles
 sv:linsmjöl
@@ -49464,6 +49495,7 @@ sv:linsmjöl
 
 <en:lentil flour
 en:wholwemeal lentil flour 
+ca:farina integral de llentia
 es:harina integral de lenteja
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -50805,7 +50837,7 @@ en:cumin seeds, cumin
 ca:llavors de comí
 da:Spidskommen
 de:Kümmelkörnen, Kreuzkümmel
-es:comino, semillas de comino
+es:comino, semillas de comino,Granos de comino
 fi:roomankumina, juustokumina, jeera, juustokuminansiemen
 fr:graines de cumin, cumin
 hu:köménymag
