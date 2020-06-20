@@ -1,8 +1,9 @@
 stopwords:en:and,byproducts,other,of,this,product,made,manufactured,in,a,factory,which,also,uses,trace,traces,possible,eventual,potential
 stopwords:de:enthalten,von,und,kann,spuren,andere
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
-stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä
+stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä,jäämiä,ainesosia
 stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris
+stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 
 en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour, cereals containing gluten, wheatflour, spelt, speltflour
@@ -19,11 +20,13 @@ fi:gluteeni, gluteenia, gluteenista, gluteenit, gluteeneja, gluteeneista, vehnä
 fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur, épeautre, petit épeautre, grand épeautre, farine d'épeautre
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
+is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
 jp:グルテン,コムギ
 lt:avižos, avižų, glitimas,kamutas, kviečiai, kviečlų, kvietiniai, miežiai,  miežių, rugiai, spelta, manų
 lv:auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum
 mt:glutina, qamħ, segala, barli, ħafur, ispelt, kamut
+nb:gluten
 nl:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
 nl_be:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel
 pl:gluten, gluten pszenny, jęczmień, jęczmienny , kamut, owies, orkisz, owsiane, pszenica, pszenna, pszenne, pszenny, żytnia, żytopt:glúten, trigo, centeio, cevada, aveia, espelta, kamut, farinha de trigo, farinha de trigo integral
@@ -172,11 +175,13 @@ fi:soija, soijaa, soijasta, soijat, soijia, soijista, soijapapu, soijapapua, soi
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graine de soja, graines de soja, tofu
 ga:pónairí soighe, soighe
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
+is:soja
 it:soia, lecitina di soia
 jp:ダイズ,大豆,醤油
 lt:sojų pupelės, sojų
 lv:sojas pupas, sojas
 mt:soybeans
+nb:soya
 nl:soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be:soja, sojalecithine, sojaeiwitten, sojabonen
 pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe
@@ -203,11 +208,13 @@ fi:maito, maitoa, maidosta, maidot, maitoja, maidoista, kevytmaito, kevytmaitoa,
 fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette, laits et dérivés y compris lactose, lait de vache, lait de chèvre, lait de brebis, dérivés laitiers, protéines laitières, beurre concentré, gruyère, lait demi-écrémé, lait écrémé, lait frais
 ga:bainne, lachtós
 hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, tejszín, tejfehérje, tejpor, tejsavópor, savópor, tejzsír, tejet, tejcukor, tehéntej, joghurt, joghurtpor, joghurt kultúra, sajt, vaj
+is:mjólk
 it:latte, lattosio, parmigiano reggiano, grana padano
 jp:牛乳,乳,クリーム,バター,ヨーグルト,チーズ
 lt:išrügų, pienas, laktozę, pieno
 lv:laktozi, piena, piens, pilnpiena, vājpiena
 mt:ħalib, lattosju
+nb:melk
 nl:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 nl_be:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 pl:mleko, laktozą, mleka, mleczny
@@ -229,15 +236,17 @@ de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstück
 el:καρποί με κέλυφος, αμύγδαλα, φουντούκια, καρύδια, καρύδια κάσιους, καρύδια πεκάν, καρύδια Βραζιλίας, φυστίκια, καρύδια μακαντάμια, καρύδια Κουίνσλαντ
 es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles
 et:pähklid, mandlid, sarapuupähklid, kreeka pähklid, india pähklid, kašupähklid, pekanipähklid,  brasiilia pähklid, parapähklid, pistaatsiapähklid, makadaamiapähklid
-fi:pähkinät, pähkinä, pähkinää, pähkinästä, pähkinöitä, pähkinöistä, manteli, mantelia, mantelista, mantelit, manteleita, manteleja, manteleista, hasselpähkinä, hasselpähkinää, hasselpähkinästä, hasselpähkinät, hasselpähkinöitä, hasselpähkinöistä, saksanpähkinä, saksanpähkinää, saksanpähkinästä, saksanpähkinät, saksanpähkinöitä, saksanpähkinöistä, cashewpähkinä, cashewpähkinää, cashewpähkinästä, cashewpähkinät, cashewpähkinöitä, cashewpähkinöistä, pekaanipähkinä, pekaanipähkinää, pekaanipähkinästä, pekaanipähkinät, pekaanipähkinöitä, pekaanipähkinöistä, parapähkinä, parapähkinää, parapähkinästä, parapähkinät, parapähkinöitä, parapähkinöistä, pistaasipähkinä, pistaasipähkinää, pistaasipähkinästä, pistaasipähkinät, pistaasipähkinöitä, pistaasipähkinöistä, pistaasi, pistaasia, pistaasista, pistaasit, pistaaseja, pistaaseista, Macadamia-pähkinä, Macadamia-pähkinää, Macadamia-pähkinästä, Macadamia-pähkinät, Macadamia-pähkinöitä, Macadamia-pähkinöistä, Macadamiapähkinä, Macadamiapähkinää, Macadamiapähkinästä, Macadamiapähkinät, Macadamiapähkinöitä, Macadamiapähkinöistä, Queensland-pähkinä, Queensland-pähkinää, Queensland-pähkinästä, Queensland-pähkinät, Queensland-pähkinöitä, Queensland-pähkinöistä, pekaania, pekaanista, pekaanit, pekaaneja, pekaaneista
+fi:pähkinät, pähkinä, pähkinää, pähkinästä, pähkinöitä, pähkinöistä, manteli, mantelia, mantelista, mantelit, manteleita, manteleja, manteleista, hasselpähkinä, hasselpähkinää, hasselpähkinästä, hasselpähkinät, hasselpähkinöitä, hasselpähkinöistä, saksanpähkinä, saksanpähkinää, saksanpähkinästä, saksanpähkinät, saksanpähkinöitä, saksanpähkinöistä, cashewpähkinä, cashewpähkinää, cashewpähkinästä, cashewpähkinät, cashewpähkinöitä, cashewpähkinöistä, pekaanipähkinä, pekaanipähkinää, pekaanipähkinästä, pekaanipähkinät, pekaanipähkinöitä, pekaanipähkinöistä, parapähkinä, parapähkinää, parapähkinästä, parapähkinät, parapähkinöitä, parapähkinöistä, pistaasipähkinä, pistaasipähkinää, pistaasipähkinästä, pistaasipähkinät, pistaasipähkinöitä, pistaasipähkinöistä, pistaasi, pistaasia, pistaasista, pistaasit, pistaaseja, pistaaseista, Macadamia-pähkinä, Macadamia-pähkinää, Macadamia-pähkinästä, Macadamia-pähkinät, Macadamia-pähkinöitä, Macadamia-pähkinöistä, Macadamiapähkinä, Macadamiapähkinää, Macadamiapähkinästä, Macadamiapähkinät, Macadamiapähkinöitä, Macadamiapähkinöistä, Queensland-pähkinä, Queensland-pähkinää, Queensland-pähkinästä, Queensland-pähkinät, Queensland-pähkinöitä, Queensland-pähkinöistä, pekaania, pekaanista, pekaanit, pekaaneja, pekaaneista, muu pähkinä, muuta pähkinää, muusta pähkinästä, muut pähkinät, muita pähkinöitä, muista pähkinöistä
 fr:fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de Macadamia, noix du Queensland, fruits secs, autres fruits secs, autres fruits à coque, fruits secs à coque, fruits à coque dure
 ga:cnónna,  almóinní, cnónna coill, gallchnónna, cnónna caisiú, cnónna peagáin, cnónna Brasaíleacha, cnónna pistéise, cnónna macadaíme, cnónna Thír na Banríona
 hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
+is:hnetur
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland
 jp:種実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
 lt:riešutai, migdolai, lazdyno riešutai, graikiniai riešutai, anakardžiai, Anakardium occidentale, pekaninės karijos,  brazilinės bertoletijos, pistacijos, makadamijos, Kvinslendo riešutai
 lv:rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti,  Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
 mt:ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan,  ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
+nb:nøtter, andre nøtter
 nl:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 nl_be:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten,  paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan,  orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland

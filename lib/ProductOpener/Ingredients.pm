@@ -147,20 +147,26 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en => "possible traces|traces|may contain",
+	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
-	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
+	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	nl => "Kan sporen van",
+	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
 
 	en => "contains",
+	da => "indeholder",
 	es => "contiene",
 	fr => "contient",
 	nl => "bevat",
+	sv => "innehåller",
 );
 
 my %contains_or_may_contain_regexps = (
@@ -253,6 +259,13 @@ all => [
 	["S. thermophilus", "streptococcus thermophilus"],
 ],
 
+da => [
+	[ "bl. a", "blandt andet" ],
+	[ "inkl.", "inklusive" ],
+	[ "mod.",  "modificeret" ],
+	[ "past.", "pasteuriserede" ],
+],
+
 en => [
 	["vit.", "vitamin"],
 
@@ -263,8 +276,9 @@ es => [
 ],
 
 fi => [
-	["mm.", "muun muassa"],
-	["sis.", "sisältää"],
+	[ "mikro.", "mikrobiologinen" ],
+	[ "mm.",    "muun muassa" ],
+	[ "sis.",   "sisältää" ],
 ],
 
 fr => [
@@ -272,47 +286,83 @@ fr => [
 	["Mat. Gr.", "Matières Grasses"],
 ],
 
+nb => [
+	[ "bl. a", "blant annet" ],
+	[ "inkl.", "inklusive" ],
+	[ "papr.", "paprika" ],
+],
+
+sv => [
+	[ "bl. a",            "bland annat" ],
+	[ "förtjockn.medel",  "förtjockningsmedel" ],
+	[ "inkl.",            "inklusive" ],
+	[ "kons.medel",       "konserveringsmedel" ],
+	[ "max.",             "maximum" ],
+	[ "mikrob.",          "mikrobiellt" ],
+	[ "min.",             "minimum" ],
+	[ "mod.",             "modifierad" ],
+	[ "past.",            "pastöriserad" ],
+	[ "stabil.",          "stabiliseringsämne" ],
+	[ "surhetsreg.",      "surhetsreglerande" ],
+	[ "veg.",             "vegetabilisk" ],
+],
 );
 
 my %of = (
 	en => " of ",
 	ca => " de ",
+	da => " af ",
 	de => " von ",
 	es => " de ",
 	fr => " de la | de | du | des | d'",
+	is => " af ",
 	it => " di | d'",
 	nl => " of ",
+	nb => " av ",
+	sv => " av ",
 );
 
 my %and = (
 	en => " and ",
 	ca => " i ",
+	da => " og ",
 	de => " und ",
 	es => " y ",	# Spanish "e" before "i" and "hi" is handled by preparse_text()
 	fi => " ja ",
 	fr => " et ",
+	is => " og ",
 	it => " e ",
 	nl => " en ",
+	nb => " og ",
 	pt => " e ",
+	sv => " och ",
 );
 
 my %and_of = (
 	en => " and of ",
 	ca => " i de ",
+	da => " og af ",
 	de => " und von ",
 	es => " y de ",
 	fr => " et de la | et de l'| et du | et des | et d'| et de ",
+	is => " og af ",
 	it => " e di | e d'",
+	nb => " og av ",
+	sv => " och av ",
 );
 
 my %and_or = (
 	en => " and | or | and/or | and / or ",
+	da => " og | eller | og/eller | og / eller ",
 	de => " und | oder | und/oder | und / oder ",
 	es => " y | e | o | y/o | y / o ",
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
+	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
+	nb => " og | eller | og/eller | og / eller ",
+	sv => " och | eller | och/eller | och / eller ",
 );
 
 
@@ -1202,7 +1252,6 @@ sub parse_ingredients_text($) {
 						if (exists_taxonomy_tag("labels", $label_id)) {
 							# Add the label to the product
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-							compute_field_tags($product_ref, $product_lc, "labels");
 							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
 						}
@@ -1235,6 +1284,10 @@ sub parse_ingredients_text($) {
 								'^Täysmehu(?:osuus|pitoisuus)',
 								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
 								'^Kuiva-aineiden täysjyväpitoisuus',
+								'^Valmistettu myllyssä', # Valmistettu myllyssä, jossa käsitellään vehnää.
+								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
+								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 							],
 							
 							'nl' => [
@@ -2105,6 +2158,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
 		($lc eq 'nl') and return "vitamine $a";
+		($lc eq 'is') and return "$a-vítamín";
 		return "vitamin $a";
 	}
 	else {
@@ -2126,10 +2180,12 @@ sub normalize_vitamins_enumeration($$) {
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list;
 
-	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
+	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') { $split_vitamins_list = "vitaminer" }
+	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	elsif ($lc eq 'nl') { $split_vitamins_list = "vitamiinen" }
+	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
+	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);

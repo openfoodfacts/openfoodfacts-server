@@ -286,8 +286,6 @@ else {
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
 			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
-
-			compute_field_tags($product_ref, $lc, $field);
 		}
 
 		elsif (defined param($field)) {
