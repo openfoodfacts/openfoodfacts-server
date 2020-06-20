@@ -152,6 +152,7 @@ my %may_contain_regexps = (
 	fi => "saattaa sisältää pieniä määriä muita|saattaa sisältää pieniä määriä|saattaa sisältää pienehköjä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	nl => "Kan sporen van",
 );
 
 my %contains_regexps = (
@@ -159,6 +160,7 @@ my %contains_regexps = (
 	en => "contains",
 	es => "contiene",
 	fr => "contient",
+	nl => "bevat",
 );
 
 my %contains_or_may_contain_regexps = (
@@ -2102,6 +2104,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'nl') and return "vitamine $a";
 		return "vitamin $a";
 	}
 	else {
@@ -2126,6 +2129,7 @@ sub normalize_vitamins_enumeration($$) {
 	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
+	elsif ($lc eq 'nl') { $split_vitamins_list = "vitamiinen" }
 	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);

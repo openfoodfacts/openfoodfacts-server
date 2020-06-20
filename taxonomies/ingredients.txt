@@ -14266,9 +14266,6 @@ de:Himalayasalz
 es:Sal del Himalaya
 fr:Sel de l'Himalaya
 
-<en:sea salt
-en:salt from Noirmoutier, sea salt from Noirmoutier
-fr:sel de Noirmoutier, sel marin de Noirmoutier
 
 <en:salt
 en:Pink salt
@@ -14307,20 +14304,6 @@ es:sal no refinada
 fi:Karkea suola
 fr:sel non raffiné
 
-<en:unrefined salt
-en:unrefined sea salt
-ca:sal de mar no refinada
-es:sal de mar no refinada
-fr:sel marin non raffiné, sel de mer non raffiné
-it:sale marino integrale
-
-<en:sea salt
-en:Mediterranean salt, Mediterranean sea salt
-ca:sal de la mar Mediterrània, sal mediterrània
-da:middelhavssalt
-de:Mediterranes Meersalz
-es:Sal de la mar mediterránea, sal mediterránea
-fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
 
 en:Garlic salt
 ca:sal d'all
@@ -14404,13 +14387,17 @@ es:sal marina celta
 fr:Sel de la Mer Celtique
 
 <en:sea salt
+fr:sel gros de mer
+
+<en:sea salt
 en:unrefined sea salt
-ca:sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
+ca:sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
 de:Unraffiniertes Meersalz
-es:Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
+es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
 fi:raffinoimaton merisuola, puhdistamaton merisuola
-fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine
+fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, , sel de mer non raffiné
 hu:finomítatlan tengeri só
+it:sale marino integrale
 nl:ongeraffineerd zeezout
 
 <en:unrefined sea salt
@@ -14421,6 +14408,18 @@ es:sal marina sin refinar del Atlántico, sal de mar sin refinar del Atlántico,
 fi:atlantin raffinoimaton merisuola, atlantin puhdistamaton merisuola
 fr:Sel marin non raffiné de l'atlantique
 nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
+
+<en:sea salt
+en:salt from Noirmoutier, sea salt from Noirmoutier
+fr:sel de Noirmoutier, sel marin de Noirmoutier
+
+<en:sea salt
+en:Mediterranean salt, Mediterranean sea salt
+ca:sal de la mar Mediterrània, sal mediterrània
+da:middelhavssalt
+de:Mediterranes Meersalz
+es:Sal de la mar mediterránea, sal mediterránea
+fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
 
 <en:sea salt
 en:Salt from Guérande
@@ -18085,7 +18084,7 @@ kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln:Mafúta ma ndiká
 lt:Alyvpalmių sėklų aliejus
 ms:Minyak isirong sawit
-nl:Palmkernolie
+nl:Palmkernolie, palmpit
 pl:Olej z ziaren palmowych
 pt:palmiste
 ru:Пальмоядровое масло
@@ -18959,7 +18958,7 @@ it:Burro di karité
 ja:シアバター
 ko:시어 버터
 ms:Mentega syea
-nl:sheaboter
+nl:sheaboter, shea
 pl:Masło shea
 pt:ori,shea
 ro:unt de shea
@@ -46557,7 +46556,7 @@ carbon_footprint_fr_foodges_value:fr:1.3
 # do not make pepper a synonym of bell pepper
 
 <en:vegetable
-en:bell pepper
+en:bell pepper, paprika
 af:Soetrissie
 an:Pimiento
 ar:فلفل حلو
@@ -46711,7 +46710,6 @@ fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 de:Peperoni rot und gelb
 it:peperoni rossi e gialli
 # fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
-
 
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
@@ -47132,6 +47130,9 @@ zh:辣椒粉
 wikidata:en:Q3127593
 wikipedia:en:https://en.wikipedia.org/wiki/Paprika
 # fr:paprika 2505 in 24 languages products @2018-10-14
+
+<en:paprika
+en:paprika powder
 
 <en:paprika
 fr:paprika doux
@@ -50909,7 +50910,7 @@ fr:graines de tournesol
 hu:napraforgómag
 it:semi di girasole
 nb:solsikkekjerner
-nl:zonnebloempitten
+nl:zonnebloempitten, zonnebloempit
 nn:solsikkefrø
 pl:Nasiona słonecznika
 ru:Семена Подсолнечника
