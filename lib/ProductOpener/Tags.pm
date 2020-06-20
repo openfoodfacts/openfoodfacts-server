@@ -2673,34 +2673,24 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 		else {
 
-			# try matching in other languages
-			my @test_languages = ();
-			
-			if (($tagtype eq "countries") or ($tagtype eq "languages")
-				or ($tagtype eq "labels") or ($tagtype eq "origins")) {
-				@test_languages = ("en");
-			}
+			# try matching in other languages (by default, in English)
+			my @test_languages = ("en");
 			
 			if (defined $options{product_type}) {
 				
 				if ($options{product_type} eq "food") {
 				
+					# Latin animal species (e.g. for fish)
 					if ($tagtype eq "ingredients") {
 						@test_languages = ("la");
-					}
-					elsif (($tagtype eq "additives") or ($tagtype eq "minerals")) {
-						@test_languages = ("en");
-					}				
+					}			
 				}
 				elsif ($options{product_type} eq "beauty") {
 				
-					# Beauty products ingredients are often in English
+					# Beauty products ingredients are often in English or Latin
 					if ($tagtype eq "ingredients") {
 						@test_languages = ("en", "la");
-					}
-					elsif ($tagtype eq "additives") {
-						@test_languages = ("en");
-					}				
+					}			
 				}
 			}
 
@@ -3407,14 +3397,15 @@ sub add_tags_to_field($$$$) {
 			$value = $product_ref->{$field};
 		}
 		(defined $value) or $value = "";
-
+		
 		$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
+		
+		if ($product_ref->{$field} =~ /^, /) {
+			$product_ref->{$field} = $';
+		}
+		
+		compute_field_tags($product_ref, $tag_lc, $field);
 	}
-
-	if ($product_ref->{$field} =~ /^, /) {
-		$product_ref->{$field} = $';
-	}
-
 }
 
 

@@ -950,7 +950,6 @@ sub compute_data_sources($) {
 
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
-		compute_field_tags($product_ref, "en", "data_sources");
 	}
 }
 
