@@ -1,105 +1,126 @@
-<p> Testing </p>
-<!-- <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form"> -->
+<h1> [% lang('search_products') %] </h1>
+<form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form">
     
     <!-- Word Search -->
 
-    <!-- <div class="row">
+    <div class="row">
         <div class="large-12 columns">
-            TEST 1
             <label for="search_terms2">[% lang ('search_terms_note') %]</label>
             <input type="text" name="search_terms2" id="search_terms2" value="[%search_terms%]" />
 	    </div>
-    </div> -->
+    </div>
 
     <!-- Criteria -->
 
-    <!-- <h3>[% lang('search_tags') %]</h3>
-    <label>[% lang('search_criteria') %]</label> -->
+    <h3>[% lang('search_tags') %]</h3>
+    <label>[% lang('search_criteria') %]</label>
 
     <!-- Criteria form -->
 
-    <!-- <div class="row">
-
-        <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
-            <div class="row">
-                <div class="small-12 medium-12 large-5 columns">
+    <div class="row">
+        [% FOREACH type IN criteria %]
+            <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
+                <div class="row">
+                    <div class="small-12 medium-12 large-5 columns">
+                        [% popup_menu(name=>"tagtype_${type.id}", id=>"tagtype_${type.id}", value=> type.type_value, values=> type.type_values, labels=> type.type_labels) %]
+                    </div>
+                    <div class="small-12 medium-12 large-3 columns">
+                        [% popup_menu(name=>"tag_contains_${type.id}", id=>"tag_contains_${type.id}", value=> type.contain_value, values=> type.contain_values, labels=> type.contain_labels) %]
+                    </div>
+                    <div class="small-12 medium-12 large-4 columns tag-search-criterion">
+                        <input type="text" id="tag_[% type.id %]" name="tag_[% type.id %]" value="[% type.input_value %]" placeholder="[% lang('search_value') %]"/>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    
-    </div> -->
+        [% END %]
+    </div>
 
     <!-- Ingredients Form -->
 
-    <!-- <h3>[% lang('search_ingredients') %]</h3>
+    <h3>[% lang('search_ingredients') %]</h3>
 
     <div class="row">
-        [% FOREACH type IN tagtype %]
+        [% FOREACH type IN ingredients %]
 
             <div class="small-12 medium-12 large-6 columns">
-                <label>[% lang ("${type}_p") FILTER ucfirst %]</label>
-                <input type="radio" name="$tagtype" value="without" id="without_$tagtype" $search_ingredient_classes_checked{$tagtype}{without}/>
-				    <label for="without_$tagtype">[% lang('search_without') %]</label>
-			    <input type="radio" name="$tagtype" value="with" id="with_$tagtype" $search_ingredient_classes_checked{$tagtype}{with}/>
-				    <label for="with_$tagtype">$Lang{search_with}{$lc}</label>
-			    <input type="radio" name="$tagtype" value="indifferent" id="indifferent_$tagtype" $search_ingredient_classes_checked{$tagtype}{indifferent}/>
-				    <label for="indifferent_$tagtype">[% lang('search_indifferent') %]</label>
+                <label>[% lang ("${type.tagtype}_p") FILTER ucfirst %]</label>
+                <input type="radio" name="[% type.tagtype %]" value="without" id="without_[% type.tagtype %]" [% type.search_ingredient_classes_without %]/>
+				    <label for="without_[% type.tagtype %]">[% lang('search_without') %]</label>
+			    <input type="radio" name="[% type.tagtype %]" value="with" id="with_[% type.tagtype %]" [% type.search_ingredient_classes_checked_with %]/>
+				    <label for="with_[% type.tagtype %]">[% lang('search_with') %]</label>
+			    <input type="radio" name="[% type.tagtype %]" value="indifferent" id="indifferent_[% type.tagtype %]" [% type.search_ingredient_classes_checked_indifferent %]/>
+				    <label for="indifferent_[% type.tagtype %]">[% lang('search_indifferent') %]</label>
             </div>
 
         [% END %]
-    </div> -->
+    </div>
 
     <!-- Nutriments Form -->
 
-    <!-- <h3>[% lang('search_nutriments') %]</h3>
+    <h3>[% lang('search_nutriments') %]</h3>
 
     <div class="row">
-
-    </div> -->
+        [% FOREACH type IN nutriments %]
+            <div class="small-12 medium-12 large-6 columns">
+                <div class="row">
+                    <div class="small-8 columns">
+                        [% popup_menu(class=>"select2_field", name=>"nutriment_${type.id}", id=>"nutriment_${type.id}", value=> type.value, values=> type.values, labels=> type.labels) %]
+                    </div>
+                    <div class="small-2 columns">
+                        [% popup_menu(name=>"nutriment_compare_${type.id}", id=>"nutriment_compare_${type.id}", value=> type.compare_value, values=> type.compare_values, labels=> type.compare_labels) %]
+                    </div>
+                    <div class="small-2 columns">
+                        <input type="text" id="nutriment_value_${type.id}" name="nutriment_value_${type.id}" value="[% type.input_value %]" />
+                    </div>
+                </div>
+            </div>
+        [% END %]
+    </div>
 
     <!-- Different types to display results -->
 
-    <!-- <input type="hidden" name="action" value="process" />
+    <input type="hidden" name="action" value="process" />
 
     <ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
-
+        
         <li class="accordion-navigation">
             <a href="#results_list" style="border-top:1px solid #ccc"><h3>[% lang('search_list_choice') %]</h3></a>
-            <div id="results_list" class="content $active_list">
+            <div id="results_list" class="content [% type.active_list %]">
                 <div class="row">
                     <div class="small-6 columns">
                         <label for="sort_by">[% lang('sort_by') %]</label>
-                        [% popup_sort %]
+                        [% type.popup_sort %]
                     </div>
                     <div class="small-6 columns">
                         <label for="page_size">[% lang('search_page_size') %]</label>
-                        [% popup_size %]
+                        [% type.popup_size %]
                     </div>
                 </div>
-
                 <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />
             </div>
-        </li> -->
-
+        </li>
+        
         <!-- Graphs and visualization -->
 
-        <!-- <li class="accordion-navigation">
-            <a href="#results_graph" style="border-top:1px solid #ccc"><h3>[% lang('search_graph_choice') %]</h3></a>
-            <div id="results_graph" class="content $active_graph">
-    
+        <li class="accordion-navigation">
+            <a href="#results_graph" style="border-top:1px solid #ccc">
+                <h3>[% lang('search_graph_choice') %]</h3>
+            </a>
+            <div id="results_graph" class="content [% active_graph %]">
                 <div class="alert-box info">[% lang('search_graph_note') %]</div>
     
                 <label for="graph_title">[% lang('graph_title') %]</label>
-                <input type="text" name="graph_title" id="graph_title" value="$graph_ref->{graph_title}" />
+                <input type="text" name="graph_title" id="graph_title" value="" />
     
                 <p>[% lang('search_graph_instructions') %]</p>
     
                 <div class="row">
-                    [% FOREACH axis IN ['x', 'y'] %]
+                    [% FOREACH type IN results %]
                         <div class="small-12 medium-6 columns">
 
-                            <label for=[% "axis_" _ axis %]> lang("axis_${axis}") </label>
+                            <label for= "axis_[% type.id %]">[% lang("axis_${type.id}") %]</label>
+
+                            [% popup_menu(class=>"select2_field", name=>"axis_${type.id}", id=>"axis_${type.id}", value=> type.value, values=> type.values, labels=> type.labels) %]
                         
                         </div>
 
@@ -109,13 +130,26 @@
                 <div class="row">
                     <div class="small-12 medium-6 columns">
                         <p>[% lang('search_series') %]</p>
-                        ....
-
-        </li> -->
+                        [% FOREACH series IN search_series %]
+                            [% IF series.series == 'nutrition_grades' %]
+                                </div>
+                                <div class="small-12 medium-6 columns">
+                                    <p>[% lang('or') %]</p>
+                            [% END %]
+                            <input type="checkbox" id="series_[% series.series %]" name="series_[% series.series %]" [% series.checked %] />
+					        <label for="series_[% series.series %]" class="checkbox_label">
+                                [% lang("search_series_${series.series}") %]
+                            </label>
+                        [% END %]
+                    </div>
+                </div>
+                <input type="submit" name="graph" value="[% lang('search_generate_graph') %]" class="button" />
+            </div>
+        </li>
 
         <!-- Map results -->
 
-        <!-- <li class="accordion-navigation">
+        <li class="accordion-navigation">
             <a href="#results_map" style="border-top:1px solid #ccc"><h3>[% lang('search_map_choice') %]</h3></a>
             <div id="results_map" class="content [% active_map %]">
 
@@ -127,11 +161,11 @@
                 <input type="submit" name="generate_map" value="[% lang ('search_generate_map') %]" class="button" />
 
 		    </div>
-        </li> -->
+        </li>
         
         <!-- Download results -->
 
-        <!-- <li class="accordion-navigation">
+        <li class="accordion-navigation">
             <a href="#results_download" style="border-top:1px solid #ccc"><h3>[% lang('search_download_choice') %]</h3></a>
             <div id="results_download" class="content">
 
@@ -146,5 +180,5 @@
 
             </div>
         </li>
-    </ul> -->
-<!-- </form> -->
+    </ul>
+</form>

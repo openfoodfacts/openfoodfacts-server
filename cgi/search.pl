@@ -58,10 +58,11 @@ my $tt = Template->new({
 my $template_data_ref = {
 		
 	lang => \&lang,
+	popup_menu => \&popup_menu,
 		
 };
 
-#my $criteria;
+my $criteria;
 
 my $html;
 
@@ -278,6 +279,17 @@ HTML
 HTML
 ;
 
+		push @{$template_data_ref->{criteria}}, {
+			id => $i,
+			type_value => $search_tags[$i][0],
+			type_values => ['search_tag', @search_fields],
+			type_labels => \%search_fields_labels,
+			contain_value => $search_tags[$i][1],
+			contain_values => ["contains", "does_not_contain"],
+			contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
+			input_value => $search_tags[$i][2],
+		};
+
 		$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> $search_tags[$i][0], -values=>['search_tag', @search_fields], -labels=>\%search_fields_labels);
 
 		$html .= <<HTML
@@ -319,6 +331,12 @@ HTML
 		<label>$label</label>
 HTML
 ;
+		push @{$template_data_ref->{ingredients}}, {
+			tagtype => $tagtype,
+			search_ingredient_classes_without => $search_ingredient_classes_checked{$tagtype}{without},
+			search_ingredient_classes_with => $search_ingredient_classes_checked{$tagtype}{with},
+			search_ingredient_classes_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
+		};
 
 
 		$html .= <<HTML
@@ -370,6 +388,18 @@ HTML
 			<div class="small-8 columns">
 HTML
 ;
+
+		push @{$template_data_ref->{nutriments}}, {
+			id => $i,
+			value => $search_nutriments[$i][0],
+			values => ["", @sorted_axis_values],
+			labels => \%axis_labels,
+			compare_value => $search_nutriments[$i][1],
+			compare_values => ['lt','lte','gt','gte','eq'],
+			compare_labels => {'lt' => '<', 'lte' => "\N{U+2264}", 'gt' => '>', 'gte' => "\N{U+2265}", 'eq' => '='},
+			input_value => $search_nutriments[$i][2],
+
+		};
 
 		$html .= popup_menu(-class=>"select2_field", -name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
 
@@ -448,13 +478,21 @@ HTML
 ;
 
 
-
 	foreach my $axis ('x','y') {
 
 		$html .= <<HTML
 				<div class="small-12 medium-6 columns">
 HTML
 ;
+
+		push @{$template_data_ref->{results}}, {
+			id => $axis,
+			value => $graph_ref->{"axis_" . $axis},
+			values => ["", @sorted_axis_values],
+			labels => \%axis_labels,
+
+		};
+
 		$html .= "<label for=\"axis_$axis\">" . lang("axis_$axis") . "</label>"
 			. popup_menu(-class=>"select2_field", -name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
 
@@ -496,6 +534,11 @@ HTML
 
 HTML
 ;
+		push @{$template_data_ref->{search_series}}, {
+			series => $series,
+			checked => $checked,
+
+		};
 
 	}
 
@@ -577,8 +620,9 @@ var select2_options = {
 JS
 ;
 
-$tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
-print "HISH $html";
+
+$tt->process('search_form.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
 
