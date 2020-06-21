@@ -8964,7 +8964,7 @@ en:lactose and milk proteins
 ca:lactosa i proteïnes de la llet, proteïnes de la llet i lactosa
 da:Laktose og mælkeprotein
 de:Milchzucker und Milcheiweiß, Milchzucker und Milcheiweiss
-es:lactosa y proteínas de la leche, proteínas de la leche y lactosa
+es:lactosa y proteínas de la leche, proteínas de la leche y lactosa,proteinas de leche
 fi:laktoosi- ja maitoproteiini
 fr:lactose et protéine de lait, lactose et protéines de lait, protéines de lait et lactose, protéine de lait et lactose
 hu:laktóz és tejfehérje, tejcukor és tejfehérje
@@ -21940,6 +21940,7 @@ es:aroma de brandy
 en:orange flavouring
 da:appensinsmag
 de:Orangenaroma
+es:aroma de naranja
 fi:appelsiiniaromi
 fr:arôme d'orange
 hu:narancsaroma
@@ -22005,6 +22006,10 @@ es:aroma de eucalipto
 
 # Two parents due to and/or ingredient
 
+<en:natural flavouring
+en:citric flavouring
+es:aroma natural a citricos
+ 
 <en:natural orange flavouring
 <en:with other natural flavouring
 fr:arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
@@ -23233,6 +23238,7 @@ sv:naturlig maltarom
 en:cream flavouring
 da:flødearoma
 de:sahnearoma
+es:aroma de nata
 fi:kerma-aromi
 fr:arôme de crème
 it:aroma di panna
@@ -23532,6 +23538,12 @@ de:Hirse
 fr:sorgho
 hu:cirok
 sk:cirok
+
+##################################################################################
+#
+#                        WHEAT
+#
+##################################################################################
 
 # description:en:WHEAT is a grass widely cultivated for its seed.
 
@@ -24304,6 +24316,12 @@ ru:Панко
 wikidata:en:Q1820454
 # en:panko has 20 products in english @2018-11-12
 
+##################################################################################
+#
+#                        EMMER
+#
+##################################################################################
+
 <en:cereal
 en:emmer
 de:Emmer
@@ -24318,6 +24336,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Teff
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
+
+##################################################################################
+#
+#                        BARLEY
+#
+##################################################################################
 
 # Barley (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
 # The translations taken from wikipedia need to be checked. They can refer to the plant species.
@@ -24509,6 +24533,12 @@ fr:orge perlé
 hu:árpagyöngy
 # ingredient/fr:orge-perle has 21 products @2019-06-05
 
+##################################################################################
+#
+#                        RYE
+#
+##################################################################################
+
 # RYE (Secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
 
 <en:cereal
@@ -24655,6 +24685,10 @@ sv:rågflingor
 # 87 entries @ 2018-09-22
 
 <en:rye
+en:rye grains
+es:granos de centano,grañones completos de centeno
+
+<en:rye
 de:Roggengrießkleie
 # Question
 
@@ -24716,6 +24750,12 @@ en:wholemeal rye groats
 da:groftmalet fuldkornsrugmel
 fi:täysjyväruisrouhe, täysjyväruisrouhetta
 sv:fullkornsrågkross
+
+##################################################################################
+#
+#                        MALT
+#
+##################################################################################
 
 # Malt is germinated cereal grains that have been dried in a process known as "malting".
 
@@ -24937,6 +24977,12 @@ fi:ruismallasrouhe, kaljamallas
 sv:rågmaltkross
 # ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
 
+##################################################################################
+#
+#                        BUCKWHEAT
+#
+##################################################################################
+
 # BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
 
 <en:cereal
@@ -25032,6 +25078,12 @@ nl:boekweitflakes
 
 <en:buckwheat
 fr:sarrasin réhydraté
+
+##################################################################################
+#
+#                        OAT
+#
+##################################################################################
 
 # description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
 
@@ -25312,6 +25364,12 @@ sv:havrebas
 # mainIngredient:en:water
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
+##################################################################################
+#
+#                        MILLET
+#
+##################################################################################
+
 <en:cereal
 en:millet
 de:Hirse
@@ -25356,6 +25414,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Amaranth
 wikidata:en:Q156344
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/amaranth
 # 266 products in 4 languages @2018-09-22
+
+##################################################################################
+#
+#                        QUINOA
+#
+##################################################################################
 
 # QUINOA (Chenopodium quinoa) is a flowering plant in the amaranth family.
 
@@ -25471,6 +25535,12 @@ fr:quinoa cuit
 <en:red quinoa
 <en:white quinoa
 fr:quinoa rouge et blanc
+
+##################################################################################
+#
+#                        SPELT
+#
+##################################################################################
 
 # SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
 
@@ -25605,6 +25675,12 @@ pt:kamut
 ru:камут
 sl:kamut
 sv:kamut
+
+##################################################################################
+#
+#                        FLOUR
+#
+##################################################################################
 # description:en:FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
 
 en:flour
@@ -26457,6 +26533,12 @@ fr:farine de noix de coco, farine de coco
 sv:kokosmjöl
 # ingredient/fr:farine-de-noix-de-coco has 24 products in 2 languages @2020-06-08
 
+##################################################################################
+#
+#                        CORN/MAIZE
+#
+##################################################################################
+
 # description:en:Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
 # comment:en:On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
 
@@ -26813,7 +26895,11 @@ nl:gemalen maïs
 pt:milho moído
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs-moulu 28 products in 3 languages @2018-09-24
 
-
+#######################################################################################################################################
+#
+#                         Rice
+#
+#######################################################################################################################################
 # Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 
 en:rice
@@ -27659,7 +27745,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carnaroli
 # category/carnaroli-rices has 7 products @2019-05-29
 
 
-####### processed rices
+################################    processed rices
+
+<en:rice
+en:rice cream
+es:crema de arroz
 
 <en:rice
 fr:riz moulu
@@ -27787,9 +27877,13 @@ fr:riz rouge germé
 <en:rice
 fr:riz riceberry mélangé
 
-# THICKENER
+##################################################################################
+#
+#                        CAROB/LOCUST BEAN
+#
+##################################################################################
 
-# question
+# THICKENER
 
 en:carob
 ca:garrofa
@@ -27890,6 +27984,11 @@ pt:goma arábica
 # stabilisant (gomme arabique)
 
 
+##################################################################################
+#
+#                        SUGAR
+#
+##################################################################################
 
 # SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
@@ -28374,7 +28473,7 @@ sv:rårörsocker
 
 <en:cane sugar
 en:whole cane sugar
-es:azucar de caña integral
+es:azucar de caña integral,azucar integral de caña 
 
 <en:unrefined cane sugar
 fr:sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
@@ -29707,6 +29806,11 @@ wikidata:en:Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
 # ingredient/fructooligosaccharide has 139 products in 7 languages @2019-05-06
 
+##################################################################################
+#
+#                        PROTEINS
+#
+##################################################################################
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
@@ -37138,7 +37242,7 @@ en:orange zest, orange peel
 ca:pell de taronja
 da:orangeskal
 de:Orangenschale, Orangenschalen
-es:cáscara de naranja, corteza de naranja
+es:cáscara de naranja, corteza de naranja,ralladura de naranja
 et:apelsinikoor
 fi:appelsiininkuori, appelsiinikuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
@@ -43294,6 +43398,10 @@ es:Remolacha en polvo
 fi:punajuurijauhe
 fr:poudre de betterave
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
+
+<en:beetroot
+en:beetroot syrup
+es:sirope de remolacha
 
 <en:beetroot
 fr:jus de betterave
@@ -55002,6 +55110,9 @@ sv:torkad gräslök
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette-déshydratée
 # 69 products in 3 languages @2018-10-08
 
+<en:chives
+en:chive seasoning
+
 <en:herb
 de:Borretsch
 fr:bourrache
@@ -58865,6 +58976,10 @@ vegetarian:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 carbon_footprint_fr_foodges_value:fr:1.9
+
+<en:mushroom
+en:mixed mushrooms
+es:mezcla de setas
 
 <en:mushroom
 en:forest mushroom
@@ -71516,7 +71631,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Neapolitan_wafer
 # <en:compound
 en:wafer,wafers
 de:oblaten
-es:oblea,obleas
+es:oblea,obleas,barquillo,barquillo sin azúcares añadidos
 fi:Vohvelit
 fr:pain azyme
 it:wafer
@@ -74652,6 +74767,9 @@ pt:margarina vegetal
 vegan:en:yes
 vegetarian:en:yes
 
+<en:margarine
+<en:dairy
+es:oleomargarina bovina
 
 en:laurel extract
 da:laurbærekstrakt
