@@ -8013,7 +8013,7 @@ sv:steriliserad mjölk
 
 # comment:en:Pasteurisation is a specific sterilisation method
 
-<en:sterilised milk
+<en:milk
 en:pasteurised milk
 ca:llet pasteuritzada
 da:pasteuriseret mælk
@@ -8035,7 +8035,7 @@ sv:pastöriserad mjölk
 en:pasteurised cows milk
 es:leche pasteurizada de vaca
 
-<en:pasteurised milk
+<en:sterilised milk
 en:UHT pasteurised milk
 ca:llet esterilitzada UHT
 de:UHT Milch
@@ -8197,7 +8197,8 @@ pt:leite pasteurizado desnatado, leite desnatado pasteurizado
 sv:pastöriserad skummjölk
 # ingredient/fr:lait-ecreme-pasteurise has 429 products @2019-05-25
 
-<en:pasteurized skimmed milk
+<en:skimmed milk
+<en:sterilised milk
 en:UHT sterilised skimmed milk
 ca:llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
 de:entrahmte H-Milch
@@ -29654,6 +29655,10 @@ fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
 
 
+<en:sweetner
+en:oligosaccharides
+es:oligosacáridos
+
 # description:en:FRUCTOOLIGOSACCHARIDES (FOS) also sometimes called oligofructose or oligofructan, are oligosaccharide fructans, used as an alternative sweetener. FOS is extracted from the blue Agave plant as well as fruits and vegetables such as bananas, onions, chicory root, garlic, asparagus, jícama, and leeks.
 
 <en:sweetener
@@ -29661,7 +29666,7 @@ en:Fructooligosaccharide
 ar:قليل السكاريد الفركتوزي
 ca:Fructooligosacàrid
 de:Oligofructose
-es:Fructooligosacárido
+es:Fructooligosacárido,Fructoligosacáridos
 et:Fruktooligosahhariidide puhastamine
 eu:Fruktooligosakarido
 fi:frukto-oligosakkaridi
@@ -43214,6 +43219,7 @@ sv:akaciafiber
 # <en:fibre
 en:galacto-oligosaccharides
 de:Galacto-oligosaccharides
+es:Galactoligosacáridos
 fi:galakto-oligosakkaridit
 fr:galacto-oligosaccharides
 hu:galakto oligoszaharid
@@ -60310,6 +60316,15 @@ carbon_footprint_fr_foodges_value:fr:10.2
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 carbon_footprint_fr_foodges_value:fr:11.5
 
+# Fish are classified as while or oily 
+<en:fish
+en:oily fish
+es:pescado azul
+
+<en:fish
+en:white fish
+es:pescado blanco
+
 <en:fish
 fr:extrait de poisson
 de:Fischextrakt
@@ -60470,6 +60485,7 @@ fr:poissons entiers pêchés en Méditerranée
 # The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae.
 
 <en:fish
+<en:white fish
 en:alaska pollock, Alaskan pollock, Theragra chalcogramma
 az:Mintay
 bg:treska pestrá
@@ -60478,15 +60494,15 @@ de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs, Alaska-Seelachsfilet, Alask
 es:Abadejo de Alaska, colín de Alaska
 fa:زغال‌ماهی آلاسکا
 fi:Alaskanseiti
-fr:Colin d'Alaska
+fr:Colin d'Alaska,Theragra chalcogramma
 is:Alaskaufsi
-it:merluzzo dell'Alaska, pollack, Pollack d'Alaska
+it:merluzzo dell'Alaska, pollack, Pollack d'Alaska,Theragra chalcogramma
 ja:スケトウダラ
 ka:მინტაი
 kk:Минтай
 ko:명태
 ky:Минтай
-la:Theragra chalcogramma
+la:Theragra chalcogmaquereauramma,Theragra chalcogramma
 ms:Pollock Alaska
 nb:Alaskatheragra
 nl:Alaskakoolvis, alaskapollak, Alaska koolvis
@@ -60509,24 +60525,16 @@ en:Alaskan Pollock fillet
 de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
 es:abadejo de Alaska
 fi:alaskanseitifilee
-fr:filet de colin d'Alaska, filets de colin d'alaska
+fr:filet de colin d'Alaska, filets de colin d'alaska,Portions de bloc de filets de COLIN d'Alaska MSC
 it:Fietti di Merluzzo dell'Alaska
 nl:Alaska koolvisfilet
 sv:alaska pollock-filé, filé av alaska pollock
 # ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
 
-<en:alaska pollock
-en:Theragra chalcogramma
-fr:Theragra chalcogramma, Colin d'Alaska
-it:Theragra chalcogramma
-la:Theragra chalcogmaquereauramma
-
-<en:alaska pollock
-fr:Portions de bloc de filets de COLIN d'Alaska MSC
-
 # An anchovy is a small, common forage fish of the family Engraulidae.
 
 <en:fish
+<en:oily fish
 en:anchovy, anchovies
 ar:بلمية
 az:Ançouslar
@@ -60602,6 +60610,7 @@ en:anchovy paste
 ca:pasta d'anxova
 cs:sardelova pasta
 de:Serdellenkreme
+es:pasta de anchoa
 fi:anjovistahna
 fr:pâte d'anchois
 it:pasta d'acciughe
@@ -60627,6 +60636,8 @@ fr:anchois salés
 # Anchois salés (Anchois, sel)
 
 <en:anchovy
+en:anchovy filets
+es:filetes de anchoas
 fr:filets d'anchois
 de:Sardellenfilets
 fi:anjovisfilee
@@ -60634,9 +60645,6 @@ it:Filetti d'acciuga
 # ingredient/fr:filets-d'anchois has 36 products in 4 languages @2019-01-06
 
 <en:anchovy
-en:anchovy filets
-es:filetes de anchoas
-
 en:salted anchovy filets
 de:gesalzene Sardellenfilets
 fi:suolattu anjovisfilee
@@ -60678,6 +60686,7 @@ la:Engraulis encrasicolus, Engraulis encrasicholus
 # The anglerfish is a fish of the teleost order Lophiiformes
 
 <en:fish
+<en:white fish
 en:Anglerfish, angler fish
 ar:عفريت البحر
 az:Dəniz şeytanı
@@ -60781,6 +60790,7 @@ la:Anarhichas lupus
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
 <en:fish
+<en:white fish
 en:blue whiting
 bg:синя северна треска
 br:Merlank glas
@@ -60815,6 +60825,7 @@ la:Micromesistius poutassou
 # The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
 
 <en:fish
+<en:white fish
 en:burbot
 ar:بربوط
 ba:Шамбы
@@ -60955,6 +60966,7 @@ la:Mallotus villosus
 # Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae.
 
 <en:fish
+<en:white fish
 en:cod, codfish
 af:Europese kabeljou
 ar:قد
@@ -61147,6 +61159,7 @@ la:Sebastes mentella
 
 <en:fish
 <en:rockfish
+<en:oily fish
 en:European conger
 ar:قنجر أوروبي
 bg:европейска морска змиорка
@@ -61200,7 +61213,8 @@ la:Conger conger
 # The European plaice (Pleuronectes platessa) is a commercially important flatfish
 
 <en:fish
-en:European plaice
+<en:white fish
+en:European plaice,plaice
 ar:سمك موسى
 az:Dəniz kambalası
 bg:европейска камбала
@@ -61254,6 +61268,7 @@ la:Pleuronectes platessa
 # description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
 
 <en:fish
+<en:white fish
 en:flounder
 ar:مفلطح
 de:Flunder
@@ -61315,6 +61330,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 # The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
 
 <en:fish
+<en:white fish
 en:haddock
 af:Skelvis
 ar:الحدوق
@@ -61378,6 +61394,7 @@ la:Melanogrammus aeglefinus
 # The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
 
 <en:fish
+<en:white fish
 en:hake
 bg:мерлуз
 ca:lluç
@@ -61533,6 +61550,7 @@ la:Merluccius hubbsi
 # description:en:HALIBUT is a common name principally applied to the two flatfish in the genus Hippoglossus from the family of right-eye flounders. Halibut are often boiled, deep-fried or grilled while fresh.
 
 <en:fish
+<en:white fish
 en:halibut
 da:helleflynder
 de:Heilbutt
@@ -61542,6 +61560,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 # Herring are forage fish, mostly belonging to the family Clupeidae.
 
 <en:fish
+<en:oily fish
 en:herring
 ak:Adwene
 br:Harink
@@ -61662,6 +61681,7 @@ la:Clupea harengus
 # Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
 
 <en:fish
+<en:oily fish
 en:jack mackarels
 ar:طرخورة
 be:Стаўрыды
@@ -61693,6 +61713,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
 fr:limande
 
 <en:fish
+<en:white fish
 en:monkfish
 es:rape
 wikipedia:en:https://en.wikipedia.org/wiki/Lophius
@@ -61769,6 +61790,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisopterus_luscus
 # The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 
 <en:fish
+<en:white fish
 en:saithe, pollock
 bg:сайда
 bn:পোলক
@@ -61824,6 +61846,7 @@ la:Pollachius virens
 # Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 
 <en:fish
+<en:oily fish
 en:salmon
 af:Salm
 ar:سلمون
@@ -62170,6 +62193,7 @@ la:oncorhynchus nerka
 # The European pilchard (Sardina pilchardus) is a species of ray-finned fish in the monotypic genus Sardina.
 
 <en:fish
+<en:oily fish
 en:sardine, sardines, European pilchard
 af:Sardyn
 ar:سردين
@@ -62278,6 +62302,7 @@ fr:sardines précuites
 # description:en:Scorpaenidae (also known as the SCORPIONFISH) are a family of mostly marine fish that includes many of the world's most venomous species.
 
 <en:fish
+<en:white fish
 en:scorpion fish
 ar:عقارب البحر
 bg:риби скорпион
@@ -62322,6 +62347,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
 # description:en:SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family.
 
 <en:fish
+<en:white fish
 en:sole
 ar:سمك موسى
 de:Seezunge
@@ -62392,6 +62418,7 @@ fr:préparation à base de surimi
 # préparation de surimi  (chair de poisson, stabilisants:sorbitol, polyphosphates)
 
 <en:fish
+<en:white fish
 en:thread-fin bream
 ar:عندق
 bg:Тънкопери каракуди
@@ -62474,11 +62501,8 @@ fi:tonnikalafilee
 <en:tuna
 en:precooked tuna
 de:gegarter Thunfisch, Thunfisch gegart
-fr:thon précuit
+fr:thon précuit,thon précuit haché
 # ingredient/fr:thon-précuit has 30 products in french @2019-01-02
-
-<en:precooked tuna
-fr:thon précuit haché
 
 <en:tuna
 fr:Ventrèches de thon
@@ -62649,6 +62673,7 @@ fr:thon au naturel
 # The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
 
 <en:fish
+<en:white fish
 en:blue grenadier
 ca:lluç de cua afuada neozelandès
 cs:treskovník novozélandský
@@ -62703,6 +62728,7 @@ la:Macruronus magellanicus
 # Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
 
 <en:fish
+<en:oily fish
 en:mackarel
 ar:الإسقمري
 bg:скумрия
@@ -62818,6 +62844,7 @@ la:Molva
 # The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
 
 <en:fish
+<en:white fish
 en:sea breams, seabream
 af:Sparidae
 ar:فصيلة الأسبور
@@ -62940,6 +62967,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Pagellus
 # Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
 
 <en:fish
+<en:oily fish
 en:swordfish
 af:Swaardvis
 ar:سمكة السيف
@@ -63036,6 +63064,7 @@ la:Xiphias gladius
 # Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae.
 
 <en:fish
+<en:oily fish
 en:trout
 ar:أسماك التروتة
 az:Alabalıq
@@ -63212,6 +63241,7 @@ fr:Filethe de truite arc-en-ciel
 # The tub gurnard, Chelidonichthys lucerna (also C. lucernus, Trigla lucerna, T. corax) is a species of bottom-dwelling coastal fish with a spiny armored head and fingerlike pectoral fins used for crawling along the sea bottom.
 
 <en:fish
+<en:white fish
 en:tub gurnard
 br:Talgorn
 ca:lluerna rossa
@@ -63242,6 +63272,7 @@ la:Trigla lucerna, Chelidonichthys lucerna
 # description:en:The TURBOT (Scophthalmus maximus) is a species of flatfish in the family Scophthalmidae. It is a valuable commercial species, acquired through aquaculture and trawling. Turbot is highly prized as a food fish for its delicate flavour.
 
 <en:fish
+<en:white fish
 en:turbot
 fi:piikkikampela
 fr:turbot
@@ -63283,6 +63314,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Weever
 # Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
 
 <en:fish
+<en:white fish
 en:whiting, merling
 bg:мерланг
 br:Merlank
