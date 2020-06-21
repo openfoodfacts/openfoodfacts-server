@@ -10587,6 +10587,10 @@ nova:en:3
 # en:cheese has 579 products in 10 languages @2018-10-28
 
 <en:cheese
+en:mixed cheese
+es:mezcla de quesos
+
+<en:cheese
 en:cured cheese,mature cheese
 es:queso curado
 
@@ -14802,6 +14806,9 @@ zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
 
+<en:beef meat
+en:angus beef
+es:carne de vacuno angus
 
 <en:beef meat
 en:cooked beef meat
@@ -21926,6 +21933,10 @@ nn:naturlig sitrusaroma med andre naturlige aromaer
 sv:naturlig citrusarom med andra naturliga aromer
 
 <en:flavouring
+en:brandy flavouring
+es:aroma de brandy
+
+<en:flavouring
 en:orange flavouring
 da:appensinsmag
 de:Orangenaroma
@@ -23059,6 +23070,7 @@ fr:arôme naturel de bergamote
 <en:flavouring
 en:truffle flavouring
 de:Trüffelaroma, Trüffel-Aroma
+es:aroma de trufa
 fi:tryffeliaromi
 fr:arôme de truffe
 hu:trüffel aroma
@@ -24472,6 +24484,7 @@ pt:cevada integral
 <en:barley
 en:barley flakes
 de:Gerstenflocken
+es:copos de cebada
 fi:ohrahiutale
 fr:flocons d'orge, flocon d'orge
 hu:árpapehely
@@ -26475,7 +26488,7 @@ de:Mais, Gemüsemais
 dv:ޒުވާރި
 el:αραβόσιτος, Καλαμπόκι
 eo:Maizo
-es:maíz, Zea mays
+es:maíz, cereal de maiz
 et:Mais
 eu:Arto
 fa:ذرت
@@ -27006,6 +27019,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr:1.4
 vegan:en:yes
 vegetarian:en:yes
+
+<en:rice
+en:rice flakes
+es:copos de arroz
 
 <en:rice
 en:rice proteins
@@ -29951,7 +29968,7 @@ en:soy protein
 ca:proteïna de soja
 da:sojaprotein
 de:Sojaprotein, Sojaproteine, Sojaeiweiß
-es:Proteina de soya, proteina de soja
+es:Proteina de soya, proteina de soja,proteina vegetal hidrolizada de soya
 fi:soijaproteiini, soijaproteiinivalmiste
 fr:protéine de soja, protéines de soja
 hu:szójafehérje
@@ -35000,6 +35017,7 @@ it:fiocchi di banane
 
 <en:banana
 en:banana chips
+es:chips de platano
 
 <en:banana
 <en:purée
@@ -38280,7 +38298,7 @@ da:kirsebær
 de:Kirsch, Kirsche, Kirschen
 el:Κεράσι
 eo:ĉerizo
-es:cereza, cerezas
+es:cereza, cerezas,guindas
 et:kirsipuu
 eu:Gereziondo
 fa:گیلاس
@@ -41688,6 +41706,10 @@ nutriscore_fruits_vegetables_nuts:en:yes
 en:vegetables in variable proportion
 es:verduras en proporción variable, hortalizas en proporción variable
 fr:légumes en proportions variables, légumes en proportion variable
+
+<en:vegetable
+en:mixed vegetables
+es:mezclas vegetales
 
 <en:vegetable
 de:Gemüsepulver
