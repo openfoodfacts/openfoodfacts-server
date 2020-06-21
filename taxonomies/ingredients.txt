@@ -5842,6 +5842,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Erythritol
 
 <en:amylase
 en:alpha-amylase, E1100, E-1100, E 1100
+es:alfaamilasa
 fi:alfa-amylaasi
 fr:alpha-amylase, alpha amylase
 hu:alfa-amiláz, endo-amiláz
@@ -9654,7 +9655,7 @@ ca:Xerigot en pols, sèrum en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
 de:Molkenpulver, Molkepulver
-es:suero de leche en polvo
+es:suero de leche en polvo,lactoserum en polvo
 et:vadakupulber
 fi:herajauhe, herajauhetta, herajauho
 fr:lactosérum en poudre, petit-lait en poudre, sérum de lait en poudre, poudre de lactosérum
@@ -23875,6 +23876,12 @@ sv:vetegroddar
 wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 
+<en:wheat
+en:graham flour 
+es:harina de graham
+wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
+
+
 # Wheat gluten is a food made from gluten, the main protein of wheat.
 
 <en:wheat
@@ -25980,7 +25987,7 @@ de:Weizenmehl Type 0
 it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
-es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630
+es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
 
 <en:wheat flour
 en:durum wheat flour
@@ -27891,7 +27898,7 @@ en:carob
 ca:garrofa
 cs:carubin
 de:Johannisbrotbaum
-es:Algarroba
+es:Algarroba,garrofon
 fi:johanneksenleipäpuu, carob
 fr:caroube
 hu:szentjánoskenyér, karob
@@ -28228,7 +28235,7 @@ es:azucar caramelizado en polvo
 <en:sugar
 en:white sugar
 de:weißer Zucker, Zucker
-es:Azúcar blanco
+es:Azúcar blanco,Azúcar blanco comun
 fi:valkoinen sokeri
 fr:sucre blanc
 hu:fehér cukor
@@ -32352,7 +32359,7 @@ cy:Lefain
 da:Hævemiddel, hævemidler
 de:Backpulver, Backtriebmittel, Triebmittel
 el:Διογκωτικό αρτοποιίας
-es:Gasificante, Agente leudante, agentes gasificantes,gasificantes,leavenings
+es:Gasificante, Agente leudante, agentes gasificantes,gasificantes,leavenings,leudantes químicos
 et:Kergitusaine
 fa:عامل ورآورنده
 fi:nostatusaine, nostatusaineet
@@ -32372,7 +32379,7 @@ mt:Aġent li jgħolli l-ikel
 nb:Hevemiddel, hevemidler
 nl:Rijsmiddel, Rijsmiddelen
 pl:Substancja spulchniająca
-pt:Levedante, levedantes
+pt:Levedante, levedantes,levedante químico
 ro:Agent de afânare
 ru:Разрыхлитель, разрыхлители
 sk:Kypriaca látka
@@ -32386,11 +32393,7 @@ zh:膨松剂
 wikidata:en:Q908833
 wikipedia:en:https://en.wikipedia.org/wiki/Leavening_agent
 
-<en:raising agent
-pt:levedante químico
-
 # description:en:Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
-
 
 en:yeast
 af:Gis
@@ -48656,7 +48659,7 @@ vegetarian:en:yes
 
 <en:green beans
 en:flat green beans, flat beans,runner beans
-es:judia verde plana
+es:judia verde plana,ferraúra
 fr:haricots verts plats, haricots plats
 
 <en:green beans
@@ -64955,6 +64958,10 @@ es:tinta de cefalopodo
 en:squid ink
 es:tinta de calamar
 
+<en:colour
+en:squid ink substitute
+es:sucedáneo de tinta de calamar
+
 # Clam is a common name for several kinds of bivalve molluscs.
 
 <en:mollusc
@@ -74894,6 +74901,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pisto
 
 en:glue
 es:encolante
+
+en:stir-fry,sofrito
+ca:sofregit
+es:sofrito
 
 ########################################################
 #
