@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-21 00:01\n"
+"PO-Revision-Date: 2020-06-21 00:11\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -48,7 +48,7 @@ msgstr "Registrer bruger"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "Registrer bruger"
+msgstr "Tilmeld"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -104,31 +104,31 @@ msgstr "Arbejder du for en producent eller et varemærke og kun tilføjer eller 
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Producentplatformen giver producenterne mulighed for let at importere data og fotos til alle deres produkter, markere dem som officielle samt få gratis analyse af forbedringsmuligheder for deres produkter."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Professionel konto"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Dette er en producent- eller varemærkekonto."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "Producent eller varemærke"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Professionelle konti skal have en tilknyttet organisation (firmanavn eller varemærke)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Angiv navnet på din organisation (firmanavn eller varemærke)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Denne konto er en professionel konto tilknyttet producenten eller varemærket %s. Du har adgang til producentplatformen."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -577,7 +577,7 @@ msgstr "Kontoparametre"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Dine kontoindstillinger er blevet ændret."
 
 msgctxt "editors_p"
 msgid "editors"
