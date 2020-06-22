@@ -70,7 +70,7 @@
                         [% popup_menu(name=>"nutriment_compare_${type.id}", id=>"nutriment_compare_${type.id}", value=> type.compare_value, values=> type.compare_values, labels=> type.compare_labels) %]
                     </div>
                     <div class="small-2 columns">
-                        <input type="text" id="nutriment_value_${type.id}" name="nutriment_value_${type.id}" value="[% type.input_value %]" />
+                        <input type="text" id="nutriment_value_[% type.id %]" name="nutriment_value_[% type.id %]" value="[% type.input_value %]" />
                     </div>
                 </div>
             </div>
@@ -85,15 +85,15 @@
         
         <li class="accordion-navigation">
             <a href="#results_list" style="border-top:1px solid #ccc"><h3>[% lang('search_list_choice') %]</h3></a>
-            <div id="results_list" class="content [% type.active_list %]">
+            <div id="results_list" class="content [% active_list %]">
                 <div class="row">
                     <div class="small-6 columns">
                         <label for="sort_by">[% lang('sort_by') %]</label>
-                        [% type.popup_sort %]
+                        [% popup_menu(name=>"sort_by", id=>"sort_by", value=>${popup_sort.value}, values=>${popup_sort.values}, labels=>${popup_sort.labels} ) %]
                     </div>
                     <div class="small-6 columns">
                         <label for="page_size">[% lang('search_page_size') %]</label>
-                        [% type.popup_size %]
+                        [% popup_menu(name=>"page_size", id=>"page_size", value=>${popup_size.value}, values=>${popup_size.values}) %]
                     </div>
                 </div>
                 <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />

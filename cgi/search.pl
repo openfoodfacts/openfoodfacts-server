@@ -432,6 +432,19 @@ HTML
 
 	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
 
+	push @{$template_data_ref->{popup_sort}}, {
+		value => $sort_by,
+		values => ['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
+		labels => {unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"), created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"), completeness=>lang("sort_completeness")},
+
+	};
+
+	push @{$template_data_ref->{popup_size}}, {
+		value => $limit,
+		values => [20, 50, 100, 250, 500, 1000],
+
+	};
+
 	$html .= <<HTML
 </div>
 
@@ -441,15 +454,16 @@ HTML
 	<li class="accordion-navigation">
 		<a href="#results_list" style="border-top:1px solid #ccc"><h3>$Lang{search_list_choice}{$lc}</h3></a>
 		<div id="results_list" class="content $active_list">
-
+			$template_data_ref->{active_list} = $active_list;
 			<div class="row">
 				<div class="small-6 columns">
 					<label for="sort_by">$Lang{sort_by}{$lang}</label>
-					$popup_sort
+					
 				</div>
 				<div class="small-6 columns">
 					<label for="page_size">$Lang{search_page_size}{$lc}</label>
 					$popup_size
+					
 				</div>
 			</div>
 
