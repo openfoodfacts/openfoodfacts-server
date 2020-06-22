@@ -1,24 +1,24 @@
 <!-- Nutrition facts table -->
 [% IF comparisons.defined %]
 
-<!-- Comparison to category block -->
+	<!-- Comparison to category block -->
     <p> [% lang('nutrition_data_comparison_with_categories') %] </p>
 
-		<!-- Comparisons with other products, categories, recommended daily values etc. -->
-        [% FOREACH comparison IN comparisons %]
-            <label style="display:inline;font-size:1rem;">
-                <input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> 
-                [% comparison.name %]
-            </label>
+	<!-- Comparisons with other products, categories, recommended daily values etc. -->
+	[% FOREACH comparison IN comparisons %]
+		<label style="display:inline;font-size:1rem;">
+			<input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> 
+			[% comparison.name %]
+		</label>
 
 
-            [% IF comparison.count.defined %]
-                <a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
-            [% END %]
+		[% IF comparison.count.defined %]
+			<a href=[% comparison.link %]> ([% comparison.count %] [% lang('products') %])</a>
+		[% END %]
 
-        <br>
+		<br>
 
-        [% END %]
+	[% END %]
 
 [% END %]
 
@@ -33,14 +33,15 @@
 <!--  Stats for categories -->
 [% IF category_stats.defined %]
 
-        <div><input id="show_stats" type="checkbox">
-            [% lang('show_category_stats') %]
-            <label for="show_stats">
-				<span class="show-for-xlarge-up"> 
-                	[% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
-				</span>
-			</label>
-        </div>>
+	<div>
+		<input id="show_stats" type="checkbox">
+		[% lang('show_category_stats') %]
+		<label for="show_stats">
+			<span class="show-for-xlarge-up"> 
+				[% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
+			</span>
+		</label>
+	</div>
         
 [% END %]
 
@@ -63,7 +64,6 @@
 			[% FOREACH row IN table.rows %]
 
 				<tr id="nutriment_[% row.nid %]_tr" class="nutriment_[% row.class %]">
-				
 					<td class="nutriment_label">
 						[% row.name %]
 					</td>
@@ -78,10 +78,8 @@
 								<span class="compare_percent">[% column.percent %]</span>
 								<span class="compare_value" style="display:none">[% column.value %]</span>
 							</td>
-						[% END %]
-							
+						[% END %]	
 					[% END %]
-				
 				</tr>
 
 			[% END %]
