@@ -1,1 +1,57 @@
-<p> [% warning %] </p>
+[% IF not_empty == 'true' %]
+
+    <div class="row">
+
+        <div class="small-12 xlarge-6 columns">
+            <h4>[% lang('nutrition_grade_fr_title') %]
+                <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]"> [% display_icon_info %]</a>
+            </h4>
+            <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]"><img src="/images/misc/nutriscore-[% grade %].svg" alt="[% lang('nutrition_grade_fr_alt') %] [% uc_grade %]" style="margin-bottom:1rem;max-width:100%"></a>
+            <br>
+            [% warning %]
+            [% nutriscore_data %]
+        </div>
+
+        <div class="small-12 xlarge-6 columns">
+            [% IF nutrient_levels != '' %]
+                <h4>[% lang('nutrient_levels_info') %]
+                <a href="[% lang('nutrient_levels_link') %]" title="[% lang('nutrient_levels_info') %]">[% display_icon_info %]</a>
+                </h4>
+            [% END %]
+
+            [% FOREACH level IN nutrient_levels %]
+                
+            <img src="/images/misc/[% level.nutrient_level %].svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" 
+            alt="[% lang('${level.nutrient_level}_quantity') %]"> [% level.nutriment_prepared %] g [% level.nutriment_quantity %] <br>
+                
+            [% END %]
+
+        </div>
+
+    </div>
+
+[% ELSE %]
+
+    <h4>[% lang('nutrition_grade_fr_title') %]
+        <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]"> [% display_icon_info %]</a>
+    </h4>
+
+    <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]"><img src="/images/misc/nutriscore-[% grade %].svg" alt="[% lang('nutrition_grade_fr_alt') %] [% uc_grade %]" style="margin-bottom:1rem;max-width:100%"></a><br>
+    [% warning %]
+    [% nutriscore_data %]
+
+    [% IF nutrient_levels != '' %]
+        <h4>[% lang('nutrient_levels_info') %]
+        <a href="[% lang('nutrient_levels_link') %]" title="[% lang('nutrient_levels_info') %]">[% display_icon_info %]</a>
+        </h4>
+    [% END %]
+
+    [% FOREACH level IN nutrient_levels %]
+                
+    <img src="/images/misc/[% level.nutrient_level %].svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" 
+    alt="[% lang('${level.nutrient_level}_quantity') %]"> [% level.nutriment_prepared %] g [% level.nutriment_quantity %] <br>
+        
+    [% END %]
+
+
+[% END %]

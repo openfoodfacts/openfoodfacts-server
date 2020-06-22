@@ -8778,8 +8778,8 @@ sub display_nutrient_levels($) {
 
 	my $template_data_ref = {
 		
-		lang => \&lang,
-		
+		lang => \&lang,	
+
 	};
 
 	# Do not display nutriscore and traffic lights for some categories of products
@@ -8866,6 +8866,10 @@ sub display_nutrient_levels($) {
 									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
 			}
 		}
+		$template_data_ref->{warning} = $warning;
+		$template_data_ref->{display_icon_info} = @{[ display_icon('info') ]};
+		$template_data_ref->{grade} = $grade;
+		$template_data_ref->{uc_grade} = $uc_grade;
 
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
@@ -8878,6 +8882,8 @@ HTML
 ;
 		if (defined $product_ref->{nutriscore_data}) {
 			$html_nutrition_grade .= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+			$template_data_ref->{nutriscore_data} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+
 		}
 	}
 
@@ -8890,6 +8896,14 @@ HTML
 				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '">' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
 				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br>";
 
+			push @{$template_data_ref->{nutrient_levels}}, {
+				nutrient_level => $product_ref->{nutrient_levels}{$nid},
+				nutriment_prepared => $product_ref->{nutriments}{$nid . $prepared . "_100g"},
+				nutriment => $Nutriments{$nid}{$lc},
+				nutriment_prepared => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
+				nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+
+			};
 		}
 	}
 	if ($html_nutrient_levels ne '') {
@@ -8904,6 +8918,7 @@ HTML
 
 	# 2 columns?
 	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
+		$template_data_ref->{not_empty} = "true";
 		$html = <<HTML
 <div class="row">
 	<div class="small-12 xlarge-6 columns">
