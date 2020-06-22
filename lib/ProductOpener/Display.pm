@@ -8663,14 +8663,6 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-my $config = {
-	INCLUDE_PATH => $data_root . '/templates',
-	INTERPOLATE => 1,
-	EVAL_PERL => 1,
-};
-
-my $tt = Template->new($config);
-
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
