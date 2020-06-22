@@ -55,11 +55,13 @@ my $tt = Template->new({
 	COMPILE_DIR => $data_root . '/tmp/templates',
 });
 
+# Passing values to the template
 my $template_data_ref = {
 		
 	lang => \&lang,
 	popup_menu => \&popup_menu,
-		
+	start_form => \&start_form,
+	
 };
 
 my $criteria;
@@ -232,22 +234,6 @@ if ($action eq 'display') {
 		$active_graph = 'active';
 	}
 
-	# Display the search form
-
-	my $html = start_form(-id=>"search_form", -action=>"/cgi/search.pl") ;
-
-	$html .= <<HTML
-<div class="row">
-	<div class="large-12 columns">
-<label for="search_terms2">$Lang{search_terms_note}{$lc}</label>
-<input type="text" name="search_terms2" id="search_terms2" value="$search_terms" />
-	</div>
-</div>
-
-<h3>$Lang{search_tags}{$lang}</h3>
-<label>$Lang{search_criteria}{$lc}</label>
-HTML
-;
 
 	my %search_fields_labels = ();
 	foreach my $field (@search_fields) {
@@ -265,19 +251,8 @@ HTML
 	}
 	$search_fields_labels{search_tag} = lang("search_tag");
 
-	$html .= <<HTML
-<div class="row">
-HTML
-;
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
-
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
-		<div class="row">
-			<div class="small-12 medium-12 large-5 columns">
-HTML
-;
 
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
@@ -290,76 +265,20 @@ HTML
 			input_value => $search_tags[$i][2],
 		};
 
-		$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> $search_tags[$i][0], -values=>['search_tag', @search_fields], -labels=>\%search_fields_labels);
-
-		$html .= <<HTML
-			</div>
-			<div class="small-12 medium-12 large-3 columns">
-HTML
-;
-		$html .=  popup_menu(-name=>"tag_contains_$i", -id=>"tag_contains_$i", -value=> $search_tags[$i][1], -values=>["contains", "does_not_contain"],
-                        -labels=>{"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")} );
-
-		$html .= <<HTML
-			</div>
-			<div class="small-12 medium-12 large-4 columns tag-search-criterion">
-				<input type="text" id="tag_$i" name="tag_$i" value="$search_tags[$i][2]" placeholder="$Lang{search_value}{$lc}"/>
-			</div>
-		</div>
-	</div>
-HTML
-;
 	}
-
-	$html .= <<HTML
-</div>
-
-<h3>$Lang{search_ingredients}{$lang}</h3>
-
-<div class="row">
-HTML
-;
 
 	foreach my $tagtype (@search_ingredient_classes) {
 
 		not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 
-		my $label = ucfirst(lang($tagtype . "_p")) ;
-
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns">
-		<label>$label</label>
-HTML
-;
 		push @{$template_data_ref->{ingredients}}, {
 			tagtype => $tagtype,
-			search_ingredient_classes_without => $search_ingredient_classes_checked{$tagtype}{without},
-			search_ingredient_classes_with => $search_ingredient_classes_checked{$tagtype}{with},
-			search_ingredient_classes_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
+			search_ingredient_classes_checked_without => $search_ingredient_classes_checked{$tagtype}{without},
+			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
+			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
 		};
 
-
-		$html .= <<HTML
-			<input type="radio" name="$tagtype" value="without" id="without_$tagtype" $search_ingredient_classes_checked{$tagtype}{without}/>
-				<label for="without_$tagtype">$Lang{search_without}{$lc}</label>
-			<input type="radio" name="$tagtype" value="with" id="with_$tagtype" $search_ingredient_classes_checked{$tagtype}{with}/>
-				<label for="with_$tagtype">$Lang{search_with}{$lc}</label>
-			<input type="radio" name="$tagtype" value="indifferent" id="indifferent_$tagtype" $search_ingredient_classes_checked{$tagtype}{indifferent}/>
-				<label for="indifferent_$tagtype">$Lang{search_indifferent}{$lc}</label>
-	</div>
-HTML
-;
 	}
-
-
-	$html .= <<HTML
-</div>
-
-<h3>$Lang{search_nutriments}{$lang}</h3>
-<div class="row">
-HTML
-;
-
 
 	
 	# Compute possible axis values
@@ -382,13 +301,6 @@ HTML
 
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns">
-		<div class="row">
-			<div class="small-8 columns">
-HTML
-;
-
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
 			value => $search_nutriments[$i][0],
@@ -400,37 +312,10 @@ HTML
 			input_value => $search_nutriments[$i][2],
 
 		};
-
-		$html .= popup_menu(-class=>"select2_field", -name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
-
-		$html .= <<HTML
-			</div>
-			<div class="small-2 columns">
-HTML
-;
-		$html .= popup_menu(-name=>"nutriment_compare_$i", -id=>"nutriment_compare_$i", -value=> $search_nutriments[$i][1], -values=>['lt','lte','gt','gte','eq'],
-			-labels => {'lt' => '<', 'lte' => "\N{U+2264}", 'gt' => '>', 'gte' => "\N{U+2265}", 'eq' => '='} );
-
-		$html .= <<HTML
-			</div>
-			<div class="small-2 columns">
-				<input type="text" id="nutriment_value_$i" name="nutriment_value_$i" value="$search_nutriments[$i][2]" />
-			</div>
-		</div>
-	</div>
-HTML
-;
+	
 	}
 
 	# Different types to display results
-
-	my $popup_sort = popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by,
-		-values=>['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
-		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"),
-			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"),
-			completeness=>lang("sort_completeness")});
-
-	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
 
 	push @{$template_data_ref->{popup_sort}}, {
 		value => $sort_by,
@@ -445,59 +330,12 @@ HTML
 
 	};
 
-	$html .= <<HTML
-</div>
-
-<input type="hidden" name="action" value="process" />
-
-<ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
-	<li class="accordion-navigation">
-		<a href="#results_list" style="border-top:1px solid #ccc"><h3>$Lang{search_list_choice}{$lc}</h3></a>
-		<div id="results_list" class="content $active_list">
-			$template_data_ref->{active_list} = $active_list;
-			<div class="row">
-				<div class="small-6 columns">
-					<label for="sort_by">$Lang{sort_by}{$lang}</label>
-					
-				</div>
-				<div class="small-6 columns">
-					<label for="page_size">$Lang{search_page_size}{$lc}</label>
-					$popup_size
-					
-				</div>
-			</div>
-
-		<input type="submit" name="search" class="button" value="$Lang{search_button}{$lc}" />
-		</div>
-	</li>
-HTML
-;
+	$template_data_ref->{active_list} = $active_list;
+	
 
 	# Graphs and visualization
 
-	$html .= <<HTML
-	<li class="accordion-navigation">
-		<a href="#results_graph" style="border-top:1px solid #ccc"><h3>$Lang{search_graph_choice}{$lc}</h3></a>
-		<div id="results_graph" class="content $active_graph">
-
-			<div class="alert-box info">$Lang{search_graph_note}{$lang}</div>
-
-			<label for="graph_title">$Lang{graph_title}{$lang}</label>
-			<input type="text" name="graph_title" id="graph_title" value="$graph_ref->{graph_title}" />
-
-			<p>$Lang{search_graph_instructions}{$lc}</p>
-
-			<div class="row">
-HTML
-;
-
-
 	foreach my $axis ('x','y') {
-
-		$html .= <<HTML
-				<div class="small-12 medium-6 columns">
-HTML
-;
 
 		push @{$template_data_ref->{results}}, {
 			id => $axis,
@@ -507,23 +345,7 @@ HTML
 
 		};
 
-		$html .= "<label for=\"axis_$axis\">" . lang("axis_$axis") . "</label>"
-			. popup_menu(-class=>"select2_field", -name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
-
-		$html .= <<HTML
-				</div>
-HTML
-;
 	}
-
-	$html .= <<HTML
-			</div>
-
-			<div class="row">
-				<div class="small-12 medium-6 columns">
-					<p>$Lang{search_series}{$lc}</p>
-HTML
-;
 
 	foreach my $series (@search_series, "nutrition_grades") {
 
@@ -533,77 +355,12 @@ HTML
 			$checked = 'checked="checked"';
 		}
 
-			if ($series eq 'nutrition_grades') {
-				$html .= <<HTML
-				</div>
-				<div class="small-12 medium-6 columns">
-					<p>$Lang{or}{$lc}</p>
-HTML
-;
-			}
-
-		$html .= <<HTML
-					<input type="checkbox" id="series_$series" name="series_$series" $checked />
-					<label for="series_$series" class="checkbox_label">$Lang{"search_series_$series"}{$lc}</label>
-
-HTML
-;
 		push @{$template_data_ref->{search_series}}, {
 			series => $series,
 			checked => $checked,
-
 		};
 
 	}
-
-	$html .= <<HTML
-				</div>
-			</div>
-
-			<input type="submit" name="graph" value="$Lang{search_generate_graph}{$lc}" class="button" />
-
-		</div>
-	</li>
-
-	<!-- Map results -->
-
-	<li class="accordion-navigation">
-		<a href="#results_map" style="border-top:1px solid #ccc"><h3>$Lang{search_map_choice}{$lc}</h3></a>
-		<div id="results_map" class="content $active_map">
-
-			<div class="alert-box info">$Lang{search_map_note}{$lc}</div>
-
-			<label for="map_title">$Lang{map_title}{$lc}</label>
-			<input type="text" name="map_title" id="map_title" value="$map_title" />
-
-			<input type="submit" name="generate_map" value="$Lang{search_generate_map}{$lc}" class="button" />
-
-		</div>
-	</li>
-
-	<!-- Download results -->
-
-	<li class="accordion-navigation">
-		<a href="#results_download" style="border-top:1px solid #ccc"><h3>$Lang{search_download_choice}{$lc}</h3></a>
-		<div id="results_download" class="content">
-
-			<p>$Lang{search_download_results}{$lc}</p>
-
-			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
-				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
-			<input type="radio" name="format" value="csv" id="format_csv" />
-				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
-
-			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
-
-		</div>
-	</li>
-</ul>
-</form>
-
-
-HTML
-;
 
 
 	$styles .= <<CSS
@@ -639,9 +396,7 @@ $tt->process('search_form.tt.html', $template_data_ref, \$html);
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
-
-	$request_ref->{title} = lang("search_products");
-
+	
 	display_new($request_ref);
 
 }

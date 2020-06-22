@@ -2,7 +2,7 @@
 <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form">
     
     <!-- Word Search -->
-
+    [% start_form(id=>"search_form", action=>"/cgi/search.pl") %]
     <div class="row">
         <div class="large-12 columns">
             <label for="search_terms2">[% lang ('search_terms_note') %]</label>
@@ -44,7 +44,7 @@
 
             <div class="small-12 medium-12 large-6 columns">
                 <label>[% lang ("${type.tagtype}_p") FILTER ucfirst %]</label>
-                <input type="radio" name="[% type.tagtype %]" value="without" id="without_[% type.tagtype %]" [% type.search_ingredient_classes_without %]/>
+                <input type="radio" name="[% type.tagtype %]" value="without" id="without_[% type.tagtype %]" [% type.search_ingredient_classes_checked_without %]/>
 				    <label for="without_[% type.tagtype %]">[% lang('search_without') %]</label>
 			    <input type="radio" name="[% type.tagtype %]" value="with" id="with_[% type.tagtype %]" [% type.search_ingredient_classes_checked_with %]/>
 				    <label for="with_[% type.tagtype %]">[% lang('search_with') %]</label>
@@ -89,11 +89,15 @@
                 <div class="row">
                     <div class="small-6 columns">
                         <label for="sort_by">[% lang('sort_by') %]</label>
-                        [% popup_menu(name=>"sort_by", id=>"sort_by", value=>${popup_sort.value}, values=>${popup_sort.values}, labels=>${popup_sort.labels} ) %]
+                        [% FOREACH popup IN popup_sort %]
+                            [% popup_menu(name=>"sort_by", id=>"sort_by", value=>popup.value, values=>popup.values, labels=>popup.labels ) %]
+                        [% END %]
                     </div>
                     <div class="small-6 columns">
                         <label for="page_size">[% lang('search_page_size') %]</label>
-                        [% popup_menu(name=>"page_size", id=>"page_size", value=>${popup_size.value}, values=>${popup_size.values}) %]
+                        [% FOREACH popup IN popup_size %]
+                            [% popup_menu(name=>"page_size", id=>"page_size", value=>popup.value, values=>popup.values) %]
+                        [% END %]
                     </div>
                 </div>
                 <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />
@@ -172,7 +176,7 @@
                 <p>[% lang('search_download_results') %]</p>
 
                 <input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
-                    <label for="format_xlsx">[% lang('search_download_xlsx') %] - [% lang('search_download_xlsx_description') %]</label><br>
+                <label for="format_xlsx">[% lang('search_download_xlsx') %] - [% lang('search_download_xlsx_description') %]</label><br>
                 <input type="radio" name="format" value="csv" id="format_csv" />
                     <label for="format_csv">[% lang('search_download_csv') %] - [% lang('search_download_csv_description') %]</label><br>
 
