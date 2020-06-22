@@ -8824,12 +8824,16 @@ sub display_nutrient_levels($) {
 
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
-	my $warning;
-
+	
 	if ((exists $product_ref->{"nutrition_grade_fr"})
 		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
+
+		$template_data_ref->{nutrition_grade} = "exists";
+
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
+
+		my $warning = '';
 
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
@@ -8838,40 +8842,36 @@ sub display_nutrient_levels($) {
 			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
 				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-				$warning .= lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning") . "</p>";
 				
 			}
 			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-				$warning .= lang("nutrition_grade_fr_fiber_warning");
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning");
 			}
 			elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-				$warning .= lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
+				$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
 			}
 
 			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
 					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-				$warning .= sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"});
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
 			}
 			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
 					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-				$warning .= sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
 									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value});
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
 			}
 			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
 					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
-				$warning .=  sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
-									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
+				$warning .=  "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value}) . "</p>";
 			}
 		}
-		$template_data_ref->{warning} = $warning;
-		$template_data_ref->{display_icon_info} = @{[ display_icon('info') ]};
-		$template_data_ref->{grade} = $grade;
-		$template_data_ref->{uc_grade} = $uc_grade;
 
-		$html_nutrition_grade .= <<HTML
+ 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 @{[ display_icon('info') ]}</a>
@@ -8882,7 +8882,6 @@ HTML
 ;
 		if (defined $product_ref->{nutriscore_data}) {
 			$html_nutrition_grade .= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
-			$template_data_ref->{nutriscore_data} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
 
 		}
 	}
@@ -8892,10 +8891,7 @@ HTML
 
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 
-			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '.svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
-				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '">' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
-				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br>";
-
+			$html_nutrient_levels = '1';
 			push @{$template_data_ref->{nutrient_levels}}, {
 				nutrient_level => $product_ref->{nutrient_levels}{$nid},
 				nutriment_prepared => $product_ref->{nutriments}{$nid . $prepared . "_100g"},
@@ -8906,42 +8902,29 @@ HTML
 			};
 		}
 	}
-	if ($html_nutrient_levels ne '') {
-		$html_nutrient_levels = <<HTML
-<h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}">@{[ display_icon('info') ]}</a>
-</h4>
-$html_nutrient_levels
-HTML
-;
-	}
+
+# Nutrient Levels Template
+my $nutrient_levels_html;
+$tt->process('nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 
 	# 2 columns?
 	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
-		$template_data_ref->{not_empty} = "true";
 		$html = <<HTML
 <div class="row">
 	<div class="small-12 xlarge-6 columns">
 		$html_nutrition_grade
 	</div>
-	<div class="small-12 xlarge-6 columns">
-		$html_nutrient_levels
-	</div>
+	$nutrient_levels_html
 </div>
 HTML
 ;
 	}
 	else {
-		$html = $html_nutrition_grade . $html_nutrient_levels;
+		$html = $html_nutrition_grade . $nutrient_levels_html;
 	}
 
-	my $out;
-	$tt->process('nutrient_levels.tt.html', $template_data_ref, \$out) || return "template error: " . $tt->error();
-	
-	return $out;
-	# return $html;
+	return $html;
 }
-
 
 
 
