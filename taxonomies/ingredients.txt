@@ -1642,7 +1642,7 @@ he:לציטין סויה
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia
-nl:sojalecithine
+nl:sojalecithine, soja lecithine
 nn:sojalecitin
 pl:lecytyna sojowa
 pt:lecitina de soja
@@ -2562,7 +2562,7 @@ ky:Пектиндер
 lt:Pektinas
 lv:pektīnvielas
 nb:pektin
-nl:pectine, pectines
+nl:pectine, pectines, pectinen
 nn:pektin
 pl:Pektyny
 pt:pectina, pectinas
@@ -3735,7 +3735,7 @@ ml:navasaram
 ms:Amonium klorida
 my:ဇဝက်သာ
 nb:Salmiakk
-nl:ammoniumchloride
+nl:ammoniumchloride, salmiakzout
 nn:ammoniumklorid
 pa:ਨਸਾਦਰ
 pl:chlorek amonu
@@ -8061,7 +8061,18 @@ sv:opastöriserad mjölk
 <en:sterilised milk
 fr:lait thermisé
 
+
 <en:milk
+en:milk solids
+es:solidos lacteos
+
+<en:milk
+nl:vloeibare melkbestanddelen
+
+<en:milk
+en:lactose-free milk
+es:leche sin lactosa
+
 en:Follow-on milk
 ca:llet de seguiment
 de:Folgemilch
@@ -10025,6 +10036,7 @@ en:whipping cream
 da:piskefløde
 fi:kuohukerma
 fr:crème à fouetter
+nl:slagroom
 sv:vispgrädde
 # ingredient/fr:creme-a-fouetter has 21 products in 5 languages @2020-05-21
 
@@ -14167,7 +14179,7 @@ mr:मीठ
 ms:Garam
 my:ဆား
 ne:नून
-nl:zout, Keukenzout
+nl:zout, Keukenzout, bakkerszout
 nv:Áshįįh
 oc:Sal alimentària
 or:ଲୁଣ
@@ -14276,9 +14288,6 @@ de:Himalayasalz
 es:Sal del Himalaya
 fr:Sel de l'Himalaya
 
-<en:sea salt
-en:salt from Noirmoutier, sea salt from Noirmoutier
-fr:sel de Noirmoutier, sel marin de Noirmoutier
 
 <en:salt
 en:Pink salt
@@ -14316,21 +14325,6 @@ de:Unraffiniertes Salz
 es:sal no refinada
 fi:Karkea suola
 fr:sel non raffiné
-
-<en:unrefined salt
-en:unrefined sea salt
-ca:sal de mar no refinada
-es:sal de mar no refinada
-fr:sel marin non raffiné, sel de mer non raffiné
-it:sale marino integrale
-
-<en:sea salt
-en:Mediterranean salt, Mediterranean sea salt
-ca:sal de la mar Mediterrània, sal mediterrània
-da:middelhavssalt
-de:Mediterranes Meersalz
-es:Sal de la mar mediterránea, sal mediterránea,sal marina del mar mediterráneo
-fr:Sel de la Méditerranée, Sel de la Merd Méditerranée
 
 en:Garlic salt
 ca:sal d'all
@@ -14414,13 +14408,17 @@ es:sal marina celta
 fr:Sel de la Mer Celtique
 
 <en:sea salt
+fr:sel gros de mer
+
+<en:sea salt
 en:unrefined sea salt
-ca:sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
+ca:sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
 de:Unraffiniertes Meersalz
-es:Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
+es:sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
 fi:raffinoimaton merisuola, puhdistamaton merisuola
-fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine
+fr:sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, , sel de mer non raffiné
 hu:finomítatlan tengeri só
+it:sale marino integrale
 nl:ongeraffineerd zeezout
 
 <en:unrefined sea salt
@@ -14431,6 +14429,19 @@ es:sal marina sin refinar del Atlántico, sal de mar sin refinar del Atlántico,
 fi:atlantin raffinoimaton merisuola, atlantin puhdistamaton merisuola
 fr:Sel marin non raffiné de l'atlantique
 nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
+
+<en:sea salt
+en:salt from Noirmoutier, sea salt from Noirmoutier
+fr:sel de Noirmoutier, sel marin de Noirmoutier
+
+<en:sea salt
+en:Mediterranean salt, Mediterranean sea salt
+ca:sal de la mar Mediterrània, sal mediterrània
+da:middelhavssalt
+de:Mediterranes Meersalz
+es:Sal de la mar mediterránea, sal mediterránea
+es:Sal de la mar mediterránea, sal mediterránea,sal marina del mar mediterráneo
+fr:Sel de la Méditerranée, Sel de la Mer Méditerranée
 
 <en:sea salt
 en:Salt from Guérande
@@ -16810,7 +16821,7 @@ ko:옥수수 녹말
 lt:Kukurūzų krakmolas
 ms:Tepung jagung
 nb:maisstivelse, Maisenna
-nl:maïszetmeel
+nl:maïszetmeel, maiszetmeel
 pl:Skrobia kukurydziana
 pt:amido de milho
 ro:amidon de porumb
@@ -16840,7 +16851,7 @@ fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de 
 hu:módosított kukoricakeményítő
 it:amido modificato di mais, amido di mais modificato
 nb:modifisert maisstivelse
-nl:Gemodificeerd maïszetmeel
+nl:gemodificeerd maïszetmeel, gemodificeerd maiszetmeel
 pl:Modyfikowana skrobia kukurydziana
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
@@ -17081,7 +17092,7 @@ hu:növényi olaj és zsír
 it:oli e grassi vegetali, olio e grasso vegetale
 lv:Augu eļļas un tauki
 mt:xaħam u żejt veġetali
-nl:plantaardige vetten en olie
+nl:plantaardige vetten en olie, plantaardige oliën en vetten
 pl:tłuszcz olej roślinne
 pt:gordura e óleo vegetais
 ru:Растительные масла и жиры
@@ -17540,6 +17551,8 @@ sv:mjölkfett
 vegan:en:no
 vegetarian:en:yes
 
+<en:milkfat
+nl:gefractioneerd melkvet
 
 # description:en:BUTTERFAT - the fatty portion of milk.
 # comment:en:BUTTERFAT seems to be more than just butter, water has been removed
@@ -17587,13 +17600,6 @@ vegan:en:no
 vegetarian:en:yes
 # ingredient/butterfat has 9828 products in 35 languages @2019-07-10
 
-<en:milk
-en:milk solids
-es:solidos lacteos
-
-<en:milk
-en:lactose-free milk
-es:leche sin lactosa
 
 # decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -17764,7 +17770,7 @@ it:grassi vegetali
 lt:augaliniai riebalai
 lv:augu tauki
 nb:vegetabilsk fett, vegetabilskt fett
-nl:plantaardige vetten
+nl:plantaardige vetten, plantaardig vet
 nn:vegetabilisk fett
 pl:tłuszcz roślinny, tłuszcze roślinne
 pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
@@ -18054,6 +18060,7 @@ es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
 fr:graisse de palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmazsír, teljesen hidrogénezett pálmazsír, teljes mértékben hidrogénezett pálmamag-zsír
+nl:volledig geharde palm, geheel gehard palmvet
 sv:fullhärdat palmfett
 
 <en:palm oil
@@ -18121,7 +18128,7 @@ kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln:Mafúta ma ndiká
 lt:Alyvpalmių sėklų aliejus
 ms:Minyak isirong sawit
-nl:Palmkernolie
+nl:Palmkernolie, palmpit
 pl:Olej z ziaren palmowych
 pt:palmiste
 ru:Пальмоядровое масло
@@ -18298,6 +18305,7 @@ fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
 hu:kókuszzsír
 it:grasso di cocco
+nl:kokosvet
 sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
@@ -19001,7 +19009,7 @@ it:Burro di karité
 ja:シアバター
 ko:시어 버터
 ms:Mentega syea
-nl:sheaboter
+nl:sheaboter, shea
 pl:Masło shea
 pt:ori,shea
 ro:unt de shea
@@ -20070,6 +20078,9 @@ fi:rakuunaetikka
 fr:vinaigre à l'estragon
 sv:dragonvinäger
 # ingredient/en:tarragon-vinegar has 4 products in 1 language @2020-06-08
+
+<en:vinegar
+nl:natuurazijn
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -22572,7 +22583,7 @@ fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanill
 hu:természetes vanília aroma
 it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
-nl:natuurlijk vanillearoma
+nl:natuurlijk vanillearoma, natuurlijk vanille aroma
 pl:naturalny aromat wanilii, naturalny aromat waniliowy
 pt:aroma de baunilha natural, aromatizante de baunilha natural
 sv:naturlig vaniljarom, naturlig vanilijarom
@@ -23986,6 +23997,10 @@ fr:semoule de blé tendre
 # 20 products in 1 language @20180922
 
 <en:semolina
+en:Durum wheat flour
+nl:durum tarwegriesmeel
+
+<en:Durum wheat flour
 en:Durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
 fi:täysjyvädurumvehnäjauho
@@ -24861,6 +24876,9 @@ sv:maltextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/malt-extract/
 # 484 entries @ 2018-09-22
 
+<en:malt
+nl:moutmeel
+
 <en:malt extract
 en:dried malt extract
 de:Malzextraktpulver
@@ -24952,6 +24970,7 @@ fr:extrait de malte d'orge houblonné
 <en:malted barley
 en:malted barley flour
 es:harina de malta
+nl:gerstemoutmeel
 
 <en:barley malt extract
 <en:syrup
@@ -25269,7 +25288,7 @@ ko:납작귀리
 lt:avižiniai dribsniai
 ms:Emping oat
 nb:havreflak, havregryn
-nl:havermoutvlokken, havermout
+nl:havermoutvlokken, havermout, havervlokken
 pl:płatki owsiane
 pt:flocos de aveia
 ro:Haferflocken
@@ -25770,7 +25789,7 @@ mt:dqiq
 my:မှုန့်
 nb:mel
 ne:पिठो
-nl:meel
+nl:meel, bloem
 nn:mjøl
 nv:Akʼáán
 oc:farina
@@ -25914,7 +25933,7 @@ lv:kvietiniai miltai
 mr:कणीक
 ms:Tepung gandum
 nb:hvetemel
-nl:tarwemeel, tarwebloem
+nl:tarwemeel, tarwebloem, tarwe bloem
 nn:hvetemel
 pl:mąka pszenna
 pt:farinha de trigo
@@ -26040,7 +26059,7 @@ fi:täysjyvävehnäjauho
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
 hu:teljes kiőrlélsű búzaliszt
 it:farina integrale di frumento, farina di frumento integrale
-nl:volkorentarwemeel
+nl:volkorentarwemeel, volkoren tarwemeel
 pt:farinha de trigo integral, farinha integral de trigo
 sv:fullkornsvetemjöl, grahamsmjöl av vete
 
@@ -26344,7 +26363,7 @@ fi:härkäpapujauho
 fr:farine de fève, farine de fèves
 hu:lóbabliszt, széles bab liszt
 it:farina di fave
-nl:bonenmeel
+nl:bonenmeel, veldbonenmeel
 
 <en:flour
 <en:flax seed
@@ -26465,7 +26484,7 @@ fr:Farine de riz
 hu:rizsliszt
 it:farina di riso
 nb:rismel
-nl:rijstebloem, rijstbloem
+nl:rijstebloem, rijstbloem, rijstmeel
 pl:Mąka ryżowa
 pt:farinha de arroz
 ro:făină de orez
@@ -28236,7 +28255,7 @@ fi:karamellisoitu sokeri, karamellisoitua sokeria, karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
 hu:karamellizált cukor
 it:zucchero caramellato
-nl:gekarameliseerde suiker
+nl:gekarameliseerde suiker, gebrande suiker
 pl:cukier karmelizowany
 ro:zahăr caramelizat
 sv:karamelliserat socker
@@ -29566,7 +29585,7 @@ fi:sorbitoli
 fr:sorbitol
 hu:szorbit, szorbitol
 it:sorbitolo
-nl:Sorbitol
+nl:Sorbitol, sorbitolen
 
 <en:sorbitol
 en:sorbitol syrup
@@ -30076,7 +30095,7 @@ fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées, protéine végétale hydrolysée
 hu:hidrolizált növényi fehérjék, hidolizált növényi fehérje
 nb:hydrolysert vegetabilsk protein
-nl:gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit
+nl:gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit, gehydroliseerde plantaardige eiwitten
 pl:Hydrolizowane białko roślinne
 sv:hydrolyserat vegetabiliskt protein, hydroliserat vegetabiliskt protein
 zh:酸水解植物蛋白
@@ -30569,7 +30588,7 @@ fi:vähärasvainen kaakao
 fr:cacao maigre, cacao dégraissé
 it:cacao magro
 nb:fedtfattig kakao
-nl:vetarme cacao
+nl:vetarme cacao, magere cacao
 pt:cacau magro
 sv:fettreducerad kakao
 
@@ -31776,7 +31795,7 @@ ml:സോഡാജലം
 mr:सोडा
 ms:Air berkarbonat, Air bergas, air seltzer, seltzer, air soda
 nb:Kullsyreholdig vann
-nl:Sodawater, gazeuse, bruiswater, spuitwater
+nl:Sodawater, gazeuse, bruiswater, spuitwater, koolzuurhoudend water
 pl:Woda gazowana
 pt:Água gaseificada
 ro:Sifon, Apa carbonatată, apa gazoasă, sifonul
@@ -36363,7 +36382,7 @@ es:jarabe de manzana
 fi:omenamehutiiviste
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
-nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap
+nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelconcentraat
 pl:Sok jabłkowy z koncentratu
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
@@ -36861,7 +36880,7 @@ fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
 it:succo di limone concentrato, concentrato di limone, estratto di limone
 nb:sitronjuicekonsentrat
-nl:citroenextract
+nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat
 pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
@@ -46830,7 +46849,7 @@ carbon_footprint_fr_foodges_value:fr:1.3
 # do not make pepper a synonym of bell pepper
 
 <en:vegetable
-en:bell pepper
+en:bell pepper, paprika
 af:Soetrissie
 an:Pimiento
 ar:فلفل حلو
@@ -46991,7 +47010,6 @@ de:Peperoni rot und gelb
 it:peperoni rossi e gialli
 # fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
 
-
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
 <en:vegetable
@@ -47042,7 +47060,7 @@ ms:Cili
 my:ငရုတ်
 nb:paprikaslekten
 ne:खुर्सानी
-nl:pepers, peperoni, chilipeper
+nl:pepers, peperoni, chilipeper, piment
 nn:chilipepar
 nv:Azeedíchʼííʼ
 oc:Piment
@@ -47140,6 +47158,7 @@ fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
 nb:rød chili
+nl:rode peper
 sv:röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
@@ -47418,6 +47437,9 @@ zh:辣椒粉
 wikidata:en:Q3127593
 wikipedia:en:https://en.wikipedia.org/wiki/Paprika
 # fr:paprika 2505 in 24 languages products @2018-10-14
+
+<en:paprika
+en:paprika powder
 
 <en:paprika
 fr:paprika doux
@@ -48962,6 +48984,10 @@ nl:gerehydrateerde vermicelli van erwten
 # ingredient/fr:vermicelles-de-pois-réhydratés has 43 products @2019-02-18
 
 # Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
+
+
+<en:legume
+nl:veldbonen
 
 <en:legume
 en:broad bean
@@ -50923,7 +50949,7 @@ de:Selleriesamen
 es:Semilla de apio
 fi:sellerinsiemen
 fr:graines de céleri
-nl:Celderij zaad
+nl:selderij zaad, selderijzaad
 sv:sellerifrö
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
 # 66 products in 3 languages @2018-10-07
@@ -51206,7 +51232,7 @@ fr:graines de tournesol
 hu:napraforgómag
 it:semi di girasole
 nb:solsikkekjerner
-nl:zonnebloempitten
+nl:zonnebloempitten, zonnebloempit
 nn:solsikkefrø
 pl:Nasiona słonecznika
 ru:Семена Подсолнечника
@@ -51845,7 +51871,7 @@ hr:Začin
 hu:fűszer, fűszerek
 it:spezie
 nb:krydder, krydderi, krydderier
-nl:specerijen
+nl:specerijen, specerij
 pl:Przyprawa, przyprawy
 ru:Специи
 sl:začimbe
@@ -52591,7 +52617,7 @@ lv:kardamons
 mk:кардамон
 mr:वेलदोडे
 ms:Buah pelaga
-nl:cardamon
+nl:kardemom, cardamon
 pl:kardamon
 ps:لاچی
 pt:cardamomo
@@ -52947,7 +52973,7 @@ is:galgantrót
 it:galanga
 ja:ガランガル
 ko:고량강
-nl:galanga
+nl:galanga, galangawortel
 pl:galangal
 pt:galangal
 ru:калган
@@ -53448,7 +53474,8 @@ zh:八角
 wikidata:en:Q1760637
 # fr:anis-étoilé has 72 products in 4 languages @2018-10-24
 
-
+<en:spice
+nl:speculaaskruiden
 
 #
 <en:herb
@@ -53702,7 +53729,7 @@ de:Rosmarinextrakt
 fi:rosmariiniuute, rosmariiniuutteet
 fr:extrait de romarin, extraits de romarin
 it:estratto di rosmarino, estratti di rosmarino
-nl:extracten van rozemarijn
+nl:rozemarijnextract, extracten van rozemarijn
 pt:extratos de rosmaninho
 sv:rosmarinextrakt, extrakt av rosmarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-romarin
@@ -54190,7 +54217,7 @@ lt:čiobrelis
 mk:majcina dusica
 ml:തോട്ടതുളസി
 nb:thyme
-nl:thijm
+nl:thijm, tijm
 nn:timian
 or:ଦଅଣା
 pa:ਅਜਵਾਇਣ
@@ -69205,7 +69232,7 @@ es:huevos de granero
 fi:lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
 fr:œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs d'élevage au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, sol
 it:uova di allevamento al suolo
-nl:scharreleieren
+nl:scharreleieren, scharrelei
 # ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
 # ingredient/fr:œufs-de-poules-élevées-au-sol has 111 products in 4 languages @2018-12-18
 
@@ -69967,7 +69994,7 @@ ml:നാര്
 ms:Serat
 nb:fiber
 ne:रेसा
-nl:vezel
+nl:vezel, voedingsvezel
 nn:fiber
 oc:fibra
 pl:włókno
@@ -70083,7 +70110,7 @@ it:fibre vegetali, fibra vegetale
 ja:植物繊維
 ko:식물섬유
 nb:vegetabilsk fiber, plantefiber
-nl:plantaardige vezel
+nl:plantaardige vezel, plantaardige vezels
 nn:plantefiber
 pl:Błonnik roślinny
 pt:fibra vegetal
@@ -71146,11 +71173,11 @@ carbon_footprint_fr_foodges_value:fr:7.3
 <en:pasta
 en:egg pastas
 af:eier pasta
-de: Eierteigwaren
+de:Eierteigwaren
 fi:munapasta
 fr:pâtes aux œufs, pâtes aux oeufs
-id: pasta telur
-it: pasta all'uovo
+id:pasta telur
+it:pasta all'uovo
 nl:eierpasta
 wikidata:en: Q53619707
 # ingredient/egg-pastas has 49 products in 4 languages @2019-04-03

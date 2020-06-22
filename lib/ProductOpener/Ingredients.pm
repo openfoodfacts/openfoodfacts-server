@@ -154,6 +154,7 @@ my %may_contain_regexps = (
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	nl => "Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -164,6 +165,7 @@ my %contains_regexps = (
 	da => "indeholder",
 	es => "contiene",
 	fr => "contient",
+	nl => "bevat",
 	sv => "innehåller",
 );
 
@@ -315,6 +317,7 @@ my %of = (
 	fr => " de la | de | du | des | d'",
 	is => " af ",
 	it => " di | d'",
+	nl => " of ",
 	nb => " av ",
 	sv => " av ",
 );
@@ -329,6 +332,7 @@ my %and = (
 	fr => " et ",
 	is => " og ",
 	it => " e ",
+	nl => " en ",
 	nb => " og ",
 	pt => " e ",
 	sv => " och ",
@@ -356,6 +360,7 @@ my %and_or = (
 	fr => " et | ou | et/ou | et / ou ",
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
+	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
 	sv => " och | eller | och/eller | och / eller ",
 );
@@ -366,6 +371,7 @@ my %the = (
 	es => " el | la | los | las ",
 	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
+	nl => " de | het ",
 );
 
 
@@ -1283,6 +1289,11 @@ sub parse_ingredients_text($) {
 								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 							],
+							
+							'nl' => [
+								'in wisselende verhoudingen',
+								'harde fractie',
+							],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -2146,6 +2157,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		return "vitamin $a";
 	}
@@ -2172,6 +2184,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
+	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
 
@@ -2489,25 +2502,26 @@ es => [
 
 de => [
 'Ern(â|a|ä)hrungswerte',
-'Vorbereitung Tipps',
 'Mindestens altbar bis',
 'Mindestens haltbar bis',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
+'davon ges(â|a|ä)ttigte',
+'Durchschnittlich enthalten 100 (ml|g)',
 'Durchschnittliche N(â|a|ä)hrwerte',
 'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
-'davon ges(â|a|ä)ttigte',
 'Nâhrwerte',
+'mindestens',
 'k(u|ü)hl und trocken lagern',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
-'zu verbrauchen bis',
 'verbrauchen bis',
+'Vorbereitung Tipps',
+'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
-'Durchschnittlich enthalten 100 (ml|g)',
-'davon ges(â|a|ä)tigte Fettsäuren',
-'davon Zuckerarten',
 ],
 
 fi => [
@@ -2527,12 +2541,21 @@ fi => [
 ],
 
 nl => [
-'voedingswaarden',
-'voedingswaarde',
-'voorbereidingstips',
+'Beter Leven keurmerk 1 ster.',
+'Beter Leven keurmerk 3 sterren',
+'Cacao: ten minste ',
+'Droog bewaren',
+'E = door EU goedgekeurde hulpstof.',
 'gemiddelde voedingswaarden',
 'Gemiddeldevoedingswaardel',
 'gemiddelde voedingswaarde per 100 g',
+'Na openen beperkt houdbaar',
+'ten minste',
+'ten minste houdbaar tot',
+'Verpakt onder beschermende atmosfeer',
+'voedingswaarden',
+'voedingswaarde',
+'voorbereidingstips',
 #'waarvan suikers',
 ],
 
