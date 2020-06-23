@@ -6115,6 +6115,8 @@ fi:vehnädekstriini
 # ingredient/fr:dextrine-de-blé has 63 products in french @2019-01-26
 
 <en:dextrin
+en:corn dextrin
+es:dextrina de maiz
 fr:dextrine de maïs
 de:Maisdextrin
 fi:maissidekstriini
@@ -16024,7 +16026,7 @@ da:Bacon, svinefedt
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
-es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico
+es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico,bacon
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -21964,7 +21966,7 @@ fr:arôme d'orange
 hu:narancsaroma
 
 <en:flavouring
-en:plumb flavouring
+en:plum flavouring
 es:aroma de ciruela
 
 <en:flavouring
@@ -30285,10 +30287,10 @@ vegetarian:en:no
 <en:animal protein
 # <en:dairy
 en:milk proteins
-ca:Proteina de la llet, proteines de la llet
+ca:Proteina de la llet, proteines de la llet,proteïnes làcties
 da:mælkeprotein
 de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
-es:proteína de leche
+es:proteína de leche,proteinas lacteas
 fi:maitoproteiini, maitoproteiinit
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérjék, tejfehérje
@@ -30613,7 +30615,7 @@ da:kakaosmør
 de:Kakaobutter
 el:βούτυρο κακάου
 eo:kakaa butero
-es:manteca de cacaomanteca de cacao pura
+es:manteca de cacao,manteca de cacao pura
 et:kakaovōi, Kakaoõli
 eu:Kakao-gurin
 fa:کره کاکائو
@@ -35760,6 +35762,9 @@ sv:päronjuice från koncentrat
 en:plum
 es:ciruela
 
+<en:plum
+en:plum sugar
+
 # The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 
 <en:fruit
@@ -36416,11 +36421,11 @@ fr:pur jus de pommes à cidre
 <en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
 
-<en:orange juice
-<en:citrus fruit
-fr:jus d'orange et autres agrumes à base de concentrés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
-# 46 products in 1 language @2018-09-30
+###################################################################################################
+#
+#                                Citrus fruit
+#
+###################################################################################################
 
 <en:fiber
 <en:citrus fruit
@@ -36534,6 +36539,71 @@ fr:Extrait d'agrumes
 <en:citrus fruit
 fr:écorces d'agrumes
 
+###################################################################################################
+#
+#                                Clemantine
+#
+###################################################################################################
+# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
+# The wikidata-page mixes the plant and the fruit
+
+<en:citrus fruit
+en:clementine, clementins
+ar:كليمونتين
+bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
+ca:clementina
+co:Clementina
+cs:Klementinka
+cv:Клементина
+da:Klementin
+de:Clementinen
+eo:Klementinujo
+es:clementina
+et:Klementiin
+eu:Klementinondo
+fi:klementiini, klementiinit
+fr:clémentine, clémentines
+gl:clementina
+he:קלמנטינה
+it:clementina
+ja:クレメンタイン
+kv:Клементин
+lt:Klementinai
+nb:Klementin
+nl:clementine
+nn:Klementin
+ro:Clemantină
+ru:Клементин
+sl:Klementina
+sv:Clementin
+th:คลีเมนไทน์
+uk:Клементин
+vi:Clementine
+zh:克里曼丁红橘
+# frr:Clementiin
+# koi:Клементин
+# mrj:Клементин
+# pcd:Clémintine
+# udm:Клементин
+wikipedia:en:https://en.wikipedia.org/wiki/Clementine
+wikidata:en:Q460517
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
+
+<en:clementine
+<en:fruit juice
+fr:jus de clémentine
+de:Clementinensaft
+fi:klementiinimehu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
+# 75 products in 2 languages @2018-10-01
+
+###################################################################################################
+#
+#                                Kaffir lime
+#
+###################################################################################################
+
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
 <en:citrus fruit
@@ -36576,136 +36646,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 <en:kaffir lime
 fr:feuilles de combava
 
-# A lime is a hybrid citrus fruit
 
-<en:fruit
-<en:citrus fruit
-en:lime
-af:Lemmetjie
-ar:ليم
-as:গোলনেমু
-be:Лайм
-bg:Зелен лимон
-bn:লেবু
-br:limez
-bs:Limeta
-ca:llimona dolça
-cs:limetka
-cv:Лайм
-cy:leim
-da:lime
-de:Limetten, Limone
-el:Μοσχολέμονο
-eo:limeo
-es:lima
-eu:Lima
-fa:لیموترش سبز
-fi:limetti
-fr:citron vert
-ga:Líoma
-gl:Lima
-gv:Leeim
-he:ליים
-hi:नींबू
-hr:Limeta
-hu:zöldcitrom
-it:limetta
-ja:ライム
-ka:ლაიმი
-kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
-ko:라임
-la:Lumia
-lo:ຫມາກນາວ
-lv:laims
-mk:Лимета
-my:သံပရာ
-nb:lime
-nl:limoen, lime
-nn:lime
-nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
-oc:lime
-or:ଲେମ୍ବୁ
-os:Лайм
-pa:ਗਲਗਲ
-pl:Lima
-pt:lima
-ro:lămâie verde
-ru:лайм
-sh:Limeta
-si:දෙහි
-sk:limetka
-sl:Limeta
-sq:limon i athët
-sr:лимета
-sv:lime
-sw:Ndimu
-ta:தேசிப்பழம்
-th:มะนาว
-tr:Misket limonu
-uk:Лайм
-ur:گلگل
-vi:Chanh
-zh:青檸
-# aeb-arab:كعبة ليم
-# aeb-latn:lim
-# chr:ᎳᎢᎻ
-# de-ch:Limette
-# en-ca:Lime
-# en-gb:Lime
-# nah:Limōnxocotl
-# pnb:گلگل
-# pr-br:lima
-# roa-tara:laim
-# sco:lime
-# sr-ec:лимета
-# yue:青檸
-# zh-hans:青檸
-# zh-hant:萊姆
-wikidata:en:Q13195
-wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
-# 251 products @2018-10-01
-carbon_footprint_fr_foodges_ingredient:fr:Citron
-carbon_footprint_fr_foodges_value:fr:0.9
-
-# <en:lime
-<en:fruit juice
-en:lime juice
-ca:suc de lima
-da:Limesaft
-de:Limettensaft
-es:Zumo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
-fr:jus de citron vert
-it:succo di lime
-nl:limoensap
-pl:Sok cytrynowy, sok z cytryny
-ru:Лаймовый сок
-sv:limejuice, limesaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
-# 342 products @2018-10-01
-
-<en:lime juice
-fr:jus de citron vert concentré
-fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
-sv:limesaftkoncentrat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
-# 43 products in 1 language @2018-10-01
-
-<en:lime juice
-en:reconstituted lime juice
-de:rekonstituierter Limettensaft
-fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
-nl:limoensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
-# 74 products in 3 languages @2018-10-01
-
-<en:lime
-de:Limettenschale
-fr:écorces de citron vert, zeste de citron vert
-it:scorze di lime
-
+###################################################################################################
+#
+#                                Lemon
+#
+###################################################################################################
 <en:fruit
 <en:citrus fruit
 en:lemon
@@ -36940,11 +36886,220 @@ wikidata:en:Q206496
 en:lemon scent
 es:aroma de limon
 
-# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+###################################################################################################
+#
+#                                Lime
+#
+###################################################################################################
+
+# A lime is a hybrid citrus fruit
+
 <en:fruit
 <en:citrus fruit
-en:bitter orange
-es:naranja amarga, naranjas amargas de sevilla
+en:lime
+af:Lemmetjie
+ar:ليم
+as:গোলনেমু
+be:Лайм
+bg:Зелен лимон
+bn:লেবু
+br:limez
+bs:Limeta
+ca:llimona dolça
+cs:limetka
+cv:Лайм
+cy:leim
+da:lime
+de:Limetten, Limone
+el:Μοσχολέμονο
+eo:limeo
+es:lima
+eu:Lima
+fa:لیموترش سبز
+fi:limetti
+fr:citron vert
+ga:Líoma
+gl:Lima
+gv:Leeim
+he:ליים
+hi:नींबू
+hr:Limeta
+hu:zöldcitrom
+it:limetta
+ja:ライム
+ka:ლაიმი
+kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
+ko:라임
+la:Lumia
+lo:ຫມາກນາວ
+lv:laims
+mk:Лимета
+my:သံပရာ
+nb:lime
+nl:limoen, lime
+nn:lime
+nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
+oc:lime
+or:ଲେମ୍ବୁ
+os:Лайм
+pa:ਗਲਗਲ
+pl:Lima
+pt:lima
+ro:lămâie verde
+ru:лайм
+sh:Limeta
+si:දෙහි
+sk:limetka
+sl:Limeta
+sq:limon i athët
+sr:лимета
+sv:lime
+sw:Ndimu
+ta:தேசிப்பழம்
+th:มะนาว
+tr:Misket limonu
+uk:Лайм
+ur:گلگل
+vi:Chanh
+zh:青檸
+# aeb-arab:كعبة ليم
+# aeb-latn:lim
+# chr:ᎳᎢᎻ
+# de-ch:Limette
+# en-ca:Lime
+# en-gb:Lime
+# nah:Limōnxocotl
+# pnb:گلگل
+# pr-br:lima
+# roa-tara:laim
+# sco:lime
+# sr-ec:лимета
+# yue:青檸
+# zh-hans:青檸
+# zh-hant:萊姆
+wikidata:en:Q13195
+wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
+# 251 products @2018-10-01
+carbon_footprint_fr_foodges_ingredient:fr:Citron
+carbon_footprint_fr_foodges_value:fr:0.9
+
+# <en:lime
+<en:fruit juice
+en:lime juice
+ca:suc de lima
+da:Limesaft
+de:Limettensaft
+es:Zumo de lima
+fi:limettimehu, limetäysmehu, limetinmehu
+fr:jus de citron vert
+it:succo di lime
+nl:limoensap
+pl:Sok cytrynowy, sok z cytryny
+ru:Лаймовый сок
+sv:limejuice, limesaft
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
+# 342 products @2018-10-01
+
+<en:lime juice
+fr:jus de citron vert concentré
+fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
+sv:limesaftkoncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
+# 43 products in 1 language @2018-10-01
+
+<en:lime juice
+en:reconstituted lime juice
+de:rekonstituierter Limettensaft
+fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
+nl:limoensap uit concentraat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
+# 74 products in 3 languages @2018-10-01
+
+<en:lime
+de:Limettenschale
+fr:écorces de citron vert, zeste de citron vert
+it:scorze di lime
+
+###################################################################################################
+#
+#                                Mandarin
+#
+###################################################################################################
+# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
+
+<en:citrus fruit
+en:mandarin, mandarine, mandarin orange
+ca:mandarina
+co:Mandarina
+cs:mandarinka
+cv:Мандарин
+da:Mandarin
+de:Mandarine, Mandarinen
+el:μανταρίνι
+es:mandarina
+et:Mandariin
+eu:Mandarina
+fi:mandariini
+fr:mandarine
+gl:Mandarina
+ht:Mandarin
+hu:mandarin
+io:Mandarino
+it:mandarino, mandarini
+ja:マンダリンオレンジ
+lt:Mandarinas
+nb:mandarin
+nl:mandarijn, mandarijnen
+oc:Mandarina
+pl:Mandarynka
+ro:Mandarină
+ru:Мандарин
+sk:Mandarínkovník
+sw:Mchenza
+uk:мандарин
+# aeb-arab:كعبة مدنين
+# arz:سفندى
+# eml:Mandarëin
+# scn:mannarinu
+# vro:mandarijn
+wikidata:en:Q190024
+wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
+carbon_footprint_fr_foodges_ingredient:fr:Mandarine
+carbon_footprint_fr_foodges_value:fr:1.3
+# 239 products in 6 languages @2018-10-01
+
+<en:mandarin
+<en:fruit juice
+fr:jus de mandarine
+de:Mandarinesaft, Mandarinensaft
+fi:mandariinimehu
+it:succo di mandarino
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
+# 52 products in 3 languages @2018-10-01
+
+<fr:jus de mandarine
+en:concentrated mandarin juice
+da:mandarinjuice fra koncentrat
+de:Mandarinensaft aus Konzentrat
+fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
+fr:Jus de mandarine concentré
+ru:Концентрированный мандариновый сок
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
+# 1 entry @ 2019-10-31
+
+<en:mandarin
+fr:écorces de mandarine
+
+###################################################################################################
+#
+#                                Orange
+#
+###################################################################################################
+
+# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
 
 <en:fruit
 <en:citrus fruit
@@ -37176,6 +37331,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Blood_orange
 #openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:orange-sanguine
 # 23 products (FR), 8 products (EN), 4 products (ES) @2020-04-23
 
+
+<en:orange juice
+<en:citrus fruit
+fr:jus d'orange et autres agrumes à base de concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
+# 46 products in 1 language @2018-09-30
+
 <en:orange juice
 en:pasteurized orange juice
 da:pasteuriseret appelsinjuice
@@ -37348,126 +37510,11 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
-# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
-
-<en:citrus fruit
-en:mandarin, mandarine, mandarin orange
-ca:mandarina
-co:Mandarina
-cs:mandarinka
-cv:Мандарин
-da:Mandarin
-de:Mandarine, Mandarinen
-el:μανταρίνι
-es:mandarina
-et:Mandariin
-eu:Mandarina
-fi:mandariini
-fr:mandarine
-gl:Mandarina
-ht:Mandarin
-hu:mandarin
-io:Mandarino
-it:mandarino, mandarini
-ja:マンダリンオレンジ
-lt:Mandarinas
-nb:mandarin
-nl:mandarijn, mandarijnen
-oc:Mandarina
-pl:Mandarynka
-ro:Mandarină
-ru:Мандарин
-sk:Mandarínkovník
-sw:Mchenza
-uk:мандарин
-# aeb-arab:كعبة مدنين
-# arz:سفندى
-# eml:Mandarëin
-# scn:mannarinu
-# vro:mandarijn
-wikidata:en:Q190024
-wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
-carbon_footprint_fr_foodges_ingredient:fr:Mandarine
-carbon_footprint_fr_foodges_value:fr:1.3
-# 239 products in 6 languages @2018-10-01
-
-<en:mandarin
-<en:fruit juice
-fr:jus de mandarine
-de:Mandarinesaft, Mandarinensaft
-fi:mandariinimehu
-it:succo di mandarino
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
-# 52 products in 3 languages @2018-10-01
-
-<fr:jus de mandarine
-en:concentrated mandarin juice
-da:mandarinjuice fra koncentrat
-de:Mandarinensaft aus Konzentrat
-fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
-fr:Jus de mandarine concentré
-ru:Концентрированный мандариновый сок
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
-# 1 entry @ 2019-10-31
-
-<en:mandarin
-fr:écorces de mandarine
-
-# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
-# The wikidata-page mixes the plant and the fruit
-
-<en:citrus fruit
-en:clementine, clementins
-ar:كليمونتين
-bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
-ca:clementina
-co:Clementina
-cs:Klementinka
-cv:Клементина
-da:Klementin
-de:Clementinen
-eo:Klementinujo
-es:clementina
-et:Klementiin
-eu:Klementinondo
-fi:klementiini, klementiinit
-fr:clémentine, clémentines
-gl:clementina
-he:קלמנטינה
-it:clementina
-ja:クレメンタイン
-kv:Клементин
-lt:Klementinai
-nb:Klementin
-nl:clementine
-nn:Klementin
-ro:Clemantină
-ru:Клементин
-sl:Klementina
-sv:Clementin
-th:คลีเมนไทน์
-uk:Клементин
-vi:Clementine
-zh:克里曼丁红橘
-# frr:Clementiin
-# koi:Клементин
-# mrj:Клементин
-# pcd:Clémintine
-# udm:Клементин
-wikipedia:en:https://en.wikipedia.org/wiki/Clementine
-wikidata:en:Q460517
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
-# 81 products @2018-10-01
-
-<en:clementine
-<en:fruit juice
-fr:jus de clémentine
-de:Clementinensaft
-fi:klementiinimehu
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
-# 75 products in 2 languages @2018-10-01
-
+###################################################################################################
+#
+#                                Bitter orange
+#
+###################################################################################################
 # BITTER ORANGE, Seville orange, sour orange, bigarade orange, or marmalade orange is the citrus tree Citrus × aurantium and its fruit.
 
 <en:fruit
@@ -37483,7 +37530,7 @@ da:pomerans
 de:bitterorange
 el:νεραντζιά
 eo:bigarado
-es:citrus × aurantium
+es:naranja amarga, naranjas amargas de sevilla
 et:pomerantsipuu
 eu:laranja mingots
 fa:نارنج
@@ -37526,6 +37573,8 @@ zh:苦橙
 wikidata:en:Q147096
 wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
 # ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
+
+
 
 # The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
 
@@ -74260,6 +74309,7 @@ sv:sojasåspulver
 <en:soy sauce
 en:tamari
 de:Tamari
+es:tamari
 fi:tamari
 fr:tamari
 he:תמרי
