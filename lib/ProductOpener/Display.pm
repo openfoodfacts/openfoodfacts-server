@@ -10584,7 +10584,14 @@ sub display_ingredients_analysis($) {
 
 	my $html = "";
 
-	if (defined $product_ref->{ingredients_analysis_tags}) {
+	my $template_data_ref = {
+		
+		lang => \&lang,
+		display_icon => \&display_icon,
+	
+	};
+
+	if (defined $product_ref->{ingredients_analysis}) {
 
 		my $html_analysis = "";
 
@@ -10647,6 +10654,14 @@ sub display_ingredients_analysis($) {
 				}
 			}
 
+			push @{$template_data_ref->{ingredients_analysis_tags}}, {
+				color => $color,
+				icon => $icon,
+				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+			};
+
+			$template_data_ref->{html_analysis} = 'not_empty';
+
 			# Skip unknown
 			next if $ingredients_analysis_tag =~ /unknown/;
 
@@ -10660,14 +10675,17 @@ sub display_ingredients_analysis($) {
 		}
 
 		if ($html_analysis ne "") {
-
+			
 			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
 			. $html_analysis
 			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
 		}
 	}
 
-	return $html;
+	my $out;
+	$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$out) || return "template error: " . $tt->error();
+	# return $html;
+	return $out;
 }
 
 1;
