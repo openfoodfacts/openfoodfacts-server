@@ -17761,7 +17761,7 @@ cs:Rostlinný tuk
 da:vegetabilsk fedt
 de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
-es:grasas vegetales, grasa vegetal
+es:grasas vegetales, grasa vegetal,grasa vegetal no hidrogenada
 fi:kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
 hu:növényi zsír, növényi zsírok
@@ -68736,7 +68736,11 @@ fr:morceaux de foie gras de canard
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
-######################### Turkey ####################
+############################################################
+#
+#                          Turkey 
+#
+############################################################
 
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
@@ -68879,15 +68883,18 @@ fr:viande de dinde halal
 # ingredient/fr:viande-de-dinde-halal has 6 products in french @2019-04-16
 
 <en:turkey meat
-en:turkey breast, turkey fillet
+en:turkey breast, turkey fillet, turkey breast meat
 ca:pit de gall d'indi, pit d'indiot
+da:kalkunbryst
 de:Putenfilet
 es:pechuga de pavo
-fi:kalkkunanfilee, kalkkunan filee, kalkkuna filee
+fi:kalkkunanrinta, kalkkunan rintaliha,kalkkunanfilee, kalkkunan filee, kalkkuna filee
 fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde,poitrine de dinde
 it:Filetto di tacchino
 nl:Kalkoenfilet
+sv:kalkonbröst
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
+# ingredient/en:turkey-breast has 1255 products in 3 languages @2020-06-13
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
 carbon_footprint_fr_foodges_value:fr:6.5
 
@@ -68927,12 +68934,9 @@ fr:jambon de dinde cuit standard goût fumé
 <en:turkey
 en:roasted turkey including natural turkey juices
 
-<en:turkey meat
-en:turkey breast, turkey breast meat
-da:kalkunbryst
-fi:kalkkunanrinta, kalkkunan rintaliha
-sv:kalkonbröst
-# ingredient/en:turkey-breast has 1255 products in 3 languages @2020-06-13
+<en:turkey
+en:turkey thigh
+es:muslo de pavot
 
 <en:poultry
 fr:caille, cailles
