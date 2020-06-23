@@ -275,7 +275,7 @@ el:Μέσο οξίνισης
 es:acidulante
 et:Hape
 fi:happo, happoa, hapot, happoja
-fr:acidifiant, acide
+fr:acidifiant, acide,acidulants
 ga:Aigéad
 he:חומצה
 hu:Étkezési sav
@@ -32329,7 +32329,7 @@ fr:gluten vital de blé
 en:Maltodextrins, maltodextrin
 ca:Maltodextrina
 da:maltodextrin
-de:Maltodextrine
+de:Maltodextrin,Maltodextrine
 el:Μαλτοδεξτρίνες, μαλτοδεξτρίνη
 es:Maltodextrinas, maltodextrina
 fi:maltodekstriini
@@ -37575,6 +37575,59 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
 # ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
 
 
+###################################################################################################
+#
+#                                Blackberry
+#
+###################################################################################################
+# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
+
+<en:fruit
+en:blackberry, blackberries
+bg:Къпина
+br:Mouar
+bs:Kupina
+ca:Mora
+da:brombær
+de:Brombeeren
+es:Mora, moras
+eu:Masusta
+fi:karhunvatukka, karhunvadelma
+fr:mûre, mûres
+hr:Kupina
+it:more
+kk:Қара бүлдірген
+ko:블랙베리
+ku:Tûreşk
+mk:Капина
+ml:ബ്ളാക്ക്ബെറി
+nl:braam, bramen
+ps:تورتوت
+pt:amora
+ru:Ежевика
+sd:ڪاريون ٻيريون
+sv:björnbär
+ta:நாகப்பழம்
+tr:Böğürtlen
+ur:سیاہ توت
+wa:Meumeure
+zh:黑莓
+# bar:Mur
+# roa-rup:Amurâ
+# udm:Лыз эмезь
+# yue:黑啤梨
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
+# 404 products in 7 languages @21018-10-01
+
+<en:blackberry
+<en:juice
+fr:jus de mûre à base de jus concentré
+
+###################################################################################################
+#
+#                                Blackcurrant
+#
+###################################################################################################
 
 # The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
 
@@ -37659,6 +37712,147 @@ sv:svartvinbärspuré
 # nl:cassis likeur
 # de:Cassis-Likör
 
+###################################################################################################
+#
+#                                Blueberry
+#
+###################################################################################################
+
+# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
+
+<en:fruit
+<fr:fruit rouge
+en:blueberry, blueberries, bilberry
+ar:عنب الأحراج
+bg:Черна боровинка
+cs:Borůvka
+da:blåbær
+de:Heidelbeer, Heidelbeeren, Heidelbeere
+eo:mirtelo
+es:arándano azul, arándanos azules, arándano azul, mora azul
+fa:بیل‌بری
+fi:mustikka, pensasmustikka
+fr:myrtille
+hu:áfonya
+is:Aðalbláber
+it:mirtillli
+ja:ビルベリー
+ka:მოცვი
+nb:blåbær
+nl:bosbes, blauwe bes
+nn:blåbær
+pl:Borówka czarna
+pt:mirtilo
+ru:черника
+sv:blåbär
+uk:чорниця
+vi:Việt quất đen
+zh:山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
+wikidata:en:Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+<en:blueberry
+en:wild blueberries
+de:Wilde Heidelbeeren
+fr:Myrtilles sauvages
+
+<en:blueberry
+en:organic blueberry
+de:Bio-Heidelbeeren, Bio-Blaubeeren
+fi:luomumustikka, luomu mustikka
+fr:myrtilles bio
+
+<en:blueberry
+fr:myrtilles sauvages
+de:Wilde Heidelbeeren
+fi:villimustikka
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
+# 55 products in 2 languages @2018-10-01
+
+<en:blueberry
+<en:purée
+en:blueberry puree, blueberries puree
+de:Blaubeerenpuree
+es:Puré de arándanos
+fi:mustikkasose, soseutettu mustikka, mustikkapyree
+fr:purée de myrtilles
+nl:bosbessenpuree, bosbessenmoes
+sv:blåbärpuré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
+# 105 products @2018-10-01
+
+<en:blueberry puree
+de:Heidelbeerpüree aus Konzentrat
+
+<en:blueberry
+en:blueberry juice
+de:Preiselbeersaft
+es:Jugo de zarzamora
+fi:mustikkamehu
+fr:jus de myrtille
+it:succo di mirtillo
+nl:bosbessensap
+ru:Черничный сок
+# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
+
+<en:blueberry juice
+en:concentrated blueberry juice
+de:Heidelbeer-Saftkonzentrat
+sv:blåbärssaftkoncentrat
+
+<en:blueberry juice
+en:blueberry juice from concentrate
+de:Heidelbeersaft aus Heidelbeerkonzentrat 
+es:Concentrado de jugo de zarzamora
+fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
+fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+sv:blåbärssaft av koncentrat
+
+###################################################################################################
+#
+#                                Boysenberry
+#
+###################################################################################################
+# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+
+<en:fruit
+<fr:fruit rouge
+en:boysenberry, boysenberries
+bg:бойсен
+ca:boysenberry
+da:boysenbær
+de:boysenbeere, boysenbeeren
+fi:boysenmarja
+fr:boysenberry
+it:boysenberry
+ja:ボイセンベリー
+ko:보이즌베리
+nb:boysenbær
+nl:boysenbes
+pl:boysenberry
+pt:boysenberry
+ru:бойзенова ягода
+sv:boysenbär
+wikidata:en:Q896083
+wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
+# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+
+<en:fruit juice
+<en:boysenberry
+en:boysenberry juice
+fi:boysenmarjamehu, boysenmarjatäysmehu
+sv:boysenbärsjuice
+
+###################################################################################################
+#
+#                                Raspberry
+#
+###################################################################################################
 
 # RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
@@ -37854,36 +38048,12 @@ de:Himbeerpulver, Himbeerfruchtpulver
 fi:vadelmajauhe
 sv:hallonpulver
 
-# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
 
-<en:fruit
-<fr:fruit rouge
-en:boysenberry, boysenberries
-bg:бойсен
-ca:boysenberry
-da:boysenbær
-de:boysenbeere, boysenbeeren
-fi:boysenmarja
-fr:boysenberry
-it:boysenberry
-ja:ボイセンベリー
-ko:보이즌베리
-nb:boysenbær
-nl:boysenbes
-pl:boysenberry
-pt:boysenberry
-ru:бойзенова ягода
-sv:boysenbär
-wikidata:en:Q896083
-wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
-# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
-
-<en:fruit juice
-<en:boysenberry
-en:boysenberry juice
-fi:boysenmarjamehu, boysenmarjatäysmehu
-sv:boysenbärsjuice
-
+###################################################################################################
+#
+#                                Strawberry
+#
+###################################################################################################
 en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
 
 <en:fruit
@@ -38081,101 +38251,12 @@ ro:pudră de căpșuni
 <en:grape
 fi:mansikoista valmistettu mehu ja viinirypäleet
 
-# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
-# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
 
-<en:fruit
-<fr:fruit rouge
-en:blueberry, blueberries, bilberry
-ar:عنب الأحراج
-bg:Черна боровинка
-cs:Borůvka
-da:blåbær
-de:Heidelbeer, Heidelbeeren, Heidelbeere
-eo:mirtelo
-es:arándano azul, arándanos azules, arándano azul, mora azul
-fa:بیل‌بری
-fi:mustikka, pensasmustikka
-fr:myrtille
-hu:áfonya
-is:Aðalbláber
-it:mirtillli
-ja:ビルベリー
-ka:მოცვი
-nb:blåbær
-nl:bosbes, blauwe bes
-nn:blåbær
-pl:Borówka czarna
-pt:mirtilo
-ru:черника
-sv:blåbär
-uk:чорниця
-vi:Việt quất đen
-zh:山桑子
-# scn:Murtidda
-# yue:祖苺仔
-# zh-hant:祖愉莓
-wikidata:en:Q5812410
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
-# 943 producten in 13 languages @2018-10-01
-
-<en:blueberry
-en:wild blueberries
-de:Wilde Heidelbeeren
-fr:Myrtilles sauvages
-
-<en:blueberry
-en:organic blueberry
-de:Bio-Heidelbeeren, Bio-Blaubeeren
-fi:luomumustikka, luomu mustikka
-fr:myrtilles bio
-
-<en:blueberry
-fr:myrtilles sauvages
-de:Wilde Heidelbeeren
-fi:villimustikka
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
-
-<en:blueberry
-<en:purée
-en:blueberry puree, blueberries puree
-de:Blaubeerenpuree
-es:Puré de arándanos
-fi:mustikkasose, soseutettu mustikka, mustikkapyree
-fr:purée de myrtilles
-nl:bosbessenpuree, bosbessenmoes
-sv:blåbärpuré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
-# 105 products @2018-10-01
-
-<en:blueberry puree
-de:Heidelbeerpüree aus Konzentrat
-
-<en:blueberry
-en:blueberry juice
-de:Preiselbeersaft
-es:Jugo de zarzamora
-fi:mustikkamehu
-fr:jus de myrtille
-it:succo di mirtillo
-nl:bosbessensap
-ru:Черничный сок
-# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
-
-<en:blueberry juice
-en:concentrated blueberry juice
-de:Heidelbeer-Saftkonzentrat
-sv:blåbärssaftkoncentrat
-
-<en:blueberry juice
-en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat 
-es:Concentrado de jugo de zarzamora
-fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
-fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
-sv:blåbärssaft av koncentrat
-
+###################################################################################################
+#
+#                                Lingonberry
+#
+###################################################################################################
 # Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 <en:fruit
@@ -38204,6 +38285,11 @@ en:lingonberry juice
 fi:puolukkamehu, puolukkatäysmehu
 sv:lingonjuice
 
+###################################################################################################
+#
+#                                Redcurrant
+#
+###################################################################################################
 # The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
 
 <en:fruit
@@ -38219,48 +38305,11 @@ pt:groselha
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
 # 312 products in 6 languages @2018-10-01
 
-# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
-
-<en:fruit
-en:blackberry, blackberries
-bg:Къпина
-br:Mouar
-bs:Kupina
-ca:Mora
-da:brombær
-de:Brombeeren
-es:Mora, moras
-eu:Masusta
-fi:karhunvatukka, karhunvadelma
-fr:mûre, mûres
-hr:Kupina
-it:more
-kk:Қара бүлдірген
-ko:블랙베리
-ku:Tûreşk
-mk:Капина
-ml:ബ്ളാക്ക്ബെറി
-nl:braam, bramen
-ps:تورتوت
-pt:amora
-ru:Ежевика
-sd:ڪاريون ٻيريون
-sv:björnbär
-ta:நாகப்பழம்
-tr:Böğürtlen
-ur:سیاہ توت
-wa:Meumeure
-zh:黑莓
-# bar:Mur
-# roa-rup:Amurâ
-# udm:Лыз эмезь
-# yue:黑啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
-# 404 products in 7 languages @21018-10-01
-
-<en:blackberry
-<en:juice
-fr:jus de mûre à base de jus concentré
+###################################################################################################
+#
+#                                Cloudberry
+#
+###################################################################################################
 
 # description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
 
