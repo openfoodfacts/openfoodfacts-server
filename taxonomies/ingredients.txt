@@ -275,7 +275,7 @@ el:Μέσο οξίνισης
 es:acidulante
 et:Hape
 fi:happo, happoa, hapot, happoja
-fr:acidifiant, acide
+fr:acidifiant, acide,acidulants
 ga:Aigéad
 he:חומצה
 hu:Étkezési sav
@@ -5644,7 +5644,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Neohesperidin_dihydrochalcone
 # ingredient/fr:néohespéridine-dc has 26 products in 3 languages @2019-02-13
 
 
-# description:en:STEVIOL GLYCOSIDES are the chemical compounds responsible for the sweet taste of the leaves of the South American plant Stevia rebaudiana (Asteraceae) and the main ingredients (or precursors) of many sweeteners marketed under the generic name stevia and several trade names. The acceptable daily intake (ADI) for steviol glycosides, expressed as steviol equivalents, has been established to be 4 mg/kg body weight/day, and is based on no observed effects of a 100 fold higher dose in a rat study.
+# description:en:STEVIOL GLYCOSIDES are the chemical compounds responsible for the sweet taste of the leaves of the South American plant Stevia rebaudiana (Asteraceae) and the main ingredients (or precursors) of many sweeteners marketed under the generic name stevia and several trade names. The acceptable daily intake (ADI) for steviol glycosides, expressed as steviol equivalents, has been established to be 4 mg/kg body weight/day, and is based on no observed effects of a 100 fold higher dose in a rat study.
 
 en:steviol glycosides, E960, E-960, E 960
 bg:Стевиол гликозиди
@@ -6115,6 +6115,8 @@ fi:vehnädekstriini
 # ingredient/fr:dextrine-de-blé has 63 products in french @2019-01-26
 
 <en:dextrin
+en:corn dextrin
+es:dextrina de maiz
 fr:dextrine de maïs
 de:Maisdextrin
 fi:maissidekstriini
@@ -15027,7 +15029,7 @@ ru:ягнёнок
 # sco:lamm
 wikidata:en:Q4575936
 
-# description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
+# description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
 # comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
 
 <en:meat
@@ -16024,7 +16026,7 @@ da:Bacon, svinefedt
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
-es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico
+es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico,bacon
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -17761,7 +17763,7 @@ cs:Rostlinný tuk
 da:vegetabilsk fedt
 de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
-es:grasas vegetales, grasa vegetal
+es:grasas vegetales, grasa vegetal,grasa vegetal no hidrogenada
 fi:kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
 hu:növényi zsír, növényi zsírok
@@ -21964,7 +21966,7 @@ fr:arôme d'orange
 hu:narancsaroma
 
 <en:flavouring
-en:plumb flavouring
+en:plum flavouring
 es:aroma de ciruela
 
 <en:flavouring
@@ -23061,7 +23063,7 @@ hu:természetes füge aroma
 
 <en:flavouring
 en:cheese flavouring
-es:aromas con sabor a queso,aroma queso
+es:aromas con sabor a queso,aroma queso,aroma de queso
 
 <en:natural flavouring
 en:natural cheddar flavouring
@@ -25470,7 +25472,7 @@ da:Quinoa
 de:Quinoa
 el:Κινόα
 eo:Kvinoo
-es:Quinoa, quinua, quinoa real
+es:quinoa, quinua, quinoa real
 et:kinoa, Tšiili hanemalts
 eu:Kinoa
 fa:کینوآ
@@ -30285,10 +30287,10 @@ vegetarian:en:no
 <en:animal protein
 # <en:dairy
 en:milk proteins
-ca:Proteina de la llet, proteines de la llet
+ca:Proteina de la llet, proteines de la llet,proteïnes làcties
 da:mælkeprotein
 de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
-es:proteína de leche
+es:proteína de leche,proteinas lacteas
 fi:maitoproteiini, maitoproteiinit
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérjék, tejfehérje
@@ -30613,7 +30615,7 @@ da:kakaosmør
 de:Kakaobutter
 el:βούτυρο κακάου
 eo:kakaa butero
-es:manteca de cacaomanteca de cacao pura
+es:manteca de cacao,manteca de cacao pura
 et:kakaovōi, Kakaoõli
 eu:Kakao-gurin
 fa:کره کاکائو
@@ -32327,7 +32329,7 @@ fr:gluten vital de blé
 en:Maltodextrins, maltodextrin
 ca:Maltodextrina
 da:maltodextrin
-de:Maltodextrine
+de:Maltodextrin,Maltodextrine
 el:Μαλτοδεξτρίνες, μαλτοδεξτρίνη
 es:Maltodextrinas, maltodextrina
 fi:maltodekstriini
@@ -35760,6 +35762,9 @@ sv:päronjuice från koncentrat
 en:plum
 es:ciruela
 
+<en:plum
+en:plum sugar
+
 # The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 
 <en:fruit
@@ -36416,11 +36421,11 @@ fr:pur jus de pommes à cidre
 <en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
 
-<en:orange juice
-<en:citrus fruit
-fr:jus d'orange et autres agrumes à base de concentrés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
-# 46 products in 1 language @2018-09-30
+###################################################################################################
+#
+#                                Citrus fruit
+#
+###################################################################################################
 
 <en:fiber
 <en:citrus fruit
@@ -36534,6 +36539,71 @@ fr:Extrait d'agrumes
 <en:citrus fruit
 fr:écorces d'agrumes
 
+###################################################################################################
+#
+#                                Clemantine
+#
+###################################################################################################
+# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
+# The wikidata-page mixes the plant and the fruit
+
+<en:citrus fruit
+en:clementine, clementins
+ar:كليمونتين
+bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
+ca:clementina
+co:Clementina
+cs:Klementinka
+cv:Клементина
+da:Klementin
+de:Clementinen
+eo:Klementinujo
+es:clementina
+et:Klementiin
+eu:Klementinondo
+fi:klementiini, klementiinit
+fr:clémentine, clémentines
+gl:clementina
+he:קלמנטינה
+it:clementina
+ja:クレメンタイン
+kv:Клементин
+lt:Klementinai
+nb:Klementin
+nl:clementine
+nn:Klementin
+ro:Clemantină
+ru:Клементин
+sl:Klementina
+sv:Clementin
+th:คลีเมนไทน์
+uk:Клементин
+vi:Clementine
+zh:克里曼丁红橘
+# frr:Clementiin
+# koi:Клементин
+# mrj:Клементин
+# pcd:Clémintine
+# udm:Клементин
+wikipedia:en:https://en.wikipedia.org/wiki/Clementine
+wikidata:en:Q460517
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
+
+<en:clementine
+<en:fruit juice
+fr:jus de clémentine
+de:Clementinensaft
+fi:klementiinimehu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
+# 75 products in 2 languages @2018-10-01
+
+###################################################################################################
+#
+#                                Kaffir lime
+#
+###################################################################################################
+
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
 <en:citrus fruit
@@ -36576,136 +36646,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 <en:kaffir lime
 fr:feuilles de combava
 
-# A lime is a hybrid citrus fruit
 
-<en:fruit
-<en:citrus fruit
-en:lime
-af:Lemmetjie
-ar:ليم
-as:গোলনেমু
-be:Лайм
-bg:Зелен лимон
-bn:লেবু
-br:limez
-bs:Limeta
-ca:llimona dolça
-cs:limetka
-cv:Лайм
-cy:leim
-da:lime
-de:Limetten, Limone
-el:Μοσχολέμονο
-eo:limeo
-es:lima
-eu:Lima
-fa:لیموترش سبز
-fi:limetti
-fr:citron vert
-ga:Líoma
-gl:Lima
-gv:Leeim
-he:ליים
-hi:नींबू
-hr:Limeta
-hu:zöldcitrom
-it:limetta
-ja:ライム
-ka:ლაიმი
-kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
-ko:라임
-la:Lumia
-lo:ຫມາກນາວ
-lv:laims
-mk:Лимета
-my:သံပရာ
-nb:lime
-nl:limoen, lime
-nn:lime
-nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
-oc:lime
-or:ଲେମ୍ବୁ
-os:Лайм
-pa:ਗਲਗਲ
-pl:Lima
-pt:lima
-ro:lămâie verde
-ru:лайм
-sh:Limeta
-si:දෙහි
-sk:limetka
-sl:Limeta
-sq:limon i athët
-sr:лимета
-sv:lime
-sw:Ndimu
-ta:தேசிப்பழம்
-th:มะนาว
-tr:Misket limonu
-uk:Лайм
-ur:گلگل
-vi:Chanh
-zh:青檸
-# aeb-arab:كعبة ليم
-# aeb-latn:lim
-# chr:ᎳᎢᎻ
-# de-ch:Limette
-# en-ca:Lime
-# en-gb:Lime
-# nah:Limōnxocotl
-# pnb:گلگل
-# pr-br:lima
-# roa-tara:laim
-# sco:lime
-# sr-ec:лимета
-# yue:青檸
-# zh-hans:青檸
-# zh-hant:萊姆
-wikidata:en:Q13195
-wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
-# 251 products @2018-10-01
-carbon_footprint_fr_foodges_ingredient:fr:Citron
-carbon_footprint_fr_foodges_value:fr:0.9
-
-# <en:lime
-<en:fruit juice
-en:lime juice
-ca:suc de lima
-da:Limesaft
-de:Limettensaft
-es:Zumo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
-fr:jus de citron vert
-it:succo di lime
-nl:limoensap
-pl:Sok cytrynowy, sok z cytryny
-ru:Лаймовый сок
-sv:limejuice, limesaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
-# 342 products @2018-10-01
-
-<en:lime juice
-fr:jus de citron vert concentré
-fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
-sv:limesaftkoncentrat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
-# 43 products in 1 language @2018-10-01
-
-<en:lime juice
-en:reconstituted lime juice
-de:rekonstituierter Limettensaft
-fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
-nl:limoensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
-# 74 products in 3 languages @2018-10-01
-
-<en:lime
-de:Limettenschale
-fr:écorces de citron vert, zeste de citron vert
-it:scorze di lime
-
+###################################################################################################
+#
+#                                Lemon
+#
+###################################################################################################
 <en:fruit
 <en:citrus fruit
 en:lemon
@@ -36940,11 +36886,220 @@ wikidata:en:Q206496
 en:lemon scent
 es:aroma de limon
 
-# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+###################################################################################################
+#
+#                                Lime
+#
+###################################################################################################
+
+# A lime is a hybrid citrus fruit
+
 <en:fruit
 <en:citrus fruit
-en:bitter orange
-es:naranja amarga, naranjas amargas de sevilla
+en:lime
+af:Lemmetjie
+ar:ليم
+as:গোলনেমু
+be:Лайм
+bg:Зелен лимон
+bn:লেবু
+br:limez
+bs:Limeta
+ca:llimona dolça
+cs:limetka
+cv:Лайм
+cy:leim
+da:lime
+de:Limetten, Limone
+el:Μοσχολέμονο
+eo:limeo
+es:lima
+eu:Lima
+fa:لیموترش سبز
+fi:limetti
+fr:citron vert
+ga:Líoma
+gl:Lima
+gv:Leeim
+he:ליים
+hi:नींबू
+hr:Limeta
+hu:zöldcitrom
+it:limetta
+ja:ライム
+ka:ლაიმი
+kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
+ko:라임
+la:Lumia
+lo:ຫມາກນາວ
+lv:laims
+mk:Лимета
+my:သံပရာ
+nb:lime
+nl:limoen, lime
+nn:lime
+nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
+oc:lime
+or:ଲେମ୍ବୁ
+os:Лайм
+pa:ਗਲਗਲ
+pl:Lima
+pt:lima
+ro:lămâie verde
+ru:лайм
+sh:Limeta
+si:දෙහි
+sk:limetka
+sl:Limeta
+sq:limon i athët
+sr:лимета
+sv:lime
+sw:Ndimu
+ta:தேசிப்பழம்
+th:มะนาว
+tr:Misket limonu
+uk:Лайм
+ur:گلگل
+vi:Chanh
+zh:青檸
+# aeb-arab:كعبة ليم
+# aeb-latn:lim
+# chr:ᎳᎢᎻ
+# de-ch:Limette
+# en-ca:Lime
+# en-gb:Lime
+# nah:Limōnxocotl
+# pnb:گلگل
+# pr-br:lima
+# roa-tara:laim
+# sco:lime
+# sr-ec:лимета
+# yue:青檸
+# zh-hans:青檸
+# zh-hant:萊姆
+wikidata:en:Q13195
+wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
+# 251 products @2018-10-01
+carbon_footprint_fr_foodges_ingredient:fr:Citron
+carbon_footprint_fr_foodges_value:fr:0.9
+
+# <en:lime
+<en:fruit juice
+en:lime juice
+ca:suc de lima
+da:Limesaft
+de:Limettensaft
+es:Zumo de lima
+fi:limettimehu, limetäysmehu, limetinmehu
+fr:jus de citron vert
+it:succo di lime
+nl:limoensap
+pl:Sok cytrynowy, sok z cytryny
+ru:Лаймовый сок
+sv:limejuice, limesaft
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
+# 342 products @2018-10-01
+
+<en:lime juice
+fr:jus de citron vert concentré
+fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
+sv:limesaftkoncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
+# 43 products in 1 language @2018-10-01
+
+<en:lime juice
+en:reconstituted lime juice
+de:rekonstituierter Limettensaft
+fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
+nl:limoensap uit concentraat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
+# 74 products in 3 languages @2018-10-01
+
+<en:lime
+de:Limettenschale
+fr:écorces de citron vert, zeste de citron vert
+it:scorze di lime
+
+###################################################################################################
+#
+#                                Mandarin
+#
+###################################################################################################
+# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
+
+<en:citrus fruit
+en:mandarin, mandarine, mandarin orange
+ca:mandarina
+co:Mandarina
+cs:mandarinka
+cv:Мандарин
+da:Mandarin
+de:Mandarine, Mandarinen
+el:μανταρίνι
+es:mandarina
+et:Mandariin
+eu:Mandarina
+fi:mandariini
+fr:mandarine
+gl:Mandarina
+ht:Mandarin
+hu:mandarin
+io:Mandarino
+it:mandarino, mandarini
+ja:マンダリンオレンジ
+lt:Mandarinas
+nb:mandarin
+nl:mandarijn, mandarijnen
+oc:Mandarina
+pl:Mandarynka
+ro:Mandarină
+ru:Мандарин
+sk:Mandarínkovník
+sw:Mchenza
+uk:мандарин
+# aeb-arab:كعبة مدنين
+# arz:سفندى
+# eml:Mandarëin
+# scn:mannarinu
+# vro:mandarijn
+wikidata:en:Q190024
+wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
+carbon_footprint_fr_foodges_ingredient:fr:Mandarine
+carbon_footprint_fr_foodges_value:fr:1.3
+# 239 products in 6 languages @2018-10-01
+
+<en:mandarin
+<en:fruit juice
+fr:jus de mandarine
+de:Mandarinesaft, Mandarinensaft
+fi:mandariinimehu
+it:succo di mandarino
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
+# 52 products in 3 languages @2018-10-01
+
+<fr:jus de mandarine
+en:concentrated mandarin juice
+da:mandarinjuice fra koncentrat
+de:Mandarinensaft aus Konzentrat
+fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
+fr:Jus de mandarine concentré
+ru:Концентрированный мандариновый сок
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
+# 1 entry @ 2019-10-31
+
+<en:mandarin
+fr:écorces de mandarine
+
+###################################################################################################
+#
+#                                Orange
+#
+###################################################################################################
+
+# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
 
 <en:fruit
 <en:citrus fruit
@@ -37176,6 +37331,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Blood_orange
 #openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:orange-sanguine
 # 23 products (FR), 8 products (EN), 4 products (ES) @2020-04-23
 
+
+<en:orange juice
+<en:citrus fruit
+fr:jus d'orange et autres agrumes à base de concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
+# 46 products in 1 language @2018-09-30
+
 <en:orange juice
 en:pasteurized orange juice
 da:pasteuriseret appelsinjuice
@@ -37348,126 +37510,11 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
-# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
-
-<en:citrus fruit
-en:mandarin, mandarine, mandarin orange
-ca:mandarina
-co:Mandarina
-cs:mandarinka
-cv:Мандарин
-da:Mandarin
-de:Mandarine, Mandarinen
-el:μανταρίνι
-es:mandarina
-et:Mandariin
-eu:Mandarina
-fi:mandariini
-fr:mandarine
-gl:Mandarina
-ht:Mandarin
-hu:mandarin
-io:Mandarino
-it:mandarino, mandarini
-ja:マンダリンオレンジ
-lt:Mandarinas
-nb:mandarin
-nl:mandarijn, mandarijnen
-oc:Mandarina
-pl:Mandarynka
-ro:Mandarină
-ru:Мандарин
-sk:Mandarínkovník
-sw:Mchenza
-uk:мандарин
-# aeb-arab:كعبة مدنين
-# arz:سفندى
-# eml:Mandarëin
-# scn:mannarinu
-# vro:mandarijn
-wikidata:en:Q190024
-wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
-carbon_footprint_fr_foodges_ingredient:fr:Mandarine
-carbon_footprint_fr_foodges_value:fr:1.3
-# 239 products in 6 languages @2018-10-01
-
-<en:mandarin
-<en:fruit juice
-fr:jus de mandarine
-de:Mandarinesaft, Mandarinensaft
-fi:mandariinimehu
-it:succo di mandarino
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
-# 52 products in 3 languages @2018-10-01
-
-<fr:jus de mandarine
-en:concentrated mandarin juice
-da:mandarinjuice fra koncentrat
-de:Mandarinensaft aus Konzentrat
-fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
-fr:Jus de mandarine concentré
-ru:Концентрированный мандариновый сок
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
-# 1 entry @ 2019-10-31
-
-<en:mandarin
-fr:écorces de mandarine
-
-# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
-# The wikidata-page mixes the plant and the fruit
-
-<en:citrus fruit
-en:clementine, clementins
-ar:كليمونتين
-bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
-ca:clementina
-co:Clementina
-cs:Klementinka
-cv:Клементина
-da:Klementin
-de:Clementinen
-eo:Klementinujo
-es:clementina
-et:Klementiin
-eu:Klementinondo
-fi:klementiini, klementiinit
-fr:clémentine, clémentines
-gl:clementina
-he:קלמנטינה
-it:clementina
-ja:クレメンタイン
-kv:Клементин
-lt:Klementinai
-nb:Klementin
-nl:clementine
-nn:Klementin
-ro:Clemantină
-ru:Клементин
-sl:Klementina
-sv:Clementin
-th:คลีเมนไทน์
-uk:Клементин
-vi:Clementine
-zh:克里曼丁红橘
-# frr:Clementiin
-# koi:Клементин
-# mrj:Клементин
-# pcd:Clémintine
-# udm:Клементин
-wikipedia:en:https://en.wikipedia.org/wiki/Clementine
-wikidata:en:Q460517
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
-# 81 products @2018-10-01
-
-<en:clementine
-<en:fruit juice
-fr:jus de clémentine
-de:Clementinensaft
-fi:klementiinimehu
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
-# 75 products in 2 languages @2018-10-01
-
+###################################################################################################
+#
+#                                Bitter orange
+#
+###################################################################################################
 # BITTER ORANGE, Seville orange, sour orange, bigarade orange, or marmalade orange is the citrus tree Citrus × aurantium and its fruit.
 
 <en:fruit
@@ -37483,7 +37530,7 @@ da:pomerans
 de:bitterorange
 el:νεραντζιά
 eo:bigarado
-es:citrus × aurantium
+es:naranja amarga, naranjas amargas de sevilla
 et:pomerantsipuu
 eu:laranja mingots
 fa:نارنج
@@ -37526,6 +37573,61 @@ zh:苦橙
 wikidata:en:Q147096
 wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
 # ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
+
+
+###################################################################################################
+#
+#                                Blackberry
+#
+###################################################################################################
+# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
+
+<en:fruit
+en:blackberry, blackberries
+bg:Къпина
+br:Mouar
+bs:Kupina
+ca:Mora
+da:brombær
+de:Brombeeren
+es:Mora, moras
+eu:Masusta
+fi:karhunvatukka, karhunvadelma
+fr:mûre, mûres
+hr:Kupina
+it:more
+kk:Қара бүлдірген
+ko:블랙베리
+ku:Tûreşk
+mk:Капина
+ml:ബ്ളാക്ക്ബെറി
+nl:braam, bramen
+ps:تورتوت
+pt:amora
+ru:Ежевика
+sd:ڪاريون ٻيريون
+sv:björnbär
+ta:நாகப்பழம்
+tr:Böğürtlen
+ur:سیاہ توت
+wa:Meumeure
+zh:黑莓
+# bar:Mur
+# roa-rup:Amurâ
+# udm:Лыз эмезь
+# yue:黑啤梨
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
+# 404 products in 7 languages @21018-10-01
+
+<en:blackberry
+<en:juice
+fr:jus de mûre à base de jus concentré
+
+###################################################################################################
+#
+#                                Blackcurrant
+#
+###################################################################################################
 
 # The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
 
@@ -37610,6 +37712,275 @@ sv:svartvinbärspuré
 # nl:cassis likeur
 # de:Cassis-Likör
 
+###################################################################################################
+#
+#                                Blueberry
+#
+###################################################################################################
+
+# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
+
+<en:fruit
+<fr:fruit rouge
+en:blueberry, blueberries, bilberry
+ar:عنب الأحراج
+bg:Черна боровинка
+cs:Borůvka
+da:blåbær
+de:Heidelbeer, Heidelbeeren, Heidelbeere
+eo:mirtelo
+es:arándano azul, arándanos azules, arándano azul, mora azul
+fa:بیل‌بری
+fi:mustikka, pensasmustikka
+fr:myrtille
+hu:áfonya
+is:Aðalbláber
+it:mirtillli
+ja:ビルベリー
+ka:მოცვი
+nb:blåbær
+nl:bosbes, blauwe bes
+nn:blåbær
+pl:Borówka czarna
+pt:mirtilo
+ru:черника
+sv:blåbär
+uk:чорниця
+vi:Việt quất đen
+zh:山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
+wikidata:en:Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+<en:blueberry
+en:wild blueberries
+de:Wilde Heidelbeeren
+fr:Myrtilles sauvages
+
+<en:blueberry
+en:organic blueberry
+de:Bio-Heidelbeeren, Bio-Blaubeeren
+fi:luomumustikka, luomu mustikka
+fr:myrtilles bio
+
+<en:blueberry
+fr:myrtilles sauvages
+de:Wilde Heidelbeeren
+fi:villimustikka
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
+# 55 products in 2 languages @2018-10-01
+
+<en:blueberry
+<en:purée
+en:blueberry puree, blueberries puree
+de:Blaubeerenpuree
+es:Puré de arándanos
+fi:mustikkasose, soseutettu mustikka, mustikkapyree
+fr:purée de myrtilles
+nl:bosbessenpuree, bosbessenmoes
+sv:blåbärpuré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
+# 105 products @2018-10-01
+
+<en:blueberry puree
+de:Heidelbeerpüree aus Konzentrat
+
+<en:blueberry
+en:blueberry juice
+de:Preiselbeersaft
+es:Jugo de zarzamora
+fi:mustikkamehu
+fr:jus de myrtille
+it:succo di mirtillo
+nl:bosbessensap
+ru:Черничный сок
+# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
+
+<en:blueberry juice
+en:concentrated blueberry juice
+de:Heidelbeer-Saftkonzentrat
+sv:blåbärssaftkoncentrat
+
+<en:blueberry juice
+en:blueberry juice from concentrate
+de:Heidelbeersaft aus Heidelbeerkonzentrat 
+es:Concentrado de jugo de zarzamora
+fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
+fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+sv:blåbärssaft av koncentrat
+
+###################################################################################################
+#
+#                                Boysenberry
+#
+###################################################################################################
+# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+
+<en:fruit
+<fr:fruit rouge
+en:boysenberry, boysenberries
+bg:бойсен
+ca:boysenberry
+da:boysenbær
+de:boysenbeere, boysenbeeren
+fi:boysenmarja
+fr:boysenberry
+it:boysenberry
+ja:ボイセンベリー
+ko:보이즌베리
+nb:boysenbær
+nl:boysenbes
+pl:boysenberry
+pt:boysenberry
+ru:бойзенова ягода
+sv:boysenbär
+wikidata:en:Q896083
+wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
+# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+
+<en:fruit juice
+<en:boysenberry
+en:boysenberry juice
+fi:boysenmarjamehu, boysenmarjatäysmehu
+sv:boysenbärsjuice
+
+###################################################################################################
+#
+#                                Cloudberry
+#
+###################################################################################################
+
+# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
+
+<en:fruit
+en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+az:rubus chamaemorus
+ba:мораҡ
+be:марошка
+ca:móra vermella
+cs:ostružiník moruška
+cy:llwyn mwyar y berwyn
+da:multebær
+de:moltebeere
+eo:kamemoro
+es:rubus chamaemorus
+et:rabamurakas
+fa:تمشک شمالی
+fi:lakka, hilla
+fr:plaquebière
+ga:eithreog shléibhe
+ik:aqpik
+is:múltuber
+it:rubus chamaemorus
+ja:ホロムイイチゴ
+ko:진들딸기
+kv:мырпом
+lt:paprastoji tekšė
+lv:lācene
+ms:rubus chamaemorus
+nb:multe
+nl:kruipbraam
+nn:molte
+os:цъымарайы мæнæргъы
+pl:malina moroszka
+pt:rubus chamaemorus
+ru:морошка
+se:luomi
+sl:barjanska robida
+sr:rubus chamaemorus
+sv:hjortron
+tr:rubus chamaemorus
+tt:морак
+uk:морошка
+vi:rubus chamaemorus
+zh:雲莓
+# ast:rubus chamaemorus
+# atj:cikotai
+# bat_smg:vištkuojis
+# be_x_old:марошка
+# ceb:rubus chamaemorus
+# fiu_vro:molohk
+# hsb:žołty ćernjowc
+# olo:muur'oi
+# sah:бөллөхүнэ
+# simple:cloudberry
+# species:rubus chamaemorus
+# vep:murašk
+# war:rubus chamaemorus
+wikidata:en:Q160092
+wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
+# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+
+###################################################################################################
+#
+#                                Gooseberry
+#
+###################################################################################################
+
+# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
+
+<en:fruit
+en:gooseberry, gooseberries
+es:grosella espinosa
+da:Stikkelsbær
+de:Stachelbeere, Stachelbeeren
+ee:karusmari
+fi:karviainen
+fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+nl:kruisbes
+no:stikkelsbær
+sv:Krusbär
+
+<en:gooseberry
+<en:fruit juice
+en:gooseberry juice
+fi:karviaismehu, karviaistäysmehu
+sv:krusbärjuice
+
+
+###################################################################################################
+#
+#                                Lingonberry
+#
+###################################################################################################
+# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
+
+<en:fruit
+en:lingonberry
+ca:nabius
+da:tyttebær
+de:Preiselbeeren
+es:Arándanos agrios,arándanos
+et:pohl
+fi:Puolukka
+fr:myrtille rouge
+lb:rout Molbier
+lt:Bruknė
+nl:vossebes, rode bosbes
+sv:lingon
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
+# 7 products @2018-10-01
+
+# No products
+# <en:fruit
+# fr:purée de myrtille rouge
+
+<en:lingonberry
+<en:fruit juice
+en:lingonberry juice
+fi:puolukkamehu, puolukkatäysmehu
+sv:lingonjuice
+
+
+###################################################################################################
+#
+#                                Raspberry
+#
+###################################################################################################
 
 # RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
@@ -37805,36 +38176,32 @@ de:Himbeerpulver, Himbeerfruchtpulver
 fi:vadelmajauhe
 sv:hallonpulver
 
-# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+###################################################################################################
+#
+#                                Redcurrant
+#
+###################################################################################################
+# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
 
 <en:fruit
-<fr:fruit rouge
-en:boysenberry, boysenberries
-bg:бойсен
-ca:boysenberry
-da:boysenbær
-de:boysenbeere, boysenbeeren
-fi:boysenmarja
-fr:boysenberry
-it:boysenberry
-ja:ボイセンベリー
-ko:보이즌베리
-nb:boysenbær
-nl:boysenbes
-pl:boysenberry
-pt:boysenberry
-ru:бойзенова ягода
-sv:boysenbär
-wikidata:en:Q896083
-wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
-# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+en:redcurrant, red currant
+da:røde bær
+de:rote Johannisbeeren
+es:grosella roja, grosellas rojas
+fi:Punaherukka
+fr:groseille, groseilles, groseilles rouges
+it:ribes rosso
+nl:aalbes, rode bes
+pt:groselha
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
+# 312 products in 6 languages @2018-10-01
 
-<en:fruit juice
-<en:boysenberry
-en:boysenberry juice
-fi:boysenmarjamehu, boysenmarjatäysmehu
-sv:boysenbärsjuice
 
+###################################################################################################
+#
+#                                Strawberry
+#
+###################################################################################################
 en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
 
 <en:fruit
@@ -38032,249 +38399,15 @@ ro:pudră de căpșuni
 <en:grape
 fi:mansikoista valmistettu mehu ja viinirypäleet
 
-# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
-# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
 
-<en:fruit
-<fr:fruit rouge
-en:blueberry, blueberries, bilberry
-ar:عنب الأحراج
-bg:Черна боровинка
-cs:Borůvka
-da:blåbær
-de:Heidelbeer, Heidelbeeren, Heidelbeere
-eo:mirtelo
-es:arándano azul, arándanos azules, arándano azul, mora azul
-fa:بیل‌بری
-fi:mustikka, pensasmustikka
-fr:myrtille
-hu:áfonya
-is:Aðalbláber
-it:mirtillli
-ja:ビルベリー
-ka:მოცვი
-nb:blåbær
-nl:bosbes, blauwe bes
-nn:blåbær
-pl:Borówka czarna
-pt:mirtilo
-ru:черника
-sv:blåbär
-uk:чорниця
-vi:Việt quất đen
-zh:山桑子
-# scn:Murtidda
-# yue:祖苺仔
-# zh-hant:祖愉莓
-wikidata:en:Q5812410
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
-# 943 producten in 13 languages @2018-10-01
-
-<en:blueberry
-en:wild blueberries
-de:Wilde Heidelbeeren
-fr:Myrtilles sauvages
-
-<en:blueberry
-en:organic blueberry
-de:Bio-Heidelbeeren, Bio-Blaubeeren
-fi:luomumustikka, luomu mustikka
-fr:myrtilles bio
-
-<en:blueberry
-fr:myrtilles sauvages
-de:Wilde Heidelbeeren
-fi:villimustikka
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
-
-<en:blueberry
-<en:purée
-en:blueberry puree, blueberries puree
-de:Blaubeerenpuree
-es:Puré de arándanos
-fi:mustikkasose, soseutettu mustikka, mustikkapyree
-fr:purée de myrtilles
-nl:bosbessenpuree, bosbessenmoes
-sv:blåbärpuré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
-# 105 products @2018-10-01
-
-<en:blueberry puree
-de:Heidelbeerpüree aus Konzentrat
-
-<en:blueberry
-en:blueberry juice
-de:Preiselbeersaft
-es:Jugo de zarzamora
-fi:mustikkamehu
-fr:jus de myrtille
-it:succo di mirtillo
-nl:bosbessensap
-ru:Черничный сок
-# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
-
-<en:blueberry juice
-en:concentrated blueberry juice
-de:Heidelbeer-Saftkonzentrat
-sv:blåbärssaftkoncentrat
-
-<en:blueberry juice
-en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat 
-es:Concentrado de jugo de zarzamora
-fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
-fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
-sv:blåbärssaft av koncentrat
-
-# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
-
-<en:fruit
-en:lingonberry
-ca:nabius
-da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
-et:pohl
-fi:Puolukka
-fr:myrtille rouge
-lb:rout Molbier
-lt:Bruknė
-nl:vossebes, rode bosbes
-sv:lingon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
-# 7 products @2018-10-01
-
-# No products
-# <en:fruit
-# fr:purée de myrtille rouge
-
-<en:lingonberry
-<en:fruit juice
-en:lingonberry juice
-fi:puolukkamehu, puolukkatäysmehu
-sv:lingonjuice
-
-# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
-
-<en:fruit
-en:redcurrant, red currant
-da:røde bær
-de:rote Johannisbeeren
-es:grosella roja, grosellas rojas
-fi:Punaherukka
-fr:groseille, groseilles, groseilles rouges
-it:ribes rosso
-nl:aalbes, rode bes
-pt:groselha
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
-# 312 products in 6 languages @2018-10-01
-
-# The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
-
-<en:fruit
-en:blackberry, blackberries
-bg:Къпина
-br:Mouar
-bs:Kupina
-ca:Mora
-da:brombær
-de:Brombeeren
-es:Mora, moras
-eu:Masusta
-fi:karhunvatukka, karhunvadelma
-fr:mûre, mûres
-hr:Kupina
-it:more
-kk:Қара бүлдірген
-ko:블랙베리
-ku:Tûreşk
-mk:Капина
-ml:ബ്ളാക്ക്ബെറി
-nl:braam, bramen
-ps:تورتوت
-pt:amora
-ru:Ежевика
-sd:ڪاريون ٻيريون
-sv:björnbär
-ta:நாகப்பழம்
-tr:Böğürtlen
-ur:سیاہ توت
-wa:Meumeure
-zh:黑莓
-# bar:Mur
-# roa-rup:Amurâ
-# udm:Лыз эмезь
-# yue:黑啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
-# 404 products in 7 languages @21018-10-01
-
-<en:blackberry
-<en:juice
-fr:jus de mûre à base de jus concentré
-
-# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
-
-<en:fruit
-en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
-az:rubus chamaemorus
-ba:мораҡ
-be:марошка
-ca:móra vermella
-cs:ostružiník moruška
-cy:llwyn mwyar y berwyn
-da:multebær
-de:moltebeere
-eo:kamemoro
-es:rubus chamaemorus
-et:rabamurakas
-fa:تمشک شمالی
-fi:lakka, hilla
-fr:plaquebière
-ga:eithreog shléibhe
-ik:aqpik
-is:múltuber
-it:rubus chamaemorus
-ja:ホロムイイチゴ
-ko:진들딸기
-kv:мырпом
-lt:paprastoji tekšė
-lv:lācene
-ms:rubus chamaemorus
-nb:multe
-nl:kruipbraam
-nn:molte
-os:цъымарайы мæнæргъы
-pl:malina moroszka
-pt:rubus chamaemorus
-ru:морошка
-se:luomi
-sl:barjanska robida
-sr:rubus chamaemorus
-sv:hjortron
-tr:rubus chamaemorus
-tt:морак
-uk:морошка
-vi:rubus chamaemorus
-zh:雲莓
-# ast:rubus chamaemorus
-# atj:cikotai
-# bat_smg:vištkuojis
-# be_x_old:марошка
-# ceb:rubus chamaemorus
-# fiu_vro:molohk
-# hsb:žołty ćernjowc
-# olo:muur'oi
-# sah:бөллөхүнэ
-# simple:cloudberry
-# species:rubus chamaemorus
-# vep:murašk
-# war:rubus chamaemorus
-wikidata:en:Q160092
-wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
-# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
 
 # Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
+
+###################################################################################################
+#
+#                                Sea-Buckthorn
+#
+###################################################################################################
 
 <en:fruit
 en:sea-buckthorn
@@ -38326,25 +38459,11 @@ fi:tyrnimehu, tyrnitäysmehu
 sv:havtornsjuice
 wikidata:Q68192318
 
-# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
-
-<en:fruit
-en:gooseberry, gooseberries
-es:grosella espinosa
-da:Stikkelsbær
-de:Stachelbeere, Stachelbeeren
-ee:karusmari
-fi:karviainen
-fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
-nl:kruisbes
-no:stikkelsbær
-sv:Krusbär
-
-<en:gooseberry
-<en:fruit juice
-en:gooseberry juice
-fi:karviaismehu, karviaistäysmehu
-sv:krusbärjuice
+###################################################################################################
+#
+#                                Date
+#
+###################################################################################################
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
@@ -40927,7 +41046,7 @@ wikidata:en:Q1801495
 # ingredient/fr:Lambrusco-Salamino has 1 product @2019-01-20
 
 
-# Malbec (pronounced [mal.bɛk]) is a purple grape variety used in making red wine.
+# Malbec (pronounced [mal.bɛk]) is a purple grape variety used in making red wine.
 
 <en:varietal
 en:Malbec
@@ -41116,7 +41235,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Petit_Verdot
 # ingredient/fr:Petit-verdot has 2 products @2019-01-20
 
 
-# Pinot Meunier, pronounced [pi.no mø.nje], also known as Meunier or Schwarzriesling, is a variety of black wine grape most noted for being one of the three main varieties used in the production of Champagne
+# Pinot Meunier, pronounced [pi.no mø.nje], also known as Meunier or Schwarzriesling, is a variety of black wine grape most noted for being one of the three main varieties used in the production of Champagne
 
 <en:varietal
 en:Pinot Meunier
@@ -45737,7 +45856,7 @@ de:Rhabarbersaft
 fi:raparperimehu
 fr:Jus de rhubarbe
 
-# description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
+# description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 
 <en:vegetable
 en:salad
@@ -58630,7 +58749,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fucus
 # ingredient/fr:fucus has 27 products in french @2019-02-22
 
 
-# KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
+# KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 
 <en:seaweed
 en:kombu
@@ -63983,7 +64102,7 @@ la:Sepiella inermis
 wikipedia:en:https://en.wikipedia.org/wiki/Sepiella_inermis
 # ingredient/fr:Sepiella-inermis has 2 products in french @2019-01-05
 
-# The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
+# The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
 
 <en:cuttlefish
 en:pharaoh cuttlefish
@@ -65732,7 +65851,7 @@ zh:挪威海螯蝦
 # zh-hk:挪威海螯蝦
 # ingredient/fr:langoustines has 68 products @2019-01-11
 
-# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
+# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
 
 <en:norway lobster
 en:Nephrops norvegicus
@@ -68736,8 +68855,11 @@ fr:morceaux de foie gras de canard
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
-######################### Turkey ####################
-
+############################################################
+#
+#                          Turkey 
+#
+############################################################
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
 
@@ -68879,17 +69001,23 @@ fr:viande de dinde halal
 # ingredient/fr:viande-de-dinde-halal has 6 products in french @2019-04-16
 
 <en:turkey meat
-en:turkey breast, turkey fillet
+en:turkey breast, turkey fillet,turkey breast meat
 ca:pit de gall d'indi, pit d'indiot
 de:Putenfilet
 es:pechuga de pavo
-fi:kalkkunanfilee, kalkkunan filee, kalkkuna filee
+fi:kalkkunanrinta, kalkkunan rintaliha,kalkkunanfilee, kalkkunan filee, kalkkuna filee
 fr:filet de dinde, filets de dinde, blanc de dinde, blancs de dinde,poitrine de dinde
 it:Filetto di tacchino
 nl:Kalkoenfilet
+sv:kalkonbröst
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
+# ingredient/en:turkey-breast has 1255 products in 3 languages @2020-06-13
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
 carbon_footprint_fr_foodges_value:fr:6.5
+
+<en:turkey
+en:turkey thigh
+es:muslo de pavot
 
 <en:turkey meat
 en:mechanically separated meat of turkey
@@ -68926,13 +69054,6 @@ fr:jambon de dinde cuit standard goût fumé
 
 <en:turkey
 en:roasted turkey including natural turkey juices
-
-<en:turkey meat
-en:turkey breast, turkey breast meat
-da:kalkunbryst
-fi:kalkkunanrinta, kalkkunan rintaliha
-sv:kalkonbröst
-# ingredient/en:turkey-breast has 1255 products in 3 languages @2020-06-13
 
 <en:poultry
 fr:caille, cailles
@@ -71168,7 +71289,7 @@ nl:bladerdeeg
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
-# description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
+# description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
 <en:pasta
 en:egg pastas
@@ -74258,6 +74379,7 @@ sv:sojasåspulver
 <en:soy sauce
 en:tamari
 de:Tamari
+es:tamari
 fi:tamari
 fr:tamari
 he:תמרי
@@ -74969,5 +75091,4 @@ es:mermelada de fresa
 
 en:orange marmalade
 es:mermelada de naranja
-
 
