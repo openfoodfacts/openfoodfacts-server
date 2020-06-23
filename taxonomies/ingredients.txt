@@ -37850,6 +37850,134 @@ sv:boysenbärsjuice
 
 ###################################################################################################
 #
+#                                Cloudberry
+#
+###################################################################################################
+
+# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
+
+<en:fruit
+en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+az:rubus chamaemorus
+ba:мораҡ
+be:марошка
+ca:móra vermella
+cs:ostružiník moruška
+cy:llwyn mwyar y berwyn
+da:multebær
+de:moltebeere
+eo:kamemoro
+es:rubus chamaemorus
+et:rabamurakas
+fa:تمشک شمالی
+fi:lakka, hilla
+fr:plaquebière
+ga:eithreog shléibhe
+ik:aqpik
+is:múltuber
+it:rubus chamaemorus
+ja:ホロムイイチゴ
+ko:진들딸기
+kv:мырпом
+lt:paprastoji tekšė
+lv:lācene
+ms:rubus chamaemorus
+nb:multe
+nl:kruipbraam
+nn:molte
+os:цъымарайы мæнæргъы
+pl:malina moroszka
+pt:rubus chamaemorus
+ru:морошка
+se:luomi
+sl:barjanska robida
+sr:rubus chamaemorus
+sv:hjortron
+tr:rubus chamaemorus
+tt:морак
+uk:морошка
+vi:rubus chamaemorus
+zh:雲莓
+# ast:rubus chamaemorus
+# atj:cikotai
+# bat_smg:vištkuojis
+# be_x_old:марошка
+# ceb:rubus chamaemorus
+# fiu_vro:molohk
+# hsb:žołty ćernjowc
+# olo:muur'oi
+# sah:бөллөхүнэ
+# simple:cloudberry
+# species:rubus chamaemorus
+# vep:murašk
+# war:rubus chamaemorus
+wikidata:en:Q160092
+wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
+# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+
+###################################################################################################
+#
+#                                Gooseberry
+#
+###################################################################################################
+
+# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
+
+<en:fruit
+en:gooseberry, gooseberries
+es:grosella espinosa
+da:Stikkelsbær
+de:Stachelbeere, Stachelbeeren
+ee:karusmari
+fi:karviainen
+fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+nl:kruisbes
+no:stikkelsbær
+sv:Krusbär
+
+<en:gooseberry
+<en:fruit juice
+en:gooseberry juice
+fi:karviaismehu, karviaistäysmehu
+sv:krusbärjuice
+
+
+###################################################################################################
+#
+#                                Lingonberry
+#
+###################################################################################################
+# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
+
+<en:fruit
+en:lingonberry
+ca:nabius
+da:tyttebær
+de:Preiselbeeren
+es:Arándanos agrios,arándanos
+et:pohl
+fi:Puolukka
+fr:myrtille rouge
+lb:rout Molbier
+lt:Bruknė
+nl:vossebes, rode bosbes
+sv:lingon
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
+# 7 products @2018-10-01
+
+# No products
+# <en:fruit
+# fr:purée de myrtille rouge
+
+<en:lingonberry
+<en:fruit juice
+en:lingonberry juice
+fi:puolukkamehu, puolukkatäysmehu
+sv:lingonjuice
+
+
+###################################################################################################
+#
 #                                Raspberry
 #
 ###################################################################################################
@@ -38047,6 +38175,26 @@ en:raspberry powder
 de:Himbeerpulver, Himbeerfruchtpulver
 fi:vadelmajauhe
 sv:hallonpulver
+
+###################################################################################################
+#
+#                                Redcurrant
+#
+###################################################################################################
+# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
+
+<en:fruit
+en:redcurrant, red currant
+da:røde bær
+de:rote Johannisbeeren
+es:grosella roja, grosellas rojas
+fi:Punaherukka
+fr:groseille, groseilles, groseilles rouges
+it:ribes rosso
+nl:aalbes, rode bes
+pt:groselha
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
+# 312 products in 6 languages @2018-10-01
 
 
 ###################################################################################################
@@ -38252,127 +38400,14 @@ ro:pudră de căpșuni
 fi:mansikoista valmistettu mehu ja viinirypäleet
 
 
-###################################################################################################
-#
-#                                Lingonberry
-#
-###################################################################################################
-# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
-
-<en:fruit
-en:lingonberry
-ca:nabius
-da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
-et:pohl
-fi:Puolukka
-fr:myrtille rouge
-lb:rout Molbier
-lt:Bruknė
-nl:vossebes, rode bosbes
-sv:lingon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
-# 7 products @2018-10-01
-
-# No products
-# <en:fruit
-# fr:purée de myrtille rouge
-
-<en:lingonberry
-<en:fruit juice
-en:lingonberry juice
-fi:puolukkamehu, puolukkatäysmehu
-sv:lingonjuice
-
-###################################################################################################
-#
-#                                Redcurrant
-#
-###################################################################################################
-# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
-
-<en:fruit
-en:redcurrant, red currant
-da:røde bær
-de:rote Johannisbeeren
-es:grosella roja, grosellas rojas
-fi:Punaherukka
-fr:groseille, groseilles, groseilles rouges
-it:ribes rosso
-nl:aalbes, rode bes
-pt:groselha
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
-# 312 products in 6 languages @2018-10-01
-
-###################################################################################################
-#
-#                                Cloudberry
-#
-###################################################################################################
-
-# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
-
-<en:fruit
-en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
-az:rubus chamaemorus
-ba:мораҡ
-be:марошка
-ca:móra vermella
-cs:ostružiník moruška
-cy:llwyn mwyar y berwyn
-da:multebær
-de:moltebeere
-eo:kamemoro
-es:rubus chamaemorus
-et:rabamurakas
-fa:تمشک شمالی
-fi:lakka, hilla
-fr:plaquebière
-ga:eithreog shléibhe
-ik:aqpik
-is:múltuber
-it:rubus chamaemorus
-ja:ホロムイイチゴ
-ko:진들딸기
-kv:мырпом
-lt:paprastoji tekšė
-lv:lācene
-ms:rubus chamaemorus
-nb:multe
-nl:kruipbraam
-nn:molte
-os:цъымарайы мæнæргъы
-pl:malina moroszka
-pt:rubus chamaemorus
-ru:морошка
-se:luomi
-sl:barjanska robida
-sr:rubus chamaemorus
-sv:hjortron
-tr:rubus chamaemorus
-tt:морак
-uk:морошка
-vi:rubus chamaemorus
-zh:雲莓
-# ast:rubus chamaemorus
-# atj:cikotai
-# bat_smg:vištkuojis
-# be_x_old:марошка
-# ceb:rubus chamaemorus
-# fiu_vro:molohk
-# hsb:žołty ćernjowc
-# olo:muur'oi
-# sah:бөллөхүнэ
-# simple:cloudberry
-# species:rubus chamaemorus
-# vep:murašk
-# war:rubus chamaemorus
-wikidata:en:Q160092
-wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
-# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
 
 # Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
+
+###################################################################################################
+#
+#                                Sea-Buckthorn
+#
+###################################################################################################
 
 <en:fruit
 en:sea-buckthorn
@@ -38424,25 +38459,11 @@ fi:tyrnimehu, tyrnitäysmehu
 sv:havtornsjuice
 wikidata:Q68192318
 
-# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
-
-<en:fruit
-en:gooseberry, gooseberries
-es:grosella espinosa
-da:Stikkelsbær
-de:Stachelbeere, Stachelbeeren
-ee:karusmari
-fi:karviainen
-fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
-nl:kruisbes
-no:stikkelsbær
-sv:Krusbär
-
-<en:gooseberry
-<en:fruit juice
-en:gooseberry juice
-fi:karviaismehu, karviaistäysmehu
-sv:krusbärjuice
+###################################################################################################
+#
+#                                Date
+#
+###################################################################################################
 
 # description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
