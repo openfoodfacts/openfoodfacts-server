@@ -36416,18 +36416,11 @@ fr:pur jus de pommes à cidre
 <en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
 
-<en:orange juice
-<en:citrus fruit
-fr:jus d'orange et autres agrumes à base de concentrés
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
-# 46 products in 1 language @2018-09-30
-
-<en:fiber
-<en:citrus fruit
-en:citrus fibre, citrus fibres
-fi:sitruskuitu
-fr:fibre d'agrume, fibre végétale d'agrumes
-sv:citrusfiber
+###########################################################################
+#
+#                          Citrus fruit
+#
+###########################################################################
 
 <en:fruit
 en:citrus fruit, citrus
@@ -36518,6 +36511,14 @@ zh:柑橘属
 wikidata:en:Q81513
 wikipedia:en:https://en.wikipedia.org/wiki/Citrus
 
+<en:fiber
+<en:citrus fruit
+en:citrus fibre, citrus fibres
+es:fibra citrica
+fi:sitruskuitu
+fr:fibre d'agrume, fibre végétale d'agrumes
+sv:citrusfiber
+
 <en:citrus fruit
 en:citrus fruit juice
 de:Saft aus Zitrusfrüchten
@@ -36533,6 +36534,72 @@ fr:Extrait d'agrumes
 
 <en:citrus fruit
 fr:écorces d'agrumes
+
+###########################################################################
+#
+#                          Clementine
+#
+###########################################################################
+
+# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
+# The wikidata-page mixes the plant and the fruit
+
+<en:citrus fruit
+en:clementine, clementins
+ar:كليمونتين
+bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
+ca:clementina
+co:Clementina
+cs:Klementinka
+cv:Клементина
+da:Klementin
+de:Clementinen
+eo:Klementinujo
+es:clementina
+et:Klementiin
+eu:Klementinondo
+fi:klementiini, klementiinit
+fr:clémentine, clémentines
+gl:clementina
+he:קלמנטינה
+it:clementina
+ja:クレメンタイン
+kv:Клементин
+lt:Klementinai
+nb:Klementin
+nl:clementine
+nn:Klementin
+ro:Clemantină
+ru:Клементин
+sl:Klementina
+sv:Clementin
+th:คลีเมนไทน์
+uk:Клементин
+vi:Clementine
+zh:克里曼丁红橘
+# frr:Clementiin
+# koi:Клементин
+# mrj:Клементин
+# pcd:Clémintine
+# udm:Клементин
+wikipedia:en:https://en.wikipedia.org/wiki/Clementine
+wikidata:en:Q460517
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
+
+<en:clementine
+<en:fruit juice
+fr:jus de clémentine
+de:Clementinensaft
+fi:klementiinimehu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
+# 75 products in 2 languages @2018-10-01
+
+###########################################################################
+#
+#                          Kaffir
+#
+###########################################################################
 
 # Citrus hystrix, called the kaffir lime, makrut lime or Mauritius papeda, is a citrus fruit native to tropical Southeast Asia and southern China.
 
@@ -36576,135 +36643,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 <en:kaffir lime
 fr:feuilles de combava
 
-# A lime is a hybrid citrus fruit
+###########################################################################
+#
+#                          Lemon
+#
+###########################################################################
 
-<en:fruit
-<en:citrus fruit
-en:lime
-af:Lemmetjie
-ar:ليم
-as:গোলনেমু
-be:Лайм
-bg:Зелен лимон
-bn:লেবু
-br:limez
-bs:Limeta
-ca:llimona dolça
-cs:limetka
-cv:Лайм
-cy:leim
-da:lime
-de:Limetten, Limone
-el:Μοσχολέμονο
-eo:limeo
-es:lima
-eu:Lima
-fa:لیموترش سبز
-fi:limetti
-fr:citron vert
-ga:Líoma
-gl:Lima
-gv:Leeim
-he:ליים
-hi:नींबू
-hr:Limeta
-hu:zöldcitrom
-it:limetta
-ja:ライム
-ka:ლაიმი
-kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
-ko:라임
-la:Lumia
-lo:ຫມາກນາວ
-lv:laims
-mk:Лимета
-my:သံပရာ
-nb:lime
-nl:limoen, lime
-nn:lime
-nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
-oc:lime
-or:ଲେମ୍ବୁ
-os:Лайм
-pa:ਗਲਗਲ
-pl:Lima
-pt:lima
-ro:lămâie verde
-ru:лайм
-sh:Limeta
-si:දෙහි
-sk:limetka
-sl:Limeta
-sq:limon i athët
-sr:лимета
-sv:lime
-sw:Ndimu
-ta:தேசிப்பழம்
-th:มะนาว
-tr:Misket limonu
-uk:Лайм
-ur:گلگل
-vi:Chanh
-zh:青檸
-# aeb-arab:كعبة ليم
-# aeb-latn:lim
-# chr:ᎳᎢᎻ
-# de-ch:Limette
-# en-ca:Lime
-# en-gb:Lime
-# nah:Limōnxocotl
-# pnb:گلگل
-# pr-br:lima
-# roa-tara:laim
-# sco:lime
-# sr-ec:лимета
-# yue:青檸
-# zh-hans:青檸
-# zh-hant:萊姆
-wikidata:en:Q13195
-wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
-# 251 products @2018-10-01
-carbon_footprint_fr_foodges_ingredient:fr:Citron
-carbon_footprint_fr_foodges_value:fr:0.9
-
-# <en:lime
-<en:fruit juice
-en:lime juice
-ca:suc de lima
-da:Limesaft
-de:Limettensaft
-es:Zumo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
-fr:jus de citron vert
-it:succo di lime
-nl:limoensap
-pl:Sok cytrynowy, sok z cytryny
-ru:Лаймовый сок
-sv:limejuice, limesaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
-# 342 products @2018-10-01
-
-<en:lime juice
-fr:jus de citron vert concentré
-fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
-sv:limesaftkoncentrat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
-# 43 products in 1 language @2018-10-01
-
-<en:lime juice
-en:reconstituted lime juice
-de:rekonstituierter Limettensaft
-fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
-nl:limoensap uit concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
-# 74 products in 3 languages @2018-10-01
-
-<en:lime
-de:Limettenschale
-fr:écorces de citron vert, zeste de citron vert
-it:scorze di lime
 
 <en:fruit
 <en:citrus fruit
@@ -36889,7 +36833,6 @@ sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-extract
 # 137 products @2018-10-01
 
-
 <en:lemon
 fr:extrait naturel de citron, extraits naturels de citron
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-citron
@@ -36940,11 +36883,223 @@ wikidata:en:Q206496
 en:lemon scent
 es:aroma de limon
 
-# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+###########################################################################
+#
+#                          Lime
+#
+###########################################################################
+
+
+# A lime is a hybrid citrus fruit
+
 <en:fruit
 <en:citrus fruit
-en:bitter orange
-es:naranja amarga, naranjas amargas de sevilla
+en:lime
+af:Lemmetjie
+ar:ليم
+as:গোলনেমু
+be:Лайм
+bg:Зелен лимон
+bn:লেবু
+br:limez
+bs:Limeta
+ca:llimona dolça
+cs:limetka
+cv:Лайм
+cy:leim
+da:lime
+de:Limetten, Limone
+el:Μοσχολέμονο
+eo:limeo
+es:lima
+eu:Lima
+fa:لیموترش سبز
+fi:limetti
+fr:citron vert
+ga:Líoma
+gl:Lima
+gv:Leeim
+he:ליים
+hi:नींबू
+hr:Limeta
+hu:zöldcitrom
+it:limetta
+ja:ライム
+ka:ლაიმი
+kn:ಲಿಂಬ್ಬೆ ಹಣ್ಣು
+ko:라임
+la:Lumia
+lo:ຫມາກນາວ
+lv:laims
+mk:Лимета
+my:သံပရာ
+nb:lime
+nl:limoen, lime
+nn:lime
+nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
+oc:lime
+or:ଲେମ୍ବୁ
+os:Лайм
+pa:ਗਲਗਲ
+pl:Lima
+pt:lima
+ro:lămâie verde
+ru:лайм
+sh:Limeta
+si:දෙහි
+sk:limetka
+sl:Limeta
+sq:limon i athët
+sr:лимета
+sv:lime
+sw:Ndimu
+ta:தேசிப்பழம்
+th:มะนาว
+tr:Misket limonu
+uk:Лайм
+ur:گلگل
+vi:Chanh
+zh:青檸
+# aeb-arab:كعبة ليم
+# aeb-latn:lim
+# chr:ᎳᎢᎻ
+# de-ch:Limette
+# en-ca:Lime
+# en-gb:Lime
+# nah:Limōnxocotl
+# pnb:گلگل
+# pr-br:lima
+# roa-tara:laim
+# sco:lime
+# sr-ec:лимета
+# yue:青檸
+# zh-hans:青檸
+# zh-hant:萊姆
+wikidata:en:Q13195
+wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
+# 251 products @2018-10-01
+carbon_footprint_fr_foodges_ingredient:fr:Citron
+carbon_footprint_fr_foodges_value:fr:0.9
+
+# <en:lime
+<en:fruit juice
+en:lime juice
+ca:suc de lima
+da:Limesaft
+de:Limettensaft
+es:Zumo de lima
+fi:limettimehu, limetäysmehu, limetinmehu
+fr:jus de citron vert
+it:succo di lime
+nl:limoensap
+pl:Sok cytrynowy, sok z cytryny
+ru:Лаймовый сок
+sv:limejuice, limesaft
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
+# 342 products @2018-10-01
+
+<en:lime juice
+fr:jus de citron vert concentré
+fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
+sv:limesaftkoncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
+# 43 products in 1 language @2018-10-01
+
+<en:lime juice
+en:reconstituted lime juice
+de:rekonstituierter Limettensaft
+fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
+fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
+nl:limoensap uit concentraat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
+# 74 products in 3 languages @2018-10-01
+
+<en:lime
+de:Limettenschale
+fr:écorces de citron vert, zeste de citron vert
+it:scorze di lime
+
+###########################################################################
+#
+#                          Mandarin
+#
+###########################################################################
+
+# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
+
+<en:citrus fruit
+en:mandarin, mandarine, mandarin orange
+ca:mandarina
+co:Mandarina
+cs:mandarinka
+cv:Мандарин
+da:Mandarin
+de:Mandarine, Mandarinen
+el:μανταρίνι
+es:mandarina
+et:Mandariin
+eu:Mandarina
+fi:mandariini
+fr:mandarine
+gl:Mandarina
+ht:Mandarin
+hu:mandarin
+io:Mandarino
+it:mandarino, mandarini
+ja:マンダリンオレンジ
+lt:Mandarinas
+nb:mandarin
+nl:mandarijn, mandarijnen
+oc:Mandarina
+pl:Mandarynka
+ro:Mandarină
+ru:Мандарин
+sk:Mandarínkovník
+sw:Mchenza
+uk:мандарин
+# aeb-arab:كعبة مدنين
+# arz:سفندى
+# eml:Mandarëin
+# scn:mannarinu
+# vro:mandarijn
+wikidata:en:Q190024
+wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
+carbon_footprint_fr_foodges_ingredient:fr:Mandarine
+carbon_footprint_fr_foodges_value:fr:1.3
+# 239 products in 6 languages @2018-10-01
+
+<en:mandarin
+<en:fruit juice
+fr:jus de mandarine
+de:Mandarinesaft, Mandarinensaft
+fi:mandariinimehu
+it:succo di mandarino
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
+# 52 products in 3 languages @2018-10-01
+
+<fr:jus de mandarine
+en:concentrated mandarin juice
+da:mandarinjuice fra koncentrat
+de:Mandarinensaft aus Konzentrat
+fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
+fr:Jus de mandarine concentré
+ru:Концентрированный мандариновый сок
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
+# 1 entry @ 2019-10-31
+
+<en:mandarin
+fr:écorces de mandarine
+
+###########################################################################
+#
+#                          Orange
+#
+###########################################################################
+
+
+# The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
 
 <en:fruit
 <en:citrus fruit
@@ -37110,6 +37265,12 @@ wikidata:en:Q13191
 
 <en:orange
 nl:eetsinaasappel
+
+<en:orange juice
+<en:citrus fruit
+fr:jus d'orange et autres agrumes à base de concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'orange-et-autres-agrumes-à-base-de-concentrés
+# 46 products in 1 language @2018-09-30
 
 # description:en:Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
 
@@ -37348,125 +37509,11 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
-# description:en:The MANDARIN orange (Citrus reticulata), also known as the mandarin or mandarine, is a small citrus tree with fruit resembling other oranges.
-
-<en:citrus fruit
-en:mandarin, mandarine, mandarin orange
-ca:mandarina
-co:Mandarina
-cs:mandarinka
-cv:Мандарин
-da:Mandarin
-de:Mandarine, Mandarinen
-el:μανταρίνι
-es:mandarina
-et:Mandariin
-eu:Mandarina
-fi:mandariini
-fr:mandarine
-gl:Mandarina
-ht:Mandarin
-hu:mandarin
-io:Mandarino
-it:mandarino, mandarini
-ja:マンダリンオレンジ
-lt:Mandarinas
-nb:mandarin
-nl:mandarijn, mandarijnen
-oc:Mandarina
-pl:Mandarynka
-ro:Mandarină
-ru:Мандарин
-sk:Mandarínkovník
-sw:Mchenza
-uk:мандарин
-# aeb-arab:كعبة مدنين
-# arz:سفندى
-# eml:Mandarëin
-# scn:mannarinu
-# vro:mandarijn
-wikidata:en:Q190024
-wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
-carbon_footprint_fr_foodges_ingredient:fr:Mandarine
-carbon_footprint_fr_foodges_value:fr:1.3
-# 239 products in 6 languages @2018-10-01
-
-<en:mandarin
-<en:fruit juice
-fr:jus de mandarine
-de:Mandarinesaft, Mandarinensaft
-fi:mandariinimehu
-it:succo di mandarino
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
-# 52 products in 3 languages @2018-10-01
-
-<fr:jus de mandarine
-en:concentrated mandarin juice
-da:mandarinjuice fra koncentrat
-de:Mandarinensaft aus Konzentrat
-fi:mandariinimehutiiviste, mandariinitäysmehutiiviste
-fr:Jus de mandarine concentré
-ru:Концентрированный мандариновый сок
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
-# 1 entry @ 2019-10-31
-
-<en:mandarin
-fr:écorces de mandarine
-
-# A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
-# The wikidata-page mixes the plant and the fruit
-
-<en:citrus fruit
-en:clementine, clementins
-ar:كليمونتين
-bo:ཚ་ལི་མ་ཆུང་བའི་རིགས།
-ca:clementina
-co:Clementina
-cs:Klementinka
-cv:Клементина
-da:Klementin
-de:Clementinen
-eo:Klementinujo
-es:clementina
-et:Klementiin
-eu:Klementinondo
-fi:klementiini, klementiinit
-fr:clémentine, clémentines
-gl:clementina
-he:קלמנטינה
-it:clementina
-ja:クレメンタイン
-kv:Клементин
-lt:Klementinai
-nb:Klementin
-nl:clementine
-nn:Klementin
-ro:Clemantină
-ru:Клементин
-sl:Klementina
-sv:Clementin
-th:คลีเมนไทน์
-uk:Клементин
-vi:Clementine
-zh:克里曼丁红橘
-# frr:Clementiin
-# koi:Клементин
-# mrj:Клементин
-# pcd:Clémintine
-# udm:Клементин
-wikipedia:en:https://en.wikipedia.org/wiki/Clementine
-wikidata:en:Q460517
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
-# 81 products @2018-10-01
-
-<en:clementine
-<en:fruit juice
-fr:jus de clémentine
-de:Clementinensaft
-fi:klementiinimehu
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
-# 75 products in 2 languages @2018-10-01
+###########################################################################
+#
+#                          Bitter orange
+#
+###########################################################################
 
 # BITTER ORANGE, Seville orange, sour orange, bigarade orange, or marmalade orange is the citrus tree Citrus × aurantium and its fruit.
 
@@ -37483,7 +37530,7 @@ da:pomerans
 de:bitterorange
 el:νεραντζιά
 eo:bigarado
-es:citrus × aurantium
+es:naranja amarga, naranjas amargas de sevilla
 et:pomerantsipuu
 eu:laranja mingots
 fa:نارنج
@@ -37526,6 +37573,36 @@ zh:苦橙
 wikidata:en:Q147096
 wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
 # ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
+
+###########################################################################
+#
+#                          Acai berry
+#
+###########################################################################
+
+<en:fruit
+en:acai berry, açaí berries, acai
+de:Acai-Beeren, Açai-Beeren, Acai, Açai
+fi:Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
+fr:Acai berry, Baie d'açaï
+
+<en:acai berry
+<en:fruit juice
+en:acai juice
+de:Acai-Saft
+es:zumo de acai
+fi:Acai-mehu
+fr:jus d’açaï
+nl:acaisap
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
+# 9 products in 2 langauges @2018-10-04
+
+###########################################################################
+#
+#                          Blackcurrant
+#
+###########################################################################
+
 
 # The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
 
@@ -37610,429 +37687,14 @@ sv:svartvinbärspuré
 # nl:cassis likeur
 # de:Cassis-Likör
 
+###########################################################################
+#
+#                          Blueberry
+#
+###########################################################################
 
-# RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
-<en:fruit
-<fr:fruit rouge
-<fr:fruits des bois
-en:raspberry, raspberries
-af:Framboos
-an:Chordón
-ar:عليق
-br:Flamboez
-bs:Malina
-ca:Gerd,gerds
-cs:Malina
-cy:Mafon cochion
-da:hindbær
-de:Himbeeren, Himbeere
-eo:Frambo
-es:frambuesa
-fa:تمشک
-fi:vadelma
-fr:framboise
-ga:Sú craobh
-gd:Sùbh-craoibh
-hi:रसभरी
-ht:Franbwaz
-hu:málna
-hy:Ազնվամորի
-io:Frambo
-it:lamponi, lampone
-ja:ラズベリー
-kk:Таңқурай
-kn:ರಾಸ್‍ಬೆರಿ
-ko:라즈베리
-kv:Ӧмидз
-lo:ໝາກຟະລຳບວດ
-lt:Avietė
-mk:Малина
-mr:रास्पबेरी
-ms:Raspberi
-mt:Lampuna
-nl:framboos, frambozen
-nn:bringebær
-nv:Dzidzé łikaní dinilchííʼígíí
-pl:maliny
-pt:framboesas
-ru:Малина
-sd:راسپ بيري
-sk:Malina
-sr:Малина
-sv:hallon
-sw:Mrasiberi
-ta:ராஸ்பெரி
-te:కోరిందపండు
-th:แรสเบอร์รี
-tl:Prambuwesas
-ty:Rahipere
-uz:Malina
-zh:樹莓
-# atj:Mikominan
-# bat-smg:Avietė
-# chr:ᏒᏗᏩᎵ
-# ckb:تووتڕک
-# lad:Frambuaz
-# new:इसि
-# stq:Hiembäie
-# ur:تُوت علیق
-# yue:勒士啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
-# 2014 in 12 languages @2018-09-27
-
-<en:raspberry
-en:red raspberries
-de:Rote Himbeeren
-fr:Framboises rouges
-
-<en:raspberry
-fr:variété willamette
-
-<en:raspberry
-en:whole raspberry
-da:hele hindbær
-de:ganze Himbeeren, Himbeeren ganz
-fr:Framboises entières
-nl:hele frambozen
-# 10@2019-06-07
-
-<en:raspberry
-en:organic raspberry
-de:Bio-Himbeere
-fi:luomuvadelma, luomu vadelma
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomuvadelma
-# 1 entry @ 2019-10-31
-
-<en:raspberry
-<en:purée
-en:raspberry puree
-de:Himbeerpüree
-es:puré de frambuesa
-fi:vadelmasose, vadelmapyree, vadelmapyre
-fr:purée de framboises, purée de framboise
-it:purea di lamponi
-nl:frambozenpuree
-sv:hallonpuré
-# In process de:Himbeermark, Himbeerpüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
-# 461 products in 6 languages @2018-09-27
-
-<en:raspberry puree
-fr:purée de framboise concentrée
-de:konzentriertes Himbeerpuree
-es:puré de frambuesa concentrado
-fi:vadelmapyreetiiviste
-pt:concentrado de polme de framboesa
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-framboise-concentrée
-# 51 products in 4 languages @2018-09-27
-
-<en:raspberry
-<en:fruit juice
-en:raspberry juice
-de:Himbeersaft
-es:Zumo de frambuesa
-fi:vadelmamehu, vadelmatäysmehu
-fr:jus de framboise
-it:succo di lamponi
-nl:Frambozensap
-ru:Малиновый сок
-sv:hallonjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-framboise
-# 72 products in 4 languages @2018-09-27
-
-<fr:jus de framboise
-fr:jus de framboise à base de concentré
-de:Himbeersaft aus Konzentrat
-fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
-it:succo di lamponi a base di concentrato
-nl:frambozensap uit sapconcentraat
-sv:hallonjuice från koncentrat
-# ingredient/fr:jus-de-framboise-à-base-de-concentré has 73 products in 5 languages @2018-09-27
-
-<en:raspberry juice
-en:concentrated raspberry juice
-de:Himbeerdicksaft
-es:jarabe de frambuesas
-fi:vadelmamehutiiviste
-fr:jus de framboise concentré
-nl:frambozendiksap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-raspberry-juice
-# 44 products in 3 languages @2018-09-27
-
-<en:concentrated raspberry juice
-en:concentrated raspberry juice from concentrate
-de:Himbeerdicksaft aus Konzentrat
-es:jarabe de frambuesas de concentrado
-fr:concentré de jus de framboise
-nl:frambozendiksap concentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-raspberry-juice-from-concentrate
-# 15 products in 1 language @2018-09-27
-
-<en:raspberry
-# <en:liqueur
-en:raspberry liqueur
-de:Himbeerlikör
-es:licor de frambuesas
-fi:vadelmalikööri
-fr:liqueur de framboises
-nl:frambozenlikeur
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry-liqueur
-# 3 products in 2 languages @2018-09-27
-
-<en:raspberry
-en:dried raspberries
-de:getrocknete Himbeeren, Himbeeren getrocknet
-fi:kuivattu vadelma
-fr:Framboises déshydratées
-sv:torkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kuivattu-vadelma
-# 1 entry @ 2019-10-31
-
-<en:dried raspberries
-en:freeze-dried raspberries
-de:Himbeeren gefriergetrockent
-fi:pakkaskuivattu vadelma, pakastekuivattu vadelma
-fr:framboises lyophilisées
-it:lamponi liofilizzati
-sv:frystorkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
-# 46 products in 4 languages @2018-09-27
-
-<en:raspberry
-en:raspberry powder
-de:Himbeerpulver, Himbeerfruchtpulver
-fi:vadelmajauhe
-sv:hallonpulver
-
-# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
-
-<en:fruit
-<fr:fruit rouge
-en:boysenberry, boysenberries
-bg:бойсен
-ca:boysenberry
-da:boysenbær
-de:boysenbeere, boysenbeeren
-fi:boysenmarja
-fr:boysenberry
-it:boysenberry
-ja:ボイセンベリー
-ko:보이즌베리
-nb:boysenbær
-nl:boysenbes
-pl:boysenberry
-pt:boysenberry
-ru:бойзенова ягода
-sv:boysenbär
-wikidata:en:Q896083
-wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
-# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
-
-<en:fruit juice
-<en:boysenberry
-en:boysenberry juice
-fi:boysenmarjamehu, boysenmarjatäysmehu
-sv:boysenbärsjuice
-
-en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
-
-<en:fruit
-<fr:fruit rouge
-en:strawberry, strawberries
-an:Fraga
-ar:فراولة
-as:ষ্ট্ৰবেৰী
-az:Bağ çiyələyi
-be:Суніцы садовыя
-bg:Градинска ягода
-bn:স্ট্রবেরি
-bo:འབྲི་ཏ་ས་འཛིན།
-br:Sivi
-ca:maduixa,maduixes
-cs:jahoda, Jahodník velkoplodý
-da:jordbær, Havejordbær
-de:Erdbeeren
-el:Φράουλα
-eo:frago
-es:fresa
-et:Aedmaasikas
-eu:Baratze-marrubi
-fa:توت‌فرنگی
-fi:mansikka, mansikat
-fo:Jarðber
-fr:fraise
-gl:Amorodo
-gn:Yvapytã
-gu:સ્ટ્રોબેરી
-hi:स्ट्रॉबेरी
-hu:Eper
-hy:Ելակ
-id:Stroberi kebun
-io:Frago
-it:fragola, fragole
-ja:イチゴ
-jv:Strobèri kebon
-km:ស្ត្របឺរី
-kn:ಸ್ಟ್ರಾಬೆರಿ
-ko:딸기
-lo:ໝາກຟະແລດ
-lt:Braškė
-lv:Dārza zemene
-mk:Јагода
-ml:ഗാർഡൻ സ്ട്രോബെറി
-mn:Цэцэрлэгийн гүзээлзгэнэ
-mr:स्ट्रॉबेरी
-mt:frawla
-my:စတော်ဘယ်ရီ
-nb:Hagejordbær
-ne:स्ट्रबेरी
-nl:aardbei, aardbeien
-nn:Hagejordbær
-nv:Dah woozh
-pa:ਸਟਰਾਬਰੀ
-pl:Truskawka, truskawki
-pt:morango, morangos
-ro:căpșună
-ru:клубника
-sa:तृणबदरफलम्
-sd:اسٽرا بيري
-sq:luleshtrydhe
-sv:Jordgubbe, jordgubbar
-sw:Mstroberi
-ta:செம்புற்று
-tg:Қулфинай
-th:สตรอว์เบอร์รี
-ug:بۆلجۈرگەن
-uk:Суниці садові
-ur:تُوت علیق
-vi:Dâu tây vườn
-za:Godumh
-zh:草莓
-carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr:3.5
-carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:0.8
-# aeb-arab:كعبة فراز
-# ary:لفريز
-# ast:fresón
-# atj:Otehimin
-# bat-smg:Braškė
-# bcl:Strawberry
-# cdo:Chāu-muòi
-# chr:ᎠᏂ
-# ckb:چلیک
-# csb:Ògardowô pòtrôwnica
-# dsb:Zagrodna słynica
-carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr:3.5
-carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:0.8
-# frr:Guard-eerdbei
-# hak:Chhó-mòi
-# hsb:Zahrodna truskalca
-# lij:Merello
-# lmo:Magiostra
-# mrj:Мӧр
-# mzn:سرماق
-# nan:Chháu-m̂
-# new:ब्यांपासि
-# pnb:سٹرابیری
-# sco:Straeberry
-# vls:Freize
-# xmf:ციმუა
-# yue:士多啤梨
-wikidata:en:Q14458220
-wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
-# 2504 products in 15 languages @2018-10-01
-
-<en:strawberry
-en:strawberry pieces
-fr:morceaux de fraise
-
-# This is a compound ingredient
-
-<en:strawberry
-en:strawberry filling
-de:Erdbeerfüllung
-fi:mansikkatäyte
-fr:nappage à la fraise
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage-à-la-fraise
-# 33 products @2018-10-01
-
-<en:strawberry
-<en:fruit juice
-en:strawberry juice
-fi:mansikkamehu
-fr:jus de fraise
-sv:jordgubbsjuice, jordgubbssaft
-
-<en:strawberry juice
-en:strawberry juice concentrate, concentrated strawberry juice
-de:erdbeersaftkonzentrat
-fi:mansikkamehutiiviste, mansikkatäysmehutiiviste
-fr:concentré de jus de fraise
-
-<en:strawberry juice concentrate
-en:strawberry juice from concentrate
-fr:jus de fraise à base de concentré
-de:Erdbeersaft aus Konzentrat
-fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
-nl:geconcentreerd aardbeiensap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fraise-à-base-de-concentré
-# 58 products @2018-10-01
-
-<en:strawberry
-fr:fraises lyophilisées
-de:Erdbeeren gefriergetrocknet
-fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
-it:fragole liofilizzate
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
-# 38 products in 3 languages @2108-10-01
-
-<fr:fraises lyophilisées
-fi:pakastekuivattu mansikka paloina
-
-<en:strawberry
-<en:purée
-en:strawberry puree
-de:Erdbeerpüree
-es:puré de fresa
-fi:mansikkapyree, mansikkasose, mansikkapyre
-fr:purée de fraise, purée de fraises
-it:purea di fragola
-nl:aardbeienpuree
-ru:Клубничное пюре
-sv:jordgubbspuré
-# In process de:Erdbeerpüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fraise
-# 450 products in 6 languages @2018-10-01
-
-<en:strawberry puree
-en:concentrated strawberry puree
-de:Erdbeerpüree aus Konzentrat
-fi:tiivistetty mansikkapyree
-fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å base de concentré
-
-<en:strawberry
-en:strawberry powder
-de:Erdbeerpulver
-et:maasikapulber
-fi:mansikkajauhe
-fr:poudre de fraise
-ro:pudră de căpșuni
-
-<en:strawberry
-<en:fruit juice
-<en:grape
-fi:mansikoista valmistettu mehu ja viinirypäleet
-
-# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# description:en:Blueberries are perennial flowering plants with blue– or purple–colored berries.
 # comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
 
 <en:fruit
@@ -38127,48 +37789,12 @@ fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmeh
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 sv:blåbärssaft av koncentrat
 
-# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
-<en:fruit
-en:lingonberry
-ca:nabius
-da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
-et:pohl
-fi:Puolukka
-fr:myrtille rouge
-lb:rout Molbier
-lt:Bruknė
-nl:vossebes, rode bosbes
-sv:lingon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
-# 7 products @2018-10-01
-
-# No products
-# <en:fruit
-# fr:purée de myrtille rouge
-
-<en:lingonberry
-<en:fruit juice
-en:lingonberry juice
-fi:puolukkamehu, puolukkatäysmehu
-sv:lingonjuice
-
-# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
-
-<en:fruit
-en:redcurrant, red currant
-da:røde bær
-de:rote Johannisbeeren
-es:grosella roja, grosellas rojas
-fi:Punaherukka
-fr:groseille, groseilles, groseilles rouges
-it:ribes rosso
-nl:aalbes, rode bes
-pt:groselha
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
-# 312 products in 6 languages @2018-10-01
+###########################################################################
+#
+#                          Blackberry
+#
+###########################################################################
 
 # The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
 
@@ -38213,211 +37839,47 @@ zh:黑莓
 <en:juice
 fr:jus de mûre à base de jus concentré
 
-# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
+###########################################################################
+#
+#                          Boysenberry
+#
+###########################################################################
+
+# The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
 
 <en:fruit
-en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
-az:rubus chamaemorus
-ba:мораҡ
-be:марошка
-ca:móra vermella
-cs:ostružiník moruška
-cy:llwyn mwyar y berwyn
-da:multebær
-de:moltebeere
-eo:kamemoro
-es:rubus chamaemorus
-et:rabamurakas
-fa:تمشک شمالی
-fi:lakka, hilla
-fr:plaquebière
-ga:eithreog shléibhe
-ik:aqpik
-is:múltuber
-it:rubus chamaemorus
-ja:ホロムイイチゴ
-ko:진들딸기
-kv:мырпом
-lt:paprastoji tekšė
-lv:lācene
-ms:rubus chamaemorus
-nb:multe
-nl:kruipbraam
-nn:molte
-os:цъымарайы мæнæргъы
-pl:malina moroszka
-pt:rubus chamaemorus
-ru:морошка
-se:luomi
-sl:barjanska robida
-sr:rubus chamaemorus
-sv:hjortron
-tr:rubus chamaemorus
-tt:морак
-uk:морошка
-vi:rubus chamaemorus
-zh:雲莓
-# ast:rubus chamaemorus
-# atj:cikotai
-# bat_smg:vištkuojis
-# be_x_old:марошка
-# ceb:rubus chamaemorus
-# fiu_vro:molohk
-# hsb:žołty ćernjowc
-# olo:muur'oi
-# sah:бөллөхүнэ
-# simple:cloudberry
-# species:rubus chamaemorus
-# vep:murašk
-# war:rubus chamaemorus
-wikidata:en:Q160092
-wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
-# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+<fr:fruit rouge
+en:boysenberry, boysenberries
+bg:бойсен
+ca:boysenberry
+da:boysenbær
+de:boysenbeere, boysenbeeren
+fi:boysenmarja
+fr:boysenberry
+it:boysenberry
+ja:ボイセンベリー
+ko:보이즌베리
+nb:boysenbær
+nl:boysenbes
+pl:boysenberry
+pt:boysenberry
+ru:бойзенова ягода
+sv:boysenbär
+wikidata:en:Q896083
+wikipedia:en:https://en.wikipedia.org/wiki/Boysenberry
+# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
 
-# Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
-
-<en:fruit
-en:sea-buckthorn
-ar:أبو فايس
-az:murdarçayabənzər çaytikanı
-ba:һырғанаҡ
-be:абляпіха крушынападобная
-bg:облепиха
-ca:arç groc
-cs:rakytník řešetlákový
-da:havtorn
-de:sanddorn
-eo:ramnoida hipofeo
-et:harilik astelpaju
-fa:سنجد تلخ
-fi:tyrni
-fr:argousier
-gl:espiñeiro marítimo
-gv:bugogue varrey
-hr:pasji trn
-hu:európai homoktövis
-hy:չիչխան սովորական
-kk:шырғанақ
-ky:сары чычырканак
-lt:dygliuotasis šaltalankis
-lv:pabērzu smiltsērkšķis
-nb:tindved
-ne:मलो
-nl:duindoorn
-nn:tindved
-pl:rokitnik zwyczajny
-ps:اکبار
-ro:cătină albă
-ru:облепиха крушиновидная
-sl:navadni rakitovec
-sr:пасји трн
-sv:havtorn
-tg:ангат
-uk:обліпиха звичайна
-zh:沙棘
-wikidata:en:Q165378
-wikipedia:en:https://en.wikipedia.org/wiki/Hippophae_rhamnoides
-# ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
-
-<en:sea-buckthorn
 <en:fruit juice
-en:sea-buckthorn juice
-fi:tyrnimehu, tyrnitäysmehu
-sv:havtornsjuice
-wikidata:Q68192318
+<en:boysenberry
+en:boysenberry juice
+fi:boysenmarjamehu, boysenmarjatäysmehu
+sv:boysenbärsjuice
 
-# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
-
-<en:fruit
-en:gooseberry, gooseberries
-es:grosella espinosa
-da:Stikkelsbær
-de:Stachelbeere, Stachelbeeren
-ee:karusmari
-fi:karviainen
-fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
-nl:kruisbes
-no:stikkelsbær
-sv:Krusbär
-
-<en:gooseberry
-<en:fruit juice
-en:gooseberry juice
-fi:karviaismehu, karviaistäysmehu
-sv:krusbärjuice
-
-# description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
-
-<en:fruit
-# <en:category:en:Dried fruits
-en:date, dates
-ar:تمر
-be:Фінікі
-bg:Фурма
-ca:dàtil
-cs:datle
-da:Daddel, dadler
-de:Dattel, Datteln
-el:Χουρμάς
-eo:daktilo
-es:dátil, dátiles
-et:Datlid
-eu:Datil
-fi:taateli, taatelit
-fr:datte, dattes
-gl:Dátil
-gu:બોર
-ht:Dat
-ia:Dactylo
-it:dattero, datteri
-kn:ಖರ್ಜೂರದ ಹಣ್ಣು
-lt:Datulė
-nl:dadels
-nn:dadler
-nv:Hashkʼaan dijéʼé
-pl:Daktyle
-ro:Curmală
-ru:финик, финики
-sk:Datľa
-sv:dadel, dadlar
-tt:хөрмә җимеше
-uk:фініки
-zh:椰枣
-# ang:fingeræppel
-# atj:Pikesaniminan
-# nah:Zōyacapolin
-# scn:Dàttula
-# zh-cn:椰枣
-wikidata:en:Q1652093
-wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
-# ingredient/dates has 827 products in 11 languages @2018-09-29
-# category/dates has 311 products @2019-05-24
-
-<en:date
-fr:dattes bio
-de:Bio Datteln
-fi:luomutaateli, luomu taateli
-it:datteri bio
-# 7in3@2019-06-04
-
-<en:date
-en:deglet nour dates
-fr:dattes deglet nour
-# ingredient/fr:dattes-deglet-nour has 16 products in french @2019-05-23
-
-<en:date
-en:medjool dates
-de:Medjool Datteln
-fr:dattes Medjool
-it:Datteri Medjool
-# 9in3@2019-06-04
-
-<en:date
-nl:dadelpuree
-sv:dadelpuré
-
-<en:date
-fr:jus de dattes concentré
+###########################################################################
+#
+#                          Cherry
+#
+###########################################################################
 
 # CHERRY is the fruit of many plants of the genus Prunus, and is a fleshy drupe (stone fruit).
 
@@ -38743,61 +38205,1067 @@ it:purea di ciliegie
 <en:cherry
 fr:queues de cerise
 
-# PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
+###########################################################################
+#
+#                          Chokeberry
+#
+###########################################################################
+
+# Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
 
 <en:fruit
-en:passion fruit
-da:Passionsfrugt
-de:Passionsfrucht
-eo:Pasifrukto
-es:maracuyá,fruta de la pasion
-fi:passiohedelmä, passionhedelmä, kärsimyshedelmä
-fr:fruit de la passion, passion, fruits de la passion
-it:frutto della passione
-nl:passievrucht
-ru:маракуйя
-sv:passionsfrukt
-ta:தாட்பூட்
-zh:西番莲
-wikipedia:en:https://en.wikipedia.org/wiki/Passion_fruit_(fruit)
-wikidata:en:Q28836257
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/passion-fruit
-# 48 products in 2 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit-de-la-passion
-# 559 products in 5 languages @2018-09-29
+en:chokeberry
+ar:أرونية
+az:Aroniya
+bg:Арония
+ca:Aronia
+cs:temnoplodec
+cy:Llwyn aeron tagu coch
+da:Surbær
+de:Aronia, Apfelbeer, Apfelbeeren
+el:Αρώνια
+eo:aronio
+es:Aronia
+eu:Aronia
+fa:انگورک گلوگیر
+fi:marja-aronia
+fr:aronie, aronia
+he:ארוניה
+hr:Aronija
+hy:արոնիա
+it:aronia
+ja:アロニア属
+kk:Қара жемісті итжүзім
+ko:아로니아
+la:Aronia
+lt:Aronija
+lv:Aronijas
+mk:Аронија
+nl:appelbes
+pl:aronia
+pt:aronia
+ro:Aronia
+ru:Арония
+sh:Aronija
+sk:Arónia
+sl:Aronija
+sq:aronia
+sr:Аронија
+sv:Aroniasläktet
+tr:Aronia
+uk:Aronia
+vi:Aronia
+zh:野櫻莓
+# de-ch:Apfelbeeren
+# en-ca:Aronia
+# en-gb:Aronia
+# hsb:Aronija
+# kk-arab:قارا جەمىستى ٴىيتجۇزىم
+# kk-cn:قارا جەمىستى ٴىيتجۇزىم
+# kk-cyrl:Қара жемісті итжүзім
+# kk-kz:Қара жемісті итжүзім
+# kk-latn:Qara jemisti ïtjüzim
+# kk-kz:Qara jemisti ïtjüzim
+# nah:Capolin
+# pt-br:aronia
+# sr-ec:Аронија
+# sr-el:Aronija
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aronia
+# 163 products in 5 languages @2018-10-03
 
-<en:passion fruit
+<en:chokeberry
 <en:fruit juice
-en:passion fruit juice
-de:Maracujasaft, Passionsfruchtsaft
-es:zumo de maracuyá
-fi:passiohedelmämehu
-fr:jus de fruit de la passion, jus de fruits de la passion
-it:succo di frutto della passione
-nb:pasjonsfruktjuice
-nl:passievruchtsap
-sv:passionsfruktjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
-# 262 products in 6 languages @2018-09-29
+en:chokeberry juice
+da:aroniasaft, aronia saft
+de:Aroniasaft
+fi:marja-aroniamehu
+fr:jus d'aronia
+it:succo d'aronia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
+# 20 products in 3 languages @2018-10-03
 
-<en:passion fruit juice
-en:reconstituted passion fruit juice
-de:Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
-es:zumo de maracuyá a partir de concentrado
-fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
-fr:jus de fruit de la passion à base de concentré
-sv:passionsfruktsjuice från koncentrat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
-# 82 products in 4 languages @2018-09-29
+<en:chokeberry juice
+en:concentrated chokeberry juice
+de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
+fi:marja-aroniamehutiiviste
+fr:Jus concentré d'aronia
 
-<en:passion fruit
+###########################################################################
+#
+#                          Acerola
+#
+###########################################################################
+
+<en:fruit
+en:acerola
+de:Acerolakirschen, acerola
+es:acerola
+fi:akerola, acerola
+fr:acérola
+it:acerola
+nl:acerola
+pl:Acerola, acerola
+ru:Ацерола
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
+
+<en:acerola
+<en:fruit juice
+en:acerola juice
+de:Acerolaextrakt
+es:zumo de acerola
+fi:akerola-uute, acerola-uute
+fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
+it:estratto d'acerola
+nl:acerola-extract
+pl:Sok z aceroli, sok z aceroli
+ru:Сок ацеролы
+# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
+# en:process:en:powdered
+ƒ
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
+# 3 products in 1 language @2018-10-03
+# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+<en:acerola
+en:acerola powder
+de:Acerolapulver
+fi:akerola-jauhe, acerola-jauhe
+fr:poudre d'acérola
+it:acerola in polvere
+nl:acerolapoeder
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+<fr:poudre d'acérola
+en:acerola powder on manioc starch
+de:Acerolapulver auf Maniokstärke
+fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
+###########################################################################
+#
+#                          Coconut
+#
+###########################################################################
+
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+
+# NOTE the oil and fat of a coconut can be found under the fats section
+
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
+
+<en:fruit
+en:coconut
+ak:kube
+ar:نارجيل
+bg:Кокосов орех
+ca:coco
+cs:kokosový ořech
+da:kokos, kokosnød
+de:Kokos, Kokosnuss
+ee:Eneh
+el:καρύδα
+eo:kokosnukso
+es:coco
+et:Kookospähkel
+eu:koko
+fi:kookos, kookospähkinä
+fr:noix de coco, coco
+gl:Coco
+hu:kókuszdió
+it:cocco, noce di cocco
+ml:തേങ്ങ
+nb:kokos, kokosnøtt
+nl:kokosnoot, kokos
+nn:kokosnøtt
+pl:Kokos, kokosowy
+pt:cocos
+ru:кокос
+sa:नारिकेलम्
+sq:Arra e kokosit
+sr:kokos
+sv:Kokosnöt, Kokos
+za:Makyehswj
+zh:椰子
+# ast:Cocu
+# jbo:rutrkoko
+# pt-br:coco
+wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
+wikidata:en:Q3342808
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
+# 1209 products in 11 languages @2018-10-03
+
+<en:coconut
+en:coconut cream
+de:Kokosnusscreme
+es:Crema de coco
+fi:kookoskerma
+fr:crème de noix de coco, crème de coco
+it:Crema di noce di cocco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
+# 33 products @2018-10-03
+nutriscore_fruits_vegetables_nuts:en:no
+
+# Is this a compound product? coconut cream + water?
+
+<en:coconut
+en:coconut milk
+da:Kokosmælk
+de:Kokosnussmilch, Kokosmilch
+es:Leche de coco
+fi:kookosmaito
+fr:lait de noix de coco, lait de coco, eau de coco
+it:latte di noce di cocco
+nb:kokosmelk
+nl:kokosmelk
+pl:Mleko kokosowe
+ru:Кокосовое молоко
+sv:kokosmjölk
+zh:椰子奶
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
+# 87 products @2018-10-03
+
+<en:coconut milk
+en:coconut milk drink
+es:bebida de coco
+
+<en:coconut
+en:coconut water
+de:Kokosnusswasser
+es:Agua de coco
+fr:Eau de coco
+
+<en:coconut water
+en:natural coconut water
+de:Natürliches Kokosnusswasser
+fr:Eau de noix de coco naturelle
+
+<en:coconut milk
+en:coconut milk powder, powdered coconut milk
+de:Kokosnussmilchpulver, Kokosmilchpulver
+es:leche de coco en polvo
+fi:kookosmaitojauhe
+fr:lait de noix de coco en poudre, lait de coco en poudre
+it:latte di noci di cocco in polvere
+sv:kokosmjölkspulver
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
+# 53 products in 3 languages @2018-10-03
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
+# 69 products in 3 languages @2018-10-03
+
+<en:coconut milk powder
+fr:lait de coco reconstitué
+
+<en:coconut
+en:coconut extract
+de:Kokosnussextrakt
+es:extracto de coco
+fi:kookosuute, kookospähkinäuute
+fr:extrait de noix de coco, extrait de coco
+it:estratto di noce di cocco
+nl:Kokosextract
+sv:kokosnötsextrakt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
+# 216 products in 6 languages @2018-10-03
+
+<en:coconut
+en:coconut pulp
+de:Kokosfruchtfleisch
+es:Pulpa de coco
+fi:kookospähkinän hedelmäliha
+fr:pulpe de noix de coco
+it:polpa di cocco
+nl:Kokospulp
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
+# 21 products in 3 languages @2018-10-03
+
+<en:coconut pulp
+en:desiccated coconut
+da:tørret kokos
+es:coco deshidratado
+fi:kuivattu kookos, kuivattua kookosta
+fr:noix de coco séchée, noix de coco déshydratée
+nl:gedroogde kokosnoot
+ro:nuca de cocos deshidratata
+sv:torkad kokosnöt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
+# 130 in 5 languages products @2018-10-03
+
+<en:coconut
+en:coconut powder
+de:Kokosnussepulver
+es:Coco en polvo
+fi:kookosjauhe
+fr:noix de coco en poudre
+it:noce di cocco in polvere
+nl:kokospoeder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
+# 86 products in 5 languages @2108-10-03
+
+<en:coconut
+en:grated coconut
+de:Kokosraspel, Kokosraspeln
+es:coco rallado
+fi:kookosraaste
+fr:noix de coco râpée
+it:cocco grattugiato
+nl:Gemalen kokos
+pt:coco ralado
+sv:riven kokos
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
+# 575 products in 7 languages @2018-10-03
+
+<en:coconut
+en:coconut flakes
+de:Kokosflocken
+es:Hojuelas de coco
+et:kookoshelbed
+fi:kookoshiutale, kookoshiutaleet
+fr:flocons de coco, flocons de noix de coco
+it:fiocchi di cocco
+nl:Kokosschilfers
+sv:kokosflinga, kokosflingor
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
+# 15 products in 4 languages @2018-10-03
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-noix-de-coco
+# 44 products @2018-10-03
+
+<en:coconut
+nl:kokosnootwater
+fi:kookosvesi
+# ingredient/nl:kokosnootwater has 1 product @2019-05-24
+
+<en:coconut
+en:coconut chips
+de:Kokosnusschips, Kokosnuss-Chips
+es:chips de coco
+fi:kookoslastu, kookoslastut
+fr:Chips de coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
+# 1 entry @ 2019-10-31
+
+<en:coconut
+fr:pâte de noix de coco
+
+<en:coconut
+es:nectar del brote de la flor del coco
+
+<en:coconut
+en:coconut butter
+
+###########################################################################
+#
+#                          Cloudberry
+#
+###########################################################################
+
+# description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
+
+<en:fruit
+en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+az:rubus chamaemorus
+ba:мораҡ
+be:марошка
+ca:móra vermella
+cs:ostružiník moruška
+cy:llwyn mwyar y berwyn
+da:multebær
+de:moltebeere
+eo:kamemoro
+es:rubus chamaemorus
+et:rabamurakas
+fa:تمشک شمالی
+fi:lakka, hilla
+fr:plaquebière
+ga:eithreog shléibhe
+ik:aqpik
+is:múltuber
+it:rubus chamaemorus
+ja:ホロムイイチゴ
+ko:진들딸기
+kv:мырпом
+lt:paprastoji tekšė
+lv:lācene
+ms:rubus chamaemorus
+nb:multe
+nl:kruipbraam
+nn:molte
+os:цъымарайы мæнæргъы
+pl:malina moroszka
+pt:rubus chamaemorus
+ru:морошка
+se:luomi
+sl:barjanska robida
+sr:rubus chamaemorus
+sv:hjortron
+tr:rubus chamaemorus
+tt:морак
+uk:морошка
+vi:rubus chamaemorus
+zh:雲莓
+# ast:rubus chamaemorus
+# atj:cikotai
+# bat_smg:vištkuojis
+# be_x_old:марошка
+# ceb:rubus chamaemorus
+# fiu_vro:molohk
+# hsb:žołty ćernjowc
+# olo:muur'oi
+# sah:бөллөхүнэ
+# simple:cloudberry
+# species:rubus chamaemorus
+# vep:murašk
+# war:rubus chamaemorus
+wikidata:en:Q160092
+wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
+# ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+
+###########################################################################
+#
+#                          Date
+#
+###########################################################################
+
+# description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
+
+<en:fruit
+# <en:category:en:Dried fruits
+en:date, dates
+ar:تمر
+be:Фінікі
+bg:Фурма
+ca:dàtil
+cs:datle
+da:Daddel, dadler
+de:Dattel, Datteln
+el:Χουρμάς
+eo:daktilo
+es:dátil, dátiles
+et:Datlid
+eu:Datil
+fi:taateli, taatelit
+fr:datte, dattes
+gl:Dátil
+gu:બોર
+ht:Dat
+ia:Dactylo
+it:dattero, datteri
+kn:ಖರ್ಜೂರದ ಹಣ್ಣು
+lt:Datulė
+nl:dadels
+nn:dadler
+nv:Hashkʼaan dijéʼé
+pl:Daktyle
+ro:Curmală
+ru:финик, финики
+sk:Datľa
+sv:dadel, dadlar
+tt:хөрмә җимеше
+uk:фініки
+zh:椰枣
+# ang:fingeræppel
+# atj:Pikesaniminan
+# nah:Zōyacapolin
+# scn:Dàttula
+# zh-cn:椰枣
+wikidata:en:Q1652093
+wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
+# ingredient/dates has 827 products in 11 languages @2018-09-29
+# category/dates has 311 products @2019-05-24
+
+<en:date
+fr:dattes bio
+de:Bio Datteln
+fi:luomutaateli, luomu taateli
+it:datteri bio
+# 7in3@2019-06-04
+
+<en:date
+en:deglet nour dates
+fr:dattes deglet nour
+# ingredient/fr:dattes-deglet-nour has 16 products in french @2019-05-23
+
+<en:date
+en:medjool dates
+de:Medjool Datteln
+fr:dattes Medjool
+it:Datteri Medjool
+# 9in3@2019-06-04
+
+<en:date
+nl:dadelpuree
+sv:dadelpuré
+
+<en:date
+fr:jus de dattes concentré
+
+###########################################################################
+#
+#                          Elder
+#
+###########################################################################
+
+# The context on an ingredient list determines whether this referes to the berries (probable) or the flowers.
+
+<en:fruit
+en:elder
+de:Holunder, Holunderbeere, Holunderbeeren
+es:Saúco
+fi:selja
+fr:sureau
+it:sambuco
+nl:vlier
+sv:fläder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sureau
+# 332 products @2018-09-29
+
+<en:elder
+<fr:fruits des bois
+en:elderberry
+da:hyldebær
+de:Holunderbeer
+es:bayas del sauco
+fi:seljanmarja
+fr:baie de sureau, baies de sureau
+it:sambuco
+nl:vlierbes
+sv:fläderbär
+
+<en:elderberry
+<en:fruit juice
+en:elderberry juice
+de:Holundersaft
+fi:seljanmarjamehu, seljanmarjatäysmehu
+fr:jus de sureau
+it:succo di sambuco
+nl:vlierbessap
+sv:fläderbärsjuice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
+# 52 products @2018-09-29
+
+<en:elderberry juice
+en:elderberry juice concentrate, concentrated elderberry juice
+de:konzentrierter Holundersaft
+fi:seljanmarjamehutiiviste, seljanmarjatäysmehutiiviste
+fr:jus de sureau concentré, jus concentré de sureau
+sv:koncentrerad fläderbärsjuice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-concentré
+# 40 products @2018-09-29
+
+<en:elderberry juice concentrate
+en:elderberry juice from concentrate
+de:Holundersaft aus Konzentrat
+fi:seljanmarjamehu tiivisteestä, seljanmarjatäysmehu tiivisteestä
+fr:jus de sureau à base de concentré
+it:succo di sambuco a base di concentrato
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
+# 25 products @2018-09-29
+
+<en:elderberry
+en:elderberry extract
+de:Holunderbeerenextrakt, Holunderbeerextrakt
+fi:seljanmarjauute
+fr:extrait de baie de sureau, extrait de sureau
+it:estratto di sambuco
+sv:fläderbär extract
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-sureau
+# 29 products @2018-09-29
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-baie-de-sureau
+# 57 products in 1 language @2018-09-29
+
+<en:elderberry extract
+en:natural elderberry extract
+de:natürlicher Holunderbeerenextrakt
+
+<en:elderberry
+fr:concentré de sureau
+de:Holunderbeerenkonzentrat
+es:concentrato di coccole di sambuco
+fi:seljanmarjatiiviste
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-sureau
+# 33 products @2018-09-29
+
+<en:elder
+en:elderflower, elderflowers
+de:Holunderblüten
+fi:seljankukka
+fr:fleurs de sureau
+it:fiori di sambuco
+nl:vlierbloesem
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
+# 51 products @2018-09-29
+
+<en:elderflower
+en:elderflower extract
+de:Holunderblütenextrakt
+fi:seljankukkauute
+fr:Extraits de fleurs de sureau
+sv:fläderblomsextrakt
+
+###########################################################################
+#
+#                          Fig
+#
+###########################################################################
+
+
+<en:fruit
+en:fig, figs
+an:Figo
+br:Fiez
+ca:figa
+da:figen
+de:Feigen
+es:higo, higos
+et:Viigimari
+fi:viikuna
+fr:figue
+gl:Figo
+ia:fico
+it:fico, fichi
+ko:무화과
+la:Higo
+lt:Figa
+nl:vijg, vijgen
+nn:fiken
+pl:figa
+ru:инжир
+sk:Figa
+sv:fikon
+# ast:figu
+# kab:Tabexsist
+# nah:Hicox
+# scn:Ficu
+wikidata:en:Q2746643
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fig
+# 570 products @2018-09-29
+
+<en:fig
+es:higos pajarero
+
+<en:fig
+fr:figues séchées, figues sèches
+de:Feigen getrocknet
+es:higo seco
+it:fichi essiccati
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues-séchées
+# 91 products in 3 languages @2018-09-29
+
+<en:fig
+fr:pâte de figue
+
+<en:fruit
+en:cactus fig
+de:Kaktusfeigen
+es:higo chumbo
+fi:kaktusviikuna
+fr:figue de Barbarie
+nl:cactusvijg
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cactus-fig
+# 3 products in 1 language @2018-09-29
+
+###########################################################################
+#
+#                          Gooseberry
+#
+###########################################################################
+
+# The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
+
+<en:fruit
+en:gooseberry, gooseberries
+es:grosella espinosa
+da:Stikkelsbær
+de:Stachelbeere, Stachelbeeren
+ee:karusmari
+fi:karviainen
+fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+nl:kruisbes
+no:stikkelsbær
+sv:Krusbär
+
+<en:gooseberry
+<en:fruit juice
+en:gooseberry juice
+fi:karviaismehu, karviaistäysmehu
+sv:krusbärjuice
+
+
+###########################################################################
+#
+#                          Goji
+#
+###########################################################################
+
+# description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
+
+<en:fruit
+en:goji, goji berries
+ca:goji
+cs:godži
+de:Gemeiner Bocksdorn
+el:γκότζι μπέρυ
+es:Goji, bayas de goji
+eu:hesilahar
+fa:گوجی‌بری
+fi:Goji-marja
+fr:baies de goji, baie de goji
+gl:Goxi
+hu:Goji bogyó
+it:goji
+ko:구기자
+la:Lycium barbarum
+sk:Kou-čchi
+sq:Goji
+sv:Gojibär
+te:గోజీ
+vi:Củ khởi
+wikidata:en:Q2617260
+wikipedia:en:https://en.wikipedia.org/wiki/Goji
+
+
+<en:goji
+en:dried goji berries
+de:getrocknete Goji-Beeren
+fi:kuivatut goji-marjat
+fr:baies de goji séchées
+it:bacche di goji essiccate
+# ingredient/fr:baies-de-goji-sechees has 52 products in 4 languages @2019-05-23
+
+###########################################################################
+#
+#                          Grape has its own section below
+#
+###########################################################################
+###########################################################################
+#
+#                          Grapefruit
+#
+###########################################################################
+
+# The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet, somewhat bitter fruit.
+
+<en:citrus fruit
+en:grapefruit
+ca:aranger
+da:grape, grapefrugt
+de:Grapefruit
+el:γκρέιπφρουτ
+eo:grapfrukto
+es:pomelo
+fi:greippi
+fr:pamplemousse
+it:pompelmo
+ja:グレープフルーツ
+ka:გრეიპფრუტი
+lt:Greipfrutas
+nb:grapefrukt
+nl:grapefruit
+pl:Grejpfrut
+ru:грейпфрут
+zh:西柚
+wikidata:en:Q3406575
+wikipedia:en:https://en.wikipedia.org/wiki/Grapefruit
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse
+# 255 products @2018-09-30
+
+<en:grapefruit
+<en:fruit juice
+en:grapefruit juice
+de:Grape-fruitsaft
+fi:greippimehu
+fr:jus de pamplemousse
+it:Succo di pompelmo
+nl:Grapefruitsap
+ru:Грейпфрутовый сок
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse
+# 42 products in 2 languages @2018-09-30
+
+<en:grapefruit juice
+fr:jus de pamplemousse à base de concentré
+de:Grapefruitsaft aus Konzentrat
+fi:greippimehu tiivisteestä
+it:succo di pompelmo a base di concentrato
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-à-base-de-concentré
+# 32 products @2018-09-30
+
+<en:grapefruit
+fr:écorces de pamplemousse
+
+<en:grapefruit
+en:pink grapefruit
+de:Pink grapefruit
+fi:verigreippi
+fr:pamplemousse rose
+it:pompelmo rosa
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse-rose
+# 20 products @2018-09-30
+
+<en:pink grapefruit
+<en:fruit juice
+en:pink grapefruit juice
+de:Pink grapefruit saft
+fi:verigreippimehu
+fr:Jus de pamplemousse rose
+it:succo di pompelmo rosa
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose
+# 53 products @2018-09-30
+
+<en:pink grapefruit juice
+en:pink grapefruit juice from concentrate
+de:Pink grapefruit Saft aus Konzentrat
+fi:verigreippimehu tiivisteestä
+fr:jus de pamplemousse rose à base de concentré
+it:succo di pompelmo rosa ricavata di concentrato
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose-à-base-de-concentré
+# 30 products @2018-09-30
+
+###########################################################################
+#
+#                          Guava
+#
+###########################################################################
+
+# Guavas (singular guava) are common tropical fruits cultivated and enjoyed in many tropical and subtropical regions.
+
+<en:fruit
+en:guava, guavas
+bg:Гуава
+bn:guava
+cs:Kvajáva
+de:Guaven
+dv:ފޭރު
+es:guayaba
+et:Guajaav
+eu:Guaiaba
+fa:گواوا
+fi:guava, hedelmäguava, guavat, hedelmäguavat
+fr:goyave, goyaves
+gl:Goiaba
+gn:Arasa
+gu:જમરૂખ
+ha:Gweba
+ht:Gwayav
+ia:Guayaba
+it:guaiave
+ko:구아바
+kv:Гуайява
+ln:Lípéla
+mr:पेरु
+my:မာလကာပင်
+nl:guava
+pt:goiaba
+rw:Amapera
+sd:زيتون
+si:පේර ශාකය
+sk:Goyave
+sr:guava
+sw:Pera
+ta:கொய்யாப் பழம்
+te:జామపండు
+tl:Bayabas
+ty:Tūava
+ur:امرود
+za:Sandauz
+zh:番石榴果
+# bcl:Bayawas
+# bho:अमरुत
+# bjn:Jambu karantukal
+# koi:Гуайява
+# lbe:Гуайява
+# mrj:Гуайява
+# nah:Xalxocotl
+# udm:Гуайява
+wikipedia:en:https://en.wikipedia.org/wiki/Guava
+wikidata:en:Q3181909
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:goyave
+# 242 products in 3 languages @2018-09-30
+
+<en:guava
+en:guava puree, guavas puree
+de:Guavenmus, Guavenmark
+es:Puré de guayaba
+fi:guavapyree, guavasose
+fr:purée de goyave
+it:purea di guaiave
+# ingredient/fr:purée-de-goyave has 91 products in 4 languages @2019-4-13
+
+###########################################################################
+#
+#                          Kiwi
+#
+###########################################################################
+
+# KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
+
+<en:fruit
+en:kiwi, kiwifruit
+af:Kiwivrug
+ar:كيوي
+be:Ківі, садавіна
+bg:киви
+bi:Kiwe
+bo:སྤྲེལ་ཁམ།
+br:Kiwi
+bs:Kivi
+ca:kiwi
+cs:kiwi
+cy:Ffrwyth ciwi
+da:Kiwi
+de:Kiwi, Kiwifrucht
+el:ακτινίδιο
+eo:kivifrukto
+es:kiwi
+et:Kiivi
+eu:kiwi
+fa:کیوی
+fi:Kiivi
+fr:kiwi
+gl:Kiwi
+he:קיווי
+hi:कीवी फल
+hr:Aktinidija
+ht:Kiwi
+hu:Kivi
+hy:կիվի
+id:Buah kiwi
+is:Kíví
+it:kiwi
+ja:キウイフルーツ
+jv:Kiwi
+ka:კივი
+kk:Киви жемісі
+kn:ಕೀವಿಹಣ್ಣು
+ko:참다래
+lb:Kiwi
+lt:Kivis
+lv:kivi
+mk:Киви
+ml:കിവി പഴം
+mr:किवी
+ms:Buah Kiwi
+nb:kiwi
+ne:ठेकीफल
+nl:kiwi
+nn:kiwifrukt
+nv:Chʼil dishooí
+oc:kiwi
+pa:ਕੀਵੀ
+pl:kiwi
+pt:Quiuí
+ro:Kiwi
+ru:киви
+sh:Kivi
+sl:Kivi
+sr:Киви
+sv:Kiwi
+ta:பசலிப்பழம்
+th:กีวี
+ti:ኪዊ
+tr:Kivi
+tt:Киви
+uk:Ківі
+ur:کيوی
+vi:Quả dương đào
+zh:奇異果
+# ang:Cīnisc gōsberige
+# arz:كيوي
+# atj:Wamin ka kawisitc
+# azb:کیوی
+# be-tarask:Ківі
+# ckb:کیوی
+# en-ca:kiwi, Kiwifruit
+# en-gb:kiwi, Kiwifruit
+# lmo:Peròdegh
+# nan:Kiwi
+# pt-br:Quiuí
+# yue:奇異果
+# zh-cn:奇異果
+# zh-hans:奇異果
+# zh-hant:奇異果
+wikidata:en:Q13194
+wikipedia:en:https://en.wikipedia.org/wiki/Kiwifruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/kiwi
+# 72 products in 2 languages @2018-09-30
+
+<en:kiwi
+en:organic kiwi
+fi:luomukiivi, luomu kiivi
+fr:kiwis biologiques
+
+<en:kiwi
 <en:purée
-fr:purée de fruit de la passion
-fi:passiohedelmäpyree
-nl:passievruchtenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruit-de-la-passion
-# 66 products in 2 languages @2018-09-29
+fr:purée de kiwi
+fi:kiivipyree
+# IN process de:Kiwipüree
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
+# 27 products in 2 languages @2018-09-30
 
+<en:kiwi
+<en:fruit juice
+en:kiwi juice
+de:Kiwisaft
+es:zumo de kiwi
+fi:kiivimehu
+fr:jus de kiwi
+nl:kiwisap
+ru:Сок киви
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
+# 8 products in 3 languages 22018-09-30
+
+<en:kiwi juice
+fr:jus de kiwi à base de concentré
+
+# No products
+
+# <en:kiwi juice
+# en:pascalised kiwi juice
+# es:zumo de kiwi pascalizado
+# fr:jus de kiwi pascalisé
+# nl:gepascaliseerd kiwisap
+# de:pascalisierter Kiwisaft
+# treatment:en:en:pascalization
+
+###########################################################################
+#
+#                          Lingonberry
+#
+###########################################################################
+
+# Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
+
+<en:fruit
+en:lingonberry
+ca:nabius
+da:tyttebær
+de:Preiselbeeren
+es:Arándanos agrios,arándanos
+et:pohl
+fi:Puolukka
+fr:myrtille rouge
+lb:rout Molbier
+lt:Bruknė
+nl:vossebes, rode bosbes
+sv:lingon
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
+# 7 products @2018-10-01
+
+# No products
+# <en:fruit
+# fr:purée de myrtille rouge
+
+<en:lingonberry
+<en:fruit juice
+en:lingonberry juice
+fi:puolukkamehu, puolukkatäysmehu
+sv:lingonjuice
+
+###########################################################################
+#
+#                          Lychee
+#
+###########################################################################
 
 # LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
 
@@ -38903,6 +39371,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 <en:lychee
 es:Lichis deshuesados
 
+###########################################################################
+#
+#                          Melon
+#
+###########################################################################
 
 # MELON is any of various plants of the family Cucurbitaceae with sweet edible, fleshy fruit.
 
@@ -39178,159 +39651,12 @@ wikidata:en:Q38645
 openfoodfacts:https://world.openfoodfacts.org/ingredient/watermelon
 # 172 products in 2 languages @ 2018-09-29
 
-# nectarine
 
-<en:fruit
-en:fig, figs
-an:Figo
-br:Fiez
-ca:figa
-da:figen
-de:Feigen
-es:higo, higos
-et:Viigimari
-fi:viikuna
-fr:figue
-gl:Figo
-ia:fico
-it:fico, fichi
-ko:무화과
-la:Higo
-lt:Figa
-nl:vijg, vijgen
-nn:fiken
-pl:figa
-ru:инжир
-sk:Figa
-sv:fikon
-# ast:figu
-# kab:Tabexsist
-# nah:Hicox
-# scn:Ficu
-wikidata:en:Q2746643
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fig
-# 570 products @2018-09-29
-
-<en:fig
-es:higos pajarero
-
-<en:fig
-fr:figues séchées, figues sèches
-de:Feigen getrocknet
-es:higo seco
-it:fichi essiccati
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:figues-séchées
-# 91 products in 3 languages @2018-09-29
-
-<en:fig
-fr:pâte de figue
-
-<en:fruit
-en:cactus fig
-de:Kaktusfeigen
-es:higo chumbo
-fi:kaktusviikuna
-fr:figue de Barbarie
-nl:cactusvijg
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/cactus-fig
-# 3 products in 1 language @2018-09-29
-
-# The context on an ingredient list determines whether this referes to the berries (probable) or the flowers.
-
-<en:fruit
-en:elder
-de:Holunder, Holunderbeere, Holunderbeeren
-es:Saúco
-fi:selja
-fr:sureau
-it:sambuco
-nl:vlier
-sv:fläder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sureau
-# 332 products @2018-09-29
-
-<en:elder
-<fr:fruits des bois
-en:elderberry
-da:hyldebær
-de:Holunderbeer
-es:bayas del sauco
-fi:seljanmarja
-fr:baie de sureau, baies de sureau
-it:sambuco
-nl:vlierbes
-sv:fläderbär
-
-<en:elderberry
-<en:fruit juice
-en:elderberry juice
-de:Holundersaft
-fi:seljanmarjamehu, seljanmarjatäysmehu
-fr:jus de sureau
-it:succo di sambuco
-nl:vlierbessap
-sv:fläderbärsjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
-# 52 products @2018-09-29
-
-<en:elderberry juice
-en:elderberry juice concentrate, concentrated elderberry juice
-de:konzentrierter Holundersaft
-fi:seljanmarjamehutiiviste, seljanmarjatäysmehutiiviste
-fr:jus de sureau concentré, jus concentré de sureau
-sv:koncentrerad fläderbärsjuice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-concentré
-# 40 products @2018-09-29
-
-<en:elderberry juice concentrate
-en:elderberry juice from concentrate
-de:Holundersaft aus Konzentrat
-fi:seljanmarjamehu tiivisteestä, seljanmarjatäysmehu tiivisteestä
-fr:jus de sureau à base de concentré
-it:succo di sambuco a base di concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau-à-base-de-concentré
-# 25 products @2018-09-29
-
-<en:elderberry
-en:elderberry extract
-de:Holunderbeerenextrakt, Holunderbeerextrakt
-fi:seljanmarjauute
-fr:extrait de baie de sureau, extrait de sureau
-it:estratto di sambuco
-sv:fläderbär extract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-sureau
-# 29 products @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-baie-de-sureau
-# 57 products in 1 language @2018-09-29
-
-<en:elderberry extract
-en:natural elderberry extract
-de:natürlicher Holunderbeerenextrakt
-
-<en:elderberry
-fr:concentré de sureau
-de:Holunderbeerenkonzentrat
-es:concentrato di coccole di sambuco
-fi:seljanmarjatiiviste
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-sureau
-# 33 products @2018-09-29
-
-<en:elder
-en:elderflower, elderflowers
-de:Holunderblüten
-fi:seljankukka
-fr:fleurs de sureau
-it:fiori di sambuco
-nl:vlierbloesem
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
-# 51 products @2018-09-29
-
-<en:elderflower
-en:elderflower extract
-de:Holunderblütenextrakt
-fi:seljankukkauute
-fr:Extraits de fleurs de sureau
-sv:fläderblomsextrakt
+###########################################################################
+#
+#                          Papaya
+#
+###########################################################################
 
 <en:fruit
 en:papaya
@@ -39356,136 +39682,11 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:papaye
 
 <en:papaya
 fr:papayes séchées
-
-# KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
-
-<en:fruit
-en:kiwi, kiwifruit
-af:Kiwivrug
-ar:كيوي
-be:Ківі, садавіна
-bg:киви
-bi:Kiwe
-bo:སྤྲེལ་ཁམ།
-br:Kiwi
-bs:Kivi
-ca:kiwi
-cs:kiwi
-cy:Ffrwyth ciwi
-da:Kiwi
-de:Kiwi, Kiwifrucht
-el:ακτινίδιο
-eo:kivifrukto
-es:kiwi
-et:Kiivi
-eu:kiwi
-fa:کیوی
-fi:Kiivi
-fr:kiwi
-gl:Kiwi
-he:קיווי
-hi:कीवी फल
-hr:Aktinidija
-ht:Kiwi
-hu:Kivi
-hy:կիվի
-id:Buah kiwi
-is:Kíví
-it:kiwi
-ja:キウイフルーツ
-jv:Kiwi
-ka:კივი
-kk:Киви жемісі
-kn:ಕೀವಿಹಣ್ಣು
-ko:참다래
-lb:Kiwi
-lt:Kivis
-lv:kivi
-mk:Киви
-ml:കിവി പഴം
-mr:किवी
-ms:Buah Kiwi
-nb:kiwi
-ne:ठेकीफल
-nl:kiwi
-nn:kiwifrukt
-nv:Chʼil dishooí
-oc:kiwi
-pa:ਕੀਵੀ
-pl:kiwi
-pt:Quiuí
-ro:Kiwi
-ru:киви
-sh:Kivi
-sl:Kivi
-sr:Киви
-sv:Kiwi
-ta:பசலிப்பழம்
-th:กีวี
-ti:ኪዊ
-tr:Kivi
-tt:Киви
-uk:Ківі
-ur:کيوی
-vi:Quả dương đào
-zh:奇異果
-# ang:Cīnisc gōsberige
-# arz:كيوي
-# atj:Wamin ka kawisitc
-# azb:کیوی
-# be-tarask:Ківі
-# ckb:کیوی
-# en-ca:kiwi, Kiwifruit
-# en-gb:kiwi, Kiwifruit
-# lmo:Peròdegh
-# nan:Kiwi
-# pt-br:Quiuí
-# yue:奇異果
-# zh-cn:奇異果
-# zh-hans:奇異果
-# zh-hant:奇異果
-wikidata:en:Q13194
-wikipedia:en:https://en.wikipedia.org/wiki/Kiwifruit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/kiwi
-# 72 products in 2 languages @2018-09-30
-
-<en:kiwi
-en:organic kiwi
-fi:luomukiivi, luomu kiivi
-fr:kiwis biologiques
-
-<en:kiwi
-<en:purée
-fr:purée de kiwi
-fi:kiivipyree
-# IN process de:Kiwipüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
-# 27 products in 2 languages @2018-09-30
-
-<en:kiwi
-<en:fruit juice
-en:kiwi juice
-de:Kiwisaft
-es:zumo de kiwi
-fi:kiivimehu
-fr:jus de kiwi
-nl:kiwisap
-ru:Сок киви
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
-# 8 products in 3 languages 22018-09-30
-
-<en:kiwi juice
-fr:jus de kiwi à base de concentré
-
-# No products
-
-# <en:kiwi juice
-# en:pascalised kiwi juice
-# es:zumo de kiwi pascalizado
-# fr:jus de kiwi pascalisé
-# nl:gepascaliseerd kiwisap
-# de:pascalisierter Kiwisaft
-# treatment:en:en:pascalization
+###########################################################################
+#
+#                          Pineapple
+#
+###########################################################################
 
 # PINEAPPLE (Ananas comosus) is a tropical plant with an edible multiple fruit consisting of coalesced berries, also called pineapples,[2][3] and the most economically significant plant in the family Bromeliaceae.[
 
@@ -39615,6 +39816,98 @@ nl:Ananassap van concentraat
 pl:Sok ananasowy z koncentratu, sok ananasowy z koncentratu
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
 
+###########################################################################
+#
+#                          Pomegranate
+#
+###########################################################################
+
+<en:fruit
+en:pomegranate
+am:ሩማን
+bo:སེ་འབྲུ།
+ca:magrana
+cs:granátové jablko
+de:Granatapfel
+el:ρόδι
+eo:granato
+es:granada,granadas
+et:Granaatõun
+fi:granaattiomena
+fr:grenade
+ga:Pomagrainít
+gl:milgranda
+gu:દાડમ
+hi:अनार
+ht:Grenad
+it:melagrana
+ks:دٲن
+mr:डाळिंब
+my:တလည်း
+ne:दारिम
+nl:granaatappel
+pa:ਅਨਾਰ
+pl:granat
+ps:انار
+ru:гранатина
+sd:ڏاڙهون
+sk:granátové jablko
+sq:shegë
+tg:Анор
+ug:ئانار
+uk:Гранатове дерево
+ur:انار
+uz:Ahop
+za:Maksigloux
+# bho:अनार
+# ckb:ھەنار
+# hak:Sa̍k-liù
+# hif:Anaar
+# kaa:Anar
+# lak:Сунув
+# mzn:انار
+# pnb:انار
+# vro:Granaatupin
+wikidata:en:Q13222088
+wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
+# 53 products in 3 languages @2018-10-03
+
+<en:pomegranate
+fr:graines de grenade
+de:Granatapfelkerne
+fi:granaattiomenan siemen, granaattiomenan siemenet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
+# 4 products in 3 languages @2018-10-03
+
+<en:pomegranate
+<en:fruit juice
+en:pomegranate juice
+de:Granatapfelsaft
+es:zumo de granada
+fi:granaattiomenamehu
+fr:jus de grenade
+it:succo di melagrana
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
+# 61 products in 3 languages @2018-10-03
+
+<en:pomegranate juice
+fr:pur jus de grenade
+
+<en:pomegranate juice
+en:organic pomegranate juice
+fi:luomugranaattiomenamehu, luomu granaattiomenamehu
+fr:Jus de Grenade issu de l'agriculture biologique
+
+<en:pomegranate
+fr:écorces de grenade
+
+###########################################################################
+#
+#                          Prune
+#
+###########################################################################
+
 # A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
 # wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
 
@@ -39699,146 +39992,233 @@ fr:purée de pruneaux
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
-# The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet, somewhat bitter fruit.
+###########################################################################
+#
+#                         Raspberry
+#
+###########################################################################
 
-<en:citrus fruit
-en:grapefruit
-ca:aranger
-da:grape, grapefrugt
-de:Grapefruit
-el:γκρέιπφρουτ
-eo:grapfrukto
-es:pomelo
-fi:greippi
-fr:pamplemousse
-it:pompelmo
-ja:グレープフルーツ
-ka:გრეიპფრუტი
-lt:Greipfrutas
-nb:grapefrukt
-nl:grapefruit
-pl:Grejpfrut
-ru:грейпфрут
-zh:西柚
-wikidata:en:Q3406575
-wikipedia:en:https://en.wikipedia.org/wiki/Grapefruit
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse
-# 255 products @2018-09-30
 
-<en:grapefruit
-<en:fruit juice
-en:grapefruit juice
-de:Grape-fruitsaft
-fi:greippimehu
-fr:jus de pamplemousse
-it:Succo di pompelmo
-nl:Grapefruitsap
-ru:Грейпфрутовый сок
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse
-# 42 products in 2 languages @2018-09-30
-
-<en:grapefruit juice
-fr:jus de pamplemousse à base de concentré
-de:Grapefruitsaft aus Konzentrat
-fi:greippimehu tiivisteestä
-it:succo di pompelmo a base di concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-à-base-de-concentré
-# 32 products @2018-09-30
-
-<en:grapefruit
-fr:écorces de pamplemousse
-
-<en:grapefruit
-en:pink grapefruit
-de:Pink grapefruit
-fi:verigreippi
-fr:pamplemousse rose
-it:pompelmo rosa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse-rose
-# 20 products @2018-09-30
-
-<en:pink grapefruit
-<en:fruit juice
-en:pink grapefruit juice
-de:Pink grapefruit saft
-fi:verigreippimehu
-fr:Jus de pamplemousse rose
-it:succo di pompelmo rosa
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose
-# 53 products @2018-09-30
-
-<en:pink grapefruit juice
-en:pink grapefruit juice from concentrate
-de:Pink grapefruit Saft aus Konzentrat
-fi:verigreippimehu tiivisteestä
-fr:jus de pamplemousse rose à base de concentré
-it:succo di pompelmo rosa ricavata di concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose-à-base-de-concentré
-# 30 products @2018-09-30
-
-# Guavas (singular guava) are common tropical fruits cultivated and enjoyed in many tropical and subtropical regions.
+# RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
 <en:fruit
-en:guava, guavas
-bg:Гуава
-bn:guava
-cs:Kvajáva
-de:Guaven
-dv:ފޭރު
-es:guayaba
-et:Guajaav
-eu:Guaiaba
-fa:گواوا
-fi:guava, hedelmäguava, guavat, hedelmäguavat
-fr:goyave, goyaves
-gl:Goiaba
-gn:Arasa
-gu:જમરૂખ
-ha:Gweba
-ht:Gwayav
-ia:Guayaba
-it:guaiave
-ko:구아바
-kv:Гуайява
-ln:Lípéla
-mr:पेरु
-my:မာလကာပင်
-nl:guava
-pt:goiaba
-rw:Amapera
-sd:زيتون
-si:පේර ශාකය
-sk:Goyave
-sr:guava
-sw:Pera
-ta:கொய்யாப் பழம்
-te:జామపండు
-tl:Bayabas
-ty:Tūava
-ur:امرود
-za:Sandauz
-zh:番石榴果
-# bcl:Bayawas
-# bho:अमरुत
-# bjn:Jambu karantukal
-# koi:Гуайява
-# lbe:Гуайява
-# mrj:Гуайява
-# nah:Xalxocotl
-# udm:Гуайява
-wikipedia:en:https://en.wikipedia.org/wiki/Guava
-wikidata:en:Q3181909
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:goyave
-# 242 products in 3 languages @2018-09-30
+<fr:fruit rouge
+<fr:fruits des bois
+en:raspberry, raspberries
+af:Framboos
+an:Chordón
+ar:عليق
+br:Flamboez
+bs:Malina
+ca:Gerd,gerds
+cs:Malina
+cy:Mafon cochion
+da:hindbær
+de:Himbeeren, Himbeere
+eo:Frambo
+es:frambuesa
+fa:تمشک
+fi:vadelma
+fr:framboise
+ga:Sú craobh
+gd:Sùbh-craoibh
+hi:रसभरी
+ht:Franbwaz
+hu:málna
+hy:Ազնվամորի
+io:Frambo
+it:lamponi, lampone
+ja:ラズベリー
+kk:Таңқурай
+kn:ರಾಸ್‍ಬೆರಿ
+ko:라즈베리
+kv:Ӧмидз
+lo:ໝາກຟະລຳບວດ
+lt:Avietė
+mk:Малина
+mr:रास्पबेरी
+ms:Raspberi
+mt:Lampuna
+nl:framboos, frambozen
+nn:bringebær
+nv:Dzidzé łikaní dinilchííʼígíí
+pl:maliny
+pt:framboesas
+ru:Малина
+sd:راسپ بيري
+sk:Malina
+sr:Малина
+sv:hallon
+sw:Mrasiberi
+ta:ராஸ்பெரி
+te:కోరిందపండు
+th:แรสเบอร์รี
+tl:Prambuwesas
+ty:Rahipere
+uz:Malina
+zh:樹莓
+# atj:Mikominan
+# bat-smg:Avietė
+# chr:ᏒᏗᏩᎵ
+# ckb:تووتڕک
+# lad:Frambuaz
+# new:इसि
+# stq:Hiembäie
+# ur:تُوت علیق
+# yue:勒士啤梨
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
+# 2014 in 12 languages @2018-09-27
 
-<en:guava
-en:guava puree, guavas puree
-de:Guavenmus, Guavenmark
-es:Puré de guayaba
-fi:guavapyree, guavasose
-fr:purée de goyave
-it:purea di guaiave
-# ingredient/fr:purée-de-goyave has 91 products in 4 languages @2019-4-13
+<en:raspberry
+en:red raspberries
+de:Rote Himbeeren
+fr:Framboises rouges
+
+<en:raspberry
+fr:variété willamette
+
+<en:raspberry
+en:whole raspberry
+da:hele hindbær
+de:ganze Himbeeren, Himbeeren ganz
+fr:Framboises entières
+nl:hele frambozen
+# 10@2019-06-07
+
+<en:raspberry
+en:organic raspberry
+de:Bio-Himbeere
+fi:luomuvadelma, luomu vadelma
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomuvadelma
+# 1 entry @ 2019-10-31
+
+<en:raspberry
+<en:purée
+en:raspberry puree
+de:Himbeerpüree
+es:puré de frambuesa
+fi:vadelmasose, vadelmapyree, vadelmapyre
+fr:purée de framboises, purée de framboise
+it:purea di lamponi
+nl:frambozenpuree
+sv:hallonpuré
+# In process de:Himbeermark, Himbeerpüree
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
+# 461 products in 6 languages @2018-09-27
+
+<en:raspberry puree
+fr:purée de framboise concentrée
+de:konzentriertes Himbeerpuree
+es:puré de frambuesa concentrado
+fi:vadelmapyreetiiviste
+pt:concentrado de polme de framboesa
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-framboise-concentrée
+# 51 products in 4 languages @2018-09-27
+
+<en:raspberry
+<en:fruit juice
+en:raspberry juice
+de:Himbeersaft
+es:Zumo de frambuesa
+fi:vadelmamehu, vadelmatäysmehu
+fr:jus de framboise
+it:succo di lamponi
+nl:Frambozensap
+ru:Малиновый сок
+sv:hallonjuice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-framboise
+# 72 products in 4 languages @2018-09-27
+
+<fr:jus de framboise
+fr:jus de framboise à base de concentré
+de:Himbeersaft aus Konzentrat
+fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
+it:succo di lamponi a base di concentrato
+nl:frambozensap uit sapconcentraat
+sv:hallonjuice från koncentrat
+# ingredient/fr:jus-de-framboise-à-base-de-concentré has 73 products in 5 languages @2018-09-27
+
+<en:raspberry juice
+en:concentrated raspberry juice
+de:Himbeerdicksaft
+es:jarabe de frambuesas
+fi:vadelmamehutiiviste
+fr:jus de framboise concentré
+nl:frambozendiksap
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-raspberry-juice
+# 44 products in 3 languages @2018-09-27
+
+<en:concentrated raspberry juice
+en:concentrated raspberry juice from concentrate
+de:Himbeerdicksaft aus Konzentrat
+es:jarabe de frambuesas de concentrado
+fr:concentré de jus de framboise
+nl:frambozendiksap concentraat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-raspberry-juice-from-concentrate
+# 15 products in 1 language @2018-09-27
+
+<en:raspberry
+# <en:liqueur
+en:raspberry liqueur
+de:Himbeerlikör
+es:licor de frambuesas
+fi:vadelmalikööri
+fr:liqueur de framboises
+nl:frambozenlikeur
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry-liqueur
+# 3 products in 2 languages @2018-09-27
+
+<en:raspberry
+en:dried raspberries
+de:getrocknete Himbeeren, Himbeeren getrocknet
+fi:kuivattu vadelma
+fr:Framboises déshydratées
+sv:torkade hallon
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kuivattu-vadelma
+# 1 entry @ 2019-10-31
+
+<en:dried raspberries
+en:freeze-dried raspberries
+de:Himbeeren gefriergetrockent
+fi:pakkaskuivattu vadelma, pakastekuivattu vadelma
+fr:framboises lyophilisées
+it:lamponi liofilizzati
+sv:frystorkade hallon
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
+# 46 products in 4 languages @2018-09-27
+
+<en:raspberry
+en:raspberry powder
+de:Himbeerpulver, Himbeerfruchtpulver
+fi:vadelmajauhe
+sv:hallonpulver
+
+###########################################################################
+#
+#                          Redcurrant
+#
+###########################################################################
+
+# The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
+
+<en:fruit
+en:redcurrant, red currant
+da:røde bær
+de:rote Johannisbeeren
+es:grosella roja, grosellas rojas
+fi:Punaherukka
+fr:groseille, groseilles, groseilles rouges
+it:ribes rosso
+nl:aalbes, rode bes
+pt:groselha
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
+# 312 products in 6 languages @2018-10-01
+
+###########################################################################
+#
+#                          Rosehip
+#
+###########################################################################
 
 <en:fruit
 en:rosehip
@@ -39894,6 +40274,378 @@ zh:蔷薇果
 wikidata:en:Q46740
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cynorrhodon
 # 65 products @2018-10-02
+
+###########################################################################
+#
+#                          Sea Buckthorn
+#
+###########################################################################
+
+# Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
+
+<en:fruit
+en:sea-buckthorn
+ar:أبو فايس
+az:murdarçayabənzər çaytikanı
+ba:һырғанаҡ
+be:абляпіха крушынападобная
+bg:облепиха
+ca:arç groc
+cs:rakytník řešetlákový
+da:havtorn
+de:sanddorn
+eo:ramnoida hipofeo
+et:harilik astelpaju
+fa:سنجد تلخ
+fi:tyrni
+fr:argousier
+gl:espiñeiro marítimo
+gv:bugogue varrey
+hr:pasji trn
+hu:európai homoktövis
+hy:չիչխան սովորական
+kk:шырғанақ
+ky:сары чычырканак
+lt:dygliuotasis šaltalankis
+lv:pabērzu smiltsērkšķis
+nb:tindved
+ne:मलो
+nl:duindoorn
+nn:tindved
+pl:rokitnik zwyczajny
+ps:اکبار
+ro:cătină albă
+ru:облепиха крушиновидная
+sl:navadni rakitovec
+sr:пасји трн
+sv:havtorn
+tg:ангат
+uk:обліпиха звичайна
+zh:沙棘
+wikidata:en:Q165378
+wikipedia:en:https://en.wikipedia.org/wiki/Hippophae_rhamnoides
+# ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
+
+<en:sea-buckthorn
+<en:fruit juice
+en:sea-buckthorn juice
+fi:tyrnimehu, tyrnitäysmehu
+sv:havtornsjuice
+wikidata:Q68192318
+
+###########################################################################
+#
+#                          Strawberry
+#
+###########################################################################
+en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
+
+<en:fruit
+<fr:fruit rouge
+en:strawberry, strawberries
+an:Fraga
+ar:فراولة
+as:ষ্ট্ৰবেৰী
+az:Bağ çiyələyi
+be:Суніцы садовыя
+bg:Градинска ягода
+bn:স্ট্রবেরি
+bo:འབྲི་ཏ་ས་འཛིན།
+br:Sivi
+ca:maduixa,maduixes
+cs:jahoda, Jahodník velkoplodý
+da:jordbær, Havejordbær
+de:Erdbeeren
+el:Φράουλα
+eo:frago
+es:fresa
+et:Aedmaasikas
+eu:Baratze-marrubi
+fa:توت‌فرنگی
+fi:mansikka, mansikat
+fo:Jarðber
+fr:fraise
+gl:Amorodo
+gn:Yvapytã
+gu:સ્ટ્રોબેરી
+hi:स्ट्रॉबेरी
+hu:Eper
+hy:Ելակ
+id:Stroberi kebun
+io:Frago
+it:fragola, fragole
+ja:イチゴ
+jv:Strobèri kebon
+km:ស្ត្របឺរី
+kn:ಸ್ಟ್ರಾಬೆರಿ
+ko:딸기
+lo:ໝາກຟະແລດ
+lt:Braškė
+lv:Dārza zemene
+mk:Јагода
+ml:ഗാർഡൻ സ്ട്രോബെറി
+mn:Цэцэрлэгийн гүзээлзгэнэ
+mr:स्ट्रॉबेरी
+mt:frawla
+my:စတော်ဘယ်ရီ
+nb:Hagejordbær
+ne:स्ट्रबेरी
+nl:aardbei, aardbeien
+nn:Hagejordbær
+nv:Dah woozh
+pa:ਸਟਰਾਬਰੀ
+pl:Truskawka, truskawki
+pt:morango, morangos
+ro:căpșună
+ru:клубника
+sa:तृणबदरफलम्
+sd:اسٽرا بيري
+sq:luleshtrydhe
+sv:Jordgubbe, jordgubbar
+sw:Mstroberi
+ta:செம்புற்று
+tg:Қулфинай
+th:สตรอว์เบอร์รี
+ug:بۆلجۈرگەن
+uk:Суниці садові
+ur:تُوت علیق
+vi:Dâu tây vườn
+za:Godumh
+zh:草莓
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr:3.5
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:0.8
+# aeb-arab:كعبة فراز
+# ary:لفريز
+# ast:fresón
+# atj:Otehimin
+# bat-smg:Braškė
+# bcl:Strawberry
+# cdo:Chāu-muòi
+# chr:ᎠᏂ
+# ckb:چلیک
+# csb:Ògardowô pòtrôwnica
+# dsb:Zagrodna słynica
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr:3.5
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:0.8
+# frr:Guard-eerdbei
+# hak:Chhó-mòi
+# hsb:Zahrodna truskalca
+# lij:Merello
+# lmo:Magiostra
+# mrj:Мӧр
+# mzn:سرماق
+# nan:Chháu-m̂
+# new:ब्यांपासि
+# pnb:سٹرابیری
+# sco:Straeberry
+# vls:Freize
+# xmf:ციმუა
+# yue:士多啤梨
+wikidata:en:Q14458220
+wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
+# 2504 products in 15 languages @2018-10-01
+
+<en:strawberry
+en:strawberry pieces
+fr:morceaux de fraise
+
+# This is a compound ingredient
+
+<en:strawberry
+en:strawberry filling
+de:Erdbeerfüllung
+fi:mansikkatäyte
+fr:nappage à la fraise
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage-à-la-fraise
+# 33 products @2018-10-01
+
+<en:strawberry
+<en:fruit juice
+en:strawberry juice
+fi:mansikkamehu
+fr:jus de fraise
+sv:jordgubbsjuice, jordgubbssaft
+
+<en:strawberry juice
+en:strawberry juice concentrate, concentrated strawberry juice
+de:erdbeersaftkonzentrat
+fi:mansikkamehutiiviste, mansikkatäysmehutiiviste
+fr:concentré de jus de fraise
+
+<en:strawberry juice concentrate
+en:strawberry juice from concentrate
+fr:jus de fraise à base de concentré
+de:Erdbeersaft aus Konzentrat
+fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
+nl:geconcentreerd aardbeiensap
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fraise-à-base-de-concentré
+# 58 products @2018-10-01
+
+<en:strawberry
+fr:fraises lyophilisées
+de:Erdbeeren gefriergetrocknet
+fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
+it:fragole liofilizzate
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
+# 38 products in 3 languages @2108-10-01
+
+<fr:fraises lyophilisées
+fi:pakastekuivattu mansikka paloina
+
+<en:strawberry
+<en:purée
+en:strawberry puree
+de:Erdbeerpüree
+es:puré de fresa
+fi:mansikkapyree, mansikkasose, mansikkapyre
+fr:purée de fraise, purée de fraises
+it:purea di fragola
+nl:aardbeienpuree
+ru:Клубничное пюре
+sv:jordgubbspuré
+# In process de:Erdbeerpüree
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fraise
+# 450 products in 6 languages @2018-10-01
+
+<en:strawberry puree
+en:concentrated strawberry puree
+de:Erdbeerpüree aus Konzentrat
+fi:tiivistetty mansikkapyree
+fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å base de concentré
+
+<en:strawberry
+en:strawberry powder
+de:Erdbeerpulver
+et:maasikapulber
+fi:mansikkajauhe
+fr:poudre de fraise
+ro:pudră de căpșuni
+
+<en:strawberry
+<en:fruit juice
+<en:grape
+fi:mansikoista valmistettu mehu ja viinirypäleet
+
+###########################################################################
+#
+#                          Tamarind
+#
+###########################################################################
+
+# Tamarind (Tamarindus indica) is a leguminous tree in the family Fabaceae indigenous to tropical Africa.
+# The wikidata translations refer to the tree and not the fruit
+
+en:tamarind
+af:Tamarinde
+am:ሮቃ
+ar:تمر هندي
+bg:тамаринд
+bn:তেঁতুল
+ca:tamarinde
+da:tamarind
+de:Tamarinde
+dv:ހެލެނބެލި
+el:Ταμάρινδος
+eo:Tamarindo
+es:tamarindos
+eu:Tamarindo
+fa:تمر هندی
+fi:Tamarindi
+fr:tamarin, tamarins
+gl:Tamarindo
+gn:Tamaríno
+gu:ખાટી આમલી
+ha:Tsamiya
+he:תמרינדי
+hi:इमली
+hr:Tamarind
+ht:Tamaren
+hu:tamarindusz
+id:Asam jawa
+io:Tamarindo
+is:Tamarind
+it:tamarindo
+ja:タマリンド
+jv:Asem jawa
+ka:თამარინდი
+kn:ಹುಣಸೆ
+ko:타마린드
+la:Tamarindus indica
+lv:Tamarinds
+ml:പുളി
+mr:चिंच
+ms:Asam jawa
+my:မန်ကျည်း
+ne:तित्री
+nl:tamarinde
+oc:Tamarind
+or:ତେନ୍ତୁଳି
+pa:ਇਮਲੀ
+ps:املۍ
+pt:Tamarindus
+ru:Тамаринд
+sa:तिन्त्रिणी
+sd:گدامڙي
+si:සියඹලා
+sl:Tamarinda
+so:Raqay
+su:Asem
+sv:Tamarind
+sw:Mkwaju
+ta:புளி
+te:చింత
+th:มะขาม
+tl:Sampalok
+to:Tamaline
+tr:Demirhindi
+uk:Тамаринд
+vi:Me
+yi:טאמארינד
+zh:酸豆
+# ace:Mè
+# azb:تمرهیندی
+# be-tarask:Тамарынд
+# bho:इमिली
+# ilo:salamagi
+# pam:Sampaluk
+# pnb:املی
+# sat:ᱡᱚᱡᱚ ᱡᱚ
+# war:Sampaluk
+# yue:羅望子
+# zh-hant:羅望子
+# zh-tw:羅望子
+# tree:wikidata:en:Q80235
+wikidata:en:Q28178875
+wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
+# ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
+
+<en:tamarind
+nl:tamarindepuree
+
+<en:tamarind
+en:tamarind extract
+de:Tamarindenextrakt
+es:Extracto de tamarinado
+fi:tamarindiuute
+fr:extrait de tamarin
+nl:tamarinde-extract
+sv:tamarindextrakt
+# ingredient/fr:extrait-de-tamarin has 29 products in 6 languages @2019-02-07
+
+###########################################################################
+#
+#                          Grape
+#
+###########################################################################
 
 # A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
 # Note that in french often 'raisin' is used to indicate the dried one
@@ -40091,6 +40843,12 @@ fr:raisins noirs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-noirs
 # 51 products in 1 language @2018-10-02
 
+###########################################################################
+#
+#                          Rasin
+#
+###########################################################################
+
 # A RAISIN is a dried grape.
 
 <en:grape
@@ -40195,7 +40953,18 @@ fr:concentré de raisin
 en:rasin juice
 es:jugo de pasas
 
+<en:rasin
+en:California seedless raisins
+de:Kalifornische kernlose Rosinen
+fr:Raisins secs sans grains californiens
+
 # 1314 products in 6 languages @2018-10-02
+
+###########################################################################
+#
+#                          Sultana
+#
+###########################################################################
 
 # SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 # maybe it is necessary to split between dried and fresh
@@ -40212,12 +40981,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sultana_(grape)
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 # 46 products in 3 languages @2018-10-02
 
-# Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
+###########################################################################
+#
+#                          Zante currants
+#
+###########################################################################
 
-<en:grape
-en:California seedless raisins
-de:Kalifornische kernlose Rosinen
-fr:Raisins secs sans grains californiens
+# Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
 <en:grape
 en:Zante currant
@@ -40445,106 +41215,6 @@ nl:gekookte druivenmost
 
 <en:fruit juice
 fr:Jus de pruneau obtenu par extraction hydrique
-
-# Tamarind (Tamarindus indica) is a leguminous tree in the family Fabaceae indigenous to tropical Africa.
-# The wikidata translations refer to the tree and not the fruit
-
-en:tamarind
-af:Tamarinde
-am:ሮቃ
-ar:تمر هندي
-bg:тамаринд
-bn:তেঁতুল
-ca:tamarinde
-da:tamarind
-de:Tamarinde
-dv:ހެލެނބެލި
-el:Ταμάρινδος
-eo:Tamarindo
-es:tamarindos
-eu:Tamarindo
-fa:تمر هندی
-fi:Tamarindi
-fr:tamarin, tamarins
-gl:Tamarindo
-gn:Tamaríno
-gu:ખાટી આમલી
-ha:Tsamiya
-he:תמרינדי
-hi:इमली
-hr:Tamarind
-ht:Tamaren
-hu:tamarindusz
-id:Asam jawa
-io:Tamarindo
-is:Tamarind
-it:tamarindo
-ja:タマリンド
-jv:Asem jawa
-ka:თამარინდი
-kn:ಹುಣಸೆ
-ko:타마린드
-la:Tamarindus indica
-lv:Tamarinds
-ml:പുളി
-mr:चिंच
-ms:Asam jawa
-my:မန်ကျည်း
-ne:तित्री
-nl:tamarinde
-oc:Tamarind
-or:ତେନ୍ତୁଳି
-pa:ਇਮਲੀ
-ps:املۍ
-pt:Tamarindus
-ru:Тамаринд
-sa:तिन्त्रिणी
-sd:گدامڙي
-si:සියඹලා
-sl:Tamarinda
-so:Raqay
-su:Asem
-sv:Tamarind
-sw:Mkwaju
-ta:புளி
-te:చింత
-th:มะขาม
-tl:Sampalok
-to:Tamaline
-tr:Demirhindi
-uk:Тамаринд
-vi:Me
-yi:טאמארינד
-zh:酸豆
-# ace:Mè
-# azb:تمرهیندی
-# be-tarask:Тамарынд
-# bho:इमिली
-# ilo:salamagi
-# pam:Sampaluk
-# pnb:املی
-# sat:ᱡᱚᱡᱚ ᱡᱚ
-# war:Sampaluk
-# yue:羅望子
-# zh-hant:羅望子
-# zh-tw:羅望子
-# tree:wikidata:en:Q80235
-wikidata:en:Q28178875
-wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
-# ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
-
-<en:tamarind
-nl:tamarindepuree
-
-<en:tamarind
-en:tamarind extract
-de:Tamarindenextrakt
-es:Extracto de tamarinado
-fi:tamarindiuute
-fr:extrait de tamarin
-nl:tamarinde-extract
-sv:tamarindextrakt
-# ingredient/fr:extrait-de-tamarin has 29 products in 6 languages @2019-02-07
 
 
 # Technically this is a grape, but not one you will find in the shop
@@ -41346,469 +42016,6 @@ wikidata:en:Q63319
 wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
 # ingredient/fr:Trousseau has no products @2019-01-20
 
-
-<en:fruit
-en:pomegranate
-am:ሩማን
-bo:སེ་འབྲུ།
-ca:magrana
-cs:granátové jablko
-de:Granatapfel
-el:ρόδι
-eo:granato
-es:granada,granadas
-et:Granaatõun
-fi:granaattiomena
-fr:grenade
-ga:Pomagrainít
-gl:milgranda
-gu:દાડમ
-hi:अनार
-ht:Grenad
-it:melagrana
-ks:دٲن
-mr:डाळिंब
-my:တလည်း
-ne:दारिम
-nl:granaatappel
-pa:ਅਨਾਰ
-pl:granat
-ps:انار
-ru:гранатина
-sd:ڏاڙهون
-sk:granátové jablko
-sq:shegë
-tg:Анор
-ug:ئانار
-uk:Гранатове дерево
-ur:انار
-uz:Ahop
-za:Maksigloux
-# bho:अनार
-# ckb:ھەنار
-# hak:Sa̍k-liù
-# hif:Anaar
-# kaa:Anar
-# lak:Сунув
-# mzn:انار
-# pnb:انار
-# vro:Granaatupin
-wikidata:en:Q13222088
-wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
-# 53 products in 3 languages @2018-10-03
-
-<en:pomegranate
-fr:graines de grenade
-de:Granatapfelkerne
-fi:granaattiomenan siemen, granaattiomenan siemenet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
-# 4 products in 3 languages @2018-10-03
-
-<en:pomegranate
-<en:fruit juice
-en:pomegranate juice
-de:Granatapfelsaft
-es:zumo de granada
-fi:granaattiomenamehu
-fr:jus de grenade
-it:succo di melagrana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
-# 61 products in 3 languages @2018-10-03
-
-<en:pomegranate juice
-fr:pur jus de grenade
-
-<en:pomegranate juice
-en:organic pomegranate juice
-fi:luomugranaattiomenamehu, luomu granaattiomenamehu
-fr:Jus de Grenade issu de l'agriculture biologique
-
-<en:pomegranate
-fr:écorces de grenade
-
-# Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
-
-<en:fruit
-en:chokeberry
-ar:أرونية
-az:Aroniya
-bg:Арония
-ca:Aronia
-cs:temnoplodec
-cy:Llwyn aeron tagu coch
-da:Surbær
-de:Aronia, Apfelbeer, Apfelbeeren
-el:Αρώνια
-eo:aronio
-es:Aronia
-eu:Aronia
-fa:انگورک گلوگیر
-fi:marja-aronia
-fr:aronie, aronia
-he:ארוניה
-hr:Aronija
-hy:արոնիա
-it:aronia
-ja:アロニア属
-kk:Қара жемісті итжүзім
-ko:아로니아
-la:Aronia
-lt:Aronija
-lv:Aronijas
-mk:Аронија
-nl:appelbes
-pl:aronia
-pt:aronia
-ro:Aronia
-ru:Арония
-sh:Aronija
-sk:Arónia
-sl:Aronija
-sq:aronia
-sr:Аронија
-sv:Aroniasläktet
-tr:Aronia
-uk:Aronia
-vi:Aronia
-zh:野櫻莓
-# de-ch:Apfelbeeren
-# en-ca:Aronia
-# en-gb:Aronia
-# hsb:Aronija
-# kk-arab:قارا جەمىستى ٴىيتجۇزىم
-# kk-cn:قارا جەمىستى ٴىيتجۇزىم
-# kk-cyrl:Қара жемісті итжүзім
-# kk-kz:Қара жемісті итжүзім
-# kk-latn:Qara jemisti ïtjüzim
-# kk-kz:Qara jemisti ïtjüzim
-# nah:Capolin
-# pt-br:aronia
-# sr-ec:Аронија
-# sr-el:Aronija
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aronia
-# 163 products in 5 languages @2018-10-03
-
-<en:chokeberry
-<en:fruit juice
-en:chokeberry juice
-da:aroniasaft, aronia saft
-de:Aroniasaft
-fi:marja-aroniamehu
-fr:jus d'aronia
-it:succo d'aronia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
-# 20 products in 3 languages @2018-10-03
-
-<en:chokeberry juice
-en:concentrated chokeberry juice
-de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
-fi:marja-aroniamehutiiviste
-fr:Jus concentré d'aronia
-
-<en:fruit
-en:acerola
-de:Acerolakirschen, acerola
-es:acerola
-fi:akerola, acerola
-fr:acérola
-it:acerola
-nl:acerola
-pl:Acerola, acerola
-ru:Ацерола
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
-
-<en:acerola
-<en:fruit juice
-en:acerola juice
-de:Acerolaextrakt
-es:zumo de acerola
-fi:akerola-uute, acerola-uute
-fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
-it:estratto d'acerola
-nl:acerola-extract
-pl:Sok z aceroli, sok z aceroli
-ru:Сок ацеролы
-# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-# en:process:en:powdered
-ƒ
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
-# 3 products in 1 language @2018-10-03
-# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
-
-<en:acerola
-en:acerola powder
-de:Acerolapulver
-fi:akerola-jauhe, acerola-jauhe
-fr:poudre d'acérola
-it:acerola in polvere
-nl:acerolapoeder
-# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
-
-<fr:poudre d'acérola
-en:acerola powder on manioc starch
-de:Acerolapulver auf Maniokstärke
-fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
-it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
-# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
-
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-
-# NOTE the oil and fat of a coconut can be found under the fats section
-
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
-
-<en:fruit
-en:coconut
-ak:kube
-ar:نارجيل
-bg:Кокосов орех
-ca:coco
-cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
-ee:Eneh
-el:καρύδα
-eo:kokosnukso
-es:coco
-et:Kookospähkel
-eu:koko
-fi:kookos, kookospähkinä
-fr:noix de coco, coco
-gl:Coco
-hu:kókuszdió
-it:cocco, noce di cocco
-ml:തേങ്ങ
-nb:kokos, kokosnøtt
-nl:kokosnoot, kokos
-nn:kokosnøtt
-pl:Kokos, kokosowy
-pt:cocos
-ru:кокос
-sa:नारिकेलम्
-sq:Arra e kokosit
-sr:kokos
-sv:Kokosnöt, Kokos
-za:Makyehswj
-zh:椰子
-# ast:Cocu
-# jbo:rutrkoko
-# pt-br:coco
-wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
-wikidata:en:Q3342808
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
-
-<en:coconut
-en:coconut cream
-de:Kokosnusscreme
-es:Crema de coco
-fi:kookoskerma
-fr:crème de noix de coco, crème de coco
-it:Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en:no
-
-# Is this a compound product? coconut cream + water?
-
-<en:coconut
-en:coconut milk
-da:Kokosmælk
-de:Kokosnussmilch, Kokosmilch
-es:Leche de coco
-fi:kookosmaito
-fr:lait de noix de coco, lait de coco, eau de coco
-it:latte di noce di cocco
-nb:kokosmelk
-nl:kokosmelk
-pl:Mleko kokosowe
-ru:Кокосовое молоко
-sv:kokosmjölk
-zh:椰子奶
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
-# 87 products @2018-10-03
-
-<en:coconut milk
-en:coconut milk drink
-es:bebida de coco
-
-<en:coconut
-en:coconut water
-de:Kokosnusswasser
-es:Agua de coco
-fr:Eau de coco
-
-<en:coconut water
-en:natural coconut water
-de:Natürliches Kokosnusswasser
-fr:Eau de noix de coco naturelle
-
-<en:coconut milk
-en:coconut milk powder, powdered coconut milk
-de:Kokosnussmilchpulver, Kokosmilchpulver
-es:leche de coco en polvo
-fi:kookosmaitojauhe
-fr:lait de noix de coco en poudre, lait de coco en poudre
-it:latte di noci di cocco in polvere
-sv:kokosmjölkspulver
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
-# 53 products in 3 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
-# 69 products in 3 languages @2018-10-03
-
-<en:coconut milk powder
-fr:lait de coco reconstitué
-
-<en:coconut
-en:coconut extract
-de:Kokosnussextrakt
-es:extracto de coco
-fi:kookosuute, kookospähkinäuute
-fr:extrait de noix de coco, extrait de coco
-it:estratto di noce di cocco
-nl:Kokosextract
-sv:kokosnötsextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
-# 216 products in 6 languages @2018-10-03
-
-<en:coconut
-en:coconut pulp
-de:Kokosfruchtfleisch
-es:Pulpa de coco
-fi:kookospähkinän hedelmäliha
-fr:pulpe de noix de coco
-it:polpa di cocco
-nl:Kokospulp
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
-# 21 products in 3 languages @2018-10-03
-
-<en:coconut pulp
-en:desiccated coconut
-da:tørret kokos
-es:coco deshidratado
-fi:kuivattu kookos, kuivattua kookosta
-fr:noix de coco séchée, noix de coco déshydratée
-nl:gedroogde kokosnoot
-ro:nuca de cocos deshidratata
-sv:torkad kokosnöt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
-# 130 in 5 languages products @2018-10-03
-
-<en:coconut
-en:coconut powder
-de:Kokosnussepulver
-es:Coco en polvo
-fi:kookosjauhe
-fr:noix de coco en poudre
-it:noce di cocco in polvere
-nl:kokospoeder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
-# 86 products in 5 languages @2108-10-03
-
-<en:coconut
-en:grated coconut
-de:Kokosraspel, Kokosraspeln
-es:coco rallado
-fi:kookosraaste
-fr:noix de coco râpée
-it:cocco grattugiato
-nl:Gemalen kokos
-pt:coco ralado
-sv:riven kokos
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
-# 575 products in 7 languages @2018-10-03
-
-<en:coconut
-en:coconut flakes
-de:Kokosflocken
-es:Hojuelas de coco
-et:kookoshelbed
-fi:kookoshiutale, kookoshiutaleet
-fr:flocons de coco, flocons de noix de coco
-it:fiocchi di cocco
-nl:Kokosschilfers
-sv:kokosflinga, kokosflingor
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
-# 15 products in 4 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-noix-de-coco
-# 44 products @2018-10-03
-
-<en:coconut
-nl:kokosnootwater
-fi:kookosvesi
-# ingredient/nl:kokosnootwater has 1 product @2019-05-24
-
-<en:coconut
-en:coconut chips
-de:Kokosnusschips, Kokosnuss-Chips
-es:chips de coco
-fi:kookoslastu, kookoslastut
-fr:Chips de coco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
-# 1 entry @ 2019-10-31
-
-<en:coconut
-fr:pâte de noix de coco
-
-<en:coconut
-es:nectar del brote de la flor del coco
-
-<en:coconut
-en:coconut butter
-
-<en:fruit
-en:acai berry, açaí berries, acai
-de:Acai-Beeren, Açai-Beeren, Acai, Açai
-fi:Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
-fr:Acai berry, Baie d'açaï
-
-<en:acai berry
-<en:fruit juice
-en:acai juice
-de:Acai-Saft
-es:zumo de acai
-fi:Acai-mehu
-fr:jus d’açaï
-nl:acaisap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
-# 9 products in 2 langauges @2018-10-04
-
-# description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
-
-<en:fruit
-en:goji, goji berries
-ca:goji
-cs:godži
-de:Gemeiner Bocksdorn
-el:γκότζι μπέρυ
-es:Goji, bayas de goji
-eu:hesilahar
-fa:گوجی‌بری
-fi:Goji-marja
-fr:baies de goji, baie de goji
-gl:Goxi
-hu:Goji bogyó
-it:goji
-ko:구기자
-la:Lycium barbarum
-sk:Kou-čchi
-sq:Goji
-sv:Gojibär
-te:గోజీ
-vi:Củ khởi
-wikidata:en:Q2617260
-wikipedia:en:https://en.wikipedia.org/wiki/Goji
-
-
-<en:goji
-en:dried goji berries
-de:getrocknete Goji-Beeren
-fi:kuivatut goji-marjat
-fr:baies de goji séchées
-it:bacche di goji essiccate
-# ingredient/fr:baies-de-goji-sechees has 52 products in 4 languages @2019-05-23
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -43368,8 +43575,8 @@ it:fibra di germoglio di bambù
 nl:vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
 
-<en:fibre
-en:acacia fibre
+<en:fiber
+en:acacia fiber
 de:Akazienfasern
 es:Fibra de acacia
 fi:akaasiakuitu
@@ -68163,6 +68370,12 @@ nl:gevogeltevel
 <en:poultry
 fr:jus de cuisson de volaille
 
+############################################################
+#
+#                          Chicken 
+#
+############################################################
+
 # description:en:CHICKEN is the most common type of poultry in the world. Chicken can be prepared in a vast range of ways, including baking, grilling, barbecuing, frying, and boiling, among many others, depending on its purpose.
 
 <en:poultry
@@ -68662,7 +68875,11 @@ sv:kycklingbröstfilé
 en:chicken protein
 es:proteina de pollo
 
-######################### Duck ####################
+############################################################
+#
+#                          Duck 
+#
+############################################################
 
 <en:poultry
 en:duck
@@ -68735,6 +68952,20 @@ fr:morceaux de foie gras de canard
 
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
+
+############################################################
+#
+#                          Quail 
+#
+############################################################
+
+<en:poultry
+en:quail
+ca:guatlla
+es:codorniz
+fr:caille, cailles
+nl:kwartel, kwartels
+# ingredient/fr:cailles has 4 products @2019-05-31
 
 ############################################################
 #
@@ -68937,11 +69168,6 @@ en:roasted turkey including natural turkey juices
 <en:turkey
 en:turkey thigh
 es:muslo de pavot
-
-<en:poultry
-fr:caille, cailles
-nl:kwartel, kwartels
-# ingredient/fr:cailles has 4 products @2019-05-31
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
