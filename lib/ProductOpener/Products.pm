@@ -623,6 +623,25 @@ sub change_product_server_or_code($$$) {
 	}
 }
 
+
+=head2 compute_sort_key ( $product_ref )
+
+Compute sort keys that are stored in the MongoDB database and used to order results of queries.
+
+=head3 last_modified_t - date of last modification of the product page
+
+Used on the web site for facets pages, except the index page.
+
+=head3 sortkey - date of last modification, with obsolete products last and complete products first
+
+Used on the web site for index page.
+
+=head3 search_key - Popular and recent products
+
+Used for the Personal Search project to provide generic search results that apps can personnalize later.
+
+=cut
+
 sub compute_sort_key($) {
 
 	my $product_ref = shift;
@@ -632,6 +651,47 @@ sub compute_sort_key($) {
 	# otherwise sort by last_modified_t (e.g.  1571384133)
 
 	my $sortkey = $product_ref->{last_modified_t};
+	
+	my $search_key = 0;
+	
+	# Use the popularity tags
+	if (defined $product_ref->{popularity_tags}) {
+		my %years = ();
+		my $latest_year;
+		foreach my $tag (@{$product_ref->{popularity_tags}}) {
+			# one product could have:
+			# "top-50000-scans-2019",
+			# "top-100000-scans-2019",
+			# "top-100000-scans-2020",
+			if ($tag =~ /^top-(\d+)-scans-20(\d\d)$/) {
+				my $top = $1;
+				my $year = $2;
+				# Save the smaller top for each year
+				if ((not defined $years{$year}) or ($years{$year} > $top)) {
+					$years{$year} = $top;
+				}
+				if ((not defined $latest_year) or ($year > $latest_year)) {
+					$latest_year = $year;
+				}
+			}
+		}
+		# Keep only the latest year, and make the latest year count more than previous years
+		if (defined $latest_year) {
+			$search_key += $latest_year * 1000000 * 1000 - $years{$latest_year} * 1000;
+		}
+	}
+	
+	# unique_scans_n : number of unique scans for the last year processed by scanbot.pl
+	(defined $product_ref->{unique_scans_n}) and $search_key += $product_ref->{unique_scans_n};
+	
+	# give a small boost to products for which we have recent images
+	if (defined $product_ref->{last_image_t}) {
+
+		my $age = int((time() - $product_ref->{last_image_t}) / (86400 * 30));	# in months
+		if ($age < 12) {
+			$search_key += 12 - $age;
+		}
+	}
 
 	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
 		$sortkey += 200000000000;
@@ -641,6 +701,7 @@ sub compute_sort_key($) {
 	}
 
 	$product_ref->{sortkey} = $sortkey + 0;
+	$product_ref->{search_key} = $search_key + 0;
 }
 
 sub store_product($$) {
