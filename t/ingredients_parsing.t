@@ -67,7 +67,7 @@ my @lists =(
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
 	["fr","E250-E251-E260", "E250 - E251 - E260"],
-	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fr","émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475","émulsifiants : e463, e432, e472 - correcteurs d'acidité : e322/e333, e474 - e475"],
 	["fr","E100 E122", "E100, E122"],
 	["fr","E103 et E140", "E103, E140"],
@@ -132,7 +132,7 @@ my @lists =(
 	["fi","jauhonparanne (askorbiinihappo)", "jauhonparanne (askorbiinihappo)"],
 	["fi","E250-E251", "E250 - E251"],
 	["fi","E250-E251-E260", "E250 - E251 - E260"],
-	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fi","E100 E122", "E100, E122"],
 	["fi","E103 ja E140", "E103, E140"],
 	["fi","E103 JA E140", "E103, E140"],
@@ -246,6 +246,12 @@ my @lists =(
 	["es", "color E 124", "color : e124"],
 	["es", "colores E (124, 125)", "colores e124, e125"],
 	["it", "vitamine A, B, E e K", "vitamins, vitamin A, vitamin B, vitamin E, vitamin K"],
+
+	# Additives normalization
+	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],
+	["fr", "E102-E1400", "e102 - e1400"],
+	["d", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
+
 
 );
 

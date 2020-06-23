@@ -3010,7 +3010,7 @@ sub preparse_ingredients_text($$) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
+	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\()?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\()?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
 	$text =~ s/\b(e|ins|sin)(:|\(|\[| | n| nb|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
@@ -3019,17 +3019,12 @@ sub preparse_ingredients_text($$) {
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# add separations between all E340... "colorants naturels : rose E120, verte E161b, blanche : sans colorant"
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# ! [a-z] matches i... replacing in line above -- 2015/08/12
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
 	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
 	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
-	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh]?)(\))?((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?)(\))?(\b)/e$3$5$7/ig;
+	# Match E + number + letter a to h + i to xv, followed by a space or separator
+	$text =~ s/(\b)e( |-|\.)?(\d+)( |-|\.)?([abcdefgh]?)(( |-|\.)?\(?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)\)?)?(?= |,|\.|;|$)/e$3$5$8/ig;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
@@ -3044,18 +3039,12 @@ sub preparse_ingredients_text($$) {
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
 
-	# FIXME : should use additives classes
-	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
-	# $text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
-
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
 		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
-		#print STDERR "additives_classes_regexps result: $text\n";
 	}
 
 	# dash with 1 missing space
