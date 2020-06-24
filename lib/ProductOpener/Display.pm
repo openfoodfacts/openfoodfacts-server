@@ -8891,7 +8891,7 @@ sub display_nutrient_levels($) {
 			}
 		}
 
- 		$html_nutrition_grade .= <<HTML
+		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
 <a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 @{[ display_icon('info') ]}</a>
