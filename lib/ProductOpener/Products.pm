@@ -636,7 +636,7 @@ Used on the web site for facets pages, except the index page.
 
 Used on the web site for index page.
 
-=head3 search_key - Popular and recent products
+=head3 popularity_key - Popular and recent products
 
 Used for the Personal Search project to provide generic search results that apps can personnalize later.
 
@@ -652,7 +652,7 @@ sub compute_sort_key($) {
 
 	my $sortkey = $product_ref->{last_modified_t};
 	
-	my $search_key = 0;
+	my $popularity_key = 0;
 	
 	# Use the popularity tags
 	if (defined $product_ref->{popularity_tags}) {
@@ -677,19 +677,21 @@ sub compute_sort_key($) {
 		}
 		# Keep only the latest year, and make the latest year count more than previous years
 		if (defined $latest_year) {
-			$search_key += $latest_year * 1000000 * 1000 - $years{$latest_year} * 1000;
+			$popularity_key += $latest_year * 1000000 * 1000 - $years{$latest_year} * 1000;
 		}
 	}
 	
 	# unique_scans_n : number of unique scans for the last year processed by scanbot.pl
-	(defined $product_ref->{unique_scans_n}) and $search_key += $product_ref->{unique_scans_n};
+	if (defined $product_ref->{unique_scans_n}) {
+		$popularity_key += $product_ref->{unique_scans_n};
+	}
 	
 	# give a small boost to products for which we have recent images
 	if (defined $product_ref->{last_image_t}) {
 
 		my $age = int((time() - $product_ref->{last_image_t}) / (86400 * 30));	# in months
 		if ($age < 12) {
-			$search_key += 12 - $age;
+			$popularity_key += 12 - $age;
 		}
 	}
 
@@ -701,7 +703,7 @@ sub compute_sort_key($) {
 	}
 
 	$product_ref->{sortkey} = $sortkey + 0;
-	$product_ref->{search_key} = $search_key + 0;
+	$product_ref->{popularity_key} = $popularity_key + 0;
 }
 
 sub store_product($$) {
