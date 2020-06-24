@@ -250,7 +250,8 @@ my @lists =(
 	# Additives normalization
 	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],
 	["fr", "E102-E1400", "e102 - e1400"],
-	["d", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
+	["de", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
+	["fr", "correcteurs d'acidit\x{e9} : E322/E333 E474-E475", "correcteurs d'acididé : e322/e333, e474 - e475"],
 
 
 );

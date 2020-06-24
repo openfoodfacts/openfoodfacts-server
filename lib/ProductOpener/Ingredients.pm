@@ -3024,7 +3024,7 @@ sub preparse_ingredients_text($$) {
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
-	$text =~ s/(\b)e( |-|\.)?(\d+)( |-|\.)?([abcdefgh]?)(( |-|\.)?\(?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)\)?)?(?= |,|\.|;|$)/e$3$5$8/ig;
+	$text =~ s/(\b)e( |-|\.)?(\d+)( |-|\.)?([abcdefgh]?)(( |-|\.)?\(?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)\)?)?(?= |,|\.|;|\/|$)/e$3$5$8/ig;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
