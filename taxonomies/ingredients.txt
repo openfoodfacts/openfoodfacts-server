@@ -23753,6 +23753,12 @@ it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
 <en:wheat
+fr:Grains de blé dur précuits
+
+<en:wheat
+fr:blé dur concassé précuit
+
+<en:wheat
 en:puffed cereal
 de:Weizenpops
 fi:puffattu vilja
@@ -23760,12 +23766,6 @@ fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
 # 15 products in 3 languages @2018-09-22
-
-<en:wheat
-fr:Grains de blé dur précuits
-
-<en:wheat
-fr:blé dur concassé précuit
 
 <en:wheat
 en:whole wheat, whole grain wheat
@@ -23784,6 +23784,30 @@ pt:trigo integral
 sv:fullkornsvete
 zh:全麥小麥
 # allergens:fr:_blé_ complet
+
+<en:wheat
+en:wheat flakes
+ca:flocs de blat
+de:Weizenflocken
+es:copos de trigo
+et:nisuhelbed
+fi:vehnähiutale
+fr:flocons de blé, flocon de blé
+hu:búzapelyhek
+it:fiocchi di frumento
+nb:hveteflak
+nl:tarwevlokken
+pl:płatki pszenne
+sv:veteflingor
+
+<en:wheat flakes
+de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
+fr:flocons de blé malté
+
+<en:wheat flakes
+de:Weizenvollkornflocken
+fr:flocons de blé complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
 
 <en:wheat
 fr:pétales de blé
@@ -23812,6 +23836,54 @@ hu:teljes kiőrlésű búzadara
 sv:fullkornsvetekross
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:t%C3%A4ysjyv%C3%A4vehn%C3%A4rouhe
 # 1 product @ 2019-10-31
+
+<en:wheat
+<en:malt
+en:wheat malt
+de:Weizenmalz
+es:malta de trigo
+fi:vehnämallas
+fr:malt de blé, malt de froment, blé malté
+hu:búzamaláta
+it:malto di frumento, malto di grano
+nl:tarwemout
+sv:vetemalt, mältade vetekorn
+
+<en:wheat malt
+en:wheat malt flour
+es:harina de malta de trigo
+
+<en:wheat malt
+fr:blé malté torréfié concassé
+
+<en:wheat
+<en:vegetable fiber
+en:wheat fiber
+da:hvedefibre
+de:Weizenfasern
+es:fibras de trigo
+fi:vehnäkuitu
+fr:fibre de blé, fibres de blé
+hu:búzarost
+it:fibre di frumento
+nl:tarwevezel
+pt:fibras de trigo
+ru:Пшеничные волокна
+sv:vetefiber, Vete fiber
+
+<en:wheat
+en:wheat bran
+de:Weizenkleie, Weizenspeisekleie
+es:salvado de trigo
+fi:vehnälese
+fr:son de blé, son de froment
+hu:búzakorpa
+it:crusca di frumento
+nb:hvetekli
+nl:tarwezemelen
+pt:farelo de trigo
+sv:vetekli
+
 
 # Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
 
@@ -23894,6 +23966,113 @@ fi:täysjyvädurumvehnä
 fr:blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
+<en:Durum wheat flour
+en:Durum whole wheat flour
+de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
+fi:täysjyvädurumvehnäjauho
+fr:farine complète de blé dur
+hu:durumbúzaiszt, durum búzaliszt
+nl:volkoren tarwegriesmeel
+
+<en:semolina
+en:Durum wheat flour
+nl:durum tarwegriesmeel
+
+<en:semolina
+<en:durum wheat
+# <en:Couscous
+en:durum wheat semolina
+de:Hartweizengrieß, Hartweizengriess, Hartweizengries
+el:σιμιγδάλισκληρού σιταριού
+es:sémola de trigo duro
+fi:durumvehnäsuurimo
+fr:semoule de blé dur
+hr:krupica durum pšenice
+hu:durumbúzadara, durum búzadara
+it:semola di grano duro
+nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries
+pl:Kasza z pszenicy durum
+pt:sêmola de trigo duro
+ro:griș din grâu, griș de grău
+ru:борошно з пшеннци тверднх сортив
+sl:pšenični zdrob durum
+tr:durum buğdayı ırmığı
+zh:硬质粗粒小麦粉
+
+<en:durum wheat semolina
+en:organic durum wheat semolina
+de:Bio Hartweizengriess
+fi:luomu durumvehnäsuurimo
+fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture biologique
+hu:bio durumbúzadara, bio durum búzadara
+it:semola di grano duro bio
+nl:biologische harde tarwegries
+# ingredient/fr:semoule-de-ble-dur-bio has 9 products @2019-05-27
+
+<en:durum wheat semolina
+en:organic superior quality durum wheat semolina
+fr:Semoule de blé dur biologique de qualité supérieure, semoule de blé dur de qualité supérieure issue de l'agriculture biologique, semoule de blé dur de qualité supérieure issu de l'agriculture biologique, semoule de blé dur de qualité supérieure biologique, Semoule de blé dur de qualité supérieure issu de la Filière Alpina Savoie
+# ingredient/fr:semoule-de-ble-dur-de-qualite-superieure-issue-de-l-agriculture-biologique has 15 products in french @2019-05-23
+
+<en:durum wheat semolina
+fr:semoule de blé dur réhydratée
+
+<en:durum wheat semolina
+fr:Semoule de blé dur sélectionnée
+# ingredient/fr:semoule-de-ble-dur-selectionnee has 14 products in french @2019-05-23
+
+<en:durum wheat semolina
+en:superior quality durum wheat semolina
+de:hochwertiger Hartweizengrieß
+es:sémola de trigo duro de calidad superior
+fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
+it:semola di grano duro di qualità superiore
+nl:durumtarwegriesmeel van hoge kwaliteit
+pt:sêmola de trigo rijo de qualidade superior
+
+<en:durum wheat semolina
+fr:semoule blanche de blé dur
+# ingredient/fr:semoule-blanche-de-ble-dur has 16 products @2019-06-02
+
+<fr:semoule blanche de blé dur
+fr:semoule de blé dur blanche biologique
+
+<fr:semoule de blé dur blanche biologique
+fr:semoule blanche de blé dur biologique de sicile
+
+<en:durum wheat semolina
+en:semi-whole durum wheat semolina
+fr:semoule de blé dur demi-complète. semoule semi-complète de blé dur, semoule demi-complète de blé dur, Semoule de blé dur semi-complète
+nl:halfvolkoren harde tarwegriesmeel
+# ingredient/fr:semoule-de-ble-dur-demi-complete has 22 products in 2 languages @2019-05-24
+# ingredient/fr:semoule-semi-complète-de-blé-dur has 18 products in 1 language @2018-09-22
+
+<en:semi-whole durum wheat semolina
+en:organic semi-whole durum wheat semolina
+fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de blé dur demi-complète biologique
+# ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
+
+<en:durum wheat semolina
+en:whole durum wheat semolina
+bs:integralna krupica durum pšenice
+de:Vollkorn-Hartweizengriß
+el:σιμιγδάλι αλέσεως σκληρού σιταριού
+fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
+hr:integralna krupica durum pšenice
+hu:teljes kiőrlésű durumbúzadara
+it:semola di grano duro integrale
+nl:volkoren griesmeel van harde tarwe
+sl:polnozrnati pšenični zdrob durum
+sr:integralna krupica durum pšenice
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-complète/
+# 33+49 products in 11 languages @20180922
+
+<en:durum wheat semolina
+fr:semoule de blé dur précuite
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-précuite/
+# 75 products in 1 language @20180922
+
+
 # description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
 
 <en:wheat
@@ -23917,7 +24096,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 en:graham flour 
 es:harina de graham
 wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
-
 
 # Wheat gluten is a food made from gluten, the main protein of wheat.
 
@@ -24014,18 +24192,6 @@ fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
 # 20 products in 1 language @20180922
 
-<en:semolina
-en:Durum wheat flour
-nl:durum tarwegriesmeel
-
-<en:Durum wheat flour
-en:Durum whole wheat flour
-de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
-fi:täysjyvädurumvehnäjauho
-fr:farine complète de blé dur
-hu:durumbúzaiszt, durum búzaliszt
-nl:volkoren tarwegriesmeel
-
 
 # Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
 
@@ -24092,104 +24258,6 @@ vegetarian:en:yes
 # cous cous (semola di grano duro)
 # Couscous * (durum wheat semolina)
 
-
-# Question
-
-<en:semolina
-<en:durum wheat
-# <en:Couscous
-en:durum wheat semolina
-de:Hartweizengrieß, Hartweizengriess, Hartweizengries
-el:σιμιγδάλισκληρού σιταριού
-es:sémola de trigo duro
-fi:durumvehnäsuurimo
-fr:semoule de blé dur
-hr:krupica durum pšenice
-hu:durumbúzadara, durum búzadara
-it:semola di grano duro
-nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries
-pl:Kasza z pszenicy durum
-pt:sêmola de trigo duro
-ro:griș din grâu, griș de grău
-ru:борошно з пшеннци тверднх сортив
-sl:pšenični zdrob durum
-tr:durum buğdayı ırmığı
-zh:硬质粗粒小麦粉
-
-<en:durum wheat semolina
-en:organic durum wheat semolina
-de:Bio Hartweizengriess
-fi:luomu durumvehnäsuurimo
-fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture biologique
-hu:bio durumbúzadara, bio durum búzadara
-it:semola di grano duro bio
-nl:biologische harde tarwegries
-# ingredient/fr:semoule-de-ble-dur-bio has 9 products @2019-05-27
-
-<en:durum wheat semolina
-en:organic superior quality durum wheat semolina
-fr:Semoule de blé dur biologique de qualité supérieure, semoule de blé dur de qualité supérieure issue de l'agriculture biologique, semoule de blé dur de qualité supérieure issu de l'agriculture biologique, semoule de blé dur de qualité supérieure biologique, Semoule de blé dur de qualité supérieure issu de la Filière Alpina Savoie
-# ingredient/fr:semoule-de-ble-dur-de-qualite-superieure-issue-de-l-agriculture-biologique has 15 products in french @2019-05-23
-
-<en:durum wheat semolina
-fr:semoule de blé dur réhydratée
-
-<en:durum wheat semolina
-fr:Semoule de blé dur sélectionnée
-# ingredient/fr:semoule-de-ble-dur-selectionnee has 14 products in french @2019-05-23
-
-<en:durum wheat semolina
-en:superior quality durum wheat semolina
-de:hochwertiger Hartweizengrieß
-es:sémola de trigo duro de calidad superior
-fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
-it:semola di grano duro di qualità superiore
-nl:durumtarwegriesmeel van hoge kwaliteit
-pt:sêmola de trigo rijo de qualidade superior
-
-<en:durum wheat semolina
-fr:semoule blanche de blé dur
-# ingredient/fr:semoule-blanche-de-ble-dur has 16 products @2019-06-02
-
-<fr:semoule blanche de blé dur
-fr:semoule de blé dur blanche biologique
-
-<fr:semoule de blé dur blanche biologique
-fr:semoule blanche de blé dur biologique de sicile
-
-<en:durum wheat semolina
-en:semi-whole durum wheat semolina
-fr:semoule de blé dur demi-complète. semoule semi-complète de blé dur, semoule demi-complète de blé dur, Semoule de blé dur semi-complète
-nl:halfvolkoren harde tarwegriesmeel
-# ingredient/fr:semoule-de-ble-dur-demi-complete has 22 products in 2 languages @2019-05-24
-# ingredient/fr:semoule-semi-complète-de-blé-dur has 18 products in 1 language @2018-09-22
-
-<en:semi-whole durum wheat semolina
-en:organic semi-whole durum wheat semolina
-fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de blé dur demi-complète biologique
-# ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
-
-<en:durum wheat semolina
-en:whole durum wheat semolina
-bs:integralna krupica durum pšenice
-de:Vollkorn-Hartweizengriß
-el:σιμιγδάλι αλέσεως σκληρού σιταριού
-fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
-hr:integralna krupica durum pšenice
-hu:teljes kiőrlésű durumbúzadara
-it:semola di grano duro integrale
-nl:volkoren griesmeel van harde tarwe
-sl:polnozrnati pšenični zdrob durum
-sr:integralna krupica durum pšenice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-complète/
-# 33+49 products in 11 languages @20180922
-
-
-<en:durum wheat semolina
-fr:semoule de blé dur précuite
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-précuite/
-# 75 products in 1 language @20180922
-
 # BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
 
 <en:durum wheat
@@ -24248,59 +24316,6 @@ de:Bulgur gekocht
 fi:kypsennetty bulgur, kypsennetty bulgurvehnä
 fr:boulgour cuit
 hu:főtt bulgur
-
-<en:wheat
-en:wheat flakes
-ca:flocs de blat
-de:Weizenflocken
-es:copos de trigo
-et:nisuhelbed
-fi:vehnähiutale
-fr:flocons de blé, flocon de blé
-hu:búzapelyhek
-it:fiocchi di frumento
-nb:hveteflak
-nl:tarwevlokken
-pl:płatki pszenne
-sv:veteflingor
-
-<en:wheat flakes
-de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
-fr:flocons de blé malté
-
-<en:wheat flakes
-de:Weizenvollkornflocken
-fr:flocons de blé complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
-
-<en:wheat
-<en:vegetable fiber
-en:wheat fiber
-da:hvedefibre
-de:Weizenfasern
-es:fibras de trigo
-fi:vehnäkuitu
-fr:fibre de blé, fibres de blé
-hu:búzarost
-it:fibre di frumento
-nl:tarwevezel
-pt:fibras de trigo
-ru:Пшеничные волокна
-sv:vetefiber, Vete fiber
-
-<en:wheat
-en:wheat bran
-de:Weizenkleie, Weizenspeisekleie
-es:salvado de trigo
-fi:vehnälese
-fr:son de blé, son de froment
-hu:búzakorpa
-it:crusca di frumento
-nb:hvetekli
-nl:tarwezemelen
-pt:farelo de trigo
-sv:vetekli
-
 
 # Bread crumbs or breadcrumbs (regional variants:breading, crispies) are sliced residue of dry bread, used for breading or crumbing foods.
 
@@ -24696,27 +24711,6 @@ fr:malt caramel
 sv:karamellmalt
 # ingredient/en:caramel-malt has 11 products in 1 language @2020-06-08
 
-# Question
-
-<en:wheat
-<en:malt
-en:wheat malt
-de:Weizenmalz
-es:malta de trigo
-fi:vehnämallas
-fr:malt de blé, malt de froment, blé malté
-hu:búzamaláta
-it:malto di frumento, malto di grano
-nl:tarwemout
-sv:vetemalt, mältade vetekorn
-
-<en:wheat malt
-en:wheat malt flour
-es:harina de malta de trigo
-
-<en:wheat malt
-fr:blé malté torréfié concassé
-
 <en:malt
 en:malted barley, barley malt
 bg:яачменныи солод, ечемично малцов
@@ -24724,7 +24718,7 @@ cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
 el:βυνοποιημένο κιθάρι
-es:malta de cebada
+es:malta de cebada,cebada de malta
 fi:ohramallas, ohramallasta
 fr:malt d'orge, malts d'orge, orge malté, orge maltée
 hu:árpamálata
@@ -24778,7 +24772,7 @@ en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
 cy:surop heiddfrag
 da:bygmaltsirup
-es:jarabe de malta de cebada
+es:jarabe de malta de cebada,jarabe de cebada de malta
 fa:شربت مالت جو
 fi:ohramallassiirappi
 fr:sirop d'orge malté
@@ -25491,6 +25485,7 @@ sv:rågkross
 en:rye flakes
 da:rugflager, ruggryn
 de:Roggenflocken
+es:copos de centeno
 fi:ruishiutale
 fr:flocons de seigle
 hu:rozspehely
@@ -25500,9 +25495,13 @@ sv:rågflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-seigle/
 # 87 entries @ 2018-09-22
 
+<en:rye flakes
+en:wholemeal rye flakes
+es:copos integrales de centeno
+
 <en:rye
 en:rye grains
-es:granos de centano,grañones completos de centeno
+es:granos de centeno,grañones completos de centeno
 
 <en:rye
 de:Roggengrießkleie
@@ -25534,10 +25533,6 @@ nl:volkorenrogge
 sv:fullkornsråg
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle-complet/
 # 37 entries @ 2018-09-22
-
-<en:rye
-en:rye flakes
-es:copos de centeno
 
 <en:wholemeal rye
 de:Roggenvollkornschrot, Roggenvollkornflocken
@@ -25594,6 +25589,10 @@ de:roggenmalzschrot
 fi:ruismallasrouhe, kaljamallas
 sv:rågmaltkross
 # ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
+
+<en:rye malt
+en:ground rye malt
+es:malta molida de centeno
 
 ##################################################################################
 #
@@ -69265,7 +69264,7 @@ carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:turkey
 en:turkey thigh
-es:muslo de pavot
+es:muslo de pavo,contramuslo de pavo
 
 <en:turkey meat
 en:mechanically separated meat of turkey
