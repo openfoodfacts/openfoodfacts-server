@@ -8801,9 +8801,7 @@ sub display_nutrient_levels($) {
 	my $html = '';
 
 	my $template_data_ref = {
-		
-		lang => \&lang,	
-
+		lang => \&lang,
 	};
 
 	# Do not display nutriscore and traffic lights for some categories of products
@@ -8848,7 +8846,6 @@ sub display_nutrient_levels($) {
 
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
-	
 	if ((exists $product_ref->{"nutrition_grade_fr"})
 		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
 
@@ -8867,7 +8864,6 @@ sub display_nutrient_levels($) {
 				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning") . "</p>";
-				
 			}
 			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
