@@ -8887,7 +8887,7 @@ hu:sűrtett zsírszegény tej
 
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
-ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada
+ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada,dolc de llet
 de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
 es:leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada,dulce de leche
 fi:makeutettu tiivistetty vähärasvainen maito
@@ -19305,7 +19305,7 @@ fr:tournesol oléique
 
 <en:sunflower oil
 en:high oleic sunflower oil
-ca:oli refinat de gira-sol alt oleic
+ca:oli refinat de gira-sol alt oleic,oli de gira-sol alt oleic,oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique,huile de tournesol haut oléique
@@ -23555,6 +23555,11 @@ fr:flocons de céréales complètes
 sv:fullkornsflingor
 # ingredient/fr:flocons-de-cereales-completes has 26 products in 6 languages @2020-06-08
 
+##################################################################################
+#
+#                        Sorghum
+#
+##################################################################################
 # no gluten
 <en:cereal
 en:Sorghum
@@ -23562,6 +23567,17 @@ de:Hirse
 fr:sorgho
 hu:cirok
 sk:cirok
+
+##################################################################################
+#
+#                        Triticale
+#
+##################################################################################
+
+<en:cereal
+en:triticale
+es:triticale
+wikipedia:en:https://en.wikipedia.org/wiki/Triticale
 
 ##################################################################################
 #
@@ -24762,40 +24778,13 @@ en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
 cy:surop heiddfrag
 da:bygmaltsirup
+es:jarabe de malta de cebada
 fa:شربت مالت جو
 fi:ohramallassiirappi
 fr:sirop d'orge malté
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
-
-<en:rye
-<en:malt
-en:rye malt
-de:Roggenmalz
-fi:ruismallas
-fr:Malt de seigle
-hu:rozsmaláta
-sv:rågmalt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:ruismallas
-# 1 entry @ 2019-10-31
-
-<en:rye malt
-en:rye malt extract
-de:Roggenmalzextrakt
-fi:ruismallasuute
-hu:rozsmaláta kivonat
-
-<en:rye malt
-<en:rye malt extract
-fi:ruismallas ja ruismallasuute
-
-<en:rye malt
-en:rye malt grist
-de:roggenmalzschrot
-fi:ruismallasrouhe, kaljamallas
-sv:rågmaltkross
-# ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
 
 ##################################################################################
 #
@@ -25577,6 +25566,34 @@ en:wholemeal rye groats
 da:groftmalet fuldkornsrugmel
 fi:täysjyväruisrouhe, täysjyväruisrouhetta
 sv:fullkornsrågkross
+
+<en:rye
+<en:malt
+en:rye malt
+de:Roggenmalz
+fi:ruismallas
+fr:Malt de seigle
+hu:rozsmaláta
+sv:rågmalt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:ruismallas
+# 1 entry @ 2019-10-31
+
+<en:rye malt
+en:rye malt extract
+de:Roggenmalzextrakt
+fi:ruismallasuute
+hu:rozsmaláta kivonat
+
+<en:rye malt
+<en:rye malt extract
+fi:ruismallas ja ruismallasuute
+
+<en:rye malt
+en:rye malt grist
+de:roggenmalzschrot
+fi:ruismallasrouhe, kaljamallas
+sv:rågmaltkross
+# ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
 
 ##################################################################################
 #
@@ -38555,6 +38572,7 @@ wikidata:en:Q3342808
 
 <en:coconut
 en:coconut cream
+ca:crema de coco
 de:Kokosnusscreme
 es:Crema de coco
 fi:kookoskerma
@@ -38568,6 +38586,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 
 <en:coconut
 en:coconut milk
+ca:llet de coco
 da:Kokosmælk
 de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
@@ -38589,6 +38608,7 @@ es:bebida de coco
 
 <en:coconut
 en:coconut water
+ca:aigua de coco
 de:Kokosnusswasser
 es:Agua de coco
 fr:Eau de coco
@@ -38600,6 +38620,7 @@ fr:Eau de noix de coco naturelle
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
+ca:llet de coco en pols
 de:Kokosnussmilchpulver, Kokosmilchpulver
 es:leche de coco en polvo
 fi:kookosmaitojauhe
@@ -38616,6 +38637,7 @@ fr:lait de coco reconstitué
 
 <en:coconut
 en:coconut extract
+ca:extracte de coco
 de:Kokosnussextrakt
 es:extracto de coco
 fi:kookosuute, kookospähkinäuute
@@ -38628,6 +38650,7 @@ sv:kokosnötsextrakt
 
 <en:coconut
 en:coconut pulp
+ca:polpa do coco
 de:Kokosfruchtfleisch
 es:Pulpa de coco
 fi:kookospähkinän hedelmäliha
@@ -38639,6 +38662,7 @@ nl:Kokospulp
 
 <en:coconut pulp
 en:desiccated coconut
+ca:coco deshidratat
 da:tørret kokos
 es:coco deshidratado
 fi:kuivattu kookos, kuivattua kookosta
@@ -38651,6 +38675,7 @@ sv:torkad kokosnöt
 
 <en:coconut
 en:coconut powder
+ca:coco en pols
 de:Kokosnussepulver
 es:Coco en polvo
 fi:kookosjauhe
