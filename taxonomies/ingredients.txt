@@ -10279,7 +10279,7 @@ cy:Llaeth enwyn
 da:Kærnemælk
 de:Buttermilch, Reine Buttermilch
 eo:Buterlakto
-es:Suero de mantequilla
+es:Suero de mantequilla,leche mazada
 et:Pett
 fa:آب‌دوغ
 fi:kirnupiimä, kirnumaito
@@ -31131,6 +31131,7 @@ es:pepitas de chocolate con leche
 <en:chocolate
 en:sugar free chocolate chips
 es:chispas de chocolate sin azucar
+fr:pépites de chocolat sans sucre
 
 <en:chocolate
 en:chocolate filling, filling cream with chocolate
@@ -37661,6 +37662,80 @@ wikidata:en:Q147096
 wikipedia:en:https://en.wikipedia.org/wiki/Bitter_orange
 # ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
 
+###################################################################################################
+#
+#                                Acai berry
+#
+###################################################################################################
+<en:fruit
+en:acai berry, açaí berries, acai
+de:Acai-Beeren, Açai-Beeren, Acai, Açai
+fi:Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
+fr:Acai berry, Baie d'açaï
+
+<en:acai berry
+<en:fruit juice
+en:acai juice
+de:Acai-Saft
+es:zumo de acai
+fi:Acai-mehu
+fr:jus d’açaï
+nl:acaisap
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
+# 9 products in 2 langauges @2018-10-04
+
+###################################################################################################
+#
+#                                Acerola
+#
+###################################################################################################
+<en:fruit
+en:acerola
+de:Acerolakirschen, acerola
+es:acerola
+fi:akerola, acerola
+fr:acérola
+it:acerola
+nl:acerola
+pl:Acerola, acerola
+ru:Ацерола
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
+
+<en:acerola
+<en:fruit juice
+en:acerola juice
+de:Acerolaextrakt
+es:zumo de acerola
+fi:akerola-uute, acerola-uute
+fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
+it:estratto d'acerola
+nl:acerola-extract
+pl:Sok z aceroli, sok z aceroli
+ru:Сок ацеролы
+# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
+# en:process:en:powdered
+ƒ
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
+# 3 products in 1 language @2018-10-03
+# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+<en:acerola
+en:acerola powder
+de:Acerolapulver
+fi:akerola-jauhe, acerola-jauhe
+fr:poudre d'acérola
+it:acerola in polvere
+nl:acerolapoeder
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+<fr:poudre d'acérola
+en:acerola powder on manioc starch
+de:Acerolapulver auf Maniokstärke
+fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
 
 ###################################################################################################
 #
@@ -38339,6 +38414,301 @@ fr:queues de cerise
 
 ###################################################################################################
 #
+#                                Chokeberry
+#
+###################################################################################################
+
+# Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
+
+<en:fruit
+en:chokeberry
+ar:أرونية
+az:Aroniya
+bg:Арония
+ca:Aronia
+cs:temnoplodec
+cy:Llwyn aeron tagu coch
+da:Surbær
+de:Aronia, Apfelbeer, Apfelbeeren
+el:Αρώνια
+eo:aronio
+es:Aronia
+eu:Aronia
+fa:انگورک گلوگیر
+fi:marja-aronia
+fr:aronie, aronia
+he:ארוניה
+hr:Aronija
+hy:արոնիա
+it:aronia
+ja:アロニア属
+kk:Қара жемісті итжүзім
+ko:아로니아
+la:Aronia
+lt:Aronija
+lv:Aronijas
+mk:Аронија
+nl:appelbes
+pl:aronia
+pt:aronia
+ro:Aronia
+ru:Арония
+sh:Aronija
+sk:Arónia
+sl:Aronija
+sq:aronia
+sr:Аронија
+sv:Aroniasläktet
+tr:Aronia
+uk:Aronia
+vi:Aronia
+zh:野櫻莓
+# de-ch:Apfelbeeren
+# en-ca:Aronia
+# en-gb:Aronia
+# hsb:Aronija
+# kk-arab:قارا جەمىستى ٴىيتجۇزىم
+# kk-cn:قارا جەمىستى ٴىيتجۇزىم
+# kk-cyrl:Қара жемісті итжүзім
+# kk-kz:Қара жемісті итжүзім
+# kk-latn:Qara jemisti ïtjüzim
+# kk-kz:Qara jemisti ïtjüzim
+# nah:Capolin
+# pt-br:aronia
+# sr-ec:Аронија
+# sr-el:Aronija
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aronia
+# 163 products in 5 languages @2018-10-03
+
+<en:chokeberry
+<en:fruit juice
+en:chokeberry juice
+da:aroniasaft, aronia saft
+de:Aroniasaft
+fi:marja-aroniamehu
+fr:jus d'aronia
+it:succo d'aronia
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
+# 20 products in 3 languages @2018-10-03
+
+<en:chokeberry juice
+en:concentrated chokeberry juice
+de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
+fi:marja-aroniamehutiiviste
+fr:Jus concentré d'aronia
+
+###################################################################################################
+#
+#                                Coconut
+#
+###################################################################################################
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+
+# NOTE the oil and fat of a coconut can be found under the fats section
+
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
+
+<en:fruit
+en:coconut
+ak:kube
+ar:نارجيل
+bg:Кокосов орех
+ca:coco
+cs:kokosový ořech
+da:kokos, kokosnød
+de:Kokos, Kokosnuss
+ee:Eneh
+el:καρύδα
+eo:kokosnukso
+es:coco
+et:Kookospähkel
+eu:koko
+fi:kookos, kookospähkinä
+fr:noix de coco, coco
+gl:Coco
+hu:kókuszdió
+it:cocco, noce di cocco
+ml:തേങ്ങ
+nb:kokos, kokosnøtt
+nl:kokosnoot, kokos
+nn:kokosnøtt
+pl:Kokos, kokosowy
+pt:cocos
+ru:кокос
+sa:नारिकेलम्
+sq:Arra e kokosit
+sr:kokos
+sv:Kokosnöt, Kokos
+za:Makyehswj
+zh:椰子
+# ast:Cocu
+# jbo:rutrkoko
+# pt-br:coco
+wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
+wikidata:en:Q3342808
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
+# 1209 products in 11 languages @2018-10-03
+
+<en:coconut
+en:coconut cream
+de:Kokosnusscreme
+es:Crema de coco
+fi:kookoskerma
+fr:crème de noix de coco, crème de coco
+it:Crema di noce di cocco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
+# 33 products @2018-10-03
+nutriscore_fruits_vegetables_nuts:en:no
+
+# Is this a compound product? coconut cream + water?
+
+<en:coconut
+en:coconut milk
+da:Kokosmælk
+de:Kokosnussmilch, Kokosmilch
+es:Leche de coco
+fi:kookosmaito
+fr:lait de noix de coco, lait de coco, eau de coco
+it:latte di noce di cocco
+nb:kokosmelk
+nl:kokosmelk
+pl:Mleko kokosowe
+ru:Кокосовое молоко
+sv:kokosmjölk
+zh:椰子奶
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
+# 87 products @2018-10-03
+
+<en:coconut milk
+en:coconut milk drink
+es:bebida de coco
+
+<en:coconut
+en:coconut water
+de:Kokosnusswasser
+es:Agua de coco
+fr:Eau de coco
+
+<en:coconut water
+en:natural coconut water
+de:Natürliches Kokosnusswasser
+fr:Eau de noix de coco naturelle
+
+<en:coconut milk
+en:coconut milk powder, powdered coconut milk
+de:Kokosnussmilchpulver, Kokosmilchpulver
+es:leche de coco en polvo
+fi:kookosmaitojauhe
+fr:lait de noix de coco en poudre, lait de coco en poudre
+it:latte di noci di cocco in polvere
+sv:kokosmjölkspulver
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
+# 53 products in 3 languages @2018-10-03
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
+# 69 products in 3 languages @2018-10-03
+
+<en:coconut milk powder
+fr:lait de coco reconstitué
+
+<en:coconut
+en:coconut extract
+de:Kokosnussextrakt
+es:extracto de coco
+fi:kookosuute, kookospähkinäuute
+fr:extrait de noix de coco, extrait de coco
+it:estratto di noce di cocco
+nl:Kokosextract
+sv:kokosnötsextrakt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
+# 216 products in 6 languages @2018-10-03
+
+<en:coconut
+en:coconut pulp
+de:Kokosfruchtfleisch
+es:Pulpa de coco
+fi:kookospähkinän hedelmäliha
+fr:pulpe de noix de coco
+it:polpa di cocco
+nl:Kokospulp
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
+# 21 products in 3 languages @2018-10-03
+
+<en:coconut pulp
+en:desiccated coconut
+da:tørret kokos
+es:coco deshidratado
+fi:kuivattu kookos, kuivattua kookosta
+fr:noix de coco séchée, noix de coco déshydratée
+nl:gedroogde kokosnoot
+ro:nuca de cocos deshidratata
+sv:torkad kokosnöt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
+# 130 in 5 languages products @2018-10-03
+
+<en:coconut
+en:coconut powder
+de:Kokosnussepulver
+es:Coco en polvo
+fi:kookosjauhe
+fr:noix de coco en poudre
+it:noce di cocco in polvere
+nl:kokospoeder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
+# 86 products in 5 languages @2108-10-03
+
+<en:coconut
+en:grated coconut
+de:Kokosraspel, Kokosraspeln
+es:coco rallado
+fi:kookosraaste
+fr:noix de coco râpée
+it:cocco grattugiato
+nl:Gemalen kokos
+pt:coco ralado
+sv:riven kokos
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
+# 575 products in 7 languages @2018-10-03
+
+<en:coconut
+en:coconut flakes
+de:Kokosflocken
+es:Hojuelas de coco
+et:kookoshelbed
+fi:kookoshiutale, kookoshiutaleet
+fr:flocons de coco, flocons de noix de coco
+it:fiocchi di cocco
+nl:Kokosschilfers
+sv:kokosflinga, kokosflingor
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
+# 15 products in 4 languages @2018-10-03
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-noix-de-coco
+# 44 products @2018-10-03
+
+<en:coconut
+nl:kokosnootwater
+fi:kookosvesi
+# ingredient/nl:kokosnootwater has 1 product @2019-05-24
+
+<en:coconut
+en:coconut chips
+de:Kokosnusschips, Kokosnuss-Chips
+es:chips de coco
+fi:kookoslastu, kookoslastut
+fr:Chips de coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
+# 1 entry @ 2019-10-31
+
+<en:coconut
+fr:pâte de noix de coco
+
+<en:coconut
+es:nectar del brote de la flor del coco
+
+<en:coconut
+en:coconut butter
+
+###################################################################################################
+#
 #                                Date
 #
 ###################################################################################################
@@ -38605,6 +38975,46 @@ sv:Krusbär
 en:gooseberry juice
 fi:karviaismehu, karviaistäysmehu
 sv:krusbärjuice
+
+###################################################################################################
+#
+#                                Goji berry
+#
+###################################################################################################
+# description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
+
+<en:fruit
+en:goji, goji berries
+ca:goji
+cs:godži
+de:Gemeiner Bocksdorn
+el:γκότζι μπέρυ
+es:Goji, bayas de goji
+eu:hesilahar
+fa:گوجی‌بری
+fi:Goji-marja
+fr:baies de goji, baie de goji
+gl:Goxi
+hu:Goji bogyó
+it:goji
+ko:구기자
+la:Lycium barbarum
+sk:Kou-čchi
+sq:Goji
+sv:Gojibär
+te:గోజీ
+vi:Củ khởi
+wikidata:en:Q2617260
+wikipedia:en:https://en.wikipedia.org/wiki/Goji
+
+
+<en:goji
+en:dried goji berries
+de:getrocknete Goji-Beeren
+fi:kuivatut goji-marjat
+fr:baies de goji séchées
+it:bacche di goji essiccate
+# ingredient/fr:baies-de-goji-sechees has 52 products in 4 languages @2019-05-23
 
 ###################################################################################################
 #
@@ -39464,6 +39874,91 @@ it:succo d'ananas a base di concentrato
 nl:Ananassap van concentraat
 pl:Sok ananasowy z koncentratu, sok ananasowy z koncentratu
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
+
+###################################################################################################
+#
+#                                Pomegranate
+#
+###################################################################################################
+<en:fruit
+en:pomegranate
+am:ሩማን
+bo:སེ་འབྲུ།
+ca:magrana
+cs:granátové jablko
+de:Granatapfel
+el:ρόδι
+eo:granato
+es:granada,granadas
+et:Granaatõun
+fi:granaattiomena
+fr:grenade
+ga:Pomagrainít
+gl:milgranda
+gu:દાડમ
+hi:अनार
+ht:Grenad
+it:melagrana
+ks:دٲن
+mr:डाळिंब
+my:တလည်း
+ne:दारिम
+nl:granaatappel
+pa:ਅਨਾਰ
+pl:granat
+ps:انار
+ru:гранатина
+sd:ڏاڙهون
+sk:granátové jablko
+sq:shegë
+tg:Анор
+ug:ئانار
+uk:Гранатове дерево
+ur:انار
+uz:Ahop
+za:Maksigloux
+# bho:अनार
+# ckb:ھەنار
+# hak:Sa̍k-liù
+# hif:Anaar
+# kaa:Anar
+# lak:Сунув
+# mzn:انار
+# pnb:انار
+# vro:Granaatupin
+wikidata:en:Q13222088
+wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
+# 53 products in 3 languages @2018-10-03
+
+<en:pomegranate
+fr:graines de grenade
+de:Granatapfelkerne
+fi:granaattiomenan siemen, granaattiomenan siemenet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
+# 4 products in 3 languages @2018-10-03
+
+<en:pomegranate
+<en:fruit juice
+en:pomegranate juice
+de:Granatapfelsaft
+es:zumo de granada
+fi:granaattiomenamehu
+fr:jus de grenade
+it:succo di melagrana
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
+# 61 products in 3 languages @2018-10-03
+
+<en:pomegranate juice
+fr:pur jus de grenade
+
+<en:pomegranate juice
+en:organic pomegranate juice
+fi:luomugranaattiomenamehu, luomu granaattiomenamehu
+fr:Jus de Grenade issu de l'agriculture biologique
+
+<en:pomegranate
+fr:écorces de grenade
 
 ###################################################################################################
 #
@@ -41564,468 +42059,6 @@ nl:tamarinde-extract
 sv:tamarindextrakt
 # ingredient/fr:extrait-de-tamarin has 29 products in 6 languages @2019-02-07
 
-<en:fruit
-en:pomegranate
-am:ሩማን
-bo:སེ་འབྲུ།
-ca:magrana
-cs:granátové jablko
-de:Granatapfel
-el:ρόδι
-eo:granato
-es:granada,granadas
-et:Granaatõun
-fi:granaattiomena
-fr:grenade
-ga:Pomagrainít
-gl:milgranda
-gu:દાડમ
-hi:अनार
-ht:Grenad
-it:melagrana
-ks:دٲن
-mr:डाळिंब
-my:တလည်း
-ne:दारिम
-nl:granaatappel
-pa:ਅਨਾਰ
-pl:granat
-ps:انار
-ru:гранатина
-sd:ڏاڙهون
-sk:granátové jablko
-sq:shegë
-tg:Анор
-ug:ئانار
-uk:Гранатове дерево
-ur:انار
-uz:Ahop
-za:Maksigloux
-# bho:अनार
-# ckb:ھەنار
-# hak:Sa̍k-liù
-# hif:Anaar
-# kaa:Anar
-# lak:Сунув
-# mzn:انار
-# pnb:انار
-# vro:Granaatupin
-wikidata:en:Q13222088
-wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
-# 53 products in 3 languages @2018-10-03
-
-<en:pomegranate
-fr:graines de grenade
-de:Granatapfelkerne
-fi:granaattiomenan siemen, granaattiomenan siemenet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
-# 4 products in 3 languages @2018-10-03
-
-<en:pomegranate
-<en:fruit juice
-en:pomegranate juice
-de:Granatapfelsaft
-es:zumo de granada
-fi:granaattiomenamehu
-fr:jus de grenade
-it:succo di melagrana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
-# 61 products in 3 languages @2018-10-03
-
-<en:pomegranate juice
-fr:pur jus de grenade
-
-<en:pomegranate juice
-en:organic pomegranate juice
-fi:luomugranaattiomenamehu, luomu granaattiomenamehu
-fr:Jus de Grenade issu de l'agriculture biologique
-
-<en:pomegranate
-fr:écorces de grenade
-
-# Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
-
-<en:fruit
-en:chokeberry
-ar:أرونية
-az:Aroniya
-bg:Арония
-ca:Aronia
-cs:temnoplodec
-cy:Llwyn aeron tagu coch
-da:Surbær
-de:Aronia, Apfelbeer, Apfelbeeren
-el:Αρώνια
-eo:aronio
-es:Aronia
-eu:Aronia
-fa:انگورک گلوگیر
-fi:marja-aronia
-fr:aronie, aronia
-he:ארוניה
-hr:Aronija
-hy:արոնիա
-it:aronia
-ja:アロニア属
-kk:Қара жемісті итжүзім
-ko:아로니아
-la:Aronia
-lt:Aronija
-lv:Aronijas
-mk:Аронија
-nl:appelbes
-pl:aronia
-pt:aronia
-ro:Aronia
-ru:Арония
-sh:Aronija
-sk:Arónia
-sl:Aronija
-sq:aronia
-sr:Аронија
-sv:Aroniasläktet
-tr:Aronia
-uk:Aronia
-vi:Aronia
-zh:野櫻莓
-# de-ch:Apfelbeeren
-# en-ca:Aronia
-# en-gb:Aronia
-# hsb:Aronija
-# kk-arab:قارا جەمىستى ٴىيتجۇزىم
-# kk-cn:قارا جەمىستى ٴىيتجۇزىم
-# kk-cyrl:Қара жемісті итжүзім
-# kk-kz:Қара жемісті итжүзім
-# kk-latn:Qara jemisti ïtjüzim
-# kk-kz:Qara jemisti ïtjüzim
-# nah:Capolin
-# pt-br:aronia
-# sr-ec:Аронија
-# sr-el:Aronija
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aronia
-# 163 products in 5 languages @2018-10-03
-
-<en:chokeberry
-<en:fruit juice
-en:chokeberry juice
-da:aroniasaft, aronia saft
-de:Aroniasaft
-fi:marja-aroniamehu
-fr:jus d'aronia
-it:succo d'aronia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
-# 20 products in 3 languages @2018-10-03
-
-<en:chokeberry juice
-en:concentrated chokeberry juice
-de:Aroniasaft-Konzentrat, Aroniasaft Konzentrat
-fi:marja-aroniamehutiiviste
-fr:Jus concentré d'aronia
-
-<en:fruit
-en:acerola
-de:Acerolakirschen, acerola
-es:acerola
-fi:akerola, acerola
-fr:acérola
-it:acerola
-nl:acerola
-pl:Acerola, acerola
-ru:Ацерола
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
-
-<en:acerola
-<en:fruit juice
-en:acerola juice
-de:Acerolaextrakt
-es:zumo de acerola
-fi:akerola-uute, acerola-uute
-fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
-it:estratto d'acerola
-nl:acerola-extract
-pl:Sok z aceroli, sok z aceroli
-ru:Сок ацеролы
-# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-# en:process:en:powdered
-ƒ
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
-# 3 products in 1 language @2018-10-03
-# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
-
-<en:acerola
-en:acerola powder
-de:Acerolapulver
-fi:akerola-jauhe, acerola-jauhe
-fr:poudre d'acérola
-it:acerola in polvere
-nl:acerolapoeder
-# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
-
-<fr:poudre d'acérola
-en:acerola powder on manioc starch
-de:Acerolapulver auf Maniokstärke
-fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
-it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
-# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
-
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-
-# NOTE the oil and fat of a coconut can be found under the fats section
-
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
-
-<en:fruit
-en:coconut
-ak:kube
-ar:نارجيل
-bg:Кокосов орех
-ca:coco
-cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
-ee:Eneh
-el:καρύδα
-eo:kokosnukso
-es:coco
-et:Kookospähkel
-eu:koko
-fi:kookos, kookospähkinä
-fr:noix de coco, coco
-gl:Coco
-hu:kókuszdió
-it:cocco, noce di cocco
-ml:തേങ്ങ
-nb:kokos, kokosnøtt
-nl:kokosnoot, kokos
-nn:kokosnøtt
-pl:Kokos, kokosowy
-pt:cocos
-ru:кокос
-sa:नारिकेलम्
-sq:Arra e kokosit
-sr:kokos
-sv:Kokosnöt, Kokos
-za:Makyehswj
-zh:椰子
-# ast:Cocu
-# jbo:rutrkoko
-# pt-br:coco
-wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
-wikidata:en:Q3342808
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
-
-<en:coconut
-en:coconut cream
-de:Kokosnusscreme
-es:Crema de coco
-fi:kookoskerma
-fr:crème de noix de coco, crème de coco
-it:Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en:no
-
-# Is this a compound product? coconut cream + water?
-
-<en:coconut
-en:coconut milk
-da:Kokosmælk
-de:Kokosnussmilch, Kokosmilch
-es:Leche de coco
-fi:kookosmaito
-fr:lait de noix de coco, lait de coco, eau de coco
-it:latte di noce di cocco
-nb:kokosmelk
-nl:kokosmelk
-pl:Mleko kokosowe
-ru:Кокосовое молоко
-sv:kokosmjölk
-zh:椰子奶
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
-# 87 products @2018-10-03
-
-<en:coconut milk
-en:coconut milk drink
-es:bebida de coco
-
-<en:coconut
-en:coconut water
-de:Kokosnusswasser
-es:Agua de coco
-fr:Eau de coco
-
-<en:coconut water
-en:natural coconut water
-de:Natürliches Kokosnusswasser
-fr:Eau de noix de coco naturelle
-
-<en:coconut milk
-en:coconut milk powder, powdered coconut milk
-de:Kokosnussmilchpulver, Kokosmilchpulver
-es:leche de coco en polvo
-fi:kookosmaitojauhe
-fr:lait de noix de coco en poudre, lait de coco en poudre
-it:latte di noci di cocco in polvere
-sv:kokosmjölkspulver
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
-# 53 products in 3 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
-# 69 products in 3 languages @2018-10-03
-
-<en:coconut milk powder
-fr:lait de coco reconstitué
-
-<en:coconut
-en:coconut extract
-de:Kokosnussextrakt
-es:extracto de coco
-fi:kookosuute, kookospähkinäuute
-fr:extrait de noix de coco, extrait de coco
-it:estratto di noce di cocco
-nl:Kokosextract
-sv:kokosnötsextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
-# 216 products in 6 languages @2018-10-03
-
-<en:coconut
-en:coconut pulp
-de:Kokosfruchtfleisch
-es:Pulpa de coco
-fi:kookospähkinän hedelmäliha
-fr:pulpe de noix de coco
-it:polpa di cocco
-nl:Kokospulp
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
-# 21 products in 3 languages @2018-10-03
-
-<en:coconut pulp
-en:desiccated coconut
-da:tørret kokos
-es:coco deshidratado
-fi:kuivattu kookos, kuivattua kookosta
-fr:noix de coco séchée, noix de coco déshydratée
-nl:gedroogde kokosnoot
-ro:nuca de cocos deshidratata
-sv:torkad kokosnöt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
-# 130 in 5 languages products @2018-10-03
-
-<en:coconut
-en:coconut powder
-de:Kokosnussepulver
-es:Coco en polvo
-fi:kookosjauhe
-fr:noix de coco en poudre
-it:noce di cocco in polvere
-nl:kokospoeder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
-# 86 products in 5 languages @2108-10-03
-
-<en:coconut
-en:grated coconut
-de:Kokosraspel, Kokosraspeln
-es:coco rallado
-fi:kookosraaste
-fr:noix de coco râpée
-it:cocco grattugiato
-nl:Gemalen kokos
-pt:coco ralado
-sv:riven kokos
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
-# 575 products in 7 languages @2018-10-03
-
-<en:coconut
-en:coconut flakes
-de:Kokosflocken
-es:Hojuelas de coco
-et:kookoshelbed
-fi:kookoshiutale, kookoshiutaleet
-fr:flocons de coco, flocons de noix de coco
-it:fiocchi di cocco
-nl:Kokosschilfers
-sv:kokosflinga, kokosflingor
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
-# 15 products in 4 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-noix-de-coco
-# 44 products @2018-10-03
-
-<en:coconut
-nl:kokosnootwater
-fi:kookosvesi
-# ingredient/nl:kokosnootwater has 1 product @2019-05-24
-
-<en:coconut
-en:coconut chips
-de:Kokosnusschips, Kokosnuss-Chips
-es:chips de coco
-fi:kookoslastu, kookoslastut
-fr:Chips de coco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
-# 1 entry @ 2019-10-31
-
-<en:coconut
-fr:pâte de noix de coco
-
-<en:coconut
-es:nectar del brote de la flor del coco
-
-<en:coconut
-en:coconut butter
-
-<en:fruit
-en:acai berry, açaí berries, acai
-de:Acai-Beeren, Açai-Beeren, Acai, Açai
-fi:Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
-fr:Acai berry, Baie d'açaï
-
-<en:acai berry
-<en:fruit juice
-en:acai juice
-de:Acai-Saft
-es:zumo de acai
-fi:Acai-mehu
-fr:jus d’açaï
-nl:acaisap
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
-# 9 products in 2 langauges @2018-10-04
-
-# description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
-
-<en:fruit
-en:goji, goji berries
-ca:goji
-cs:godži
-de:Gemeiner Bocksdorn
-el:γκότζι μπέρυ
-es:Goji, bayas de goji
-eu:hesilahar
-fa:گوجی‌بری
-fi:Goji-marja
-fr:baies de goji, baie de goji
-gl:Goxi
-hu:Goji bogyó
-it:goji
-ko:구기자
-la:Lycium barbarum
-sk:Kou-čchi
-sq:Goji
-sv:Gojibär
-te:గోజీ
-vi:Củ khởi
-wikidata:en:Q2617260
-wikipedia:en:https://en.wikipedia.org/wiki/Goji
-
-
-<en:goji
-en:dried goji berries
-de:getrocknete Goji-Beeren
-fi:kuivatut goji-marjat
-fr:baies de goji séchées
-it:bacche di goji essiccate
-# ingredient/fr:baies-de-goji-sechees has 52 products in 4 languages @2019-05-23
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -47389,7 +47422,9 @@ fr:huile de graines de piment rouge
 nl:rode peper zaad olie
 
 <en:chili pepper
+en:green chili pepper
 de:grüne Chili
+es:guindilla verde
 fi:vihreä chili
 fr:piments verts, piment vert
 it:peperoncino verde
@@ -60018,7 +60053,7 @@ wikidata:en:Q1142857
 # The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
 <en:mushroom
-en:shiitake, lentinula edodes, lentinus edodes
+en:shiitake, lentinula edodes, lentinus edodes,shiitake mushrooms
 de:shiitake, schwarzer Pilz
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
@@ -63486,7 +63521,7 @@ cv:Ăркай
 cy:brithyll
 de:Forellen
 eo:Truto
-es:Trucha
+es:Trucha,trucha de cria
 et:Forell
 eu:Amuarrain
 fa:قزل‌آلا
@@ -68828,7 +68863,7 @@ fr:viande de poulet traitée en salaison et précuite
 <en:chicken meat
 ca:pit de pollastre
 en:chicken breast
-es:pechuga de pollo
+es:pechuga de pollo,carne de pechuga de pollo
 fr:blanc de poulet,poitrine de poulet
 sv:kycklingbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
