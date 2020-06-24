@@ -8870,7 +8870,7 @@ sub display_nutrient_levels($) {
 				
 			}
 			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning");
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 			}
 			elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
 					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
@@ -8890,7 +8890,7 @@ sub display_nutrient_levels($) {
 			}
 			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
 					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
-				$warning .=  "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
 									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value}) . "</p>";
 			}
 		}
