@@ -6350,7 +6350,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-ca:Ferment
+ca:ferment,ferments
 cs:Kvasnice
 da:gæret
 de:fermentiert
@@ -8887,7 +8887,7 @@ hu:sűrtett zsírszegény tej
 
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
-ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada
+ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada,dolc de llet
 de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
 es:leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada,dulce de leche
 fi:makeutettu tiivistetty vähärasvainen maito
@@ -9114,6 +9114,10 @@ en:whole cow's milk powder
 <en:whole milk powder
 <en:skimmed milk powder
 fr:poudres de lait écrémé et entier
+
+<en:whole milk powder
+en:reconstituted milk powder
+ca:llet en pols reconstituida
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -14681,6 +14685,13 @@ zh:肉
 vegan:en:no
 vegetarian:en:no
 
+en:casing
+de:Hülle
+es:Cubierto, caja
+fi:kotelo
+fr:enveloppe
+it:involucro
+
 # <en:compound
 en:meat preparation
 fi:lihavalmiste
@@ -15213,6 +15224,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
 
 
+###################################################################################################
+#
+#                                Sheep
+#
+###################################################################################################
 # description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk.
 # comment:en:Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
 
@@ -15403,6 +15419,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
 
+<en:sheeps meat
+<en:sheeps fat
+fr:viande et gras de mouton
+# ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
+
+
 <en:meat
 <en:sheep
 en:mutton, sheeps meat
@@ -15429,8 +15451,26 @@ wikidata:en:Q14566073
 wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
 # ingredient/fr:viande-de-mouton has 91 products in 2 languages @2019-04-19
 
-# description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
+<en:casing
+en:sheeps casing, Sheep gut, mutton casing
+de:Schafsdarm, Schafsaitling
+es:Tripa de oveja
+fi:Lampaansuoli
+fr:boyau de mouton
+hu:juhbél, birkabél
+it:budello di pecore, budello di sale
+# ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
 
+<en:sheeps casing
+fr:boyau naturel de mouton
+# ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
+
+
+###################################################################################################
+#
+#                                Game animals
+#
+###################################################################################################
 # <en:animal
 en:game animal
 de:Wildtier
@@ -15438,6 +15478,12 @@ fi:riistaeläin, riista
 fr:Gibier
 hu:vad
 
+###################################################################################################
+#
+#                                Deer
+#
+###################################################################################################
+# description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 <en:game animal
 en:deer
 da:hjort
@@ -15513,11 +15559,6 @@ fr:épaule de renne
 sv:renbog
 # ingredient/fi:poron-lapa has 1 product in 2 languages @2020-06-08
 
-<en:sheeps meat
-<en:sheeps fat
-fr:viande et gras de mouton
-# ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
-
 # Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 
 <en:meat
@@ -15542,6 +15583,11 @@ uk:Мергези
 wikipedia:en:https://en.wikipedia.org/wiki/Merguez
 # ingredient/fr:merguez has 63 products in french @2019-03–22
 
+###################################################################################################
+#
+#                                Horse
+#
+###################################################################################################
 <en:animal
 en:horse
 af:perd
@@ -15817,7 +15863,17 @@ fi:naudan jauhelihapihvi
 sv:pannbiff
 # ingredient/fr:steak-hache-pur-boeuf has 12 in french products @2019-05-24
 
+###################################################################################################
+#
+#                                Goat
+#
+###################################################################################################
+<en:animal
+en:goat
+es:cabra
+
 <en:meat
+<en:goat
 en:goat meat
 ca:carn de cabra
 da:gedekød
@@ -15827,10 +15883,12 @@ fi:vuohenliha
 hu:kecskehús
 nl:geitenvlees
 
-<en:meat
-en:goat
-es:cabra
 
+###################################################################################################
+#
+#                                Pork
+#
+###################################################################################################
 <en:animal
 en:pork
 ca:Porc
@@ -15878,24 +15936,26 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
-<en:meat
-<en:pork
+<en:pork meat
 en:pork shoulder
 es:paleta de cerdo
 
-<en:meat
-<en:pork
+<en:pork meat
 en:pig cheek
 ca:galtes,galets
-es:galtes,galets,carrillada de cerdo
+es:galtes,galets,carrillada de cerdo,carilleras de cerdo
 vegan:en:no
 vegetarian:en:no
 
-<en:pork
+<en:pork meat
 en:dewlap
 ca:papada de porc
 es:papada de cerdo
 wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
+
+<en:pork meat
+en:lean pork
+es:magra de cerdo
 
 <en:pork
 en:acorn fed iberian pig
@@ -16537,13 +16597,6 @@ fr:os de veau
 
 fr:fond de veau
 
-en:casing
-de:Hülle
-es:Cubierto, caja
-fi:kotelo
-fr:enveloppe
-it:involucro
-
 <en:casing
 fr:boyau naturel
 fi:luonnonsuoli
@@ -16566,20 +16619,6 @@ hu:marhabél
 it:budello di manzo
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
 # enveloppe:boyau de boeuf
-
-<en:casing
-en:sheeps casing, Sheep gut, mutton casing
-de:Schafsdarm, Schafsaitling
-es:Tripa de oveja
-fi:Lampaansuoli
-fr:boyau de mouton
-hu:juhbél, birkabél
-it:budello di pecore, budello di sale
-# ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
-
-<en:sheeps casing
-fr:boyau naturel de mouton
-# ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
 <en:casing
 <en:pork
@@ -17108,7 +17147,7 @@ carbon_footprint_fr_foodges_value:fr:2.6
 
 <en:oil and fat
 en:refined vegetable oil
-es:grasas vegetales refinadas
+es:grasas vegetales refinadas,aceite vegetal refinado
 
 # description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
@@ -19305,7 +19344,7 @@ fr:tournesol oléique
 
 <en:sunflower oil
 en:high oleic sunflower oil
-ca:oli refinat de gira-sol alt oleic
+ca:oli refinat de gira-sol alt oleic,oli de gira-sol alt oleic,oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
 fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique,huile de tournesol haut oléique
@@ -21260,6 +21299,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rosé
 fr:vin aromatisé
 # fr:vin-aromatisé has 67 products in 2 languages @2018-10-29
 
+<en:wine
+en:stale wine
+ca:vi ranci
+es:vino rancio
+
 
 # description:en:Fortified wine is a wine to which a distilled spirit, usually brandy, is added. Many different styles of fortified wine have been developed, including Port, Sherry, Madeira, Marsala, Commandaria wine, and the aromatised wine Vermouth.
 
@@ -22661,8 +22705,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
 
 <en:vanillin
-en:Ethylvanillin
-es:Etilvainillina
+en:ethylvanillin
+es:etilvainillina,etil vainillina
 wikipedia:en:https://en.wikipedia.org/wiki/Ethylvanillin
 
 # comment:en:Two parents due to and/or ingredient
@@ -22746,7 +22790,7 @@ en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 ca:aroma de fum
 da:røgaroma
 de:Raucharoma
-es:aroma de humo
+es:aroma de humo,humo de madera
 fi:savuaromi, savuaromia
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
 hu:füst aroma, füst ízesétés, füst íz
@@ -23555,6 +23599,11 @@ fr:flocons de céréales complètes
 sv:fullkornsflingor
 # ingredient/fr:flocons-de-cereales-completes has 26 products in 6 languages @2020-06-08
 
+##################################################################################
+#
+#                        Sorghum
+#
+##################################################################################
 # no gluten
 <en:cereal
 en:Sorghum
@@ -23562,6 +23611,17 @@ de:Hirse
 fr:sorgho
 hu:cirok
 sk:cirok
+
+##################################################################################
+#
+#                        Triticale
+#
+##################################################################################
+
+<en:cereal
+en:triticale
+es:triticale
+wikipedia:en:https://en.wikipedia.org/wiki/Triticale
 
 ##################################################################################
 #
@@ -23737,6 +23797,12 @@ it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
 <en:wheat
+fr:Grains de blé dur précuits
+
+<en:wheat
+fr:blé dur concassé précuit
+
+<en:wheat
 en:puffed cereal
 de:Weizenpops
 fi:puffattu vilja
@@ -23744,12 +23810,6 @@ fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
 # 15 products in 3 languages @2018-09-22
-
-<en:wheat
-fr:Grains de blé dur précuits
-
-<en:wheat
-fr:blé dur concassé précuit
 
 <en:wheat
 en:whole wheat, whole grain wheat
@@ -23768,6 +23828,30 @@ pt:trigo integral
 sv:fullkornsvete
 zh:全麥小麥
 # allergens:fr:_blé_ complet
+
+<en:wheat
+en:wheat flakes
+ca:flocs de blat
+de:Weizenflocken
+es:copos de trigo
+et:nisuhelbed
+fi:vehnähiutale
+fr:flocons de blé, flocon de blé
+hu:búzapelyhek
+it:fiocchi di frumento
+nb:hveteflak
+nl:tarwevlokken
+pl:płatki pszenne
+sv:veteflingor
+
+<en:wheat flakes
+de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
+fr:flocons de blé malté
+
+<en:wheat flakes
+de:Weizenvollkornflocken
+fr:flocons de blé complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
 
 <en:wheat
 fr:pétales de blé
@@ -23796,6 +23880,54 @@ hu:teljes kiőrlésű búzadara
 sv:fullkornsvetekross
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:t%C3%A4ysjyv%C3%A4vehn%C3%A4rouhe
 # 1 product @ 2019-10-31
+
+<en:wheat
+<en:malt
+en:wheat malt
+de:Weizenmalz
+es:malta de trigo
+fi:vehnämallas
+fr:malt de blé, malt de froment, blé malté
+hu:búzamaláta
+it:malto di frumento, malto di grano
+nl:tarwemout
+sv:vetemalt, mältade vetekorn
+
+<en:wheat malt
+en:wheat malt flour
+es:harina de malta de trigo
+
+<en:wheat malt
+fr:blé malté torréfié concassé
+
+<en:wheat
+<en:vegetable fiber
+en:wheat fiber
+da:hvedefibre
+de:Weizenfasern
+es:fibras de trigo
+fi:vehnäkuitu
+fr:fibre de blé, fibres de blé
+hu:búzarost
+it:fibre di frumento
+nl:tarwevezel
+pt:fibras de trigo
+ru:Пшеничные волокна
+sv:vetefiber, Vete fiber
+
+<en:wheat
+en:wheat bran
+de:Weizenkleie, Weizenspeisekleie
+es:salvado de trigo
+fi:vehnälese
+fr:son de blé, son de froment
+hu:búzakorpa
+it:crusca di frumento
+nb:hvetekli
+nl:tarwezemelen
+pt:farelo de trigo
+sv:vetekli
+
 
 # Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
 
@@ -23878,130 +24010,6 @@ fi:täysjyvädurumvehnä
 fr:blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
-# description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
-
-<en:wheat
-en:wheat germ, wheatgerm
-ca:germen de blat
-de:Weizenkeime
-es:germen de trigo
-fi:vehnänalkio
-fr:germe de blé, germes de blé
-hu:búzacsíra
-it:germi di frumento
-nb:hvetekim
-nl:tarwekiem
-pl:kielki pszenicy
-pt:gérmen de trigo
-sv:vetegroddar
-wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
-# ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
-
-<en:wheat
-en:graham flour 
-es:harina de graham
-wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
-
-
-# Wheat gluten is a food made from gluten, the main protein of wheat.
-
-<en:wheat
-en:seitan
-an:Seitán
-ca:seitan
-cs:Seitan
-da:Seitan
-de:Seitan
-eo:Sejtano
-es:Seitán
-eu:Seitan
-fi:Seitan
-fr:seitan
-gl:Seitán
-he:סייטן
-hr:Sejtan
-hu:szejtán, búzahús, búzasikér
-it:Seitan
-ja:麩
-ko:밀고기
-lt:Kvietinė mėsa
-nl:Seitan
-pl:seitan
-pt:seitan
-ru:Сейтан
-sk:Seitan
-sr:пшенични скроб
-sv:Seitan
-tr:Buğday gluteni
-vi:Mì căn
-zh:面筋
-# sr-ec:пшенични скроб
-# sr-el:pšeničни скроб
-# yue:麵筋
-# zh-hans:面筋
-# zh-hant:麵筋
-# zh-hk:麵筋
-wikidata:en:Q943935
-wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
-# ingredient/fr:seitan has 43 products @2019-02-09
-# seitan* (eau, protéine de blé)
-
-
-# Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
-# Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
-
-<en:wheat
-en:semolina
-ca:Sèmola
-da:semulje
-de:Grieß
-el:Σιμιγδάλι
-es:Sémola
-et:Manna
-fi:suurimo
-fr:Semoule
-hu:dara
-it:Semolina
-nl:gries
-oc:Semola
-pl:Kasza manna
-sv:semolinagryn
-vegan:en:yes
-vegetarian:en:yes
-
-<en:semolina
-en:semolina flour
-es:harina de sémola
-
-# Question
-
-<en:wheat
-<en:semolina
-en:wheat semolina
-ar:سميد
-de:Weizengrieß, Weizengriess
-es:sémola de trigo
-fi:mannasuurimo, vehnäsuurimo
-fr:semoule de blé
-hu:búzadara, gríz
-it:semolino di frumento
-nl:tarwegries
-pt:sêmola de trigo
-sv:vetegryn
-wikipedia:en:https://en.wikipedia.org/wiki/Semolina
-wikidata:en:Q381350
-carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
-carbon_footprint_fr_foodges_value:fr:0.6
-
-<en:wheat semolina
-fr:semoule de blé tendre
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
-# 20 products in 1 language @20180922
-
-<en:semolina
-en:Durum wheat flour
-nl:durum tarwegriesmeel
-
 <en:Durum wheat flour
 en:Durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
@@ -24010,74 +24018,9 @@ fr:farine complète de blé dur
 hu:durumbúzaiszt, durum búzaliszt
 nl:volkoren tarwegriesmeel
 
-
-# Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
-
-<en:wheat
-en:Couscous, cous cous
-ar:كسكس
-be:Кус-кус
-bg:Кускус
-bm:Basi
-bn:কুসকুস
-br:Kouskous
-ca:cuscús
-cs:kuskus
-da:Couscous
-de:Couscous, Cous Cous
-el:Κουσκούς
-eo:Kuskuso
-es:cuscús
-et:Kuskuss
-eu:Kus-kus
-fa:کوسکوس
-fi:Kuskus
-fr:couscous, cous cous
-gl:Cuscús
-he:קוסקוס
-hr:Kus-kus
-hu:kuszkusz
-hy:Կուսկուս
-id:Couscous
-io:Kuskuso
-it:cuscus, cous cous
-ja:クスクス
-ko:쿠스쿠스
-lb:Couscous
-lt:Kuskusas
-ms:Kuskus
-nb:couscous
-nl:couscous
-oc:couscous
-pl:Kuskus
-pt:cuscuz
-ro:Cuș cuș
-ru:Кускус
-sl:Kuskus
-sv:Couscous
-ta:cous cous
-tl:Kuskus
-tr:Kuskus
-tt:күскүс
-uk:Кус-кус
-wa:Couscousse
-zh:古斯米
-# aeb-arab:كسكسي
-# aeb-latn:kosksi
-# ceb:Kuskus
-# kab:seksou
-# scn:Cuscusu
-# sco:couscous
-wikidata:en:Q76605
-wikipedia:en:https://en.wikipedia.org/wiki/Couscous
-# ingredient/fr:couscous has 57 products @2019-02-21
-vegan:en:yes
-vegetarian:en:yes
-# cous cous (semola di grano duro)
-# Couscous * (durum wheat semolina)
-
-
-# Question
+<en:semolina
+en:Durum wheat flour
+nl:durum tarwegriesmeel
 
 <en:semolina
 <en:durum wheat
@@ -24168,11 +24111,197 @@ sr:integralna krupica durum pšenice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-complète/
 # 33+49 products in 11 languages @20180922
 
-
 <en:durum wheat semolina
 fr:semoule de blé dur précuite
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-précuite/
 # 75 products in 1 language @20180922
+
+
+# description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
+
+<en:wheat
+en:wheat germ, wheatgerm
+ca:germen de blat
+de:Weizenkeime
+es:germen de trigo
+fi:vehnänalkio
+fr:germe de blé, germes de blé
+hu:búzacsíra
+it:germi di frumento
+nb:hvetekim
+nl:tarwekiem
+pl:kielki pszenicy
+pt:gérmen de trigo
+sv:vetegroddar
+wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
+# ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
+
+<en:wheat
+en:graham flour 
+es:harina de graham
+wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
+
+# Wheat gluten is a food made from gluten, the main protein of wheat.
+
+<en:wheat
+en:seitan
+an:Seitán
+ca:seitan
+cs:Seitan
+da:Seitan
+de:Seitan
+eo:Sejtano
+es:Seitán
+eu:Seitan
+fi:Seitan
+fr:seitan
+gl:Seitán
+he:סייטן
+hr:Sejtan
+hu:szejtán, búzahús, búzasikér
+it:Seitan
+ja:麩
+ko:밀고기
+lt:Kvietinė mėsa
+nl:Seitan
+pl:seitan
+pt:seitan
+ru:Сейтан
+sk:Seitan
+sr:пшенични скроб
+sv:Seitan
+tr:Buğday gluteni
+vi:Mì căn
+zh:面筋
+# sr-ec:пшенични скроб
+# sr-el:pšeničни скроб
+# yue:麵筋
+# zh-hans:面筋
+# zh-hant:麵筋
+# zh-hk:麵筋
+wikidata:en:Q943935
+wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
+# ingredient/fr:seitan has 43 products @2019-02-09
+# seitan* (eau, protéine de blé)
+
+
+# Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
+# Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
+
+<en:wheat
+en:semolina
+ca:Sèmola
+da:semulje
+de:Grieß
+el:Σιμιγδάλι
+es:Sémola
+et:Manna
+fi:suurimo
+fr:Semoule
+hu:dara
+it:Semolina
+nl:gries
+oc:Semola
+pl:Kasza manna
+sv:semolinagryn
+vegan:en:yes
+vegetarian:en:yes
+
+<en:semolina
+en:semolina flour
+es:harina de sémola
+
+# Question
+
+<en:wheat
+<en:semolina
+en:wheat semolina
+ca:semola de blat
+ar:سميد
+de:Weizengrieß, Weizengriess
+es:sémola de trigo
+fi:mannasuurimo, vehnäsuurimo
+fr:semoule de blé
+hu:búzadara, gríz
+it:semolino di frumento
+nl:tarwegries
+pt:sêmola de trigo
+sv:vetegryn
+wikipedia:en:https://en.wikipedia.org/wiki/Semolina
+wikidata:en:Q381350
+carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr:0.6
+
+<en:wheat semolina
+fr:semoule de blé tendre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
+# 20 products in 1 language @20180922
+
+
+# Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
+
+<en:wheat
+en:Couscous, cous cous
+ar:كسكس
+be:Кус-кус
+bg:Кускус
+bm:Basi
+bn:কুসকুস
+br:Kouskous
+ca:cuscús
+cs:kuskus
+da:Couscous
+de:Couscous, Cous Cous
+el:Κουσκούς
+eo:Kuskuso
+es:cuscús
+et:Kuskuss
+eu:Kus-kus
+fa:کوسکوس
+fi:Kuskus
+fr:couscous, cous cous
+gl:Cuscús
+he:קוסקוס
+hr:Kus-kus
+hu:kuszkusz
+hy:Կուսկուս
+id:Couscous
+io:Kuskuso
+it:cuscus, cous cous
+ja:クスクス
+ko:쿠스쿠스
+lb:Couscous
+lt:Kuskusas
+ms:Kuskus
+nb:couscous
+nl:couscous
+oc:couscous
+pl:Kuskus
+pt:cuscuz
+ro:Cuș cuș
+ru:Кускус
+sl:Kuskus
+sv:Couscous
+ta:cous cous
+tl:Kuskus
+tr:Kuskus
+tt:күскүс
+uk:Кус-кус
+wa:Couscousse
+zh:古斯米
+# aeb-arab:كسكسي
+# aeb-latn:kosksi
+# ceb:Kuskus
+# kab:seksou
+# scn:Cuscusu
+# sco:couscous
+wikidata:en:Q76605
+wikipedia:en:https://en.wikipedia.org/wiki/Couscous
+# ingredient/fr:couscous has 57 products @2019-02-21
+vegan:en:yes
+vegetarian:en:yes
+# cous cous (semola di grano duro)
+# Couscous * (durum wheat semolina)
 
 # BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
 
@@ -24232,59 +24361,6 @@ de:Bulgur gekocht
 fi:kypsennetty bulgur, kypsennetty bulgurvehnä
 fr:boulgour cuit
 hu:főtt bulgur
-
-<en:wheat
-en:wheat flakes
-ca:flocs de blat
-de:Weizenflocken
-es:copos de trigo
-et:nisuhelbed
-fi:vehnähiutale
-fr:flocons de blé, flocon de blé
-hu:búzapelyhek
-it:fiocchi di frumento
-nb:hveteflak
-nl:tarwevlokken
-pl:płatki pszenne
-sv:veteflingor
-
-<en:wheat flakes
-de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
-fr:flocons de blé malté
-
-<en:wheat flakes
-de:Weizenvollkornflocken
-fr:flocons de blé complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
-
-<en:wheat
-<en:vegetable fiber
-en:wheat fiber
-da:hvedefibre
-de:Weizenfasern
-es:fibras de trigo
-fi:vehnäkuitu
-fr:fibre de blé, fibres de blé
-hu:búzarost
-it:fibre di frumento
-nl:tarwevezel
-pt:fibras de trigo
-ru:Пшеничные волокна
-sv:vetefiber, Vete fiber
-
-<en:wheat
-en:wheat bran
-de:Weizenkleie, Weizenspeisekleie
-es:salvado de trigo
-fi:vehnälese
-fr:son de blé, son de froment
-hu:búzakorpa
-it:crusca di frumento
-nb:hvetekli
-nl:tarwezemelen
-pt:farelo de trigo
-sv:vetekli
-
 
 # Bread crumbs or breadcrumbs (regional variants:breading, crispies) are sliced residue of dry bread, used for breading or crumbing foods.
 
@@ -24680,27 +24756,6 @@ fr:malt caramel
 sv:karamellmalt
 # ingredient/en:caramel-malt has 11 products in 1 language @2020-06-08
 
-# Question
-
-<en:wheat
-<en:malt
-en:wheat malt
-de:Weizenmalz
-es:malta de trigo
-fi:vehnämallas
-fr:malt de blé, malt de froment, blé malté
-hu:búzamaláta
-it:malto di frumento, malto di grano
-nl:tarwemout
-sv:vetemalt, mältade vetekorn
-
-<en:wheat malt
-en:wheat malt flour
-es:harina de malta de trigo
-
-<en:wheat malt
-fr:blé malté torréfié concassé
-
 <en:malt
 en:malted barley, barley malt
 bg:яачменныи солод, ечемично малцов
@@ -24708,7 +24763,7 @@ cs:ječmenný slad
 da:bygmalt
 de:Gerstenmalz
 el:βυνοποιημένο κιθάρι
-es:malta de cebada
+es:malta de cebada,cebada de malta
 fi:ohramallas, ohramallasta
 fr:malt d'orge, malts d'orge, orge malté, orge maltée
 hu:árpamálata
@@ -24762,40 +24817,13 @@ en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
 cy:surop heiddfrag
 da:bygmaltsirup
+es:jarabe de malta de cebada,jarabe de cebada de malta
 fa:شربت مالت جو
 fi:ohramallassiirappi
 fr:sirop d'orge malté
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
-
-<en:rye
-<en:malt
-en:rye malt
-de:Roggenmalz
-fi:ruismallas
-fr:Malt de seigle
-hu:rozsmaláta
-sv:rågmalt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:ruismallas
-# 1 entry @ 2019-10-31
-
-<en:rye malt
-en:rye malt extract
-de:Roggenmalzextrakt
-fi:ruismallasuute
-hu:rozsmaláta kivonat
-
-<en:rye malt
-<en:rye malt extract
-fi:ruismallas ja ruismallasuute
-
-<en:rye malt
-en:rye malt grist
-de:roggenmalzschrot
-fi:ruismallasrouhe, kaljamallas
-sv:rågmaltkross
-# ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
 
 ##################################################################################
 #
@@ -25502,6 +25530,7 @@ sv:rågkross
 en:rye flakes
 da:rugflager, ruggryn
 de:Roggenflocken
+es:copos de centeno
 fi:ruishiutale
 fr:flocons de seigle
 hu:rozspehely
@@ -25511,9 +25540,13 @@ sv:rågflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-seigle/
 # 87 entries @ 2018-09-22
 
+<en:rye flakes
+en:wholemeal rye flakes
+es:copos integrales de centeno
+
 <en:rye
 en:rye grains
-es:granos de centano,grañones completos de centeno
+es:granos de centeno,grañones completos de centeno
 
 <en:rye
 de:Roggengrießkleie
@@ -25546,10 +25579,6 @@ sv:fullkornsråg
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle-complet/
 # 37 entries @ 2018-09-22
 
-<en:rye
-en:rye flakes
-es:copos de centeno
-
 <en:wholemeal rye
 de:Roggenvollkornschrot, Roggenvollkornflocken
 fi:täysjyväruishiutale
@@ -25577,6 +25606,38 @@ en:wholemeal rye groats
 da:groftmalet fuldkornsrugmel
 fi:täysjyväruisrouhe, täysjyväruisrouhetta
 sv:fullkornsrågkross
+
+<en:rye
+<en:malt
+en:rye malt
+de:Roggenmalz
+fi:ruismallas
+fr:Malt de seigle
+hu:rozsmaláta
+sv:rågmalt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:ruismallas
+# 1 entry @ 2019-10-31
+
+<en:rye malt
+en:rye malt extract
+de:Roggenmalzextrakt
+fi:ruismallasuute
+hu:rozsmaláta kivonat
+
+<en:rye malt
+<en:rye malt extract
+fi:ruismallas ja ruismallasuute
+
+<en:rye malt
+en:rye malt grist
+de:roggenmalzschrot
+fi:ruismallasrouhe, kaljamallas
+sv:rågmaltkross
+# ingredient/de:roggenmalzschrot has 2 products in 2 languages @2020-06-08
+
+<en:rye malt
+en:ground rye malt
+es:malta molida de centeno
 
 ##################################################################################
 #
@@ -38555,6 +38616,7 @@ wikidata:en:Q3342808
 
 <en:coconut
 en:coconut cream
+ca:crema de coco
 de:Kokosnusscreme
 es:Crema de coco
 fi:kookoskerma
@@ -38568,6 +38630,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 
 <en:coconut
 en:coconut milk
+ca:llet de coco
 da:Kokosmælk
 de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
@@ -38589,6 +38652,7 @@ es:bebida de coco
 
 <en:coconut
 en:coconut water
+ca:aigua de coco
 de:Kokosnusswasser
 es:Agua de coco
 fr:Eau de coco
@@ -38600,6 +38664,7 @@ fr:Eau de noix de coco naturelle
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
+ca:llet de coco en pols
 de:Kokosnussmilchpulver, Kokosmilchpulver
 es:leche de coco en polvo
 fi:kookosmaitojauhe
@@ -38616,6 +38681,7 @@ fr:lait de coco reconstitué
 
 <en:coconut
 en:coconut extract
+ca:extracte de coco
 de:Kokosnussextrakt
 es:extracto de coco
 fi:kookosuute, kookospähkinäuute
@@ -38628,6 +38694,7 @@ sv:kokosnötsextrakt
 
 <en:coconut
 en:coconut pulp
+ca:polpa do coco
 de:Kokosfruchtfleisch
 es:Pulpa de coco
 fi:kookospähkinän hedelmäliha
@@ -38639,6 +38706,7 @@ nl:Kokospulp
 
 <en:coconut pulp
 en:desiccated coconut
+ca:coco deshidratat
 da:tørret kokos
 es:coco deshidratado
 fi:kuivattu kookos, kuivattua kookosta
@@ -38651,6 +38719,7 @@ sv:torkad kokosnöt
 
 <en:coconut
 en:coconut powder
+ca:coco en pols
 de:Kokosnussepulver
 es:Coco en polvo
 fi:kookosjauhe
@@ -51648,6 +51717,12 @@ nn:brune linfrø
 <fr:lin jaune
 fr:lin brun et lin jaune
 
+###################################################################################################
+#
+#                                Pepper
+#
+###################################################################################################
+
 # description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
 <en:seed
@@ -51710,6 +51785,19 @@ fi:luontainen pippuriuute
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-poivre
 # 81 products in 1 language @2018-10-08
 
+<en:black pepper
+<en:white pepper
+en:black and white pepper
+de:schwarzer und weißer Pfeffer
+fi:musta- ja valkopippuri
+fr:Poivres noir et blanc
+
+###################################################################################################
+#
+#                                White pepper
+#
+###################################################################################################
+
 <en:pepper
 en:white pepper
 ca:pebre blanc
@@ -51738,12 +51826,11 @@ sv:mald vitpeppar, vitpepparpulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc-moulu
 # 66 products in 3 languages @2018-10-08
 
-<en:black pepper
-<en:white pepper
-en:black and white pepper
-de:schwarzer und weißer Pfeffer
-fi:musta- ja valkopippuri
-fr:Poivres noir et blanc
+###################################################################################################
+#
+#                                Green pepper
+#
+###################################################################################################
 
 <en:pepper
 en:green pepper
@@ -51755,11 +51842,23 @@ sv:grönpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-vert
 # 193 products @2018-10-08
 
+###################################################################################################
+#
+#                                Grey pepper
+#
+###################################################################################################
+
 <en:pepper
 en:grey pepper, gray pepper
 fr:poivre gris
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
 # 53 products in 1 language @2018-10-08
+
+###################################################################################################
+#
+#                                Black pepper
+#
+###################################################################################################
 
 <en:pepper
 en:black pepper
@@ -51825,9 +51924,21 @@ sv:svartpepparextrakt
 en:black and green pepper,green and black pepper
 fi:musta- ja viherpippuri
 
+###################################################################################################
+#
+#                                Pink pepper
+#
+###################################################################################################
+
 <en:pepper
 en:pink pepper
 fr:poivre rose
+
+###################################################################################################
+#
+#                                Fenugreek
+#
+###################################################################################################
 
 <en:seed
 <en:fenugreek
@@ -51840,6 +51951,12 @@ nl:fenegriekzaad, gedroogd fenegriekzaad
 
 <en:fenugreek seed
 de:gemahlen Bockshornkleesamen
+
+###################################################################################################
+#
+#                                Sesame
+#
+###################################################################################################
 
 # comment:en:The wikidata page is a mix of the plant and the generic name
 
@@ -51955,7 +52072,7 @@ fr:sésame doré
 # <en:seed
 en:sesame seeds
 bg:сусамово семе
-ca:Llavors de sèsam
+ca:llavors de sèsam
 cs:sezamová semena
 da:sesamfrø
 de:Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat
@@ -57005,6 +57122,14 @@ fr:olives farcies
 <en:olive
 en:pitted olive
 es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
+
+<en:green olive
+en:arbequina olive
+es:aceituna arbequina
+
+<en:green olive
+en:gordal olive
+es:aceituna gordal
 
 <en:plant
 en:orange leaves
@@ -68497,7 +68622,22 @@ nl:gevogeltevel
 # ingredient/fr:peau-de-volaille has 76 products in french @2019-03-29
 
 <en:poultry
+en:poultry liver
+de:Geflügel-leber
+fi:siipikarjan maksa
+fr:foie de volaille
+nl:gevogeltelever
+zh:禽类肝脏
+# ingredient/fr:foie-de-volaille has 212 products in 4 languages @2019-04-24
+
+<en:poultry
 fr:jus de cuisson de volaille
+
+###################################################################################################
+#
+#                                Chicken
+#
+###################################################################################################
 
 # description:en:CHICKEN is the most common type of poultry in the world. Chicken can be prepared in a vast range of ways, including baking, grilling, barbecuing, frying, and boiling, among many others, depending on its purpose.
 
@@ -68705,6 +68845,11 @@ fr:poulet déshydraté
 <en:chicken
 fr:machons et ailerons de poulet
 
+<en:animal protein
+<en:chicken
+en:chicken blood
+es:sangre de pollo
+
 # description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
 
 <en:bone
@@ -68717,7 +68862,6 @@ fr:os de poulet
 it:osso di pollo
 nl:kippenbeenderen
 # ingredient/fr:os-de-poulet has 184 products in 5 languages @2019-05-10
-
 
 # <en:liver
 <en:chicken
@@ -68743,25 +68887,6 @@ nl:kippenvel
 ro:piele de pui
 sv:kycklingskinn
 # ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
-
-<en:turkey
-# <en:skin
-<en:poultry skin
-en:turkey skin
-de:Truthahn-Haut
-fi:kalkkunan nahka
-fr:peau de dinde
-nl:kalkoenvel
-# ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
-
-<en:poultry
-en:poultry liver
-de:Geflügel-leber
-fi:siipikarjan maksa
-fr:foie de volaille
-nl:gevogeltelever
-zh:禽类肝脏
-# ingredient/fr:foie-de-volaille has 212 products in 4 languages @2019-04-24
 
 
 # description:en:CHICKEN is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
@@ -68801,12 +68926,7 @@ fr:viande de poulet traitée en salaison cuite
 fr:viande de poulet rôtie
 
 <en:chicken meat
-en:precooked chicken meat
-de:Vorgekochtes Hühnerfleisch
-fi:esikypsennetty kananliha
-fr:viande de poulet précuite
-nl:voorgekookt kippenvlees
-# ingredient/fr:viande-de-poulet-précuite has 9 products in french @2019-04-16
+fr:produit à base de viande de poulet
 
 <en:chicken meat
 fr:viande de cuisse de poulet
@@ -68814,6 +68934,78 @@ fr:viande de cuisse de poulet
 
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
+
+<en:chicken meat
+fr:poitrine de poulet
+ro:piept de pui
+
+<en:chicken meat
+fr:cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
+
+<en:chicken meat
+fr:poulet rôti
+carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
+carbon_footprint_fr_foodges_value:fr:5.2
+
+<en:chicken meat
+fr:blanc de poulet cuit de qualite superieure traite en salaison et filet interne de poulet
+
+# <en:chicken meat
+# en:precooked chicken
+# de:vorgegartes Hühnerfleisch
+# es:carne de pollo precocida
+# nl:voorgegaard kippenvlees
+# ingredient/precooked-chicken has NO products @2019-02-25
+
+<en:chicken meat
+fr:aiguillette de poulet
+
+<en:chicken meat
+# <en:bone
+fr:os et viande de poulet
+
+<en:chicken meat
+fr:aiguillettes de poulet
+
+<en:chicken meat
+fr:manchons de poulet
+
+<en:chicken meat
+fr:haut de cuisse de poulet
+
+<en:chicken meat
+fr:poulet traité en salaison
+
+<en:chicken meat
+fr:filets de poulet
+
+<fr:poulet traité en salaison
+fr:poulet rôti traité en salaison
+
+<fr:poulet traité en salaison
+fr:viande de poulet traitée en salaison
+
+<fr:viande de poulet traitée en salaison
+fr:viande de poulet traitée en salaison et précuite
+
+<en:chicken
+fr:extrait de poulet
+
+<en:chicken meat
+fr:viande de poitrine de poulet
+
+<en:chicken meat
+fr:viande de poulet séparée mécaniquement
+
+<en:chicken meat
+en:precooked chicken meat
+de:Vorgekochtes Hühnerfleisch
+fi:esikypsennetty kananliha
+fr:viande de poulet précuite
+nl:voorgekookt kippenvlees
+# ingredient/fr:viande-de-poulet-précuite has 9 products in french @2019-04-16
 
 <en:chicken meat
 en:chicken meat including chicken juices
@@ -68827,7 +69019,9 @@ en:cooked chicken with natural juices
 # <en:broth
 <en:chicken
 en:Chicken Stock
+ca:brou de pollastre
 de:Hühnerbrühe
+es:caldo de pollo
 fi:kanaliemi
 fr:bouillon de poulet, fond de poulet
 nl:kippenbouillon
@@ -68857,11 +69051,6 @@ fr:filet de poulet avec peau, filets de poulet avec pea
 de:hähnchenfilet
 fi:broilerinfilee, broilerin filee, broilerin sisäfilee
 
-<de:hähnchenfilet
-fi:uunipaahdettu broilerinfilee
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:uunipaahdettu-broilerinfilee
-# 1 entry @ 2019-10-31
-
 <en:chicken fillet
 en:superior chicken fillet
 fr:filet de poulet de qualité supérieure
@@ -68887,81 +69076,33 @@ nl:verhitte gepekelde kipfilet
 fr:préparation à base de filets de poulet traités en salaison
 
 <en:chicken meat
-fr:produit à base de viande de poulet
+de:Hühnerfleischpulver
+
+<de:hähnchenfilet
+fi:uunipaahdettu broilerinfilee
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:uunipaahdettu-broilerinfilee
+# 1 entry @ 2019-10-31
 
 <en:chicken meat
-fr:poitrine de poulet
-ro:piept de pui
-
-<en:chicken meat
-fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr:4.9
-
-<en:chicken meat
-fr:poulet rôti
-carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
-carbon_footprint_fr_foodges_value:fr:5.2
-
-<en:chicken meat
-fr:blanc de poulet cuit de qualite superieure traite en salaison et filet interne de poulet
-
-# <en:chicken meat
-# en:precooked chicken
-# de:vorgegartes Hühnerfleisch
-# es:carne de pollo precocida
-# nl:voorgegaard kippenvlees
-# ingredient/precooked-chicken has NO products @2019-02-25
-
-
-
-
-<en:chicken meat
-fr:aiguillette de poulet
-
-<en:chicken meat
-# <en:bone
-fr:os et viande de poulet
-
-<en:chicken meat
-fr:aiguillettes de poulet
-
-<en:chicken meat
-fr:manchons de poulet
-
-<en:chicken meat
-fr:haut de cuisse de poulet
-
-<en:chicken meat
-fr:poulet traité en salaison
-
-<fr:poulet traité en salaison
-fr:poulet rôti traité en salaison
-
-<fr:poulet traité en salaison
-fr:viande de poulet traitée en salaison
-
-<fr:viande de poulet traitée en salaison
-fr:viande de poulet traitée en salaison et précuite
-
-<en:chicken meat
-ca:pit de pollastre
 en:chicken breast
+ca:pit de pollastre
 es:pechuga de pollo,carne de pechuga de pollo
 fr:blanc de poulet,poitrine de poulet
 sv:kycklingbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
 
+<en:chicken fillet
+en:chicken breast fillet
+da:kyllingebrystfilet
+fi:broilerin rintafilee, broilerin rintafileetä
+fr:filet de poitrine de poulet
+sv:kycklingbröstfilé
+# ingredient/fr:filet-de-poitrine-de-poulet has 9 products in 2 languages @2020-06-13
+
 <en:chicken meat
 en:chicken thigh,chicken drumstick
 es:muslo de pollo
-
-<en:chicken
-fr:extrait de poulet
-
-<en:chicken meat
-fr:filets de poulet
 
 # description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
@@ -68977,31 +69118,19 @@ fr:Escalopes de poulet
 # singular:fr:escalope de poulet
 # 6@2019-06-07
 
-<en:chicken meat
-fr:viande de poitrine de poulet
-
-<en:chicken meat
-fr:viande de poulet séparée mécaniquement
-
-<en:chicken meat
-de:Hühnerfleischpulver
-
-<en:chicken fillet
-en:chicken breast fillet
-da:kyllingebrystfilet
-fi:broilerin rintafilee, broilerin rintafileetä
-fr:filet de poitrine de poulet
-sv:kycklingbröstfilé
-# ingredient/fr:filet-de-poitrine-de-poulet has 9 products in 2 languages @2020-06-13
-
 <en:chicken
 en:chicken protein
 es:proteina de pollo
 
-######################### Duck ####################
+###################################################################################################
+#
+#                                Duck
+#
+###################################################################################################
 
 <en:poultry
 en:duck
+ca:ànec
 da:And
 de:Ente
 es:Pato
@@ -69017,6 +69146,7 @@ zh:鸭
 <en:duck
 <en:poultry meat
 en:duck meat
+ca:carn d'ànec
 de:Entenfleisch
 es:Carne de pato
 fi:ankanliha
@@ -69046,6 +69176,7 @@ fr:Gésiers de canard maigre traités en salaison
 
 <en:duck
 en:duck liver
+ca:fetge d'ànec
 da:Andelever
 de:Entenleber
 es:hígado de pato
@@ -69072,11 +69203,11 @@ fr:morceaux de foie gras de canard
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
-############################################################
+###################################################################################################
 #
-#                          Turkey 
+#                                Turkey
 #
-############################################################
+###################################################################################################
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
 
@@ -69234,7 +69365,7 @@ carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:turkey
 en:turkey thigh
-es:muslo de pavot
+es:muslo de pavo,contramuslo de pavo
 
 <en:turkey meat
 en:mechanically separated meat of turkey
@@ -69255,6 +69386,16 @@ carbon_footprint_fr_foodges_value:fr:6.6
 fr:viande de cuisse de dinde
 de:putenoberkeulenfleisch
 # ingredient/fr:viande-de-cuisse-de-dinde has 58 products in french @2019-04-16
+
+<en:turkey
+# <en:skin
+<en:poultry skin
+en:turkey skin
+de:Truthahn-Haut
+fi:kalkkunan nahka
+fr:peau de dinde
+nl:kalkoenvel
+# ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
 
 <en:turkey meat
 fr:viande de dinde traitée en salaison
@@ -70743,7 +70884,7 @@ en:filling, stuffing
 be:Фарш
 bg:Кайма
 br:Fars
-ca:farciment
+ca:farciment,farcit
 cs:Nadívání
 cv:Фарш
 da:Fyld
@@ -75309,3 +75450,5 @@ es:mermelada de fresa
 en:orange marmalade
 es:mermelada de naranja
 
+en:lemon marmalade
+ca:melmelada de llimona
