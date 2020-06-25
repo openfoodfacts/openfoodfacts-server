@@ -14982,6 +14982,10 @@ sv:ben av nöt, köttiga ben av nöt
 en:oxtail
 es:rabo vacuno
 
+<en:beef meat
+en:beef tripe
+es:callos de vacuno
+
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
 <en:meat
@@ -16100,7 +16104,7 @@ da:Bacon, svinefedt
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
-es:panceta, manteca de cerdo, tocino de cerdo,manteca de cerdo iberico,bacon
+es:panceta, tocino de cerdo,bacon,tocino de jamón de cerdo 
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -16170,6 +16174,10 @@ en:pork kidney
 fr:rogons de porc
 vegan:en:no
 vegetarian:en:no
+
+<en:pork
+en:pigs trotters
+es:patas de cerdo
 
 <en:pork
 en:pepperoni
@@ -16576,6 +16584,70 @@ fr:fond de porc
 <en:pork
 fr:coeur de porc
 
+# description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
+
+# from:en:pork
+<en:animal fat
+en:lard, pork fat
+an:Redetiu
+ar:دهن خنزير
+bg:Свинска мас
+ca:saïm
+cs:sádlo
+cv:Смалец
+da:Svinefedt
+de:Schweinefett, Schmalz
+eo:Ŝmalco
+es:grasa de cerdo,grasa animal de cerdo,tocino,magro de cerdo,manteca, manteca de cerdo,manteca de cerdo iberico
+eu:Txerri-gantz
+fa:چربی خوک
+fi:ihra, silava, läski
+fr:saindoux, gras de porc
+ga:Blonag
+gd:Blonag
+gl:Manteiga de porco
+hr:Svinjska mast
+hu:Disznózsír, sertészsír
+id:Lemak babi
+io:Saimo
+it:strutto, grasso di maiale, grasso di suino, grasso suino
+ja:ラード
+ko:라드
+lb:Schmalz
+nb:smult
+nl:Reuzel, varkensvet
+nn:Smult
+pl:Smalec
+pt:banha
+ru:Смалец
+sh:Svinjska mast
+sl:Svinjska mast
+sr:Svinjska mast
+sv:Ister, fett fläsk, grisfett, fett från gris
+th:มันหมู
+tl:Untosinsal
+tr:Domuz yağı
+uk:Смалець
+wa:Saeyén
+zh:豬油
+# ast:Mantega de gochu
+# bar:Schmoiz
+# lzh:豬油
+# pdc:Schmals
+# scn:Nzunza
+# sgs:Taukā
+# sr-el:Svinjska mast
+# szl:Tuste
+# yue:豬油
+wikidata:en:Q72827
+wikipedia:en:https://en.wikipedia.org/wiki/Lard
+# ingredient/lard has 2818 products in 10 languages @2019-07-10
+
+###################################################################################################
+#
+#                                Beef
+#
+###################################################################################################
 
 
 # viande bovine in ingredients refers to (aged) beef, not veal
@@ -17489,65 +17561,6 @@ hu:juhzsír, birkazsír
 nl:schaapsvet
 # ingredient/sheeps-fat has 79 products in 3 languages @2019-07-10
 
-
-# description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
-
-# from:en:pork
-<en:animal fat
-en:lard, pork fat
-an:Redetiu
-ar:دهن خنزير
-bg:Свинска мас
-ca:saïm
-cs:sádlo
-cv:Смалец
-da:Svinefedt
-de:Schweinefett, Schmalz
-eo:Ŝmalco
-es:grasa de cerdo, manteca de cerdo, grasa animal de cerdo,tocino,magro de cerdo,manteca
-eu:Txerri-gantz
-fa:چربی خوک
-fi:ihra, silava, läski
-fr:saindoux, gras de porc
-ga:Blonag
-gd:Blonag
-gl:Manteiga de porco
-hr:Svinjska mast
-hu:Disznózsír, sertészsír
-id:Lemak babi
-io:Saimo
-it:strutto, grasso di maiale, grasso di suino, grasso suino
-ja:ラード
-ko:라드
-lb:Schmalz
-nb:smult
-nl:Reuzel, varkensvet
-nn:Smult
-pl:Smalec
-pt:banha
-ru:Смалец
-sh:Svinjska mast
-sl:Svinjska mast
-sr:Svinjska mast
-sv:Ister, fett fläsk, grisfett, fett från gris
-th:มันหมู
-tl:Untosinsal
-tr:Domuz yağı
-uk:Смалець
-wa:Saeyén
-zh:豬油
-# ast:Mantega de gochu
-# bar:Schmoiz
-# lzh:豬油
-# pdc:Schmals
-# scn:Nzunza
-# sgs:Taukā
-# sr-el:Svinjska mast
-# szl:Tuste
-# yue:豬油
-wikidata:en:Q72827
-wikipedia:en:https://en.wikipedia.org/wiki/Lard
-# ingredient/lard has 2818 products in 10 languages @2019-07-10
 
 <en:animal fat
 en:calf fat
@@ -49724,6 +49737,7 @@ it:ceci reidratati
 <en:chickpea
 <en:flour
 en:chickpea flour
+ca:farina de cigro
 es:harina de garbanzo
 
 <en:pea
@@ -69225,6 +69239,21 @@ fr:morceaux de foie gras de canard
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
+##************************   Eggs **********************
+<en:egg
+en:duck egg
+de:Enteneier
+es:huevo de pato
+fi:ankanmuna
+fr:œuf de canard, oeuf de canard
+ko:오리알
+nl:eendenei
+ru:яйцо утки
+zh:鴨蛋
+# yue:鴨蛋
+wikidata:en:Q11173928
+# ingredient/duck-egg has 7 products @2018-12-17
+
 ###################################################################################################
 #
 #                                Turkey
@@ -69439,6 +69468,25 @@ en:roasted turkey including natural turkey juices
 fr:caille, cailles
 nl:kwartel, kwartels
 # ingredient/fr:cailles has 4 products @2019-05-31
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                                      G A M E  B I R D S
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+###################################################################################################
+#
+#                                Partridge
+#
+###################################################################################################
+
+<en:game animal
+en:partridge
+es:perdiz
+
+<en:partridge
+es:fumé de perdiz
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -70225,19 +70273,6 @@ fr:d'élevage en plein air
 de:aus Freilandhaltung
 it:d'allevamento all'aperto
 
-<en:egg
-en:duck egg
-de:Enteneier
-es:huevo de pato
-fi:ankanmuna
-fr:œuf de canard, oeuf de canard
-ko:오리알
-nl:eendenei
-ru:яйцо утки
-zh:鴨蛋
-# yue:鴨蛋
-wikidata:en:Q11173928
-# ingredient/duck-egg has 7 products @2018-12-17
 
 # description:en:QUAIL EGGS are the eggs layed by a quail. They can be prepared the same as chicken eggs.
 
