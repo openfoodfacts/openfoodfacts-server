@@ -8352,6 +8352,7 @@ it:latte intero
 nb:helmelk
 nl:volle melk
 pl:Mleko pełne
+pt:leite enteiro
 sv:Helmjölk, sötmjölk
 zh:全脂牛奶
 
@@ -14976,6 +14977,10 @@ en:beef bones
 fi:naudan luut, naudan lihaisat luut
 fr:os de boeuf
 sv:ben av nöt, köttiga ben av nöt
+
+<en:beef
+en:oxtail
+es:rabo vacuno
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
@@ -47315,11 +47320,6 @@ sv:röd paprika
 en:italian pepper
 es:pimiento italiano
 
-<en:pepper
-en:pink pepper,rose pepper
-es:pimienta rosa
-pt:pimenta rosa
-
 <en:bell pepper
 en:piquillo pepper
 es:pimiento del piquillo
@@ -47790,6 +47790,11 @@ fi:paprikatahna
 fr:Pâte de paprika
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:paprikatahna
 # 1 entry @ 2019-10-31
+
+
+<en:paprika
+en:sweet paprika
+es:pimienta roja dulce
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
@@ -51941,8 +51946,11 @@ fi:musta- ja viherpippuri
 ###################################################################################################
 
 <en:pepper
-en:pink pepper
+en:pink pepper,rose pepper
+es:pimienta rosa
 fr:poivre rose
+pt:pimenta rosa
+
 
 ###################################################################################################
 #
@@ -52603,7 +52611,7 @@ da:Cayennepeber
 de:Cayennepfeffer
 el:Καγιέν
 eo:Kajena pipro
-es:pimienta de cayena, pimienta roja,cayena,ají cayena
+es:pimienta de cayena, pimienta roja,cayena,ají cayena,pimienta roja picante
 eu:Kaiena
 fi:Cayennepippuri, cayenne
 fr:piment de Cayenne, cayenne, poivre de cayenne
@@ -57067,7 +57075,7 @@ en:green olives
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
 de:Grüne Oliven
-es:aceituna verde, aceitunas verdes, olivas verdes,aceituna verde manzanilla,aceitunas verdes manzanilla
+es:aceituna verde, aceitunas verdes, olivas verdes
 fi:vihreä oliivi
 fr:olive verte, olives vertes
 it:olive verdi
@@ -57135,11 +57143,15 @@ es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin 
 
 <en:green olive
 en:arbequina olive
-es:aceituna arbequina
+es:aceituna arbequina,aceitunas arbequinas,aceitunas verdes arbequinas
 
 <en:green olive
 en:gordal olive
 es:aceituna gordal
+
+<en:green olive
+en:manzanilla olive
+es:aceituna verde manzanilla,aceitunas verdes manzanilla
 
 <en:plant
 en:orange leaves
