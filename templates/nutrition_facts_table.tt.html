@@ -20,29 +20,28 @@
 
 	[% END %]
 
+	<br>
+	<input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
+	<label for="nutrition_data_compare_percent">[% lang('nutrition_data_compare_percent') %]</label>
+	<input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
+	<label for="nutrition_data_compare_value">[% lang('nutrition_data_compare_value') %]</label>
+
+	<p class="note">&rarr; [% lang('nutrition_data_comparison_with_categories_note') %]</p>
 [% END %]
-
-<br>
-<input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
-<label for="nutrition_data_compare_percent">[% lang('nutrition_data_compare_percent') %]</label>
-<input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
-<label for="nutrition_data_compare_value">[% lang('nutrition_data_compare_value') %]</label>
-
-<p class="note">&rarr; [% lang('nutrition_data_comparison_with_categories_note') %]</p>
 
 <!--  Stats for categories -->
 [% IF category_stats.defined %]
 
 	<div>
 		<input id="show_stats" type="checkbox">
-		[% lang('show_category_stats') %]
 		<label for="show_stats">
+			[% lang('show_category_stats') %]
 			<span class="show-for-xlarge-up"> 
 				[% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
 			</span>
 		</label>
 	</div>
-        
+
 [% END %]
 
 [% FOREACH table IN tables %]
