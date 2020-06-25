@@ -14685,6 +14685,13 @@ zh:肉
 vegan:en:no
 vegetarian:en:no
 
+en:casing
+de:Hülle
+es:Cubierto, caja
+fi:kotelo
+fr:enveloppe
+it:involucro
+
 # <en:compound
 en:meat preparation
 fi:lihavalmiste
@@ -15217,6 +15224,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
 
 
+###################################################################################################
+#
+#                                Sheep
+#
+###################################################################################################
 # description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk.
 # comment:en:Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
 
@@ -15407,6 +15419,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
 
+<en:sheeps meat
+<en:sheeps fat
+fr:viande et gras de mouton
+# ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
+
+
 <en:meat
 <en:sheep
 en:mutton, sheeps meat
@@ -15433,8 +15451,26 @@ wikidata:en:Q14566073
 wikipedia:en:https://en.wikipedia.org/wiki/Lamb_and_mutton
 # ingredient/fr:viande-de-mouton has 91 products in 2 languages @2019-04-19
 
-# description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
+<en:casing
+en:sheeps casing, Sheep gut, mutton casing
+de:Schafsdarm, Schafsaitling
+es:Tripa de oveja
+fi:Lampaansuoli
+fr:boyau de mouton
+hu:juhbél, birkabél
+it:budello di pecore, budello di sale
+# ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
 
+<en:sheeps casing
+fr:boyau naturel de mouton
+# ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
+
+
+###################################################################################################
+#
+#                                Game animals
+#
+###################################################################################################
 # <en:animal
 en:game animal
 de:Wildtier
@@ -15442,6 +15478,12 @@ fi:riistaeläin, riista
 fr:Gibier
 hu:vad
 
+###################################################################################################
+#
+#                                Deer
+#
+###################################################################################################
+# description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 <en:game animal
 en:deer
 da:hjort
@@ -15517,11 +15559,6 @@ fr:épaule de renne
 sv:renbog
 # ingredient/fi:poron-lapa has 1 product in 2 languages @2020-06-08
 
-<en:sheeps meat
-<en:sheeps fat
-fr:viande et gras de mouton
-# ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
-
 # Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 
 <en:meat
@@ -15546,6 +15583,11 @@ uk:Мергези
 wikipedia:en:https://en.wikipedia.org/wiki/Merguez
 # ingredient/fr:merguez has 63 products in french @2019-03–22
 
+###################################################################################################
+#
+#                                Horse
+#
+###################################################################################################
 <en:animal
 en:horse
 af:perd
@@ -15821,7 +15863,17 @@ fi:naudan jauhelihapihvi
 sv:pannbiff
 # ingredient/fr:steak-hache-pur-boeuf has 12 in french products @2019-05-24
 
+###################################################################################################
+#
+#                                Goat
+#
+###################################################################################################
+<en:animal
+en:goat
+es:cabra
+
 <en:meat
+<en:goat
 en:goat meat
 ca:carn de cabra
 da:gedekød
@@ -15831,10 +15883,12 @@ fi:vuohenliha
 hu:kecskehús
 nl:geitenvlees
 
-<en:meat
-en:goat
-es:cabra
 
+###################################################################################################
+#
+#                                Pork
+#
+###################################################################################################
 <en:animal
 en:pork
 ca:Porc
@@ -15882,24 +15936,26 @@ carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
-<en:meat
-<en:pork
+<en:pork meat
 en:pork shoulder
 es:paleta de cerdo
 
-<en:meat
-<en:pork
+<en:pork meat
 en:pig cheek
 ca:galtes,galets
 es:galtes,galets,carrillada de cerdo,carilleras de cerdo
 vegan:en:no
 vegetarian:en:no
 
-<en:pork
+<en:pork meat
 en:dewlap
 ca:papada de porc
 es:papada de cerdo
 wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
+
+<en:pork meat
+en:lean pork
+es:magra de cerdo
 
 <en:pork
 en:acorn fed iberian pig
@@ -16541,13 +16597,6 @@ fr:os de veau
 
 fr:fond de veau
 
-en:casing
-de:Hülle
-es:Cubierto, caja
-fi:kotelo
-fr:enveloppe
-it:involucro
-
 <en:casing
 fr:boyau naturel
 fi:luonnonsuoli
@@ -16570,20 +16619,6 @@ hu:marhabél
 it:budello di manzo
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
 # enveloppe:boyau de boeuf
-
-<en:casing
-en:sheeps casing, Sheep gut, mutton casing
-de:Schafsdarm, Schafsaitling
-es:Tripa de oveja
-fi:Lampaansuoli
-fr:boyau de mouton
-hu:juhbél, birkabél
-it:budello di pecore, budello di sale
-# ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
-
-<en:sheeps casing
-fr:boyau naturel de mouton
-# ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
 <en:casing
 <en:pork
@@ -17112,7 +17147,7 @@ carbon_footprint_fr_foodges_value:fr:2.6
 
 <en:oil and fat
 en:refined vegetable oil
-es:grasas vegetales refinadas
+es:grasas vegetales refinadas,aceite vegetal refinado
 
 # description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
@@ -22670,8 +22705,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
 
 <en:vanillin
-en:Ethylvanillin
-es:Etilvainillina
+en:ethylvanillin
+es:etilvainillina,etil vainillina
 wikipedia:en:https://en.wikipedia.org/wiki/Ethylvanillin
 
 # comment:en:Two parents due to and/or ingredient
