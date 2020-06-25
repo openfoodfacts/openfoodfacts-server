@@ -6350,7 +6350,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-ca:Ferment
+ca:ferment,ferments
 cs:Kvasnice
 da:gæret
 de:fermentiert
@@ -9114,6 +9114,10 @@ en:whole cow's milk powder
 <en:whole milk powder
 <en:skimmed milk powder
 fr:poudres de lait écrémé et entier
+
+<en:whole milk powder
+en:reconstituted milk powder
+ca:llet en pols reconstituida
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -15887,7 +15891,7 @@ es:paleta de cerdo
 <en:pork
 en:pig cheek
 ca:galtes,galets
-es:galtes,galets,carrillada de cerdo
+es:galtes,galets,carrillada de cerdo,carilleras de cerdo
 vegan:en:no
 vegetarian:en:no
 
@@ -21260,6 +21264,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rosé
 fr:vin aromatisé
 # fr:vin-aromatisé has 67 products in 2 languages @2018-10-29
 
+<en:wine
+en:stale wine
+ca:vi ranci
+es:vino rancio
+
 
 # description:en:Fortified wine is a wine to which a distilled spirit, usually brandy, is added. Many different styles of fortified wine have been developed, including Port, Sherry, Madeira, Marsala, Commandaria wine, and the aromatised wine Vermouth.
 
@@ -22746,7 +22755,7 @@ en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 ca:aroma de fum
 da:røgaroma
 de:Raucharoma
-es:aroma de humo
+es:aroma de humo,humo de madera
 fi:savuaromi, savuaromia
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
 hu:füst aroma, füst ízesétés, füst íz
@@ -24172,6 +24181,7 @@ es:harina de sémola
 <en:wheat
 <en:semolina
 en:wheat semolina
+ca:semola de blat
 ar:سميد
 de:Weizengrieß, Weizengriess
 es:sémola de trigo
@@ -51672,6 +51682,12 @@ nn:brune linfrø
 <fr:lin jaune
 fr:lin brun et lin jaune
 
+###################################################################################################
+#
+#                                Pepper
+#
+###################################################################################################
+
 # description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 
 <en:seed
@@ -51734,6 +51750,19 @@ fi:luontainen pippuriuute
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-poivre
 # 81 products in 1 language @2018-10-08
 
+<en:black pepper
+<en:white pepper
+en:black and white pepper
+de:schwarzer und weißer Pfeffer
+fi:musta- ja valkopippuri
+fr:Poivres noir et blanc
+
+###################################################################################################
+#
+#                                White pepper
+#
+###################################################################################################
+
 <en:pepper
 en:white pepper
 ca:pebre blanc
@@ -51762,12 +51791,11 @@ sv:mald vitpeppar, vitpepparpulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc-moulu
 # 66 products in 3 languages @2018-10-08
 
-<en:black pepper
-<en:white pepper
-en:black and white pepper
-de:schwarzer und weißer Pfeffer
-fi:musta- ja valkopippuri
-fr:Poivres noir et blanc
+###################################################################################################
+#
+#                                Green pepper
+#
+###################################################################################################
 
 <en:pepper
 en:green pepper
@@ -51779,11 +51807,23 @@ sv:grönpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-vert
 # 193 products @2018-10-08
 
+###################################################################################################
+#
+#                                Grey pepper
+#
+###################################################################################################
+
 <en:pepper
 en:grey pepper, gray pepper
 fr:poivre gris
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
 # 53 products in 1 language @2018-10-08
+
+###################################################################################################
+#
+#                                Black pepper
+#
+###################################################################################################
 
 <en:pepper
 en:black pepper
@@ -51849,9 +51889,21 @@ sv:svartpepparextrakt
 en:black and green pepper,green and black pepper
 fi:musta- ja viherpippuri
 
+###################################################################################################
+#
+#                                Pink pepper
+#
+###################################################################################################
+
 <en:pepper
 en:pink pepper
 fr:poivre rose
+
+###################################################################################################
+#
+#                                Fenugreek
+#
+###################################################################################################
 
 <en:seed
 <en:fenugreek
@@ -51864,6 +51916,12 @@ nl:fenegriekzaad, gedroogd fenegriekzaad
 
 <en:fenugreek seed
 de:gemahlen Bockshornkleesamen
+
+###################################################################################################
+#
+#                                Sesame
+#
+###################################################################################################
 
 # comment:en:The wikidata page is a mix of the plant and the generic name
 
@@ -51979,7 +52037,7 @@ fr:sésame doré
 # <en:seed
 en:sesame seeds
 bg:сусамово семе
-ca:Llavors de sèsam
+ca:llavors de sèsam
 cs:sezamová semena
 da:sesamfrø
 de:Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat
@@ -57029,6 +57087,14 @@ fr:olives farcies
 <en:olive
 en:pitted olive
 es:aceituna deshuesada,aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
+
+<en:green olive
+en:arbequina olive
+es:aceituna arbequina
+
+<en:green olive
+en:gordal olive
+es:aceituna gordal
 
 <en:plant
 en:orange leaves
@@ -70783,7 +70849,7 @@ en:filling, stuffing
 be:Фарш
 bg:Кайма
 br:Fars
-ca:farciment
+ca:farciment,farcit
 cs:Nadívání
 cv:Фарш
 da:Fyld
@@ -75349,3 +75415,5 @@ es:mermelada de fresa
 en:orange marmalade
 es:mermelada de naranja
 
+en:lemon marmalade
+ca:melmelada de llimona
