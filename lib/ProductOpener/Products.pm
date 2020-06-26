@@ -702,6 +702,7 @@ sub compute_sort_key($) {
 		$sortkey += 100000000000;
 	}
 
+# Add 0 so we are sure the key is saved as int
 	$product_ref->{sortkey} = $sortkey + 0;
 	$product_ref->{popularity_key} = $popularity_key + 0;
 }
