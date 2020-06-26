@@ -2904,6 +2904,68 @@ sub separate_additive_class($$$$$) {
 }
 
 
+
+=head2 replace_additive ($number, $letter, $variant) - normalize the additive
+
+This function is used inside regular expressions to turn additives to a normalized form.
+
+Using a function to concatenate the E-number, letter and variant makes it possible 
+to deal with undefined $letter or $variant without triggering an undefined warning.
+
+=head3 Synopsis
+
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+
+=cut
+
+
+sub replace_additive($$$) {
+
+		my $number = shift;	# e.g. 160
+		my $letter = shift;	# e.g. a
+		my $variant = shift;	# e.g. ii
+		
+		my $additive = "e" . $number;
+		if (defined $letter) {
+			$additive .= $letter;
+		}
+		if (defined $variant) {
+			$variant =~ s/^\(//;
+			$variant =~ s/\)$//;
+			$additive .= $variant;
+		}
+		return $additive;
+}
+
+
+=head2 preparse_ingredients_text ($product_lc, $text) - normalize the ingredient list to make parsing easier
+
+This function transform the ingredients list in a more normalized list that is easier to parse.
+
+It does the following:
+
+- Normalize quote characters
+- Replace abbreviations by their full name
+- Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
+- Split vitamins enumerations
+- Normalize additives and split additives enumerations
+- Split other enumerations (e.g. oils, some minerals)
+- Split allergens and traces
+- Deal with signs like * to indicate labels (e.g. *: Organic)
+
+=head3 Arguments
+
+=head4 Language
+
+=head4 Ingredients list text
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+=cut
+
+
 sub preparse_ingredients_text($$) {
 
 	my $product_lc = shift;
@@ -3010,21 +3072,24 @@ sub preparse_ingredients_text($$) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\()?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\()?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
-	$text =~ s/\b(e|ins|sin)(:|\(|\[| | n| nb|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $additivesregexp = '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?(( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+	
+	$text =~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin)( |-| n| nb|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
-
+	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
 	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
-	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
+	# do not turn E172-i into E172 - i
+	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;	
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
-	$text =~ s/(\b)e( |-|\.)?(\d+)( |-|\.)?([abcdefgh]?)(( |-|\.)?\(?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)\)?)?(?= |,|\.|;|\/|$)/e$3$5$8/ig;
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
