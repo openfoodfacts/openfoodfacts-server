@@ -18,6 +18,12 @@ jobs:
     - run: npm install
     - run: npm run build
 
+  perl-critic:
+    runs-on: ubuntu-latest
+    steps:
+    - name: GitHub Action for Perl Critic
+    - uses: Difegue/action-perlcritic@1.0.0
+
   lint:
     runs-on: ubuntu-latest
     steps:
