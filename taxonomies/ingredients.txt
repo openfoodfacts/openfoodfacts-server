@@ -606,7 +606,7 @@ mt:Aġent li jgħaqqad
 nb:fortykningsmiddel
 nl:Verdikkingsmiddel, Verdikkingsmiddelen
 pl:Substancja zagęszczająca
-pt:Espessante
+pt:Espessante,espessantes
 ro:Agent de îngroșare
 ru:Загуститель
 sk:Zahusťovadlo
@@ -8036,7 +8036,7 @@ sv:pastöriserad mjölk
 
 <en:pasteurised milk
 en:pasteurised cows milk
-es:leche pasteurizada de vaca
+es:leche pasteurizada de vaca,leche pasterizada de vaca
 
 <en:sterilised milk
 en:UHT pasteurised milk
@@ -8066,7 +8066,7 @@ fr:lait thermisé
 
 <en:milk
 en:milk solids
-es:solidos lacteos
+es:solidos lacteos,solidos de la leche
 
 <en:milk
 nl:vloeibare melkbestanddelen
@@ -9076,7 +9076,7 @@ lv:sausais vajpiena pulveris
 nb:skummetmelkepulver, skummetmelkpulver
 nl:magere melkpoeder, mageremelkpoeder, mager melkpoeder
 pl:chude mleko w proszku, odtłuszczone mleko w proszku
-pt:leite magro em pó, leite em pó magro
+pt:leite magro em pó, leite em pó magro,leite desnatado em po
 ro:lapte praf degresat
 ru:обезжиренный молоко-порошок
 sk:sušené odstredené mlieko
@@ -16948,7 +16948,7 @@ cs:Kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 eo:Maizamelo
-es:almidón de maíz, Maicena, almidon de maiz modificado,fecula de maiz,almidones de maiz modificados
+es:almidón de maíz, Maicena,fecula de maiz,almidones de maiz modificados
 eu:Maizena
 fa:نشاسته ذرت
 fi:Maissitärkkelys
@@ -16986,7 +16986,7 @@ ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro m
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
-es:Almidón modificado de maiz
+es:Almidón modificado de maiz, almidon de maiz modificado
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 hu:módosított kukoricakeményítő
@@ -18985,7 +18985,7 @@ bg:Олио от гроздови семки
 ca:oli de llavors de raïm
 cs:Hroznový olej
 de:Traubenkernöl
-es:Aceite de pepitas de uva
+es:Aceite de pepitas de uva, aceite de semilla de uva
 eu:Mahats-pipiten olio
 fa:روغن هسته انگور
 fi:rypäleensiemenöljy
@@ -21888,7 +21888,7 @@ lv:aromatizētājs
 nb:aroma, aromaer, smakstilsetninger
 nl:aroma, aroma's
 pl:aromat, aromaty
-pt:aromatizante,aromas
+pt:aromatizante,aroma,aromas
 ro:aromă, aroma, arome
 ru:ароматизатор
 sv:arom, aromer, smakämnen, aromämne, aromämnen
@@ -29802,6 +29802,7 @@ nb:dekstrose
 nl:dextrose
 nn:dekstrose
 pl:dekstroza
+pt:dextrose
 ro:dextroză, dextroza
 ru:Декстроза
 sk:dextróza
@@ -30382,6 +30383,7 @@ vegetarian:en:no
 <en:animal protein
 en:pork protein
 de:Schweineprotein
+es:proteina de cerdo
 fi:sianlihaproteiini
 fr:Protéines de porc
 hu:sertésfehérje, sertéshúsfehérje, sertés fehérje
@@ -40064,6 +40066,7 @@ lo:ໝາກນັດ
 nl:ananas
 nv:Bilasáana diwozhí
 pl:ananas
+pt:ananas 
 ru:ананас
 sd:انناس
 sk:Ananás pestovaný
@@ -41069,6 +41072,10 @@ carbon_footprint_fr_foodges_value:fr:0.8
 # 250 products in 1 language @2018-10-02
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin
 # 1319 products in 9 languages @2018-10-02
+
+<en:grape
+en:grape seeds
+es:semilla de uva
 
 <en:grape
 en:white grape
@@ -42972,6 +42979,7 @@ ca:Radicchio
 da:radicchio
 de:Chicorée rot, Radicchio
 eo:salatcikorio
+es:radicchio
 fi:punasikuri, punasalaatti
 fr:chicorée rouge, Radicchio, trévise, salade trévise
 hu:Vörös cikória
