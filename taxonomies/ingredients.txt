@@ -23573,6 +23573,11 @@ fr:flocons de céréales complètes
 sv:fullkornsflingor
 # ingredient/fr:flocons-de-cereales-completes has 26 products in 6 languages @2020-06-08
 
+<en:cereal
+<en:seed
+en:cereal and seed mixture
+es:mezcla de cereales y semillas
+
 ##################################################################################
 #
 #                        Sorghum
@@ -23596,6 +23601,15 @@ sk:cirok
 en:triticale
 es:triticale
 wikipedia:en:https://en.wikipedia.org/wiki/Triticale
+
+<en:triticale
+en:whole grain triticale
+es:triticale integral
+
+<en:cereal flour
+<en:triticale
+en:whole grain triticale flour
+es:harina integral de triticale
 
 ##################################################################################
 #
@@ -26281,7 +26295,7 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 <en:cereal flour
 en:spelt flour
 de:Dinkelmehl
-es:harina de espelta,harina de trigo espelta
+es:harina de espelta,harina de trigo espelta,harina gruesa de espelta
 fi:spelttijauho
 fr:farine d'épeautre, farine de blé d'épeautre
 hu:tönkölyliszt
@@ -28380,7 +28394,7 @@ es:azucar caramelizado en polvo
 <en:sugar
 en:white sugar
 de:weißer Zucker, Zucker
-es:Azúcar blanco,Azúcar blanco comun
+es:Azúcar blanco,Azúcar blanco comun,azúcar blanquilla
 fi:valkoinen sokeri
 fr:sucre blanc
 hu:fehér cukor
@@ -40007,12 +40021,16 @@ sv:passionsfruktsjuice från koncentrat
 
 <en:passion fruit
 <en:purée
+es:puré de fruta de la pasión
 fr:purée de fruit de la passion
 fi:passiohedelmäpyree
 nl:passievruchtenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruit-de-la-passion
 # 66 products in 2 languages @2018-09-29
 
+<en:flavour
+en:passion fruit flavour
+es:aroma de fruta de la pasión
 
 ###################################################################################################
 #
@@ -66640,6 +66658,9 @@ la:Nephrops norvegicus
 wikidata:en:Q551915
 # ingredient/fr:Nephrops-norvegicus has 5 products in french @2019-01-11
 
+<en:flavour
+en:lobster flavour
+es:aroma de langosta
 
 # The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 
