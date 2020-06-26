@@ -3547,13 +3547,6 @@ ciqual_food_name:en:Mixed fruits juice, pure juice, multivitamin
 ciqual_food_name:fr:Jus multifruit, pur jus, multivitaminé
 
 <en:Multifruit juices
-en:Multivitamin mixed fruits juice reconstituted from a concentrate
-fr:Jus multifruit à base de concentré
-ciqual_food_code:en:2069
-ciqual_food_name:en:Mixed fruits juice, reconstituted from a concentrate, multivitamin
-ciqual_food_name:fr:Jus multifruit, à base de concentré, standard
-
-<en:Multifruit juices
 en:Orange based mixed fruits multivitamin juice
 fr:Jus multifruit multivitaminé à base d'orange
 ciqual_food_code:en:2011
@@ -3562,12 +3555,15 @@ ciqual_food_name:fr:Jus multifruit - base orange, multivitaminé
 
 <en:Multifruit juices
 <en:Concentrated fruit juices
-en:Concentrated multifruit juices
+en:Concentrated multifruit juices, Multivitamin mixed fruits juice reconstituted from a concentrate
 de:Multifruchtsäfte aus Konzentrat
 es:Zumos multifruta procedente de concentrado
 fi:tiivistetyt monihedelmämehut
-fr:Jus multifruits à base de jus concentré, jus multifruits à base de concentrés
+fr:Jus multifruits à base de concentrés, jus multifruits à base de jus concentré, Jus multifruit à base de concentré
 nl:Multivruchtensappen uit concentraat, Multivruchtensap uit concentraat
+ciqual_food_code:en:2069
+ciqual_food_name:en:Mixed fruits juice, reconstituted from a concentrate, multivitamin
+ciqual_food_name:fr:Jus multifruit, à base de concentré, standard
 
 <en:Multifruit juices
 <en:Squeezed juices
@@ -38341,7 +38337,6 @@ ciqual_food_name:en:Potato, pre-fried into cubes, frozen, cooked
 ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
 
 <fr:Pommes de terre préfrites surgelées
->>>>>>> Stashed changes
 en:Frozen raw pre-fried potato cubes
 fr:Pommes de terre rissolée crues surgelées
 ciqual_food_code:en:4043
@@ -61945,7 +61940,6 @@ ciqual_food_name:en:Swiss chard, cooked
 ciqual_food_name:fr:Bette ou blette, cuite
 
 <en:Chards
->>>>>>> Stashed changes
 en:Raw Swiss chard
 fr:Bette crue, Blette crue
 ciqual_food_code:en:20004
