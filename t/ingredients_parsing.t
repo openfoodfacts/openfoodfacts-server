@@ -252,6 +252,15 @@ my @lists =(
 	["fr", "E102-E1400", "e102 - e1400"],
 	["de", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
 	["fr", "correcteurs d'acidité : E322/E333 E474-E475", "correcteurs d'acidité : e322/e333, e474 - e475"],
+	["es", "E-330; E-331; Estabilizantes (E-327; E-418)", "e330; e331; Estabilizantes (e327; e418)"],
+	["es", "E120 color", "e120 color"],
+	["es", "E172-i", "e172i"],
+	["es", "E172 i", "e172i"],
+	["es", "(E172i)", "(e172i)"],
+	["es", "E102(i)-E101i", "e102i - e101i"],
+	["es", "E102(i)", "e102i"],
+	["es", "S.I.N.:160 b", "e160b"],
+
 
 
 );
