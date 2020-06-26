@@ -26,5 +26,3 @@ jobs:
       uses: Difegue/action-perlcritic@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: ./lib/* ./script/* ./tools/install.pl
