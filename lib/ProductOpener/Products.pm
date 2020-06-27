@@ -646,7 +646,7 @@ sub compute_sort_keys($) {
 
 	my $product_ref = shift;
 
-	# put obsolete products last  		(add 200000000000 when products are not obsolete)
+	# put obsolete products last  		(substract 200000000000 when products are obsolete)
 	# then put complete products first	(add 100000000000 when products are complete)
 	# otherwise sort by last_modified_t (e.g.  1571384133)
 
@@ -695,11 +695,16 @@ sub compute_sort_keys($) {
 		}
 	}
 
+	# Put obsolete products last (negative key)
 	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
-		$sortkey += 200000000000;
+		$sortkey -= 200000000000;
+		$popularity_key -= 200000000000;
 	}
+
+	# Put products with complete data before uncomplete products
 	if ($product_ref->{complete}) {
 		$sortkey += 100000000000;
+		$popularity_key += 100000000000;
 	}
 
 # Add 0 so we are sure the key is saved as int
