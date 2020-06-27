@@ -9062,7 +9062,7 @@ fr:poudre de lait réhydratée
 <en:milk powder
 en:skimmed milk powder, nonfat dry milk,skimmed cow's milk powder
 bg:обезмаслено сухо мляко
-ca:llet desnatada en pols
+ca:llet desnatada en pols,Ilet en pols desnatada
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
@@ -9366,7 +9366,11 @@ nl:lactose en melkmineralen
 # ingredient/fr:lactose-et-minéraux-du-lait has 139 products in 5 languages @2019-04-16
 
 
-################################## YOGURT related stuff ########################
+###################################################################################################
+#
+#                                Yogurt
+#
+###################################################################################################
 
 <en:dairy
 en:yogurt, yoghurt, yogourt, yoghourt
@@ -9390,6 +9394,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
 vegan:en:no
+
+<en:yogurt
+en:sweetened plain yogurt
+ca:iogurt natural ensucrat
+es:yogur natural azucarado
 
 <en:yogurt
 en:organic yogurt
@@ -9526,7 +9535,11 @@ de:Joghurterzeugnis
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
-################################## KEFIR related stuff #########################
+###################################################################################################
+#
+#                                Kefir
+#
+###################################################################################################
 
 # Kefir or kephir is a fermented milk drink similar to a thin yogurt that is made from kefir grains, a specific type of mesophilic symbiotic culture. The drink originated in the Caucasus, Eastern Europe and Russia, where it is prepared by inoculating cow, goat, or sheep milk with kefir grains. Wikipedia contributors. (2019, September 6). Kefir. In Wikipedia, The Free Encyclopedia.
 
@@ -9605,7 +9618,11 @@ ca:quèfir de la llet desnatat, quèfir de la llet descremat
 de:Kefir mild, milder Kefir
 es:kéfir desnatado, kéfir descremado
 
-################################## WHEY related stuff ##########################
+###################################################################################################
+#
+#                                Whey
+#
+###################################################################################################
 
 # WHEY is the liquid remaining after milk has been curdled and strained.
 
@@ -9826,7 +9843,11 @@ en:condensed whey
 fi:kondensoitu hera
 # ingredient/en:condensed-whey has 55 products in 7 languages @2020-05-24
 
-################################## CREAM related stuff #########################
+###################################################################################################
+#
+#                                Cream
+#
+###################################################################################################
 
 # description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 # comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
@@ -10096,6 +10117,11 @@ nl:verse room
 pl:Świeża śmietana
 sv:Färsk grädde
 
+###################################################################################################
+#
+#                                Sour cream
+#
+###################################################################################################
 # description:SOUR CREAM is a dairy product obtained by fermenting regular cream with certain kinds of lactic acid bacteria. The bacterial culture, which is introduced either deliberately or naturally, sours and thickens the cream. Its name comes from the production of lactic acid by bacterial fermentation, which is called souring. Fat percentage is 18-20%
 # comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
 
@@ -10238,7 +10264,11 @@ it:panna fresca pastorizzata
 # ingredient/fr:creme-fraiche-pasteurisee has 164 products in 5 languages @2019-07-12
 # usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
-############################## SOURED MILK related stuff #######################
+###################################################################################################
+#
+#                                Soured milk
+#
+###################################################################################################
 
 <en:dairy
 en:soured milk, cultured milk, fermented milk
@@ -10278,8 +10308,11 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Soured_milk
 wikidata:en:Q253333
 
-############################### BUTTERMILK related stuff #######################
-
+###################################################################################################
+#
+#                                Buttermilk
+#
+###################################################################################################
 # description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 <en:dairy
@@ -22198,13 +22231,6 @@ fi:luontainen chiliaromi
 fr:arôme naturel de piment
 
 <en:natural flavouring
-en:natural mango flavouring
-de:natürliches Mangoaroma, natürliches Mango-Aroma
-fi:luontainen mangoaromi
-fr:arôme naturel de mangue
-hu:természetes mangó aroma
-
-<en:natural flavouring
 en:natural blueberry flavouring
 de:natürliches Heidelbeeraroma, natürliches Heidelbeer-Aroma, natürliches Blaubeeraroma, natürliches Blaubeer-Aroma
 fi:luontainen mustikka-aromi
@@ -23214,13 +23240,6 @@ nb:solbær aroma
 pl:aromat czarnej porzeczki
 sv:svartvinbärsarom
 # ingredient/fr:arome-cassis has 17 products in 4 languages @2020-06-13
-
-<en:flavouring
-en:mango flavouring
-fi:mangoaromi
-fr:arôme de mangue
-sv:mangoarom
-# ingredient/fr:arome-de-mangue has 6 products in 4 languages @2020-05-25
 
 <en:flavouring
 en:lime flavouring
@@ -30433,7 +30452,7 @@ vegetarian:en:no
 <en:animal protein
 # <en:dairy
 en:milk proteins
-ca:Proteina de la llet, proteines de la llet,proteïnes làcties
+ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 da:mælkeprotein
 de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
 es:proteína de leche,proteinas lacteas
@@ -35648,10 +35667,25 @@ de:Mangopulpe, Mangomark
 it:polpa di mango
 # ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
 
-<en:flavourings
-<en:mango
-en:mango scent
+##########################################
+#              Flavourings
+##########################################
+
+<en:flavouring
+en:mango flavouring
 es:aroma de mango
+fi:mangoaromi
+fr:arôme de mangue
+sv:mangoarom
+# ingredient/fr:arome-de-mangue has 6 products in 4 languages @2020-05-25
+
+<en:natural flavouring
+en:natural mango flavouring
+ca:aroma natural de mango
+de:natürliches Mangoaroma, natürliches Mango-Aroma
+fi:luontainen mangoaromi
+fr:arôme naturel de mangue
+hu:természetes mangó aroma
 
 ###################################################################################################
 #
