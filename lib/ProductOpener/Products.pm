@@ -96,7 +96,7 @@ BEGIN
 		&compute_languages
 		&compute_changes_diff_text
 		&compute_data_sources
-		&compute_sort_key
+		&compute_sort_keys
 
 		&add_back_field_values_removed_by_user
 
@@ -624,7 +624,7 @@ sub change_product_server_or_code($$$) {
 }
 
 
-=head2 compute_sort_key ( $product_ref )
+=head2 compute_sort_keys ( $product_ref )
 
 Compute sort keys that are stored in the MongoDB database and used to order results of queries.
 
@@ -642,7 +642,7 @@ Used for the Personal Search project to provide generic search results that apps
 
 =cut
 
-sub compute_sort_key($) {
+sub compute_sort_keys($) {
 
 	my $product_ref = shift;
 
@@ -876,7 +876,7 @@ sub store_product($$) {
 
 	compute_data_sources($product_ref);
 
-	compute_sort_key($product_ref);
+	compute_sort_keys($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string

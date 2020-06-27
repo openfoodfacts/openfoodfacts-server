@@ -913,7 +913,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_sort_key) {
-			compute_sort_key($product_ref);
+			compute_sort_keys($product_ref);
 		}
 
 		if (not $pretend) {
