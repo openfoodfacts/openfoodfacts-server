@@ -11528,7 +11528,13 @@ wikidata:en:Q182760
 wikipedia:en:https://en.wikipedia.org/wiki/Feta
 # fr:feta has 49 products in 3 languages @2018-10-28
 
+<en:cheese
+en:fontina
+wikipedia:en:https://en.wikipedia.org/wiki/Fontina
 
+<en:fontina
+en:fontal
+es:fontal
 
 # GORGONZOLA is a veined Italian blue cheese, made from unskimmed cow's milk.
 
@@ -16325,7 +16331,7 @@ fr:noix de jambon de porc
 
 <en:pork meat
 fr:filet et pointe de porc
-ca:llom de porc
+ca:llom de porc,llom de Porc Ibèric
 es:lomo de cerdo
 
 <en:pork meat
@@ -19380,7 +19386,7 @@ sv:ohärdad solrosolja
 en:refined sunflower oil
 ca:oli refinat de gira-sol
 de:Raffiniertes Sonnenblumenöl
-es:aceite refinado de girasol
+es:aceite refinado de girasol,aceite de girasol refinado
 fi:raffinoitu auringonkukkaöljy
 fr:huile de tournesol raffinée
 hu:finomított napraforgóolaj
@@ -24727,6 +24733,14 @@ fr:orge perlé
 hu:árpagyöngy
 # ingredient/fr:orge-perle has 21 products @2019-06-05
 
+<en:barley
+en:barley extract
+es:extracto de cebada
+
+<en:barley extract
+en:natural barley extract
+es:extracto natural de cebada
+
 ##################################################################################
 #
 #                        Malt
@@ -25284,7 +25298,7 @@ sv:havrefiber
 
 <en:oat
 en:whole grain rolled oats, whole oat flakes
-ca:floca de civada integral
+ca:floca de civada integral,flocs de civada integral
 da:fullkornshavregryn
 de:Vollkorn-Haferflocken, Vollkorn haferflocken, Vollkornhaferflocken, Hafervollkornflocken, Vollkornhaferschrot
 es:Avena integral laminada
@@ -26304,6 +26318,7 @@ sv:fullkornskornmjöl
 
 <en:barley flour
 en:barley malt flour, malted barley flour
+ca:farina de malta d'ordi
 da:bygmaltmel
 de:Gerstenmalzmehl
 es:harina de malta de cebada
@@ -26756,7 +26771,7 @@ bn:ভুট্টা
 bo:ཨ་ཤོམ།
 br:Maiz
 bs:Kukuruz
-ca:Dacsa
+ca:Dacsa,blat de moro
 ce:ХьаьжкӀа
 cs:Kukuřice setá
 cv:Чакан тулă
@@ -27016,7 +27031,7 @@ nl:gedextrineerd maïsmeel
 
 <en:corn
 en:corn flakes, cornflakes
-ca:blat de moro
+ca:flocs de blat de moro
 de:Maisflakes, Cornflakes
 es:copos de maíz, corn flakes
 et:maisihelbed
@@ -28331,6 +28346,11 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de canne
 carbon_footprint_fr_foodges_value:fr:1.3
+
+<en:sugar
+en:sugared,sugary
+ca:ensucrade,ensucrades
+es:azucarada,azucaradas
 
 <en:sugar
 en:organic sugar
@@ -35187,7 +35207,7 @@ bn:কলা
 bo:ངང་ལག
 br:Bananez
 bs:Banana
-ca:Banana,plàtan
+ca:Banana,plàtan,plàtans 
 ce:Банан
 co:Banana
 cs:Banán
@@ -36143,7 +36163,7 @@ bn:আপেল
 bo:ཀུ་ཤུ།
 br:Aval
 bs:Jabuka
-ca:Anioxidant, agent antienfosquiment
+ca:poma,pommes
 ce:Ӏаж
 co:mela
 cs:jablko
@@ -38840,7 +38860,7 @@ en:coconut
 ak:kube
 ar:نارجيل
 bg:Кокосов орех
-ca:coco
+ca:coco,cocos
 cs:kokosový ořech
 da:kokos, kokosnød
 de:Kokos, Kokosnuss
@@ -39994,6 +40014,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/watermelon
 <en:fruit
 en:papaya
 ak:Bofr3
+ca:papaie,papaies
 da:Papaja
 de:Papaye
 ee:adiba
@@ -40094,6 +40115,7 @@ ak:aborɔbɛ
 ay:Achupalla
 bo:ཐང་འབྲས།
 cs:ananas
+ca:pinya,pinyes 
 da:ananas
 de:Ananas
 dv:އަލަނާސި
@@ -40349,15 +40371,18 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
 # 35 products in 1 language @2018-09-30
 
 <en:fruit
-en:custard apple, cherimoya, persimmon
+en:custard apple, cherimoya
 es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:sharon fruit
-es:kaki
+en:persimmon,sharon fruit
+es:caqui
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
+<en:persimmon
+en:persimmon juice
+es:zumo de caqui
 
 <en:prune
 en:prune juice
@@ -41159,7 +41184,7 @@ az:Kişmiş
 be:Разынкі
 bg:Стафида
 bs:Grožđica
-ca:pansa,panses sultanes
+ca:pansa,panses sultanes,panses 
 cs:rozinka
 da:Rosin
 de:Rosine, Rosinen
@@ -42411,6 +42436,9 @@ nl:tamarinde-extract
 sv:tamarindextrakt
 # ingredient/fr:extrait-de-tamarin has 29 products in 6 languages @2019-02-07
 
+<en:tamarind
+en:tamarind paste
+es:pasta de tamarindo
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -56948,6 +56976,24 @@ en:organic lemon balm
 fi:luomu sitruunamelissa
 fr:mélisse bio
 
+###################################################################################################
+#
+#                                Lemon beebrush
+#
+###################################################################################################
+
+<en:plant
+en:lemon beebrush
+es:hierba luisa
+la:aloysia citrodora
+wikipedia:en:https://es.wikipedia.org/wiki/Aloysia_citrodora
+
+###################################################################################################
+#
+#                                Lettuce
+#
+###################################################################################################
+
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
@@ -57105,6 +57151,11 @@ nl:Linde, lindebloesem
 wikipedia:en:https://en.wikipedia.org/wiki/Tilia
 # ingredient/fr:tilleul has 109 products in 4 languages @2019-01-23
 
+###################################################################################################
+#
+#                                Ginseng
+#
+###################################################################################################
 <en:plant
 en:ginseng
 da:ginseng
@@ -57120,6 +57171,11 @@ fr:extrait de racine de panax ginseng
 sv:panax ginseng rotextrakt
 # ingredient/en:panax-ginseng-root-extract has 117 products in 2 languages @2020-05-21
 
+###################################################################################################
+#
+#                                Liquorice
+#
+###################################################################################################
 # LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
 <en:plant
@@ -57267,6 +57323,11 @@ sv:lakritsdragé
 # usage:fi:lakritsirae (sokeri, glukoosi-fruktoosisiirappi, melassi, vehnäjauho, vesi, modifioitu perunatärkkelys, maissitärkkelys, kasviöljy (palmu), ammoniumkloridi (salmiakki), liivate, emulgointiaine (E471), lakritsiuute, sakeuttamisaine (E414), suola, aromi, väri (E171))
 
 # description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
+###################################################################################################
+#
+#                                Mate
+#
+###################################################################################################
 
 <en:plant
 en:mate
@@ -57331,6 +57392,11 @@ wikidata:en:Q203540
 wikipedia:en:https://en.wikipedia.org/wiki/Mate_(drink)
 # ingredient/fr:mate has 39 products @2019-05-27
 
+###################################################################################################
+#
+#                                Meadowsweet
+#
+###################################################################################################
 # description:en:FILIPENDULA ULMARIA, commonly known as MEADOWSWEET or mead wort, is a perennial herb in the family Rosaceae that grows in damp meadows.
 
 <en:plant
@@ -57383,6 +57449,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 
 
 
+###################################################################################################
+#
+#                                Nettle
+#
+###################################################################################################
 # description:en:NETTLES or stinging nettles, applies particularly to Urtica dioica. U. dioica has a flavour similar to spinach mixed with cucumber when cooked, and is rich in vitamins A and C, iron, potassium, manganese, and calcium.
 # comment:en:For the translations the latin name is not used, but the popular name.
 
@@ -57670,6 +57741,11 @@ fr:pin sylvestre
 la:Pinus sylvestris
 
 
+###################################################################################################
+#
+#                                Quinine
+#
+###################################################################################################
 # description:en:Quinine was first isolated in 1820 from the bark of a cinchona tree. Quinine is a flavor component of tonic water and bitter lemon drink mixers.
 
 <en:plant
@@ -57744,6 +57820,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quinine
 # usage:en:flavourings (contains quinine)
 
 
+###################################################################################################
+#
+#                                Ribwort plantain
+#
+###################################################################################################
 # description:en:Plantago lanceolata is a species of flowering plant in the plantain family Plantaginaceae.
 
 <fr:plantain
@@ -57817,6 +57898,11 @@ en:hibiscus
 es:hibisco
 wikipedia:en:https://en.wikipedia.org/wiki/Hibiscus
 
+###################################################################################################
+#
+#                                Rooibos
+#
+###################################################################################################
 # description:en:ROOIBOS (Aspalathus linearis), meaning 'red bush'; is a broom-like member of the Fabaceae family of plants that grows in South Africa's fynbos. The leaves are used to make a herbal tea that is called by the names:rooibos, bush tea (especially in Southern Africa), red tea, or redbush tea. The tea has a taste and color somewhat similar to hibiscus tea, with more or less of an earthy flavor like yerba mate.
 
 <en:plant
@@ -62126,6 +62212,11 @@ de:Kapelan (Mallotus villosus)
 la:Mallotus villosus
 
 
+###################################################################################################
+#
+#                                Cod
+#
+###################################################################################################
 # Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae.
 
 <en:fish
@@ -62275,6 +62366,11 @@ fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
+###################################################################################################
+#
+#                                Corvina
+#
+###################################################################################################
 # The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
 
 <en:fish
@@ -62315,6 +62411,11 @@ carbon_footprint_fr_foodges_value:fr:12
 en:Sebastes mentella
 la:Sebastes mentella
 
+###################################################################################################
+#
+#                                Conger/European conger
+#
+###################################################################################################
 
 # The European conger (Conger conger) is a species of conger of the family Congridae. It is the largest eel in the world and native to the northeast Atlantic, including the Mediterranean Sea.
 
@@ -62372,7 +62473,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_conger
 en:Conger conger
 la:Conger conger
 
+###################################################################################################
+#
+#                                Garfish
+#
+###################################################################################################
 
+<en:fish
+<en:oily fish
+en:garfish,garpike
+es:aguja
+la:belone belone
+wikipedia:en:https://en.wikipedia.org/wiki/Garfish
+
+###################################################################################################
+#
+#                                Perch
+#
+###################################################################################################
+
+<en:fish
+<en:white fish
+en:perch
+es:perca
+
+<en:perch
+en:nile perch
+es:perca del nilo
+la:lates niloticus
+wikipedia:en:https://en.wikipedia.org/wiki/Nile_perch
+
+###################################################################################################
+#
+#                                Plaice
+#
+###################################################################################################
 # The European plaice (Pleuronectes platessa) is a commercially important flatfish
 
 <en:fish
@@ -63364,14 +63499,14 @@ az:Sardina
 be:Сардзіны
 bg:сардина
 br:Sardin
-ca:sardina
+ca:sardina,sardines
 cs:sardinka obecná
 cy:Sardîn
 da:Sardin
 de:Sardine, Sardinen
 el:Σαρδέλα
 eo:Sardino
-es:sardina,sardines,sardina pilchardus walbaum
+es:sardina,sardines
 eu:Sardina
 fa:ساردین
 fi:sardiini, sardiinit
@@ -63428,10 +63563,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_pilchard
 
 <en:sardine
 en:Sardina pilchardus
-de:Sardine (Sardina pilchardus)
-fr:Sardina pilchardus, Sardine
-la:Sardina pilchardus
-# usage:fr:Sardines (Sardina pilchardus)
+la:sardina pilchardus walbaum,sardina pilchardus
 
 <en:sardine
 en:sardine fillets
@@ -65791,6 +65923,7 @@ ka:კალმარები
 kk:Кальмар
 ko:살오징어목
 ky:Кальмарлар
+la:loligo spp
 lt:Kalmarai
 lv:Kalmāri
 ml:കൂന്തൾ
@@ -70782,6 +70915,10 @@ zh:鹌鹑蛋
 wikidata:en:Q1572135
 wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 # ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
+
+<en:egg
+en:egg derivatives
+es:derivado del huevo
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
