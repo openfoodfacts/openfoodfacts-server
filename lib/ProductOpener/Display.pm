@@ -7038,7 +7038,7 @@ HTML
 			}
 
 			my $html = <<HTML
-<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc tiny button" type="button">Unselect image</button></div>
 HTML
 ;
 
@@ -7732,7 +7732,7 @@ HTML
 		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
 	}
 
-		$html .= <<HTML
+	$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}$ingredients_text_lang_html</h2>
 <div class="row">
 <div class="hide-for-large-up medium-12 columns">$html_image</div>
@@ -7740,33 +7740,34 @@ HTML
 HTML
 ;
 
+	if ($ingredients_text ne "") {
 
-	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
-	if ($lc ne $ingredients_text_lang) {
-		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
-	}
-	else {
-		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
-	}
-	$html .= "</div>";
+		$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
+		$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
+		if ($lc ne $ingredients_text_lang) {
+			$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
+		}
+		else {
+			$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
+		}
+		$html .= "</div>";
 
-	if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
+		if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
 
-			my $ilc = $ingredients_text_lang;
+				my $ilc = $ingredients_text_lang;
 
-			$html .= <<HTML
+				$html .= <<HTML
 
-<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients$ingredients_text_lang_html</div>
+<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="tiny button" type="button">Edit ingredients$ingredients_text_lang_html</div>
 <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients$ingredients_text_lang_html</div>
+<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="tiny button" type="button">Save ingredients$ingredients_text_lang_html</div>
 
 
-<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients$ingredients_text_lang_html are completely bogus, erase them.</button></div>
+<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="tiny button" type="button">Ingredients$ingredients_text_lang_html are completely bogus, erase them.</button></div>
 HTML
 ;
 
-			$initjs .= <<JS
+				$initjs .= <<JS
 
 	var editableText;
 
@@ -7838,7 +7839,18 @@ HTML
 JS
 ;
 
+		}
+
 	}
+	
+	# Offer to add the ingredients in the language of the interface
+		
+	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
+		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
+		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
+		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
+		. "</p>";
+	}	
 
 	$html .= display_field($product_ref, 'allergens');
 
