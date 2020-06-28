@@ -7723,11 +7723,17 @@ HTML
 	if (not defined $ingredients_text) {
 		$ingredients_text = "";
 	}
-
-
+	
+	# Indicate if we are displaying ingredients in another language than the language of the interface
+	
+	my $ingredients_text_lang_html = "";
+	
+	if (($ingredients_text ne "") and ($ingredients_text_lang ne $lc)) {
+		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
+	}
 
 		$html .= <<HTML
-<h2>$Lang{ingredients}{$lc}</h2>
+<h2>$Lang{ingredients}{$lc}$ingredients_text_lang_html</h2>
 <div class="row">
 <div class="hide-for-large-up medium-12 columns">$html_image</div>
 <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
@@ -7749,15 +7755,14 @@ HTML
 
 			my $ilc = $ingredients_text_lang;
 
-
 			$html .= <<HTML
 
-<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ($ilc)</div>
+<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients$ingredients_text_lang_html</div>
 <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ($ilc)</div>
+<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients$ingredients_text_lang_html</div>
 
 
-<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ($ilc) are completely bogus, erase them.</button></div>
+<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients$ingredients_text_lang_html are completely bogus, erase them.</button></div>
 HTML
 ;
 
