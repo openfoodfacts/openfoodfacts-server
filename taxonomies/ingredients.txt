@@ -8767,7 +8767,7 @@ wikidata:en:Q16571278
 
 <en:buffalo milk
 en:pasteurised buffalo milk
-ca:llet de búfala pasteuritzada, llet pasteuritada de búfala
+ca:llet de búfala pasteuritzada, llet pasteuritzada de búfala
 de:pasteurisierte Büffelmilch
 es:leche de búfala pasteurizada, leche pasteurizada de búfala
 fi:pastöroitu puhvelinmaito
@@ -9556,7 +9556,7 @@ da:Kefir
 de:Kefir
 el:Κεφίρ
 eo:Kefiro
-es:Kéfir
+es:Kéfir,cultivo de kefir
 et:Keefir
 eu:Kefir
 fa:کفیر
@@ -11676,7 +11676,7 @@ cs:Grana Padano
 cv:Грана Падано
 de:Grana Padano
 eo:Грана Падано
-es:Grana Padano,queso Grana Padano
+es:Grana Padano,queso Grana Padano,queso DOP Grana Padano
 et:Grana Padano
 fi:Grana Padano, Grana Padano -juusto
 fr:grana padano, fromage grana padano
@@ -11927,7 +11927,7 @@ da:mozzarella, mozzarella ost
 de:Mozzarella
 el:Μοτσαρέλα, τυρι Μοτσαρέλλα
 eo:Mocarelo
-es:mozzarella, queso mozzarella
+es:mozzarella, queso mozzarella,queso mozarella
 et:mozzarella
 eu:mozzarella
 fa:موزارلا
@@ -12134,6 +12134,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 <en:pecorino
 en:pecorino romano, romano, Peccorino Romano PDO cheese
 de:Pecorino Romano
+es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
 fr:pecorino romano, romano, fromage pecorino romano aop
 it:Pecorino romano
@@ -21528,7 +21529,7 @@ da:Portvin
 de:Portwein
 el:Πόρτο
 eo:Oporto
-es:Oporto
+es:Oporto,vino oporto
 eu:Porto
 fa:شراب پورت
 fi:Portviini
@@ -23599,7 +23600,7 @@ sv:fullkornsflingor
 <en:cereal
 <en:seed
 en:cereal and seed mixture
-es:mezcla de cereales y semillas
+es:mezcla de cereales y semillas,mix de cereales y semillas
 
 ##################################################################################
 #
@@ -28709,6 +28710,10 @@ sv:demerarasocker
 wikidata:en:Q837194
 # ingredient/fr:sucre-demerara has 36 products in 3 languages @2020-06-08
 
+<en:unrefined cane sugar
+<en:whole cane sugar
+en:unrefined whole cane sugar
+es:azúcar de caña integral no refinada,panela
 
 <en:sugar
 en:beet sugar
@@ -50000,6 +50005,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 
+<en:chickpea
+en:pedrosillano chickpeas
+ca:cigrons pedrosillanos
+es:Garbanzos pedrosillanos
+
 # This is the plant, not the peas themselves
 
 <en:chickpea
@@ -50803,7 +50813,7 @@ cs:kešu ořechy
 da:cashewnødder
 de:Cashewkerne, Kaschunüsse, Cashewnüsse
 el:καρύδια κάσιους
-es:anacardos
+es:anacardos,nueces de anacardos
 et:kašupähklid, India pähkel, kašupähkleid
 fi:cashewpähkinä, cashewpähkinät
 fr:noix de cajou
@@ -54518,6 +54528,10 @@ zh:蒔蘿
 wikidata:en:Q26686
 wikipedia:en:https://en.wikipedia.org/wiki/Dill
 # ingredient/fr:aneth has 512 products in 6 languages @2018-10-10
+
+<en:dill
+en:dill seeds
+es:semillas de eneldo
 
 <en:dill
 en:organic dill seed
@@ -59155,7 +59169,7 @@ da:Wasabi
 de:Wasabi
 el:Γουασάμπι
 eo:Vasabio
-es:wasabi
+es:wasabi,salsa de wasabi
 et:Vasaabi
 eu:Wasabi
 fa:ואסאבי
@@ -59770,7 +59784,7 @@ da:nori
 de:Nori
 el:νόρι
 eo:norio
-es:nori
+es:nori,alga nori
 et:nori
 eu:Nori
 fa:نوری
@@ -60396,8 +60410,6 @@ carbon_footprint_fr_foodges_value:fr:1.9
 <en:champignon
 fr:champignons de Paris émincés
 
-
-
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
 <en:mushroom
@@ -60407,7 +60419,7 @@ ca:trompeta de la mort
 cs:stroček trubkovitý
 cy:Corn llawnder
 de:Totentrompete
-es:Craterellus
+es:Craterellus,trompetas de la muerte
 fi:Mustatorvisieni
 fr:Trompettes de la mort
 gl:Trompeta dos mortos
@@ -65409,6 +65421,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 # ingredient/fr:Eledone-moschata has 2 products @2019-01-04
 
 
+###################################################################################################
+#
+#                                Oyster
+#
+###################################################################################################
 # Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
 
 <en:mollusc
@@ -65488,6 +65505,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Oyster
 <en:oyster
 fr:extrait d'huître
 
+<en:flavour
+en:oyster flavour
+es:aroma de ostras
+
 # description:en:The Pacific oyster is an oyster native to the Pacific coast of Asia. It has become an introduced species in North America, Australia, Europe, and New Zealand.
 
 <en:oyster
@@ -65528,6 +65549,11 @@ la:Crassostrea gigas
 wikidata:en:Q20857
 wikipedia:en:https://en.wikipedia.org/wiki/Pacific_oyster
 
+###################################################################################################
+#
+#                                Scallop
+#
+###################################################################################################
 # Scallop is a common name that is primarily applied to any one of numerous species of saltwater clams or marine bivalve mollusks in the taxonomic family Pectinidae, the scallops.
 
 <en:mollusc
@@ -65742,6 +65768,11 @@ wikidata:en:Q3802698
 # ingredient/fr:Chlamys-albidus has 12 products @2018-01-13
 
 
+###################################################################################################
+#
+#                                Sea squirt
+#
+###################################################################################################
 # Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
 
 #? not sure whether this should be counted as a mollusc
@@ -65804,6 +65835,11 @@ wikidata:en:Q190090
 # ingredient/sea-squirt has 4 products @2019-01-13
 
 
+###################################################################################################
+#
+#                                Snail
+#
+###################################################################################################
 # A snail is, in loose terms, a shelled gastropod. The name is most often applied to land snails, terrestrial pulmonate gastropod molluscs.
 
 <en:mollusc
@@ -65909,6 +65945,11 @@ la:Helix pomatia
 <en:snail
 fr:chairs d'escargots
 
+###################################################################################################
+#
+#                                Squid
+#
+###################################################################################################
 # Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
 <en:mollusc
@@ -66144,6 +66185,11 @@ es:tinta de calamar
 en:squid ink substitute
 es:sucedáneo de tinta de calamar
 
+###################################################################################################
+#
+#                                Clam
+#
+###################################################################################################
 # Clam is a common name for several kinds of bivalve molluscs.
 
 <en:mollusc
@@ -70947,7 +70993,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 
 <en:egg
 en:egg derivatives
-es:derivado del huevo
+es:derivado del huevo,derivado de huevo
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
