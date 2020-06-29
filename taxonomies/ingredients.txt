@@ -17635,7 +17635,7 @@ bg:млечна мазнина
 cs:mléčný tuk
 da:mælkefedt
 de:Milchfett
-es:materia grasa láctea, grasa de leche,grasa lactea
+es:materia grasa láctea, grasa de leche,grasa lactea,grasa láctea anhidra,materia grasa lactea anhidra
 et:piimarasv
 fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
@@ -35369,7 +35369,7 @@ it:fiocchi di banane
 
 <en:banana
 en:banana chips
-es:chips de platano
+es:chips de platano,copos de plátano
 
 <en:banana
 <en:purée
@@ -45309,7 +45309,7 @@ cs:celer bulvový
 da:Knoldselleri
 de:Knollensellerie
 eo:tubercelerio
-es:Apio nabo
+es:Apio nabo,raiz de apio
 et:Juurseller
 fi:mukulaselleri, juuriselleri
 fr:céleri-rave, céleri rave
@@ -51748,6 +51748,10 @@ sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
+en:cottonseed
+es:semillas de algodón
+
+<en:seed
 en:fennel seed
 da:fennikelfrø
 de:Fenchelsamen, Fenchelsaat
@@ -57657,22 +57661,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr:1.7
 
 <en:olive
-en:black olive
-ca:oliva negra
-da:Sorte oliven
-de:schwarze Oliven
-es:aceituna negra, oliva negra
-fi:musta oliivi
-fr:olives noires, olive noire
-it:olive nere
-nl:zwarte olijven, zwarte olijf
-pl:Czarne oliwki
-pt:azeitonas pretas
-sv:svarta oliver
-wikidata:en:Q56475549
-# ingredient/black-olive has 872 products in 7 languages @2018-12-01
-
-<en:olive
 en:green olives
 ca:oliva verda, oliva mançanenca verda
 da:Grønne oliven
@@ -57693,6 +57681,10 @@ de:Grüne Oliven eintsteint
 nl:ontpitte groene olijven
 # ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
 
+<en:green olives
+en:green olives with pits
+es:aceitunas verdes con huesos
+
 <fr:olive verte
 <en:black olive
 en:green and black olives
@@ -57700,6 +57692,22 @@ de:grüne und schwarze Oliven
 fi:vihreä ja musta oliivi, vihreät ja mustat oliivit
 fr:olives vertes et noires
 # ingredient/fr:olives-vertes-et-noires has 22 products in 3 languages @2018-12-01
+
+<en:olive
+en:black olive
+ca:oliva negra
+da:Sorte oliven
+de:schwarze Oliven
+es:aceituna negra, oliva negra
+fi:musta oliivi
+fr:olives noires, olive noire
+it:olive nere
+nl:zwarte olijven, zwarte olijf
+pl:Czarne oliwki
+pt:azeitonas pretas
+sv:svarta oliver
+wikidata:en:Q56475549
+# ingredient/black-olive has 872 products in 7 languages @2018-12-01
 
 <en:black olive
 fr:olives noires avec noyau
@@ -60741,6 +60749,7 @@ en:nameko
 ar:ناميكو
 cs:šupinovka nameko
 de:Japanisches Stockschwämmchen
+es:nameco
 fr:Pholiota microspora, Pholiota nameko, Nameko
 ja:ナメコ
 ko:나도팽나무버섯
@@ -74565,6 +74574,10 @@ wikidata:en:Q23374
 wikipedia:en:https://en.wikipedia.org/wiki/Chorizo
 # ingredient/fr:chorizo has 210 products in 6 languages @2019-04-24
 # usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
+
+<en:flavour
+en:meat flavour
+es:aroma de carne
 
 <en:meat
 en:black pudding
