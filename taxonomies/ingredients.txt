@@ -6516,7 +6516,7 @@ nl:geselecteerde fermenten
 en:bifidus, bifidus culture
 ca:Bifidus, Bifidobacteri
 de:Bifidus
-es:bifidus, Bifidobacterium
+es:bifidus, Bifidobacterium,bifidobacterias
 et:Bifidobakter
 fa:بیفیدوباکتر
 fi:bifidus, bifidus-viljelmä
@@ -17130,6 +17130,7 @@ pt:amido modificado de tapioca
 sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
 
 en:tapioca syrup
+es:sirope de tapioca
 fr:sirop de tapioca
 vegan:en:yes
 vegetarian:en:yes
@@ -17672,7 +17673,7 @@ eo:laktograso
 es:grasa butírica, mantequilla concentrada,mantequilla anhidra
 et:võirasv
 fi:voiöljy, voirasva, tiivistetty voi, vedetön maitorasva
-fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré
+fr:matière grasse butyrique, graisse butyrique, beurre purifié, beurre fondu, beurre pâtissier, matière grasse laitière anhydre, beurre laitier concentré, beurre concentré,beurre anhydre
 hu:vajzsír, vajolaj, derített vaj
 id:lemak susu
 it:burro anidro, burro di pasticceria, burro concentrato
@@ -22953,22 +22954,6 @@ fr:arôme naturel de fleur d'oranger
 hu:természetes narancsvirág aroma
 
 <en:flavouring
-en:citrus flavouring
-de:Zitrusfruchtaroma, Zitrusfrucht-Aroma
-fi:sitrusaromi
-fr:arôme d'agrume
-hu:citrus aroma
-
-<en:natural flavouring
-<en:citrus flavouring
-en:natural citrus flavouring
-de:natürliches Citrusaroma, natürliches Zitrusaroma
-fi:luontainen sitrusaromi
-fr:arôme naturel d'agrumes
-hu:természetes citrus aroma
-sv:naturlig citronarom
-
-<en:flavouring
 en:seafood flavouring
 de:Meeresfrüchtearoma, Meeresfrüchte-Aroma
 fr:arôme de fruits de mer
@@ -24922,6 +24907,10 @@ fr:sirop d'orge malté
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
+
+<en:syrup
+en:malt syrup
+es:jarabe de malta
 
 ##################################################################################
 #
@@ -27033,7 +27022,7 @@ nl:gedextrineerd maïsmeel
 en:corn flakes, cornflakes
 ca:flocs de blat de moro
 de:Maisflakes, Cornflakes
-es:copos de maíz, corn flakes
+es:copos de maíz, corn flakes,cornflakes
 et:maisihelbed
 fi:maissihiutale, maissihiutaleet
 fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maïs
@@ -32309,6 +32298,11 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
+#This is the actual flower, not flour
+<en:soya
+en:soya flower
+es:flor de soja
+
 <en:soya
 en:texturised soya protein, texturised vegetable protein
 es:proteina de soja texturizada
@@ -32553,6 +32547,7 @@ it:maltodestrine da tapioca
 
 <en:maltodextrin
 en:potato maltodextrin
+es:maltodextrina de patata
 de:Kartoffel-Maltodextrin
 fi:perunamaltodekstriini
 fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
@@ -36705,6 +36700,15 @@ fr:pur jus de pommes à cidre bio
 
 ###################################################################################################
 #
+#                                Boabab
+#
+###################################################################################################
+<en:fruit
+en:boabab,boabab fruit
+es:boabab fruto
+
+###################################################################################################
+#
 #                                Citrus fruit
 #
 ###################################################################################################
@@ -36820,6 +36824,23 @@ fr:Extrait d'agrumes
 
 <en:citrus fruit
 fr:écorces d'agrumes
+
+<en:flavouring
+en:citrus flavouring
+de:Zitrusfruchtaroma, Zitrusfrucht-Aroma
+fi:sitrusaromi
+fr:arôme d'agrume
+hu:citrus aroma
+
+<en:natural flavouring
+<en:citrus flavouring
+en:natural citrus flavouring
+es:aroma natural de cítricos
+de:natürliches Citrusaroma, natürliches Zitrusaroma
+fi:luontainen sitrusaromi
+fr:arôme naturel d'agrumes
+hu:természetes citrus aroma
+sv:naturlig citronarom
 
 ###################################################################################################
 #
@@ -44070,6 +44091,10 @@ es:Remolacha en polvo
 fi:punajuurijauhe
 fr:poudre de betterave
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
+
+<en:beetroot
+en:beetroot sugar
+es:azucar de remolacha
 
 <en:beetroot
 en:beetroot syrup
@@ -57712,7 +57737,7 @@ es:aceituna gordal
 
 <en:green olive
 en:manzanilla olive
-es:aceituna verde manzanilla,aceitunas verdes manzanilla
+es:aceituna verde manzanilla,aceitunas verdes manzanilla,aceituna manzanilla verde
 
 <en:plant
 en:orange leaves
@@ -67505,7 +67530,7 @@ fr:miel crémeux bio, miel de fleurs crémeux issu de l'agriculture biologique
 en:flower honey
 da:blomsterhonning
 de:Blütenhonig
-es:miel de flores
+es:miel de flores,miel mil flores
 fi:kukkahunaja
 fr:miel de fleurs, miel de nectar
 it:miele di fiori
@@ -70232,6 +70257,10 @@ vegan:en:no
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
+
+<en:flavour
+en:egg flavour
+es:aroma de huevo
 
 <en:eggs
 en:large eggs
