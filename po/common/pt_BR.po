@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
+"Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 07:27\n"
+"PO-Revision-Date: 2020-06-29 22:38\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,35 +52,35 @@ msgstr "Registrar"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Bem-vindo(a)!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Obrigado por se juntar a nós!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Agora você pode adicionar e editar produtos na web ou com nosso <a href=\"%s\">aplicativo móvel gratuito</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Junte-se a nós no Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s é um projeto colaborativo ao qual você pode trazer muito mais do que novos produtos: sua energia, entusiasmo e ideias!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Usamos um sistema de discussão chamado Slack, onde todos os participantes do projeto podem trocar e colaborar. Por favor, se junte! Ficaremos felizes em conhecê-lo!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Junte-se a nós no Slack"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Agora você pode importar facilmente os dados e as fotos do seu produto."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
@@ -88,19 +88,19 @@ msgstr ""
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Já existe uma organização com o nome %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Sua solicitação para ingressar na organização está pendente de aprovação do administrador da organização."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Envie um e-mail para <a href=\"mailto:producers@openfoodfacts.org\">produtores@openfoodfacts.org</a> se você tiver alguma dúvida."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Se você trabalha para um produtor ou marca e adicionará ou completará dados apenas para seus próprios produtos, você pode ter acesso gratuito à nossa Plataforma de Produtores."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
@@ -108,23 +108,23 @@ msgstr ""
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Conta profissional"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Esta é uma conta de produtor ou de marca."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "Produtor ou marca"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Contas profissionais devem ter uma organização associada (nome da empresa ou marca)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Por favor, digite o nome da sua organização (nome da empresa ou marca)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
@@ -578,7 +578,7 @@ msgstr "Parâmetros da conta"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Os parâmetros da sua conta foram alterados."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -4287,4 +4287,9 @@ msgstr ""
 msgctxt "footer_producers"
 msgid "Producers"
 msgstr ""
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr "Se este produto tem uma lista de ingredientes em %s, por favor adicione-o."
 
