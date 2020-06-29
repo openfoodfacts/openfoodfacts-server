@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 07:16\n"
+"PO-Revision-Date: 2020-06-29 22:26\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3544,11 +3544,11 @@ msgstr "Varmista tuottajien alustan tietojen oikeellisuus ennen kuin viet ne jul
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Vie kuvat julkiseen tietokantaan"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Korvaa valitut kuvat"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4280,9 +4280,14 @@ msgstr "Liity #ingredients-kanavalle <a href=\"https://slack.openfoodfacts.org\"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://fi.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
+msgstr "Tuottajat"
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
 msgstr ""
 
