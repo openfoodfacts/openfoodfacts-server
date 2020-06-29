@@ -3972,6 +3972,10 @@ sub search_and_display_products($$$$$) {
 			$order = -1;
 			$sort_ref->Push($sort_by => $order);
 		}
+		elsif ($sort_by eq "popularity_key") {
+			$order = -1;
+			$sort_ref->Push($sort_by => $order);
+		}
 		else {
 			$sort_ref->Push($sort_by => $order);
 		}
