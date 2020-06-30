@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-21 06:31\n"
+"PO-Revision-Date: 2020-06-30 04:04\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -100,7 +100,7 @@ msgstr "Invia un'e-mail a <a href=\"mailto:producers@openfoodfacts.org\">produce
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Se lavori per un produttore o un marchio e aggiungerai o completerai i dati solo per i tuoi prodotti, è possibile accedere alla nostra Piattaforma completamente gratuita per i produttori."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
@@ -128,7 +128,7 @@ msgstr "Inserisci il nome della tua organizzazione (nome dell'azienda o marchio)
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Questo account è un account professionale associato al produttore o marchio %s. Hai accesso alla Piattaforma per i produttori."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -4290,4 +4290,9 @@ msgstr "https://world.pro.openfoodfacts.org/"
 msgctxt "footer_producers"
 msgid "Producers"
 msgstr "Produttori"
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
 
