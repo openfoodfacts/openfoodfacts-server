@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-30 11:37\n"
+"PO-Revision-Date: 2020-06-30 13:12\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,7 +52,7 @@ msgstr "Registrar"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "Bem-vindo(a)!"
+msgstr "Bem-vindos!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -72,7 +72,7 @@ msgstr "%s é um projeto colaborativo ao qual você pode trazer muito mais do qu
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr "Usamos um sistema de discussão chamado Slack, onde todos os participantes do projeto podem trocar e colaborar. Por favor, se junte! Ficaremos felizes em conhecê-lo!"
+msgstr "Usamos um sistema de discussão chamado Slack, onde todos os participantes do projeto podem trocar conhecimeno e colaborar. Por favor, se junte á nós! Ficaremos felizes em conhecê-lo!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -92,15 +92,15 @@ msgstr "Já existe uma organização com o nome %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr "Sua solicitação para ingressar na organização está pendente de aprovação do administrador da organização."
+msgstr "Sua solicitação para ingressar na organização está pendente de aprovação do administrador."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Envie um e-mail para <a href=\"mailto:producers@openfoodfacts.org\">produtores@openfoodfacts.org</a> se você tiver alguma dúvida."
+msgstr "Envie um e-mail para <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> se você tiver alguma dúvida."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr "Se você trabalha para um produtor ou marca e adicionará ou completará dados apenas para seus próprios produtos, você pode ter acesso gratuito à nossa Plataforma de Produtores."
+msgstr "Se você trabalha para um produtor ou marca e irá adicionar ou completar dados apenas para seus próprios produtos, você pode ter acesso gratuito à nossa Plataforma de Produtores."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
@@ -128,7 +128,7 @@ msgstr "Por favor, digite o nome da sua organização (nome da empresa ou marca)
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Esta conta é uma conta profissional associada ao produtor ou marca %s. Você tem acesso à Plataforma para Produtores."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -148,24 +148,24 @@ msgid "Hello <NAME>,\n\n"
 "https://twitter.com/OpenFoodFacts\n"
 msgstr "Olá <NAME>,\n\n"
 "Muito obrigado por aderir ao https://openfoodfacts.org\n"
-"Este é o seu nome de utilizador:\n\n"
-"Nome de utilizador: <USERID>\n\n"
-"Pode agora iniciar sessão no site para adicionar e modificar produtos.\n\n"
-"O <<site_name>> é um projecto colaborativo para o qual poderá trazer muito mais do que novos produtos: a sua energia, entusiasmo e ideias!\n"
-"Para o debate entre colaboradores e fazer o projecto avançar, usamos um sistema de mensagens muito conveniente chamado Slack: https://slack.openfoodfacts.org\n\n"
-"Poderá ainda juntar-se ao grupo de Facebook para colaboradores:\n"
+"Este é o seu nome de usuário:\n\n"
+"Nome de usuário: <USERID>\n\n"
+"Agora você pode iniciar a sessão no site para adicionar e modificar produtos.\n\n"
+"O <<site_name>> é um projeto colaborativo para o qual você poderá trazer muito mais do que novos produtos: a sua energia, entusiasmo e ideias!\n"
+"Para o debate entre colaboradores e fazer o projeto avançar, usamos um sistema de mensagens muito conveniente chamado Slack: https://slack.openfoodfacts.org\n\n"
+"Você pode juntar-se ao grupo de colaboradores no Facebook:\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"Novidade: estamos também a iniciar o projecto Open Beauty Facts para criar uma base de dados de cosméticos: sabonete, pasta de dentes, maquilhagem, etc.\n"
+"Novidade: estamos também para iniciar o projeto Open Beauty Facts para criar uma base de dados de cosméticos: sabonete, pasta de dentes, maquiagem, etc.\n"
 "https://openbeautyfacts.org\n\n"
 "Muito obrigado!\n\n"
-"Stéphane e a equipa Open Food Facts\n"
+"Stéphane e a equipe do Open Food Facts\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Obrigado por aderir << nome_site >>"
+msgstr "Obrigado por se juntar a <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -193,11 +193,11 @@ msgstr "Pesquisa avançada"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr "Pesquisa avançada e gráficos"
+msgstr "Pesquisa e gráficos avançados"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "O excesso de bebida é prejudicial à saúde."
+msgstr "Beber em excesso é prejudicial à saúde."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -258,7 +258,7 @@ msgstr "Tirar uma foto"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "OBS.: as fotos que você envia são publicadas sob a licença livre Creative Commons Attribution e ShareAlike."
+msgstr "Nota: as fotos enviadas são publicadas sob a licença gratuita Creative Commons Attribution e ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -282,11 +282,11 @@ msgstr "Número do código de barras"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Também pode ajudar a financiar o projeto Open Food Facts"
+msgstr "Você também pode ajudar a financiar o projeto Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://pt.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> é feito por uma associação sem fins lucrativos, independente do setor. É feito para todos, por todos, e é financiado por todos. Pode apoiar o nosso trabalho <a href=\"https://pt.openfoodfacts.org/donate-to-open-food-facts\">doando para o Open Food Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">usando o mecanismo de busca Lilo</a>.<br/><b>Obrigado!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> é feita por uma associação sem fins lucrativos, independente da indústria. Tudo é feito para todos, e é financiado por todos. Você pode apoiar nosso trabalho doando <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">ao Open Food Facts</a> e também usando <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a ferramenta de busca Lilo</a>.<br/><b>Obrigado!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -972,7 +972,7 @@ msgstr "Tamanho total"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr "Este ficheiro foi enviado para o produto %s e está licenciado sob a licença %s."
+msgstr "Este arquivo foi enviado para o produto %s e está licenciado sob a licença %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -3283,7 +3283,7 @@ msgstr "Importar um ficheiro de dados do produto"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Insira a planilha digital (arquivo do Excel ou arquivo CSV codificado para UTF-8 separados por vírgula ou aba) com dados do produto."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3546,11 +3546,11 @@ msgstr "Verifique se os dados na plataforma para produtores estão corretos ante
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Exportar fotos para o banco de dados público"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Substituir seleção existente de fotos"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4273,20 +4273,20 @@ msgstr "Edite esta página do produto para corrigir erros ortográficos na lista
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Adicione novas entradas, sinônimos ou traduções em nossas listas multilíngue de ingredientes, métodos de processamento de ingredientes, e rótulos."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Junte-se ao #ingredients channel no <a href=\"https://slack.openfoodfacts.org\"> ou nosso espaço de discussão no Slack</a> e/ou aprenda sobre <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">a análise de ingredientes em nossa wiki</a>, se você quiser ajudar. Obrigado!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Produtores"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
