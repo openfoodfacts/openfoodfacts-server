@@ -7,7 +7,7 @@ function requireUncached(module){
     return require(module)
 }
 
-const xml2csv = requireUncached('xml2csv')
+const xml2csv = requireUncached('@wmfs/xml2csv')
 
 const filter = /\.xml$/
 
@@ -27,6 +27,7 @@ xml2csv(
     headerMap: [
       ['gtin.0', 'gs1.gtin', 'string'],
       ['isTradeItemAConsumerUnit.0', 'gs1.isTradeItemAConsumerUnit', 'boolean'],
+      ['gln.0', 'gs1.gln', 'string', 'informationProviderOfTradeItem.0'],
       ['partyName.0', 'gs1.partyName', 'string', 'informationProviderOfTradeItem.0'],
       ['gpcCategoryCode.0', 'gs1.gpcCategoryCode', 'string', 'gdsnTradeItemClassification.0'],
       ['gpcCategoryName.0', 'gs1.gpcCategoryName', 'string', 'gdsnTradeItemClassification.0'],
@@ -156,6 +157,7 @@ xml2csv(
     ],
   },
   function (err, info) {
+    console.log(file)
     console.log(err, info)
     // Done!
   })
