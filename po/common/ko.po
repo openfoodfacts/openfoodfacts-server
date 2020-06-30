@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 07:23\n"
+"PO-Revision-Date: 2020-06-30 04:02\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4286,4 +4286,9 @@ msgstr "https://kr.pro.openfoodfacts.org/"
 msgctxt "footer_producers"
 msgid "Producers"
 msgstr "생산자"
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
 
