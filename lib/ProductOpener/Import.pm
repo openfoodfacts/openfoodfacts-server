@@ -447,17 +447,11 @@ sub import_csv_file($) {
 				# Create the org if it does not exist yet
 				if (not defined retrieve_org($org_id)) {
 					
-					my $org_ref = {
-						created_t => time(),
-						creator => $User_id,
-						org_id => $org_id,
-						name => $imported_product_ref->{org_gs1_party_name},
-						admins => {},
-						members => {},
-						gs1 => {
-							gln => $imported_product_ref->{org_gs1_gln},
-							party_name => $imported_product_ref->{org_gs1_party_name},
-						},
+					my $org_ref = create_org($User_id, $imported_product_ref->{org_gs1_party_name});
+					
+					$org_ref->{gs1}  ={
+						gln => $imported_product_ref->{org_gs1_gln},
+						party_name => $imported_product_ref->{org_gs1_party_name},
 					};
 			
 					store_org($org_ref);
@@ -469,7 +463,7 @@ party_name: $imported_product_ref->{gs1_party_name}
 gln: $imported_product_ref->{gs1_gln}
 EMAIL
 ;
-					send_email_to_admin("Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
+					send_email_to_admin("Import - Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
 				}
 			}
 		}
