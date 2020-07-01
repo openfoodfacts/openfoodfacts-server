@@ -2904,6 +2904,68 @@ sub separate_additive_class($$$$$) {
 }
 
 
+
+=head2 replace_additive ($number, $letter, $variant) - normalize the additive
+
+This function is used inside regular expressions to turn additives to a normalized form.
+
+Using a function to concatenate the E-number, letter and variant makes it possible 
+to deal with undefined $letter or $variant without triggering an undefined warning.
+
+=head3 Synopsis
+
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+
+=cut
+
+
+sub replace_additive($$$) {
+
+		my $number = shift;	# e.g. 160
+		my $letter = shift;	# e.g. a
+		my $variant = shift;	# e.g. ii
+		
+		my $additive = "e" . $number;
+		if (defined $letter) {
+			$additive .= $letter;
+		}
+		if (defined $variant) {
+			$variant =~ s/^\(//;
+			$variant =~ s/\)$//;
+			$additive .= $variant;
+		}
+		return $additive;
+}
+
+
+=head2 preparse_ingredients_text ($product_lc, $text) - normalize the ingredient list to make parsing easier
+
+This function transform the ingredients list in a more normalized list that is easier to parse.
+
+It does the following:
+
+- Normalize quote characters
+- Replace abbreviations by their full name
+- Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
+- Split vitamins enumerations
+- Normalize additives and split additives enumerations
+- Split other enumerations (e.g. oils, some minerals)
+- Split allergens and traces
+- Deal with signs like * to indicate labels (e.g. *: Organic)
+
+=head3 Arguments
+
+=head4 Language
+
+=head4 Ingredients list text
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+=cut
+
+
 sub preparse_ingredients_text($$) {
 
 	my $product_lc = shift;
@@ -3010,26 +3072,24 @@ sub preparse_ingredients_text($$) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
-	$text =~ s/\b(e|ins|sin)(:|\(|\[| | n| nb|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $additivesregexp = '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?(( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+	
+	$text =~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin)( |-| n| nb|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
-
+	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# add separations between all E340... "colorants naturels : rose E120, verte E161b, blanche : sans colorant"
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# ! [a-z] matches i... replacing in line above -- 2015/08/12
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
 	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
-	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
+	# do not turn E172-i into E172 - i
+	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;	
 
 	# Canonicalize additives to remove the dash that can make further parsing break
-	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh]?)(\))?((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?)(\))?(\b)/e$3$5$7/ig;
+	# Match E + number + letter a to h + i to xv, followed by a space or separator
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
@@ -3044,18 +3104,12 @@ sub preparse_ingredients_text($$) {
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
 
-	# FIXME : should use additives classes
-	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
-	# $text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
-
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
 		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
-		#print STDERR "additives_classes_regexps result: $text\n";
 	}
 
 	# dash with 1 missing space

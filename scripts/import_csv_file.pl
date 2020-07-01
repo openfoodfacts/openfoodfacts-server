@@ -47,6 +47,7 @@ use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
 
+use Log::Any::Adapter 'TAP', filter => "none";
 
 my $usage = <<TXT
 import_csv.pl imports product data (and optionnaly associated images) into the database of Product Opener.
@@ -76,6 +77,7 @@ my $csv_file;
 my %global_values = ();
 my $skip_products_without_images = 0;
 my $images_dir;
+my $images_download_dir;
 my $comment = '';
 my $source_id;
 my $source_name;
@@ -101,6 +103,7 @@ GetOptions (
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
+	"images_download_dir=s" => \$images_download_dir,
 	"user_id=s" => \$user_id,
 	"org_id=s" => \$org_id,
 	"owner_id=s" => \$owner_id,
@@ -183,6 +186,7 @@ my $stats_ref = import_csv_file( {
 	csv_file => $csv_file,
 	global_values => \%global_values,
 	images_dir => $images_dir,
+	images_download_dir => $images_download_dir,
 	comment => $comment,
 	source_id => $source_id,
 	source_name => $source_name,
