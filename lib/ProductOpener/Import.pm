@@ -95,6 +95,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -133,6 +134,10 @@ Values are of the form user-[user id] or org-[organization id].
 
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
+
+The owner can be overriden if the CSV file contains a org_gs1_party_name field.
+In that case, the owner is set to the value of the org_gs1_party_name field, and
+a new org is created if it does not exist yet.
 
 =head4 csv_file - required
 
@@ -429,6 +434,46 @@ sub import_csv_file($) {
 		my @modified_fields;
 
 		my @images_ids;
+				
+		# If the CSV includes GS1 id (GLN) and name (party name),
+		# set the owner of the product to the GS1 name
+		
+		if ((defined $imported_product_ref->{org_gs1_party_name}) and ($imported_product_ref->{org_gs1_party_name} ne "")) {
+			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_gs1_party_name});
+			if ($org_id ne "") {
+				$Org_id = $org_id;
+				$Owner_id = "org-" . $org_id;
+				
+				# Create the org if it does not exist yet
+				if (not defined retrieve_org($org_id)) {
+					
+					my $org_ref = {
+						created_t => time(),
+						creator => $User_id,
+						org_id => $org_id,
+						name => $imported_product_ref->{org_gs1_party_name},
+						admins => {},
+						members => {},
+						gs1 => {
+							gln => $imported_product_ref->{org_gs1_gln},
+							party_name => $imported_product_ref->{org_gs1_party_name},
+						},
+					};
+			
+					store_org($org_ref);
+					
+					my $admin_mail_body = <<EMAIL
+user_id: $User_id
+org_id: $org_id
+party_name: $imported_product_ref->{gs1_party_name}
+gln: $imported_product_ref->{gs1_gln}
+EMAIL
+;
+					send_email_to_admin("Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
+				}
+			}
+		}
+		
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
@@ -608,12 +653,12 @@ sub import_csv_file($) {
 
 		# Record fields that are set by the owner, when the owner is a producer org
 		# (and not an app, a database or label org)
-		if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-			and ($args_ref->{owner_id} !~ /^org-app-/)
-			and ($args_ref->{owner_id} !~ /^org-database-/)
-			and ($args_ref->{owner_id} !~ /^org-label-/) ) {
+		if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
+			and ($Owner_id !~ /^org-app-/)
+			and ($Owner_id !~ /^org-database-/)
+			and ($Owner_id !~ /^org-label-/) ) {
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
-			$product_ref->{owner} = $args_ref->{owner_id};
+			$product_ref->{owner} = $Owner_id;
 			$product_ref->{owners_tags} = $product_ref->{owner};
 		}
 
@@ -673,14 +718,14 @@ sub import_csv_file($) {
 					$stats{products_with_ingredients}{$code} = 1;
 				}
 
-				if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
+				if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
 					and ($field ne "imports")	# "imports" contains the timestamp of each import
 					) {
 
 					# Don't set owner_fields for apps, labels and databases, only for producers
-					if (($args_ref->{owner_id} !~ /^org-app-/)
-						and ($args_ref->{owner_id} !~ /^org-database-/)
-						and ($args_ref->{owner_id} !~ /^org-label-/)) {
+					if (($Owner_id !~ /^org-app-/)
+						and ($Owner_id !~ /^org-database-/)
+						and ($Owner_id !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$field} = $time;
 					}
 
@@ -1031,10 +1076,10 @@ sub import_csv_file($) {
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
-					if ((defined $args_ref->{owner_id}) and ($args_ref->{owner_id} =~ /^org-/)
-						and ($args_ref->{owner_id} !~ /^org-app-/)
-						and ($args_ref->{owner_id} !~ /^org-database-/)
-						and ($args_ref->{owner_id} !~ /^org-label-/)) {
+					if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
+						and ($Owner_id !~ /^org-app-/)
+						and ($Owner_id !~ /^org-database-/)
+						and ($Owner_id !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$nid} = $time;
 					}
 				}
@@ -1286,10 +1331,11 @@ sub import_csv_file($) {
 
 			# image field can have forms like:
 			# image_front_url_fr
+			# image_front_fr_url
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_(front|ingredients|nutrition|other)_url/;
+			next if $field !~ /^image_((front|ingredients|nutrition|other)(_[a-z]{2})?)_url/;
 
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
 
