@@ -420,7 +420,7 @@ sub product_path_from_id($) {
 	my $product_id = shift;
 	
 	my $product_id_without_server = $product_id;
-	$product_id_without_server =~ s/(\.*)://;
+	$product_id_without_server =~ s/^(.*)://;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
