@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-29 22:26\n"
+"PO-Revision-Date: 2020-07-01 11:35\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3506,12 +3506,12 @@ msgstr "Kenttä sivustolla %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr "Tuottajien alusta"
+msgstr "Tuottaja-alusta"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr "Tuottajien alusta mahdollistaa valmistajille tuotteidensa kuvien ja tietojen helpon hallinnan Open Food Factsissa."
+msgstr "Tuottaja-alusta mahdollistaa valmistajille tuotteidensa kuvien ja tietojen helpon hallinnan Open Food Factsissa."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
@@ -3540,7 +3540,7 @@ msgstr "Vie tuotteiden tiedot ja valokuvat julkiseen tietokantaan"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr "Varmista tuottajien alustan tietojen oikeellisuus ennen kuin viet ne julkiseen tietokantaan."
+msgstr "Varmista tuottaja-alustan tietojen oikeellisuus ennen kuin viet ne julkiseen tietokantaan."
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
@@ -3681,7 +3681,7 @@ msgstr "Tuotteesi"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Tiliäsi ei ole vielä liitetty yritykseen. Lähetä sähköposti osoitteeseen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> aktivoidaksesi ilmaisen pääsyn tuottajien alustaan."
+msgstr "Tiliäsi ei ole vielä liitetty yritykseen. Lähetä sähköposti osoitteeseen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> aktivoidaksesi ilmaisen pääsyn tuottaja-alustaan."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -3702,7 +3702,7 @@ msgstr "Tietojen tuonti meneillään"
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr "Tuotetiedot vastaanotettu, ja ne tuodaan tuottajien alustaan."
+msgstr "Tuotetiedot vastaanotettu, ja ne tuodaan tuottaja-alustaan."
 
 msgctxt "import_file_status"
 msgid "Status"
@@ -3970,7 +3970,7 @@ msgstr "Nutri-Score voi muuttua arvosanasta %s arvosanaan %s muuttamalla arvoa %
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr "Tuottajien alusta on vielä kehityksen alla, ja teemme manuaalisia tarkistuksia ennen tuotteiden tuontia julkiseen tietokantaan. Lähetä meille sähköpostia osoitteeseen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> julkisen tietokannan päivittämiseksi."
+msgstr "Tuottaja-alusta on vielä kehityksen alla, ja teemme manuaalisia tarkistuksia ennen tuotteiden tuontia julkiseen tietokantaan. Lähetä meille sähköpostia osoitteeseen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> julkisen tietokannan päivittämiseksi."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4018,11 +4018,11 @@ msgstr "Moderaattoreilla on erityispääsy ominaisuuksiin tuotteiden muokkaamise
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr "Tuottajien alustan moderaattori"
+msgstr "Tuottajan-alusta moderaattori"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr "Tuottajien alustan moderaattorit voivat katsoa ja muokata kaikkien käyttäjien ja järjestöjen tuotteita tuottajien alustalla."
+msgstr "Tuottaja-alusta moderaattorit voivat katsoa ja muokata kaikkien käyttäjien ja järjestöjen tuotteita tuottaja-alustalla."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
@@ -4058,7 +4058,7 @@ msgstr "Alkoholin liiallinen kulutus on haitallista terveydelle. Käytettävä m
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr "Tuottajien alustan moderaatio"
+msgstr "Tuottaja-alustan moderaatio"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
@@ -4096,7 +4096,7 @@ msgstr "Tuo tuoteluokat julkisesta tietokannasta"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr "Lisää luokat julkisesta tietokannasta tuotteisiin tuottajien alustalla."
+msgstr "Lisää luokat julkisesta tietokannasta tuotteisiin tuottaja-alustalla."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
@@ -4164,11 +4164,11 @@ msgstr "Poista kaikki tuotteet"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr "Poista kaikki tuotteesi tuottajien alustalta"
+msgstr "Poista kaikki tuotteesi tuottaja-alustalta"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr "Voit poistaa kaikki tuotteesi tuottajien alustalta, esimerkiksi aloittaaksesi puhtaalta pöydältä, jos tuonnissa oli joitain ongelmia. Tämä ei vaikuta tuotteisiisi julkisessa tietokannassa."
+msgstr "Voit poistaa kaikki tuotteesi tuottaja-alustalta, esimerkiksi aloittaaksesi puhtaalta pöydältä, jos tuonnissa oli joitain ongelmia. Tämä ei vaikuta tuotteisiisi julkisessa tietokannassa."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4176,7 +4176,7 @@ msgstr "Ota huomioon, että tätä toimintoa ei voi kumota."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr "Varoitus: tätä toimintoa ei voi kumota. Haluatko varmasti poistaa kaikki tuotteesi tuottajien alustalta?"
+msgstr "Varoitus: tätä toimintoa ei voi kumota. Haluatko varmasti poistaa kaikki tuotteesi tuottaja-alustalta?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
@@ -4184,7 +4184,7 @@ msgstr "Tätä ominaisuutta ei ole saatavilla."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr "Tuotteesi ovat poistettu tuottajien alustalta."
+msgstr "Tuotteesi ovat poistettu tuottaja-alustalta."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
@@ -4289,5 +4289,5 @@ msgstr "Tuottajat"
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Jos tässä tuotteessa on ainesosaluettelo kielellä %s, lisää se."
 
