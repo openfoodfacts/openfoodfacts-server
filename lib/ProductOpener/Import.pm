@@ -1520,17 +1520,17 @@ EMAIL
 								$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid", { imgid => $imgid, current_max_imgid => $current_max_imgid }) if $log->is_debug();
 
 								# overwrite already selected images
+								# if the selected image is not the same
+								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
-										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
-										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
-										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2)
+										or (($x1 > 0) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+										or (($x2 > 0) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+										or (($y1 > 0) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+										or (($y2 > 0) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
 										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										or ($product_ref->{images}{$imagefield_with_lc}{normalize} ne $normalize)
-										or ($product_ref->{images}{$imagefield_with_lc}{white_magic} ne $white_magic)
 										)
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
