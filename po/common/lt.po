@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-01 18:12\n"
+"PO-Revision-Date: 2020-07-01 19:12\n"
 "Language-Team: Lithuanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1434,116 +1434,116 @@ msgstr "nutrient level"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "maistinės medžiagos"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produktai, kurių sudėtyje yra %s maistinės medžiagos"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "maistinės medžiagos"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Produktai, kurių sudėtyje nėra %s maistinės medžiagos"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Vidutinis maistingumas už %d produktų %s kategorijai, kuriai maistingumas yra žinomi (iš %d prekių)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% skirtumo"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "vertė 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Palyginimas su vidutinėmis tos pačios kategorijos produktų vertėmis:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Atkreipkite dėmesį: kiekvienos maistinės medžiagos vidurkis apskaičiuojamas tiems produktams, kuriems žinomas maistinių medžiagų kiekis, o ne visiems šios kategorijos produktams."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Jei vaizdas yra pakankamai aštrus ir lygus, mitybos faktai gali būti automatiškai išgaunami iš nuotraukos."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10 procentilė"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "už 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>-oji</sup> procentilė"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Vidutinė"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90ta procentile"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>-oji</sup> procentilė"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimalus"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Vidurkis"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimumas"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "porcijoje"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standartinis nuokrypis"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Pagal numatytuosius parametrus lentelėje išvardijamos dažnai nurodomos maistinės medžiagos. Palikite lauką tuščią, jei jo nėra etiketėje.<br/>Galite pridėti papildomų maistinių medžiagų (vitaminų, mineralų, cholesterolio ir kt.), paskutinėje lentelės eilutėje įvesdami pirmąsias jų vardo raides."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Mitybos pažymiai"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Mitybos klasė"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1554,84 +1554,85 @@ msgstr ""
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Norėdami sužinoti daugiau apie <<site_name>>, apsilankykite <a href=\"https://en.blog.openfoodfacts.org\">mūsų tinklaraštyje</a>!</p>\n"
+"<p>Paskutinės naujienos:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Žinios"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Tai <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> <<site_name>> nuo šeštadienio, vasario 21 2015 iki sekmadienio kovo 1 2015! Bendraautoriams suteikiami \"Explorer“ taškai už produktus, kuriuos jie prideda, ir „Ambassador“ taškai už naujus jų įdarbintus dalyvius. Taškai atnaujinami kas 30 minučių."
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "arba:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Sudedamųjų dalių kilmė"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Kalifornijoje, JAV"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Nurodykite ingredientų kilmę"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "ingredientų kilmė"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produktai su ingredientais, kurių kilmės šalis %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "ingredientų kilmė"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "pridėti kilmę"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Produktai be ingredientų, kurių kilmės šalis %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakuotė"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Švieži, konservuoti, sušaldyti, buteliukai, dėžutė, stiklas, plastikas..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Pakuotės tipas, formatas, medžiaga"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "pakuotė"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Produktai su %s pakuotėmis"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "pakuotė"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "pridėti tipą, formą ar medžiagą"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Produktai be %s pakuotės"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1659,7 +1660,7 @@ msgstr "Laikotarpis po atidarymo"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Rasta atviro konteinerio logotipe su kelių mėnesių skaičiumi: pvz., 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
@@ -2269,7 +2270,7 @@ msgstr "Kalba"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Siųsti nuotrauką..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -3508,153 +3509,153 @@ msgstr "Gamintojų platforma leidžia gamintojams lengvai valdyti savo produktų
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Produktų duomenys ir nuotraukos, kuriuos siunčiate platformoje gamintojams, yra saugomi privačioje duomenų bazėje. Galėsite patikrinti, ar visi duomenys yra teisingi, prieš pateikdami juos viešoje \"Open Food Facts\" duomenų bazėje."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Produkto duomenys ir nuotraukos bus viešai prieinami „Open Food Facts“ duomenų bazėje, naudojant <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Atvirosios Duomenų bazės licenciją</a>. Atskirą duomenų bazės turinį galima gauti pagal <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">duomenų bazės turinio licenciją</a> o produktų vaizdus - pagal <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike“</a>licencijas."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "Importuoti produkto duomenis"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "Importuoti produkto nuotraukas"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Eksportuokite produkto duomenis ir nuotraukas į viešąją duomenų bazę"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Prieš eksportuodami juos į viešąją duomenų bazę, patikrinkite, ar platformos duomenys yra teisingi."
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Eksportuokite nuotraukas į viešąją duomenų bazę"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Pakeiskite esamas pasirinktas nuotraukas"
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Žlugę pakeitimai"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "duomenų kokybė"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "duomenų kokybė"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "duomenų kokybė"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "duomenų kokybės klaida"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "duomenų kokybės informacija"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "duomenų kokybės informacija"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "duomenų kokybės informacija"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "duomenų kokybės įspėjimai"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "įspėjimas apie duomenų kokybę"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "duomenų kokybės įspėjimai"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "duomenų kokybės klaida"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "duomenų kokybės įspėjimai"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "įspėjimas apie duomenų kokybę"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "duomenų kokybės įspėjimai"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "duomenų kokybės klaida"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "duomenų kokybės klaidos"
 
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "Maks"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "galimi patobulinimai"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "galimas patobulinimas"
 
 msgctxt "improvements"
 msgid "possible improvements"
-msgstr ""
+msgstr "galimi patobulinimai"
 
 # Do not translate
 msgctxt "import_products_link"
@@ -3663,46 +3664,46 @@ msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Pridėkite arba atnaujinkite produktus"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Jūsų produktai"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "Jūsų paskyra dar nėra susieta su įmone. Jei norite suaktyvinti gamintojams nemokamą prieigą prie platformos, prašome siųsti el. Laišką <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a>."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Importuoti produktus"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Tuščias stulpelis"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "Šiame stulpelyje faile nėra jokios vertės."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Vyksta duomenų importavimas"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Produkto duomenys buvo gauti ir bus importuojami gamintojams skirtoje platformoje."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Būsena"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Suplanuota"
 
 msgctxt "job_status_active"
 msgid "In progress"
@@ -3771,7 +3772,7 @@ msgstr ""
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "Importuoti produkto nuotraukas"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
@@ -3925,230 +3926,230 @@ msgstr ""
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "„Nutri-Score“ rezultatas"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "„Open Food Facts“ yra 100% nemokama ir nepriklausoma."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Mums reikia jūsų pagalbos ir aukų</a>, kad galėtume tęsti ir plėsti projektą."
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Ačiū!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Produkto vertė"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Vidutinė %s kategorijos vertė"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Nutri-Score gali būti pakeistas nuo %s iki %s, keičiant %s vertę nuo %s iki %s (skirtumas %s procentai)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Gamintojų platforma vis dar vystoma, ir prieš importuodami produktus į viešąją duomenų bazę, mes tikriname rankomis. Prašome atsiųsti mums el. Laišką <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a> norint kad mes atnaujintume viešąją duomenų bazę."
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Grupės"
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "Gamintojas"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Turi būti patikrinta tik tų gamintojų, kurie redaguoja savo produktus, paskyros. Produkto nuosavybė bus priskirta gamintojams, kai jie pridės arba redaguos produktą."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Duomenų bazė"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Išoriniams duomenų šaltiniams. Produktų nuosavybės teisė į importuotus produktus nesikeis."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Programėlė"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Programoms."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Robotas"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Robotams, scenarijams ir kt."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Moderatorius"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Moderatoriai turi prieigą prie specialių funkcijų, skirtų gaminiams redaguoti ir peržiūrėti."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "Gamintojų platformos moderatorius"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Gamintojų platformos moderatoriai gali peržiūrėti ir redaguoti privačius visų vartotojų ir organizacijų produktus gamintojų platformoje."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Aš jau paaukojau ar man neįdomu. Paslėpti reklamą."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "Ei, langelis, kurį reikia atžymėti?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "Nepriklausomas ir piliečių vedamas maisto skaidrumo projektas?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Maisto produktų duomenys tyrimams, gerinantiems visuomenės sveikatą?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Lengvesnis ir geresnis maisto pasirinkimas pagal jūsų pačių kriterijus?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Mums reikia jūsų palaikymo!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Prašau paaukoti"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "Per didelis alkoholio vartojimas kenkia sveikatai, turi būti vartojamas saikingai."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "Gamintojų platformos valdymas"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "Jūs šiuo metu žiūrite produktus iš %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "Šiuo metu jūs žiūrite savo produktus."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Norėdami pamatyti konkretaus vartotojo ar organizacijos produktus, žemiau įveskite jo Id. Palikite lauką tuščią, jei norite atjungti."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Pakeisti"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc arba org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "%s vartotojo nėra"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Id turi būti tokios formos: user-abc arba org-xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Importuokite produktų kategorijas iš viešosios duomenų bazės"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Pridėkite kategorijas iš viešosios duomenų bazės gamintojams skirtoje platformoje."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Importuokite kategorijas"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "„Nutri-Score“ rezultatas iš gamintojo"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Apskaičiuotas „Nutri-Score“ balas"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "„Nutri-Score“ klasė iš gamintojo"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Apskaičiuotas Nutri-Score įvertinimas"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Nuskaitytas kodas"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Kodas iš failo pavadinimo"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Ankstesnio kodo naudojimas"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Galite nurodyti lauko vertes, kurios bus pridedamos prie visų produktų, kuriems siųsite vaizdus."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Pridėkite lauką"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Nuskaitytas kodas"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Kodas iš failo pavadinimo"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Ankstesnio kodo naudojimas"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Galite nurodyti lauko vertes, kurios bus pridedamos prie visų produktų, kuriems siųsite vaizdus."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Pridėkite lauką"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
