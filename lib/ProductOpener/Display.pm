@@ -3914,6 +3914,10 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
+	my $template_data_ref = {
+		lang => \&lang,
+	};
+
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -4091,15 +4095,18 @@ sub search_and_display_products($$$$$) {
 
 	my $html = '';
 	my $html_count = '';
+	my $error = '';
 
 	my $decf = get_decimal_formatter($lc);
 
 	if (not defined $request_ref->{jqm_loadmore}) {
 		if ($count < 0) {
-			$html .= "<p>" . lang("error_database") . "</p>";
+			# $html .= "<p>" . lang("error_database") . "</p>";
+			$error = lang("error_database");
 		}
 		elsif ($count == 0) {
-			$html .= "<p>" . lang("no_products") . "</p>";
+			# $html .= "<p>" . lang("no_products") . "</p>";
+			$error = lang("no_products");
 		}
 		elsif ($count == 1) {
 			$html_count .= lang("1_product");
@@ -4107,35 +4114,51 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $decf->format($count)) ;
 		}
+		$template_data_ref->{error} = $error;
+		$template_data_ref->{html_count} = $html_count;
 	}
 
-	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
-
-		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
-		}
-
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
+	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	$template_data_ref->{jqm} = $request_ref->{jqm};
 
 
-	}
+	#if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
+		$template_data_ref->{country} = $country;
 
+		#if ($country ne 'en:world') {
+			$template_data_ref->{world_subdomain} = $world_subdomain;
+			$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+		
+			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+			$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+
+			#$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+		#}
+
+		#$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+		#$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
+		
+		#$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
+
+
+	#}
+	$template_data_ref->{count} = $count;
 	if ($count > 0) {
 
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; " . lang("search_download_results") . "<br>";
 
-			if ($count <= $export_limit) {
-				$html .= "<ul>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
-				. "</ul>";
-			}
+			$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
+			$template_data_ref->{export_limit} = $export_limit;
+			#$html .= "&rarr; " . lang("search_download_results") . "<br>";
+
+			# if ($count <= $export_limit) {
+			# 	$html .= "<ul>"
+			# 	. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
+			# 	. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
+			# 	. "</ul>";
+			# }
 		}
 
 		if ($log->is_debug()) {
@@ -4147,7 +4170,7 @@ sub search_and_display_products($$$$$) {
 
 		if ((not defined $request_ref->{search}) and ($count >= 5)
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
-
+			$template_data_ref->{explore_products} = 'true';
 			my $nofollow = '';
 			if (defined $request_ref->{tagid}) {
 				# Prevent crawlers from going too deep in facets #938:
@@ -4171,6 +4194,12 @@ HTML
 
 				$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\"$nofollow>"
 					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
+				push @{$template_data_ref->{current_drilldown_fields}}, {
+					current_link => $request_ref->{current_link},
+					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+					nofollow => $nofollow,
+					newtagtype => $newtagtype,
+				};
 			}
 			$html .= "</ul>\n</li>\n</ul>\n\n";
 
@@ -4323,6 +4352,7 @@ HTML
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
+	$tt->process('display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
