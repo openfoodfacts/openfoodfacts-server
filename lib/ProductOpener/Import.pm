@@ -447,17 +447,11 @@ sub import_csv_file($) {
 				# Create the org if it does not exist yet
 				if (not defined retrieve_org($org_id)) {
 					
-					my $org_ref = {
-						created_t => time(),
-						creator => $User_id,
-						org_id => $org_id,
-						name => $imported_product_ref->{org_gs1_party_name},
-						admins => {},
-						members => {},
-						gs1 => {
-							gln => $imported_product_ref->{org_gs1_gln},
-							party_name => $imported_product_ref->{org_gs1_party_name},
-						},
+					my $org_ref = create_org($User_id, $imported_product_ref->{org_gs1_party_name});
+					
+					$org_ref->{gs1}  ={
+						gln => $imported_product_ref->{org_gs1_gln},
+						party_name => $imported_product_ref->{org_gs1_party_name},
 					};
 			
 					store_org($org_ref);
@@ -469,7 +463,7 @@ party_name: $imported_product_ref->{gs1_party_name}
 gln: $imported_product_ref->{gs1_gln}
 EMAIL
 ;
-					send_email_to_admin("Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
+					send_email_to_admin("Import - Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
 				}
 			}
 		}
@@ -576,8 +570,32 @@ EMAIL
 				next;
 			}
 		}
+		
+		# If we are importing on the public platform, check if the product exists on other servers
+		# (e.g. Open Beauty Facts, Open Products Facts)
+		
+		my $product_ref;
+		
+		if ((defined $options{other_servers})
+			and not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+			foreach my $server (sort keys %{$options{other_servers}}) {
+				next if ($server eq $options{current_server});
+								
+				$product_ref = product_exists_on_other_server($server, $product_id);
+				if ($product_ref) {
+					# Indicate to store_product() that the product is on another server
+					$product_ref->{server} = $server;
+					# Indicate to Images.pm functions that the product is on another server
+					$product_id = $server . ":" . $product_id;
+					$log->debug("product exists on another server", { code => $code, server => $server, product_id => $product_id }) if $log->is_debug();
+					last;
+				}
+			}
+		}
 
-		my $product_ref = product_exists($product_id); # returns 0 if not
+		if (not $product_ref) {
+			$product_ref = product_exists($product_id); # returns 0 if not
+		}
 
 		my $product_comment = $args_ref->{comment};
 		if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
@@ -1502,17 +1520,17 @@ EMAIL
 								$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid", { imgid => $imgid, current_max_imgid => $current_max_imgid }) if $log->is_debug();
 
 								# overwrite already selected images
+								# if the selected image is not the same
+								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
-										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
-										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
-										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2)
+										or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+										or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+										or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+										or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
 										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										or ($product_ref->{images}{$imagefield_with_lc}{normalize} ne $normalize)
-										or ($product_ref->{images}{$imagefield_with_lc}{white_magic} ne $white_magic)
 										)
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();

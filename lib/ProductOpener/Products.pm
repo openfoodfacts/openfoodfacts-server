@@ -72,9 +72,12 @@ BEGIN
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
+		&data_root_for_product_id
+		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&product_exists_on_other_server
 		&get_owner_id
 		&init_product
 		&retrieve_product
@@ -284,8 +287,12 @@ C<product_id_for_owner()> returns the product id associated with a product barco
 
 If the products on the server are public, the product id is equal to the product code.
 
-If the products on the server as private (e.g. on the platform for producers),
+If the products on the server are private (e.g. on the platform for producers),
 the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
+
+The product id can be prefixed by a server id to indicate that is is on another server
+(e.g. Open Food Facts, Open Beauty Facts, Open Products Facts or Open Pet Food Facts)
+e.g. off:[code]
 
 =head3 Parameters
 
@@ -325,18 +332,121 @@ sub product_id_for_owner($$) {
 	}
 }
 
+
+=head2 data_root_for_product_id ( $product_id )
+
+Returns the data root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The data root for the product.
+
+=cut
+
+sub data_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{data_root};
+		}
+	}
+	
+	return $data_root;
+}
+
+
+=head2 www_root_for_product_id ( $product_id )
+
+Returns the www root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The www root for the product.
+
+=cut
+
+sub www_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{www_root};
+		}
+	}
+	
+	return $www_root;
+}
+
+
+=head2 product_path_from_id ( $product_id )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
+
 sub product_path_from_id($) {
 
 	my $product_id = shift;
+	
+	my $product_id_without_server = $product_id;
+	$product_id_without_server =~ s/^(.*)://;
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
 	}
 	else {
-		return split_code($product_id);
+		return split_code($product_id_without_server);
 	}
 
 }
+
+
+=head2 product_path ( $product_ref )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Product object reference.
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
 
 sub product_path($) {
 
@@ -375,6 +485,38 @@ sub product_exists($) {
 		return 0;
 	}
 }
+
+
+sub product_exists_on_other_server($$) {
+
+	my $server = shift;
+	my $id = shift;
+		
+	if (not ((defined $options{other_servers}) and (defined $options{other_servers}{$server}))) {
+		return 0;
+	}
+		
+	my $server_data_root = $options{other_servers}{$server}{data_root};
+
+	my $path = product_path_from_id($id);
+	
+	$log->debug("product_exists_on_other_server", { id => $id, server => $server, server_data_root => $server_data_root, path => $path }) if $log->is_debug();
+	
+	if (-e "$server_data_root/products/$path") {
+
+		my $product_ref = retrieve("$server_data_root/products/$path/product.sto");
+		if ((not defined $product_ref) or ($product_ref->{deleted})) {
+			return 0;
+		}
+		else {
+			return $product_ref;
+		}
+	}
+	else {
+		return 0;
+	}
+}
+
 
 sub get_owner_id($$$) {
 
@@ -712,6 +854,7 @@ sub compute_sort_keys($) {
 	$product_ref->{popularity_key} = $popularity_key + 0;
 }
 
+
 sub store_product($$) {
 
 	my $product_ref = shift;
@@ -725,20 +868,31 @@ sub store_product($$) {
 	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
-	# then we first move the existing files (product and images)
+	# the "new_server" value will be set to off, obf etc.
+	# we first move the existing files (product and images)
 	# and then store the product with a comment.
+	
+	# if we have a "server" value (e.g. from an import),
+	# we save the product on the corresponding server but we don't need to move an existing product
 
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
 
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
+	
+	if ((defined $product_ref->{server}) and (defined $options{other_servers})
+		and (defined $options{other_servers}{$product_ref->{server}})) {
+		my $server = $product_ref->{server};
+		$new_data_root = $options{other_servers}{$server}{data_root};
+		$new_www_root = $options{other_servers}{$server}{www_root};
+		$new_products_collection = get_collection($options{other_servers}{$server}{mongodb}, 'products');
+	}	
 
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path_from_id($old_code);
-
 
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
@@ -749,7 +903,7 @@ sub store_product($$) {
 			delete $product_ref->{new_server};
 		}
 
-		$log->info("moving product", { old_code => $old_code, code => $code, new_dat_root => $new_data_root }) if $log->is_info();
+		$log->info("moving product", { old_code => $old_code, code => $code, new_data_root => $new_data_root }) if $log->is_info();
 
 		# Move directory
 
@@ -763,10 +917,10 @@ sub store_product($$) {
 		$log->debug("creating product directories", { path => $path, prefix_path => $prefix_path }) if $log->is_debug();
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
+			(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
+				(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			}
 		}
 

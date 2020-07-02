@@ -7638,15 +7638,6 @@ HTML
 	my $html_sources = "";	# 	Displayed at the bottom of the product page
 
 	if (defined $product_ref->{sources}) {
-		# FIXME : currently just a quick workaround to display openfood attribution
-
-#			push @{$product_ref->{sources}}, {
-#				id => "openfood-ch",
-#				url => "https://www.openfood.ch/en/products/$openfood_id",
-#				import_t => time(),
-#				fields => \@modified_fields,
-#				images => \@images_ids,
-#			};
 
 		my %unique_sources = ();
 
@@ -7669,6 +7660,16 @@ HTML
 				$html_manufacturer_source = "<p>" . sprintf(lang("sources_collaboration"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
 			}
 		}
+	}
+	
+	# If the product has an owner, identify it as the source
+	if (defined $product_ref->{owner}) {
+		
+		# TODO: use org profile if it exists
+		my $owner_name = $product_ref->{owner};
+		$owner_name =~ s/^org-//;
+		
+		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
 	}
 
 	$html .= $html_manufacturer_source;
