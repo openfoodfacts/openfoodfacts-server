@@ -37060,7 +37060,7 @@ da:Citron
 de:Zitrone
 es:limón,limones
 fi:sitruuna, sitruunaa
-fr:citron, citrons
+fr:citron, citrons, citron jaune, citrons jaunes
 he:לימון
 hu:citrom
 it:limone
@@ -41199,9 +41199,17 @@ en:garnacha grape
 es:uva garnacha
 
 <en:grape
-fr:raisins noirs
+en:black grape
+fr:raisin noir, raisins noirs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-noirs
 # 51 products in 1 language @2018-10-02
+
+<en:black grape
+en:Concord grape, Concord black grape
+
+<en:grape
+en:red grape
+fr:raisin rouge, raisins rouges
 
 # A RAISIN is a dried grape.
 
