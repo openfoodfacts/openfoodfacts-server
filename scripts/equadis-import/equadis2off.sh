@@ -4,13 +4,13 @@
 
 tfile=$(mktemp /tmp/off-XXXXXXXXX.csv)
 
-mlr --csv unsparsify equadis-data/*.csv >$tfile
+mlr --csv unsparsify /srv2/off-pro/equadis-data-tmp/*.csv >$tfile
 mlr -I --csv filter '${gs1.isTradeItemAConsumerUnit} != "false"' \
     then cut -x -f 'gs1.isTradeItemAConsumerUnit' $tfile
 
-
+# Commenting the non-food filter so that we can move products to OBF, OPF etc.
 # I couldn't find a way to make word boundaries work, in order to match full names only
-mlr -I --csv filter '(${gs1.functionalName} !=~ "(bloc wc|dentifrice|deodorant|déo|déodorant|douche|huile à barbe|lave vaisselle|lave-vaisselle|lessive|nettoyant|rasage|raser|savon|shampo|soap|soin barbe|soin visage|toilette|transpirant)"i);' $tfile
+#mlr -I --csv filter '(${gs1.functionalName} !=~ "(bloc wc|dentifrice|deodorant|déo|déodorant|douche|huile à barbe|lave vaisselle|lave-vaisselle|lessive|nettoyant|rasage|raser|savon|shampo|soap|soin barbe|soin visage|toilette|transpirant)"i);' $tfile
 
 # Deduplicate keeping only the latest version of each product
 mlr -I --csv put -S -q '@records[NR] = $*;
