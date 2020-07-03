@@ -762,10 +762,10 @@ sub process_image_upload($$$$$$$) {
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
 				# and computer vision algorithms
 
-				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
 				my $code = $product_id;
 				$code =~ s/.*\///;
-				symlink("$product_www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+				symlink("$product_www_root/images/products/$path/$imgid.jpg", "$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 				
 				# Save the image file size so that we can skip the image before processing it if it is uploaded again
 				$images_ref->{$size_orig} = $imgid;
