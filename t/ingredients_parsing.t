@@ -262,6 +262,8 @@ my @lists =(
 	["es", "S.I.N.:160 b", "e160b"],
 	["pt", "estabilizadores (E 422, E 412)","estabilizadores (e422, e412)"],
 
+	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
+
 
 );
 
