@@ -260,7 +260,7 @@ my @lists =(
 	["es", "E102(i)-E101i", "e102i - e101i"],
 	["es", "E102(i)", "e102i"],
 	["es", "S.I.N.:160 b", "e160b"],
-
+	["pt", "estabilizadores (E 422, E 412)","estabilizadores (e422, e412)"],
 
 
 );
