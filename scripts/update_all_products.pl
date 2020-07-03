@@ -369,7 +369,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}

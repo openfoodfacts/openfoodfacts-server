@@ -452,7 +452,7 @@ sub product_path_from_id($) {
 	my $product_id = shift;
 	
 	my $product_id_without_server = $product_id;
-	$product_id_without_server =~ s/(\.*)://;
+	$product_id_without_server =~ s/(.*)://;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
@@ -1086,7 +1086,7 @@ sub store_product($$) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
@@ -1631,9 +1631,9 @@ sub find_and_replace_user_id_in_products($$) {
 
 
 
-sub compute_product_history_and_completeness($$$) {
+sub compute_product_history_and_completeness($$$$) {
 
-
+	my $product_data_root = shift;
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $blame_ref = shift;
@@ -1710,7 +1710,7 @@ sub compute_product_history_and_completeness($$$) {
 		if (not defined $rev) {
 			$rev = $revs;	# was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
