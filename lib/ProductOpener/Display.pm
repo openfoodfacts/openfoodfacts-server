@@ -9980,7 +9980,7 @@ HTML
 				$changes_ref = [];
 			}
 			$response{blame} = {};
-			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response{blame});
 		}
 
 		if ($request_ref->{jqm}) {
