@@ -8938,7 +8938,7 @@ HTML
 ;
 	}
 	if ($html_nutrient_levels ne '') {
-		$html .= $nutrient_levels_html
+		$html .= $nutrient_levels_html;
 	}
 	$html .= "</div>";
 
