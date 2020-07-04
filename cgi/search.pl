@@ -107,7 +107,7 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
 	(not defined param('xml')) and (not defined param('rss')) and
-	($search_terms =~ /^(\d{8})\d*$/)) {
+	($search_terms =~ /^(\d{8,24})$/)) {
 
 		my $code = normalize_code($search_terms);
 

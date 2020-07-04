@@ -7326,6 +7326,10 @@ sub display_product($)
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
+	
+	if ($code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
+	}		
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -9815,10 +9819,15 @@ sub display_product_api($)
 	my %response = ();
 
 	$response{code} = $code;
-
 	my $product_ref = retrieve_product($product_id);
+	
+	if ($code !~ /^\d{8,24}$/) {
 
-	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
+		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
+		$response{status} = 0;
+		$response{status_verbose} = 'no code or invalid code';
+	}	
+	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if ($request_ref->{api_version} >= 1) {
 			$request_ref->{status} = 404;
 		}

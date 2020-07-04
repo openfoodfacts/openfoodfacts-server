@@ -267,10 +267,9 @@ sub normalize_code($) {
 sub split_code($) {
 
 	my $code = shift;
-	$code !~ /^\d+$/ and return "invalid";
+	if ($code !~ /^\d{8,24}$/) {
 
-	if (length($code) > 100) {
-		$log->info("invalid code, code too long", { code => $code }) if $log->is_info();
+		$log->info("invalid code", { code => $code }) if $log->is_info();
 		return "invalid";
 	}
 
@@ -802,7 +801,10 @@ sub change_product_server_or_code($$$) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code =~ /^\d+$/) {
+	if ($new_code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
+	}
+	else {
 	# check that the new code is available
 		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
 			push @{$errors_ref}, lang("error_new_code_already_exists");
