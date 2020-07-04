@@ -72,6 +72,7 @@ BEGIN
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
+		&server_for_product_id
 		&data_root_for_product_id
 		&www_root_for_product_id
 		&product_path
@@ -333,6 +334,37 @@ sub product_id_for_owner($$) {
 }
 
 
+=head2 server_for_product_id ( $product_id )
+
+Returns the server for the product, if it is not on the current server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+undef is the product is on the current server, or server id of the server of the product otherwise.
+
+=cut
+
+sub server_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		return $server;
+	}
+	
+	return;
+}
+
+
 =head2 data_root_for_product_id ( $product_id )
 
 Returns the data root for the product, possibly on another server.
@@ -420,7 +452,7 @@ sub product_path_from_id($) {
 	my $product_id = shift;
 	
 	my $product_id_without_server = $product_id;
-	$product_id_without_server =~ s/^(.*)://;
+	$product_id_without_server =~ s/(.*)://;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
@@ -677,10 +709,17 @@ sub retrieve_product($) {
 
 	my $product_id = shift;
 	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
 
-	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path } ) if $log->is_debug();
 
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -691,10 +730,18 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $deleted_ok = shift;
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+	
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}	
 
 	if ((defined $product_ref) and ($product_ref->{deleted})
 	and (not $deleted_ok)) {
@@ -707,15 +754,23 @@ sub retrieve_product_or_deleted_product($$) {
 
 sub retrieve_product_rev($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+
+	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");	
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}	
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -1031,7 +1086,7 @@ sub store_product($$) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
@@ -1576,9 +1631,9 @@ sub find_and_replace_user_id_in_products($$) {
 
 
 
-sub compute_product_history_and_completeness($$$) {
+sub compute_product_history_and_completeness($$$$) {
 
-
+	my $product_data_root = shift;
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $blame_ref = shift;
@@ -1655,7 +1710,7 @@ sub compute_product_history_and_completeness($$$) {
 		if (not defined $rev) {
 			$rev = $revs;	# was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {

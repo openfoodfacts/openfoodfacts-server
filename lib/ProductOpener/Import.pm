@@ -234,6 +234,8 @@ sub import_csv_file($) {
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
+	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
+
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
 		%global_values = %{$args_ref->{global_values}};
