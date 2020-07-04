@@ -21981,13 +21981,14 @@ wikidata:en:Q16545117
 
 <fr:Crêpes dentelle
 <en:Chocolate biscuits
+en:Crêpes dentelle with chocolate, Wafer cookie with chocolate
 fr:Crêpes dentelle au chocolat
-en:Wafer cookie with chocolate
 oqali_family:en: fr:Biscuits et gateaux industriels - Crepes dentelles au chocolat
 ciqual_food_code:en:24371
 ciqual_food_name:en:Wafer cookie, with chocolate, prepacked
 
 <fr:Crêpes dentelle
+en:Plain crêpes dentelle
 fr:Crêpes dentelle natures
 oqali_family:en: fr:Biscuits et gateaux industriels - Crepes dentelles nature
 
@@ -22512,7 +22513,7 @@ en:Brown bread baguette with flour type 80, Brown bread baguette with flour type
 fr:Baguettes de pain à la farine T80, Baguettes de pain à la farine T110, Boules de pain à la farine T80, Boules de pain à la farine T110
 ciqual_food_code:en:7010
 ciqual_food_name:en:Brown bread, French bread (baguette or ball), with flour type 80 or 110
-ciqual_food_name:fr:Pain, baguette ou boule, bis (à la farine T80 ou T110) 
+ciqual_food_name:fr:Pain, baguette ou boule, bis (à la farine T80 ou T110) 
 
 <en:Baguettes
 <fr:Pains de tradition française
@@ -22716,7 +22717,7 @@ ciqual_food_code:en:7125
 ciqual_food_name:en:Rye bread, and wheat
 ciqual_food_name:fr:Pain de seigle, et froment
 
-<en:Rye breads
+<en:Breads
 en:Pumpernickel
 de:Pumpernickel
 es:Pumpernickel
@@ -22726,6 +22727,12 @@ nl:Pompernikkel
 pl:Pumpernikiel
 pt:Pumpernickel
 wikidata:en:Q837207
+
+<en:Pumpernickel
+<en:Rye breads
+de:Westfälischer Pumpernickel
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Breads
 en:Rye-and-wheat breads, Rye-and-wheat bread
@@ -25749,12 +25756,24 @@ it:Torrone di Jijona, torrone cremoso alle mandorle
 nl:Zachte turrón
 wikidata:en:Q3995785
 
+<en:Creamy almond turrón
+es:Turrón de Jijona
+protected_name_type:en: pgi
+origins:en: en:Spain
+wikidata:Q3995785
+
 <en:Almond turrón
 en:Crunchy almond turrón, Hard almond turrón, Alicante turrón
 de:Knuspriges Mandelturrón
 es:Turrones duros de almendras, Turrones duros, Turrones de tipo Alicante, Turrones de Alicante
 fr:Tourons croquants aux amandes, tourons d'Alicante
 nl:Harde turrón
+wikidata:en:Q3995784
+
+<en:Crunchy almond turrón
+es:Turrón de Alicante
+protected_name_type:en: pgi
+origins:en: en:Spain
 wikidata:en:Q3995784
 
 <en:Turrón
@@ -29963,6 +29982,18 @@ nl:Noordierse kazen
 <en:Cheeses from Northern Ireland
 en:Coleraine cheddar
 wikidata:en:Q2961937
+
+<en:Cheeses
+en:German cheeses
+de:Deutscher Käse
+fr:Fromages allemands
+
+#Cheese of cow and goat (15% min) milk 
+<en:German cheeses
+de:Altenburger Ziegenkäse
+protected_name_type:en: pdo
+origins:en: en:Germany
+wikidata:Q436943
 
 <en:Cheeses
 en:Cheeses from Switzerland, Swiss Cheese
@@ -36913,6 +36944,7 @@ origins:en: en:United Kingdom
 en:Austrian oils and fats
 
 <en:Austrian oils and fats
+<en:Pumpkin seed oils
 de:Steirisches Kürbiskernöl
 protected_name_file_number_en: PGI-AT-1460-AM02
 protected_name_type:en: pgi
@@ -39468,6 +39500,10 @@ de:Eiskrem mit roten Früchten, Speiseeis mit roten Früchten
 fr:Glaces aux amandes
 de:Eiskrem mit Mandeln, Speiseeis mit Mandeln
 
+<en:Ice creams
+en:Chestnut ice creams
+fr:Glaces aux marrons
+
 <en:Ice cream tubs
 fr:Glaces au praliné
 
@@ -39558,6 +39594,10 @@ it:Sorbetto al lampone
 nl:Frambozensorbets
 
 <en:Sorbets
+en:Blueberry sorbets
+fr:Sorbets à la myrtille
+
+<en:Sorbets
 en:Mango sorbets
 de:Mango Sorbets
 es:Sorbetes de mango
@@ -39621,21 +39661,26 @@ it:Sorbetto al frutto della passione
 nl:Passievruchtsorbets
 
 <en:Sorbets
+en:Peach sorbets
 fr:Sorbets à la pêche
 it:Sorbetto alla pesca
 
 <en:Sorbets
+en:Apricot sorbets
 fr:Sorbets à l'abricot
 it:Sorbetto all'albicocca
 
 <en:Sorbets
+en:Coconut sorbets
 fr:Sorbets à la noix de coco
 it:Sorbetto al cocco
 
 <en:Sorbets
+en:Blackcurrent sorbets
 fr:Sorbets au cassis
 
 <en:Sorbets
+en:Cherry sorbets
 fr:Sorbets à la cerise
 it:Sorbetto alla ciliegia
 
@@ -39652,6 +39697,7 @@ fr:Sorbets multifruits
 nl:Multifruit sorbets
 
 <en:Sorbets
+en:Artificially sweetened sorbets
 fr:Sorbets édulcorés
 
 <en:Ice creams and sorbets
@@ -41971,6 +42017,14 @@ zh:调味品, 调料
 en:Glazes with vinegar
 es:Cremas de vinagre, cremas con vinagre
 fr:Crèmes de vinaigre, Crèmes au vinaigre
+
+<en:Glazes with vinegar
+en:Glazes with balsamic vinegar
+fr:Crèmes de vinaigre balsamique
+
+<en:Glazes with vinegar
+en:Glazes with white vinegar
+fr:Crèmes de vinaigre blanc
 
 <en:Condiments
 <en:Plant-based foods
@@ -46053,6 +46107,14 @@ fr:Plats à base de lentilles
 en:Savory semolina dishes
 fr:Plats à base de semoule
 nl:Hartige griesmeelschotels, Hartige griesmeelschotel
+
+<en:Meals
+en:Bulgur dishes
+fr:Plats à base de boulgour
+
+<en:Meals
+en:Potato dishes
+fr:Plats à base de pommes de terre
 
 <en:Meals
 en:Pork chop suey, Chicken chop suey
@@ -52345,6 +52407,8 @@ origins:en: en:Austria
 <en:German sausages
 fr:Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
 de:Original Nürnberger Rostbratwürste, Original Nürnberger Rostbratwurst
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:German sausages
 en:Thuringian sausages
@@ -56348,6 +56412,12 @@ nl:Gebak
 ciqual_food_code:en:23900
 ciqual_food_name:en:Pastry (average)
 ciqual_food_name:fr:Pâtisserie (aliment moyen)
+
+<en:Pastries
+en:Makroudh
+de:Makroud
+fr:Makrout, Makroud
+wikidata:Q1886522
 
 <en:Pastries
 de:Nussecken
@@ -60571,6 +60641,10 @@ pl:Przetwory owocowe
 pt:Conservas de fruta
 th:ผลไม้แปรรูป
 
+<en:Fruit and vegetable preserves
+fr:Fruit preserves with chocolate
+fr:Confitures au chocolat
+
 #uncooked fruit preserve
 <en:Fruit and vegetable preserves
 sv:Rårörda, rårörd
@@ -60935,6 +61009,10 @@ en:Kiwi jams, kiwi jam
 de:Kiwi Konfitüren
 fr:Confitures de kiwi, confiture de kiwi, confitures de kiwis
 sv:Kiwisylter
+
+<en:Jams
+en:Watermelon jams
+fr:Confitures de pastèque
 
 <en:Jams
 en:Plum jams
@@ -61347,6 +61425,14 @@ ciqual_food_name:fr:Houmous
 en:Ktipiti, tirokafteri
 fr:Ktipiti
 wikidata:en:Q7809258
+
+<en:Salted spreads
+<en:Dips
+en:Muhammara
+es:Muhammara
+fr:Muhammara
+nl:Muhammara
+wikidata:en:Q3866940
 
 <en:Plant-based spreads
 en:Plant-based pâtés, Vegetarian pâtés
@@ -69764,10 +69850,10 @@ en:Salty palmiers
 fr:Palmiers salés
 
 <en:Crackers
-fr:Crêpes dentelles salées
+fr:Crêpes dentelle salées, Crêpes dentelles salées
 
 <fr:Crêpes dentelles salées
-fr:Crêpe dentelle pour apéritif au fromage
+fr:Crêpes dentelle au fromage, Crêpe dentelle pour apéritif au fromage
 en:Salted crispy crepe with cheese
 ciqual_food_code:en:38408
 ciqual_food_name:en:Salted crispy crepe with cheese, prepacked
