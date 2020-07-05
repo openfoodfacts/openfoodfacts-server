@@ -751,7 +751,7 @@ sub extract_ingredients_from_image($$$$) {
 
 
 my %min_regexp = (
-	en => "min|min\.minimum",
+	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 );
@@ -837,7 +837,7 @@ sub parse_ingredients_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 	
-	my $percent_regexp = '(<|' . $min_regexp . '|\s)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+	my $percent_regexp = '(<|' . $min_regexp . '|\s|\.|:)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -927,8 +927,8 @@ sub parse_ingredients_text($) {
 
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
-					# : is in $separators but we want to keep "origine : France"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
+					# : is in $separators but we want to keep "origine : France" or "min : 23%"
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -1049,9 +1049,9 @@ sub parse_ingredients_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/$percent_regexp$//i;
-			$ingredient1 =~ s/$percent_regexp$//i;
-			$ingredient2 =~ s/$percent_regexp$//i;
+			$ingredient =~ s/\s$percent_regexp$//i;
+			$ingredient1 =~ s/\s$percent_regexp$//i;
+			$ingredient2 =~ s/\s$percent_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1115,7 +1115,7 @@ sub parse_ingredients_text($) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /$percent_regexp$/i) {
+				if ($ingredient =~ /\s$percent_regexp$/i) {
 					$percent = $2;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
