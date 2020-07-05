@@ -154,7 +154,7 @@ my %may_contain_regexps = (
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	nl => "Kan sporen van",
+	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -2546,6 +2546,8 @@ nl => [
 'Cacao: ten minste ',
 'Droog bewaren',
 'E = door EU goedgekeurde hulpstof.',
+'E door EU goedgekeurde hulpstoffen',
+'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
 'gemiddelde voedingswaarden',
 'Gemiddeldevoedingswaardel',
 'gemiddelde voedingswaarde per 100 g',
@@ -2557,6 +2559,7 @@ nl => [
 'voedingswaarde',
 'voorbereidingstips',
 #'waarvan suikers',
+'Witte chocolade: ten minste',
 ],
 
 it => [
