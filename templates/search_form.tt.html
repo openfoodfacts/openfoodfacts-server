@@ -1,8 +1,8 @@
 <h1> [% lang('search_products') %] </h1>
 <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form">
-    
+
     <!-- Word Search -->
-    [% start_form(id=>"search_form", action=>"/cgi/search.pl") %]
+    <!-- [% start_form(id=>"search_form", action=>"/cgi/search.pl") %] -->
     <div class="row">
         <div class="large-12 columns">
             <label for="search_terms2">[% lang ('search_terms_note') %]</label>
@@ -21,9 +21,21 @@
         [% FOREACH type IN criteria %]
             <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
                 <div class="row">
+                    
                     <div class="small-12 medium-12 large-5 columns">
-                        [% popup_menu(name=>"tagtype_${type.id}", id=>"tagtype_${type.id}", value=> type.type_value, values=> type.type_values, labels=> type.type_labels) %]
+                        
+                        <!-- [% popup_menu(name=>"tagtype_${type.id}", id=>"tagtype_${type.id}", value=> type.type_value, values=> type.type_values, labels=> type.type_labels) %] -->
+                        
+                        <select name="tagtype_${type.id}" id="tagtype_${type.id}">
+                            [% FOREACH typevalue IN type.type_values %]
+                            [% FOREACH typelabel IN type.type_labels %]
+                                <option value="[% typevalue %]" label="[% typelabel %]"></option>
+                            [% END %]
+                            [% END %]
+                        </select>
+                        
                     </div>
+                    
                     <div class="small-12 medium-12 large-3 columns">
                         [% popup_menu(name=>"tag_contains_${type.id}", id=>"tag_contains_${type.id}", value=> type.contain_value, values=> type.contain_values, labels=> type.contain_labels) %]
                     </div>
@@ -82,7 +94,7 @@
     <input type="hidden" name="action" value="process" />
 
     <ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
-        
+
         <li class="accordion-navigation">
             <a href="#results_list" style="border-top:1px solid #ccc"><h3>[% lang('search_list_choice') %]</h3></a>
             <div id="results_list" class="content [% active_list %]">

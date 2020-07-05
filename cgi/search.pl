@@ -258,7 +258,7 @@ if ($action eq 'display') {
 			id => $i,
 			type_value => $search_tags[$i][0],
 			type_values => ['search_tag', @search_fields],
-			type_labels => \%search_fields_labels,
+			type_labels => %search_fields_labels,
 			contain_value => $search_tags[$i][1],
 			contain_values => ["contains", "does_not_contain"],
 			contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
