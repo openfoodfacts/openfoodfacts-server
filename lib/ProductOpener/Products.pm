@@ -895,7 +895,7 @@ sub compute_sort_keys($) {
 	}
 
 	# Put obsolete products last (negative key)
-	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
 		$sortkey -= 200000000000;
 		$popularity_key -= 200000000000;
 	}
