@@ -4277,8 +4277,7 @@ sub search_and_display_products($$$$$) {
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	$tt->process('display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
-	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
