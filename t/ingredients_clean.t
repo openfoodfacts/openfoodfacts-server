@@ -162,7 +162,6 @@ foreach my $test_ref (@tests) {
 
 # Results of some tests are different on the producers platform (on purpose)
 
-my $producers_platform = $server_options{producers_platform};
 $server_options{producers_platform} = 0;
 
 foreach my $test_ref (@tests) {
@@ -178,7 +177,7 @@ foreach my $test_ref (@tests) {
 	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
 }
 
-$server_options{producers_platform} = $producers_platform;
+$server_options{producers_platform} = 1;
 
 
 # split_generic_name_from_ingredients() tests
