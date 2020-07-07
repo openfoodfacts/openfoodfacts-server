@@ -28,9 +28,12 @@ mlr -I --csv put -S '$code=${gs1.gtin}' \
   then cut -x -f 'gs1.gtin' $tfile
 
 # GS1 id and name
-mlr -I --csv put -S '$org_gs1_gln=${gs1.gln}' \
+mlr -I --csv put -S '${sources_fields:org-gs1:gln}=${gs1.gln}' \
   then cut -x -f 'gs1.gln' $tfile
-mlr -I --csv put -S '$org_gs1_party_name=${gs1.partyName}' \
+
+# Set the org_name field to gs1.partyName to assign the organization
+mlr -I --csv put -S '${sources_fields:org-gs1:partyName}=${gs1.partyName};
+                     $org_name=${gs1.partyName}' \
   then cut -x -f 'gs1.partyName' $tfile
 
 # Product Name
@@ -102,20 +105,29 @@ mlr -I --csv put -S '$ingredients_text_fr="";
   then cut -x -f 'gs1.ingredientStatement' $tfile
 
 # Categories
-# Discarded candidates for categories:
-# gs1.gpcCategoryCode,gs1.gpcCategoryName,
-# gs1.additionalTradeItemClassificationSystemCode,gs1.additionalTradeItemClassificationCodeValue,gs1.additionalTradeItemClassificationCodeDescription
-# experimentaly on Unilever data, gs1.functionalName is cleaner
-mlr -I --csv put -S '$categories="";
-                     @cat=splitnvx(${gs1.functionalName},  "§");
-                     if (@cat[2]=="languageCode=fr")
-                         { $categories="fr:".@cat[1] }' \
-  then cut -x -f 'gs1.functionalName' \
+# * store gs1.gpcCategoryCode and gs1.gpcCategoryName as is in sources_fields:org-gs1 fields
+# so that they are available for later use / further matching
+# * use other fields as candidates for categories, they will be imported if they match
+# the OFF categories taxonomy:
+# - gs1.gpcCategoryName: some can match as-is
+# - gs1.functionalName: may contain a good category name for some producers (e.g. Unilever)
+# but contains a very specific product name for some other producers (e.g. Naturenvie / Lea Nature)
+
+mlr -I --csv put -S '$categories_if_match_in_taxonomy=${gs1.gpcCategoryName};
+                     ${sources_fields:org-gs1:gpcCategoryCode}=${gs1.gpcCategoryCode};
+                     ${sources_fields:org-gs1:gpcCategoryName}=${gs1.gpcCategoryName}' \
   then cut -x -f 'gs1.gpcCategoryCode' \
   then cut -x -f 'gs1.gpcCategoryName' \
   then cut -x -f 'gs1.additionalTradeItemClassificationSystemCode' \
   then cut -x -f 'gs1.additionalTradeItemClassificationCodeValue' \
   then cut -x -f 'gs1.additionalTradeItemClassificationCodeDescription' $tfile
+
+mlr -I --csv put -S '${categories_if_match_in_taxonomy.2}="";
+                     @cat=splitnvx(${gs1.functionalName},  "§");
+                     if (@cat[2]=="languageCode=fr")
+                         { ${categories_if_match_in_taxonomy.2}="fr:".@cat[1] }' \
+  then cut -x -f 'gs1.functionalName' $tfile
+
 
 # Allergens
 # Discarded candidates for Allergens
