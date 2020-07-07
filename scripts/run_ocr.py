@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Script to generate missing or corrupted Google Cloud Vision JSON.
 
-To run, simply run as root, with the Google API_KEY as envvar:
+To run, simply run as 'off' user, with the Google API_KEY as envvar:
 `CLOUD_VISION_API_KEY='{KEY}' python3 run_ocr.py`
 
 Missing JSON will be added, and corrupted JSON or Google Cloud Vision JSON
