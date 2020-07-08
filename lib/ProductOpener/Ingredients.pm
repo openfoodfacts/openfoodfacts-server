@@ -2454,6 +2454,7 @@ fr => [
 'ne jamais recongeler un produit décongelé',
 'pensez au tri',
 'tenir à l\'abri',
+'(Chocolat: )?teneur en cacao',
 'Modes de pr(e|é)paration',
 'Mode de pr(e|é)paration',
 #'Pour votre santé',
