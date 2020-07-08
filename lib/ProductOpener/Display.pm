@@ -33,6 +33,8 @@ and the JSON responses for the API.
 
 =cut
 
+Bogus like to break the tests and check if merging is blocked.
+
 package ProductOpener::Display;
 
 use utf8;
