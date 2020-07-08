@@ -27,18 +27,30 @@
                         <!-- [% popup_menu(name=>"tagtype_${type.id}", id=>"tagtype_${type.id}", value=> type.type_value, values=> type.type_values, labels=> type.type_labels) %] -->
                         
                         <select name="tagtype_${type.id}" id="tagtype_${type.id}">
-                            [% FOREACH typevalue IN type.type_values %]
-                            [% FOREACH typelabel IN type.type_labels %]
-                                <option value="[% typevalue %]" label="[% typelabel %]"></option>
-                            [% END %]
+                            [% FOREACH value IN type.type_arrays %]
+                                [% IF value.type_labels == 'choose a criterion...' %]
+                                    <option value="[% value.type_values %]" label="[% value.type_labels %]" selected="selected"></option>
+                                [% ELSE %]
+                                    <option value="[% value.type_values %]" label="[% value.type_labels %]"></option>
+                                [% END %] 
                             [% END %]
                         </select>
                         
                     </div>
                     
                     <div class="small-12 medium-12 large-3 columns">
-                        [% popup_menu(name=>"tag_contains_${type.id}", id=>"tag_contains_${type.id}", value=> type.contain_value, values=> type.contain_values, labels=> type.contain_labels) %]
+                        <!-- [% popup_menu(name=>"tag_contains_${type.id}", id=>"tag_contains_${type.id}", value=> type.contain_value, values=> type.contain_values, labels=> type.contain_labels) %] -->
+                        <select name="tag_contains_${type.id}" id="tag_contains_${type.id}"></select>
+                            [%FOREACH value in type.contain_array %]
+                                [% IF value.type_labels == 'contains' %]
+                                    <option value="[% value.contain_values %]" label="[% value.contain_labels %]" selected="selected"></option>
+                                [% ELSE %]
+                                    <option value="[% value.contain_values %]" label="[% value.contain_labels %]"></option>
+                                [% END %] 
+                            [% END %]
+                        </select>
                     </div>
+
                     <div class="small-12 medium-12 large-4 columns tag-search-criterion">
                         <input type="text" id="tag_[% type.id %]" name="tag_[% type.id %]" value="[% type.input_value %]" placeholder="[% lang('search_value') %]"/>
                     </div>

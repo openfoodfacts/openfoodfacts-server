@@ -218,7 +218,6 @@ foreach my $series (@search_series, "nutrition_grades") {
 	}
 }
 
-
 if ($action eq 'display') {
 
 	my $active_list = 'active';
@@ -234,34 +233,91 @@ if ($action eq 'display') {
 		$active_graph = 'active';
 	}
 
-
+	
 	my %search_fields_labels = ();
+	my @type_array;
+	my @contains;
 	foreach my $field (@search_fields) {
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
 			$search_fields_labels{$field} = lc(lang($field));
+			
 		}
 		else {
 			if ($field eq 'creator') {
 				$search_fields_labels{$field} = lang("users_p");
+				# push (@type_array, { 
+				# 	type_values => $field,
+				# 	type_labels => $search_fields_labels{$field},
+				# });
 			}
 			else {
 				$search_fields_labels{$field} = lang($field . "_p");
+				# push (@type_array, { 
+				# 	type_values => $field,
+				# 	type_labels => $search_fields_labels{$field},
+				# });
 			}
 		}
+		push (@type_array, { 
+			type_values => $field,
+			type_labels => $search_fields_labels{$field},
+		});
+
 	}
 	$search_fields_labels{search_tag} = lang("search_tag");
+	push (@type_array, { 
+		type_values => "search",
+		type_labels => $search_fields_labels{search_tag},
+	});
+
+	my @contain_values = ["contains", "does_not_contain"];
+	my %contain_labels = ();
+	# my %contain_labels = {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")};
+
+	# @contains = [
+	#  	{
+	#  		'contain_values' => "contains",
+	#  		'contain_labels' => lang("search_contains"),
+	#  	},
+	#  	{
+	#  		'contain_values' => "does_not_contain",
+	#  		'contain_labels' => lang("search_does_not_contain"),
+	#  	}
+	# ];
+
+	foreach my $value (@contain_values){
+		$contain_labels{$value} = lang("search_" . $value);
+	 	push (@contains, { 
+	  		contain_values => $value,
+	  		contain_labels => $contain_labels{$value},
+	 	});
+	 }
+	
+	# foreach my $elem (@search_fields){
+	# 	push (@type_array, { 
+	# 		type_values => $elem,
+	# 		type_labels => $search_fields_labels{$elem},
+	# 	});
+	# }
 
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
 
+		# push (@type_array, { 
+		#  	type_values => ['search_tag', @search_fields],
+		# 	type_labels => \%search_fields_labels,
+		# });
+
+		
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
 			type_value => $search_tags[$i][0],
-			type_values => ['search_tag', @search_fields],
-			type_labels => %search_fields_labels,
+			# type_values => ['search_tag', @search_fields],
+			# type_labels => %search_fields_labels,
+			type_arrays => \@type_array,
 			contain_value => $search_tags[$i][1],
-			contain_values => ["contains", "does_not_contain"],
-			contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
+			contain_array => \@contains,
+			# contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
 			input_value => $search_tags[$i][2],
 		};
 
@@ -393,6 +449,7 @@ JS
 
 
 $tt->process('search_form.tt.html', $template_data_ref, \$html);
+$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
