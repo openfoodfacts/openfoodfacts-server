@@ -69,6 +69,7 @@ BEGIN
 
 		&split_generic_name_from_ingredients
 		&clean_ingredients_text_for_lang
+		&cut_ingredients_text_for_lang
 		&clean_ingredients_text
 
 		&detect_allergens_from_text
@@ -744,7 +745,7 @@ sub extract_ingredients_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
-		$results_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
 
 	}
 }
@@ -2695,6 +2696,7 @@ If there is already a generic name, it is not overridden.
 
 WARNING: This function should be called only during the import of data from producers.
 It should not be called on lists that can be the result of an OCR, as there is no guarantee that the text before the ingredients list is the generic name.
+It should also not be called when we import product data from the producers platform to the public database.
 
 =cut
 
@@ -2708,7 +2710,7 @@ sub split_generic_name_from_ingredients($$) {
 		$log->debug("split_generic_name_from_ingredients", { language => $language, "ingredients_text_$language" => $product_ref->{"ingredients_text_$language"} }) if $log->is_debug();
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
 
 				my $generic_name = $`;
 				$product_ref->{"ingredients_text_$language"} = ucfirst($');
@@ -2725,12 +2727,31 @@ sub split_generic_name_from_ingredients($$) {
 }
 
 
+=head2 clean_ingredients_text_for_lang ( product_ref language_code )
+
+Perform some cleaning of the ingredients list.
+
+The operations included in the cleaning must be 100% safe.
+
+The function can be applied multiple times on the ingredients list.
+
+=cut
+
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
 
 	$log->debug("clean_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+	
+	# Remove phrases before ingredients list, but only when they are at the very beginning of the text
+	
+	foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
+
+			$text = ucfirst($');
+		}
+	}
 
 	# turn demi - écrémé to demi-écrémé
 
@@ -2738,63 +2759,6 @@ sub clean_ingredients_text_for_lang($$) {
 
 		foreach my $prefix (@{$prefixes_before_dash{$language}}) {
 			$text =~ s/\b($prefix) - (\w)/$1-$2/is;
-		}
-	}
-
-	# Remove phrases before ingredients list lowercase
-
-	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
-
-	my $cut = 0;
-
-	if (defined $phrases_before_ingredients_list{$language}) {
-
-		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			# The match before the regexp must be not greedy so that we don't cut too much
-			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
-			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
-				$text = $';
-				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
-				$cut = 1;
-				last;
-			}
-		}
-	}
-
-	# Remove phrases before ingredients list UPPERCASE
-
-	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
-
-		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
-			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
-		}
-	}
-
-	# Remove phrases after ingredients list
-
-	$log->debug("clean_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if (defined $phrases_after_ingredients_list{$language}) {
-
-		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
-				$text = $`;
-				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
-			}
-		}
-	}
-
-	# Remove phrases
-
-	$log->debug("clean_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if (defined $ignore_phrases{$language}) {
-
-		foreach my $regexp (@{$ignore_phrases{$language}}) {
-			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
 		}
 	}
 
@@ -2811,11 +2775,103 @@ sub clean_ingredients_text_for_lang($$) {
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
 
-	$log->debug("clean_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
+	$log->debug("clean_ingredients_text_for_lang - done", { language=>$language, text=>$text }) if $log->is_debug();
 
 	return $text;
 }
 
+
+=head2 cut_ingredients_text_for_lang ( product_ref language_code )
+
+This function should be called once when getting text data from the OCR that includes an ingredients list.
+
+It tries to remove phrases before and after the list that are not ingredients list.
+
+It MUST NOT be applied multiple times on the ingredients list, as it could otherwise
+remove parts of the ingredients list. (e.g. it looks for "Ingredients: " and remove everything before it.
+If there are multiple "Ingredients:" listed, it would keep only the last one if called multiple times.
+
+=cut
+
+sub cut_ingredients_text_for_lang($$) {
+
+	my $text = shift;
+	my $language = shift;
+
+	$log->debug("cut_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+
+	# Remove phrases before ingredients list lowercase
+
+	$log->debug("cut_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
+
+	my $cut = 0;
+
+	if (defined $phrases_before_ingredients_list{$language}) {
+
+		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+			# The match before the regexp must be not greedy so that we don't cut too much
+			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
+			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+				$text = ucfirst($');
+				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}
+		}
+	}
+
+	# Remove phrases before ingredients list UPPERCASE
+
+	$log->debug("cut_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
+
+		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
+			# INGREDIENTS followed by lowercase
+			
+			if ($text =~ /^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])/s) {
+				$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
+				$text = ucfirst($text);
+				$log->debug("removed phrases_before_ingredients_list_uppercase", { kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}			
+		}
+	}
+
+	# Remove phrases after ingredients list
+
+	$log->debug("cut_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if (defined $phrases_after_ingredients_list{$language}) {
+
+		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
+			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+				$text = $`;
+				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+			}
+		}
+	}
+
+	# Remove phrases
+
+	$log->debug("cut_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if (defined $ignore_phrases{$language}) {
+
+		foreach my $regexp (@{$ignore_phrases{$language}}) {
+			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
+		}
+	}
+
+	$log->debug("cut_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
+	
+	$text = clean_ingredients_text_for_lang($text, $language);
+	
+	$log->debug("cut_ingredients_text_for_lang - done", { language=>$language, text=>$text }) if $log->is_debug();
+
+	return $text;
+}
 
 
 sub clean_ingredients_text($) {
