@@ -2442,11 +2442,12 @@ fr => [
 'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
 'Nutrition pour 100 (g|ml)',
+'pensez au tri',
+'pr(e|é)paration au four',
+'Prépare avec',
 '(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
 '(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
-'pr(e|é)paration au four',
 'N(o|ò)us vous conseillons',
-'pensez au tri',
 'tenir à l\'abri',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
