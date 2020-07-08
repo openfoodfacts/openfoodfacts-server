@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: my\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-29 21:27\n"
+"PO-Revision-Date: 2020-07-08 10:14\n"
 "Language-Team: Burmese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -19,24 +19,24 @@ msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "ထုတ်ကုန်"
 
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " နှင့်၊ ပြီးတော့။ "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "ကျွန်တော့် အကြောင်း၊ ကိုယ့်အကြောင်း"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "ပေါင်းထည့်သည်/ပါ။"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "ဘာသာစကားထည့်သွင်းရန်"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -4259,5 +4259,13 @@ msgstr ""
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
 msgstr ""
 
