@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-29 22:33\n"
+"PO-Revision-Date: 2020-07-08 11:27\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,23 +52,23 @@ msgstr "Зарегистрироваться"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Добро пожаловать!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Спасибо, что присоединились к нам!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Теперь вы можете добавлять и редактировать продукты в браузере или с помощью нашего бесплатного <a href=\"%s\">мобильного приложения</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Присоединяйтесь к нам в Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s - это совместный проект, в который вы можете внести гораздо больше, чем новые продукты: вашу энергию, энтузиазм и идеи!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -76,7 +76,7 @@ msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Присоединяйтесь к нам в Slack"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -176,7 +176,7 @@ msgstr "Опасная пищевая добавка. Избегайте."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Пищевая добавка запрещена в Европе. Избегайте любой ценой."
+msgstr "Пищевая добавка запрещенная в Европе. Избегайте любой ценой."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -196,7 +196,7 @@ msgstr "Расширенный поиск и графики"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "Чрезмерное употребление вредно для здоровья."
+msgstr "Чрезмерное употребление алкоголя вредно для здоровья."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -4292,5 +4292,13 @@ msgstr ""
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
 msgstr ""
 
