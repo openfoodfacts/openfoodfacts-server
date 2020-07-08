@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-30 04:04\n"
+"PO-Revision-Date: 2020-07-08 11:20\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,83 +52,83 @@ msgstr "登録"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "ようこそ！"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "ご参加ありがとうございます！"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Webまたは無料の <a href=\"%s\">モバイルアプリ</a>製品を追加および編集できるようになりました。"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slackにご参加ください"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "は、あなたがエネルギー、熱意、そしてアイデアを新製品よりもはるかにもたらすことができる共同プロジェクトです！"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "私たちはSlackと呼ばれるディスカッションシステムを使用しています。このシステムでは、プロジェクトの参加者全員が交流し、コラボレーションできます。どうぞ参加して下さい！よろしくお願いします！"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slackにご参加ください"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "製品データと写真を簡単にインポートできるようになりました。"
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "これで、製品を追加および編集し、データと写真をプロデューサー向けの無料の <a href=\"%s\">プラットフォームにインポートできます</a>。"
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "%sという名前の既存の組織が既に存在し%s 。"
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "組織への参加リクエストは、組織管理者の承認待ちです。"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "ご不明な点がございましたら、 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> メールでお問い合わせください。"
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "プロデューサーまたはブランドで働いており、独自の製品のデータのみを追加または完成させる場合は、完全に無料のプロデューサー向けプラットフォームにアクセスできます。"
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "生産者向けのプラットフォームにより、製造業者はすべての製品のデータと写真を簡単にインポートし、それらを公式としてマーク付けし、製品の改善の機会を無料で分析できます。"
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "プロフェッショナルアカウント"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "これはプロデューサーまたはブランドのアカウントです。"
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "プロデューサーまたはブランド"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "プロフェッショナルアカウントには、関連する組織（会社名またはブランド）が必要です。"
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "組織名（会社名またはブランド）を入力してください。"
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "このアカウントは、プロデューサーまたはブランド %s関連付けられたプロフェッショナルアカウントです。生産者向けプラットフォームにアクセスできます。"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -323,11 +323,11 @@ msgstr "%s ブランドではない製品"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "ブランドオーナー"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "ザコカコーラカンパニー"
 
 msgctxt "by"
 msgid "by"
@@ -579,7 +579,7 @@ msgstr "アカウント パラメーター"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "アカウントパラメータが変更されました。"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -870,7 +870,7 @@ msgstr "<<site_name>> wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -1041,11 +1041,11 @@ msgstr "原材料の数"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "認定された成分の数"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "認識されていない成分の数"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -2584,11 +2584,11 @@ msgstr "画像の選択を解除する際にエラーが発生しました。"
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "マウスホイールでズームを有効にします。"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "低解像度の画像を読み込む（接続速度が遅い場合）"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4292,5 +4292,13 @@ msgstr ""
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
 msgstr ""
 
