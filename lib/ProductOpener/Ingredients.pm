@@ -2276,6 +2276,7 @@ dk => [
 
 el => [
 'Συστατικά',
+'ΣΥΣΤΑΤΙΚΑ'
 ],
 
 es => [
@@ -2431,6 +2432,7 @@ fr => [
 '(a|à) consommer de',
 'de préférence avant le',
 '(a|à) cons.de préférence avant',
+'Conditionné sous vide',
 '(conseil|conseils) de pr(e|é)paration',
 '(conditions|conseils) de conservation',
 'conseil d\'utilisation',
@@ -2447,6 +2449,7 @@ fr => [
 'pr(e|é)paration au four',
 'dont sucres',
 'dont acides (gras|ras) satur(e|é)s',
+'Naturellement riche en fibres',
 'N(o|ò)us vous conseillons',
 'ne jamais recongeler un produit décongelé',
 'pensez au tri',
@@ -2554,6 +2557,7 @@ nl => [
 'Na openen beperkt houdbaar',
 'ten minste',
 'ten minste houdbaar tot',
+'Van nature rijk aan vezels',
 'Verpakt onder beschermende atmosfeer',
 'voedingswaarden',
 'voedingswaarde',
