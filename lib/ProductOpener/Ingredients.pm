@@ -2355,6 +2355,10 @@ de => [
 'ZUTAT(EN)?',
 ],
 
+da => [
+'N(æ|ae)ringsindhold',
+],
+
 es => [
 'INGREDIENTES',
 ],
@@ -2410,6 +2414,87 @@ my %phrases_after_ingredients_list = (
 
 # TODO: Introduce a common list for kcal
 
+
+cs => [
+'doporučeny způsob přípravy',
+'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+de => [
+'Ern(â|a|ä)hrungswerte',
+'Mindestens altbar bis',
+'Mindestens haltbar bis',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
+'davon ges(â|a|ä)ttigte',
+'Durchschnittlich enthalten 100 (ml|g)',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'DURCHSCHNITTLICHE NÄHRWERTE',
+'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
+'N(â|a|ä)hrwerte je',
+'Nâhrwerte',
+'mindestens',
+'k(u|ü)hl und trocken lagern',
+'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
+'Unge(ö|o)ffnet bei max.',
+'verbrauchen bis',
+'Vorbereitung Tipps',
+'zu verbrauchen bis',
+'100 (ml|g) enthalten durchschnittlich',
+],
+
+en => [
+
+'nutritional values',
+'after opening',
+'nutrition values',
+'of whlch saturates',
+'of which saturates',
+'of which saturated fat',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'once opened keep in the refrigerator',
+'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
+#'Best before',
+#'See bottom of tin',
+
+],
+
+es => [
+'valores nutricionales',
+'modo de preparacion',
+'informaci(o|ô)n nutricional',
+'valor energ(e|é)tico',
+'condiciones de conservaci(o|ó)n',
+#'pa(i|í)s de transformaci(o|ó)n',
+'conservar en lug(a|e)r fresco y seco',
+'de los cuates az(u|ü)cares',
+'de las cuales saturadas',
+'protegido de la luz',
+'conser(y|v)ar entre',
+'una vez abierto',
+'conservaci(o|ó)n:',
+'consumi preferentemente antes del',
+'consumir preferentemente antes del',
+#Envasado por:
+],
+
+fi => [
+'100 g:aan tuotetta käytetään',
+'Kypsennys',
+'Liiallisella käytöllä',
+'Makeisten sekoitussuhde voi vaihdella',
+'Pakattu suojakaasuun',
+'Parasta ennen',
+'Viimeinen käyttöpäivä',
+'(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
+'Sisältää aluspaperin',
+'Suositellaan säilytettäväksi',
+'Säily(?:y|tys|tetään)',
+'Tämä tuote on tehty ihmisille',
+'Valmist(?:aja:|us)',
+],
+
 fr => [
 
 '(a|à) consommer de préférence',
@@ -2419,6 +2504,7 @@ fr => [
 '(a|à) conserver (dans|de|a|à)',
 '(a|à)conserver (dans|de|a|à)', #variation
 '(a|à)conserver entre',
+'Allergènes: voir les ingrédients en gras',
 'apr(e|è)s (ouverture|achat)',
 'apport de r(e|é)ference pour un adulte type',
 'caractéristiques nu(t|f)ritionnelles',
@@ -2472,79 +2558,23 @@ fr => [
 #`Conditionné par`,
 ],
 
-en => [
-
-'nutritional values',
-'after opening',
-'nutrition values',
-'of whlch saturates',
-'of which saturates',
-'of which saturated fat',
-'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'once opened keep in the refrigerator',
-'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
-#'Best before',
-#'See bottom of tin',
-
+hr => [
+'Atlagos tápérték 100g termékben',
 ],
 
-es => [
-'valores nutricionales',
-'modo de preparacion',
-'informaci(o|ô)n nutricional',
-'valor energ(e|é)tico',
-'condiciones de conservaci(o|ó)n',
-#'pa(i|í)s de transformaci(o|ó)n',
-'conservar en lug(a|e)r fresco y seco',
-'de los cuates az(u|ü)cares',
-'de las cuales saturadas',
-'protegido de la luz',
-'conser(y|v)ar entre',
-'una vez abierto',
-'conservaci(o|ó)n:',
-'consumi preferentemente antes del',
-'consumir preferentemente antes del',
-#Envasado por:
+it => [
+'valori nutrizionali',
+'consigli per la preparazione',
+'di cui zuccheri',
+'Valori nutritivi',
+'Conservare in luogo fresco e asciutto',
+'MODALITA D\'USO',
+'MODALITA DI CONSERVAZIONE',
+'Preparazione:',
 ],
 
-de => [
-'Ern(â|a|ä)hrungswerte',
-'Mindestens altbar bis',
-'Mindestens haltbar bis',
-'davon ges(â|a|ä)tigte Fettsäuren',
-'davon Zuckerarten',
-'davon ges(â|a|ä)ttigte',
-'Durchschnittlich enthalten 100 (ml|g)',
-'Durchschnittliche N(â|a|ä)hrwerte',
-'DURCHSCHNITTLICHE NÄHRWERTE',
-'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
-'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
-'N(â|a|ä)hrwerte je',
-'Nâhrwerte',
-'mindestens',
-'k(u|ü)hl und trocken lagern',
-'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
-'Unge(ö|o)ffnet bei max.',
-'verbrauchen bis',
-'Vorbereitung Tipps',
-'zu verbrauchen bis',
-'100 (ml|g) enthalten durchschnittlich',
-],
-
-fi => [
-'100 g:aan tuotetta käytetään',
-'Kypsennys',
-'Liiallisella käytöllä',
-'Makeisten sekoitussuhde voi vaihdella',
-'Pakattu suojakaasuun',
-'Parasta ennen',
-'Viimeinen käyttöpäivä',
-'(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
-'Sisältää aluspaperin',
-'Suositellaan säilytettäväksi',
-'Säily(?:y|tys|tetään)',
-'Tämä tuote on tehty ihmisille',
-'Valmist(?:aja:|us)',
+ja => [
+'栄養価',
 ],
 
 nl => [
@@ -2566,28 +2596,16 @@ nl => [
 'Verpakt onder beschermende atmosfeer',
 'voedingswaarden',
 'voedingswaarde',
+'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd.,'
 'voorbereidingstips',
 #'waarvan suikers',
 'Witte chocolade: ten minste',
 ],
 
-it => [
-'valori nutrizionali',
-'consigli per la preparazione',
-'di cui zuccheri',
-'Valori nutritivi',
-'Conservare in luogo fresco e asciutto',
-'MODALITA D\'USO',
-'MODALITA DI CONSERVAZIONE',
-'Preparazione:',
-],
-
-cs => [
-'doporučeny způsob přípravy',
-],
-
-ja => [
-'栄養価',
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+'Przechowywanie',
 ],
 
 pt => [
@@ -2601,11 +2619,6 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
-pl => [
-'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
-'n(a|o)jlepiej spożyć przed', #Best before
-'Przechowywanie',
-],
 
 ro => [
 'declaratie nutritional(a|ă)',
@@ -2614,13 +2627,6 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-cs => [
-'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
-],
-
-hr => [
-'Atlagos tápérték 100g termékben',
-],
 
 el => [
 'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
@@ -2631,9 +2637,6 @@ vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
 
-dk => [
-'N(æ|ae)ringsindhold',
-],
 
 
 );
