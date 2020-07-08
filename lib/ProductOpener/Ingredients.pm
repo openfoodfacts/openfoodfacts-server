@@ -2443,8 +2443,9 @@ fr => [
 'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
 'Nutrition pour 100 (g|ml)',
 'pensez au tri',
+'Peux contenir des morceaux de noyaux',
 'pr(e|é)paration au four',
-'Prépare avec',
+'Prépar(e|é)e? avec',
 '(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
 '(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 'N(o|ò)us vous conseillons',
@@ -2547,6 +2548,7 @@ fi => [
 ],
 
 nl => [
+'bereid met',
 'Beter Leven keurmerk 1 ster.',
 'Beter Leven keurmerk 3 sterren',
 'Cacao: ten minste ',
