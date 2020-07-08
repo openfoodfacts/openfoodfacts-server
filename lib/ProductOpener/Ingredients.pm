@@ -2517,6 +2517,7 @@ fr => [
 'de préférence avant le',
 'dont sucres',
 'dont acides (gras|ras) satur(e|é)s',
+'Fabriquee à partir de fruits entiers',
 'information nutritionnelle',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
@@ -2535,6 +2536,7 @@ fr => [
 '(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
 '(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 'N(o|ò)us vous conseillons',
+'Sans conservateur',
 'tenir à l\'abri',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
