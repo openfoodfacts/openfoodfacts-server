@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gd\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-29 21:30\n"
+"PO-Revision-Date: 2020-07-08 11:40\n"
 "Language-Team: Scottish Gaelic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4259,5 +4259,13 @@ msgstr ""
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
 msgstr ""
 
