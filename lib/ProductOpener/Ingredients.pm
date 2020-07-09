@@ -2497,7 +2497,14 @@ fi => [
 ],
 
 fr => [
-
+'valeur(s?) (e|é)nerg(e|é)tique',
+'valeur(s?) nutritives',
+'valeur nutritive',
+'valeurs mo(y|v)ennes',
+'valeurs nutritionelles moyennes',
+'valeur nutritionnelle mo(y|v)enne',
+'valeur nutritionnelle',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
 '(a|à) consommer de préférence',
 '(a|à) consommer de',
 '(a|à) cons.de préférence avant',
@@ -2543,14 +2550,6 @@ fr => [
 'tenir à l\'abri',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
-'valeur(s?) (e|é)nerg(e|é)tique',
-'valeur(s?) nutritives',
-'valeur nutritive',
-'valeurs mo(y|v)ennes',
-'valeurs nutritionelles moyennes',
-'valeur nutritionnelle mo(y|v)enne',
-'valeur nutritionnelle',
-'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
 #'Pour votre santé',
 #'La certification Fairtrade assure',
 #Préparation:
