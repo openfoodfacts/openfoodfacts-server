@@ -369,7 +369,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
@@ -733,7 +733,7 @@ while (my $product_ref = $cursor->next) {
 			my $blame_ref = {};
 
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 
 			if ((defined $blame_ref->{nutriments}) and (defined $blame_ref->{nutriments}{salt})
 				and ($blame_ref->{nutriments}{salt}{userid} eq 'kiliweb')
@@ -836,7 +836,7 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 			my $blame_ref =  {};
-			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
@@ -913,7 +913,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_sort_key) {
-			compute_sort_key($product_ref);
+			compute_sort_keys($product_ref);
 		}
 
 		if (not $pretend) {

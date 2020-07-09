@@ -72,9 +72,13 @@ BEGIN
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
+		&server_for_product_id
+		&data_root_for_product_id
+		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&product_exists_on_other_server
 		&get_owner_id
 		&init_product
 		&retrieve_product
@@ -96,7 +100,7 @@ BEGIN
 		&compute_languages
 		&compute_changes_diff_text
 		&compute_data_sources
-		&compute_sort_key
+		&compute_sort_keys
 
 		&add_back_field_values_removed_by_user
 
@@ -263,10 +267,9 @@ sub normalize_code($) {
 sub split_code($) {
 
 	my $code = shift;
-	$code !~ /^\d+$/ and return "invalid";
+	if ($code !~ /^\d{8,24}$/) {
 
-	if (length($code) > 100) {
-		$log->info("invalid code, code too long", { code => $code }) if $log->is_info();
+		$log->info("invalid code", { code => $code }) if $log->is_info();
 		return "invalid";
 	}
 
@@ -284,8 +287,12 @@ C<product_id_for_owner()> returns the product id associated with a product barco
 
 If the products on the server are public, the product id is equal to the product code.
 
-If the products on the server as private (e.g. on the platform for producers),
+If the products on the server are private (e.g. on the platform for producers),
 the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
+
+The product id can be prefixed by a server id to indicate that is is on another server
+(e.g. Open Food Facts, Open Beauty Facts, Open Products Facts or Open Pet Food Facts)
+e.g. off:[code]
 
 =head3 Parameters
 
@@ -325,18 +332,152 @@ sub product_id_for_owner($$) {
 	}
 }
 
+
+=head2 server_for_product_id ( $product_id )
+
+Returns the server for the product, if it is not on the current server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+undef is the product is on the current server, or server id of the server of the product otherwise.
+
+=cut
+
+sub server_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		return $server;
+	}
+	
+	return;
+}
+
+
+=head2 data_root_for_product_id ( $product_id )
+
+Returns the data root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The data root for the product.
+
+=cut
+
+sub data_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{data_root};
+		}
+	}
+	
+	return $data_root;
+}
+
+
+=head2 www_root_for_product_id ( $product_id )
+
+Returns the www root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The www root for the product.
+
+=cut
+
+sub www_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{www_root};
+		}
+	}
+	
+	return $www_root;
+}
+
+
+=head2 product_path_from_id ( $product_id )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
+
 sub product_path_from_id($) {
 
 	my $product_id = shift;
+	
+	my $product_id_without_server = $product_id;
+	$product_id_without_server =~ s/(.*)://;
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
 	}
 	else {
-		return split_code($product_id);
+		return split_code($product_id_without_server);
 	}
 
 }
+
+
+=head2 product_path ( $product_ref )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Product object reference.
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
 
 sub product_path($) {
 
@@ -375,6 +516,38 @@ sub product_exists($) {
 		return 0;
 	}
 }
+
+
+sub product_exists_on_other_server($$) {
+
+	my $server = shift;
+	my $id = shift;
+		
+	if (not ((defined $options{other_servers}) and (defined $options{other_servers}{$server}))) {
+		return 0;
+	}
+		
+	my $server_data_root = $options{other_servers}{$server}{data_root};
+
+	my $path = product_path_from_id($id);
+	
+	$log->debug("product_exists_on_other_server", { id => $id, server => $server, server_data_root => $server_data_root, path => $path }) if $log->is_debug();
+	
+	if (-e "$server_data_root/products/$path") {
+
+		my $product_ref = retrieve("$server_data_root/products/$path/product.sto");
+		if ((not defined $product_ref) or ($product_ref->{deleted})) {
+			return 0;
+		}
+		else {
+			return $product_ref;
+		}
+	}
+	else {
+		return 0;
+	}
+}
+
 
 sub get_owner_id($$$) {
 
@@ -535,10 +708,17 @@ sub retrieve_product($) {
 
 	my $product_id = shift;
 	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
 
-	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path } ) if $log->is_debug();
 
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -549,10 +729,18 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $deleted_ok = shift;
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+	
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}	
 
 	if ((defined $product_ref) and ($product_ref->{deleted})
 	and (not $deleted_ok)) {
@@ -565,15 +753,23 @@ sub retrieve_product_or_deleted_product($$) {
 
 sub retrieve_product_rev($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+
+	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");	
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}	
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -605,7 +801,10 @@ sub change_product_server_or_code($$$) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code =~ /^\d+$/) {
+	if ($new_code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
+	}
+	else {
 	# check that the new code is available
 		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
 			push @{$errors_ref}, lang("error_new_code_already_exists");
@@ -623,25 +822,95 @@ sub change_product_server_or_code($$$) {
 	}
 }
 
-sub compute_sort_key($) {
+
+=head2 compute_sort_keys ( $product_ref )
+
+Compute sort keys that are stored in the MongoDB database and used to order results of queries.
+
+=head3 last_modified_t - date of last modification of the product page
+
+Used on the web site for facets pages, except the index page.
+
+=head3 sortkey - date of last modification, with obsolete products last and complete products first
+
+Used on the web site for index page.
+
+=head3 popularity_key - Popular and recent products
+
+Used for the Personal Search project to provide generic search results that apps can personnalize later.
+
+=cut
+
+sub compute_sort_keys($) {
 
 	my $product_ref = shift;
 
-	# put obsolete products last  		(add 200000000000 when products are not obsolete)
+	# put obsolete products last  		(substract 200000000000 when products are obsolete)
 	# then put complete products first	(add 100000000000 when products are complete)
 	# otherwise sort by last_modified_t (e.g.  1571384133)
 
 	my $sortkey = $product_ref->{last_modified_t};
-
-	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
-		$sortkey += 200000000000;
+	
+	my $popularity_key = 0;
+	
+	# Use the popularity tags
+	if (defined $product_ref->{popularity_tags}) {
+		my %years = ();
+		my $latest_year;
+		foreach my $tag (@{$product_ref->{popularity_tags}}) {
+			# one product could have:
+			# "top-50000-scans-2019",
+			# "top-100000-scans-2019",
+			# "top-100000-scans-2020",
+			if ($tag =~ /^top-(\d+)-scans-20(\d\d)$/) {
+				my $top = $1;
+				my $year = $2;
+				# Save the smaller top for each year
+				if ((not defined $years{$year}) or ($years{$year} > $top)) {
+					$years{$year} = $top;
+				}
+				if ((not defined $latest_year) or ($year > $latest_year)) {
+					$latest_year = $year;
+				}
+			}
+		}
+		# Keep only the latest year, and make the latest year count more than previous years
+		if (defined $latest_year) {
+			$popularity_key += $latest_year * 1000000 * 1000 - $years{$latest_year} * 1000;
+		}
 	}
+	
+	# unique_scans_n : number of unique scans for the last year processed by scanbot.pl
+	if (defined $product_ref->{unique_scans_n}) {
+		$popularity_key += $product_ref->{unique_scans_n};
+	}
+	
+	# give a small boost to products for which we have recent images
+	if (defined $product_ref->{last_image_t}) {
+
+		my $age = int((time() - $product_ref->{last_image_t}) / (86400 * 30));	# in months
+		if ($age < 12) {
+			$popularity_key += 12 - $age;
+		}
+	}
+
+	# Put obsolete products last (negative key)
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$sortkey -= 200000000000;
+		$popularity_key -= 200000000000;
+	}
+
+	# Put products with complete data before uncomplete products
 	if ($product_ref->{complete}) {
 		$sortkey += 100000000000;
+		$popularity_key += 100000000000;
 	}
 
+# Add 0 so we are sure the key is saved as int
 	$product_ref->{sortkey} = $sortkey + 0;
+	$product_ref->{popularity_key} = $popularity_key + 0;
 }
+
 
 sub store_product($$) {
 
@@ -656,20 +925,31 @@ sub store_product($$) {
 	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
-	# then we first move the existing files (product and images)
+	# the "new_server" value will be set to off, obf etc.
+	# we first move the existing files (product and images)
 	# and then store the product with a comment.
+	
+	# if we have a "server" value (e.g. from an import),
+	# we save the product on the corresponding server but we don't need to move an existing product
 
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
 
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
+	
+	if ((defined $product_ref->{server}) and (defined $options{other_servers})
+		and (defined $options{other_servers}{$product_ref->{server}})) {
+		my $server = $product_ref->{server};
+		$new_data_root = $options{other_servers}{$server}{data_root};
+		$new_www_root = $options{other_servers}{$server}{www_root};
+		$new_products_collection = get_collection($options{other_servers}{$server}{mongodb}, 'products');
+	}	
 
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path_from_id($old_code);
-
 
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
@@ -680,7 +960,7 @@ sub store_product($$) {
 			delete $product_ref->{new_server};
 		}
 
-		$log->info("moving product", { old_code => $old_code, code => $code, new_dat_root => $new_data_root }) if $log->is_info();
+		$log->info("moving product", { old_code => $old_code, code => $code, new_data_root => $new_data_root }) if $log->is_info();
 
 		# Move directory
 
@@ -694,10 +974,10 @@ sub store_product($$) {
 		$log->debug("creating product directories", { path => $path, prefix_path => $prefix_path }) if $log->is_debug();
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
+			(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
+				(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			}
 		}
 
@@ -808,11 +1088,11 @@ sub store_product($$) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
-	compute_sort_key($product_ref);
+	compute_sort_keys($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -1353,9 +1633,9 @@ sub find_and_replace_user_id_in_products($$) {
 
 
 
-sub compute_product_history_and_completeness($$$) {
+sub compute_product_history_and_completeness($$$$) {
 
-
+	my $product_data_root = shift;
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $blame_ref = shift;
@@ -1432,7 +1712,7 @@ sub compute_product_history_and_completeness($$$) {
 		if (not defined $rev) {
 			$rev = $revs;	# was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {

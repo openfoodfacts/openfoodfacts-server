@@ -2646,6 +2646,26 @@ sub canonicalize_taxonomy_tag($$$)
 		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
+	elsif ($tagtype eq "ingredients") {
+		# convert E-number + name to E-number only if the number match the name
+		my $additive_tagid;
+		my $name;
+		if ($tagid =~ /^(e\d.*?)-(.*)$/i) {
+			$additive_tagid = $1;
+			$name = $2;
+		}
+		elsif ($tagid =~ /^(.*)-(e\d.*?)$/i) {
+			$name = $1;
+			$additive_tagid = $2;
+		}
+		if (defined $name) {
+			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name);
+			# caramelo e150c -> name_id is e150
+			if (("en:" . $additive_tagid) =~ /^$name_id/) {
+				return "en:" . $additive_tagid;
+			}			
+		}
+	}
 
 
 	if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid})) {

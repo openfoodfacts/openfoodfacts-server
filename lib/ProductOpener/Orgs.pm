@@ -50,6 +50,10 @@ BEGIN
 	
 					&retrieve_org
 					&store_org
+					&create_org
+					&retrieve_or_create_org
+					&add_user_to_org
+					&remove_user_from_org
 					
 					&org_name
 					&org_url
@@ -76,20 +80,49 @@ use Encode;
 use Log::Any qw($log);
 
 
+=head1 FUNCTIONS
+
+=head2 retrieve_org ( $org_id / $org_name )
+
+=head3 Arguments
+
+=head4 $org_id / $org_name
+
+Identifier for the org (without the "org-" prefix) or org name.
+
+=head3 Return values
+
+This function returns a hash ref for the org, or undef if the org does not exist.
+
+=cut
 
 sub retrieve_org($) {
 
-	my $org_id = shift;
-
-	$log->debug("retrieve_org", { org_id => $org_id } ) if $log->is_debug();
+	my $org_id_or_name = shift;
 	
-	not (defined $org_id) and return;
+	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
+
+	$log->debug("retrieve_org", { $org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
 
 	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
 
 	return $org_ref;
 }
 
+
+=head2 store_org ( $org_ref )
+
+=head3 Arguments
+
+=head4 $org_ref
+
+Hash ref for the org object.
+
+=head3 Return values
+
+None
+
+=cut
 
 sub store_org($) {
 	
@@ -101,6 +134,199 @@ sub store_org($) {
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
 }
+
+
+=head2 create_org ( $creator, $org_id / $org_name, $org_ref )
+
+Creates a new org.
+
+=head3 Arguments
+
+=head4 $creator
+
+User id of the user creating the org (it can be the first user of the org,
+or an admin that creates an org by assigning an user to it).
+
+=head4 $org_id / $org_name
+
+Identifier for the org (without the "org-" prefix), or org name.
+
+=head3 Return values
+
+This function returns a hash ref for the org.
+
+=cut
+
+sub create_org($$) {
+
+	my $creator = shift;
+	my $org_id_or_name = shift;
+	
+	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
+
+	$log->debug("create_org", { $org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
+		
+	my $org_ref = {
+		created_t => time(),
+		creator => $creator,
+		org_id => $org_id,
+		org_name => $org_id_or_name,
+		admins => {},
+		members => {},
+	};	
+
+	store_org($org_ref);
+	
+	my $admin_mail_body = <<EMAIL
+creator: $creator
+org_id: $org_id
+org_name: $org_id_or_name
+EMAIL
+;
+	send_email_to_admin("Org created - creator: $creator - org: $org_id", $admin_mail_body);		
+
+	return $org_ref;
+}
+
+
+=head2 retrieve_or_create_org ( $creator, $org_id / $org_name, $org_ref )
+
+If the org exists, the function returns the org object. Otherwise it creates a new org.
+
+=head3 Arguments
+
+=head4 $creator
+
+User id of the user creating the org (it can be the first user of the org,
+or an admin that creates an org by assigning an user to it).
+
+=head4 $org_id / $org_name
+
+Identifier for the org (without the "org-" prefix), or org name.
+
+=head3 Return values
+
+This function returns a hash ref for the org.
+
+=cut
+
+sub retrieve_or_create_org($$) {
+
+	my $creator = shift;
+	my $org_id_or_name = shift;
+	
+	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
+
+	$log->debug("retrieve_or_create_org", { org_id => $org_id } ) if $log->is_debug();
+		
+	my $org_ref = retrieve_org($org_id);
+	
+	if (not defined $org_ref) {
+		$org_ref = create_org($creator, $org_id_or_name);
+	}
+
+	return $org_ref;
+}
+
+
+=head2 add_user_to_org ( $org_id / $org_ref, $user_id, $groups_ref )
+
+Add the user to the specified groups of an organization.
+
+=head3 Arguments
+
+=head4 $org_id / $org_ref
+
+Org id or org object.
+
+=head4 $user_id
+
+User id.
+
+=head4 $groups_ref
+
+Reference to an array of group ids (e.g. ["admins", "members"])
+
+=cut
+
+sub add_user_to_org($$$) {
+
+	my $org_id_or_ref = shift;
+	my $user_id = shift;
+	my $groups_ref = shift;
+	
+	my $org_id;
+	my $org_ref;
+	
+	if (ref($org_id_or_ref) eq "") {
+		$org_id = $org_id_or_ref;
+		$org_ref = retrieve_org($org_id);
+	}
+	else {
+		$org_ref = $org_id_or_ref;
+		$org_id = $org_ref->{org_id};
+	}
+
+	$log->debug("add_user_to_org", { org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref } ) if $log->is_debug();
+		
+	foreach my $group (@{$groups_ref}) {
+		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
+		$org_ref->{$group}{$user_id} = 1;
+	}
+
+	store_org($org_ref);
+}
+
+
+=head2 remove_user_from_org ( $org_id / $org_ref, $user_id, $groups_ref )
+
+Remove the user from the specified groups of an organization.
+
+=head3 Arguments
+
+=head4 $org_id / $org_ref
+
+Org id or org object.
+
+=head4 $user_id
+
+User id.
+
+=head4 $groups_ref
+
+Reference to an array of group ids (e.g. ["admins", "members"])
+
+=cut
+
+sub remove_user_from_org($$$) {
+
+	my $org_id_or_ref = shift;
+	my $user_id = shift;
+	my $groups_ref = shift;
+	
+	my $org_id;
+	my $org_ref;
+	
+	if (ref($org_id_or_ref) eq "") {
+		$org_id = $org_id_or_ref;
+		$org_ref = retrieve_org($org_id);
+	}
+	else {
+		$org_ref = $org_id_or_ref;
+		$org_id = $org_ref->{org_id};
+	}
+
+	$log->debug("remove_user_from_org", { org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref } ) if $log->is_debug();
+		
+	foreach my $group (@{$groups_ref}) {
+		if (defined $org_ref->{$group}) {
+			delete $org_ref->{$group}{$user_id};
+		}
+	}
+
+	store_org($org_ref);
+}
+
 
 sub org_name($) {
 	

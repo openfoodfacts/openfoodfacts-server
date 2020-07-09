@@ -3826,6 +3826,19 @@ sub mmoll_to_unit {
 		fi => "Ravintoarvosana",
 		ro => "Notă nutrițională",
 	},
+	"ibu" => {
+		de => "Internationale Bittereinheit",
+		en => "International Bittering Unit",
+		pt => "Medida do amargor internacional",
+		ru => "Международная единица горечи",
+		unit => "",
+	},
+	"alcohol-units" => {
+		en => "Alcohol units",
+		de => "Alkoholeinheiten",
+		fr => "Unités d'alcool",
+	unit => "",
+	},
 	"choline" => {
 		ar => "كولين",
 		bg => "Холин",
