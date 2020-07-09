@@ -18,6 +18,25 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+=head1 NAME
+
+ProductOpener::Producers - functions specific to the platform for producers
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Producers> contains the functions specific to the producers platform:
+
+- Functions to import CSV / Excel files, match column names, convert to OFF csv format
+- Minion tasks for import and export
+
+=head1 DESCRIPTION
+
+..
+
+=cut
+
+
 package ProductOpener::Producers;
 
 use utf8;
@@ -45,6 +64,8 @@ BEGIN
 		&generate_import_export_columns_groups_for_select2
 
 		&convert_file
+		
+		&export_and_import_to_public_database
 
 		&import_csv_file_task
 		&export_csv_file_task
@@ -79,6 +100,7 @@ use Data::Dumper;
 use Text::CSV();
 use Minion;
 
+
 # Minion backend
 
 if (not defined $server_options{minion_backend}) {
@@ -91,7 +113,34 @@ else {
 }
 
 
-# Load a CSV or Excel file
+=head1 FUNCTIONS
+
+=head2 load_csv_or_excel_file ( $file )
+
+Load a CSV or Excel file in a Perl structure.
+
+- CSV files should be in UTF-8 and separated with a comma. They are processed with Text::CSV.
+- Excel files are first converted to CSV with gnumeric's ssconvert.
+
+=head3 Arguments
+
+=head4 file name with absolute path
+
+CSV or Excel file
+
+=head3 Return values
+
+A hash ref with:
+
+=head4 headers
+
+A reference to an array of header names.
+
+=head4 rows
+
+A reference to an array of rows, containing each an array of column values
+
+=cut
 
 sub load_csv_or_excel_file($) {
 
@@ -1206,7 +1255,126 @@ JSON
 }
 
 
-# Minion tasks
+
+sub export_and_import_to_public_database($) {
+	
+	my $args_ref = shift;
+	
+	my $started_t = time();
+	my $export_id = $started_t;
+
+	my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
+	if (not defined $exports_ref) {
+		$exports_ref = {};
+	}
+
+	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
+
+	$exports_ref->{$export_id} = {
+		started_t => $started_t,
+		exported_file => $exported_file,
+	};
+
+	# Set the user to the owner userid or org
+
+	my $user_id = $User_id;
+	if ($Owner_id =~ /^(user)-/) {
+		$user_id = $';
+	}
+	elsif ($Owner_id =~ /^(org)-/) {
+		$user_id = $Owner_id;
+	}
+
+	# First export the data locally
+
+	$args_ref->{user_id} = $user_id;
+	$args_ref->{org_id} = $Org_id;
+	$args_ref->{owner_id} = $Owner_id;
+	$args_ref->{csv_file} = $exported_file;
+	$args_ref->{export_id} = $export_id;
+	$args_ref->{comment} = "Import from producers platform";
+	$args_ref->{include_images_paths} = 1;	# Export file paths to images
+
+
+	if (defined $Org_id) {
+
+		$args_ref->{source_id} = "org-" . $Org_id;
+		$args_ref->{source_name} = $Org_id;
+
+		# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
+		# in the mean time, use a naming convention:  label-something, database-something and treat
+		# everything else as a producers
+		if ($Org_id =~ /^app-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
+		}
+		elsif ($Org_id =~ /^database-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
+		}	
+		elsif ($Org_id =~ /^label-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
+		}
+		else {
+			$args_ref->{manufacturer} = 1;
+			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+		}		
+	}
+	else {
+		$args_ref->{no_source} = 1;
+	}
+
+	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}});
+
+	$args_ref->{export_job_id} = $local_export_job_id;
+
+	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+
+	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
+	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+
+	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
+	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
+
+	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
+	
+	return {
+			export_id => $export_id,
+			exported_file => $exported_file,
+			local_export_job_id => $local_export_job_id,
+			remote_import_job_id => $remote_import_job_id,
+	};
+}
+
+
+=head1 Minion tasks
+
+Minion tasks that can be enqueued by standalone scripts or the web site,
+that are then executed by the minion-off and minion-off-pro daemons.
+
+The daemons are configured in /etc/systemd/system
+
+e.g. /etc/systemd/system/minion-off.service 
+
+[Unit]
+Description=off minion workers
+After=postgresql.service
+
+[Service]
+Type=simple
+User=off
+WorkingDirectory=/srv/off/scripts
+Environment="PERL5LIB=."
+ExecStart=/srv/off/scripts/minion_producers.pl minion worker -m production -q openfoodfacts.org
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+=cut
 
 sub import_csv_file_task() {
 
