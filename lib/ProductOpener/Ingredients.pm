@@ -155,7 +155,7 @@ my %may_contain_regexps = (
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	nl => "Kan sporen van",
+	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -2263,26 +2263,52 @@ en => [
 'ingredient(s?)',
 ],
 
-fr => [
-'ingr(e|é)dient(s?)',
-'Quels Ingr(e|é)dients ?', # In Casino packagings
-'composition',
+cs => [
+'složení',
 ],
 
 de => [
 'zutat(en)?',
 ],
 
+dk => [
+'ingredienser',
+],
+
+el => [
+'Συστατικά',
+'ΣΥΣΤΑΤΙΚΑ'
+],
+
 es => [
 'ingredientes',
+],
+
+fi => [
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'valmistusaineet',
+],
+
+fr => [
+'ingr(e|é)dient(s?)',
+'Quels Ingr(e|é)dients ?', # In Casino packagings
+'composition',
+],
+
+hr => [
+'(ö|ő|o)sszetev(ö|ő|o)k',
 ],
 
 it => [
 'ingredienti',
 ],
 
-cs => [
-'složení',
+is => [
+'Innihaldslýsing',
+],
+
+nl => [
+'ingredi(e|ë)nten',
 ],
 
 pt => [
@@ -2297,38 +2323,13 @@ si => [
 'sestavine',
 ],
 
-it => [
-'ingredienti',
-],
-
-nl => [
-'ingredi(e|ë)nten',
-],
-
-fi => [
-'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
-'valmistusaineet',
-],
-
-sv => [
-'ingredienser',
-],
-
-dk => [
-'ingredienser',
-],
-
 ru => [
 'Состав',
 'Ингредиенты',
 ],
 
-hr => [
-'(ö|ő|o)sszetev(ö|ő|o)k',
-],
-
-el => [
-'Συστατικά',
+sv => [
+'ingredienser',
 ],
 
 );
@@ -2353,6 +2354,10 @@ cs => [
 
 de => [
 'ZUTAT(EN)?',
+],
+
+da => [
+'N(æ|ae)ringsindhold',
 ],
 
 es => [
@@ -2410,60 +2415,34 @@ my %phrases_after_ingredients_list = (
 
 # TODO: Introduce a common list for kcal
 
-fr => [
 
-'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
-'caractéristiques nu(t|f)ritionnelles',
-'valeurs mo(y|v)ennes',
-'valeurs nutritionelles moyennes',
-'valeur nutritionnelle mo(y|v)enne',
-'valeur nutritionnelle',
-'information nutritionnelle',
-'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
-'moyennes pour 100(g|ml)',
-'Nutrition pour 100 (g|ml)',
-'valeur(s?) (e|é)nerg(e|é)tique',
-'valeur(s?) nutritives',
-'valeur nutritive',
-'apport de r(e|é)ference pour un adulte type',
-'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'(a|à) consommer de préférence',
-'(a|à) consommer de',
-'de préférence avant le',
-'(a|à) cons.de préférence avant',
-'(conseil|conseils) de pr(e|é)paration',
-'(conditions|conseils) de conservation',
-'conseil d\'utilisation',
-'conservation:',
-'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
-'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
-'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
-'(a|à) consommer (cuit|rapidement|dans|jusqu)',
-'(a|à) conserver (dans|de|a|à)',
-'(a|à)conserver (dans|de|a|à)', #variation
-'(a|à)conserver entre',
-'apr(e|è)s (ouverture|achat)',
-'dans le compartiment (a|à) gla(c|ç)ons',
-'pr(e|é)paration au four',
-'dont sucres',
-'dont acides (gras|ras) satur(e|é)s',
-'N(o|ò)us vous conseillons',
-'ne jamais recongeler un produit décongelé',
-'pensez au tri',
-'tenir à l\'abri',
-'Modes de pr(e|é)paration',
-'Mode de pr(e|é)paration',
-#'Pour votre santé',
-#'La certification Fairtrade assure',
-#Préparation:
-#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
-#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
-#'dont sucres',
-#'dontSUcres',
-#'waarvan suikers/
-#`verzadigde vetzuren/ acides gras saturés`,
-#`Conditionné par`,
+cs => [
+'doporučeny způsob přípravy',
+'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+de => [
+'Ern(â|a|ä)hrungswerte',
+'Mindestens altbar bis',
+'Mindestens haltbar bis',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
+'davon ges(â|a|ä)ttigte',
+'Durchschnittlich enthalten 100 (ml|g)',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'DURCHSCHNITTLICHE NÄHRWERTE',
+'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
+'N(â|a|ä)hrwerte je',
+'Nâhrwerte',
+'mindestens',
+'k(u|ü)hl und trocken lagern',
+'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
+'Unge(ö|o)ffnet bei max.',
+'verbrauchen bis',
+'Vorbereitung Tipps',
+'zu verbrauchen bis',
+'100 (ml|g) enthalten durchschnittlich',
 ],
 
 en => [
@@ -2501,30 +2480,6 @@ es => [
 #Envasado por:
 ],
 
-de => [
-'Ern(â|a|ä)hrungswerte',
-'Mindestens altbar bis',
-'Mindestens haltbar bis',
-'davon ges(â|a|ä)tigte Fettsäuren',
-'davon Zuckerarten',
-'davon ges(â|a|ä)ttigte',
-'Durchschnittlich enthalten 100 (ml|g)',
-'Durchschnittliche N(â|a|ä)hrwerte',
-'DURCHSCHNITTLICHE NÄHRWERTE',
-'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
-'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
-'N(â|a|ä)hrwerte je',
-'Nâhrwerte',
-'mindestens',
-'k(u|ü)hl und trocken lagern',
-'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
-'Unge(ö|o)ffnet bei max.',
-'verbrauchen bis',
-'Vorbereitung Tipps',
-'zu verbrauchen bis',
-'100 (ml|g) enthalten durchschnittlich',
-],
-
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
@@ -2541,23 +2496,74 @@ fi => [
 'Valmist(?:aja:|us)',
 ],
 
-nl => [
-'Beter Leven keurmerk 1 ster.',
-'Beter Leven keurmerk 3 sterren',
-'Cacao: ten minste ',
-'Droog bewaren',
-'E = door EU goedgekeurde hulpstof.',
-'gemiddelde voedingswaarden',
-'Gemiddeldevoedingswaardel',
-'gemiddelde voedingswaarde per 100 g',
-'Na openen beperkt houdbaar',
-'ten minste',
-'ten minste houdbaar tot',
-'Verpakt onder beschermende atmosfeer',
-'voedingswaarden',
-'voedingswaarde',
-'voorbereidingstips',
-#'waarvan suikers',
+fr => [
+'valeur(s?) (e|é)nerg(e|é)tique',
+'valeur(s?) nutritives',
+'valeur nutritive',
+'valeurs mo(y|v)ennes',
+'valeurs nutritionelles moyennes',
+'valeur nutritionnelle mo(y|v)enne',
+'valeur nutritionnelle',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
+'(a|à) consommer de préférence',
+'(a|à) consommer de',
+'(a|à) cons.de préférence avant',
+'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+'(a|à) conserver (dans|de|a|à)',
+'(a|à)conserver (dans|de|a|à)', #variation
+'(a|à)conserver entre',
+'Allergènes: voir les ingrédients en gras',
+'apr(e|è)s (ouverture|achat)',
+'apport de r(e|é)ference pour un adulte type',
+'caractéristiques nu(t|f)ritionnelles',
+'Conditionné sous vide',
+'(conseil|conseils) de pr(e|é)paration',
+'(conditions|conseils) de conservation',
+'conseil d\'utilisation',
+'conservation:',
+'Croûte en matière plastique non comestible',
+'dans le compartiment (a|à) gla(c|ç)ons',
+'de préférence avant le',
+'dont sucres',
+'dont acides (gras|ras) satur(e|é)s',
+'Fabriquee à partir de fruits entiers',
+'information nutritionnelle',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
+'Modes de pr(e|é)paration',
+'Mode de pr(e|é)paration',
+'moyennes pour 100(g|ml)',
+'Naturellement riche en fibres',
+'ne jamais recongeler un produit décongelé',
+'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
+'Nutrition pour 100 (g|ml)',
+'pensez au tri',
+'Peux contenir des morceaux de noyaux',
+'pr(e|é)paration au four',
+'Prépar(e|é)e? avec',
+'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
+'N(o|ò)us vous conseillons',
+'Non ouvert,',
+'Sans conservateur',
+'tenir à l\'abri',
+'(Chocolat: )?teneur en cacao',
+'Teneur totale en sucres',
+#'Pour votre santé',
+#'La certification Fairtrade assure',
+#Préparation:
+#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
+#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
+#'dont sucres',
+#'dontSUcres',
+#'waarvan suikers/
+#`verzadigde vetzuren/ acides gras saturés`,
+#`Conditionné par`,
+],
+
+hr => [
+'Atlagos tápérték 100g termékben',
 ],
 
 it => [
@@ -2571,12 +2577,40 @@ it => [
 'Preparazione:',
 ],
 
-cs => [
-'doporučeny způsob přípravy',
-],
-
 ja => [
 '栄養価',
+],
+
+nl => [
+'bereid met',
+'Beter Leven keurmerk 1 ster.',
+'Beter Leven keurmerk 3 sterren',
+'Cacao: ten minste ',
+'Droog bewaren',
+'E = door EU goedgekeurde hulpstof.',
+'E door EU goedgekeurde hulpstoffen',
+'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
+'gemiddelde voedingswaarden',
+'Gemiddeldevoedingswaardel',
+'gemiddelde voedingswaarde per 100 g',
+'Na openen beperkt houdbaar',
+'Ongeopend, ten minste houdbaar tot:',
+'ten minste',
+'ten minste houdbaar tot',
+'Van nature rijk aan vezels',
+'Verpakt onder beschermende atmosfeer',
+'voedingswaarden',
+'voedingswaarde',
+'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+'voorbereidingstips',
+#'waarvan suikers',
+'Witte chocolade: ten minste',
+],
+
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+'Przechowywanie',
 ],
 
 pt => [
@@ -2590,11 +2624,6 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
-pl => [
-'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
-'n(a|o)jlepiej spożyć przed', #Best before
-'Przechowywanie',
-],
 
 ro => [
 'declaratie nutritional(a|ă)',
@@ -2603,13 +2632,6 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-cs => [
-'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
-],
-
-hr => [
-'Atlagos tápérték 100g termékben',
-],
 
 el => [
 'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
@@ -2620,9 +2642,6 @@ vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
 
-dk => [
-'N(æ|ae)ringsindhold',
-],
 
 
 );

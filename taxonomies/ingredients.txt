@@ -6454,7 +6454,7 @@ fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, c
 hu:tejsavbaktériumok, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, syrekultur
-nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel
+nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos, fermentos lácticos
 ro:culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt
@@ -9409,7 +9409,7 @@ hu:bio joghurt
 nl:biologische yoghurt
 
 <en:yogurt
-fr:yogourt maigre
+fr:yaourt maigre, yogourt maigre
 ca:iogurt magre
 de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
 es:yogur magro
@@ -17130,9 +17130,46 @@ pl:Skrobia modyfikowana z tapioki
 pt:amido modificado de tapioca
 sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
 
+<en:starch
+# <en:wheat
+en:wheat starch
+ca:Midó de blat, fècula de blat
+cs:Pšeičný škrob
+da:Hvedestivelse
+de:Weizenstärke
+el:άμυλο σιταριού
+es:almidón de trigo
+fi:vehnätärkkelys, vehnätärkkelystä
+fr:amidon de froment, amidon de blé
+hu:búzakeményítő
+it:amido di frumento
+nl:tarwezetmeel, tarwe zetmeel
+pl:Skrobia pszenna
+pt:amido de trigo
+ru:Пшеничный крахмал
+se:pšenični skrob
+sv:vetestärkelse
+
+<en:wheat starch
+de:Weizenquellstärke
+
+<en:modified starch
+<en:wheat starch
+en:modified wheat starch
+de:modifizierte Weizenstärke
+es:almidón de trigo modificado
+fi:muunnettu vehnätärkkelys
+fr:amidon modifié de blé, amidon transformé de blé
+hu:módosított búzakeményítő
+it:amido modificato de fromento
+nl:gemodificeerd tarwezetmeel
+sv:modifierad vetestärkelse
+
+
 en:tapioca syrup
 es:sirope de tapioca
 fr:sirop de tapioca
+nl:tapiocastroop
 vegan:en:yes
 vegetarian:en:yes
 from_palm_oil:en:no
@@ -17217,7 +17254,7 @@ el:έλαια και λίπη
 es:aceites y grasas,materia grasa
 et:õlid ja rasvad
 fi:öljy ja rasva, öljyt ja rasvat
-fr:huiles et graisses
+fr:huiles et graisses, matières grasses
 he:שמן ושומן
 hr:Ulja i masti
 hu:Olajok és zsírok, olaj és zsír
@@ -17225,7 +17262,7 @@ it:oli e grassi
 lt:Aliejus ir riebalai
 lv:Eļļas un tauki
 mt:żjut u xaħmijiet
-nl:oliën en vetten
+nl:oliën en vetten, vetstoffen
 pl:oleje i tłuszcze
 pt:óleos e gorduras
 ro:uleiuri și grăsimi
@@ -17836,7 +17873,7 @@ ml:സസ്യ എണ്ണകൾ
 mr:वनस्पती तूप
 ms:Minyak sayur
 nb:vegetabilsk olje, vegetabilisk olje
-nl:plantaardige olie, Spijsolie
+nl:plantaardige olie, Spijsolie, plantaardige olien
 nn:vegetabilisk olie
 pl:Oleje roślinne
 pt:Óleo vegetal, óleos vegetais
@@ -30481,7 +30518,7 @@ fi:maitoproteiini, maitoproteiinit
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
 hu:tejfehérjék, tejfehérje
 it:proteine del latte
-nl:melkeiwit, melkeiwitten
+nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka
 pt:proteína do leite, proteínas lácteas
 ro:proteine din lapte
@@ -52752,11 +52789,15 @@ vegetarian:en:yes
 
 <en:herb
 en:herb extract
+da:krydderiekstrakt, krydderiekstrakter
 de:Kräuterextrakt, Kräuterextrakte
 es:Extracto de hierbas
 fi:yrttiuute
 fr:extrait d'herbe
-sv:örtextrakt
+nb:krydderekstrakt, krydderekstrakter
+nl:Kruidenextracten
+sv:örtextrakt, kryddextrakt, kryddextrakter
+
 
 <en:herb
 <en:spice
@@ -52774,19 +52815,17 @@ sv:Örter och kryddor, kryddor och örtkryddor
 <en:herbs and spices
 fr:plantes aromatiques et épices dont herbes aromatiques
 
+<en:spice
 en:spice extract, spices extract
-da:krydderiekstrakt, krydderiekstrakter
 de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fi:mausteuute, mausteuutteet
 fr:extrait d'épice, extraits d'épices
 hu:fűszerkivonat, fűszerkivonatok, fűszer kivonat, fűszer kivonatok
 it:Estratto di spezie
-nb:krydderekstrakt, krydderekstrakter
-nl:Kruidenextracten
+nl:specerijenextracten
 pl:ekstrakt z przyprawy
 sl:začimbni ekstrakti
-sv:kryddextrakt, kryddextrakter
 vegan:en:yes
 vegetarian:en:yes
 
@@ -75415,10 +75454,6 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
 
-<en:sauce
-de:Sambal
-nl:sambal
-
 # description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
 <en:sauce
@@ -75897,6 +75932,13 @@ wikidata:en:Q522171
 wikipedia:https://en.wikipedia.org/wiki/Hot_sauce
 # usage:en:chili sauce [red chili peppers, distilled vinegar, garlic powder, sugar, salt, spice]
 # ingredient/en:hot-sauce has 488 products in 1 language @2020-06-13
+
+<en:hot sauce
+de:Sambal
+nl:sambal
+
+<de:Sambal
+nl:sambal oelek
 
 # description:en:BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
 
