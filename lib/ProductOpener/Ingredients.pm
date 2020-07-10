@@ -2343,37 +2343,35 @@ en => [
 'INGREDIENT(S)?',
 ],
 
-fr => [
-'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
-],
-
 cs => [
 'SLOŽENÍ',
+],
+
+da => [
+'INGREDIENSER',
+'N(æ|ae)ringsindhold',
 ],
 
 de => [
 'ZUTAT(EN)?',
 ],
 
-da => [
-'N(æ|ae)ringsindhold',
-],
-
 es => [
 'INGREDIENTES',
 ],
 
+fi => [
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
+'VALMISTUSAINEET'
+],
+
+fr => [
+'INGR(E|É)(D|0|O)IENTS',
+'INGR(E|É)DIENT',
+],
+
 hu => [
 '(Ö|O|0)SSZETEVOK',
-],
-
-pt => [
-'INGREDIENTES(\s*)',
-],
-
-pl => [
-'SKŁADNIKI(\s*)',
 ],
 
 it => [
@@ -2385,9 +2383,17 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
-fi => [
-'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+pt => [
+'INGREDIENTES(\s*)',
+],
+
+pl => [
+'SKŁADNIKI(\s*)',
+],
+
+
+ro => [
+'Ingrediente'
 ],
 
 si => [
@@ -2398,15 +2404,9 @@ sv => [
 'INGREDIENSER',
 ],
 
-dk => [
-'INGREDIENSER',
-],
-
 vi => [
 'THANH PHAN',
 ],
-
-
 
 );
 
@@ -2548,6 +2548,7 @@ fr => [
 'Non ouvert,',
 'Sans conservateur',
 'tenir à l\'abri',
+'Teneur en matière grasse',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
 # Belgian products often mix languages and thus can have ending phrases in dutch
