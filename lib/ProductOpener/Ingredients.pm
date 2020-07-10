@@ -2550,6 +2550,8 @@ fr => [
 'tenir à l\'abri',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
+# Belgian products often mix languages and thus can have ending phrases in dutch
+'Gemiddelde voedingswaarde',
 #'Pour votre santé',
 #'La certification Fairtrade assure',
 #Préparation:
