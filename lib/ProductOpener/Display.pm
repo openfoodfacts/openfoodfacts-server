@@ -3921,6 +3921,11 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
+	my $template_data_ref = {
+		lang => \&lang,
+		display_pagination => \&display_pagination,
+	};
+
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -4102,15 +4107,16 @@ sub search_and_display_products($$$$$) {
 
 	my $html = '';
 	my $html_count = '';
+	my $error = '';
 
 	my $decf = get_decimal_formatter($lc);
 
 	if (not defined $request_ref->{jqm_loadmore}) {
 		if ($count < 0) {
-			$html .= "<p>" . lang("error_database") . "</p>";
+			$error = lang("error_database");
 		}
 		elsif ($count == 0) {
-			$html .= "<p>" . lang("no_products") . "</p>";
+			$error = lang("no_products");
 		}
 		elsif ($count == 1) {
 			$html_count .= lang("1_product");
@@ -4118,36 +4124,26 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $decf->format($count)) ;
 		}
+		$template_data_ref->{error} = $error;
+		$template_data_ref->{html_count} = $html_count;
 	}
 
-	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
-
-		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
-		}
-
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
-
-
-	}
+	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	$template_data_ref->{jqm} = $request_ref->{jqm};
+	$template_data_ref->{country} = $country;
+	$template_data_ref->{world_subdomain} = $world_subdomain;
+	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	
+	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
+		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+		$request_ref->{current_link_query_download} .= "&download=on";
 
-		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; " . lang("search_download_results") . "<br>";
-
-			if ($count <= $export_limit) {
-				$html .= "<ul>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
-				. "</ul>";
-			}
-		}
+		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
+		$template_data_ref->{export_limit} = $export_limit;
 
 		if ($log->is_debug()) {
 			my $debug_log = "search - count: $count";
@@ -4158,7 +4154,7 @@ sub search_and_display_products($$$$$) {
 
 		if ((not defined $request_ref->{search}) and ($count >= 5)
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
-
+			$template_data_ref->{explore_products} = 'true';
 			my $nofollow = '';
 			if (defined $request_ref->{tagid}) {
 				# Prevent crawlers from going too deep in facets #938:
@@ -4170,36 +4166,20 @@ sub search_and_display_products($$$$$) {
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
 			}
-			$html .= <<HTML
-<ul class="button-group">
-<li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
-<li>
-<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
-<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-HTML
-;
+
 			foreach my $newtagtype (@current_drilldown_fields) {
 
-				$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\"$nofollow>"
-					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
+				push @{$template_data_ref->{current_drilldown_fields}}, {
+					current_link => $request_ref->{current_link},
+					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+					nofollow => $nofollow,
+					tagtype => $newtagtype,
+				};
 			}
-			$html .= "</ul>\n</li>\n</ul>\n\n";
-
 
 		}
-		else {
-			$html .= "<p>$html_count " . separator_before_colon($lc) . ":</p>";
-		}
-
-
-		if (defined $request_ref->{jqm}) {
-			if (not defined $request_ref->{jqm_loadmore}) {
-				$html .= '<ul data-role="listview" data-theme="c" id="search_results_list">';
-			}
-		}
-		else {
-			$html .= "<ul class=\"products\">\n";
-		}
+		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
+		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
@@ -4208,8 +4188,6 @@ HTML
 
 			my $code = $product_ref->{code};
 			my $img = display_image_thumb($product_ref, 'front');
-
-
 
 			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
 
@@ -4221,39 +4199,13 @@ HTML
 
 			add_images_urls_to_product($product_ref);
 
-
-			if ($request_ref->{jqm}) {
-				# <li><a href="#page_product?code=3365622026164">Sardines à l'huile</a></li>
-				$html .= <<HTML
-<li>
-<a href="#page_product?code=$code" title="$product_name">
-$img
-$product_ref->{product_name}
-</a>
-</li>
-HTML
-;
-			}
-			else  {
-				if ($product_name eq '') {
-					$product_name = $code;
-				}
-
-			# Display the brand if we don't have an image
-			#if (($img eq '') and ($product_ref->{brands} ne '')) {
-			#	$product_name .= ' - ' . $product_ref->{brands};
-			#}
-
-				$html .= <<HTML
-<li>
-<a href="$url" title="$product_name">
-<div>$img</div>
-<span>${product_name}</span>
-</a>
-</li>
-HTML
-;
-			}
+			push @{$template_data_ref->{structured_response_products}}, {
+				code => $code,
+				product_name => $product_name,
+				img => $img,
+				jqm => $request_ref->{jqm},
+				url => $url,
+			};
 
 			# remove some debug info
 			delete $product_ref->{additives};
@@ -4322,9 +4274,11 @@ HTML
 			}
 		}
 
+		$template_data_ref->{request} = $request_ref;
+		$template_data_ref->{page_count} = $count;
+		$template_data_ref->{page_limit} = $limit;
+		$template_data_ref->{page} = $page;
 
-		# Pagination
-		$html .= display_pagination($request_ref, $count, $limit, $page);
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -4334,6 +4288,7 @@ HTML
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
+	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 

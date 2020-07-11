@@ -2356,6 +2356,10 @@ de => [
 'ZUTAT(EN)?',
 ],
 
+da => [
+'N(æ|ae)ringsindhold',
+],
+
 es => [
 'INGREDIENTES',
 ],
