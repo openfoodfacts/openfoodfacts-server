@@ -30029,8 +30029,12 @@ it:succo di agave concentrato
 fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
 
+<en:vegetable fiber
+en:agave fibre
+fr:fibres d'agave
+nl:agavevezel
 
-<en:sweetner
+<en:sweetener
 en:oligosaccharides
 es:oligosacáridos
 
@@ -30342,7 +30346,7 @@ ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina v
 ru:Соевый протеин
 sv:sojaprotein, sojaproteinpeparat
 
-<en:fibers
+<en:vegetable fiber
 en:soy fiber
 de:Sojafaser
 es:fibra de soja
@@ -36757,7 +36761,7 @@ es:boabab fruto
 #
 ###################################################################################################
 
-<en:fiber
+<en:vegetable fiber
 <en:citrus fruit
 en:citrus fibre, citrus fibres
 fi:sitruskuitu
@@ -45050,10 +45054,11 @@ de:Karottengranulat
 fi:porkkanaraaste
 
 <en:carrot
-# <en:fibre
+<en:vegetable fiber
 fr:fibre de carotte, fibres de carotte
 de:Karottenfasern
 fi:porkkanakuitu
+nl:wortelvezel
 # fr:fibre-de-carotte has 174 products in 2 languages @2018-10-20
 
 <en:carrot
@@ -47532,7 +47537,7 @@ fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
 <en:potato
-# <en:fibre
+<en:vegetable fiber
 en:potato fibre
 de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
@@ -48658,7 +48663,9 @@ fi:vihreä tomaattipyree
 # In process de:Püree aus grünen Tomaten
 
 <en:tomato
+<en:vegetable fiber
 fr:fibres de tomate, fibre de tomate
+nl:tomatenvezel
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
@@ -58906,7 +58913,7 @@ en:green tea extract
 de:Grüntee-Extrakt
 es:extracto de té verde
 fi:vihreä tee -uute
-fr:extrait de thé vert, extraits de thé vert, infusion concentrée de thé vert
+fr:extrait de thé vert, extraits de thé vert, infusion concentrée de thé vert, infusion intense de thé vert
 it:estratto di te verde
 kk:кек шай сығындысы
 nl:groene thee-extract
@@ -71332,7 +71339,7 @@ fr:fibres solubles
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
 # fodmap:en:yes
-<en:fiber
+<en:vegetable fiber
 en:inulin
 ar:إينولين
 be:Інулін
@@ -75934,7 +75941,8 @@ wikipedia:https://en.wikipedia.org/wiki/Hot_sauce
 # ingredient/en:hot-sauce has 488 products in 1 language @2020-06-13
 
 <en:hot sauce
-de:Sambal
+de:sambal
+fr:sambal
 nl:sambal
 
 <de:Sambal

@@ -2513,6 +2513,7 @@ fr => [
 '(a|à)conserver (dans|de|a|à)', #variation
 '(a|à)conserver entre',
 'Allergènes: voir les ingrédients en gras',
+'Attention: les enfants en bas âge risquent de',
 'apr(e|è)s (ouverture|achat)',
 'apport de r(e|é)ference pour un adulte type',
 'caractéristiques nu(t|f)ritionnelles',
@@ -2527,6 +2528,7 @@ fr => [
 'dont sucres',
 'dont acides (gras|ras) satur(e|é)s',
 'Fabriquee à partir de fruits entiers',
+'Fabriqué dans un atelier qui utilise',
 'information nutritionnelle',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
