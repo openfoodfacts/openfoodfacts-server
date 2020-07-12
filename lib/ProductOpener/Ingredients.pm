@@ -1269,6 +1269,7 @@ sub parse_ingredients_text($) {
 								'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
+								'en proportions variables',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -2590,6 +2591,7 @@ nl => [
 'bereid met',
 'Beter Leven keurmerk 1 ster.',
 'Beter Leven keurmerk 3 sterren',
+'Bewaren bij kamertemperatuur',
 'Cacao: ten minste ',
 'Droog bewaren',
 'E = door EU goedgekeurde hulpstof.',
