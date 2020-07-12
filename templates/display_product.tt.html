@@ -1,0 +1,238 @@
+[% IF product_changes_saved %]
+    <div data-alert class="alert-box info">
+        <span>lang('product_changes_saved')</span>
+        <a href="#" class="close">&times;</a>
+    </div>
+    [% IF structured_response_count > 0 %]
+        [% search_result %] <hr>
+    [% END %]
+[% END %]
+
+<!-- Share -->
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+    <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
+        [% display_icon('share') %]
+        <span class="show-for-large-up">[% lang('share') %]</span>
+    </a>
+</div>
+
+<!-- Edit product page -->
+<div class="edit_button right" style="float:right;margin-top:-10px;">
+    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+        [% display_icon('edit') %]
+        <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
+    </a>
+</div>
+
+<!-- Delete product page -->
+[% IF user_moderator %]
+    <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
+        <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small">
+            [% display_icon('delete') %]
+            <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
+        </a>
+    </div>
+[% END %]
+
+[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %] 
+	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
+[% END %]
+<div itemscope itemtype="[% itemtype %]">
+<h1 property="food:name" itemprop="name">[% title %]</h1>
+
+<!-- Display UPC code if the EAN starts with 0 -->
+[% IF upc == 'defined' %]
+<p id="barcode_paragraph">
+    [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% html_upc %]
+</p>
+<div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+[% END %]
+
+<!-- Obsolete product -->
+[% IF product_ref_obsolete %]
+    <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
+        [% warning %]
+    </div>
+[% END %]
+
+<!-- GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts -->
+[% IF gs1_prefixes %]
+    <div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
+        [% lang('warning_gs1_company_prefix') %]
+        <a href="#" class="close">&times;</a></span>
+    </div>
+[% END %]
+
+[% IF rev.defined %]
+    [% display_rev_info %]
+[% ELSIF not_has_tag == "states-en:complete" %]
+    <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
+        [% lang("warning_not_complete") %]
+        <a href="#" class="close">&times;</a></span>
+    </div>
+[% END %]
+
+<!-- Commenting out out of date warnings below -->
+[% IF out_of_date_warnings == 'defined' %]
+    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
+        Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
+        <br><br>
+        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="https://www.lactalis.fr/information-consommateur/">Lactalis</a>
+        <a href="#" class="close">&times;</a></span>
+    </div>
+[% ELSIF fr_brands == 'defined' %]
+    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
+        Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+        <br><br>
+        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a></span>
+        <a href="#" class="close">&times;</a>
+    </div>
+[% END %]
+
+<!-- photos and data sources -->
+[% html_manufacturer_source %]
+<!-- product_characteristics -->
+<h2>[% lang('product_characteristics') %]</h2>
+<div class="row">
+    <div class="hide-for-large-up medium-12 columns">[% html_image %]</div>
+    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        [% html_fields %]
+    </div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% html_image %]</div>
+</div>
+
+<!-- ingredients -->
+<h2>[% lang('ingredients') %]</h2>
+<div class="row">
+    <div class="hide-for-large-up medium-12 columns">[% ingredient_image %]</div>
+    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
+        <div><span class="field">[% lang("ingredients_text") %]:</span>
+            [% IF lc != ingredients_text_lang %]
+                <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
+            [% ELSE %]
+                <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
+            [% END %]
+        </div>
+        [% IF User_moderator == 'defined' %]
+            <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
+            <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+            <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
+            
+            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
+        [% END %]
+        [% display_field_allergens %]
+        [% display_field_traces %]
+        [% display_ingredients_analysis %]
+        [% display_ingredients_analysis_details %]
+        [% IF html_ingredients_classes_n > 0 %]
+            <div class="row">
+                [% html_ingredients_classes %]
+            </div>
+        [% END %]
+
+        <!-- special ingredients tags -->
+        [% IF special_ingredients_tags == 'defined' %]
+            [% IF special_html != "" %]
+                <br><hr class="floatleft">
+                <div>
+                    <b>[% lang("ingredients_analysis") FILTER ucfirst %]:</b><br>
+                    <ul id="special_ingredients">[% special_html %]</ul>
+                    <p>[% lang("ingredients_analysis_note") %]</p>
+                </div>
+                
+            [% END %]
+        [% END %]
+
+        <!-- NOVA Groups -->
+        [% IF product_nova_group == 'exists' %]
+            <h4>[% lang("nova_groups_s") %]
+                <a href="/nova" title="[% a_title %]">
+                [% display_icon('info') %]</a>
+            </h4>
+            <a href="/nova" title="[% a_title %]"><img src="/images/misc/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
+            [% display %]
+        [% END %]
+    </div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
+</div>
+
+<!-- nutrition table -->
+[% IF nutrition_table == 'defined' %]
+    <h2>[% lang("nutrition_data") %]</h2>
+    <div class="row">
+        <div class="hide-for-large-up medium-12 columns">
+            [% nutrition_image %]
+        </div>
+        <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+            [% display_nutrient_levels %]
+            [% display_field %]
+            
+            [% IF no_nutrition_data == 'on' %]
+                <div class='panel callout'>
+                    [% lang("no_nutrition_data") %]
+                </div>
+            [% END %]
+            [% display_nutrition_table %]
+        </div>
+    
+        <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
+            $html_image
+        </div>
+    </div>
+
+    [% IF has_tag == 'categories-en:alcoholic-beverages' %]
+        <p class="panel callout">
+            [% lang('alcohol_warning') %]
+        </p>
+    [% END %]
+[% END %]
+
+<!-- other fields -->
+[% IF other_fields != "" %]
+    <h2>[% lang('product_other_information') %]</h2>
+    <div class="row">
+        <div class="small-12 columns">
+            [% other_fields %]
+        </div>
+    </div>
+[% END %]
+
+[% IF admin %]
+    [% display_field_environment_infocard %]
+    [% IF carbon_footprint_from_meat_or_fish_debug.defined %]
+        <p>debug: [% carbon_footprint_from_meat_or_fish_debug %] </p>
+    [% END %]
+[% END %]
+
+<!-- Platform for producers: data quality issues and improvements opportunities -->
+[% IF server_options_producers_platform %]
+    [% display_data_quality_issues_and_improvement_opportunities %]
+[% END %]
+
+<!-- photos and data sources -->
+[% html_sources %]
+
+<p class="details">[% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
+    [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
+    [% other_editors %]
+    [% checked %]
+</p>
+    
+<div class="alert-box info">
+    [% lang('fixme_product') %]
+</div>
+    
+</div>
+
+[% IF (user_id.defined) %]
+    [% display_field_states %]
+[% END %]
+[% display_product_history %]
+
+<div class="edit_button right" style="float:right;margin-top:-10px;">
+    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+        [% display_icon('edit') %]
+        [% lang('edit_product_page') %]
+    </a>
+</div>
