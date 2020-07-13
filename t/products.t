@@ -102,4 +102,7 @@ foreach my $test_ref (@get_change_userid_or_uuid_tests) {
 
 }
 
+
+is(split_code("26153689"), "000/002/615/3689");
+
 done_testing();

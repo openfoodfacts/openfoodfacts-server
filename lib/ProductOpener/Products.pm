@@ -75,6 +75,7 @@ BEGIN
 		&server_for_product_id
 		&data_root_for_product_id
 		&www_root_for_product_id
+		&split_code
 		&product_path
 		&product_path_from_id
 		&product_exists
@@ -271,6 +272,11 @@ sub split_code($) {
 
 		$log->info("invalid code", { code => $code }) if $log->is_info();
 		return "invalid";
+	}
+	
+	# Pad code with 0s if it has less than 13 digits
+	while (length($code) < 13) {
+		$code = "0" . $code;
 	}
 
 	my $path = $code;
