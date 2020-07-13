@@ -6239,35 +6239,7 @@ sub display_new($) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{file_timestamps} = \$file_timestamps{"css/dist/app.css"};
 	$template_data_ref->{header} = $header;
-
-	my $html = <<HTML
-<!doctype html>
-<html class="no-js" lang="$lang" data-serverdomain="$server_domain">
-<head>
-<meta charset="utf-8">
-
-<title>$title</title>
-$meta_description
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="fb:app_id" content="219331381518041">
-<meta property="og:type" content="$og_type">
-<meta property="og:title" content="$canon_title">
-<meta property="og:url" content="$canon_url">
-$og_images
-$og_images2
-<meta property="og:description" content="$canon_description">
-$options{favicons}
-<link rel="canonical" href="$canon_url">
-<link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
-<link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-$header
-<style media="all">
-HTML
-;
-
-	$html .= lang("css");
+	my $html;
 
 	my $site_name = $Lang{site_name}{$lang};
 	if ($server_options{producers_platform}) {
@@ -6285,32 +6257,6 @@ HTML
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
-
-	$html .= <<HTML
-$styles
-</style>
-$google_analytics
-</head>
-<body$bodyabout>
-<nav class="top-bar" data-topbar id="top-bar">
-	<ul class="title-area">
-		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">$site_name</a></h2>
-		</li>
-		<li class="toggle-topbar menu-icon">
-			<a href="#"><span>Menu</span></a>
-		</li>
-	</ul>
-	<section class="top-bar-section">
-		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
-		<ul class="left">
-			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
-					<option></option>
-				</select>
-			</li>
-HTML
-;
 
 	my $en = 0;
 	my $langs = '';
@@ -6342,23 +6288,6 @@ HTML
 	$template_data_ref->{langs} = $langs;
 	$template_data_ref->{selected_lang} = $selected_lang;
 
-	if ($langs =~ /<a/) {
-		$html .= <<HTML
-			<li class="has-dropdown">
-				$selected_lang
-				<ul class="dropdown">
-					$langs
-				</ul>
-			</li>
-HTML
-;
-	}
-
-	$html .= <<HTML
-		</ul>
-HTML
-;
-
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
 
@@ -6375,8 +6304,8 @@ HTML
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
 		$twitter_account = $Lang{twitter_account_by_country}{$cc};
 	}
-
-	my $facebook_page = lang("facebook_page");
+	$template_data_ref->{twitter_account} = $twitter_account;
+	# my $facebook_page = lang("facebook_page");
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -6405,139 +6334,7 @@ HTML
 	$template_data_ref->{banner} = $banner;
 	$template_data_ref->{lc} = $lc;
 
-	if ($lc eq 'fr') {
-		$template_data_ref->{selected_lang} = $selected_lang;
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">J'ai déjà donné ou je ne suis pas intéressé. Ne plus afficher la bannière.</span>
-<span id="hide_image_banner_show" style="display:none;">Tiens, une boîte à décocher ?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'fi') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'es') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ya he donado o no estoy interesado. Ocultar aviso.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, ¿un cuadro para desmarcar?</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'it') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ho già donato o non sono interessato. Nascondi il banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Ehi, una casella da deselezionare?</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'de') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ich habe bereits gespendet oder ich bin nicht interessiert. Banner ausblenden.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, eine Box zum abwählen?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	# Display the English banner if we don't have another one.
-	elsif (1 or ($lc eq 'en')) {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
-		$template_data_ref->{image_en} = $image;
-		$image_banner = <<HTML
-<div id="donate_banner" class="row">
-<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">$Lang{donation_banner_hide}{$lc}</span>
-<span id="hide_image_banner_show" style="display:none;">$Lang{donation_banner_show}{$lc}</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	if ($server_options{producers_platform}) {
-		$image_banner = "";
-	}
-
-	if ($image_banner ne "") {
+	if (not($server_options{producers_platform})) {
 
 		$initjs .= <<JS
 
@@ -6574,47 +6371,6 @@ else {
 JS
 ;
 
-	}
-
-	if ($lc eq 'fr') {
-
-
-		my $top_banner_deactivated2 = <<HTML
-<div id="banner" class="row full-width" style="max-width: 100% !important;" >
-
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
-Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
-
-		my $top_banner_deactivated = <<HTML
-<div id="banner" class="row full-width" style="max-width: 100% !important;" >
-
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
-Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
-
-
-	}
-	if ($lc eq 'en') {
-
-		my $top_banner_deactivated2 = <<HTML
-<div id="banner" class="row full-width" style="max-width: 100% !important;" >
-
-<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
-Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
 	}
 
 	if ($server_options{producers_platform}) {
@@ -6671,7 +6427,7 @@ HTML
 		}
 		$template_data_ref->{banner_link} = $link;
 		$template_data_ref->{link_text} = $link_text;
-		$top_banner = <<HTML
+ 		$top_banner = <<HTML
 
 <a href="$link" class="button expand">$link_text</a>
 
@@ -6679,20 +6435,7 @@ HTML
 ;
 	}
 
-	my $public_site_menu_options = <<HTML
-			<li class="show-for-large-up divider"></li>
-			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
-			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
-HTML
-;
-
-	if ($server_options{producers_platform}) {
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-		$public_site_menu_options = "";
-	}
-
+	$template_data_ref->{top_banner} = $top_banner;
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
 	$template_data_ref->{aside_blocks} = $aside_blocks;
@@ -6702,204 +6445,6 @@ HTML
 	$template_data_ref->{content_ref} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
 	$template_data_ref->{scripts} = $scripts;
-
-	$html .= <<HTML
-		<ul class="right">
-			<li class="show-for-large-up">
-				<form action="/cgi/search.pl">
-					<div class="row collapse">
-						<div class="small-8 columns">
-							<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
-							<input name="search_simple" value="1" type="hidden">
-							<input name="action" value="process" type="hidden">
-						</div>
-						<div class="small-4 columns">
-							<button type="submit" title="$Lang{search}{$lang}">@{[ display_icon('search') ]}</button>
-						</div>
-					</div>
-				</form>
-			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl">@{[ display_icon('add') ]} $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}">@{[ display_icon('bar_chart') ]}</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">@{[ display_icon('bar_chart') ]} $Lang{graphs_and_maps}{$lang}</span></a></li>
-			$public_site_menu_options
-		</ul>
-	</section>
-</nav>
-
-<nav class="tab-bar show-for-small-only">
-	<div class="left-small" style="padding-top:4px;">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix $torso_class">
-		@{[ display_icon('account_box') ]}
-		</a>
-	</div>
-	<div class="middle tab-bar-section" style="padding-top:4px;">
-		<form action="/cgi/search.pl">
-			<div class="row collapse">
-				<div class="small-8 columns">
-					<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-					<input name="search_simple" value="1" type="hidden">
-					<input name="action" value="process" type="hidden">
-				</div>
-				<div class="small-2 columns">
-					<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
-				</div>
-				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('search') ]} @{[ display_icon('add') ]}</a>
-				</div>
-			</div>
-		</form>
-	</div>
-</nav>
-
-<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
-		<aside class="left-off-canvas-menu">
-			<div id="aside_column">
-				$aside_blocks
-			</div>
-		</aside>
-		<a class="exit-off-canvas"></a>
-		$top_banner
-		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-				<div class="sidebar">
-					<div style="text-align:center">
-						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
-					</div>
-					$tagline
-					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="row collapse">
-							<div class="small-9 columns">
-								<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-								<input name="search_simple" value="1" type="hidden">
-								<input name="action" value="process" type="hidden">
-							</div>
-							<div class="small-2 columns">
-								<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
-							</div>
-							<div class="small-1 columns">
-								<label class="right inline">
-									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
-								</label>
-							</div>
-						</div>
-					</form>
-					$blocks
-				</div>
-			</div>
-			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
-			<!-- main column content - comment used to remove left column and center content on some pages -->
-				$image_banner
-				$h1_title
-				$$content_ref
-			</div>
-		</div>
-	</div>
-</div>
-
-<footer>
-	<div class="small-12 medium-6 large-3 columns off">
-		<div class="title">$Lang{site_name}{$lc}</div>
-		<p>$Lang{footer_tagline}{$lc}</p>
-		<ul>
-			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
-			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
-			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
-			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
-			<li><a href="$Lang{footer_producers_link}{$lc}">$Lang{footer_producers}{$lc}</a></li>
-		</ul>
-	</div>
-	<div class="small-12 medium-6 large-3 columns app">
-		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}"><img src="$Lang{ios_app_icon_url}{$lc}" alt="$Lang{ios_app_icon_alt_text}{$lc}" width="120" height="40" loading="lazy"></a>
-		<a href="$Lang{android_app_link}{$lc}"><img src="$Lang{android_app_icon_url}{$lc}" alt="$Lang{android_app_icon_alt_text}{$lc}" width="102" height="40" loading="lazy"></a>
-		<a href="$Lang{windows_phone_app_link}{$lc}"><img src="$Lang{windows_phone_app_icon_url}{$lc}" alt="$Lang{windows_phone_app_icon_alt_text}{$lc}" width="109" height="40" loading="lazy"></a>
-		<a href="$Lang{android_apk_app_link}{$lc}"><img src="$Lang{android_apk_app_icon_url}{$lc}" alt="$Lang{android_apk_app_icon_alt_text}{$lc}" loading="lazy"></a>
-	</div>
-	<div class="small-12 medium-6 large-3 columns project">
-		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
-		<ul>
-			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
-			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
-			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
-			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
-			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
-			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
-			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
-			<li><a href="$Lang{footer_obf_link}{$lc}">$Lang{footer_obf}{$lc}</a></li>
-		</ul>
-	</div>
-	<div class="small-12 medium-6 large-3 columns community">
-		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
-		<p>
-			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
-			<br><br>
-			$join_us_on_slack
-			<br>
-			$Lang{footer_and_the_facebook_group}{$lc}
-			$Lang{footer_follow_us}{$lc}
-		</p>
-	</div>
-</footer>
-
-<div id="fb-root"></div>
-
-<script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="$static_subdomain/js/dist/jquery.js"></script>
-<script src="$static_subdomain/js/dist/jquery-ui.js"></script>
-<script src="$static_subdomain/js/dist/display.js"></script>
-
-<script>
-\$(function() {
-<initjs>
-});
-</script>
-
-<script src="$static_subdomain/js/dist/foundation.js"></script>
-<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
-$scripts
-<script>
-\$(document).foundation({
-	equalizer : {
-		equalize_on_stack: true
-	},
-	accordion: {
-		callback : function (accordion) {
-			\$(document).foundation('equalizer', 'reflow');
-		}
-	}
-});
-</script>
-<script type="application/ld+json">
-{
-	"\@context" : "https://schema.org",
-	"\@type" : "WebSite",
-	"name" : "$Lang{site_name}{$lc}",
-	"url" : "$formatted_subdomain",
-	"potentialAction": {
-		"\@type": "SearchAction",
-		"target": "$formatted_subdomain/cgi/search.pl?search_terms=?{search_term_string}",
-		"query-input": "required name=search_term_string"
-	}
-}
-{
-	"\@context": "https://schema.org/",
-	"\@type": "Organization",
-	"url": "$formatted_subdomain",
-	"logo": "/images/misc/$Lang{logo}{$lang}",
-	"name": "$Lang{site_name}{$lc}",
-	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
-}
-</script>
-</body>
-</html>
-HTML
-;
-
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -6963,9 +6508,9 @@ HTML
 	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
 
 	my $temp_html;
-	$tt->process('display_new.tt.html', $template_data_ref, \$temp_html) || return "template error: " . $tt->error();
+	$tt->process('display_new.tt.html', $template_data_ref, \$temp_html) || ($temp_html .="template error: " . $tt->error());
 	$html .=$temp_html;
-	return $html;
+	print $html;
 }
 
 
