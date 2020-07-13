@@ -1269,6 +1269,7 @@ sub parse_ingredients_text($) {
 								'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
+								'en proportions variables',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -2343,13 +2344,13 @@ en => [
 'INGREDIENT(S)?',
 ],
 
-fr => [
-'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
-],
-
 cs => [
 'SLOŽENÍ',
+],
+
+da => [
+'INGREDIENSER',
+'N(æ|ae)ringsindhold',
 ],
 
 de => [
@@ -2364,16 +2365,18 @@ es => [
 'INGREDIENTES',
 ],
 
+fi => [
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
+'VALMISTUSAINEET'
+],
+
+fr => [
+'INGR(E|É)(D|0|O)IENTS',
+'INGR(E|É)DIENT',
+],
+
 hu => [
 '(Ö|O|0)SSZETEVOK',
-],
-
-pt => [
-'INGREDIENTES(\s*)',
-],
-
-pl => [
-'SKŁADNIKI(\s*)',
 ],
 
 it => [
@@ -2385,9 +2388,17 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
-fi => [
-'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+pt => [
+'INGREDIENTES(\s*)',
+],
+
+pl => [
+'SKŁADNIKI(\s*)',
+],
+
+
+ro => [
+'Ingrediente'
 ],
 
 si => [
@@ -2398,15 +2409,9 @@ sv => [
 'INGREDIENSER',
 ],
 
-dk => [
-'INGREDIENSER',
-],
-
 vi => [
 'THANH PHAN',
 ],
-
-
 
 );
 
@@ -2513,6 +2518,7 @@ fr => [
 '(a|à)conserver (dans|de|a|à)', #variation
 '(a|à)conserver entre',
 'Allergènes: voir les ingrédients en gras',
+'Attention: les enfants en bas âge risquent de',
 'apr(e|è)s (ouverture|achat)',
 'apport de r(e|é)ference pour un adulte type',
 'caractéristiques nu(t|f)ritionnelles',
@@ -2527,6 +2533,7 @@ fr => [
 'dont sucres',
 'dont acides (gras|ras) satur(e|é)s',
 'Fabriquee à partir de fruits entiers',
+'Fabriqué dans un atelier qui utilise',
 'information nutritionnelle',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
@@ -2548,8 +2555,11 @@ fr => [
 'Non ouvert,',
 'Sans conservateur',
 'tenir à l\'abri',
+'Teneur en matière grasse',
 '(Chocolat: )?teneur en cacao',
 'Teneur totale en sucres',
+# Belgian products often mix languages and thus can have ending phrases in dutch
+'Gemiddelde voedingswaarde',
 #'Pour votre santé',
 #'La certification Fairtrade assure',
 #Préparation:
@@ -2585,6 +2595,7 @@ nl => [
 'bereid met',
 'Beter Leven keurmerk 1 ster.',
 'Beter Leven keurmerk 3 sterren',
+'Bewaren bij kamertemperatuur',
 'Cacao: ten minste ',
 'Droog bewaren',
 'E = door EU goedgekeurde hulpstof.',
