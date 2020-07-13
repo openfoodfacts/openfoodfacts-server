@@ -6077,6 +6077,11 @@ sub display_new($) {
 	my $request_ref = shift;
 	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 
+	my $template_data_ref = {
+		lang => \&lang,
+		display_icon => \&display_icon,
+	};
+
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
@@ -6220,6 +6225,21 @@ sub display_new($) {
 		$og_type = $request_ref->{og_type};
 	}
 
+	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{language} = $lang;
+	$template_data_ref->{title} = $title;
+	$template_data_ref->{og_type} = $og_type;
+	$template_data_ref->{canon_url} = $canon_url;
+	$template_data_ref->{meta_description} = $meta_description;
+	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{og_images} = $og_images;
+	$template_data_ref->{og_images2} = $og_images2;
+	$template_data_ref->{options_favicons} = $options{favicons};
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
+	$template_data_ref->{file_timestamps} = \$file_timestamps{"css/dist/app.css"};
+	$template_data_ref->{header} = $header;
+
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang" data-serverdomain="$server_domain">
@@ -6260,6 +6280,11 @@ HTML
 	if (exists $server_options{google_analytics}) {
 		$google_analytics = $server_options{google_analytics};
 	}
+
+	$template_data_ref->{styles} = $styles;
+	$template_data_ref->{google_analytics} = $google_analytics;
+	$template_data_ref->{bodyabout} = $bodyabout;
+	$template_data_ref->{site_name} = $site_name;
 
 	$html .= <<HTML
 $styles
@@ -6314,6 +6339,9 @@ HTML
 		}
 	}
 
+	$template_data_ref->{langs} = $langs;
+	$template_data_ref->{selected_lang} = $selected_lang;
+
 	if ($langs =~ /<a/) {
 		$html .= <<HTML
 			<li class="has-dropdown">
@@ -6363,15 +6391,22 @@ HTML
 	my $top_banner = "";
 
 	my $image_banner = "";
+	my $link = lang("donate_link");
+	my $image;
+	my $utm;
+	my @banners = qw(independent personal research);
+	my $banner = $banners[time() % @banners];
+	$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{image} = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	$template_data_ref->{link} = $link;
+	$template_data_ref->{banners} = @banners;
+	$template_data_ref->{banner} = $banner;
+	$template_data_ref->{lc} = $lc;
 
 	if ($lc eq 'fr') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+		$template_data_ref->{selected_lang} = $selected_lang;
 		$image_banner = <<HTML
 <div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
@@ -6483,6 +6518,7 @@ HTML
 		my @banners = qw(independent personal research);
 		my $banner = $banners[time() % @banners];
 		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
+		$template_data_ref->{image_en} = $image;
 		$image_banner = <<HTML
 <div id="donate_banner" class="row">
 <div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
@@ -6633,7 +6669,8 @@ HTML
 
 			$link_text = display_icon('brand-apple')  . $link_text;
 		}
-
+		$template_data_ref->{banner_link} = $link;
+		$template_data_ref->{link_text} = $link_text;
 		$top_banner = <<HTML
 
 <a href="$link" class="button expand">$link_text</a>
@@ -6652,8 +6689,19 @@ HTML
 ;
 
 	if ($server_options{producers_platform}) {
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 		$public_site_menu_options = "";
 	}
+
+	$template_data_ref->{search_terms} = ${search_terms};
+	$template_data_ref->{torso_class} = $torso_class;
+	$template_data_ref->{aside_blocks} = $aside_blocks;
+	$template_data_ref->{tagline} = $tagline;
+	$template_data_ref->{blocks} = $blocks;
+	$template_data_ref->{h1_title} = $h1_title;
+	$template_data_ref->{content_ref} = $$content_ref;
+	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
+	$template_data_ref->{scripts} = $scripts;
 
 	$html .= <<HTML
 		<ul class="right">
@@ -6911,9 +6959,13 @@ HTML
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
-	print $html;
 
 	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
+
+	my $temp_html;
+	$tt->process('display_new.tt.html', $template_data_ref, \$temp_html) || return "template error: " . $tt->error();
+	$html .=$temp_html;
+	return $html;
 }
 
 
