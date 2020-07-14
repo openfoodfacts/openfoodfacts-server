@@ -2893,6 +2893,26 @@ fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agricu
 hu:AB Agriculture Biologique
 country:en:France
 wikidata:en:Q396709
+# At least 95% organic ingredients
+explanation_short_organic_ingredients:en: fr:+ de 95% d’ingrédients biologiques, en:At least 95% organic ingredients
+explanation_organic_ingredients:fr: fr:Composé d'au moins 95 % d'ingrédients issus d'un mode de production biologique
+explanation_icon_organic_ingredients:en:organic
+explanation_order:1
+# No GMOs
+explanation_short_no_gmos:fr: fr:Absence d’OGM (traces <0,9% éventuellement possibles)
+explanation_fr_no_gmos:fr: fr:Absence d'OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)
+explanation_icon_no_gmos:en:no_gmo
+explanation_order:2
+# Independant certification
+explanation_short_certification:fr: fr:Certifié par un organisme indépendant
+explanation_certification:fr: fr:Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d'indépendance, d'impartialité, de compétence et d'efficacité définis par la norme européenne EN 45011
+explanation_icon_certification:en:certification_mark
+explanation_order:3
+#French law
+explanation_short_french_regulations:fr: fr:Respect de la réglementation française
+explanation_french_regulations:fr: fr:Respect de la réglementation en vigueur en France
+explanation_icon_french_regulations:en:marianne
+explanation_order:4
 
 <en:Organic
 ca:Consell Català de la Producció Agrària Ecològica, CCPAE
