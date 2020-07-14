@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Data;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&execute_query
+					&get_database
 					&get_collection
 					&get_products_collection
 					&get_products_tags_collection
@@ -62,7 +63,9 @@ sub execute_query {
 	return Action::Retry->new(
           attempt_code => sub { $action->run($sub) },
           on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
-		  strategy => { Fibonacci => { max_retries_number => 3, } },
+		  # If we didn't get results from MongoDB, the server is probably overloaded
+		  # Do not retry the query, as it will make things worse
+		  strategy => { Fibonacci => { max_retries_number => 0, } },
       )->run();
 }
 
@@ -85,6 +88,10 @@ sub get_recent_changes_collection {
 sub get_collection {
 	my ($database, $collection) = @_;
 	return get_mongodb_client()->get_database($database)->get_collection($collection);
+}
+
+sub get_database {
+	return get_mongodb_client()->get_database($mongodb);
 }
 
 sub get_mongodb_client() {

@@ -5,20 +5,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-20 20:41\n"
+"PO-Revision-Date: 2020-06-21 08:11\n"
 "Language-Team: Hebrew\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "POT-Creation-Date: \n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
 msgstr "מוצר אחד"
 
+# leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
 msgstr " וגם "
@@ -43,9 +46,89 @@ msgctxt "add_user"
 msgid "Register"
 msgstr "הרשמה"
 
-msgctxt "add_user_confirm"
-msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p>"
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "הרשמה"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr "ברוך בואך!"
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr "תודה על הצטרפותך!"
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr "מעתה יש לך אפשרות להוסיף ולערוך מוצרים דרך המחשב או עם ה<a href=\"%s\">יישומונים</a> החינמיים שלנו."
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "ניתן להצטרף ל־Slack שלנו"
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr "%s הוא מיזם שיתופי אליו ניתן להביא הרבה מעבר למוצרים חדשים: האנרגיה, ההתלהבות והרעיונות שלך!"
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr "אנו משתמשים במערכת דיונים בשם Slack בה כל משתתפי המיזמים יכולים להחליף מידע ולשתף פעולה. מזמינים אותך להצטרף! נשמח להכיר אותך!"
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "ניתן להצטרף ל־Slack שלנו"
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr "מעתה יתאפשר לך לייבא תמונות ונתונים של המוצר שלך."
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr "מעתה יתאפשר לך להוסיף ולערוך את המוצרים שלך ולייבא את הנתונים והתמונות שלהם ב<a href=\"%s\">פלטפורמת היצרנים</a> החינמית שלנו."
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr "כבר קיים ארגון בשם הזה %s."
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr "בקשתך להצטרף לארגון ממתינה לאישור הנהלת הארגון."
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr "נא לשלוח הודעה אל <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> במקרה שצצות שאלות."
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr "אם נשלחת מטעם יצרן או מותג ובכוונתך להוסיף או להשלים נתונים למוצרים שלך בלבד, נוכל לאפשר לך לקבל גישה לפלטפורמת היצרנים שלנו בחינם לגמרי."
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr "הפלטפורמה ליצרנים מאפשרת להם לייבא נתונים ותמונות לכל המוצרים שלהם, לסמן אותם כרשמיים ולקבל ניתוח חינם להזדמנויות לשיפור המוצרים שלהם בקלות."
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr "חשבון מקצועי"
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr "זהו חשבון של יצרן או מותג."
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr "יצרן או מותג"
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr "חובה לשייך חשבונות מקצועיים לארגון (שם חברה או מותג)."
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr "נא למלא את שם הארגון שלך (חברה או מותג)."
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgstr "זהו חשבון מקצועי שמשויך ליצרן או למותג %s. יש לך גישה לפלטפורמה ליצרנים."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,6 +162,7 @@ msgstr "שלום <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
+# please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
 msgstr "תודה לך על הצטרפותך ל־<<site_name>>"
@@ -135,22 +219,32 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "עמוד המוצר נערך גם על ידי"
 
-msgctxt "android_apk_app_badge"
-msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgctxt "android_apk_app_icon_url"
+msgid "/images/misc/android-apk.svg"
+msgstr "/images/misc/android-apk.svg"
 
+msgctxt "android_apk_app_icon_alt_text"
+msgid "Android APK"
+msgstr "APK ל־Android"
+
+# DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-msgctxt "android_app_badge"
-msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+msgctxt "android_app_icon_url"
+msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgstr "/images/misc/google-play-badge-svg-master/img/iw_get.svg"
+
+msgctxt "android_app_icon_alt_text"
+msgid "Get It On Google Play"
+msgstr "זמין ב־Google Play"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=he"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -191,12 +285,12 @@ msgid "You can also help to fund the Open Food Facts project"
 msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Food Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"http://il.openfoodfacts.org/donate-to-open-food-facts-he\">תרומה ל־Open Food Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "הרתמו למשימה"
+msgid "Donate to support our work"
+msgstr "מזמינים אותך לתרום כדי לתמוך בעבודתנו"
 
 msgctxt "brands"
 msgid "Brands"
@@ -225,6 +319,14 @@ msgstr "הוספת מותג"
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
 msgstr "מוצרים שאינם מהמותג %s"
+
+msgctxt "brand_owner"
+msgid "Brand owner"
+msgstr "בעלות על המותג"
+
+msgctxt "brand_owner_example"
+msgid "The Coca Cola Company"
+msgstr "חברת קוקה קולה"
 
 msgctxt "by"
 msgid "by"
@@ -348,7 +450,7 @@ msgstr "מדינות בהן המוצר זמין לרווחה (לא כולל חנ
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "medina"
+msgstr "מדינות"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -356,7 +458,7 @@ msgstr "מוצרים שנמכרים ב%s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "medina"
+msgstr "מדינה"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -364,6 +466,14 @@ msgstr "מוצרים שאינם נמכרים ב%s"
 
 msgctxt "data_source"
 msgid "Data source"
+msgstr "מקור נתונים"
+
+msgctxt "data_sources_p"
+msgid "data sources"
+msgstr "מקורות נתונים"
+
+msgctxt "data_sources_s"
+msgid "data source"
 msgstr "מקור נתונים"
 
 msgctxt "debug_p"
@@ -411,8 +521,8 @@ msgid "Donate to Open Food Facts"
 msgstr "תרומה ל־Open Food Facts"
 
 msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "http://il.openfoodfacts.org/donate-to-open-food-facts-he"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -458,9 +568,17 @@ msgctxt "edit_user"
 msgid "Account parameters"
 msgstr "משתני החשבון"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>משתני החשבון שלך הוחלפו.</p>"
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "משתני החשבון"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "משתני החשבון"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr "משתני החשבון שלך הוחלפו."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -540,7 +658,7 @@ msgid "The password and confirmation password are different."
 msgstr "הססמה ואימות הססמה אינם זהים."
 
 msgctxt "error_email_already_in_use"
-msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
+msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
 msgstr "כתובת הדוא״ל כבר בשימוש על־ידי משתמש אחר. אולי כבר יש לך חשבון? ניתן <a href=\"/cgi/reset_password.pl\">לאפס את הססמה</a> לחשבון שלך."
 
 msgctxt "error_invalid_address"
@@ -552,7 +670,7 @@ msgid "Invalid e-mail address"
 msgstr "כתובת הדוא״ל שגויה"
 
 msgctxt "error_invalid_password"
-msgid "The password needs to be a least 6 characters long."
+msgid "The password needs to be at least 6 characters long."
 msgstr "הססמה חייבת להיות באורך של 6 תווים לפחות."
 
 msgctxt "error_invalid_user"
@@ -631,22 +749,6 @@ msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "אם המידע חלקי או שגוי, ניתן להשלים או לתקן אותו על־ידי עריכת עמוד זה."
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openfoodfacts.org/legal\">מידע משפטי</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/terms-of-use\">תנאי השימוש</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/who-we-are\">מי אנחנו</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/faq\">שאלות נפוצות</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">פורום הרעיונות</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">בלוג</a> -\n"
-"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">עתונות ובלוגים</a>\n"
-
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr "וגם <a href=\"https://www.facebook.com/groups/openfoodfacts/\">קבוצת הפייסבוק למתנדבים</a>"
@@ -670,8 +772,8 @@ msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
-msgid "Data"
-msgstr "נתונים"
+msgid "Data, API and SDKs"
+msgstr "נתונים, API וערכות פיתוח"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -765,8 +867,17 @@ msgstr "הוויקי של <<site_name>> (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
+
+# Do not translate Open Beauty Facts but do translate Cosmetics
+msgctxt "footer_obf"
+msgid "Open Beauty Facts - Cosmetics"
+msgstr "Open Beauty Facts - טיפוח"
+
+msgctxt "footer_obf_link"
+msgid "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -854,6 +965,30 @@ msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "עליך להזין את התווים של הברקוד או לשלוח את תמונת המוצר עם הברקוד גלוי."
 
+msgctxt "image_full_size"
+msgid "Full size"
+msgstr "גודל מלא"
+
+msgctxt "image_attribution_creativecommons"
+msgid "This file was uploaded to product %s and is licensed under the %s license."
+msgstr "הקובץ הועלה למוצר %s ומוגש תחת הרישיון %s."
+
+msgctxt "image_attribution_photographer"
+msgid "Attribution: Photo by %s per %s"
+msgstr "ייחוס: תמונה מאת %s עבור %s"
+
+msgctxt "image_attribution_photographer_editor"
+msgid "Attribution: Photo by %s with additional modifications by %s per %s"
+msgstr "ייחוס: תמונה מאת %s עם שינויים נוספים מאת %s עבור %s"
+
+msgctxt "image_original_link_text"
+msgid "(Original Image)"
+msgstr "(תמונה מקורית)"
+
+msgctxt "image_attribution_link_title"
+msgid "Photo detail and attribution information"
+msgstr "פרטי תמונה ומידע על ייחוס"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "מוצרים שהוספת שדורשים השלמה"
@@ -873,10 +1008,6 @@ msgstr "רכיבים"
 msgctxt "ingredients_alt"
 msgid "Ingredients"
 msgstr "רכיבים"
-
-msgctxt "ingredients_analysis"
-msgid "Ingredients analysis"
-msgstr "ניתוח מרכיבים"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -905,6 +1036,14 @@ msgstr "מספר המרכיבים"
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
 msgstr "מספר המרכיבים"
+
+msgctxt "known_ingredients_n_s"
+msgid "Number of recognized ingredients"
+msgstr "מספר הרכיבים המזוהים"
+
+msgctxt "unknown_ingredients_n_s"
+msgid "Number of unrecognized ingredients"
+msgstr "מספר הרכיבים הבלתי מזוהים"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -946,13 +1085,18 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "מוצרים שאינם מכילים את הרכיב %s"
 
-msgctxt "ios_app_badge"
-msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+msgctxt "ios_app_icon_url"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_HB.svg"
+
+msgctxt "ios_app_icon_alt_text"
+msgid "Download on the App Store"
+msgstr "זמין ב־App Store"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgid "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr "https://apps.apple.com/il/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -997,146 +1141,6 @@ msgstr "מוצרים שאין להם את התווית %s"
 msgctxt "lang"
 msgid "Main language"
 msgstr "השפה העיקרית"
-
-msgctxt "lang_ar"
-msgid "Arabic"
-msgstr "ערבית"
-
-msgctxt "lang_bg"
-msgid "Bulgarian"
-msgstr "בולגרית"
-
-msgctxt "lang_cs"
-msgid "Czech"
-msgstr "צ׳כית"
-
-msgctxt "lang_da"
-msgid "Danish"
-msgstr "דנית"
-
-msgctxt "lang_de"
-msgid "German"
-msgstr "גרמנית"
-
-msgctxt "lang_el"
-msgid "Greek"
-msgstr "יוונית"
-
-msgctxt "lang_en"
-msgid "English"
-msgstr "אנגלית"
-
-msgctxt "lang_es"
-msgid "Spanish"
-msgstr "ספרדית"
-
-msgctxt "lang_et"
-msgid "Estonian"
-msgstr "אסטונית"
-
-msgctxt "lang_fi"
-msgid "Finnish"
-msgstr "פינית"
-
-msgctxt "lang_fr"
-msgid "French"
-msgstr "צרפתית"
-
-msgctxt "lang_ga"
-msgid "Irish"
-msgstr "אירית"
-
-msgctxt "lang_he"
-msgid "Hebrew"
-msgstr "עברית"
-
-msgctxt "lang_hu"
-msgid "Hungarian"
-msgstr "הונגרית"
-
-msgctxt "lang_id"
-msgid "Indonesian"
-msgstr "אנדונזית"
-
-msgctxt "lang_it"
-msgid "Italian"
-msgstr "איטלקית"
-
-msgctxt "lang_ja"
-msgid "Japanese"
-msgstr "יפנית"
-
-msgctxt "lang_ko"
-msgid "Korean"
-msgstr "קוריאנית"
-
-msgctxt "lang_lt"
-msgid "Lithuanian"
-msgstr "ליטאית"
-
-msgctxt "lang_lv"
-msgid "Latvian"
-msgstr "לטבית"
-
-msgctxt "lang_mt"
-msgid "Maltese"
-msgstr "מלטית"
-
-msgctxt "lang_nl"
-msgid "Dutch"
-msgstr "הולנדית"
-
-msgctxt "lang_nl_be"
-msgid "Dutch"
-msgstr "הולנדית"
-
-msgctxt "lang_pl"
-msgid "Polish"
-msgstr "פולנית"
-
-msgctxt "lang_pt"
-msgid "Portuguese"
-msgstr "פורטוגלית"
-
-msgctxt "lang_pt_pt"
-msgid "Portugal Portuguese"
-msgstr "פורטוגלית של פורטוגל"
-
-msgctxt "lang_ro"
-msgid "Romanian"
-msgstr "רומנית"
-
-msgctxt "lang_ru"
-msgid "Russian"
-msgstr "רוסית"
-
-msgctxt "lang_sk"
-msgid "Slovak"
-msgstr "סלובקית"
-
-msgctxt "lang_sl"
-msgid "Slovenian"
-msgstr "סלובנית"
-
-msgctxt "lang_sv"
-msgid "Swedish"
-msgstr "שבדית"
-
-msgctxt "lang_th"
-msgid "Thai"
-msgstr "תאילנדית"
-
-msgctxt "lang_vi"
-msgid "Vietnamese"
-msgstr "וייטנאמית"
-
-msgctxt "lang_zh"
-msgid "Chinese"
-msgstr "סינית"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "שפה אחרת"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1205,28 +1209,6 @@ msgstr "ניתן ללחוץ כאן ליצירת חשבון חדש"
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
 msgstr "לא נרשמת עדיין?"
-
-msgctxt "login_register_content"
-msgid "<p>Sign-in to add or edit products.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"Password<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
-"</form>\n"
-"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>נא להיכנס כדי להוסיף או לערוך מוצרים.</p>\n\n"
-"<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"שם משתמש או כתובת דוא״ל:<br />\n"
-"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
-"ססמה<br />\n"
-"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>שמירת הפרטים שלי</label><br />\n"
-"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"כניסה\" class=\"button small\" />\n"
-"</form>\n"
-"<p>לא נרשמת עדיין? <a href=\"/cgi/user.pl\">ניתן ללחוץ כאן ליצירת חשבון חדש</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1366,8 +1348,8 @@ msgid "Move the images to another product"
 msgstr "העברת התמונות למוצר אחר"
 
 msgctxt "n_products"
-msgid "%d products"
-msgstr "%d מוצרים"
+msgid "%s products"
+msgstr "%s מוצרים"
 
 msgctxt "name"
 msgid "Name"
@@ -2079,20 +2061,28 @@ msgid "Download results"
 msgstr "הורדת התוצאות"
 
 msgctxt "search_download_results"
-msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr "הורדת התוצאות במבנה CSV (Excel, LibreOffice)"
+msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
+msgstr "הורדת התוצאות בתצורות XLSX או CSV. נא לשים לב שמטעמי ביצועים, ניתן להוריד עד 10,000 תוצאות בלבד."
 
-msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "ערכת תווים: יוניקוד (UTF-8). מפריד: טאב (tab)."
+msgctxt "search_download_xlsx"
+msgid "XLSX format"
+msgstr "תצורת XLSX"
+
+msgctxt "search_download_xlsx_description"
+msgid "Excel or LibreOffice"
+msgstr "Excel או LibreOffice"
+
+msgctxt "search_download_csv"
+msgid "CSV format"
+msgstr "תצורת CSV"
+
+msgctxt "search_download_csv_description"
+msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
+msgstr "ערכת תווים: יוניקוד (UTF-8) - הפרדה: טאב (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
 msgstr "החלפת קריטריוני החיפוש"
-
-msgctxt "search_flatten_tags"
-msgid "(Optional) - Create a column for every:"
-msgstr "(רשות) - יצירת עמודה בכל:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2111,8 +2101,8 @@ msgid "Scatter plot"
 msgstr "פיזור התוואי"
 
 msgctxt "search_graph_blog"
-msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr "<p>← מידע נוסף על התרשימים ב<<site_name>>: <a href=\"/graphs-in-3-clicks\">תרשימים ב־3 לחיצות</a> (בלוג).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2305,9 +2295,8 @@ msgid "Serving size"
 msgstr "גודל ההגשה"
 
 msgctxt "serving_size_prepared"
-msgid ""
-msgstr ""
-""
+msgid "Prepared serving size"
+msgstr "גודל הגשה לאחר הכנה"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2352,6 +2341,10 @@ msgstr "Open Food Facts"
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "סידור לפי"
+
+msgctxt "sort_completeness"
+msgid "Completeness"
+msgstr "השלמה"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2451,7 +2444,7 @@ msgstr "עקבות"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "ikvot"
+msgstr "עקבות"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2547,20 +2540,27 @@ msgstr "צפייה בתוצאות מכל העולם"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"\">Why it matters</a>"
-msgstr "יש להשתמש במידע ובנתונים המופיעים על אריזת המוצר לרבות התווית (ולא מאתרים אחרים או מאתר היצרן), נוסף על כך יש להשתמש בתמונות שצולמו על ידיך בלבד.<br/>"
+"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+msgstr "יש להשתמש במידע ובנתונים המופיעים על אריזת המוצר לרבות התווית (ולא מאתרים אחרים או מאתר היצרן), נוסף על כך יש להשתמש בתמונות שצולמו על ידיך בלבד.<br/>\n"
+"← <a href=\"/faq#pictures_and_data_from_other_sites\">למה זה חשוב</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "כתובת אתר או בלוג"
 
-msgctxt "windows_phone_app_badge"
-msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
+msgctxt "windows_phone_app_icon_url"
+msgid "/images/misc/microsoft/English.svg"
+msgstr "/images/misc/microsoft/Hebrew.svg"
 
+msgctxt "windows_phone_app_icon_alt_text"
+msgid "Get it from Microsoft"
+msgstr "החנות של Windows Phone"
+
+# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/he-il/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2582,21 +2582,33 @@ msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
 msgstr "שגיאה בעת ביטול בחירת התמונה."
 
+msgctxt "product_js_zoom_on_wheel"
+msgid "Enable zooming with the mouse wheel."
+msgstr "הפעלת תקריב באמצעות גלגלת העכבר."
+
+msgctxt "product_js_use_low_res_images"
+msgid "Load lower resolution images (for slow connections)"
+msgstr "טעינת תמונות ברזולוציה נמוכה יותר (לחיבורים אטיים)"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "אזהרה: כמות הסיבים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
 
+msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
+msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr "אזהרה: כמויות הסיבים ואלו של הפרות, הירקות והאגוזים לא צוינו, התרומה החיובית שלהן לציון לא ניתנת לחישוב."
+
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס רשימת הרכיבים: %d%"
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס רשימת הרכיבים: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס הקטגוריה (%s) של המוצר: %d%"
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס הקטגוריה (%s) של המוצר: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2653,6 +2665,10 @@ msgstr "חלק מהנתונים והתמונות סופקו ישירות על י
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
 msgstr "חלק מהנתונים סופקו ישירות על ידי היצרן %s"
+
+msgctxt "sources_collaboration"
+msgid "Some of the data for this product has been collected in collaboration with %s"
+msgstr "חלק מהנתונים על המוצר הזה נאספו בשיתוף עם %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2766,6 +2782,11 @@ msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr "קבוצות NOVA"
 
+# Title for the link to the explanation of what a NOVA Group is
+msgctxt "nova_groups_info"
+msgid "NOVA groups for food processing"
+msgstr "קבוצות NOVA לעיבוד מזון"
+
 msgctxt "footer_partners"
 msgid "Partners"
 msgstr "שותפים"
@@ -2849,7 +2870,7 @@ msgstr "מגיל 12 שבועות ומעלה עד וכולל גיל 11 חודשי
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "הערכת EFSA"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
@@ -2857,15 +2878,15 @@ msgstr "סיכון לחשיפת יתר"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה גבוהה בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "הרשות האירופית לבטיחות מזון (EFSA) קבעה כי בחלק מקבוצות האוכלוסיה יש סכנה מסוימת בצריכה מוגברת של <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "כדי להעריך את החשיפה של למוצר המזון <tag> ניתן לעיין ברשימת המוצרים שלנו שמכילה אותו. ניתן לעיין ברשימת מוצרי <nb_products> שיש בהם <tag> להלן."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
@@ -2889,23 +2910,23 @@ msgstr "סכנת חריגה מהכמות היומית המומלצת"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "סכנת חריגה מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהצריכה היומית המקובלת (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־50% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "קבוצות בהן למעלה מ־5% מהחברים חורגים מהמינון המקסימלי ללא השפעה שלילית (אין רמת השפעה שלילית ניכרת - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -3017,7 +3038,7 @@ msgstr "שירות לקוחות"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr "מפיק"
+msgstr "יצרן"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3026,50 +3047,6 @@ msgstr "הנחיות מיחזור - למיחזור"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "הנחיות מיחזור - להשלכה"
-
-msgctxt "checkers_products"
-msgid "Products checked by %s"
-msgstr "מוצרים שנבדקו על־ידי %s"
-
-msgctxt "checkers_without_products"
-msgid "Products not checked by %s"
-msgstr "מוצרים שלא נבדקו על־ידי %s"
-
-msgctxt "correctors_products"
-msgid "Products corrected by %s"
-msgstr "מוצרים שתוקנו על־ידי %s"
-
-msgctxt "correctors_without_products"
-msgid "Products not corrected by %s"
-msgstr "מוצרים שלא תוקנו על־ידי %s"
-
-msgctxt "editors_products"
-msgid "Products edited by %s"
-msgstr "מוצרים שנערכו על־ידי %s"
-
-msgctxt "editors_without_products"
-msgid "Products not edited by %s"
-msgstr "מוצרים שלא נערכו על־ידי %s"
-
-msgctxt "informers_products"
-msgid "Products completed by %s"
-msgstr "מוצרים שהושלמו על־ידי %s"
-
-msgctxt "informers_without_products"
-msgid "Products not completed by %s"
-msgstr "מוצרים שלא הושלמו על־ידי %s"
-
-msgctxt "photographers_products"
-msgid "Products photographed by %s"
-msgstr "מוצרים שצולמו על־ידי %s"
-
-msgctxt "photographers_without_products"
-msgid "Products not photographed by %s"
-msgstr "מוצרים שלא צולמו על־ידי %s"
-
-msgctxt "user_s_page"
-msgid "%s's page"
-msgstr "העמוד של %s"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3124,8 +3101,12 @@ msgid "Withdrawal date"
 msgstr "מועד ההורדה מהמדפים"
 
 msgctxt "obsolete_since_date_note"
-msgid "Format: YYYY or YYYY-MM"
-msgstr "תבנית: YYYY או YYYY-MM"
+msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
+msgstr "תבנית: YYYY-MM-DD או YYYY-MM או YYYY"
+
+msgctxt "obsolete_since_date_example"
+msgid "2019-09-30 or 2019-09 or 2019"
+msgstr "2019-09-30 או 2019-09 או 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3149,35 +3130,7 @@ msgstr "הורדת היישומון ל־iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr ""
-
-msgctxt "producer_product_id"
-msgid "Producer product identifier"
-msgstr "מזהה מוצר לפי המפיק"
-
-msgctxt "warning"
-msgid "Warning"
-msgstr "אזהרה"
-
-msgctxt "preparation"
-msgid "Preparation"
-msgstr "הכנה"
-
-msgctxt "recipe_idea"
-msgid "Recipe idea"
-msgstr "רעיון למתכון"
-
-msgctxt "origin"
-msgid "Origin"
-msgstr "מקור"
-
-msgctxt "customer_service"
-msgid "Customer service"
-msgstr "שירות לקוחות"
-
-msgctxt "producer"
-msgid "Producer"
-msgstr "מפיק"
+msgstr "<em>ברקוד בלתי חד־משמעי</em>: למוצר זה יש מספר מחזור מוגבל (Restricted Circulation Number) למוצרים בתוך חברה מסוימת. משמעות הדבר היא שיצרנים וחנויות שונים יכולים להשתמש באותו הברקוד למוצרים שונים."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3197,71 +3150,71 @@ msgstr "en:low,‏ en:medium או en:high"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr ""
+msgstr "השפעה פחמנית עקב בשר או דג"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
-msgstr ""
+msgstr "מתוך פליטות פחמן מבשר או דגים עבור המוצר כולו"
 
 msgctxt "of_sustainable_daily_emissions_of_1_person"
 msgid "of sustainable daily emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות יומיות בנות קיימא לאדם"
 
 msgctxt "of_sustainable_weekly_emissions_of_1_person"
 msgid "of sustainable weekly emissions of 1 person"
-msgstr ""
+msgstr "מתוך פליטות שבועיות בנות קיימא לאדם"
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "למנה אחת"
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "מתודולוגיה"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr ""
+msgstr "חישובי פליטות פחמן מסתמכות על ערכי ה־CO₂ לקילוגרם שנתרמו מהתכנית FoodGES מאת <a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
-msgstr ""
+msgstr "פליטות שנתיות בנות קיימא: 2 טונות של CO₂ או כל חומר תואם לאדם כדי להגיע ליעדים שנקבעו ב־COP21."
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "חישובי טביעת רגל פחמנית הם לא חד משמעיים. יש להתייחס לנתונים בזהירות רבה משום שהם יותר מיועדים להשוואה יחסית מאשר כערכים מוחלטים."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "יותר מדי מוצרים (%d מוצרים, המגבלה עומדת על %d) לייצוא, נא להוריד את <a href=\"/data\">מסד הנתונים המלא לייצוא</a> במקום."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "מזמינים אותך לסייע לנו לתרגם את %s ל%s"
 
 msgctxt "translate_taxonomy_description"
-msgid "You can suggests translations for the entries below that have not been translated to your language yet. The blue link in English shows the corresponding products, the black text in English shows the original entry with optional synonyms separated by commas. Enter the translation in the text box, with optional synonyms, and then click on the Save button. Thank you!"
-msgstr ""
+msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
+msgstr "ניתן להציג תרגום לרשומות להלן שטרם תורגמו לשפתך. הקישור הכחול והטקסט השחור (שניהם באנגלית) מציגים בהתאמה את המוצר ואת הרשומה המקורית לרבות מילים נרדפות כרשות המופרדות בפסיקים. יש להקליד את התרגום בשדה הטקסט, לרבות מילים נרדפות כרשות ואז ללחוץ על כפתור השמירה (Save). תודה רבה לך!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "להציג אך ורק רשומות ללא תרגומים ממתינים."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "להציג רשומות שממתינות לתרגום על ידך או על ידי משתמשים אחרים."
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "מתורגם"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "לתרגום"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "תרגום נוכחי"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3274,4 +3227,1065 @@ msgstr "לא"
 msgctxt "button_caption_skip"
 msgid "Skip"
 msgstr "דילוג"
+
+msgctxt "popularity_s"
+msgid "popularity"
+msgstr "פופולריות"
+
+msgctxt "popularity_p"
+msgid "popularity"
+msgstr "פופולריות"
+
+msgctxt "ingredients_analysis_p"
+msgid "ingredients analysis"
+msgstr "ניתוח רכיבים"
+
+msgctxt "ingredients_analysis_s"
+msgid "ingredients analysis"
+msgstr "ניתוח רכיבים"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "ניתוח מרכיבים"
+
+msgctxt "ingredients_analysis_disclaimer"
+msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+msgstr "הניתוח מבוסס לחלוטין על הרכיבים שמופיעים ושיטות העיבוד אינן נלקחות בחשבון."
+
+msgctxt "rev_warning"
+msgid "You are viewing an old version of this product page!"
+msgstr "הגרסה שמופיעה לפניך היא גרסה ישנה של עמוד המוצר!"
+
+msgctxt "rev_number"
+msgid "Revision number: "
+msgstr "מספר מהדורה: "
+
+msgctxt "rev_contributor"
+msgid "Edited by: "
+msgstr "נערך על ידי: "
+
+msgctxt "rev_previous"
+msgid "Previous version"
+msgstr "גרסה קודמת"
+
+msgctxt "rev_next"
+msgid "Next version"
+msgstr "גרסה הבאה"
+
+msgctxt "rev_latest"
+msgid "Latest version"
+msgstr "הגרסה העדכנית ביותר"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_title"
+msgid "Import a product data file"
+msgstr "ייבוא קובץ נתוני מוצרים"
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_description"
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
+msgstr "יש להעלות גיליון נתונים (קובץ Excel או קובץ CSV עם הפרדה בפסיקים או טאבים בקידוד UTF-8) עם נתוני מוצרים."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_data_file_format"
+msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
+msgstr "ניתן להעלות טבלה עם תצורת העמודות לייבוא לתוך Open Food Facts או שניתן להעלות טבלה מכל סוג שהוא ואז לבחור את העמודות לייבוא."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "upload_product_data_file"
+msgid "Upload a file with product data"
+msgstr "העלאת קובץ עם נתוני מוצרים"
+
+msgctxt "uploading_file"
+msgid "File being uploaded."
+msgstr "הקובץ נשלח."
+
+msgctxt "upload_error"
+msgid "The file could not be uploaded."
+msgstr "לא ניתן להעלות את הקובץ."
+
+msgctxt "import_data_file_select_format_title"
+msgid "Select and import data"
+msgstr "בחירה וייבוא נתונים"
+
+msgctxt "import_data_file_select_format_description"
+msgid "Use the form below to indicate which columns to import and what data they contain."
+msgstr "יש להשתמש בטופס שלהלן כדי לציין אילו עמודות לייבא ואילו נתונים הן מכילות."
+
+msgctxt "import_data"
+msgid "Import data"
+msgstr "ייבוא נתונים"
+
+msgctxt "import_file_rows_columns"
+msgid "The uploaded file contains %s rows and %s columns."
+msgstr "הקובץ שנשלח מכיל %s שורות ו־%s עמודות."
+
+msgctxt "import_file_selected_columns"
+msgid "%s columns out of %s have been selected and will be imported."
+msgstr "נבחרו %s עמודות מתוך %s והן תיובאנה."
+
+msgctxt "fields_group_identification"
+msgid "Product identification"
+msgstr "זיהוי מוצר"
+
+msgctxt "fields_group_origins"
+msgid "Origins"
+msgstr "מקורות"
+
+msgctxt "fields_group_ingredients"
+msgid "Ingredients"
+msgstr "רכיבים"
+
+msgctxt "fields_group_nutrition"
+msgid "Nutrition facts"
+msgstr "מפרט תזונתי"
+
+msgctxt "fields_group_nutrition_other"
+msgid "Optional nutrition facts"
+msgstr "מפרט תזונתי כרשות"
+
+msgctxt "fields_group_other"
+msgid "Other information"
+msgstr "פרטים נוספים"
+
+msgctxt "fields_group_images"
+msgid "Product photos"
+msgstr "תמונות מוצרים"
+
+msgctxt "image_front_url"
+msgid "Link to front product photo"
+msgstr "קישור לתמונת החזית של המוצר"
+
+msgctxt "image_ingredients_url"
+msgid "Link to ingredients list photo"
+msgstr "קישור לתמונת רשימת הרכיבים"
+
+msgctxt "image_nutrition_url"
+msgid "Link to nutrition facts table photo"
+msgstr "קישור לתמונת טבלת העובדות התזונתיות"
+
+msgctxt "image_other_url"
+msgid "Link to other product photo"
+msgstr "קישור לתמונה של מוצר אחר"
+
+msgctxt "labels_specific"
+msgid "Specific label"
+msgstr "תווית מסוימת"
+
+msgctxt "categories_specific"
+msgid "Specific category"
+msgstr "קטגוריה מסוימת"
+
+msgctxt "sources_fields_specific"
+msgid "Source specific field"
+msgstr "שדה תלוי מקור"
+
+msgctxt "select_a_field"
+msgid "Select a field"
+msgstr "בחירת שדה"
+
+msgctxt "specify"
+msgid "Specify"
+msgstr "ציון"
+
+msgctxt "value_unit_dropdown"
+msgid "In the dropdown menu on the right, specify if the column contains:"
+msgstr "בתפריט הנפתח שמשמאל, יש לציין אם העמודה מכילה:"
+
+msgctxt "value_unit_dropdown_value_unit"
+msgid "the value and the unit"
+msgstr "הערך והיחידה"
+
+msgctxt "value_unit_dropdown_value_specific_unit"
+msgid "the value in a specific unit"
+msgstr "הערך ביחידה מסוימת"
+
+msgctxt "value_unit_dropdown_value"
+msgid "only the value, with the unit in another column"
+msgstr "רק הערך, בצירוף היחידה שמופיעה בעמודה אחרת"
+
+msgctxt "value_unit_dropdown_unit"
+msgid "only the unit, with the value in another column"
+msgstr "רק היחידה, בצירוף הערך בעמודה אחרת"
+
+# Please do not translate Y, Yes and 1
+msgctxt "labels_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
+msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של תווית מסוימת (למשל: אורגני, סחר הוגן וכו׳) כאשר הערך יכול להיות Y,‏ Yes או 1."
+
+msgctxt "labels_specific_tag_value"
+msgid "Type the name of the label in the text field on the right."
+msgstr "יש להקליד את שם התווית בשדה הטקסט שמשמאל."
+
+# Please do not translate Y, Yes and 1
+msgctxt "categories_specific_tag"
+msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
+msgstr "יש לבחור באפשרות זו אם העמודה מציינת נוכחות של קטגוריה מסוימת (למשל: משקאות) כאשר הערך יכול להיות Y,‏ Yes או 1."
+
+msgctxt "categories_specific_tag_value"
+msgid "Type the name of the category in the text field on the right."
+msgstr "יש להקליד את שם הקטגוריה בשדה הטקסט שמשמאל."
+
+# Please do not translate Y, Yes and 1
+msgctxt "sources_fields_specific_tag"
+msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
+msgstr "יש לבחור את האפשרות הזאת לשדות תלויי מקור ושאנו רוצים להשאיר כשדות תלויי מקור."
+
+msgctxt "sources_fields_specific_tag_value"
+msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
+msgstr "יש להקליד את שם שדה היעד בשדה הטקסט שמשמאל או להשאיר ריק כדי להשתמש בשם שדה המקור."
+
+msgctxt "value"
+msgid "Value"
+msgstr "ערך"
+
+msgctxt "value_unit"
+msgid "Value + Unit"
+msgstr "ערך + יחידה"
+
+msgctxt "value_in_l"
+msgid "Value in L"
+msgstr "ערך בליטרים"
+
+msgctxt "value_in_dl"
+msgid "Value in dl"
+msgstr "ערך בדציליטר"
+
+msgctxt "value_in_cl"
+msgid "Value in cl"
+msgstr "ערך בסנטיליטר"
+
+msgctxt "value_in_ml"
+msgid "Value in ml"
+msgstr "ערך במ״ל"
+
+msgctxt "value_in_kg"
+msgid "Value in kg"
+msgstr "ערך בק״ג"
+
+msgctxt "value_in_g"
+msgid "Value in g"
+msgstr "ערך בגרמים"
+
+msgctxt "value_in_mg"
+msgid "Value in mg"
+msgstr "ערך במ״ג"
+
+msgctxt "value_in_mcg"
+msgid "Value in μg"
+msgstr "ערך במיקרוגרמים"
+
+msgctxt "value_in_iu"
+msgid "Value in IU"
+msgstr "ערך ביחידה בינלאומית"
+
+msgctxt "value_in_kcal"
+msgid "Value in kcal"
+msgstr "ערך בקק״ל"
+
+msgctxt "value_in_kj"
+msgid "Value in kJ"
+msgstr "ערך בקילוג׳ול"
+
+msgctxt "value_in_percent"
+msgid "Value in %"
+msgstr "ערך באחוזים"
+
+msgctxt "no_owner_defined"
+msgid "Please log-in to use this feature."
+msgstr "נא להיכנס כדי להשתמש בתכונה הזאת."
+
+msgctxt "organization"
+msgid "Organization"
+msgstr "ארגון"
+
+msgctxt "column_in_file"
+msgid "Column in file"
+msgstr "עמודה בקובץ"
+
+msgctxt "field_on_site"
+msgid "Field on %s"
+msgstr "שדה ב־%s"
+
+msgctxt "producers_platform"
+msgid "Platform for producers"
+msgstr "פלטפורמה ליצרנים"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_description"
+msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
+msgstr "הפלטפורמה ליצרנים שמאפשרת להם לנהל בקלות את תמונות ונתוני המוצרים שלהם ב־Open Food Facts."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_private_database"
+msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
+msgstr "הנתונים והתמונות של המוצרים שבחרת לשלוח דרך הפלטפורמה ליצרנים מאוחסנים במסד נתונים פרטי. תינתן לך האפשרות לבדוק שכל הנתונים נכונים בטרם העברתם למסד הנתונים של Open Food Facts הנגיש לכלל."
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "producers_platform_licence"
+msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
+msgstr "הנתונים והתמונות של המוצרים יהיו זמינים לרשות הציבור במסד הנתונים של Open Food Facts, תחת <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">רישיון מסדי הנתונים הפתוחים</a>. התכנים שבמסד הנתונים זמינים תחת <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">רישיון תכני מסדי הנתונים</a> ותמונות המוצרים זמינות תחת <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">הרישיון Creative Commons ייחוס שיתוף זהה</a>."
+
+# "product data" in this sentence means data for many products, not just one product
+msgctxt "import_product_data"
+msgid "Import product data"
+msgstr "ייבוא נתוני מוצרים"
+
+# "product photos" in this sentence means data for many products, not just one product
+msgctxt "import_product_photos"
+msgid "Import product photos"
+msgstr "ייבוא תמונות מוצרים"
+
+# "product data and photos" in this sentence means data and photos for many products, not just one product
+msgctxt "export_product_data_photos"
+msgid "Export product data and photos to the public database"
+msgstr "ייצוא נתונים ותמונות של מוצרים למסד הנתונים הציבורי"
+
+msgctxt "export_product_data_photos_please_check"
+msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr "נא לוודא שהנתונים בפלטפורמה ליצרנים נכונים בטרם הייצוא למסד הנתונים הציבורי."
+
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr "ייצוא תמונות למסד הנתונים הציבורי"
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr "החלפת התמונות הנבחרות הנוכחיות"
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "ביטול"
+
+msgctxt "collapsed_changes"
+msgid "Collapsed changes"
+msgstr "שינויים מצומצמים"
+
+msgctxt "data_quality_p"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality_s"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality"
+msgid "data quality"
+msgstr "איכות הנתונים"
+
+msgctxt "data_quality_bugs_p"
+msgid "data quality bugs"
+msgstr "תקלות באיכות הנתונים"
+
+msgctxt "data_quality_bugs_s"
+msgid "data quality bug"
+msgstr "תקלה באיכות הנתונים"
+
+msgctxt "data_quality_bugs"
+msgid "data quality bugs"
+msgstr "תקלות באיכות הנתונים"
+
+msgctxt "data_quality_info_p"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_info_s"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_info"
+msgid "data quality info"
+msgstr "פרטי איכות הנתונים"
+
+msgctxt "data_quality_warnings_p"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_warnings_s"
+msgid "data quality warning"
+msgstr "אזהרת איכות הנתונים"
+
+msgctxt "data_quality_warnings"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_errors_p"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+msgctxt "data_quality_errors_s"
+msgid "data quality error"
+msgstr "שגיאת איכות הנתונים"
+
+msgctxt "data_quality_errors"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+msgctxt "data_quality_warnings_producers_p"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_warnings_producers_s"
+msgid "data quality warning"
+msgstr "אזהרת איכות הנתונים"
+
+msgctxt "data_quality_warnings_producers"
+msgid "data quality warnings"
+msgstr "אזהרות איכות הנתונים"
+
+msgctxt "data_quality_errors_producers_p"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+msgctxt "data_quality_errors_producers_s"
+msgid "data quality error"
+msgstr "שגיאת איכות הנתונים"
+
+msgctxt "data_quality_errors_producers"
+msgid "data quality errors"
+msgstr "שגיאות איכות הנתונים"
+
+# abbreviation for Minimum
+msgctxt "min"
+msgid "Min"
+msgstr "מזערי"
+
+# abbreviation for Maximum
+msgctxt "max"
+msgid "Max"
+msgstr "מרבי"
+
+msgctxt "improvements_p"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
+
+msgctxt "improvements_s"
+msgid "possible improvement"
+msgstr "שיפור אפשרי"
+
+msgctxt "improvements"
+msgid "possible improvements"
+msgstr "שיפורים אפשריים"
+
+# Do not translate
+msgctxt "import_products_link"
+msgid "/import-products"
+msgstr ""
+
+msgctxt "add_or_update_products"
+msgid "Add or update products"
+msgstr "הוספה או עדכון של מוצרים"
+
+# Formal you
+msgctxt "your_products"
+msgid "Your products"
+msgstr "המוצרים שלך"
+
+# Do not translate the e-mail address
+msgctxt "account_without_org"
+msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
+msgstr "החשבון שלך עדיין לא משויך לחברה. נא לשלוח הודעת דוא״ל אל <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> כדי להפעיל בחינם את הגישה לפלטפורמה ליצרנים."
+
+msgctxt "import_products"
+msgid "Import products"
+msgstr "ייבוא מוצרים"
+
+msgctxt "empty_column"
+msgid "Empty column"
+msgstr "עמודה ריקה"
+
+msgctxt "empty_column_description"
+msgid "The file does not contain any value in this column."
+msgstr "הקובץ לא מכיל אף ערך בעמודה זו."
+
+msgctxt "import_file_status_title"
+msgid "Data import in progress"
+msgstr "בתהליך ייבוא נתונים"
+
+# "product data" means data for many products
+msgctxt "import_file_status_description"
+msgid "The product data has been received and is going to be imported on the platform for producers."
+msgstr "נתוני המוצר התקבלו והם מיועדים לייבוא לפלטפורמה ליצרנים."
+
+msgctxt "import_file_status"
+msgid "Status"
+msgstr "מצב"
+
+msgctxt "job_status_inactive"
+msgid "Scheduled"
+msgstr "מתוזמן"
+
+msgctxt "job_status_active"
+msgid "In progress"
+msgstr "בתהליך"
+
+msgctxt "job_status_finished"
+msgid "Finished"
+msgstr "הסתיים"
+
+msgctxt "job_status_failed"
+msgid "Failed"
+msgstr "נכשל"
+
+msgctxt "import_file_result"
+msgid "Import result"
+msgstr "תוצאות הייבוא"
+
+msgctxt "products_added"
+msgid "Products added"
+msgstr "מוצרים שנוספו"
+
+msgctxt "products_modified"
+msgid "Products modified"
+msgstr "מוצרים שהשתנו"
+
+msgctxt "import_file_result_no_change"
+msgid "There were no product added or modified. The data has probably been already imported previously."
+msgstr "לא נוספו או נערכו מוצרים כלל. כנראה שהנתונים האלו כבר ייובאו בעבר."
+
+msgctxt "import_file_result_products"
+msgid "List of products added or modified"
+msgstr "רשימת מוצרים שנוספו או השתנו"
+
+msgctxt "imports_p"
+msgid "imports"
+msgstr ""
+
+msgctxt "imports_s"
+msgid "import"
+msgstr ""
+
+msgctxt "imports"
+msgid "imports"
+msgstr ""
+
+msgctxt "number_of_products_with_data_quality_errors_producers"
+msgid "Number of products with data quality errors"
+msgstr "מספר המוצרים עם שגיאות באיכות הנתונים"
+
+msgctxt "number_of_products_with_data_quality_warnings_producers"
+msgid "Number of products with data quality warnings"
+msgstr "מספר המוצרים עם אזהרות באיכות הנתונים"
+
+msgctxt "number_of_products_with_improvements"
+msgid "Number of products with improvement opportunities"
+msgstr "מספר המוצרים עם הזדמנויות לשיפור"
+
+msgctxt "improvements_facet_description_1"
+msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
+msgstr "טבלה זו מציגה את ההזדמנויות השונות לשיפור האיכות התזונתית, ציון ה־Nutri-Score והרכב מוצרי המזון."
+
+msgctxt "improvements_facet_description_2"
+msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
+msgstr "כדי לקבל תוצאות מתאימות, נא לוודא שנתוני המוצרים שלמים (עובדות תזונתיות עם ערכי סיבים ופירות וירקות כדי לחשב את ה־Nutri-Score וסיווג קטגוריה מדויק כדי לערוך השוואה בין המוצר למוצרים דומים)."
+
+# "product photos" in this sentence means photos for many products, not just one product
+msgctxt "import_photos_title"
+msgid "Import product photos"
+msgstr "ייבוא תמונות מוצרים"
+
+msgctxt "import_photos_description"
+msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgstr "ניתן להשתמש בטופס שלהלן כדי להעלות תמונות בקלות (חזית המוצר, רשימת הרכיבים וטבלת הערכים התזונתיים) למגוון של מוצרים."
+
+msgctxt "import_photos_format_1"
+msgid "Each filename needs to contains the barcode of the product."
+msgstr "על כל שם קובץ להכיל את הברקוד של המוצר."
+
+msgctxt "import_photos_format_2"
+msgid "And you can also specify the type of the photo in the filename:"
+msgstr "כמו כן, ניתן לציין את סוג התמונה בשם הקובץ:"
+
+# Do not translate the file name
+msgctxt "import_photos_format_barcode"
+msgid "3001234567890.jpg: front of the product in the current language."
+msgstr "3001234567890.jpg: חזית המוצר בשפה הנוכחית."
+
+# Do not translate the file name
+msgctxt "import_photos_format_front"
+msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
+msgstr "3001234567890.front_nl.jpg: חזית המוצר בהולנדית."
+
+# Do not translate the file name
+msgctxt "import_photos_format_ingredients"
+msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
+msgstr "3001234567890.ingredients_fr.jpg: רשימת הרכיבים בצרפתית."
+
+# Do not translate the file name
+msgctxt "import_photos_format_nutrition"
+msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
+msgstr "3001234567890.nutrition_es.jpg: הטבלה התזונתית בספרדית."
+
+msgctxt "add_photos"
+msgid "Add photos..."
+msgstr "הוספת תמונות…"
+
+msgctxt "start_upload"
+msgid "Start upload"
+msgstr "להתחיל העלאה"
+
+msgctxt "start"
+msgid "Start"
+msgstr "התחלה"
+
+msgctxt "close"
+msgid "Close"
+msgstr "סגירה"
+
+msgctxt "cancel_upload"
+msgid "Cancel upload"
+msgstr "ביטול העלאה"
+
+msgctxt "info"
+msgid "Info"
+msgstr "מידע"
+
+msgctxt "file_received"
+msgid "File received"
+msgstr "התקבל קובץ"
+
+msgctxt "nutriscore_calculation_details"
+msgid "Details of the calculation of the Nutri-Score"
+msgstr "פירוט החישוב של Nutri-Score"
+
+msgctxt "nutriscore_is_beverage"
+msgid "This product is considered a beverage for the calculation of the Nutri-Score."
+msgstr "מוצר זה נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
+
+msgctxt "nutriscore_is_not_beverage"
+msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
+msgstr "מוצר זה אינו נחשב למשקה לטובת החישוב של ה־‏Nutri-Score."
+
+msgctxt "nutriscore_positive_points"
+msgid "Positive points"
+msgstr "נקודות חיוביות"
+
+msgctxt "nutriscore_negative_points"
+msgid "Negative points"
+msgstr "נקודות שליליות"
+
+msgctxt "nutriscore_proteins_negative_points_less_than_11"
+msgid "The points for proteins are counted because the negative points are less than 11."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהנקודות השליליות קטנות מ־11."
+
+msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
+msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
+msgstr "הנקודות לחלבונים אינן מחושבות כיוון שהנקודות השליליות גדולות או שוות ל־11."
+
+msgctxt "nutriscore_proteins_maximum_fruits_points"
+msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהנקודות לפירות, ירקות אגוזים ושמני קנולה/אגוזי מלך/זית הגיעו לכמות המרבית."
+
+msgctxt "nutriscore_proteins_is_cheese"
+msgid "The points for proteins are counted because the product is in the cheeses category."
+msgstr "הנקודות לחלבונים מחושבות כיוון שהמוצר הוא בקטגוריית הגבינות."
+
+msgctxt "nutriscore_proteins_is_added_fat"
+msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
+msgstr "המוצר נמצא בקטגוריית השמנים, הנקודות לשומן רווי מוחלפות בנקודות היחס של שומן רווי / שומן."
+
+msgctxt "nutriscore_points_for_energy"
+msgid "Energy"
+msgstr "אנרגיה"
+
+msgctxt "nutriscore_points_for_sugars"
+msgid "Sugars"
+msgstr "סוכרים"
+
+msgctxt "nutriscore_points_for_saturated_fat"
+msgid "Saturated fat"
+msgstr "שומן רווי"
+
+msgctxt "nutriscore_points_for_saturated_fat_ratio"
+msgid "Saturated fat / fat ratio"
+msgstr "יחס שומן רווי / שומן"
+
+msgctxt "nutriscore_points_for_sodium"
+msgid "Sodium"
+msgstr "נתרן"
+
+msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
+msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
+msgstr "פירות, ירקות, אגוזים ושמני קנולה/אגוזי מלך/זית"
+
+msgctxt "nutriscore_points_for_fiber"
+msgid "Fiber"
+msgstr "סיבים תזונתיים"
+
+msgctxt "nutriscore_points_for_proteins"
+msgid "Proteins"
+msgstr "חלבון"
+
+msgctxt "nutriscore_source_value"
+msgid "value"
+msgstr "ערך"
+
+msgctxt "nutriscore_rounded_value"
+msgid "rounded value"
+msgstr "ערך מעוגל"
+
+msgctxt "nutriscore_score"
+msgid "Nutritional score"
+msgstr "ציון תזונתי"
+
+# Do not translate
+msgctxt "nutriscore_grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score"
+msgstr "ציון Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# free as in not costing something
+msgctxt "donate_free_and_independent"
+msgid "Open Food Facts is 100% free and independent."
+msgstr "Open Food Facts הוא מיזם חופשי ובלתי תלוי ב־100%."
+
+# leave empty link
+msgctxt "donate_help_and_donations"
+msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
+msgstr "<a href=\"\">אנו זקוקים לעזרתכם ולתרומותיכם</a> כדי להמשיך ולפתח את המיזם."
+
+msgctxt "thank_you"
+msgid "Thank you!"
+msgstr "תודה רבה לך!"
+
+msgctxt "value_for_the_product"
+msgid "Value for the product"
+msgstr "ערך עבור המוצר"
+
+# Do not translate %s, it will be replaced by the category name
+msgctxt "value_for_the_category"
+msgid "Mean value for the %s category"
+msgstr "ערך ממוצע לקטגוריה %s"
+
+# Keep the %s
+msgctxt "better_nutriscore"
+msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+msgstr "ניתן לשנות את ערך ה־Nutri-Score מהערך %s לערך %s על ידי שינוי הערך של %s מכדי %s לכדי %s (הפרש של %s אחוזים)."
+
+msgctxt "export_products_to_public_database_email"
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "הפלטפורמה ליצרנים נמצאת כרגע בתהליכי פיתוח ואנו עורכים בדיקות ידניות בטרם ייבוא מוצרים למסדי הנתונים הציבוריים. נא לשלוח אלינו דוא״ל לכתובת <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> כדי לעדכן את מסד הנתונים הציבורי."
+
+msgctxt "user_groups"
+msgid "Groups"
+msgstr "קבוצות"
+
+msgctxt "user_group_producer"
+msgid "Producer"
+msgstr "יצרן"
+
+msgctxt "user_group_producer_description"
+msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
+msgstr "יש לסמן רק עבור חשבונות של יצרנים שעורכים את המוצרים של עצמם. הבעלות על המוצר תשויך ליצרנים עקב הוספה או עריכה של מוצר על ידם."
+
+msgctxt "user_group_database"
+msgid "Database"
+msgstr "מסד נתונים"
+
+msgctxt "user_group_database_description"
+msgid "For external sources of data. Product ownership of imported products will not change."
+msgstr "למקורות נתונים חיצוניים. הבעלות על המוצרים המייובאים לא ישתנו."
+
+msgctxt "user_group_app"
+msgid "App"
+msgstr "יישומון"
+
+msgctxt "user_group_app_description"
+msgid "For applications."
+msgstr "ליישומונים."
+
+msgctxt "user_group_bot"
+msgid "Bot"
+msgstr "רובוט"
+
+msgctxt "user_group_bot_description"
+msgid "For robots, scripts etc."
+msgstr "לרובוטים, סקריפטים וכו׳."
+
+msgctxt "user_group_moderator"
+msgid "Moderator"
+msgstr "פיקוח"
+
+msgctxt "user_group_moderator_description"
+msgid "Moderators have access to special features to edit and review products."
+msgstr "למפקחים יש גישה לתכונות מיוחדות כדי לערוך ולסקור מוצרים."
+
+msgctxt "user_group_pro_moderator"
+msgid "Moderator for the producers platform"
+msgstr "מפקח לפלטפורמת היצרנים"
+
+msgctxt "user_group_pro_moderator_description"
+msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
+msgstr "מפקחי פלטפורמת היצרנים יכולים לצפות ולערוך את המוצרים הפרטיים של כל המשתמשים והארגונים בלטפורמת היצרנים."
+
+msgctxt "donation_banner_hide"
+msgid "I have already donated or I'm not interested. Hide the banner."
+msgstr "כבר תרמתי או שאין לי עניין לתרום. נא להסתיר את המודעה."
+
+msgctxt "donation_banner_show"
+msgid "Hey, a box to uncheck?!"
+msgstr "היי, יש פה איזו תיבה שמחכה שירד ממנה הסימון?!"
+
+msgctxt "donation_banner_independant"
+msgid "An independant and citizen-led project for food transparency ?"
+msgstr "מיזם עצמאי לשיפור שקיפות המזון בהובלת הקהילה?"
+
+msgctxt "donation_banner_public_health"
+msgid "Food product data for research that improves public health ?"
+msgstr "נתוני מוצרי מזון למטרות מחקר שמסייעות בשיפור בריאות הציבור?"
+
+msgctxt "donation_banner_choices"
+msgid "Easier and better food choices according to your own criteria?"
+msgstr "בחירות מזון פשוטות וטובות יותר בתנאים שלך?"
+
+msgctxt "donation_banner_cta"
+msgid "We need your support!"
+msgstr "תמיכתך חשובה לנו!"
+
+msgctxt "donation_banner_cta_button"
+msgid "Please Donate"
+msgstr "נא לתרום"
+
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "צריכה מופרזת של אלכובול מסוכנת לבריאות, יש לצרוך בכמות מתונה."
+
+msgctxt "producers_platform_moderation_title"
+msgid "Producers platform moderation"
+msgstr "פיקוח על פלטפורמת היצרנים"
+
+msgctxt "pro_moderator_owner_set"
+msgid "You are currently viewing products from %s."
+msgstr "כרגע מוצגים בפניך מוצרים מאת %s."
+
+msgctxt "pro_moderator_owner_not_set"
+msgid "You are currently viewing your own products."
+msgstr "כרגע מוצגים בפניך המוצרים שלך."
+
+msgctxt "pro_moderator_edit_owner_description"
+msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
+msgstr "כדי לצפות במוצרים עבור משתמש או ארגון מסוים, יש להקליד את המזהה שלהם להלן. ניתן להשאיר את השדה ריק כדי לבטל."
+
+# Action verb "Change" to put on a form button
+msgctxt "pro_moderator_edit_owner"
+msgid "Change"
+msgstr "החלפה"
+
+msgctxt "pro_moderator_edit_owner_placeholder"
+msgid "user-abc or org-xyz"
+msgstr "user-abc או org-xyz"
+
+# keep %s, it is a variable for the name of the user
+msgctxt "error_user_does_not_exist"
+msgid "User %s does not exist"
+msgstr "המשתמש %s לא קיים"
+
+msgctxt "error_malformed_owner"
+msgid "The id must be of the form user-abc or org-xyz"
+msgstr "המזהה חייב להיות בתצורת user-abc או org-xyz"
+
+msgctxt "import_products_categories_from_public_database"
+msgid "Import product categories from the public database"
+msgstr "ייבוא קטגוריות מוצרים ממסד הנתונים הציבורי"
+
+msgctxt "import_products_categories_from_public_database_description"
+msgid "Add categories from the public database to the products on the platform for producers."
+msgstr "הוספת קטגוריות ממסד הנתונים הציבורי למוצרים בפלטפורמה ליצרנים."
+
+msgctxt "import_products_categories"
+msgid "Import the categories"
+msgstr "ייבוא הקטגוריות"
+
+msgctxt "nutri_score_score_from_producer"
+msgid "Nutri-Score score from producer"
+msgstr "ציון Nutri-Score מהיצרן"
+
+msgctxt "nutri_score_score_calculated"
+msgid "Calculated Nutri-Score score"
+msgstr "ציון Nutri-Score מחושב"
+
+msgctxt "nutri_score_grade_from_producer"
+msgid "Nutri-Score grade from producer"
+msgstr "דירוג Nutri-Score מהיצרן"
+
+msgctxt "nutri_score_grade_calculated"
+msgid "Calculated Nutri-Score grade"
+msgstr "דירוג Nutri-Score מחושב"
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr "קוד שנסרק"
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr "קוד משם קובץ"
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr "באמצעות קוד קודם"
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr "ניתן לציין ערכי שדות שיתווספו לכל המוצרים שעבורם תישלחנה תמונות."
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr "הוספת שדה"
+
+msgctxt "scanned_code"
+msgid "Scanned code"
+msgstr "קוד שנסרק"
+
+msgctxt "code_from_filename"
+msgid "Code from file name"
+msgstr "קוד משם קובץ"
+
+msgctxt "using_previous_code"
+msgid "Using previous code"
+msgstr "באמצעות קוד קודם"
+
+msgctxt "add_field_values"
+msgid "You can specify field values that will be added to all products for which you will send images."
+msgstr "ניתן לציין ערכי שדות שיתווספו לכל המוצרים שעבורם תישלחנה תמונות."
+
+msgctxt "add_tag_field"
+msgid "Add a field"
+msgstr "הוספת שדה"
+
+msgctxt "remove_products"
+msgid "Remove all the products"
+msgstr "להסיר את כל המוצרים"
+
+msgctxt "remove_products_from_producers_platform"
+msgid "Remove all your products from the platform for producers"
+msgstr "להסיר את כל המוצרים שלך מהפלטפורמה ליצרנים"
+
+msgctxt "remove_products_from_producers_platform_description"
+msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
+msgstr "יש לך אפשרות להסיר את כל המוצרים שלך מהפלטפורמה ליצרנים, למשל כדי להתחיל מחדש אם התגלו תקלות בנתונים שייבאת. פעולה זו לא תשפיע על המוצרים שלך שבמסד הנתונים הציבורי."
+
+msgctxt "this_action_cannot_be_undone"
+msgid "Please note that this action cannot be undone."
+msgstr "פעולה זו אינה הפיכה."
+
+msgctxt "remove_products_confirm"
+msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
+msgstr "אזהרה: זו פעולה בלתי הפיכה. להסיר את כל המוצרים שלך מהפלטפורמה ליצרנים?"
+
+msgctxt "function_not_available"
+msgid "This function is not available."
+msgstr "תכונה זו אינה זמינה."
+
+msgctxt "remove_products_done"
+msgid "Your products have been removed from the platform for producers."
+msgstr "המוצרים שלך הוסרו מהפלטפורמה ליצרנים."
+
+msgctxt "ingredients_analysis_details"
+msgid "Details of the analysis of the ingredients"
+msgstr "פירוט ניתוח הרכיבים"
+
+msgctxt "some_unknown_ingredients"
+msgid "Some ingredients could not be recognized."
+msgstr "הזיהוי של כמה מהרכיבים לא הצליח."
+
+# keep the 2 %s : they will be replaced by language names.
+msgctxt "move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in %s to the main language of the product: %s"
+msgstr "העברת כל הנתונים והתמונות הנבחרות שבתוך %s לשפה העיקרית של המוצר: %s"
+
+msgctxt "move_data_and_photos_to_main_language_replace"
+msgid "Replace existing values and selected photos"
+msgstr "החלפת הערכים הנוכחיים והתמונות הנבחרות"
+
+msgctxt "move_data_and_photos_to_main_language_ignore"
+msgid "Keep existing values and selected photos"
+msgstr "שמירת הערכים הנוכחיים והתמונות הנבחרות"
+
+msgctxt "done_status"
+msgid "Done"
+msgstr "בוצע"
+
+msgctxt "to_do_status"
+msgid "To do"
+msgstr "לבצע"
+
+msgctxt "teams"
+msgid "Teams"
+msgstr "צוותים"
+
+msgctxt "optional"
+msgid "optional"
+msgstr "רשות"
+
+msgctxt "teams_p"
+msgid "teams"
+msgstr "צוותים"
+
+msgctxt "teams_s"
+msgid "team"
+msgstr "צוות"
+
+msgctxt "teams_description"
+msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
+msgstr "ניתן להצטרף לבין 1 ל־3 צוותים. מוצרים שיתווספו ייערכו על ידיך יתועדו לזכותך ולזכות הצוותים אליהם הצטרפת. ניתן לעבור בין צוותים בכל עת."
+
+msgctxt "teams_names_warning"
+msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
+msgstr "שמות הצוותים הם ציבוריים. אין ליצור צוותים עם שמות שמכילים פרטים אישיים (למשל: שמות משפחה), סימני מסחר (אלא אם כן הם בבעלותך) או משהו פוגעני."
+
+# keep %s, it can be a number "Team 1" or a name "Team XYZ"
+msgctxt "team_s"
+msgid "Team %s"
+msgstr "צוות %s"
+
+# leave the %d, it will be replaced by a number
+msgctxt "n_products_will_be_exported"
+msgid "%d products will be exported."
+msgstr "%d מוצרים ייוצאו."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr "שם המאכל ב‏־CIQUAL"
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr "שם המאכל ב‏־CIQUAL"
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr "שמות המאכלים ב־CIQUAL"
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr "יש לך אפשרות לסייע לנו לזהות יותר רכיבים ולנתח את רשימת הרכיבים למוצר הזה ואחרים על ידי:"
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr "ניתן לערוך עמוד מוצר זה כדי לתקן שגיאות כתיב ברשימת הרכיבים ו/או להסיר רכיבים בשפות אחרות ומשפטים שאינם קשורים לרכיבים."
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr "ניתן להוסיף רשומות חדשות, שמות נרדפים או תרגומים לרשימת הרכיבים הרב־לשונית שלנו, שיטות עיבוד רכיבים ותוויות."
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr "מומלץ להצטרף לערוץ ‎#ingredients ב<a href=\"https://slack.openfoodfacts.org\">מתחם הדיונים שלנו ב־Slack</a> ו/או ללמוד על <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ניתוח רכיבים בוויקי שלנו</a>, אם מעניין אותך לסייע. אנו מודים לך!"
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr "https://il.pro.openfoodfacts.org/"
+
+msgctxt "footer_producers"
+msgid "Producers"
+msgstr "יצרנים"
 

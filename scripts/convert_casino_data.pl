@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -27,7 +27,7 @@ use utf8;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -38,8 +38,6 @@ use Time::Local;
 use XML::Rules;
 
 # default language (needed for cleaning fields)
-
-$lc = "fr";
 
 %global_params = (
 	lc => 'fr',

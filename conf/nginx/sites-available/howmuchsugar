@@ -18,7 +18,7 @@ server {
 	listen 80;
 	listen [::]:80;
 	server_name www.howmuchsugar.in howmuchsugar.info www.howmuchsugar.info;
-	return 301 howmuchsugar.in$request_uri;
+	return 301 http://howmuchsugar.in$request_uri;
 }
 
 
@@ -40,18 +40,15 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
-	#listen 443 ssl http2 default_server;
-	listen 443 http2 ssl;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 http2 ssl;
-	#include snippets/ssl-ssl-api-test.openfoodfacts.org;
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/ssl.howmuchsugar.in;
 	include snippets/ssl-params.conf;
 
-	root /home/sugar/html;
+	root /srv/sugar/html;
 
-	access_log /home/sugar/logs/nginx.howmuchsugar.access.log;
-	error_log /home/sugar/logs/nginx.howmuchsugar.error.log;
+	access_log /srv/sugar/logs/nginx.howmuchsugar.access.log;
+	error_log /srv/sugar/logs/nginx.howmuchsugar.error.log;
 
 	gzip on;
 	gzip_min_length 1000;

@@ -1,26 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -29,6 +29,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -49,6 +51,14 @@ $log->debug("before analyze_request", { query_string => $request{query_string} }
 analyze_request(\%request);
 
 $log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
+
+# Only display texts if products are private and no owner is defined
+if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
+	and ((defined $request{api}) or (defined $request{product}) or (defined $request{groupby_tagtype}) or ((defined $request{tagtype}) and (defined $request{tagid})))
+	and (not defined $Owner_id)) {
+
+	display_error(lang("no_owner_defined"), 200);
+}
 
 if (defined $request{api}) {
 	display_product_api(\%request);
@@ -76,15 +86,15 @@ if (0) {
 	if (($request{tag} ne $request{tagid}) and ($request{tagid} ne 'all') and (not defined $request{query}) and (not defined $request{user}) and (not defined $request{menuid})) {
 		# my $location =  URI::Escape::XS::encodeURIComponent($request{canon_tag});
 		my $location = "/by/" . $request{tagid};
-		
+
 		my $r = shift;
 
 		$r->headers_out->set(Location =>$location);
-		$r->status(301);  
+		$r->status(301);
 		return 301;
-		
+
 	}
-	
+
 
 	display_news(\%request);
 }
@@ -93,7 +103,7 @@ if (defined $request{redirect}) {
 		my $r = shift;
 
 		$r->headers_out->set(Location => $request{redirect});
-		$r->status(301);  
+		$r->status(301);
 		return 301;
 }
 

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -27,7 +27,7 @@ use utf8;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-use ProductOpener::Import qw/:all/;
+use ProductOpener::ImportConvert qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -40,8 +40,6 @@ use XML::Rules;
 use Log::Any::Adapter ('Stderr');
 
 # default language (needed for cleaning fields)
-
-$lc = "fr";
 
 %global_params = (
 	# params below are already in the csv file
@@ -79,7 +77,7 @@ my @csv_fields_mapping = (
 ["fibers", "nutriments.fiber_g"],
 ["proteins", "nutriments.proteins_g"],
 ["salt", "nutriments.salt_g"],
-["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_value"],
+["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_g"],
 ["labels", "labels"],
 ["nutri_score", "nutrition_grade_fr_producer"],
 ["Link", "link"],

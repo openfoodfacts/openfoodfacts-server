@@ -3,7 +3,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -19,6 +19,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -41,6 +42,8 @@ GetOptions ( 'agemin=s' => \$agemin, 'agemax=s' => \$agemax, 'pretend'=>\$preten
 
 # Get a list of all products
 
+my $products_collection = get_products_collection();
+
 # my $cursor = $products_collection->query({  complete=>1, categories_tags=>'chocolats', creator => 'stephane' })->fields({ code => 1, images=>1 } );;
 
 my $query_ref = {  complete=>1} ;
@@ -57,16 +60,9 @@ if (defined $agemax) {
 
 my $cursor = $products_collection->query($query_ref )->fields({ code => 1, images=>1, last_modified_t=>1 } )->sort({"unique_scans_n" => -1})->limit(10000);
 
-
-
-my $count = $cursor->count();
 my $i = 0;
 my $j = 0;
 
-	
-	print STDERR "$count products to update\n";
-	
-	
 	while (my $product_ref = $cursor->next) {
         
 if (defined $agemin) {

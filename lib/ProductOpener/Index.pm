@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Index;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -29,18 +29,17 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&get_fileid2
 					&normalize
 					&decode_html
 					&decode_html_utf8
 					&decode_html_entities
-					
-					
+
+
 					&normalize
-					
+
 					$memd
 					%texts
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -58,8 +57,6 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-#use Text::Unaccent::PurePerl "unac_string";
-use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
 use Log::Any qw($log);
@@ -88,7 +85,7 @@ opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
-	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+	#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
 	if (-e "$data_root/lang/$langid/texts") {
@@ -103,8 +100,8 @@ foreach my $langid (readdir(DH2)) {
 			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
 				$texts{$textid}{$langid} = $file;
 			}
-			
-			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+
+			#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 		}
 		closedir(DH);
 	}
@@ -121,34 +118,16 @@ closedir(DH2);
 use vars qw(
 );
 
-sub unac_string_stephane($) {
-	my $s = shift;
-
-	$s =~ s/à|á|â|ã|ä|å/a/ig;
-	$s =~ s/ç/c/ig;
-	$s =~ s/è|é|ê|ë/e/ig;
-	$s =~ s/ì|í|î|ï/i/ig;
-	$s =~ s/ñ/n/ig;
-	$s =~ s/ò|ó|ô|õ|ö/o/ig;
-	$s =~ s/ù|ú|û|ü/u/ig;
-	$s =~ s/ý|ÿ/y/ig;
-	$s =~ s/œ|Œ/oe/g;
-	$s =~ s/æ|Æ/ae/g;	
-
-	
-	return $s;
-}
-
 sub normalize($) {
 
 	my $s = shift;
-	
+
 	# Remove comments
 	$s =~ s/(<|\&lt;)!--(.*?)--(>|\&gt;)//sg;
 	$s =~ s/<style(.*?)<\/style>//sg;
 	# Remove scripts
-	$s =~ s/<script(.*?)<\/script>//isg;	
-	
+	$s =~ s/<script(.*?)<\/script>//isg;
+
 	# Remove open comments
 	$s =~ s/(<|\&lt;)!--(.*)//sg;
 
@@ -161,81 +140,58 @@ sub normalize($) {
 
 	# Remove "<= blabla" on recettessimples.fr
 	$s =~ s/<=//g;
-	
+
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
 
 	$s =~ s/&nbsp;/ /g ;
 	$s =~ s/&#160;/ /g ;
-	
+
 	$s =~ s/\s+/ /g;
 
 	return $s;
 }
 
 
-sub get_fileid2($)
-{
-	my $file = shift; # canon_blog or canon_tag
-
-	# !!! commenting line below, because of possible double decoding
-	#$file = decode("utf8",$file);
-		
-	$file = decode("utf8", $file);
-
-	#$file = unac_string('UTF-8',$file);
-	$file = unac_string_stephane($file);
-	
-	$file = lc($file);	
-
-	$file =~ s/[^a-zA-Z0-9-]/-/g;
-	$file =~ s/-+/-/g;
-	$file =~ s/^-//;
-	$file =~ s/-$//;
-	
-	return $file;	
-}
-
-
 sub decode_html($)
 {
 	my $string = shift;
-	
+
 	my $encoding = "windows-1252";
 	if ($string =~ /charset=(.?)utf(-?)8/i) {
 		$encoding = "UTF-8";
 	}
-	
+
 	my $utf8 = $string;
 	if (not utf8::is_utf8($string)) {
 		$utf8 = decode($encoding, $string);
 	}
-	
+
 	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
-	$utf8 = decode_entities($utf8);	
-	
+	$utf8 = decode_entities($utf8);
+
 	return $utf8;
 }
 
 sub decode_html_utf8($)
 {
 	my $utf8 = shift;
-	
-	$utf8 = decode_entities($utf8);	
-	
+
+	$utf8 = decode_entities($utf8);
+
 	return $utf8;
 }
 
 sub decode_html_entities($)
 {
 	my $string = shift;
-	
+
 	# utf8::is_utf8($string) or $string = decode("UTF8", $string);
-	
+
 	utf8::is_utf8($string) or utf8::decode($string);
-	
+
 	my $utf8 = decode_entities($string);
-	
+
 	if (0 and ($utf8 =~ /Ã/)) { # doesn't work
 		# double encoding?
 		$utf8 =~ s/Ã©/é/g;
@@ -246,7 +202,7 @@ sub decode_html_entities($)
 		$utf8 =~ s/Ãª/ê/g;
 		$utf8 =~ s/Ã /à/g;
 	}
-		
+
 	return $utf8;
 }
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -29,6 +29,7 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
+		%string_normalization_for_lang
 		%admins
 		%moderators
 
@@ -67,8 +68,7 @@ BEGIN
 		$page_size
 
 		%options
-
-		%wiki_texts
+		%server_options
 
 		@product_fields
 		@product_other_fields
@@ -90,25 +90,84 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
-%admins = map { $_ => 1 } qw(
-agamitsudo
-aleene
-bcatelin
-bojackhorseman
-hangy
-javichu
-kyzh
-lafel
-lucaa
-moon-rabbit
-sebleouf
-segundo
-stephane
-tacinte
-tacite
-teolemon
-twoflower
+# define the normalization applied to change a string to a tag id (in particular for taxonomies)
+# tag ids are also used in URLs.
 
+# unaccent:
+# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# either in print, or when typed by users.
+# - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
+# lowercase:
+# - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+%string_normalization_for_lang = (
+	# no_language is used for strings that are not in a specific language (e.g. user names)
+	no_language => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# default is used for languages that do not have specified values
+	default => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# German umlauts should not be converted (e.g. ä -> ae) as there are many conflicts
+	de => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
+	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	fr => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# Same for Spanish, Italian and Portuguese
+	es => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	it => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
+	en => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+);
+
+%admins = map { $_ => 1 } qw(
+	agamitsudo
+	aleene
+	bcatelin
+	bojackhorseman
+	charlesnepote
+	hangy
+	javichu
+	kyzh
+	lafel
+	lucaa
+	mbe
+	moon-rabbit
+	raphael0202
+	sebleouf
+	segundo
+	stephane
+	tacinte
+	tacite
+	teolemon
+	twoflower
+
+	jniderkorn
+	desan
+	cedagaesse
+	m-etchebarne
 );
 
 %moderators = map { $_ => 1 } qw(
@@ -140,6 +199,10 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 
+# server options
+
+%server_options = %ProductOpener::Config2::server_options;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
@@ -156,19 +219,14 @@ $page_size = 20;
 
 
 $google_analytics = <<HTML
-<script type="text/javascript">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31851927-1']);
-  _gaq.push(['_setDomainName', 'openfoodfacts.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+  gtag('config', 'UA-31851927-13');
 </script>
 HTML
 ;
@@ -187,7 +245,7 @@ $options{favicons} = <<HTML
 <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicon/manifest.json">
+<link rel="manifest" href="/cgi/manifest.pl">
 <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 <meta name="msapplication-TileColor" content="#da532c">
@@ -201,37 +259,6 @@ $options{opensearch_image} = <<XML
 <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
 XML
 ;
-
-%wiki_texts = (
-
-"en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-"es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-"fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-"he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-"ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-"pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-"jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-"de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-"en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-"es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-"fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-"nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-"en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-"fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-"el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-"en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-"fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-"ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-"de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-"fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-"en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-);
-
 
 # fields for which we will load taxonomies
 
@@ -384,14 +411,14 @@ off =>
         mongodb => "off",
         domain => "openfoodfacts.org",
 },
-opff =>
+opf =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/srv/opff",
-        www_root => "/srv/opff/html",
-        mongodb => "opff",
-        domain => "openpetfoodfacts.org",
+        prefix => "opf",
+        name => "Open Products Facts",
+        data_root => "/srv/opf",
+        www_root => "/srv/opf/html",
+        mongodb => "opf",
+        domain => "openproductsfacts.org",
 }
 };
 

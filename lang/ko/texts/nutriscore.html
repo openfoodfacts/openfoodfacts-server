@@ -1,420 +1,115 @@
-<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+<h1>Nutir-Score과 함께 식품의 영양 품질을 비교하세요!</h1>
 
-<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+<h2>Nutri-Score 란 무엇입니까?</h2>
 
-<h1>Nutritional Score - Color Notes - France</h1>
+<div class="row">
 
-<h2>A system of grades from A to E to simplify nutritional labeling</h2>
+  <div class="small-6 medium-6 large-8 xlarge-10 columns">
 
-<p>In the report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
-Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food
-to allow to simply compare the nutritional quality of products.</p>
+   <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png" alt="NutriScore">
 
-<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+  <p>Nutri-Score는 A ~ E 등급의 식품 영양 품질을 나타내는 로고입니다. NutriScore를 사용하면 쉽고 빠르게 제품을 비교할 수 있습니다.</p>
 
-<p>These color accents are set by calculating a nutritional score that reflects for the 1st part of the energy, saturated fat, sugars, sodium (high levels are considered unhealthy), and for the 2nd part of the proportion of fruits, vegetables and nuts, fibers and proteins 
-  (high levels are considered good for health).</p>
+  </div>
 
-<p>To learn more:</p>
+  <div class="small-6 medium-6 large-4 xlarge-2 columns">
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">A 2 minutes video : What labeling for food products?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple , intuitive and understandable by all nutritional labeling on the front of food packages</a>
-</li>
-</ul>
+  <img src="https://static.openfoodfacts.org/images/misc/nutriscore-cereals-delhaize-201905.jpg" alt="벨기에의 Nutri-Score" />
+  <p><em>벨기에에 있는 델 하이즈 (Delhaize) 매장에서 아침 식사 시리얼에 대한 Nutri-Score 전면 포장 영양 등급 (2019 년 5 월)</em></p>
 
-<h2>The nutritional score on Open Food Facts</h2>
 
-<p>The formula for calculating the nutritional score, the thresholds of the grades and the various tweaking proposals were transmitted by Professor Hercberg's team. This formula was the subject of studies and adaptations for the French market.</p>
-
-<p>The version adopted officially and implementated on Open Food Facts is the one from the report 
-<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
-
-<p>However, we calculated the nutritional score for products sold on French soil and referenced in the database Open Food Facts,
-and determined the corresponding A to E grades. This allows in particular to compare the nutritional score and / or notes of different products, and to study the distribution for each product category.</p>
-
-<h2>Formula to calculate the nutritional score</h2>
-
-<p>Points are given to the products according to the amount of nutrients they contain per 100 g.</p>
-
-<p>A Points are given for the nutrients considered "bad" and C points are given for the "good" nutrients and the content in fruits, vegetables and nuts.</p>
-
-<h3>A Points</h3>
-
-<p>A points are the sum of points for energy, saturated fat, sugars and sodium.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Points</th>
-    <th>Energy (kJ)</th>
-    <th>Saturated Fat (g)</th>
-    <th>당류 (g)</th>
-    <th>Sodium (mg)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤335</td>
-  <td>≤1</td>
-  <td>≤4.5</td>
-  <td>≤90</td>
-</tr>
-<tr>
-  <td>1</td>
-  <td>&gt;335</td>
-  <td>&gt;1</td>
-  <td>&gt;4.5</td>
-  <td>&gt;90</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>&gt;670</td>
-  <td>&gt;2</td>
-  <td>&gt;9</td>
-  <td>&gt;180</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>&gt;1005</td>
-  <td>&gt;3</td>
-  <td>&gt;13.5</td>
-  <td>&gt;270</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt;1340</td>
-  <td>&gt;4</td>
-  <td>&gt;18</td>
-  <td>&gt;360</td>
-</tr>
-<tr>
-  <td>5</td>
-  <td>&gt;1675</td>
-  <td>&gt;5</td>
-  <td>&gt;22.5</td>
-  <td>&gt;450</td>
-</tr>
-<tr>
-  <td>6</td>
-  <td>&gt;2010</td>
-  <td>&gt;6</td>
-  <td>&gt;27</td>
-  <td>&gt;540</td>
-  </tr>
-<tr>
-  <td>7</td>
-  <td>&gt;2345</td>
-  <td>&gt;7</td>
-  <td>&gt;31</td>
-  <td>&gt;630</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td>&gt;2680</td>
-  <td>&gt;8</td>
-  <td>&gt;36</td>
-  <td>&gt;720</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td>&gt;3015</td>
-  <td>&gt;9</td>
-  <td>&gt;40</td>
-  <td>&gt;810</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td>&gt;3350</td>
-  <td>&gt;10</td>
-  <td>&gt;45</td>
-  <td>&gt;900</td>
-</tr>
-</tbody>
-  </table>
-
-<h3>C Points</h3>
-
-<p>The C points are the sum of points for fruits, vegetables and nuts, for fiber and protein.</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <th>Points</th>
-    <th>Fruits, vegetables and nuts (%)</th>
-    <th>Fibre (g)</th>
-    <th>Protein (g)</th>
-  </tr>
-<tr>
-  <td>0</td>
-  <td>≤40</td>
-  <td>≤0.7</td>
-  <td>≤1.6</td>
-</tr> 
-<tr>
-    <td>1</td>
-    <td>&gt;40</td>
-    <td>&gt;0.7</td>
-    <td>&gt;1.6</td>
-</tr> 
-<tr>
-  <td>2</td>
-  <td>&gt;60</td>
-  <td>&gt;1.4</td>
-  <td>&gt;3.2</td>
-</tr> 
-<tr>
-  <td>3</td>
-  <td>-</td>
-  <td>&gt;2.1</td>
-  <td>&gt;4.8</td>
-</tr> 
-<tr>
-  <td>4</td>
-  <td>-</td>
-  <td>&gt;2.8</td>
-  <td>&gt;6.4</td>
-  </tr> 
-<tr>
-  <td>5</td>
-  <td>&gt;80</td>
-  <td>&gt;3.5</td>
-  <td>&gt;8.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>Note: potatoes, sweet potatoes, taro, cassava and tapioca are not included in fruits, vegetables and nuts.</p>
-
-<h3>Nutritional score calculation</h3>
-
-<ul>
-<li>If A points &lt; 11 then score = A points - C points</li>
-<li>If A points ≥ 11
-<ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
-</ul>
-
-</li>
-</ul>
-
-<h3>Adaptations for the French market</h3>
-
-<p>The formula of nutritional score indicated above corresponds to the formula of the 
-  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
-
-<p>The team of Professor Hercberg offers adaptations for the French market that 
-  are implemented to calculate the score on Open Food Facts.</p>
-
-<h4>Adaptation for cheese</h4>
-
-<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
-
-<h4>Adaptation for fat</h4>
-
-<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
-  saturated fat higher than the maximum threshold of 10 g, 
-  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
-
-<table class="points">
-<tbody>
-  <tr>
-    <td>Points</td>
-    <td>Ratio Saturated Fat / Total Fat</td>
-  </tr>
-<tr>
-  <td>0</td> 
-  <td>&lt; 10</td>
-</tr>
-<tr>
-  <td>1</td> 
-  <td>&lt; 16</td>
-</tr>
-<tr>
-  <td>2</td> 
-  <td>&lt; 22</td>
-</tr>
-<tr>
-  <td>3</td> 
-  <td>&lt; 28</td>
-</tr>
-<tr>
-  <td>4</td> 
-  <td>&lt; 34</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&lt; 40</td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&lt; 46</td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&lt; 52</td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt;&lt; 58</td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt;&lt; 64</td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt;64</td>
-</tr>
-</tbody>
-</table>
-
-<h4>Adaptations for fruits and vegetables</h4>
-
-<p>The nuts are not taken into account for the calculation of the content of fruits and vegetables.</p>
-
-<h4>Adaptations for drinks</h4>
-
-<p>Warning: the nutritional score for milk and vegetable milks is calculated with the general formula and 
-  not the formula for drinks.</p>
-
-<p>The threshold of points for energy and for sugars are modified for drinks, and points are doubled for fruits:</p>
-
-<table class="points">
-<tbody>
-<tr>
-  <th>Points</th>
-  <th>Energy (kJ)</th>
-  <th>당류 (g)</th>
-  <th>Fruits, vegetables (%)</th>
-</tr>
-<tr>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td> 
-  <td>&lt; = 40</td>
-</tr>
-<tr>
-  <td>1</td> <td>≤30</td> 
-  <td>≤1,5 or sweeteners</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>2</td> <td>&gt;30</td> 
-  <td>&gt;1.5</td> 
-  <td>&gt;40</td>
-</tr>
-<tr>
-  <td>3</td> <td>&gt;60</td> 
-  <td>&gt;3</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>&gt;90</td> 
-  <td>&gt;4.5</td> 
-  <td>&gt;60</td>
-</tr>
-<tr>
-  <td>5</td> 
-  <td>&gt;120</td> 
-  <td>&gt;6</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>6</td> 
-  <td>&gt;150</td> 
-  <td>&gt;7.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>7</td> 
-  <td>&gt;180</td> 
-  <td>&gt;9</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>8</td> 
-  <td>&gt;210</td> 
-  <td>&gt;10.5</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>9</td> 
-  <td>&gt;240</td> 
-  <td>&gt;12</td> 
-  <td></td>
-</tr>
-<tr>
-  <td>10</td> 
-  <td>&gt;270</td> 
-  <td>&gt;13.5</td> 
-  <td>&gt;80</td>
-  </tr>
-</tbody>
-</table>
-
-<h2>Color grades thresholds</h2>
-
-<p>The thresholds used to assign the color grades are:</p> <p>
-</p><h3>Solid Foods:</h3>
-<ul>
-<li>A - Green: up to -1</li>
-<li>B - Yellow: from 0 to 2</li>
-<li>C - Orange: from 3 to 10</li>
-<li>D - Rose: from 11 to 18</li>
-<li>E - Red: 19 and more</li>
-</ul>
-<h3>Beverages:</h3>
-<p>Only water (mineral and spring, with the exclusion of flavored waters) is graded A.</p>
-
-<ul>
-<li>A - Green: mineral waters and spring waters</li>
-<li>B - Yellow: up to 1</li>
-<li>C - Orange: from 2 to 5</li>
-<li>D - Rose: from 6 to 9</li>
-<li>E - Red: 10 and more</li>
-</ul>
-
-<p><b>Warning: This score may still not match the recommended score:</b></p>
-
-<ul>
-<li>The fiber content is not necessarily present in the nutrition table. When the latter is not indicated, any
-positive contribution of the fibers is not taken into account. We encourage all producers to indicate 
-  the fiber content of their products on the packaging thereof.</li>
-  
-  <--end of current proofread -->
-<li>The points corresponding to the levels in fruits and vegetables are not taken into account for all products. The fruit , vegetables content
-  is indeed not on the package within the nutrition table, and we'll have to determine it
-with other information (such as the words "minimum fruit content", the category of products (eg. jams contain 50% fruit) and/or the ingredient list.)
-<ul>
-<li>A new field "Fruits, vegetables (minimum)" was created to record the values of the terms "minimum content of fruit / vegetables" etc.</li>
-<li>By default, the products in certain categories are considered to have a minimum content of:
-<ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">juice</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">stewed fruits</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">vegetables</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">jams</a></li>
-<li>other categories to define</li>
-</ul>
-
-To calculate the nutritional score, it is important to distinguish levels above 40%, 60% and 80%.
-</li>
-</ul>
-  
-</li>
-
-<li>For the lyophilized food (packaged soups, etc.), the score should be calculated for the reconstituted product, not the raw product as is currently the case.</li>
-</ul>
-
-<p>You can help us learn the fruit content, vegetables and nuts products. For more information, see 
-<a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">the Nutritional Labeling</a> project on the wiki.</p>
-
-<p>Note: tubers such as potatoes and sweet potatoes are not considered vegetables to calculate nutritional score.</p>
-<h2>Thank You</h2>
-<p>We thank Professor Serge Hercberg and Dr. Chantal Julia for their help and the data they have
-communicated us to calculate the nutritional score. These data come from the work of the
-<a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Research Team in Nutritional Epidemiology (EREN)</a>
-of the Paris 13 University / Avicenne Hospital.</p>
+  </div>
 
 </div>
+
+<h2>Nutri-Score는 어떻게 계산됩니까?</h2>
+
+  <p>Nutri-Score 등급은 건강에 좋은 영양소와 건강에 해로운 영양소의 비율에 따라 결정됩니다.</p>
+
+  <p><b>부정적인 포인트:</b> 에너지, 포화 지방, 설탕, 나트륨 (높은 수치는 건강에 해로운 것으로 간주 됨)</p>
+  <p><b>긍정적인 포인트:</b> 과일, 채소 및 견과류 비율, 올리브, colza 및 견과류 오일 비율, 식이섬유 및 단백질 비율 (높은 수치는 건강에 이로운 것으로 간주 됨)</p>
+
+
+  <p>자세한 <a href="https://www.santepubliquefrance.fr/media/files/02-determinants-de-sante/nutrition-et-activite-physique/nutri-score/qr-scientifique-technique-en">Nutir-Score 공식</a>은 Santé publique France 웹 사이트에 공개되어 있습니다.</p>
+
+
+
+<h2>식품의 Nutri-Score를 어떻게 확인할 수 있습니까?</h2>
+
+<div class="row">
+
+  <div class="small-12 medium-6 columns">
+
+
+<p>Nutri-Score는 일부 국가와 제한된 브랜드에서만 식품 라벨에 표시되지만 2014 년 이후 Open Food Facts에 있는 모든 국가의 모든 제품에 대해 계산됩니다.</p>
+
+<p>Open Food Facts의 iPhone 및 Android 모바일 앱과 웹 사이트에서 Nutri-Score 식품을 볼 수 있습니다. Open Food Facts에 없는 제품인 경우, 영양 정보를 추가하고 카테고리를 선택하면 1분 안에 추가할 수 있으며 Nutri-Score가 즉시 계산됩니다.</p>
+
+  </div>
+
+  <div class="small-12 medium-6 columns">
+    <img src="https://static.openfoodfacts.org/images/misc/nutriscore-biscuits-e.800x600.jpg" alt="Open Food Facts 모바일 앱의 NutriScore">
+<p><em>Open Food Facts 앱으로 Nutri-Score를 받으세요!</em></p>
+  </div>
+
+</div>
+
+<h3>Open Food Facts 모바일 앱 설치</h3>
+
+<p>식품을 스캔하기 위해, Nutri-Score 영양 등급, 울트라 프로세스 음식에 관한 NOVA 그룹, 알레르기 항원 경고을 얻으세요. 또한, 식품 첨가물을 해독하려면 무료 오픈 식품 정보 앱을 설치하세요!</p>
+
+		<a href="https://apps.apple.com/kr/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/appstore/black/appstore_KR.svg" alt="App Store에서 사용 가능" width="120" height="40"></a>
+		<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ko"><img src="https://world.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/en_get.svg" alt="Google Play에서 사용 가능" width="102" height="40"></a>
+		<a href="https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"><img src="https://world.openfoodfacts.org/images/misc/microsoft/English.svg" alt="Windows Phone Store" width="109" height="40"></a>
+		<a href="https://world-ko.openfoodfacts.org/files/off.apk"><img src="https://static.openfoodfacts.org/images/misc/android-apk.svg" alt="안드로이드 APK"></a>
+
+<br><br>
+
+<p>Open Food Facts에 쉽게 새로운 제품을 추가할 수도 있고 모든 사람들의 음식과 건강을 향상시키기 위한 공동의 선을 구축하는 데 도움을 줄 것입니다. 감사합니다!</p>
+
+
+<h2>누가 Nutri-Score를 만들었습니까?</h2>
+
+<p>Nutri-Score는 Serge Hercberg 교수가 이끄는 프랑스 공공 영양 연구팀 인 EREN에 의해 제안되었습니다. 영국의 Food Standards Agency에서 작성한 FSA 영양 점수를 기준으로합니다.</p>
+
+  <p>Nutri-Score는 2013 년 보고서 "국가 보건 전략의 틀에서 프랑스 공중 보건 영양 정책에 대한 새로운 자극에 대한 제안"(<a href="https://solidarites-sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf"> pdf </a> ).
+Serge Hercberg 교수는 식품의 영양 품질을 쉽게 비교할 수 있도록 식품 앞에 A에서 E까지의 등급 시스템 채택을 주장합니다.</p>
+
+
+<h2>어떤 국가에서 Nutri-Score를 채택 했습니까?</h2>
+
+
+<p>Nutri-Score는 2016 년 프랑스, 2018 년 벨기에 및 스페인에서 채택되었습니다. 독일의 일부 생산자들도 Nutri-Score를 사용하고 있습니다. Nutri-Score는 이들 국가에서는 옵션이지만, 식품 제조업체가 제품에 표시하는 경우가 늘고 있습니다.</p>
+
+  <ul>
+    <li><a href="https://fr.openfoodfacts.org/label/nutriscore/brands">프랑스의 Nutri-Score 브랜드</a></li>
+    <li><a href="https://be.openfoodfacts.org/label/nutriscore/brands">벨기에의 Nutri-Score 브랜드</a></li>
+    <li><a href="https://es.openfoodfacts.org/label/nutriscore/brands">스페인의 Nutri-Score 브랜드</a></li>
+  </ul>
+
+<p>멕시코 등 다른 나라의 연구팀도 Nutri-Score에 기초한 연구를 진행하고 있습니다.</p>
+
+<h2>#PRONUTRISCORE 청원 : EU 전역의 소비자들이 1 백만 서명을 위해 힘을 합치고 있습니다</h2>
+
+  <p>UFC-Que Choisir(프랑스), Test-Achat(벨기에), VZBV(독일), Consumentenbond(네덜란드), OCU(스페인), Federajca Konsumentow(폴란드), EKPIZO(그리스) 등 유럽소비자국(BEUC)은 EU 위원회에 식품 포장에 관한 뉴트리 스코어를 의무화해 달라고 요청했다.</p>
+
+  <blockquote>
+  <p>우리는 소비자에게 양질의 영양 정보를 제공하고 건강을 보호하기 위해 식품에 간단한 'Nutriscore'라벨링을 적용하도록 유럽위원회에 요청합니다.</p>
+  <ol>
+  <li>식품 공급의 다양성에 직면하여 식품의 영양 가치를 한눈에 파악할 수 있도록 영양 표시를 쉽게 읽고 이해하도록 하십시오.</li>
+<li>전문가들이 제품 구성을 개선하도록 장려하여 공중 보건 문제에 대한 조치를 취하십시오.</li>
+ <li>하나의 공식 라벨링 시스템을 적용하여 유럽 수준의 영양 정보를 조화시켜, 기존 로고가 과도하게 노출 될 때 유럽 소비자가 경험하는 혼란을 일으킵니다.</li>
+  </ol>
+  </blockquote>
+
+<h2>감사합니다</h2>
+<p>We would like to thank Professor Serge Hercberg and Dr. Chantal Julia from the <a href="https://smbh.univ-paris13.fr/fr/recherche/la-recherche/laboratoires/item/17-eren-umr-1153-inserm-u1125-inra-cnam-up13-equipe-de-recherche-en-epidemiologie-nutritionnelle.html">Research Team in Nutritional Epidemiology (EREN)</a> of the Paris 13 University / Avicenne Hospital for their help and the data they have communicated us to compute the nutritional score and the Nutri-Score grades.</p>
+
+<h2>Nutri-Score에 대해 더 알아보기</h2>
+
+<ul>
+<li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Nutri-Score 공식 프레젠테이션 </a>및<a href="https://www.santepubliquefrance.fr/media/files/02-determinants-de-sante/nutrition-et-activite-physique/nutri-score/qr-scientifique-technique-en"> Nutri-Score 과학기술 FAQ</a>는 프랑스 국립보건기관 Santépubliclique france의 웹사이트에 게재되어 있습니다.</li>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">2분짜리 비디오 : 식품 표시는 무엇입니까?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">식품표에 모든 영양 표시를 붙임으로써 단순하고 직관적이며 이해하기 쉬운 것을 찾는 탄원서</a>
+</li>
+</ul>

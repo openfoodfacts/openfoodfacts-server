@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -29,6 +29,7 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
+		%string_normalization_for_lang
 		%admins
 		%moderators
 
@@ -67,8 +68,7 @@ BEGIN
 		$page_size
 
 		%options
-
-		%wiki_texts
+		%server_options
 
 		@product_fields
 		@product_other_fields
@@ -91,30 +91,91 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
-%admins = map { $_ => 1 } qw(
-agamitsudo
-aleene
-bcatelin
-bojackhorseman
-hangy
-javichu
-kyzh
-lafel
-lucaa
-moon-rabbit
-sebleouf
-segundo
-stephane
-tacinte
-tacite
-teolemon
-twoflower
+# define the normalization applied to change a string to a tag id (in particular for taxonomies)
+# tag ids are also used in URLs.
 
+# unaccent:
+# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# either in print, or when typed by users.
+# - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
+# lowercase:
+# - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+%string_normalization_for_lang = (
+	# no_language is used for strings that are not in a specific language (e.g. user names)
+	no_language => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# default is used for languages that do not have specified values
+	default => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# German umlauts should not be converted (e.g. ä -> ae) as there are many conflicts
+	de => {
+		unaccent => 0,
+		lowercase => 1,
+	},
+	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
+	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	fr => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# Same for Spanish, Italian and Portuguese
+	es => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	it => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
+	en => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+);
+
+%admins = map { $_ => 1 } qw(
+	agamitsudo
+	aleene
+	bcatelin
+	bojackhorseman
+	charlesnepote
+	hangy
+	javichu
+	kyzh
+	lafel
+	lucaa
+	mbe
+	moon-rabbit
+	raphael0202
+	sebleouf
+	segundo
+	stephane
+	tacinte
+	tacite
+	teolemon
+	twoflower
+
+	jniderkorn
+	desan
+	cedagaesse
+	m-etchebarne
 );
 
 %moderators = map { $_ => 1 } qw(
 
 );
+
+$options{product_type} = "beauty";
 
 @edit_rules = ();
 
@@ -142,6 +203,10 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 
+# server options
+
+%server_options = %ProductOpener::Config2::server_options;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openbeautyfacts.org';
@@ -158,44 +223,18 @@ $page_size = 20;
 
 
 $google_analytics = <<HTML
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-5"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-31851927-5', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-31851927-5');
 </script>
+
 HTML
 ;
-
-
-
-%wiki_texts = (
-
-"en/whatsinmyshampoo" => "http://en.wiki.openbeautyfacts.org/Translations/whatsinmyshampoo.com/English?action=raw",
-
-"en/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/English?action=raw",
-"fr/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/French?action=raw",
-
-"en/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/English?action=raw",
-"fr/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/French?action=raw",
-
-"en/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/English?action=raw",
-"fr/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/French?action=raw",
-
-"en/press" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_English?action=raw",
-"fr/presse" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_French?action=raw",
-
-"en/code-of-conduct" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-
-"en/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/English?action=raw",
-"fr/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/French?action=raw",
-
-);
 
 #@product_image_fields = qw(front ingredients);
 

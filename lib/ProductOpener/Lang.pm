@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,7 +21,7 @@
 package ProductOpener::Lang;
 
 use utf8;
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use Exporter    qw< import >;
 
 BEGIN
@@ -59,6 +59,7 @@ use ProductOpener::Config qw/:all/;
 
 use DateTime;
 use DateTime::Locale;
+use Encode;
 use JSON::PP;
 
 use Log::Any qw($log);
@@ -115,26 +116,26 @@ sub generate_po_files($$) {
 
 	my $dir = shift;
 	my $lang_ref = shift;
-	
+
 	if (! -e "$data_root/po_from_lang") {
 		 mkdir("$data_root/po_from_lang", 0755) or die ("cannot create $data_root/po_from_lang");
 	}
 	if (! -e "$data_root/po_from_lang/$dir") {
 		 mkdir("$data_root/po_from_lang/$dir", 0755);
-	}	
+	}
 
 	my %po = ();
-	
+
 	# the English values will be used as the msgid
 	# store them so that we can use them for .po files for other languages
 	my %en_values = ();
-	
+
 	foreach my $key (sort keys %{$lang_ref}) {
-	
+
 		my $en = 0;
-	
+
 		foreach my $l ("en", keys %{$lang_ref->{$key}}, "pot") {
-		
+
 			my $value;
 
 			if ($l eq "pot") {
@@ -143,45 +144,45 @@ sub generate_po_files($$) {
 			else {
 				$value = $lang_ref->{$key}{$l};
 			}
-			
+
 			# escape \ and "
 			$value =~ s/\\/\\\\/g;
 			$value =~ s/"/\\"/g;
 			# multiline values
 			$value =~ s/\n/\\n"\n"/g;
 			$value = '"' . $value . '"';
-			
+
 			# store the English value
 			if (($l eq 'en') and ($en == 0)) {
 				$en_values{$key} = $value;
 				$en = 1;
 				next;
 			}
-			
+
 			next if $en_values{$key} eq '""'; # only for "sep", will need to get it out of .po and hardcode it somewhere else
-			
+
 			$po{$l} .= <<PO
 msgctxt "$key"
 msgid $en_values{$key}
 msgstr $value
 
 PO
-;		
+;
 		}
-	
+
 	}
-	
+
 	# Generate .po files for all languages found
 	foreach my $l (keys %po) {
-	
+
 		open (my $fh, ">:encoding(UTF-8)", "$data_root/po_from_lang/$dir/$l.po");
-		
+
 		my $langname = $Lang{"lang_$l"}{en};
-		
+
 		$log->warn("lang_$l not defined") if $log->is_warn();
 
 		$po{$l} =~ s/\n$//;
-		
+
 		print $fh <<PO
 msgid  ""
 msgstr ""
@@ -206,11 +207,11 @@ $po{$l}
 PO
 ;
 
-		
+
 		close ($fh);
-	
+
 	}
-	
+
 
 }
 
@@ -226,7 +227,7 @@ if (-e $path) {
 	my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
 	%Lang = %{$lang_ref};
 	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
-	
+
 	# Initialize @Langs and $lang_lc
 	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
 	%Langs = ();
@@ -235,7 +236,7 @@ if (-e $path) {
 		$lang_lc{$l} = $l;
 		$Langs{$l} = $Lang{"language_" . $l}{$l};	# Name of the language in the language itself
 	}
-	
+
 	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();
 	sleep(1);
 }
@@ -255,25 +256,25 @@ my ($tag_type_singular_ref, $tag_type_plural_ref)
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
 
-
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 {
-
-	foreach my $taxonomy (@debug_taxonomies) {
-
-		foreach my $suffix ("prev", "next", "debug") {
-		
-			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
-			}
-			
-			$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-			$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-		}
-	}
-	
 	foreach my $l (@Langs) {
+
+		foreach my $taxonomy (@debug_taxonomies) {
+
+			foreach my $suffix ("prev", "next", "debug") {
+
+				foreach my $field ("", "_s", "_p") {
+					defined $Lang{$taxonomy . "_$suffix" . $field } or $Lang{$taxonomy . "_$suffix" . $field } = {};
+					$Lang{$taxonomy . "_$suffix" . $field }{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
+				}
+				defined $tag_type_singular{$taxonomy . "_$suffix"} or $tag_type_singular{$taxonomy . "_$suffix"} = {};
+				defined $tag_type_plural{$taxonomy . "_$suffix"} or $tag_type_plural{$taxonomy . "_$suffix"} = {};
+				$tag_type_singular{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
+				$tag_type_plural{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
+			}
+		}
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
@@ -306,19 +307,20 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
 		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
 
-
 		foreach my $type (keys %tag_type_singular) {
-				$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
+			next if $type =~ /^:/;
+			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
 		}
 
 		foreach my $type (keys %tag_type_plural) {
-				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
+			next if $type =~ /^:/;
+			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
 		}
 
-	}	
-	
-}	
-	
+	}
+
+}
+
 
 
 
@@ -330,67 +332,67 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 sub build_lang($) {
 
 	# Hash of languages with translations initialized from the languages taxonomy by Tags.pm
-	my $Languages_ref = shift;	
-		
+	my $Languages_ref = shift;
+
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
 	my $path = "$data_root/po/common/";
 	$log->info("Loading common \%Lang", { path => $path });
-	%Lang = %{ ProductOpener::I18N::read_po_files($path) };	
-	
+	%Lang = %{ ProductOpener::I18N::read_po_files($path) };
+
 	# Initialize %Langs and @Langs and add language names to %Lang
-	
+
 	%Langs = %$Languages_ref;
 	@Langs = sort keys %{$Languages_ref};
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
 		$Langs{$l} = $Languages_ref->{$l}{$l}; # Name of the language in the language itself
-	}	
-	
-	
+	}
+
+
 	# use Data::Dumper::AutoEncode;
 	# use Data::Dumper;
 	# $Data::Dumper::Sortkeys = 1;
 	# open my $fh, ">", "$data_root/po/languages.debug.${server_domain}" or die "can not create $data_root/po/languages.debug.${server_domain} : $!";
 	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-	# close $fh;		
+	# close $fh;
 
 	# copy strings for debug taxonomies
 
 	foreach my $taxonomy (@debug_taxonomies) {
 
 		foreach my $suffix ("prev", "next", "debug") {
-		
+
 			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_string_id_for_lang("no_language",$taxonomy) . "-$suffix" };
 			}
 		}
 	}
 
 
 		# Save to file, for debugging and comparing purposes
-	
+
 		# use Data::Dumper::AutoEncode;
 		# use Data::Dumper;
 		# $Data::Dumper::Sortkeys = 1;
 		# if (! -e "$data_root/po") {
-		#	mkdir ("$data_root/po", 0755); 
+		#	mkdir ("$data_root/po", 0755);
 		# }
 		# open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
 		# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-		# close $fh;			
-    
+		# close $fh;
+
 
 	# Load site specific overrides
 	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
 	my $overrides_path = "$data_root/po/site-specific/";
 	if (-e $overrides_path) {
-	
+
 		# Load overrides from %SiteLang
 		# %SiteLang overrides the general %Lang in Lang.pm
 
 		$log->info("Loading site-specific overrides", { path => $overrides_path });
-				
+
 		my %SiteLang = %{ ProductOpener::I18N::read_po_files("$data_root/po/site-specific/") };
 
 		foreach my $key (keys %SiteLang) {
@@ -425,7 +427,7 @@ sub build_lang($) {
 					}
 				}
 
-				my $tagid = get_fileid($Lang{$key}{$l});
+				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
 		}
 	}
@@ -443,7 +445,7 @@ sub build_lang($) {
 			foreach my $key (keys %Lang) {
 				if (not defined $Lang{$key}{$l}) {
 					next;
-				}	
+				}
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
@@ -476,5 +478,52 @@ sub build_lang($) {
 	}
 } # build_lang
 
+sub build_json {
+	$log->info("Building I18N JSON") if $log->is_info();
+
+	my $i18n_root = "$www_root/data/i18n";
+	if (! -e $i18n_root) {
+		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
+	}
+
+	foreach my $l (@Langs) {
+		my $target_dir = "$i18n_root/$l";
+		if (! -e $target_dir) {
+			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
+		}
+
+		my $short_l = undef;
+		if ($l =~ /_/) {
+			$short_l = $`,  # pt_pt
+		}
+
+		my %result = ();
+		foreach my $s (keys %Lang) {
+			my $value;
+
+			if (defined $Lang{$s}{$l}) {
+				$value = $Lang{$s}{$l};
+			}
+			elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+				$value = $Lang{$s}{$short_l};
+			}
+			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
+				$value = $Lang{$s}{en};
+			}
+			elsif (defined $Lang{$s}{fr}) {
+				$value = $Lang{$s}{fr};
+			}
+
+			$result{$s} = $value if $value;
+		}
+
+		my $target_file = "$target_dir/lang.json";
+		open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
+		print $out decode("utf8", encode_json(\%result));
+		close($out);
+	}
+
+	$log->info("I18N JSON completed") if $log->is_info();
+}
 
 1;

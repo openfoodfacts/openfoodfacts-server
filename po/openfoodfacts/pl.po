@@ -5,14 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:31\n"
+"PO-Revision-Date: 2020-06-15 08:27\n"
 "Language-Team: Polish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pl\n"
 "X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
+"X-Crowdin-File-ID: 444\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -32,4 +33,28 @@ msgstr "Open Food Facts gromadzi informacje i dane dotyczące produktów spożyw
 msgctxt "get_the_app_link"
 msgid "open-food-facts-mobile-app"
 msgstr "open-food-facts-mobile-app"
+
+msgctxt "tagline_2019_nutriscore"
+msgid "Discover the Nutri-Score"
+msgstr "Odkryj Nutri-Score"
+
+msgctxt "tagline_2019_nutriscore_petition"
+msgid "1 million signatures for a vote to make the Nutri-Score compulsory in Europe"
+msgstr "1 milion podpisów pod głosowaniem mającym uczynić ocenę Nutri-Score obowiązkową w Europie"
+
+msgctxt "tagline_2019_nova"
+msgid "Discover the Nova groups on food processing"
+msgstr "Odkryj grupy Nova w zakresie przetwarzania żywności"
+
+msgctxt "tagline_2019_translation"
+msgid "Help bring Open Food Facts to English speakers around the world"
+msgstr "Pomóż udostępnić Open Food Facts osobom posługującym się językiem angielskim na całym świecie"
+
+msgctxt "tagline_2019_donation"
+msgid "Help food transparency worldwide by donating to Open Food Facts"
+msgstr "Przekazując darowiznę na rzecz Open Food Facts wspomagasz globalną przejrzystość etykietowania żywności"
+
+msgctxt "tagline_2019_rating"
+msgid "Do you like Open Food Facts ? You can rate it in the Play Store."
+msgstr "Lubisz Open Food Facts ? Możesz ocenić je w Play Store."
 

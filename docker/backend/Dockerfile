@@ -1,87 +1,87 @@
-# Base stage that adds the Perl runtime and some build utilities to httpd:alpine
-FROM alpine AS modperl
-
-RUN set -x \
-    && echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main\n@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community\n@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
-    && apk -U add --no-cache tzdata git curl wget perl perl-dev openssl openssl-dev make gcc libc-dev zlib-dev apache2-mod-perl@testing \
-    && rm -rf /var/cache/apk/*
+FROM bitnami/minideb:buster AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN curl -o- -L --compressed https://git.io/cpm | perl - install App::cpm -g && rm -rf ~/.perl-cpm
-
-# Stage that just adds some runtime packages that will be used in the runnable stage and the builder stage
-FROM modperl AS alpinemodperl
-
 RUN set -x \
-	  && apk --update --no-cache add \
-    imagemagick6 \
-		graphviz \
-		tesseract-ocr \
+    && install_packages \
+    apache2 \
+    apt-utils \
+    cpanminus \
+    g++ \
+    gcc \
+    libapache2-mod-perl2 \
+    # libexpat1-dev \
+    make \
+    wget \
     imagemagick \
-		zbar@testing
+    graphviz \
+    tesseract-ocr \
+    # perlmagick \
+    # Packages from ./cpanfile
+    libwww-perl \
+    libimage-magick-perl \
+    libxml-encoding-perl  \
+    libtext-unaccent-perl \
+    libmime-lite-perl \
+    libcache-memcached-fast-perl \
+    libjson-pp-perl \
+    libclone-perl \
+    libcrypt-passwdmd5-perl \
+    libencode-detect-perl \
+    libgraphics-color-perl \
+    libbarcode-zbar-perl \
+    libxml-feedpp-perl \
+    liburi-find-perl \
+    libxml-simple-perl \
+    libexperimental-perl \
+    libapache2-request-perl \
+    libdigest-md5-perl \
+    libtime-local-perl \
+    libdbd-pg-perl \
+    libtemplate-perl
 
 # Stage for installing/compiling cpanfile dependencies
-FROM alpinemodperl AS builder
-
-RUN apk --update --no-cache add \
-		alpine-sdk \
-		imagemagick6 \
-		imagemagick6-dev \
-		graphviz \
-		graphviz-dev \
-		tesseract-ocr \
-		tesseract-ocr-dev \
-    imagemagick \
-		zbar@testing \
-		zbar-dev@testing \
-    apache2-dev \
-    apache2-mod-perl-dev@testing \
-    # Add ZBar perl module from git: https://rt.cpan.org/Ticket/Display.html?id=128085
-    && wget https://github.com/mchehab/zbar/archive/0.22.2.tar.gz \
-    && tar xfz 0.22.2.tar.gz \
-    && rm 0.22.2.tar.gz \
-    && cd zbar-0.22.2/perl \
-    && perl Makefile.PL \
-    && ln -s MYMETA.yml META.yml \
-    && cpm install -L /tmp/local . \
-    && cd ../.. \
-    && rm -rf zbar-0.22.2
+FROM modperl AS builder
 
 WORKDIR /tmp
-
-# Dependency of libapreq2-2.13, which is not installed automatically.
-RUN cpm install ExtUtils::XSBuilder::ParseSource
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
-RUN cpm install --without-test
+RUN cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
-# Separate stage/layer that can be used to run unit tests
-FROM builder AS tester
+FROM modperl AS runnable
 
-RUN cpm install --with-test
-
-# Helper stage, so that we don't try to install GeoIP upon every rebuild of the source
-FROM alpinemodperl AS alpinemodperlgeoip
-
-ADD https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz /tmp/GeoLite2-Country.tar.gz
-RUN set -x \
-  # Install GeoIP files locally
-  && tar xfz /tmp/GeoLite2-Country.tar.gz -C /usr/local/share \
-  && rm /tmp/GeoLite2-Country.tar.gz \
-  && mv /usr/local/share/GeoLite2-Country_* /usr/local/share/GeoLite2-Country \
-  # Prepare Apache to include our custom config
-  && mkdir -p /usr/local/apache2/conf/sites-enabled \
-  && echo 'IncludeOptional conf/sites-enabled/*.conf' >> /usr/local/apache2/conf/httpd.conf
-
-FROM alpinemodperlgeoip AS runnable
+# Prepare Apache to include our custom config
+RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/
+ENV PERL5LIB /opt/perl/local/lib/perl5/
 
 EXPOSE 80
+
+FROM runnable AS vscode
+# This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
+# this user's GID/UID must match your local user UID/GID to avoid permission issues
+# with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
+# https://aka.ms/vscode-remote/containers/non-root-user for details.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Configure apt and install packages
+RUN install_packages apt-utils dialog 2>&1 \
+    #
+    # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
+    && install_packages git iproute2 procps lsb-release \
+    # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
+    && groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    # [Optional] Add sudo support for the non-root user
+    && install_packages sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 FROM runnable AS withsrc
 

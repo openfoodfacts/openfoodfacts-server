@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -107,11 +107,13 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
 	(not defined param('xml')) and (not defined param('rss')) and
-	($search_terms =~ /^(\d{8})\d*$/)) {
+	($search_terms =~ /^(\d{8,24})$/)) {
 
-		my $code = $search_terms;
+		my $code = normalize_code($search_terms);
 
-		my $product_ref = product_exists($code); # returns 0 if not
+		my $product_id = product_id_for_owner($Owner_id, $code);
+
+		my $product_ref = product_exists($product_id); # returns 0 if not
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", { code => $code });
@@ -129,8 +131,8 @@ if ((not defined param('json')) and (not defined param('jsonp')) and
 
 my @search_tags = ();
 my @search_nutriments = ();
-my %search_ingredient_classes = {};
-my %search_ingredient_classes_checked = {};
+my %search_ingredient_classes = ();
+my %search_ingredient_classes_checked = ();
 
 for (my $i = 0; defined param("tagtype_$i") ; $i++) {
 
@@ -166,7 +168,8 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 
 my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
 if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
-	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')) {
+	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+	and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
 	$sort_by = 'unique_scans_n';
 }
 
@@ -180,21 +183,6 @@ my $map_title = remove_tags_and_quote(decode utf8=>param("map_title"));
 
 foreach my $axis ('x','y') {
 	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8=>param("axis_$axis"));
-}
-
-my %flatten = ();
-my $flatten = 0;
-
-foreach my $field (@search_fields) {
-	if (defined $search_tags_fields{$field}) {
-		$flatten{$field} = remove_tags_and_quote(decode utf8=>param("flatten_$field"));
-		if ($flatten{$field} eq 'on') {
-			$flatten = 1;
-		}
-		else {
-			delete $flatten{$field};
-		}
-	}
 }
 
 foreach my $series (@search_series, "nutrition_grades") {
@@ -332,12 +320,25 @@ HTML
 HTML
 ;
 
-	my %nutriments_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}) {
-		$nutriments_labels{$nid} = $Nutriments{$nid}{$lang};
-		$log->debug("nutriments", { nid => $nid, value => $nutriments_labels{$nid} }) if $log->is_debug();
-	}
-	$nutriments_labels{search_nutriment} = lang("search_nutriment");
+
+	
+	# Compute possible axis values
+	my @axis_values = @{$nutriments_lists{$nutriment_table}};
+	my %axis_labels = ();
+	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
+		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
+	}	
+	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
+	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
+	$axis_labels{additives_n} = lang("number_of_additives");
+	$axis_labels{ingredients_n} = lang("ingredients_n_s");
+	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
+	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+	$axis_labels{search_nutriment} = lang("search_nutriment");
+	$axis_labels{products_n} = lang("number_of_products");	
+	
+	my @sorted_axis_values = sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values);
 
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 
@@ -348,8 +349,7 @@ HTML
 HTML
 ;
 
-		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @{$nutriments_lists{$nutriment_table}}], -labels=>\%nutriments_labels);
-
+		$html .= popup_menu(-class=>"select2_field", -name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
 
 		$html .= <<HTML
 			</div>
@@ -373,9 +373,10 @@ HTML
 	# Different types to display results
 
 	my $popup_sort = popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by,
-		-values=>['unique_scans_n','product_name','created_t','last_modified_t'],
+		-values=>['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
 		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"),
-			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t")});
+			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"),
+			completeness=>lang("sort_completeness")});
 
 	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
 
@@ -384,7 +385,7 @@ HTML
 
 <input type="hidden" name="action" value="process" />
 
-<ul class="accordion" style="margin-left:0" data-accordion>
+<ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
 	<li class="accordion-navigation">
 		<a href="#results_list" style="border-top:1px solid #ccc"><h3>$Lang{search_list_choice}{$lc}</h3></a>
 		<div id="results_list" class="content $active_list">
@@ -424,24 +425,16 @@ HTML
 HTML
 ;
 
-	# Compute possible axis values
-	my @axis_values = @{$nutriments_lists{$nutriment_table}};
-	my %axis_labels = %nutriments_labels;
-	push @axis_values, "additives_n", "ingredients_n";
-	$axis_labels{additives_n} = lang("number_of_additives");
-	$axis_labels{ingredients_n} = lang("ingredients_n_s");
-	$axis_labels{products_n} = lang("number_of_products");
+
 
 	foreach my $axis ('x','y') {
-		if ($axis eq 'y') {
-			unshift @axis_values, "products_n";
-		}
+
 		$html .= <<HTML
 				<div class="small-12 medium-6 columns">
 HTML
 ;
 		$html .= "<label for=\"axis_$axis\">" . lang("axis_$axis") . "</label>"
-			. popup_menu(-name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>\@axis_values, -labels=>\%axis_labels);
+			. popup_menu(-class=>"select2_field", -name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>["", @sorted_axis_values], -labels=>\%axis_labels);
 
 		$html .= <<HTML
 				</div>
@@ -516,7 +509,11 @@ HTML
 		<div id="results_download" class="content">
 
 			<p>$Lang{search_download_results}{$lc}</p>
-			<p>$Lang{search_download_results_description}{$lc}</p>
+
+			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
+				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
+			<input type="radio" name="format" value="csv" id="format_csv" />
+				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
 
 			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
 
@@ -528,9 +525,32 @@ HTML
 HTML
 ;
 
+	$styles .= <<CSS
+.select2-container--default .select2-results > .select2-results__options {
+    max-height: 400px
+}
+CSS
+;
+
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
+;
+
+	$initjs .= <<JS
+var select2_options = {
+		placeholder: "$Lang{select_a_field}{$lc}",
+		allowClear: true
+};
+
+\$(".select2_field").select2(select2_options);
+
+
+\$('#result_accordion').on('toggled', function (event, accordion) {
+	\$(".select2_field").select2(select2_options);
+});
+
+JS
 ;
 
 
@@ -566,15 +586,15 @@ elsif ($action eq 'process') {
 		if (($search_terms !~/,/) and
 			(($search_terms =~ /^(\w\w)(\s|-|\.)?(\d(\s|-|\.)?){5}(\s|-|\.|\d)*C(\s|-|\.)?E/i)
 			or ($search_terms =~ /^(emb|e)(\s|-|\.)?(\d(\s|-|\.)?){5}/i))) {
-				$query_ref->{"emb_codes_tags"} = get_fileid(normalize_packager_codes($search_terms));
+				$query_ref->{"emb_codes_tags"} = get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
 		}
 		else {
 
 			my %terms = ();
 
 			foreach my $term (split(/,|'|\s/, $search_terms)) {
-				if (length(get_fileid($term)) >= 2) {
-					$terms{normalize_search_terms(get_fileid($term))} = 1;
+				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
+					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
 			}
 			if (scalar keys %terms > 0) {
@@ -596,11 +616,11 @@ elsif ($action eq 'process') {
 
 			my $tagid;
 			if (defined $taxonomy_fields{$tagtype}) {
-				$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc,$tagtype, $tag));
+				$tagid = get_taxonomyid($lc, canonicalize_taxonomy_tag($lc,$tagtype, $tag));
 				$log->debug("taxonomy", { tag => $tag, tagid => $tagid }) if $log->is_debug();
 			}
 			else {
-				$tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
+				$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 			}
 
 			if ($tagtype eq 'additives') {
@@ -608,43 +628,36 @@ elsif ($action eq 'process') {
 			}
 
 			if ($tagid ne '') {
+				
+				my $suffix = "";
+				
+				if (defined $tags_fields{$tagtype}) {
+					$suffix = "_tags";
+				}
 
-				if (not defined $tags_fields{$tagtype}) {
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype} = $tagid;
+				# 2 or more criteria on the same field?
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
 					}
-					else {
-						$query_ref->{$tagtype} =  { '$ne' => $tagid };
-					}
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+				}
 
+				if ($contains eq 'contains') {
+					$query_ref->{$tagtype . $suffix} = $tagid;
 				}
 				else {
-
-					# 2 or more criteria on the same field?
-					my $remove = 0;
-					if (defined $query_ref->{$tagtype . "_tags"}) {
-						$remove = 1;
-						if (not defined $and) {
-							$and = [];
-						}
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-					}
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype . "_tags"} = $tagid;
-					}
-					else {
-						$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
-					}
-
-					if ($remove) {
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-						delete $query_ref->{$tagtype . "_tags"};
-						$query_ref->{"\$and"} = $and;
-					}
-
+					$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
 				}
+
+				if ($remove) {
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);
 
@@ -675,16 +688,26 @@ elsif ($action eq 'process') {
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 
 		if (($nutriment ne 'search_nutriment') and ($value ne '')) {
+			
+			my $field;
+			
+			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
+				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n")) {
+				$field = $nutriment;
+			}
+			else {
+				$field = "nutriments.${nutriment}_100g";
+			}
 
 			if ($compare eq 'eq') {
 				$query_ref->{"nutriments.${nutriment}_100g"} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 			}
 			elsif ($compare =~ /^(lt|lte|gt|gte)$/) {
-				if (defined $query_ref->{"nutriments.${nutriment}_100g"}) {
-					$query_ref->{"nutriments.${nutriment}_100g"}{ '$' . $compare}  = $value + 0.0;
+				if (defined $query_ref->{$field}) {
+					$query_ref->{$field}{ '$' . $compare} = $value + 0.0;
 				}
 				else {
-					$query_ref->{"nutriments.${nutriment}_100g"} = { '$' . $compare  => $value + 0.0 };
+					$query_ref->{$field} = { '$' . $compare  => $value + 0.0 };
 				}
 			}
 			$current_link .= "\&nutriment_$i=$nutriment\&nutriment_compare_$i=$compare\&nutriment_value_$i=" . URI::Escape::XS::encodeURIComponent($value);
@@ -717,16 +740,16 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x','y') {
-		if (param("axis_$axis") ne '') {
+		if ((defined param("axis_$axis")) and (param("axis_$axis") ne '')) {
 			$current_link .= "\&axis_$axis=" .  URI::Escape::XS::encodeURIComponent(decode utf8=>param("axis_$axis"));
 		}
 	}
 
-	if (param('graph_title') ne '') {
+	if ((defined param('graph_title')) and (param('graph_title') ne '')) {
 		$current_link .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("graph_title"));
 	}
 
-	if (param('map_title') ne '') {
+	if ((defined param('map_title')) and (param('map_title') ne '')) {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
 
@@ -776,8 +799,8 @@ elsif ($action eq 'process') {
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -793,7 +816,7 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x','y') {
-			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
+			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
 				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}) or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
 				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} { '$exists'} = 1  ;
 			}
@@ -809,8 +832,8 @@ HTML
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
@@ -821,7 +844,8 @@ HTML
 	elsif (param("download")) {
 		# CSV export
 
-		search_and_export_products($request_ref, $query_ref, $sort_by, $flatten, \%flatten);
+		$request_ref->{format} = param('format');
+		search_and_export_products($request_ref, $query_ref, $sort_by);
 
 
 	}
@@ -840,8 +864,8 @@ HTML
 		if (not defined $request_ref->{jqm}) {
 			${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
-	<i class="fi-share"></i>
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
+	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML

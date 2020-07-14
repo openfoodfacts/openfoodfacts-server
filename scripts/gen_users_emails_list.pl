@@ -22,12 +22,11 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use Geo::IP;
 
 my @userids;
 
@@ -53,7 +52,7 @@ foreach my $userid (@userids)
 
 	if ($user_ref->{newsletter}) {
 		use ProductOpener::GeoIP;
-		my $country = my $country = ProductOpener::GeoIP::get_country_for_ip($user_ref->{ip});
+		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});
 		defined $country or $country = "";
 		my $lc = $user_ref->{initial_lc} || "";
 		my $cc = $user_ref->{initial_cc} || "";

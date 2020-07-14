@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -53,6 +53,7 @@ use Time::Local;
 use XML::Rules;
 
 $lc = "fr";
+$country = "en:france";
 
 my %fleurymichon_nutrients = (
 
@@ -114,13 +115,13 @@ foreach my $table_ref (@{$fleurymichon_xml_ref->{genfi}{table}}) {
 		# COD_FIC_GFI
 
 			my $id = $envir_ref->{id};
-			
+
 			foreach my $record_ref (@{$envir_ref->{record}}) {
-			
-				my $action = $record_ref->{action};			
+
+				my $action = $record_ref->{action};
 				my $COD_FIC_GFI = $record_ref->{fields}{COD_FIC_GFI};
 				print STDERR "record COD_FIC_GFI: $COD_FIC_GFI - id: $id - action: $action\n";
-				
+
 				if ($action ne 'A') {
 					defined $fleury_michon_products_ref->{$COD_FIC_GFI} or $fleury_michon_products_ref->{$COD_FIC_GFI} = {};
 					foreach my $field (keys %{$record_ref->{fields}}) {
@@ -129,7 +130,7 @@ foreach my $table_ref (@{$fleurymichon_xml_ref->{genfi}{table}}) {
 				}
 			}
 	}
-	
+
 }
 
 
@@ -159,30 +160,40 @@ use Data::Dumper;
 # 03302740447020_A7C1_s02.png
 # 03302749358020_A7C1_s02.png
 
+# The _s01 etc. is a version number
+# A1C1 is the front
+
 my $fleury_michon_images_ref = {};
+
+my %front_fr = ();
+
 
 if (not $dir =~ /skip/) {
 
-print "Opening image dir $dir\n";
+	print "Opening image dir $dir\n";
 
-if (opendir (DH, "$dir")) {
-	foreach my $file (sort { $a cmp $b } readdir(DH)) {
+	if (opendir (DH, "$dir")) {
+		foreach my $file (sort { $a cmp $b } readdir(DH)) {
 
-		#if ($file =~ /^(\d+)-(\d+)_(.*)\.jpg/) {
-		if ($file =~ /0(\d+)_(.*)\.png/) {
-		
-			my $code = $1;
-			
-			print STDERR "found image $file for product code $code\n";
+			#if ($file =~ /^(\d+)-(\d+)_(.*)\.jpg/) {
+			if ($file =~ /0(\d+)_(.*)\.png/) {
 
-			defined $fleury_michon_images_ref->{$code} or $fleury_michon_images_ref->{$code} = [];
-			push @{$fleury_michon_images_ref->{$code}}, $file;
+				my $code = $1;
+
+				print STDERR "found image $file for product code $code\n";
+
+				defined $fleury_michon_images_ref->{$code} or $fleury_michon_images_ref->{$code} = [];
+				push @{$fleury_michon_images_ref->{$code}}, $file;
+
+				if ($file =~ /A1C1/) {
+					$front_fr{$code} = $file;	# The files are sorted, so we will get the greatest version number
+				}
+			}
 		}
-	
-	}
-}
 
-closedir (DH);
+		closedir (DH);
+
+	}
 
 }
 
@@ -231,58 +242,58 @@ my $testing = 0;
 
 print STDERR "importing products\n";
 
- 
+
 	foreach my $fleurymichon_id (sort keys %{$fleury_michon_products_ref}) {
-	
+
 			$i++;
-		
-			
+
+
 			#print $json;
-			
+
 			my @modified_fields;
 			my @images_ids;
-			
+
 			my $modified = 0;
-			
+
 			my $fleurymichon_product_ref = $fleury_michon_products_ref->{$fleurymichon_id};
 			my $code = $fleurymichon_product_ref->{GTIN_UC};
-			
+
 			print "product $i - fleurymichon_id: $fleurymichon_id - code: $code\n";
-			
+
 			if ($code eq '') {
 				print STDERR "empty code\n";
 				use Data::Dumper;
 				print STDERR Dumper($fleurymichon_product_ref);
 				exit;
 			}
-			
-			# next if $code ne "3302741714107";
-			
+
+			# next if $code ne "3302740442025";
+
 			my $product_ref = product_exists($code); # returns 0 if not
-			
+
 			if (not $product_ref) {
 				print "- does not exist in OFF yet\n";
 				$new++;
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($code);
+					$product_ref = init_product($User_id, undef, $code, $country);
 					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/09/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
-					delete $product_ref->{countries_hierarchy};					
-					store_product($product_ref, "Creating product (import_fleurymichon_ch.pl bulk upload) - " . $comment );					
-				}				
-				
+					delete $product_ref->{countries_hierarchy};
+					store_product($product_ref, "Creating product (import_fleurymichon_ch.pl bulk upload) - " . $comment );
+				}
+
 			}
 			else {
 				print "- already exists in OFF\n";
 				$existing++;
 			}
-			
+
 			# images: uploads_production/image/data/15937/xlarge_7610807072198.jpg\?v\=1468391266
-			
+
 #images: [
 #{
 #categories: [
@@ -292,68 +303,83 @@ print STDERR "importing products\n";
 #medium: "https://d2v5oodgkvnw88.cloudfront.net/uploads_production/image/data/4036/medium_myImage.jpg?v=1468842503",
 #large: "https://d2v5oodgkvnw88.cloudfront.net/uploads_production/image/data/4036/large_myImage.jpg?v=1468842503",
 #xlarge: "https://d2v5oodgkvnw88.cloudfront.net/uploads_production/image/data/4036/xlarge_myImage.jpg?v=1468842503"
-#},			
-			
+#},
+
 			print STDERR "uploading images for product code $code\n";
 
 			if (defined $fleury_michon_images_ref->{$code}) {
 				my $fleury_michon_images_ref = $fleury_michon_images_ref->{$code};
 				my $images_n = scalar @{$fleury_michon_images_ref};
 				print "- $images_n images\n";
-				
+
 				my $images = 0;
-				
+
 						my $current_max_imgid = -1;
-				
+
 						if (defined $product_ref->{images}) {
 							foreach my $imgid (keys %{$product_ref->{images}}) {
 								if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
 									$current_max_imgid = $imgid;
 								}
 							}
-						}				
-				
+						}
+
+				my $crop = 0;
+
 				foreach my $fleury_michon_image_file (@{$fleury_michon_images_ref}) {
-				
+
 					# upload the image
 					my $file = $fleury_michon_image_file;
 					$file =~ s/(.*)cloudfront.net\///;
 					if (-e "$dir/$file") {
 						print "found image file $dir/$file\n";
-						
+
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid);
-						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
-						
-						
+						my $debug;
+						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid, \$debug);
+						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
+
+
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 							$images++;
 							push @images_ids, $imgid;
-							if ($images == 1) {
-								# first image: assign to front
-								print STDERR "assigning image $imgid to front-fr\n";
-								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
+						}
+
+						if (($imgid > 0) and (defined $front_fr{$code}) and ($front_fr{$code} eq $fleury_michon_image_file)) {
+
+							my $imagefield_with_lc = "front_fr";
+
+							if (not (exists $product_ref->{images})
+								or (not (exists $product_ref->{images}{$imagefield_with_lc}))
+								or ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid) ) {
+								print STDERR "assigning image $imgid ($fleury_michon_image_file) to front-fr\n";
+
+								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+
+								$crop++;
 							}
-				
+
 						}
 					}
 					else {
 						print "did not find image file $dir/$file\n";
 					}
-				
+
 				}
 
+				# ($crop > 0) and exit;
+
 			}
-			
+
 			# reload the product (changed by image upload)
 			$product_ref = retrieve_product($code);
-			
-			
+
+
 			# First load the global params, then apply the product params on top
-			my %params = %global_params;			
-			
-my $boo = <<XML			
+			my %params = %global_params;
+
+my $boo = <<XML
 <cdonne nom="BOO_AFDIAG">N</cdonne>
 <cdonne nom="BOO_ALI_VEG_MIN_VIT">N</cdonne>
 <cdonne nom="BOO_AROM_NAT">O</cdonne>
@@ -376,7 +402,7 @@ my $boo = <<XML
 <cdonne nom="BOO_POLYPHOSPHATE">A</cdonne>
 <cdonne nom="BOO_SORBITOL">A</cdonne>
 <cdonne nom="BOO_TRIPHOSPHATE">A</cdonne>
-<cdonne nom="BOO_VOL_FRA">N</cdonne>			
+<cdonne nom="BOO_VOL_FRA">N</cdonne>
 XML
 ;
 
@@ -428,30 +454,30 @@ BOO_JOE_ROB => "Joël Robuchon"
 				}
 			}
 			$params{labels} =~ s/^, //;
-			
+
 			print STDERR "labels for product code $code : " . $params{labels} . "\n";
-			
+
 			# <cdonne nom="LIB_PAC">Filet de saumon purée aux brocolis</cdonne>
 			# <cdonne nom="LIB_PAC_EN"></cdonne>
 			# <cdonne nom="LIB_PAC_NL"></cdonne>
 
-			
+
 			if ((defined $fleurymichon_product_ref->{LIB_PAC}) and ($fleurymichon_product_ref->{LIB_PAC} ne '')) {
 				$params{product_name} = $fleurymichon_product_ref->{LIB_PAC};
 				$params{product_name} =~ s/(\d)(\.| )*tr(\.)? /$1 tranches /; # 4 tr fines
-				
+
 				print "set product_name to $params{product_name}\n";
-				
+
 				# copy value to main language
-				$params{"product_name_" . $global_params{lc}} = $params{product_name};				
-			}		
+				$params{"product_name_" . $global_params{lc}} = $params{product_name};
+			}
 			if ((defined $fleurymichon_product_ref->{LIB_PAC_EN}) and ($fleurymichon_product_ref->{LIB_PAC_EN} ne '')) {
-				$params{product_name_en} = $fleurymichon_product_ref->{LIB_PAC_EN};			
-			}		
+				$params{product_name_en} = $fleurymichon_product_ref->{LIB_PAC_EN};
+			}
 			if ((defined $fleurymichon_product_ref->{LIB_PAC_NL}) and ($fleurymichon_product_ref->{LIB_PAC_NL} ne '')) {
-				$params{product_name_nl} = $fleurymichon_product_ref->{LIB_PAC_NL};			
-			}						
-			
+				$params{product_name_nl} = $fleurymichon_product_ref->{LIB_PAC_NL};
+			}
+
 # <cdonne nom="LIB_FAM_MKT">-- Sans rapprochement --</cdonne>
 # <cdonne nom="COD_PRD_AG2">0483</cdonne>
 # <cdonne nom="LIB_FAM_MKT_4"></cdonne>
@@ -469,20 +495,20 @@ BOO_JOE_ROB => "Joël Robuchon"
 			# skip Fleury Michon categories
 			if (0) {
 			for (my $c = 1; $c <= 4; $c++) {
-			
+
 				if ((defined $fleurymichon_product_ref->{"LIB_FAM_MKT_$c"}) and ($fleurymichon_product_ref->{"LIB_FAM_MKT_$c"} ne '')) {
 					next if $fleurymichon_product_ref->{"LIB_FAM_MKT_$c"} =~ /Sans rapprochement/;
 					defined $params{categories} or $params{categories} = "";
 					$params{categories} .= ", " . $fleurymichon_product_ref->{"LIB_FAM_MKT_$c"};
 				}
-			}	
+			}
 			(defined $params{categories}) and $params{categories} =~ s/^, //;
-			
+
 			print STDERR "categories for product code $code : " . $params{categories} . "\n";
 			}
-			
+
 			# <cdonne nom="PDS_NET">0,3</cdonne>
-			
+
 			if ((defined $fleurymichon_product_ref->{PDS_NET}) and ($fleurymichon_product_ref->{PDS_NET} ne '')) {
 				$params{quantity} = $fleurymichon_product_ref->{PDS_NET};
 				$params{quantity} =~ s/,/./;
@@ -490,99 +516,99 @@ BOO_JOE_ROB => "Joël Robuchon"
 				$params{quantity} = $params{quantity} . " g";
 				print "set quantity to $params{quantity}\n";
 			}
-			
+
 			if ((defined $fleurymichon_product_ref->{PDS_POR}) and ($fleurymichon_product_ref->{PDS_POR} ne '')) {
 				$params{serving_size} = $fleurymichon_product_ref->{PDS_POR};
 				$params{serving_size} =~ s/,/./;
 				$params{serving_size} = $params{serving_size} . " g";
-				
+
 				# TXT_DEF_POR
 				#if ((defined $fleurymichon_product_ref->{PDS_POR}) and ($fleurymichon_product_ref->{PDS_POR} ne '')) {
 				#	$params{serving_size} .= " (" . $fleurymichon_product_ref->{PDS_POR} . ")"
 				#}
-				
-				
+
+
 				print "set serving_size to $params{serving_size}\n";
-			}			
-			
+			}
+
 #<cdonne nom="TXT_LST_ING"><![CDATA[<p>
 # Filet de dinde (88%), bouillons (2%) (eau, os de poulet, sel, &eacute;pices, carotte, <strong><u>c&eacute;leri</u></strong>, oignon, poireau, plantes aromatiques), sel (1.7%), dextrose de ma&iuml;s, jus concentr&eacute; de <u><strong>c&eacute;leri</strong></u> et de betterave jaune, plantes aromatiques (0.2%),&nbsp;poivre, ferments, colorant : caramel ordinaire.</p>]]></cdonne>
 #<cdonne nom="TXT_LST_ING_EN"></cdonne>
-#<cdonne nom="TXT_LST_ING_NL"></cdonne>			
+#<cdonne nom="TXT_LST_ING_NL"></cdonne>
 
 # Riz basmati cuit 39% (eau, riz), saumon Atlantique (<strong>saumon</strong> Atlantique 23.4%, sel), eau, <strong>crème </strong>fraîche (8.2%), huile de colza, oseille (1.8%), vin blanc, <strong>beurre</strong>, farine de <strong>blé</strong>, sel, échalote, jus de citron (0.5%), vinaigre de vin blanc, curcuma, piment.
 
-			
+
 			my %ingredients_fields = (
 				'TXT_LST_ING' => 'ingredients_text_fr',
 				'TXT_LST_ING_EN' => 'ingredients_text_en',
 				'TXT_LST_ING_NL' => 'ingredients_text_nl',
 			);
-			
+
 			foreach my $field (sort keys %ingredients_fields) {
-			
+
 				if ((defined $fleurymichon_product_ref->{$field}) and ($fleurymichon_product_ref->{$field} ne '')) {
 					$params{$ingredients_fields{$field}} = $fleurymichon_product_ref->{$field};
-					
+
 					$debug and print STDERR "ingredients 1 : $params{$ingredients_fields{$field}} \n";
-					
+
 					#  <u><strong>soja</strong></u> (eau, <u><strong>soja</strong></u>,<strong> </strong>farine de<strong> <u>bl&eacute;</u></strong>
-					
+
 					$params{$ingredients_fields{$field}} =~ s/<u>/<strong>/ig;
 					$params{$ingredients_fields{$field}} =~ s/<\/u>/<\/strong>/ig;
 					$params{$ingredients_fields{$field}} =~ s/(<strong>)+/<strong>/ig;
 					$params{$ingredients_fields{$field}} =~ s/(<\/strong>)+/<\/strong>/ig;
-					
+
 						# _lait, poisson_
 					$params{$ingredients_fields{$field}} =~ s/<strong>(\w+), (\w+)<\/strong>/<strong>$1<\/strong>, <strong>$2<\/strong>/g;
 
-					
-					
-					# gélatine de_ poisson_
-					
-					# <strong>cabillaud, </strong>sel
-					
 
-					
-					$params{$ingredients_fields{$field}} =~ s/<strong> / _/ig;		
+
+					# gélatine de_ poisson_
+
+					# <strong>cabillaud, </strong>sel
+
+
+
+					$params{$ingredients_fields{$field}} =~ s/<strong> / _/ig;
 					$params{$ingredients_fields{$field}} =~ s/<strong>/_/ig;
-					$params{$ingredients_fields{$field}} =~ s/,<\/strong>/_,/ig;					
-					$params{$ingredients_fields{$field}} =~ s/, <\/strong>/_, /ig;					
+					$params{$ingredients_fields{$field}} =~ s/,<\/strong>/_,/ig;
+					$params{$ingredients_fields{$field}} =~ s/, <\/strong>/_, /ig;
 					$params{$ingredients_fields{$field}} =~ s/ <\/strong>/_ /ig;
-					$params{$ingredients_fields{$field}} =~ s/(<\/strong>)(s)/$2_/ig;					
+					$params{$ingredients_fields{$field}} =~ s/(<\/strong>)(s)/$2_/ig;
 					$params{$ingredients_fields{$field}} =~ s/<\/strong>/_/ig;
 
-					
+
 					$params{$ingredients_fields{$field}} =~ s/<p>//g;
 					$params{$ingredients_fields{$field}} =~ s/<\/p>/\n\n/g;
-					
+
 					$params{$ingredients_fields{$field}} =~ s/_+/_/g;
-					
+
 					$params{$ingredients_fields{$field}} =~ s/_ _/ /g;
 					$params{$ingredients_fields{$field}} =~ s/_,_ /, /g;
-					
-				
+
+
 					$debug and print STDERR "ingredients 2 : $params{$ingredients_fields{$field}} \n";
 
-					
+
 					use HTML::Entities qw(decode_entities);
 					$params{$ingredients_fields{$field}} = decode_entities($params{$ingredients_fields{$field}});
-					
+
 					$debug and print STDERR "ingredients 3 : $params{$ingredients_fields{$field}} \n";
 
 					}
 			}
 			$params{ingredients_text} = $params{ingredients_text_fr};
 
-			
-			
+
+
 			# Create or update fields
-			
+
 			my @param_fields = ();
-			
+
 			my @fields = @ProductOpener::Config::product_fields;
 			foreach my $field ('product_name', 'generic_name', @fields, 'serving_size', 'traces', 'ingredients_text','lang') {
-			
+
 				if (defined $language_fields{$field}) {
 					foreach my $display_lc (@param_sorted_langs) {
 						push @param_fields, $field . "_" . $display_lc;
@@ -592,33 +618,33 @@ BOO_JOE_ROB => "Joël Robuchon"
 					push @param_fields, $field;
 				}
 			}
-	
-					
-			foreach my $field (@param_fields) {
-				
-				if (defined $params{$field}) {				
 
-				
+
+			foreach my $field (@param_fields) {
+
+				if (defined $params{$field}) {
+
+
 					print STDERR "defined value for field $field : " . $params{$field} . "\n";
-				
+
 					# for tag fields, only add entries to it, do not remove other entries
-					
+
 					if (defined $tags_fields{$field}) {
-					
+
 						my $current_field = $product_ref->{$field};
 
 						my %existing = ();
 						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
 							$existing{$tagid} = 1;
 						}
-						
-						
+
+
 						foreach my $tag (split(/,/, $params{$field})) {
-		
+
 							my $tagid;
 
 							if (defined $taxonomy_fields{$field}) {
-								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
+								$tagid = get_taxonomyid($params{lc}, canonicalize_taxonomy_tag($params{lc}, $field, $tag));
 							}
 							else {
 								$tagid = get_fileid($tag);
@@ -627,20 +653,20 @@ BOO_JOE_ROB => "Joël Robuchon"
 								print "- adding $tagid to $field: $product_ref->{$field}\n";
 								$product_ref->{$field} .= ", $tag";
 							}
-							
+
 						}
-						
+
 						# next if ($code ne '3017620401473');
-						
-						
+
+
 						if ($product_ref->{$field} =~ /^, /) {
 							$product_ref->{$field} = $';
-						}	
-						
+						}
+
 						if ($field eq 'emb_codes') {
 							# French emb codes
 							$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
+							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 						}
 						if ($current_field ne $product_ref->{$field}) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field \n";
@@ -648,33 +674,33 @@ BOO_JOE_ROB => "Joël Robuchon"
 							push @modified_fields, $field;
 							$modified++;
 						}
-					
+
 					}
 					else {
 						# non-tag field
 						my $new_field_value = $params{$field};
-						
+
 						$new_field_value =~ s/\s+$//;
-						$new_field_value =~ s/^\s+//;						
-						
+						$new_field_value =~ s/^\s+//;
+
 						if (($field eq 'quantity') or ($field eq 'serving_size')) {
-							
+
 								# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-								$new_field_value =~ s/\.0 / /;					
+								$new_field_value =~ s/\.0 / /;
 						}
 
 						my $normalized_new_field_value = $new_field_value;
 
-						
+
 						# existing value?
 						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 							my $current_value = $product_ref->{$field};
 							$current_value =~ s/\s+$//g;
-							$current_value =~ s/^\s+//g;							
-							
+							$current_value =~ s/^\s+//g;
+
 							# normalize current value
-							if (($field eq 'quantity') or ($field eq 'serving_size')) {								
-							
+							if (($field eq 'quantity') or ($field eq 'serving_size')) {
+
 								$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
 								$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
@@ -688,27 +714,27 @@ BOO_JOE_ROB => "Joël Robuchon"
 								$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
 								$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 							}
-							
+
 							if ($field =~ /\ingredients/) {
-							
+
 								#$current_value = get_fileid(lc($current_value));
 								#$current_value =~ s/\W+//g;
 								#$normalized_new_field_value = get_fileid(lc($normalized_new_field_value));
 								#$normalized_new_field_value =~ s/\W+//g;
-								
+
 							}
-							
+
 							if (lc($current_value) ne lc($normalized_new_field_value)) {
 								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} - normalized:\n$current_value)\nnew value:\n$normalized_new_field_value\n - https://world.fleurymichonfacts.org/product/$code \n";
 								$differing++;
-								$differing_fields{$field}++;		
+								$differing_fields{$field}++;
 
 								print "setting changing previously existing value for product code $code - field $field - value: $new_field_value\n";
 								$product_ref->{$field} = $new_field_value;
-								push @modified_fields, $field;		
-								$modified++;								
+								push @modified_fields, $field;
+								$modified++;
 							}
-							
+
 
 						}
 						else {
@@ -717,11 +743,11 @@ BOO_JOE_ROB => "Joël Robuchon"
 							push @modified_fields, $field;
 							$modified++;
 						}
-					}					
+					}
 				}
 			}
-			
-			
+
+
 			# Nutrients
 			# {
 			# name: "Matières grasses",
@@ -734,7 +760,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 			# unit: "kJ",
 			# order: 1,
 			# per-hundred: "1530.0",
-			
+
 			my $xml = <<XML
 <cdonne nom="PDS_POR">40</cdonne>
 <cdonne nom="QTE_AG_MONO_INSATU"></cdonne>
@@ -770,7 +796,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 <cdonne nom="QTE_P_SUCRE">&lt;0,5</cdonne>
 <cdonne nom="QTE_SEL">1,4</cdonne>
 <cdonne nom="QTE_SODIUM"></cdonne>
-<cdonne nom="QTE_SUCRE">0,9</cdonne>			
+<cdonne nom="QTE_SUCRE">0,9</cdonne>
 XML
 ;
 
@@ -793,110 +819,110 @@ QTE_SEL => "salt",
 QTE_SODIUM => "",
 QTE_SUCRE => "sugars",
 );
-			
+
 			$product_ref->{nutrition_data_per} = "100g";
-			
+
 			foreach my $nutrient (sort keys %nutrients) {
 
 				next if $nutrients{$nutrient} eq ""; # no corresponding nutrient in OFF
-			
+
 				if ((defined $fleurymichon_product_ref->{$nutrient}) and ($fleurymichon_product_ref->{$nutrient} ne '')) {
-			
+
 					my $nid = $nutrients{$nutrient};
 					my $enid = encodeURIComponent($nid);
 					my $value = $fleurymichon_product_ref->{$nutrient};
-					
+
 					# <cdonne nom="QTE_SUCRE">&lt;0,5</cdonne>
 					my $modifier = "";
 					if ($value =~ /^(\&lt;|<)/) {
 						$value = $';
 						$modifier = "<";
 					}
-					
+
 					$value =~ s/,/./;
 					$value += 0;
-					
+
 					if ((defined $modifier) and ($modifier ne '')) {
 						if ((not defined $product_ref->{nutriments}{$nid . "_modifier"}) or ($product_ref->{nutriments}{$nid . "_modifier"} ne $modifier)) {
 							$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-						
+
 							$modified++;
 						}
 					}
 					else {
 						delete $product_ref->{nutriments}{$nid . "_modifier"};
-					}					
-					
-					
-					$product_ref->{nutriments}{$nid . "_unit"} = "g";	
+					}
+
+
+					$product_ref->{nutriments}{$nid . "_unit"} = "g";
 					if ($nid eq 'energy') {
-						$product_ref->{nutriments}{$nid . "_unit"} = "kJ";	
+						$product_ref->{nutriments}{$nid . "_unit"} = "kJ";
 					}
 					$product_ref->{nutriments}{$nid . "_value"} = $value;
-					
+
 					my $new_value = unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
-					
+
 					if ((not defined $product_ref->{nutriments}) or (not defined $product_ref->{nutriments}{$nid})
 						or ($new_value ne $product_ref->{nutriments}{$nid}) ) {
-						
+
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
-						
+
 						print STDERR "Setting $nid to $value\n";
-						
+
 						$modified++;
 					}
-					
+
 					$product_ref->{nutriments}{$nid} = $new_value;
-					
+
 					print STDERR "$nutrient - $nid - $value\n";
 				}
 			}
 
 
 			# Skip further processing if we have not modified any of the fields
-			
+
 			print STDERR "product code $code - number of modifications - $modified\n";
 			if ($modified == 0) {
 				print STDERR "skipping product code $code - no modifications\n";
 				next;
 			}
 			#exit;
-			
-			
+
+
 			# Process the fields
 
 			# Food category rules for sweeetened/sugared beverages
 			# French PNNS groups from categories
-			
+
 			if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
-			
-			
+
+
 			if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 				push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
-			}	
-			
+			}
+
 			if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 				push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 			}
-			
+
 			# Language and language code / subsite
-			
+
 			if (defined $product_ref->{lang}) {
 				$product_ref->{lc} = $product_ref->{lang};
 			}
-			
+
 			if (not defined $lang_lc{$product_ref->{lc}}) {
 				$product_ref->{lc} = 'xx';
-			}	
-			
-			
+			}
+
+
 			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-			
+
 			foreach my $field (keys %language_fields) {
 				if ($field !~ /_image/) {
 					if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
@@ -904,17 +930,17 @@ QTE_SUCRE => "sugars",
 					}
 				}
 			}
-							
-			
+
+
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
 			extract_ingredients_classes_from_text($product_ref);
 
 			compute_languages($product_ref); # need languages for allergens detection
-			detect_allergens_from_text($product_ref);			
+			detect_allergens_from_text($product_ref);
 
-			
-			
+
+
 #"sources": [
 #{
 #"id", "usda-ndb",
@@ -929,12 +955,12 @@ QTE_SUCRE => "sugars",
 #"import_t", "523423" (timestamp of import date)
 #"fields" : ["ingredients","nutrients"]
 #"images" : [ "4", "5", "6" ] (images ids)
-#},			
+#},
 
 			if (not defined $product_ref->{sources}) {
 				$product_ref->{sources} = [];
 			}
-			
+
 			push @{$product_ref->{sources}}, {
 				id => "fleurymichon",
 				name => "Fleury Michon",
@@ -942,45 +968,45 @@ QTE_SUCRE => "sugars",
 				manufacturer => 1,
 				import_t => time(),
 				fields => \@modified_fields,
-				images => \@images_ids,	
+				images => \@images_ids,
 			};
 
-			
-				
+
+
 			$User_id = $editor_user_id;
-			
+
 			if (not $testing) {
-			
+
 				fix_salt_equivalent($product_ref);
-					
+
 				compute_serving_size_data($product_ref);
-				
+
 				compute_nutrition_score($product_ref);
-				
+
 				compute_nutrient_levels($product_ref);
-				
-				compute_unknown_nutrients($product_ref);			
-			
+
+				compute_unknown_nutrients($product_ref);
+
 				#print STDERR "Storing product code $code\n";
 				#				use Data::Dumper;
 				#print STDERR Dumper($product_ref);
 				#exit;
-				
-				
-				
+
+
+
 				store_product($product_ref, "Editing product (import_fleurymichon_ch.pl bulk import) - " . $comment );
-				
+
 				push @edited, $code;
 				$edited{$code}++;
-				
+
 				# $j > 10 and last;
-				
+
 				$j++;
 			}
-			
+
 			#last;
 		}  # if $file =~ json
-			
+
 
 
 print "$i products\n";

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -21,11 +21,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# See: https://en.wiki.openfoodfacts.org/Verification/Bots#Checkbot
+# See: https://wiki.openfoodfacts.org/Verification/Bots#Checkbot
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
@@ -148,17 +148,17 @@ if ($country ne "") {
 }
 
 # Select the products in reverse order
-my $cursor = get_products_collection()->query($query)->fields({ code => 1 })->sort({code =>-1});
-my $count = $cursor->count();
-print STDERR "$count products to update\n";
+my $products_collection = get_products_collection();
+my $cursor = $products_collection->query($query)->fields({ code => 1 })->sort({code =>-1});
 
 # If --order parameter is random, select all the products again, but in a random order
 if ($product_order eq "random") {
+	my $count = $products_collection->count_documents($query);
 	my $aggregate_parameters = [
 		{ "\$match" => $query },
 		{ "\$sample" => { "size" => $count } }
 	];
-	$cursor = get_products_collection()->aggregate($aggregate_parameters);
+	$cursor = $products_collection->aggregate($aggregate_parameters);
 }
 
 
@@ -166,7 +166,6 @@ while (my $product_ref = $cursor->next) {
 
 
 	my $code = $product_ref->{code};
-	my $path = product_path($code);
 
 	print STDERR "updating product $code\n";
 
@@ -182,8 +181,8 @@ while (my $product_ref = $cursor->next) {
 			next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
 			next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
 
-			my $name = get_fileid($product_ref->{product_name});
-			my $brands = get_fileid($product_ref->{brands});
+			my $name = get_string_id_for_lang("no_language", $product_ref->{product_name});
+			my $brands = get_string_id_for_lang("no_language", $product_ref->{brands});
 
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
 				next if $nid =~ /_/;

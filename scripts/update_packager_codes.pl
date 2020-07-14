@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2012';
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -90,6 +90,8 @@ my $notfound = 0;
 my $tsv_separator = qr/\t/;
 my $csv_separator = qr/;/;
 
+%packager_codes = ();
+
 if (opendir (DH, "$data_root/packager-codes")) {
 	foreach my $file (readdir(DH)) {
 		if ($file =~ /(\w+)-merge(-UTF-8)?\.([ct]sv)$/i) {
@@ -109,12 +111,14 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			my $key = $packager_code_key{$country};
 
 			open (my $IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my @fields = split($separator, <$IN>);
+			my $header = <$IN>;
+			$header =~ s/(\r|\n)+$//;
+			my @fields = split($separator, $header);
 			my @headers = ();
 			my %headers = ();
 			foreach my $field (@fields) {
 				$field =~ s/\/.*//;
-				$field = get_fileid($field);
+				$field = get_string_id_for_lang("no_language", $field);
 				$field =~ s/-/_/g;
 				($field eq 'latitude') and $field = 'lat';
 				($field eq 'longitude') and $field = 'lng';
@@ -123,9 +127,9 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				# print STDERR "Tags.pm - packaging_codes - load - country: $country - header: $field\n";
 			}
 
-			while (<$IN>) {
-				chomp;
-				my @fields = split($separator);
+			while (my $line = <$IN>) {
+				$line =~ s/(\r|\n)+$//;
+				my @fields = split($separator, $line);
 
 				my $code = '';
 				if ($country eq 'fr') {
@@ -154,42 +158,56 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = normalize_packager_codes("DE $code EC");
 				}
 				elsif ($country eq 'it') {
-                                        $code = $fields[$headers{approvalnumber}];
+					$code = $fields[$headers{approvalnumber}];
 					$code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
+					$code = normalize_packager_codes("$code EC");
+				}
 				elsif ($country eq 'be') {
-                                        $code = $fields[$headers{no_agrement}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("BE $code EC");
-                                }
-                                elsif ($country eq 'hu') {
-                                        $code = $fields[$headers{code}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
-                                elsif ($country eq 'lu') {
-                                        $code = $fields[$headers{zulassungsnummer}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("LU $code EC");
-                                }
+					$code = $fields[$headers{no_agrement}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("BE $code EC");
+				}
+				elsif ($country eq 'hu') {
+					$code = $fields[$headers{code}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("$code EC");
+				}
+				elsif ($country eq 'lu') {
+					$code = $fields[$headers{zulassungsnummer}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("LU $code EC");
+				}
 				elsif ($country eq 'lt') {
-                                        $code = $fields[$headers{vet_approval_no}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("LT $code EC");
-                                }
-                                elsif ($country eq 'sv') {
-                                        $code = $fields[$headers{nr}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("SV $code EC");
-                                }
-                                elsif ($country eq 'rs') {
-                                        $code = $fields[$headers{approval_number}];
-                                        $code =~ s/^CE //;
-                                        $code = normalize_packager_codes("$code EC");
-                                }
+					$code = $fields[$headers{vet_approval_no}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("LT $code EC");
+				}
+				elsif ($country eq 'pl') {
+					$code = $fields[$headers{code}];
+					$code = normalize_packager_codes("PL $code EC");
+				}
+				elsif ($country eq 'sv') {
+					$code = $fields[$headers{nr}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("SV $code EC");
+				}
+				elsif ($country eq 'rs') {
+					$code = $fields[$headers{approval_number}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("$code EC");
+				}
+				elsif ($country eq 'fi') {
+					$code = $fields[$headers{numero}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("FI $code EC");
+				}
+				elsif ($country eq 'ee') {
+					$code = $fields[$headers{tunnusnumber}];
+					$code =~ s/^CE //;
+					$code = normalize_packager_codes("EE $code EC");
+				}
 
-				$code = get_fileid($code);
+				$code = get_string_id_for_lang("no_language", $code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
 
 				if ($country eq 'it') {
@@ -212,6 +230,13 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					# multiple lines for CH 336 with geo
 					# info missing on last line. bug #781
 					if ((defined $fields[$f]) and ( $fields[$f] ne '')) {
+						if (($headers[$f] eq "lat") or ($headers[$f] eq "lng")) {
+							# turn comma to dot
+							$fields[$f] =~ s/,/./;
+						}
+						$fields[$f] =~ s/(\r|\n)+$//;
+						$fields[$f] =~ s/^\s+//;
+						$fields[$f] =~ s/\s+$//;
 						$packager_codes{$code}{$headers[$f]} = $fields[$f];
 					}
 					if (not defined $packager_codes{$code}{$headers[$f]}) {
@@ -257,6 +282,19 @@ else {
 	print STDERR "could not open $data_root/packager-codes: $!\n";
 }
 
+# Check that we have correct lat and lng fields
+
+foreach my $code (sort keys %packager_codes) {
+	foreach my $coordinate ("lat", "lng") {
+		if ((not defined $packager_codes{$code}{$coordinate}) or ($packager_codes{$code}{$coordinate} eq "")) {
+			#print STDERR "$code\tmissing $coordinate\n";
+		}
+		elsif ($packager_codes{$code}{$coordinate} !~ /^-?(\d+)((\.|\,)(\d+))$/) {
+			print STDERR "$code\tinvalid $coordinate\t" . $packager_codes{$code}{$coordinate} . "\n";
+			delete $packager_codes{$code}{$coordinate};
+		}
+	}
+}
 
 store("$data_root/packager-codes/packager_codes.sto", \%packager_codes);
 store("$data_root/packager-codes/geocode_addresses.sto", \%geocode_addresses);

@@ -3,10 +3,11 @@
 en:Biotin
 bg:Биотин
 el:Βιοτίνη
-es:Biotina, Vitamina B7
+es:Biotina, Vitamina B7, vitamina B8
 et:Biotiin
 fi:Biotiini
 fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
+hu:Biotin, B7-vitamin, H-vitamin
 it:Biotina
 lt:Biotinas
 lv:Biotīns
@@ -19,6 +20,7 @@ sk:Biotín
 
 < en:Biotin
 en:D-Biotin
+hu:D-biotin
 
 en:Folate
 bg:Фолат
@@ -75,7 +77,8 @@ et:foolhape, pteroüülmonoglutaamhape
 fi:foolihappo, pteroyylimonoglutamiinihappo
 fr:acide folique, acide ptéroylmonoglutamique, Vitamine B9
 hu:folsav, pteroil-monoglutaminsav, B9-vitamin
-it:acido folico(acido pteroil-monoglutammico, Vitamina B9
+it:acido folico, acido pteroil-monoglutammico, Vitamina B9
+ja:葉酸
 lt:folio rūgštis, pteroilmonoglutamo rūgštis
 lv:Folijskābe, pteroilmonoglutamīnskābe
 mt:aċidu foliku, aċidu pterojlmonoglutamiku
@@ -86,7 +89,7 @@ ro:acid folic, acid pteroilmonoglutamic, Vitamina B9
 sk:kyselina listová, kyselina pteroylmonoglutámová
 sl:folna kislina, pteroilmonoglutaminska kislina
 sv:folsyra, pteroylmonoglutaminsyra
-zh:维生素B9(叶酸
+zh:维生素B9, 叶酸
 
 en:Niacin, Vitamin B3, Vitamin PP
 bg:Ниацин
@@ -95,7 +98,9 @@ es:Niacina, Vitamina B3
 et:Niatsiin
 fi:Niasiini
 fr:Niacine, Vitamine B3, Vitamine PP
+hu:Niacin, B3-vitamin, PP-vitamin
 it:Niacina
+ja:ナイアシン
 lt:Niacinas
 lv:Niacīns
 mt:Niaċina
@@ -151,13 +156,14 @@ sv:nikotinsyra
 en:Pantothenic Acid, Vitamin B5
 bg:Пантотенова киселина
 cs:Kyselina pantothenová
+da:Pantotensyre, Pantothensyre
 de:Pantothensäure
 el:Παντοθενικό οξύ
 es:Ácido pantoténico
 et:Pantoteenhape
 fi:Pantoteenihappo
 fr:Acide pantothénique, Vitamine B5
-hu:Panoténsav
+hu:Panoténsav, B5-vitamin
 it:Acido pantotenico
 lt:Pantoteno rūgštis
 lv:Pantotēn-skābe
@@ -179,7 +185,7 @@ el:D-παντοθενικό ασβέστιο
 es:D-pantotenato cálcico
 et:kaltsium-D-pantotenaat
 fi:D-pantotenaatti kalsium
-fr:D-pantothénate de calcium
+fr:D-pantothénate de calcium, D- calcium pantothénate
 hu:kalcium-D-pantotenát
 it:D-pantotenato calcio
 lt:kalcio D-pantotenatas
@@ -236,7 +242,6 @@ sk:dexpantenol
 sl:dekspantenol
 sv:dexpantenol
 
-< en:Riboflavin
 en:Riboflavin, Vitamin B2
 bg:Рибофлавин
 el:Ριβοφλαβίνη
@@ -244,17 +249,19 @@ es:Riboflavina, Vitamina B2
 et:Riboflaviin
 fi:Riboflaviini
 fr:Riboflavine, Vitamine B2
+hu:Riboflavin, B2-vitamin
 it:Riboflavina
+ja:リボフラビン, ビタミンB2, V.B2
 lt:Riboflavinas
 lv:Riboflavīns
 nl:Riboflavine
 pl:Ryboflawina
 pt:Riboflavina
 ro:Riboflavină
-sk:riboflavín
 
 < en:Riboflavin
 en:riboflavin 5'-phosphate sodium
+hu:riboflavin-5-nátriumfoszfát
 
 en:Thiamin, Vitamin B1
 bg:Тиамин
@@ -263,8 +270,9 @@ es:Tiamina, Vitamina B1
 et:Tiamiin
 fi:Tiamiini
 fr:Thiamine, Vitamine B1
-hu:Tiamin
+hu:Tiamin, B1-vitamin
 it:Tiamina
+ja:チアミン, ビタミンB1, V.B1
 lt:Tiaminas
 lv:Tiamīns
 mt:Tiamina
@@ -376,6 +384,7 @@ es:retinol
 et:retinool
 fi:retinoli
 fr:rétinol
+hu:retinol
 it:retinolo
 lt:retinolis
 lv:retinols
@@ -406,12 +415,12 @@ sv:retinylacetat
 wikidata:en: Q7316808
 
 < en:Vitamin A
-en:retinyl palmitate
+en:retinyl palmitate, Vitamin A palmitate, palmitate
 bg:Ретинил палмитат
 cs:retinyl-palmitát
 de:Retinylpalmitat
 el:παλμιτική ρετινόλη
-es:palmitato de retinilo
+es:palmitato de retinilo, palmitato
 et:retinüülpalmitaat
 fi:retinyylipalmitaatti
 fr:palmitate de rétinol
@@ -436,7 +445,7 @@ es:Vitamina B12
 et:B12-vitamiin
 fi:B12-vitamiini
 fr:Vitamine B12, Cobalamine
-hu:B12-vitamin
+hu:B12-vitamin, kobalamin
 it:Vitamina B12, Cobalamina
 ja:ビタミン B12
 lt:Vitaminas B12
@@ -455,7 +464,7 @@ cs:kyanokobalamin
 el:κυανοκοβαλαμίνη
 es:cianocobalamina
 et:tsüanokobalamiin
-fi:syaanikobalamiini
+fi:syanokobalamiini
 fr:cyanocobalamine
 hu:cianokobalamin
 it:cianocobalamina
@@ -500,7 +509,7 @@ es:Vitamina B6
 et:B6-vitamiin
 fi:B6-vitamiini
 fr:Vitamine B6, Pyridoxine
-hu:B6-vitamin
+hu:B6-vitamin, piridoxin
 it:Vitamina B6, piridoxina
 lt:Vitaminas B6
 lv:B6 vitamīns
@@ -514,6 +523,7 @@ zh:维生素B6
 
 < en:Vitamin B6
 en:pyridoxine 5'-phosphate
+hu:pirodoxál-5-foszfát
 
 < en:Vitamin B6
 en:pyridoxine dipalmitate
@@ -637,7 +647,7 @@ es:almitato de L-ascorbilo
 et:L-askorbüül-6-palmitaat
 fi:L-askorbyyli-6-palmitaatti
 fr:L-ascorbyle 6-palmitate, palmitate d'ascorbyle
-hu:L-aszkorbil-6-palmitát
+hu:L-aszkorbil-6-palmitát, aszkorbil-palmitát
 it:almitato di L-ascorbile
 lt:L-askorbil- 6-palmitatas
 lv:L-askorbil-6-palmitāts
@@ -717,6 +727,7 @@ pl:Witamina D
 pt:Vitamina D
 ro:Vitamina D
 sk:Vitamín D
+sv:D-vitamin
 wikidata:en: Q175621
 
 < en:Vitamin D
@@ -728,17 +739,20 @@ es:colecalciferol
 et:kolekaltsiferool
 fi:kolekalsiferoli
 fr:cholécalciférol, Vitamine D3
-hu:kolekalciferol
+hu:kolekalciferol, D3-vitamin
 it:colecalciferolo
 lt:cholekalciferolis
 lv:holekalciferols
 mt:kolekalċiferol
+nb:kolekalsiferol
 pl:cholekalcyferol
 pt:colecalciferol
 ro:colecalciferol
 sk:cholekalciferol
 sl:holekalciferol
 sv:kolekalciferol
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q27089148
 
 < en:Vitamin D
@@ -750,7 +764,7 @@ es:ergocalciferol
 et:ergokaltsiferool
 fi:ergokalsiferoli
 fr:ergocalciférol, Vitamine D2
-hu:ergokalciferol
+hu:ergokalciferol, D2-vitamin
 it:ergocalciferolo
 lt:ergokalciferolis
 lv:ergokalciferols
@@ -759,6 +773,8 @@ pl:ergokalcyferol
 sk:ergokalciferol
 sl:ergokalciferol
 sv:ergokalciferol
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q139200
 
 en:Vitamin E, tocopherol
@@ -768,7 +784,7 @@ es:Vitamina E
 et:E-vitamiin
 fi:E-vitamiini
 fr:Vitamine E, tocophérol
-hu:E-vitamin
+hu:E-vitamin, tokoferol
 it:Vitamina E
 ja:ビタミン E
 lt:Vitaminas E
@@ -852,27 +868,27 @@ sl:D-alfa-tokoferil kisli sukcinat
 sv:D-alfa-tokoferylvätesuccinat
 
 < en:Vitamin E
-en:D-alpha-tocopheryl polyethylene glycol-1000 succinate (TPGS)
-bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат (TPGS)
-cs:poly(ethylenglykol) 1000, ether s (+)-α-tokoferolem, sukcinát (TPGS)
-de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat (TPGS)
-el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο (1000) γλυκόλη (TPGS)
-es:Succinado de D-alfa-tocoferil polietilenglicol-1000 (TPGS)
-et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat (TPGS)
+en:D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
+bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
+cs:polyethylenglykol 1000, ether s -α-tokoferolem, sukcinát, TPGS
+de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat, TPGS
+el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο 1000 γλυκόλη, TPGS
+es:Succinado de D-alfa-tocoferil polietilenglicol-1000, TPGS
+et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat, TPGS
 fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
-fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000 (TPGS)
-hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát (TPGS)
-it:succinato D-alfa-tocoferile polietilenglicole 1000 (TPGS)
-lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas (TPGS)
-lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts (TPGS)
-mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat (TPGS)
-nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000 (TPGS)
-pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000 (TPGS)
-pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000 (TPGS)
-ro:succinat polietilen glicol 1000 de tocoferil D-alfa (TPGS)
-sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát (TPGS)
-sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat (TPGS)
-sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat (TPGS)
+fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000, TPGS
+hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát, TPGS
+it:succinato D-alfa-tocoferile polietilenglicole 1000, TPGS
+lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas, TPGS
+lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts, TPGS
+mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat, TPGS
+nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000, TPGS
+pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000, TPGS
+pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000, TPGS
+ro:succinat polietilen glicol 1000 de tocoferil D-alfa, TPGS
+sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát, TPGS
+sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat, TPGS
+sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat, TPGS
 
 < en:Vitamin E
 en:DL-alpha tocopherol

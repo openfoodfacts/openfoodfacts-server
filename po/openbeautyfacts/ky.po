@@ -5,14 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ky\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-04-18 13:54\n"
+"PO-Revision-Date: 2020-06-15 08:38\n"
 "Language-Team: Kyrgyz\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ky\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
+"X-Crowdin-File-ID: 442\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -25,10 +26,10 @@ msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/app/open-beauty-facts/id1122926380"
+msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr ""
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
 msgstr ""
@@ -43,7 +44,7 @@ msgid "Open Beauty Facts"
 msgstr ""
 
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "tagline"
@@ -56,11 +57,11 @@ msgid "OpenBeautyFacts"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "donate"
@@ -77,7 +78,7 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 msgstr ""
 
@@ -117,6 +118,7 @@ msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
 msgstr ""
 
+#. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 msgstr ""
@@ -141,5 +143,15 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "open-beauty-facts-mobile-app"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf"
+msgid "Open Food Facts"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openfooodfacts.org"
 msgstr ""
 
