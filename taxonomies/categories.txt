@@ -3308,41 +3308,6 @@ fi:soijamehujuomat
 fr:Boissons à base de jus de fruits et de soja
 nl:Vruchten- en sojadranken, Vruchten- en sojadrank
 
-<en:Fruit and soy beverages
-en:Apple juice and soy drinks
-de:Apfelsäfte und Sojagetränke
-es:Bebidas a base de zumo de manzana y soja, Bebidas de zumo de manzana y soja
-fr:Boissons à base de jus de pomme et de soja
-nl:Appel-sojadranken, Appel-sojadrank
-
-<en:Fruit and soy beverages
-en:Multifruit juice and soy drinks
-de:Mehrfruchtsaft und Sojagetränke
-es:Bebidas a base de zumo multifruta y soja, Bebidas de zumo multifruta y soja
-fr:Boissons à base de jus multifruits et de soja
-nl:Multifruitsojadranken
-
-<en:Fruit and soy beverages
-en:Orange juice and soy drinks
-de:Orangensäfte und Sojagetränke
-es:Bebidas a base de zumo de naranja y soja, Bebidas de zumo de naranja y soja
-fr:Boissons à base de jus d'orange et de soja
-nl:Sinaasappelsojadranken, Sinaasappelsojadrank
-
-<en:Fruit and soy beverages
-en:Peach juice and soy drinks
-de:Pfirsichsäfte und Sojagetränke
-es:Bebidas a base de zumo de melocotón y soja, Bebidas de zumo de melocotón y soja
-fr:Boissons à base de jus de pêche et de soja
-nl:Perzikkensojadranken, Perzikkensojadrank
-
-<en:Fruit and soy beverages
-en:Pineapple juice and soy drinks
-de:Annanasssäfte und Sojagetränke
-es:Bebidas a base de zumo de piña y soja, Bebidas de zumo de piña y soja
-fr:Boissons à base de jus d'ananas et de soja
-nl:Ananassojadranken, Ananassojadrank
-
 <en:Plant-based beverages
 en:Smoothies
 de:Smoothies
@@ -22049,6 +22014,11 @@ it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 ro:Biscuiți cu ciocolată neagră
 
+# Biscuits type granola, pepito and other digestive biscuits covered with chocolate
+<en:Chocoalate biscuits
+en:Chocolate-covered biscuits
+fr:Biscuits nappés de chocolat
+
 <en:Chocolate biscuits
 es:Galletas con tableta de chocolate
 fr:Biscuits tablette de chocolat, Petits beurres au chocolat
@@ -22338,6 +22308,12 @@ wikidata:en:Q652695
 en:Cantucci, cantuccini
 fr:Cantucci, cantuccini
 it:Cantucci, cantuccini
+wikidata:en:Q769635
+
+<en:Cantucci
+it:Cantucci Toscani, Cantuccini Toscani
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Biscuits
 en:Speculoos, Speculoos biscuit
@@ -23554,6 +23530,10 @@ fr:Préparations pour crêpes
 nl:Pancake mixes
 
 <en:Cakes
+en:Filled cakes
+fr:Gâteaux fourrés
+
+<en:Cakes
 en:Carrot cakes
 fr:Carrot cakes, gâteaux aux carottes
 wikidata:en:Q656071
@@ -23639,7 +23619,7 @@ ciqual_food_code:en:23925
 ciqual_food_name:en:Marble cake
 ciqual_food_name:fr:Gâteau marbré
 
-<en:Cakes
+<en:Filled cakes
 fr:Nonnettes
 wikidata:en:Q3343365
 
