@@ -69,6 +69,7 @@ BEGIN
 
 		&split_generic_name_from_ingredients
 		&clean_ingredients_text_for_lang
+		&cut_ingredients_text_for_lang
 		&clean_ingredients_text
 
 		&detect_allergens_from_text
@@ -154,7 +155,7 @@ my %may_contain_regexps = (
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	nl => "Kan sporen van",
+	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -744,14 +745,14 @@ sub extract_ingredients_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
-		$results_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
 
 	}
 }
 
 
 my %min_regexp = (
-	en => "min|min\.minimum",
+	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 );
@@ -837,7 +838,7 @@ sub parse_ingredients_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 	
-	my $percent_regexp = '(<|' . $min_regexp . '|\s)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+	my $percent_regexp = '(<|' . $min_regexp . '|\s|\.|:)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -927,8 +928,8 @@ sub parse_ingredients_text($) {
 
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
-					# : is in $separators but we want to keep "origine : France"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i)) {
+					# : is in $separators but we want to keep "origine : France" or "min : 23%"
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -1049,9 +1050,9 @@ sub parse_ingredients_text($) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/$percent_regexp$//i;
-			$ingredient1 =~ s/$percent_regexp$//i;
-			$ingredient2 =~ s/$percent_regexp$//i;
+			$ingredient =~ s/\s$percent_regexp$//i;
+			$ingredient1 =~ s/\s$percent_regexp$//i;
+			$ingredient2 =~ s/\s$percent_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1115,7 +1116,7 @@ sub parse_ingredients_text($) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /$percent_regexp$/i) {
+				if ($ingredient =~ /\s$percent_regexp$/i) {
 					$percent = $2;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
@@ -1268,6 +1269,7 @@ sub parse_ingredients_text($) {
 								'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
+								'en proportions variables',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -2262,26 +2264,52 @@ en => [
 'ingredient(s?)',
 ],
 
-fr => [
-'ingr(e|é)dient(s?)',
-'Quels Ingr(e|é)dients ?', # In Casino packagings
-'composition',
+cs => [
+'složení',
 ],
 
 de => [
 'zutat(en)?',
 ],
 
+dk => [
+'ingredienser',
+],
+
+el => [
+'Συστατικά',
+'ΣΥΣΤΑΤΙΚΑ'
+],
+
 es => [
 'ingredientes',
+],
+
+fi => [
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'valmistusaineet',
+],
+
+fr => [
+'ingr(e|é)dient(s?)',
+'Quels Ingr(e|é)dients ?', # In Casino packagings
+'composition',
+],
+
+hr => [
+'(ö|ő|o)sszetev(ö|ő|o)k',
 ],
 
 it => [
 'ingredienti',
 ],
 
-cs => [
-'složení',
+is => [
+'Innihaldslýsing',
+],
+
+nl => [
+'ingredi(e|ë)nten',
 ],
 
 pt => [
@@ -2296,38 +2324,13 @@ si => [
 'sestavine',
 ],
 
-it => [
-'ingredienti',
-],
-
-nl => [
-'ingredi(e|ë)nten',
-],
-
-fi => [
-'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
-'valmistusaineet',
-],
-
-sv => [
-'ingredienser',
-],
-
-dk => [
-'ingredienser',
-],
-
 ru => [
 'Состав',
 'Ингредиенты',
 ],
 
-hr => [
-'(ö|ő|o)sszetev(ö|ő|o)k',
-],
-
-el => [
-'Συστατικά',
+sv => [
+'ingredienser',
 ],
 
 );
@@ -2341,33 +2344,39 @@ en => [
 'INGREDIENT(S)?',
 ],
 
-fr => [
-'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
-],
-
 cs => [
 'SLOŽENÍ',
+],
+
+da => [
+'INGREDIENSER',
+'N(æ|ae)ringsindhold',
 ],
 
 de => [
 'ZUTAT(EN)?',
 ],
 
+da => [
+'N(æ|ae)ringsindhold',
+],
+
 es => [
 'INGREDIENTES',
 ],
 
+fi => [
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
+'VALMISTUSAINEET'
+],
+
+fr => [
+'INGR(E|É)(D|0|O)IENTS',
+'INGR(E|É)DIENT',
+],
+
 hu => [
 '(Ö|O|0)SSZETEVOK',
-],
-
-pt => [
-'INGREDIENTES(\s*)',
-],
-
-pl => [
-'SKŁADNIKI(\s*)',
 ],
 
 it => [
@@ -2379,9 +2388,17 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
-fi => [
-'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+pt => [
+'INGREDIENTES(\s*)',
+],
+
+pl => [
+'SKŁADNIKI(\s*)',
+],
+
+
+ro => [
+'Ingrediente'
 ],
 
 si => [
@@ -2392,15 +2409,9 @@ sv => [
 'INGREDIENSER',
 ],
 
-dk => [
-'INGREDIENSER',
-],
-
 vi => [
 'THANH PHAN',
 ],
-
-
 
 );
 
@@ -2409,60 +2420,34 @@ my %phrases_after_ingredients_list = (
 
 # TODO: Introduce a common list for kcal
 
-fr => [
 
-'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
-'caractéristiques nu(t|f)ritionnelles',
-'valeurs mo(y|v)ennes',
-'valeurs nutritionelles moyennes',
-'valeur nutritionnelle mo(y|v)enne',
-'valeur nutritionnelle',
-'information nutritionnelle',
-'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
-'moyennes pour 100(g|ml)',
-'Nutrition pour 100 (g|ml)',
-'valeur(s?) (e|é)nerg(e|é)tique',
-'valeur(s?) nutritives',
-'valeur nutritive',
-'apport de r(e|é)ference pour un adulte type',
-'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'(a|à) consommer de préférence',
-'(a|à) consommer de',
-'de préférence avant le',
-'(a|à) cons.de préférence avant',
-'(conseil|conseils) de pr(e|é)paration',
-'(conditions|conseils) de conservation',
-'conseil d\'utilisation',
-'conservation:',
-'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
-'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
-'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
-'(a|à) consommer (cuit|rapidement|dans|jusqu)',
-'(a|à) conserver (dans|de|a|à)',
-'(a|à)conserver (dans|de|a|à)', #variation
-'(a|à)conserver entre',
-'apr(e|è)s (ouverture|achat)',
-'dans le compartiment (a|à) gla(c|ç)ons',
-'pr(e|é)paration au four',
-'dont sucres',
-'dont acides (gras|ras) satur(e|é)s',
-'N(o|ò)us vous conseillons',
-'ne jamais recongeler un produit décongelé',
-'pensez au tri',
-'tenir à l\'abri',
-'Modes de pr(e|é)paration',
-'Mode de pr(e|é)paration',
-#'Pour votre santé',
-#'La certification Fairtrade assure',
-#Préparation:
-#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
-#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
-#'dont sucres',
-#'dontSUcres',
-#'waarvan suikers/
-#`verzadigde vetzuren/ acides gras saturés`,
-#`Conditionné par`,
+cs => [
+'doporučeny způsob přípravy',
+'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+de => [
+'Ern(â|a|ä)hrungswerte',
+'Mindestens altbar bis',
+'Mindestens haltbar bis',
+'davon ges(â|a|ä)tigte Fettsäuren',
+'davon Zuckerarten',
+'davon ges(â|a|ä)ttigte',
+'Durchschnittlich enthalten 100 (ml|g)',
+'Durchschnittliche N(â|a|ä)hrwerte',
+'DURCHSCHNITTLICHE NÄHRWERTE',
+'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
+'N(â|a|ä)hrwerte je',
+'Nâhrwerte',
+'mindestens',
+'k(u|ü)hl und trocken lagern',
+'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
+'Unge(ö|o)ffnet bei max.',
+'verbrauchen bis',
+'Vorbereitung Tipps',
+'zu verbrauchen bis',
+'100 (ml|g) enthalten durchschnittlich',
 ],
 
 en => [
@@ -2500,30 +2485,6 @@ es => [
 #Envasado por:
 ],
 
-de => [
-'Ern(â|a|ä)hrungswerte',
-'Mindestens altbar bis',
-'Mindestens haltbar bis',
-'davon ges(â|a|ä)tigte Fettsäuren',
-'davon Zuckerarten',
-'davon ges(â|a|ä)ttigte',
-'Durchschnittlich enthalten 100 (ml|g)',
-'Durchschnittliche N(â|a|ä)hrwerte',
-'DURCHSCHNITTLICHE NÄHRWERTE',
-'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
-'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
-'N(â|a|ä)hrwerte je',
-'Nâhrwerte',
-'mindestens',
-'k(u|ü)hl und trocken lagern',
-'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
-'Unge(ö|o)ffnet bei max.',
-'verbrauchen bis',
-'Vorbereitung Tipps',
-'zu verbrauchen bis',
-'100 (ml|g) enthalten durchschnittlich',
-],
-
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
@@ -2540,23 +2501,79 @@ fi => [
 'Valmist(?:aja:|us)',
 ],
 
-nl => [
-'Beter Leven keurmerk 1 ster.',
-'Beter Leven keurmerk 3 sterren',
-'Cacao: ten minste ',
-'Droog bewaren',
-'E = door EU goedgekeurde hulpstof.',
-'gemiddelde voedingswaarden',
-'Gemiddeldevoedingswaardel',
-'gemiddelde voedingswaarde per 100 g',
-'Na openen beperkt houdbaar',
-'ten minste',
-'ten minste houdbaar tot',
-'Verpakt onder beschermende atmosfeer',
-'voedingswaarden',
-'voedingswaarde',
-'voorbereidingstips',
-#'waarvan suikers',
+fr => [
+'valeur(s?) (e|é)nerg(e|é)tique',
+'valeur(s?) nutritives',
+'valeur nutritive',
+'valeurs mo(y|v)ennes',
+'valeurs nutritionelles moyennes',
+'valeur nutritionnelle mo(y|v)enne',
+'valeur nutritionnelle',
+'(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
+'(a|à) consommer de préférence',
+'(a|à) consommer de',
+'(a|à) cons.de préférence avant',
+'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+'(a|à) conserver (dans|de|a|à)',
+'(a|à)conserver (dans|de|a|à)', #variation
+'(a|à)conserver entre',
+'Allergènes: voir les ingrédients en gras',
+'Attention: les enfants en bas âge risquent de',
+'apr(e|è)s (ouverture|achat)',
+'apport de r(e|é)ference pour un adulte type',
+'caractéristiques nu(t|f)ritionnelles',
+'Conditionné sous vide',
+'(conseil|conseils) de pr(e|é)paration',
+'(conditions|conseils) de conservation',
+'conseil d\'utilisation',
+'conservation:',
+'Croûte en matière plastique non comestible',
+'dans le compartiment (a|à) gla(c|ç)ons',
+'de préférence avant le',
+'dont sucres',
+'dont acides (gras|ras) satur(e|é)s',
+'Fabriquee à partir de fruits entiers',
+'Fabriqué dans un atelier qui utilise',
+'information nutritionnelle',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
+'Modes de pr(e|é)paration',
+'Mode de pr(e|é)paration',
+'moyennes pour 100(g|ml)',
+'Naturellement riche en fibres',
+'ne jamais recongeler un produit décongelé',
+'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
+'Nutrition pour 100 (g|ml)',
+'pensez au tri',
+'Peux contenir des morceaux de noyaux',
+'pr(e|é)paration au four',
+'Prépar(e|é)e? avec',
+'(produit )?(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
+'N(o|ò)us vous conseillons',
+'Non ouvert,',
+'Sans conservateur',
+'tenir à l\'abri',
+'Teneur en matière grasse',
+'(Chocolat: )?teneur en cacao',
+'Teneur totale en sucres',
+# Belgian products often mix languages and thus can have ending phrases in dutch
+'Gemiddelde voedingswaarde',
+#'Pour votre santé',
+#'La certification Fairtrade assure',
+#Préparation:
+#'ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon dévissable. BT Daonan ar
+#`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
+#'dont sucres',
+#'dontSUcres',
+#'waarvan suikers/
+#`verzadigde vetzuren/ acides gras saturés`,
+#`Conditionné par`,
+],
+
+hr => [
+'Atlagos tápérték 100g termékben',
 ],
 
 it => [
@@ -2570,12 +2587,41 @@ it => [
 'Preparazione:',
 ],
 
-cs => [
-'doporučeny způsob přípravy',
-],
-
 ja => [
 '栄養価',
+],
+
+nl => [
+'bereid met',
+'Beter Leven keurmerk 1 ster.',
+'Beter Leven keurmerk 3 sterren',
+'Bewaren bij kamertemperatuur',
+'Cacao: ten minste ',
+'Droog bewaren',
+'E = door EU goedgekeurde hulpstof.',
+'E door EU goedgekeurde hulpstoffen',
+'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
+'gemiddelde voedingswaarden',
+'Gemiddeldevoedingswaardel',
+'gemiddelde voedingswaarde per 100 g',
+'Na openen beperkt houdbaar',
+'Ongeopend, ten minste houdbaar tot:',
+'ten minste',
+'ten minste houdbaar tot',
+'Van nature rijk aan vezels',
+'Verpakt onder beschermende atmosfeer',
+'voedingswaarden',
+'voedingswaarde',
+'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+'voorbereidingstips',
+#'waarvan suikers',
+'Witte chocolade: ten minste',
+],
+
+pl => [
+'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
+'n(a|o)jlepiej spożyć przed', #Best before
+'Przechowywanie',
 ],
 
 pt => [
@@ -2589,11 +2635,6 @@ pt => [
 'consumir de prefer(e|ê)ncia antes do',
 ],
 
-pl => [
-'przechowywać w chlodnym i ciemnym miejscu', #keep in a dry and dark place
-'n(a|o)jlepiej spożyć przed', #Best before
-'Przechowywanie',
-],
 
 ro => [
 'declaratie nutritional(a|ă)',
@@ -2602,13 +2643,6 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-cs => [
-'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
-],
-
-hr => [
-'Atlagos tápérték 100g termékben',
-],
 
 el => [
 'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
@@ -2619,9 +2653,6 @@ vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
 
-dk => [
-'N(æ|ae)ringsindhold',
-],
 
 
 );
@@ -2695,6 +2726,7 @@ If there is already a generic name, it is not overridden.
 
 WARNING: This function should be called only during the import of data from producers.
 It should not be called on lists that can be the result of an OCR, as there is no guarantee that the text before the ingredients list is the generic name.
+It should also not be called when we import product data from the producers platform to the public database.
 
 =cut
 
@@ -2708,7 +2740,7 @@ sub split_generic_name_from_ingredients($$) {
 		$log->debug("split_generic_name_from_ingredients", { language => $language, "ingredients_text_$language" => $product_ref->{"ingredients_text_$language"} }) if $log->is_debug();
 
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
 
 				my $generic_name = $`;
 				$product_ref->{"ingredients_text_$language"} = ucfirst($');
@@ -2725,12 +2757,31 @@ sub split_generic_name_from_ingredients($$) {
 }
 
 
+=head2 clean_ingredients_text_for_lang ( product_ref language_code )
+
+Perform some cleaning of the ingredients list.
+
+The operations included in the cleaning must be 100% safe.
+
+The function can be applied multiple times on the ingredients list.
+
+=cut
+
 sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
 
 	$log->debug("clean_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+	
+	# Remove phrases before ingredients list, but only when they are at the very beginning of the text
+	
+	foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
+
+			$text = ucfirst($');
+		}
+	}
 
 	# turn demi - écrémé to demi-écrémé
 
@@ -2738,63 +2789,6 @@ sub clean_ingredients_text_for_lang($$) {
 
 		foreach my $prefix (@{$prefixes_before_dash{$language}}) {
 			$text =~ s/\b($prefix) - (\w)/$1-$2/is;
-		}
-	}
-
-	# Remove phrases before ingredients list lowercase
-
-	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
-
-	my $cut = 0;
-
-	if (defined $phrases_before_ingredients_list{$language}) {
-
-		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-			# The match before the regexp must be not greedy so that we don't cut too much
-			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
-			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
-				$text = $';
-				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
-				$cut = 1;
-				last;
-			}
-		}
-	}
-
-	# Remove phrases before ingredients list UPPERCASE
-
-	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
-
-		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
-			# INGREDIENTS followed by lowercase
-			$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
-		}
-	}
-
-	# Remove phrases after ingredients list
-
-	$log->debug("clean_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if (defined $phrases_after_ingredients_list{$language}) {
-
-		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
-				$text = $`;
-				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
-			}
-		}
-	}
-
-	# Remove phrases
-
-	$log->debug("clean_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
-
-	if (defined $ignore_phrases{$language}) {
-
-		foreach my $regexp (@{$ignore_phrases{$language}}) {
-			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
 		}
 	}
 
@@ -2811,11 +2805,103 @@ sub clean_ingredients_text_for_lang($$) {
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
 
-	$log->debug("clean_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
+	$log->debug("clean_ingredients_text_for_lang - done", { language=>$language, text=>$text }) if $log->is_debug();
 
 	return $text;
 }
 
+
+=head2 cut_ingredients_text_for_lang ( product_ref language_code )
+
+This function should be called once when getting text data from the OCR that includes an ingredients list.
+
+It tries to remove phrases before and after the list that are not ingredients list.
+
+It MUST NOT be applied multiple times on the ingredients list, as it could otherwise
+remove parts of the ingredients list. (e.g. it looks for "Ingredients: " and remove everything before it.
+If there are multiple "Ingredients:" listed, it would keep only the last one if called multiple times.
+
+=cut
+
+sub cut_ingredients_text_for_lang($$) {
+
+	my $text = shift;
+	my $language = shift;
+
+	$log->debug("cut_ingredients_text_for_lang - start", { language=>$language, text=>$text }) if $log->is_debug();
+
+	# Remove phrases before ingredients list lowercase
+
+	$log->debug("cut_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
+
+	my $cut = 0;
+
+	if (defined $phrases_before_ingredients_list{$language}) {
+
+		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+			# The match before the regexp must be not greedy so that we don't cut too much
+			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
+			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
+				$text = ucfirst($');
+				$log->debug("removed phrases_before_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}
+		}
+	}
+
+	# Remove phrases before ingredients list UPPERCASE
+
+	$log->debug("cut_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
+
+		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
+			# INGREDIENTS followed by lowercase
+			
+			if ($text =~ /^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])/s) {
+				$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
+				$text = ucfirst($text);
+				$log->debug("removed phrases_before_ingredients_list_uppercase", { kept => $text, regexp => $regexp }) if $log->is_debug();
+				$cut = 1;
+				last;
+			}			
+		}
+	}
+
+	# Remove phrases after ingredients list
+
+	$log->debug("cut_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if (defined $phrases_after_ingredients_list{$language}) {
+
+		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
+			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+				$text = $`;
+				$log->debug("removed phrases_after_ingredients_list", { removed => $1, kept => $text, regexp => $regexp }) if $log->is_debug();
+			}
+		}
+	}
+
+	# Remove phrases
+
+	$log->debug("cut_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();
+
+	if (defined $ignore_phrases{$language}) {
+
+		foreach my $regexp (@{$ignore_phrases{$language}}) {
+			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
+		}
+	}
+
+	$log->debug("cut_ingredients_text_for_lang - 5", { language=>$language, text=>$text }) if $log->is_debug();
+	
+	$text = clean_ingredients_text_for_lang($text, $language);
+	
+	$log->debug("cut_ingredients_text_for_lang - done", { language=>$language, text=>$text }) if $log->is_debug();
+
+	return $text;
+}
 
 
 sub clean_ingredients_text($) {
@@ -2902,6 +2988,68 @@ sub separate_additive_class($$$$$) {
 		return $additive_class . $spaces . $colon;
 	}
 }
+
+
+
+=head2 replace_additive ($number, $letter, $variant) - normalize the additive
+
+This function is used inside regular expressions to turn additives to a normalized form.
+
+Using a function to concatenate the E-number, letter and variant makes it possible 
+to deal with undefined $letter or $variant without triggering an undefined warning.
+
+=head3 Synopsis
+
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+
+=cut
+
+
+sub replace_additive($$$) {
+
+		my $number = shift;	# e.g. 160
+		my $letter = shift;	# e.g. a
+		my $variant = shift;	# e.g. ii
+		
+		my $additive = "e" . $number;
+		if (defined $letter) {
+			$additive .= $letter;
+		}
+		if (defined $variant) {
+			$variant =~ s/^\(//;
+			$variant =~ s/\)$//;
+			$additive .= $variant;
+		}
+		return $additive;
+}
+
+
+=head2 preparse_ingredients_text ($product_lc, $text) - normalize the ingredient list to make parsing easier
+
+This function transform the ingredients list in a more normalized list that is easier to parse.
+
+It does the following:
+
+- Normalize quote characters
+- Replace abbreviations by their full name
+- Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
+- Split vitamins enumerations
+- Normalize additives and split additives enumerations
+- Split other enumerations (e.g. oils, some minerals)
+- Split allergens and traces
+- Deal with signs like * to indicate labels (e.g. *: Organic)
+
+=head3 Arguments
+
+=head4 Language
+
+=head4 Ingredients list text
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+=cut
 
 
 sub preparse_ingredients_text($$) {
@@ -3010,26 +3158,24 @@ sub preparse_ingredients_text($$) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $additivesregexp = '\d{3}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?|\d{4}( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?';
-	$text =~ s/\b(e|ins|sin)(:|\(|\[| | n| nb|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and)+)+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $additivesregexp = '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?(( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+	
+	$text =~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and))+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin)( |-| n| nb|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
-
+	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# add separations between all E340... "colorants naturels : rose E120, verte E161b, blanche : sans colorant"
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	# ! [a-z] matches i... replacing in line above -- 2015/08/12
-	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
 	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
-	$text =~ s/e( |-|\.)?($additivesregexp)-/E$2 -/ig;
+	# do not turn E172-i into E172 - i
+	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;	
 
 	# Canonicalize additives to remove the dash that can make further parsing break
-	$text =~ s/(\b)e( |-|\.)?(\d+)()?([abcdefgh]?)(\))?((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?)(\))?(\b)/e$3$5$7/ig;
+	# Match E + number + letter a to h + i to xv, followed by a space or separator
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
@@ -3044,18 +3190,12 @@ sub preparse_ingredients_text($$) {
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
 
-	# FIXME : should use additives classes
-	# ! in Spanish: colorante: caramelo was changed to colorant: e: caramelo
-	# $text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement de la farine|de traitement(?! de la farine))(s|)(\s)+(:)?(?!\(| \()/$1$2 : /ig;
-
 	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
 	# warning: the additive class may also be the start of the name of an additive.
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		#$text =~ s/\b($regexp)(\s)+(:)?(?!\(| \()/$1 : /ig;
 		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
-		#print STDERR "additives_classes_regexps result: $text\n";
 	}
 
 	# dash with 1 missing space
@@ -3513,7 +3653,7 @@ INFO
 			#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$and|$of)+((($allergens_regexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergens_regexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 			#$log->debug("allergens", { lc => $product_lc, may_contain_regexps => \%may_contain_regexps, contains_or_may_contain_regexp => $contains_or_may_contain_regexp, text => $text }) if $log->is_debug();
 
-			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$of)+((_?($allergens_regexp)_?( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords))*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$4)/ieg;
+			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$of)+((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$4)/ieg;
 			# we may have added an extra dot in order to make sure we have at least one
 			$text =~ s/\.\./\./g;
 		}

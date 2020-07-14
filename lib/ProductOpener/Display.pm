@@ -99,6 +99,7 @@ BEGIN
 					$styles
 					$header
 					$bodyabout
+					$debug_template
 
 					$original_subdomain
 					$subdomain
@@ -296,6 +297,7 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
+	$debug_template = undef;
 
 	my $r = shift;
 
@@ -577,7 +579,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property') {
+	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -590,6 +592,11 @@ sub analyze_request($)
 			# If the parameter is field decode "%2C" to ","
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
+			}
+			
+			if ($parameter eq "debug_template") {
+				# Use a global variable so that we can access it in functions that do not have $request_ref as a parameter
+				$debug_template = $request_ref->{$parameter};
 			}
 
 			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
@@ -3914,6 +3921,11 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
+	my $template_data_ref = {
+		lang => \&lang,
+		display_pagination => \&display_pagination,
+	};
+
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -3962,6 +3974,10 @@ sub search_and_display_products($$$$$) {
 			$sort_ref->Push($sort_by => $order);
 		}
 		elsif ($sort_by =~ /scans_n/) {
+			$order = -1;
+			$sort_ref->Push($sort_by => $order);
+		}
+		elsif ($sort_by eq "popularity_key") {
 			$order = -1;
 			$sort_ref->Push($sort_by => $order);
 		}
@@ -4091,15 +4107,16 @@ sub search_and_display_products($$$$$) {
 
 	my $html = '';
 	my $html_count = '';
+	my $error = '';
 
 	my $decf = get_decimal_formatter($lc);
 
 	if (not defined $request_ref->{jqm_loadmore}) {
 		if ($count < 0) {
-			$html .= "<p>" . lang("error_database") . "</p>";
+			$error = lang("error_database");
 		}
 		elsif ($count == 0) {
-			$html .= "<p>" . lang("no_products") . "</p>";
+			$error = lang("no_products");
 		}
 		elsif ($count == 1) {
 			$html_count .= lang("1_product");
@@ -4107,36 +4124,26 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $decf->format($count)) ;
 		}
+		$template_data_ref->{error} = $error;
+		$template_data_ref->{html_count} = $html_count;
 	}
 
-	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
-
-		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"" . $world_subdomain . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
-		}
-
-		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
-
-
-	}
+	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	$template_data_ref->{jqm} = $request_ref->{jqm};
+	$template_data_ref->{country} = $country;
+	$template_data_ref->{world_subdomain} = $world_subdomain;
+	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	
+	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
+		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+		$request_ref->{current_link_query_download} .= "&download=on";
 
-		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; " . lang("search_download_results") . "<br>";
-
-			if ($count <= $export_limit) {
-				$html .= "<ul>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=xlsx\">" . lang("search_download_xlsx") . "</a> - " . lang("search_download_xlsx_description") . "</li>"
-				. "<li><a href=\"$request_ref->{current_link_query_download}&format=csv\">" . lang("search_download_csv") . "</a> - " . lang("search_download_csv_description") . "</li>"
-				. "</ul>";
-			}
-		}
+		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
+		$template_data_ref->{export_limit} = $export_limit;
 
 		if ($log->is_debug()) {
 			my $debug_log = "search - count: $count";
@@ -4147,7 +4154,7 @@ sub search_and_display_products($$$$$) {
 
 		if ((not defined $request_ref->{search}) and ($count >= 5)
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
-
+			$template_data_ref->{explore_products} = 'true';
 			my $nofollow = '';
 			if (defined $request_ref->{tagid}) {
 				# Prevent crawlers from going too deep in facets #938:
@@ -4159,36 +4166,20 @@ sub search_and_display_products($$$$$) {
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
 			}
-			$html .= <<HTML
-<ul class="button-group">
-<li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
-<li>
-<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
-<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-HTML
-;
+
 			foreach my $newtagtype (@current_drilldown_fields) {
 
-				$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\"$nofollow>"
-					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
+				push @{$template_data_ref->{current_drilldown_fields}}, {
+					current_link => $request_ref->{current_link},
+					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+					nofollow => $nofollow,
+					tagtype => $newtagtype,
+				};
 			}
-			$html .= "</ul>\n</li>\n</ul>\n\n";
-
 
 		}
-		else {
-			$html .= "<p>$html_count " . separator_before_colon($lc) . ":</p>";
-		}
-
-
-		if (defined $request_ref->{jqm}) {
-			if (not defined $request_ref->{jqm_loadmore}) {
-				$html .= '<ul data-role="listview" data-theme="c" id="search_results_list">';
-			}
-		}
-		else {
-			$html .= "<ul class=\"products\">\n";
-		}
+		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
+		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
@@ -4197,8 +4188,6 @@ HTML
 
 			my $code = $product_ref->{code};
 			my $img = display_image_thumb($product_ref, 'front');
-
-
 
 			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
 
@@ -4210,39 +4199,13 @@ HTML
 
 			add_images_urls_to_product($product_ref);
 
-
-			if ($request_ref->{jqm}) {
-				# <li><a href="#page_product?code=3365622026164">Sardines à l'huile</a></li>
-				$html .= <<HTML
-<li>
-<a href="#page_product?code=$code" title="$product_name">
-$img
-$product_ref->{product_name}
-</a>
-</li>
-HTML
-;
-			}
-			else  {
-				if ($product_name eq '') {
-					$product_name = $code;
-				}
-
-			# Display the brand if we don't have an image
-			#if (($img eq '') and ($product_ref->{brands} ne '')) {
-			#	$product_name .= ' - ' . $product_ref->{brands};
-			#}
-
-				$html .= <<HTML
-<li>
-<a href="$url" title="$product_name">
-<div>$img</div>
-<span>${product_name}</span>
-</a>
-</li>
-HTML
-;
-			}
+			push @{$template_data_ref->{structured_response_products}}, {
+				code => $code,
+				product_name => $product_name,
+				img => $img,
+				jqm => $request_ref->{jqm},
+				url => $url,
+			};
 
 			# remove some debug info
 			delete $product_ref->{additives};
@@ -4311,9 +4274,11 @@ HTML
 			}
 		}
 
+		$template_data_ref->{request} = $request_ref;
+		$template_data_ref->{page_count} = $count;
+		$template_data_ref->{page_limit} = $limit;
+		$template_data_ref->{page} = $page;
 
-		# Pagination
-		$html .= display_pagination($request_ref, $count, $limit, $page);
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -4323,6 +4288,7 @@ HTML
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
+	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
@@ -7031,7 +6997,7 @@ HTML
 			}
 
 			my $html = <<HTML
-<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc tiny button" type="button">Unselect image</button></div>
 HTML
 ;
 
@@ -7315,6 +7281,10 @@ sub display_product($)
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
+	
+	if ($code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
+	}		
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -7518,16 +7488,8 @@ CSS
 	my $html_sources = "";	# 	Displayed at the bottom of the product page
 
 	if (defined $product_ref->{sources}) {
-		$template_data_ref->{product_sources} = $product_ref->{sources};
-		# FIXME : currently just a quick workaround to display openfood attribution
 
-#			push @{$product_ref->{sources}}, {
-#				id => "openfood-ch",
-#				url => "https://www.openfood.ch/en/products/$openfood_id",
-#				import_t => time(),
-#				fields => \@modified_fields,
-#				images => \@images_ids,
-#			};
+		$template_data_ref->{product_sources} = $product_ref->{sources};
 
 		my %unique_sources = ();
 
@@ -7551,6 +7513,17 @@ CSS
 			}
 		}
 	}
+	
+	# If the product has an owner, identify it as the source
+	if (defined $product_ref->{owner}) {
+		
+		# TODO: use org profile if it exists
+		my $owner_name = $product_ref->{owner};
+		$owner_name =~ s/^org-//;
+		
+		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
+	}
+
 	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
 
 	my $minheight = 0;
@@ -7597,6 +7570,14 @@ CSS
 	if (not defined $ingredients_text) {
 		$ingredients_text = "";
 	}
+	
+	# Indicate if we are displaying ingredients in another language than the language of the interface
+	
+	my $ingredients_text_lang_html = "";
+	
+	if (($ingredients_text ne "") and ($ingredients_text_lang ne $lc)) {
+		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
+	}
 
 	$template_data_ref->{ingredient_image} = $html_image;
 	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
@@ -7608,7 +7589,7 @@ CSS
 		my $ilc = $ingredients_text_lang;
 		$template_data_ref->{ilc} = $ingredients_text_lang;
 
-			$initjs .= <<JS
+				$initjs .= <<JS
 
 	var editableText;
 
@@ -7681,6 +7662,15 @@ JS
 ;
 
 	}
+	
+	# Offer to add the ingredients in the language of the interface
+		
+	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
+		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
+		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
+		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
+		. "</p>";
+	}	
 
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 
@@ -7883,7 +7873,9 @@ HTML
 			if (defined $categories_nutriments_ref) {
 
 				foreach my $cid (@{$product_ref->{categories_tags}}) {
+
 					if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
+						
 						push @comparisons, {
 							id => $cid,
 							name => display_taxonomy_tag($lc,'categories', $cid),
@@ -8570,6 +8562,8 @@ sub display_nutriscore_calculation_details($) {
 		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
 	 }
 
+	# Nutrition Score Calculation Template
+	
 	my $html;
 	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
@@ -8581,6 +8575,11 @@ sub display_nutrient_levels($) {
 	my $product_ref = shift;
 
 	my $html = '';
+
+	my $template_data_ref = {
+		lang => \&lang,
+		display_icon => \&display_icon,
+	};
 
 	# Do not display nutriscore and traffic lights for some categories of products
 	# do not compute a score for baby foods
@@ -8627,6 +8626,9 @@ sub display_nutrient_levels($) {
 
 	if ((exists $product_ref->{"nutrition_grade_fr"})
 		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
+
+		$template_data_ref->{nutrition_grade} = "exists";
+
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 
@@ -8678,6 +8680,7 @@ HTML
 ;
 		if (defined $product_ref->{nutriscore_data}) {
 			$html_nutrition_grade .= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+
 		}
 	}
 
@@ -8686,45 +8689,37 @@ HTML
 
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 
-			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '.svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
-				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '">' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
-				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br>";
+			$html_nutrient_levels = '1';
+			push @{$template_data_ref->{nutrient_levels}}, {
+				nutrient_level => $product_ref->{nutrient_levels}{$nid},
+				nutriment_prepared => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
+				nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
 
+			};
 		}
 	}
-	if ($html_nutrient_levels ne '') {
-		$html_nutrient_levels = <<HTML
-<h4>$Lang{nutrient_levels_info}{$lc}
-<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}">@{[ display_icon('info') ]}</a>
-</h4>
-$html_nutrient_levels
-HTML
-;
-	}
+
+	# Nutrient Levels Template
+	my $nutrient_levels_html;
+	$tt->process('nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 
 	# 2 columns?
-	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
-		$html = <<HTML
-<div class="row">
-	<div class="small-12 xlarge-6 columns">
-		$html_nutrition_grade
-	</div>
-	<div class="small-12 xlarge-6 columns">
-		$html_nutrient_levels
-	</div>
+	$html .= "<div class='row'>";
+	if ($html_nutrition_grade ne '') {
+		$html .= <<HTML
+<div class="small-12 xlarge-6 columns">
+$html_nutrition_grade
 </div>
 HTML
 ;
 	}
-	else {
-		$html = $html_nutrition_grade . $html_nutrient_levels;
+	if ($html_nutrient_levels ne '') {
+		$html .= $nutrient_levels_html;
 	}
-
+	$html .= "</div>";
 
 	return $html;
 }
-
-
 
 
 sub add_product_nutriment_to_stats($$$) {
@@ -8844,12 +8839,36 @@ sub display_nutrition_table($$) {
 	my $comparisons_ref = shift;
 
 	my $html = '';
-
+	
+	# This function populates a data structure that is used by the template to display the nutrition facts table
+	my $template_data_ref = {
+		lang => \&lang,
+				
+		tables => [
+			{
+				id => "nutrition",
+				header => {
+					name => lang('nutrition_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},
+			{
+				id => "ecological",
+				header => {
+					name => lang('ecological_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},			
+		],
+		
+		carbon_footprint => [],
+	};	
+	
 	my @cols;
 
-
-	my %col_name = (
-	);
+	my %col_name = ();
 
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
@@ -8863,7 +8882,6 @@ sub display_nutrition_table($$) {
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}
-
 
 
 	foreach my $product_type (@displayed_product_types) {
@@ -8926,27 +8944,26 @@ sub display_nutrition_table($$) {
 		'90' => 'stats',
 		'max' => 'stats',
 	);
-
-
+	
 	# Comparisons with other products, categories, recommended daily values etc.
 
 	if ((defined $comparisons_ref) and (scalar @$comparisons_ref > 0)) {
 
-		$html .= "<p>" . lang("nutrition_data_comparison_with_categories") . "</p>";
-
-
+		# Add a comparisons array to the template data structure
+		
+		$template_data_ref->{comparisons} = [];
 
 		my $i = 0;
 
 		foreach my $comparison_ref (@$comparisons_ref) {
 
-			my $colid = "compare_" . $i;
+			my $col_id = "compare_" . $i;
 
-			push @cols, $colid;
-			$col_class{$colid} = $colid;
-			$col_name{$colid} =  $comparison_ref->{name};
+			push @cols, $col_id;
+			$col_class{$col_id} = $col_id;
+			$col_name{$col_id} =  $comparison_ref->{name};
 
-			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
+			$log->debug("displaying nutrition table comparison column", { colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 
 			my $checked = 0;
 			if (defined $comparison_ref->{show}) {
@@ -8954,7 +8971,7 @@ sub display_nutrition_table($$) {
 			}
 			else {
 				$styles .= <<CSS
-.$colid { display:none }
+.$col_id { display:none }
 CSS
 ;
 			}
@@ -8964,29 +8981,16 @@ CSS
 				$checked_html = ' checked="checked"';
 			}
 
-			$html .= <<HTML
-<label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison"> $comparison_ref->{name}</label>
-HTML
-;
-			if (defined $comparison_ref->{count}) {
-				$html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
-			}
-			$html .= "<br>";
+			push @{$template_data_ref->{comparisons}}, {
+				col_id => $col_id,
+				checked => $checked,
+				name => $comparison_ref->{name},
+				link => $comparison_ref->{link},
+				count => $comparison_ref->{count},
+			};
 
 			$i++;
 		}
-
-		$html .= <<HTML
-<br>
-<input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
-<label for="nutrition_data_compare_percent">$Lang{nutrition_data_compare_percent}{$lang}</label>
-<input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
-<label for="nutrition_data_compare_value">$Lang{nutrition_data_compare_value}{$lang}</label>
-
-HTML
-;
-
-		$html .= "<p class=\"note\">&rarr; " . lang("nutrition_data_comparison_with_categories_note") . "</p>";
 
 		# \$( ".show_comparison" ).button();
 
@@ -9006,6 +9010,7 @@ HTML
 
 }
 );
+
 
 \$(".show_comparison").change(function () {
 	if (\$(this).prop('checked')) {
@@ -9032,11 +9037,10 @@ JS
 		}
 
 		if ($product_ref->{id} ne 'search') {
-
-			$html .= "<div><input id=\"show_stats\" type=\"checkbox\"><label for=\"show_stats\">"
-			. lang("show_category_stats")
-			. '<span class="show-for-xlarge-up">'
-			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
+			
+			# Show checkbox to display/hide stats for the category
+			
+			$template_data_ref->{category_stats} = 1;
 
 			$initjs .= <<JS
 
@@ -9071,37 +9075,22 @@ JS
 
 		}
 	}
+	
+	# Tables header columns (for 2 columns: nutrition + ecological)
+	
+	for (my $i = 0; $i <2 ; $i++) {
+	
+		foreach my $col (@cols) {
 
-	my $empty_cols = '';
-	my $html2 = '';
-
-	$html .= <<HTML
-<table id="nutrition_data_table" class="data_table">
-<thead class="nutriment_header">
-<tr><th>
-HTML
-. lang("nutrition_data_table") . <<HTML
-</th>
-HTML
-;
-
-	foreach my $col (@cols) {
-		my $col_class = '';
-		if (defined $col_class{$col}) {
-			$col_class = ' ' . $col_class{$col} ;
+			push (@{$template_data_ref->{tables}[$i]{header}{columns}}, { 
+				col_id => $col,
+				class => $col_class{$col},
+				name => $col_name{$col},
+			});
 		}
-		my $col_name = $col_name{$col};
-
-		$html .= '<th class="nutriment_value' . ${col_class} . ' ' . $col . '">' . $col_name . '</th>';
-		$empty_cols .= "<td></td>";
 	}
-
-	$html .= <<HTML
-</tr>
-</thead>
-<tbody>
-HTML
-;
+	
+	# Tables body columns
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -9128,6 +9117,9 @@ HTML
 			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
 		}
 	}
+	
+	my $decf = get_decimal_formatter($lc);
+	my $perf = get_percent_formatter($lc, 0);	
 
 	foreach my $nutriment (@nutriments) {
 
@@ -9137,7 +9129,7 @@ HTML
 		$nid =~ s/-$//g;
 
 		next if $nid eq 'sodium';
-
+		
 		my $class = 'main';
 		my $prefix = '';
 
@@ -9168,7 +9160,7 @@ HTML
 			}
 		}
 
-		my $label = '';
+		my $name;
 
 		# display nutrition score only when the country is matching
 
@@ -9178,31 +9170,20 @@ HTML
 				$shown = 0;
 			}
 			else {
-				$label = <<HTML
-<td class="nutriment_label"><a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">${prefix}$Nutriments{$nid}{$lang}</a></td>
-HTML
-;
+				$name = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';		
 			}
 		}
 
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-			$label = <<HTML
-<td class="nutriment_label">${prefix}$Nutriments{$nid}{$lang}</td>
-HTML
-;
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {	
+			$name = $prefix . $Nutriments{$nid}{$lang};
+
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$label = <<HTML
-<td class="nutriment_label">${prefix}$Nutriments{$nid}{en}</td>
-HTML
-;
+			$name = $prefix . $Nutriments{$nid}{en};
+
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-			$label = <<HTML
-<td class="nutriment_label">$label_value</td>
-HTML
-;
+			$name = $product_ref->{nutriments}{$nid . "_label"};
 		}
 
 		my $unit = 'g';
@@ -9215,20 +9196,32 @@ HTML
 			$unit = $product_ref->{nutriments}{$nid . "_unit"};
 		}
 
-		my $values = '';
+		my $values;
+		my $values2;
+		
+		my @columns;
+		my @extra_row_columns;
+		my @ecological_impact_columns;
 
-		my $values2 = '';
-
-		my $decf = get_decimal_formatter($lc);
-		my $perf = get_percent_formatter($lc, 0);
 		foreach my $col (@cols) {
-
+			
+			$values = '';	# Value for row
+			$values2 = '';	# Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 			my $col_class = '';
+			my $percent = '';
+
+			my $rdfa = '';	# RDFA property for row
+			my $rdfa2 = '';	# RDFA property for extra row
+			
+			my $col_type;
+
 			if (defined $col_class{$col}) {
 				$col_class = ' ' . $col_class{$col} ;
 			}
 
 			if ($col =~ /compare_(.*)/) {	#comparisons
+
+				$col_type = "comparison";
 
 				my $comparison_ref = $comparisons_ref->[$1];
 
@@ -9250,9 +9243,9 @@ HTML
 
 				# 0.045 g	0.0449 g
 
-				my $value_unit = "$value $unit";
+				$values = "$value $unit";
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-					$value_unit = '?';
+					$values = '?';
 				}
 				elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 					# Use the actual value in kcal if we have it
@@ -9264,11 +9257,12 @@ HTML
 					else {
 						$value_in_kcal =  g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
 					}
-					$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
+					$values .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 				}
 
-				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
+				$percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
+
 					my $percent_numeric_value = $percent;
 					$percent = $perf->format($percent / 100.0);
 					# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
@@ -9276,32 +9270,25 @@ HTML
 					if ($percent_numeric_value > 0 ) {
 						$percent = "+" . $percent;
 					}
-					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
 				else {
 					$percent = "";
 				}
-
-				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
-
+				
 				if ($nid eq 'sodium') {
 					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-						$values2 .= "<td class=\"nutriment_value${col_class}\">?</td>";
+						$values2 .= '?';
 					}
 					else {
-						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '</span>'
-						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit . '</span>' . "</td>";
+						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
 					}
 				}
 				if ($nid eq 'salt') {
 					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-						$values2 .= "<td class=\"nutriment_value${col_class}\">?</td>";
+						$values2 .= '?';
 					}
 					else {
-						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '</span>'
-						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit . '</span>' . "</td>";
+						$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
 					}
 				}
 
@@ -9322,17 +9309,14 @@ HTML
 
 						my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_100g"},
 							is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
-						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. uc ($nutriscore_grade)
-						. "</td>";
+
+						$values2 .= uc ($nutriscore_grade);
 					}
 				}
-
 			}
 			else {
-
+				$col_type = "normal";
 				my $value_unit = "";
-				my $rdfa = '';
 
 				# Nutriscore: per serving = per 100g
 				if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
@@ -9390,18 +9374,17 @@ HTML
 					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 					}
-					my $property = '';
 					if (defined $salt) {
 						$salt = $decf->format(g_to_unit($salt, $unit));
 						if ($col eq '100g') {
-							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+							$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
 						}
 						$salt .= " " . $unit;
 					}
 					else {
 						$salt = "?";
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . "</td>";
+					$values2 .= $salt;
 				}
 				elsif ($nid eq 'salt') {
 					my $sodium;
@@ -9411,18 +9394,17 @@ HTML
 					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 					}
-					my $property = '';
 					if (defined $sodium) {
 						$sodium = $decf->format(g_to_unit($sodium, $unit));
 						if ($col eq '100g') {
-							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+							$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 						}
 						$sodium .= " " . $unit;
 					}
 					else {
 						$sodium = "?";
 					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . "</td>";
+					$values2 .= $sodium ;
 				}
 				elsif ($nid eq 'nutrition-score-fr') {
 					# We need to know the category in order to select the right thresholds for the nutrition grades
@@ -9439,19 +9421,13 @@ HTML
 
 					if (defined $product_ref->{categories_tags}) {
 
-						if ($col eq "std") {
-							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
-						}
-						else {
+						if ($col ne "std") {
+
 							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
 								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
-							$values2 .= "<td class=\"nutriment_value${col_class}\">"
-							. uc ($nutriscore_grade) # ! prepared
-							. "</td>";
+
+							$values2 .= uc ($nutriscore_grade);
 						}
-					}
-					else {
-						$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 					}
 				}
 				elsif ($col eq $product_ref->{nutrition_data_per}) {
@@ -9468,85 +9444,103 @@ HTML
 					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 				}
 
+				$values .= $value_unit;
+			}
+			
+			if (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')){
+				push (@ecological_impact_columns, {
+					value => $values,
+					class => $col_class,
+					percent => $percent,
+					type => $col_type,
+				});
+			}
 
-				$values .= "<td class=\"nutriment_value${col_class}\"$rdfa>$value_unit</td>";
+			push (@columns, {
+				value => $values,
+				rdfa => $rdfa,
+				class => $col_class,
+				percent => $percent,
+				type => $col_type,
+			});
+
+			push (@extra_row_columns, {
+				value => $values2,
+				rdfa => $rdfa2,
+				class => $col_class,
+				percent => $percent,
+				type => $col_type,
+			});
+		}
+
+		if ($shown) {
+
+			if (($nid ne 'carbon-footprint') and ($nid ne 'carbon-footprint-from-meat-or-fish')) {
+
+				push @{$template_data_ref->{tables}[0]{rows}}, {
+					nid => $nid,
+					class => $class,
+					name => $name,
+					columns => \@columns,
+				};
+
+				if (($nid eq 'sodium') and ($values2 ne '')) {
+
+					push @{$template_data_ref->{tables}[0]{rows}}, {
+						name => lang("salt_equivalent"),
+						nid => "salt_equivalent",
+						class => "sub",
+						columns => \@extra_row_columns,
+					};
+				}
+
+				if (($nid eq 'salt') and ($values2 ne '')) {
+
+					push @{$template_data_ref->{tables}[0]{rows}}, {
+						name => $Nutriments{sodium}{$lang},
+						nid => "sodium",
+						class => "sub",
+						columns => \@extra_row_columns,
+					};
+				}
+
+				if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
+
+					push @{$template_data_ref->{tables}[0]{rows}}, {
+						name => "Nutri-Score",
+						nid => "nutriscore",
+						class => "sub",
+						columns => \@extra_row_columns,
+					};
+				}
+			}
+
+			else {
+
+				push @{$template_data_ref->{tables}[1]->{rows}}, {
+					nid => $nid,
+					class => $class,
+					name => $name,
+					columns => \@ecological_impact_columns,
+				};	
 			}
 		}
-
-
-		my $input = <<HTML
-<tr id="nutriment_${nid}_tr" class="nutriment_$class">
-$label
-$values
-</tr>
-HTML
-;
-
-		if (($nid eq 'sodium') and ($values2 ne '')) {
-			$input .= <<HTML
-<tr id="nutriment_salt_equivalent_tr" class="nutriment_sub">
-<td class="nutriment_label">
-HTML
-. lang("salt_equivalent") . <<HTML
-</td>
-$values2
-</tr>
-HTML
-;
-		}
-
-		if (($nid eq 'salt') and ($values2 ne '')) {
-			$input .= <<HTML
-<tr id="nutriment_sodium_tr" class="nutriment_sub">
-<td class="nutriment_label">
-HTML
-. $Nutriments{sodium}{$lang} . <<HTML
-</td>
-$values2
-</tr>
-HTML
-;
-		}
-
-		if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
-			$input .= <<HTML
-<tr id="nutriment_nutriscore_tr" class="nutriment_sub">
-<td class="nutriment_label">
-HTML
-. "Nutri-Score" . <<HTML
-</td>
-$values2
-</tr>
-HTML
-;
-		}
-
-		if (not $shown) {
-			#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
-		}
-		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
-
-			$html2 .= <<HTML
-<tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>
-HTML
-			. $input;
-
-		}
-		else  {
-			$html .= $input;
-		}
-
+	}
+	
+	# Remove the ecological table if we have no rows
+	
+	if (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0) {
+		pop @{$template_data_ref->{tables}};
 	}
 
-	$html .= <<HTML
-$html2
-</tbody>
-</table>
-HTML
-;
+	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	if ((defined $debug_template)
+		and ($debug_template eq "nutrition_facts_table")) {
+		$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	}
 
 	return $html;
-
 }
 
 
@@ -9565,10 +9559,15 @@ sub display_product_api($)
 	my %response = ();
 
 	$response{code} = $code;
-
 	my $product_ref = retrieve_product($product_id);
+	
+	if ($code !~ /^\d{8,24}$/) {
 
-	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
+		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
+		$response{status} = 0;
+		$response{status_verbose} = 'no code or invalid code';
+	}	
+	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if ($request_ref->{api_version} >= 1) {
 			$request_ref->{status} = 404;
 		}
@@ -9730,7 +9729,7 @@ HTML
 				$changes_ref = [];
 			}
 			$response{blame} = {};
-			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response{blame});
 		}
 
 		if ($request_ref->{jqm}) {

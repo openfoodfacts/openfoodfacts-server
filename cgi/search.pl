@@ -107,7 +107,7 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
 	(not defined param('xml')) and (not defined param('rss')) and
-	($search_terms =~ /^(\d{8})\d*$/)) {
+	($search_terms =~ /^(\d{8,24})$/)) {
 
 		my $code = normalize_code($search_terms);
 
@@ -169,7 +169,7 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
 if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-	and ($sort_by ne 'completeness')) {
+	and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
 	$sort_by = 'unique_scans_n';
 }
 

@@ -126,7 +126,7 @@ use ProductOpener::Config2;
 	ca => {
 		unaccent => 1,
 		lowercase => 1,
-	},	
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
@@ -696,6 +696,9 @@ $options{import_export_fields_groups} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "off";
+
 $options{other_servers} = {
 	obf =>
 	{

@@ -108,6 +108,20 @@ my @tests = (
 	# Spanish and is "e" before "i" or "hi"
 	[ { lc => "es", ingredients_text => "agua de coco e hielo"} , ['en:coconut-water', 'en:ice']],
 
+	# Additive number + name
+	[ { lc => "fr", ingredients_text => "acide citrique E330"} , ["en:e330"]],
+	[ { lc => "fr", ingredients_text => "E330 acide citrique"} , ["en:e330"]],
+	[ { lc => "en", ingredients_text => "E-330 citric acid"} , ["en:e330"]],
+	# citric acid E-330 does not work, as "acid" is an additive class
+	# and it currently gets turned into citric acid: E-330
+	# (which is not that bad)
+	#[ { lc => "en", ingredients_text => "citric acid E-330"} , ["en:e330"]],
+	[ { lc => "en", ingredients_text => "tartrazine E-102"} , ["en:e102"]],
+	# caramel: e150, match e150c
+	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
+	# mismatch between name and number
+	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+
 );
 
 foreach my $test_ref (@tests) {
