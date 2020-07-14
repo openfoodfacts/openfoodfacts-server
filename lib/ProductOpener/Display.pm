@@ -7512,45 +7512,6 @@ CSS
 		$template_data_ref->{not_has_tag} = "states-en:complete";
 	}
 
-	# Commenting out out of date warnings below
-	if (0 and ($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
-		$template_data_ref->{out_of_date_warnings} = 'defined';
-	}
-	elsif (0 and ($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
-
-		has_tag($product_ref, "brands", "amilk") or
-		has_tag($product_ref, "brands", "babycare") or
-		has_tag($product_ref, "brands", "celia") or
-		has_tag($product_ref, "brands", "celia-ad") or
-		has_tag($product_ref, "brands", "celia-develop") or
-		has_tag($product_ref, "brands", "celia-expert") or
-		has_tag($product_ref, "brands", "celia-nutrition") or
-		has_tag($product_ref, "brands", "enfastar") or
-		has_tag($product_ref, "brands", "fbb") or
-		has_tag($product_ref, "brands", "fl") or
-		has_tag($product_ref, "brands", "frezylac") or
-		has_tag($product_ref, "brands", "gromore") or
-		has_tag($product_ref, "brands", "malyatko") or
-		has_tag($product_ref, "brands", "mamy") or
-		has_tag($product_ref, "brands", "milumel") or
-		has_tag($product_ref, "brands", "neoangelac") or
-		has_tag($product_ref, "brands", "neoangelac") or
-		has_tag($product_ref, "brands", "nophenyl") or
-		has_tag($product_ref, "brands", "novil") or
-		has_tag($product_ref, "brands", "ostricare") or
-		has_tag($product_ref, "brands", "pc") or
-		has_tag($product_ref, "brands", "picot") or
-		has_tag($product_ref, "brands", "sanutri")
-
-
-	)
-
-	) {
-		$template_data_ref->{fr_brands} = 'defined';
-	}
-
-
-
 	# photos and data sources
 
 	my $html_manufacturer_source = ""; # Displayed at the top of the product page
@@ -7577,10 +7538,10 @@ CSS
 			my $source_ref = $unique_sources{$source_id};
 			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
-			$html_sources .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $source_ref->{url}) {
-				$html_sources .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
-			}
+			push @{$template_data_ref->{html_sources}}, {
+				lang_source => $lang_source,
+				source_ref_url => $source_ref->{url},
+			};
 
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
 				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
@@ -7591,7 +7552,6 @@ CSS
 		}
 	}
 	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
-	$template_data_ref->{html_sources} = $html_sources;
 
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
@@ -8078,8 +8038,7 @@ $meta_product_image_url
 HTML
 ;
 	my $html_display_product;
-	$tt->process('product_characteristics.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
-	# $html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
 
 	$request_ref->{content_ref} = \$html;

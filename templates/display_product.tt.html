@@ -42,10 +42,10 @@
 
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc == 'defined' %]
-<p id="barcode_paragraph">
-    [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% html_upc %]
-</p>
-<div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+    <p id="barcode_paragraph">
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% html_upc %]
+    </p>
+    <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]
 
 <!-- Obsolete product -->
@@ -72,8 +72,7 @@
     </div>
 [% END %]
 
-<!-- Commenting out out of date warnings below -->
-[% IF out_of_date_warnings == 'defined' %]
+<!-- [% IF out_of_date_warnings == 'defined' %]
     <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
         Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
         <br><br>
@@ -87,7 +86,7 @@
         &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a></span>
         <a href="#" class="close">&times;</a>
     </div>
-[% END %]
+[% END %] -->
 
 <!-- photos and data sources -->
 [% html_manufacturer_source %]
@@ -211,9 +210,15 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% html_sources %]
+[% FOREACH id IN html_sources %]
+    <p>[% lang("sources_${id.lang_source}") %]</p>
+    [% IF id.source_ref_url %]
+        <p><a href="\[% id.source_ref_url %]\">[% lang("sources_${id.lang_source}_product_page") %]</a></p>
+    [% END %]
+[% END %]
 
-<p class="details">[% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
+<p class="details">
+    [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
     [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
     [% other_editors %]
     [% checked %]
