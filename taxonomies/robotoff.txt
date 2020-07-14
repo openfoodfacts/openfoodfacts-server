@@ -1,0 +1,14 @@
+question_name:en:milk_category
+answer_type:value_list
+en:Is the milk… ?
+fr: Ce lait est-il… ?
+trigger:category:en:milk
+whole_name: en:Whole, fr:Entier
+whole_answer_execution::add_categories:en:Whole milks
+semi_name: en:Semi, fr:Semi-écrémé
+semi_answer_execution:add_categories:en:Semi-skimmed milks
+homogenized_name: en:Homogenized, fr:Homogénéisé
+homogenized_answer_execution:add_categories:en:Homogenized milks
+uht_name: en:UHT
+uht_answer_execution:add_categories:en:UHT milks
+
