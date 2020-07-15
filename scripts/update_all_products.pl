@@ -109,7 +109,7 @@ my $remove_label = '';
 my $remove_nutrient = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
-my $assign_category_properties = '';
+my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
@@ -126,7 +126,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
-			"assign-category-properties" => \$assign_category_properties,
+			"assign-categories-properties" => \$assign_categories_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
@@ -196,7 +196,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
-	and (not $assign_category_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
+	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -649,8 +649,8 @@ while (my $product_ref = $cursor->next) {
 		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
-		if ($assign_category_properties) {
-			# assign_category_properties_to_product() is already called by special_process_product
+		if ($assign_categories_properties) {
+			# assign_categories_properties_to_product() is already called by special_process_product
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
