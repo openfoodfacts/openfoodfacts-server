@@ -258,41 +258,42 @@ fr:additifs alimentaires
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
 # functions describe the role certain ingredients play in a product, for instance to thicken, colour etc.
 # functions are just descriptors, they are not ingredients themselves
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
 
-# <en:function
-en:Acid, Acidifier,corrector of acidity
-bg:Киселина
-ca:Àcid, acidulant
-cs:Kyselina
-da:Syre, syrer
-de:Säuerungsmittel
-el:Μέσο οξίνισης
-es:acidulante,acido
-et:Hape
-fi:happo, happoa, hapot, happoja
-fr:acidifiant, acide,acidulants
-ga:Aigéad
-he:חומצה
-hu:Étkezési sav
-it:Acidificanti
-lt:Rūgštis
-lv:Skābe
-mt:Aċidu
-nb:syre, syrer
-nl:Voedingszuur
-pl:Kwas
-pt:Acidificante
-ro:Acidifiant, agent acidifiant
-ru:Кислота
-sk:Kyselina
-sl:Kislina
-sv:syra, syror, surgörare
-wikidata:en:Q337038
+# Has been added to the additives_classes.tx
+#en:Acid, Acidifier,corrector of acidity
+#bg:Киселина
+#ca:Àcid, acidulant
+#cs:Kyselina
+#da:Syre, syrer
+#de:Säuerungsmittel
+#el:Μέσο οξίνισης
+#es:acidulante,acido
+#et:Hape
+#fi:happo, happoa, hapot, happoja
+#fr:acidifiant, acide,acidulants
+#ga:Aigéad
+#he:חומצה
+#hu:Étkezési sav
+#it:Acidificanti
+#lt:Rūgštis
+#lv:Skābe
+#mt:Aċidu
+#nb:syre, syrer
+#nl:Voedingszuur
+#pl:Kwas
+#pt:Acidificante
+#ro:Acidifiant, agent acidifiant
+#ru:Кислота
+#sk:Kyselina
+#sl:Kislina
+#sv:syra, syror, surgörare
+#wikidata:en:Q337038
 # ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
 # ingredient/fr:acide has 262 products @2019-05-31
 
