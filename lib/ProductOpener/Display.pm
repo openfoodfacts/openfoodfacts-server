@@ -6478,6 +6478,7 @@ HTML
 	# init javascript code
 
 	$html =~ s/<initjs>/$initjs/;
+	$template_data_ref->{initjs} = $initjs;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
@@ -8886,6 +8887,7 @@ JS
 
 		}
 	}
+
 
 	my $empty_cols = '';
 	my $html2 = '';
