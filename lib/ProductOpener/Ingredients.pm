@@ -3497,7 +3497,10 @@ sub preparse_ingredients_text($$) {
 			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
 
 			# Huiles végétales de palme, de colza et de tournesol
+			# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire.
+			$text =~ s/fer élémentaire/fer_élémentaire/g;
 			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
+			$text =~ s/fer_élémentaire/fer élémentaire/g;			
 		}
 
 		# Caramel ordinaire et curcumine
