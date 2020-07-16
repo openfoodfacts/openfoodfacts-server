@@ -57,11 +57,7 @@ my $tt = Template->new({
 
 # Passing values to the template
 my $template_data_ref = {
-		
 	lang => \&lang,
-	popup_menu => \&popup_menu,
-	start_form => \&start_form,
-	
 };
 
 my $criteria;
@@ -245,32 +241,24 @@ if ($action eq 'display') {
 		else {
 			if ($field eq 'creator') {
 				$search_fields_labels{$field} = lang("users_p");
-				# push (@type_array, { 
-				# 	type_values => $field,
-				# 	type_labels => $search_fields_labels{$field},
-				# });
 			}
 			else {
 				$search_fields_labels{$field} = lang($field . "_p");
-				# push (@type_array, { 
-				# 	type_values => $field,
-				# 	type_labels => $search_fields_labels{$field},
-				# });
 			}
 		}
 		push (@type_array, { 
 			type_values => $field,
 			type_labels => $search_fields_labels{$field},
 		});
-
 	}
+
 	$search_fields_labels{search_tag} = lang("search_tag");
 	push (@type_array, { 
 		type_values => "search",
 		type_labels => $search_fields_labels{search_tag},
 	});
 
-	my @contain_values = ["contains", "does_not_contain"];
+	my @contain_values = ("contains", "does_not_contain");
 	my %contain_labels = ();
 	# my %contain_labels = {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")};
 
@@ -286,34 +274,19 @@ if ($action eq 'display') {
 	# ];
 
 	foreach my $value (@contain_values){
-		$contain_labels{$value} = lang("search_" . $value);
+		# push(@{ $contain_labels{$value} }, lang("search_" . $value));
+		my $new_label = lang("search_" . $value);
 	 	push (@contains, { 
 	  		contain_values => $value,
-	  		contain_labels => $contain_labels{$value},
+	  		contain_labels => $new_label,
 	 	});
 	 }
-	
-	# foreach my $elem (@search_fields){
-	# 	push (@type_array, { 
-	# 		type_values => $elem,
-	# 		type_labels => $search_fields_labels{$elem},
-	# 	});
-	# }
-
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
-
-		# push (@type_array, { 
-		#  	type_values => ['search_tag', @search_fields],
-		# 	type_labels => \%search_fields_labels,
-		# });
-
 		
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
 			type_value => $search_tags[$i][0],
-			# type_values => ['search_tag', @search_fields],
-			# type_labels => %search_fields_labels,
 			type_arrays => \@type_array,
 			contain_value => $search_tags[$i][1],
 			contain_array => \@contains,
@@ -346,62 +319,116 @@ if ($action eq 'display') {
 	}	
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
-	$axis_labels{additives_n} = lang("number_of_additives");
-	$axis_labels{ingredients_n} = lang("ingredients_n_s");
-	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
-	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
-	$axis_labels{search_nutriment} = lang("search_nutriment");
-	$axis_labels{products_n} = lang("number_of_products");	
-	
 	my @sorted_axis_values = sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values);
+	my @result_array;
 
+	foreach my $entry (@sorted_axis_values) {
+		if ($entry ne ("additives_n") && $entry ne ("ingredients_n") && $entry ne ("known_ingredients_n") && $entry ne ("unknown_ingredients_n") && $entry ne ("search_nutriment") && $entry ne ("products_n")) {
+			my $sorted_labels = ucfirst($Nutriments{$entry}{$lc} || $Nutriments{$entry}{en});
+			push (@result_array, { 
+				values => $entry,
+				label => $sorted_labels,
+			});
+		}
+	}
+	push (@result_array, { 
+		values => "additives_n",
+		label => lang("number_of_additives"),
+	});
+	push (@result_array, { 
+		values => "ingredients_n",
+		label => lang("ingredients_n_s"),
+	});
+	push (@result_array, { 
+		values => "known_ingredients_n",
+		label => lang("known_ingredients_n_s"),
+	});
+	push (@result_array, { 
+		values => "unknown_ingredients_n",
+		label => lang("unknown_ingredients_n_s"),
+	});
+	push (@result_array, { 
+		values => "products_n",
+		label => lang("number_of_products"),
+	});
+	
+	$template_data_ref->{result_array} = \@result_array;
+	my @axis_array = ('x','y');
+	my @resultant_array;
+	foreach my $axis (@axis_array) {
+		push (@resultant_array, { 
+			id => $axis,
+			results => \@result_array,
+		});
+	}
+	$template_data_ref->{resultant_array} = \@resultant_array;
+
+	my @nutriments = (
+	  	{
+	  		'values' => "lt",
+	  		'label' => '<',
+	  	},
+	  	{
+	  		'values' => "lte",
+	  		'label' => "\N{U+2264}",
+	  	},
+		{
+	  		'values' => "gt",
+	  		'label' => '<',
+	  	},
+		{
+	  		'values' => "gte",
+	  		'label' => "\N{U+2265}",
+	  	},
+		{
+	  		'values' => "eq",
+	  		'label' => '=',
+	  	},
+	 );
+	
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
-			value => $search_nutriments[$i][0],
-			values => ["", @sorted_axis_values],
-			labels => \%axis_labels,
-			compare_value => $search_nutriments[$i][1],
-			compare_values => ['lt','lte','gt','gte','eq'],
-			compare_labels => {'lt' => '<', 'lte' => "\N{U+2264}", 'gt' => '>', 'gte' => "\N{U+2265}", 'eq' => '='},
+			nutriment_values => \@result_array,
+			nutriment_array => \@nutriments,
 			input_value => $search_nutriments[$i][2],
-
 		};
 	
 	}
 
 	# Different types to display results
 
-	push @{$template_data_ref->{popup_sort}}, {
-		value => $sort_by,
-		values => ['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
-		labels => {unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"), created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"), completeness=>lang("sort_completeness")},
+	my @sort_array = (
+	  	{
+	  		'values' => "unique_scans_n",
+	  		'label' => lang("sort_popularity"),
+	  	},
+	  	{
+	  		'values' => "product_name",
+	  		'label' => lang("sort_product_name"),
+	  	},
+		{
+	  		'values' => "created_t",
+	  		'label' => lang("sort_created_t"),
+	  	},
+		{
+	  		'values' => "last_modified_t",
+	  		'label' => lang("sort_modified_t"),
+	  	},
+		{
+	  		'values' => "completeness",
+	  		'label' => lang("sort_completeness"),
+	  	},
+	 );
 
-	};
+	push @{$template_data_ref->{sort_array}}, @sort_array;
+	push @{$template_data_ref->{sort_by}}, $sort_by;
 
-	push @{$template_data_ref->{popup_size}}, {
-		value => $limit,
-		values => [20, 50, 100, 250, 500, 1000],
-
-	};
+	my @size_array =(20, 50, 100, 250, 500, 1000);
+	push @{$template_data_ref->{size_array}}, @size_array;
 
 	$template_data_ref->{active_list} = $active_list;
-	
-
-	# Graphs and visualization
-
-	foreach my $axis ('x','y') {
-
-		push @{$template_data_ref->{results}}, {
-			id => $axis,
-			value => $graph_ref->{"axis_" . $axis},
-			values => ["", @sorted_axis_values],
-			labels => \%axis_labels,
-
-		};
-
-	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
 
@@ -449,7 +476,6 @@ JS
 
 
 $tt->process('search_form.tt.html', $template_data_ref, \$html);
-$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;

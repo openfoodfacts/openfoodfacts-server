@@ -2,7 +2,6 @@
 <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form">
 
     <!-- Word Search -->
-    <!-- [% start_form(id=>"search_form", action=>"/cgi/search.pl") %] -->
     <div class="row">
         <div class="large-12 columns">
             <label for="search_terms2">[% lang ('search_terms_note') %]</label>
@@ -23,30 +22,29 @@
                 <div class="row">
                     
                     <div class="small-12 medium-12 large-5 columns">
-                        
-                        <!-- [% popup_menu(name=>"tagtype_${type.id}", id=>"tagtype_${type.id}", value=> type.type_value, values=> type.type_values, labels=> type.type_labels) %] -->
-                        
+                                                
                         <select name="tagtype_${type.id}" id="tagtype_${type.id}">
                             [% FOREACH value IN type.type_arrays %]
                                 [% IF value.type_labels == 'choose a criterion...' %]
                                     <option value="[% value.type_values %]" label="[% value.type_labels %]" selected="selected"></option>
                                 [% ELSE %]
                                     <option value="[% value.type_values %]" label="[% value.type_labels %]"></option>
-                                [% END %] 
+                                [% END %]
+                                
                             [% END %]
                         </select>
                         
                     </div>
                     
                     <div class="small-12 medium-12 large-3 columns">
-                        <!-- [% popup_menu(name=>"tag_contains_${type.id}", id=>"tag_contains_${type.id}", value=> type.contain_value, values=> type.contain_values, labels=> type.contain_labels) %] -->
-                        <select name="tag_contains_${type.id}" id="tag_contains_${type.id}"></select>
-                            [%FOREACH value in type.contain_array %]
-                                [% IF value.type_labels == 'contains' %]
+
+                        <select name="tag_contains_${type.id}" id="tag_contains_${type.id}">
+                            [% FOREACH value IN type.contain_array %]
+                                [% IF value.contain_labels == 'contains' %]
                                     <option value="[% value.contain_values %]" label="[% value.contain_labels %]" selected="selected"></option>
                                 [% ELSE %]
                                     <option value="[% value.contain_values %]" label="[% value.contain_labels %]"></option>
-                                [% END %] 
+                                [% END %]
                             [% END %]
                         </select>
                     </div>
@@ -64,8 +62,8 @@
     <h3>[% lang('search_ingredients') %]</h3>
 
     <div class="row">
-        [% FOREACH type IN ingredients %]
 
+        [% FOREACH type IN ingredients %]
             <div class="small-12 medium-12 large-6 columns">
                 <label>[% lang ("${type.tagtype}_p") FILTER ucfirst %]</label>
                 <input type="radio" name="[% type.tagtype %]" value="without" id="without_[% type.tagtype %]" [% type.search_ingredient_classes_checked_without %]/>
@@ -75,7 +73,6 @@
 			    <input type="radio" name="[% type.tagtype %]" value="indifferent" id="indifferent_[% type.tagtype %]" [% type.search_ingredient_classes_checked_indifferent %]/>
 				    <label for="indifferent_[% type.tagtype %]">[% lang('search_indifferent') %]</label>
             </div>
-
         [% END %]
     </div>
 
@@ -88,10 +85,22 @@
             <div class="small-12 medium-12 large-6 columns">
                 <div class="row">
                     <div class="small-8 columns">
-                        [% popup_menu(class=>"select2_field", name=>"nutriment_${type.id}", id=>"nutriment_${type.id}", value=> type.value, values=> type.values, labels=> type.labels) %]
+                        <select class="select2_field" name="nutriment_[% type.id %]" id="nutriment_[% type.id %]">
+                            [% FOREACH nutriment IN type.nutriment_values %]
+                                <option value="[% nutriment.values %]" label="[% nutriment.label %]">[% nutriment.label %]</option>
+                            [% END %]
+                        </select>
                     </div>
                     <div class="small-2 columns">
-                        [% popup_menu(name=>"nutriment_compare_${type.id}", id=>"nutriment_compare_${type.id}", value=> type.compare_value, values=> type.compare_values, labels=> type.compare_labels) %]
+                        <select name="nutriment_compare_${type.id}" id="nutriment_compare_${type.id}">
+                            [% FOREACH value IN type.nutriment_array %]
+                                [% IF value.label == '<' %]
+                                    <option value="[% value.values %]" label="[% value.label %]" selected="selected"></option>
+                                [% ELSE %]
+                                    <option value="[% value.values %]" label="[% value.label %]"></option>
+                                [% END %]
+                            [% END %]
+                        </select>
                     </div>
                     <div class="small-2 columns">
                         <input type="text" id="nutriment_value_[% type.id %]" name="nutriment_value_[% type.id %]" value="[% type.input_value %]" />
@@ -113,15 +122,27 @@
                 <div class="row">
                     <div class="small-6 columns">
                         <label for="sort_by">[% lang('sort_by') %]</label>
-                        [% FOREACH popup IN popup_sort %]
-                            [% popup_menu(name=>"sort_by", id=>"sort_by", value=>popup.value, values=>popup.values, labels=>popup.labels ) %]
-                        [% END %]
+                        <select name="sort_by" id="sort_by">
+                            [% FOREACH value IN sort_array %]
+                                [% IF value.values == 'unique_scans_n' %]
+                                    <option value="[% value.values %]" label="[% value.label %]" selected="selected"></option>
+                                [% ELSE %]
+                                    <option value="[% value.values %]" label="[% value.label %]"></option>
+                                [% END %]
+                            [% END %]
+                        </select>
                     </div>
                     <div class="small-6 columns">
                         <label for="page_size">[% lang('search_page_size') %]</label>
-                        [% FOREACH popup IN popup_size %]
-                            [% popup_menu(name=>"page_size", id=>"page_size", value=>popup.value, values=>popup.values) %]
-                        [% END %]
+                        <select name="page_size" id="page_size">
+                            [% FOREACH num IN size_array %]
+                                [% IF num == 20 %]
+                                    <option value=[% num %] label=[% num %] selected="selected"></option>
+                                [% ELSE %]
+                                    <option value=[% num %] label=[% num %]></option>
+                                [% END %]
+                            [% END %]
+                        </select>
                     </div>
                 </div>
                 <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />
@@ -143,15 +164,15 @@
                 <p>[% lang('search_graph_instructions') %]</p>
     
                 <div class="row">
-                    [% FOREACH type IN results %]
+                    [% FOREACH type IN resultant_array %]
                         <div class="small-12 medium-6 columns">
-
                             <label for= "axis_[% type.id %]">[% lang("axis_${type.id}") %]</label>
-
-                            [% popup_menu(class=>"select2_field", name=>"axis_${type.id}", id=>"axis_${type.id}", value=> type.value, values=> type.values, labels=> type.labels) %]
-                        
+                            <select class="select2_field" name="axis_[% type.id %]" id="axis_[% type.id %]">
+                                [% FOREACH axistype IN type.results %]
+                                    <option value="[% axistype.values %]" label="[% axistype.label %]">[% axistype.label %]</option>
+                                [% END %]
+                            </select>
                         </div>
-
                     [% END %]
                 </div>
 
