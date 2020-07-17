@@ -37,6 +37,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --count		do not do any processing, just count the number of products matching the --query options
 --just-print-codes	do not do any processing, just print the barcodes
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
+--query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
 --compute-nutrition-score	nutriscore
@@ -113,6 +114,7 @@ my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
+my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 
@@ -142,7 +144,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
 			"fix-rev-not-incremented" => \$fix_rev_not_incremented,
-			"user_id=s" => \$User_id,
+			"user-id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
 			"autorotate" => \$autorotate,
@@ -154,6 +156,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"team=s" => \$team,
 			"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 			"delete-debug-tags" => \$delete_debug_tags,
+			"mark-as-obsolete-since-date=s" => \$mark_as_obsolete_since_date,
 			"all-owners" => \$all_owners,
 			"delete-old-fields" => \$delete_old_fields,
 			)
@@ -198,6 +201,7 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
+	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
@@ -221,6 +225,9 @@ foreach my $field (sort keys %$query_ref) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
+	elsif ($query_ref->{$field} =~ /^-/) {
+		$query_ref->{$field} = { '$ne' => $' };
+	}	
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
@@ -921,6 +928,14 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_sort_key) {
 			compute_sort_keys($product_ref);
+		}
+		
+		if ($mark_as_obsolete_since_date) {
+			if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+				$product_ref->{obsolete} = "on";
+				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
+				$product_values_changed = 1;
+			}		
 		}
 
 		if (not $pretend) {
