@@ -110,12 +110,13 @@ my $remove_label = '';
 my $remove_nutrient = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
-my $assign_category_properties = '';
+my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
 my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
+my $delete_old_fields = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -128,7 +129,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
-			"assign-category-properties" => \$assign_category_properties,
+			"assign-categories-properties" => \$assign_categories_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
@@ -157,6 +158,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"delete-debug-tags" => \$delete_debug_tags,
 			"mark-as-obsolete-since-date=s" => \$mark_as_obsolete_since_date,
 			"all-owners" => \$all_owners,
+			"delete-old-fields" => \$delete_old_fields,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -191,7 +193,7 @@ if ($unknown_fields > 0) {
 }
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
-	and (not $clean_ingredients)
+	and (not $clean_ingredients) and (not $delete_old_fields)
 	and (not $compute_serving_size) and (not $reassign_energy_kcal)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
@@ -199,8 +201,8 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
-	and (not $assign_category_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $mark_as_obsolete_since_date)
+	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -306,6 +308,11 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		if ($delete_old_fields) {
+			# renamed to categories_properties
+			delete $product_ref->{category_properties};
+		}
 
 		if ((defined $remove_team) and ($remove_team ne "")) {
 			remove_tag($product_ref, "teams", $remove_team);
@@ -656,8 +663,8 @@ while (my $product_ref = $cursor->next) {
 		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
-		if ($assign_category_properties) {
-			# assign_category_properties_to_product() is already called by special_process_product
+		if ($assign_categories_properties) {
+			# assign_categories_properties_to_product() is already called by special_process_product
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
