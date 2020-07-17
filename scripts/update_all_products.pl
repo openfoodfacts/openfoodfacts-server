@@ -114,6 +114,7 @@ my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
 my $reassign_energy_kcal = '';
+my $delete_old_fields = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -154,6 +155,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 			"delete-debug-tags" => \$delete_debug_tags,
 			"all-owners" => \$all_owners,
+			"delete-old-fields" => \$delete_old_fields,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -188,7 +190,7 @@ if ($unknown_fields > 0) {
 }
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
-	and (not $clean_ingredients)
+	and (not $clean_ingredients) and (not $delete_old_fields)
 	and (not $compute_serving_size) and (not $reassign_energy_kcal)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
@@ -299,6 +301,11 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+
+		if ($delete_old_fields) {
+			# renamed to categories_properties
+			delete $product_ref->{category_properties};
+		}
 
 		if ((defined $remove_team) and ($remove_team ne "")) {
 			remove_tag($product_ref, "teams", $remove_team);
