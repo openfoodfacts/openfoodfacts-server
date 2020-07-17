@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OFF-Product Comparator</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="icon" href="./resources/images/favicon.gif">
+    <link rel="stylesheet" type="text/css" href="./resources/styles/scroll.css" >
+    <link rel="stylesheet" type="text/css" href="./resources/styles/graph_handheld.css" >
+    <link rel="stylesheet" type="text/css" href="./resources/styles/products_suggestion.css" >
+    <link rel="stylesheet" type="text/css" href="./resources/styles/product_details.css" >
+    <link rel= "stylesheet" type= "text/css" href= "./resources/styles/waiting_screen.css">
+    <link rel="stylesheet" type="text/css"
+          href="./resources/3rd_party/slidebars_adchsm/slidebars.css">
+    <link rel="stylesheet" type="text/css" href="./resources/styles/slidebars_items.css">
+    <!-- JS libraries -->
+    <script type="text/javascript" src="./resources/3rd_party/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./resources/3rd_party/d3.v3.min.js"></script>
+    <script type="text/javascript" src="./resources/scripts/constants_endpoints.js"></script>
+    <script type="text/javascript" src="./resources/scripts/constants_stats.js"></script>
+    <script type="text/javascript" src="./resources/scripts/constants.js"></script>
+    <script type="text/javascript" src="./resources/scripts/scanner.js"></script>
+    <script type="text/javascript" src="./resources/scripts/utils.js"></script>
+    <script type="text/javascript" src="./resources/scripts/country_store.js"></script>
+    <script type="text/javascript" src="./resources/scripts/score_databases.js"></script>
+    <script type="text/javascript" src="./resources/scripts/products_suggestion.js"></script>
+    <script type="text/javascript" src="./resources/scripts/graph_handheld.js"></script>
+    <script type="text/javascript" src="./resources/scripts/main.js"></script>
+    <script type="text/javascript" src="./resources/scripts/waiting_screen.js"></script>
+
+</head>
+
+<body bgcolor='#e8e8e8'>
+
+<!-- Waiting Screen -->
+<div id="screenBlock">
+    <!--<img src="{{ url_for('static',filename='images/giphy5.gif') }}" title="server busy"/>-->
+</div>
+
+<!-- Display details of selected product among those which are suggested in the bottom banner -->
+<div id="selected_product_details">
+
+</div>
+
+<!-- GRAPH HEADER -->
+
+<div id="banner">Open Food Facts Graph - Product comparison
+    <button class="js-toggle-left-slidebar sb_menu_btn"><img
+            src="./resources/images/ico_menu_3.png" class="sb_ico_menu"/></button>
+</div>
+
+<div id="product_details"><span id="prod_ref_code">&nbsp;</span> &nbsp;&nbsp;
+    <span id="prod_ref_name"/></div>
+<div style='width: 98%; text-align: right;'>
+    <table style='text-align: right; width: 100%'>
+        <tbody>
+        <tr>
+            <td style='border-radius: 5px;'>
+                <table style="width: 100%">
+                    <tr style='text-align: right; vertical-align: top; background-color: #d0d0d0;'>
+                        <td id="cell_product_image">
+                            <img id="prod_ref_image" height="javascript: $(window).innerHeight()/7"
+                                 src='https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-178x150.png'
+                                 onclick="$(ID_INPUT_PRODUCT_CODE).val(current_product==null? PRODUCT_CODE_DEFAULT : current_product.code)"
+                            />
+                            <div id="links_off">
+                                <div><a id="url_off_prod" href='https://world.openfoodfacts.org' target='_blank'>
+                                    Product page
+                                </a></div>
+                                <div id="link_json_off"><a id="url_off_json_prod"
+                                                           href='https://fr.openfoodfacts.org/api/v0/produit/3029330003533.json'
+                                                           target='_blank'>
+                                    Product JSON
+                                </a></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="prod_ref_categories" style="display:none"></div>
+                            <div id="criteria">
+                                <table>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>
+                                            <!-- List of navigator's languages: see
+                                            https://stackoverflow.com/questions/5580876/navigator-language-list-of-all-languages
+                                            -->
+                                            <select id="input_country"
+                                                    onchange="set_user_country($(ID_INPUT_COUNTRY+' option:selected')[0]);
+                                                    fetch_stores($(ID_INPUT_COUNTRY+' option:selected')[0])">
+                                                <option></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Store</td>
+                                        <td>
+                                            <select id="input_store" title="select a store">
+                                                <option></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Score</td>
+                                        <td>
+                                            <select id="input_score_db" title="select a score" onchange="changeScoreDb(this)">
+                                                <option></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Barcode</td>
+                                        <td>
+                                            <div id="panel_input_code">
+                                                <input id='input_product_code' type='text' title="product code"
+                                                       value=""/>
+                                                <div id="submitBtn" name="submitBtn">Go!</div>
+                                                <div>
+                                                    <!--img src="{{ url_for('static',filename='images/barcode1.png') }}"
+                                                         width="90px" style="margin-left: 5px"
+                                                         title="scan a product barcode (http)" onclick="scan_barcode_http()"/-->
+                                                    <img src="./resources/images/barcode2.png"
+                                                         style="padding-left: 65px;"
+                                                         width="90px" style="margin-left: 5px"
+                                                         title="scan a product barcode (zxing)"
+                                                         onclick="Quagga.start()"/>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div id="msg_warning_prod_ref">&nbsp;</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="graph">&nbsp;</div>
+
+<!-- Panel for the suggestion of products with a better score -->
+<!-- navigation icons -->
+<div id="menu_selection">
+    <div>
+        <div id="nb_suggestions"></div>
+        <br/>
+        suggestions
+    </div>
+    <img src="./resources/images/leftArrow.png"
+         title="previous product" onclick="select_picture(-1)"/>
+    <img src="./resources/images/details.png"
+         title="compare this product" onclick="show_details()"/>
+    <img src="./resources/images/rightArrow.png"
+         title="next product" onclick="select_picture(+1)"/>
+</div>
+
+<div id="products_suggestion">
+
+</div>
+
+<!-- BLOCK for displaying/hiding the menu items in the panel -->
+<div off-canvas="slidebar-1 left reveal" class="sb">
+    <div class="panel">
+        <header id="sb_title">Welcome to tuttifrutti<br/>
+            <div class="sb_subtitle">off graph</div>
+        </header>
+        <div class="body">
+            <table>
+                <tr class="sb_item">
+                    <td><a href="https://offgraphs.blogspot.com/2018/09/how-to-use-interface.html" target="_blank"
+                           title="how to use?">
+                        <img src="./resources/images/ico_help_1.png"
+                             class="sb_ico"
+                             title="how to use?"/></a>
+                    </td>
+                    <td class="sb_item"><a href="https://offgraphs.blogspot.com/2018/09/how-to-use-interface.html"
+                                           target="_blank" title="how to use?">how to use?</a></td>
+                </tr>
+                <tr class="sb_item">
+                    <td><a href="https://offgraphs.blogspot.com/2018/09/create-your-off-graph-app.html" target="_blank"
+                           title="create an App"><img src="./resources/images/ico_app_1.png"
+                                                      class="sb_ico"
+                                                      title="create an App"/></a></td>
+                    <td class="sb_item"><a href="https://offgraphs.blogspot.com/2018/09/create-your-off-graph-app.html"
+                                           target="_blank" title="create an App">create an App</a></td>
+                </tr>
+                <tr class="sb_item">
+                    <td><a href="https://world.openfoodfacts.org" target="_blank" title="data from OpenFoodFacts">
+                        <img src="./resources/images/ico_openfoodfacts_1.svg"
+                             class="sb_ico"
+                             title="data from OpenFoodFacts"/></a></td>
+                    <td class="sb_item"><a href="https://world.openfoodfacts.org" target="_blank"
+                                           title="data from OpenFoodFacts">data from OpenFoodFacts</a></td>
+                </tr>
+                <tr class="sb_item">
+                    <td><a onclick="clearCache()" href="#" title="clear App cache">
+                        <img src="./resources/images/ico_clear_cache_1.png"
+                             class="sb_ico"
+                             title="clear App cache"/></a></td>
+                    <td class="sb_item"><a onclick="clearCache()" href="#"
+                                           title="clear App cache">clear App cache</a></td>
+                </tr>
+                <tr class="sb_item">
+                    <td><a href="https://world.openfoodfacts.org" target="_blank" title="DEV: use the API">
+                        <img src="./resources/images/ico_developers.png"
+                             class="sb_ico"
+                             title="DEV: use the API"/></a></td>
+                    <td class="sb_item"><a
+                            href="https://offgraphs.blogspot.com/2018/09/api-usage-for-getting-similar-products.html"
+                            target="_blank"
+                            title="DEV: use the API">developers: use the API</a></td>
+                </tr>
+                <!--tr class="sb_item">
+                    <td><a href="#" target="_blank" title="donate"><img src="{{ url_for('static',filename='images/ico_donate_3.png') }}"
+                             class="sb_ico"
+                             title="donate"/></a></td>
+                    <td class="sb_item"><a href="#" target="_blank" title="donate">donate</a></td>
+                </tr-->
+            </table>
+        </div>
+        <footer id="sb_bottom">
+            <table id="sb_bottom_table">
+                <tr>
+                    <td><a href="https://twitter.com/GraphProsim" target="_blank"
+                           title="twitter off graph &amp; prosim backend-engine">
+                        <img src="./resources/images/ico_twitter_1.png"
+                             class="sb_ico_big"
+                             title="twitter off graph &amp; prosim backend-engine"/></a></td>
+                    <td><a href="https://offgraphs.blogspot.com" target="_blank"
+                           title="access to dedicated blog on blogger">
+                        <img src="./resources/images/ico_blog_2.png"
+                             class="sb_ico_big"
+                             title="access to dedicated blog on blogger"/></a></td>
+                </tr>
+            </table>
+        </footer>
+    </div>
+</div>
+
+
+<!--<img src="{{ url_for('static',filename='images/off_product_comparator_site_in_construction.jpeg') }}"
+     title="OFF-Product Comparator is under maintenance"/>-->
+
+<script type="text/javascript"
+        src="./resources/3rd_party/slidebars_adchsm/slidebars.min.js"></script>
+<script type="text/javascript"
+        src="./resources/3rd_party/slidebars_adchsm/scripts_adchsm.js"></script>
+<!-- END OF BLOCK -->
+
+<div id="server_log_cell">
+    <table id="server_log">
+        <tr id="server_log_header_row">
+            <td>Server activity</td>
+            <td>
+                <div id="server_activity">
+                    <img width="48px" src="./resources/images/giphy5.gif"
+                         title="server busy"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="echoResultLog"
+                >&nbsp;</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<script type="text/javascript">init()</script>
+<script type="text/javascript">
+    Quagga.init({
+        inputStream : {
+            name : "Live",
+            type : "LiveStream",
+            target: document.querySelector('#input_product_code')    // Or '#yourElement' (optional)
+        },
+        decoder : {
+            readers : ["code_128_reader"]
+        }
+    }, function(err) {
+        if (err) {
+            console.log(err);
+            return
+        }
+        console.log("Initialization finished. Ready to start");
+    });
+
+
+
+</script>
+</body>
+</html>
