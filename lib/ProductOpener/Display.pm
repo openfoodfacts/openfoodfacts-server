@@ -6292,9 +6292,11 @@ sub display_new($) {
 	my @banners = qw(independent personal research);
 	my $banner = $banners[time() % @banners];
 	$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	my $image_en = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{image} = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	$template_data_ref->{image} = $image;
+	$template_data_ref->{image_en} = $image_en;
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{banners} = @banners;
 	$template_data_ref->{banner} = $banner;
@@ -6444,6 +6446,7 @@ HTML
 	# init javascript code
 
 	$html =~ s/<initjs>/$initjs/;
+	$template_data_ref->{initjs} = $initjs;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
@@ -8678,12 +8681,13 @@ JS
 	for (my $i = 0; $i <2 ; $i++) {
 	
 		foreach my $col (@cols) {
-
+    
 			push (@{$template_data_ref->{tables}[$i]{header}{columns}}, { 
 				col_id => $col,
 				class => $col_class{$col},
 				name => $col_name{$col},
 			});
+
 		}
 	}
 	
