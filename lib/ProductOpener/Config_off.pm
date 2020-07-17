@@ -533,6 +533,8 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
 );
 
 
