@@ -6326,9 +6326,11 @@ sub display_new($) {
 	my @banners = qw(independent personal research);
 	my $banner = $banners[time() % @banners];
 	$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	my $image_en = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{image} = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	$template_data_ref->{image} = $image;
+	$template_data_ref->{image_en} = $image_en;
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{banners} = @banners;
 	$template_data_ref->{banner} = $banner;
