@@ -205,7 +205,7 @@ de:frischgemahlen, frishgemahlene
 en:pureed
 da:puré, pure
 de:püree, puree, püree aus
-es:pure, pure de
+es:pure,puré,pure de,cremogenado,cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
 nb:puré
@@ -510,6 +510,7 @@ fr:semi-déshydratées
 en:cured
 
 en:dehydrated
+ca:dessecade,dessecades,dessecats,dessecat
 es:deshidratado, deshidratada, deshidratados, deshidratadas,desecado,desecada,desecados,desecadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
@@ -589,7 +590,7 @@ de:erste kalte pressung
 fr:première pression à froid, 1ère pression à froid, de première pression à froid
 
 en:mechanically separated
-es:separada mechanicamente
+es:separada mecánicamente
 sv:maskinurbenat
 
 #######################################################################
@@ -677,6 +678,9 @@ fr:non-blanchie
 # <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
 
+en:caramelized
+ca:caramel-litzat
+
 en:puffed
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt
@@ -701,6 +705,7 @@ sv:friterad, stekt
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
 en:roasted
+ca:rostit,rostits,rostida,rostides
 de:gebraten, gebratene
 es:asado, asada, asados, asadas
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
@@ -713,6 +718,7 @@ en:dry roasted
 
 # en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en:toasted
+ca:torrat,torrats,torrada,torrades
 de:geröstet, geröstete, geröstetes, gerösteter, getoastet
 es:tostado, tostada, tostados, tostadas
 fi:paahdettu, paahdetut
@@ -838,12 +844,14 @@ sv:sockrad
 #<en:sugared
 de:leicht gezuckert
 
+# In French, "confit" means candied, or cooked in fat (canard confit), or preserved in salted water (citron confit)
 #<en:sugared
 en:candied
 ca:confitada
 da:kandiserede
 de:kandiert, kandierte, kandierten, kandierter
 es:confitado,confitada,confitados,confitadas
+fr:confit,confite,confits,confites,confit de,confit d'
 it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
 sv:kanderad, kanderade

@@ -599,6 +599,9 @@ sub clean_weights($) {
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
+
+			# 1 units (with units in plural)
+			$product_ref->{$field} =~ s/^1 (unit|piece|pièce)s$/1 $1/ig;
 		}
 
 	}
@@ -755,7 +758,9 @@ sub clean_fields($) {
 	foreach my $field (keys %$product_ref) {
 
 		# Split the generic name from the ingredient list
-		if ($field =~ /^ingredients_text_(\w\w)/) {
+		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
+		# It should not be done again when we import product data from the producers platform to the public database
+		if (($server_options{producers_platform}) and ($field =~ /^ingredients_text_(\w\w)/)) {
 			my $ingredients_lc = $1;
 			split_generic_name_from_ingredients($product_ref, $ingredients_lc);
 		}
