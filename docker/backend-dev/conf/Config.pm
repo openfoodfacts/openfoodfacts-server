@@ -40,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -233,6 +234,7 @@ $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@' . $server_domain;
 $admin_email = 'admin@' . $server_domain;
+$producers_email = 'producers@' . $server_domain;
 
 $thumb_size = 100;
 $crop_size = 400;
