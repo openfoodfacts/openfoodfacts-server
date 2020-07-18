@@ -6038,6 +6038,11 @@ sub display_new($) {
 	my $request_ref = shift;
 	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 
+	my $template_data_ref = {
+		lang => \&lang,
+		display_icon => \&display_icon,
+	};
+
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
@@ -6181,34 +6186,21 @@ sub display_new($) {
 		$og_type = $request_ref->{og_type};
 	}
 
-	my $html = <<HTML
-<!doctype html>
-<html class="no-js" lang="$lang" data-serverdomain="$server_domain">
-<head>
-<meta charset="utf-8">
-
-<title>$title</title>
-$meta_description
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="fb:app_id" content="219331381518041">
-<meta property="og:type" content="$og_type">
-<meta property="og:title" content="$canon_title">
-<meta property="og:url" content="$canon_url">
-$og_images
-$og_images2
-<meta property="og:description" content="$canon_description">
-$options{favicons}
-<link rel="canonical" href="$canon_url">
-<link rel="stylesheet" href="$static_subdomain/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
-<link rel="stylesheet" href="$static_subdomain/css/dist/jqueryui/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
-<link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-$header
-<style media="all">
-HTML
-;
-
-	$html .= lang("css");
+	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{language} = $lang;
+	$template_data_ref->{title} = $title;
+	$template_data_ref->{og_type} = $og_type;
+	$template_data_ref->{canon_url} = $canon_url;
+	$template_data_ref->{meta_description} = $meta_description;
+	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{og_images} = $og_images;
+	$template_data_ref->{og_images2} = $og_images2;
+	$template_data_ref->{options_favicons} = $options{favicons};
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
+	$template_data_ref->{file_timestamps} = \$file_timestamps{"css/dist/app.css"};
+	$template_data_ref->{header} = $header;
+	my $html;
 
 	my $site_name = $Lang{site_name}{$lang};
 	if ($server_options{producers_platform}) {
@@ -6222,33 +6214,10 @@ HTML
 		$google_analytics = $server_options{google_analytics};
 	}
 
-	$html .= <<HTML
-$styles
-</style>
-$google_analytics
-</head>
-<body$bodyabout>
-
-<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <div class="title-bar-left"><a href="/">$site_name</a></div>
-  <div class="title-bar-right">
-    <div class="title-bar-title">Menu</div>
-	<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-  </div>
-</div>
-
-<nav class="top-bar" id="responsive-menu">
-  <section class="top-bar-left">
-	<ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text name"><h2><a href="/" style="font-size:1rem;">$site_name</a></h2></li>
-      <li class="has-form has-dropdown" id="select_country_li">
-        <label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
-        <select id="select_country" style="width:100%" data-placeholder="@{[ lang('select_country') ]}">
-          <option></option>
-        </select>
-      </li>
-HTML
-;
+	$template_data_ref->{styles} = $styles;
+	$template_data_ref->{google_analytics} = $google_analytics;
+	$template_data_ref->{bodyabout} = $bodyabout;
+	$template_data_ref->{site_name} = $site_name;
 
 	my $en = 0;
 	my $langs = '';
@@ -6277,22 +6246,8 @@ HTML
 		}
 	}
 
-	if ($langs =~ /<a/) {
-		$html .= <<HTML
-			<li class="has-dropdown">
-				$selected_lang
-				<ul class="dropdown">
-					$langs
-				</ul>
-			</li>
-HTML
-;
-	}
-
-	$html .= <<HTML
-		</ul>
-HTML
-;
+	$template_data_ref->{langs} = $langs;
+	$template_data_ref->{selected_lang} = $selected_lang;
 
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
@@ -6310,8 +6265,8 @@ HTML
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
 		$twitter_account = $Lang{twitter_account_by_country}{$cc};
 	}
-
-	my $facebook_page = lang("facebook_page");
+	$template_data_ref->{twitter_account} = $twitter_account;
+	# my $facebook_page = lang("facebook_page");
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -6326,145 +6281,23 @@ HTML
 	my $top_banner = "";
 
 	my $image_banner = "";
+	my $link = lang("donate_link");
+	my $image;
+	my $utm;
+	my @banners = qw(independent personal research);
+	my $banner = $banners[time() % @banners];
+	$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
+	my $image_en = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
 
-	if ($lc eq 'fr') {
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{image} = $image;
+	$template_data_ref->{image_en} = $image_en;
+	$template_data_ref->{link} = $link;
+	$template_data_ref->{banners} = @banners;
+	$template_data_ref->{banner} = $banner;
+	$template_data_ref->{lc} = $lc;
 
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">J'ai déjà donné ou je ne suis pas intéressé. Ne plus afficher la bannière.</span>
-<span id="hide_image_banner_show" style="display:none;">Tiens, une boîte à décocher ?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'fi') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">I have already donated or I'm not interested. Hide the banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, a box to uncheck?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'es') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ya he donado o no estoy interesado. Ocultar aviso.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, ¿un cuadro para desmarcar?</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'it') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ho già donato o non sono interessato. Nascondi il banner.</span>
-<span id="hide_image_banner_show" style="display:none;">Ehi, una casella da deselezionare?</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	elsif ($lc eq 'de') {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.$lc.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">Ich habe bereits gespendet oder ich bin nicht interessiert. Banner ausblenden.</span>
-<span id="hide_image_banner_show" style="display:none;">Hey, eine Box zum abwählen?!</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	# Display the English banner if we don't have another one.
-	elsif (1 or ($lc eq 'en')) {
-
-		my $link = lang("donate_link");
-		my $image;
-		my $utm;
-		my @banners = qw(independent personal research);
-		my $banner = $banners[time() % @banners];
-		$image = "/images/banners/donate/donate-banner.$banner.en.800x150.svg";
-		$image_banner = <<HTML
-<div id="donate_banner" class="grid-x">
-<div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-<div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a href="$link?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term=$banner"><img src="$image" alt="" /></a></div>
-<div><input id=\"hide_image_banner\" type=\"checkbox\"><label for=\"hide_image_banner\">
-<span id="hide_image_banner_hide" style="display:none;">$Lang{donation_banner_hide}{$lc}</span>
-<span id="hide_image_banner_show" style="display:none;">$Lang{donation_banner_show}{$lc}</span>
-</label></div>
-</div>
-</div>
-HTML
-;
-	}
-
-	if ($server_options{producers_platform}) {
-		$image_banner = "";
-	}
-
-	if ($image_banner ne "") {
+	if (not($server_options{producers_platform})) {
 
 		$initjs .= <<JS
 
@@ -6501,44 +6334,6 @@ else {
 JS
 ;
 
-	}
-
-	if ($lc eq 'fr') {
-
-
-		my $top_banner_deactivated2 = <<HTML
-<div id="banner" class="grid-x full-width" style="max-width: 100% !important;">
-<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
-Open Food Facts est 100% gratuit et indépendant. <a href="https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet. Merci !
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
-
-		my $top_banner_deactivated = <<HTML
-<div id="banner" class="grid-x full-width" style="max-width: 100% !important;">
-<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
-Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
-
-
-	}
-	if ($lc eq 'en') {
-
-		my $top_banner_deactivated2 = <<HTML
-<div id="banner" class="grid-x full-width" style="max-width: 100% !important;">
-<div class="cell small-12" style="background-color:#effbff; text-align:center;padding:1em;">
-Open Food Facts is 100% free and independent. <a href="https://world.openfoodfacts.org/donate-to-open-food-facts">We need your help and donations</a> to continue and to grow the project. Thank you!
-<span style="color:red">❤</span>
-</div>
-</div>
-HTML
-;
 	}
 
 	if ($server_options{producers_platform}) {
@@ -6593,8 +6388,9 @@ HTML
 
 			$link_text = display_icon('brand-apple')  . $link_text;
 		}
-
-		$top_banner = <<HTML
+		$template_data_ref->{banner_link} = $link;
+		$template_data_ref->{link_text} = $link_text;
+ 		$top_banner = <<HTML
 
 <a href="$link" class="button expanded">$link_text</a>
 
@@ -6602,208 +6398,16 @@ HTML
 ;
 	}
 
-	my $public_site_menu_options = <<HTML
-			<li class="show-for-large divider"></li>
-			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
-			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large-only"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
-			<li class="show-for-xlarge"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
-HTML
-;
-
-	if ($server_options{producers_platform}) {
-		$public_site_menu_options = "";
-	}
-
-	$html .= <<HTML
-	</section>
-	<section class="top-bar-right">
-		<ul class="dropdown menu" data-dropdown-menu>
-			<li class="show-for-large">
-				<form action="/cgi/search.pl">
-					<div class="grid-x collapse">
-						<div class="cell small-8">
-							<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
-							<input name="search_simple" value="1" type="hidden">
-							<input name="action" value="process" type="hidden">
-						</div>
-						<div class="cell small-4">
-							<button type="submit" title="$Lang{search}{$lang}" class="button expanded">@{[ display_icon('search') ]}</button>
-						</div>
-					</div>
-				</form>
-			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a></li>
-			<li class="show-for-xlarge"><a href="/cgi/search.pl">@{[ display_icon('add') ]} $Lang{advanced_search}{$lang}</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}">@{[ display_icon('bar_chart') ]}</a></li>
-			<li class="show-for-xlarge"><a href="/cgi/search.pl?graph=1">@{[ display_icon('bar_chart') ]} $Lang{graphs_and_maps}{$lang}</span></a></li>
-			$public_site_menu_options
-		</ul>
-	</section>
-</nav>
-
-<nav class="tab-bar show-for-small-only">
-	<div class="left-small" style="padding-top:4px;">
-		<button type="button" class="button $torso_class" data-toggle="offCanvas">
-		@{[ display_icon('account_box') ]}
-		</button>
-	</div>
-	<div class="middle tab-bar-section" style="padding-top:4px;">
-		<form action="/cgi/search.pl">
-			<div class="grid-x collapse">
-				<div class="cell small-8">
-					<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-					<input name="search_simple" value="1" type="hidden">
-					<input name="action" value="process" type="hidden">
-				</div>
-				<div class="cell small-2">
-					<button type="submit" class="button postfix">@{[ display_icon('search') ]}</button>
-				</div>
-				<div class="cell small-2">
-					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('search') ]} @{[ display_icon('add') ]}</a>
-				</div>
-			</div>
-		</form>
-	</div>
-</nav>
-
- <div class="off-canvas-wrapper">
-	<aside class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas>
-		<div id="aside_column">
-			$aside_blocks
-		</div>
-	</aside>
-	$top_banner
-	<!-- main row - comment used to remove left column and center content on some pages -->
-	<div class="off-canvas-content">
-		<div class="grid-x grid-padding-x full-width" data-equalizer data-off-canvas-content>
-			<div class="cell xxlarge-1 xlarge-2 large-3 medium-4 hide-for-small-only" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-				<div class="sidebar">
-					<div style="text-align:center">
-						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
-					</div>
-					$tagline
-					<form action="/cgi/search.pl" class="hide-for-large">
-						<div class="grid-container">
-							<div class="grid-x grid-padding-x">
-								<div class="input-group">
-									<input class="input-group-field" type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-									<input name="search_simple" value="1" type="hidden">
-									<input name="action" value="process" type="hidden">
-									<div class="input-group-button">
-										<button type="submit" class="button">@{[ display_icon('search') ]}</button>
-									</div>
-									<span class="input-group-label">
-										<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}">@{[ display_icon('add') ]}</a>
-									</span>
-								</div>
-							</div>
-						</div>
-					</form>
-					$blocks
-				</div>
-			</div>
-			<div id="main_column" class="cell xxlarge-11 xlarge-10 large-9 medium-8" style="padding-top:1rem" data-equalizer-watch>
-			<!-- main column content - comment used to remove left column and center content on some pages -->
-				$image_banner
-				$h1_title
-				$$content_ref
-			</div>
-		</div>
-	</div>
-</div>
-
-<footer class="grid-x">
-	<div class="cell small-12 medium-6 large-3 off">
-		<div class="title">$Lang{site_name}{$lc}</div>
-		<p>$Lang{footer_tagline}{$lc}</p>
-		<ul>
-			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
-			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
-			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
-			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
-			<li><a href="$Lang{footer_producers_link}{$lc}">$Lang{footer_producers}{$lc}</a></li>
-		</ul>
-	</div>
-	<div class="cell small-12 medium-6 large-3 app">
-		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
-		<a href="$Lang{ios_app_link}{$lc}"><img src="$Lang{ios_app_icon_url}{$lc}" alt="$Lang{ios_app_icon_alt_text}{$lc}" width="120" height="40" loading="lazy"></a>
-		<a href="$Lang{android_app_link}{$lc}"><img src="$Lang{android_app_icon_url}{$lc}" alt="$Lang{android_app_icon_alt_text}{$lc}" width="102" height="40" loading="lazy"></a>
-		<a href="$Lang{windows_phone_app_link}{$lc}"><img src="$Lang{windows_phone_app_icon_url}{$lc}" alt="$Lang{windows_phone_app_icon_alt_text}{$lc}" width="109" height="40" loading="lazy"></a>
-		<a href="$Lang{android_apk_app_link}{$lc}"><img src="$Lang{android_apk_app_icon_url}{$lc}" alt="$Lang{android_apk_app_icon_alt_text}{$lc}" loading="lazy"></a>
-	</div>
-	<div class="cell small-12 medium-6 large-3 project">
-		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
-		<ul>
-			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
-			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
-			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
-			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
-			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
-			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
-			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
-			<li><a href="$Lang{footer_obf_link}{$lc}">$Lang{footer_obf}{$lc}</a></li>
-		</ul>
-	</div>
-	<div class="cell small-12 medium-6 large-3 community">
-		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
-		<p>
-			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
-			<br><br>
-			$join_us_on_slack
-			<br>
-			$Lang{footer_and_the_facebook_group}{$lc}
-			$Lang{footer_follow_us}{$lc}
-		</p>
-	</div>
-</footer>
-
-<div id="fb-root"></div>
-
-<script src="$static_subdomain/js/dist/modernizr.js"></script>
-<script src="$static_subdomain/js/dist/jquery.js"></script>
-<script src="$static_subdomain/js/dist/jquery-ui.js"></script>
-<script src="$static_subdomain/js/dist/display.js"></script>
-
-<script>
-\$(function() {
-<initjs>
-});
-</script>
-
-<script src="$static_subdomain/js/dist/foundation.js"></script>
-<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
-$scripts
-<script>
-\$(document).foundation();
-</script>
-<script type="application/ld+json">
-{
-	"\@context" : "https://schema.org",
-	"\@type" : "WebSite",
-	"name" : "$Lang{site_name}{$lc}",
-	"url" : "$formatted_subdomain",
-	"potentialAction": {
-		"\@type": "SearchAction",
-		"target": "$formatted_subdomain/cgi/search.pl?search_terms=?{search_term_string}",
-		"query-input": "required name=search_term_string"
-	}
-}
-{
-	"\@context": "https://schema.org/",
-	"\@type": "Organization",
-	"url": "$formatted_subdomain",
-	"logo": "/images/misc/$Lang{logo}{$lang}",
-	"name": "$Lang{site_name}{$lc}",
-	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
-}
-</script>
-</body>
-</html>
-HTML
-;
-
+	$template_data_ref->{top_banner} = $top_banner;
+	$template_data_ref->{search_terms} = ${search_terms};
+	$template_data_ref->{torso_class} = $torso_class;
+	$template_data_ref->{aside_blocks} = $aside_blocks;
+	$template_data_ref->{tagline} = $tagline;
+	$template_data_ref->{blocks} = $blocks;
+	$template_data_ref->{h1_title} = $h1_title;
+	$template_data_ref->{content_ref} = $$content_ref;
+	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
+	$template_data_ref->{scripts} = $scripts;
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -6837,6 +6441,7 @@ HTML
 	# init javascript code
 
 	$html =~ s/<initjs>/$initjs/;
+	$template_data_ref->{initjs} = $initjs;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
@@ -6863,9 +6468,13 @@ HTML
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
-	print $html;
 
 	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
+
+	my $temp_html;
+	$tt->process('display_new.tt.html', $template_data_ref, \$temp_html) || ($temp_html .="template error: " . $tt->error());
+	$html .=$temp_html;
+	print $html;
 }
 
 
@@ -7280,6 +6889,12 @@ sub display_product($)
 	my $title = undef;
 	my $description = "";
 
+	my $template_data_ref = {
+		lang => \&lang,
+		request_ref => $request_ref,
+		display_icon => \&display_icon,
+	};
+
 		$scripts .= <<SCRIPTS
 <script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
@@ -7393,72 +7008,41 @@ CSS
 		return 301;
 	}
 
+	$template_data_ref->{product_changes_saved} = $request_ref->{product_changes_saved};
+	$template_data_ref->{structured_response_count} = $request_ref->{structured_response}{count};
+
 	if ($request_ref->{product_changes_saved}) {
-		my $text = lang('product_changes_saved');
-		$html .= <<HTML
-<div data-alert class="alert-box info">
-<span>$text</span>
- <a href="#" class="close">&times;</a>
-</div>
-HTML
-;
 		my $query_ref = {};
 		$query_ref->{ ("states_tags") } = "en:to-be-completed";
 
 		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
-		if ($request_ref->{structured_response}{count} > 0) {
-			$html .= $search_result . '<hr>';
-		}
+		$template_data_ref->{search_result} = $search_result;
 	}
 
-	my $share = lang('share');
-	$html .= <<HTML
-<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
-<a href="$request_ref->{canon_url}" class="button small" title="$title">
-	@{[ display_icon('share') ]}
-	<span class="show-for-large"> $share</span>
-</a></div>
-<div class="edit_button right" style="float:right;margin-top:-10px;">
-<a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	@{[ display_icon('edit') ]}
-	<span class="show-for-large"> $Lang{edit_product_page}{$lc}</span>
-</a></div>
-HTML
-;
-
-	if ($User{moderator}) {
-		$html .= <<HTML
-<div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
-<a href="/cgi/product.pl?type=delete&code=$code" class="button small">
-	@{[ display_icon('delete') ]}
-	<span class="show-for-large"> $Lang{delete_product_page}{$lc}</span>
-</a></div>
-HTML
-;
-	}
-
+	$template_data_ref->{title} = $title;
+	$template_data_ref->{code} = $code;
+	$template_data_ref->{user_moderator} = $User{moderator};
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-	if ((defined $User_id) and (defined $robotoff_url) and (length($robotoff_url) > 0)) {
-		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
-	}
+	$template_data_ref->{user_id} = $User_id;
+	$template_data_ref->{robotoff_url} = $robotoff_url;
+	$template_data_ref->{lc} = $lc;
 
 	my $itemtype = 'https://schema.org/Product';
 	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
 		$itemtype = 'https://schema.org/DietarySupplement';
 	}
 
-	$html .= '<div itemscope itemtype="' .  $itemtype . '">' . "\n";
-
-	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";
+	$template_data_ref->{itemtype} = $itemtype;
 
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
+		$template_data_ref->{upc} = 'defined';
 		# Also display UPC code if the EAN starts with 0
 		my $html_upc = "";
 		if (length($code) == 13) {
@@ -7467,116 +7051,32 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p id=\"barcode_paragraph\">"
-		    . lang("barcode") . separator_before_colon($lc)
-		    . ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
-<div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
+		$template_data_ref->{html_upc} = $html_upc;
 	}
-
 
 	# obsolete product
 
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-
+		$template_data_ref->{product_ref_obsolete} = $product_ref->{obsolete};
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
 		}
-
-		$html .= <<HTML
-<div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
-$warning
-</div>
-HTML
-;
-
-
+		$template_data_ref->{warning} = $warning;
 	}
 
 	# GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts
 	if ($code =~ /^(?:(?:0{7}[0-9]{5,6})|(?:04[0-9]{10,11})|(?:[02][0-9]{2}[0-9]{5}))$/) {
-		$html .= <<HTML
-<div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
-$Lang{warning_gs1_company_prefix}{$lc}
-<a href="#" class="close">&times;</a>
-</span></div>
-HTML
-;
+		$template_data_ref->{gs1_prefixes} = 'defined';
 	}
+
+	$template_data_ref->{rev} = $rev;
 	if (defined $rev) {
-		$html .= display_rev_info($product_ref, $rev);
+		$template_data_ref->{display_rev_info} = display_rev_info($product_ref, $rev);
 	}
 	elsif (not has_tag($product_ref, "states", "en:complete")) {
-
-		$html .= <<HTML
-<div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
-$Lang{warning_not_complete}{$lc}
-<a href="#" class="close">&times;</a>
-</span></div>
-HTML
-;
+		$template_data_ref->{not_has_tag} = "states-en:complete";
 	}
-
-	# Commenting out out of date warnings below
-	if (0 and ($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
-
-		$html .= <<HTML
-<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
-Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-<br><br>
-&rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="https://www.lactalis.fr/information-consommateur/">Lactalis</a>.
-<a href="#" class="close">&times;</a>
-</span></div>
-HTML
-;
-
-	}
-	elsif (0 and ($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
-
-		has_tag($product_ref, "brands", "amilk") or
-		has_tag($product_ref, "brands", "babycare") or
-		has_tag($product_ref, "brands", "celia") or
-		has_tag($product_ref, "brands", "celia-ad") or
-		has_tag($product_ref, "brands", "celia-develop") or
-		has_tag($product_ref, "brands", "celia-expert") or
-		has_tag($product_ref, "brands", "celia-nutrition") or
-		has_tag($product_ref, "brands", "enfastar") or
-		has_tag($product_ref, "brands", "fbb") or
-		has_tag($product_ref, "brands", "fl") or
-		has_tag($product_ref, "brands", "frezylac") or
-		has_tag($product_ref, "brands", "gromore") or
-		has_tag($product_ref, "brands", "malyatko") or
-		has_tag($product_ref, "brands", "mamy") or
-		has_tag($product_ref, "brands", "milumel") or
-		has_tag($product_ref, "brands", "neoangelac") or
-		has_tag($product_ref, "brands", "neoangelac") or
-		has_tag($product_ref, "brands", "nophenyl") or
-		has_tag($product_ref, "brands", "novil") or
-		has_tag($product_ref, "brands", "ostricare") or
-		has_tag($product_ref, "brands", "pc") or
-		has_tag($product_ref, "brands", "picot") or
-		has_tag($product_ref, "brands", "sanutri")
-
-
-	)
-
-
-
-	) {
-
-		$html .= <<HTML
-<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
-Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-<br><br>
-&rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
-<a href="#" class="close">&times;</a>
-</span></div>
-HTML
-;
-
-	}
-
-
 
 	# photos and data sources
 
@@ -7584,6 +7084,8 @@ HTML
 	my $html_sources = "";	# 	Displayed at the bottom of the product page
 
 	if (defined $product_ref->{sources}) {
+
+		$template_data_ref->{product_sources} = $product_ref->{sources};
 
 		my %unique_sources = ();
 
@@ -7594,10 +7096,10 @@ HTML
 			my $source_ref = $unique_sources{$source_id};
 			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
-			$html_sources .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $source_ref->{url}) {
-				$html_sources .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
-			}
+			push @{$template_data_ref->{html_sources}}, {
+				lang_source => $lang_source,
+				source_ref_url => $source_ref->{url},
+			};
 
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
 				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
@@ -7618,7 +7120,7 @@ HTML
 		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
 	}
 
-	$html .= $html_manufacturer_source;
+	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
 
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
@@ -7637,18 +7139,8 @@ HTML
 		$html_fields .= display_field($product_ref, $field);
 	}
 
-	$html .= <<HTML
-<h2>$Lang{product_characteristics}{$lc}</h2>
-<div class="grid-x">
-<div class="cell hide-for-large medium-12">$html_image</div>
-<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
-$html_fields
-</div>
-<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
-</div>
-HTML
-;
-
+	$template_data_ref->{html_image} = $html_image;
+	$template_data_ref->{html_fields} = $html_fields;
 
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
 
@@ -7683,40 +7175,15 @@ HTML
 		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
 	}
 
-	$html .= <<HTML
-<h2>$Lang{ingredients}{$lc}$ingredients_text_lang_html</h2>
-<div class="grid-x">
-<div class="cell hide-for-large medium-12">$html_image</div>
-<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
-HTML
-;
+	$template_data_ref->{ingredient_image} = $html_image;
+	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
+	$template_data_ref->{ingredients_text} = $ingredients_text;
 
-	if ($ingredients_text ne "") {
+	if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
+		$template_data_ref->{User_moderator} = 'defined';
 
-		$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-		$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
-		if ($lc ne $ingredients_text_lang) {
-			$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
-		}
-		else {
-			$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
-		}
-		$html .= "</div>";
-
-		if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
-
-				my $ilc = $ingredients_text_lang;
-
-				$html .= <<HTML
-
-<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="tiny button" type="button">Edit ingredients$ingredients_text_lang_html</div>
-<div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="tiny button" type="button">Save ingredients$ingredients_text_lang_html</div>
-
-
-<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="tiny button" type="button">Ingredients$ingredients_text_lang_html are completely bogus, erase them.</button></div>
-HTML
-;
+		my $ilc = $ingredients_text_lang;
+		$template_data_ref->{ilc} = $ingredients_text_lang;
 
 				$initjs .= <<JS
 
@@ -7790,8 +7257,6 @@ HTML
 JS
 ;
 
-		}
-
 	}
 
 	# Offer to add the ingredients in the language of the interface
@@ -7803,13 +7268,13 @@ JS
 		. "</p>";
 	}
 
-	$html .= display_field($product_ref, 'allergens');
+	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 
-	$html .= display_field($product_ref, 'traces');
+	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
 
-	$html .= display_ingredients_analysis($product_ref);
+	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
 
-	$html .= display_ingredients_analysis_details($product_ref);
+	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
 
@@ -7919,6 +7384,7 @@ HTML
 		}
 
 	}
+	$template_data_ref->{html_ingredients_classes_n} = $html_ingredients_classes_n;
 
 	if ($html_ingredients_classes_n > 0) {
 
@@ -7938,23 +7404,15 @@ HTML
 		}
 
 		$html_ingredients_classes =~ s/column_class/$column_class/g;
+		$template_data_ref->{html_ingredients_classes} = $html_ingredients_classes;
 
-		$html .= <<HTML
-
-<div class="grid-x">
-
-$html_ingredients_classes
-
-</div>
-
-HTML
-;
 	}
 
 
 	# special ingredients tags
 
 	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+		$template_data_ref->{special_ingredients_tags} = 'defined';
 
 		my $special_html = "";
 
@@ -7971,151 +7429,101 @@ HTML
 
 		}
 
-		if ($special_html ne "") {
-
-			$html  .= "<br><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br>"
-			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
-			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
-		}
-
+		$template_data_ref->{special_html} = $special_html;
 	}
 
 
 	# NOVA groups
 
 	if ((exists $product_ref->{nova_group})) {
+		$template_data_ref->{product_nova_group} = 'exists';
 		my $group = $product_ref->{nova_group};
 
 		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
 		my $a_title = lang('nova_groups_info');
 
-		$html .= <<HTML
-<h4>$Lang{nova_groups_s}{$lc}
-<a href="/nova" title="${a_title}">
-@{[ display_icon('info') ]}</a>
-</h4>
-
-
-<a href="/nova" title="${a_title}"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
-$display
-HTML
-;
+		$template_data_ref->{a_title} = $a_title;
+		$template_data_ref->{group} = $group;
+		$template_data_ref->{display} = $display;
 	}
-
-
-	$html .= <<HTML
-</div>
-<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
-</div>
-HTML
-;
 
 	# Do not display nutrition table for Open Beauty Facts
 
 	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
 
+		$template_data_ref->{nutrition_table} = 'defined';
 
-	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);
+		$html_image = display_image_box($product_ref, 'nutrition', \$minheight);
+		$template_data_ref->{display_nutrient_levels} = display_nutrient_levels($product_ref);
+		$template_data_ref->{display_field} = display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
 
+		# Compare nutrition data with categories
 
-	$html .= <<HTML
-<h2>$Lang{nutrition_data}{$lc}</h2>
-<div class="grid-x">
-<div class="cell hide-for-large medium-12">$html_image</div>
-<div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
-HTML
-;
+		my @comparisons = ();
 
+		if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
+				and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-	$html .= display_nutrient_levels($product_ref);
+			my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
+			if (defined $categories_nutriments_ref) {
 
-	$html .= display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
+				foreach my $cid (@{$product_ref->{categories_tags}}) {
 
-	# Compare nutrition data with categories
+					if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
 
-	my @comparisons = ();
+						push @comparisons, {
+							id => $cid,
+							name => display_taxonomy_tag($lc,'categories', $cid),
+							link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
+							nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
+							count => $categories_nutriments_ref->{$cid}{count},
+							n => $categories_nutriments_ref->{$cid}{n},
+						};
+					}
+				}
 
-	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
-			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
-
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
-
-		if (defined $categories_nutriments_ref) {
-
-			foreach my $cid (@{$product_ref->{categories_tags}}) {
-
-				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-
-					push @comparisons, {
-						id => $cid,
-						name => display_taxonomy_tag($lc,'categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-						count => $categories_nutriments_ref->{$cid}{count},
-						n => $categories_nutriments_ref->{$cid}{n},
-					};
+				if ($#comparisons > -1) {
+					@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
+					$comparisons[0]{show} = 1;
 				}
 			}
 
-			if ($#comparisons > -1) {
-				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
-				$comparisons[0]{show} = 1;
-			}
 		}
 
-	}
+		if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+			$template_data_ref->{no_nutrition_data} = 'on';
+		}
 
+		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, \@comparisons);
+		$template_data_ref->{nutrition_image} = $html_image;
 
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
-	}
-
-	$html .= display_nutrition_table($product_ref, \@comparisons);
-
-	$html .= <<HTML
-</div>
-<div class="cell show-for-large large-4 xlarge-4 xxlarge-4" style="padding-left:0">$html_image</div>
-</div>
-HTML
-;
-
-	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-		$html .= <<HTML
-<p class="panel callout">
-$Lang{alcohol_warning}{$lc}
-</p>
-HTML
-;
-	}
+		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+			$template_data_ref->{has_tag} = 'categories-en:alcoholic-beverages';
+		}
 
 	}
 
 
 	# other fields
 
-	$html_fields = "";
+	my $other_fields = "";
 	foreach my $field (@ProductOpener::Config::display_other_fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html_fields .= display_field($product_ref, $field);
+		$other_fields .= display_field($product_ref, $field);
 	}
 
-	if ($html_fields ne "") {
-
-		$html .= <<HTML
-<h2>$Lang{product_other_information}{$lc}</h2>
-<div class="grid-x">
-<div class="cell small-12">
-$html_fields
-</div>
-</div>
-HTML
-;
+	if ($other_fields ne "") {
+		$template_data_ref->{other_fields} = $other_fields;
 	}
+
+	$template_data_ref->{admin} = $admin;
 
 	if ($admin) {
 		compute_carbon_footprint_infocard($product_ref);
 		$html .= display_field($product_ref, 'environment_infocard');
+		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
+		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $$product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
 		}
@@ -8125,14 +7533,15 @@ HTML
 
 	if ($server_options{producers_platform}) {
 
-		$html .= display_data_quality_issues_and_improvement_opportunities($product_ref);
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
+
+		$template_data_ref->{display_data_quality_issues_and_improvement_opportunities} = display_data_quality_issues_and_improvement_opportunities($product_ref);
+
 	}
 
 	# photos and data sources
 
-
-	$html .= $html_sources;
-
+	$template_data_ref->{html_sources} = $html_sources;
 
 	my $created_date = display_date_tag($product_ref->{created_t});
 	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
@@ -8166,37 +7575,18 @@ HTML
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
-	$html .= <<HTML
-
-<p class="details">$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
-$Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
-$other_editors
-$checked
-</p>
-
-<div class="alert-box info">
-$Lang{fixme_product}{$lc}
-</div>
-
-</div>
-
-HTML
-;
+	$template_data_ref->{created_date} = $created_date;
+	$template_data_ref->{last_modified_date} = $last_modified_date;
+	$template_data_ref->{last_editor} = $last_editor;
+	$template_data_ref->{other_editors} = $other_editors;
+	$template_data_ref->{checked} = $checked;
 
 	if (defined $User_id) {
-		$html .= display_field($product_ref, 'states');
+		# $html .= display_field($product_ref, 'states');
+		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
-	$html .= display_product_history($code, $product_ref) if $User{moderator};
-
-	$html .= <<HTML
-<div class="edit_button right" style="float:right;margin-top:-10px;">
-<a href="/cgi/product.pl?type=edit&code=$code" class="button small">
-	@{[ display_icon('edit') ]}
-	$Lang{edit_product_page}{$lc}
-</a></div>
-HTML
-;
+	$template_data_ref->{display_product_history} = display_product_history($code, $product_ref) if $User{moderator};
 
 	# Twitter card
 
@@ -8235,6 +7625,9 @@ $meta_product_image_url
 
 HTML
 ;
+	my $html_display_product;
+	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
+	$html .= $html_display_product;
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
@@ -9289,6 +8682,7 @@ JS
 				class => $col_class{$col},
 				name => $col_name{$col},
 			});
+
 		}
 	}
 
