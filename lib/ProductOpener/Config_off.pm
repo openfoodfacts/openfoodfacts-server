@@ -40,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -123,6 +124,10 @@ use ProductOpener::Config2;
 		lowercase => 1,
 	},
 	# Same for Spanish, Italian and Portuguese
+	ca => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
@@ -340,6 +345,7 @@ $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
+$producers_email = 'producers@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
 
 
@@ -527,6 +533,8 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
 );
 
 
@@ -692,6 +700,9 @@ $options{import_export_fields_groups} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "off";
+
 $options{other_servers} = {
 	obf =>
 	{

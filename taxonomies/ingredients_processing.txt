@@ -104,7 +104,7 @@ de:überwiegend feinst zerkleinert
 
 en:sliced
 de:gehobelt, gehobelte, in scheiben geschnitten
-es:lamina,laminada,laminado, laminadas,laminados
+es:lamina,laminada,laminado, laminadas,laminados,rodajas
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 nl:schijfjes
 
@@ -123,6 +123,12 @@ pt:picadas
 sv:hackade
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
+
+en:cubes,cubed
+es:cubo,cubos
+
+en:segment,segments
+es:segmento,segmenta,segmentos,segmentas
 
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
@@ -150,7 +156,7 @@ es:arrollada,arrollado
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 de:gerieben, geriebener, geriebene, geraspelt
-es:rallada, rallado,ralladas, rallados
+es:rallada, rallado,ralladas, rallados,rayada, rayado,rayadas, rayados
 fi:raastettu, raastetut, raaste
 fr:râpé, râpée, râpés, râpées
 nl:geraspt, geraspte
@@ -159,6 +165,8 @@ sv:riven
 # fi:parse:raastettu $, $raaste
 # sv:parse:riven $
 # en:wiktionary:grated
+
+en:shred,shredded
 
 en:granulated, granules
 de:granulat
@@ -197,7 +205,7 @@ de:frischgemahlen, frishgemahlene
 en:pureed
 da:puré, pure
 de:püree, puree, püree aus
-es:pure, pure de
+es:pure,puré,pure de,cremogenado,cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
 nb:puré
@@ -243,6 +251,7 @@ nl:schilfers
 de:raspel, raspeln
 
 en:powdered, powder
+ca:en pols
 da:pulver
 de:pulver
 es:en polvo, polvo de
@@ -387,11 +396,14 @@ de:saft
 es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
+#en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
 it:succo, succo di, succo d'
 nl:sap
 nn:juice
 sv:juice
 
+# fr:jus concentré de, jus concentré d'
+# fr:pur jus
 
 <en:juice
 #en:description: es:zumo is kept separate from the more generic es:jugo. It is only applicable to fruit.
@@ -418,10 +430,11 @@ en:juice crystals
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
+ca:concentrat
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado,concentrada, procedente de concentrado, procedente de concentrada
+es:concentrado,concentrada,concentrados,concentradas, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
@@ -497,11 +510,13 @@ fr:semi-déshydratées
 en:cured
 
 en:dehydrated
+ca:dessecade,dessecades,dessecats,dessecat
 es:deshidratado, deshidratada, deshidratados, deshidratadas,desecado,desecada,desecados,desecadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées, lyophilisé, lyophilisée, lyophilisés, lyophilisées
 it:disidratato, disidratata, disidratati, disidratate
 
 en:rehydrated
+es:rehidritado,rehidritada,rehidritados,rehidritadas
 de:rehydriert, rehydrierte, rehydriertes
 fr:réhydraté, réhydratée, réhydratés, réhydratées
 sv:rehydrerat, rehydrerad
@@ -510,7 +525,7 @@ en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
-ca:xtracte
+ca:xtracte,extracte
 da:ekstrakt
 de:extrakt, extrakte, extrakt aus
 es:extracto, extracto de, extractos
@@ -575,7 +590,7 @@ de:erste kalte pressung
 fr:première pression à froid, 1ère pression à froid, de première pression à froid
 
 en:mechanically separated
-es:separada mechanicamente
+es:separada mecánicamente
 sv:maskinurbenat
 
 #######################################################################
@@ -601,7 +616,7 @@ en:pasteurised, pasteurized
 ca:pasteuritzada
 da:pasteuriseret
 de:pasteurisiert, pasteurisierte, pasteurisierter
-es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada
+es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada,pasterizada
 fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
@@ -613,10 +628,11 @@ sv:pastöriserad
 
 en:unpasteurized
 
-en:pre-cooked
+en:pre-cooked,precooked
+ca:precuit
 da:forkogte
 de:vorgekocht
-es:pre cocido, pre cocida,pre cocidos, pre cocidas
+es:precocido, precocida,precocidos, precocidas
 fi:esikypsennetty, esikypsennetyt
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 it:precotto, precotta, precotti, precotte
@@ -662,6 +678,9 @@ fr:non-blanchie
 # <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
 
+en:caramelized
+ca:caramel-litzat
+
 en:puffed
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt
@@ -686,6 +705,7 @@ sv:friterad, stekt
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
 en:roasted
+ca:rostit,rostits,rostida,rostides
 de:gebraten, gebratene
 es:asado, asada, asados, asadas
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
@@ -698,6 +718,7 @@ en:dry roasted
 
 # en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en:toasted
+ca:torrat,torrats,torrada,torrades
 de:geröstet, geröstete, geröstetes, gerösteter, getoastet
 es:tostado, tostada, tostados, tostadas
 fi:paahdettu, paahdetut
@@ -707,7 +728,7 @@ nb:ristet, ristede
 nl:geroosterd, geroosterde
 
 en:untoasted
-nl:ongeroosterd
+nl:ongeroosterd, ongebrand, ongebrande
 
 #<en:toasted
 en:dark toasted
@@ -823,11 +844,14 @@ sv:sockrad
 #<en:sugared
 de:leicht gezuckert
 
+# In French, "confit" means candied, or cooked in fat (canard confit), or preserved in salted water (citron confit)
 #<en:sugared
 en:candied
+ca:confitada
 da:kandiserede
 de:kandiert, kandierte, kandierten, kandierter
 es:confitado,confitada,confitados,confitadas
+fr:confit,confite,confits,confites,confit de,confit d'
 it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
 sv:kanderad, kanderade
@@ -902,6 +926,10 @@ en:rbst-free
 #en:clarified
 
 #en:deionized
+
+en:nixtamalized
+es:nixtamalizado
+wikipedia:en:https://en.wikipedia.org/wiki/Nixtamalization
 
 #######################################################################
 #
@@ -981,6 +1009,7 @@ es:humo de leña
 
 #<en:wood smoked
 en:natural hardwood smoked, naturally wood smoked
+es:humo natural,humo de maderas nobles
 
 #<en:smoked
 en:chardonnay smoked
@@ -1047,3 +1076,6 @@ en:inflated
 es:hinchado,hinchada,hinchados,hinchadas
 
 #en:for color, added for color, colored with
+
+#to be analysed:
+#fr:rectifié

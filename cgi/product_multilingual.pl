@@ -82,9 +82,12 @@ if ($type eq 'search_or_add') {
 
 	# barcode in image?
 	my $filename;
-	if ((not defined $code) or ($code !~ /^\d+$/)) {
+	if ((not defined $code) or ($code eq "")) {
 		$code = process_search_image_form(\$filename);
 	}
+	elsif ($code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
+	}	
 
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
@@ -168,7 +171,10 @@ if ($type eq 'search_or_add') {
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error($Lang{no_barcode}{$lang}, 403);
+		display_error($Lang{missing_barcode}{$lang}, 403);
+	}
+	elsif ($code !~ /^\d{8,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
 		if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
@@ -273,9 +279,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param("new_code")) and (param("new_code") ne "")) {
 
-		change_product_server_or_code($product_ref, param('new_code'), \@errors);
+		change_product_server_or_code($product_ref, param("new_code"), \@errors);
 		$code = $product_ref->{code};
 	}
 

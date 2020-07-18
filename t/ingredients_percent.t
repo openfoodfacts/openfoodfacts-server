@@ -411,8 +411,77 @@ my @tests = (
   }
 ]
 
-]
+],
 
+	[ { lc=>"es", ingredients_text=>"Leche. Cacao: 27% mínimo"},
+[
+  {
+    'id' => 'en:milk',
+    'percent_max' => 73,
+    'percent_min' => 73,
+    'text' => 'Leche'
+  },
+  {
+    'id' => 'en:cocoa',
+    'percent' => '27',
+    'percent_max' => 27,
+    'percent_min' => 27,
+    'text' => 'Cacao'
+  }
+]
+],
+
+	[ { lc=>"es", ingredients_text=>"Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 3%)"},
+[
+  {
+    'id' => 'en:milk',
+    'percent' => '12.2',
+    'text' => 'Leche'
+  },
+  {
+    'id' => 'en:cocoa',
+    'percent' => '7',
+    'text' => 'Cacao'
+  },
+  {
+    'id' => 'en:hazelnut',
+    'percent' => '3',
+    'text' => 'Avellanas'
+  }
+]
+],
+
+	# bug #3762 "min" in "cumin"
+	[ { lc =>"fr", ingredients_text=>"sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
+[
+  {
+    'id' => 'en:salt',
+    'percent' => '20',
+    'text' => 'sel'
+  },
+  {
+    'id' => 'en:pepper',
+    'percent' => '10',
+    'text' => 'poivre'
+  },
+  {
+    'id' => 'en:chili-pepper',
+    'percent' => '5',
+    'text' => 'piment'
+  },
+  {
+    'id' => 'en:cumin-seeds',
+    'percent' => '0.4',
+    'text' => 'cumin'
+  },
+  {
+    'id' => 'en:garlic',
+    'percent' => '0.1',
+    'text' => 'ail'
+  }
+
+]
+],
 
 );
 

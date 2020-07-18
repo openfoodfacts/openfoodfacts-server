@@ -108,7 +108,7 @@ BEGIN
 
 					&create_nutrients_level_taxonomy
 
-					&assign_category_properties_to_product
+					&assign_categories_properties_to_product
 					
 					&remove_insignificant_digits
 
@@ -1524,6 +1524,7 @@ sub mmoll_to_unit {
 		en => "Sugars",
 		en_synonyms => ["Sugar"],
 		es => "Azúcares",
+		es_synonyms => ["azucar"],
 		et => "Suhkrud",
 		fa => "شکر",
 		fi => "Sokerit",
@@ -1779,7 +1780,7 @@ sub mmoll_to_unit {
 		et => "Rasvad",
 		fi => "Rasvat",
 		fr => "Matières grasses / Lipides",
-		fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse"],
+		fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse", "MG"],
 		ga => "Saill",
 		he => "שומנים",
 		hu => "Zsír",
@@ -1813,11 +1814,11 @@ sub mmoll_to_unit {
 		de => "gesättigte Fettsäuren",
 		el => "Κορεσμένα λιπαρά",
 		es => "Grasas saturadas",
-		es => "Ácidos grasos saturados",
+		es_synonyms => ["Ácidos grasos saturados", "AGS", "Saturados", "Saturadas"],		
 		et => "Küllastunud rasvhapped",
 		fi => "Tyydyttyneet rasvat",
 		fr => "Acides gras saturés",
-		fr_synonyms => ["Saturés", "AGS"],
+		fr_synonyms => ["Saturés", "AGS", "matières grasses saturées", "MGS"],
 		ga => "sáSitheáin saill",
 		he => "שומן רווי",
 		hu => "Telített zsírsavak",
@@ -2517,7 +2518,7 @@ sub mmoll_to_unit {
 		de => "Ballaststoffe",
 		el => "Εδώδιμες ίνες",
 		es => "Fibra alimentaria",
-		es_synonyms => ["Fibras alimentarias", "Fibras", "Fibra"],
+		es_synonyms => ["Fibras alimentarias", "fibra alimentaria", "Fibras", "Fibra", "fibras alimenticias", "fibra alimenticia"],
 		et => "Kiudained",
 		fi => "Ravintokuidut",
 		fi_synonyms => ["Ravintokuitu", "Kuitu", "Kuidut"],
@@ -3826,6 +3827,19 @@ sub mmoll_to_unit {
 		fi => "Ravintoarvosana",
 		ro => "Notă nutrițională",
 	},
+	"ibu" => {
+		de => "Internationale Bittereinheit",
+		en => "International Bittering Unit",
+		pt => "Medida do amargor internacional",
+		ru => "Международная единица горечи",
+		unit => "",
+	},
+	"alcohol-units" => {
+		en => "Alcohol units",
+		de => "Alkoholeinheiten",
+		fr => "Unités d'alcool",
+	unit => "",
+	},
 	"choline" => {
 		ar => "كولين",
 		bg => "Холин",
@@ -4286,7 +4300,7 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 
-	assign_category_properties_to_product($product_ref);
+	assign_categories_properties_to_product($product_ref);
 
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
@@ -5770,7 +5784,7 @@ sub extract_nutrition_from_image($$$$) {
 	}
 }
 
-=head2 assign_category_properties_to_product ( PRODUCT_REF )
+=head2 assign_categories_properties_to_product ( PRODUCT_REF )
 
 Go through the categories of a product to apply category properties at the product level.
 The most specific categories are checked first. If the category has
@@ -5780,40 +5794,51 @@ This function was first designed to assign a CIQUAL category to products, based 
 the mapping of the Open Food Facts categories to the French CIQUAL categories.
 
 It may be used for other properties in the future.
+
+agribalyse_food_code:en:42501
+agribalyse_proxy_food_code:en:43244
+
 =cut
 
-sub assign_category_properties_to_product($) {
+sub assign_categories_properties_to_product($) {
 
 	my $product_ref = shift;
 
-	$product_ref->{category_properties} = {};
+	$product_ref->{categories_properties} = {};
+	$product_ref->{categories_properties_tags} = [];
 
-	foreach my $property ("ciqual_food_code:en:", "ciqual_food_name:en", "ciqual_food_name:fr") {
+	# Simple properties
+
+	foreach my $property ("agribalyse_food_code:en", "agribalyse_proxy_food_code:en", "ciqual_food_code:en:") {
+
+		my $property_name = $property;
+		$property_name =~ s/:en$//;
 
 		# Find the first category with a defined value for the property
 
 		if (defined $product_ref->{categories_tags}) {
 			foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 				if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{$property})) {
-					$product_ref->{category_properties}{$property} = $properties{categories}{$categoryid}{$property};
+					$product_ref->{categories_properties}{$property} = $properties{categories}{$categoryid}{$property};
 					last;
 				}
+				if (defined $product_ref->{categories_properties}{$property}) {
+					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . $product_ref->{categories_properties}{$property});
+					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "known");					
+				}
+				else {
+					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "unknown");
+				}				
 			}
-		}
-
-		# Create facet tags for some properties
-
-		if ($property =~ /^(ciqual_food_name):en$/) {
-			my $tagtype = $1;
-			if (defined $product_ref->{category_properties}{$property}) {
-				$product_ref->{$tagtype . "_tags"} = [get_string_id_for_lang("no_language", $product_ref->{category_properties}{$property})];
+			if ((defined $product_ref->{categories_properties}{"agribalyse_food_code:en"}) or (defined $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"})) {
+				push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "known");
 			}
 			else {
-				$product_ref->{$tagtype . "_tags"} = ["unknown"];
+				push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
 			}
 		}
-
 	}
+
 }
 
 1;

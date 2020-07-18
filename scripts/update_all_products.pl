@@ -37,6 +37,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --count		do not do any processing, just count the number of products matching the --query options
 --just-print-codes	do not do any processing, just print the barcodes
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
+--query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
 --compute-nutrition-score	nutriscore
@@ -109,11 +110,13 @@ my $remove_label = '';
 my $remove_nutrient = '';
 my $fix_spanish_ingredientes = '';
 my $team = '';
-my $assign_category_properties = '';
+my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
 my $delete_debug_tags = '';
 my $all_owners = '';
+my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
+my $delete_old_fields = '';
 
 my $query_ref = {};	# filters for mongodb query
 
@@ -126,7 +129,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
-			"assign-category-properties" => \$assign_category_properties,
+			"assign-categories-properties" => \$assign_categories_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
 			"compute-serving-size" => \$compute_serving_size,
@@ -141,7 +144,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-missing-lc" => \$fix_missing_lc,
 			"fix-zulu-lang" => \$fix_zulu_lang,
 			"fix-rev-not-incremented" => \$fix_rev_not_incremented,
-			"user_id=s" => \$User_id,
+			"user-id=s" => \$User_id,
 			"comment=s" => \$comment,
 			"run-ocr" => \$run_ocr,
 			"autorotate" => \$autorotate,
@@ -153,7 +156,9 @@ GetOptions ("key=s"   => \$key,      # string
 			"team=s" => \$team,
 			"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 			"delete-debug-tags" => \$delete_debug_tags,
+			"mark-as-obsolete-since-date=s" => \$mark_as_obsolete_since_date,
 			"all-owners" => \$all_owners,
+			"delete-old-fields" => \$delete_old_fields,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -188,7 +193,7 @@ if ($unknown_fields > 0) {
 }
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
-	and (not $clean_ingredients)
+	and (not $clean_ingredients) and (not $delete_old_fields)
 	and (not $compute_serving_size) and (not $reassign_energy_kcal)
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
@@ -196,7 +201,8 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $fix_spanish_ingredientes)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
-	and (not $assign_category_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
+	and (not $mark_as_obsolete_since_date)
+	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -219,6 +225,9 @@ foreach my $field (sort keys %$query_ref) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
+	elsif ($query_ref->{$field} =~ /^-/) {
+		$query_ref->{$field} = { '$ne' => $' };
+	}	
 	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
@@ -300,6 +309,11 @@ while (my $product_ref = $cursor->next) {
 
 		my $product_values_changed = 0;
 
+		if ($delete_old_fields) {
+			# renamed to categories_properties
+			delete $product_ref->{category_properties};
+		}
+
 		if ((defined $remove_team) and ($remove_team ne "")) {
 			remove_tag($product_ref, "teams", $remove_team);
 			$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
@@ -369,7 +383,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
@@ -649,8 +663,8 @@ while (my $product_ref = $cursor->next) {
 		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 		}
-		if ($assign_category_properties) {
-			# assign_category_properties_to_product() is already called by special_process_product
+		if ($assign_categories_properties) {
+			# assign_categories_properties_to_product() is already called by special_process_product
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
@@ -733,7 +747,7 @@ while (my $product_ref = $cursor->next) {
 			my $blame_ref = {};
 
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 
 			if ((defined $blame_ref->{nutriments}) and (defined $blame_ref->{nutriments}{salt})
 				and ($blame_ref->{nutriments}{salt}{userid} eq 'kiliweb')
@@ -836,7 +850,7 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 			my $blame_ref =  {};
-			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
@@ -913,7 +927,15 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_sort_key) {
-			compute_sort_key($product_ref);
+			compute_sort_keys($product_ref);
+		}
+		
+		if ($mark_as_obsolete_since_date) {
+			if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
+				$product_ref->{obsolete} = "on";
+				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
+				$product_values_changed = 1;
+			}		
 		}
 
 		if (not $pretend) {

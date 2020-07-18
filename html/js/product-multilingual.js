@@ -616,7 +616,7 @@ function get_recents(tagfield) {
 
 	initializeTagifyInputs();
 
-  if ($.cookie('use_low_res_images') !== undefined) {
+  if (typeof $.cookie('use_low_res_images') !== "undefined") {
       use_low_res_images = true;
   }
 

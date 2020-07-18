@@ -41,7 +41,7 @@
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "@yaireo/tagify": "^3.6.10",
-    "blueimp-file-upload": "^10.30.1",
+    "blueimp-file-upload": "^10.31.0",
     "cropper": "^4.1.0",
     "foundation-sites": "^6.6.3",
     "jquery": "^3.5.0",
@@ -55,10 +55,10 @@
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.2.0",
     "what-input": "^5.2.7",
-    "snyk": "^1.342.2"
+    "snyk": "^1.362.1"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.4.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
@@ -66,12 +66,12 @@
     "gulp-modernizr": "^4.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-svgmin": "^2.2.0",
+    "gulp-svgmin": "^3.0.0",
     "gulp-terser-js": "^5.2.2",
-    "stylelint": "^13.6.0",
+    "stylelint": "^13.6.1",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.18.0"
   },
   "collective": {
     "type": "opencollective",

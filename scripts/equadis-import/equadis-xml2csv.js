@@ -1,13 +1,12 @@
-const path = require("path")
 const fs = require("fs")
-const directoryPath = path.join(__dirname, "equadis-data/")
+const directoryPath = "/srv2/off-pro/equadis-data-tmp/"
 
 function requireUncached(module){
     delete require.cache[require.resolve(module)]
     return require(module)
 }
 
-const xml2csv = requireUncached('xml2csv')
+const xml2csv = requireUncached('@wmfs/xml2csv')
 
 const filter = /\.xml$/
 
@@ -27,6 +26,7 @@ xml2csv(
     headerMap: [
       ['gtin.0', 'gs1.gtin', 'string'],
       ['isTradeItemAConsumerUnit.0', 'gs1.isTradeItemAConsumerUnit', 'boolean'],
+      ['gln.0', 'gs1.gln', 'string', 'informationProviderOfTradeItem.0'],
       ['partyName.0', 'gs1.partyName', 'string', 'informationProviderOfTradeItem.0'],
       ['gpcCategoryCode.0', 'gs1.gpcCategoryCode', 'string', 'gdsnTradeItemClassification.0'],
       ['gpcCategoryName.0', 'gs1.gpcCategoryName', 'string', 'gdsnTradeItemClassification.0'],
@@ -156,6 +156,7 @@ xml2csv(
     ],
   },
   function (err, info) {
+    console.log(file)
     console.log(err, info)
     // Done!
   })

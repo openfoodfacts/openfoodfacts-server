@@ -479,6 +479,10 @@ sub process_image_upload($$$$$$$) {
 	my $debug_string_ref = shift;	# to return debug information to clients
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
+	
+	# The product_id can be prefixed by a server (e.g. off:[code]) with a different $www_root
+	my $product_www_root = www_root_for_product_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
 
 	# debug message passed back to apps in case of an error
 
@@ -523,11 +527,25 @@ sub process_image_upload($$$$$$$) {
 			}
 		}
 	}
-
+	
 	local $log->context->{imagefield} = $imagefield;
 	local $log->context->{uploader} = $userid;
 	local $log->context->{file} = $file;
-	local $log->context->{time} = $time;
+	local $log->context->{time} = $time;	
+	
+	# Check if we have already received this image before
+	my $images_ref = retrieve("$product_data_root/products/$path/images.sto");
+	defined $images_ref or $images_ref = {};
+	
+	my $file_size = -s $file;
+	
+	if (($file_size > 0) and (defined $images_ref->{$file_size})) {
+		$log->debug("we have already received an image with the same size", {file_size => $file_size, imgid => $images_ref->{$file_size}}) if $log->is_debug();
+		$$imgid_ref = $images_ref->{$file_size};
+		$debug .= " - we have already received an image with this file size: $file_size - imgid: $$imgid_ref";
+		$$debug_string_ref = $debug;
+		return -3;		
+	}
 
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
@@ -554,7 +572,7 @@ sub process_image_upload($$$$$$$) {
 			# create them
 
 			# Create the directories for the product
-			foreach my $current_dir  ($www_root . "/images/products") {
+			foreach my $current_dir  ($product_www_root . "/images/products") {
 				(-e "$current_dir") or mkdir($current_dir, 0755);
 				foreach my $component (split("/", $path)) {
 					$current_dir .= "/$component";
@@ -562,19 +580,19 @@ sub process_image_upload($$$$$$$) {
 				}
 			}
 
-			my $lock_path = "$www_root/images/products/$path/$imgid.lock";
-			while (-e $lock_path) {
+			my $lock_path = "$product_www_root/images/products/$path/$imgid.lock";
+			while ((-e $lock_path) or (-e "$product_www_root/images/products/$path/$imgid.jpg")) {
 				$imgid++;
-				$lock_path = "$www_root/images/products/$path/$imgid.lock";
+				$lock_path = "$product_www_root/images/products/$path/$imgid.lock";
 			}
+
+			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
 
 			local $log->context->{imgid} = $imgid;
 			$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
-			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
-
-			my $img_path = "$www_root/images/products/$path/$imgid.$extension";
-			open (my $out, ">", $img_path) or $log->warn("could not open image path for saving", { path => $img_path, error => $! });
+			my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+			open (my $out, ">", $img_orig) or $log->warn("could not open image path for saving", { path => $img_orig, error => $! });
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
@@ -583,7 +601,7 @@ sub process_image_upload($$$$$$$) {
 			# Generate resized versions
 
 			my $source = Image::Magick->new;
-			my $x = $source->Read($img_path);
+			my $x = $source->Read($img_orig);
 
 			$source->AutoOrient();
 			$source->Strip(); #remove orientation data and all other metadata (EXIF)
@@ -596,44 +614,69 @@ sub process_image_upload($$$$$$$) {
 				$bg->Composite(compose => 'Over', image => $source);
 				$source = $bg;
 			}
+			
+			my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
 
 			$source->Set('quality',95);
-			$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
+			$x = $source->Write("jpeg:$img_jpg");
 
 			# Check that we don't already have the image
-			my $size = -s $img_path;
-			local $log->context->{img_size} = $size;
+			my $size_orig = -s $img_orig;
+			my $size_jpg = -s $img_jpg;
+			
+			local $log->context->{img_size_orig} = $size_orig;
+			local $log->context->{img_size_jpg} = $size_jpg;
 
-			$debug .= " - size of image file received: $size";
+			$debug .= " - size of image file received: $size_orig - saved jpg: $size_jpg";
 
-			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
+			$log->debug("comparing existing images with size of new image", { img_orig => $img_orig, size_orig => $size_orig, img_jpg => $img_jpg, size_jpg => $size_jpg }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
-				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
-				my $existing_image_size = -s $existing_image_path;
-				$log->debug("comparing image", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-				if ((defined $existing_image_size) and ($existing_image_size == $size)) {
-					$log->debug("image with same size detected", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-					# check the image was stored inside the
-					# product, it is sometimes missing
-					# (e.g. during crashes)
-					my $product_ref = retrieve_product($product_id);
-					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
-						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
-						unlink "$www_root/images/products/$path/$imgid.$extension";
-						rmdir ("$www_root/images/products/$path/$imgid.lock");
-						$$imgid_ref = $i;
-						$debug .= " - we already have an image with this file size: $size - imgid: $i";
-						$$debug_string_ref = $debug;
-						return -3;
-					}
-					else {
-						print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+				
+				# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
+				# but we stored original PNG files before they were converted to JPG in [imgid].png
+				# We compare both the sizes of the original files and the converted files
+						
+				my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
+				if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
+					push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
+				}
+				if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
+					push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
+				}
+				
+				foreach my $existing_image (@existing_images) {
+					
+					my $existing_image_size = -s $existing_image;
+					
+					foreach my $size ($size_orig, $size_jpg) {
+					
+						$log->debug("comparing image", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
+						if ((defined $existing_image_size) and ($existing_image_size == $size)) {
+							$log->debug("image with same size detected", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
+							# check the image was stored inside the
+							# product, it is sometimes missing
+							# (e.g. during crashes)
+							my $product_ref = retrieve_product($product_id);
+							if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
+								$log->debug("unlinking image", { imgid => $imgid, file => "$product_www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
+								unlink $img_orig;
+								unlink $img_jpg;
+								rmdir ("$product_www_root/images/products/$path/$imgid.lock");
+								$$imgid_ref = $i;
+								$debug .= " - we already have an image with this file size: $size - imgid: $i";
+								$$debug_string_ref = $debug;
+								return -3;
+							}
+							else {
+								print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+							}
+						}
 					}
 				}
 			}
 
 			if ("$x") {
-				$log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+				$log->error("cannot read image", { path => "$product_www_root/images/products/$path/$imgid.$extension", error => $x });
 				$debug .= " - could not read image: $x";
 			}
 
@@ -641,8 +684,8 @@ sub process_image_upload($$$$$$$) {
 			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
 				and ((not defined $options{users_who_can_upload_small_images})
 					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
-				unlink "$www_root/images/products/$path/$imgid.$extension";
-				rmdir ("$www_root/images/products/$path/$imgid.lock");
+				unlink "$product_www_root/images/products/$path/$imgid.$extension";
+				rmdir ("$product_www_root/images/products/$path/$imgid.lock");
 				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
 				$$debug_string_ref = $debug;
 				return -4;
@@ -673,12 +716,12 @@ sub process_image_upload($$$$$$$) {
 					gravity=>"center");
 				_set_magickal_options($img, $w);
 
-				my $x = $img->Write("jpeg:$www_root/images/products/$path/$imgid.$max.jpg");
+				my $x = $img->Write("jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg");
 				if ("$x") {
-					$log->warn("could not write jpeg", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
+					$log->warn("could not write jpeg", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
 				}
 				else {
-					$log->info("jpeg written", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
+					$log->info("jpeg written", { path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
 				}
 
 				$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
@@ -718,11 +761,14 @@ sub process_image_upload($$$$$$$) {
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
 				# and computer vision algorithms
 
-				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
 				my $code = $product_id;
 				$code =~ s/.*\///;
-				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
-
+				symlink("$product_www_root/images/products/$path/$imgid.jpg", "$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+				
+				# Save the image file size so that we can skip the image before processing it if it is uploaded again
+				$images_ref->{$size_orig} = $imgid;
+				store("$product_data_root/products/$path/images.sto", $images_ref);
 			}
 			else {
 				# Could not read image
@@ -730,7 +776,7 @@ sub process_image_upload($$$$$$$) {
 				$imgid = -5;
 			}
 
-			rmdir ("$www_root/images/products/$path/$imgid.lock");
+			rmdir ("$product_www_root/images/products/$path/$imgid.lock");
 		}
 
 		# make sure to close the file so that it does not stay in /tmp forever
@@ -868,8 +914,11 @@ sub process_image_crop($$$$$$$$$$$) {
 
 	my $new_product_ref = retrieve_product($product_id);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
+	
+	# The product_id can be prefixed by a server (e.g. off:[code]) with a different $www_root
+	my $product_www_root = www_root_for_product_id($product_id);	
 
-	my $source_path = "$www_root/images/products/$path/$imgid.jpg";
+	my $source_path = "$product_www_root/images/products/$path/$imgid.jpg";
 
 	local $log->context->{code} = $code;
 	local $log->context->{product_id} = $product_id;
@@ -975,7 +1024,7 @@ sub process_image_crop($$$$$$$$$$$) {
 
 		$background->Resize(geometry=>"${w}x${h}!");
 
-		my $bg_path = "$www_root/images/products/$path/$imgid.${crop_size}.background.jpg";
+		my $bg_path = "$product_www_root/images/products/$path/$imgid.${crop_size}.background.jpg";
 		$log->debug("writing background image to file", { width => $background->Get('width'), path => $bg_path }) if $log->is_debug();
 		$x = $background->Write("jpeg:${bg_path}");
 		$x and $log->error("could write background image", { path => $bg_path, error => $x });
@@ -1080,7 +1129,7 @@ sub process_image_crop($$$$$$$$$$$) {
 	$filename = $id . "." . $rev;
 
 	_set_magickal_options($source, undef);
-	my $full_path = "$www_root/images/products/$path/$filename.full.jpg";
+	my $full_path = "$product_www_root/images/products/$path/$filename.full.jpg";
 	local $log->context->{full_path} = $full_path;
 	$x = $source->Write("jpeg:${full_path}");
 	("$x") and $log->error("could not write JPEG file", { path => $full_path, error => $x });
@@ -1099,7 +1148,7 @@ sub process_image_crop($$$$$$$$$$$) {
 	$log->trace("performing adaptive threshold") if $log->is_trace();
 
 	$img2->AdaptiveThreshold(width=>$window, height=>$window);
-	$img2->Write("jpeg:$www_root/images/products/$path/$filename.full.lat.jpg");
+	$img2->Write("jpeg:$product_www_root/images/products/$path/$filename.full.lat.jpg");
 	}
 
 	$log->debug("generating resized versions") if $log->is_debug();
@@ -1128,7 +1177,7 @@ sub process_image_crop($$$$$$$$$$$) {
 			gravity=>"center");
 		_set_magickal_options($img, $w);
 
-		my $final_path = "$www_root/images/products/$path/$filename.$max.jpg";
+		my $final_path = "$product_www_root/images/products/$path/$filename.$max.jpg";
 		my $x = $img->Write("jpeg:${final_path}");
 		if ("$x") {
 			$log->error("could not write final cropped image", { path => $final_path, error => $x }) if $log->is_error();
