@@ -10591,6 +10591,8 @@ sub display_ingredients_analysis($) {
 	
 	};
 
+	$template_data_ref->{product_ingredients_analysis} = $product_ref->{ingredients_analysis};
+
 	if (defined $product_ref->{ingredients_analysis}) {
 
 		my $html_analysis = "";
@@ -10654,14 +10656,6 @@ sub display_ingredients_analysis($) {
 				}
 			}
 
-			push @{$template_data_ref->{ingredients_analysis_tags}}, {
-				color => $color,
-				icon => $icon,
-				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
-			};
-
-			$template_data_ref->{html_analysis} = 'not_empty';
-
 			# Skip unknown
 			next if $ingredients_analysis_tag =~ /unknown/;
 
@@ -10669,17 +10663,23 @@ sub display_ingredients_analysis($) {
 				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
-			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			. "</span> ";
+			push @{$template_data_ref->{ingredients_analysis_tags}}, {
+				color => $color,
+				icon => $icon,
+				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+			};
+
+			# $html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
+			# . $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
+			# . "</span> ";
 		}
 
-		if ($html_analysis ne "") {
+		# if ($html_analysis ne "") {
 			
-			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-			. $html_analysis
-			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		}
+		# 	$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
+		# 	. $html_analysis
+		# 	. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
+		# }
 	}
 
 	my $out;
