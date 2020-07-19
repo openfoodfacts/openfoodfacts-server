@@ -216,27 +216,27 @@ foreach my $series (@search_series, "nutrition_grades") {
 
 if ($action eq 'display') {
 
-	my $active_list = 'active';
+	my $active_list = 'is-active';
 	my $active_map = '';
 	my $active_graph = '';
 
 	if (param("generate_map")) {
 		$active_list = '';
-		$active_map = 'active';
+		$active_map = 'is-active';
 	}
 	elsif (param("graph")) {
 		$active_list = '';
-		$active_graph = 'active';
+		$active_graph = 'is-active';
 	}
 
-	
+
 	my %search_fields_labels = ();
 	my @type_array;
 	my @contains;
 	foreach my $field (@search_fields) {
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
 			$search_fields_labels{$field} = lc(lang($field));
-			
+
 		}
 		else {
 			if ($field eq 'creator') {
@@ -246,14 +246,14 @@ if ($action eq 'display') {
 				$search_fields_labels{$field} = lang($field . "_p");
 			}
 		}
-		push (@type_array, { 
+		push (@type_array, {
 			type_values => $field,
 			type_labels => $search_fields_labels{$field},
 		});
 	}
 
 	$search_fields_labels{search_tag} = lang("search_tag");
-	push (@type_array, { 
+	push (@type_array, {
 		type_values => "search",
 		type_labels => $search_fields_labels{search_tag},
 	});
@@ -276,14 +276,14 @@ if ($action eq 'display') {
 	foreach my $value (@contain_values){
 		# push(@{ $contain_labels{$value} }, lang("search_" . $value));
 		my $new_label = lang("search_" . $value);
-	 	push (@contains, { 
+	 	push (@contains, {
 	  		contain_values => $value,
 	  		contain_labels => $new_label,
 	 	});
 	 }
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
-		
+
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
 			type_value => $search_tags[$i][0],
@@ -309,14 +309,14 @@ if ($action eq 'display') {
 
 	}
 
-	
+
 	# Compute possible axis values
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
 		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
-	}	
+	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
 	my @sorted_axis_values = sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values);
@@ -325,38 +325,38 @@ if ($action eq 'display') {
 	foreach my $entry (@sorted_axis_values) {
 		if ($entry ne ("additives_n") && $entry ne ("ingredients_n") && $entry ne ("known_ingredients_n") && $entry ne ("unknown_ingredients_n") && $entry ne ("search_nutriment") && $entry ne ("products_n")) {
 			my $sorted_labels = ucfirst($Nutriments{$entry}{$lc} || $Nutriments{$entry}{en});
-			push (@result_array, { 
+			push (@result_array, {
 				values => $entry,
 				label => $sorted_labels,
 			});
 		}
 	}
-	push (@result_array, { 
+	push (@result_array, {
 		values => "additives_n",
 		label => lang("number_of_additives"),
 	});
-	push (@result_array, { 
+	push (@result_array, {
 		values => "ingredients_n",
 		label => lang("ingredients_n_s"),
 	});
-	push (@result_array, { 
+	push (@result_array, {
 		values => "known_ingredients_n",
 		label => lang("known_ingredients_n_s"),
 	});
-	push (@result_array, { 
+	push (@result_array, {
 		values => "unknown_ingredients_n",
 		label => lang("unknown_ingredients_n_s"),
 	});
-	push (@result_array, { 
+	push (@result_array, {
 		values => "products_n",
 		label => lang("number_of_products"),
 	});
-	
+
 	$template_data_ref->{result_array} = \@result_array;
 	my @axis_array = ('x','y');
 	my @resultant_array;
 	foreach my $axis (@axis_array) {
-		push (@resultant_array, { 
+		push (@resultant_array, {
 			id => $axis,
 			results => \@result_array,
 		});
@@ -385,7 +385,7 @@ if ($action eq 'display') {
 	  		'label' => '=',
 	  	},
 	 );
-	
+
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
@@ -394,7 +394,7 @@ if ($action eq 'display') {
 			nutriment_array => \@nutriments,
 			input_value => $search_nutriments[$i][2],
 		};
-	
+
 	}
 
 	# Different types to display results
@@ -479,7 +479,7 @@ $tt->process('search_form.tt.html', $template_data_ref, \$html);
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
-	
+
 	display_new($request_ref);
 
 }
@@ -550,9 +550,9 @@ elsif ($action eq 'process') {
 			}
 
 			if ($tagid ne '') {
-				
+
 				my $suffix = "";
-				
+
 				if (defined $tags_fields{$tagtype}) {
 					$suffix = "_tags";
 				}
@@ -610,9 +610,9 @@ elsif ($action eq 'process') {
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 
 		if (($nutriment ne 'search_nutriment') and ($value ne '')) {
-			
+
 			my $field;
-			
+
 			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
 				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n")) {
 				$field = $nutriment;
@@ -812,7 +812,7 @@ HTML
 		}
 	}
 }
- 
+
 #my $out;
 # $tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
 # print "Template Result, $html, are";

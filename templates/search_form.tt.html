@@ -2,8 +2,8 @@
 <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form">
 
     <!-- Word Search -->
-    <div class="row">
-        <div class="large-12 columns">
+    <div class="grid-x grid-padding-x">
+        <div class="cell large-12">
             <label for="search_terms2">[% lang ('search_terms_note') %]</label>
             <input type="text" name="search_terms2" id="search_terms2" value="[%search_terms%]" />
 	    </div>
@@ -16,13 +16,13 @@
 
     <!-- Criteria form -->
 
-    <div class="row">
+    <div class="grid-x grid-padding-x">
         [% FOREACH type IN criteria %]
-            <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
-                <div class="row">
-                    
-                    <div class="small-12 medium-12 large-5 columns">
-                                                
+            <div class="cell small-12 medium-12 large-6 criterion-row" style="padding-top:1rem">
+                <div class="grid-x grid-padding-x">
+
+                    <div class="cell small-12 medium-12 large-5">
+
                         <select name="tagtype_${type.id}" id="tagtype_${type.id}">
                             [% FOREACH value IN type.type_arrays %]
                                 [% IF value.type_labels == 'choose a criterion...' %]
@@ -30,13 +30,13 @@
                                 [% ELSE %]
                                     <option value="[% value.type_values %]" label="[% value.type_labels %]"></option>
                                 [% END %]
-                                
+
                             [% END %]
                         </select>
-                        
+
                     </div>
-                    
-                    <div class="small-12 medium-12 large-3 columns">
+
+                    <div class="cell small-12 medium-12 large-3">
 
                         <select name="tag_contains_${type.id}" id="tag_contains_${type.id}">
                             [% FOREACH value IN type.contain_array %]
@@ -49,7 +49,7 @@
                         </select>
                     </div>
 
-                    <div class="small-12 medium-12 large-4 columns tag-search-criterion">
+                    <div class="cell small-12 medium-12 large-4 tag-search-criterion">
                         <input type="text" id="tag_[% type.id %]" name="tag_[% type.id %]" value="[% type.input_value %]" placeholder="[% lang('search_value') %]"/>
                     </div>
                 </div>
@@ -61,10 +61,10 @@
 
     <h3>[% lang('search_ingredients') %]</h3>
 
-    <div class="row">
+    <div class="grid-x grid-padding-x">
 
         [% FOREACH type IN ingredients %]
-            <div class="small-12 medium-12 large-6 columns">
+            <div class="cell small-12 medium-12 large-6">
                 <label>[% lang ("${type.tagtype}_p") FILTER ucfirst %]</label>
                 <input type="radio" name="[% type.tagtype %]" value="without" id="without_[% type.tagtype %]" [% type.search_ingredient_classes_checked_without %]/>
 				    <label for="without_[% type.tagtype %]">[% lang('search_without') %]</label>
@@ -80,18 +80,18 @@
 
     <h3>[% lang('search_nutriments') %]</h3>
 
-    <div class="row">
+    <div class="grid-x grid-padding-x">
         [% FOREACH type IN nutriments %]
-            <div class="small-12 medium-12 large-6 columns">
-                <div class="row">
-                    <div class="small-8 columns">
+            <div class="cell small-12 medium-12 large-6">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-8">
                         <select class="select2_field" name="nutriment_[% type.id %]" id="nutriment_[% type.id %]">
                             [% FOREACH nutriment IN type.nutriment_values %]
                                 <option value="[% nutriment.values %]" label="[% nutriment.label %]">[% nutriment.label %]</option>
                             [% END %]
                         </select>
                     </div>
-                    <div class="small-2 columns">
+                    <div class="cell small-2">
                         <select name="nutriment_compare_${type.id}" id="nutriment_compare_${type.id}">
                             [% FOREACH value IN type.nutriment_array %]
                                 [% IF value.label == '<' %]
@@ -102,7 +102,7 @@
                             [% END %]
                         </select>
                     </div>
-                    <div class="small-2 columns">
+                    <div class="cell small-2">
                         <input type="text" id="nutriment_value_[% type.id %]" name="nutriment_value_[% type.id %]" value="[% type.input_value %]" />
                     </div>
                 </div>
@@ -116,11 +116,11 @@
 
     <ul id="result_accordion" class="accordion" style="margin-left:0" data-accordion>
 
-        <li class="accordion-navigation">
-            <a href="#results_list" style="border-top:1px solid #ccc"><h3>[% lang('search_list_choice') %]</h3></a>
-            <div id="results_list" class="content [% active_list %]">
-                <div class="row">
-                    <div class="small-6 columns">
+        <li class="accordion-item [% active_list %]" data-accordion-item>
+            <a href="#results_list" style="border-top:1px solid #ccc" class="accordion-title"><h3>[% lang('search_list_choice') %]</h3></a>
+            <div id="results_list" class="accordion-content" data-tab-content>
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-6">
                         <label for="sort_by">[% lang('sort_by') %]</label>
                         <select name="sort_by" id="sort_by">
                             [% FOREACH value IN sort_array %]
@@ -132,7 +132,7 @@
                             [% END %]
                         </select>
                     </div>
-                    <div class="small-6 columns">
+                    <div class="cell small-6">
                         <label for="page_size">[% lang('search_page_size') %]</label>
                         <select name="page_size" id="page_size">
                             [% FOREACH num IN size_array %]
@@ -148,24 +148,24 @@
                 <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />
             </div>
         </li>
-        
+
         <!-- Graphs and visualization -->
 
-        <li class="accordion-navigation">
-            <a href="#results_graph" style="border-top:1px solid #ccc">
+        <li class="accordion-item [% active_graph %]" data-accordion-item>
+            <a href="#results_graph" style="border-top:1px solid #ccc" class="accordion-title">
                 <h3>[% lang('search_graph_choice') %]</h3>
             </a>
-            <div id="results_graph" class="content [% active_graph %]">
+            <div id="results_graph" class="accordion-content" data-tab-content>
                 <div class="alert-box info">[% lang('search_graph_note') %]</div>
-    
+
                 <label for="graph_title">[% lang('graph_title') %]</label>
                 <input type="text" name="graph_title" id="graph_title" value="" />
-    
+
                 <p>[% lang('search_graph_instructions') %]</p>
-    
-                <div class="row">
+
+                <div class="grid-x grid-padding-x">
                     [% FOREACH type IN resultant_array %]
-                        <div class="small-12 medium-6 columns">
+                        <div class="cell small-12 medium-6">
                             <label for= "axis_[% type.id %]">[% lang("axis_${type.id}") %]</label>
                             <select class="select2_field" name="axis_[% type.id %]" id="axis_[% type.id %]">
                                 [% FOREACH axistype IN type.results %]
@@ -176,13 +176,13 @@
                     [% END %]
                 </div>
 
-                <div class="row">
-                    <div class="small-12 medium-6 columns">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-12 medium-6">
                         <p>[% lang('search_series') %]</p>
                         [% FOREACH series IN search_series %]
                             [% IF series.series == 'nutrition_grades' %]
                                 </div>
-                                <div class="small-12 medium-6 columns">
+                                <div class="cell small-12 medium-6">
                                     <p>[% lang('or') %]</p>
                             [% END %]
                             <input type="checkbox" id="series_[% series.series %]" name="series_[% series.series %]" [% series.checked %] />
@@ -198,9 +198,9 @@
 
         <!-- Map results -->
 
-        <li class="accordion-navigation">
-            <a href="#results_map" style="border-top:1px solid #ccc"><h3>[% lang('search_map_choice') %]</h3></a>
-            <div id="results_map" class="content [% active_map %]">
+        <li class="accordion-item [% active_map %]" data-accordion-item>
+            <a href="#results_map" style="border-top:1px solid #ccc" class="accordion-title"><h3>[% lang('search_map_choice') %]</h3></a>
+            <div id="results_map" class="accordion-content" data-tab-content>
 
                 <div class="alert-box info">[% lang ('search_map_note') %]</div>
 
@@ -211,12 +211,12 @@
 
 		    </div>
         </li>
-        
+
         <!-- Download results -->
 
-        <li class="accordion-navigation">
-            <a href="#results_download" style="border-top:1px solid #ccc"><h3>[% lang('search_download_choice') %]</h3></a>
-            <div id="results_download" class="content">
+        <li class="accordion-item" data-accordion-item>
+            <a href="#results_download" style="border-top:1px solid #ccc" class="accordion-title"><h3>[% lang('search_download_choice') %]</h3></a>
+            <div id="results_download" class="accordion-content" data-tab-content>
 
                 <p>[% lang('search_download_results') %]</p>
 
