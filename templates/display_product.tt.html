@@ -34,7 +34,7 @@
     </div>
 [% END %]
 
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %] 
+[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 <div itemscope itemtype="[% itemtype %]">
@@ -92,19 +92,19 @@
 [% html_manufacturer_source %]
 <!-- product_characteristics -->
 <h2>[% lang('product_characteristics') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% html_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+    <div class="cell hide-for-large-up medium-12">[% html_image %]</div>
+    <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
         [% html_fields %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% html_image %]</div>
+    <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$[% html_image %]</div>
 </div>
 
 <!-- ingredients -->
 <h2>[% lang('ingredients') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% ingredient_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+    <div class="cell hide-for-large-up medium-12">[% ingredient_image %]</div>
+    <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
         <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
             [% IF lc != ingredients_text_lang %]
@@ -117,7 +117,7 @@
             <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
             <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
             <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-            
+
             <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
         [% display_field_allergens %]
@@ -125,7 +125,7 @@
         [% display_ingredients_analysis %]
         [% display_ingredients_analysis_details %]
         [% IF html_ingredients_classes_n > 0 %]
-            <div class="row">
+            <div class="grid-x">
                 [% html_ingredients_classes %]
             </div>
         [% END %]
@@ -139,7 +139,7 @@
                     <ul id="special_ingredients">[% special_html %]</ul>
                     <p>[% lang("ingredients_analysis_note") %]</p>
                 </div>
-                
+
             [% END %]
         [% END %]
 
@@ -153,20 +153,20 @@
             [% display %]
         [% END %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
+    <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">[% html_image %]</div>
 </div>
 
 <!-- nutrition table -->
 [% IF nutrition_table == 'defined' %]
     <h2>[% lang("nutrition_data") %]</h2>
-    <div class="row">
-        <div class="hide-for-large-up medium-12 columns">
+    <div class="grid-x">
+        <div class="cell hide-for-large-up medium-12">
             [% nutrition_image %]
         </div>
-        <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
             [% display_nutrient_levels %]
             [% display_field %]
-            
+
             [% IF no_nutrition_data == 'on' %]
                 <div class='panel callout'>
                     [% lang("no_nutrition_data") %]
@@ -174,8 +174,8 @@
             [% END %]
             [% display_nutrition_table %]
         </div>
-    
-        <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
+
+        <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">
             $html_image
         </div>
     </div>
@@ -190,8 +190,8 @@
 <!-- other fields -->
 [% IF other_fields != "" %]
     <h2>[% lang('product_other_information') %]</h2>
-    <div class="row">
-        <div class="small-12 columns">
+    <div class="grid-x">
+        <div class="cell small-12">
             [% other_fields %]
         </div>
     </div>
@@ -223,11 +223,11 @@
     [% other_editors %]
     [% checked %]
 </p>
-    
+
 <div class="alert-box info">
     [% lang('fixme_product') %]
 </div>
-    
+
 </div>
 
 [% IF (user_id.defined) %]
