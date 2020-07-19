@@ -45,21 +45,6 @@ hr {
   }
 }
 
-.data_table {
-  label {
-    display: inline;
-  }
-
-  input {
-    display: inline;
-    font-size: 1em;
-  }
-
-  select {
-    font-size: 1em;
-  }
-}
-
 .nutriment_label {
   text-align: left;
   width: 300px;
@@ -104,6 +89,19 @@ thead, tbody {
     padding-left: 0.5rem;
   }
 
+  label {
+    display: inline;
+  }
+
+  input {
+    display: inline;
+    font-size: 1em;
+  }
+
+  select {
+    font-size: 1em;
+  }
+
   .nutriment_head {
     background-color: #88f;
     color: #fff;
@@ -140,6 +138,8 @@ ul.products {
 }
 
 .products {
+  line-height: 1.2;
+
   li {
     display: block;
     float: left;
@@ -200,36 +200,30 @@ a {
       text-decoration: none;
     }
   }
+
+  &.level_3, &:visited.level_3, &:hover.level_3 {
+    color: red;
+  }
+
+  &.level_2, &:visited.level_2, &:hover.level_2 {
+    color: #ff8c00;
+  }
+
+  &.level_1, &:visited.level_1, &:hover.level_1 {
+    color: green;
+  }
 }
 
 .level_3 {
   color: red;
 }
 
-a {
-  &.level_3, &:visited.level_3, &:hover.level_3 {
-    color: red;
-  }
-}
-
 .level_2 {
   color: #ff8c00;
 }
 
-a {
-  &.level_2, &:visited.level_2, &:hover.level_2 {
-    color: #ff8c00;
-  }
-}
-
 .level_1 {
   color: green;
-}
-
-a {
-  &.level_1, &:visited.level_1, &:hover.level_1 {
-    color: green;
-  }
 }
 
 #select_country_li .select2-container--default .select2-selection--single {
@@ -270,10 +264,6 @@ a {
     padding: 0.5rem;
     width: 2rem;
   }
-}
-
-.products {
-  line-height: 1.2;
 }
 
 .dark {

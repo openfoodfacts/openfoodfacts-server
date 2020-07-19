@@ -102,12 +102,12 @@ function buildjQueryUi() {
 }
 
 function modernizeJs() {
-  return src('./html/js/dist/*.js')
-  .pipe(modernizr())
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(sourcemaps.write("."))
-  .pipe(dest('./html/js/dist'))
+  return src('./html/js/dist/*.js').
+  pipe(modernizr()).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest('./html/js/dist'));
 }
 
 function jQueryUiThemes() {

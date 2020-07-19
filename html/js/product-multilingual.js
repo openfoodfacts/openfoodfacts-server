@@ -174,7 +174,7 @@ function add_line() {
 	$(this).unbind("change");
 	$(this).unbind("autocompletechange");
 
-	var id = parseInt($("#new_max").val()) + 1;
+	var id = parseInt($("#new_max").val(), 10) + 1;
 	$("#new_max").val(id);
 
 	var newline = $("#nutriment_new_0_tr").clone();
@@ -238,7 +238,7 @@ function rotate_image(event) {
 		console.log("selection - image - w:" + w + ' - h:' + h);
 
 
-		if (angle == 90) {
+		if (angle === 90) {
 			selection.x = h - y2;
 			selection.y = x1;
 			selection.width = y2 - y1;
