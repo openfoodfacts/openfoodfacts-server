@@ -7523,7 +7523,7 @@ HTML
 		compute_carbon_footprint_infocard($product_ref);
 		$html .= display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
-		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $$product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
 		}

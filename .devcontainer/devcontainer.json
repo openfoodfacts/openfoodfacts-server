@@ -8,6 +8,9 @@
   ],
   "service": "backend",
   "workspaceFolder": "/opt/product-opener",
+  "remoteEnv": {
+    "PERL5LIB": "${containerEnv:PERL5LIB}:/opt/product-opener/lib"
+  },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
