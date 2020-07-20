@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-08 10:20\n"
+"PO-Revision-Date: 2020-07-20 19:32\n"
 "Language-Team: Breton\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -225,7 +225,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "APK Android"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -397,7 +397,7 @@ msgstr ""
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "kêr enpakadur"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -581,11 +581,11 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "embannerien"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "embanner"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -1056,7 +1056,7 @@ msgstr "aozenn"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Roll an aozennoù"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
@@ -1117,7 +1117,7 @@ msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "skritellouigoù"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -1244,7 +1244,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Montana, SUA"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1343,7 +1343,7 @@ msgstr ""
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s produ"
 
 msgctxt "name"
 msgid "Name"
@@ -1428,7 +1428,7 @@ msgstr ""
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "magaennoù"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -1436,7 +1436,7 @@ msgstr ""
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "magaenn"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
@@ -1597,7 +1597,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Enpakañ"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1609,7 +1609,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "enpakañ"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1617,7 +1617,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "enpakañ"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1749,19 +1749,19 @@ msgstr ""
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Skeudenn ar produ"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr ""
+msgstr "Skeudenn gant ar c'hod-barrennoù:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Skeudenn oberiant:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "O tilemel skeudennoù"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1829,7 +1829,7 @@ msgstr ""
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Skeudennoù bet dilamet"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
@@ -1905,7 +1905,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produioù gwerzhet e %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1973,7 +1973,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Riskl"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2037,7 +2037,7 @@ msgstr ""
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Pellgargañ"
 
 msgctxt "search_download_choice"
 msgid "Download results"
@@ -2049,15 +2049,15 @@ msgstr ""
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Mentrezh XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel pe LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Mentrezh CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
@@ -2162,15 +2162,15 @@ msgstr "pe"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Disoc'hoù dre bajenn"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Klask produioù"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Disoc'hoù an enklask"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2238,7 +2238,7 @@ msgstr "Ostilhoù enklask"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "talvoudegezh"
 
 msgctxt "search_with"
 msgid "With"
@@ -2294,7 +2294,7 @@ msgstr "Kevreañ"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Rannañ"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2322,7 +2322,7 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Dispartiañ dre"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2358,7 +2358,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Stalioù"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2410,7 +2410,7 @@ msgstr "Klask:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Roudennoù"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2422,11 +2422,11 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "roudennoù"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "roudenn"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2609,7 +2609,7 @@ msgstr ""
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "O tilemel ar produ"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
@@ -2783,7 +2783,7 @@ msgstr ""
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 da 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2795,7 +2795,7 @@ msgstr ""
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2803,11 +2803,11 @@ msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Krennarded"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 da 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2819,7 +2819,7 @@ msgstr "Bugale"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 da 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2831,7 +2831,7 @@ msgstr "Babigoù"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 da 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2843,7 +2843,7 @@ msgstr "Poupigoù"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -3211,11 +3211,11 @@ msgstr "Leuskel"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "poblekelezh"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "poblekelezh"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3315,7 +3315,7 @@ msgstr ""
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Aozennoù"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
@@ -3418,7 +3418,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Talvoudegezh"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3536,7 +3536,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Nullañ"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3660,7 +3660,7 @@ msgstr ""
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Ho produioù"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
@@ -3799,7 +3799,7 @@ msgstr ""
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Ouzhpennañ skeudennoù..."
 
 msgctxt "start_upload"
 msgid "Start upload"
@@ -3819,7 +3819,7 @@ msgstr ""
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Titouroù"
 
 msgctxt "file_received"
 msgid "File received"
@@ -3871,7 +3871,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
-msgstr ""
+msgstr "Sukroù"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
@@ -3899,7 +3899,7 @@ msgstr ""
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "talvoudegezh"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3936,7 +3936,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Trugarez!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -3958,7 +3958,7 @@ msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Strolladoù"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3978,7 +3978,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Arload"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -3986,7 +3986,7 @@ msgstr ""
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Robot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -4063,7 +4063,7 @@ msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc pe org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
@@ -4120,7 +4120,7 @@ msgstr ""
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Ouzhpennañ ur vaezienn"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4140,7 +4140,7 @@ msgstr ""
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Ouzhpennañ ur vaezienn"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
@@ -4193,15 +4193,15 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Graet"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Da ober"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Skipailhoù"
 
 msgctxt "optional"
 msgid "optional"
@@ -4209,11 +4209,11 @@ msgstr ""
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "skipailhoù"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "skipailh"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
@@ -4226,7 +4226,7 @@ msgstr ""
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Skipailh %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
