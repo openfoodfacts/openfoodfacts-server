@@ -267,26 +267,6 @@
 
 
 <script type="text/javascript">init()</script>
-<script type="text/javascript">
-    Quagga.init({
-        inputStream : {
-            name : "Live",
-            type : "LiveStream",
-            target: document.querySelector('#input_product_code')    // Or '#yourElement' (optional)
-        },
-        decoder : {
-            readers : ["code_128_reader"]
-        }
-    }, function(err) {
-        if (err) {
-            console.log(err);
-            return
-        }
-        console.log("Initialization finished. Ready to start");
-    });
 
-
-
-</script>
 </body>
 </html>
