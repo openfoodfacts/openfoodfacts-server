@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ky\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-08 10:18\n"
+"PO-Revision-Date: 2020-07-20 19:33\n"
 "Language-Team: Kyrgyz\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -24,19 +24,19 @@ msgstr ""
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " жана "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Мен жөнүндө"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Кошуу"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Тил кошуу"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -44,19 +44,19 @@ msgstr ""
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Катталуу"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr ""
+msgstr "Катталуу"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Кош келиңиз!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Бизге кошулганыңызга рахмат!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -167,27 +167,27 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "кошумчалары"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "кошумча"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Өркүндөтүлгөн издөө"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Өркүндөтүлгөн издөө жана графиктер"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Ашыкча ичимдик ичүү ден-соолукка зыян."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Бардык тапшырмалар"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -195,11 +195,11 @@ msgstr ""
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "аллергендер"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "аллерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -207,30 +207,30 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Google Play'ден жүктөп алыңыз"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -331,7 +331,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "категориялар"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -339,11 +339,11 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "категория"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "категория кошуу"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -395,7 +395,7 @@ msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -435,7 +435,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "өлкөлөр"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -443,7 +443,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "мамлекет"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -519,7 +519,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "өзгөртүү"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
