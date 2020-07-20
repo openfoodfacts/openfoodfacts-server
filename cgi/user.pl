@@ -38,8 +38,27 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
+use Template;
+use Data::Dumper;
+
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
+
+
+# Initialize the Template module
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
+
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
@@ -108,21 +127,10 @@ if ($action eq 'process') {
 	}
 }
 
-if (($action eq "display") or ($action eq "none")) {
+$template_data_ref->{action} = $action;
 
-	if ($#errors >= 0) {
-		$html .= "
-		<div class='alert-box alert'>
-			<p>
-				<b>$Lang{correct_the_following_errors}{$lang}</b>
-			</p>
-		";
-		foreach my $error (@errors) {
-			$html .= "$error<br />";
-		}
-		$html .= '</div>';
-	}
-}
+$template_data_ref->{error_count} = $#errors;
+$template_data_ref->{errors} = \@errors;
 
 if ($action eq 'display') {
 
@@ -150,24 +158,11 @@ SCRIPT
 		}
 	}
 
-	$html .= start_form()
-	. "<table>";
+	$template_data_ref->{display_user_form} = ProductOpener::Users::display_user_form($user_ref,\$scripts);
+	$template_data_ref->{display_user_form_optional} = ProductOpener::Users::display_user_form_optional($user_ref);
+	$template_data_ref->{display_user_form_admin_only} = ProductOpener::Users::display_user_form_admin_only($user_ref);
 
-	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
-	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
-	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
-
-	if ($admin) {
-		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
-	}
-
-	$html .= "\n<tr><td>"
-	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'userid', -value=>$userid, -override=>1)
-	. submit(-class=>'button')
-	. "</td></tr>\n</table>"
-	. end_form();
+	$template_data_ref->{admin} = $admin;
 
 }
 elsif ($action eq 'process') {
@@ -178,76 +173,30 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
-
-	$html .= "<p>" . lang($type . '_user_result') . "</p>";
+	$template_data_ref->{type} = $type;
 	
 	if ($type eq 'add') {
-		
-		# Show different messages depending on whether it is a pro account
-		# and whether we are on the public platform or the pro platform
-		
-		if (defined $user_ref->{requested_org}) {		
-			
-			# Pro account, but the requested org already exists
-			
-			my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-			
-			$html .= "<div id=\"existing_org_warning\">"
-			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
-			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
-			. "<p>" .lang("please_email_producers") . "</p>"
-			. "</div>";
-		}		
-		elsif (defined $user_ref->{org}) {
-			
-			# Pro-account, with a newly created org
-			
-			if (defined $server_options{producers_platform}) {
+
+		$template_data_ref->{user_requested_org} = $user_ref->{requested_org};
+	
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{add_user_existing_org} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+
+		$template_data_ref->{user_org} = $user_ref->{org};
+
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 				
-				# We are on the producers platform
-				# Suggest next steps:
-				# - import product data
-				
-				$html .= "<p>" . lang("add_user_you_can_edit_pro") . "</p>";
-				$html .= "<p>&rarr; <a href=\"/cgi/import_file_upload.pl\">" . lang("import_product_data") . "</a></p>";
-			}
-			else {
-				
-				# We are on the public platform, link to the producers platform
-				
-				my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
-				$html .= "<p>" . sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url) . "</p>";
-			}
-		}
-		else {
-			# Personal account
-			
-			# Suggest next steps:
-			# - add or edit products on the web site or through the app
-			# - join us on Slack
-			
-			$html .= "<p>" . sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link")) . "</p>";	
-			
-			$html .= "<p>" . sprintf(lang("add_user_join_the_project"), lang("site_name")) . "</p>";
-			
-			$html .= "<p>" . lang("add_user_join_us_on_slack") . "</p>";
-			$html .= "<p>&rarr; <a href=\"https://slack.openfoodfacts.org\">" . lang("join_us_on_slack") . "</a></p>";
-		}
+		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
+
+		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
+		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 	}
 
-	if (($type eq 'add') or ($type eq 'edit')) {
-
-		# Do not display donate link on producers platform
-		if (not $server_options{producers_platform}) {
-			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-			$html .= "<p>" . lang("bottom_content") . "</p>\n";
-		}
-	}
 }
 
-if ($debug) {
-	$html .= "<p>type: $type action: $action userid: $userid</p>";
-}
+$template_data_ref->{debug} = $debug;
+$template_data_ref->{userid} = $userid;
 
 my $full_width = 1;
 if ($action ne 'display') {
@@ -265,6 +214,9 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 else {
 	
 	my $title = lang($type . '_user_' . $action);
+
+	$tt->process('user_form.tt.html', $template_data_ref, \$html);
+	$html .= "<p>" . $tt->error() . "</p>";
 	
 	display_new( {
 		title=>$title,
