@@ -10589,14 +10589,13 @@ CSS
 	}
 
 	$template_data_ref->{ingredients_text} = $ingredients_text;
-
 	$template_data_ref->{ingredients_list} = $ingredients_list;
 
-	my $out;
-	$tt->process('ingredients_analysis_details.tt.html', $template_data_ref, \$out) || return "template error: " . $tt->error();
+	my $html;
 
-	# return $html;
-	return $out;
+	$tt->process('ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
 }
 
 
