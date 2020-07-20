@@ -9933,6 +9933,10 @@ sub display_ingredients_analysis_details($) {
 
 	(not defined $product_ref->{ingredients}) and return "";
 
+	my $template_data_ref = {
+		lang => \&lang,
+	};
+
 	my $i = 0;
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 		$i++;
@@ -9956,6 +9960,7 @@ sub display_ingredients_analysis_details($) {
 	my $unknown_ingredients_help_html = '';
 
 	if ($ingredients_text =~ /unknown_ingredient/) {
+		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
 
 		$styles .= <<CSS
 .unknown_ingredient {
@@ -9963,29 +9968,14 @@ sub display_ingredients_analysis_details($) {
 }
 CSS
 ;
-		$unknown_ingredients_help_html = " <b>" . lang("we_need_your_help") . "</b>";
-
-		$unknown_ingredients_html = '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>'
-		. '<div class="callout panel">'
-		. '<h3>' . lang("we_need_your_help") . '</h3>'
-		. '<p>' . lang("you_can_help_improve_ingredients_analysis") . '</p>'
-		. '<ul>'
-		. '<li>' . lang("help_improve_ingredients_analysis_1") . '</li>'
-		. '<li>' . lang("help_improve_ingredients_analysis_2") . '</li>'
-		. '</ul>'
-		. '<p>' . lang("help_improve_ingredients_analysis_instructions") . '</p>'
-		. '</div>';
 	}
 
-	my $html = '<p><a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
-	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">'
-	. $unknown_ingredients_html;
+	$template_data_ref->{ingredients_text} = $ingredients_text;
+	$template_data_ref->{ingredients_list} = $ingredients_list;
 
-	$html .= '<p id="ingredients_analysis_ingredients_text">' . $ingredients_text . "</p>";
+	my $html;
 
-	$html .= $ingredients_list;
-
-	$html .= "</div>";
+	$tt->process('ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
