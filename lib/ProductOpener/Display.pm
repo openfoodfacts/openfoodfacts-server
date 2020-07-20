@@ -10585,17 +10585,13 @@ sub display_ingredients_analysis($) {
 	my $html = "";
 
 	my $template_data_ref = {
-		
 		lang => \&lang,
 		display_icon => \&display_icon,
-	
 	};
 
 	$template_data_ref->{product_ingredients_analysis} = $product_ref->{ingredients_analysis};
 
 	if (defined $product_ref->{ingredients_analysis}) {
-
-		my $html_analysis = "";
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
@@ -10668,24 +10664,13 @@ sub display_ingredients_analysis($) {
 				icon => $icon,
 				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
 			};
-
-			# $html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
-			# . $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			# . "</span> ";
 		}
 
-		# if ($html_analysis ne "") {
-			
-		# 	$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-		# 	. $html_analysis
-		# 	. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		# }
 	}
 
-	my $out;
-	$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$out) || return "template error: " . $tt->error();
-	# return $html;
-	return $out;
+	$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	return $html;
+
 }
 
 1;
