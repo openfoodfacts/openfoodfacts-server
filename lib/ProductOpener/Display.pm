@@ -4128,14 +4128,12 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{html_count} = $html_count;
 	}
 
-	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
 	$template_data_ref->{jqm} = $request_ref->{jqm};
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	
-	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
@@ -4235,7 +4233,6 @@ sub search_and_display_products($$$$$) {
 								}
 							}
 						}
-
 					}
 
 					elsif (defined $product_ref->{$field}) {
