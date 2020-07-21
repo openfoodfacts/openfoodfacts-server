@@ -5809,7 +5809,7 @@ sub assign_categories_properties_to_product($) {
 
 	# Simple properties
 	
-	if (defined $product_ref->{categories_tags}) {
+	if (defined $product_ref->{categories}) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
 	else {
