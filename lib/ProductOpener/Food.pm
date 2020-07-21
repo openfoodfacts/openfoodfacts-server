@@ -5809,6 +5809,8 @@ sub assign_categories_properties_to_product($) {
 
 	# Simple properties
 	
+	push @{$product_ref->{categories_properties_tags}}, "all-products";
+	
 	if (defined $product_ref->{categories}) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
@@ -5816,7 +5818,7 @@ sub assign_categories_properties_to_product($) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-unknown";
 	}
 
-	foreach my $property ("agribalyse_food_code:en", "agribalyse_proxy_food_code:en", "ciqual_food_code:en:") {
+	foreach my $property ("agribalyse_food_code:en", "agribalyse_proxy_food_code:en", "ciqual_food_code:en") {
 
 		my $property_name = $property;
 		$property_name =~ s/:en$//;
