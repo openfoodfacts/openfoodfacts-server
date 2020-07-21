@@ -5808,6 +5808,13 @@ sub assign_categories_properties_to_product($) {
 	$product_ref->{categories_properties_tags} = [];
 
 	# Simple properties
+	
+	if (defined $product_ref->{categories_tags}) {
+		push @{$product_ref->{categories_properties_tags}}, "categories-known";
+	}
+	else {
+		push @{$product_ref->{categories_properties_tags}}, "categories-unknown";
+	}
 
 	foreach my $property ("agribalyse_food_code:en", "agribalyse_proxy_food_code:en", "ciqual_food_code:en:") {
 
@@ -5822,23 +5829,23 @@ sub assign_categories_properties_to_product($) {
 					$product_ref->{categories_properties}{$property} = $properties{categories}{$categoryid}{$property};
 					last;
 				}
-				if (defined $product_ref->{categories_properties}{$property}) {
-					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . $product_ref->{categories_properties}{$property});
-					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "known");					
-				}
-				else {
-					push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "unknown");
-				}				
-			}
-			if ((defined $product_ref->{categories_properties}{"agribalyse_food_code:en"}) or (defined $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"})) {
-				push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "known");
-			}
-			else {
-				push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
 			}
 		}
+		
+		if (defined $product_ref->{categories_properties}{$property}) {
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . $product_ref->{categories_properties}{$property});
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "known");					
+		}
+		else {
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "unknown");
+		}				
 	}
-
+	if ((defined $product_ref->{categories_properties}{"agribalyse_food_code:en"}) or (defined $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"})) {
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "known");
+	}
+	else {
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
+	}
 }
 
 1;
