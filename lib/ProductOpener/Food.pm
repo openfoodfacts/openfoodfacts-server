@@ -5842,6 +5842,8 @@ sub assign_categories_properties_to_product($) {
 	}
 	if ((defined $product_ref->{categories_properties}{"agribalyse_food_code:en"}) or (defined $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"})) {
 		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "known");
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-"
+			. ($product_ref->{categories_properties}{"agribalyse_food_code:en"} || $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"}));
 	}
 	else {
 		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
