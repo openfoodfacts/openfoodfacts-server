@@ -111,6 +111,20 @@ sub make_table {
 
 	my $t_ref = Data::Table->new( \@data, \@headers, 0 );
 
+	# fix a broken row from the source data
+	if ( $url =~ /SSA4B_AS_CE_PRODCOQUI_COV\.txt\z/ ) {
+		$t_ref->match_pattern_hash(
+			'$_{"Numéro agrément/Approval number"} eq "34" && $_{SIRET}==301'
+		);
+		for ( @{ $t_ref->{MATCH} } ) {
+			my $r = $t_ref->delRow($_);
+			$r->[1] = join '.', @$r[ 1, 3 ];
+			splice @$r, 2, -0, ( splice @$r, 4 );
+			@$r[ -2 .. -1 ] = undef;
+			$t_ref->addRow( $r, $_ );
+		}
+	}
+
 	$t_ref->addCol( $url, 'Section' );
 
 	$t_ref->addCol( undef, $_ ) for qw( lat lng );
