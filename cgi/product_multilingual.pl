@@ -85,7 +85,7 @@ if ($type eq 'search_or_add') {
 	if ((not defined $code) or ($code eq "")) {
 		$code = process_search_image_form(\$filename);
 	}
-	elsif ($code !~ /^\d{8,24}$/) {
+	elsif ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}	
 
@@ -173,7 +173,7 @@ else {
 	if ((not defined $code) or ($code eq '')) {
 		display_error($Lang{missing_barcode}{$lang}, 403);
 	}
-	elsif ($code !~ /^\d{8,24}$/) {
+	elsif ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {

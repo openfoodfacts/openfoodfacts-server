@@ -4233,6 +4233,7 @@ sub search_and_display_products($$$$$) {
 								}
 							}
 						}
+
 					}
 
 					elsif (defined $product_ref->{$field}) {
@@ -7279,7 +7280,7 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}		
 
@@ -9774,7 +9775,7 @@ sub display_product_api($)
 	$response{code} = $code;
 	my $product_ref = retrieve_product($product_id);
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
 		$response{status} = 0;

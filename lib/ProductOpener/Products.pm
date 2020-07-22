@@ -802,7 +802,7 @@ sub change_product_server_or_code($$$) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code !~ /^\d{8,24}$/) {
+	if ($new_code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
