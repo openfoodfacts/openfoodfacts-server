@@ -204,6 +204,6 @@ $merged_table_ref->rowMerge($_) for @table_refs;
 open( my $ofh, '>:encoding(UTF-8)', $outfile )
   or die "Can't open $outfile for writing: $!";
 
-$merged_table_ref->csv( 1, { file => $ofh } );
+$merged_table_ref->csv( 1, { file => $ofh, delimiter => ';' } );
 
 close $ofh;
