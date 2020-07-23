@@ -3402,41 +3402,6 @@ fi:soijamehujuomat
 fr:Boissons à base de jus de fruits et de soja
 nl:Vruchten- en sojadranken, Vruchten- en sojadrank
 
-<en:Fruit and soy beverages
-en:Apple juice and soy drinks
-de:Apfelsäfte und Sojagetränke
-es:Bebidas a base de zumo de manzana y soja, Bebidas de zumo de manzana y soja
-fr:Boissons à base de jus de pomme et de soja
-nl:Appel-sojadranken, Appel-sojadrank
-
-<en:Fruit and soy beverages
-en:Multifruit juice and soy drinks
-de:Mehrfruchtsaft und Sojagetränke
-es:Bebidas a base de zumo multifruta y soja, Bebidas de zumo multifruta y soja
-fr:Boissons à base de jus multifruits et de soja
-nl:Multifruitsojadranken
-
-<en:Fruit and soy beverages
-en:Orange juice and soy drinks
-de:Orangensäfte und Sojagetränke
-es:Bebidas a base de zumo de naranja y soja, Bebidas de zumo de naranja y soja
-fr:Boissons à base de jus d'orange et de soja
-nl:Sinaasappelsojadranken, Sinaasappelsojadrank
-
-<en:Fruit and soy beverages
-en:Peach juice and soy drinks
-de:Pfirsichsäfte und Sojagetränke
-es:Bebidas a base de zumo de melocotón y soja, Bebidas de zumo de melocotón y soja
-fr:Boissons à base de jus de pêche et de soja
-nl:Perzikkensojadranken, Perzikkensojadrank
-
-<en:Fruit and soy beverages
-en:Pineapple juice and soy drinks
-de:Annanasssäfte und Sojagetränke
-es:Bebidas a base de zumo de piña y soja, Bebidas de zumo de piña y soja
-fr:Boissons à base de jus d'ananas et de soja
-nl:Ananassojadranken, Ananassojadrank
-
 <en:Plant-based beverages
 en:Smoothies
 de:Smoothies
@@ -22104,11 +22069,22 @@ ro:Biscuiți fără gluten
 
 #do not confuse with the cocktail spritz
 <en:Biscuits
-en:Sprits, spritz biscuits
-fr:Sprits, biscuits spritz
+en:Sprits biscuits, Sprits, spritz biscuits
+de:Spritzgebäck
+fr:Biscuits sprits, Sprits, biscuits spritz
 
+<en:Sprits biscuits
+en:Plain sprits biscuits
+fr:Biscuits sprits natures
+
+<en:Chocolate biscuits
+<en:Sprits biscuits
+en:Chocolate sprits biscuits
+fr:Biscuits sprits au chocolat
+
+# In the US the word "cookie" is used for any biscuit. They call "Drop cookies" what europeans call cookies.
 <en:Biscuits
-en:Cookies
+en:Drop cookies
 ca:Cookies
 de:Cookies
 es:Cookies
@@ -22294,6 +22270,11 @@ fr:Biscuits au chocolat noir
 it:Biscotti al cioccolato fondente
 nl:Pure chocoladebiscuits, Pure chocoladebiscuit
 ro:Biscuiți cu ciocolată neagră
+
+# Biscuits type granola, pepito and other digestive biscuits covered with chocolate
+<en:Chocoalate biscuits
+en:Chocolate-covered biscuits
+fr:Biscuits nappés de chocolat
 
 <en:Chocolate biscuits
 es:Galletas con tableta de chocolate
@@ -22488,12 +22469,12 @@ ciqual_food_name:en:Butter biscuit (cookie)
 ciqual_food_name:fr:Biscuit sec petit beurre
 
 <en:Biscuits
+es:Galletas maría, galletas de tipo maria
 nl:Mariakaakjes, Mariakaakje
 
 <en:Biscuits
 en:Shortbread cookies, Shortbread pastry biscuit
 ca:Galetes de mantega
-de:Butterkekse
 fr:Biscuits sablés, Biscuit sablé, Sablés, Sablé, Sablé pâtissier
 nl:Zandkoekjes, Zandkokje
 wikidata:en:Q2915670
@@ -22606,11 +22587,34 @@ fr:Shortbread
 nl:Shortbread
 wikidata:en:Q652695
 
-#almond biscuits from Italy
+#Biscuits from Corsica
+<en:Biscuits
+en:Canistrelli
+fr:Canistrelli
+it:Canistrelli
+wikidata:en:Q2936384
+
+#Very dry biscuits from Italy. They originally contain almonds, but it can be replaced by chocolate drops or lyophilized fruits
 <en:Biscuits
 en:Cantucci, cantuccini
 fr:Cantucci, cantuccini
 it:Cantucci, cantuccini
+wikidata:en:Q769635
+
+#Cantucci from Toscani containing almonds only
+<en:Cantucci
+it:Cantucci Toscani, Cantuccini Toscani
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+#Biscuits from Italy
+<en:Biscuits
+en:Amaretti
+de:Amaretti
+es:Amaretti
+fr:Amaretti
+it:Amaretti, amaretto
+wikidata:en:Q3748739
 
 <en:Biscuits
 en:Speculoos, Speculoos biscuit
@@ -23892,6 +23896,10 @@ fr:Préparations pour crêpes
 nl:Pancake mixes
 
 <en:Cakes
+en:Filled cakes
+fr:Gâteaux fourrés
+
+<en:Cakes
 en:Carrot cakes
 fr:Carrot cakes, gâteaux aux carottes
 wikidata:en:Q656071
@@ -23985,7 +23993,7 @@ ciqual_food_code:en:23925
 ciqual_food_name:en:Marble cake
 ciqual_food_name:fr:Gâteau marbré
 
-<en:Cakes
+<en:Filled cakes
 fr:Nonnettes
 wikidata:en:Q3343365
 
@@ -24415,7 +24423,7 @@ ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
 <en:Biscuits
 en:Cigarette Russes, Russian cigarettes
 de:Katzenzungen
-fr:Cigarette russe, Cigarettes russes
+fr:Biscuits cigarettes, cigarette russe, Cigarettes russes
 nl:Kattetongen
 wikidata:en:Q960635
 agribalyse_food_code:en:24441
@@ -28790,7 +28798,7 @@ nl:Gepasteuriseerde Munster
 fr:Petits Munsters, Petit Munster
 
 <en:French cheeses
-<fr:Camemberts au lait cru
+<en:Camemberts from raw milk
 en:Camemberts de Normandie, Camemberts from Normandy
 de:Camembert de Normandie
 fi:Normandian Camembertit
@@ -28813,13 +28821,47 @@ agribalyse_food_code:en:12001
 ciqual_food_code:en:12001
 ciqual_food_name:en:Camembert cheese, from cow's milk
 
-<en:Cow cheeses
-<en:Soft cheeses with bloomy rind
-en:Camembert cheese from cow's milk from raw milk
-fr:Camembert au lait cru
-agribalyse_food_code:en:12006
+<en:Camemberts
+<en:Unpasteurised cheeses
+en:Camemberts from raw milk, Camembert made with raw milk, Camembert cheese from cow's milk from raw milk
+de:Camembert aus Rohmilch, Rohmilch-Camembert
+fi:Camembert raakamaidosta
+fr:Camemberts au lait cru, Camembert au lait cru
+nl:Rauwmelkse camemberts
 ciqual_food_code:en:12006
 ciqual_food_name:en:Camembert cheese, from cow's milk, from raw milk
+
+<en:Camemberts
+en:Camemberts from microfiltered milk
+de:Camembert aus mikrofiltrierter Milch
+fr:Camemberts au lait microfiltré
+nl:Camemberts van gemicrofiltreerde melk
+
+<en:Camemberts
+<fr:Fromages au lait thermisé
+en:Camemberts from thermized milk
+de:Camembert aus thermisierter Milch
+fr:Camemberts au lait thermisé
+nl:Camemberts op basis van gethermiseerde melk
+
+<en:Camemberts
+<en:Pasteurized cheeses
+en:Pasteurized camembert
+de:Pasteurisierter Camembert
+es:Camembert pasteurizado
+fi:Pastöroitu Camambert
+fr:Camemberts pasteurisés, camembert pasteurisé
+hu:Pasztőrözött camembert
+nl:Gepasteuriseerde camemberts
+wikidata:en:Q47472053
+
+<en:Camemberts
+en:Camembert with Calvados
+de:Camembert mit Calvados
+fr:Camembert au calvados
+nl:Camembert met Calvados
+wikidata:en:Q2934743
+
 
 <en:Cow cheeses
 <en:Soft cheeses with bloomy rind
@@ -28884,45 +28926,6 @@ fr:Fromage à pâte molle à croûte lavée au lait pasteurisé (type Vieux Pan�
 agribalyse_food_code:en:12047
 ciqual_food_code:en:12047
 ciqual_food_name:en:Soft-ripened washed-rind cheese, from pasteurised milk (Vieux pané-type cheese)
-
-<en:Camemberts
-<en:Unpasteurised cheeses
-en:Camembert made with raw milk
-de:Camembert aus Rohmilch, Rohmilch-Camembert
-fi:Camembert raakamaidosta
-fr:Camemberts au lait cru
-nl:Rauwmelkse camemberts
-
-<en:Camemberts
-en:Camemberts from microfiltered milk
-de:Camembert aus mikrofiltrierter Milch
-fr:Camemberts au lait microfiltré
-nl:Camemberts van gemicrofiltreerde melk
-
-<en:Camemberts
-<fr:Fromages au lait thermisé
-en:Camemberts from thermized milk
-de:Camembert aus thermisierter Milch
-fr:Camemberts au lait thermisé
-nl:Camemberts op basis van gethermiseerde melk
-
-<en:Camemberts
-<en:Pasteurized cheeses
-en:Pasteurized camembert
-de:Pasteurisierter Camembert
-es:Camembert pasteurizado
-fi:Pastöroitu Camambert
-fr:Camemberts pasteurisés, camembert pasteurisé
-hu:Pasztőrözött camembert
-nl:Gepasteuriseerde camemberts
-wikidata:en:Q47472053
-
-<en:Camemberts
-en:Camembert with Calvados
-de:Camembert mit Calvados
-fr:Camembert au calvados
-nl:Camembert met Calvados
-wikidata:en:Q2934743
 
 <en:Cow cheeses
 <en:Cooked pressed cheeses
@@ -62818,6 +62821,7 @@ nl:Dieetjams
 
 <en:Jams
 en:Rosehip jams, rosehip jam
+de:Hagebutte Konfitüren
 fr:Confitures d'églantines, Confiture d'églantines, confitures de gratte-cul, confitures de cynorhodons
 hu:Csipkebogyó lekvár
 nl:Rozenbotteljam
