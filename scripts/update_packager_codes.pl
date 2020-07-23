@@ -107,6 +107,9 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			if ($extension eq 'tsv') {
 				$separator = $tsv_separator;
 			}
+			if ($country eq "fr") {
+				$separator = ',';
+			}
 
 			my $key = $packager_code_key{$country};
 
