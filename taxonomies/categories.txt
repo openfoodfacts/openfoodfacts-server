@@ -21981,10 +21981,12 @@ pnns_group_2:en:Biscuits and cakes
 
 # description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
 
+# for English, we make cookies a synonym of biscuits
+# for other languages, cookies a separate entry corresponding to "Drop cookies" in English
 # <en:compound
 <en:Sugary snacks
 <en:Biscuits and cakes
-en:Biscuits, biscuit
+en:Biscuits, biscuit, cookies, cookie
 ar:بسكويت
 az:Biskvit
 bg:Бисквита
@@ -22099,7 +22101,7 @@ zh:曲奇, 曲奇饼干
 wikidata:en:Q13266
 oqali_family:en: fr:Biscuits et gateaux industriels - Cookies
 
-<en:Cookies
+<en:Drop Cookies
 <en:Chocolate biscuits
 en:Chocolate chip cookies
 de:Schokoladen-Cookies
@@ -22141,7 +22143,7 @@ fr:Cookies au chocolat et aux noisettes
 nl:Chocoladehazelnootkoekjes, Chocoladehazelnootkoekje
 ro:Biscuiți cu ciocolată și alune
 
-<en:Cookies
+<en:Drop cookies
 en:Raisin cookies
 de:Cookies mit Rosinen
 fr:Cookies au raisin
