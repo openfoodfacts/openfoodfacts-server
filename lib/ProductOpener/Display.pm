@@ -7461,7 +7461,7 @@ CSS
 	# obsolete product
 
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$template_data_ref->{product_ref_obsolete} = $product_ref->{obsolete};
+		$template_data_ref->{product_is_obsolete} = $product_ref->{obsolete};
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
@@ -7502,7 +7502,7 @@ CSS
 			$lang_source =~ s/-/_/g;
 			push @{$template_data_ref->{html_sources}}, {
 				lang_source => $lang_source,
-				source_ref_url => $source_ref->{url},
+				source_url => $source_ref->{url},
 			};
 
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
@@ -7580,6 +7580,7 @@ CSS
 	}
 
 	$template_data_ref->{ingredient_image} = $html_image;
+	$template_data_ref->{ingredients_text_lang_html} = $ingredients_text_lang_html;
 	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 
@@ -7663,21 +7664,19 @@ JS
 
 	}
 	
-	# Offer to add the ingredients in the language of the interface
+	# # Offer to add the ingredients in the language of the interface
 		
-	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
-		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
-		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
-		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
-		. "</p>";
-	}	
+	# if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
+	# 	$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
+	# 	. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
+	# 	. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
+	# 	. "</p>";
+	# }	
 
+	$template_data_ref->{display_ingredients_in_intlang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
-
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
-
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
-
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
@@ -7849,6 +7848,7 @@ HTML
 		$template_data_ref->{a_title} = $a_title;
 		$template_data_ref->{group} = $group;
 		$template_data_ref->{display} = $display;
+		$template_data_ref->{nova_group_image} = $html_image;
 	}
 
 	# Do not display nutrition table for Open Beauty Facts

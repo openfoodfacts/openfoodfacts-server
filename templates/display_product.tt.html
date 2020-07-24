@@ -49,7 +49,7 @@
 [% END %]
 
 <!-- Obsolete product -->
-[% IF product_ref_obsolete %]
+[% IF product_is_obsolete %]
     <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
         [% warning %]
     </div>
@@ -72,22 +72,6 @@
     </div>
 [% END %]
 
-<!-- [% IF out_of_date_warnings == 'defined' %]
-    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
-        Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-        <br><br>
-        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="https://www.lactalis.fr/information-consommateur/">Lactalis</a>
-        <a href="#" class="close">&times;</a></span>
-    </div>
-[% ELSIF fr_brands == 'defined' %]
-    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
-        Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-        <br><br>
-        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a></span>
-        <a href="#" class="close">&times;</a>
-    </div>
-[% END %] -->
-
 <!-- photos and data sources -->
 [% html_manufacturer_source %]
 <!-- product_characteristics -->
@@ -97,29 +81,40 @@
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
         [% html_fields %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
 </div>
 
 <!-- ingredients -->
-<h2>[% lang('ingredients') %]</h2>
+<h2>[% lang('ingredients') %][% ingredients_text_lang_html %]</h2>
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% ingredient_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
-        <div><span class="field">[% lang("ingredients_text") %]:</span>
-            [% IF lc != ingredients_text_lang %]
-                <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
-            [% ELSE %]
-                <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
+        [% IF ingredients_text != "" %]
+            <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
+            <div><span class="field">[% lang("ingredients_text") %]:</span>
+                [% IF lc != ingredients_text_lang %]
+                    <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
+                [% ELSE %]
+                    <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
+                [% END %]
+            </div>
+            [% IF User_moderator == 'defined' %]
+                <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
+                <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+                <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
+                
+                <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
             [% END %]
-        </div>
-        [% IF User_moderator == 'defined' %]
-            <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
-            <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-            <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-            
-            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
+
+        <!-- Offer to add the ingredients in the language of the interface -->
+        [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
+            <p>
+                [% display_ingredients_in_intlang %] 
+                <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
+            </p>
+        [% END %]
+
         [% display_field_allergens %]
         [% display_field_traces %]
         [% display_ingredients_analysis %]
@@ -153,7 +148,7 @@
             [% display %]
         [% END %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% nova_group_image %]</div>
 </div>
 
 <!-- nutrition table -->
@@ -176,7 +171,7 @@
         </div>
     
         <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
-            $html_image
+            [% nutrition_image %]
         </div>
     </div>
 
@@ -212,8 +207,8 @@
 <!-- photos and data sources -->
 [% FOREACH id IN html_sources %]
     <p>[% lang("sources_${id.lang_source}") %]</p>
-    [% IF id.source_ref_url %]
-        <p><a href="\[% id.source_ref_url %]\">[% lang("sources_${id.lang_source}_product_page") %]</a></p>
+    [% IF id.source_url %]
+        <p><a href="\[% id.source_url %]\">[% lang("sources_${id.lang_source}_product_page") %]</a></p>
     [% END %]
 [% END %]
 
