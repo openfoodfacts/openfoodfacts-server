@@ -31,6 +31,7 @@ BEGIN
 	@EXPORT_OK = qw(
 					&send_email
 					&send_email_to_admin
+					&send_email_to_producers_admin
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -85,6 +86,22 @@ sub send_email_to_admin($$)
     return $@ ? 1 : 0;
 }
 
+sub send_email_to_producers_admin($$)
+{
+	my $subject = shift;
+	my $text = shift;
+
+	eval {
+	Email::Stuffer
+    ->from(lang("site_name") . " <$contact_email>")
+    ->to(lang("site_name") . " <$producers_email>")
+    ->subject($subject)	
+    ->text_body($text)	
+    ->send;	
+	};
+	
+    return $@ ? 1 : 0;
+}
 
 
 

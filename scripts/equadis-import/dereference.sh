@@ -3,7 +3,9 @@ perl -i -pe 's/gs1:T3780:GRM/g/g' $1
 perl -i -pe 's/gs1:T3780:MLT/mL/g' $1
 perl -i -pe 's/gs1:T3780:MC/µg/g' $1
 perl -i -pe 's/gs1:T3780:MGM/mg/g' $1
+perl -i -pe 's/gs1:T3780:H87/pièces/g' $1
 
+perl -i -pe 's/gs1:T0137:AE/aérosol/g' $1
 perl -i -pe 's/gs1:T0137:CS//g' $1
 perl -i -pe 's/gs1:T0137:CU/pot/g' $1
 perl -i -pe 's/gs1:T0137:CT//g' $1
@@ -16,6 +18,7 @@ perl -i -pe 's/gs1:T0137:JR/bocal/g' $1
 perl -i -pe 's/gs1:T0137:BG/sac/g' $1
 perl -i -pe 's/gs1:T0137:WRP/wrapper/g' $1
 perl -i -pe 's/gs1:T0137:MPG/multipack/g' $1
+perl -i -pe 's/gs1:T0137:TU/tube/g' $1
 
 perl -i -pe 's/gs1:T4078:AC/Crustacés/g' $1
 perl -i -pe 's/gs1:T4078:AE/Oeuf/g' $1
