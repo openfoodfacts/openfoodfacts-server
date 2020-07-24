@@ -30082,6 +30082,7 @@ wikidata:en:Q548309
 agribalyse_food_code:en:12752
 ciqual_food_code:en:12752
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -30091,6 +30092,7 @@ fr:Saint-Nectaire laitier
 agribalyse_food_code:en:12748
 ciqual_food_code:en:12748
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milks collected in many farms
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -30100,6 +30102,7 @@ fr:Saint-Nectaire fermier
 agribalyse_food_code:en:12751
 ciqual_food_code:en:12751
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milk collected in an unique farm
+origins:en: en:France
 
 <en:Cheeses
 en:Unpasteurised cheeses
@@ -31083,7 +31086,7 @@ country:en:Italy
 <en:Italian cheeses
 it:Squacquerone di Romagna
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q20009815
 
 <en:Italian cheeses
 it:Stelvio, Stilfser
@@ -31093,7 +31096,7 @@ country:en:Italy
 <en:Italian cheeses
 it:Strachitunt
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3974593
 
 #DOP italian cheese
 <en:Italian cheeses
@@ -31118,8 +31121,6 @@ protected_name_file_number:en: PDO-IT-1504
 protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
-
-
 
 <en:Italian cheeses
 it:Valtellina Casera
@@ -31945,7 +31946,6 @@ wikidata:en:Q34172
 agribalyse_proxy_food_code:en:16400
 agribalyse_proxy_food_name:en:Butter, 82% fat, unsalted
 
-
 <en:Butters
 fr:Beurres de baratte
 nl:Gekarnde boter, Karneboter
@@ -32070,6 +32070,7 @@ de:Dreiviertelfettbutter
 
 <en:Butters
 en:Belgian butters
+origins:en: en:Belgium
 
 <en:Belgian butters
 fr:Beurre d'Ardenne
@@ -32079,6 +32080,7 @@ origins:en: en:Belgium
 
 <en:Butters
 en:French butters
+origins:en: en:France
 
 <en:French butters
 fr:Beurre de Bresse
@@ -32102,7 +32104,9 @@ origins:en: en:France
 <en:Cooked pressed cheeses
 fr:Comté
 en:Comté cheese from cow's milk
+protected_name_type:en: aoc
 country:en:France
+origins:en: en:France
 wikidata:en:Q249310
 oqali_family:en: fr:Fromages - Comte
 agribalyse_food_code:en:12110
