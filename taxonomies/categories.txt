@@ -1114,6 +1114,11 @@ jbo:birje
 krc:Сыра
 wikidata:en:Q44
 nova:en:3
+# TODO: exclude non French beers ?
+agribalyse_proxy_food_code:en:5002
+agribalyse_proxy_food_name:en:Beer, strong (>8° alcohol)
+agribalyse_proxy_food_name:fr:Bière forte (>8° alcool)
+
 
 <en:Beers
 en:Abbey beer, Abbey ale, Abbey beers
@@ -1132,6 +1137,7 @@ en:American beers, Beers from the USA
 fr:Bières américaines, Bières des Etats-Unis, Bières des USA
 it:Birre americane, Birre dagli USA, Birre dagli Stati Uniti d'America
 nl:Bier uit de Verenigde Staten van Amerika, Amerikaanse bieren
+origins:en: en:United States
 
 <en:Beers
 en:French beers, Beers from France
@@ -1143,6 +1149,7 @@ hu:Francia sörök
 it:Birre francesi, birre dalla Francia
 nl:Franse bieren, Bieren uit Frankrijk
 ro:Beri franțuzești, Beri frantuzesti, Bere franțuzească, Bere frantuzeasca, Bere franta, Bere franța
+origins:en: en:France
 
 <en:French beers
 en:Corsican beers
@@ -1150,6 +1157,7 @@ de:Korsikanische Biere, Korsische Biere
 fr:Bières corses
 hu:Korzikai sörök
 nl:Corsicaanse bieren, Bieren uit Corsica
+origins:en: en:Corsica
 
 <en:Beers
 en:Organic beers
@@ -1167,6 +1175,7 @@ en:Brittany Beers
 de:Bretonische Biere
 fr:Bières bretonnes, Bières de bretagne
 nl:Bretonse bieren
+origins:en: fr:Bretagne
 
 <en:Beers
 en:Beers from Ireland, Irish beers
@@ -1175,6 +1184,7 @@ fr:Bières irlandaises
 hu:Ír sörök
 nl:Ierse bieren
 ro:Beri irlandeze, Beri irlanda, Bere irlandeză, Bere irlanda, Bere irlandeza
+origins:en: en:Ireland
 
 <en:Beers
 en:Italian beers, Beers from Italy
@@ -1184,6 +1194,7 @@ hu:Olasz sörök, Olaszországi sörök
 it:Birre italiane, birre dall'italia
 nl:Italiaanse bieren
 ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
+origins:en: en:Italy
 
 <en:Beers
 en:Double beer
@@ -1218,6 +1229,7 @@ fr:Bières belges, Bières de Belgique
 hu:Belga sörök, Sörök belgumból
 nl:Belgische bieren, Bieren uit België
 ro:Beri belgiene, Beri Belgia, Bere Belgiană, Bere Belgia, Bere Belgiana
+origins:en: en:Belgium
 
 <en:Belgian beers
 fr:Lambic, Gueuze-Lambic, Gueuze, Lambiek, Geuze-Lambiek, Geuze
@@ -1251,6 +1263,7 @@ origins:en: en:Belgium
 
 <en:Beers
 en:Bulgarian beers
+origins:en: en:Bulgaria
 
 <en:Bulgarian beers
 bg:Българско розово масло, Bulgarsko rozovo maslo
@@ -1264,6 +1277,7 @@ de:Tschechische Biere
 fr:Bières de République tchèque
 hu:Cseh sörök, Sörök csehországból
 nl:Tsjechische bieren
+origins:en: en:Czech Republic
 
 <en:Beers from Czech republic
 cz:Březnický ležák
@@ -1810,6 +1824,7 @@ fr:Whisky américain
 nl:Amerikaanse whiskies
 ro:Whisky american, whiskey american
 wikidata_category:en:Q8126582
+origins:en: en:United States
 
 <en:American whiskeys
 en:Bourbon whiskeys, Bourbon whiskey
@@ -1832,6 +1847,7 @@ en:Belgian Whisky
 de:Belgische Whiskys
 fr:Whisky belge
 nl:Belgische whiskies
+origins:en: en:Belgium
 
 <en:Whisky
 en:Canadian whiskeys
@@ -1841,6 +1857,7 @@ nl:Canadese whiskies
 zh:加拿大威士忌
 wikidata:en:Q536976
 wikipediacategory:en:Q8340945
+origins:en: en:Canada
 
 <en:Whisky
 en:Scotch whisky
@@ -1861,6 +1878,7 @@ en:Blended scotch whisky
 de:Schottische Blended Whiskys
 fr:Blend écossais, Blends écossais
 nl:Schotse blended whiskies, Schotse blended whisky
+origins:en: en:Scotland, en:United Kingdom
 
 <en:Whisky
 en:French Whisky
@@ -1868,7 +1886,8 @@ de:Französische Whiskys
 fr:Whisky français
 nl:Franse whiskies
 zh:法国威士忌
-wikipediacategory:en:Q15975338
+wikidata_wikipedia_category:en:Q15975338
+origins:en: en:France
 
 <en:French Whisky
 en:Alsatian whiskey
@@ -1876,30 +1895,35 @@ de:Whisky aus dem Elsass
 fr:Whisky alsacien
 nl:Elzasser whiskies
 zh:阿尔萨斯威士忌
+origins:en: fr:Alsace
 
 <en:French Whisky
 en:Breton whiskey
 de:Whisky aus der Bretagne
 fr:Whisky breton
 nl:Bretonse whiskies
+origins:en: fr:Bretagne
 
 <en:French Whisky
 en:Corsican whiskey
 de:Whisky aus Korsika
 fr:Whisky corse
 nl:Corsicaanse whiskies
+origins:en: en:Corsica
 
 <en:French Whisky
 en:Whisky from Lorraine
 de:Whisky aus Lothringen
 fr:Whisky lorrain
 nl:Lotharingse whiskies
+origins:en: fr:Lorraine
 
 <en:French Whisky
 en:Norman Whisky, Whisky from Normandy
 de:Whisky aus der Normandie
 fr:Whisky normand
 nl:Normandische whiskies
+origins:en: fr:Normandie
 
 <en:Whisky
 en:Welsh Whisky
@@ -1907,6 +1931,7 @@ de:Whisky aus Wales
 fr:Whisky gallois
 nl:Welshe whiskies
 wikidata:en:Q7982042
+origins:en: en:United Kingdom, en:Wales
 
 <en:Whisky
 en:Irish whiskey
@@ -1915,6 +1940,7 @@ es:Whiskies irlandeses
 fr:Whisky irlandais
 nl:Ierse whiskies
 wikidata:en:Q909747
+origins:en: en:Ireland
 
 <en:Whisky
 en:Japanese whiskey
@@ -1922,6 +1948,7 @@ de:Japanische Whiskys
 fr:Whisky japonais
 nl:Japanse whiskies
 wikidata:en:Q901367
+origins:en: en:Japan
 
 <en:Whisky
 en:German Whiskeys, German Whisky, German Whiskey, German Whiskys
@@ -1939,18 +1966,20 @@ fr:Armagnacs, Armagnac
 de:Armagnac, Branntwein aus de Gascogne
 nl:Armagnacs, Armagnac
 wikidata_category:en:Q9469550
+origins:en: en:France, fr:Gascogne
 
 <fr:Armagnacs
 fr:Armagnac-Ténarèze
 de:Armagnac aus dem Anbaugebiet Ténarèze
 nl:Armagnac uit Ténarèze
-country:en:France
+origins:en: en:France, fr:Gascogne
 
 <fr:Armagnacs
 fr:Bas-Armagnac
 de:Armagnac aus dem Anbaugebiet Bas-Armagnac
 country:en:France
 wikidata:en:Q2201024
+origins:en: en:France, fr:Gascogne
 
 <fr:Armagnacs
 fr:Blanche Armagnac
@@ -1966,6 +1995,7 @@ nl:Calvados
 country:en:France
 instanceof:fr:IGP
 wikidata:en:Q3268
+origins:en: en:France, fr:Calvados
 
 <fr:Eaux-de-vie
 fr:Cognac
@@ -1997,12 +2027,14 @@ fr:Eau-de-vie de cidre de Normandie
 de:Apfelbrand aus der Normandie
 nl:Normandische cider eau-de-vies
 country:en:France
+origins:en: en:France, fr:Normandie
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de cidre du Maine
 de:Apfelbrand aus Maine
 nl:Eau-de-vies uit de Maine-streek
 country:en:France
+origins:en: en:France, fr:Maine
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de Cognac
@@ -2015,84 +2047,98 @@ fr:Eau-de-vie de Jura
 de:Branntwein aus dem Jura
 nl:Eau-devies uit de Jura
 country:en:France
+origins:en: en:France, fr:Jura
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Bretagne
 de:Birnenbrand aus der Bretagne
 nl:Peren eau-de-vies uit Bretagne
 country:en:France
+origins:en: en:France, fr:Bretagne
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Normandie
 de:Birnenbrand aus der Normandie
 nl:Peren eau-de-vies uit Normandië
 country:en:France
+origins:en: en:France, fr:Normandie
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de poiré du Maine
 de:Birnenbrand aus Maine
 nl:Peren-eau-de-vies uit de Maine-streek
 country:en:France
+origins:en: en:France, fr:Maine
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin de Bourgogne
 de:Branntwein aus der Bourgogne
 nl:Wijn-eau-de-vies uit de Bourgogne
 country:en:France
+origins:en: en:France, fr:Bourgogne
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin de la Marne
 de:Branntwein aus Marne, Branntwein aus dem Marne Tal
 nl:Wijn-eau-de-vies uit de Marne
 country:en:France
+origins:en: en:France, fr:Marne
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin de Savoie
 de:Branntwein aus Savoie, Branntwein aus Savoyen
 nl:Wijn eau-de-vies uit de Savoie
 country:en:France
+origins:en: en:France, fr:Savoie
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin des Côtes-du-Rhone
 de:Branntwein aus dem Rhône Tal, Branntwein aus Côtes-du-Rhône
 nl:Wijn-eau-de-vies uit de Côtes-du-Rhône
 country:en:France
+origins:en: en:France, fr:Côtes-du-Rhône
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire d'Aquitaine
 de:Branntwein aus Aquitaine, Branntwein aus Aquitanien
 nl:Wijn-eau-de-vies uit Aquitaine
 country:en:France
+origins:en: en:France, fr:Aquitaine
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire de Franche-Comté
 de:Branntwein aus der Freigrafschaft Burgund, Branntwein aus Franche-Comté
 nl:Wijn eau-de-vies uit de Franche-Comté
 country:en:France
+origins:en: en:France, fr:Franche-Comté
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire de Provence
 de:Branntwein aus der Provence
 nl:Wijn-eau-de-vies uit de Provence
 country:en:France
+origins:en: en:France, fr:Provence
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire des Coteaux de la Loire
 de:Branntwein aus dem Loire Tal, Branntwein aus Coteaux de la Loire
 nl:Wijn-eau-de-vies uit de Coteaux de la Loire
 country:en:France
+origins:en: en:France, fr:Coteaux de la Loire
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Bugey
 de:Branntwein aus dem Bugey
 nl:Wijn-eau-de-vies uit de Bugey
 country:en:France
+origins:en: en:France, fr:Bugey
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Centre-Est
 de:Branntwein aus Centre-Est
 nl:Wijn eau-de-vies uit de Centre-Est
 country:en:France
+origins:en: en:France, fr:Centre-Est
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Languedoc
@@ -2101,13 +2147,14 @@ nl:Wijn eau-de-vies uit de Languedoc
 country:en:France
 protected_name_file_number_en: PGI-FR-02067
 protected_name_type:en: gi
-origins:en: en:France
+origins:en: en:France, fr:Languedoc
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie des Charentes
 de:Branntwein aus Charente
 nl:Eau-de-vies uit de Charante
 country:en:France
+origins:en: en:France, fr:Charentes
 
 <en:Swiss Eaux-de-vie
 fr:Abricotine
@@ -2119,6 +2166,7 @@ wikidata:en:Q10216
 fr:Damassine
 de:Eau de Damassine, Pflaumenbrand aus der Schweiz
 nl:Damasinnes, Damasinne
+origins:en: en:France, fr:Suisse
 
 <en:Swiss Eaux-de-vie
 fr:Williamine
@@ -2131,6 +2179,7 @@ en:Tunisian Eaux-de-vie
 de:Branntwein aus Tunesien
 fr:Eaux-de-vie tunisiennes, Eau-de-vie tunisienne, Eaux-de-vie de Tunisie, Eau-de-vie de Tunisine
 nl:Tunesische eau-de-vies
+origins:en: en:Tunisia
 
 <en:Tunisian Eaux-de-vie
 fr:Boukha
@@ -2185,6 +2234,7 @@ fr:Raki, Rakı
 de:Raki, Anisbrand aus der Türkei
 nl:Raki
 wikidata:en:Q638290
+origins:en: en:Turkey
 
 <fr:Eaux-de-vie
 en:Rums
@@ -2268,6 +2318,7 @@ en:Barbadian rum
 de:Rum aus Barbados
 fr:Rhums barbadiens, Rhum barbadien
 nl:Barbados rums, Barbados-rum, Barbados rum
+origins:en: en:Barbados
 
 <en:Rums
 en:Cuban rums, Rums from Cuba
@@ -2275,12 +2326,14 @@ de:Kubanische Rums
 fr:Rhums cubains,Rhum cubain
 nl:Cubaanse rums, Rum uit Cuba
 ro:Rom cubanez, Rom Cuba
+origins:en: en:Cuba
 
 <en:Rums
 en:Dominican rums
 de:Dominikanische Rums
 fr:Rhums dominicains,Rhum dominicain
 nl:Dominicaanse rums, Dominicaanse rum
+origins:en: en:Dominican republic
 
 <en:Rums
 en:French rums
@@ -2335,6 +2388,7 @@ en:Haitian rums, Rums from Haiti
 de:Haitianische Rums
 fr:Rhums haïtiens
 nl:Haitiaanse rums, Rum uit Haïti
+origins:en: en:Haiti
 
 <en:Rums
 en:Jamaican rum, Rums from Jamaica
@@ -2342,6 +2396,7 @@ de:Jamaikanische Rums
 fr:Rhums jamaïcains
 nl:Jamaicaanse rums, Rum uit Jamaica
 ro:Rom jamaican, Rom Jamaica
+origins:en: en:Jamaica
 
 <en:Rums
 en:Agricultural rums, rhums agricoles
@@ -2406,6 +2461,7 @@ en:Polish vodkas
 de:Polnische Wodkas
 fr:Vodkas polonaises
 nl:Poolse wodkas, Poolse wodka
+origins:en: en:Poland
 
 <en:Polish vodkas
 en:Herbal vodka from the North Podlasie Lowland aromatised with an extract of bison grass
@@ -2430,6 +2486,7 @@ en:Ukrainian vodkas
 de:Ukraninische Wodkas
 fr:Vodkas ukrainiennes
 nl:Ukraïnse wodkas
+origins:en: en:Ukraine
 
 <en:Vodka
 en:Estonian vodkas
@@ -2445,12 +2502,14 @@ en:Latvian vodkas
 de:Litauische Wodkas
 fr:Vodkas lettones
 nl:Letse wodkas
+origins:en: en:Latvia
 
 <en:Vodka
 en:Lettische vodkas
 de:Lettischer Wodka
 fr:Vodkas lithuaniennes
 nl:Litouwse wodkas
+origins:en: en:Lithuania
 
 <en:Vodka
 no:Norsk Vodka, Norwegian Vodka
@@ -2463,6 +2522,7 @@ en:Czech vodkas
 de:Tschechische Wodkas
 fr:Vodkas tchèques
 nl:Tsjechische wodkas
+origins:en: en:Czech Republic
 
 <en:Vodka
 sv:Svensk Vodka, Swedish Vodka
@@ -2787,6 +2847,7 @@ wikidata:en:Q496934
 
 <en:liqueur
 en:Austrian liqueur
+origins:en: en:Austria
 
 <en:Austrian liqueur
 de:Jägertee, Jagertee, Jagatee
@@ -5904,6 +5965,9 @@ wikidata:en:Q178921
 ciqual_food_code:en:18044
 ciqual_food_name:en:Water, mineral, bottled (average)
 ciqual_food_name:fr:Eau minérale (aliment moyen)
+agribalyse_proxy_food_code:en:76000
+agribalyse_proxy_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
+agribalyse_proxy_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
 
 <en:Mineral waters
 en:Low mineral bottled waters, Bottled waters with low mineralization levels
@@ -5911,6 +5975,8 @@ fr:Eau minérale embouteillée faiblement minéralisée
 ciqual_food_code:en:18009
 ciqual_food_name:en:Water, bottled, low mineral (average)
 ciqual_food_name:fr:Eau minérale, embouteillée, faiblement minéralisée (aliment moyen)
+
+
 
 <en:Carbonated waters
 <en:Mineral waters
@@ -6935,6 +7001,9 @@ nl:Rode wijnen, Rode wijn
 pt:Vinhos tintos, vinho tinto
 zh:红葡萄酒, 红酒
 wikidata:en:Q1827
+agribalyse_proxy_food_code:en:5204
+agribalyse_proxy_food_name:en:Wine, red, 11°
+agribalyse_proxy_food_name:fr:Vin rouge 11°
 
 <en:Red wines
 en:Organic red wines
@@ -7006,6 +7075,9 @@ zh:白葡萄酒
 als:Weisswein
 zh_yue:白葡萄酒
 wikidata:en:Q10210
+agribalyse_proxy_food_code:en:5200
+agribalyse_proxy_food_name:en:Wine, white, 11°
+agribalyse_proxy_food_name:fr:Vin blanc 11°
 
 <en:Wines
 en:Dessert wines
@@ -19623,6 +19695,7 @@ country:en:Luxembourg
 en:Wines from Malta
 fr:Vins de Malte, Vins maltais
 nl:Maltese wijnen, Maltese wijn, Wijn uit Malta
+country:en:Malta
 
 <en:Wines from Malta
 en:Gozo
@@ -25610,6 +25683,9 @@ wikidata:en:Q130878
 ciqual_food_code:en:31121
 ciqual_food_name:en:Chewing gum, sugar level unknown (average)
 ciqual_food_name:fr:Chewing-gum, teneur en sucre inconnue (aliment moyen)
+agribalyse_proxy_food_code:en:31007
+agribalyse_proxy_food_name:en:Chewing gum, with sugar
+agribalyse_proxy_food_name:fr:Chewing-gum, sucré
 
 <en:Chewing gum
 en:Sugar-free chewing gum, Chewing gum without sugar
@@ -30006,6 +30082,7 @@ wikidata:en:Q548309
 agribalyse_food_code:en:12752
 ciqual_food_code:en:12752
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -30015,6 +30092,7 @@ fr:Saint-Nectaire laitier
 agribalyse_food_code:en:12748
 ciqual_food_code:en:12748
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milks collected in many farms
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -30024,6 +30102,7 @@ fr:Saint-Nectaire fermier
 agribalyse_food_code:en:12751
 ciqual_food_code:en:12751
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk, milk collected in an unique farm
+origins:en: en:France
 
 <en:Cheeses
 en:Unpasteurised cheeses
@@ -31007,7 +31086,7 @@ country:en:Italy
 <en:Italian cheeses
 it:Squacquerone di Romagna
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q20009815
 
 <en:Italian cheeses
 it:Stelvio, Stilfser
@@ -31017,7 +31096,7 @@ country:en:Italy
 <en:Italian cheeses
 it:Strachitunt
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3974593
 
 #DOP italian cheese
 <en:Italian cheeses
@@ -31043,8 +31122,6 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
 
-
-
 <en:Italian cheeses
 it:Valtellina Casera
 country:en:Italy
@@ -31060,6 +31137,7 @@ en:Lithuanian cheeses, cheeses from Lithuania
 de:Litauischer Käse
 fr:Fromages lithuaniens, Fromages de Lithuanie
 nl:Litouwse kazen
+origins:en: en:Lithuania
 
 <en:Lithuanian cheeses
 lt:Lietuviškas varškės sūris
@@ -31074,6 +31152,7 @@ en:Polish cheeses, cheeses from Poland
 de:Polnischer Käse
 fr:Fromages polonais, Fromages de Pologne
 nl:Poolse kazen
+origins:en: en:Poland
 
 <en:Polish cheeses
 pl:Bryndza Podhalańska
@@ -31110,6 +31189,7 @@ en:Portuguese cheeses, cheeses from Portugual
 de:Portugisischer Käse
 fr:Fromages portugais, Fromages du Portugal
 nl:Portugese kazen
+origins:en: en:Portugal
 
 <en:Portuguese cheeses
 pt:Queijo de Azeitão
@@ -31206,6 +31286,7 @@ en:Slovakian cheeses, cheeses from Slovakia
 de:Slovakischer Käse
 fr:Fromages de Slovaquie, Fromages slovaques
 nl:Slowaakse kazen
+origins:en: en:Slovakia
 
 <en:Slovakian cheeses
 sk:Klenovecký syrec
@@ -31272,6 +31353,7 @@ en:Slovenian cheeses, cheeses from Slovenia
 de:Slovenischer Käse
 fr:Fromages slovènes, Fromages de Slovénie
 nl:Sloveense kazen
+origins:en: en:Slovenia
 
 <en:Slovenian cheeses
 si:Bovški sir
@@ -31387,6 +31469,7 @@ country:en:Spain
 en:Swedish cheeses, cheeses from Sweden
 de:Schwedischer Käse
 fr:Fromages suédois, Fromages de Suède
+origins:en: en:Sweden
 
 <en:Swedish cheeses
 sv:Vrigstad Hemost
@@ -31863,7 +31946,6 @@ wikidata:en:Q34172
 agribalyse_proxy_food_code:en:16400
 agribalyse_proxy_food_name:en:Butter, 82% fat, unsalted
 
-
 <en:Butters
 fr:Beurres de baratte
 nl:Gekarnde boter, Karneboter
@@ -31988,6 +32070,7 @@ de:Dreiviertelfettbutter
 
 <en:Butters
 en:Belgian butters
+origins:en: en:Belgium
 
 <en:Belgian butters
 fr:Beurre d'Ardenne
@@ -31997,6 +32080,7 @@ origins:en: en:Belgium
 
 <en:Butters
 en:French butters
+origins:en: en:France
 
 <en:French butters
 fr:Beurre de Bresse
@@ -32020,7 +32104,9 @@ origins:en: en:France
 <en:Cooked pressed cheeses
 fr:Comté
 en:Comté cheese from cow's milk
+protected_name_type:en: aoc
 country:en:France
+origins:en: en:France
 wikidata:en:Q249310
 oqali_family:en: fr:Fromages - Comte
 agribalyse_food_code:en:12110
@@ -36071,6 +36157,7 @@ nova:en:2
 <en:Honeys
 en:Honeys from Belgium, Belgian honeys
 fr:Miels belges, Miels de Belgique
+origins:en: en:Belgium
 
 <en:Honeys from Belgium
 fr:Miel wallon
@@ -36080,6 +36167,7 @@ origins:en: en:Belgium
 
 <en:Honeys
 en:Spanish honeys
+origins:en: en:Spain
 
 <en:Spanish honeys
 es:Miel Villuercas-Ibores
@@ -36130,6 +36218,7 @@ fi:ranskalaiset hunajat
 fr:Miels français, Miels de France
 hu:Francia mézek, Mézek Franciaországból
 nl:Franse honingen
+origins:en: en:France
 
 <en:Honeys from France
 en:Honeys from Alsace
@@ -36137,54 +36226,63 @@ fr:Miels d’Alsace
 nl:Honinge nuit de de Alsace
 protected_name_file_number:en: PGI-FR-0150
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Alsace
 
 <fr:Miels d’acacia
 <fr:Miels d’Alsace
 en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
 nl:Acaciahoningen ui tde Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from France
 fr:Miel de Cévennes
 protected_name_file_number:en: PGI-FR-1148
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Cévennes
 
 <fr:Miels d’acacia
 <fr:Miels du Jura
 en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
+origins:en: en:France, fr:Jura
 
 <en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 <en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de forêt d'Alsace
 nl:Boshoningen uit de Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de sapin d'Alsace
 nl:Sparrenhoningen uit de Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de tilleul d'Alsace
 nl:Lindebloesemhoningen uit de Alsace
+origins:en: en:France, fr:Alsace
 
 <en:Honeys from France
 fr:Miels d'Aquitaine
 nl:Honingen uit de Aquitaine
+origins:en: en:France, fr:Aquitaine
 
 <en:Honeys from France
 fr:Miels de Bourgogne
 nl:Honingen uit de Bourgogne
+origins:en: en:France, fr:Bourgogne
 
 <en:Mediterannean honeys
 <fr:Miels de pin
@@ -36203,6 +36301,7 @@ origins:en: en:France, en:Corsica
 en:Honey of Biscay
 fr:Miels de Gascogne
 nl:Honingen uit de Gascogne
+origins:en: en:France, fr:Gascogne
 
 <en:Honeys from France
 en:Mediterannean honeys
@@ -36213,33 +36312,37 @@ nl:Honingen uit de Middellandse Zee
 <en:Honeys from France
 fr:Miels de Poitou-Charentes, Miels du Poitou-Charentes
 nl:Honingen uit de Poitou-Charantes
+origins:en: en:France, fr:Poitou-Charentes
 
 <en:Honeys from France
 fr:Miels de Provence
 nl:Honingen uit de Provence
 protected_name_file_number:en: PGI-FR-9181
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Provence
 
 <en:Honeys from France
 fr:Miels de sapin des Vosges
 nl:Sparrenhoningen uit de Vogezen
 protected_name_file_number:en: PDO-FR-0204
 protected_name_type:en: pdo
-origins:en: en:France
+origins:en: en:France, fr:Vosges
 
 <en:Honeys from France
 fr:Miels des Pays de Loire
 nl:Honingen uit de Loirestreek
+origins:en: en:France, fr:Pays de Loire
 
 <en:Honeys from France
 fr:Miels du Gâtinais, Miel du Gätinais
 nl:Honingen van de Gatinais
+origins:en: en:France, fr:Gatinais
 
 <en:Honeys from France
 en:Honeys from Jura
 fr:Miels du Jura
 nl:Honingen uit de Jura
+origins:en: en:France, fr:Jura
 
 <en:Honeys
 en:Honeys from Romania, Romanian honeys
@@ -36247,6 +36350,7 @@ de:Rumänischer Honig
 fr:Miels roumains, Miels de Roumarie, Miels de Roumanie
 hu:Mézek Romániából
 nl:Roemeense honingen
+origins:en: en:Romania
 
 <en:Honeys from Romania
 fr:Miels des rives du Danube de Roumanie
@@ -36276,6 +36380,7 @@ nl:Alpenhoningen
 <en:Honeys from the mountains
 fr:Miels des Pyrénées
 nl:Honingen uit de Pyreneeën
+origins:en: fr:Pyrénées
 
 <en:Honeys
 en:White honeys from Tigrai
@@ -39044,6 +39149,9 @@ es:Harinas de trigo blando, Harinas de trigo común, Harinas de trigo harinero
 fr:Farines de froment, Farines de blé tendre
 it:Farine di grano tenero
 nl:Gewone tarwemelen, Gewoon tarwemeel
+agribalyse_proxy_food_code:en:9410
+agribalyse_proxy_food_name:en:Wheat flour, type 110
+agribalyse_proxy_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:Common wheat flours
 <en:Wheat flour T405
@@ -41016,6 +41124,9 @@ nl:Appels
 ro:Mere
 ru:Яблоки
 wikidata:en:Q89
+agribalyse_proxy_food_code:en:13085
+agribalyse_proxy_food_name:en:Apple, Canada, pulp, raw
+agribalyse_proxy_food_name:fr:Pomme Canada, pulpe, crue
 
 <en:Apples
 <en:Fresh fruits
@@ -45840,6 +45951,7 @@ fr:Moutarde de Bourgogne
 protected_name_file_number:en: PGI-FR-0503
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q21427661
 
 <en:Mustards
 en:Fine mustards
@@ -49717,7 +49829,7 @@ de:Thunfischpizzen
 fr:Pizzas au thon, Pizza au thon
 nl:Tonijnpizzas
 pt:Pizzas de atum
-#wikidata:en:
+wikidata:en:Q47471957
 agribalyse_food_code:en:26270
 ciqual_food_code:en:26270
 ciqual_food_name:en:Pizza, tuna
@@ -49734,6 +49846,7 @@ ciqual_food_name:fr:Pizza aux fruits de mer
 <en:Pizzas
 en:Salmon pizza
 fr:Pizza au saumon
+wikidata:en:Q54223338
 agribalyse_food_code:en:25464
 ciqual_food_code:en:25464
 ciqual_food_name:en:Pizza, salmon
@@ -49743,7 +49856,7 @@ ciqual_food_name:fr:Pizza au saumon
 en:Bolognese pizzas, Pizza bolognese-style with meat
 fr:Pizzas à la bolognaise, Pizzas bolognaise, Pizza à la viande type bolognaise
 nl:Bolognesepizzas
-#wikidata:en:
+wikidata:en:Q47472171
 agribalyse_food_code:en:25457
 ciqual_food_code:en:25457
 ciqual_food_name:en:Pizza, bolognese-style w meat
@@ -50114,6 +50227,7 @@ ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égout
 en:Piemontese salads
 fr:Salades piémontaises
 nl:Salade uit Piëmont
+wikidata:en:Q30738187
 
 <en:Potato salads
 en:Prepared potatoes salad home-made
@@ -50143,6 +50257,7 @@ fr:Salades piémontaises au poulet, piémontaises au poulet
 
 <en:Prepared salads
 fr:Salades nicoises
+wikidata:en:Q209486
 
 <en:Prepared salads
 en:Canned prepared drained mixed tuna and vegetable salad
@@ -52369,6 +52484,7 @@ country:en:France
 <en:Poultries
 fr:Volaille de Gascogne
 country:en:France
+origins:en: en:France, fr:Gascogne
 
 <en:Poultries
 fr:Volaille de Houdan
@@ -52378,23 +52494,28 @@ country:en:France
 en:Poultries from Janzé
 fr:Volaille de Janzé
 country:en:France
+origins:en: en:France, fr:Janzé
 
 <en:Poultries
 fr:Volaille de la Champagne
 country:en:France
+origins:en: en:France, fr:Champagne
 
 <en:Poultries
 fr:Volaille du Berry
 country:en:France
+origins:en: en:France, fr:Berry
 
 <en:Poultries
 fr:Volaille du Gatinais
 country:en:France
+origins:en: en:France, fr:Gatinais
 
 <en:Poultries
 en:Poultry from Languedoc
 fr:Volaille du Languedoc
 country:en:France
+origins:en: en:France, fr:Languedoc
 
 <en:Poultries
 en:Poultry from Lauragais
@@ -52457,22 +52578,27 @@ country:en:France
 <en:Poultries
 fr:Volailles de Normandie
 country:en:France
+origins:en: en:France, fr:Normandie
 
 <en:Poultries
 fr:Volailles de Vendée
 country:en:France
+origins:en: en:France, fr:Vendée
 
 <en:Poultries
 fr:Volailles des Landes
 country:en:France
+origins:en: en:France, fr:Landes
 
 <en:Poultries
 fr:Volailles du Béarn
 country:en:France
+origins:en: en:France, fr:Béarn
 
 <en:Poultries
 fr:Volailles du Charolais
 country:en:France
+origins:en: en:France, fr:Charolais
 
 <en:Poultries
 fr:Volailles du Forez
@@ -52500,6 +52626,7 @@ country:en:France
 <en:Poultries
 fr:Volailles du Val de Sèvres
 country:en:France
+origins:en: en:France, fr:Val de Sèvres
 
 <en:Poultries
 fr:Volailles du Velay
@@ -59630,6 +59757,7 @@ origins:en: en:Armenia
 <en:Seafood
 en:Belgian sea products
 fr:Produits de la mer belges
+origins:en: en:Belgium
 
 <en:Belgian sea products
 fr:Escavèche de Chimay
@@ -68475,6 +68603,8 @@ nl:Rode linzen
 
 <en:Lentils
 fr:lentilles rosées de Champagne, lentillon de Champagne
+origins:en: en:France, fr:Champagne
+
 
 <en:Pulses
 en:Lupin beans, Lupins, Lupini beans
@@ -69149,6 +69279,7 @@ ciqual_food_name:fr:Vinaigre
 
 <en:Vinegars
 en:Spanish vinegars
+origins:en: en:Spain
 
 <en:Spanish vinegars
 es:Vinagre de Montilla-Moriles
@@ -69860,6 +69991,9 @@ fi:Merilevät ja merilevätuotteet
 fr:Algues et dérivés, Algues
 nl:Algen
 wikidata:en:Q37868
+agribalyse_proxy_food_code:en:20986
+agribalyse_proxy_food_name:en:Sea belt (Saccharina latissima), dried or dehydrated
+agribalyse_proxy_food_name:fr:Kombu royal (Saccharina latissima), séchée ou déshydratée
 
 <en:Seaweeds and their products
 <en:Canned plant-based foods
