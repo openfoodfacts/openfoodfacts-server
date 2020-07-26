@@ -4128,14 +4128,12 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{html_count} = $html_count;
 	}
 
-	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
 	$template_data_ref->{jqm} = $request_ref->{jqm};
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	
-	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
@@ -7282,7 +7280,7 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}		
 
@@ -9777,7 +9775,7 @@ sub display_product_api($)
 	$response{code} = $code;
 	my $product_ref = retrieve_product($product_id);
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
 		$response{status} = 0;
