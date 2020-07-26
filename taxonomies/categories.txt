@@ -220,6 +220,7 @@ ciqual_food_name:fr:Boisson à base de plantes pour bébé
 <en:Baby drinks
 en:Milky cereal-based beverages, Milky cereal-based beverage
 fr:Boisson infantile lactée aux céréales, Boisson infantile lactée aux céréales
+agribalyse_proxy_food_code:en:13173
 ciqual_food_code:en:13182
 ciqual_food_name:en:Milky cereal-based beverage(average)
 ciqual_food_name:fr:Boisson infantile céréales lactées (aliment moyen)
@@ -3324,6 +3325,7 @@ nl_be:Cola's, Colas
 ro:Cola
 zh:可乐
 wikidata:en:Q134041
+agribalyse_proxy_food_code:en:18018
 ciqual_food_code:en:18063
 ciqual_food_name:en:Cola, sugar and sweetener(s) content (average)
 ciqual_food_name:fr:Cola, teneur en sucre et édulcorant inconnue (aliment moyen)
@@ -23325,10 +23327,13 @@ ciqual_food_name:fr:Biscotte sans adjonction de sel
 <en:Toasts
 en:Multigrain rusk
 fr:Biscottes multicéréales
+de:Mehrkorn Zwieback
+nl:Meergranen beschuiten, Meergranen beschuit
 agribalyse_food_code:en:7330
 ciqual_food_code:en:7330
 ciqual_food_name:en:Rusk, multigrain
 ciqual_food_name:fr:Biscotte multicéréale
+
 
 <en:Toasts
 en:Wholemeal rusk, High-fiber rusk
@@ -23509,11 +23514,9 @@ fr:Biscottes
 nl:Beschuiten, Beschuit
 ru:Сухари
 wikidata:en:Q4122049
-
-<en:Zwieback
-fr:Biscottes multicéréales
-de:Mehrkorn Zwieback
-nl:Meergranen beschuiten, Meergranen beschuit
+agribalyse_proxy_food_code:en:7330
+agribalyse_proxy_food_name:en:Rusk, multigrain
+agribalyse_proxy_food_name:fr:Biscotte multicéréale
 
 <en:Zwieback
 fr:Biscottes à la farine d'épeautre, Biscottes d’épeautre
@@ -32529,6 +32532,9 @@ nl:Geitenmelk
 pt:Leites de cabra
 ro:Laptele de capră, Lapte de capră
 sv:Getmjölk
+agribalyse_proxy_food_code:en:19200
+agribalyse_proxy_food_name:en:Goat milk, whole, UHT
+agribalyse_proxy_food_name:fr:Lait de chèvre, entier, UHT
 
 <en:Goat milks
 <en:UHT Milks
@@ -39003,6 +39009,9 @@ fr:Farines de seigle
 it:Farine di segale
 nl:Roggemelen
 pl:Mąki żytnie, mąka żytnia
+agribalyse_proxy_food_code:en:9532
+agribalyse_proxy_food_name:en:Rye flour, type 85
+agribalyse_proxy_food_name:fr:Farine de seigle T85
 
 <en:Rye flours
 en:Rye flours Type 130
@@ -57414,6 +57423,7 @@ it:Spätzle
 wikidata:en:Q20065
 
 <en:Pastas
+<en:Dry pastas
 en:Dried raw wholemeal pasta
 fr:Pâtes sèches au blé complet crues
 agribalyse_food_code:en:9870
@@ -66622,8 +66632,14 @@ es:Pimientos verdes
 fr:Poivrons verts
 nl:Groene paprikas
 
-<en:Sweet Peppers
 <en:Cooked vegetables
+en:Cooked peppers
+agribalyse_proxy_food_code:en:20086
+agribalyse_proxy_food_name:en:Sweet pepper, green, cooked
+agribalyse_proxy_food_name:fr:Poivron vert, cuit
+
+<en:Sweet Peppers
+<en:Cooked peppers
 en:Cooked sweet green peppers
 fr:Poivrons verts cuits
 agribalyse_food_code:en:20086
@@ -66678,7 +66694,7 @@ fr:Poivrons rouges
 nl:Rode paprikas
 
 <en:Sweet Peppers
-<en:Cooked vegetables
+<en:Cooked peppers
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
 agribalyse_food_code:en:20088
@@ -71227,6 +71243,13 @@ fr:Préfous
 wikidata:en:Q3408933
 
 <en:Appetizers
+en:Garlic breads
+fr:Pains à l'ail
+
+<en:Garlic breads
+en:Garlic baguettes
+
+<en:Appetizers
 en:Sausage rolls
 de:Wurstrollen
 fr:Roulés à la saucisse, roulés aux saucisses
@@ -73646,6 +73669,13 @@ de:Gefüllte Weinblätter
 fr:Feuilles de vigne farcies
 nl:Gevulde wijnbladeren
 
+<en:Stuffed vine leaves
+en:Dolmas, Drained vine leaf stuffed wih rice
+fr:Dolmas, Feuille de vigne égouttée farcie au riz
+ciqual_food_code:en:25217
+ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
+ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
+
 en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
 fr:Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
 nl:Brick vellen
@@ -73662,15 +73692,8 @@ ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
 ciqual_food_name:fr:Khatfa feuille de brick, préemballée
 
 <en:Meals
-en:Dolmas, Drained vine leaf stuffed wih rice
-fr:Dolmas, Feuille de vigne égouttée farcie au riz
-ciqual_food_code:en:25217
-ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
-ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
-
-<en:Meals
 en:Banh Bao
-fr:Banh Bao (Pain brioché farci)
+fr:Banh Bao
 nl:Banh Bao
 
 <en:Salty snacks
@@ -73812,6 +73835,14 @@ fr:Filets de maquereaux à l'huile
 nl:Makreelfilet op olie
 pl:Filety z makreli w oleju
 
+<en:Mackerel fillets in oil
+en:Mackerel fillets in olive oil
+fr:Filets de maquereaux à l'huile d'olive
+
+<en:Mackerel fillets in oil
+en:Mackerel fillets in sunflower oil
+fr:Filets de maquereaux à l'huile de tournesol
+
 <en:Cold starters
 <en:Prepared vegetables
 en:Prepared vegetables macedoines
@@ -73917,12 +73948,14 @@ ciqual_food_name:fr:Oignon, surgelé, cru
 en:Surprise breads
 fr:Pains surprise
 nl:Pain surprise
+wikidata:en:Q3360605
 
 <en:Sandwiches
 en:Paninis, Panninis
 de:Panini
 fr:Paninis
 nl:Panini
+wikidata:en:Q1366456
 
 <en:Sandwiches
 en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
