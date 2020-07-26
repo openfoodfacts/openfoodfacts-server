@@ -34,4 +34,7 @@ is(get_string_id_for_lang("en","Äpfel"),"apfel");
 is(get_string_id_for_lang("es","Trazas : cacahuete, Trazas : huevo. frutos de cáscara."),"trazas-cacahuete-trazas-huevo-frutos-de-cascara"); 
 is(get_string_id_for_lang("fr","Pâte de cacao"), "pate-de-cacao");
 
+# accents with one character, or unaccented character + unicode accent mark
+is(get_string_id_for_lang("es","arándanos, arándanos"), "arandanos-arandanos");
+
 done_testing();

@@ -113,6 +113,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use HTML::Entities qw(decode_entities);
 
 %fields = ();
 @fields = ();
@@ -367,7 +368,7 @@ sub match_specific_taxonomy_tags($$$$) {
 
 	my $tag_lc = $product_ref->{lc};
 
-	$log->trace("match_specific_taxonomy_tags - start", { source => $source, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
+	$log->trace("match_specific_taxonomy_tags - start", { source => $source, source_value => $product_ref->{$source}, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
 
 	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
 
@@ -405,9 +406,9 @@ sub match_specific_taxonomy_tags($$$$) {
 				$log->trace("match_specific_taxonomy_tags - regexp", { tag_regexp => $tag_regexp}) if $log->is_trace();
 				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
 
-				if ($product_ref->{$source} =~ /\b${tag_regexp}\b/i) {
+				if ($product_ref->{$source} =~ /\b(${tag_regexp})\b/i) {
+					$log->info("match_specific_taxonomy_tags: assigning value", { matching => $1, source => $source, value => $tagid, target => $target}) if $log->is_info();					
 					assign_value($product_ref, $target, $tagid);
-					$log->info("match_specific_taxonomy_tags: assigning value", { source => $source, value => $tagid, target => $target}) if $log->is_info();
 				}
 			}
 		}
@@ -598,6 +599,9 @@ sub clean_weights($) {
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
+
+			# 1 units (with units in plural)
+			$product_ref->{$field} =~ s/^1 (unit|piece|pièce)s$/1 $1/ig;
 		}
 
 	}
@@ -754,7 +758,9 @@ sub clean_fields($) {
 	foreach my $field (keys %$product_ref) {
 
 		# Split the generic name from the ingredient list
-		if ($field =~ /^ingredients_text_(\w\w)/) {
+		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
+		# It should not be done again when we import product data from the producers platform to the public database
+		if (($server_options{producers_platform}) and ($field =~ /^ingredients_text_(\w\w)/)) {
 			my $ingredients_lc = $1;
 			split_generic_name_from_ingredients($product_ref, $ingredients_lc);
 		}
@@ -774,6 +780,12 @@ sub clean_fields($) {
 	foreach my $field (keys %$product_ref) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		# HTML entities
+		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
+		if ($product_ref->{$field} =~ /\&/) {
+			$product_ref->{$field} = decode_entities($product_ref->{$field});
+		}
 
 		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 		$product_ref->{$field} =~ s/’/'/g;

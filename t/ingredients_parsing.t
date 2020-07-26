@@ -67,7 +67,7 @@ my @lists =(
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
 	["fr","E250-E251-E260", "E250 - E251 - E260"],
-	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fr","émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475","émulsifiants : e463, e432, e472 - correcteurs d'acidité : e322/e333, e474 - e475"],
 	["fr","E100 E122", "E100, E122"],
 	["fr","E103 et E140", "E103, E140"],
@@ -90,21 +90,55 @@ my @lists =(
 	["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 	["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
-	["fi","Vitamiinit A, B ja C", "Vitamiinit, Vitamiini A, Vitamiini B, Vitamiini C"],
-	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, Vitamiini B1, Vitamiini B2, Vitamiini B6"],
+
+	###########################
+	# SCANDINAVIAN LANGUAGES  #
+	###########################
+	[ "da",
+	  "bl. a inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
+	  "blandt andet inklusive modificeret pasteuriserede emulgator : E322, E103, E140, E250, E100"
+	],
+	[ "nb",
+	  "bl. a inkl. E322 E103, E140, E250 og E100",
+	  "blant annet inklusive E322, E103, E140, E250, E100"
+	],
+	[ "sv",
+	  "bl. a förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
+	  "bland annat förtjockningsmedel inklusive emulgeringsmedel : E322, E103, E140, E250, E100"
+	],
+	[ "da",
+	  "Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
+	  "Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Hvede Økologisk. Stoffer, eller produkter, som forårsager allergi eller overfølsomhed : mælk. Spor : soja, Spor : mælk, Spor : mandler, Spor : sesam."
+	],
+	[ "is",
+	  "Vítamín (B2, E og D). Getur innihaldið hnetur, soja og mjólk í snefilmagni.",
+	  "Vítamín, B2-Vítamín, E-Vítamín, D-Vítamín. Leifar : hnetur, Leifar : Soja, Leifar : mjólk."
+	],
+	[ "nb",
+	  "Vitaminer A, B og C. Vitaminer (B2, E, D). Kan inneholde spor av andre nøtter, soya og melk.",
+	  "Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D. Spor : andre nøtter, Spor : soya, Spor : melk."
+	],
+	[ "sv",
+	  "Vitaminer (B2, E och D), Vete*. Innehåller hasselnötter. Kan innehålla spår av råg, jordnötter, mandel, hasselnötter, cashewnötter och valnötter. *Ekologisk",
+	  "Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Vete Ekologisk. Ämnen eller produkter som orsakar allergi eller intolerans : hasselnötter. Spår : råg, Spår : jordnötter, Spår : mandel, Spår : hasselnötter, Spår : cashewnötter, Spår : valnötter."
+	],
+	###########################
+
+	["fi","Vitamiinit A, B ja C", "Vitamiinit, A-Vitamiini, B-Vitamiini, C-Vitamiini"],
+	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, B1-Vitamiini, B2-Vitamiini, B6-Vitamiini"],
 	["fi","mansikat 30%", "mansikat 30%"],
 	["fi","sakeuttamisaine pektiini", "sakeuttamisaine : pektiini"],
 	["fi","sakeuttamisaine (pektiini)", "sakeuttamisaine (pektiini)"],
 	["fi","jauhonparanne (askorbiinihappo)", "jauhonparanne (askorbiinihappo)"],
 	["fi","E250-E251", "E250 - E251"],
 	["fi","E250-E251-E260", "E250 - E251 - E260"],
-	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fi","E100 E122", "E100, E122"],
 	["fi","E103 ja E140", "E103, E140"],
 	["fi","E103 JA E140", "E103, E140"],
 	["fi","kurkumiini ja E140", "kurkumiini, E140"],
 	["fi","E140 ja karoteeni", "E140, karoteeni"],
-	["fi","omenamehu, vesi, sokeri. Saattaa sisältää maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
+	["fi","omenamehu, vesi, sokeri. jossa käsitellään myös maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 
@@ -148,7 +182,7 @@ my @lists =(
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
 
 	["fr","huile biologique (tournesol, olive)","huile biologique de tournesol, huile biologique d'olive"],
-	
+
 	# xyz: test an unrecognized oil -> do not change
 	["fr","huile biologique (tournesol, xyz)","huile biologique (tournesol, xyz)"],
 	["fr","huiles biologiques (tournesol, olive)","huiles biologiques de tournesol, huiles biologiques d'olive"],
@@ -179,7 +213,7 @@ my @lists =(
 
 	["en", "Chocolate. Contains milk, hazelnuts and other nuts. May contain celery and mustard.", "Chocolate. Substances or products causing allergies or intolerances : milk, Substances or products causing allergies or intolerances : hazelnuts, Substances or products causing allergies or intolerances : other nuts. Traces : celery, Traces : mustard."],
 
-	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium", 
+	["fr", "phosphates d'ammonium et de calcium, Phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium",
 	"phosphates d'ammonium, phosphates de calcium, phosphate d'aluminium et de sodium, diphosphate d'aluminium et de sodium"],
 
 	["fr", "Ingrédient(s) : lentilles vertes* - *issu(e)(s) de l'agriculture biologique.","Ingrédients : lentilles vertes Bio"],
@@ -204,6 +238,34 @@ my @lists =(
 	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
 
 	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
+
+	["es", "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216).", "Agua, edulcorantes (e420, e960, e952, e954, e950, e955), conservantes (e218, e202, e216)."],
+
+	# Spanish Vitamin E can be mistaken for "e" meaning "and"
+	["es", "Vitamina E y C", "vitaminas, vitamina E, vitamina C"],
+	["es", "color E 124", "color : e124"],
+	["es", "colores E (124, 125)", "colores e124, e125"],
+	["it", "vitamine A, B, E e K", "vitamins, vitamin A, vitamin B, vitamin E, vitamin K"],
+
+	# Additives normalization
+	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],
+	["fr", "E102-E1400", "e102 - e1400"],
+	["de", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
+	["fr", "correcteurs d'acidité : E322/E333 E474-E475", "correcteurs d'acidité : e322/e333, e474 - e475"],
+	["es", "E-330; E-331; Estabilizantes (E-327; E-418)", "e330; e331; Estabilizantes (e327; e418)"],
+	["es", "E120 color", "e120 color"],
+	["es", "E172-i", "e172i"],
+	["es", "E172 i", "e172i"],
+	["es", "(E172i)", "(e172i)"],
+	["es", "E102(i)-E101i", "e102i - e101i"],
+	["es", "E102(i)", "e102i"],
+	["es", "S.I.N.:160 b", "e160b"],
+	["pt", "estabilizadores (E 422, E 412)","estabilizadores (e422, e412)"],
+
+	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
+
+	# bug #3838 -> do not combine in "carbonate de fer élémentaire"
+        ["fr", "carbonate de calcium et de fer, carbonate de magnésium, fer élémentaire", "carbonate de calcium, carbonate de fer, carbonate de magnésium, fer élémentaire"],
 
 );
 

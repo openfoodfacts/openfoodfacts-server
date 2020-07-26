@@ -18,6 +18,25 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+=head1 NAME
+
+ProductOpener::Producers - functions specific to the platform for producers
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Producers> contains the functions specific to the producers platform:
+
+- Functions to import CSV / Excel files, match column names, convert to OFF csv format
+- Minion tasks for import and export
+
+=head1 DESCRIPTION
+
+..
+
+=cut
+
+
 package ProductOpener::Producers;
 
 use utf8;
@@ -45,6 +64,8 @@ BEGIN
 		&generate_import_export_columns_groups_for_select2
 
 		&convert_file
+		
+		&export_and_import_to_public_database
 
 		&import_csv_file_task
 		&export_csv_file_task
@@ -79,6 +100,7 @@ use Data::Dumper;
 use Text::CSV();
 use Minion;
 
+
 # Minion backend
 
 if (not defined $server_options{minion_backend}) {
@@ -91,7 +113,34 @@ else {
 }
 
 
-# Load a CSV or Excel file
+=head1 FUNCTIONS
+
+=head2 load_csv_or_excel_file ( $file )
+
+Load a CSV or Excel file in a Perl structure.
+
+- CSV files should be in UTF-8 and separated with a comma. They are processed with Text::CSV.
+- Excel files are first converted to CSV with gnumeric's ssconvert.
+
+=head3 Arguments
+
+=head4 file name with absolute path
+
+CSV or Excel file
+
+=head3 Return values
+
+A hash ref with:
+
+=head4 headers
+
+A reference to an array of header names.
+
+=head4 rows
+
+A reference to an array of rows, containing each an array of column values
+
+=cut
 
 sub load_csv_or_excel_file($) {
 
@@ -114,12 +163,23 @@ sub load_csv_or_excel_file($) {
 	$extension = lc($extension);
 
 	my $encoding = "UTF-8";
+	
+	# By default, assume the separator is a comma
+	my $separator = ",";
+	
+	# If there are tabs in the first line, assume the separator is tab
+	if (open (my $io, "<:encoding($encoding)", $file)) {
+		my $line = <$io>;
+		if ($line =~ /\t/) {
+			$separator = "\t";
+		}
+	}
 
 	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
 
 		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		my $csv_options_ref = { binary => 1 , sep_char => "\t" };	# should set binary attribute.
+		my $csv_options_ref = { binary => 1 , sep_char => $separator };	# should set binary attribute.
 
 		my $csv = Text::CSV->new ( $csv_options_ref )
 			or die("Cannot use CSV: " . Text::CSV->error_diag ());
@@ -190,6 +250,10 @@ sub load_csv_or_excel_file($) {
 				# May need to deal with possible empty lines before header
 
 				while ($row_ref = $csv->getline ($io)) {
+					
+					# Skip empty lines or lines without a barcode (at least 8 digits)
+					next if (join(" ", @$row_ref) !~ /[0-9]{8}/);
+					
 					push @$rows_ref, $row_ref;
 				}
 			}
@@ -351,7 +415,9 @@ sub convert_file($$$$) {
 		}
 
 		# Make sure we have a value for lc, as it is needed for clean_fields()
-		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")) {
+		# if lc is not a 2 letter code, use the default value
+		if ((not defined $product_ref->{lc}) or ($product_ref->{lc} eq "")
+			or ($product_ref->{lc} !~ /^[a-z]{2}$/)) {
 			$product_ref->{lc} = $default_values_ref->{lc};
 		}
 
@@ -380,6 +446,9 @@ sub normalize_column_name($) {
 	$name =~ s/%/percent/g;
 	$name =~ s/µg/mcg/ig;
 
+	# nutrient in unit
+	$name =~ s/ in / /i;
+
 	# estampille(s) sanitaire(s)
 
 	$name =~ s/\(s\)\b/s/ig;
@@ -394,8 +463,11 @@ sub normalize_column_name($) {
 	$name =~ s/^dont //i;
 	$name =~ s/ en / /i;
 
-	$name =~ s/pourcentage (en |de |d')?/percent /i;
 	$name =~ s/pourcentage/percent/i;
+	$name =~ s/percent (of |en |de |d')?/percent /i;
+	
+	# move percent at the end
+	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/;
 
 	return $name;
 }
@@ -411,6 +483,8 @@ my %fields_synonyms = (
 en => {
 	lc => ["lang"],
 	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	producer_product_id => ["internal code"],
+	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -427,10 +501,11 @@ es => {
 
 fr => {
 
-	code => ["codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
-	generic_name_fr => ["dénomination légale", "déno légale"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
+	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
@@ -444,10 +519,11 @@ fr => {
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
 	conservation_conditions_fr => ["Conditions de conservation et d'utilisation"],
 	preparation_fr => ["conseils de préparation", "instructions de préparation", "Mode d'emploi"],
-	link => ["lien"],
-	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement"],
+	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
+	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
+	lc => ["langue", "langue du produit"],
 },
 
 );
@@ -477,7 +553,7 @@ my %per_synonyms = (
 	"serving" => {
 		en => ["per serving", "serving"],
 		es => ["por porción", "porción"],
-		fr => ["par portion", "pour une portion", "portion"],
+		fr => ["par portion", "pour une portion", "portion", "par plat", "pour un plat", "plat"],
 	}
 );
 
@@ -502,6 +578,12 @@ my %units_synonyms = (
 	"calorie" => "kcal",
 	"iu" => "iu",
 	"ui" => "iu",
+);
+
+my %in = (
+	"en" => "in",
+	"es" => "en",
+	"fr" => "en",
 );
 
 
@@ -665,6 +747,16 @@ sub init_nutrients_columns_names_for_lang($) {
 										field => $nid . $prepared . "_" . $per . "_value_unit",
 										value_unit => "value_in_" . $units_synonyms{$unit},
 									};
+									if (defined $in{$l}) {
+										$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $in{$l} . " " . $unit . " " . $per_synonym)} = {
+											field => $nid . $prepared . "_" . $per . "_value_unit",
+											value_unit => "value_in_" . $units_synonyms{$unit},
+										};
+										$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $per_synonym . " " . $in{$l} . " " . $unit)} = {
+											field => $nid . $prepared . "_" . $per . "_value_unit",
+											value_unit => "value_in_" . $units_synonyms{$unit},
+										};
+									}
 								}
 							}
 						}
@@ -1184,7 +1276,126 @@ JSON
 }
 
 
-# Minion tasks
+
+sub export_and_import_to_public_database($) {
+	
+	my $args_ref = shift;
+	
+	my $started_t = time();
+	my $export_id = $started_t;
+
+	my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
+	if (not defined $exports_ref) {
+		$exports_ref = {};
+	}
+
+	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
+
+	$exports_ref->{$export_id} = {
+		started_t => $started_t,
+		exported_file => $exported_file,
+	};
+
+	# Set the user to the owner userid or org
+
+	my $user_id = $User_id;
+	if ($Owner_id =~ /^(user)-/) {
+		$user_id = $';
+	}
+	elsif ($Owner_id =~ /^(org)-/) {
+		$user_id = $Owner_id;
+	}
+
+	# First export the data locally
+
+	$args_ref->{user_id} = $user_id;
+	$args_ref->{org_id} = $Org_id;
+	$args_ref->{owner_id} = $Owner_id;
+	$args_ref->{csv_file} = $exported_file;
+	$args_ref->{export_id} = $export_id;
+	$args_ref->{comment} = "Import from producers platform";
+	$args_ref->{include_images_paths} = 1;	# Export file paths to images
+
+
+	if (defined $Org_id) {
+
+		$args_ref->{source_id} = "org-" . $Org_id;
+		$args_ref->{source_name} = $Org_id;
+
+		# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
+		# in the mean time, use a naming convention:  label-something, database-something and treat
+		# everything else as a producers
+		if ($Org_id =~ /^app-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
+		}
+		elsif ($Org_id =~ /^database-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
+		}	
+		elsif ($Org_id =~ /^label-/) {
+			$args_ref->{manufacturer} = 0;
+			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
+		}
+		else {
+			$args_ref->{manufacturer} = 1;
+			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
+		}		
+	}
+	else {
+		$args_ref->{no_source} = 1;
+	}
+
+	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}});
+
+	$args_ref->{export_job_id} = $local_export_job_id;
+
+	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+
+	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
+	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+
+	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
+	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
+
+	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
+	
+	return {
+			export_id => $export_id,
+			exported_file => $exported_file,
+			local_export_job_id => $local_export_job_id,
+			remote_import_job_id => $remote_import_job_id,
+	};
+}
+
+
+=head1 Minion tasks
+
+Minion tasks that can be enqueued by standalone scripts or the web site,
+that are then executed by the minion-off and minion-off-pro daemons.
+
+The daemons are configured in /etc/systemd/system
+
+e.g. /etc/systemd/system/minion-off.service 
+
+[Unit]
+Description=off minion workers
+After=postgresql.service
+
+[Service]
+Type=simple
+User=off
+WorkingDirectory=/srv/off/scripts
+Environment="PERL5LIB=."
+ExecStart=/srv/off/scripts/minion_producers.pl minion worker -m production -q openfoodfacts.org
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+=cut
 
 sub import_csv_file_task() {
 

@@ -48,6 +48,7 @@ my @tests = (
 	[ { lc => "fi", ingredients_text => "Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 	[ { lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, [ "en:e951", "en:e950" ], ],
 	[ { lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+	[ { lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"}, [ "en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300",  "en:ergocalciferol"], ],
 
 	[ { lc => "it", ingredients_text => "sale e spezie"}, [ "en:salt", "en:spice" ], ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [  ], ],
@@ -103,6 +104,24 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
 	# using vegan in case we add "pure juice" as an ingredient at some point
 	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:vegan', 'en:orange-juice' ]],
+
+	# Spanish and is "e" before "i" or "hi"
+	[ { lc => "es", ingredients_text => "agua de coco e hielo"} , ['en:coconut-water', 'en:ice']],
+
+	# Additive number + name
+	[ { lc => "fr", ingredients_text => "acide citrique E330"} , ["en:e330"]],
+	[ { lc => "fr", ingredients_text => "E330 acide citrique"} , ["en:e330"]],
+	[ { lc => "en", ingredients_text => "E-330 citric acid"} , ["en:e330"]],
+	# citric acid E-330 does not work, as "acid" is an additive class
+	# and it currently gets turned into citric acid: E-330
+	# (which is not that bad)
+	#[ { lc => "en", ingredients_text => "citric acid E-330"} , ["en:e330"]],
+	[ { lc => "en", ingredients_text => "tartrazine E-102"} , ["en:e102"]],
+	# caramel: e150, match e150c
+	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
+	# mismatch between name and number
+	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+
 );
 
 foreach my $test_ref (@tests) {

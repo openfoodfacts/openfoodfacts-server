@@ -1,9 +1,10 @@
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
-stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi
+stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
+stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
+stopwords:sv:certifierad, ingrediens, godkänd, råvara, enlighet, med, kriterierna, produkt
 
 
 synonyms:en:carbon, co2
@@ -47,7 +48,7 @@ synonyms:fr:GMS, glutamate monosodique, glutamate mono-sodique, glutamate, msg
 synonyms:ru:глутамат, глютамат, глутаминат натрия
 
 synonyms:en:preservatives, conservatives
-synonyms:es:conservador, conservadores, preservador
+synonyms:es:conservador, conservadores
 synonyms:fi:säilöntäaineita
 synonyms:ru:консерванты, консервантов
 
@@ -98,6 +99,7 @@ de:Berliner Wein Trophy
 
 de:Migros "Aus der Region", "Aus der Region"
 fr:Migros "De la région", "De la région"
+origins:en: en:Switzerland
 
 de:Nach traditioneller Art, Hausmacher Art
 fr:À l'ancienne
@@ -188,6 +190,7 @@ es:Manzanas de Francia
 fi:omenia Ranskasta, omenien alkuperä Ranska
 fr:Pommes de France
 pt:Maçãs da França
+origins:en: en:France
 
 en:Assured Food Standards, assured food standard, Red Tractor
 ca:Assured Food Standards
@@ -263,6 +266,7 @@ en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
+wikidata:en: Q1269057
 
 en:Brazilian Beer Awards
 
@@ -374,6 +378,7 @@ nl:Koolstofvoetafdruk
 pl:Ślad węglowy produktu
 pt:Pegada de carbono, Emissões de CO2
 ru:CO2-эмиссия
+label_categories:en: en:Environnment
 wikidata:en: Q310667
 
 en:Catad'Or Santiago de Chile Wine Awards
@@ -383,6 +388,7 @@ es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abad
 fi:Certified Belgian Abbey Beer, sertifioitu belgialainen luostariolut
 fr:Bière belge d'Abbaye reconnue
 nl:Erkend belgisch abdijbier
+label_categories:en: en:Origins
 wikidata:en: Q2794703
 
 en:Certified by AENOR
@@ -491,10 +497,14 @@ it:Cocoa Life
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina
+da:Indeholder en phenylalaninkilde
 de:Enthält eine Phenylalaninquelle, Das produkt enthält eine Phenylalaninquelle
+es:contiene una fuente de fenilalanina
 fi:Sisältää fenyylialaniinin lähteen
 fr:Contient une source de phénylalanine
 it:Contiene una fonte di fenilalanina
+nb:Inneholder en fenylalaninkilde
+sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
 en:Contains gluten
 ca:Conté gluten
@@ -518,6 +528,7 @@ it:Contiene OGM
 pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs
 th:มีส่วนผสมจีเอ็มโอ
+label_categories:en: en:Health, en:Environment
 
 en:Contains milk
 ca:Conté llet
@@ -648,6 +659,7 @@ hu:Tilos fagyasztani
 nl:Niet invriezen
 pl:Nie zamrażać
 pt:Não congele
+label_categories:en: en:Storage
 
 en:Do not freeze again
 ca:No tornar a congelar
@@ -697,11 +709,12 @@ en:Enriched wih vitamins
 ca:Enriquit amb vitamines
 de:Mit Vitaminen angereichert
 es:Enriquecido con vitaminas
-fi:Lisätty vitamiineja
+fi:Vitaminoitu, Lisätty vitamiineja
 fr:Enrichi en vitamines
 he:מועשר בוויטמינים
 hu:Vitaminokkal dúsított
 it:Arricchito con vitamine
+sv:Vitaminberikat, Vitaminberikad
 
 en:Enriched with calcium
 de:Mit Kalzium angereichert
@@ -13390,12 +13403,12 @@ fi:Euroopan vegetaariliitto lakto-ovo-vegetaarinen, EVU lakto-ovo-vegetaarinen
 
 < en:European Vegetarian Union
 < en:Vegan
-en:European Vegetarian Union Vegan
+en:European Vegetarian Union - Vegan
 ca:Unió Vegana Vegetariana Europea
 de:Europäische Vegetarier-Union Vegan
 es:Unión Vegetariana y vegana Europea
 fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
-fr:Union Végétarienne Européenne - Végétalien
+fr:Union Végétarienne Européenne - Vegan
 nl:Europese Vegetarische Unie Vegan, EVU Vegan
 
 < en:European Vegetarian Union
@@ -13419,6 +13432,7 @@ ca:El consum excessiu pot produir efectes laxants
 fi:liiallisella kulutuksella saattaa olla laksatiivisia vaikutuksia, liiallisella käytöllä voi olla laksatiivisia vaikutuksia
 fr:Une consommation excessive peut avoir des effets laxatifs
 it:Un consumo eccessivo puù avere effetti lassativi
+sv:Överdriven konsumtion kan ha laxerande verkan
 
 en:“Extra” Class
 ca:Categoria Extra
@@ -13438,6 +13452,7 @@ hu:Fair trade
 it:Commercio equo
 nl:Rechtvaardige handel, fair trade
 pl:Fair trade
+label_categories:en: en:Social responsibility
 wikidata:en: Q188485
 
 < en:Fair trade
@@ -13469,10 +13484,19 @@ fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équit
 fr:Bio-équitable, bioéquitable
 
 < en:Fair trade
+en:Small Producers' Symbol, SPP, Small Producers
+es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
+fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
+auth_name:en: SPP
+auth_url:en: https://spp.coop/
+
+< en:Fair trade
 en:TransFer, TransFer Canada
 
 < en:Fairtrade International
 en:Fairtrade USA
+
+en:Farm Verified Organic
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -13487,6 +13511,7 @@ hu:E-szám mentes
 en:Free range
 ca:Rang lliure
 de:Freiland
+es:de corral
 fi:vapaana laiduntava, ulkoilma
 fr:Plein air
 he:גידול חופשי
@@ -13494,6 +13519,7 @@ hu:Szabad tartású
 nl:Vrije uitloop
 pt:Criação em liberdade
 ru:свободный выгул, открытый воздух
+label_categories:en: en:Animal welfare
 
 < en:Free range
 en:Free range chicken
@@ -13557,6 +13583,7 @@ es:Huevos originados en Francia
 fi:ranskalaisia munia, munien alkuperä Ranska
 fr:Oeufs de France, Oeufs français
 he:ביצים צרפתיות, ביצים מצרפת
+origins:en: en:France
 
 en:French meat
 ca:Carn francesa
@@ -13566,6 +13593,7 @@ fi:Ranskalaista lihaa, lihan alkuperä Ranska
 fr:Viande Française, VF
 he:בשר צרפתי
 it:Carne francese
+origins:en: en:France
 
 < en:French meat
 en:French duck
@@ -13575,6 +13603,7 @@ fi:Ranskalaista ankkaa, ankan alkuperä Ranska
 fr:Canard Français, Canard de France, Canard Origine France, Viande de canard français, Viande de canard française, Viande de canard Origine France
 he:ברווז צרפתי
 pt:Pato francês
+origins:en: en:France
 
 < en:French meat
 en:French pork
@@ -13588,36 +13617,47 @@ it:Maiale francese
 nl:Frans varkensvlees
 pl:Francuska wieprzowina
 pt:Porco francês
+origins:en: en:France
 
 < en:French meat
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
+origins:en: en:France
 
 < en:French meat
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
+origins:en: en:France
 
 < en:French meat
 fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
+origins:en: en:France
 
 < en:French meat
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Viande de chèvre française, Viande de chèvre Origine France, Chèvre 100% Française, Chèvre 100% France, Chèvre Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Viande de chevreau français, Viande de chevreau Origine France, Chevreau 100% Français, Viande de chevreau Française, Chevreau 100% France, Chevreau Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
+origins:en: en:France
 
 < en:French meat
 fr:Volaille Française, volaille Origine France
+origins:en: en:France
 
 en:French milk
 ca:Llet francesa
@@ -13641,207 +13681,6 @@ pl:FSC, Odpowiedzialna gospodarka leśna
 ru:FSC, Forest Stewardship Council, Лесной попечительский совет
 zh:FSC(森林管理委员会)
 wikidata:en: Q748367
-
-< en:FSC
-en:FSC-C002324
-de:FSC-C002324
-fi:FSC-C002324
-it:FSC-C002324
-pt:FSC-C002324
-address:en: Millenium Way West, Phoenix Centre
-auth_url:en: http://www.chesapeakecorp.com
-city:en: Nottingham
-country:en: UNITED KINGDOM
-name:en: Multi Packaging Solutions Pharmaceutical and Healthcare Packaging Nottingham
-postalcode:en: NG8 6AW
-region:en: Nottinghamshire
-
-< en:FSC
-en:FSC-C010395
-de:FSC-C010395
-fi:FSC-C010395
-it:FSC-C010395
-pt:FSC-C010395
-
-< en:FSC
-en:FSC-C014047
-ca:FSC-C014047
-de:FSC-C014047
-fi:FSC-C014047
-it:FSC-C014047
-nl:FSC-C014047
-pt:FSC-C014047
-
-< en:FSC
-en:FSC-C014207
-ca:FSC-C014207
-de:FSC-C014207
-fi:FSC-C014207
-it:FSC-C014207
-pt:FSC-C014207
-
-< en:FSC
-en:FSC-C016627
-ca:FSC-C016627
-de:FSC-C016627
-fi:FSC-C016627
-it:FSC-C016627
-pt:FSC-C016627
-
-< en:FSC
-en:FSC-C017110
-de:FSC-C017110
-fi:FSC-C017110
-fr:FSC-C017110
-it:FSC-C017110
-pt:FSC-C017110
-
-< en:FSC
-en:FSC-C020428
-ca:FSC-C020428
-de:FSC-C020428
-fi:FSC-C020428
-it:FSC-C020428
-nl:FSC C020428
-pt:FSC-C020428
-
-< en:FSC
-en:FSC-C022488
-ca:FSC-C022488
-de:FSC-C022488
-fi:FSC-C022488
-pt:FSC-C022488
-
-< en:FSC
-en:FSC-C074707
-de:FSC-C074707
-fi:FSC-C074707
-it:FSC-C074707
-pt:FSC-C074707
-
-< en:FSC
-en:FSC-C081801
-ca:FSC-C081801
-de:FSC-C081801
-fi:FSC-C081801
-fr:FSC-C081801
-it:FSC-C081801
-nl:FSC-C081801
-pt:FSC-C081801
-
-< en:FSC
-en:FSC-C084340
-de:FSC-C084340
-fi:FSC-C084340
-it:FSC-C084340
-pt:FSC-C084340
-
-< en:FSC
-en:FSC-C095196
-de:FSC-C095196
-fi:FSC-C095196
-fr:FSC-C095196
-pt:FSC-C095196
-
-< en:FSC
-en:FSC-C100482
-de:FSC-C100482
-fi:FSC-C100482
-it:FSC-C100482
-pt:FSC-C100482
-
-< en:FSC
-en:FSC-C101903
-de:FSC-C101903
-fi:FSC-C101903
-it:FSC-C101903
-pt:FSC-C101903
-
-< en:FSC
-en:FSC-C103843
-ca:FSC-C103843
-de:FSC-C103843
-fi:FSC-C103843
-pt:FSC-C103843
-
-< en:FSC
-en:FSC-C104258
-fi:FSC-C104258
-it:FSC-C104258
-pt:FSC-C104258
-
-< en:FSC
-en:FSC-C104752
-ca:FSC-C104752
-fi:FSC-C104752
-it:FSC-C104752
-pt:FSC-C104752
-
-< en:FSC
-en:FSC-C104754
-fi:FSC-C104754
-it:FSC-C104754
-pt:FSC-C104754
-
-< en:FSC
-en:FSC-C106987
-ca:FSC-C106987
-de:FSC-C106987
-fi:FSC-C106987
-pt:FSC-C106987
-
-< en:FSC
-en:FSC-C107894
-ca:FSC-C107894
-de:FSC-C107894
-fi:FSC-C107894
-pt:FSC-C107894
-
-< en:FSC
-en:FSC-C109147
-fi:FSC-C109147
-it:FSC-C109147
-pt:FSC-C109147
-
-< en:FSC
-en:FSC-C109331
-ca:FSC-C109331
-de:FSC-C109331
-fi:FSC-C109331
-it:FSC-C109331
-pt:FSC-C109331
-
-< en:FSC
-en:FSC-C115560
-fi:FSC-C115560
-
-< en:FSC
-en:FSC-C115580
-de:FSC-C115580
-fi:FSC-C115580
-it:FSC-C115580
-pt:FSC-C115580
-
-< en:FSC
-en:FSC-C117156
-de:FSC-C117156
-fi:FSC-C117156
-it:FSC-C117156
-pt:FSC-C117156
-
-< en:FSC
-en:FSC-C119044
-ca:FSC-C119044
-de:FSC-C119044
-fi:FSC-C119044
-pt:FSC-C119044
-
-< en:FSC
-en:FSC-C123652
-fi:FSC-C123652
-fr:FSC-C123652
-it:FSC-C123652
-pt:FSC-C123652
 
 < en:FSC
 en:FSC Mix
@@ -13896,7 +13735,7 @@ en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
 
-en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free
+en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free, ni gluten
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Sense gluten d'orígen
 cs:Bez lepku
 de:Glutenfrei
@@ -13911,6 +13750,7 @@ pl:Bezglutenowy
 pt:Sem gluten, Isento de gluten
 ru:Без глютена
 sk:Bez lepku
+sv:Glutenfri
 th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
@@ -14000,6 +13840,12 @@ de:DLG Goldener Preis 2019
 fi:Saksan maatalousyhdistyksen kultamitali 2019
 fr:Médaille d'or 2019 de la Société Allemande d'Agriculture
 
+< en:Gold medal of the German Agricultural Society
+en:2020 Gold medal of the German Agricultural Society
+de:DLG Goldener Preis 2020
+fi:Saksan maatalousyhdistyksen kultamitali 2020
+fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+
 en:GOST
 fr:GOST
 it:GOST
@@ -14063,6 +13909,7 @@ tr:HACCP
 uk:HACCP, аналіз ризиків і критичних контрольних точок
 vi:HACCP
 zh:HACCP, 危害分析重要管制點
+label_categories:en: en:Food Safety
 wikidata:en: Q279454
 
 en:Halal
@@ -14079,6 +13926,7 @@ pl:Halal
 pt:Halal
 ru:Халяль
 th:ฮาลาล
+label_categories:en: en:Religious diets, en:Specific diets
 wikidata:en: Q177823
 
 < en:Halal
@@ -14143,6 +13991,36 @@ fi:Ranskalaista sadonkorjuuta
 fr:Récolté en France
 origins:en: en:France
 
+en:Health Star Rating, Health Star Rating System, HSR
+wikidata:en: Q85846088
+
+< en:Health Star Rating
+en:Health Star Rating 1
+
+< en:Health Star Rating
+en:Health Star Rating 1.5
+
+< en:Health Star Rating
+en:Health Star Rating 2
+
+< en:Health Star Rating
+en:Health Star Rating 2.5
+
+< en:Health Star Rating
+en:Health Star Rating 3
+
+< en:Health Star Rating
+en:Health Star Rating 3.5
+
+< en:Health Star Rating
+en:Health Star Rating 4
+
+< en:Health Star Rating
+en:Health Star Rating 4.5
+
+< en:Health Star Rating
+en:Health Star Rating 5
+
 < en:Hens raised without antibiotics
 en:Hens raised without antibiotics during the laying phase
 ca:Gallines criades sense antibiòtics durant la posta
@@ -14157,6 +14035,7 @@ fr:Riche en fibres
 he:עתיר בסיבים תזונתיים
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
+nb:Fiberrik, rik på fiber
 nl:Vezelrijk, Rijk aan vezels
 pl:wysoka zawartość błonnika
 pt:Rico em fibras
@@ -14208,6 +14087,7 @@ de:Honig aus Frankreich
 fi:hunajaa Ranskasta, hunajan alkuperä Ranska
 fr:Miel de France, miel français
 he:דבש מצרפת
+origins:en: en:France
 
 en:Hungarian domestic product
 fi:Unkarilaista kotiteollisuutta
@@ -14343,6 +14223,7 @@ it:ISO-9001-2008
 nl:ISO 9001-2008
 
 en:Japan Wine Challenge
+categories:en: en:Wines
 
 en:Kosher, kasher
 ca:Kosher
@@ -14446,6 +14327,7 @@ es:Label Rouge
 fi:Label Rouge
 fr:Label Rouge
 nl:Label Rouge
+label_categories:en: en:Quality, en:Environment
 wikidata:en: Q3214309
 
 en:Lacto-vegetarian
@@ -14743,6 +14625,7 @@ country:en: Germany
 en:Made in Hungary
 fi:valmistettu Unkarissa
 hu:Magyarországon készült
+label_categories:en: en:Origins
 
 en:Made in Italy, product of Italy
 ca:Fet a Itàlia
@@ -14839,6 +14722,9 @@ fr:Max Havelaar France
 fi:Max Havelaar Ranska
 nl:Max Havelaar Frankrijk
 
+en:May contain eggshell, may contain egg shell
+es:Puede contener cáscara de huevo
+
 en:Mediterranean International Wine and Spirit Challenge
 fr:Concours international de vin à Eilat
 
@@ -14921,6 +14807,7 @@ he:לא הוקפא מעולם
 hu:Nem volt fagyasztva
 it:Mai congelato
 nl:Nooit bevroren
+label_categories:en: en:Quality
 
 en:New
 ca:Nou
@@ -14967,6 +14854,7 @@ it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers
 pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
+sv:Utan tillsatt socker
 th:ไม่เติมน้ำตาล
 zh:无添糖
 
@@ -15086,6 +14974,7 @@ hu:Mesterséges édesítők nélkül
 it:Senza dolcificanti artificiali
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
+label_categories:en: en:Health, en:Claim
 
 en:No aspartame, aspartame free, without aspartame
 ca:Sense aspartam, Lliure d'aspartam
@@ -15248,6 +15137,7 @@ pl:Bez laktozy
 pt:Sem lactose
 ru:Без лактозы
 sk:Bez laktozy
+sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
 
 en:No lecithine, lecithine-free
@@ -15280,6 +15170,7 @@ hu:Tej nélkül, tejmentes
 it:Senza latte
 nl:Melkvrij
 ru:Без молока
+sv:Mjölkfri, Fri från mjölk
 th:ไม่มีส่วนผสมของนม
 
 en:No preservatives, no added preservatives
@@ -15375,6 +15266,7 @@ fi:ei-vegetaarinen, ei sovellu kasvissyöjille
 fr:Non végétarien, ne convient pas aux végétariens
 hu:Nem Vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
+label_categories:en: en:Specific diets
 
 < en:Non-vegetarian
 en:Brown Dot India, India Brown dot, indian brown dot, non-vegetarian mark india, brown dot
@@ -15390,6 +15282,7 @@ hu:Nem ajánlott bizonyos emberek számára, Nem ajánlott, nem javasolt, ellenj
 it:Non raccomandato per persone specifiche
 nl:Niet aanbevolen voor specifieke mensen
 pt:Não recomendado para pessoas específicas, não recomendado
+label_categories:en: en:Specific diets
 
 < en:Not advised for specific people
 en:Not advised for children and pregnant women
@@ -15447,6 +15340,8 @@ he:Nutriscore
 it:Nutriscore
 nl:Nutriscore
 pl:Nutriscore
+label_categories:en: en:Nutrition Grades, en:Health
+wikidata:en: Q46577569
 
 < en:Nutriscore
 en:Nutriscore Grade A
@@ -15612,20 +15507,26 @@ nl:Honderd beste Russische producten 2015
 ru:Сто лучших товаров России 2015
 
 en:Organic, organically grown, organically produced, ingredient produced organically
-ca:Orgànic
+ca:Orgànic, de cultiu ecologic
 cs:Bio
+da:Økologisk
 de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
-es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica
-fi:Luomu
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica
+fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
 hu:Bio, Öko, Organikus
 it:Biologico
-nl:Biologisch
+nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
 pt:Orgânico
+sv:Ekologisk, ekologiskt
 th:ออร์แกนิค
 zh:有机
+label_categories:en: en:Environnement
 wikidata:en: Q380778
+
+< en:Organic
+ca:Consell Català de la Producció Agrària Ecològica, CCPAE
 
 < en:Organic
 de:Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
@@ -15713,6 +15614,7 @@ he:אורגני בתקן אירופאי
 it:Biologico UE
 nl:EU Organic
 pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
+sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en: Q380448
 
@@ -15726,6 +15628,7 @@ de:Migros Bio
 fr:Migros Bio
 it:Migros Bio
 nl:Migros Bio
+stores:en: Migros
 
 < en:Organic
 en:Naturaplan, Natura-plan
@@ -15754,10 +15657,30 @@ nl:USDA Organic
 wikidata:en: Q3336915
 
 < en:Organic
+es:Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica aragón
+
+< en:Organic
+es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
+
+< en:Organic
+es:Comité de Agricultura Ecologica de la Comunidad de Madrid, Comité Agricultura Ecologica Madrid
+
+< en:Organic
+es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV
+
+< en:Organic
+es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM
+
+< en:Organic
 fr:Bio-Cohérence
+wikidata:en: Q30751117
 
 < en:Organic
 fr:Bio-Solidaire, biosolidaire
+
+< en:Organic
+fr:Nature et Progrès
+wikidata:en: Q3337101
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
@@ -15806,6 +15729,7 @@ nl:Zonder palmolie, Palmolie-vrij
 pl:Wolne od oleju palmowego, bez oleju palmowego
 pt:Sem óleo de palma
 ru:Без пальмового масла
+sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
 
@@ -16067,6 +15991,7 @@ es:Patatas originadas en Francia
 fi:perunoita Ranskasta, perunoiden alkuperä Ranska
 fr:Pommes de terre de France
 nl:Aardappelen uit Frankrijk
+origins:en: en:France
 
 en:Pro Montagna, ProMontagna, Coop Pro Montagna
 ca:Pro Montagna, ProMontagna, Coop Pro Montagna
@@ -16138,6 +16063,7 @@ pt:Carne de porco pura
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+wikidata:en: Q11997909
 
 en:Qualité France (French quality)
 es:Calidad francesa
@@ -16710,8 +16636,10 @@ he:מומלח במלח יבש
 pt:Salgado com sal seco
 
 en:San Francisco Chronicle Wine Competition
+categories:en: en:Wines
 
 en:San Francisco International Wine Competition
+categories:en: en:Wines
 
 en:Seine fishing
 de:Ringwadenfischerei
@@ -16811,6 +16739,7 @@ fi:Savustettu pyökillä
 fr:Fumé au bois de hêtre, fumage au bois de hêtre
 he:מעושן עם עץ אשור
 hu:Bükkfán füstölt
+sv:Bokspånsrökt
 
 en:Smoked with oak wood
 fi:savustettu tammella, tammella savustettu
@@ -16969,9 +16898,11 @@ wikidata:en: Q686421
 
 en:Swiss AOC, CH AOC, AOC CH
 fr:AOC Suisse, AOC CH, CH AOC
+origins:en: en:Switzerland
 
 en:Swiss PGI, CH PGI, PGI CH
 fr:IGP Suisse, IGP CH, CH IGP
+origins:en: en:Switzerland
 
 en:TerraSuisse
 fr:TerraSuisse
@@ -16994,12 +16925,15 @@ ca:Etiqueta de qualitat de salsa de peix Thai
 
 < en:Thai quality label
 en:Thailand Diversity & Refinement
+origins:en: en:Thailand
 
 en:The Balkan International Wine Competition
+categories:en: en:Wines
 
 en:The International Wine & Spirit Competition
 
 en:Thessaloniki International Wine Competition
+categories:en: en:Wines
 
 en:Tooth-health related labels
 de:Labels zur Zahngesundheit
@@ -17022,11 +16956,12 @@ en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
+wikidata:en: Q2941001
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
-fi:troolattu
+fi:troolattu, pyydetty troolilla
 fr:Pêché au chalut, Pêchés au chalut, Pêchée au chalut, Pêchées au chalut, Pêché par chalutage, Pêchés par chalutage
 hu:Vonóhálós halászat
 
@@ -17170,7 +17105,8 @@ fr:Végétalien, Végan, végétal
 he:טבעוני, מתאים לטבעונים
 hu:Vegán
 it:Vegano, Vegan
-nl:Veganistisch
+nb:Vegan, Vegansk
+nl:Veganistisch, plantaardig
 pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
@@ -17315,8 +17251,10 @@ en:Wheat-free
 
 en:Wine Masters Challenge
 pt:Concurso Mundial de Vinhos
+categories:en: en:Wines
 
 en:Wine Women Awards à l'Hôtel Bristol à Paris
+categories:en: en:Wines
 
 en:Winner of the "consumer rights and quality of service" (Russia)
 fi:Kuluttajien oikeuksien ja palvelun laadun voittaja (Venäjä)
@@ -17347,6 +17285,7 @@ fr:Contient des sulfites, Présence de sulfites
 hu:Szulfitokat tartalmaz, szulfitokkal
 it:Contiene solfiti, con solfiti
 pt:Com sulfitos, contém sulfitos
+sv:Innehåller sulfiter, Innehåller sulfit
 th:ใช้ซัลไฟต์
 
 < en:With sulfites
@@ -17377,6 +17316,7 @@ pt:Com óleo de girassol
 
 en:With sweeteners
 ca:Amb edulcorants
+da:Inneholder søtstoff
 de:Mit Süßstoffen
 es:Con edulcorantes, Con endulzantes artificiales
 fi:sisältää makeutusaineita, sisältää makeutusainetta
@@ -17386,12 +17326,13 @@ hu:Édesítővel, Édesítőszerrel
 it:Con dolcificanti
 nl:Met kunstmatige zoetstoffen
 pt:Com adoçantes
+sv:Innehåller sötningsmedel
 th:ใช้น้ำตาลเทียม
 
 en:Without addition of dairy products
 de:Ohne Zusatz von Milchprodukten
 fi:ei lisättyjä maitotuotteita
-fr:Sans ajout de produit laitiers
+fr:Sans ajout de produit laitiers, sans produits laitiers
 ru:Без добавления молочных продуктов
 
 en:Without antibiotics, antibiotic-free, antibiotics-free, no antibiotics, no antibiotic, raised without antibiotics, no Antibiotics Administered
@@ -17401,6 +17342,7 @@ es:Sin antibióticos
 fi:antibiootiton, antibioottivapaa, kasvatettu ilman antibiootteja
 fr:Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevage sans antibiotique, élevé sans antibiotique, élevés sans antibiotique, élevée sans antibiotique, élevées sans antibiotique
 hu:Antibiotikum mentes
+label_categories:en: en:Health
 
 < en:Without antibiotics
 en:Chickens raised without antibiotics
@@ -17609,6 +17551,7 @@ fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôl�
 protected_name_type:en: aoc
 
 fr:Approuvé par les familles
+label_categories:en: en:Food Awards
 
 < fr:Approuvé par les familles
 fr:Approuvé par les familles 2014
@@ -17624,6 +17567,9 @@ fr:Approuvé par les familles 2018
 
 < fr:Approuvé par les familles
 fr:Approuvé par les familles 2019
+
+< fr:Approuvé par les familles
+fr:Approuvé par les familles 2020
 
 fr:Association des vins naturels, AVN
 
@@ -17642,6 +17588,7 @@ fr:Certifié par bureau Veritas, Certifié par Veritas
 fr:Certifié par bureau Veritas certication France
 
 fr:Challenge International du Vin à Bordeaux
+categories:en: en:Wines
 
 fr:Concours de Bordeaux
 
@@ -17655,22 +17602,29 @@ fr:médaille d'or du Concours de Bordeaux
 fr:médaille de bronze du Concours de Bordeaux
 
 fr:Concours de Bordeaux Vins d'Aquitaine
+categories:en: en:Wines
 
 fr:Concours des 7 Ceps
 
 fr:Concours des Ligers
 
 fr:Concours des vins d'Alsace de Colmar
+categories:en: en:Wines
 
 fr:Concours des vins d'Orange
+categories:en: en:Wines
 
 fr:Concours des vins de Mâcon
+categories:en: en:Wines
 
 fr:Concours des vins de Piolenc
+categories:en: en:Wines
 
 fr:Concours des vins du Grand Delta à Avignon
+categories:en: en:Wines
 
 fr:Concours des vins Féminalise
+categories:en: en:Wines
 
 fr:Concours des Vins Jury Consommateurs de Vacqueyras
 
@@ -17701,12 +17655,14 @@ es:La Mujer Elige
 fr:Concours International des Best Of du Tourisme Vitivinicole à Bordeaux
 
 fr:Concours international des vins à Lyon
+categories:en: en:Wines
 
 fr:Concours International des Vins de Gastronomie d'Antibes
 
 fr:Concours International des Vins de Montagne d'Aoste
 
 fr:Concours International des Vins de Terroir de Brignoles
+categories:en: en:Wines
 
 fr:Concours International des Vins et Spiritueux VINUS
 es:Vino, Nutricion y Salud
@@ -17731,6 +17687,7 @@ se:Recommanderas ej till gravida
 fr:élevé en fût de chêne
 
 fr:Entrepreneurs + Engagés, E+
+label_categories:en: en:Social responsibility
 
 fr:Entreprise du Patrimoine Vivant, EPV
 wikidata:en: Q3214304
@@ -17753,12 +17710,15 @@ fr:fermenté en barrique
 fr:fermenté en fût de chêne
 
 fr:Fruits et Légumes de France
+origins:en: en:France
 
 < fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français
+origins:en: en:France
 
 < fr:Fruits et Légumes de France
 fr:Légumes de France, Légumes français
+origins:en: en:France
 
 fr:Fumage naturel, fumé naturellement
 
@@ -17766,17 +17726,22 @@ fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
 fr:Grand cru
 
+fr:Haute Valeur Environnementale
+wikidata:en: Q3128557
+
 fr:Imprim'Vert
 wikidata:en: Q3149493
 
 fr:Indication géographique protégée de la République populaire de Chine, IGPRPC
 zh:中国地理标志
+origins:en: en:China
 wikidata:en: Q3150362
 
 fr:La Lorraine notre signature
 origins:en: en:France
 
 fr:Maïs de France
+origins:en: en:France
 
 < fr:Médaille d'argent du Concours de Bordeaux
 fr:Médaille d'argent du Concours de Bordeaux 2011, Concours de Bordeaux médaille d'argent 2011, Médaille d'Argent Bordeaux 2011 Concours de Bordeaux, Médaille d'Argent Bordeaux 2011
@@ -18067,11 +18032,13 @@ wikidata:en: Q3474531
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
+label_categories:en: en:Origins
 origins:en: en:France
 
 fr:Sélections Mondiales des Vins Canada à Québec
 
 fr:Soja de France
+origins:en: en:France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
@@ -18088,6 +18055,7 @@ fr:Tidy man
 wikidata:en: Q3528198
 
 fr:Tomates de France
+origins:en: en:France
 
 fr:Tréfilage au bronze, tréfilé au bronze
 it:Trafilata al bronzo
@@ -18172,6 +18140,8 @@ it:DOCG, Denominazione di origine controllata e garantita
 it:Indicazione geografica tipica
 
 la:Mundus Vini, Grand Prix International du Vin de Neustadt
+
+pl:Gwarancja jakości
 
 ro:Concursul International de Vinuri
 

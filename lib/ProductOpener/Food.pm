@@ -63,6 +63,9 @@ BEGIN
 
 					&unit_to_g
 					&g_to_unit
+					
+					&unit_to_kcal
+					&kcal_to_unit
 
 					&unit_to_mmoll
 					&mmoll_to_unit
@@ -105,6 +108,10 @@ BEGIN
 
 					&create_nutrients_level_taxonomy
 
+					&assign_categories_properties_to_product
+					
+					&remove_insignificant_digits
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -123,6 +130,69 @@ use Hash::Util;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
+
+
+=head2 remove_insignificant_digits($)
+
+Some apps send us nutrient values that they have stored internally as
+floating point numbers.
+
+So we get values like:
+
+2.9000000953674
+1.6000000238419
+0.89999997615814
+0.359999990463256
+2.5999999046326
+
+On the other hand, when we get values like 2.0, 2.50 or 2.500,
+we want to keep the trailing 0s.
+
+The goal is to keep the precision if it makes sense. The tricky part
+is that we do not know in advance how many significant digits we can have,
+it varies from products to products, and even nutrients to nutrients.
+
+The desired output is thus:
+
+2.9000000953674 -> 2.9
+1.6000000238419 -> 1.6
+0.89999997615814 -> 0.9
+0.359999990463256 -> 0.36
+2.5999999046326 -> 2.6
+2 -> 2
+2.0 -> 2.0
+2.000 -> 2.000
+2.0001 -> 2
+0.0001 -> 0.0001
+
+=cut
+
+
+sub remove_insignificant_digits($) {
+
+	my $value = shift;
+	
+	# Make the value a string
+	$value .= '';
+	
+	# Very small values may have been converted to scientific notation
+	
+	if ($value =~ /\.(\d*?[1-9]\d*?)0{3}/) {
+		$value = $`. '.' . $1;
+	}
+	elsif ($value =~ /([1-9]0*)\.0{3}/) {
+		$value = $`. $1;
+	}
+	elsif ($value =~ /\.(\d*)([0-8]+)9999/) {
+		$value = $`. '.' . $1 . ($2 + 1);
+	}
+	elsif ($value =~ /\.9999/) {
+		$value = $` + 1;
+	}
+	return $value;
+}
+
+
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -247,6 +317,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	if ($nid eq 'water-hardness') {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
+	elsif ($nid eq 'energy-kcal') {
+		# energy-kcal is stored in kcal
+		$product_ref->{nutriments}{$nid} = unit_to_kcal($value, $unit) + 0;
+	}	
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
@@ -269,6 +343,40 @@ sub get_nutrient_label {
 	else {
 		return;
 	}
+}
+
+=head2 unit_to_kcal($$)
+
+Converts <xx><unit> into <xx> kcal.
+
+=cut
+
+sub unit_to_kcal($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+
+	($unit eq 'kj') and return int($value / 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
+}
+
+sub kcal_to_unit($$) {
+	my $value = shift;
+	my $unit = shift;
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+	
+	print STDERR "value: $value - unit: $unit\n";
+
+	($unit eq 'kj') and return int($value * 4.184 + 0.5);
+
+	# return value without modification if it's already in kcal
+	return $value + 0; # + 0 to make sure the value is treated as number
 }
 
 =head2 unit_to_g($$)
@@ -1416,6 +1524,7 @@ sub mmoll_to_unit {
 		en => "Sugars",
 		en_synonyms => ["Sugar"],
 		es => "Azúcares",
+		es_synonyms => ["azucar"],
 		et => "Suhkrud",
 		fa => "شکر",
 		fi => "Sokerit",
@@ -1671,7 +1780,7 @@ sub mmoll_to_unit {
 		et => "Rasvad",
 		fi => "Rasvat",
 		fr => "Matières grasses / Lipides",
-		fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse"],
+		fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse", "MG"],
 		ga => "Saill",
 		he => "שומנים",
 		hu => "Zsír",
@@ -1705,11 +1814,11 @@ sub mmoll_to_unit {
 		de => "gesättigte Fettsäuren",
 		el => "Κορεσμένα λιπαρά",
 		es => "Grasas saturadas",
-		es => "Ácidos grasos saturados",
+		es_synonyms => ["Ácidos grasos saturados", "AGS", "Saturados", "Saturadas"],		
 		et => "Küllastunud rasvhapped",
 		fi => "Tyydyttyneet rasvat",
 		fr => "Acides gras saturés",
-		fr_synonyms => ["Saturés", "AGS"],
+		fr_synonyms => ["Saturés", "AGS", "matières grasses saturées", "MGS"],
 		ga => "sáSitheáin saill",
 		he => "שומן רווי",
 		hu => "Telített zsírsavak",
@@ -2409,7 +2518,7 @@ sub mmoll_to_unit {
 		de => "Ballaststoffe",
 		el => "Εδώδιμες ίνες",
 		es => "Fibra alimentaria",
-		es_synonyms => ["Fibras alimentarias", "Fibras", "Fibra"],
+		es_synonyms => ["Fibras alimentarias", "fibra alimentaria", "Fibras", "Fibra", "fibras alimenticias", "fibra alimenticia"],
 		et => "Kiudained",
 		fi => "Ravintokuidut",
 		fi_synonyms => ["Ravintokuitu", "Kuitu", "Kuidut"],
@@ -3642,9 +3751,12 @@ sub mmoll_to_unit {
 		de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
 		unit => "%",
 	},
+	
 	"fruits-vegetables-nuts-estimate-from-ingredients" => {
 		en => "Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)",
 		fr => "Fruits, légumes, noix et huiles de colza, noix et olive (estimation par analyse de la liste des ingrédients)",
+		de => "Früchte, Gemüse, Nüsse und Raps, Walnuss- und Olivenöl (Schätzung aus der Analyse der Zutatenliste)",
+		es => "Frutas, verduras, nueces y aceites de canola, nueces y oliva (estimado del análisis en la lista de ingredientes)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -3714,6 +3826,19 @@ sub mmoll_to_unit {
 		en => "Nutrition grade",
 		fi => "Ravintoarvosana",
 		ro => "Notă nutrițională",
+	},
+	"ibu" => {
+		de => "Internationale Bittereinheit",
+		en => "International Bittering Unit",
+		pt => "Medida do amargor internacional",
+		ru => "Международная единица горечи",
+		unit => "",
+	},
+	"alcohol-units" => {
+		en => "Alcohol units",
+		de => "Alkoholeinheiten",
+		fr => "Unités d'alcool",
+	unit => "",
 	},
 	"choline" => {
 		ar => "كولين",
@@ -4174,6 +4299,8 @@ sub is_fat_for_nutrition_score($) {
 sub special_process_product($) {
 
 	my $product_ref = shift;
+
+	assign_categories_properties_to_product($product_ref);
 
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
@@ -4776,7 +4903,8 @@ sub compute_serving_size_data($) {
 			assign_nid_modifier_value_and_unit($product_ref, "energy" . $product_type,
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
 				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});		}
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});
+		}
 		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
 		elsif ((defined $product_ref->{nutriments}{"energy" . $product_type . "_value"}) and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"})) {
 
@@ -5192,7 +5320,7 @@ foreach my $key (keys %Nutriments) {
 
 Hash::Util::lock_keys(%Nutriments);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
 
 sub normalize_packager_codes($) {
 
@@ -5296,6 +5424,7 @@ sub normalize_packager_codes($) {
 
 my %local_ec = (
 	DE => "EG",
+	EE => "EÜ",
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
@@ -5445,22 +5574,29 @@ sub compute_nova_group($) {
 		}
 	}
 
-	# Also loop through ingredients to see if the ingredients taxonomy has associated minimum NOVA grades
+	# Also loop through categories and ingredients to see if the taxonomy has associated minimum NOVA grades
+	# Categories need to be first, so that we can identify group 2 foods such as salt, sugar, fats etc.
+	# Group 2 foods should then not be moved to group 3
+	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+	
+	foreach my $tag_type ("categories", "ingredients") {
 
-	if ((defined $product_ref->{ingredients_tags}) and (defined $properties{ingredients})) {
+		if ((defined $product_ref->{$tag_type . "_tags"}) and (defined $properties{$tag_type})) {
 
-		foreach my $ingredient_tag (@{$product_ref->{ingredients_tags}}) {
+			foreach my $tag (@{$product_ref->{$tag_type . "_tags"}}) {
 
-			if ( (defined $properties{ingredients})
-				and (defined $properties{ingredients}{$ingredient_tag})
-				and (defined $properties{ingredients}{$ingredient_tag}{"nova:en"})
-				and ($properties{ingredients}{$ingredient_tag}{"nova:en"} > $product_ref->{nova_group}) ) {
-				$product_ref->{nova_group_debug} .= " -- ingredient: $ingredient_tag : " . $properties{ingredients}{$ingredient_tag}{"nova:en"} ;
-				$product_ref->{nova_group} = $properties{ingredients}{$ingredient_tag}{"nova:en"};
+				if ( (defined $properties{$tag_type}{$tag})
+					and (defined $properties{$tag_type}{$tag}{"nova:en"})
+					and ($properties{$tag_type}{$tag}{"nova:en"} > $product_ref->{nova_group})
+					# don't move group 2 to group 3
+					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
+					) {
+					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
+				}
 			}
 		}
 	}
-
 
 	# Group 1
 	# Unprocessed or minimally processed foods
@@ -5645,6 +5781,74 @@ sub extract_nutrition_from_image($$$$) {
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
 
 		# TODO: extract the nutrition facts values
+	}
+}
+
+=head2 assign_categories_properties_to_product ( PRODUCT_REF )
+
+Go through the categories of a product to apply category properties at the product level.
+The most specific categories are checked first. If the category has
+a value for the property, it is assigned to the product and the processing stop.
+
+This function was first designed to assign a CIQUAL category to products, based on
+the mapping of the Open Food Facts categories to the French CIQUAL categories.
+
+It may be used for other properties in the future.
+
+agribalyse_food_code:en:42501
+agribalyse_proxy_food_code:en:43244
+
+=cut
+
+sub assign_categories_properties_to_product($) {
+
+	my $product_ref = shift;
+
+	$product_ref->{categories_properties} = {};
+	$product_ref->{categories_properties_tags} = [];
+
+	# Simple properties
+	
+	push @{$product_ref->{categories_properties_tags}}, "all-products";
+	
+	if (defined $product_ref->{categories}) {
+		push @{$product_ref->{categories_properties_tags}}, "categories-known";
+	}
+	else {
+		push @{$product_ref->{categories_properties_tags}}, "categories-unknown";
+	}
+
+	foreach my $property ("agribalyse_food_code:en", "agribalyse_proxy_food_code:en", "ciqual_food_code:en") {
+
+		my $property_name = $property;
+		$property_name =~ s/:en$//;
+
+		# Find the first category with a defined value for the property
+
+		if (defined $product_ref->{categories_tags}) {
+			foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+				if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{$property})) {
+					$product_ref->{categories_properties}{$property} = $properties{categories}{$categoryid}{$property};
+					last;
+				}
+			}
+		}
+		
+		if (defined $product_ref->{categories_properties}{$property}) {
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . $product_ref->{categories_properties}{$property});
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "known");					
+		}
+		else {
+			push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", $property_name . "-" . "unknown");
+		}				
+	}
+	if ((defined $product_ref->{categories_properties}{"agribalyse_food_code:en"}) or (defined $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"})) {
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "known");
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-"
+			. ($product_ref->{categories_properties}{"agribalyse_food_code:en"} || $product_ref->{categories_properties}{"agribalyse_proxy_food_code:en"}));
+	}
+	else {
+		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
 	}
 }
 

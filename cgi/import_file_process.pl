@@ -157,16 +157,20 @@ my $args_ref = {
 };
 
 if (defined $Org_id) {
-	$args_ref->{source_id} = $Org_id;
+	$args_ref->{source_id} = "org-" . $Org_id;
 	$args_ref->{source_name} = $Org_id;
 
-	# We currently do not have organization profiles to differentiate producers, labels, other databases
+	# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
 	# in the mean time, use a naming convention:  label-something, database-something and treat
 	# everything else as a producers
+	if ($Org_id =~ /^app-/) {
+		$args_ref->{manufacturer} = 0;
+		$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id, imports => $import_id};
+	}
 	if ($Org_id =~ /^database-/) {
 		$args_ref->{manufacturer} = 0;
 		$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id, imports => $import_id};
-	}
+	}	
 	elsif ($Org_id =~ /^label-/) {
 		$args_ref->{manufacturer} = 0;
 		$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id, imports => $import_id};

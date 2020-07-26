@@ -518,15 +518,15 @@ $expected_product_ref =
            'text' => 'beurre de cacao'
          },
          {
-           'id' => "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
+           'id' => 'en:illipe-oil',
            'text' => "graisses v\x{e9}g\x{e9}tales d'illipe"
          },
          {
-           'id' => "fr:graisses v\x{e9}g\x{e9}tales de mangue",
+           'id' => 'en:mango-kernel-oil',
            'text' => "graisses v\x{e9}g\x{e9}tales de mangue"
          },
          {
-           'id' => "fr:graisses v\x{e9}g\x{e9}tales de sal",
+           'id' => 'en:shorea-robusta-seed-oil',
            'text' => "graisses v\x{e9}g\x{e9}tales de sal"
          },
          {
@@ -718,16 +718,25 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-       'text' => "graisses v\x{e9}g\x{e9}tales d'illipe"
+       'from_palm_oil' => 'no',
+       'id' => 'en:illipe-oil',
+       'text' => "graisses v\x{e9}g\x{e9}tales d'illipe",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
      },
      {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-       'text' => "graisses v\x{e9}g\x{e9}tales de mangue"
+       'from_palm_oil' => 'no',
+       'id' => 'en:mango-kernel-oil',
+       'text' => "graisses v\x{e9}g\x{e9}tales de mangue",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
      },
      {
-       'id' => "fr:graisses v\x{e9}g\x{e9}tales de sal",
-       'text' => "graisses v\x{e9}g\x{e9}tales de sal"
+       'from_palm_oil' => 'no',
+       'id' => 'en:shorea-robusta-seed-oil',
+       'text' => "graisses v\x{e9}g\x{e9}tales de sal",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
      },
      {
        'from_palm_oil' => 'no',
@@ -861,11 +870,12 @@ $expected_product_ref =
      'en:cocoa-paste',
      'en:cocoa',
      'en:cocoa-butter',
-     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-     "fr:graisses v\x{e9}g\x{e9}tales de sal",
-     'en:shea-butter',
+     'en:illipe-oil',
      'en:vegetable-fat',
+     'en:mango-kernel-oil',
+     'en:vegetable-oil',
+     'en:shorea-robusta-seed-oil',
+     'en:shea-butter',
      'en:palm-fat',
      'en:palm-oil-and-fat',
      'en:lactose-and-milk-proteins',
@@ -916,9 +926,9 @@ $expected_product_ref =
      'en:sugar',
      'en:cocoa-paste',
      'en:cocoa-butter',
-     "fr:graisses v\x{e9}g\x{e9}tales d'illipe",
-     "fr:graisses v\x{e9}g\x{e9}tales de mangue",
-     "fr:graisses v\x{e9}g\x{e9}tales de sal",
+     'en:illipe-oil',
+     'en:mango-kernel-oil',
+     'en:shorea-robusta-seed-oil',
      'en:shea-butter',
      'en:palm-fat',
      'en:flavouring',
@@ -972,11 +982,12 @@ $expected_product_ref =
      'en:cocoa-paste',
      'en:cocoa',
      'en:cocoa-butter',
-     'fr:graisses-vegetales-d-illipe',
-     'fr:graisses-vegetales-de-mangue',
-     'fr:graisses-vegetales-de-sal',
-     'en:shea-butter',
+     'en:illipe-oil',
      'en:vegetable-fat',
+     'en:mango-kernel-oil',
+     'en:vegetable-oil',
+     'en:shorea-robusta-seed-oil',
+     'en:shea-butter',
      'en:palm-fat',
      'en:palm-oil-and-fat',
      'en:lactose-and-milk-proteins',
@@ -999,10 +1010,11 @@ $expected_product_ref =
      'en:e415'
    ],
    'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
+   'known_ingredients_n' => 61,
    'lc' => 'fr',
-   'unknown_ingredients_n' => 4,
-   'known_ingredients_n' => 57,
+   'unknown_ingredients_n' => 1
  };
+
 
 
 
@@ -2084,6 +2096,93 @@ is_deeply ($product_ref->{ingredients},
 
         ],
 
+) or diag explain $product_ref;
+
+
+# bug #3432 - mm. should not match Myanmar
+$product_ref = {
+        lc => "fi",
+        ingredients_text => "mausteet (mm. kurkuma, inkivääri, paprika, valkosipuli, korianteri, sinapinsiemen)",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
+is_deeply ($product_ref->{ingredients},
+[
+     {
+       'has_sub_ingredients' => 'yes',
+       'id' => 'en:spice',
+       'ingredients' => [
+         {
+           'id' => 'en:e100',
+           'text' => 'muun muassa kurkuma'
+         },
+         {
+           'id' => 'en:ginger',
+           'text' => "inkiv\x{e4}\x{e4}ri"
+         },
+         {
+           'id' => 'en:bell-pepper',
+           'text' => 'paprika'
+         },
+         {
+           'id' => 'en:garlic',
+           'text' => 'valkosipuli'
+         },
+         {
+           'id' => 'en:coriander',
+           'text' => 'korianteri'
+         },
+         {
+           'id' => 'en:mustard-seed',
+           'text' => 'sinapinsiemen'
+         }
+       ],
+       'rank' => 1,
+       'text' => 'mausteet',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:e100',
+       'text' => 'muun muassa kurkuma',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:ginger',
+       'text' => "inkiv\x{e4}\x{e4}ri",
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:bell-pepper',
+       'text' => 'paprika',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:garlic',
+       'text' => 'valkosipuli',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:coriander',
+       'text' => 'korianteri',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     },
+     {
+       'id' => 'en:mustard-seed',
+       'text' => 'sinapinsiemen',
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
+     }
+   ],
 ) or diag explain $product_ref;
 
 

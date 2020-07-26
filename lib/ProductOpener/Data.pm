@@ -63,7 +63,9 @@ sub execute_query {
 	return Action::Retry->new(
           attempt_code => sub { $action->run($sub) },
           on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
-		  strategy => { Fibonacci => { max_retries_number => 3, } },
+		  # If we didn't get results from MongoDB, the server is probably overloaded
+		  # Do not retry the query, as it will make things worse
+		  strategy => { Fibonacci => { max_retries_number => 0, } },
       )->run();
 }
 

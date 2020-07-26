@@ -72,14 +72,15 @@ if ($code eq "new") {
 	$response{code} = $code . "";	# Make sure the code is returned as a string
 }
 
+my $original_code = $code;
+
 $code = normalize_code($code);
 
-if ($code !~ /^\d+$/) {
+if ($code !~ /^\d{4,24}$/) {
 
-	$log->info("invalid code", { code => $code }) if $log->is_info();
+	$log->info("invalid code", { code => $code, original_code => $original_code }) if $log->is_info();
 	$response{status} = 0;
 	$response{status_verbose} = 'no code or invalid code';
-
 }
 else {
 
@@ -286,8 +287,6 @@ else {
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
 			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
-
-			compute_field_tags($product_ref, $lc, $field);
 		}
 
 		elsif (defined param($field)) {
@@ -333,7 +332,7 @@ else {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		ProductOpener::Food::special_process_product($product_ref);
 	}
 

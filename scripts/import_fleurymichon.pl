@@ -336,7 +336,8 @@ print STDERR "importing products\n";
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid);
+						my $debug;
+						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid, \$debug);
 						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
 
 

@@ -2290,9 +2290,66 @@ zh:三十酸
 wikidata:en:Q420731
 wikipedia:en:https://en.wikipedia.org/wiki/Melissic_acid
 
-# description:en:MONOUNSATURATED FATTY ACIDS (more plainly monounsaturated fats) are fatty acids that have one double bond in the fatty acid chain with all of the remainder carbon atoms being single-bonded. Monounsaturated fats protect against cardiovascular disease by providing more membrane fluidity than saturated fats. The Mediterranean diet is one heavily influenced by monounsaturated fats. People in Mediterranean countries consume more total fat than Northern European countries, but most of the fat is in the form of monounsaturated fatty acids from olive oil and omega-3 fatty acids from fish, vegetables, and certain meats like lamb.
+# en:description:Fat or fatty acid in which there is at least one double bond within the fatty acid chain
 
 # <en:fat
+en:Unsaturated fat
+ar:دهن غير مشبع
+#be:Монаненасычаныя тлустыя кіслоты
+#bg:Мононенаситени мастни киселини
+ca:Àcid gras insaturat
+#cs:Mononenasycené mastné kyseliny
+#da:Enkeltumættede fedtsyrer
+de:ungesättigte Fette
+dv:ފެޓް
+el:ακόρεστα λιπαρά
+# en-ca:Unsaturated fat
+# en-gb:Unsaturated fat
+es:Ácido graso insaturado
+#et:Monoküllastumata rasvhapped
+eu:gantz-azido asegabe
+fa:چربی غیراشباع
+fi:Tyydyttymätön rasvahappo
+fr:Acides gras insaturés
+#ga:Monai-neamhsháitheáin saill
+he:שומן בלתי רווי
+#hu:Egyszeresen telítetlen zsírsav
+#id:Lemak tak jenuh
+#it:Acidi grassi monoinsaturi
+ja:不飽和脂肪酸
+ko:불포화 지방산
+#lt:Mononesočiosios riebalų rūgštys
+#lv:Mononepiesātinātās taukskābes
+ms:Lemak tak tepu
+#mt:Mono-insaturati xaħmijiet
+nb:umettet fett
+nl:Onverzadigde vetzuren, Onverzadigd vet
+nn:umettet fett
+pl:tłuszcz nienasycony
+pt:gordura insaturada
+pt-br:gordura insaturada
+# pt_pt:Ácidos gordos monoinsaturados
+#ro:Acizi grași mononesaturați
+ru:ненасыщенный жир
+sh:Nezasićena mast
+#sk:Mononenasýtené mastné kyseliny
+#sl:Enkrat nenasičene maščobe
+sr:Незасићена маст
+# sr-ec:Незасићена маст
+# sr-el:Nezasićena mast
+sv:Omättat fett
+ta:நிறைவுறாக் கொழுப்பு
+th:ไขมันไม่อิ่มตัว
+uk:незамінні жир
+#zh:不飽和脂肪
+# zh-cn:不饱和脂肪
+# zh-hk:不飽和脂肪
+# zh-tw:不飽和脂肪
+wikidata:en:Q652555
+
+# description:en:MONOUNSATURATED FATTY ACIDS (more plainly monounsaturated fats) are fatty acids that have one double bond in the fatty acid chain with all of the remainder carbon atoms being single-bonded. Monounsaturated fats protect against cardiovascular disease by providing more membrane fluidity than saturated fats. The Mediterranean diet is one heavily influenced by monounsaturated fats. People in Mediterranean countries consume more total fat than Northern European countries, but most of the fat is in the form of monounsaturated fatty acids from olive oil and omega-3 fatty acids from fish, vegetables, and certain meats like lamb.
+
+# <en:Unsaturated fat
 en:Monounsaturated fat
 ar:دهون أحادية غير مشبعة
 be:Монаненасычаныя тлустыя кіслоты
@@ -2345,6 +2402,7 @@ zh:单不饱和脂肪
 # zh-tw:單元不飽和脂肪
 wikidata:en:Q650973
 wikipedia:en:https://en.wikipedia.org/wiki/Monounsaturated_fat
+
 
 # description:en:OMEGA-9 fatty acids (ω−9 fatty acids or n−9 fatty acids) are a family of unsaturated fatty acids. Some omega−9 fatty acids are common components of animal fat and vegetable oil.
 
@@ -2658,7 +2716,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nervonic_acid
 
 # description:en:POLYUNSATURATED FATS are fats in which the constituent hydrocarbon chain possesses two or more carbon–carbon double bonds. Polyunsaturated fat can be found mostly in nuts, seeds, fish, seed oils, and oysters. Because of their effects in the diet, unsaturated fats (monounsaturated and polyunsaturated) are often referred to as good fats; while saturated fats are sometimes referred to as bad fats.
 
-# <en:fat
+# <en:Unsaturated fat
 en:Polyunsaturated fat
 ar:دهون غير مشبعة متعددة
 bg:Полиненаситени мастни киселини
@@ -6560,7 +6618,7 @@ zh:锌
 # zh-hant:鋅
 # zh-hk:鋅
 #zh-tw:鋅
-wikidata:en:https://en.wikipedia.org/wiki/Zinc
+wikidata:en:Q758
 wikipedia:en:https://en.wikipedia.org/wiki/Zinc
 unit:en:mg
 daily_value:en:15,
@@ -7109,7 +7167,7 @@ zh:硒
 # zh-hant:硒
 # zh-hk:硒
 # zh-tw:硒
-wikidata:en:https://www.wikidata.org/wiki/Q876
+wikidata:en:Q876
 wikipedia:en:https://en.wikipedia.org/wiki/Selenium
 unit:en:µg
 daily_value:en:70,
@@ -7268,7 +7326,7 @@ zh:铬
 # zh-hant:鉻
 # zh-hk:鉻
 # zh-tw:鉻
-wikipedia:en:Q725
+wikidata:en:Q725
 wikipedia:en:https://en.wikipedia.org/wiki/Chromium
 unit:en:µg
 daily_value:en:120,

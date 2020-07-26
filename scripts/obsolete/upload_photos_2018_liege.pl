@@ -172,7 +172,8 @@ if (opendir (DH, "$dir")) {
 			
 				$User_id = $photo_user_id;
 				my $imgid;
-				my $return_code = process_image_upload($current_code, "$dir/$file", $User_id, $filetime, $comment, \$imgid);
+				my $debug;
+				my $return_code = process_image_upload($current_code, "$dir/$file", $User_id, $filetime, $comment, \$imgid, \$debug);
 				
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)

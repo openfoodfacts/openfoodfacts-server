@@ -23,6 +23,7 @@ requires 'experimental'; # libexperimental-perl
 requires 'Apache2::Request'; # libapache2-request-perl
 requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
+requires 'Template','3.008'; # libtemplate-perl
 
 # Probably not available as Debian packages
 requires 'MongoDB', '>= 2.2.1, < 2.3'; # libmongodb-perl has an older version
@@ -52,6 +53,7 @@ requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
 requires 'Excel::Writer::XLSX';
 requires 'Pod::Simple::HTMLBatch';
+requires 'File::chmod::Recursive';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -69,7 +71,6 @@ requires 'Action::Retry';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302171, < 2.0';
-  requires 'Test::Perl::Critic';
   requires 'Test::Number::Delta';
   requires 'Log::Any::Adapter::TAP';
 };

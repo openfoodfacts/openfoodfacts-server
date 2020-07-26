@@ -5,15 +5,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ku\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 15:04\n"
+"PO-Revision-Date: 2020-06-20 07:24\n"
 "Language-Team: Kurdish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ku\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -44,8 +46,88 @@ msgctxt "add_user"
 msgid "Register"
 msgstr "Rojavayî"
 
-msgctxt "add_user_confirm"
-msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "Rojavayî"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr ""
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr ""
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr ""
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr ""
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr ""
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr ""
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr ""
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr ""
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr ""
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr ""
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr ""
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr ""
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr ""
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
 msgstr ""
 
 msgctxt "add_user_email_body"
@@ -69,7 +151,7 @@ msgstr ""
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "سوپاسس بۆ بەشداریکردنت <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -125,7 +207,7 @@ msgstr "Biserûberkirina rûpel berhem"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -139,11 +221,11 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "دایبەزێنە لە گۆگڵ پلەی"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -193,7 +275,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "ببەخشە یان پاڵپشتی کارەکانمان بکە"
 
 msgctxt "brands"
 msgid "Brands"
@@ -229,11 +311,7 @@ msgstr ""
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
-
-msgctxt "brands_p"
-msgid "brand owners"
-msgstr ""
+msgstr "کۆمپانیای کۆکاکۆلا"
 
 msgctxt "by"
 msgid "by"
@@ -333,7 +411,7 @@ msgstr ""
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "لەبەرگرتنەوەی دراوەکانی بەرھەمی ئێستا بۆ بەرھەمێکی نوێ"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -357,7 +435,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "وڵات"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -365,7 +443,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "وڵات"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -413,15 +491,15 @@ msgstr ""
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "زیادکرا:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "گۆڕدرا:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "سڕایەوە:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -429,7 +507,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -441,7 +519,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "دەستکاریکردن"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -475,9 +553,17 @@ msgctxt "edit_user"
 msgid "Account parameters"
 msgstr "Hejmari"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Hesap parametreleriniz değiştirildi.</ p>"
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "Hejmari"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "Hejmari"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -562,7 +648,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "ناونیشانەکە درووست نییە."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -618,7 +704,7 @@ msgstr ""
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "نموونە:"
 
 msgctxt "examples"
 msgid "Examples:"
@@ -626,7 +712,7 @@ msgstr ""
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "ماوەی بەکارھێنان"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
@@ -638,7 +724,7 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "ئینگلیزیی ئەمریکا"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -694,12 +780,12 @@ msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "وەرگێڕەکان"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -709,7 +795,7 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "جێگیرکردنی نەرمەواڵەکە"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -717,7 +803,7 @@ msgstr ""
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "بەشداربە لەگەڵمان لە %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -765,15 +851,14 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr ""
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
@@ -3165,7 +3250,7 @@ msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
 msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
@@ -3425,6 +3510,14 @@ msgstr ""
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
+msgstr ""
+
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
 msgstr ""
 
 msgctxt "cancel"
@@ -4124,5 +4217,42 @@ msgstr ""
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr ""
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr ""
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr ""
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
 msgstr ""
 

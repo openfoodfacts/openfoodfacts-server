@@ -26,7 +26,7 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "huile de palme, unknown ingredient" }, [ "en:palm-oil", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "sucre, unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
-[ { lc => "fr", ingredients_text => "sucre, colour: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
+[ { lc => "fr", ingredients_text => "sucre, colorant: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "fat, proteins" }, [ "en:palm-oil-free", "en:non-vegan", "en:maybe-vegetarian"] ],
 [ { lc => "en", ingredients_text => "vegetable fat, vegetable proteins" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "modified palm oil" }, [ "en:palm-oil", "en:vegan", "en:vegetarian"] ],

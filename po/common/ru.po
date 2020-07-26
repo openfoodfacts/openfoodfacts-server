@@ -5,15 +5,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-04-18 15:16\n"
+"PO-Revision-Date: 2020-06-20 07:21\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -44,9 +46,89 @@ msgctxt "add_user"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-msgctxt "add_user_confirm"
-msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Спасибо что присоединились! Теперь вы можете войти на сайт чтобы добавить или изменить продукты.</p>"
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr ""
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr ""
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr ""
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr ""
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr ""
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr ""
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr ""
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr ""
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr ""
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr ""
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr ""
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr ""
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr ""
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -244,10 +326,6 @@ msgstr "Владелец торговой марки"
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
 msgstr "Компания Coca Cola"
-
-msgctxt "brands_p"
-msgid "brand owners"
-msgstr "производители"
 
 msgctxt "by"
 msgid "by"
@@ -489,9 +567,17 @@ msgctxt "edit_user"
 msgid "Account parameters"
 msgstr "Параметры учётной записи"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Параметры вашей учётной записи были изменены.</p>"
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "Параметры учётной записи"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "Параметры учётной записи"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -781,15 +867,14 @@ msgstr "<<site_name>> вики (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
 msgstr "Косметика"
 
-# Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-ru.openbeautyfacts.org"
@@ -1977,7 +2062,7 @@ msgstr "Скачать результаты"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Загрузить результаты в формате XLSX или CSV. Обратите внимание, что по соображениям производительности вы можете загрузить только до 10.000 результатов."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
@@ -2503,7 +2588,7 @@ msgstr "Включить масштабирование с помощью кол
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Загрузить изображения с меньшим разрешением (для медленных подключений)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2511,7 +2596,7 @@ msgstr "Предупреждение: количество питательны�
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано, их возможный положительный вклад в оценку не может быть учтен."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2700,7 +2785,7 @@ msgstr "Группы NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "Группы Nova для классификации полуфабрикатов"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3109,7 +3194,7 @@ msgstr "Помогите перевести %s на %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "Вы можете предложить переводы для записей ниже, которые еще не были переведены на ваш язык. Синяя ссылка и черный текст (и то, и другое на английском языке) отображают соответствующие не переведенные продукты и исходную запись с необязательными синонимами, разделенными запятыми. Введите перевод в текстовое поле с необязательными синонимами и нажмите кнопку «Сохранить». Спасибо!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3198,13 +3283,13 @@ msgstr "Импортировать файл данных о продукте"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
-msgid "Upload a spreadsheet file (Excel file or a tab separated UTF-8 encoded CSV file) with product data."
-msgstr "Загрузите файл электронной таблицы (файл Excel или CSV-файл в кодировке UTF-8, разделенный табуляцией) с данными о продуктах."
+msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
+msgstr ""
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Вы можете загрузить таблицу с форматом импорта столбцов Open Food Facts, или вы можете загрузить таблицу в любом формате, а затем выбрать столбцы для импорта."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
@@ -3293,7 +3378,7 @@ msgstr "Конкретная категория"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Специфичное поле источника"
 
 msgctxt "select_a_field"
 msgid "Select a field"
@@ -3326,29 +3411,29 @@ msgstr "только единицы, значения в другом столб
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Отметьте этот параметр, если столбец показывает наличие определенной этикетки (например, Органическая, Fair Trade), когда значение равно Y, Да или 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Введите наивенование этикетки в текстовое поле справа."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Выберите этот параметр, если в столбце указано наличие определенной категории (например, напитки), когда значение равно Д, Да или 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Введите название категории в текстовое поле справа."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Выберите эту опцию для полей, относящихся к источнику и которые мы хотим сохранить в качестве полей, специфичных для источника."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Введите имя целевого поля в текстовое поле справа или оставьте пустым, чтобы использовать имя исходного поля."
 
 msgctxt "value"
 msgid "Value"
@@ -3392,7 +3477,7 @@ msgstr "Значение в мкг"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Значение в МЕ"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3429,17 +3514,17 @@ msgstr "Платформа для производителей"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Платформа для производителей позволяет производителям легко управлять фотографиями и данными своих продуктов на Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Данные о продукте и фотографии, отправленные на платформу для производителей, хранятся в частной базе данных. Вы сможете проверить, что все данные верны, прежде чем сделать их доступными в базе данных Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Данные и фотографии продукта станут общедоступными в базе данных Open Food Facts под лицензией <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Отдельное содержимое базы данных доступно под <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Лицензией на содержимое базы данных</a> а изображения продуктов доступны под <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">лицензией Creative Commons Attribution ShareAlike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3459,6 +3544,14 @@ msgstr "Экспорт данных о продукте и фотографий 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
 msgstr "Пожалуйста, убедитесь, что данные на платформе для производителей верны, прежде чем экспортировать их в открытую базу данных."
+
+msgctxt "export_photos"
+msgid "Export photos to the public database"
+msgstr ""
+
+msgctxt "replace_selected_photos"
+msgid "Replace existing selected photos"
+msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3684,7 +3777,7 @@ msgstr "В таблице перечислены возможные способ
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Чтобы получить релевантные результаты, пожалуйста, убедитесь, что данные о продукте в полном составе (данные о питании со значениями для клетчатки и фруктов и овощей для расчета показателя Nutri-Score, а также точная категория для сравнения каждого продукта с аналогичными продуктами)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3781,15 +3874,15 @@ msgstr "Баллы за белки не учитываются, потому ч�
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Баллы за белки подсчитываются, потому что баллы за фрукты, овощи, рапсовое/ореховое/оливковое масло находятся на максимуме."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Баллы за белки засчитываются, потому что продукт относится к категории сыров."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Продукт относится к категории жиров, баллы за насыщенные жиры заменяются баллами за соотношение насыщенных жиров и жиров."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3876,11 +3969,11 @@ msgstr "Среднее значение для категории %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "Оценка Nutri-Score может быть изменена с %s на %s изменив значения %s с %s на %s (разница %s)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "Платформа для производителей все еще находится в стадии разработки, и мы проводим ручные проверки перед импортом продуктов в общедоступную базу данных. Пожалуйста, напишите нам по электронной почте по адресу <a href=\"mailto:producers@openfoodfacts.org\">produk@openfoodfacts.org</a> чтобы обновить публичную базу данных."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -3892,7 +3985,7 @@ msgstr "Изготовитель"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Должно быть проверено только для счетов производителей, которые редактируют свои собственные продукты. Владелец продукта будет присваиваться производителям при добавлении или редактировании продукта."
 
 msgctxt "user_group_database"
 msgid "Database"
@@ -3900,7 +3993,7 @@ msgstr "База данных"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Для внешних источников данных. Право собственности импортируемых продуктов не изменится."
 
 msgctxt "user_group_app"
 msgid "App"
@@ -3924,7 +4017,7 @@ msgstr "Модератор"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Модераторы имеют доступ к специальным функциям для редактирования и просмотра продуктов."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
@@ -3932,27 +4025,27 @@ msgstr "Модератор платформы производителей"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "Модераторы платформы производителей могут просматривать и редактировать частные продукты всех пользователей и организаций на платформе производителей."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Я уже пожертвовал или мне не интересно. Скрыть баннер."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
-msgstr ""
+msgstr "Эй, снять флажок?!"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency ?"
-msgstr ""
+msgstr "Независимый и общественный проект по обеспечению информации о продуктах питания?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health ?"
-msgstr ""
+msgstr "Данные о пищевых продуктах для исследований, направленных на улучшение здоровья населения?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Более легкий и лучший выбор продуктов питания по вашим собственным критериям?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
@@ -3964,7 +4057,7 @@ msgstr "Пожалуйста, поддержите"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "Чрезмерное употребление алкоголя вредно для здоровья, его следует употреблять умеренно."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -3980,7 +4073,7 @@ msgstr "Вы просматриваете свои продукты."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "Чтобы увидеть товары от конкретного пользователя или организации, введите его идентификатор ниже. Оставьте пустым для снятия."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
@@ -4042,7 +4135,7 @@ msgstr "Использовать предыдущий код"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Вы можете указать значения поля, которые будут добавлены ко всем товарам, для которых вы будете отправлять изображения."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4062,7 +4155,7 @@ msgstr "Использовать предыдущий код"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Вы можете указать значения поля, которые будут добавлены ко всем товарам, для которых вы будете отправлять изображения."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4074,11 +4167,11 @@ msgstr "Удалить все продукты"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Удалить все ваши продукты с платформы для производителей"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Вы можете удалить все свои продукты с платформы для производителей, например, чтобы начать с чистого листа, если возникли проблемы с импортом. Это не повлияет на ваши продукты в публичной базе данных."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4131,31 +4224,68 @@ msgstr "Команды"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "опционально"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "команды"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "команда"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Вы можете присоединиться к одной, двум или трем командам. Продукты, которые вы добавляете или редактируете будут учтены у вас и ваших команд. Команды могут быть изменены в любое время."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Названия команд являются общедоступными. Не создавайте команды с именами, содержащими личные данные (например, фамилии), товарные знаки (если вы ими не владеете) или что-нибудь оскорбительное."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Команда %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
+msgstr "Будет экспортировано %d товаров."
+
+msgctxt "ciqual_food_name"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_s"
+msgid "CIQUAL food name"
+msgstr ""
+
+msgctxt "ciqual_food_name_p"
+msgid "CIQUAL food names"
+msgstr ""
+
+msgctxt "you_can_help_improve_ingredients_analysis"
+msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_1"
+msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr ""
+
+msgctxt "help_improve_ingredients_analysis_2"
+msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
+msgstr ""
+
+# Do not translate #ingredients
+msgctxt "help_improve_ingredients_analysis_instructions"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr ""
+
+msgctxt "footer_producers_link"
+msgid "https://world.pro.openfoodfacts.org/"
+msgstr ""
+
+msgctxt "footer_producers"
+msgid "Producers"
 msgstr ""
 

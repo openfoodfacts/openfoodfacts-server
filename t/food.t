@@ -301,6 +301,18 @@ is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-7
 is (normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
 is (localize_packager_code(normalize_packager_codes("PL 14281601 WE")), "PL 14281601 WE", "PL: normalized code correctly");
 
+is (normalize_packager_codes("FI 4201 EY"), "FI 4201 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI 305-1 EY"), "FI 305-1 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI F07551 EY"), "FI F07551 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI FI219 EY"), "FI FI219 EC", "FI: normalized code correctly");
+is (normalize_packager_codes("FI S837106 EY"), "FI S837106 EC", "FI: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("FI 4201 EY")), "FI 4201 EC", "FI: normalizing code twice does not change it any more than normalizing once");
+is (localize_packager_code(normalize_packager_codes("FI 4201 EY")), "FI 4201 EY", "FI: round-tripped code correctly");
+
+is (normalize_packager_codes("EE 110 EÜ"), "EE 110 EC", "EE: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")), "EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
+is (localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
+
 $product_ref = {
     nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };

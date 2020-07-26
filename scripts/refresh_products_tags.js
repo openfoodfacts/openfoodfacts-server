@@ -1,3 +1,4 @@
+/*global db*/
 /*
 	Name				: refresh_products_tags.js
 	Description : Refresh products_tags collection by copying *_tags fields from products collection

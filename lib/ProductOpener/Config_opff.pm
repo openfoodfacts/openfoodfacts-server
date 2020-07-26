@@ -41,6 +41,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -207,7 +208,7 @@ $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
+$producers_email = 'producers@openfoodfacts.org';
 
 $thumb_size = 100;
 $crop_size = 400;
@@ -245,7 +246,7 @@ $options{favicons} = <<HTML
 <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicon/manifest.json">
+<link rel="manifest" href="/cgi/manifest.pl">
 <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 <meta name="msapplication-TileColor" content="#da532c">

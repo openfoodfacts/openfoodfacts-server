@@ -59,6 +59,29 @@ my @tests = (
 ["en", "folates_ug_100g", { 'field' => 'folates_100g_value_unit', 'value_unit' => 'value_in_mcg' }],
 ["en", "vitamin-a_iu_100g", { 'field' => 'vitamin-a_100g_value_unit', 'value_unit' => 'value_in_iu' }],
 ["en", "soluble-fiber_g_100g", { 'field' => 'soluble-fiber_100g_value_unit', 'value_unit' => 'value_in_g' }],
+
+# English fields in another language
+["fr", "name", {'field' => 'product_name_fr'}],
+["fr", "product name", {'field' => 'product_name_fr'}],
+
+# nutrient in unit
+["en", "energy in kJ", { 'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj'}],
+["en", "carbohydrates in mg", { 'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_mg' }],
+["fr", "énergie en kJ", {  'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj' }],
+
+["fr", "% Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit'}],
+["fr", "Glucides (%)", {'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fibres (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres 100g", { 'field' => 'fiber_100g_value_unit'}],
+["fr", "Fibres (en g) / 100g", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres / 100g (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+
+["es", "azucar", {'field' => 'sugars_100g_value_unit'}],
+["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
+["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
+
 );
 
 foreach my $test_ref (@tests) {

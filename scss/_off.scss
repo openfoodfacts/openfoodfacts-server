@@ -327,6 +327,8 @@ p.details {
   font-size: 0.8em;
 }
 
+.select2-dropdown.select2-dropdown--below {margin-top: 10px;}
+
 @media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
 
 details.recent {
@@ -382,5 +384,12 @@ a[aria-controls="idOfLeftMenu"] {
   .icon {
     font-size: 1.8rem;
   }
+}
 
+@media #{$small-only} {
+  .products li, ul.pagination li {float: none; display: inline-block;}
+  ul.products, #pages, ul.button-group  {text-align: center;}
+  ul.pagination li:first-child {display: block;}
+  ul.button-group li {margin-top: 3px;margin-bottom: 3px;}
+  #main_column {height: auto !important;}
 }

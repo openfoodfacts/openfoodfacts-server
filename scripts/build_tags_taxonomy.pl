@@ -49,9 +49,7 @@ if ($tagtype eq "nutrient_levels") {
 
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-# For automated tests, the domain is off.travis-ci.org
-
-if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis/)) {
+if (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
 
 	$file = "ingredients.all.txt";
 
