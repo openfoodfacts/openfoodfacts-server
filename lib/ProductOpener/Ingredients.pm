@@ -2555,6 +2555,7 @@ fr => [
 'Non ouvert,',
 'Sans conservateur',
 '(Utilisation: |Préparation: )?Servir frais',
+'Temps de Cuisson',
 'tenir à l\'abri',
 'Teneur en matière grasse',
 '(Chocolat: )?teneur en cacao',
