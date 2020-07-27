@@ -2,7 +2,7 @@
     [% IF error_count >= 0 %]
         <div class='alert-box alert'>
             <p>
-                <b>[% lang('correct_the_following_errors') %]</b>
+                <strong>[% lang('correct_the_following_errors') %]</strong>
             </p>
             [% FOREACH error IN errors %]
                 [% error %]<br />
@@ -16,7 +16,7 @@
     <!-- Start form -->
 
     <form method="post" action="/cgi/user.pl" enctype="multipart/form-data">
-        <table>
+        <table role="presentation">
             [% display_user_form %]
             [% display_user_form_optional %]
             [% display_user_form_admin_only %]
