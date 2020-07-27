@@ -1,0 +1,64 @@
+.detailsProduct {
+    font-size: larger;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    padding-top: 2%;
+    background-color: silver;
+    width: 0px;
+    height: 0px;
+    z-index: 10;
+}
+
+/*#selected_product_details > div {*/
+    /*margin-top: 30%;*/
+    /*font-size: large;*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+/*}*/
+
+.table_sel_prod {
+    width: 99%
+}
+
+.sel_prod_img {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    textalign: right;
+}
+
+.sel_prod_header {
+    text-align: center;
+    padding-left: 1%;
+}
+
+.sel_prod_code {
+
+}
+
+.sel_prod_brands {
+
+}
+
+.sel_prod_name {
+    color: dodgerblue;
+}
+
+.sel_prod_similarity {
+    font-weight: bold;
+    color: purple;
+}
+
+.close_details_sel_prod {
+    position: absolute;
+    /*bottom: 0;*/
+    left: 0;
+    width: 100%;
+    background-color: #2cb4da;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 1%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
