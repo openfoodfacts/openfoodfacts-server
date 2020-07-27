@@ -39,7 +39,7 @@
     "win32"
   ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "2.4.3",
+    "@webcomponents/webcomponentsjs": "2.4.4",
     "@yaireo/tagify": "^3.6.3",
     "blueimp-file-upload": "^10.31.0",
     "cropper": "4.1.0",
@@ -51,10 +51,10 @@
     "opencollective-postinstall": "^2.0.3",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.2.0",
-    "snyk": "^1.362.1"
+    "snyk": "^1.366.2"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
