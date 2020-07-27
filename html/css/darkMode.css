@@ -1,11 +1,8 @@
-/* CSS file that implements the dark mode feature */
-
 /* Main Body Column */
 body {background-color: #151E29; color:#bfc3ca;}
 .products li:hover, .products li a:hover {background-color: #1c2531;}
 ul.button-group li:first-child div {background-color: #212f42!important;}
 ul.button-group button, ul.button-group button:hover, ul.button-group button:focus {background-color: #1B2737; color: #556c7d;}
-
 /* Nav Bar */
 #top-bar, .name, #select_country_li, .top-bar-section li:not(.has-form) a:not(.button)
 {background: #1B2737; color: #556c7d;}
@@ -14,60 +11,52 @@ ul.button-group button, ul.button-group button:hover, ul.button-group button:foc
   /* Search button */
 .right button[type = "submit"], button.button.postfix {background-color: #223044;}
 .right button[type = "submit"]:hover, button.button.postfix:hover {background-color: #25354c;}
-
   /* Phone */
 .top-bar-section ul li>a.button.success, .top-bar-section ul li>a.button.success:focus,
 .top-bar-section ul li>a.button.success:hover {background: #1B2737; color: #556c7d;}
-
 /* Nav Bar Collapsed */
 .tab-bar, .left-small a, .left-small a:hover, .left-small a:focus {background-color: #1d2633;}
 .left-small svg.icon, .menu-icon a span {color: #556c7d; }
-
 /* Primary Text Color */
 h1, h2, h3, h4 {color:#bfc3ca;}
 /* Secondary Text Color */
-a, a:hover, a:visited, label, .top-bar .name h2 a, #select2-select_country-container span,
-#drop1 li a, #pages li, #pages li a {color: #556c7d;}
-
+a, a:hover, a:visited, #hide_image_banner_hide, #hide_image_banner_show, label {color: #556c7d !important;}
+.panel.callout h4,.panel.callout p  {color: #768494;}
 /* Side Bar & Aside*/
 #sidebar-whole, #aside_column, aside.left-off-canvas-menu {background-color: #1B2737!important;}
-
-/* Form inputs */
-.select2-selection.select2-selection--single, input[type="text"], input[type="password"] {background-color: #222f3f; border: none;}
+/* Form inputs + Buttons */
+.select2-selection.select2-selection--single, input[type="text"], input[type="password"], #lang {background-color: #222f3f; border: none;}
 ::placeholder {color: #556c7d;}
 input[type = "text"], input[type = "password"] {color:#bfc3ca;}
-input[type = "submit"], input[type = "submit"]:hover, input[type = "submit"]:focus, #imgsearchbutton_block_side,
-#imgsearchbutton_block_aside, button[type = "submit"], button[type = "submit"]:hover,
-button[type = "submit"]:focus {background-color:#293646;color: #556c7d;}
+.button, .button:hover, .button:focus, #imgsearchbutton_block_side, #imgsearchbutton_block_aside, .tabs .button {background-color:#293646; color: #556c7d;}
 input[type = "text"]:focus, input[type = "password"]:focus {background-color: #2b3850;}
-
+.select2-container--default .select2-selection--single .select2-selection__placeholder, .select2-container--default .select2-selection--single .select2-selection__rendered {color: #516980;}
 /* Dropdowns */
-span.select2-dropdown.select2-dropdown--below {background-color: #233143; border: none;}
-.select2-container--default .select2-results__option--highlighted[aria-selected] {background-color: #3b4e5e;}
-
+span.select2-dropdown.select2-dropdown--below, span.select2-dropdown.select2-dropdown--above {background-color: #233143; border: none;}
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option[aria-selected=true] {background-color: #3b4e5e;}
 #drop1 {background: #1B2737; border: none;}
 #drop1 li:hover {background-color: #263346;}
 button.button.dropdown.small {border-left: none;}
-
 /* Pagination */
 ul.pagination li.current a, ul.pagination li.current a:hover {background: #2b3a50;}
 ul.pagination li:hover a, ul.pagination li:hover button {background-color: #b0b4b9;}
-
 /* Footer */
 footer ul {list-style: none;}
-
 /* Create Your Account */
 table, table tr td {background-color: #1B2737; color: #556c7d; border: none;}
-
 /* Product Page */
-.edit_button a, .edit_button a:hover {background-color:#1B2737;color: #556c7d;}
-.alert-box.info, .alert-box.alert {background-color: #1B2737; color:#bfc3ca; border-color: #263859;}
-  /* Nutrition Table */
-#nutrition_data_table, #nutrition_data_table tr td {border: 2px solid #151E29;}
-#nutrition_data_table thead {background-color: #1B2737;}
-#nutrition_data_table th { color: #bfc3ca;}
-#nutrition_data_table tr {border-top: none;}
+.edit_button a, .edit_button a:hover, #main_column .button.tiny {background-color:#1B2737;color: #556c7d;}
+.alert-box.info, .alert-box.alert, .panel.callout {background-color: #1B2737; color:#bfc3ca; border-color: #263859;}
+.alert-box.secondary {background-color: #c8cace;}
+.reveal-modal {background-color: #1c1e25; border-color: #2f333e;}
+  /* Data Tables */
+#nutrition_data_table, #nutrition_data_table tr td, #ecological_data_table ,#ecological_data_table tr td {border: 2px solid #151E29;}
+#nutrition_data_table thead, #ecological_data_table thead {background-color: #1B2737;}
+#nutrition_data_table th, #ecological_data_table th { color: #bfc3ca;}
+#nutrition_data_table tr, #ecological_data_table tr {border-top: none;}
 #nutrition_data_table .nutriment_sub td {background-color: #212f42;}
+#nutrition_data_table input, #nutrition_data_table select, #ecological_data_table input, #ecological_data_table select
+{background-color: #1f2d3e; border-color: #24384e; color: #4f6277;}
 
 /* Product Search */
 #search_form label {color:#556c7d;}
@@ -76,7 +65,34 @@ table, table tr td {background-color: #1B2737; color: #556c7d; border: none;}
 .accordion .accordion-navigation.active>a, .accordion .accordion-navigation>a:hover
 {background: #1d2b3c; text-decoration-color: #556c7d;}
 .accordion .accordion-navigation>.content.active {background: #18232f;}
-
-/* charts */
+/* Charts */
 .highcharts-container rect {fill: #1b2431;}
 .highcharts-container text {color: #647182!important; fill: #647182!important;}
+table.tip {background: #2e3948;}
+table.tip tbody tr th, table.tip caption {color: #7d8c9e!important;}
+.highcharts-tooltip path {stroke:#3b4756;}
+/* Logged In */
+#sidebar-whole .button-group>li>.button, #aside_column .button-group>li>.button {background-color: #233143; border-left: none; color :#4d6279;}
+#user_id {color:#5b778a;}
+#tagstable thead {background: #283b50;}
+#tagstable th {color: #556c7c;}
+/* Edit a Product */
+#lang {color: #7f8ea0;}
+ul.tabs {border-color: #23303f; background-color: #23303f;}
+.tabs-content {background-color: #1f2835; border-color: #1a222d;}
+ul.tabs .select2-container--default .select2-selection--single, ul.tabs .select2-container--default .select2-selection--single:focus,
+  ul.tabs .select2-container--default .select2-selection--single:hover {background-color: #2c3a4a; }
+ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {color: #62778c;}
+.tabs .tab-title>a, .tabs dd>a {background-color: #23303f; color: #6d7888;}
+.tabs .tab-title>a:hover, .tabs dd>a:hover {background-color: #2c3b4a;}
+.tabs .tab-title.active>a, .tabs dd.active>a {background-color: #304150; color: #576b7b;}
+.ui-selectee {background: #1c242f;} .ui-selectee:hover {background: #252f3c;}
+.fieldset .example {color: #3b5982;}
+#fixed_bar {background-color:#181f29!important;} #fixed_bar button {color: #455d7b;}
+tags.tagify.text.tagify-me, .tabs-content textarea {border-color: #394a63;}
+.tabs-content textarea { background-color: #252f3c; color: #bfc3ca;}
+.tagify__dropdown__wrapper {background: #2b374a; border-color: #3b5982; }
+.tagify__dropdown__item--active {background: #3b5982;}
+figure .th {border-color: #344661;}
+code {background-color: #c3c3c3; border-color: #c3c3c3;}
+.tagify__tag__removeBtn:hover + div {background: #2a3648; color: #c1d4ec;}
