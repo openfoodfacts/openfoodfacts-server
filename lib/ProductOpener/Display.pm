@@ -2963,7 +2963,7 @@ sub display_tag($) {
 		}
 
 		if (($#weblinks >= 0)) {
-			$weblinks_html .= '<div style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;"><h3>' . lang('tag_weblinks') . '</h3><ul>';
+			$weblinks_html .= '<div class="weblinks" style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;"><h3>' . lang('tag_weblinks') . '</h3><ul>';
 			foreach my $weblink (@weblinks) {
 				$weblinks_html .= '<li><a href="' . encode_entities($weblink->{href}) . '" itemprop="sameAs"';
 				$weblinks_html .= ' hreflang="' . encode_entities($weblink->{hreflang}) . '"' if defined $weblink->{hreflang};
