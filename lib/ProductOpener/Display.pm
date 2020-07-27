@@ -10544,7 +10544,12 @@ sub display_ingredients_analysis_details($) {
 
 	my $product_ref = shift;
 
-	(not defined $product_ref->{ingredients}) and return "";
+	# Do not display ingredients analysis details when we don't have ingredients
+
+	if ((not defined $product_ref->{ingredients})
+		or (scalar @{$product_ref->{ingredients}} == 0)) {
+		return "";
+	}
 
 	my $template_data_ref = {
 		lang => \&lang,
@@ -10567,7 +10572,6 @@ sub display_ingredients_analysis_details($) {
 	my $ingredients_list = "";
 
 	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
-
 
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
@@ -10608,14 +10612,15 @@ sub display_ingredients_analysis($) {
 
 	my $html = "";
 
-	my $template_data_ref = {
-		lang => \&lang,
-		display_icon => \&display_icon,
-	};
-
-	$template_data_ref->{product_ingredients_analysis} = $product_ref->{ingredients_analysis};
-
-	if (defined $product_ref->{ingredients_analysis}) {
+	if (defined $product_ref->{ingredients_analysis_tags}) {
+		
+		my $template_data_ref = {
+			lang => \&lang,
+			display_icon => \&display_icon,
+			title => lang("ingredients_analysis") . separator_before_colon($lc) . ':',
+			disclaimer => lang("ingredients_analysis_disclaimer"),
+			ingredients_analysis_tags => [],
+		};		
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
@@ -10680,21 +10685,20 @@ sub display_ingredients_analysis($) {
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
+				$icon = display_icon($icon);
 			}
 
 			push @{$template_data_ref->{ingredients_analysis_tags}}, {
 				color => $color,
 				icon => $icon,
-				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+				text => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
 			};
 		}
-
+		
+		$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
 
-	$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
-
 }
 
 1;
