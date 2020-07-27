@@ -47,13 +47,13 @@
 [% FOREACH table IN tables %]
 
 	<table id="[% table.id %]_data_table" class="data_table">
-
+    <caption>Nutrition Facta Table</caption>
 		<!--  Generating table header -->
 		<thead class="nutriment_header">
 			<tr>
-				<th>[% table.header.name %]</th>
+				<th scope="col">[% table.header.name %]</th>
 				[% FOREACH column IN table.header.columns %]
-					<th class="nutriment_value [% column.class %]">[% column.name %]</th>
+					<th scope="col" class="nutriment_value [% column.class %]">[% column.name %]</th>
 				[% END %]
 			</tr>
 		</thead>
