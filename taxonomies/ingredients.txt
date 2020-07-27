@@ -258,41 +258,42 @@ fr:additifs alimentaires
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
 # functions describe the role certain ingredients play in a product, for instance to thicken, colour etc.
 # functions are just descriptors, they are not ingredients themselves
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
 
-# <en:function
-en:Acid, Acidifier,corrector of acidity
-bg:Киселина
-ca:Àcid, acidulant
-cs:Kyselina
-da:Syre, syrer
-de:Säuerungsmittel
-el:Μέσο οξίνισης
-es:acidulante,acido
-et:Hape
-fi:happo, happoa, hapot, happoja
-fr:acidifiant, acide,acidulants
-ga:Aigéad
-he:חומצה
-hu:Étkezési sav
-it:Acidificanti
-lt:Rūgštis
-lv:Skābe
-mt:Aċidu
-nb:syre, syrer
-nl:Voedingszuur
-pl:Kwas
-pt:Acidificante
-ro:Acidifiant, agent acidifiant
-ru:Кислота
-sk:Kyselina
-sl:Kislina
-sv:syra, syror, surgörare
-wikidata:en:Q337038
+# Has been added to the additives_classes.tx
+#en:Acid, Acidifier,corrector of acidity
+#bg:Киселина
+#ca:Àcid, acidulant
+#cs:Kyselina
+#da:Syre, syrer
+#de:Säuerungsmittel
+#el:Μέσο οξίνισης
+#es:acidulante,acido
+#et:Hape
+#fi:happo, happoa, hapot, happoja
+#fr:acidifiant, acide,acidulants
+#ga:Aigéad
+#he:חומצה
+#hu:Étkezési sav
+#it:Acidificanti
+#lt:Rūgštis
+#lv:Skābe
+#mt:Aċidu
+#nb:syre, syrer
+#nl:Voedingszuur
+#pl:Kwas
+#pt:Acidificante
+#ro:Acidifiant, agent acidifiant
+#ru:Кислота
+#sk:Kyselina
+#sl:Kislina
+#sv:syra, syror, surgörare
+#wikidata:en:Q337038
 # ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
 # ingredient/fr:acide has 262 products @2019-05-31
 
@@ -6380,14 +6381,10 @@ vegan:en:maybe
 vegetarian:en:maybe
 # ingredient/ferment has 33576 products in 28 languages @2019-07-08
 
-<en:ferments
-en:yogurt ferments
-es:ferments del yogur
-
 # comment:en:The list of products is very very wrong. So uncommenting it for the moment.
 # comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
 
-# en:enzyme
+en:enzyme
 en:coagulating enzyme
 de:gerinnendes Enzym
 es:Enzima coagulante
@@ -6443,14 +6440,14 @@ vegetarian:en:maybe
 # comment:en:A wide variety of synonyms are used, but they all seem to point to the same bacteria.
 
 <en:microbial culture
-en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
 ca:Ferments làctics
 da:yoghurtkultur, starterkultur, mælkesyrekultur
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el:γαλακτικά ένζυμα
-es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados
+es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados, ferments del yogur
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
 hu:tejsavbaktériumok, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, syrekultur
@@ -8493,21 +8490,16 @@ uk:Коров'яче молоко
 zh:牛奶
 wikipedia:fr:https://fr.wikipedia.org/wiki/Lait_de_vache
 
-<en:raw milk
-<en:cow's milk
-en:raw cow's milk
-ca:llet de vaca crua
-es:leche de vaca cruda
-fr:lait de vache cru
-
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
 <en:cow's milk
+<en:raw milk
 en:raw cow's milk
 ca:llet crua de vaca, llet de vaca crua
 de:Kuhrohmilch
-es:leche cruda de vaca, leche de vaca cruda
+es:leche de vaca cruda, leche cruda de vaca, leche de vaca cruda
 fi:lehmän raakamaito, raaka lehmänmaito
+fr:lait de vache cru, lait cru de vache
 hu:nyers tehéntej
 nl:rauwe koemelk
 ru:коровье молоко
@@ -10333,7 +10325,7 @@ es:Suero de mantequilla,leche mazada
 et:Pett
 fa:آب‌دوغ
 fi:kirnupiimä, kirnumaito
-fr:babeurre, bas-beurre
+fr:babeurre, bas-beurre, lait battu
 fy:sûpe
 ga:Bláthach
 gd:Blàthach
@@ -10406,7 +10398,7 @@ de:Buttermilchpulver
 el:αποβουτυρωμενο γάλα σεβσκόνη
 es:suero de mantequilla en polvo, suero de mantequilla rehidratada
 fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
+fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
 hu:írópor
 it:latticello in polvere
 nl:karnemelkpoeder
@@ -14783,6 +14775,9 @@ sv:skinkprodukt
 <en:meat
 fi:ruokamakkara
 
+<en:meat
+fr:viande hachée
+
 # description:en:A MEATBALL is ground meat rolled into a small ball, sometimes along with other ingredients, such as bread crumbs, minced onion, eggs, butter, and seasoning.
 
 <en:meat
@@ -16646,6 +16641,10 @@ fr:fond de porc
 <en:pork
 fr:coeur de porc
 
+<en:pork
+fr:tissu conjonctif de porc
+nl:varkensbindweefsel
+
 # description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 
 # from:en:pork
@@ -16762,7 +16761,7 @@ nl:collageendarm
 <en:beef
 en:beef casing
 de:Rinderdarm
-fr:boyau de bœuf, boyau de boeuf
+fr:boyau de bœuf, boyau de boeuf, collagène de boeuf
 hu:marhabél
 it:budello di manzo
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
@@ -18827,7 +18826,7 @@ de:Baumwollsaatöl, Baumwollsamenöl
 es:aceite de algodón
 fa:روغن پنبه‌دانه
 fi:puuvillansiemenöljy
-fr:huile de coton
+fr:huile de coton, graines de coton
 hu:pamutmagolaj
 id:Minyak biji kapas
 it:olio di semi di cotone
@@ -21783,6 +21782,7 @@ nl:eau de vie
 <en:eau de vie
 fr:eau de vie de vin
 
+# en:description: The spelling whiskey is common in Ireland and the United States, while whisky is used in all other whisky-producing countries.
 
 <en:alcohol
 en:vermouth
@@ -21793,13 +21793,22 @@ fr:vermouth
 hu:vermut
 
 <en:alcohol
-en:whiskey
+en:whisky
 da:whisky
+de:Whisky
+es:Whisky
+fi:viski
+fr:whisky, scotch whiskey
+hu:whisky
+
+<en:alcohol
+en:whiskey
+da:whiskey
 de:Whiskey
 es:Whiskey
 fi:viski
-fr:whisky
-hu:whisky
+fr:whiskey
+hu:whiskey
 
 <en:alcohol
 en:cognac
@@ -32980,6 +32989,9 @@ sv:Surdeg
 zh:老麵
 # nap:Criscito
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
+
+<en:sourdough
+fr:levain lactique
 
 <en:sourdough
 de:Natursauerteig
@@ -48129,6 +48141,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pimiento
 en:spicy red pepper
 es:ñora,ñoras
 
+<en:chili pepper
+en:peri-peri, peri peri, piri-piri, pili-pili, pili pili
+fr:pili-pili, pili pili
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
 <en:pepper
@@ -49207,7 +49222,7 @@ en:Canola
 de:Raps
 es:Canola
 fi:Rypsi
-fr:colza
+fr:colza, canola
 it:Canola
 pl:Rzepak
 sv:Raps
@@ -70849,9 +70864,13 @@ nl:scharrelei-eiwitpoeder
 <en:powdered egg white
 nl:vrije uitloopeiwitpoeder
 
+<en:powdered egg white
+fr:blanc d'oeuf en poudre de poules élevées au sol
+
 <en:egg white
 fr:blancs d'œufs pasteurisés, blancs d'oeufs pasteurisés
 # ingredient/fr:blancs-d’oeufs-pasteurisés has 54 products in french @2018-12-18
+
 
 <en:egg white
 fr:blanc d'œuf frais, blancs d'œufs frais, blanc d'œufs frais, blanc d'oeuf frais, blancs d'oeufs frais, blanc d'oeufs frais
@@ -72847,7 +72866,7 @@ carbon_footprint_fr_foodges_value:fr:2.3
 
 # comment:en:the parent en:sesam is here for sesam allergen detection
 
-<en:sesame
+#<en:sesame
 <en:special bread
 en:sesame seed bun
 de:Sesambrötchen
@@ -73052,6 +73071,12 @@ fr:cornet biscuit
 nl:ijshoorntje
 
 fr:biscuit d'enrobage
+
+#en:category:en:Breadsticks
+de:Grissini
+fr:gressins
+nl:Broodstengels
+sv:Grissini
 
 # mainIngredient:en:milk
 # <en:dessert
@@ -75509,8 +75534,9 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
 
 # description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
+#en:category:en:Soy sauces
 <en:sauce
-en:soy sauce, soya sauce
+en:soy sauce, soya sauce, Soy sauces
 ar:صلصة الصويا
 be:соевы соус
 bg:Соев сос
@@ -75526,7 +75552,7 @@ et:sojakaste
 eu:Soja-saltsa
 fa:سس سویا
 fi:soijakastike
-fr:sauce au soja, sauce de soja, sauce soja
+fr:sauce au soja, sauce de soja, sauce soja, shoyu
 gl:mollo de soia
 he:רוטב סויה
 hi:सॉय सॉस
@@ -76243,8 +76269,6 @@ sv:pizzabotten
 # usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
 # mainIngredient:en:wheat flour
 
-en:rind unedible
-es:corteza no comestible
 
 <en:vegetable
 en:pisto
@@ -76257,8 +76281,3 @@ es:encolante
 en:stir-fry,sofrito
 ca:sofregit
 es:sofrito
-
-en:in variable proportion
-es:en proporción variable
-fr:en proportions variables
-

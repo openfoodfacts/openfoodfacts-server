@@ -4128,14 +4128,12 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{html_count} = $html_count;
 	}
 
-	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
 	$template_data_ref->{jqm} = $request_ref->{jqm};
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	
-	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
+	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
@@ -6882,7 +6880,7 @@ sub display_product($)
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}		
 
@@ -9162,7 +9160,7 @@ sub display_product_api($)
 	$response{code} = $code;
 	my $product_ref = retrieve_product($product_id);
 	
-	if ($code !~ /^\d{8,24}$/) {
+	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
 		$response{status} = 0;
@@ -9995,9 +9993,14 @@ sub display_ingredients_analysis($) {
 
 	my $html = "";
 
-	if (defined $product_ref->{ingredients_analysis_tags}) {
+	my $template_data_ref = {
+		lang => \&lang,
+		display_icon => \&display_icon,
+	};
 
-		my $html_analysis = "";
+	$template_data_ref->{product_ingredients_analysis} = $product_ref->{ingredients_analysis};
+
+	if (defined $product_ref->{ingredients_analysis}) {
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
@@ -10065,20 +10068,18 @@ sub display_ingredients_analysis($) {
 				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
-			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			. "</span> ";
+			push @{$template_data_ref->{ingredients_analysis_tags}}, {
+				color => $color,
+				icon => $icon,
+				display_taxonomy_tag => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+			};
 		}
 
-		if ($html_analysis ne "") {
-
-			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-			. $html_analysis
-			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		}
 	}
 
+	$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
+
 }
 
 1;
