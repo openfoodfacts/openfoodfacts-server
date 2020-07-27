@@ -1,0 +1,13 @@
+[% IF product_ingredients_analysis.defined %]
+    <p id="ingredients_analysis">
+        <b>[% lang("ingredients_analysis") %]:</b>
+        <br>
+        [% FOREACH analysis_tags IN ingredients_analysis_tags %]
+            <span class="alert round label ingredients_analysis [% analysis_tags.color %]">
+                [% analysis_tags.icon %][% analysis_tags.display_taxonomy_tag %]
+            </span>
+        [% END %]
+        <br>
+        <span class="note">&rarr; [% lang("ingredients_analysis_disclaimer") %]</span>
+    </p>
+[% END %]
