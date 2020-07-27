@@ -264,8 +264,9 @@ my @lists =(
 
 	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
 
-	# bug #3838 -> do not combine in "carbonate de fer élémentaire"
-        ["fr", "carbonate de calcium et de fer, carbonate de magnésium, fer élémentaire", "carbonate de calcium, carbonate de fer, carbonate de magnésium, fer élémentaire"],
+	["fr", "E160a(ii)","e160aii"],
+	["fr", "(E160a-ii)","(e160aii)"],
+	["fr", "colorant (E160a(ii))","colorant (e160aii)"],
 
 );
 
