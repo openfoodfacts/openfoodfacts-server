@@ -37,13 +37,14 @@
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %] 
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
+
 <div itemscope itemtype="[% itemtype %]">
 <h1 property="food:name" itemprop="name">[% title %]</h1>
 
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% html_upc %]
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]
@@ -72,38 +73,22 @@
     </div>
 [% END %]
 
-<!-- [% IF out_of_date_warnings == 'defined' %]
-    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
-        Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-        <br><br>
-        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="https://www.lactalis.fr/information-consommateur/">Lactalis</a>
-        <a href="#" class="close">&times;</a></span>
-    </div>
-[% ELSIF fr_brands == 'defined' %]
-    <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
-        Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-        <br><br>
-        &rarr; <a href="https://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a></span>
-        <a href="#" class="close">&times;</a>
-    </div>
-[% END %] -->
-
 <!-- photos and data sources -->
 [% html_manufacturer_source %]
 <!-- product_characteristics -->
 <h2>[% lang('product_characteristics') %]</h2>
 <div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% html_image %]</div>
+    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        [% html_fields %]
+        [% product_fields %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
 </div>
 
 <!-- ingredients -->
 <h2>[% lang('ingredients') %]</h2>
 <div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% ingredient_image %]</div>
+    <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
         <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
@@ -124,7 +109,7 @@
         [% display_field_traces %]
         [% display_ingredients_analysis %]
         [% display_ingredients_analysis_details %]
-        [% IF html_ingredients_classes_n > 0 %]
+        [% IF ingredients_classes_n > 0 %]
             <div class="row">
                 [% html_ingredients_classes %]
             </div>
@@ -153,7 +138,7 @@
             [% display %]
         [% END %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
 </div>
 
 <!-- nutrition table -->
@@ -176,7 +161,7 @@
         </div>
     
         <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
-            $html_image
+            $nutrition_image
         </div>
     </div>
 
@@ -210,10 +195,10 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% FOREACH id IN html_sources %]
-    <p>[% lang("sources_${id.lang_source}") %]</p>
-    [% IF id.source_ref_url %]
-        <p><a href="\[% id.source_ref_url %]\">[% lang("sources_${id.lang_source}_product_page") %]</a></p>
+[% FOREACH source IN sources %]
+    <p>[% lang("sources_${source.lang_id}") %]</p>
+    [% IF source.url %]
+        <p><a href="\[% source.url %]\">[% lang("sources_${source.lang_id}_product_page") %]</a></p>
     [% END %]
 [% END %]
 

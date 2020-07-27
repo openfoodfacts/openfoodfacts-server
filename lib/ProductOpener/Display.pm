@@ -7446,14 +7446,14 @@ CSS
 	else {
 		$template_data_ref->{upc} = 'defined';
 		# Also display UPC code if the EAN starts with 0
-		my $html_upc = "";
+		my $upc = "";
 		if (length($code) == 13) {
-			$html_upc .= "(EAN / EAN-13)";
+			$upc .= "(EAN / EAN-13)";
 			if ($code =~ /^0/) {
-				$html_upc .= " " . $' . " (UPC / UPC-A)";
+				$upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$template_data_ref->{html_upc} = $html_upc;
+		$template_data_ref->{upc} = $upc;
 	}
 
 	# obsolete product
@@ -7483,7 +7483,6 @@ CSS
 	# photos and data sources
 
 	my $html_manufacturer_source = ""; # Displayed at the top of the product page
-	my $html_sources = "";	# 	Displayed at the bottom of the product page
 
 	if (defined $product_ref->{sources}) {
 
@@ -7498,9 +7497,9 @@ CSS
 			my $source_ref = $unique_sources{$source_id};
 			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
-			push @{$template_data_ref->{html_sources}}, {
-				lang_source => $lang_source,
-				source_ref_url => $source_ref->{url},
+			push @{$template_data_ref->{sources}}, {
+				lang_id => $lang_source,
+				url => $source_ref->{url},
 			};
 
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
@@ -7525,26 +7524,24 @@ CSS
 	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
 
 	my $minheight = 0;
-	my $html_image = display_image_box($product_ref, 'front', \$minheight);
-	$html_image =~ s/ width="/ itemprop="image" width="/;
+	my $front_image = display_image_box($product_ref, 'front', \$minheight);
+	$front_image =~ s/ width="/ itemprop="image" width="/;
 
 	# Take the last (biggest) image
 	my $product_image_url;
-	if ($html_image =~ /.*src="([^"]*\/products\/[^"]+)"/is) {
+	if ($front_image =~ /.*src="([^"]*\/products\/[^"]+)"/is) {
 		$product_image_url = $1;
 	}
 
 
-	my $html_fields = '';
+	my $product_fields = '';
 	foreach my $field (@fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html_fields .= display_field($product_ref, $field);
+		$product_fields .= display_field($product_ref, $field);
 	}
 
-	$template_data_ref->{html_image} = $html_image;
-	$template_data_ref->{html_fields} = $html_fields;
-
-	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
+	$template_data_ref->{front_image} = $front_image;
+	$template_data_ref->{product_fields} = $product_fields;
 
 	# try to display ingredients in the local language if available
 
@@ -7577,7 +7574,7 @@ CSS
 		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
 	}
 
-	$template_data_ref->{ingredient_image} = $html_image;
+	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight);
 	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 
@@ -7681,7 +7678,7 @@ JS
 	my $html_ingredients_classes = "";
 
 	# to compute the number of columns displayed
-	my $html_ingredients_classes_n = 0;
+	my $ingredients_classes_n = 0;
 
 	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 
@@ -7694,7 +7691,7 @@ JS
 
 		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
-			$html_ingredients_classes_n++;
+			$ingredients_classes_n++;
 
 			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br>";
 
@@ -7786,22 +7783,22 @@ HTML
 		}
 
 	}
-	$template_data_ref->{html_ingredients_classes_n} = $html_ingredients_classes_n;
+	$template_data_ref->{ingredients_classes_n} = $ingredients_classes_n;
 
-	if ($html_ingredients_classes_n > 0) {
+	if ($ingredients_classes_n > 0) {
 
 		my $column_class = "small-12 columns";
 
-		if ($html_ingredients_classes_n == 2) {
+		if ($ingredients_classes_n == 2) {
 			$column_class = "medium-6 columns";
 		}
-		elsif ($html_ingredients_classes_n == 3) {
+		elsif ($ingredients_classes_n == 3) {
 			$column_class = "medium-6 large-4 columns";
 		}
-		elsif ($html_ingredients_classes_n == 4) {
+		elsif ($ingredients_classes_n == 4) {
 			$column_class = "medium-6 large-3 columns";
 		}
-		elsif ($html_ingredients_classes_n >= 5) {
+		elsif ($ingredients_classes_n >= 5) {
 			$column_class = "medium-6 large-3 xlarge-2 columns";
 		}
 
@@ -7837,7 +7834,8 @@ HTML
 
 	# NOVA groups
 
-	if ((exists $product_ref->{nova_group})) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")
+		and (exists $product_ref->{nova_group})) {
 		$template_data_ref->{product_nova_group} = 'exists';
 		my $group = $product_ref->{nova_group};
 
@@ -7855,7 +7853,6 @@ HTML
 	
 		$template_data_ref->{nutrition_table} = 'defined';
 
-		$html_image = display_image_box($product_ref, 'nutrition', \$minheight);
 		$template_data_ref->{display_nutrient_levels} = display_nutrient_levels($product_ref);
 		$template_data_ref->{display_field} = display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
 		
@@ -7898,7 +7895,7 @@ HTML
 		}
 
 		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, \@comparisons);
-		$template_data_ref->{nutrition_image} = $html_image;
+		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight);
 
 		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 			$template_data_ref->{has_tag} = 'categories-en:alcoholic-beverages';
@@ -7925,7 +7922,7 @@ HTML
 		compute_carbon_footprint_infocard($product_ref);
 		$html .= display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
-		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $$product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
+		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
 		}
@@ -7942,11 +7939,6 @@ HTML
 	}
 
 	# photos and data sources
-
-	$template_data_ref->{html_sources} = $html_sources;
-
-	my $created_date = display_date_tag($product_ref->{created_t});
-	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
 
 	my @other_editors = ();
 
@@ -7977,8 +7969,9 @@ HTML
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
-	$template_data_ref->{created_date} = $created_date;
-	$template_data_ref->{last_modified_date} = $last_modified_date;
+	$template_data_ref->{created_date} = display_date_tag($product_ref->{created_t});
+	$template_data_ref->{creator} = $creator;
+	$template_data_ref->{last_modified_date} = display_date_tag($product_ref->{last_modified_t});
 	$template_data_ref->{last_editor} = $last_editor;
 	$template_data_ref->{other_editors} = $other_editors;
 	$template_data_ref->{checked} = $checked;
@@ -8040,7 +8033,6 @@ HTML
 
 	display_new($request_ref);
 }
-
 
 sub display_product_jqm ($) # jquerymobile
 {
