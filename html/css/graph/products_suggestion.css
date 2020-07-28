@@ -1,24 +1,24 @@
-/*#products_suggestion {
-    width: 100%;
-    height: 28%;
+#products_suggestion {
+    /*width: 100%;
+    height: 28%;*/
     border-top: thick #66cdaa;
     border-bottom: medium #66cdaa;
-    overflow-x: scroll;
-}*/
+    overflow-x: scroll !important;
+}
 
-/*.cell_suggestion {
+.cell_suggestion {
     float: left;
     padding-left: 2px;
     padding-right: 2px;
     width: 14%;
     height: auto;
     border: solid thin #0099ff;
-}*/
+}
 
-.cell_suggestion {
+/*.cell_suggestion {
     margin-left: 2px;
     border: solid thin #0099ff;
-}
+}*/
 
 img.grade_border {
     border: 18px solid rgb(230, 62, 17);

@@ -471,9 +471,9 @@ sub init()
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
-	
+
 	# Producers platform: not logged in users, or users with no permission to add products
-	
+
 	if (($server_options{producers_platform})
 		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
 		$styles .= <<CSS
@@ -487,8 +487,8 @@ CSS
 CSS
 ;
 	}
-	
-	
+
+
 	# Not logged in users
 
 	if (defined $User_id) {
@@ -593,7 +593,7 @@ sub analyze_request($)
 			if ($parameter eq "fields") {
 				$request_ref->{$parameter} =~ s/\%2C/,/g;
 			}
-			
+
 			if ($parameter eq "debug_template") {
 				# Use a global variable so that we can access it in functions that do not have $request_ref as a parameter
 				$debug_template = $request_ref->{$parameter};
@@ -2048,7 +2048,7 @@ HTML
 
 		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
-				
+
 			my $categories;
 			my $series_data;
 			my $colors;
@@ -2074,9 +2074,9 @@ HTML
 					"en:3-processed-foods",
 					"en:4-ultra-processed-food-and-drink-products",) {
 					$series_data .= ($products{$nova_group} + 0) . ',';
-				}				
+				}
 			}
-			
+
 			$series_data =~ s/,$//;
 
 			my $sep = separator_before_colon($lc);
@@ -4133,7 +4133,7 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	
+
 	$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	$template_data_ref->{current_link_query_display} = $request_ref->{current_link_query_display};
 	$template_data_ref->{count} = $count;
@@ -4843,7 +4843,7 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					
+
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
 						$data{$axis} = $product_ref->{$nid};
@@ -6888,7 +6888,7 @@ sub display_product_search_or_add($)
 	my $blocks_ref = shift;
 
 	# Producer platform and no org or not admin: do not offer to add products
-	
+
 	if (($server_options{producers_platform})
 		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
 		return "";
@@ -7281,10 +7281,10 @@ sub display_product($)
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
-	
+
 	if ($code !~ /^\d{8,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
-	}		
+	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -7430,6 +7430,11 @@ HTML
 <a href="$request_ref->{canon_url}" class="button small" title="$title">
 	@{[ display_icon('share') ]}
 	<span class="show-for-large-up"> $share</span>
+</a></div>
+<div class="edit_button right" style="float:right;margin-top:-10px;margin-left: 10px;">
+<a href="/cgi/graph.pl?barcode=$code&country=&score=nutricore" class="button small">
+
+	<span class="show-for-large-up"> Graph</span>
 </a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
@@ -7620,14 +7625,14 @@ HTML
 			}
 		}
 	}
-	
+
 	# If the product has an owner, identify it as the source
 	if (defined $product_ref->{owner}) {
-		
+
 		# TODO: use org profile if it exists
 		my $owner_name = $product_ref->{owner};
 		$owner_name =~ s/^org-//;
-		
+
 		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
 	}
 
@@ -7687,11 +7692,11 @@ HTML
 	if (not defined $ingredients_text) {
 		$ingredients_text = "";
 	}
-	
+
 	# Indicate if we are displaying ingredients in another language than the language of the interface
-	
+
 	my $ingredients_text_lang_html = "";
-	
+
 	if (($ingredients_text ne "") and ($ingredients_text_lang ne $lc)) {
 		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
 	}
@@ -7806,15 +7811,15 @@ JS
 		}
 
 	}
-	
+
 	# Offer to add the ingredients in the language of the interface
-		
+
 	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
 		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
 		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
 		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
 		. "</p>";
-	}	
+	}
 
 	$html .= display_field($product_ref, 'allergens');
 
@@ -8686,7 +8691,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
-	
+
 	my $beverage_view;
 
 	if ($nutriscore_data_ref->{is_beverage}) {
@@ -8697,7 +8702,7 @@ sub display_nutriscore_calculation_details($) {
 	}
 
 	# Select message that explains the reason why the proteins points have been counted or not
-	
+
 	my $nutriscore_protein_info;
 	if ($nutriscore_data_ref->{negative_points} < 11) {
 		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_less_than_11");
@@ -8709,55 +8714,55 @@ sub display_nutriscore_calculation_details($) {
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
 	 	or (((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
 			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5)) ) {
-				
+
 		$nutriscore_protein_info = lang("nutriscore_proteins_maximum_fruits_points");
 	}
 	else {
 		$nutriscore_protein_info = lang("nutriscore_proteins_negative_points_greater_or_equal_to_11");
 	}
-	
+
 	# Generate a data structure that we will pass to the template engine
-	
+
 	my $template_data_ref = {
-		
+
 		lang => \&lang,
 		sep => separator_before_colon($lc),
-				
+
 		beverage_view => $beverage_view,
 		is_fat => $nutriscore_data_ref->{is_fat},
-		
+
 		nutriscore_protein_info => $nutriscore_protein_info,
-		
+
 		score => $nutriscore_data_ref->{score},
 		grade => uc($nutriscore_data_ref->{grade}),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
-		
+
 		# Details of positive and negative points, filled dynamically below
 		# as the nutrients and thresholds are different for some products (beverages and fats)
 		points_groups => []
 	};
-	
+
 	my %points_groups = (
 		"positive" => ["proteins", "fiber", "fruits_vegetables_nuts_colza_walnut_olive_oils"],
 		"negative" => ["energy", "sugars", "saturated_fat", "sodium"],
 	);
-	
+
 	foreach my $type ("positive", "negative") {
-				
+
 		# Initiate a data structure for the points of the group
-		
+
 		my $points_group_ref = {
 			type => $type,
 			points => $nutriscore_data_ref->{$type . "_points"},
 			nutrients => [],
 		};
-		
+
 		# Add the nutrients for the group
 		foreach my $nutrient (@{$points_groups{$type}}) {
-			
+
 			my $nutrient_threshold_id = $nutrient;
-			
+
 		 	if ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage})
 		 		and (defined $points_thresholds{$nutrient_threshold_id . "_beverages"})) {
 		 		$nutrient_threshold_id .= "_beverages";
@@ -8774,17 +8779,17 @@ sub display_nutriscore_calculation_details($) {
 				rounded => $nutriscore_data_ref->{$nutrient . "_value"},
 			};
 		 }
-		 
+
 		 push @{$template_data_ref->{points_groups}}, $points_group_ref;
 	 }
 
 	# Nutrition Score Calculation Template
-	
+
 	my $html;
 	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
-	
+
 	return $html;
-} 
+}
 
 sub display_nutrient_levels($) {
 
@@ -9055,11 +9060,11 @@ sub display_nutrition_table($$) {
 	my $comparisons_ref = shift;
 
 	my $html = '';
-	
+
 	# This function populates a data structure that is used by the template to display the nutrition facts table
 	my $template_data_ref = {
 		lang => \&lang,
-				
+
 		tables => [
 			{
 				id => "nutrition",
@@ -9076,12 +9081,12 @@ sub display_nutrition_table($$) {
 					columns => [],
 				},
 				rows => [],
-			},			
+			},
 		],
-		
+
 		carbon_footprint => [],
-	};	
-	
+	};
+
 	my @cols;
 
 	my %col_name = ();
@@ -9160,13 +9165,13 @@ sub display_nutrition_table($$) {
 		'90' => 'stats',
 		'max' => 'stats',
 	);
-	
+
 	# Comparisons with other products, categories, recommended daily values etc.
 
 	if ((defined $comparisons_ref) and (scalar @$comparisons_ref > 0)) {
 
 		# Add a comparisons array to the template data structure
-		
+
 		$template_data_ref->{comparisons} = [];
 
 		my $i = 0;
@@ -9253,9 +9258,9 @@ JS
 		}
 
 		if ($product_ref->{id} ne 'search') {
-			
+
 			# Show checkbox to display/hide stats for the category
-			
+
 			$template_data_ref->{category_stats} = 1;
 
 			$initjs .= <<JS
@@ -9291,21 +9296,21 @@ JS
 
 		}
 	}
-	
+
 	# Tables header columns (for 2 columns: nutrition + ecological)
-	
+
 	for (my $i = 0; $i <2 ; $i++) {
-	
+
 		foreach my $col (@cols) {
 
-			push (@{$template_data_ref->{tables}[$i]{header}{columns}}, { 
+			push (@{$template_data_ref->{tables}[$i]{header}{columns}}, {
 				col_id => $col,
 				class => $col_class{$col},
 				name => $col_name{$col},
 			});
 		}
 	}
-	
+
 	# Tables body columns
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
@@ -9333,9 +9338,9 @@ JS
 			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
 		}
 	}
-	
+
 	my $decf = get_decimal_formatter($lc);
-	my $perf = get_percent_formatter($lc, 0);	
+	my $perf = get_percent_formatter($lc, 0);
 
 	foreach my $nutriment (@nutriments) {
 
@@ -9345,7 +9350,7 @@ JS
 		$nid =~ s/-$//g;
 
 		next if $nid eq 'sodium';
-		
+
 		my $class = 'main';
 		my $prefix = '';
 
@@ -9386,11 +9391,11 @@ JS
 				$shown = 0;
 			}
 			else {
-				$name = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';		
+				$name = '<a href="/nutriscore" title="$product_ref->{nutrition_score_debug}">' . $prefix.$Nutriments{$nid}{$lang} . '</a>';
 			}
 		}
 
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {	
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
 			$name = $prefix . $Nutriments{$nid}{$lang};
 
 		}
@@ -9414,13 +9419,13 @@ JS
 
 		my $values;
 		my $values2;
-		
+
 		my @columns;
 		my @extra_row_columns;
 		my @ecological_impact_columns;
 
 		foreach my $col (@cols) {
-			
+
 			$values = '';	# Value for row
 			$values2 = '';	# Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 			my $col_class = '';
@@ -9428,7 +9433,7 @@ JS
 
 			my $rdfa = '';	# RDFA property for row
 			my $rdfa2 = '';	# RDFA property for extra row
-			
+
 			my $col_type;
 
 			if (defined $col_class{$col}) {
@@ -9490,7 +9495,7 @@ JS
 				else {
 					$percent = "";
 				}
-				
+
 				if ($nid eq 'sodium') {
 					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
 						$values2 .= '?';
@@ -9547,7 +9552,7 @@ JS
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
 					my $value;
-					
+
 					# energy-kcal is already in kcal
 					if ($nid eq 'energy-kcal') {
 						$value = $product_ref->{nutriments}{$nid . "_$col"};
@@ -9662,7 +9667,7 @@ JS
 
 				$values .= $value_unit;
 			}
-			
+
 			if (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')){
 				push (@ecological_impact_columns, {
 					value => $values,
@@ -9738,13 +9743,13 @@ JS
 					class => $class,
 					name => $name,
 					columns => \@ecological_impact_columns,
-				};	
+				};
 			}
 		}
 	}
-	
+
 	# Remove the ecological table if we have no rows
-	
+
 	if (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0) {
 		pop @{$template_data_ref->{tables}};
 	}
@@ -9776,13 +9781,13 @@ sub display_product_api($)
 
 	$response{code} = $code;
 	my $product_ref = retrieve_product($product_id);
-	
+
 	if ($code !~ /^\d{8,24}$/) {
 
 		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
 		$response{status} = 0;
 		$response{status_verbose} = 'no code or invalid code';
-	}	
+	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
 		if ($request_ref->{api_version} >= 1) {
 			$request_ref->{status} = 404;

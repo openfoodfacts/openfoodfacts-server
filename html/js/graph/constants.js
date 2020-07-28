@@ -14,7 +14,7 @@ var URL_PARAM_BARCODE="barcode";
 var URL_PARAM_COUNTRY="country";
 var URL_PARAM_SCORE="score";
 
-var GRAPH_WIDTH = $(window).innerWidth();
+var GRAPH_WIDTH = $(window).innerWidth() * 75 / 100;
 var GRAPH_HEIGHT = $(window).innerHeight() * 40 / 100;
 var OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT = false;
 // var PRODUCT_CODE_DEFAULT = '4104420017849';

@@ -35,31 +35,24 @@ ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 
-$scripts .= <<SCRIPTS
+$header .= <<HEADER
+<link rel="stylesheet" href="/css/graph/scroll.css" >
+<link rel="stylesheet" href="/css/graph/graph.css" >
+<link rel="stylesheet" href="/css/graph/products_suggestion.css" >
+<link rel="stylesheet" href="/css/graph/product_details.css" >
+
 <script src="/js/graph/3rd_party/jquery/1.8.2/jquery.min.js"></script>
 <script src="/js/graph/3rd_party/d3.v3.min.js"></script>
+<script src="/js/graph/constants_endpoints.js"></script>
+<script src="/js/graph/constants_stats.js"></script>
+<script src="/js/graph/constants.js"></script>
+<script src="/js/graph/waiting_screen.js"></script>
 <script src="/js/graph/country_store.js"></script>
 <script src="/js/graph/utils.js"></script>
 <script src="/js/graph/score_databases.js"></script>
 <script src="/js/graph/products_suggestion.js"></script>
-<script src="/js/graph/constants_endpoints.js"></script>
-<script src="/js/graph/constants_stats.js"></script>
-<script src="/js/graph/constants.js"></script>
-<script src="/js/graph/graph_handheld.js"></script>
+<script src="/js/graph/graph.js"></script>
 <script src="/js/graph/main.js"></script>
-<script src="/js/graph/waiting_screen.js"></script>
-<script src="/js/graph/scanner.js"></script>
-SCRIPTS
-;
-
-$header .= <<HEADER
-<link rel="stylesheet" href="/css/graph/scroll.css" >
-<link rel="stylesheet" href="/css/graph/graph_handheld.css" >
-<link rel="stylesheet" href="/css/graph/products_suggestion.css" >
-<link rel="stylesheet" href="/css/graph/product_details.css" >
-<link rel="stylesheet" href="/css/graph/waiting_screen.css">
-<link rel="stylesheet" href="/css/graph/slidebars_adchsm/slidebars.css">
-<link rel="stylesheet" href="/css/graph/slidebars_items.css">
 HEADER
 ;
 
@@ -92,11 +85,6 @@ my $html = <<HTML
                             <div id="links_off">
                                 <div><a id="url_off_prod" href='https://world.openfoodfacts.org' target='_blank'>
                                     Product page
-                                </a></div>
-                                <div id="link_json_off"><a id="url_off_json_prod"
-                                                           href='https://fr.openfoodfacts.org/api/v0/produit/3029330003533.json'
-                                                           target='_blank'>
-                                    Product JSON
                                 </a></div>
                             </div>
                         </td>
@@ -136,17 +124,7 @@ my $html = <<HTML
                                             <div id="panel_input_code">
                                                 <input id='input_product_code' type='text' title="product code"
                                                        value=""/>
-                                                <div id="submitBtn" name="submitBtn">Go!</div>
-                                                <div>
-                                                    <!--img src="{{ url_for('static',filename='images/barcode1.png') }}"
-                                                         width="90px" style="margin-left: 5px"
-                                                         title="scan a product barcode (http)" onclick="scan_barcode_http()"/-->
-                                                    <img src="/images/graph/barcode2.png"
-                                                         style="padding-left: 65px;"
-                                                         width="90px" style="margin-left: 5px"
-                                                         title="scan a product barcode (zxing)"
-                                                         onclick="Quagga.start()"/>
-                                                </div>
+                                                <div id="submitBtn" class="button expand" name="submitBtn">Go!</div>
                                             </div>
 
                                         </td>
@@ -171,12 +149,11 @@ my $html = <<HTML
 <div id="menu_selection">
     <div>
         <div id="nb_suggestions"></div>
-        <br/>
         suggestions
     </div>
     <img src="/images/graph/leftArrow.png"
          title="previous product" onclick="select_picture(-1)"/>
-    <img src="/images/graph//images/graph//images/graph//images/graph//images/graph//images/graph/details.png"
+    <img src="/images/graph/details.png"
          title="compare this product" onclick="show_details()"/>
     <img src="/images/graph/rightArrow.png"
          title="next product" onclick="select_picture(+1)"/>
@@ -186,16 +163,21 @@ my $html = <<HTML
 
 </div>
 
-
-<script type="text/javascript">init()</script>
-
 HTML
 ;
+
+my $js = <<JS
+	\$(document).ready(function() {
+		init();
+	});
+JS
+;
+$initjs .= $js;
 
 # ${$request_ref->{content_ref}} .= $html;
 #
 display_new( {
-	title=>"graph",
+	title=>"Graph - Product comparison",
 	content_ref=>\$html,
 });
 exit(0);
