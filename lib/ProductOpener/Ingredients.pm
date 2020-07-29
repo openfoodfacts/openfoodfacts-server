@@ -1270,6 +1270,7 @@ sub parse_ingredients_text($) {
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
 								'en proportions variables',
+								'en proportion variable',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -1290,12 +1291,18 @@ sub parse_ingredients_text($) {
 								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
 								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'vaihtelevina osuuksina',
 							],
 							
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
 							],
+							
+							'sv' => [
+								'varierande proportion',
+							],
+							
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
