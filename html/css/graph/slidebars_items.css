@@ -76,18 +76,6 @@ http://jsfiddle.net/meyertee/AH3pE/
     max-height: 100%;
     height: 100%;
 
-    display: -moz-flex;
-    -moz-flex-direction: column;
-    -moz-flex-wrap: nowrap;
-
-    display: -webkit-flex;
-    -webkit-flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-
-    display: -ms-flex;
-    -ms-flex-direction: column;
-    -ms-flex-wrap: nowrap;
-
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
