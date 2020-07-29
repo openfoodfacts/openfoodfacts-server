@@ -27,7 +27,7 @@
                 <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
                 <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
                     [% FOREACH newtagtype IN current_drilldown_fields %]
-                        <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]">[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
+                        <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
                     [% END %]
                 </ul>
             </li>
