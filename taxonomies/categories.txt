@@ -29426,6 +29426,7 @@ agribalyse_food_code:en:12848
 ciqual_food_code:en:12848
 ciqual_food_name:en:Valençay cheese, from goat's milk
 
+
 <en:French cheeses
 <en:Goat cheeses
 en:Cabécous
@@ -29436,8 +29437,11 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 
 <en:French cheeses
 <en:Goat cheeses
+<en:Soft cheeses with bloomy rind
 en:Selles-sur-Cher
 fr:Selles-sur-Cher
+wikidata:en:Q1249172
+country:en:France
 agribalyse_food_code:en:12845
 ciqual_food_code:en:12845
 ciqual_food_name:en:Selles-sur-Cher cheese, from goat's milk
@@ -29448,6 +29452,7 @@ de:Käse aus Korsika
 fr:Fromages de Corse
 hu:Korzikai sajtok
 nl:Kazen uit Corsica
+origins:en: fr:Corse, en:France
 agribalyse_food_code:en:12762
 ciqual_food_code:en:12762
 ciqual_food_name:en:Corsica soft ripened cheese, from ewe's milk
@@ -29505,9 +29510,10 @@ agribalyse_food_code:en:12022
 ciqual_food_code:en:12022
 ciqual_food_name:en:Brie de Melun cheese, from cow's milk
 
-<en:French cheeses
+<en:Cheeses from Corsica
 fr:Brocciu Corse, Brocciu
 country:en:France
+origins:en: fr:Corse, en:France
 
 <en:French cheeses
 <en:Uncooked pressed cheeses
@@ -29542,8 +29548,8 @@ ciqual_food_name:fr:Cantal, Salers ou Laguiole
 country:en:France
 
 <en:French cheeses
-<en:Soft cheese with a natural rind
 <en:Goat cheeses
+<en:Soft cheese with a natural rind
 fr:Chabichous du Poitou, Chabichou du Poitou
 country:en:France
 oqali_family:en: fr:Fromages - Crottin de chevre
@@ -29786,13 +29792,6 @@ wikidata:en:Q1245627
 agribalyse_food_code:en:12725
 ciqual_food_code:en:12725
 ciqual_food_name:en:Salers cheese, from cow's milk
-
-<en:Goat cheeses
-<en:Soft cheeses with bloomy rind
-<en:French cheeses
-fr:Selles-sur-Cher
-country:en:France
-wikidata:en:Q1249172
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -30299,6 +30298,10 @@ wikidata:en:Q198815
 agribalyse_food_code:en:12814
 ciqual_food_code:en:12814
 ciqual_food_name:en:Soft-ripened cheese, from goat's milk, from pasteurised milk
+
+#<en:Goat cheeses
+#<en:French cheeses
+#en:French goat cheeses
 
 <en:Goat cheeses
 en:Cheese semi-dry from goat's milk
@@ -61300,28 +61303,35 @@ zh:沙丁鱼
 wikidata:en:Q208600
 
 <en:Fishes
+en:Haddock
+fr:Églefin, Haddock
+
+<en:Haddock
 en:Grilled haddock, Pan-fried haddock
 fr:Églefin grillé, Églefin poêlé
 agribalyse_food_code:en:26126
 ciqual_food_code:en:26126
 ciqual_food_name:en:Haddock, grilled/pan-fried
 ciqual_food_name:fr:Églefin, grillé/poêlé
+cooking_method:en en:pan-fried, en:grilled
 
-<en:Fishes
+<en:Haddock
 en:Steamed haddock
 fr:Églefin cuit à la vapeur
 agribalyse_food_code:en:26008
 ciqual_food_code:en:26008
 ciqual_food_name:en:Haddock, steamed
 ciqual_food_name:fr:Églefin, cuit à la vapeur
+cooking_method:en en:steamed
 
-<en:Fishes
+<en:Haddock
 en:Raw haddock
 fr:Églefin cru
 agribalyse_food_code:en:26122
 ciqual_food_code:en:26122
 ciqual_food_name:en:Haddock, raw
 ciqual_food_name:fr:Églefin, cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Raw conger
@@ -61330,6 +61340,7 @@ agribalyse_food_code:en:26127
 ciqual_food_code:en:26127
 ciqual_food_name:en:Conger, raw
 ciqual_food_name:fr:Congre, cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Raw roundnose grenadier
@@ -61338,6 +61349,7 @@ agribalyse_food_code:en:26128
 ciqual_food_code:en:26128
 ciqual_food_name:en:Roundnose grenadier, raw
 ciqual_food_name:fr:Grenadier (de roche), cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Raw grenadier
@@ -61346,6 +61358,7 @@ agribalyse_food_code:en:26213
 ciqual_food_code:en:26213
 ciqual_food_name:en:Grenadier, from any fishing spot, raw
 ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Raw tub gurnard
@@ -61354,6 +61367,7 @@ agribalyse_food_code:en:26219
 ciqual_food_code:en:26219
 ciqual_food_name:en:Tub gurnard, raw
 ciqual_food_name:fr:Grondin perlon, cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Raw blue shark fillet without skin
@@ -61362,6 +61376,7 @@ agribalyse_food_code:en:26241
 ciqual_food_code:en:26241
 ciqual_food_name:en:Blue shark, fillet, without skin, raw
 ciqual_food_name:fr:Empereur, filet, sans peau, cru
+cooking_method:en en:raw
 
 <en:Fishes
 en:Smoked fishes, smoked fish
@@ -61374,6 +61389,7 @@ hu:Füstölt halak
 it:Pesci affumicati, pesce affumicato
 nl:Gerookte vis
 zh:烟熏鱼类
+cooking_method:en en:smoked
 
 <en:Fishes
 en:Surmullet or red mullet raw
@@ -61402,6 +61418,7 @@ fr:Sole crue
 agribalyse_food_code:en:26058
 ciqual_food_code:en:26058
 ciqual_food_name:en:Common sole, raw
+cooking_method:en en:raw
 
 <en:Fishes
 en:Common sole fried
@@ -61409,6 +61426,7 @@ fr:Sole frite
 agribalyse_food_code:en:26062
 ciqual_food_code:en:26062
 ciqual_food_name:en:Common sole, fried
+cooking_method:en en:fried
 
 <en:Fishes
 en:Common sole steamed
@@ -61416,6 +61434,7 @@ fr:Sole cuite à la vapeur
 agribalyse_food_code:en:26059
 ciqual_food_code:en:26059
 ciqual_food_name:en:Common sole, steamed
+cooking_method:en en:steamed
 
 <en:Fishes
 en:Common sole boiled/cooked in water
@@ -61430,6 +61449,7 @@ fr:Sole poêlée
 agribalyse_food_code:en:26248
 ciqual_food_code:en:26248
 ciqual_food_name:en:Common sole, grilled
+cooking_method:en en:grilled
 
 <en:Fishes
 en:Common sole roasted/baked
@@ -61493,10 +61513,13 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Smoked fishes
+<en:Breams
+en:Smoked breams
 fr:Dorades fumées, dorade fumée
 nl:Gerookte brasem
 
 <en:Smoked fishes
+<en:Breams
 en:Black seabream roasted/baked
 fr:Dorade grise rôtie ou cuite au four, daurade grise rôtie ou cuite au four
 agribalyse_food_code:en:26222
@@ -61516,6 +61539,7 @@ ciqual_food_code:en:26093
 ciqual_food_name:en:Swordfish, roasted/baked
 
 <en:Smoked fishes
+<en:Haddock
 en:Smoked haddock
 fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés, églefins fumés, églefin fumé
 nl:Gerookte schelvis
@@ -61605,6 +61629,7 @@ fr:Truite d'élevage crue
 agribalyse_food_code:en:27008
 ciqual_food_code:en:27008
 ciqual_food_name:en:Trout, farmed, raw
+cooking_method:en en:raw
 
 <en:Fishes
 <en:Trouts
@@ -61613,6 +61638,7 @@ fr:Truite d'élevage crue
 agribalyse_food_code:en:27008
 ciqual_food_code:en:27008
 ciqual_food_name:en:Trout, farmed, raw
+cooking_method:en en:raw
 
 <en:Fishes
 <en:Trouts
@@ -61621,11 +61647,12 @@ fr:Truite d'élevage fumée
 agribalyse_food_code:en:27029
 ciqual_food_code:en:27029
 ciqual_food_name:en:Trout, farmed, smoked
+cooking_method:en en:smoked
 
 <en:Fishes
 <en:Trouts
 en:Rainbow trout raw farmed
-fr:Truite arc en ciel crue élevage
+fr:Truite arc en ciel crue d'élevage
 agribalyse_food_code:en:27009
 ciqual_food_code:en:27009
 ciqual_food_name:en:Rainbow trout, raw, farmed
@@ -61637,6 +61664,7 @@ fr:Truite saumonée crue
 agribalyse_food_code:en:27021
 ciqual_food_code:en:27021
 ciqual_food_name:en:Salmon trout, raw
+cooking_method:en en:raw
 
 <en:Fishes
 en:Carp raw farmed
@@ -61651,6 +61679,7 @@ fr:Perche crue
 agribalyse_food_code:en:27010
 ciqual_food_code:en:27010
 ciqual_food_name:en:European perch, raw
+cooking_method:en en:raw
 
 <en:Fishes
 en:Nile perch raw
@@ -61658,22 +61687,26 @@ fr:Perche du Nil crue
 agribalyse_food_code:en:27025
 ciqual_food_code:en:27025
 ciqual_food_name:en:Nile perch, raw
+cooking_method:en en:raw
 
 <en:Trouts
+en:Cooked trouts
+
+<en:Cooked trouts
 en:Rainbow trout farmed roasted, Rainbow trout farmed baked
 fr:Truite arc en ciel élevage rôtie, truite arc en ciel élevage cuite au four
 agribalyse_food_code:en:27014
 ciqual_food_code:en:27014
 ciqual_food_name:en:Rainbow trout, farmed, roasted/baked
 
-<en:Trouts
+<en:Cooked trouts
 en:Steamed Rainbow trout from farming
 fr:Truite arc en ciel d'élevage cuite à la vapeur
 agribalyse_food_code:en:27015
 ciqual_food_code:en:27015
 ciqual_food_name:en:Rainbow trout, farmed, steamed
 
-<en:Trouts
+<en:Cooked trouts
 en:Roasted trout, baked trout
 fr:Truite rôtie, truite cuite au four
 agribalyse_food_code:en:27006
@@ -61686,6 +61719,7 @@ fr:Truite cuite à la vapeur
 agribalyse_food_code:en:27007
 ciqual_food_code:en:27007
 ciqual_food_name:en:Trout, steamed
+cooking_method:en en:steamed
 
 <en:Fishes
 en:European perch roasted/baked
