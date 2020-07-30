@@ -36,23 +36,12 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 
 $header .= <<HEADER
-<link rel="stylesheet" href="/css/graph/scroll.css" >
-<link rel="stylesheet" href="/css/graph/graph.css" >
-<link rel="stylesheet" href="/css/graph/products_suggestion.css" >
-<link rel="stylesheet" href="/css/graph/product_details.css" >
+<link rel="stylesheet" href="$static_subdomain/css/graph.min.css" >
+<script src="$static_subdomain/js/dist/jquery.js"></script>
+<script src="$static_subdomain/js/dist/jquery-ui.js"></script>
+<script src="$static_subdomain/js/d3.v3.min.js"></script>
+<script src="$static_subdomain/js/graph.min.js"></script>
 
-<script src="/js/graph/3rd_party/jquery/1.8.2/jquery.min.js"></script>
-<script src="/js/graph/3rd_party/d3.v3.min.js"></script>
-<script src="/js/graph/constants_endpoints.js"></script>
-<script src="/js/graph/constants_stats.js"></script>
-<script src="/js/graph/constants.js"></script>
-<script src="/js/graph/waiting_screen.js"></script>
-<script src="/js/graph/country_store.js"></script>
-<script src="/js/graph/utils.js"></script>
-<script src="/js/graph/score_databases.js"></script>
-<script src="/js/graph/products_suggestion.js"></script>
-<script src="/js/graph/graph.js"></script>
-<script src="/js/graph/main.js"></script>
 HEADER
 ;
 
