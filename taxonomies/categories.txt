@@ -29688,6 +29688,7 @@ agribalyse_food_code:en:12119
 ciqual_food_code:en:12119
 ciqual_food_name:en:Ossau-Iraty cheese, from ewe's milk
 ciqual_food_name:fr:Ossau-Iraty
+origins:en: en:France, fr:Pays-Basque
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -29926,16 +29927,19 @@ wikidata:en:Q1256296
 fr:Carrés de l'Est, Carré de l'Est
 en:Carré de l'Est cheese from cow's milk
 de:Carre de l'Est
+origins:en: en:France, fr:Lorraine
 wikidata:en:Q2726262
 agribalyse_food_code:en:12025
 ciqual_food_code:en:12025
 ciqual_food_name:en:Carré de l'Est cheese, from cow's milk
+#average_weight:en:330 g
 
 <en:Cow cheeses
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Brillat-Savarin
 wikidata:en:Q724855
+origins:en: en:France
 
 <en:Cheeses
 en:Soft cheese with a natural rind
@@ -32629,6 +32633,9 @@ it:Latte in polvere
 nl:Melkpoeders
 sv:Mjölkpulver
 wikidata:en:Q496696
+agribalyse_proxy_food_code:en:19054
+agribalyse_proxy_food_name:en:Milk, powder, skimmed
+agribalyse_proxy_food_name:fr:Lait en poudre, écrémé
 
 <en:Milk powders
 <en:Whole milks
@@ -35704,6 +35711,9 @@ de:Pekannusskerne, geschälte Pekannüsse, Pekannüsse ohne Schale
 es:Nueces pecanas sin cáscara
 fr:Noix de pécan décortiquées, Noix de pécan décortiqués
 nl:Gepelde pecannoten
+agribalyse_proxy_food_code:en:15046
+agribalyse_proxy_food_name:en:Pecan nut, salted
+agribalyse_proxy_food_name:fr:Noix de pécan, salées
 
 <en:Pecan nuts
 en:Salted pecan nut, Salted pecan nuts
@@ -52049,31 +52059,31 @@ ciqual_food_name:fr:Porc, filet mignon, cuit
 fr:Porc de la Sarthe
 protected_name_file_number_en: PGI-FR-0184
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Sarthe
 
 <en:Pork
 fr:Porc du Limousin
 protected_name_file_number_en: PGI-FR-0188
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Limousin
 
 <en:Pork
 fr:Porc de Vendée
 protected_name_file_number_en: PGI-FR-0191
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Vendée
 
 <en:Pork
 fr:Porc de Normandie
 protected_name_file_number_en: PGI-FR-0192
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Normandie
 
 <en:Pork
 en:Traditionally Reared Pedigree Welsh Pork
 protected_name_file_number_en: TSG-GB-1396
 protected_name_type:en: tsg
-origins:en: en:United Kingdom
+origins:en: en:United Kingdom, en:Wales
 
 <en:Pork
 en:Traditionally Farmed Gloucestershire Old Spots Pork
@@ -60455,6 +60465,9 @@ fi:katkaravut
 fr:Crevettes
 it:Gamberetti
 nl:Garnalen
+agribalyse_proxy_food_code:en:10007
+agribalyse_proxy_food_name:en:Shrimp or prawn, cooked
+agribalyse_proxy_food_name:fr:Crevette, cuite
 
 <en:Shrimps
 en:Cooked shrimps

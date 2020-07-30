@@ -1811,6 +1811,7 @@ hu:Csökkenti a koleszterinszintet
 it:Abbassa il colesterolo
 nl:Weinig cholesterol
 pt:Reduz o Colesterol
+label_categories:en: en:Health, en:Claim
 
 en:Australian made
 ca:Fet a Austràlia
@@ -2016,11 +2017,11 @@ fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
 
 fr:La Lorraine notre signature
-origins:en: en:France
+origins:en: en:France, fr:Lorraine
 
 fr:Saveurs en Or, Saveurs en'Or
 wikidata:en:Q3474531
-origins:en: en:France
+origins:en: en:France, fr:Hauts-de-France
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
@@ -2028,7 +2029,7 @@ origins:en: en:France
 label_categories:en: en:Origins
 
 fr:Sud de France
-country:en:France
+country:en: en:France
 
 en:Avainlippu, Key Flag
 fi:Avainlippu
@@ -2294,6 +2295,7 @@ nl:Cholesterolvrij, Zonder cholesterol
 pt:Sem colesterol
 ru:без холестерина
 th:ไม่มีคอเลสเตอรอล
+label_categories:en: en:Health
 
 en:No colorings, no added colorings
 ca:Sense colorants, sense colorants afegits
@@ -2310,6 +2312,7 @@ pt:Sem corantes, sem corantes adicionados
 ru:без красителей
 th:ไม่เติมสี
 zh:无色素
+label_categories:en: en:Health, en:Additives
 
 en:No eggs, egg free
 ca:Sense ou, Lliure d'ou
@@ -2347,6 +2350,7 @@ he:ללא מחזקי טעם
 hu:ízfokozómentes, ízfokozó mentes, ízfokozó nélkül
 nl:Geen toegevoegde smaakstoffen
 pt:Sem intensificador de sabor
+label_categories:en: en:Health, en:Additives
 
 en:No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat
 ca:Sense greixos Trans, 0% de greixos Trans
@@ -2358,6 +2362,7 @@ hu:Transzzsírsav mentes, Transzzsírsav nélkül, 0g transzzsírsav
 nl:Geen transvetten
 ru:без трансжиров
 th:ไม่มีไขมันทรานส์
+label_categories:en: en:Health
 
 en:No hydrogenated fats
 ca:Sense greixos hidrogenats
@@ -2368,6 +2373,7 @@ fr:Sans matière grasse hydrogénée, Sans matières grasses hydrogénées, Sans
 hu:Hidrogénezett zsír nélkül
 it:Senza grassi idrogenati
 pt:Sem gorduras hidrogenadas
+label_categories:en: en:Health, en:Nutrition
 
 en:Without vegetable oils, without vegetable fats
 de:Ohne pfalnzliche Öle
@@ -2404,6 +2410,7 @@ he:בלי מונוסודיום גלוטומט
 hu:MSG-mentes, Nátrium-glutamát mentes
 it:Senza glutammato, senza glutammato monosodico, senza glutammato di sodio, senza MSG
 th:ไม่ใช้ผงชูรส
+label_categories:en: en:Health, en:Additives
 
 en:No added MSG
 fi:ei lisättyä natriumglutamaattia
@@ -2798,6 +2805,7 @@ ca:Vi biodinàmic
 
 <en:Organic
 en:India Organic
+country:en:India
 wikidata:en:Q17055995
 
 <en:Organic
@@ -2896,22 +2904,31 @@ wikidata:en:Q396709
 
 <en:Organic
 ca:Consell Català de la Producció Agrària Ecològica, CCPAE
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecologica de la Comunidad de Madrid, Comité Agricultura Ecologica Madrid
+country:en:Spain
 
 <en:Organic
 es:Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica aragón
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV
+country:en:Spain
 
 <en:Organic
 es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM
+country:en:Spain
 
+<en:Organic
+es:Comite Andaluz de Agricultura Ecologica, CAAE
+country:en:Spain
 
 <en:EU Organic
 en:AT-BIO-004
@@ -3148,6 +3165,7 @@ fi:CZ-BIO-001
 it:CZ-BIO-001
 nl:CZ-BIO-001
 pt:CZ-BIO-001
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-002
@@ -3155,6 +3173,7 @@ de:CZ-BIO-002
 fi:CZ-BIO-002
 it:CZ-BIO-002
 pt:CZ-BIO-002
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-003
@@ -3162,10 +3181,12 @@ de:CZ-BIO-003
 fi:CZ-BIO-003
 it:CZ-BIO-003
 pt:CZ-BIO-003
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-004
 fi:CZ-BIO-004
+country:en:Czech Republic
 
 <en:EU Organic
 en:DE-ÖKO-001
@@ -3337,6 +3358,7 @@ country:en:Germany
 <en:EU Organic
 en:DK-ØKO-050
 fi:DK-ØKO-050
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-100
@@ -3344,14 +3366,17 @@ de:DK-ØKO-100
 fi:DK-ØKO-100
 it:DK-ØKO-100
 pt:DK-ØKO-100
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-200
 fi:DK-ØKO-200
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-300
 fi:DK-ØKO-300
+country:en:Denmark
 
 <en:EU Organic
 en:EE-ÖKO-01
@@ -4053,26 +4078,32 @@ country:en:Greece
 <en:EU Organic
 en:HR-EKO-01
 fi:HR-EKO-01
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-02
 fi:HR-EKO-02
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-03
 fi:HR-EKO-03
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-04
 fi:HR-EKO-04
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-05
 fi:HR-EKO-05
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-06
 fi:HR-EKO-06
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-07
@@ -4080,10 +4111,12 @@ de:HR-EKO-07
 fi:HR-EKO-07
 it:HR-EKO-07
 pt:HR-EKO-07
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-08
 fi:HR-EKO-08
+country:en:Croatia
 
 <en:EU Organic
 en:HU-ÖKO-01
@@ -4093,6 +4126,7 @@ fr:HU-ÖKO-01
 hu:Biokontroll Hungária, HU-ÖKO-01
 it:HU-ÖKO-01
 pt:HU-ÖKO-01
+country:en:Hungary
 
 <en:EU Organic
 en:HU-ÖKO-02
@@ -4101,6 +4135,7 @@ fi:HU-ÖKO-02
 hu:Hungária ÖKO Garancia, HU-ÖKO-02
 it:HU-ÖKO-02
 pt:HU-ÖKO-02
+country:en:Hungary
 
 <en:EU Organic
 en:IE-ORG-01
@@ -16975,6 +17010,7 @@ fr:Médaille d'Argent du Concours Mondial de Bruxelles 2011, Médaille argent co
 
 fr:Concours général agricole
 wikidata:en:Q2992165
+label_categories:en: en:Quality
 
 <fr:Concours général agricole
 fr:médaille d'or du Concours général agricole
@@ -17201,8 +17237,10 @@ fr:Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médai
 #Wine Related labels
 
 fr:Premier cru
+label_categories:en: en:Wines
 
 fr:Grand cru
+label_categories:en: en:Wines
 
 fr:Mis en bouteille au château
 
@@ -17223,35 +17261,41 @@ fr:Vigneron indépendant
 fr:Viticulture durable
 
 de:Berliner Wein Trophy
+label_categories:en: en:Wines
 
 la:Mundus Vini, Grand Prix International du Vin de Neustadt
+label_categories:en: en:Wines
 
 fr:Baco - Bacchus, Concours international des vins et vins primeurs de Madrid
+label_categories:en: en:Wines
 
 es:Cata Concurso Nacional de Vinos Jóvenes Cosecha
+label_categories:en: en:Wines
 
 es:Salon Internacional del Vino de Valladolid
 fr:Iberwine à Valladolid
+label_categories:en: en:Wines
 
 fr:Concours des vins de Mâcon
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins d'Alsace de Colmar
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins d'Orange
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins du Grand Delta à Avignon
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins Féminalise
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours international des vins à Lyon
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours International des Vins de Gastronomie d'Antibes
+label_categories:en: en:Wines
 
 fr:Concours International des Vins de Terroir de Brignoles
 categories:en: en:Wines
@@ -17266,10 +17310,10 @@ en:Wine Women Awards à l'Hôtel Bristol à Paris
 categories:en: en:Wines
 
 fr:Challenge International du Vin à Bordeaux
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours de Bordeaux Vins d'Aquitaine
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des 7 Ceps
 
@@ -17371,6 +17415,7 @@ he:איגוד החקלאות הגרמנית
 nl:Duitse Landbouw Stichting
 pt:NL-BIO-01
 wikidata:en:Q316331
+label_categories:en: en:Quality
 
 <en:German Agricultural Society
 en:Bronze medal of the German Agricultural Society
@@ -17663,6 +17708,7 @@ fr:IGP Suisse, IGP CH, CH IGP
 origins:en: en:Switzerland
 
 en:Suisse Garantie, SuisseGarantie
+country:en: en:Switzerland
 
 de:Pro Planet
 
@@ -17678,6 +17724,7 @@ en:IP-Suisse
 en:TerraSuisse
 fr:TerraSuisse
 pt:TerraSuisse
+country:en: en:Switzerland
 
 en:Natura-Beef, NaturaBeef
 
@@ -17689,12 +17736,14 @@ en:Agri Natura, AgriNatura
 
 en:NatureSuisse, Nature Suisse
 ca:NatureSuisse, Natura Suïssa
+country:en: en:Switzerland
 
 <en:Organic
 en:Bio Suisse, BioSuisse
 ca:BioSuisse
 fr:Bio Suisse
 nl:Bio Zwitserland
+country:en: en:Switzerland
 
 <en:Organic
 en:Migros Bio
@@ -17703,6 +17752,7 @@ fr:Migros Bio
 it:Migros Bio
 nl:Migros Bio
 stores:en: Migros
+country:en: en:Switzerland
 
 <en:Organic
 en:Naturaplan, Natura-plan
@@ -17773,6 +17823,7 @@ fr:Expérimentation Nutriscore
 he:ניסוי Nutriscore
 it:Sperimentazione Nutriscore
 nl:Nutriscore experiment
+label_categories:en: en:Health, en:Nutrition Grades
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade A
@@ -18134,15 +18185,18 @@ ca:Criat a Noruega
 de:In Norwegen aufgewachsen
 fi:Kasvatettu Norjassa
 fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
+origins:en: en:Norway
 
 en:raised in Scotland
 de:In Schottland aufgewachsen
 fi:Kasvatettu Skotlannissa
 fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
+origins:en: en:Scotland, en:United Kingdom
 
 en:raised in Ireland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
+origins:en: en:Ireland
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina
@@ -18169,6 +18223,7 @@ fr:Cocoa Life
 it:Cocoa Life
 
 en:Ethical Tea Partnership, ETP
+label_categories:en: en:Faitrade
 
 en:pasteurized product
 fr:produit pasteurisé
@@ -18182,6 +18237,7 @@ auth_url:en: https://spp.coop/
 
 en:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088
+label_categories:en: en:Nutrition grades
 
 <en:Health Star Rating
 en:Health Star Rating 1
@@ -18212,3 +18268,4 @@ en:Health Star Rating 5
 
 fr:Haute Valeur Environnementale
 wikidata:en:Q3128557
+label_categories:en: en:Environment
