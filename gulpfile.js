@@ -69,6 +69,7 @@ function copyJs() {
 function buildJs() {
   return src([
     './html/js/display*.js',
+    './html/js/graph.js',
     './html/js/product-multilingual.js',
     './html/js/search.js'
   ]).
@@ -116,6 +117,7 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
+      "./html/css/graph.css",
       "./html/css/product-multilingual.css",
       "./node_modules/cropper/dist/cropper.css"
     ]).
