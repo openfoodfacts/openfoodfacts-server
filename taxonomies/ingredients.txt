@@ -2480,6 +2480,7 @@ fi:nautaliivate, nautagelatiini, naudan liivate, liivate naudasta
 fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
 hu:marhazselatin
 it:gelatina di manzo
+nl:rundergelatine
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
 vegan:en:no
 vegetarian:en:no
@@ -11431,10 +11432,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quark_(dairy_product)
 # category/quark has 221 products @2019-05-24
 
 <en:Quark
+nl:volle kwark
+
+<en:Quark
 en:Lean stern
 de:Magerquark, Speisequark Magerstufe
 fr:séré maigre
 it:quark magro
+nl:magere kwark
 # ingredient/fr:séré-maigre has 33 products in 4 languages @2019-03-01
 
 <en:Quark
@@ -14391,17 +14396,8 @@ es:sal no refinada
 fi:Karkea suola
 fr:sel non raffiné
 
-en:Garlic salt
-ca:sal d'all
-de:Knoblauchsalz
-es:sal de ajo
-fr:Sel à l'ail, sel d'ail
-
-en:Celery salt
-ca:sal d'api
-es:sal de apio
-fr:Sel de céleri, sel au céleri
-
+<en:salt
+nl:mineraalzout
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
 
@@ -14704,6 +14700,19 @@ sv:joderat havssalt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:jodioitu-merisuola
 # 1 entry @ 2019-11-02
 
+# mixes?
+
+en:Garlic salt
+ca:sal d'all
+de:Knoblauchsalz
+es:sal de ajo
+fr:Sel à l'ail, sel d'ail
+
+en:Celery salt
+ca:sal d'api
+es:sal de apio
+fr:Sel de céleri, sel au céleri
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                             M E A T     S E C T I O N
@@ -14744,12 +14753,6 @@ zh:肉
 vegan:en:no
 vegetarian:en:no
 
-en:casing
-de:Hülle
-es:Cubierto, caja
-fi:kotelo
-fr:enveloppe
-it:involucro
 
 # <en:compound
 en:meat preparation
@@ -16738,38 +16741,122 @@ vegan:en:no
 vegetarian:en:no
 
 # <en:bone
+<en:veal
 fr:os de veau
 
 
-
+<en:veal
 fr:fond de veau
 
+en:casing
+de:Hülle
+es:Cubierto, caja
+fi:kotelo
+fr:enveloppe
+it:involucro
+
+# description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
+
+# <en:animal part
+en:collagen
+an:Colachén
+ar:كولاجين
+bg:Колаген
+ca:collagen
+cs:kolagen
+da:Kollagen
+de:Kollagen
+el:κολλαγόνο
+eo:kolageno
+es:colágeno
+eu:Kolageno
+fa:کلاژن
+fi:Kollageeni
+fr:collagène
+ga:Collaiginí
+gl:Coláxeno
+he:קולגן
+hi:कोलेजन
+hr:Kolagen
+hu:Kollagén
+hy:Կոլագեն
+id:Kolagen
+it:collagene
+ja:コラーゲン
+kk:Коллаген
+kn:ಕಾಲಜನ್
+ko:콜라겐
+la:Collagenum
+lt:Kolagenas
+lv:Kolagēns
+mk:Колаген
+ml:കൊളാജൻ
+mn:Коллаген
+ms:Kolagen
+nb:Kollagen
+nl:collageen
+nn:kollagen
+pl:Kolagen
+pt:colágeno
+ro:Colagen
+ru:Коллаген
+sh:Kolagen
+sk:kolagén
+sl:Kolagen
+sr:колаген
+sv:Kollagen
+th:คอลลาเจน
+tr:Kollajen
+uk:Колаген
+vi:Collagen
+zh:膠原蛋白
+# sco:collagen
+# sr-ec:колаген
+# sr-el:kolagen
+# yue:膠原蛋白
+wikipedia:en:https://en.wikipedia.org/wiki/Collagen
+# ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
+vegan:en:no
+vegetarian:en:no
+
+<en:collagen
+en:hydrolyzed collagen
+ar:كولاجين متحلل
+de:kollagen-hydrolysat
+es:colágeno hidrolizado
+vi:collagen peptide
+sv:kollagenpeptider
+wikidata:en:Q1779264
+# ingredient/en:hydrolyzed-collagen has 106 products in 3 languages @2020-06-13
+
 <en:casing
+<en:collagen
 fr:boyau naturel
 fi:luonnonsuoli
 ro:Membrana naturala comestibila
 sv:naturtarm
 # ingredient/fr:boyau-naturel has 176 products in 2 languages @2019-02-12
 
-<en:casing
+<en:collagen
 fr:boyau collagénique
 nl:collageendarm
 # ingredient/fr:boyau-collagénique has 41 products @2019-02-12
 # boyau collagénique (collagène, glycérine, cellulose)
 
-<en:casing
+<en:collagen
 <en:beef
 en:beef casing
 de:Rinderdarm
 fr:boyau de bœuf, boyau de boeuf, collagène de boeuf
 hu:marhabél
 it:budello di manzo
+nl:rundercollageen
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
 # enveloppe:boyau de boeuf
 
-<en:casing
+<en:collagen
 <en:pork
-en:pork casing, pork gut
+en:pork collagen, pork casing, pork gut
 de:Schweinedarm
 es:Tripa de cerdo
 fi:siansuoli, porsaansuoli, porsaan suolessa
@@ -16778,7 +16865,7 @@ hu:sertésbél, disznóbél
 it:budello di maiale
 # ingredient/fr:boyau-de-porc has 1085 products in 5 languages @2019-02-12
 
-<en:pork casing
+<en:pork collagen
 fr:boyau naturel de porc
 
 
@@ -17109,7 +17196,7 @@ fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de 
 hu:tápiókakeményítő
 it:amido di tapioca
 nb:tapiokastivelse, tapioka
-nl:tapioca zetmeel
+nl:tapiocazetmeel, tapioca zetmeel
 pl:Tapioka
 sv:tapiokastärkelse, tapioka
 wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
@@ -17164,8 +17251,9 @@ it:amido modificato de fromento
 nl:gemodificeerd tarwezetmeel
 sv:modifierad vetestärkelse
 
-
+<en:syrup
 en:tapioca syrup
+de:Tapiokasirup
 es:sirope de tapioca
 fr:sirop de tapioca
 nl:tapiocastroop
@@ -18586,7 +18674,7 @@ fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva
-nl:olijfolie extra vierge, extra olijfolie van de eerste persing
+nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 
 <en:en:extra virgin olive oil
@@ -22870,7 +22958,7 @@ fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fum
 hu:füst aroma, füst ízesétés, füst íz
 it:aroma di affumicato, aroma di affumicatura
 nb:røykaroma
-nl:rookaroma
+nl:rookaroma, rookaroma's
 pl:Aromat dymu wędzarniczego
 pt:aroma de fumo
 sv:rökarom
@@ -24930,7 +25018,7 @@ fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extra
 hu:árpamaláta kivonat
 it:estratto di malto d'orzo
 nb:byggmaltekstrakt
-nl:Gerstemoutextract
+nl:Gerstemoutextract, gerstmoutextract
 pl:Ekstrakt słodu jęczmiennego
 pt:extrato de malte de cevada
 ro:extract din malț de orz, extract din malt de orz, extract de malț de orz, extract de malt de orz
@@ -29716,6 +29804,10 @@ vegetarian:en:yes
 en:corn syrup solids
 fr:solides de sirop de maïs
 
+<en:corn syrup
+en:malted corn syrup
+nl:maismoutstroop
+
 fr:sirop d'amidon
 
 <fr:sirop d'amidon
@@ -30294,7 +30386,7 @@ fi:herneproteiini
 fr:protéines de pois, protéine de pois
 hu:borsófehérje
 it:proteine di piselli
-nl:boneneiwit
+nl:boneneiwit, erwteiwit
 pl:Białko grochu
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
@@ -30402,7 +30494,7 @@ es:Proteina de soya rehidratada
 fi:uudelleen hydratoitu soijaproteiini
 fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
 hu:rehidratált szójafehérje
-nl:gerehydrateerde soja-eiwit
+nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
 
 <en:soy protein
@@ -31869,10 +31961,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Eau en bouteille PET, plate, 0.5 L
 carbon_footprint_fr_foodges_value:fr:0.4
 
 <en:water
+fr:eau potable
+
+<en:water
 en:distilled water
 es:agua desmineralizada
 
-<en:Water
+<en:water
 en:water like ice wrap
 de:Wasser als Schutzglasur
 fr:eau comme glaçure d'enrobage
@@ -31880,7 +31975,7 @@ it:acqua come involucro di ghiaccio
 
 # BREWING WATER - Brauwasser ist speziell für das Brauen von Bier aufbereitetes Wasser
 
-<en:Water
+<en:water
 en:Brewing water
 de:Brauwasser
 fr:Eau de brassage
@@ -31915,15 +32010,15 @@ nl:bergbronwater
 # ingredient/fr:eau-de-source-de-montagne has 13 products in french @2019-05-23
 
 <en:spring water
-fr:Eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
+fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
 
-<fr:Eau de source gazéifiée
-fr:Eau de source St Benoît gazéifiée
+<fr:eau de source gazéifiée
+fr:eau de source St Benoît gazéifiée
 
 # description:en:MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds.
 
-<en:Water
-en:Mineral water
+<en:water
+en:mineral water
 af:Mineraalwater
 ar:مياه معدنية
 az:Mineral su
@@ -35122,7 +35217,7 @@ mr:जर्दाळू
 ms:aprikot
 mt:berquqa
 nb:aprikos
-nl:abrikoos
+nl:abrikoos, abrikozen
 nn:aprikos
 nv:dzidzétsoh díkʼǫ́ǫzhii
 oc:Albricòt
@@ -39712,6 +39807,13 @@ sv:lingon
 en:lingonberry juice
 fi:puolukkamehu, puolukkatäysmehu
 sv:lingonjuice
+
+<en:fruit
+en:Lukuma
+
+<en:Lukuma
+en:Lukuma powder
+fr:lucuma en poudre
 
 ###################################################################################################
 #
@@ -53912,6 +54014,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Clove
 #                                Fenugreek
 #
 ###################################################################################################
+
 <en:spice
 en:fenugreek
 da:Bukkehorn
@@ -53921,6 +54024,7 @@ fi:sarviapila
 fr:fenugrec
 it:fieno greco
 nb:bukkehornkløver, bukkehornskløver
+nl:fenergriek
 sv:bockhornsklöver
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
 
@@ -60103,8 +60207,9 @@ wikidata:en:Q26736348
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-# A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
+description:en:A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
 # There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
+#comment:nl:In dutch champignon refers to AGARICUS BISPORUS.
 
 en:mushroom
 an:Potrecón
@@ -60262,7 +60367,7 @@ fr:poudre de champignon
 nl:champignonpoeder
 sv:champinjonpulver
 
-# CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
+#description:en:CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
 
 <en:mushroom
 en:golden chanterelle
@@ -60488,7 +60593,7 @@ lv:Dārza atmatene
 mn:Цагаан мөөг
 ms:Cendawan butang
 nb:Sjampinjong
-nl:Parijse champignons, champignons
+nl:Parijse champignons, champignons, champignon
 pl:pieczarki, Pieczarka dwuzarodnikowa
 pt:cogumelos-de-Paris, Champignon
 qu:Champiñun
@@ -60572,8 +60677,7 @@ en:Tremella fuciformis
 la:Tremella fuciformis
 
 
-
-# LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
+# description:en:LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
 
 <en:mushroom
 en:milkcap
@@ -60611,7 +60715,7 @@ wikidata:en:Q748899
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius
 # ingredient/fr:lactaires has 53 products in french @2019-0121
 
-# LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales.
+# description:en:LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales.
 
 <en:milkcap
 en:saffron milk cap
@@ -60666,7 +60770,7 @@ fr:Lactarius deliciosus, Lactaire délicieux
 la:lactarius deliciosus
 # ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
 
-# LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
+# description:en:LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
 
 <en:milkcap
 en:bloody milk cap
@@ -60690,7 +60794,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_sanguifluus
 
 
 
-# Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota).
+# description:en:Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota).
 
 <en:mushroom
 en:morels
@@ -60767,7 +60871,7 @@ zh:羊肚菌
 wikidata:en:Q1327882
 wikipedia:en:https://en.wikipedia.org/wiki/Morchella_conica
 
-# Morchella esculenta, (commonly known as common morel, morel, yellow morel, true morel, morel mushroom, and sponge morel) is a species of fungus in the Morchellaceae family of the Ascomycota.
+# description:en:Morchella esculenta, (commonly known as common morel, morel, yellow morel, true morel, morel mushroom, and sponge morel) is a species of fungus in the Morchellaceae family of the Ascomycota.
 
 <en:morels
 en:common morel
@@ -60805,7 +60909,7 @@ la:Morchella esculenta
 wikipedia:en:https://en.wikipedia.org/wiki/Morchella_esculenta
 
 
-# PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
+# description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
 
 <en:mushroom
 en:pholiota
@@ -60832,7 +60936,7 @@ en:portobello
 es:portobello
 la:agaricus brunnescens
 
-# Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
+# description:en:Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
 
 <en:pholiota
 en:nameko
@@ -60857,7 +60961,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pholiota_microspora
 # ingredient/fr:Pholiota-nameko has 5 products @2019-01-22
 
 
-# KUEHNEROMYCES MUTABILIS (synonym:Pholiota mutabilis), commonly known as the sheathed woodtuft, is an edible mushroom that grows in clumps on tree stumps or other dead wood.
+# description:en:KUEHNEROMYCES MUTABILIS (synonym:Pholiota mutabilis), commonly known as the sheathed woodtuft, is an edible mushroom that grows in clumps on tree stumps or other dead wood.
 
 <en:pholiota
 en:sheathed woodtuft
@@ -60888,7 +60992,7 @@ wikidata:en:Q732640
 wikipedia:en:https://en.wikipedia.org/wiki/Kuehneromyces_mutabilis
 
 
-# SUILLUS LUTEUS is a bolete fungus, and the type species of the genus Suillus.
+# description:en:SUILLUS LUTEUS is a bolete fungus, and the type species of the genus Suillus.
 
 <en:mushroom
 en:slippery jack, sticky bun, Suillus luteus
@@ -60929,7 +61033,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Suillus_luteus
 # fr:bolets-jaunes has 72 products @2018-11-01
 
 
-# Volvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines.
+# description:en:Volvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines.
 
 <en:mushroom
 en:straw mushroom
@@ -60964,7 +61068,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Volvariella_volvacea
 # https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
 
 
-# SUILLUS GRANULATUS is a pored mushroom of the genus Suillus in the family Suillaceae.
+# description:en:SUILLUS GRANULATUS is a pored mushroom of the genus Suillus in the family Suillaceae.
 
 <en:mushroom
 en:weeping bolete, Suillus granulatus
@@ -60995,7 +61099,7 @@ wikidata:en:Q1142857
 # fr:Suillus granulatus has 4 products in 1 language @2018-11-01
 
 
-# The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
+# description:en:The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
 
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes,shiitake mushrooms
@@ -61023,7 +61127,7 @@ sv:rekonstituerad svart champinjon
 # fr:champignon-noir-réhydraté has 121 products in 3 languages @2018-11-01
 
 
-# PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
+# description:en:PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
 
 <en:mushroom
 en:oyster mushroom, straw mushroom
@@ -61104,7 +61208,7 @@ la:Pleurotus ostreatus
 wikipedia:en:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
 
 
-# MARASMIUS OREADES, the Scotch bonnet, is also known as the fairy ring mushroom or fairy ring champignon.
+# description:en:MARASMIUS OREADES, the Scotch bonnet, is also known as the fairy ring mushroom or fairy ring champignon.
 
 <en:Mushroom
 en:Scotch bonnet
@@ -61147,7 +61251,7 @@ fr:Marasmius oreades, Marasme des Oréades, Faux mousseron, Cariolette
 la:Marasmius oreades
 
 
-# AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
+# description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
 
 <en:mushroom
 en:wood ear, Jew's ear, black fungus, Auricularia auricula-judea, Auricularia Auricula Judea
@@ -61330,7 +61434,7 @@ en:rhizopus
 es:rhizopus
 wikipedia:en:https://en.wikipedia.org/wiki/Rhizopus
 
-# Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
+# description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
 # <en:fungus
 en:Penicillium
@@ -69947,6 +70051,7 @@ fr:Escalopes de poulet
 # 6@2019-06-07
 
 <en:chicken
+<en:animal protein
 en:chicken protein
 es:proteina de pollo
 
@@ -70803,9 +70908,13 @@ pt:clara de ovo em pó
 sv:äggvitepulver, äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
 
+<en:egg white
+nl:scharrelei-eiwit
+
 <en:chicken egg white
 nl:scharrelkipeiwit
 
+<en:powdered egg white
 nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:powdered egg white
@@ -71639,80 +71748,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bone
 # usage:fr:bouillon (eau, os, viande de porc, oignon, poivre, ail, muscade, thym, laurier, clou de girofle)
 vegan:en:no
 vegetarian:en:no
-
-# description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
-
-# <en:animal part
-en:collagen
-an:Colachén
-ar:كولاجين
-bg:Колаген
-ca:collagen
-cs:kolagen
-da:Kollagen
-de:Kollagen
-el:κολλαγόνο
-eo:kolageno
-es:colágeno
-eu:Kolageno
-fa:کلاژن
-fi:Kollageeni
-fr:collagène
-ga:Collaiginí
-gl:Coláxeno
-he:קולגן
-hi:कोलेजन
-hr:Kolagen
-hu:Kollagén
-hy:Կոլագեն
-id:Kolagen
-it:collagene
-ja:コラーゲン
-kk:Коллаген
-kn:ಕಾಲಜನ್
-ko:콜라겐
-la:Collagenum
-lt:Kolagenas
-lv:Kolagēns
-mk:Колаген
-ml:കൊളാജൻ
-mn:Коллаген
-ms:Kolagen
-nb:Kollagen
-nl:collageen
-nn:kollagen
-pl:Kolagen
-pt:colágeno
-ro:Colagen
-ru:Коллаген
-sh:Kolagen
-sk:kolagén
-sl:Kolagen
-sr:колаген
-sv:Kollagen
-th:คอลลาเจน
-tr:Kollajen
-uk:Колаген
-vi:Collagen
-zh:膠原蛋白
-# sco:collagen
-# sr-ec:колаген
-# sr-el:kolagen
-# yue:膠原蛋白
-wikipedia:en:https://en.wikipedia.org/wiki/Collagen
-# ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
-vegan:en:no
-vegetarian:en:no
-
-<en:collagen
-en:hydrolyzed collagen
-ar:كولاجين متحلل
-de:kollagen-hydrolysat
-es:colágeno hidrolizado
-vi:collagen peptide
-sv:kollagenpeptider
-wikidata:en:Q1779264
-# ingredient/en:hydrolyzed-collagen has 106 products in 3 languages @2020-06-13
 
 # description:en:NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
 # comment:en:The wikidata item does not match the words on packages.
