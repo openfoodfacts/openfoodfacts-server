@@ -2613,7 +2613,7 @@ fi:hedelmäpektiini, hedelmäpektiinit
 fr:pectine de fruit, pectines de fruits
 hu:gyümölcspektin
 it:pectina di frutta
-nl:vruchtenpectine
+nl:vruchtenpectine, fruitpectine
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
 <en:fruit pectin
@@ -10954,6 +10954,7 @@ fi:kova juusto
 fr:fromage à pâte dure
 hu:keménysajt
 it:formaggio a pasta dura
+nl:harde kaas
 pt:queijo de pasta dura, queijo duro
 sv:Hårdost
 # fr:fromage-à-pâte-dure has 133 products in 5 languages @2018-10-28
@@ -17184,11 +17185,6 @@ fr:amidon de pois
 de:Erbsenstärke
 nl:erwtenzetmeel
 
-# Wikipedia: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
-
-<en:starch
-en:arrowroot, arrowroot power, arrowroot starch, arrowroot flour
-
 # description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 
 <en:starch
@@ -22798,7 +22794,7 @@ fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanill
 hu:természetes vanília aroma
 it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
-nl:natuurlijk vanillearoma, natuurlijk vanille aroma
+nl:natuurlijk vanillearoma, natuurlijk vanille aroma, natuurlijke vanille aroma
 pl:naturalny aromat wanilii, naturalny aromat waniliowy
 pt:aroma de baunilha natural, aromatizante de baunilha natural
 sv:naturlig vaniljarom, naturlig vanilijarom
@@ -26580,7 +26576,7 @@ fr:farine de seigle
 hu:rozsliszt
 it:farina di segala
 nb:rugmel
-nl:roggebloem
+nl:roggemeel, roggebloem, rogge-bloem
 pl:mąka żytnia
 pt:farinha de centeio
 ro:făină de secară, faina de secara
@@ -29242,15 +29238,12 @@ fr:pâte à tarte
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
-
-
-fr:mélasse de sucre de canne
-fi:ruokosokerimelassi
+<en:molasses
+en:cane sugar molasses
+fr:mélasse de sucre de canne, mélasse de canne
+fi:ruokosokerimelassi, ruokomelassi
+nl:rietsuikermelasse
 sv:rörsockermelass
-
-<en:sugar
-fr:mélasse de canne
-fi:ruokomelassi
 
 
 # description:en: TREHALOSE is a sugar consisting of two molecules of glucose. It is also known as mycose or tremalose. Trehalose has about 45% the sweetness of sucrose at concentrations above 22%, but when the concentration is reduced, its sweetness decreases more quickly than that of sucrose, so that a 2.3% solution tastes 6.5 times less sweet as the equivalent sugar solution. It is commonly used in prepared frozen foods, like ice cream, because it lowers the freezing point of foods.
@@ -29308,6 +29301,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trehalose
 # ingredient/fr:tréhalose has 66 products in 4 languages @2019-04-02
 # usage:en:trehalose (source of glucose)
 
+#en:description:Melado is a mixture of sugar and molasses; crude sugar as it comes from the pans without being drained.
+<en:sugar
+<en:molasses
+en:melado
+nl:melado
 
 # SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
 # Warning:the wikipedia translations mixes syrup and glucose syrup
@@ -29747,12 +29745,12 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-sy
 
 <en:wheat
 <en:fructose syrup
-<en:fructose syrup
 <en:glucose syrup
-ru:глюкозно-фруктозный сироп
+en:wheat glucose-fructose syrup
 de:Glukose-und Fruktosesirup (Weizen)
 fr:sirop de glucose-fructose de blé
 nl:glucose-fructosestroop van tarwe
+ru:глюкозно-фруктозный сироп
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
 sv:glukos-fruktossirap
@@ -30467,6 +30465,7 @@ en:potato protein
 de:kartoffelprotein
 fi:perunaproteiini
 fr:protéine de pomme de terre, protéines de pomme de terre
+nl:aardappeleiwit
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
@@ -39974,20 +39973,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 <en:lychee
 es:Lichis deshuesados
 
-<en:fruit
-en:Rambutan
-fr:Ramboutan, Litchi chevelu
-
-<en:fruit
-en:longan
-fr:longane, longani, oeil du dragon
-
-
 ###################################################################################################
 #
 #                                Melon
 #
 ###################################################################################################
+
 
 # MELON is any of various plants of the family Cucurbitaceae with sweet edible, fleshy fruit.
 
@@ -40636,7 +40627,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 <en:fruit
 en:persimmon,sharon fruit
 es:caqui
-fr:kaki
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
 <en:persimmon
@@ -43350,18 +43340,14 @@ fi:sikuri
 fr:Chicorée
 it:Cicoria
 
-<en:chicory
-en:chicory root
-fr:racine de chicorée
-
 <en:vegetable fiber
 <en:chicory
-en:chicory fibre, chicory root fiber
+en:chicory fibre
 da:cikoriefibre
 de:Zichorienfäser
 es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
-fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+fr:fibre de chicorée, fibres de chicorée
 nl:chicoreivezel
 sv:fiber från cikoriarot
 # ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
@@ -46608,33 +46594,6 @@ carbon_footprint_fr_foodges_value:fr:8.4
 # fr:Radis de saison
 # ingredient/fr:Radis-de-saison has no products @2019-05-16
 
-<en:radish
-en:daikon, white radish, winter radish, Oriental radish, long white radish
-ca:rave blanc
-de:Winterrettich
-fr:radis blanc, radis d'hiver, radis chinois, daikon
-ja:ダイコン
-nl:witte rammenas
-
-<en:radish
-en:black radish
-de:Schwarzer Winter-Rettich
-fr:radis noir, radis d'Espagne
-nl:Rammenas
-
-<en:root vegetable
-en:lotus root
-fr:racine de lotus
-
-<en:vegetable
-en:okra
-de:Okra, Gemüse-Eibisch
-es:quimbombó, quingombó, gombo, molondrón, ocra, okra, bamia, candia, abelmosco,ñajú
-fr:gombo
-it:gombo, ocra, okra
-nl:okra
-pt:Quiabo
-
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
@@ -47513,9 +47472,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:root vegetable
-en:manioc, cassava, yuka, manioc root
+en:manioc
 de:Maniok
-fr:manioc, racine de manioc
+fr:manioc
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:root vegetable
@@ -56247,7 +56206,7 @@ mk:Мајоран
 ms:Marjoram
 mt:merqtux
 nb:merian
-nl:marjolein
+nl:marjolein, marjoraan
 nn:merian
 oc:Majorana
 pa:ਮਰੂਆ
@@ -70782,7 +70741,7 @@ es:huevos de granero
 fi:lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
 fr:œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs d'élevage au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, sol
 it:uova di allevamento al suolo
-nl:scharreleieren, scharrelei
+nl:scharreleieren, scharrelei, scharrel-ei
 # ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
 # ingredient/fr:œufs-de-poules-élevées-au-sol has 111 products in 4 languages @2018-12-18
 
@@ -71682,7 +71641,7 @@ es:fibra de guisante
 fi:hernekuitu
 fr:fibre de pois, fibres de pois
 it:fibra di pisello
-nl:erwtenvezel
+nl:erwtenvezel, erwtvezel
 ro:fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
