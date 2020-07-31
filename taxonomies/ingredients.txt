@@ -14396,8 +14396,9 @@ es:sal no refinada
 fi:Karkea suola
 fr:sel non raffiné
 
+#en:comment:salt based on Kalium and not Natrium
 <en:salt
-nl:mineraalzout
+nl:mineraalzout, dieetzout
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
 
@@ -23653,7 +23654,7 @@ ga:céréeale, céréales
 he:דגן
 hu:gabona, gabonafélék
 it:cereali
-nl:granen
+nl:granen, gemaakt van granen
 pl:płatki zbożewe
 pt:cereais
 ru:Зерновые культуры
@@ -23997,12 +23998,12 @@ pl:płatki pszenne
 sv:veteflingor
 
 <en:wheat flakes
-de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
 fr:flocons de blé malté
 
 <en:wheat flakes
-de:Weizenvollkornflocken
+de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
 fr:flocons de blé complet
+nl:volkoren tarwevlokken
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-blé-complet/languages
 
 <en:wheat
@@ -25883,7 +25884,7 @@ es:malta molida de centeno
 #
 ##################################################################################
 
-# SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
+#descrption:en:SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
 
 <en:cereal
 en:spelt
@@ -25951,6 +25952,10 @@ wikidata:en:Q158767
 # 278 products in 6 languages @2018-09-22
 
 <en:spelt
+en:whole spelt
+nl:volkoren spelt
+
+<en:spelt
 en:sprouted spelt
 
 <en:spelt
@@ -25976,7 +25981,7 @@ it:fiocchi di quinoa
 fr:Petit épeautre
 # ingredient/fr:petit-epeautre has 37 products @2019-06-03
 
-<en:spelt
+<en:whole spelt
 en:whole grain spelt flakes
 de:Dinkelvollkornflocken, Dinkelvollkornschrot
 fi:täysjyväspelttivehnähiutale
@@ -27464,8 +27469,12 @@ en:rice flakes
 es:copos de arroz
 
 <en:rice
-en:rice proteins
+en:rice protein, rice proteins
 es:proteinas de arroz
+
+<en:rice protein
+en:whole rice protein
+de:Vollkornreisprotein
 
 # comment:en:organic is an independent aspect of all rices
 <en:rice
@@ -29691,7 +29700,7 @@ fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
 hu:glükóz-fruktózszörp, glükóz-fruktózszőrp
 it:sciroppo di glucosio-fruttosio
-nl:glucose-fructosestroop
+nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
 pt:xarope de glucose-frutose, xarope de glucose e frutose
@@ -29951,6 +29960,9 @@ vegetarian:en:yes
 <en:rice syrup
 de:Reisdrinkpulver
 
+<en:rice syrup
+de:brauner Reissirup
+
 <en:sugar
 en:caramelised sugar syrup
 de:Karamell-Zuckersirup
@@ -29979,7 +29991,7 @@ nb:mørk sirup
 sv:mörk sirap
 # ingredient/en:brown-sugar-syrup has 386 products in 3 languages @2020-06-08
 
-# Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
+# description:en:Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
 
 # nova:en:dextrose
 <en:glucose
@@ -35010,6 +35022,7 @@ es:Zumo a partir de concentrado, zumo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
+nl:sap uit vruchtensapconcentraat
 # ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
 # concentrated juice:lemon and orange
 
@@ -44221,9 +44234,13 @@ sv:akaciafiber
 # ingredient/fr:fibre-d’acacia has 131 products @2019-03-03
 
 
-# Galacto-oligosaccharides (GOS), also known as oligogalactosyllactose, oligogalactose, oligolactose or transgalactooligosaccharides (TOS), belong to the group of prebiotics.
+en:prebiotics
+de:Präbiotikum
+
+# description:en:Galacto-oligosaccharides (GOS), also known as oligogalactosyllactose, oligogalactose, oligolactose or transgalactooligosaccharides (TOS), belong to the group of prebiotics.
 
 # <en:fibre
+<en:prebiotics
 en:galacto-oligosaccharides
 de:Galacto-oligosaccharides
 es:Galactoligosacáridos
@@ -51514,10 +51531,13 @@ sv:honungsrostade jordnötter
 # usage:en:honey roasted peanuts (peanuts, honey, sugar, corn starch, cottonseed oil and salt)
 # mainIngredient:en:peanuts
 
+#en:compound
+#en:category:en:Peanut butters
 <en:peanut
 en:peanut butter
 es:crema de cacahuete
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
+nl:pindakaas
 vegan:en:yes
 vegetarian:en:yes
 from_palm_oil:en:no
@@ -71072,7 +71092,7 @@ en:free range egg yolk
 de:Eigelb aus Freilandhaltung
 fi:ulkomunankeltuainen
 fr:Jaune d’œuf de poules élevées en liberté
-nl:scharreleigeel
+nl:scharreleigeel, vrije-uitloopeigeel
 
 <en:egg yolk
 en:chicken egg yolk
@@ -71484,6 +71504,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 
 <en:fiber
 fr:fibres solubles
+nl:oplosbare vezels
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
@@ -71544,6 +71565,9 @@ zh:菊粉
 # zh-tw:菊粉
 wikidata:en:Q201552
 wikipedia:en:https://en.wikipedia.org/wiki/Inulin
+
+<en:inulin
+de:Inulin aus Topinambur
 
 <en:fiber
 en:vegetable fiber, vegetable fibers, plant fiber
@@ -74914,9 +74938,10 @@ fi:suklaajäätelö
 fr:glace au chocolat
 nl:chocoladeijs
 
+
 ###################################################################################################
 #
-#                                Sauce
+#                                SAUCES
 #			These are compound sauces. 
 #			Sauces comprising of individual ingredients are in their corresponding ingredient
 #
