@@ -3185,7 +3185,7 @@ sub preparse_ingredients_text($$) {
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
@@ -3507,7 +3507,11 @@ sub preparse_ingredients_text($$) {
 			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
 
 			# Huiles végétales de palme, de colza et de tournesol
+			# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire.
+			# TODO 18/07/2020 remove when we have a better solution
+			$text =~ s/fer élémentaire/fer_élémentaire/g;
 			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
+			$text =~ s/fer_élémentaire/fer élémentaire/g;			
 		}
 
 		# Caramel ordinaire et curcumine
