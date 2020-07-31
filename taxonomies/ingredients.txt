@@ -1643,7 +1643,7 @@ he:לציטין סויה
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia
-nl:sojalecithine, soja lecithine
+nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
 pl:lecytyna sojowa
 pt:lecitina de soja
@@ -18321,6 +18321,7 @@ es:aceite de palma totalmente hidrogenado
 fi:kokonaan kovetettu palmuöljy, kokonaan hydrogenoitu palmuöljy
 fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
+nl:geheel geharde palm
 
 <en:hydrogenated palm oil
 en:partially hydrogenated palm oil
@@ -24189,7 +24190,7 @@ de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro
 fi:durumvehnäsuurimo
-fr:semoule de blé dur
+fr:semoule de blé dur, semoule de blé dure
 hr:krupica durum pšenice
 hu:durumbúzadara, durum búzadara
 it:semola di grano duro
@@ -25381,7 +25382,7 @@ ko:납작귀리
 lt:avižiniai dribsniai
 ms:Emping oat
 nb:havreflak, havregryn
-nl:havermoutvlokken, havermout, havervlokken
+nl:havermoutvlokken, havermout, havervlokken, havervlok
 pl:płatki owsiane
 pt:flocos de aveia
 ro:Haferflocken
@@ -26483,7 +26484,7 @@ fi:spelttijauho
 fr:farine d'épeautre, farine de blé d'épeautre
 hu:tönkölyliszt
 it:farina di spelta
-nl:speltmeel
+nl:speltmeel, speltbloem
 
 <en:spelt flour
 fr:Farine de blé d'épeautre T110
@@ -27090,6 +27091,34 @@ fr:Maïs biologique
 hu:bio kukorica
 nl:biologische mais
 # ingredient/nl:biologische-mais has 1 product @2019-05-24
+
+<en:corn
+en:white corn
+da:hvid majs
+de:Weisser Mais
+es:maíz amarillo
+fi:valkoinen maissi
+fr:maïs blanc, mais blanc
+it:mais crudo
+nl:witte maïs
+no:hvit mais
+pt:milho amarelo
+tr:beyaz misir
+sv:gul majs
+
+<en:corn
+en:yellow corn
+da:gul majs
+de:Gelber Mais
+es:maíz blanco
+fi:keltainen maissi
+fr:maïs jaune, mais jaune
+it:mais giallo
+nl:gele maïs
+no:gul mais
+pt:milho branco
+sv:vit majs
+tr:sari misir
 
 <en:corn
 en:corn kernel,corn kernels
@@ -29970,7 +29999,7 @@ es:jarabe de azúcar caramelizado
 fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
 fr:sirop de sucre caramélisé, sirop de sucre caramel
 hu:karamellizált rizsszirup
-nl:gekarameliseerde suikerstroop, gebrande suikerstroop
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
 sv:karamelliserat sockersirap
 
 <en:syrup
@@ -30543,6 +30572,7 @@ sv:veteprotein
 en:rehydrated wheat protein
 fi:vedellä turvotettu vehnäproteiini
 fr:protéines de blé réhydratees, protéine de blé réhydratees
+nl:gerehydrateerd tarwe-eiwit
 sv:rehydrerat veteprotein
 # ingredient/fr:proteines-de-ble-rehydratees has 3 products in 1 language @2020-06-08
 
@@ -30604,6 +30634,7 @@ es:proteina de cerdo
 fi:sianlihaproteiini
 fr:Protéines de porc
 hu:sertésfehérje, sertéshúsfehérje, sertés fehérje
+nl:varkenseiwit
 ro:proteină de porc, proteina de porc
 sv:animaliskt protein av gris
 vegetarian:en:no
@@ -48015,7 +48046,7 @@ fi:punainen chili
 fr:piment rouge, piments rouges
 it:peperoncini rossi
 nb:rød chili
-nl:rode peper
+nl:rode peper, rode chilipeper
 sv:röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
@@ -50245,8 +50276,8 @@ sv:kokta kikärter
 # garbanzos cocidos (agua, garbanzos)
 
 <en:chickpea
-fr:pois chiches secs trempés
-nl:Geweekte droge kikkererwten
+fr:pois chiches secs trempés, pois chiches trempés dans l'eau
+nl:geweekte droge kikkererwten, gewelde kikkererwten
 # ingredient/fr:pois-chiches-secs-trempés has 51 products in 2 languages @2019-02-14
 
 <en:chickpea
@@ -55618,6 +55649,9 @@ nl:Gedehydrateerde peterselie
 en:parsley leaves
 es:hojas de perejil
 
+<en:parsley
+nl:peterseliewortel
+
 ###################################################################################################
 #
 #                                Basil
@@ -55954,6 +55988,7 @@ da:løvstikkerod
 de:liebstöckelwurzel
 fi:lipstikanjuuri
 fr:racine de livèche
+nl:lavaswortel
 sv:libbstickarot
 # ingredient/fr:racine-de-liveche has 40 products in 4 languages @2020-05-24
 
@@ -71295,7 +71330,7 @@ fr:extraits végétaux à pouvoir colorant
 
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
-# <en:part
+# <en:ingredients_processing:en:concentrated
 en:concentrate, concentrated, from concentrate
 ar:مركز
 da:Koncentrat, koncentrat, fra koncentrat
@@ -71307,7 +71342,7 @@ fr:concentré, concentrés, concentres
 he:תרכיז
 it:concentrato, da concentrato
 ko:농축물
-nl:concentraat
+nl:concentraat, concentraten
 pl:koncentrat
 pt:concentratos
 sn:Mutape
