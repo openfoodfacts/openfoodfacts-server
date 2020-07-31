@@ -267,7 +267,8 @@ sub normalize_code($) {
 sub split_code($) {
 
 	my $code = shift;
-	if ($code !~ /^\d{8,24}$/) {
+	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
+	if ($code !~ /^\d{4,24}$/) {
 
 		$log->info("invalid code", { code => $code }) if $log->is_info();
 		return "invalid";
@@ -801,7 +802,7 @@ sub change_product_server_or_code($$$) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code !~ /^\d{8,24}$/) {
+	if ($new_code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {

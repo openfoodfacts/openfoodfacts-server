@@ -12,9 +12,9 @@
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display*.js scripts/*.js",
-    "lint:css": "stylelint html/css/product-multilingual.css",
-    "lint:scss": "stylelint scss/app.scss",
+    "lint:js": "eslint gulpfile.js html/js/*.js scripts/*.js",
+    "lint:css": "stylelint html/css/*.css",
+    "lint:scss": "stylelint scss/*.scss",
     "perlc": "npm run perlc:startup && npm run perlc:cgi && npm run perlc:scripts",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:cgi": "node scripts/check_perl.js cgi/*.pl",
@@ -39,9 +39,9 @@
     "win32"
   ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "2.4.3",
+    "@webcomponents/webcomponentsjs": "2.4.4",
     "@yaireo/tagify": "^3.6.3",
-    "blueimp-file-upload": "^10.30.1",
+    "blueimp-file-upload": "^10.31.0",
     "cropper": "4.1.0",
     "foundation-sites": "5.5.3",
     "jquery-ui": "^1.12.1",
@@ -51,10 +51,10 @@
     "opencollective-postinstall": "^2.0.3",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.2.0",
-    "snyk": "^1.360.0"
+    "snyk": "^1.366.2"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",

@@ -17183,6 +17183,11 @@ fr:amidon de pois
 de:Erbsenstärke
 nl:erwtenzetmeel
 
+# Wikipedia: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
+
+<en:starch
+en:arrowroot, arrowroot power, arrowroot starch, arrowroot flour
+
 # description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 
 <en:starch
@@ -39925,12 +39930,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 <en:lychee
 es:Lichis deshuesados
 
+<en:fruit
+en:Rambutan
+fr:Ramboutan, Litchi chevelu
+
+<en:fruit
+en:longan
+fr:longane, longani, oeil du dragon
+
+
 ###################################################################################################
 #
 #                                Melon
 #
 ###################################################################################################
-
 
 # MELON is any of various plants of the family Cucurbitaceae with sweet edible, fleshy fruit.
 
@@ -40579,6 +40592,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 <en:fruit
 en:persimmon,sharon fruit
 es:caqui
+fr:kaki
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
 <en:persimmon
@@ -43292,14 +43306,18 @@ fi:sikuri
 fr:Chicorée
 it:Cicoria
 
+<en:chicory
+en:chicory root
+fr:racine de chicorée
+
 <en:vegetable fiber
 <en:chicory
-en:chicory fibre
+en:chicory fibre, chicory root fiber
 da:cikoriefibre
 de:Zichorienfäser
 es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
-fr:fibre de chicorée, fibres de chicorée
+fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
 nl:chicoreivezel
 sv:fiber från cikoriarot
 # ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
@@ -46542,6 +46560,33 @@ carbon_footprint_fr_foodges_value:fr:8.4
 # fr:Radis de saison
 # ingredient/fr:Radis-de-saison has no products @2019-05-16
 
+<en:radish
+en:daikon, white radish, winter radish, Oriental radish, long white radish
+ca:rave blanc
+de:Winterrettich
+fr:radis blanc, radis d'hiver, radis chinois, daikon
+ja:ダイコン
+nl:witte rammenas
+
+<en:radish
+en:black radish
+de:Schwarzer Winter-Rettich
+fr:radis noir, radis d'Espagne
+nl:Rammenas
+
+<en:root vegetable
+en:lotus root
+fr:racine de lotus
+
+<en:vegetable
+en:okra
+de:Okra, Gemüse-Eibisch
+es:quimbombó, quingombó, gombo, molondrón, ocra, okra, bamia, candia, abelmosco,ñajú
+fr:gombo
+it:gombo, ocra, okra
+nl:okra
+pt:Quiabo
+
 
 # description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
@@ -47420,9 +47465,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:root vegetable
-en:manioc
+en:manioc, cassava, yuka, manioc root
 de:Maniok
-fr:manioc
+fr:manioc, racine de manioc
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:root vegetable

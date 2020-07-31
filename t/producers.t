@@ -69,6 +69,19 @@ my @tests = (
 ["en", "carbohydrates in mg", { 'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_mg' }],
 ["fr", "énergie en kJ", {  'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj' }],
 
+["fr", "% Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit'}],
+["fr", "Glucides (%)", {'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fibres (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres 100g", { 'field' => 'fiber_100g_value_unit'}],
+["fr", "Fibres (en g) / 100g", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres / 100g (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+
+["es", "azucar", {'field' => 'sugars_100g_value_unit'}],
+["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
+["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
+
 );
 
 foreach my $test_ref (@tests) {

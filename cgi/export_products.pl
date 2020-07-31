@@ -61,11 +61,6 @@ if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
-if (not defined $exports_ref) {
-	$exports_ref = {};
-}
-
 if ($action eq "display") {
 
 	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
@@ -123,40 +118,13 @@ HTML
 }
 
 elsif (($action eq "process") and ($User{moderator})) {
-
-	my $started_t = time();
-	my $export_id = $started_t;
-
-	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
-
-	$exports_ref->{$export_id} = {
-		started_t => $started_t,
-		exported_file => $exported_file,
-	};
-
-	# Set the user to the owner userid or org
-
-	my $user_id = $User_id;
-	if ($Owner_id =~ /^(user)-/) {
-		$user_id = $';
-	}
-	elsif ($Owner_id =~ /^(org)-/) {
-		$user_id = $Owner_id;
-	}
-
-	# First export the data locally
-
+	
+	# First export CSV from the producers platform, then import on the public platform
+	
 	my $args_ref = {
-		user_id => $user_id,
-		org_id => $Org_id,
-		owner_id => $Owner_id,
-		csv_file => $exported_file,
-		export_id => $export_id,
 		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
-		comment => "Import from producers platform",
-		include_images_paths => 1,	# Export file paths to images
 	};
-
+	
 	# Add query filters
 
 	foreach my $param (multi_param()) {
@@ -170,85 +138,67 @@ elsif (($action eq "process") and ($User{moderator})) {
 	}
 	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
 		$args_ref->{only_select_not_existing_images} = 1;
-	}	
-
-	if (defined $Org_id) {
-
-		$args_ref->{source_id} = "org-" . $Org_id;
-		$args_ref->{source_name} = $Org_id;
-
-		# We currently do not have organization profiles to differentiate producers, apps, labels databases, other databases
-		# in the mean time, use a naming convention:  label-something, database-something and treat
-		# everything else as a producers
-		if ($Org_id =~ /^app-/) {
-			$args_ref->{manufacturer} = 0;
-			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
-		}
-		elsif ($Org_id =~ /^database-/) {
-			$args_ref->{manufacturer} = 0;
-			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
-		}	
-		elsif ($Org_id =~ /^label-/) {
-			$args_ref->{manufacturer} = 0;
-			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
-		}
-		else {
-			$args_ref->{manufacturer} = 1;
-			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
-		}		
-		
 	}
-	else {
-		$args_ref->{no_source} = 1;
-	}
+	
+	# Create Minion tasks for export and import
 
-	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
-		=> { queue => $server_options{minion_local_queue}});
+	my $results_ref = export_and_import_to_public_database($args_ref);
+	
+	my $local_export_job_id = $results_ref->{local_export_job_id};
+	my $remote_import_job_id = $results_ref->{remote_import_job_id};
+	my $export_id = $results_ref->{export_id};
+	
 
-	$args_ref->{export_job_id} = $local_export_job_id;
-
-	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
-		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
-
-	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
-	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
-
-	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
-
-	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
-
-	$html .= "<p>local export job_id: " . $local_export_job_id . "</p>";
-
-	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
-
-	$html .= "<p>remote import job_id: " . $remote_import_job_id . "</p>";
-
-	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
-
-	$html .= "Poll: <div id=\"poll\"></div> Result:<div id=\"result\"></div>";
+	$html .= "<p>Local export job_id: " . $local_export_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_job_id\">Status</a>"
+	. " - <span id=\"result1\"></span></p>";
+	
+	$html .= "<p>Remote import job_id: " . $remote_import_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$remote_import_job_id\">Status</a>"
+	. " - <span id=\"result2\"></span></p>";
 
 	$initjs .= <<JS
 
-var poll_n = 0;
-var timeout = 5000;
-var job_info_state;
+var poll_n1 = 0;
+var timeout1 = 5000;
+var job_info_state1;
 
-(function poll() {
+var poll_n2 = 0;
+var timeout2 = 5000;
+var job_info_state2;
+
+(function poll1() {
   \$.ajax({
-    url: '/cgi/export_job_status.pl?export_id=$export_id',
+    url: '/cgi/minion_job_status.pl?job_id=$local_export_job_id',
     success: function(data) {
-      \$('#result').html(data.job_info.state);
-	  job_info_state = data.job_info.state;
+      \$('#result1').html(data.job_info.state);
+	  job_info_state1 = data.job_info.state;
     },
     complete: function() {
       // Schedule the next request when the current one's complete
-	  if (job_info_state == "inactive") {
-		setTimeout(poll, timeout);
-		timeout += 1000;
+	  if ((job_info_state1 == "inactive") || (job_info_state1 == "active")) {
+		setTimeout(poll1, timeout1);
+		timeout1 += 1000;
 	}
-	  poll_n++;
-	  \$('#poll').html(poll_n);
+	  poll_n1++;
+    }
+  });
+})();
+
+(function poll2() {
+  \$.ajax({
+    url: '/cgi/minion_job_status.pl?job_id=$remote_import_job_id',
+    success: function(data) {
+      \$('#result2').html(data.job_info.state);
+	  job_info_state2 = data.job_info.state;
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+	  if ((job_info_state2 == "inactive") || (job_info_state2 == "active")) {
+		setTimeout(poll2, timeout2);
+		timeout2 += 1000;
+	}
+	  poll_n1++;
     }
   });
 })();
