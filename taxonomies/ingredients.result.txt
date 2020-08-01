@@ -231,6 +231,11 @@ de:Deutsche Markenbutter mildgesäuert
 
 de:Fruchtzubereitung
 
+de:Grissini
+fr:gressins
+nl:Broodstengels
+sv:Grissini
+
 < de:Hähnchenfilet
 fi:uunipaahdettu broilerinfilee
 
@@ -323,9 +328,9 @@ de:Acerolapulver auf Maniokstärke
 fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
 it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
 
-en:Acid, Acidifier, corrector of acidity
+en:Acid, Acidifier
 bg:Киселина
-ca:Acidulant, Àcid
+ca:Àcid, Acidulant
 cs:Kyselina
 da:Syre, Syrer, Almindelig Syre
 de:Säuerungsmittel, Sauerungsmittel
@@ -333,7 +338,7 @@ el:Μέσο οξίνισης
 es:Acidulante, acidulantes, acidificante, acido
 et:Hape
 fi:Happo, Happoa, Hapot, Happoja
-fr:Acidifiant, acide, acidulants
+fr:Acidifiant, acide alimentaire, acide, acidulants
 ga:Aigéad
 he:חומצה
 hu:Étkezési sav
@@ -369,9 +374,9 @@ description:pt: Acidificantes: substâncias que aumentam a acidez dos géneros a
 description:sk: Kyseliny sú látky, ktoré zvyšujú kyslosť potravín a/alebo im dodávajú kyslú chuť.
 description:sl: Kisline so snovi, ki povečajo kislost živila in/ali mu dajejo kisel okus.
 description:sv: Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger det en syrlig smak.
-wikidata:en: Q337038
+wikidata:en: Q898753
 
-en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent
+en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity
 bg:Регулатор на киселинност
 ca:Corrector de l'acidesa, correctors de l'acidesa, Corrector d'acidesa, regulador d'acidesa, correctiu de l acidesa
 cs:Regulátor kyselosti
@@ -991,12 +996,21 @@ hu:vermut
 
 < en:Alcohol
 en:whiskey, whiskeys
-da:whisky
+da:whiskey
 de:Whiskey
 es:Whiskey
 fi:viski
-fr:whisky, whiskys
-hu:whisky, whiskey-k
+fr:whiskey, whiskys
+hu:whiskey, whiskey-k
+
+< en:Alcohol
+en:whisky
+da:whisky
+de:Whisky
+es:Whisky
+fi:viski
+fr:whisky, scotch whiskey
+hu:whisky
 
 < en:Alcohol
 en:wine
@@ -4963,7 +4977,7 @@ de:Buttermilchpulver
 el:αποβουτυρωμενο γάλα σεβσκόνη
 es:suero de mantequilla en polvo, suero de mantequilla rehidratada
 fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
+fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
 hu:írópor
 it:latticello in polvere
 nl:karnemelkpoeder
@@ -5989,7 +6003,7 @@ it:involucro
 < en:Casing
 en:beef casing
 de:Rinderdarm
-fr:boyau de bœuf
+fr:boyau de bœuf, collagène de boeuf
 hu:marhabél
 it:budello di manzo
 
@@ -7821,12 +7835,12 @@ en:mixed cheese
 es:mezcla de quesos
 
 < en:Cheese
-en:monterey jack, monterey jack cheese
-de:monterey jack
-es:monterey jack
+en:Monterey Jack, Monterey Jack Cheese
+de:Monterey Jack
+es:Monterey Jack
 fi:monterey jack
-fr:monterey jack
-it:monterey jack
+fr:Monterey jack
+it:Monterey Jack
 ja:モントレー・ジャック
 ko:몬터레이 잭
 nb:monterey jack
@@ -8980,6 +8994,10 @@ wikidata:en: Q504133
 wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 
 < en:Chili pepper
+en:peri-peri, piri-piri, pili-pili
+fr:pili-pili
+
+< en:Chili pepper
 en:pimiento, pimientos, pimento, pimentos
 ar:فلفل إسباني
 fi:pimento, pimento-chili
@@ -10025,80 +10043,6 @@ fi:klementiinimehu
 en:clotting agents
 es:agentes cuajantes, coagulante, coagulantes
 
-en:coagulating enzyme
-de:gerinnendes Enzym
-es:Enzima coagulante
-fi:hyydytysentsyymi
-fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
-hu:koaguláló enzim
-it:enzima coagulante
-nl:stremmingsenzymen, stollingsmiddel
-pl:Enzym koagulujący
-pt:coagulante
-sv:koagulerande enzym, mjölkkoagulerande enzym, mjölkkoagulerande ystenzym
-vegan:en: maybe
-vegetarian:en: maybe
-
-< en:Coagulating enzyme
-en:microbial coagulating enzyme, microbial enzyme
-de:vegetarisches Lab, mikrobieller Labaustauschstoff
-es:coagulante de leche microbiano, Encima coagulate microbiana
-fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
-it:enzima microbico, caglio microbico, enzima coagulante microbiotico
-nl:microbiële stremmingsenzymen, vegetarisch stremsel, microbieel stremsel, microbieel stremmiddel
-vegan:en: yes
-vegetarian:en: yes
-
-< en:Coagulating enzyme
-en:rennet
-an:Cuallo
-ar:منفحة
-bs:Sirište
-ca:quall
-co:Pirrulu
-cs:Syřidlo
-da:osteløbe, animalsk og mikrobiel løbe
-de:Lab, Labaustauschstoff, Kälberlab
-el:πυτια
-es:cuajo
-et:Laap
-eu:Gatzagi
-fi:juoksute, juoksete
-fr:présure
-ga:Binid
-gd:Binid
-gl:Callo
-gu:Reenet
-he:אנזים הגבנה
-hr:Sirište
-hu:Oltóenzim, oltóanyag
-id:Rennet
-it:caglio
-ja:レンネット
-ko:레닛
-la:Coagulum
-lt:Šliužo fermentas
-ms:Renet
-nb:løype, osteløype, løpe, osteløpe, animalsk og mikrobiell løpe
-nl:stremsel
-nn:løpe, løype
-pl:podpuszczka
-pt:coalho, quimosina
-ro:cheag
-ru:рассол
-sr:сириште
-sv:löpe, ostlöpe, ostenzym
-tr:lab
-zh:凝乳酶
-vegan:en: maybe
-vegetarian:en: maybe
-wikidata:en: Q326900
-wikipedia:en: https://en.wikipedia.org/wiki/Rennet
-
-< en:Coagulating enzyme
-en:sheep rennet
-es:cuajo ovino
-
 en:coagulum, coagulating agent, coagulant, agente coagulante, agentes coagulantes, coagulante
 ca:Agent coagulant, agents coagulants
 de:Koagulat
@@ -10405,7 +10349,7 @@ fr:fèves de cacao bio
 nl:bio cacaobonen
 
 < en:Cocoa bean chips
-es:pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
+es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
 it:granella caramellata di semi di cacao
 nl:gekaramelliseerde schilfers van cacaobonen
@@ -13078,7 +13022,7 @@ es:Suero de mantequilla, leche mazada
 et:Pett
 fa:آب‌دوغ
 fi:kirnupiimä, kirnumaito
-fr:babeurre, bas-beurre
+fr:babeurre, bas-beurre, lait battu
 fy:sûpe
 ga:Bláthach
 gd:Blàthach
@@ -36070,7 +36014,7 @@ it:esaltatore di cottura
 < en:Enhancer
 it:miglioranti per panificazione
 
-en:enzyme
+en:enzyme, coagulating enzyme
 af:ensiem
 an:enzima
 ar:ئەنزیم
@@ -36083,29 +36027,29 @@ ca:enzim
 cs:enzym
 cy:ensym
 da:enzym
-de:Enzym
+de:gerinnendes Enzym, Enzym
 el:Ένζυμο
 eo:enzimo
-es:enzima
+es:Enzima coagulante, enzima
 et:ensüüm
 eu:entzima
 fa:آنزیم
-fi:entsyymi
+fi:hyydytysentsyymi, entsyymi
 fo:kveiki
-fr:Enzyme
+fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique, Enzyme
 ga:einsím
 gl:enzima
 he:אנזים
 hi:प्रकिण्व
 hr:enzim
 ht:anzim
-hu:enzim
+hu:koaguláló enzim, enzim
 hy:Ֆերմենտ
 ia:enzyma
 id:enzim
 io:enzimo
 is:ensím
-it:enzima
+it:enzima coagulante, enzima
 ja:酵素
 jv:Ènzim
 ka:ფერმენტები
@@ -36120,13 +36064,13 @@ mr:उत्प्रेरक
 ms:eEnzim
 my:အင်န်ဇိုင်း
 nb:enzym, enzymer
-nl:enzym
+nl:stremmingsenzymen, stollingsmiddel, enzym
 nn:enzym
 oc:enzim
 pa:ਐੱਨਜ਼ਾਈਮ
-pl:enzymy
+pl:Enzym koagulujący, enzymy
 ps:انزايم
-pt:enzima
+pt:coagulante, enzima
 qu:huptana
 ro:enzimă
 ru:Ферменты
@@ -36139,7 +36083,7 @@ so:Ensiim
 sq:enzima
 sr:Ензим
 su:Énzim
-sv:enzym
+sv:koagulerande enzym, mjölkkoagulerande enzym, mjölkkoagulerande ystenzym, enzym
 sw:kimeng'enya
 ta:நொதியம்
 te:ఎంజైము
@@ -36319,6 +36263,66 @@ vi:lactase
 zh:乳糖酶
 wikidata:en: Q379764
 wikipedia:en: https://en.wikipedia.org/wiki/Lactase
+
+< en:Enzyme
+en:microbial coagulating enzyme, microbial enzyme
+de:vegetarisches Lab, mikrobieller Labaustauschstoff
+es:coagulante de leche microbiano, Encima coagulate microbiana
+fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
+it:enzima microbico, caglio microbico, enzima coagulante microbiotico
+nl:microbiële stremmingsenzymen, vegetarisch stremsel, microbieel stremsel, microbieel stremmiddel
+vegan:en: yes
+vegetarian:en: yes
+
+< en:Enzyme
+en:rennet
+an:Cuallo
+ar:منفحة
+bs:Sirište
+ca:quall
+co:Pirrulu
+cs:Syřidlo
+da:osteløbe, animalsk og mikrobiel løbe
+de:Lab, Labaustauschstoff, Kälberlab
+el:πυτια
+es:cuajo
+et:Laap
+eu:Gatzagi
+fi:juoksute, juoksete
+fr:présure
+ga:Binid
+gd:Binid
+gl:Callo
+gu:Reenet
+he:אנזים הגבנה
+hr:Sirište
+hu:Oltóenzim, oltóanyag
+id:Rennet
+it:caglio
+ja:レンネット
+ko:레닛
+la:Coagulum
+lt:Šliužo fermentas
+ms:Renet
+nb:løype, osteløype, løpe, osteløpe, animalsk og mikrobiell løpe
+nl:stremsel
+nn:løpe, løype
+pl:podpuszczka
+pt:coalho, quimosina
+ro:cheag
+ru:рассол
+sr:сириште
+sv:löpe, ostlöpe, ostenzym
+tr:lab
+zh:凝乳酶
+vegan:en: maybe
+vegetarian:en: maybe
+wikidata:en: Q326900
+wikipedia:en: https://en.wikipedia.org/wiki/Rennet
+
+< en:Enzyme
+en:sheep rennet
+es:cuajo ovino
 
 < en:Enzyme
 en:transglutaminase
@@ -36789,10 +36793,6 @@ fr:ferments sélectionnés
 it:fermenti selezionati
 nl:geselecteerde fermenten
 pt:fermentos selecionados
-
-< en:Ferment
-en:yogurt ferments
-es:ferments del yogur
 
 < en:Ferment
 fr:ferments d'affinage
@@ -44761,10 +44761,6 @@ sl:Imazalil
 wikidata:en: Q421576
 wikipedia:en: https://en.wikipedia.org/wiki/Enilconazole
 
-en:in variable proportion
-es:en proporción variable
-fr:en proportions variables
-
 en:inactive dough
 es:masa madre inactiva
 
@@ -48337,6 +48333,9 @@ ca:filet mòlt, stick tartar
 es:filete picado stick tartar
 fi:jauhelihapihvi
 
+< en:Meat
+fr:viande hachée
+
 en:meat preparation
 fi:lihavalmiste
 fr:préparation de viande
@@ -48579,14 +48578,14 @@ wikidata:en: Q407418
 wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 
 < en:Microbial culture
-en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures
+en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
 ca:Ferments làctics
 da:yoghurtkultur, starterkultur, mælkesyrekultur
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el:γαλακτικά ένζυμα
-es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados
+es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados, ferments del yogur
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
 hu:tejsavbaktériumok, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, syrekultur
@@ -51416,7 +51415,7 @@ ca:monoglicèrids i diglicèrids d'àcids grassos de palma, monoglicèrids d'àc
 es:monoglicéridos y diglicéridos de ácidos grasos de palma, monoglicéridos de acidos grasos de palma, diglicéridos de ácidos grasos de palma
 from_palm_oil:en: yes
 
-< en:Monterey jack
+< en:Monterey Jack
 en:pepper jack, pepper jack cheese
 
 < en:Morels
@@ -58554,6 +58553,10 @@ fr:coeur de porc
 fr:foie de porc
 ro:ficat de porc, ficat porc
 
+< en:Pork
+fr:tissu conjonctif de porc
+nl:varkensbindweefsel
+
 < en:Meat
 < en:Pork
 en:pork meat
@@ -59493,6 +59496,9 @@ nl:gerehydrateerd eiwit
 sv:rehydrerad äggvita
 
 < en:Powdered egg white
+fr:blanc d'oeuf en poudre de poules élevées au sol
+
+< en:Powdered egg white
 nl:scharrelei-eiwitpoeder
 
 en:Praliné
@@ -60064,7 +60070,7 @@ de:Quinoa-Mehl, Quinoamehl
 es:Harina de quinoa
 fi:kvinoajauho
 fr:farine de quinoa
-hu:kinoaliszt
+hu:quinoa liszt, quinoaliszt
 it:Farina di quinoa
 
 < en:Quinoa
@@ -60220,7 +60226,7 @@ en:Canola
 de:Raps
 es:Canola
 fi:Rypsi
-fr:
+fr:canola
 it:Canola
 pl:Rzepak
 sv:Raps, rapsfrön
@@ -60427,11 +60433,11 @@ fr:jambon cru fumé
 < en:Cow's milk
 < en:Raw milk
 en:raw cow's milk
-ca:llet de vaca crua, llet crua de vaca
+ca:llet crua de vaca, llet de vaca crua
 de:Kuhrohmilch
 es:leche de vaca cruda, leche cruda de vaca
 fi:lehmän raakamaito, raaka lehmänmaito
-fr:lait de vache cru
+fr:lait de vache cru, lait cru de vache
 hu:nyers tehéntej
 nl:rauwe koemelk
 ru:коровье молоко
@@ -61177,9 +61183,6 @@ de:Reisdrinkpulver
 
 < en:Ricotta
 fr:ricotta de brebis
-
-en:rind unedible
-es:corteza no comestible
 
 < en:Long grain rice
 < en:Risotto rice
@@ -62222,7 +62225,7 @@ da:raps
 de:Raps
 es:Colza, nabina
 fi:rapsi, rapsinsiemenet
-fr:
+fr:canola
 it:Colza
 la:Brassica napus
 nb:raps
@@ -64263,7 +64266,7 @@ wikidata:en: Q1190414
 wikipedia:en: https://en.wikipedia.org/wiki/Remoulade
 
 < en:Sauce
-en:soy sauce, soya sauce
+en:soy sauce, soya sauce, Soy sauces
 ar:صلصة الصويا
 be:соевы соус
 bg:Соев сос
@@ -64279,7 +64282,7 @@ et:sojakaste
 eu:Soja-saltsa
 fa:سس سویا
 fi:soijakastike
-fr:sauce au soja, sauce de soja, sauce soja
+fr:sauce au soja, sauce de soja, sauce soja, shoyu
 gl:mollo de soia
 he:רוטב סויה
 hi:सॉय सॉस
@@ -66686,6 +66689,9 @@ nb:surdeig av hvete
 sv:vetesurdeg, surdeg av vete, surdeg på vete
 
 < en:Sourdough
+fr:levain lactique
+
+< en:Sourdough
 nl:speltzuurdesempoeder
 
 < en:South African hake
@@ -66781,6 +66787,9 @@ fr:protéine de soja hydrolysée, protéines de soja hydrolysées
 hu:hidrolizált szójafehérje
 it:proteine di soia idrolizzate
 nl:gehydroliseerd soja-eiwit
+
+< en:Soy protein
+fr:concentré de protéines de soja
 
 < en:Soy protein
 fr:isolat de protéine de soja
@@ -67040,6 +67049,12 @@ wikidata:en: Q3893120
 wikipedia:en: https://en.wikipedia.org/wiki/Rye_bread
 
 < en:Special bread
+en:sesame seed bun
+de:Sesambrötchen
+fi:seesamisämpylä, hampurilaissämpylä, hampurilaissämpylää
+nl:sesambroodje
+
+< en:Special bread
 fr:pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries pain au chocolat
 carbon_footprint_fr_foodges_value:fr: 2.3
@@ -67055,13 +67070,6 @@ fr:pain spécial de campagne
 
 < en:Special bread
 fr:pain spécial viennois
-
-< en:Sesame
-< en:Special bread
-en:sesame seed bun
-de:Sesambrötchen
-fi:seesamisämpylä, hampurilaissämpylä, hampurilaissämpylää
-nl:sesambroodje
 
 < en:Speckled Scallop
 en:Argopecten irradians concentricus
@@ -69410,6 +69418,9 @@ it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
 ro:sirop de zahăr invertit, sirop de zahar invertit
 sv:invertsockersirap
+
+< en:Sugar syrup
+fr:sirop de sucres issus de fruits
 
 en:sulfite, Sulphites, sulphite, sulfites
 af:Sulfiet
@@ -73991,7 +74002,7 @@ de:Baumwollsaatöl, Baumwollsamenöl
 es:aceite de algodón
 fa:روغن پنبه‌دانه
 fi:puuvillansiemenöljy
-fr:huile de coton
+fr:huile de coton, graines de coton
 hu:pamutmagolaj
 id:Minyak biji kapas
 it:olio di semi di cotone
@@ -79246,12 +79257,18 @@ uk:Цинковий купорос
 vi:Kẽm sulfat
 zh:硫酸锌
 
+fr:éclats de fèves de cacao
+it:granella di fave di cacao, granella di cacao
+
 es:potassium iodide, yoduro potásico
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 
 < es:Sirope de agave
 fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
+
+fr:éclats de fèves de cacao torréfiés
+it:granella di fave di cacao tostate
 
 fi:omenavalmiste
 fr:préparation à base de pommes
@@ -79312,6 +79329,8 @@ nl:gebroken flinterdunne flensjes
 
 < fr:Brochet
 fr:chair de brochet
+
+fr:cacao minimum
 
 < fr:Café moulu pur arabica
 fr:cafe moulu pur arabica bio
@@ -79820,6 +79839,9 @@ fr:sirop d'amidon
 fr:sirop d'amidon de maïs
 
 fr:sirop de candi, sirop de sucre candi
+
+fr:sirop de sucre partiellement inverti
+it:sciroppo di zucchero parzialmente invertito
 
 < fr:Steak haché
 fr:Steak haché pur boeuf, pure viande de boeuf hachée, viande hachée pur bœuf

@@ -1297,6 +1297,7 @@ sub parse_ingredients_text($) {
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
+								'o.a.',
 							],
 							
 							'sv' => [
@@ -2467,6 +2468,7 @@ en => [
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
+'Store in a cool, dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
@@ -2986,8 +2988,12 @@ sub separate_additive_class($$$$$) {
 		$after2 = $`;
 	}
 
-	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
-		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
+	# also check that we are not separating an actual ingredient
+	# e.g. acide acétique -> acide : acétique
+
+	if (	(not exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $additive_class . " " . $after))) 
+ 	and (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
+		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) )))
 	) {
 		#print STDERR "separate_additive_class - after is an additive\n";
 		return $additive_class . " : ";
@@ -3204,7 +3210,9 @@ sub preparse_ingredients_text($$) {
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		$text =~ s/(?<!\w( |'))\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$2,$3,$4,$')/ieg;
 	}
 
 	# dash with 1 missing space
