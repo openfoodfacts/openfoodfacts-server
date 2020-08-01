@@ -18578,6 +18578,10 @@ en:black olives oil, black olive oil
 fr:huile d'olive noire, huile d'olives noires
 
 <en:olive oil
+en:non-hydrogenated olive oil
+fr:huile d'olive non hydrogénée
+
+<en:olive oil
 en:virgin olive oil
 ca:Oli d'oliva verge
 da:jomfruolivenolie
@@ -23978,6 +23982,7 @@ sv:vetemalt, mältade vetekorn
 <en:wheat malt
 en:wheat malt flour
 es:harina de malta de trigo
+nl:tarwemoutmeel
 
 <en:wheat malt
 fr:blé malté torréfié concassé
@@ -26649,7 +26654,7 @@ fr:farine de maïs, farine de mais
 hu:kukoricaliszt
 it:farina di mais
 nb:maismel
-nl:maïsmeel
+nl:maïsmeel, maismeel
 pl:mąka kukurydziana
 pt:farinha de milho
 ro:făină de porumb, faina de porumb
@@ -26671,6 +26676,7 @@ hu:bio kukoricaliszt
 
 <en:corn
 en:modified cornflour
+nl:gemodificeerd maïsmeel
 
 <en:corn flour
 en:yellow corn flour
@@ -27022,7 +27028,8 @@ pt:grao de milho
 
 <en:corn
 en:corn fiber
-es fibra de maiz
+es:fibra de maiz
+nl:maïsvezel
 
 <en:corn
 fr:maïs torréfié concassé
@@ -27033,6 +27040,7 @@ nl:maïspoeder
 <en:corn
 en:corn molasses
 fr:mélasse de mais
+nl:maïsmelasse
 
 <en:malt
 en:extract of corn malt
@@ -27099,7 +27107,7 @@ fi:maissihiutale, maissihiutaleet
 fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maïs
 hu:kukoricapehely
 it:fiocchi di mais, cornflakes
-nl:maïsvlokken
+nl:maïsvlokken, cornflakes
 pl:płatki kukurydziane
 pt:flocos de milho
 sv:majsflingor
@@ -27115,12 +27123,15 @@ sv:majsflingor
 de:Maiskölbchen
 fr:épis de maïs
 it:pannocchiette di granoturco
+nl:Maïskolfjes
 # ingredient/fr:épis-de-maïs 19 products in 4 languages @2018-09-23
 
 <en:corn
-de:Wachmais
+en:waxy corn
+de:Wachsmais
 fr:maïs cireux
 it:maïs ceroso
+nl:kleefmaïs
 # ingredient/fr:maïs-cireux24 products in 3 languages @2018-09-24
 
 <en:corn
@@ -27161,6 +27172,7 @@ fi:sokerimaissi
 fr:maïs doux
 hu:csemegekukorica
 it:mais dolce
+nl:zoete maïs
 # ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
 
 <en:cornmeal
@@ -29567,6 +29579,7 @@ fi:oligofruktoosi
 fr:oligofructose
 it:oligofruttosio
 nb:oligofruktose
+nl:oligofructose
 sv:oligofruktos
 wikidata:en: Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
@@ -29804,6 +29817,7 @@ fr:sirop de sucres issus de fruits
 
 fr:sirop de sucre candi
 
+
 <en:sugar
 en:wheat syrup
 da:hvedesirup
@@ -29881,7 +29895,7 @@ es:jarabe de azúcar caramelizado
 fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
 fr:sirop de sucre caramélisé, sirop de sucre caramel
 hu:karamellizált rizsszirup
-nl:gekarameliseerde suikerstroop
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop
 sv:karamelliserat sockersirap
 
 <en:syrup
@@ -30288,6 +30302,7 @@ de:Eiweißpulver aus Sonnenblumenkernen
 <en:vegetable protein
 fr:protéines végétales réhydratées
 hu:rehidratált növényi fehérjék
+nl:gehydrolyseerde plantaardige eiwitten
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:vegetable protein
@@ -36766,7 +36781,7 @@ es:jarabe de manzana
 fi:omenamehutiiviste
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
-nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelconcentraat
+nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
 pl:Sok jabłkowy z koncentratu
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
@@ -37320,7 +37335,7 @@ fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
 it:succo di limone concentrato, concentrato di limone, estratto di limone
 nb:sitronjuicekonsentrat
-nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat
+nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
 pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
@@ -38142,6 +38157,7 @@ en:acai berry, açaí berries, acai
 de:Acai-Beeren, Açai-Beeren, Acai, Açai
 fi:Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
 fr:Acai berry, Baie d'açaï
+la:Euterpe oleraceae
 
 <en:acai berry
 <en:fruit juice
@@ -38152,7 +38168,7 @@ fi:Acai-mehu
 fr:jus d’açaï
 nl:acaisap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
-# 9 products in 2 langauges @2018-10-04
+# 9 products in 2 languages @2018-10-04
 
 ###################################################################################################
 #
@@ -40263,6 +40279,7 @@ io:Ananaso
 it:ananas
 ja:パイナップル
 kg:Nanasi
+la:Ananas comosus
 lo:ໝາກນັດ
 nl:ananas
 nv:Bilasáana diwozhí
@@ -43714,7 +43731,7 @@ ja:アロエベラ
 jv:Ilat baya
 kk:Алоэ вера
 kn:ಲೋಳೆ ಸರ
-la:Aloe vera
+la:Aloe vera, Aloe barbadensis
 lg:Ekigaji ddagala
 lv:Alveja
 mk:Алое вера
@@ -51855,6 +51872,7 @@ fr:graines de moutarde jaunes
 
 <en:mustard seed
 fr:graines de moutarde moulues
+nl:gemalen mosterdzaden
 
 <en:seed
 en:celery seed
@@ -52636,6 +52654,7 @@ es:pasta de sésamo
 fi:seesamitahna, sesamtahna
 fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
+nl:sesampasta
 sv:sesam-kräm, sesampasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
@@ -53417,7 +53436,7 @@ ms:Kunyit
 my:နနွင်း
 nb:gurkemeie
 ne:बेसार
-nl:kurkuma, geelwortel
+nl:kurkuma, geelwortel, curcuma
 nn:gurkemeie
 oc:Curcuma
 or:ହଳଦୀ
@@ -54084,7 +54103,7 @@ kn:ಶುಂಠಿ
 ko:생강
 ku:Zencefîl
 kv:Имбирь
-la:Gingiber, Zingiber officinale
+la:Zingiber officinale, Gingiber
 lg:Ennyingo Okuzimba
 li:Geimer
 ln:Ntángawisi
@@ -54363,6 +54382,7 @@ fr:Graines de moutarde issues de l'agriculture durable
 
 <en:mustard seed
 fr:graines de moutarde moulues
+nl:mosterdmeel
 
 <en:mustard seed
 en:yellow mustard seed
@@ -60550,7 +60570,7 @@ lv:Dārza atmatene
 mn:Цагаан мөөг
 ms:Cendawan butang
 nb:Sjampinjong
-nl:Parijse champignons, Agaricus bisporus
+nl:Parijse champignons, champignons
 pl:pieczarki, Pieczarka dwuzarodnikowa
 pt:cogumelos-de-Paris, Champignon
 qu:Champiñun
@@ -70821,7 +70841,7 @@ ko:흰자
 li:eiwit
 ms:putih telur
 nb:eggehvite
-nl:ei-eiwit
+nl:ei-eiwit, eiwit
 pl:bialka jaj
 pt:clara do ovo, clara de ovos
 ru:белок

@@ -2963,7 +2963,7 @@ sub display_tag($) {
 		}
 
 		if (($#weblinks >= 0)) {
-			$weblinks_html .= '<div style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;"><h3>' . lang('tag_weblinks') . '</h3><ul>';
+			$weblinks_html .= '<div class="weblinks" style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;"><h3>' . lang('tag_weblinks') . '</h3><ul>';
 			foreach my $weblink (@weblinks) {
 				$weblinks_html .= '<li><a href="' . encode_entities($weblink->{href}) . '" itemprop="sameAs"';
 				$weblinks_html .= ' hreflang="' . encode_entities($weblink->{hreflang}) . '"' if defined $weblink->{hreflang};
@@ -10544,7 +10544,16 @@ sub display_ingredients_analysis_details($) {
 
 	my $product_ref = shift;
 
-	(not defined $product_ref->{ingredients}) and return "";
+	# Do not display ingredients analysis details when we don't have ingredients
+
+	if ((not defined $product_ref->{ingredients})
+		or (scalar @{$product_ref->{ingredients}} == 0)) {
+		return "";
+	}
+
+	my $template_data_ref = {
+		lang => \&lang,
+	};
 
 	my $i = 0;
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
@@ -10564,11 +10573,11 @@ sub display_ingredients_analysis_details($) {
 
 	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
 
-
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
 	if ($ingredients_text =~ /unknown_ingredient/) {
+		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
 
 		$styles .= <<CSS
 .unknown_ingredient {
@@ -10576,29 +10585,14 @@ sub display_ingredients_analysis_details($) {
 }
 CSS
 ;
-		$unknown_ingredients_help_html = " <b>" . lang("we_need_your_help") . "</b>";
-
-		$unknown_ingredients_html = '<p class="unknown_ingredient">' . lang("some_unknown_ingredients") . '</p>'
-		. '<div class="callout panel">'
-		. '<h3>' . lang("we_need_your_help") . '</h3>'
-		. '<p>' . lang("you_can_help_improve_ingredients_analysis") . '</p>'
-		. '<ul>'
-		. '<li>' . lang("help_improve_ingredients_analysis_1") . '</li>'
-		. '<li>' . lang("help_improve_ingredients_analysis_2") . '</li>'
-		. '</ul>'
-		. '<p>' . lang("help_improve_ingredients_analysis_instructions") . '</p>'
-		. '</div>';
 	}
 
-	my $html = '<p><a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">' . lang("ingredients_analysis_details") . " &raquo;</a>" . $unknown_ingredients_help_html  . "<p>"
-	. '<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">'
-	. $unknown_ingredients_html;
+	$template_data_ref->{ingredients_text} = $ingredients_text;
+	$template_data_ref->{ingredients_list} = $ingredients_list;
 
-	$html .= '<p id="ingredients_analysis_ingredients_text">' . $ingredients_text . "</p>";
+	my $html;
 
-	$html .= $ingredients_list;
-
-	$html .= "</div>";
+	$tt->process('ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -10619,8 +10613,14 @@ sub display_ingredients_analysis($) {
 	my $html = "";
 
 	if (defined $product_ref->{ingredients_analysis_tags}) {
-
-		my $html_analysis = "";
+		
+		my $template_data_ref = {
+			lang => \&lang,
+			display_icon => \&display_icon,
+			title => lang("ingredients_analysis") . separator_before_colon($lc) . ':',
+			disclaimer => lang("ingredients_analysis_disclaimer"),
+			ingredients_analysis_tags => [],
+		};		
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
@@ -10685,20 +10685,17 @@ sub display_ingredients_analysis($) {
 			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
-				$icon = "<span style=\"margin-right: 8px;\">". display_icon($icon) ."</span>";
+				$icon = display_icon($icon);
 			}
 
-			$html_analysis .= "<span class=\"alert round label ingredients_analysis $color\">"
-			. $icon . display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag)
-			. "</span> ";
+			push @{$template_data_ref->{ingredients_analysis_tags}}, {
+				color => $color,
+				icon => $icon,
+				text => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+			};
 		}
-
-		if ($html_analysis ne "") {
-
-			$html .= "<p id=\"ingredients_analysis\"><b>" . lang("ingredients_analysis") . separator_before_colon($lc) . ":</b><br>"
-			. $html_analysis
-			. '<br><span class="note">&rarr; ' . lang("ingredients_analysis_disclaimer") . "</span></p>";
-		}
+		
+		$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
 
 	return $html;
