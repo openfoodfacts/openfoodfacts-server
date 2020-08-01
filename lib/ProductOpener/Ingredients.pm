@@ -2451,6 +2451,7 @@ de => [
 'k(u|ü)hl und trocken lagern',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
+'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
