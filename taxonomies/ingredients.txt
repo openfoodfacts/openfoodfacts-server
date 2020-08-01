@@ -1,8 +1,11 @@
+
 #comment:en:These are synonyms of ingredients
 
 synonyms:en:pasteurised, pasteurized
 synonyms:es:zumo, jugo
 synonyms:es:sirope,jarabe
+﻿
+# stopwords
 
 # comment:en:These are words that start a list of ingredients
 
@@ -11904,6 +11907,19 @@ fr:mimolette
 ca:formatge mimolette
 es:queso mimolette
 
+
+# MONTEREY JACK is an American cheese
+
+<en:cheese
+en:Monterey Jack, Monterey Jack Cheese
+de:Monterey Jack
+es:Monterey Jack
+fr:Monterey jack
+it:Monterey Jack
+wikidata:en:Q1056415
+# Montenerey jack has 31 products @2019-05-31
+
+
 # MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
 
 <en:cheese
@@ -16883,6 +16899,7 @@ fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf, jus de 
 <fr:jus de cuisson de viande de bœuf
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
+
 
 # SAUSAGES
 
@@ -26836,7 +26853,7 @@ de:Quinoa-Mehl, Quinoamehl
 es:Harina de quinoa
 fi:kvinoajauho
 fr:farine de quinoa
-hu:kinoaliszt
+hu:quinoa liszt, quinoaliszt
 it:Farina di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
@@ -29805,6 +29822,9 @@ fi:inverttisokerisiirappi
 fr:sirop de sucre inverti cristallisé
 hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, invertcukor szirup
 
+fr:sirop de sucre partiellement inverti
+it:sciroppo di zucchero parzialmente invertito
+
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
 de:brauner Invertzuckersirup, Invertzuckersirup aus Rohrzucker
@@ -29918,7 +29938,11 @@ nl:biologische kokosbloesem siroop
 # ingredient/nl:biologische-kokosbloesem-siroop has 1 product @2019-05-24
 # ingredient/fr:sucre-de-fleur-de-coco has 49 products @2019-05-27
 
-<en:sugar
+<en:sugar syrup
+fr:sirop de sucres issus de fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
+# 22 products @2019-05-30
+
 fr:sirop de sucre candi
 
 
@@ -30541,6 +30565,9 @@ fr:protéines de soja réhydratées, protéines végétales de soja réhydratée
 hu:rehidratált szójafehérje
 nl:gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv:rehydrerat sojaprotein
+
+<en:soy protein
+fr:concentré de protéines de soja
 
 <en:soy protein
 fr:isolat de protéine de soja
@@ -31272,15 +31299,25 @@ nl:geroosterde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
 # usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
 
-# <en:compound
+<fr:fèves de cacao
+es:trocitos de pepitas de cacao
+fr:éclats de fèves de cacao, éclats de fèves de cacao
+it:granella di fave di cacao, granella di cacao
+
+<fr:éclats de fèves de cacao
+es:trocitos de pepitas de cacao tostadas
+fr:éclats de fèves de cacao torréfiés
+it:granella di fave di cacao tostate
+
+fr:cacao minimum
+
 <en:cocoa bean chips
-es:pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
+es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
 it:granella caramellata di semi di cacao
 nl:gekaramelliseerde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-caramélisés has 35 products @2019-05-25
 # usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
-
 
 # description:en:CHOCOLATE is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.
 
