@@ -1297,6 +1297,7 @@ sub parse_ingredients_text($) {
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
+								'o.a.',
 							],
 							
 							'sv' => [
@@ -2467,6 +2468,7 @@ en => [
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
+'Store in a cool, dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
