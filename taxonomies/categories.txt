@@ -24717,6 +24717,8 @@ ru:Молочный шоколад, Шоколад молочный
 sv:Mjölkchoklad
 zh:牛奶巧克力
 wikidata:en:Q2164820
+agribalyse_proxy_food_code:en:31004
+#all agribalyse milk chocolate categories have the same CO2 score
 
 <en:Milk chocolates
 en:Milk chocolate bar
@@ -30172,7 +30174,7 @@ ciqual_food_name:en:Fresh cream cheese, plain, around 3% fat
 ciqual_food_name:fr:Fromage blanc nature, 3% MG environ
 
 <fr:Fromages blancs
-en: Plain creamy fresh cream cheese around 8% fat
+en:Plain creamy fresh cream cheese around 8% fat
 fr:Fromage blanc nature gourmand à 8% de matières grasses environ
 agribalyse_food_code:en:19649
 ciqual_food_code:en:19649
@@ -30180,15 +30182,12 @@ ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
 ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
 
 <fr:Fromages blancs
-en:Fresh cream cheese with fruits and sugar around 7% fat
-fr:Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
+en:Fromages blancs with fruits, Fresh cream cheese with fruits and sugar around 7% fat
+fr:Fromages blancs aux fruits, Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
 agribalyse_food_code:en:19659
 ciqual_food_code:en:19659
 ciqual_food_name:en:Fresh cream cheese, with fruits, creamy, with sugar, around 7% fat
 ciqual_food_name:fr:Fromage blanc ou spécialité laitière, aux fruits, sucré, gourmand, 7% MG environ
-
-<fr:Fromages blancs
-fr:Fromages blancs aux fruits
 
 <fr:Fromages blancs
 fr:Fromages blancs au lait de vache
@@ -38460,19 +38459,15 @@ ciqual_food_name:fr:Muesli (aliment moyen)
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
-en:Mueslis with chocolate
+en:Mueslis with chocolate, Crunchy chocolate muesli fortified with vitamins and chemical elements
 de:Müslis mit Schokolade, Schokomüslis
 es:Mueslis con chocolate
 fi:myslit suklaalla
-fr:Mueslis au chocolat
+fr:Mueslis au chocolat, Muesli croustillant au chocolat enrichi en vitamines et minéraux
 it:Muesli con cioccolato
 nl:Muesli met chocola
 pl:Musli czekoladowe, musli z czekoladą
 ro:Müsli cu ciocolată
-
-<en:Mueslis
-en:Crunchy chocolate muesli fortified with vitamins and chemical elements
-fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
 agribalyse_food_code:en:32112
 ciqual_food_code:en:32112
 ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
