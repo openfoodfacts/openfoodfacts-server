@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-08 10:07\n"
+"PO-Revision-Date: 2020-08-01 10:03\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ca\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1192\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -100,7 +100,7 @@ msgstr ""
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Si treballeu per a un productor o marca i afegiu o completeu dades només per als vostres propis productes, podeu accedir a la nostra Plataforma de Productors completament gratuïta."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
@@ -108,11 +108,11 @@ msgstr ""
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Compte professional"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Aquest és un compte de productor o de marca."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
@@ -4029,7 +4029,7 @@ msgstr "Les persones que moderen la plataforma de productors poden visualitzar i
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Ja he donat o no m’interessa. Amaga la pancarta."
 
 msgctxt "donation_banner_show"
 msgid "Hey, a box to uncheck?!"
@@ -4049,11 +4049,11 @@ msgstr ""
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Necessitem el vostre suport!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Feu un donatiu"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
@@ -4220,32 +4220,32 @@ msgstr ""
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Equips"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "opcional"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "equips"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "equip"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Podeu unir-vos a d'1 a 3 equips. Els productes que afegiu o editeu se us acreditaran a vosaltres i als vostres equips. Es poden canviar els equips en qualsevol moment."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Els noms dels equips són públics. No creeu equips amb noms que continguin dades personals (per exemple, noms de família), marques comercials (tret que siguin vostres) o res d'ofensiu."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Equip %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
