@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-08 10:10\n"
+"PO-Revision-Date: 2020-08-01 10:34\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: id\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1192\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -224,7 +224,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "APK Android"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -1212,7 +1212,7 @@ msgstr "Belum terdaftar?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Masuk"
+msgstr "memasuki"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1450,11 +1450,11 @@ msgstr "Produk yang tidak mengandung nutrisi %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informasi nilai gizi"
+msgstr "tabel nutrisi"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informasi nilai gizi"
+msgstr "tabel nutrisi"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1526,7 +1526,7 @@ msgstr "Deviasi standar"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informasi nilai gizi"
+msgstr "tabel nutrisi"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1922,7 +1922,7 @@ msgstr "tempat pembelian"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr "tambahkan sebuah tempat"
+msgstr "tambahkan tempat"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -2025,7 +2025,7 @@ msgstr "Menyimpan."
 
 msgctxt "search"
 msgid "Search"
-msgstr "Cari"
+msgstr "mencari "
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2033,7 +2033,7 @@ msgstr "Cari produk"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "Cari"
+msgstr "mencari "
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2306,7 +2306,7 @@ msgstr "Jika terdapat nilai untuk produk yang telah diolah pada tabel informasi 
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Masuk"
+msgstr "memasuki"
 
 msgctxt "share"
 msgid "Share"
@@ -2558,7 +2558,7 @@ msgstr "Dapatkan dari Microsoft"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/id-id/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -3016,7 +3016,7 @@ msgstr "Kondisi konservasi"
 
 msgctxt "warning"
 msgid "Warning"
-msgstr "Peringatan"
+msgstr "bahayaa"
 
 msgctxt "preparation"
 msgid "Preparation"
@@ -3224,7 +3224,7 @@ msgstr "Tidak"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Lewati"
+msgstr ""
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3336,7 +3336,7 @@ msgstr "Bahan"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informasi nilai gizi"
+msgstr "tabel nutrisi"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3553,7 +3553,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr "Batalkan"
+msgstr ""
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3884,7 +3884,7 @@ msgstr "Produk termasuk dalam kategori lemak, nilai untuk lemak jenuh digantikan
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
-msgstr "Energi"
+msgstr "tenaga"
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
@@ -3912,7 +3912,7 @@ msgstr "Serat makanan"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Protein"
+msgstr "Protein:"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3953,7 +3953,7 @@ msgstr "<a href=\"\">Kami membutuhkan bantuan dan donasi Anda</a> untuk melanjut
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr "Terima kasih!"
+msgstr ""
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
