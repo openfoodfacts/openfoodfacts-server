@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_HK\n"
+"Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-07-08 10:23\n"
+"PO-Revision-Date: 2020-08-01 10:57\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: zh-HK\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1192\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -225,7 +225,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -522,7 +522,7 @@ msgstr "捐助Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -1447,11 +1447,11 @@ msgstr "產品不包含營養 %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1523,7 +1523,7 @@ msgstr "標準差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1908,7 +1908,7 @@ msgstr "採購地點"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "產品售於 %s"
+msgstr "售於%s的產品"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1920,7 +1920,7 @@ msgstr "新增地點"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "產品未販售於 %s"
+msgstr "不售於%s的產品"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -3216,7 +3216,7 @@ msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "跳過"
+msgstr ""
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3545,7 +3545,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3945,7 +3945,7 @@ msgstr "<a href=\"\">我們需要您的幫助和捐款</a>繼續發展此項目�
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr "謝謝！"
+msgstr ""
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
