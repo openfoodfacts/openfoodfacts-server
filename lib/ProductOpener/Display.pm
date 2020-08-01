@@ -7461,7 +7461,7 @@ CSS
 	# obsolete product
 
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$template_data_ref->{product_ref_obsolete} = $product_ref->{obsolete};
+		$template_data_ref->{product_is_obsolete} = $product_ref->{obsolete};
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
