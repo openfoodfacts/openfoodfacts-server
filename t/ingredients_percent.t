@@ -451,6 +451,38 @@ my @tests = (
 ]
 ],
 
+	# bug #3762 "min" in "cumin"
+	[ { lc =>"fr", ingredients_text=>"sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
+[
+  {
+    'id' => 'en:salt',
+    'percent' => '20',
+    'text' => 'sel'
+  },
+  {
+    'id' => 'en:pepper',
+    'percent' => '10',
+    'text' => 'poivre'
+  },
+  {
+    'id' => 'en:chili-pepper',
+    'percent' => '5',
+    'text' => 'piment'
+  },
+  {
+    'id' => 'en:cumin-seeds',
+    'percent' => '0.4',
+    'text' => 'cumin'
+  },
+  {
+    'id' => 'en:garlic',
+    'percent' => '0.1',
+    'text' => 'ail'
+  }
+
+]
+],
+
 );
 
 foreach my $test_ref (@tests) {

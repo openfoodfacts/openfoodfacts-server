@@ -440,17 +440,34 @@ sub check_user_form($$) {
 	}
 
 	if ($admin) {
+		
+		# Org
+		
+		my $previous_org = $user_ref->{org};
 		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 			# Admin field for org overrides the requested org field
 			delete $user_ref->{requested_org};
-			delete $user_ref->{requested_org_id}
+			delete $user_ref->{requested_org_id};
+			
+			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
+			
+			add_user_to_org($org_ref, $user_ref->{userid}, ["admins", "members"]);	
 		}
 		else {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
 		}
+			
+		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
+			my $org_ref = retrieve_org($previous_org);
+			if (defined $org_ref) {
+				remove_user_from_org($org_ref, $user_ref->{userid}, ["admins", "members"]);	
+			}
+		}
+
+		# Permission groups
 
 		foreach my $group (@user_groups) {
 			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
@@ -531,6 +548,7 @@ sub process_user_form($) {
 			
 			my $admin_mail_body = <<EMAIL
 requested_org_id: $user_ref->{requested_org_id}
+userid: $user_ref->{userid}
 name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
@@ -542,19 +560,22 @@ EMAIL
 		else {
 			# The requested org does not exist, create it
 			
-			my $org_ref = {
-				created_t => time(),
-				creator => $User_id,
-				org_id => $user_ref->{requested_org_id},
-				name => $user_ref->{requested_org},
-				admins => { $userid => 1 },
-				members => { $userid => 1},
-			};
-			
-			store_org($org_ref);
-			
+			my $org_ref = create_org($userid, $user_ref->{requested_org});
+			add_user_to_org($org_ref, $userid, ["admins", "members"]);
+						
 			$user_ref->{org} = $user_ref->{requested_org_id};
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+			
+			my $admin_mail_body = <<EMAIL
+requested_org_id: $user_ref->{requested_org_id}
+userid: $user_ref->{userid}
+name: $user_ref->{name}
+email: $user_ref->{email}
+lc: $user_ref->{initial_lc}
+cc: $user_ref->{initial_cc}
+EMAIL
+;
+			send_email_to_admin("Org created by user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);			
 			
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id}

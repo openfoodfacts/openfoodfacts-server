@@ -3,6 +3,9 @@
 - node (https://nodejs.org/)
 - miller >=5.0 (https://johnkerl.org/miller/doc/)
 
+On stretch:
+apt-get -t stretch-backports install miller
+
 # Usage
 Install the xml2csv node module found here: https://github.com/odtvince/xml2csv
 

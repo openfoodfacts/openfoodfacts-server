@@ -69,7 +69,6 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
-		&clean_and_improve_imported_data
 		&import_csv_file
 		&import_products_categories_from_public_database
 
@@ -135,8 +134,8 @@ Values are of the form user-[user id] or org-[organization id].
 If not set, for databases with private products, it will be constructed from the user_id
 and org_id parameters.
 
-The owner can be overriden if the CSV file contains a org_gs1_party_name field.
-In that case, the owner is set to the value of the org_gs1_party_name field, and
+The owner can be overriden if the CSV file contains a org_name field.
+In that case, the owner is set to the value of the org_name field, and
 a new org is created if it does not exist yet.
 
 =head4 csv_file - required
@@ -233,6 +232,8 @@ sub import_csv_file($) {
 	$User_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
+
+	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
@@ -435,11 +436,11 @@ sub import_csv_file($) {
 
 		my @images_ids;
 				
-		# If the CSV includes GS1 id (GLN) and name (party name),
-		# set the owner of the product to the GS1 name
+		# If the CSV includes an org_name (e.g. from GS1 partyName field)
+		# set the owner of the product to the org_name
 		
-		if ((defined $imported_product_ref->{org_gs1_party_name}) and ($imported_product_ref->{org_gs1_party_name} ne "")) {
-			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_gs1_party_name});
+		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
+			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
@@ -447,29 +448,17 @@ sub import_csv_file($) {
 				# Create the org if it does not exist yet
 				if (not defined retrieve_org($org_id)) {
 					
-					my $org_ref = {
-						created_t => time(),
-						creator => $User_id,
-						org_id => $org_id,
-						name => $imported_product_ref->{org_gs1_party_name},
-						admins => {},
-						members => {},
-						gs1 => {
-							gln => $imported_product_ref->{org_gs1_gln},
-							party_name => $imported_product_ref->{org_gs1_party_name},
-						},
-					};
+					my $org_ref = create_org($User_id, $imported_product_ref->{org_name});
 			
 					store_org($org_ref);
 					
 					my $admin_mail_body = <<EMAIL
 user_id: $User_id
 org_id: $org_id
-party_name: $imported_product_ref->{gs1_party_name}
-gln: $imported_product_ref->{gs1_gln}
+org_name: $imported_product_ref->{org_name}
 EMAIL
 ;
-					send_email_to_admin("Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
+					send_email_to_admin("Import - Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
 				}
 			}
 		}
@@ -576,8 +565,32 @@ EMAIL
 				next;
 			}
 		}
+		
+		# If we are importing on the public platform, check if the product exists on other servers
+		# (e.g. Open Beauty Facts, Open Products Facts)
+		
+		my $product_ref;
+		
+		if ((defined $options{other_servers})
+			and not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+			foreach my $server (sort keys %{$options{other_servers}}) {
+				next if ($server eq $options{current_server});
+								
+				$product_ref = product_exists_on_other_server($server, $product_id);
+				if ($product_ref) {
+					# Indicate to store_product() that the product is on another server
+					$product_ref->{server} = $server;
+					# Indicate to Images.pm functions that the product is on another server
+					$product_id = $server . ":" . $product_id;
+					$log->debug("product exists on another server", { code => $code, server => $server, product_id => $product_id }) if $log->is_debug();
+					last;
+				}
+			}
+		}
 
-		my $product_ref = product_exists($product_id); # returns 0 if not
+		if (not $product_ref) {
+			$product_ref = product_exists($product_id); # returns 0 if not
+		}
 
 		my $product_comment = $args_ref->{comment};
 		if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
@@ -688,10 +701,14 @@ EMAIL
 				$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 			}
 
-			# For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
-			# concatenate them to the labels field
 			if (defined $tags_fields{$field}) {
 				foreach my $subfield (sort keys %{$imported_product_ref}) {
+					
+					next if ((not defined $imported_product_ref->{$subfield}) or ($imported_product_ref->{$subfield} eq "")); 
+					
+					# For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
+					# concatenate them to the labels field
+					
 					if ($subfield =~ /^$field:/) {
 						my $tag_name = $';
 						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
@@ -702,6 +719,21 @@ EMAIL
 								$imported_product_ref->{$field} = $tag_name;
 							}
 						}
+					}
+					
+					# [tags type]_if_match_in_taxonomy : contains candidate values that we import
+					# only if we have a matching taxonomy entry
+					# there may be multiple columns for the same field: [tags type]_if_match_in_taxonomy.2 etc.
+					
+					if (($subfield =~ /^${field}_if_match_in_taxonomy/)
+						and (exists_taxonomy_tag($field,
+							canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $imported_product_ref->{$subfield})))) {
+						if (defined $imported_product_ref->{$field}) {
+							$imported_product_ref->{$field} .= "," . $imported_product_ref->{$subfield};
+						}
+						else {
+							$imported_product_ref->{$field} = $imported_product_ref->{$subfield};
+						}						
 					}
 				}
 			}
@@ -1502,17 +1534,17 @@ EMAIL
 								$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid", { imgid => $imgid, current_max_imgid => $current_max_imgid }) if $log->is_debug();
 
 								# overwrite already selected images
+								# if the selected image is not the same
+								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
 									and (exists $product_ref->{images}{$imagefield_with_lc})
 									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1)
-										or ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2)
-										or ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1)
-										or ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2)
+										or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+										or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+										or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+										or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
 										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										or ($product_ref->{images}{$imagefield_with_lc}{normalize} ne $normalize)
-										or ($product_ref->{images}{$imagefield_with_lc}{white_magic} ne $white_magic)
 										)
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();

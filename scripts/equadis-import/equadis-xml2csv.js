@@ -1,6 +1,5 @@
-const path = require("path")
 const fs = require("fs")
-const directoryPath = path.join(__dirname, "equadis-data/")
+const directoryPath = "/srv2/off-pro/equadis-data-tmp/"
 
 function requireUncached(module){
     delete require.cache[require.resolve(module)]

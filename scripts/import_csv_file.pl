@@ -210,7 +210,7 @@ foreach my $stat (sort keys %$stats_ref) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open (my $out, ">", "import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open (my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
 	foreach my $code ( sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";
