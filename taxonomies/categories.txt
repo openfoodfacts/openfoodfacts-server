@@ -22044,6 +22044,7 @@ es:Galletas con tableta de chocolate
 fr:Biscuits tablette de chocolat, Petits beurres au chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
+agribalyse_food_code:en:24016
 
 <fr:Biscuits tablette de chocolat
 fr:Biscuits tablette fourrée
@@ -23980,18 +23981,15 @@ pnns_group_2:en:Biscuits and cakes
 
 
 <en:Puddings
-en:Rice puddings
+en:Rice puddings, Refrigerated rice puddings
 de:Milchreisbrei, Milchreis, Reisbrei
 es:Arroz con leche
 fi:riisivanukkaat
-fr:Riz au lait
+fr:Riz au lait, Riz au lait rayon frais
 nl:Rijstepaps
 pl:Puddingi ryżowe
 wikidata:en:Q19029
-
-<en:Rice puddings
-en:Refrigerated rice puddings
-fr:Riz au lait rayon frais
+agribalyse_food_code:en:39212
 ciqual_food_code:en:39212
 ciqual_food_name:en:Rice pudding, refrigerated
 ciqual_food_name:fr:Riz au lait, rayon frais
@@ -24278,6 +24276,8 @@ ru:Молочный шоколад, Шоколад молочный
 sv:Mjölkchoklad
 zh:牛奶巧克力
 wikidata:en:Q2164820
+agribalyse_proxy_food_code:en:31004
+#all agribalyse milk chocolate categories have the same CO2 score
 
 <en:Milk chocolates
 en:Milk chocolate bar
@@ -24417,6 +24417,7 @@ pl:Czekolada biała
 sv:Vit choklad
 zh:白巧克力
 wikidata:en:Q742385
+agribalyse_proxy_food_code:en:31010
 
 <en:White chocolates
 en:White chocolate bar
@@ -24424,6 +24425,7 @@ fr:Chocolat blanc en tablette, Tablette de chocolat blanc
 ciqual_food_code:en:31010
 ciqual_food_name:en:White chocolate bar
 ciqual_food_name:fr:Chocolat blanc, tablette
+agribalyse_food_code:en:31010
 
 <en:White chocolates
 <en:Chocolates with sweeteners
@@ -29534,21 +29536,19 @@ ciqual_food_name:en:Fresh cream cheese, plain, around 3% fat
 ciqual_food_name:fr:Fromage blanc nature, 3% MG environ
 
 <fr:Fromages blancs
-en: Plain creamy fresh cream cheese around 8% fat
+en:Plain creamy fresh cream cheese around 8% fat
 fr:Fromage blanc nature gourmand à 8% de matières grasses environ
 ciqual_food_code:en:19649
 ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
 ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
 
 <fr:Fromages blancs
-en:Fresh cream cheese with fruits and sugar around 7% fat
-fr:Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
+en:Fromages blancs with fruits, Fresh cream cheese with fruits and sugar around 7% fat
+fr:Fromages blancs aux fruits, Fromage blanc gourmand sucré aux fruits à 7% de matières grasses environ, Spécialité laitière sucrée aux fruits à 7% de matières grasses environ
+agribalyse_food_code:en:19659
 ciqual_food_code:en:19659
 ciqual_food_name:en:Fresh cream cheese, with fruits, creamy, with sugar, around 7% fat
 ciqual_food_name:fr:Fromage blanc ou spécialité laitière, aux fruits, sucré, gourmand, 7% MG environ
-
-<fr:Fromages blancs
-fr:Fromages blancs aux fruits
 
 <fr:Fromages blancs
 fr:Fromages blancs au lait de vache
@@ -34067,6 +34067,7 @@ pnns_group_2:en:Dairy desserts
 
 <en:Dairy desserts
 fr:Crèmes brûlées
+agribalyse_food_code:en:39213
 
 #really similar to crème brûlé but made with milk instead of cream
 <en:Dairy desserts
@@ -34377,6 +34378,7 @@ es:Yogures de soja con frutas
 fi:Hedelmä-soijajogurtit
 fr:Yaourts de soja aux fruits, Yaourts soja aux fruits, Yaourts au soja aux fruits
 nl:Fruit sojayoghurts
+agribalyse_food_code:en:19692
 
 <en:Fruit soy yogurts
 en:Strawberry soy yogurts
@@ -37515,19 +37517,16 @@ ciqual_food_name:fr:Muesli (aliment moyen)
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
-en:Mueslis with chocolate
+en:Mueslis with chocolate, Crunchy chocolate muesli fortified with vitamins and chemical elements
 de:Müslis mit Schokolade, Schokomüslis
 es:Mueslis con chocolate
 fi:myslit suklaalla
-fr:Mueslis au chocolat
+fr:Mueslis au chocolat, Muesli croustillant au chocolat enrichi en vitamines et minéraux
 it:Muesli con cioccolato
 nl:Muesli met chocola
 pl:Musli czekoladowe, musli z czekoladą
 ro:Müsli cu ciocolată
-
-<en:Mueslis
-en:Crunchy chocolate muesli fortified with vitamins and chemical elements
-fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
+agribalyse_food_code:en:32112
 ciqual_food_code:en:32112
 ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
@@ -66524,28 +66523,22 @@ nl:Tuinbonen in blik
 <en:Canned legumes
 <en:Canned vegetables
 <en:Green beans
-en:Canned green beans
+en:Canned green beans, Canned drained French beans
 de:Grüne Bohnen in Dosen
 es:Judías verdes en conserva
 fi:purkitettuja vihreitä papuja
-fr:Haricots verts en conserve
+fr:Haricots verts en conserve, Haricots verts appertisés égouttés
 nl:Sperziebonen in blik
-
-<en:Canned green beans
-en:Canned drained French beans
-fr:Haricots verts appertisés égouttés
+agribalyse_food_code:en:20062
 ciqual_food_code:en:20062
 ciqual_food_name:en:French bean, canned, drained
 ciqual_food_name:fr:Haricot vert, appertisé, égoutté
 
 <en:Canned legumes
 <en:Canned vegetables
-fr:Haricots beurre en conserve
-
-<en:Canned legumes
-<en:Canned vegetables
-en:Canned drained butter beans, Canned drained yellow beans
-fr:Haricots beurre appertisés égouttés
+en:Canned butter beans, canned drained butter beans, Canned drained yellow beans
+fr:Haricots beurre en conserve, Haricots beurre appertisés égouttés
+agribalyse_food_code:en:20063
 ciqual_food_code:en:20063
 ciqual_food_name:en:Butter bean or yellow bean, canned, drained
 ciqual_food_name:fr:Haricot beurre, appertisé, égoutté
