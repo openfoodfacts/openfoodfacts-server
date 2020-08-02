@@ -260,21 +260,8 @@ if ($action eq 'display') {
 
 	my @contain_values = ("contains", "does_not_contain");
 	my %contain_labels = ();
-	# my %contain_labels = {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")};
-
-	# @contains = [
-	#  	{
-	#  		'contain_values' => "contains",
-	#  		'contain_labels' => lang("search_contains"),
-	#  	},
-	#  	{
-	#  		'contain_values' => "does_not_contain",
-	#  		'contain_labels' => lang("search_does_not_contain"),
-	#  	}
-	# ];
 
 	foreach my $value (@contain_values){
-		# push(@{ $contain_labels{$value} }, lang("search_" . $value));
 		my $new_label = lang("search_" . $value);
 	 	push (@contains, { 
 	  		contain_values => $value,
@@ -290,7 +277,6 @@ if ($action eq 'display') {
 			type_arrays => \@type_array,
 			contain_value => $search_tags[$i][1],
 			contain_array => \@contains,
-			# contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
 			input_value => $search_tags[$i][2],
 		};
 
