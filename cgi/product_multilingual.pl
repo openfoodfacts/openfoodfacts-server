@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -87,7 +87,7 @@ if ($type eq 'search_or_add') {
 	}
 	elsif ($code !~ /^\d{4,24}$/) {
 		display_error($Lang{invalid_barcode}{$lang}, 403);
-	}	
+	}
 
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
@@ -854,7 +854,7 @@ HTML
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
