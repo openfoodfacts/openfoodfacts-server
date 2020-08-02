@@ -1,10 +1,10 @@
 # file get_packager_code_from_html_ireland.py
 # coding: utf-8
 
-# Converting information about approved Food Establishments of Ireland that are super not-nice to one nice csv.  
-# All data come from here :  
+# Converting information about approved Food Establishments of Ireland that are super not-nice to one nice csv.
+# All data come from here :
 # https://www.fsai.ie/food_businesses/approved_food_establishments.html
-# 
+#
 
 # In[]:
 
@@ -12,8 +12,8 @@ urls = ['https://oapi.fsai.ie/LAApprovedEstablishments.aspx',
         'https://oapi.fsai.ie/AuthReg99901Establishments.aspx',
         'https://oapi.fsai.ie/HSEApprovedEstablishments.aspx'
        ]
-urls_second_format = ['http://www.sfpa.ie/Seafood-Safety/Registration-Approval-of-Businesses/List-of-Approved-Establishments-and-Vessels/Approved-Establishments',
-                      'http://www.sfpa.ie/Seafood-Safety/Registration-Approval-of-Businesses/Approved-Freezer-Vessels'
+urls_second_format = ['https://www.sfpa.ie/Seafood-Safety/Registration-Approval-of-Businesses/List-of-Approved-Establishments-and-Vessels/Approved-Establishments',
+                      'https://www.sfpa.ie/Seafood-Safety/Registration-Approval-of-Businesses/Approved-Freezer-Vessels'
                      ]
 
 csv_file = 'Ireland_concatenated.csv'
@@ -32,7 +32,7 @@ def ireland_correction_of_1_dataframe(df):     #Version to get anything
     df = df.rename(columns={' Address': 'Address'})
     df=df.drop(df.index[0]) #
     row_reference = df.iloc[0]
-    
+
     if 'Approval_Number' not in df.columns:
         print("this table has no approval number and was not added")
         return pd.DataFrame()
@@ -42,7 +42,7 @@ def ireland_correction_of_1_dataframe(df):     #Version to get anything
         if df_is_null.iloc[i,len(df.columns)-1]:   #We assume that on a row, there is no merged cell(null in pandas) on the webpage after an unmerged cell (not null)
             row_retrieved=[]
             value = ""
-            j=0   
+            j=0
             while not df_is_null.iloc[i,j]:
                 value=df.iloc[i,j]
                 row_retrieved.append(value)
@@ -53,7 +53,7 @@ def ireland_correction_of_1_dataframe(df):     #Version to get anything
             df.iloc[i]= row
 
         row_reference =df.iloc[i]
-    
+
 
     df["Address"]=df["Address"].apply(add_space_before_uppercase)
 
@@ -67,7 +67,7 @@ def ireland_correction_of_1_dataframe(df):     #Version to get anything
 
 # In[]:
 
-def add_space_before_uppercase(words):  
+def add_space_before_uppercase(words):
         result=""
         for s in words:
             if isinstance(s, str):
@@ -105,7 +105,7 @@ for page2 in pages2:
     for table in page2:
         #print (table.head(3))
         table=table.drop(table.index[0])
-        table.loc[0,0]='Approval_Number'        
+        table.loc[0,0]='Approval_Number'
         #print (ireland_correction_of_1_dataframe(table).head())
         df=df.append(ireland_correction_of_1_dataframe(table), ignore_index=True)
         print ("table "+str(j)+" is ok")
