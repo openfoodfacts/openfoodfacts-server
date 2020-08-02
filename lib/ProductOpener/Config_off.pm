@@ -348,7 +348,6 @@ $contact_email = 'contact@openfoodfacts.org';
 $producers_email = 'producers@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
 
-
 $thumb_size = 100;
 $crop_size = 400;
 $small_size = 200;
@@ -533,6 +532,8 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
 );
 
 

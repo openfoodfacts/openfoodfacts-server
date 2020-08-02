@@ -1,10 +1,10 @@
 <p>[% error %]</p>
 [% IF (current_link_query.defined) && !(jqm.defined) %]
     [% IF country != 'en:world' %]
-        <p>&rarr; <a href= ""[% world_subdomain %][% current_link_query %]&action=display> [% lang('view_results_from_the_entire_world') %]</a></p>
+        <p>&rarr; <a href= "[% world_subdomain %][% current_link_query %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
     [% END %]
-    &rarr; <a href=[% current_link_query %]&action=display>[% lang('search_link') %]</a><br>
-    &rarr; <a href=[% current_link_query %]&action=display>[% lang('search_edit') %]</a><br>
+    &rarr; <a href="[% current_link_query %]">[% lang('search_link') %]</a><br>
+    &rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a><br>
 [% END %]
 
 [% IF count > 0 %]
@@ -12,8 +12,8 @@
         &rarr;[% lang('search_download_results') %]<br>
         [% IF count <= export_limit %]
             <ul>
-                <li><a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a>[% lang('search_download_xlsx_description') %]</li>
-                <li><a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a>[% lang('search_download_csv_description') %]</li>
+                <li><a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a> ([% lang('search_download_xlsx_description') %])</li>
+                <li><a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a> ([% lang('search_download_csv_description') %])</li>
             </ul>
         [% END %]
     [% END %]
@@ -27,7 +27,7 @@
                 <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
                 <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
                     [% FOREACH newtagtype IN current_drilldown_fields %]
-                        <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %][% newtagtype.nofollow %]">[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
+                        <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
                     [% END %]
                 </ul>
             </li>

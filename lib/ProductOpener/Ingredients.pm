@@ -1270,6 +1270,7 @@ sub parse_ingredients_text($) {
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
 								'en proportions variables',
+								'en proportion variable',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -1290,12 +1291,19 @@ sub parse_ingredients_text($) {
 								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
 								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'vaihtelevina osuuksina',
 							],
 							
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
+								'o.a.',
 							],
+							
+							'sv' => [
+								'varierande proportion',
+							],
+							
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -2460,6 +2468,7 @@ en => [
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
+'Store in a cool, dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
@@ -2554,6 +2563,8 @@ fr => [
 'N(o|ò)us vous conseillons',
 'Non ouvert,',
 'Sans conservateur',
+'(Utilisation: |Préparation: )?Servir frais',
+'Temps de Cuisson',
 'tenir à l\'abri',
 'Teneur en matière grasse',
 '(Chocolat: )?teneur en cacao',
@@ -2977,8 +2988,12 @@ sub separate_additive_class($$$$$) {
 		$after2 = $`;
 	}
 
-	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
-		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
+	# also check that we are not separating an actual ingredient
+	# e.g. acide acétique -> acide : acétique
+
+	if (	(not exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $additive_class . " " . $after))) 
+ 	and (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
+		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) )))
 	) {
 		#print STDERR "separate_additive_class - after is an additive\n";
 		return $additive_class . " : ";
@@ -3175,7 +3190,7 @@ sub preparse_ingredients_text($$) {
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
@@ -3195,7 +3210,9 @@ sub preparse_ingredients_text($$) {
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		$text =~ s/(?<!\w( |'))\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$2,$3,$4,$')/ieg;
 	}
 
 	# dash with 1 missing space
@@ -3497,7 +3514,11 @@ sub preparse_ingredients_text($$) {
 			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
 
 			# Huiles végétales de palme, de colza et de tournesol
+			# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire.
+			# TODO 18/07/2020 remove when we have a better solution
+			$text =~ s/fer élémentaire/fer_élémentaire/g;
 			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
+			$text =~ s/fer_élémentaire/fer élémentaire/g;			
 		}
 
 		# Caramel ordinaire et curcumine
