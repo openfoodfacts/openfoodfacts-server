@@ -6198,7 +6198,6 @@ sub display_new($) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{file_timestamps} = \$file_timestamps{"css/dist/app.css"};
 	$template_data_ref->{header} = $header;
-	my $html;
 
 	my $site_name = $Lang{site_name}{$lang};
 	if ($server_options{producers_platform}) {
@@ -6406,6 +6405,14 @@ HTML
 	$template_data_ref->{content_ref} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
 	$template_data_ref->{scripts} = $scripts;
+	my $html;
+
+	# init javascript code
+
+	$html =~ s/<initjs>/$initjs/;
+	$template_data_ref->{initjs} = $initjs;
+
+	$tt->process('display_new.tt.html', $template_data_ref, \$html) || ($html .="template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -6436,11 +6443,6 @@ HTML
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
-	# init javascript code
-
-	$html =~ s/<initjs>/$initjs/;
-	$template_data_ref->{initjs} = $initjs;
-
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
 		if ($data_root =~ /-test/) {
@@ -6469,9 +6471,6 @@ HTML
 
 	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
 
-	my $temp_html;
-	$tt->process('display_new.tt.html', $template_data_ref, \$temp_html) || ($temp_html .="template error: " . $tt->error());
-	$html .=$temp_html;
 	print $html;
 }
 
