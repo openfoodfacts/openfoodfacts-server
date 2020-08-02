@@ -60,9 +60,9 @@ function add_language_tab (lc, language) {
 
     var $clone = $(this).clone();
 
-    var $th = $clone;
-    var newID = $th.attr('id').replace(/new_lc/, lc);
-    $th.attr('id', newID);
+    var $newTh = $clone;
+    var newLcID = $newTh.attr('id').replace(/new_lc/, lc);
+    $newTh.attr('id', newLcID);
 
     $clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
 
@@ -327,7 +327,6 @@ function change_image(imagefield, imgid) {
   $("." + crop_button).click({imagefield:imagefield},function(event) {
     event.stopPropagation();
     event.preventDefault();
-    var imgid = imagefield_imgid[imagefield];
 
     var selection = $('img#crop_' + imagefield ).cropper('getData');
 
@@ -341,7 +340,7 @@ function change_image(imagefield, imgid) {
     $('.cropbuttonmsg_' + imagefield).show();
     $.post('/cgi/product_image_crop.pl',
   {
-    code: code, id: imagefield, imgid: imgid,
+    code: code, id: imagefield, imgid: imagefield_imgid[imagefield],
         x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
         coordinates_image_size : coordinates_image_size,
         angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
