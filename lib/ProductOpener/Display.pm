@@ -8680,7 +8680,7 @@ JS
 
 		foreach my $col (@cols) {
     
-      push (@{$template_data_ref->{tables}[$i]{header}{columns}}, {
+      		push (@{$template_data_ref->{tables}[$i]{header}{columns}}, {
 				col_id => $col,
 				class => $col_class{$col},
 				name => $col_name{$col},

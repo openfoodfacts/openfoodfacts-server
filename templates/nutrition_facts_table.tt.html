@@ -48,15 +48,13 @@
 
 	<table id="[% table.id %]_data_table" class="data_table">
     <caption>[% table.header.name %]</caption>
-    
+
 		<!--  Generating table header -->
 		<thead class="nutriment_header">
 			<tr>
 				<th scope="col">[% table.header.name %]</th>
 				[% FOREACH column IN table.header.columns %]
-        
 					<th class="nutriment_value [% column.class %]" scope="col">[% column.name %]</th>
-
 				[% END %]
 			</tr>
 		</thead>
