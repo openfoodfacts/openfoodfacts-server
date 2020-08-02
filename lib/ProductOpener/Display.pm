@@ -6195,6 +6195,7 @@ sub display_new($) {
 	$template_data_ref->{language} = $lang;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{og_type} = $og_type;
+	$template_data_ref->{fb_config} = 219331381518041;
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
