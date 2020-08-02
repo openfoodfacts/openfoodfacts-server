@@ -40,17 +40,17 @@ function ensureMapIsDisplayed() {
 	}).addTo(map);
 }
 
-function fitBoundsToAllLayers(map) {
+function fitBoundsToAllLayers(mapToUpdate) {
 	var latlngbounds = new L.latLngBounds();
 
-	map.eachLayer(function (l) {
+	mapToUpdate.eachLayer(function (l) {
 		if (typeof l.getBounds === "function") {
 			latlngbounds.extend(l.getBounds());
 		}
 	});
 
 	latlngbounds.extend(L.latLngBounds(markers));
-	map.fitBounds(latlngbounds);
+	mapToUpdate.fitBounds(latlngbounds);
 }
 
 function runCallbackOnJson(callback) {
@@ -74,9 +74,9 @@ function addWikidataObjectToMap(id){
 
 		getGeoJsonFromOsmRelation(relationId, function (geoJson) {
 			if (geoJson) {
-				runCallbackOnJson(function (map) {
-					L.geoJSON(geoJson).addTo(map);
-					fitBoundsToAllLayers(map);
+				runCallbackOnJson(function (mapToUpdate) {
+					L.geoJSON(geoJson).addTo(mapToUpdate);
+					fitBoundsToAllLayers(mapToUpdate);
 				});
 			}
 		});

@@ -39,12 +39,14 @@
     "win32"
   ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.4.3",
-    "@yaireo/tagify": "^3.6.10",
+    "@webcomponents/webcomponentsjs": "2.4.4",
+    "@yaireo/tagify": "^3.16.3",
     "blueimp-file-upload": "^10.31.0",
     "cropper": "^4.1.0",
     "foundation-sites": "^6.6.3",
-    "jquery": "^3.5.0",
+    "highcharts": "^8.1.2",
+    "jquery": "^3.5.1",
+    "jquery-form": "^4.3.0",
     "jquery-ui": "^1.12.1",
     "jquery.cookie": "^1.4.1",
     "leaflet": "^1.6.0",
@@ -55,10 +57,10 @@
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.2.0",
     "what-input": "^5.2.7",
-    "snyk": "^1.362.1"
+    "snyk": "^1.369.2"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.6.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",

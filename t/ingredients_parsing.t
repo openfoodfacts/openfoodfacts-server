@@ -96,7 +96,7 @@ my @lists =(
 	###########################
 	[ "da",
 	  "bl. a inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
-	  "blandt andet inklusive modificeret pasteuriserede emulgator : E322, E103, E140, E250, E100"
+	  "blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
 	],
 	[ "nb",
 	  "bl. a inkl. E322 E103, E140, E250 og E100",
@@ -104,7 +104,7 @@ my @lists =(
 	],
 	[ "sv",
 	  "bl. a förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
-	  "bland annat förtjockningsmedel inklusive emulgeringsmedel : E322, E103, E140, E250, E100"
+	  "bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
 	],
 	[ "da",
 	  "Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
@@ -264,6 +264,13 @@ my @lists =(
 
 	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
 
+	["fr", "E160a(ii)","e160aii"],
+	["fr", "(E160a-ii)","(e160aii)"],
+	["fr", "colorant (E160a(ii))","colorant (e160aii)"],
+
+	# do not separate acide acétique into acide : acétique
+	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
+	["fr","acide acétique","acide acétique"],
 
 );
 
