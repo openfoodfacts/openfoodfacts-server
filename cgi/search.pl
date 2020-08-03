@@ -798,7 +798,3 @@ HTML
 		}
 	}
 }
- 
-#my $out;
-# $tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
-# print "Template Result, $html, are";
