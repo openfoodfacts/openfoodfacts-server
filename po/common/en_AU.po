@@ -5,15 +5,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-11 16:22\n"
+"PO-Revision-Date: 2020-06-20 07:37\n"
 "Language-Team: English, Australia\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: en-AU\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -44,9 +46,89 @@ msgctxt "add_user"
 msgid "Register"
 msgstr "Register"
 
-msgctxt "add_user_confirm"
-msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "Register"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr ""
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr ""
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr ""
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr ""
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr ""
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr ""
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr ""
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr ""
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr ""
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr ""
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr ""
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr ""
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr ""
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr ""
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr ""
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -486,9 +568,17 @@ msgctxt "edit_user"
 msgid "Account parameters"
 msgstr "Account parameters"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Your account parameters have been changed.</p>"
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "Account parameters"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "Account parameters"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"

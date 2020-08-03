@@ -167,6 +167,7 @@ my @tests = (
 #                           F R E N C H ( F R )
 #
 ##################################################################
+
 	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
 			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
 		[
@@ -218,6 +219,24 @@ my @tests = (
 			}
 		]
 	],
+
+# test for jus and concentré with extra "de"
+#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+#		[
+#		]
+#	],
+
+##################################################################
+#
+#                           F I N N I SH ( F I )
+	#
+##################################################################
+# test for mehu inside an ingredient
+
+#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"}, 
+#		[
+#		]
+#	],
 
 ##################################################################
 #
@@ -569,14 +588,14 @@ my @tests = (
 	],
 
 # de:konzentriert (and children) and synonyms
-	[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
+	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
 		[
 			{
 				'id' => 'en:shallot',
 				'processing' => 'en:concentrated',
-				'text' => 'shallot'
+				'text' => 'schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
@@ -591,7 +610,7 @@ my @tests = (
 			{
 				'id' => 'en:acerola',
 				'processing' => 'en:concentrated',
-				'text' => 'acerola'
+				'text' => 'acerolakirschen'
 			},
 			{
 			    'id' => 'de:zweifach konzentriert',
@@ -631,7 +650,7 @@ my @tests = (
 # de:zerkleinert and variants
 	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht, 
 						gurken grob zerkleinert, 
-						acerola fein zerkleinert, fein zerkleinerte spinat, 
+						acerolakirschen fein zerkleinert, fein zerkleinerte spinat, 
 						zwiebel zum teil fein zerkleinert,
 						haselnüsse feinst zerkleinert,
 						überwiegend feinst zerkleinert Feigen" }, 
@@ -664,7 +683,7 @@ my @tests = (
 						  {
 						    'id' => 'en:acerola',
 						    'processing' => 'de:fein-zerkleinert',
-						    'text' => 'acerola'
+						    'text' => 'acerolakirschen'
 						  },
 						  {
 						    'id' => 'en:spinach',
@@ -751,7 +770,7 @@ my @tests = (
 	# Test for de:getrocknet and synonyms
 		[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel, 
 				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet, 
-				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
+				 Holunder gefriergetrocknet, gefriergetrocknete Papaye, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
 				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten, 
 				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" }, 
 				[
@@ -798,7 +817,7 @@ my @tests = (
 				  {
 				    'id' => 'en:papaya',
 				    'processing' => 'en:freeze-dried',
-				    'text' => 'Papaya'
+				    'text' => 'Papaye'
 				  },
 				  {
 				    'id' => 'en:kiwi',

@@ -5,15 +5,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-12 08:11\n"
+"PO-Revision-Date: 2020-06-21 08:11\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
+"X-Crowdin-File-ID: 440\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -44,9 +46,89 @@ msgctxt "add_user"
 msgid "Register"
 msgstr "הרשמה"
 
-msgctxt "add_user_confirm"
-msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p>"
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "הרשמה"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr "ברוך בואך!"
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr "תודה על הצטרפותך!"
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr "מעתה יש לך אפשרות להוסיף ולערוך מוצרים דרך המחשב או עם ה<a href=\"%s\">יישומונים</a> החינמיים שלנו."
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "ניתן להצטרף ל־Slack שלנו"
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr "%s הוא מיזם שיתופי אליו ניתן להביא הרבה מעבר למוצרים חדשים: האנרגיה, ההתלהבות והרעיונות שלך!"
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr "אנו משתמשים במערכת דיונים בשם Slack בה כל משתתפי המיזמים יכולים להחליף מידע ולשתף פעולה. מזמינים אותך להצטרף! נשמח להכיר אותך!"
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "ניתן להצטרף ל־Slack שלנו"
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr "מעתה יתאפשר לך לייבא תמונות ונתונים של המוצר שלך."
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr "מעתה יתאפשר לך להוסיף ולערוך את המוצרים שלך ולייבא את הנתונים והתמונות שלהם ב<a href=\"%s\">פלטפורמת היצרנים</a> החינמית שלנו."
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr "כבר קיים ארגון בשם הזה %s."
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr "בקשתך להצטרף לארגון ממתינה לאישור הנהלת הארגון."
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr "נא לשלוח הודעה אל <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> במקרה שצצות שאלות."
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr "אם נשלחת מטעם יצרן או מותג ובכוונתך להוסיף או להשלים נתונים למוצרים שלך בלבד, נוכל לאפשר לך לקבל גישה לפלטפורמת היצרנים שלנו בחינם לגמרי."
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr "הפלטפורמה ליצרנים מאפשרת להם לייבא נתונים ותמונות לכל המוצרים שלהם, לסמן אותם כרשמיים ולקבל ניתוח חינם להזדמנויות לשיפור המוצרים שלהם בקלות."
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr "חשבון מקצועי"
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr "זהו חשבון של יצרן או מותג."
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr "יצרן או מותג"
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr "חובה לשייך חשבונות מקצועיים לארגון (שם חברה או מותג)."
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr "נא למלא את שם הארגון שלך (חברה או מותג)."
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgstr "זהו חשבון מקצועי שמשויך ליצרן או למותג %s. יש לך גישה לפלטפורמה ליצרנים."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -486,9 +568,17 @@ msgctxt "edit_user"
 msgid "Account parameters"
 msgstr "משתני החשבון"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>משתני החשבון שלך הוחלפו.</p>"
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "משתני החשבון"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "משתני החשבון"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr "משתני החשבון שלך הוחלפו."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2510,15 +2600,15 @@ msgstr "אזהרה: כמויות הסיבים ואלו של הפרות, הירק
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התרומה החיובית שלהם לציון לא ניתנת לחישוב."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס רשימת הרכיבים: %d%"
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס רשימת הרכיבים: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "אזהרה: כמות הפרות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס הקטגוריה (%s) של המוצר: %d%"
+msgstr "אזהרה: כמות הפירות, הירקות והאגוזים לא צוינה, התבצעה הערכה על בסיס הקטגוריה (%s) של המוצר: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"

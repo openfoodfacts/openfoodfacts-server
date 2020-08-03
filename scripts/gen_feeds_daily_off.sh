@@ -22,3 +22,6 @@ cd /srv/off/scripts
 ./generate_dump_for_offline_apps_off.py
 cd /srv2/off/html/data/offline
 zip en.openfoodfacts.org.products.small.csv.zip en.openfoodfacts.org.products.small.csv
+
+# Equadis import
+/srv/off-pro/scripts/equadis-import/run_equadis_import.sh
