@@ -761,6 +761,7 @@ my %min_regexp = (
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
+	de => "Fett i. Tr.",
 	en => "of (the )?total weight",
 	es => "(en el chocolate( con leche)?)",
 	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
@@ -2457,6 +2458,7 @@ de => [
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
+'Säure 6%.'
 ],
 
 en => [
