@@ -2351,6 +2351,25 @@ my %phrases_before_ingredients_list_uppercase = (
 
 en => [
 'INGREDIENT(S)?',
+'composition',
+],
+
+az => [
+'Tarkibi',
+],
+
+bg => [
+'Съставки',
+'Състав',
+],
+
+bg => [
+'Sastoji',
+],
+
+ca => [
+'Ingredient(s)?',
+'composició',
 ],
 
 cs => [
@@ -2360,66 +2379,138 @@ cs => [
 da => [
 'INGREDIENSER',
 'N(æ|ae)ringsindhold',
+'indeholder',
 ],
 
 de => [
 'ZUTAT(EN)?',
-],
-
-da => [
-'N(æ|ae)ringsindhold',
+'Zusammensetzung',
 ],
 
 es => [
-'INGREDIENTES',
+'INGREDIENTE(S)?',
+'composición',
 ],
 
 fi => [
 'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+'VALMISTUSAINEET',
+'koostumus',
 ],
 
 fr => [
 'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
+'composition',
+],
+
+hr => [
+'Sastojci',
 ],
 
 hu => [
 '(Ö|O|0)SSZETEVOK',
+'összetétel',
+],
+
+id => [
+'komposisi',
+],
+
+is => [
+'inneald',
 ],
 
 it => [
-
 'INGREDIENTI(\s*)',
+'composizione',
+],
+
+kk => [
+'Курамы',
+],
+
+ky => [
+'Курамы',
+],
+
+lt => [
+'Sudedamosios dalys',
+'Sudėtis',
+],
+
+lv => [
+'sastāv(s|dalas)',
 ],
 
 nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
+'samenstelling',
+'bestanddelen',
 ],
 
-pt => [
-'INGREDIENTES(\s*)',
+nb => [
+'Ingredienser',
 ],
 
 pl => [
 'SKŁADNIKI(\s*)',
+'skład',
 ],
 
+pt => [
+'INGREDIENTES(\s*)',
+'composição',
+],
 
 ro => [
-'Ingrediente'
+'Ingrediente',
+'compoziţie',
+],
+
+ru => [
+'coctaB',
 ],
 
 si => [
 'SESTAVINE',
 ],
 
+sk => [
+'obsahuje',
+'Zloženie',
+],
+sl => [
+'vsebuje',
+'sestavine',
+],
+
+sr => [
+'Sastojci',
+],
+
 sv => [
 'INGREDIENSER',
+'innehåll(er)?',
+],
+
+tg => [
+'Таркиб',
+],
+
+th => [
+'ส่วนประกอบ',
+],
+
+uz => [
+'Tarkib',
 ],
 
 vi => [
 'THANH PHAN',
+],
+
+zh => [
+'配料',
 ],
 
 );
@@ -2458,7 +2549,6 @@ de => [
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
-'Säure 6%.'
 ],
 
 en => [
