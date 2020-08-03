@@ -2457,6 +2457,7 @@ de => [
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
+'Säure 6%.'
 ],
 
 en => [
