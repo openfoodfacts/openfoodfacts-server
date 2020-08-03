@@ -37,13 +37,14 @@
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %] 
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
+
 <div itemscope itemtype="[% itemtype %]">
 <h1 property="food:name" itemprop="name">[% title %]</h1>
 
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% html_upc %]
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]
@@ -77,17 +78,17 @@
 <!-- product_characteristics -->
 <h2>[% lang('product_characteristics') %]</h2>
 <div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% html_image %]</div>
+    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        [% html_fields %]
+        [% product_fields %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
 </div>
 
 <!-- ingredients -->
 <h2>[% lang('ingredients') %]</h2>
 <div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% ingredient_image %]</div>
+    <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
         <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
@@ -108,7 +109,8 @@
         [% display_field_traces %]
         [% display_ingredients_analysis %]
         [% display_ingredients_analysis_details %]
-        [% IF html_ingredients_classes_n > 0 %]
+              
+        [% IF ingredients_classes_n > 0 %]
             <div class="row">
                 [% html_ingredients_classes %]
             </div>
@@ -137,7 +139,7 @@
             [% display %]
         [% END %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% html_image %]</div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
 </div>
 
 <!-- nutrition table -->
@@ -160,7 +162,7 @@
         </div>
     
         <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
-            $html_image
+            [% nutrition_image %]
         </div>
     </div>
 
@@ -194,10 +196,10 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% FOREACH id IN html_sources %]
-    <p>[% lang("sources_${id.lang_source}") %]</p>
-    [% IF id.source_ref_url %]
-        <p><a href="\[% id.source_ref_url %]\">[% lang("sources_${id.lang_source}_product_page") %]</a></p>
+[% FOREACH source IN sources %]
+    <p>[% lang("sources_${source.lang_id}") %]</p>
+    [% IF source.url %]
+        <p><a href="\[% source.url %]\">[% lang("sources_${source.lang_id}_product_page") %]</a></p>
     [% END %]
 [% END %]
 
