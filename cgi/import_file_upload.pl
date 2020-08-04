@@ -66,14 +66,15 @@ if ($action eq "process") {
 	# Process uploaded files
 
 	my $file = param('file_input_data');
+	my $filename = decode utf8=>param('file_input_data');
 
 	my %data = ();
 
-	if ($file =~ /\.(xlsx|csv|tsv)$/i) {
+	if ($filename =~ /\.(xlsx|csv|tsv)$/i) {
 
 
 		my $extension = lc($1) ;
-		my $filename = $`;
+		$filename = $`;
 		my $uploaded_t = time();
 		my $file_id = $uploaded_t . '-' . get_string_id_for_lang("no_language", $filename);
 

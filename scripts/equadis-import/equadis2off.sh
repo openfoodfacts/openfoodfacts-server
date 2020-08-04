@@ -4,54 +4,13 @@
 
 tfile=$(mktemp /tmp/off-XXXXXXXXX.csv)
 
-mlr --csv unsparsify equadis-data/*.csv >$tfile
+mlr --csv unsparsify /srv2/off-pro/equadis-data-tmp/*.csv >$tfile
 mlr -I --csv filter '${gs1.isTradeItemAConsumerUnit} != "false"' \
     then cut -x -f 'gs1.isTradeItemAConsumerUnit' $tfile
 
-
-mlr -I --csv filter '${gs1.functionalName} != "Adoucissant Concentré§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Adoucissant Liquide§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Anti transpirant§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Après Rasage§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Avant Rasage§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Bloc Wc§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Bol à Raser§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Crème à Raser§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Dentifrice§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "DENTIFRICE§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Bille Femme§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Brume Femme§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Compressé Femme Spray Ant§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme Anti-Transpirant§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme Bille§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme Spray§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme Spray Anti Transpir§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Femme Spray Compressé§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Homme Stick§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Déodorant Spray§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "DEO STICK§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel à Raser§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel de rasage§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Douche§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Douche Bio§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Douche Homme§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Douche Mousse§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Lave-Vaisselle§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Gel Nettoyant§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Huile à barbe§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Lessive Capsules§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Lessive Liquide§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Mini Gel à Raser§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "MONSA SOL.SOAP AUTH. 200G X12§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Mousse à Raser§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Savon§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Savon Liquide§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Savon Pain de Toilette§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Soin Barbe & Visage§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "Tablettes Lave-Vaisselle§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "TOUT EN UN LAVE VAISSELLE§languageCode=fr";' $tfile
-mlr -I --csv filter '${gs1.functionalName} != "LESSIVE CAPSULE§languageCode=fr";' $tfile
+# Commenting the non-food filter so that we can move products to OBF, OPF etc.
+# I couldn't find a way to make word boundaries work, in order to match full names only
+#mlr -I --csv filter '(${gs1.functionalName} !=~ "(bloc wc|dentifrice|deodorant|déo|déodorant|douche|huile à barbe|lave vaisselle|lave-vaisselle|lessive|nettoyant|rasage|raser|savon|shampo|soap|soin barbe|soin visage|toilette|transpirant)"i);' $tfile
 
 # Deduplicate keeping only the latest version of each product
 mlr -I --csv put -S -q '@records[NR] = $*;
@@ -68,8 +27,13 @@ mlr -I --csv put -S -q '@records[NR] = $*;
 mlr -I --csv put -S '$code=${gs1.gtin}' \
   then cut -x -f 'gs1.gtin' $tfile
 
-# Data Source
-mlr -I --csv put -S '$data_sources=${gs1.partyName}' \
+# GS1 id and name
+mlr -I --csv put -S '${sources_fields:org-gs1:gln}=${gs1.gln}' \
+  then cut -x -f 'gs1.gln' $tfile
+
+# Set the org_name field to gs1.partyName to assign the organization
+mlr -I --csv put -S '${sources_fields:org-gs1:partyName}=${gs1.partyName};
+                     $org_name=${gs1.partyName}' \
   then cut -x -f 'gs1.partyName' $tfile
 
 # Product Name
@@ -141,20 +105,29 @@ mlr -I --csv put -S '$ingredients_text_fr="";
   then cut -x -f 'gs1.ingredientStatement' $tfile
 
 # Categories
-# Discarded candidates for categories:
-# gs1.gpcCategoryCode,gs1.gpcCategoryName,
-# gs1.additionalTradeItemClassificationSystemCode,gs1.additionalTradeItemClassificationCodeValue,gs1.additionalTradeItemClassificationCodeDescription
-# experimentaly on Unilever data, gs1.functionalName is cleaner
-mlr -I --csv put -S '$categories="";
-                     @cat=splitnvx(${gs1.functionalName},  "§");
-                     if (@cat[2]=="languageCode=fr")
-                         { $categories="fr:".@cat[1] }' \
-  then cut -x -f 'gs1.functionalName' \
+# * store gs1.gpcCategoryCode and gs1.gpcCategoryName as is in sources_fields:org-gs1 fields
+# so that they are available for later use / further matching
+# * use other fields as candidates for categories, they will be imported if they match
+# the OFF categories taxonomy:
+# - gs1.gpcCategoryName: some can match as-is
+# - gs1.functionalName: may contain a good category name for some producers (e.g. Unilever)
+# but contains a very specific product name for some other producers (e.g. Naturenvie / Lea Nature)
+
+mlr -I --csv put -S '$categories_if_match_in_taxonomy=${gs1.gpcCategoryName};
+                     ${sources_fields:org-gs1:gpcCategoryCode}=${gs1.gpcCategoryCode};
+                     ${sources_fields:org-gs1:gpcCategoryName}=${gs1.gpcCategoryName}' \
   then cut -x -f 'gs1.gpcCategoryCode' \
   then cut -x -f 'gs1.gpcCategoryName' \
   then cut -x -f 'gs1.additionalTradeItemClassificationSystemCode' \
   then cut -x -f 'gs1.additionalTradeItemClassificationCodeValue' \
   then cut -x -f 'gs1.additionalTradeItemClassificationCodeDescription' $tfile
+
+mlr -I --csv put -S '${categories_if_match_in_taxonomy.2}="";
+                     @cat=splitnvx(${gs1.functionalName},  "§");
+                     if (@cat[2]=="languageCode=fr")
+                         { ${categories_if_match_in_taxonomy.2}="fr:".@cat[1] }' \
+  then cut -x -f 'gs1.functionalName' $tfile
+
 
 # Allergens
 # Discarded candidates for Allergens
@@ -337,22 +310,22 @@ mlr -I --csv put -S '$producer_version_id=${gs1.publicationDateTime}' \
 #mlr -I --csv put -S '$front_fr_url=${gs1.uniformResourceIdentifier.0}' \
 #  then cut -x -f 'gs1.uniformResourceIdentifier.0' $tfile
 
-#mlr -I --csv put -S '$other_fr_url=""; @photo;
+#mlr -I --csv put -S '$image_other_fr_url=""; @photo;
 #                     for (int k = 1; k < 15; k += 1)
 #                         { if ($["gs1.uniformResourceIdentifier.".k] != "")
 #                               { @photo[k]=$["gs1.uniformResourceIdentifier.".k] }
 #                         };
 #                         if (is_map(@photo))
-#                             {$other_fr_url=joinv(@photo, ",")}
-#                         else {$other_fr_url=""};' \
+#                             {$image_other_fr_url=joinv(@photo, ",")}
+#                         else {$image_other_fr_url=""};' \
 # then cut -x -r -f '"gs1.uniformResourceIdentifier..*$"' $tfile
 
 
 mlr -I --csv put -S '  for (int k = 0; k < 15; k += 1)
-                         { $["other_fr_url.".k]="";}
+                         { $["image_other_fr_url.".k]="";}
                        for (int k = 0; k < 15; k += 1)
                            { if ($["gs1.uniformResourceIdentifier.".k] != "")
-                                 { $["other_fr_url.".k]=$["gs1.uniformResourceIdentifier.".k]; }
+                                 { $["image_other_fr_url.".k]=$["gs1.uniformResourceIdentifier.".k]; }
                            };' \
    then cut -x -r -f '"gs1.uniformResourceIdentifier..*$"' $tfile
 

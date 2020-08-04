@@ -41,11 +41,89 @@ msgctxt "add_user"
 msgid "Register"
 msgstr ""
 
-msgctxt "add_user_confirm"
-msgid ""
-"<p>Thanks for joining. You can now sign-in on the site to add and edit "
-"products.</p>"
-msgstr ""
+msgctxt "add_user_display"
+msgid "Register"
+msgstr "Register"
+
+msgctxt "add_user_process"
+msgid "Welcome!"
+msgstr "Welcome!"
+
+msgctxt "add_user_result"
+msgid "Thank you for joining us!"
+msgstr "Thank you for joining us!"
+
+msgctxt "add_user_you_can_edit"
+msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+msgstr "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "Join us on Slack"
+
+msgctxt "add_user_join_the_project"
+msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+msgstr "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
+
+msgctxt "add_user_join_us_on_slack"
+msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+
+msgctxt "join_us_on_slack"
+msgid "Join us on Slack"
+msgstr "Join us on Slack"
+
+msgctxt "add_user_you_can_edit_pro"
+msgid "You can now easily import your product data and photos."
+msgstr "You can now easily import your product data and photos."
+
+msgctxt "add_user_you_can_edit_pro_promo"
+msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+msgstr "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
+
+msgctxt "add_user_existing_org"
+msgid "There is already an existing organization with the name %s."
+msgstr "There is already an existing organization with the name %s."
+
+msgctxt "add_user_existing_org_pending"
+msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr "Your request to join the organization is pending approval of the organization administrator."
+
+msgctxt "please_email_producers"
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+
+msgctxt "if_you_work_for_a_producer"
+msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+msgstr "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
+
+msgctxt "producers_platform_description_long"
+msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+msgstr "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
+
+msgctxt "pro_account"
+msgid "Professional account"
+msgstr "Professional account"
+
+msgctxt "this_is_a_pro_account"
+msgid "This is a producer or brand account."
+msgstr "This is a producer or brand account."
+
+msgctxt "producer_or_brand"
+msgid "Producer or brand"
+msgstr "Producer or brand"
+
+msgctxt "error_missing_org"
+msgid "Professional accounts must have an associated organization (company name or brand)."
+msgstr "Professional accounts must have an associated organization (company name or brand)."
+
+msgctxt "enter_name_of_org"
+msgid "Please enter the name of your organization (company name or brand)."
+msgstr "Please enter the name of your organization (company name or brand)."
+
+msgctxt "this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgstr "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
 
 msgctxt "add_user_email_body"
 msgid ""
@@ -501,11 +579,19 @@ msgstr ""
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Account parameters"
 
-msgctxt "edit_user_confirm"
-msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgctxt "edit_user_display"
+msgid "Account parameters"
+msgstr "Account parameters"
+
+msgctxt "edit_user_process"
+msgid "Account parameters"
+msgstr "Account parameters"
+
+msgctxt "edit_user_result"
+msgid "Your account parameters have been changed."
+msgstr "Your account parameters have been changed."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -4340,3 +4426,17 @@ msgstr "http://world.pro.openfoodfacts.org/"
 msgctxt "footer_producers"
 msgid "Producers"
 msgstr "Producers"
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr "If this product has an ingredients list in %s, please add it."
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr "Missing barcode"
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
+msgstr "Invalid barcode"
+

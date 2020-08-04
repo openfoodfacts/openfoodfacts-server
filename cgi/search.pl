@@ -128,9 +128,9 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
 	(not defined param('xml')) and (not defined param('rss')) and
-	($search_terms =~ /^(\d{8})\d*$/)) {
+	($search_terms =~ /^(\d{4,24})$/)) {
 
-		my $code = $search_terms;
+		my $code = normalize_code($search_terms);
 
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -190,7 +190,7 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
 if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-	and ($sort_by ne 'completeness')) {
+	and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
 	$sort_by = 'unique_scans_n';
 }
 
@@ -409,7 +409,7 @@ if ($action eq 'display') {
 	 );
 
 	push @{$template_data_ref->{sort_options}}, @sort_array;
-	push @{$template_data_ref->{sort_by}}, $sort_by;
+	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
 	my @size_array =(20, 50, 100, 250, 500, 1000);
 	push @{$template_data_ref->{size_options}}, @size_array;
@@ -798,7 +798,3 @@ HTML
 		}
 	}
 }
- 
-#my $out;
-# $tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
-# print "Template Result, $html, are";
