@@ -65,9 +65,7 @@ var URL_PARAM_SCORE="score";
 var GRAPH_WIDTH = $(window).innerWidth() * 75 / 100;
 var GRAPH_HEIGHT = $(window).innerHeight() * 40 / 100;
 var OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT = false;
-// var PRODUCT_CODE_DEFAULT = '4104420017849';
-var PRODUCT_CODE_DEFAULT = '0059749894456';
-var OFF_BACKGROUND_COLOR = "#09f";
+var PRODUCT_CODE_DEFAULT = '3960145823988';
 
 /* ids of html-item for attaching graph data and product reference details (image, etc.) */
 var ID_CELL_BANNER = "#banner";
@@ -644,7 +642,8 @@ function go_search() {
     if (curr_prod >= 0) {
         code_product = suggested_products[curr_prod].code;
         $(ID_INPUT_PRODUCT_CODE).val(code_product);
-        $(ID_INPUT_PRODUCT_CODE).css("background-color", OFF_BACKGROUND_COLOR);
+        $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
+        $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
         $(ID_BTN_SUBMIT).click();
     }
 }
@@ -877,7 +876,8 @@ function draw_graph(id_attach_graph,
         })
         .on("click", function (d) {
             $(item_display_code_of_selected_product).val(d.code);
-            $(item_display_code_of_selected_product).css("background-color", OFF_BACKGROUND_COLOR);
+            $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
+            $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
             if (open_off_page) {
                 window.open(d.url, '_blank');
 
@@ -1017,8 +1017,8 @@ function init() {
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
         //alert("using db "+current_db_used[FLD_DB_NICK_NAME]);
     }
-    // $(ID_SERVER_ACTIVITY).css("display", "none");
-    $(ID_CELL_BANNER).css("background-color", OFF_BACKGROUND_COLOR);
+    $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
+    $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
     $(ID_SERVER_ACTIVITY).css("visibility", "hidden");
     draw_graph(ID_GRAPH, current_db_for_graph, [], [], ID_INPUT_PRODUCT_CODE, OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT);
     cleanup_suggestions();
@@ -1119,7 +1119,8 @@ function fillHtmlElementWithDatabases(score_databases) {
 
 function go_fetch() {
     // clear some staff
-    $(ID_INPUT_PRODUCT_CODE).css("background-color", "white");
+    $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_product_selected");
+    $(ID_INPUT_PRODUCT_CODE).addClass("barcode_no_selection");
     $(ID_WARNING).empty();
 
     block_screen(MSG_WAITING_SCR_MATCH_REQUEST);

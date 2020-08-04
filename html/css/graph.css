@@ -1,11 +1,6 @@
 /********************************************/
 /* part related to graph (former graph.css) */
 /********************************************/
-body {
-    font-family: Arial, Verdana, Tahoma, sans-serif;
-    font-size: xx-large;
-}
-
 #banner {
     width: 98%;
     text-align: center;
@@ -74,6 +69,17 @@ body {
 
 #criteria * {
     vertical-align: middle;
+}
+
+/*
+Classes for the barcode input-box
+*/
+.barcode_product_selected {
+  background-color: #09f !important;
+}
+
+.barcode_no_selection {
+  background-color: none;
 }
 
 #msg_warning_prod_ref {
