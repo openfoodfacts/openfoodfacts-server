@@ -2269,91 +2269,6 @@ sub normalize_allergens_enumeration($$$) {
 
 my %phrases_before_ingredients_list = (
 
-en => [
-'ingredient(s?)',
-],
-
-cs => [
-'složení',
-],
-
-de => [
-'zutat(en)?',
-],
-
-dk => [
-'ingredienser',
-],
-
-el => [
-'Συστατικά',
-'ΣΥΣΤΑΤΙΚΑ'
-],
-
-es => [
-'ingredientes',
-],
-
-fi => [
-'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
-'valmistusaineet',
-],
-
-fr => [
-'ingr(e|é)dient(s?)',
-'Quels Ingr(e|é)dients ?', # In Casino packagings
-'composition',
-],
-
-hr => [
-'(ö|ő|o)sszetev(ö|ő|o)k',
-],
-
-it => [
-'ingredienti',
-],
-
-is => [
-'Innihaldslýsing',
-],
-
-nl => [
-'ingredi(e|ë)nten',
-],
-
-pt => [
-'ingredientes',
-],
-
-pl => [
-'składniki',
-],
-
-si => [
-'sestavine',
-],
-
-ru => [
-'Состав',
-'Ингредиенты',
-],
-
-sv => [
-'ingredienser',
-],
-
-);
-
-
-# INGREDIENTS followed by lowercase list of ingredients
-
-my %phrases_before_ingredients_list_uppercase = (
-
-en => [
-'INGREDIENT(S)?',
-'composition',
-],
-
 az => [
 'Tarkibi',
 ],
@@ -2363,7 +2278,7 @@ bg => [
 'Състав',
 ],
 
-bg => [
+bs => [
 'Sastoji',
 ],
 
@@ -2373,33 +2288,46 @@ ca => [
 ],
 
 cs => [
-'SLOŽENÍ',
+'složení',
 ],
 
 da => [
-'INGREDIENSER',
 'N(æ|ae)ringsindhold',
 'indeholder',
 ],
 
 de => [
-'ZUTAT(EN)?',
 'Zusammensetzung',
+'zutat(en)?',
+],
+
+dk => [
+'ingredienser',
+],
+
+el => [
+'Συστατικά',
+],
+
+en => [
+'composition',
+'ingredient(s?)',
 ],
 
 es => [
-'INGREDIENTE(S)?',
 'composición',
+'ingredientes',
 ],
 
 fi => [
-'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET',
+'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'valmistusaineet',
 'koostumus',
 ],
 
 fr => [
-'INGR(E|É)(D|0|O)IENTS',
+'ingr(e|é)dient(s?)',
+'Quels Ingr(e|é)dients ?', # In Casino packagings
 'composition',
 ],
 
@@ -2408,7 +2336,7 @@ hr => [
 ],
 
 hu => [
-'(Ö|O|0)SSZETEVOK',
+'(ö|ő|o)sszetev(ö|ő|o)k',
 'összetétel',
 ],
 
@@ -2418,10 +2346,11 @@ id => [
 
 is => [
 'inneald',
+'Innihaldslýsing',
 ],
 
 it => [
-'INGREDIENTI(\s*)',
+'ingredienti',
 'composizione',
 ],
 
@@ -2443,7 +2372,7 @@ lv => [
 ],
 
 nl => [
-'INGREDI(E|Ë)NTEN(\s*)',
+'ingredi(e|ë)nten',
 'samenstelling',
 'bestanddelen',
 ],
@@ -2453,31 +2382,32 @@ nb => [
 ],
 
 pl => [
-'SKŁADNIKI(\s*)',
+'składniki',
 'skład',
 ],
 
 pt => [
-'INGREDIENTES(\s*)',
+'ingredientes',
 'composição',
 ],
 
 ro => [
-'Ingrediente',
+'ingrediente',
 'compoziţie',
 ],
 
 ru => [
 'coctaB',
+'Ингредиенты',
 ],
 
 si => [
-'SESTAVINE',
+'sestavine',
 ],
 
 sk => [
 'obsahuje',
-'Zloženie',
+'zloženie',
 ],
 sl => [
 'vsebuje',
@@ -2489,7 +2419,7 @@ sr => [
 ],
 
 sv => [
-'INGREDIENSER',
+'ingredienser',
 'innehåll(er)?',
 ],
 
@@ -2505,13 +2435,79 @@ uz => [
 'Tarkib',
 ],
 
+zh => [
+'配料',
+],
+
+);
+
+
+# INGREDIENTS followed by lowercase list of ingredients
+
+my %phrases_before_ingredients_list_uppercase = (
+
+en => [
+'INGREDIENT(S)?',
+],
+
+cs => [
+'SLOŽENÍ',
+],
+
+da => [
+'INGREDIENSER',
+],
+
+de => [
+'ZUTAT(EN)?',
+],
+
+el => [
+'ΣΥΣΤΑΤΙΚΑ'
+],
+
+es => [
+'INGREDIENTE(S)?',
+],
+
+fi => [
+'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
+'VALMISTUSAINEET',
+],
+
+fr => [
+'INGR(E|É)(D|0|O)IENTS',
+],
+
+hu => [
+'(Ö|O|0)SSZETEVOK',
+],
+
+it => [
+'INGREDIENTI(\s*)',
+],
+
+nl => [
+'INGREDI(E|Ë)NTEN(\s*)',
+],
+
+pl => [
+'SKŁADNIKI(\s*)',
+],
+
+pt => [
+'INGREDIENTES(\s*)',
+],
+
+
+si => [
+'SESTAVINE',
+],
+
 vi => [
 'THANH PHAN',
 ],
 
-zh => [
-'配料',
-],
 
 );
 
@@ -2542,6 +2538,7 @@ de => [
 'Nâhrwerte',
 'mindestens',
 'k(u|ü)hl und trocken lagern',
+'Rinde nicht zum Verzehr geeignet.',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
 'Unter Schutzatmosphäre verpackt',
@@ -2549,6 +2546,11 @@ de => [
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
+],
+
+el => [
+'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
+'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
 ],
 
 en => [
@@ -2748,10 +2750,6 @@ ro => [
 ],
 
 
-el => [
-'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
-'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
@@ -2773,6 +2771,9 @@ fr => [
 
 # phrases that can be removed
 my %ignore_phrases = (
+de => [
+"\d\d?\s?%\sFett\si\.\s?Tr\.", # 45 % Fett i.Tr.
+]
 en => [
 "na|n/a|not applicable",
 ],
