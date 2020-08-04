@@ -945,7 +945,7 @@ function display_product_ref_details(prod_ref,
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
     let url_json = prod_ref["url_json"];
-    style_for_border_colour = "grade_" + prod_ref["score"];
+    let style_for_border_colour = "grade_" + prod_ref["score"];
     $(id_code).empty();
     $(id_code).append(code);
     $(id_input_code).empty();
