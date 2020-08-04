@@ -1390,7 +1390,9 @@ en:Beers from Dortmund
 de:Dortmunder Biere, Dortmunder Bier
 hu:Dortmundi sörök
 nl:Dortmunder bieren
-country:en:Germany
+protected_name_file_number_en: PGI-DE-1101
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 de:Hofer Biere, Hofer Bier
@@ -2161,17 +2163,21 @@ origins:en: en:France
 <en:French Whisky
 en:Alsatian whiskey
 de:Whisky aus dem Elsass
-fr:Whisky alsacien
+fr:Whisky alsacien, Whisky d'Alsace
 nl:Elzasser whiskies
 zh:阿尔萨斯威士忌
-origins:en: fr:Alsace
+protected_name_file_number_en: PGI-FR-01982
+protected_name_type:en: gi
+origins:en: en:France, fr:Alsace
 
 <en:French Whisky
 en:Breton whiskey
 de:Whisky aus der Bretagne
-fr:Whisky breton
+fr:Whisky breton, Whisky de Bretagne
 nl:Bretonse whiskies
-origins:en: fr:Bretagne
+protected_name_file_number_en: PGI-FR-01981
+protected_name_type:en: gi
+origins:en: en:France, fr:Bretagne
 
 <en:French Whisky
 en:Corsican whiskey
@@ -5979,6 +5985,7 @@ wikidata:en:Q8486
 <en:Coffees
 en:Coffees from the Dominican Republic
 fr:Cafés de république dominicaine
+origins:en: en:Dominican Republic
 
 <en:Coffees from the Dominican Republic
 es:Café de Valdesia
@@ -5989,14 +5996,17 @@ origins:en: en:Dominican Republic
 <en:Coffees
 en:Brazilian coffees, Coffees from Brazil
 fr:Café brésilien
+origins:en: en:Brazil
 
 <en:Coffees
 en:Vietnamese coffee
 fr:Café du Viêt Nam
+origins:en: en:Vietnam
 
 <en:Coffees
 en:Indonesian coffee
 fr:Café d'Indonésie
+origins:en: en:Indonesia
 
 <en:Coffees
 en:Colombian coffees
@@ -6009,42 +6019,52 @@ origins:en: en:Colombia
 <en:Coffees
 en:Indian coffee
 fr:Café d'Inde
+origins:en: en:India
 
 <en:Coffees
 en:Honduras coffee
 fr:Café du Honduras
+origins:en: en:Honduras
 
 <en:Coffees
 en:Ethiopian coffee
 fr:Café d'Éthiopie
+origins:en: en:Ethiopia
 
 <en:Coffees
 en:Peruvian coffee
 fr:Café du Pérou
+origins:en: en:Peru
 
 <en:Coffees
 en:Coffees from Guatemala
 fr:Café du Guatemala
+origins:en: en:Guatemala
 
 <en:Coffees
 en:Mexiacan coffee
 fr:Café du Mexique
+origins:en: en:Mexico
 
 <en:Coffees
 en:Coffee from Ouganda
 fr:Café d'Ouganda
+origins:en: en:Uganda
 
 <en:Coffees
 en:Coffee from Ivory Coast
 fr:Café de Côte d'Ivoire
+origins:en: en:Ivory coast
 
 <en:Coffees
 en:Coffees from Laos
 fr:Café du Laos
+origins:en: en:Laos
 
 <en:Coffees
 en:Coffees from Nicaragua
 fr:Café du Nicaragua
+origins:en: en:Nicaragua
 
 <en:Coffees
 fr:Café des Philippines
@@ -6052,18 +6072,22 @@ fr:Café des Philippines
 <en:Coffees
 en:Venezuelian coffees
 fr:Café du Venezuela
+origins:en: en:Venezuela
 
 <en:Coffees
 en:Coffees from Costa Rica
 fr:Café du Costa Rica
+origins:en: en:Costa Rica
 
 <en:Coffees
 en:Coffees from Tanzania
 fr:Café de Tanzanie
+origins:en: en:Tanzania
 
 <en:Coffees
 en:Coffees from Madagascar
 fr:Café de Madagascar
+origins:en: en:Madagascar
 
 <en:Coffees
 <en:Hot beverages
@@ -15880,7 +15904,6 @@ protected_name_file_number:en: PGI-BG-A1552
 protected_name_type:en: pgi
 origins:en: en:Bulgaria
 
-
 <en:Wines from Bulgaria
 bg:Брестник, Brestnik
 country:en:Bulgaria
@@ -16604,8 +16627,10 @@ de:Mecklenburger
 country:en:Germany
 
 <en:Wines from Germany
-de:Mitteldeutscher
-country:en:Germany
+de:Mitteldeutscher, Mitteldeutscher Landwein
+protected_name_file_number_en: PGI-DE-A1291
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Wines from Germany
 de:Mittelrhein
@@ -16703,7 +16728,9 @@ country:en:Germany
 
 <en:Wines from Germany
 de:Saale-Unstrut
-country:en:Germany
+protected_name_file_number_en: PDO-DE-A1275
+protected_name_type:en: pdo
+origins:en: en:Germany
 
 <en:Wines from Germany
 de:Saar
@@ -33154,6 +33181,12 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Creams
+fr:Crème de Bresse
+protected_name_file_number_en: PDO-FR-1046
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Creams
 fr:Crème fraîche fluide d'Alsace
 protected_name_file_number:en: PGI-FR-9178
 protected_name_type:en: pgi
@@ -38199,6 +38232,12 @@ zh:鸡蛋
 wikidata:en:Q15260613
 #allergy:wikidata:en:Q23037742
 
+<en:Chicken eggs
+fr:Œufs de Loué
+protected_name_file_number_en: PGI-FR-0356
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:Bird eggs
 en:Ostrich eggs
 fr:Œufs d'autruche
@@ -38779,6 +38818,12 @@ agribalyse_food_code:en:17180
 ciqual_food_code:en:17180
 ciqual_food_name:en:Linseed oil
 
+<en:Linseed oils
+de:Lausitzer Leinöl
+protected_name_file_number_en: PGI-DE-0547
+protected_name_type:en: pgi
+origins:en: en:Germany
+
 <en:Cereal oils
 en:Rice bran oils
 es:Aceites de arroz
@@ -39135,13 +39180,17 @@ country:en:France
 en:Olive oil from Aix-en-Provence
 fr:Huile d'olive d'Aix-en-Provence
 nl:Olijfoliën uit Aix-en-Provence
-country:en:France
+protected_name_file_number_en: PDO-FR-9111
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olive oils from France
 en:Olive oil from Corsica
 fr:Huile d'olive de Corse, Oliu di Corsica
 nl:Corsicaanse olijfoliën
-country:en:France
+protected_name_file_number_en: PDO-FR-0428
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olive oils from France
 en:Olive oil from Haute-Provence
@@ -39155,7 +39204,9 @@ origins:en: en:France, fr:Haute-Provence
 en:Olive oil from Vallée des Baux-de-Provence
 fr:Huile d'olive de la Vallée des Baux-de-Provence
 nl:Olijfoliën uit de vallei van Baux-de-Provence
-country:en:France
+protected_name_file_number_en: PDO-FR-0050
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olive oils from France
 en:Olive oil from Nice
@@ -39178,7 +39229,9 @@ origins:en: en:France, fr:Nîmes
 en:Olive oil from Nyons
 fr:Huile d'olive de Nyons
 nl:Olijfoliën uit Nyons
-country:en:France
+protected_name_file_number_en: PDO-FR-0142
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olive oils from France
 fr:Huile d'olive de Provence
@@ -42614,6 +42667,33 @@ en:Armagh Bramley Apples
 protected_name_file_number:en: PGI-GB-0792
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Fruits
+en:German vegetables
+
+<en:German vegetables
+de:Salate von der Insel Reichenau
+protected_name_file_number_en: PGI-DE-0317
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German vegetables
+de:Feldsalat von der Insel Reichenau
+protected_name_file_number_en: PGI-DE-0318
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German vegetables
+de:Tomaten von der Insel Reichenau
+protected_name_file_number_en: PGI-DE-0319
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German vegetables
+de:Gurken von der Insel Reichenau
+protected_name_file_number_en: PGI-DE-0320
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Berries
 en:Blackcurrants, Raw black currant
@@ -46533,6 +46613,12 @@ fr:Gousses de vanille
 nl:Vanillestokjes
 
 <en:Vanilla
+fr:Vanille de l'Ile de La Réunion
+protected_name_file_number_en: PGI-FR-02447
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Vanilla
 en:Vanilla extract
 es:Extracto de vainilla
 fr:Extrait de vanille
@@ -47519,11 +47605,23 @@ sv:Dijonsenap
 wikidata:en:Q204226
 
 <en:Mustards
+en:French mustards
+
+<en:French mustards
 fr:Moutarde de Bourgogne
 protected_name_file_number:en: PGI-FR-0503
 protected_name_type:en: pgi
 origins:en: en:France
 wikidata:en:Q21427661
+
+<en:Mustards
+en:German mustards
+
+<en:German mustards
+de:Düsseldorfer Mostert, Düsseldorfer Senf Mostert, Düsseldorfer Urtyp Mostert, Aechter Düsseldorfer Mostert
+protected_name_file_number_en: PGI-DE-0799
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Mustards
 en:Fine mustards
@@ -47810,6 +47908,123 @@ fi:Lapin Poron kuivaliha
 protected_name_file_number_en: PDO-FI-0384
 protected_name_type:en: pdo
 origins:en: en:Finland
+
+<en:Meat-based products
+en:German meat products
+
+<en:German meat products
+de:Thüringer Leberwurst
+protected_name_file_number_en: PGI-DE-0222-AM02
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Flönz
+protected_name_file_number_en: PGI-DE-01257
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Oecher Puttes, Aachener Puttes
+protected_name_file_number_en: PGI-DE-00946
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Nordhessische Ahle Wurscht, Nordhessische Ahle Worscht
+protected_name_file_number_en: PGI-DE-02173
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Aachener Weihnachts-Leberwurst, Oecher Weihnachtsleberwurst
+protected_name_file_number_en: PGI-DE-01053
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Westfälischer Knochenschinken
+protected_name_file_number_en: PGI-DE-0854
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Eichsfelder Feldgieker, Eichsfelder Feldkieker
+protected_name_file_number_en: PGI-DE-0773
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Holsteiner Katenschinken, Holsteiner Schinken, Holsteiner Katenrauchschinken, Holsteiner Knochenschinken
+protected_name_file_number_en: PGI-DE-0713
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Göttinger Feldkieker
+protected_name_file_number_en: PGI-DE-0721
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Göttinger Stracke
+protected_name_file_number_en: PGI-DE-0703
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Hofer Rindfleischwurst
+protected_name_file_number_en: PGI-DE-0722
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Halberstädter Würstchen
+protected_name_file_number_en: PGI-DE-0615
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Thüringer Leberwurst
+protected_name_file_number_en: PGI-DE-0222
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Thüringer Rostbratwurst
+protected_name_file_number_en: PGI-DE-0223
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Thüringer Rotwurst
+protected_name_file_number_en: PGI-DE-0224
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Nürnberger Bratwürste, Nürnberger Rostbratwürste
+protected_name_file_number_en: PGI-DE-0184
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Greußener Salami
+protected_name_file_number_en: PGI-DE-1266
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Ammerländer Schinken, Ammerländer Knochenschinken
+protected_name_file_number_en: PGI-DE-1223
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German meat products
+de:Ammerländer Dielenrauchschinken, Ammerländer Katenschinken
+protected_name_file_number_en: PGI-DE-1225
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Meat-based products
 en:Italian meat products
@@ -56164,7 +56379,12 @@ ciqual_food_name:en:Cured ham, raw, smoked, reduced fat
 ciqual_food_name:fr:Jambon cru, fumé, allégé en matière grasse
 
 <fr:Jambons crus fumés
+de:Schwarzwälder Schinken
 fr:Jambons de la Forêt Noire, jambon de la Forêt Noire, jambons forêt noire
+protected_name_file_number_en: PGI-DE-0686
+protected_name_type:en: pgi
+origins:en: en:Germany
+wikidata:en:Q700026
 
 <fr:Jambons crus fumés
 fr:Jambons de Westphalie, jambon de Westphalie
@@ -63100,6 +63320,12 @@ fr:Filets d'anchois marinés à la Provençale
 <fr:Filets d'anchois marinés
 fr:Filets d'anchois marinés à la catalane
 
+<en:Anchovy fillets
+fr:Anchois de Collioure
+protected_name_file_number_en: PGI-FR-0180
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:Fish fillets
 en:Capelin raw
 fr:Capelan cru
@@ -64651,6 +64877,12 @@ fr:Noix de Saint-Jacques
 nl:Scallop
 
 <en:Mollusc
+fr:Coquille Saint-Jacques des Côtes d'Armor
+protected_name_file_number_en: PGI-FR-0033
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Mollusc
 en:Boiled clam, Clam cooked in water
 fr:Palourde bouillie, Palourde cuite à l'eau, Praire bouillie, Praire cuite à l'eau, Clam bouilli, Clam cuit à l'eau
 ciqual_food_code:en:10027
@@ -64677,6 +64909,12 @@ fr:Bulot cru, Buccin cru
 ciqual_food_code:en:10019
 ciqual_food_name:en:Whelk, raw
 ciqual_food_name:fr:Bulot ou Buccin, cru
+
+<en:Mollusc
+fr:Bulot de la Baie de Granville
+protected_name_file_number_en: PGI-FR-02319
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Mollusc
 en:Mussels
@@ -64722,9 +64960,15 @@ ciqual_food_name:fr:Moules farcies (matière grasse persillade…) crues
 
 <en:Mussels
 fr:Moules de Bouchot
+protected_name_file_number_en: TSG-FR-0048
+protected_name_type:en: tsg
+origins:en: en:France
 
 <fr:Moules de Bouchot
 fr:Moules de Bouchot de la Baie du Mont-Saint-Michel
+protected_name_file_number_en: PDO-FR-0547
+protected_name_type:en: pdo
+origins:en: en:France
 wikidata:en:Q42863988
 
 #<en:British sea products
@@ -64812,6 +65056,12 @@ agribalyse_food_code:en:10036
 ciqual_food_code:en:10036
 ciqual_food_name:en:European oyster, raw
 ciqual_food_name:fr:Huître plate, crue
+
+<en:Oysters
+fr:Huîtres Marennes Oléron
+protected_name_file_number_en: PGI-FR-0591
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Mollusc
 en:Raw cuttlefish
@@ -67505,6 +67755,27 @@ fr:Asperges du Blayais
 protected_name_file_number_en: PGI-FR-01254
 protected_name_type:en: pgi
 origins:en: en:France
+
+<en:German vegetables
+<en:Asparagus
+de:Walbecker Spargel
+protected_name_file_number_en: PGI-DE-0857
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German vegetables
+<en:Asparagus
+de:Spargel aus Franken, Fränkischer Spargel, Franken-Spargel
+protected_name_file_number_en: PGI-DE-0804
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German vegetables
+<en:Asparagus
+de:Abensberger Spargel, Abensberger Qualitätsspargel
+protected_name_file_number_en: PGI-DE-0852
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Vegetables
 en:Aubergines
