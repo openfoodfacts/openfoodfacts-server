@@ -231,7 +231,7 @@ if ($action eq 'display') {
 
 	
 	my %search_fields_labels = ();
-	my @type_array;
+	my @type_options;
 	my @contains;
 	foreach my $field (@search_fields) {
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
@@ -246,16 +246,16 @@ if ($action eq 'display') {
 				$search_fields_labels{$field} = lang($field . "_p");
 			}
 		}
-		push (@type_array, { 
-			type_values => $field,
-			type_labels => $search_fields_labels{$field},
+		push (@type_options, { 
+			value => $field,
+			label => $search_fields_labels{$field},
 		});
 	}
 
 	$search_fields_labels{search_tag} = lang("search_tag");
-	push (@type_array, { 
-		type_values => "search",
-		type_labels => $search_fields_labels{search_tag},
+	push (@type_options, { 
+		value => "search",
+		label => $search_fields_labels{search_tag},
 	});
 
 	my @contain_values = ("contains", "does_not_contain");
@@ -264,8 +264,8 @@ if ($action eq 'display') {
 	foreach my $value (@contain_values){
 		my $new_label = lang("search_" . $value);
 	 	push (@contains, { 
-	  		contain_values => $value,
-	  		contain_labels => $new_label,
+	  		value => $value,
+	  		label => $new_label,
 	 	});
 	 }
 
@@ -273,10 +273,10 @@ if ($action eq 'display') {
 		
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
-			type_value => $search_tags[$i][0],
-			type_arrays => \@type_array,
-			contain_value => $search_tags[$i][1],
-			contain_array => \@contains,
+			selected_type_value => $search_tags[$i][0],
+			type_options => \@type_options,
+			selected_contain_value => $search_tags[$i][1],
+			contain_options => \@contains,
 			input_value => $search_tags[$i][2],
 		};
 
@@ -312,29 +312,29 @@ if ($action eq 'display') {
 		if ($entry ne ("additives_n") && $entry ne ("ingredients_n") && $entry ne ("known_ingredients_n") && $entry ne ("unknown_ingredients_n") && $entry ne ("search_nutriment") && $entry ne ("products_n")) {
 			my $sorted_labels = ucfirst($Nutriments{$entry}{$lc} || $Nutriments{$entry}{en});
 			push (@result_array, { 
-				values => $entry,
+				value => $entry,
 				label => $sorted_labels,
 			});
 		}
 	}
 	push (@result_array, { 
-		values => "additives_n",
+		value => "additives_n",
 		label => lang("number_of_additives"),
 	});
 	push (@result_array, { 
-		values => "ingredients_n",
+		value => "ingredients_n",
 		label => lang("ingredients_n_s"),
 	});
 	push (@result_array, { 
-		values => "known_ingredients_n",
+		value => "known_ingredients_n",
 		label => lang("known_ingredients_n_s"),
 	});
 	push (@result_array, { 
-		values => "unknown_ingredients_n",
+		value => "unknown_ingredients_n",
 		label => lang("unknown_ingredients_n_s"),
 	});
 	push (@result_array, { 
-		values => "products_n",
+		value => "products_n",
 		label => lang("number_of_products"),
 	});
 	
@@ -344,30 +344,30 @@ if ($action eq 'display') {
 	foreach my $axis (@axis_array) {
 		push (@resultant_array, { 
 			id => $axis,
-			results => \@result_array,
+			result_options => \@result_array,
 		});
 	}
-	$template_data_ref->{resultant_array} = \@resultant_array;
+	$template_data_ref->{resultant_options} = \@resultant_array;
 
 	my @nutriments = (
 	  	{
-	  		'values' => "lt",
+	  		'value' => "lt",
 	  		'label' => '<',
 	  	},
 	  	{
-	  		'values' => "lte",
+	  		'value' => "lte",
 	  		'label' => "\N{U+2264}",
 	  	},
 		{
-	  		'values' => "gt",
+	  		'value' => "gt",
 	  		'label' => '<',
 	  	},
 		{
-	  		'values' => "gte",
+	  		'value' => "gte",
 	  		'label' => "\N{U+2265}",
 	  	},
 		{
-	  		'values' => "eq",
+	  		'value' => "eq",
 	  		'label' => '=',
 	  	},
 	 );
@@ -376,8 +376,8 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
-			nutriment_values => \@result_array,
-			nutriment_array => \@nutriments,
+			nutriments_options => \@result_array,
+			nutriment_options => \@nutriments,
 			input_value => $search_nutriments[$i][2],
 		};
 	
@@ -387,32 +387,32 @@ if ($action eq 'display') {
 
 	my @sort_array = (
 	  	{
-	  		'values' => "unique_scans_n",
+	  		'value' => "unique_scans_n",
 	  		'label' => lang("sort_popularity"),
 	  	},
 	  	{
-	  		'values' => "product_name",
+	  		'value' => "product_name",
 	  		'label' => lang("sort_product_name"),
 	  	},
 		{
-	  		'values' => "created_t",
+	  		'value' => "created_t",
 	  		'label' => lang("sort_created_t"),
 	  	},
 		{
-	  		'values' => "last_modified_t",
+	  		'value' => "last_modified_t",
 	  		'label' => lang("sort_modified_t"),
 	  	},
 		{
-	  		'values' => "completeness",
+	  		'value' => "completeness",
 	  		'label' => lang("sort_completeness"),
 	  	},
 	 );
 
-	push @{$template_data_ref->{sort_array}}, @sort_array;
+	push @{$template_data_ref->{sort_options}}, @sort_array;
 	push @{$template_data_ref->{sort_by}}, $sort_by;
 
 	my @size_array =(20, 50, 100, 250, 500, 1000);
-	push @{$template_data_ref->{size_array}}, @size_array;
+	push @{$template_data_ref->{size_options}}, @size_array;
 
 	$template_data_ref->{active_list} = $active_list;
 
