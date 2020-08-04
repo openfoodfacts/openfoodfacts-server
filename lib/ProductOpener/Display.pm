@@ -4235,6 +4235,16 @@ sub search_and_display_products($$$$$) {
 						}
 
 					}
+					elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+						my $tagtype = $1;
+						my $target_lc = $2;
+						if (defined $product_ref->{$tagtype . "_tags"}) {
+							$compact_product_ref->{$field} = [];
+							foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+								push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
+							}
+						}
+					}
 
 					elsif (defined $product_ref->{$field}) {
 						$compact_product_ref->{$field} = $product_ref->{$field};
@@ -9661,6 +9671,18 @@ HTML
 					}
 
 				}
+				
+				# Taxonomy fields requested in a specific language
+				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+					my $tagtype = $1;
+					my $target_lc = $2;
+					if (defined $product_ref->{$tagtype . "_tags"}) {
+						$compact_product_ref->{$field} = [];
+						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+							push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
+						}
+					}
+				}				
 
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
