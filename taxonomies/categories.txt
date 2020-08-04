@@ -392,6 +392,7 @@ ciqual_food_name:fr:Lait 2e âge, prêt à consommer (préparation pour nourriss
 
 <en:Baby milks
 en:Baby follow-on milk from 2 years
+es:Leche de continuación para bebés a partir de 2 años
 ca:Llet de continuació des dels 2 anys
 de:2-Nahrung, 2er-Babymilch
 fr:Laits de suite à partir de 2 ans
@@ -399,6 +400,7 @@ nl:Baby-opvolgmelk vanaf 2 jaar
 
 <en:Baby milks
 en:Baby follow-on milk from 3 years
+es:Leche de continuación para bebés a partir de 3 años
 ca:Llet de continuació des dels 3 anys
 de:3-Nahrung, 3er-Babymilch
 fr:Laits de suite à partir de 3 ans
@@ -23901,17 +23903,21 @@ fr:Cheesecakes à la vanille
 nl:Vanillecheesecakes, Vanillecheesecake
 
 <en:Cheesecakes
+en:Cheesecakes with fruits
+es:Cheesecake con fruta
+
+<en:Cheesecakes with fruits
 en:Strawberry cheesecakes
 de:Erdbeerkäsekuchen
 fr:Cheesecakes à la fraise
 nl:Aardbeiencheesecakes, Aardbeiencheesecake
 
-<en:Cheesecakes
+<en:Cheesecakes with fruits
 fr:Cheesecakes à la framboise
 de:Himbeerkäsekuchen
 nl:Frambozencheesecakes, Frambozencheesecake
 
-<en:Cheesecakes
+<en:Cheesecakes with fruits
 en:Cheesecake with red berries
 de:Käsekuchen mit roten Beeren
 fr:Cheesecake aux fruits rouges
@@ -26931,7 +26937,7 @@ ciqual_food_name:fr:Riz rouge, cru
 <en:Rices for risotto
 en:Arborio rices
 de:Arborio Reis
-es:Arroces Arborio
+es:Arroces Arborio, Arroz Arborio
 fr:Riz arborio
 nl:Arboriorijsten
 wikidata:en:Q2615884
@@ -26940,7 +26946,7 @@ wikidata:en:Q2615884
 <en:Japonica rices
 <en:Rices for paella
 en:Bahía rices, Bahia rices
-es:Arroces Bahía
+es:Arroces Bahía, Arroz Bahía
 fr:Riz Bahía
 nl:Bahiarijsten
 wikidata:en:Q5706293
@@ -26949,7 +26955,7 @@ wikidata:en:Q5706293
 <en:Japonica rices
 <en:Rices for paella
 en:Balilla x Sollana rices
-es:Arroces Balilla x Sollana
+es:Arroces Balilla x Sollana, Arroz Balilla x Sollana
 fr:Riz Balilla x Sollana
 
 <en:Long grain rices
@@ -26957,7 +26963,7 @@ fr:Riz Balilla x Sollana
 <en:Aromatic rices
 en:Basmati rices, Raw basmati rices
 de:Basmati Reis
-es:Arroces Basmati
+es:Arroces Basmati, Arroz Basmati
 fi:basmatiriisit
 fr:Riz Basmati, Basmati, Riz thaï cru, Riz basmati cru
 it:Riso Basmati
@@ -33574,7 +33580,7 @@ zh:巧克力甜品, 巧克力甜点
 <en:Chocolate desserts
 en:Chocolate mousses
 de:Mousses au chocolat, Mousse au chocolat
-es:Mousses de chocolate
+es:Mousses de chocolate, Mousse de chocolate
 fi:Suklaamousset
 fr:Mousses au chocolat, Mousse au chocolat
 nl:Chocolademousses
@@ -39502,14 +39508,14 @@ nl:Kokosroomijs
 
 <en:Ice cream tubs
 en:Pistachio ice cream tubs
-es:Tarrinas y bloques de helado de pistacho, Tarrinas de helado de pistacho, Bloques de helado de pistacho
+es:Tarrinas y bloques de helado de pistacho, Tarrinas de helado de pistacho, Bloques de helado de pistacho, helado de pistacho
 fr:Glaces à la pistache
 nl:Pistacheroomijs
 
 <en:Ice cream tubs
 en:Vanilla ice cream tubs
 de:Eisbecher Vanille, Eispackung Vanille
-es:Tarrinas y bloques de helado de vainilla, Tarrinas de helado de vainilla, Bloques de helado de vainilla
+es:Tarrinas y bloques de helado de vainilla, Tarrinas de helado de vainilla, Bloques de helado de vainilla, Helado de vainilla
 fi:Vaniljajäätelöpurkit
 fr:Glaces à la vanille
 nl:Vanille-roomijs
@@ -39531,7 +39537,7 @@ nl:Chocolade-roomijs
 
 <en:Ice cream tubs
 en:Nougat ice cream tubs
-es:Tarrinas y bloques de helado de turrón, Tarrinas de helado de turrón, Bloques de helado de turrón
+es:Tarrinas y bloques de helado de turrón, Tarrinas de helado de turrón, Bloques de helado de turrón, helado de turrón
 fr:Glaces au nougat
 nl:Nougatroomijs
 
@@ -39540,6 +39546,20 @@ en:Rum and raisins ice cream tubs
 es:Tarrinas y bloques de helado de ron con pasas, Tarrinas de helado de ron con pasas, Bloques de helado de ron con pasas
 fr:Glaces rhum-raisin, glaces au rhum et aux raisins
 nl:Rum-rozijnenroomijs, Malaga-roomijs
+
+<en:Ice cream tubs
+es:helado de vainilla y macadamia
+fr:glace à la vanille et macadamia
+
+<en:Ice cream tubs
+es:helado de vainilla y almendras
+
+<en:Ice cream tubs
+fr:Glace à la stracciatella
+es:helado de stracciatella
+
+<en:Ice cream tubs
+es:helado de vainilla y chocolate blanco
 
 <en:Ice cream tubs
 fr:Glaces au caramel
@@ -44609,6 +44629,12 @@ fr:Sauces au poivre vert, sauce poivre vert
 hu:zöldpaprika mártások
 
 <en:Sauces
+en:Chocolate sauce
+fr:Sauce au chocolat
+ciqual_food_code:en:11300
+ciqual_food_name:en:Chocolate sauce
+
+<en:Sauces
 en:Mayonnaises, Mayo
 ca:Maioneses
 de:Mayonnaisen, Mayo
@@ -44624,12 +44650,6 @@ pt:Maioneses, maionese
 ru:Майонез
 wikidata:en:Q167893
 
-<en:Sauces
-en:Chocolate sauce
-fr:Sauce au chocolat
-ciqual_food_code:en:11300
-ciqual_food_name:en:Chocolate sauce
-
 <en:Mayonnaises
 nl:Fritessauzen
 
@@ -44640,6 +44660,10 @@ fr:Mayonnaises à l’huile de tournesol, Mayonnaise à l’huile de tournesol
 hu:Napraforgó olajos majonéz
 nl:Mayonnaises op basis van zonnebloemolie
 ru:Майонезы на подсолнечном масле
+
+<en:Mayonnaises
+en:Mayonnaise with caramelized onion
+es:Mayonesas con cebolla caramelizada
 
 <en:Mayonnaises
 en:Dijon mayonnaises
@@ -52803,8 +52827,13 @@ ciqual_food_name:fr:Saucisse de volaille, façon charcutière
 fr:Saucisses cocktail
 nl:Cocktailworstjes
 en:Cocktail sausage
+es:Salchichas cocktail
 ciqual_food_code:en:30746
 ciqual_food_name:en:Cocktail sausage
+
+<en:Sausages
+en:Bockwurst
+es:salchichas bockwurst
 
 <en:Sausages
 en:Sausages from Spain, Spanish sausages
@@ -52962,7 +52991,7 @@ pl:Kiełbasa Niemiecka
 <en:German sausages
 en:Frankfurter sausages, Frankfurter sausage
 fr:Saucisses de Francfort, Saucisse de Francfort
-es:frankfurt
+es:salchichas Frankfurt, frankfurt
 nl:Frankfurter worsten
 ciqual_food_code:en:30134
 ciqual_food_name:en:Frankfurter sausage
@@ -56078,6 +56107,9 @@ ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, cuites
 
+<en:ravioli
+en:Meat ravioli
+
 <en:Stuffed Pastas
 en:Raw fresh pasta stuffed with meat
 fr:Pâtes fraîches crues farcies à la viande
@@ -56138,6 +56170,7 @@ nl:Rundvleesraviolis
 <en:Ravioli
 en:Cheese ravioli, Ravioli with cheese
 de:Käseravioli, Käse-Ravioli
+es:Ravioli de queso
 fi:juustoravioli
 fr:Ravioli au fromage, Raviolis au fromage, Ravioli aux fromages, Raviolis aux fromages, Raviolis fromages
 hu:Sajtos  ravioli, Ravioli sajttal
@@ -56146,6 +56179,7 @@ nl:Kaasraviolis
 <en:Ravioli
 en:Mushroom ravioli, mushroom raviolis
 de:Pilzravioli, Pilz-Ravioli
+es:Ravioli de champiñones
 fr:Ravioli aux champignons, Raviolis champignons, Raviolis aux champignons, Ravioli champignons
 hu:Gombás ravioli, Ravioli gombával
 nl:Paddestoelenraviolis
@@ -56167,6 +56201,7 @@ nl:Groenteraviolis
 
 <en:Ravioli
 en:Ham Ravioli, Raviolis with ham
+es:Ravioli de jamón
 fr:Ravioli au jambon
 hu:Sonkás ravioli, Ravioli sonkával
 nl:Ravioli met ham
@@ -56950,6 +56985,32 @@ zh:馅饼
 wikidata:en:Q1142483
 pnns_group_2:en:Pizza pies and quiche
 
+<en:Pies
+es:empanada boloñesa
+
+<en:Pies
+es:empanada de atún
+
+<en:Pies
+es:empanada de bacalao
+
+<en:Pies
+es:empanada de carne
+
+<en:Pies
+es:empanada de espinacas
+
+<en:Pies
+es:empanada de pollo
+
+<en:Pies
+es:empanada de salmón
+
+<en:Pies
+es:empanada marinera
+
+<en:Pies
+es:empanadilla argentina
 
 <en:Pies
 en:Sweet pies, sweet pie
@@ -56993,6 +57054,10 @@ en:Nuts pies
 de:Nusskuchen
 fr:Tartes aux noix
 nl:Notentaart
+
+<en:Sweet pies
+en:Turron pies
+es:Tartas de turrón
 
 <en:Sweet pies
 en:Chocolate pies, Chocolate tarts
