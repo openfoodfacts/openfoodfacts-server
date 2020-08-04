@@ -67,10 +67,9 @@ my $html = <<HTML
                 <table style="width: 100%">
                     <tr style='text-align: right; vertical-align: top; background-color: #d0d0d0;'>
                         <td id="cell_product_image">
-                            <img id="prod_ref_image" height="javascript: $(window).innerHeight()/7"
-                                 src='https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-178x150.png'
-                                 onclick="$(ID_INPUT_PRODUCT_CODE).val(current_product==null? PRODUCT_CODE_DEFAULT : current_product.code)"
-                            />
+                        	<div style="text-align:center">
+								<img id="prod_ref_image" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem" />
+							</div>
                             <div id="links_off">
                                 <div><a id="url_off_prod" href='$static_subdomain' target='_blank'>
                                     Product page
