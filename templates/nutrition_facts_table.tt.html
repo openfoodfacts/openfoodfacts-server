@@ -7,7 +7,7 @@
 	<!-- Comparisons with other products, categories, recommended daily values etc. -->
 	[% FOREACH comparison IN comparisons %]
 		<label style="display:inline;font-size:1rem;">
-			<input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison"> 
+			<input type="checkbox" id="[% comparison.col_id %]" name="[% comparison.col_id %]" value="on" [% IF comparison.checked %]checked="checked"[% END %] class="show_comparison">
 			[% comparison.name %]
 		</label>
 
@@ -36,7 +36,7 @@
 		<input id="show_stats" type="checkbox">
 		<label for="show_stats">
 			[% lang('show_category_stats') %]
-			<span class="show-for-xlarge-up"> 
+			<span class="show-for-xlarge-up">
 				[% separator_before_colon(lc) %]: [% lang('show_category_stats_details') %]
 			</span>
 		</label>
@@ -47,13 +47,14 @@
 [% FOREACH table IN tables %]
 
 	<table id="[% table.id %]_data_table" class="data_table">
+    <caption>[% table.header.name %]</caption>
 
 		<!--  Generating table header -->
 		<thead class="nutriment_header">
 			<tr>
-				<th>[% table.header.name %]</th>
+				<th scope="col">[% table.header.name %]</th>
 				[% FOREACH column IN table.header.columns %]
-					<th class="nutriment_value [% column.class %]">[% column.name %]</th>
+					<th class="nutriment_value [% column.class %]" scope="col">[% column.name %]</th>
 				[% END %]
 			</tr>
 		</thead>
@@ -66,7 +67,7 @@
 					<td class="nutriment_label">
 						[% row.name %]
 					</td>
-					
+
 					[% FOREACH column IN row.columns %]
 						[% IF column.type == 'normal' %]
 							<td class="nutriment_value [% column.class %]"[% tablevalue.rdfa %]>
@@ -77,13 +78,13 @@
 								<span class="compare_percent">[% column.percent %]</span>
 								<span class="compare_value" style="display:none">[% column.value %]</span>
 							</td>
-						[% END %]	
+						[% END %]
 					[% END %]
 				</tr>
 
 			[% END %]
 		</tbody>
-		
+
 	</table>
 
-[% END %]    
+[% END %]

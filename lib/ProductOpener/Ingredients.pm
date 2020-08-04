@@ -1270,6 +1270,7 @@ sub parse_ingredients_text($) {
 								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
 								'^soit ',	# soit 20g de beurre reconstitué
 								'en proportions variables',
+								'en proportion variable',
 								'^équivalent ', # équivalent à 20% de fruits rouges
 								'^malgré ', # malgré les soins apportés...
 								'^il est possible', # il est possible qu'il contienne...
@@ -1290,12 +1291,19 @@ sub parse_ingredients_text($) {
 								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
 								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'vaihtelevina osuuksina',
 							],
 							
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
+								'o.a.',
 							],
+							
+							'sv' => [
+								'varierande proportion',
+							],
+							
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -2260,15 +2268,35 @@ sub normalize_allergens_enumeration($$$) {
 
 my %phrases_before_ingredients_list = (
 
-en => [
-'ingredient(s?)',
+az => [
+'Tarkibi',
+],
+
+bg => [
+'Съставки',
+'Състав',
+],
+
+bs => [
+'Sastoji',
+],
+
+ca => [
+'Ingredient(s)?',
+'composició',
 ],
 
 cs => [
 'složení',
 ],
 
+da => [
+'N(æ|ae)ringsindhold',
+'indeholder',
+],
+
 de => [
+'Zusammensetzung',
 'zutat(en)?',
 ],
 
@@ -2278,16 +2306,22 @@ dk => [
 
 el => [
 'Συστατικά',
-'ΣΥΣΤΑΤΙΚΑ'
+],
+
+en => [
+'composition',
+'ingredient(s?)',
 ],
 
 es => [
+'composición',
 'ingredientes',
 ],
 
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
 'valmistusaineet',
+'koostumus',
 ],
 
 fr => [
@@ -2297,40 +2331,111 @@ fr => [
 ],
 
 hr => [
+'Sastojci',
+],
+
+hu => [
 '(ö|ő|o)sszetev(ö|ő|o)k',
+'összetétel',
+],
+
+id => [
+'komposisi',
+],
+
+is => [
+'inneald',
+'Innihaldslýsing',
 ],
 
 it => [
 'ingredienti',
+'composizione',
 ],
 
-is => [
-'Innihaldslýsing',
+kk => [
+'Курамы',
+],
+
+ky => [
+'Курамы',
+],
+
+lt => [
+'Sudedamosios dalys',
+'Sudėtis',
+],
+
+lv => [
+'sastāv(s|dalas)',
 ],
 
 nl => [
 'ingredi(e|ë)nten',
+'samenstelling',
+'bestanddelen',
 ],
 
-pt => [
-'ingredientes',
+nb => [
+'Ingredienser',
 ],
 
 pl => [
 'składniki',
+'skład',
+],
+
+pt => [
+'ingredientes',
+'composição',
+],
+
+ro => [
+'ingrediente',
+'compoziţie',
+],
+
+ru => [
+'coctaB',
+'Ингредиенты',
 ],
 
 si => [
 'sestavine',
 ],
 
-ru => [
-'Состав',
-'Ингредиенты',
+sk => [
+'obsahuje',
+'zloženie',
+],
+sl => [
+'vsebuje',
+'sestavine',
+],
+
+sr => [
+'Sastojci',
 ],
 
 sv => [
 'ingredienser',
+'innehåll(er)?',
+],
+
+tg => [
+'Таркиб',
+],
+
+th => [
+'ส่วนประกอบ',
+],
+
+uz => [
+'Tarkib',
+],
+
+zh => [
+'配料',
 ],
 
 );
@@ -2350,29 +2455,27 @@ cs => [
 
 da => [
 'INGREDIENSER',
-'N(æ|ae)ringsindhold',
 ],
 
 de => [
 'ZUTAT(EN)?',
 ],
 
-da => [
-'N(æ|ae)ringsindhold',
+el => [
+'ΣΥΣΤΑΤΙΚΑ'
 ],
 
 es => [
-'INGREDIENTES',
+'INGREDIENTE(S)?',
 ],
 
 fi => [
 'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+'VALMISTUSAINEET',
 ],
 
 fr => [
 'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
 ],
 
 hu => [
@@ -2380,7 +2483,6 @@ hu => [
 ],
 
 it => [
-
 'INGREDIENTI(\s*)',
 ],
 
@@ -2388,30 +2490,23 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
-pt => [
-'INGREDIENTES(\s*)',
-],
-
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
-
-ro => [
-'Ingrediente'
+pt => [
+'INGREDIENTES(\s*)',
 ],
+
 
 si => [
 'SESTAVINE',
 ],
 
-sv => [
-'INGREDIENSER',
-],
-
 vi => [
 'THANH PHAN',
 ],
+
 
 );
 
@@ -2437,17 +2532,26 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'Kakao: \d\d\s?% mindestens.',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
 'Nâhrwerte',
 'mindestens',
 'k(u|ü)hl und trocken lagern',
+'Rinde nicht zum Verzehr geeignet.',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
+'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
+'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt', # 100 g Salami werden aus 120 g Schweinefleisch hergestellt. 
+],
+
+el => [
+'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
+'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
 ],
 
 en => [
@@ -2460,6 +2564,7 @@ en => [
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
+'Store in a cool, dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
@@ -2646,10 +2751,6 @@ ro => [
 ],
 
 
-el => [
-'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
-'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
@@ -2671,6 +2772,10 @@ fr => [
 
 # phrases that can be removed
 my %ignore_phrases = (
+de => [
+"\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?", # 45 % Fett i.Tr.
+"inklusive",
+],
 en => [
 "na|n/a|not applicable",
 ],
@@ -2979,8 +3084,12 @@ sub separate_additive_class($$$$$) {
 		$after2 = $`;
 	}
 
-	if (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
-		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) ))
+	# also check that we are not separating an actual ingredient
+	# e.g. acide acétique -> acide : acétique
+
+	if (	(not exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $additive_class . " " . $after))) 
+ 	and (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
+		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) )))
 	) {
 		#print STDERR "separate_additive_class - after is an additive\n";
 		return $additive_class . " : ";
@@ -3197,7 +3306,9 @@ sub preparse_ingredients_text($$) {
 	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
 	if (defined $additives_classes_regexps{$product_lc}) {
 		my $regexp = $additives_classes_regexps{$product_lc};
-		$text =~ s/\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$1,$2,$3,$')/ieg;
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		$text =~ s/(?<!\w( |'))\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($product_lc,$2,$3,$4,$')/ieg;
 	}
 
 	# dash with 1 missing space
