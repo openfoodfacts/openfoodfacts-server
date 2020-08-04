@@ -175,7 +175,7 @@ function getCachedCountries() {
             dataType: 'json',
             async: false,
             success: function (json) {
-                stats_json = json;
+                let stats_json = json;
                 data_countries = $.map(stats_json, function (value, index) {
                     // add to each value the key of the object (e.g. "en:Poland") for future use in REST services
                     value[COUNTRY_PROPERTY_EN_LABEL] = index;
@@ -206,7 +206,7 @@ function cacheCountries(countries) {
 }
 
 function set_user_country(ctrlCountrySelected) {
-    en_country_name =  ctrlCountrySelected.value;
+    let en_country_name =  ctrlCountrySelected.value;
     if (en_country_name == "") {
         user_country = undefined;
     } else {
@@ -217,11 +217,11 @@ function set_user_country(ctrlCountrySelected) {
 }
 
 function find_country_object (en_country) {
-    countries = getCachedCountries();
+    let countries = getCachedCountries();
     index_of_found = -1;
     for (var i=0; i < countries.length && index_of_found < 0; i++) {
         if (countries[i].en_label == en_country) {
-            index_of_found = i;
+            let index_of_found = i;
         }
     }
     return (index_of_found < 0) ? undefined : countries[index_of_found];
@@ -232,14 +232,12 @@ function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
     if (cached_stores_for_country != null) {
         fillHtmlElementWithStores(cached_stores_for_country);
-    } else {
-
     }
 }
 
 function getCachedStoresForCountry(country) {
     var key_localstorage_stores = LOCALSTORAGE_STORES_PARTIAL + country;
-    stores_for_country = JSON.parse(window.localStorage.getItem(key_localstorage_stores));
+    let stores_for_country = JSON.parse(window.localStorage.getItem(key_localstorage_stores));
     if (stores_for_country != null) {
         return stores_for_country;
     } else {
@@ -254,7 +252,7 @@ function getCachedStoresForCountry(country) {
             success: function (data) {
                 if (data != null) {
                     data.tags.sort(function_sort_stores_by_nb_products);
-                    stores_most_relevant = data.tags.filter(function (store, indx) {
+                    let stores_most_relevant = data.tags.filter(function (store, indx) {
                         return indx < MAX_STORES_TO_SHOW_PER_COUNTRY;
                     });
                     stores_most_relevant
@@ -280,8 +278,8 @@ Replace in the OFF-url the world default website with the regionalized-one (coun
  */
 function urlReplaceWorldWithSelectedCountry(url_off) {
     /* replace 'world' with country code if available */
-    new_url_off = url_off;
-    country_code = undefined;
+    let new_url_off = url_off;
+    let country_code = undefined;
     if (user_country != undefined) {
         country_code= user_country[0].en_code;
     }
@@ -296,7 +294,7 @@ function urlReplaceWorldWithSelectedCountry(url_off) {
 // **************
 
 // sort function for the countries
-function_sort_countries = getSortMethod('+' + COUNTRY_PROPERTY_EN_NAME);
+var function_sort_countries = getSortMethod('+' + COUNTRY_PROPERTY_EN_NAME);
 // sort function for the stores by number of products backwards (most popular stores)
 var function_sort_stores_by_nb_products = getSortMethod('-' + STORE_PRODUCTS_COUNT_PROPERTY);
 // sort function for the stores by name alphabetically
@@ -319,7 +317,7 @@ function getSortMethod() {
             var bx;
             var cx;
 
-            tmp_ax = a[_args[x].substring(1)];
+            let tmp_ax = a[_args[x].substring(1)];
             if ((typeof tmp_ax) == "number") {
                 // numbers
                 ax = Number(tmp_ax);
@@ -380,13 +378,13 @@ function getParameterByName(name, url) {
  Clearing cache of Browser
  */
 function clearCache() {
-    msg = "Deleting cached DATA will enforce an update with the freshest data from the server.\n\n";
+    let msg = "Deleting cached DATA will enforce an update with the freshest data from the server.\n\n";
     msg += "Note: if you need to reload APP files from the server due to a misbehaviour of the App, then please delete the cache of your Browser instead.\n"
     msg += "\n\n";
 
     msg += "DATA LOCAL STORAGE (persistent)\n";
     msg += "\tNumber of items in the LOCAL-cache: " + window.localStorage.length + "\n\n";
-    for (var i = 0; i < window.localStorage.length; i++) {
+    for (let i = 0; i < window.localStorage.length; i++) {
         msg += "\t-> " + window.localStorage.key(i) + "\n";
     }
     msg += "\n";
@@ -397,7 +395,7 @@ function clearCache() {
     }
     msg += "\n";
     msg += "\nDo you want to delete all DATA-caches and get the freshest data from the server?\n\n";
-    resp = confirm(msg);
+    let resp = confirm(msg);
     if (resp) {
         window.localStorage.clear();
         window.sessionStorage.clear();
@@ -414,9 +412,9 @@ function fetch_score_databases() {
     var cached_databases = getCachedScoreDatabases();
     if (cached_databases != null) {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
-        url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
+        let url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
         if (url_score_db != undefined && url_score_db != "") {
-            param_db_for_graph = cached_databases["stats"].filter(function (db) {
+            let param_db_for_graph = cached_databases["stats"].filter(function (db) {
                 return db[FLD_DB_NICK_NAME].toLowerCase() == url_score_db.toLowerCase();
             });
             if (param_db_for_graph != undefined) {
@@ -458,12 +456,12 @@ function getCachedScoreDatabases() {
 
 function getCachedCurrentDatabase() {
     var key_localstorage_current_db = LOCAL_STORAGE_CURRENT_DATABASE;
-    current_db = JSON.parse(window.localStorage.getItem(key_localstorage_current_db));
+    let current_db = JSON.parse(window.localStorage.getItem(key_localstorage_current_db));
     return current_db;
 }
 
 function filterDatabases(databases) {
-    dbs_to_show = databases["stats"].filter(function (db) {
+    let dbs_to_show = databases["stats"].filter(function (db) {
         // Mock for filtering only active dbs for everybody and all dbs for testing purposes
         if (window.location.href.search("/test") >= 0 || db["isActive"] == true) {
             return db;
@@ -512,7 +510,7 @@ function cleanup_suggestions() {
 
 function get_graph_stripe_colour (db_graph, score_of_product) {
     // Compute which stripe colour to set for the border of product suggested
-    indx_colour_stripe = undefined;
+    let indx_colour_stripe = undefined;
     if (db_graph["bottomUp"] == true) {
         indx_colour_stripe = (db_graph["scoreIntervalsStripeColour"].length - 1) - (db_graph["scoreMaxValue"] - score_of_product);
     } else {
@@ -539,7 +537,7 @@ function make_suggestions(product_ref, products, db_graph) {
         $(ID_NB_SUGGESTIONS).append(suggested_products.length);
         suggested_products.forEach(function (product, index) {
             // $(ID_PRODUCTS_SUGGESTION + " > div").append("<div class='cell_suggestion' onclick='alert("+cx+")'><img src='" + product.img + "' height='150px' /></div>");
-            style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
+            let style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
             $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' onclick='process_selected_suggestion(this, " + index + ")' /></li>");
         });
     }
@@ -555,12 +553,12 @@ function process_selected_suggestion(img_selected, index) {
 
 function deactivate_previous_selection() {
     if (client_current_selection[0] > -1) {
-        rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+        let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
 
         style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
         client_current_selection[1].setAttribute("style", style_for_border_colour);
 
-        circle_node = $("#svg_graph")[0].childNodes[0]
+        let circle_node = $("#svg_graph")[0].childNodes[0]
             .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
         circle_node.setAttribute("r", "" + CIRCLE_RADIUS_DEFAULT + "");
         circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
@@ -587,7 +585,7 @@ function activate_selection() {
  */
 function select_picture(shift) {
     if (suggested_products.length > 0) {
-        curr_pos = client_current_selection[0];
+        let curr_pos = client_current_selection[0];
         if (curr_pos < 0) {
             curr_pos = 0;
         } else {
@@ -602,14 +600,14 @@ function select_picture(shift) {
         }
         deactivate_previous_selection();
         client_current_selection[0] = curr_pos;
-        next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
+        let next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
         client_current_selection[1] = next_image;
         activate_selection();
     }
 }
 
 function show_details() {
-    curr_prod = suggested_products[client_current_selection[0]];
+    let curr_prod = suggested_products[client_current_selection[0]];
     style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
     $(ID_DETAILS_SELECTED_PRODUCT).empty();
 
@@ -640,7 +638,7 @@ function hide_details() {
 function go_search() {
     curr_prod = client_current_selection[0];
     if (curr_prod >= 0) {
-        code_product = suggested_products[curr_prod].code;
+        let code_product = suggested_products[curr_prod].code;
         $(ID_INPUT_PRODUCT_CODE).val(code_product);
         $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
         $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
@@ -763,7 +761,7 @@ function draw_graph(id_attach_graph,
     var indx_array = 0;
     for (var i = db_graph["scoreMinValue"]; i <= db_graph["scoreMaxValue"]; i += step_for_stripe) {
         // Tick number: when starting, equals 0 + stripe's step
-        numTick = (i - db_graph["scoreMinValue"]) + step_for_stripe;
+        let numTick = (i - db_graph["scoreMinValue"]) + step_for_stripe;
         data_rect_2.push({'v': i, 'color': db_graph["scoreIntervalsStripeColour"][indx_array]});
         indx_array++;
     }
@@ -832,9 +830,9 @@ function draw_graph(id_attach_graph,
         .style("stroke", "black")  // colour the line
         .style("fill", "none")     // remove any fill colour
         .attr("points", function (d) {
-            w = width * d.width + CIRCLE_RADIUS_SELECTED;
-            h = d.height * (height / rangeInterval);
-            rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
+            let w = width * d.width + CIRCLE_RADIUS_SELECTED;
+            let h = d.height * (height / rangeInterval);
+            let rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
             return rect_points
         })
     ;
@@ -849,9 +847,9 @@ function draw_graph(id_attach_graph,
         .attr("stroke", "#000080")
         .attr("stroke-width", 1)
         .attr("fill", CIRCLE_COLOR_DEFAULT)
-        .attr("cx", function (d, i) {
+        .attr("cx", function (d, ind) {
             // Store position of svg.circle in the product itself for leveraging browsing in the suggestion panel
-            d.num_circle = i;
+            d.num_circle = ind;
             return (d.x - shift_left_x_values) * nb_categs / nb_categs_displayed * width;
         })
         .attr("cy", function (d) {
@@ -917,7 +915,7 @@ function draw_graph(id_attach_graph,
 
     $(id_attach_graph).empty();
     $("svg").detach().appendTo(id_attach_graph);
-};;
+};
 
 function display_product_ref_details(prod_ref,
                                      id_code,
@@ -931,24 +929,24 @@ function display_product_ref_details(prod_ref,
     // update globals
     current_product = prod_ref;
 
-    code = prod_ref["code"];
-    name = prod_ref["name"];
-    image = prod_ref["images"];
+    let code = prod_ref["code"];
+    let name = prod_ref["name"];
+    let image = prod_ref["images"];
     if (image == "") {
         image = prod_ref["image_fake_off"];
     }
-    no_nutriments = prod_ref["no_nutriments"];
-    categories = prod_ref["categories_tags"].join("<br />");
-    url_off = prod_ref["url_product"];
+    let no_nutriments = prod_ref["no_nutriments"];
+    let categories = prod_ref["categories_tags"].join("<br />");
+    let url_off = prod_ref["url_product"];
     /* replace 'world' with country code if available */
-    country_code = undefined;
+    let country_code = undefined;
     if (user_country != undefined) {
         country_code = user_country[0].en_code;
     }
     if (country_code != undefined) {
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
-    url_json = prod_ref["url_json"];
+    let url_json = prod_ref["url_json"];
     style_for_border_colour = "grade_" + prod_ref["score"];
     $(id_code).empty();
     $(id_code).append(code);
