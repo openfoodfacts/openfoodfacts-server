@@ -2532,6 +2532,7 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'Kakao: \d\d\s?% mindestens.',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
 'Nâhrwerte',
