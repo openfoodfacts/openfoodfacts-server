@@ -72,7 +72,7 @@ my $html = <<HTML
                                  onclick="$(ID_INPUT_PRODUCT_CODE).val(current_product==null? PRODUCT_CODE_DEFAULT : current_product.code)"
                             />
                             <div id="links_off">
-                                <div><a id="url_off_prod" href='https://world.openfoodfacts.org' target='_blank'>
+                                <div><a id="url_off_prod" href='$static_subdomain' target='_blank'>
                                     Product page
                                 </a></div>
                             </div>
