@@ -218,10 +218,10 @@ function set_user_country(ctrlCountrySelected) {
 
 function find_country_object (en_country) {
     let countries = getCachedCountries();
-    index_of_found = -1;
+    let index_of_found = -1;
     for (var i=0; i < countries.length && index_of_found < 0; i++) {
         if (countries[i].en_label == en_country) {
-            let index_of_found = i;
+            deactivate_previous_selectionindex_of_found = i;
         }
     }
     return (index_of_found < 0) ? undefined : countries[index_of_found];
@@ -555,7 +555,7 @@ function deactivate_previous_selection() {
     if (client_current_selection[0] > -1) {
         let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
 
-        style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
+        let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
         client_current_selection[1].setAttribute("style", style_for_border_colour);
 
         let circle_node = $("#svg_graph")[0].childNodes[0]
@@ -566,12 +566,12 @@ function deactivate_previous_selection() {
 }
 
 function activate_selection() {
-    rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+    let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
     // Box around selection in the ribbon
     client_current_selection[1].setAttribute("class", "product_selected");
     client_current_selection[1].setAttribute("style", "");
     // focus circle bound to selection
-    circle_node = $("#svg_graph")[0].childNodes[0]
+    let circle_node = $("#svg_graph")[0].childNodes[0]
         .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
     circle_node.setAttribute("r", "" + CIRCLE_RADIUS_SELECTED + "");
     circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
@@ -636,7 +636,7 @@ function hide_details() {
 }
 
 function go_search() {
-    curr_prod = client_current_selection[0];
+    let curr_prod = client_current_selection[0];
     if (curr_prod >= 0) {
         let code_product = suggested_products[curr_prod].code;
         $(ID_INPUT_PRODUCT_CODE).val(code_product);
@@ -760,8 +760,6 @@ function draw_graph(id_attach_graph,
     var step_for_stripe = rangeInterval / db_graph["scoreNbIntervals"];
     var indx_array = 0;
     for (var i = db_graph["scoreMinValue"]; i <= db_graph["scoreMaxValue"]; i += step_for_stripe) {
-        // Tick number: when starting, equals 0 + stripe's step
-        let numTick = (i - db_graph["scoreMinValue"]) + step_for_stripe;
         data_rect_2.push({'v': i, 'color': db_graph["scoreIntervalsStripeColour"][indx_array]});
         indx_array++;
     }
@@ -915,7 +913,7 @@ function draw_graph(id_attach_graph,
 
     $(id_attach_graph).empty();
     $("svg").detach().appendTo(id_attach_graph);
-};
+}
 
 function display_product_ref_details(prod_ref,
                                      id_code,
@@ -1009,7 +1007,7 @@ function init() {
     // set score db being used if cached locally: this is useful when using the barcode scanner App
     // which knows nothing about the current context when it launches the URL back with barcode.
     // We want to remember which score database is being used by the user
-    current_db_used = getCachedCurrentDatabase();
+    let current_db_used = getCachedCurrentDatabase();
     if (current_db_used != undefined) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
@@ -1025,7 +1023,7 @@ function init() {
     });
 
     // Insert barcode from url if available, otherwise default product barcode
-    url_barcode = getParameterByName(URL_PARAM_BARCODE, window.location.href);
+    let url_barcode = getParameterByName(URL_PARAM_BARCODE, window.location.href);
     if (url_barcode != undefined) {
         $(ID_INPUT_PRODUCT_CODE).val(url_barcode);
         go_fetch();
@@ -1036,12 +1034,12 @@ function init() {
 }
 
 function guess_country_from_nav_lang() {
-    is_found = false;
-    data_countries = getCachedCountries();
+    let is_found = false;
+    let data_countries = getCachedCountries();
     // set country: 1) from url param if set; 2) from navigator
-    url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
+    let url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
     if (url_country != undefined && url_country != "") {
-        nav_country = url_country;
+        let nav_country = url_country;
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
             function (ctry) {
@@ -1060,7 +1058,7 @@ function guess_country_from_nav_lang() {
 
     if (user_country != undefined) {
         for (var index_option in $(ID_INPUT_COUNTRY)[0]) {
-            current_option = $(ID_INPUT_COUNTRY)[0][index_option];
+            let current_option = $(ID_INPUT_COUNTRY)[0][index_option];
             if (current_option.value === user_country[0][COUNTRY_PROPERTY_EN_LABEL]) {
                 is_found = true;
                 current_option.selected = true;
