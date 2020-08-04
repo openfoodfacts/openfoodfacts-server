@@ -2555,7 +2555,6 @@ el => [
 ],
 
 en => [
-
 'nutritional values',
 'after opening',
 'nutrition values',
