@@ -2268,15 +2268,35 @@ sub normalize_allergens_enumeration($$$) {
 
 my %phrases_before_ingredients_list = (
 
-en => [
-'ingredient(s?)',
+az => [
+'Tarkibi',
+],
+
+bg => [
+'Съставки',
+'Състав',
+],
+
+bs => [
+'Sastoji',
+],
+
+ca => [
+'Ingredient(s)?',
+'composició',
 ],
 
 cs => [
 'složení',
 ],
 
+da => [
+'N(æ|ae)ringsindhold',
+'indeholder',
+],
+
 de => [
+'Zusammensetzung',
 'zutat(en)?',
 ],
 
@@ -2286,16 +2306,22 @@ dk => [
 
 el => [
 'Συστατικά',
-'ΣΥΣΤΑΤΙΚΑ'
+],
+
+en => [
+'composition',
+'ingredient(s?)',
 ],
 
 es => [
+'composición',
 'ingredientes',
 ],
 
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
 'valmistusaineet',
+'koostumus',
 ],
 
 fr => [
@@ -2305,40 +2331,111 @@ fr => [
 ],
 
 hr => [
+'Sastojci',
+],
+
+hu => [
 '(ö|ő|o)sszetev(ö|ő|o)k',
+'összetétel',
+],
+
+id => [
+'komposisi',
+],
+
+is => [
+'inneald',
+'Innihaldslýsing',
 ],
 
 it => [
 'ingredienti',
+'composizione',
 ],
 
-is => [
-'Innihaldslýsing',
+kk => [
+'Курамы',
+],
+
+ky => [
+'Курамы',
+],
+
+lt => [
+'Sudedamosios dalys',
+'Sudėtis',
+],
+
+lv => [
+'sastāv(s|dalas)',
 ],
 
 nl => [
 'ingredi(e|ë)nten',
+'samenstelling',
+'bestanddelen',
 ],
 
-pt => [
-'ingredientes',
+nb => [
+'Ingredienser',
 ],
 
 pl => [
 'składniki',
+'skład',
+],
+
+pt => [
+'ingredientes',
+'composição',
+],
+
+ro => [
+'ingrediente',
+'compoziţie',
+],
+
+ru => [
+'coctaB',
+'Ингредиенты',
 ],
 
 si => [
 'sestavine',
 ],
 
-ru => [
-'Состав',
-'Ингредиенты',
+sk => [
+'obsahuje',
+'zloženie',
+],
+sl => [
+'vsebuje',
+'sestavine',
+],
+
+sr => [
+'Sastojci',
 ],
 
 sv => [
 'ingredienser',
+'innehåll(er)?',
+],
+
+tg => [
+'Таркиб',
+],
+
+th => [
+'ส่วนประกอบ',
+],
+
+uz => [
+'Tarkib',
+],
+
+zh => [
+'配料',
 ],
 
 );
@@ -2358,29 +2455,27 @@ cs => [
 
 da => [
 'INGREDIENSER',
-'N(æ|ae)ringsindhold',
 ],
 
 de => [
 'ZUTAT(EN)?',
 ],
 
-da => [
-'N(æ|ae)ringsindhold',
+el => [
+'ΣΥΣΤΑΤΙΚΑ'
 ],
 
 es => [
-'INGREDIENTES',
+'INGREDIENTE(S)?',
 ],
 
 fi => [
 'AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?',
-'VALMISTUSAINEET'
+'VALMISTUSAINEET',
 ],
 
 fr => [
 'INGR(E|É)(D|0|O)IENTS',
-'INGR(E|É)DIENT',
 ],
 
 hu => [
@@ -2388,7 +2483,6 @@ hu => [
 ],
 
 it => [
-
 'INGREDIENTI(\s*)',
 ],
 
@@ -2396,30 +2490,23 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
-pt => [
-'INGREDIENTES(\s*)',
-],
-
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
-
-ro => [
-'Ingrediente'
+pt => [
+'INGREDIENTES(\s*)',
 ],
+
 
 si => [
 'SESTAVINE',
 ],
 
-sv => [
-'INGREDIENSER',
-],
-
 vi => [
 'THANH PHAN',
 ],
+
 
 );
 
@@ -2445,17 +2532,26 @@ de => [
 'Durchschnittliche N(â|a|ä)hrwerte',
 'DURCHSCHNITTLICHE NÄHRWERTE',
 'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+'Kakao: \d\d\s?% mindestens.',
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
 'Nâhrwerte',
 'mindestens',
 'k(u|ü)hl und trocken lagern',
+'Rinde nicht zum Verzehr geeignet.',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
+'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
+'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt', # 100 g Salami werden aus 120 g Schweinefleisch hergestellt. 
+],
+
+el => [
+'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
+'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
 ],
 
 en => [
@@ -2655,10 +2751,6 @@ ro => [
 ],
 
 
-el => [
-'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ', #Nutritional labelling
-'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
@@ -2680,6 +2772,10 @@ fr => [
 
 # phrases that can be removed
 my %ignore_phrases = (
+de => [
+"\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?", # 45 % Fett i.Tr.
+"inklusive",
+],
 en => [
 "na|n/a|not applicable",
 ],

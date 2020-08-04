@@ -5,47 +5,6 @@ synonyms:en:pasteurised, pasteurized
 synonyms:es:zumo, jugo
 synonyms:es:sirope,jarabe
 ﻿
-# stopwords
-
-# comment:en:These are words that start a list of ingredients
-
-en:ingredient, ingredients, composition
-az:Tarkibi
-bg:Състав
-bs:Sastoji
-ca:Ingredient, ingredients, composició
-cs:Složení
-da:ingredienser, indeholder
-de:Zutaten, Zusammensetzung
-es:ingrediente, composición, ingredientes
-et:Koostisainsd, koostis, Koostisosad
-fa:الكوتات
-fi:aines, ainekset, ainesosa, ainesosat, koostumus
-fr:ingrédient, ingrédients, composition
-hu:összetevők, összetétel
-id:komposisi
-is:inneald
-it:ingredienti, composizione
-kk:Курамы
-ky:Курамы
-lt:Sudedamosios dalys, Sudėtis
-lv:sastāvs, Sastāvdalas
-nb:Ingredienser
-nl:ingrediënt, ingrediënten, samenstelling, bestanddelen
-pl:skład, Skladniki
-pt:composição
-ro:compoziţie, Ingrediente
-ru:coctaB
-sk:obsahuje, Zloženie
-sl:vsebuje, Sestavine
-sv:innehåller, Ingredienser, innehåll
-tg:Таркиб
-th:ส่วนประกอบ
-tr:lcindekiler
-uz:Tarkib
-zh::配料
-vegan:en:ignore
-vegetarian:en:ignore
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
@@ -6963,7 +6922,7 @@ fr:ferments de maturation
 
 <en:ferments
 fr:ferments d'affinage
-de:Reifungskulturen
+de:Reifungskulturen, Reifekulturen
 # ingredient/fr:ferments-d’affinage has 34 products in french @2019-07-08
 
 <en:ferments
@@ -14702,6 +14661,9 @@ fi:nitriittisuola
 sv:nitritsalt
 # usage:en:nitrite curing salt (salt, preservative: sodium nitrite)
 # ingredient/en:nitrite-curing-salt has 2 products in 3 languages @2020-06-08
+
+<en:nitrite curing salt
+de:jodiertes Nitritpökelsalz
 
 <en:sea salt
 <en:iodised salt
@@ -35721,7 +35683,7 @@ ca:Nabiu de grua
 cs:Klikva
 cy:Llugaeron
 da:Tranebær
-de:Moosbeeren, Cranberry, Cranberrys
+de:Moosbeeren, Cranberry, Cranberrys, Cranberries
 eo:Oksikoko
 es:arándano rojo, arándano
 et:Jõhvikas, Harilik jõhvikas
@@ -37305,7 +37267,7 @@ en:lemon
 ca:Llimona
 cs:Citron
 da:Citron
-de:Zitrone
+de:Zitrone, Zitronen
 es:limón,limones
 fi:sitruuna, sitruunaa
 fr:citron, citrons, citron jaune, citrons jaunes
@@ -51955,7 +51917,7 @@ fr:graines grillées
 <en:seed
 en:aniseed
 da:anisfrø
-de:Anissamen
+de:Anissamen, anis
 es:semilla de anís,anis,matalahúga 
 fi:anis
 fr:graine d'anis vert, anis vert, graine d'anis, anis
@@ -52091,7 +52053,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 en:cumin seeds, cumin
 ca:llavors de comí
 da:Spidskommen
-de:Kümmelkörnen, Kreuzkümmel
+de:Kümmelkörnen, Kreuzkümmel, cumin
 es:comino, semillas de comino,Granos de comino
 fi:roomankumina, juustokumina, jeera, juustokuminansiemen
 fr:graines de cumin, cumin
