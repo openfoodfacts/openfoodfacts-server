@@ -2775,7 +2775,7 @@ my %ignore_phrases = (
 de => [
 "\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?", # 45 % Fett i.Tr.
 "inklusive",
-]
+],
 en => [
 "na|n/a|not applicable",
 ],
