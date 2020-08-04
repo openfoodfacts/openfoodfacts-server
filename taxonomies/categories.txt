@@ -1421,7 +1421,9 @@ origins:en: en:Germany
 
 <en:Beers from Germany
 de:Münchener Biere, Münchener Bier
-country:en:Germany
+protected_name_file_number_en: PGI-DE-0516-AM04
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 de:Münchner Biere, Münchner Bier
@@ -2268,6 +2270,13 @@ origins:en: en:France, fr:Calvados
 
 <fr:Eaux-de-vie
 <en:Wines from France
+fr:Calvados Domfrontais
+protected_name_file_number_en: PGI-FR-01837
+protected_name_type:en: gi
+origins:en: en:France
+
+<fr:Eaux-de-vie
+<en:Wines from France
 fr:Calvados Pays d'Auge
 protected_name_file_number_en: PGI-FR-02034
 protected_name_type:en: gi
@@ -2293,22 +2302,31 @@ fr:Eaux-de-vie françaises, Eau-de-vie française, Eaux-de-vie de France, Eau-de
 nl:Franse eau-de-vies
 
 <en:French Eaux-de-vie
+en:French cider eau-de-vies
+
+<en:French cider eau-de-vies
 fr:Eau-de-vie de cidre de Bretagne
 de:Apfelbrand aus der Bretagne
 nl:Bretons cider eau-de-vies
-country:en:France
+protected_name_file_number_en: PGI-FR-02035
+protected_name_type:en: gi
+origins:en: en:France
 
-<en:French Eaux-de-vie
+<en:French cider eau-de-vies
 fr:Eau-de-vie de cidre de Normandie
 de:Apfelbrand aus der Normandie
 nl:Normandische cider eau-de-vies
+protected_name_file_number_en: PGI-FR-01988
+protected_name_type:en: gi
 country:en:France
 origins:en: en:France, fr:Normandie
 
-<en:French Eaux-de-vie
+<en:French cider eau-de-vies
 fr:Eau-de-vie de cidre du Maine
 de:Apfelbrand aus Maine
 nl:Eau-de-vies uit de Maine-streek
+protected_name_file_number_en: PGI-FR-02036
+protected_name_type:en: gi
 country:en:France
 origins:en: en:France, fr:Maine
 
@@ -2336,6 +2354,8 @@ origins:en: en:France, fr:Bretagne
 fr:Eau-de-vie de poiré de Normandie
 de:Birnenbrand aus der Normandie
 nl:Peren eau-de-vies uit Normandië
+protected_name_file_number_en: PGI-FR-01980
+protected_name_type:en: gi
 country:en:France
 origins:en: en:France, fr:Normandie
 
@@ -5957,13 +5977,93 @@ zh:咖啡
 wikidata:en:Q8486
 
 <en:Coffees
-en:Colombian coffees
+en:Coffees from the Dominican Republic
+fr:Cafés de république dominicaine
 
-<en:Colombian coffees
+<en:Coffees from the Dominican Republic
+es:Café de Valdesia
+protected_name_file_number_en: PDO-DO-1197
+protected_name_type:en: pdo
+origins:en: en:Dominican Republic
+
+<en:Coffees
+en:Brazilian coffees, Coffees from Brazil
+fr:Café brésilien
+
+<en:Coffees
+en:Vietnamese coffee
+fr:Café du Viêt Nam
+
+<en:Coffees
+en:Indonesian coffee
+fr:Café d'Indonésie
+
+<en:Coffees
+en:Colombian coffees
+fr:Café de Colombie
 es:Café de Colombia
 protected_name_file_number:en: PGI-CO-0467
 protected_name_type:en: pgi
 origins:en: en:Colombia
+
+<en:Coffees
+en:Indian coffee
+fr:Café d'Inde
+
+<en:Coffees
+en:Honduras coffee
+fr:Café du Honduras
+
+<en:Coffees
+en:Ethiopian coffee
+fr:Café d'Éthiopie
+
+<en:Coffees
+en:Peruvian coffee
+fr:Café du Pérou
+
+<en:Coffees
+en:Coffees from Guatemala
+fr:Café du Guatemala
+
+<en:Coffees
+en:Mexiacan coffee
+fr:Café du Mexique
+
+<en:Coffees
+en:Coffee from Ouganda
+fr:Café d'Ouganda
+
+<en:Coffees
+en:Coffee from Ivory Coast
+fr:Café de Côte d'Ivoire
+
+<en:Coffees
+en:Coffees from Laos
+fr:Café du Laos
+
+<en:Coffees
+en:Coffees from Nicaragua
+fr:Café du Nicaragua
+
+<en:Coffees
+fr:Café des Philippines
+
+<en:Coffees
+en:Venezuelian coffees
+fr:Café du Venezuela
+
+<en:Coffees
+en:Coffees from Costa Rica
+fr:Café du Costa Rica
+
+<en:Coffees
+en:Coffees from Tanzania
+fr:Café de Tanzanie
+
+<en:Coffees
+en:Coffees from Madagascar
+fr:Café de Madagascar
 
 <en:Coffees
 <en:Hot beverages
@@ -6044,6 +6144,21 @@ fr:Grains de café
 nl:Koffiebonen
 zh:咖啡豆
 wikidata:en:Q153697
+
+<en:Coffees
+en:Colombian coffees
+
+<en:Coffees
+fr:Café Arabica moulu
+
+<en:Coffee beans
+fr:Grains de café arabica
+
+<en:Coffees
+fr:Café Robusta moulu
+
+<en:Coffee beans
+fr:Grains de café robusta
 
 <en:Coffee beans
 en:Roasted coffee beans
@@ -23557,6 +23672,69 @@ protected_name_type:en: pgi
 origins:en: en:Belgium
 
 <en:Bakery products
+en:German bakery products
+
+<en:German bakery products
+de:Bayrisch Blockmalz, Bayrischer Blockmalz, Echt Bayrisch Blockmalz, Aecht Bayrischer Blockmalz
+protected_name_file_number_en: PGI-DE-01354
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Westfälischer Pumpernickel
+protected_name_file_number_en: PGI-DE-1095
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Bayerische Breze, Bayerische Brezn, Bayerische Brez'n, Bayerische Brezel
+protected_name_file_number_en: PGI-DE-0971
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Salzwedeler Baumkuchen
+protected_name_file_number_en: PGI-DE-0733
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Dresdner Christstollen, Dresdner Stollen, Dresdner Weihnachtsstollen
+protected_name_file_number_en: PGI-DE-0704
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Bremer Klaben
+protected_name_file_number_en: PGI-DE-0333
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Meißner Fummel
+protected_name_file_number_en: PGI-DE-0079
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Aachener Printen
+protected_name_file_number_en: PGI-DE-9095
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Lübecker Marzipan
+protected_name_file_number_en: PGI-DE-0657
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German bakery products
+de:Nürnberger Lebkuchen
+protected_name_file_number_en: PGI-DE-0670
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:Bakery products
 en:Spanish bakery products
 
 <en:Spanish bakery products
@@ -30006,7 +30184,9 @@ origins:en: en:France
 
 <en:French emmentaler
 fr:Emmentals français est-central
-Country:en:France
+protected_name_file_number_en: PGI-FR-9180
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
@@ -73746,7 +73926,10 @@ ciqual_food_name:en:Brioche, filled with fruits
 fr:Gâches
 
 <fr:Gâches
-fr:Gâches de Vendée
+fr:Gâche vendéenne, Gâches de Vendée
+protected_name_file_number_en: PGI-FR-0860
+protected_name_type:en: pgi
+origins:en: en:France
 wikidata:en:Q1317802
 
 <en:Brioches
@@ -73785,6 +73968,9 @@ fr:Brioche tressée pur beurre
 
 <en:Brioches
 fr:Brioches Vendéennes, Brioche vendéenne
+protected_name_file_number_en: PGI-FR-0271
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Brioches
 en:Brioche filled with custard, Chinese brioche
