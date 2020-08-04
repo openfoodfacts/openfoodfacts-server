@@ -124,7 +124,7 @@
                         <label for="sort_by">[% lang('sort_by') %]</label>
                         <select name="sort_by" id="sort_by">
                             [% FOREACH value IN sort_options %]
-                                [% IF value.label == selected_sort_by_value %]
+                                [% IF value.value == selected_sort_by_value %]
                                     <option value="[% value.value %]" label="[% value.label %]" selected="selected"></option>
                                 [% ELSE %]
                                     <option value="[% value.value %]" label="[% value.label %]"></option>
