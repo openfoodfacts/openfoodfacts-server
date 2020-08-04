@@ -221,7 +221,7 @@ function find_country_object (en_country) {
     let index_of_found = -1;
     for (var i=0; i < countries.length && index_of_found < 0; i++) {
         if (countries[i].en_label == en_country) {
-            deactivate_previous_selectionindex_of_found = i;
+            index_of_found = i;
         }
     }
     return (index_of_found < 0) ? undefined : countries[index_of_found];
@@ -384,14 +384,14 @@ function clearCache() {
 
     msg += "DATA LOCAL STORAGE (persistent)\n";
     msg += "\tNumber of items in the LOCAL-cache: " + window.localStorage.length + "\n\n";
-    for (let i = 0; i < window.localStorage.length; i++) {
-        msg += "\t-> " + window.localStorage.key(i) + "\n";
+    for (let k = 0; k < window.localStorage.length; k++) {
+        msg += "\t-> " + window.localStorage.key(k) + "\n";
     }
     msg += "\n";
     msg += "DATA SESSION STORAGE (current browsing)\n";
     msg += "\tNumber of items in the SESSION-cache: " + window.sessionStorage.length + "\n\n";
-    for (var i = 0; i < window.sessionStorage.length; i++) {
-        msg += "\t-> " + window.sessionStorage.key(i) + "\n";
+    for (let l = 0; l < window.sessionStorage.length; l++) {
+        msg += "\t-> " + window.sessionStorage.key(l) + "\n";
     }
     msg += "\n";
     msg += "\nDo you want to delete all DATA-caches and get the freshest data from the server?\n\n";
@@ -608,7 +608,7 @@ function select_picture(shift) {
 
 function show_details() {
     let curr_prod = suggested_products[client_current_selection[0]];
-    style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
+    let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
     $(ID_DETAILS_SELECTED_PRODUCT).empty();
 
     /* Replace world with country selected by the user in the GUI in the url
@@ -1047,7 +1047,7 @@ function guess_country_from_nav_lang() {
             }
         );
     } else {
-        nav_country = ( (nav_language.indexOf('-') >= 0) ? nav_language.split('-')[1] : nav_language).toUpperCase();
+        let nav_country = ( (nav_language.indexOf('-') >= 0) ? nav_language.split('-')[1] : nav_language).toUpperCase();
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
             function (ctry) {
