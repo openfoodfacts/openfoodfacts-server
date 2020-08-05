@@ -83,18 +83,12 @@ my $text = remove_tags_and_quote(decode utf8=>param('text'));
 
 my $html;
 
-$html = '<p>The spellcheck results are based on matches in a given taxonomy.</p>
-<p>For words with at least 5 characters, we consider an edit distance of 1 (insert, replace or delete).</p>
-';
-
-push @{$template_data_ref->{action_process}}, $action;
-push @{$template_data_ref->{tagtype}}, $tagtype;
-push @{$template_data_ref->{lc}}, $lc;
+$template_data_ref->{action_process} = $action;
+$template_data_ref->{tagtype} = $tagtype;
+$template_data_ref->{lc} = $lc;
 
 if ($action eq 'process') {
 
-	$html .= "<p>Spellcheck result for taxonomy <b>$tagtype</b> and language <b>$lc</b>:</p>";
-	$html .= "<table><tr><th>Input</th><th>Correction</th><th>$lc tag</th><th>Canonical tag</th></tr>";
 	foreach my $token2 (split(/$separators/, $text)) {
 	
 		my $token = $token2;
@@ -106,7 +100,7 @@ if ($action eq 'process') {
 		
 		$token =~ s/\s+$//;
 		$token =~ s/^\s+//;
-	
+		
 		next if get_fileid($token) eq '';
 		
 		my ($canon_tagid, $tagid, $tag) = spellcheck_taxonomy_tag($lc, $tagtype, $token);
@@ -122,43 +116,13 @@ if ($action eq 'process') {
 			canon_tagid => $canon_tagid,
 		};
 
-		$html .= "<tr><td>$token</td><td>$tag</td><td>$tagid</td><td>$canon_tagid</td></tr>\n";
-		
 	}
-	
-	$html .= "</table>";	
-	
+
 	$action = 'display';
 }
 
-push @{$template_data_ref->{action_display}}, $action;
-if ($action eq 'display') {
-	
-	$html .= start_form(-method => "GET");
-	
-	
-	push @{$template_data_ref->{text}}, $text;
-	$html .= <<HTML
-Taxonomy: <input type="text" name="tagtype" id="tagtype" value="$tagtype" /><br /><br />
-Text (language code: $lc): <br/>
-
-<textarea id="text" name="text" style="height:8rem;">$text</textarea>
-HTML
-;
-
-	$html .= ''
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'action', -value=>'process', -override=>1);
-	
-	$html .= submit()
-	. end_form();
-
-}
-elsif ($action eq 'process') {
-
-
-}
-
+$template_data_ref->{action_display} = $action;
+$template_data_ref->{text} = $text;
 
 my $full_width = 1;
 if ($action ne 'display') {

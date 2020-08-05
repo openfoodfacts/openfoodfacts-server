@@ -1,14 +1,17 @@
 <p>The spellcheck results are based on matches in a given taxonomy.</p>
 <p>For words with at least 5 characters, we consider an edit distance of 1 (insert, replace or delete).</p>
-[% IF action_process == 'process' %]
 
-    <p>Spellcheck result for taxonomy <strong>[% tagtype %]</strong> and language <strong>[% lc %]</strong>:</p>
+[% IF action_process == 'process' %]
+    <p>
+        Spellcheck result for taxonomy <strong>[% tagtype %]</strong> and language <strong>[% lc %]</strong>:
+    </p>
     <table>
+        <caption>Spellcheck Results</caption>
         <tr>
-            <th>Input</th>
-            <th>Correction</th>
-            <th>[% lc %] tag</th>
-            <th>Canonical tag</th>
+            <th scope="col">Input</th>
+            <th scope="col">Correction</th>
+            <th scope="col">[% lc %] tag</th>
+            <th scope="col">Canonical tag</th>
         </tr>
         [% FOREACH token IN tokens %]
             <tr>
@@ -19,11 +22,9 @@
             </tr>
         [% END %]
     </table>
-
 [% END %]
 
 [% IF action_display == 'display' %]
-
     <form method="get" action="/cgi/spellcheck_test.pl" enctype="multipart/form-data">
         Taxonomy: <input type="text" name="tagtype" id="tagtype" value="[% tagtype %]" /><br /><br />
         Text (language code: [% lc %]): <br/>
@@ -33,5 +34,4 @@
         <input type="hidden" name="action" value="process"  />
         <input type="submit" name=".submit" />
     </form>
-
 [% END %]
