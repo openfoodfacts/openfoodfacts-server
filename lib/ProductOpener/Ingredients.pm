@@ -2773,7 +2773,7 @@ fr => [
 # phrases that can be removed
 my %ignore_phrases = (
 de => [
-"\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?", # 45 % Fett i.Tr.
+'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?', # 45 % Fett i.Tr.
 "inklusive",
 ],
 en => [
