@@ -41,15 +41,6 @@ use Encode;
 
 ProductOpener::Display::init();
 
-my $tt = Template->new({
-	INCLUDE_PATH => $data_root . '/templates',
-	INTERPOLATE => 1,
-	EVAL_PERL => 1,
-	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
-	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
-	COMPILE_DIR => $data_root . '/tmp/templates',
-});
-
 # Passing values to the template
 my $template_data_ref = {
 	lang => \&lang,
@@ -100,7 +91,7 @@ if ($action eq 'process') {
 		
 		$token =~ s/\s+$//;
 		$token =~ s/^\s+//;
-		
+
 		next if get_fileid($token) eq '';
 		
 		my ($canon_tagid, $tagid, $tag) = spellcheck_taxonomy_tag($lc, $tagtype, $token);
