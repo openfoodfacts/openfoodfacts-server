@@ -1824,6 +1824,7 @@ nl:Geproduceerd in Australië
 wikidata:en:Q17000991
 country:en:Australia
 origins:en: en:Australia
+label_categories:en: en:Geographic label
 
 en:Made in Germany
 ca:Fet a Alemanya
@@ -1839,6 +1840,7 @@ pl:Wyprodukowano w Niemczech
 pt:Feito na Bélgica
 th:ผลิตในเยอรมนี
 country:en:Germany
+label_categories:en: en:Geographic label
 
 en:Made in Belgium
 ca:Fet a Bèlgica
@@ -1851,6 +1853,7 @@ hu:Belgiumban készült
 it:Fatto in Belgio
 nl:Geproduceerd in België
 country:en:Belgium
+label_categories:en: en:Geographic label
 
 en:Made in France
 ca:Fet a França
@@ -1866,6 +1869,7 @@ pl:Wyprodukowano we Francji
 pt:Feito na França
 zh:法国制造
 country:en:France
+label_categories:en: en:Geographic label
 
 en:Cooked in France
 ca:Cuinat a França
@@ -1875,6 +1879,7 @@ fi:kypsennetty ranskassa
 fr:Cuisiné en France
 he:בושל בצרפת
 pt:Cozido na França
+label_categories:en: en:Geographic label
 
 en:Transformed in France
 ca:Transformat a França
@@ -1883,7 +1888,8 @@ es:Transformado en Francia
 fi:Prosessoitu Ranskassa
 fr:Transformé en France
 pt:Transformado na França
-#country:en: en:France
+manufacturing_places:en: en:France
+label_categories:en: en:Geographic label
 
 en:Packaged in France
 ca:Envasat a França
@@ -1893,6 +1899,8 @@ fi:Pakattu Ranskassa
 fr:Conditionné en France
 he:נארז בצרפת
 hu:Franciaországban csomagolva
+packaging_places:en: en:France
+label_categories:en: en:Geographic label
 
 en:Made in Italy, product of Italy
 ca:Fet a Itàlia
@@ -1908,6 +1916,7 @@ pl:Wyprodukowano we Włoszech
 pt:Feito na Itália
 th:ผลิตในอิตาลี
 country:en:Italy
+label_categories:en: en:Geographic label
 
 en:Made in Portugal
 de:Hergestellt in Portugal
@@ -1919,6 +1928,7 @@ hu:Portugáliában készült
 nl:Geproduceerd in Portugal
 pt:Feito em Portugal
 country:en:Portugal
+label_categories:en: en:Geographic label
 
 en:Made in Russia
 de:Hergestellt in Russland
@@ -1930,6 +1940,7 @@ hu:Oroszországban készült
 nl:Geproduceerd in Rusland
 ru:Сделано в России
 country:en:Russia
+label_categories:en: en:Geographic label
 
 en:Made in Spain
 ca:Fet a Espanya
@@ -1942,7 +1953,7 @@ hu:Spanyolországban készült
 it:Prodotto in Spagna
 nl:Geproduceerd in Spanje
 country:en:Spain
-origins:en: en:Spain
+label_categories:en: en:Geographic label
 
 en:Made in Swiss, made in Switzerland
 ca:Fet a Suïssa
@@ -1955,6 +1966,7 @@ hu:Svájcban készült
 nl:Geproduceerd in Zwitserland
 pt:Fabricado na Suíça
 country:en:Switzerland
+label_categories:en: en:Geographic label
 
 en:Made in Mexico
 de:Hergestellt in Mexiko
@@ -1964,6 +1976,7 @@ he:מיוצר במקסיקו
 hu:Mexikóban készült
 nl:Geproduceerd in Mexico
 country:en:Mexico
+label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
 ca:Fet a la Unió Europea
@@ -1995,6 +2008,7 @@ ca:Ous posats a França
 fi:munittu Ranskassa
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
 origins:en: en:France
+label_categories:en: en:Geographic label
 
 fr:Origine France, Origine France Garantie, 100% origine France, les ingrédients de ce produit proviennent de France
 origins:en: en:France
@@ -2018,18 +2032,21 @@ es:Fabricación artesanal, Producción artesanal
 
 fr:La Lorraine notre signature
 origins:en: en:France, fr:Lorraine
+label_categories:en: en:Geographic label
 
 fr:Saveurs en Or, Saveurs en'Or
 wikidata:en:Q3474531
 origins:en: en:France, fr:Hauts-de-France
+label_categories:en: en:Geographic label
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
 origins:en: en:France
-label_categories:en: en:Origins
+label_categories:en: en:Geographic label
 
 fr:Sud de France
 country:en: en:France
+label_categories:en: en:Geographic label
 
 en:Avainlippu, Key Flag
 fi:Avainlippu
@@ -2499,6 +2516,7 @@ fr:Sans lécithine de soja
 hu:Szójalecitin nélkül, Szójalecitin mentes
 pt:Sem lecitina de soja
 ru:Без соевого лецитина
+label_categories:en: en:Soy
 
 en:No milk, milk-free, dairy-free, no dairy
 ca:Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
@@ -2581,6 +2599,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+label_categories:en: en:Environment, en:Health, en:Soy
 
 en:Contains soy
 de:Enthält Soja
@@ -2589,7 +2608,7 @@ fi:sisältää soijaa
 fr:Contient du soja
 hu:Szójatartalmú, szóját tartalmaz
 pt:Contem soja
-
+label_categories:en: en:Environment, en:Soy
 
 en:Certified by Ecocert, Ecocert
 ar:Ecocert
@@ -2600,41 +2619,52 @@ fi:Ecocert-sertifioitu
 fr:Ecocert, Distribution certifiée par Ecocert
 he:באישור Ecocert
 it:Certificato da Ecocert, Ecocert
+label_categories:en: en:Certification
 
 <en:Ecocert
 fr:Equitable Ecocert
+label_categories:en: en:Certification, en:Fairtrade
 
 <en:Ecocert
 en:Cacao controlled by Ecocert SA
 ca:Cacau controlat per Ecocert SA
 fr:Cacao contrôlé par Ecocert SA
+label_categories:en: en:Certification, en:Cocoa
 
 <en:Ecocert
 en:Certified by Ecocert Canada
 fi:Ecocert Kanadan sertifioima
 fr:Ecocert Canada
 it:Certificato da Ecocert Canada
+label_categories:en: en:Certification
 
 en:Certified by Certipaq
 ca:Certificat per Certipaq
 fi:Certipaqin sertifioima
 fr:Certifié par Certipaq, Certipaq
 pt:Certificado pela Certipaq
+label_categories:en: en:Certification
 
 en:Certified by Qualisud
 fi:Qualisudin sertifioima
 fr:Certifié par Qualisud, Certifiés par Qualisud, Qualisud
 it:Certificato da Qualisud
 pt:Certificado pela Qualisud
+label_categories:en: en:Certification
+
 
 fr:Certifié par bureau Veritas, Certifié par Veritas
+label_categories:en: en:Certification
 
 <fr:Certifié par bureau Veritas
 fr:Certifié par bureau Veritas certication France
+label_categories:en: en:Certification
 
 fr:Certifié écosocial par IBD
+label_categories:en: en:Certification
 
 es:Certificado organico ibd
+label_categories:en: en:Certification
 
 en:Certified by Ocacia
 ca:Certificat per Ocacia
@@ -2642,27 +2672,32 @@ fi:Ocacian sertifioima
 fr:Certifié par Ocacia, Ocacia
 he:באישור Ocacia
 it:Certificato da Ocacia
+label_categories:en: en:Certification
 
 en:Certified by Avicert
 fi:Avicertin sertifioima
 fr:Certifié par Avicert, Avicert
 nl:Gecertificeerd door Avicert
+label_categories:en: en:Certification
 
 en:Certified by Certisys
 fi:Certisysin sertifioima
 fr:Certifié par Certisys, Certisys
 it:Certificato da Certisys
+label_categories:en: en:Certification
 
 en:Certified by Certiconfiance
 fi:Certificonfiancen sertifioima
 fr:Certifié par Certiconfiance, Certiconfiance
 it:Certificato da Certiconfiance
+label_categories:en: en:Certification
 
 en:Certified by AENOR
 ca:Certificat per AENOR
 es:Certificado por l'Asociación Española de Normalización y Certificación
 fi:AENOR:in sertifioima
 fr:Certifié par l'AENOR
+label_categories:en: en:Certification
 
 en:Non-vegetarian, not suitable for vegetarians
 de:Nicht-vegetarisch, nicht für Vegetarier geeignet
@@ -16275,6 +16310,7 @@ en:Dolphin Safe, Dolphin Friendly
 de:Sicher für Delfine, Delfinfreundlich
 fi:Delfiini-ystävällinen, delfiinejä vaarantamaton
 fr:Protection des dauphins
+label_categories:en: en:Fishing labels
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -16282,6 +16318,7 @@ de:Schleppnetzfischerei
 fi:troolattu, pyydetty troolilla
 fr:Pêché au chalut, Pêchés au chalut, Pêchée au chalut, Pêchées au chalut, Pêché par chalutage, Pêchés par chalutage
 hu:Vonóhálós halászat
+label_categories:en: en:Fishing method
 
 en:Seine fishing
 de:Ringwadenfischerei
@@ -16289,49 +16326,59 @@ fi:nuottakalastettu
 fr:Pêché à la senne, Pêchés à la senne, Pêchée à la senne, Pêchées à la senne
 ru:сейнерная рыбалка
 wikidata:en:Q600580
+label_categories:en: en:Fishing method
 
 en:Angled fish
 ca:Pescat amb canya
 fi:koukulla pyydystettyä kalaa
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
+label_categories:en: en:Fishing method
 
 en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
 wikidata:en:Q2941001
+label_categories:en: en:Fishing method
 
 en:Pelagic net fishing
 de:Pelagische Netzfischerei
 fi:pelaginen verkkokalastettu
 fr:Pêché au filet pélagique, Pêchés au filet pélagique, Pêché aux filets pélagiques, Pêchés aux filets pélagiques, Pêchée au filet pélagique, Pêchées au filet pélagique
+label_categories:en: en:Fishing method
 
 en:Dredge fishing
 de:Baggerfischen
 fi:pohjaharakalastettu
 fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées à la drague
+label_categories:en: en:Fishing method
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
 wikidata:en:Q11997909
+label_categories:en: en:Fishing method
 
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
+label_categories:en: en:Fishing method
 
 en:Longline fishing
 de:Langleinenfischerei
 fi:Pitkäsiimalla kalastettu
 fr:Pêché à la palangre, Pêchés à la palangre, Pêchée à la palangre, Pêchées à la palangre
+label_categories:en: en:Fishing method
 
 en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
 
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
+label_categories:en: en:Fishing method
 
 en:Lift net fishing, Lifting net fishing
 de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
+label_categories:en: en:Fishing method
 
 en:Hand fishing
 ca:Pescat manualment
@@ -16339,20 +16386,25 @@ de:Handfischen
 fi:Käsin kalastettu
 fr:Pêché à la main, Pêchés à la main, Pêchée à la main, Pêchées à la main
 he:דיג ידני
+label_categories:en: en:Fishing method
 
 en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
 wikidata:en:Q1269057
+label_categories:en: en:Fishing method
 
 en:Pair trawling
 fi:Paritroolattu
 fr:Pêché à deux chaluts
+label_categories:en: en:Fishing method
 
 fr:Pêché au poison
+label_categories:en: en:Fishing method
 
 fr:Pêché au toc
+label_categories:en: en:Fishing method
 
 en:cormorant fishing
 de:Kormoranfischerei
@@ -16367,6 +16419,7 @@ th:การจับปลาของนกกาน้ำ
 vi:Đánh cá bằng chim cốc
 zh:鸬鹚捕鱼
 wikidata:en:Q1784476
+label_categories:en: en:Fishing method
 
 en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
@@ -16376,6 +16429,7 @@ fr:Pêche durable, pêches durables
 it:Pesca sostenibile
 nl:Duurzame visserij
 pl:Zrównoważone rybołówstwo
+label_categories:en: en:Fishing labels
 
 <en:Sustainable fishery
 en:Sustainable Seafood MSC, MSC, Marine Stewardship Council, sustainable food msc
@@ -16386,6 +16440,7 @@ fi:MSC-sertifioitu, MSC-sertifioidusta, MSC
 fr:Pêche durable MSC, MSC, Marine Stewardship Council
 nl:Duurzaam Zeevruchten MSC
 wikidata:en:Q1891246
+label_categories:en: en:Fishing labels
 
 en:Responsible aquaculture
 ca:Aqüicultura responsable
@@ -16394,6 +16449,7 @@ es:Aquicultura responsable
 fi:Vastuullinen kalatalous, vastuullinen vesiviljely
 fr:Aquaculture responsable
 nl:Verantwoorde aquacultuur
+label_categories:en: en:Fishing labels
 
 <en:Responsible aquaculture
 en:Responsible aquaculture ASC, ASC, Aquaculture Stewardship Council
@@ -16404,21 +16460,7 @@ fr:Aquaculture responsable ASC, ASC, Aquaculture Stewardship Council
 it:Acquacoltura responsabile ASC, ASC, Aquaculture Stewardship Council
 nl:Verantwoorde aquacultuur MSC
 wikidata:en:Q2028860
-
-<en:Responsible aquaculture ASC
-en:ASC C00386
-ca:ASC C00386
-fi:ASC C00386
-it:ASC C00386
-
-<en:Responsible aquaculture ASC
-fr:ASC C 00473
-fi:ASC C 00473
-
-<en:Responsible aquaculture ASC
-fr:ASC C 00026
-de:ASC C 00026
-fi:ASC C 00026
+label_categories:en: en:Fishing labels
 
 en:Tesco Nurture, Nurture
 fi:Tesco Nurture
@@ -16778,11 +16820,13 @@ origins:en: en:France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
+label_categories:en: en:Soy
 
 <en:No GMOs
 <fr:Soja Français
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 origins:en: en:France
+label_categories:en: en:Soy
 
 fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
 
@@ -17245,10 +17289,13 @@ fr:Grand cru
 label_categories:en: en:Wines
 
 fr:Mis en bouteille au château
+packaging:en: en:Bottles
 
 fr:Mis en bouteille à la propriété
+packaging:en: en:Bottles
 
 fr:Mis en bouteille au domaine
+packaging:en: en:Bottles
 
 fr:fermenté en barrique
 
@@ -17341,16 +17388,18 @@ hu:Budapesti Borfesztivál
 en:Vinitaly
 
 fr:Concours International des Vins de Montagne d'Aoste
+label_categories:en: en:Wines
 
 en:Wine Masters Challenge
 pt:Concurso Mundial de Vinhos
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 ro:Concursul International de Vinuri
 
 en:The International Wine & Spirit Competition
 
 en:Decanter World Wine Awards
+label_categories:en: en:Wines
 
 sl:Vino Ljubljana
 fr:Concours International des vins de Ljubljana
@@ -17370,19 +17419,22 @@ fr:Concours International de Vin et Spiritueux
 es:La Mujer Elige
 
 es:Concours Internetionale du Vins, Vinandino
+label_categories:en: en:Wines
 
 en:Catad'Or Santiago de Chile Wine Awards
+label_categories:en: en:Wines
 
 en:Indy International Wine Competition
 fr:Concours International des Vins de l'Indiana
 
 en:Iberwine in Miami
+label_categories:en: en:Wines
 
 en:San Francisco International Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 en:San Francisco Chronicle Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Sélections Mondiales des Vins Canada à Québec
 
@@ -17390,9 +17442,10 @@ en:Mediterranean International Wine and Spirit Challenge
 fr:Concours international de vin à Eilat
 
 en:Japan Wine Challenge
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Vinalies
+label_categories:en: en:Wines
 
 <fr:Vinalies
 fr:Vinalies nationales
@@ -17417,6 +17470,7 @@ he:איגוד החקלאות הגרמנית
 nl:Duitse Landbouw Stichting
 pt:NL-BIO-01
 wikidata:en:Q316331
+country:en: en:Germany
 label_categories:en: en:Quality
 
 <en:German Agricultural Society
@@ -17424,6 +17478,7 @@ en:Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis
 fi:Saksan maatalousyhdistyksen pronssimitali
 fr:Médaille de bronze de la Société Allemande d'Agriculture
+country:en: en:Germany
 
 <en:German Agricultural Society
 en:Silver medal of the German Agricultural Society
@@ -17835,6 +17890,7 @@ fi:Nutriscore-kokeilu arvosana A
 fr:Expérimentation Nutriscore A
 it:Sperimentazione Nutriscore A
 nl:Nutriscore experiment A
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade B
@@ -17844,6 +17900,7 @@ fi:Nutriscore-kokeilu arvosana B
 fr:Expérimentation Nutriscore B
 it:Sperimentazione Nutriscore B
 nl:Nutriscore experiment B
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade C
@@ -17853,6 +17910,7 @@ fi:Nutriscore-kokeilu arvosana C
 fr:Expérimentation Nutriscore C
 it:Sperimentazione Nutriscore C
 nl:Nutriscore experiment C
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade D
@@ -17861,6 +17919,7 @@ fi:Nutriscore-kokeilu arvosana D
 fr:Expérimentation Nutriscore D
 it:Sperimentazione Nutriscore D
 nl:Nutriscore experiment D
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade E
@@ -17869,6 +17928,7 @@ fi:Nutriscore-kokeilu arvosana E
 fr:Expérimentation Nutriscore E
 it:Sperimentazione Nutriscore E
 nl:Nutriscore experiment E
+label_categories:en: en:Nutrition Grades, en:Health
 
 en:Nutriscore
 ca:Comptador Nutricional, Nutriscore
@@ -17893,6 +17953,7 @@ fr:Nutriscore A
 he:דירוג A ב־Nutriscore
 it:Nutriscore A
 nl:Nutriscore A
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore
 en:Nutriscore Grade B
@@ -17904,6 +17965,7 @@ fr:Nutriscore B
 he:דירוג B ב־Nutriscore
 it:Nutriscore B
 nl:Nutriscore B
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore
 en:Nutriscore Grade C
@@ -17915,6 +17977,7 @@ fr:Nutriscore C
 he:דירוג C ב־Nutriscore
 it:Nutriscore C
 nl:Nutriscore C
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore
 en:Nutriscore Grade D
@@ -17926,6 +17989,7 @@ fr:Nutriscore D
 he:דירוג D ב־Nutriscore
 it:Nutriscore D
 nl:Nutriscore D
+label_categories:en: en:Nutrition Grades, en:Health
 
 <en:Nutriscore
 en:Nutriscore Grade E
@@ -17936,6 +18000,7 @@ fi:Nutriscore-arvosana E
 fr:Nutriscore E
 it:Nutriscore E
 nl:Nutriscore E
+label_categories:en: en:Nutrition Grades, en:Health
 
 fr:Indication géographique protégée de la République populaire de Chine, IGPRPC
 zh:中国地理标志
@@ -17954,6 +18019,7 @@ origins:en: en:France
 
 fr:Soja de France
 origins:en: en:France
+label_categories:en: en:Soy
 
 fr:Tomates de France
 origins:en: en:France
@@ -17985,6 +18051,8 @@ fi:hunajaa Ranskasta, hunajan alkuperä Ranska
 fr:Miel de France, miel français
 he:דבש מצרפת
 origins:en: en:France
+label_categories:en: en:Honey
+
 
 en:Products for professional use
 ca:Producte per ús professional
@@ -18040,10 +18108,12 @@ hu:Minőségi magyar tej
 
 en:Hungarian Processed Product
 hu:Hazai Feldolgozású Termék
+manufacturing_places:en: en:Hungary
 
 en:Made in Hungary
 fi:valmistettu Unkarissa
 hu:Magyarországon készült
+manufacturing_places:en: en:Hungary
 label_categories:en: en:Origins
 
 en:Free from E number
@@ -18223,6 +18293,7 @@ de:Cocoa Life
 fi:Cocoa Life
 fr:Cocoa Life
 it:Cocoa Life
+label_categories:en: en:Environment, en:Cocoa
 
 en:Ethical Tea Partnership, ETP
 label_categories:en: en:Faitrade
@@ -18239,7 +18310,8 @@ auth_url:en: https://spp.coop/
 
 en:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088
-label_categories:en: en:Nutrition grades
+label_categories:en: en:Nutrition Grades
+countries_where_sold:en: en:Australia
 
 <en:Health Star Rating
 en:Health Star Rating 1
