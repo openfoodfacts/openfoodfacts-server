@@ -75337,12 +75337,6 @@ carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 
-<en:sauce
-en:tomato sauce
-fi:tomaattikastike
-fr:préparation de tomates décongelée
-hu:paradicsomszósz, paradicsom szósz
-# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
@@ -75782,6 +75776,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 
 # description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes.
 
+
 <en:sauce
 en:tomato sauce
 ar:صلصة البندورة
@@ -75843,6 +75838,10 @@ fr:sauce tomate cuite
 
 <en:tomato sauce
 fr:sauce tomate cuisinée
+
+<en:tomato sauce
+fr:préparation de tomates décongelée
+# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
