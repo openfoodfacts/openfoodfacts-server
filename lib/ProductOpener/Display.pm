@@ -110,6 +110,7 @@ BEGIN
 					@lcs
 					$cc
 					$country
+					$tt
 
 					$nutriment_table
 
@@ -239,7 +240,7 @@ if (defined $options{export_limit}) {
 }
 
 # Initialize the Template module
-my $tt = Template->new({
+$tt = Template->new({
 	INCLUDE_PATH => $data_root . '/templates',
 	INTERPOLATE => 1,
 	EVAL_PERL => 1,
