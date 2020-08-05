@@ -33028,6 +33028,7 @@ it:estratto di lievito in polvere
 
 # Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 
+<en:dough
 en:sourdough
 an:Emprenyatuera
 ar:خبز عجينة متخمرة
@@ -33082,7 +33083,7 @@ fr:levain déshydraté et dévitalisé
 en:wheat sourdough
 fr:levain de blé
 de:Weizensauerteig
-es:masa madre de trigo,masa madre natural de trigo
+es:masa madre de trigo, masa madre natural de trigo
 fi:vehnätaikinanjuuri, vehnähapantaikina
 it:lievito madre di frumento
 nb:surdeig av hvete
@@ -71897,7 +71898,7 @@ de:Teig
 ee:ayma
 el:Ζυμάρι
 eo:pasto
-es:masa, masa madre
+es:masa
 et:Taigen
 eu:ore
 fa:خمیر
@@ -71970,7 +71971,10 @@ zh:生麵團
 wikidata:en:Q178024
 wikipedia:en:https://en.wikipedia.org/wiki/Dough
 
+<en:dough
 en:inactive dough
+
+<en:sourdough
 es:masa madre inactiva
 
 <en:pasta
