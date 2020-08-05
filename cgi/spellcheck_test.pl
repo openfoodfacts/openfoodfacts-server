@@ -41,6 +41,19 @@ use Encode;
 
 ProductOpener::Display::init();
 
+my $tt = Template->new({
+	INCLUDE_PATH => $data_root . '/templates',
+	INTERPOLATE => 1,
+	EVAL_PERL => 1,
+	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
+	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
+	COMPILE_DIR => $data_root . '/tmp/templates',
+});
+
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
@@ -68,13 +81,17 @@ not defined $tagtype and $tagtype eq 'ingredients';
 
 my $text = remove_tags_and_quote(decode utf8=>param('text'));
 
-my $html = '<p>The spellcheck results are based on matches in a given taxonomy.</p>
+my $html;
+
+$html = '<p>The spellcheck results are based on matches in a given taxonomy.</p>
 <p>For words with at least 5 characters, we consider an edit distance of 1 (insert, replace or delete).</p>
 ';
 
+push @{$template_data_ref->{action_process}}, $action;
+push @{$template_data_ref->{tagtype}}, $tagtype;
+push @{$template_data_ref->{lc}}, $lc;
 
 if ($action eq 'process') {
-
 
 	$html .= "<p>Spellcheck result for taxonomy <b>$tagtype</b> and language <b>$lc</b>:</p>";
 	$html .= "<table><tr><th>Input</th><th>Correction</th><th>$lc tag</th><th>Canonical tag</th></tr>";
@@ -98,6 +115,13 @@ if ($action eq 'process') {
 			$tag = "";
 		}
 		
+		push @{$template_data_ref->{tokens}}, {
+			token => $token,
+			tag => $tag,
+			tagid => $tagid,
+			canon_tagid => $canon_tagid,
+		};
+
 		$html .= "<tr><td>$token</td><td>$tag</td><td>$tagid</td><td>$canon_tagid</td></tr>\n";
 		
 	}
@@ -107,13 +131,13 @@ if ($action eq 'process') {
 	$action = 'display';
 }
 
-
+push @{$template_data_ref->{action_display}}, $action;
 if ($action eq 'display') {
 	
 	$html .= start_form(-method => "GET");
 	
 	
-
+	push @{$template_data_ref->{text}}, $text;
 	$html .= <<HTML
 Taxonomy: <input type="text" name="tagtype" id="tagtype" value="$tagtype" /><br /><br />
 Text (language code: $lc): <br/>
@@ -140,6 +164,9 @@ my $full_width = 1;
 if ($action ne 'display') {
 	$full_width = 0;
 }
+
+$tt->process('spellcheck_test.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
 	title=>"Spellcheck Test",
