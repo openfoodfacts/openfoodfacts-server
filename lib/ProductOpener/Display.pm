@@ -2366,13 +2366,19 @@ sub display_list_of_tags_translate($$) {
 
 
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+			
+			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
 			# Keep only known tags that do not have a translation in the current lc
-			if ((not $request_ref->{translate} eq "all") and
-				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+			if (not $tag_ref->{known}) {
+				$log->debug("display_list_of_tags_translate - entry $tagid is not known") if $log->is_debug();									
 				next;
 			}
-			if (not $tag_ref->{known}) {
+						
+			if ((not $request_ref->{translate} eq "all") and
+				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+					
+				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();					
 				next;
 			}
 
