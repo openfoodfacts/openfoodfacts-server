@@ -76,7 +76,7 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if ($code !~ /^\d{8,24}$/) {
+if ($code !~ /^\d{4,24}$/) {
 
 	$log->info("invalid code", { code => $code, original_code => $original_code }) if $log->is_info();
 	$response{status} = 0;

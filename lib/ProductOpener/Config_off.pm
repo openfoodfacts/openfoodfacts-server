@@ -40,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -344,8 +345,8 @@ $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
+$producers_email = 'producers@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
 
 $thumb_size = 100;
 $crop_size = 400;
@@ -531,6 +532,8 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
 );
 
 

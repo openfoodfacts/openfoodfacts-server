@@ -463,8 +463,11 @@ sub normalize_column_name($) {
 	$name =~ s/^dont //i;
 	$name =~ s/ en / /i;
 
-	$name =~ s/pourcentage (en |de |d')?/percent /i;
 	$name =~ s/pourcentage/percent/i;
+	$name =~ s/percent (of |en |de |d')?/percent /i;
+	
+	# move percent at the end
+	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/;
 
 	return $name;
 }
@@ -480,7 +483,8 @@ my %fields_synonyms = (
 en => {
 	lc => ["lang"],
 	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
-	product_name_en => ["name", "name of the product", "commercial name"],
+	producer_product_id => ["internal code"],
+	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
 	ingredients_text_en => ["ingredients", "ingredients list", "ingredient list", "list of ingredients"],
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
@@ -497,9 +501,10 @@ es => {
 
 fr => {
 
-	code => ["codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
@@ -548,7 +553,7 @@ my %per_synonyms = (
 	"serving" => {
 		en => ["per serving", "serving"],
 		es => ["por porción", "porción"],
-		fr => ["par portion", "pour une portion", "portion"],
+		fr => ["par portion", "pour une portion", "portion", "par plat", "pour un plat", "plat"],
 	}
 );
 
@@ -573,6 +578,12 @@ my %units_synonyms = (
 	"calorie" => "kcal",
 	"iu" => "iu",
 	"ui" => "iu",
+);
+
+my %in = (
+	"en" => "in",
+	"es" => "en",
+	"fr" => "en",
 );
 
 
@@ -736,6 +747,16 @@ sub init_nutrients_columns_names_for_lang($) {
 										field => $nid . $prepared . "_" . $per . "_value_unit",
 										value_unit => "value_in_" . $units_synonyms{$unit},
 									};
+									if (defined $in{$l}) {
+										$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $in{$l} . " " . $unit . " " . $per_synonym)} = {
+											field => $nid . $prepared . "_" . $per . "_value_unit",
+											value_unit => "value_in_" . $units_synonyms{$unit},
+										};
+										$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $per_synonym . " " . $in{$l} . " " . $unit)} = {
+											field => $nid . $prepared . "_" . $per . "_value_unit",
+											value_unit => "value_in_" . $units_synonyms{$unit},
+										};
+									}
 								}
 							}
 						}
