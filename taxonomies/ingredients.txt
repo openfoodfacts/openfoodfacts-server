@@ -62585,7 +62585,7 @@ wikidata:en:Q2017562
 wikipedia:en:https://en.wikipedia.org/wiki/Cilus_gilberti
 
 
-# The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
+# en:description:The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
 
 <en:fish
 en:deepwater redfish
@@ -62812,7 +62812,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 # ingredient/fr:grondin has 8 products in french @2019-01-01
 
 
-# The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
+# en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
 
 <en:fish
 <en:white fish
@@ -62832,7 +62832,7 @@ es:Eglefino
 fa:روغن‌ماهی کوچک
 fi:Kolja
 fo:Hýsa
-fr:églefin, haddock, aiglefin, , Ânon
+fr:églefin, haddock, aiglefin, Ânon
 ga:Cadóg, cadóige
 gd:Adag
 gl:Fogoeiro
@@ -62927,15 +62927,15 @@ af:Diepwater stokvis
 bg:дълбоководни бели мерлузи
 de:Tiefwasserkaphecht
 fi:teräskummeli
-fr:Merluccius capensis, Merlu du cap
-la:Merluccius paradoxus
+fr:Merlu du cap
+la:Merluccius paradoxus, Merluccius capensis
 sl:Globokomorski kapski oslič
 zh:深水無鬚鱈
 wikidata:en:Q2461954
 wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_paradoxus
 # structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus)
 
-# Merluccius gayi is a merluccid hake of the genus Merluccius, with two subspecies, the South Pacific hake (M. g. gayi) and the Peruvian hake (M. g. peruanus), found in the south-western Pacific Ocean, along the coast of South America
+# en:description:Merluccius gayi is a merluccid hake of the genus Merluccius, with two subspecies, the South Pacific hake (M. g. gayi) and the Peruvian hake (M. g. peruanus), found in the south-western Pacific Ocean, along the coast of South America
 
 <en:hake
 en:South Pacific hake
@@ -63011,7 +63011,7 @@ de:Heilbutt
 fr:flétan
 wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 
-# Herring are forage fish, mostly belonging to the family Clupeidae.
+# en:description:Herring are forage fish, mostly belonging to the family Clupeidae.
 
 <en:fish
 <en:oily fish
@@ -63021,7 +63021,7 @@ br:Harink
 ca:areng
 co:aringa
 cs:Sleď
-de:Hering, Heringsfilet, Heringsfilets
+de:Hering
 eo:Haringo
 es:Arenque
 fa:شاه‌ماهی
@@ -63080,7 +63080,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Herring
 <en:herring
 en:herring fillets
 da:sildefileter
-de:Heringsfilets
+de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
 it:filetti di aringa
@@ -64077,7 +64077,7 @@ fr:thon au naturel
 # thon au naturel (thon albacore, eau, sel)
 
 
-# The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
+# en:description:The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
 
 <en:fish
 <en:white fish
@@ -64134,9 +64134,9 @@ br:Brezhell
 ca:Verat
 cy:Macrell
 da:Makrel
-de:Makrele, Makrelenfilet, Makrelenfilets
+de:Makrele
 el:Σκουμπρί
-es:Verdel, caballa,caballa del sur
+es:Verdel, caballa, caballa del sur
 et:Makrell
 eu:Berdel
 fi:Makrilli
@@ -64180,7 +64180,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
 <en:mackarel
 en:mackarel fillet
 da:makrelfilet
-de:Makrelenfilet
+de:Makrelenfilet, Makrelenfilets
 es:filete de caballa
 fi:makrillifilee, makrillifileetä
 fr:filets de maquereaux
@@ -64198,7 +64198,7 @@ ar:اسقمري معروف
 cs:makrela obecná
 da:atlantisk makrel
 de:atlantische Makrele
-es:caballa
+#es:caballa need name for atlantic version
 fa:ماهی خال‌خالی اطلس
 fi:atlantin makrilli
 fr:Maquereau de l'Atlantique
