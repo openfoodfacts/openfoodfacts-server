@@ -7497,15 +7497,9 @@ CSS
 			my $source_ref = $unique_sources{$source_id};
 			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
-<<<<<<< HEAD
-			push @{$template_data_ref->{html_sources}}, {
-				lang_source => $lang_source,
-				source_url => $source_ref->{url},
-=======
 			push @{$template_data_ref->{sources}}, {
 				lang_id => $lang_source,
 				url => $source_ref->{url},
->>>>>>> master
 			};
 
 			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
@@ -7580,12 +7574,7 @@ CSS
 		$ingredients_text_lang_html = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$ingredients_text_lang}) . ")";
 	}
 
-<<<<<<< HEAD
-	$template_data_ref->{ingredient_image} = $html_image;
-	$template_data_ref->{ingredients_text_lang_html} = $ingredients_text_lang_html;
-=======
 	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight);
->>>>>>> master
 	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 
@@ -7668,19 +7657,6 @@ JS
 ;
 
 	}
-<<<<<<< HEAD
-	
-	# # Offer to add the ingredients in the language of the interface
-		
-	# if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
-	# 	$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
-	# 	. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
-	# 	. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
-	# 	. "</p>";
-	# }	
-
-	$template_data_ref->{display_ingredients_in_intlang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
-=======
 
 	# Offer to add the ingredients in the language of the interface
 
@@ -7691,7 +7667,6 @@ JS
 		. "</p>";
 	}
 
->>>>>>> master
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
@@ -7867,7 +7842,6 @@ HTML
 		$template_data_ref->{a_title} = $a_title;
 		$template_data_ref->{group} = $group;
 		$template_data_ref->{display} = $display;
-		$template_data_ref->{nova_group_image} = $html_image;
 	}
 
 	# Do not display nutrition table for Open Beauty Facts
