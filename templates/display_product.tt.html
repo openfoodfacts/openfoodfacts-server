@@ -86,34 +86,24 @@
 </div>
 
 <!-- ingredients -->
-<h2>[% lang('ingredients') %][% ingredients_text_lang_html %]</h2>
+<h2>[% lang('ingredients') %]</h2>
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        [% IF ingredients_text != "" %]
-            <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
-            <div><span class="field">[% lang("ingredients_text") %]:</span>
-                [% IF lc != ingredients_text_lang %]
-                    <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
-                [% ELSE %]
-                    <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
-                [% END %]
-            </div>
-            [% IF User_moderator == 'defined' %]
-                <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
-                <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-                <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-                
-                <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
+        <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
+        <div><span class="field">[% lang("ingredients_text") %]:</span>
+            [% IF lc != ingredients_text_lang %]
+                <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
+            [% ELSE %]
+                <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
             [% END %]
-        [% END %]
-
-        <!-- Offer to add the ingredients in the language of the interface -->
-        [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
-            <p>
-                [% display_ingredients_in_intlang %] 
-                <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
-            </p>
+        </div>
+        [% IF User_moderator == 'defined' %]
+            <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
+            <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+            <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
+                
+            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
 
         [% display_field_allergens %]
