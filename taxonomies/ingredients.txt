@@ -65293,7 +65293,7 @@ en:spineless cuttlefish, Sepiella inermis
 ar:سپیداج سست‌کمر, Sepiella inermis
 de:Wirbelloser Tintenfisch, Sepiella inermis
 fr:Seiche sans épines, Sepiella inermis
-it:Sepiella inermis, Sepiella inermis
+it:Sepiella inermis
 la:Sepiella inermis, Sepiella inermis
 zh:曼氏无针乌贼, Sepiella inermis
 wikipedia:en:https://en.wikipedia.org/wiki/Sepiella_inermis
@@ -65785,7 +65785,7 @@ gl:Vieira, Pecten maximus
 id:Simping, Pecten maximus
 io:Petonklo, Pecten maximus
 is:Risadiskur, Pecten maximus
-la:Pecten maximus, Pecten maximus
+la:Pecten maximus
 nl:grote mantel, Pecten maximus
 pl:Przegrzebek zwyczajny, Pecten maximus
 pt:Vieira, Pecten maximus
@@ -65799,10 +65799,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecten_maximus
 # ingredient/fr:Pecten-maximus has 25 products @2019-01-12
 
 <en:scallop
-en:Patagonian scallop
-de:Kammmuschel
-fi:patagoniankampasimpukka
-fr:Pétoncle de Patagonie
+en:Patagonian scallop, Zygochlamys patagonica
+de:Kammmuschel, Zygochlamys patagonica
+fi:patagoniankampasimpukka, Zygochlamys patagonica
+fr:Pétoncle de Patagonie, Zygochlamys patagonica
 la:Zygochlamys patagonica, Chlamys zygopatagonica
 # ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
 
@@ -65865,9 +65865,9 @@ wikidata:en:Q30749478
 
 
 <en:scallop
-en:white scallop
-de:Weiße Jakobsmuschel
-fr:Pétoncle blanc
+en:white scallop, Chlamys albida
+de:Weiße Jakobsmuschel, Chlamys albida
+fr:Pétoncle blanc, Chlamys albida
 la:Chlamys albida, Chlamys albidus
 wikipedia:nl:https://nl.wikipedia.org/wiki/Chlamys_albida
 wikidata:en:Q3802698
@@ -65880,7 +65880,8 @@ wikidata:en:Q3802698
 #                                Sea squirt
 #
 ###################################################################################################
-# Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
+
+# en:description:Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
 
 #? not sure whether this should be counted as a mollusc
 <en:mollusc
@@ -66224,22 +66225,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 en:mitre squid, Uroteuthis chinensis
 de:Uroteuthis chinensis,
 fr:Calmar mitre, Uroteuthis chinensis
-la:Uroteuthis chinensis,
+la:Uroteuthis chinensis
 zh:中國槍魷, Uroteuthis chinensis,
 wikidata:en:Q920979
 # ingredient/fr:Loligo-chinensis has 2 products @2019-01-04
 
 <en:squid
-en:swordtip squid
-fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet
-ja:ケンサキイカ
-zh:剑尖枪乌贼
-
-<en:swordtip squid
-en:Uroteuthis edulis
-de:Uroteuthis edulis
-fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet
+en:swordtip squid, Uroteuthis edulis
+fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet, Uroteuthis edulis
+ja:ケンサキイカ, Uroteuthis edulis
 la:Uroteuthis edulis, Loligo edulis
+zh:剑尖枪乌贼, Uroteuthis edulis
 wikidata:en:Q2202434
 
 # en:description:Doryteuthis gahi, also known as the Patagonian squid and locally as calamar, is a small-sized squid belonging to the family Loliginidae.
@@ -66322,6 +66318,14 @@ de:Muschelfleisch
 fi:simpukan liha
 
 <en:clam
+fr:palourdes précuites
+
+<en:clam
+en:pink clam, surf clam, Mesodesma donacium
+es:almejas rosadas, machas, Mesodesma donacium
+la:Mesodesma donacium
+
+<en:clam
 en:undulate venus, Paratapes undulatus
 de:Undulate venus, Paratapes undulatus
 fi:mattosimpukka, Paratapes undulatus
@@ -66331,13 +66335,6 @@ la:Paratapes undulatus, Paphia undulata
 th:หอยลาย, Paratapes undulatus
 vi:Sò lụa, Paratapes undulatus
 zh:波纹巴非蛤, 波紋橫簾蛤, Paratapes undulatus
-
-<en:clam
-fr:palourdes précuites
-
-<en:clam
-en:pink clam
-es:almejas rosadas,machas
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -66657,34 +66654,34 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crayfish
 # Procambarus clarkii is a species of cambarid freshwater crayfish, native to northern Mexico, and southern and southeastern United States, but also introduced elsewhere
 
 <en:crayfish
-en:red swamp crayfish
-af:Rooimoeraskreef
-ar:إستاكوزا المستنقعات الحمراء
-ca:cranc de riu americà
-cs:rak červený
-de:Roter Amerikanischer Sumpfkrebs
-eo:Luiziana kankro
-es:Cangrejo de río americano
-eu:Ibai-karramarro gorri
-fi:punarapu
-fr:Écrevisse de Louisiane
-gl:Cangrexo de río americano
-hu:Kaliforniai vörösrák
-it:Gambero killer
-ja:アメリカザリガニ
-ko:미국가재
-la:Procambarus clarkii
-nl:Rode rivierkreeft
-pt:Lagostim vermelho da Luisiana
-sk:Rak americký
-sv:Röd sumpkräfta
-th:กุ้งแดง
-zh:克氏原螯虾
-# lzh:亞米利加蝲蛄
-# zh-hans:克氏原螯虾
-# zh-hant:克氏原螯蝦
-# zh-hk:克氏原螯蝦
-# zh-tw:克氏原蝲蛄
+en:red swamp crayfish, Procambarus clarkii
+af:Rooimoeraskreef, Procambarus clarkii
+ar:إستاكوزا المستنقعات الحمراء, Procambarus clarkii
+ca:cranc de riu americà, Procambarus clarkii
+cs:rak červený, Procambarus clarkii
+de:Roter Amerikanischer Sumpfkrebs, Procambarus clarkii
+eo:Luiziana kankro, Procambarus clarkii
+es:Cangrejo de río americano, Procambarus clarkii
+eu:Ibai-karramarro gorri, Procambarus clarkii
+fi:punarapu, Procambarus clarkii
+fr:Écrevisse de Louisiane, Procambarus clarkii
+gl:Cangrexo de río americano, Procambarus clarkii
+hu:Kaliforniai vörösrák, Procambarus clarkii
+it:Gambero killer, Procambarus clarkii
+ja:アメリカザリガニ, Procambarus clarkii
+ko:미국가재, Procambarus clarkii
+la:Procambarus clarkii, Procambarus clarkii
+nl:Rode rivierkreeft, Procambarus clarkii
+pt:Lagostim vermelho da Luisiana, Procambarus clarkii
+sk:Rak americký, Procambarus clarkii
+sv:Röd sumpkräfta, Procambarus clarkii
+th:กุ้งแดง, Procambarus clarkii
+zh:克氏原螯虾, Procambarus clarkii
+# lzh:亞米利加蝲蛄, Procambarus clarkii
+# zh-hans:克氏原螯虾, Procambarus clarkii
+# zh-hant:克氏原螯蝦, Procambarus clarkii
+# zh-hk:克氏原螯蝦, Procambarus clarkii
+# zh-tw:克氏原蝲蛄, Procambarus clarkii
 wikidata:en:Q1133124
 wikipedia:en:https://en.wikipedia.org/wiki/Procambarus_clarkii
 
@@ -66788,7 +66785,7 @@ ga:Gliomach Eorpach, Homarus gammarus
 hu:Európai homár, Homarus gammarus
 is:Evrópskur Humar, Homarus gammarus
 it:gambero europeo, Homarus gammarus
-la:Homarus gammarus, Homarus gammarus
+la:Homarus gammarus
 lt:Europinis omaras, Homarus gammarus
 nl:Europese kreeft, Homarus gammarus
 nn:Europeisk hummar, Homarus gammarus
@@ -66804,50 +66801,45 @@ wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
 # fr:Homarus-gammarus has 4 products @2019-01-11
 
 
-# The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey.
+# en:description:The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey.
 
 <en:lobster
-en:American lobster
-bn:আমেরিকান গলদা চিংড়ি
-ca:llamàntol americà
-cs:humr americký
-da:amerikansk hummer
-de:Amerikanischer Hummer
-el:αμερικανικός αστακός
-es:Langosta americana
-et:Ameerika homaar
-fa:شاه‌میگوی آمریکایی
-fi:amerikanhummeri
-fr:homard américain
-he:לובסטר אמריקני
-hi:अमेरिकी झींगा मछली
-id:Lobster amerika
-it:Astice americano
-ka:ამერიკული ასთაკვი
-lt:Amerikinis omaras
-mn:Amerikansk hummer
-nn:Amerikansk hummar
-or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି
-pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ
-pl:Homar amerykański
-ru:американский омар
-sh:Američki hlap
-sq:karavidhe amerikane
-sv:Amerikansk hummer
-ur:امریکی لابسٹر
-vi:Tôm hùm Mỹ
-zh:美洲螯龍蝦
-# en-ca:American lobster
-# en-gb:American lobster
-# pnb:امریکی لابسٹر
+en:American lobster, Homarus americanus
+bn:আমেরিকান গলদা চিংড়ি, Homarus americanus
+ca:llamàntol americà, Homarus americanus
+cs:humr americký, Homarus americanus
+da:amerikansk hummer, Homarus americanus
+de:Amerikanischer Hummer, Homarus americanus
+el:αμερικανικός αστακός, Homarus americanus
+es:Langosta americana, Homarus americanus
+et:Ameerika homaar, Homarus americanus
+fa:شاه‌میگوی آمریکایی, Homarus americanus
+fi:amerikanhummeri, Homarus americanus
+fr:homard américain, Homarus americanus
+he:לובסטר אמריקני, Homarus americanus
+hi:अमेरिकी झींगा मछली, Homarus americanus
+id:Lobster amerika, Homarus americanus
+it:Astice americano, Homarus americanus
+ka:ამერიკული ასთაკვი, Homarus americanus
+la:Homarus americanus
+lt:Amerikinis omaras, Homarus americanus
+mn:Amerikansk hummer, Homarus americanus
+nn:Amerikansk hummar, Homarus americanus
+or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି, Homarus americanus
+pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ, Homarus americanus
+pl:Homar amerykański, Homarus americanus
+ru:американский омар, Homarus americanus
+sh:Američki hlap, Homarus americanus
+sq:karavidhe amerikane, Homarus americanus
+sv:Amerikansk hummer, Homarus americanus
+ur:امریکی لابسٹر, Homarus americanus
+vi:Tôm hùm Mỹ, Homarus americanus
+zh:美洲螯龍蝦, Homarus americanus
+# en-ca:American lobster, Homarus americanus
+# en-gb:American lobster, Homarus americanus
+# pnb:امریکی لابسٹر, Homarus americanus
 wikidata:en:Q37668
 wikipedia:en:https://en.wikipedia.org/wiki/American_lobster
-
-<en:American lobster
-en:Homarus americanus
-de:Homarus americanus
-fr:Homarus americanus
-la:Homarus americanus
 
 <en:American lobster
 fr:pulpe de homard
@@ -66922,65 +66914,55 @@ fr:têtes et pinces de langoustines
 # Panulirus argus, the Caribbean spiny lobster,[2] is a species of spiny lobster that lives on reefs and in mangrove swamps in the western Atlantic Ocean.
 
 <en:lobster
-en:Caribbean spiny lobster
-bg:карибски гръбначен омар
-de:Karibik-Languste
-fi:karibianlangusti
-fr:Langouste blanche
-zh:眼斑龍蝦
-
-<en:Caribbean spiny lobster
-en:Panulirus argus, Panulirue argus
-de:Panulirus argus
-fr:Panulirus argus
+en:Caribbean spiny lobster, Panulirus argus
+bg:карибски гръбначен омар, Panulirus argus
+de:Karibik-Languste, Panulirus argus
+fi:karibianlangusti, Panulirus argus
+fr:Langouste blanche, Panulirus argus
 la:Panulirus argus, Panulirue argus
+zh:眼斑龍蝦, Panulirus argus
 wikipedia:en:https://en.wikipedia.org/wiki/Panulirus_argus
+
+# en:description:Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
 
 
 <en:spiny lobster
-en:Norway lobster
-az:Norveç omarı
-be:Нарвежскі амар
-bg:норвежки омар
-br:Grilh-traezh
-ca:escamarlà
-da:Jomfruhummer
-de:Kaisergranat, Norwegischer Hummer
-el:Σκάμπι
-es:Cigala
-eu:Zigala
-fa:شاه‌میگوی نروژی
-fi:Keisarihummeri
-fo:Jómfrúhummari
-fr:Langoustine commune, langoustines, langoustine
-gl:Cigala
-hr:Škamp
-is:Leturhumar
-it:Scampi, Scampo
-ja:ヨーロッパアカザエビ
-ko:스캄피
-nb:Sjøkreps
-nl:Noorse kreeft
-nn:Sjøkreps
-pl:homarzec
-ro:Langustină
-ru:Норвежский омар
-sh:Škamp
-sv:Havskräfta
-zh:挪威海螯蝦
-# be-tarask:Нарвэскі амар
-# zh-hans:挪威海螯虾
-# zh-hant:挪威海螯蝦
-# zh-hk:挪威海螯蝦
-# ingredient/fr:langoustines has 68 products @2019-01-11
-
-# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
-
-<en:norway lobster
-en:Nephrops norvegicus
-de:Nephrops norvegicus
-fr:Nephrops norvegicus
+en:Norway lobster, Nephrops norvegicus
+az:Norveç omarı, Nephrops norvegicus
+be:Нарвежскі амар, Nephrops norvegicus
+bg:норвежки омар, Nephrops norvegicus
+br:Grilh-traezh, Nephrops norvegicus
+ca:escamarlà, Nephrops norvegicus
+da:Jomfruhummer, Nephrops norvegicus
+de:Kaisergranat, Norwegischer Hummer, Nephrops norvegicus
+el:Σκάμπι, Nephrops norvegicus
+es:Cigala, Nephrops norvegicus
+eu:Zigala, Nephrops norvegicus
+fa:شاه‌میگوی نروژی, Nephrops norvegicus
+fi:Keisarihummeri, Nephrops norvegicus
+fo:Jómfrúhummari, Nephrops norvegicus
+fr:Langoustine commune, langoustines, langoustine, Nephrops norvegicus
+gl:Cigala, Nephrops norvegicus
+hr:Škamp, Nephrops norvegicus
+is:Leturhumar, Nephrops norvegicus
+it:Scampi, Scampo, Nephrops norvegicus
+ja:ヨーロッパアカザエビ, Nephrops norvegicus
+ko:스캄피, Nephrops norvegicus
 la:Nephrops norvegicus
+nb:Sjøkreps, Nephrops norvegicus
+nl:Noorse kreeft, Nephrops norvegicus
+nn:Sjøkreps, Nephrops norvegicus
+pl:homarzec, Nephrops norvegicus
+ro:Langustină, Nephrops norvegicus
+ru:Норвежский омар, Nephrops norvegicus
+sh:Škamp, Nephrops norvegicus
+sv:Havskräfta, Nephrops norvegicus
+zh:挪威海螯蝦, Nephrops norvegicus
+# be-tarask:Нарвэскі амар, Nephrops norvegicus
+# zh-hans:挪威海螯虾, Nephrops norvegicus
+# zh-hant:挪威海螯蝦, Nephrops norvegicus
+# zh-hk:挪威海螯蝦, Nephrops norvegicus
+# ingredient/fr:langoustines has 68 products @2019-01-11
 wikidata:en:Q551915
 # ingredient/fr:Nephrops-norvegicus has 5 products in french @2019-01-11
 
@@ -67049,13 +67031,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 en:red prawn
 es:gamba roja
 
-<en:crustacean
-<en:shrimp
-en:scarlet shrimp
-es:carabinero
-la:plesiopenaeus edwardsianus
-wikipedia:es:https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
-
 <en:shrimp
 en:shrimp paste
 de:Garnelenpaste
@@ -67068,7 +67043,6 @@ sv:räkpasta
 <en:shrimp
 fr:crevettes décortiquées, crevette décortiquée
 # ingredient/fr:crevettes-décortiquées has 46 products in french @2019-01-06
-
 
 <en:shrimp
 en:shrimp powder
@@ -67089,11 +67063,11 @@ fr:queues de crevettes décortiquées
 fr:Crevettes entières crues
 # ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
-# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
-
 <en:shrimp
 fr:crevettes roses
 # ingredient/fr:crevettes-roses has 13 products @2019-01-06
+
+# en:description:Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
 
 <en:shrimp
 en:penaeid shrimp
@@ -67131,150 +67105,136 @@ wikipedia:en:https://en.wikipedia.org/wiki/Aristeidae
 fr:Gambas cuites
 # Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
 
-# Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
+<en:shrimp
+en:scarlet shrimp, Plesiopenaeus Edwardsianus
+es:carabinero, Plesiopenaeus Edwardsianus
+la:Plesiopenaeus Edwardsianus
+wikipedia:es:https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
+
+# en:description:Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
 
 <en:deep-sea shrimp
-en:giant tiger prawn, Asian tiger shrimp
-bg:гигантска тигрова скарида
-de:Riesen Tigergarnele
-fa:میگوی ببری بزرگ
-fi:tiikerikatkarapu
-fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées
-id:Udang windu
-ja:ウシエビ
-ko:블랙타이거
-ms:Udang harimau
-pl:krewetka tygrysia
-pt:Camarão-tigre-gigante
-th:กุ้งกุลาดำ
-tr:Jumbo karides
-vi:Tôm sú
-zh:草蝦
-# nah:Acachatl‎
-# pam:Paro sakdagul
-# yue:大虎蝦
-# zh-tw:斑節對蝦
-
-<en:giant tiger prawn
-en:Penaeus monodon
-de:Penaeus monodon
-fr:Penaeus monodon
+en:giant tiger prawn, Asian tiger shrimp, Penaeus monodon
+bg:гигантска тигрова скарида, Penaeus monodon
+de:Riesen Tigergarnele, Penaeus monodon
+fa:میگوی ببری بزرگ, Penaeus monodon
+fi:tiikerikatkarapu, Penaeus monodon
+fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées, Penaeus monodon
+id:Udang windu, Penaeus monodon
+ja:ウシエビ, Penaeus monodon
+ko:블랙타이거, Penaeus monodon
 la:Penaeus monodon
+ms:Udang harimau, Penaeus monodon
+pl:krewetka tygrysia, Penaeus monodon
+pt:Camarão-tigre-gigante, Penaeus monodon
+th:กุ้งกุลาดำ, Penaeus monodon
+tr:Jumbo karides, Penaeus monodon
+vi:Tôm sú, Penaeus monodon
+zh:草蝦, Penaeus monodon
+# nah:Acachatl‎, Penaeus monodon
+# pam:Paro sakdagul, Penaeus monodon
+# yue:大虎蝦, Penaeus monodon
+# zh-tw:斑節對蝦, Penaeus monodon
 wikipedia:en:https://en.wikipedia.org/wiki/Penaeus_monodon
 # ingredient/fr:Penaeus-monodon has 16 products @2019-01-13
 
-<en:shrimp
 <en:deep-sea shrimp
 fr:crevettes tropicale décortiqué crue
 
 <en:shrimp
 en:mantis shrimp
 es:galera
+la:Stomatopoda
 th:กั้ง
 wikipedia:en:https://en.wikipedia.org/wiki/Mantis_shrimp
 
-# Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
+# en:description:Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
 <en:shrimp
-en:whiteleg shrimp
-de:Weißbeingarnele
-es:camarón
-fi:valkokatkarapu
-fr:Crevette à pattes blanches
-pl:krewetka białonoga
-pt:camarão-de-patas-brancas
+en:whiteleg shrimp, Litopenaeus vannamei
+de:Weißbeingarnele, Litopenaeus vannamei
+es:camarón, Litopenaeus vannamei
+fi:valkokatkarapu, Litopenaeus vannamei
+fr:Crevette à pattes blanches, Litopenaeus vannamei
+la:Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
+pl:krewetka białonoga, Litopenaeus vannamei
+pt:camarão-de-patas-brancas, Litopenaeus vannamei
 wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
-<en:whiteleg shrimp
-en:Penaeus vannamei, Penaeus vannamel, Litopenaus vanamei, penaeus vannamei
-de:Penaeus vannamei
-fr:Penaeus vannamei
-la:Litopenaeus vannamei
 
-
-# Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
+# en:description:Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
 
 <en:shrimp
 en:Heterocarpus
-de:Tiefseegarnelen
+de:Tiefseegarnelen, Heterocarpus
 fr:Heterocarpus
 la:Heterocarpus, Heterocarpus spp
 wikidata:en:Q3932367
 wikipedia:en:https://en.wikipedia.org/wiki/Heterocarpus
 # ingredient/fr:Heterocarpus-spp has 2 products in french @2019-01-06
 
+# en:description:Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
+
 <en:shrimp
-en:grey shrimp
-ar:روبيان أوروبي
-bg:обикновена:ребна скарид:br:Chevr-traezh
-da:Hestereje
-de:Nordseegarnele
-eu:Izkira zuri
-fa:میگوی قهوه‌ای
-fi:Hietakatkarapu
-fr:crevettes grises
-ga:Ribe róibéis
-io:Kreveto
-it:Gamberetto grigio
-ja:ヨーロッパエビジャコ
-kk:Креветка
-nb:Sandreke
-nl:grijze garnalen, Noordzeegarnaal
-sl:Navadna peščena kozica
-sv:Sandräka
-uk:Шримс звичайний
-# frr:Por
-# nds:Granaat
-# pcd:Soetréle
-# vls:Nôordzêegeirnoar
-# ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
-
-# Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
-
-<en:grey shrimp
-en:Crangon crangon
-de:Nordseekrabben
-fr:Crangon crangon, Crevette grise européenne
+en:grey shrimp, Crangon crangon
+ar:روبيان أوروبي, Crangon crangon
+bg:обикновена:ребна скарид, Crangon crangon
+br:Chevr-traezh, Crangon crangon
+da:Hestereje, Crangon crangon
+de:Nordseegarnele, Crangon crangon
+eu:Izkira zuri, Crangon crangon
+fa:میگوی قهوه‌ای, Crangon crangon
+fi:Hietakatkarapu, Crangon crangon
+fr:crevettes grises, Crevette grise européenne, Crangon crangon
+ga:Ribe róibéis, Crangon crangon
+io:Kreveto, Crangon crangon
+it:Gamberetto grigio, Crangon crangon
+ja:ヨーロッパエビジャコ, Crangon crangon
+kk:Креветка, Crangon crangon
 la:Crangon crangon
+nb:Sandreke, Crangon crangon
+nl:grijze garnalen, Noordzeegarnaal, Crangon crangon
+sl:Navadna peščena kozica, Crangon crangon
+sv:Sandräka, Crangon crangon
+uk:Шримс звичайний, Crangon crangon
+# frr:Por, Crangon crangon
+# nds:Granaat, Crangon crangon
+# pcd:Soetréle, Crangon crangon
+# vls:Nôordzêegeirnoar, Crangon crangon
+# ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
 wikipedia:en:https://en.wikipedia.org/wiki/Crangon_crangon
 # ingredient/fr:Crangon-crangon has 6 products @2019-01-06
 
 <en:shrimp
-en:northern prawn
-bg:северна скарида
-ca:gamba boreal
-cs:krevetka severní
-da:Dybvandsreje
-de:Kanada-Crevetten, Eismeergarnele
-fi:Pohjankatkarapu
-fr:crevettes nordique, Crevette nordique du Canada
-gl:Camarón ártico
-hu:Norvég garnéla
-is:Stóri kampalampi
-it:Gamberetti del Canada
-ja:ホッコクアカエビ
-lt:Paprastoji šiaurinė krevetė
-nb:dypvannsreke
-pl:krewetka północna
-sv:Nordhavsräka
-vi:Tôm hồng
-zh:北极虾
-wikidata:en:Q122181
-
-<en:northern prawn
-en:Pandalus borealis
-de:Pandalus borealis
-fr:Pandalus borealis
-it:Pandalus borealis
+en:northern prawn, Pandalus borealis
+bg:северна скарида, Pandalus borealis
+ca:gamba boreal, Pandalus borealis
+cs:krevetka severní, Pandalus borealis
+da:Dybvandsreje, Pandalus borealis
+de:Kanada-Crevetten, Eismeergarnele, Pandalus borealis
+fi:Pohjankatkarapu, Pandalus borealis
+fr:crevettes nordique, Crevette nordique du Canada, Pandalus borealis
+gl:Camarón ártico, Pandalus borealis
+hu:Norvég garnéla, Pandalus borealis
+is:Stóri kampalampi, Pandalus borealis
+it:Gamberetti del Canada, Pandalus borealis
+ja:ホッコクアカエビ, Pandalus borealis
 la:Pandalus borealis
-# ingredient/fr:Pandalus-borealis has 22 products @2019-01-06
+lt:Paprastoji šiaurinė krevetė, Pandalus borealis
+nb:dypvannsreke, Pandalus borealis
+pl:krewetka północna, Pandalus borealis
+sv:Nordhavsräka, Pandalus borealis
+vi:Tôm hồng, Pandalus borealis
+zh:北极虾, Pandalus borealis
+wikidata:en:Q122181
+# ingredient/fr:Pandalus-borealis has 41 products @2020-08-06
 
-# Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
+# en:description:Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
 
 <en:shrimp
-en:rainbow shrimp
-fr:Crevette arc-en-ciel
+en:rainbow shrimp, Parapenaeopsis sculptilis
+fr:Crevette arc-en-ciel, Parapenaeopsis sculptilis
 la:Parapenaeopsis sculptilis,  Parapenaeopsis, Parapenaeopsis spp
 wikidata:en:Q14025149
 wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
