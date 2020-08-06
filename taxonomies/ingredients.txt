@@ -2349,85 +2349,8 @@ from_palm_oil:en:maybe
 
 # The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
 
-en:gelatin, gelatine, E428, E-428, E 428
-ar:جيلاتين
-az:Jelatin
-be:Жэлацін
-bg:Желатин
-bn:জেলাটিন
-br:gelatin
-bs:Želatin
-ca:gelatina
-cs:želatina
-cv:Желатин
-cy:Gelatin
-de:Gelatine, Speisegelatine
-el:ζελατίνη
-eo:gelateno
-es:gelatina
-et:želatiin
-eu:Gelatina
-fa:ژلاتین
-fi:liivate, Gelatiini
-fr:gélatine, gélatine alimentaire
-fy:sjelatine
-ga:Geilitín
-gl:Xelatina
-he:ג'לטין
-hi:जिलेटिन
-hr:Želatina
-hu:Zselatin
-id:Gelatin
-io:Gelatino
-it:gelatina
-ja:ゼラチン
-jv:Gelatin
-ka:ჟელატინი
-kk:Желатин
-ko:젤라틴
-ky:Желатина
-la:Gelatinum
-li:sjilletien
-lt:Želatina
-mk:Желатин
-ms:Gelatin
-my:ဂျယ်လတင်း
-nb:gelatin
-ne:geltain
-nl:gelatine
-nn:gelatin
-oc:Gelatina
-pa:ਸਰੇਸ਼
-pl:Żelatyna
-ps:ژلاتین
-pt:gelatina
-ro:Gelatină
-ru:желатин
-sk:Želatína
-sl:Želatina
-sq:xhelatinë
-sr:Желатин
-sv:gelatin
-th:เจลาติน
-tr:Jelatin
-uk:Желатин
-vi:Gelatin
-zh:明膠
-# ast:Xelatina
-# kk-arab:جەلاتىين
-# kk-cn:جەلاتىين
-# kk-cyrl:Желатин
-# kk-kz:Желатин
-# kk-latn:Jelatïn
-# kk-tr:Jelatïn
-# sco:gelatin
-# yue:魚膠
-# zh-cn:明胶
-# zh-hans:明胶
-# zh-hant:明膠
-# zh-hk:明膠
-# zh-sg:明胶
-# zh-tw:明膠
+# en:additive:en:gelatin, gelatine, E428, E-428, E 428
+en:gelatin
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 vegetarian:en:no
@@ -18039,7 +17962,8 @@ fi:kovettamattomat kasvirasvat, kovettamaton kasvirasva, hydrogenoimattomat kasv
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 sv:ej härdade vegetabilisk fetter
 
-
+<en:vegetable oil
+en:hydrogenated vegetable oil
 
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
@@ -18052,10 +17976,11 @@ it:oli vegetali non idrogenati
 
 <en:vegetable oil
 <en:hydrogenated oil
+en:hydrogenated vegetable oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
-<fr:huile végétale hydrogénée
+<en:hydrogenated vegetable oil
 en:fully hydrogenated vegetable oils
 da:helt hærdet vegetabilsk olie
 fi:kokonaan kovetetut kasviöljyt
@@ -18659,7 +18584,7 @@ it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra v
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 
-<en:en:extra virgin olive oil
+<en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
 
 <en:extra virgin olive oil
@@ -19389,10 +19314,6 @@ zh:亞麻子油
 # yue:亞麻籽油
 wikidata:en:Q818405
 from_palm_oil:en:no
-
-<en:linseed
-en:linseed seeds, linseeds
-es:semillas de linaza, linaza
 
 <en:linseed oil
 en:Organic linseed oil
@@ -33107,6 +33028,7 @@ it:estratto di lievito in polvere
 
 # Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 
+<en:dough
 en:sourdough
 an:Emprenyatuera
 ar:خبز عجينة متخمرة
@@ -33161,7 +33083,7 @@ fr:levain déshydraté et dévitalisé
 en:wheat sourdough
 fr:levain de blé
 de:Weizensauerteig
-es:masa madre de trigo,masa madre natural de trigo
+es:masa madre de trigo, masa madre natural de trigo
 fi:vehnätaikinanjuuri, vehnähapantaikina
 it:lievito madre di frumento
 nb:surdeig av hvete
@@ -35128,7 +35050,8 @@ it:popa di frutti
 <fr:purée de fruits
 fr:purées de fruits à base de concentrés, purees de fruits à base de concentres
 
-<fr:jus et purées de fruits
+<en:fruit juice from concentrate
+<fr:purées de fruits à base de concentrés
 fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
@@ -36912,7 +36835,8 @@ en:cidre apple juice
 fr:pur jus de pommes à cidre
 # ingredient/fr:pur-jus-de-pommes-a-cidre has 10 products @2019-05-28
 
-<en:organic cidre apple juice
+<en:cidre apple juice
+en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
 
 ###################################################################################################
@@ -41530,11 +41454,6 @@ en:raisin concentrate
 de:Rosinenkonzentrat
 fi:rusinatiiviste
 fr:concentré de raisin
-
-<en:rasin
-en:rasin juice
-es:jugo de pasas
-
 # 1314 products in 6 languages @2018-10-02
 
 # SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
@@ -41590,7 +41509,7 @@ wikidata:en:Q1382423
 
 <en:grape
 <en:fruit juice
-en:grape juice
+en:grape juice, raisin juice
 ar:عصير العنب
 az:Üzüm şirəsi
 be:вінаградны сок
@@ -41598,7 +41517,7 @@ ca:suc de raïm
 de:Traubensaft
 el:χυμός σταφυλιού
 eo:vinbera suko
-es:zumo de uva
+es:zumo de uva, jugo de pasas
 et:Viinamarjamahl
 fi:rypälemehu, viinirypälemehu
 fr:jus de raisin
@@ -42759,7 +42678,7 @@ sv:grönsaksjuicekoncentrat
 
 <en:vegetable
 fr:extrait de légumes, extraits de légumes
-fi:vihannesuute, kasvisuute
+fi:vihannesuute
 
 # <en:compound
 <en:vegetable
@@ -47611,7 +47530,8 @@ fr:pommes de terre biologiques
 en:organic potato from France
 fr:Pommes de terre biologiques origine France
 
-<en:precooked potato
+<en:potato
+en:precooked potato
 fr:pommes de terre précuites
 
 <en:potato
@@ -48009,7 +47929,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr:3.4
 
-<en:chile pepper
+<en:chili pepper
 en:tabasco chile
 es:chiles tabasco
 
@@ -48144,10 +48064,6 @@ zh:墨西哥辣椒
 wikidata:en:Q504133
 wikipedia:en:https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
-
-<en:chile pepper
-en:chile sauce
-es:salsa de chile
 
 <en:jalapeno peppers
 en:green jalapeno peppers, green jalapeno
@@ -49668,7 +49584,7 @@ fr:haricot rouge, haricots rouges
 it:fagioli rossi
 sv:röda kidneybönor, kidneybönor
 
-<en:mung bean
+<en:beans
 en:mung bean
 es:habas de mungo,judias mungo
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
@@ -52079,6 +51995,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 #es:comino en polvo
 
 <en:seed
+en:linseed seeds, linseeds
+es:semillas de linaza, linaza
+
+<en:seed
 <en:melon
 en:melon seed
 fi:meloninsiemen
@@ -53027,7 +52947,8 @@ sl:začimbni ekstrakti
 vegan:en:yes
 vegetarian:en:yes
 
-<en:natural spice extract
+<en:spice extract
+en:natural spice extract
 fr:extrait naturel d'épice, extraits naturels d'épices
 fi:luontainen mausteuute
 
@@ -53106,7 +53027,6 @@ de:Pflanzenextrakte
 es:Extracto de plantas
 fi:kasviuute, kasviuutteet
 fr:extraits de plantes, extraits de plantes aromatiques
-it:estratti vegetali
 nl:plantextracten
 # ingredient/fr:extraits-de-plantes has 69 products in 4 languages @2019-05-29
 
@@ -63703,7 +63623,7 @@ de:Buckellachs
 eo:Gorbuŝo
 fa:آزادماهی صورتی
 fi:Kyttyrälohi
-fr:saumon rose du pacifique
+fr:saumon rose du pacifique, Saumon rose à bosse
 he:אלתית דבשתית
 hu:Gorbusalazac
 hy:Սապատաձուկ
@@ -63733,10 +63653,10 @@ wikidata:en:Q673380
 wikipedia:en:https://en.wikipedia.org/wiki/Pink_salmon
 # ingredient/fr:saumon-rose-du-pacifique has 46 products in french @2018-12-29
 
-<en:pink salomon
+<en:pink salmon
 en:Oncorhynchus gorbuscha
-de:Buckellachs (Oncorhynchus gorbuscha)
-fr:Oncorhynchus gorbuscha, Saumon rose à bosse
+de:Oncorhynchus gorbuscha
+fr:Oncorhynchus gorbuscha
 la:Oncorhynchus gorbuscha
 # ingredient/oncorhynchus-gorbuscha has 27 products @2019-01-14
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
@@ -70703,10 +70623,12 @@ nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
+en:free range chicken eggs
 fr:œufs de poules élevées en plein air calibre moyen
 
 <en:free range chicken eggs
 <en:organic egg
+en:free range chicken eggs
 fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
@@ -70716,10 +70638,6 @@ fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A
 
 <en:free range chicken eggs
 fr:Oeufs frais de poule élevées en plein air, 12 Oeufs frais de poule élevées en plein air
-
-<fr:Oeufs frais de poule élevées en plein air
-<en:organic egg
-fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
 fr:Gros Œufs de Poules Élevées en Plein Air
@@ -70902,7 +70820,8 @@ bn:সাদা ডিম
 ca:clara d'ou
 cs:bílek
 da:æggehvide
-de:Eiklar, Eiweiß, Eiweiss
+de:Eiklar
+# de:comment:eiweiß is a synonym of protein, or use Ei-eiweiß
 el:ασπράδι αυγού
 eo:ovoblanko
 es:clara de huevo, albumina de huevo
@@ -70957,7 +70876,7 @@ da:æggehvidepulver
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
-fi:munanvalkuaisjauhe, kananmunanvalkuaisjauhe, kuivattu munanvalkuainen
+fi:munanvalkuaisjauhe, kuivattu munanvalkuainen
 fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre,poudre d'albumen
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
@@ -71162,11 +71081,6 @@ nl:gepasteuriseerd eigeel van eieren van hennen met vrije uitloop
 # ingredient/fr:jaune-d’œufs-de-poules-élevées-en-plein-air-pasteurisés has 27 products in 2 languages @2018-12-18
 
 <en:egg yolk
-fr:jaune d'œufs frais, jaune d'oeufs frais
-it:turolo d'uova fresche
-# ingredient/fr:jaune-d-oeuf-frais has 176 products in 3 languages @2018-12-18
-
-<en:egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
 ca:gema d'ou en pols
 da:æggeblommepulver
@@ -71206,7 +71120,7 @@ nl:gepasteuriseerd vloeibaar eigeel
 # ingredient/fr:jaune-d’oeuf-liquide-pasteurisé has 74 products in 2 languages @2018-12-18
 
 <en:egg yolk
-fr:jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs frais
+fr:jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs frais, jaune d'œufs frais, jaune d'oeufs frais
 it:tuorlo d'uova fresche, turolo d'uova fresche
 # ingredient/fr:jaune-d’oeuf-frais has 176 products in 3 languages @2018-12-17
 
@@ -71316,9 +71230,8 @@ fr:extraits naturels
 
 <en:extract
 en:vegetable extract, vegetable extracts
-de:Pflanzenextrakt, Pflanzenextrakte, Gemüseextrakte
+de:Gemüseextrakte
 es:Extrato vegetal, extratos vegetales
-fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 it:estratto vegetale, estratti vegetali
 nl:plantaardig extract, plantaardige extracten
@@ -71979,7 +71892,7 @@ de:Teig
 ee:ayma
 el:Ζυμάρι
 eo:pasto
-es:masa, masa madre
+es:masa
 et:Taigen
 eu:ore
 fa:خمیر
@@ -72052,7 +71965,10 @@ zh:生麵團
 wikidata:en:Q178024
 wikipedia:en:https://en.wikipedia.org/wiki/Dough
 
+<en:dough
 en:inactive dough
+
+<en:sourdough
 es:masa madre inactiva
 
 <en:pasta
@@ -72536,7 +72452,7 @@ hy:Լափշա
 id:Mi
 io:Nudlo
 is:Núðla
-it:noodles, tagliatelle
+it:noodles
 ja:麺
 jv:Mi
 ka:ატრია
@@ -73353,7 +73269,6 @@ it:rivestimento
 lt:apvalkalas
 nb:belegg
 nl:coating
-pl:Przyprawy
 ro:inveliş
 sl:skorjica
 sv:överdrag
@@ -74856,7 +74771,8 @@ ms:aiskrim
 mt:ġelat
 my:ရေခဲမုန့်
 nb:iskrem
-nl:roomijs, ijs
+nl:roomijs
+# nl:ijs wordt gebruikt voor bevroren water
 nn:iskrem
 nv:Abeʼ yistiní
 or::ଆଇସ କ୍ରୀମ
@@ -75342,12 +75258,6 @@ carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 
-<en:sauce
-en:tomato sauce
-fi:tomaattikastike
-fr:préparation de tomates décongelée
-hu:paradicsomszósz, paradicsom szósz
-# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
@@ -75787,6 +75697,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 
 # description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes.
 
+
 <en:sauce
 en:tomato sauce
 ar:صلصة البندورة
@@ -75848,6 +75759,10 @@ fr:sauce tomate cuite
 
 <en:tomato sauce
 fr:sauce tomate cuisinée
+
+<en:tomato sauce
+fr:préparation de tomates décongelée
+# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
