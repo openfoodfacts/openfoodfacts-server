@@ -37186,23 +37186,30 @@ sv:citron, citron frukt
 zh:柠檬
 wikidata:en:Q1093742
 
+# en:description:The skin or outer layer of a fruit, vegetable, etc.
 <en:lemon
-en:lemon peel, lemon zest
+en:lemon peel, lemon rind
 da:citronskal
-de:Zitronenschalen
+de:Zitronenschalen, Zitronenschale
 es:Cáscara de limón, ralladura de limon
 fi:sitruunankuori
-fr:Zeste de citron
-nl:Citroenschil
+fr:écorce de citron, écorces de citron, écorces de citrons
+it:scorza d’arancia
+nl:Citroenschil, schillen citroen
+pt:casca de limão
 sv:citronskal
 
+# en:description:The outer skin of a citrus fruit, removed through a zester.
 <en:lemon
-fr:citron confit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
-# 70 products in 1 language @2018-10-01
+en:lemon zest
+de:Zitronenzeste
+es:cáscara de limón
+fi:Sitruunankuori
+fr:zestes de citron, zeste de citron
+nl:citroenrasp
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
+# 314 products @2018-10-01
 
-<fr:citron confit
-fr:zestes de citron confits
 
 <en:lemon
 en:lemon pulpe
@@ -37245,17 +37252,12 @@ nl:citroenvezels
 # 59 in 1 language products @2018-10-01
 
 <en:lemon
-en:lemon rind
-de:Zitronenzeste, Zitronenschale
-es:cáscara de limón
-fi:Sitruunankuori
-fr:écorce de citron, écorces de citron, écorces de citrons, zestes de citron, zeste de citron
-it:scorza d’arancia
-nl:citroenschil, schillen citroen
-pt:casca de limão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
-# 314 products @2018-10-01
+fr:citron confit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
+# 70 products in 1 language @2018-10-01
 
+<fr:citron confit
+fr:zestes de citron confits
 # Is this the oil from the rind?
 
 <en:lemon
@@ -37314,11 +37316,11 @@ sv:ekologisk citronjuice
 # ingredient/fr:jus-de-citron-bio has 12 products @2019-06-03
 
 <en:lemon juice
-en:dried lemon juice
+en:lemon powder, dried lemon juice
 da:tørket citronsaft, citronsaftpulver
-de:Zitronenpulver, Zitronensaftpulver
+de:Zitronenpulver, Zitronensaftpulver, Zitronenfruchtpulver
 es:zumo de limón seco
-fi:sitruunamehujauhe, kuivattu sitruunamehu
+fi:sitruunamehujauhe, kuivattu sitruunamehu, fi:sitruunajauhe
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
 nl:gedroogd citroensap, citroensappoeder
@@ -37327,6 +37329,9 @@ pt:sumo de limão desidratado
 sv:torkad citronjuice, citronjuicepulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-en-poudre
 # 25 products in 3 languages @2018-10-01
+wikidata:en:Q206496
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
+# 1 entry @ 2019-10-31
 
 <en:lemon
 en:concentrated lemon juice, lemon extract
@@ -37385,14 +37390,6 @@ de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
 
-<en:lemon
-en:lemon powder
-de:Zitronenpulver, Zitronenfruchtpulver
-fi:sitruunajauhe
-fr:Poudre de citron
-wikidata:en:Q206496
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
-# 1 entry @ 2019-10-31
 
 <en:flavourings
 <en:lemon
