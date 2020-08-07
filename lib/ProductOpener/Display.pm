@@ -110,6 +110,7 @@ BEGIN
 					@lcs
 					$cc
 					$country
+					$tt
 
 					$nutriment_table
 
@@ -239,7 +240,7 @@ if (defined $options{export_limit}) {
 }
 
 # Initialize the Template module
-my $tt = Template->new({
+$tt = Template->new({
 	INCLUDE_PATH => $data_root . '/templates',
 	INTERPOLATE => 1,
 	EVAL_PERL => 1,
@@ -2366,13 +2367,19 @@ sub display_list_of_tags_translate($$) {
 
 
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+			
+			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
 			# Keep only known tags that do not have a translation in the current lc
-			if ((not $request_ref->{translate} eq "all") and
-				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+			if (not $tag_ref->{known}) {
+				$log->debug("display_list_of_tags_translate - entry $tagid is not known") if $log->is_debug();									
 				next;
 			}
-			if (not $tag_ref->{known}) {
+						
+			if ((not $request_ref->{translate} eq "all") and
+				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+					
+				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();					
 				next;
 			}
 
@@ -7469,7 +7476,7 @@ CSS
 	# obsolete product
 
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$template_data_ref->{product_ref_obsolete} = $product_ref->{obsolete};
+		$template_data_ref->{product_is_obsolete} = $product_ref->{obsolete};
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
@@ -7678,11 +7685,8 @@ JS
 	}
 
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
-
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
-
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
-
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";

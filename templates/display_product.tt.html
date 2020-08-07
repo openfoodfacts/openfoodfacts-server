@@ -50,7 +50,7 @@
 [% END %]
 
 <!-- Obsolete product -->
-[% IF product_ref_obsolete %]
+[% IF product_is_obsolete %]
     <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
         [% warning %]
     </div>
@@ -102,9 +102,10 @@
             <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
             <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
             <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-            
+                
             <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
+
         [% display_field_allergens %]
         [% display_field_traces %]
         [% display_ingredients_analysis %]
