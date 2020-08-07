@@ -7675,15 +7675,7 @@ JS
 
 	}
 
-	# Offer to add the ingredients in the language of the interface
-
-	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
-		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
-		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
-		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
-		. "</p>";
-	}
-
+	$template_data_ref->{display_ingredients_in_lang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
@@ -7934,12 +7926,8 @@ HTML
 
 	if ($admin) {
 		compute_carbon_footprint_infocard($product_ref);
-		$html .= display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
-		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
-			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
-		}
 	}
 
 	# Platform for producers: data quality issues and improvements opportunities
@@ -7991,7 +7979,6 @@ HTML
 	$template_data_ref->{checked} = $checked;
 
 	if (defined $User_id) {
-		# $html .= display_field($product_ref, 'states');
 		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
