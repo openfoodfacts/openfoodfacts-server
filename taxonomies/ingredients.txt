@@ -52161,6 +52161,8 @@ fr:lin
 it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
+<en:flax
+fr:lin jaune
 
 # It is possible to derive oil from flax seed
 
@@ -52174,9 +52176,9 @@ es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
 fi:pellavansiemen, pellavansiemenet, pellavansiemeniä
-fr:graine de lin, graines de lin, lin, graines de lin jaune
+fr:graine de lin, graines de lin
 hu:Lenmag
-it:semi di lino, lino
+it:semi di lino
 nb:linfrø
 nl:lijnzaad
 nn:linfrø
@@ -52195,12 +52197,9 @@ de:Leinsaat geschrotet
 <en:flax seed
 en:golden flax seeds
 es:semillas de lino dorado, lino dorado
-fr:graines de lin doré
+fr:graines de lin doré, graines de lin jaune
 de:goldgelbe Leinsaat
 # ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
-
-<en:flax seed
-fr:lin jaune
 
 <en:flax seed
 en:brown flax seeds
@@ -53352,7 +53351,7 @@ wikidata:en:Q1882876
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. E100
 
 # <en:root vegetable
 <en:spice
@@ -54257,7 +54256,7 @@ he:חרדל
 hi:सरसों
 hr:Senf
 ht:Moutad
-hu:mustár, Mustármag
+hu:mustár
 hy:Մանանեխ
 id:Moster
 io:Mustardo
