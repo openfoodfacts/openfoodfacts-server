@@ -1908,18 +1908,19 @@ colour_index:en:CI 77266
 vegan:en:yes
 vegetarian:en:yes
 
+#en:comment:Use only the generic name in E160 (ending on -oid)
 en:E160, Carotenoids
 bg:E160, E160 food additive
 ca:E160, Carotenoides
 cs:E160, E160 food additive
-da:E160, E160 food additive
+da:E160, Carotenoider, Karotenoid, Carotenoid
 de:E160, Carotinoide
 el:E160, E160 food additive
 es:E160, Carotenoides, Caroteno
 et:E160, E160 food additive
 fi:E160, Karotenoidit, Karotenoideja
-fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés
-hu:E160, Karotin
+fr:E160, Caroténoïdes, carotènes, Caroténoïde, caroténoïdes mélangés
+hu:E160, E160 food additive
 it:E160, E160 food additive
 lt:E160, E160 food additive
 lv:E160, E160 food additive
@@ -1943,31 +1944,31 @@ efsa_evaluation:en: Scientific Opinion on the reconsideration of the ADI and a r
 vegan:en:maybe
 vegetarian:en:maybe
 
-en:E160a, Alpha-carotene, Beta-carotene, Gamma-carotene, carotene
+#en:comment: E160a are mixed carotenes and E160b the beta-variants (put those there)
+en:E160a, carotene
 bg:E160a, Каротин
 ca:E160a, Carotè
-cs:E160a, karoteny, E 160a, karoten
-da:E160a, Karotin, Carotenoider, Karotenoid, E 160, Karoten, Caroten, Carotenoid
-de:E160a, Carotine, Provitamin A, Karotin, E 160a, Beta-Carotin, Betacarotin, Carotin, Gamma-Carotin, Betakarotin, Alpha-Carotin, Beta-Karotin, γ-Carotin, β-Carotin, β-Karotin, α-Carotin
+cs:E160a, karoteny, karoten
+da:E160a, Karotin, Karoten, Caroten
+de:E160a, Carotine, Provitamin A, Karotin, Carotin, Gamma-Carotin, Alpha-Carotin, γ-Carotin, α-Carotin
 el:E160a, E160a food additive
-es:E160a, Carotenos, Caroteno, Alfa-caroteno, Alfacaroteno, α-caroteno, Beta-caroteno, Betacaroteno, ß-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno
+es:E160a, Alfa-caroteno, Alfacaroteno, α-caroteno, Gamma-caroteno, Gammacaroteno, γ-caroteno, Carotina, Tetraterpeno
 et:E160a, Karoteenid, Karotiinid, Karotiin, Karoteen
-fi:E160a, Karoteeni, Beetakaroteeni, Karoteenia, Beetakaroteenia
-fr:E160a, Bêta-carotène, Béta-carotène, Bèta-carotène, bétacarotène, β-carotène, Caroténoïdes extrait de légumes, β-carotène extrait de Blakeslea trispora, β-carotène extrait d'algue, γ-Carotène, gamma-carotène, carotène, Pro-vitamine A, Alphacarotene, Α-Carotène, Provitamine A, carotènes mélangés, carotéinodes mélangés
+fi:E160a, Karoteeni, Karoteenia
+fr:E160a, carotènes mélangés, carotène, γ-Carotène, gamma-carotène, Alphacarotene, Α-Carotène 
 hu:E160a, Karotinok
-it:E160a, Carotene, Beta-carotene, Carotina, Β-carotene, Caroteni, Betacarotene
-lt:E160a, Karotinas, Beta karotinas
+it:E160a, Carotene, Carotina, Caroteni
+lt:E160a, Karotinas
 lv:E160a, E160a food additive
 mt:E160a, E160a food additive
-nl:E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen
-nl_be:E160a, caroteen, Carotenen, Beta-caroteen, Β-caroteen
+nl:E160a, caroteen, Carotenen
 pl:E160a, karoteny, karoten
 pt:E160a, Caroteno
 ro:E160a, Caroten
-ru:E160a, Бета-каротин, β-Каротин, каротин, Е160a, каротины
+ru:E160a, каротины
 sk:E160a, Karotén
 sl:E160a, E160a food additive
-sv:E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160
+sv:E160a, Karoten, Karotener, Karotin, Alfakaroten
 mandatory_additive_class:en: en:colour
 wikidata:en:Q190156
 e_number:en:160a
@@ -2060,7 +2061,7 @@ el:E160a(iii), Β-καροτενιο από blakeslea trispora
 es:E160a(iii), Beta-caroteno de blakeslea trispora
 et:E160a(iii), Beetakaroteen, saadud blakeslea trispora'st, Saadakse fermenteerimisel
 fi:E160a(iii), Blakeslea trispora -sienestä saatu beta-karoteeni
-fr:E160a(iii), Bêta-carotène issu de blakeslea trispora
+fr:E160a(iii), Bêta-carotène issu de blakeslea trispora, β-carotène extrait de Blakeslea trispora
 hu:E160a(iii), Béta-karotin blakeslea trisporából
 it:E160a(iii), Beta-carotene derivato da blakeslea trispora
 lt:E160a(iii), Beta karotenas iš blakeslea trispora, Gaunamas rauginimo būdu
@@ -2092,7 +2093,7 @@ el:E160a(iv), Καροτενια απο φυκη
 es:E160a(iv), Carotenos de algas
 et:E160a(iv), Vetikalised karoteenid
 fi:E160a(iv), Leväkaroteenit, Leväkaroteeneja
-fr:E160a(iv), Carotènes d'algues
+fr:E160a(iv), Carotènes d'algues, β-carotène extrait d'algue
 hu:E160a(iv), Algakarotinok
 it:E160a(iv), Caroteni derivati dalle alghe
 lt:E160a(iv), Dumblių karotenai
