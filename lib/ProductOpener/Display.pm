@@ -7675,16 +7675,7 @@ JS
 
 	}
 
-	# Offer to add the ingredients in the language of the interface
-
-	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
-		# FIXME / TODO: needs to be moved to template
-		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
-		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
-		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
-		. "</p>";
-	}
-
+	$template_data_ref->{display_ingredients_in_lang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
