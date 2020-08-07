@@ -22713,13 +22713,13 @@ sv:naturlig bourbon-vaniljarom
 fr:arôme naturel de vanille de madagascar
 pt:aroma natural de baunilha de Madagascar
 
-# Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+# en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 
 en:Vanillin
 ar:فانيلين
 be:Ванілін
 bg:Ванилин
-ca:vanillina,vaínilla
+ca:vanillina
 cs:Vanilin
 da:Vanillin
 de:Vanillin, Aroma Vanillin
@@ -59042,7 +59042,7 @@ it:te nero decaffeinato, tè nero decaffeinato
 # ingredient/tree-sorrel no products @2019-05-08
 
 
-# Ddscription:en:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
+# en:description:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
 
 <en:plant
 en:vanilla
@@ -59057,7 +59057,7 @@ da:Vanilje
 de:Vanille
 el:Βανίλια
 eo:vanilo
-es:vainilla,esencia de vainilla,vainilla natural
+es:vainilla
 et:vanill
 eu:Banilla
 fa:وانیل
@@ -59122,10 +59122,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanilla
 # en:process:en:powdered
 
 <en:vanilla
+en:natural vanilla
+es:vainilla natural
 fr:vanille naturelle
 fi:luontainen vanilja
 # ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
-
 
 <en:vanilla
 en:Bourbon vanilla
@@ -59161,7 +59162,7 @@ ca:extracte de vainilla
 cs:Vanilkový výtažek
 da:vaniljeekstrakt, vaniljeessens
 de:Vanilleextrakt, Vanille Extrakt
-es:extracto de vainilla
+es:extracto de vainilla, esencia de vainilla
 fi:vaniljauute
 fr:extrait de vanille
 hu:vaníliakivonat, vanília kivonat
@@ -59926,7 +59927,7 @@ la: Saccharina japonica, Laminaria Japonica
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 
-# Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+# en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
 en:nori
@@ -59936,7 +59937,7 @@ bn:নরি
 ca:Nori
 cs:nori
 da:nori
-de:Nori
+de:Nori, Nabel-Purpurtang
 el:νόρι
 eo:norio
 es:nori,alga nori
@@ -59955,6 +59956,7 @@ ja:海苔
 jv:Nori
 ka:ნორი
 ky:Нори
+la:Porphyra umbilicalis, porphyra umbilical
 mk:нори
 ms:Nori
 nb:nori
@@ -59983,12 +59985,6 @@ zh:海苔
 wikidata:en:Q201565
 wikipedia:en:https://en.wikipedia.org/wiki/Nori
 # ingredient/fr:nori has 51 products in 4 languages @2019-02-22
-
-<en:seaweed
-en:Porphyra umbilicalis
-de:Nabel-Purpurtang (Porphyra umbilicalis)
-fr:porphyra umbilicalis, nori
-la:Porphyra umbilicalis, porphyra umbilical
 # ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
 
 
@@ -60034,7 +60030,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 # algues:laitue de mer
 
 
-# Himanthalia elongata is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
+# en:description:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
 <en:seaweed
 en:thongweed, sea spaghetti
@@ -60045,19 +60041,15 @@ fr:spaghetti de mer, Hymanthalia, haricot de mer, haricots de mer
 ga:Reamóra
 gd:Iomlach
 gl:Cinta
+la:Himanthalia elongata, Himanthalia elongato
 nl:riemwier
 wikidata:en:Q1636443
 # ingredient/fr:spaghetti-de-mer has 7 products in french @2019-02-22
 # ingredient/fr:haricot-de-mer has 9 products in french @2019-02-22
-
-<en:thongweed
-en:Himanthalia elongata
-fr:Himanthalia elongata, Haricot de mer, Spaghetti de mer
-la:Himanthalia elongata, Himanthalia elongato
 wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 
-# Wakame (ワカメ), Undaria pinnatifida, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
+# en:description:Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
 
 <en:seaweed
 en:wakame
@@ -60072,6 +60064,7 @@ he:ואקאמה
 it:Wakame
 ja:ワカメ
 ko:미역
+la:undaria pinnatifida
 ru:вакамэ
 th:วะกะเมะ
 vi:Tảo bẹ Undaria
@@ -60082,30 +60075,23 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wakame
 # ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
 
 
-<en:wakame
-en:undaria pinnatifida
-de:Wakame (Undaria pinnatifida)
-fr:Undaria pinnatifida, Wakame
-la:undaria pinnatifida
-
-
-# Ascophyllum nodosum is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
+# en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
 <en:seaweed
 en:Ascophyllum
-de:Knotentang (Ascophyllum)
+de:Knotentang
 fr:Ascophyllum
 la:Ascophyllum
 wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
 # ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
 
 
-# Laminaria is a genus of 31 species of brown algae commonly called "kelp".
+# en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
 
 <en:seaweed
 en:Laminaria
 de:Laminaria
-fr:Laminaria, Laminaire
+fr:Laminaire
 la:Laminaria
 wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
@@ -60115,7 +60101,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 la:Porphyra yezoensis
 
 
-# Aspergillus oryzae, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
+# en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
 # <en:mold
 en:Aspergillus oryzae, a. oryzae
