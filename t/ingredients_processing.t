@@ -963,12 +963,12 @@ my @tests = (
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'fr:noisettes d�cortiqu�es',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
 				'text' => "ger\x{f6}stete haselnuss"
 			},
