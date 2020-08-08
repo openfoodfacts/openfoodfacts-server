@@ -950,7 +950,7 @@ my @tests = (
 
 	# Various tests
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		gehackte und geröstete haselnüs, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
