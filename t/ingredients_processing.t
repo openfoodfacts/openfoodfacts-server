@@ -710,7 +710,7 @@ my @tests = (
 
 # combinations
 	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln" },
 		[
 			{
 				'id' => 'fr:noisettes décortiquées',
@@ -718,9 +718,9 @@ my @tests = (
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'fr:noisettes décortiquées',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "ger\x{f6}stete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
@@ -875,7 +875,7 @@ my @tests = (
 
 # Test for de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
-	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+	gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
@@ -893,9 +893,9 @@ my @tests = (
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'fr:noisettes décortiquées',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:salted',
-				'text' => 'haselnusskerne'
+				'text' => 'haselnuss'
 			},
 			{
 				'id' => 'en:shallot',
@@ -950,7 +950,7 @@ my @tests = (
 
 	# Various tests
 	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
@@ -970,7 +970,7 @@ my @tests = (
 			{
 				'id' => 'en:toasted-hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "ger\x{f6}stete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
