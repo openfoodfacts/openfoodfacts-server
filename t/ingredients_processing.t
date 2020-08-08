@@ -713,12 +713,12 @@ my @tests = (
 		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
 		[
 			{
-				'id' => 'en:hazelnut',
+				'id' => 'fr:noisettes décortiquées',
 				'processing' => 'en:toasted, en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
+				'id' => 'fr:noisettes décortiquées',
 				'processing' => 'en:chopped',
 				'text' => "ger\x{f6}stete haselnusskerne"
 			},
@@ -883,7 +883,7 @@ my @tests = (
 				'text' => "hartk\x{e4}se"
 			},
 			{
-				'id' => 'en:hazelnut',
+				'id' => 'fr:noisettes décortiquées',
 				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
@@ -893,7 +893,7 @@ my @tests = (
 				'text' => "haseln\x{fc}sse"
 			},
 			{
-				'id' => 'en:hazelnut',
+				'id' => 'fr:noisettes décortiquées',
 				'processing' => 'en:salted',
 				'text' => 'haselnusskerne'
 			},
