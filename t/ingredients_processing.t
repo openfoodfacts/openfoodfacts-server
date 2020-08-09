@@ -712,10 +712,11 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
 		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln" },
 		[
+		# change on 17:01
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "ger\x{f6}stete haselnuss"
 			},
 			{
 				'id' => 'en:hazelnut',
