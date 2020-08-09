@@ -716,12 +716,12 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "ger\x{f6}stete haselnuss"
+				'text' => "haselnuss"
 			},
 			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnuss"
+			    'id' => 'en:toasted-hazelnut',
+			    'processing' => 'en:chopped',
+			    'text' => "ger\x{f6}stete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
