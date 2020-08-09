@@ -963,10 +963,11 @@ my @tests = (
 				'processing' => 'en:chopped',
 				'text' => "haseln\x{fc}sse"
 			},
+			# 17:03
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "ger\x{f6}stete haselnuss"
 			},
 			{
 				'id' => 'en:hazelnut',
