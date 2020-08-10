@@ -716,12 +716,12 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln�sse"
+				'text' => "haselnüsse"
 			},
 			{
 			    'id' => 'en:toasted-hazelnut',
 			    'processing' => 'en:chopped',
-			    'text' => "haseln�sse"
+			    'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -954,25 +954,25 @@ my @tests = (
 		gehackte und geröstete haselnüs, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
+				'id' => "de:hartkäse",
 				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
+				'text' => "hartkäse"
 			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			# 17:03
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "ger\x{f6}stete haselnuss"
+				'text' => "geröstete haselnuss"
 			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnuss"
+				'text' => "geröstete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
