@@ -18593,7 +18593,7 @@ da:rapsolie
 de:Rapsöl, Rapsol
 es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
-fr:Huile de colza ou canola
+fr:Huile de canola
 he:שמן לפתית
 hu:repcemagolajak, repcemagzsír
 is:repjuolía
@@ -18653,7 +18653,7 @@ de:Rapsöl
 el:κραμβέλαιο
 es:aceite de colza, aceite de nabina
 fi:rapsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza, graisses vegetales de colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
 hr:repičino ulje
 hu:repceolaj, repcemagolaj
 it:olio di colza
@@ -22682,13 +22682,13 @@ sv:naturlig bourbon-vaniljarom
 fr:arôme naturel de vanille de madagascar
 pt:aroma natural de baunilha de Madagascar
 
-# Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+# en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 
 en:Vanillin
 ar:فانيلين
 be:Ванілін
 bg:Ванилин
-ca:vanillina,vaínilla
+ca:vanillina
 cs:Vanilin
 da:Vanillin
 de:Vanillin, Aroma Vanillin
@@ -26542,7 +26542,7 @@ nl:bonenmeel, veldbonenmeel
 <en:flour
 <en:flax seed
 en:flax flour, flaxseed flour
-es:semilla de lino amarillo, semillas de lino amarillo, semilla de lino, semillas de lino, semillas de lino marron
+es:semilla de lino amarillo, semillas de lino amarillo, semillas de lino marron
 fi:pellavansiemenjauho
 fr:farine de lin, farine de graines de lin
 sv:linfrömjöl
@@ -36508,17 +36508,6 @@ nl:biologische appel, Biologische appels
 fr:fruits à cidre de Normandie
 
 <en:apple
-fr:pommes gala
-
-<en:apple
-fr:pommes golden
-# 11@109-06-05
-
-<en:apple
-fr:pommes d'Aquitaine
-# 22@2019-06-09
-
-<en:apple
 en:dried apple, dried apples
 de:getrocknete Äpfel, Äpfel getrocknet
 es:manzana deshidratada, manzanas deshidratadas
@@ -36645,28 +36634,6 @@ it:fiocchi di mela
 <en:apple
 <fr:moût
 fr:moût de pomme concentré
-
-<en:apple
-en:Golden Delicious apple
-de:Golden Delicious Apfel
-es:manzana golden
-fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
-# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
-
-#US plant patent 3637, McKenzie, Oct 15 1974
-<en:apple
-en:Gala apple, Gala apples
-de:Gala Apfel
-es:manzana gala
-fr:pomme Gala, pommes Gala
-nl:Gala appel
-
-#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
-<en:apple
-en:Royal Gala apple
-fr:pomme Royal Gala, pommes Royal Gala
-nl:Royal Gala appel, Tenroy, Tenroy appel
 
 <en:apple
 <en:vegetable fiber
@@ -36799,6 +36766,31 @@ fr:pur jus de pommes à cidre
 <en:cidre apple juice
 en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
+<en:apple
+en:Golden Delicious apple
+de:Golden Delicious Apfel
+es:manzana golden
+fi:golden delicious -omena
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+#US plant patent 3637, McKenzie, Oct 15 1974
+<en:apple
+en:Gala apple, Gala apples
+de:Gala Apfel
+es:manzana gala
+fr:pomme Gala, pommes Gala
+nl:Gala appel
+
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
+<en:apple
+en:Royal Gala apple
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 ###################################################################################################
 #
@@ -37167,23 +37159,30 @@ sv:citron, citron frukt
 zh:柠檬
 wikidata:en:Q1093742
 
+# en:description:The skin or outer layer of a fruit, vegetable, etc.
 <en:lemon
-en:lemon peel, lemon zest
+en:lemon peel, lemon rind
 da:citronskal
-de:Zitronenschalen
+de:Zitronenschalen, Zitronenschale
 es:Cáscara de limón, ralladura de limon
 fi:sitruunankuori
-fr:Zeste de citron
-nl:Citroenschil
+fr:écorce de citron, écorces de citron, écorces de citrons
+it:scorza d’arancia
+nl:Citroenschil, schillen citroen
+pt:casca de limão
 sv:citronskal
 
+# en:description:The outer skin of a citrus fruit, removed through a zester.
 <en:lemon
-fr:citron confit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
-# 70 products in 1 language @2018-10-01
+en:lemon zest
+de:Zitronenzeste
+es:cáscara de limón
+fi:Sitruunankuori
+fr:zestes de citron, zeste de citron
+nl:citroenrasp
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
+# 314 products @2018-10-01
 
-<fr:citron confit
-fr:zestes de citron confits
 
 <en:lemon
 en:lemon pulpe
@@ -37226,17 +37225,12 @@ nl:citroenvezels
 # 59 in 1 language products @2018-10-01
 
 <en:lemon
-en:lemon rind
-de:Zitronenzeste, Zitronenschale
-es:cáscara de limón
-fi:Sitruunankuori
-fr:écorce de citron, écorces de citron, écorces de citrons, zestes de citron, zeste de citron
-it:scorza d’arancia
-nl:citroenschil, schillen citroen
-pt:casca de limão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
-# 314 products @2018-10-01
+fr:citron confit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
+# 70 products in 1 language @2018-10-01
 
+<fr:citron confit
+fr:zestes de citron confits
 # Is this the oil from the rind?
 
 <en:lemon
@@ -37295,11 +37289,11 @@ sv:ekologisk citronjuice
 # ingredient/fr:jus-de-citron-bio has 12 products @2019-06-03
 
 <en:lemon juice
-en:dried lemon juice
+en:lemon powder, dried lemon juice
 da:tørket citronsaft, citronsaftpulver
-de:Zitronenpulver, Zitronensaftpulver
+de:Zitronenpulver, Zitronensaftpulver, Zitronenfruchtpulver
 es:zumo de limón seco
-fi:sitruunamehujauhe, kuivattu sitruunamehu
+fi:sitruunamehujauhe, kuivattu sitruunamehu, fi:sitruunajauhe
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
 nl:gedroogd citroensap, citroensappoeder
@@ -37308,6 +37302,9 @@ pt:sumo de limão desidratado
 sv:torkad citronjuice, citronjuicepulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-en-poudre
 # 25 products in 3 languages @2018-10-01
+wikidata:en:Q206496
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
+# 1 entry @ 2019-10-31
 
 <en:lemon
 en:concentrated lemon juice, lemon extract
@@ -37366,14 +37363,6 @@ de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
 
-<en:lemon
-en:lemon powder
-de:Zitronenpulver, Zitronenfruchtpulver
-fi:sitruunajauhe
-fr:Poudre de citron
-wikidata:en:Q206496
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
-# 1 entry @ 2019-10-31
 
 <en:flavourings
 <en:lemon
@@ -37510,7 +37499,7 @@ sv:limesaftkoncentrat
 en:reconstituted lime juice
 de:rekonstituierter Limettensaft
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
+fr:jus de citron vert à base de concentré
 nl:limoensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
@@ -39041,7 +39030,7 @@ da:Kokosmælk
 de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
 fi:kookosmaito
-fr:lait de noix de coco, lait de coco, eau de coco
+fr:lait de noix de coco, lait de coco
 it:latte di noce di cocco
 nb:kokosmelk
 nl:kokosmelk
@@ -39583,7 +39572,7 @@ it:purea di guaiave
 en:kiwi, kiwifruit
 af:Kiwivrug
 ar:كيوي
-be:Ківі, садавіна
+be:Ківі
 bg:киви
 bi:Kiwe
 bo:སྤྲེལ་ཁམ།
@@ -44513,8 +44502,8 @@ wikidata:en:Q263203
 wikipedia:en:https://en.wikipedia.org/wiki/Red_cabbage
 # fr:chou-rouge has 47 products in 4 languages @2018-10-17
 
-# CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-# IN french chou chinois is used for both varieties. And in other languages as well.
+# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
 
 <en:cabbage
 en:Napa cabbage
@@ -44555,7 +44544,7 @@ en:pak choi, Bok choy, pok choi
 de:Pak Choi
 el:Μποκ τσόι
 fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr:Brassica rapa, Chou chinois, Bok choy, Pak choï
+fr:Brassica rapa, Bok choy, Pak choï
 nl:Paksoi
 ru:бок-чой
 uk:Бок-чой
@@ -48631,7 +48620,7 @@ fr:purée de tomates mi-réduite reconstituée
 
 <en:tomato purée
 en:concentrated tomato purée
-de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat
+de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
 es:tomate-concentrado
 fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
 fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
@@ -50654,7 +50643,7 @@ bg:бадеми
 ca:ametlla, ametlles
 cs:mandle
 da:mandel, mandler
-de:Mandel, Mandeln, Mandelkerne
+de:Mandel, Mandeln
 el:Αμύγδαλο, αμύγδαλα
 eo:migdalo
 es:almendra, almendras
@@ -51087,7 +51076,7 @@ bn:হ্যাজেল বাদাম
 ca:avellana, avellanes
 cs:lískový ořech, lískové ořechy, lískové oříšky
 da:Hasselnød, hasselnødder
-de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
+de:Haselnuss, Haselnüsse, Haselnusse
 el:φουντούκια
 eo:Avelo
 es:avellana, avellanas
@@ -51116,7 +51105,7 @@ nl:hazelnoot, hazelnoten
 nv:Neeshchʼíínímazí
 pl:orzechy laskowe, Leszczyna pospolita
 pt:avelã, avelãs
-ro:alune de pădure, alune
+ro:alune de pădure
 ru:лесной орех, лесньым орехом, фундук
 sk:lieskové oriešky
 sl:lešniki
@@ -51213,7 +51202,7 @@ it:nocciole macinate
 
 <en:hazelnut
 fr:éclats de noisettes
-de:Haselnüsse gemahlen, Haselnusssplitter, Haselnussstücke
+de:Haselnusssplitter, Haselnussstücke
 it:nocciole a scaglie
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes
 # 145 products in 4 languages @2018-10-06
@@ -51240,7 +51229,6 @@ nl:hazelnootpasta
 pl:masa orzechowa
 pt:pasta de avelãs
 pt:pasta de avelã
-ro:grasime din lapte
 sk:oriešková pasta
 sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
@@ -51571,10 +51559,7 @@ es:horchata de chufa
 ###################################################################################################
 <en:nut
 en:tree nuts, treenuts
-de:Nüsse, Schalenfrüchte
 es:nueces de árboles
-fi:puupähkinät
-fr:noix
 
 ###################################################################################################
 #
@@ -51591,7 +51576,7 @@ ca:nous
 co:Noce
 cs:vlašský ořech, vlašské ořechy
 da:valnødder
-de:Walnuss, Walnüsse, Walnusskerne
+de:Walnuss, Walnüsse
 el:Καρύδι
 eo:juglandonukso
 es:nuez, nueces
@@ -51605,7 +51590,7 @@ gl:Noz
 hu:dió
 id:Kacang kenari
 io:Nuco
-it:noce, nocciole
+it:noce
 ja:クルミ
 kn:ಅಖ್ರೋಟ್
 ko:호두
@@ -51683,7 +51668,7 @@ da:frø
 de:Kernen, Samen
 el:Σπόρος
 eo:semo
-es:semilla, semillas, pipa, pipas,pepita,pepitas
+es:semilla, semillas, pipa, pipas, pepita, pepitas
 et:Seeme
 eu:Hazi
 fa:بذر
@@ -51890,18 +51875,19 @@ fi:luomu fenkolinsiemen
 nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
-# Salvia hispanica, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
+#en:description: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 en:chia
 da:Chia
-de:chia, Salvia hispanica
-en:chia, Salvia hispanica
-es:chia, chía negra, Salvia hispanica
-fi:chia, salvia hispanica
-fr:chia, salvia hispanica
-it:chia, Salvia hispanica
-nb:chia, Salvia hispanica
-nl:chia, Salvia hispanica
-pt:chia, Salvia hispanica
+de:chia
+en:chia
+es:chia, chía negra
+fi:chia
+fr:chia
+it:chia, 
+la:Salvia hispanica
+nb:chia
+nl:chia
+pt:chia
 wikidata:en:Q1071585
 # ingredient/chia has 44 products @2018-10-07
 vegan:en:yes
@@ -51911,7 +51897,7 @@ vegetarian:en:yes
 <en:chia
 en:chia seed, chia seeds
 da:Chiafrø, chiafrø
-de:Chiasamen, chia
+de:Chiasamen
 es:semillas de chia
 fi:chia-siemen, chia-siemenet, chiansiemen
 fr:graine de chia, graines de chia
@@ -52116,7 +52102,7 @@ en:sunflower seed, sunflower seeds, sunflower kernels
 ca:llavors de gira-sol, pipes de gira-sol
 da:Solsikkekerner, solsikkefrø
 de:Sonnenblumenkerne
-es:semillas de girasol, pipas de girasol, pipas
+es:semillas de girasol, pipas de girasol
 fi:auringonkukansiemen, auringonkukansiemenet, auringonkukansiemeniä
 fr:graines de tournesol
 hu:napraforgómag
@@ -52148,6 +52134,8 @@ fr:lin
 it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
+<en:flax
+fr:lin jaune
 
 # It is possible to derive oil from flax seed
 
@@ -52161,9 +52149,9 @@ es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
 fi:pellavansiemen, pellavansiemenet, pellavansiemeniä
-fr:graine de lin, graines de lin, lin, graines de lin jaune
+fr:graine de lin, graines de lin
 hu:Lenmag
-it:semi di lino, lino
+it:semi di lino
 nb:linfrø
 nl:lijnzaad
 nn:linfrø
@@ -52181,13 +52169,10 @@ de:Leinsaat geschrotet
 
 <en:flax seed
 en:golden flax seeds
-es:semillas de lino dorado,lino dorado
-fr:graines de lin doré
+es:semillas de lino dorado, lino dorado
+fr:graines de lin doré, graines de lin jaune
 de:goldgelbe Leinsaat
 # ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
-
-<en:flax seed
-fr:lin jaune
 
 <en:flax seed
 en:brown flax seeds
@@ -53339,7 +53324,7 @@ wikidata:en:Q1882876
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. E100
 
 # <en:root vegetable
 <en:spice
@@ -54244,7 +54229,7 @@ he:חרדל
 hi:सरसों
 hr:Senf
 ht:Moutad
-hu:mustár, Mustármag
+hu:mustár
 hy:Մանանեխ
 id:Moster
 io:Mustardo
@@ -54325,7 +54310,7 @@ it:Semi di senape
 ja:カラシナ,シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
-pl:Gorczyca
+pl:ziarno gorczyca
 pt:Semente de mostarda
 sl:gorčično seme
 sv:senapsfrö, senapsfrön
@@ -54525,7 +54510,7 @@ pl:cząber
 <en:herb
 <en:coriander
 en:coriander leaves, cilantro
-da:Korianderblade, koriander
+da:Korianderblade
 de:Korianderblätter
 es:Hojas de cilantro
 fi:korianterinlehti, korianterinlehdet
@@ -59030,7 +59015,7 @@ it:te nero decaffeinato, tè nero decaffeinato
 # ingredient/tree-sorrel no products @2019-05-08
 
 
-# Ddscription:en:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
+# en:description:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
 
 <en:plant
 en:vanilla
@@ -59045,7 +59030,7 @@ da:Vanilje
 de:Vanille
 el:Βανίλια
 eo:vanilo
-es:vainilla,esencia de vainilla,vainilla natural
+es:vainilla
 et:vanill
 eu:Banilla
 fa:وانیل
@@ -59110,10 +59095,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanilla
 # en:process:en:powdered
 
 <en:vanilla
+en:natural vanilla
+es:vainilla natural
 fr:vanille naturelle
 fi:luontainen vanilja
 # ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
-
 
 <en:vanilla
 en:Bourbon vanilla
@@ -59149,7 +59135,7 @@ ca:extracte de vainilla
 cs:Vanilkový výtažek
 da:vaniljeekstrakt, vaniljeessens
 de:Vanilleextrakt, Vanille Extrakt
-es:extracto de vainilla
+es:extracto de vainilla, esencia de vainilla
 fi:vaniljauute
 fr:extrait de vanille
 hu:vaníliakivonat, vanília kivonat
@@ -59914,7 +59900,7 @@ la: Saccharina japonica, Laminaria Japonica
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 
-# Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+# en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
 en:nori
@@ -59924,7 +59910,7 @@ bn:নরি
 ca:Nori
 cs:nori
 da:nori
-de:Nori
+de:Nori, Nabel-Purpurtang
 el:νόρι
 eo:norio
 es:nori,alga nori
@@ -59943,6 +59929,7 @@ ja:海苔
 jv:Nori
 ka:ნორი
 ky:Нори
+la:Porphyra umbilicalis, porphyra umbilical
 mk:нори
 ms:Nori
 nb:nori
@@ -59971,12 +59958,6 @@ zh:海苔
 wikidata:en:Q201565
 wikipedia:en:https://en.wikipedia.org/wiki/Nori
 # ingredient/fr:nori has 51 products in 4 languages @2019-02-22
-
-<en:seaweed
-en:Porphyra umbilicalis
-de:Nabel-Purpurtang (Porphyra umbilicalis)
-fr:porphyra umbilicalis, nori
-la:Porphyra umbilicalis, porphyra umbilical
 # ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
 
 
@@ -60022,7 +60003,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 # algues:laitue de mer
 
 
-# Himanthalia elongata is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
+# en:description:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
 <en:seaweed
 en:thongweed, sea spaghetti
@@ -60033,19 +60014,15 @@ fr:spaghetti de mer, Hymanthalia, haricot de mer, haricots de mer
 ga:Reamóra
 gd:Iomlach
 gl:Cinta
+la:Himanthalia elongata, Himanthalia elongato
 nl:riemwier
 wikidata:en:Q1636443
 # ingredient/fr:spaghetti-de-mer has 7 products in french @2019-02-22
 # ingredient/fr:haricot-de-mer has 9 products in french @2019-02-22
-
-<en:thongweed
-en:Himanthalia elongata
-fr:Himanthalia elongata, Haricot de mer, Spaghetti de mer
-la:Himanthalia elongata, Himanthalia elongato
 wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 
-# Wakame (ワカメ), Undaria pinnatifida, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
+# en:description:Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
 
 <en:seaweed
 en:wakame
@@ -60060,6 +60037,7 @@ he:ואקאמה
 it:Wakame
 ja:ワカメ
 ko:미역
+la:undaria pinnatifida
 ru:вакамэ
 th:วะกะเมะ
 vi:Tảo bẹ Undaria
@@ -60070,30 +60048,23 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wakame
 # ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
 
 
-<en:wakame
-en:undaria pinnatifida
-de:Wakame (Undaria pinnatifida)
-fr:Undaria pinnatifida, Wakame
-la:undaria pinnatifida
-
-
-# Ascophyllum nodosum is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
+# en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
 <en:seaweed
 en:Ascophyllum
-de:Knotentang (Ascophyllum)
+de:Knotentang
 fr:Ascophyllum
 la:Ascophyllum
 wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
 # ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
 
 
-# Laminaria is a genus of 31 species of brown algae commonly called "kelp".
+# en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
 
 <en:seaweed
 en:Laminaria
 de:Laminaria
-fr:Laminaria, Laminaire
+fr:Laminaire
 la:Laminaria
 wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
@@ -60103,7 +60074,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 la:Porphyra yezoensis
 
 
-# Aspergillus oryzae, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
+# en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
 # <en:mold
 en:Aspergillus oryzae, a. oryzae
@@ -60569,6 +60540,7 @@ fr:Trompettes de la mort
 gl:Trompeta dos mortos
 hr:Crna trubača
 hu:Sötét trombitagomba
+la:Craterellus cornucopioides
 li:Trompèt van d'r doeëd
 lt:Paprastasis trimitėlis
 mk:црна труба
@@ -60583,12 +60555,6 @@ sv:Svart trumpetsvamp
 # vec:Tronbeta da morto
 # zh-tw:灰喇叭菌
 wikidata:en:Q857903
-
-<en:horn of plenty
-en:Craterellus cornucopioides
-de:Totentrompete (Craterellus cornucopioides)
-fr:Craterellus cornucopioides, Trompettes de la mort
-la:Craterellus cornucopioides
 wikipedia:en:https://en.wikipedia.org/wiki/Craterellus_cornucopioides
 
 <en:mushroom
@@ -60679,6 +60645,7 @@ gl:Níscaro
 hr:Rujnica
 hu:Ízletes rizike
 ka:მჭადა სოკო
+la:Lactarius deliciosus
 lt:Pušyninė rudmėsė
 lv:Priežu rudmiese
 mk:рујница
@@ -60701,12 +60668,6 @@ zh:松乳菇
 # zh-tw:松乳菇
 wikidata:en:Q62138
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_deliciosus
-
-<en:saffron milk cap
-en:lactarus deliciosus, lactarus déliciosus
-de:Edel-Reizker (Lactarus deliciosus)
-fr:Lactarius deliciosus, Lactaire délicieux
-la:lactarius deliciosus
 # ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
 
 # description:en:LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
@@ -60909,11 +60870,12 @@ cs:opeňka měnlivá
 cy:Siobyn coed bacsiog
 de:Gemeines Stockschwämmchen
 fi:Koivunkantosieni
-fr:Pholiote changeante
+fr:Pholiote changeante, Souchette, Agaric à soupe
 hu:Ízletes tőkegomba
 is:Hverfisveppur
 ja:センボンイチメガサ
 ka:ზაფხულის მანჭკვალა
+la:Pholiota mutabilis, Kuehneromyces mutabilis
 lt:Paprastoji kelmiukė
 nl:Stobbezwammetje
 pl:łuskwiak zmienny
@@ -60921,12 +60883,6 @@ ro:Gheba ciobanilor
 ru:Опёнок летний
 sv:Föränderlig tofsskivling
 zh:庫恩菇
-
-<en:sheathed woodtuft
-en:Pholiota mutabilis
-de:Gemeines Stockschwämmchen (Pholiota mutabilis)
-fr:Kuehneromyces mutabilis, Pholiota mutabilis, Pholiote changeante, Souchette, Agaric à soupe
-la:Pholiota mutabilis, Kuehneromyces mutabilis
 wikidata:en:Q732640
 wikipedia:en:https://en.wikipedia.org/wiki/Kuehneromyces_mutabilis
 
@@ -60981,11 +60937,12 @@ cs:kukmák sklepní
 de:Dunkelstreifiger Scheidling
 fa:قارچ کاه
 fi:Viljelytuppisieni
-fr:Volvaire volvacée , Volvaire
+fr:Volvaire volvacée, Volvaire, Volvaire cultivée, Volvaire asiatique
 hi:पुआल मशरूम
 id:Jamur merang
 ja:フクロタケ
 jv:Jamur merang
+la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 nl:tropische beurszwam
 or:ପାଳ ଛତୁ
 pl:Pochwiak wielkopochwowy
@@ -60996,12 +60953,6 @@ zh:草菇
 # hak:Chhó-kû
 # yue:草菇
 # zh-tw:草菇
-
-<en:straw mushroom
-en:Volvariella Volvacea
-de:Dunkelstreifiger Scheidling (Volvariella Volvacea)
-fr:Volvariella volvacea, Volvaire volvacée, Volvaire cultivée, Volvaire asiatique
-la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en:Q641656
 wikipedia:en:https://en.wikipedia.org/wiki/Volvariella_volvacea
 # https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
@@ -61160,7 +61111,7 @@ et:Aasnööbik
 eu:Marasmio jangarri
 fa:قارچ حلقه پریان
 fi:Nurminahikas
-fr:Mousseron, Marasme des Oréades
+fr:Mousseron, Marasme des Oréades, Faux mousseron, Cariolette
 gl:Sendeiriña
 hr:Vilin klinčac
 hu:Mezei szegfűgomba
@@ -61182,13 +61133,6 @@ zh:硬柄小皮傘
 wikidata:en:Q752492
 wikipedia:en:https://en.wikipedia.org/wiki/Marasmius_oreades
 # ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
-
-<en:Scotch bonnet
-en:Marasmius oreades
-de:Nelken-Schwindling (Marasmius oreades)
-fr:Marasmius oreades, Marasme des Oréades, Faux mousseron, Cariolette
-la:Marasmius oreades
-
 
 # description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
 
@@ -61292,20 +61236,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Truffle
 # ingredient/en:truffle has 14 products in 2 languages @2020-06-13
 
 
-# description:en:tuber melanosporum, called the BLACK TRUFFLE, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
+# description:en:tuber MELANOSPORUM is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
 
 <en:truffle
 en:black truffle
 ca:tòfona negra
 cy:Cloronen Ffrengig
-de:Schwarze Trüffel
+de:Schwarze Trüffel, Perigord-Trüffel
 es:trufa negra
 eu:Boilur beltz
 fi:mustatryffeli
-fr:truffe noire, truffes noires
+fr:truffe noire, truffes noires, truffe noire du Périgord, truffe du Périgord
 hu:Francia szarvasgomba
 it:Tartufo nero
 kk:Жерқұлақ
+la:Tuber melanosporium
 nl:zwarte truffel
 pl:trufla czarnozarodnikowa
 ro:Trufă neagră franceză
@@ -61315,18 +61260,6 @@ sv:Perigordtryffel
 tr:Perigord trüfü
 zh:黑松露
 # ingredient/black-truffle has 39 products in 4 languages @2019-04-23
-
-# description:en:TUBER MELANOSPORUM, called the black truffle, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations.
-
-<en:black truffle
-en:tuber melanosporium
-de:Perigord-Trüffel (Tuber melanosporium)
-fr:tuber melanosporum, truffe noire, truffe noire du Périgord, truffe du Périgord
-la:tuber melanosporium
-wikidata:en:Q1093314
-wikipedia:en:https://en.wikipedia.org/wiki/Tuber_melanosporum
-# usage:fr:truffes noires (tuber melanosporium)
 
 
 # description:en:The SUMMER TRUFFLE (Tuber aestivum) is a species of truffle, found in almost all European countries.
@@ -61342,9 +61275,10 @@ de:Sommer-trüffel
 et:Suvetrühvel
 eu:Udako boilur
 fi:kesätryffeli
-fr:truffle d’été, tuber aestivum
+fr:truffle d’été, Truffe blanche d'été
 hu:Nyári szarvasgomba
 it:Tartufo Scorzione
+la:Tuber aestivum
 lt:Vasarinis trumas
 nl:Zomertruffel
 pl:trufla letnia
@@ -61355,12 +61289,6 @@ wikidata:en:Q74692
 wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 # ingredient/fr:tuber-aestivum has 35 products in 4 languages @2018-12-14
 
-<en:summer truffle
-en:Tuber aestivum
-de:Sommer-Trüffel (Tuber aestivum)
-fr:Tuber aestivum, Truffe blanche d'été
-la:Tuber aestivum
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations.
 
 # comment:fr:Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
