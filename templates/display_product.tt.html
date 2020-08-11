@@ -105,6 +105,14 @@
                 
             <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
+        
+         <!-- Offer to add the ingredients in the language of the interface -->
+         [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
+            <p>
+                [% display_ingredients_in_lang %] 
+                <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
+            </p>
+        [% END %]
 
         [% display_field_allergens %]
         [% display_field_traces %]
