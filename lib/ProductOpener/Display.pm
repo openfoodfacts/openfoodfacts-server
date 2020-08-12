@@ -2367,19 +2367,21 @@ sub display_list_of_tags_translate($$) {
 
 
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+			
+			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
 			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
 			# Keep only known tags that do not have a translation in the current lc
 			if (not $tag_ref->{known}) {
-				$log->debug("display_list_of_tags_translate - entry $tagid is not known") if $log->is_debug();
+				$log->debug("display_list_of_tags_translate - entry $tagid is not known") if $log->is_debug();									
 				next;
 			}
-
+						
 			if ((not $request_ref->{translate} eq "all") and
 				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
-
-				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();
+					
+				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();					
 				next;
 			}
 
@@ -7856,12 +7858,12 @@ HTML
 	# Do not display nutrition table for Open Beauty Facts
 
 	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
-
+	
 		$template_data_ref->{nutrition_table} = 'defined';
 
 		$template_data_ref->{display_nutrient_levels} = display_nutrient_levels($product_ref);
 		$template_data_ref->{display_field} = display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
-
+		
 		# Compare nutrition data with categories
 
 		my @comparisons = ();
@@ -7876,7 +7878,7 @@ HTML
 				foreach my $cid (@{$product_ref->{categories_tags}}) {
 
 					if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-
+						
 						push @comparisons, {
 							id => $cid,
 							name => display_taxonomy_tag($lc,'categories', $cid),
@@ -9662,6 +9664,18 @@ HTML
 					}
 
 				}
+				
+				# Taxonomy fields requested in a specific language
+				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+					my $tagtype = $1;
+					my $target_lc = $2;
+					if (defined $product_ref->{$tagtype . "_tags"}) {
+						$compact_product_ref->{$field} = [];
+						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+							push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
+						}
+					}
+				}				
 
 				# Taxonomy fields requested in a specific language
 				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {

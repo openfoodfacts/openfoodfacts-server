@@ -62,7 +62,7 @@ my @lists =(
 	["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 	["fr","lait demi-écrémé", "lait demi-écrémé"],
 	["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires E124, E122, E133, E104, E110"],
+	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires : E124, E122, E133, E104, E110"],
 	["fr","INS 240,241,242b","E240, E241, E242b"],
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
@@ -96,7 +96,7 @@ my @lists =(
 	###########################
 	[ "da",
 	  "bl. a inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
-	  "blandt andet inklusive modificeret pasteuriserede emulgator : E322, E103, E140, E250, E100"
+	  "blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
 	],
 	[ "nb",
 	  "bl. a inkl. E322 E103, E140, E250 og E100",
@@ -104,7 +104,7 @@ my @lists =(
 	],
 	[ "sv",
 	  "bl. a förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
-	  "bland annat förtjockningsmedel inklusive emulgeringsmedel : E322, E103, E140, E250, E100"
+	  "bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
 	],
 	[ "da",
 	  "Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
@@ -264,6 +264,13 @@ my @lists =(
 
 	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
 
+	["fr", "E160a(ii)","e160aii"],
+	["fr", "(E160a-ii)","(e160aii)"],
+	["fr", "colorant (E160a(ii))","colorant (e160aii)"],
+
+	# do not separate acide acétique into acide : acétique
+	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
+	["fr","acide acétique","acide acétique"],
 
 );
 

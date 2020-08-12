@@ -170,7 +170,7 @@ binmode STDERR, ":encoding(UTF-8)";
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
- environment_impact_level=>1, data_sources => 1, teams => 1, ciqual_food_name => 1,
+ environment_impact_level=>1, data_sources => 1, teams => 1, categories_properties => 1,
  editors => 1, photographers => 1, informers => 1, checkers => 1, correctors => 1);
 %hierarchy_fields = ();
 
@@ -2221,9 +2221,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	my $display_lc_prefix = "";
 	my $display_tag = $display;
 
-	if ($display =~ /^(\w\w:)/) {
+	if ($display =~ /^((\w\w):)/) {
 		$display_lc_prefix = $1;
-		$display_lc = $1;
+		$display_lc = $2;
 		$display_tag = $';
 	}
 
