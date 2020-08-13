@@ -50,7 +50,7 @@
 [% END %]
 
 <!-- Obsolete product -->
-[% IF product_ref_obsolete %]
+[% IF product_is_obsolete %]
     <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
         [% warning %]
     </div>
@@ -102,9 +102,18 @@
             <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
             <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
             <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-            
+                
             <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
+        
+         <!-- Offer to add the ingredients in the language of the interface -->
+         [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
+            <p>
+                [% display_ingredients_in_lang %] 
+                <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
+            </p>
+        [% END %]
+
         [% display_field_allergens %]
         [% display_field_traces %]
         [% display_ingredients_analysis %]
