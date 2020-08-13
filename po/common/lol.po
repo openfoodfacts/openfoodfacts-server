@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 11:53\n"
+"PO-Revision-Date: 2020-08-13 13:31\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -577,21 +577,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "crwdns132670:0crwdne132670:0"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "crwdns132672:0crwdne132672:0"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "crwdns132674:0%scrwdne132674:0"
+msgid "Products packaged by the company with traceability code %s"
+msgstr "crwdns140580:0%scrwdne140580:0"
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr "crwdns140582:0crwdne140582:0"
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "crwdns132676:0crwdne132676:0"
+msgid "Traceability code"
+msgstr "crwdns140584:0crwdne140584:0"
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "crwdns132678:0crwdne132678:0"
+msgid "Traceability code"
+msgstr "crwdns140586:0crwdne140586:0"
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr "crwdns140588:0crwdne140588:0"
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr "crwdns140590:0%scrwdne140590:0"
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr "crwdns140592:0crwdne140592:0"
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr "crwdns140594:0%scrwdne140594:0"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -599,24 +615,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "crwdns132680:0crwdne132680:0"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "crwdns132682:0crwdne132682:0"
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "crwdns132684:0crwdne132684:0"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "crwdns132686:0%scrwdne132686:0"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "crwdns132688:0crwdne132688:0"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "crwdns132690:0%scrwdne132690:0"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr "crwdns140596:0crwdne140596:0"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
