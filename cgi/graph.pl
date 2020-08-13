@@ -39,7 +39,7 @@ $header .= <<HEADER
 <link rel="stylesheet" href="$static_subdomain/css/graph.min.css" >
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.js"></script>
-<script src="$static_subdomain/js/d3.v5.min.js"></script>
+<script src="$static_subdomain/js/d3.v3.min.js"></script>
 <script src="$static_subdomain/js/graph.min.js"></script>
 
 HEADER
