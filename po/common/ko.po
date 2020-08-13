@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 10:15\n"
+"PO-Revision-Date: 2020-08-13 12:06\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -591,21 +591,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "이메일 주소"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "EMB 코드"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "EMB 코드 %s 인 회사가 패키징 한 제품"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "EMB 코드"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "EMB 코드"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -613,24 +629,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "유럽에서는 2 개 국가 이니셜 뒤에 타원을 사용하고 숫자와 CE를 사용합니다."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "포장 코드"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Emb 코드가 %s제품"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "포장 코드"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Emb 코드가없는 제품 %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
