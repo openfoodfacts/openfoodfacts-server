@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 10:03\n"
+"PO-Revision-Date: 2020-08-13 11:56\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,39 +52,39 @@ msgstr "Registra"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Benvingut! Benvinguda!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Gràcies per unir-vos a nosaltres!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Ara podeu afegir i editar productes des del lloc web o amb la nostra <a href=\"%s\">aplicació mòbil</a> gratuïta."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Uniu-vos a nosaltres a Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s és un projecte col·laboratiu al qual podeu aportar molt més que nous productes: la vostra energia, l'entusiasme i les idees!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Utilitzem un sistema de debat anomenat Slack, on tots els participants del projecte poden intercanviar idees i col·laborar. Si us plau, uniu-vos-hi! Estarem encantats de conèixer-vos!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Uniu-vos a nosaltres a Slack"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Ara podeu importar fàcilment les dades i les fotos del vostre producte."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Ara podeu afegir i editar els vostres productes i importar les seves dades i fotos a la nostra <a href=\"%s\">plataforma gratuïta per als productors</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -592,21 +592,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "adreça e-mail"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "codis EMB"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "Els productes envasats per l'empresa amb el codi emb %s"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "codi EMB"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "codi EMB"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -614,24 +630,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, ES 10.01235 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "A Europa, el codi en una el·lipse amb les 2 inicials del país seguit d'un número i de la CE."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "codis empaquetador"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Productes amb el codi emb %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "codi empaquetador"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Productes sense el codi emb %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
