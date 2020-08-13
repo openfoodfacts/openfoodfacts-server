@@ -1510,64 +1510,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_citrate
 # ingredient/fr:citrate-tricalcique has 107 products in 6 languages @2019-04-24
 # usage:de:Säureregulator:Tricalciumcitrat
 
-
-# Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
-
-en:lecithins
-ar:ليسيثين
-bg:Лецитин
-ca:lecitina, lecitines
-cs:lecitin
-da:Lecitin
-de:Lecithine
-el:λεκιθίνη
-eo:Lecitino
-es:Lecitina, lecitinas
-et:Letsitiin
-eu:Lezitina
-fa:لسیتین
-fi:lesitiini, lesitiinit
-fr:lécithine, lécithines
-gl:Lecitina
-he:לציטין
-hr:Lecitin
-hu:Lecitin, lecitinek
-hy:Լեցիտիններ
-id:Lesitin
-is:Lesitín
-it:Lecitina
-ja:レシチン
-ko:레시틴
-ms:Lesitin
-nl:Lecithine
-pl:Lecytyny
-pt:lecitina
-ro:Lecitină, lecitina
-ru:Лецитины
-sh:Lecitin
-sl:Lecitin
-sr:Лецитин
-su:Lésitin
-sv:Lecitin
-th:เลซิทิน
-tr:Lesitin
-uk:Лецитин
-uz:Letsinlar
-vi:Lecithin
-zh:卵磷脂
-wikidata:en:Q241595
-wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
-# issue with ingredient @2018-10-11 mixed with sunflower
+# comment:en: en:lecithin is part of the additives
 
 # nova:en:lecithin
-<en:lecithin
-en:soya lecithin, soy lecithin, sin 322
-ca:Lecitina de soja, lecitines de soja, E-322
+<en:E322(i)
+en:soya lecithin, soy lecithin
+ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
 da:sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
 de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
-es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya, E-322
+es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 fi:soijalesitiini
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
 he:לציטין סויה
@@ -1600,7 +1553,7 @@ it:Lecitina di soia Ogm free
 nl:GMO-vrije sojalecithine
 # gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
 
-<en:lecithin
+<en:E322(i)
 en:sunflower lecithin
 bg:слънчогледов леситин
 ca:lecitina de gira-sol, lecitines de gira-sol
@@ -1648,7 +1601,7 @@ it:lecitina di soia e di girasole
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 en:rapeseed lecithin
 ca:Lecitina de colza, lecitines de colza
 de:Rapslecithin
@@ -1666,7 +1619,7 @@ sv:rapslecitin, rapslecithin
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 fr:émulsifiant lécithines, émulsifiants lécithines
 de:emulgator lecithine
 es:emulsionante de lecitina, emulsionantes de lecitina

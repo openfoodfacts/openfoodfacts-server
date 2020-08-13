@@ -4861,6 +4861,10 @@ wikidata:en:Q161210
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Gum guaicum, or guaiac resin, is a substance produced from the tree species Guaiacum officinale. 
+# description:fr:La résine de gaiac est une substance végétale utilisée depuis le xvie siècle à des fins alimentaires et thérapeutiques.
+# comment:en:Careful with overlap between E314 and E241. It seems to be the same, E241 has the role as preservative and E314 as antioxidant.
+
 en:E241, E241 food additive
 bg:E241, E241 food additive
 cs:E241, E241 food additive
@@ -4884,6 +4888,7 @@ sk:E241, E241 food additive
 sl:E241, E241 food additive
 sv:E241, E241 food additive
 e_number:en:241
+wikipedia:en:Gum_guaicum
 vegan:en:yes
 vegetarian:en:yes
 
@@ -6883,6 +6888,7 @@ e_number:en:313
 vegan:en:yes
 vegetarian:en:yes
 
+# en:comment:Careful with overlap between E314 and E241. It seems to be the same, E241 has the role as preservative and E314 as antioxidant.
 en:E314, Guaiacum
 bg:E314, E314 food additive
 cs:E314, E314 food additive
@@ -6895,6 +6901,7 @@ fi:E314, Guaaksihartsi, Guaaksihartsia
 fr:E314, résine de gaïac
 hu:E314, E314 food additive
 it:E314, E314 food additive
+ja:E314, グアヤク樹脂
 lt:E314, E314 food additive
 lv:E314, E314 food additive
 mt:E314, E314 food additive
@@ -6905,6 +6912,7 @@ ro:E314, Rășină de guaiac
 sk:E314, E314 food additive
 sl:E314, E314 food additive
 sv:E314, E314 food additive
+wikipedia:en:Gum_guaicum
 e_number:en:314
 additives_classes:en: en:antioxidant
 vegan:en:yes
@@ -7148,18 +7156,18 @@ vegan:en:yes
 vegetarian:en:yes
 
 # description:en:The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
-
-en:E322, Lecithins, Phosphatides, Lecithin
+# comment:en:Put the plural form in E322 and the specific forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
+en:E322, Lecithins, Phosphatides
 bg:E322, Лецитини, Фосфатиди, Лецитин
 ca:E322, Lecitina
-cs:E322, Lecitiny, Fosfatidy, Lecitin
-da:E322, Lecithiner, Phosphatider, Lecitin
+cs:E322, Lecitiny, Fosfatidy
+da:E322, Lecithiner, Phosphatider
 de:E322, Lecithine, Phosphatide
 el:E322, Λεκιθινες, Φωσφατίδια
 es:E322, Lecitinas, Fosfátidos, Lecitina de soja, Lecitina de girasol, Lecitina
 et:E322, Letsitiinid, Fosfatiidid, Letsitiin
 fi:E322, Lesitiinit, Fosfatidit, Lesitiini, Lesitiinejä, Fosfatidejä, Lesitiiniä, soijalesitiini, auringonkukkalesitiini, rapsilesitiini, soijalesitiiniä, auringonkukkalesitiiniä, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä, E322 soijasta
-fr:E322, Lécithines, Lécithine, Lécithine partiellement hydrolysée, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines, CAS 8002-43-5
+fr:E322, Lécithines, Lécithine, Lécithine partiellement hydrolysée, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
 hu:E322, Lecitinek, Foszfatidek, Lecitin
 it:E322, Lecitine, Fosfatidi, Lecitina
 lt:E322, Lecitinai, Fosfatidai
