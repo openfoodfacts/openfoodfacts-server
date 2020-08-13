@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 09:56\n"
+"PO-Revision-Date: 2020-08-13 11:50\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -593,21 +593,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "Adresse e-mail"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "Codes emballeurs (EMB)"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "Les produits emballés par l'entreprise dont le code emballeur est %s"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "Code emballeur"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "Code emballeur"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -615,26 +631,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "En France, code commençant par EMB suivi de 5 chiffres (code INSEE de la commune) et éventuellement d'une lettre qui identifie l'entreprise qui a conditionné le produit.<br/>\n"
-"Dans d'autres pays d'Europe, code précédé de \"e\". Ou dans un ovale, 2 initiales du pays suivi d'un nombre et de CE.<br/>\n"
-"Pour le vin et l'alcool, code sur la capsule au dessus du bouchon."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "codes emballeurs"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Les produits dont le code emballeur est %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "code emballeur"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Les produits dont le code emballeur n'est pas %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
