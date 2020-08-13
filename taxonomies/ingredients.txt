@@ -424,43 +424,12 @@ en:carbonating agent
 de:Kohlendioxid
 
 # nova:en:colour
-# <en:function
-en:colour, color, colouring, coloring, colours, colors, coloring food, colouring food,colorant
-bg:Оцветител
-ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
-cs:Barvivo
-da:Farvestof
-de:Farbstoff, färbende Lebensmittel, färbendes Lebensmittel
-el:Χρωστική ουσία
-es:Color, colores, colorante, colorantes, colorante alimentario, colorantes alimentarios
-et:Toiduvärv
-fi:väri, väriä, värit, värejä, väriaine, väriainetta, väriaineet, väriaineita, elintarvikeväri, värjäävät elintarvikkeet
-fr:colorant, colorants, colorant alimentaire, colorants alimentaires
-ga:Dath
-he:צבע
-hr:Boja
-hu:Színezék, mesterséges színezék, színezőanyag
-is:litarefni
-it:Coloranti, alimento colorante, colorante
-lt:Dažiklis
-lv:Krāsa
-mt:Kulur
-nb:farge, farve, fargestoff, fødevarer der farver
-nl:Kleurstof, kleurstoffen
-pl:Barwnik
-pt:corante,corantes
-ro:Colorant
-ru:Краситель
-sk:Farbivo
-sl:Barvilo
-sv:färg, färgämne, färgämnen, färgande livsmedel
-zh:色素
-wikidata:en:Q753009
-# ingredient/fr:colorant-alimentaire has 67 products in 5 languages @2019-03-27
+# <en:additive_classes:en:colour for translations
+en:colour
 
 <en:colour
 en:concentrated plant colour
-de:färbendes Pflanzenkonzentrat
+de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
 
 <en:colour
 en:natural colours
@@ -2349,85 +2318,8 @@ from_palm_oil:en:maybe
 
 # The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
 
-en:gelatin, gelatine, E428, E-428, E 428
-ar:جيلاتين
-az:Jelatin
-be:Жэлацін
-bg:Желатин
-bn:জেলাটিন
-br:gelatin
-bs:Želatin
-ca:gelatina
-cs:želatina
-cv:Желатин
-cy:Gelatin
-de:Gelatine, Speisegelatine
-el:ζελατίνη
-eo:gelateno
-es:gelatina
-et:želatiin
-eu:Gelatina
-fa:ژلاتین
-fi:liivate, Gelatiini
-fr:gélatine, gélatine alimentaire
-fy:sjelatine
-ga:Geilitín
-gl:Xelatina
-he:ג'לטין
-hi:जिलेटिन
-hr:Želatina
-hu:Zselatin
-id:Gelatin
-io:Gelatino
-it:gelatina
-ja:ゼラチン
-jv:Gelatin
-ka:ჟელატინი
-kk:Желатин
-ko:젤라틴
-ky:Желатина
-la:Gelatinum
-li:sjilletien
-lt:Želatina
-mk:Желатин
-ms:Gelatin
-my:ဂျယ်လတင်း
-nb:gelatin
-ne:geltain
-nl:gelatine
-nn:gelatin
-oc:Gelatina
-pa:ਸਰੇਸ਼
-pl:Żelatyna
-ps:ژلاتین
-pt:gelatina
-ro:Gelatină
-ru:желатин
-sk:Želatína
-sl:Želatina
-sq:xhelatinë
-sr:Желатин
-sv:gelatin
-th:เจลาติน
-tr:Jelatin
-uk:Желатин
-vi:Gelatin
-zh:明膠
-# ast:Xelatina
-# kk-arab:جەلاتىين
-# kk-cn:جەلاتىين
-# kk-cyrl:Желатин
-# kk-kz:Желатин
-# kk-latn:Jelatïn
-# kk-tr:Jelatïn
-# sco:gelatin
-# yue:魚膠
-# zh-cn:明胶
-# zh-hans:明胶
-# zh-hant:明膠
-# zh-hk:明膠
-# zh-sg:明胶
-# zh-tw:明膠
+# en:additive:en:gelatin, gelatine, E428, E-428, E 428
+en:gelatin
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 vegetarian:en:no
@@ -6368,8 +6260,8 @@ en:microbial coagulating enzyme, microbial enzyme
 de:vegetarisches Lab, mikrobieller Labaustauschstoff
 es:coagulante de leche microbiano, Encima coagulate microbiana
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
-it:enzima microbico, caglio microbico, enzima coagulante microbiotico
-nl:microbiële stremmingsenzymen, vegetarisch stremsel, microbieel stremsel, microbieel stremmiddel
+it:enzima microbico, enzima coagulante microbiotico
+nl:microbiële stremmingsenzymen, vegetarisch stremsel
 # ingredient/microbial-coagulating-enzyme has 453 products in 7 languages @2019-07-09
 vegan:en:yes
 vegetarian:en:yes
@@ -7153,7 +7045,7 @@ fr:présure microbienne
 hu:mikrobiológiai oltóenzim
 it:caglio microbico
 nb:mikrobiell løpe
-nl:microbieel stremsel
+nl:microbieel stremsel, microbieel stremmiddel
 ro:cheag microbian
 sv:mikrobiell ostlöpe, mikrobiellt ystenzym, mikrobiellt löpe
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
@@ -7994,10 +7886,6 @@ ro:lapte pasteurizat
 ru:Пастеризованное молоко
 sv:pastöriserad mjölk
 
-<en:pasteurised milk
-en:pasteurised cows milk
-es:leche pasteurizada de vaca,leche pasterizada de vaca
-
 <en:sterilised milk
 en:UHT pasteurised milk
 ca:llet esterilitzada UHT
@@ -8513,14 +8401,14 @@ fr:lait de vache demi écrémé
 
 <en:semi-skimmed cow's milk
 en:pasteurised semi-skimmed cow's milk
-es:Leche de vaca semidesnatada
 de:pasteurisierte teilentrahmte Kuhmilch
 fr:lait de vache partiellement écrémé et pasteurisé
 
 # description:en:PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
 
 <en:cow's milk
-en:pasteurised cow's milk
+<en:pasteurised milk
+en:pasteurised cow's milk, pasteurised cows milk
 ca:llet de vaca pasteuritzada, llet pasteuritzada de vaca
 de:pasteurisierte Kuhmilch
 es:leche de vaca pasteurizada, leche pasteurizada de vaca
@@ -9366,7 +9254,7 @@ nl:biologische yoghurt
 <en:yogurt
 fr:yaourt maigre, yogourt maigre
 ca:iogurt magre
-de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch, Joghurt mild
+de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
 es:yogur magro
 it:yogurt magro
 nl:magere yoghurt
@@ -9391,7 +9279,6 @@ es:yogur parcialmente desnatado, yogur semidesnatado
 
 <en:yogurt
 en:skimmed yogurt
-de:fettarmer Joghurt
 fi:rasvaton jogurtti
 fr:Yaourt écrémé
 hu:sovány joghurt
@@ -9401,7 +9288,7 @@ hu:sovány joghurt
 <en:yogurt
 en:whole milk yogurt
 ca:iogurt de llet sencera
-de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt
+de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt, Joghurt aus Vollmilch
 es:yogur de leche entera
 fi:täysmaitojogurtti
 fr:yogourt au lait entier
@@ -9442,18 +9329,13 @@ fr:yaourt entier
 hu:teljes joghurt
 it:yogurt intero
 
-<en:yogurt
-fr:yaourt au lait entier
-ca:iogurt de llet sencera
-de:Joghurt aus Vollmilch, Vollmilchjoghurt
-es:yogur de leche entera
 
 # mild yogurt is a fermented milk product using other species of lactobacillus than Lactobacillus bulgaricus. See https://de.wikipedia.org/wiki/Sauermilchprodukte#G%C3%A4rung_mit_speziellen_Kulturen (German)
 <en:yogurt
 en:mild yogurt
 ca:iogurt ensucrat
 de:Joghurt mild
-es:yogur azucarado
+# es:yogur azucarado ? sugared yogurt?
 fr:yaourt doux
 nl:milde yogurt
 # ingredient/nl:milde-yoghurt has 1 product @2019-05-24
@@ -9468,9 +9350,7 @@ fr:yaourt doux écrémé
 
 <en:mild yogurt
 en:semi-skimmed mild yogurt
-ca:iogurt semidesnatat, iogurt parcialment desnatat
 de:Fettarmer Joghurt mild
-es:yogur semidesnatado, yogur parcialmente desnatado
 fr:Yaourt doux semi-écrémé
 
 <en:mild yogurt
@@ -9898,7 +9778,7 @@ de:pasteurisierte Sahne
 es:nata pasteurizada, crema de leche pasteurizada
 fi:pastöroitu kerma
 fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
-hu:pasztőrözött tejszín, pasztörizált tejszín, hőkezelt tejszín
+hu:pasztőrözött tejszín, pasztörizált tejszín
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
@@ -10064,7 +9944,7 @@ fr:lait écrémé et crème pasteurisés
 en:fresh cream
 ca:nata fresca, crema de llet fresca
 da:frisk fløde
-de:Sahne
+de:Frische Sahne
 es:Crema fresca, nata fresca
 fr:crème fraîche
 hu:friss tejszín
@@ -10146,7 +10026,7 @@ mk:Павлака
 ms:Smetana
 nb:Smetana
 nl:Smetana
-pl:Śmietana, świeża śmietana
+pl:Śmietana
 ro:Smântână
 ru:Сметана
 sl:Kisla smetana
@@ -10177,11 +10057,11 @@ fr:poudre de crème fraîche
 <en:sour cream
 en:Crème fraîche
 af:Crème fraîche
-ca:nata, crema de llet
+ca:crema de llet
 cs:Crème fraîche
 da:Cremefraiche, creme fraiche
 de:Crème fraîche
-es:Nata, crema de leche
+es:crema de leche
 eu:Esne-gain gordina, esne-gain freskoa
 fi:ranskankerma, crème fraîche
 fr:crème fraîche épaisse, crème fraîche fermentée
@@ -18039,7 +17919,8 @@ fi:kovettamattomat kasvirasvat, kovettamaton kasvirasva, hydrogenoimattomat kasv
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 sv:ej härdade vegetabilisk fetter
 
-
+<en:vegetable oil
+en:hydrogenated vegetable oil
 
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
@@ -18052,10 +17933,11 @@ it:oli vegetali non idrogenati
 
 <en:vegetable oil
 <en:hydrogenated oil
+en:hydrogenated vegetable oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
 
-<fr:huile végétale hydrogénée
+<en:hydrogenated vegetable oil
 en:fully hydrogenated vegetable oils
 da:helt hærdet vegetabilsk olie
 fi:kokonaan kovetetut kasviöljyt
@@ -18659,7 +18541,7 @@ it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra v
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 
-<en:en:extra virgin olive oil
+<en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
 
 <en:extra virgin olive oil
@@ -18708,10 +18590,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
 ca:Oli de colza
 da:rapsolie
-de:Rapsöl
+de:Rapsöl, Rapsol
 es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
-fr:Huile de colza ou canola
+fr:Huile de canola
 he:שמן לפתית
 hu:repcemagolajak, repcemagzsír
 is:repjuolía
@@ -18771,7 +18653,7 @@ de:Rapsöl
 el:κραμβέλαιο
 es:aceite de colza, aceite de nabina
 fi:rapsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, colza, graisses végétales de colza, graisses vegetales de colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
 hr:repičino ulje
 hu:repceolaj, repcemagolaj
 it:olio di colza
@@ -19389,10 +19271,6 @@ zh:亞麻子油
 # yue:亞麻籽油
 wikidata:en:Q818405
 from_palm_oil:en:no
-
-<en:linseed
-en:linseed seeds, linseeds
-es:semillas de linaza, linaza
 
 <en:linseed oil
 en:Organic linseed oil
@@ -22804,13 +22682,13 @@ sv:naturlig bourbon-vaniljarom
 fr:arôme naturel de vanille de madagascar
 pt:aroma natural de baunilha de Madagascar
 
-# Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+# en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 
 en:Vanillin
 ar:فانيلين
 be:Ванілін
 bg:Ванилин
-ca:vanillina,vaínilla
+ca:vanillina
 cs:Vanilin
 da:Vanillin
 de:Vanillin, Aroma Vanillin
@@ -24624,6 +24502,10 @@ nl:panko
 ru:Панко
 wikidata:en:Q1820454
 # en:panko has 20 products in english @2018-11-12
+
+<en:bread crumbs
+de:Panade
+# de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
 
 ##################################################################################
 #
@@ -26660,7 +26542,7 @@ nl:bonenmeel, veldbonenmeel
 <en:flour
 <en:flax seed
 en:flax flour, flaxseed flour
-es:semilla de lino amarillo, semillas de lino amarillo, semilla de lino, semillas de lino, semillas de lino marron
+es:semilla de lino amarillo, semillas de lino amarillo, semillas de lino marron
 fi:pellavansiemenjauho
 fr:farine de lin, farine de graines de lin
 sv:linfrömjöl
@@ -29659,7 +29541,7 @@ it:Fruttosio in polvere
 # comment:en:The wikidata names are not used on packages.
 
 en:oligofructose
-de:Oligofructose
+de:Oligofructose, Oligofruktose
 es:Oligofructosa
 fi:oligofruktoosi
 fr:oligofructose
@@ -33107,6 +32989,7 @@ it:estratto di lievito in polvere
 
 # Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 
+<en:dough
 en:sourdough
 an:Emprenyatuera
 ar:خبز عجينة متخمرة
@@ -33161,7 +33044,7 @@ fr:levain déshydraté et dévitalisé
 en:wheat sourdough
 fr:levain de blé
 de:Weizensauerteig
-es:masa madre de trigo,masa madre natural de trigo
+es:masa madre de trigo, masa madre natural de trigo
 fi:vehnätaikinanjuuri, vehnähapantaikina
 it:lievito madre di frumento
 nb:surdeig av hvete
@@ -35128,7 +35011,8 @@ it:popa di frutti
 <fr:purée de fruits
 fr:purées de fruits à base de concentrés, purees de fruits à base de concentres
 
-<fr:jus et purées de fruits
+<en:fruit juice from concentrate
+<fr:purées de fruits à base de concentrés
 fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
@@ -36624,17 +36508,6 @@ nl:biologische appel, Biologische appels
 fr:fruits à cidre de Normandie
 
 <en:apple
-fr:pommes gala
-
-<en:apple
-fr:pommes golden
-# 11@109-06-05
-
-<en:apple
-fr:pommes d'Aquitaine
-# 22@2019-06-09
-
-<en:apple
 en:dried apple, dried apples
 de:getrocknete Äpfel, Äpfel getrocknet
 es:manzana deshidratada, manzanas deshidratadas
@@ -36761,28 +36634,6 @@ it:fiocchi di mela
 <en:apple
 <fr:moût
 fr:moût de pomme concentré
-
-<en:apple
-en:Golden Delicious apple
-de:Golden Delicious Apfel
-es:manzana golden
-fi:golden delicious -omena
-fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
-# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
-
-#US plant patent 3637, McKenzie, Oct 15 1974
-<en:apple
-en:Gala apple, Gala apples
-de:Gala Apfel
-es:manzana gala
-fr:pomme Gala, pommes Gala
-nl:Gala appel
-
-#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
-<en:apple
-en:Royal Gala apple
-fr:pomme Royal Gala, pommes Royal Gala
-nl:Royal Gala appel, Tenroy, Tenroy appel
 
 <en:apple
 <en:vegetable fiber
@@ -36912,8 +36763,34 @@ en:cidre apple juice
 fr:pur jus de pommes à cidre
 # ingredient/fr:pur-jus-de-pommes-a-cidre has 10 products @2019-05-28
 
-<en:organic cidre apple juice
+<en:cidre apple juice
+en:organic cidre apple juice
 fr:pur jus de pommes à cidre bio
+<en:apple
+en:Golden Delicious apple
+de:Golden Delicious Apfel
+es:manzana golden
+fi:golden delicious -omena
+fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+# ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
+
+#US plant patent 3637, McKenzie, Oct 15 1974
+<en:apple
+en:Gala apple, Gala apples
+de:Gala Apfel
+es:manzana gala
+fr:pomme Gala, pommes Gala
+nl:Gala appel
+
+#US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
+<en:apple
+en:Royal Gala apple
+fr:pomme Royal Gala, pommes Royal Gala
+nl:Royal Gala appel, Tenroy, Tenroy appel
+
+<en:apple
+fr:pommes d'Aquitaine
+# 22@2019-06-09
 
 ###################################################################################################
 #
@@ -37282,23 +37159,30 @@ sv:citron, citron frukt
 zh:柠檬
 wikidata:en:Q1093742
 
+# en:description:The skin or outer layer of a fruit, vegetable, etc.
 <en:lemon
-en:lemon peel, lemon zest
+en:lemon peel, lemon rind
 da:citronskal
-de:Zitronenschalen
+de:Zitronenschalen, Zitronenschale
 es:Cáscara de limón, ralladura de limon
 fi:sitruunankuori
-fr:Zeste de citron
-nl:Citroenschil
+fr:écorce de citron, écorces de citron, écorces de citrons
+it:scorza d’arancia
+nl:Citroenschil, schillen citroen
+pt:casca de limão
 sv:citronskal
 
+# en:description:The outer skin of a citrus fruit, removed through a zester.
 <en:lemon
-fr:citron confit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
-# 70 products in 1 language @2018-10-01
+en:lemon zest
+de:Zitronenzeste
+es:cáscara de limón
+fi:Sitruunankuori
+fr:zestes de citron, zeste de citron
+nl:citroenrasp
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
+# 314 products @2018-10-01
 
-<fr:citron confit
-fr:zestes de citron confits
 
 <en:lemon
 en:lemon pulpe
@@ -37341,17 +37225,12 @@ nl:citroenvezels
 # 59 in 1 language products @2018-10-01
 
 <en:lemon
-en:lemon rind
-de:Zitronenzeste, Zitronenschale
-es:cáscara de limón
-fi:Sitruunankuori
-fr:écorce de citron, écorces de citron, écorces de citrons, zestes de citron, zeste de citron
-it:scorza d’arancia
-nl:citroenschil, schillen citroen
-pt:casca de limão
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
-# 314 products @2018-10-01
+fr:citron confit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
+# 70 products in 1 language @2018-10-01
 
+<fr:citron confit
+fr:zestes de citron confits
 # Is this the oil from the rind?
 
 <en:lemon
@@ -37410,11 +37289,11 @@ sv:ekologisk citronjuice
 # ingredient/fr:jus-de-citron-bio has 12 products @2019-06-03
 
 <en:lemon juice
-en:dried lemon juice
+en:lemon powder, dried lemon juice
 da:tørket citronsaft, citronsaftpulver
-de:Zitronenpulver, Zitronensaftpulver
+de:Zitronenpulver, Zitronensaftpulver, Zitronenfruchtpulver
 es:zumo de limón seco
-fi:sitruunamehujauhe, kuivattu sitruunamehu
+fi:sitruunamehujauhe, kuivattu sitruunamehu, fi:sitruunajauhe
 fr:jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 it:limone in polvere
 nl:gedroogd citroensap, citroensappoeder
@@ -37423,6 +37302,9 @@ pt:sumo de limão desidratado
 sv:torkad citronjuice, citronjuicepulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-en-poudre
 # 25 products in 3 languages @2018-10-01
+wikidata:en:Q206496
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
+# 1 entry @ 2019-10-31
 
 <en:lemon
 en:concentrated lemon juice, lemon extract
@@ -37481,14 +37363,6 @@ de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
 
-<en:lemon
-en:lemon powder
-de:Zitronenpulver, Zitronenfruchtpulver
-fi:sitruunajauhe
-fr:Poudre de citron
-wikidata:en:Q206496
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunajauhe
-# 1 entry @ 2019-10-31
 
 <en:flavourings
 <en:lemon
@@ -37625,7 +37499,7 @@ sv:limesaftkoncentrat
 en:reconstituted lime juice
 de:rekonstituierter Limettensaft
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
-fr:jus de citron vert à base de concentré, jus de citron à base de jus concentré
+fr:jus de citron vert à base de concentré
 nl:limoensap uit concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
@@ -39156,7 +39030,7 @@ da:Kokosmælk
 de:Kokosnussmilch, Kokosmilch
 es:Leche de coco
 fi:kookosmaito
-fr:lait de noix de coco, lait de coco, eau de coco
+fr:lait de noix de coco, lait de coco
 it:latte di noce di cocco
 nb:kokosmelk
 nl:kokosmelk
@@ -39698,7 +39572,7 @@ it:purea di guaiave
 en:kiwi, kiwifruit
 af:Kiwivrug
 ar:كيوي
-be:Ківі, садавіна
+be:Ківі
 bg:киви
 bi:Kiwe
 bo:སྤྲེལ་ཁམ།
@@ -40970,7 +40844,7 @@ br:Sivi
 ca:maduixa,maduixes
 cs:jahoda, Jahodník velkoplodý
 da:jordbær, Havejordbær
-de:Erdbeeren
+de:Erdbeere, Erdbeeren
 el:Φράουλα
 eo:frago
 es:fresa
@@ -41530,11 +41404,6 @@ en:raisin concentrate
 de:Rosinenkonzentrat
 fi:rusinatiiviste
 fr:concentré de raisin
-
-<en:rasin
-en:rasin juice
-es:jugo de pasas
-
 # 1314 products in 6 languages @2018-10-02
 
 # SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
@@ -41590,7 +41459,7 @@ wikidata:en:Q1382423
 
 <en:grape
 <en:fruit juice
-en:grape juice
+en:grape juice, raisin juice
 ar:عصير العنب
 az:Üzüm şirəsi
 be:вінаградны сок
@@ -41598,7 +41467,7 @@ ca:suc de raïm
 de:Traubensaft
 el:χυμός σταφυλιού
 eo:vinbera suko
-es:zumo de uva
+es:zumo de uva, jugo de pasas
 et:Viinamarjamahl
 fi:rypälemehu, viinirypälemehu
 fr:jus de raisin
@@ -42759,7 +42628,7 @@ sv:grönsaksjuicekoncentrat
 
 <en:vegetable
 fr:extrait de légumes, extraits de légumes
-fi:vihannesuute, kasvisuute
+fi:vihannesuute
 
 # <en:compound
 <en:vegetable
@@ -44368,7 +44237,7 @@ sv:betfiber
 
 <en:beetroot
 en:red beetroot
-de:Rote Bete
+de:Rote Bete, Rote Beete
 es:Remolacha roja
 fi:punajuuri
 fr:betterave rouge, betteraves rouges
@@ -44428,7 +44297,7 @@ ca:bròcoli
 cs:brokolice
 cy:Brocoli
 da:broccoli
-de:Brokkoli
+de:Brokkoli, Broccoli
 dv:ބުރޮކޯޅި
 el:Μπρόκολο
 eo:Brokolo
@@ -44633,8 +44502,8 @@ wikidata:en:Q263203
 wikipedia:en:https://en.wikipedia.org/wiki/Red_cabbage
 # fr:chou-rouge has 47 products in 4 languages @2018-10-17
 
-# CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-# IN french chou chinois is used for both varieties. And in other languages as well.
+# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
 
 <en:cabbage
 en:Napa cabbage
@@ -44675,7 +44544,7 @@ en:pak choi, Bok choy, pok choi
 de:Pak Choi
 el:Μποκ τσόι
 fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr:Brassica rapa, Chou chinois, Bok choy, Pak choï
+fr:Brassica rapa, Bok choy, Pak choï
 nl:Paksoi
 ru:бок-чой
 uk:Бок-чой
@@ -47359,7 +47228,7 @@ bs:Batat
 ca:moniato,muniato
 cs:povijnice batátová
 da:sød kartoffel
-de:Süßkartoffel, Süsskartoffeln
+de:Süßkartoffel, Süsskartoffeln, Süßkartoffeln
 el:Γλυκοπατάτα
 eo:Batato
 es:patata dulce, batata,boniato
@@ -47611,7 +47480,8 @@ fr:pommes de terre biologiques
 en:organic potato from France
 fr:Pommes de terre biologiques origine France
 
-<en:precooked potato
+<en:potato
+en:precooked potato
 fr:pommes de terre précuites
 
 <en:potato
@@ -48009,7 +47879,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr:3.4
 
-<en:chile pepper
+<en:chili pepper
 en:tabasco chile
 es:chiles tabasco
 
@@ -48144,10 +48014,6 @@ zh:墨西哥辣椒
 wikidata:en:Q504133
 wikipedia:en:https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
-
-<en:chile pepper
-en:chile sauce
-es:salsa de chile
 
 <en:jalapeno peppers
 en:green jalapeno peppers, green jalapeno
@@ -48714,7 +48580,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 da:tomatpuré, tomatpure, tomatkoncentrat
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree
+de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
 es:concentrado de tomate, pasta de tomate
 et:tomatipüree
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
@@ -48754,7 +48620,7 @@ fr:purée de tomates mi-réduite reconstituée
 
 <en:tomato purée
 en:concentrated tomato purée
-de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat
+de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
 es:tomate-concentrado
 fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
 fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
@@ -49668,7 +49534,7 @@ fr:haricot rouge, haricots rouges
 it:fagioli rossi
 sv:röda kidneybönor, kidneybönor
 
-<en:mung bean
+<en:beans
 en:mung bean
 es:habas de mungo,judias mungo
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
@@ -50408,7 +50274,7 @@ cs:čočka jedlá
 cv:Ясмăк
 cy:Corbysen corbys
 da:Linser
-de:Linse
+de:Linse, Linsen
 el:Φακή
 eo:Lento
 es:lenteja
@@ -50777,7 +50643,7 @@ bg:бадеми
 ca:ametlla, ametlles
 cs:mandle
 da:mandel, mandler
-de:Mandel, Mandeln, Mandelkerne
+de:Mandel, Mandeln
 el:Αμύγδαλο, αμύγδαλα
 eo:migdalo
 es:almendra, almendras
@@ -51210,7 +51076,7 @@ bn:হ্যাজেল বাদাম
 ca:avellana, avellanes
 cs:lískový ořech, lískové ořechy, lískové oříšky
 da:Hasselnød, hasselnødder
-de:Haselnuss, Haselnüsse, Haselnusse, Haselnusskerne
+de:Haselnuss, Haselnüsse, Haselnusse
 el:φουντούκια
 eo:Avelo
 es:avellana, avellanas
@@ -51239,7 +51105,7 @@ nl:hazelnoot, hazelnoten
 nv:Neeshchʼíínímazí
 pl:orzechy laskowe, Leszczyna pospolita
 pt:avelã, avelãs
-ro:alune de pădure, alune
+ro:alune de pădure
 ru:лесной орех, лесньым орехом, фундук
 sk:lieskové oriešky
 sl:lešniki
@@ -51336,7 +51202,7 @@ it:nocciole macinate
 
 <en:hazelnut
 fr:éclats de noisettes
-de:Haselnüsse gemahlen, Haselnusssplitter, Haselnussstücke
+de:Haselnusssplitter, Haselnussstücke
 it:nocciole a scaglie
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes
 # 145 products in 4 languages @2018-10-06
@@ -51363,7 +51229,6 @@ nl:hazelnootpasta
 pl:masa orzechowa
 pt:pasta de avelãs
 pt:pasta de avelã
-ro:grasime din lapte
 sk:oriešková pasta
 sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
@@ -51694,10 +51559,7 @@ es:horchata de chufa
 ###################################################################################################
 <en:nut
 en:tree nuts, treenuts
-de:Nüsse, Schalenfrüchte
 es:nueces de árboles
-fi:puupähkinät
-fr:noix
 
 ###################################################################################################
 #
@@ -51714,7 +51576,7 @@ ca:nous
 co:Noce
 cs:vlašský ořech, vlašské ořechy
 da:valnødder
-de:Walnuss, Walnüsse, Walnusskerne
+de:Walnuss, Walnüsse
 el:Καρύδι
 eo:juglandonukso
 es:nuez, nueces
@@ -51728,7 +51590,7 @@ gl:Noz
 hu:dió
 id:Kacang kenari
 io:Nuco
-it:noce, nocciole
+it:noce
 ja:クルミ
 kn:ಅಖ್ರೋಟ್
 ko:호두
@@ -51806,7 +51668,7 @@ da:frø
 de:Kernen, Samen
 el:Σπόρος
 eo:semo
-es:semilla, semillas, pipa, pipas,pepita,pepitas
+es:semilla, semillas, pipa, pipas, pepita, pepitas
 et:Seeme
 eu:Hazi
 fa:بذر
@@ -52013,18 +51875,19 @@ fi:luomu fenkolinsiemen
 nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
-# Salvia hispanica, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
+#en:description: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 en:chia
 da:Chia
-de:chia, Salvia hispanica
-en:chia, Salvia hispanica
-es:chia, chía negra, Salvia hispanica
-fi:chia, salvia hispanica
-fr:chia, salvia hispanica
-it:chia, Salvia hispanica
-nb:chia, Salvia hispanica
-nl:chia, Salvia hispanica
-pt:chia, Salvia hispanica
+de:chia
+en:chia
+es:chia, chía negra
+fi:chia
+fr:chia
+it:chia, 
+la:Salvia hispanica
+nb:chia
+nl:chia
+pt:chia
 wikidata:en:Q1071585
 # ingredient/chia has 44 products @2018-10-07
 vegan:en:yes
@@ -52034,7 +51897,7 @@ vegetarian:en:yes
 <en:chia
 en:chia seed, chia seeds
 da:Chiafrø, chiafrø
-de:Chiasamen, chia
+de:Chiasamen
 es:semillas de chia
 fi:chia-siemen, chia-siemenet, chiansiemen
 fr:graine de chia, graines de chia
@@ -52077,6 +51940,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 #en:cumin powder
 #fr:cumin en poudre
 #es:comino en polvo
+
+<en:seed
+en:linseed seeds, linseeds
+es:semillas de linaza, linaza
 
 <en:seed
 <en:melon
@@ -52235,7 +52102,7 @@ en:sunflower seed, sunflower seeds, sunflower kernels
 ca:llavors de gira-sol, pipes de gira-sol
 da:Solsikkekerner, solsikkefrø
 de:Sonnenblumenkerne
-es:semillas de girasol, pipas de girasol, pipas
+es:semillas de girasol, pipas de girasol
 fi:auringonkukansiemen, auringonkukansiemenet, auringonkukansiemeniä
 fr:graines de tournesol
 hu:napraforgómag
@@ -52267,6 +52134,8 @@ fr:lin
 it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
+<en:flax
+fr:lin jaune
 
 # It is possible to derive oil from flax seed
 
@@ -52280,9 +52149,9 @@ es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
 fi:pellavansiemen, pellavansiemenet, pellavansiemeniä
-fr:graine de lin, graines de lin, lin, graines de lin jaune
+fr:graine de lin, graines de lin
 hu:Lenmag
-it:semi di lino, lino
+it:semi di lino
 nb:linfrø
 nl:lijnzaad
 nn:linfrø
@@ -52300,13 +52169,10 @@ de:Leinsaat geschrotet
 
 <en:flax seed
 en:golden flax seeds
-es:semillas de lino dorado,lino dorado
-fr:graines de lin doré
+es:semillas de lino dorado, lino dorado
+fr:graines de lin doré, graines de lin jaune
 de:goldgelbe Leinsaat
 # ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
-
-<en:flax seed
-fr:lin jaune
 
 <en:flax seed
 en:brown flax seeds
@@ -52409,7 +52275,7 @@ en:white pepper
 ca:pebre blanc
 cs:Bílý pepř
 da:Hvid peber
-de:weißer Pfeffer, weisser Pfeffer
+de:weißer Pfeffer, weisser Pfeffer, Pfeffer weiß
 es:Pimienta blanca
 fi:valkopippuri
 fr:poivre blanc
@@ -53027,7 +52893,8 @@ sl:začimbni ekstrakti
 vegan:en:yes
 vegetarian:en:yes
 
-<en:natural spice extract
+<en:spice extract
+en:natural spice extract
 fr:extrait naturel d'épice, extraits naturels d'épices
 fi:luontainen mausteuute
 
@@ -53106,7 +52973,6 @@ de:Pflanzenextrakte
 es:Extracto de plantas
 fi:kasviuute, kasviuutteet
 fr:extraits de plantes, extraits de plantes aromatiques
-it:estratti vegetali
 nl:plantextracten
 # ingredient/fr:extraits-de-plantes has 69 products in 4 languages @2019-05-29
 
@@ -53458,7 +53324,7 @@ wikidata:en:Q1882876
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking.
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. E100
 
 # <en:root vegetable
 <en:spice
@@ -54363,7 +54229,7 @@ he:חרדל
 hi:सरसों
 hr:Senf
 ht:Moutad
-hu:mustár, Mustármag
+hu:mustár
 hy:Մանանեխ
 id:Moster
 io:Mustardo
@@ -54444,7 +54310,7 @@ it:Semi di senape
 ja:カラシナ,シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
-pl:Gorczyca
+pl:ziarno gorczyca
 pt:Semente de mostarda
 sl:gorčično seme
 sv:senapsfrö, senapsfrön
@@ -54644,7 +54510,7 @@ pl:cząber
 <en:herb
 <en:coriander
 en:coriander leaves, cilantro
-da:Korianderblade, koriander
+da:Korianderblade
 de:Korianderblätter
 es:Hojas de cilantro
 fi:korianterinlehti, korianterinlehdet
@@ -56313,7 +56179,7 @@ bg:Дафинов лист
 ca:Llorer
 cs:Bobkový list
 da:Laurbær, laurbærblade
-de:Lorbeer, Lorbeerblatt
+de:Lorbeer, Lorbeerblatt, Lorbeerblätter
 es:Hoja de laurel, laurel
 fi:Laakerinlehti
 fr:laurier, feuilles de laurier
@@ -59149,7 +59015,7 @@ it:te nero decaffeinato, tè nero decaffeinato
 # ingredient/tree-sorrel no products @2019-05-08
 
 
-# Ddscription:en:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
+# en:description:Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V.planifolia).
 
 <en:plant
 en:vanilla
@@ -59164,7 +59030,7 @@ da:Vanilje
 de:Vanille
 el:Βανίλια
 eo:vanilo
-es:vainilla,esencia de vainilla,vainilla natural
+es:vainilla
 et:vanill
 eu:Banilla
 fa:وانیل
@@ -59229,10 +59095,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanilla
 # en:process:en:powdered
 
 <en:vanilla
+en:natural vanilla
+es:vainilla natural
 fr:vanille naturelle
 fi:luontainen vanilja
 # ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
-
 
 <en:vanilla
 en:Bourbon vanilla
@@ -59268,7 +59135,7 @@ ca:extracte de vainilla
 cs:Vanilkový výtažek
 da:vaniljeekstrakt, vaniljeessens
 de:Vanilleextrakt, Vanille Extrakt
-es:extracto de vainilla
+es:extracto de vainilla, esencia de vainilla
 fi:vaniljauute
 fr:extrait de vanille
 hu:vaníliakivonat, vanília kivonat
@@ -60033,7 +59900,7 @@ la: Saccharina japonica, Laminaria Japonica
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 
-# Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+# en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
 en:nori
@@ -60043,7 +59910,7 @@ bn:নরি
 ca:Nori
 cs:nori
 da:nori
-de:Nori
+de:Nori, Nabel-Purpurtang
 el:νόρι
 eo:norio
 es:nori,alga nori
@@ -60062,6 +59929,7 @@ ja:海苔
 jv:Nori
 ka:ნორი
 ky:Нори
+la:Porphyra umbilicalis, porphyra umbilical
 mk:нори
 ms:Nori
 nb:nori
@@ -60090,12 +59958,6 @@ zh:海苔
 wikidata:en:Q201565
 wikipedia:en:https://en.wikipedia.org/wiki/Nori
 # ingredient/fr:nori has 51 products in 4 languages @2019-02-22
-
-<en:seaweed
-en:Porphyra umbilicalis
-de:Nabel-Purpurtang (Porphyra umbilicalis)
-fr:porphyra umbilicalis, nori
-la:Porphyra umbilicalis, porphyra umbilical
 # ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
 
 
@@ -60141,7 +60003,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 # algues:laitue de mer
 
 
-# Himanthalia elongata is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
+# en:description:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
 <en:seaweed
 en:thongweed, sea spaghetti
@@ -60152,19 +60014,15 @@ fr:spaghetti de mer, Hymanthalia, haricot de mer, haricots de mer
 ga:Reamóra
 gd:Iomlach
 gl:Cinta
+la:Himanthalia elongata, Himanthalia elongato
 nl:riemwier
 wikidata:en:Q1636443
 # ingredient/fr:spaghetti-de-mer has 7 products in french @2019-02-22
 # ingredient/fr:haricot-de-mer has 9 products in french @2019-02-22
-
-<en:thongweed
-en:Himanthalia elongata
-fr:Himanthalia elongata, Haricot de mer, Spaghetti de mer
-la:Himanthalia elongata, Himanthalia elongato
 wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 
-# Wakame (ワカメ), Undaria pinnatifida, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
+# en:description:Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
 
 <en:seaweed
 en:wakame
@@ -60179,6 +60037,7 @@ he:ואקאמה
 it:Wakame
 ja:ワカメ
 ko:미역
+la:undaria pinnatifida
 ru:вакамэ
 th:วะกะเมะ
 vi:Tảo bẹ Undaria
@@ -60189,30 +60048,23 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wakame
 # ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
 
 
-<en:wakame
-en:undaria pinnatifida
-de:Wakame (Undaria pinnatifida)
-fr:Undaria pinnatifida, Wakame
-la:undaria pinnatifida
-
-
-# Ascophyllum nodosum is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
+# en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
 <en:seaweed
 en:Ascophyllum
-de:Knotentang (Ascophyllum)
+de:Knotentang
 fr:Ascophyllum
 la:Ascophyllum
 wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
 # ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
 
 
-# Laminaria is a genus of 31 species of brown algae commonly called "kelp".
+# en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
 
 <en:seaweed
 en:Laminaria
 de:Laminaria
-fr:Laminaria, Laminaire
+fr:Laminaire
 la:Laminaria
 wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
@@ -60222,7 +60074,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 la:Porphyra yezoensis
 
 
-# Aspergillus oryzae, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
+# en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
 # <en:mold
 en:Aspergillus oryzae, a. oryzae
@@ -60688,6 +60540,7 @@ fr:Trompettes de la mort
 gl:Trompeta dos mortos
 hr:Crna trubača
 hu:Sötét trombitagomba
+la:Craterellus cornucopioides
 li:Trompèt van d'r doeëd
 lt:Paprastasis trimitėlis
 mk:црна труба
@@ -60702,12 +60555,6 @@ sv:Svart trumpetsvamp
 # vec:Tronbeta da morto
 # zh-tw:灰喇叭菌
 wikidata:en:Q857903
-
-<en:horn of plenty
-en:Craterellus cornucopioides
-de:Totentrompete (Craterellus cornucopioides)
-fr:Craterellus cornucopioides, Trompettes de la mort
-la:Craterellus cornucopioides
 wikipedia:en:https://en.wikipedia.org/wiki/Craterellus_cornucopioides
 
 <en:mushroom
@@ -60798,6 +60645,7 @@ gl:Níscaro
 hr:Rujnica
 hu:Ízletes rizike
 ka:მჭადა სოკო
+la:Lactarius deliciosus
 lt:Pušyninė rudmėsė
 lv:Priežu rudmiese
 mk:рујница
@@ -60820,12 +60668,6 @@ zh:松乳菇
 # zh-tw:松乳菇
 wikidata:en:Q62138
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_deliciosus
-
-<en:saffron milk cap
-en:lactarus deliciosus, lactarus déliciosus
-de:Edel-Reizker (Lactarus deliciosus)
-fr:Lactarius deliciosus, Lactaire délicieux
-la:lactarius deliciosus
 # ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
 
 # description:en:LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
@@ -61028,11 +60870,12 @@ cs:opeňka měnlivá
 cy:Siobyn coed bacsiog
 de:Gemeines Stockschwämmchen
 fi:Koivunkantosieni
-fr:Pholiote changeante
+fr:Pholiote changeante, Souchette, Agaric à soupe
 hu:Ízletes tőkegomba
 is:Hverfisveppur
 ja:センボンイチメガサ
 ka:ზაფხულის მანჭკვალა
+la:Pholiota mutabilis, Kuehneromyces mutabilis
 lt:Paprastoji kelmiukė
 nl:Stobbezwammetje
 pl:łuskwiak zmienny
@@ -61040,12 +60883,6 @@ ro:Gheba ciobanilor
 ru:Опёнок летний
 sv:Föränderlig tofsskivling
 zh:庫恩菇
-
-<en:sheathed woodtuft
-en:Pholiota mutabilis
-de:Gemeines Stockschwämmchen (Pholiota mutabilis)
-fr:Kuehneromyces mutabilis, Pholiota mutabilis, Pholiote changeante, Souchette, Agaric à soupe
-la:Pholiota mutabilis, Kuehneromyces mutabilis
 wikidata:en:Q732640
 wikipedia:en:https://en.wikipedia.org/wiki/Kuehneromyces_mutabilis
 
@@ -61100,11 +60937,12 @@ cs:kukmák sklepní
 de:Dunkelstreifiger Scheidling
 fa:قارچ کاه
 fi:Viljelytuppisieni
-fr:Volvaire volvacée , Volvaire
+fr:Volvaire volvacée, Volvaire, Volvaire cultivée, Volvaire asiatique
 hi:पुआल मशरूम
 id:Jamur merang
 ja:フクロタケ
 jv:Jamur merang
+la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 nl:tropische beurszwam
 or:ପାଳ ଛତୁ
 pl:Pochwiak wielkopochwowy
@@ -61115,12 +60953,6 @@ zh:草菇
 # hak:Chhó-kû
 # yue:草菇
 # zh-tw:草菇
-
-<en:straw mushroom
-en:Volvariella Volvacea
-de:Dunkelstreifiger Scheidling (Volvariella Volvacea)
-fr:Volvariella volvacea, Volvaire volvacée, Volvaire cultivée, Volvaire asiatique
-la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
 wikidata:en:Q641656
 wikipedia:en:https://en.wikipedia.org/wiki/Volvariella_volvacea
 # https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
@@ -61279,7 +61111,7 @@ et:Aasnööbik
 eu:Marasmio jangarri
 fa:قارچ حلقه پریان
 fi:Nurminahikas
-fr:Mousseron, Marasme des Oréades
+fr:Mousseron, Marasme des Oréades, Faux mousseron, Cariolette
 gl:Sendeiriña
 hr:Vilin klinčac
 hu:Mezei szegfűgomba
@@ -61301,13 +61133,6 @@ zh:硬柄小皮傘
 wikidata:en:Q752492
 wikipedia:en:https://en.wikipedia.org/wiki/Marasmius_oreades
 # ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
-
-<en:Scotch bonnet
-en:Marasmius oreades
-de:Nelken-Schwindling (Marasmius oreades)
-fr:Marasmius oreades, Marasme des Oréades, Faux mousseron, Cariolette
-la:Marasmius oreades
-
 
 # description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
 
@@ -61411,20 +61236,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Truffle
 # ingredient/en:truffle has 14 products in 2 languages @2020-06-13
 
 
-# description:en:tuber melanosporum, called the BLACK TRUFFLE, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
+# description:en:tuber MELANOSPORUM is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
 
 <en:truffle
 en:black truffle
 ca:tòfona negra
 cy:Cloronen Ffrengig
-de:Schwarze Trüffel
+de:Schwarze Trüffel, Perigord-Trüffel
 es:trufa negra
 eu:Boilur beltz
 fi:mustatryffeli
-fr:truffe noire, truffes noires
+fr:truffe noire, truffes noires, truffe noire du Périgord, truffe du Périgord
 hu:Francia szarvasgomba
 it:Tartufo nero
 kk:Жерқұлақ
+la:Tuber melanosporium
 nl:zwarte truffel
 pl:trufla czarnozarodnikowa
 ro:Trufă neagră franceză
@@ -61434,18 +61260,6 @@ sv:Perigordtryffel
 tr:Perigord trüfü
 zh:黑松露
 # ingredient/black-truffle has 39 products in 4 languages @2019-04-23
-
-# description:en:TUBER MELANOSPORUM, called the black truffle, Périgord truffle or French black truffle, is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations.
-
-<en:black truffle
-en:tuber melanosporium
-de:Perigord-Trüffel (Tuber melanosporium)
-fr:tuber melanosporum, truffe noire, truffe noire du Périgord, truffe du Périgord
-la:tuber melanosporium
-wikidata:en:Q1093314
-wikipedia:en:https://en.wikipedia.org/wiki/Tuber_melanosporum
-# usage:fr:truffes noires (tuber melanosporium)
 
 
 # description:en:The SUMMER TRUFFLE (Tuber aestivum) is a species of truffle, found in almost all European countries.
@@ -61461,9 +61275,10 @@ de:Sommer-trüffel
 et:Suvetrühvel
 eu:Udako boilur
 fi:kesätryffeli
-fr:truffle d’été, tuber aestivum
+fr:truffle d’été, Truffe blanche d'été
 hu:Nyári szarvasgomba
 it:Tartufo Scorzione
+la:Tuber aestivum
 lt:Vasarinis trumas
 nl:Zomertruffel
 pl:trufla letnia
@@ -61474,12 +61289,6 @@ wikidata:en:Q74692
 wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 # ingredient/fr:tuber-aestivum has 35 products in 4 languages @2018-12-14
 
-<en:summer truffle
-en:Tuber aestivum
-de:Sommer-Trüffel (Tuber aestivum)
-fr:Tuber aestivum, Truffe blanche d'été
-la:Tuber aestivum
-# comment:en:The latin name is kept separate as it is often found as a separate ingredient. It also allows to detect wrong translations.
 
 # comment:fr:Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
@@ -62336,42 +62145,37 @@ en:Anarhichas lupus
 la:Anarhichas lupus
 
 
-# The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
+# en:description:The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
 <en:fish
 <en:white fish
-en:blue whiting
-bg:синя северна треска
-br:Merlank glas
-ca:maire
-cy:Swtan Glas
-de:Blauer Wittling
-eu:Bakalada
-fa:سفیدگون آبی
-fi:Mustakitaturska
-fo:Svartkjaftur
-fr:merlan bleu
-gl:Lirio
-hu:Kék puha tőkehal
-is:Kolmunni
-nl:Blauwe wijting
-nn:Kolmule
-pl:Błękitek
-sv:Kolmule
-uk:Путасу північна
-zh:藍鱈
+en:blue whiting, Micromesistius poutassou
+bg:синя северна треска, Micromesistius poutassou
+br:Merlank glas, Micromesistius poutassou
+ca:maire, Micromesistius poutassou
+cy:Swtan Glas, Micromesistius poutassou
+de:Blauer Wittling, Micromesistius poutassou
+eu:Bakalada, Micromesistius poutassou
+fa:سفیدگون آبی, Micromesistius poutassou
+fi:Mustakitaturska, Micromesistius poutassou
+fo:Svartkjaftur, Micromesistius poutassou
+fr:merlan bleu, Micromesistius poutassou
+gl:Lirio, Micromesistius poutassou
+hu:Kék puha tőkehal, Micromesistius poutassou
+is:Kolmunni, Micromesistius poutassou
+la:Micromesistius poutassou, Micromesistius spp
+nl:Blauwe wijting, Micromesistius poutassou
+nn:Kolmule, Micromesistius poutassou
+pl:Błękitek, Micromesistius poutassou
+sv:Kolmule, Micromesistius poutassou
+uk:Путасу північна, Micromesistius poutassou
+zh:藍鱈, Micromesistius poutassou
 wikidata:en:Q743248
 wikipedia:en:https://en.wikipedia.org/wiki/Blue_whiting
 # ingredient/fr:merlan-bleu has 3 products @2018-12-31
 
-<fr:merlan bleu
-en:Micromesistius poutassou, Micromesistius spp
-de:Blauer Wittling (Micromesistius poutassou)
-fr:Micromesistius poutassou, Merlan bleu
-la:Micromesistius poutassou
 
-
-# The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
+# en:description:The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
 
 <en:fish
 <en:white fish
@@ -62450,66 +62254,62 @@ en:lota lota
 la:lota lota
 
 
-# The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
+# en:description:The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
 
 <en:fish
-en:capelin, caplin
-ar:كبلين
-az:Moyva
-be:Мойва
-bg:мойва
-br:Kaplañsenn
-cs:huňáček severní
-cy:Caplan
-de:Lodde
-eu:Paneka atlantiko
-fa:خردماهی
-fi:Villakuore
-fr:capelan
-he:טרוטנית
-hu:Csuklyás hal
-id:Capelin
-is:Loðna
-it:Capelin
-ja:カラフトシシャモ
-jv:Capelin
-ka:მოივა
-kk:Мойва
-ko:열빙어
-lt:Stintenė
-mk:капелин
-ms:Capelin
-nb:lodde
-nl:lodde
-nn:Lodde
-pl:Gromadnik
-ru:Мойва
-so:Masago
-sv:Lodda
-uk:Мойва
-vi:Cá trứng
-zh:毛鱗魚
-# kk-arab:مويۆا
-# kk-cn:مويۆا
-# kk-cyrl:Мойва
-# kk-kz:Мойва
-# kk-latn:Moýva
-# kk-tr:Moýva
-# vep:Hohol'
-# zh-cn:毛鳞鱼
-# zh-hans:毛鳞鱼
-# zh-hant:毛鱗魚
-# zh-hk:毛鱗魚
-# zh-sg:毛鳞鱼
-# zh-tw:毛鱗魚
+en:capelin, caplin, Mallotus villosus
+ar:كبلين, Mallotus villosus
+az:Moyva, Mallotus villosus
+be:Мойва, Mallotus villosus
+bg:мойва, Mallotus villosus
+br:Kaplañsenn, Mallotus villosus
+cs:huňáček severní, Mallotus villosus
+cy:Caplan, Mallotus villosus
+de:Lodde, Kapelan, Mallotus villosus
+eu:Paneka atlantiko, Mallotus villosus
+fa:خردماهی, Mallotus villosus
+fi:Villakuore, Mallotus villosus
+fr:capelan, Mallotus villosus
+he:טרוטנית, Mallotus villosus
+hu:Csuklyás hal, Mallotus villosus
+id:Capelin, Mallotus villosus
+is:Loðna, Mallotus villosus
+it:Capelin, Mallotus villosus
+ja:カラフトシシャモ, Mallotus villosus
+jv:Capelin, Mallotus villosus
+ka:მოივა, Mallotus villosus
+kk:Мойва, Mallotus villosus
+ko:열빙어, Mallotus villosus
+la:Mallotus villosus
+lt:Stintenė, Mallotus villosus
+mk:капелин, Mallotus villosus
+ms:Capelin, Mallotus villosus
+nb:lodde, Mallotus villosus
+nl:lodde, Mallotus villosus
+nn:Lodde, Mallotus villosus
+pl:Gromadnik, Mallotus villosus
+ru:Мойва, Mallotus villosus
+so:Masago, Mallotus villosus
+sv:Lodda, Mallotus villosus
+uk:Мойва, Mallotus villosus
+vi:Cá trứng, Mallotus villosus
+zh:毛鱗魚, Mallotus villosus
+# kk-arab:مويۆا, Mallotus villosus
+# kk-cn:مويۆا, Mallotus villosus
+# kk-cyrl:Мойва, Mallotus villosus
+# kk-kz:Мойва, Mallotus villosus
+# kk-latn:Moýva, Mallotus villosus
+# kk-tr:Moýva, Mallotus villosus
+# vep:Hohol', Mallotus villosus
+# zh-cn:毛鳞鱼, Mallotus villosus
+# zh-hans:毛鳞鱼, Mallotus villosus
+# zh-hant:毛鱗魚, Mallotus villosus
+# zh-hk:毛鱗魚, Mallotus villosus
+# zh-sg:毛鳞鱼, Mallotus villosus
+# zh-tw:毛鱗魚, Mallotus villosus
 wikidata:en:Q143359
 wikipedia:en:https://en.wikipedia.org/wiki/Capelin
 # ingredient/fr:capelan has 2 products in french @2019-01-01
-
-<en:capelin
-en:Mallotus villosus
-de:Kapelan (Mallotus villosus)
-la:Mallotus villosus
 
 
 ###################################################################################################
@@ -62587,40 +62387,35 @@ fi:miedosti savustettu turskan mäti, miedosti savustettu turskakalojen mäti
 <en:lightly smoked cod roe
 fi:sokerisuolattu miedosti savustettu turskan mäti, sokerisuolattu miedosti savustettu turskakalojen mäti
 
-# The Atlantic cod (Gadus morhua) is a benthopelagic fish of the family Gadidae, widely consumed by humans.
+# en:description:The Atlantic cod (Gadus morhua) is a benthopelagic fish of the family Gadidae, widely consumed by humans.
 
 <en:cod
-en:atlantic cod
-af:Atlantiese kabeljou
-az:Atlantik treskası
-be:Траска атлантычная
-bg:треска
-cs:treska obecná
-de:atlantischer Kabeljau
-el:Μπακαλιάρος του Ατλαντικού
-fi:Atlantin turska
-fr:morue de l'Atlantique
-hu:Atlanti tőkehal
-is:Atlantshafsþorskur
-lt:Atlantinė menkė
-nl:Atlantische kabeljauw
-pl:Dorsz atlantycki
-pt:bacalhau-do-atlântico
-tr:Atlantik morinası
-uk:Тріска атлантична
-# pt-br:Bacalhau-do-atlântico
+en:atlantic cod, Gadus morhua
+af:Atlantiese kabeljou, Gadus morhua
+az:Atlantik treskası, Gadus morhua
+be:Траска атлантычная, Gadus morhua
+bg:треска, Gadus morhua
+cs:treska obecná, Gadus morhua
+de:atlantischer Kabeljau, Gadus morhua
+el:Μπακαλιάρος του Ατλαντικού, Gadus morhua
+fi:Atlantin turska, Gadus morhua
+fr:morue de l'Atlantique, Gadus morhua
+hu:Atlanti tőkehal, Gadus morhua
+is:Atlantshafsþorskur, Gadus morhua
+it:merluzzo nordico, Gadus morhua
+la:Gadus morhua
+lt:Atlantinė menkė, Gadus morhua
+nl:Atlantische kabeljauw, Gadus morhua
+pl:Dorsz atlantycki, Gadus morhua
+pt:bacalhau-do-atlântico, Gadus morhua
+tr:Atlantik morinası, Gadus morhua
+uk:Тріска атлантична, Gadus morhua
+# pt-br:Bacalhau-do-atlântico, Gadus morhua
 wikidata:en:Q199788
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_cod
 
-<en:atlantic cod
-en:Gadus morhua
-de:Kabeljau (Gadus morhua)
-fr:Gadus morhua, Morue de l'Atlantique
-it:Gadus morhua - merluzzo nordico
-la:Gadus morhua
 
-
-# The Pacific cod, Gadus macrocephalus, is a species of ray-finned fish in the family Gadidae.
+# en:description:The Pacific cod, Gadus macrocephalus, is a species of ray-finned fish in the family Gadidae.
 
 <en:cod
 en:pacific cod
@@ -62633,6 +62428,7 @@ is:Kyrrahafsþorskur
 it:Merluzzo nordico
 ja:マダラ
 ko:대구
+la:Gadus macrocephalus
 nb:Stillehavstorsk
 nl:pacifische kabeljauw
 pl:Dorsz pacyficzny
@@ -62643,12 +62439,6 @@ sv:Stillahavstorsk
 vi:Cá tuyết Thái Bình Dương
 zh:大头鳕
 wikipedia:en:https://en.wikipedia.org/wiki/Pacific_cod
-
-<en:pacific cod
-en:Gadus macrocephalus
-de:Pazifischer Kabeljau (Gadus macrocephalus)
-fr:Gadus macrocephalus, Morue du Pacifique
-la:Gadus macrocephalus
 wikidata:en:Q783575
 # ingredient/fr:Gadus-macrocephalus has 20 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg Cabillaud (Gadus Macrocephalus)
@@ -62676,18 +62466,15 @@ fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 <en:fish
 en:corvina
 de:Corvina
+la:Cilus gilberti
 pl:Corvina
 zh:吉氏毛突石首魚
 # ingredient/corvina has 2 products @2019-01-13
-
-<en:corvina
-en:Cilus gilberti
-la:Cilus gilberti
 wikidata:en:Q2017562
 wikipedia:en:https://en.wikipedia.org/wiki/Cilus_gilberti
 
 
-# The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
+# en:description:The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
 
 <en:fish
 en:deepwater redfish
@@ -62697,6 +62484,7 @@ fi:pohjolanpunasimppu
 fo:Trantkongafiskur
 fr:dorade sébaste, Dorade-sébaste
 is:Djúpkarfi
+la:Sebastes mentella
 nb:Snabeluer
 nl:Diepzeeroodbaars
 sv:Djuphavskungsfisk
@@ -62706,10 +62494,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
 # ingredient/fr:dorade-sébaste has 2 products @2019-01-15
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
 carbon_footprint_fr_foodges_value:fr:12
-
-<en:deepwater redfish
-en:Sebastes mentella
-la:Sebastes mentella
 
 ###################################################################################################
 #
@@ -62747,6 +62531,7 @@ io:Kongro
 it:Grongo
 ja:ヨーロッパアナゴ
 kg:Musikimbila
+la:Conger conger
 lt:Jūrinis ungurys
 nb:Havål
 nl:zeepaling, Kongeraal
@@ -62768,10 +62553,6 @@ zh:歐洲康吉鰻
 wikidata:en:Q212552
 wikipedia:en:https://en.wikipedia.org/wiki/European_conger
 # ingredient/fr:congre has 9 products @2018-12-31
-
-<en:European conger
-en:Conger conger
-la:Conger conger
 
 ###################################################################################################
 #
@@ -62800,7 +62581,7 @@ es:perca
 <en:perch
 en:nile perch
 es:perca del nilo
-la:lates niloticus
+la:Lates Niloticus
 wikipedia:en:https://en.wikipedia.org/wiki/Nile_perch
 
 ###################################################################################################
@@ -62828,7 +62609,7 @@ et:Atlandi merilest
 eu:Platuxa leun
 fa:صاف‌ماهی اروپایی
 fi:Punakampela
-fr:carrelet, Plie, Filet de plie, filets de carrelet
+fr:carrelet, Plie, Filet de plie, filets de carrelet, Plie commune, Plie d'europe
 ga:Leathóg Bhreac
 gl:Solla
 hr:Iverak zlatopjeg
@@ -62838,6 +62619,7 @@ is:Skarkoli
 it:platessa, filetti di passera
 ja:プレイス
 kk:Камбала
+la:Pleuronectes platessa
 lt:Jūrinė plekšnė
 nb:rødspette
 nl:schol
@@ -62854,12 +62636,6 @@ zh:鰈魚
 # pcd:Càrlé
 wikipedia:en:https://en.wikipedia.org/wiki/European_plaice
 # ingredient/fr:carrelet has 2 products in 3 languages @2018-12-31
-
-<en:European plaice
-en:Pleuronectes platessa
-de:Scholle (Pleuronectes platessa)
-fr:Pleuronectes platessa, Plie commune, Carrelet, Plie d'europe, Plie
-la:Pleuronectes platessa
 # ingredient/fr:Pleuronectes-platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
 
@@ -62925,7 +62701,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 # ingredient/fr:grondin has 8 products in french @2019-01-01
 
 
-# The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
+# en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
 
 <en:fish
 <en:white fish
@@ -62945,7 +62721,7 @@ es:Eglefino
 fa:روغن‌ماهی کوچک
 fi:Kolja
 fo:Hýsa
-fr:églefin, haddock, aiglefin
+fr:églefin, haddock, aiglefin, Ânon
 ga:Cadóg, cadóige
 gd:Adag
 gl:Fogoeiro
@@ -62957,6 +62733,7 @@ is:Ýsa
 it:elgefino
 ja:コダラ
 ka:პიქშა
+la:Melanogrammus aeglefinus
 lt:Juodadėmė menkė
 mk:пишмол
 nb:hyse
@@ -62980,16 +62757,10 @@ zh:黑線鱈
 # zh-tw:黑線鱈
 wikidata:en:Q202406
 wikipedia:en:https://en.wikipedia.org/wiki/Haddock
-
-<en:haddock
-en:Melanogrammus aeglefinus
-de:Schellfisch (Melanogrammus aeglefinus)
-fr:Melanogrammus aeglefinus, Aiglefin, Églefin, Ânon, Haddock
-la:Melanogrammus aeglefinus
 # ingredient/fr:Melanogrammus-aeglefinus has 16 products @2019-01-14
 
 
-# The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
+# en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
 
 <en:fish
 <en:white fish
@@ -63024,8 +62795,9 @@ de:Seehecht
 es:merluza
 fa:قلاب‌دهان دماغه
 fi:rantakummeli
-fr:Merlu du Cap, Filets de merlu blanc du Cap
+fr:Merlu commun
 it:Fileto di Merluzzo Sudafricano
+la:Merluccius capensis
 nl:Zuid-Afrikaanse heek
 sv:Kapkummel
 zh:南非無鬚鱈
@@ -63034,15 +62806,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_capensis
 # ingredient/fr:Merluccius-capensis has 8 products in french @2018-12-30
 # structure:outer:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
 # structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus)
-
-<en:South African hake
-en:Merluccius capensis
-de:Kap-Seehecht (Merluccius capensis)
-fr:Merluccius capensis, Merlu du cap
-la:Merluccius capensis
 # structure:inner:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
 
-# Merluccius paradoxus, the deep-water Cape hake, is a merluccid hake of the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of Southern Africa, south of Angola.
+# en:description:Merluccius paradoxus, the deep-water Cape hake, is a merluccid hake of the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of Southern Africa, south of Angola.
 
 <en:hake
 en:deep-water Cape hake
@@ -63050,39 +62816,28 @@ af:Diepwater stokvis
 bg:дълбоководни бели мерлузи
 de:Tiefwasserkaphecht
 fi:teräskummeli
-fr:Merluccius capensis, Merlu du cap
+fr:Merlu du cap
+la:Merluccius paradoxus, Merluccius capensis
 sl:Globokomorski kapski oslič
 zh:深水無鬚鱈
 wikidata:en:Q2461954
 wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_paradoxus
-
-<en:deep-water Cape hake
-en:Merluccius paradoxus
-de:Seehecht (Merluccius paradoxus)
-fr:Merluccius paradoxus, Merlu commun
-la:Merluccius paradoxus
-# ingredient/fr:merluccius-paradoxus has 5 products @2018-12-30
 # structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus)
 
-# Merluccius gayi is a merluccid hake of the genus Merluccius, with two subspecies, the South Pacific hake (M. g. gayi) and the Peruvian hake (M. g. peruanus), found in the south-western Pacific Ocean, along the coast of South America
+# en:description:Merluccius gayi is a merluccid hake of the genus Merluccius, with two subspecies, the South Pacific hake (M. g. gayi) and the Peruvian hake (M. g. peruanus), found in the south-western Pacific Ocean, along the coast of South America
 
 <en:hake
 en:South Pacific hake
 de:Südpazifischer Seehecht
 es:Merluza chilena
 fi:perunkummeli
-fr:Merluccius productus, Merlu du Pacifique sud
+fr:Merluccius productus, Merlu du Pacifique sud, Merlu blanc du Chili
+la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
 ru:Чилийско-перуанская мерлуза
 sv:Chilensk kummel
 zh:秘魯無鬚鱈
 wikidata:en:Q2348852
 wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_gayi
-
-<en:South Pacific hake
-en:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
-de:Merluccius gayi
-fr:Merluccius gayi, Merlu blanc du Chili
-la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
 # ingredient/fr:Merluccius-gayi has 2 products @2018-12-30
 # structure:inner:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
 
@@ -63100,6 +62855,7 @@ fr:merlu du Pacifique, Merlu du Pacifique nord
 is:Kyrrahafslýsingur
 it:nasello del Pacifico, merluzzo del Pacifico
 ja:シロガネダラ
+la:Merluccius productus, Merlusccius productus
 nl:Pacifische heek
 sv:Stillahavskummel
 uk:Хек тихоокеанський, орегонський
@@ -63107,12 +62863,6 @@ zh:北太平洋梭鳕
 wikidata:en:Q919598
 wikipedia:en:https://en.wikipedia.org/wiki/North_Pacific_hake
 # structure:outer:role:synonym, eg nasello del Pacifico (Merluccius productus)
-
-<en:north pacific hake
-en:Merluccius productus
-de:Pazifischer Seehecht
-fr:Merluccius productus, Merlu du Pacifique nord
-la:Merluccius productus, Merlusccius productus
 # ingredient/fr:Merluccius-productus has 6 products @2018-12-30
 # structure:inner:role:synonym, eg nasello del Pacifico (Merluccius productus)
 
@@ -63127,8 +62877,9 @@ de:Argentinische Seehecht
 es:merluza argentina
 fa:قلاب‌دهان آرژانتینی
 fi:argentiinankummeli
-fr:Merlu Argentin
+fr:Merlu Argentin, Merlu austral
 ja:アルゼンチンメルルーサ
+la:Merluccius hubbsi
 nl:Argentijnse heek
 ru:Аргентинская мерлуза, патагонская мерлуза, патагонский хек
 sl:Argentinski oslič
@@ -63136,12 +62887,6 @@ sv:Argentinsk kummel
 zh:赫氏無鬚鱈
 wikidata:en:Q1868257
 wikipedia:en:https://en.wikipedia.org/wiki/Argentine_hake
-
-<en:Argentine hake
-en:Merluccius hubbsi
-de:Argentinischer Seehecht (Merluccius hubbsi)
-fr:Merluccius hubbsi, Merlu argentin, Merlu austral
-la:Merluccius hubbsi
 # ingredient/fr:Merluccius-hubbsi has 3 products in french @2018-12-31
 # structure:inner:role:synonym, eg Filet de merlu blanc (Merluccius hubbsi)
 
@@ -63155,7 +62900,7 @@ de:Heilbutt
 fr:flétan
 wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 
-# Herring are forage fish, mostly belonging to the family Clupeidae.
+# en:description:Herring are forage fish, mostly belonging to the family Clupeidae.
 
 <en:fish
 <en:oily fish
@@ -63165,7 +62910,7 @@ br:Harink
 ca:areng
 co:aringa
 cs:Sleď
-de:Hering, Heringsfilet, Heringsfilets
+de:Hering
 eo:Haringo
 es:Arenque
 fa:شاه‌ماهی
@@ -63224,7 +62969,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Herring
 <en:herring
 en:herring fillets
 da:sildefileter
-de:Heringsfilets
+de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
 it:filetti di aringa
@@ -63252,6 +62997,7 @@ hi:हेरिंग साटन
 hy:Ատլանտյան տառեխ
 id:Haring atlantik
 ja:タイセイヨウニシン
+la:Clupea harengus
 lb:Atlanteschen Hierk
 lt:Strimelė
 lv:strimala
@@ -63267,16 +63013,13 @@ zh:大西洋鯡
 # en-gb:Atlantic herring
 wikidata:en:Q2396858
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
-
-<en:Atlantic herring
-en:Clupea harengus
-de:Hering (Clupea harengus)
-fr:Clupea harengus, clupea harengus pêché en Atlantique Nord
-la:Clupea harengus
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
 
+<en:Atlantic herring
+fr:clupea harengus pêché en Atlantique Nord
 
-# Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
+
+# en:description:Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
 
 <en:fish
 <en:oily fish
@@ -63362,10 +63105,11 @@ de:Franzosendorsch
 es:Faneca
 eu:Paneka handi
 fi:Partaturska
-fr:tacaud
+fr:tacaud, Tacaud commun
 gl:Faneca
 hu:Francia tőkehal
 it:merluzzetto bruno
+la:Trisopterus luscus
 nb:Skjeggtorsk
 nl:steenbolk
 pl:Bielmik
@@ -63374,18 +63118,12 @@ sl:Francoski molič
 sv:Skäggtorsk
 zh:條長臀鱈
 # ingredient/fr:tacaud has 11 products in french @2018-12-31
-
-<en:pouting
-en:Trisopterus luscus
-de:Franzosendorsch (Trisopterus luscus)
-fr:Trisopterus luscus, Tacaud commun
-la:Trisopterus luscus
 wikidata:en:Q599799
 wikipedia:en:https://en.wikipedia.org/wiki/Trisopterus_luscus
 # structure:inner:role:synonym, eg tacaud (Trisopterus luscus)
 
 
-# The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
+# en:description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 
 <en:fish
 <en:white fish
@@ -63397,7 +63135,7 @@ ca:peix carboner
 cs:treska tmavá
 cy:Chwitlyn Glas
 da:sej
-de:Köhler
+de:Köhler, Köhlerfisch
 el:Πόλοκ
 es:carbonero
 et:süsikas
@@ -63411,6 +63149,7 @@ is:ufsi
 ja:シロイトダラ
 kk:Сайда
 ko:북대서양대구
+la:Pollachius virens
 lt:Ledjūrio menkė
 nb:sei
 nl:koolvis
@@ -63434,14 +63173,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pollachius_virens
 nl:koolvisfilet
 fi:seitifilee
 
-<en:saithe
-en:Pollachius virens
-de:Köhlerfisch (Pollachius virens)
-fr:Pollachius virens, Lieu noir
-la:Pollachius virens
 
-
-# Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
+# en:description:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 
 <en:fish
 <en:oily fish
@@ -63657,6 +63390,7 @@ ja:サケ
 ka:კეტა
 kk:Кете
 ko:연어
+la:Oncorhynchus kéta
 mk:кучешки лосос
 nb:ketalaks
 nl:Chumzalm
@@ -63681,16 +63415,10 @@ zh:鈎吻鮭
 # zh-tw:鈎吻鮭
 wikidata:en:Q475211
 wikipedia:en:https://en.wikipedia.org/wiki/Chum_salmon
-
-<en:chum salmon
-en:Oncorhynchus kéta
-de:Ketalachs (Oncorhynchus kéta)
-fr:Oncorhynchus kéta, Saumon du Pacifique, Saumon kéta, Saumon chien
-la:Oncorhynchus kéta
 # ingredient/fr:Oncorhynchus-kéta has 22 products @2019-01-14
 
 
-# Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
+# en:description:Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
 
 <en:salmon
 en:pink salmon
@@ -63703,7 +63431,7 @@ de:Buckellachs
 eo:Gorbuŝo
 fa:آزادماهی صورتی
 fi:Kyttyrälohi
-fr:saumon rose du pacifique
+fr:saumon rose du pacifique, Saumon rose à bosse
 he:אלתית דבשתית
 hu:Gorbusalazac
 hy:Սապատաձուկ
@@ -63714,6 +63442,7 @@ ja:カラフトマス
 ka:ღურკანა
 ko:곱사연어
 ky:Бүкүр сом
+la:Oncorhynchus gorbuscha
 nb:Pukkellaks
 nl:Roze zalm
 pl:Gorbusza
@@ -63732,18 +63461,12 @@ zh:驼背大马哈鱼
 wikidata:en:Q673380
 wikipedia:en:https://en.wikipedia.org/wiki/Pink_salmon
 # ingredient/fr:saumon-rose-du-pacifique has 46 products in french @2018-12-29
-
-<en:pink salomon
-en:Oncorhynchus gorbuscha
-de:Buckellachs (Oncorhynchus gorbuscha)
-fr:Oncorhynchus gorbuscha, Saumon rose à bosse
-la:Oncorhynchus gorbuscha
 # ingredient/oncorhynchus-gorbuscha has 27 products @2019-01-14
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
 
 
-# Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it.
+# en:description:Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it.
 
 <en:salmon
 en:Sockeye salmon
@@ -63763,6 +63486,7 @@ it:salmone rosso
 ja:ベニザケ
 ka:ნერკა
 ko:홍연어
+la:Oncorhynchus nerka
 mk:црвен лосос
 nb:Rødlaks
 nl:Rode zalm
@@ -63778,17 +63502,10 @@ zh:紅鮭
 # zh-hant:紅鮭
 wikidata:en:Q44064
 wikipedia:en:https://en.wikipedia.org/wiki/Sockeye_salmon
-
-<en:Sockeye salmon
-en:oncorhynchus nerka
-de:Rotlachs (oncorhynchus nerka)
-fr:oncorhynchus nerka, saumon rouge, saumon nerka, sockeye
-it:Oncorhynchus nerka - salmone rosso
-la:oncorhynchus nerka
 # ingredient/fr:oncorhynchus-nerka has 54 products in 4 languages @2019-03-01
 
 
-# The European pilchard (Sardina pilchardus) is a species of ray-finned fish in the monotypic genus Sardina.
+# en:description:The European pilchard (Sardina pilchardus) is a species of ray-finned fish in the monotypic genus Sardina.
 
 <en:fish
 <en:oily fish
@@ -63824,6 +63541,7 @@ it:sardina, sardine
 ja:イワシ
 ka:სარდინი
 ko:정어리
+la:sardina pilchardus walbaum, sardina pilchardus
 lb:Sardinn
 li:Seléngé
 mk:сардина
@@ -63860,10 +63578,6 @@ zh:沙丁魚
 wikidata:en:Q208600
 wikipedia:en:https://en.wikipedia.org/wiki/European_pilchard
 # ingredient/fr:sardine has 546 products in 6 languages @2019-01-02
-
-<en:sardine
-en:Sardina pilchardus
-la:sardina pilchardus walbaum,sardina pilchardus
 
 <en:sardine
 en:sardine fillets
@@ -64120,7 +63834,7 @@ br:Toun gwenn
 ca:bacora
 cs:tuňák křídlatý
 cy:Tiwna Asgell-Hir
-de:Weisse Thunfisch, Weißer Thun
+de:Weisse Thunfisch, Weißer Thun, Weißer-Thun
 el:Μακρυπτέρυγος τόνος
 eu:Atun hegaluze
 fa:تون باله‌دراز
@@ -64133,6 +63847,7 @@ is:Hvíti túnfiskur
 it:tonno bianco
 ja:ビンナガ
 ko:날개다랑어
+la:Thunnus alalonga
 nb:Albakor
 nl:Witte tonijn
 pl:Tuńczyk albakora
@@ -64151,13 +63866,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Albacore
 # ingredient/fr:thon-0blanc has 47 products in 3 languages @2019-02-02
 # ingredient/fr:thon-blanc-germon has 64 products in french @2019-01-02
 
-<en:albacore
-en:Thunnus alalonga, Thunnus alalunga
-de:Weißer-Thun (Thunnus alalonga)
-fr:Thunnus alalunga, Thon blanc, Germon
-la:Thunnus alalonga
 
-# The skipjack tuna (Katsuwonus pelamis) is a medium-sized perciform fish in the tuna family, Scombridae
+# en:description:The skipjack tuna (Katsuwonus pelamis) is a medium-sized perciform fish in the tuna family, Scombridae
 
 <en:tuna
 en:skipjack tuna
@@ -64174,7 +63884,7 @@ es:Bonito de altura, listado, bonito del norte
 eu:Lanpo sabelmarradun
 fa:هوور مسقطی
 fi:Boniitti
-fr:thon listao, bonite à ventre rayé
+fr:thon listao, bonite à ventre rayé, Thon rose, Thon rosé
 ga:Boiníotó aigéanach
 gl:Atún listado
 he:אטונס שחור קווים
@@ -64185,6 +63895,7 @@ is:Randatúnfiskur
 it:Tonnetto striato
 ja:カツオ
 jv:Iwak Cakalang
+la:Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
 ms:Ikan Aya
 nb:Bukstripet bonitt
 nl:gestreepte tonijn
@@ -64213,15 +63924,7 @@ wikidata:en:Q633957
 wikipedia:en:https://en.wikipedia.org/wiki/Skipjack_tuna
 # ingredient/fr:thon-listao has 138 products @2019-01-02
 
-<en:skipjack tuna
-en:Katsuwonus pelamis
-de:Echter Bonito (Katsuwonus pelamis)
-fr:Katsuwonus pelamis, Bonite à ventre rayé, Thon listao, Thon rose, Thon rosé
-it:Tonnetto striato
-la:Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
-# Thon listao (Katsuwanus pelamis)
-
-# The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
+# en:description:The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
 
 <en:tuna
 en:yellowfin tuna
@@ -64237,10 +63940,11 @@ es:atún claro
 eu:Atun hegats-hori
 fa:گیدر
 fi:Keltaevätonnikala
-fr:thon albacore
+fr:thon albacore, Thon jaune
 gl:Atún de aleta amarela
 hu:Sárgaúszójú tonhal
-it:Tonno a pinna gialla
+it:Tonno a pinna gialla, tonno pinna gialla
+la:Thunnus albacares
 nl:Geelvintonijn
 pt:atum albacora
 ru:желтопёрый тунец
@@ -64251,13 +63955,6 @@ sv:Gulfenad tonfisk
 wikidata:en:Q269781
 wikipedia:en:https://en.wikipedia.org/wiki/Yellowfin_tuna
 # ingredient/fr:thon-albacore has 172 products in 2 languages 2019-01-02
-
-<en:yellowfin tuna
-en:Thunnus albacares
-de:Ahi (Thunnus albacares)
-fr:Thunnus albacares, Thon jaune, Albacore
-it:tonno pinna gialla
-la:Thunnus albacares
 # ingredient/fr:Thunnus-albacares has 58 products @2019-01-02
 # THON albacore (Thunnus albacares)
 
@@ -64269,39 +63966,34 @@ fr:thon au naturel
 # thon au naturel (thon albacore, eau, sel)
 
 
-# The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
+# en:description:The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
 
 <en:fish
 <en:white fish
 en:blue grenadier
 ca:lluç de cua afuada neozelandès
 cs:treskovník novozélandský
-de:Hoki
+de:Hoki, Blauer Seehecht
 eo:Hokio
 es:Merluza neozelandesa
 fa:ماهی هوکی
 fi:Hoki
-fr:hoki, Hoki de Nouvelle-Zélande
+fr:hoki, Hoki de Nouvelle-Zélande, Grenadier bleu, Merlu à longue queue
 it:nasello azzurro
 ja:ホキ
+la:Macruronus novaezelandiae, macruronus spp
 nl:Hoki
 pl:Miruna
+ru:Новозеландский макруронус
 sv:Hoki
 zh:藍尖尾無鬚鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Blue_grenadier
 # ingredient/fr:hoki has 5 products in french @2018-12-31
-
-<en:blue grenadier
-en:Macruronus novaezelandiae
-de:Blauer Seehecht
-fr:Macruronus novaezelandiae, Hoki, Grenadier bleu, Merlu à longue queue
-la:Macruronus novaezelandiae, macruronus spp
-ru:Новозеландский макруронус
 # ingredient/fr:Macruronus-novaezelandiae has 2 products @2018-12-31
 # structure:inner:role:synonym, egnasello azzurro (Macruronus novaezelandiae)
 
 
-# Le grenadier patagonien appelé en espagnol merluza de cola (Macruronus magellanicus) est un poisson marin de la famille des Merlucciidae qui appartient de ce fait à l'ordre des Gadiformes.
+# en:description:Le grenadier patagonien appelé en espagnol merluza de cola (Macruronus magellanicus) est un poisson marin de la famille des Merlucciidae qui appartient de ce fait à l'ordre des Gadiformes.
 
 <en:hake
 en:Patagonian grenadier
@@ -64310,21 +64002,17 @@ es:merluza de cola
 fi:patagonianhoki
 fr:grenadier patagonien, merluche patagonienne, Hoku argentin
 it:nasello patagonico, merluzzo patagonico
+la:Macruronus magellanicus
 nl:Patagonische grenadier
 sv:Chilensk hoki
 zh:南美尖尾無鬚鱈
 wikidata:en:Q648967
 wikipedia:fr:https://fr.wikipedia.org/wiki/Grenadier_patagonien
-
-<en:Patagonian grenadier
-en:Macruronus magellanicus
-de:Macruronidae (Macruronus magellanicus)
-la:Macruronus magellanicus
 # ingredient/fr:Macruronus-magellanicus has 1 product @2018-12-31
 # structure:inner:role:synonym, eg Hoku argentin (Macruronus magellanicus)
 
 
-# Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
+# en:description:Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
 
 <en:fish
 <en:oily fish
@@ -64335,9 +64023,9 @@ br:Brezhell
 ca:Verat
 cy:Macrell
 da:Makrel
-de:Makrele, Makrelenfilet, Makrelenfilets
+de:Makrele
 el:Σκουμπρί
-es:Verdel, caballa,caballa del sur
+es:Verdel, caballa, caballa del sur
 et:Makrell
 eu:Berdel
 fi:Makrilli
@@ -64381,7 +64069,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
 <en:mackarel
 en:mackarel fillet
 da:makrelfilet
-de:Makrelenfilet
+de:Makrelenfilet, Makrelenfilets
 es:filete de caballa
 fi:makrillifilee, makrillifileetä
 fr:filets de maquereaux
@@ -64399,13 +64087,14 @@ ar:اسقمري معروف
 cs:makrela obecná
 da:atlantisk makrel
 de:atlantische Makrele
-es:caballa
+#es:caballa need name for atlantic version
 fa:ماهی خال‌خالی اطلس
 fi:atlantin makrilli
 fr:Maquereau de l'Atlantique
 ga:ronnach an Atlantaigh
 hu:Közönséges makréla
 ko:대서양고등어
+la:scomber scombrus
 lt:Atlantinė skumbrė
 lv:Atlantijas makrele
 nl:atlantische makreel
@@ -64416,12 +64105,6 @@ sv:atlantisk makrill
 uk:Скумбрія атлантична
 vi:Cá thu Đại Tây Dương
 wikidata:en:Q30153
-
-<en:atlantic mackarel
-en:scomber scombrus
-de:Makrele (scomber scombrus)
-fr:maquereau scomber scombrus
-la:scomber scombrus
 # ingredient/fr:scomber-scombrus has 63 products in 3 languages @2018-12-30
 # structure:inner:role:synonym, eg sgombri (Scomber scombrus)
 
@@ -64520,8 +64203,9 @@ de:Streifenbrasse
 el:Σκαθάρι
 eu:Txopa
 fi:tummasargi
-fr:Dorade grise
+fr:Dorade grise, Canthère, Griset, Tanude
 hr:Kantar
+la:Spondyliosoma cantharus
 lt:Kantarai
 nb:Havkaruss
 nl:Zeekarper
@@ -64538,12 +64222,6 @@ zh:黑椎鯛
 # zh-hk:黑椎鯛
 wikidata:en:Q1135606
 wikipedia:en:https://en.wikipedia.org/wiki/Black_seabream
-
-<en:black sea bream
-en:Spondyliosoma cantharus
-de:Streifenbrasse (Spondyliosoma cantharus)
-fr:Spondyliosoma cantharus, Dorade grise, Canthère, Griset, Tanude
-la:Spondyliosoma cantharus
 # structure:inner:role:synonym,  eg:dorade (Spondyliosoma cantharus)
 
 
@@ -64603,6 +64281,7 @@ kk:Семсер балық
 kn:ಕತ್ತಿ ಮೀನು
 ko:황새치
 ky:Селебебалык
+la:Xiphias gladius
 lt:Durklažuvė
 lv:zobenzivs
 mk:сабјарка
@@ -64649,18 +64328,11 @@ wikidata:en:Q164327
 wikipedia:en:https://en.wikipedia.org/wiki/Swordfish
 # ingredient/swordfish has 16 products in 2 languages @2018-12-29
 # structure:outer:role:synonym,  eg:swordfish (xiphias gladius)
-
-<en:swordfish
-en:Xiphias gladius
-de:Schwertfisch (Xiphias gladius)
-fr:Xiphias gladius, Espadon
-it:Xiphias gladius - pesce spada
-la:Xiphias gladius
 # ingredient/Xiphias-gladius has 3 products in english @2018-12-30
 # structure:inner:role:synonym,  eg:swordfish (xiphias gladius)
 
 
-# Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae.
+# en:description:Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae.
 
 <en:fish
 <en:oily fish
@@ -64763,6 +64435,7 @@ ja:ニジマス
 kk:Құбылмалы бахтах
 ko:무지개송어
 ky:Микижа
+la:Oncorhynchus mykiss
 lb:Reeboufrell
 lt:Vaivorykštinis upėtakis
 mk:Калифорниска пастрмка
@@ -64801,12 +64474,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
 # structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
 carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 carbon_footprint_fr_foodges_value:fr:4.9
-
-<en:rainbow trout
-en:Oncorhynchus mykiss
-de:Regenbogenforelle (Oncorhynchus mykiss)
-fr:Oncorhynchus mykiss, Truite arc-en-ciel
-la:Oncorhynchus mykiss
 # structure:inner:role:synonym,  eg:Truite (Oncorhynchus mykiss)
 
 <en:rainbow trout
@@ -64852,6 +64519,7 @@ fr:rouget, rouget barbet
 gl:Escacho
 ja:タブ・ガーナード
 ky:Деңиз короозу
+la:Trigla lucerna, Chelidonichthys lucerna
 nl:rode poon
 pl:Kurek czerwony
 ru:Жёлтая тригла
@@ -64861,12 +64529,6 @@ zh:細鱗綠鰭魚
 wikipedia:en:https://en.wikipedia.org/wiki/Tub_gurnard
 # ingredient/fr:rouget has 7 products in french @2019-01-01
 # poissons entiers pêchés en Méditerranée (25%) (grondin, capelan, pageot, mulet, rascasse,vive, rouget)
-
-<en:tub gurnard
-en:Trigla lucerna
-de:Roter Knurrhahn (Trigla lucerna)
-fr:Chelidonichthys lucerna, lucernus, Grondin perlon, Trigle hirondelle, Galline, Gallinette, Tombe, Rouget
-la:Trigla lucerna, Chelidonichthys lucerna
 
 # description:en:The TURBOT (Scophthalmus maximus) is a species of flatfish in the family Scophthalmidae. It is a valuable commercial species, acquired through aquaculture and trawling. Turbot is highly prized as a food fish for its delicate flavour.
 
@@ -64940,6 +64602,7 @@ it:Merlango
 ja:ホワイティング
 ka:მერლანგი
 kk:Мерланг
+la:Merlangius merlangus
 nb:hvitting
 nl:wijting
 pl:Witlinek
@@ -64965,17 +64628,11 @@ zh:牙鱈
 # zh-sg:牙鳕
 # zh-tw:牙鳕
 # ingredient/fr:merlan has 11 products @2019-01-15
-
-<en:whiting
-en:Merlangius merlangus
-de:Merlan (Merlangius merlangus)
-fr:Merlangius merlangus, Merlan
-la:Merlangius merlangus
 wikidata:en:Q273083
 wikipedia:en:https://en.wikipedia.org/wiki/Merlangius
 
 
-# Brochet est un nom vernaculaire ambigu désignant en français certains poissons prédateurs.
+# en:description:Brochet est un nom vernaculaire ambigu désignant en français certains poissons prédateurs.
 
 <en:fish
 fr:brochet
@@ -65259,8 +64916,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cockle_(bivalve)
 # ingredient/cockles has 2 products @2019-01-12
 
 
-# Cuttlefish or cuttles are marine molluscs of the order Sepiida.
-# Le terme seiche est un nom vernaculaire générique pour un très grand nombre de mollusques céphalopodes classés dans le super-ordre des décapodes et regroupés dans le taxon des Sepioida, c'est-à-dire dans l'ordre des Sepiida et des Sepiolida.
+# en:description:Cuttlefish or cuttles are marine molluscs of the order Sepiida.
+# fr:description:Le terme seiche est un nom vernaculaire générique pour un très grand nombre de mollusques céphalopodes classés dans le super-ordre des décapodes et regroupés dans le taxon des Sepioida, c'est-à-dire dans l'ordre des Sepiida et des Sepiolida.
 
 <en:mollusc
 en:cuttlefish
@@ -65336,83 +64993,69 @@ wikidata:en:Q184479
 wikipedia:en:https://en.wikipedia.org/wiki/Cuttlefish
 
 
-# The common cuttlefish or European common cuttlefish (Sepia officinalis) is one of the largest and best-known cuttlefish species.
+# en:description:The common cuttlefish or European common cuttlefish (Sepia officinalis) is one of the largest and best-known cuttlefish species.
 
 <en:cuttlefish
-en:common cuttlefish
-bg:обикновена сепия
-ca:Sèpia comuna
-co:Seppia
-cs:sépie obecná
-da:Sepiablæksprutte
-de:Gewöhnlicher Tintenfisch
-et:Harilik seepia
-eu:Txibia arrunt
-fa:سپیداج معمولی
-fi:Seepia
-fr:Seiche commune
-gl:Sepideos
-he:דיונון הרוקחים
-hu:Közönséges tintahal
-ja:ヨーロッパコウイカ
-ko:갑오징어
-nl:gewone zeekat
-pl:Mątwa zwyczajna
-ru:Лекарственная каракатица
-# nds-nl:Eenfachen Dintenfisch
-# vls:Intespuger
-wikipedia:en:https://en.wikipedia.org/wiki/Common_cuttlefish
-
-<en:common cuttlefish
-en:Sepia officinalis
-fr:Sepia officinalis, Seiche commune
+en:common cuttlefish, Sepia officinalis
+bg:обикновена сепия, Sepia officinalis
+ca:Sèpia comuna, Sepia officinalis
+co:Seppia, Sepia officinalis
+cs:sépie obecná, Sepia officinalis
+da:Sepiablæksprutte, Sepia officinalis
+de:Gewöhnlicher Tintenfisch, Sepia officinalis
+et:Harilik seepia, Sepia officinalis
+eu:Txibia arrunt, Sepia officinalis
+fa:سپیداج معمولی, Sepia officinalis
+fi:Seepia, Sepia officinalis
+fr:Seiche commune, Sepia officinalis
+gl:Sepideos, Sepia officinalis
+he:דיונון הרוקחים, Sepia officinalis
+hu:Közönséges tintahal, Sepia officinalis
+ja:ヨーロッパコウイカ, Sepia officinalis
+ko:갑오징어, Sepia officinalis
 la:Sepia officinalis
+nl:gewone zeekat, Sepia officinalis
+pl:Mątwa zwyczajna, Sepia officinalis
+ru:Лекарственная каракатица, Sepia officinalis
+# nds-nl:Eenfachen Dintenfisch, Sepia officinalis
+# vls:Intespuger, Sepia officinalis
+wikipedia:en:https://en.wikipedia.org/wiki/Common_cuttlefish
 # ingredient/fr:Sepia-officinalis has 4 products @2019-01-14
 
 
-# Sepiella inermis, common name spineless cuttlefish, is an edible species of cuttlefish.
+# en:description:Sepiella inermis, common name spineless cuttlefish, is an edible species of cuttlefish.
 
 <en:cuttlefish
-en:spineless cuttlefish
-ar:سپیداج سست‌کمر
-de:Wirbelloser Tintenfisch
-fr:Sepiella inermis, Seiche sans épines
-zh:曼氏无针乌贼
-
-<en:spineless cuttlefish
-en:Sepiella inermis
-de:Sepiella inermis
-fr:Sepiella inermis, Seiche sans épines
+en:spineless cuttlefish, Sepiella inermis
+ar:سپیداج سست‌کمر, Sepiella inermis
+de:Wirbelloser Tintenfisch, Sepiella inermis
+fr:Seiche sans épines, Sepiella inermis
 it:Sepiella inermis
-la:Sepiella inermis
+la:Sepiella inermis, Sepiella inermis
+zh:曼氏无针乌贼, Sepiella inermis
 wikipedia:en:https://en.wikipedia.org/wiki/Sepiella_inermis
 # ingredient/fr:Sepiella-inermis has 2 products in french @2019-01-05
 
-# The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
+# en:description:The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
 
 <en:cuttlefish
-en:pharaoh cuttlefish
-ar:ماهی مرکب ببری
-de:Pharao-Sepie
-fi:faaraoseepia
-fr:Sepia pharaonis, Seiche
-th:หมึกกระดองลายเสือ
-vi:Mực nang vân hổ
-zh:虎斑乌贼
-# zh-hans:虎斑乌贼
-# zh-hant:虎斑烏賊
-# zh-hk:虎斑烏賊
-# zh-tw:虎斑烏賊
+en:pharaoh cuttlefish, Sépia Pharaonis
+ar:ماهی مرکب ببری, Sépia Pharaonis
+de:Pharao-Sepie, Sépia Pharaonis
+fi:faaraoseepia, Sépia Pharaonis
+fr:Seiche, Sépia Pharaonis
+la:Sépia Pharaonis, Sepia pharaonica
+th:หมึกกระดองลายเสือ, Sépia Pharaonis
+vi:Mực nang vân hổ, Sépia Pharaonis
+zh:虎斑乌贼, Sépia Pharaonis
+# zh-hans:虎斑乌贼, Sépia Pharaonis
+# zh-hant:虎斑烏賊, Sépia Pharaonis
+# zh-hk:虎斑烏賊, Sépia Pharaonis
+# zh-tw:虎斑烏賊, Sépia Pharaonis
 wikidata:en:Q2701934
 wikipedia:en:https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
 
-<en:pharaoh cuttlefish
-en:Sépia Pharaonis, Sepia pharaonica
-fr:Sepia pharaonis, Seiche
-la:Sépia Pharaonis
-
-
-# Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
+# en:description:Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
 
 <en:mollusc
 en:mussel, mussels
@@ -65462,100 +65105,87 @@ fr:moules cuites
 fr:moules du Pacifique décoquillées cuites
 
 
-# The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae.
+# en:description:The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae.
 
 <en:mussel
-en:Mediterranean mussel
-af:Mediterreense mossel
-bg:Черна морска мида
-ca:musclo del Mediterrani
-de:Mittelmeer-Miesmuschel
-es:Genóma del Mejillón
-fi:välimerensimpukka
-fr:Moule méditerranéenne
-gl:Mexillón
-hr:Dagnja
-it:Mitilo mediterraneo
-ja:ムラサキイガイ
-nl:diepwatermossel
-pl:omułek śródziemnomorski
-ru:Черноморская мидия
-sl:Mediteranska klapavica
-uk:Мідія середземноморська
-vi:Trai Địa Trung Hải
-zh:地中海貽貝
-# roa-tara:Cozze
-# scn:Còzzula
-wikipedia:en:https://en.wikipedia.org/wiki/Mediterranean_mussel
-
-<en:Mediterranean mussel
-en:Mytilus galloprovincialis
-de:Mittelmeer-Miesmuschel (Mytilus galloprovincialis)
-fr:Mytilus galloprovincialis, Moule méditerranéenne
+en:Mediterranean mussel, Mytilus galloprovincialis
+af:Mediterreense mossel, Mytilus galloprovincialis
+bg:Черна морска мида, Mytilus galloprovincialis
+ca:musclo del Mediterrani, Mytilus galloprovincialis
+de:Mittelmeer-Miesmuschel, Mytilus galloprovincialis
+es:Genóma del Mejillón, Mytilus galloprovincialis
+fi:välimerensimpukka, Mytilus galloprovincialis
+fr:Moule méditerranéenne, Mytilus galloprovincialis
+gl:Mexillón, Mytilus galloprovincialis
+hr:Dagnja, Mytilus galloprovincialis
+it:Mitilo mediterraneo, Mytilus galloprovincialis
+ja:ムラサキイガイ, Mytilus galloprovincialis
 la:Mytilus galloprovincialis
+nl:diepwatermossel, Mytilus galloprovincialis
+pl:omułek śródziemnomorski, Mytilus galloprovincialis
+ru:Черноморская мидия, Mytilus galloprovincialis
+sl:Mediteranska klapavica, Mytilus galloprovincialis
+uk:Мідія середземноморська, Mytilus galloprovincialis
+vi:Trai Địa Trung Hải, Mytilus galloprovincialis
+zh:地中海貽貝, Mytilus galloprovincialis
+# roa-tara:Cozze, Mytilus galloprovincialis
+# scn:Còzzula, Mytilus galloprovincialis
+wikipedia:en:https://en.wikipedia.org/wiki/Mediterranean_mussel
 # ingredient/fr:Mytilus-galloprovincialis has 13 products @2019-01-04
 
-# The blue mussel (Mytilus edulis), also known as the common mussel, is a medium-sized edible marine bivalve mollusc in the family Mytilidae, the mussels.
+# en:description:The blue mussel (Mytilus edulis), also known as the common mussel, is a medium-sized edible marine bivalve mollusc in the family Mytilidae, the mussels.
 
 <en:mussel
-en:blue mussel, common mussel
-ar:بلح البحر الأزرق
-bg:черна морска мида
-cs:slávka jedlá
-da:Blåmusling
-de:Gemeine Miesmuschel
-et:Söödav rannakarp
-fi:Sinisimpukka
-fr:moule commune
-hu:Ehető kékkagyló
-ja:ヨーロッパイガイ
-ko:섭조개
-ml:കല്ലുമ്മക്കായ
-nb:blåskjell
-pl:omułek jadalny
-pt:mexilhão azul
-ru:Мидия съедобная
-sv:Blåmussla
-tr:Mavi midye
-uk:Мідія їстівна
-vi:Trai xanh
-zh:藍貝
-# frr:Blä hees
-# yue:藍青口
-# zh-tw:紫殼菜蛤
+en:blue mussel, common mussel, Mytilus edulis
+ar:بلح البحر الأزرق, Mytilus edulis
+bg:черна морска мида, Mytilus edulis
+cs:slávka jedlá, Mytilus edulis
+da:Blåmusling, Mytilus edulis
+de:Gemeine Miesmuschel, Mytilus edulis
+et:Söödav rannakarp, Mytilus edulis
+fi:Sinisimpukka, Mytilus edulis
+fr:moule commune, Mytilus edulis
+hu:Ehető kékkagyló, Mytilus edulis
+ja:ヨーロッパイガイ, Mytilus edulis
+ko:섭조개, Mytilus edulis
+la:Mytilus edulis
+ml:കല്ലുമ്മക്കായ, Mytilus edulis
+nb:blåskjell, Mytilus edulis
+pl:omułek jadalny, Mytilus edulis
+pt:mexilhão azul, Mytilus edulis
+ru:Мидия съедобная, Mytilus edulis
+sv:Blåmussla, Mytilus edulis
+tr:Mavi midye, Mytilus edulis
+uk:Мідія їстівна, Mytilus edulis
+vi:Trai xanh, Mytilus edulis
+zh:藍貝, Mytilus edulis
+# frr:Blä hees, Mytilus edulis
+# yue:藍青口, Mytilus edulis
+# zh-tw:紫殼菜蛤, Mytilus edulis
 wikidata:en:Q27855
 
 <en:blue mussel
-en:Mytilus edulis
-de:Gemeine Miesmuschel (Mytilus edulis)
 fr:Mytilus edulis, Mytilus edulis pêchées en Atlantique Nord
-la:Mytilus edulis
 # ingredient/fr:Mytilus-edulis has 55 products @2019-01-05
 
 
-# The Chilean mussel or Chilean blue mussel (Mytilus platensis) is a species of blue mussel native to the coasts of Chile, Argentina
+# en:description:The Chilean mussel or Chilean blue mussel (Mytilus platensis) is a species of blue mussel native to the coasts of Chile, Argentina
 
 <en:mussel
-en:Chilean mussel
-de:Chilenische Muschel
-fi:platansinisimpukka
-fr:moules chiliennes
-it:cozze cilene
-sl:Čilska klapavica
-uk:Мідія чилійська
-wikipedia:en:https://en.wikipedia.org/wiki/Chilean_mussel
-
-<en:Chilean mussel
-en:Mytilus chilensis
-de:Miesmuschel (Mytilus chilensis)
-fr:Mytilus chilensis, Moule du Chili
-it:Mytilus chilensis
+en:Chilean mussel, Mytilus chilensis
+de:Chilenische Muschel, Mytilus chilensis
+fi:platansinisimpukka, Mytilus chilensis
+fr:moules chiliennes, Moule du Chili, Mytilus chilensis
+it:cozze cilene, Mytilus chilensis
 la:Mytilus chilensis
+sl:Čilska klapavica, Mytilus chilensis
+uk:Мідія чилійська, Mytilus chilensis
+wikipedia:en:https://en.wikipedia.org/wiki/Chilean_mussel
 wikidata:en:Q384733
 # ingredient/fr:Mytilus-chilensis has 26 products in 3 languages @2019-01-14
 
 
-# The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda.
+# en:description: The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda.
 
 <en:mollusc
 en:octopus
@@ -65595,7 +65225,7 @@ zh:砂蛸
 <zh:砂蛸
 en:Octopus Aegina
 de:Octopus Aegina
-fr:Amphioctopus Aegina, Pieuvre marbrée
+fr:Amphioctopus Aegina, Pieuvre marbrée, Octopus Aegina
 la:Octopus Aegina
 wikidata:en:Q2936535
 wikipedia:nl:https://nl.wikipedia.org/wiki/Octopus_aegina
@@ -65607,55 +65237,50 @@ fr:poulpe en lamelles
 # ingredient/fr:poulpe-en-lamelles has 1 product @2019-01-05
 
 <en:octopus
-en:common octopus
-af:Gewone seekat
-ar:أخطبوط شائع
-bg:обикновен октопод
-ca:pop roquer
-cs:chobotnice pobřežní
-da:Ottearmet blæksprutte
-de:Gewöhnlicher Krake
-es:Pulpo común
-et:Harilik kaheksajalg
-eu:Olagarro arrunt
-fa:هشت‌پای معمولی
-fi:Meritursas
-fr:poulpe commun
-ga:Ochtapas coiteann
-gl:Polbo común
-he:תמנון החוף
-hr:Obična hobotnica
-hu:Közönséges polip
-it:Polpo comune
-ja:マダコ
-ka:რვაფეხა
-ko:참문어
-lb:Gewéinlechen Tëntefësch
-lt:Paprastasis aštuonkojis
-lv:Astoņkājis
-nl:Gewone octopus
-ru:Осьминог обыкновенный
-sv:Åttaarmade bläckfiskar
-vi:Bạch tuộc thông thường
-zh:普通章魚
-# ceb:Kugita
-# de-ch:Gewöhnlicher Krake
-# en-ca:Common octopus
-# en-gb:Common octopus
-# nds:Eenfachen Kraken
-# roa-tara:Vurpe
-# zh-hans:普通章鱼
-# zh-hant:普通章魚
-# zh-hk:普通章魚
-# zh-tw:真蛸
+en:common octopus, Octopus vulgaris
+af:Gewone seekat, Octopus vulgaris
+ar:أخطبوط شائع, Octopus vulgaris
+bg:обикновен октопод, Octopus vulgaris
+ca:pop roquer, Octopus vulgaris
+cs:chobotnice pobřežní, Octopus vulgaris
+da:Ottearmet blæksprutte, Octopus vulgaris
+de:Gewöhnlicher Krake, Octopus vulgaris
+es:Pulpo común, Octopus vulgaris
+et:Harilik kaheksajalg, Octopus vulgaris
+eu:Olagarro arrunt, Octopus vulgaris
+fa:هشت‌پای معمولی, Octopus vulgaris
+fi:Meritursas, Octopus vulgaris
+fr:poulpe commun, Pieuvre commune, Octopus vulgaris
+ga:Ochtapas coiteann, Octopus vulgaris
+gl:Polbo común, Octopus vulgaris
+he:תמנון החוף, Octopus vulgaris
+hr:Obična hobotnica, Octopus vulgaris
+hu:Közönséges polip, Octopus vulgaris
+it:Polpo comune, Octopus vulgaris
+ja:マダコ, Octopus vulgaris
+ka:რვაფეხა, Octopus vulgaris
+ko:참문어, Octopus vulgaris
+la:Octopus vulgaris
+lb:Gewéinlechen Tëntefësch, Octopus vulgaris
+lt:Paprastasis aštuonkojis, Octopus vulgaris
+lv:Astoņkājis, Octopus vulgaris
+nl:Gewone octopus, Octopus vulgaris
+ru:Осьминог обыкновенный, Octopus vulgaris
+sv:Åttaarmade bläckfiskar, Octopus vulgaris
+vi:Bạch tuộc thông thường, Octopus vulgaris
+zh:普通章魚, Octopus vulgaris
+# ceb:Kugita, Octopus vulgaris
+# de-ch:Gewöhnlicher Krake, Octopus vulgaris
+# en-ca:Common octopus, Octopus vulgaris
+# en-gb:Common octopus, Octopus vulgaris
+# nds:Eenfachen Kraken, Octopus vulgaris
+# roa-tara:Vurpe, Octopus vulgaris
+# zh-hans:普通章鱼, Octopus vulgaris
+# zh-hant:普通章魚, Octopus vulgaris
+# zh-hk:普通章魚, Octopus vulgaris
+# zh-tw:真蛸, Octopus vulgaris
 wikidata:en:Q651361
 wikipedia:en:https://en.wikipedia.org/wiki/Common_octopus
-
-<en:common octopus
-en:Octopus vulgaris
-de:Oktopus (Octopus vulgaris)
-fr:Octopus vulgaris, Pieuvre commune, Poulpe commun, Pieuvre, Poulpe
-la:Octopus vulgaris
 # ingredient/fr:Octopus-vulgaris has 7 products @2019-01-03
 # poulpes (Octopus vulgaris)
 
@@ -65663,22 +65288,17 @@ la:Octopus vulgaris
 # Eledone moschata, the musky octopus, is a species of octopus belonging to the family Octopodidae
 
 <en:octopus
-en:musky octopus
-ca:pop pudent
-de:Moschuskrake
-eu:Musketadun olagarroa
-fi:myskitursas
-fr:Élédone musquée
-ga:Ochtapas muscach
-it:moscardino
-nl:Muskus achtarm
-sl:Moškatna hobotnica
-
-<en:musky octopus
-en:Eledone moschata
-de:Moschuskrake (Eledone moschata)
-fr:Eledone moschata, Élédone musquée, Pieuvre musquée
+en:musky octopus, Eledone moschata
+ca:pop pudent, Eledone moschata
+de:Moschuskrake, Eledone moschata
+eu:Musketadun olagarroa, Eledone moschata
+fi:myskitursas, Eledone moschata
+fr:Élédone musquée, Pieuvre musquée, Eledone moschata
+ga:Ochtapas muscach, Eledone moschata
+it:moscardino, Eledone moschata
 la:Eledone moschata
+nl:Muskus achtarm, Eledone moschata
+sl:Moškatna hobotnica, Eledone moschata
 wikidata:en:Q2296077
 wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 # ingredient/fr:Eledone-moschata has 2 products @2019-01-04
@@ -65689,7 +65309,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 #                                Oyster
 #
 ###################################################################################################
-# Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
+
+# en:description:Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
 
 <en:mollusc
 en:oyster, oysters
@@ -65775,40 +65396,35 @@ es:aroma de ostras
 # description:en:The Pacific oyster is an oyster native to the Pacific coast of Asia. It has become an introduced species in North America, Australia, Europe, and New Zealand.
 
 <en:oyster
-en:pacific oyster
-bg:тихоокеанска чашковидна стрида
-ca:ostra japonesa
-de:Pazifische Felsenauster
-es:ostra del Pacífico
-eu:Ostratzar
-fa:صدف ژاپنی
-fi:tyynenmerenosteri, japaninosteri
-fr:huitre géante du Pacifique
-gl:Ostra portuguesa
-hu:Csendes-óceáni osztriga
-is:Kyrrahafsostra
-ja:マガキ
-la:참굴
-nb:Stillehavsøsters
-nl:Japanse oester
-nn:Stillehavsøsters
-pl:ostryżyca japońska
-pt:Ostra-do-pacífico
-sv:Japanskt jätteostron
-uk:Гігантська устриця
-zh:长牡蛎
-# en-ca:Pacific oyster
-# en-gb:Pacific oyster
-# frr:Uastrang
-# zh-cn:长牡蛎
-# zh-hans:长牡蛎
-# zh-tw:長牡蠣
-
-<en:Pacific oyster
-en:Crassostrea gigas
-de:Pazifische Auster (Crassostrea gigas)
-fr:Crassostrea gigas, Huître creuse du Pacifique
+en:pacific oyster, Crassostrea gigas
+bg:тихоокеанска чашковидна стрида, Crassostrea gigas
+ca:ostra japonesa, Crassostrea gigas
+de:Pazifische Felsenauster, Pazifische Auster, Crassostrea gigas
+es:ostra del Pacífico, Crassostrea gigas
+eu:Ostratzar, Crassostrea gigas
+fa:صدف ژاپنی, Crassostrea gigas
+fi:tyynenmerenosteri, japaninosteri, Crassostrea gigas
+fr:huitre géante du Pacifique, Huître creuse du Pacifique, Crassostrea gigas
+gl:Ostra portuguesa, Crassostrea gigas
+hu:Csendes-óceáni osztriga, Crassostrea gigas
+is:Kyrrahafsostra, Crassostrea gigas
+ja:マガキ, Crassostrea gigas
+ko:참굴, Crassostrea gigas
 la:Crassostrea gigas
+nb:Stillehavsøsters, Crassostrea gigas
+nl:Japanse oester, Crassostrea gigas
+nn:Stillehavsøsters, Crassostrea gigas
+pl:ostryżyca japońska, Crassostrea gigas
+pt:Ostra-do-pacífico, Crassostrea gigas
+sv:Japanskt jätteostron, Crassostrea gigas
+uk:Гігантська устриця, Crassostrea gigas
+zh:长牡蛎, Crassostrea gigas
+# en-ca:Pacific oyster, Crassostrea gigas
+# en-gb:Pacific oyster, Crassostrea gigas
+# frr:Uastrang, Crassostrea gigas
+# zh-cn:长牡蛎, Crassostrea gigas
+# zh-hans:长牡蛎, Crassostrea gigas
+# zh-tw:長牡蠣, Crassostrea gigas
 wikidata:en:Q20857
 wikipedia:en:https://en.wikipedia.org/wiki/Pacific_oyster
 
@@ -65828,7 +65444,8 @@ el:Χτένι
 es:viera, vieras, escalópas
 fa:شانه‌گونان
 fi:kampasimpukka, kampasimpukat
-fr:Noix de Saint-Jacques
+fr:noix de saint-jacques, Saint-Jacques, noix de st-jacques, noix de st jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, coquille Saint-Jacques, coquille st jacques, coquille saint jacques, st-jacques
+# en:comment:fr:noix de saint-jacques is used as a name for any scallop species
 gl:Pectínidos
 id:Simping
 ja:イタヤガイ科
@@ -65851,41 +65468,33 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 <en:scallop
 fr:Noix de Saint-Jacques sans corail
 
-# Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
+# en:description:Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
 
 <en:scallop
-en:Atlantic bay scallop, bay scallop
-de:Jakobsmuscheln der atlantischen Küste
-fa:گوش‌ماهی خلیج
-fr:Pétoncle, pétoncles
-is:Flóaskel
-zh:海湾扇贝
-
-<en:Atlantic bay scallop
-en:Argopecten irradians
-fi:argopecten irradians
-fr:Argopecten irradians
+en:Atlantic bay scallop, bay scallop, Argopecten irradians
+de:Jakobsmuscheln der atlantischen Küste, Argopecten irradians
+fa:گوش‌ماهی خلیج, Argopecten irradians
+fr:Pétoncle, pétoncles, Argopecten irradians
+is:Flóaskel, Argopecten irradians
 la:Argopecten irradians
+zh:海湾扇贝, Argopecten irradians
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_irradians
 wikidata:en:Q3018372
 # ingredient/fr:Argopecten-irradians has 10 products @2019-01-13
 
 
 <en:scallop
-en:Atlantic calico scallop
-fr:Argopecten gibbus, Pétoncle calicot
+en:Atlantic calico scallop, Argopecten Gibbus
+fr:Pétoncle calicot, Argopecten Gibbus
 la:Argopecten Gibbus
-sr:Ostrea gibba
+sr:Ostrea gibba, Argopecten Gibbus
 wikidata:en:Q3017111
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
 # ingredient/fr:Argopecten-Gibbus has 1 product @2019-01-12
 
 
 <en:scallop
-en:distant scallop
-
-<en:distant scallop
-en:Bractechlamys vexillum
+en:distant scallop, Bractechlamys vexillum
 la:Bractechlamys vexillum
 wikipedia:nl:https://nl.wikipedia.org/wiki/Bractechlamys_vexillum
 wikidata:en:Q13444410
@@ -65896,134 +65505,106 @@ wikidata:en:Q13444410
 # Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae.
 
 <en:scallop
-en:great scallop, king scallop, St James shell, escallop
-ar:أسقلوب
-br:Krogenn-Sant-Jakez
-ca:petxina de pelegrí de l'Atlàntic
-da:stor kammusling
-de:Große Pilgermuschel
-es:Venera
-eu:Erromes-maskor handi
-fa:گوش‌ماهی شاه
-fi:isokampasimpukka
-fr:noix de saint-jacques, Saint-Jacques, noix de st-jacques, noix de st jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, coquille Saint-Jacques, coquille st jacques, coquille saint jacques, st-jacques
-ga:Muirín
-gd:Slige-chreachainn
-gl:Vieira
-id:Simping
-io:Petonklo
-is:Risadiskur
-nl:grote mantel
-pl:Przegrzebek zwyczajny
-pt:Vieira
-sv:Pilgrimsmussla
-# de-ch:Jakobsmuschel
-# el:Χτένι
-# pt-br:Vieira
+en:great scallop, king scallop, St James shell, escallop, Pecten maximus
+ar:أسقلوب, Pecten maximus
+br:Krogenn-Sant-Jakez, Pecten maximus
+ca:petxina de pelegrí de l'Atlàntic, Pecten maximus
+da:stor kammusling, Pecten maximus
+de:Große Pilgermuschel, Pecten maximus
+es:Venera, Pecten maximus
+eu:Erromes-maskor handi, Pecten maximus
+fa:گوش‌ماهی شاه, Pecten maximus
+fi:isokampasimpukka, Pecten maximus
+fr:Pecten maximus
+ga:Muirín, Pecten maximus
+gd:Slige-chreachainn, Pecten maximus
+gl:Vieira, Pecten maximus
+id:Simping, Pecten maximus
+io:Petonklo, Pecten maximus
+is:Risadiskur, Pecten maximus
+la:Pecten maximus
+nl:grote mantel, Pecten maximus
+pl:Przegrzebek zwyczajny, Pecten maximus
+pt:Vieira, Pecten maximus
+sv:Pilgrimsmussla, Pecten maximus
+# de-ch:Jakobsmuschel, Pecten maximus
+# el:Χτένι, Pecten maximus
+# pt-br:Vieira, Pecten maximus
 wikidata:en:Q1249634
 wikipedia:en:https://en.wikipedia.org/wiki/Pecten_maximus
 # ingredient/fr:noix-de-Saint-Jacques has 216 products @2019-01-12
-
-<en:great scallop
-en:Pecten maximus
-de:Jakobsmuschel (Pecten maximus)
-fr:Pecten maximus, Coquille Saint-Jacques
-la:Pecten maximus
 # ingredient/fr:Pecten-maximus has 25 products @2019-01-12
 
 <en:scallop
-en:Patagonian scallop
-de:Kammmuschel
-fi:patagoniankampasimpukka
-fr:Pétoncle de Patagonie
-
-<en:Patagonian scallop
-en:Zygochlamys patagonica
-de:Kammmuscheln (Zygochlamys patagonica), Scallops
-fr:Zygochlamys patagonica, Noix de Saint-Jacques (Pétoncle)
+en:Patagonian scallop, Zygochlamys patagonica
+de:Kammmuschel, Zygochlamys patagonica
+fi:patagoniankampasimpukka, Zygochlamys patagonica
+fr:Pétoncle de Patagonie, Zygochlamys patagonica
 la:Zygochlamys patagonica, Chlamys zygopatagonica
 # ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
 
 
 <en:scallop
-en:noble scallop
-de:Feine Kammmuschel
-fr:Noix de Saint-Jacques (Pétoncle)
-ja:ヒオウギガイ
-vi:Sò điệp
-zh:华贵栉孔扇贝
-# zh-hans:华贵栉孔扇贝
-# zh-hant:高貴海扇蛤
-# zh-hk:高貴海扇蛤
-# zh-tw:高貴海扇蛤
-
-<en:noble scallop
-en:Mimachlamys nobilis
-de:Mimachlamys nobilis
-fr:Mimachlamys nobilis, Coquille Saint-Jacques (Pétoncle)
+en:noble scallop, Chlamys nobilis
+de:Feine Kammmuschel, Chlamys nobilis
+fr:Chlamys nobilis
+ja:ヒオウギガイ, Chlamys nobilis
 la:Chlamys nobilis, Mimachlamys nobilis
-wikidata:en:Q8010071
+vi:Sò điệp, Chlamys nobilis
+zh:华贵栉孔扇贝, Chlamys nobilis
+# zh-hans:华贵栉孔扇贝, Chlamys nobilis
+# zh-hant:高貴海扇蛤, Chlamys nobilis
+# zh-hk:高貴海扇蛤, Chlamys nobilis
+# zh-tw:高貴海扇蛤, Chlamys nobilis
 # ingredient/fr:Chlamys-nobilis has 20 products in french @2019-01-13
 
 
 # Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop
 
 <en:scallop
-en:Peruvian scallop
-de:Peruanische Jakobsmuscheln (Argopecten purpuratus)
-fr:Pétoncle chilien
+en:Peruvian scallop, Argopecten purpuratus
+de:Peruanische Jakobsmuscheln, Argopecten purpuratus
+fr:Pétoncle chilien, Argopecten purpuratus
 la:Argopecten purpuratus
 wikidata:en:Q3412062
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_purpuratus
 # ingredient/fr:Argopecten-purpuratus has 68 products @2019-01-12
 
 
-# The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops.
+# en:description:The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops.
 
 <en:scallop
-en:queen scallop
-ca:xelet
-de:Kleine Pilgermuschel
-fi:kuningatarkampasimpukka
-fr:Pétoncle blanc, Vanneau
-gl:Volandeira
-it:Canestrello
-ja:クイーンホタテ
-nl:Wijde mantel
-sr:Ostrea elegans
-zh:女王扇貝
+en:queen scallop, Chlamys opercularis
+ca:xelet, Chlamys opercularis
+de:Kleine Pilgermuschel, Chlamys opercularis
+fi:kuningatarkampasimpukka, Chlamys opercularis
+fr:Pétoncle blanc, Vanneau, peigne, Chlamys opercularis
+gl:Volandeira, Chlamys opercularis
+it:Canestrello, Chlamys opercularis
+ja:クイーンホタテ, Chlamys opercularis
+la:Chlamys opercularis, Aequipecten opercularis
+nl:Wijde mantel, Chlamys opercularis
+sr:Ostrea elegans, Chlamys opercularis
+zh:女王扇貝, Chlamys opercularis
 wikidata:en:Q1746507
 wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
 # ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
 
-<en:queen scallop
-en:Chlamys opercularis
-de:Kleine Pilgermuschel
-fr:Chlamys opercularis, pétoncle, peigne, vanneau
-la:Chlamys opercularis, Aequipecten opercularis
-
-
-# Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
+# en:description:Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
 
 <en:scallop
-en:speckled Scallop
-de:Gefleckte Jakobsmuschel
-fr:Pétoncle moucheté
-
-<en:speckled Scallop
-en:Argopecten irradians concentricus
-fr:Argopecten irradians concentricus, Coquille Saint-Jacques, Pétoncle
+en:speckled Scallop, Argopecten irradians concentricus
+de:Gefleckte Jakobsmuschel, Argopecten irradians concentricus
+fr:Pétoncle moucheté, Argopecten irradians concentricus
 la:Argopecten irradians concentricus, Argopecten circularis
 wikidata:en:Q30749478
 # ingredient/fr:Argopecten-circularis has 10 products in french @2019-01-13
 
 
 <en:scallop
-en:white scallop
-de:Weiße Jakobsmuschel
-fr:Pétoncle blanc
-
-<en:white scallop
+en:white scallop, Chlamys albida
+de:Weiße Jakobsmuschel, Chlamys albida
+fr:Pétoncle blanc, Chlamys albida
 la:Chlamys albida, Chlamys albidus
 wikipedia:nl:https://nl.wikipedia.org/wiki/Chlamys_albida
 wikidata:en:Q3802698
@@ -66036,7 +65617,8 @@ wikidata:en:Q3802698
 #                                Sea squirt
 #
 ###################################################################################################
-# Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
+
+# en:description:Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
 
 #? not sure whether this should be counted as a mollusc
 <en:mollusc
@@ -66314,29 +65896,23 @@ fr:blanc de calmars
 fr:calmar géant
 # calmar (mollusques) géant
 
-
-# Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
-
-<en:squid
-en:argentine shortfin squid
-bg:морски мекотели
-de:Argentinischer Kurzflossenkalmar
-es:pota argentina, calamar illex
-fi:argentiinankalmari
-fr:encornet rouge argentin
-ga:Scuid ghearreiteach na hAirgintíne
-wikidata:en:Q2262870
-
 <en:squid
 en:baby squid
 es:Chipirones
 
-<en:argentine shortfin squid
-en:Illex Argentinus
-de:Argentinischer Kurzflossenkalmar
-fr:Illex Argentinus, Encornet rouge argentin
+# Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
+
+<en:squid
+en:argentine shortfin squid, Illex Argentinus
+bg:морски мекотели, Illex Argentinus
+de:Argentinischer Kurzflossenkalmar, Illex Argentinus
+es:pota argentina, calamar illex, Illex Argentinus
+fi:argentiinankalmari, Illex Argentinus
+fr:encornet rouge argentin, Illex Argentinus
+ga:Scuid ghearreiteach na hAirgintíne, Illex Argentinus
 it:Illex Argentinus
 la:Illex Argentinus
+wikidata:en:Q2262870
 wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
 # ingredient/fr:Illex-Argentinus has 7 products @2019-01-07
 
@@ -66344,93 +65920,68 @@ wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
 # The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
 
 <en:squid
-en:Humboldt squid, Giant Squid, Chuka Ika
-ca:calamar gegant del corrent de Humboldt
-de:Riesenkalmar, Humboldt-Kalmar
-fa:سرپاور هامبالت
-fi:humboldtinkalmari
-fr:Encornet géant
-ga:Ollscuid eitilte
-he:דיונון הומבולדט
-id:Cumi-cumi jumbo
-it:Totano gigante
-ja:アメリカオオアカイカ
-nb:humboldtblekksprut
-pl:Kałamarnica Humboldta
-pt:Pota gigante, Lula-de-humboldt
-ru:Кальмар Гумбольдта
-sv:Humboldtbläckfisk
-th:หมึกฮัมโบลต์
-tr:Humboldt kalamarı
-vi:Mực Humboldt
-zh:美洲大赤魷
+en:Humboldt squid, Giant Squid, Chuka Ika, Dosidicus Gigas
+ca:calamar gegant del corrent de Humboldt, Dosidicus Gigas
+de:Riesenkalmar, Humboldt-Kalmar, Dosidicus Gigas
+fa:سرپاور هامبالت, Dosidicus Gigas
+fi:humboldtinkalmari, Dosidicus Gigas
+fr:Encornet géant, Dosidicus Gigas
+ga:Ollscuid eitilte, Dosidicus Gigas
+he:דיונון הומבולדט, Dosidicus Gigas
+id:Cumi-cumi jumbo, Dosidicus Gigas
+it:Totano gigante, Dosidicus Gigas
+ja:アメリカオオアカイカ, Dosidicus Gigas
+la:Dosidicus Gigas
+nb:humboldtblekksprut, Dosidicus Gigas
+pl:Kałamarnica Humboldta, Dosidicus Gigas
+pt:Pota gigante, Lula-de-humboldt, Dosidicus Gigas
+ru:Кальмар Гумбольдта, Dosidicus Gigas
+sv:Humboldtbläckfisk, Dosidicus Gigas
+th:หมึกฮัมโบลต์, Dosidicus Gigas
+tr:Humboldt kalamarı, Dosidicus Gigas
+vi:Mực Humboldt, Dosidicus Gigas
+zh:美洲大赤魷, Dosidicus Gigas
 wikidata:en:Q925444
 wikipedia:en:https://en.wikipedia.org/wiki/Humboldt_squid
-
-<en:humboldt squid
-en:Dosidicus Gigas
-de:Humboldtkalmar
-fr:Dosidicus Gigas, Encornet géant
-it:Dosidicus Gigas
-la:Dosidicus Gigas
 # ingredient/fr:Dosidicus-Gigas has 28 products in 5 languages @2019-01–03
 
 
-# Uroteuthis duvaucelii, also known as the Indian Ocean Squid or Indian Squid, is an Indo-West Pacific species of squid with a wide range throughout the Indian Ocean
+# en:description:Uroteuthis duvaucelii, also known as the Indian Ocean Squid or Indian Squid, is an Indo-West Pacific species of squid with a wide range throughout the Indian Ocean
 
 <en:squid
-en:indian squid
-de:indischer Tintenfisch
-fr:calmar indien
-zh:杜氏槍魷
-
-<en:indian squid
-en:Uroteuthis duvaucelii
-de:Uroteuthis duvaucelii
-fr:Uroteuthis duvaucelii, Calmar indien
+en:indian squid, Uroteuthis duvaucelii
+de:indischer Tintenfisch, Uroteuthis duvaucelii
+fr:calmar indien, Uroteuthis duvaucelii
 la:Uroteuthis duvaucelii, Loligo duvauceli
+zh:杜氏槍魷, Uroteuthis duvaucelii
 wikidata:en:Q3829827
 wikipedia:en:https://en.wikipedia.org/wiki/Uroteuthis_duvauceli
 # ingredient/fr:Loligo-duvauceli has 7 products in french @2019-01-04
 
 <en:squid
-en:mitre squid
-fr:Uroteuthis chinensis, Calmar mitre
-zh:中國槍魷
-
-<en:mitre squid
-en:Uroteuthis chinensis
-de:Uroteuthis chinensis
-fr:Uroteuthis chinensis, Calmar mitre
-la:Uroteuthis chinensis, Loligo chinensis
+en:mitre squid, Uroteuthis chinensis
+de:Uroteuthis chinensis,
+fr:Calmar mitre, Uroteuthis chinensis
+la:Uroteuthis chinensis
+zh:中國槍魷, Uroteuthis chinensis,
 wikidata:en:Q920979
 # ingredient/fr:Loligo-chinensis has 2 products @2019-01-04
 
 <en:squid
-en:swordtip squid
-fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet
-ja:ケンサキイカ
-zh:剑尖枪乌贼
-
-<en:swordtip squid
-en:Uroteuthis edulis
-de:Uroteuthis edulis
-fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet
+en:swordtip squid, Uroteuthis edulis
+fr:Uroteuthis edulis, Calmar épée, Calmar, Encornet, Uroteuthis edulis
+ja:ケンサキイカ, Uroteuthis edulis
 la:Uroteuthis edulis, Loligo edulis
+zh:剑尖枪乌贼, Uroteuthis edulis
 wikidata:en:Q2202434
 
-# Doryteuthis gahi, also known as the Patagonian squid and locally as calamar, is a small-sized squid belonging to the family Loliginidae.
+# en:description:Doryteuthis gahi, also known as the Patagonian squid and locally as calamar, is a small-sized squid belonging to the family Loliginidae.
 
 <en:squid
-en:Patagonian squid
-de:Patagonien-Tintenfisch
-es:Calamar de patagonia
-fr:calmar de Patagonie
-
-<en:Patagonian squid
-en:Doryteuthis gahi
-de:Doryteuthis gahi
-fr:Doryteuthis gahi, Calmar de Patagonie
+en:Patagonian squid, Doryteuthis gahi
+de:Patagonien-Tintenfisch, Doryteuthis gahi
+es:Calamar de patagonia, Doryteuthis gahi
+fr:calmar de Patagonie, Doryteuthis gahi
 la:Doryteuthis gahi, Loligo Gahi
 wikidata:en:Q13596602
 wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
@@ -66502,30 +66053,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Clam
 en:clam meat
 de:Muschelfleisch
 fi:simpukan liha
-fr:Palourde
-
-<en:clam
-en:undulate venus
-de:Undulate venus
-fi:mattosimpukka
-fr:undulate venus, palourdes
-it:vongola del Pacifico
-th:หอยลาย
-vi:Sò lụa
-zh:波纹巴非蛤, 波紋橫簾蛤
-
-<en:undulate venus
-en:Paratapes undulatus
-de:Paratapes undulatus
-fr:Paratapes undulatus, palourde
-la:Paratapes undulatus, Paphia undulata
 
 <en:clam
 fr:palourdes précuites
 
 <en:clam
-en:pink clam
-es:almejas rosadas,machas
+en:pink clam, surf clam, Mesodesma donacium
+es:almejas rosadas, machas, Mesodesma donacium
+la:Mesodesma donacium
+
+<en:clam
+en:undulate venus, Paratapes undulatus
+de:Undulate venus, Paratapes undulatus
+fi:mattosimpukka, Paratapes undulatus
+fr:undulate venus, Paratapes undulatus
+it:vongola del Pacifico, Paratapes undulatus
+la:Paratapes undulatus, Paphia undulata
+th:หอยลาย, Paratapes undulatus
+vi:Sò lụa, Paratapes undulatus
+zh:波纹巴非蛤, 波紋橫簾蛤, Paratapes undulatus
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -66765,27 +66311,22 @@ sv:krabbextrakt
 # Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean
 
 <en:crab
-en:edible crab, brown crab
-bg:ядивни раци
-cs:krab německý
-de:Taschenkrebs
-es:Buey de mar
-fi:Isotaskurapu
-fr:tourteau, Crabe dormeur
-hu:Nagy tarisznyarák
-nl:Noordzeekrab
-nn:taskekrabbe
-pt:Caranguejola
-ru:Большой сухопутный краб
-sk:Krab piesočný
-sv:Krabbtaska
+en:edible crab, brown crab, Cancer pagurus
+bg:ядивни раци, Cancer pagurus
+cs:krab německý, Cancer pagurus
+de:Taschenkrebs, Cancer pagurus
+es:Buey de mar, Cancer pagurus
+fi:Isotaskurapu, Cancer pagurus
+fr:Crabe dormeur, Dormeur, Poupard, Poupart, Tourteau, Crabe-de-lune, Poing-clos, Clos-poing, Ouvet, Cancer pagurus
+hu:Nagy tarisznyarák, Cancer pagurus
+la:Cancer pagurus
+nl:Noordzeekrab, Cancer pagurus
+nn:taskekrabbe, Cancer pagurus
+pt:Caranguejola, Cancer pagurus
+ru:Большой сухопутный краб, Cancer pagurus
+sk:Krab piesočný, Cancer pagurus
+sv:Krabbtaska, Cancer pagurus
 # ingredient/fr:tourteau has 13 products @2019-01-14
-
-<en:edible crab
-en:cancer pagurus
-de:Taschenkrebs
-fr:Cancer pagurus, Crabe dormeur, Dormeur, Poupard, Poupart, Tourteau, Crabe-de-lune, Poing-clos, Clos-poing, Ouvet
-la:cancer pagurus
 wikidata:en:Q752188
 wikipedia:en:https://en.wikipedia.org/wiki/Cancer_pagurus
 # ingredient/fr:cancer-pagurus has 12 products @2019-01-14
@@ -66850,34 +66391,34 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crayfish
 # Procambarus clarkii is a species of cambarid freshwater crayfish, native to northern Mexico, and southern and southeastern United States, but also introduced elsewhere
 
 <en:crayfish
-en:red swamp crayfish
-af:Rooimoeraskreef
-ar:إستاكوزا المستنقعات الحمراء
-ca:cranc de riu americà
-cs:rak červený
-de:Roter Amerikanischer Sumpfkrebs
-eo:Luiziana kankro
-es:Cangrejo de río americano
-eu:Ibai-karramarro gorri
-fi:punarapu
-fr:Écrevisse de Louisiane
-gl:Cangrexo de río americano
-hu:Kaliforniai vörösrák
-it:Gambero killer
-ja:アメリカザリガニ
-ko:미국가재
-la:Procambarus clarkii
-nl:Rode rivierkreeft
-pt:Lagostim vermelho da Luisiana
-sk:Rak americký
-sv:Röd sumpkräfta
-th:กุ้งแดง
-zh:克氏原螯虾
-# lzh:亞米利加蝲蛄
-# zh-hans:克氏原螯虾
-# zh-hant:克氏原螯蝦
-# zh-hk:克氏原螯蝦
-# zh-tw:克氏原蝲蛄
+en:red swamp crayfish, Procambarus clarkii
+af:Rooimoeraskreef, Procambarus clarkii
+ar:إستاكوزا المستنقعات الحمراء, Procambarus clarkii
+ca:cranc de riu americà, Procambarus clarkii
+cs:rak červený, Procambarus clarkii
+de:Roter Amerikanischer Sumpfkrebs, Procambarus clarkii
+eo:Luiziana kankro, Procambarus clarkii
+es:Cangrejo de río americano, Procambarus clarkii
+eu:Ibai-karramarro gorri, Procambarus clarkii
+fi:punarapu, Procambarus clarkii
+fr:Écrevisse de Louisiane, Procambarus clarkii
+gl:Cangrexo de río americano, Procambarus clarkii
+hu:Kaliforniai vörösrák, Procambarus clarkii
+it:Gambero killer, Procambarus clarkii
+ja:アメリカザリガニ, Procambarus clarkii
+ko:미국가재, Procambarus clarkii
+la:Procambarus clarkii, Procambarus clarkii
+nl:Rode rivierkreeft, Procambarus clarkii
+pt:Lagostim vermelho da Luisiana, Procambarus clarkii
+sk:Rak americký, Procambarus clarkii
+sv:Röd sumpkräfta, Procambarus clarkii
+th:กุ้งแดง, Procambarus clarkii
+zh:克氏原螯虾, Procambarus clarkii
+# lzh:亞米利加蝲蛄, Procambarus clarkii
+# zh-hans:克氏原螯虾, Procambarus clarkii
+# zh-hant:克氏原螯蝦, Procambarus clarkii
+# zh-hk:克氏原螯蝦, Procambarus clarkii
+# zh-tw:克氏原蝲蛄, Procambarus clarkii
 wikidata:en:Q1133124
 wikipedia:en:https://en.wikipedia.org/wiki/Procambarus_clarkii
 
@@ -66970,82 +66511,72 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lobster
 # Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea.
 
 <en:lobster
-en:European lobster, common lobster
-bg:европейски омар
-cs:humr evropský
-de:Europäischer Hummer
-et:Euroopa homaar
-fi:Euroopanhummeri
-fr:homard européen
-ga:Gliomach Eorpach
-hu:Európai homár
-is:Evrópskur Humar
-it:gambero europeo
-lt:Europinis omaras
-nl:Europese kreeft
-nn:Europeisk hummar
-pl:homar europejski
-ro:Homar european
-ru:Европейский омар
-sh:Hlap
-sl:Evropski jastog
-sv:Europeisk hummer
-zh:歐洲螯龍蝦
-wikidata:en:Q27690
-
-<en:European lobster
-en:Homarus gammarus
-de:Europäischer Hummer
-fr:Homarus gammarus, Homard européen
+en:European lobster, common lobster, Homarus gammarus
+bg:европейски омар, Homarus gammarus
+cs:humr evropský, Homarus gammarus
+de:Europäischer Hummer, Homarus gammarus
+et:Euroopa homaar, Homarus gammarus
+fi:Euroopanhummeri, Homarus gammarus
+fr:homard européen, Homarus gammarus
+ga:Gliomach Eorpach, Homarus gammarus
+hu:Európai homár, Homarus gammarus
+is:Evrópskur Humar, Homarus gammarus
+it:gambero europeo, Homarus gammarus
 la:Homarus gammarus
+lt:Europinis omaras, Homarus gammarus
+nl:Europese kreeft, Homarus gammarus
+nn:Europeisk hummar, Homarus gammarus
+pl:homar europejski, Homarus gammarus
+ro:Homar european, Homarus gammarus
+ru:Европейский омар, Homarus gammarus
+sh:Hlap, Homarus gammarus
+sl:Evropski jastog, Homarus gammarus
+sv:Europeisk hummer, Homarus gammarus
+zh:歐洲螯龍蝦, Homarus gammarus
+wikidata:en:Q27690
 wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
 # fr:Homarus-gammarus has 4 products @2019-01-11
 
 
-# The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey.
+# en:description:The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey.
 
 <en:lobster
-en:American lobster
-bn:আমেরিকান গলদা চিংড়ি
-ca:llamàntol americà
-cs:humr americký
-da:amerikansk hummer
-de:Amerikanischer Hummer
-el:αμερικανικός αστακός
-es:Langosta americana
-et:Ameerika homaar
-fa:شاه‌میگوی آمریکایی
-fi:amerikanhummeri
-fr:homard américain
-he:לובסטר אמריקני
-hi:अमेरिकी झींगा मछली
-id:Lobster amerika
-it:Astice americano
-ka:ამერიკული ასთაკვი
-lt:Amerikinis omaras
-mn:Amerikansk hummer
-nn:Amerikansk hummar
-or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି
-pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ
-pl:Homar amerykański
-ru:американский омар
-sh:Američki hlap
-sq:karavidhe amerikane
-sv:Amerikansk hummer
-ur:امریکی لابسٹر
-vi:Tôm hùm Mỹ
-zh:美洲螯龍蝦
-# en-ca:American lobster
-# en-gb:American lobster
-# pnb:امریکی لابسٹر
+en:American lobster, Homarus americanus
+bn:আমেরিকান গলদা চিংড়ি, Homarus americanus
+ca:llamàntol americà, Homarus americanus
+cs:humr americký, Homarus americanus
+da:amerikansk hummer, Homarus americanus
+de:Amerikanischer Hummer, Homarus americanus
+el:αμερικανικός αστακός, Homarus americanus
+es:Langosta americana, Homarus americanus
+et:Ameerika homaar, Homarus americanus
+fa:شاه‌میگوی آمریکایی, Homarus americanus
+fi:amerikanhummeri, Homarus americanus
+fr:homard américain, Homarus americanus
+he:לובסטר אמריקני, Homarus americanus
+hi:अमेरिकी झींगा मछली, Homarus americanus
+id:Lobster amerika, Homarus americanus
+it:Astice americano, Homarus americanus
+ka:ამერიკული ასთაკვი, Homarus americanus
+la:Homarus americanus
+lt:Amerikinis omaras, Homarus americanus
+mn:Amerikansk hummer, Homarus americanus
+nn:Amerikansk hummar, Homarus americanus
+or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି, Homarus americanus
+pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ, Homarus americanus
+pl:Homar amerykański, Homarus americanus
+ru:американский омар, Homarus americanus
+sh:Američki hlap, Homarus americanus
+sq:karavidhe amerikane, Homarus americanus
+sv:Amerikansk hummer, Homarus americanus
+ur:امریکی لابسٹر, Homarus americanus
+vi:Tôm hùm Mỹ, Homarus americanus
+zh:美洲螯龍蝦, Homarus americanus
+# en-ca:American lobster, Homarus americanus
+# en-gb:American lobster, Homarus americanus
+# pnb:امریکی لابسٹر, Homarus americanus
 wikidata:en:Q37668
 wikipedia:en:https://en.wikipedia.org/wiki/American_lobster
-
-<en:American lobster
-en:Homarus americanus
-de:Amerikanischer Hummer
-fr:Homarus americanus, Homard américain
-la:Homarus americanus
 
 <en:American lobster
 fr:pulpe de homard
@@ -67120,65 +66651,55 @@ fr:têtes et pinces de langoustines
 # Panulirus argus, the Caribbean spiny lobster,[2] is a species of spiny lobster that lives on reefs and in mangrove swamps in the western Atlantic Ocean.
 
 <en:lobster
-en:Caribbean spiny lobster
-bg:карибски гръбначен омар
-de:Karibik-Languste
-fi:karibianlangusti
-fr:Langouste blanche
-zh:眼斑龍蝦
-
-<en:Caribbean spiny lobster
-en:Panulirus argus, Panulirue argus
-de:Karibik-Languste
-fr:Panulirus argus, Langouste blanche, Langouste
+en:Caribbean spiny lobster, Panulirus argus
+bg:карибски гръбначен омар, Panulirus argus
+de:Karibik-Languste, Panulirus argus
+fi:karibianlangusti, Panulirus argus
+fr:Langouste blanche, Panulirus argus
 la:Panulirus argus, Panulirue argus
+zh:眼斑龍蝦, Panulirus argus
 wikipedia:en:https://en.wikipedia.org/wiki/Panulirus_argus
+
+# en:description:Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
 
 
 <en:spiny lobster
-en:Norway lobster
-az:Norveç omarı
-be:Нарвежскі амар
-bg:норвежки омар
-br:Grilh-traezh
-ca:escamarlà
-da:Jomfruhummer
-de:Kaisergranat
-el:Σκάμπι
-es:Cigala
-eu:Zigala
-fa:شاه‌میگوی نروژی
-fi:Keisarihummeri
-fo:Jómfrúhummari
-fr:Langoustine commune, langoustines, langoustine
-gl:Cigala
-hr:Škamp
-is:Leturhumar
-it:Scampi, Scampo
-ja:ヨーロッパアカザエビ
-ko:스캄피
-nb:Sjøkreps
-nl:Noorse kreeft
-nn:Sjøkreps
-pl:homarzec
-ro:Langustină
-ru:Норвежский омар
-sh:Škamp
-sv:Havskräfta
-zh:挪威海螯蝦
-# be-tarask:Нарвэскі амар
-# zh-hans:挪威海螯虾
-# zh-hant:挪威海螯蝦
-# zh-hk:挪威海螯蝦
-# ingredient/fr:langoustines has 68 products @2019-01-11
-
-# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long
-
-<en:norway lobster
-en:Nephrops norvegicus
-de:Norwegischer Hummer
-fr:Nephrops norvegicus, Langoustine commune, Langoustine
+en:Norway lobster, Nephrops norvegicus
+az:Norveç omarı, Nephrops norvegicus
+be:Нарвежскі амар, Nephrops norvegicus
+bg:норвежки омар, Nephrops norvegicus
+br:Grilh-traezh, Nephrops norvegicus
+ca:escamarlà, Nephrops norvegicus
+da:Jomfruhummer, Nephrops norvegicus
+de:Kaisergranat, Norwegischer Hummer, Nephrops norvegicus
+el:Σκάμπι, Nephrops norvegicus
+es:Cigala, Nephrops norvegicus
+eu:Zigala, Nephrops norvegicus
+fa:شاه‌میگوی نروژی, Nephrops norvegicus
+fi:Keisarihummeri, Nephrops norvegicus
+fo:Jómfrúhummari, Nephrops norvegicus
+fr:Langoustine commune, langoustines, langoustine, Nephrops norvegicus
+gl:Cigala, Nephrops norvegicus
+hr:Škamp, Nephrops norvegicus
+is:Leturhumar, Nephrops norvegicus
+it:Scampi, Scampo, Nephrops norvegicus
+ja:ヨーロッパアカザエビ, Nephrops norvegicus
+ko:스캄피, Nephrops norvegicus
 la:Nephrops norvegicus
+nb:Sjøkreps, Nephrops norvegicus
+nl:Noorse kreeft, Nephrops norvegicus
+nn:Sjøkreps, Nephrops norvegicus
+pl:homarzec, Nephrops norvegicus
+ro:Langustină, Nephrops norvegicus
+ru:Норвежский омар, Nephrops norvegicus
+sh:Škamp, Nephrops norvegicus
+sv:Havskräfta, Nephrops norvegicus
+zh:挪威海螯蝦, Nephrops norvegicus
+# be-tarask:Нарвэскі амар, Nephrops norvegicus
+# zh-hans:挪威海螯虾, Nephrops norvegicus
+# zh-hant:挪威海螯蝦, Nephrops norvegicus
+# zh-hk:挪威海螯蝦, Nephrops norvegicus
+# ingredient/fr:langoustines has 68 products @2019-01-11
 wikidata:en:Q551915
 # ingredient/fr:Nephrops-norvegicus has 5 products in french @2019-01-11
 
@@ -67247,13 +66768,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 en:red prawn
 es:gamba roja
 
-<en:crustacean
-<en:shrimp
-en:scarlet shrimp
-es:carabinero
-la:plesiopenaeus edwardsianus
-wikipedia:es:https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
-
 <en:shrimp
 en:shrimp paste
 de:Garnelenpaste
@@ -67266,7 +66780,6 @@ sv:räkpasta
 <en:shrimp
 fr:crevettes décortiquées, crevette décortiquée
 # ingredient/fr:crevettes-décortiquées has 46 products in french @2019-01-06
-
 
 <en:shrimp
 en:shrimp powder
@@ -67287,11 +66800,11 @@ fr:queues de crevettes décortiquées
 fr:Crevettes entières crues
 # ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
-# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
-
 <en:shrimp
 fr:crevettes roses
 # ingredient/fr:crevettes-roses has 13 products @2019-01-06
+
+# en:description:Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
 
 <en:shrimp
 en:penaeid shrimp
@@ -67300,7 +66813,7 @@ bg:Бели скариди
 ca:Peneid
 fa:درازمنقارچگان
 fi:valkokatkaravut
-fr:Penaeid shrimp, Crevette
+fr:Penaeid shrimp
 gl:Peneidos
 ja:クルマエビ科
 ko:보리새우과
@@ -67329,150 +66842,136 @@ wikipedia:en:https://en.wikipedia.org/wiki/Aristeidae
 fr:Gambas cuites
 # Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
 
-# Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
+<en:shrimp
+en:scarlet shrimp, Plesiopenaeus Edwardsianus
+es:carabinero, Plesiopenaeus Edwardsianus
+la:Plesiopenaeus Edwardsianus
+wikipedia:es:https://es.wikipedia.org/wiki/Aristaeopsis_edwardsiana
+
+# en:description:Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
 
 <en:deep-sea shrimp
-en:giant tiger prawn, Asian tiger shrimp
-bg:гигантска тигрова скарида
-de:Riesen Tigergarnele
-fa:میگوی ببری بزرگ
-fi:tiikerikatkarapu
-fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées
-id:Udang windu
-ja:ウシエビ
-ko:블랙타이거
-ms:Udang harimau
-pl:krewetka tygrysia
-pt:Camarão-tigre-gigante
-th:กุ้งกุลาดำ
-tr:Jumbo karides
-vi:Tôm sú
-zh:草蝦
-# nah:Acachatl‎
-# pam:Paro sakdagul
-# yue:大虎蝦
-# zh-tw:斑節對蝦
-
-<en:giant tiger prawn
-en:Penaeus monodon
-de:Riesen Tigergarnele
-fr:Penaeus monodon, Crevette géante tigrée
+en:giant tiger prawn, Asian tiger shrimp, Penaeus monodon
+bg:гигантска тигрова скарида, Penaeus monodon
+de:Riesen Tigergarnele, Penaeus monodon
+fa:میگوی ببری بزرگ, Penaeus monodon
+fi:tiikerikatkarapu, Penaeus monodon
+fr:Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées, crevettes tropicales tigrées, Penaeus monodon
+id:Udang windu, Penaeus monodon
+ja:ウシエビ, Penaeus monodon
+ko:블랙타이거, Penaeus monodon
 la:Penaeus monodon
+ms:Udang harimau, Penaeus monodon
+pl:krewetka tygrysia, Penaeus monodon
+pt:Camarão-tigre-gigante, Penaeus monodon
+th:กุ้งกุลาดำ, Penaeus monodon
+tr:Jumbo karides, Penaeus monodon
+vi:Tôm sú, Penaeus monodon
+zh:草蝦, Penaeus monodon
+# nah:Acachatl‎, Penaeus monodon
+# pam:Paro sakdagul, Penaeus monodon
+# yue:大虎蝦, Penaeus monodon
+# zh-tw:斑節對蝦, Penaeus monodon
 wikipedia:en:https://en.wikipedia.org/wiki/Penaeus_monodon
 # ingredient/fr:Penaeus-monodon has 16 products @2019-01-13
 
-<en:shrimp
 <en:deep-sea shrimp
 fr:crevettes tropicale décortiqué crue
 
 <en:shrimp
 en:mantis shrimp
 es:galera
+la:Stomatopoda
 th:กั้ง
 wikipedia:en:https://en.wikipedia.org/wiki/Mantis_shrimp
 
-# Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
+# en:description:Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
 <en:shrimp
-en:whiteleg shrimp
-de:Penaeus vannamei
-es:camarón
-fi:valkokatkarapu
-fr:Crevette à pattes blanches
-pl:krewetka białonoga
-pt:camarão-de-patas-brancas
+en:whiteleg shrimp, Litopenaeus vannamei
+de:Weißbeingarnele, Litopenaeus vannamei
+es:camarón, Litopenaeus vannamei
+fi:valkokatkarapu, Litopenaeus vannamei
+fr:Crevette à pattes blanches, Litopenaeus vannamei
+la:Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
+pl:krewetka białonoga, Litopenaeus vannamei
+pt:camarão-de-patas-brancas, Litopenaeus vannamei
 wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
-<en:whiteleg shrimp
-en:Penaeus vannamei, Penaeus vannamel, Litopenaus vanamei, penaeus vannamei
-de:Weißbeingarnele
-fr:Penaeus vannamei, Crevette à pattes blanches
-la:Litopenaeus vannamei
 
-
-# Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
+# en:description:Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
 
 <en:shrimp
 en:Heterocarpus
-de:Tiefseegarnelen
-fr:Heterocarpus, Crevette
+de:Tiefseegarnelen, Heterocarpus
+fr:Heterocarpus
 la:Heterocarpus, Heterocarpus spp
 wikidata:en:Q3932367
 wikipedia:en:https://en.wikipedia.org/wiki/Heterocarpus
 # ingredient/fr:Heterocarpus-spp has 2 products in french @2019-01-06
 
+# en:description:Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
+
 <en:shrimp
-en:grey shrimp
-ar:روبيان أوروبي
-bg:обикновена:ребна скарид:br:Chevr-traezh
-da:Hestereje
-de:Nordseegarnele
-eu:Izkira zuri
-fa:میگوی قهوه‌ای
-fi:Hietakatkarapu
-fr:crevettes grises
-ga:Ribe róibéis
-io:Kreveto
-it:Gamberetto grigio
-ja:ヨーロッパエビジャコ
-kk:Креветка
-nb:Sandreke
-nl:grijze garnalen, Noordzeegarnaal
-sl:Navadna peščena kozica
-sv:Sandräka
-uk:Шримс звичайний
-# frr:Por
-# nds:Granaat
-# pcd:Soetréle
-# vls:Nôordzêegeirnoar
-# ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
-
-# Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
-
-<en:grey shrimp
-en:Crangon crangon
-de:Nordseekrabben
-fr:Crangon crangon, Crevette grise européenne
+en:grey shrimp, Crangon crangon
+ar:روبيان أوروبي, Crangon crangon
+bg:обикновена:ребна скарид, Crangon crangon
+br:Chevr-traezh, Crangon crangon
+da:Hestereje, Crangon crangon
+de:Nordseegarnele, Crangon crangon
+eu:Izkira zuri, Crangon crangon
+fa:میگوی قهوه‌ای, Crangon crangon
+fi:Hietakatkarapu, Crangon crangon
+fr:crevettes grises, Crevette grise européenne, Crangon crangon
+ga:Ribe róibéis, Crangon crangon
+io:Kreveto, Crangon crangon
+it:Gamberetto grigio, Crangon crangon
+ja:ヨーロッパエビジャコ, Crangon crangon
+kk:Креветка, Crangon crangon
 la:Crangon crangon
+nb:Sandreke, Crangon crangon
+nl:grijze garnalen, Noordzeegarnaal, Crangon crangon
+sl:Navadna peščena kozica, Crangon crangon
+sv:Sandräka, Crangon crangon
+uk:Шримс звичайний, Crangon crangon
+# frr:Por, Crangon crangon
+# nds:Granaat, Crangon crangon
+# pcd:Soetréle, Crangon crangon
+# vls:Nôordzêegeirnoar, Crangon crangon
+# ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
 wikipedia:en:https://en.wikipedia.org/wiki/Crangon_crangon
 # ingredient/fr:Crangon-crangon has 6 products @2019-01-06
 
 <en:shrimp
-en:northern prawn
-bg:северна скарида
-ca:gamba boreal
-cs:krevetka severní
-da:Dybvandsreje
-de:Kanada-Crevetten, Eismeergarnele
-fi:Pohjankatkarapu
-fr:crevettes nordique, Crevette nordique du Canada
-gl:Camarón ártico
-hu:Norvég garnéla
-is:Stóri kampalampi
-it:Gamberetti del Canada
-ja:ホッコクアカエビ
-lt:Paprastoji šiaurinė krevetė
-nb:dypvannsreke
-pl:krewetka północna
-sv:Nordhavsräka
-vi:Tôm hồng
-zh:北极虾
-wikidata:en:Q122181
-
-<en:northern prawn
-en:Pandalus borealis
-de:Eismeergarnele
-fr:Pandalus borealis, Crevette nordique du Canada
-it:Pandalus borealis
+en:northern prawn, Pandalus borealis
+bg:северна скарида, Pandalus borealis
+ca:gamba boreal, Pandalus borealis
+cs:krevetka severní, Pandalus borealis
+da:Dybvandsreje, Pandalus borealis
+de:Kanada-Crevetten, Eismeergarnele, Pandalus borealis
+fi:Pohjankatkarapu, Pandalus borealis
+fr:crevettes nordique, Crevette nordique du Canada, Pandalus borealis
+gl:Camarón ártico, Pandalus borealis
+hu:Norvég garnéla, Pandalus borealis
+is:Stóri kampalampi, Pandalus borealis
+it:Gamberetti del Canada, Pandalus borealis
+ja:ホッコクアカエビ, Pandalus borealis
 la:Pandalus borealis
-# ingredient/fr:Pandalus-borealis has 22 products @2019-01-06
+lt:Paprastoji šiaurinė krevetė, Pandalus borealis
+nb:dypvannsreke, Pandalus borealis
+pl:krewetka północna, Pandalus borealis
+sv:Nordhavsräka, Pandalus borealis
+vi:Tôm hồng, Pandalus borealis
+zh:北极虾, Pandalus borealis
+wikidata:en:Q122181
+# ingredient/fr:Pandalus-borealis has 41 products @2020-08-06
 
-# Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
+# en:description:Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
 
 <en:shrimp
-en:rainbow shrimp
-fr:Crevette arc-en-ciel
+en:rainbow shrimp, Parapenaeopsis sculptilis
+fr:Crevette arc-en-ciel, Parapenaeopsis sculptilis
 la:Parapenaeopsis sculptilis,  Parapenaeopsis, Parapenaeopsis spp
 wikidata:en:Q14025149
 wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
@@ -67481,7 +66980,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
 <en:shrimp
 en:Parapenaeopsis stylifera
 de:Parapenaeopsis stylifera
-fr:Parapenaeopsis stylifera, crevette
+fr:Parapenaeopsis stylifera
 la:Parapenaeopsis stylifera
 wikidata:en:Q6491649
 wikipedia:nl:https://nl.wikipedia.org/wiki/Parapenaeopsis_stylifera
@@ -69419,7 +68918,7 @@ sa:यष्टी
 sh:Sladić
 sl:Golostebelni sladki koren
 sr:Сладић
-sv:lakrits, Lakritsrot
+sv:lakrits
 ta:அதிமதுரம்
 te:అతిమధురము
 th:ชะเอมเทศ
@@ -69584,7 +69083,7 @@ de:Geflügelfleisch
 es:Carne de ave
 fi:siipikarjanliha
 fr:viande de volaille
-hu:baromfihús, csirkehús, baromfi
+hu:baromfihús
 nl:Vlees van gevogelte
 pl:Mięso drobiowe
 sv:Fjäderfäkött
@@ -69743,7 +69242,7 @@ wo:Ganaar
 xh:Inkuku
 yi:האן
 za:Gaeq
-zh:鸡,  鸡肉
+zh:鸡
 # aeb-ara:دجاج
 # ang:Cicen
 # arz:فرخه
@@ -69925,9 +69424,6 @@ fr:viande de cuisse de poulet
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
-<en:chicken meat
-fr:poitrine de poulet
-ro:piept de pui
 
 <en:chicken meat
 fr:cuisse de poulet
@@ -70077,7 +69573,8 @@ fi:uunipaahdettu broilerinfilee
 en:chicken breast
 ca:pit de pollastre
 es:pechuga de pollo,carne de pechuga de pollo
-fr:blanc de poulet,poitrine de poulet
+fr:blanc de poulet, poitrine de poulet
+ro:piept de pui
 sv:kycklingbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
@@ -70468,7 +69965,7 @@ ca:ou
 cs:vejce
 cy:ŵy
 da:æg, aeg
-de:Ei, Eier, Eiern, Vollei
+de:Ei, Eier, Eiern
 ee:koklozi
 el:αυγό, αυγά
 eo:ovo
@@ -70703,10 +70200,12 @@ nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
+en:free range chicken eggs
 fr:œufs de poules élevées en plein air calibre moyen
 
 <en:free range chicken eggs
 <en:organic egg
+en:free range chicken eggs
 fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
@@ -70716,10 +70215,6 @@ fr:Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A
 
 <en:free range chicken eggs
 fr:Oeufs frais de poule élevées en plein air, 12 Oeufs frais de poule élevées en plein air
-
-<fr:Oeufs frais de poule élevées en plein air
-<en:organic egg
-fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
 fr:Gros Œufs de Poules Élevées en Plein Air
@@ -70757,7 +70252,7 @@ nl:gepasteuriseerd vloeibaar ei
 <en:egg
 en:egg powder, powdered egg
 da:æggepulver
-de:Eipulver, Volleipulver
+de:Eipulver
 el:αλεύρι σίτου αυγό σκόνη
 es:huevo en polvo
 fi:munajauhe, kananmunajauhe
@@ -70818,7 +70313,6 @@ fr:oeuf entier liquide pasteurisé salé
 
 <en:whole egg
 en:whole fresh eggs
-de:Frischei, Frischeier
 es:huevos enteros frescos
 fi:kokonainen tuore muna, kokonaiset tuoreet munat
 fr:œuf entier frais, œufs entiers frais, œufs frais entiers, oeuf entier frais, oeufs entiers frais, oeufs frais entiers
@@ -70863,7 +70357,7 @@ fr:oeuf entier concentré
 en:fresh egg, fresh eggs
 cs:čerstvá vejce
 da:Æg
-de:frische Eier, Frischei
+de:frische Eier, Frischei, Frischeier
 es:huevos frescos
 fi:tuore muna, tuoreet munat
 fr:œuf frais, œufs frais, oeuf frais, oeufs frais
@@ -70902,7 +70396,8 @@ bn:সাদা ডিম
 ca:clara d'ou
 cs:bílek
 da:æggehvide
-de:Eiklar, Eiweiß, Eiweiss
+de:Eiklar
+# de:comment:eiweiß is a synonym of protein, or use Ei-eiweiß
 el:ασπράδι αυγού
 eo:ovoblanko
 es:clara de huevo, albumina de huevo
@@ -70957,7 +70452,7 @@ da:æggehvidepulver
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
 el:ασπράδι αυγού σε σκόν
 es:clara de huevo en polvo, clara de huevos en polvo
-fi:munanvalkuaisjauhe, kananmunanvalkuaisjauhe, kuivattu munanvalkuainen
+fi:munanvalkuaisjauhe, kuivattu munanvalkuainen
 fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre,poudre d'albumen
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
@@ -71162,11 +70657,6 @@ nl:gepasteuriseerd eigeel van eieren van hennen met vrije uitloop
 # ingredient/fr:jaune-d’œufs-de-poules-élevées-en-plein-air-pasteurisés has 27 products in 2 languages @2018-12-18
 
 <en:egg yolk
-fr:jaune d'œufs frais, jaune d'oeufs frais
-it:turolo d'uova fresche
-# ingredient/fr:jaune-d-oeuf-frais has 176 products in 3 languages @2018-12-18
-
-<en:egg yolk
 en:egg yolk powder, eggs yolk powder, powdered egg yolk
 ca:gema d'ou en pols
 da:æggeblommepulver
@@ -71206,7 +70696,7 @@ nl:gepasteuriseerd vloeibaar eigeel
 # ingredient/fr:jaune-d’oeuf-liquide-pasteurisé has 74 products in 2 languages @2018-12-18
 
 <en:egg yolk
-fr:jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs frais
+fr:jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs frais, jaune d'œufs frais, jaune d'oeufs frais
 it:tuorlo d'uova fresche, turolo d'uova fresche
 # ingredient/fr:jaune-d’oeuf-frais has 176 products in 3 languages @2018-12-17
 
@@ -71316,9 +70806,8 @@ fr:extraits naturels
 
 <en:extract
 en:vegetable extract, vegetable extracts
-de:Pflanzenextrakt, Pflanzenextrakte, Gemüseextrakte
+de:Gemüseextrakte
 es:Extrato vegetal, extratos vegetales
-fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 it:estratto vegetale, estratti vegetali
 nl:plantaardig extract, plantaardige extracten
@@ -71979,7 +71468,7 @@ de:Teig
 ee:ayma
 el:Ζυμάρι
 eo:pasto
-es:masa, masa madre
+es:masa
 et:Taigen
 eu:ore
 fa:خمیر
@@ -72052,7 +71541,10 @@ zh:生麵團
 wikidata:en:Q178024
 wikipedia:en:https://en.wikipedia.org/wiki/Dough
 
+<en:dough
 en:inactive dough
+
+<en:sourdough
 es:masa madre inactiva
 
 <en:pasta
@@ -72536,7 +72028,7 @@ hy:Լափշա
 id:Mi
 io:Nudlo
 is:Núðla
-it:noodles, tagliatelle
+it:noodles
 ja:麺
 jv:Mi
 ka:ატრია
@@ -73353,7 +72845,6 @@ it:rivestimento
 lt:apvalkalas
 nb:belegg
 nl:coating
-pl:Przyprawy
 ro:inveliş
 sl:skorjica
 sv:överdrag
@@ -74403,7 +73894,7 @@ sv:kycklingbuljong
 en:vegetable broth
 ca:brou vegetal
 da:Grøntsagsbouillon
-de:Gemüsebouillon
+de:Gemüsebouillon, Gemüsebrühe
 es:Caldo de verduras
 fi:kasvisliemi
 fr:bouillon végétal, bouillon de légume
@@ -74856,7 +74347,8 @@ ms:aiskrim
 mt:ġelat
 my:ရေခဲမုန့်
 nb:iskrem
-nl:roomijs, ijs
+nl:roomijs
+# nl:ijs wordt gebruikt voor bevroren water
 nn:iskrem
 nv:Abeʼ yistiní
 or::ଆଇସ କ୍ରୀମ
@@ -75342,12 +74834,6 @@ carbon_footprint_fr_foodges_value:fr:2.4
 # ingredient/fr:ketchup has 110 products in 4 languages @2019-04-21
 # usage:en:ketchup (tomato puree, glucose syrup, brandy vinegar, sugar, modified corn starch)
 
-<en:sauce
-en:tomato sauce
-fi:tomaattikastike
-fr:préparation de tomates décongelée
-hu:paradicsomszósz, paradicsom szósz
-# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
@@ -75787,6 +75273,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 
 # description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes.
 
+
 <en:sauce
 en:tomato sauce
 ar:صلصة البندورة
@@ -75848,6 +75335,10 @@ fr:sauce tomate cuite
 
 <en:tomato sauce
 fr:sauce tomate cuisinée
+
+<en:tomato sauce
+fr:préparation de tomates décongelée
+# usage:fr:préparation de tomates décongelée (tomates mi-séchées, huile de colza, sel, origan, ail)
 
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 

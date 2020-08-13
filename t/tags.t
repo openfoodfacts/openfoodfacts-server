@@ -630,4 +630,34 @@ is_deeply($product_ref->{categories_tags},
 ]
 ) or diag explain $product_ref;
 
+my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","en:organic");
+is_deeply($tag_ref, 
+{
+  'css_class' => 'tag known ',
+  'display' => 'Bio',
+  'display_lc' => 'fr',
+  'html_lang' => ' lang="fr"',
+  'known' => 1,
+  'tagid' => 'en:organic',
+  'tagurl' => 'bio'
+}
+)
+or diag explain $tag_ref;
+
+$tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","fr:some unknown label");
+is_deeply($tag_ref,
+{
+  'css_class' => 'tag user_defined ',
+  'display' => 'some unknown label',
+  'display_lc' => 'fr',
+  'html_lang' => ' lang="fr"',
+  'known' => 0,
+  'tagid' => 'fr:some unknown label',
+  'tagurl' => 'some-unknown-label'
+}
+)
+or diag explain $tag_ref;
+
+
+
 done_testing();
