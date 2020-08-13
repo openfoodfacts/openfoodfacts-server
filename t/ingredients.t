@@ -1616,7 +1616,7 @@ delete $product_ref->{ingredients_percent_analysis};
 
 is($product_ref->{ingredients_n}, 19);
 
-my $expected_product_ref =
+$expected_product_ref =
  {
    'ingredients' => [
      {
