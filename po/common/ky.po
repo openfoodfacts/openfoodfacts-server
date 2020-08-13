@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ky\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 10:46\n"
+"PO-Revision-Date: 2020-08-13 12:37\n"
 "Language-Team: Kyrgyz\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -577,20 +577,36 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr ""
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
+msgctxt "emb_code_products"
+msgid "Products packaged by the company with traceability code %s"
 msgstr ""
 
-msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
+msgctxt "emb_code_p"
+msgid "Traceability codes"
 msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
+msgid "Traceability code"
 msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
 msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
@@ -599,23 +615,7 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr ""
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr ""
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr ""
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr ""
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
 msgstr ""
 
 msgctxt "entry_dates_p"
@@ -897,7 +897,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Саламатсызбы"
 
 msgctxt "high"
 msgid "high"
@@ -1193,7 +1193,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Кирүү"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1995,7 +1995,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Издөө"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2003,7 +2003,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Издөө"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2276,7 +2276,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Кирүү"
 
 msgctxt "share"
 msgid "Share"
@@ -2296,7 +2296,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Чыгуу"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -3797,7 +3797,7 @@ msgstr ""
 
 msgctxt "close"
 msgid "Close"
-msgstr ""
+msgstr "Жабуу"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
