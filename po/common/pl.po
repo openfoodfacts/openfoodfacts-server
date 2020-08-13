@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 10:12\n"
+"PO-Revision-Date: 2020-08-13 12:11\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,83 +52,83 @@ msgstr "Zarejestruj się"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Witaj!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Dziękujemy za dołączenie do nas!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Możesz teraz dodawać i edytować produkty na naszej stronie internetowej lub za pomocą darmowej <a href=\"%s\">aplikacji mobilnej</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Dołącz do nas na Slacku"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s to wspólny projekt, do którego możesz wnieść znacznie więcej niż tylko nowe produkty: swoją energię, entuzjazm i pomysły!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Do dyskusji wykorzystujemy program Slack, gdzie wszyscy członkowie mogą ze sobą współpracować. Dołącz do nas! Będziemy zachwyceni mogąc Cię poznać!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Dołącz do nas na Slacku"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Teraz możesz łatwo importować dane produktów i ich zdjęcia."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Możesz teraz dodawać i edytować swoje produkty oraz importować ich dane i zdjęcia na naszej bezpłatnej platformie <a href=\"%s\">dla producentów</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Istnieje już organizacja o nazwie %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Twoja prośba o dołączenie organizacji oczekuje na zatwierdzenie przez administratora."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Jeśli masz jakiekolwiek pytania, wyślij e-mail na adres <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a>."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Jeśli pracujesz dla producenta lub marki i dodasz lub uzupełnisz dane tylko dla własnych produktów, możesz uzyskać dostęp do naszej całkowicie darmowej platformy dla producentów."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Platforma dla producentów umożliwia przedsiębiorcom łatwy import danych i zdjęć dla wszystkich ich produktów, oznaczenie ich jako oficjalne oraz pozwala uzyskać bezpłatną analizę możliwości poprawy ich produktów."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Konto profesjonalne"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "To jest konto producenta lub marki."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "Producent lub marka"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesjonalne konta muszą być powiązane z organizacją (nazwa firmy lub marka)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Wprowadź nazwę swojej organizacji (nazwę firmy lub markę)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "To konto jest profesjonalnym kontem powiązanym z producentem lub marką %s. Masz dostęp do platformy dla producentów."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -578,7 +578,7 @@ msgstr "Parametry konta"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Ustawienia konta zostały zmienione."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -592,21 +592,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "adres e-mail"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "Kody EMB"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "Produkty pakowane przez firmę z kodem emb %s"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "Kod EMB"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "Kod EMB"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -614,24 +630,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "W Europie, kod w elipsie z inicjałami kraju, po którym następuje numer i CE."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "kod pakietującego"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Produkty oznaczone kodem emb %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "kod pakietującego"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Produkty nieoznaczone kodem emb %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -3544,11 +3544,11 @@ msgstr "Proszę sprawdzić, czy dane na platformie producenta są poprawne przed
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Eksportuj zdjęcia do publicznej bazy danych"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Zastąp istniejące wybrane zdjęcia"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4284,18 +4284,18 @@ msgstr ""
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Producenci"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Jeżeli ten produkt posiada listę składników przetłumaczoną na %s, dodaj ją."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Brakujący kod kreskowy"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Nieprawidłowy kod kreskowy"
 
