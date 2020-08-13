@@ -7668,6 +7668,8 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#description:en:MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 <en:E331
 en:E331(i), Monosodium citrate
 bg:E331(i), Мононатриев цитрат
@@ -7696,6 +7698,12 @@ e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
+wikidata:en:Q4179018
+wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_citrate
+# additive/e331i-monosodium-citrate has 112 products in 7 languages @2019-04-24
+# ingredient/fr:citrate-monosodique has 79 products in 5 languages @2019-04-24
+
+# description:en:DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
 
 <en:E331
 en:E331(ii), Disodium citrate
@@ -7725,6 +7733,9 @@ e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
+wikidata:en:Q4177124
+wikipedia:en:https://en.wikipedia.org/wiki/Disodium_citrate
+# additive/e331ii-disodium-citrate has 21 products in 2 languages @2019-04-24
 
 <en:E331
 en:E331(iii), Trisodium citrate
@@ -7740,19 +7751,20 @@ pt:E331(iii), Citrato trissódico
 sv:E331(iii), Trinatriumcitrat
 e_number:en:331
 
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
 ca:E332, Citrats de potassi
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrat, Kaliumcitrate, Trikaliumcitrat, E 332
-el:E332, E332 food additive
-es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico, E 332
+de:E332, Kaliumcitrate, Kaliumcitrat
+el:E332, Κιτρικο καλιο
+es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
 et:E332, E332 food additive
 fi:E332, Kaliumsitraatti, Kaliumsitraattia
-fr:E332, Citrates de potassium, Citrate de potassium, Citrate biacide de potassium, Citrate tripotassique
+fr:E332, Citrates de potassium, Citrate de potassium
 hu:E332, Kálium-citrát
-it:E332, Citrato di potassio, C6H5K3O7·H2O, Citrato di tripotassio
+it:E332, Citrato di potassio
 lt:E332, E332 food additive
 lv:E332, E332 food additive
 mt:E332, E332 food additive
@@ -7761,9 +7773,9 @@ pl:E332, E332 food additive
 pt:E332, Citrato de potássio
 ro:E332, E332 food additive
 ru:E332, Цитрат калия
-sk:E332, E332 food additive
+sk:E332, Kálium-citrát, Citran draselný
 sl:E332, E332 food additive
-sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
+sv:E332, Kaliumcitrat, Kaliumcitrater
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
@@ -7776,7 +7788,7 @@ en:E332(i), Monopotassium citrate
 bg:E332(i), Монокалиев цитрат
 cs:E332(i), Citronan monodraselný
 da:E332(i), Monokaliumcitrat
-de:E332(i), Monokaliumcitrat, Kaliumcitrat
+de:E332(i), Monokaliumcitrat
 el:E332(i), Δισοξινο κιτρικο καλιο
 es:E332(i), Citrato monopotásico
 et:E332(i), Kaaliumdivesiniktsitraat
@@ -7791,21 +7803,26 @@ nl:E332(i), Monokaliumcitraat
 pl:E332(i), Cytrynian monopotasowy
 pt:E332(i), Citrato monopotássico
 ro:E332(i), Citrat monopotasic
-sk:E332(i), Citran draselný, Kálium-citrát
+sk:E332(i). E332(i) food additive
 sl:E332(i), Monokalijev citrat
 sv:E332(i), Monokaliumcitrat
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabilizer
+wikidata:en:Q63255997
+# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
 
+# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 <en:E332
 en:E332(ii), Tripotassium citrate
 bg:E332(ii), Трикалиев цитрат
 cs:E332(ii), Tripotassium citrate
 da:E332(ii), Trikaliumcitrat
 de:E332(ii), Trikaliumcitrat, Kaliumcitrat
-el:E332(ii), Κιτρικο καλιο
+el:E332(ii), E332(ii) food additive
 es:E332(ii), Citrato tripotásico
 et:E332(ii), Kaaliumtsitraat
 fi:E332(ii), Trikaliumsitraatti, Trikaliumsitraattia
@@ -7819,34 +7836,38 @@ nl:E332(ii), Trikaliumcitraat
 pl:E332(ii), Cytrynian tripotasowy
 pt:E332(ii), Citrato tripotássico
 ro:E332(ii), Citrat tripotasic
-sk:E332(ii), Citran tridraselný, Kálium-citrát
+sk:E332(ii), Citran tridraselný
 sl:E332(ii), Trikalijev citrat
 sv:E332(ii), Trikaliumcitrat
 e_number:en:332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabilizer
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 
-en:E333, Calcium citrates , Calcium citrate
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
+en:E333, Calcium citrates, Calcium citrate
 bg:E333, E333 food additive
 ca:E333, Citrats de calci
 cs:E333, Citrát vápenatý
 da:E333, E333 food additive
-de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat, Calciumcitrate
-el:E333, E333 food additive
-es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga, E 333
+de:E333, Calciumcitrat, Kalziumzitrat, Calciumcitrate
+el:E333, Κιτρικο ασβεστιο
+es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga
 et:E333, Kaltsiumtsitraat
 fi:E333, Kalsiumsitraatti, Kalsiumsitraattia
-fr:E333, Citrates de calcium, Citrate de calcium, Citrate de monocalcium, Citrate de dicalcium, Citrate de tricalcium, Citrate tricalcique
+fr:E333, Citrates de calcium, Citrate de calcium
 hu:E333, Kalcium-citrát
-it:E333, Citrato di calcio, C12H10Ca3O14x4H2O
+it:E333, Citrato di calcio
 lt:E333, E333 food additive
 lv:E333, E333 food additive
 mt:E333, E333 food additive
 nl:E333, Calciumcitraat
 pl:E333, cytrynian wapnia
 pt:E333, Citrato de cálcio
-ro:E333, E333 food additive
+ro:E333, Citrat tricalcic
+ru:E333, Цитрат кальция
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
 sv:E333, Kalciumcitrater
@@ -7858,17 +7879,18 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(i), Monocalcium citrate
 bg:E333(i), Монокалциев цитрат
 cs:E333(i), Monocalcium citrate
 da:E333(i), Monocalciumcitrat
-de:E333(i), Monocalciumcitrat, Calciumcitrat
+de:E333(i), Monocalciumcitrat
 el:E333(i), Δισοξινο κιτρικο ασβεστιο
 es:E333(i), Citrato monocálcico
 et:E333(i), Kaltsiumdivesiniktsitraat
 fi:E333(i), Monokalsiumsitraatti, Monokalsiumsitraattia
-fr:E333(i), Citrate monocalcique
+fr:E333(i), Citrate monocalcique, Citrate de monocalcium
 hu:E333(i), Monokalcium-citrát
 it:E333(i), Citrato monocalcico
 lt:E333(i), Monokalcio citratas
@@ -7887,17 +7909,17 @@ wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(ii), Dicalcium citrate
 bg:E333(ii), Дикалциев цитрат
 cs:E333(ii), Dicalcium citrate
 da:E333(ii), Dicalciumcitrat
-de:E333(ii), Dicalciumcitrat, Calciumcitrat
-el:E333(ii), Οξινο κιτρικο ασβεστιο
+de:E333(ii), Dicalciumcitrat
 es:E333(ii), Citrato dicálcico
 et:E333(ii), Kaltsiumvesiniktsitraat
 fi:E333(ii), Dikalsiumsitraatti, Dikalsiumsitraattia
-fr:E333(ii), Citrate dicalcique
+fr:E333(ii), Citrate dicalcique, Citrate de dicalcium
 hu:E333(ii), Dikalcium-citrát
 it:E333(ii), Citrato dicalcico
 lt:E333(ii), Dikalcio citratas
@@ -7907,7 +7929,7 @@ nl:E333(ii), Dicalciumcitraat
 pl:E333(ii), Cytrynian diwapniowy
 pt:E333(ii), Citrato dicálcico
 ro:E333(ii), Citrat dicalcic
-sk:E333(ii), Citran divápenatý (dicitran divápenatý), Kalcium-citrát
+sk:E333(ii), Citran divápenatý, dicitran divápenatý,
 sl:E333(ii), Dikalcijev citrat
 sv:E333(ii), Dikalciumcitrat
 e_number:en:333
@@ -7915,17 +7937,18 @@ wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(iii), Tricalcium citrate
 bg:E333(iii), Трикалциев цитрат
 cs:E333(iii), Tricalcium citrate
 da:E333(iii), Tricalciumcitrat
-de:E333(iii), Tricalciumcitrat, Calciumcitrat
-el:E333(iii), Κιτρικο ασβεστιο
+de:E333(iii), Tricalciumcitrat
 es:E333(iii), Citrato tricálcico
 et:E333(iii), Kaltsiumtsitraat
+fa:E333(iii), کلسیم سیترات
 fi:E333(iii), Trikalsiumsitraatti, Trikalsiumsitraattia
-fr:E333(iii), Citrate tricalcique
+fr:E333(iii), Citrate tricalcique, Citrate de tricalcium
 hu:E333(iii), Trikalcium-citrát
 it:E333(iii), Citrato tricalcico
 lt:E333(iii), Trikalcio citratas
@@ -7935,9 +7958,10 @@ nl:E333(iii), Tricalciumcitraat
 pl:E333(iii), Cytrynian triwapniowy
 pt:E333(iii), Citrato tricálcico
 ro:E333(iii), Citrat tricalcic
-sk:E333(iii), Citran trivápenatý (dicitran trivápenatý), Kalcium-citrát
+sk:E333(iii), Citran trivápenatý, dicitran trivápenatý
 sl:E333(iii), Trikalcijev citrat
 sv:E333(iii), Trikalciumcitrat
+zh:E333(iii), 柠檬酸钙
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
