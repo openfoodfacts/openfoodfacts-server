@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ber\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-01 11:23\n"
+"PO-Revision-Date: 2020-08-13 13:13\n"
 "Language-Team: Berber\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -24,19 +24,19 @@ msgstr ""
 # leave a space before and after, unless there are no spaces between "A and B" in the target language
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " ⴷ "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "ⵅⴼ"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "ⵔⵏⵓ"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -52,7 +52,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "ⴰⵣⵓⵍ!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -207,7 +207,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -216,12 +216,12 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/ber_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -230,7 +230,7 @@ msgstr ""
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ber"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -247,7 +247,7 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "ⵜⵣⵎⵔⴷ ⴰⴷ ⵜⵔⵏⵓⴷ ⵜⵉⵡⵍⴰⴼⵉ:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -315,7 +315,7 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "ⵙⴳ"
 
 msgctxt "categories"
 msgid "Categories"
@@ -435,7 +435,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "ⵜⵉⵎⵉⵣⴰⵔ"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -443,7 +443,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "ⵜⴰⵎⴰⵣⵉⵔⵜ"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -499,7 +499,7 @@ msgstr ""
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "ⵉⵜⵜⵡⴰⴽⴽⵙ:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -577,20 +577,36 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr ""
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
+msgctxt "emb_code_products"
+msgid "Products packaged by the company with traceability code %s"
 msgstr ""
 
-msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
+msgctxt "emb_code_p"
+msgid "Traceability codes"
 msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
+msgid "Traceability code"
 msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
 msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
@@ -599,23 +615,7 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr ""
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr ""
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr ""
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr ""
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
 msgstr ""
 
 msgctxt "entry_dates_p"
@@ -776,7 +776,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -821,7 +821,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -865,7 +865,7 @@ msgstr ""
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "ⵉ"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -897,7 +897,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "ⴰⵣⵓⵍ"
 
 msgctxt "high"
 msgid "high"
@@ -1135,11 +1135,11 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "ⵜⵓⵜⵍⴰⵢⵉⵏ"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "ⵜⵓⵜⵍⴰⵢⵜ"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1193,7 +1193,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "ⴽⵛⵎ"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1333,11 +1333,11 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "ⵉⵙⵎ"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "ⵉⵙⵎⴰⵡⵏ"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1393,7 +1393,7 @@ msgstr ""
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s ⵉ %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1474,7 +1474,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "ⴰⵏⴰⵎⵎⴰⵙ"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1538,7 +1538,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "ⵉⵏⵖⵎⵉⵙⵏ"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1547,7 +1547,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "ⵏⵖ:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1555,7 +1555,7 @@ msgstr ""
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "ⴽⴰⵍⵉⴼⵓⵔⵏⵉⵢⴰ, ⵎⴰⵔⵉⴽⴰⵏ"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1783,7 +1783,7 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "ⴹⵔⵏ ⵖⵔ ⵓⵥⵍⵎⴰⴹ"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
@@ -1995,7 +1995,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "ⵔⵣⵓ"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2003,7 +2003,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "ⵔⵣⵓ"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2023,7 +2023,7 @@ msgstr ""
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "ⴰⴳⵎ"
 
 msgctxt "search_download_choice"
 msgid "Download results"
@@ -2039,7 +2039,7 @@ msgstr ""
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel ⵏⵖ LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
@@ -2228,7 +2228,7 @@ msgstr ""
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "ⴰⴽⴷ"
 
 msgctxt "search_without"
 msgid "Without"
@@ -2240,7 +2240,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "ⵜⴰⵎⴰⵣⵉⵔⵜ"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2248,7 +2248,7 @@ msgstr ""
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "ⴰⵣⵏ ⵜⴰⵡⵍⴰⴼⵜ..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2276,11 +2276,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "ⴽⵛⵎ"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "ⴱⴹⵓ"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2296,7 +2296,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "ⴼⴼⵖ"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2360,11 +2360,11 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "ⵜⴰⵃⴰⵏⵓⵜ"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "ⵔⵏⵓ ⵜⴰⵃⴰⵏⵓⵜ"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2392,7 +2392,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "ⵔⵣⵓ:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2420,7 +2420,7 @@ msgstr ""
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2663,7 +2663,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "ⵉⵙⵎ"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2723,7 +2723,7 @@ msgstr ""
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "ⴰⵎⵎⴰⵏⵉ ⵜⵎⵏⵣ"
 
 msgctxt "prepared_product"
 msgid "Prepared"
@@ -2769,7 +2769,7 @@ msgstr ""
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 ⴰⵔ 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2777,11 +2777,11 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "ⵉⵡⵙⵙⵓⵔⴰ"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2793,7 +2793,7 @@ msgstr ""
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 ⴰⵔ 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2897,7 +2897,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "ⴽⵔⴰ ⵏ ⵎⵉⴷⴷⵏ"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -3173,7 +3173,7 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "ⵉⵜⵜⵓⵙⵖⵍ"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
@@ -3185,11 +3185,11 @@ msgstr ""
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr ""
+msgstr "ⵉⴰⵀ"
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr ""
+msgstr "ⵉⵀⵉ"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
@@ -3785,7 +3785,7 @@ msgstr ""
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "ⵔⵏⵓ ⵜⵉⵡⵍⴰⴼⵉⵏ..."
 
 msgctxt "start_upload"
 msgid "Start upload"
@@ -3797,7 +3797,7 @@ msgstr ""
 
 msgctxt "close"
 msgid "Close"
-msgstr ""
+msgstr "ⵙⵙⵔ"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -3944,7 +3944,7 @@ msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "ⵜⵉⵔⵓⴱⴱⴰ"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3964,7 +3964,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "ⴰⵙⵏⵙⴰ"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4106,7 +4106,7 @@ msgstr ""
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "ⵔⵏⵓ ⵉⴳⵔ"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4126,7 +4126,7 @@ msgstr ""
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "ⵔⵏⵓ ⵉⴳⵔ"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
