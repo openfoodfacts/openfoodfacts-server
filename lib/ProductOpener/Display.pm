@@ -2367,13 +2367,19 @@ sub display_list_of_tags_translate($$) {
 
 
 			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+			
+			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
 			# Keep only known tags that do not have a translation in the current lc
-			if ((not $request_ref->{translate} eq "all") and
-				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+			if (not $tag_ref->{known}) {
+				$log->debug("display_list_of_tags_translate - entry $tagid is not known") if $log->is_debug();									
 				next;
 			}
-			if (not $tag_ref->{known}) {
+						
+			if ((not $request_ref->{translate} eq "all") and
+				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
+					
+				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();					
 				next;
 			}
 
@@ -6621,7 +6627,7 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}  $Lang{get_the_app}{$lc}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
 ;
@@ -7470,7 +7476,7 @@ CSS
 	# obsolete product
 
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$template_data_ref->{product_ref_obsolete} = $product_ref->{obsolete};
+		$template_data_ref->{product_is_obsolete} = $product_ref->{obsolete};
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
@@ -7669,21 +7675,10 @@ JS
 
 	}
 
-	# Offer to add the ingredients in the language of the interface
-
-	if (($ingredients_text eq "") or ($ingredients_text_lang ne $lc)) {
-		$html .= "<p>" . sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}))
-		. ' <a href="/cgi/product.pl?type=edit&code=' . $code . '#ingredients" class="button tiny">'
-		. display_icon('edit') . " " . $Lang{edit_product_page}{$lc} . "</a>"
-		. "</p>";
-	}
-
+	$template_data_ref->{display_ingredients_in_lang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
-
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
-
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
-
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
@@ -7931,12 +7926,8 @@ HTML
 
 	if ($admin) {
 		compute_carbon_footprint_infocard($product_ref);
-		$html .= display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
-		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
-			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
-		}
 	}
 
 	# Platform for producers: data quality issues and improvements opportunities
@@ -7988,7 +7979,6 @@ HTML
 	$template_data_ref->{checked} = $checked;
 
 	if (defined $User_id) {
-		# $html .= display_field($product_ref, 'states');
 		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
