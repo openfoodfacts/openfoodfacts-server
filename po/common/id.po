@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-03 11:30\n"
+"PO-Revision-Date: 2020-08-13 12:27\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -591,21 +591,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "alamat surel"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "Kode EMB"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "Produk yang dikemas oleh perusahaan dengan kode emb %s"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "Kode EMB"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "Kode EMB"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -613,24 +629,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "Di Eropa, kode berada di dalam elips dengan inisial 2 negara diikuti oleh angka dan CE."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "kode pengepak"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Produk dengan kode emb %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "kode pengepak"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Produk tanpa kode emb %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
