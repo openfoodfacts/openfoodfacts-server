@@ -163,18 +163,6 @@ $template_data_ref->{creativecommons} = $creativecommons;
 $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 
-# my $html .= <<"HTML"
-# <figure itemscope itemtype="https://schema.org/ImageObject">
-# 	<img src="$display_image_url" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy">
-# 	<figcaption>
-# 		<p><a href="$full_image_url" itemprop="contentUrl">$full_size</a></p>
-# 		<p>$creativecommons$original_link</p>
-# 		<p>$attribution</p>
-# 	</figcaption>
-# </figure>
-# HTML
-# ;
-
 my $html;
 $tt->process('product_image.tt.html', $template_data_ref, \$html);
 $html .= "<p>" . $tt->error() . "</p>";
