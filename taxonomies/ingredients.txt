@@ -1895,15 +1895,8 @@ wikidata:en:Q188154
 wikipedia:en:https://en.wikipedia.org/wiki/Pectin
 # en:pectin has 9364 products in 20 languages @2018-11-03
 
-<en:pectin
-en:non-amidated pectines, E440i, E 440i, E-440i
-ca:Pectina no amidada
-es:Pectina no amidada
-fr:Pectine non amidée
-nl:Niet-geamideerde pectines
-# fr:e440i has 18 products in 5 languages @2018-11-03
 
-<en:pectin
+<en:E440
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
 da:frugtpektin
@@ -1928,8 +1921,9 @@ fr:pectine de pomme
 
 <en:fruit pectin
 <en:citrus
-en:citrus pectin, modified citrus pectin
+en:citrus pectin, modified citrus pectin, citric pectin
 de:zitruspektin, citrus-pektin
+es:pectina de citricos
 fi:sitruspektiini
 fr:pectine d'agrumes
 sv:citruspektin
@@ -1937,40 +1931,10 @@ wikidata:en:Q6889398
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
 # ingredient/en:citrus-pectin has 328 products in 3 languages @2020-05-21
 
-<en:pectin
-en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
-bg:Амидиран пектин
-ca:Pectina amidada
-cs:Amidovaný pektin
-da:Amideret pectin
-de:Amidiertes pektin
-el:Αμιδιωμενες πηκτινικες υλες
-es:Pectina amidada
-et:Amiiditud pektiin
-fi:Amidoitu pektiini
-fr:pectine amidée
-hu:Amidált pektin
-it:Pectina amidata
-lt:Amidintas pektinas
-lv:Amidēts pektīns
-mt:Pektina amidata
-nl:Geamideerde pectine
-pl:Pektyna amidowana
-pt:Pectina amidada
-ro:Pectină amidată
-sk:Amidovaný pektín
-sl:Amidirani pektin
-sv:Amiderat pektin
-wikidata:en:Q42807519
-# fr:pectine-amidée has 74 products in 1 language @2018-11-03
-
-<en:pectin
-en:citric pectin
-es:pectina de citricos
-
-<en:pectin
+<en:citrus pectin
 en:lemon pectin
 es:pectina de limon
+
 
 # The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 

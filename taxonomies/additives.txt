@@ -11239,7 +11239,7 @@ el:E440a, E440a food additive
 es:E440a, Pectina
 et:E440a, E440a food additive
 fi:E440a, Pektiini, Pektiiniä
-fr:E440a, Pectine, CAS 9000-69-5, Pectate de sodium, Sodium pectate, CAS 90999-05-6, Pectate de potassium, Pectate d'ammonium
+fr:E440a, Pectine
 hu:E440a, E440a food additive
 it:E440a, E440a food additive
 lt:E440a, E440a food additive
@@ -11269,13 +11269,13 @@ el:E440a(ii), E440a(ii) food additive
 es:E440a(ii), E440a(ii) food additive
 et:E440a(ii), E440a(ii) food additive
 fi:E440a(ii), Natriumpektaatti, Natriumpektaattia
-fr:E440a(ii), Pectate de sodium, Sodium pectate, CAS 90999-05-6
+fr:E440a(ii), Pectate de sodium, Sodium pectate
 hu:E440a(ii), E440a(ii) food additive
 it:E440a(ii), E440a(ii) food additive
 lt:E440a(ii), E440a(ii) food additive
 lv:E440a(ii), E440a(ii) food additive
 mt:E440a(ii), E440a(ii) food additive
-nl:E440a(ii), E440a(ii) food additive
+nl:E440a(ii), Natriumpectaat
 pl:E440a(ii), E440a(ii) food additive
 pt:E440a(ii), E440a(ii) food additive
 ro:E440a(ii), E440a(ii) food additive
@@ -11302,7 +11302,7 @@ it:E440a(iii), E440a(iii) food additive
 lt:E440a(iii), E440a(iii) food additive
 lv:E440a(iii), E440a(iii) food additive
 mt:E440a(iii), E440a(iii) food additive
-nl:E440a(iii), E440a(iii) food additive
+nl:E440a(iii), Kaliumpectaat
 pl:E440a(iii), E440a(iii) food additive
 pt:E440a(iii), E440a(iii) food additive
 ro:E440a(iii), E440a(iii) food additive
@@ -11329,7 +11329,7 @@ it:E440a(iv), E440a(iv) food additive
 lt:E440a(iv), E440a(iv) food additive
 lv:E440a(iv), E440a(iv) food additive
 mt:E440a(iv), E440a(iv) food additive
-nl:E440a(iv), E440a(iv) food additive
+nl:E440a(iv), Ammoniumpectaat
 pl:E440a(iv), E440a(iv) food additive
 pt:E440a(iv), E440a(iv) food additive
 ro:E440a(iv), E440a(iv) food additive
@@ -11340,6 +11340,7 @@ wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:440a
 
+#comment:en:This is the same as E440(ii)
 en:E440b, pectin amide, amidated pectin
 bg:E440b, E440b food additive
 cs:E440b, E440b food additive
@@ -11349,7 +11350,7 @@ el:E440b, E440b food additive
 es:E440b, E440b food additive
 et:E440b, E440b food additive
 fi:E440b, Amidoitu pektiini, Amidoitua pektiiniä
-fr:E440b, Pectine amidée, CAS 56645-02-4
+fr:E440b, Pectine amidée
 hu:E440b, E440b food additive
 it:E440b, E440b food additive
 lt:E440b, E440b food additive
@@ -11375,12 +11376,12 @@ bg:E440, Пектин
 ca:E440, Pectina
 cs:E440, Pektin, Pektiny
 da:E440, Pektiner, Pectiner, Pektin
-de:E440, Pektine, Polygalacturonat, E 440, Pektin, Protopektin, E 440ii, Pectin, Rhamnogalacturonan
+de:E440, Pektine, Polygalacturonat, Pektin, Protopektin, Pectin, Rhamnogalacturonan
 el:E440, Πηκτίνη
 es:E440, Pectinas, Pectina
 et:E440, Pektiin
-fi:E440, Pektiini, Pektiinit, E 440, Pektiiniä, Pektiinejä
-fr:E440, Pectines, Pectine, E440(i)
+fi:E440, Pektiini, Pektiinit, Pektiiniä, Pektiinejä
+fr:E440, Pectines, Pectine
 hu:E440, Pektin
 it:E440, Pectina, Pectine
 lt:E440, Pektinas
@@ -11390,10 +11391,10 @@ nl:E440, Pectine
 pl:E440, Pektyny, Pektyna
 pt:E440, Pectina
 ro:E440, E440 food additive
-ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины, Е440
+ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины
 sk:E440, Pektín
 sl:E440, Pektin
-sv:E440, Pektiner, Pektin E 440
+sv:E440, Pektiner
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -11402,36 +11403,39 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E440
-en:E440(i), Pectin
-bg:E440(i), Пектин
-cs:E440(i), Pektin
-da:E440(i), Pectin
-de:E440(i), Pektin
-el:E440(i), Πηκτινη
-es:E440(i), Pectina
-et:E440(i), Pektiin
-fi:E440(i), Pektiini, Pektiiniä
-fr:E440(i), Pectine
-hu:E440(i), Pektin
-it:E440(i), Pectina
-lt:E440(i), Pektinas
-lv:E440(i), Pektīns
-mt:E440(i), Pektina
-nl:E440(i), Pectine
-pl:E440(i), Pektyna
-pt:E440(i), Pectina
-ro:E440(i), Pectină
-sk:E440(i), Pektín
-sl:E440(i), Pektin
-sv:E440(i), Pektin
+en:E440(i), non-amidated pectines
+bg:E440(i), E440(i) food additive
+ca:E440(i), Pectina no amidada
+cs:E440(i), E440(i) food additive
+da:E440(i), E440(i) food additive
+de:E440(i), E440(i) food additive
+el:E440(i), E440(i) food additive
+es:E440(i), Pectina no amidada
+et:E440(i), E440(i) food additive
+fi:E440(i), E440(i) food additive
+fr:E440(i), Pectine non amidée
+hu:E440(i), E440(i) food additive
+it:E440(i), E440(i) food additive
+lt:E440(i), E440(i) food additive
+lv:E440(i), E440(i) food additive
+mt:E440(i), E440(i) food additive
+nl:E440(i), Niet-geamideerde pectines
+pl:E440(i), E440(i) food additive
+pt:E440(i), E440(i) food additive
+ro:E440(i), E440(i) food additive
+sk:E440(i), E440(i) food additive
+sl:E440(i), E440(i) food additive
+sv:E440(i), E440(i) food additive
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 organic_eu:en:authorized
+# fr:e440i has 18 products in 5 languages @2018-11-03
 
 <en:E440
 en:E440(ii), Amidated pectin
 bg:E440(ii), Амидиран пектин
+ca:E440(ii), Pectina amidada
 cs:E440(ii), Amidovaný pektin
 da:E440(ii), Amideret pectin
 de:E440(ii), Amidiertes pektin
@@ -11455,7 +11459,8 @@ sv:E440(ii), Amiderat pektin
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
-
+wikidata:en:Q42807519
+# fr:pectine-amidée has 74 products in 1 language @2018-11-03
 
 
 # E441 is not officially listed as "animal gelatin"
