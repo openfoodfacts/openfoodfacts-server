@@ -214,38 +214,38 @@ sub normalize_nutriment_value_and_modifier($$) {
 	my $value_ref = shift;
 	my $modifier_ref = shift;
 
-	return if not defined $$value_ref;
+	return if not defined ${$value_ref};
 
-	if ($$value_ref =~ /nan/i) {
-		$$value_ref = '';
+	if (${$value_ref} =~ /nan/i) {
+		${$value_ref} = '';
 	}
 
-	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
+	if (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
+		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		$modifier_ref = "\N{U+2264}";
 	}
-	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-		$$modifier_ref = '<';
+	if (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
+		${$value_ref} =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
+		${$modifier_ref} = '<';
 	}
-	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
-		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
+	if (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
+		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
 		$modifier_ref = "\N{U+2265}";
 	}
-	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-		$$modifier_ref = '>';
+	if (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
+		${$modifier_ref} = '>';
 	}
-	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
-		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
-		$$modifier_ref = '~';
+	if (${$value_ref} =~ /(env|environ|about|~|≈)/) {
+		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//;
+		${$modifier_ref} = '~';
 	}
-	if ($$value_ref =~ /trace|traces/) {
-		$$value_ref = 0;
-		$$modifier_ref = '~';
+	if (${$value_ref} =~ /trace|traces/) {
+		${$value_ref} = 0;
+		${$modifier_ref} = '~';
 	}
-	if ($$value_ref !~ /\./) {
-		$$value_ref =~ s/,/\./;
+	if (${$value_ref} !~ /\./) {
+		${$value_ref} =~ s/,/\./;
 	}
 }
 
@@ -5174,7 +5174,7 @@ sub compute_nutrient_levels($) {
 
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @$nutrient_level_ref;
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
 		# divide low and high per 2 for drinks
 
@@ -5222,7 +5222,7 @@ sub create_nutrients_level_taxonomy() {
 	my $nutrient_levels_taxonomy = '';
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @$nutrient_level_ref;
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
 			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
 			foreach my $l (sort keys %Langs) {

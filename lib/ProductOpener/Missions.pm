@@ -189,7 +189,7 @@ sub compute_missions_for_user($) {
 				$query_ref->{lc} = $l;
 				# $query_ref->{complete} = 1;
 
-				foreach my $field (keys %$query_ref) {
+				foreach my $field (keys %{$query_ref}) {
 					next if $field eq 'creator';
 					if ($query_ref->{$field} eq '<userid>') {
 						$query_ref->{$field} = $user_ref->{userid};

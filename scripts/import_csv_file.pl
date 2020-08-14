@@ -206,7 +206,7 @@ my $stats_ref = import_csv_file( {
 
 print STDERR "\n\nstats:\n\n";
 
-foreach my $stat (sort keys %$stats_ref) {
+foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 

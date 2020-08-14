@@ -253,8 +253,8 @@ else {
 my ($tag_type_singular_ref, $tag_type_plural_ref)
     = ProductOpener::I18N::split_tags(
         ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
-%tag_type_singular = %$tag_type_singular_ref;
-%tag_type_plural   = %$tag_type_plural_ref;
+%tag_type_singular = %{$tag_type_singular_ref};
+%tag_type_plural   = %{$tag_type_plural_ref};
 
 my @debug_taxonomies = ("categories", "labels", "additives");
 
@@ -342,7 +342,7 @@ sub build_lang($) {
 
 	# Initialize %Langs and @Langs and add language names to %Lang
 
-	%Langs = %$Languages_ref;
+	%Langs = %{$Languages_ref};
 	@Langs = sort keys %{$Languages_ref};
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};

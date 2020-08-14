@@ -127,7 +127,7 @@ sub split_tags {
     $singular{":langname"} = $plural{":langname"} = delete $l10n->{":langname"};
     $singular{":langtag"}  = $plural{":langtag"}  = delete $l10n->{":langtag"};
 
-    for my $key (keys %$l10n) {
+    for my $key (keys %{$l10n}) {
         my ($tag, $kind) = split /:/, $key;
 
         if    ($kind eq "plural"  ) { $plural{$tag}   = delete $l10n->{$key} }

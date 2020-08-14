@@ -185,7 +185,7 @@ sub get_percent_formatter {
 		$ProductOpener::Text::percent_formatters{$locale} = $formatters_ref;
 	}
 	else {
-		%formatters = %$formatters_ref;
+		%formatters = %{$formatters_ref};
 	}
 
 	my $perf = $formatters{$maximum_fraction_digits};

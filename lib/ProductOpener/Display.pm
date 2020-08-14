@@ -3795,9 +3795,9 @@ HTML
 			my $and = [{ $field => $query_ref->{$field} }];
 			# fix for issue #2657: negative query on tag2 was not being honored if both tag types are the same
 			if ( $tag2_is_negative ) {
-				push @$and, { $field =>  { "\$ne" => $value}  };
+				push @{$and}, { $field =>  { "\$ne" => $value}  };
 			} else {
-				push @$and, { $field =>  $value };
+				push @{$and}, { $field =>  $value };
 			}
 			delete $query_ref->{$field};
 			$query_ref->{"\$and"} = $and;
@@ -3878,8 +3878,8 @@ sub add_country_and_owner_filters_to_query($$) {
 				else {
 					$and = [];
 				}
-				push @$and, { $field => $query_ref->{$field} };
-				push @$and, { $field => $value };
+				push @{$and}, { $field => $query_ref->{$field} };
+				push @{$and}, { $field => $value };
 				delete $query_ref->{$field};
 				$query_ref->{"\$and"} = $and;
 			}
@@ -4258,7 +4258,7 @@ sub search_and_display_products($$$$$) {
 					}
 				}
 
-				push @$compact_products, $compact_product_ref;
+				push @{$compact_products}, $compact_product_ref;
 			}
 
 			$request_ref->{structured_response}{products} = $compact_products;
@@ -4747,7 +4747,7 @@ sub display_scatter_plot($$) {
 		my $graph_ref = shift;
 		my $products_ref = shift;
 
-		my @products = @$products_ref;
+		my @products = @{$products_ref};
 		my $count = @products;
 
 		my $html = '';
@@ -5090,7 +5090,7 @@ sub display_histogram($$) {
 		my $graph_ref = shift;
 		my $products_ref = shift;
 
-		my @products = @$products_ref;
+		my @products = @{$products_ref};
 		my $count = @products;
 
 		my $html = '';
@@ -5491,7 +5491,7 @@ sub search_and_graph_products($$$) {
 	if ($graph_ref->{"series_nutrition_grades"}) {
 		$fields_ref->{"nutrition_grade_fr"} = 1;
 	}
-	elsif ((scalar keys %$graph_ref) > 0) {
+	elsif ((scalar keys %{$graph_ref}) > 0) {
 		$fields_ref->{"labels_tags"} = 1;
 	}
 
@@ -5883,7 +5883,7 @@ sub display_login_register($)
 HTML
 ;
 
-		push @$blocks_ref, {
+		push @{$blocks_ref}, {
 			'title'=>lang("login_register_title"),
 			'content'=>$content,
 		};
@@ -5965,7 +5965,7 @@ $links
 HTML
 ;
 
-		push @$blocks_ref, {
+		push @{$blocks_ref}, {
 			'title'=> lang("hello") . ' ' . $User{name},
 			'content'=>$content,
 			'id'=>'my_block',
@@ -5983,7 +5983,7 @@ sub display_on_the_blog($)
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 
 		my $html = join('', (<$IN>));
-		push @$blocks_ref, {
+		push @{$blocks_ref}, {
 				'title'=>lang("on_the_blog_title"),
 				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
 				'id'=>'on_the_blog',
@@ -5999,7 +5999,7 @@ sub display_top_block($)
 	my $blocks_ref = shift;
 
 	if (defined $Lang{top_content}{$lang}) {
-		unshift @$blocks_ref, {
+		unshift @{$blocks_ref}, {
 			'title'=>lang("top_title"),
 			'content'=>lang("top_content"),
 		};
@@ -6015,7 +6015,7 @@ sub display_bottom_block($)
 
 		my $html = lang("bottom_content");
 
-		push @$blocks_ref, {
+		push @{$blocks_ref}, {
 			'title'=>lang("bottom_title"),
 			'content'=> $html,
 		};
@@ -6030,7 +6030,7 @@ sub display_blocks($)
 
 	my $html = '';
 
-	foreach my $block_ref (@$blocks_ref) {
+	foreach my $block_ref (@{$blocks_ref}) {
 		$html .= "
 <div class=\"block\">
 <h3 class=\"block_title\">$block_ref->{title}</h3>
@@ -6109,7 +6109,7 @@ sub display_new($) {
 
 	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
 
-	$$content_ref =~ s/<SITE>/$site/g;
+	${$content_ref} =~ s/<SITE>/$site/g;
 
 	$title =~ s/<SITE>/$site/g;
 
@@ -6117,7 +6117,7 @@ sub display_new($) {
 
 	my $h1_title= '';
 
-	if (($$content_ref !~ /<h1/) and (defined $title)) {
+	if ((${$content_ref} !~ /<h1/) and (defined $title)) {
 		$h1_title = "<h1>$title</h1>";
 	}
 
@@ -6126,7 +6126,7 @@ sub display_new($) {
 		$textid = $';
 		$description = undef;
 	}
-	if ($$content_ref =~ /\<p id="description"\>(.*?)\<\/p\>/s) {
+	if (${$content_ref} =~ /\<p id="description"\>(.*?)\<\/p\>/s) {
 		$description = $1;
 	}
 
@@ -6177,7 +6177,7 @@ sub display_new($) {
 	my $more_images = 0;
 
 	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200">
-	if ($$content_ref =~ /<img id="og_image" src="([^"]+)"/) {
+	if (${$content_ref} =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
@@ -6928,7 +6928,7 @@ sub display_product_search_or_add($)
 </p>
 HTML
 ;
-		push @$blocks_ref, {
+		push @{$blocks_ref}, {
 			'title'=>lang("import_products"),
 			'content'=>$html,
 		};
@@ -6959,7 +6959,7 @@ HTML
 HTML
 ;
 
-	push @$blocks_ref, {
+	push @{$blocks_ref}, {
 			'title'=>$title,
 			'content'=>$html,
 	};
@@ -6998,7 +6998,7 @@ HTML
 ;
 
 		if ($img =~ /height="(\d+)"/) {
-			$$minheight_ref = $1 + 22;
+			${$minheight_ref} = $1 + 22;
 		}
 
 		# Unselect button for moderators
@@ -7101,7 +7101,7 @@ sub display_field($$) {
 		my @to_do_status;
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
-		foreach my $val (@$state_items){
+		foreach my $val (@{$state_items}){
 			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
 				push(@to_do_status, $val);
 			}
@@ -8676,7 +8676,7 @@ HTML
 	}
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @$nutrient_level_ref;
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 
@@ -8938,7 +8938,7 @@ sub display_nutrition_table($$) {
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
-	if ((defined $comparisons_ref) and (scalar @$comparisons_ref > 0)) {
+	if ((defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
 
 		# Add a comparisons array to the template data structure
 
@@ -8946,7 +8946,7 @@ sub display_nutrition_table($$) {
 
 		my $i = 0;
 
-		foreach my $comparison_ref (@$comparisons_ref) {
+		foreach my $comparison_ref (@{$comparisons_ref}) {
 
 			my $col_id = "compare_" . $i;
 
@@ -9774,7 +9774,7 @@ sub display_rev_info {
 		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
 	}
 	my $next_link = '';
-	if ($rev < scalar @$changes_ref) {
+	if ($rev < scalar @{$changes_ref}) {
 		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
 	}
 
@@ -10279,15 +10279,15 @@ sub display_ingredient_analysis($$$) {
 	my $ingredients_text_ref = shift;
 	my $ingredients_list_ref = shift;
 
-	$$ingredients_list_ref .= "<ol id=\"ordered_ingredients_list\">\n";
+	${$ingredients_list_ref} .= "<ol id=\"ordered_ingredients_list\">\n";
 
 	my $i = 0;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		$i++;
 
-		($i > 1) and $$ingredients_text_ref .= ", ";
+		($i > 1) and ${$ingredients_text_ref} .= ", ";
 
 		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
 		my $class = '';
@@ -10295,30 +10295,30 @@ sub display_ingredient_analysis($$$) {
 			$class = ' class="unknown_ingredient"';
 		}
 
-		$$ingredients_text_ref .= "<span$class>" . $ingredient_ref->{text} . "</span>";
+		${$ingredients_text_ref} .= "<span$class>" . $ingredient_ref->{text} . "</span>";
 
 		if (defined $ingredient_ref->{percent}) {
-			$$ingredients_text_ref .= " " . $ingredient_ref->{percent} . "%";
+			${$ingredients_text_ref} .= " " . $ingredient_ref->{percent} . "%";
 		}
 
-		$$ingredients_list_ref .= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
+		${$ingredients_list_ref} .= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
 
 		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
 			if (defined $ingredient_ref->{$property}) {
-				$$ingredients_list_ref .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+				${$ingredients_list_ref} .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
 
 		if (defined $ingredient_ref->{ingredients}) {
-			$$ingredients_text_ref .= " (";
+			${$ingredients_text_ref} .= " (";
 			display_ingredient_analysis($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
-			$$ingredients_text_ref .= ")";
+			${$ingredients_text_ref} .= ")";
 		}
 
-		$$ingredients_list_ref .= "</li>\n";
+		${$ingredients_list_ref} .= "</li>\n";
 	}
 
-	$$ingredients_list_ref .= "</ol>\n";
+	${$ingredients_list_ref} .= "</ol>\n";
 }
 
 

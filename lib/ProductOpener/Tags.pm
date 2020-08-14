@@ -2409,7 +2409,7 @@ sub display_tags_hierarchy($$) {
 	my $html = '';
 	my $images = '';
 	if (defined $tags_ref) {
-		foreach my $tag (@$tags_ref) {
+		foreach my $tag (@{$tags_ref}) {
 			$html .= display_tag_link($tagtype, $tag) . ", ";
 
 #			print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag\n";
@@ -2448,7 +2448,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 	my $html = '';
 	my $images = '';
 	if (defined $tags_ref) {
-		foreach my $tag (@$tags_ref) {
+		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
 			my $img;
@@ -2840,24 +2840,24 @@ sub generate_spellcheck_candidates($$) {
 
 		# delete
 		if ($i < $l) {
-			push @$candidates_ref, $left . substr($right, 1);
+			push @{$candidates_ref}, $left . substr($right, 1);
 		}
 
 		foreach my $c ("a".."z") {
 
 			# insert
-			push @$candidates_ref, $left . $c . $right;
+			push @{$candidates_ref}, $left . $c . $right;
 
 			# replace
 			if ($i < $l) {
-				push @$candidates_ref, $left . $c . substr($right, 1);
+				push @{$candidates_ref}, $left . $c . substr($right, 1);
 			}
 		}
 
 		if (($i > 0) and ($i < $l)) {
-			push @$candidates_ref, $left . "-" . $right;
+			push @{$candidates_ref}, $left . "-" . $right;
 			if ($i < ($l - 1)) {
-				push @$candidates_ref, $left . "-" . substr($right, 1);
+				push @{$candidates_ref}, $left . "-" . substr($right, 1);
 			}
 		}
 	}
@@ -3292,7 +3292,7 @@ foreach my $l (@Langs) {
 	$lang = $l;
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @$nutrient_level_ref;
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
 		foreach my $level ('low', 'moderate', 'high') {
 			my $fmt = lang("nutrient_in_quantity");

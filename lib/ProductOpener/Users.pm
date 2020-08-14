@@ -280,7 +280,7 @@ JAVASCRIPT
 	}
 	
 
-	$$scripts_ref .= <<SCRIPT
+	${$scripts_ref} .= <<SCRIPT
 <script type="text/javascript">
 
 function normalize_string_value(inputfield) {
@@ -387,7 +387,7 @@ sub check_user_form($$) {
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users_emails.sto");
 		if (defined $emails_ref->{decode utf8=>param('email')}) {
-			push @$errors_ref, $Lang{error_email_already_in_use}{$lang};
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
 
 		$user_ref->{email} = remove_tags_and_quote(decode utf8=>param('email'));
@@ -415,7 +415,7 @@ sub check_user_form($$) {
 					$user_ref->{requested_org_id} = $requested_org_id;
 				}
 				else {
-					push @$errors_ref, "error_missing_org";
+					push @{$errors_ref}, "error_missing_org";
 				}
 			}
 			else {
@@ -488,7 +488,7 @@ sub check_user_form($$) {
 	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
-		push @$errors_ref, $Lang{error_no_name}{$lang};
+		push @{$errors_ref}, $Lang{error_no_name}{$lang};
 	}
 
 	my $address;
@@ -497,7 +497,7 @@ sub check_user_form($$) {
 	};
 	$address = 0 if $@;
 	if (not $address) {
-		push @$errors_ref, $Lang{error_invalid_email}{$lang};
+		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
 	}
 
 	if ($type eq 'add') {
@@ -505,22 +505,22 @@ sub check_user_form($$) {
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
 		if (length($user_ref->{userid}) < 2) {
-			push @$errors_ref, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lang};
 		}
 		elsif (-e "$data_root/users/$userid.sto") {
-			push @$errors_ref, $Lang{error_username_not_available}{$lang};
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @$errors_ref, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
 		}
 
 		if (length(decode utf8=>param('password')) < 6) {
-			push @$errors_ref, $Lang{error_invalid_password}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
 		}
 	}
 
 	if (param('password') ne param('confirm_password')) {
-		push @$errors_ref, $Lang{error_different_passwords}{$lang};
+		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
@@ -654,7 +654,7 @@ sub check_edit_owner($$) {
 		# Add check that organization exists when we add org profiles
 
 		if (! -e "$data_root/users/$userid.sto") {
-			push @$errors_ref, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
@@ -667,7 +667,7 @@ sub check_edit_owner($$) {
 		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	else {
-		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
 		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 }
@@ -925,7 +925,7 @@ sub init_user()
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
-		%User = %$user_ref;
+		%User = %{$user_ref};
 	}
 	else {
 		%User = ();
@@ -941,7 +941,7 @@ sub init_user()
 	}
 
 	if (defined $Org_id) {
-		%Org = %$org_ref;
+		%Org = %{$org_ref};
 	}
 	else {
 		%Org = ();

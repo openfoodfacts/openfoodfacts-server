@@ -81,7 +81,7 @@ sub clean_col {
 sub clean_row {
 	my ($row_ref) = @_;
 
-	[ map { clean_col $_ } @$row_ref ];
+	[ map { clean_col $_ } @{$row_ref} ];
 }
 
 sub build_headers {
@@ -104,7 +104,7 @@ sub fill_cache {
 
 		return if not all { $_ ~~ @headers } @address_columns;
 
-		foreach my $row_ref (@$row_refs) {
+		foreach my $row_ref (@{$row_refs}) {
 			if ( $row_ref->{'lat'} && $row_ref->{'lng'} ) {
 				my $address = join ', ', @{$row_ref}{@address_columns};
 				my $lat     = $row_ref->{'lat'};

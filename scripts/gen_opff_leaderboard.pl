@@ -45,7 +45,7 @@ if (defined $categories_ref) {
 
 	$categories_ref = $categories_ref->{tags};
 	
-	foreach my $category_ref (@$categories_ref) {
+	foreach my $category_ref (@{$categories_ref}) {
 	
 	
 		my $category = $category_ref->{id};

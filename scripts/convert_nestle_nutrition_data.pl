@@ -49,7 +49,7 @@ my $rows_ref = $results_ref->{rows};
 
 my %headers = ();
 my $i =0;
-foreach my $header (@$headers_ref) {
+foreach my $header (@{$headers_ref}) {
 
 	$headers{$header} = $i;
 	$i++;
@@ -61,7 +61,7 @@ my %products = ();
 my @keys = ("code", "serving_size");
 my %keys = ("code" => 1, "serving_size" => 1);
 
-foreach my $row_ref (@$rows_ref) {
+foreach my $row_ref (@{$rows_ref}) {
 	my $code = $row_ref->[$headers{EAN}];
 	my $per_value = $row_ref->[$headers{"Quantité"}];
 	my $per_unit = $row_ref->[$headers{"Quantité Valeur"}];

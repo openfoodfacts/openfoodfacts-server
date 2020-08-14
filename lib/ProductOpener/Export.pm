@@ -201,7 +201,7 @@ sub export_csv($) {
 
 			my $group_number = 0;
 
-			foreach my $group_ref (@$fields_groups_ref) {
+			foreach my $group_ref (@{$fields_groups_ref}) {
 
 				$group_number++;
 				my $item_number = 0;
@@ -343,7 +343,7 @@ sub export_csv($) {
 	}
 	else {
 		# The fields to export are specified by the fields parameter
-		@sorted_populated_fields = @$fields_ref;
+		@sorted_populated_fields = @{$fields_ref};
 	}
 
 	# Extra fields such as Nova or Nutri-Score that do not originate from users or producers but are computed

@@ -195,10 +195,10 @@ sub load_csv_or_excel_file($) {
 
 			if (defined $row_ref) {
 
-				@$headers_ref = @$row_ref;
+				@{$headers_ref} = @{$row_ref};
 
 				while ($row_ref = $csv->getline ($io)) {
-					push @$rows_ref, $row_ref;
+					push @{$rows_ref}, $row_ref;
 				}
 			}
 			else {
@@ -245,16 +245,16 @@ sub load_csv_or_excel_file($) {
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
 			}
 			else {
-				@$headers_ref = @$row_ref;
+				@{$headers_ref} = @{$row_ref};
 
 				# May need to deal with possible empty lines before header
 
 				while ($row_ref = $csv->getline ($io)) {
 					
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @$row_ref) !~ /[0-9]{8}/);
+					next if (join(" ", @{$row_ref}) !~ /[0-9]{8}/);
 					
-					push @$rows_ref, $row_ref;
+					push @{$rows_ref}, $row_ref;
 				}
 			}
 		}
@@ -268,7 +268,7 @@ sub load_csv_or_excel_file($) {
 		# If some columns have the same name, add a suffix
 		my %headers = ();
 		my $i = 0;
-		foreach my $header (@$headers_ref) {
+		foreach my $header (@{$headers_ref}) {
 			if (defined $headers{$header}) {
 				$headers{$header}++;
 				$headers_ref->[$i] = $header . " - " . $headers{$header};
@@ -323,7 +323,7 @@ sub convert_file($$$$) {
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
 			my $field = $columns_fields_ref->{$column}{field};
@@ -382,7 +382,7 @@ sub convert_file($$$$) {
 	my @default_headers = ();
 	my @default_values = ();
 
-	foreach my $field (sort keys %$default_values_ref) {
+	foreach my $field (sort keys %{$default_values_ref}) {
 
 		if (not defined $headers_cols{$field}) {
 			push @default_headers, $field;
@@ -398,7 +398,7 @@ sub convert_file($$$$) {
 
 	# Output CSV product data
 
-	foreach my $row_ref (@$rows_ref) {
+	foreach my $row_ref (@{$rows_ref}) {
 
 		# Go through all fields to populate $product_ref with OFF field names
 		# so that we can run clean_fields() or other OFF functions
@@ -775,7 +775,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	my $l = shift;
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
-	foreach my $group_ref (@$fields_groups_ref) {
+	foreach my $group_ref (@{$fields_groups_ref}) {
 
 		my $group_id = $group_ref->[0];
 
@@ -945,7 +945,7 @@ sub compute_statistics_and_examples($$$) {
 	my $rows_ref = shift;
 	my $columns_fields_ref = shift;
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
 			$columns_fields_ref->{$column} = {
 				examples => [],
@@ -962,11 +962,11 @@ sub compute_statistics_and_examples($$$) {
 
 	my $row = 0;
 
-	foreach my $row_ref (@$rows_ref) {
+	foreach my $row_ref (@{$rows_ref}) {
 
 		my $col = 0;
 
-		foreach my $value (@$row_ref) {
+		foreach my $value (@{$row_ref}) {
 
 			my $column = $headers_ref->[$col];
 
@@ -1053,7 +1053,7 @@ sub init_columns_fields_match($$) {
 
 	$log->debug("after init_fields_columns_names_for_lang", { }) if $log->is_debug();
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 
@@ -1182,7 +1182,7 @@ JSON
 
 	my $select2_options_ref  = [ ];
 
-	foreach my $group_ref (@$fields_groups_ref) {
+	foreach my $group_ref (@{$fields_groups_ref}) {
 
 		my $group_id = $group_ref->[0];
 		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ] };
@@ -1254,9 +1254,9 @@ JSON
 
 				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
 
-					foreach my $l (@$lcs_ref) {
+					foreach my $l (@{$lcs_ref}) {
 						my $language = "";	# Don't specify the language if there is just one
-						if (@$lcs_ref > 1) {
+						if (@{$lcs_ref} > 1) {
 							$language = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$l}) . ")";
 						}
 						$log->debug("Select2 option - language field", { group_id => $group_id, field=>$field, name=>$name, lc=>$lc, l=>$l, language=>$language }) if $log->is_debug();
@@ -1269,7 +1269,7 @@ JSON
 			}
 		}
 
-		push @$select2_options_ref, $select2_group_ref;
+		push @{$select2_options_ref}, $select2_group_ref;
 	}
 
 	return $select2_options_ref;

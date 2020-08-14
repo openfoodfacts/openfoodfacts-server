@@ -992,7 +992,7 @@ sub parse_ingredients_text($) {
 												$processing .= ", " . $processingid;
 											}
 											else {
-												$processing = $$processingid;
+												$processing = ${$processingid};
 											}
 											$debug_ingredients and $log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
 											$between = '';
@@ -1081,8 +1081,8 @@ sub parse_ingredients_text($) {
 
 			# if we have nothing before, then we can be in the case where between applies to the last ingredient
 			# e.g. if we have "Vegetables (97%) (Potatoes, Tomatoes)"
-			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @$ingredients_ref) > 0)) {
-				my $last_ingredient = (scalar @$ingredients_ref) - 1;
+			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @{$ingredients_ref}) > 0)) {
+				my $last_ingredient = (scalar @{$ingredients_ref}) - 1;
 				$debug_ingredients and $log->debug("between applies to last ingredient", { between => $between, last_ingredient => $ingredients_ref->[$last_ingredient]{text }}) if $log->is_debug();
 
 				(defined $ingredients_ref->[$last_ingredient]{ingredients}) or $ingredients_ref->[$last_ingredient]{ingredients} = [];
@@ -1353,7 +1353,7 @@ sub parse_ingredients_text($) {
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 
 					if (length($ingredient{id}) < 500) {
-						push @$ingredients_ref, \%ingredient;
+						push @{$ingredients_ref}, \%ingredient;
 
 						if ($between ne '') {
 							# Ingredient has sub-ingredients
@@ -1543,7 +1543,7 @@ sub delete_ingredients_percent_values($) {
 
 	my $ingredients_ref = shift;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		delete $ingredient_ref->{percent_min};
 		delete $ingredient_ref->{percent_max};
@@ -1646,7 +1646,7 @@ sub init_percent_values($$$) {
 	my $total_max = shift;
 	my $ingredients_ref = shift;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
 			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
@@ -1675,9 +1675,9 @@ sub set_percent_max_values($$$) {
 	my $sum_of_maxs_before = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		$i++;
 
@@ -1764,9 +1764,9 @@ sub set_percent_min_values($$$) {
 	my $sum_of_maxs_after = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (reverse @$ingredients_ref) {
+	foreach my $ingredient_ref (reverse @{$ingredients_ref}) {
 
 		$i++;
 
@@ -1833,9 +1833,9 @@ sub set_percent_sub_ingredients($) {
 	my $changed = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		$i++;
 
@@ -4667,7 +4667,7 @@ sub add_fruits($) {
 
 	my $fruits = 0;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_ref->{id}, "nutriscore_fruits_vegetables_nuts:en");
 

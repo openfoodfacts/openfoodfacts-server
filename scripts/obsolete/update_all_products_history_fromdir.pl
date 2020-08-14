@@ -114,7 +114,7 @@ my $count = $#products;
 			$changes_ref = [];
 		}
 		else {
-			my $last = pop(@$changes_ref);
+			my $last = pop(@{$changes_ref});
 			if ($last->{comment} =~ /automatic removal/) {
 				print "* automatically deleted: $code  - empty: $product_ref->{empty} - complete: $product_ref->{complete} \n";
 			}

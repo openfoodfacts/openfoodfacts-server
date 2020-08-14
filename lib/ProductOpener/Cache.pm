@@ -64,9 +64,9 @@ use vars qw();
 sub get_multi_objects($)
 {
 	my $keys_ref = shift;
-	my $values_ref = $memd->get_multi(keys %$keys_ref);
+	my $values_ref = $memd->get_multi(keys %{$keys_ref});
 
-	foreach my $key (keys %$keys_ref) {
+	foreach my $key (keys %{$keys_ref}) {
 		if (not defined $values_ref->{$key}) {
 			if ($key =~ /\/blogs\/(.*)$/) {
 				my $blog_ref = retrieve("$data_root/index/blogs/$1/blog.sto");

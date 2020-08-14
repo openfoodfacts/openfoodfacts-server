@@ -217,7 +217,7 @@ if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc
 
 use boolean;
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -374,7 +374,7 @@ while (my $product_ref = $cursor->next) {
 
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 			if (defined $changes_ref) {
-				my $change_ref = @$changes_ref[-1];
+				my $change_ref = $changes_ref->[-1];
 				my $last_rev = $change_ref->{rev};
 				my $current_rev = $product_ref->{rev};
 				print STDERR "current_rev: $current_rev - last_rev: $last_rev\n";
@@ -867,7 +867,7 @@ while (my $product_ref = $cursor->next) {
 			my $previous_rev_product_ref = {};
 			my $revs = 0;
 
-			foreach my $change_ref (@$changes_ref) {
+			foreach my $change_ref (@{$changes_ref}) {
 				$revs++;
 				my $rev = $change_ref->{rev};
 				if (not defined $rev) {
@@ -880,7 +880,7 @@ while (my $product_ref = $cursor->next) {
 
 					if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $restore_values_deleted_by_user)) {
 
-						foreach my $field (sort keys %$previous_rev_product_ref) {
+						foreach my $field (sort keys %{$previous_rev_product_ref}) {
 
 							next if $field =~ /debug/;
 							next if $field =~ /_n$/;
@@ -919,7 +919,7 @@ while (my $product_ref = $cursor->next) {
 
 		# Delete old debug tags (many were created by error)
 		if ($delete_debug_tags) {
-			foreach my $field (sort keys %$product_ref) {
+			foreach my $field (sort keys %{$product_ref}) {
 				if ($field =~ /_debug_tags/) {
 					delete $product_ref->{$field};
 				}

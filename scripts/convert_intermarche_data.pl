@@ -171,7 +171,7 @@ foreach my $code (sort keys %products) {
 	$product_ref->{stores} =~ s/NETTO/Netto/g;
 
 	# default unit = g (temporary as we should get units)
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 		if (($field =~ /_unit/) and ($product_ref->{$field} eq "")) {
 			$product_ref->{$field} = "g";
 		}
