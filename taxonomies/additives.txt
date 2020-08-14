@@ -8872,14 +8872,14 @@ wikidata:en:Q4747303
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid.
 # comment:en:E350 is written in plural to distinguish it from E350i.
-
 en:E350, Sodium malates
 bg:E350, E350 food additive
 ca:E350, Malat de sodi
 cs:E350, E350 food additive
 da:E350, E350 food additive
-de:E350, natriummalater
+de:E350, Natriummalate
 el:E350, άλατα του μηλικού οξέος με νάτριο
 es:E350, malatos de sodio
 et:E350, E350 food additive
@@ -8907,13 +8907,17 @@ vegetarian:en:yes
 
 <en:E350
 en:E350(i), Sodium malate
+ar:E350(i), مالات صوديوم
 bg:E350(i), Натриев малат
+ca:E350(i), Malat sòdic
 cs:E350(i), Jablečnan disodný
 da:E350(i), Natriummalat, Dinatriummalat
 de:E350(i), Natriummalat
 el:E350(i), Μηλικο νατριο
+eo:E350(i), Natria malikato
 es:E350(i), Malato sódico, Malato de sodio
 et:E350(i), Naatriummalaat
+fa:E350(i), سدیم مالات
 fi:E350(i), Natriummalaatti, Natriummalaattia
 fr:E350(i), Malate de sodium
 hu:E350(i), Nátrium-malát
@@ -8925,12 +8929,20 @@ nl:E350(i), Natriummalaat
 pl:E350(i), Jabłczan sodu
 pt:E350(i), Malato de sódio
 ro:E350(i), Malat de sodiu
+sh:E350(i), Natrijum malat
 sk:E350(i), Jablčnan sodný
+sr:E350(i), Natrijum malat
 sl:E350(i), Natrijev malat
 sv:E350(i), Natriummalat
+ta:E350(i), சோடியம் மேலேட்டு
+# azb:E350(i), سودیوم مالات
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
+# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
+# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
+# usage:fr:correcteur d'acidité:malate de sodium
 
 <en:E350
 en:E350(ii), Sodium hydrogen malate
@@ -8958,15 +8970,17 @@ sv:E350(ii), Natriumvätemalat
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
+wikidata:en:Q42807545
+# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
 
 en:E351, Potassium malate
 bg:E351, Калиев малат
 ca:E351, Malat de potassi
 cs:E351, Jablečnan draselný
 da:E351, Kaliummalat
-de:E351, Kaliummalat, Kaliummalate, E 351
+de:E351, Kaliummalat, Kaliummalate
 el:E351, Μηλικο καλιο
-es:E351, Malato potásico, Malato de potasio, E 351
+es:E351, Malato potásico, Malato de potasio
 et:E351, Kaaliummalaat
 fi:E351, Kaliummalaatti, Kaliummalaattia
 fr:E351, Malate de potassium, Malate acide de potassium
