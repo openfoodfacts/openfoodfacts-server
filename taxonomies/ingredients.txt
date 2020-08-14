@@ -227,39 +227,6 @@ fr:additifs alimentaires
 # additive classes (from Global_additives_classes_taxonomy)
 
 
-# Has been added to the additives_classes.tx
-#en:Acid, Acidifier,corrector of acidity
-#bg:Киселина
-#ca:Àcid, acidulant
-#cs:Kyselina
-#da:Syre, syrer
-#de:Säuerungsmittel
-#el:Μέσο οξίνισης
-#es:acidulante,acido
-#et:Hape
-#fi:happo, happoa, hapot, happoja
-#fr:acidifiant, acide,acidulants
-#ga:Aigéad
-#he:חומצה
-#hu:Étkezési sav
-#it:Acidificanti
-#lt:Rūgštis
-#lv:Skābe
-#mt:Aċidu
-#nb:syre, syrer
-#nl:Voedingszuur
-#pl:Kwas
-#pt:Acidificante
-#ro:Acidifiant, agent acidifiant
-#ru:Кислота
-#sk:Kyselina
-#sl:Kislina
-#sv:syra, syror, surgörare
-#wikidata:en:Q337038
-# ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
-# ingredient/fr:acide has 262 products @2019-05-31
-
-
 # <en:function
 en:coagulum, coagulating agent,coagulant
 ca:Agent coagulant, agents coagulants
@@ -271,122 +238,6 @@ fr:agent de coagulation, coagulant
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
-# <en:function
-en:Acidity regulator
-bg:Регулатор на киселинност
-ca:Corrector d'acidesa, regulador d'acidesa,correctiu de l acidesa
-cs:Regulátor kyselosti
-da:Surhedsregulerende middel, surhedsregulerende midler
-de:Säureregulator
-el:Ρυθμιστής οξύτητας
-es:Corrector de acidez, regulador de acidez
-et:Happesuse regulaator
-fi:happamuudensäätöaine, happamuudensäätöaineet, happamuudensäätöainetta, happamuudensäätöaineita
-fr:correcteur d’acidité, régulateur d'acidité
-ga:Rialtán aigéadachta
-he:מווסת חומציות
-hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
-is:sýrustillar
-it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
-lt:Rūgštingumą reguliuojanti medžiaga
-lv:Skābuma regulētājs
-mt:Regolatur tal-Aċidità
-nb:surhetsregulerende middel, surhetsregulerende midler
-nl:Zuurteregelaar
-pl:Regulator kwasowości
-pt:Regulador de acidez,  reguladores de acidez
-ro:Corector de aciditate, regulator de aciditate
-ru:Регулятор кислотности
-sk:Regulátor kyslosti
-sl:Sredstvo za uravnavanje kislosti
-sv:Surhetsreglerande medel, surhetsreglerandemedel, surhetsregulator
-wikidata:en:Q898753
-
-# nova:en:anti-caking-agent
-# <en:function
-en:Anti-caking agent
-bg:Антислепващ агент
-ca:Antiaglomerant, antiaglomerants
-cs:Protispékavá látka
-da:Antiklumpningsmiddel
-de:Rieselhilfe, Antiagglomerationsmittel
-el:Αντισυσσωματωτικό
-es:Antiaglomerante, antiaglomerantes
-et:Paakumisvastane aine
-fi:Paakkuuntumisenestoaine
-fr:antiagglomérant, anti-agglomérants, antiagglomérants, anti-agglomérant
-ga:Oibreán frithstolptha
-hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti, agente antiagglomerante, antiagglomerante, antiagglomeranti
-lt:Lipnumą reguliuojanti medžiaga
-lv:Pretsalipes viela
-mt:Aġent kontra t-tagħqid
-nl:Antiklontermiddel
-pl:Substancja przeciwzbrylająca
-pt:Antiaglomerante
-ro:Agent antiaglomerant
-sk:Protihrudkovacia látka
-sl:Sredstvo proti sprijemanju
-sv:Klumpförebyggande medel
-wikidata:en:Q726460
-
-# nova:en:de-foaming-agent?
-# <en:function
-en:de-foaming agent, Anti-foaming agent
-bg:Антипенител
-ca:Antiespumant, agent antiespumant
-cs:Odpěňovač
-da:Skumdæmpningsmiddel
-de:Schaumverhüter
-el:Αντιαφριστικό
-es:Antiespumante, agente antiespumante
-et:Vahutamisvastane aine
-fi:vaahdonestoaine
-fr:Antimoussant
-ga:Oibreán frithchúrtha
-hu:Habzásgátló
-it:Agenti antischiumogeni, agente antischiumogeno, antischiumogeno, antischiumogeni
-lt:Medžiaga nuo putojimo
-lv:Putu dzēsējs
-mt:Aġent kontra r-ragħwa
-nl:Antischuimmiddel
-pl:Substancja przeciwpieniąca
-pt:Antiespuma
-ro:Antispumant
-sk:Odpeňovacie činidlo
-sl:Sredstvo proti penjenju
-sv:Skumdämpningsmedel
-wikidata:en:Q904035
-
-
-
-# nova:en:bulking-agent
-# <en:function
-en:Bulking agent
-bg:Пълнител
-ca:Incrementador de volum
-cs:Plnidlo
-da:Fyldemiddel
-de:Füllstoff
-el:Διογκωτικό
-es:Incrementador de volumen
-et:Mahuaine
-fi:Täyteaine
-fr:agent de charge
-ga:Toirteoir
-hu:Tömegnövelő szer
-it:Agente di carica, agenti di carica
-lt:Užpildas
-lv:Apjoma palielinātājs
-mt:Aġent li jżid il-volum
-nl:Vulstof, Vulstoffen
-pl:Substancja wypełniająca
-pt:Agente de volume
-ro:Agent de încărcare
-sk:Objemové činidlo
-sl:Sredstvo za povečanje prostornine
-sv:Fyllnadsmedel
-#wikidata:en:
 
 # nova:en:anti-bulking-agent
 # <en:function
@@ -431,36 +282,6 @@ it:sostanze alimentari coloranti
 fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
-
-# nova:en:emulsifier
-en:emulsifier, emulsifier blend
-bg:Емулгатор
-ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
-cs:Emulgátor
-da:Emulgator, emulgatorer, emulgeringsmiddel
-de:Emulgator, Emulgatoren
-el:Γαλακτωματοποιητής
-es:Emulgente, emulgentes, emulsificante, emulsificantes, agente emulsionante, agentes emulsionantes
-et:Emulgaator
-fi:emulgointiaine, emulgointiaineet
-fr:Émulsifiant
-ga:Eiblitheoir
-hu:Emulgeálószer
-is:Yruefni
-it:Emulsionanti, emulsionante, agente emulsionante, agenti emulsionanti
-lt:Emulsiklis
-lv:Emulgators
-mt:Emulsifikant
-nb:emulgeringsmiddel, emulgator
-nl:Emulgator, Emulgatoren
-pl:Emulgator
-pt:Emulsionante, emulsionantes
-ro:Emulsifiant, Emulgator
-ru:Эмульгатор
-sk:Emulgátor
-sl:Emulgator
-sv:Emulgeringsmedel, Emulgering
-wikidata:en:Q907356
 
 
 
