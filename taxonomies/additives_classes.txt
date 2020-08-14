@@ -193,13 +193,14 @@ description:sv:Skumdämpningsmedel: ämnen som förhindrar eller minskar skumbil
 
 en: Antioxidant, antibrowning agent, antioxidany synergist
 bg: Антиоксидант
-ca: Antioxidant
+ca: Antioxidant, antioxidants, agent antienfosquiment
+cs:Antioxidant
 de: Antioxidant, Antioxidations-mittel, Antioxidationsmittel, Antioxidantien, Antioxidanzien
 el: Αντιοξειδωτικό
-es: Antioxidante, antipardeamiento, sinérgicos de antioxidantes
+es: Antioxidante, antipardeamiento, sinérgicos de antioxidantes, antioxidantes
 et: Antioksüdant
 fi: Hapettumisenestoaine, Hapettumisenestoainetta, Hapettumisenestoaineet, Hapettumisenestoaineita, Antioksidantti
-fr: Antioxydant, antioxygène, antibrunissant, antioxydant synergique
+fr: Antioxydant, antioxygène, antibrunissant, antioxydant synergique, anti-oxydant
 ga: Frithocsaídeoir
 hu: Antioxidáns
 it: Antiossidante, antiossidanti, agente antiossidante, agenti antiossidanti
@@ -210,6 +211,7 @@ nb: Antioxidant, Antioksidant
 nl: antioxidant, antioxidanten
 pl: Przeciwutleniacz, przeciwutleniacze
 pt: Antioxidante
+ru:антиоксидант, антиокислитель
 sl: Antioksidant
 sv: Antioxidationsmedel, Antioxidantmedel
 wikidata:en:Q133948
@@ -232,6 +234,7 @@ description:pt:Antioxidantes: substâncias que prolongam o prazo de conservaçã
 description:sk:Antioxidanty sú látky, ktoré predlžujú trvanlivosť potravín tak, že ich chránia pred skazením spôsobeným oxidáciou, napríklad pred žltnutím tukov alebo farebnými zmenami.
 description:sl:Antioksidanti so snovi, ki podaljšajo rok uporabnosti živil tako, da jih ščitijo pred kvarjenjem, ki ga povzroča oksidacija, kot sta žarkost maščob in sprememba barve.
 description:sv:Antioxidationsmedel: ämnen som förlänger hållbarheten hos livsmedel genom att skydda dem från att försämras genom oxidering, som t.ex. härskning av fett och färgförändringar.
+
 
 en:Bleaching agent
 es:Decolorante, blanqueador, blanqueadores
@@ -362,33 +365,34 @@ fr:agent de rétention de la couleur, fixateur de la couleur, adjuvant de la cou
 description:es:Aditivos alimentarios que estabilizan, retienen o intensifican el color de un alimento.
 description:fr:Additif alimentaire qui stabilise, retient ou intensifie la couleur d’une denrée alimentaire.
 
-en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent
-ca: Emulgent, emulsionant
-ga: Eiblitheoir
+# nova:en:emulsifier
+en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent, emulsifier blend
+bg: Емулгатор
+ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
+cs: Emulgátor
 de: Emulgator, Emulgatoren
 da: Emulgator, Emulgatorer, Emulgeringsmiddel
 el: Γαλακτωματοποιητής
 es: Emulgente, Emulsificante, emulsionante, agente dispersante, agente enturbiador, agentes enturbiadores, agente tensoactivo, corrector de la densidad, estabilizadores de una suspensión, estabilizador de una suspensión, inhibidor de la cristalización, plastificante
+et: Emulgaator
 fi: Emulgointiaine, Emulgointiainetta, Emulgointiaineet, Emulgointiaineita
 fr: Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristallisation, nébulisant, plastifiant
+ga: Eiblitheoir
+hu: Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 is: Yruefni
 it: Emulsionante, emulsionanti, agente emulsionante, agenti emulsionanti
-nl: Emulgator
-pt: Emulsionante
-sv: Emulgeringsmedel, Emulgering
-lv: Emulgators
-cs: Emulgátor
-et: Emulgaator
-hu: Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
-pl: Emulgator, Emulgatory
-sl: Emulgator
 lt: Emulsiklis
+lv: Emulgators
 mt: Emulsifikant
 nb: Emulgeringsmiddel, Emulgator
-sk: Emulgátor
+nl: Emulgator, Emulgatoren
+pl: Emulgator, Emulgatory
+pt: Emulsionante, emulsionantes
 ro: Emulsifiant, Emulgator
 ru: Эмульгатор
-bg: Емулгатор
+sk: Emulgátor
+sl: Emulgator
+sv: Emulgeringsmedel, Emulgering
 wikidata:en:Q907356
 description:en:Emulsifiers are substances which make it possible to form or maintain a homogenous mixture of two or more immiscible phases such as oil and water in a foodstuff.
 description:cs:Emulgátory se rozumějí látky, které umožňují vytvořit nebo uchovat v potravině stejnorodou směs dvou nebo více nemísitelných fází, například oleje a vody.
@@ -410,32 +414,34 @@ description:sk:Emulgátory sú látky, ktoré umožňujú vytvoriť alebo zachov
 description:sl:Emulgatorji so snovi, ki omogočajo nastanek ali ohranjanje homogene mešanice dveh ali več medsebojno nezdružljivih faz, kot sta olje in voda, v živilu.
 description:sv:Emulgeringsmedel: ämnen som gör det möjligt att skapa eller bibehålla en homogen blandning av två eller flera icke blandbara faser som olja och vatten i ett livsmedel.
 
-en: Emulsifying salts, emulsifying salt synergist, melding salt
+
+en: Emulsifying salts, emulsifying salt synergist, melding salt, Emulsifying salt
+bg: Емулгаторни соли
 ca: Surts de fos
-ga: Salainn eiblithe
+cs: Tavicí soli
 de: Schmelzsalze, Schmelzsalz
 da: Smeltesalt
 el: Γαλακτωματοποιητικά άλατα
-es: Sales fundentes, Sales emulsionantes, sales de mezcla, sinergista de sal emulsionante, sales de fundido
+es: Sales fundentes, Sales emulsionantes, sales de mezcla, sinergista de sal emulsionante, sales de fundido, sal fundente, sal emulsionante
+et: Emulgeeriv sool
 fi: Sulatesuola, Sulatesuolaa, Sulatesuolat, Sulatesuoloja
 fr: Sels émulsifiants, sel émulsifiant, sels de fonte, sel de fonte, synergiste de sel émulsifiant
-it: Sale di fusione, sali di fusione
-nl: Smeltzout
-pt: Sais de fusão
-sv: Smältsalt, Smältsalter
-lv: Emulģējošie sāļi
-cs: Tavicí soli
-et: Emulgeeriv sool
+ga: Salainn eiblithe
 hu: Emulgeálósók
 is: Bræðslusölt
-pl: Sole emulgujące
-sl: Emulgirne soli
+it: Sale di fusione, sali di fusione
 lt: Emulsinimo druskos
+lv: Emulģējošie sāļi
 mt: Melħ emulsifikat
-sk: Emulgujúce soli
+nl: Smeltzout, Smeltzouten
+pl: Sole emulgujące
+pt: Sais de fusão
 ro: Săruri de topire
-bg: Емулгаторни соли
+sk: Emulgujúce soli
+sl: Emulgirne soli
+sv: Smältsalt, Smältsalter
 wikidata:en:Q50419202
+wikipedia:nl:https://nl.wikipedia.org/wiki/Smeltzout
 description:en:Emulsifying salts are substances which convert proteins contained in cheese into a dispersed form and thereby bring about homogenous distribution of fat and other components.
 description:cs:Tavicími solemi se rozumějí látky, které převádějí bílkoviny obsažené v sýru do disperzní formy za účelem homogenního rozložení tuků a ostatních složek.
 description:da:Smeltesalte: stoffer, som overfører proteiner i ost til dispergeret form og derved bevirker en homogen fordeling af fedt og andre bestanddele.
@@ -1076,31 +1082,33 @@ description:sk:Sladidlá sú látky, ktoré sa používajú na dodanie sladkej c
 description:sl:Sladila so snovi, ki se uporabljajo za sladkanje živil ali kot namizna sladila.
 description:sv:Sötningsmedel: ämnen som används för att ge livsmedel söt smak eller i bordssötningsmedel.
 
+
 en: Thickener, bodying agent, texturizing agent, thickener synergist
-ca: Espessidor, texturitzant
+bg: Сгъстител
+ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
+cs: Zahušťovadlo
 da: Fortykningsmiddel, Fortykningsmidler
-ga: Tiúsóir
 de: Verdickungsmittel
 el: Πυκνωτικό μέσο
-es: Espesante, agente de soporte, agente texturizador, agentes texturizadores, aglutinante, sinergista espesante
-fi: Sakeuttamisaine, Sakeuttamisainetta, Sakeuttamisaineet, Sakeuttamisaineita
-fr: Épaississant, agent de texture, épaississan synergiste, raffermissant
-it: Addensante, addensanti, agente addensante, agenti addensanti
-nl: Verdikkingsmiddel
-pt: Espessante
-lv: Biezinātājs
-cs: Zahušťovadlo
+es: Espesante, agente de soporte, agente texturizador, agentes texturizadores, aglutinante, sinergista espesante, agente espesante, agentes espesantes
 et: Paksendaja, Paksendajad
+fi: Sakeuttamisaine, Sakeuttamisainetta, Sakeuttamisaineet, Sakeuttamisaineita, luonnollinen sakeutusaine
+fr: Épaississant, agent de texture, épaississan synergiste, raffermissant, agent épaississant, agents épaississants
+ga: Tiúsóir
 hu: Sűrítőanyag
-pl: Substancja zagęszczająca, Substancje zagęszczające
-sl: Sladilo
+it: Addensante, addensanti, agente addensante, agenti addensanti
 lt: Tirštiklis
+lv: Biezinātājs
 mt: Aġent li jgħaqqad
 nb: Fortykningsmiddel
-sk: Zahusťovadlo
-sv: Förtjockningsmedel
+nl: Verdikkingsmiddel, Verdikkingsmiddelen
+pl: Substancja zagęszczająca, Substancje zagęszczające
+pt: Espessante, espessantes
 ro: Agent de îngroșare
-bg: Сгъстител
+ru:Загуститель
+sk: Zahusťovadlo
+sl: Sladilo
+sv: Förtjockningsmedel, naturlig förtjockningsmedel
 wikidata:en:Q911138
 description:en:Thickeners are substances which increase the viscosity of a foodstuff.
 description:cs:Zahušťovadly se rozumějí látky, které zvyšují viskozitu potraviny.
