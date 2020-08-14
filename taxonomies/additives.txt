@@ -8287,7 +8287,7 @@ vegetarian:en:yes
 
 # description:en:SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
 #comment:en:The plural form is preferred. The singular form might refer to variant iii, but can we be sure?.
-en:E339, Sodium phosphates
+en:E339, Sodium phosphates, sodium phosphate
 ar:E339, فوسفات الصوديوم
 bg:E339, Натриев фосфат
 ca:E339, Fosfati de sodi
@@ -8295,6 +8295,7 @@ cs:E339, Fosforečnan sodný
 da:E339, Natriumphosphate, Natriumphosphat
 de:E339, Natriumphosphaten, Natriumphosphat
 el:E339, Φωσφορικο νατριο
+eo:E339, Natria fosfato
 es:E339, Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio, Fosfato de sodio, Fosfato sódico
 et:E339, Naatriumfosfaat
 fa:E339, سدیم فسفات
@@ -8307,13 +8308,16 @@ lt:E339, Natrio fosfatas
 lv:E339, Nātrija fosfāts
 mt:E339, Fosfat tas-sodju
 nl:E339, natriumfosfaten, Natriumorthofosfaten, Natriumfosfaat
+nn:E339, natriumfosfat
 pl:E339, Fosforan sodu
 pt:E339, fosfatos de sódio, Fosfato de sódio
 ro:E339, Fosfat de sodiu
-ru:E339, Натрия фосфаты
+ru:E339, Натрия фосфаты, Фосфат натрия,  Ортофосфат натрия
 sk:E339, Fosforečnan sodný
 sl:E339, natrijev fosfat
 sv:E339, Natriumfosfater, Natriumfosfat
+vi:E339, Natri phosphat
+zh:E339, 磷酸钠
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 e_number:en:339
 wikidata:en:Q3249706
@@ -8410,19 +8414,23 @@ wikipedia:en:https://en.wikipedia.org/wiki/Disodium_phosphate
 # fr:phosphate disodique has 54 products in 3 languages @2018-11-04
 # additive/e339ii-disodium-phosphate has 1940 products in 9 languages @2018-11-06
 
+#description:en:TRISODIUM PHOSPHATE (TSP) is the inorganic compound with the chemical formula Na3PO4.
 <en:E339
 en:E339(iii), Trisodium phosphate, Tribasic sodium phosphate
 bg:E339(iii), Тринатриев фосфат, триосновен натриев фосфат
+ca:E339(iii), Fosfat de trisodi
 cs:E339(iii), Fosforečnan trisodný
 da:E339(iii), Trinatriumphosphat, tribasisk natriumphosphat
 de:E339(iii), Trinatriumphosphat, dreibasiges Natriumphosphat
 el:E339(iii), Ουδέτερο φωσφορικό νάτριο
 es:E339(iii), Fosfato trisódico, fosfato tribásico sódico
 et:E339(iii), Trinaatriumfosfaat
+fa:E339(iii), تری‌سدیم فسفات
 fi:E339(iii), Trinatriumfosfaatti, Trinatriumfosfaattia
 fr:E339(iii), Phosphate trisodique, phosphate de sodium tribasique
 hu:E339(iii), Trinátrium-foszfát, Hárombázisú nátrium-foszfát
 it:E339(iii), Fosfato trisodico, fosfato tribasico di sodio
+ja:E339(iii), リン酸三ナトリウム
 lt:E339(iii), Trinatrio fosfatas, tribazis natrio fosfatas
 lv:E339(iii), Trinātrija fosfāts, Tribāziskais nātrija fosfāts
 mt:E339(iii), Fosfat trisodiku, Fosfat tas-sodju tribażiku
@@ -8430,12 +8438,18 @@ nl:E339(iii), Trinatriumfosfaat, driebasisch natriumfosfaat
 pl:E339(iii), Fosforan trisodowy, fosforan sodu, trizasadowy
 pt:E339(iii), Fosfato trissódico, fosfato de sódio tribásico
 ro:E339(iii), Fosfat trisodic, Fosfat de sodiu tribazic
+sh:E339(iii), Trinatrijum fosfat
 sk:E339(iii), Fosforečnan trisodný, trojsýtny fosforečnan sodný
 sl:E339(iii), Trinatrijev fosfat, tribazični natrijev fosfat
+sr:E339(iii), Trinatrijum fosfat
 sv:E339(iii), Trinatriumfosfat, Trinatriummonofosfat
+# azb:E339(iii), تریسودیوم فوسفات
 e_number:en:339
 wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
+# fr:phosphate-trisodique has 45 products @2018-11-04
+# additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 
 en:E340, Potassium phosphates, potassium phosphate, KH2PO4, K2HPO4, K3PO4
 bg:E340, E340 food additive
