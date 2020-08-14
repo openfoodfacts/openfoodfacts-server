@@ -2052,8 +2052,8 @@ is_deeply ($product_ref->{ingredients},
      {
        'id' => 'en:sunflower-lecithin',
        'text' => 'auringonkukkalesitiini',
-       'vegan' => 'maybe',
-       'vegetarian' => 'maybe'
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
      }
 
 	        ],
