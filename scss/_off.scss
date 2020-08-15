@@ -393,3 +393,28 @@ a[aria-controls="idOfLeftMenu"] {
   ul.button-group li {margin-top: 3px;margin-bottom: 3px;}
   #main_column {height: auto !important;}
 }
+
+.share_button,
+.edit_button {
+  float: right;
+  margin-top: -10px;
+}
+
+.delete_button {
+  float: right;
+  margin-top: -10px;
+  margin-right: 10px;
+}
+
+html[dir="rtl"] {
+  .share_button,
+  .edit_button {
+    float: left;
+  }
+
+  .delete_button {
+    float: left;
+    margin-right: unset;
+    margin-left: 10px;
+  }
+}
