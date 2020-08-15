@@ -73,10 +73,11 @@ use HTML::Entities qw(decode_entities);
 
 # Initialize exported variables
 
-$memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
-	'utf8' => 1,
-};
+$memd = Cache::Memcached::Fast->new(
+	{   'servers' => ["127.0.0.1:11211"],
+		'utf8'    => 1,
+	}
+);
 
 %texts = ();
 

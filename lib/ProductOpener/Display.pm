@@ -250,10 +250,11 @@ $tt = Template->new({
 });
 
 # Initialize exported variables
-$memd = new Cache::Memcached::Fast {
-	'servers' => $memd_servers,
-	'utf8' => 1,
-};
+$memd = Cache::Memcached::Fast->new(
+	{   'servers' => $memd_servers,
+		'utf8'    => 1,
+	}
+);
 
 $default_request_ref = {
 	page=>1,

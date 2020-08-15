@@ -47,10 +47,11 @@ use Log::Any qw($log);
 
 # Initialize exported variables
 
-$memd = new Cache::Memcached::Fast {
-	'servers' => $memd_servers,
-	'utf8' => 1,
-};
+$memd = Cache::Memcached::Fast->new(
+	{   'servers' => $memd_servers,
+		'utf8'    => 1,
+	}
+);
 
 # Initialize internal variables
 # - using my $variable; is causing problems with mod_perl, it looks
