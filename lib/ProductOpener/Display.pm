@@ -6224,7 +6224,10 @@ $options{favicons}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 <link rel="search" href="$formatted_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 $header
+<!-- Dark Mode -->
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="$static_subdomain/css/darkMode.css">
 <style media="all">
+
 HTML
 ;
 
@@ -6697,7 +6700,7 @@ HTML
 		$top_banner
 		<!-- main row - comment used to remove left column and center content on some pages -->
 		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+			<div id="sidebar-whole" class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 				<div class="sidebar">
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
@@ -6828,6 +6831,7 @@ $scripts
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
+
 </body>
 </html>
 HTML
