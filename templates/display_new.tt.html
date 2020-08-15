@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]" dir="[% dir %]">
+<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]" dir="[% lang('text_direction') %]">
 <head>
     <meta charset="utf-8">
     <title>[% title %]</title>
@@ -14,7 +14,7 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% dir %].css?v=[% css_timestamp %]">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">

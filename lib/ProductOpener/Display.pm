@@ -448,10 +448,6 @@ sub init()
 		}
 	}
 
-	# Default to the more common LTR direction and use RTL for common known languages from https://get.foundation/sites/docs/rtl.html#language-code
-	$text_direction = 'ltr';
-	$text_direction = 'rtl' if ($lang eq 'ar' or $lang eq 'fa' or $lang eq 'he' or $lang eq 'iw' or $lang eq 'ur' or $lang eq 'yi' or $lang eq 'ji');
-
 	# select the nutriment table format according to the country
 	$nutriment_table = $cc_nutriment_table{default};
 	if (exists $cc_nutriment_table{$cc}) {
@@ -6212,7 +6208,6 @@ sub display_new($) {
 
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{language} = $lang;
-	$template_data_ref->{dir} = $text_direction;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{og_type} = $og_type;
 	$template_data_ref->{fb_config} = 219331381518041;
@@ -6224,7 +6219,7 @@ sub display_new($) {
 	$template_data_ref->{options_favicons} = $options{favicons};
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
-	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . $text_direction . '.css'};
+	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
 
 	my $site_name = $Lang{site_name}{$lang};
