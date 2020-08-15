@@ -82,13 +82,17 @@
 	</section>
 </nav>
 
+[% offcanvasposition = 'left' %]
+[% IF lang('text_direction') == 'rtl' %]
+[% offcanvasposition = 'right' %]
+[% END %]
 <nav class="tab-bar show-for-small-only">
-	<div class="left-small" style="padding-top:4px;">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix [% torso_class %]">
+	<div class="[% offcanvasposition %]-small">
+		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="[% offcanvasposition %]-off-canvas-toggle button postfix [% torso_class %]">
 		[% display_icon('account_box') %]
 		</a>
 	</div>
-	<div class="middle tab-bar-section" style="padding-top:4px;">
+	<div class="middle tab-bar-section">
 		<form action="/cgi/search.pl">
 			<div class="row collapse">
 				<div class="small-8 columns">
@@ -109,7 +113,7 @@
 
 <div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
-		<aside class="left-off-canvas-menu">
+		<aside class="[% offcanvasposition %]-off-canvas-menu">
 			<div id="aside_column">
 				[% aside_blocks %]
 			</div>
