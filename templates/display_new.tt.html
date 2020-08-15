@@ -36,49 +36,49 @@
 		</li>
 	</ul>
 	<section class="top-bar-section">
-		<label for="select_country" style="display:none">[% lang('select_country') %]</label>
-		<ul class="left">
+    <label for="select_country" style="display:none">[% lang('select_country') %]</label>
+    <ul class="country_language_selection">
 			<li class="has-form has-dropdown" id="select_country_li">
 				<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
 					<option></option>
 				</select>
 			</li>
-            [% IF langs.match('<a') %]
-                <li class="has-dropdown">
-                    [% selected_lang %]
-                    <ul class="dropdown">
-                        [% langs %]
-                    </ul>
-                </li>
-            [% END %]
-        </ul>
-        <ul class="right">
-			<li class="show-for-large-up">
-				<form action="/cgi/search.pl">
-					<div class="row collapse">
-						<div class="small-8 columns">
-							<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
-							<input name="search_simple" value="1" type="hidden">
-							<input name="action" value="process" type="hidden">
-						</div>
-						<div class="small-4 columns">
-							<button type="submit" title="[% lang('search') %]">[% display_icon('search') %]</button>
-						</div>
-					</div>
-				</form>
-			</li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
-			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
-			[% IF !(server_options_producers_platform) %]
-                <li class="show-for-large-up divider"></li>
-                <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-                <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-                <li class="show-for-large"><a href="/[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
-                <li class="show-for-xlarge-up"><a href="/[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
-            [% END %]
-        </ul>
+      [% IF langs.match('<a') %]
+        <li class="has-dropdown">
+            [% selected_lang %]
+            <ul class="dropdown">
+                [% langs %]
+            </ul>
+        </li>
+      [% END %]
+    </ul>
+    <ul class="search_and_links">
+      <li class="show-for-large-up">
+        <form action="/cgi/search.pl">
+          <div class="row collapse">
+            <div class="small-8 columns">
+              <input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
+              <input name="search_simple" value="1" type="hidden">
+              <input name="action" value="process" type="hidden">
+            </div>
+            <div class="small-4 columns">
+              <button type="submit" title="[% lang('search') %]">[% display_icon('search') %]</button>
+            </div>
+          </div>
+        </form>
+      </li>
+      <li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
+      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
+      <li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
+      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
+      [% IF !(server_options_producers_platform) %]
+        <li class="show-for-large-up divider"></li>
+        <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+        <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+        <li class="show-for-large"><a href="/[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
+        <li class="show-for-xlarge-up"><a href="/[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
+      [% END %]
+    </ul>
 	</section>
 </nav>
 

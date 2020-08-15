@@ -406,6 +406,14 @@ a[aria-controls="idOfLeftMenu"] {
   margin-right: 10px;
 }
 
+.country_language_selection {
+  float: left;
+}
+
+.search_and_links {
+  float: right;
+}
+
 html[dir="rtl"] {
   .share_button,
   .edit_button {
@@ -416,5 +424,13 @@ html[dir="rtl"] {
     float: left;
     margin-right: unset;
     margin-left: 10px;
+  }
+
+  .country_language_selection {
+    float: right;
+  }
+
+  .search_and_links {
+    float: left;
   }
 }
