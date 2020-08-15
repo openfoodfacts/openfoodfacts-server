@@ -6952,6 +6952,11 @@ figure.image_box figcaption {
 	bottom: 0px;
 }
 
+html[dir="rtl"] figure.image_box figcaption {
+	right: unset;
+	left: 0px;
+}
+
 figure.image_box figcaption img {
 	width: 16px;
 	height: 16px;
