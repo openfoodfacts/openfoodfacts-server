@@ -118,7 +118,7 @@ while (my $product_ref = $cursor->next) {
 				$images_copied++;
 			}
 		}
-		closedir DH;			
+		closedir DH;
 		#($images_deleted > 10) and last;
 	}
 }

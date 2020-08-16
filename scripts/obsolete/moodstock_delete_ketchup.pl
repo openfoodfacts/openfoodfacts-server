@@ -88,15 +88,15 @@ use MIME::Base64;
 		$j++;
 
 		print "id: $id\n";
-		
-		next if ($id !~ /^8715/);
-		
+
+		next if ( $id !~ /^8715/ );
+
 		print "deleting id: $id\n";
-		my $response = $browser->request(HTTP::Request->new("DELETE","$ep/ref/$id"));
-		print "response -> " . $response->content . "\n";	
+		my $response = $browser->request(
+			HTTP::Request->new( "DELETE", "$ep/ref/$id" ) );
+		print "response -> " . $response->content . "\n";
 		last;
-	
-	
+
 	}
 		
 		print "deleted $j products\n";

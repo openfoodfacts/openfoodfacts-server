@@ -1285,7 +1285,7 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{alcohol_value}) and ($product_ref->{alcohol_value} == 0)) {
 		delete $product_ref->{alcohol_value};
 		delete $product_ref->{alcohol_unit};
-	}		
+	}
 	
 	clean_fields($product_ref);
 		

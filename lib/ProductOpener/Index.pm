@@ -29,18 +29,17 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&normalize
-					&decode_html
-					&decode_html_utf8
-					&decode_html_entities
+		&normalize
+		&decode_html
+		&decode_html_utf8
+		&decode_html_entities
 
+		&normalize
 
-					&normalize
+		$memd
+		%texts
 
-					$memd
-					%texts
-
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 

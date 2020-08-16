@@ -50,10 +50,11 @@ compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, [
-	"en:e330",
-	"en:e570", # detected wrongly because of the bogus data after the ingredients list	
-                              ],
+is_deeply(
+	$product_ref->{additives_original_tags},
+	[   "en:e330",
+		"en:e570",    # detected wrongly because of the bogus data after the ingredients list
+	],
 ) or diag explain $product_ref;
 
 

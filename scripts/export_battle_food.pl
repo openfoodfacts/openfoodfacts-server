@@ -114,10 +114,10 @@ foreach my $l (values %lang_lc) {
 			
 			$product_ref->{image_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 			$product_ref->{image_small_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-			
+
 			push @products, $product_ref;
-		}		
-		
+		}
+
 		$n++;
 		$langs{$l}++;
 		$total++;
@@ -125,11 +125,11 @@ foreach my $l (values %lang_lc) {
 
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
-	my $data =  encode_json(\@products);
+	my $data = encode_json( \@products );
 	$data =~ s/\.100g/_100g/g;
-	print $OUT  $data;		
+	print $OUT $data;
 	close $OUT;
-	
+
 }
 
 exit(0);

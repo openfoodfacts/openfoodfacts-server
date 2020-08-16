@@ -453,7 +453,7 @@ foreach my $code (sort keys %products) {
 	# Make sure we only have emb codes and not some other text
 	if (defined $product_ref->{emb_codes}) {
 		# too many letters -> word instead of code
-		if ($product_ref->{emb_codes} =~ /[a-zA-Z]{8}/)	{
+		if ( $product_ref->{emb_codes} =~ /[a-zA-Z]{8}/ ) {
 			delete $product_ref->{emb_codes};
 		}
 	}

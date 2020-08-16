@@ -86,12 +86,12 @@ my $product_order = '';
 
 
 # Beginning
-GetOptions (
+GetOptions(
 	'max_sendings:i' => \$max_sendings,
-	'country:s' => \$country,
-	'order:s' => \$product_order,
-	'channel=s' => \$channel 				# channel is mandatory
-	) or die ("Error in command line arguments:\n\n$usage");
+	'country:s'      => \$country,
+	'order:s'        => \$product_order,
+	'channel=s'      => \$channel          # channel is mandatory
+) or die("Error in command line arguments:\n\n$usage");
 
 if (not defined $channel) {
 	die ("--channel parameter is mandatory.\n\n$usage");

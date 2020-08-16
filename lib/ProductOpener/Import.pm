@@ -72,7 +72,7 @@ BEGIN
 		&import_csv_file
 		&import_products_categories_from_public_database
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -370,7 +370,7 @@ sub import_csv_file($) {
 
 					my $code = $1;
 					$code = normalize_code($code);
-					my $imagefield = $3;	# front / ingredients / nutrition , optionnaly with _[language code] suffix
+					my $imagefield = $3;    # front / ingredients / nutrition , optionnaly with _[language code] suffix
 
 					if ((not defined $imagefield) or ($imagefield eq '')) {
 						$imagefield = "front";
@@ -530,9 +530,9 @@ EMAIL
 							$images_ref->{$code}{front} = $file;
 						}
 
-						if (	((defined $images_ref->{$code}{front}) and ($images_ref->{$code}{front} eq $images_ref->{$code}{$imagefield . "_$k"}))
-							or	((defined $images_ref->{$code}{ingredients}) and ($images_ref->{$code}{ingredients} eq $images_ref->{$code}{$imagefield . "_$k"}))
-							or	((defined $images_ref->{$code}{nutrition}) and ($images_ref->{$code}{nutrition} eq $images_ref->{$code}{$imagefield . "_$k"})) ) {
+						if (    ((defined $images_ref->{$code}{front}) and ($images_ref->{$code}{front} eq $images_ref->{$code}{$imagefield . "_$k"}))
+							or  ((defined $images_ref->{$code}{ingredients}) and ($images_ref->{$code}{ingredients} eq $images_ref->{$code}{$imagefield . "_$k"}))
+							or  ((defined $images_ref->{$code}{nutrition}) and ($images_ref->{$code}{nutrition} eq $images_ref->{$code}{$imagefield . "_$k"})) ) {
 							# File already selected
 							delete $images_ref->{$code}{$imagefield . "_$k"};
 						}
@@ -732,8 +732,9 @@ EMAIL
 							$imported_product_ref->{$field} .= "," . $imported_product_ref->{$subfield};
 						}
 						else {
-							$imported_product_ref->{$field} = $imported_product_ref->{$subfield};
-						}						
+							$imported_product_ref->{$field}
+								= $imported_product_ref->{$subfield};
+						}
 					}
 				}
 			}
@@ -750,9 +751,11 @@ EMAIL
 					$stats{products_with_ingredients}{$code} = 1;
 				}
 
-				if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
-					and ($field ne "imports")	# "imports" contains the timestamp of each import
-					) {
+				if (    ( defined $Owner_id )
+					and ( $Owner_id =~ /^org-/ )
+					and ( $field ne "imports" )    # "imports" contains the timestamp of each import
+					)
+				{
 
 					# Don't set owner_fields for apps, labels and databases, only for producers
 					if (($Owner_id !~ /^org-app-/)
@@ -870,8 +873,8 @@ EMAIL
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 					}
-					elsif ($field eq "brands") {	# we removed it earlier
-						compute_field_tags($product_ref, $tag_lc, $field);
+					elsif ( $field eq "brands" ) {    # we removed it earlier
+						compute_field_tags( $product_ref, $tag_lc, $field );
 					}
 				}
 				else {
@@ -1130,8 +1133,13 @@ EMAIL
 					$nutrients_edited{$code}++;
 					push @modified_fields, "nutrients.$field";
 				}
-				elsif ((defined $product_ref->{nutriments}{$field}) and ($product_ref->{nutriments}{$field} ne "")
-					and ((not defined $original_values{$field})	or ($original_values{$field} eq ''))) {
+				elsif (
+						( defined $product_ref->{nutriments}{$field} )
+					and ( $product_ref->{nutriments}{$field} ne "" )
+					and (  ( not defined $original_values{$field} )
+						or ( $original_values{$field} eq '' ) )
+					)
+				{
 					$log->debug("new nutrient value", { field => $field,  new => $product_ref->{nutriments}{$field} }) if $log->is_debug();
 					$stats{products_nutrition_updated}{$code} = 1;
 					$stats{products_nutrition_added}{$code} = 1;

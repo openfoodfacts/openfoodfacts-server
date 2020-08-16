@@ -62,10 +62,11 @@ my $j = 0;
 		my $code = $product_ref->{code};
 		my $id = $product_ref->{id};
 		
-		if (not defined $lc) {
-			print STDERR "lc does not exist - updating product _id: $id - hcode $code\n";		
+		if ( not defined $lc ) {
+			print STDERR
+				"lc does not exist - updating product _id: $id - hcode $code\n";
 		}
-		
+
 		if (not defined $code) {
 		
 		$j++;
@@ -83,7 +84,7 @@ my $j = 0;
 		}
 	}
 
-print "$i products, removed $j\n";	
-	
+print "$i products, removed $j\n";
+
 exit(0);
 

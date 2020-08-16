@@ -95,10 +95,10 @@ while (<STDIN>) {
 		$current{$field} = $2;
 
 		$current{$field} =~ s/<(([^>]|\n)*)>//g;
-		
-		if ($field eq 'code') {
+
+		if ( $field eq 'code' ) {
 			$current{$field} =~ s/\(.*//;
-		}		
+		}
 
 		if ($field eq 'name') {
 		

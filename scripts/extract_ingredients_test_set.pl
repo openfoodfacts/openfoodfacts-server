@@ -65,7 +65,7 @@ use Getopt::Long;
 
 my $target_dir;
 
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 
 GetOptions (
 	"dir=s"   => \$target_dir,      # string

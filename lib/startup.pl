@@ -79,10 +79,10 @@ sub My::ProxyRemoteAddr ($) {
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
   return Apache2::Const::OK
-      unless (($r->connection->remote_ip eq "127.0.0.1") 
-	or 1	# all IPs
-)
-          and $r->headers_in->get('X-Forwarded-For');
+	unless (
+		( $r->connection->remote_ip eq "127.0.0.1" )
+		or 1    # all IPs
+	) and $r->headers_in->get('X-Forwarded-For');
 
   # Select last value in the chain -- original client's ip
   if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/) {

@@ -61,8 +61,8 @@ foreach my $langid (readdir(DH2)) {
 		foreach my $tagtype (readdir(DH)) {
 			next if $tagtype !~ /(.*)\.txt/;
 			$tagtype = $1;
-			print STDERR "Tags: exporting tagtype $langid/$tagtype\n";	
-			$lc = $langid;			
+			print STDERR "Tags: exporting tagtype $langid/$tagtype\n";
+			$lc = $langid;
 			export_tags_hierarchy($langid, $tagtype);
 		}
 		closedir(DH);

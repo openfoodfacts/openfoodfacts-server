@@ -716,7 +716,7 @@ U_TOUT_PETITS => "U Tout Petits",
 DANREMONT => "Danremont",
 U_SANS_GLUTEN => "U Sans Gluten",
 U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
-)			;
+);
 
 
 			# Fromage double crème au lait pasteurisé U, 30%MG, 200g
@@ -1131,8 +1131,8 @@ ble => "bouteille",
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 					}
-					elsif ($field eq "brands") {	# we removed it earlier
-						compute_field_tags($product_ref, $tag_lc, $field);
+					elsif ( $field eq "brands" ) {    # we removed it earlier
+						compute_field_tags( $product_ref, $tag_lc, $field );
 					}
 				}
 					else {
@@ -1461,7 +1461,7 @@ TXT
 					my $new_value = unit_to_g($value, $unit);
 
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value ne $product_ref->{nutriments}{$nid})						) {
+						and ($new_value ne $product_ref->{nutriments}{$nid}) ) {
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
 					}

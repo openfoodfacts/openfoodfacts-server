@@ -88,7 +88,7 @@ BEGIN
 
 		&export_csv
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -272,7 +272,7 @@ sub export_csv($) {
 									# Also export the crop coordinates
 									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
 										if ((defined $product_ref->{images}{$imageid}{$coord})
-											and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))	# -1 is passed when the image is not cropped
+											and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))  # -1 is passed when the image is not cropped
 											) {
 												$populated_fields{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
 										}

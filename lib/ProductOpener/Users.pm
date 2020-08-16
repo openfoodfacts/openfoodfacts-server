@@ -51,34 +51,34 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					%User
-					$User_id
-					%Org
-					$Org_id
-					$Owner_id
+		%User
+		$User_id
+		%Org
+		$Org_id
+		$Owner_id
 
-					$cookie
+		$cookie
 
-					&display_user_form
-					&check_user_form
-					&process_user_form
-					&check_edit_owner
+		&display_user_form
+		&check_user_form
+		&process_user_form
+		&check_edit_owner
 
-					&display_login_form
+		&display_login_form
 
-					&init_user
-					&save_user
+		&init_user
+		&save_user
 
-					&userpath
-					&create_user
-					&create_password_hash
-					&check_password_hash
+		&userpath
+		&create_user
+		&create_password_hash
+		&check_password_hash
 
-					&check_session
+		&check_session
 
-					&generate_token
+		&generate_token
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -198,12 +198,17 @@ sub display_user_form($$) {
 	
 	my $teams_display = '';
 	
-	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
+	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
+
 		# Existing user with an accepted organization
-		
-		$html .= "<p>" . sprintf(lang("this_is_a_pro_account_for_org"),	"<b>" . $user_ref->{org} . "</b>") . "</p>";
+
+		$html .= "<p>"
+			. sprintf(
+			lang("this_is_a_pro_account_for_org"),
+			"<b>" . $user_ref->{org} . "</b>"
+			) . "</p>";
 	}
-	
+
 	# Pro platform is only for food right now
 	
 	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
@@ -231,9 +236,9 @@ sub display_user_form($$) {
 		. "</p>";
 						
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-		
-		if (defined $requested_org_ref) {		
-			
+
+		if ( defined $requested_org_ref ) {
+
 			$html .= "<div id=\"existing_org_warning\">"
 			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
 			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
@@ -260,7 +265,7 @@ sub display_user_form($$) {
 	\$(document).foundation('equalizer', 'reflow');
 });
 JAVASCRIPT
-;		
+;
 
 	}
 
@@ -420,7 +425,7 @@ sub check_user_form($$) {
 			}
 			else {
 				delete $user_ref->{requested_org_id}
-			}			
+			}
 		}
 		else {
 			delete $user_ref->{pro};
@@ -453,7 +458,8 @@ sub check_user_form($$) {
 			
 			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
 			
-			add_user_to_org($org_ref, $user_ref->{userid}, ["admins", "members"]);	
+			add_user_to_org( $org_ref, $user_ref->{userid},
+				[ "admins", "members" ] );
 		}
 		else {
 			delete $user_ref->{org};
@@ -463,7 +469,8 @@ sub check_user_form($$) {
 		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
 			my $org_ref = retrieve_org($previous_org);
 			if (defined $org_ref) {
-				remove_user_from_org($org_ref, $user_ref->{userid}, ["admins", "members"]);	
+				remove_user_from_org( $org_ref, $user_ref->{userid},
+					[ "admins", "members" ] );
 			}
 		}
 
@@ -575,8 +582,12 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 EMAIL
 ;
-			send_email_to_admin("Org created by user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);			
-			
+			send_email_to_admin(
+				"Org created by user: $userid - org: "
+					. $user_ref->{requested_org_id},
+				$admin_mail_body
+			);
+
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id}
 		}
@@ -684,10 +695,10 @@ sub init_user()
 	my $user_ref = undef;
 	my $org_ref = undef;
 
-	my $cookie_name = 'session';
-	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-	if (defined $server_options{cookie_domain}) {
-		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	my $cookie_name   = 'session';
+	my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if ( defined $server_options{cookie_domain} ) {
+		$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 	}
 
 	$cookie = undef;

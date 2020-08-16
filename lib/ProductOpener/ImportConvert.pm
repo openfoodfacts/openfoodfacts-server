@@ -92,7 +92,7 @@ BEGIN
 
 		@xml_errors
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -407,7 +407,14 @@ sub match_specific_taxonomy_tags($$$$) {
 				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
 
 				if ($product_ref->{$source} =~ /\b(${tag_regexp})\b/i) {
-					$log->info("match_specific_taxonomy_tags: assigning value", { matching => $1, source => $source, value => $tagid, target => $target}) if $log->is_info();					
+					$log->info(
+						"match_specific_taxonomy_tags: assigning value",
+						{   matching => $1,
+							source   => $source,
+							value    => $tagid,
+							target   => $target
+						}
+					) if $log->is_info();
 					assign_value($product_ref, $target, $tagid);
 				}
 			}
@@ -559,7 +566,7 @@ sub clean_weights($) {
 			and (defined $product_ref->{$field . "_unit"})
 
 			# check we have not already combined the value and unit
-			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0))	) {
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0)) ) {
 
 			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
 		}
@@ -688,7 +695,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 	# empty or incomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") or (not defined $normalized_quantity)
 		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
-		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
+		or ($product_ref->{quantity} =~ /^\(.+\)$/)     #  (4 x 125 g)
 		) {
 
 		# See if we have other quantity related values: net_weight_value	net_weight_unit	drained_weight_value	drained_weight_unit	volume_value	volume_unit
@@ -697,7 +704,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
-				and ($product_ref->{$field} =~ /^\d/) ) {	# make sure we have a number
+				and ($product_ref->{$field} =~ /^\d/) ) {   # make sure we have a number
 				$extra_quantity = $product_ref->{$field};
 				last;
 			}
@@ -705,7 +712,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		if (defined $extra_quantity) {
 			if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-				if ($product_ref->{quantity} =~ /^\(.+\)$/)	{
+				if ($product_ref->{quantity} =~ /^\(.+\)$/) {
 					$product_ref->{quantity} = $extra_quantity . " " . $product_ref->{quantity};
 				}
 				else {
@@ -998,7 +1005,7 @@ sub load_xml_file($$$$) {
 
 	my $xml_ref;
 
-	eval { $xml_ref = $parser->parse_file( $file);	};
+	eval { $xml_ref = $parser->parse_file($file); };
 
 	if ($@ ne "") {
 		$log->error("error parsing xml file with XML::Rules", { file => $file, error=>$@ }) if $log->is_error();
@@ -1365,7 +1372,7 @@ sub load_csv_file($) {
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
 
-	my $i = 0;	# line number
+	my $i = 0;    # line number
 
 	if (defined $skip_lines) {
 		$log->info("Skipping $skip_lines lines before header") if $log->is_info();
@@ -1399,7 +1406,7 @@ sub load_csv_file($) {
 
 		$log->info("Reading line $i") if $log->is_info();
 
-		my $code = undef;	# code must be first
+		my $code = undef;    # code must be first
 
 		my $seen_energy_kj = 0;
 
@@ -1482,7 +1489,7 @@ sub load_csv_file($) {
 
 							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
 							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
-							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}
 

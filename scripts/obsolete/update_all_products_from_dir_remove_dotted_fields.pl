@@ -149,9 +149,9 @@ my %codes = ();
 
 			$i++;
 			$codes{$code} = 1;
-			
+
 			if ($update) {
-				store("$data_root/products/$path/product.sto", $product_ref);	
+				store("$data_root/products/$path/product.sto", $product_ref);
 				$updated++;
 			}
 		}

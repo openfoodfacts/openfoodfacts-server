@@ -24,14 +24,14 @@ use utf8;
 use Modern::Perl '2019';
 
 use Data::Table;
-use Future::Utils	qw( fmap_scalar );
+use Future::Utils   qw( fmap_scalar );
 use Future;
 use Geo::Coder::Google 0.19_01;    # dev version for the apikey support
 use IO::Async::Function;
 use IO::Async::Loop;
 use IO::Async::SSL;
 use Net::Async::HTTP;
-use Text::CSV		qw( csv );
+use Text::CSV       qw( csv );
 use URI;
 
 use ProductOpener::Config qw/:all/;
@@ -208,7 +208,7 @@ my $tables_f = fmap_scalar {
 			  $geocode_table->call( args => [$t_ref] );
 		  } );
 } foreach       => \@urls,
-  concurrent	=> 5;
+  concurrent    => 5;
 
 my @table_refs = $loop->await($tables_f)->get;
 

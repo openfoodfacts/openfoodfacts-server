@@ -65,10 +65,10 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		# Update
 		(not defined $product_ref->{lang}) and $product_ref->{lang} = 'fr';
 		(not defined $product_ref->{lc}) and $product_ref->{lc} = 'fr';
-		
+
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store("$data_root/products/$path/product.sto", $product_ref);
 		$products_collection->save($product_ref);
 	}
 

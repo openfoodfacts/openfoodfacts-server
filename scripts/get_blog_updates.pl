@@ -33,7 +33,7 @@ use XML::FeedPP;
 
 use POSIX qw(locale_h);
 use locale;
-setlocale(LC_CTYPE, "fr_FR");	# May need to be changed depending on system
+setlocale( LC_CTYPE, "fr_FR" );    # May need to be changed depending on system
 
 my $rss;
 
@@ -53,9 +53,9 @@ my $feed = XML::FeedPP->new($rss);
 
 my $html = '';
 my $html2 = '';
-		
-my $i = 5;		
-		
+
+my $i = 5;
+
 foreach my $entry ($feed->get_item()) {
 		
 	$html .= "&rarr; <a href=\"" . $entry->link . "\">" . decode_html_entities($entry->title) . "</a><br />";

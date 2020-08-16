@@ -112,7 +112,7 @@ BEGIN
 		&find_and_replace_user_id_in_products
 
 		&add_users_team
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -597,12 +597,12 @@ sub init_product($$$$) {
 	}
 
 	my $product_ref = {
-		id=>$code . '',	# treat code as string
-		_id=>$code . '',
-		code=>$code . '',	# treat code as string
-		created_t=>time(),
-		creator=>$creator,
-		rev=>0,
+		id        => $code . '',    # treat code as string
+		_id       => $code . '',
+		code      => $code . '',    # treat code as string
+		created_t => time(),
+		creator   => $creator,
+		rev       => 0,
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -739,9 +739,9 @@ sub retrieve_product_or_deleted_product($$) {
 	
 	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
+	if ( ( defined $product_ref ) and ( defined $server ) ) {
 		$product_ref->{server} = $server;
-	}	
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})
 	and (not $deleted_ok)) {
@@ -764,13 +764,13 @@ sub retrieve_product_rev($$) {
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
 
-	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");	
-	
+	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
+
 	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
+	if ( ( defined $product_ref ) and ( defined $server ) ) {
 		$product_ref->{server} = $server;
-	}	
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -889,7 +889,7 @@ sub compute_sort_keys($) {
 	# give a small boost to products for which we have recent images
 	if (defined $product_ref->{last_image_t}) {
 
-		my $age = int((time() - $product_ref->{last_image_t}) / (86400 * 30));	# in months
+		my $age = int( ( time() - $product_ref->{last_image_t} ) / ( 86400 * 30 ) );    # in months
 		if ($age < 12) {
 			$popularity_key += 12 - $age;
 		}
@@ -939,13 +939,17 @@ sub store_product($$) {
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 	
-	if ((defined $product_ref->{server}) and (defined $options{other_servers})
-		and (defined $options{other_servers}{$product_ref->{server}})) {
+	if (    ( defined $product_ref->{server} )
+		and ( defined $options{other_servers} )
+		and ( defined $options{other_servers}{ $product_ref->{server} } ) )
+	{
 		my $server = $product_ref->{server};
 		$new_data_root = $options{other_servers}{$server}{data_root};
-		$new_www_root = $options{other_servers}{$server}{www_root};
-		$new_products_collection = get_collection($options{other_servers}{$server}{mongodb}, 'products');
-	}	
+		$new_www_root  = $options{other_servers}{$server}{www_root};
+		$new_products_collection
+			= get_collection( $options{other_servers}{$server}{mongodb},
+			'products' );
+	}
 
 	if (defined $product_ref->{old_code}) {
 
@@ -966,7 +970,7 @@ sub store_product($$) {
 		# Move directory
 
 		my $prefix_path = $path;
-		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		$prefix_path =~ s/\/[^\/]+$//; # remove the last subdir: we'll move it
 		if ($path eq $prefix_path) {
 			# short barcodes with no prefix
 			$prefix_path = '';
@@ -1512,8 +1516,8 @@ sub replace_user_id_in_product($$$) {
 
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
@@ -1710,8 +1714,8 @@ sub compute_product_history_and_completeness($$$$) {
 	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
 		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
@@ -1916,8 +1920,9 @@ sub compute_product_history_and_completeness($$$$) {
 							# when moving images, attribute the image to the user that uploaded the image
 
 							$userid = $current_product_ref->{images}{$id}{uploader};
-							if ($userid eq 'unknown') {	# old unknown user
-								$current_product_ref->{images}{$id}{uploader} = "openfoodfacts-contributors";
+							if ( $userid eq 'unknown' ) {   # old unknown user
+								$current_product_ref->{images}{$id}{uploader}
+									= "openfoodfacts-contributors";
 								$userid = "openfoodfacts-contributors";
 							}
 							$change_ref->{userid} = $userid;
@@ -2030,8 +2035,8 @@ sub add_back_field_values_removed_by_user($$$$) {
 	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
@@ -2125,7 +2130,7 @@ sub product_name_brand($) {
 
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
-		$brand =~ s/,.*//;	# take the first brand
+		$brand =~ s/,.*//;    # take the first brand
 		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
 		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {

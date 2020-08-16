@@ -29,9 +29,9 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-			%Missions_by_lang
-			%Missions
-					);	# symbols to export on request
+		%Missions_by_lang
+		%Missions
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 

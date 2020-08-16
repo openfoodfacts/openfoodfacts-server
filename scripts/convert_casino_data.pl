@@ -143,7 +143,7 @@ foreach my $code (sort keys %products) {
 	if (defined $products{$code}{brands}) {
 		$products{$code}{brands} =~ s/Casino Famili - Enfant/Casino Famili/;
 		$products{$code}{brands} =~ s/^Casino (\w.*)$/Casino $1, Casino/;
-	}	
+	}
 
 }
 

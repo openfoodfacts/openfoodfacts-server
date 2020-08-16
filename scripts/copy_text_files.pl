@@ -55,7 +55,7 @@ foreach my $lang (@langs)
 				my $cmd = "cp -a $source/lang/$lang/texts/$file $target/lang/$lang/texts/$files{$file}";
 				system($cmd);
 				print STDERR "$cmd\n";
-			}	
+			}
 		}
 	}
 }

@@ -76,7 +76,7 @@ if (defined $agemax) {
 #	$query_ref->{ last_modified_t }{'$gt' => (time() - $agemax * 86400)};
 	next if ($product_ref->{last_modified_t} < time() - $agemax * 86400);
 
-}		
+}
 		
 		$i++;
 		$pretend and next;

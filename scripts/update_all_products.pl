@@ -118,7 +118,7 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 
 GetOptions ("key=s"   => \$key,      # string
 			"query=s%" => $query_ref,
@@ -225,10 +225,10 @@ foreach my $field (sort keys %{$query_ref}) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
-	elsif ($query_ref->{$field} =~ /^-/) {
+	elsif ( $query_ref->{$field} =~ /^-/ ) {
 		$query_ref->{$field} = { '$ne' => $' };
-	}	
-	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+	}
+	elsif ( $field =~ /_t$/ ) {    # created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
 }
@@ -273,8 +273,8 @@ print STDERR "$products_count documents to update.\n";
 my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
 $cursor->immortal(1);
 
-my $n = 0;	# number of products updated
-my $m = 0;	# number of products with a new version created
+my $n = 0;    # number of products updated
+my $m = 0;    # number of products with a new version created
 
 my $fix_rev_not_incremented_fixed = 0;
 
@@ -732,7 +732,7 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"});
 				}
 			}
-			ProductOpener::Food::compute_serving_size_data($product_ref);		
+			ProductOpener::Food::compute_serving_size_data($product_ref);
 		}
 
 		if ($compute_serving_size) {
@@ -752,7 +752,7 @@ while (my $product_ref = $cursor->next) {
 			if ((defined $blame_ref->{nutriments}) and (defined $blame_ref->{nutriments}{salt})
 				and ($blame_ref->{nutriments}{salt}{userid} eq 'kiliweb')
 				and ($blame_ref->{nutriments}{salt}{value} < 0.1)
-				and ($blame_ref->{nutriments}{salt}{t} > 1579478400)	# Jan 20th 2020
+				and ($blame_ref->{nutriments}{salt}{t} > 1579478400)    # Jan 20th 2020
 				) {
 
 				$User_id = "fix-salt-bot";
@@ -870,8 +870,8 @@ while (my $product_ref = $cursor->next) {
 			foreach my $change_ref (@{$changes_ref}) {
 				$revs++;
 				my $rev = $change_ref->{rev};
-				if (not defined $rev) {
-					$rev = $revs;	# was not set before June 2012
+				if ( not defined $rev ) {
+					$rev = $revs;    # was not set before June 2012
 				}
 
 				my $rev_product_ref = retrieve("$data_root/products/$path/$rev.sto");
@@ -935,7 +935,7 @@ while (my $product_ref = $cursor->next) {
 				$product_ref->{obsolete} = "on";
 				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
 				$product_values_changed = 1;
-			}		
+			}
 		}
 
 		if (not $pretend) {

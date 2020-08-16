@@ -63,7 +63,7 @@ my @csv_fields_mapping = (
 ["Code EAN", "code"],
 ["Nom du Produit", "ldc_nom_du_produit"],
 ["Dénomination générique du produit", "ldc_denomination"],
-["Dénomination générique du produit", "product_name_fr"],	# we can overwrite it with the image file name
+["Dénomination générique du produit", "product_name_fr"],   # we can overwrite it with the image file name
 ["Quantité", "quantity"],
 ["Conditionnement (Frais/Surgelé)", "labels"],
 ["Marques", "brands"],
@@ -112,7 +112,7 @@ foreach my $file (@files) {
 		my $suffix = $3;
 		$suffix =~ s/^(-|_|\s)\d+$//;
 		my $name = $prefix . $suffix;
-		$name =~ s/^(.*)\///;	# remove path
+		$name =~ s/^(.*)\///;    # remove path
 		use Encode qw( from_to decode encode decode_utf8 );
 		my $data2 = $name;
 		from_to($data2, "utf8", "iso-8859-1");
@@ -184,7 +184,7 @@ foreach my $code (sort keys %products) {
 				$product_ref->{categories} =~ s/^, ?//g;
 				$product_ref->{categories} =~ s/, ?$//g;
 			}
-		}	
+		}
 	}
 	
 	# 0, aucun, aucune in allergens / traces

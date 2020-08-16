@@ -102,7 +102,7 @@ foreach my $code (sort keys %products) {
 		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
 		stopwords => '(de|au|en|bio|aop|pot|moulu|concassé|graine|semoule|entier|entière|bâton|coupé|feuille|aromatique|haché|poudre|gousse|moulin|lyophilisé|lamelle|naturel|france)(e)?(s)?',
 	}
-	);		
+	);
 }
 
 # Clean / normalize fields

@@ -134,7 +134,7 @@ if (open (my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tm
 			
 			chomp($english);
 			$english =~ s/(\s|\r|\n)*$//;
-			$english =~ s/^(\s|\r|\n)*//;		
+			$english =~ s/^(\s|\r|\n)*//;
 			$english =~ s/(-|_|\s|\r|\n)+/ /g;
 			my $english_orig = $english;
 			# lowercase and remove ending dot to increase chance of matching
@@ -213,7 +213,7 @@ foreach my $function (sort keys %functions) {
 				
 				print "description:" . $lang . ": " . $description . "\n";
 			}
-		}			
+		}
 
 		print "\n";
 }

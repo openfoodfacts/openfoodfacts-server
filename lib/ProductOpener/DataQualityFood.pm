@@ -46,7 +46,7 @@ BEGIN
 	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_food
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -661,7 +661,7 @@ sub compare_nutrition_facts_with_products_from_same_category($) {
 	my $i = @{$product_ref->{categories_tags}} - 1;
 
 	while (($i >= 0)
-		and	not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
+		and     not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
 			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))) {
 		$i--;
 	}
@@ -865,9 +865,15 @@ sub check_ingredients($) {
 						push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-" . $display_lc . "-includes-fr-nutrition-facts";
 					}
 
-					if ($product_ref->{$ingredients_text_lc} =~ /(à conserver)|(conditions de )|(à consommer )|(plus d'info)|consigne/is) {
+					if ( $product_ref->{$ingredients_text_lc}
+						=~ /(à conserver)|(conditions de )|(à consommer )|(plus d'info)|consigne/is
+						)
+					{
 
-						push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-" . $display_lc . "-includes-fr-instructions";
+						push @{ $product_ref->{data_quality_warnings_tags} },
+							  "en:ingredients-"
+							. $display_lc
+							. "-includes-fr-instructions";
 					}
 				#}
 			}

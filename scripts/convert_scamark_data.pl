@@ -156,61 +156,61 @@ F=>undef,
 		my @xml_fields_mapping = (
 
 			# multiple products in one xml file, split it
-			
-			[ "multiple_products", "PRDT" ], # split products in the PRDT array
-			
-			["GEN.GENCOD", "code"], 
-			["GEN.MARQUE", "brands"], 
-			["ADO.[max:ADO].LIB2", "product_name_fr"], 
-			["ADO.[max:ADO].COMP.ING", "ingredients_text_fr"], 
-			
-			["ADO.[max:ADO].allergens.*", "value_as_target_and_source_as_value"], 
-			
-			["ADO.[max:ADO].label", "labels"], 
 
-			["ADO.[max:ADO].MOD", "preparation_fr"], 
-			["ADO.[max:ADO].POIDS", "net_weight_value"], 
+			[ "multiple_products", "PRDT" ], # split products in the PRDT array
+
+			["GEN.GENCOD", "code"],
+			["GEN.MARQUE", "brands"],
+			["ADO.[max:ADO].LIB2", "product_name_fr"],
+			["ADO.[max:ADO].COMP.ING", "ingredients_text_fr"],
+
+			["ADO.[max:ADO].allergens.*", "value_as_target_and_source_as_value"],
+
+			["ADO.[max:ADO].label", "labels"],
+
+			["ADO.[max:ADO].MOD", "preparation_fr"],
+			["ADO.[max:ADO].POIDS", "net_weight_value"],
 			["ADO.[max:ADO].UNITE_POIDS", "net_weight_unit"],
-			["ADO.[max:ADO].PORTION", "serving_size_value"], 
-			["ADO.[max:ADO].UNITE_POIDS", "serving_size_unit"], 			
-			["ADO.[max:ADO].NOMBREPORTION", "number_of_servings"], 			
-			["ADO.[max:ADO].CAT_NUTRI_SCORE", "CAT_NUTRI_SCORE"], 
-			
-			
+			["ADO.[max:ADO].PORTION", "serving_size_value"],
+			["ADO.[max:ADO].UNITE_POIDS", "serving_size_unit"],
+			["ADO.[max:ADO].NOMBREPORTION", "number_of_servings"],
+			["ADO.[max:ADO].CAT_NUTRI_SCORE", "CAT_NUTRI_SCORE"],
+
+
 			["ADO.[max:ADO].per.100 g.Energie (kJoules).value", "nutriments.energy_value"],
-			["ADO.[max:ADO].per.100 g.Energie (kJoules).unit", "nutriments.energy_unit"],			
+			["ADO.[max:ADO].per.100 g.Energie (kJoules).unit", "nutriments.energy_unit"],
 			["ADO.[max:ADO].per.100 g.Matières grasses.value", "nutriments.fat_value"],
 			["ADO.[max:ADO].per.100 g.Matières grasses.unit", "nutriments.fat_unit"],
 			["ADO.[max:ADO].per.100 g.dont Acides gras saturés.value", "nutriments.saturated-fat_value"],
-			["ADO.[max:ADO].per.100 g.dont Acides gras saturés.unit", "nutriments.saturated-fat_unit"],			
+			["ADO.[max:ADO].per.100 g.dont Acides gras saturés.unit", "nutriments.saturated-fat_unit"],
 			["ADO.[max:ADO].per.100 g.Glucides.value", "nutriments.carbohydrates_value"],
 			["ADO.[max:ADO].per.100 g.Glucides.unit", "nutriments.carbohydrates_unit"],
 			["ADO.[max:ADO].per.100 g.dont Sucres.value", "nutriments.sugars_value"],
-			["ADO.[max:ADO].per.100 g.dont Sucres.unit", "nutriments.sugars_unit"],			
+			["ADO.[max:ADO].per.100 g.dont Sucres.unit", "nutriments.sugars_unit"],
 			["ADO.[max:ADO].per.100 g.Fibres alimentaires.value", "nutriments.fiber_value"],
 			["ADO.[max:ADO].per.100 g.Fibres alimentaires.unit", "nutriments.fiber_unit"],
 			["ADO.[max:ADO].per.100 g.Protéines.value", "nutriments.proteins_value"],
-			["ADO.[max:ADO].per.100 g.Protéines.unit", "nutriments.proteins_unit"],			
+			["ADO.[max:ADO].per.100 g.Protéines.unit", "nutriments.proteins_unit"],
 			["ADO.[max:ADO].per.100 g.Sel.value", "nutriments.salt_value"],
 			["ADO.[max:ADO].per.100 g.Sel.unit", "nutriments.salt_unit"],
-			
+
 			["ADO.[max:ADO].per.100 ml.Energie (kJoules).value", "nutriments.energy_value"],
-			["ADO.[max:ADO].per.100 ml.Energie (kJoules).unit", "nutriments.energy_unit"],			
+			["ADO.[max:ADO].per.100 ml.Energie (kJoules).unit", "nutriments.energy_unit"],
 			["ADO.[max:ADO].per.100 ml.Matières grasses.value", "nutriments.fat_value"],
 			["ADO.[max:ADO].per.100 ml.Matières grasses.unit", "nutriments.fat_unit"],
 			["ADO.[max:ADO].per.100 ml.dont Acides gras saturés.value", "nutriments.saturated-fat_value"],
-			["ADO.[max:ADO].per.100 ml.dont Acides gras saturés.unit", "nutriments.saturated-fat_unit"],			
+			["ADO.[max:ADO].per.100 ml.dont Acides gras saturés.unit", "nutriments.saturated-fat_unit"],
 			["ADO.[max:ADO].per.100 ml.Glucides.value", "nutriments.carbohydrates_value"],
 			["ADO.[max:ADO].per.100 ml.Glucides.unit", "nutriments.carbohydrates_unit"],
 			["ADO.[max:ADO].per.100 ml.dont Sucres.value", "nutriments.sugars_value"],
-			["ADO.[max:ADO].per.100 ml.dont Sucres.unit", "nutriments.sugars_unit"],			
+			["ADO.[max:ADO].per.100 ml.dont Sucres.unit", "nutriments.sugars_unit"],
 			["ADO.[max:ADO].per.100 ml.Fibres alimentaires.value", "nutriments.fiber_value"],
 			["ADO.[max:ADO].per.100 ml.Fibres alimentaires.unit", "nutriments.fiber_unit"],
 			["ADO.[max:ADO].per.100 ml.Protéines.value", "nutriments.proteins_value"],
-			["ADO.[max:ADO].per.100 ml.Protéines.unit", "nutriments.proteins_unit"],			
+			["ADO.[max:ADO].per.100 ml.Protéines.unit", "nutriments.proteins_unit"],
 			["ADO.[max:ADO].per.100 ml.Sel.value", "nutriments.salt_value"],
-			["ADO.[max:ADO].per.100 ml.Sel.unit", "nutriments.salt_unit"],		
-			
+			["ADO.[max:ADO].per.100 ml.Sel.unit", "nutriments.salt_unit"],
+
 			["ADO.[max:ADO].SCORING.TX_FL", "nutriments.fruits-vegetables-nuts_g"],
 			["ADO.[max:ADO].SCORING.ORDRE", "nutrition_grade_fr_producer"],
 

@@ -93,7 +93,7 @@ foreach my $f (@files) {
 	
 			print $OUT $i->{rank} . "\t" . $i->{id} . "\t" . '"' . $i->{text} . '"' . "\t" . $i->{percent} . "\n";
 	
-		}		
+		}
 		close $OUT;
 		
 		if (-e "$dir/golden/$f") {

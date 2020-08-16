@@ -43,7 +43,7 @@ BEGIN
 
 		&detect_possible_improvements
 
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -210,7 +210,7 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 	my $i = @{$product_ref->{categories_tags}} - 1;
 
 	while (($i >= 0)
-		and	not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
+		and     not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
 			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))) {
 		$i--;
 	}

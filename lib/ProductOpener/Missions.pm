@@ -29,10 +29,10 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-			&gen_missions_html
-			&compute_missions
-			&compute_missions_for_user
-					);	# symbols to export on request
+		&gen_missions_html
+		&compute_missions
+		&compute_missions_for_user
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 

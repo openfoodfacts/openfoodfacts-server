@@ -82,20 +82,22 @@ local $/;
 my $image = <$IMAGE>;
 close $IMAGE;
 
-my $api_request_ref = 		 
-	{
-		requests => 
-			[ 
-				{
-					features => [{ type => 'TEXT_DETECTION'}, { type => 'LOGO_DETECTION'},
-					{ type => 'LABEL_DETECTION'},
-					{ type => 'SAFE_SEARCH_DETECTION'}, { type => 'FACE_DETECTION'}]
-#					, image => { source => { imageUri => $image_url}}
-					, image => { content => encode_base64($image)}
-				}
-			]
-	}
-;
+my $api_request_ref = {
+	requests => [
+		{   features => [
+				{ type => 'TEXT_DETECTION' },
+				{ type => 'LOGO_DETECTION' },
+				{ type => 'LABEL_DETECTION' },
+				{ type => 'SAFE_SEARCH_DETECTION' },
+				{ type => 'FACE_DETECTION' }
+				]
+
+				#					, image => { source => { imageUri => $image_url}}
+			,
+			image => { content => encode_base64($image) }
+		}
+	]
+};
 my $json = encode_json($api_request_ref);
 				
 my $request = HTTP::Request->new(POST => $url);
@@ -116,11 +118,12 @@ if ($res->is_success) {
 
 	# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
 	$json_response = decode("utf8", $json_response);
-	
-	open (my $OUT, ">:encoding(UTF-8)", $json_file) or die("Cannot write $json_file: $!\n");
+
+	open( my $OUT, ">:encoding(UTF-8)", $json_file )
+		or die("Cannot write $json_file: $!\n");
 	print $OUT $json_response;
-	close $OUT;			
-	
+	close $OUT;
+
 	print $LOG "--> success\n";
 	
 	# Call robotoff to process the image and/or json from Cloud Vision
@@ -135,7 +138,7 @@ if ($res->is_success) {
 }
 else {
 	#$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
-	print $LOG "--> error: $res->code $res->message\n";	
+	print $LOG "--> error: $res->code $res->message\n";
 }
 
 close $LOG;

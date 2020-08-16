@@ -80,18 +80,18 @@ if ($text ne '') {
 </theader>
 <tbody>		
 HTML
-;		
+;
 		foreach my $i (@{$product_ref->{ingredients}}) {
 	
 			$html .= "<tr><td>" . $i->{rank}. "</td><td>" . $i->{id} . "</td><td>" . $i->{text} . "</td><td>" . $i->{percent} . "</td></tr>\n";
 	
-		}	
+		}
 
 		$html .= <<HTML
 </tbody>
 </table>
 HTML
-;		
+;
 	}
 }
 

@@ -153,7 +153,7 @@ my %codes = ();
 					}
 				}
 			}
-			closedir DH;			
+			closedir DH;
 			#($images_deleted > 10) and last;
 		}
 	}

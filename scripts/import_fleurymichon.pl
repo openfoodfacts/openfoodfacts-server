@@ -185,8 +185,8 @@ if (not $dir =~ /skip/) {
 				defined $fleury_michon_images_ref->{$code} or $fleury_michon_images_ref->{$code} = [];
 				push @{$fleury_michon_images_ref->{$code}}, $file;
 
-				if ($file =~ /A1C1/) {
-					$front_fr{$code} = $file;	# The files are sorted, so we will get the greatest version number
+				if ( $file =~ /A1C1/ ) {
+					$front_fr{$code} = $file;    # The files are sorted, so we will get the greatest version number
 				}
 			}
 		}
