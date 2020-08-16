@@ -141,6 +141,7 @@ my @lists =(
 	["fi","omenamehu, vesi, sokeri. jossa käsitellään myös maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","luomurypsiöljy, luomu kaura, vihreä luomutee", "luomu rypsiöljy, luomu kaura, vihreä luomu tee"],
 
 
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
