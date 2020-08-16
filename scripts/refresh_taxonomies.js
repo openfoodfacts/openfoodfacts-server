@@ -13,7 +13,7 @@ function sleep(ms) {
 async function gitMtime(path) {
   const { stdout } = await execFilePromise('git', ['log', '-1', '--format="%at"', '--', path]);
 
-  return parseInt(stdout.trim().replace('"', '').trim(), 10);
+  return parseInt(stdout.trim().replace(/"/g, '').trim(), 10);
 }
 
 async function main() {
@@ -51,7 +51,7 @@ async function main() {
       console.log(`${txtPath} needs to be rebuilt; ${txtMtimeMs} vs ${stoMtimeMs}`);
 
       try {
-        // Launch the Perl script to rebuild the taxonomy 
+        // Launch the Perl script to rebuild the taxonomy
         const perl = spawn(
           'perl',
           ['-CS', '-Ilib', 'scripts/build_tags_taxonomy.pl', file, '1'],
