@@ -84,7 +84,7 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states );
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
 
 $admin and push @search_fields, "lang";
 

@@ -144,7 +144,7 @@ use ProductOpener::Nutriscore qw(:all);
 use Cache::Memcached::Fast;
 use Encode;
 use URI::Escape::XS;
-use CGI qw(:cgi :form escapeHTML);
+use CGI qw(:cgi :cgi-lib :form escapeHTML');
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
@@ -580,7 +580,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
+	foreach my $parameter (keys %tags_fields, 'api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -3920,6 +3920,109 @@ sub count_products($$) {
 }
 
 
+sub add_query_parameters_to_query($$) {
+	
+	my $request_ref = shift;
+	my $query_ref = shift;
+
+	my $and = $query_ref->{"\$and"};
+	
+	foreach my $field (sort multi_param()) {
+		
+		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
+			my $tagtype = $1;
+			my $tag_lc = $lc;
+			if (defined $3) {
+				$tag_lc = $3;
+			}
+			
+			# Possible values:
+			# xyz_tags=a
+			# xyz_tags=a,b	products with tag a and b
+			# xyz_tags=a|b	products with either tag a or tag b
+			# xyz_tags=-c	products without the c tag
+			# xyz_tags=a,b,-c,-d
+			
+			my $values = param($field);
+			foreach my $tag (split(/,/, $values)) {
+				
+				my $suffix = "_tags";
+				
+				# If there is more than one criteria on the same field, we need to use a $and query
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
+					}
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+				}				
+				
+				my $not;
+				if ($tag =~ /^-/) {
+					$not = 1;
+					$tag = $';
+				}
+				
+				# Multiple values separated by | 
+				if ($tag =~ /\|/) {
+					my @tagids = ();
+					foreach my $tag2 (split(/\|/, $tag)) {
+						my $tagid2;
+						if (defined $taxonomy_fields{$tagtype}) {
+							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc,$tagtype, $tag2));
+							if ($tagtype eq 'additives') {
+								$tagid2 =~ s/-.*//;
+							}
+						}
+						else {
+							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+						}
+						push @tagids, $tagid2;				
+					}
+					
+					$log->debug("add_query_parameters_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
+					
+					if ($not) {
+						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
+					}
+					else {
+						$query_ref->{$tagtype . $suffix} = { '$in' => \@tagids };
+					}					
+				}
+				# Single value
+				else {
+					my $tagid;
+					if (defined $taxonomy_fields{$tagtype}) {
+						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc,$tagtype, $tag));
+						if ($tagtype eq 'additives') {
+							$tagid =~ s/-.*//;
+						}				
+					}
+					else {
+						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+					}
+					$log->debug("add_query_parameters_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
+
+					if ($not) {
+						$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
+					}
+					else {
+						$query_ref->{$tagtype . $suffix} = $tagid;
+					}
+				}
+
+				if ($remove) {
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+			}
+		}
+	}
+}
+
+
 sub search_and_display_products($$$$$) {
 
 	my $request_ref = shift;
@@ -3932,6 +4035,8 @@ sub search_and_display_products($$$$$) {
 		lang => \&lang,
 		display_pagination => \&display_pagination,
 	};
+	
+	add_query_parameters_to_query($request_ref, $query_ref);
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
@@ -4220,14 +4325,14 @@ sub search_and_display_products($$$$$) {
 
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined $request_ref->{fields}) {
+		if (defined param('fields')) {
 
 			my $compact_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 				my $compact_product_ref = {};
-				foreach my $field (split(/,/, $request_ref->{fields})) {
+				foreach my $field (split(/,/, param('fields'))) {
 
 					if ($field =~ /^(.*)_languages$/) {
 
@@ -4449,6 +4554,8 @@ sub search_and_export_products($$$) {
 	if (defined $request_ref->{format}) {
 		$format = $request_ref->{format};
 	}
+	
+	add_query_parameters_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5446,6 +5553,8 @@ sub search_and_graph_products($$$) {
 	my $request_ref = shift;
 	my $query_ref = shift;
 	my $graph_ref = shift;
+	
+	add_query_parameters_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5617,6 +5726,8 @@ sub search_and_map_products($$$) {
 	my $request_ref = shift;
 	my $query_ref = shift;
 	my $graph_ref = shift;
+
+	add_query_parameters_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -6627,7 +6738,7 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}  $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success">@{[ display_icon('phone_android') ]}</a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success">@{[ display_icon('phone_android') ]} $Lang{get_the_app}{$lc}</a></li>
 HTML
 ;
@@ -7676,9 +7787,13 @@ JS
 	}
 
 	$template_data_ref->{display_ingredients_in_lang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
+
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
+
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
+
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
+
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
@@ -9545,7 +9660,7 @@ sub display_product_api($)
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product api", { code => $code }) if $log->is_info();
+	$log->debug("display_product_api", { code => $code, params => {CGI::Vars()} }) if $log->is_debug();
 
 	my %response = ();
 
@@ -9625,10 +9740,13 @@ HTML
 		$response{product} = $product_ref;
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined $request_ref->{fields}) {
+		if (defined param('fields')) {
+			
+			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
+			
 			my $compact_product_ref = {};
 			my $carbon_footprint_computed = 0;
-			foreach my $field (split(/,/, $request_ref->{fields})) {
+			foreach my $field (split(/,/, param('fields'))) {
 				# On demand carbon footprint tags
 				if ((not $carbon_footprint_computed)
 					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
@@ -10090,6 +10208,8 @@ XML
 sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
+	
+	add_query_parameters_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
