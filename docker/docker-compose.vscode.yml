@@ -4,3 +4,5 @@ services:
     image: productopener-backend-vscode
     build:
       target: vscode
+    environment:
+      - PERL5LIB=/opt/product-opener/lib/ /opt/perl/local/lib/perl5/
