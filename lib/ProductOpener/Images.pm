@@ -1287,6 +1287,7 @@ sub _set_magickal_options($$) {
 	# $magick->Set(colorspace => 'sRGB');
 	$magick->Strip();
 
+	return;
 }
 
 sub display_image_thumb($$) {
@@ -1684,6 +1685,7 @@ sub extract_text_from_image($$$$$) {
 		}
 	}
 
+	return;
 }
 
 1;

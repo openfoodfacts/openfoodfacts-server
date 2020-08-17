@@ -528,6 +528,8 @@ CSS
 	}
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
+
+	return;
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -1400,6 +1402,8 @@ sub set_cache_results($$){
 	my $results = shift;
 	$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 	$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+
+	return;
 }
 
 sub query_list_of_tags($$) {
@@ -2796,6 +2800,7 @@ HEADER
 
 	display_new($request_ref);
 
+	return;
 }
 
 # See issue 1960
@@ -3858,6 +3863,7 @@ HTML
 
 	display_new($request_ref);
 
+	return;
 }
 
 
@@ -3908,6 +3914,8 @@ sub add_country_and_owner_filters_to_query($$) {
 	}
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
+
+	return;
 }
 
 
@@ -5899,6 +5907,8 @@ HTML
 			'content'=>$content,
 		};
 	}
+
+	return;
 }
 
 sub display_my_block($)
@@ -5983,6 +5993,7 @@ HTML
 		};
 	}
 
+	return;
 }
 
 
@@ -6001,6 +6012,8 @@ sub display_on_the_blog($)
 		};
 		close $IN;
 	}
+
+	return;
 }
 
 
@@ -6015,6 +6028,8 @@ sub display_top_block($)
 			'content'=>lang("top_content"),
 		};
 	}
+
+	return;
 }
 
 
@@ -6031,6 +6046,8 @@ sub display_bottom_block($)
 			'content'=> $html,
 		};
 	}
+
+	return;
 }
 
 
@@ -6906,6 +6923,8 @@ HTML
 	print $html;
 
 	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
+
+	return;
 }
 
 
@@ -6974,6 +6993,8 @@ HTML
 			'title'=>$title,
 			'content'=>$html,
 	};
+
+	return;
 }
 
 
@@ -8044,6 +8065,8 @@ HTML
 	$log->trace("displayed product") if $log->is_trace();
 
 	display_new($request_ref);
+
+	return;
 }
 
 sub display_product_jqm ($) # jquerymobile
@@ -8456,6 +8479,7 @@ HTML
 
 	$log->trace("displayed product on jquery mobile") if $log->is_trace();
 
+	return;
 }
 
 
@@ -8832,6 +8856,7 @@ sub compute_stats_for_products($$$$$$) {
 
 	}
 
+	return;
 }
 
 
@@ -9760,6 +9785,8 @@ HTML
 	$request_ref->{structured_response} = \%response;
 
 	display_structured_response($request_ref);
+
+	return;
 }
 
 sub display_rev_info {
@@ -9942,6 +9969,8 @@ sub add_images_urls_to_product($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -10097,6 +10126,7 @@ XML
 
 	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
+	return;
 }
 
 sub display_recent_changes {
@@ -10205,6 +10235,7 @@ sub display_recent_changes {
 	$request_ref->{title} = lang("recent_changes");
 	display_new($request_ref);
 
+	return;
 }
 
 sub display_change($$) {
@@ -10331,6 +10362,8 @@ sub display_ingredient_analysis($$$) {
 	}
 
 	${$ingredients_list_ref} .= "</ol>\n";
+
+	return;
 }
 
 

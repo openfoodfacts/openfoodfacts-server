@@ -238,6 +238,8 @@ sub init_allergens_regexps() {
 		}
 		$allergens_regexps{$allergens_lc} =~ s/^\|//;
 	}
+
+	return;
 }
 
 
@@ -434,6 +436,8 @@ sub init_labels_regexps() {
 			#print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
 		}
 	}
+
+	return;
 }
 
 # Ingredients processing regexps
@@ -471,6 +475,8 @@ sub init_ingredients_processing_regexps() {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -514,6 +520,8 @@ sub init_additives_classes_regexps() {
 		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
 		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
 	}
+
+	return;
 }
 
 if ((keys %labels_regexps) > 0) { exit; }
@@ -625,6 +633,8 @@ sub compute_carbon_footprint_from_ingredients($) {
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 		}
 	}
+
+	return;
 }
 
 
@@ -721,6 +731,8 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 		}
 	}
+
+	return;
 }
 
 
@@ -747,6 +759,8 @@ sub extract_ingredients_from_image($$$$) {
 		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
 
 	}
+
+	return;
 }
 
 
@@ -1382,6 +1396,7 @@ sub parse_ingredients_text($) {
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients} , 0, $text);
 
+	return;
 }
 
 
@@ -1464,6 +1479,7 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		delete $product_ref->{ingredients_n_tags};
 	}
 
+	return;
 }
 
 =head2 extract_ingredients_from_text ( product_ref )
@@ -1524,6 +1540,8 @@ sub extract_ingredients_from_text($) {
 	# and compute the resulting value for the complete product
 
 	analyze_ingredients($product_ref);
+
+	return;
 }
 
 
@@ -1552,6 +1570,8 @@ sub delete_ingredients_percent_values($) {
 			delete_ingredients_percent_values($ingredient_ref->{ingredients});
 		}
 	}
+
+	return;
 }
 
 
@@ -1660,6 +1680,8 @@ sub init_percent_values($$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 sub set_percent_max_values($$$) {
@@ -2044,6 +2066,8 @@ sub analyze_ingredients($) {
 
 		delete $product_ref->{ingredients_analysis};
 	}
+
+	return;
 }
 
 
@@ -2816,6 +2840,8 @@ sub validate_regular_expressions() {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -2860,6 +2886,8 @@ sub split_generic_name_from_ingredients($$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -3040,6 +3068,8 @@ sub clean_ingredients_text($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -4383,6 +4413,8 @@ sub extract_ingredients_classes_from_text($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -4651,6 +4683,8 @@ sub detect_allergens_from_text($) {
 	}
 
 	$log->debug("detect_allergens_from_text - done", { }) if $log->is_debug();
+
+	return;
 }
 
 
@@ -4722,6 +4756,8 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
 	}
+
+	return;
 }
 
 1;

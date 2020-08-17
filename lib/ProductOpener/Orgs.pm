@@ -132,6 +132,8 @@ sub store_org($) {
 	defined $org_ref->{org_id} or die("Missing org_id");
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
+
+	return;
 }
 
 
@@ -276,6 +278,8 @@ sub add_user_to_org($$$) {
 	}
 
 	store_org($org_ref);
+
+	return;
 }
 
 
@@ -326,6 +330,8 @@ sub remove_user_from_org($$$) {
 	}
 
 	store_org($org_ref);
+
+	return;
 }
 
 

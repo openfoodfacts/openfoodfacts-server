@@ -88,6 +88,8 @@ sub find_products($$) {
 		}
 	}
 	closedir $dh or print "could not close $dir dir: $!\n";
+
+	return;
 }
 
 

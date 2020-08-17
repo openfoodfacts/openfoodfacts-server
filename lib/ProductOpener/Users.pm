@@ -105,13 +105,13 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
-	join '',map {$chars[irand @chars]} 1..$name_length;
+	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
 
 sub create_password_hash($) {
 
 	my $password = shift;
-	scrypt_hash($password);
+	return scrypt_hash($password);
 }
 
 sub check_password_hash($$) {
@@ -128,7 +128,7 @@ sub check_password_hash($$) {
 		}
 	}
 	else {
-		scrypt_hash_verify($password, $hash);
+		return scrypt_hash_verify($password, $hash);
 	}
 }
 
@@ -163,6 +163,8 @@ sub create_user($) {
 		$log->info("creating new user file", { userid => $name_id2 }) if $log->is_info();
 		store("$data_root/users/$name_id2.sto", $user_ref);
 	}
+
+	return;
 }
 
 
@@ -532,6 +534,7 @@ sub check_user_form($$) {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
 
+	return;
 }
 
 
@@ -680,6 +683,8 @@ sub check_edit_owner($$) {
 		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
 		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
+
+	return;
 }
 
 
@@ -1082,6 +1087,8 @@ sub save_user() {
 	if (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);
 	}
+
+	return;
 }
 
 1;

@@ -611,6 +611,8 @@ sub init_fields_columns_names_for_lang($) {
 	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+
+	return;
 }
 
 
@@ -766,6 +768,8 @@ sub init_nutrients_columns_names_for_lang($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -904,6 +908,8 @@ sub init_other_fields_columns_names_for_lang($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -1012,6 +1018,8 @@ sub compute_statistics_and_examples($$$) {
 
 		$row++;
 	}
+
+	return;
 }
 
 
@@ -1418,6 +1426,8 @@ sub import_csv_file_task() {
 	ProductOpener::Import::import_csv_file($args_ref);
 
 	$job->finish("done");
+
+	return;
 }
 
 
@@ -1454,6 +1464,8 @@ sub export_csv_file_task() {
 	close($log);
 
 	$job->finish("done");
+
+	return;
 }
 
 
@@ -1481,6 +1493,8 @@ sub import_products_categories_from_public_database_task() {
 	close($log);
 
 	$job->finish("done");
+
+	return;
 }
 
 

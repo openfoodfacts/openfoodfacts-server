@@ -178,6 +178,8 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 assign_new_code ( )
@@ -702,6 +704,8 @@ sub send_notification_for_product_change($$) {
 			'server_domain' => "api." . $server_domain
 		} );
 	}
+
+	return;
 }
 
 sub retrieve_product($) {
@@ -820,6 +824,8 @@ sub change_product_server_or_code($$$) {
 			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 		}
 	}
+
+	return;
 }
 
 
@@ -909,6 +915,8 @@ sub compute_sort_keys($) {
 # Add 0 so we are sure the key is saved as int
 	$product_ref->{sortkey} = $sortkey + 0;
 	$product_ref->{popularity_key} = $popularity_key + 0;
+
+	return;
 }
 
 
@@ -1235,6 +1243,8 @@ sub compute_data_sources($) {
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
 	}
+
+	return;
 }
 
 
@@ -1419,6 +1429,8 @@ sub compute_completeness_and_missing_tags($$$) {
 	# old name
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
+
+	return;
 }
 
 
@@ -1574,6 +1586,8 @@ sub replace_user_id_in_product($$$) {
 	}
 
 	store("$data_root/products/$path/changes.sto", $changes_ref);
+
+	return;
 }
 
 
@@ -1633,6 +1647,8 @@ sub find_and_replace_user_id_in_products($$) {
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+
+	return;
 }
 
 
@@ -1996,6 +2012,8 @@ sub compute_product_history_and_completeness($$$$) {
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
 	$log->debug("compute_product_history_and_completeness - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
+
+	return;
 }
 
 
@@ -2098,7 +2116,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 
 	if ($added > 0) {
 
-		$added . $added_countries;
+		return $added . $added_countries;
 	}
 	else {
 		return 0;
@@ -2228,6 +2246,8 @@ sub index_product($)
 	}
 
 	$product_ref->{_keywords} = [keys %keywords];
+
+	return;
 }
 
 
@@ -2277,6 +2297,8 @@ sub compute_codes($) {
 	}
 
 	$product_ref->{codes_tags} = \@codes;
+
+	return;
 }
 
 
@@ -2344,6 +2366,8 @@ sub compute_languages($) {
 	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+
+	return;
 }
 
 
@@ -2668,6 +2692,7 @@ sub log_change {
 	};
 	get_recent_changes_collection()->insert_one($change_document);
 
+	return;
 }
 
 sub compute_changes_diff_text {
@@ -2743,6 +2768,8 @@ sub add_user_teams ($) {
 			}
 		}
 	}
+
+	return;
 }
 
 1;

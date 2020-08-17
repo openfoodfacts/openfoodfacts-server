@@ -246,6 +246,8 @@ sub normalize_nutriment_value_and_modifier($$) {
 	if (${$value_ref} !~ /\./) {
 		${$value_ref} =~ s/,/\./;
 	}
+
+	return;
 }
 
 # Return the default unit that we convert everything to internally
@@ -325,6 +327,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
 
+	return;
 }
 
 sub get_nutrient_label {
@@ -4595,6 +4598,8 @@ sub special_process_product($) {
 	if (scalar @original_categories_tags) {
 		$product_ref->{categories_tags} = \@original_categories_tags;
 	}
+
+	return;
 }
 
 
@@ -4628,6 +4633,8 @@ sub fix_salt_equivalent($) {
 			$product_ref->{nutriments}{'sodium' . $product_type . '_unit'});
 		}
 	}
+
+	return;
 }
 
 
@@ -4912,6 +4919,8 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+
+	return;
 }
 
 
@@ -5089,6 +5098,8 @@ sub compute_serving_size_data($) {
 			$product_ref->{"nutrition_data" . $product_type} = 'on';
 		}
 	}
+
+	return;
 }
 
 
@@ -5185,6 +5196,8 @@ sub compute_carbon_footprint_infocard($) {
 			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
 		}
 	}
+
+	return;
 }
 
 
@@ -5203,6 +5216,7 @@ sub compute_unknown_nutrients($) {
 		}
 	}
 
+	return;
 }
 
 
@@ -5279,6 +5293,7 @@ sub compute_nutrient_levels($) {
 
 	}
 
+	return;
 }
 
 
@@ -5321,6 +5336,8 @@ TXT
 ;
 	print $OUT $nutrient_levels_taxonomy;
 	close $OUT;
+
+	return;
 }
 
 sub compute_units_of_alcohol($$) {
@@ -5839,6 +5856,8 @@ sub compute_nova_group($) {
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
 	$product_ref->{nova_groups} .= "";
 	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
+
+	return;
 }
 
 
@@ -5856,6 +5875,8 @@ sub extract_nutrition_from_image($$$$) {
 
 		# TODO: extract the nutrition facts values
 	}
+
+	return;
 }
 
 =head2 assign_categories_properties_to_product ( PRODUCT_REF )
@@ -5931,6 +5952,8 @@ sub assign_categories_properties_to_product($) {
 	else {
 		push @{$product_ref->{categories_properties_tags}}, get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
 	}
+
+	return;
 }
 
 1;

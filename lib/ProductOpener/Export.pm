@@ -460,6 +460,8 @@ sub export_csv($) {
 		$csv->print ($filehandle, \@values);
 		print $filehandle "\n";
 	}
+
+	return;
 }
 
 

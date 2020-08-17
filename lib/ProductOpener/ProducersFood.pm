@@ -73,6 +73,8 @@ sub detect_possible_improvements($) {
 
 	detect_possible_improvements_compare_nutrition_facts($product_ref);
 	detect_possible_improvements_nutriscore($product_ref);
+
+	return;
 }
 
 =head2 detect_possible_improvements_nutriscore( PRODUCT_REF )
@@ -187,6 +189,8 @@ sub detect_possible_improvements_nutriscore($) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 detect_possible_improvements_compare_nutrition_facts( PRODUCT_REF )
@@ -273,6 +277,8 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 			}
 		}
 	}
+
+	return;
 }
 
 

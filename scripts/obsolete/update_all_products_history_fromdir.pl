@@ -79,6 +79,8 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 

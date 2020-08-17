@@ -209,6 +209,8 @@ sub assign_value($$$) {
 	else {
 		$product_ref->{$field} = $value;
 	}
+
+	return;
 }
 
 
@@ -223,6 +225,8 @@ sub remove_value($$$) {
 	if (defined $product_ref->{$field}) {
 		$field =~ s/(, )?$value//ig;
 	}
+
+	return;
 }
 
 
@@ -237,6 +241,8 @@ sub apply_global_params($) {
 
 		assign_value($product_ref, $field, $global_params{$field});
 	}
+
+	return;
 }
 
 sub apply_global_params_to_all_products() {
@@ -246,6 +252,8 @@ sub apply_global_params_to_all_products() {
 	foreach my $code (sort keys %products) {
 		apply_global_params($products{$code});
 	}
+
+	return;
 }
 
 
@@ -272,6 +280,8 @@ sub assign_main_language_of_product($$$) {
 		$log->info("assign_main_language_of_product: assigning default value", { lc => $default_lc}) if $log->is_info();
 		assign_value($product_ref, "lc", $default_lc);
 	}
+
+	return;
 }
 
 sub assign_countries_for_product($$$) {
@@ -291,6 +301,8 @@ sub assign_countries_for_product($$$) {
 		assign_value($product_ref,"countries", $default_country);
 		$log->info("assign_countries_for_product: assigning default value", { countries => $default_country}) if $log->is_info();
 	}
+
+	return;
 }
 
 
@@ -353,6 +365,8 @@ sub match_taxonomy_tags($$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -419,6 +433,8 @@ sub match_specific_taxonomy_tags($$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 sub match_labels_in_product_name($) {
@@ -434,6 +450,8 @@ sub match_labels_in_product_name($) {
 	}
 
 	match_specific_taxonomy_tags($product_ref, "product_name_" . $tag_lc, "labels", \@tags);
+
+	return;
 }
 
 
@@ -495,6 +513,8 @@ sub assign_quantity_from_field($$) {
 		}
 
 	}
+
+	return;
 }
 
 
@@ -723,6 +743,8 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -969,6 +991,8 @@ sub clean_fields($) {
 	}
 
 	match_labels_in_product_name($product_ref);
+
+	return;
 }
 
 
@@ -977,6 +1001,8 @@ sub clean_fields_for_all_products() {
 	foreach my $code (sort keys %products) {
 		clean_fields($products{$code});
 	}
+
+	return;
 }
 
 
@@ -1542,6 +1568,8 @@ sub load_csv_file($) {
 		}
 
 	}
+
+	return;
 }
 
 sub recursive_list($$);
@@ -1570,6 +1598,8 @@ sub recursive_list($$) {
 	else {
 		push @{$list_ref}, $arg;
 	}
+
+	return;
 }
 
 sub get_list_of_files(@) {
@@ -1618,6 +1648,7 @@ sub print_csv_file() {
 		print STDERR "code: $code\n";
 	}
 
+	return;
 }
 
 
@@ -1645,6 +1676,8 @@ sub print_stats() {
 			print STDERR "$field:\t$existing_values{$field}\n";
 		}
 	}
+
+	return;
 }
 
 
@@ -1833,6 +1866,8 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 

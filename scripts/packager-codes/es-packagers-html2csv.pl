@@ -81,7 +81,7 @@ sub clean_col {
 sub clean_row {
 	my ($row_ref) = @_;
 
-	[ map { clean_col $_ } @{$row_ref} ];
+	return [ map { clean_col $_ } @{$row_ref} ];
 }
 
 sub build_headers {
@@ -89,7 +89,7 @@ sub build_headers {
 
 	my $es = qr{nº rgseaa|razón social|dom\. indl\.|localidad|provincia|ccaa}i;
 
-	map { s{^($es)\s*}{$1/}r } @hdrs;
+	return map { s{^($es)\s*}{$1/}r } @hdrs;
 }
 
 sub fill_cache {
@@ -115,6 +115,8 @@ sub fill_cache {
 			}
 		}
 	}
+
+	return;
 }
 
 ###########################################

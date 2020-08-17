@@ -1755,6 +1755,8 @@ sub import_products_categories_from_public_database($) {
 
 		$n++;
 	}
+
+	return;
 }
 
 1;

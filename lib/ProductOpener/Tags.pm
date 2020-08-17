@@ -348,6 +348,8 @@ sub add_tag($$$) {
 		}
 	}
 	push @{$product_ref->{$tagtype . "_tags"}}, $tagid;
+
+	return;
 }
 
 sub remove_tag($$$) {
@@ -393,6 +395,8 @@ sub load_tags_images($$) {
 		}
 		closedir DH2;
 	}
+
+	return;
 }
 
 
@@ -622,6 +626,8 @@ sub load_tags_hierarchy($$) {
 
 
 	}
+
+	return;
 }
 
 # Cache the stopwords regexps to remove stopwords from strings and tagids
@@ -1658,6 +1664,8 @@ sub build_tags_taxonomy($$$) {
 		}
 
 	}
+
+	return;
 }
 
 
@@ -1730,6 +1738,8 @@ sub retrieve_tags_taxonomy {
 
 		close ($IN);
 	}
+
+	return;
 }
 
 sub country_to_cc {
@@ -2865,6 +2875,8 @@ sub generate_spellcheck_candidates($$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -3175,6 +3187,7 @@ GEXF
 	 $graph-> run (format => 'png', output_file => "$www_root/data/$lc." . get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".png");
 	 };
 
+	return;
 }
 
 sub init_emb_codes {
@@ -3285,6 +3298,8 @@ sub init_emb_codes {
 	}
 
 	$log->debug("Cities for packaging codes loaded") if $log->is_debug();
+
+	return;
 }
 
 # nutrient levels
@@ -3430,6 +3445,8 @@ sub add_tags_to_field($$$$) {
 		
 		compute_field_tags($product_ref, $tag_lc, $field);
 	}
+
+	return;
 }
 
 
@@ -3574,6 +3591,7 @@ sub compute_field_tags($$$) {
 		delete $product_ref->{$field . "_debug_tags"};
 	}
 
+	return;
 }
 
 
@@ -3590,6 +3608,8 @@ sub add_user_translation($$$$$) {
 	open (my $LOG, ">>:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
 	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
 	close $LOG;
+
+	return;
 }
 
 
@@ -3640,6 +3660,8 @@ sub load_users_translations($$) {
 		}
 		closedir $DH;
 	}
+
+	return;
 }
 
 
@@ -3753,6 +3775,7 @@ sub add_users_translations_to_taxonomy($) {
 		}
 	}
 
+	return;
 }
 
 

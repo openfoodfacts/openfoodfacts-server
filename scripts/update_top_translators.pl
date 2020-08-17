@@ -89,6 +89,7 @@ sub download_export {
 		close $OUT;
 
 		print STDERR "download_export: saved response to $filename\n";
+		return 0;
 	}
 	else {
 		print STDERR "download_export: not ok - url: $url - code: " . $res->code . " - message: " . $res->message . "\n";

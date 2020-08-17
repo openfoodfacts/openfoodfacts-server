@@ -118,6 +118,8 @@ sub gen_missions_html() {
 		 print $OUT $html;
 		 close $OUT;
 	}
+
+	return;
 }
 
 
@@ -153,6 +155,8 @@ sub compute_missions() {
 	}
 
 	store("$data_root/missions.sto", $missions_ref);
+
+	return;
 }
 
 

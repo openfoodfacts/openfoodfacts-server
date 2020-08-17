@@ -212,6 +212,7 @@ PO
 	}
 
 
+	return;
 }
 
 #generate_po_files("common", \%Lang);
@@ -475,6 +476,8 @@ sub build_lang($) {
 
 		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
+
+	return;
 } # build_lang
 
 sub build_json {
@@ -523,6 +526,8 @@ sub build_json {
 	}
 
 	$log->info("I18N JSON completed") if $log->is_info();
+
+	return;
 }
 
 1;

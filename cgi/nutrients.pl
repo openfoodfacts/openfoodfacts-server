@@ -46,6 +46,8 @@ sub _remove_parent {
 	}
 
 	delete $current_ref->{parent};
+
+	return;
 }
 
 my @table = ();
