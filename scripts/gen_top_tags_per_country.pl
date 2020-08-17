@@ -470,7 +470,7 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 	foreach my $date (@dates) {
 		my @sorted_dates = sort ( {$dates{$country}{$date}{$a} <=> $dates{$country}{$date}{$b}} keys %{$dates{$country}{$date}});
 		my $start = $sorted_dates[0];
-		my $end = $sorted_dates[$#sorted_dates];
+		my $end = $sorted_dates[-1];
 
 		# somehow we don't get the biggest day...
 		if ($true_end{$country} > $end) {

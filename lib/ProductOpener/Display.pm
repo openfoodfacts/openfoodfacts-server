@@ -646,7 +646,7 @@ sub analyze_request($)
 		$request_ref->{current_link} = '';
 	}
 	# Root + page number, ex: https://world.openfoodfacts.org/2
-	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/)) {
+	elsif (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
 		$request_ref->{text} = 'index';
@@ -742,7 +742,7 @@ sub analyze_request($)
 		my $canon_rel_url_suffix = '';
 
 		#check if last field is number
-		if (($#components >=1) and ($components[$#components] =~ /^\d+$/)) {
+		if (($#components >=1) and ($components[-1] =~ /^\d+$/)) {
 			#if first field or third field is tags (plural) then last field is page number
 			if (defined $tag_type_from_plural{$lc}{$components[0]} or defined $tag_type_from_plural{"en"}{$components[0]} or defined $tag_type_from_plural{$lc}{$components[2]} or defined $tag_type_from_plural{"en"}{$components[2]}) {
 			$request_ref->{page} = pop @components;
@@ -751,7 +751,7 @@ sub analyze_request($)
 		}
 		# list of tags? (plural of tagtype must be the last field)
 
-		$log->debug("checking last component", { last_component => $components[$#components], is_plural => $tag_type_from_plural{$lc}{$components[$#components]} }) if $log->is_debug();
+		$log->debug("checking last component", { last_component => $components[-1], is_plural => $tag_type_from_plural{$lc}{$components[-1]} }) if $log->is_debug();
 
 		# list of (categories) tags with stats for a nutriment
 		if (($#components == 1) and (defined $tag_type_from_plural{$lc}{$components[0]}) and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
@@ -766,14 +766,14 @@ sub analyze_request($)
 			$log->debug("request looks like a list of tags - categories with nutrients", { groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid} }) if $log->is_debug();
 		}
 
-		if (defined $tag_type_from_plural{$lc}{$components[$#components]}) {
+		if (defined $tag_type_from_plural{$lc}{$components[-1]}) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 			$log->debug("request looks like a list of tags", { groupby => $request_ref->{groupby_tagtype}, lc => $lc }) if $log->is_debug();
 		}
 		# also try English tagtype
-		elsif (defined $tag_type_from_plural{"en"}{$components[$#components]}) {
+		elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
 			# use $lc for canon url
@@ -898,7 +898,7 @@ sub analyze_request($)
 			display_error(lang("error_invalid_address"), 404);
 		}
 
-		if (($#components >=0) and ($components[$#components] =~ /^\d+$/)) {
+		if (($#components >=0) and ($components[-1] =~ /^\d+$/)) {
 			$request_ref->{page} = pop @components;
 		}
 
