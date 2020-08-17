@@ -74,3 +74,7 @@ on 'test' => sub {
   requires 'Test::Number::Delta';
   requires 'Log::Any::Adapter::TAP';
 };
+
+on 'develop' => sub {
+  requires 'Perl::Critic', '>= 1.138, < 2.0';
+}
