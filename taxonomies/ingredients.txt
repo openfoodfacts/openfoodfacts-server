@@ -37754,6 +37754,10 @@ wikidata:en:Q13191
 en:eating orange
 nl:eetsinaasappel
 
+<en:orange
+fr:orange à jus
+nl:sapsinaasappel
+
 # description:en:Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
 
 <en:orange
@@ -47176,8 +47180,12 @@ carbon_footprint_fr_foodges_value:fr:0.5
 en:baby spinach
 de:Babyspinat
 fi:babypinaatti, baby-pinaatti
-fr:Jeunes pousses d'épinards
+fr:Jeunes pousses d'épinards, pousse d'épinards
 sv:babyspenat
+
+<en:spinach
+fr:feuille d'épinards
+nl:spinazieblad
 
 <en:spinach
 en:spinach powder
@@ -47195,7 +47203,7 @@ fr:épinards déshydratés
 fi:kuivattu pinaatti
 
 <en:spinach
-fr:épinards en branches
+fr:épinards en branches, épinards branches
 de:Blattspinat
 it:foglie di spinaci
 nl:bladspinazie
@@ -47206,8 +47214,6 @@ fr:Épinards hachés
 nl:gehakte spinazie
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
 
-<en:spinach
-fr:jeunes pousses d'épinard
 
 # description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
@@ -49455,14 +49461,6 @@ de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
-<en:beans
-en:navy beans
-fr:Haricots blancs
-
-<en:beans
-en:great northern beans
-fr:Haricots blancs
-
 en:Snap pea, sugar snap peas
 fr:Pois sucré
 vegan:en:yes
@@ -49487,16 +49485,22 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:beans
-en:white beans
+en:white beans, navy beans, great northern beans
 da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos
 it:Fagioli bianchi
 nb:hvite bønner
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
+
+<en:beans
+fr:haricots coco roses, haricots cocos roses
+
+<en:beans
+fr:haricots chevriers verts
 
 <en:white beans
 fr:haricots mogettes, mogettes
@@ -49506,7 +49510,6 @@ fr:haricots mogettes de Vendée, mogettes de Vendée
 
 <en:white beans
 fr:haricots blancs secs trempés
-
 
 <en:white beans
 fr:haricots blancs précuits
@@ -49534,23 +49537,16 @@ fr:haricot rouge, haricots rouges
 it:fagioli rossi
 sv:röda kidneybönor, kidneybönor
 
-<en:beans
-en:mung bean
-es:habas de mungo,judias mungo
-wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
-
-<en:mung bean
-en:Mung bean sprout,bean sprouts
-es:brotes de judia mungo
-
 <en:red beans
 en:small red beans
 de:Kleine rote Bohnen
 fr:Petit haricots rouges
 
 <en:red beans
-fr:haricots rouges secs trempés
+fr:haricots rouges secs
 
+<fr:haricots rouges secs
+fr:haricots rouges secs trempés
 
 <en:red beans
 fr:haricots rouges précuits
@@ -49558,8 +49554,16 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
+
 <en:beans
+en:mung bean
+es:habas de mungo,judias mungo
 fr:haricot mungo
+wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
+
+<en:mung bean
+en:Mung bean sprout,bean sprouts
+es:brotes de judia mungo
 
 <fr:haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
@@ -50145,11 +50149,14 @@ sv:kokta kikärter
 # garbanzos cocidos (agua, garbanzos)
 
 <en:chickpea
+fr:pois chiche secs
+
+<fr:pois chiche secs
 fr:pois chiches secs trempés, pois chiches trempés dans l'eau
 nl:geweekte droge kikkererwten, gewelde kikkererwten
 # ingredient/fr:pois-chiches-secs-trempés has 51 products in 2 languages @2019-02-14
 
-<en:chickpea
+<fr:pois chiche secs
 fr:pois chiches réhydratés
 de:rehydrierte Kichererbsen
 it:ceci reidratati
@@ -50370,10 +50377,6 @@ carbon_footprint_fr_foodges_value:fr:0.3
 en:sprouted lentils
 
 <en:lentils
-fr:lentilles Béluga
-# 8@2019-06-06
-
-<en:lentils
 en:pardina lentils
 es:lenteja pardina
 
@@ -50419,6 +50422,9 @@ fr:Lentilles vertes du Berry
 # 8@2019-06-06
 
 <en:green lentils
+fr:lentilles vertes du Puy, lentilles vertes du Puy AOP
+
+<en:green lentils
 en:cooked green lentils
 de:grüne Linsen gekocht
 fi:kypsennetty vihreä linssi, kypsennetyt vihreät linssit
@@ -50435,7 +50441,7 @@ en:red lentils
 de:Rote Linsen
 es:lentejas rojas
 fi:punainen linssi, punaiset linssit
-fr:lentilles corail, lentilles rouges
+fr:lentilles corail, lentilles rouges, lentilles corail rouge
 it:lenticchie rosse
 nl:rode linzen
 sv:röda linser
@@ -50458,6 +50464,16 @@ fr:lentilles corail issues de l'agriculture biologique
 <fr:lentilles rouges
 fr:lentilles rouges décortiquées
 # ingredient/fr:lentilles-rouges-decortiquees has 11 products @2019-06-02
+
+<en:lentils
+fr:lentilles noires
+
+<fr:lentilles noires
+fr:lentilles noires Beluga, lentilles Béluga
+# 8@2019-06-06
+
+<en:lentils
+fr:lentilles brunes
 
 <en:red lentils
 fr:farine de lentilles corail
@@ -50693,7 +50709,7 @@ carbon_footprint_fr_foodges_value:fr:5.9
 en:raw almonds
 es:almendras crudas
 de:rohe Mandeln
-fr:Amandes crues
+fr:amandes crues
 
 <en:almond
 fr:amandes biologiques
@@ -50715,7 +50731,7 @@ da:smuttede mandler
 de:Mandeln ohne Haut
 es:almendra pelada
 fi:kuoreton manteli
-fr:amande émondée, amandes pelées
+fr:amande émondée, amandes pelées, noyaux d'amandes
 nl:amandel zonder vlies
 # ingredient/almond-without-skin has 18 products in 1 language @2018-10-06
 
@@ -50885,7 +50901,7 @@ el:καρύδια Βραζιλίας
 es:nueces de Brasil, nuez de Brasil, nueces del Amazonas
 et:brasiilia pähklid, parapähklid, parapähkleid
 fi:parapähkinä, parapähkinät
-fr:noix du brésil
+fr:noix du brésil, noix d'Amazonie
 ga:cnónna peagáin, cnónna Brasaíleacha
 hu:pekándió, brazil dió
 it:noci del Brasile
@@ -50904,6 +50920,7 @@ sv:paranöt, paranötter
 wikidata:en:Q22810770
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-du-brésil
 # 87 products in 4 languages @2018-10-05
+
 
 ###################################################################################################
 #
@@ -51641,6 +51658,32 @@ nl:Gepelde walnoot
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux-de-noix
 # 78 products in 4 languages @2018-10-05
 
+<en:walnut
+fr:noix sèches
+
+<en:walnut
+fr:noix de Grenoble
+
+<fr:noix de Grenoble
+fr:noix de Grenoble sèche, noix sèche de Grenoble
+
+<en:walnut
+fr:noix en coques
+
+<fr:noix en coques
+fr:noix en coques séchées
+
+<en:walnut
+fr:cerneaux de noix
+
+<fr:cerneaux de noix
+fr:cerneaux de noix AOP
+
+<fr:cerneaux de noix
+fr:cerneaux de noix du Dauphiné
+
+<fr:cerneaux de noix
+cerneaux de noix invalides
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
