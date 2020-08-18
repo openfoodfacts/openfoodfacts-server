@@ -889,6 +889,7 @@ $expected_product_ref =
      'en:e500',
      'en:soya-lecithin',
      'en:e322',
+	 'en:e322i',
      'en:e440a',
      'en:e330',
      'en:e333',
