@@ -4727,7 +4727,7 @@ sub search_and_export_products($$$) {
 
 
 sub escape_single_quote($) {
-	my $s = $_[0];
+	my ($s) = @_;
 	# some app escape single quotes already, so we have \' already
 	if (not defined $s) {
 		return '';
