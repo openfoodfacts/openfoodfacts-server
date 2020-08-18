@@ -1616,7 +1616,7 @@ delete $product_ref->{ingredients_percent_analysis};
 
 is($product_ref->{ingredients_n}, 19);
 
-my $expected_product_ref =
+$expected_product_ref =
  {
    'ingredients' => [
      {
@@ -2183,6 +2183,47 @@ is_deeply ($product_ref->{ingredients},
        'vegetarian' => 'yes'
      }
    ],
+) or diag explain $product_ref;
+
+# FI - organic label as part of the ingredient
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text => "vihreä luomutee, luomumaito, luomu ohramallas",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
+is ($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+is_deeply ($product_ref->{labels_tags}, undef) or diag explain $product_ref->{labels_tags};
+
+is_deeply(
+	$product_ref->{ingredients},
+	[   {   'id'         => 'en:green-tea',
+			'labels'     => 'en:organic',
+			'rank'       => 1,
+			'text'       => "vihre\x{e4} tee",
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		},
+		{   'id'         => 'en:milk',
+			'labels'     => 'en:organic',
+			'rank'       => 2,
+			'text'       => 'maito',
+			'vegan'      => 'no',
+			'vegetarian' => 'yes'
+		},
+		{   'id'         => 'en:malted-barley',
+			'labels'     => 'en:organic',
+			'rank'       => 3,
+			'text'       => 'ohramallas',
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		}
+	],
 ) or diag explain $product_ref;
 
 

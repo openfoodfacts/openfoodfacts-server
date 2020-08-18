@@ -710,17 +710,18 @@ my @tests = (
 
 # combinations
 	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln" },
 		[
+		# change on 17:01
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+			    'id' => 'en:toasted-hazelnut',
+			    'processing' => 'en:chopped',
+			    'text' => "geröstete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
@@ -875,7 +876,7 @@ my @tests = (
 
 # Test for de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
-	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+	gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
@@ -895,7 +896,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:salted',
-				'text' => 'haselnusskerne'
+				'text' => 'haselnuss'
 			},
 			{
 				'id' => 'en:shallot',
@@ -949,28 +950,39 @@ my @tests = (
 	],
 
 	# Various tests
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet" },
 		[
-			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
+			}
+		]
+	],
+	# Various tests
+	#[ { lc => "de", ingredients_text => "gehackte und geröstete haselnüs" },
+	#	[
+	#		{
+	#			'id' => 'en:hazelnut',
+	#			'processing' => 'en:toasted, en:chopped',
+	#			'text' => "gehackte und geröstete haselnüs"
+	#		}
+	#	]
+	#],
+
+	# Various tests
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, 
+		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		[
+			{
+				'id' => "de:hartkäse",
+				'processing' => 'en:sliced',
+				'text' => "hartkäse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
