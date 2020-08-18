@@ -3378,6 +3378,12 @@ sub preparse_ingredients_text($$) {
 		$text =~  s/\bsal \(shorea robusta\)/shorea robusta/ig;
 		$text =~  s/\bshorea robusta \(sal\)/shorea robusta/ig;
 	}
+	elsif ( $product_lc eq 'fi' ) {
+
+		# Organic label can appear as a part of a longer word.
+		# Separate it so it can be detected
+		$text =~ s/\b(luomu)\B/$1 /ig;
+	}
 	elsif ($product_lc eq 'fr') {
 
 		# huiles de palme et de

@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT_OK = qw(
 		$lang
 		$lc
+		$text_direction
 
 		%tag_type_singular
 		%tag_type_from_singular

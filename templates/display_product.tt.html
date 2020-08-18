@@ -9,7 +9,7 @@
 [% END %]
 
 <!-- Share -->
-<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<div class="share_button" style="display:none;">
     <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
         [% display_icon('share') %]
         <span class="show-for-large-up">[% lang('share') %]</span>
@@ -17,7 +17,7 @@
 </div>
 
 <!-- Edit product page -->
-<div class="edit_button right" style="float:right;margin-top:-10px;">
+<div class="edit_button">
     <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
         [% display_icon('edit') %]
         <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
@@ -26,7 +26,7 @@
 
 <!-- Delete product page -->
 [% IF user_moderator %]
-    <div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
+    <div class="delete_button">
         <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small">
             [% display_icon('delete') %]
             <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
@@ -34,7 +34,7 @@
     </div>
 [% END %]
 
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %] 
+[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 
@@ -102,14 +102,14 @@
             <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
             <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
             <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-                
+
             <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
         [% END %]
-        
+
          <!-- Offer to add the ingredients in the language of the interface -->
          [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
             <p>
-                [% display_ingredients_in_lang %] 
+                [% display_ingredients_in_lang %]
                 <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
             </p>
         [% END %]
@@ -118,6 +118,7 @@
         [% display_field_traces %]
         [% display_ingredients_analysis %]
         [% display_ingredients_analysis_details %]
+
         [% IF ingredients_classes_n > 0 %]
             <div class="row">
                 [% html_ingredients_classes %]
@@ -133,7 +134,7 @@
                     <ul id="special_ingredients">[% special_html %]</ul>
                     <p>[% lang("ingredients_analysis_note") %]</p>
                 </div>
-                
+
             [% END %]
         [% END %]
 
@@ -160,7 +161,7 @@
         <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
             [% display_nutrient_levels %]
             [% display_field %]
-            
+
             [% IF no_nutrition_data == 'on' %]
                 <div class='panel callout'>
                     [% lang("no_nutrition_data") %]
@@ -168,7 +169,7 @@
             [% END %]
             [% display_nutrition_table %]
         </div>
-    
+
         <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
             [% nutrition_image %]
         </div>
@@ -217,11 +218,11 @@
     [% other_editors %]
     [% checked %]
 </p>
-    
+
 <div class="alert-box info">
     [% lang('fixme_product') %]
 </div>
-    
+
 </div>
 
 [% IF (user_id.defined) %]
