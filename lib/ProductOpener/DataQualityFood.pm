@@ -639,7 +639,7 @@ sub check_nutrition_data($) {
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 
 	# issue 1466: Add quality facet for dehydrated products that are missing prepared values
-	if ( $is_dried_product && ( $no_nutrition_data || not( $nutrition_data_prepared && $has_prepared_data ) )  ) {
+	if ( $is_dried_product && ( $no_nutrition_data || !( $nutrition_data_prepared && $has_prepared_data ) )  ) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated";
 	}
 
@@ -981,7 +981,7 @@ sub check_categories($) {
 
 	# Check alcohol content
 	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-		if (!(defined $product_ref->{alcohol_value}) or $product_ref->{alcohol_value} == 0) {
+		if (!(defined $product_ref->{alcohol_value}) || $product_ref->{alcohol_value} == 0) {
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcoholic-beverages-category-without-alcohol-value';
 		}
 		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
@@ -992,7 +992,7 @@ sub check_categories($) {
 
 	if (defined $product_ref->{alcohol_value}
 		and $product_ref->{alcohol_value} > 0
-		and !has_tag($product_ref, "categories", "en:alcoholic-beverages")
+		and not has_tag($product_ref, "categories", "en:alcoholic-beverages")
 		) {
 
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcohol-value-without-alcoholic-beverages-category';
