@@ -117,8 +117,8 @@ sub subdomain_supports_https {
 	my ($sd) = @_;
 	
 	return $sd unless $sd;
-	return 1 if grep $_ eq '*', @ssl_subdomains;
-	return grep $_ eq $sd, @ssl_subdomains;
+	return 1 if grep { $_ eq '*' } @ssl_subdomains;
+	return grep { $_ eq $sd } @ssl_subdomains;
 
 }
 

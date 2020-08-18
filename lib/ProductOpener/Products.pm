@@ -1872,7 +1872,7 @@ sub compute_product_history_and_completeness($$$$) {
 				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
-				my $uniq = sub { my %seen; grep !$seen{$_}++, @_ };
+				my $uniq = sub { my %seen; grep { !$seen{$_}++ } @_ };
 				@ids = $uniq->( keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 

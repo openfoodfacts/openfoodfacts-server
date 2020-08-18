@@ -1014,7 +1014,7 @@ sub _get_date($) {
 	if (defined $t) {
 		my @codes = DateTime::Locale->codes;
 		my $locale;
-		if ( grep $_ eq $lc, @codes ) {
+		if ( grep { $_  eq  $lc } @codes ) {
 			$locale = DateTime::Locale->load($lc);
 		}
 		else {
