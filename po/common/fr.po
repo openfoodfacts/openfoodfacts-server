@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 10:56\n"
+"PO-Revision-Date: 2020-08-18 16:35\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1192\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -221,16 +221,16 @@ msgstr "Fiche produit également modifiée par"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -299,7 +299,7 @@ msgstr "Marques"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
+msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
@@ -327,7 +327,7 @@ msgstr "Propriétaire de la marque"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr "The Coca Cola Company"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -371,7 +371,7 @@ msgstr "Données"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -407,11 +407,11 @@ msgstr "Les produits dont la commune d'emballage n'est pas %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr "Codes"
+msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -628,7 +628,7 @@ msgstr ""
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
@@ -779,7 +779,7 @@ msgstr "Données, API et SDK"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -801,7 +801,7 @@ msgstr "Traducteurs"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -1122,7 +1122,7 @@ msgstr "Indiquez les labels les plus spécifiques. Les catégories \"parentes\" 
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr "labels"
+msgstr ""
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -1130,7 +1130,7 @@ msgstr "Les produits qui possèdent le label %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "label"
+msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1284,7 +1284,7 @@ msgstr "Titre de la carte"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr "Menu"
+msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1335,7 +1335,7 @@ msgstr "Objectif :"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Missions"
+msgstr ""
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1444,7 +1444,7 @@ msgstr "Les produits qui contiennent le nutriment %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr "nutriment"
+msgstr ""
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
@@ -1508,7 +1508,7 @@ msgstr "95<sup>e</sup> centile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr "Maximum"
+msgstr ""
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1516,7 +1516,7 @@ msgstr "Moyenne"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr "Minimum"
+msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1641,7 +1641,7 @@ msgstr "Les produits sans le conditionnement %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr "Page %d"
+msgstr ""
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -1877,7 +1877,7 @@ msgstr "Nom du produit"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Kinder Bueno White"
+msgstr ""
 
 msgctxt "products"
 msgid "products"
@@ -2175,7 +2175,7 @@ msgstr "choisir un nutriment..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2447,7 +2447,7 @@ msgstr "traces"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "trace"
+msgstr ""
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2679,7 +2679,7 @@ msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compl
 
 msgctxt "title_separator"
 msgid " - "
-msgstr " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2865,7 +2865,7 @@ msgstr "Nourrissons"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr "< 1"
+msgstr ""
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -3009,7 +3009,7 @@ msgstr "Poids égoutté"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr "Volume"
+msgstr ""
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3651,12 +3651,12 @@ msgstr "erreurs sur la qualité des données"
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr "Max"
+msgstr ""
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3673,7 +3673,7 @@ msgstr "améliorations possibles"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/import-products"
+msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3752,15 +3752,15 @@ msgstr "Liste des produits ajoutés ou modifiés"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr "imports"
+msgstr ""
 
 msgctxt "imports_s"
 msgid "import"
-msgstr "import"
+msgstr ""
 
 msgctxt "imports"
 msgid "imports"
-msgstr "imports"
+msgstr ""
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -3934,7 +3934,7 @@ msgstr "Score nutritionnel"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -3944,7 +3944,7 @@ msgstr "Score Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4299,11 +4299,11 @@ msgstr "Si ce produit a une liste d'ingrédients en %s, merci de l'ajouter."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr "Code-barres manquant"
+msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr "Code-barres invalide"
+msgstr ""
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
