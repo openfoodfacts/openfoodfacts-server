@@ -99,7 +99,6 @@ BEGIN
 					$styles
 					$header
 					$bodyabout
-					$debug_template
 
 					$original_subdomain
 					$subdomain
@@ -298,7 +297,6 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	$debug_template = undef;
 
 	my $r = shift;
 
@@ -580,7 +578,7 @@ sub analyze_request($)
 
 	# first check and set parameters in the query string
 
-	foreach my $parameter (keys %tags_fields, 'api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
+	foreach my $parameter ('api_version', 'blame', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 
@@ -589,16 +587,6 @@ sub analyze_request($)
 
 			# Set the value in the request ref, ex: \?json=value
 			$request_ref->{$parameter} = $2;
-
-			# If the parameter is field decode "%2C" to ","
-			if ($parameter eq "fields") {
-				$request_ref->{$parameter} =~ s/\%2C/,/g;
-			}
-
-			if ($parameter eq "debug_template") {
-				# Use a global variable so that we can access it in functions that do not have $request_ref as a parameter
-				$debug_template = $request_ref->{$parameter};
-			}
 
 			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
@@ -3920,14 +3908,18 @@ sub count_products($$) {
 }
 
 
-sub add_query_parameters_to_query($$) {
+sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
 	my $query_ref = shift;
+	
+	$log->debug("display_product_api", { code => $code, params => {CGI::Vars()} }) if $log->is_debug();
 
 	my $and = $query_ref->{"\$and"};
 	
 	foreach my $field (sort multi_param()) {
+		
+		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
 		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
@@ -3944,6 +3936,9 @@ sub add_query_parameters_to_query($$) {
 			# xyz_tags=a,b,-c,-d
 			
 			my $values = param($field);
+			
+			$log->debug("add_params_to_query - param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
+			
 			foreach my $tag (split(/,/, $values)) {
 				
 				my $suffix = "_tags";
@@ -3981,7 +3976,7 @@ sub add_query_parameters_to_query($$) {
 						push @tagids, $tagid2;				
 					}
 					
-					$log->debug("add_query_parameters_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
+					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
 					
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
@@ -4002,7 +3997,7 @@ sub add_query_parameters_to_query($$) {
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 					}
-					$log->debug("add_query_parameters_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
+					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
 
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
@@ -4036,7 +4031,7 @@ sub search_and_display_products($$$$$) {
 		display_pagination => \&display_pagination,
 	};
 	
-	add_query_parameters_to_query($request_ref, $query_ref);
+	add_params_to_query($request_ref, $query_ref);
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
@@ -4555,7 +4550,7 @@ sub search_and_export_products($$$) {
 		$format = $request_ref->{format};
 	}
 	
-	add_query_parameters_to_query($request_ref, $query_ref);
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5554,7 +5549,7 @@ sub search_and_graph_products($$$) {
 	my $query_ref = shift;
 	my $graph_ref = shift;
 	
-	add_query_parameters_to_query($request_ref, $query_ref);
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5727,7 +5722,7 @@ sub search_and_map_products($$$) {
 	my $query_ref = shift;
 	my $graph_ref = shift;
 
-	add_query_parameters_to_query($request_ref, $query_ref);
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -9641,11 +9636,6 @@ JS
 
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
-	if ((defined $debug_template)
-		and ($debug_template eq "nutrition_facts_table")) {
-		$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
-	}
-
 	return $html;
 }
 
@@ -10209,7 +10199,7 @@ sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
 	
-	add_query_parameters_to_query($request_ref, $query_ref);
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
