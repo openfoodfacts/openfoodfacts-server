@@ -139,7 +139,7 @@ sub split_tags {
 }
 
 
-__PACKAGE__
+1;
 
 __END__
 
