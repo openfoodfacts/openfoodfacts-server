@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 11:02\n"
+"PO-Revision-Date: 2020-08-18 16:50\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1192\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -52,83 +52,83 @@ msgstr "登録"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "ようこそ！"
+msgstr ""
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr "ご参加ありがとうございます！"
+msgstr ""
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr "Webまたは無料の <a href=\"%s\">モバイルアプリ</a>製品を追加および編集できるようになりました。"
+msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Slackにご参加ください"
+msgstr ""
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "は、あなたがエネルギー、熱意、そしてアイデアを新製品よりもはるかにもたらすことができる共同プロジェクトです！"
+msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr "私たちはSlackと呼ばれるディスカッションシステムを使用しています。このシステムでは、プロジェクトの参加者全員が交流し、コラボレーションできます。どうぞ参加して下さい！よろしくお願いします！"
+msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Slackにご参加ください"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr "製品データと写真を簡単にインポートできるようになりました。"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr "これで、製品を追加および編集し、データと写真をプロデューサー向けの無料の <a href=\"%s\">プラットフォームにインポートできます</a>。"
+msgstr ""
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr "%sという名前の既存の組織が既に存在し%s 。"
+msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr "組織への参加リクエストは、組織管理者の承認待ちです。"
+msgstr ""
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "ご不明な点がございましたら、 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> メールでお問い合わせください。"
+msgstr ""
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr "プロデューサーまたはブランドで働いており、独自の製品のデータのみを追加または完成させる場合は、完全に無料のプロデューサー向けプラットフォームにアクセスできます。"
+msgstr ""
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr "生産者向けのプラットフォームにより、製造業者はすべての製品のデータと写真を簡単にインポートし、それらを公式としてマーク付けし、製品の改善の機会を無料で分析できます。"
+msgstr ""
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr "プロフェッショナルアカウント"
+msgstr ""
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr "これはプロデューサーまたはブランドのアカウントです。"
+msgstr ""
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr "プロデューサーまたはブランド"
+msgstr ""
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr "プロフェッショナルアカウントには、関連する組織（会社名またはブランド）が必要です。"
+msgstr ""
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr "組織名（会社名またはブランド）を入力してください。"
+msgstr ""
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "このアカウントは、プロデューサーまたはブランド %s関連付けられたプロフェッショナルアカウントです。生産者向けプラットフォームにアクセスできます。"
+msgstr ""
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -222,7 +222,7 @@ msgstr "製品ページの編集者"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -231,7 +231,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -323,11 +323,11 @@ msgstr "%s ブランドではない製品"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr "ブランドオーナー"
+msgstr ""
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr "ザコカコーラカンパニー"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -523,7 +523,7 @@ msgstr "Open Food Facts に寄付する"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -579,7 +579,7 @@ msgstr "アカウント パラメーター"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr "アカウントパラメータが変更されました。"
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -628,7 +628,7 @@ msgstr ""
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
@@ -744,7 +744,7 @@ msgstr "ja_JP"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -761,7 +761,7 @@ msgstr "<<site_name>> のブログ"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -770,7 +770,7 @@ msgstr "行動規範"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr ""
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -779,7 +779,7 @@ msgstr "データ、API、SDK"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -792,7 +792,7 @@ msgstr "よくある質問"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -801,7 +801,7 @@ msgstr "翻訳者"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -830,7 +830,7 @@ msgstr "免責事項"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -839,7 +839,7 @@ msgstr "プレス"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/press"
+msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -852,7 +852,7 @@ msgstr "利用規約"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -861,16 +861,16 @@ msgstr "私たちについて"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/who-we-are"
+msgstr ""
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr "<<site_name>> wiki (en)"
+msgstr ""
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -879,7 +879,7 @@ msgstr "Open Beauty Facts - 化粧品"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -1041,11 +1041,11 @@ msgstr "原材料の数"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr "認定された成分の数"
+msgstr ""
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr "認識されていない成分の数"
+msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1292,7 +1292,7 @@ msgstr "製品を追加"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "/add-a-product"
+msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1301,7 +1301,7 @@ msgstr "貢献する"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribute"
+msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1310,7 +1310,7 @@ msgstr "見つける"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/discover"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1423,7 +1423,7 @@ msgstr "100グラムのための栄養レベル"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1537,7 +1537,7 @@ msgstr "多くの場合に指定されるデフォルトの栄養成分を表に
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1550,7 +1550,7 @@ msgstr "栄養グレード"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2584,11 +2584,11 @@ msgstr "画像の選択を解除する際にエラーが発生しました。"
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr "マウスホイールでズームを有効にします。"
+msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr "低解像度の画像を読み込む（接続速度が遅い場合）"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2676,7 +2676,7 @@ msgstr "この商品ページは完成していません。既存の写真から
 
 msgctxt "title_separator"
 msgid " - "
-msgstr " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2794,7 +2794,7 @@ msgstr "パートナー"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/partners"
+msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
@@ -2862,7 +2862,7 @@ msgstr "乳児"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr "< 1"
+msgstr ""
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2946,7 +2946,7 @@ msgstr "50％以上"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3146,7 +3146,7 @@ msgstr "環境影響レベル"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr "en:low, en:medium or en:high"
+msgstr ""
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
