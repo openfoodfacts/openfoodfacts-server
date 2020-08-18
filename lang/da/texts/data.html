@@ -1,16 +1,16 @@
 
 <h1>Data</h1>
 
-<p>Open Food Facts-databasen er tilgængelig under <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
-Databasens individuelle indhold er tilgængeligt under <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Content License</a>.<br/>
-Produktbilleder er tilgængelige under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike-licensen</a>.
-De kan indeholde grafiske elementer underlagt ophavsret eller andre rettigheder, som i visse tilfælde må reproduceres (citatrettigheder eller fair brug).</p>
+<p>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
+The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br/>
+Products images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.
+They may contain graphical elements subject to copyright or other rights, that may in some cases be reproduced (quotation rights or fair use).</p>
 
 <p>Læs venligst <a href="https://world.openfoodfacts.org/terms-of-use">Vilkår og betingelser for brug og genbrug</a> før genbrug af ​​dataene.</p>
 
 
-<p>Vi er meget interesserede i at erfare, hvad Open Food Facts-dataene anvendes til. Det er ikke obligatorisk, men vi vil sætte stor pris på, at du <a href="mailto:contact@openfoodfacts.org">fortæller os om dine genanvendelser</a>, så vi kan dele dem
-med Open Food Facts-fællesskabet.</p>
+<p>We are very interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
+with the Open Food Facts community.</p>
 
 <h2>Open Food Facts-dataekport</h2>
 
@@ -34,12 +34,13 @@ med Open Food Facts-fællesskabet.</p>
 
 <h4>Deltaeksport</h4>
 
-<p>Daglig deltaeksporter er tilgængelige for de foregående 14 dage. Listen over de aktuelt tilgængelige deltafiler fremgår via
+<p>Daily delta exports are provided for the previous 14 days. The list of currently available delta files can be found at
  <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Hver linje repræsenterer en fil, der er tilgængelig via <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- Filnavnet indeholder UNIX-tidsstempler for den første og den sidste ændring i JSON-filen, så deltafilerne kan importeres (efter ekstraktion) med <code> mongoimport </code> i alfabetisk rækkefølge.</p>
-<p>Bemærk, at grundet funktionaliteten af ​​<code>mongoexport</code> kan deltafilerne ikke oplyse dig om slettede produkter. For at fjerne
- slettede produkter fra din database skal du importere et komplet MongoDB-udtræk.</p>
+ Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
+ be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
+<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
+ deleted products from your database, you will need to import the full MongoDB dump.</p>
 
 <h3>CSV-dataeksport</h3>
 
@@ -50,13 +51,13 @@ med Open Food Facts-fællesskabet.</p>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>Filkodningen er Unicode UTF-8. Feltseparatortegnet er &lt;tab&gt;(tabulering).</p>
+<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
 
 
 
 <h3>RDF-dataeksport</h3>
 
-<p>Databasen er også tilgængelig i RDF-formatet. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">bekendtgørelser på fransk</a>.</p>
+<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
 
 <dl>
  <dt>Link</dt>
@@ -65,33 +66,33 @@ med Open Food Facts-fællesskabet.</p>
 
 <h2>Live JSON API</h2>
 
-<p>En JSON-API er også tilgængelig til læsning af produktdataene. Denne API benyttes især i Open Food Facts-app'en til Android og iPhone.</p>
+<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
 
-<p>Vi ændrer API over tid, men vi er omhyggelige med at holde det bagudkompatibelt. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
 
 <p>URL til læsning af data for givent produkt: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Yderligere dokumentation er <a href="https://wiki.openfoodfacts.org/API">tilgængelig i Wiki'en</a>. (Vigtigt notat: Siden er opdelt i undersider til LÆSNING og SKRIVNING).
-Der udvikles en bedre dokumentation med brug af eksempler til visning af et produkt og lade dine brugere tilføje de krævede data for at få Nutri-Score, NOVA-grupper og additiver.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Du kan få adgang til det her</a>.
-<p>Du er meget velkommen til at benytte API'en til produktionssager, så længe 1 API-kald = 1 reel skanning af en bruger.
-Forsøg på at scrape databasen gennem API'et vil sandsynligvis blive blokeret, da fulde daglige eksportfiler er tilgængelige fra denne side.</p>
+Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE).
+A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
+<p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
+Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
 <p>At sende en HTTP-header med dit API-kald er også en god måde, hvorpå vi kan komme i kontakt, hvis der skulle opstå problemer.</p>
 <p>Hvis du er usikker på noget eller har spørgsmål (der findes ingen fjollede spørgsmål), er du velkommen til at stille dem på Slack :-)</p>
 
 <h2>Android- og iPhone-app</h2>
 
-<p>Koden til Open Food Facts mobil-appen er tilgængelig via GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> og <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
-Appen giver brugerne mulighed for at skanne en produktstregkode for at se produktinformationen samt for at tage og sende fotos og data til manglende produkter.</p>
+<p>The code for the Open Food Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
+The app allows users to scan the barcode of products, to view the product information, and to take and send pictures and data for missing products.</p>
 
 <p>iOS-appen er udviklet i Swift.</p>
 <p>Android-appen er udviklet i Java.</p>
 <p>Du er velkommen til at genbruge koden (der er open source) og hjælpe os med at forbedre den for alle brugere.
 
 <h2>Wrappers og SDK'er</h2>
-<p>Der er sikkert en wrapper til dit yndlingsprogrammeringssprog. Gør vi det, kan du benytte den og forbedre den. Gør vi det ikke, kan du hjælpe med at lave den.</p>
+<p>We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it.</p>
 <p>De giver dig mulighed for at bruge vores data samt lade dine brugere bidrage med nye data</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (gamle, officielle Open Food Facts-app)</a></li>
@@ -109,8 +110,8 @@ Appen giver brugerne mulighed for at skanne en produktstregkode for at se produk
 <h2>Debattere data, API og eksport</h2>
 <p>Du kan også <a href="https://slack.openfoodfacts.org">deltage i Open Food Facts Slack-chatroom, som er den foretrukne måde at stille spørgsmål på og debattere API'en</a>.</p>
 
-<p>Du kan også tilmelde dig mailinglisten for at drøfte API'en og eksport, fortælle os om dine genanvendelser og blive underrettet, når der foretages forbedringer eller ændringer af API'en. Send en tom e-mail til
-<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> for ar abonnere.</p>
+<p>You can also join the mailing list to discuss the API and exports, tell us about your re-uses, and be notified when improvements or changes are made to the API. Send an empty e-mail to
+<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> to subscribe.</p>
 
 
 <h2>Kontakt</h2>
