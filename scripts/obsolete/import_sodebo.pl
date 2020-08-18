@@ -212,8 +212,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper->Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
 			}

@@ -619,7 +619,7 @@ sub init_product($$$$) {
 
 	if ((not defined $countryid) or ($countryid eq "en:world")) {
 
-		use ProductOpener::GeoIP;
+		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
 	else {
@@ -1007,7 +1007,9 @@ sub store_product($$) {
 			#
 			# use File::Copy;
 
-			use File::Copy::Recursive qw(dirmove);
+			require File::Copy::Recursive;
+			File::Copy::Recursive->import( qw( dirmove ) );
+
 			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
 			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
 
@@ -2639,7 +2641,7 @@ sub process_product_edit_rules($) {
 										$emoji = ":pear:";
 									}
 
-									use LWP::UserAgent;
+									require LWP::UserAgent;
 									my $ua = LWP::UserAgent->new;
 									my $server_endpoint = "https://hooks.slack.com/services/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";
 

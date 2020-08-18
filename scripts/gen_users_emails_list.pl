@@ -51,7 +51,7 @@ foreach my $userid (@userids)
 	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
 
 	if ($user_ref->{newsletter}) {
-		use ProductOpener::GeoIP;
+		require ProductOpener::GeoIP;
 		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});
 		defined $country or $country = "";
 		my $lc = $user_ref->{initial_lc} || "";

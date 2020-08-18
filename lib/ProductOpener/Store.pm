@@ -249,8 +249,8 @@ sub retrieve {
 
 	if ($@ ne '')
 	{
-		use Carp;
-		carp "cannot retrieve $file : $@";
+		require Carp;
+		Carp->carp("cannot retrieve $file : $@");
  	}
 
 	return $return;

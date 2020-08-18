@@ -123,8 +123,9 @@ while (<STDIN>) {
 			print "description:" . "en" . ":" . $english_description . "\n";
 			foreach my $lang (sort keys %{$translations{$english}}) {
 				next if $lang eq "en";
-				
-				 use Encode qw(decode encode);
+
+				require Encode;
+				Encode->import( qw( decode encode ) );
 				# my $description =  decode('UTF-8', $translations{$english}{$lang});
 				my $description = $translations{$english}{$lang};
 						

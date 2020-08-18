@@ -113,7 +113,8 @@ foreach my $file (@files) {
 		$suffix =~ s/^(-|_|\s)\d+$//;
 		my $name = $prefix . $suffix;
 		$name =~ s/^(.*)\///;    # remove path
-		use Encode qw( from_to decode encode decode_utf8 );
+		require Encode;
+		Encode->import( qw( from_to decode encode decode_utf8 ) );
 		my $data2 = $name;
 		from_to($data2, "utf8", "iso-8859-1");
 		my $name2 = decode_utf8($data2);

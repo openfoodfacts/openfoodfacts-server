@@ -862,7 +862,8 @@ sub process_image_move($$$$) {
 
 				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
 
-				use File::Copy;
+				require File::Copy;
+				File::Copy->import( qw( move ) );
 
 				$log->info("moving source image to deleted images directory", { source_path => "$www_root/images/products/$path/$imgid.jpg", destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg" });
 

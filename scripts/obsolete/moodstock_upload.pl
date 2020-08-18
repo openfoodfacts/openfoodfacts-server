@@ -126,10 +126,11 @@ if (defined $agemax) {
 			print "uploading - $productid\n-> id: $encodedid";
 			
 			my $path = product_path($product_ref->{code});
-		
-			use HTTP::Request::Common;
-			use LWP::UserAgent;
-			use LWP::Authen::Digest;
+
+			require HTTP::Request::Common;
+			require LWP::UserAgent;
+			require LWP::Authen::Digest;
+			HTTP::Request::Common->import();
 
 			# Settings
 			my $key = "6boshzcjfsqyxmnl9znd";

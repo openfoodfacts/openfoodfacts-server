@@ -199,7 +199,8 @@ while (my $product_ref = $cursor->next) {
 			$oy2 = int($y2 * $oh / $h);
 		}
 
-		use File::Copy;
+		require File::Copy;
+		File::Copy->import( qw( copy ) );
 		copy("$dir/$imgid.jpg","$target_dir/$code" . '.' . $imageid . ".jpg") or print STDERR ("could not copy $dir/$imgid.jpg : $!\n");
 		copy("$dir/$imageid_lc.$rev.full.jpg","$target_dir/$code" . '.' . $imageid . ".cropped.jpg") or print STDERR ("could not copy $dir/$imageid_lc.$rev.full.jpg : $!\n");
 		copy("$dir/$imageid_lc.$rev.json","$target_dir/$code" . '.' . $imageid . ".cropped.json") or print STDERR ("could not copy $dir/$imageid_lc.$rev.json : $!\n");

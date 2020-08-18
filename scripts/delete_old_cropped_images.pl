@@ -147,10 +147,12 @@ my %codes = ();
 							$current_dir .= "/$component";
 							(-e "$current_dir") or mkdir($current_dir, 0755);
 						}
-					
-						use File::Copy;
-						move("$dir/$file","$www_root/old-images/products/$path/") or die("could not move: $!\n");
-						
+
+						require File::Copy;
+						File::Copy->move( "$dir/$file",
+							"$www_root/old-images/products/$path/" )
+							or die("could not move: $!\n");
+
 						$images_deleted++;
 					}
 				}

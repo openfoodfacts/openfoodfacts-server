@@ -302,7 +302,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 				print "notifying slack: $bot\n";
 
-				use LWP::UserAgent;
+				require LWP::UserAgent;
 
 				my $ua = LWP::UserAgent->new;
 
@@ -353,7 +353,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 	print $msg;
 
 	if (1) {
-		use LWP::UserAgent;
+		require LWP::UserAgent;
 
 		my $ua = LWP::UserAgent->new;
 

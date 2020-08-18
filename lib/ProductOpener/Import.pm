@@ -1428,7 +1428,7 @@ EMAIL
 
 						$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-						use LWP::UserAgent ();
+						require LWP::UserAgent;
 
 						my $ua = LWP::UserAgent->new(timeout => 10);
 

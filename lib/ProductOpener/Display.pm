@@ -2339,8 +2339,8 @@ sub display_list_of_tags_translate($$) {
 
 		load_users_translations_for_lc($users_translations_ref, $tagtype, $lc);
 
-		use Data::Dumper;
-		print STDERR Dumper($users_translations_ref);
+		require Data::Dumper;
+		print STDERR Data::Dumper->Dumper($users_translations_ref);
 
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
 
@@ -4536,7 +4536,7 @@ sub search_and_export_products($$$) {
 
 		# Send the CSV file line by line
 
-		use Apache2::RequestRec ();
+		require Apache2::RequestRec;
 		my $r = Apache2::RequestUtil->request();
 
 		my $workbook;

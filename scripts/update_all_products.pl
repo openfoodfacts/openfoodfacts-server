@@ -488,12 +488,12 @@ while (my $product_ref = $cursor->next) {
 								my $path =  product_path($code);
 								my $rev = $product_ref->{images}{$imgid . "_" . $product_ref->{lc}}{rev};
 
-								use File::Copy "move";
+								require File::Copy;
 								foreach my $size (100, 200, 400, "full") {
 									my $source = "$www_root/images/products/$path/${imgid}_zu.$rev.$size.jpg";
 									my $target = "$www_root/images/products/$path/${imgid}_" . $product_ref->{lc} . ".$rev.$size.jpg";
 									print STDERR "move $source to $target\n";
-									move($source, $target);
+									File::Copy->move($source, $target);
 								}
 							}
 							$product_values_changed = 1;

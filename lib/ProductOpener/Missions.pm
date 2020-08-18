@@ -186,7 +186,9 @@ sub compute_missions_for_user($) {
 
 			foreach my $condition_ref (@{$mission_ref->{conditions}}) {
 
-				use Clone qw(clone);
+				require Clone;
+				Clone->import( qw( clone ) );
+
 				my $query_ref = clone($condition_ref->[1]);
 				$query_ref->{creator} = $user_ref->{userid};
 				$query_ref->{lc} = $l;
