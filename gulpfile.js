@@ -73,7 +73,8 @@ function buildJs() {
     './html/js/display*.js',
     './html/js/graph.js',
     './html/js/product-multilingual.js',
-    './html/js/search.js'
+    './html/js/search.js',
+    './html/js/graph.js'
   ]).
   pipe(sourcemaps.init()).
   pipe(terser()).
