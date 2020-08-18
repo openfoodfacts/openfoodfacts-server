@@ -2211,7 +2211,7 @@ SCRIPTS
 <link rel="stylesheet" media="all" href="/js/jquery-jvectormap-1.2.2.css">
 HEADER
 ;
-			my $map_html .= <<HTML
+			my $map_html = <<HTML
   <div id="world-map" style="width: 600px; height: 400px"></div>
 
 HTML
@@ -3712,7 +3712,7 @@ HTML
 		else {
 			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_s')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 
-			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+			my $tag_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 
 			$tag_html =~ s/.*<\/a>(<br \/>)?//;    # remove link, keep only tag logo
 
@@ -9786,7 +9786,7 @@ sub display_recent_changes {
 	});
 	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
-	my $html .= "<ul>\n";
+	my $html = "<ul>\n";
 	my $last_change_ref = undef;
 	my @cumulate_changes = ();
 	while (my $change_ref = $cursor->next) {
