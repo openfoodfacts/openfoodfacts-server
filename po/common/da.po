@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 12:52\n"
+"PO-Revision-Date: 2020-08-18 16:37\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: da\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1192\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -213,7 +213,7 @@ msgstr "allergener"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "allergen"
+msgstr ""
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -221,16 +221,16 @@ msgstr "Produktside også redigeret af"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -365,7 +365,7 @@ msgstr "Produkter ikke fra %s-kategorien"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "Data"
+msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -593,44 +593,44 @@ msgstr "email-adresse"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr "Produkter pakket af virksomheden med sporbarhedskoden %s"
+msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr "Sporbarhedskoder"
+msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Sporingskode"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Sporbarhedskode"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr "sporbarhedskoder"
+msgstr ""
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Produkter med sporbarhedskoden %s"
+msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr "sporbarhedskode"
+msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr "Produkter uden sporbarhedskoden %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "I Europa udgøres koden af en ellipse indeholdende en 2-bogstavs landekode efterfulgt af et tal samt CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -742,7 +742,7 @@ msgstr "da_DK"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -759,7 +759,7 @@ msgstr "<<site_name>>-blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -777,7 +777,7 @@ msgstr "Data, API og SDK'er"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -790,7 +790,7 @@ msgstr "Ofte Stillede Spørgsmål"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -799,7 +799,7 @@ msgstr "Oversættere"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -828,7 +828,7 @@ msgstr "Jura"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -850,7 +850,7 @@ msgstr "Brugsvilkår"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -868,7 +868,7 @@ msgstr "<<site_name>>-wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -877,7 +877,7 @@ msgstr "Open Beauty Facts - Kosmetik"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr "https://world.openbeautyfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -1250,7 +1250,7 @@ msgstr "Produktions- eller forarbejdningssteder"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr "Montana, USA"
+msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1282,7 +1282,7 @@ msgstr "Korttittel"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr "Menu"
+msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1313,7 +1313,7 @@ msgstr "/opdag"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr "Mission: "
+msgstr ""
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
@@ -1494,7 +1494,7 @@ msgstr "5<sup>.</sup> centil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr "Median"
+msgstr ""
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1514,7 +1514,7 @@ msgstr "Middel"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr "Minimum"
+msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1536,7 +1536,7 @@ msgstr "Tabellen viser som standard næringsstoffer, som ofte angives. Lad felte
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1549,7 +1549,7 @@ msgstr "Ernæringskvalitet"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -1873,7 +1873,7 @@ msgstr "Produktnavn"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Kinder Bueno White"
+msgstr ""
 
 msgctxt "products"
 msgid "products"
@@ -2053,7 +2053,7 @@ msgstr "indeholder ikke"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr "Download"
+msgstr ""
 
 msgctxt "search_download_choice"
 msgid "Download results"
@@ -2199,7 +2199,7 @@ msgstr "Andre produkter"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr "Fair trade"
+msgstr ""
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
@@ -2415,7 +2415,7 @@ msgstr "Indeholder:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr "Weblinks"
+msgstr ""
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
@@ -2451,7 +2451,7 @@ msgstr "Twitter-brugernavn (valgfrit)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
+msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2675,7 +2675,7 @@ msgstr "Denne produktside er ikke komplet. Du kan hjælpe med at færdiggøre de
 
 msgctxt "title_separator"
 msgid " - "
-msgstr " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2861,7 +2861,7 @@ msgstr "Spædbørn"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr "< 1"
+msgstr ""
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2945,7 +2945,7 @@ msgstr "flere end 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3647,7 +3647,7 @@ msgstr "datakvalitetsfejl"
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 # abbreviation for Maximum
 msgctxt "max"
@@ -3669,7 +3669,7 @@ msgstr "mulige forbedringer"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/import-products"
+msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -3708,7 +3708,7 @@ msgstr "Produktdataene er modtaget og vil blive importeret på platformen til pr
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3752,7 +3752,7 @@ msgstr "importer"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr "import"
+msgstr ""
 
 msgctxt "imports"
 msgid "imports"
@@ -3821,11 +3821,11 @@ msgstr "Tilføj fotos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr "Start upload"
+msgstr ""
 
 msgctxt "start"
 msgid "Start"
-msgstr "Start"
+msgstr ""
 
 msgctxt "close"
 msgid "Close"
@@ -3837,7 +3837,7 @@ msgstr "Annullér upload"
 
 msgctxt "info"
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 msgctxt "file_received"
 msgid "File received"
@@ -3930,7 +3930,7 @@ msgstr "Ernæringsscore"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -3940,7 +3940,7 @@ msgstr "Nutri-Score værdi"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -3988,7 +3988,7 @@ msgstr "Skal kun afkrydses på konti for producenter, som redigerer egne produkt
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr "Database"
+msgstr ""
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
@@ -3996,7 +3996,7 @@ msgstr "Til eksterne datakilder. Produktejerskab af importerede produkter ændre
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr "App"
+msgstr ""
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4004,7 +4004,7 @@ msgstr "Til applikationer."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr "Bot"
+msgstr ""
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -4012,7 +4012,7 @@ msgstr "Til robotter, scripts mv."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr "Moderator"
+msgstr ""
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
@@ -4219,7 +4219,7 @@ msgstr "Resterer"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr "Teams"
+msgstr ""
 
 msgctxt "optional"
 msgid "optional"
@@ -4227,11 +4227,11 @@ msgstr "valgfrit"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr "teams"
+msgstr ""
 
 msgctxt "teams_s"
 msgid "team"
-msgstr "team"
+msgstr ""
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
@@ -4244,7 +4244,7 @@ msgstr "Teamnavne er offentlige. Opret ikke teams med navne, som indeholder pers
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr "Team %s"
+msgstr ""
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
@@ -4291,18 +4291,18 @@ msgstr "Fabrikanter"
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr "Har dette produkt en ingrediensliste i %s, så tilføj den vemligst."
+msgstr ""
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr "Manglende stregkode"
+msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr "Ugyldig stregkode"
+msgstr ""
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr "ltr"
+msgstr ""
 
