@@ -75,7 +75,7 @@
 
 <h3 id="licence">Licens</h3>
   
-<p>Alle data indsendt til Open Food Facts offentliggøres under Open Database License (ODbL) og fotos under Creative Commons License CC-BY-SA. Disse licenser tillader, at data frit kan genbruges af alle, og til alle formål. Du kan finde yderligere oplysninger under <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Vilkår for Brug, Bidrag og Genbrug.</a></p>
+<p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
   
 <h3 id="quelles_donnees">Hvilke data?</h3>
 
@@ -85,7 +85,7 @@ Der er for nylig tilføjet felter for CO2-udledning og produktemballage, som all
 
  <h4 id="une_base_dans_toutes_les_langues">En database på alle sprog</h4>
   
-<p>Open Food Facts-databasen, webstedet og mobil-apps er også fuldt flersproget og tilgængelig i alle lande. Har du fotos og data på flere sprog, kan disse også integreres i Open Food Facts.</p>
+<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
 
 <h4 id="photos_et_donnees">Fotos og data</h4>
 
@@ -111,7 +111,7 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
 <li>Ernæringstabel</li>
 </ul>
   
-<p>Frontalfoto, ingredienser og ernæringsdiagram skal som minimum angives på produktets hovedsprog. Det anbefales også at inkludere fotos for andre sprog, når disse fremgår på produktet.</p>
+<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
 
 <p>Eksempelvis kan et produkt beregnet til det belgiske marked have fotos, som viser produktteksten skrevet på hollandsk og fransk.</p>
 
@@ -151,8 +151,8 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
 <h4 id="format_des_donnees">Dataformat</h4>
 
 <p>Data skal angives i tabelform i CSV-formatet med tabulering som feltadskiller og UTF-8 tegnkodning.</p>
-<p>Første linje indeholder feltnavnene, og hvert af produkterne udfylder én af de efterfølgende linjer. Feltrækkefølgen er uden betydning, og ikke alle kolonner behøver at være til stede.</p>
-<p>Visse felter er obligatoriske, mens andre er valgfrie. Du opfordres til at udfylde så mange felter som muligt, så data kan benyttes af så mange applikationer som muligt. Er du i tvivl, eller har du data, for hvilke der endnu ikke findes felter i databasen, kan du kontakte os, så vi kan tilføje felterne og skabe den bedst mulige match.</p>
+<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
+<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
   <h5 id="champs_obligatoires">Obligatoriske felter</h5>
 
@@ -166,7 +166,7 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
   <li>mængde: Mængde, angiv måleenheden og tilføj gerne i parentes, hvis produktet indeholder flere mængder (f.eks. 120 g (4 x 30 g))</li>
   <li>kategorier: Produktkategori på produkthovedsproget (f.eks. chokoladekager)</li>
   <li>lande: Land, hvori produktet sælges på produkthovedsproget (flere mulige værdier, som skal adskilles af kommaer)</li>
-  <li>ingredienser_text_ [2-bogstavskode for hovedsproget]: Liste over ingredienser (i feltet ingredients_text_da for listen på dansk). Allergener kan angives med VERSALER eller mellem </li>
+  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
   <li>allergener: Allergener på produkthovedsproget adskilt af kommaer</li>
   <li>spor: Spor af allergener, på produkthovedsproget adskilt af kommaer</li>
 </ul>
@@ -198,7 +198,7 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
   <h5 id="champs_optionnels">Valgfrie felter</h5>
 
   <ul>
-    <li>labels: Etiketter, på produkthovedsproget (flere mulige værdier, som skal adskilles af kommaer, f.eks. AB Bio, MSC, Max Havelaar). Bemærk: Etiketterne skal fremgå af produktemballagen.</li>
+    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
     <li>origins: Oprindelse af ingredienserne, på produkthovedsproget (flere mulige værdier, som skal adskilles af kommaer, f.eks. Peru, Périgord)</li>
     <li>packaging: Materialer og former for produktemballering, på produkthovedsproget (flere mulige værdier, som skal adskilles af kommaer, f.eks. dåse, aluminium)</li>
     <li>manufacturing_places: Produktionssteder, på produkthovedsproget (flere mulige værdier, som skal adskilles med kommaer: Bynavne, lande)</li>
@@ -208,7 +208,7 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
     <li>serving_size: Portionsstørrelse, angiv måleenheden</li>
   </ul>
 
-<p>Næringsværdier kan også angives for det tilberedte produkt (med vand, mælk mv.). Føj i så fald "_prepared" til navnet på feltet. F.eks. energy_prepared_100g.</p>
+<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
 <p>Det er også muligt at angive værdierne for andre næringsstoffer:</p>
 
 <ul>
@@ -318,15 +318,15 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
 
 <h4 id="envoi_des_photos_et_des_donnees">Indsendelse af fotos og data</h4>
 <p>Er produktantallet relativt lille (færre end 1.000 produkter), og er opdateringerne sjældne (f.eks. halvårligt), er det muligt at indsende fotos og CSV-filer på en hvilken som helst måde (f.eks. mail til CSV-filer og WeTransfer, Google Drive, DropBox mv. til fotos).</p>
-<p>For et større produktantal eller en mere regelmæssig opdatering kan der oprettes et SFTP-rum, hvorfra du manuelt eller automatisk kan indsende data og fotos. Kontakt os, så vi kan iværksætte dette.</p>
+<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
 
 <h2 id="questions_frequentes">Hyppige spørsmål</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Er produktvisningerne gratis?</h3>
-<p>Importen af ​​data er fuldstændig gratis. Der accepterer ikke nogen betaling for inkludering af data. Vi er meget glade for, at du har besluttet at bidrage med dine produktdata til fødevaregennemsigtigheden, og vi takker dig.</p>
+<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Vil producentdata overskrive data angivet af bidragsydere?</h3>
-<p>Producentdata tjekkes automatisk af Open Food Facts med konsistenskontrolalgoritmer, og derefter af udvalgte bidragydere. Vi har fuld tillid til de data, du indsender, men vi ved af erfaring, at skrivefejl er mulige.</p>
+<p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>
 <p>Når de er tjekket, erstatter og/eller supplerer de data fra bidragsyderne.</p>
 
 <p>I tilfælde af en regelmæssig og automatisk import erstatter data ved hver import opdateringerne fra bidragsydere, medmindre en åbenbar fejl (som du underrettes om) rapporteres for et produkt af en bidragsyder.</p>
@@ -334,10 +334,10 @@ For at gøre dataimport nemmere og hurtigere er et standardformat for fotos og d
 <h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Er det muligt at slette produkter, som ikke længere sælges?</h3>
 
 <p>Når et produkt forsvinder fra hylderne, bliver det hurtigt opbrugt, og det opdages hurtigt, at det ikke længere skannes.</p>
-<p>Produktet arkiveres dernæst, så det forbliver tilgængeligt i arkivformat til videnskabelige formål i sammenhæng med fødevareforskning, som kan vare i årtier. Det er vigtigt at være i stand til at kunne tilgå sammensætninger af produktet på en præcis dato, selv om dette er ændret eller forsvundet.</p>
+<p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
 <p>Har du historikdata om dine udgåede produkter eller udgåede produktversioner, er vi også meget interesserede i disse data for at kunne gå tilbage i tiden, til videnskabelige langtidsanalyser samt for at muliggøre visualisering af udviklingen for visse produkter.</p>
 <p>Producenter kan også indsende lister over udgåede salgsstregkoder, så produkterne kan blive korrekt mærket.</p>
   
 <h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Kan animalske produkter, ikke-fødevareprodukter, kosmetik og andre produkttyper integreres i Open Food Facts?</h3>
-<p>Der er oprettet specifikke projekter til kosmetik og foderstoffer samt til andre produkter (hhv. Open Beauty Facts, Open Pet Food Facts og Open Products Facts). Vi er derfor glade for at kunne importere dine produkter til det projekt, der passer dem.</p>
+<p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
 </div>
