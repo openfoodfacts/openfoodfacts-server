@@ -4841,7 +4841,7 @@ sub display_scatter_plot($$) {
 						$seriesid = $product_ref->{"nutrition_grade_fr"};
 					}
 					else {
-						$seriesid = 'unknown',
+						$seriesid = 'unknown';
 					}
 				}
 				else {

@@ -5392,7 +5392,7 @@ foreach my $key (keys %Nutriments) {
 			next if $l eq 'dv';
 			my $short_l = undef;
 			if ($l =~ /_/) {
-				$short_l = $`,  # pt_pt
+				$short_l = $`;  # pt_pt
 			}
 			if (not exists $Nutriments{$key}{$l}) {
 				if ((defined $short_l) and (exists $Nutriments{$key}{$short_l})) {

@@ -84,7 +84,7 @@ sub lang($) {
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
+		$short_l = $`;  # pt_pt
 	}
 
 	if (defined $Lang{$s}{$lang}) {
@@ -413,7 +413,7 @@ sub build_lang($) {
 
 				my $short_l = undef;
 				if ($l =~ /_/) {
-					$short_l = $`,  # pt_pt
+					$short_l = $`;  # pt_pt
 				}
 
 				if (not defined $Lang{$key}{$l}) {
@@ -497,7 +497,7 @@ sub build_json {
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
-			$short_l = $`,  # pt_pt
+			$short_l = $`;  # pt_pt
 		}
 
 		my %result = ();
