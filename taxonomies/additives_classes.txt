@@ -904,33 +904,33 @@ description:sl:Potisni plini so plini, razen zraka, ki potisnejo živilo iz emba
 description:sv:Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
 
 en: Raising agent, leavening
-ga: Oibreán éiritheach
+bg: Набухвател
+cs: Kypřicí látka, kypřidlo
 de: Backtriebmittel
 da: Hævemiddel, Hævemidler
 el: Διογκωτικό αρτοποιίας
 es: Gasificante, Leudante, Agente leudante
+et: Kergitusaine, kergitusained
 fi: Nostatusaine, Nostatusainetta, Nostatusaineet, Nostatusaineita
-fr: Poudre à lever, Agent levant, agent de levuration
+fr: Agent levant, agent de levuration
+ga: Oibreán éiritheach
+hu: Térfogatnövelő szer
 is: Lyftiefni
 it: Agente lievitante, agenti lievitanti, lievitante, lievitanti
-nl: Rijsmiddel
-pt: Levedante
 lv: Irdinātājs
-cs: Kypřicí látka
-et: Kergitusaine, kergitusained
-hu: Térfogatnövelő szer
-pl: Substancja spulchniająca, Substancje spulchniające
-sl: Potisni plin
 lt: Tešlos kildymo medžiaga
 mt: Aġent li jgħolli l-ikel
 nb: Hevemiddel, Hevemidler
-sk: Kypriaca látka
+nl: Rijsmiddel
+pl: Substancja spulchniająca, Substancje spulchniające
+pt: Levedante
 ro: Agent de afânare
 ru: Разрыхлитель, Разрыхлители
+sl: Potisni plin
 sk: Kypriaca látka
 sv: Jäsningsmedel, Jäsmedel
-bg: Набухвател
 wikidata:en:Q908833
+#latest wikidata merge 2020-08-18 @aleene
 description:en:Raising agents are substances or combinations of substances which liberate gas and thereby increase the volume of a dough or a batter.
 description:cs:Kypřicími látkami se rozumějí látky nebo směsi látek, které uvolňují plyn, a tak zvyšují objem těsta.
 description:da:Hævemidler: stoffer eller kombinationer af stoffer, som udvikler gas og dermed får dej til at svulme op.
@@ -951,31 +951,38 @@ description:sk:Kypriace činidlá sú látky alebo ich kombinácie, ktoré uvoľ
 description:sl:Sredstva za vzhajanje so snovi ali njihove kombinacije, ki sproščajo plin in tako povečajo prostornino različnih vrst testa.
 description:sv:Bakpulver: ämnen eller kombinationer av ämnen som frigör gaser och därigenom ökar volymen på en deg eller smet.
 
+
+# nova:en:sequestrant
 en: Sequestrant
-ca: Segrestant
-ga: Leithliseoir
-de: Komplexbildner
+bg: Комплексообразуватели
+ca: Segrestant, quelant, quelants, agent quelant, agents quelants
+cs: Sekvestrant
 da: Kompleksdannere
+de: Komplexbildner
 el: Συμπλοκοποιητές
-es: Secuestrante
+eo:Sekvestranto
+es: Secuestrante, secuestrantes, agente quelante, agentes quelantes, agente secuestrante, agentes secuestrantes
+et: Sekvestrant
 fi: Kompleksinmuodostaja, Kompleksinmuodostajaa, Kompleksinmuodostajat, Kompleksinmuodostajia
 fr: Séquestrant
-it: Sequestrante, sequestranti, agente sequestrante, agenti sequestranti
-nl: Complexvormer
-pt: Sequestrante
-lv: Sekvestrants
-cs: Sekvestrant
-et: Sekvestrant
+ga: Leithliseoir
 hu: Kelátképző anyag
-pl: Sekwestranty
-sl: Sredstvo za vzhajanje
+it: Sequestrante, sequestranti, agente sequestrante, agenti sequestranti
+ja:金属イオン封鎖剤
 lt: Atskyriklis
+lv: Sekvestrants
 mt: Aġenti sekwestranti
-sk: Komplexotvorné látky, sekvestranty
-sv: Komplexbildare
+nl: Complexvormer, Complexvormers
+pl: sekwestrant, Sekwestranty
+pt: Sequestrante
 ro: Agenți de sechestrare
-bg: Комплексообразуватели
+sk: Komplexotvorné látky, sekvestranty
+sl: Sredstvo za vzhajanje
+sv: Komplexbildare
+vi:Phụ gia cô lập
+zh:螯合剂
 wikidata:en:Q905648
+#latest wikidata merge 2020-08-18 @aleene
 description:en:Sequestrants are substances which form chemical complexes with metallic ions.
 description:cs:Sekvestranty se rozumějí látky, které vytvářejí chemické komplexy s ionty kovů.
 description:da:Kompleksdannere: stoffer, der danner kemiske kompleksforbindelser med metalioner.
@@ -996,17 +1003,17 @@ description:sk:Komplexotvorné látky (sekvestranty) sú látky, ktoré tvoria c
 description:sl:Veziva so snovi, ki tvorijo kemične komplekse s kovinskimi ioni.
 description:sv:Komplexbildare: ämnen som bildar kemiska komplex med metalljoner.
 
-en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist
+en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist, stabilizers
 bg: Стабилизатор
-ca: Estabilitzador, estabilitzant
+ca: Estabilitzador, estabilitzadors, estabilizants, estabilitzants, estabilitzat
 cs: Stabilizátor
 da: Stabilisator, Stabilisatorer
 de: Stabilisator, Stabilisatoren
 el: Σταθεροποιητής
-es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas estabilizadores, estabilizante, estabilizantes
+es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas, estabilizante, estabilizantes
 et: Stabilisaator
 fi: Stabilointiaine, Stabilointiainetta, Stabilointiaineet, Stabilointiaineita
-fr: Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse, agent stabilisant
+fr: Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse, agent stabilisant, stabilisateur, stabilisateurs
 hu: Stabilizátor
 ga: Cobhsaitheoir
 it: Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti
@@ -1014,7 +1021,7 @@ lt: Stabilizatorius
 lv: Stabilizētājs
 mt: Stabbilizzatur
 nb: Stabilisator, Stabilisatorer
-nl: Stabilisator
+nl: Stabilisator, Stabilisatoren
 pt: Estabilizador, Estabilizadores
 pl: Stabilizator, Stabilizatory
 ro: Stabilizator
@@ -1022,6 +1029,7 @@ sk: Stabilizátor
 sl: Vezivo
 sv: Stabiliseringsmedel, Stabiliseringsämne, Stabilisator, Stabilisatorer, Stabilisering
 wikidata:en:Q7595716
+#latest wikidata merge 2020-08-18 @aleene
 description:en:Stabilisers are substances which make it possible to maintain the physico-chemical state of a foodstuff; stabilisers include substances which enable the maintenance of a homogenous dispersion of two or more immiscible substances in a foodstuff, substances which stabilise, retain or intensify an existing colour of a foodstuff and substances which increase the binding capacity of the food, including the formation of cross-links between proteins enabling the binding of food pieces into re-constituted food.
 description:cs:Stabilizátory se rozumějí látky, které umožňují udržovat fyzikálně-chemický stav potraviny; mezi stabilizátory patří látky, které umožňují udržet jednotný rozptyl dvou nebo více navzájem se nesměšujících látek v potravinách, látky, které stabilizují, udržují nebo zintenzivňují stávající barvu potravin, a látky, které zvyšují pojivost určité potraviny, včetně vytváření vzájemných vazeb mezi bílkovinami, které umožňují spojení kusů potravin do rekonstituované potraviny.
 description:da:Stabilisatorer: stoffer, hvormed man kan opretholde en fødevares fysisk-kemiske tilstand. Til stabilisatorer hører stoffer, hvormed der kan opretholdes en homogen fordeling af to eller flere ikke-blandbare stoffer i en fødevare, stoffer, som stabiliserer, bevarer eller forstærker en fødevares farve, og stoffer, som øger fødevarens bindeevne, herunder dannelse af tværbindinger mellem proteiner, der kan binde fødevarestykker i rekonstituerede fødevarer.
