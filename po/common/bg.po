@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-13 11:54\n"
+"PO-Revision-Date: 2020-08-18 10:54\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4283,5 +4283,10 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
+msgstr ""
+
+# Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
+msgctxt "text_direction"
+msgid "ltr"
 msgstr ""
 
