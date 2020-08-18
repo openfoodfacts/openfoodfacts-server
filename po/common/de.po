@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 10:55\n"
+"PO-Revision-Date: 2020-08-18 16:45\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1192\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -221,16 +221,16 @@ msgstr "Produktseite auch bearbeitet von"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -406,11 +406,11 @@ msgstr "Produkte, die nicht in %s verpackt wurden"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr "Codes"
+msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -594,35 +594,35 @@ msgstr "E-Mail-Adresse"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr "Vom Unternehmen verpackte Produkte mit Produzentenschlüssel %s"
+msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr "Produzentenschlüssel"
+msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Produzentenschlüssel"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Produzentenschlüssel"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr "Produzentenschlüssel"
+msgstr ""
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Produkte mit dem Produzentenschlüssel %s"
+msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr "Produzentenschlüssel"
+msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr "Produkte ohne den Produzentenschlüssel %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -631,7 +631,7 @@ msgstr "DE BY117 EG, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "In Europa befindet sich der Schlüssel in einer Ellipse mit den zwei Länderinitialen, gefolgt von einer Zahl und dem CE-Zeichen."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -743,7 +743,7 @@ msgstr "de_DE"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -760,7 +760,7 @@ msgstr "<<site_name>> Blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -778,7 +778,7 @@ msgstr "Daten, API und SDKs"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -800,7 +800,7 @@ msgstr "Übersetzer"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -829,7 +829,7 @@ msgstr "Gesetzliche Hinweise"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -851,7 +851,7 @@ msgstr "Nutzungsbedingungen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -869,7 +869,7 @@ msgstr "<<site_name>> Wiki (de)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -1301,7 +1301,7 @@ msgstr "Mitwirken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribute"
+msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1310,7 +1310,7 @@ msgstr "Entdecken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/discover"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1354,7 +1354,7 @@ msgstr "%s Produkte"
 
 msgctxt "name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "names"
 msgid "Names"
@@ -1414,7 +1414,7 @@ msgstr "Anzahl der Produkte"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s in %s"
+msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1423,7 +1423,7 @@ msgstr "Nährstoffwerte für 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/nutrient-levels"
+msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1495,7 +1495,7 @@ msgstr "5. Zentil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr "Median"
+msgstr ""
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1507,7 +1507,7 @@ msgstr "95. Zentil"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr "Maximum"
+msgstr ""
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1515,7 +1515,7 @@ msgstr "Durchschnitt"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr "Minimum"
+msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1536,7 +1536,7 @@ msgstr "Die Tabelle listet standardmäßig Nährstoffe auf, die häufig angegebe
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2676,7 +2676,7 @@ msgstr "Diese Produktseite ist nicht vollständig. Sie können helfen, sie zu ve
 
 msgctxt "title_separator"
 msgid " - "
-msgstr " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2696,7 +2696,7 @@ msgstr "Bitte beachten Sie, dass diese Tabelle jeden Abend aktualisiert wird und
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2946,7 +2946,7 @@ msgstr "über 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3709,7 +3709,7 @@ msgstr "Die Produktdaten wurden empfangen und werden in die Plattform für Produ
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3826,7 +3826,7 @@ msgstr "Hochladen beginnen"
 
 msgctxt "start"
 msgid "Start"
-msgstr "Start"
+msgstr ""
 
 msgctxt "close"
 msgid "Close"
@@ -3838,7 +3838,7 @@ msgstr "Hochladen abbrechen"
 
 msgctxt "info"
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 msgctxt "file_received"
 msgid "File received"
@@ -3931,7 +3931,7 @@ msgstr "Nährstofftabelle"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -3941,7 +3941,7 @@ msgstr "Nutri-Score Wertung"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -3997,7 +3997,7 @@ msgstr "Für externe Datenquellen. Das Eigentumsrecht an importierten Produkten 
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr "App"
+msgstr ""
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4005,7 +4005,7 @@ msgstr "Für Anwendungen"
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr "Bot"
+msgstr ""
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -4013,7 +4013,7 @@ msgstr "Für Roboter, Skripte usw."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr "Moderator"
+msgstr ""
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
@@ -4224,7 +4224,7 @@ msgstr "Gruppen"
 
 msgctxt "optional"
 msgid "optional"
-msgstr "optional"
+msgstr ""
 
 msgctxt "teams_p"
 msgid "teams"
@@ -4292,15 +4292,15 @@ msgstr "Produzenten"
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr "Wenn dieses Produkt eine Zutatenliste in %s hat, fügen Sie diese bitte hinzu."
+msgstr ""
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr "Strichcode fehlt"
+msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr "Strichcode ungültig"
+msgstr ""
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
