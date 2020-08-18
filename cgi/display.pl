@@ -76,7 +76,14 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 }
 
 if (defined $request{api}) {
-	display_product_api(\%request);
+	if (param("api_method") eq "search") {
+		# /api/v0/search
+		display_tag(\%request);
+	}
+	else {
+		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
+		display_product_api(\%request);
+	}
 }
 elsif (defined $request{text}) {
 	display_text(\%request);
@@ -92,26 +99,6 @@ elsif (defined $request{points}) {
 }
 elsif ((defined $request{groupby_tagtype}) or ((defined $request{tagtype}) and (defined $request{tagid}))) {
 	display_tag(\%request);
-}
-
-
-
-if (0) {
-
-	if (($request{tag} ne $request{tagid}) and ($request{tagid} ne 'all') and (not defined $request{query}) and (not defined $request{user}) and (not defined $request{menuid})) {
-		# my $location =  URI::Escape::XS::encodeURIComponent($request{canon_tag});
-		my $location = "/by/" . $request{tagid};
-
-		my $r = shift;
-
-		$r->headers_out->set(Location =>$location);
-		$r->status(301);
-		return 301;
-
-	}
-
-
-	display_news(\%request);
 }
 
 if (defined $request{redirect}) {
