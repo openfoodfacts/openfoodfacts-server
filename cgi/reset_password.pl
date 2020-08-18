@@ -42,6 +42,10 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
+my $template_data_ref = {
+	lang => \&lang,
+};
+
 my $type = param('type') || 'send_email';
 my $action = param('action') || 'display';
 
@@ -107,113 +111,81 @@ if ($action eq 'process') {
 	}
 }
 
+$template_data_ref->{action} = $action;
+$template_data_ref->{error_count} = $#errors;
+$template_data_ref->{type} = $type;
+
 
 if ($action eq 'display') {
+	push @{$template_data_ref->{errors}}, @errors;
+}
 
-
-	$html .= $Lang{"reset_password_${type}_msg"}{$lang};
-
-	if ($#errors >= 0) {
-		$html .= "<p><b>$Lang{correct_the_following_errors}{$lang}</b></p><ul>\n";
-		foreach my $error (@errors) {
-			$html .= "<li class=\"error\">$error</li>\n";
-		}
-		$html .= "</ul>\n";
-	}
-
-	$html .= start_form('POST', '/cgi/reset_password.pl');
+elsif ($action eq 'process') {
 
 	if ($type eq 'send_email') {
 
-		$html .= '<label>'
-		. "$Lang{userid_or_email}{$lang}"
-		. textfield(-name=>'userid_or_email', -value=>'',-override=>1)
-		. "</label>";
+		my @userids = ();
+		if (defined $email_ref) {
+			@userids = @{$email_ref};
+		}
+		elsif (defined $userid) {
+			@userids = ($userid);
+		}
+
+		my $i = 0;
+
+		foreach my $userid (@userids) {
+
+			my $user_ref = retrieve("$data_root/users/$userid.sto");
+			if (defined $user_ref) {
+
+				$user_ref->{token_t} = time();
+				$user_ref->{token} = generate_token(64);
+				$user_ref->{token_ip} = remote_addr();
+
+				store("$data_root/users/$userid.sto", $user_ref);
+
+				my $url = format_subdomain($subdomain) . "/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
+
+				my $email = lang("reset_password_email_body");
+				$email =~ s/<USERID>/$userid/g;
+				$email =~ s/<RESET_URL>/$url/g;
+				send_email($user_ref, lang("reset_password_email_subject"), $email);
+
+				$i++;
+			}
+		}
+
+		$template_data_ref->{i} = $i;
+
 	}
 	elsif ($type eq 'reset') {
-		$html .= "<table>"
-		. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-		. password_field(-name=>'password', -value=>'', -override=>1) . "</td></tr>"
-		. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-		. password_field(-name=>'confirm_password', -value=>'', -override=>1) . "</td></tr>"
-		. "</table>"
-		. hidden(-name=>'resetid', -value=>param('resetid'), -override=>1)
-		. hidden(-name=>'token', -value=>param('token'), -override=>1)
-	}
-
-
-	$html .= "\n"
-	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. submit(-class=>'button')
-	. end_form();
-
-}
-elsif ($action eq 'process') {
-
-if ($type eq 'send_email') {
-
-	my @userids = ();
-	if (defined $email_ref) {
-		@userids = @{$email_ref};
-	}
-	elsif (defined $userid) {
-		@userids = ($userid);
-	}
-
-	my $i = 0;
-
-	foreach my $userid (@userids) {
-
+		my $userid = get_string_id_for_lang("no_language", param('resetid'));
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
 		if (defined $user_ref) {
 
-			$user_ref->{token_t} = time();
-			$user_ref->{token} = generate_token(64);
-			$user_ref->{token_ip} = remote_addr();
+			if ((param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
+				
+				$template_data_ref->{user_token} = "defined";
 
-			store("$data_root/users/$userid.sto", $user_ref);
+				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
 
-			my $url = format_subdomain($subdomain) . "/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
+				delete $user_ref->{token};
 
-			my $email = lang("reset_password_email_body");
-			$email =~ s/<USERID>/$userid/g;
-			$email =~ s/<RESET_URL>/$url/g;
-			send_email($user_ref, lang("reset_password_email_subject"), $email);
+				store("$data_root/users/$userid.sto", $user_ref);
 
-			$i++;
+			}
+			else {
+				display_error($Lang{error_reset_invalid_token}{$lang}, undef);
+			}
 		}
 	}
-
-	if ($i > 0) {
-		$html .= $Lang{reset_password_send_email}{$lang};
-	}
-
-}
-elsif ($type eq 'reset') {
-	my $userid = get_string_id_for_lang("no_language", param('resetid'));
-	my $user_ref = retrieve("$data_root/users/$userid.sto");
-	if (defined $user_ref) {
-
-		if ((param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
-
-			$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
-
-			delete $user_ref->{token};
-
-			store("$data_root/users/$userid.sto", $user_ref);
-
-			$html .= $Lang{reset_password_reset}{$lang};
-		}
-		else {
-			display_error($Lang{error_reset_invalid_token}{$lang}, undef);
-		}
-	}
-}
 
 
 }
 
+$tt->process('reset_password.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
 
