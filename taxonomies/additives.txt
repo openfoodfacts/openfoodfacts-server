@@ -11772,7 +11772,8 @@ additives_classes:en: en:emulsifier, en:humectant
 vegan:en:no
 vegetarian:en:no
 
-en:E543, Calcium sodium polyphosphate
+#comment:en:The same as E452iii, put any synonyms there
+en:E543, E543 food additive
 bg:E543, E543 food additive
 cs:E543, E543 food additive
 da:E543, E543 food additive
@@ -11780,14 +11781,14 @@ de:E543, E543 food additive
 el:E543, E543 food additive
 es:E543, E543 food additive
 et:E543, E543 food additive
-fi:E543, Kalsiumnatriumpolyfosfaatti, Kalsiumnatriumpolyfosfaattia
-fr:E543, Polyphosphate de sodium de calcium
+fi:E543, E543 food additive
+fr:E543, E543 food additive
 hu:E543, E543 food additive
 it:E543, E543 food additive
 lt:E543, E543 food additive
 lv:E543, E543 food additive
 mt:E543, E543 food additive
-nl:E543, Natriumcalciumpolyfosfaat
+nl:E543, E543 food additive
 pl:E543, E543 food additive
 pt:E543, E543 food additive
 ro:E543, E543 food additive
@@ -12323,6 +12324,7 @@ e_number:en:452
 wikidata:en:Q11867365
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 
+#comment:en:The same as E543.
 <en:E452
 en:E452(iii), Sodium calcium polyphosphate, Sodium calcium polyphosphate
 bg:E452(iii), Натриево-калциев полифосфат, Натриево-калциев полифосфат
