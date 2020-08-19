@@ -28147,6 +28147,9 @@ fr:riz rouge germé
 <en:rice
 fr:riz riceberry mélangé
 
+<en:rice
+en:sushi rice
+
 ##################################################################################
 #
 #                        CAROB/LOCUST BEAN
@@ -29127,10 +29130,6 @@ zh:糖蜜
 wikidata:en:Q154389
 wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
-
-fr:pâte à tarte
-carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
-carbon_footprint_fr_foodges_value:fr:7.3
 
 <en:molasses
 en:cane sugar molasses, cane molasses
@@ -72192,9 +72191,13 @@ wikidata:en: Q53619707
 # usage:en:egg pasta (durum wheat semolina, eggs)
 # usage:fr:Pâtes aux œufs (semoule de blé dur, œufs d'élevage au sol, sel de cuisine iodé]
 
-# <en:dough
-# fr:pâte à tarte
+<en:dough
+en:pastry, pastry dough, pie dough
+fr:pâte à tarte
+wikipedia:en:https://en.wikipedia.org/wiki/Pastry
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 #<en:compound
 fr:galette
