@@ -4861,6 +4861,10 @@ wikidata:en:Q161210
 vegan:en:yes
 vegetarian:en:yes
 
+# description:en:Gum guaicum, or guaiac resin, is a substance produced from the tree species Guaiacum officinale. 
+# description:fr:La résine de gaiac est une substance végétale utilisée depuis le xvie siècle à des fins alimentaires et thérapeutiques.
+# comment:en:Careful with overlap between E314 and E241. It seems to be the same, E241 has the role as preservative and E314 as antioxidant.
+
 en:E241, E241 food additive
 bg:E241, E241 food additive
 cs:E241, E241 food additive
@@ -4884,10 +4888,11 @@ sk:E241, E241 food additive
 sl:E241, E241 food additive
 sv:E241, E241 food additive
 e_number:en:241
+wikipedia:en:Gum_guaicum
 vegan:en:yes
 vegetarian:en:yes
 
-# descrption:en:Dimethyl dicarbonate (DMDC) is an organic compound which is a colorless liquid with a pungent odor at high concentration at room temperature. It is primarily used as a beverage preservative, processing aid, or sterilant
+# description:en:Dimethyl dicarbonate (DMDC) is an organic compound which is a colorless liquid with a pungent odor at high concentration at room temperature. It is primarily used as a beverage preservative, processing aid, or sterilant
 
 en:E242, Dimethyl dicarbonate, DMDC, methoxycarbonyl methyl carbonate, dicarbonic acid dimethyl ester, Velcorin
 ar:E242, ثنائي ميثيل ثنائي الكربونات
@@ -6872,7 +6877,7 @@ it:E313, E313 food additive
 lt:E313, E313 food additive
 lv:E313, E313 food additive
 mt:E313, E313 food additive
-nl:E313, Thiodipropionzuur
+nl:E313, E313 food additive
 pl:E313, E313 food additive
 pt:E313, E313 food additive
 ro:E313, Gelat de etil
@@ -6883,6 +6888,7 @@ e_number:en:313
 vegan:en:yes
 vegetarian:en:yes
 
+# en:comment:Careful with overlap between E314 and E241. It seems to be the same, E241 has the role as preservative and E314 as antioxidant.
 en:E314, Guaiacum
 bg:E314, E314 food additive
 cs:E314, E314 food additive
@@ -6892,9 +6898,10 @@ el:E314, E314 food additive
 es:E314, E314 food additive
 et:E314, E314 food additive
 fi:E314, Guaaksihartsi, Guaaksihartsia
-fr:E314, Gomme gaïac, résine de gaïac
+fr:E314, résine de gaïac
 hu:E314, E314 food additive
 it:E314, E314 food additive
+ja:E314, グアヤク樹脂
 lt:E314, E314 food additive
 lv:E314, E314 food additive
 mt:E314, E314 food additive
@@ -6905,6 +6912,7 @@ ro:E314, Rășină de guaiac
 sk:E314, E314 food additive
 sl:E314, E314 food additive
 sv:E314, E314 food additive
+wikipedia:en:Gum_guaicum
 e_number:en:314
 additives_classes:en: en:antioxidant
 vegan:en:yes
@@ -7147,32 +7155,34 @@ additives_classes:en: en:antioxidant
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
+# description:en:Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials. The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
+# comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
 
-en:E322, Lecithins, Phosphatides, Lecithin
-bg:E322, Лецитини, Фосфатиди, Лецитин
-ca:E322, Lecitina
-cs:E322, Lecitiny, Fosfatidy, Lecitin
-da:E322, Lecithiner, Phosphatider, Lecitin
-de:E322, Lecithine, Phosphatide
+en:E322, Lecithins, Phosphatides
+ar:E322, ليسيثين
+bg:E322, Лецитини, Фосфатиди
+ca:E322, lecitines
+cs:E322, Lecitiny, Fosfatidy
+da:E322, Lecithiner, Phosphatider
+de:E322, Lecithinen, Phosphatide
 el:E322, Λεκιθινες, Φωσφατίδια
-es:E322, Lecitinas, Fosfátidos, Lecitina de soja, Lecitina de girasol, Lecitina
+es:E322, Lecitinas, Fosfátidos
 et:E322, Letsitiinid, Fosfatiidid, Letsitiin
-fi:E322, Lesitiinit, Fosfatidit, Lesitiini, Lesitiinejä, Fosfatidejä, Lesitiiniä, soijalesitiini, auringonkukkalesitiini, rapsilesitiini, soijalesitiiniä, auringonkukkalesitiiniä, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä, E322 soijasta
-fr:E322, Lécithines, Lécithine, Lécithine partiellement hydrolysée, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines, CAS 8002-43-5
-hu:E322, Lecitinek, Foszfatidek, Lecitin
-it:E322, Lecitine, Fosfatidi, Lecitina
+fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
+fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
+hu:E322, Lecitinek, Foszfatidek
+it:E322, Lecitine, Fosfatidi
 lt:E322, Lecitinai, Fosfatidai
 lv:E322, Lecitīni, Fosfatīdi
 mt:E322, Leċitini, Fosfatidi
-nl:E322, Lecithinen, Fosfatiden, Lecithine
+nl:E322, Lecithinen, Fosfatiden
 pl:E322, Lecytyny, Fosfatydy
-pt:E322, Lecitinas, Fosfatídeos, Lecitina
-ro:E322, Lecitine, Fosfatide, Lecitină
-ru:E322, Лецитин
+pt:E322, Lecitinas, Fosfatídeos
+ro:E322, Lecitine, Fosfatide
+ru:E322, Лецитины
 sk:E322, Lecitíny, Fosfatidy
-sl:E322, Lecitini, fosfatidi, Lecitin
-sv:E322, Lecitiner, Fosfatider, Lecitin
+sl:E322, Lecitini, fosfatidi
+sv:E322, Lecitiner, Fosfatider
 e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
@@ -7180,31 +7190,57 @@ organic_eu:en:authorized
 vegan:en:maybe
 vegetarian:en:maybe
 
+# comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any lecitin with origin soy or sunflower can be added to the ingredients taxonomy (for the moment).
 <en:E322
 en:E322(i), Lecithin
-bg:E322(i), E322(i) food additive
-cs:E322(i), E322(i) food additive
-da:E322(i), E322(i) food additive
-de:E322(i), E322(i) food additive
-el:E322(i), E322(i) food additive
-es:E322(i), E322(i) food additive
-et:E322(i), E322(i) food additive
+bg:E322(i), Лецитин
+ca:E322(i), lecitina
+cs:E322(i), lecitin
+da:E322(i), Lecitin
+de:E322(i), Lecithine
+el:E322(i), λεκιθίνη
+eo:E322(i), Lecitino
+es:E322(i), Lecitina
+et:E322(i), Letsitiin
+eu:E322(i), Lezitina
+fa:E322(i), لسیتین
 fi:E322(i), Lesitiini, Lesitiiniä
 fr:E322(i), Lécithine
-hu:E322(i), E322(i) food additive
+gl:E322(i), Lecitina
+he:E322(i), לציטין
+hr:E322(i), Lecitin
+hu:E322(i), Lecitin
+hy:E322(i), Լեցիտիններ
+id:E322(i), Lesitin
+is:E322(i), Lesitín
 it:E322(i), Lecitina
+ja:E322(i), レシチン
+ko:E322(i), 레시틴
+ms:E322(i), Lesitin
 lt:E322(i), E322(i) food additive
 lv:E322(i), E322(i) food additive
 mt:E322(i), E322(i) food additive
-nl:E322(i), E322(i) food additive
-pl:E322(i), E322(i) food additive
-pt:E322(i), E322(i) food additive
-ro:E322(i), E322(i) food additive
+nl:E322(i), Lecithine
+pl:E322(i), lecytyna
+pt:E322(i), lecitina
+ro:E322(i), Lecitină
+ru:E322(i), Лецитин
+sh:E322(i), Lecitin
 sk:E322(i), E322(i) food additive
-sl:E322(i), E322(i) food additive
-sv:E322(i), E322(i) food additive
-e_number:en:322
+sl:E322(i), Lecitin
+sr:E322(i), Лецитин
+su:E322(i), Lésitin
+sv:E322(i), Lecitin
+th:E322(i), เลซิทิน
+tr:E322(i), Lesitin
+uk:E322(i), Лецитин
+uz:E322(i), Letsinlar
+vi:E322(i), Lecithin
+zh:E322(i), 卵磷脂
 wikidata:en:Q241595
+wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
+# issue with ingredient @2018-10-11 mixed with sunflower
+e_number:en:322
 additives_classes:en: en:antioxidant, en:emulsifier
 organic_eu:en:authorized
 
@@ -7598,19 +7634,20 @@ vegetarian:en:yes
 #en:e330 acidity corrector
 #de:Säureregulator Citronensäure
 #fr:correcteur d'acidité acide citrique, correcteur d'acidité e330
-#t:correttore di acidità E330 - acido citrico
+#it:correttore di acidità E330 - acido citrico
 # fr:correcteur-d’acidité-acide-citrique has 83 products in 3 languages @2018-11-17
 
+#comment:en:E331 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants.
 en:E331, Sodium citrates
 bg:E331, E331 food additive
 ca:E331, Citrats de sodi
 cs:E331, E331 food additive
 da:E331, Natriumcitrater
-de:E331, Natriumcitrat, Natriumzitrat
+de:E331, Natriumcitraten, Natriumcitrat
 el:E331, E331 food additive
-es:E331, Citratos de sodio, citrato sodico
+es:E331, Citratos de sodio
 et:E331, Naatriumtsitraat
-fi:E331, Natriumsitraatti, Natriumsitraattia
+fi:E331, E331 food additive
 fr:E331, Citrates de sodium
 hu:E331, Nátrium-citrát
 it:E331, E331 food additive
@@ -7623,6 +7660,7 @@ pt:E331, E331 food additive
 ro:E331, E331 food additive
 ru:E331, Натрия гидроцетрат
 sl:E331, E331 food additive
+sk:E331, Citran sodný, Nátrium citrát
 sv:E331, Natriumcitrater
 e_number:en:331
 wikidata:en:Q6460572
@@ -7631,13 +7669,15 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#description:en:MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 <en:E331
 en:E331(i), Monosodium citrate
 bg:E331(i), Мононатриев цитрат
 ca:E331(i), Citrat monosòdic, citrat monosodic
 cs:E331(i), Citronan monosodný
 da:E331(i), Mononatriumcitrat
-de:E331(i), Mononatriumcitrat, Natriumcitrat
+de:E331(i), Mononatriumcitrat
 el:E331(i), Δισοξινο κιτρικο νατριο
 es:E331(i), Citrato monosódico
 et:E331(i), Naatriumdivesiniktsitraat
@@ -7652,13 +7692,19 @@ nl:E331(i), Mononatriumcitraat
 pl:E331(i), Cytrynian monosodowy
 pt:E331(i), Citrato monossódico
 ro:E331(i), Citrat monosodic
-sk:E331(i), Citran sodný, Nátrium citrát
+sk:E331(i), E331(i) food additive
 sl:E331(i), Mononatrijev citrat
 sv:E331(i), Mononatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
+wikidata:en:Q4179018
+wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_citrate
+# additive/e331i-monosodium-citrate has 112 products in 7 languages @2019-04-24
+# ingredient/fr:citrate-monosodique has 79 products in 5 languages @2019-04-24
+
+# description:en:DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
 
 <en:E331
 en:E331(ii), Disodium citrate
@@ -7666,7 +7712,7 @@ bg:E331(ii), Динатриев цитрат
 ca:E331(ii), Citrat disòdic, citrat disodic
 cs:E331(ii), Disodium citrate
 da:E331(ii), Dinatriumcitrat
-de:E331(ii), Dinatriumcitrat, Natriumcitrat
+de:E331(ii), Dinatriumcitrat
 el:E331(ii), Οξινο κιτρικο νατριο
 es:E331(ii), Citrato disódico
 et:E331(ii), Naatriumvesiniktsitraat
@@ -7681,13 +7727,16 @@ nl:E331(ii), Dinatriumcitraat
 pl:E331(ii), Cytrynian disodowy
 pt:E331(ii), Citrato dissódico
 ro:E331(ii), Citrat disodic
-sk:E331(ii), Citran disodný, Nátrium citrát
+sk:E331(ii), Citran disodný
 sl:E331(ii), Dinatrijev citrat
 sv:E331(ii), Dinatriumcitrat
 e_number:en:331
 wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
 organic_eu:en:authorized
+wikidata:en:Q4177124
+wikipedia:en:https://en.wikipedia.org/wiki/Disodium_citrate
+# additive/e331ii-disodium-citrate has 21 products in 2 languages @2019-04-24
 
 <en:E331
 en:E331(iii), Trisodium citrate
@@ -7703,19 +7752,20 @@ pt:E331(iii), Citrato trissódico
 sv:E331(iii), Trinatriumcitrat
 e_number:en:331
 
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
 ca:E332, Citrats de potassi
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrat, Kaliumcitrate, Trikaliumcitrat, E 332
-el:E332, E332 food additive
-es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico, E 332
+de:E332, Kaliumcitrate, Kaliumcitrat
+el:E332, Κιτρικο καλιο
+es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
 et:E332, E332 food additive
 fi:E332, Kaliumsitraatti, Kaliumsitraattia
-fr:E332, Citrates de potassium, Citrate de potassium, Citrate biacide de potassium, Citrate tripotassique
+fr:E332, Citrates de potassium, Citrate de potassium
 hu:E332, Kálium-citrát
-it:E332, Citrato di potassio, C6H5K3O7·H2O, Citrato di tripotassio
+it:E332, Citrato di potassio
 lt:E332, E332 food additive
 lv:E332, E332 food additive
 mt:E332, E332 food additive
@@ -7724,9 +7774,9 @@ pl:E332, E332 food additive
 pt:E332, Citrato de potássio
 ro:E332, E332 food additive
 ru:E332, Цитрат калия
-sk:E332, E332 food additive
+sk:E332, Kálium-citrát, Citran draselný
 sl:E332, E332 food additive
-sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
+sv:E332, Kaliumcitrat, Kaliumcitrater
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
@@ -7739,7 +7789,7 @@ en:E332(i), Monopotassium citrate
 bg:E332(i), Монокалиев цитрат
 cs:E332(i), Citronan monodraselný
 da:E332(i), Monokaliumcitrat
-de:E332(i), Monokaliumcitrat, Kaliumcitrat
+de:E332(i), Monokaliumcitrat
 el:E332(i), Δισοξινο κιτρικο καλιο
 es:E332(i), Citrato monopotásico
 et:E332(i), Kaaliumdivesiniktsitraat
@@ -7754,21 +7804,26 @@ nl:E332(i), Monokaliumcitraat
 pl:E332(i), Cytrynian monopotasowy
 pt:E332(i), Citrato monopotássico
 ro:E332(i), Citrat monopotasic
-sk:E332(i), Citran draselný, Kálium-citrát
+sk:E332(i). E332(i) food additive
 sl:E332(i), Monokalijev citrat
 sv:E332(i), Monokaliumcitrat
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 e_number:en:332
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabilizer
+wikidata:en:Q63255997
+# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
 
+# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
 <en:E332
 en:E332(ii), Tripotassium citrate
 bg:E332(ii), Трикалиев цитрат
 cs:E332(ii), Tripotassium citrate
 da:E332(ii), Trikaliumcitrat
 de:E332(ii), Trikaliumcitrat, Kaliumcitrat
-el:E332(ii), Κιτρικο καλιο
+el:E332(ii), E332(ii) food additive
 es:E332(ii), Citrato tripotásico
 et:E332(ii), Kaaliumtsitraat
 fi:E332(ii), Trikaliumsitraatti, Trikaliumsitraattia
@@ -7782,34 +7837,38 @@ nl:E332(ii), Trikaliumcitraat
 pl:E332(ii), Cytrynian tripotasowy
 pt:E332(ii), Citrato tripotássico
 ro:E332(ii), Citrat tripotasic
-sk:E332(ii), Citran tridraselný, Kálium-citrát
+sk:E332(ii), Citran tridraselný
 sl:E332(ii), Trikalijev citrat
 sv:E332(ii), Trikaliumcitrat
 e_number:en:332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabilizer
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 
-en:E333, Calcium citrates , Calcium citrate
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
+en:E333, Calcium citrates, Calcium citrate
 bg:E333, E333 food additive
 ca:E333, Citrats de calci
 cs:E333, Citrát vápenatý
 da:E333, E333 food additive
-de:E333, Calciumcitrat, Tricalciumcitrat, E 333, Kalziumzitrat, Calciumcitrate
-el:E333, E333 food additive
-es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga, E 333
+de:E333, Calciumcitrat, Kalziumzitrat, Calciumcitrate
+el:E333, Κιτρικο ασβεστιο
+es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga
 et:E333, Kaltsiumtsitraat
 fi:E333, Kalsiumsitraatti, Kalsiumsitraattia
-fr:E333, Citrates de calcium, Citrate de calcium, Citrate de monocalcium, Citrate de dicalcium, Citrate de tricalcium, Citrate tricalcique
+fr:E333, Citrates de calcium, Citrate de calcium
 hu:E333, Kalcium-citrát
-it:E333, Citrato di calcio, C12H10Ca3O14x4H2O
+it:E333, Citrato di calcio
 lt:E333, E333 food additive
 lv:E333, E333 food additive
 mt:E333, E333 food additive
 nl:E333, Calciumcitraat
 pl:E333, cytrynian wapnia
 pt:E333, Citrato de cálcio
-ro:E333, E333 food additive
+ro:E333, Citrat tricalcic
+ru:E333, Цитрат кальция
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
 sv:E333, Kalciumcitrater
@@ -7821,17 +7880,18 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(i), Monocalcium citrate
 bg:E333(i), Монокалциев цитрат
 cs:E333(i), Monocalcium citrate
 da:E333(i), Monocalciumcitrat
-de:E333(i), Monocalciumcitrat, Calciumcitrat
+de:E333(i), Monocalciumcitrat
 el:E333(i), Δισοξινο κιτρικο ασβεστιο
 es:E333(i), Citrato monocálcico
 et:E333(i), Kaltsiumdivesiniktsitraat
 fi:E333(i), Monokalsiumsitraatti, Monokalsiumsitraattia
-fr:E333(i), Citrate monocalcique
+fr:E333(i), Citrate monocalcique, Citrate de monocalcium
 hu:E333(i), Monokalcium-citrát
 it:E333(i), Citrato monocalcico
 lt:E333(i), Monokalcio citratas
@@ -7850,17 +7910,17 @@ wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(ii), Dicalcium citrate
 bg:E333(ii), Дикалциев цитрат
 cs:E333(ii), Dicalcium citrate
 da:E333(ii), Dicalciumcitrat
-de:E333(ii), Dicalciumcitrat, Calciumcitrat
-el:E333(ii), Οξινο κιτρικο ασβεστιο
+de:E333(ii), Dicalciumcitrat
 es:E333(ii), Citrato dicálcico
 et:E333(ii), Kaltsiumvesiniktsitraat
 fi:E333(ii), Dikalsiumsitraatti, Dikalsiumsitraattia
-fr:E333(ii), Citrate dicalcique
+fr:E333(ii), Citrate dicalcique, Citrate de dicalcium
 hu:E333(ii), Dikalcium-citrát
 it:E333(ii), Citrato dicalcico
 lt:E333(ii), Dikalcio citratas
@@ -7870,7 +7930,7 @@ nl:E333(ii), Dicalciumcitraat
 pl:E333(ii), Cytrynian diwapniowy
 pt:E333(ii), Citrato dicálcico
 ro:E333(ii), Citrat dicalcic
-sk:E333(ii), Citran divápenatý (dicitran divápenatý), Kalcium-citrát
+sk:E333(ii), Citran divápenatý, dicitran divápenatý,
 sl:E333(ii), Dikalcijev citrat
 sv:E333(ii), Dikalciumcitrat
 e_number:en:333
@@ -7878,17 +7938,18 @@ wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
+#comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 <en:E333
 en:E333(iii), Tricalcium citrate
 bg:E333(iii), Трикалциев цитрат
 cs:E333(iii), Tricalcium citrate
 da:E333(iii), Tricalciumcitrat
-de:E333(iii), Tricalciumcitrat, Calciumcitrat
-el:E333(iii), Κιτρικο ασβεστιο
+de:E333(iii), Tricalciumcitrat
 es:E333(iii), Citrato tricálcico
 et:E333(iii), Kaltsiumtsitraat
+fa:E333(iii), کلسیم سیترات
 fi:E333(iii), Trikalsiumsitraatti, Trikalsiumsitraattia
-fr:E333(iii), Citrate tricalcique
+fr:E333(iii), Citrate tricalcique, Citrate de tricalcium
 hu:E333(iii), Trikalcium-citrát
 it:E333(iii), Citrato tricalcico
 lt:E333(iii), Trikalcio citratas
@@ -7898,44 +7959,86 @@ nl:E333(iii), Tricalciumcitraat
 pl:E333(iii), Cytrynian triwapniowy
 pt:E333(iii), Citrato tricálcico
 ro:E333(iii), Citrat tricalcic
-sk:E333(iii), Citran trivápenatý (dicitran trivápenatý), Kalcium-citrát
+sk:E333(iii), Citran trivápenatý, dicitran trivápenatý
 sl:E333(iii), Trikalcijev citrat
 sv:E333(iii), Trikalciumcitrat
+zh:E333(iii), 柠檬酸钙
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
+#description:en:Tartaric acid is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
+
 en:E334, L(+)-tartaric acid, tartaric acid, 2\,3-dihydroxybutanedioic acid, 2\,3-dihydroxysuccinic acid, threaric acid, racemic acid, uvic acid, paratartaric acid
+ar:E334, حمض الطرطريك
 bg:E334, L(+)-винена киселина, винена киселина, Лимонтузу, Лимонтозу
-ca:E334, Àcid tartàric, àcid L(+)-tartàric, acid tartaric
+bn:E334, টারটারিক অ্যাসিড
+bs:E334, Vinska kiselina
+ca:E334, àcid L(+)-tartàric, Àcid tartàric, acid tartaric, àcid tartàric, tàrtic, tartàric
 cs:E334, L(+)-kyselina vinná, Kyselina vinná, E 334, Kyselina hroznová
-da:E334, L(+)-tartaric acid, tartaric acid, L-Vinsyre, L-2\,3-dihydroxybutandisyre, Vinsyre, E-334
-de:E334, L(+)-Weinsäure, Weinsäure (L+), L-Weinsäure, L-2\,3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2\,3-Dihydroxybutandisäure, 2\,3-Dihydroxybernsteinsäure, E 334, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure
+cy:E334, Asid tartarig
+da:E334, L(+)-tartaric acid, tartaric acid, L-Vinsyre, L-2\,3-dihydroxybutandisyre, Vinsyre, tartaric acid
+de:E334, L(+)-Weinsäure, Weinsäure (L+), L-Weinsäure, L-2\,3-Dihydroxybutandisäure, Weinsäure, Threarsäure, Tartaric acid, 2\,3-Dihydroxybutandisäure, 2\,3-Dihydroxybernsteinsäure, Dihydroxybernsteinsäure, D-(-)-Weinsäure, Traubensäure, Weinsteinsäure, Weinsäure
 el:E334, L(+)-τρυγικο οξυ, τρυγικο οξυ
-es:E334, Ácido tartárico, Ácido l(+)-tartárico, E 334, Crémor tartaro, Ácido tártrico
+eo:E334, Tartrata acido
+es:E334, Ácido tartárico, Ácido l(+)-tartárico, Crémor tartaro, Ácido tártrico, Acido tartrico, tártico, tartárico
 et:E334, L(+)-viinhape, viinhape, L-viinhape, L-2\,3-dihüdroksübutaandihape
-fi:E334, L(+)-viinihappo, viinihappo, L-Viinihappo, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappo, E 334, L(+)-viinihappoa, viinihappoa, L-Viinihappoa, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappoa
-fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, CAS 87-69-4, Acide DL-tartrique, 147-71-7, 147-73-9, Acide DL-tartrique monohydraté, 87-69-4, Acide racémique, 133-37-9, Acide D-tartrique, Tartrate, Acide mesotartrique, C4H6O6
+eu:E334, Azido tartariko
+fa:E334, اسید تارتاریک
+fi:E334, L(+)-viinihappo, viinihappo, L-Viinihappo, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappo, L(+)-viinihappoa, viinihappoa, L-Viinihappoa, L-2\,3-Dihydroksibutaanidihappo, 2\,3-dihydroksibutaanidihappoa, viinhape
+fr:E334, Acide L-tartrique, Acide tartrique, Acide L(+)tartrique, Acide d-α, β-dihydroxysuccinique, Acide dextrotartarique, acide 3-hydroxy malique, Acide DL-tartrique, Acide DL-tartrique monohydraté, Acide racémique, Acide D-tartrique, Tartrate, Acide mesotartrique
+ga:E334, Aigéad tartarach
+gl:E334, Ácido tartárico
+he:E334, חומצה טרטרית
+hi:E334, टार्टरिक अम्ल
+hr:E334, Vinska kiselina
 hu:E334, L(+)-borkősav, borkősav, L-Borkősav, L-2\,3-Dihidroxi-butándisav
-it:E334, L(+)-acido tartarico, acido tartarico, Acido 2\,3-diidrossibutandioico, Tartaro emetico, Tartrato, C4H6O6
+hy:E334, Գինեթթու
+id:E334, Asam tartarat
+it:E334, L(+)-acido tartarico, acido tartarico, Acido 2\,3-diidrossibutandioico, Tartaro emetico, Tartrato
+ja:E334, 酒石酸
+ko:E334, 타타르산
 lt:E334, Vyno rūgštis (l(+)-), vyno rūgštis
-lv:E334, L(+)-vīnskābe, vīnskābe, L-vīnskābe, L-2\,3-dihidroksibutāndiskābe, Tartrāti, Mezovīnskābe, Vīnogskābe, C4H6O6
+lv:E334, L(+)-vīnskābe, vīnskābe, L-vīnskābe, L-2\,3-dihidroksibutāndiskābe, Tartrāti, Mezovīnskābe, Vīnogskābe
+mk:E334, Винска киселина
+ml:E334, ടാർട്ടാറിക് അമ്ലം
 mt:E334, L(+)-aċidu tartariku, aċidu tartariku
+my:E334, တာတာရစ် အက်ဆစ်
 nl:E334, L(+)-wijnsteenzuur, wijnsteenzuur, L-Wijnsteenzuur, L-2\,3-dihydroxybutaandizuur, Wijnsteenzuur, Druivenzuur
 pl:E334, Kwas winowy l(+), kwas winowy, Kwas winny, Winiany
-pt:E334, Ácido l(+)-tartárico, ácido tartárico, Ins 334, Tartarato
+pt:E334, Ácido l(+)-tartárico, ácido tartárico, Tartarato
 ro:E334, Acid l(+)- tartric, acid tartric, Acid L-tartric, Acid L-2\,3-dihidroxibutandioic
+sh:E334, Vinska kiselina
 sk:E334, Kyselina l-(+)-vínna, kyselina vínna
 sl:E334, Vinska kislina (l (+) -), vinska kislina
-sv:E334, L(+)-vinsyra, L-vinsyra, L-2\,3-dihydroxibutandisyra, Vinsyra, Tartrat, E 334, C4h6o6
+sr:E334, винска киселина
+sv:E334, L(+)-vinsyra, L-vinsyra, L-2\,3-dihydroxibutandisyra, Vinsyra, Tartrat
+te:E334, టార్టారిక్ ఆమ్లం
+tr:E334, Tartarik asit
+uk:E334, Винна кислота
+uz:E334, Vino kislota
+zh:E334, 酒石酸
+# azb:اسید تارتاریک
+# sr-ec:винска киселина
+# sr-el:Vinska kiselina
+# zh-cn:酒石酸
+# zh-hans:酒石酸
+# zh-hant:酒石酸
+# zh-hk:酒石酸
+# zh-sg:酒石酸
+# zh-tw:酒石酸
+wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
+# en:tartric acid has 360 products in 8 languages @2018-11-18
+# additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
 e_number:en:334
 wikidata:en:Q194322
 additives_classes:en: en:antioxidant, en:sequestrant
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+
 
 en:E335, Sodium tartrates
 bg:E335, E335 food additive
@@ -7947,7 +8050,7 @@ el:E335, E335 food additive
 es:E335, E335 food additive
 et:E335, E335 food additive
 fi:E335, Natriumtartraatti, Natriumtartraattia
-fr:E335, Tartrates de sodium, tartrate de sodium, tartrate monosodique, Tartrate disodique,
+fr:E335, Tartrates de sodium
 hu:E335, E335 food additive
 it:E335, E335 food additive
 lt:E335, E335 food additive
@@ -8023,34 +8126,40 @@ wikidata:en:Q17997701
 additives_classes:en: en:sequestrant, en:stabilizer
 organic_eu:en:authorized
 
-en:E336, Potassium tartrates, Potassium tartrate, dipotassium tartrate, argol
+en:E336, Potassium tartrates
 bg:E336, E336 food additive
 ca:E336, Tartrat de potassi
 cs:E336, E336 food additive
 da:E336, E336 food additive
-de:E336, Kaliumtartrat, E 336
+de:E336, Kaliumtartrate
 el:E336, E336 food additive
-es:E336, E336 food additive,tartratos de potasio
-et:E336, E336 food additive
-fi:E336, Kaliumtartraatti, Kaliumtartraattia
-fr:E336, Tartrates de potassium, Tartrate de potassium, Tartrate monopotassique, Tartrate dipotassique, argol, Sels mono- et dipotassique de l'acide L(+)-tartrique, crème de tartre
-hu:E336, Dikálium-tartarát
-it:E336, Tartrato di potassio, C4H4K2O6
+eo:E336, Kalia tartrato
+es:E336, tartratos de potasio
+et:E336, Kaaliumtartraat
+fi:E336, kaliumtartraatit, Kaliumtartraatti, Kaliumtartraattia
+fr:E336, Tartrates de potassium, Tartrate de potassium, argol, crème de tartre
+hu:E336, tartrati di potassio, kálium-tartarát
+it:E336, Tartrato di potassio
 lt:E336, E336 food additive
 lv:E336, E336 food additive
 mt:E336, E336 food additive
-nl:E336, Kaliumtartraat
+nl:E336, Kaliumtartraten
 pl:E336, E336 food additive
 pt:E336, Tartarato de potássio
 ro:E336, E336 food additive
+ru:E336, тартрат калия
+sh:E336, Kalijum tartrat
 sk:E336, E336 food additive
 sl:E336, E336 food additive
-sv:E336, Kaliumtartrat, E 336
+sr:E336, Kalijum tartrat
+sv:E336, Kaliumtartrat
 e_number:en:336
 wikidata:en:Q418064
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
+# ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
 
 <en:E336
 en:E336(i), Monopotassium tartrate, monopotassic tartrate
@@ -8072,26 +8181,34 @@ nl:E336(i), Monokaliumtartraat
 pl:E336(i), Winian monopotasowy
 pt:E336(i), Tartarato monopotássico
 ro:E336(i), Tartrat monopotasic
-sk:E336(i), Vínan draselný, Vínan draselný
+sk:E336(i), Vínan draselný
 sl:E336(i), Monokalijev tartrat
 sv:E336(i), Monokaliumtartrat
 e_number:en:336
 wikidata:en:Q418064
 organic_eu:en:authorized
+wikidata:en: Q42807499
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
+# additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
+
+#description:en:Potassium bitartrate, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
 
 <en:E336
-en:E336(ii), Dipotassium tartrate, dipotassic tartrate
+en:E336(ii), Dipotassium tartrate, dipotassic tartrate, Potassium bitartrate
 bg:E336(ii), Дикалиев тартарат
+ca:E336(ii), Tàrtic dipotàssic, tartàric dipotàssic
 cs:E336(ii), Dipotassium tartrate
 da:E336(ii), Dikaliumtartrat
 de:E336(ii), Dikaliumtartrat, Kaliumtartrat
 el:E336(ii), Τρυγικο καλιο
 es:E336(ii), Tartrato dipotásico
 et:E336(ii), Kaaliumtartraat
+fa:E336(ii), پتاسیم تارترات
 fi:E336(ii), Dikaliumtartraatti, Dikaliumtartraattia
 fr:E336(ii), Tartrate dipotassique
 hu:E336(ii), Dikálium-tartarát
 it:E336(ii), Tartrato dipotassico
+ja:E336(ii), 酒石酸カリウム
 lt:E336(ii), Dikalio tartratas
 lv:E336(ii), Dikālija tartrāts
 mt:E336(ii), Tartrat dipotassiku
@@ -8099,12 +8216,16 @@ nl:E336(ii), Dikaliumtartraat
 pl:E336(ii), Winian dipotasowy
 pt:E336(ii), Tartarato dipotássico
 ro:E336(ii), Tartrat dipotasic
-sk:E336(ii), Vínan didraselný, Vínan draselný
+sk:E336(ii), Vínan didraselný
 sl:E336(ii), Dikalijev tartrat
 sv:E336(ii), Dikaliumtartrat
+# azb:E336(ii), پوتاسیوم تارترات
 e_number:en:336
 wikidata:en:Q418064
 organic_eu:en:authorized
+# additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
+# Potassium tartrate, dipotassium tartrate or argol has formula K2C4H4O6.
+
 
 en:E337, Potassium sodium tartrate
 bg:E337, Калиево-натриев тартарат, Калиево-натриев L-(+) тартарат, рошелова сол
@@ -8164,49 +8285,67 @@ additives_classes:en: en:antioxidant, en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
-en:E339, Sodium phosphates
-bg:E339, E339 food additive
-ca:E339, Fosfat de sodi
-cs:E339, E339 food additive
-da:E339, E339 food additive
-de:E339, Natriumphosphate
-el:E339, E339 food additive
-es:E339, Fosfatos de sodio, Fosfato de sodio, Fosfato sódico, Fosfatos sodicos, E 339, Ortofosfatos de sodio
-et:E339, E339 food additive
+
+# description:en:SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
+#comment:en:The plural form is preferred. The singular form might refer to variant iii, but can we be sure?.
+en:E339, Sodium phosphates, sodium phosphate
+ar:E339, فوسفات الصوديوم
+bg:E339, Натриев фосфат
+ca:E339, Fosfati de sodi
+cs:E339, Fosforečnan sodný
+da:E339, Natriumphosphate, Natriumphosphat
+de:E339, Natriumphosphaten, Natriumphosphat
+el:E339, Φωσφορικο νατριο
+eo:E339, Natria fosfato
+es:E339, Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio, Fosfato de sodio, Fosfato sódico
+et:E339, Naatriumfosfaat
+fa:E339, سدیم فسفات
 fi:E339, Natriumfosfaatit, Natriumfosfaatti, Natriumfosfaattia
-fr:E339, Orthophosphates de sodium, Orthophosphate de sodium, Phosphate monosodique, Phosphate disodique, Phosphate trisodique, Phosphate de sodium
-hu:E339, E339 food additive
-it:E339, E339 food additive
-lt:E339, E339 food additive
-lv:E339, E339 food additive
-mt:E339, E339 food additive
-nl:E339, Natriumorthofosfaten
-pl:E339, E339 food additive
-pt:E339, E339 food additive
-ro:E339, E339 food additive
-sk:E339, E339 food additive
-sl:E339, E339 food additive
+fr:E339, phosphates de sodium, Orthophosphates de sodium, Orthophosphate de sodium, Phosphate de sodium
+hu:E339, Nátrium-foszfát
+it:E339, fosfati di sodio, Fosfato di sodio
+ja:E339, リン酸塩
+lt:E339, Natrio fosfatas
+lv:E339, Nātrija fosfāts
+mt:E339, Fosfat tas-sodju
+nl:E339, natriumfosfaten, Natriumorthofosfaten, Natriumfosfaat
+nn:E339, natriumfosfat
+pl:E339, Fosforan sodu
+pt:E339, fosfatos de sódio, Fosfato de sódio
+ro:E339, Fosfat de sodiu
+ru:E339, Натрия фосфаты, Фосфат натрия,  Ортофосфат натрия
+sk:E339, Fosforečnan sodný
+sl:E339, natrijev fosfat
 sv:E339, Natriumfosfater, Natriumfosfat
+vi:E339, Natri phosphat
+zh:E339, 磷酸钠
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 e_number:en:339
 wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_phosphates
+# fr:phosphate-de-sodium has 337 products @2018-11-05
+
+#description:en:Monosodium phosphate (MSP), also known as monobasic sodium phosphate and sodium dihydrogen phosphate, is an inorganic compound of sodium with a dihydrogen phosphate (H2PO4−) anion.
 
 <en:E339
 en:E339(i), Monosodium phosphate, Monosodium monophosphate, Acid monosodium monophosphate, Monosodium orthophosphate, Monobasic sodium phosphate
+ar:E339(i), مونوسودیوم فوسفات
 bg:E339(i), Мононатриев фосфат, Мононатриев монофосфат, кисел мононатриев монофосфат, мононатриев ортофосфат, едноосновен натриев фосфат
 cs:E339(i), Dihydrogenfosforečnan sodný, Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný
 da:E339(i), Mononatriumphosphat, Mononatriummonophosphat, surt mononatriummonophosphat, mononatriumorthophosphat, monobasisk natriumphosphat
 de:E339(i), Mononatriumphosphat
 el:E339(i), Δισοξινο φωσφορικο νατριο, Δισόξινο ορθοφωσφορικό νάτριο
+eo:E339(i), Natria bifosfato
 es:E339(i), Fosfato monosódico, Monofosfato monosódico, monofosfato ácido monosódico, ortofosfato monosódico, fosfato monobásico sódico
 et:E339(i), Naatriumdivesinikfosfaat, Naatriumdivesinikfosfaat
 fi:E339(i), Mononatriumfosfaatti, Mononatriummonofosfaatti, Hapan mononatriummonofosfaatti, Mononatriumortofosfaatti, Yhdenarvoinen natriumfosfaatti, Mononatriumfosfaattia, Mononatriummonofosfaattia, Hapanta mononatriummonofosfaattia, Mononatriumortofosfaattia, Yhdenarvoista natriumfosfaattia
 fr:E339(i), Phosphate monosodique
 hu:E339(i), Mononátrium-foszfát
 it:E339(i), Fosfato monosodico, Monofosfato monosodico, acido monofosfato monosodico, ortofosfato monosodico, fosfato monobasico di sodio
+ja:E339(i), リン酸二水素ナトリウム
 lt:E339(i), Mononatrio fosfatas
 lv:E339(i), Mononātrija fosfāts
 mt:E339(i), Fosfat monosodiku
@@ -8214,26 +8353,38 @@ nl:E339(i), Mononatriumfosfaat, Mononatriummonofosfaat, zuur mononatriummonofosf
 pl:E339(i), Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, fosforan sodu, jednozasadowy
 pt:E339(i), Fosfato monossódico, Monofosfato monossódico, monofosfato ácido monossódico, ortofosfato monossódico, fosfato de sódio monobásico
 ro:E339(i), Fosfat monosodic, Monofosfat monosodic, Acid monofosfat monosodic, Ortofosfat monosodic, Fosfat de sodiu monobazic
+ru:E339(i), Дигидрофосфат натрия
+sh:E339(i), Mononatrijum fosfat
 sk:E339(i), Fosforečnan monosodný
 sl:E339(i), Mononatrijev fosfat, mononatrijev monofosfat, kisli mononatrijev monofosfat, mononatrijev ortofosfat, monobazični natrijev fosfat
+sr:E339(i), Mononatrijum fosfat
 sv:E339(i), Mononatriumfosfat, Mononatriummonofosfat, mononatriumortofosfat, natriumdivätefosfat
+vi:E339(i), Natri đihiđrophotphat
+zh:E339(i), 磷酸二氢钠
+# azb:E339(i), مونوسودیوم فوسفات
 e_number:en:339
 wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+wikidata:en:Q415877
+wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_phosphate
+# additive/e339i-monosodium-phosphate has 36 products in 6 languages @2018-11-05
 
-<en:E339
+#description:en:Disodium phosphate (DSP), or sodium hydrogen phosphate, or sodium phosphate dibasic, is the inorganic compound with the formula Na2HPO4.
 en:E339(ii), Disodium phosphate, Disodium monophosphate, Secondary sodium phosphate
 bg:E339(ii), Динатриев фосфат, Динатриев монофосфат, вторичен натриев фосфат
 cs:E339(ii), Hydrogenfosforečnan disodný, Fosforečnan disodný, sekundární fosforečnan sodný, orthofosforečnan disodný
 da:E339(ii), Dinatriumphosphat, Dinatriummonophosphat, sekundært natriumphosphat
 de:E339(ii), Dinatriumphosphat, Dinatriummonophosphat, sekundäres Natriumphosphat
 el:E339(ii), Οξινο φωσφορικο νατριο
+eo:E339(ii), Dunatria fosfato
 es:E339(ii), Fosfato disódico, Monofosfato disódico, fosfato sódico secundario
 et:E339(ii), Dinaatriumvesinikfosfaat, Dinaatriumvesinikfosfaat
 fi:E339(ii), Dinatriumfosfaatti, Dinatriummonofosfaatti, Sekundaarinen natriumfosfaatti, Dinatriumfosfaattia, Dinatriummonofosfaattia, Sekundaarista natriumfosfaattia
+fa:E339(ii), دی‌سدیم فسفات
 fr:E339(ii), Phosphate disodique, Monophosphate disodique, phosphate de sodium secondaire
 hu:E339(ii), Dinátrium-foszfát, Dinátrium-monofoszfát, Szekunder nátrium-foszfát
 it:E339(ii), Fosfato disodico, Monofosfato disodico, fosfato secondario di sodio
+ja:E339(ii), リン酸水素二ナトリウム
 lt:E339(ii), Dinatrio fosfatas, Dinatrio monofosfatas, antrinis natrio fosfatas
 lv:E339(ii), Dinātrija fosfāts, Dinātrija monofosfāts, Otrējais nātrija fosfāts
 mt:E339(ii), Fosfat disodiku, Monofosfat disodiku, Fosfat tas-sodju sekondarju
@@ -8241,39 +8392,65 @@ nl:E339(ii), Dinatriumfosfaat, Dinatriummonofosfaat, secundair natriumfosfaat
 pl:E339(ii), Fosforan disodowy, Monofosforan disodowy, drugorzędowy fosforan sodu
 pt:E339(ii), Fosfato dissódico, Monofosfato dissódico, fosfato secundário de sódio
 ro:E339(ii), Fosfat disodic, Monofosfat disodic, Fosfat secundar de sodiu
+ru:E339(ii), гидрофосфат натрия
+sh:E339(ii), Dinatrijum fosfat
 sk:E339(ii), Fosforečnan disodný, Monofosforečnan disodný, sekundárny fosforečnan sodný
 sl:E339(ii), Dinatrijev fosfat, dinatrijev monofosfat, sekundarni natrijev fosfat
 sv:E339(ii), Dinatriumfosfat, Dinatriummonofosfat
+ta:E339(ii), இருசோடியம் பாசுபேட்டு
+vi:E339(ii), Natri hiđrophotphat
+zh:E339(ii), 磷酸一氢钠
+# azb:E339(ii), دیسودیوم فوسفات
+# zh-cn:E339(ii), 磷酸一氢钠
+# zh-hans:E339(ii), 磷酸一氢钠
+# zh-hant:E339(ii), 磷酸一氫鈉
+# zh-hk:E339(ii), 磷酸一氫鈉
+# zh-sg:E339(ii), 磷酸一氢钠
+# zh-tw:E339(ii), 磷酸一氫鈉
 e_number:en:339
 wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+wikidata:en:Q418448
+wikipedia:en:https://en.wikipedia.org/wiki/Disodium_phosphate
+# fr:phosphate disodique has 54 products in 3 languages @2018-11-04
+# additive/e339ii-disodium-phosphate has 1940 products in 9 languages @2018-11-06
 
+#description:en:TRISODIUM PHOSPHATE (TSP) is the inorganic compound with the chemical formula Na3PO4.
 <en:E339
 en:E339(iii), Trisodium phosphate, Tribasic sodium phosphate
-bg:E339(iii), Тринатриев фосфат, Натриев фосфат, триосновен натриев фосфат
-cs:E339(iii), Fosforečnan sodný, Fosforečnan trisodný
-da:E339(iii), Trinatriumphosphat, Natriumphosphat, tribasisk natriumphosphat
-de:E339(iii), Trinatriumphosphat, Natriumphosphat, dreibasiges Natriumphosphat
-el:E339(iii), Φωσφορικο νατριο, Ουδέτερο φωσφορικό νάτριο
-es:E339(iii), Fosfato trisódico, Fosfato sódico, fosfato tribásico sódico
-et:E339(iii), Naatriumfosfaat, Trinaatriumfosfaat
+bg:E339(iii), Тринатриев фосфат, триосновен натриев фосфат
+ca:E339(iii), Fosfat de trisodi
+cs:E339(iii), Fosforečnan trisodný
+da:E339(iii), Trinatriumphosphat, tribasisk natriumphosphat
+de:E339(iii), Trinatriumphosphat, dreibasiges Natriumphosphat
+el:E339(iii), Ουδέτερο φωσφορικό νάτριο
+es:E339(iii), Fosfato trisódico, fosfato tribásico sódico
+et:E339(iii), Trinaatriumfosfaat
+fa:E339(iii), تری‌سدیم فسفات
 fi:E339(iii), Trinatriumfosfaatti, Trinatriumfosfaattia
 fr:E339(iii), Phosphate trisodique, phosphate de sodium tribasique
-hu:E339(iii), Trinátrium-foszfát, Nátrium-foszfát, Hárombázisú nátrium-foszfát
-it:E339(iii), Fosfato trisodico, Fosfato di sodio, fosfato tribasico di sodio
-lt:E339(iii), Trinatrio fosfatas, Natrio fosfatas, tribazis natrio fosfatas
-lv:E339(iii), Trinātrija fosfāts, Nātrija fosfāts, Tribāziskais nātrija fosfāts
-mt:E339(iii), Fosfat trisodiku, Fosfat tas-sodju, Fosfat tas-sodju tribażiku
-nl:E339(iii), Trinatriumfosfaat, Natriumfosfaat, driebasisch natriumfosfaat
-pl:E339(iii), Fosforan trisodowy, Fosforan sodu, fosforan sodu, trizasadowy
-pt:E339(iii), Fosfato trissódico, Fosfato de sódio, fosfato de sódio tribásico
-ro:E339(iii), Fosfat trisodic, Fosfat de sodiu, Fosfat de sodiu tribazic
-sk:E339(iii), Fosforečnan trisodný, Fosforečnan sodný, trojsýtny fosforečnan sodný
-sl:E339(iii), Trinatrijev fosfat, natrijev fosfat, tribazični natrijev fosfat
+hu:E339(iii), Trinátrium-foszfát, Hárombázisú nátrium-foszfát
+it:E339(iii), Fosfato trisodico, fosfato tribasico di sodio
+ja:E339(iii), リン酸三ナトリウム
+lt:E339(iii), Trinatrio fosfatas, tribazis natrio fosfatas
+lv:E339(iii), Trinātrija fosfāts, Tribāziskais nātrija fosfāts
+mt:E339(iii), Fosfat trisodiku, Fosfat tas-sodju tribażiku
+nl:E339(iii), Trinatriumfosfaat, driebasisch natriumfosfaat
+pl:E339(iii), Fosforan trisodowy, fosforan sodu trizasadowy
+pt:E339(iii), Fosfato trissódico, fosfato de sódio tribásico
+ro:E339(iii), Fosfat trisodic, Fosfat de sodiu tribazic
+sh:E339(iii), Trinatrijum fosfat
+sk:E339(iii), Fosforečnan trisodný, trojsýtny fosforečnan sodný
+sl:E339(iii), Trinatrijev fosfat, tribazični natrijev fosfat
+sr:E339(iii), Trinatrijum fosfat
 sv:E339(iii), Trinatriumfosfat, Trinatriummonofosfat
+# azb:E339(iii), تریسودیوم فوسفات
 e_number:en:339
 wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
+# fr:phosphate-trisodique has 45 products @2018-11-04
+# additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 
 en:E340, Potassium phosphates, potassium phosphate, KH2PO4, K2HPO4, K3PO4
 bg:E340, E340 food additive
@@ -8321,7 +8498,7 @@ lt:E340(i), Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas
 lv:E340(i), Monokālija fosfāts, Monobāziskais kālija fosfāts, Monokālija monofosfāts
 mt:E340(i), Fosfat monopotassiku, Fosfat tal-potassju monobażiku, Monofosfat monopotassiku
 nl:E340(i), Monokaliumfosfaat, Eenbasisch kaliumfosfaat, monokaliummonofosfaat
-pl:E340(i), Fosforan monopotasowy, Fosforan potasu, monozasadowy, monofosforan monopotasowy
+pl:E340(i), Fosforan monopotasowy, Fosforan potasu monozasadowy, monofosforan monopotasowy
 pt:E340(i), Fosfato monopotássico, Fosfato monobásico de potássio, monofosfato monopotássico
 ro:E340(i), Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic
 sk:E340(i), Fosforečnan monodraselný, Monosýtny fosforečnan draselný, monofosforečnan monodraselný
@@ -8375,7 +8552,7 @@ lt:E340(iii), Trikalio fosfatas, Tribazis kalio fosfatas
 lv:E340(iii), Trikālija fosfāts, Tribāziskais kālija fosfāts
 mt:E340(iii), Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku
 nl:E340(iii), Trikaliumfosfaat, Driebasisch kaliumfosfaat
-pl:E340(iii), Fosforan tripotasowy, Fosforan potasu, trizasadowy
+pl:E340(iii), Fosforan tripotasowy, Fosforan potasu trizasadowy
 pt:E340(iii), Fosfato tripotássico, Fosfato tribásico de potássio
 ro:E340(iii), Fosfat tripotasic, Fosfat de potasiu tribazic
 sk:E340(iii), Fosforečnan tridraselný, Trojsýtny fosforečnan draselný
@@ -8577,7 +8754,7 @@ lt:E343(i), Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas v
 lv:E343(i), Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts
 mt:E343(i), Fosfat monomanjeżiku
 nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat
-pl:E343(i), Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu, monozasadowy
+pl:E343(i), Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy
 pt:E343(i), Fosfato de monomagnési
 ro:E343(i), Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic
 sk:E343(i), Fosforečnan horečnatý
@@ -8696,44 +8873,52 @@ wikidata:en:Q4747303
 vegan:en:yes
 vegetarian:en:yes
 
-en:E350, Sodium malates, sodium malate
+# description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid.
+# comment:en:E350 is written in plural to distinguish it from E350i.
+en:E350, Sodium malates
 bg:E350, E350 food additive
 ca:E350, Malat de sodi
 cs:E350, E350 food additive
 da:E350, E350 food additive
 de:E350, Natriummalate
-el:E350, E350 food additive
-es:E350, Malato de sodio, Malato disodico, Malato sódico
+el:E350, άλατα του μηλικού οξέος με νάτριο
+es:E350, malatos de sodio
 et:E350, E350 food additive
-fi:E350, Natriummalaatti, Natriummalaattia
-fr:E350, Malate de sodium, Malate acide de sodium, malates, malates de sodium
-hu:E350, Nátrium-malát
-it:E350, E350 food additive
-lt:E350, E350 food additive
+fi:E350, natriummalaatit
+fr:E350, malates de sodium, malates
+hu:E350, Nátrium-malátok
+it:E350, malati di sodio
+lt:E350, natrio malatai
 lv:E350, E350 food additive
 mt:E350, E350 food additive
-nl:E350, Natriummalaat
+nl:E350, natriummalaten
 pl:E350, E350 food additive
-pt:E350, E350 food additive
+pt:E350, malatos de sódio
 ro:E350, E350 food additive
-sk:E350, E350 food additive
+sk:E350, jablčnany sodné
 sl:E350, E350 food additive
-sv:E350, E350 food additive
+sv:E350, natriummalater
 e_number:en:350
 wikidata:en:Q836788
+wikidata:en:Q63534992
 additives_classes:en: en:humectant
 vegan:en:yes
 vegetarian:en:yes
 
+
 <en:E350
 en:E350(i), Sodium malate
+ar:E350(i), مالات صوديوم
 bg:E350(i), Натриев малат
+ca:E350(i), Malat sòdic
 cs:E350(i), Jablečnan disodný
 da:E350(i), Natriummalat, Dinatriummalat
 de:E350(i), Natriummalat
 el:E350(i), Μηλικο νατριο
-es:E350(i), Malato sódico
+eo:E350(i), Natria malikato
+es:E350(i), Malato sódico, Malato de sodio
 et:E350(i), Naatriummalaat
+fa:E350(i), سدیم مالات
 fi:E350(i), Natriummalaatti, Natriummalaattia
 fr:E350(i), Malate de sodium
 hu:E350(i), Nátrium-malát
@@ -8745,12 +8930,20 @@ nl:E350(i), Natriummalaat
 pl:E350(i), Jabłczan sodu
 pt:E350(i), Malato de sódio
 ro:E350(i), Malat de sodiu
+sh:E350(i), Natrijum malat
 sk:E350(i), Jablčnan sodný
+sr:E350(i), Natrijum malat
 sl:E350(i), Natrijev malat
 sv:E350(i), Natriummalat
+ta:E350(i), சோடியம் மேலேட்டு
+# azb:E350(i), سودیوم مالات
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
+# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
+# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
+# usage:fr:correcteur d'acidité:malate de sodium
 
 <en:E350
 en:E350(ii), Sodium hydrogen malate
@@ -8778,15 +8971,17 @@ sv:E350(ii), Natriumvätemalat
 e_number:en:350
 wikidata:en:Q836788
 additives_classes:en: en:humectant
+wikidata:en:Q42807545
+# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
 
 en:E351, Potassium malate
 bg:E351, Калиев малат
 ca:E351, Malat de potassi
 cs:E351, Jablečnan draselný
 da:E351, Kaliummalat
-de:E351, Kaliummalat, Kaliummalate, E 351
+de:E351, Kaliummalat, Kaliummalate
 el:E351, Μηλικο καλιο
-es:E351, Malato potásico, Malato de potasio, E 351
+es:E351, Malato potásico, Malato de potasio
 et:E351, Kaaliummalaat
 fi:E351, Kaliummalaatti, Kaliummalaattia
 fr:E351, Malate de potassium, Malate acide de potassium
@@ -8807,23 +9002,24 @@ wikidata:en:Q408755
 vegan:en:yes
 vegetarian:en:yes
 
-en:E352, Calcium malates, calcium malate
+#comment:en:Use plural to describe E352 and singular to describe E352i
+en:E352, Calcium malates
 bg:E352, E352 food additive
-ca:E352, Malat de calci
+ca:E352, E352 food additive
 cs:E352, E352 food additive
 da:E352, E352 food additive
-de:E352, Calciummalat
+de:E352, Calciummalaten
 el:E352, E352 food additive
-es:E352, Malato de calcio, Malato dicálcico, Malato cálcico
+es:E352, Malatos de calcio
 et:E352, E352 food additive
-fi:E352, Kalsiummalaatti, Kalsiummalaattia
-fr:E352, Malate de calcium, Malate acide de calcium
-hu:E352, Kalcium-malát
-it:E352, Malato di calcio
+fi:E352, E352 food additive
+fr:E352, Malates de calcium
+hu:E352, E352 food additive
+it:E352, Malati di calcio
 lt:E352, E352 food additive
 lv:E352, E352 food additive
 mt:E352, E352 food additive
-nl:E352, Calciummalaat
+nl:E352, Calciummalaten
 pl:E352, E352 food additive
 pt:E352, E352 food additive
 ro:E352, E352 food additive
@@ -8920,9 +9116,9 @@ bg:E354, Калциев тартарат
 ca:E354, Tartrat de calci
 cs:E354, Vinan vápenatý, Kalcium-tartarát, vápenatá sůl kyseliny vinné
 da:E354, Calciumtartrat
-de:E354, Calciumtartrat, E 354
+de:E354, Calciumtartrat
 el:E354, Τρυγικο ασβεστιο
-es:E354, Tartrato de calcio, E 354
+es:E354, Tartrato de calcio
 et:E354, Kaltsiumtartraat
 fi:E354, Kalsiumtartraatti, Kalsiumtartraattia
 fr:E354, Tartrate de calcium
@@ -8946,18 +9142,18 @@ vegetarian:en:yes
 en:E355, Adipic acid, Hexanedioic acid
 bg:E355, Адипинова киселина, Хександиолова киселина
 ca:E355, Àcid adípic, acid adipic
-cs:E355, Kyselina adipová, Kyselina hexandiová, Adipát, E 355
+cs:E355, Kyselina adipová, Kyselina hexandiová, Adipát
 da:E355, Adipinsyre, Hexandisyre
-de:E355, Adipinsäure, Hexandisäure, E 355, Hexan-1\,6-disäure, Adipate, E 356, E 357, Kaliumadipat
+de:E355, Adipinsäure, Hexandisäure, Hexan-1\,6-disäure, Adipate
 el:E355, Αδιπικο οξυ, Εξανοδικαρβονικό οξύ
-es:E355, Ácido adípico, Ácido hexanodioico, E 355, Adipato
-et:E355, Adipiinhape, Heksaandihape, Adiphape, 1\,6-heksaandihape, E 355, 1\,4-butaandikarboksüülhape
-fi:E355, Adipiinihappo, Heksaanidikarbonihappo, Heksaanidihappo, 1\,4-butaanidikarboksyylihappo, Adipiinihappoa, Heksaanidikarbonihappoa, Heksaanidihappoa, 1\,4-butaanidikarboksyylihappoa
-fr:E355, Acide adipique, Acide hexanedioïque, Acide 1\,6 héxanédoïque, 124-04-9
+es:E355, Ácido adípico, Ácido hexanodioico, Adipato
+et:E355, Adipiinhape, Heksaandihape, Adiphape
+fi:E355, Adipiinihappo, Heksaanidikarbonihappo, Heksaanidihappo
+fr:E355, Acide adipique, Acide hexanedioïque
 hu:E355, Adipinsav, Hexándisav
-it:E355, Acido adipico, Acido esandioico, Acido 1\,6-esandioico, Acido 1\,4-butandicarbossilico, C6H10O4
+it:E355, Acido adipico, Acido esandioico
 lt:E355, Adipo rūgštis, Heksano dirūgštis, Adipino rūgštis
-lv:E355, Adipīnskābe, Heksāndiolskābe, C6h10o4, Hooc(ch2)4cooh, Heksāndiskābe, 1\,4-butāndikarbonskābe, Adipināts
+lv:E355, Adipīnskābe, Heksāndiolskābe, Heksāndiskābe, Adipināts
 mt:E355, Aċidu adipiku, Aċidu eżandiojku
 nl:E355, Adipinezuur, Hexaandizuur
 pl:E355, Kwas adypinowy, Kwas heksanodiowy
@@ -8965,7 +9161,7 @@ pt:E355, Ácido adípico, Ácido hexanodióico, Adipato
 ro:E355, Acid adipic, Acid hexandioic
 sk:E355, Kyselina adipová, Kyselina hexándiová
 sl:E355, Adipinska kislina, heksandiojska kislina
-sv:E355, Adipinsyra, Hexandisyra, Hexandikarbonylsyra, E 355
+sv:E355, Adipinsyra, Hexandisyra, Hexandikarbonylsyra
 e_number:en:355
 wikidata:en:Q357415
 vegan:en:yes
@@ -9006,7 +9202,7 @@ cs:E357, Adipan draselný synonyma, kalium-adipát
 da:E357, Kaliumadipat
 de:E357, Kaliumadipat
 el:E357, Αδιπικο καλιο
-es:E357, Adipato de potasio, Adipato potásico, E 357
+es:E357, Adipato de potasio, Adipato potásico
 et:E357, Kaaliumadipaat
 fi:E357, Kaliumadipaatti, Kaliumadipaattia
 fr:E357, Adipate de potassium
@@ -9021,7 +9217,7 @@ pt:E357, Adipato de potássio
 ro:E357, Adipat de potasiu
 sk:E357, Adipan draselný
 sl:E357, Kalijev adipat
-sv:E357, Kaliumadipat, E 357
+sv:E357, Kaliumadipat
 e_number:en:357
 wikidata:en:Q931445
 vegan:en:yes
@@ -10344,30 +10540,31 @@ wikidata:en:Q18967232
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:to distinghuish between E420 and E420i, use the D-variant for E420i.
 en:E420, Sorbitol, glucitol
 bg:E420, Сорбитол
 ca:E420, Sorbitol
-cs:E420, Sorbitol, D-glucitol, E 420, Sorbit
+cs:E420, Sorbitol, Sorbit
 da:E420, Sorbitol
-de:E420, Sorbit, Sorbitintoleranz, Glucitol, Hexanhexol, Hexanhexaol, Sorbitol, Sorbitmalabsorption
-el:E420, E420 food additive
-es:E420, Sorbitol, Glucitol,sorbitoles
-et:E420, E420 food additive
+de:E420, Sorbit, Glucitol, Hexanhexol, Hexanhexaol, Sorbitol
+el:E420, Σορβιτολη
+es:E420, Sorbitol, Glucitol, sorbitoles
+et:E420, sorbitool
 fi:E420, Sorbitoli, Glusitoli, Sorbitolia, Glusitolia, Sorbitolit, Sorbitoleja
-fr:E420, Sorbitol, Sirop de sorbitol, sorbitols, D-glucitol, Glucitol, E 420, 50-70-4, Gulitol, E420(i), E420(ii)
+fr:E420, Sorbitol, sorbitols, Glucitol, Gulitol
 hu:E420, Szorbitol
 it:E420, Sorbitolo, Glucitolo
-lt:E420, Sorbitolis, C6H14O6
-lv:E420, E420 food additive
-mt:E420, E420 food additive
+lt:E420, Sorbitolis
+lv:E420, sorbitolis, Sorbīts
+mt:E420, sorbitol
 nl:E420, Sorbitol
 pl:E420, Sorbitole, Sorbitol
 pt:E420, Sorbitol
-ro:E420, Sorbitol, Sirop de sorbitol
-ru:E420, Сорбит, сорбитовый сироп, Сорбитол, Глюцит, Е420
+ro:E420, Sorbitol
+ru:E420, Сорбит, сорбитовый сироп, Сорбитол, Глюцит
 sk:E420, Sorbitol
 sl:E420, Sorbitol
-sv:E420, Sorbitol, E 420, D-sorbitol, D-glukitol, Sorbitoler
+sv:E420, Sorbitol, D-sorbitol, D-glukitol, Sorbitoler
 e_number:en:420
 wikidata:en:Q245280
 additives_classes:en: en:humectant, en:sequestrant, en:stabilizer, en:sweetener, en:thickener
@@ -10375,28 +10572,27 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E420
-en:E420(i), Sorbitol, D-glucitol
-bg:E420(i), сорбитол, D-глюцитол
-cs:E420(i), Sorbitol
-da:E420(i), Sorbitol
-de:E420(i), Sorbit, D-Glucitol
-el:E420(i), Σορβιτολη, D-γλυκιτόλη
-es:E420(i), Sorbitol
-et:E420(i), sorbitool, D-glütsitool
-fi:E420(i), Sorbitoli, D-glusitoli, Sorbitolia, D-glusitolia
-fr:E420(i), sorbitol, D-glucitol
-hu:E420(i), Szorbit, D-Glucit
-it:E420(i), sorbitolo, D-glucitolo
-lt:E420(i), sorbitolis, D-gliucitolis
-lv:E420(i), Sorbīts, D-glucīts
-mt:E420(i), sorbitol, D-gluċitol
-nl:E420(i), Sorbitol, D-glucitol
-pl:E420(i), Sorbitol
-pt:E420(i), sorbitol
-ro:E420(i), Sorbitol
-sk:E420(i), sorbitol
-sl:E420(i), Sorbitol
-sv:E420(i), Sorbitol, D-glucitol
+en:E420(i), D-sorbitol, D-glucitol
+bg:E420(i), D-глюцитол
+cs:E420(i), D-glucitol
+da:E420(i), D-Sorbitol
+de:E420(i), D-Glucitol
+el:E420(i), D-γλυκιτόλη
+es:E420(i), D-Sorbitol
+et:E420(i), D-glütsitool
+fi:E420(i), D-glusitoli, D-glusitolia
+fr:E420(i), D-glucitol
+hu:E420(i), D-Szorbit
+it:E420(i), D-glucitolo
+lt:E420(i), D-gliucitolis
+lv:E420(i), D-glucīts
+mt:E420(i), D-gluċitol
+nl:E420(i), D-glucitol
+pl:E420(i), D-Sorbitol
+pt:E420(i), D-sorbitol
+ro:E420(i), D-sorbitol
+sl:E420(i), D-Sorbitol
+sv:E420(i), D-glucitol
 e_number:en:420
 wikidata:en:Q245280
 additives_classes:en: en:humectant, en:sequestrant, en:stabilizer, en:sweetener, en:thickener
@@ -10527,7 +10723,7 @@ el:E425, E425 food additive
 es:E425, E425 food additive
 et:E425, E425 food additive
 fi:E425, Konjak
-fr:E425, Gomme de konjac, Glucomannane de konjac, extrait de racine de Konjac
+fr:E425, extrait de racine de Konjac
 hu:E425, E425 food additive
 it:E425, E425 food additive
 lt:E425, E425 food additive
@@ -10707,7 +10903,7 @@ mt:E428, E428 food additive
 my:E428, ဂျယ်လတင်း
 nb:E428, gelatin
 ne:E428, geltain
-nl:E428, Gelatine, Geleermiddel
+nl:E428, Gelatine
 oc:E428, Gelatina
 pa:E428, ਸਰੇਸ਼
 pl:E428, Żelatyna, Gelatin
@@ -11044,7 +11240,7 @@ el:E440a, E440a food additive
 es:E440a, Pectina
 et:E440a, E440a food additive
 fi:E440a, Pektiini, Pektiiniä
-fr:E440a, Pectine, CAS 9000-69-5, Pectate de sodium, Sodium pectate, CAS 90999-05-6, Pectate de potassium, Pectate d'ammonium
+fr:E440a, Pectine
 hu:E440a, E440a food additive
 it:E440a, E440a food additive
 lt:E440a, E440a food additive
@@ -11074,13 +11270,13 @@ el:E440a(ii), E440a(ii) food additive
 es:E440a(ii), E440a(ii) food additive
 et:E440a(ii), E440a(ii) food additive
 fi:E440a(ii), Natriumpektaatti, Natriumpektaattia
-fr:E440a(ii), Pectate de sodium, Sodium pectate, CAS 90999-05-6
+fr:E440a(ii), Pectate de sodium, Sodium pectate
 hu:E440a(ii), E440a(ii) food additive
 it:E440a(ii), E440a(ii) food additive
 lt:E440a(ii), E440a(ii) food additive
 lv:E440a(ii), E440a(ii) food additive
 mt:E440a(ii), E440a(ii) food additive
-nl:E440a(ii), E440a(ii) food additive
+nl:E440a(ii), Natriumpectaat
 pl:E440a(ii), E440a(ii) food additive
 pt:E440a(ii), E440a(ii) food additive
 ro:E440a(ii), E440a(ii) food additive
@@ -11107,7 +11303,7 @@ it:E440a(iii), E440a(iii) food additive
 lt:E440a(iii), E440a(iii) food additive
 lv:E440a(iii), E440a(iii) food additive
 mt:E440a(iii), E440a(iii) food additive
-nl:E440a(iii), E440a(iii) food additive
+nl:E440a(iii), Kaliumpectaat
 pl:E440a(iii), E440a(iii) food additive
 pt:E440a(iii), E440a(iii) food additive
 ro:E440a(iii), E440a(iii) food additive
@@ -11134,7 +11330,7 @@ it:E440a(iv), E440a(iv) food additive
 lt:E440a(iv), E440a(iv) food additive
 lv:E440a(iv), E440a(iv) food additive
 mt:E440a(iv), E440a(iv) food additive
-nl:E440a(iv), E440a(iv) food additive
+nl:E440a(iv), Ammoniumpectaat
 pl:E440a(iv), E440a(iv) food additive
 pt:E440a(iv), E440a(iv) food additive
 ro:E440a(iv), E440a(iv) food additive
@@ -11145,6 +11341,7 @@ wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:440a
 
+#comment:en:This is the same as E440(ii)
 en:E440b, pectin amide, amidated pectin
 bg:E440b, E440b food additive
 cs:E440b, E440b food additive
@@ -11154,7 +11351,7 @@ el:E440b, E440b food additive
 es:E440b, E440b food additive
 et:E440b, E440b food additive
 fi:E440b, Amidoitu pektiini, Amidoitua pektiiniä
-fr:E440b, Pectine amidée, CAS 56645-02-4
+fr:E440b, Pectine amidée
 hu:E440b, E440b food additive
 it:E440b, E440b food additive
 lt:E440b, E440b food additive
@@ -11180,12 +11377,12 @@ bg:E440, Пектин
 ca:E440, Pectina
 cs:E440, Pektin, Pektiny
 da:E440, Pektiner, Pectiner, Pektin
-de:E440, Pektine, Polygalacturonat, E 440, Pektin, Protopektin, E 440ii, Pectin, Rhamnogalacturonan
+de:E440, Pektine, Polygalacturonat, Pektin, Protopektin, Pectin, Rhamnogalacturonan
 el:E440, Πηκτίνη
 es:E440, Pectinas, Pectina
 et:E440, Pektiin
-fi:E440, Pektiini, Pektiinit, E 440, Pektiiniä, Pektiinejä
-fr:E440, Pectines, Pectine, E440(i)
+fi:E440, Pektiini, Pektiinit, Pektiiniä, Pektiinejä
+fr:E440, Pectines, Pectine
 hu:E440, Pektin
 it:E440, Pectina, Pectine
 lt:E440, Pektinas
@@ -11195,10 +11392,10 @@ nl:E440, Pectine
 pl:E440, Pektyny, Pektyna
 pt:E440, Pectina
 ro:E440, E440 food additive
-ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины, Е440
+ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины
 sk:E440, Pektín
 sl:E440, Pektin
-sv:E440, Pektiner, Pektin E 440
+sv:E440, Pektiner
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -11207,36 +11404,39 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E440
-en:E440(i), Pectin
-bg:E440(i), Пектин
-cs:E440(i), Pektin
-da:E440(i), Pectin
-de:E440(i), Pektin
-el:E440(i), Πηκτινη
-es:E440(i), Pectina
-et:E440(i), Pektiin
-fi:E440(i), Pektiini, Pektiiniä
-fr:E440(i), Pectine
-hu:E440(i), Pektin
-it:E440(i), Pectina
-lt:E440(i), Pektinas
-lv:E440(i), Pektīns
-mt:E440(i), Pektina
-nl:E440(i), Pectine
-pl:E440(i), Pektyna
-pt:E440(i), Pectina
-ro:E440(i), Pectină
-sk:E440(i), Pektín
-sl:E440(i), Pektin
-sv:E440(i), Pektin
+en:E440(i), non-amidated pectines
+bg:E440(i), E440(i) food additive
+ca:E440(i), Pectina no amidada
+cs:E440(i), E440(i) food additive
+da:E440(i), E440(i) food additive
+de:E440(i), E440(i) food additive
+el:E440(i), E440(i) food additive
+es:E440(i), Pectina no amidada
+et:E440(i), E440(i) food additive
+fi:E440(i), E440(i) food additive
+fr:E440(i), Pectine non amidée
+hu:E440(i), E440(i) food additive
+it:E440(i), E440(i) food additive
+lt:E440(i), E440(i) food additive
+lv:E440(i), E440(i) food additive
+mt:E440(i), E440(i) food additive
+nl:E440(i), Niet-geamideerde pectines
+pl:E440(i), E440(i) food additive
+pt:E440(i), E440(i) food additive
+ro:E440(i), E440(i) food additive
+sk:E440(i), E440(i) food additive
+sl:E440(i), E440(i) food additive
+sv:E440(i), E440(i) food additive
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 organic_eu:en:authorized
+# fr:e440i has 18 products in 5 languages @2018-11-03
 
 <en:E440
 en:E440(ii), Amidated pectin
 bg:E440(ii), Амидиран пектин
+ca:E440(ii), Pectina amidada
 cs:E440(ii), Amidovaný pektin
 da:E440(ii), Amideret pectin
 de:E440(ii), Amidiertes pektin
@@ -11260,7 +11460,8 @@ sv:E440(ii), Amiderat pektin
 e_number:en:440
 wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
-
+wikidata:en:Q42807519
+# fr:pectine-amidée has 74 products in 1 language @2018-11-03
 
 
 # E441 is not officially listed as "animal gelatin"
@@ -11455,30 +11656,30 @@ vegetarian:en:yes
 
 # same for those additives:
 
-
-en:E541, Sodium aluminium phosphate, acidic
-bg:E541, Натриевоалуминиев фосфат, кисел
-ca:E541, Fosfat àcid de sodi i alumini
-cs:E541, Kyselý fosforečnan sodno-hlinitý
-da:E541, Natriumaluminiumphosphat, surt
-de:E541, Saures natriumaluminiumphosphat
-el:E541, Οξινο φωσφορικο αργιλιονατριο
-es:E541, Fosfato ácido de aluminio y sodio
+#description:en:The acid form of E541 is used in baking powder for slow baking processes at low temperature; the alkaline form is used as an emulsifier in processed cheese.
+en:E541, Sodium aluminium phosphate
+bg:E541, Натриевоалуминиев фосфат
+ca:E541, Fosfat de sodi i alumini
+cs:E541, fosforečnan sodno-hlinitý
+da:E541, Natriumaluminiumphosphat
+de:E541, Natriumaluminiumphosphat
+el:E541, E541 food additive
+es:E541, Fosfato de aluminio y sodio
 et:E541, Naatriumalumiiniumfosfaat
 fi:E541, Natriumalumiinifosfaatti, hapan, Natriumalumiinifosfaattia
-fr:E541, Phosphate d'aluminium et de sodium, Phosphate de sodium-aluminium, Phosphate d'aluminium sodique acide
+fr:E541, Phosphate d'aluminium et de sodium, Phosphate de sodium-aluminium
 hu:E541, Savas nátrium-alumínium-foszfát, Nátrium-alumínium-foszfát
-it:E541, Fosfato acido di sodio e alluminio
-lt:E541, Natrio aliuminio fosfatas, rūgštinis
+it:E541, Fosfato di sodio e alluminio
+lt:E541, Natrio aliuminio fosfatas
 lv:E541, Skābais nātrija alumīnija fosfāts
-mt:E541, Fosfat tas-sodju u tal-aluminju, aċidiku
-nl:E541, Natriumaluminiumfosfaat, zuur
-pl:E541, Fosforan glinowo-sodowy, kwaśny
-pt:E541, Fosfato ácido de alumínio e sódio
-ro:E541, Fosfat de aluminiu și sodiu, acid
-sk:E541, Hydrogénfosforečnan hlinito-sodný, kyslý
-sl:E541, Natrijev aluminijev fosfat, kisli
-sv:E541, Natriumaluminiumfosfat, surt
+mt:E541, Fosfat tas-sodju u tal-aluminju
+nl:E541, Natriumaluminiumfosfaat
+pl:E541, Fosforan glinowo-sodowy
+pt:E541, Fosfato de alumínio e sódio
+ro:E541, Fosfat de aluminiu și sodiu
+sk:E541, Hydrogénfosforečnan hlinito-sodný
+sl:E541, Natrijev aluminijev fosfat
+sv:E541, Natriumaluminiumfosfat
 e_number:en:541
 wikidata:en:Q1220360
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
@@ -11486,34 +11687,35 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E541
-en:E541(i), E541(i) food additive
-bg:E541(i), E541(i) food additive
-cs:E541(i), E541(i) food additive
-da:E541(i), E541(i) food additive
-de:E541(i), E541(i) food additive
-el:E541(i), E541(i) food additive
+en:E541(i), Acid sodium aluminium phosphate
+bg:E541(i), Натриевоалуминиев фосфат кисел
+ca:E541(i), Fosfat àcid de sodi i alumini
+cs:E541(i), Kyselý fosforečnan sodno-hlinitý
+da:E541(i), Natriumaluminiumphosphat, surt
+de:E541(i), Saures natriumaluminiumphosphat
+el:E541(i), Οξινο φωσφορικο αργιλιονατριο
 es:E541(i), Fosfato ácido de aluminio y sodio
 et:E541(i), E541(i) food additive
-fi:E541(i), E541(i) elintarvikelisäaine
-fr:E541(i), Phosphate de sodium-aluminium acide, acidic SALP, Levair
+fi:E541(i), elintarvikelisäaine
+fr:E541(i), Phosphate de sodium-aluminium acide, acidic SALP, Levair, Phosphate d'aluminium sodique acide
 hu:E541(i), E541(i) food additive
-it:E541(i), E541(i) food additive
-lt:E541(i), E541(i) food additive
+it:E541(i), Fosfato acido di sodio e alluminio
+lt:E541(i), Natrio aliuminio fosfatas rūgštinis
 lv:E541(i), E541(i) food additive
-mt:E541(i), E541(i) food additive
-nl:E541(i), E541(i) food additive
-pl:E541(i), E541(i) food additive
-pt:E541(i), E541(i) food additive
-ro:E541(i), E541(i) food additive
-sk:E541(i), E541(i) food additive
-sl:E541(i), E541(i) food additive
-sv:E541(i), E541(i) food additive
+mt:E541(i), Fosfat tas-sodju u tal-aluminju aċidiku
+nl:E541(i), zuur Natriumaluminiumfosfaat, Natriumaluminiumfosfaat zuur
+pl:E541(i), Fosforan glinowo-sodowy kwaśny
+pt:E541(i), Fosfato ácido de alumínio e sódio
+ro:E541(i), Fosfat de aluminiu și sodiu acid
+sk:E541(i), Hydrogénfosforečnan hlinito-sodný kyslý
+sl:E541(i), Natrijev aluminijev fosfat kisli
+sv:E541(i), Natriumaluminiumfosfat surt
 e_number:en:541
 wikidata:en:Q1220360
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 
 <en:E541
-en:E541(ii), E541(ii) food additive
+en:E541(ii), Alkaline sodium aluminium phosphate
 bg:E541(ii), E541(ii) food additive
 cs:E541(ii), E541(ii) food additive
 da:E541(ii), E541(ii) food additive
@@ -11528,7 +11730,7 @@ it:E541(ii), E541(ii) food additive
 lt:E541(ii), E541(ii) food additive
 lv:E541(ii), E541(ii) food additive
 mt:E541(ii), E541(ii) food additive
-nl:E541(ii), E541(ii) food additive
+nl:E541(ii), basisch natriumaluminiumfosfaat
 pl:E541(ii), E541(ii) food additive
 pt:E541(ii), E541(ii) food additive
 ro:E541(ii), E541(ii) food additive
@@ -11539,7 +11741,7 @@ e_number:en:541
 wikidata:en:Q1220360
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 
-# description:en:542 can not be used by vegans, vegetarians, Muslims, Jews or Hindus. The product is made of animal bones, such as from pigs and cattle.
+# comment:en:E542 can not be used by vegans, vegetarians, Muslims, Jews or Hindus. The product is made of animal bones, such as from pigs and cattle.
 # origin:en:animal
 
 en:E542, Bone phosphate, Bone phosphate (Essentiale Calcium Phosphate\, Tribasic)
@@ -12541,7 +12743,7 @@ additives_classes:en: en:carrier, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-en:E463, Hydroxypropyl cellulose
+en:E463, Hydroxypropyl cellulose, Hydroxypropylcellulose
 bg:E463, Хидроксипропил целулоза
 ca:E463, Hidroxipropilcel·lulosa
 cs:E463, Hydroxypropylcelulosa
@@ -12570,7 +12772,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-en:E464, Hydroxypropyl methyl cellulose, hypromellose, hydroxypropyl methylcellulose, HPMC
+en:E464, Hydroxypropyl methyl cellulose, hypromellose, hydroxypropyl methylcellulose, HPMC, hydroxypropylmethylcellulose
 bg:E464, Хидроксипропил метил целулоза
 ca:E464, Hidroxipropilmetilcel·lulosa
 cs:E464, Hydroxypropylmethylcelulosa

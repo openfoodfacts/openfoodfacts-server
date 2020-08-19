@@ -227,39 +227,6 @@ fr:additifs alimentaires
 # additive classes (from Global_additives_classes_taxonomy)
 
 
-# Has been added to the additives_classes.tx
-#en:Acid, Acidifier,corrector of acidity
-#bg:Киселина
-#ca:Àcid, acidulant
-#cs:Kyselina
-#da:Syre, syrer
-#de:Säuerungsmittel
-#el:Μέσο οξίνισης
-#es:acidulante,acido
-#et:Hape
-#fi:happo, happoa, hapot, happoja
-#fr:acidifiant, acide,acidulants
-#ga:Aigéad
-#he:חומצה
-#hu:Étkezési sav
-#it:Acidificanti
-#lt:Rūgštis
-#lv:Skābe
-#mt:Aċidu
-#nb:syre, syrer
-#nl:Voedingszuur
-#pl:Kwas
-#pt:Acidificante
-#ro:Acidifiant, agent acidifiant
-#ru:Кислота
-#sk:Kyselina
-#sl:Kislina
-#sv:syra, syror, surgörare
-#wikidata:en:Q337038
-# ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
-# ingredient/fr:acide has 262 products @2019-05-31
-
-
 # <en:function
 en:coagulum, coagulating agent,coagulant
 ca:Agent coagulant, agents coagulants
@@ -271,148 +238,6 @@ fr:agent de coagulation, coagulant
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
-# <en:function
-en:Acidity regulator
-bg:Регулатор на киселинност
-ca:Corrector d'acidesa, regulador d'acidesa,correctiu de l acidesa
-cs:Regulátor kyselosti
-da:Surhedsregulerende middel, surhedsregulerende midler
-de:Säureregulator
-el:Ρυθμιστής οξύτητας
-es:Corrector de acidez, regulador de acidez
-et:Happesuse regulaator
-fi:happamuudensäätöaine, happamuudensäätöaineet, happamuudensäätöainetta, happamuudensäätöaineita
-fr:correcteur d’acidité, régulateur d'acidité
-ga:Rialtán aigéadachta
-he:מווסת חומציות
-hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
-is:sýrustillar
-it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
-lt:Rūgštingumą reguliuojanti medžiaga
-lv:Skābuma regulētājs
-mt:Regolatur tal-Aċidità
-nb:surhetsregulerende middel, surhetsregulerende midler
-nl:Zuurteregelaar
-pl:Regulator kwasowości
-pt:Regulador de acidez,  reguladores de acidez
-ro:Corector de aciditate, regulator de aciditate
-ru:Регулятор кислотности
-sk:Regulátor kyslosti
-sl:Sredstvo za uravnavanje kislosti
-sv:Surhetsreglerande medel, surhetsreglerandemedel, surhetsregulator
-wikidata:en:Q898753
-
-# nova:en:anti-caking-agent
-# <en:function
-en:Anti-caking agent
-bg:Антислепващ агент
-ca:Antiaglomerant, antiaglomerants
-cs:Protispékavá látka
-da:Antiklumpningsmiddel
-de:Rieselhilfe, Antiagglomerationsmittel
-el:Αντισυσσωματωτικό
-es:Antiaglomerante, antiaglomerantes
-et:Paakumisvastane aine
-fi:Paakkuuntumisenestoaine
-fr:antiagglomérant, anti-agglomérants, antiagglomérants, anti-agglomérant
-ga:Oibreán frithstolptha
-hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti, agente antiagglomerante, antiagglomerante, antiagglomeranti
-lt:Lipnumą reguliuojanti medžiaga
-lv:Pretsalipes viela
-mt:Aġent kontra t-tagħqid
-nl:Antiklontermiddel
-pl:Substancja przeciwzbrylająca
-pt:Antiaglomerante
-ro:Agent antiaglomerant
-sk:Protihrudkovacia látka
-sl:Sredstvo proti sprijemanju
-sv:Klumpförebyggande medel
-wikidata:en:Q726460
-
-# nova:en:de-foaming-agent?
-# <en:function
-en:de-foaming agent, Anti-foaming agent
-bg:Антипенител
-ca:Antiespumant, agent antiespumant
-cs:Odpěňovač
-da:Skumdæmpningsmiddel
-de:Schaumverhüter
-el:Αντιαφριστικό
-es:Antiespumante, agente antiespumante
-et:Vahutamisvastane aine
-fi:vaahdonestoaine
-fr:Antimoussant
-ga:Oibreán frithchúrtha
-hu:Habzásgátló
-it:Agenti antischiumogeni, agente antischiumogeno, antischiumogeno, antischiumogeni
-lt:Medžiaga nuo putojimo
-lv:Putu dzēsējs
-mt:Aġent kontra r-ragħwa
-nl:Antischuimmiddel
-pl:Substancja przeciwpieniąca
-pt:Antiespuma
-ro:Antispumant
-sk:Odpeňovacie činidlo
-sl:Sredstvo proti penjenju
-sv:Skumdämpningsmedel
-wikidata:en:Q904035
-
-# <en:function
-en:antioxidant, antioxygen
-bg:Антиоксидант
-ca:Antioxidant, antioxidants, agent antienfosquiment
-cs:Antioxidant
-da:Antioxidant, antistødningsmiddel
-de:Antioxidant, Antioxidationsmittel
-el:Αντιοξειδωτικό
-es:Antioxidante, antioxidantes
-et:Antioksüdant
-fi:hapettumisenestoaine, antioksidantti
-fr:antioxydant, antioxygène, anti-oxydant, antioxidant
-ga:Frithocsaídeoir
-hu:Antioxidáns
-it:Antiossidanti, antiossidante
-lt:Antioksidantas
-lv:Antioksidants
-mt:Antiossidant
-nb:Antioxidant, Antioksidant
-nl:Antioxydant, Antioxydanten
-pl:Przeciwutleniacz
-pt:Antioxidante
-ru:антиоксидант, антиокислитель
-sl:Antioksidant
-sv:Antioxidationsmedel, Antioxidantmedel
-wikidata:en:Q133948
-
-
-# nova:en:bulking-agent
-# <en:function
-en:Bulking agent
-bg:Пълнител
-ca:Incrementador de volum
-cs:Plnidlo
-da:Fyldemiddel
-de:Füllstoff
-el:Διογκωτικό
-es:Incrementador de volumen
-et:Mahuaine
-fi:Täyteaine
-fr:agent de charge
-ga:Toirteoir
-hu:Tömegnövelő szer
-it:Agente di carica, agenti di carica
-lt:Užpildas
-lv:Apjoma palielinātājs
-mt:Aġent li jżid il-volum
-nl:Vulstof, Vulstoffen
-pl:Substancja wypełniająca
-pt:Agente de volume
-ro:Agent de încărcare
-sk:Objemové činidlo
-sl:Sredstvo za povečanje prostornine
-sv:Fyllnadsmedel
-#wikidata:en:
 
 # nova:en:anti-bulking-agent
 # <en:function
@@ -458,93 +283,7 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
 
-# nova:en:emulsifier
-en:emulsifier, emulsifier blend
-bg:Емулгатор
-ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
-cs:Emulgátor
-da:Emulgator, emulgatorer, emulgeringsmiddel
-de:Emulgator, Emulgatoren
-el:Γαλακτωματοποιητής
-es:Emulgente, emulgentes, emulsificante, emulsificantes, agente emulsionante, agentes emulsionantes
-et:Emulgaator
-fi:emulgointiaine, emulgointiaineet
-fr:Émulsifiant
-ga:Eiblitheoir
-hu:Emulgeálószer
-is:Yruefni
-it:Emulsionanti, emulsionante, agente emulsionante, agenti emulsionanti
-lt:Emulsiklis
-lv:Emulgators
-mt:Emulsifikant
-nb:emulgeringsmiddel, emulgator
-nl:Emulgator, Emulgatoren
-pl:Emulgator
-pt:Emulsionante, emulsionantes
-ro:Emulsifiant, Emulgator
-ru:Эмульгатор
-sk:Emulgátor
-sl:Emulgator
-sv:Emulgeringsmedel, Emulgering
-wikidata:en:Q907356
 
-# Emulsifying salts are used in the production of processed cheeses to disperse proteins and lipids and obtain a homogeneous product.
-
-en:Emulsifying salt, Emulsifying salts, Melting salt
-bg:Емулгаторни соли
-cs:Tavicí soli
-da:Smeltesalt
-de:Schmelzsalze
-el:Γαλακτωματοποιητικά άλατα
-es:Sales fundentes, Sales emulsionantes, sal fundente, sal emulsionante
-et:Emulgeeriv sool
-fi:sulatesuola, sulatesuolat
-fr:Sels émulsifiants, sel émulsifiant, sel de fonte, sels de fonte
-ga:Salainn eiblithe
-hu:Emulgeálósók
-is:bræðslusölt
-it:Sali di fusione
-lt:Emulsinimo druskos
-lv:Emulģējošie sāļi
-mt:Melħ emulsifikat
-nl:Smeltzout, Smeltzouten
-pl:Sole emulgujące
-pt:Sais de fusão
-ro:Săruri de topire
-sk:Emulgujúce (taviace) soli
-sl:Emulgirne soli
-sv:smältsalt, smältsalter
-wikidata:en:Q50419202
-wikipedia:nl:https://nl.wikipedia.org/wiki/Smeltzout
-
-# <en:function
-en:thickener
-bg:Сгъстител
-ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
-cs:Zahušťovadlo
-da:fortykningsmiddel, fortykningsmidler
-de:Verdickungsmittel
-el:Πυκνωτικό μέσο
-es:Espesante, espesantes, agente espesante, agentes espesantes
-et:Paksendaja
-fi:sakeuttamisaine, sakeuttamisainetta, sakeuttamisaineet, sakeuttamisaineita, luonnollinen sakeutusaine
-fr:épaississant, Épaississant, agent épaississant, agents épaississants
-ga:Tiúsóir
-hu:Sűrítőanyag
-it:Addensante, Addensanti, agente addensante, agenti addensanti
-lt:Tirštiklis
-lv:Biezinātājs
-mt:Aġent li jgħaqqad
-nb:fortykningsmiddel
-nl:Verdikkingsmiddel, Verdikkingsmiddelen
-pl:Substancja zagęszczająca
-pt:Espessante,espessantes
-ro:Agent de îngroșare
-ru:Загуститель
-sk:Zahusťovadlo
-sl:Sladilo
-sv:förtjockningsmedel, naturlig förtjockningsmedel
-wikidata:en:Q911138
 
 # <en:function
 fr:substitut du sel
@@ -1137,438 +876,25 @@ wikipedia:de:https://de.wikipedia.org/wiki/Treibgas
 
 
 
-# nova:en:sequestrant
-en:Sequestrant
-bg:Комплексообразуватели
-ca:quelant, quelants, agent quelant, agents quelants
-cs:Sekvestrant
-de:Komplexbildner
-el:Συμπλοκοποιητές
-es:Secuestrante, secuestrantes, agente quelante, agentes quelantes, agente secuestrante, agentes secuestrantes
-et:Sekvestrant
-fi:Kompleksinmuodostaja
-fr:Séquestrant
-ga:Leithliseoir
-hu:Kelátképző anyag
-it:Sequestranti
-lt:Atskyriklis
-lv:Sekvestrants
-mt:Aġenti sekwestranti
-nl:Complexvormer, Complexvormers
-pl:Sekwestranty
-pt:Sequestrante
-ro:Agenți de sechestrare
-sk:Komplexotvorné látky
-sl:Sredstvo za vzhajanje
-sv:Komplexbildare
-wikidata:en:Q905648
-
-en:stabilizer, stabiliser, stabilizers
-bg:Стабилизатор
-ca:Estabilitzador, estabilitzadors,estabilizants,estabilitzants,estabilitzat
-cs:Stabilizátor
-da:stabilisator, stabilisatorer
-de:Stabilisator, Stabilisatoren
-el:Σταθεροποιητής
-es:Estabilizador, estabilizadores
-et:Stabilisaator
-fi:stabilointiaine, stabilointiaineet
-fr:Stabilisant, stabilisateur, stabilisateurs, agent stabilisant
-ga:Cobhsaitheoir
-hu:Stabilizátor
-it:Stabilizzanti, stabilizzante
-lt:Stabilizatorius
-lv:Stabilizētājs
-mt:Stabbilizzatur
-nb:stabilisator, stabilisatorer
-nl:Stabilisator, Stabilisatoren
-pl:Stabilizator
-pt:estabilizador, estabilizadores
-ro:Stabilizator
-sk:Stabilizátor
-sl:Vezivo
-sv:stabiliseringsämne, stabilisator, stabilisering
-wikidata:en:Q7595716
 
 
 # nova:en:colour-stabilizer
 # what is this?
 en:colour-stabilizer
 
-# Need to check the translations
 
-# nova:en:sweetener
-en:Sweetener
-bg:Подсладител
-ca:Edulcorant, esdulcorants
-cs:Sladidlo
-da:Sødestof, sødestoffer, sødemiddel, kunstigt sødemiddel
-de:Süßungsmittel
-el:Γλυκαντικό
-es:Edulcorante, edulcorantes, endulzante, endulzantes
-et:Magusaine
-fi:makeutusaine, makeutusaineet
-fr:Édulcorant
-ga:Milseoir
-hu:Édesítőszer
-it:Edulcoranti, edulcorante, dolcificanti, dolcificante
-lt:Saldiklis
-lv:Saldinātājs
-mt:Dolċifikant
-nb:søtstoff
-nl:Zoetstof, Zoetstoffen
-pl:Substancja słodząca
-pt:Edulcorante
-ro:Îndulcitor
-ru:подсластитель, подсластители, заменитель сахара
-sk:Sladidlo
-sv:sötningsmedel
-wikidata:en:Q626292
-#wikidata:en:Q4368298
-
-# comment:en:The generic form of sodium citrates should be written in plural, do distinguish them from sodium citrate.
-
-en:sodium citrates, e331, e-331, e 331
-de:Natriumcitrate
-es:Citrato de sodio, citratos de sodio
-fi:natriumsitraatit
-fr:Citrates de sodium
-hu:Nátrium-citrát
-it:citrati di sodio
-nl:Natriumcitraten
-wikidata:en: Q6460572
-# additive/e331-sodium-citrates has 11745 products @2019-04-24
-
-# description:en:MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
-
-<en:sodium citrates
-en:monosodium citrate, E331i, E-331i, E 331i
-bg:Мононатриев цитрат
-ca:citrat monosòdic
-cs:Citronan monosodný
-da:Mononatriumcitrat
-de:Monoatriumcitrat
-el:Δισοξινο κιτρικο νατριο
-eo:Ununatria citrato
-es:citrato monosódico
-et:Naatriumdivesiniktsitraat
-fi:Mononatriumsitraatti
-fr:citrate monosodique
-hu:Mononátrium-citrát
-it:citrato monosodico
-lt:Mononatrio citratas
-lv:Mononātrija citrāts
-mt:Ċitrat monosodiku
-nl:mononatriumcitraat
-pl:Cytrynian monosodowy
-pt:Citrato monossódico
-ro:citrat monosodic
-sh:Mononatrijum citrat
-sk:Dihydrogéncitrát sodný
-sl:Mononatrijev citrat
-sr:Mononatrijum citrat
-sv:Mononatriumcitrat
-ta:ஒருசோடியம் சிட்ரேட்டு
-vi:Natri dihydro citrat
-# sr-el:Mononatrijum citrat
-wikidata:en:Q4179018
-wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_citrate
-# additive/e331i-monosodium-citrate has 112 products in 7 languages @2019-04-24
-# ingredient/fr:citrate-monosodique has 79 products in 5 languages @2019-04-24
-
-# description:en:DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
-
-<en:sodium citrates
-en:Disodium citrate, e331ii, e-331ii, e 331ii
-bg:Динатриев цитрат
-ca:Citrat disòdic
-cs:Disodium citrate
-da:Dinatriumcitrat
-de:Dinatriumcitrat
-el:Οξινο κιτρικο νατριο
-es:Citrato disódico
-et:Naatriumvesiniktsitraat
-fi:Dinatriumsitraatti
-fr:Citrate disodique
-hu:Dinátrium-citrát
-it:Citrato disodico
-lt:Dinatrio citratas
-lv:Dinātrija citrāts
-mt:Ċitrat disodiku
-nl:Dinatriumcitraat
-pl:Cytrynian disodowy
-pt:Citrato dissódico
-ro:Citrat disodic
-sk:Citran disodný
-sl:Dinatrijev citrat
-sv:Dinatriumcitrat
-wikidata:en:Q4177124
-wikipedia:en:https://en.wikipedia.org/wiki/Disodium_citrate
-# additive/e331ii-disodium-citrate has 21 products in 2 languages @2019-04-24
-
-# E331iii has been moved to the additives taxonomy
-en:E331iii
-de:Trinatriumcitrat
-hu:Trinátrium-citrát
-
-
-# comment:en:The generic form of potassium citrates should be written in plural, do distinguish them from potassium citrate.
-
-en:potassium citrates, E332, E-332, E 332
-ca:Citrat de potassi
-de:Kaliumcitrate
-es:Citratos de potasio
-fi:kaliumsitraatit
-fr:citrates de potassium
-hu:Kálium-citrát
-it:citrati di potassio
-nl:kaliumcitraten
-pt:citratos de potássio
-sv:Kaliumcitrater
-wikidata:en:Q59543257
-# additive/e332-potassium-citrates has 261 products @2019-04-22
-# ingredient/fr:citrate-de-potassium has 353 products in 7 languages @2019-04-22
-# usage:pt:regulador de acidez (citratos de potássio)
-
-<en:potassium citrates
-en:monopotassium citrate
-bg:Монокалиев цитрат
-ca:Citrat monopotàssic
-cs:Citronan monodraselný
-da:Monokaliumcitrat
-de:Monokaliumcitrat
-el:Δισοξινο κιτρικο καλιο
-es:Citrato monopotásico
-et:Kaaliumdivesiniktsitraat
-fi:Monokaliumsitraatti
-fr:Citrate monopotassique
-hu:Monokálium-citrát
-it:Citrato monopotassico
-lt:Monokalio citratas
-lv:Monokālija citrāts
-mt:Ċitrat monopotassiku
-nl:Monokaliumcitraat
-pl:Cytrynian monopotasowy
-pt:Citrato monopotássico
-ro:Citrat monopotasic
-sl:Monokalijev citrat
-sv:Monokaliumcitrat
-wikidata:en:Q63255997
-# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
-
-# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
-# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
-
-<en:potassium citrates
-en:tripotassium citrate, potassium citrate, E332ii, E-332ii, E 332ii
-bg:Трикалиев цитрат
-bs:Kalij citrat
-ca:Citrat tripotàssic, citrat de potassi
-cs:Tripotassium citrate
-cy:Potasiwm sitrad
-da:Trikaliumcitrat
-de:Trikaliumcitrat, Kaliumcitrat
-el:Κιτρικο καλιο
-eo:Kalia citrato tribaza
-es:Citrato tripotásico, Citrato de potasio
-et:Kaaliumtsitraat
-fi:Trikaliumsitraatti
-fr:Citrate tripotassique, citrate de potassium
-hu:Trikálium-citrát
-it:Citrato tripotassico
-ja:クエン酸カリウム
-lt:Trikalio citratas
-lv:Trikālija citrāts
-mt:Ċitrat tripotassiku
-nb:Kaliumsitrat
-nl:kaliumcitraat
-pl:Cytrynian tripotasowy, cytrynian potasu
-pt:Citrato tripotássico, citrato de potássio
-ro:Citrat tripotasic
-ru:цитрат калия
-sh:Kalijum citrat
-sk:Citran tridraselný, Kálium-citrát
-sl:Trikalijev citrat
-sr:Kalijum citrat
-sv:Trikaliumcitrat, Kaliumcitrat
-ta:பொட்டாசியம் சிட்ரேட்டு
-te:పొటాషియం సిట్రేట్
-zh:檸檬酸鉀
-# azb:پوتاسیوم سیترات
-# zh-cn:柠檬酸钾
-# zh-hans:柠檬酸钾
-# zh-hant:檸檬酸鉀
-# zh-hk:檸檬酸鉀
-# zh-sg:柠檬酸钾
-# zh-tw:檸檬酸鉀
-wikidata:en:Q419921
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
-# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
-
-
-# description:en:CALCIUM CITRATEs is the calcium salt of citric acid. It is commonly used as a food additive (E333), usually as a preservative, but sometimes for flavor. Calcium citrate is also found in some dietary calcium supplements.
-# comment:en:The generic form (E333) is written in plural to distinguish it from E333iii
-
-en:calcium citrates, E333, E-333, E 333
-ca:Citrat de calci
-de:Calciumcitrate, Calciumcitrat
-es:Citratos de calcio
-fi:kalsiumsitraatit
-fr:Citrates de calcium
-hu:kalcium-citrát
-it:citrati di calcio
-nl:calciumcitraten
-
-<en:calcium citrates
-en:Monocalcium citrate, E333i, E-333i, E 333i
-bg:Монокалциев цитрат
-ca:Citrat monocàlcic
-cs:Monocalcium citrate
-da:Monocalciumcitrat
-de:Monocalciumcitrat
-es:Citrato monocálcico
-fi:Monokalsiumsitraatti
-fr:Citrate monocalcique
-hu:Monokalcium-citrát
-it:Citrato monocalcico
-lt:Monokalcio citratas
-lv:Monokalcija citrāts
-mt:Ċitrat monokalċiku
-nl:Monocalciumcitraat
-pl:Cytrynian monowapniowy
-pt:Citrato monocálcico
-ro:Citrat monocalcic
-sk:Citran monovápenatý
-sl:Monokalcijev citrat
-sv:Monokalciumcitrat
-wikidata:en:Q482498
-
-<en:calcium citrates
-en:Dicalcium citrate, E333ii, E-333ii, E 333ii
-bg:Дикалциев цитрат
-ca:Citrat dicàlcic
-cs:Dicalcium citrate
-da:Dicalciumcitrat
-de:Dicalciumcitrat
-el:Δισοξινο κιτρικο ασβεστιο
-es:Citrato dicálcico
-et:Kaltsiumvesiniktsitraat
-fa:دی‌کلسیم سیترات
-fi:Dikalsiumsitraatti
-fr:Citrate dicalcique
-hu:Dikalcium-citrát
-it:Citrato dicalcico
-lt:Dikalcio citratas
-lv:Dikalcija citrāts
-mt:Ċitrat dikalċiku
-nl:Dicalciumcitraat
-pl:Cytrynian diwapniowy
-pt:Citrato dicálcico
-ro:Citrat dicalcic
-sh:Dikalcijum citrat
-sk:dicitran divápenatý
-sl:Dikalcijev citrat
-sr:Dikalcijum citrat
-sv:Dikalciumcitrat
-# azb:دیکلسیوم سیترات
-wikidata:en:Q482501
-
-<en:calcium citrates
-en:Tricalcium citrate, calcium citrate, E333iii, E-333iii, E 333iii
-ar:سترات الكالسيوم
-bg:Трикалциев цитрат
-ca:citrat tricàlci, citrat de calci
-cs:Citrát vápenatý
-da:Tricalciumcitrat
-de:Tricalciumcitrat, Calciumcitrat
-el:Κιτρικο ασβεστιο
-es:citrato tricálcico, Citrato de calcio
-et:Kaltsiumtsitraat
-fa:کلسیم سیترات
-fi:trikalsiumsitraatti, kalsiumsitraatti
-fr:citrate tricalcique
-hu:Trikalcium-citrát
-it:citrato tricalcico, Citrato di calcio
-lt:Trikalcio citratas
-lv:Trikalcija citrāts
-mt:Ċitrat trikalċiku
-nl:tricalciumcitraat, Calcium citrate, citrate de calcium
-pl:Cytrynian triwapniowy, cytrynian wapnia
-pt:Citrato tricálcico, citrato de cálcio
-ro:Citrat tricalcic
-ru:Цитрат кальция
-sh:Kalcijum citrat
-sk:Citran trivápenatý
-sl:Trikalcijev citrat
-sr:Kalcijum citrat
-sv:Trikalciumcitrat
-zh:柠檬酸钙
-# azb:کلسیوم سیترات
-wikidata:en:Q420280
-wikipedia:en:https://en.wikipedia.org/wiki/Calcium_citrate
-# mineral/calcium-citrate has 630 products @2019-04-24
-# ingredient/fr:citrate-tricalcique has 107 products in 6 languages @2019-04-24
-# usage:de:Säureregulator:Tricalciumcitrat
-
-
-# Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
-
-en:lecithins
-ar:ليسيثين
-bg:Лецитин
-ca:lecitina, lecitines
-cs:lecitin
-da:Lecitin
-de:Lecithine
-el:λεκιθίνη
-eo:Lecitino
-es:Lecitina, lecitinas
-et:Letsitiin
-eu:Lezitina
-fa:لسیتین
-fi:lesitiini, lesitiinit
-fr:lécithine, lécithines
-gl:Lecitina
-he:לציטין
-hr:Lecitin
-hu:Lecitin, lecitinek
-hy:Լեցիտիններ
-id:Lesitin
-is:Lesitín
-it:Lecitina
-ja:レシチン
-ko:레시틴
-ms:Lesitin
-nl:Lecithine
-pl:Lecytyny
-pt:lecitina
-ro:Lecitină, lecitina
-ru:Лецитины
-sh:Lecitin
-sl:Lecitin
-sr:Лецитин
-su:Lésitin
-sv:Lecitin
-th:เลซิทิน
-tr:Lesitin
-uk:Лецитин
-uz:Letsinlar
-vi:Lecithin
-zh:卵磷脂
-wikidata:en:Q241595
-wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
-# issue with ingredient @2018-10-11 mixed with sunflower
+# comment:en: en:lecithines is part of the additives
 
 # nova:en:lecithin
-<en:lecithin
-en:soya lecithin, soy lecithin, sin 322
-ca:Lecitina de soja, lecitines de soja, E-322
+<en:E322i
+en:soya lecithin, soy lecithin
+ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
 da:sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
 de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
-es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya, E-322
-fi:soijalesitiini
+es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
+fi:soijalesitiini, soijalesitiiniä, E322 soijasta
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
 he:לציטין סויה
 hu:szójalecitin, szójalecitinek
@@ -1600,7 +926,7 @@ it:Lecitina di soia Ogm free
 nl:GMO-vrije sojalecithine
 # gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
 
-<en:lecithin
+<en:E322(i)
 en:sunflower lecithin
 bg:слънчогледов леситин
 ca:lecitina de gira-sol, lecitines de gira-sol
@@ -1610,7 +936,7 @@ de:Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol, lecitinas de girasol
 et:päevalilleletsitiin
-fi:auringonkukkalesitiini
+fi:auringonkukkalesitiini, auringonkukkalesitiiniä
 fr:lécithine de tournesol
 hr:suncokretov lecitin
 hu:napraforgó lecitin
@@ -1648,12 +974,12 @@ it:lecitina di soia e di girasole
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 en:rapeseed lecithin
 ca:Lecitina de colza, lecitines de colza
 de:Rapslecithin
 es:Lecitina de colza, lecitinas de colza
-fi:rapsilesitiini
+fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
 hu:repce lecitin
 nb:rapslecitin, rapslecithin
@@ -1666,7 +992,7 @@ sv:rapslecitin, rapslecithin
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 fr:émulsifiant lécithines, émulsifiants lécithines
 de:emulgator lecithine
 es:emulsionante de lecitina, emulsionantes de lecitina
@@ -1677,239 +1003,11 @@ pt:emulsionante lecitinas
 # fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
 
 
-# E327 is moved to the additives taxonomy
-en:E327
 
 
 
-# Tartaric acid is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
-
-en:tartaric acid, E334, E 334, E-334
-ar:حمض الطرطريك
-bg:винена куселина
-bn:টারটারিক অ্যাসিড
-bs:Vinska kiselina
-ca:àcid tàrtric, àcid tartàric, tàrtic, tartàric
-cs:Kyselina vinná
-cy:Asid tartarig
-da:tartaric acid
-de:Weinsäure
-el:τρυγικο οξυ
-eo:Tartrata acido
-es:Acido tartrico, ácido tartárico, tártico, tartárico
-et:viinhape
-eu:Azido tartariko
-fa:اسید تارتاریک
-fi:viinihappo
-fr:acide tartrique
-ga:Aigéad tartarach
-gl:Ácido tartárico
-he:חומצה טרטרית
-hi:टार्टरिक अम्ल
-hr:Vinska kiselina
-hu:borkősav
-hy:Գինեթթու
-id:Asam tartarat
-it:acido tartarico
-ja:酒石酸
-ko:타타르산
-lt:vyno rūgštis
-lv:vīnskābe
-mk:Винска киселина
-ml:ടാർട്ടാറിക് അമ്ലം
-mt:aċidu tartariku
-my:တာတာရစ် အက်ဆစ်
-nl:wijnsteenzuur
-pl:kwas winowy
-pt:ácido tartárico
-ro:acid tartric
-sh:Vinska kiselina
-sk:kyselina vínna
-sl:vinska kislina
-sr:винска киселина
-sv:Vinsyra
-te:టార్టారిక్ ఆమ్లం
-tr:Tartarik asit
-uk:Винна кислота
-uz:Vino kislota
-zh:酒石酸
-# azb:اسید تارتاریک
-# sr-ec:винска киселина
-# sr-el:Vinska kiselina
-# zh-cn:酒石酸
-# zh-hans:酒石酸
-# zh-hant:酒石酸
-# zh-hk:酒石酸
-# zh-sg:酒石酸
-# zh-tw:酒石酸
-wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
-# en:tartric acid has 360 products in 8 languages @2018-11-18
-# additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
 
 
-
-# Note  the words should be in plural. The singular implies E336ii
-
-en:potassium tartrates, E 336
-de:Kaliumtartrate
-fi:kaliumtartraatit
-fr:tartrates de potassium
-hu:kálium-tartarát
-it:tartrati di potassio
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
-# ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
-
-# Potassium bitartrate, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
-
-en:monopotassium tartrate, E336i, E-336i, E 336i
-bg:Монокалиев тартарат
-ca:tártic monopotássic, tartáric monopotàssic
-cs:Monopotassium tartrate
-da:Monokaliumtartrat
-de:Monokaliumtartrat
-el:Οξινο τρυγικο καλιο
-es:tartrato monopotásico, tartárico monopotásico
-et:Kaaliumvesiniktartraat
-fi:Monokaliumtartraatti
-fr:tartrate monopotassique, bitartrate de potassium
-hu:Monokálium-tartarát
-it:tartrato monopotassico
-lt:Monokalio tartratas
-lv:Monokālija tartrāts
-mt:Tartrat monopotassiku
-nl:Monokaliumtartraat
-pl:Winian monopotasowy
-pt:Tartarato monopotássico
-ro:Tartrat monopotasic
-sk:Vínan draselný
-sl:Monokalijev tartrat
-sv:Monokaliumtartrat
-wikidata:en: Q42807499
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
-# additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
-
-# Potassium tartrate, dipotassium tartrate or argol has formula K2C4H4O6.
-
-en:dipotassium tartrate, potassium tartrate, E336ii, E-336ii, E 336ii
-bg:Дикалиев тартарат
-ca:Tàrtic dipotàssic, tartàric dipotàssic
-cs:Dipotassium tartrate, Vinan draselný
-da:Dikaliumtartrat
-de:Dikaliumtartrat, Kaliumtartrat
-el:Τρυγικο καλιο
-eo:Kalia tartrato
-es:Tartrato dipotásico, tartárico dipotásico
-et:Kaaliumtartraat
-fa: پتاسیم تارترات
-fi:Dikaliumtartraatti
-fr:tartrate dipotassique, tartrate de potassium
-hu:Dikálium-tartarát
-it:Tartrato dipotassico, Tartrato di potassio
-ja:酒石酸カリウム
-lt:Dikalio tartratas
-lv:Dikālija tartrāts
-mt:Tartrat dipotassiku
-nl:Dikaliumtartraat
-pl:Winian dipotasowy
-pt:Tartarato dipotássico
-ro:Tartrat dipotasic
-ru:тартрат калия
-sh:Kalijum tartrat
-sk:Vínan didraselný
-sl:Dikalijev tartrat
-sr:Kalijum tartrat
-sv:Dikaliumtartrat, Kaliumtartrat
-# azb:پوتاسیوم تارترات
-wikidata:en: Q418064
-# additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
-
-
-# comment:E350 is written in plural to distinguish it from E350i.
-
-en:sodium malates
-da:natriummalater
-de:Natriummalate
-el:άλατα του μηλικού οξέος με νάτριο
-es:malatos de sodio
-fi:natriummalaatit
-fr:malates de sodium
-hu:Nátrium-malátok
-it:malati di sodio
-lt:natrio malatai
-nl:natriummalaten
-pt:malatos de sódio
-sk:jablčnany sodné
-sv:natriummalater
-wikidata:en:Q63534992
-
-# description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid.
-
-<en:sodium malates
-en:sodium malate, E350i, E-350i, E 350i, INS350i, INS-350i, INS 350i, SIN350i, SIN-350i, SIN 350i
-ar:مالات صوديوم
-bg:Натриев малат
-ca:Malat sòdic
-cs:Jablečnan disodný
-da:Natriummalat
-de:Natriummalate
-el:Μηλικο νατριο
-eo:Natria malikato
-es:Malato sódico
-et:Naatriummalaat
-fa:سدیم مالات
-fi:Natriummalaatti
-fr:malate de sodium, malates de sodium
-hu:Nátrium-malát
-it:Malato di sodio
-lt:Natrio malatas
-lv:Nātrija malāts
-mt:Malat tas-sodju
-nl:Natriummalaat
-pl:Jabłczan sodu
-pt:Malato de sódio
-ro:Malat de sodiu
-sh:Natrijum malat
-sk:Jablčnan sodný
-sl:Natrijev malat
-sr:Natrijum malat
-sv:Natriummalat
-ta:சோடியம் மேலேட்டு
-# azb:سودیوم مالات
-wikidata:en:Q836788
-wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
-# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
-# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
-# usage:fr:correcteur d'acidité:malate de sodium
-
-<en:sodium malates
-en:Sodium hydrogen malate, E350ii, E-350ii, E 350ii, INS350ii, INS-350ii, INS 350ii, SIN350ii, SIN-350ii, SIN 350ii
-bg:Натриев хидроген малат
-ca:Malat d'àcid sòdic
-cs:Jablečnan monosodný
-da:Natriumhydrogenmalat
-de:Natriumhydrogenmalat
-el:Οξινο μηλικο νατριο
-es:Malato ácido de sodio
-et:Naatriumvesinikmalaat
-fi:Natriumvetymalaatti
-fr:malate acide de sodium
-hu:Nátrium-hidrogén-malát
-it:malato acidio di sodio
-lt:Natrio vandenilio malatas
-lv:Nātrija hidrogēnmalāts
-mt:Malat idroġenat tas-sodju
-nl:Natriumwaterstofmalaat
-pl:Wodorojabłczan sodu
-pt:Hidrogenomalato de sódio
-ro:Malat acid de sodiu
-sk:Hydrogenjablčnan sodný
-sl:Natrijev hidrogenmalat
-sv:Natriumvätemalat
-wikidata:en:Q42807545
-# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
-
-# E401 has been moved to the additives taxonomy
-en:E401
 
 # description:en:Agar or agar-agar is a jelly-like substance, obtained from red algae.
 
@@ -2449,15 +1547,8 @@ wikidata:en:Q188154
 wikipedia:en:https://en.wikipedia.org/wiki/Pectin
 # en:pectin has 9364 products in 20 languages @2018-11-03
 
-<en:pectin
-en:non-amidated pectines, E440i, E 440i, E-440i
-ca:Pectina no amidada
-es:Pectina no amidada
-fr:Pectine non amidée
-nl:Niet-geamideerde pectines
-# fr:e440i has 18 products in 5 languages @2018-11-03
 
-<en:pectin
+<en:E440
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
 da:frugtpektin
@@ -2482,8 +1573,9 @@ fr:pectine de pomme
 
 <en:fruit pectin
 <en:citrus
-en:citrus pectin, modified citrus pectin
+en:citrus pectin, modified citrus pectin, citric pectin
 de:zitruspektin, citrus-pektin
+es:pectina de citricos
 fi:sitruspektiini
 fr:pectine d'agrumes
 sv:citruspektin
@@ -2491,40 +1583,10 @@ wikidata:en:Q6889398
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
 # ingredient/en:citrus-pectin has 328 products in 3 languages @2020-05-21
 
-<en:pectin
-en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
-bg:Амидиран пектин
-ca:Pectina amidada
-cs:Amidovaný pektin
-da:Amideret pectin
-de:Amidiertes pektin
-el:Αμιδιωμενες πηκτινικες υλες
-es:Pectina amidada
-et:Amiiditud pektiin
-fi:Amidoitu pektiini
-fr:pectine amidée
-hu:Amidált pektin
-it:Pectina amidata
-lt:Amidintas pektinas
-lv:Amidēts pektīns
-mt:Pektina amidata
-nl:Geamideerde pectine
-pl:Pektyna amidowana
-pt:Pectina amidada
-ro:Pectină amidată
-sk:Amidovaný pektín
-sl:Amidirani pektin
-sv:Amiderat pektin
-wikidata:en:Q42807519
-# fr:pectine-amidée has 74 products in 1 language @2018-11-03
-
-<en:pectin
-en:citric pectin
-es:pectina de citricos
-
-<en:pectin
+<en:citrus pectin
 en:lemon pectin
 es:pectina de limon
+
 
 # The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
@@ -2681,7 +1743,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Methyl_cellulose
 
 # description:en:Hypromellose (INN), short for HYDROXYPROPYL METHYLCELLULOSE (HPMC), is a semisynthetic, inert, viscoelastic polymer used as a food additive, as emulsifier, thickening and suspending agent, and an alternative to animal gelatin.
 
-en:hydroxypropyl methylcellulose, E464, E-464, E 464, INS464, INS-464, INS 464, SIN464, SIN-464, SIN 464
+en:hydroxypropyl methylcellulose, hydroxypropylmethylcellulose, E464, E-464, E 464, INS464, INS-464, INS 464, SIN464, SIN-464, SIN 464
 ar:هيدروكسي بروبيل ميثيل سيللوز
 bg:Хидроксипропил метил целулоза
 cs:Hydroxypropylmethylcelulosa
@@ -11510,7 +10572,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gouda_cheese
 # GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
 
 <en:cheese
-en:Grana Padano
+en:Grana Padano, Grana Padano cheese
 bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
@@ -11866,7 +10928,7 @@ es:mozzarella rallada
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
 
 <en:cheese
-en:parmesan, parmigiano reggiano, Parmesan cheese
+en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese
 af:Parmesaan
 ar:بارميجيانو ريجيانو
 az:Parmesan pendiri
@@ -11986,7 +11048,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
 <en:pecorino
-en:pecorino romano, romano, Peccorino Romano PDO cheese
+en:pecorino romano, romano, pecorino romano cheese, Peccorino Romano PDO cheese
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -12132,7 +11194,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Red_Leicester
 # RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
 <en:cheese
-en:ricotta
+en:ricotta, ricotta cheese
 af:Ricotta
 ar:ريكوتا
 az:Rikotta
@@ -12683,7 +11745,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_A
 # Retinyl acetate (retinol acetate, vitamin A acetate) is a natural form of vitamin A which is the acetate ester of retinol.
 
 <en:vitamin A
-en:retinyl acetate
+en:retinyl acetate, retinol acetate, vitamin A acetate
 ca:acetat de retinol
 de:Retinylacetat
 es:acetato de retinilo
@@ -17005,7 +16067,7 @@ fr:amidon de maïs cireux
 
 <en:corn starch
 <en:modified starch
-en:modified corn starch, modified corn starches
+en:modified corn starch, modified corn starches, modified maize starch
 ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
@@ -29850,26 +28912,12 @@ hu:maltit-szirup, maltitol szirup
 it:sciroppo di maltitolo
 nl:Maltitolstroop
 
-en:sorbitol
-de:Sorbit
-es:sorbitol,sorbitoles
-fi:sorbitoli
-fr:sorbitol
-hu:szorbit, szorbitol
-it:sorbitolo
-nl:Sorbitol, sorbitolen
 
-<en:sorbitol
-en:sorbitol syrup
-fi:sorbitolisiirappi
-fr:sirop de sorbitol
-hu:szorbit szirup
-
-<en:sorbitol
+<en:E420
 fr:sorbitols et glycérol, glycérol et sorbitols
 fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
 
-<en:sorbitol
+<en:E420(ii)
 fr:sirop de sorbitol de blé
 
 en:rice glucose syrup
@@ -32576,9 +31624,9 @@ es:zumo de soja
 # 253 products in 7 languages @2018-09-25
 
 
-en:gelifier
-fr:gélifiant
-it:gelificante
+#en:gelifier
+#fr:gélifiant
+#it:gelificante
 
 en:gluten
 ar:غلوتين
@@ -32859,6 +31907,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nutritional_yeast
 <en:nutritional yeast
 de:Nährhefepulver
 
+#en:comment: fr:poudre-a-lever is an additive class.
 <en:yeast
 en:yeast powder, raising powder
 da:tørgær, tørret gær
@@ -32866,7 +31915,7 @@ de:Hefepulver
 el:μαγιά σκόνη
 es:levadura en polvo
 fi:kuivahiiva, hiivajauhe
-fr:poudre de levure, levure en poudre, poudres levantes, poudre à lever, poudres à lever, poudre levante
+fr:poudre de levure, levure en poudre
 hu:porélesztő, élesztőpor
 it:lievito in polvere
 nl:gistpoeder
@@ -33210,146 +32259,8 @@ fr:phosphates, phosphate
 # usage:fr:stabilisants : phosphates
 # sodium (mono, hexameta, and/or tripoly) phosphate
 
-# description:en:SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
-# Note that the names here must be plural. The singlars are found under E339iii
 
-en:sodium phosphates, E339, E 339, E-339, INS339, INS-339, INS 339
-ar:فوسفات الصوديوم
-de:Natriumphosphate
-es:Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio
-fa:سدیم فسفات
-fi:natriumfosfaatit
-fr:phosphates de sodium, Orthophosphates de sodium
-it:fosfati di sodio
-ja:リン酸塩
-nl:natriumfosfaten, Natriumorthofosfaten
-pt:fosfatos de sódio
-ru:Натрия фосфаты
-wikipedia:en:https://en.wikipedia.org/wiki/Sodium_phosphates
-# fr:phosphate-de-sodium has 337 products @2018-11-05
 
-# Monosodium phosphate (MSP), also known as monobasic sodium phosphate and sodium dihydrogen phosphate, is an inorganic compound of sodium with a dihydrogen phosphate (H2PO4−) anion.
-
-<en:sodium phosphates
-en:Monosodium phosphate, E339i, E 339i, E-339i
-ar:مونوسودیوم فوسفات
-bg:Мононатриев фосфат
-cs:Fosforečnan monosodný
-da:Mononatriumphosphat
-de:Mononatriumphosphat
-el:Δισοξινο φωσφορικο νατριο
-eo:Natria bifosfato
-es:fosfato monosódico
-et:Naatriumdivesinikfosfaat
-fi:Mononatriumfosfaatti
-fr:phosphate monosodique
-hu:Mononátrium-foszfát
-it:Fosfato monosodico
-ja:リン酸二水素ナトリウム
-lt:Mononatrio fosfatas
-lv:Mononātrija fosfāts
-mt:Fosfat monosodiku
-nl:Mononatriumfosfaat
-pl:Fosforan monosodowy
-pt:fosfato de sódio monobásico
-ro:Fosfat monosodic
-ru:Дигидрофосфат натрия
-sh:Mononatrijum fosfat
-sk:Fosforečnan monosodný
-sl:Mononatrijev fosfat
-sr:Mononatrijum fosfat
-sv:Mononatriumfosfat
-vi:Natri đihiđrophotphat
-zh:磷酸二氢钠
-# azb:مونوسودیوم فوسفات
-wikidata:en:Q415877
-wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_phosphate
-# additive/e339i-monosodium-phosphate has 36 products in 6 languages @2018-11-05
-
-# Disodium phosphate (DSP), or sodium hydrogen phosphate, or sodium phosphate dibasic, is the inorganic compound with the formula Na2HPO4.
-
-<en:sodium phosphates
-en:disodium phosphate, Disodium monophosphate, Secondary sodium phosphate, E339ii, E 339ii, E-339ii
-bg:Динатриев фосфат
-cs:Hydrogenfosforečnan disodný
-da:Dinatriumphosphat
-de:Dinatriumphosphat
-el:Οξινο φωσφορικο νατριο
-eo:Dunatria fosfato
-es:fosfato disódico
-et:Dinaatriumvesinikfosfaat
-fa:دی‌سدیم فسفات
-fi:Dinatriumfosfaatti
-fr:phosphate disodique, Monophosphate disodique
-hu:Dinátrium-foszfát
-it:fosfato disodico, Monofosfato disodico
-ja:リン酸水素二ナトリウム
-lt:Dinatrio fosfatas, Dinatrio monofosfatas
-lv:Dinātrija fosfāts, Dinātrija monofosfāts
-mt:Fosfat disodiku, Monofosfat disodiku
-nl:dinatriumfosfaat, Dinatriummonofosfaat
-pl:Fosforan disodowy, Monofosforan disodowy
-pt:Fosfato dissódico, Monofosfato dissódico
-ro:Fosfat disodic, Monofosfat disodic
-ru:гидрофосфат натрия
-sh:Dinatrijum fosfat
-sk:Fosforečnan disodný, Monofosforečnan disodný
-sl:Dinatrijev fosfat, dinatrijev monofosfat
-sv:Dinatriumfosfat, Dinatriummonofosfat
-ta:இருசோடியம் பாசுபேட்டு
-vi:Natri hiđrophotphat
-zh:磷酸一氢钠
-# azb:دیسودیوم فوسفات
-# zh-cn:磷酸一氢钠
-# zh-hans:磷酸一氢钠
-# zh-hant:磷酸一氫鈉
-# zh-hk:磷酸一氫鈉
-# zh-sg:磷酸一氢钠
-# zh-tw:磷酸一氫鈉
-wikidata:en:Q418448
-wikipedia:en:https://en.wikipedia.org/wiki/Disodium_phosphate
-# fr:phosphate disodique has 54 products in 3 languages @2018-11-04
-# additive/e339ii-disodium-phosphate has 1940 products in 9 languages @2018-11-06
-
-# TRISODIUM PHOSPHATE (TSP) is the inorganic compound with the chemical formula Na3PO4.
-
-<en:sodium phosphates
-en:trisodium phosphate, Tribasic sodium phosphate, sodium phosphate, E339iii, E 339iii, E-339iii
-bg:Тринатриев фосфат, триосновен натриев фосфат, Натриев фосфат
-ca:Fosfat de trisodi
-cs:Fosforečnan trisodný, Fosforečnan sodný
-da:Trinatriumphosphat, tribasisk natriumphosphat, Natriumphosphat
-de:Trinatriumphosphat, dreibasiges Natriumphosphat, Natriumphosphat
-el:Ουδέτερο φωσφορικό νάτριο, Φωσφορικο νατριο
-eo:Natria fosfato
-es:fosfato trisodico, Fosfato sódico, Fosfato de sodio
-et:Trinaatriumfosfaat, Naatriumfosfaat
-fa:تری‌سدیم فسفات
-fi:Trinatriumfosfaatti, Natriumfosfaatti
-fr:phosphate trisodique, phosphate de sodium tribasique, phosphate de sodium
-hu:Trinátrium-foszfát, Hárombázisú nátrium-foszfát, nátrium-foszfát
-it:Fosfato trisodico, fosfato tribasico di sodio, Fosfato di sodio
-ja:リン酸三ナトリウム
-lt:Trinatrio fosfatas, tribazis natrio fosfatas, Natrio fosfatas
-lv:Trinātrija fosfāts, Tribāziskais nātrija fosfāts, Nātrija fosfāts
-mt:Fosfat trisodiku, Fosfat tas-sodju tribażiku, Fosfat tas-sodju
-nl:trinatriumfosfaat, driebasisch natriumfosfaat, Natriumfosfaat
-nn:natriumfosfat
-pl:Fosforan trisodowy, Fosforan sodu
-pt:fosfato trissódico, fosfato de sódio tribásico, Fosfato de sódio
-ro:Fosfat trisodic, Fosfat de sodiu tribazic, Fosfat de sodiu
-ru:Фосфат натрия,  Ортофосфат натрия
-sh:Trinatrijum fosfat
-sk:Fosforečnan trisodný, trojsýtny fosforečnan sodný, Fosforečnan sodný
-sl:Trinatrijev fosfat, tribazični natrijev fosfat, natrijev fosfat
-sr:Trinatrijum fosfat
-sv:Trinatriumfosfat, Trinatriummonofosfat
-vi:Natri phosphat
-zh:磷酸钠
-# azb:تریسودیوم فوسفات
-wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
-# fr:phosphate-trisodique has 45 products @2018-11-04
-# additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 
 
 # Potassium phosphate is a generic term for the salts of potassium and phosphate ions
@@ -50049,7 +48960,7 @@ fr:extrait de pois
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
-en:chickpea, chickpeas, chick pea, chick peas
+en:chickpea, chickpeas, garbanzo beans, chick pea, chick peas
 am:ሽምብራ
 ar:حمص شائع
 az:Qoyunnoxudu
