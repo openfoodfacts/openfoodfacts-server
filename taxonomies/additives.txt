@@ -14357,31 +14357,31 @@ e_number:en:502
 vegan:en:yes
 vegetarian:en:yes
 
-
-en:E503, Ammonium carbonates, ammonium carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn
-bg:E503, Амониев карбонат
-ca:E503, Carbonat d'amoni
-cs:E503, Uhličitan amonný
+#comment:en:Use plural for E503 and singular(specific) for E503i
+en:E503, Ammonium carbonates
+bg:E503, E503 food additive
+ca:E503, E503 food additive
+cs:E503, E503 food additive
 da:E503, E503 food additive
-de:E503, Ammoniumcarbonat
+de:E503, Ammoniumcarbonaten
 el:E503, E503 food additive
-es:E503, Carbonatos de amonio, carbonato de aminiaco
+es:E503, Carbonatos de amonio
 et:E503, E503 food additive
-fi:E503, Ammoniumkarbonaatti, Ammoniumkarbonaattia
-fr:E503, Carbonates d'ammonium, Carbonate d'ammonium, Carbonate acide d'ammonium, bicarbonate d'ammonium
-hu:E503, Ammónium-karbonát
-it:E503, Carbonato d'ammonio
+fi:E503, E503 food additive
+fr:E503, Carbonates d'ammonium
+hu:E503, E503 food additive
+it:E503, Carbonati d'ammonio
 lt:E503, E503 food additive
-lv:E503, Amonija karbonāts
+lv:E503, E503 food additive
 mt:E503, E503 food additive
-nl:E503, Ammoniumcarbonaat
-pl:E503, Węglan amonu, węglany amonu
-pt:E503, Carbonato de amônio
+nl:E503, Ammoniumcarbonaten
+pl:E503, węglany amonu
+pt:E503, Carbonatos de amônio
 ro:E503, Carbonați de amoniu
-ru:E503, Карбонаты аммония: карбонат аммония, гидрокарбонат аммония, карбонат аммония
+ru:E503, Карбонаты аммония
 sk:E503, E503 food additive
 sl:E503, E503 food additive
-sv:E503, Ammoniumkarbonat
+sv:E503, Ammoniumkarbonater
 e_number:en:503
 mandatory_additive_class:en: en:raising-agent
 wikidata:en:Q204873
@@ -14392,11 +14392,12 @@ vegetarian:en:yes
 <en:E503
 en:E503(i), Ammonium carbonate
 bg:E503(i), Амониев карбонат
+ca:E503(i), Carbonat d'amoni
 cs:E503(i), Uhličitan amonný
 da:E503(i), Ammoniumcarbonat
 de:E503(i), Ammoniumcarbonat
 el:E503(i), Ανθρακικα αλατα του αμμωνιου
-es:E503(i), Carbonato de amonio, Carbonato amónico
+es:E503(i), Carbonato de amonio, Carbonato amónico, carbonato de aminiaco
 et:E503(i), Ammooniumkarbonaat
 fi:E503(i), Ammoniumkarbonaatti, Ammoniumkarbonaattia
 fr:E503(i), Carbonate d'ammonium
@@ -14417,13 +14418,13 @@ wikidata:en:Q204873
 organic_eu:en:authorized
 
 <en:E503
-en:E503(ii), Ammonium hydrogen carbonate
+en:E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn
 bg:E503(ii), Амониев хидроген карбонат
 cs:E503(ii), Hydrogenuhličitan amonný
 da:E503(ii), Ammoniumhydrogencarbonat, Hjortetakssalt
 de:E503(ii), Ammoniumhydrogencarbonat
 el:E503(ii), Οξινο ανθρακικο αμμωνιο
-es:E503(ii), Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico,bicarbonatado de amonio
+es:E503(ii), Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico, bicarbonatado de amonio
 et:E503(ii), Ammooniumvesinikkarbonaat
 fi:E503(ii), Ammoniumvetykarbonaatti, Ammoniumvetykarbonaattia, hirvensarvisuola
 fr:E503(ii), Carbonate acide d'ammonium
