@@ -11851,7 +11851,7 @@ sv:E545, E545 food additive
 e_number:en:545
 wikidata:en:Q2770473
 
-en:E546, E546 food additive
+en:E546, Magnesium pyrophosphate
 bg:E546, E546 food additive
 cs:E546, E546 food additive
 da:E546, E546 food additive
@@ -11859,7 +11859,7 @@ de:E546, E546 food additive
 el:E546, E546 food additive
 es:E546, E546 food additive
 et:E546, E546 food additive
-fi:E546, Magnesiumpyrofosfaatti
+fi:E546, Magnesiumpyrofosfaatti, Magnesiumpyrofosfaattia
 fr:E546, Pyrophosphate de magnésium
 hu:E546, E546 food additive
 it:E546, E546 food additive
@@ -12109,7 +12109,7 @@ el:E450(vii), Δισοξινο πυροφωσφορικο ασβεστιο
 es:E450(vii), Difosfato cálcico de dihidrógeno, Pirofosfato ácido de calcio
 et:E450(vii), Kaltsiumdivesinikdifosfaat, Kaltsiumdivesinikpürofosfaat
 fi:E450(vii), Kalsiumdivetydifosfaatti, Hapan kalsiumpyrofosfaatti, Kalsiumdivetydifosfaattia
-fr:E450(vii), Diphosphate biacide de calcium, CAS 14866-19-4, Dihydrogéno-diphosphate de calcium, Pyrophosphate de calcium acide
+fr:E450(vii), Diphosphate biacide de calcium, Dihydrogéno-diphosphate de calcium, Pyrophosphate de calcium acide
 hu:E450(vii), Kalcium-dihidrogén-difoszfát, Savas kalcium-pirofoszfát
 it:E450(vii), Di-idrogenodifosfato di calcio, Pirofosfato acido di calcio
 lt:E450(vii), Kalcio divandenilio difosfatas, Rūgštusis kalcio pirofosfatas
@@ -12126,8 +12126,9 @@ e_number:en:450
 wikidata:en:Q290828
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 
+#en:comment:Is this the same as E546? Siphosphate versus polyphosphate
 <en:E450
-en:E450(viii), Magnesium pyrophosphate
+en:E450(viii), E450(viii) food additive
 bg:E450(viii), E450(viii) food additive
 cs:E450(viii), E450(viii) food additive
 da:E450(viii), E450(viii) food additive
@@ -12135,8 +12136,8 @@ de:E450(viii), E450(viii) food additive
 el:E450(viii), E450(viii) food additive
 es:E450(viii), E450(viii) food additive
 et:E450(viii), E450(viii) food additive
-fi:E450(viii), Magnesiumpyrofosfaatti, Magnesiumpyrofosfaattia
-fr:E450(viii), Diphosphate dimagnésien, CAS 13446-24-7
+fi:E450(viii), E450(viii) food additive
+fr:E450(viii), Diphosphate dimagnésien
 hu:E450(viii), E450(viii) food additive
 it:E450(viii), E450(viii) food additive
 lt:E450(viii), E450(viii) food additive
@@ -12153,13 +12154,14 @@ e_number:en:450
 wikidata:en:Q290828
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 
+
 en:E451, Triphosphates, sodium triphosphate
 bg:E451, E451 food additive
 ca:E451, Trifosfat
 cs:E451, E451 food additive
 da:E451, E451 food additive
-de:E451, Pentanatriumtriphosphat, Na5P3O10, Natriumtripolyphosphat
-el:E451, E451 food additive
+de:E451, Natriumtripolyphosphat
+el:E451, Τριφωσφορικο νατριο, Τριπολυφωσφορικό νάτριο
 es:E451, Tripolifosfato de sodio,trifosfato pentasodico
 et:E451, E451 food additive
 fi:E451, Trifosfaatit, Trifosfaatteja
@@ -12169,9 +12171,9 @@ it:E451, trifosfato pentasodico, Trifosfato di sodio, Polifosfato di sodio, Na5P
 lt:E451, E451 food additive
 lv:E451, E451 food additive
 mt:E451, E451 food additive
-nl:E451, Trifosfaten, Pentanatriumtrifosfaat, Natriumtripolyfosfaat
+nl:E451, Trifosfaten, Natriumtripolyfosfaat
 pl:E451, E451 food additive
-pt:E451, Tripolifosfato de sódio, Trifosfato de sódio, Tripolifosfato pentassódico
+pt:E451, Tripolifosfato de sódio, Trifosfato de sódio
 ro:E451, E451 food additive
 ru:E451, Tрифосфаты, трифосфат натрия, Триполифосфат натрия
 sk:E451, E451 food additive
@@ -12183,17 +12185,18 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:The name should containe pentasodium
 <en:E451
 en:E451(i), Pentasodium triphosphate, Pentasodium tripolyphosphate
 bg:E451(i), Пентанатриев трифосфат, Пентанатриев триполифосфат
 cs:E451(i), Trifosforečnan pentasodný
 da:E451(i), Pentanatriumtriphosphat, Pentanatriumtripolyphosphat
 de:E451(i), Pentanatriumtriphosphat, Pentanatriumtripolyphosphat
-el:E451(i), Τριφωσφορικο νατριο, Τριπολυφωσφορικό νάτριο
+el:E451(i)
 es:E451(i), Trifosfato de pentasodio, Tripolifosfato pentasódico
 et:E451(i), Pentanaatriumtrifosfaat, Pentanaatriumtripolüfosfaat
 fi:E451(i), Pentanatriumtrifosfaatti, Pentanatriumtripolyfosfaatti, Pentanatriumtrifosfaattia, Pentanatriumtripolyfosfaattia
-fr:E451(i), triphosphate de sodium, triphosphate, STP, STPP, sodium tripolyphosphate, TPP, Triphosphate pentasodique, Tripolyphosphate pentasodique
+fr:E451(i), TPP, Triphosphate pentasodique, Tripolyphosphate pentasodique
 hu:E451(i), Pentanátrium-trifoszfát, Pentanátrium-tripolifoszfát
 it:E451(i), Trifosfato pentasodico, Tripolifosfato pentasodico
 lt:E451(i), Pentanatrio trifosfatas, Pentanatrio tripolifosfatas
