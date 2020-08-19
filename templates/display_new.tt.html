@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]">
+<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]" dir="[% lang('text_direction') %]">
 <head>
     <meta charset="utf-8">
     <title>[% title %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="fb:app_id" content="219331381518041">
+	<meta property="fb:app_id" content="[% fb_config %]">
     <meta property="og:type" content="[% og_type %]">
     <meta property="og:title" content="[% canon_title %]">
     <meta property="og:url" content="[% canon_url %]">
@@ -14,7 +14,7 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app.css?v=[% file_timestamps %]">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
@@ -53,7 +53,7 @@
       [% END %]
     </ul>
   </section>
-  <section class="top-bar-right">
+  <section class="top-bar-right search_and_links">
 		<ul class="dropdown menu" data-dropdown-menu>
 			<li class="show-for-large">
 				<form action="/cgi/search.pl">
@@ -84,13 +84,17 @@
 	</section>
 </nav>
 
+[% offcanvasposition = 'left' %]
+[% IF lang('text_direction') == 'rtl' %]
+[% offcanvasposition = 'right' %]
+[% END %]
 <nav class="tab-bar show-for-small-only">
-	<div class="left-small" style="padding-top:4px;">
+	<div class="[% offcanvasposition %]-small" style="padding-top:4px;">
     <button type="button" class="button [% torso_class %]" data-toggle="offCanvas">
       [% display_icon('account_box') %]
 		</button>
 	</div>
-	<div class="middle tab-bar-section" style="padding-top:4px;">
+	<div class="middle tab-bar-section">
 		<form action="/cgi/search.pl">
 			<div class="grid-x collapse">
 				<div class="cell small-8">
@@ -110,7 +114,7 @@
 </nav>
 
 <div class="off-canvas-wrapper">
-  <aside class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas>
+  <aside class="off-canvas-absolute position-[% offcanvasposition %]" id="offCanvas" data-off-canvas>
     <div id="aside_column">
       [% aside_blocks %]
     </div>

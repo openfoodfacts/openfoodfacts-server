@@ -235,8 +235,16 @@ a {
   width: 10rem;
 }
 
+nav.tab-bar > div {
+  padding-top: 4px;
+}
+
 .left-small {
   border-right: 0;
+}
+
+.right-small {
+  border-left: 0;
 }
 
 .tab-bar-section.middle {
@@ -480,5 +488,51 @@ a[aria-controls="idOfLeftMenu"] {
     .title-bar {
       display: none;
     }
+  }
+}
+
+.share_button,
+.edit_button {
+  float: right;
+  margin-top: -10px;
+}
+
+.delete_button {
+  float: right;
+  margin-top: -10px;
+  margin-right: 10px;
+}
+
+.country_language_selection {
+  float: left;
+}
+
+.search_and_links {
+  float: right;
+}
+
+html[dir="rtl"] {
+  .tab-bar-section.middle {
+    left: 0;
+    right:  rem-calc(45);
+  }
+
+  .share_button,
+  .edit_button {
+    float: left;
+  }
+
+  .delete_button {
+    float: left;
+    margin-right: unset;
+    margin-left: 10px;
+  }
+
+  .country_language_selection {
+    float: right;
+  }
+
+  .search_and_links {
+    float: left;
   }
 }

@@ -42,47 +42,27 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
-use Template;
-use Data::Dumper;
-
-# Initialize the Template module
-my $tt = Template->new({
-	INCLUDE_PATH => $data_root . '/templates',
-	INTERPOLATE => 1,
-	EVAL_PERL => 1,
-	STAT_TTL => 60,	# cache templates in memory for 1 min before checking if the source changed
-	COMPILE_EXT => '.ttc',	# compile templates to Perl code for much faster reload
-	COMPILE_DIR => $data_root . '/tmp/templates',
-});
 
 # Passing values to the template
 my $template_data_ref = {
 	lang => \&lang,
 };
 
-my $criteria;
-
 my $html;
 
 if (0) {
 if (param('jqm')) {
-
                         print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
-
-
 return "";
 }
 elsif (param('json')) {
-
 print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
-
 <<JSON
 { "page_size": "20", "products": [ { "image_small_url": "https://static.openfoodfacts.org/images/misc/yeswescan-313x222.png", "product_name": "Le serveur est surcharge !", "brands": "Merci de votre comprehension", "quantity": "1", "code": "3554748001005", "nutrition_grade_fr": "A" } ], "page": 1, "skip": 0, "count": 1 }
 JSON
 ;
 
 	return "";
-
 }
 }
 
@@ -216,6 +196,8 @@ foreach my $series (@search_series, "nutrition_grades") {
 
 if ($action eq 'display') {
 
+	$template_data_ref->{search_terms} = $search_terms;
+
 	my $active_list = 'is-active';
 	my $active_map = '';
 	my $active_graph = '';
@@ -229,71 +211,54 @@ if ($action eq 'display') {
 		$active_graph = 'is-active';
 	}
 
+	$template_data_ref->{active_list} = $active_list;
+	$template_data_ref->{active_graph} = $active_graph;
+	$template_data_ref->{active_map} = $active_map;
 
 	my %search_fields_labels = ();
-	my @type_array;
+	my @tags_fields_options;
 	my @contains;
-	foreach my $field (@search_fields) {
-		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
-			$search_fields_labels{$field} = lc(lang($field));
 
+	push (@tags_fields_options, {
+		value => "search",
+		label => lang("search_tag"),
+	});
+
+	foreach my $field (@search_fields) {
+		my $label;
+
+		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
+			$label = lc(lang($field));
 		}
 		else {
 			if ($field eq 'creator') {
-				$search_fields_labels{$field} = lang("users_p");
+				$label = lang("users_p");
 			}
 			else {
-				$search_fields_labels{$field} = lang($field . "_p");
+				$label = lang($field . "_p");
 			}
 		}
-		push (@type_array, {
-			type_values => $field,
-			type_labels => $search_fields_labels{$field},
+		push (@tags_fields_options, {
+			value => $field,
+			label => $label,
 		});
 	}
 
-	$search_fields_labels{search_tag} = lang("search_tag");
-	push (@type_array, {
-		type_values => "search",
-		type_labels => $search_fields_labels{search_tag},
-	});
+	$template_data_ref->{tags_fields_options} = \@tags_fields_options;
 
-	my @contain_values = ("contains", "does_not_contain");
-	my %contain_labels = ();
-	# my %contain_labels = {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")};
-
-	# @contains = [
-	#  	{
-	#  		'contain_values' => "contains",
-	#  		'contain_labels' => lang("search_contains"),
-	#  	},
-	#  	{
-	#  		'contain_values' => "does_not_contain",
-	#  		'contain_labels' => lang("search_does_not_contain"),
-	#  	}
-	# ];
-
-	foreach my $value (@contain_values){
-		# push(@{ $contain_labels{$value} }, lang("search_" . $value));
-		my $new_label = lang("search_" . $value);
-	 	push (@contains, {
-	  		contain_values => $value,
-	  		contain_labels => $new_label,
-	 	});
-	 }
+	$template_data_ref->{contain_options} = [
+		{ value => "contains", label => lang("search_contains") },
+		{ value => "does_not_contain", label => lang("search_does_not_contain") },
+	];
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
 
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
-			type_value => $search_tags[$i][0],
-			type_arrays => \@type_array,
-			contain_value => $search_tags[$i][1],
-			contain_array => \@contains,
-			# contain_labels => {"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")},
+			selected_tags_field_value => $search_tags[$i][0],
+			selected_contain_value => $search_tags[$i][1],
 			input_value => $search_tags[$i][2],
 		};
-
 	}
 
 	foreach my $tagtype (@search_ingredient_classes) {
@@ -306,11 +271,10 @@ if ($action eq 'display') {
 			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
 			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
 		};
-
 	}
 
 
-	# Compute possible axis values
+	# Compute possible fields values
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
@@ -319,116 +283,96 @@ if ($action eq 'display') {
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
-	my @sorted_axis_values = sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values);
-	my @result_array;
+	$axis_labels{additives_n} = lang("number_of_additives");
+	$axis_labels{ingredients_n} = lang("ingredients_n_s");
+	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
+	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+	$axis_labels{search_nutriment} = lang("search_nutriment");
+	$axis_labels{products_n} = lang("number_of_products");
 
-	foreach my $entry (@sorted_axis_values) {
-		if ($entry ne ("additives_n") && $entry ne ("ingredients_n") && $entry ne ("known_ingredients_n") && $entry ne ("unknown_ingredients_n") && $entry ne ("search_nutriment") && $entry ne ("products_n")) {
-			my $sorted_labels = ucfirst($Nutriments{$entry}{$lc} || $Nutriments{$entry}{en});
-			push (@result_array, {
-				values => $entry,
-				label => $sorted_labels,
-			});
-		}
+	my @sorted_axis_values = ("", sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values));
+
+	my @fields_options = ();
+
+	foreach my $field (@sorted_axis_values) {
+		push @fields_options, {
+			value => $field,
+			label => $axis_labels{$field},
+		};
 	}
-	push (@result_array, {
-		values => "additives_n",
-		label => lang("number_of_additives"),
-	});
-	push (@result_array, {
-		values => "ingredients_n",
-		label => lang("ingredients_n_s"),
-	});
-	push (@result_array, {
-		values => "known_ingredients_n",
-		label => lang("known_ingredients_n_s"),
-	});
-	push (@result_array, {
-		values => "unknown_ingredients_n",
-		label => lang("unknown_ingredients_n_s"),
-	});
-	push (@result_array, {
-		values => "products_n",
-		label => lang("number_of_products"),
-	});
 
-	$template_data_ref->{result_array} = \@result_array;
-	my @axis_array = ('x','y');
-	my @resultant_array;
-	foreach my $axis (@axis_array) {
-		push (@resultant_array, {
-			id => $axis,
-			results => \@result_array,
-		});
-	}
-	$template_data_ref->{resultant_array} = \@resultant_array;
+	$template_data_ref->{fields_options} = \@fields_options;
 
-	my @nutriments = (
+	$template_data_ref->{compare_options} = [
 	  	{
-	  		'values' => "lt",
+	  		'value' => "lt",
 	  		'label' => '<',
 	  	},
 	  	{
-	  		'values' => "lte",
+	  		'value' => "lte",
 	  		'label' => "\N{U+2264}",
 	  	},
 		{
-	  		'values' => "gt",
-	  		'label' => '<',
+	  		'value' => "gt",
+	  		'label' => '>',
 	  	},
 		{
-	  		'values' => "gte",
+	  		'value' => "gte",
 	  		'label' => "\N{U+2265}",
 	  	},
 		{
-	  		'values' => "eq",
+	  		'value' => "eq",
 	  		'label' => '=',
 	  	},
-	 );
+	];
 
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
-			nutriment_values => \@result_array,
-			nutriment_array => \@nutriments,
+			selected_field_value => $search_nutriments[$i][0],
+			selected_compare_value => $search_nutriments[$i][1],
 			input_value => $search_nutriments[$i][2],
 		};
-
 	}
 
 	# Different types to display results
 
-	my @sort_array = (
+	push @{$template_data_ref->{sort_options}}, [
 	  	{
-	  		'values' => "unique_scans_n",
+	  		'value' => "unique_scans_n",
 	  		'label' => lang("sort_popularity"),
 	  	},
 	  	{
-	  		'values' => "product_name",
+	  		'value' => "product_name",
 	  		'label' => lang("sort_product_name"),
 	  	},
 		{
-	  		'values' => "created_t",
+	  		'value' => "created_t",
 	  		'label' => lang("sort_created_t"),
 	  	},
 		{
-	  		'values' => "last_modified_t",
+	  		'value' => "last_modified_t",
 	  		'label' => lang("sort_modified_t"),
 	  	},
 		{
-	  		'values' => "completeness",
+	  		'value' => "completeness",
 	  		'label' => lang("sort_completeness"),
 	  	},
-	 );
+	];
 
-	push @{$template_data_ref->{sort_array}}, @sort_array;
-	push @{$template_data_ref->{sort_by}}, $sort_by;
+	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
 	my @size_array =(20, 50, 100, 250, 500, 1000);
-	push @{$template_data_ref->{size_array}}, @size_array;
+	push @{$template_data_ref->{size_options}}, @size_array;
 
-	$template_data_ref->{active_list} = $active_list;
+	$template_data_ref->{axes} = [];
+	foreach my $axis ('x','y') {
+		push @{$template_data_ref->{axes}}, {
+			id => $axis,
+			selected_field_value => $graph_ref->{"axis_" . $axis},
+		};
+	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
 
@@ -812,7 +756,3 @@ HTML
 		}
 	}
 }
-
-#my $out;
-# $tt->process('search_form.tt.html', $template_data_ref, \$html || print "template error: " . $tt->error());
-# print "Template Result, $html, are";

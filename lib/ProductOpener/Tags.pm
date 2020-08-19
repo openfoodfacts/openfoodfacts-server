@@ -2221,9 +2221,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	my $display_lc_prefix = "";
 	my $display_tag = $display;
 
-	if ($display =~ /^(\w\w:)/) {
+	if ($display =~ /^((\w\w):)/) {
 		$display_lc_prefix = $1;
-		$display_lc = $1;
+		$display_lc = $2;
 		$display_tag = $';
 	}
 

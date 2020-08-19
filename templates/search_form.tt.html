@@ -17,20 +17,14 @@
     <!-- Criteria form -->
 
     <div class="grid-x grid-padding-x">
-        [% FOREACH type IN criteria %]
+        [% FOREACH tagtype IN criteria %]
             <div class="cell small-12 medium-12 large-6 criterion-row" style="padding-top:1rem">
-                <div class="grid-x grid-padding-x">
-
+                <div class="row">
                     <div class="cell small-12 medium-12 large-5">
 
-                        <select name="tagtype_${type.id}" id="tagtype_${type.id}">
-                            [% FOREACH value IN type.type_arrays %]
-                                [% IF value.type_labels == 'choose a criterion...' %]
-                                    <option value="[% value.type_values %]" label="[% value.type_labels %]" selected="selected"></option>
-                                [% ELSE %]
-                                    <option value="[% value.type_values %]" label="[% value.type_labels %]"></option>
-                                [% END %]
-
+                        <select name="tagtype_${tagtype.id}" id="tagtype_${tagtype.id}">
+                            [% FOREACH tags_field IN tags_fields_options %]
+                                <option value="[% tags_field.value %]" label="[% tags_field.label %]"[% IF tags_field.value == tagtype.selected_tags_field_value %]selected="selected"[% END %]></option>
                             [% END %]
                         </select>
 
@@ -38,19 +32,15 @@
 
                     <div class="cell small-12 medium-12 large-3">
 
-                        <select name="tag_contains_${type.id}" id="tag_contains_${type.id}">
-                            [% FOREACH value IN type.contain_array %]
-                                [% IF value.contain_labels == 'contains' %]
-                                    <option value="[% value.contain_values %]" label="[% value.contain_labels %]" selected="selected"></option>
-                                [% ELSE %]
-                                    <option value="[% value.contain_values %]" label="[% value.contain_labels %]"></option>
-                                [% END %]
+                        <select name="tag_contains_${tagtype.id}" id="tag_contains_${tagtype.id}">
+                            [% FOREACH contain IN contain_options %]
+                                <option value="[% contain.value %]" label="[% contain.label %]" [% IF contain.value == tagtype.selected_contain_value %] selected="selected"[% END %]></option>
                             [% END %]
                         </select>
                     </div>
 
                     <div class="cell small-12 medium-12 large-4 tag-search-criterion">
-                        <input type="text" id="tag_[% type.id %]" name="tag_[% type.id %]" value="[% type.input_value %]" placeholder="[% lang('search_value') %]"/>
+                        <input type="text" id="tag_[% type.id %]" name="tag_[% tagtype.id %]" value="[% tagtype.input_value %]" placeholder="[% lang('search_value') %]"/>
                     </div>
                 </div>
             </div>
@@ -81,29 +71,26 @@
     <h3>[% lang('search_nutriments') %]</h3>
 
     <div class="grid-x grid-padding-x">
-        [% FOREACH type IN nutriments %]
+        [% FOREACH nutriment IN nutriments %]
             <div class="cell small-12 medium-12 large-6">
-                <div class="grid-x grid-padding-x">
+              <div class="grid-x grid-padding-x">
                     <div class="cell small-8">
-                        <select class="select2_field" name="nutriment_[% type.id %]" id="nutriment_[% type.id %]">
-                            [% FOREACH nutriment IN type.nutriment_values %]
-                                <option value="[% nutriment.values %]" label="[% nutriment.label %]">[% nutriment.label %]</option>
+                        <select class="select2_field" name="nutriment_[% nutriment.id %]" id="nutriment_[% nutriment.id %]">
+                            [% FOREACH field IN fields_options %]
+                                <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == nutriment.selected_field_value %] selected[% END %]>[% field.label %]</option>
                             [% END %]
                         </select>
                     </div>
                     <div class="cell small-2">
                         <select name="nutriment_compare_${type.id}" id="nutriment_compare_${type.id}">
-                            [% FOREACH value IN type.nutriment_array %]
-                                [% IF value.label == '<' %]
-                                    <option value="[% value.values %]" label="[% value.label %]" selected="selected"></option>
-                                [% ELSE %]
-                                    <option value="[% value.values %]" label="[% value.label %]"></option>
-                                [% END %]
+                            [% FOREACH compare IN compare_options %]
+                                    <option value="[% compare.value %]" label="[% compare.label %]"[% IF compare.value == nutriment.selected_compare_value %] selected="selected">[% END %]</option>
                             [% END %]
                         </select>
                     </div>
+
                     <div class="cell small-2">
-                        <input type="text" id="nutriment_value_[% type.id %]" name="nutriment_value_[% type.id %]" value="[% type.input_value %]" />
+                        <input type="text" id="nutriment_value_[% nutriment.id %]" name="nutriment_value_[% nutriment.id %]" value="[% nutriment.input_value %]" />
                     </div>
                 </div>
             </div>
@@ -123,23 +110,19 @@
                     <div class="cell small-6">
                         <label for="sort_by">[% lang('sort_by') %]</label>
                         <select name="sort_by" id="sort_by">
-                            [% FOREACH value IN sort_array %]
-                                [% IF value.values == 'unique_scans_n' %]
-                                    <option value="[% value.values %]" label="[% value.label %]" selected="selected"></option>
-                                [% ELSE %]
-                                    <option value="[% value.values %]" label="[% value.label %]"></option>
-                                [% END %]
+                            [% FOREACH sort IN sort_options %]
+                                <option value="[% sort.value %]" label="[% sort.label %]"[% IF sort.value == selected_sort_by_value %] selected="selected"[% END %]></option>
                             [% END %]
                         </select>
                     </div>
                     <div class="cell small-6">
                         <label for="page_size">[% lang('search_page_size') %]</label>
                         <select name="page_size" id="page_size">
-                            [% FOREACH num IN size_array %]
-                                [% IF num == 20 %]
-                                    <option value=[% num %] label=[% num %] selected="selected"></option>
+                            [% FOREACH size IN size_options %]
+                                [% IF size == 20 %]
+                                    <option value=[% size %] label=[% size %] selected="selected"></option>
                                 [% ELSE %]
-                                    <option value=[% num %] label=[% num %]></option>
+                                    <option value=[% size %] label=[% size %]></option>
                                 [% END %]
                             [% END %]
                         </select>
@@ -164,12 +147,12 @@
                 <p>[% lang('search_graph_instructions') %]</p>
 
                 <div class="grid-x grid-padding-x">
-                    [% FOREACH type IN resultant_array %]
+                    [% FOREACH axis IN axes %]
                         <div class="cell small-12 medium-6">
-                            <label for= "axis_[% type.id %]">[% lang("axis_${type.id}") %]</label>
-                            <select class="select2_field" name="axis_[% type.id %]" id="axis_[% type.id %]">
-                                [% FOREACH axistype IN type.results %]
-                                    <option value="[% axistype.values %]" label="[% axistype.label %]">[% axistype.label %]</option>
+                            <label for= "axis_[% axis.id %]">[% lang("axis_${axis.id}") %]</label>
+                            <select class="select2_field" name="axis_[% axis.id %]" id="axis_[% axis.id %]">
+                                [% FOREACH field IN fields_options %]
+                                    <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == axis.selected_field_value %] selected="selected"[% END %]>[% field.label %]</option>
                                 [% END %]
                             </select>
                         </div>

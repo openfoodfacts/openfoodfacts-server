@@ -605,20 +605,36 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr ""
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
+msgctxt "emb_code_products"
+msgid "Products packaged by the company with traceability code %s"
 msgstr ""
 
-msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
+msgctxt "emb_code_p"
+msgid "Traceability codes"
 msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
+msgid "Traceability code"
 msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
 msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
@@ -628,24 +644,8 @@ msgstr ""
 
 msgctxt "emb_codes_note"
 msgid ""
-"In Europe, code in an ellipse with the 2 country initials followed by a "
+"In Europe, the code is in an ellipse with the 2 country initials followed by a "
 "number and CE."
-msgstr ""
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr ""
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr ""
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr ""
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
 msgstr ""
 
 msgctxt "entry_dates_p"
@@ -4440,3 +4440,7 @@ msgctxt "invalid_barcode"
 msgid "Invalid barcode"
 msgstr "Invalid barcode"
 
+# Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
+msgctxt "text_direction"
+msgid "ltr"
+msgstr "ltr"
