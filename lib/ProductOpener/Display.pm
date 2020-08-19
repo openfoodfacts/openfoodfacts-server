@@ -4974,7 +4974,7 @@ JS
 
 				$r = int ($r / $matching_series);
 				$g = int ($g / $matching_series);
-				$b = int ($b / $matching_series);
+				$b = int ($b / $matching_series); ## no critic (RequireLocalizedPunctuationVars)
 
 				$series_data .= <<JS
 {
@@ -5322,7 +5322,7 @@ sub display_histogram($$) {
 
 			$r = int ($r / $matching_series);
 			$g = int ($g / $matching_series);
-			$b = int ($b / $matching_series);
+			$b = int ($b / $matching_series); ## no critic (RequireLocalizedPunctuationVars)
 
 			$series_data .= <<JS
 			{

@@ -26,7 +26,7 @@ use Modern::Perl '2017';
 binmode STDIN, ':encoding(UTF-8)';
 binmode STDOUT, ':encoding(UTF-8)';
 
-my %a = ();
+my %additives = ();
 
 my $category;
 my %current = ();
@@ -103,8 +103,8 @@ while (<STDIN>) {
 		if ($field eq 'name') {
 		
 		my $possible_names = '';
-		if (defined $a{$current{code}}) {
-			$possible_names = $a{$current{code}}{names};
+		if (defined $additives{$current{code}}) {
+			$possible_names = $additives{$current{code}}{names};
 		}
 		$possible_names .= ", " . $current{$field};
 		
@@ -129,15 +129,15 @@ while (<STDIN>) {
 	if (($l =~ /<\/tr>/) and (defined $current{code})) {
 
 		print STDERR "saving $current{code} - $current{name}\n";
-		$a{$current{code}} = {%current};
+		$additives{$current{code}} = {%current};
 	}
 	
 }
 
 # eliminate names that aren't names (appearing multiple times)
 my %names = ();
-foreach my $code (sort keys %a) {
-	my @names = split(/,/, $a{$code}{names});
+foreach my $code (sort keys %additives) {
+	my @names = split(/,/, $additives{$code}{names});
 	foreach my $name (@names) {
 			$name =~ s/^\s+//;
 			$name =~ s/\s+$//;
@@ -151,8 +151,8 @@ foreach my $code (sort keys %a) {
 #	print "$name\t$names{$name}\n";
 #}
 
-foreach my $code (sort keys %a) {
+foreach my $code (sort keys %additives) {
 
-	print $code . "\t" . $a{$code}{names} . "\t(" . $a{$code}{name} . ")\n";
+	print $code . "\t" . $additives{$code}{names} . "\t(" . $additives{$code}{name} . ")\n";
 
 }

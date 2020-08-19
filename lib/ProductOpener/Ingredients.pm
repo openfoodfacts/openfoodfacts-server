@@ -2234,9 +2234,10 @@ sub normalize_allergen($$$) {
 
 	my $type = shift; # allergens or traces
 	my $lc = shift;
-	my $a = shift;
+	my $allergen = shift;
 
-	$log->debug("normalize allergen", { allergen => $a }) if $log->is_debug();
+	$log->debug( "normalize allergen", { allergen => $allergen } )
+		if $log->is_debug();
 
 	my $of = ' - ';
 	if (defined $of{$lc}) {
@@ -2250,12 +2251,12 @@ sub normalize_allergen($$$) {
 	# "de moutarde" -> moutarde
 	# "et de la moutarde" -> moutarde
 
-	$a = " " . $a;
-	$a =~ s/^($and_of|$of)\b//;
-	$a =~ s/\s+$//;
-	$a =~ s/^\s+//;
+	$allergen = " " . $allergen;
+	$allergen =~ s/^($and_of|$of)\b//;
+	$allergen =~ s/\s+$//;
+	$allergen =~ s/^\s+//;
 
-	return $Lang{$type}{$lc} . " : " . $a;
+	return $Lang{$type}{$lc} . " : " . $allergen;
 }
 
 sub normalize_allergens_enumeration($$$) {
