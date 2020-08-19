@@ -35,6 +35,6 @@ BEGIN
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
-$version = "production";
+$version = 'production';
 
 1;
