@@ -35,7 +35,7 @@
 
                         <select name="tag_contains_${tagtype.id}" id="tag_contains_${tagtype.id}">
                             [% FOREACH contain IN contain_options %]
-                                <option value="[% contain.value %]" label="[% contain.label %]" [% IF contain.value == tagtype.selected_contain_value %] selected="selected"[% END %]></option>
+                                <option value="[% contain.value %]" label="[% contain.label %]" [% IF contain.value == tagtype.selected_contain_value %]selected="selected"[% END %]></option>
                             [% END %]
                         </select>
                     </div>
@@ -78,14 +78,14 @@
                     <div class="small-8 columns">
                         <select class="select2_field" name="nutriment_[% nutriment.id %]" id="nutriment_[% nutriment.id %]">
                             [% FOREACH field IN fields_options %]
-                                <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == nutriment.selected_field_value %] selected[% END %]>[% field.label %]</option>
+                                <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == nutriment.selected_field_value %] selected="selected"[% END %]>[% field.label %]</option>
                             [% END %]
                         </select>
                     </div>
                     <div class="small-2 columns">
-                        <select name="nutriment_compare_${type.id}" id="nutriment_compare_${type.id}">
+                        <select name="nutriment_compare_[% nutriment.id %]" id="nutriment_compare_[% nutriment.id %]">
                             [% FOREACH compare IN compare_options %]
-                                    <option value="[% compare.value %]" label="[% compare.label %]"[% IF compare.value == nutriment.selected_compare_value %] selected="selected">[% END %]</option>
+                                    <option value="[% compare.value %]" label="[% compare.label %]"[% IF compare.value == nutriment.selected_compare_value %] selected="selected"[% END %]>[% compare.label %]</option>
                             [% END %]
                         </select>
                     </div>
