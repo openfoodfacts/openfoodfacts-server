@@ -603,7 +603,7 @@ $expected_product_ref =
        'id' => 'en:raising-agent',
        'ingredients' => [
          {
-           'id' => 'en:e503',
+           'id' => 'en:e503ii',
            'text' => 'carbonate acide d\'ammonium'
          },
          {
@@ -770,7 +770,7 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e503',
+       'id' => 'en:e503ii',
        'text' => 'carbonate acide d\'ammonium',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
@@ -883,7 +883,8 @@ $expected_product_ref =
      'en:animal-protein',
      'en:milk-proteins',
      'en:lactose',
-     'en:e503',
+     'en:e503ii',
+	 'en:e503',
      'en:e450i',
      'en:e450',
      'en:e500',
@@ -935,7 +936,7 @@ $expected_product_ref =
      'en:flavouring',
      'en:emulsifier',
      'en:lactose-and-milk-proteins',
-     'en:e503',
+     'en:e503ii',
      'en:e450i',
      'en:e500',
      'en:soya-lecithin',
