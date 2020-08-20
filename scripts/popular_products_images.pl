@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 # This file is used to upload images to the Moodstocks API for offline image recognition
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;

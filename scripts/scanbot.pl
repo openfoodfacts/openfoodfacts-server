@@ -24,10 +24,10 @@
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
