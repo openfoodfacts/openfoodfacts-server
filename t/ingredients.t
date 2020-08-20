@@ -938,7 +938,7 @@ $expected_product_ref =
      'en:lactose-and-milk-proteins',
      'en:e503ii',
      'en:e450i',
-     'en:e500',
+     'en:e500i',
      'en:soya-lecithin',
      'en:e440a',
      'en:e330',
