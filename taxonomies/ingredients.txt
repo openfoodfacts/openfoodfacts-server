@@ -1621,7 +1621,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylate
 
 #   GLYCEROL ESTER OF WOOD ROSIN,  also known as glyceryl abietate or ester gum, is an oil-soluble food additive (E number E445).
 
-en:Glycerol esters of wood rosin, E445, E-445, E 445
+en:Glycerol esters of wood rosin, Glycerol esters of wood rosins, E445, E-445, E 445
 bg:Глицеролови естери на дървесна смола
 cs:Glycerolestery dřevných pryskyřic
 da:Glycerolestere af fyrreharpiks
@@ -8314,6 +8314,7 @@ hu:bio joghurt
 nl:biologische yoghurt
 
 <en:yogurt
+en:low fat yogurt
 fr:yaourt maigre, yogourt maigre
 ca:iogurt magre
 de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
@@ -10150,7 +10151,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
 # EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
 
 <en:cheese
-en:emmental
+en:emmental, emmental cheese
 af:Emmentaler
 ar:إمنتال
 bg:Ементал
@@ -11166,6 +11167,29 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 
 <en:reblochon
 fr:Reblochon AOP
+
+
+# Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
+
+<en:cheese
+en:red leicester, red leicester cheese
+af:red leicester
+cy:Caws Caerlŷr
+de:Red Leicester
+es:Red Leicester
+fi:Red Leicester
+fr:Red Leicester
+id:Keju Leicester
+it:Red Leicester
+lt:Raudonasis Lesteršyras
+nl:Red Leicester
+no:Red Leicester
+pl:Red Leicester
+th:เรดเลสเตอร์
+zh:萊斯特芝士
+wikidata:en:Q1892828
+wikipedia:en:https://en.wikipedia.org/wiki/Red_Leicester
+
 
 # RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
@@ -19142,7 +19166,7 @@ sv:maltvinäger
 
 <en:malt vinegar
 # en:barley malt
-en:barley malt vinegar
+en:barley malt vinegar, malt barley vinegar
 de:gerstenmalzessig
 fi:ohramallasetikka
 fr:vinaigre de malt d'orge
@@ -20477,7 +20501,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fortified_wine
 # description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
 
 <en:liqueur wine
-en:Madeira
+en:Madeira, Madeira wine
 an:Vin de Madeira
 be:Мадэра
 bg:Мадейра
@@ -25780,13 +25804,6 @@ it:farina di piselli
 en:whole green pea flour
 
 <en:flour
-en:chick pea flour
-da:kikærtemel
-fi:kikhernejauho
-fr:farine de pois chiche, farine de pois chiches
-sv:kikärtsmjöl
-
-<en:flour
 fr:farine de châtaigne
 
 <en:flour
@@ -27192,6 +27209,9 @@ fr:riz rouge germé
 <en:rice
 fr:riz riceberry mélangé
 
+<en:rice
+en:sushi rice
+
 ##################################################################################
 #
 #                        CAROB/LOCUST BEAN
@@ -27505,6 +27525,21 @@ wikidata:en:Q11190742
 wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
+<en:sugar
+en:muscovado, muscovado sugar
+ca:Sucre mascavat
+da:Muscovadosukker
+eo:Muskovado
+es:Azúcar mascabado
+fr:Sucre muscovado
+it:Zucchero muscovado
+ja:黒砂糖
+pl:Muscovado
+sv:Muscovadosocker
+# pt:Açúcar mascavo
+wikidata:en:Q9280616
+wikipedia:en:https://en.wikipedia.org/wiki/Muscovado
+
 # nova:en:invert-sugar
 <en:sugar
 en:invert sugar, inverted sugar
@@ -27521,6 +27556,7 @@ pl:Cukier inwertowany
 pt:açúcar invertido
 ro:zahăr invertit, zahar invertit
 sv:invertsocker
+wikidata:en:Q412082
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:invert sugar
@@ -28157,12 +28193,8 @@ wikidata:en:Q154389
 wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
 
-fr:pâte à tarte
-carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
-carbon_footprint_fr_foodges_value:fr:7.3
-
 <en:molasses
-en:cane sugar molasses
+en:cane sugar molasses, cane molasses
 fr:mélasse de sucre de canne, mélasse de canne
 fi:ruokosokerimelassi, ruokomelassi
 nl:rietsuikermelasse
@@ -28653,7 +28685,7 @@ es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
 fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
-hu:glükóz-fruktózszörp, glükóz-fruktózszőrp
+hu:glükóz-fruktózszörp, glükóz-fruktózszőrp, glükóz-fruktóz szirup, fruktóz-glükóz-szirup
 it:sciroppo di glucosio-fruttosio
 nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
@@ -28716,18 +28748,16 @@ de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti
-hu:invert cukorszirup, invertcukor-szirup
+hu:invert cukorszirup, invertcukor-szirup, invertcukor szirup
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
 ro:sirop de zahăr invertit, sirop de zahar invertit
 sv:invertsockersirap
 
-en:invert sugar syrup
-es:Jarabe de azúcar invertido
-fi:inverttisokerisiirappi
+<en:invert sugar syrup
 fr:sirop de sucre inverti cristallisé
-hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, invertcukor szirup
 
+<en:invert sugar syrup
 fr:sirop de sucre partiellement inverti
 it:sciroppo di zucchero parzialmente invertito
 
@@ -46691,7 +46721,7 @@ it:peperoni rossi e gialli
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
 <en:vegetable
-en:chili pepper
+en:chili pepper, chilli pepper
 ar:فلفل حار
 be:чырвоны перац
 bg:Люта чушка
@@ -46801,6 +46831,7 @@ en:tabasco chile
 es:chiles tabasco
 
 <en:chili pepper
+en:chili extract, chilli extract
 fr:extrait de piment
 de:Chiliextrakt
 fi:chiliuute
@@ -46828,7 +46859,7 @@ de:konservierter Chilipfeffer
 fi:säilötty chili
 
 <en:chili pepper
-en:red chili pepper,red chili
+en:red chili pepper, red chili, red chilli pepper, red chilli
 da:rød chili
 de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
@@ -46841,6 +46872,7 @@ sv:röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
 <en:red chili pepper
+en:red chili purée, red chilli purée
 it:purè di peperoncino rosso
 
 <en:red chili pepper
@@ -46850,7 +46882,7 @@ fr:huile de graines de piment rouge
 nl:rode peper zaad olie
 
 <en:chili pepper
-en:green chili pepper
+en:green chili pepper, green chili, green chilli pepper, green chilli
 de:grüne Chili
 es:guindilla verde
 fi:vihreä chili
@@ -48396,7 +48428,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:beans
-en:white beans, navy beans, great northern beans
+en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
@@ -48928,7 +48960,7 @@ fr:extrait de pois
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
-en:chickpea, chickpeas, garbanzo beans
+en:chickpea, chickpeas, garbanzo beans, chick pea, chick peas
 am:ሽምብራ
 ar:حمص شائع
 az:Qoyunnoxudu
@@ -49075,9 +49107,13 @@ it:ceci reidratati
 
 <en:chickpea
 <en:flour
-en:chickpea flour
+en:chickpea flour, chick pea flour, gram flour
 ca:farina de cigro
+da:kikærtemel
 es:harina de garbanzo
+fi:kikhernejauho
+fr:farine de pois chiche, farine de pois chiches
+sv:kikärtsmjöl
 
 <en:pea
 en:garden peas
@@ -52032,6 +52068,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
 <en:caraway
+en:caraway seeds
 fr:graines de carvi
 
 ###################################################################################################
@@ -53463,7 +53500,7 @@ pl:cząber
 
 <en:herb
 <en:coriander
-en:coriander leaves, cilantro
+en:coriander leaves, coriander leaf, cilantro
 da:Korianderblade
 de:Korianderblätter
 es:Hojas de cilantro
@@ -53754,7 +53791,7 @@ fi:luontainen rosmariiniuute
 # comment:en:The wikidata entry has the plant name.
 
 <en:herb
-en:lemongrass
+en:lemongrass, lemon grass
 am:ጠጅ ሳር
 ar:إذخر ليموني
 bn:গন্ধবেণা
@@ -55126,7 +55163,7 @@ fr:extrait d'origan
 #
 ###################################################################################################
 <en:herb
-en:bay leaf
+en:bay leaf, bay leaves
 af:Lourierblaar
 be:Лаўровы ліст
 bg:Дафинов лист
@@ -58857,7 +58894,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 # en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
-en:nori
+en:nori, nori seaweed
 ar:نوري
 az:Nori
 bn:নরি
@@ -59308,7 +59345,7 @@ la:cantharellus cibarius
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 
 <en:mushroom
-en:cep
+en:cep, porcini mushroom, porcini mushrooms
 ar:بوليط مأكول
 ba:Аҡ бәшмәк
 be:Баравік
@@ -59385,14 +59422,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Boletus_edulis
 
 <en:cep
 en:Boletus edulis
-de:Steinpilze
 fi:boletus edulis
 fr:Boletus edulis
-it:funghi porcini
 la:Boletus edulis
 
 <en:cep
-en:dried cep
+en:dried cep, dried porcini mushroom, dried porcini mushrooms
 de:getrocknete Steinpilze
 fi:kuivattu herkkutatti
 fr:cèpes déshydratés
@@ -71067,9 +71102,13 @@ wikidata:en: Q53619707
 # usage:en:egg pasta (durum wheat semolina, eggs)
 # usage:fr:Pâtes aux œufs (semoule de blé dur, œufs d'élevage au sol, sel de cuisine iodé]
 
-# <en:dough
-# fr:pâte à tarte
+<en:dough
+en:pastry, pastry dough, pie dough
+fr:pâte à tarte
+wikipedia:en:https://en.wikipedia.org/wiki/Pastry
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 #<en:compound
 fr:galette
@@ -73636,7 +73675,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 # en:description:HARISSA is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
 
 <en:sauce
-en:harissa
+en:harissa, harissa paste
 ar:هريسة
 bg:Хариса
 bn:হরিষ্যা
