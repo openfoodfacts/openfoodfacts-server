@@ -1388,7 +1388,7 @@ After=postgresql.service
 Type=simple
 User=off
 WorkingDirectory=/srv/off/scripts
-Environment="PERL5LIB=."
+Environment="PERL5LIB=/srv/off/lib/"
 ExecStart=/srv/off/scripts/minion_producers.pl minion worker -m production -q openfoodfacts.org
 KillMode=process
 
