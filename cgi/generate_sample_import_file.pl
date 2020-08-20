@@ -37,6 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -75,18 +76,24 @@ my $col = 0;
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
 	
+	my $group_id = $group_ref->{group_id};
+	
+	$log->debug("group", { group_id => $group_id }) if $log->is_debug();	
+	
 	# Skip nutrition_other, only add default nutrients
-	next if $group_ref->{group_id} eq "nutrition_other";
+	next if ($group_id eq "nutrition_other");
 	
 	foreach my $field_ref (@{$group_ref->{children}}) {
 		
-		# Skip fields intended only for the select2 dropdown
 		my $field_id = $field_ref->{id};
 		
-		next if $field_id =~ /_specific$/;
+		$log->debug("field", { group_id => $group_id, field_id => $field_id }) if $log->is_debug();
+		
+		# Skip fields intended only for the select2 dropdown
+		next if ($field_id =~ /_specific$/);
 		
 		# For now, keep only the per 100g as sold fields
-		next if $field_id =~ /_serving_|_prepared_/;
+		next if ($field_id =~ /_serving_|_prepared_/);
 		
 		$worksheet->write( $headers_row, $col, $field_ref->{text}, $format);
 		my $width = length($field_ref->{text});
@@ -95,6 +102,16 @@ foreach my $group_ref (@$select2_options_ref) {
 		
 		# Comment / note / examples
 		my $comment = "";
+		
+		if ($group_id =~ /^nutrition/) {
+			my $nid = $field_id;
+			$nid =~ s/_(100g|serving|prepared).*//;
+			$log->debug("field nutrition", { group_id => $group_id, field_id => $field_id, nid => $nid }) if $log->is_debug();
+			my $unit = default_unit_for_nid($nid);
+			$log->debug("field nutrition default unit", { group_id => $group_id, field_id => $field_id, nid => $nid, unit => $unit }) if $log->is_debug();
+			$comment .= sprintf(lang("specify_value_and_unit_or_use_default_unit"), $unit) . "\n\n";
+			$log->debug("field after sprintf", { group_id => $group_id, field_id => $field_id }) if $log->is_debug();
+		}
 		
 		if (defined $tags_fields{$field_id}) {
 			$comment .= lang("separate_values_with_commas") . "\n\n";
@@ -127,6 +144,8 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 		
 		$col++;
+		
+		$log->debug("field - comment", { group_id => $group_id, field_id => $field_id, comment => $comment }) if $log->is_debug();
 	}
 }
 
