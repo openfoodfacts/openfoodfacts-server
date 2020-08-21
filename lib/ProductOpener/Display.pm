@@ -1345,26 +1345,25 @@ sub display_text($)
 	exit();
 }
 
-
-sub display_mission($)
-{
+sub display_mission($) {
 	my $request_ref = shift;
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-	my $html = join('', (<$IN>));
+	my $file = "$data_root/lang/$lang/missions/$missionid.html";
+	open my $IN, '<:encoding(UTF-8)', $file or die "could not open $file: $!";
+	my $html = join qw{}, (<$IN>);
+	close $IN or die "could not close $file handle $IN: $!"
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
-		#$html =~ s/<h1>(.*)<\/h1>//;
 	}
 
-	$request_ref->{title} = lang("mission_") . $title;
+	$request_ref->{title} = lang('mission_') . $title;
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
+	$request_ref->{canon_url} = canonicalize_tag_link('missions', $missionid);
 
 	display_new($request_ref);
-	exit();
+	exit;
 }
 
 sub get_cache_results($$){
@@ -9888,9 +9887,10 @@ sub display_icon {
 		my $file = "$www_root/images/icons/dist/$icon.svg";
 		$svg = do {
 			local $/ = undef;
-			open my $fh, "<", $file
+			open my $fh, '<', $file
 				or die "could not open $file: $!";
 			<$fh>;
+			close $fh or die "could not close $file handle $fh: $!";
 		};
 
 		$icons_cache{$icon} = $svg;
