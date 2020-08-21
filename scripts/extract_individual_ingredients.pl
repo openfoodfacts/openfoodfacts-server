@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -86,7 +86,7 @@ my $i = 0;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDIN, ":encoding(UTF-8)");
 	
-while (<STDIN>) {
+while (<>) {
 
 	# list_ingredients.pl:
 	# print $code . "\t" . $product_ref->{complete} . "\t" . $product_ref->{creator} . "\t" . $lc . "\t" . $product_ref->{"ingredients_text_$lc"} . "\n";

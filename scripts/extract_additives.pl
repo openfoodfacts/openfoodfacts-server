@@ -53,7 +53,7 @@ while (<$IN>) {
 
 
 
-while (<STDIN>) {
+while (<>) {
 
 	my $l = $_;
 

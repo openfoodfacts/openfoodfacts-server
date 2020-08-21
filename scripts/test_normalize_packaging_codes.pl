@@ -49,7 +49,7 @@ use JSON::PP;
 
 # Get a list of all products
 
-while (<STDIN>) {
+while (<>) {
 
 	my $code = $_;
 	chomp($code);

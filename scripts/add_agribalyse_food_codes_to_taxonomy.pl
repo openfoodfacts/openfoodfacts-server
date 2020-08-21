@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,7 +43,7 @@ while (my $agb_ref = $csv->getline_hr ($io)) {
 
 close ($io);
 
-while (<STDIN>) {
+while (<>) {
 	
 	my $line = $_;
 	
