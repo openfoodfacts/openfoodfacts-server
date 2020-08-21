@@ -50765,16 +50765,6 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
-<en:mustard seed
-en:yellow mustard seed
-de:gelbes Senfkorn
-fi:keltainen sinapinsiemen
-fr:graines de moutarde jaunes
-
-<en:mustard seed
-fr:graines de moutarde moulues
-nl:gemalen mosterdzaden
-
 <en:seed
 en:celery seed
 de:Selleriesamen
@@ -53257,9 +53247,6 @@ carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 <en:mustard
-en:dijon mustard
-
-<en:mustard
 en:english mustard
 
 # <en:seed
@@ -53284,13 +53271,14 @@ sv:senapsfrö, senapsfrön
 <en:mustard
 en:mustard flour
 es:harina de mostaza
+nl:mosterdmeel
 
 <en:mustard seed
 fr:Graines de moutarde issues de l'agriculture durable
 
 <en:mustard seed
 fr:graines de moutarde moulues
-nl:mosterdmeel
+nl:gemalen mosterdzaden
 
 <en:mustard seed
 en:yellow mustard seed
@@ -53335,6 +53323,7 @@ sv:senapspulver, senapsfröpulver
 # fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
 <en:mustard
+en:dijon mustard
 fr:moutarde de dijon
 de:Dijon-Senf
 fi:dijon-sinappi
