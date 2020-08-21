@@ -1288,7 +1288,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mannitol
 
 #  description:en:GLYCEROL is a simple polyol compound. In food and beverages, glycerol serves as a humectant, solvent, and sweetener, and may help preserve foods. It is also used as filler in commercially prepared low-fat foods (e.g., cookies), and as a thickening agent in liqueurs.
 
-en:glycerol, E422, E-422, E 422
+en:glycerol, E422, E-422, E 422, vegetable glycerine
 ar:غليسرول
 as:গ্লিচাৰল
 az:Qliserin
@@ -4454,7 +4454,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 # Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 
 <en:sweetener
-en:Saccharin, E954, E-954, E 954
+en:Saccharin, E954, E-954, E 954, sodium saccharin
 ar:سكارين
 be:Сахарын
 bg:Захарин
@@ -8958,6 +8958,11 @@ sv:flytande grädde, matgrädde
 # comment:en:Seems to have a 35% fat percentage
 
 <en:cream
+en:double cream
+de:Doppelrahm
+wikidata:en:Q1142449
+
+<en:cream
 en:whole cream, full cream
 ca:crema de llet sencera, nata sencera
 de:Vollrahm, ganze Sahne
@@ -10044,6 +10049,9 @@ wikidata:en:Q217525
 wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 # fr:fromage-cheddar has 39 products @2018-10-27
 # en:cheddar has 366 products @2018-10-27
+
+<en:cheddar
+en:mature cheddar, mature cheddar cheese
 
 <en:cheddar
 fr:cheddar orange
@@ -14937,7 +14945,7 @@ da:Svinekød
 de:Schweinefleisch
 es:carne de cerdo
 fi:sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
-fr:viande de porc
+fr:viande de porc, viande porc
 hu:sertéshús, disznóhús
 it:carne di suino
 nb:svinekjøtt, kjøtt av svin
@@ -15293,11 +15301,6 @@ sv:sida av gris
 fr:carré de porc, carré
 
 <en:pork meat
-fr:viande porc
-ca:carn de porc
-es:carne de cerdo
-
-<en:pork meat
 fr:poitrine de porc fumée
 ca:cansalda de por fumat
 es:panceta de cerdo ahumada
@@ -15335,7 +15338,7 @@ es:tripa de cerdo, tripa natural de cerdo,tripa natural de cerdo de calibre estr
 
 # <en:compound
 <en:pork meat
-en:stewed porc
+en:stewed pork
 ca:estofat de porc
 de:geschmortes Schweinefleisch
 es:estofado de cerdo
@@ -15466,7 +15469,9 @@ sv:svin blod, blod av svin
 fr:plasma de porc
 
 <en:pork meat
+en:pork loin
 fr:longe de porc
+wikidata:en:Q7230136
 
 <fr:longe de porc
 fr:longe de porc traitée en salaison
@@ -15478,6 +15483,7 @@ fr:viande séparée mécaniquement de porc
 fr:jarret de porc
 
 <en:pork meat
+en:pork leg
 fr:cuisse de porc
 it:coscia di suino, coscia suina
 
@@ -15504,13 +15510,6 @@ en:pork bone
 fr:os de porc
 
 <en:pork meat
-fr:couenne de porc
-
-<en:pork
-fr:foie de porc
-ro:ficat de porc, ficat porc
-
-<en:pork meat
 en:pork liver
 de:Schweineleber
 es:Higado de cerdo,tocino de hígado de cerdo
@@ -15519,7 +15518,7 @@ fr:foie de porc
 hu:sertésmáj
 it:fegato di maiale
 nl:varkenslever
-ro:piept de porc, piet porc
+ro:ficat de porc, ficat porc
 ru:Свиная печень
 sv:Grislever
 zh:猪肝
@@ -15549,6 +15548,7 @@ de:Schweinebrust
 es:panceta de cerdo
 fi:Porsaan rinta
 fr:poitrine de porc
+ro:piept de porc, piet porc
 
 <en:pork meat
 fr:viande et gras de porc
@@ -18698,7 +18698,7 @@ wikidata:en:Q170885
 from_palm_oil:en:no
 
 <en:essential oil
-en:orange essential oil
+en:orange essential oil, orange oil
 de:Orangenöl
 es:aceite esencial de naranja,aceite esencial de piel de naranja
 fi:appelsiiniöljy
@@ -20833,6 +20833,8 @@ es:Whisky
 fi:viski
 fr:whisky, scotch whiskey
 hu:whisky
+wikidata:en:Q281
+wikipedia:en:https://en.wikipedia.org/wiki/Whisky
 
 <en:alcohol
 en:whiskey
@@ -20879,7 +20881,7 @@ hu:Campari
 nl:Campari
 
 <en:alcohol
-en:cider
+en:cider, apple cider
 de:Apfelmost
 fr:cidre
 
@@ -20888,14 +20890,16 @@ en:whiskeys
 fr:whiskys
 hu:whiskey-k
 
-<en:whiskey
-en:Scottish whiskey
+<en:whisky
+en:Scotch whisky, Scottish whisky, Scottish whiskey
 de:Schottischer Whisky
 fi:skottiviski
 fr:whisky écossais
 hu:skót whiskey
+wikidata:en:Q382947
+wikipedia:en:https://en.wikipedia.org/wiki/Scotch_whisky
 
-<en:Scottish whiskey
+<en:Scotch whisky
 en:blended scotch whisky
 de:Blended Scotch Whisky
 fi:skotlantilainen blended-viski
@@ -20918,7 +20922,7 @@ it:calvados
 nl:calvados
 
 <en:alcohol
-en:rhum
+en:rum
 da:Rom, rom
 de:Rum
 es:Ron
@@ -23201,7 +23205,7 @@ fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur bi
 # ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
 
 <en:durum wheat semolina
-en:whole durum wheat semolina
+en:whole durum wheat semolina, durum wholewheat semolina
 bs:integralna krupica durum pšenice
 de:Vollkorn-Hartweizengriß
 el:σιμιγδάλι αλέσεως σκληρού σιταριού
@@ -24497,7 +24501,7 @@ ms:Kuinoa
 nb:Quinoa
 nl:Quinoa
 nn:Quinoa
-pl:Komosa ryżowa
+pl:Komosa ryżowa, quinoa
 pt:Quinoa
 qu:Kinwa
 ro:Quinoa
@@ -25309,7 +25313,7 @@ sv:fullkornsmjöl
 
 <en:wheat flour
 <en:wholemeal flour
-en:whole wheat flour
+en:whole wheat flour, wholemeal wheat flour
 ca:farina integral
 da:hvedefuldkornsmel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -25726,7 +25730,7 @@ nl:wit maïsmeel
 sv:vitt majsmjöl
 
 <en:corn flour
-en:whole grain corn flour
+en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour
 fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
@@ -25917,7 +25921,7 @@ oc:Milh
 or:ମକା
 os:Нартхор
 pa:ਮੱਕੀ
-pl:kukurydziana, Kukurydza zwyczajna
+pl:kukurydziana, Kukurydza zwyczajna, Kukurydza 
 ps:جوار
 pt:milho
 qu:Sara
@@ -26101,6 +26105,7 @@ fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits
+pl:grys kukurydziany
 pt:grãos de milho
 ro:porumb boabe
 ru:Кукурузная мука
@@ -26514,7 +26519,7 @@ sv:råris
 # ingredient/fr:riz-brun has 39 products @2019-05-30
 
 <en:brown rice
-en:whole grain brown rice
+en:whole grain brown rice, wholegrain brown rice
 de:brauner Vollkornreis
 fr:Riz brun complet
 
@@ -28675,7 +28680,7 @@ sv:Glukos-Fruktos
 
 <en:glucose
 <en:fructose
-en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
+en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
@@ -32814,7 +32819,7 @@ fr:épaississant e415
 
 # description:en:GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 
-en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418
+en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
 bg:Гума джелан
 cs:Guma gellan
@@ -38193,6 +38198,7 @@ it:Datteri Medjool
 # 9in3@2019-06-04
 
 <en:date
+en:date paste
 fr:pâte de datte
 nl:dadelpuree
 sv:dadelpuré
@@ -42598,6 +42604,12 @@ fi:valkosipuliuute
 # fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
 
 <en:garlic
+en:garlic oil
+de:Knoblauchöl
+es:aceite de ajo
+fr:huile d'ail
+
+<en:garlic
 <en:onion
 fr:oignon et ail en poudre
 
@@ -44842,6 +44854,9 @@ fr:oignons grillés en poudre
 <en:onion
 fr:oignon fumé en poudre
 
+<en:onion
+en:onion purée
+
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
 
@@ -46975,7 +46990,7 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno peppers
-en:chipotle
+en:chipotle, chipotle chilli
 ca:chipotle
 cs:chipotle
 da:chipotle
@@ -47402,7 +47417,7 @@ sv:torkad tomat
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
 <en:dried tomatoes
-en:sundried tomatoes
+en:sundried tomatoes, sun-dried tomato
 de:an der Sonne getrocknete Tomaten
 fi:aurinkokuivattu tomaatti, aurinkokuivatut tomaatit
 fr:tomates séchées au soleil
@@ -48471,14 +48486,16 @@ nl:Zwarte bonen
 sv:svarta bönor
 
 <en:beans
-en:red beans, red kidney beans
+en:red beans, red kidney beans, kidney beans
 da:Røde kidneybønner, kidneybønner
-de:Rote Bohnen
+de:Rote Bohnen, Kidneybohnen
 es:Alubias rojas, judias rojas
 fi:punaiset kidneypavut
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
 sv:röda kidneybönor, kidneybönor
+wikidata:en:Q1828227
+wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
 
 <en:red beans
 en:small red beans
@@ -48486,6 +48503,7 @@ de:Kleine rote Bohnen
 fr:Petit haricots rouges
 
 <en:red beans
+en:dried kidney beans
 fr:haricots rouges secs
 
 <fr:haricots rouges secs
@@ -48497,6 +48515,10 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
+<en:beans
+en:cannellini beans, white kidney beans
+fr:haricots cannellini
+wikidata:en:Q74663825
 
 <en:beans
 en:mung bean
@@ -48556,7 +48578,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
 <en:legume
-en:black-eyed pea, black eye beans, blackeye peas
+en:black-eyed pea, blackeye peas, black eye beans, black eyed beans
 bg:Папуда
 de:Augenbohnen
 dv:ލޫބިޔާ
@@ -50331,6 +50353,9 @@ zh:花生仁, 花生
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
+
+<en:peanut
+en:peanut paste
 
 <en:peanut
 en:roasted peanuts
@@ -54579,7 +54604,7 @@ nn:basilikum
 oc:Basèli
 om:Massobila
 pa:ریحان
-pl:Bazylia pospolita
+pl:Bazylia pospolita, bazylia
 pt:manjericão
 ro:Busuioc
 ru:Базилик душистый
@@ -55163,7 +55188,7 @@ fr:extrait d'origan
 #
 ###################################################################################################
 <en:herb
-en:bay leaf, bay leaves
+en:bay leaf, bay leaves, bay
 af:Lourierblaar
 be:Лаўровы ліст
 bg:Дафинов лист
@@ -68382,7 +68407,7 @@ fr:viande de poulet, viande de poule
 hu:csirkehús
 it:carne di pollo
 nl:kippenvlees
-pl:Mięso z kurczaka
+pl:Mięso z kurczaka, mięso kurczęce
 ro:carne de pui
 ru:куриное мясо
 sk:prsia kuracie
@@ -69378,7 +69403,7 @@ fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées
 # description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 
 <en:egg
-en:egg white
+en:egg white, egg albumen, egg albumin
 ar:بياض البيض
 bg:яйчен белтък
 bn:সাদা ডিম
