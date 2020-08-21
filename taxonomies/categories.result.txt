@@ -170,6 +170,9 @@ ru:пиво
 se:Vuola
 sv:Öler, Öl
 zh:啤酒
+agribalyse_proxy_food_code:en: 5000
+agribalyse_proxy_food_name:en: Beer, dark
+agribalyse_proxy_food_name:fr: Bière brune
 nova:en: 3
 wikidata:en: Q44
 
@@ -1721,6 +1724,7 @@ fr:Lait anti-reflux
 en:Baby follow-on milk from 2 years
 ca:Llet de continuació des dels 2 anys
 de:2-Nahrung, 2er-Babymilch
+es:Leche de continuación para bebés a partir de 2 años
 fr:Laits de suite à partir de 2 ans
 nl:Baby-opvolgmelk vanaf 2 jaar
 
@@ -1728,6 +1732,7 @@ nl:Baby-opvolgmelk vanaf 2 jaar
 en:Baby follow-on milk from 3 years
 ca:Llet de continuació des dels 3 anys
 de:3-Nahrung, 3er-Babymilch
+es:Leche de continuación para bebés a partir de 3 años
 fr:Laits de suite à partir de 3 ans
 nl:Baby-opvolgmelk vanaf 3 jaar
 
@@ -6484,19 +6489,6 @@ fr:Donuts
 nl:Donuts, Donut
 
 < en:Cakes
-en:Doughnuts filled with chocolate
-fr:Beignets fourrés au chocolat
-ciqual_food_code:en: 23885
-ciqual_food_name:en: Doughnut filled with chocolate, prepacked
-
-< en:Cakes
-en:Doughnuts filled with fruits
-fr:Beignet fourré aux fruits
-ciqual_food_code:en: 23884
-ciqual_food_name:en: Doughnut filled with fruits, prepacked
-ciqual_food_name:fr: Beignet fourré aux fruits, préemballé
-
-< en:Cakes
 en:Fars, Far, Fars bretons, breton fars
 fr:Fars, Far, Fars bretons
 nl:Fars
@@ -6517,13 +6509,6 @@ ciqual_food_name:en: Fruit cake
 ciqual_food_name:fr: Cake aux fruits
 oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
 wikidata:en: Q675987
-
-< en:Cakes
-en:Jam doughnuts, Jelly doughnuts, Doughnuts filled with jam
-fr:Beignets à la confiture, Donuts à la confiture
-ciqual_food_code:en: 23881
-ciqual_food_name:en: Doughnut filled with jam
-ciqual_food_name:fr: Beignet à la confiture
 
 < en:Cakes
 en:Lemon cake
@@ -6566,13 +6551,6 @@ it:Muffins, muffin
 nl:Muffins, Muffin
 zh:松饼
 wikidata:en: Q207220
-
-< en:Cakes
-en:Plain doughnut
-fr:Donuts nature saupoudrés de sucre, Beignets ronds moelleux sans fourrage saupoudrés de sucre
-ciqual_food_code:en: 23880
-ciqual_food_name:en: Doughnut, plain
-ciqual_food_name:fr: Beignet rond moelleux, sans fourrage, saupoudré de sucre
 
 < en:Cakes
 en:Pound Cake
@@ -9571,10 +9549,8 @@ fr:Cheesecakes au caramel
 nl:Caramelcheesecakes, Caramelcheesecake
 
 < en:Cheesecakes
-en:Cheesecake with red berries
-de:Käsekuchen mit roten Beeren
-fr:Cheesecake aux fruits rouges
-nl:Rode vruchten cheesecakes, Rode vruchten cheesecake
+en:Cheesecakes with fruits
+es:Cheesecake con fruta
 
 < en:Cheesecakes
 en:Lemon cheesecakes
@@ -9589,18 +9565,24 @@ fr:Cheesecakes au speculoos
 nl:Speculooscheesecakes, Speculooscheesecake, Kandijcheesecake
 
 < en:Cheesecakes
-en:Strawberry cheesecakes
-de:Erdbeerkäsekuchen
-fr:Cheesecakes à la fraise
-nl:Aardbeiencheesecakes, Aardbeiencheesecake
-
-< en:Cheesecakes
 en:Vanilla cheesecakes
 de:Vanillekäsekuchen
 fr:Cheesecakes à la vanille
 nl:Vanillecheesecakes, Vanillecheesecake
 
-< en:Cheesecakes
+< en:Cheesecakes with fruits
+en:Cheesecake with red berries
+de:Käsekuchen mit roten Beeren
+fr:Cheesecake aux fruits rouges
+nl:Rode vruchten cheesecakes, Rode vruchten cheesecake
+
+< en:Cheesecakes with fruits
+en:Strawberry cheesecakes
+de:Erdbeerkäsekuchen
+fr:Cheesecakes à la fraise
+nl:Aardbeiencheesecakes, Aardbeiencheesecake
+
+< en:Cheesecakes with fruits
 fr:Cheesecakes à la framboise
 de:Himbeerkäsekuchen
 nl:Frambozencheesecakes, Frambozencheesecake
@@ -11487,7 +11469,7 @@ nl:Desserts op basis van melk en chocola
 < en:Chocolate desserts
 en:Chocolate mousses
 de:Mousses au chocolat, Mousse au chocolat
-es:Mousses de chocolate
+es:Mousses de chocolate, Mousse de chocolate
 fi:Suklaamousset
 fr:Mousses au chocolat, Mousse au chocolat
 nl:Chocolademousses
@@ -16067,7 +16049,7 @@ ciqual_food_name:en: Spirulina, -spirulina sp.-, dried
 wikidata:en: Q285335
 
 < en:Dietary supplements
-en:Vitamines
+en:Vitamins, vitamines
 de:Vitamine
 fi:vitamiinit
 fr:Vitamines
@@ -16163,6 +16145,33 @@ en:Doogh
 de:Dugh
 ru:Тан
 wikidata:en: Q1264142
+
+< en:Doughnuts
+en:Doughnuts filled with chocolate
+fr:Beignets fourrés au chocolat
+ciqual_food_code:en: 23885
+ciqual_food_name:en: Doughnut filled with chocolate, prepacked
+
+< en:Doughnuts
+en:Doughnuts filled with fruits
+fr:Beignet fourré aux fruits
+ciqual_food_code:en: 23884
+ciqual_food_name:en: Doughnut filled with fruits, prepacked
+ciqual_food_name:fr: Beignet fourré aux fruits, préemballé
+
+< en:Doughnuts
+en:Jam doughnuts, Jelly doughnuts, Doughnuts filled with jam
+fr:Beignets à la confiture, Donuts à la confiture
+ciqual_food_code:en: 23881
+ciqual_food_name:en: Doughnut filled with jam
+ciqual_food_name:fr: Beignet à la confiture
+
+< en:Doughnuts
+en:Plain doughnuts, Plain doughnut
+fr:Donuts nature saupoudrés de sucre, Beignets ronds moelleux sans fourrage saupoudrés de sucre
+ciqual_food_code:en: 23880
+ciqual_food_name:en: Doughnut, plain
+ciqual_food_name:fr: Beignet rond moelleux, sans fourrage, saupoudré de sucre
 
 < en:Dragées
 < en:Nut confectioneries
@@ -19433,7 +19442,7 @@ wikidata:en: Q918148
 
 < en:Flatbreads
 < en:Special breads
-en:Pitas, Pittas, Pita bread
+en:Pitas, Pittas, Pita bread, pitta bread
 de:Pitas
 es:Pitas, Pan pita, Panes pita
 fi:Pitaleivät, Pita
@@ -24719,7 +24728,7 @@ pt:Mostarda da Baviera
 
 < en:German sausages
 en:Frankfurter sausages, Frankfurter sausage
-es:frankfurt
+es:salchichas Frankfurt, frankfurt
 fr:Saucisses de Francfort, Saucisse de Francfort
 nl:Frankfurter worsten
 ciqual_food_code:en: 30134
@@ -27243,13 +27252,13 @@ nl:Koffieroomijs
 
 < en:Ice cream tubs
 en:Nougat ice cream tubs
-es:Tarrinas y bloques de helado de turrón, Tarrinas de helado de turrón, Bloques de helado de turrón
+es:Tarrinas y bloques de helado de turrón, Tarrinas de helado de turrón, Bloques de helado de turrón, helado de turrón
 fr:Glaces au nougat
 nl:Nougatroomijs
 
 < en:Ice cream tubs
 en:Pistachio ice cream tubs
-es:Tarrinas y bloques de helado de pistacho, Tarrinas de helado de pistacho, Bloques de helado de pistacho
+es:Tarrinas y bloques de helado de pistacho, Tarrinas de helado de pistacho, Bloques de helado de pistacho, helado de pistacho
 fr:Glaces à la pistache
 nl:Pistacheroomijs
 
@@ -27268,10 +27277,24 @@ nl:Aardbeienroomijs
 < en:Ice cream tubs
 en:Vanilla ice cream tubs
 de:Eisbecher Vanille, Eispackung Vanille
-es:Tarrinas y bloques de helado de vainilla, Tarrinas de helado de vainilla, Bloques de helado de vainilla
+es:Tarrinas y bloques de helado de vainilla, Tarrinas de helado de vainilla, Bloques de helado de vainilla, Helado de vainilla
 fi:Vaniljajäätelöpurkit
 fr:Glaces à la vanille
 nl:Vanille-roomijs
+
+< en:Ice cream tubs
+es:helado de vainilla y almendras
+
+< en:Ice cream tubs
+es:helado de vainilla y chocolate blanco
+
+< en:Ice cream tubs
+es:helado de vainilla y macadamia
+fr:glace à la vanille et macadamia
+
+< en:Ice cream tubs
+fr:Glace à la stracciatella
+es:helado de stracciatella
 
 < en:Ice cream tubs
 fr:Glaces à la menthe
@@ -29706,7 +29729,7 @@ ciqual_food_name:fr: Homard, cru
 < en:Long grain rices
 en:Basmati rices, Raw basmati rices
 de:Basmati Reis
-es:Arroces Basmati
+es:Arroces Basmati, Arroz Basmati
 fi:basmatiriisit
 fr:Riz Basmati, Basmati, Riz thaï cru, Riz basmati cru
 it:Riso Basmati
@@ -30805,6 +30828,10 @@ nl:Light mayonnaises, Halvanaises
 ciqual_food_code:en: 11079
 ciqual_food_name:en: Mayonnaise, reduced fat or light mayonnaise
 ciqual_food_name:fr: Mayonnaise à teneur réduite en matière grasse ou Mayonnaise allégée
+
+< en:Mayonnaises
+en:Mayonnaise with caramelized onion
+es:Mayonesas con cebolla caramelizada
 
 < en:Mayonnaises
 < en:Sauces
@@ -35683,12 +35710,12 @@ it:Orecchiette
 nl:Orecchiette
 
 < en:Pastas
-en:Penne rigate
-de:Penne Rigate
-fi:penne rigate
-fr:Penne rigate
-it:Penne rigate
-nl:Penne rigate
+en:Penne
+de:Penne
+fi:penne
+fr:Penne
+it:Penne
+nl:Penne
 
 < en:Pastas
 en:Rice pasta
@@ -35794,6 +35821,7 @@ wikidata:en: Q2996948
 
 < en:Pastas
 fr:Crozets, Pâtes crozets, Crozet, Pate crozet
+wikidata:en: Q3005487
 
 < en:Pastas
 fr:Lasagnes à garnir, Lasagnes
@@ -36437,6 +36465,18 @@ ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
 < en:Peeled tomatoes
 fr:Chair de tomates
 
+< en:Penne
+en:Penne lisce
+it:Penne lisce
+
+< en:Penne
+en:Penne rigate
+de:Penne Rigate
+fi:penne rigate
+fr:Penne rigate
+it:Penne rigate
+nl:Penne rigate
+
 < en:Pepper sauces
 fr:Sauces au poivre vert, sauce poivre vert
 hu:zöldpaprika mártások
@@ -36871,6 +36911,33 @@ fr:Tourtes, Tourte
 nl:Pies, pie
 wikidata:en: Q13360264
 
+< en:Pies
+es:empanada boloñesa
+
+< en:Pies
+es:empanada de atún
+
+< en:Pies
+es:empanada de bacalao
+
+< en:Pies
+es:empanada de carne
+
+< en:Pies
+es:empanada de espinacas
+
+< en:Pies
+es:empanada de pollo
+
+< en:Pies
+es:empanada de salmón
+
+< en:Pies
+es:empanada marinera
+
+< en:Pies
+es:empanadilla argentina
+
 < en:Cooked poultries
 < en:Pigeon
 en:Roasted pigeon meat, Baked pigeon meat
@@ -36960,6 +37027,9 @@ fr:Jus d'ananas pur jus, pur jus d'ananas
 ciqual_food_code:en: 2073
 ciqual_food_name:en: Pineapple juice, pure juice
 ciqual_food_name:fr: Jus d'ananas, pur jus
+
+< en:Piquillo pepper
+es:Pimientos del piquillo rellenos de chipirones
 
 < en:Pistachios
 en:Roasted pistachios
@@ -39761,6 +39831,7 @@ zh:鸡肠
 < en:Poultry sausages
 < en:Sausages
 en:Duck sausages
+es:Salchichas de pato
 fi:Ankkamakkarat
 fr:Saucisses de canard
 nl:Eendenworst
@@ -41547,6 +41618,7 @@ nl:Bolognese Raviolis
 < en:Ravioli
 en:Cheese ravioli, Ravioli with cheese
 de:Käseravioli, Käse-Ravioli
+es:Ravioli de queso
 fi:juustoravioli
 fr:Ravioli au fromage, Raviolis au fromage, Ravioli aux fromages, Raviolis aux fromages, Raviolis fromages
 hu:Sajtos  ravioli, Ravioli sajttal
@@ -41560,13 +41632,18 @@ nl:Chinese ravioli
 
 < en:Ravioli
 en:Ham Ravioli, Raviolis with ham
+es:Ravioli de jamón
 fr:Ravioli au jambon
 hu:Sonkás ravioli, Ravioli sonkával
 nl:Ravioli met ham
 
 < en:Ravioli
+en:Meat ravioli
+
+< en:Ravioli
 en:Mushroom ravioli, mushroom raviolis
 de:Pilzravioli, Pilz-Ravioli
+es:Ravioli de champiñones
 fr:Ravioli aux champignons, Raviolis champignons, Raviolis aux champignons, Ravioli champignons
 hu:Gombás ravioli, Ravioli gombával
 nl:Paddestoelenraviolis
@@ -42548,7 +42625,7 @@ wikidata:en: Q2674257
 < en:Medium grain rices
 < en:Rices for paella
 en:Bahía rices
-es:Arroces Bahía
+es:Arroces Bahía, Arroz Bahía
 fr:Riz Bahía
 nl:Bahiarijsten
 wikidata:en: Q5706293
@@ -44890,6 +44967,10 @@ ciqual_food_name:en: Beer sausage
 ciqual_food_name:fr: Saucisse de bière
 
 < en:Sausages
+en:Bockwurst
+es:salchichas bockwurst
+
+< en:Sausages
 en:French sausages, Sausages from France
 ca:Embotits francesos, Embotits de França
 de:Französische Würste, Würste aus Frankreich
@@ -44988,6 +45069,7 @@ ciqual_food_name:en: Sausage meat, raw
 
 < en:Sausages
 en:Sausages from Spain, Spanish sausages
+es:Embutidos de España
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
@@ -45038,6 +45120,7 @@ ciqual_food_name:fr: Merguez, crue
 < en:Sausages
 fr:Saucisses cocktail
 en:Cocktail sausage
+es:Salchichas cocktail
 nl:Cocktailworstjes
 ciqual_food_code:en: 30746
 ciqual_food_name:en: Cocktail sausage
@@ -45881,7 +45964,7 @@ nl:Geroosterde gepelde zonnebloempitten
 < en:Rices for paella
 < en:Short grain rices
 en:Balilla x Sollana rices
-es:Arroces Balilla x Sollana
+es:Arroces Balilla x Sollana, Arroz Balilla x Sollana
 fr:Riz Balilla x Sollana
 
 < en:Japonica rices
@@ -45899,7 +45982,7 @@ wikidata:en: Q5706296
 < en:Short grain rices
 en:Arborio rices
 de:Arborio Reis
-es:Arroces Arborio
+es:Arroces Arborio, Arroz Arborio
 fr:Riz arborio
 nl:Arboriorijsten
 wikidata:en: Q2615884
@@ -49215,6 +49298,14 @@ fr:Mélanges de poivrons multicolores
 nl:Gemengde paprikas
 
 < en:Sweet peppers
+en:Piquillo pepper
+ca:Pebrot del piquillo
+es:Pimientos del piquillo
+eu:Pikillo piper
+fr:Poivrons de piquillo, pimiento del piquillo, pimiento de piquillo, Piquillo de Lodosa
+wikidata:en: Q3121337
+
+< en:Sweet peppers
 en:Raw sweet peppers
 fr:Poivrons crus
 ciqual_food_code:en: 20041
@@ -49261,9 +49352,6 @@ fr:Petit vert marseillais
 < en:Sweet peppers
 fr:Piquant d'Algérie
 wikidata:en: Q20738865
-
-< en:Sweet peppers
-fr:Poivrons de piquillo, pimiento del piquillo, pimiento de piquillo, Piquillo de Lodosa
 
 < en:Sweet pies
 en:Apple pies, Apple tarts
@@ -49419,6 +49507,10 @@ wikidata:en: Q3515853
 en:Tropezian pies
 fr:Tartes tropéziennes, Tarte tropézienne, Gâteaux tropéziens, Gâteau tropézien
 nl:Tropézienne taart
+
+< en:Sweet pies
+en:Turron pies
+es:Tartas de turrón
 
 < en:Sweet pies
 fr:Tarte au vin, Tartes au vin, sèche au vin, wein-tarte
@@ -51882,6 +51974,7 @@ ciqual_food_name:fr: Veau, noix, crue
 < en:Sausages
 < en:Veal meat
 en:Veal sausages, Veal Sausage
+es:Salchichas de Ternera
 fi:Vasikanmakkarat
 fr:Saucisses de veau, Saucisse de veau
 
