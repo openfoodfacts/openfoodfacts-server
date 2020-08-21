@@ -64,8 +64,12 @@ print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
 my $workbook = Excel::Writer::XLSX->new( \*STDOUT );
 my $worksheet = $workbook->add_worksheet();
-my $format = $workbook->add_format();
-$format->set_bold();
+my %formats = (
+	normal => $workbook->add_format( border => 1, bold => 1),
+	mandatory => $workbook->add_format( border => 1, bold => 1, bg_color => '#aaffcc'),
+	recommended => $workbook->add_format( border => 1, bold => 1, bg_color => '#ccffdd'),
+	optional => $workbook->add_format( border => 1, bold => 1, bg_color => '#eeffee'),
+);
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
 my $select2_options_ref = generate_import_export_columns_groups_for_select2([ $lc ]);
@@ -87,6 +91,11 @@ foreach my $group_ref (@$select2_options_ref) {
 		
 		my $field_id = $field_ref->{id};
 		
+		# Remove language (e.g. product_name_en -> product_name)
+		if (($field_id =~ /^(.*)_(\w\w)$/) and (defined $language_fields{$1})) {
+			$field_id =~ s/_\w\w$//;
+		}
+		
 		$log->debug("field", { group_id => $group_id, field_id => $field_id }) if $log->is_debug();
 		
 		# Skip fields intended only for the select2 dropdown
@@ -94,11 +103,6 @@ foreach my $group_ref (@$select2_options_ref) {
 		
 		# For now, keep only the per 100g as sold fields
 		next if ($field_id =~ /_serving_|_prepared_/);
-		
-		$worksheet->write( $headers_row, $col, $field_ref->{text}, $format);
-		my $width = length($field_ref->{text});
-		($width < 20) and $width = 20;
-		$worksheet->set_column( $col, $col, $width );
 		
 		# Comment / note / examples
 		my $comment = "";
@@ -111,6 +115,14 @@ foreach my $group_ref (@$select2_options_ref) {
 			$log->debug("field nutrition default unit", { group_id => $group_id, field_id => $field_id, nid => $nid, unit => $unit }) if $log->is_debug();
 			$comment .= sprintf(lang("specify_value_and_unit_or_use_default_unit"), $unit) . "\n\n";
 			$log->debug("field after sprintf", { group_id => $group_id, field_id => $field_id }) if $log->is_debug();
+		}
+		elsif ($field_id =~ /_value_unit/) {
+			$field_id = $`;
+			$comment .= lang("specify_value_and_unit") . "\n\n";
+		}
+		
+		if ($group_id eq "images") {
+			$comment .= lang("images_can_be_provided_separately") . "\n\n";
 		}
 		
 		if (defined $tags_fields{$field_id}) {
@@ -138,6 +150,31 @@ foreach my $group_ref (@$select2_options_ref) {
 			}
 			$comment .= $example_title . " " . $example . "\n\n";
 		}
+		
+		# Set a different format for mandatory / recommended / optional fields
+		
+		my $importance = "normal";
+		
+		if (defined $options{import_export_fields_importance}) {
+			
+			$importance = "optional";
+			
+			if (defined $options{import_export_fields_importance}{$group_id . "_group"}) {
+				$importance = $options{import_export_fields_importance}{$group_id . "_group"};
+			}
+			if (defined $options{import_export_fields_importance}{$field_id}) {
+				$importance = $options{import_export_fields_importance}{$field_id};
+			}
+			
+			$comment .= lang($importance . "_field") . " - " . lang($importance . "_field_note") . "\n\n";
+		}
+		
+		# Write cell and comment
+		
+		$worksheet->write( $headers_row, $col, $field_ref->{text}, $formats{$importance});
+		my $width = length($field_ref->{text});
+		($width < 20) and $width = 20;
+		$worksheet->set_column( $col, $col, $width );		
 
 		if ($comment ne "") {
 			$worksheet->write_comment($headers_row, $col, $comment); 

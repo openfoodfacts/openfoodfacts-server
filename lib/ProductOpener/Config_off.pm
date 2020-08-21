@@ -661,6 +661,40 @@ $options{import_export_fields_groups} = [
 	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
 ];
 
+# Used to generate the sample import file for the producers platform
+# possible values: mandatory, recommended, optional.
+# when not specified, fields are considered optional
+$options{import_export_fields_importance} = {
+	
+	# default values for groups
+	nutrition_group => "mandatory",
+	images_group => "mandatory",
+	ingredients_group => "mandatory",
+	
+	# values for fields
+	code => "mandatory",
+	lc => "mandatory",
+	product_name => "mandatory",
+	generic_name => "recommended",
+	quantity => "mandatory",
+	serving_size => "recommended",
+	packaging => "recommended",
+	brands => "mandatory",
+	categories => "mandatory",
+	labels => "mandatory",
+	countries => "recommended",
+	obsolete => "mandatory",
+	obsolete_since_date => "recommended",
+	
+	origins => "mandatory",
+	emb_codes => "recommended",
+	
+	recycling_instructions_to_recycle => "recommended",
+	recycling_instructions_to_discard => "recommended",
+	
+	image_other_url => "optional",
+};
+
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
