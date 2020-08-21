@@ -23,16 +23,14 @@
 use Modern::Perl '2017';
 use utf8;
 
-binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDOUT);
 binmode(STDERR, ":encoding(UTF-8)");
 
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
@@ -43,24 +41,17 @@ use Apache2::RequestRec ();
 use Apache2::Const ();
 
 use CGI qw/:cgi :form escapeHTML :cgi-lib/;
-use URI::Escape::XS;
-use Storable qw/dclone/;
-use Encode;
-use JSON;
 use Log::Any qw($log);
 use Excel::Writer::XLSX;
 
-my $action = param('action') || 'display';
-
 ProductOpener::Display::init();
 
-use Apache2::RequestRec ();
 my $r = Apache2::RequestUtil->request();
 
 $r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 $r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_import.xlsx");
-binmode( STDOUT );
-print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+
+print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n\r\n";
 
 my $workbook = Excel::Writer::XLSX->new( \*STDOUT );
 my $worksheet = $workbook->add_worksheet();
