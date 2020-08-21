@@ -1441,7 +1441,7 @@ is( $product_ref->{additives},
 
 is_deeply(
 	$product_ref->{additives_original_tags},
-	[ 'en:e330', 'en:e120', 'en:e500', ],
+	[ 'en:e330', 'en:e120', 'en:e500i', ],
 );
 
 $product_ref = {
