@@ -1352,7 +1352,7 @@ sub display_mission($) {
 	my $file = "$data_root/lang/$lang/missions/$missionid.html";
 	open my $IN, '<:encoding(UTF-8)', $file or die "could not open $file: $!";
 	my $html = join qw{}, (<$IN>);
-	close $IN or die "could not close $file handle $IN: $!"
+	close $IN or die "could not close $file handle $IN: $!";
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
