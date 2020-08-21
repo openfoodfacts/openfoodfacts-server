@@ -7497,7 +7497,7 @@ en:skimmed cows milk
 es:leche desnatada de vaca,leche descremada de vaca
 
 <en:Cow's milk
-en:pasteurized skimmed milk
+en:pasteurized skimmed cow's milk
 ca:llet fresca desnatada pasteuritzada de vaca
 es:leche de vaca desnatada pasterizada
 
@@ -21350,13 +21350,6 @@ fr:arôme naturel de banane
 hu:természetes banán aroma
 
 <en:natural flavouring
-en:natural shallot flavouring
-de:natürliches Schalottenaroma, natürliches Schalotten-Aroma
-fi:luontainen salottisipuliaromi
-fr:arôme naturel d'échalotte
-hu:természetes mogyoróhagyma aroma
-
-<en:natural flavouring
 en:natural cola flavouring
 de:natürliches Cola-Aroma, natürliches Colaaroma
 fi:luontainen kola-aromi
@@ -22884,9 +22877,8 @@ fr:Grains de blé dur précuits
 fr:blé dur concassé précuit
 
 <en:wheat
-en:puffed cereal
+en:puffed wheat
 de:Weizenpops
-fi:puffattu vilja
 fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
@@ -26797,7 +26789,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Basmati
 <en:basmati rice
 en:white basmati rice
 de:weißer Basmatireis
-en:white basmati rice
 fi:valkoinen basmatiriisi
 fr:riz basmati blanc
 hu:fehér basmati rizs, fehér baszmati rizs
@@ -49922,7 +49913,6 @@ wikidata:en:Q3177204
 fr:Marrons UE
 
 <fr:marron
-en:cooked chestnuts
 de:Gekochte Maronen
 fr:marrons cuits
 nl:gekookte kastanjes
@@ -50821,7 +50811,6 @@ nl:biologisch venkelzaad
 en:chia
 da:Chia
 de:chia
-en:chia
 es:chia, chía negra
 fi:chia
 fr:chia
@@ -56009,7 +55998,6 @@ cy:Balm
 da:Citron-Melisse
 de:Zitronenmelisse
 el:Μελισσόχορτο
-en:lemon balm
 eo:Citronmeliso
 es:Toronjil,melisa
 et:Sidrunmeliss
@@ -66333,9 +66321,7 @@ fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
 # ingredient/fr:miel-d-acacia-issu-de-l-agriculture-biologique has 3 products @2018-05-28
 
 <en:acacia honey
-en:honey from France
-de:Honig aus Frankreich, französischer Honig
-fi:Ranskalaista hunajaa
+en:acacia honey from France
 fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, miel d'acacia du val de saone, miel d'acacia d'occitanie
 # ingredient/fr:miel-d-acacia-recolte-en-france has 4 products @2019-05-28
 
@@ -66558,8 +66544,7 @@ fr:mélange de miels de fleurs
 # ingredient/fr:melange-de-miels-de-fleurs has 6 products @2019-05-28
 
 <en:blend of honeys
-en:mix of flower honeys
-de:Mischung aus Blütenhonig
+en:blend of EU honeys
 fr:mélange de miels originaires de l'UE
 # ingredient/fr:melange-de-miels-originaires-de-l-ue has 5 products in french @2019-05-28
 
@@ -69140,12 +69125,11 @@ nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
-en:free range chicken eggs
 fr:œufs de poules élevées en plein air calibre moyen
 
 <en:free range chicken eggs
 <en:organic egg
-en:free range chicken eggs
+en:organic free range chicken eggs
 fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
