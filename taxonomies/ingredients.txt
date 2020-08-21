@@ -16164,6 +16164,7 @@ it:amido di frumento
 nl:tarwezetmeel, tarwe zetmeel
 pl:Skrobia pszenna
 pt:amido de trigo
+ro:amidon din grâu
 ru:Пшеничный крахмал
 se:pšenični skrob
 sv:vetestärkelse
@@ -16182,6 +16183,11 @@ hu:módosított búzakeményítő
 it:amido modificato de fromento
 nl:gemodificeerd tarwezetmeel
 sv:modifierad vetestärkelse
+
+<en:modified starch
+<en:wheat starch
+fr:amidon de blé partiellement modifié
+
 
 <en:syrup
 en:tapioca syrup
@@ -23340,46 +23346,6 @@ carbon_footprint_fr_foodges_value:fr:0.6
 fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
 # 20 products in 1 language @20180922
-
-<en:starch
-# <en:wheat
-en:wheat starch
-ca:Midó de blat, fècula de blat
-cs:Pšeičný škrob
-da:Hvedestivelse
-de:Weizenstärke
-el:άμυλο σιταριού
-es:almidón de trigo
-fi:vehnätärkkelys, vehnätärkkelystä
-fr:amidon de froment, amidon de blé
-hu:búzakeményítő
-it:amido di frumento
-nl:tarwezetmeel
-pl:Skrobia pszenna
-pt:amido de trigo
-ro:amidon din grâu
-ru:Пшеничный крахмал
-se:pšenični skrob
-sv:vetestärkelse
-
-<en:wheat starch
-de:Weizenquellstärke
-
-<en:modified starch
-<en:wheat starch
-en:modified wheat starch
-de:modifizierte Weizenstärke
-es:almidón de trigo modificado
-fi:muunnettu vehnätärkkelys
-fr:amidon modifié de blé, amidon transformé de blé
-hu:módosított búzakeményítő
-it:amido modificato de fromento
-nl:gemodificeerd tarwezetmeel
-sv:modifierad vetestärkelse
-
-<en:modified starch
-<en:wheat starch
-fr:amidon de blé partiellement modifié
 
 ##################################################################################
 #
