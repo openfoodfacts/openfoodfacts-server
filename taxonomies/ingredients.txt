@@ -5421,7 +5421,6 @@ pt:fermentos lácticos e de maturação
 en:selected lactic ferments
 de:ausgewählte Milchsäurekulturen
 fr:ferments lactiques sélectionnés
-nl:geselecteerde fermenten
 # fr:ferments-lactiques-sélectionnés has 140 products in 2 languages @2019-07-09
 
 # description:en:BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
@@ -9587,10 +9586,6 @@ it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
 
 <en:cheese
-es:queso fundido en polvo
-ca:formatge fos en pols
-
-<en:cheese
 de:Bergkäse
 hu:hegyisajt
 
@@ -13297,7 +13292,6 @@ fr:Sel rose
 <en:Pink salt
 en:Himalayan pink salt, Pink Himalayan salt
 ca:Sal rosa de l'Himalaya
-de:Himalayasalz
 es:Sal rosa del Himalaya
 fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
 fr:sel rose de l'Himalaya, sel de l'Himalaya rose
@@ -13429,7 +13423,6 @@ en:Mediterranean salt, Mediterranean sea salt
 ca:sal de la mar Mediterrània, sal mediterrània
 da:middelhavssalt
 de:Mediterranes Meersalz
-es:Sal de la mar mediterránea, sal mediterránea
 es:Sal de la mar mediterránea, sal mediterránea,sal marina del mar mediterráneo
 fr:Sel de la Méditerranée, Sel de la Mer Méditerranée
 
@@ -13951,7 +13944,7 @@ es:higado de ternera, foie de ternera
 fi:vasikanmaksa
 fr:foie de veau
 hu:borjúmáj
-it:fegato di maiale
+it:fegato di vitello
 
 en:cow
 ca:vaca
@@ -15185,7 +15178,6 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Barde_(cuisine)
 <en:bacon
 en:lardon, lardoon
 br:lardez
-de:Speck, Speck
 es:mechar
 fr:lardons, lardons supérieurs
 ja:ラードン
@@ -15197,8 +15189,6 @@ carbon_footprint_fr_foodges_value:fr:5.6
 
 <en:lardon
 en:smoked lardoons
-de:geräucherter Speck
-es:tocino ahumado
 fr:lardon fumé, lardons fumés
 
 <en:lardon
@@ -16085,11 +16075,6 @@ wikidata:en:Q715160
 
 # en:modified potato starch is listed under en:thickener
 
-<en:starch
-fr:amidon de pois
-de:Erbsenstärke
-nl:erwtenzetmeel
-
 # description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 
 <en:starch
@@ -16223,6 +16208,7 @@ en:pea starch
 de:Erbsenstärke
 fi:hernetärkkelys
 fr:Amidon de pois
+nl:erwtenzetmeel
 sv:ärtstärkelse
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
 # 1 entry @ 2019-11-02
@@ -17237,15 +17223,11 @@ nl:geheel geharde palm
 
 <en:hydrogenated palm oil
 en:partially hydrogenated palm oil
-de:teilgehärtetes Palmöl
+de:teilgehärtetes Palmöl, teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 es:Aceite de palma parcialmente hidrogenado
 fi:osittain kovetettu palmuöljy, osittain hydrogenoitu palmuöljy
 fr:huile de palme partiellement hydrogénée
 hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
-
-<en:palm oil
-fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
@@ -18769,7 +18751,6 @@ from_palm_oil:en:no
 
 <en:oil
 en:marine oil
-de:Fischöl
 fr:huile marine
 vegan:en:no
 vegetarian:en:no
@@ -21434,13 +21415,6 @@ de:Pfeffergewürz, Gewürzpfeffer
 fi:pippuriaromi
 fr:arôme de poivre
 hu:bors aroma
-
-<en:natural flavouring
-en:natural pepper flavouring
-es:Saborizante natural de pimiento
-fi:luontainen pippuriaromi
-fr:arôme naturel de poivre
-hu:természetes bors aroma
 
 # Two parents due to and/or ingredient
 
@@ -25166,7 +25140,6 @@ it:farina di grano tenero tipo 0, farina di grano tipo 0
 
 <en:wheat flour
 en:wheat flour type 00, flour type 00
-de:Weizenmehl Type 0
 it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
@@ -27807,9 +27780,6 @@ sv:druvsocker
 fr:sucre vanilline
 fi:vanilliinisokeri
 
-<en:sugar
-de:Zuckerrübensirup
-
 # description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
 <en:sugar
@@ -29677,7 +29647,6 @@ fi:kaseinaatti
 fr:caséinate
 hu:kazeinát
 it:caseinato
-nl:Caseïne
 vegan:en:no
 vegetarian:en:yes
 wiktionary:en:https://en.wiktionary.org/wiki/caseinate
@@ -30867,7 +30836,6 @@ fr:eau de source St Benoît, Eau de source Saint Benoît
 
 <en:spring water
 en:natural spring water
-da:vand
 de:natürliches Quellwasser
 fi:luontainen lähdevesi
 fr:eau de source naturelle
@@ -34577,7 +34545,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:mango
 <en:purée
 en:mango puree
-de:Mangopüree
+de:Mangopüree, Mangopulpe, Mangomark
 es:Puré de mango
 fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
@@ -34587,11 +34555,6 @@ sv:mangopuré
 # In process de:Mangopüree, Mangomark
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-mangue
 # 393 products @2018-09-27
-
-<en:mango
-fr:pulpe de mangue
-de:Mangopulpe, Mangomark
-it:polpa di mango
 # ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
 
 ##########################################
@@ -34632,7 +34595,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-da:Pære
+da:fersken
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
@@ -36659,7 +36622,6 @@ carbon_footprint_fr_foodges_value:fr:1.3
 
 <en:orange juice
 en:concentrated orange juice
-da:Appelsinjuice fra koncentrat
 de:Orangensaftkonzentrat
 es:Zumo de naranja concentrado
 fi:appelsiinimehutiiviste, appelsiinitäysmehutiiviste
@@ -40337,7 +40299,6 @@ de:Weißer Traubensaft aus Konzentrat
 es:zumo de uva blanca concentrado
 fi:vaalea rypälemehutiiviste
 fr:jus de raisin blanc concentré
-nl:Geconcentreerd grapefruitsap
 
 <en:concentrated white grape juice
 en:organic concentrated white grape juice
@@ -44185,9 +44146,6 @@ fr:jus de céleri concentré, jus concentré de céleri
 en:powdered concentrated celery juice
 de:Konzentriertes Selleriesaftpulver
 fr:jus concentré de céleri en poudre
-
-<en:celery
-de:Selleriesaft
 
 <en:celery
 fr:extrait de céleri
@@ -56296,7 +56254,7 @@ fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
 nb:lakrisrot
-nl:Zoethout
+nl:Zoethoutwortel
 sv:lakritsrot
 # ingredient/fr:racine-de-réglisse has 51 products in 4 languages @2018-12-28
 
