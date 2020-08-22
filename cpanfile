@@ -77,4 +77,6 @@ on 'test' => sub {
 
 on 'develop' => sub {
   requires 'Perl::Critic', '>= 1.138, < 2.0';
+  requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl
+  recommends 'Term::ReadLine::Gnu', '>= 1.36, < 2.0'; # readline support for the Perl debugger
 }
