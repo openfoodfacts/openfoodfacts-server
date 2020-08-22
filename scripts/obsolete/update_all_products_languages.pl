@@ -69,19 +69,19 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		if ($product_ref->{lc} eq 'other') {
 			$product_ref->{lc} = 'xx';
 		}
-		
+
 		$lc = $product_ref->{lc};
-		
-	 	compute_languages($product_ref);		
-			
+
+		compute_languages($product_ref);
+
 		# Store
 
 		#$User_id = 'fieldbot';
 		#store_product($product_ref, "allow Unicode characters in normalized values of tag fields");
-		
-		store("$data_root/products/$path/product.sto", $product_ref);		
+
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		
+
 		}
 	}
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,34 +26,33 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					&display_image_form
-					&process_image_form
+		&display_image_form
+		&process_image_form
 
-					&display_search_image_form
-					&process_search_image_form
+		&display_search_image_form
+		&process_search_image_form
 
-					&get_code_and_imagefield_from_file_name
-					&process_image_upload
-					&process_image_move
+		&get_code_and_imagefield_from_file_name
+		&process_image_upload
+		&process_image_move
 
-					&process_image_crop
-					&process_image_unselect
+		&process_image_crop
+		&process_image_unselect
 
-					&scan_code
+		&scan_code
 
-					&display_select_manage
-					&display_select_crop
-					&display_select_crop_init
+		&display_select_manage
+		&display_select_crop
+		&display_select_crop_init
 
-					&display_image
-					&display_image_thumb
+		&display_image
+		&display_image_thumb
 
-					&extract_text_from_image
+		&extract_text_from_image
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -105,8 +104,8 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
-	my $id = $id_lc;
+	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
+	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -412,7 +411,7 @@ sub process_search_image_form($) {
 			if (defined $code) {
 				$code = normalize_code($code);
 			}
-			$$filename_ref = "$data_root/tmp/$filename.$extension";
+			${$filename_ref} = "$data_root/tmp/$filename.$extension";
 		}
 	}
 	return $code;
@@ -456,7 +455,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
 	# but [code]_2.jpg etc. should not be considered the front image
 	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
-		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {	# [code] + number between 0 and 99
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
 		$imagefield = "front";
 	}
 	else {
@@ -473,11 +472,11 @@ sub process_image_upload($$$$$$$) {
 
 	my $product_id = shift;
 	my $imagefield = shift;
-	my $userid = shift;
-	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
-	my $comment = shift;
+	my $userid     = shift;
+	my $time       = shift; # usually current time (images just uploaded), except for images moved from another product
+	my $comment   = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
-	my $debug_string_ref = shift;	# to return debug information to clients
+	my $debug_string_ref = shift;    # to return debug information to clients
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
 	
@@ -530,10 +529,10 @@ sub process_image_upload($$$$$$$) {
 	}
 	
 	local $log->context->{imagefield} = $imagefield;
-	local $log->context->{uploader} = $userid;
-	local $log->context->{file} = $file;
-	local $log->context->{time} = $time;	
-	
+	local $log->context->{uploader}   = $userid;
+	local $log->context->{file}       = $file;
+	local $log->context->{time}       = $time;
+
 	# Check if we have already received this image before
 	my $images_ref = retrieve("$product_data_root/products/$path/images.sto");
 	defined $images_ref or $images_ref = {};
@@ -542,10 +541,10 @@ sub process_image_upload($$$$$$$) {
 	
 	if (($file_size > 0) and (defined $images_ref->{$file_size})) {
 		$log->debug("we have already received an image with the same size", {file_size => $file_size, imgid => $images_ref->{$file_size}}) if $log->is_debug();
-		$$imgid_ref = $images_ref->{$file_size};
+		${$imgid_ref} = $images_ref->{$file_size};
 		$debug .= " - we have already received an image with this file size: $file_size - imgid: $$imgid_ref";
-		$$debug_string_ref = $debug;
-		return -3;		
+		${$debug_string_ref} = $debug;
+		return -3;
 	}
 
 	if ($file) {
@@ -663,9 +662,9 @@ sub process_image_upload($$$$$$$) {
 								unlink $img_orig;
 								unlink $img_jpg;
 								rmdir ("$product_www_root/images/products/$path/$imgid.lock");
-								$$imgid_ref = $i;
+								${$imgid_ref} = $i;
 								$debug .= " - we already have an image with this file size: $size - imgid: $i";
-								$$debug_string_ref = $debug;
+								${$debug_string_ref} = $debug;
 								return -3;
 							}
 							else {
@@ -688,7 +687,7 @@ sub process_image_upload($$$$$$$) {
 				unlink "$product_www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$product_www_root/images/products/$path/$imgid.lock");
 				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
-				$$debug_string_ref = $debug;
+				${$debug_string_ref} = $debug;
 				return -4;
 			}
 
@@ -797,12 +796,12 @@ sub process_image_upload($$$$$$$) {
 	$log->info("upload processed", { imgid => $imgid, imagefield => $imagefield }) if $log->is_info();
 
 	if ($imgid > 0) {
-		$$imgid_ref = $imgid;
+		${$imgid_ref} = $imgid;
 	}
 	else {
-		$$imgid_ref = $imgid;
+		${$imgid_ref} = $imgid;
 		# Pass back a debug message
-		$$debug_string_ref = $debug;
+		${$debug_string_ref} = $debug;
 	}
 
 	return $imgid;
@@ -863,7 +862,8 @@ sub process_image_move($$$$) {
 
 				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
 
-				use File::Copy;
+				require File::Copy;
+				File::Copy->import( qw( move ) );
 
 				$log->info("moving source image to deleted images directory", { source_path => "$www_root/images/products/$path/$imgid.jpg", destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg" });
 
@@ -914,10 +914,10 @@ sub process_image_crop($$$$$$$$$$$) {
 	$code =~ s/.*\///;
 
 	my $new_product_ref = retrieve_product($product_id);
-	my $rev = $new_product_ref->{rev} + 1;	# For naming images
-	
+	my $rev             = $new_product_ref->{rev} + 1;     # For naming images
+
 	# The product_id can be prefixed by a server (e.g. off:[code]) with a different $www_root
-	my $product_www_root = www_root_for_product_id($product_id);	
+	my $product_www_root = www_root_for_product_id($product_id);
 
 	my $source_path = "$product_www_root/images/products/$path/$imgid.jpg";
 
@@ -1067,7 +1067,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		my %seen;
 		while (@q) {
 			my $p = pop @q;
-			my ($x,$y) = @$p;
+			my ($x,$y) = @{$p};
 			$seen{$x . ',' . $y} and next;
 			$seen{$x . ',' . $y} = 1;
 			(($x < 0) or ($x >= $w) or ($y < 0) or ($y > $h)) and next;
@@ -1288,12 +1288,13 @@ sub _set_magickal_options($$) {
 	# $magick->Set(colorspace => 'sRGB');
 	$magick->Strip();
 
+	return;
 }
 
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1360,8 +1361,8 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
-	my $size = shift;  # currently = $small_size , 200px
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $size        = shift;    # currently = $small_size , 200px
 
 	my $html = '';
 
@@ -1546,7 +1547,7 @@ sub extract_text_from_image($$$$$) {
 	delete $product_ref->{$field};
 
 	my $path = product_path($product_ref);
-	$results_ref->{status} = 1;	# 1 = nok, 0 = ok
+	$results_ref->{status} = 1;    # 1 = nok, 0 = ok
 
 	my $filename = '';
 
@@ -1611,7 +1612,8 @@ sub extract_text_from_image($$$$$) {
 		open (my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
 		binmode($IMAGE);
 		local $/;
-		my $image_data = do { local $/; <$IMAGE> };	# https://www.perlmonks.org/?node_id=287647
+		my $image_data
+			= do { local $/; <$IMAGE> }; # https://www.perlmonks.org/?node_id=287647
 		close $IMAGE;
 
 		my $api_request_ref =
@@ -1684,6 +1686,7 @@ sub extract_text_from_image($$$$$) {
 		}
 	}
 
+	return;
 }
 
 1;

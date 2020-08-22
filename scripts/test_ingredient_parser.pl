@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -80,18 +80,18 @@ if ($text ne '') {
 </theader>
 <tbody>		
 HTML
-;		
+;
 		foreach my $i (@{$product_ref->{ingredients}}) {
 	
 			$html .= "<tr><td>" . $i->{rank}. "</td><td>" . $i->{id} . "</td><td>" . $i->{text} . "</td><td>" . $i->{percent} . "</td></tr>\n";
 	
-		}	
+		}
 
 		$html .= <<HTML
 </tbody>
 </table>
 HTML
-;		
+;
 	}
 }
 
