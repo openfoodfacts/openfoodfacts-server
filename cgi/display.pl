@@ -85,6 +85,9 @@ if (defined $request{api}) {
 		display_product_api(\%request);
 	}
 }
+elsif (defined $request{search}) {
+	display_tag(\%request);
+}
 elsif (defined $request{text}) {
 	display_text(\%request);
 }

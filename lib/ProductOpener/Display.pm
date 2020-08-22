@@ -643,6 +643,11 @@ sub analyze_request($)
 
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => param("api_version"), api_method => param("api_method"), code => $request_ref->{code}, jqm => param("jqm"), json => param("json"), xml => param("xml") } ) if $log->is_debug();
 	}
+	
+	# Search endpoint, parameters will be parser by CGI.pm param()
+	elsif ($components[0] eq "search") {
+		$request_ref->{search} = 1;
+	}
 
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
@@ -3906,7 +3911,10 @@ sub add_params_to_query($$) {
 		
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
-		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
+		if (($field eq "page") or ($field eq "page_size")) {
+			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
+		}
+		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
 			if (defined $3) {
@@ -4288,12 +4296,15 @@ sub search_and_display_products($$$$$) {
 			$product_ref->{url} = $formatted_subdomain . $url;
 
 			add_images_urls_to_product($product_ref);
+			
+			my $jqm = param("jqm");	# Assigning to a scalar to make sure we get a scalar
+			# jqm => param("jqm") in the hash below does not work
 
 			push @{$template_data_ref->{structured_response_products}}, {
 				code => $code,
 				product_name => $product_name,
 				img => $img,
-				jqm => param("jqm"),
+				jqm => $jqm,
 				url => $url,
 			};
 
@@ -4304,8 +4315,8 @@ sub search_and_display_products($$$$$) {
 		}
 
 
-		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined param('fields')) {
+		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
+		if ((defined $request_ref->{api}) and (defined param('fields'))) {
 
 			my $compact_products = [];
 
