@@ -378,16 +378,17 @@ ru:Карамельный сироп
 # ingredient/caramel-syrup has 248 products @2019-03-09
 
 <en:caramel syrup
+<en:sugar
 en:caramelised sugar syrup
 ca:xarop de sucre caramelitzat
 da:karamelliseret sukkersirup, karameliseret sukkersirup
-de:Caramelzuckersirup, Karamellzuckersirup
+de:Caramelzuckersirup, Karamellzuckersirup, Karamell-Zuckersirup
 es:jarabe de azúcar caramelizado, sirope de azúcar caramelizado
-fi:karamellisoitu sokerisiirappi
-fr:sirop de sucre caramel
+fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
+fr:sirop de sucre caramel, sirop de sucre caramélisé
 hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
-nl:gekaramelliseerde suiker
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
 pl:cukier skarmelizowanny
 sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
@@ -7496,7 +7497,7 @@ en:skimmed cows milk
 es:leche desnatada de vaca,leche descremada de vaca
 
 <en:Cow's milk
-en:pasteurized skimmed milk
+en:pasteurized skimmed cow's milk
 ca:llet fresca desnatada pasteuritzada de vaca
 es:leche de vaca desnatada pasterizada
 
@@ -7505,12 +7506,13 @@ es:leche de vaca desnatada pasterizada
 # description:en:RAW GOAT MILK - milk produced by female goats before any treatment
 
 <en:goat's milk
+<en:raw milk
 en:raw goat's milk
-ca:llet crua de cabra
+ca:llet crua de cabra, llet de cabra crua
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra
+es:leche cruda de cabra, leche de cabra cruda
 fi:vuohen raakamaito, raaka vuohenmaito
-fr:lait cru de chèvre
+fr:lait cru de chèvre, lait de chèvre cru
 hu:nyers kecsketej
 
 # description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
@@ -7531,13 +7533,6 @@ ro:lapte de capră, lapte de capra
 ru:Козье молоко
 sv:getmjölk
 wikidata:en:Q1418287
-
-<en:goat's milk
-<en:raw milk
-en:raw goat's milk
-ca:llet de cabra crua
-es:leche de cabra cruda
-fr:lait de chèvre cru
 
 <en:goat's milk
 en:whole goat's milk
@@ -7796,13 +7791,6 @@ sv:sockrad kondenserad mjölk, söt kondenserad mjölk, sötad kondenserad mjöl
 wikidata:en:Q57271749
 # ingredient/sweetened-condensed-milk has 516 products in 5 languages @2019-04-16
 
-<en:condensed milk
-en:condensed semi-skimmed milk
-ca:llet condensada parcialment desnatada, llet condensada semidesnatada, llet parcialment desnatada condensada, llet semidesnatada condensada
-de:Kondensmagermilch, eingedickte entrahmte Milch
-es:leche condensada parcialmente desnatada, leche condensada semidesnatada, leche parcialmente desnatada condesada, leche semidesnatada condensada
-hu:sűrtett zsírszegény tej
-
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
 ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada,dolc de llet
@@ -7849,19 +7837,19 @@ nl:gecondenseerde volle melk
 
 <en:condensed milk
 en:condensed semi-skimmed milk
-ca:llet semidesnatada condensada, llet parcialment desnatada condensada, llet condesnada semidesnatada, llet condensada parcialment desnatada
+ca:llet semidesnatada condensada, llet parcialment desnatada condensada, llet condensada semidesnatada, llet condensada parcialment desnatada
 de:teilentrahmte Kondensmilch
 es:leche semidesnatada condensada, leche parcialmente desnatada condensada, leche condensada semidesnatada, leche condensada parcialmente desnatada
 fi:kondensoitu vähärasvainen maito, tiivistetty vähärasvainen maito
 fr:lait demi-écrémé condensé
-hu:sűrített zsírszegény tej
+hu:sűrített zsírszegény tej, sűrtett zsírszegény tej
 nl:gecondenseerde halfvolle melk
 # ingredient/condensed-semi-skimmed-milk has 3 products in german @2019-04-16
 
 <en:condensed milk
 en:condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
 ca:llet descremada condensada, llet desnatada condensada, llet condensada descremada, llet condensada desnatada
-de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat
+de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat, eingedickte entrahmte Milch
 es:leche descremada condensada, leche desnatada condensada, leche condensada descremada, leche condensada desnatada
 fi:kondensoitu rasvaton maito
 fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
@@ -14000,39 +13988,6 @@ es:rabo vacuno
 en:beef tripe
 es:callos de vacuno
 
-# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
-
-<en:meat
-en:goat meat
-an:aponkye
-ar:لحم الماعز
-bs:Kozetina
-ca:carn de cabrit
-da:gedekød
-de:Ziegenfleisch
-eo:Kapraĵo
-es:cabrito al pastor
-fi:vuohenliha
-fr:viande de chèvre
-hu:kecskehús
-id:Daging kambing
-it:carne di capra
-ja:ヤギ肉
-ko:염소고기
-la:Haedina
-ms:Daging kambing
-nl:geitevlees
-pt:carne de cabra
-ru:Козлятина
-sr:јаретина
-ta:ஆட்டிறைச்சி
-vi:Thịt dê
-zh:山羊肉
-# sr-ec:јаретина
-wikidata:en:Q449506
-wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
-# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-
 # description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
 
 <en:sheep
@@ -14899,16 +14854,39 @@ sv:pannbiff
 en:goat
 es:cabra
 
+# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
+
 <en:meat
 <en:goat
 en:goat meat
-ca:carn de cabra
+an:aponkye
+ar:لحم الماعز
+bs:Kozetina
+ca:carn de cabra, carn de cabrit
 da:gedekød
 de:Ziegenfleisch
-es:carne de cabra
+eo:Kapraĵo
+es:cabrito al pastor
 fi:vuohenliha
+fr:viande de chèvre
 hu:kecskehús
-nl:geitenvlees
+id:Daging kambing
+it:carne di capra
+ja:ヤギ肉
+ko:염소고기
+la:Haedina
+ms:Daging kambing
+nl:geitenvlees, geitevlees
+pt:carne de cabra
+ru:Козлятина
+sr:јаретина
+ta:ஆட்டிறைச்சி
+vi:Thịt dê
+zh:山羊肉
+# sr-ec:јаретина
+wikidata:en:Q449506
+wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
+# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
 
 
 ###################################################################################################
@@ -15858,6 +15836,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salami
 fr:saucisses fumées
 
 <en:meat
+en:pork sausage, pork sausages
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisse de porc
 carbon_footprint_fr_foodges_value:fr:5.5
@@ -16179,6 +16158,7 @@ it:amido di frumento
 nl:tarwezetmeel, tarwe zetmeel
 pl:Skrobia pszenna
 pt:amido de trigo
+ro:amidon din grâu
 ru:Пшеничный крахмал
 se:pšenični skrob
 sv:vetestärkelse
@@ -16197,6 +16177,11 @@ hu:módosított búzakeményítő
 it:amido modificato de fromento
 nl:gemodificeerd tarwezetmeel
 sv:modifierad vetestärkelse
+
+<en:modified starch
+<en:wheat starch
+fr:amidon de blé partiellement modifié
+
 
 <en:syrup
 en:tapioca syrup
@@ -16720,7 +16705,7 @@ nb:melkefett
 nl:melkvet
 pl:tłuszcz mlecny, tłuszcz mleczny
 pt:gorda do leite
-ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte
+ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte, grăsime din lapte
 ru:молочный жнр
 sv:mjölkfett
 vegan:en:no
@@ -17006,9 +16991,6 @@ fr:matières grasses végétales non hydrogénées, matière grasse végétale n
 sv:ej härdade vegetabilisk fetter
 
 <en:vegetable oil
-en:hydrogenated vegetable oil
-
-<en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 de:Emulgator Mono- und Diglyceride von Fettsäuren
 es:aceite vegetales no hidrogenados
@@ -17209,6 +17191,7 @@ it:grasso di palma, grasso vegetale di palma
 nl:palmvet
 pl:tłuszcz palmowy
 pt:gordura de palma, gordura vegetal de palma
+ro:grăsime de palmier
 ru:Пальмовый жир
 ro:grăsime palmier
 se:palmina mast
@@ -17630,14 +17613,6 @@ sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin o
 <en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
 
-<en:extra virgin olive oil
-en:organic extra virgin olive oil
-de:Natives Bio-Olivenöl Extra
-fi:luomu ekstra-neitsytoliiviöljy
-fr:huile d'olive vierge extra biologique
-hu:extra szűz bio olívaolaj, bio extra szűz olívaolaj
-# ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
-
 <en:olive oil
 en:organic olive oil
 de:Bio-Olivenöl
@@ -17651,12 +17626,15 @@ nl:olie van biologische olijven
 en:refined olive oil
 es:aceite de oliva refinado
 
+<en:extra virgin olive oil
 <en:organic olive oil
 en:organic extra virgin olive oil
 de:Natives Bio-Olivenöl Extra
 fi:luomu ekstra-neitsytoliiviöljy
-fr:huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique
+fr:huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique, huile d'olive vierge extra biologique
+hu:extra szűz bio olívaolaj, bio extra szűz olívaolaj
 nl:biologische extra olijfolie van de eerste persing
+# ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
 # ingredient/fr:huile-d-olive-vierge-extra-issue-de-l-agriculture-biologique has 12 products in 2 languages @2019-05-25
 
 <en:organic olive oil
@@ -18425,9 +18403,11 @@ from_palm_oil:en:no
 <en:sunflower oil
 en:organic sunflower oil
 da:økologisk solsikkeolie
-fi:luomuauringonkukkaöljy
+de:biologische Sonnenblumöl
+fi:luomuauringonkukkaöljy, luomu auringonkukkaöljy
+fr:huile de tournesol bio
 hu:bio napraforgóolaj
-nl:olie van biologische zonnebloempitten, olie van biologisch zonnebloempitten
+nl:olie van biologische zonnebloempitten, olie van biologisch zonnebloempitten, biozonnebloemolie, bio zonnebloemolie
 # ingredient/nl:olie-van-biologische-zonnebloempitten has 2 products @2019-05-24
 
 # Hydrogenation is a chemical process by adding hydrogen to liquid vegetable oils, so it would remain solid at room temperature
@@ -18504,16 +18484,6 @@ nl:koudgeperste zonnebloemolie
 pt:óleo de girassol prensado a frio
 carbon_footprint_fr_foodges_ingredient:fr:Huile Tournesol
 carbon_footprint_fr_foodges_value:fr:1.6
-
-<en:sunflower oil
-# en:organic
-en:organic sunflower oil
-da:økologisk solsikkeolie
-de:biologische Sonnenblumöl
-fi:luomu auringonkukkaöljy
-fr:huile de tournesol bio
-hu:bio napraforgóolaj
-nl:biozonnebloemolie, bio zonnebloemolie
 
 <en:sunflower oil
 fr:huile de tournesol vierge, huile de tournesol vierge première pression à froid
@@ -21371,13 +21341,6 @@ fr:arôme naturel de banane
 hu:természetes banán aroma
 
 <en:natural flavouring
-en:natural shallot flavouring
-de:natürliches Schalottenaroma, natürliches Schalotten-Aroma
-fi:luontainen salottisipuliaromi
-fr:arôme naturel d'échalotte
-hu:természetes mogyoróhagyma aroma
-
-<en:natural flavouring
 en:natural cola flavouring
 de:natürliches Cola-Aroma, natürliches Colaaroma
 fi:luontainen kola-aromi
@@ -22905,9 +22868,8 @@ fr:Grains de blé dur précuits
 fr:blé dur concassé précuit
 
 <en:wheat
-en:puffed cereal
+en:puffed wheat
 de:Weizenpops
-fi:puffattu vilja
 fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
@@ -23354,45 +23316,6 @@ carbon_footprint_fr_foodges_value:fr:0.6
 fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
 # 20 products in 1 language @20180922
-
-<en:starch
-# <en:wheat
-en:wheat starch
-ca:Midó de blat, fècula de blat
-cs:Pšeičný škrob
-da:Hvedestivelse
-de:Weizenstärke
-el:άμυλο σιταριού
-es:almidón de trigo
-fi:vehnätärkkelys, vehnätärkkelystä
-fr:amidon de froment, amidon de blé
-hu:búzakeményítő
-it:amido di frumento
-nl:tarwezetmeel
-pl:Skrobia pszenna
-pt:amido de trigo
-ru:Пшеничный крахмал
-se:pšenični skrob
-sv:vetestärkelse
-
-<en:wheat starch
-de:Weizenquellstärke
-
-<en:modified starch
-<en:wheat starch
-en:modified wheat starch
-de:modifizierte Weizenstärke
-es:almidón de trigo modificado
-fi:muunnettu vehnätärkkelys
-fr:amidon modifié de blé, amidon transformé de blé
-hu:módosított búzakeményítő
-it:amido modificato de fromento
-nl:gemodificeerd tarwezetmeel
-sv:modifierad vetestärkelse
-
-<en:modified starch
-<en:wheat starch
-fr:amidon de blé partiellement modifié
 
 ##################################################################################
 #
@@ -25811,13 +25734,6 @@ en:whole green pea flour
 fr:farine de châtaigne
 
 <en:flour
-en:potato flour
-fi:perunajauho
-fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
-sv:potatismjöl
-# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
-
-<en:flour
 <en:coconut
 en:coconut flour
 de:kokosmehl, kokosnussmehl
@@ -26066,12 +25982,6 @@ sv:vit majs
 tr:sari misir
 
 <en:corn
-en:corn kernel,corn kernels
-es:grano de maiz
-it:chicci di mais
-pt:grao de milho
-
-<en:corn
 en:corn fiber
 es:fibra de maiz
 nl:maïsvezel
@@ -26184,12 +26094,13 @@ nl:kleefmaïs
 en:corn kernel, corn kernels
 da:majskjerner
 de:Maiskörner
-es:grano de maís
+es:grano de maís, grano de maiz
 fi:maissinjyvä, maissinjyviä
 fr:grains de maïs
+it:chicci di mais
 nb:majskjerner
 nl:maïskorrels
-pt:grão de milho
+pt:grão de milho, grao de milho
 sv:majskärnor, majskorn
 sr:kukuruzni griz
 # ingredient/fr:grains-de-maïs 41 products in 3 languages @2018-09-24
@@ -26857,7 +26768,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Basmati
 <en:basmati rice
 en:white basmati rice
 de:weißer Basmatireis
-en:white basmati rice
 fi:valkoinen basmatiriisi
 fr:riz basmati blanc
 hu:fehér basmati rizs, fehér baszmati rizs
@@ -28696,6 +28606,7 @@ nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
 pt:xarope de glucose-frutose, xarope de glucose e frutose
+ro:sirop de glucoză-fructoză
 ru:глюкозно-фруктозный сироп
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
@@ -28946,15 +28857,10 @@ de:Reisdrinkpulver
 <en:rice syrup
 de:brauner Reissirup
 
-<en:sugar
-en:caramelised sugar syrup
-de:Karamell-Zuckersirup
-es:jarabe de azúcar caramelizado
-fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
-fr:sirop de sucre caramélisé, sirop de sucre caramel
+<en:rice syrup
+en:caramelised rice syrup
 hu:karamellizált rizsszirup
-nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
-sv:karamelliserat sockersirap
+
 
 <en:syrup
 en:sugar beet syrup
@@ -46428,6 +46334,10 @@ fr:Pommes de terre de consommation à chair ferme
 <en:flour
 en:potato flour
 es:harina de patata
+fi:perunajauho
+fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
+sv:potatismjöl
+# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
 
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
@@ -49986,7 +49896,6 @@ wikidata:en:Q3177204
 fr:Marrons UE
 
 <fr:marron
-en:cooked chestnuts
 de:Gekochte Maronen
 fr:marrons cuits
 nl:gekookte kastanjes
@@ -50215,6 +50124,7 @@ nl:hazelnootpasta
 pl:masa orzechowa
 pt:pasta de avelãs
 pt:pasta de avelã
+ro:pastă de alune de pădure
 sk:oriešková pasta
 sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
@@ -50815,16 +50725,6 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
-<en:mustard seed
-en:yellow mustard seed
-de:gelbes Senfkorn
-fi:keltainen sinapinsiemen
-fr:graines de moutarde jaunes
-
-<en:mustard seed
-fr:graines de moutarde moulues
-nl:gemalen mosterdzaden
-
 <en:seed
 en:celery seed
 de:Selleriesamen
@@ -50894,7 +50794,6 @@ nl:biologisch venkelzaad
 en:chia
 da:Chia
 de:chia
-en:chia
 es:chia, chía negra
 fi:chia
 fr:chia
@@ -51853,7 +51752,7 @@ ca:Herbes, herbes aromàtiques
 cs:Bylina
 da:urt
 de:Gewürz, Kräuter
-es:hierba,hierbas,plantas aromáticas, planta aromática,hierbas aromaticas
+es:hierba,hierbas,plantas aromáticas, planta aromática,hierbas aromaticas, finas hierbas, mezcla de finas hierbas
 fi:yrtti, yrtit, mausteyrtit
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
 he:עשב
@@ -51956,20 +51855,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemon_pepper
 
 <en:spice
 fr:épices et arômes, aromates et épices
-
-en:herb
-ca:Herbes, herbes aromàtiques
-cs:Bylina
-da:urt
-de:Gewürz
-es:hierbas,finas hierbas, mezcla de finas hierbas
-fi:yrtti, yrtit, mausteyrtit
-fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
-he:עשב
-hu:gyógynövény, gyógynövények
-it:erba
-nl:Kruiden
-pl:Zioło
 
 <en:spice
 fr:épices moulues
@@ -53307,9 +53192,6 @@ carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 <en:mustard
-en:dijon mustard
-
-<en:mustard
 en:english mustard
 
 # <en:seed
@@ -53334,13 +53216,14 @@ sv:senapsfrö, senapsfrön
 <en:mustard
 en:mustard flour
 es:harina de mostaza
+nl:mosterdmeel
 
 <en:mustard seed
 fr:Graines de moutarde issues de l'agriculture durable
 
 <en:mustard seed
 fr:graines de moutarde moulues
-nl:mosterdmeel
+nl:gemalen mosterdzaden
 
 <en:mustard seed
 en:yellow mustard seed
@@ -53385,6 +53268,7 @@ sv:senapspulver, senapsfröpulver
 # fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
 <en:mustard
+en:dijon mustard
 fr:moutarde de dijon
 de:Dijon-Senf
 fi:dijon-sinappi
@@ -56083,7 +55967,6 @@ cy:Balm
 da:Citron-Melisse
 de:Zitronenmelisse
 el:Μελισσόχορτο
-en:lemon balm
 eo:Citronmeliso
 es:Toronjil,melisa
 et:Sidrunmeliss
@@ -56355,7 +56238,7 @@ sv:panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
+# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
 <en:plant
 en:liquorice, licorice
@@ -56379,7 +56262,7 @@ et:Lagritsa-magusjuur
 eu:Erregaliz
 fa:شیرین‌بیان
 fi:lakritsi, lakritsikasvi
-fr:réglisse
+fr:réglisse, Infusions de Réglisse
 ga:Liocras
 gl:Regalicia
 he:שוש קירח
@@ -56441,6 +56324,7 @@ zh:光果甘草
 wikidata:en:Q257106
 wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
 # ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
+# category/liquorice has 27 products @2019-05-22
 
 <en:liquorice
 en:organic liquorice
@@ -66407,9 +66291,7 @@ fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
 # ingredient/fr:miel-d-acacia-issu-de-l-agriculture-biologique has 3 products @2018-05-28
 
 <en:acacia honey
-en:honey from France
-de:Honig aus Frankreich, französischer Honig
-fi:Ranskalaista hunajaa
+en:acacia honey from France
 fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, miel d'acacia du val de saone, miel d'acacia d'occitanie
 # ingredient/fr:miel-d-acacia-recolte-en-france has 4 products @2019-05-28
 
@@ -66632,8 +66514,7 @@ fr:mélange de miels de fleurs
 # ingredient/fr:melange-de-miels-de-fleurs has 6 products @2019-05-28
 
 <en:blend of honeys
-en:mix of flower honeys
-de:Mischung aus Blütenhonig
+en:blend of EU honeys
 fr:mélange de miels originaires de l'UE
 # ingredient/fr:melange-de-miels-originaires-de-l-ue has 5 products in french @2019-05-28
 
@@ -67870,131 +67751,6 @@ nl:komkommersap uit concentraat
 # ingredient/cucumber-juice-from-concentrate has 1 product @2019-05-15
 
 
-# description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-
-<en:plant
-en:liquorice, licorice
-af:Soethout
-ar:عرقسوس
-az:Şirinbiyan
-ba:Татлы тамыр
-bg:женско биле
-bo:ཤིང་མངར།
-bs:Sladić
-ca:regalèssia
-cs:lékořice lysá
-cy:Gwylys
-da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
-dv:ވޭމުއި
-el:Γλυκόριζα
-eo:Vera glicirizo
-es:regaliz
-et:Lagritsa-magusjuur
-eu:Erregaliz
-fa:شیرین‌بیان
-fi:lakritsi
-fr:réglisse, Infusions de Réglisse
-ga:Liocras
-gl:Regalicia
-he:שוש קירח
-hi:यष्टिमधु
-hr:Slatki korijen
-hu:Igazi édesgyökér
-hy:քաղցրարմատ
-id:Akar manis
-io:Regoliso
-is:Lakkrísrót
-it:liquirizia
-ja:スペインカンゾウ
-ka:ძირტკბილა
-kk:Қызылмия
-kn:ಅತಿಮಧುರ
-ko:민감초
-ku:Sûs
-la:Glycyrrhiza glabra
-lb:Séissholz
-lt:Paprastasis saldymedis
-lv:lakrica# mai:मुलेठी
-ml:ഇരട്ടിമധുരം
-mr:ज्येष्ठमध
-ms:Akar manis
-nb:lakrisplante
-ne:जेठी मधु
-nl:zoethout
-oc:Regalícia
-pa:ਮੁਲ੍ਹਠੀ
-pl:Lukrecja gładka
-pt:alcaçuz
-ro:Lemn dulce
-ru:лакрица
-sa:यष्टी
-sh:Sladić
-sl:Golostebelni sladki koren
-sr:Сладић
-sv:lakrits
-ta:அதிமதுரம்
-te:అతిమధురము
-th:ชะเอมเทศ
-tl:Likorisa
-tr:Meyan
-uk:локриця
-uz:Qizilmiya
-zh:光果甘草
-# aeb-arab:عرب السوس
-# arz:عرقسوس
-# bar:Bärndreck
-# diq:Sus
-# frr:Swetholt
-# gsw:Lakritze
-# hsb:Słódnik
-# sco:alicreesh
-# tcy:ಜೇಷ್ಠಮಧು
-# vec:Sugorisia
-# vls:Kalissie
-# yue:洋甘草
-wikidata:en:Q257106
-wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
-# ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
-# category/liquorice has 27 products @2019-05-22
-
-<en:liquorice
-en:liquorice extract
-de:Lakritz extrakt
-es:extracto de regaliz
-fi:lakritsiuute
-fr:extrait de réglisse
-it:estratto di liquirizia
-nl:Zoethoutextract
-pt:extrato de alcaçuz
-sv:lakritsexstrakt
-# ingredient/fr:extrait-de-réglisse has 137 products in 9 languages @2018-12-28
-
-<en:liquorice extract
-fr:suc de réglisse
-# ingredient/fr:suc-de-réglisse has 56 products in 4 languages @2018-12-28
-
-<en:liquorice
-en:liquorice root
-de:Sussholzwurzel
-fi:lakritsijuuri
-fr:racine de réglisse
-it:radice di liquirizia
-nl:Zoethout
-# ingredient/fr:racine-de-réglisse has 51 products in 4 languages @2018-12-28
-
-<en:liquorice root
-en:liquorice root extract
-da:lakridsrodsekstrakt
-de:Süßholzwurzelextrakt
-es:extracto de raíz de regaliz
-fi:lakritsijuuriuute
-fr:Extrait de réglisse
-it:estratto di radice di liquirizia
-nl:zoethoutwortelextract
-
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           P O U L T R Y     S E C T I O N
@@ -69214,12 +68970,11 @@ nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
-en:free range chicken eggs
 fr:œufs de poules élevées en plein air calibre moyen
 
 <en:free range chicken eggs
 <en:organic egg
-en:free range chicken eggs
+en:organic free range chicken eggs
 fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
