@@ -227,39 +227,6 @@ fr:additifs alimentaires
 # additive classes (from Global_additives_classes_taxonomy)
 
 
-# Has been added to the additives_classes.tx
-#en:Acid, Acidifier,corrector of acidity
-#bg:Киселина
-#ca:Àcid, acidulant
-#cs:Kyselina
-#da:Syre, syrer
-#de:Säuerungsmittel
-#el:Μέσο οξίνισης
-#es:acidulante,acido
-#et:Hape
-#fi:happo, happoa, hapot, happoja
-#fr:acidifiant, acide,acidulants
-#ga:Aigéad
-#he:חומצה
-#hu:Étkezési sav
-#it:Acidificanti
-#lt:Rūgštis
-#lv:Skābe
-#mt:Aċidu
-#nb:syre, syrer
-#nl:Voedingszuur
-#pl:Kwas
-#pt:Acidificante
-#ro:Acidifiant, agent acidifiant
-#ru:Кислота
-#sk:Kyselina
-#sl:Kislina
-#sv:syra, syror, surgörare
-#wikidata:en:Q337038
-# ingredient/fr:acidulant has 110 products in 5 languages @2019-03-06
-# ingredient/fr:acide has 262 products @2019-05-31
-
-
 # <en:function
 en:coagulum, coagulating agent,coagulant
 ca:Agent coagulant, agents coagulants
@@ -271,148 +238,6 @@ fr:agent de coagulation, coagulant
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
-# <en:function
-en:Acidity regulator
-bg:Регулатор на киселинност
-ca:Corrector d'acidesa, regulador d'acidesa,correctiu de l acidesa
-cs:Regulátor kyselosti
-da:Surhedsregulerende middel, surhedsregulerende midler
-de:Säureregulator
-el:Ρυθμιστής οξύτητας
-es:Corrector de acidez, regulador de acidez
-et:Happesuse regulaator
-fi:happamuudensäätöaine, happamuudensäätöaineet, happamuudensäätöainetta, happamuudensäätöaineita
-fr:correcteur d’acidité, régulateur d'acidité
-ga:Rialtán aigéadachta
-he:מווסת חומציות
-hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
-is:sýrustillar
-it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
-lt:Rūgštingumą reguliuojanti medžiaga
-lv:Skābuma regulētājs
-mt:Regolatur tal-Aċidità
-nb:surhetsregulerende middel, surhetsregulerende midler
-nl:Zuurteregelaar
-pl:Regulator kwasowości
-pt:Regulador de acidez,  reguladores de acidez
-ro:Corector de aciditate, regulator de aciditate
-ru:Регулятор кислотности
-sk:Regulátor kyslosti
-sl:Sredstvo za uravnavanje kislosti
-sv:Surhetsreglerande medel, surhetsreglerandemedel, surhetsregulator
-wikidata:en:Q898753
-
-# nova:en:anti-caking-agent
-# <en:function
-en:Anti-caking agent
-bg:Антислепващ агент
-ca:Antiaglomerant, antiaglomerants
-cs:Protispékavá látka
-da:Antiklumpningsmiddel
-de:Rieselhilfe, Antiagglomerationsmittel
-el:Αντισυσσωματωτικό
-es:Antiaglomerante, antiaglomerantes
-et:Paakumisvastane aine
-fi:Paakkuuntumisenestoaine
-fr:antiagglomérant, anti-agglomérants, antiagglomérants, anti-agglomérant
-ga:Oibreán frithstolptha
-hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti, agente antiagglomerante, antiagglomerante, antiagglomeranti
-lt:Lipnumą reguliuojanti medžiaga
-lv:Pretsalipes viela
-mt:Aġent kontra t-tagħqid
-nl:Antiklontermiddel
-pl:Substancja przeciwzbrylająca
-pt:Antiaglomerante
-ro:Agent antiaglomerant
-sk:Protihrudkovacia látka
-sl:Sredstvo proti sprijemanju
-sv:Klumpförebyggande medel
-wikidata:en:Q726460
-
-# nova:en:de-foaming-agent?
-# <en:function
-en:de-foaming agent, Anti-foaming agent
-bg:Антипенител
-ca:Antiespumant, agent antiespumant
-cs:Odpěňovač
-da:Skumdæmpningsmiddel
-de:Schaumverhüter
-el:Αντιαφριστικό
-es:Antiespumante, agente antiespumante
-et:Vahutamisvastane aine
-fi:vaahdonestoaine
-fr:Antimoussant
-ga:Oibreán frithchúrtha
-hu:Habzásgátló
-it:Agenti antischiumogeni, agente antischiumogeno, antischiumogeno, antischiumogeni
-lt:Medžiaga nuo putojimo
-lv:Putu dzēsējs
-mt:Aġent kontra r-ragħwa
-nl:Antischuimmiddel
-pl:Substancja przeciwpieniąca
-pt:Antiespuma
-ro:Antispumant
-sk:Odpeňovacie činidlo
-sl:Sredstvo proti penjenju
-sv:Skumdämpningsmedel
-wikidata:en:Q904035
-
-# <en:function
-en:antioxidant, antioxygen
-bg:Антиоксидант
-ca:Antioxidant, antioxidants, agent antienfosquiment
-cs:Antioxidant
-da:Antioxidant, antistødningsmiddel
-de:Antioxidant, Antioxidationsmittel
-el:Αντιοξειδωτικό
-es:Antioxidante, antioxidantes
-et:Antioksüdant
-fi:hapettumisenestoaine, antioksidantti
-fr:antioxydant, antioxygène, anti-oxydant, antioxidant
-ga:Frithocsaídeoir
-hu:Antioxidáns
-it:Antiossidanti, antiossidante
-lt:Antioksidantas
-lv:Antioksidants
-mt:Antiossidant
-nb:Antioxidant, Antioksidant
-nl:Antioxydant, Antioxydanten
-pl:Przeciwutleniacz
-pt:Antioxidante
-ru:антиоксидант, антиокислитель
-sl:Antioksidant
-sv:Antioxidationsmedel, Antioxidantmedel
-wikidata:en:Q133948
-
-
-# nova:en:bulking-agent
-# <en:function
-en:Bulking agent
-bg:Пълнител
-ca:Incrementador de volum
-cs:Plnidlo
-da:Fyldemiddel
-de:Füllstoff
-el:Διογκωτικό
-es:Incrementador de volumen
-et:Mahuaine
-fi:Täyteaine
-fr:agent de charge
-ga:Toirteoir
-hu:Tömegnövelő szer
-it:Agente di carica, agenti di carica
-lt:Užpildas
-lv:Apjoma palielinātājs
-mt:Aġent li jżid il-volum
-nl:Vulstof, Vulstoffen
-pl:Substancja wypełniająca
-pt:Agente de volume
-ro:Agent de încărcare
-sk:Objemové činidlo
-sl:Sredstvo za povečanje prostornine
-sv:Fyllnadsmedel
-#wikidata:en:
 
 # nova:en:anti-bulking-agent
 # <en:function
@@ -458,93 +283,7 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
 
-# nova:en:emulsifier
-en:emulsifier, emulsifier blend
-bg:Емулгатор
-ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
-cs:Emulgátor
-da:Emulgator, emulgatorer, emulgeringsmiddel
-de:Emulgator, Emulgatoren
-el:Γαλακτωματοποιητής
-es:Emulgente, emulgentes, emulsificante, emulsificantes, agente emulsionante, agentes emulsionantes
-et:Emulgaator
-fi:emulgointiaine, emulgointiaineet
-fr:Émulsifiant
-ga:Eiblitheoir
-hu:Emulgeálószer
-is:Yruefni
-it:Emulsionanti, emulsionante, agente emulsionante, agenti emulsionanti
-lt:Emulsiklis
-lv:Emulgators
-mt:Emulsifikant
-nb:emulgeringsmiddel, emulgator
-nl:Emulgator, Emulgatoren
-pl:Emulgator
-pt:Emulsionante, emulsionantes
-ro:Emulsifiant, Emulgator
-ru:Эмульгатор
-sk:Emulgátor
-sl:Emulgator
-sv:Emulgeringsmedel, Emulgering
-wikidata:en:Q907356
 
-# Emulsifying salts are used in the production of processed cheeses to disperse proteins and lipids and obtain a homogeneous product.
-
-en:Emulsifying salt, Emulsifying salts, Melting salt
-bg:Емулгаторни соли
-cs:Tavicí soli
-da:Smeltesalt
-de:Schmelzsalze
-el:Γαλακτωματοποιητικά άλατα
-es:Sales fundentes, Sales emulsionantes, sal fundente, sal emulsionante
-et:Emulgeeriv sool
-fi:sulatesuola, sulatesuolat
-fr:Sels émulsifiants, sel émulsifiant, sel de fonte, sels de fonte
-ga:Salainn eiblithe
-hu:Emulgeálósók
-is:bræðslusölt
-it:Sali di fusione
-lt:Emulsinimo druskos
-lv:Emulģējošie sāļi
-mt:Melħ emulsifikat
-nl:Smeltzout, Smeltzouten
-pl:Sole emulgujące
-pt:Sais de fusão
-ro:Săruri de topire
-sk:Emulgujúce (taviace) soli
-sl:Emulgirne soli
-sv:smältsalt, smältsalter
-wikidata:en:Q50419202
-wikipedia:nl:https://nl.wikipedia.org/wiki/Smeltzout
-
-# <en:function
-en:thickener
-bg:Сгъстител
-ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
-cs:Zahušťovadlo
-da:fortykningsmiddel, fortykningsmidler
-de:Verdickungsmittel
-el:Πυκνωτικό μέσο
-es:Espesante, espesantes, agente espesante, agentes espesantes
-et:Paksendaja
-fi:sakeuttamisaine, sakeuttamisainetta, sakeuttamisaineet, sakeuttamisaineita, luonnollinen sakeutusaine
-fr:épaississant, Épaississant, agent épaississant, agents épaississants
-ga:Tiúsóir
-hu:Sűrítőanyag
-it:Addensante, Addensanti, agente addensante, agenti addensanti
-lt:Tirštiklis
-lv:Biezinātājs
-mt:Aġent li jgħaqqad
-nb:fortykningsmiddel
-nl:Verdikkingsmiddel, Verdikkingsmiddelen
-pl:Substancja zagęszczająca
-pt:Espessante,espessantes
-ro:Agent de îngroșare
-ru:Загуститель
-sk:Zahusťovadlo
-sl:Sladilo
-sv:förtjockningsmedel, naturlig förtjockningsmedel
-wikidata:en:Q911138
 
 # <en:function
 fr:substitut du sel
@@ -639,16 +378,17 @@ ru:Карамельный сироп
 # ingredient/caramel-syrup has 248 products @2019-03-09
 
 <en:caramel syrup
+<en:sugar
 en:caramelised sugar syrup
 ca:xarop de sucre caramelitzat
 da:karamelliseret sukkersirup, karameliseret sukkersirup
-de:Caramelzuckersirup, Karamellzuckersirup
+de:Caramelzuckersirup, Karamellzuckersirup, Karamell-Zuckersirup
 es:jarabe de azúcar caramelizado, sirope de azúcar caramelizado
-fi:karamellisoitu sokerisiirappi
-fr:sirop de sucre caramel
+fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
+fr:sirop de sucre caramel, sirop de sucre caramélisé
 hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
-nl:gekaramelliseerde suiker
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
 pl:cukier skarmelizowanny
 sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
@@ -1137,438 +877,25 @@ wikipedia:de:https://de.wikipedia.org/wiki/Treibgas
 
 
 
-# nova:en:sequestrant
-en:Sequestrant
-bg:Комплексообразуватели
-ca:quelant, quelants, agent quelant, agents quelants
-cs:Sekvestrant
-de:Komplexbildner
-el:Συμπλοκοποιητές
-es:Secuestrante, secuestrantes, agente quelante, agentes quelantes, agente secuestrante, agentes secuestrantes
-et:Sekvestrant
-fi:Kompleksinmuodostaja
-fr:Séquestrant
-ga:Leithliseoir
-hu:Kelátképző anyag
-it:Sequestranti
-lt:Atskyriklis
-lv:Sekvestrants
-mt:Aġenti sekwestranti
-nl:Complexvormer, Complexvormers
-pl:Sekwestranty
-pt:Sequestrante
-ro:Agenți de sechestrare
-sk:Komplexotvorné látky
-sl:Sredstvo za vzhajanje
-sv:Komplexbildare
-wikidata:en:Q905648
-
-en:stabilizer, stabiliser, stabilizers
-bg:Стабилизатор
-ca:Estabilitzador, estabilitzadors,estabilizants,estabilitzants,estabilitzat
-cs:Stabilizátor
-da:stabilisator, stabilisatorer
-de:Stabilisator, Stabilisatoren
-el:Σταθεροποιητής
-es:Estabilizador, estabilizadores
-et:Stabilisaator
-fi:stabilointiaine, stabilointiaineet
-fr:Stabilisant, stabilisateur, stabilisateurs, agent stabilisant
-ga:Cobhsaitheoir
-hu:Stabilizátor
-it:Stabilizzanti, stabilizzante
-lt:Stabilizatorius
-lv:Stabilizētājs
-mt:Stabbilizzatur
-nb:stabilisator, stabilisatorer
-nl:Stabilisator, Stabilisatoren
-pl:Stabilizator
-pt:estabilizador, estabilizadores
-ro:Stabilizator
-sk:Stabilizátor
-sl:Vezivo
-sv:stabiliseringsämne, stabilisator, stabilisering
-wikidata:en:Q7595716
 
 
 # nova:en:colour-stabilizer
 # what is this?
 en:colour-stabilizer
 
-# Need to check the translations
 
-# nova:en:sweetener
-en:Sweetener
-bg:Подсладител
-ca:Edulcorant, esdulcorants
-cs:Sladidlo
-da:Sødestof, sødestoffer, sødemiddel, kunstigt sødemiddel
-de:Süßungsmittel
-el:Γλυκαντικό
-es:Edulcorante, edulcorantes, endulzante, endulzantes
-et:Magusaine
-fi:makeutusaine, makeutusaineet
-fr:Édulcorant
-ga:Milseoir
-hu:Édesítőszer
-it:Edulcoranti, edulcorante, dolcificanti, dolcificante
-lt:Saldiklis
-lv:Saldinātājs
-mt:Dolċifikant
-nb:søtstoff
-nl:Zoetstof, Zoetstoffen
-pl:Substancja słodząca
-pt:Edulcorante
-ro:Îndulcitor
-ru:подсластитель, подсластители, заменитель сахара
-sk:Sladidlo
-sv:sötningsmedel
-wikidata:en:Q626292
-#wikidata:en:Q4368298
-
-# comment:en:The generic form of sodium citrates should be written in plural, do distinguish them from sodium citrate.
-
-en:sodium citrates, e331, e-331, e 331
-de:Natriumcitrate
-es:Citrato de sodio, citratos de sodio
-fi:natriumsitraatit
-fr:Citrates de sodium
-hu:Nátrium-citrát
-it:citrati di sodio
-nl:Natriumcitraten
-wikidata:en: Q6460572
-# additive/e331-sodium-citrates has 11745 products @2019-04-24
-
-# description:en:MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
-
-<en:sodium citrates
-en:monosodium citrate, E331i, E-331i, E 331i
-bg:Мононатриев цитрат
-ca:citrat monosòdic
-cs:Citronan monosodný
-da:Mononatriumcitrat
-de:Monoatriumcitrat
-el:Δισοξινο κιτρικο νατριο
-eo:Ununatria citrato
-es:citrato monosódico
-et:Naatriumdivesiniktsitraat
-fi:Mononatriumsitraatti
-fr:citrate monosodique
-hu:Mononátrium-citrát
-it:citrato monosodico
-lt:Mononatrio citratas
-lv:Mononātrija citrāts
-mt:Ċitrat monosodiku
-nl:mononatriumcitraat
-pl:Cytrynian monosodowy
-pt:Citrato monossódico
-ro:citrat monosodic
-sh:Mononatrijum citrat
-sk:Dihydrogéncitrát sodný
-sl:Mononatrijev citrat
-sr:Mononatrijum citrat
-sv:Mononatriumcitrat
-ta:ஒருசோடியம் சிட்ரேட்டு
-vi:Natri dihydro citrat
-# sr-el:Mononatrijum citrat
-wikidata:en:Q4179018
-wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_citrate
-# additive/e331i-monosodium-citrate has 112 products in 7 languages @2019-04-24
-# ingredient/fr:citrate-monosodique has 79 products in 5 languages @2019-04-24
-
-# description:en:DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
-
-<en:sodium citrates
-en:Disodium citrate, e331ii, e-331ii, e 331ii
-bg:Динатриев цитрат
-ca:Citrat disòdic
-cs:Disodium citrate
-da:Dinatriumcitrat
-de:Dinatriumcitrat
-el:Οξινο κιτρικο νατριο
-es:Citrato disódico
-et:Naatriumvesiniktsitraat
-fi:Dinatriumsitraatti
-fr:Citrate disodique
-hu:Dinátrium-citrát
-it:Citrato disodico
-lt:Dinatrio citratas
-lv:Dinātrija citrāts
-mt:Ċitrat disodiku
-nl:Dinatriumcitraat
-pl:Cytrynian disodowy
-pt:Citrato dissódico
-ro:Citrat disodic
-sk:Citran disodný
-sl:Dinatrijev citrat
-sv:Dinatriumcitrat
-wikidata:en:Q4177124
-wikipedia:en:https://en.wikipedia.org/wiki/Disodium_citrate
-# additive/e331ii-disodium-citrate has 21 products in 2 languages @2019-04-24
-
-# E331iii has been moved to the additives taxonomy
-en:E331iii
-de:Trinatriumcitrat
-hu:Trinátrium-citrát
-
-
-# comment:en:The generic form of potassium citrates should be written in plural, do distinguish them from potassium citrate.
-
-en:potassium citrates, E332, E-332, E 332
-ca:Citrat de potassi
-de:Kaliumcitrate
-es:Citratos de potasio
-fi:kaliumsitraatit
-fr:citrates de potassium
-hu:Kálium-citrát
-it:citrati di potassio
-nl:kaliumcitraten
-pt:citratos de potássio
-sv:Kaliumcitrater
-wikidata:en:Q59543257
-# additive/e332-potassium-citrates has 261 products @2019-04-22
-# ingredient/fr:citrate-de-potassium has 353 products in 7 languages @2019-04-22
-# usage:pt:regulador de acidez (citratos de potássio)
-
-<en:potassium citrates
-en:monopotassium citrate
-bg:Монокалиев цитрат
-ca:Citrat monopotàssic
-cs:Citronan monodraselný
-da:Monokaliumcitrat
-de:Monokaliumcitrat
-el:Δισοξινο κιτρικο καλιο
-es:Citrato monopotásico
-et:Kaaliumdivesiniktsitraat
-fi:Monokaliumsitraatti
-fr:Citrate monopotassique
-hu:Monokálium-citrát
-it:Citrato monopotassico
-lt:Monokalio citratas
-lv:Monokālija citrāts
-mt:Ċitrat monopotassiku
-nl:Monokaliumcitraat
-pl:Cytrynian monopotasowy
-pt:Citrato monopotássico
-ro:Citrat monopotasic
-sl:Monokalijev citrat
-sv:Monokaliumcitrat
-wikidata:en:Q63255997
-# additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
-
-# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
-# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
-
-<en:potassium citrates
-en:tripotassium citrate, potassium citrate, E332ii, E-332ii, E 332ii
-bg:Трикалиев цитрат
-bs:Kalij citrat
-ca:Citrat tripotàssic, citrat de potassi
-cs:Tripotassium citrate
-cy:Potasiwm sitrad
-da:Trikaliumcitrat
-de:Trikaliumcitrat, Kaliumcitrat
-el:Κιτρικο καλιο
-eo:Kalia citrato tribaza
-es:Citrato tripotásico, Citrato de potasio
-et:Kaaliumtsitraat
-fi:Trikaliumsitraatti
-fr:Citrate tripotassique, citrate de potassium
-hu:Trikálium-citrát
-it:Citrato tripotassico
-ja:クエン酸カリウム
-lt:Trikalio citratas
-lv:Trikālija citrāts
-mt:Ċitrat tripotassiku
-nb:Kaliumsitrat
-nl:kaliumcitraat
-pl:Cytrynian tripotasowy, cytrynian potasu
-pt:Citrato tripotássico, citrato de potássio
-ro:Citrat tripotasic
-ru:цитрат калия
-sh:Kalijum citrat
-sk:Citran tridraselný, Kálium-citrát
-sl:Trikalijev citrat
-sr:Kalijum citrat
-sv:Trikaliumcitrat, Kaliumcitrat
-ta:பொட்டாசியம் சிட்ரேட்டு
-te:పొటాషియం సిట్రేట్
-zh:檸檬酸鉀
-# azb:پوتاسیوم سیترات
-# zh-cn:柠檬酸钾
-# zh-hans:柠檬酸钾
-# zh-hant:檸檬酸鉀
-# zh-hk:檸檬酸鉀
-# zh-sg:柠檬酸钾
-# zh-tw:檸檬酸鉀
-wikidata:en:Q419921
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
-# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
-
-
-# description:en:CALCIUM CITRATEs is the calcium salt of citric acid. It is commonly used as a food additive (E333), usually as a preservative, but sometimes for flavor. Calcium citrate is also found in some dietary calcium supplements.
-# comment:en:The generic form (E333) is written in plural to distinguish it from E333iii
-
-en:calcium citrates, E333, E-333, E 333
-ca:Citrat de calci
-de:Calciumcitrate, Calciumcitrat
-es:Citratos de calcio
-fi:kalsiumsitraatit
-fr:Citrates de calcium
-hu:kalcium-citrát
-it:citrati di calcio
-nl:calciumcitraten
-
-<en:calcium citrates
-en:Monocalcium citrate, E333i, E-333i, E 333i
-bg:Монокалциев цитрат
-ca:Citrat monocàlcic
-cs:Monocalcium citrate
-da:Monocalciumcitrat
-de:Monocalciumcitrat
-es:Citrato monocálcico
-fi:Monokalsiumsitraatti
-fr:Citrate monocalcique
-hu:Monokalcium-citrát
-it:Citrato monocalcico
-lt:Monokalcio citratas
-lv:Monokalcija citrāts
-mt:Ċitrat monokalċiku
-nl:Monocalciumcitraat
-pl:Cytrynian monowapniowy
-pt:Citrato monocálcico
-ro:Citrat monocalcic
-sk:Citran monovápenatý
-sl:Monokalcijev citrat
-sv:Monokalciumcitrat
-wikidata:en:Q482498
-
-<en:calcium citrates
-en:Dicalcium citrate, E333ii, E-333ii, E 333ii
-bg:Дикалциев цитрат
-ca:Citrat dicàlcic
-cs:Dicalcium citrate
-da:Dicalciumcitrat
-de:Dicalciumcitrat
-el:Δισοξινο κιτρικο ασβεστιο
-es:Citrato dicálcico
-et:Kaltsiumvesiniktsitraat
-fa:دی‌کلسیم سیترات
-fi:Dikalsiumsitraatti
-fr:Citrate dicalcique
-hu:Dikalcium-citrát
-it:Citrato dicalcico
-lt:Dikalcio citratas
-lv:Dikalcija citrāts
-mt:Ċitrat dikalċiku
-nl:Dicalciumcitraat
-pl:Cytrynian diwapniowy
-pt:Citrato dicálcico
-ro:Citrat dicalcic
-sh:Dikalcijum citrat
-sk:dicitran divápenatý
-sl:Dikalcijev citrat
-sr:Dikalcijum citrat
-sv:Dikalciumcitrat
-# azb:دیکلسیوم سیترات
-wikidata:en:Q482501
-
-<en:calcium citrates
-en:Tricalcium citrate, calcium citrate, E333iii, E-333iii, E 333iii
-ar:سترات الكالسيوم
-bg:Трикалциев цитрат
-ca:citrat tricàlci, citrat de calci
-cs:Citrát vápenatý
-da:Tricalciumcitrat
-de:Tricalciumcitrat, Calciumcitrat
-el:Κιτρικο ασβεστιο
-es:citrato tricálcico, Citrato de calcio
-et:Kaltsiumtsitraat
-fa:کلسیم سیترات
-fi:trikalsiumsitraatti, kalsiumsitraatti
-fr:citrate tricalcique
-hu:Trikalcium-citrát
-it:citrato tricalcico, Citrato di calcio
-lt:Trikalcio citratas
-lv:Trikalcija citrāts
-mt:Ċitrat trikalċiku
-nl:tricalciumcitraat, Calcium citrate, citrate de calcium
-pl:Cytrynian triwapniowy, cytrynian wapnia
-pt:Citrato tricálcico, citrato de cálcio
-ro:Citrat tricalcic
-ru:Цитрат кальция
-sh:Kalcijum citrat
-sk:Citran trivápenatý
-sl:Trikalcijev citrat
-sr:Kalcijum citrat
-sv:Trikalciumcitrat
-zh:柠檬酸钙
-# azb:کلسیوم سیترات
-wikidata:en:Q420280
-wikipedia:en:https://en.wikipedia.org/wiki/Calcium_citrate
-# mineral/calcium-citrate has 630 products @2019-04-24
-# ingredient/fr:citrate-tricalcique has 107 products in 6 languages @2019-04-24
-# usage:de:Säureregulator:Tricalciumcitrat
-
-
-# Lecithin is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogenizing liquid mixtures, and repelling sticking materials.
-
-en:lecithins
-ar:ليسيثين
-bg:Лецитин
-ca:lecitina, lecitines
-cs:lecitin
-da:Lecitin
-de:Lecithine
-el:λεκιθίνη
-eo:Lecitino
-es:Lecitina, lecitinas
-et:Letsitiin
-eu:Lezitina
-fa:لسیتین
-fi:lesitiini, lesitiinit
-fr:lécithine, lécithines
-gl:Lecitina
-he:לציטין
-hr:Lecitin
-hu:Lecitin, lecitinek
-hy:Լեցիտիններ
-id:Lesitin
-is:Lesitín
-it:Lecitina
-ja:レシチン
-ko:레시틴
-ms:Lesitin
-nl:Lecithine
-pl:Lecytyny
-pt:lecitina
-ro:Lecitină, lecitina
-ru:Лецитины
-sh:Lecitin
-sl:Lecitin
-sr:Лецитин
-su:Lésitin
-sv:Lecitin
-th:เลซิทิน
-tr:Lesitin
-uk:Лецитин
-uz:Letsinlar
-vi:Lecithin
-zh:卵磷脂
-wikidata:en:Q241595
-wikipedia:en:https://en.wikipedia.org/wiki/Lecithin
-# issue with ingredient @2018-10-11 mixed with sunflower
+# comment:en: en:lecithines is part of the additives
 
 # nova:en:lecithin
-<en:lecithin
-en:soya lecithin, soy lecithin, sin 322
-ca:Lecitina de soja, lecitines de soja, E-322
+<en:E322i
+en:soya lecithin, soy lecithin
+ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
 da:sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
 de:Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
 el:λεκιθίνη σόγιας
-es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya, E-322
-fi:soijalesitiini
+es:lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
+fi:soijalesitiini, soijalesitiiniä, E322 soijasta
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
 he:לציטין סויה
 hu:szójalecitin, szójalecitinek
@@ -1600,7 +927,7 @@ it:Lecitina di soia Ogm free
 nl:GMO-vrije sojalecithine
 # gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
 
-<en:lecithin
+<en:E322(i)
 en:sunflower lecithin
 bg:слънчогледов леситин
 ca:lecitina de gira-sol, lecitines de gira-sol
@@ -1610,7 +937,7 @@ de:Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol, lecitinas de girasol
 et:päevalilleletsitiin
-fi:auringonkukkalesitiini
+fi:auringonkukkalesitiini, auringonkukkalesitiiniä
 fr:lécithine de tournesol
 hr:suncokretov lecitin
 hu:napraforgó lecitin
@@ -1648,12 +975,12 @@ it:lecitina di soia e di girasole
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 en:rapeseed lecithin
 ca:Lecitina de colza, lecitines de colza
 de:Rapslecithin
 es:Lecitina de colza, lecitinas de colza
-fi:rapsilesitiini
+fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
 hu:repce lecitin
 nb:rapslecitin, rapslecithin
@@ -1666,7 +993,7 @@ sv:rapslecitin, rapslecithin
 vegan:en:yes
 vegetarian:en:yes
 
-<en:lecithin
+<en:E322(i)
 fr:émulsifiant lécithines, émulsifiants lécithines
 de:emulgator lecithine
 es:emulsionante de lecitina, emulsionantes de lecitina
@@ -1677,239 +1004,11 @@ pt:emulsionante lecitinas
 # fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
 
 
-# E327 is moved to the additives taxonomy
-en:E327
 
 
 
-# Tartaric acid is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
-
-en:tartaric acid, E334, E 334, E-334
-ar:حمض الطرطريك
-bg:винена куселина
-bn:টারটারিক অ্যাসিড
-bs:Vinska kiselina
-ca:àcid tàrtric, àcid tartàric, tàrtic, tartàric
-cs:Kyselina vinná
-cy:Asid tartarig
-da:tartaric acid
-de:Weinsäure
-el:τρυγικο οξυ
-eo:Tartrata acido
-es:Acido tartrico, ácido tartárico, tártico, tartárico
-et:viinhape
-eu:Azido tartariko
-fa:اسید تارتاریک
-fi:viinihappo
-fr:acide tartrique
-ga:Aigéad tartarach
-gl:Ácido tartárico
-he:חומצה טרטרית
-hi:टार्टरिक अम्ल
-hr:Vinska kiselina
-hu:borkősav
-hy:Գինեթթու
-id:Asam tartarat
-it:acido tartarico
-ja:酒石酸
-ko:타타르산
-lt:vyno rūgštis
-lv:vīnskābe
-mk:Винска киселина
-ml:ടാർട്ടാറിക് അമ്ലം
-mt:aċidu tartariku
-my:တာတာရစ် အက်ဆစ်
-nl:wijnsteenzuur
-pl:kwas winowy
-pt:ácido tartárico
-ro:acid tartric
-sh:Vinska kiselina
-sk:kyselina vínna
-sl:vinska kislina
-sr:винска киселина
-sv:Vinsyra
-te:టార్టారిక్ ఆమ్లం
-tr:Tartarik asit
-uk:Винна кислота
-uz:Vino kislota
-zh:酒石酸
-# azb:اسید تارتاریک
-# sr-ec:винска киселина
-# sr-el:Vinska kiselina
-# zh-cn:酒石酸
-# zh-hans:酒石酸
-# zh-hant:酒石酸
-# zh-hk:酒石酸
-# zh-sg:酒石酸
-# zh-tw:酒石酸
-wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
-# en:tartric acid has 360 products in 8 languages @2018-11-18
-# additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
 
 
-
-# Note  the words should be in plural. The singular implies E336ii
-
-en:potassium tartrates, E 336
-de:Kaliumtartrate
-fi:kaliumtartraatit
-fr:tartrates de potassium
-hu:kálium-tartarát
-it:tartrati di potassio
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
-# ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
-
-# Potassium bitartrate, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
-
-en:monopotassium tartrate, E336i, E-336i, E 336i
-bg:Монокалиев тартарат
-ca:tártic monopotássic, tartáric monopotàssic
-cs:Monopotassium tartrate
-da:Monokaliumtartrat
-de:Monokaliumtartrat
-el:Οξινο τρυγικο καλιο
-es:tartrato monopotásico, tartárico monopotásico
-et:Kaaliumvesiniktartraat
-fi:Monokaliumtartraatti
-fr:tartrate monopotassique, bitartrate de potassium
-hu:Monokálium-tartarát
-it:tartrato monopotassico
-lt:Monokalio tartratas
-lv:Monokālija tartrāts
-mt:Tartrat monopotassiku
-nl:Monokaliumtartraat
-pl:Winian monopotasowy
-pt:Tartarato monopotássico
-ro:Tartrat monopotasic
-sk:Vínan draselný
-sl:Monokalijev tartrat
-sv:Monokaliumtartrat
-wikidata:en: Q42807499
-wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
-# additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
-
-# Potassium tartrate, dipotassium tartrate or argol has formula K2C4H4O6.
-
-en:dipotassium tartrate, potassium tartrate, E336ii, E-336ii, E 336ii
-bg:Дикалиев тартарат
-ca:Tàrtic dipotàssic, tartàric dipotàssic
-cs:Dipotassium tartrate, Vinan draselný
-da:Dikaliumtartrat
-de:Dikaliumtartrat, Kaliumtartrat
-el:Τρυγικο καλιο
-eo:Kalia tartrato
-es:Tartrato dipotásico, tartárico dipotásico
-et:Kaaliumtartraat
-fa: پتاسیم تارترات
-fi:Dikaliumtartraatti
-fr:tartrate dipotassique, tartrate de potassium
-hu:Dikálium-tartarát
-it:Tartrato dipotassico, Tartrato di potassio
-ja:酒石酸カリウム
-lt:Dikalio tartratas
-lv:Dikālija tartrāts
-mt:Tartrat dipotassiku
-nl:Dikaliumtartraat
-pl:Winian dipotasowy
-pt:Tartarato dipotássico
-ro:Tartrat dipotasic
-ru:тартрат калия
-sh:Kalijum tartrat
-sk:Vínan didraselný
-sl:Dikalijev tartrat
-sr:Kalijum tartrat
-sv:Dikaliumtartrat, Kaliumtartrat
-# azb:پوتاسیوم تارترات
-wikidata:en: Q418064
-# additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
-
-
-# comment:E350 is written in plural to distinguish it from E350i.
-
-en:sodium malates
-da:natriummalater
-de:Natriummalate
-el:άλατα του μηλικού οξέος με νάτριο
-es:malatos de sodio
-fi:natriummalaatit
-fr:malates de sodium
-hu:Nátrium-malátok
-it:malati di sodio
-lt:natrio malatai
-nl:natriummalaten
-pt:malatos de sódio
-sk:jablčnany sodné
-sv:natriummalater
-wikidata:en:Q63534992
-
-# description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid.
-
-<en:sodium malates
-en:sodium malate, E350i, E-350i, E 350i, INS350i, INS-350i, INS 350i, SIN350i, SIN-350i, SIN 350i
-ar:مالات صوديوم
-bg:Натриев малат
-ca:Malat sòdic
-cs:Jablečnan disodný
-da:Natriummalat
-de:Natriummalate
-el:Μηλικο νατριο
-eo:Natria malikato
-es:Malato sódico
-et:Naatriummalaat
-fa:سدیم مالات
-fi:Natriummalaatti
-fr:malate de sodium, malates de sodium
-hu:Nátrium-malát
-it:Malato di sodio
-lt:Natrio malatas
-lv:Nātrija malāts
-mt:Malat tas-sodju
-nl:Natriummalaat
-pl:Jabłczan sodu
-pt:Malato de sódio
-ro:Malat de sodiu
-sh:Natrijum malat
-sk:Jablčnan sodný
-sl:Natrijev malat
-sr:Natrijum malat
-sv:Natriummalat
-ta:சோடியம் மேலேட்டு
-# azb:سودیوم مالات
-wikidata:en:Q836788
-wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
-# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
-# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
-# usage:fr:correcteur d'acidité:malate de sodium
-
-<en:sodium malates
-en:Sodium hydrogen malate, E350ii, E-350ii, E 350ii, INS350ii, INS-350ii, INS 350ii, SIN350ii, SIN-350ii, SIN 350ii
-bg:Натриев хидроген малат
-ca:Malat d'àcid sòdic
-cs:Jablečnan monosodný
-da:Natriumhydrogenmalat
-de:Natriumhydrogenmalat
-el:Οξινο μηλικο νατριο
-es:Malato ácido de sodio
-et:Naatriumvesinikmalaat
-fi:Natriumvetymalaatti
-fr:malate acide de sodium
-hu:Nátrium-hidrogén-malát
-it:malato acidio di sodio
-lt:Natrio vandenilio malatas
-lv:Nātrija hidrogēnmalāts
-mt:Malat idroġenat tas-sodju
-nl:Natriumwaterstofmalaat
-pl:Wodorojabłczan sodu
-pt:Hidrogenomalato de sódio
-ro:Malat acid de sodiu
-sk:Hydrogenjablčnan sodný
-sl:Natrijev hidrogenmalat
-sv:Natriumvätemalat
-wikidata:en:Q42807545
-# ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
-
-# E401 has been moved to the additives taxonomy
-en:E401
 
 # description:en:Agar or agar-agar is a jelly-like substance, obtained from red algae.
 
@@ -2190,7 +1289,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mannitol
 
 #  description:en:GLYCEROL is a simple polyol compound. In food and beverages, glycerol serves as a humectant, solvent, and sweetener, and may help preserve foods. It is also used as filler in commercially prepared low-fat foods (e.g., cookies), and as a thickening agent in liqueurs.
 
-en:glycerol, E422, E-422, E 422
+en:glycerol, E422, E-422, E 422, vegetable glycerine
 ar:غليسرول
 as:গ্লিচাৰল
 az:Qliserin
@@ -2449,15 +1548,8 @@ wikidata:en:Q188154
 wikipedia:en:https://en.wikipedia.org/wiki/Pectin
 # en:pectin has 9364 products in 20 languages @2018-11-03
 
-<en:pectin
-en:non-amidated pectines, E440i, E 440i, E-440i
-ca:Pectina no amidada
-es:Pectina no amidada
-fr:Pectine non amidée
-nl:Niet-geamideerde pectines
-# fr:e440i has 18 products in 5 languages @2018-11-03
 
-<en:pectin
+<en:E440
 en:fruit pectin
 ca:pectina de fruita, pectines de fruites
 da:frugtpektin
@@ -2482,8 +1574,9 @@ fr:pectine de pomme
 
 <en:fruit pectin
 <en:citrus
-en:citrus pectin, modified citrus pectin
+en:citrus pectin, modified citrus pectin, citric pectin
 de:zitruspektin, citrus-pektin
+es:pectina de citricos
 fi:sitruspektiini
 fr:pectine d'agrumes
 sv:citruspektin
@@ -2491,40 +1584,10 @@ wikidata:en:Q6889398
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
 # ingredient/en:citrus-pectin has 328 products in 3 languages @2020-05-21
 
-<en:pectin
-en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
-bg:Амидиран пектин
-ca:Pectina amidada
-cs:Amidovaný pektin
-da:Amideret pectin
-de:Amidiertes pektin
-el:Αμιδιωμενες πηκτινικες υλες
-es:Pectina amidada
-et:Amiiditud pektiin
-fi:Amidoitu pektiini
-fr:pectine amidée
-hu:Amidált pektin
-it:Pectina amidata
-lt:Amidintas pektinas
-lv:Amidēts pektīns
-mt:Pektina amidata
-nl:Geamideerde pectine
-pl:Pektyna amidowana
-pt:Pectina amidada
-ro:Pectină amidată
-sk:Amidovaný pektín
-sl:Amidirani pektin
-sv:Amiderat pektin
-wikidata:en:Q42807519
-# fr:pectine-amidée has 74 products in 1 language @2018-11-03
-
-<en:pectin
-en:citric pectin
-es:pectina de citricos
-
-<en:pectin
+<en:citrus pectin
 en:lemon pectin
 es:pectina de limon
+
 
 # The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
@@ -2559,7 +1622,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylate
 
 #   GLYCEROL ESTER OF WOOD ROSIN,  also known as glyceryl abietate or ester gum, is an oil-soluble food additive (E number E445).
 
-en:Glycerol esters of wood rosin, E445, E-445, E 445
+en:Glycerol esters of wood rosin, Glycerol esters of wood rosins, E445, E-445, E 445
 bg:Глицеролови естери на дървесна смола
 cs:Glycerolestery dřevných pryskyřic
 da:Glycerolestere af fyrreharpiks
@@ -2681,7 +1744,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Methyl_cellulose
 
 # description:en:Hypromellose (INN), short for HYDROXYPROPYL METHYLCELLULOSE (HPMC), is a semisynthetic, inert, viscoelastic polymer used as a food additive, as emulsifier, thickening and suspending agent, and an alternative to animal gelatin.
 
-en:hydroxypropyl methylcellulose, E464, E-464, E 464, INS464, INS-464, INS 464, SIN464, SIN-464, SIN 464
+en:hydroxypropyl methylcellulose, hydroxypropylmethylcellulose, E464, E-464, E 464, INS464, INS-464, INS 464, SIN464, SIN-464, SIN 464
 ar:هيدروكسي بروبيل ميثيل سيللوز
 bg:Хидроксипропил метил целулоза
 cs:Hydroxypropylmethylcelulosa
@@ -5392,7 +4455,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 # Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 
 <en:sweetener
-en:Saccharin, E954, E-954, E 954
+en:Saccharin, E954, E-954, E 954, sodium saccharin
 ar:سكارين
 be:Сахарын
 bg:Захарин
@@ -8434,7 +7497,7 @@ en:skimmed cows milk
 es:leche desnatada de vaca,leche descremada de vaca
 
 <en:Cow's milk
-en:pasteurized skimmed milk
+en:pasteurized skimmed cow's milk
 ca:llet fresca desnatada pasteuritzada de vaca
 es:leche de vaca desnatada pasterizada
 
@@ -8443,12 +7506,13 @@ es:leche de vaca desnatada pasterizada
 # description:en:RAW GOAT MILK - milk produced by female goats before any treatment
 
 <en:goat's milk
+<en:raw milk
 en:raw goat's milk
-ca:llet crua de cabra
+ca:llet crua de cabra, llet de cabra crua
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra
+es:leche cruda de cabra, leche de cabra cruda
 fi:vuohen raakamaito, raaka vuohenmaito
-fr:lait cru de chèvre
+fr:lait cru de chèvre, lait de chèvre cru
 hu:nyers kecsketej
 
 # description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
@@ -8469,13 +7533,6 @@ ro:lapte de capră, lapte de capra
 ru:Козье молоко
 sv:getmjölk
 wikidata:en:Q1418287
-
-<en:goat's milk
-<en:raw milk
-en:raw goat's milk
-ca:llet de cabra crua
-es:leche de cabra cruda
-fr:lait de chèvre cru
 
 <en:goat's milk
 en:whole goat's milk
@@ -8734,13 +7791,6 @@ sv:sockrad kondenserad mjölk, söt kondenserad mjölk, sötad kondenserad mjöl
 wikidata:en:Q57271749
 # ingredient/sweetened-condensed-milk has 516 products in 5 languages @2019-04-16
 
-<en:condensed milk
-en:condensed semi-skimmed milk
-ca:llet condensada parcialment desnatada, llet condensada semidesnatada, llet parcialment desnatada condensada, llet semidesnatada condensada
-de:Kondensmagermilch, eingedickte entrahmte Milch
-es:leche condensada parcialmente desnatada, leche condensada semidesnatada, leche parcialmente desnatada condesada, leche semidesnatada condensada
-hu:sűrtett zsírszegény tej
-
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
 ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada,dolc de llet
@@ -8787,19 +7837,19 @@ nl:gecondenseerde volle melk
 
 <en:condensed milk
 en:condensed semi-skimmed milk
-ca:llet semidesnatada condensada, llet parcialment desnatada condensada, llet condesnada semidesnatada, llet condensada parcialment desnatada
+ca:llet semidesnatada condensada, llet parcialment desnatada condensada, llet condensada semidesnatada, llet condensada parcialment desnatada
 de:teilentrahmte Kondensmilch
 es:leche semidesnatada condensada, leche parcialmente desnatada condensada, leche condensada semidesnatada, leche condensada parcialmente desnatada
 fi:kondensoitu vähärasvainen maito, tiivistetty vähärasvainen maito
 fr:lait demi-écrémé condensé
-hu:sűrített zsírszegény tej
+hu:sűrített zsírszegény tej, sűrtett zsírszegény tej
 nl:gecondenseerde halfvolle melk
 # ingredient/condensed-semi-skimmed-milk has 3 products in german @2019-04-16
 
 <en:condensed milk
 en:condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
 ca:llet descremada condensada, llet desnatada condensada, llet condensada descremada, llet condensada desnatada
-de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat
+de:Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat, eingedickte entrahmte Milch
 es:leche descremada condensada, leche desnatada condensada, leche condensada descremada, leche condensada desnatada
 fi:kondensoitu rasvaton maito
 fr:lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
@@ -9252,6 +8302,7 @@ hu:bio joghurt
 nl:biologische yoghurt
 
 <en:yogurt
+en:low fat yogurt
 fr:yaourt maigre, yogourt maigre
 ca:iogurt magre
 de:Magermilchjoghurt, fettarmer Joghurt, Joghurt aus entrahmter Milch
@@ -9893,6 +8944,11 @@ sv:flytande grädde, matgrädde
 # ingredient/single-cream has 608 products in 8 languages @2019-07-12
 
 # comment:en:Seems to have a 35% fat percentage
+
+<en:cream
+en:double cream
+de:Doppelrahm
+wikidata:en:Q1142449
 
 <en:cream
 en:whole cream, full cream
@@ -10983,6 +10039,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 # en:cheddar has 366 products @2018-10-27
 
 <en:cheddar
+en:mature cheddar, mature cheddar cheese
+
+<en:cheddar
 fr:cheddar orange
 
 <fr:cheddar orange
@@ -11088,7 +10147,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
 # EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
 
 <en:cheese
-en:emmental
+en:emmental, emmental cheese
 af:Emmentaler
 ar:إمنتال
 bg:Ементал
@@ -11509,7 +10568,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gouda_cheese
 # GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
 
 <en:cheese
-en:Grana Padano
+en:Grana Padano, Grana Padano cheese
 bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
@@ -11865,7 +10924,7 @@ es:mozzarella rallada
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
 
 <en:cheese
-en:parmesan, parmigiano reggiano, Parmesan cheese
+en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese
 af:Parmesaan
 ar:بارميجيانو ريجيانو
 az:Parmesan pendiri
@@ -11985,7 +11044,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
 <en:pecorino
-en:pecorino romano, romano, Peccorino Romano PDO cheese
+en:pecorino romano, romano, pecorino romano cheese, Peccorino Romano PDO cheese
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -12105,10 +11164,33 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 <en:reblochon
 fr:Reblochon AOP
 
+
+# Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
+
+<en:cheese
+en:red leicester, red leicester cheese
+af:red leicester
+cy:Caws Caerlŷr
+de:Red Leicester
+es:Red Leicester
+fi:Red Leicester
+fr:Red Leicester
+id:Keju Leicester
+it:Red Leicester
+lt:Raudonasis Lesteršyras
+nl:Red Leicester
+no:Red Leicester
+pl:Red Leicester
+th:เรดเลสเตอร์
+zh:萊斯特芝士
+wikidata:en:Q1892828
+wikipedia:en:https://en.wikipedia.org/wiki/Red_Leicester
+
+
 # RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
 <en:cheese
-en:ricotta
+en:ricotta, ricotta cheese
 af:Ricotta
 ar:ريكوتا
 az:Rikotta
@@ -12659,7 +11741,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_A
 # Retinyl acetate (retinol acetate, vitamin A acetate) is a natural form of vitamin A which is the acetate ester of retinol.
 
 <en:vitamin A
-en:retinyl acetate
+en:retinyl acetate, retinol acetate, vitamin A acetate
 ca:acetat de retinol
 de:Retinylacetat
 es:acetato de retinilo
@@ -14906,39 +13988,6 @@ es:rabo vacuno
 en:beef tripe
 es:callos de vacuno
 
-# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
-
-<en:meat
-en:goat meat
-an:aponkye
-ar:لحم الماعز
-bs:Kozetina
-ca:carn de cabrit
-da:gedekød
-de:Ziegenfleisch
-eo:Kapraĵo
-es:cabrito al pastor
-fi:vuohenliha
-fr:viande de chèvre
-hu:kecskehús
-id:Daging kambing
-it:carne di capra
-ja:ヤギ肉
-ko:염소고기
-la:Haedina
-ms:Daging kambing
-nl:geitevlees
-pt:carne de cabra
-ru:Козлятина
-sr:јаретина
-ta:ஆட்டிறைச்சி
-vi:Thịt dê
-zh:山羊肉
-# sr-ec:јаретина
-wikidata:en:Q449506
-wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
-# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-
 # description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
 
 <en:sheep
@@ -15805,16 +14854,39 @@ sv:pannbiff
 en:goat
 es:cabra
 
+# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
+
 <en:meat
 <en:goat
 en:goat meat
-ca:carn de cabra
+an:aponkye
+ar:لحم الماعز
+bs:Kozetina
+ca:carn de cabra, carn de cabrit
 da:gedekød
 de:Ziegenfleisch
-es:carne de cabra
+eo:Kapraĵo
+es:cabrito al pastor
 fi:vuohenliha
+fr:viande de chèvre
 hu:kecskehús
-nl:geitenvlees
+id:Daging kambing
+it:carne di capra
+ja:ヤギ肉
+ko:염소고기
+la:Haedina
+ms:Daging kambing
+nl:geitenvlees, geitevlees
+pt:carne de cabra
+ru:Козлятина
+sr:јаретина
+ta:ஆட்டிறைச்சி
+vi:Thịt dê
+zh:山羊肉
+# sr-ec:јаретина
+wikidata:en:Q449506
+wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
+# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
 
 
 ###################################################################################################
@@ -15851,7 +14923,7 @@ da:Svinekød
 de:Schweinefleisch
 es:carne de cerdo
 fi:sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
-fr:viande de porc
+fr:viande de porc, viande porc
 hu:sertéshús, disznóhús
 it:carne di suino
 nb:svinekjøtt, kjøtt av svin
@@ -16207,11 +15279,6 @@ sv:sida av gris
 fr:carré de porc, carré
 
 <en:pork meat
-fr:viande porc
-ca:carn de porc
-es:carne de cerdo
-
-<en:pork meat
 fr:poitrine de porc fumée
 ca:cansalda de por fumat
 es:panceta de cerdo ahumada
@@ -16249,7 +15316,7 @@ es:tripa de cerdo, tripa natural de cerdo,tripa natural de cerdo de calibre estr
 
 # <en:compound
 <en:pork meat
-en:stewed porc
+en:stewed pork
 ca:estofat de porc
 de:geschmortes Schweinefleisch
 es:estofado de cerdo
@@ -16380,7 +15447,9 @@ sv:svin blod, blod av svin
 fr:plasma de porc
 
 <en:pork meat
+en:pork loin
 fr:longe de porc
+wikidata:en:Q7230136
 
 <fr:longe de porc
 fr:longe de porc traitée en salaison
@@ -16392,6 +15461,7 @@ fr:viande séparée mécaniquement de porc
 fr:jarret de porc
 
 <en:pork meat
+en:pork leg
 fr:cuisse de porc
 it:coscia di suino, coscia suina
 
@@ -16418,13 +15488,6 @@ en:pork bone
 fr:os de porc
 
 <en:pork meat
-fr:couenne de porc
-
-<en:pork
-fr:foie de porc
-ro:ficat de porc, ficat porc
-
-<en:pork meat
 en:pork liver
 de:Schweineleber
 es:Higado de cerdo,tocino de hígado de cerdo
@@ -16433,7 +15496,7 @@ fr:foie de porc
 hu:sertésmáj
 it:fegato di maiale
 nl:varkenslever
-ro:piept de porc, piet porc
+ro:ficat de porc, ficat porc
 ru:Свиная печень
 sv:Grislever
 zh:猪肝
@@ -16463,6 +15526,7 @@ de:Schweinebrust
 es:panceta de cerdo
 fi:Porsaan rinta
 fr:poitrine de porc
+ro:piept de porc, piet porc
 
 <en:pork meat
 fr:viande et gras de porc
@@ -16772,6 +15836,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salami
 fr:saucisses fumées
 
 <en:meat
+en:pork sausage, pork sausages
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisse de porc
 carbon_footprint_fr_foodges_value:fr:5.5
@@ -16981,7 +16046,7 @@ fr:amidon de maïs cireux
 
 <en:corn starch
 <en:modified starch
-en:modified corn starch, modified corn starches
+en:modified corn starch, modified corn starches, modified maize starch
 ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
@@ -17093,6 +16158,7 @@ it:amido di frumento
 nl:tarwezetmeel, tarwe zetmeel
 pl:Skrobia pszenna
 pt:amido de trigo
+ro:amidon din grâu
 ru:Пшеничный крахмал
 se:pšenični skrob
 sv:vetestärkelse
@@ -17111,6 +16177,11 @@ hu:módosított búzakeményítő
 it:amido modificato de fromento
 nl:gemodificeerd tarwezetmeel
 sv:modifierad vetestärkelse
+
+<en:modified starch
+<en:wheat starch
+fr:amidon de blé partiellement modifié
+
 
 <en:syrup
 en:tapioca syrup
@@ -17634,7 +16705,7 @@ nb:melkefett
 nl:melkvet
 pl:tłuszcz mlecny, tłuszcz mleczny
 pt:gorda do leite
-ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte
+ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grasimi din lapte, grăsime din lapte
 ru:молочный жнр
 sv:mjölkfett
 vegan:en:no
@@ -17920,9 +16991,6 @@ fr:matières grasses végétales non hydrogénées, matière grasse végétale n
 sv:ej härdade vegetabilisk fetter
 
 <en:vegetable oil
-en:hydrogenated vegetable oil
-
-<en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
 de:Emulgator Mono- und Diglyceride von Fettsäuren
 es:aceite vegetales no hidrogenados
@@ -18123,6 +17191,7 @@ it:grasso di palma, grasso vegetale di palma
 nl:palmvet
 pl:tłuszcz palmowy
 pt:gordura de palma, gordura vegetal de palma
+ro:grăsime de palmier
 ru:Пальмовый жир
 ro:grăsime palmier
 se:palmina mast
@@ -18544,14 +17613,6 @@ sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin o
 <en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
 
-<en:extra virgin olive oil
-en:organic extra virgin olive oil
-de:Natives Bio-Olivenöl Extra
-fi:luomu ekstra-neitsytoliiviöljy
-fr:huile d'olive vierge extra biologique
-hu:extra szűz bio olívaolaj, bio extra szűz olívaolaj
-# ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
-
 <en:olive oil
 en:organic olive oil
 de:Bio-Olivenöl
@@ -18565,12 +17626,15 @@ nl:olie van biologische olijven
 en:refined olive oil
 es:aceite de oliva refinado
 
+<en:extra virgin olive oil
 <en:organic olive oil
 en:organic extra virgin olive oil
 de:Natives Bio-Olivenöl Extra
 fi:luomu ekstra-neitsytoliiviöljy
-fr:huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique
+fr:huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique, huile d'olive vierge extra biologique
+hu:extra szűz bio olívaolaj, bio extra szűz olívaolaj
 nl:biologische extra olijfolie van de eerste persing
+# ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
 # ingredient/fr:huile-d-olive-vierge-extra-issue-de-l-agriculture-biologique has 12 products in 2 languages @2019-05-25
 
 <en:organic olive oil
@@ -19339,9 +18403,11 @@ from_palm_oil:en:no
 <en:sunflower oil
 en:organic sunflower oil
 da:økologisk solsikkeolie
-fi:luomuauringonkukkaöljy
+de:biologische Sonnenblumöl
+fi:luomuauringonkukkaöljy, luomu auringonkukkaöljy
+fr:huile de tournesol bio
 hu:bio napraforgóolaj
-nl:olie van biologische zonnebloempitten, olie van biologisch zonnebloempitten
+nl:olie van biologische zonnebloempitten, olie van biologisch zonnebloempitten, biozonnebloemolie, bio zonnebloemolie
 # ingredient/nl:olie-van-biologische-zonnebloempitten has 2 products @2019-05-24
 
 # Hydrogenation is a chemical process by adding hydrogen to liquid vegetable oils, so it would remain solid at room temperature
@@ -19418,16 +18484,6 @@ nl:koudgeperste zonnebloemolie
 pt:óleo de girassol prensado a frio
 carbon_footprint_fr_foodges_ingredient:fr:Huile Tournesol
 carbon_footprint_fr_foodges_value:fr:1.6
-
-<en:sunflower oil
-# en:organic
-en:organic sunflower oil
-da:økologisk solsikkeolie
-de:biologische Sonnenblumöl
-fi:luomu auringonkukkaöljy
-fr:huile de tournesol bio
-hu:bio napraforgóolaj
-nl:biozonnebloemolie, bio zonnebloemolie
 
 <en:sunflower oil
 fr:huile de tournesol vierge, huile de tournesol vierge première pression à froid
@@ -19612,7 +18668,7 @@ wikidata:en:Q170885
 from_palm_oil:en:no
 
 <en:essential oil
-en:orange essential oil
+en:orange essential oil, orange oil
 de:Orangenöl
 es:aceite esencial de naranja,aceite esencial de piel de naranja
 fi:appelsiiniöljy
@@ -20080,7 +19136,7 @@ sv:maltvinäger
 
 <en:malt vinegar
 # en:barley malt
-en:barley malt vinegar
+en:barley malt vinegar, malt barley vinegar
 de:gerstenmalzessig
 fi:ohramallasetikka
 fr:vinaigre de malt d'orge
@@ -21415,7 +20471,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fortified_wine
 # description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
 
 <en:liqueur wine
-en:Madeira
+en:Madeira, Madeira wine
 an:Vin de Madeira
 be:Мадэра
 bg:Мадейра
@@ -21747,6 +20803,8 @@ es:Whisky
 fi:viski
 fr:whisky, scotch whiskey
 hu:whisky
+wikidata:en:Q281
+wikipedia:en:https://en.wikipedia.org/wiki/Whisky
 
 <en:alcohol
 en:whiskey
@@ -21793,7 +20851,7 @@ hu:Campari
 nl:Campari
 
 <en:alcohol
-en:cider
+en:cider, apple cider
 de:Apfelmost
 fr:cidre
 
@@ -21802,14 +20860,16 @@ en:whiskeys
 fr:whiskys
 hu:whiskey-k
 
-<en:whiskey
-en:Scottish whiskey
+<en:whisky
+en:Scotch whisky, Scottish whisky, Scottish whiskey
 de:Schottischer Whisky
 fi:skottiviski
 fr:whisky écossais
 hu:skót whiskey
+wikidata:en:Q382947
+wikipedia:en:https://en.wikipedia.org/wiki/Scotch_whisky
 
-<en:Scottish whiskey
+<en:Scotch whisky
 en:blended scotch whisky
 de:Blended Scotch Whisky
 fi:skotlantilainen blended-viski
@@ -21832,7 +20892,7 @@ it:calvados
 nl:calvados
 
 <en:alcohol
-en:rhum
+en:rum
 da:Rom, rom
 de:Rum
 es:Ron
@@ -22279,13 +21339,6 @@ es:aroma natural de plátano
 fi:luontainen banaaniaromi
 fr:arôme naturel de banane
 hu:természetes banán aroma
-
-<en:natural flavouring
-en:natural shallot flavouring
-de:natürliches Schalottenaroma, natürliches Schalotten-Aroma
-fi:luontainen salottisipuliaromi
-fr:arôme naturel d'échalotte
-hu:természetes mogyoróhagyma aroma
 
 <en:natural flavouring
 en:natural cola flavouring
@@ -23815,9 +22868,8 @@ fr:Grains de blé dur précuits
 fr:blé dur concassé précuit
 
 <en:wheat
-en:puffed cereal
+en:puffed wheat
 de:Weizenpops
-fi:puffattu vilja
 fr:blé soufflé
 it:frumento soffiato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-soufflé
@@ -24115,7 +23167,7 @@ fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur bi
 # ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
 
 <en:durum wheat semolina
-en:whole durum wheat semolina
+en:whole durum wheat semolina, durum wholewheat semolina
 bs:integralna krupica durum pšenice
 de:Vollkorn-Hartweizengriß
 el:σιμιγδάλι αλέσεως σκληρού σιταριού
@@ -24264,45 +23316,6 @@ carbon_footprint_fr_foodges_value:fr:0.6
 fr:semoule de blé tendre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
 # 20 products in 1 language @20180922
-
-<en:starch
-# <en:wheat
-en:wheat starch
-ca:Midó de blat, fècula de blat
-cs:Pšeičný škrob
-da:Hvedestivelse
-de:Weizenstärke
-el:άμυλο σιταριού
-es:almidón de trigo
-fi:vehnätärkkelys, vehnätärkkelystä
-fr:amidon de froment, amidon de blé
-hu:búzakeményítő
-it:amido di frumento
-nl:tarwezetmeel
-pl:Skrobia pszenna
-pt:amido de trigo
-ru:Пшеничный крахмал
-se:pšenični skrob
-sv:vetestärkelse
-
-<en:wheat starch
-de:Weizenquellstärke
-
-<en:modified starch
-<en:wheat starch
-en:modified wheat starch
-de:modifizierte Weizenstärke
-es:almidón de trigo modificado
-fi:muunnettu vehnätärkkelys
-fr:amidon modifié de blé, amidon transformé de blé
-hu:módosított búzakeményítő
-it:amido modificato de fromento
-nl:gemodificeerd tarwezetmeel
-sv:modifierad vetestärkelse
-
-<en:modified starch
-<en:wheat starch
-fr:amidon de blé partiellement modifié
 
 ##################################################################################
 #
@@ -25411,7 +24424,7 @@ ms:Kuinoa
 nb:Quinoa
 nl:Quinoa
 nn:Quinoa
-pl:Komosa ryżowa
+pl:Komosa ryżowa, quinoa
 pt:Quinoa
 qu:Kinwa
 ro:Quinoa
@@ -26223,7 +25236,7 @@ sv:fullkornsmjöl
 
 <en:wheat flour
 <en:wholemeal flour
-en:whole wheat flour
+en:whole wheat flour, wholemeal wheat flour
 ca:farina integral
 da:hvedefuldkornsmel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -26640,7 +25653,7 @@ nl:wit maïsmeel
 sv:vitt majsmjöl
 
 <en:corn flour
-en:whole grain corn flour
+en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour
 fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
@@ -26718,21 +25731,7 @@ it:farina di piselli
 en:whole green pea flour
 
 <en:flour
-en:chick pea flour
-da:kikærtemel
-fi:kikhernejauho
-fr:farine de pois chiche, farine de pois chiches
-sv:kikärtsmjöl
-
-<en:flour
 fr:farine de châtaigne
-
-<en:flour
-en:potato flour
-fi:perunajauho
-fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
-sv:potatismjöl
-# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
 
 <en:flour
 <en:coconut
@@ -26838,7 +25837,7 @@ oc:Milh
 or:ମକା
 os:Нартхор
 pa:ਮੱਕੀ
-pl:kukurydziana, Kukurydza zwyczajna
+pl:kukurydziana, Kukurydza zwyczajna, Kukurydza 
 ps:جوار
 pt:milho
 qu:Sara
@@ -26983,12 +25982,6 @@ sv:vit majs
 tr:sari misir
 
 <en:corn
-en:corn kernel,corn kernels
-es:grano de maiz
-it:chicci di mais
-pt:grao de milho
-
-<en:corn
 en:corn fiber
 es:fibra de maiz
 nl:maïsvezel
@@ -27022,6 +26015,7 @@ fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits
+pl:grys kukurydziany
 pt:grãos de milho
 ro:porumb boabe
 ru:Кукурузная мука
@@ -27100,12 +26094,13 @@ nl:kleefmaïs
 en:corn kernel, corn kernels
 da:majskjerner
 de:Maiskörner
-es:grano de maís
+es:grano de maís, grano de maiz
 fi:maissinjyvä, maissinjyviä
 fr:grains de maïs
+it:chicci di mais
 nb:majskjerner
 nl:maïskorrels
-pt:grão de milho
+pt:grão de milho, grao de milho
 sv:majskärnor, majskorn
 sr:kukuruzni griz
 # ingredient/fr:grains-de-maïs 41 products in 3 languages @2018-09-24
@@ -27435,7 +26430,7 @@ sv:råris
 # ingredient/fr:riz-brun has 39 products @2019-05-30
 
 <en:brown rice
-en:whole grain brown rice
+en:whole grain brown rice, wholegrain brown rice
 de:brauner Vollkornreis
 fr:Riz brun complet
 
@@ -27773,7 +26768,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Basmati
 <en:basmati rice
 en:white basmati rice
 de:weißer Basmatireis
-en:white basmati rice
 fi:valkoinen basmatiriisi
 fr:riz basmati blanc
 hu:fehér basmati rizs, fehér baszmati rizs
@@ -28130,6 +27124,9 @@ fr:riz rouge germé
 <en:rice
 fr:riz riceberry mélangé
 
+<en:rice
+en:sushi rice
+
 ##################################################################################
 #
 #                        CAROB/LOCUST BEAN
@@ -28443,6 +27440,21 @@ wikidata:en:Q11190742
 wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
+<en:sugar
+en:muscovado, muscovado sugar
+ca:Sucre mascavat
+da:Muscovadosukker
+eo:Muskovado
+es:Azúcar mascabado
+fr:Sucre muscovado
+it:Zucchero muscovado
+ja:黒砂糖
+pl:Muscovado
+sv:Muscovadosocker
+# pt:Açúcar mascavo
+wikidata:en:Q9280616
+wikipedia:en:https://en.wikipedia.org/wiki/Muscovado
+
 # nova:en:invert-sugar
 <en:sugar
 en:invert sugar, inverted sugar
@@ -28459,6 +27471,7 @@ pl:Cukier inwertowany
 pt:açúcar invertido
 ro:zahăr invertit, zahar invertit
 sv:invertsocker
+wikidata:en:Q412082
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:invert sugar
@@ -29095,12 +28108,8 @@ wikidata:en:Q154389
 wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
 
-fr:pâte à tarte
-carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
-carbon_footprint_fr_foodges_value:fr:7.3
-
 <en:molasses
-en:cane sugar molasses
+en:cane sugar molasses, cane molasses
 fr:mélasse de sucre de canne, mélasse de canne
 fi:ruokosokerimelassi, ruokomelassi
 nl:rietsuikermelasse
@@ -29581,7 +28590,7 @@ sv:Glukos-Fruktos
 
 <en:glucose
 <en:fructose
-en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
+en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
@@ -29591,12 +28600,13 @@ es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
 fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
-hu:glükóz-fruktózszörp, glükóz-fruktózszőrp
+hu:glükóz-fruktózszörp, glükóz-fruktózszőrp, glükóz-fruktóz szirup, fruktóz-glükóz-szirup
 it:sciroppo di glucosio-fruttosio
 nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
 pt:xarope de glucose-frutose, xarope de glucose e frutose
+ro:sirop de glucoză-fructoză
 ru:глюкозно-фруктозный сироп
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
@@ -29654,18 +28664,16 @@ de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti
-hu:invert cukorszirup, invertcukor-szirup
+hu:invert cukorszirup, invertcukor-szirup, invertcukor szirup
 it:sciroppo di zucchero invertito
 nl:Invertsuikerstroop
 ro:sirop de zahăr invertit, sirop de zahar invertit
 sv:invertsockersirap
 
-en:invert sugar syrup
-es:Jarabe de azúcar invertido
-fi:inverttisokerisiirappi
+<en:invert sugar syrup
 fr:sirop de sucre inverti cristallisé
-hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, invertcukor szirup
 
+<en:invert sugar syrup
 fr:sirop de sucre partiellement inverti
 it:sciroppo di zucchero parzialmente invertito
 
@@ -29820,26 +28828,12 @@ hu:maltit-szirup, maltitol szirup
 it:sciroppo di maltitolo
 nl:Maltitolstroop
 
-en:sorbitol
-de:Sorbit
-es:sorbitol,sorbitoles
-fi:sorbitoli
-fr:sorbitol
-hu:szorbit, szorbitol
-it:sorbitolo
-nl:Sorbitol, sorbitolen
 
-<en:sorbitol
-en:sorbitol syrup
-fi:sorbitolisiirappi
-fr:sirop de sorbitol
-hu:szorbit szirup
-
-<en:sorbitol
+<en:E420
 fr:sorbitols et glycérol, glycérol et sorbitols
 fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
 
-<en:sorbitol
+<en:E420(ii)
 fr:sirop de sorbitol de blé
 
 en:rice glucose syrup
@@ -29863,15 +28857,10 @@ de:Reisdrinkpulver
 <en:rice syrup
 de:brauner Reissirup
 
-<en:sugar
-en:caramelised sugar syrup
-de:Karamell-Zuckersirup
-es:jarabe de azúcar caramelizado
-fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
-fr:sirop de sucre caramélisé, sirop de sucre caramel
+<en:rice syrup
+en:caramelised rice syrup
 hu:karamellizált rizsszirup
-nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
-sv:karamelliserat sockersirap
+
 
 <en:syrup
 en:sugar beet syrup
@@ -32546,9 +31535,9 @@ es:zumo de soja
 # 253 products in 7 languages @2018-09-25
 
 
-en:gelifier
-fr:gélifiant
-it:gelificante
+#en:gelifier
+#fr:gélifiant
+#it:gelificante
 
 en:gluten
 ar:غلوتين
@@ -32829,6 +31818,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nutritional_yeast
 <en:nutritional yeast
 de:Nährhefepulver
 
+#en:comment: fr:poudre-a-lever is an additive class.
 <en:yeast
 en:yeast powder, raising powder
 da:tørgær, tørret gær
@@ -32836,7 +31826,7 @@ de:Hefepulver
 el:μαγιά σκόνη
 es:levadura en polvo
 fi:kuivahiiva, hiivajauhe
-fr:poudre de levure, levure en poudre, poudres levantes, poudre à lever, poudres à lever, poudre levante
+fr:poudre de levure, levure en poudre
 hu:porélesztő, élesztőpor
 it:lievito in polvere
 nl:gistpoeder
@@ -33180,146 +32170,8 @@ fr:phosphates, phosphate
 # usage:fr:stabilisants : phosphates
 # sodium (mono, hexameta, and/or tripoly) phosphate
 
-# description:en:SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
-# Note that the names here must be plural. The singlars are found under E339iii
 
-en:sodium phosphates, E339, E 339, E-339, INS339, INS-339, INS 339
-ar:فوسفات الصوديوم
-de:Natriumphosphate
-es:Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio
-fa:سدیم فسفات
-fi:natriumfosfaatit
-fr:phosphates de sodium, Orthophosphates de sodium
-it:fosfati di sodio
-ja:リン酸塩
-nl:natriumfosfaten, Natriumorthofosfaten
-pt:fosfatos de sódio
-ru:Натрия фосфаты
-wikipedia:en:https://en.wikipedia.org/wiki/Sodium_phosphates
-# fr:phosphate-de-sodium has 337 products @2018-11-05
 
-# Monosodium phosphate (MSP), also known as monobasic sodium phosphate and sodium dihydrogen phosphate, is an inorganic compound of sodium with a dihydrogen phosphate (H2PO4−) anion.
-
-<en:sodium phosphates
-en:Monosodium phosphate, E339i, E 339i, E-339i
-ar:مونوسودیوم فوسفات
-bg:Мононатриев фосфат
-cs:Fosforečnan monosodný
-da:Mononatriumphosphat
-de:Mononatriumphosphat
-el:Δισοξινο φωσφορικο νατριο
-eo:Natria bifosfato
-es:fosfato monosódico
-et:Naatriumdivesinikfosfaat
-fi:Mononatriumfosfaatti
-fr:phosphate monosodique
-hu:Mononátrium-foszfát
-it:Fosfato monosodico
-ja:リン酸二水素ナトリウム
-lt:Mononatrio fosfatas
-lv:Mononātrija fosfāts
-mt:Fosfat monosodiku
-nl:Mononatriumfosfaat
-pl:Fosforan monosodowy
-pt:fosfato de sódio monobásico
-ro:Fosfat monosodic
-ru:Дигидрофосфат натрия
-sh:Mononatrijum fosfat
-sk:Fosforečnan monosodný
-sl:Mononatrijev fosfat
-sr:Mononatrijum fosfat
-sv:Mononatriumfosfat
-vi:Natri đihiđrophotphat
-zh:磷酸二氢钠
-# azb:مونوسودیوم فوسفات
-wikidata:en:Q415877
-wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_phosphate
-# additive/e339i-monosodium-phosphate has 36 products in 6 languages @2018-11-05
-
-# Disodium phosphate (DSP), or sodium hydrogen phosphate, or sodium phosphate dibasic, is the inorganic compound with the formula Na2HPO4.
-
-<en:sodium phosphates
-en:disodium phosphate, Disodium monophosphate, Secondary sodium phosphate, E339ii, E 339ii, E-339ii
-bg:Динатриев фосфат
-cs:Hydrogenfosforečnan disodný
-da:Dinatriumphosphat
-de:Dinatriumphosphat
-el:Οξινο φωσφορικο νατριο
-eo:Dunatria fosfato
-es:fosfato disódico
-et:Dinaatriumvesinikfosfaat
-fa:دی‌سدیم فسفات
-fi:Dinatriumfosfaatti
-fr:phosphate disodique, Monophosphate disodique
-hu:Dinátrium-foszfát
-it:fosfato disodico, Monofosfato disodico
-ja:リン酸水素二ナトリウム
-lt:Dinatrio fosfatas, Dinatrio monofosfatas
-lv:Dinātrija fosfāts, Dinātrija monofosfāts
-mt:Fosfat disodiku, Monofosfat disodiku
-nl:dinatriumfosfaat, Dinatriummonofosfaat
-pl:Fosforan disodowy, Monofosforan disodowy
-pt:Fosfato dissódico, Monofosfato dissódico
-ro:Fosfat disodic, Monofosfat disodic
-ru:гидрофосфат натрия
-sh:Dinatrijum fosfat
-sk:Fosforečnan disodný, Monofosforečnan disodný
-sl:Dinatrijev fosfat, dinatrijev monofosfat
-sv:Dinatriumfosfat, Dinatriummonofosfat
-ta:இருசோடியம் பாசுபேட்டு
-vi:Natri hiđrophotphat
-zh:磷酸一氢钠
-# azb:دیسودیوم فوسفات
-# zh-cn:磷酸一氢钠
-# zh-hans:磷酸一氢钠
-# zh-hant:磷酸一氫鈉
-# zh-hk:磷酸一氫鈉
-# zh-sg:磷酸一氢钠
-# zh-tw:磷酸一氫鈉
-wikidata:en:Q418448
-wikipedia:en:https://en.wikipedia.org/wiki/Disodium_phosphate
-# fr:phosphate disodique has 54 products in 3 languages @2018-11-04
-# additive/e339ii-disodium-phosphate has 1940 products in 9 languages @2018-11-06
-
-# TRISODIUM PHOSPHATE (TSP) is the inorganic compound with the chemical formula Na3PO4.
-
-<en:sodium phosphates
-en:trisodium phosphate, Tribasic sodium phosphate, sodium phosphate, E339iii, E 339iii, E-339iii
-bg:Тринатриев фосфат, триосновен натриев фосфат, Натриев фосфат
-ca:Fosfat de trisodi
-cs:Fosforečnan trisodný, Fosforečnan sodný
-da:Trinatriumphosphat, tribasisk natriumphosphat, Natriumphosphat
-de:Trinatriumphosphat, dreibasiges Natriumphosphat, Natriumphosphat
-el:Ουδέτερο φωσφορικό νάτριο, Φωσφορικο νατριο
-eo:Natria fosfato
-es:fosfato trisodico, Fosfato sódico, Fosfato de sodio
-et:Trinaatriumfosfaat, Naatriumfosfaat
-fa:تری‌سدیم فسفات
-fi:Trinatriumfosfaatti, Natriumfosfaatti
-fr:phosphate trisodique, phosphate de sodium tribasique, phosphate de sodium
-hu:Trinátrium-foszfát, Hárombázisú nátrium-foszfát, nátrium-foszfát
-it:Fosfato trisodico, fosfato tribasico di sodio, Fosfato di sodio
-ja:リン酸三ナトリウム
-lt:Trinatrio fosfatas, tribazis natrio fosfatas, Natrio fosfatas
-lv:Trinātrija fosfāts, Tribāziskais nātrija fosfāts, Nātrija fosfāts
-mt:Fosfat trisodiku, Fosfat tas-sodju tribażiku, Fosfat tas-sodju
-nl:trinatriumfosfaat, driebasisch natriumfosfaat, Natriumfosfaat
-nn:natriumfosfat
-pl:Fosforan trisodowy, Fosforan sodu
-pt:fosfato trissódico, fosfato de sódio tribásico, Fosfato de sódio
-ro:Fosfat trisodic, Fosfat de sodiu tribazic, Fosfat de sodiu
-ru:Фосфат натрия,  Ортофосфат натрия
-sh:Trinatrijum fosfat
-sk:Fosforečnan trisodný, trojsýtny fosforečnan sodný, Fosforečnan sodný
-sl:Trinatrijev fosfat, tribazični natrijev fosfat, natrijev fosfat
-sr:Trinatrijum fosfat
-sv:Trinatriumfosfat, Trinatriummonofosfat
-vi:Natri phosphat
-zh:磷酸钠
-# azb:تریسودیوم فوسفات
-wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
-# fr:phosphate-trisodique has 45 products @2018-11-04
-# additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 
 
 # Potassium phosphate is a generic term for the salts of potassium and phosphate ions
@@ -33873,7 +32725,7 @@ fr:épaississant e415
 
 # description:en:GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 
-en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418
+en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
 bg:Гума джелан
 cs:Guma gellan
@@ -39252,6 +38104,7 @@ it:Datteri Medjool
 # 9in3@2019-06-04
 
 <en:date
+en:date paste
 fr:pâte de datte
 nl:dadelpuree
 sv:dadelpuré
@@ -43657,6 +42510,12 @@ fi:valkosipuliuute
 # fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
 
 <en:garlic
+en:garlic oil
+de:Knoblauchöl
+es:aceite de ajo
+fr:huile d'ail
+
+<en:garlic
 <en:onion
 fr:oignon et ail en poudre
 
@@ -45901,6 +44760,9 @@ fr:oignons grillés en poudre
 <en:onion
 fr:oignon fumé en poudre
 
+<en:onion
+en:onion purée
+
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
 
@@ -47472,6 +46334,10 @@ fr:Pommes de terre de consommation à chair ferme
 <en:flour
 en:potato flour
 es:harina de patata
+fi:perunajauho
+fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
+sv:potatismjöl
+# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
 
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
@@ -47780,7 +46646,7 @@ it:peperoni rossi e gialli
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
 <en:vegetable
-en:chili pepper
+en:chili pepper, chilli pepper
 ar:فلفل حار
 be:чырвоны перац
 bg:Люта чушка
@@ -47890,6 +46756,7 @@ en:tabasco chile
 es:chiles tabasco
 
 <en:chili pepper
+en:chili extract, chilli extract
 fr:extrait de piment
 de:Chiliextrakt
 fi:chiliuute
@@ -47917,7 +46784,7 @@ de:konservierter Chilipfeffer
 fi:säilötty chili
 
 <en:chili pepper
-en:red chili pepper,red chili
+en:red chili pepper, red chili, red chilli pepper, red chilli
 da:rød chili
 de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
@@ -47930,6 +46797,7 @@ sv:röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
 <en:red chili pepper
+en:red chili purée, red chilli purée
 it:purè di peperoncino rosso
 
 <en:red chili pepper
@@ -47939,7 +46807,7 @@ fr:huile de graines de piment rouge
 nl:rode peper zaad olie
 
 <en:chili pepper
-en:green chili pepper
+en:green chili pepper, green chili, green chilli pepper, green chilli
 de:grüne Chili
 es:guindilla verde
 fi:vihreä chili
@@ -48032,7 +46900,7 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno peppers
-en:chipotle
+en:chipotle, chipotle chilli
 ca:chipotle
 cs:chipotle
 da:chipotle
@@ -48459,7 +47327,7 @@ sv:torkad tomat
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
 <en:dried tomatoes
-en:sundried tomatoes
+en:sundried tomatoes, sun-dried tomato
 de:an der Sonne getrocknete Tomaten
 fi:aurinkokuivattu tomaatti, aurinkokuivatut tomaatit
 fr:tomates séchées au soleil
@@ -49485,7 +48353,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:beans
-en:white beans, navy beans, great northern beans
+en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
@@ -49528,14 +48396,16 @@ nl:Zwarte bonen
 sv:svarta bönor
 
 <en:beans
-en:red beans, red kidney beans
+en:red beans, red kidney beans, kidney beans
 da:Røde kidneybønner, kidneybønner
-de:Rote Bohnen
+de:Rote Bohnen, Kidneybohnen
 es:Alubias rojas, judias rojas
 fi:punaiset kidneypavut
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
 sv:röda kidneybönor, kidneybönor
+wikidata:en:Q1828227
+wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
 
 <en:red beans
 en:small red beans
@@ -49543,6 +48413,7 @@ de:Kleine rote Bohnen
 fr:Petit haricots rouges
 
 <en:red beans
+en:dried kidney beans
 fr:haricots rouges secs
 
 <fr:haricots rouges secs
@@ -49554,6 +48425,10 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
+<en:beans
+en:cannellini beans, white kidney beans
+fr:haricots cannellini
+wikidata:en:Q74663825
 
 <en:beans
 en:mung bean
@@ -49613,7 +48488,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
 <en:legume
-en:black-eyed pea, black eye beans, blackeye peas
+en:black-eyed pea, blackeye peas, black eye beans, black eyed beans
 bg:Папуда
 de:Augenbohnen
 dv:ލޫބިޔާ
@@ -50017,7 +48892,7 @@ fr:extrait de pois
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
-en:chickpea, chickpeas
+en:chickpea, chickpeas, garbanzo beans, chick pea, chick peas
 am:ሽምብራ
 ar:حمص شائع
 az:Qoyunnoxudu
@@ -50164,9 +49039,13 @@ it:ceci reidratati
 
 <en:chickpea
 <en:flour
-en:chickpea flour
+en:chickpea flour, chick pea flour, gram flour
 ca:farina de cigro
+da:kikærtemel
 es:harina de garbanzo
+fi:kikhernejauho
+fr:farine de pois chiche, farine de pois chiches
+sv:kikärtsmjöl
 
 <en:pea
 en:garden peas
@@ -51017,7 +49896,6 @@ wikidata:en:Q3177204
 fr:Marrons UE
 
 <fr:marron
-en:cooked chestnuts
 de:Gekochte Maronen
 fr:marrons cuits
 nl:gekookte kastanjes
@@ -51246,6 +50124,7 @@ nl:hazelnootpasta
 pl:masa orzechowa
 pt:pasta de avelãs
 pt:pasta de avelã
+ro:pastă de alune de pădure
 sk:oriešková pasta
 sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
@@ -51384,6 +50263,9 @@ zh:花生仁, 花生
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
+
+<en:peanut
+en:peanut paste
 
 <en:peanut
 en:roasted peanuts
@@ -51843,16 +50725,6 @@ it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
 
-<en:mustard seed
-en:yellow mustard seed
-de:gelbes Senfkorn
-fi:keltainen sinapinsiemen
-fr:graines de moutarde jaunes
-
-<en:mustard seed
-fr:graines de moutarde moulues
-nl:gemalen mosterdzaden
-
 <en:seed
 en:celery seed
 de:Selleriesamen
@@ -51922,7 +50794,6 @@ nl:biologisch venkelzaad
 en:chia
 da:Chia
 de:chia
-en:chia
 es:chia, chía negra
 fi:chia
 fr:chia
@@ -52881,7 +51752,7 @@ ca:Herbes, herbes aromàtiques
 cs:Bylina
 da:urt
 de:Gewürz, Kräuter
-es:hierba,hierbas,plantas aromáticas, planta aromática,hierbas aromaticas
+es:hierba,hierbas,plantas aromáticas, planta aromática,hierbas aromaticas, finas hierbas, mezcla de finas hierbas
 fi:yrtti, yrtit, mausteyrtit
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques, plantes aromatiques, herbes aromatiques
 he:עשב
@@ -52984,20 +51855,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemon_pepper
 
 <en:spice
 fr:épices et arômes, aromates et épices
-
-en:herb
-ca:Herbes, herbes aromàtiques
-cs:Bylina
-da:urt
-de:Gewürz
-es:hierbas,finas hierbas, mezcla de finas hierbas
-fi:yrtti, yrtit, mausteyrtit
-fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
-he:עשב
-hu:gyógynövény, gyógynövények
-it:erba
-nl:Kruiden
-pl:Zioło
 
 <en:spice
 fr:épices moulues
@@ -53121,6 +51978,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
 <en:caraway
+en:caraway seeds
 fr:graines de carvi
 
 ###################################################################################################
@@ -54334,9 +53192,6 @@ carbon_footprint_fr_foodges_value:fr:3.3
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 <en:mustard
-en:dijon mustard
-
-<en:mustard
 en:english mustard
 
 # <en:seed
@@ -54361,13 +53216,14 @@ sv:senapsfrö, senapsfrön
 <en:mustard
 en:mustard flour
 es:harina de mostaza
+nl:mosterdmeel
 
 <en:mustard seed
 fr:Graines de moutarde issues de l'agriculture durable
 
 <en:mustard seed
 fr:graines de moutarde moulues
-nl:mosterdmeel
+nl:gemalen mosterdzaden
 
 <en:mustard seed
 en:yellow mustard seed
@@ -54412,6 +53268,7 @@ sv:senapspulver, senapsfröpulver
 # fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
 <en:mustard
+en:dijon mustard
 fr:moutarde de dijon
 de:Dijon-Senf
 fi:dijon-sinappi
@@ -54552,7 +53409,7 @@ pl:cząber
 
 <en:herb
 <en:coriander
-en:coriander leaves, cilantro
+en:coriander leaves, coriander leaf, cilantro
 da:Korianderblade
 de:Korianderblätter
 es:Hojas de cilantro
@@ -54843,7 +53700,7 @@ fi:luontainen rosmariiniuute
 # comment:en:The wikidata entry has the plant name.
 
 <en:herb
-en:lemongrass
+en:lemongrass, lemon grass
 am:ጠጅ ሳር
 ar:إذخر ليموني
 bn:গন্ধবেণা
@@ -55631,7 +54488,7 @@ nn:basilikum
 oc:Basèli
 om:Massobila
 pa:ریحان
-pl:Bazylia pospolita
+pl:Bazylia pospolita, bazylia
 pt:manjericão
 ro:Busuioc
 ru:Базилик душистый
@@ -56215,7 +55072,7 @@ fr:extrait d'origan
 #
 ###################################################################################################
 <en:herb
-en:bay leaf
+en:bay leaf, bay leaves, bay
 af:Lourierblaar
 be:Лаўровы ліст
 bg:Дафинов лист
@@ -57110,7 +55967,6 @@ cy:Balm
 da:Citron-Melisse
 de:Zitronenmelisse
 el:Μελισσόχορτο
-en:lemon balm
 eo:Citronmeliso
 es:Toronjil,melisa
 et:Sidrunmeliss
@@ -57382,7 +56238,7 @@ sv:panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
+# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
 <en:plant
 en:liquorice, licorice
@@ -57406,7 +56262,7 @@ et:Lagritsa-magusjuur
 eu:Erregaliz
 fa:شیرین‌بیان
 fi:lakritsi, lakritsikasvi
-fr:réglisse
+fr:réglisse, Infusions de Réglisse
 ga:Liocras
 gl:Regalicia
 he:שוש קירח
@@ -57468,6 +56324,7 @@ zh:光果甘草
 wikidata:en:Q257106
 wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
 # ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
+# category/liquorice has 27 products @2019-05-22
 
 <en:liquorice
 en:organic liquorice
@@ -59946,7 +58803,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 # en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
-en:nori
+en:nori, nori seaweed
 ar:نوري
 az:Nori
 bn:নরি
@@ -60397,7 +59254,7 @@ la:cantharellus cibarius
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 
 <en:mushroom
-en:cep
+en:cep, porcini mushroom, porcini mushrooms
 ar:بوليط مأكول
 ba:Аҡ бәшмәк
 be:Баравік
@@ -60474,14 +59331,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Boletus_edulis
 
 <en:cep
 en:Boletus edulis
-de:Steinpilze
 fi:boletus edulis
 fr:Boletus edulis
-it:funghi porcini
 la:Boletus edulis
 
 <en:cep
-en:dried cep
+en:dried cep, dried porcini mushroom, dried porcini mushrooms
 de:getrocknete Steinpilze
 fi:kuivattu herkkutatti
 fr:cèpes déshydratés
@@ -67436,9 +66291,7 @@ fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
 # ingredient/fr:miel-d-acacia-issu-de-l-agriculture-biologique has 3 products @2018-05-28
 
 <en:acacia honey
-en:honey from France
-de:Honig aus Frankreich, französischer Honig
-fi:Ranskalaista hunajaa
+en:acacia honey from France
 fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, miel d'acacia du val de saone, miel d'acacia d'occitanie
 # ingredient/fr:miel-d-acacia-recolte-en-france has 4 products @2019-05-28
 
@@ -67661,8 +66514,7 @@ fr:mélange de miels de fleurs
 # ingredient/fr:melange-de-miels-de-fleurs has 6 products @2019-05-28
 
 <en:blend of honeys
-en:mix of flower honeys
-de:Mischung aus Blütenhonig
+en:blend of EU honeys
 fr:mélange de miels originaires de l'UE
 # ingredient/fr:melange-de-miels-originaires-de-l-ue has 5 products in french @2019-05-28
 
@@ -68899,131 +67751,6 @@ nl:komkommersap uit concentraat
 # ingredient/cucumber-juice-from-concentrate has 1 product @2019-05-15
 
 
-# description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-
-<en:plant
-en:liquorice, licorice
-af:Soethout
-ar:عرقسوس
-az:Şirinbiyan
-ba:Татлы тамыр
-bg:женско биле
-bo:ཤིང་མངར།
-bs:Sladić
-ca:regalèssia
-cs:lékořice lysá
-cy:Gwylys
-da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
-dv:ވޭމުއި
-el:Γλυκόριζα
-eo:Vera glicirizo
-es:regaliz
-et:Lagritsa-magusjuur
-eu:Erregaliz
-fa:شیرین‌بیان
-fi:lakritsi
-fr:réglisse, Infusions de Réglisse
-ga:Liocras
-gl:Regalicia
-he:שוש קירח
-hi:यष्टिमधु
-hr:Slatki korijen
-hu:Igazi édesgyökér
-hy:քաղցրարմատ
-id:Akar manis
-io:Regoliso
-is:Lakkrísrót
-it:liquirizia
-ja:スペインカンゾウ
-ka:ძირტკბილა
-kk:Қызылмия
-kn:ಅತಿಮಧುರ
-ko:민감초
-ku:Sûs
-la:Glycyrrhiza glabra
-lb:Séissholz
-lt:Paprastasis saldymedis
-lv:lakrica# mai:मुलेठी
-ml:ഇരട്ടിമധുരം
-mr:ज्येष्ठमध
-ms:Akar manis
-nb:lakrisplante
-ne:जेठी मधु
-nl:zoethout
-oc:Regalícia
-pa:ਮੁਲ੍ਹਠੀ
-pl:Lukrecja gładka
-pt:alcaçuz
-ro:Lemn dulce
-ru:лакрица
-sa:यष्टी
-sh:Sladić
-sl:Golostebelni sladki koren
-sr:Сладић
-sv:lakrits
-ta:அதிமதுரம்
-te:అతిమధురము
-th:ชะเอมเทศ
-tl:Likorisa
-tr:Meyan
-uk:локриця
-uz:Qizilmiya
-zh:光果甘草
-# aeb-arab:عرب السوس
-# arz:عرقسوس
-# bar:Bärndreck
-# diq:Sus
-# frr:Swetholt
-# gsw:Lakritze
-# hsb:Słódnik
-# sco:alicreesh
-# tcy:ಜೇಷ್ಠಮಧು
-# vec:Sugorisia
-# vls:Kalissie
-# yue:洋甘草
-wikidata:en:Q257106
-wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
-# ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
-# category/liquorice has 27 products @2019-05-22
-
-<en:liquorice
-en:liquorice extract
-de:Lakritz extrakt
-es:extracto de regaliz
-fi:lakritsiuute
-fr:extrait de réglisse
-it:estratto di liquirizia
-nl:Zoethoutextract
-pt:extrato de alcaçuz
-sv:lakritsexstrakt
-# ingredient/fr:extrait-de-réglisse has 137 products in 9 languages @2018-12-28
-
-<en:liquorice extract
-fr:suc de réglisse
-# ingredient/fr:suc-de-réglisse has 56 products in 4 languages @2018-12-28
-
-<en:liquorice
-en:liquorice root
-de:Sussholzwurzel
-fi:lakritsijuuri
-fr:racine de réglisse
-it:radice di liquirizia
-nl:Zoethout
-# ingredient/fr:racine-de-réglisse has 51 products in 4 languages @2018-12-28
-
-<en:liquorice root
-en:liquorice root extract
-da:lakridsrodsekstrakt
-de:Süßholzwurzelextrakt
-es:extracto de raíz de regaliz
-fi:lakritsijuuriuute
-fr:Extrait de réglisse
-it:estratto di radice di liquirizia
-nl:zoethoutwortelextract
-
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           P O U L T R Y     S E C T I O N
@@ -69436,7 +68163,7 @@ fr:viande de poulet, viande de poule
 hu:csirkehús
 it:carne di pollo
 nl:kippenvlees
-pl:Mięso z kurczaka
+pl:Mięso z kurczaka, mięso kurczęce
 ro:carne de pui
 ru:куриное мясо
 sk:prsia kuracie
@@ -70243,12 +68970,11 @@ nl:ei van hennen met vrije uitloop
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
-en:free range chicken eggs
 fr:œufs de poules élevées en plein air calibre moyen
 
 <en:free range chicken eggs
 <en:organic egg
-en:free range chicken eggs
+en:organic free range chicken eggs
 fr:oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 
 <en:free range chicken eggs
@@ -70432,7 +69158,7 @@ fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées
 # description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 
 <en:egg
-en:egg white
+en:egg white, egg albumen, egg albumin
 ar:بياض البيض
 bg:яйчен белтък
 bn:সাদা ডিম
@@ -72156,9 +70882,13 @@ wikidata:en: Q53619707
 # usage:en:egg pasta (durum wheat semolina, eggs)
 # usage:fr:Pâtes aux œufs (semoule de blé dur, œufs d'élevage au sol, sel de cuisine iodé]
 
-# <en:dough
-# fr:pâte à tarte
+<en:dough
+en:pastry, pastry dough, pie dough
+fr:pâte à tarte
+wikipedia:en:https://en.wikipedia.org/wiki/Pastry
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+carbon_footprint_fr_foodges_value:fr:7.3
 
 #<en:compound
 fr:galette
@@ -74725,7 +73455,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 # en:description:HARISSA is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
 
 <en:sauce
-en:harissa
+en:harissa, harissa paste
 ar:هريسة
 bg:Хариса
 bn:হরিষ্যা

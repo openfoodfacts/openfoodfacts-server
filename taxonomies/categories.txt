@@ -23265,7 +23265,7 @@ wikidata:en:Q689950
 
 <en:Special breads
 <en:Flatbreads
-en:Pitas, Pittas, Pita bread
+en:Pitas, Pittas, Pita bread, pitta bread
 de:Pitas
 es:Pitas, Pan pita, Panes pita
 fi:Pitaleivät, Pita
@@ -23719,28 +23719,28 @@ fi:donitsit
 fr:Donuts
 nl:Donuts, Donut
 
-<en:Cakes
-en:Plain doughnut
+<en:Doughnuts
+en:Plain doughnuts, Plain doughnut
 fr:Donuts nature saupoudrés de sucre, Beignets ronds moelleux sans fourrage saupoudrés de sucre
 ciqual_food_code:en:23880
 ciqual_food_name:en:Doughnut, plain
 ciqual_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
 
-<en:Cakes
+<en:Doughnuts
 en:Doughnuts filled with fruits
 fr:Beignet fourré aux fruits
 ciqual_food_code:en:23884
 ciqual_food_name:en:Doughnut filled with fruits, prepacked
 ciqual_food_name:fr:Beignet fourré aux fruits, préemballé
 
-<en:Cakes
+<en:Doughnuts
 en:Jam doughnuts, Jelly doughnuts, Doughnuts filled with jam
 fr:Beignets à la confiture, Donuts à la confiture
 ciqual_food_code:en:23881
 ciqual_food_name:en:Doughnut filled with jam
 ciqual_food_name:fr:Beignet à la confiture
 
-<en:Cakes
+<en:Doughnuts
 en:Doughnuts filled with chocolate
 fr:Beignets fourrés au chocolat
 ciqual_food_code:en:23885
@@ -52840,6 +52840,7 @@ es:salchichas bockwurst
 
 <en:Sausages
 en:Sausages from Spain, Spanish sausages
+es:Embutidos de España
 fr:Saucisses espagnoles, Saucisses d'Espagne
 hu:Spanyol kolbász
 nl:Spaanse worsten
@@ -52880,11 +52881,13 @@ nl:Kalkoenworst
 
 <en:Poultry sausages
 en:Duck sausages
+es:Salchichas de pato
 fr:Saucisses de canard
 nl:Eendenworst
 
 <en:Sausages
 en:Veal Sausages, Veal Sausage
+es:Salchichas de Ternera
 fr:Saucisses de veau, Saucisse de veau
 
 <en:Sausages
@@ -55518,12 +55521,25 @@ nl:Conchiglie
 wikidata:en:Q19962
 
 <en:Pastas
+en:Penne
+de:Penne
+fi:penne
+fr:Penne
+it:Penne
+nl:Penne
+
+<en:Penne
 en:Penne rigate
 de:Penne Rigate
 fi:penne rigate
 fr:Penne rigate
 it:Penne rigate
 nl:Penne rigate
+
+
+<en:Penne
+en:Penne lisce
+it:Penne lisce
 
 <en:Pastas
 en:Orecchiette
@@ -55990,6 +56006,7 @@ nl:Boekweit pasta
 
 <en:Pastas
 fr:Crozets, Pâtes crozets, Crozet, Pate crozet
+wikidata:en:Q3005487
 
 <en:Pastas
 en:Fresh pasta
@@ -64536,7 +64553,15 @@ fr:Piquant d'Algérie
 wikidata:en:Q20738865
 
 <en:Sweet Peppers
+en:Piquillo pepper
 fr:Poivrons de piquillo, pimiento del piquillo, pimiento de piquillo, Piquillo de Lodosa
+es:Pimientos del piquillo
+ca:Pebrot del piquillo
+eu:Pikillo piper
+wikidata:en:Q3121337
+
+<fr:Poivrons de piquillo
+es:Pimientos del piquillo rellenos de chipirones
 
 <en:Prepared vegetables
 en:Stuffed peppers
@@ -70911,7 +70936,7 @@ ciqual_food_code:en:11086
 ciqual_food_name:en:Spirulina, (spirulina sp.), dried
 
 <en:Dietary supplements
-en:Vitamines
+en:Vitamins, vitamines
 de:Vitamine
 fi:vitamiinit
 fr:Vitamines
