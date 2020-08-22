@@ -22,36 +22,42 @@
 
 use Modern::Perl '2017';
 use utf8;
+
+use Carp ();
 use Text::CSV;
 
-binmode(STDIN, ":encoding(UTF-8)");
-binmode(STDOUT, ":encoding(UTF-8)");
-binmode(STDERR, ":encoding(UTF-8)");
+binmode STDIN, ':encoding(UTF-8)';
+binmode STDOUT, ':encoding(UTF-8)';
+binmode STDERR, ':encoding(UTF-8)';
+
+sub _map_codes {
+	my ($csv, $io) = @_;
+
+	$csv->column_names($csv->getline($io));
+	my %agb_ciqual_names_fr = ();
+
+	while (my $agb_ref = $csv->getline_hr($io)) {
+		$agb_ciqual_names_fr{$agb_ref->{ciqual_code}} = $agb_ref->{ciqual_name_fr};
+		print {*STDERR} 'ciqual_code : ' . $agb_ref->{ciqual_code} . ' - ciqual_name_fr: ' . $agb_ref->{ciqual_name_fr} . "\n" or Carp::croak('Unable to write to *STDERR');
+	}
+
+	return %agb_ciqual_names_fr;
+}
 
 my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } );  # should set binary attribute.
 
-open (my $io, '<:encoding(UTF-8)', "agribalyse_food_codes.csv") or die("Could not open agribalyse_food_codes.csv : $!");
-
-$csv->column_names($csv->getline ($io));
-
-my %agb_ciqual_names_fr = ();
-
-while (my $agb_ref = $csv->getline_hr ($io)) {
-	$agb_ciqual_names_fr{$agb_ref->{ciqual_code}} = $agb_ref->{ciqual_name_fr};
-	print STDERR "ciqual_code : " . $agb_ref->{ciqual_code} . " - ciqual_name_fr: " . $agb_ref->{ciqual_name_fr} . "\n";
-}
-
-close ($io);
+open my $io, '<:encoding(UTF-8)', 'agribalyse_food_codes.csv' or Carp::croak('Could not open agribalyse_food_codes.csv');
+my %agb_ciqual_names_fr = _map_codes($csv, $io);
+close $io or Carp::croak('Could not close agribalyse_food_codes.csv');
 
 while (<>) {
-	
 	my $line = $_;
-	
-	if ($line =~ /^ciqual_food_code:en:(\d+)/) {
+
+	if ($line =~ /^ciqual_food_code:en:(\d+)/msx) {
 		if (defined $agb_ciqual_names_fr{$1}) {
-			print "agribalyse_food_code:en:" . $1 . "\n";
+			print 'agribalyse_food_code:en:' . $1 . "\n" or Carp::croak('Unable to write to *STDOUT');
 		}
 	}
-	
-	print $line;
+
+	print $line or Carp::croak('Unable to write to *STDOUT');
 }
