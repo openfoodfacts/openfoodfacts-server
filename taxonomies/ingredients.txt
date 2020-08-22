@@ -15550,9 +15550,6 @@ fr:maigre de porc
 fr:fond de porc
 
 <en:pork
-fr:coeur de porc
-
-<en:pork
 fr:tissu conjonctif de porc
 nl:varkensbindweefsel
 
@@ -22846,9 +22843,6 @@ it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
 <en:wheat
-fr:Grains de blé dur précuits
-
-<en:wheat
 fr:blé dur concassé précuit
 
 <en:wheat
@@ -23910,6 +23904,9 @@ fr:sirop d'orge malté
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
+
+<fr:sirop d'orge malté
+fr:sirop de malt d'orge déshydraté
 
 <en:syrup
 en:malt syrup
@@ -28709,12 +28706,6 @@ fr:sirop d'amidon
 
 <fr:sirop d'amidon
 fr:sirop d'amidon de maïs
-
-<en:malted barley
-fr:sirop d'orge malté
-
-<fr:sirop d'orge malté
-fr:sirop de malt d'orge déshydraté
 
 fr:sirop de candi, sirop de sucre candi
 
@@ -37222,19 +37213,15 @@ wikidata:en:Q5812410
 en:wild blueberries
 de:Wilde Heidelbeeren
 fr:Myrtilles sauvages
+fi:villimustikka
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
+# 55 products in 2 languages @2018-10-01
 
 <en:blueberry
 en:organic blueberry
 de:Bio-Heidelbeeren, Bio-Blaubeeren
 fi:luomumustikka, luomu mustikka
 fr:myrtilles bio
-
-<en:blueberry
-fr:myrtilles sauvages
-de:Wilde Heidelbeeren
-fi:villimustikka
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
 
 <en:blueberry
 <en:purée
@@ -56353,7 +56340,7 @@ da:lakridsrodsekstrakt
 de:Süßholzwurzelextrakt
 es:extracto de raíz de regaliz
 fi:lakritsijuuriuute
-fr:Extrait de réglisse
+fr:Extrait de racine de réglisse
 it:estratto di radice di liquirizia
 nl:zoethoutwortelextract
 
@@ -66177,6 +66164,7 @@ fr:miel non raffiné, miel brut
 en:pure honey
 de:Purer Honig
 fr:Miel pur
+# ingredient/fr:miel-pur has 3 products @2019-0-28
 
 <en:honey
 en:organic honey
@@ -66194,10 +66182,6 @@ fr:miel pasteurisé
 
 <en:honey
 de:Honigpulver
-
-<en:honey
-fr:miel pur
-# ingredient/fr:miel-pur has 3 products @2019-0-28
 
 <en:honey
 en:liquid honey
