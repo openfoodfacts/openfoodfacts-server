@@ -6074,6 +6074,10 @@ sub display_new($) {
 		return;
 	}
 
+	if ($server_options{producers_platform}) {
+
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
+	}
 
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
 
