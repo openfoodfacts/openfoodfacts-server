@@ -65,12 +65,12 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		if ((defined $product_ref) and ($code ne '')) {
 		
 		$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
-			
+
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		
+
 		}
 	}
 

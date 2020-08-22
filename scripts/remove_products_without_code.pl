@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -62,10 +62,11 @@ my $j = 0;
 		my $code = $product_ref->{code};
 		my $id = $product_ref->{id};
 		
-		if (not defined $lc) {
-			print STDERR "lc does not exist - updating product _id: $id - hcode $code\n";		
+		if ( not defined $lc ) {
+			print STDERR
+				"lc does not exist - updating product _id: $id - hcode $code\n";
 		}
-		
+
 		if (not defined $code) {
 		
 		$j++;
@@ -83,7 +84,7 @@ my $j = 0;
 		}
 	}
 
-print "$i products, removed $j\n";	
-	
+print "$i products, removed $j\n";
+
 exit(0);
 

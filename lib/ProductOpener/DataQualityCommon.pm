@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,10 +40,10 @@ use Exporter qw(import);
 
 BEGIN
 {
-	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_common
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -69,6 +69,8 @@ sub check_bugs($) {
 
 	check_bug_code_missing($product_ref);
 	check_bug_created_t_missing($product_ref);
+
+	return;
 }
 
 =head2 check_bug_missing_or_unknown_main_language( PRODUCT_REF )
@@ -94,6 +96,8 @@ sub check_bug_missing_or_unknown_main_language($) {
 	elsif ($product_ref->{lang} eq 'xx') {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:main-language-unknown";
 	}
+
+	return;
 }
 
 sub check_bug_code_missing($) {
@@ -110,6 +114,8 @@ sub check_bug_code_missing($) {
 	elsif ($product_ref->{code} == 0) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-zero";
 	}
+
+	return;
 }
 
 sub check_bug_created_t_missing($) {
@@ -123,6 +129,8 @@ sub check_bug_created_t_missing($) {
 	elsif ($product_ref->{created_t} == 0) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:created-zero";
 	}
+
+	return;
 }
 
 =head2 check_codes( PRODUCT_REF )
@@ -137,6 +145,7 @@ sub check_codes($) {
 
 	check_code_gs1_prefixes($product_ref);
 
+	return;
 }
 
 sub check_code_gs1_prefixes($) {
@@ -170,6 +179,8 @@ sub check_code_gs1_prefixes($) {
 	elsif ($code =~ /^3600550[0-9]{6}$/) {
 		push @{$product_ref->{data_quality_warnings_tags}}, 'en:cosmetic-product';
 	}
+
+	return;
 }
 
 =head2 check_quality_common( PRODUCT_REF )
@@ -184,6 +195,8 @@ sub check_quality_common($) {
 
 	check_bugs($product_ref);
 	check_codes($product_ref);
+
+	return;
 }
 
 1;

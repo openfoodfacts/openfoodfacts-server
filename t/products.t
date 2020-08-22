@@ -32,6 +32,8 @@ sub compute_and_test_completeness($$$) {
 	compute_completeness_and_missing_tags($product_ref, $product_ref, $previous_ref);
 	my $message = sprintf('%s is %g%% complete', $with, $percent);
 	delta_ok( $product_ref->{completeness}, $fraction, $message );
+
+	return;
 }
 
 my $step = 1.0/10.0; # Currently, we check for 10 properties.
