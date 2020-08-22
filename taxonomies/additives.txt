@@ -9496,9 +9496,9 @@ en:E381, Ammoniumferrocitrate, ammonium ferric citrate
 bg:E381, E381 food additive
 cs:E381, E381 food additive
 da:E381, E381 food additive
-de:E381, Ammoniumeisen(III)-citrat, Ammoniumeisenzitrat, Ammoniumeisencitrat, Ferriammoniumcitrat, Eisenammoniumcitrat
+de:E381, Ammoniumeisen-III-citrat, Ammoniumeisenzitrat, Ammoniumeisencitrat, Ferriammoniumcitrat, Eisenammoniumcitrat
 el:E381, E381 food additive
-es:E381, Citrato de amonio férrico, E 381
+es:E381, Citrato de amonio férrico
 et:E381, E381 food additive
 fi:E381, Ammoniumrautasitraatti, Ammoniumrautasitraattia
 fr:E381, Citrate d'ammonium ferrique vert, Citrate d'ammonium ferrique
@@ -14112,6 +14112,7 @@ wikidata:en:Q18601524
 vegan:en:yes
 vegetarian:en:yes
 
+#description:en:SODIUM CARBONATES is the generic term for a Na and CO3 combination.
 #comment:en:Use the plural for E500 and the singular for E500i, Iin order to distinghuish between E500 and E500i
 en:E500, Sodium carbonates
 bg:E500, E500 food additive
@@ -14122,20 +14123,22 @@ de:E500, Natriumcarbonate
 el:E500, E500 food additive
 es:E500, Carbonatos de sodio,
 et:E500, E500 food additive
+fi:E500, natriumkarbonaatit
 fr:E500, Carbonates de sodium
-hu:E500, E500 food additive
+hu:E500, nátrium-karbonátok
 it:E500, Carbonati di sodio
 lt:E500, E500 food additive
 lv:E500, E500 food additive
 mt:E500, E500 food additive
 nl:E500, Natriumcarbonaten
+nn:E500, natriumkarbonater
 pl:E500, Węglany sodu
 pt:E500, Carbonatos de sódio
 ro:E500, E500 food additive
 ru:E500, Карбонаты натрия
 sk:E500, E500 food additive
 sl:E500, E500 food additive
-sv:E500, E500 food additive
+sv:E500, natriumkarbonater
 e_number:en:500
 mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q190227
@@ -14147,31 +14150,78 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#description:en:Sodium carbonate, Na2CO3, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
 <en:E500
 en:E500(i), Sodium carbonate, washing soda
+ar:E500(i), كربونات الصوديوم
+ba:E500(i), Кальцирланған сода
 bg:E500(i), Натриев карбонат, Калцинирана сода, Динатриев карбонат
+bn:E500(i), সোডিয়াম কার্বনেট
+bs:E500(i), Natrij-karbonat
+ca:E500(i), carbonat de sodi
 cs:E500(i), Uhličitan sodný, Bezvodý uhličitan sodný, Soda na praní
 da:E500(i), Natriumcarbonat, Soda
 de:E500(i), Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
 el:E500(i), Ανθρακικα αλατα του νατριου
+eo:E500(i), natria karbonato
 es:E500(i), Carbonato sódico, Carbonato de sodio, Sosa comercial
 et:E500(i), Naatriumkarbonaat
+fa:E500(i), سدیم کربنات
 fi:E500(i), Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda
-fi:E500, Sooda, Pesusooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
+fi:E500(i), , Sooda, Pesusooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
 fr:E500(i), Carbonate de sodium, sodium, Carbonate acide de sodium, Carbonate de soude, Cristaux de soude
+gv:E500(i), Carboanaayt sodjum
+he:E500(i), נתרן פחמתי
+hi:E500(i), क्षारातु प्रांगारीय
+hr:E500(i), Natrijev karbonat
 hu:E500(i), Nátrium-karbonát, szóda, sziksó, mosószóda, kalcinált szóda
+id:E500(i), Natrium karbonat
 it:E500(i), Carbonato di sodio, Carbonato di disodio, Carbonato sodico, Soda, Soda Solvay
+ja:E500(i), 炭酸ナトリウム
+ko:E500(i), 탄산 나트륨
 lt:E500(i), Natrio karbonatas, Kalcinuota soda
 lv:E500(i), Nātrija karbonāts
+mk:E500(i), натриум карбонат
+ml:E500(i), സോഡിയം കാർബണേറ്റ്
 mt:E500(i), Karbonat tas-sodju
+nb:E500(i), Natriumkarbonat
 nl:E500(i), Natriumcarbonaat, Huishoudsoda, Dinatriumcarbonaat
+nn:E500(i), natriumkarbonat
+oc:E500(i), Carbonat de sòdi
 pl:E500(i), Węglan sodu, Soda amoniakalna, soda bezwodna, Soda kalcynowana, 
 pt:E500(i), Carbonato de sódio, Barrilha
 ro:E500(i), Carbonat de sodiu, Soda
 ru:E500(i), карбонат натрия, Натрия карбонат, Сода стиральная, Кальценированная сода, Кристаллическая сода, Кальцинированная сода
+sh:E500(i), Natrijum karbonat
 sk:E500(i), Uhličitan sodný, Bezvodá sóda, Sóda
 sl:E500(i), Natrijev karbonat
+sq:E500(i), Karbonati i natriumit
+sr:E500(i), натријум карбонат
 sv:E500(i), Natriumkarbonat
+ta:E500(i), சோடியம் காபனேற்று
+te:E500(i), సోడియమ్ కార్బొనేట్
+th:E500(i), โซเดียมคาร์บอเนต
+tr:E500(i), Sodyum karbonat
+uk:E500(i), Карбонат натрію
+ur:E500(i), صودا دردار
+uz:E500(i), Natriy karbonat
+vi:E500(i), Natri carbonat
+zh:E500(i), 碳酸钠
+# ast:E500(i), Carbonatu de sodiu
+# azb:E500(i), سودیوم کربونات
+# hak:E500(i), Thàn-sôn-na̍p
+# nan:E500(i), Thoàⁿ-sng natrium
+# sco:E500(i), sodium carbonate
+# sr-ec:E500(i), натријум карбонат
+# sr-el:E500(i), Natrijum karbonat
+# war:E500(i), Sodium carbonate
+# yue:E500(i), 鹼粉
+# zh-cn:E500(i), 碳酸钠
+# zh-hans:E500(i), 碳酸钠
+# zh-hant:E500(i), 碳酸钠
+# zh-hk:E500(i), 碳酸钠
+# zh-sg:E500(i), 碳酸钠
+# zh-tw:E500(i), 碳酸钠
 e_number:en:500
 wikidata:en:Q190227
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
@@ -14180,36 +14230,104 @@ efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active su
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
 
+
+
+#description:en:SODIUM BICARBONATE (sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
+# comment:en:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
+
 <en:E500
 en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda
+af:E500(ii), Natriumbikarbonaat
+ar:E500(ii), بيكربونات الصوديوم
+bg:E500(ii), Натриев бикарбонат
 bg:E500(ii), Натриев хидроген карбонат, Натриев бикарбонат, натриев кисел карбонат, сода бикарбонат
+bn:E500(ii), সোডিয়াম বাইকার্বনেট
+bs:E500(ii), Natrij-hidrogenkarbonat
+ca:E500(ii), hidrogencarbonat de sodi
 cs:E500(ii), Hydrogenuhličitan sodný, Kyselý uhličitan sodný, bikarbonát sodný
+cy:E500(ii), sodiwm deucarbonad
 da:E500(ii), Natriumhydrogencarbonat, Natriumbicarbonat, surt natriumcarbonat
 de:E500(ii), Natriumhydrogencarbonat, Natriumbicarbonat, doppeltkohlensaures Natrium, doppeltkohlensaures Natron
 el:E500(ii), Οξινο ανθρακικο νατριο, Διττανθρακικό νάτριο, όξινο ανθρακικό νάτριο, διττανθρακική σόδα
+eo:E500(ii), natria bikarbonato
 es:E500(ii), Bicarbonato de sodio, Carbonato ácido de sodio, Bicarbonato sódico,bicarbonatado de sodio
 et:E500(ii), Naatriumvesinikkarbonaat, Söögisooda
+eu:E500(ii), sodio hidrogenokarbonato
+fa:E500(ii), جوش شیرین
 fi:E500(ii), Natriumvetykarbonaatti, Natriumbikarbonaatti, hapan natriumkarbonaatti, Natriumvetykarbonaattia, Natriumbikarbonaattia, Ruokasooda
 fr:E500(ii), Carbonate acide de sodium, hydrogénocarbonate de sodium, bicarbonate de sodium alimentaire, bicarbonate de soude, bicarbonate de sodium
+gl:E500(ii), Bicarbonato de sodio
+gu:E500(ii), ખાવાનો સોડા
+he:E500(ii), סודה לשתייה
+hi:E500(ii), सोडियम बाईकार्बोनेट
+hr:E500(ii), Natrijev hidrogenkarbonat
 hu:E500(ii), Nátrium-hidrogén-karbonát, Nátrium-bikarbonát, Savas nátrium-karbonát, Szódabikarbóna
+hy:E500(ii), Սոդա
+ia:E500(ii), Bicarbonato de Sodium
+id:E500(ii), Natrium bikarbonat
+is:E500(ii), Matarsódi
 it:E500(ii), Carbonato acido di sodio, Bicarbonato di sodio, carbonato acido di sodio
+ja:E500(ii), 炭酸水素ナトリウム
+kk:E500(ii), Ас содасы
+kn:E500(ii), ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
+ko:E500(ii), 탄산 수소 나트륨
 lt:E500(ii), Natrio hidrokarbonatas, Natrio hidrokarbonatas, natrio rūgštusis karbonatas, sodos bikarbonatas
 lv:E500(ii), Nātrija hidrogēnkarbonāts, Nātrija bikarbonāts, nātrija skābais karbonāts, nātrija bikarbonāts
+ml:E500(ii), സോഡിയം ബൈകാർബണേറ്റ്
 mt:E500(ii), Karbonat idroġenat tas-sodju, Bikarbonat tas-sodju, karbonat tal-aċidu tas-sodju, Bikarbonat tas-soda
 nl:E500(ii), Natriumwaterstofcarbonaat, Natriumbicarbonaat, zuur natriumcarbonaat, dubbelkoolzure soda
+nn:E500(ii), natriumvätekarbonat, natriumhydrogenkarbonat
+oc:E500(ii), Idrogenocarbonat de sòdi
+or:E500(ii), ସୋଡ଼ିଅମ ବାଇକାର୍ବୋନେଟ
+pa:E500(ii), ਮਿੱਠਾ ਸੋਡਾ
 pl:E500(ii), Wodorowęglan sodu, Diwęglan sodu, kwaśny węglan sodu, diwęglan sodowy
 pt:E500(ii), Hidrogenocarbonato de sódio, Bicarbonato de sódio, carbonato ácido de sódio
 ro:E500(ii), Bicarbonat de sodiu, Carbonat acid de sodiu, Bicarbonat
+sh:E500(ii), Natrijum hidrogenkarbonat
+si:E500(ii), සෝඩියම් බයිකාබනේට්
 sk:E500(ii), Hydrogenuhličitan sodný, Hydrogenuhličitan sodný, bikarbonát sodný, sóda bikarbóna
 sl:E500(ii), Natrijev hidrogenkarbonat, natrijev bikarbonat, kisli natrijev karbonat, soda bikarbona
+so:E500(ii), Saadiyom bicarbonate
+sq:E500(ii), Bikarbonati i natriumit
+sr:E500(ii), натријум хидрогенкарбонат
 sv:E500(ii), Natriumvätekarbonat, Natriumbikarbonat, surt natriumkarbonat, bikarbonat av soda
+sw:E500(ii), Magadi
+ta:E500(ii), சமையல் சோடா
+te:E500(ii), సోడియం బైకార్బొనేట్
+th:E500(ii), โซเดียมไบคาร์บอเนต
+tr:E500(ii), Sodyum bikarbonat
+uk:E500(ii), Гідрокарбонат натрію
+vi:E500(ii), natri bicacbonat
+zh:E500(ii), 碳酸氢钠
+# ast:E500(ii), Bicarbonatu de sodiu
+# azb:E500(ii), بیکربونات سودیوم
+# eml:E500(ii), Bicarbonê 'd sodi
+# frr:E500(ii), Natriumhydrogencarbonat
+# nan:E500(ii), Thoàⁿ-sng chúi-sò͘ natrium
+# pnb:E500(ii), مٹھا سوڈا
+# sco:E500(ii), sodium bicarbonate
+# sr-ec:E500(ii), натријум хидрогенкарбонат
+# sr-el:E500(ii), natrijum-hidrogenkarbonat
+# war:E500(ii), Sodium bicarbonate
+# yue:E500(ii), 梳打粉
+# zh-cn:E500(ii), 碳酸氢钠
+# zh-hans:E500(ii), 碳酸氢钠
+# zh-hant:E500(ii), 碳酸氫鈉
+# zh-hk:E500(ii), 碳酸氫鈉
+# zh-sg:E500(ii), 碳酸氢钠
+# zh-tw:E500(ii), 碳酸氫鈉
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
+# fr:carbonate-acide-de-sodium has 2313 products  in 13 languages @210-11-03
+# fr:500ii has 403 products @2018-11-03
 e_number:en:500
+wikidata:en:Q179731
 wikidata:en:Q190227
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
+
 
 <en:E500
 en:E500(iii), Sodium sesquicarbonate
@@ -14218,12 +14336,16 @@ cs:E500(iii), Seskviuhličitan sodný
 da:E500(iii), Natriumsesquicarbonat
 de:E500(iii), Natriumsesquicarbonat
 el:E500(iii), Σεσκιανθρακικο νατριο
+eo:E500(iii), Natria seskvikarbonato
 es:E500(iii), Sesquicarbonato de sodio
 et:E500(iii), Naatriumseskvikarbonaat
 fi:E500(iii), Natriumseskvikarbonaatti, Natriumseskvikarbonaattia
 fr:E500(iii), Sesquicarbonate de sodium
 hu:E500(iii), Nátrium-szeszkvikarbonát
-it:E500(iii), Sesquicarbonato di sodio
+hy:E500(iii), Տրինատրիումի հիդրոկարբոնատ
+it:E500(iii), E500(iii), Sesquicarbonato di sodio
+ja:E500(iii), セスキ炭酸ナトリウム
+jv:E500(iii), sodium sesquicarbonate
 lt:E500(iii), Natrio seskvikarbonatas
 lv:E500(iii), Nātrija seskvikarbonāts
 mt:E500(iii), Seskwikarbonat tas-sodju
@@ -14231,16 +14353,22 @@ nl:E500(iii), Natriumsesquicarbonaat
 pl:E500(iii), Półtorawęglan sodu
 pt:E500(iii), Sesquicarbonato de sódio
 ro:E500(iii), Sescvicarbonat de sodiu
+ru:E500(iii), Гидрокарбонат тринатрия
+sh:E500(iii), Natrijum seskvikarbonat
 sk:E500(iii), Seskviuhličitan sodný
 sl:E500(iii), Natrijev seskvikarbonat
+sr:E500(iii), Natrijum seskvikarbonat
 sv:E500(iii), Natriumseskvikarbonat
+zh:E500(iii), 鈉倍半
 e_number:en:500
 wikidata:en:Q190227
+wikidata:en:Q2234978
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
+# additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
 comment:en:Use plural for E501 and singular for E501i.
 en:E501, Potassium carbonates
@@ -14357,7 +14485,8 @@ e_number:en:502
 vegan:en:yes
 vegetarian:en:yes
 
-#comment:en:Use plural for E503 and singular(specific) for E503i
+#comment:en:Use plural for 
+ and singular(specific) for E503i
 en:E503, Ammonium carbonates
 bg:E503, E503 food additive
 ca:E503, E503 food additive
@@ -16129,18 +16258,18 @@ bg:E578, Калциев глюконат
 ca:E578, Gluconat de calci
 cs:E578, Glukonan vápenatý
 da:E578, Calciumgluconat
-de:E578, Calciumgluconat, Kalziumglukonat, E 578
+de:E578, Calciumgluconat, Kalziumglukonat
 el:E578, Γλυκονικο ασβεστιο
 es:E578, Gluconato cálcico, Gluconato de calcio
 et:E578, Kaltsiumglükonaat
 fi:E578, Kalsiumglukonaatti, Kalsiumglukonaattia
-fr:E578, Gluconate de calcium, Pentahydroxyéthanoate de calcium, Gluconate calcique, 299-28-5, C12H22CaO14
+fr:E578, Gluconate de calcium, Pentahydroxyéthanoate de calcium, Gluconate calcique
 hu:E578, Kalcium-glükonát
 it:E578, Gluconato di calcio
 lt:E578, Kalcio gliukonatas
 lv:E578, Kalcija glikonāts
 mt:E578, Glukonat tal-kalċju
-nl:E578, Calciumgluconaat, E644
+nl:E578, Calciumgluconaat
 pl:E578, Glukonian wapnia, calcio gluconato
 pt:E578, Gluconato de cálcio
 ro:E578, Gluconat de calciu
@@ -16154,29 +16283,29 @@ additives_classes:en: en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
-en:E579, Ferrous gluconate, Iron(II) gluconate
+en:E579, Ferrous gluconate
 bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат
 ca:E579, Gluconat ferrós, gluconat ferros
 cs:E579, Glukonan železnatý
 da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
-de:E579, Eisengluconat, Eisen(II)-gluconat, Eisen(II)Gluconat
+de:E579, Eisengluconat
 el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
 et:E579, Ferroglükonaat
 fi:E579, Rautaglukonaatti, Ferroglukonaatti, Rautaglukonaattia, Ferroglukonaattia
-fr:E579, Gluconate ferreux, Di-D-gluconate ferreux dihydraté, gluconate de fer II, gluconate de fer (II), gluconate de fer(II), gluconate de fer , C12H22FeO14, 299-29-6, 22830-45-1
-hu:E579, Vas(ii)-glükonát, Vas-di-D-glükonát-dihidrát, Vas-glukonát
-it:E579, Gluconato ferroso, C12H22FeO14·2H2O
+fr:E579, Gluconate ferreux, Di-D-gluconate ferreux dihydraté, gluconate de fer II, gluconate de fer
+hu:E579, Vas-glükonát, Vas-di-D-glükonát-dihidrát
+it:E579, Gluconato ferroso
 lt:E579, Geležies gliukonatas
 lv:E579, Dzelzs glikonāts
 mt:E579, Glukonat ferruż
 nl:E579, Ijzer(ii)gluconaat
-pl:E579, Glukonian żelazawy, Żelaza di-D-glukonian, diwodzian, żelaza (II) diglukonian
+pl:E579, Glukonian żelazawy, Żelaza di-D-glukonian, diwodzian, żelaza diglukonian
 pt:E579, Gluconato ferroso
 ro:E579, Gluconat feros, Di-D-gluconat feros dihidrat
 sk:E579, Glukonan železnatý
-sl:E579, Železov (ii) glukonat, železov di-D-glukonat dihidrat
-sv:E579, Järnglukonat, Järn-di-D-glukonatdihydrat, E 579
+sl:E579, Železov glukonat, železov di-D-glukonat dihidrat
+sv:E579, Järnglukonat, Järn-di-D-glukonatdihydrat
 e_number:en:579
 wikidata:en:Q421291
 vegan:en:yes
@@ -16211,29 +16340,29 @@ vegetarian:en:yes
 
 # comment:en:lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance.
 
-en:E585, Ferrous lactate, Iron(II) lactate
-bg:E585, Феро лактат, желязо(II) лактат
+en:E585, Ferrous lactate, Iron-II lactate
+bg:E585, Феро лактат, желязо-II лактат
 ca:E585, Lactat ferrós, lactat ferros
 cs:E585, Mléčnan železnatý
-da:E585, Ferrolactat, Jern(II)lactat
-de:E585, Eisen(ii)-lactat, Eisenlactat
-el:E585, Γαλακτικος σιδηρος, Γαλακτικός σίδηρος (II)
-es:E585, Lactato ferroso, Lactato de hierro (II)
+da:E585, Ferrolactat, Jern-II-lactat
+de:E585, Eisen-ii-lactat, Eisenlactat
+el:E585, Γαλακτικος σιδηρος, Γαλακτικός σίδηρος-II
+es:E585, Lactato ferroso, Lactato de hierro-II
 et:E585, Ferrolaktaat
-fi:E585, Ferrolaktaatti, Rauta(II)laktaatti, Ferrolaktaattia, Rauta(II)laktaattia
-fr:E585, Lactate ferreux, Lactate de fer (II)
-hu:E585, Vas(ii)-laktát, Vas-laktát
+fi:E585, Ferrolaktaatti, Rauta-II-laktaatti, Ferrolaktaattia, Rauta-II-laktaattia
+fr:E585, Lactate ferreux, Lactate de fer-II
+hu:E585, Vas-ii-laktát, Vas-laktát
 it:E585, Lattato ferroso
-lt:E585, Geležies laktatas, Geležies(II) laktatas
-lv:E585, Dzelzs laktāts, Dzelzs (II) laktāts
-mt:E585, Lattat ferruż, Lattat tal-ħadid(II)
-nl:E585, Ijzer(ii)lactaat, IJzer(II)dilactaat
-pl:E585, Mleczan żelazawy, Mleczan żelaza(II)
-pt:E585, Lactato ferroso, Lactato de ferro (II)
-ro:E585, Lactat feros, Lactat de fier (II)
-sk:E585, Mliečnan železnatý, Mliečnan železnatý
-sl:E585, Železov (ii) laktat, železov (II) laktat
-sv:E585, Järnlaktat, Järn(II)laktat
+lt:E585, Geležies laktatas, Geležies-II-laktatas
+lv:E585, Dzelzs laktāts, Dzelzs-II-laktāts
+mt:E585, Lattat ferruż, Lattat tal-ħadid-II-
+nl:E585, IJzer-ii-lactaat, IJzer-II-dilactaat
+pl:E585, Mleczan żelazawy, Mleczan żelaza-II-
+pt:E585, Lactato ferroso, Lactato de ferro-II
+ro:E585, Lactat feros, Lactat de fier-II
+sk:E585, Mliečnan železnatý
+sl:E585, Železov-ii-laktat
+sv:E585, Järnlaktat, Järn-II-laktat
 e_number:en:585
 wikidata:en:Q836793
 vegan:en:yes
@@ -18067,19 +18196,19 @@ en:E917, Potassium iodate
 bg:E917, E917 food additive
 cs:E917, Jodičnan draselný, Jodečnan draselný
 da:E917, E917 food additive
-de:E917, Kaliumiodat, Kaliumjodat, KIO3
+de:E917, Kaliumiodat, Kaliumjodat
 el:E917, E917 food additive
 es:E917, Yodato potásico
 et:E917, E917 food additive
-fi:E917, Kaliumjodaatti, KIO3, Kaliumjodaattia
-fr:E917, Iodate de potassium, KIO3
+fi:E917, Kaliumjodaatti, Kaliumjodaattia
+fr:E917, Iodate de potassium
 hu:E917, Kálium-jodát
-it:E917, Iodato di potassio, KIO3
+it:E917, Iodato di potassio
 lt:E917, E917 food additive
 lv:E917, E917 food additive
 mt:E917, E917 food additive
 nl:E917, Kaliumjodaat, KIO3
-pl:E917, Jodan potasu, Jodan(V) potasu
+pl:E917, Jodan potasu, Jodan-V potasu
 pt:E917, Iodato de potássio
 ro:E917, Iodat de potasiu
 sk:E917, E917 food additive

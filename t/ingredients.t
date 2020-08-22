@@ -1000,7 +1000,7 @@ $expected_product_ref =
      'en:e503',
      'en:e450i',
      'en:e450',
-     'en:e500',
+     'en:e500i',
      'en:soya-lecithin',
      'en:e322',
      'en:e322i',
