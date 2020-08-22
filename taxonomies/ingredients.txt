@@ -19038,7 +19038,10 @@ es:vinagre de alcohol de caña
 
 <en:vinegar
 en:apple vinegar
+de:Apfelessig
 es:vinagre de manzana
+fr:vinaigre de pomme
+nl:appelazijn
 
 # CIDER VINEGAR, a vinegar made from apples, sugar and yeast
 
@@ -19047,16 +19050,15 @@ en:cider vinegar, apple cider vinegar
 ar:خل التفاح
 bg:Ябълков оцет
 da:Æblecidereddike, æbleeddike
-de:Apfelessig
-es:vinagre de sidra, vinagre de sidra de manzana, vinagre de manzana
+es:vinagre de sidra, vinagre de sidra de manzana
 fa:سرکه سیب
 fi:siiderietikka, omenasiiderietikka
-fr:vinaigre de cidre, vinaigre de cidre de pomme, vinaigre de pomme
+fr:vinaigre de cidre, vinaigre de cidre de pomme
 he:חומץ תפוחים
 hu:almaecet
 it:aceto sidro
 ko:사과식초
-nl:ciderazijn, appelazijn
+nl:ciderazijn
 pl:Ocet jabłkowy
 ru:Яблочный уксус
 sr:Јабуково сирће
@@ -27198,37 +27200,48 @@ fr:riz riceberry mélangé
 
 # THICKENER
 
-en:carob
+#comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
+en:carob seeds, carob
 ca:garrofa
 cs:carubin
-de:Johannisbrotbaum
-es:Algarroba,garrofon
+da:Johannesbrødkerne
+de:Johannisbrotkern
+es:semillas de algarroba, Algarroba, garrofon
 fi:johanneksenleipäpuu, carob
-fr:caroube
+fr:graines de caroube, graine de caroube, caroube
 hu:szentjánoskenyér, karob
-it:carruba
-nl:johannesbrood
+it:semi di carrube, carruba
+la:Ceratonia siliqua
+nl:johannesbroodpit, carob
+pt:semente de alfarroba, sementes de alfarroba
 vegan:en:yes
 vegetarian:en:yes
 
 # question
 
 <en:flour
-<en:carob
+<en:carob seeds
+<en:E410
 en:carob flour
 ca:farina de garrofa
 cs:Karobová mouka
+da:Johannesbrødkernemel
 de:Johannisbrotkernmehl, Carobpulver
-es:Harina de algarroba, harina de garrofin
-fi:johanneksenleipäpuujauhe
+es:Harina de algarroba, harina de garrofin, Harina de semillas de algarroba
+et:Jaanileivapuujahu
+fi:johanneksenleipäpuujauhe, Johanneksenleipäpuujauhetta
 fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
-hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt
+hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt, Szentjánoskenyérliszt
 it:farina di semi di carrube
+lt:Saldžiosios ceratonijos lipai
 nl:johannesbroodpitmeel, carobpoeder
-pt:farinha de semente de alfarroba
-sv:fruktkärnmjöl
+pl:Mączka chleba świętojańskiego
+pt:farinha de semente de alfarroba, Farinha de sementes de alfarroba
+sv:Johannesbrödfrö, fruktkärnmjöl
 
-# question
+<en:E410
+<en:carob seeds
+en:peruvian carob gum
 
 <en:flour
 <en:guar gum
@@ -27262,17 +27275,6 @@ ro:gumă guar, guma guar, gumă de guar, guma de guar
 <en:carob flour
 fr:farine de graines de caroube et farine de graines de guar
 
-<en:carob
-en:locust bean gum,garrofin gum
-de:Johannisbrotgummi
-es:goma de garrofina
-el:κόμμι γκουάρ
-fi:johanneksenleipäpuujauhe
-fr:gomme de caroube
-it:farina di semi di carruba
-
-<en:locust bean gum
-en:peruvian carob gum
 
 
 # en:xanthan gum is listed under its E-number 415
