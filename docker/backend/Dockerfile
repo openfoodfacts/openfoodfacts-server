@@ -93,6 +93,11 @@ RUN install_packages apt-utils dialog 2>&1 \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+FROM runnable-vscode AS perldb
+
+# Readline support for the Perl debugger
+RUN install_packages libterm-readline-gnu-perl libterm-readkey-perl
+
 FROM runnable AS withsrc
 
 # Install Product Opener from the workdir
