@@ -19,6 +19,8 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	else {
 		ok( !has_tag($product_ref, 'data_quality', $tag), $reason ) or diag explain $product_ref;
 	}
+
+	return;
 }
 
 sub product_with_energy_has_quality_tag($$$) {
@@ -34,6 +36,8 @@ sub product_with_energy_has_quality_tag($$$) {
 	};
 
 	check_quality_and_test_product_has_quality_tag($product_ref, 'en:nutrition-value-over-3800-energy', $reason, $yesno);
+
+	return;
 }
 
 # en:nutrition-value-over-3800-energy - does not add tag, if there is no nutriments.

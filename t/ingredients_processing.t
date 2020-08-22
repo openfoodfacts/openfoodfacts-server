@@ -591,60 +591,47 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
-		[
-			{
-				'id' => 'en:shallot',
+		[   {   'id'         => 'en:shallot',
 				'processing' => 'en:concentrated',
-				'text' => 'schalotte'
+				'text'       => 'schalotte'
 			},
-			{
-				'id' => 'en:hazelnut',
+			{   'id'         => 'en:hazelnut',
 				'processing' => 'en:concentrated',
-				'text' => "haseln\x{fc}sse"
+				'text'       => "haseln\x{fc}sse"
 			},
-			{
-				'id' => 'en:almond',
+			{   'id'         => 'en:almond',
 				'processing' => 'en:concentrated',
-				'text' => 'mandeln'
+				'text'       => 'mandeln'
 			},
-			{
-				'id' => 'en:acerola',
+			{   'id'         => 'en:acerola',
 				'processing' => 'en:concentrated',
-				'text' => 'acerolakirschen'
+				'text'       => 'acerolakirschen'
 			},
-			{
-			    'id' => 'de:zweifach konzentriert',
-			    'text' => 'zweifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:2 fach konzentriert',
-			    'text' => '2 fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:doppelt konzentriertes',
-			    'text' => 'doppelt konzentriertes'
+			{   'id'   => 'de:zweifach konzentriert',
+				'text' => 'zweifach konzentriert'
 			},
-			{
-				'id' => 'de:zweifach konzentriertes',
+			{   'id'   => 'de:2 fach konzentriert',
+				'text' => '2 fach konzentriert'
+			},
+			{   'id'   => 'de:doppelt konzentriertes',
+				'text' => 'doppelt konzentriertes'
+			},
+			{   'id'   => 'de:zweifach konzentriertes',
 				'text' => 'zweifach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:2-fach konzentriert',
-			    'text' => '2-fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:dreifach konzentriert',
-			    'text' => 'dreifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:200fach konzentriertes',
-			    'text' => '200fach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:eingekochter',
-			    'text' => 'eingekochter'
-			 }
-		]	
+			},
+			{   'id'   => 'de:2-fach konzentriert',
+				'text' => '2-fach konzentriert'
+			},
+			{   'id'   => 'de:dreifach konzentriert',
+				'text' => 'dreifach konzentriert'
+			},
+			{   'id'   => 'de:200fach konzentriertes',
+				'text' => '200fach konzentriertes'
+			},
+			{   'id'   => 'de:eingekochter',
+				'text' => 'eingekochter'
+			}
+		]
 	],
 
 # de:zerkleinert and variants

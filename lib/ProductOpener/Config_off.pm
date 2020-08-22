@@ -26,8 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
@@ -646,19 +645,47 @@ improvements
 
 
 $options{import_export_fields_groups} = [
-	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
-		"brands", "brand_owner", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
+	[   "identification",
+		[   "code",                      "producer_product_id",
+			"producer_version_id",       "lc",
+			"product_name",              "generic_name",
+			"quantity_value_unit",       "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit",   "packaging",
+			"brands",                    "brand_owner",
+			"categories",                "categories_specific",
+			"labels",                    "labels_specific",
+			"countries",                 "stores",
+			"obsolete",                  "obsolete_since_date"
+		]
 	],
-	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	[   "origins",
+		[   "origins",              "origin",
+			"manufacturing_places", "producer",
+			"emb_codes"
+		]
 	],
-	["ingredients", ["ingredients_text", "allergens", "traces"]
-	],
+	[ "ingredients", [ "ingredients_text", "allergens", "traces" ] ],
 	["nutrition"],
 	["nutrition_other"],
-	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	[   "other",
+		[   "nutriscore_score_producer",
+			"nutriscore_grade_producer",
+			"conservation_conditions",
+			"warning",
+			"preparation",
+			"recipe_idea",
+			"recycling_instructions_to_recycle",
+			"recycling_instructions_to_discard",
+			"customer_service",
+			"link"
+		]
 	],
-	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
+	[   "images",
+		[   "image_front_url",     "image_ingredients_url",
+			"image_nutrition_url", "image_other_url"
+		]
+	],
 ];
 
 
@@ -1022,8 +1049,8 @@ $options{nova_groups_tags} = {
 	"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
 	"additives/en:e636" => 4, #Maltol
 	"additives/en:e637" => 4, #Ethyl maltol
-	"additives/en:e640" => 4, #	glycine
-	"additives/en:e641" => 4, #	leucine
+	"additives/en:e640" => 4, # glycine
+	"additives/en:e641" => 4, # leucine
 	"additives/en:e650" => 4, # zinc acetatel
 	"additives/en:e1104" => 4, # lipase
 

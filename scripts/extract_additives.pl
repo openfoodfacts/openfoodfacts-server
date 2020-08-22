@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,13 +20,13 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use utf8;
 use Modern::Perl '2017';
+use utf8;
 
 binmode STDIN, ':encoding(UTF-8)';
 binmode STDOUT, ':encoding(UTF-8)';
 
-my %a = ();
+my %additives = ();
 
 my $category;
 my %current = ();
@@ -95,16 +95,16 @@ while (<STDIN>) {
 		$current{$field} = $2;
 
 		$current{$field} =~ s/<(([^>]|\n)*)>//g;
-		
-		if ($field eq 'code') {
+
+		if ( $field eq 'code' ) {
 			$current{$field} =~ s/\(.*//;
-		}		
+		}
 
 		if ($field eq 'name') {
 		
 		my $possible_names = '';
-		if (defined $a{$current{code}}) {
-			$possible_names = $a{$current{code}}{names};
+		if (defined $additives{$current{code}}) {
+			$possible_names = $additives{$current{code}}{names};
 		}
 		$possible_names .= ", " . $current{$field};
 		
@@ -129,15 +129,15 @@ while (<STDIN>) {
 	if (($l =~ /<\/tr>/) and (defined $current{code})) {
 
 		print STDERR "saving $current{code} - $current{name}\n";
-		$a{$current{code}} = {%current};
+		$additives{$current{code}} = {%current};
 	}
 	
 }
 
 # eliminate names that aren't names (appearing multiple times)
 my %names = ();
-foreach my $code (sort keys %a) {
-	my @names = split(/,/, $a{$code}{names});
+foreach my $code (sort keys %additives) {
+	my @names = split(/,/, $additives{$code}{names});
 	foreach my $name (@names) {
 			$name =~ s/^\s+//;
 			$name =~ s/\s+$//;
@@ -151,8 +151,8 @@ foreach my $code (sort keys %a) {
 #	print "$name\t$names{$name}\n";
 #}
 
-foreach my $code (sort keys %a) {
+foreach my $code (sort keys %additives) {
 
-	print $code . "\t" . $a{$code}{names} . "\t(" . $a{$code}{name} . ")\n";
+	print $code . "\t" . $additives{$code}{names} . "\t(" . $additives{$code}{name} . ")\n";
 
 }

@@ -80,10 +80,10 @@ if (opendir (DH, "$dir")) {
 		if ($file =~ /jpg/i) {
 			my $code = scan_code("$dir/$file");
 			print $file . "\tcode: " . $code . "\n";
-			
-			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
-			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
-						
+
+			if ( ( defined $code ) and ( not defined $codes{$code} ) ) {    # in some pictures we detect the wrong code, for a product we already scanned..
+																			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
+
 				$codes{$code}++;
 				
 				if ((defined $current_code) and ($code ne $current_code)) {
@@ -97,15 +97,15 @@ if (opendir (DH, "$dir")) {
 							process_image_crop($current_code, "front_$lc", $last_imgid, 0, undef, undef, -1, -1, -1, -1);
 						}
 					}
-				
+
 					$previous_code = $current_code;
-					$last_imgid = undef;
-					if ($j > 10000) {
+					$last_imgid    = undef;
+					if ( $j > 10000 ) {
 						print STDERR "stopping - j = $j\n";
 						exit;
 					}
-				}				
-				
+				}
+
 				$current_code = $code;
 				
 
@@ -134,16 +134,16 @@ if (opendir (DH, "$dir")) {
 				}
 				
 				# Create or update fields
-				
+
 				foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
-						
-					if (defined $params{$field}) {				
+
+					if (defined $params{$field}) {
 
 						add_tags_to_field($product_ref, $lc, $field, $params{$field});
-				
+
 						print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
-						
-						compute_field_tags($product_ref, $lc, $field);						
+
+						compute_field_tags($product_ref, $lc, $field);
 
 					}
 				}
@@ -157,30 +157,31 @@ if (opendir (DH, "$dir")) {
 			if (defined $current_code) {
 			
 				my $filetime = $time;
-				
+
 				# 2013-07-13 11.02.07
-				if ($file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/) {
+				if ( $file =~ /(20\d\d).(\d\d).(\d\d).(\d\d).(\d\d).(\d\d)/ )
+				{
 					$filetime = timelocal( $6, $5, $4, $3, $2 - 1, $1 );
-				}				
+				}
 				# 20150712_173454.jpg
-				elsif ($file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}					
-				elsif ($file =~ /(20\d\d).(\d\d).(\d\d)./) {
-					$filetime = timelocal( 0 ,0 , 0, $3, $2 - 1, $1 );
-				}				
-			
+				elsif ( $file =~ /(20\d\d)(\d\d)(\d\d)(-|_|\.)/ ) {
+					$filetime = timelocal( 0, 0, 0, $3, $2 - 1, $1 );
+				}
+				elsif ( $file =~ /(20\d\d).(\d\d).(\d\d)./ ) {
+					$filetime = timelocal( 0, 0, 0, $3, $2 - 1, $1 );
+				}
+
 				$User_id = $photo_user_id;
 				my $imgid;
 				my $debug;
 				my $return_code = process_image_upload($current_code, "$dir/$file", $User_id, $filetime, $comment, \$imgid, \$debug);
-				
+
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)
 					$last_imgid = $imgid;
 				}
-			}				
-			
+			}
+
 			$i++;
 			
 		} #jpg
