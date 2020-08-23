@@ -2084,11 +2084,11 @@ fr:Fabrication artisanale
 es:Fabricación artesanal, Producción artesanal
 
 fr:La Lorraine notre signature
-origins:en: en:France
+origins:en: en:France, fr:Lorraine
 
 fr:Saveurs en Or, Saveurs en'Or
 wikidata:en:Q3474531
-origins:en: en:France
+origins:en: en:France, fr:Hauts-de-France
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
@@ -2096,7 +2096,7 @@ origins:en: en:France
 label_categories:en: en:Origins
 
 fr:Sud de France
-country:en:France
+country:en: en:France
 
 en:Avainlippu, Key Flag
 fi:Avainlippu
@@ -2375,6 +2375,7 @@ nl:Cholesterolvrij, Zonder cholesterol
 pt:Sem colesterol
 ru:без холестерина
 th:ไม่มีคอเลสเตอรอล
+label_categories:en: en:Health
 
 en:No colorings, no added colorings
 ca:Sense colorants, sense colorants afegits
@@ -2391,6 +2392,7 @@ pt:Sem corantes, sem corantes adicionados
 ru:без красителей
 th:ไม่เติมสี
 zh:无色素
+label_categories:en: en:Health, en:Additives
 
 en:No eggs, egg free
 ca:Sense ou, Lliure d'ou
@@ -2430,6 +2432,7 @@ hu:ízfokozómentes, ízfokozó mentes, ízfokozó nélkül
 it:Senza esaltatori di sapidità
 nl:Geen toegevoegde smaakstoffen
 pt:Sem intensificador de sabor
+label_categories:en: en:Health, en:Additives
 
 en:No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat
 ca:Sense greixos Trans, 0% de greixos Trans
@@ -2442,6 +2445,7 @@ it:Senza grassi trans
 nl:Geen transvetten
 ru:без трансжиров
 th:ไม่มีไขมันทรานส์
+label_categories:en: en:Health
 
 en:No hydrogenated fats
 ca:Sense greixos hidrogenats
@@ -2489,6 +2493,7 @@ he:בלי מונוסודיום גלוטומט
 hu:MSG-mentes, Nátrium-glutamát mentes
 it:Senza glutammato, senza glutammato monosodico, senza glutammato di sodio, senza MSG
 th:ไม่ใช้ผงชูรส
+label_categories:en: en:Health, en:Additives
 
 en:No added MSG
 es:Sin GMS añadido
@@ -2904,6 +2909,7 @@ ca:Vi biodinàmic
 
 <en:Organic
 en:India Organic
+country:en:India
 wikidata:en:Q17055995
 
 <en:Organic
@@ -3009,22 +3015,30 @@ wikidata:en:Q396709
 
 <en:Organic
 ca:Consell Català de la Producció Agrària Ecològica, CCPAE
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecologica de la Comunidad de Madrid, Comité Agricultura Ecologica Madrid
+country:en:Spain
 
 <en:Organic
 es:Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica aragón
+country:en:Spain
 
 <en:Organic
 es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV
+country:en:Spain
 
 <en:Organic
 es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM
-
+country:en:Spain
+<en:Organic
+es:Comite Andaluz de Agricultura Ecologica, CAAE
+country:en:Spain
 
 <en:EU Organic
 en:AT-BIO-004
@@ -3278,6 +3292,7 @@ fi:CZ-BIO-001
 it:CZ-BIO-001
 nl:CZ-BIO-001
 pt:CZ-BIO-001
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-002
@@ -3286,6 +3301,7 @@ es:CZ-BIO-002
 fi:CZ-BIO-002
 it:CZ-BIO-002
 pt:CZ-BIO-002
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-003
@@ -3294,10 +3310,12 @@ es:CZ-BIO-003
 fi:CZ-BIO-003
 it:CZ-BIO-003
 pt:CZ-BIO-003
+country:en:Czech Republic
 
 <en:EU Organic
 en:CZ-BIO-004
 fi:CZ-BIO-004
+country:en:Czech Republic
 
 <en:EU Organic
 en:DE-ÖKO-001
@@ -3485,6 +3503,7 @@ country:en:Germany
 <en:EU Organic
 en:DK-ØKO-050
 fi:DK-ØKO-050
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-100
@@ -3493,14 +3512,17 @@ es:DK-ØKO-100
 fi:DK-ØKO-100
 it:DK-ØKO-100
 pt:DK-ØKO-100
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-200
 fi:DK-ØKO-200
+country:en:Denmark
 
 <en:EU Organic
 en:DK-ØKO-300
 fi:DK-ØKO-300
+country:en:Denmark
 
 <en:EU Organic
 en:EE-ÖKO-01
@@ -4250,26 +4272,32 @@ country:en:Greece
 <en:EU Organic
 en:HR-EKO-01
 fi:HR-EKO-01
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-02
 fi:HR-EKO-02
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-03
 fi:HR-EKO-03
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-04
 fi:HR-EKO-04
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-05
 fi:HR-EKO-05
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-06
 fi:HR-EKO-06
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-07
@@ -4277,10 +4305,12 @@ de:HR-EKO-07
 fi:HR-EKO-07
 it:HR-EKO-07
 pt:HR-EKO-07
+country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-08
 fi:HR-EKO-08
+country:en:Croatia
 
 <en:EU Organic
 en:HU-ÖKO-01
@@ -4291,6 +4321,7 @@ fr:HU-ÖKO-01
 hu:Biokontroll Hungária, HU-ÖKO-01
 it:HU-ÖKO-01
 pt:HU-ÖKO-01
+country:en:Hungary
 
 <en:EU Organic
 en:HU-ÖKO-02
@@ -4300,6 +4331,7 @@ fi:HU-ÖKO-02
 hu:Hungária ÖKO Garancia, HU-ÖKO-02
 it:HU-ÖKO-02
 pt:HU-ÖKO-02
+country:en:Hungary
 
 <en:EU Organic
 en:IE-ORG-01
@@ -15884,6 +15916,47 @@ country:en:Germany
 de:Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
 country:en:Germany
 
+<en:Organic
+en:Danish state-controlled organic, Red Ø
+da:Ø-mærke, Statskontrolleret økologisk
+fi:Tanskan Ø-luomumerkki
+image:en:danish-state-conrolled-organic.98x90.svg
+country:en:Denmark
+
+<en:Organic
+en:Luomu - controlled organic production
+fi:Aurinkomerkki, Luomu - valvottua tuotantoa
+sv:Solmärket, Luomu - kontrollerad ekoproduktion
+image:fi:aurinkomerkki.92x90.svg
+country:en:Finland
+
+<en:Organic
+en:Finnish organic association
+fi:Leppäkerttumerkki, Luomuliitto
+sv:Nyckelpigamärket
+images:fi:leppäkerttumerkki.90x90.svg
+country:en:Finland
+
+<en:Organic
+en:Tún certified organic
+fi:Tùn sertifioitu luomu
+is:Vottað lífrænt - Tún
+image:is:vottað-lífrænt-tún.110x90.svg
+country:en:Iceland
+
+<en:Organic
+en:Debio organic
+fi:Debio luomu
+nb:Debio Ø-merke, Debio økologisk
+image:nb:debio-ø-merke.90x90.svg
+country:en:Norway
+
+<en:Organic
+en:KRAV
+fi:KRAV
+sv:KRAV
+image:en:krav.136x90.svg
+country:en:Sweden
 en:“Extra” Class, extra class
 ca:Categoria Extra
 de:Klasse “Extra”, Klasse Extra
@@ -17268,6 +17341,7 @@ fr:Médaille d'Argent du Concours Mondial de Bruxelles 2011, Médaille argent co
 
 fr:Concours général agricole
 wikidata:en:Q2992165
+label_categories:en: en:Quality
 
 <fr:Concours général agricole
 fr:médaille d'or du Concours général agricole
@@ -18495,6 +18569,7 @@ it:Cocoa Life
 nl:Cocoa Life
 
 en:Ethical Tea Partnership, ETP
+label_categories:en: en:Faitrade
 
 en:pasteurized product
 es:Producto pasteurizado
