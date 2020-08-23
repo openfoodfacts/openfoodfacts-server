@@ -998,6 +998,7 @@ $expected_product_ref =
      'en:milk-proteins',
      'en:lactose',
      'en:e503ii',
+	 'en:e503',
      'en:e450i',
      'en:e450',
      'en:e500i',
