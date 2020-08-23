@@ -22667,6 +22667,15 @@ de:Hirse
 fr:sorgho
 hu:cirok
 sk:cirok
+wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
+
+<en:cereal flour
+<en:Sorghum
+en:sorghum flour
+
+<en:sorghum flour
+<en:wholemeal flour
+en:whole sorghum flour, whole grain sorghum flour
 
 ##################################################################################
 #
@@ -22683,7 +22692,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triticale
 en:whole grain triticale
 es:triticale integral
 
-<en:cereal flour
+<en:wholemeal flour
 <en:triticale
 en:whole grain triticale flour
 es:harina integral de triticale
@@ -22993,6 +23002,22 @@ nl:tarwezemelen
 pt:farelo de trigo
 sv:vetekli
 
+<en:wheat
+en:einkorn wheat, einkorn
+de:Einkorn
+fr:engrain
+la:Triticum monococcum
+wikidata:en:Q161397
+wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
+
+<en:cereal flour
+<en:einkorn wheat
+en:einkorn flour
+
+<en:einkorn flour
+<en:wholemeal flour
+en:whole grain einkorn flour
+
 
 ##################################################################################
 #
@@ -23081,6 +23106,7 @@ fr:blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
 <en:Durum wheat flour
+<en:wholemeal flour
 en:Durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
 fi:täysjyvädurumvehnäjauho
@@ -23212,7 +23238,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 
 <en:wheat
-en:graham flour 
+en:graham flour, whole grain graham flour
 es:harina de graham
 wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
 
@@ -23537,6 +23563,14 @@ en:teff
 es:teff, semilla de teff
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
 
+<en:teff
+<en:cereal flour
+en:teff flour
+
+<en:teff flour
+<en:wholemeal flour
+en:whole grain teff flour
+
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -23696,7 +23730,6 @@ en:sprouted barley
 
 <en:barley
 en:wholemeal barley
-de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:cebada integral
 fi:täysjyväohra
 fr:orge complète
@@ -24877,6 +24910,7 @@ en:inflated spelt
 es:espelta inflada
 
 <en:cereal
+en:khorasan wheat, kamut
 bg:камут
 cs:kamut
 de:Kamut
@@ -24888,7 +24922,7 @@ fr:kamut
 ga:camut
 hu:kamut
 it:kamut
-la:triticum turgidum polonicum
+la:triticum turgidum, triticum turgidum polonicum
 lt:kamutas
 mt:kamut
 nl:kamut
@@ -24897,6 +24931,16 @@ pt:kamut
 ru:камут
 sl:kamut
 sv:kamut
+wikidata:en:Q11163068
+wikipedia:en:https://en.wikipedia.org/wiki/Khorasan_wheat
+
+<en:khorasan wheat
+<en:cereal flour
+en:khorasan wheat flour, kamut flour
+
+<en:khorasan wheat flour
+<en:wholemeal flour
+en:whole grain khorasan flour, whole grain kamut flour
 
 ##################################################################################
 #
@@ -25319,8 +25363,8 @@ sv:kornmjöl
 
 <en:wholemeal flour
 <en:barley flour
-en:wholemeal barley flour
-de:Gerstenvollkornmehl
+en:wholemeal barley flour, whole grain barley flour
+de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:harina de cebada integral, harina integral de cebada
 fi:täysjyväohrajauho
 fr:farine complète d’orge, farine d'orge complète
@@ -25368,7 +25412,7 @@ fr:Farine de blé d'épeautre T110
 
 <en:wholemeal flour
 <en:spelt flour
-en:wholemeal spelt flour
+en:wholemeal spelt flour, whole grain spelt flour
 ca:farina de blat d'espelta integral
 de:Dinkelvollkornmehl
 es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
@@ -25412,7 +25456,7 @@ sv:havremjöl
 
 <fr:farine d'avoine
 <en:wholemeal flour
-en:wholemeal oat flour
+en:wholemeal oat flour, whole grain oat flour
 de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
 fi:täysjyväkaurajauho, täysjyväkaurajauhoa
 fr:farine d'avoine complète, farine complète d'avoine
@@ -25439,6 +25483,10 @@ sv:bovetemjöl
 <en:buckwheat flour
 fr:galette en blé noir
 
+<en:buckwheat flour
+<en:wholemeal flour
+en:whole grain buckwheat flour
+
 <en:cereal flour
 en:rye flour
 ca:farina de blat de sègol,farina de blat de segol,farina de sègol
@@ -25463,7 +25511,7 @@ sv:rågmjöl
 
 <en:rye flour
 <en:wholemeal flour
-en:wholemeal rye flour, wholegrain rye flour
+en:wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 da:fuldkornsrugmel, fullkornsrugmel
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno,harina integral de centeno
@@ -25507,6 +25555,10 @@ hu:kölesliszt
 it:farina di miglio
 # ingredient/fr:farine-de-millet has 40 products in 4 languages @2018-09-22
 
+<en:millet flour
+<en:wholemeal flour
+en:whole grain millet flour
+
 <en:cereal flour
 en:amaranth flour
 de:Amarantmehl
@@ -25517,6 +25569,9 @@ hu:disznóparéjliszt
 nl:amaranthmeel, amarant gemalen
 # ingredient/amaranth-flour has 80 products in 3 languages @2018-09-22
 
+<en:amaranth flour
+<en:wholemeal flour
+en:whole grain amaranth flour
 
 # Is this the same as tapioca starch?
 
@@ -25653,7 +25708,8 @@ nl:wit maïsmeel
 sv:vitt majsmjöl
 
 <en:corn flour
-en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour
+<en:wholemeal flour
+en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour, whole grain maize flour
 fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
@@ -25700,7 +25756,8 @@ hu:barnariszliszt
 nl:volkoren rijstmeel
 
 <en:rice flour
-en:whole rice flour
+<en:wholemeal flour
+en:whole rice flour, whole grain rice flour
 es:harina integral de arroz
 
 <en:flour
@@ -25714,6 +25771,10 @@ hu:quinoa liszt, quinoaliszt
 it:Farina di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
+
+<en:quinoa flour
+<en:wholemeal flour
+en:whole grain quinoa flour
 
 <en:flour
 en:pea flour
