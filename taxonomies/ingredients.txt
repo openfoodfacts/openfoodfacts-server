@@ -45283,9 +45283,10 @@ fi:raparperimehu
 fr:Jus de rhubarbe
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
+# comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
 
 <en:vegetable
-en:salad
+en:salad, leafy greens, salad greens
 da:Salat
 de:Salat
 es:Ensalada
@@ -45297,6 +45298,9 @@ nl:sla, salade
 sv:Sallad
 zh:沙拉
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
+wikipedia:en:https://en.wikipedia.org/wiki/Leaf_vegetable
+wikipedia:de:https://de.wikipedia.org/wiki/Salatpflanze
+wikipedia:fr:https://fr.wikipedia.org/wiki/Salade_(plante)
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
 carbon_footprint_fr_foodges_ingredient:fr:Salade
 carbon_footprint_fr_foodges_value:fr:0.8
@@ -45337,137 +45341,6 @@ zh:萵苣纈草
 wikidata:en:Q158954
 wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # ingredient/fr:mâche has 133 products in french @2019-05-08
-
-
-# description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
-# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
-
-<en:salad
-en:lettuce
-af:Blaarslaai
-am:ሰላጣ
-an:Ensalada
-ar:خس
-az:Süddəyən, Kahı
-ba:Латук
-be:Латук
-bg:Маруля
-bn:লেটুস
-bo:རྗེན་ཚལ་
-ca:Lletuga, enciam
-cs:locika setá, locika
-cy:Letysen
-da:Salat
-de:Lattich, Gartensalat
-eo:Laktuko, Kultiva laktuko
-es:Lechuga
-et:Salat, Aedsalat
-eu:Uraza
-fa:لاکتوکا, کاهو
-fi:lehtisalaatti
-fr:laitue
-ga:Leitís
-gl:Leituga
-gu:Ka'anakyrỹi
-gv:Glassyr
-he:חסה, חסה תרבותית
-hr:Salata, Zelena salata
-ht:Leti
-hu:saláta, kerti saláta
-hy:հազար, հազար
-id:Selada
-io:Latugo
-is:Salat
-it:Lattuga
-ja:アキノノゲシ属, レタス
-ka:ღორისქადა, სალათა
-kk:Ассүттіген, Салат
-kn:ಲೆಟಿಸ್
-ko:왕고들빼기속, 상추
-ku:Kahû
-ky:Сүттикен
-la:Lactuca, Lactuca sativa
-lt:Salota, Sėjamoji salota
-lv:Dārza salāti
-mk:Зелена салата
-ml:ഉർവച്ചീര
-ms:Salad
-my:ဆလတ်ပင်
-nb:Salater
-nl:sla
-nn:Planteslekta salat, hagesalat
-os:Къæсула
-pa:ਸਲਾਦ
-pl:sałata, Sałata siewna
-pt:alface
-qu:Pilliyuyu
-ro:salată
-ru:Латук, Салат
-rw:Imboga za leti
-sc:Lattuca
-sh:Zelena salata
-si:සලාද
-sr:зелена салата
-sv:Sallatsläktet, Sallat
-ta:இலைக்கோசு
-th:สกุลผักกาดหอม, ผักกาดหอม
-tl:Letsugas
-to:Lētisilau
-tr:Marul
-ug:ظوسذث
-uk:Латук, Салат
-uz:Salat
-vi:Chi Rau diếp, Xà lách
-wa:Salåde
-za:byaekaengjgwx
-zh:莴苣属, 萵苣
-# aeb-arab:خسّ
-# ang:Leahtric
-# atj:Katiapi
-# bar:Salot
-# bcl:Litsugas
-# en-ca:Lettuce
-# en-gb:Lettuce
-# hak:Fú-mak
-# kaa:Salat
-# lij:Leituga
-# mzn:کهوک
-# nah:Quillechuca
-# pnb:سلاد
-# pt-br:Alface
-# rup:Sâlatâ
-# scn:Lattuca
-# sco:lettuce
-# sgs:Saluotis
-# tyv:Салат
-# war:Letsugas
-# wuu:莴苣
-# yue:生菜
-# zh-tw:萵苣
-wikidata:en:Q83193
-wikidata:en:Q578052
-wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
-wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
-# ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
-
-# description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
-
-<en:salad
-en:iceberg lettuce
-es:lechuga iceberg, iceberg
-de:Eisbergsalat
-eo:glacilaktuko
-fi:Jäävuorisalaatti
-fr:laitue iceberg, iceberg
-it:insalata iceberg
-nb:isbergsalat
-nl:ijsbergsla
-pt:alface americana
-sv:Isbergssallat
-# zh-tw:皺葉萵苣
-wikidata:en:Q1310886
-# ingredient/fr:laitue-iceberg has 41 products in 4 languages @2019-04-04
-# ingredient/fr:iceberg has 46 products in french @2019-04-16
 
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
@@ -45762,81 +45635,6 @@ fr:pulpe d'échalote
 en:concentrated shallot juice
 de:Konzentrierter Zwiebelsaft
 fr:jus d'échalote concentré
-
-# description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
-
-<en:vegetable
-en:sorrel, common sorrel
-af:Veldsuring
-ar:حماض بستاني
-az:Adi əvəlik
-ba:Ҡуҙғалаҡ
-bg:Киселец
-ca:agrella
-cs:šťovík kyselý
-cy:Suran y cŵn
-da:syre, Almindelig Syre
-de:Sauerampfer
-el:Λάπαθο
-eo:Okzalo
-es:Acedera común
-et:Hapu oblikas
-eu:Mingarratz handi
-fa:سورل، لوئیزیانا
-fi:Niittysuolaheinä
-fr:oseille
-ga:Samhadh
-gl:Aceda
-hi:खट्टा पालक
-hr:Obična kiselica
-hu:Mezei sóska
-io:Oxalo
-is:Túnsúra
-it:acetosa
-ja:スイバ
-ka:მჟაუნა
-ko:수영
-ku:Tirşo
-ky:Кызыл аткулак
-la:Rumex acetosa
-lt:Valgomoji rūgštynė
-lv:pļavas skābene
-mk:Киселец
-nb:Engsyre
-nl:veldzuring, Zurkel
-nn:Engsyre
-nv:Chaatʼíní
-os:Хуырхæг
-pl:Szczaw zwyczajny
-pt:Azeda
-ro:Măcriș
-ru:Щавель кислый
-se:Juopmu
-sh:Kiseljak
-sk:štiav lúčny
-sl:Navadna kislica
-sq:Lëpjeta
-sr:кисељак
-sv:Ängssyra
-tg:Туршак
-uk:Щавель кислий
-vi:Chút chít
-zh:酸模
-# azb:عادی او‌لیک
-# csb:Kwasné zelé
-# diq:Amênvaş
-# frr:Ruad jüd
-# hsb:Kisały zdźer
-# koi:Тшӧтшкӧр
-# sgs:Rūgštīnė
-# stq:Suurke
-# vec:Spanavin
-# vep:Sol'hein
-# zh-tw:酸模
-wikidata:en:Q26297
-wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
-# ingredient/fr:oseille has 91 products in 5 languages @2019-04-05
-
 
 <en:vegetable
 en:spinach
@@ -47010,75 +46808,6 @@ fr:Pâte de paprika
 <en:paprika
 en:sweet paprika
 es:pimienta roja dulce
-
-# description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
-# comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
-
-<en:vegetable
-en:rocket, arugula
-ar:جرجير
-az:Əkin indausu
-be:Індаў пасяўны
-bg:рукола
-bn:রকেট সালাদ
-br:roketez
-co:rutulella
-cs:roketa setá
-da:rucola
-de:Rucola
-el:Ρόκα
-eo:Kultiva eruko
-es:Rúcula
-et:rukola
-fa:منداب
-fi:sinappikaali
-fr:roquette
-gl:Eiruga
-he:בן-חרדל מצוי
-hu:Borsmustár
-hy:Ճարճրուկ ցանովի
-is:Klettasalat
-it:rucola
-ja:ルッコラ
-ka:რუკოლა
-kk:Егістік қышатүс
-ko:루콜라
-la:Eruca vesicaria subsp. sativa
-lt:Rukola
-mt:eruka
-nb:ruccola
-nl:rucola
-pa:ਤਾਰਾਮੀਰਾ
-pl:Rokietta siewna
-pt:rúcula
-ro:Voinicică
-ru:руккола
-sd:ڄانڀو
-sq:sallatë manushaqeje
-sr:Рукола
-sv:ruccola
-tr:Roka
-uk:Рукола
-zh:芝麻菜
-# arz:جرجير
-# ast:Guxanu
-# azb:اکین اینداوسو
-# en-ca:rocket
-# hsb:Běła hórčica
-# pnb:تارا میرا
-# sr-ec:Рукола
-# sr-el:Rukola
-# yue:火箭菜
-# zh-cn:芝麻菜
-# zh-hans:芝麻菜
-# zh-hant:芝麻菜
-# zh-hk:芝麻菜
-# zh-sg:芝麻菜
-# zh-tw:芝麻菜
-wikidata:en:Q156884
-wikipedia:en:https://en.wikipedia.org/wiki/Eruca_sativa
-# ingredient/fr:roquette has 252 products in 5 languages @2019-05-10
-
 
 <en:vegetable
 en:tomato, tomatoes
@@ -55956,7 +55685,7 @@ wikipedia:en:https://es.wikipedia.org/wiki/Aloysia_citrodora
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
-<en:vegetable
+<en:salad
 en:lettuce, Lettuces
 af:Blaarslaai
 am:ሰላጣ
@@ -56080,7 +55809,7 @@ fr:jeunes pousses de laitue verte
 en:iceberg lettuce
 de:Eisbergsalat
 eo:glacilaktuko
-es:lechuga iceberg
+es:lechuga iceberg, iceberg
 fi:Jäävuorisalaatti
 fr:laitue iceberg, iceberg
 it:insalata iceberg
