@@ -27133,49 +27133,46 @@ en:sushi rice
 #
 ##################################################################################
 
-# THICKENER
-
+#description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 #comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
-en:carob seeds, carob
-ca:garrofa
+en:carob seeds, carob, Carobin
+ca:garrofa, farina de garrofa
 cs:carubin
-da:Johannesbrødkerne
-de:Johannisbrotkern
-es:semillas de algarroba, Algarroba, garrofon
-fi:johanneksenleipäpuu, carob
-fr:graines de caroube, graine de caroube, caroube
-hu:szentjánoskenyér, karob
-it:semi di carrube, carruba
-la:Ceratonia siliqua
-nl:johannesbroodpit, carob
-pt:semente de alfarroba, sementes de alfarroba
+da:Johannesbrødmel
+de:Carobin, Carobpulver
+es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
+et:Jaanileivapuujahu
+fi:carob
+fr:caroube, farine de caroube
+hu:karob, karob liszt
+it:carruba
+nl:carob, johannesbroodmeel, carobpoeder
+sv:Johannesbrödfrö
 vegan:en:yes
 vegetarian:en:yes
 
 # question
 
+#description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
+#comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 <en:flour
-<en:carob seeds
 <en:E410
-en:carob flour
-ca:farina de garrofa
+en:carob seed flour, carob kernel flour
 cs:Karobová mouka
 da:Johannesbrødkernemel
-de:Johannisbrotkernmehl, Carobpulver
-es:Harina de algarroba, harina de garrofin, Harina de semillas de algarroba
-et:Jaanileivapuujahu
+de:Johannisbrotkernmehl
+es:Harina de semillas de algarroba, semillas de algarroba
 fi:johanneksenleipäpuujauhe, Johanneksenleipäpuujauhetta
-fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
-hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt, Szentjánoskenyérliszt
-it:farina di semi di carrube
+fr:farine de graines de caroube, farine de graine de caroube, farine de graines de caroubes, graines de caroube, graine de caroube
+hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, Szentjánoskenyérliszt, szentjánoskenyér
+it:farina di semi di carrube, semi di carrube
 lt:Saldžiosios ceratonijos lipai
-nl:johannesbroodpitmeel, carobpoeder
+nl:johannesbroodpitmeel
 pl:Mączka chleba świętojańskiego
-pt:farinha de semente de alfarroba, Farinha de sementes de alfarroba
-sv:Johannesbrödfrö, fruktkärnmjöl
+pt:farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba
+sv:fruktkärnmjöl
 
 <en:E410
-<en:carob seeds
 en:peruvian carob gum
 
 <en:flour
