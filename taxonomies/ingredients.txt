@@ -39532,8 +39532,12 @@ pt:groselha
 #                                Rosehip
 #
 ###################################################################################################
+# description:en: The  ROSE HIP  or rosehip, also called rose haw and rose hep, is the accessory fruit of the rose plant. Rose hips are used for herbal teas, jam, jelly, syrup, rose hip soup, beverages, pies, bread, wine, and marmalade. They can also be eaten raw, like a berry, if care is taken to avoid the hairs inside the fruit.
+
+# comment:en:There is some confusion in the data & translations between the fruit (rose hip), one of the plants it comes from (Rosa canina), and wild roses in general.
+
 <en:fruit
-en:rosehip
+en:rose hip, rosehip
 af:Roosbottel
 ar:وردة المسك
 az:İtburnu
@@ -39545,31 +39549,34 @@ cs:Šípky
 cv:Шăлан
 da:Hyben
 de:Hagebutte, Hagebutten
+el:καρπός της αγριοτριανταφυλλιάς
 eo:Rozbero
 es:escaramujo
-et:Arkakarats
+eu:Arkakarats
 fa:میوه گل رز
-fi:Ruusunmarja
-fr:cynorrhodon
+fi:Ruusunmarja, kiulukka
+fr:cynorrhodon, fruit de l'églantier
+ga:mogóir róis
 hr:Šipak
 hu:csipkebogyó
 hy:մասուր
-it:Cinorrodo, Rosa canina
+it:Cinorrodo
 ja:ローズヒップ
 jv:Rosehip
 kk:Итмұрын
 ko:로즈힙
 ky:Ит мурун
 lb:Spackelter
-lt:Erškėtis
+lt:erškėtuogė, Erškėtis
+ml:റോസ് ഹിപ്
 nb:Nype
-nl:Rozenbottel
+nl:Rozenbottel, rozebottel
 nn:Nype
 os:Уагъылы
 pt:Cinórrodo
 ro:Măceș
 ru:Шиповник
-sk:Ruža šipkova
+sk:šípka, Ruža šipkova
 sv:Nypon
 uk:Шипшина
 zh:蔷薇果
@@ -39581,12 +39588,22 @@ zh:蔷薇果
 # inh:Хьандарг
 # pt-br:Quadril de rosa
 # zh-hans:蔷薇果
-# zh-hant:蔷薇果
-# zh-tw:蔷薇果
+# zh-hant:蔷薇果, 薔薇果
+# zh-tw:蔷薇果, 薔薇果
 wikidata:en:Q46740
+wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cynorrhodon
 # 65 products @2018-10-02
+# ingredient/fr:églantier has 66 products in 5 languages @2019-04-03
 
+<en:plant
+en:dog rose
+fr:églantier
+it:Rosa canina
+la:Rosa canina
+pt:roseira brava
+wikidata:en:Q146066
+wikipedia:en:https://en.wikipedia.org/wiki/Rosa_canina
 
 ###################################################################################################
 #
@@ -56674,65 +56691,6 @@ fi:ruusun terälehdet
 fr:pétales de rose
 it:petalo di rosa
 # ingredient/en:rose-petals has 72 products in 4 languages @2018-12-29
-
-
-# description:en: The  ROSE HIP  or rosehip, also called rose haw and rose hep, is the accessory fruit of the rose plant. Rose hips are used for herbal teas, jam, jelly, syrup, rose hip soup, beverages, pies, bread, wine, and marmalade. They can also be eaten raw, like a berry, if care is taken to avoid the hairs inside the fruit.
-
-<en:plant
-en:rose hip, rosehip
-af:Roosbottel
-ar:وردة المسك
-az:İtburnu
-be:Шыпшына
-br:Hogan
-bs:Šipurak
-ca:gavarró
-cs:šípky
-cv:Шăлан
-da:hyben
-de:Hagebutte
-el:καρπός της αγριοτριανταφυλλιάς
-eo:Rozbero
-es:escaramujo
-eu:Arkakarats
-fa:میوه گل رز
-fi:ruusunmarja, kiulukka
-fr:cynorrhodon, fruit de l'églantier, églantier
-ga:mogóir róis
-hr:Šipak
-hu:csipkebogyó
-hy:մասուր
-it:cinorrodo
-ja:ローズヒップ
-jv:Rosehip
-kk:Итмұрын
-ko:로즈힙
-ky:Ит мурун
-lb:Spackelter
-lt:erškėtuogė, Erškėtis
-ml:റോസ് ഹിപ്
-nb:nype
-nl:rozenbottel, rozebottel
-os:Уагъылы
-pt:cinórrodo, roseira brava
-ro:Măceș
-ru:Шиповник
-sk:šípka, Ruža šipkova
-sv:nypon
-uk:Шипшина
-zh:蔷薇果
-# ast:artuganciu
-# bar:Hetscherl
-# dsb:Głogowe jabłuško
-# frr:Juup
-# hsb:Šiplenka
-# inh:Хьандарг
-# pt-br:Quadril de rosa
-# zh-hans:蔷薇果
-# zh-hant:薔薇果
-# zh-tw:薔薇果
-wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
-# ingredient/fr:églantier has 66 products in 5 languages @2019-04-03
 
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
