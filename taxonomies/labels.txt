@@ -2456,6 +2456,7 @@ fr:Sans matière grasse hydrogénée, Sans matières grasses hydrogénées, Sans
 hu:Hidrogénezett zsír nélkül
 it:Senza grassi idrogenati
 pt:Sem gorduras hidrogenadas
+label_categories:en: en:Health, en:Nutrition
 
 en:Without vegetable oils, without vegetable fats
 de:Ohne pfalnzliche Öle
@@ -17568,8 +17569,10 @@ fr:Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médai
 #Wine Related labels
 
 fr:Premier cru
+label_categories:en: en:Wines
 
 fr:Grand cru
+label_categories:en: en:Wines
 
 fr:Mis en bouteille au château
 
@@ -17590,35 +17593,42 @@ fr:Vigneron indépendant
 fr:Viticulture durable
 
 de:Berliner Wein Trophy
+label_categories:en: en:Wines
 
-la:Mundus Vini, Grand Prix International du Vin de Neustadt
+la:Mundus Vini
+fr:Grand Prix International du Vin de Neustadt
+label_categories:en: en:Wines
 
 fr:Baco - Bacchus, Concours international des vins et vins primeurs de Madrid
+label_categories:en: en:Wines
 
 es:Cata Concurso Nacional de Vinos Jóvenes Cosecha
+label_categories:en: en:Wines
 
 es:Salon Internacional del Vino de Valladolid
 fr:Iberwine à Valladolid
+label_categories:en: en:Wines
 
 fr:Concours des vins de Mâcon
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins d'Alsace de Colmar
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins d'Orange
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins du Grand Delta à Avignon
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des vins Féminalise
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours international des vins à Lyon
 categories:en: en:Wines
 
 fr:Concours International des Vins de Gastronomie d'Antibes
+label_categories:en: en:Wines
 
 fr:Concours International des Vins de Terroir de Brignoles
 categories:en: en:Wines
@@ -17633,10 +17643,10 @@ en:Wine Women Awards à l'Hôtel Bristol à Paris
 categories:en: en:Wines
 
 fr:Challenge International du Vin à Bordeaux
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours de Bordeaux Vins d'Aquitaine
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 fr:Concours des 7 Ceps
 
@@ -17739,6 +17749,7 @@ it:Società Agricola Tedesca
 nl:Duitse Landbouw Stichting
 pt:NL-BIO-01
 wikidata:en:Q316331
+label_categories:en: en:Quality
 
 <en:German Agricultural Society
 en:Bronze medal of the German Agricultural Society
@@ -18044,6 +18055,7 @@ fr:IGP Suisse, IGP CH, CH IGP
 origins:en: en:Switzerland
 
 en:Suisse Garantie, SuisseGarantie
+country:en: en:Switzerland
 
 de:Pro Planet
 
@@ -18059,6 +18071,7 @@ en:IP-Suisse
 en:TerraSuisse
 fr:TerraSuisse
 pt:TerraSuisse
+country:en: en:Switzerland
 
 en:Natura-Beef, NaturaBeef
 
@@ -18070,12 +18083,14 @@ en:Agri Natura, AgriNatura
 
 en:NatureSuisse, Nature Suisse
 ca:NatureSuisse, Natura Suïssa
+country:en: en:Switzerland
 
 <en:Organic
 en:Bio Suisse, BioSuisse
 ca:BioSuisse
 fr:Bio Suisse
 nl:Bio Zwitserland
+country:en: en:Switzerland
 
 <en:Organic
 en:Migros Bio
@@ -18084,6 +18099,7 @@ fr:Migros Bio
 it:Migros Bio
 nl:Migros Bio
 stores:en: Migros
+country:en: en:Switzerland
 
 <en:Organic
 en:Naturaplan, Natura-plan
@@ -18156,6 +18172,7 @@ fr:Expérimentation Nutriscore
 he:ניסוי Nutriscore
 it:Sperimentazione Nutriscore
 nl:Nutriscore experiment
+label_categories:en: en:Health, en:Nutrition Grades
 
 <en:Nutriscore experiment
 en:Nutriscore experiment Grade A
@@ -18528,16 +18545,19 @@ es:Criado en Noruega
 fi:Kasvatettu Norjassa
 fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
 it:Cresciuto in Norvegia
+origins:en: en:Norway
 
 en:raised in Scotland
 de:In Schottland aufgewachsen
 fi:Kasvatettu Skotlannissa
 fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
 it:Cresciuto in Scozia, Allevato in Scozia
+origins:en: en:Scotland, en:United Kingdom
 
 en:raised in Ireland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
+origins:en: en:Ireland
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina
