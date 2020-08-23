@@ -963,6 +963,7 @@ $expected_product_ref =
      'en:colza-oil',
      'en:oil-and-fat',
      'en:vegetable-oil-and-fat',
+	 'en:rapeseed-oil',
      'en:raising-agent',
      'en:salt',
      'en:emulsifier',
