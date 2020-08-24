@@ -5946,7 +5946,7 @@ mr:उत्प्रेरक
 ms:eEnzim
 my:အင်န်ဇိုင်း
 nb:enzym, enzymer
-nl:enzym
+nl:enzym, enzymen
 nn:enzym
 oc:enzim
 pa:ਐੱਨਜ਼ਾਈਮ
@@ -11006,7 +11006,7 @@ fr:Parmigiano Reggiano AOP
 
 <en:cheese
 # <en:sheep's milk
-en:Pecorino
+en:Pecorino, Pecorino cheese
 af:Pecorino
 ca:Pecorino
 cs:Pecorino
@@ -22969,7 +22969,7 @@ sv:vetemalt, mältade vetekorn
 <en:wheat malt
 en:wheat malt flour
 es:harina de malta de trigo
-nl:tarwemoutmeel
+nl:tarwemoutmeel, tarwemoutbloem
 
 <en:wheat malt
 fr:blé malté torréfié concassé
@@ -24403,7 +24403,7 @@ sv:havrebas
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
 <en:oat
-en:oatmeal
+en:oatmeal, oat meal
 es:semola de avena
 
 <en:vegetable protein
@@ -25280,7 +25280,7 @@ sv:fullkornsmjöl
 
 <en:wheat flour
 <en:wholemeal flour
-en:whole wheat flour, wholemeal wheat flour
+en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
 da:hvedefuldkornsmel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -51632,12 +51632,6 @@ th:ทาฮีนี
 tr:Tahin
 uk:Тахіні
 
-<en:seed
-en:cardamom seed, cardamom seeds
-fi:kardemumman siemen, kardemumman siemeniä
-fr:graines de cardamome
-# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -52601,6 +52595,13 @@ wikidata:en:Q18360378
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
+<en:seed
+<en:cardamom
+en:cardamom seed, cardamom seeds
+fi:kardemumman siemen, kardemumman siemeniä
+fr:graines de cardamome
+nl:kardemomzaden, hele kardemomzaden
+# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
 
 ###################################################################################################
 #
@@ -52857,7 +52858,7 @@ ms:Cengkih
 my:လေးညှင်းပင်
 nb:Kryddernellik
 ne:ल्वाङ
-nl:kruidnagel
+nl:kruidnagel, kruidnagels
 nn:Nelliktre
 oc:Giròfle
 or:ଲବଙ୍ଗ
