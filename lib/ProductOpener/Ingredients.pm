@@ -1314,7 +1314,6 @@ sub parse_ingredients_text($) {
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
-								'o.a.',
 							],
 
 							'sv' => [ 'varierande proportion', ],
