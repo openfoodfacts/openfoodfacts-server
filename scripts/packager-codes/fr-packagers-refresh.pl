@@ -120,11 +120,10 @@ sub make_table {
 			'$_{"Numéro agrément/Approval number"} eq "34" && $_{SIRET}==301'
 		);
 		for ( @{ $t_ref->{MATCH} } ) {
-			my $r = $t_ref->delRow($_);
-			$r->[1] = join '.', $r->[ 1, 3 ];
+			my $r = $t_ref->rowRef($_);
+			$r->[1] = join '.', $r->@[ 1 .. 3 ];
 			splice @{$r}, 2, -0, ( splice @{$r}, 4 );
-			$r->[ -2 .. -1 ] = undef;
-			$t_ref->addRow( $r, $_ );
+			$r->@[ -2 .. -1 ] = undef;
 		}
 	}
 
