@@ -833,7 +833,7 @@ my @tests = (
 				    'text' => 'Guaven'
 				  },
 				  {
-				    'id' => 'en:rosehip',
+				    'id' => 'en:rose hip',
 				    'processing' => 'en:air-dried',
 				    'text' => 'Hagebutten'
 				  },
