@@ -27,15 +27,16 @@ use experimental 'smartmatch';
 
 use List::Util qw( all );
 
-use CHI                     ();
-use Data::Table             ();
+use CHI                 ();
+use Data::Table         ();
 use Encode::ZapCP1252   qw( fix_cp1252 );
 use Future::AsyncAwait;
 use Future::Utils       qw( fmap_scalar fmap0 );
 use Geo::Coder::Google 0.19_01;    # dev version for the apikey support
 use HTML::TableExtract  ();
 use IO::Async::Function ();
-use IO::Async::Loop         ();
+use IO::Async::Loop     ();
+use Math::BigNum        ();
 use Sort::Naturally         qw( ncmp );
 use Text::CSV           qw( csv );
 
@@ -179,6 +180,10 @@ async sub geocode_address {
 		{
 			$lat = $res->{'geometry'}{'location'}{'lat'};
 			$lng = $res->{'geometry'}{'location'}{'lng'};
+
+			# Exponential notation won't work
+			$lat = Math::BigNum->new($lat)->as_float;
+			$lng = Math::BigNum->new($lng)->as_float;
 
 			$cache->set( $address, { lat => $lat, lng => $lng } );
 		}
