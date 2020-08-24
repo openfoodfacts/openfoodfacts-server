@@ -73,6 +73,7 @@ sub clean_col {
 	fix_cp1252 $col;
 	$col = trim $col;
 	$col =~ tr/ / /s;
+	$col =~ tr/;/,/;
 	$col =~ s/\R+/ /g;
 
 	return $col;
@@ -100,6 +101,8 @@ sub fill_cache {
 			in           => "$data_root/packager-codes/$outfile",
 			headers      => 'auto',
 			keep_headers => \my @headers,
+			sep_char     => ';',
+			quote_char   => q{"}
 		);
 
 		return if not all { $_ ~~ @headers } @address_columns;
@@ -109,6 +112,7 @@ sub fill_cache {
 				my $address = join ', ', @{$row_ref}{@address_columns};
 				my $lat     = $row_ref->{'lat'};
 				my $lng     = $row_ref->{'lng'};
+				$address =~ tr/;/,/;
 				if ($address) {
 					$cache->set( $address, { lat => $lat, lng => $lng } );
 				}
