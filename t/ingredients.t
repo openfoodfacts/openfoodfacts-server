@@ -782,7 +782,7 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e500',
+       'id' => 'en:e500i',
        'text' => 'carbonate acide de sodium',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
