@@ -27,15 +27,16 @@ use experimental 'smartmatch';
 
 use List::Util qw( all );
 
-use CHI                     ();
-use Data::Table             ();
+use CHI                 ();
+use Data::Table         ();
 use Encode::ZapCP1252   qw( fix_cp1252 );
 use Future::AsyncAwait;
 use Future::Utils       qw( fmap_scalar fmap0 );
 use Geo::Coder::Google 0.19_01;    # dev version for the apikey support
 use HTML::TableExtract  ();
 use IO::Async::Function ();
-use IO::Async::Loop         ();
+use IO::Async::Loop     ();
+use Math::BigNum        ();
 use Sort::Naturally         qw( ncmp );
 use Text::CSV           qw( csv );
 
@@ -73,6 +74,7 @@ sub clean_col {
 	fix_cp1252 $col;
 	$col = trim $col;
 	$col =~ tr/ / /s;
+	$col =~ tr/;/,/;
 	$col =~ s/\R+/ /g;
 
 	return $col;
@@ -100,6 +102,8 @@ sub fill_cache {
 			in           => "$data_root/packager-codes/$outfile",
 			headers      => 'auto',
 			keep_headers => \my @headers,
+			sep_char     => ';',
+			quote_char   => q{"}
 		);
 
 		return if not all { $_ ~~ @headers } @address_columns;
@@ -109,6 +113,7 @@ sub fill_cache {
 				my $address = join ', ', @{$row_ref}{@address_columns};
 				my $lat     = $row_ref->{'lat'};
 				my $lng     = $row_ref->{'lng'};
+				$address =~ tr/;/,/;
 				if ($address) {
 					$cache->set( $address, { lat => $lat, lng => $lng } );
 				}
@@ -175,6 +180,10 @@ async sub geocode_address {
 		{
 			$lat = $res->{'geometry'}{'location'}{'lat'};
 			$lng = $res->{'geometry'}{'location'}{'lng'};
+
+			# Exponential notation won't work
+			$lat = Math::BigNum->new($lat)->as_float;
+			$lng = Math::BigNum->new($lng)->as_float;
 
 			$cache->set( $address, { lat => $lat, lng => $lng } );
 		}

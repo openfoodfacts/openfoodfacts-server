@@ -76,14 +76,17 @@ my $outfile = 'FR-merge-UTF-8.csv';
 my %coord_cache;
 if ( -e "$data_root/packager-codes/$outfile" ) {
 	my $row_refs = csv(
-		in      => "$data_root/packager-codes/$outfile",
-		headers => 'auto'
+		in         => "$data_root/packager-codes/$outfile",
+		headers    => 'auto',
+		sep_char   => ';',
+		quote_char => q{"}
 	);
 	foreach my $row_ref (@{$row_refs}) {
 		if ( $row_ref->{'lat'} && $row_ref->{'lng'} ) {
 			my $address = join ', ', @{$row_ref}{@address_columns};
 			my $lat     = $row_ref->{'lat'};
 			my $lng     = $row_ref->{'lng'};
+			$address =~ tr/;/,/;
 			if ($address) {
 				$coord_cache{$address}{'lat'} = $lat;
 				$coord_cache{$address}{'lng'} = $lng;
@@ -117,11 +120,10 @@ sub make_table {
 			'$_{"Numéro agrément/Approval number"} eq "34" && $_{SIRET}==301'
 		);
 		for ( @{ $t_ref->{MATCH} } ) {
-			my $r = $t_ref->delRow($_);
-			$r->[1] = join '.', $r->[ 1, 3 ];
+			my $r = $t_ref->rowRef($_);
+			$r->[1] = join '.', $r->@[ 1 .. 3 ];
 			splice @{$r}, 2, -0, ( splice @{$r}, 4 );
-			$r->[ -2 .. -1 ] = undef;
-			$t_ref->addRow( $r, $_ );
+			$r->@[ -2 .. -1 ] = undef;
 		}
 	}
 
@@ -133,6 +135,7 @@ sub make_table {
 		foreach my $col_idx ( 0 .. $t_ref->lastCol ) {
 			my $elm_ref = $t_ref->elmRef( $row_idx, $col_idx );
 			if ( defined ${$elm_ref} ) {
+				${$elm_ref} =~ tr/;/,/;
 				${$elm_ref}
 					=~ s/â\200\223/\N{EN DASH}/g;    # Some UTF-8 mixed in...
 				${$elm_ref} =~ s/^\s+|\s+$//g;
