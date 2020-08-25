@@ -6,7 +6,7 @@
 # incrontab -e -u off
 # /srv/off/new_images IN_CREATE /srv/off/scripts/process_new_image_off.sh $@/$#
 
-export PERL5LIB=.
+export PERL5LIB="/srv/off/lib/:${PERL5LIB}"
 
 cd /srv/off/scripts
 

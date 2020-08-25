@@ -546,7 +546,7 @@ my %per_synonyms = (
 	# may need to be changed for the US, CA etc.
 	"100g" => {
 	# code with i18n opportunity
-		en => ["", "per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		en => ["", "for 100g", "per 100g", "100g", "100gr", "100 gr", "for 100 g", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 	},
 	"serving" => {
@@ -674,7 +674,7 @@ sub init_nutrients_columns_names_for_lang($) {
 							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
-						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, lang("nutrition_data_per_" . $per)) {
 
 							# field name without "unit" or "quantity"
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
@@ -791,6 +791,7 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
@@ -1192,7 +1193,7 @@ JSON
 	foreach my $group_ref (@{$fields_groups_ref}) {
 
 		my $group_id = $group_ref->[0];
-		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ] };
+		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ], group_id => $group_id };
 
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
@@ -1397,7 +1398,7 @@ After=postgresql.service
 Type=simple
 User=off
 WorkingDirectory=/srv/off/scripts
-Environment="PERL5LIB=."
+Environment="PERL5LIB=/srv/off/lib/"
 ExecStart=/srv/off/scripts/minion_producers.pl minion worker -m production -q openfoodfacts.org
 KillMode=process
 

@@ -6101,6 +6101,10 @@ sub display_new($) {
 		return;
 	}
 
+	if ($server_options{producers_platform}) {
+
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
+	}
 
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
 
@@ -7096,7 +7100,7 @@ CSS
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$template_data_ref->{upc} = 'defined';
+		$template_data_ref->{upc_code} = 'defined';
 		# Also display UPC code if the EAN starts with 0
 		my $upc = "";
 		if (length($code) == 13) {
