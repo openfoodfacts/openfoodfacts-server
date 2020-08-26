@@ -4,7 +4,7 @@
 synonyms:en:pasteurised, pasteurized
 synonyms:es:zumo, jugo
 synonyms:es:sirope,jarabe
-﻿
+
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
@@ -3377,7 +3377,7 @@ uk:Глюконат кальцію
 vi:canxi gluconat
 zh:葡萄糖酸钙
 # sr-el:Kalcijum glukonat
- # zh-cn:葡萄糖酸钙
+# zh-cn:葡萄糖酸钙
 # zh-hans:葡萄糖酸钙
 # zh-hant:葡萄糖酸鈣
 # zh-hk:葡萄糖酸鈣
@@ -5421,7 +5421,7 @@ pt:fermentos lácticos e de maturação
 en:selected lactic ferments
 de:ausgewählte Milchsäurekulturen
 fr:ferments lactiques sélectionnés
-nl:geselecteerde fermenten
+nl:geselecteerde melkzuurfermenten
 # fr:ferments-lactiques-sélectionnés has 140 products in 2 languages @2019-07-09
 
 # description:en:BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
@@ -9587,10 +9587,6 @@ it:Formaggio a pasta molle di latte pastorizzato
 # 6@2019-06-08
 
 <en:cheese
-es:queso fundido en polvo
-ca:formatge fos en pols
-
-<en:cheese
 de:Bergkäse
 hu:hegyisajt
 
@@ -10806,16 +10802,30 @@ ca:formatge mimolette
 es:queso mimolette
 
 
-# MONTEREY JACK is an American cheese
+# MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
 
 <en:cheese
 en:Monterey Jack, Monterey Jack Cheese
 de:Monterey Jack
 es:Monterey Jack
+fi:monterey jack
 fr:Monterey jack
 it:Monterey Jack
+ja:モントレー・ジャック
+ko:몬터레이 잭
+nb:monterey jack
+pl:monterey jack
+th:มอนเตอเรย์แจ็ก
+tr:monterey jack
+zh:傑克芝士
 wikidata:en:Q1056415
+wikipedia:en:https://en.wikipedia.org/wiki/Monterey_Jack
 # Montenerey jack has 31 products @2019-05-31
+# ingredient/en:monterey-jack has 55 products in 1 language @2020-06-08
+
+<en:monterey jack
+en:pepper jack, pepper jack cheese
+# ingredient/en:pepper-jack has 5 products in 1 language @2020-06-08
 
 
 # MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
@@ -11425,30 +11435,6 @@ ca:preparació de formatges
 de:käsezubereitung
 es:preparación de quesos
 # fr:préparation-fromagère has 40 products in 1 language @2018-10-28
-
-# MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
-
-<en:cheese
-en:monterey jack, monterey jack cheese
-de:monterey jack
-es:monterey jack
-fi:monterey jack
-fr:monterey jack
-it:monterey jack
-ja:モントレー・ジャック
-ko:몬터레이 잭
-nb:monterey jack
-pl:monterey jack
-th:มอนเตอเรย์แจ็ก
-tr:monterey jack
-zh:傑克芝士
-wikidata:en:Q1056415
-wikipedia:en:https://en.wikipedia.org/wiki/Monterey_Jack
-# ingredient/en:monterey-jack has 55 products in 1 language @2020-06-08
-
-<en:monterey jack
-en:pepper jack, pepper jack cheese
-# ingredient/en:pepper-jack has 5 products in 1 language @2020-06-08
 
 # HALLOUMI or haloumi is a semi-hard, unripened, brined cheese made from a mixture of goat's and sheep's milk, and sometimes also cow's milk.
 
@@ -13307,7 +13293,6 @@ fr:Sel rose
 <en:Pink salt
 en:Himalayan pink salt, Pink Himalayan salt
 ca:Sal rosa de l'Himalaya
-de:Himalayasalz
 es:Sal rosa del Himalaya
 fi:kristallisuola, intiaanisuola, ruususuola, himalajan suola
 fr:sel rose de l'Himalaya, sel de l'Himalaya rose
@@ -13439,7 +13424,6 @@ en:Mediterranean salt, Mediterranean sea salt
 ca:sal de la mar Mediterrània, sal mediterrània
 da:middelhavssalt
 de:Mediterranes Meersalz
-es:Sal de la mar mediterránea, sal mediterránea
 es:Sal de la mar mediterránea, sal mediterránea,sal marina del mar mediterráneo
 fr:Sel de la Méditerranée, Sel de la Mer Méditerranée
 
@@ -13844,12 +13828,16 @@ en:angus beef
 es:carne de vacuno angus
 
 <en:beef meat
-en:cooked beef meat
+en:cooked beef meat, cooked beef
 ca:vedella cuita, carn de vedella cuita
+de:gekochtes Rindfleisch
 es:carne de res cocida, res cocido
 fi:Kypsennetty nauta, kypsennetty naudanliha
-fr:viande de bœuf cuite, viande bovine cuite, bœuf cuit
+fr:viande de bœuf cuite, viande de boeuf cuite, viande bovine cuite, bœuf cuit, boeuf cuit
 hu:főtt marhahús
+it:manzo cotto, carne di manzo cotta
+nl:gekookt rundvlees
+# ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
 
 <en:beef meat
 fr:Viande bovine fraîche protégée sous vide
@@ -13935,16 +13923,6 @@ fr:cœur de bœuf, coeur de boeuf
 
 
 <en:beef meat
-en:cooked beef meat, cooked beef
-de:gekochtes Rindfleisch
-fi:Kypsennetty nauta, kypsennetty naudanliha
-fr:viande de bœuf cuite, viande de boeuf cuite, bœuf cuit, boeuf cuit
-hu:főtt marhahús
-it:manzo cotto, carne di manzo cotta
-nl:gekookt rundvlees
-# ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
-
-<en:beef meat
 fr:viande de boeuf mise en oeuvre
 
 <en:beef meat
@@ -13967,7 +13945,7 @@ es:higado de ternera, foie de ternera
 fi:vasikanmaksa
 fr:foie de veau
 hu:borjúmáj
-it:fegato di maiale
+it:fegato di vitello
 
 en:cow
 ca:vaca
@@ -15201,7 +15179,6 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Barde_(cuisine)
 <en:bacon
 en:lardon, lardoon
 br:lardez
-de:Speck, Speck
 es:mechar
 fr:lardons, lardons supérieurs
 ja:ラードン
@@ -15213,8 +15190,6 @@ carbon_footprint_fr_foodges_value:fr:5.6
 
 <en:lardon
 en:smoked lardoons
-de:geräucherter Speck
-es:tocino ahumado
 fr:lardon fumé, lardons fumés
 
 <en:lardon
@@ -15564,9 +15539,6 @@ fr:maigre de porc
 <en:broth
 <en:pork
 fr:fond de porc
-
-<en:pork
-fr:coeur de porc
 
 <en:pork
 fr:tissu conjonctif de porc
@@ -16104,11 +16076,6 @@ wikidata:en:Q715160
 
 # en:modified potato starch is listed under en:thickener
 
-<en:starch
-fr:amidon de pois
-de:Erbsenstärke
-nl:erwtenzetmeel
-
 # Wikipedia: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
 
 <en:starch
@@ -16247,6 +16214,7 @@ en:pea starch
 de:Erbsenstärke
 fi:hernetärkkelys
 fr:Amidon de pois
+nl:erwtenzetmeel
 sv:ärtstärkelse
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
 # 1 entry @ 2019-11-02
@@ -17261,15 +17229,11 @@ nl:geheel geharde palm
 
 <en:hydrogenated palm oil
 en:partially hydrogenated palm oil
-de:teilgehärtetes Palmöl
+de:teilgehärtetes Palmöl, teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 es:Aceite de palma parcialmente hidrogenado
 fi:osittain kovetettu palmuöljy, osittain hydrogenoitu palmuöljy
 fr:huile de palme partiellement hydrogénée
 hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
-
-<en:palm oil
-fr:huile de palme partiellement hydrogénée
-de:teilweise hydriertes Palmöl, teilweise gehärtetes Palmöl
 nl:gedeeltelijk geharde palmolie
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
@@ -18793,7 +18757,6 @@ from_palm_oil:en:no
 
 <en:oil
 en:marine oil
-de:Fischöl
 fr:huile marine
 vegan:en:no
 vegetarian:en:no
@@ -21136,24 +21099,14 @@ en:plum flavouring
 es:aroma de ciruela
 
 <en:flavouring
-fr:arôme naturel de poire
-
-<en:flavouring
-<fr:arôme naturel de poire
-fr:arôme naturel de poire avec d'autres arômes naturels
-
-<en:flavouring
 de:Aroma Koffein
 
 <en:natural flavouring
-en:natural rum flavouring
+en:natural rum flavouring, rum natural flavouring
 de:natürliches Rum-Aroma, natürliches Rumaroma
 fi:luontainen rommiaromi
 fr:arôme naturel de rhum
 hu:természetes rumaroma, természetes rum aroma
-
-<en:natural flavouring
-fr:arôme naturel de limette
 
 <en:natural flavouring
 fr:arôme naturel de champignon
@@ -21171,7 +21124,7 @@ es:aroma de eucalipto
 <en:natural flavouring
 en:citric flavouring
 es:aroma natural a citricos
- 
+
 <en:natural orange flavouring
 <en:with other natural flavouring
 fr:arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
@@ -21410,12 +21363,6 @@ fr:arôme naturel d'origan
 hu:természetes oregánó aroma
 
 <en:natural flavouring
-en:rum natural flavouring
-fi:luontainen rommiaromi
-fr:arôme naturel de rhum
-hu:természetes rum aroma
-
-<en:natural flavouring
 fr:arôme naturel de sureau
 
 <en:flavouring
@@ -21442,12 +21389,17 @@ fr:arôme de poire
 hu:körte aroma
 sv:päronarom
 
+<en:pear flavouring
 <en:natural flavouring
 en:natural pear flavouring
 de:natürliches Birnenaroma
 fi:luontainen päärynäaromi
 fr:arôme naturel de poire
 hu:természetes körte aroma
+
+<en:flavouring
+<en:natural pear flavouring
+fr:arôme naturel de poire avec d'autres arômes naturels
 
 <en:flavouring
 en:peach flavouring
@@ -21469,13 +21421,6 @@ de:Pfeffergewürz, Gewürzpfeffer
 fi:pippuriaromi
 fr:arôme de poivre
 hu:bors aroma
-
-<en:natural flavouring
-en:natural pepper flavouring
-es:Saborizante natural de pimiento
-fi:luontainen pippuriaromi
-fr:arôme naturel de poivre
-hu:természetes bors aroma
 
 # Two parents due to and/or ingredient
 
@@ -21532,7 +21477,7 @@ es:Saborizante de frambuesa natural
 fi:luontainen vadelma-aromi
 fr:arôme naturel de framboise
 hu:természetes málna aroma
- # derivedFrom:en:raspberry
+# derivedFrom:en:raspberry
 
 <en:natural flavouring
 # derivedFrom:en:pepper
@@ -22867,9 +22812,6 @@ it:grano cotto
 # ingredient/fr:ble-precuit-a-la-vapeur has 10 products @2019-06-03
 
 <en:wheat
-fr:Grains de blé dur précuits
-
-<en:wheat
 fr:blé dur concassé précuit
 
 <en:wheat
@@ -23094,10 +23036,6 @@ hu:durumbúzaiszt, durum búzaliszt
 nl:volkoren tarwegriesmeel
 
 <en:semolina
-en:Durum wheat flour
-nl:durum tarwegriesmeel
-
-<en:semolina
 <en:durum wheat
 # <en:Couscous
 en:durum wheat semolina
@@ -23117,6 +23055,10 @@ ru:борошно з пшеннци тверднх сортив
 sl:pšenični zdrob durum
 tr:durum buğdayı ırmığı
 zh:硬质粗粒小麦粉
+
+<en:durum wheat semolina
+<en:Durum wheat flour
+nl:durum tarwegriesmeel
 
 <en:durum wheat semolina
 en:organic durum wheat semolina
@@ -23932,6 +23874,9 @@ fr:sirop d'orge malté
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
 
+<fr:sirop d'orge malté
+fr:sirop de malt d'orge déshydraté
+
 <en:syrup
 en:malt syrup
 es:jarabe de malta
@@ -24336,7 +24281,7 @@ sv:fullkornshavre
 
 <en:oat
 en:whole grain oat flakes
-es:copos de avena integrales
+es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
 
 <en:oat
 en:oat bran
@@ -24347,10 +24292,6 @@ fr:son d'avoine
 hu:zabkorpa
 it:crusca d'avena
 nl:Haverzemelen
-
-<en:oat
-en:wholemeal oat
-es:copos de avena integral, copos de avena integral laminados
 
 <en:oat bran
 nl:Haverzemelen met kiem
@@ -25201,7 +25142,6 @@ it:farina di grano tenero tipo 0, farina di grano tipo 0
 
 <en:wheat flour
 en:wheat flour type 00, flour type 00
-de:Weizenmehl Type 0
 it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
@@ -27230,11 +27170,8 @@ hu:xantángumi
 
 <en:gum arabic
 de:Verdickungsmittel Gummi arabicum
-es:goma árabe
 fr:épaississant gomme arabique
 it:addensante gomma arabica
-nl:arabische gom
-pt:goma arábica
 # ingredient/fr:épaississant-gomme-arabique has 47 products in 4 languages @2019-03-02
 # stabilisant (gomme arabique)
 
@@ -27841,9 +27778,6 @@ sv:druvsocker
 <en:sugar
 fr:sucre vanilline
 fi:vanilliinisokeri
-
-<en:sugar
-de:Zuckerrübensirup
 
 # description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
@@ -28733,12 +28667,6 @@ fr:sirop d'amidon
 
 <fr:sirop d'amidon
 fr:sirop d'amidon de maïs
-
-<en:malted barley
-fr:sirop d'orge malté
-
-<fr:sirop d'orge malté
-fr:sirop de malt d'orge déshydraté
 
 fr:sirop de candi, sirop de sucre candi
 
@@ -29721,7 +29649,6 @@ fi:kaseinaatti
 fr:caséinate
 hu:kazeinát
 it:caseinato
-nl:Caseïne
 vegan:en:no
 vegetarian:en:yes
 wiktionary:en:https://en.wiktionary.org/wiki/caseinate
@@ -30129,7 +30056,7 @@ de:kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
 fr:éclats de fèves de cacao, éclats de fèves de cacao
-it:granella di semi di cacao, scaglie di cacao
+it:granella di semi di cacao, scaglie di cacao, granella di fave di cacao, granella di cacao
 # ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
 
 <en:cocoa bean chips
@@ -30139,16 +30066,6 @@ it:granella di fave di cacao tostate
 nl:geroosterde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
 # usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
-
-<fr:fèves de cacao
-es:trocitos de pepitas de cacao
-fr:éclats de fèves de cacao, éclats de fèves de cacao
-it:granella di fave di cacao, granella di cacao
-
-<fr:éclats de fèves de cacao
-es:trocitos de pepitas de cacao tostadas
-fr:éclats de fèves de cacao torréfiés
-it:granella di fave di cacao tostate
 
 fr:cacao minimum
 
@@ -30921,7 +30838,6 @@ fr:eau de source St Benoît, Eau de source Saint Benoît
 
 <en:spring water
 en:natural spring water
-da:vand
 de:natürliches Quellwasser
 fi:luontainen lähdevesi
 fr:eau de source naturelle
@@ -32638,7 +32554,7 @@ da:arabisk gummi, Gummi arabikum
 de:Gummi arabicum
 el:Αραβικό κόμμι, Κομμι ακακιας
 eo:Araba gumo
-es:goma arábiga
+es:goma arábiga, goma árabe
 et:Kummiaraabik
 eu:Arabiako goma
 fa:صمغ عربی
@@ -34631,7 +34547,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:mango
 <en:purée
 en:mango puree
-de:Mangopüree
+de:Mangopüree, Mangopulpe, Mangomark
 es:Puré de mango
 fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
@@ -34641,11 +34557,6 @@ sv:mangopuré
 # In process de:Mangopüree, Mangomark
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-mangue
 # 393 products @2018-09-27
-
-<en:mango
-fr:pulpe de mangue
-de:Mangopulpe, Mangomark
-it:polpa di mango
 # ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
 
 ##########################################
@@ -34686,7 +34597,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-da:Pære
+da:fersken
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
@@ -36713,7 +36624,6 @@ carbon_footprint_fr_foodges_value:fr:1.3
 
 <en:orange juice
 en:concentrated orange juice
-da:Appelsinjuice fra koncentrat
 de:Orangensaftkonzentrat
 es:Zumo de naranja concentrado
 fi:appelsiinimehutiiviste, appelsiinitäysmehutiiviste
@@ -37039,7 +36949,6 @@ pl:Sok z aceroli, sok z aceroli
 ru:Сок ацеролы
 # ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
 # en:process:en:powdered
-ƒ
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
 # ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
@@ -37246,19 +37155,15 @@ wikidata:en:Q5812410
 en:wild blueberries
 de:Wilde Heidelbeeren
 fr:Myrtilles sauvages
+fi:villimustikka
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
+# 55 products in 2 languages @2018-10-01
 
 <en:blueberry
 en:organic blueberry
 de:Bio-Heidelbeeren, Bio-Blaubeeren
 fi:luomumustikka, luomu mustikka
 fr:myrtilles bio
-
-<en:blueberry
-fr:myrtilles sauvages
-de:Wilde Heidelbeeren
-fi:villimustikka
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
 
 <en:blueberry
 <en:purée
@@ -39640,8 +39545,12 @@ pt:groselha
 #                                Rosehip
 #
 ###################################################################################################
+# description:en: The  ROSE HIP  or rosehip, also called rose haw and rose hep, is the accessory fruit of the rose plant. Rose hips are used for herbal teas, jam, jelly, syrup, rose hip soup, beverages, pies, bread, wine, and marmalade. They can also be eaten raw, like a berry, if care is taken to avoid the hairs inside the fruit.
+
+# comment:en:There is some confusion in the data & translations between the fruit (rose hip), one of the plants it comes from (Rosa canina), and wild roses in general.
+
 <en:fruit
-en:rosehip
+en:rose hip, rosehip
 af:Roosbottel
 ar:وردة المسك
 az:İtburnu
@@ -39653,31 +39562,34 @@ cs:Šípky
 cv:Шăлан
 da:Hyben
 de:Hagebutte, Hagebutten
+el:καρπός της αγριοτριανταφυλλιάς
 eo:Rozbero
 es:escaramujo
-et:Arkakarats
+eu:Arkakarats
 fa:میوه گل رز
-fi:Ruusunmarja
-fr:cynorrhodon
+fi:Ruusunmarja, kiulukka
+fr:cynorrhodon, fruit de l'églantier
+ga:mogóir róis
 hr:Šipak
 hu:csipkebogyó
 hy:մասուր
-it:Cinorrodo, Rosa canina
+it:Cinorrodo
 ja:ローズヒップ
 jv:Rosehip
 kk:Итмұрын
 ko:로즈힙
 ky:Ит мурун
 lb:Spackelter
-lt:Erškėtis
+lt:erškėtuogė, Erškėtis
+ml:റോസ് ഹിപ്
 nb:Nype
-nl:Rozenbottel
+nl:Rozenbottel, rozebottel
 nn:Nype
 os:Уагъылы
 pt:Cinórrodo
 ro:Măceș
 ru:Шиповник
-sk:Ruža šipkova
+sk:šípka, Ruža šipkova
 sv:Nypon
 uk:Шипшина
 zh:蔷薇果
@@ -39689,12 +39601,22 @@ zh:蔷薇果
 # inh:Хьандарг
 # pt-br:Quadril de rosa
 # zh-hans:蔷薇果
-# zh-hant:蔷薇果
-# zh-tw:蔷薇果
+# zh-hant:蔷薇果, 薔薇果
+# zh-tw:蔷薇果, 薔薇果
 wikidata:en:Q46740
+wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cynorrhodon
 # 65 products @2018-10-02
+# ingredient/fr:églantier has 66 products in 5 languages @2019-04-03
 
+<en:plant
+en:dog rose
+fr:églantier
+it:Rosa canina
+la:Rosa canina
+pt:roseira brava
+wikidata:en:Q146066
+wikipedia:en:https://en.wikipedia.org/wiki/Rosa_canina
 
 ###################################################################################################
 #
@@ -40404,7 +40326,6 @@ de:Weißer Traubensaft aus Konzentrat
 es:zumo de uva blanca concentrado
 fi:vaalea rypälemehutiiviste
 fr:jus de raisin blanc concentré
-nl:Geconcentreerd grapefruitsap
 
 <en:concentrated white grape juice
 en:organic concentrated white grape juice
@@ -42116,15 +42037,18 @@ nl:cichorei-extract
 # ingredient/extract-of-chicory has 31 products @2019-04-04
 
 
-<en:vegetable
+# description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
+# comment:en:The wikidata translations are a mix of common and latin names.
+
+<en:salad
 # <en:Leaf vegetables
 en:corn salad, common cornsalad, lamb's lettuce, fetticus, feldsalat, nut lettuce, field salad, rapunzel, doucette, raiponce
-de:Feldsalat, Rapunzel, Rapunzelsalat
+de:Feldsalat, Rapunzel, Rapunzelsalat, Nüsslisalat
 es:canonigos
 et:Põldkännak
 eu:Ardi-mihi
 fi:Vuonankaali
-fr:mâche
+fr:mâche, rampon
 hr:Matovilac
 hu:salátagalambbegy
 it:Songino
@@ -44258,26 +44182,31 @@ de:Konzentriertes Selleriesaftpulver
 fr:jus concentré de céleri en poudre
 
 <en:celery
-de:Selleriesaft
-
-<en:celery
 fr:extrait de céleri
 fi:selleriuute
 nl:selderextract
 # fr:extrait-de-céleri has 58 products @2018-10-20
 
 <en:celery
-fr:graines de céleri
+<en:seed
+en:celery seed
 de:Selleriesamen, Selleriesaat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20céleri
+es:Semilla de apio
+fi:sellerinsiemen
+fr:graines de céleri
+nl:selderij zaad, selderijzaad
+sv:sellerifrö
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
 # 66 products in 3 languages @2018-10-07
 
-<fr:graines de céleri
+<en:celery
+en:celery powder
 fr:céleri en poudre
 de:Selleriepulver
 fi:sellerijauhe
 it:sedano in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri%20en%20poudre
+wikipedia:en:https://en.wikipedia.org/wiki/Celery_powder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri-en-poudre
 # 41 products in 4 languages @2018-10-07
 
 <en:carrot juice
@@ -45417,9 +45346,10 @@ fi:raparperimehu
 fr:Jus de rhubarbe
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
+# comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
 
 <en:vegetable
-en:salad
+en:salad, leafy greens, salad greens
 da:Salat
 de:Salat
 es:Ensalada
@@ -45431,6 +45361,9 @@ nl:sla, salade
 sv:Sallad
 zh:沙拉
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
+wikipedia:en:https://en.wikipedia.org/wiki/Leaf_vegetable
+wikipedia:de:https://de.wikipedia.org/wiki/Salatpflanze
+wikipedia:fr:https://fr.wikipedia.org/wiki/Salade_(plante)
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
 carbon_footprint_fr_foodges_ingredient:fr:Salade
 carbon_footprint_fr_foodges_value:fr:0.8
@@ -45438,171 +45371,6 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:salad
 fr:batavia
 # ingredient/fr:batavia has 21 products in french @2019-02-26
-
-# description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
-# comment:en:The wikidata translations are a mix of common and latin names.
-
-<en:salad
-en:corn salad
-de:Feldsalat
-et:Põldkännak
-eu:Ardi-mihi
-fi:Vuonankaali
-fr:mâche
-hr:Matovilac
-hu:salátagalambbegy
-it:Songino
-ja:ノヂシャ
-ko:콘샐러드
-nb:Vårsalat
-nl:veldsla
-pl:Rapunkuł
-pt:Canónigos
-ru:Полевой салат
-sr:Матовилац
-sv:Vårklynne
-wa:Doûcete
-zh:萵苣纈草
-# hsb:rjaponka
-# sr-ec:Матовилац
-# sr-el:Matovilac
-# vec:Gałinełe
-# vls:Kôornsaloa
-wikidata:en:Q158954
-wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
-# ingredient/fr:mâche has 133 products in french @2019-05-08
-
-
-# description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
-# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
-
-<en:salad
-en:lettuce
-af:Blaarslaai
-am:ሰላጣ
-an:Ensalada
-ar:خس
-az:Süddəyən, Kahı
-ba:Латук
-be:Латук
-bg:Маруля
-bn:লেটুস
-bo:རྗེན་ཚལ་
-ca:Lletuga, enciam
-cs:locika setá, locika
-cy:Letysen
-da:Salat
-de:Lattich, Gartensalat
-eo:Laktuko, Kultiva laktuko
-es:Lechuga
-et:Salat, Aedsalat
-eu:Uraza
-fa:لاکتوکا, کاهو
-fi:lehtisalaatti
-fr:laitue
-ga:Leitís
-gl:Leituga
-gu:Ka'anakyrỹi
-gv:Glassyr
-he:חסה, חסה תרבותית
-hr:Salata, Zelena salata
-ht:Leti
-hu:saláta, kerti saláta
-hy:հազար, հազար
-id:Selada
-io:Latugo
-is:Salat
-it:Lattuga
-ja:アキノノゲシ属, レタス
-ka:ღორისქადა, სალათა
-kk:Ассүттіген, Салат
-kn:ಲೆಟಿಸ್
-ko:왕고들빼기속, 상추
-ku:Kahû
-ky:Сүттикен
-la:Lactuca, Lactuca sativa
-lt:Salota, Sėjamoji salota
-lv:Dārza salāti
-mk:Зелена салата
-ml:ഉർവച്ചീര
-ms:Salad
-my:ဆလတ်ပင်
-nb:Salater
-nl:sla
-nn:Planteslekta salat, hagesalat
-os:Къæсула
-pa:ਸਲਾਦ
-pl:sałata, Sałata siewna
-pt:alface
-qu:Pilliyuyu
-ro:salată
-ru:Латук, Салат
-rw:Imboga za leti
-sc:Lattuca
-sh:Zelena salata
-si:සලාද
-sr:зелена салата
-sv:Sallatsläktet, Sallat
-ta:இலைக்கோசு
-th:สกุลผักกาดหอม, ผักกาดหอม
-tl:Letsugas
-to:Lētisilau
-tr:Marul
-ug:ظوسذث
-uk:Латук, Салат
-uz:Salat
-vi:Chi Rau diếp, Xà lách
-wa:Salåde
-za:byaekaengjgwx
-zh:莴苣属, 萵苣
-# aeb-arab:خسّ
-# ang:Leahtric
-# atj:Katiapi
-# bar:Salot
-# bcl:Litsugas
-# en-ca:Lettuce
-# en-gb:Lettuce
-# hak:Fú-mak
-# kaa:Salat
-# lij:Leituga
-# mzn:کهوک
-# nah:Quillechuca
-# pnb:سلاد
-# pt-br:Alface
-# rup:Sâlatâ
-# scn:Lattuca
-# sco:lettuce
-# sgs:Saluotis
-# tyv:Салат
-# war:Letsugas
-# wuu:莴苣
-# yue:生菜
-# zh-tw:萵苣
-wikidata:en:Q83193
-wikidata:en:Q578052
-wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
-wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
-# ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
-
-# description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
-
-<en:salad
-en:iceberg lettuce
-es:lechuga iceberg, iceberg
-de:Eisbergsalat
-eo:glacilaktuko
-fi:Jäävuorisalaatti
-fr:laitue iceberg, iceberg
-it:insalata iceberg
-nb:isbergsalat
-nl:ijsbergsla
-pt:alface americana
-sv:Isbergssallat
-# zh-tw:皺葉萵苣
-wikidata:en:Q1310886
-# ingredient/fr:laitue-iceberg has 41 products in 4 languages @2019-04-04
-# ingredient/fr:iceberg has 46 products in french @2019-04-16
-
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
@@ -45896,81 +45664,6 @@ fr:pulpe d'échalote
 en:concentrated shallot juice
 de:Konzentrierter Zwiebelsaft
 fr:jus d'échalote concentré
-
-# description:en: COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
-
-<en:vegetable
-en:sorrel, common sorrel
-af:Veldsuring
-ar:حماض بستاني
-az:Adi əvəlik
-ba:Ҡуҙғалаҡ
-bg:Киселец
-ca:agrella
-cs:šťovík kyselý
-cy:Suran y cŵn
-da:syre, Almindelig Syre
-de:Sauerampfer
-el:Λάπαθο
-eo:Okzalo
-es:Acedera común
-et:Hapu oblikas
-eu:Mingarratz handi
-fa:سورل، لوئیزیانا
-fi:Niittysuolaheinä
-fr:oseille
-ga:Samhadh
-gl:Aceda
-hi:खट्टा पालक
-hr:Obična kiselica
-hu:Mezei sóska
-io:Oxalo
-is:Túnsúra
-it:acetosa
-ja:スイバ
-ka:მჟაუნა
-ko:수영
-ku:Tirşo
-ky:Кызыл аткулак
-la:Rumex acetosa
-lt:Valgomoji rūgštynė
-lv:pļavas skābene
-mk:Киселец
-nb:Engsyre
-nl:veldzuring, Zurkel
-nn:Engsyre
-nv:Chaatʼíní
-os:Хуырхæг
-pl:Szczaw zwyczajny
-pt:Azeda
-ro:Măcriș
-ru:Щавель кислый
-se:Juopmu
-sh:Kiseljak
-sk:štiav lúčny
-sl:Navadna kislica
-sq:Lëpjeta
-sr:кисељак
-sv:Ängssyra
-tg:Туршак
-uk:Щавель кислий
-vi:Chút chít
-zh:酸模
-# azb:عادی او‌لیک
-# csb:Kwasné zelé
-# diq:Amênvaş
-# frr:Ruad jüd
-# hsb:Kisały zdźer
-# koi:Тшӧтшкӧр
-# sgs:Rūgštīnė
-# stq:Suurke
-# vec:Spanavin
-# vep:Sol'hein
-# zh-tw:酸模
-wikidata:en:Q26297
-wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
-# ingredient/fr:oseille has 91 products in 5 languages @2019-04-05
-
 
 <en:vegetable
 en:spinach
@@ -47145,75 +46838,6 @@ fr:Pâte de paprika
 en:sweet paprika
 es:pimienta roja dulce
 
-# description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
-# comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
-
-<en:vegetable
-en:rocket, arugula
-ar:جرجير
-az:Əkin indausu
-be:Індаў пасяўны
-bg:рукола
-bn:রকেট সালাদ
-br:roketez
-co:rutulella
-cs:roketa setá
-da:rucola
-de:Rucola
-el:Ρόκα
-eo:Kultiva eruko
-es:Rúcula
-et:rukola
-fa:منداب
-fi:sinappikaali
-fr:roquette
-gl:Eiruga
-he:בן-חרדל מצוי
-hu:Borsmustár
-hy:Ճարճրուկ ցանովի
-is:Klettasalat
-it:rucola
-ja:ルッコラ
-ka:რუკოლა
-kk:Егістік қышатүс
-ko:루콜라
-la:Eruca vesicaria subsp. sativa
-lt:Rukola
-mt:eruka
-nb:ruccola
-nl:rucola
-pa:ਤਾਰਾਮੀਰਾ
-pl:Rokietta siewna
-pt:rúcula
-ro:Voinicică
-ru:руккола
-sd:ڄانڀو
-sq:sallatë manushaqeje
-sr:Рукола
-sv:ruccola
-tr:Roka
-uk:Рукола
-zh:芝麻菜
-# arz:جرجير
-# ast:Guxanu
-# azb:اکین اینداوسو
-# en-ca:rocket
-# hsb:Běła hórčica
-# pnb:تارا میرا
-# sr-ec:Рукола
-# sr-el:Rukola
-# yue:火箭菜
-# zh-cn:芝麻菜
-# zh-hans:芝麻菜
-# zh-hant:芝麻菜
-# zh-hk:芝麻菜
-# zh-sg:芝麻菜
-# zh-tw:芝麻菜
-wikidata:en:Q156884
-wikipedia:en:https://en.wikipedia.org/wiki/Eruca_sativa
-# ingredient/fr:roquette has 252 products in 5 languages @2019-05-10
-
-
 <en:vegetable
 en:tomato, tomatoes
 ab:Атомат
@@ -47791,17 +47415,26 @@ wikidata:en:Q932664
 # fr:châtaigne-d'eau has 87 products in 5 languages @2018-10-15
 
 
+# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages.
+<en:vegetable
+en:cress
+de:Kresse
+wikipedia:en:https://en.wikipedia.org/wiki/Cress
+
 # description:en:WATERCRESS or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. Watercress can be sold in supermarkets in sealed plastic bags, containing a little moisture and lightly pressurised to prevent crushing of contents. Watercress is 95% water and has low contents of carbohydrates, protein, fat, and dietary fiber.
 # comment:en:The wikidata-page refers to plant and not the vegetable. The translations are taken from the wikipedia-pages.
 
-<en:vegetable
+<en:cress
 en:Watercress
+af:Bronkors
+an:Berro
+ar:جرجير الماء
 ca:creixen
 de:Brunnenkresse
 eo:akvokreso
 es:berro
 fi:Isovesikrassi
-fr:cresson
+fr:Cresson de fontaine, cresson
 gl:Agrón
 id:Selada Air
 io:Kreso
@@ -47825,8 +47458,20 @@ zh:西洋菜
 # zh-hk:西洋菜
 # zh-sg:西洋菜
 # zh-tw:水芥菜
+wikidata:en:Q150452
 wikipedia:en:https://en.wikipedia.org/wiki/Watercress
 # ingredient/watercress has 107 products in 4 languages @2019-04-13
+# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
+
+# description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb. 
+
+<en:cress
+en:Garden cress
+fr:Cresson alénois
+la:Lepidium sativum
+wikidata:en:Q27033
+wikipedia:en:https://en.wikipedia.org/wiki/Garden_cress
+
 
 # A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
@@ -48084,22 +47729,6 @@ de:getrocknete Zucchini
 fi:kuivattu kesäkurpitsa
 fr:courgettes séchées
 
-# Watercress or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale.
-
-<en:vegetable
-en:watercress
-af:Bronkors
-an:Berro
-ar:جرجير الماء
-de:Kresse
-fi:isovesikrassi
-fr:cresson
-it:crescione
-nl:waterkers
-wikipedia:en:https://en.wikipedia.org/wiki/Watercress
-# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
-
-
 <en:vegetable
 en:frisée lettuce
 de:krauser Salat
@@ -48109,7 +47738,7 @@ la:Cichorium endivia var. crispum
 nl:krulandijvie
 pl:Endywia kędzierzawa
 sv:Frisésallat
- # description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
+# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
 wikidata:en:Q2963415
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 # ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
@@ -48363,7 +47992,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lima_bean
 
 <en:lima beans
 en:large lima beans
-de:Limabohnen
 fr:Grands haricots de Lima
 
 <en:lima beans
@@ -49047,14 +48675,13 @@ es:Garbanzos pedrosillanos
 
 <en:chickpea
 en:Cicer arietinum
-de:Kichererbse
 la:Cicer arietinum
 
 <en:chickpea
 en:organic chickpea
 fi:luomukikherne, luomu kikherne
 fr:Pois chiches biologiques
-10@2019-06-12
+#10@2019-06-12
 
 <en:chickpea
 fr:pois chiches précuits
@@ -50124,7 +49751,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées
 
 <en:chopped hazelnuts
 en:roasted nibbed hazelnuts
-de:geröstete Haselnüsse
 fr:noisettes hachées grillées, noisettes hachées et grillées
 nl:geroosterde gehakte hazelnoten
 pl:siekane i prażone orzeszki ziemne
@@ -50580,7 +50206,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
 
 <en:walnut
-en:walnuts shelled
+en:walnut kernel, walnuts shelled
 de:Walnusskerne
 fi:kuoreton saksanpähkinä, kuorettomat saksanpähkinät
 fr:cerneaux de noix
@@ -50602,9 +50228,6 @@ fr:noix en coques
 
 <fr:noix en coques
 fr:noix en coques séchées
-
-<en:walnut
-fr:cerneaux de noix
 
 <fr:cerneaux de noix
 fr:cerneaux de noix AOP
@@ -50772,25 +50395,6 @@ fr:anis bio
 it:anice bio
 nl:biologisch anijszaad, anijs bio
 # ingredient/nl:biologisch-anijszaad has 1 product @2019-05-24
-
-<en:seed
-en:celery seed
-de:Selleriesamen
-es:Semilla de apio
-fi:sellerinsiemen
-fr:graines de céleri
-nl:selderij zaad, selderijzaad
-sv:sellerifrö
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
-# 66 products in 3 languages @2018-10-07
-
-<en:celery seed
-fr:céleri en poudre
-de:Selleriepulver
-fi:sellerijauhe
-it:sedano in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri-en-poudre
-# 41 products in 4 languages @2018-10-07
 
 <en:seed
 <en:coriander
@@ -56107,7 +55711,7 @@ wikipedia:en:https://es.wikipedia.org/wiki/Aloysia_citrodora
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
-<en:vegetable
+<en:salad
 en:lettuce, Lettuces
 af:Blaarslaai
 am:ሰላጣ
@@ -56223,7 +55827,7 @@ fr:Laitue romaine
 
 <en:lettuce
 fr:jeunes pousses de laitue verte
-9@2019-06-06
+#9@2019-06-06
 
 # description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
 
@@ -56231,7 +55835,7 @@ fr:jeunes pousses de laitue verte
 en:iceberg lettuce
 de:Eisbergsalat
 eo:glacilaktuko
-es:lechuga iceberg
+es:lechuga iceberg, iceberg
 fi:Jäävuorisalaatti
 fr:laitue iceberg, iceberg
 it:insalata iceberg
@@ -56407,7 +56011,7 @@ fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
 nb:lakrisrot
-nl:Zoethout
+nl:Zoethoutwortel
 sv:lakritsrot
 # ingredient/fr:racine-de-réglisse has 51 products in 4 languages @2018-12-28
 
@@ -56417,7 +56021,7 @@ da:lakridsrodsekstrakt
 de:Süßholzwurzelextrakt
 es:extracto de raíz de regaliz
 fi:lakritsijuuriuute
-fr:Extrait de réglisse
+fr:Extrait de racine de réglisse
 it:estratto di radice di liquirizia
 nl:zoethoutwortelextract
 
@@ -57096,65 +56700,6 @@ fi:ruusun terälehdet
 fr:pétales de rose
 it:petalo di rosa
 # ingredient/en:rose-petals has 72 products in 4 languages @2018-12-29
-
-
-# description:en: The  ROSE HIP  or rosehip, also called rose haw and rose hep, is the accessory fruit of the rose plant. Rose hips are used for herbal teas, jam, jelly, syrup, rose hip soup, beverages, pies, bread, wine, and marmalade. They can also be eaten raw, like a berry, if care is taken to avoid the hairs inside the fruit.
-
-<en:plant
-en:rose hip, rosehip
-af:Roosbottel
-ar:وردة المسك
-az:İtburnu
-be:Шыпшына
-br:Hogan
-bs:Šipurak
-ca:gavarró
-cs:šípky
-cv:Шăлан
-da:hyben
-de:Hagebutte
-el:καρπός της αγριοτριανταφυλλιάς
-eo:Rozbero
-es:escaramujo
-eu:Arkakarats
-fa:میوه گل رز
-fi:ruusunmarja, kiulukka
-fr:cynorrhodon, fruit de l'églantier, églantier
-ga:mogóir róis
-hr:Šipak
-hu:csipkebogyó
-hy:մասուր
-it:cinorrodo
-ja:ローズヒップ
-jv:Rosehip
-kk:Итмұрын
-ko:로즈힙
-ky:Ит мурун
-lb:Spackelter
-lt:erškėtuogė, Erškėtis
-ml:റോസ് ഹിപ്
-nb:nype
-nl:rozenbottel, rozebottel
-os:Уагъылы
-pt:cinórrodo, roseira brava
-ro:Măceș
-ru:Шиповник
-sk:šípka, Ruža šipkova
-sv:nypon
-uk:Шипшина
-zh:蔷薇果
-# ast:artuganciu
-# bar:Hetscherl
-# dsb:Głogowe jabłuško
-# frr:Juup
-# hsb:Šiplenka
-# inh:Хьандарг
-# pt-br:Quadril de rosa
-# zh-hans:蔷薇果
-# zh-hant:薔薇果
-# zh-tw:薔薇果
-wikipedia:en:https://en.wikipedia.org/wiki/Rose_hip
-# ingredient/fr:églantier has 66 products in 5 languages @2019-04-03
 
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
@@ -65753,13 +65298,13 @@ fr:crevettes roses
 # en:description:Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
 
 <en:shrimp
-en:penaeid shrimp
+en:Penaeidae, penaeid shrimp
 ar:بنيدات
 bg:Бели скариди
 ca:Peneid
 fa:درازمنقارچگان
 fi:valkokatkaravut
-fr:Penaeid shrimp
+fr:Penaeidae, Penaeid shrimp
 gl:Peneidos
 ja:クルマエビ科
 ko:보리새우과
@@ -65768,7 +65313,8 @@ mk:пенеиди
 vi:Họ Tôm he
 zh:對蝦科
 wikidata:en:Q683918
-
+wikipedia:en:https://en.wikipedia.org/wiki/Penaeidae
+# ingredient/fr:Penaeidae has 5 products @2018-12-14
 
 <en:shrimp
 en:deep-sea shrimp, gamba prawns, gamba shrimps
@@ -65958,25 +65504,6 @@ wikipedia:nl:https://nl.wikipedia.org/wiki/Pandalus_jordani
 <en:shrimp
 la:Solenocera Crassicornis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
-
-
-# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns.
-
-<en:shrimp
-en:Penaeidae
-ar:بنيدات
-bg:Бели скариди
-de:Garnele
-fa:درازمنقارچگان
-fi:valkokatkaravut
-fr:Penaeidae
-ja:クルマエビ科
-ko:보리새우과
-mk:пенеиди
-vi:Họ Tôm he
-zh:對蝦科
-wikipedia:en:https://en.wikipedia.org/wiki/Penaeidae
-# ingredient/fr:Penaeidae has 5 products @2018-12-14
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -66241,6 +65768,7 @@ fr:miel non raffiné, miel brut
 en:pure honey
 de:Purer Honig
 fr:Miel pur
+# ingredient/fr:miel-pur has 3 products @2019-0-28
 
 <en:honey
 en:organic honey
@@ -66258,10 +65786,6 @@ fr:miel pasteurisé
 
 <en:honey
 de:Honigpulver
-
-<en:honey
-fr:miel pur
-# ingredient/fr:miel-pur has 3 products @2019-0-28
 
 <en:honey
 en:liquid honey
