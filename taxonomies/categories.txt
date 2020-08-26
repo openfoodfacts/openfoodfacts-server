@@ -22373,8 +22373,13 @@ ro:Biscuiți cu ciocolată neagră
 
 # Biscuits type granola, pepito and other digestive biscuits covered with chocolate
 <en:Chocolate biscuits
-en:Chocolate-covered biscuits
-fr:Biscuits nappés de chocolat
+en:Digestives covered with chocolate, Chocolate-covered biscuits
+fr:Sablés nappés de chocolat, Biscuits nappés de chocolat
+
+# Biscuits type Mikado
+<en:Chocolate biscuits
+en:Stick biscuits covered with chocolate
+fr:Biscuits bâtonnets au chocolat
 
 <en:Chocolate biscuits
 es:Galletas con tableta de chocolate
@@ -40857,18 +40862,19 @@ es:Polos de horchata de chufa, Helados de palo de horchata de chufa
 <en:Plant-based ice creams
 en:Plant-based ice cream tubs
 es:Tarrinas y bloques de helado con leche vegetal, Tarrinas de helado con leche vegetal, Bloques de helado con leche vegetal
-fr:Crème glacée à base de plante
+fr:Crèmes glacées végétales en pot, Crème glacée à base de plante
 nl:Plantaardig roomijs
 
 <en:Plant-based ice creams
 en:Plant-based ice cream cones
 es:Conos de helado con leche vegetal
-fr:Crème glacée à base de plante
+fr:Cônes glacés végétaux, Crème glacée à base de plante
 nl:Plantaardige ijshoorntjes
 
 <en:Plant-based ice creams
 en:Plant-based ice cream sandwiches
 es:Sándwiches de helado con leche vegetal
+fr:Sandwiches à la crème glacée végétale
 nl:Plantaardige ijswafels
 
 <en:Frozen desserts
@@ -49395,14 +49401,6 @@ agribalyse_food_code:en:25208
 ciqual_food_code:en:25208
 ciqual_food_name:en:Vegetable rosti, pre-fried, frozen, cooked
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé, cuit
-
-<en:Prepared vegetables
-en:Rostis, Potatoes cakes, Potato cakes
-fr:Rostis, Galette de pomme de terre, Galette de pommes de terre
-agribalyse_food_code:en:4039
-ciqual_food_code:en:4039
-ciqual_food_name:en:Rostis or Potatoes cake
-ciqual_food_name:fr:Rostis ou Galette de pomme de terre
 
 <en:Prepared vegetables
 en:Stuffed vegetables
@@ -72618,6 +72616,10 @@ ciqual_food_name:en:Salty snacks, crackers, plain
 ciqual_food_name:fr:Biscuit apéritif, crackers, nature
 
 <en:Crackers
+en:Salty canistrelli
+fr:Canistrelli salés
+
+<en:Crackers
 en:Salty palmiers
 fr:Palmiers salés
 
@@ -73141,8 +73143,20 @@ nl:Puree, Moes
 nl_be:Puree, Moes
 wikidata:en:Q636056
 
-<fr:Purées
 <en:Cereals and potatoes
+en:Potato preparations
+fr:Préparations à base de pommes de terre
+
+<en:Potato preparations
+en:Rostis, Potatoes cakes, Potato cakes
+fr:Rostis, Galette de pomme de terre, Galette de pommes de terre
+agribalyse_food_code:en:4039
+ciqual_food_code:en:4039
+ciqual_food_name:en:Rostis or Potatoes cake
+ciqual_food_name:fr:Rostis ou Galette de pomme de terre
+
+<fr:Purées
+<en:Potato preparations
 en:Mashed potatoes
 de:Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi:perunamuusit
