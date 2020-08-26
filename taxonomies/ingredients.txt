@@ -13764,7 +13764,7 @@ de:Rind
 es:carne de vaca
 fi:nauta, naudan, härkä, härän
 fr:bœuf, boeuf, Boeufs
-hu:marha, marhahús
+hu:marha
 it:manzo
 nl:rund
 pl:Wołowina
@@ -15070,7 +15070,7 @@ ca:cansalada,cansalada de porc
 cs:slanina
 cv:Бекон
 cy:Bacwn
-da:Bacon, svinefedt
+da:Bacon
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
@@ -15945,9 +15945,9 @@ vegetarian:en:yes
 en:modified starch, modified starches, modified food starch, modified food starches, food starch modified
 ar:نشا معدل
 bg:Модифицирано нишесте
-ca:Midó modificat, Midons modificats, Fècula modificada, fècules modificades, E14XX
+ca:Midó modificat, Midons modificats, Fècula modificada, fècules modificades
 cs:Modifikovaný škrob
-da:modificeret stivelse, Fugtighedsbevarende middel
+da:modificeret stivelse
 de:modifizierte Stärke
 el:τροποποιημένο άμυλο
 es:almidón modificado,almidones modificados
@@ -16331,7 +16331,7 @@ gl:Aceite
 he:שמן
 hr:Ulja, Ulje
 ht:Lwil
-hu:olaj, sütőolaj, olajok
+hu:olaj, olajok
 hy:յուղ
 id:minyak
 io:Oleo
@@ -17004,7 +17004,7 @@ it:olio e grasso di palma
 nl:palm olie en vet
 pl:Tłuszcz palmowy
 ru:Пальмовое масло и жирр
-sv:Palmolja och fett, Palmfett, Palmolja
+sv:Palmolja och fett
 uk:Пальмова олія і жири
 from_palm_oil:en:yes
 
@@ -17014,9 +17014,8 @@ es:grasa de palma no hidrogenada
 
 <en:vegetable oil and fat
 en:palm kernel oil and fat
-da:Palmeolie
+#da:Palmeolie
 de:Palmkernöl und Fett
-es:Aceite y grasa de palma
 fi:palmuydinöljy ja -rasva
 fr:Huile et matière grasse de palmiste
 hu:pálmamagolaj és -zsír
@@ -17035,7 +17034,7 @@ cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
 eo:Palmoleo
-es:aceite de palma, grasa de palma, aceite vegetal de palma,oleina de palma
+es:aceite de palma, aceite vegetal de palma,oleina de palma
 et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
@@ -17621,21 +17620,25 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive_pomace_oil
 
 <en:vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
-ca:Oli de colza
+cs:řepkový olej
 da:rapsolie
 de:Rapsöl, Rapsol
-es:Aceite de colza, aceite de nabina, aceite vegetal de nabina, aceite de canola
+es:aceite de nabina, aceite vegetal de nabina
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
-fr:Huile de canola
 he:שמן לפתית
-hu:repcemagolajak, repcemagzsír
+hr:repičino ulje
+hu:repceolaj, repcemagolaj, repcemagolajak, repcemagzsír
 is:repjuolía
-it:Olio di colza
+lt:rapšu ella
+lv:rapsų aliejus
 nb:rapsolje
-nl:Koolzaadolie
-pl:Olej rzepakowy
+nb:rapsolje
+nl:raapolie, raapzaad, raap
+pl:Olej rzepakowy, rybsolja, olej roślinny rzepakowy
+ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
-sv:Rapsolja, Rapsfett
+sk:repkový olej
+sv:Rapsolja, Rapsfett,rypsolja
 from_palm_oil:en:no
 
 
@@ -17652,10 +17655,7 @@ fi:rypsiöljy, rypsiöljyä
 fr:huile de navette, huile de canola, navette
 hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
-nl:raapolie, canola olie, raapzaadolie
-pl:Olej rzepakowy
-ru:Рапсовое масло
-sv:rypsolja, rybsolja
+nl:canola olie
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
@@ -17680,26 +17680,13 @@ sv:rypsoljeberedning
 en:colza oil
 bg:рапично олио
 ca:Oli de colza
-cs:řepkový olej
-da:rapsolie
-de:Rapsöl
 el:κραμβέλαιο
-es:aceite de colza, aceite de nabina
+es:aceite de colza
 fi:rapsiöljy
 fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
-hr:repičino ulje
-hu:repceolaj, repcemagolaj
 it:olio di colza
-lt:rapšu ella
-lv:rapsų aliejus
-nb:rapsolje
-nl:koolzaadolie, plantaardige koolzaadolie, raapolie, raapzaad, raap
-pl:olej rzepakowy, olej roślinny rzepakowy
+nl:koolzaadolie, plantaardige koolzaadolie
 pt:óleo de colza
-ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
-ru:рапсове масло
-sk:repkový olej
-sv:rapsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
@@ -18812,7 +18799,6 @@ sv:kycklingfett
 <en:chicken fat
 de:Pouletfett
 fr:graisse de poulet, gras de poulet
-hu:csirkezsír
 sv:kycklingfett
 # ingredient/fr:graisse-de-poulet has 369 products in 6 languages @2019-03-01
 
@@ -19003,7 +18989,10 @@ es:vinagre de alcohol de caña
 
 <en:vinegar
 en:apple vinegar
+de:Apfelessig
 es:vinagre de manzana
+fr:vinaigre de pomme
+nl:appelazijn
 
 # CIDER VINEGAR, a vinegar made from apples, sugar and yeast
 
@@ -19012,16 +19001,15 @@ en:cider vinegar, apple cider vinegar
 ar:خل التفاح
 bg:Ябълков оцет
 da:Æblecidereddike, æbleeddike
-de:Apfelessig
-es:vinagre de sidra, vinagre de sidra de manzana, vinagre de manzana
+es:vinagre de sidra, vinagre de sidra de manzana
 fa:سرکه سیب
 fi:siiderietikka, omenasiiderietikka
-fr:vinaigre de cidre, vinaigre de cidre de pomme, vinaigre de pomme
+fr:vinaigre de cidre, vinaigre de cidre de pomme
 he:חומץ תפוחים
 hu:almaecet
 it:aceto sidro
 ko:사과식초
-nl:ciderazijn, appelazijn
+nl:ciderazijn
 pl:Ocet jabłkowy
 ru:Яблочный уксус
 sr:Јабуково сирће
@@ -20875,7 +20863,7 @@ ru:Ром
 sv:rom
 
 <en:rhum
-en:white rum
+en:white rhum
 da:hvid rom
 de:weißer Rum
 fi:vaalea rommi
@@ -20885,7 +20873,7 @@ nl:witte rum
 wikidata:en:Q26869768
 # 20@2019-06-04
 
-<en:white rum
+<en:white rhum
 fr:Rhum blanc agricole
 
 <en:alcohol
@@ -27140,39 +27128,47 @@ en:sushi rice
 #
 ##################################################################################
 
-# THICKENER
-
-en:carob
-ca:garrofa
+#description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
+#comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
+en:carob seeds, carob, Carobin
+ca:garrofa, farina de garrofa
 cs:carubin
-de:Johannisbrotbaum
-es:Algarroba,garrofon
-fi:johanneksenleipäpuu, carob
-fr:caroube
-hu:szentjánoskenyér, karob
+da:Johannesbrødmel
+de:Carobin, Carobpulver
+es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
+et:Jaanileivapuujahu
+fi:carob
+fr:caroube, farine de caroube
+hu:karob, karob liszt
 it:carruba
-nl:johannesbrood
+nl:carob, johannesbroodmeel, carobpoeder
+sv:Johannesbrödfrö
 vegan:en:yes
 vegetarian:en:yes
 
 # question
 
+#description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
+#comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 <en:flour
-<en:carob
-en:carob flour
-ca:farina de garrofa
+<en:E410
+en:carob seed flour, carob kernel flour
 cs:Karobová mouka
-de:Johannisbrotkernmehl, Carobpulver
-es:Harina de algarroba, harina de garrofin
-fi:johanneksenleipäpuujauhe
-fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
-hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, karob liszt
-it:farina di semi di carrube
-nl:johannesbroodpitmeel, carobpoeder
-pt:farinha de semente de alfarroba
+da:Johannesbrødkernemel
+de:Johannisbrotkernmehl
+es:Harina de semillas de algarroba, semillas de algarroba
+fi:johanneksenleipäpuujauhe, Johanneksenleipäpuujauhetta
+fr:farine de graines de caroube, farine de graine de caroube, farine de graines de caroubes, graines de caroube, graine de caroube
+hu:szentjánoskenyér-liszt, szentjánoskenyér liszt, Szentjánoskenyérliszt, szentjánoskenyér
+it:farina di semi di carrube, semi di carrube
+lt:Saldžiosios ceratonijos lipai
+nl:johannesbroodpitmeel
+pl:Mączka chleba świętojańskiego
+pt:farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba
 sv:fruktkärnmjöl
 
-# question
+<en:E410
+en:peruvian carob gum
 
 <en:flour
 <en:guar gum
@@ -27206,17 +27202,6 @@ ro:gumă guar, guma guar, gumă de guar, guma de guar
 <en:carob flour
 fr:farine de graines de caroube et farine de graines de guar
 
-<en:carob
-en:locust bean gum,garrofin gum
-de:Johannisbrotgummi
-es:goma de garrofina
-el:κόμμι γκουάρ
-fi:johanneksenleipäpuujauhe
-fr:gomme de caroube
-it:farina di semi di carruba
-
-<en:locust bean gum
-en:peruvian carob gum
 
 
 # en:xanthan gum is listed under its E-number 415
@@ -33186,213 +33171,6 @@ fi:natriumtripolyfosfaatti, E452vi, E 452vi, E-452vi
 fr:Tripolyphosphate de sodium, E452vi, E 452vi, E-452vi
 # additive/e452vi-sodium-tripolyphosphate has 954 products in english @2018-11-05
 
-# SODIUM CARBONATES is the generic term for a Na and CO3 combination.
-
-en:sodium carbonates, E500, e 500, E-500
-fi:natriumkarbonaatit, E500, e 500, E-500
-fr:Carbonates de sodium, E500, e 500
-hu:nátrium-karbonátok
-it:carbonati di sodio
-nl:natriumcarbonaten
-nn:natriumkarbonater
-sv:natriumkarbonater
-
-# Sodium carbonate, Na2CO3, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
-
-<en:sodium carbonates
-en:Sodium carbonate, E500i
-ar:كربونات الصوديوم
-ba:Кальцирланған сода
-bg:Натриев карбонат
-bn:সোডিয়াম কার্বনেট
-bs:Natrij-karbonat
-ca:carbonat de sodi
-cs:Uhličitan sodný
-da:natriumkarbonater, Soda
-de:Natriumcarbonat
-el:Ανθρακικό νάτριο
-eo:natria karbonato
-es:Carbonato de sodio
-et:Naatriumkarbonaat
-fa:سدیم کربنات
-fi:natriumkarbonaatti, sooda
-fr:carbonate de sodium, carbonates de sodium
-gv:Carboanaayt sodjum
-he:נתרן פחמתי
-hi:क्षारातु प्रांगारीय
-hr:Natrijev karbonat
-hu:Nátrium-karbonát
-id:Natrium karbonat
-it:Carbonato di sodio
-ja:炭酸ナトリウム
-ko:탄산 나트륨
-lt:Natrio karbonatas
-lv:nātrija karbonāts
-mk:натриум карбонат
-ml:സോഡിയം കാർബണേറ്റ്
-nb:Natriumkarbonat
-nl:natriumcarbonaat
-nn:natriumkarbonat
-oc:Carbonat de sòdi
-pl:węglan sodu
-pt:carbonato de sódio
-ro:Carbonat de sodiu
-ru:карбонат натрия
-sh:Natrijum karbonat
-sk:Uhličitan sodný
-sl:Natrijev karbonat
-sq:Karbonati i natriumit
-sr:натријум карбонат
-sv:Natriumkarbonat
-ta:சோடியம் காபனேற்று
-te:సోడియమ్ కార్బొనేట్
-th:โซเดียมคาร์บอเนต
-tr:Sodyum karbonat
-uk:Карбонат натрію
-ur:صودا دردار
-uz:Natriy karbonat
-vi:Natri carbonat
-zh:碳酸钠
-# ast:Carbonatu de sodiu
-# azb:سودیوم کربونات
-# hak:Thàn-sôn-na̍p
-# nan:Thoàⁿ-sng natrium
-# sco:sodium carbonate
-# sr-ec:натријум карбонат
-# sr-el:Natrijum karbonat
-# war:Sodium carbonate
-# yue:鹼粉
-# zh-cn:碳酸钠
-# zh-hans:碳酸钠
-# zh-hant:碳酸钠
-# zh-hk:碳酸钠
-# zh-sg:碳酸钠
-# zh-tw:碳酸钠
-wikidata:en:Q190227
-
-
-# SODIUM BICARBONATE (IUPAC name:sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
-# On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
-
-<en:sodium carbonates
-en:baking soda, sodium hydrogen carbonate, E500ii
-af:Natriumbikarbonaat
-ar:بيكربونات الصوديوم
-bg:Натриев бикарбонат
-bn:সোডিয়াম বাইকার্বনেট
-bs:Natrij-hidrogenkarbonat
-ca:hidrogencarbonat de sodi
-cs:Hydrogenuhličitan sodný
-cy:sodiwm deucarbonad
-da:natriumvätekarbonat, Natron
-de:Natriumhydrogencarbonat
-el:Όξινο ανθρακικό νάτριο
-eo:natria bikarbonato
-es:carbonato ácido de sodio, bicarbonato de sodio
-et:Naatriumvesinikkarbonaat
-eu:sodio hidrogenokarbonato
-fa:جوش شیرین
-fi:Natriumbikarbonaatti
-fr:carbonate acide de sodium, bicarbonate de sodium, bicarbonate de soude
-gl:Bicarbonato de sodio
-gu:ખાવાનો સોડા
-he:סודה לשתייה
-hi:सोडियम बाईकार्बोनेट
-hr:Natrijev hidrogenkarbonat
-hu:nátrium-hidrogén-karbonát
-hy:Սոդա
-ia:Bicarbonato de Sodium
-id:Natrium bikarbonat
-is:Matarsódi
-it:bicarbonato di sodio, carbonato acido di sodio
-ja:炭酸水素ナトリウム
-kk:Ас содасы
-kn:ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
-ko:탄산 수소 나트륨
-lt:Natrio hidrokarbonatas
-lv:nātrija hidrogēnkarbonāts
-ml:സോഡിയം ബൈകാർബണേറ്റ്
-nl:natriumwaterstofcarbonaat
-nn:natriumvätekarbonat, natriumhydrogenkarbonat
-oc:Idrogenocarbonat de sòdi
-or:ସୋଡ଼ିଅମ ବାଇକାର୍ବୋନେଟ
-pa:ਮਿੱਠਾ ਸੋਡਾ
-pl:wodorowęglan sodu
-pt:bicarbonato de sódio, bicarbonato de sódio
-ro:Bicarbonat de sodiu
-sh:Natrijum hidrogenkarbonat
-si:සෝඩියම් බයිකාබනේට්
-sk:Hydrogénuhličitan sodný
-sl:Natrijev hidrogenkarbonat
-so:Saadiyom bicarbonate
-sq:Bikarbonati i natriumit
-sr:натријум хидрогенкарбонат
-sv:natrumvätekarbonat
-sw:Magadi
-ta:சமையல் சோடா
-te:సోడియం బైకార్బొనేట్
-th:โซเดียมไบคาร์บอเนต
-tr:Sodyum bikarbonat
-uk:Гідрокарбонат натрію
-vi:natri bicacbonat
-zh:碳酸氢钠
-# ast:Bicarbonatu de sodiu
-# azb:بیکربونات سودیوم
-# eml:Bicarbonê 'd sodi
-# frr:Natriumhydrogencarbonat
-# nan:Thoàⁿ-sng chúi-sò͘ natrium
-# pnb:مٹھا سوڈا
-# sco:sodium bicarbonate
-# sr-ec:натријум хидрогенкарбонат
-# sr-el:natrijum-hidrogenkarbonat
-# war:Sodium bicarbonate
-# yue:梳打粉
-# zh-cn:碳酸氢钠
-# zh-hans:碳酸氢钠
-# zh-hant:碳酸氫鈉
-# zh-hk:碳酸氫鈉
-# zh-sg:碳酸氢钠
-# zh-tw:碳酸氫鈉
-wikidata:en:Q179731
-wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
-# fr:carbonate-acide-de-sodium has 2313 products  in 13 languages @210-11-03
-# fr:500ii has 403 products @2018-11-03
-
-
-<en:sodium carbonates
-en:sodium sesquicarbonate
-bg:Натриев сескикарбонат
-cs:Seskviuhličitan sodný
-da:Natriumsesquicarbonat
-de:Natriumsesquicarbonat
-el:Σεσκιανθρακικο νατριο
-eo:Natria seskvikarbonato
-es:Sesquicarbonato de sodio
-et:Naatriumseskvikarbonaat
-fi:Natriumseskvikarbonaatti
-fr:Sesquicarbonate de sodium
-hu:Nátrium-szeszkvikarbonát
-hy:Տրինատրիումի հիդրոկարբոնատ
-it:Sesquicarbonato di sodio
-ja:セスキ炭酸ナトリウム
-jv:sodium sesquicarbonate
-lt:Natrio seskvikarbonatas
-lv:Nātrija seskvikarbonāts
-mt:Seskwikarbonat tas-sodju
-nl:Natriumsesquicarbonaat
-pl:Półtorawęglan sodu
-pt:Sesquicarbonato de sódio
-ro:Sescvicarbonat de sodiu
-ru:Гидрокарбонат тринатрия
-sh:Natrijum seskvikarbonat
-sk:Seskviuhličitan sodný
-sl:Natrijev seskvikarbonat
-sr:Natrijum seskvikarbonat
-sv:Natriumseskvikarbonat
-zh:鈉倍半
-# sr-el:Natrijum seskvikarbonat
-wikidata:en:Q2234978
-# additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
 
 # comment:en:The parent E503 is written in plural to distinguish it from E503i. Translations are often not consistent.
@@ -47206,7 +46984,7 @@ et:tomatipüree
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 he:מחית עגבניות
-hu:paradicsompüré, paradicsomszósz
+hu:paradicsompüré
 it:passata di pomodoro, concentrato di pomodoro
 nb:tomatpuré
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
