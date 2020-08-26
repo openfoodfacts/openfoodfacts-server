@@ -46964,8 +46964,8 @@ carbon_footprint_fr_foodges_value:fr:2.9
 en:tomato purée, tomato paste, tomato concentrate
 ca:Llet en pols
 da:tomatpuré, tomatpure, tomatkoncentrat
-de:Tomatenmark, konzentriertes Tomatenpüree, Tomatenkonzentrat, Tomatenmarkkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
-es:concentrado de tomate, pasta de tomate
+de:Tomatenmark, Tomatenkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
+es:concentrado de tomate, pasta de tomate, tomate-concentrado
 et:tomatipüree
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
@@ -46980,6 +46980,9 @@ ru:Томатная паста, томатный концентрат
 sv:tomatpuré, tomatpyré, tomatpure, tomatkoncentrat, mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
+wikidata:en:Q1114674
+wikipedia:en:https://en.wikipedia.org/wiki/Tomato_pur%C3%A9e
+wikipedia:en:https://en.wikipedia.org/wiki/Tomato_paste
 # ingredient/fr:purée-de-tomate has 2637 products @2018-12-26
 
 <en:tomato purée
@@ -47002,10 +47005,10 @@ nl:half ingedikte tomatenpuree
 <fr:purée de tomate mi-réduite
 fr:purée de tomates mi-réduite reconstituée
 
+# comment:en:This is where the tomato has been puréed *and* concentrated further.
 <en:tomato purée
 en:concentrated tomato purée
-de:Tomatenkonzentrat, konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
-es:tomate-concentrado
+de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
 fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
 fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
 hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
