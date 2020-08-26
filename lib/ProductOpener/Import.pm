@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -65,14 +65,13 @@ use Text::Fuzzy;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		&import_csv_file
 		&import_products_categories_from_public_database
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -370,7 +369,7 @@ sub import_csv_file($) {
 
 					my $code = $1;
 					$code = normalize_code($code);
-					my $imagefield = $3;	# front / ingredients / nutrition , optionnaly with _[language code] suffix
+					my $imagefield = $3;    # front / ingredients / nutrition , optionnaly with _[language code] suffix
 
 					if ((not defined $imagefield) or ($imagefield eq '')) {
 						$imagefield = "front";
@@ -409,7 +408,7 @@ sub import_csv_file($) {
 	my %seen_columns = ();
 	my @column_names = ();
 
-	foreach my $column (@$columns_ref) {
+	foreach my $column (@{$columns_ref}) {
 		if (defined $seen_columns{$column}) {
 			$seen_columns{$column}++;
 			push @column_names, $column . "." . $seen_columns{$column};
@@ -530,9 +529,9 @@ EMAIL
 							$images_ref->{$code}{front} = $file;
 						}
 
-						if (	((defined $images_ref->{$code}{front}) and ($images_ref->{$code}{front} eq $images_ref->{$code}{$imagefield . "_$k"}))
-							or	((defined $images_ref->{$code}{ingredients}) and ($images_ref->{$code}{ingredients} eq $images_ref->{$code}{$imagefield . "_$k"}))
-							or	((defined $images_ref->{$code}{nutrition}) and ($images_ref->{$code}{nutrition} eq $images_ref->{$code}{$imagefield . "_$k"})) ) {
+						if (    ((defined $images_ref->{$code}{front}) and ($images_ref->{$code}{front} eq $images_ref->{$code}{$imagefield . "_$k"}))
+							or  ((defined $images_ref->{$code}{ingredients}) and ($images_ref->{$code}{ingredients} eq $images_ref->{$code}{$imagefield . "_$k"}))
+							or  ((defined $images_ref->{$code}{nutrition}) and ($images_ref->{$code}{nutrition} eq $images_ref->{$code}{$imagefield . "_$k"})) ) {
 							# File already selected
 							delete $images_ref->{$code}{$imagefield . "_$k"};
 						}
@@ -639,7 +638,7 @@ EMAIL
 
 		my %param_langs = ();
 
-		foreach my $field (keys %$imported_product_ref) {
+		foreach my $field (keys %{$imported_product_ref}) {
 			if (($field =~ /^(.*)_(\w\w)$/) and (defined $language_fields{$1})) {
 				$param_langs{$2} = 1;
 			}
@@ -677,7 +676,7 @@ EMAIL
 
 		# We can have source specific fields of the form : sources_fields:org-database-usda:fdc_category
 		# Transfer them directly
-		foreach my $field (sort keys %$imported_product_ref) {
+		foreach my $field (sort keys %{$imported_product_ref}) {
 			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 				my $source_id = $1;
 				my $source_field = $';
@@ -732,8 +731,9 @@ EMAIL
 							$imported_product_ref->{$field} .= "," . $imported_product_ref->{$subfield};
 						}
 						else {
-							$imported_product_ref->{$field} = $imported_product_ref->{$subfield};
-						}						
+							$imported_product_ref->{$field}
+								= $imported_product_ref->{$subfield};
+						}
 					}
 				}
 			}
@@ -750,9 +750,11 @@ EMAIL
 					$stats{products_with_ingredients}{$code} = 1;
 				}
 
-				if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
-					and ($field ne "imports")	# "imports" contains the timestamp of each import
-					) {
+				if (    ( defined $Owner_id )
+					and ( $Owner_id =~ /^org-/ )
+					and ( $field ne "imports" )    # "imports" contains the timestamp of each import
+					)
+				{
 
 					# Don't set owner_fields for apps, labels and databases, only for producers
 					if (($Owner_id !~ /^org-app-/)
@@ -870,8 +872,8 @@ EMAIL
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 					}
-					elsif ($field eq "brands") {	# we removed it earlier
-						compute_field_tags($product_ref, $tag_lc, $field);
+					elsif ( $field eq "brands" ) {    # we removed it earlier
+						compute_field_tags( $product_ref, $tag_lc, $field );
 					}
 				}
 				else {
@@ -1130,8 +1132,13 @@ EMAIL
 					$nutrients_edited{$code}++;
 					push @modified_fields, "nutrients.$field";
 				}
-				elsif ((defined $product_ref->{nutriments}{$field}) and ($product_ref->{nutriments}{$field} ne "")
-					and ((not defined $original_values{$field})	or ($original_values{$field} eq ''))) {
+				elsif (
+						( defined $product_ref->{nutriments}{$field} )
+					and ( $product_ref->{nutriments}{$field} ne "" )
+					and (  ( not defined $original_values{$field} )
+						or ( $original_values{$field} eq '' ) )
+					)
+				{
 					$log->debug("new nutrient value", { field => $field,  new => $product_ref->{nutriments}{$field} }) if $log->is_debug();
 					$stats{products_nutrition_updated}{$code} = 1;
 					$stats{products_nutrition_added}{$code} = 1;
@@ -1421,7 +1428,7 @@ EMAIL
 
 						$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-						use LWP::UserAgent ();
+						require LWP::UserAgent;
 
 						my $ua = LWP::UserAgent->new(timeout => 10);
 
@@ -1748,6 +1755,8 @@ sub import_products_categories_from_public_database($) {
 
 		$n++;
 	}
+
+	return;
 }
 
 1;

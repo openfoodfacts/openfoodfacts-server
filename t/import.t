@@ -214,7 +214,7 @@ foreach my $test_ref (@tests) {
 
 foreach my $test_ref (@tests) {
 
-	clean_fields($test_ref->[0]);	
+	clean_fields( $test_ref->[0] );
 	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
 
 }

@@ -62,7 +62,7 @@ my @lists =(
 	["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 	["fr","lait demi-écrémé", "lait demi-écrémé"],
 	["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires E124, E122, E133, E104, E110"],
+	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires : E124, E122, E133, E104, E110"],
 	["fr","INS 240,241,242b","E240, E241, E242b"],
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
@@ -141,6 +141,7 @@ my @lists =(
 	["fi","omenamehu, vesi, sokeri. jossa käsitellään myös maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","luomurypsiöljy, luomu kaura, vihreä luomutee", "luomu rypsiöljy, luomu kaura, vihreä luomu tee"],
 
 
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],

@@ -603,7 +603,7 @@ $expected_product_ref =
        'id' => 'en:raising-agent',
        'ingredients' => [
          {
-           'id' => 'en:e503',
+           'id' => 'en:e503ii',
            'text' => 'carbonate acide d\'ammonium'
          },
          {
@@ -611,7 +611,7 @@ $expected_product_ref =
            'text' => 'diphosphate disodique'
          },
          {
-           'id' => 'en:e500',
+           'id' => 'en:e500i',
            'text' => 'carbonate acide de sodium'
          }
        ],
@@ -770,7 +770,7 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e503',
+       'id' => 'en:e503ii',
        'text' => 'carbonate acide d\'ammonium',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
@@ -782,7 +782,7 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e500',
+       'id' => 'en:e500i',
        'text' => 'carbonate acide de sodium',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
@@ -883,12 +883,15 @@ $expected_product_ref =
      'en:animal-protein',
      'en:milk-proteins',
      'en:lactose',
-     'en:e503',
+     'en:e503ii',
+	 'en:e503',
      'en:e450i',
      'en:e450',
+     'en:e500i',
      'en:e500',
      'en:soya-lecithin',
      'en:e322',
+     'en:e322i',
      'en:e440a',
      'en:e330',
      'en:e333',
@@ -934,9 +937,9 @@ $expected_product_ref =
      'en:flavouring',
      'en:emulsifier',
      'en:lactose-and-milk-proteins',
-     'en:e503',
+     'en:e503ii',
      'en:e450i',
-     'en:e500',
+     'en:e500i',
      'en:soya-lecithin',
      'en:e440a',
      'en:e330',
@@ -961,7 +964,7 @@ $expected_product_ref =
      'en:colza-oil',
      'en:oil-and-fat',
      'en:vegetable-oil-and-fat',
-     'en:rapeseed-oil',
+	 'en:rapeseed-oil',
      'en:raising-agent',
      'en:salt',
      'en:emulsifier',
@@ -995,12 +998,15 @@ $expected_product_ref =
      'en:animal-protein',
      'en:milk-proteins',
      'en:lactose',
-     'en:e503',
+     'en:e503ii',
+	 'en:e503',
      'en:e450i',
      'en:e450',
-     'en:e500',
+     'en:e500i',
+	 'en:e500',
      'en:soya-lecithin',
      'en:e322',
+     'en:e322i',
      'en:e440a',
      'en:e330',
      'en:e333',
@@ -1010,7 +1016,7 @@ $expected_product_ref =
      'en:e415'
    ],
    'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
-   'known_ingredients_n' => 61,
+   'known_ingredients_n' => 64,
    'lc' => 'fr',
    'unknown_ingredients_n' => 1
  };
@@ -1616,7 +1622,7 @@ delete $product_ref->{ingredients_percent_analysis};
 
 is($product_ref->{ingredients_n}, 19);
 
-my $expected_product_ref =
+$expected_product_ref =
  {
    'ingredients' => [
      {
@@ -2018,7 +2024,7 @@ is_deeply ($product_ref->{ingredients},
        'id' => 'en:emulsifier',
        'ingredients' => [
          {
-           'id' => 'en:e322',
+           'id' => 'en:sunflower-lecithin',
            'text' => 'auringonkukkalesitiini'
          }
        ],
@@ -2050,10 +2056,10 @@ is_deeply ($product_ref->{ingredients},
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e322',
+       'id' => 'en:sunflower-lecithin',
        'text' => 'auringonkukkalesitiini',
-       'vegan' => 'maybe',
-       'vegetarian' => 'maybe'
+       'vegan' => 'yes',
+       'vegetarian' => 'yes'
      }
 
 	        ],
@@ -2183,6 +2189,47 @@ is_deeply ($product_ref->{ingredients},
        'vegetarian' => 'yes'
      }
    ],
+) or diag explain $product_ref;
+
+# FI - organic label as part of the ingredient
+
+$product_ref = {
+	lc => "fi",
+	ingredients_text => "vihreä luomutee, luomumaito, luomu ohramallas",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values($product_ref->{ingredients});
+delete $product_ref->{ingredients_percent_analysis};
+
+is ($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+is_deeply ($product_ref->{labels_tags}, undef) or diag explain $product_ref->{labels_tags};
+
+is_deeply(
+	$product_ref->{ingredients},
+	[   {   'id'         => 'en:green-tea',
+			'labels'     => 'en:organic',
+			'rank'       => 1,
+			'text'       => "vihre\x{e4} tee",
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		},
+		{   'id'         => 'en:milk',
+			'labels'     => 'en:organic',
+			'rank'       => 2,
+			'text'       => 'maito',
+			'vegan'      => 'no',
+			'vegetarian' => 'yes'
+		},
+		{   'id'         => 'en:malted-barley',
+			'labels'     => 'en:organic',
+			'rank'       => 3,
+			'text'       => 'ohramallas',
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		}
+	],
 ) or diag explain $product_ref;
 
 

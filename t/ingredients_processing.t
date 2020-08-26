@@ -591,60 +591,47 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
-		[
-			{
-				'id' => 'en:shallot',
+		[   {   'id'         => 'en:shallot',
 				'processing' => 'en:concentrated',
-				'text' => 'schalotte'
+				'text'       => 'schalotte'
 			},
-			{
-				'id' => 'en:hazelnut',
+			{   'id'         => 'en:hazelnut',
 				'processing' => 'en:concentrated',
-				'text' => "haseln\x{fc}sse"
+				'text'       => "haseln\x{fc}sse"
 			},
-			{
-				'id' => 'en:almond',
+			{   'id'         => 'en:almond',
 				'processing' => 'en:concentrated',
-				'text' => 'mandeln'
+				'text'       => 'mandeln'
 			},
-			{
-				'id' => 'en:acerola',
+			{   'id'         => 'en:acerola',
 				'processing' => 'en:concentrated',
-				'text' => 'acerolakirschen'
+				'text'       => 'acerolakirschen'
 			},
-			{
-			    'id' => 'de:zweifach konzentriert',
-			    'text' => 'zweifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:2 fach konzentriert',
-			    'text' => '2 fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:doppelt konzentriertes',
-			    'text' => 'doppelt konzentriertes'
+			{   'id'   => 'de:zweifach konzentriert',
+				'text' => 'zweifach konzentriert'
 			},
-			{
-				'id' => 'de:zweifach konzentriertes',
+			{   'id'   => 'de:2 fach konzentriert',
+				'text' => '2 fach konzentriert'
+			},
+			{   'id'   => 'de:doppelt konzentriertes',
+				'text' => 'doppelt konzentriertes'
+			},
+			{   'id'   => 'de:zweifach konzentriertes',
 				'text' => 'zweifach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:2-fach konzentriert',
-			    'text' => '2-fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:dreifach konzentriert',
-			    'text' => 'dreifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:200fach konzentriertes',
-			    'text' => '200fach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:eingekochter',
-			    'text' => 'eingekochter'
-			 }
-		]	
+			},
+			{   'id'   => 'de:2-fach konzentriert',
+				'text' => '2-fach konzentriert'
+			},
+			{   'id'   => 'de:dreifach konzentriert',
+				'text' => 'dreifach konzentriert'
+			},
+			{   'id'   => 'de:200fach konzentriertes',
+				'text' => '200fach konzentriertes'
+			},
+			{   'id'   => 'de:eingekochter',
+				'text' => 'eingekochter'
+			}
+		]
 	],
 
 # de:zerkleinert and variants
@@ -710,17 +697,18 @@ my @tests = (
 
 # combinations
 	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+		gehackte und geröstete haselnuss, gehobelte und gehackte mandeln" },
 		[
+		# change on 17:01
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+			    'id' => 'en:toasted-hazelnut',
+			    'processing' => 'en:chopped',
+			    'text' => "geröstete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
@@ -845,7 +833,7 @@ my @tests = (
 				    'text' => 'Guaven'
 				  },
 				  {
-				    'id' => 'en:rosehip',
+				    'id' => 'en:rose-hip',
 				    'processing' => 'en:air-dried',
 				    'text' => 'Hagebutten'
 				  },
@@ -875,7 +863,7 @@ my @tests = (
 
 # Test for de:ungesalzen
 	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
-	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+	gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
 				'id' => "de:hartk\x{e4}se",
@@ -895,7 +883,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:salted',
-				'text' => 'haselnusskerne'
+				'text' => 'haselnuss'
 			},
 			{
 				'id' => 'en:shallot',
@@ -949,28 +937,39 @@ my @tests = (
 	],
 
 	# Various tests
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet" },
 		[
-			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:toasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
+			}
+		]
+	],
+	# Various tests
+	#[ { lc => "de", ingredients_text => "gehackte und geröstete haselnüs" },
+	#	[
+	#		{
+	#			'id' => 'en:hazelnut',
+	#			'processing' => 'en:toasted, en:chopped',
+	#			'text' => "gehackte und geröstete haselnüs"
+	#		}
+	#	]
+	#],
+
+	# Various tests
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, 
+		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		[
+			{
+				'id' => "de:hartkäse",
+				'processing' => 'en:sliced',
+				'text' => "hartkäse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
+				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',

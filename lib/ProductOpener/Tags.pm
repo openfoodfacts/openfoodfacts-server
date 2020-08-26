@@ -46,103 +46,102 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-					&canonicalize_tag2
-					&canonicalize_tag_link
+		&canonicalize_tag2
+		&canonicalize_tag_link
 
-					&has_tag
-					&add_tag
-					&remove_tag
-					&is_a
+		&has_tag
+		&add_tag
+		&remove_tag
+		&is_a
 
-					&get_property
-					&get_inherited_property
+		&get_property
+		&get_inherited_property
 
-					%canon_tags
-					%tags_images
-					%tags_texts
-					%tags_levels
-					%level
-					%special_tags
+		%canon_tags
+		%tags_images
+		%tags_texts
+		%tags_levels
+		%level
+		%special_tags
 
-					&get_taxonomyid
-					&get_taxonomyurl
+		&get_taxonomyid
+		&get_taxonomyurl
 
-					&gen_tags_hierarchy
-					&gen_tags_hierarchy_taxonomy
-					&gen_ingredients_tags_hierarchy_taxonomy
-					&display_tags_hierarchy_taxonomy
-					&build_tags_taxonomy
+		&gen_tags_hierarchy
+		&gen_tags_hierarchy_taxonomy
+		&gen_ingredients_tags_hierarchy_taxonomy
+		&display_tags_hierarchy_taxonomy
+		&build_tags_taxonomy
 
-					&canonicalize_taxonomy_tag
-					&canonicalize_taxonomy_tag_linkeddata
-					&canonicalize_taxonomy_tag_weblink
-					&canonicalize_taxonomy_tag_link
-					&exists_taxonomy_tag
-					&display_taxonomy_tag
-					&display_taxonomy_tag_link
-					&get_taxonomy_tag_and_link_for_lang
+		&canonicalize_taxonomy_tag
+		&canonicalize_taxonomy_tag_linkeddata
+		&canonicalize_taxonomy_tag_weblink
+		&canonicalize_taxonomy_tag_link
+		&exists_taxonomy_tag
+		&display_taxonomy_tag
+		&display_taxonomy_tag_link
+		&get_taxonomy_tag_and_link_for_lang
 
-					&spellcheck_taxonomy_tag
+		&spellcheck_taxonomy_tag
 
-					&get_tag_css_class
+		&get_tag_css_class
 
-					&display_tag_name
-					&display_tag_link
-					&display_tags_list
-					&display_tag_and_parents
-					&display_parents_and_children
-					&display_tags_hierarchy
-					&export_tags_hierarchy
+		&display_tag_name
+		&display_tag_link
+		&display_tags_list
+		&display_tag_and_parents
+		&display_parents_and_children
+		&display_tags_hierarchy
+		&export_tags_hierarchy
 
-					&compute_field_tags
-					&add_tags_to_field
+		&compute_field_tags
+		&add_tags_to_field
 
-					&get_city_code
-					%emb_codes_cities
-					%emb_codes_geo
-					%cities
-					&init_emb_codes
+		&get_city_code
+		%emb_codes_cities
+		%emb_codes_geo
+		%cities
+		&init_emb_codes
 
-					%tags_fields
-					%hierarchy_fields
-					%taxonomy_fields
-					@drilldown_fields
-					%language_fields
+		%tags_fields
+		%hierarchy_fields
+		%taxonomy_fields
+		@drilldown_fields
+		%language_fields
 
-					%properties
+		%properties
 
-					%language_codes
-					%language_codes_reverse
+		%language_codes
+		%language_codes_reverse
 
-					%country_names
-					%country_codes
-					%country_codes_reverse
-					%country_languages
+		%country_names
+		%country_codes
+		%country_codes_reverse
+		%country_languages
 
-					%loaded_taxonomies
+		%loaded_taxonomies
 
-					%stopwords
-					%synonyms_for
-					%just_synonyms
-					%translations_from
-					%translations_to
+		%stopwords
+		%synonyms_for
+		%just_synonyms
+		%translations_from
+		%translations_to
 
-					%Languages
+		%Languages
 
-					&country_to_cc
+		&country_to_cc
 
-					&add_user_translation
-					&load_users_translations
-					&load_users_translations_for_lc
-					&add_users_translations_to_taxonomy
+		&add_user_translation
+		&load_users_translations
+		&load_users_translations_for_lc
+		&add_users_translations_to_taxonomy
 
-					&remove_stopwords_from_start_or_end_of_string
+		&remove_stopwords_from_start_or_end_of_string
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -210,18 +209,18 @@ my %tags_direct_parents = ();
 my %tags_direct_children = ();
 my %tags_all_parents = ();
 
-%stopwords = ();
+%stopwords     = ();
 %just_synonyms = ();
-my %just_tags = ();	# does not include synonyms that are only synonyms
-my %synonyms = ();
+my %just_tags = ();    # does not include synonyms that are only synonyms
+my %synonyms  = ();
 %synonyms_for = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
-%translations_to = ();
-%level = ();
-my %direct_parents = ();
+%translations_to   = ();
+%level             = ();
+my %direct_parents  = ();
 my %direct_children = ();
-my %all_parents = ();
+my %all_parents     = ();
 
 
 %properties = ();
@@ -317,7 +316,9 @@ sub is_a($$$) {
 	if ($child eq $parent) {
 		$found = 1;
 	}
-	elsif ((defined $all_parents{$tagtype})	and (defined $all_parents{$tagtype}{$child})) {
+	elsif ( ( defined $all_parents{$tagtype} )
+		and ( defined $all_parents{$tagtype}{$child} ) )
+	{
 
 		#$log->debug("is_a - parents found") if $log->is_debug();
 
@@ -347,6 +348,8 @@ sub add_tag($$$) {
 		}
 	}
 	push @{$product_ref->{$tagtype . "_tags"}}, $tagid;
+
+	return;
 }
 
 sub remove_tag($$$) {
@@ -392,6 +395,8 @@ sub load_tags_images($$) {
 		}
 		closedir DH2;
 	}
+
+	return;
 }
 
 
@@ -621,6 +626,8 @@ sub load_tags_hierarchy($$) {
 
 
 	}
+
+	return;
 }
 
 # Cache the stopwords regexps to remove stopwords from strings and tagids
@@ -1460,8 +1467,8 @@ sub build_tags_taxonomy($$$) {
 		my %sort_key_parents = ();
 		foreach my $tagid (sort keys %{$level{$tagtype}}) {
 			my $key = '';
-			if (defined $just_synonyms{$tagtype}{$tagid}) {
-				$key = '! synonyms ';	# synonyms first
+			if ( defined $just_synonyms{$tagtype}{$tagid} ) {
+				$key = '! synonyms ';    # synonyms first
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
 				# sort parents according to level
@@ -1481,9 +1488,9 @@ sub build_tags_taxonomy($$$) {
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = (); # including wikipedia abstracts
 
-		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
-			next if $lc =~ /\./;	# .orig or .strings
-			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
+		foreach my $lc ( sort keys %{ $stopwords{$tagtype} } ) {
+			next if $lc =~ /\./;    # .orig or .strings
+			print $OUT $stopwords{$tagtype}{ $lc . ".orig" };
 		}
 		print $OUT "\n\n";
 
@@ -1507,9 +1514,12 @@ sub build_tags_taxonomy($$$) {
 						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
 					}
 					else {
-						print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
-						push @{$taxonomy_json{$tagid}{parents}}, $parentid;
-						push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;						
+						print $OUT "< $lc:"
+							. $translations_to{$tagtype}{$parentid}{$lc}
+							. "\n";
+						push @{ $taxonomy_json{$tagid}{parents} }, $parentid;
+						push @{ $taxonomy_full_json{$tagid}{parents} },
+							$parentid;
 					}
 				}
 			}
@@ -1654,6 +1664,8 @@ sub build_tags_taxonomy($$$) {
 		}
 
 	}
+
+	return;
 }
 
 
@@ -1726,6 +1738,8 @@ sub retrieve_tags_taxonomy {
 
 		close ($IN);
 	}
+
+	return;
 }
 
 sub country_to_cc {
@@ -1836,8 +1850,8 @@ $log->info("Tags.pm - 1") if $log->is_info();
 
 sub gen_tags_hierarchy($$) {
 
-	my $tagtype = shift;
-	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+	my $tagtype   = shift;
+	my $tags_list = shift;    # comma-separated list of tags, not in a specific order
 
 	if (not (defined $tags_all_parents{$lc}) and (defined $tags_all_parents{$lc}{$tagtype})) {
 		return (split(/(\s*),(\s*)/, $tags_list));
@@ -1877,9 +1891,9 @@ my %and = (
 
 sub gen_tags_hierarchy_taxonomy($$$) {
 
-	my $tag_lc = shift;
-	my $tagtype = shift;
-	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+	my $tag_lc    = shift;
+	my $tagtype   = shift;
+	my $tags_list = shift;    # comma-separated list of tags, not in a specific order
 
 	if ((not defined $tags_list) or ($tags_list =~ /^\s*$/)) {
 		return ();
@@ -1952,9 +1966,9 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 	# put the parents after the ingredient
 	# do not put parents that have already been added after another ingredient
 
-	my $tag_lc = shift;
-	my $tagtype = "ingredients";
-	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+	my $tag_lc    = shift;
+	my $tagtype   = "ingredients";
+	my $tags_list = shift;           # comma-separated list of tags, not in a specific order
 
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
@@ -2174,8 +2188,8 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 		$tag_lc = $1;
 	}
 
-	my $display = '';
-	my $display_lc = "en";	# Default to English
+	my $display            = '';
+	my $display_lc         = "en";    # Default to English
 	my $exists_in_taxonomy = 0;
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
@@ -2221,9 +2235,9 @@ sub get_taxonomy_tag_and_link_for_lang($$$) {
 	my $display_lc_prefix = "";
 	my $display_tag = $display;
 
-	if ($display =~ /^(\w\w:)/) {
+	if ($display =~ /^((\w\w):)/) {
 		$display_lc_prefix = $1;
-		$display_lc = $1;
+		$display_lc = $2;
 		$display_tag = $';
 	}
 
@@ -2409,7 +2423,7 @@ sub display_tags_hierarchy($$) {
 	my $html = '';
 	my $images = '';
 	if (defined $tags_ref) {
-		foreach my $tag (@$tags_ref) {
+		foreach my $tag (@{$tags_ref}) {
 			$html .= display_tag_link($tagtype, $tag) . ", ";
 
 #			print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag\n";
@@ -2448,7 +2462,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 	my $html = '';
 	my $images = '';
 	if (defined $tags_ref) {
-		foreach my $tag (@$tags_ref) {
+		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
 			my $img;
@@ -2586,8 +2600,8 @@ sub canonicalize_tag2($$)
 
 sub get_taxonomyid($$) {
 
-	my $tag_lc = shift;	# Default tag language if tagid is not prefixed by a language code
-	my $tagid = shift;
+	my $tag_lc = shift;    # Default tag language if tagid is not prefixed by a language code
+	my $tagid  = shift;
 	if ($tagid =~ /^(\w\w):/) {
 		return lc($1) . ':' . get_string_id_for_lang(lc($1), $');
 	}
@@ -2598,8 +2612,8 @@ sub get_taxonomyid($$) {
 
 sub get_taxonomyurl($$) {
 
-	my $tag_lc = shift;	# Default tag language if tagid is not prefixed by a language code
-	my $tagid = shift;
+	my $tag_lc = shift;    # Default tag language if tagid is not prefixed by a language code
+	my $tagid  = shift;
 	if ($tagid =~ /^(\w\w):/) {
 		return lc($1) . ':' . get_url_id_for_lang(lc($1),$');
 	}
@@ -2661,9 +2675,9 @@ sub canonicalize_taxonomy_tag($$$)
 		if (defined $name) {
 			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name);
 			# caramelo e150c -> name_id is e150
-			if (("en:" . $additive_tagid) =~ /^$name_id/) {
+			if ( ( "en:" . $additive_tagid ) =~ /^$name_id/ ) {
 				return "en:" . $additive_tagid;
-			}			
+			}
 		}
 	}
 
@@ -2701,16 +2715,16 @@ sub canonicalize_taxonomy_tag($$$)
 				if ($options{product_type} eq "food") {
 				
 					# Latin animal species (e.g. for fish)
-					if ($tagtype eq "ingredients") {
+					if ( $tagtype eq "ingredients" ) {
 						@test_languages = ("la");
-					}			
+					}
 				}
 				elsif ($options{product_type} eq "beauty") {
 				
 					# Beauty products ingredients are often in English or Latin
-					if ($tagtype eq "ingredients") {
-						@test_languages = ("en", "la");
-					}			
+					if ( $tagtype eq "ingredients" ) {
+						@test_languages = ( "en", "la" );
+					}
 				}
 			}
 
@@ -2840,27 +2854,29 @@ sub generate_spellcheck_candidates($$) {
 
 		# delete
 		if ($i < $l) {
-			push @$candidates_ref, $left . substr($right, 1);
+			push @{$candidates_ref}, $left . substr($right, 1);
 		}
 
 		foreach my $c ("a".."z") {
 
 			# insert
-			push @$candidates_ref, $left . $c . $right;
+			push @{$candidates_ref}, $left . $c . $right;
 
 			# replace
 			if ($i < $l) {
-				push @$candidates_ref, $left . $c . substr($right, 1);
+				push @{$candidates_ref}, $left . $c . substr($right, 1);
 			}
 		}
 
 		if (($i > 0) and ($i < $l)) {
-			push @$candidates_ref, $left . "-" . $right;
+			push @{$candidates_ref}, $left . "-" . $right;
 			if ($i < ($l - 1)) {
-				push @$candidates_ref, $left . "-" . substr($right, 1);
+				push @{$candidates_ref}, $left . "-" . substr($right, 1);
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -3171,6 +3187,7 @@ GEXF
 	 $graph-> run (format => 'png', output_file => "$www_root/data/$lc." . get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".png");
 	 };
 
+	return;
 }
 
 sub init_emb_codes {
@@ -3281,6 +3298,8 @@ sub init_emb_codes {
 	}
 
 	$log->debug("Cities for packaging codes loaded") if $log->is_debug();
+
+	return;
 }
 
 # nutrient levels
@@ -3292,7 +3311,7 @@ foreach my $l (@Langs) {
 	$lang = $l;
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @$nutrient_level_ref;
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
 		foreach my $level ('low', 'moderate', 'high') {
 			my $fmt = lang("nutrient_in_quantity");
@@ -3426,6 +3445,8 @@ sub add_tags_to_field($$$$) {
 		
 		compute_field_tags($product_ref, $tag_lc, $field);
 	}
+
+	return;
 }
 
 
@@ -3447,9 +3468,13 @@ sub compute_field_tags($$$) {
 	# generate the hierarchy of tags from the field values
 
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_lc" } = $tag_lc;	# save the language for the field, useful for debugging
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
-		$product_ref->{$field . "_tags" } = [];
+		$product_ref->{ $field . "_lc" }        = $tag_lc;    # save the language for the field, useful for debugging
+		$product_ref->{ $field . "_hierarchy" } = [
+			gen_tags_hierarchy_taxonomy(
+				$tag_lc, $field, $product_ref->{$field}
+			)
+		];
+		$product_ref->{ $field . "_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag_lc, $tag);
 		}
@@ -3566,6 +3591,7 @@ sub compute_field_tags($$$) {
 		delete $product_ref->{$field . "_debug_tags"};
 	}
 
+	return;
 }
 
 
@@ -3582,6 +3608,8 @@ sub add_user_translation($$$$$) {
 	open (my $LOG, ">>:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
 	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
 	close $LOG;
+
+	return;
 }
 
 
@@ -3632,6 +3660,8 @@ sub load_users_translations($$) {
 		}
 		closedir $DH;
 	}
+
+	return;
 }
 
 
@@ -3745,6 +3775,7 @@ sub add_users_translations_to_taxonomy($) {
 		}
 	}
 
+	return;
 }
 
 

@@ -36,3 +36,9 @@ html/images/icons/dist
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
+
+# Exclude 3rd party deps, because SonarCloud ignores files in a .gitignore
+html/js/datatables.*
+html/js/jquery*
+html/js/*nivo-zoom*
+html/js/sigma*
