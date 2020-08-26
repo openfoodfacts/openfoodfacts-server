@@ -5302,7 +5302,7 @@ vegetarian:en:maybe
 # comment:en:The list of products is very very wrong. So uncommenting it for the moment.
 # comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
 
-en:enzyme
+<en:enzyme
 en:coagulating enzyme
 de:gerinnendes Enzym
 es:Enzima coagulante
@@ -5946,7 +5946,7 @@ mr:उत्प्रेरक
 ms:eEnzim
 my:အင်န်ဇိုင်း
 nb:enzym, enzymer
-nl:enzym
+nl:enzym, enzymen
 nn:enzym
 oc:enzim
 pa:ਐੱਨਜ਼ਾਈਮ
@@ -11016,7 +11016,7 @@ fr:Parmigiano Reggiano AOP
 
 <en:cheese
 # <en:sheep's milk
-en:Pecorino
+en:Pecorino, Pecorino cheese
 af:Pecorino
 ca:Pecorino
 cs:Pecorino
@@ -18740,7 +18740,8 @@ ko:생선기름
 lt:zivju eļļa
 mk:Рибино масло
 ml:മീനെണ്ണ
-ms:my:ငါးကြီးဆီ
+ms:Minyak ikan
+my:ငါးကြီးဆီ
 nb:Fiskeolje
 nl:Visolie
 pl:Tran
@@ -22617,6 +22618,15 @@ de:Hirse
 fr:sorgho
 hu:cirok
 sk:cirok
+wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
+
+<en:cereal flour
+<en:Sorghum
+en:sorghum flour
+
+<en:sorghum flour
+<en:wholemeal flour
+en:whole sorghum flour, whole grain sorghum flour
 
 ##################################################################################
 #
@@ -22633,7 +22643,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triticale
 en:whole grain triticale
 es:triticale integral
 
-<en:cereal flour
+<en:wholemeal flour
 <en:triticale
 en:whole grain triticale flour
 es:harina integral de triticale
@@ -22907,7 +22917,7 @@ sv:vetemalt, mältade vetekorn
 <en:wheat malt
 en:wheat malt flour
 es:harina de malta de trigo
-nl:tarwemoutmeel
+nl:tarwemoutmeel, tarwemoutbloem
 
 <en:wheat malt
 fr:blé malté torréfié concassé
@@ -22939,6 +22949,22 @@ nb:hvetekli
 nl:tarwezemelen
 pt:farelo de trigo
 sv:vetekli
+
+<en:wheat
+en:einkorn wheat, einkorn
+de:Einkorn
+fr:engrain
+la:Triticum monococcum
+wikidata:en:Q161397
+wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
+
+<en:cereal flour
+<en:einkorn wheat
+en:einkorn flour
+
+<en:einkorn flour
+<en:wholemeal flour
+en:whole grain einkorn flour
 
 
 ##################################################################################
@@ -23028,6 +23054,7 @@ fr:blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
 <en:Durum wheat flour
+<en:wholemeal flour
 en:Durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
 fi:täysjyvädurumvehnäjauho
@@ -23159,7 +23186,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 
 <en:wheat
-en:graham flour 
+en:graham flour, whole grain graham flour
 es:harina de graham
 wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
 
@@ -23484,6 +23511,14 @@ en:teff
 es:teff, semilla de teff
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
 
+<en:teff
+<en:cereal flour
+en:teff flour
+
+<en:teff flour
+<en:wholemeal flour
+en:whole grain teff flour
+
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -23643,7 +23678,6 @@ en:sprouted barley
 
 <en:barley
 en:wholemeal barley
-de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:cebada integral
 fi:täysjyväohra
 fr:orge complète
@@ -24284,7 +24318,7 @@ en:whole grain oat flakes
 es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
 
 <en:oat
-en:oat bran
+en:oat bran, oatbran
 de:Haferkleie
 es:Salvado de avena
 fi:kauralese
@@ -24316,7 +24350,7 @@ sv:havrebas
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
 <en:oat
-en:oatmeal
+en:oatmeal, oat meal
 es:semola de avena
 
 <en:vegetable protein
@@ -24823,6 +24857,7 @@ en:inflated spelt
 es:espelta inflada
 
 <en:cereal
+en:khorasan wheat, kamut
 bg:камут
 cs:kamut
 de:Kamut
@@ -24834,7 +24869,7 @@ fr:kamut
 ga:camut
 hu:kamut
 it:kamut
-la:triticum turgidum polonicum
+la:triticum turgidum, triticum turgidum polonicum
 lt:kamutas
 mt:kamut
 nl:kamut
@@ -24843,6 +24878,16 @@ pt:kamut
 ru:камут
 sl:kamut
 sv:kamut
+wikidata:en:Q11163068
+wikipedia:en:https://en.wikipedia.org/wiki/Khorasan_wheat
+
+<en:khorasan wheat
+<en:cereal flour
+en:khorasan wheat flour, kamut flour
+
+<en:khorasan wheat flour
+<en:wholemeal flour
+en:whole grain khorasan flour, whole grain kamut flour
 
 ##################################################################################
 #
@@ -25181,7 +25226,7 @@ sv:fullkornsmjöl
 
 <en:wheat flour
 <en:wholemeal flour
-en:whole wheat flour, wholemeal wheat flour
+en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
 da:hvedefuldkornsmel
 de:Vollkornweizenmehl, Weizenvollkornmehl
@@ -25264,8 +25309,8 @@ sv:kornmjöl
 
 <en:wholemeal flour
 <en:barley flour
-en:wholemeal barley flour
-de:Gerstenvollkornmehl
+en:wholemeal barley flour, whole grain barley flour
+de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:harina de cebada integral, harina integral de cebada
 fi:täysjyväohrajauho
 fr:farine complète d’orge, farine d'orge complète
@@ -25313,7 +25358,7 @@ fr:Farine de blé d'épeautre T110
 
 <en:wholemeal flour
 <en:spelt flour
-en:wholemeal spelt flour
+en:wholemeal spelt flour, whole grain spelt flour
 ca:farina de blat d'espelta integral
 de:Dinkelvollkornmehl
 es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
@@ -25357,7 +25402,7 @@ sv:havremjöl
 
 <fr:farine d'avoine
 <en:wholemeal flour
-en:wholemeal oat flour
+en:wholemeal oat flour, whole grain oat flour
 de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
 fi:täysjyväkaurajauho, täysjyväkaurajauhoa
 fr:farine d'avoine complète, farine complète d'avoine
@@ -25384,6 +25429,10 @@ sv:bovetemjöl
 <en:buckwheat flour
 fr:galette en blé noir
 
+<en:buckwheat flour
+<en:wholemeal flour
+en:whole grain buckwheat flour
+
 <en:cereal flour
 en:rye flour
 ca:farina de blat de sègol,farina de blat de segol,farina de sègol
@@ -25408,7 +25457,7 @@ sv:rågmjöl
 
 <en:rye flour
 <en:wholemeal flour
-en:wholemeal rye flour, wholegrain rye flour
+en:wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 da:fuldkornsrugmel, fullkornsrugmel
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno,harina integral de centeno
@@ -25452,6 +25501,10 @@ hu:kölesliszt
 it:farina di miglio
 # ingredient/fr:farine-de-millet has 40 products in 4 languages @2018-09-22
 
+<en:millet flour
+<en:wholemeal flour
+en:whole grain millet flour
+
 <en:cereal flour
 en:amaranth flour
 de:Amarantmehl
@@ -25462,6 +25515,9 @@ hu:disznóparéjliszt
 nl:amaranthmeel, amarant gemalen
 # ingredient/amaranth-flour has 80 products in 3 languages @2018-09-22
 
+<en:amaranth flour
+<en:wholemeal flour
+en:whole grain amaranth flour
 
 # Is this the same as tapioca starch?
 
@@ -25598,7 +25654,8 @@ nl:wit maïsmeel
 sv:vitt majsmjöl
 
 <en:corn flour
-en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour
+<en:wholemeal flour
+en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour, whole grain maize flour
 fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
@@ -25645,7 +25702,8 @@ hu:barnariszliszt
 nl:volkoren rijstmeel
 
 <en:rice flour
-en:whole rice flour
+<en:wholemeal flour
+en:whole rice flour, whole grain rice flour
 es:harina integral de arroz
 
 <en:flour
@@ -25659,6 +25717,10 @@ hu:quinoa liszt, quinoaliszt
 it:Farina di quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
+
+<en:quinoa flour
+<en:wholemeal flour
+en:whole grain quinoa flour
 
 <en:flour
 en:pea flour
@@ -31321,6 +31383,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 # description:en:SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia
 
 <en:soya
+<en:legume
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
 ca:soia, soja,faves de soja
@@ -31458,6 +31521,17 @@ es:zumo de soja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
 
+<en:soya bean
+en:edamame, edamame bean, edamame beans, edamame soybeans
+da:edamame bønner
+de:Edamame Bohnen
+fr:edamame, haricots edamame, fèves de soja edamame, edamame fèves, fève edamame
+nl:edamamebonen
+wikidata:en:Q1377879
+wikipedia:en:https://en.wikipedia.org/wiki/Edamame
+
+<en:edamame
+en:mukimame, shelled edamame
 
 #en:gelifier
 #fr:gélifiant
@@ -36813,7 +36887,7 @@ es:mermelada de naranja
 # BITTER ORANGE, Seville orange, sour orange, bigarade orange, or marmalade orange is the citrus tree Citrus × aurantium and its fruit.
 
 <en:fruit
-en:bitter orange
+en:bitter orange, Seville orange, Seville oranges
 ar:نارنج
 az:narınc
 bo:ཚ་ལུ་མ་སྐྱུར་མོ།
@@ -36822,7 +36896,7 @@ ch:kahet
 co:citronu
 cs:pomerančovník hořký
 da:pomerans
-de:bitterorange
+de:bitterorange, Seville Orangen
 el:νεραντζιά
 eo:bigarado
 es:naranja amarga, naranjas amargas de sevilla
@@ -36830,7 +36904,7 @@ et:pomerantsipuu
 eu:laranja mingots
 fa:نارنج
 fi:pomeranssi
-fr:bigaradier
+fr:bigaradier, Oranges de Séville
 gl:laranxeira amarga
 he:חושחש
 hr:gorka naranča
@@ -51211,12 +51285,6 @@ th:ทาฮีนี
 tr:Tahin
 uk:Тахіні
 
-<en:seed
-en:cardamom seed, cardamom seeds
-fi:kardemumman siemen, kardemumman siemeniä
-fr:graines de cardamome
-# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -52180,6 +52248,13 @@ wikidata:en:Q18360378
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
+<en:seed
+<en:cardamom
+en:cardamom seed, cardamom seeds
+fi:kardemumman siemen, kardemumman siemeniä
+fr:graines de cardamome
+nl:kardemomzaden, hele kardemomzaden
+# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
 
 ###################################################################################################
 #
@@ -52436,7 +52511,7 @@ ms:Cengkih
 my:လေးညှင်းပင်
 nb:Kryddernellik
 ne:ल्वाङ
-nl:kruidnagel
+nl:kruidnagel, kruidnagels
 nn:Nelliktre
 oc:Giròfle
 or:ଲବଙ୍ଗ
@@ -65785,6 +65860,7 @@ fr:miel non pasteurisé
 fr:miel pasteurisé
 
 <en:honey
+en:honey powder
 de:Honigpulver
 
 <en:honey
@@ -66008,16 +66084,18 @@ fr:miel d'oranger biologique
 fr:miel d'oranger d'espagne
 
 <en:honey
-fr:miel de romarin
+en:rosemary honey
 de:Rosmarinhonig
+es:miel de romero
 fi:rosmariinihunaja
+fr:miel de romarin
 it:miele di rosmarino
 # ingredient/fr:miel-de-romarin has 10 products in 3 languages @2019-05-28
 
-<fr:miel de romarin
+<en:rosemary honey
 fr:miel de romarin bio
 
-<fr:miel de romarin
+<en:rosemary honey
 <en:honey from France
 fr:miel de romarin du languedoc
 
@@ -66030,7 +66108,7 @@ fr:miel de sapin
 
 <fr:miel de sapin
 <en:honey from France
-fr:fr:miel de sapin récolté en France,  miel de sapin du Jura
+fr:miel de sapin récolté en France,  miel de sapin du Jura
 
 <en:honey
 <en:honey from France
@@ -66048,6 +66126,7 @@ nl:zonnebloemhoning
 en:Thyme honey
 da:timianhonning
 de:Thymianhonig
+es:Miel de tomillo
 fi:timjamihunaja
 fr:miel de thym
 nl:Tijmhoning
@@ -66058,6 +66137,7 @@ nl:Tijmhoning
 fr:miel de thym d'Espagne
 
 <en:honey
+en:linden honey
 fr:Miel de tilleul
 nl:Lindebloesemhoning
 # ingredient/fr:miel-de-tilleul has 13 products @2019-05-23
@@ -66067,6 +66147,7 @@ nl:Lindebloesemhoning
 fr:miel-de-tilleul-de-picardie
 
 <en:honey
+en:clover honey
 fr:miel de trefle
 nl:klaverhoning
 
