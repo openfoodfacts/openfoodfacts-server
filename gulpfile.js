@@ -60,7 +60,8 @@ function copyJs() {
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
       "./node_modules/cropper/dist/cropper.js",
       "./node_modules/jquery-form/src/jquery.form.js",
-      "./node_modules/highcharts/highcharts.js"
+      "./node_modules/highcharts/highcharts.js",
+      "./node_modules/d3/d3.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -71,7 +72,6 @@ function copyJs() {
 function buildJs() {
   return src([
     './html/js/display*.js',
-    './html/js/graph.js',
     './html/js/product-multilingual.js',
     './html/js/search.js',
     './html/js/graph.js'

@@ -36,11 +36,11 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 
 $header .= <<HEADER
-<link rel="stylesheet" href="$static_subdomain/css/graph.min.css" >
+<link rel="stylesheet" href="$static_subdomain/css/graph.css" >
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.js"></script>
-<script src="$static_subdomain/js/d3.v3.min.js"></script>
-<script src="$static_subdomain/js/graph.min.js"></script>
+<script src="$static_subdomain/js/dist/d3.js"></script>
+<script src="$static_subdomain/js/graph.js"></script>
 
 HEADER
 ;
