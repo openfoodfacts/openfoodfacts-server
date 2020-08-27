@@ -27475,7 +27475,7 @@ es:azucar caramelizado en polvo
 
 <en:sugar
 en:white sugar
-de:weißer Zucker, Zucker
+de:weißer Zucker
 es:Azúcar blanco,Azúcar blanco comun,azúcar blanquilla
 fi:valkoinen sokeri
 fr:sucre blanc
@@ -27523,8 +27523,9 @@ sv:florsocker
 <en:sugar
 fr:sucre caramélisé en poudre
 
+# comment:en:powdered sugar and icing sugar may be the same thing.
 <en:sugar
-en:granulated sugar, powdered sugar
+en:powdered sugar
 de:Puderzucker
 es:Azucar en polvo
 fi:jauhettu sokeri
@@ -27532,6 +27533,8 @@ fr:sucre en poudre, sucre en grains
 hu:porcukor
 it:zucchero semolato
 nl:poedersuiker
+wikidata:en:Q151070
+wikipedia:en:https://en.wikipedia.org/wiki/Powdered_sugar
 
 <en:sugar
 fr:sucre candi
@@ -27562,7 +27565,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanilla_sugar
 # ingredient/fr:sucre-vanille has 77 products in 2 languages @2020-06-08
 
 <en:sugar
+en:nib sugar, pearl sugar
 fr:sucre perlé
+it:granella di zucchero
+wikidata:en:Q914538
+wikipedia:en:https://en.wikipedia.org/wiki/Nib_sugar
 
 <en:sugar
 fr:sucre blond
@@ -27570,6 +27577,8 @@ fr:sucre blond
 <en:sugar
 fr:sucre du lait
 
+# description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
+# comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 <en:sugar
 en:granulated sugar
 de:Zucker mittelgross
@@ -27580,11 +27589,18 @@ hu:kristálycukor
 nl:Kristalsuiker
 # ingredient/fr:sucre-cristal has 77 products @2019-06-08
 
+# description:en:Caster sugar is finer than granulated sugar, but coarser than powdered/icing sugar, with a grain size of about 0.35 mm.
 <en:sugar
+en:caster sugar
 fr:sucre semoule
+wikidata:en:Q3502834
+wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_semoule
 
 <en:sugar
+en:sugar cube
 fr:Sucre en morceaux
+wikidata:en:Q1042920
+wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_en_morceaux
 # 4@2019-06-05
 
 #################### Sugars from specific sources ##############
@@ -27712,9 +27728,9 @@ cs:nerafinovaný třtinový cukr
 da:rå rørsukker
 de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
-es:Azucar de caña sin refinar, azucar de caña no refinada,azucar de caña en bruto,azúcar integral de caña sin refinar,panela
+es:Azucar de caña sin refinar, azucar de caña no refinada,azucar de caña en bruto
 fi:raakaruokosokeri
-fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre de canne complet, suc de canne intégral, sucre brut de canne, sucre complet de canne
+fr:sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre brut de canne
 hu:finomítatlan nádcukor
 it:zucchero di canna grezzo
 nl:Ongeraffineerde rietsuiker, ruwe rietsuiker
@@ -27723,6 +27739,7 @@ sv:rårörsocker
 
 <en:cane sugar
 en:whole cane sugar
+fr:sucre de canne complet, suc de canne intégral, sucre de canne intégral, sucre complet de canne
 es:azucar de caña integral,azucar integral de caña 
 
 <en:whole cane sugar
@@ -27753,7 +27770,9 @@ wikidata:en:Q837194
 <en:unrefined cane sugar
 <en:whole cane sugar
 en:unrefined whole cane sugar
-es:azúcar de caña integral no refinada,panela
+es:azúcar de caña integral no refinada, azúcar integral de caña sin refinar, panela
+wikidata:en:Q10357458
+wikipedia:en:https://en.wikipedia.org/wiki/Panela
 
 <en:sugar
 en:beet sugar
