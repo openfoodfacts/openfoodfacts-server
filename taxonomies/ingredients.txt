@@ -7410,7 +7410,6 @@ fi:lehmän raakamaito, raaka lehmänmaito
 fr:lait de vache cru, lait cru de vache
 hu:nyers tehéntej
 nl:rauwe koemelk
-ru:коровье молоко
 sv:opastöriserad komjölk
 
 <en:cow's milk
@@ -16060,7 +16059,7 @@ pl:Mąka ziemniaczana
 pt:fecula de batata
 ro:amidon din cartofi, amidon de cartofi
 ru:Картофельный крахмал
-sv:potatismjöl, potatisstärkelse
+sv:potatisstärkelse
 uk:Картопляний крохмаль
 zh:太白粉
 wikipedia:en:https://en.wikipedia.org/wiki/Potato_starch
@@ -16686,7 +16685,6 @@ nl:gefractioneerd melkvet
 en:butterfat, pastry butter, anhydrous milk fat, concentrated butter, butter oil, anhydrous butter
 bg:безводно масло
 bs:mliječna mast
-cs:mléčný tuk
 cy:braster menyn
 da:smørfedt, smørolie
 de:Butterreinfett, wasserfreies Milchfett
@@ -16994,7 +16992,7 @@ he:שמן ושומן דקלים
 hu:pálmaolaj és -zsír, pálmaolaj és pálmazsír, pálmaolaj és zsír
 it:olio e grasso di palma
 nl:palm olie en vet
-pl:Tłuszcz palmowy
+pl:Olej i tłuszcz palmowy
 ru:Пальмовое масло и жирр
 sv:Palmolja och fett
 uk:Пальмова олія і жири
@@ -20485,7 +20483,6 @@ de:Marsala
 es:Marsala
 fi:marsala, marsala-viini
 fo:Marsalavín
-fi:Marsala
 fr:vin marsala, vin Marsala AOC, marsala
 hr:Marsala
 hu:Marsala
@@ -21010,7 +21007,6 @@ vegetarian:en:maybe
 
 <en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
-ca:Oli i greix de palma
 da:kunstig smag
 de:künstliches Aroma
 es:aroma artificial, saborizante artificial,sabor artificial
@@ -27122,7 +27118,7 @@ de:Xanthan und Guarkernmehl
 es:goma xantana y goma guar,goma guar, goma xantica
 fi:ksantaanikumi ja johanneksenleipäpuujauhe
 fr:gomme xanthane et gomme guar, gomme xanthane et gomme de guar
-hu:xantángumi
+hu:xantángumi és guargumi
 
 <en:gum arabic
 de:Verdickungsmittel Gummi arabicum
@@ -28533,16 +28529,11 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-sy
 # 5775 products in 21 languages @2018-09-24
 
 <en:wheat
-<en:fructose syrup
-<en:glucose syrup
+<en:glucose-fructose syrup
 en:wheat glucose-fructose syrup
 de:Glukose-und Fruktosesirup (Weizen)
 fr:sirop de glucose-fructose de blé
 nl:glucose-fructosestroop van tarwe
-ru:глюкозно-фруктозный сироп
-sk:glukózový-fruktózový sirup
-sr:glukozno-fruktozni sirup
-sv:glukos-fruktossirap
 openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
@@ -28696,8 +28687,6 @@ vegetarian:en:yes
 fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
-
-fr:sirop de sucre candi
 
 
 <en:sugar
@@ -46892,7 +46881,6 @@ carbon_footprint_fr_foodges_value:fr:2.9
 
 <en:tomato
 en:tomato purée, tomato paste, tomato concentrate
-ca:Llet en pols
 da:tomatpuré, tomatpure, tomatkoncentrat
 de:Tomatenmark, Tomatenkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
 es:concentrado de tomate, pasta de tomate, tomate-concentrado
@@ -49044,7 +49032,6 @@ fi:luomumanteli, luomumantelit, luomu manteli, luomu mantelit
 
 <en:almond
 en:almond with skin
-da:mandel
 de:Mandeln mit Haut
 es:almendra con piel
 fi:kuorellinen manteli
@@ -56998,7 +56985,6 @@ fr:the de ceylan
 
 <en:tea
 en:tea extract
-af:swart tee
 da:te-ekstrakt
 de:Tee-Extrakt
 es:Extracto de té
@@ -68602,9 +68588,6 @@ fr:blanc d'oeuf en poudre pasteurisé
 
 <en:powdered egg white
 nl:scharrelei-eiwitpoeder
-
-<en:powdered egg white
-nl:vrije uitloopeiwitpoeder
 
 <en:powdered egg white
 fr:blanc d'oeuf en poudre de poules élevées au sol
