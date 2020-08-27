@@ -23405,74 +23405,6 @@ fi:kypsennetty bulgur, kypsennetty bulgurvehnä
 fr:boulgour cuit
 hu:főtt bulgur
 
-# Bread crumbs or breadcrumbs (regional variants:breading, crispies) are sliced residue of dry bread, used for breading or crumbing foods.
-
-# This is a compound ingredient, e.g.:chapelure (farine de blé, levure, sel)
-
-en:bread crumbs
-ar:بقسماط
-be:Паніровачныя сухары
-bg:Галета
-ca:farina de galeta
-cs:strouhanka
-da:Rasp
-de:Paniermehl
-el:ψίχουλα ψωμιού
-eo:raspaĵo
-es:pan rallado, migaja de pan rallado
-eu:Ogi birrindu
-fa:آرد سوخاری
-fi:Korppujauho
-fr:chapelure
-gl:Pan relado
-he:פירורי לחם
-hu:kenyérmorzsa
-id:Tepung roti
-io:Raspo-pano
-it:pane grattugiato
-ja:パン粉
-ko:빵가루
-lt:Malti džiūvėsiai
-nb:Strøkavring
-nl:paneermeel
-pl:Bułka tarta
-pt:pão ralado
-ru:Панировочные сухари
-sk:Strúhanka
-sv:Ströbröd, brödsmulor
-uk:Паніровка
-vi:Vụn bánh mì
-zh:麵包屑
-# eml:Pan radû
-# pt-br:farinha de rosca
-# yue:麪包糠
-wikidata:en:Q658413
-wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
-vegan:en:maybe
-vegetarian:en:maybe
-# fr:chapelure has 2441 products in 7 languages @2018-11-12
-
-<en:bread crumbs
-fr:chapelure de blé
-de:Weizenpaniermehl
-# fr:chapelure-de-blé has 185 products in 2 languages @2018-11-12
-
-<en:bread crumbs
-en:panko
-da:panko
-de:panko
-es:panko
-fr:panko
-it:panko
-nl:panko
-ru:Панко
-wikidata:en:Q1820454
-# en:panko has 20 products in english @2018-11-12
-
-<en:bread crumbs
-de:Panade
-# de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
-
 ##################################################################################
 #
 #                        Emmer
@@ -71085,29 +71017,30 @@ fr:chocolat noir de couverture
 fr:intérieur cône
 
 # description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
+# This is a compound ingredient, e.g.:chapelure (farine de blé, levure, sel)
 
 <en:coating
 en:bread crumbs, breadcrumbs
 ar:بقسماط
 be:Паніровачныя сухары
 bg:Галета
-ca:pa ratllat
+ca:pa ratllat, farina de galeta
 cs:strouhanka
 da:Rasp
 de:Paniermehl, Panur, Semmelbrösel
 el:ψίχουλα ψωμιού
 eo:raspaĵo
-es:pan rallado,migas de pan
+es:pan rallado, migas de pan, migaja de pan rallado
 eu:Ogi birrindu
 fa:آرد سوخاری
 fi:korppujauho, paneerausjauho, leivite
 fr:Chapelure, panure, Chapelures
 gl:Pan relado
 he:פירורי לחם
-hu:zsemlemorzsa
+hu:zsemlemorzsa, kenyérmorzsa
 id:Tepung roti
 io:Raspo-pano
-it:pangrattato
+it:pangrattato, pane grattugiato
 ja:パン粉
 ko:빵가루
 lt:Malti džiūvėsiai
@@ -71117,7 +71050,7 @@ pl:panierka, Bułka tarta
 pt:pão ralado
 ru:Панировочные сухари
 sk:Strúhanka
-sv:panering, ströbröd, paneringsmjöl
+sv:panering, ströbröd, paneringsmjöl, brödsmulor
 uk:Паніровка
 vi:Vụn bánh mì
 zh:麵包屑
@@ -71127,10 +71060,34 @@ zh:麵包屑
 wikidata:en:Q658413
 wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 # ingredient/fr:panure has 462 products in 6 languages @2019-05-17
+vegan:en:maybe
+vegetarian:en:maybe
+# fr:chapelure has 2441 products in 7 languages @2018-11-12
 
 <en:breadcrumbs
 en:wholemeal breadcrumbs
 es:pan rallado integral
+
+<en:bread crumbs
+fr:chapelure de blé
+de:Weizenpaniermehl
+# fr:chapelure-de-blé has 185 products in 2 languages @2018-11-12
+
+<en:bread crumbs
+en:panko
+da:panko
+de:panko
+es:panko
+fr:panko
+it:panko
+nl:panko
+ru:Панко
+wikidata:en:Q1820454
+# en:panko has 20 products in english @2018-11-12
+
+<en:bread crumbs
+de:Panade
+# de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
 
 # <en:compound
 fr:pain de mie au blé malté
