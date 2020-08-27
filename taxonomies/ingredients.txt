@@ -4757,7 +4757,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Erythritol
 # additive/e968-erythritol has 662 products in 7 languages @2019-04-05
 
 
+# description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
+# comment:en:when indicated, probably alpha-amylase is meant
 # alpha-amylase, (α-amylase) is a protein enzyme EC 3.2.1.1 that hydrolyses alpha bonds of large, alpha-linked polysaccharides, such as starch and glycogen, yielding glucose and maltose.
+# comment:en:"en:amylase" is defined in additives.txt
 
 <en:amylase
 en:alpha-amylase, E1100, E-1100, E 1100
@@ -6128,12 +6131,6 @@ vegetarian:en:yes
 <en:coagulating enzyme
 en:sheep rennet
 es:cuajo ovino	
-
-# description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
-# coment:en:when indicated, probably alpha-amylase is meant
-
-<en:enzyme
-en:E1100
 
 # description:en:CELLULASE is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides. Cellulase is used for commercial food processing in coffee.
 
