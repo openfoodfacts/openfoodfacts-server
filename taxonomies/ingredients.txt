@@ -6756,7 +6756,7 @@ eu:Esne
 fa:شیر
 fi:maito, maidosta
 fo:Mjólk
-fr:Lait, lait
+fr:Lait
 fy:Molke
 ga:Bainne
 gd:Bainne
@@ -6765,7 +6765,7 @@ gn:Kamby
 gu:દૂધ
 gv:Bainney
 he:חלב
-hr:Mlijeko, mlijeko
+hr:Mlijeko
 ht:Lèt
 hu:Tej, Tejet
 hy:Կաթ
@@ -6775,7 +6775,7 @@ ik:Immuk
 is:Mjólk
 it:Latte
 iu:ᐃᒻᒧᒃ
-ja:乳, 乳
+ja:乳
 jv:Susu
 ka:რძე
 kk:Сүт
@@ -6802,7 +6802,7 @@ ne:दूध
 nl:melk
 nn:Mjølk
 nv:Abeʼ
-oc:Lach, lach, lait, lèit
+oc:Lach, lait, lèit
 or:କ୍ଷୀର
 pa:ਦੁੱਧ
 pl:Mleko
@@ -6824,7 +6824,7 @@ sr:Млеко
 su:Susu
 sv:Mjölk
 sw:Maziwa
-ta:பால், பால்
+ta:பால்
 te:పాలు
 tg:Шир
 th:นม
@@ -7206,12 +7206,14 @@ carbon_footprint_fr_foodges_value:fr:1.2
 en:organic UHT pasteurised semi-skimmed milk
 ca:llet semidesnatada ecològica esterilitzada UHT, llet parcialment desnatada ecològica esterilitzada UHT
 es:leche semidesnatada ecológica esterilizada UHT, leche parcialmente desnatada ecológica esterilizada UHT
-fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t
+fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t, lait demi-écrémé biologique stérilisé uht
 
 <en:pasteurized skimmed milk
 en:organic pasteurized skimmed milk
 de:pasteurisierte entrahmte Bio-Milch
 fr:lait biologique écrémé et pasteurisé
+
+# comment:en:Is there a difference between pasteurized milk and sterilised milk?
 
 <en:semi-skimmed milk
 <en:sterilised milk
@@ -7220,10 +7222,6 @@ ca:llet parcialment desnatada esterilitzada, llet esterilitzada parcialment desn
 de:sterilisierte teilentrahmte Milch, teilentrahmte Milch sterilisiert
 es:leche parcialmente desnatada esterelizada, leche semidesnatada esterilizada, leche esterilizada parcialmente desnatada, leche esterilizada semidesnatada
 fr:lait demi-écrémé stérilisé
-
-<en:sterilised semi-skimmed milk
-en:organic UHT pasteurised semi-skimmed milk
-fr:lait demi-écrémé biologique stérilisé uht
 
 <en:semi-skimmed milk
 fr:lait de montagne partiellement écrémé
@@ -7338,7 +7336,7 @@ fr:lait entier stérilisé uht issu de l'agriculture biologique
 
 <en:whole milk
 <en:pasteurised milk
-en:pasteurised whole milk, pasteurised whole milk
+en:pasteurised whole milk, pasteurized whole milk
 ca:llet sencera pasteuritzada, llet pasteuritzada senceea
 de:pasteurisierte Vollmilch
 es:leche entera pasteurizada, leche pasteurizada entera
@@ -8764,9 +8762,9 @@ hu:tejszín
 io:Kremo
 is:Rjómi
 it:panna, crema di latte
-ja:クリーム, クリーム
+ja:クリーム
 kk:Кілегей
-ko:크림, 크림
+ko:크림
 ky:Каймак
 la:Cramum
 lb:Rahm, Ram, Schmant
@@ -8790,14 +8788,14 @@ so:Labeen
 sq:Pana
 sv:Grädde
 sw:Samli
-ta:பாலாடை, பாலாடை
+ta:பாலாடை
 te:మీగడ
 th:ครีม
 tr:Krema
 uk:Вершки
 ur:ملائی
 uz:Qaymoq
-vi:Kem, Kem
+vi:Kem
 zh:鮮奶油, 奶油
 # ast:Crema de lleche
 # bar:Rahm
@@ -8840,7 +8838,7 @@ de:Cremepulver, Sahnepulver
 es:nata en polvo, crema de llet en polvo
 et:koorepulber
 fi:kermajauhe
-fr:crème en poudre, crème en poudre, poudre de crème
+fr:crème en poudre, poudre de crème
 hu:tejszínpor
 it:panna in polvere
 nl:roompoeder, poederroom
@@ -11103,7 +11101,7 @@ de:Raclette
 eo:Rakledo
 es:raclette
 fi:Raclette
-fr:raclette, Raclette
+fr:Raclette
 he:רקלט
 hu:Raclette, Raclette sajt
 hy:Ռակլետ
