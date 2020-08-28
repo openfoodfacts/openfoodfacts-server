@@ -280,6 +280,50 @@ function cacheCountries(countries) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
@@ -323,24 +367,6 @@ function getCachedStoresForCountry(country) {
 function cacheStoresForCountry(country, stores) {
     var key_localstorage_stores = LOCALSTORAGE_STORES_PARTIAL + country;
     window.localStorage.setItem(key_localstorage_stores, JSON.stringify(stores));
-}
-
-/*
- Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
- */
-function urlReplaceWorldWithSelectedCountry(url_off) {
-
-    /* replace 'world' with country code if available */
-    let new_url_off = url_off;
-    let country_code;
-    if (user_country != undefined) {
-        country_code= user_country[0].en_code;
-    }
-    if (country_code != undefined) {
-        new_url_off=url_off.replace("//"+URL_OFF_DEFAULT_COUNTRY.toLowerCase()+".", "//"+country_code.toLowerCase().trim()+".");
-    }
-
-    return new_url_off;
 }
 
 // **************
@@ -448,7 +474,7 @@ function fetch_score_databases() {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
         const url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
         if (url_score_db !== null && url_score_db != "") {
-            const param_db_for_graph = cached_databases["stats"].filter(function (db) {
+            const param_db_for_graph = cached_databases.stats.filter(function (db) {
                 return db[FLD_DB_NICK_NAME].toLowerCase() == url_score_db.toLowerCase();
             });
             if (param_db_for_graph !== null) {
@@ -470,9 +496,7 @@ function fetch_score_databases() {
 function getCachedScoreDatabases() {
     var key_localstorage_databases = LOCAL_STORAGE_SCORE_DATABASES;
     var databases = JSON.parse(window.localStorage.getItem(key_localstorage_databases));
-    if (databases !== null) {
-        return databases;
-    } else {
+    if (databases === null) {
         var data_score_databases;
         $.ajax({
             type: "GET",
@@ -486,6 +510,8 @@ function getCachedScoreDatabases() {
         });
 
         return data_score_databases;
+    } else {
+        return databases;
     }
 }
 
@@ -561,7 +587,7 @@ function make_suggestions(product_ref, products, db_graph) {
     if (products.length > 0) {
 
         /* sort products by: 1) desc proximity with product reference, 2) score */
-        let products_filtered = filter_suggestions(product_ref, products, db_graph);
+        const products_filtered = filter_suggestions(product_ref, products, db_graph);
         if (db_graph.bottomUp == true) {
             products_filtered.sort(function_sort_products_bottomUp);
         } else {
@@ -603,32 +629,6 @@ function activate_selection() {
     $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
 }
 
-/*
- shift: positive or negative to select a picture after left/right button has been pressed
- */
-function select_picture(shift) {
-    if (suggested_products.length > 0) {
-        let curr_pos = client_current_selection[0];
-        if (curr_pos < 0) {
-            curr_pos = 0;
-        } else {
-            curr_pos += shift;
-            // check out-of-bound
-            if (curr_pos < 0) {
-                curr_pos = 0;
-            }
-            if (curr_pos > (suggested_products.length - 1)) {
-                curr_pos = suggested_products.length - 1;
-            }
-        }
-        deactivate_previous_selection();
-        client_current_selection[0] = curr_pos;
-        const next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
-        client_current_selection[1] = next_image;
-        activate_selection();
-    }
-}
-
 // **************
 // graph part
 // **************
@@ -655,7 +655,7 @@ function draw_graph(id_attach_graph,
     var x = d3.scale.linear().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    var nb_categs = (prod_ref.categories_tags == null || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
+    var nb_categs = (prod_ref.categories_tags === null || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
 
     /* Number of x-axis ticks displayed in the graph (score is then minimum 1-(nb_categs_displayed/nb_categs) ) */
     var nb_categs_displayed = Math.ceil(nb_categs / 2);
@@ -686,10 +686,7 @@ function draw_graph(id_attach_graph,
     });
     var xAxisVertical = d3.svg.axis().scale(x).orient("top").ticks(nb_categs_displayed).tickValues(dataX).innerTickSize([height]).outerTickSize([height]);
 
-    var yAxis = d3.svg.axis().scale(y)
-        .orient("left")
-        .ticks(nb_nutrition_grades)
-        .tickFormat(function (d) {
+    var yAxis = d3.svg.axis().scale(y).orient("left").ticks(nb_nutrition_grades).tickFormat(function (d) {
             if (d >= db_graph.scoreMinValue && d <= db_graph.scoreMaxValue) {
                 if (db_graph.bottomUp == true) {
                     return db_graph.scoreIntervalsLabels[d - 1];
@@ -724,17 +721,17 @@ function draw_graph(id_attach_graph,
     var indx_array = 0;
     for (var i = db_graph.scoreMinValue; i <= db_graph.scoreMaxValue; i += step_for_stripe) {
         data_rect_2.push({'v': i, 'color': db_graph.scoreIntervalsStripeColour[indx_array]});
-        indx_array++;
+        indx_array = indx_array + 1;
     }
 
-    svg.selectAll("rect").data(data_rect_2).enter().append("rect").attr("width", width).attr("height", height / db_graph["scoreNbIntervals"]).attr("y", function (d) {
+    svg.selectAll("rect").data(data_rect_2).enter().append("rect").attr("width", width).attr("height", height / db_graph.scoreNbIntervals).attr("y", function (d) {
             if (db_graph.bottomUp == true) {
                 return (rangeInterval - d.v) * height / rangeInterval;
             } else {
                 return (d.v - step_for_stripe) * height / rangeInterval;
             }
         }).attr("fill", function (d) {
-            return d.color
+            return d.color;
         });
     // *****
 
@@ -768,17 +765,14 @@ function draw_graph(id_attach_graph,
     ];
     } else {
         // width unchanged, but height is reversed
-        square_of_suggestions = [{
+        square_of_suggestions = [
+            {
             "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
             "height": data_prod_ref[0].score == db_graph.scoreMinValue ? 1 : (data_prod_ref[0].score - 1)
-        }];
+        }
+    ];
     }
-    svg.selectAll("polyline")
-        .data(square_of_suggestions)
-        .enter().append("polyline")
-        .style("stroke", "black")  // colour the line
-        .style("fill", "none")     // remove any fill colour
-        .attr("points", function (d) {
+    svg.selectAll("polyline").data(square_of_suggestions).enter().append("polyline").style("stroke", "black").style("fill", "none").attr("points", function (d) {
             const w = width * d.width + CIRCLE_RADIUS_SELECTED;
             const h = d.height * (height / rangeInterval);
             const rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
@@ -826,7 +820,7 @@ function draw_graph(id_attach_graph,
     svg.append("g").attr("class", "y axis").call(yAxis);
 
     // Add the Y-axis label
-    svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height * 0.5)).attr("y", -45).attr("dy", "1em").style("text-anchor", "middle").style("font-size", "inherit").text(db_graph["scoreLabelYAxis"]);
+    svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height * 0.5)).attr("y", -45).attr("dy", "1em").style("text-anchor", "middle").style("font-size", "inherit").text(db_graph.scoreLabelYAxis);
 
     $(id_attach_graph).empty();
     $("svg").detach().appendTo(id_attach_graph);
@@ -850,20 +844,20 @@ function display_product_ref_details(prod_ref,
     if (image == "") {
         image = prod_ref.image_fake_off;
     }
-    let no_nutriments = prod_ref.no_nutriments;
-    let categories = prod_ref.categories_tags.join("<br />");
+    const no_nutriments = prod_ref.no_nutriments;
+    const categories = prod_ref.categories_tags.join("<br />");
     let url_off = prod_ref.url_product;
 
     /* replace 'world' with country code if available */
     let country_code;
-    if (user_country != undefined) {
+    if (user_country !== null) {
         country_code = user_country[0].en_code;
     }
-    if (country_code != undefined) {
+    if (country_code !== null) {
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
-    let url_json = prod_ref.url_json;
-    let style_for_border_colour = "grade_" + prod_ref.score;
+    const url_json = prod_ref.url_json;
+    const style_for_border_colour = "grade_" + prod_ref.score;
     $(id_code).empty();
     $(id_code).append(code);
     $(id_input_code).empty();
@@ -871,13 +865,13 @@ function display_product_ref_details(prod_ref,
     $(id_name).empty();
     $(id_name).append(name);
     $(id_img).attr("src", image);
-    $(id_img).attr("height", "" + ($(window).innerHeight() / 7) + "px");
+    $(id_img).attr("height", `String($(window).innerHeight() / 7)` + "px");
     $(id_img).attr("class", style_for_border_colour);
-    $(ID_IMG_OFF).attr("height", "" + ($(window).innerHeight() / 7 / 3) + "px");
+    $(ID_IMG_OFF).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
     $(ID_IMG_OFF).attr("max-height", "28px");
-    $(ID_IMG_JSON).attr("height", "" + ($(window).innerHeight() / 7 / 3) + "px");
+    $(ID_IMG_JSON).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
     $(ID_IMG_JSON).attr("max-height", "28px");
-    /*$(id_img).attr("height", "35px");*/
+    
     $(id_categories).empty();
     $(id_categories).append(categories);
     $(id_off).attr("href", url_off);
@@ -912,9 +906,9 @@ function draw_page(prod_ref, prod_matching) {
 // main
 // **************
 var nav_language = window.navigator.userLanguage || window.navigator.language;
-var user_country = undefined;
-var current_product = undefined;
-var current_db_for_graph = undefined;
+var user_country;
+var current_product;
+var current_db_for_graph;
 
 function init() {
     // load score databases
@@ -925,7 +919,7 @@ function init() {
     // set score db being used if cached locally: this is useful when using the barcode scanner App
     // which knows nothing about the current context when it launches the URL back with barcode.
     // We want to remember which score database is being used by the user
-    let current_db_used = getCachedCurrentDatabase();
+    const current_db_used = getCachedCurrentDatabase();
     if (current_db_used != undefined) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
@@ -941,22 +935,21 @@ function init() {
     });
 
     // Insert barcode from url if available, otherwise default product barcode
-    let url_barcode = getParameterByName(URL_PARAM_BARCODE, window.location.href);
-    if (url_barcode != undefined) {
+    const url_barcode = getParameterByName(URL_PARAM_BARCODE, window.location.href);
+    if (url_barcode === null) {
+        $(ID_INPUT_PRODUCT_CODE).val(PRODUCT_CODE_DEFAULT);
+    } else {
         $(ID_INPUT_PRODUCT_CODE).val(url_barcode);
         go_fetch();
-    } else {
-        $(ID_INPUT_PRODUCT_CODE).val(PRODUCT_CODE_DEFAULT);
     }
-
 }
 
 function guess_country_from_nav_lang() {
     let is_found = false;
-    let data_countries = getCachedCountries();
+    const data_countries = getCachedCountries();
     // set country: 1) from url param if set; 2) from navigator
-    let url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
-    if (url_country != undefined && url_country != "") {
+    const url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
+    if (url_country !== null && url_country != "") {
         let nav_country = url_country;
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
@@ -1041,7 +1034,6 @@ function go_fetch() {
     //url_score = getParameterByName(URL_PARAM_SCORE, window.location.href);
     $.ajax({
         type: "GET",
-        /* url: URL_ROOT_API + "/fetchAjax/",*/
         url: URL_ROOT_API + "/fetchPGraph/",
         contentType: "application/json; charset=utf-8",
         data: {barcode: $(ID_INPUT_PRODUCT_CODE).val(),
