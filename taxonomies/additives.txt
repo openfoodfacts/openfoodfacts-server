@@ -116,7 +116,7 @@ vegetarian:en:yes
 
 # description:en:used to be extracted from milk, but not anymore.
 
-# comment:en:e106 is the same as e101(ii)...
+# comment:en:e106 is the same as e101a, moved synonyms to E101a
 
 en:E106, flavin mononucleotide
 bg:E106, E106 food additive
@@ -126,7 +126,7 @@ de:E106, Flavinmononukleotid
 el:E106, E106 food additive
 es:E106, Flavín mononucleótido
 et:E106, E106 food additive
-fi:E106, Flaviinimononukleotidi
+fi:E106, E106 food additive
 fr:E106, Flavine mononucléotide
 hu:E106, E106 food additive
 it:E106, Flavina mononucleotide
@@ -244,7 +244,8 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:colour
 
-en:E101a, Riboflavin-5'-Phosphate
+comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
+en:E101a, E101a food additive
 bg:E101a, E101a food additive
 cs:E101a, E101a food additive
 da:E101a, E101a food additive
@@ -262,7 +263,7 @@ mt:E101a, E101a food additive
 nl:E101a, E101a food additive
 pl:E101a, E101a food additive
 pt:E101a, E101a food additive
-ro:E101a, Riboflavină 5-fosfat
+ro:E101a, E101a food additive
 sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
@@ -1235,7 +1236,7 @@ el:E140(ii), Χλωροφυλλινες, Πράσινο CI natural 5, χλωρο
 es:E140(ii), Clorofilinas, CI Natural Green 5, clorofilina sódica
 et:E140(ii), Klorofülliinid, CI looduslik roheline 5, naatriumklorofülliin
 fi:E140(ii), Klorofylliinit, Klorofylliinejä, CI Natural Green 5, Natriumklorofylliini, Natriumklorofylliiniä
-fr:E140(ii), Chlorophyllines, sels basiques des chlorophyllines, Vert naturel CI no5, Vert naturel CI n°5, chlorophylline sodique, chlorophylline potassique, Chlorophyllines, Vert naturel C. I. no 5
+fr:E140(ii), Chlorophyllines, sels basiques des chlorophyllines, Vert naturel CI no5, Vert naturel CI n°5, chlorophylline sodique, chlorophylline potassique, Vert naturel C. I. no 5
 hu:E140(ii), Klorofillinek, CI Natural Green 5, Nátrium-klorofillin
 it:E140(ii), Clorofilline, CI verde naturale 5, clorofillina di sodio
 lt:E140(ii), Chlorofilinai, Natūralus žaliasis CI Nr. 5, natrio chlorofilinas
@@ -5416,14 +5417,14 @@ vegetarian:en:yes
 # comment:en:Note that E262 must be in plural (Sodium acetates), as it is unspecified which one. The specific ones come as E262i, E262ii, etc.
 
 en:E262, Sodium acetates
-bg:E262, Натриев ацетат
+bg:E262, E262 food additive
 ca:E262, Acetats de sodi
-cs:E262
+cs:E262, E262 food additive
 da:E262, CH_3 COONa
 de:E262, Natriumacetate
 el:E262, E262 food additive
 es:E262, Acetatos de sodio, Acetatos sódico
-et:E262, Naatriumetanoaat, Naatriumatsetaat
+et:E262, E262 food additive
 fi:E262, Natriumasetaatit, Natriumasetaatteja
 fr:E262, Acétates de sodium
 hu:E262, Nátrium-acetáts
@@ -5432,10 +5433,10 @@ lt:E262, E262 food additive
 lv:E262, E262 food additive
 mt:E262, E262 food additive
 nl:E262, natriumacetaten
-pl:E262, Octany sodu, Octan sodu, Octan sodowy
+pl:E262, Octany sodu, Octan sodowy
 pt:E262, acétates de sodium
 ro:E262, E262 food additive
-sk:E262, Octan sodný
+sk:E262, E262 food additive
 sl:E262, Natrijev acetats
 sv:E262, Natriumacetater
 # additive/e262-sodium-acetates has 4654 products @2018-11-18
@@ -6028,7 +6029,7 @@ bs:E290, Ugljik-dioksid
 ca:E290, Diòxid de carboni, dioxid de carboni
 cs:E290, Oxid uhličitý, Plynný oxid uhličitý
 cy:E290, carbon deuocsid
-da:E290, Carbondioxid, Kuldioxidgas,, Kuldioxid
+da:E290, Carbondioxid, Kuldioxidgas, Kuldioxid
 de:E290, Kohlendioxid, Kohlensäure, Kohlenstoffdioxid
 el:E290, Διοξειδιο του ανθρακα, Αέριο ανθρακικό οξύ
 eo:E290, karbona dioksido 
@@ -6195,7 +6196,7 @@ jv:E296, Asam malat
 kk:E296, Алма қышқылы
 ko:E296, 말산
 lt:E296, Obuolių rūgštis
-lv:E296, Ābolskābe, C4H6O5, Malāti
+lv:E296, Ābolskābe, Malāti
 mk:E296, Јаболкова киселина
 mt:E296, Aċidu maliku
 nl:E296, Appelzuur
@@ -6208,7 +6209,7 @@ sh:E296, Malinska kiselina
 sk:E296, Kyselina jablčná
 sl:E296, Jabolčna kislina
 sr:E296, Malinska kiselina
-sv:E296, Äppelsyra, Malat, Äpplesyra, E 296
+sv:E296, Äppelsyra, Malat, Äpplesyra
 ta:E296, மேலிக் அமிலம்
 th:E296, กรดมาลิก
 tr:E296, Malik asit
@@ -7168,7 +7169,7 @@ da:E322, Lecithiner, Phosphatider
 de:E322, Lecithinen, Phosphatide
 el:E322, Λεκιθινες, Φωσφατίδια
 es:E322, Lecitinas, Fosfátidos
-et:E322, Letsitiinid, Fosfatiidid, Letsitiin
+et:E322, Letsitiinid, Fosfatiidid
 fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
 fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
 hu:E322, Lecitinek, Foszfatidek
@@ -7759,7 +7760,7 @@ bg:E332, E332 food additive
 ca:E332, Citrats de potassi
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrate, Kaliumcitrat
+de:E332, Kaliumcitrate
 el:E332, Κιτρικο καλιο
 es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
 et:E332, E332 food additive
@@ -7857,7 +7858,7 @@ da:E333, E333 food additive
 de:E333, Calciumcitrat, Kalziumzitrat, Calciumcitrate
 el:E333, Κιτρικο ασβεστιο
 es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga
-et:E333, Kaltsiumtsitraat
+et:E333, E333 food additive
 fi:E333, Kalsiumsitraatti, Kalsiumsitraattia
 fr:E333, Citrates de calcium, Citrate de calcium
 hu:E333, Kalcium-citrát
@@ -7865,10 +7866,10 @@ it:E333, Citrato di calcio
 lt:E333, E333 food additive
 lv:E333, E333 food additive
 mt:E333, E333 food additive
-nl:E333, Calciumcitraat
+nl:E333, Calciumcitraten
 pl:E333, cytrynian wapnia
 pt:E333, Citrato de cálcio
-ro:E333, Citrat tricalcic
+ro:E333, E333 food additive
 ru:E333, Цитрат кальция
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
@@ -8136,7 +8137,7 @@ de:E336, Kaliumtartrate
 el:E336, E336 food additive
 eo:E336, Kalia tartrato
 es:E336, tartratos de potasio
-et:E336, Kaaliumtartraat
+et:E336, E336 food additive
 fi:E336, kaliumtartraatit, Kaliumtartraatti, Kaliumtartraattia
 fr:E336, Tartrates de potassium, Tartrate de potassium, argol, crème de tartre
 hu:E336, tartrati di potassio, kálium-tartarát
@@ -8153,7 +8154,7 @@ sh:E336, Kalijum tartrat
 sk:E336, E336 food additive
 sl:E336, E336 food additive
 sr:E336, Kalijum tartrat
-sv:E336, Kaliumtartrat
+sv:E336, Kaliumtartrater
 e_number:en:336
 wikidata:en:Q418064
 organic_eu:en:authorized
@@ -8351,7 +8352,7 @@ lt:E339(i), Mononatrio fosfatas
 lv:E339(i), Mononātrija fosfāts
 mt:E339(i), Fosfat monosodiku
 nl:E339(i), Mononatriumfosfaat, Mononatriummonofosfaat, zuur mononatriummonofosfaat, mononatriumorthofosfaat, eenbasisch natriumfosfaat
-pl:E339(i), Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, fosforan sodu, jednozasadowy
+pl:E339(i), Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, jednozasadowy
 pt:E339(i), Fosfato monossódico, Monofosfato monossódico, monofosfato ácido monossódico, ortofosfato monossódico, fosfato de sódio monobásico
 ro:E339(i), Fosfat monosodic, Monofosfat monosodic, Acid monofosfat monosodic, Ortofosfat monosodic, Fosfat de sodiu monobazic
 ru:E339(i), Дигидрофосфат натрия
@@ -9251,21 +9252,21 @@ wikidata:en:Q4747299
 vegan:en:yes
 vegetarian:en:yes
 
-en:E363, Succinic acid, Asuccin, Amber acid, 1\,2-Ethanedicarboxylic acid, Butanedioic acid, Bernsteinsaeure, Ethylenesuccinic acid, Spirit of amber, Butanedionic acid, Bernsteinsaure, Succinate, Butandisaeure, Dihydrofumaric acid, Acidum succinicum, Acide butanedioique, Acide succinique, HOOC-CH2-CH2-COOH
+en:E363, Succinic acid, Asuccin, Amber acid, 1/2-Ethanedicarboxylic acid, Butanedioic acid, Bernsteinsaeure, Ethylenesuccinic acid, Spirit of amber, Butanedionic acid, Bernsteinsaure, Succinate, Butandisaeure, Dihydrofumaric acid, Acidum succinicum, Acide butanedioique, Acide succinique
 bg:E363, Сукцинова киселина, Янтарна киселина, Бискарбоксиметил, Бутандиова киселина
 ca:E363, Àcid succínic, acid succinic
-cs:E363, Kyselina jantarová, Sukcinát, E 363
-da:E363, Ravsyre, Succinat, E-363
-de:E363, Bernsteinsäure, 1\,4-Butandisäure, E 363, Succinylsäure, Butandisäure
+cs:E363, Kyselina jantarová, Sukcinát
+da:E363, Ravsyre, Succinat
+de:E363, Bernsteinsäure, 1/4-Butandisäure, Succinylsäure, Butandisäure
 el:E363, Ηλεκτρικο οξυ
-es:E363, Ácido succínico, Ácido butanodioico, E 363, Succinato
+es:E363, Ácido succínico, Ácido butanodioico, Succinato
 et:E363, Merevaikhape
 fi:E363, Meripihkahappo, Butaanidikarbonihappo, Butaanidihappo, Sukkiinihappo, Meripihkahappoa, Butaanidikarbonihappoa, Butaanidihappoa, Sukkiinihappoa
-fr:E363, Acide succinique, Succinate, 110-15-6, Acide butanedioïque
+fr:E363, Acide succinique, Succinate, Acide butanedioïque
 hu:E363, Borostyánkősav
-it:E363, Acido succinico, HOOCCH2CH2COOH, Succinato, Acido 1\,4-butandioico
+it:E363, Acido succinico, Succinato, Acido 1/4-butandioico
 lt:E363, Gintaro rūgštis
-lv:E363, Dzintarskābe, Hooc(ch2)2cooh, C4h6o4, Butāndiskābe, Sukcināts, Etāndikarbonskābe
+lv:E363, Dzintarskābe, Butāndiskābe, Sukcināts, Etāndikarbonskābe
 mt:E363, Aċidu suċċiniku
 nl:E363, Barnsteenzuur, Succinyl, Succinaat, Butaandizuur
 pl:E363, Kwas bursztynowy, Bursztynian
@@ -9273,7 +9274,7 @@ pt:E363, Ácido succínico, Succinato, Ácido butanodióico
 ro:E363, Acid succinic
 sk:E363, Kyselina jantárová
 sl:E363, Jantarna kislina
-sv:E363, Bärnstenssyra, Bärnstensyra, E 363, Bernstenssyra
+sv:E363, Bärnstenssyra, Bärnstensyra, Bernstenssyra
 e_number:en:363
 wikidata:en:Q213050
 vegan:en:yes
@@ -11957,7 +11958,7 @@ el:E450(i), Δισοξινο πυροφωσφορικο νατριο
 es:E450(i), Difosfato disódico, Pirofosfato ácido de sodio
 et:E450(i), Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fi:E450(i), Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti, Dinatriumdifosfaattia, Dinatriumdivetydifosfaattia, Dinatriumdivetypyrofosfaattia, E450a
-fr:E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
+fr:E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate
 hu:E450(i), Dinátrium-difoszfát
 it:E450(i), Difosfato disodico
 lt:E450(i), Dinatrio difosfatas
@@ -12175,9 +12176,9 @@ el:E451, Τριφωσφορικο νατριο, Τριπολυφωσφορικό
 es:E451, Tripolifosfato de sodio,trifosfato pentasodico
 et:E451, E451 food additive
 fi:E451, Trifosfaatit, Trifosfaatteja
-fr:E451, Triphosphates, E450b, Tripolyphosphates, triphosphate de sodium
+fr:E451, Triphosphates, Tripolyphosphates, triphosphate de sodium
 hu:E451, E451 food additive
-it:E451, trifosfato pentasodico, Trifosfato di sodio, Polifosfato di sodio, Na5P3O10
+it:E451, trifosfato pentasodico, Trifosfato di sodio, Polifosfato di sodio
 lt:E451, E451 food additive
 lv:E451, E451 food additive
 mt:E451, E451 food additive
