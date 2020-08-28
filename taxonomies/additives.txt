@@ -4571,13 +4571,14 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+
 en:E232, Sodium orthophenyl phenol
 bg:E232, E232 food additive
 cs:E232, E232 food additive
 da:E232, E232 food additive
 de:E232, E232 food additive
 el:E232, E232 food additive
-es:E232, Ortofenilfenato sódico, Orto-fenilfenato sódico, Ortofenilfenato de sodio, Orto-fenilfenato de sodio, Sodio difenil-2-ilo, Orto-fenilfenol imazalil, Imazalil
+es:E232, Ortofenilfenato sódico, Orto-fenilfenato sódico, Ortofenilfenato de sodio, Orto-fenilfenato de sodio, Sodio difenil-2-ilo, Orto-fenilfenol imazalil
 et:E232, E232 food additive
 fi:E232, Natriumortofenyylifenoli, Natriumortofenyylifenolia
 fr:E232, Orthophénylphénate de sodium, Sodium diphényl 2 yl
@@ -14592,6 +14593,7 @@ e_number:en:503
 wikidata:en:Q204873
 organic_eu:en:authorized
 
+
 #comment:en:Use plural for E504 and singular (specific) for E504i
 en:E504, Magnesium carbonates
 bg:E504, E504 food additive
@@ -14623,35 +14625,65 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+description:en:MAGNESIUM CARBONATE  , MgCO3 (archaic name magnesia alba), is an inorganic salt that is a white solid.
 <en:E504
 en:E504(i), Magnesium carbonate
+ar:E504(i), كربونات المغنسيوم
 bg:E504(i), Магнезиев карбонат
+bs:E504(i), Magnezijum karbonat
 ca:E504(i), Carbonat de magnesi
 cs:E504(i), Uhličitan hořečnatý
 da:E504(i), Magnesiumcarbonat
 de:E504(i), Magnesiumcarbonat
-el:E504(i), Ανθρακικα αλατα του μαγνησιου
+el:E504(i), Ανθρακικό μαγνήσιο, Ανθρακικα αλατα του μαγνησιου
+eo:E504(i), magnezia karbonato
 es:E504(i), Carbonato de magnesio
 et:E504(i), Magneesiumkarbonaat
+fa:E504(i), منیزیم کربنات
 fi:E504(i), Magnesiumkarbonaatti, Magnesiumkarbonaattia
 fr:E504(i), Carbonate de magnésium
+ga:E504(i), carbónáit mhaignéisiam
+hi:E504(i), मैग्निसियम कार्बोनेट
 hu:E504(i), Magnézium-karbonát
 it:E504(i), Carbonato di magnesio
+ja:E504(i), 炭酸マグネシウム
+ky:E504(i), Магний карбонаты
 lt:E504(i), Magnio karbonatas
 lv:E504(i), Magnija karbonāts
 mt:E504(i), Karbonat tal-manjeżju
+nb:E504(i), Magnesiumkarbonat
 nl:E504(i), Magnesiumcarbonaat
+nn:E504(i), magnesiumkarbonat
 pl:E504(i), Węglan magnezu
 pt:E504(i), Carbonato de magnésio
 ro:E504(i), Carbonat de magneziu
+ru:E504(i), карбонат магния
+sh:E504(i), Magnezijum karbonat
 sk:E504(i), Uhličitan horečnatý
 sl:E504(i), Magnezijev karbonat
+sr:E504(i), магнезијум карбонат
 sv:E504(i), Magnesiumkarbonat
+ta:E504(i), மக்னீசியம் கார்பனேட்டு
+th:E504(i), แมกนีเซียมคาร์บอเนต
+uk:E504(i), Карбонат магнію
+vi:E504(i), magie cacbonat
+zh:E504(i), 碳酸鎂
+# azb:E504(i), منیزیوم کربونات
+# sr-ec:E504(i), магнезијум карбонат
+# sr-el:vMagnezijum karbonat
+# zh-cn:E504(i), 碳酸镁
+# zh-hans:E504(i), 碳酸镁
+# zh-hant:E504(i), 碳酸鎂
+# zh-hk:E504(i), 碳酸鎂
+# zh-sg:E504(i), 碳酸镁
+# zh-tw:E504(i), 碳酸鎂
 e_number:en:504
 mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
 wikidata:en:Q407931
 additives_classes:en: en:carrier
 organic_eu:en:authorized
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_carbonate
+# ingredient/fr:carbonates-de-magnésium has 61 products in 4 languages @2019-03-20
 
 <en:E504
 en:E504(ii), Magnesium hydroxide carbonate
