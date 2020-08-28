@@ -140,7 +140,7 @@ function getCachedCountries() {
         var data_countries;
 
         /* fetch countries from json file (made synchronous this way with $.ajax instead of $.getJSON
-        which is only asynchronous!) */
+         which is only asynchronous!) */
         $.ajax({
             url: URL_ROOT_API + FILE_COUNTRIES,
             dataType: 'json',
@@ -181,17 +181,99 @@ function cacheCountries(countries) {
 }
 
 
-function find_country_object (en_country) {
-    const countries = getCachedCountries();
-    let index_of_found = -1;
-    for (var i=0; i < countries.length && index_of_found < 0; i++) {
-        if (countries[i].en_label == en_country) {
-            index_of_found = i;
-        }
-    }
 
-    return (index_of_found < 0) ? undefined : countries[index_of_found];
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
@@ -214,8 +296,7 @@ function getCachedStoresForCountry(country) {
                 country: country
             },
             success: function (data) {
-                if (data === null) {
-                } else {
+                if (data !== null) {
                     data.tags.sort(function_sort_stores_by_nb_products);
                     const stores_most_relevant = data.tags.filter(function (store, indx) {
                         return indx < MAX_STORES_TO_SHOW_PER_COUNTRY;
@@ -240,7 +321,7 @@ function cacheStoresForCountry(country, stores) {
 }
 
 /*
-Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
+ Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
  */
 function urlReplaceWorldWithSelectedCountry(url_off) {
 
@@ -281,39 +362,37 @@ function getSortMethod() {
     var args = Array.prototype.slice.call(arguments);
 
     return function (a, b) {
-        if (args !==null) {
-            for (var x in args) {
-                var ax;
-                var bx;
-                var cx;
+        for (var x in args) {
+            var ax;
+            var bx;
+            var cx;
 
-                const tmp_ax = a[args[x].substring(1)];
-                if ((typeof tmp_ax) == "number") {
-                    // numbers
-                    ax = Number(tmp_ax);
-                    bx = Number(b[args[x].substring(1)]);
-                } else {
-                    // strings => try converting into numbers anyway
-                    ax = Number(tmp_ax);
-                    bx = Number(b[args[x].substring(1)]);
-                    if (isNaN(ax) || isNaN(bx)) {
-                        // well, these are really strings
-                        ax = tmp_ax;
-                        bx = b[args[x].substring(1)];
-                    }
+            const tmp_ax = a[args[x].substring(1)];
+            if ((typeof tmp_ax) == "number") {
+                // numbers
+                ax = Number(tmp_ax);
+                bx = Number(b[args[x].substring(1)]);
+            } else {
+                // strings => try converting into numbers anyway
+                ax = Number(tmp_ax);
+                bx = Number(b[args[x].substring(1)]);
+                if (isNaN(ax) || isNaN(bx)) {
+                    // well, these are really strings
+                    ax = tmp_ax;
+                    bx = b[args[x].substring(1)];
+                }
 
-                }
-                if (args[x].substring(0, 1) == "-") {
-                    cx = ax;
-                    ax = bx;
-                    bx = cx;
-                }
-                if (ax != bx) {
-                    return ax < bx ? -1 : 1;
-                }
+            }
+            if (args[x].substring(0, 1) == "-") {
+                cx = ax;
+                ax = bx;
+                bx = cx;
+            }
+            if (ax != bx) {
+                return ax < bx ? -1 : 1;
             }
         }
-    }
+    };
 }
 
 
@@ -362,24 +441,24 @@ function fetch_score_databases() {
     var cached_databases = getCachedScoreDatabases();
     if (cached_databases !== null) {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
-        let url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
-        if (url_score_db != undefined && url_score_db != "") {
-            let param_db_for_graph = cached_databases["stats"].filter(function (db) {
+        const url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
+        if (url_score_db !== null && url_score_db != "") {
+            const param_db_for_graph = cached_databases["stats"].filter(function (db) {
                 return db[FLD_DB_NICK_NAME].toLowerCase() == url_score_db.toLowerCase();
             });
-            if (param_db_for_graph != undefined) {
+            if (param_db_for_graph !== null) {
                 current_db_for_graph = param_db_for_graph[0];
             }
         }
-        if (current_db_for_graph == undefined) {
+        if (current_db_for_graph === null) {
             current_db_for_graph = getCachedCurrentDatabase();
         }
-        if (current_db_for_graph == undefined) {
-            current_db_for_graph = cached_databases["stats"][0];
+        if (current_db_for_graph === null) {
+            current_db_for_graph = cached_databases.stats[0];
             //alert("caching default since null");
         }
         cacheCurrentScoreDatabase(current_db_for_graph);
-        fillHtmlElementWithDatabases(cached_databases["stats"]);
+        fillHtmlElementWithDatabases(cached_databases.stats);
     }
 }
 
@@ -389,7 +468,7 @@ function getCachedScoreDatabases() {
     if (databases !== null) {
         return databases;
     } else {
-        var data_score_databases = undefined;
+        var data_score_databases;
         $.ajax({
             type: "GET",
             url: URL_ROOT_API + ENDPOINT_SCORE_DBS,
@@ -400,24 +479,27 @@ function getCachedScoreDatabases() {
                 cacheScoreDatabases(data_score_databases);
             }
         });
+
         return data_score_databases;
     }
 }
 
 function getCachedCurrentDatabase() {
     var key_localstorage_current_db = LOCAL_STORAGE_CURRENT_DATABASE;
-    let current_db = JSON.parse(window.localStorage.getItem(key_localstorage_current_db));
+    const current_db = JSON.parse(window.localStorage.getItem(key_localstorage_current_db));
+
     return current_db;
 }
 
 function filterDatabases(databases) {
-    let dbs_to_show = databases["stats"].filter(function (db) {
+    const dbs_to_show = databases.stats.filter(function (db) {
         // Mock for filtering only active dbs for everybody and all dbs for testing purposes
-        if (window.location.href.search("/test") >= 0 || db["isActive"] == true) {
+        if (window.location.href.search("/test") >= 0 || db.isActive == true) {
             return db;
         }
     });
-    databases["stats"] = dbs_to_show;
+    databases.stats = dbs_to_show;
+
     return databases;
 }
 
@@ -440,94 +522,85 @@ function changeScoreDb(ctrl) {
 // products_suggestion
 // **************
 var suggested_products = [];
+
 /*
  [x, y]: x = number of product selected once products filtered and ordered
  note: in order to access the circle drawn in the graph, use suggested_products[x].num_circle
  y = DOM-image of selected product
  */
-var client_current_selection = [-1, undefined];
+var client_current_selection = [-1, null];
 
 function cleanup_suggestions() {
+
     /* clear previous suggestions if any */
     $(ID_PRODUCTS_SUGGESTION).empty();
     $(ID_NB_SUGGESTIONS).empty();
     $(ID_NB_SUGGESTIONS).append(0);
-    $(ID_PRODUCTS_SUGGESTION).attr("height", "" + (6 + $(window).innerHeight() / 3) + "px");
+    $(ID_PRODUCTS_SUGGESTION).attr("height", `String(6 + $(window).innerHeight() / 3)` + "px");
     $(ID_PRODUCTS_SUGGESTION).append("<ul></ul>");
-    $(ID_MENU_SELECTION).attr("height", "" + ($(window).innerHeight() / 5) + "px");
+    $(ID_MENU_SELECTION).attr("height", `String($(window).innerHeight() / 5)` + "px");
 
 }
 
 function get_graph_stripe_colour (db_graph, score_of_product) {
     // Compute which stripe colour to set for the border of product suggested
-    let indx_colour_stripe = undefined;
-    if (db_graph["bottomUp"] == true) {
-        indx_colour_stripe = (db_graph["scoreIntervalsStripeColour"].length - 1) - (db_graph["scoreMaxValue"] - score_of_product);
+    let indx_colour_stripe;
+    if (db_graph.bottomUp == true) {
+        indx_colour_stripe = (db_graph.scoreIntervalsStripeColour.length - 1) - (db_graph.scoreMaxValue - score_of_product);
     } else {
-        indx_colour_stripe = score_of_product - db_graph["scoreMinValue"];
+        indx_colour_stripe = score_of_product - db_graph.scoreMinValue;
     }
 
-    return db_graph["scoreIntervalsStripeColour"][indx_colour_stripe];
+    return db_graph.scoreIntervalsStripeColour[indx_colour_stripe];
 }
 
 function make_suggestions(product_ref, products, db_graph) {
-    client_current_selection = [-1, undefined];
+    client_current_selection = [-1, null];
     cleanup_suggestions();
 
     if (products.length > 0) {
+
         /* sort products by: 1) desc proximity with product reference, 2) score */
-        products = filter_suggestions(product_ref, products, db_graph);
-        if (db_graph["bottomUp"] == true) {
-            products.sort(function_sort_products_bottomUp);
+        products_filtered = filter_suggestions(product_ref, products, db_graph);
+        if (db_graph.bottomUp == true) {
+            products_filtered.sort(function_sort_products_bottomUp);
         } else {
-            products.sort(function_sort_products_upToBottom);
+            products_filtered.sort(function_sort_products_upToBottom);
         }
-        suggested_products = products.slice(0, MAX_SUGGESTIONS);
+        suggested_products = products_filtered.slice(0, MAX_SUGGESTIONS);
         $(ID_NB_SUGGESTIONS).empty();
         $(ID_NB_SUGGESTIONS).append(suggested_products.length);
         suggested_products.forEach(function (product, index) {
             // $(ID_PRODUCTS_SUGGESTION + " > div").append("<div class='cell_suggestion' onclick='alert("+cx+")'><img src='" + product.img + "' height='150px' /></div>");
-            let style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
+            const style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
             $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' onclick='process_selected_suggestion(this, " + index + ")' /></li>");
         });
     }
 }
 
-function process_selected_suggestion(img_selected, index) {
-    deactivate_previous_selection();
-    client_current_selection[0] = index;
-    client_current_selection[1] = img_selected;
-    activate_selection();
-
-}
-
 function deactivate_previous_selection() {
     if (client_current_selection[0] > -1) {
-        let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+        const rangeInterval = (current_db_for_graph.scoreMaxValue - current_db_for_graph.scoreMinValue + 1);
 
-        let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
+        const style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
         client_current_selection[1].setAttribute("style", style_for_border_colour);
 
-        let circle_node = $("#svg_graph")[0].childNodes[0]
-            .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-        circle_node.setAttribute("r", "" + CIRCLE_RADIUS_DEFAULT + "");
+        const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+        circle_node.setAttribute("r", `String("" + CIRCLE_RADIUS_DEFAULT)`);
         circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
     }
 }
 
 function activate_selection() {
-    let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+    const rangeInterval = (current_db_for_graphscoreMaxValue - current_db_for_graph.scoreMinValue + 1);
     // Box around selection in the ribbon
     client_current_selection[1].setAttribute("class", "product_selected");
     client_current_selection[1].setAttribute("style", "");
     // focus circle bound to selection
-    let circle_node = $("#svg_graph")[0].childNodes[0]
-        .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-    circle_node.setAttribute("r", "" + CIRCLE_RADIUS_SELECTED + "");
+    const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+    circle_node.setAttribute("r", `String(CIRCLE_RADIUS_SELECTED)`);
     circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
     $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
-    /*selected_product_url = suggested_products[client_current_selection[0]].url;
-     window.open(selected_product_url, '_blank');*/
 }
 
 /*
@@ -553,46 +626,6 @@ function select_picture(shift) {
         let next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
         client_current_selection[1] = next_image;
         activate_selection();
-    }
-}
-
-function show_details() {
-    let curr_prod = suggested_products[client_current_selection[0]];
-    let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
-    $(ID_DETAILS_SELECTED_PRODUCT).empty();
-
-    /* Replace world with country selected by the user in the GUI in the url
-     of the product to access the regionalized OFF page directly */
-    curr_prod.url = urlReplaceWorldWithSelectedCountry(curr_prod.url);
-    $(ID_DETAILS_SELECTED_PRODUCT).append("<table class='table_sel_prod'><tr><td class='sel_prod_img'>" +
-        "<div><a href='" + curr_prod.url + "' target='_blank'>" +
-        "<img src='" + curr_prod.img + "' class='grade_border' style='" + style_for_border_colour + "' /></a></div></td>" +
-        "<td class='sel_prod_header'><div class='sel_prod_code'>" + curr_prod.code + "</div><br /><div class='sel_prod_brands'>" +
-        curr_prod.brands + "</div><br /><div class='sel_prod_name'>" + curr_prod.name + "</div>" +
-        "<div class='sel_prod_similarity'>[Similarity: " + curr_prod.score_proximity + "%]</div></td></tr></table>");
-    $(ID_DETAILS_SELECTED_PRODUCT).append(curr_prod.categories);
-    $(ID_DETAILS_SELECTED_PRODUCT).append("<div class='close_details_sel_prod' onclick='hide_details()'>close</div>");
-    $(ID_DETAILS_SELECTED_PRODUCT).css({opacity: 0, width: $(document).width(), height: $(document).height()});
-    $(ID_DETAILS_SELECTED_PRODUCT).addClass('detailsProduct');
-    $(ID_DETAILS_SELECTED_PRODUCT).show();
-    $(ID_DETAILS_SELECTED_PRODUCT).animate({opacity: 0.95}, 100);
-}
-
-function hide_details() {
-    $(ID_DETAILS_SELECTED_PRODUCT).empty();
-    $(ID_DETAILS_SELECTED_PRODUCT).animate({opacity: 0}, 100, function () {
-        $(ID_DETAILS_SELECTED_PRODUCT).hide();
-    });
-}
-
-function go_search() {
-    let curr_prod = client_current_selection[0];
-    if (curr_prod >= 0) {
-        let code_product = suggested_products[curr_prod].code;
-        $(ID_INPUT_PRODUCT_CODE).val(code_product);
-        $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
-        $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
-        $(ID_BTN_SUBMIT).click();
     }
 }
 
@@ -623,77 +656,59 @@ function draw_graph(id_attach_graph,
     var y = d3.scale.linear().range([height, 0]);
 
     var nb_categs = (prod_ref.categories_tags == undefined || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
+
     /* Number of x-axis ticks displayed in the graph (score is then minimum 1-(nb_categs_displayed/nb_categs) ) */
     var nb_categs_displayed = Math.ceil(nb_categs / 2);
-    var nb_nutrition_grades = db_graph["scoreNbIntervals"];
+    var nb_nutrition_grades = db_graph.scoreNbIntervals;
     var x_axis_min_value = 1 - (nb_categs_displayed / nb_categs);
     var shift_left_x_values = x_axis_min_value;
 
     // Define the axes
-    var xAxis = d3.svg.axis().scale(x)
-        .orient("bottom").ticks(nb_categs_displayed)
-        .tickFormat(function (d) {
-            if (d == x_axis_min_value)
+    var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(nb_categs_displayed).tickFormat(function (d) {
+            if (d == x_axis_min_value) {
                 return "low";
-            if (d == 1)
+            }
+            if (d == 1) {
                 return "high";
+            }
+
             return "";
         });
 
     /* Draw vertical lines for each tick */
     /* ..generates [0..nb_categs_displayed] */
-    var rangeCategs = [...Array(nb_categs_displayed + 1).keys()
-]
-    ;
+    var rangeCategs = [...Array(nb_categs_displayed + 1).keys()];
     var dataX = [];
     rangeCategs.forEach(function (d) {
         if (d > 0) {
             dataX.push(d / nb_categs_displayed);
         }
     });
-    var xAxisVertical = d3.svg.axis().scale(x)
-            .orient("top").ticks(nb_categs_displayed)
-            .tickValues(dataX)
-            .innerTickSize([height])
-            .outerTickSize([height])
-        ;
+    var xAxisVertical = d3.svg.axis().scale(x).orient("top").ticks(nb_categs_displayed).tickValues(dataX).innerTickSize([height]).outerTickSize([height]);
 
     var yAxis = d3.svg.axis().scale(y)
         .orient("left")
         .ticks(nb_nutrition_grades)
         .tickFormat(function (d) {
-            if (d >= db_graph["scoreMinValue"] && d <= db_graph["scoreMaxValue"]) {
-                if (db_graph["bottomUp"] == true) {
-                    return db_graph["scoreIntervalsLabels"][d - 1];
+            if (d >= db_graph.scoreMinValue && d <= db_graph.scoreMaxValue) {
+                if (db_graph.bottomUp == true) {
+                    return db_graph.scoreIntervalsLabels[d - 1];
                 } else {
-                    return db_graph["scoreIntervalsLabels"][db_graph["scoreNbIntervals"] - d];
+                    return db_graph.scoreIntervalsLabels[db_graph.scoreNbIntervals - d];
                 }
             }
+
             return "";
         });
 
     // Define the div for the tooltip
-    var div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0)
-        .style("display", "none");
+    var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0).style("display", "none");
 
     // Adds the svg canvas
-    var svg = d3.select("body")
-        .append("svg")
-        .attr("id", "svg_graph")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+    var svg = d3.select("body").append("svg").attr("id", "svg_graph").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     /* todo: check because new added */
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + margin.top + margin.bottom + ")")
-        .call(xAxisVertical);
-
+    svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + margin.top + margin.bottom + ")").call(xAxisVertical);
 
     // Scale the range of the data
     x.domain([x_axis_min_value, 1]);
@@ -706,28 +721,21 @@ function draw_graph(id_attach_graph,
 
     /* Draw coloured stripes from bottom to top (bottom-up direction) */
     var data_rect_2 = [];
-    var rangeInterval = (db_graph["scoreMaxValue"] - db_graph["scoreMinValue"] + 1);
-    var step_for_stripe = rangeInterval / db_graph["scoreNbIntervals"];
+    var rangeInterval = (db_graph.scoreMaxValue - db_graph.scoreMinValue + 1);
+    var step_for_stripe = rangeInterval / db_graph.scoreNbIntervals;
     var indx_array = 0;
-    for (var i = db_graph["scoreMinValue"]; i <= db_graph["scoreMaxValue"]; i += step_for_stripe) {
-        data_rect_2.push({'v': i, 'color': db_graph["scoreIntervalsStripeColour"][indx_array]});
+    for (var i = db_graph.scoreMinValue; i <= db_graph.scoreMaxValue; i += step_for_stripe) {
+        data_rect_2.push({'v': i, 'color': db_graph.scoreIntervalsStripeColour[indx_array]});
         indx_array++;
     }
 
-    svg.selectAll("rect")
-        .data(data_rect_2)
-        .enter()
-        .append("rect")
-        .attr("width", width)
-        .attr("height", height / db_graph["scoreNbIntervals"])
-        .attr("y", function (d) {
-            if (db_graph["bottomUp"] == true) {
+    svg.selectAll("rect").data(data_rect_2).enter().append("rect").attr("width", width).attr("height", height / db_graph["scoreNbIntervals"]).attr("y", function (d) {
+            if (db_graph.bottomUp == true) {
                 return (rangeInterval - d.v) * height / rangeInterval;
             } else {
                 return (d.v - step_for_stripe) * height / rangeInterval;
             }
-        })
-        .attr("fill", function (d) {
+        }).attr("fill", function (d) {
             return d.color
         });
     // *****
@@ -737,21 +745,13 @@ function draw_graph(id_attach_graph,
     var data_prod_ref = [{'score': 1}];
     if (prod_ref.length != 0)
         data_prod_ref = [{'score': prod_ref["score"]}];
-    svg.selectAll("ellipse")
-        .data(data_prod_ref)
-        .enter().append("ellipse")
-        .attr("cx", width * (1 - (1 / nb_categs_displayed) / 2))
-        .attr("cy", function (d) {
-            if (db_graph["bottomUp"] == true) {
+    svg.selectAll("ellipse").data(data_prod_ref).enter().append("ellipse").attr("cx", width * (1 - (1 / nb_categs_displayed) / 2)).attr("cy", function (d) {
+            if (db_graph.bottomUp == true) {
                 return (height * (1 - (d.score / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
             } else {
                 return (height * ((d.score - 1) / nb_nutrition_grades) + (height / nb_nutrition_grades * 0.5));
             }
-        })
-        .attr("rx", width / nb_categs_displayed * 0.5)
-        .attr("ry", (height / nb_nutrition_grades) * 0.5)
-        .attr("fill", "#ffffff")
-        .attr("fill-opacity", 0.75);
+        }).attr("rx", width / nb_categs_displayed * 0.5).attr("ry", (height / nb_nutrition_grades) * 0.5).attr("fill", "#ffffff").attr("fill-opacity", 0.75);
 
     /* Filtering of matching products to suggest, and extraction of minimum abscisse in order to determine the width of the square box for suggestions */
     //data_prod_ref[0].y_val_real = data_prod_ref[0].score;
@@ -759,17 +759,17 @@ function draw_graph(id_attach_graph,
     prods_filtered_for_graph.sort(function_sort_min_abscisse);
 
     var square_of_suggestions = undefined;
-    if (db_graph["bottomUp"] == true) {
+    if (db_graph.bottomUp == true) {
         square_of_suggestions = [{
             "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
             /* Height of the suggestion square is the range of intervals minus the difference between the score of product ref. and the min. value */
-            "height": data_prod_ref[0].score == db_graph["scoreMaxValue"] ? 1 : (rangeInterval - (data_prod_ref[0].score - (db_graph["scoreMinValue"] - 1)))
+            "height": data_prod_ref[0].score == db_graph.scoreMaxValue ? 1 : (rangeInterval - (data_prod_ref[0].score - (db_graph.scoreMinValue - 1)))
         }];
     } else {
         // width unchanged, but height is reversed
         square_of_suggestions = [{
             "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
-            "height": data_prod_ref[0].score == db_graph["scoreMinValue"] ? 1 : (data_prod_ref[0].score - 1)
+            "height": data_prod_ref[0].score == db_graph.scoreMinValue ? 1 : (data_prod_ref[0].score - 1)
         }];
     }
     svg.selectAll("polyline")
@@ -778,88 +778,54 @@ function draw_graph(id_attach_graph,
         .style("stroke", "black")  // colour the line
         .style("fill", "none")     // remove any fill colour
         .attr("points", function (d) {
-            let w = width * d.width + CIRCLE_RADIUS_SELECTED;
-            let h = d.height * (height / rangeInterval);
-            let rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
-            return rect_points
+            const w = width * d.width + CIRCLE_RADIUS_SELECTED;
+            const h = d.height * (height / rangeInterval);
+            const rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
+
+            return rect_points;
         })
     ;
 
     // .. for all matching products
     var data_others = prod_matching;
 
-    svg.selectAll("circle")
-        .data(data_others)
-        .enter().append("circle")
-        .attr("r", CIRCLE_RADIUS_DEFAULT)
-        .attr("stroke", "#000080")
-        .attr("stroke-width", 1)
-        .attr("fill", CIRCLE_COLOR_DEFAULT)
-        .attr("cx", function (d, ind) {
+    svg.selectAll("circle").data(data_others).enter().append("circle").attr("r", CIRCLE_RADIUS_DEFAULT).attr("stroke", "#000080").attr("stroke-width", 1).attr("fill", CIRCLE_COLOR_DEFAULT).attr("cx", function (d, ind) {
+
             // Store position of svg.circle in the product itself for leveraging browsing in the suggestion panel
             d.num_circle = ind;
+
             return (d.x - shift_left_x_values) * nb_categs / nb_categs_displayed * width;
-        })
-        .attr("cy", function (d) {
-            if (db_graph["bottomUp"] == true) {
+        }).attr("cy", function (d) {
+            if (db_graph.bottomUp == true) {
                 return height * (1 - d.y / nb_nutrition_grades);
             } else {
                 return height * (d.y / nb_nutrition_grades);
             }
-        })
-        .on("mouseover", function (d) {
-            div.transition()
-                .duration(200)
-                .style("opacity", .85);
-            div.html(d.content)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-        })
-        .on("mouseout", function (d) {
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-        })
-        .on("click", function (d) {
+        }).on("mouseover", function (d) {
+            div.transition().duration(200).style("opacity", .85);
+            div.html(d.content).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+        }).on("mouseout", function (d) {
+            div.transition().duration(500).style("opacity", 0);
+        }).on("click", function (d) {
             $(item_display_code_of_selected_product).val(d.code);
             $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
             $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
             if (open_off_page) {
                 window.open(d.url, '_blank');
-
-
             }
         });
 
     // Add the X Axis
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+    svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call(xAxis);
 
     // Add the X-axis label
-    svg.append("text")
-        .attr("x", width * 0.5)
-        .attr("y", height + 30)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size", "inherit")
-        .text("Similarity with product reference");
+    svg.append("text").attr("x", width * 0.5).attr("y", height + 30).attr("dy", "1em").style("text-anchor", "middle").style("font-size", "inherit").text("Similarity with product reference");
 
     // Add the Y Axis
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
+    svg.append("g").attr("class", "y axis").call(yAxis);
 
     // Add the Y-axis label
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("x", -(height * 0.5))
-        .attr("y", -45)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size", "inherit")
-        .text(db_graph["scoreLabelYAxis"]);
+    svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height * 0.5)).attr("y", -45).attr("dy", "1em").style("text-anchor", "middle").style("font-size", "inherit").text(db_graph["scoreLabelYAxis"]);
 
     $(id_attach_graph).empty();
     $("svg").detach().appendTo(id_attach_graph);
