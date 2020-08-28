@@ -2666,6 +2666,14 @@ nl:Roséciders
 
 <en:Ciders
 en:Flavoured ciders
+fr:Cidres aromatisés
+
+<en:Flavoured ciders
+en:Cherry flavoured ciders
+fr:Cidres aromatisés cerise
+
+<en:Flavoured ciders
+en:Strawberry flavoured ciders
 fr:Cidres aromatisés framboise, Cidres aromatisés à la framboise
 agribalyse_food_code:en:5022
 ciqual_food_code:en:5022
@@ -33777,6 +33785,9 @@ zh:水果酸奶
 ciqual_food_code:en:19682
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits (aliment moyen)
+agribalyse_proxy_food_code:en:19592
+agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
+agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 
 <en:Fruit yogurts
 en:Yogurt with fruits no 0% fat, Yogurt fruit flavoured no 0% fat, Fermented milk with fruits no 0% fat, Fermented milk fruit flavoured no 0% fat, Dairy specialty with fruits no 0% fat, Dairy specialty fruit flavoured no 0% fat
@@ -45880,6 +45891,7 @@ hu:zöldpaprika mártások
 <en:Sauces
 en:Chocolate sauce
 fr:Sauce au chocolat
+agribalyse_food_code:en:11300
 ciqual_food_code:en:11300
 ciqual_food_name:en:Chocolate sauce
 
@@ -45898,13 +45910,9 @@ pl:Majonezy, majonez
 pt:Maioneses, maionese
 ru:Майонез
 wikidata:en:Q167893
-
-<en:Sauces
-en:Chocolate sauce
-fr:Sauce au chocolat
-agribalyse_food_code:en:11300
-ciqual_food_code:en:11300
-ciqual_food_name:en:Chocolate sauce
+agribalyse_proxy_food_code:en:11054
+agribalyse_proxy_food_name:en:Mayonnaise (70% fat and more)
+agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
 
 <en:Mayonnaises
 nl:Fritessauzen
@@ -60941,6 +60949,9 @@ fi:sardiineja oliiviöljyssä
 fr:Sardines à l'huile d'olive, sardines à l'huile d'olive vierge, sardines à l'huile d'olive vierge extra, sardines à l'huile d'olive égouttée
 nl:Sardientjes op olijfolie
 ro:Sardine în ulei de măsline
+agribalyse_proxy_food_code:en:26231
+agribalyse_proxy_food_name:en:26231
+agribalyse_proxy_food_name:fr:European pilchard or sardine, fillets without fishbone, in olive oil, canned, drained
 
 <en:Sardines in oil
 en:Sardines in sunflower oil
@@ -68757,6 +68768,9 @@ fr:Lentilles vertes
 it:Lenticchie verdi
 nl:Groenlinzen
 pt:Lentilhas verde
+agribalyse_proxy_food_code:en:20585
+agribalyse_proxy_food_name:en:Lentil, green, dried
+agribalyse_proxy_food_name:fr:Lentille verte, sèche
 
 <en:Lentils
 <en:Cooked vegetables
