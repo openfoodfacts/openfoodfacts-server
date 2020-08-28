@@ -1,4 +1,3 @@
-
 // **************
 // constants_endpoints
 // **************
@@ -8,7 +7,6 @@ var URL_ROOT_API = "https://tuttifrutti.alwaysdata.net/";
 var ENDPOINT_STORES = "/fetchStores/";
 var ENDPOINT_SCORE_DBS = "/fetchScoreDbs";
 
-
 // **************
 // constants_stats
 // **************
@@ -17,33 +15,9 @@ var ENDPOINT_SCORE_DBS = "/fetchScoreDbs";
  * purpose: Constants related to template page stats.html for displaying the statistics of database_aggregation into a table
  */
 
-// statistics table (https://<website>/stats)
-var ID_TABLE_STATS = "#stats_table";
-var ID_FILE_TIMESTAMP = "#file_timestamp";
-
 // json properties for each database
-var FLD_IS_ERROR = "isInError";
 var FLD_DB_DISPLAY_NAME = "dbDisplayName";
-var FLD_DB_NAME = "dbName";
 var FLD_DB_NICK_NAME = "dbNickname";
-// true = production
-var FLD_IS_ACTIVE = "isActive";
-var FLD_SIMILARITY_MIN_PERCENTAGE = "similarityMinPercentage";
-var FLD_DB_SUMMARY = "dbSummary";
-var FLD_DB_DESCRIPTION_EN = "dbDescriptionEn";
-var FLD_DB_DESCRIPTION = "dbDescription";
-var FLD_DB_MAX_SIZE = "dbMaxSize";
-var FLD_OWNER = "owner";
-var FLD_EMAIL_OWNER = "emailOwner";
-// link to ComputingInstance file (repository, 'ComputingInstance.java' file)
-var FLD_LINK_CI = "linkComputingInstance";
-// link to dedicated tag on blog PROSIM to get history reports of all aggregated db-instances
-var FLD_LINK_STATS_PROSIM = "statsProsim";
-var FLD_DB_SIZE_GB = "dbSize";
-var FLD_NB_PRODUCTS_EXTRACTED = "nbProductsExtracted";
-var FLD_NB_PRODUCTS = "nbProducts";
-var FLD_NB_INTERSECTIONS = "nbIntersections";
-var FLD_PROGRESSION = "progression";
 
 // **************
 // constants
@@ -68,8 +42,6 @@ var OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT = false;
 var PRODUCT_CODE_DEFAULT = '3960145823988';
 
 /* ids of html-item for attaching graph data and product reference details (image, etc.) */
-var ID_CELL_BANNER = "#banner";
-var ID_SERVER_LOG = '#echoResultLog';
 var ID_SERVER_ACTIVITY = "#server_activity";
 var ID_PRODUCT_CODE = "#prod_ref_code";
 var ID_PRODUCT_NAME = "#prod_ref_name";
@@ -112,10 +84,12 @@ var FILE_COUNTRIES = "/static/data/countries.json";
 var COUNTRY_PROPERTY_EN_LABEL = "en_label";
 var COUNTRY_PROPERTY_EN_NAME = "en_name";
 var COUNTRY_PROPERTY_EN_CODE = "en_code";
+
 /* property names in the JSON store files */
 var STORE_NAME_PROPERTY = "name";
 var STORE_ID_PROPERTY = "id";
 var STORE_PRODUCTS_COUNT_PROPERTY = "products";
+
 /* local storage of stores for selected countries (cached data):
  * if no country is selected, it means "world", and nothing is appended to this stores local variable, otherwise the country is appended
  */
@@ -123,6 +97,7 @@ var LOCALSTORAGE_COUNTRIES = "countries";
 var LOCALSTORAGE_STORES_PARTIAL = "stores_for_country_";
 var LOCAL_STORAGE_SCORE_DATABASES = "score_databases";
 var LOCAL_STORAGE_CURRENT_DATABASE = "current_score_database_used";
+
 /* world is the default OFF-site for displaying product details */
 var URL_OFF_DEFAULT_COUNTRY = "world";
 
@@ -132,9 +107,6 @@ var URL_OFF_DEFAULT_COUNTRY = "world";
 /* got from https://stackoverflow.com/questions/9152416/javascript-how-to-block-the-whole-screen-while-waiting-for-ajax-response */
 
 function block_screen(msg) {
-    /*$('<div id="screenBlock">' +
-     '<img width="48px" src="{{ url_for(\'static\',filename=\'images/giphy5.gif\') }}"'+
-     ' title="server busy"/></div>').appendTo('body');*/
     $('#screenBlock').empty();
     $('#screenBlock').append("<p>" + msg + "</p>");
     $('#screenBlock').css({opacity: 0, width: $(document).width(), height: $(document).height()});
@@ -156,7 +128,7 @@ function unblock_screen() {
 /* COUNTRIES */
 function fetch_countries() {
     var cached_countries = getCachedCountries();
-    if (cached_countries != null) {
+    if (cached_countries !== null) {
         fillHtmlElementWithCountries(cached_countries);
     }
 }
@@ -164,10 +136,9 @@ function fetch_countries() {
 function getCachedCountries() {
     var key_localstorage_countries = LOCALSTORAGE_COUNTRIES;
     var countries = JSON.parse(window.localStorage.getItem(key_localstorage_countries));
-    if (countries != null) {
-        return countries;
-    } else {
-        var data_countries = undefined;
+    if (countries === null) {
+        var data_countries;
+
         /* fetch countries from json file (made synchronous this way with $.ajax instead of $.getJSON
         which is only asynchronous!) */
         $.ajax({
@@ -175,18 +146,19 @@ function getCachedCountries() {
             dataType: 'json',
             async: false,
             success: function (json) {
-                let stats_json = json;
+                const stats_json = json;
                 data_countries = $.map(stats_json, function (value, index) {
                     // add to each value the key of the object (e.g. "en:Poland") for future use in REST services
                     value[COUNTRY_PROPERTY_EN_LABEL] = index;
-                    value[COUNTRY_PROPERTY_EN_NAME] = value.name["en"];
+                    value[COUNTRY_PROPERTY_EN_NAME] = value.name.en;
                     if (value.hasOwnProperty("country_code_2")) {
-                        value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_2["en"].toUpperCase();
+                        value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_2.en.toUpperCase();
                     } else if (value.hasOwnProperty("country_code_3")) {
-                        value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_3["en"].toUpperCase();
+                        value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_3.en.toUpperCase();
                     } else {
                         value[COUNTRY_PROPERTY_EN_CODE] = "";
                     }
+
                     return [value];
                 });
 
@@ -196,7 +168,10 @@ function getCachedCountries() {
                 cacheCountries(data_countries);
             }
         });
+
         return data_countries;
+    } else {
+        return countries;
     }
 }
 
@@ -205,42 +180,31 @@ function cacheCountries(countries) {
     window.localStorage.setItem(key_localstorage_countries, JSON.stringify(countries));
 }
 
-function set_user_country(ctrlCountrySelected) {
-    let en_country_name =  ctrlCountrySelected.value;
-    if (en_country_name == "") {
-        user_country = undefined;
-    } else {
-        /* get country object (it is used to reach the country OFF-page directly when viewing product details) */
-        user_country = [];
-        user_country.push(find_country_object(en_country_name));
-    }
-}
 
 function find_country_object (en_country) {
-    let countries = getCachedCountries();
+    const countries = getCachedCountries();
     let index_of_found = -1;
     for (var i=0; i < countries.length && index_of_found < 0; i++) {
         if (countries[i].en_label == en_country) {
             index_of_found = i;
         }
     }
+
     return (index_of_found < 0) ? undefined : countries[index_of_found];
 }
 
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
-    if (cached_stores_for_country != null) {
+    if (cached_stores_for_country !== null) {
         fillHtmlElementWithStores(cached_stores_for_country);
     }
 }
 
 function getCachedStoresForCountry(country) {
     var key_localstorage_stores = LOCALSTORAGE_STORES_PARTIAL + country;
-    let stores_for_country = JSON.parse(window.localStorage.getItem(key_localstorage_stores));
-    if (stores_for_country != null) {
-        return stores_for_country;
-    } else {
+    const stores_for_country = JSON.parse(window.localStorage.getItem(key_localstorage_stores));
+    if (stores_for_country === null) {
         block_screen(MSG_WAITING_SCR_FETCH_STORES);
         $.ajax({
             type: "GET",
@@ -250,13 +214,13 @@ function getCachedStoresForCountry(country) {
                 country: country
             },
             success: function (data) {
-                if (data != null) {
+                if (data === null) {
+                } else {
                     data.tags.sort(function_sort_stores_by_nb_products);
-                    let stores_most_relevant = data.tags.filter(function (store, indx) {
+                    const stores_most_relevant = data.tags.filter(function (store, indx) {
                         return indx < MAX_STORES_TO_SHOW_PER_COUNTRY;
                     });
-                    stores_most_relevant
-                        .sort(function_sort_stores_by_name);
+                    stores_most_relevant.sort(function_sort_stores_by_name);
                     // store locally the stores for this country for later usage
                     cacheStoresForCountry(country, stores_most_relevant);
                     // map the stores in the Html element
@@ -265,6 +229,8 @@ function getCachedStoresForCountry(country) {
                 unblock_screen();
             }
         });
+    } else {
+        return stores_for_country;
     }
 }
 
@@ -277,15 +243,17 @@ function cacheStoresForCountry(country, stores) {
 Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
  */
 function urlReplaceWorldWithSelectedCountry(url_off) {
+
     /* replace 'world' with country code if available */
     let new_url_off = url_off;
-    let country_code = undefined;
+    let country_code;
     if (user_country != undefined) {
         country_code= user_country[0].en_code;
     }
     if (country_code != undefined) {
         new_url_off=url_off.replace("//"+URL_OFF_DEFAULT_COUNTRY.toLowerCase()+".", "//"+country_code.toLowerCase().trim()+".");
     }
+
     return new_url_off;
 }
 
@@ -310,36 +278,39 @@ var function_sort_min_abscisse = getSortMethod('+x');
  Triple sort function; usage here: http://gregtaff.com/misc/multi_field_sort/
  */
 function getSortMethod() {
-    var _args = Array.prototype.slice.call(arguments);
+    var args = Array.prototype.slice.call(arguments);
+
     return function (a, b) {
-        for (var x in _args) {
-            var ax;
-            var bx;
-            var cx;
+        if (args !==null) {
+            for (var x in args) {
+                var ax;
+                var bx;
+                var cx;
 
-            let tmp_ax = a[_args[x].substring(1)];
-            if ((typeof tmp_ax) == "number") {
-                // numbers
-                ax = Number(tmp_ax);
-                bx = Number(b[_args[x].substring(1)]);
-            } else {
-                // strings => try converting into numbers anyway
-                ax = Number(tmp_ax);
-                bx = Number(b[_args[x].substring(1)]);
-                if (isNaN(ax) || isNaN(bx)) {
-                    // well, these are really strings
-                    ax = tmp_ax;
-                    bx = b[_args[x].substring(1)];
+                const tmp_ax = a[args[x].substring(1)];
+                if ((typeof tmp_ax) == "number") {
+                    // numbers
+                    ax = Number(tmp_ax);
+                    bx = Number(b[args[x].substring(1)]);
+                } else {
+                    // strings => try converting into numbers anyway
+                    ax = Number(tmp_ax);
+                    bx = Number(b[args[x].substring(1)]);
+                    if (isNaN(ax) || isNaN(bx)) {
+                        // well, these are really strings
+                        ax = tmp_ax;
+                        bx = b[args[x].substring(1)];
+                    }
+
                 }
-
-            }
-            if (_args[x].substring(0, 1) == "-") {
-                cx = ax;
-                ax = bx;
-                bx = cx;
-            }
-            if (ax != bx) {
-                return ax < bx ? -1 : 1;
+                if (args[x].substring(0, 1) == "-") {
+                    cx = ax;
+                    ax = bx;
+                    bx = cx;
+                }
+                if (ax != bx) {
+                    return ax < bx ? -1 : 1;
+                }
             }
         }
     }
@@ -349,11 +320,11 @@ function getSortMethod() {
 function filter_suggestions(prod_ref, matching_products, db_graph) {
     return matching_products.filter(
         function (a) {
-            if (db_graph["bottomUp"] == true) {
-                return ( (prod_ref.score == db_graph["scoreMaxValue"]) ? a.score >= prod_ref.score : a.score > prod_ref.score)
+            if (db_graph.bottomUp == true) {
+                return ( (prod_ref.score == db_graph.scoreMaxValue) ? a.score >= prod_ref.score : a.score > prod_ref.score)
                     && a.score_proximity >= MIN_SCORE_FOR_SUGGESTIONS;
             } else {
-                return ( (prod_ref.score == db_graph["scoreMinValue"]) ? a.score <= prod_ref.score : a.score < prod_ref.score)
+                return ( (prod_ref.score == db_graph.scoreMinValue) ? a.score <= prod_ref.score : a.score < prod_ref.score)
                     && a.score_proximity >= MIN_SCORE_FOR_SUGGESTIONS;
             }
         }
@@ -365,42 +336,21 @@ function filter_suggestions(prod_ref, matching_products, db_graph) {
  * code got from https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
  */
 function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
+    let url_def = url;
+    if (!url) {
+        url_def = window.location.href;
+    }
+    const name_formatted = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name_formatted + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url_def);
+    if (!results) {
+        return null;
+    }
+    if (!results[2]) {
+        return '';
+    }
+
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
-/*
- Clearing cache of Browser
- */
-function clearCache() {
-    let msg = "Deleting cached DATA will enforce an update with the freshest data from the server.\n\n";
-    msg += "Note: if you need to reload APP files from the server due to a misbehaviour of the App, then please delete the cache of your Browser instead.\n"
-    msg += "\n\n";
-
-    msg += "DATA LOCAL STORAGE (persistent)\n";
-    msg += "\tNumber of items in the LOCAL-cache: " + window.localStorage.length + "\n\n";
-    for (let k = 0; k < window.localStorage.length; k++) {
-        msg += "\t-> " + window.localStorage.key(k) + "\n";
-    }
-    msg += "\n";
-    msg += "DATA SESSION STORAGE (current browsing)\n";
-    msg += "\tNumber of items in the SESSION-cache: " + window.sessionStorage.length + "\n\n";
-    for (let l = 0; l < window.sessionStorage.length; l++) {
-        msg += "\t-> " + window.sessionStorage.key(l) + "\n";
-    }
-    msg += "\n";
-    msg += "\nDo you want to delete all DATA-caches and get the freshest data from the server?\n\n";
-    let resp = confirm(msg);
-    if (resp) {
-        window.localStorage.clear();
-        window.sessionStorage.clear();
-        window.location = URL_ROOT_API;
-    }
 }
 
 // **************
@@ -410,7 +360,7 @@ function clearCache() {
 /* SCORE DATABASES */
 function fetch_score_databases() {
     var cached_databases = getCachedScoreDatabases();
-    if (cached_databases != null) {
+    if (cached_databases !== null) {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
         let url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
         if (url_score_db != undefined && url_score_db != "") {
@@ -436,7 +386,7 @@ function fetch_score_databases() {
 function getCachedScoreDatabases() {
     var key_localstorage_databases = LOCAL_STORAGE_SCORE_DATABASES;
     var databases = JSON.parse(window.localStorage.getItem(key_localstorage_databases));
-    if (databases != null) {
+    if (databases !== null) {
         return databases;
     } else {
         var data_score_databases = undefined;
@@ -1074,7 +1024,7 @@ function guess_country_from_nav_lang() {
 }
 
 function fillHtmlElementWithCountries(data_countries) {
-    if (data_countries != null) {
+    if (data_countries !== null) {
         var options = data_countries.map(function (country) {
             return $("<option></option>").val(country[COUNTRY_PROPERTY_EN_LABEL]).text(country[COUNTRY_PROPERTY_EN_NAME]);
         });
@@ -1087,7 +1037,7 @@ function fillHtmlElementWithCountries(data_countries) {
 }
 
 function fillHtmlElementWithStores(stores_by_country) {
-    if (stores_by_country != null) {
+    if (stores_by_country !== null) {
         var options = stores_by_country.map(function (store) {
             return $("<option></option>").val(store[STORE_ID_PROPERTY]).text(store[STORE_NAME_PROPERTY]);
         });
@@ -1101,7 +1051,7 @@ function fillHtmlElementWithStores(stores_by_country) {
 }
 
 function fillHtmlElementWithDatabases(score_databases) {
-    if (score_databases != null) {
+    if (score_databases !== null) {
         var options = score_databases.map(function (score_db) {
             return $("<option></option>").val(score_db[FLD_DB_NICK_NAME]).text(score_db[FLD_DB_DISPLAY_NAME]);
         });
@@ -1144,3 +1094,4 @@ function go_fetch() {
         }
     });
 }
+ 
