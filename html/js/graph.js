@@ -2,6 +2,11 @@
 // constants_endpoints
 // **************
 
+
+
+
+
+
 // Endpoints (cf. REST endpoints in App.py)
 var URL_ROOT_API = "https://tuttifrutti.alwaysdata.net/";
 var ENDPOINT_STORES = "/fetchStores/";
@@ -513,11 +518,6 @@ function cacheCurrentScoreDatabase(current_db) {
     window.localStorage.setItem(key_localstorage_current_db, JSON.stringify(current_db));
 }
 
-function changeScoreDb(ctrl) {
-    current_db_for_graph = getCachedScoreDatabases()["stats"][ctrl.selectedIndex];
-    cacheCurrentScoreDatabase(current_db_for_graph);
-}
-
 // **************
 // products_suggestion
 // **************
@@ -561,7 +561,7 @@ function make_suggestions(product_ref, products, db_graph) {
     if (products.length > 0) {
 
         /* sort products by: 1) desc proximity with product reference, 2) score */
-        products_filtered = filter_suggestions(product_ref, products, db_graph);
+        let products_filtered = filter_suggestions(product_ref, products, db_graph);
         if (db_graph.bottomUp == true) {
             products_filtered.sort(function_sort_products_bottomUp);
         } else {
@@ -623,7 +623,7 @@ function select_picture(shift) {
         }
         deactivate_previous_selection();
         client_current_selection[0] = curr_pos;
-        let next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
+        const next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
         client_current_selection[1] = next_image;
         activate_selection();
     }
@@ -655,7 +655,7 @@ function draw_graph(id_attach_graph,
     var x = d3.scale.linear().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    var nb_categs = (prod_ref.categories_tags == undefined || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
+    var nb_categs = (prod_ref.categories_tags == null || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
 
     /* Number of x-axis ticks displayed in the graph (score is then minimum 1-(nb_categs_displayed/nb_categs) ) */
     var nb_categs_displayed = Math.ceil(nb_categs / 2);
@@ -706,8 +706,6 @@ function draw_graph(id_attach_graph,
 
     // Adds the svg canvas
     var svg = d3.select("body").append("svg").attr("id", "svg_graph").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    /* todo: check because new added */
     svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + margin.top + margin.bottom + ")").call(xAxisVertical);
 
     // Scale the range of the data
@@ -743,8 +741,9 @@ function draw_graph(id_attach_graph,
     // Add the scatterplot
     // .. for the product reference
     var data_prod_ref = [{'score': 1}];
-    if (prod_ref.length != 0)
+    if (prod_ref.length != 0) {
         data_prod_ref = [{'score': prod_ref["score"]}];
+    }
     svg.selectAll("ellipse").data(data_prod_ref).enter().append("ellipse").attr("cx", width * (1 - (1 / nb_categs_displayed) / 2)).attr("cy", function (d) {
             if (db_graph.bottomUp == true) {
                 return (height * (1 - (d.score / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
@@ -758,13 +757,15 @@ function draw_graph(id_attach_graph,
     var prods_filtered_for_graph = filter_suggestions(data_prod_ref[0], prod_matching, db_graph);
     prods_filtered_for_graph.sort(function_sort_min_abscisse);
 
-    var square_of_suggestions = undefined;
+    var square_of_suggestions;
     if (db_graph.bottomUp == true) {
-        square_of_suggestions = [{
+        square_of_suggestions = [
+            {
             "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
             /* Height of the suggestion square is the range of intervals minus the difference between the score of product ref. and the min. value */
             "height": data_prod_ref[0].score == db_graph.scoreMaxValue ? 1 : (rangeInterval - (data_prod_ref[0].score - (db_graph.scoreMinValue - 1)))
-        }];
+        }
+    ];
     } else {
         // width unchanged, but height is reversed
         square_of_suggestions = [{
@@ -843,25 +844,26 @@ function display_product_ref_details(prod_ref,
     // update globals
     current_product = prod_ref;
 
-    let code = prod_ref["code"];
-    let name = prod_ref["name"];
-    let image = prod_ref["images"];
+    const code = prod_ref.code;
+    const name = prod_ref.name;
+    let image = prod_ref.images;
     if (image == "") {
-        image = prod_ref["image_fake_off"];
+        image = prod_ref.image_fake_off;
     }
-    let no_nutriments = prod_ref["no_nutriments"];
-    let categories = prod_ref["categories_tags"].join("<br />");
-    let url_off = prod_ref["url_product"];
+    let no_nutriments = prod_ref.no_nutriments;
+    let categories = prod_ref.categories_tags.join("<br />");
+    let url_off = prod_ref.url_product;
+
     /* replace 'world' with country code if available */
-    let country_code = undefined;
+    let country_code;
     if (user_country != undefined) {
         country_code = user_country[0].en_code;
     }
     if (country_code != undefined) {
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
-    let url_json = prod_ref["url_json"];
-    let style_for_border_colour = "grade_" + prod_ref["score"];
+    let url_json = prod_ref.url_json;
+    let style_for_border_colour = "grade_" + prod_ref.score;
     $(id_code).empty();
     $(id_code).append(code);
     $(id_input_code).empty();
