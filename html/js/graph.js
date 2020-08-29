@@ -514,6 +514,11 @@ function make_suggestions(product_ref, products, db_graph) {
             // $(ID_PRODUCTS_SUGGESTION + " > div").append("<div class='cell_suggestion' onclick='alert("+cx+")'><img src='" + product.img + "' height='150px' /></div>");
             const style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
             $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' onclick='process_selected_suggestion(this, " + index + ")' /></li>");
+            $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' /></li>");
+            // Bind onclick event
+            $(ID_PRODUCT_IMAGE_PARTIAL + index).click(function() {
+                process_selected_suggestion(this, " + index + ");
+            });
         });
     }
 }
@@ -592,7 +597,10 @@ function show_details() {
         curr_prod.brands + "</div><br /><div class='sel_prod_name'>" + curr_prod.name + "</div>" +
         "<div class='sel_prod_similarity'>[Similarity: " + curr_prod.score_proximity + "%]</div></td></tr></table>");
     $(ID_DETAILS_SELECTED_PRODUCT).append(curr_prod.categories);
-    $(ID_DETAILS_SELECTED_PRODUCT).append("<div class='close_details_sel_prod' onclick='hide_details()'>close</div>");
+    $(ID_DETAILS_SELECTED_PRODUCT).append("<div class='close_details_sel_prod'>close</div>");
+    $(ID_DETAILS_SELECTED_PRODUCT).children(".close_details_sel_prod").click(function() {
+        hide_details();
+    });
     $(ID_DETAILS_SELECTED_PRODUCT).css({opacity: 0, width: $(document).width(), height: $(document).height()});
     $(ID_DETAILS_SELECTED_PRODUCT).addClass('detailsProduct');
     $(ID_DETAILS_SELECTED_PRODUCT).show();
