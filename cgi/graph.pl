@@ -137,13 +137,13 @@ my $html = <<HTML
         <div id="nb_suggestions"></div>
         suggestions
     </div>
-    <a href="#" onclick="select_picture(-1)">
+    <a href="#" id="suggestion_left">
     	<img src="/images/graph/leftArrow.png" title="previous product" />
     </a>
-    <a href="#" onclick="show_details()">
+    <a href="#" id="suggestion_details">
     	<img src="/images/graph/details.png" title="compare this product" />
    	</a>
-    <a href="#" onclick="select_picture(+1)">
+    <a href="#" id="suggestion_right">
     	<img src="/images/graph/rightArrow.png" title="next product" />
     </a>
 </div>

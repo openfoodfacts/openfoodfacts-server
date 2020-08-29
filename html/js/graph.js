@@ -56,11 +56,15 @@ var ID_WARNING = "#msg_warning_prod_ref";
 var ID_IMG_OFF = "#img_off_prod";
 var ID_IMG_JSON = "#img_off_json";
 var ID_PRODUCTS_SUGGESTION = "#products_suggestion";
+var ID_SUGGESTION_DETAILS = "#suggestion_details";
+var ID_SUGGESTION_LEFT = "#suggestion_left";
+var ID_SUGGESTION_RIGHT = "#suggestion_right";
 var ID_MENU_SELECTION = "#menu_selection";
 
 // no # in partial id below !! (used to assign live ids to products' images)
 var ID_PRODUCT_IMAGE_PARTIAL = "prod_img_";
 var ID_NB_SUGGESTIONS = "#nb_suggestions";
+var ID_DETAILS_SELECTED_PRODUCT = "#selected_product_details";
 
 // Messages
 var MSG_NO_NUTRIMENTS_PROD_REF = "Beware: no nutriments are known for this product.. check in OFF for details!";
@@ -68,7 +72,9 @@ var MSG_NO_DATA_RETRIEVED = "NO MATCH FOUND!";
 
 // Others
 // Circles drawn in SVG in the graph are appended after some basic other SVG-items; thereafter, 1 circle is bound to 1 product with the shift constant below plus the range of interval of Y-axis (number of stripes appended to the graph!)
+var SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS = 3;
 var CIRCLE_COLOR_DEFAULT = "steelblue";
+var CIRCLE_COLOR_SELECTED = "red";
 var CIRCLE_RADIUS_DEFAULT = 5;
 var CIRCLE_RADIUS_SELECTED = 15;
 
@@ -187,13 +193,14 @@ function set_user_country(ctrlCountrySelected) {
 }
 
 function find_country_object (en_country) {
-    let countries = getCachedCountries();
+    const countries = getCachedCountries();
     let index_of_found = -1;
     for (var i=0; i < countries.length && index_of_found < 0; i++) {
         if (countries[i].en_label == en_country) {
             index_of_found = i;
         }
     }
+
     return (index_of_found < 0) ? undefined : countries[index_of_found];
 }
 
@@ -240,6 +247,22 @@ function getCachedStoresForCountry(country) {
 function cacheStoresForCountry(country, stores) {
     var key_localstorage_stores = LOCALSTORAGE_STORES_PARTIAL + country;
     window.localStorage.setItem(key_localstorage_stores, JSON.stringify(stores));
+}
+
+/*
+ Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
+ */
+function urlReplaceWorldWithSelectedCountry(url_off) {
+    /* replace 'world' with country code if available */
+    let new_url_off = url_off;
+    let country_code = undefined;
+    if (user_country != undefined) {
+        country_code= user_country[0].en_code;
+    }
+    if (country_code != undefined) {
+        new_url_off=url_off.replace("//"+URL_OFF_DEFAULT_COUNTRY.toLowerCase()+".", "//"+country_code.toLowerCase().trim()+".");
+    }
+    return new_url_off;
 }
 
 // **************
@@ -325,7 +348,7 @@ function getParameterByName(name, url) {
     if (!url) {
         url_def = window.location.href;
     }
-    const name_formatted = name.replace(/[\[\]]/g, '\\$&');
+    const name_formatted = name.replace(/[\[\]]/g, '\$&');
     var regex = new RegExp('[?&]' + name_formatted + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url_def);
     if (!results) {
@@ -439,6 +462,13 @@ function changeScoreDb(ctrl) {
  */
 var suggested_products = [];
 
+/*
+ [x, y]: x = number of product selected once products filtered and ordered
+ note: in order to access the circle drawn in the graph, use suggested_products[x].num_circle
+ y = DOM-image of selected product
+ */
+var client_current_selection = [-1, undefined];
+
 function cleanup_suggestions() {
 
     /* clear previous suggestions if any */
@@ -463,6 +493,7 @@ function get_graph_stripe_colour (db_graph, score_of_product) {
 }
 
 function make_suggestions(product_ref, products, db_graph) {
+    client_current_selection = [-1, undefined];
     cleanup_suggestions();
 
     if (products.length > 0) {
@@ -484,6 +515,99 @@ function make_suggestions(product_ref, products, db_graph) {
         });
     }
 }
+
+function process_selected_suggestion(img_selected, index) {
+    deactivate_previous_selection();
+    client_current_selection[0] = index;
+    client_current_selection[1] = img_selected;
+    activate_selection();
+
+}
+
+function deactivate_previous_selection() {
+    if (client_current_selection[0] > -1) {
+        let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+
+        let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
+        client_current_selection[1].setAttribute("style", style_for_border_colour);
+
+        let circle_node = $("#svg_graph")[0].childNodes[0]
+            .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+        circle_node.setAttribute("r", "" + CIRCLE_RADIUS_DEFAULT + "");
+        circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
+    }
+}
+
+function activate_selection() {
+    let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+    // Box around selection in the ribbon
+    client_current_selection[1].setAttribute("class", "product_selected");
+    client_current_selection[1].setAttribute("style", "");
+    // focus circle bound to selection
+    let circle_node = $("#svg_graph")[0].childNodes[0]
+        .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+    circle_node.setAttribute("r", "" + CIRCLE_RADIUS_SELECTED + "");
+    circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
+    $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
+    /*selected_product_url = suggested_products[client_current_selection[0]].url;
+     window.open(selected_product_url, '_blank');*/
+}
+
+/*
+ shift: positive or negative to select a picture after left/right button has been pressed
+ */
+function select_picture(shift) {
+    if (suggested_products.length > 0) {
+        let curr_pos = client_current_selection[0];
+        if (curr_pos < 0) {
+            curr_pos = 0;
+        } else {
+            curr_pos += shift;
+            // check out-of-bound
+            if (curr_pos < 0) {
+                curr_pos = 0;
+            }
+            if (curr_pos > (suggested_products.length - 1)) {
+                curr_pos = suggested_products.length - 1;
+            }
+        }
+        deactivate_previous_selection();
+        client_current_selection[0] = curr_pos;
+        let next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
+        client_current_selection[1] = next_image;
+        activate_selection();
+    }
+}
+
+function show_details() {
+    let curr_prod = suggested_products[client_current_selection[0]];
+    let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
+    $(ID_DETAILS_SELECTED_PRODUCT).empty();
+
+    /* Replace world with country selected by the user in the GUI in the url
+     of the product to access the regionalized OFF page directly */
+    curr_prod.url = urlReplaceWorldWithSelectedCountry(curr_prod.url);
+    $(ID_DETAILS_SELECTED_PRODUCT).append("<table class='table_sel_prod'><tr><td class='sel_prod_img'>" +
+        "<div><a href='" + curr_prod.url + "' target='_blank'>" +
+        "<img src='" + curr_prod.img + "' class='grade_border' style='" + style_for_border_colour + "' /></a></div></td>" +
+        "<td class='sel_prod_header'><div class='sel_prod_code'>" + curr_prod.code + "</div><br /><div class='sel_prod_brands'>" +
+        curr_prod.brands + "</div><br /><div class='sel_prod_name'>" + curr_prod.name + "</div>" +
+        "<div class='sel_prod_similarity'>[Similarity: " + curr_prod.score_proximity + "%]</div></td></tr></table>");
+    $(ID_DETAILS_SELECTED_PRODUCT).append(curr_prod.categories);
+    $(ID_DETAILS_SELECTED_PRODUCT).append("<div class='close_details_sel_prod' onclick='hide_details()'>close</div>");
+    $(ID_DETAILS_SELECTED_PRODUCT).css({opacity: 0, width: $(document).width(), height: $(document).height()});
+    $(ID_DETAILS_SELECTED_PRODUCT).addClass('detailsProduct');
+    $(ID_DETAILS_SELECTED_PRODUCT).show();
+    $(ID_DETAILS_SELECTED_PRODUCT).animate({opacity: 0.95}, 100);
+}
+
+function hide_details() {
+    $(ID_DETAILS_SELECTED_PRODUCT).empty();
+    $(ID_DETAILS_SELECTED_PRODUCT).animate({opacity: 0}, 100, function () {
+        $(ID_DETAILS_SELECTED_PRODUCT).hide();
+    });
+}
+
 
 // **************
 // graph part
@@ -766,13 +890,22 @@ var current_db_for_graph;
 
 function init() {
     // add event listeners to html components
-    $(ID_INPUT_COUNTRY).addEventListener("change", function() {
+    $(ID_INPUT_COUNTRY).change(function() {
         set_user_country($(ID_INPUT_COUNTRY+' option:selected')[0]);
         fetch_stores($(ID_INPUT_COUNTRY+' option:selected')[0]);
     });
-    $("input_score_db").addEventListener("change", function() {
+    $(ID_INPUT_SCORE_DB).change(function() {
         changeScoreDb(this);
-    })
+    });
+    $(ID_SUGGESTION_LEFT).click(function() {
+        select_picture(-1);
+    });
+    $(ID_SUGGESTION_DETAILS).click(function() {
+        show_details();
+    });
+    $(ID_SUGGESTION_RIGHT).click(function() {
+        select_picture(+1);
+    });
 
     // load score databases
     fetch_score_databases();
