@@ -83,9 +83,7 @@ my $html = <<HTML
                                     <tr>
                                         <td>Country</td>
                                         <td>
-                                            <select id="input_country"
-                                                    onchange="set_user_country($(ID_INPUT_COUNTRY+' option:selected')[0]);
-                                                    fetch_stores($(ID_INPUT_COUNTRY+' option:selected')[0])">
+                                            <select id="input_country">
                                                 <option></option>
                                             </select>
                                         </td>
@@ -101,7 +99,7 @@ my $html = <<HTML
                                     <tr>
                                         <td>Score</td>
                                         <td>
-                                            <select id="input_score_db" title="select a score" onchange="changeScoreDb(this)">
+                                            <select id="input_score_db" title="select a score">
                                                 <option></option>
                                             </select>
                                         </td>

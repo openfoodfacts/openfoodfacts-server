@@ -186,6 +186,17 @@ function set_user_country(ctrlCountrySelected) {
   }
 }
 
+function find_country_object (en_country) {
+    let countries = getCachedCountries();
+    let index_of_found = -1;
+    for (var i=0; i < countries.length && index_of_found < 0; i++) {
+        if (countries[i].en_label == en_country) {
+            index_of_found = i;
+        }
+    }
+    return (index_of_found < 0) ? undefined : countries[index_of_found];
+}
+
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
@@ -619,7 +630,7 @@ function draw_graph(id_attach_graph,
         ];
     }
     svg.selectAll("polyline").data(square_of_suggestions).enter().append("polyline").style("stroke", "black").style("fill", "none").attr("points", function (d) {
-        const w = width * d.width + CIRCLE_RADIUS_SELECTED;
+        const w = (width * d.width) + CIRCLE_RADIUS_SELECTED;
         const h = d.height * (height / rangeInterval);
         const rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
 
@@ -638,7 +649,7 @@ function draw_graph(id_attach_graph,
         return (d.x - shift_left_x_values) * nb_categs / nb_categs_displayed * width;
     }).attr("cy", function (d) {
         if (db_graph.bottomUp == true) {
-            return height * (1 - d.y / nb_nutrition_grades);
+            return height * (1 - (d.y / nb_nutrition_grades));
         } else {
             return height * (d.y / nb_nutrition_grades);
         }
@@ -754,6 +765,15 @@ var user_country;
 var current_db_for_graph;
 
 function init() {
+    // add event listeners to html components
+    $(ID_INPUT_COUNTRY).addEventListener("change", function() {
+        set_user_country($(ID_INPUT_COUNTRY+' option:selected')[0]);
+        fetch_stores($(ID_INPUT_COUNTRY+' option:selected')[0]);
+    });
+    $("input_score_db").addEventListener("change", function() {
+        changeScoreDb(this);
+    })
+
     // load score databases
     fetch_score_databases();
     // load countries and set country
