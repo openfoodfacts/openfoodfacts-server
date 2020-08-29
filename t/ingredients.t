@@ -611,7 +611,7 @@ $expected_product_ref =
            'text' => 'diphosphate disodique'
          },
          {
-           'id' => 'en:e500i',
+           'id' => 'en:e500ii',
            'text' => 'carbonate acide de sodium'
          }
        ],
