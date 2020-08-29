@@ -334,14 +334,14 @@ function getParameterByName(name, url) {
 /* SCORE DATABASES */
 function fetch_score_databases() {
     var cached_databases = getCachedScoreDatabases();
-    if (cached_databases != null) {
+    if (cached_databases !== null && cached_databases !== undefined) {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
         const url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
-        if (url_score_db != null && url_score_db != "") {
+        if (url_score_db !== null && url_score_db !== undefined && url_score_db != "") {
             const param_db_for_graph = cached_databases.stats.filter(function (db) {
                 return db[FLD_DB_NICK_NAME].toLowerCase() == url_score_db.toLowerCase();
             });
-            if (param_db_for_graph != null) {
+            if (param_db_for_graph !== null && param_db_for_graph !== undefined) {
                 current_db_for_graph = param_db_for_graph[0];
             }
         }
@@ -392,6 +392,8 @@ function filterDatabases(databases) {
         if (window.location.href.search("/test") >= 0 || db.isActive == true) {
             return db;
         }
+
+      return null;
     });
     databases.stats = dbs_to_show;
 
@@ -405,13 +407,13 @@ function cacheScoreDatabases(databases) {
 
 function cacheCurrentScoreDatabase(current_db) {
     var key_localstorage_current_db = LOCAL_STORAGE_CURRENT_DATABASE;
-    if (current_db != null) {
+    if (current_db !== null && current_db !== undefined) {
         window.localStorage.setItem(key_localstorage_current_db, JSON.stringify(current_db));
     }
 }
 
 function changeScoreDb(ctrl) {
-  current_db_for_graph = getCachedScoreDatabases()["stats"][ctrl.selectedIndex];
+  current_db_for_graph = getCachedScoreDatabases().stats[ctrl.selectedIndex];
   cacheCurrentScoreDatabase(current_db_for_graph);
 }
 
@@ -584,11 +586,11 @@ function draw_graph(id_attach_graph,
     if (prod_ref.length != 0) {
         data_prod_ref = [{'score': prod_ref.score}];
     }
-    svg.selectAll("ellipse").data(data_prod_ref).enter().append("ellipse").attr("cx", width * (1 - (1 / nb_categs_displayed) / 2)).attr("cy", function (d) {
+    svg.selectAll("ellipse").data(data_prod_ref).enter().append("ellipse").attr("cx", width * (1 - ((1 / nb_categs_displayed) / 2))).attr("cy", function (d) {
         if (db_graph.bottomUp == true) {
-            return (height * (1 - (d.score / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
+            return ((height * (1 - (d.score / nb_nutrition_grades))) + (height / nb_nutrition_grades * 0.5));
         } else {
-            return (height * ((d.score - 1) / nb_nutrition_grades) + (height / nb_nutrition_grades * 0.5));
+            return ((height * ((d.score - 1) / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
         }
     }).attr("rx", width / nb_categs_displayed * 0.5).attr("ry", (height / nb_nutrition_grades) * 0.5).attr("fill", "#ffffff").attr("fill-opacity", 0.75);
 
@@ -692,10 +694,10 @@ function display_product_ref_details(prod_ref,
 
     /* replace 'world' with country code if available */
     let country_code;
-    if (user_country != null) {
+    if (user_country !== null && user_country !== undefined) {
         country_code = user_country[0].en_code;
     }
-    if (country_code != null) {
+    if (country_code !== null && country_code !== undefined) {
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
     const url_json = prod_ref.url_json;
@@ -761,7 +763,7 @@ function init() {
     // which knows nothing about the current context when it launches the URL back with barcode.
     // We want to remember which score database is being used by the user
     const current_db_used = getCachedCurrentDatabase();
-    if (current_db_used != null) {
+    if (current_db_used !== null && current_db_used !== undefined) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
         //alert("using db "+current_db_used[FLD_DB_NICK_NAME]);
@@ -790,7 +792,7 @@ function guess_country_from_nav_lang() {
     const data_countries = getCachedCountries();
     // set country: 1) from url param if set; 2) from navigator
     const url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
-    if (url_country != null && url_country != "") {
+    if (url_country !== null && url_country !== undefined && url_country != "") {
         const nav_country = url_country;
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
@@ -808,8 +810,9 @@ function guess_country_from_nav_lang() {
         );
     }
 
-    if (user_country != null) {
-        for (var index_option in $(ID_INPUT_COUNTRY)[0]) {
+    if (user_country !== null && user_country !== undefined) {
+        var index_option;
+        for (index_option in $(ID_INPUT_COUNTRY)[0]) {
             if (Object.prototype.hasOwnProperty.call($(ID_INPUT_COUNTRY)[0], index_option)) {
                 const current_option = $(ID_INPUT_COUNTRY)[0][index_option];
                 if (current_option.value === user_country[0][COUNTRY_PROPERTY_EN_LABEL]) {
@@ -828,7 +831,7 @@ function guess_country_from_nav_lang() {
 }
 
 function fillHtmlElementWithCountries(data_countries) {
-    if (data_countries != null) {
+    if (data_countries !== null && data_countries !== undefined) {
         var options = data_countries.map(function (country) {
             return $("<option></option>").val(country[COUNTRY_PROPERTY_EN_LABEL]).text(country[COUNTRY_PROPERTY_EN_NAME]);
         });
