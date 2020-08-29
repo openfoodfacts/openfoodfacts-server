@@ -350,7 +350,7 @@ function getParameterByName(name, url) {
     if (!url) {
         url_def = window.location.href;
     }
-    const name_formatted = name.replace(/[\[]]/g, '$&');
+    const name_formatted = name.replace(/[[]]/g, '$&');
     var regex = new RegExp('[?&]' + name_formatted + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url_def);
     if (!results) {
@@ -619,12 +619,9 @@ function hide_details() {
  - item_display_code_of_selected_product : html item receiving the code of the selected product in the graph (ex.: div's id)
  - open_off_page: true (/false) opens in a separate tab the off page for the selected product in the graph
  */
-function draw_graph(id_attach_graph,
-                    db_graph,
+function draw_graph(db_graph,
                     prod_ref,
-                    prod_matching,
-                    item_display_code_of_selected_product,
-                    open_off_page) {
+                    prod_matching) {
     // Set the dimensions of the canvas / graph
     var margin = {top: 30, right: 30, bottom: 60, left: 50},
         width = GRAPH_WIDTH - margin.left - margin.right - (GRAPH_WIDTH * 4 / 100),
@@ -781,10 +778,10 @@ function draw_graph(id_attach_graph,
     }).on("mouseout", function () {
         div.transition().duration(500).style("opacity", 0);
     }).on("click", function (d) {
-        $(item_display_code_of_selected_product).val(d.code);
+        $(ID_INPUT_PRODUCT_CODE).val(d.code);
         $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
         $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
-        if (open_off_page) {
+        if (OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT) {
             window.open(d.url, '_blank');
         }
     });
@@ -801,19 +798,11 @@ function draw_graph(id_attach_graph,
     // Add the Y-axis label
     svg.append("text").attr("transform", "rotate(-90)").attr("x", -(height * 0.5)).attr("y", -45).attr("dy", "1em").style("text-anchor", "middle").style("font-size", "inherit").text(db_graph.scoreLabelYAxis);
 
-    $(id_attach_graph).empty();
-    $("svg").detach().appendTo(id_attach_graph);
+    $(ID_GRAPH).empty();
+    $("svg").detach().appendTo(ID_GRAPH);
 }
 
-function display_product_ref_details(prod_ref,
-                                     id_code,
-                                     id_input_code,
-                                     id_name,
-                                     id_img,
-                                     id_categories,
-                                     id_off,
-                                     id_json,
-                                     id_warning) {
+function display_product_ref_details(prod_ref) {
     // update globals
     const code = prod_ref.code;
     const name = prod_ref.name;
@@ -835,46 +824,35 @@ function display_product_ref_details(prod_ref,
     }
     const url_json = prod_ref.url_json;
     const style_for_border_colour = "grade_" + prod_ref.score;
-    $(id_code).empty();
-    $(id_code).append(code);
-    $(id_input_code).empty();
-    $(id_input_code).append(code);
-    $(id_name).empty();
-    $(id_name).append(name);
-    $(id_img).attr("src", image);
-    $(id_img).attr("height", `String($(window).innerHeight() / 7)` + "px");
-    $(id_img).attr("class", style_for_border_colour);
+    $(ID_PRODUCT_CODE).empty();
+    $(ID_PRODUCT_CODE).append(code);
+    $(ID_INPUT_PRODUCT_CODE).empty();
+    $(ID_INPUT_PRODUCT_CODE).append(code);
+    $(ID_PRODUCT_NAME).empty();
+    $(ID_PRODUCT_NAME).append(name);
+    $(ID_PRODUCT_IMG).attr("src", image);
+    $(ID_PRODUCT_IMG).attr("height", `String($(window).innerHeight() / 7)` + "px");
+    $(ID_PRODUCT_IMG).attr("class", style_for_border_colour);
     $(ID_IMG_OFF).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
     $(ID_IMG_OFF).attr("max-height", "28px");
     $(ID_IMG_JSON).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
     $(ID_IMG_JSON).attr("max-height", "28px");
 
-    $(id_categories).empty();
-    $(id_categories).append(categories);
-    $(id_off).attr("href", url_off);
-    $(id_json).attr("href", url_json);
-    $(id_warning).empty();
+    $(ID_PRODUCT_CATEGORIES).empty();
+    $(ID_PRODUCT_CATEGORIES).append(categories);
+    $(ID_PRODUCT_OFF).attr("href", url_off);
+    $(ID_PRODUCT_JSON).attr("href", url_json);
+    $(ID_WARNING).empty();
     if (no_nutriments) {
-        $(id_warning).append(MSG_NO_NUTRIMENTS_PROD_REF);
+        $(ID_WARNING).append(MSG_NO_NUTRIMENTS_PROD_REF);
     }
 }
 
 function draw_page(prod_ref, prod_matching) {
-    display_product_ref_details(prod_ref,
-        ID_PRODUCT_CODE,
-        ID_INPUT_PRODUCT_CODE,
-        ID_PRODUCT_NAME,
-        ID_PRODUCT_IMG,
-        ID_PRODUCT_CATEGORIES,
-        ID_PRODUCT_OFF,
-        ID_PRODUCT_JSON,
-        ID_WARNING);
-    draw_graph(ID_GRAPH,
-        current_db_for_graph,
+    display_product_ref_details(prod_ref);
+    draw_graph(current_db_for_graph,
         prod_ref,
-        prod_matching,
-        ID_INPUT_PRODUCT_CODE,
-        OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT);
+        prod_matching);
     make_suggestions(prod_ref, prod_matching, current_db_for_graph);
 }
 
@@ -922,7 +900,7 @@ function init() {
     $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
     $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
     $(ID_SERVER_ACTIVITY).css("visibility", "hidden");
-    draw_graph(ID_GRAPH, current_db_for_graph, [], [], ID_INPUT_PRODUCT_CODE, OPEN_OFF_PAGE_FOR_SELECTED_PRODUCT);
+    draw_graph(current_db_for_graph, [], []);
     cleanup_suggestions();
     $(function () {
         $("#submitBtn").click(go_fetch);
