@@ -122,7 +122,7 @@ function unblock_screen() {
 /* COUNTRIES */
 function fetch_countries() {
     var cached_countries = getCachedCountries();
-    if (cached_countries != null) {
+    if (cached_countries !== null && cached_countries != undefined) {
         fillHtmlElementWithCountries(cached_countries);
     }
 }
@@ -179,6 +179,7 @@ function set_user_country(ctrlCountrySelected) {
   if (en_country_name == "") {
     user_country = undefined;
   } else {
+
     /* get country object (it is used to reach the country OFF-page directly when viewing product details) */
     user_country = [];
     user_country.push(find_country_object(en_country_name));
@@ -188,7 +189,7 @@ function set_user_country(ctrlCountrySelected) {
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
-    if (cached_stores_for_country != null) {
+    if (cached_stores_for_country !== null && cached_stores_for_country !== undefined) {
         fillHtmlElementWithStores(cached_stores_for_country);
     }
 }
@@ -206,7 +207,7 @@ function getCachedStoresForCountry(country) {
                 country: country
             },
             success: function (data) {
-                if (data != null) {
+                if (data !== null && data !== undefined) {
                     data.tags.sort(function_sort_stores_by_nb_products);
                     const stores_most_relevant = data.tags.filter(function (store, indx) {
                         return indx < MAX_STORES_TO_SHOW_PER_COUNTRY;
