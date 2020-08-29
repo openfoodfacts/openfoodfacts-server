@@ -122,7 +122,7 @@ function unblock_screen() {
 /* COUNTRIES */
 function fetch_countries() {
     var cached_countries = getCachedCountries();
-    if (cached_countries !== null) {
+    if (cached_countries != null) {
         fillHtmlElementWithCountries(cached_countries);
     }
 }
@@ -188,7 +188,7 @@ function set_user_country(ctrlCountrySelected) {
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
-    if (cached_stores_for_country !== null) {
+    if (cached_stores_for_country != null) {
         fillHtmlElementWithStores(cached_stores_for_country);
     }
 }
@@ -206,7 +206,7 @@ function getCachedStoresForCountry(country) {
                 country: country
             },
             success: function (data) {
-                if (data !== null) {
+                if (data != null) {
                     data.tags.sort(function_sort_stores_by_nb_products);
                     const stores_most_relevant = data.tags.filter(function (store, indx) {
                         return indx < MAX_STORES_TO_SHOW_PER_COUNTRY;
@@ -333,14 +333,14 @@ function getParameterByName(name, url) {
 /* SCORE DATABASES */
 function fetch_score_databases() {
     var cached_databases = getCachedScoreDatabases();
-    if (cached_databases !== null) {
+    if (cached_databases != null) {
         // Default db to use is param score if specified in URL, otherwise first db (holds data to draw the graph as well)
         const url_score_db = getParameterByName(URL_PARAM_SCORE, window.location.href);
-        if (url_score_db !== null && url_score_db != "") {
+        if (url_score_db != null && url_score_db != "") {
             const param_db_for_graph = cached_databases.stats.filter(function (db) {
                 return db[FLD_DB_NICK_NAME].toLowerCase() == url_score_db.toLowerCase();
             });
-            if (param_db_for_graph !== null) {
+            if (param_db_for_graph != null) {
                 current_db_for_graph = param_db_for_graph[0];
             }
         }
@@ -691,10 +691,10 @@ function display_product_ref_details(prod_ref,
 
     /* replace 'world' with country code if available */
     let country_code;
-    if (user_country !== null) {
+    if (user_country != null) {
         country_code = user_country[0].en_code;
     }
-    if (country_code !== null) {
+    if (country_code != null) {
         url_off = url_off.replace("//" + URL_OFF_DEFAULT_COUNTRY.toLowerCase() + ".", "//" + country_code.toLowerCase().trim() + ".");
     }
     const url_json = prod_ref.url_json;
@@ -760,7 +760,7 @@ function init() {
     // which knows nothing about the current context when it launches the URL back with barcode.
     // We want to remember which score database is being used by the user
     const current_db_used = getCachedCurrentDatabase();
-    if (current_db_used !== null) {
+    if (current_db_used != null) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
         //alert("using db "+current_db_used[FLD_DB_NICK_NAME]);
@@ -789,7 +789,7 @@ function guess_country_from_nav_lang() {
     const data_countries = getCachedCountries();
     // set country: 1) from url param if set; 2) from navigator
     const url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
-    if (url_country !== null && url_country != "") {
+    if (url_country != null && url_country != "") {
         const nav_country = url_country;
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
@@ -807,7 +807,7 @@ function guess_country_from_nav_lang() {
         );
     }
 
-    if (user_country !== null) {
+    if (user_country != null) {
         for (var index_option in $(ID_INPUT_COUNTRY)[0]) {
             if (Object.prototype.hasOwnProperty.call($(ID_INPUT_COUNTRY)[0], index_option)) {
                 const current_option = $(ID_INPUT_COUNTRY)[0][index_option];
@@ -827,7 +827,7 @@ function guess_country_from_nav_lang() {
 }
 
 function fillHtmlElementWithCountries(data_countries) {
-    if (data_countries !== null) {
+    if (data_countries != null) {
         var options = data_countries.map(function (country) {
             return $("<option></option>").val(country[COUNTRY_PROPERTY_EN_LABEL]).text(country[COUNTRY_PROPERTY_EN_NAME]);
         });
