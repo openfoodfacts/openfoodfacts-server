@@ -1038,3 +1038,7 @@ function go_fetch() {
     });
 }
 
+
+$(document).ready(function() {
+    init();
+});

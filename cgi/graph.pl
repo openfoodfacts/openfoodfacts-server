@@ -155,14 +155,6 @@ my $html = <<HTML
 HTML
 ;
 
-my $js = <<JS
-	\$(document).ready(function() {
-		init();
-	});
-JS
-;
-$initjs .= $js;
-
 # ${$request_ref->{content_ref}} .= $html;
 #
 display_new( {
