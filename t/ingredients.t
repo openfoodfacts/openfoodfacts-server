@@ -782,7 +782,7 @@ $expected_product_ref =
        'vegetarian' => 'yes'
      },
      {
-       'id' => 'en:e500i',
+       'id' => 'en:e500ii',
        'text' => 'carbonate acide de sodium',
        'vegan' => 'yes',
        'vegetarian' => 'yes'
@@ -887,7 +887,7 @@ $expected_product_ref =
 	 'en:e503',
      'en:e450i',
      'en:e450',
-     'en:e500i',
+     'en:e500ii',
      'en:e500',
      'en:soya-lecithin',
      'en:e322',
@@ -939,7 +939,7 @@ $expected_product_ref =
      'en:lactose-and-milk-proteins',
      'en:e503ii',
      'en:e450i',
-     'en:e500i',
+     'en:e500ii',
      'en:soya-lecithin',
      'en:e440a',
      'en:e330',
@@ -1002,7 +1002,7 @@ $expected_product_ref =
 	 'en:e503',
      'en:e450i',
      'en:e450',
-     'en:e500i',
+     'en:e500ii',
 	 'en:e500',
      'en:soya-lecithin',
      'en:e322',
