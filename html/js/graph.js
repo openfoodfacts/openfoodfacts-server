@@ -1,20 +1,13 @@
+// Declaration of d3 variable (cf. d3js)
+var d3;
+
 // **************
 // constants_endpoints
 // **************
-
-
-
-
-
-
 // Endpoints (cf. REST endpoints in App.py)
 var URL_ROOT_API = "https://tuttifrutti.alwaysdata.net/";
 var ENDPOINT_STORES = "/fetchStores/";
 var ENDPOINT_SCORE_DBS = "/fetchScoreDbs";
-
-// **************
-// constants_stats
-// **************
 
 /*
  * purpose: Constants related to template page stats.html for displaying the statistics of database_aggregation into a table
@@ -110,7 +103,6 @@ var URL_OFF_DEFAULT_COUNTRY = "world";
 // waiting_screen
 // **************
 /* got from https://stackoverflow.com/questions/9152416/javascript-how-to-block-the-whole-screen-while-waiting-for-ajax-response */
-
 function block_screen(msg) {
     $('#screenBlock').empty();
     $('#screenBlock').append("<p>" + msg + "</p>");
@@ -184,145 +176,6 @@ function cacheCountries(countries) {
     var key_localstorage_countries = LOCALSTORAGE_COUNTRIES;
     window.localStorage.setItem(key_localstorage_countries, JSON.stringify(countries));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
@@ -565,7 +418,6 @@ function cleanup_suggestions() {
     $(ID_PRODUCTS_SUGGESTION).attr("height", `String(6 + $(window).innerHeight() / 3)` + "px");
     $(ID_PRODUCTS_SUGGESTION).append("<ul></ul>");
     $(ID_MENU_SELECTION).attr("height", `String($(window).innerHeight() / 5)` + "px");
-
 }
 
 function get_graph_stripe_colour (db_graph, score_of_product) {
@@ -604,31 +456,6 @@ function make_suggestions(product_ref, products, db_graph) {
     }
 }
 
-function deactivate_previous_selection() {
-    if (client_current_selection[0] > -1) {
-        const rangeInterval = (current_db_for_graph.scoreMaxValue - current_db_for_graph.scoreMinValue + 1);
-
-        const style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
-        client_current_selection[1].setAttribute("style", style_for_border_colour);
-
-        const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-        circle_node.setAttribute("r", `String("" + CIRCLE_RADIUS_DEFAULT)`);
-        circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
-    }
-}
-
-function activate_selection() {
-    const rangeInterval = (current_db_for_graphscoreMaxValue - current_db_for_graph.scoreMinValue + 1);
-    // Box around selection in the ribbon
-    client_current_selection[1].setAttribute("class", "product_selected");
-    client_current_selection[1].setAttribute("style", "");
-    // focus circle bound to selection
-    const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-    circle_node.setAttribute("r", `String(CIRCLE_RADIUS_SELECTED)`);
-    circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
-    $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
-}
-
 // **************
 // graph part
 // **************
@@ -665,15 +492,15 @@ function draw_graph(id_attach_graph,
 
     // Define the axes
     var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(nb_categs_displayed).tickFormat(function (d) {
-            if (d == x_axis_min_value) {
-                return "low";
-            }
-            if (d == 1) {
-                return "high";
-            }
+        if (d == x_axis_min_value) {
+            return "low";
+        }
+        if (d == 1) {
+            return "high";
+        }
 
-            return "";
-        });
+        return "";
+    });
 
     /* Draw vertical lines for each tick */
     /* ..generates [0..nb_categs_displayed] */
@@ -687,16 +514,16 @@ function draw_graph(id_attach_graph,
     var xAxisVertical = d3.svg.axis().scale(x).orient("top").ticks(nb_categs_displayed).tickValues(dataX).innerTickSize([height]).outerTickSize([height]);
 
     var yAxis = d3.svg.axis().scale(y).orient("left").ticks(nb_nutrition_grades).tickFormat(function (d) {
-            if (d >= db_graph.scoreMinValue && d <= db_graph.scoreMaxValue) {
-                if (db_graph.bottomUp == true) {
-                    return db_graph.scoreIntervalsLabels[d - 1];
-                } else {
-                    return db_graph.scoreIntervalsLabels[db_graph.scoreNbIntervals - d];
-                }
+        if (d >= db_graph.scoreMinValue && d <= db_graph.scoreMaxValue) {
+            if (db_graph.bottomUp == true) {
+                return db_graph.scoreIntervalsLabels[d - 1];
+            } else {
+                return db_graph.scoreIntervalsLabels[db_graph.scoreNbIntervals - d];
             }
+        }
 
-            return "";
-        });
+        return "";
+    });
 
     // Define the div for the tooltip
     var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0).style("display", "none");
@@ -721,33 +548,33 @@ function draw_graph(id_attach_graph,
     var indx_array = 0;
     for (var i = db_graph.scoreMinValue; i <= db_graph.scoreMaxValue; i += step_for_stripe) {
         data_rect_2.push({'v': i, 'color': db_graph.scoreIntervalsStripeColour[indx_array]});
-        indx_array = indx_array + 1;
+        indx_array += 1;
     }
 
     svg.selectAll("rect").data(data_rect_2).enter().append("rect").attr("width", width).attr("height", height / db_graph.scoreNbIntervals).attr("y", function (d) {
-            if (db_graph.bottomUp == true) {
-                return (rangeInterval - d.v) * height / rangeInterval;
-            } else {
-                return (d.v - step_for_stripe) * height / rangeInterval;
-            }
-        }).attr("fill", function (d) {
-            return d.color;
-        });
+        if (db_graph.bottomUp == true) {
+            return (rangeInterval - d.v) * height / rangeInterval;
+        } else {
+            return (d.v - step_for_stripe) * height / rangeInterval;
+        }
+    }).attr("fill", function (d) {
+        return d.color;
+    });
     // *****
 
     // Add the scatterplot
     // .. for the product reference
     var data_prod_ref = [{'score': 1}];
     if (prod_ref.length != 0) {
-        data_prod_ref = [{'score': prod_ref["score"]}];
+        data_prod_ref = [{'score': prod_ref.score}];
     }
     svg.selectAll("ellipse").data(data_prod_ref).enter().append("ellipse").attr("cx", width * (1 - (1 / nb_categs_displayed) / 2)).attr("cy", function (d) {
-            if (db_graph.bottomUp == true) {
-                return (height * (1 - (d.score / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
-            } else {
-                return (height * ((d.score - 1) / nb_nutrition_grades) + (height / nb_nutrition_grades * 0.5));
-            }
-        }).attr("rx", width / nb_categs_displayed * 0.5).attr("ry", (height / nb_nutrition_grades) * 0.5).attr("fill", "#ffffff").attr("fill-opacity", 0.75);
+        if (db_graph.bottomUp == true) {
+            return (height * (1 - (d.score / nb_nutrition_grades)) + (height / nb_nutrition_grades * 0.5));
+        } else {
+            return (height * ((d.score - 1) / nb_nutrition_grades) + (height / nb_nutrition_grades * 0.5));
+        }
+    }).attr("rx", width / nb_categs_displayed * 0.5).attr("ry", (height / nb_nutrition_grades) * 0.5).attr("fill", "#ffffff").attr("fill-opacity", 0.75);
 
     /* Filtering of matching products to suggest, and extraction of minimum abscisse in order to determine the width of the square box for suggestions */
     //data_prod_ref[0].y_val_real = data_prod_ref[0].score;
@@ -758,27 +585,28 @@ function draw_graph(id_attach_graph,
     if (db_graph.bottomUp == true) {
         square_of_suggestions = [
             {
-            "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
-            /* Height of the suggestion square is the range of intervals minus the difference between the score of product ref. and the min. value */
-            "height": data_prod_ref[0].score == db_graph.scoreMaxValue ? 1 : (rangeInterval - (data_prod_ref[0].score - (db_graph.scoreMinValue - 1)))
-        }
-    ];
+                "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
+
+                /* Height of the suggestion square is the range of intervals minus the difference between the score of product ref. and the min. value */
+                "height": data_prod_ref[0].score == db_graph.scoreMaxValue ? 1 : (rangeInterval - (data_prod_ref[0].score - (db_graph.scoreMinValue - 1)))
+            }
+        ];
     } else {
         // width unchanged, but height is reversed
         square_of_suggestions = [
             {
-            "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
-            "height": data_prod_ref[0].score == db_graph.scoreMinValue ? 1 : (data_prod_ref[0].score - 1)
-        }
-    ];
+                "width": prods_filtered_for_graph.length == 0 ? (1 / nb_categs_displayed) : (1 - prods_filtered_for_graph[0].x) * (nb_categs / nb_categs_displayed),
+                "height": data_prod_ref[0].score == db_graph.scoreMinValue ? 1 : (data_prod_ref[0].score - 1)
+            }
+        ];
     }
     svg.selectAll("polyline").data(square_of_suggestions).enter().append("polyline").style("stroke", "black").style("fill", "none").attr("points", function (d) {
-            const w = width * d.width + CIRCLE_RADIUS_SELECTED;
-            const h = d.height * (height / rangeInterval);
-            const rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
+        const w = width * d.width + CIRCLE_RADIUS_SELECTED;
+        const h = d.height * (height / rangeInterval);
+        const rect_points = width + "," + 0 + ", " + width + "," + h + ", " + (width - w) + "," + h + ", " + (width - w) + "," + 0 + ", " + width + "," + 0;
 
-            return rect_points;
-        })
+        return rect_points;
+    })
     ;
 
     // .. for all matching products
@@ -786,29 +614,29 @@ function draw_graph(id_attach_graph,
 
     svg.selectAll("circle").data(data_others).enter().append("circle").attr("r", CIRCLE_RADIUS_DEFAULT).attr("stroke", "#000080").attr("stroke-width", 1).attr("fill", CIRCLE_COLOR_DEFAULT).attr("cx", function (d, ind) {
 
-            // Store position of svg.circle in the product itself for leveraging browsing in the suggestion panel
-            d.num_circle = ind;
+        // Store position of svg.circle in the product itself for leveraging browsing in the suggestion panel
+        d.num_circle = ind;
 
-            return (d.x - shift_left_x_values) * nb_categs / nb_categs_displayed * width;
-        }).attr("cy", function (d) {
-            if (db_graph.bottomUp == true) {
-                return height * (1 - d.y / nb_nutrition_grades);
-            } else {
-                return height * (d.y / nb_nutrition_grades);
-            }
-        }).on("mouseover", function (d) {
-            div.transition().duration(200).style("opacity", .85);
-            div.html(d.content).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
-        }).on("mouseout", function (d) {
-            div.transition().duration(500).style("opacity", 0);
-        }).on("click", function (d) {
-            $(item_display_code_of_selected_product).val(d.code);
-            $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
-            $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
-            if (open_off_page) {
-                window.open(d.url, '_blank');
-            }
-        });
+        return (d.x - shift_left_x_values) * nb_categs / nb_categs_displayed * width;
+    }).attr("cy", function (d) {
+        if (db_graph.bottomUp == true) {
+            return height * (1 - d.y / nb_nutrition_grades);
+        } else {
+            return height * (d.y / nb_nutrition_grades);
+        }
+    }).on("mouseover", function (d) {
+        div.transition().duration(200).style("opacity", 0.85);
+        div.html(d.content).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+    }).on("mouseout", function () {
+        div.transition().duration(500).style("opacity", 0);
+    }).on("click", function (d) {
+        $(item_display_code_of_selected_product).val(d.code);
+        $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
+        $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
+        if (open_off_page) {
+            window.open(d.url, '_blank');
+        }
+    });
 
     // Add the X Axis
     svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call(xAxis);
@@ -836,8 +664,6 @@ function display_product_ref_details(prod_ref,
                                      id_json,
                                      id_warning) {
     // update globals
-    current_product = prod_ref;
-
     const code = prod_ref.code;
     const name = prod_ref.name;
     let image = prod_ref.images;
@@ -871,7 +697,7 @@ function display_product_ref_details(prod_ref,
     $(ID_IMG_OFF).attr("max-height", "28px");
     $(ID_IMG_JSON).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
     $(ID_IMG_JSON).attr("max-height", "28px");
-    
+
     $(id_categories).empty();
     $(id_categories).append(categories);
     $(id_off).attr("href", url_off);
@@ -920,7 +746,7 @@ function init() {
     // which knows nothing about the current context when it launches the URL back with barcode.
     // We want to remember which score database is being used by the user
     const current_db_used = getCachedCurrentDatabase();
-    if (current_db_used != undefined) {
+    if (current_db_used !== null) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
         //alert("using db "+current_db_used[FLD_DB_NICK_NAME]);
@@ -950,7 +776,7 @@ function guess_country_from_nav_lang() {
     // set country: 1) from url param if set; 2) from navigator
     const url_country = getParameterByName(URL_PARAM_COUNTRY, window.location.href);
     if (url_country !== null && url_country != "") {
-        let nav_country = url_country;
+        const nav_country = url_country;
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
             function (ctry) {
@@ -958,7 +784,7 @@ function guess_country_from_nav_lang() {
             }
         );
     } else {
-        let nav_country = ( (nav_language.indexOf('-') >= 0) ? nav_language.split('-')[1] : nav_language).toUpperCase();
+        const nav_country = ( (nav_language.indexOf('-') >= 0) ? nav_language.split('-')[1] : nav_language).toUpperCase();
         // filter countries and fetch the one holding the country code of the navigator
         user_country = data_countries.filter(
             function (ctry) {
@@ -967,9 +793,9 @@ function guess_country_from_nav_lang() {
         );
     }
 
-    if (user_country != undefined) {
+    if (user_country !== null) {
         for (var index_option in $(ID_INPUT_COUNTRY)[0]) {
-            let current_option = $(ID_INPUT_COUNTRY)[0][index_option];
+            const current_option = $(ID_INPUT_COUNTRY)[0][index_option];
             if (current_option.value === user_country[0][COUNTRY_PROPERTY_EN_LABEL]) {
                 is_found = true;
                 current_option.selected = true;
@@ -998,29 +824,29 @@ function fillHtmlElementWithCountries(data_countries) {
 }
 
 function fillHtmlElementWithStores(stores_by_country) {
-    if (stores_by_country !== null) {
+    if (stores_by_country === null) {
+        $(ID_INPUT_STORE).empty();
+        $(ID_INPUT_STORE).append($("<option></option>").val('').text(''));
+    } else {
         var options = stores_by_country.map(function (store) {
             return $("<option></option>").val(store[STORE_ID_PROPERTY]).text(store[STORE_NAME_PROPERTY]);
         });
         $(ID_INPUT_STORE).empty();
         $(ID_INPUT_STORE).append($("<option></option>").val('').text(''));
         $(ID_INPUT_STORE).append(options);
-    } else {
-        $(ID_INPUT_STORE).empty();
-        $(ID_INPUT_STORE).append($("<option></option>").val('').text(''));
     }
 }
 
 function fillHtmlElementWithDatabases(score_databases) {
-    if (score_databases !== null) {
+    if (score_databases === null) {
+        $(ID_INPUT_SCORE_DB).empty();
+        $(ID_INPUT_SCORE_DB).append($("<option></option>").val('').text(''));
+    } else {
         var options = score_databases.map(function (score_db) {
             return $("<option></option>").val(score_db[FLD_DB_NICK_NAME]).text(score_db[FLD_DB_DISPLAY_NAME]);
         });
         $(ID_INPUT_SCORE_DB).empty();
         $(ID_INPUT_SCORE_DB).append(options);
-    } else {
-        $(ID_INPUT_SCORE_DB).empty();
-        $(ID_INPUT_SCORE_DB).append($("<option></option>").val('').text(''));
     }
 }
 
