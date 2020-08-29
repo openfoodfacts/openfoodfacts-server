@@ -174,6 +174,17 @@ function cacheCountries(countries) {
     window.localStorage.setItem(key_localstorage_countries, JSON.stringify(countries));
 }
 
+function set_user_country(ctrlCountrySelected) {
+  const en_country_name =  ctrlCountrySelected.value;
+  if (en_country_name == "") {
+    user_country = undefined;
+  } else {
+    /* get country object (it is used to reach the country OFF-page directly when viewing product details) */
+    user_country = [];
+    user_country.push(find_country_object(en_country_name));
+  }
+}
+
 /* STORES */
 function fetch_stores(ctrlCountrySelected) {
     var cached_stores_for_country = getCachedStoresForCountry(ctrlCountrySelected.value);
@@ -396,6 +407,11 @@ function cacheCurrentScoreDatabase(current_db) {
     if (current_db != null) {
         window.localStorage.setItem(key_localstorage_current_db, JSON.stringify(current_db));
     }
+}
+
+function changeScoreDb(ctrl) {
+  current_db_for_graph = getCachedScoreDatabases()["stats"][ctrl.selectedIndex];
+  cacheCurrentScoreDatabase(current_db_for_graph);
 }
 
 // **************
@@ -880,4 +896,4 @@ function go_fetch() {
         }
     });
 }
- 
+
