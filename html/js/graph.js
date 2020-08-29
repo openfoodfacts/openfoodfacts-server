@@ -253,15 +253,17 @@ function cacheStoresForCountry(country, stores) {
  Replace in the OFF-url the world default website with the regionalized-one (country selected by user in the Interface)
  */
 function urlReplaceWorldWithSelectedCountry(url_off) {
+
     /* replace 'world' with country code if available */
     let new_url_off = url_off;
-    let country_code = undefined;
+    let country_code;
     if (user_country != undefined) {
         country_code= user_country[0].en_code;
     }
     if (country_code != undefined) {
         new_url_off=url_off.replace("//"+URL_OFF_DEFAULT_COUNTRY.toLowerCase()+".", "//"+country_code.toLowerCase().trim()+".");
     }
+
     return new_url_off;
 }
 
@@ -348,7 +350,7 @@ function getParameterByName(name, url) {
     if (!url) {
         url_def = window.location.href;
     }
-    const name_formatted = name.replace(/[\[\]]/g, '\$&');
+    const name_formatted = name.replace(/[\[]]/g, '$&');
     var regex = new RegExp('[?&]' + name_formatted + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url_def);
     if (!results) {
@@ -526,31 +528,27 @@ function process_selected_suggestion(img_selected, index) {
 
 function deactivate_previous_selection() {
     if (client_current_selection[0] > -1) {
-        let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+        const rangeInterval = (current_db_for_graph.scoreMaxValue - current_db_for_graph.scoreMinValue + 1);
 
-        let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
+        const style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, suggested_products[client_current_selection[0]].score);
         client_current_selection[1].setAttribute("style", style_for_border_colour);
 
-        let circle_node = $("#svg_graph")[0].childNodes[0]
-            .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-        circle_node.setAttribute("r", "" + CIRCLE_RADIUS_DEFAULT + "");
+        const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+        circle_node.setAttribute("r", `String(CIRCLE_RADIUS_DEFAULT)`);
         circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
     }
 }
 
 function activate_selection() {
-    let rangeInterval = (current_db_for_graph["scoreMaxValue"] - current_db_for_graph["scoreMinValue"] + 1);
+    const rangeInterval = (current_db_for_graph.scoreMaxValue - current_db_for_graph.scoreMinValue + 1);
     // Box around selection in the ribbon
     client_current_selection[1].setAttribute("class", "product_selected");
     client_current_selection[1].setAttribute("style", "");
     // focus circle bound to selection
-    let circle_node = $("#svg_graph")[0].childNodes[0]
-        .childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-    circle_node.setAttribute("r", "" + CIRCLE_RADIUS_SELECTED + "");
+    const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
+    circle_node.setAttribute("r", `String(CIRCLE_RADIUS_SELECTED)`);
     circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
     $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
-    /*selected_product_url = suggested_products[client_current_selection[0]].url;
-     window.open(selected_product_url, '_blank');*/
 }
 
 /*
@@ -573,15 +571,15 @@ function select_picture(shift) {
         }
         deactivate_previous_selection();
         client_current_selection[0] = curr_pos;
-        let next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
+        const next_image = $("#" + ID_PRODUCT_IMAGE_PARTIAL + curr_pos)[0];
         client_current_selection[1] = next_image;
         activate_selection();
     }
 }
 
 function show_details() {
-    let curr_prod = suggested_products[client_current_selection[0]];
-    let style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
+    const curr_prod = suggested_products[client_current_selection[0]];
+    const style_for_border_colour = "border-color: " + get_graph_stripe_colour(current_db_for_graph, curr_prod.score);
     $(ID_DETAILS_SELECTED_PRODUCT).empty();
 
     /* Replace world with country selected by the user in the GUI in the url
