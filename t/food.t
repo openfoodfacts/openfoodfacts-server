@@ -293,6 +293,9 @@ is (normalize_packager_codes(normalize_packager_codes("ES 26.06854/T C EC")), "E
 # normalize_rs_ce_code
 is (normalize_packager_codes("RS 731"), "RS 731 EC", "RS: normalized code correctly");
 is (normalize_packager_codes(normalize_packager_codes("RS 731")), "RS 731 EC", "RS: normalizing code twice does not change it any more than normalizing once");
+is (normalize_packager_codes("RS-1022"), "RS 1022 EC", "RS: normalized code correctly");
+is (normalize_packager_codes("RS-40-004"), "RS 40-004 EC", "RS: normalized code correctly");
+is (normalize_packager_codes("RS-1"), "RS 1 EC", "RS: normalized code correctly");
 
 # normalize_ce_code
 is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
