@@ -393,7 +393,9 @@ function cacheScoreDatabases(databases) {
 
 function cacheCurrentScoreDatabase(current_db) {
     var key_localstorage_current_db = LOCAL_STORAGE_CURRENT_DATABASE;
-    window.localStorage.setItem(key_localstorage_current_db, JSON.stringify(current_db));
+    if (current_db != null) {
+        window.localStorage.setItem(key_localstorage_current_db, JSON.stringify(current_db));
+    }
 }
 
 // **************
@@ -479,11 +481,11 @@ function draw_graph(id_attach_graph,
     var x = d3.scale.linear().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    var nb_categs = (prod_ref.categories_tags === null || prod_ref.categories_tags.length == 0) ? 8 : prod_ref.categories_tags.length;
+    var nb_categs = (Object.prototype.hasOwnProperty.call("categories_tags", prod_ref) && prod_ref.categories_tags.length > 0) ? prod_ref.categories_tags.length : 8;
 
     /* Number of x-axis ticks displayed in the graph (score is then minimum 1-(nb_categs_displayed/nb_categs) ) */
     var nb_categs_displayed = Math.ceil(nb_categs / 2);
-    var nb_nutrition_grades = db_graph.scoreNbIntervals;
+    var nb_nutrition_grades = (Object.prototype.hasOwnProperty.call("scoreNbIntervals", db_graph)) ? db_graph.scoreNbIntervals : 5;
     var x_axis_min_value = 1 - (nb_categs_displayed / nb_categs);
     var shift_left_x_values = x_axis_min_value;
 
@@ -822,7 +824,7 @@ function fillHtmlElementWithCountries(data_countries) {
 }
 
 function fillHtmlElementWithStores(stores_by_country) {
-    if (stores_by_country === null) {
+    if (stores_by_country === undefined) {
         $(ID_INPUT_STORE).empty();
         $(ID_INPUT_STORE).append($("<option></option>").val('').text(''));
     } else {
@@ -836,7 +838,7 @@ function fillHtmlElementWithStores(stores_by_country) {
 }
 
 function fillHtmlElementWithDatabases(score_databases) {
-    if (score_databases === null) {
+    if (score_databases === undefined) {
         $(ID_INPUT_SCORE_DB).empty();
         $(ID_INPUT_SCORE_DB).append($("<option></option>").val('').text(''));
     } else {
