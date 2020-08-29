@@ -57,11 +57,10 @@ var ID_IMG_OFF = "#img_off_prod";
 var ID_IMG_JSON = "#img_off_json";
 var ID_PRODUCTS_SUGGESTION = "#products_suggestion";
 var ID_MENU_SELECTION = "#menu_selection";
-var ID_BTN_SUBMIT = "#submitBtn";
+
 // no # in partial id below !! (used to assign live ids to products' images)
 var ID_PRODUCT_IMAGE_PARTIAL = "prod_img_";
 var ID_NB_SUGGESTIONS = "#nb_suggestions";
-var ID_DETAILS_SELECTED_PRODUCT = "#selected_product_details";
 
 // Messages
 var MSG_NO_NUTRIMENTS_PROD_REF = "Beware: no nutriments are known for this product.. check in OFF for details!";
@@ -69,9 +68,7 @@ var MSG_NO_DATA_RETRIEVED = "NO MATCH FOUND!";
 
 // Others
 // Circles drawn in SVG in the graph are appended after some basic other SVG-items; thereafter, 1 circle is bound to 1 product with the shift constant below plus the range of interval of Y-axis (number of stripes appended to the graph!)
-var SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS = 3;
 var CIRCLE_COLOR_DEFAULT = "steelblue";
-var CIRCLE_COLOR_SELECTED = "red";
 var CIRCLE_RADIUS_DEFAULT = 5;
 var CIRCLE_RADIUS_SELECTED = 15;
 
@@ -148,9 +145,9 @@ function getCachedCountries() {
                     // add to each value the key of the object (e.g. "en:Poland") for future use in REST services
                     value[COUNTRY_PROPERTY_EN_LABEL] = index;
                     value[COUNTRY_PROPERTY_EN_NAME] = value.name.en;
-                    if (value.hasOwnProperty("country_code_2")) {
+                    if (Object.prototype.hasOwnProperty.call(value, "country_code_2")) {
                         value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_2.en.toUpperCase();
-                    } else if (value.hasOwnProperty("country_code_3")) {
+                    } else if (Object.prototype.hasOwnProperty.call(value, "country_code_3")) {
                         value[COUNTRY_PROPERTY_EN_CODE] = value.country_code_3.en.toUpperCase();
                     } else {
                         value[COUNTRY_PROPERTY_EN_CODE] = "";
@@ -247,33 +244,35 @@ function getSortMethod() {
 
     return function (a, b) {
         for (var x in args) {
-            var ax;
-            var bx;
-            var cx;
+            if (Object.prototype.hasOwnProperty.call(args, x)) {
+                var ax;
+                var bx;
+                var cx;
 
-            const tmp_ax = a[args[x].substring(1)];
-            if ((typeof tmp_ax) == "number") {
-                // numbers
-                ax = Number(tmp_ax);
-                bx = Number(b[args[x].substring(1)]);
-            } else {
-                // strings => try converting into numbers anyway
-                ax = Number(tmp_ax);
-                bx = Number(b[args[x].substring(1)]);
-                if (isNaN(ax) || isNaN(bx)) {
-                    // well, these are really strings
-                    ax = tmp_ax;
-                    bx = b[args[x].substring(1)];
+                const tmp_ax = a[args[x].substring(1)];
+                if ((typeof tmp_ax) == "number") {
+                    // numbers
+                    ax = Number(tmp_ax);
+                    bx = Number(b[args[x].substring(1)]);
+                } else {
+                    // strings => try converting into numbers anyway
+                    ax = Number(tmp_ax);
+                    bx = Number(b[args[x].substring(1)]);
+                    if (isNaN(ax) || isNaN(bx)) {
+                        // well, these are really strings
+                        ax = tmp_ax;
+                        bx = b[args[x].substring(1)];
+                    }
+
                 }
-
-            }
-            if (args[x].substring(0, 1) == "-") {
-                cx = ax;
-                ax = bx;
-                bx = cx;
-            }
-            if (ax != bx) {
-                return ax < bx ? -1 : 1;
+                if (args[x].substring(0, 1) == "-") {
+                    cx = ax;
+                    ax = bx;
+                    bx = cx;
+                }
+                if (ax != bx) {
+                    return ax < bx ? -1 : 1;
+                }
             }
         }
     };
@@ -400,14 +399,13 @@ function cacheCurrentScoreDatabase(current_db) {
 // **************
 // products_suggestion
 // **************
-var suggested_products = [];
 
-/*
+/* Note:
  [x, y]: x = number of product selected once products filtered and ordered
  note: in order to access the circle drawn in the graph, use suggested_products[x].num_circle
  y = DOM-image of selected product
  */
-var client_current_selection = [-1, null];
+var suggested_products = [];
 
 function cleanup_suggestions() {
 
@@ -433,7 +431,6 @@ function get_graph_stripe_colour (db_graph, score_of_product) {
 }
 
 function make_suggestions(product_ref, products, db_graph) {
-    client_current_selection = [-1, null];
     cleanup_suggestions();
 
     if (products.length > 0) {
@@ -733,7 +730,6 @@ function draw_page(prod_ref, prod_matching) {
 // **************
 var nav_language = window.navigator.userLanguage || window.navigator.language;
 var user_country;
-var current_product;
 var current_db_for_graph;
 
 function init() {
@@ -795,11 +791,13 @@ function guess_country_from_nav_lang() {
 
     if (user_country !== null) {
         for (var index_option in $(ID_INPUT_COUNTRY)[0]) {
-            const current_option = $(ID_INPUT_COUNTRY)[0][index_option];
-            if (current_option.value === user_country[0][COUNTRY_PROPERTY_EN_LABEL]) {
-                is_found = true;
-                current_option.selected = true;
-                break;
+            if (Object.prototype.hasOwnProperty.call($(ID_INPUT_COUNTRY)[0], index_option)) {
+                const current_option = $(ID_INPUT_COUNTRY)[0][index_option];
+                if (current_option.value === user_country[0][COUNTRY_PROPERTY_EN_LABEL]) {
+                    is_found = true;
+                    current_option.selected = true;
+                    break;
+                }
             }
         }
         if (is_found) {
