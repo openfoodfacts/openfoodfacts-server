@@ -2172,10 +2172,10 @@ HTML
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
 			my $json = JSON::PP->new->utf8(0);
-			$initjs .= "var countries_map_data=JSON.parse('" . $json->encode($countries_map_data) . "');"
-					.= "var countries_map_links=JSON.parse('" . $json->encode($countries_map_links) . "');"
-					.= "var countries_map_names=JSON.parse('" . $json->encode($countries_map_names) . "');"
-					.= <<JS
+			$initjs .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
+					.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
+					.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
+					.= <<"JS";
 \$('#world-map').vectorMap({
   map: 'world_mill_en',
   series: {
@@ -2201,7 +2201,6 @@ HTML
 });
 
 JS
-;
 			$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="$static_subdomain/js/jquery-jvectormap-world-mill-en.js"></script>
