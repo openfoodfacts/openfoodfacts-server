@@ -9433,7 +9433,7 @@ sub display_rev_info {
 
 	$comment =~ s/^Modification :\s+//;
 	if ($comment eq 'Modification :') {
-		$comment = qw{};
+		$comment = q{};
 	}
 
 	$comment =~ s/\new image \d+( -)?//;
