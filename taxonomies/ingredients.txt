@@ -16349,6 +16349,13 @@ vegan:en:no
 vegetarian:en:maybe
 from_palm_oil:en:no
 
+# description:en:Any fat that is solid at room temperature and used to make crumbly pastry and other food products. Not guaranteed to be from any particular source.
+<en:fat
+en:shortening
+fr:graisse alimentaire
+wikidata:en:Q1194601
+wikipedia:en:https://en.wikipedia.org/wiki/Shortening
+
 <en:fat
 en:hydrogenated fat
 bg:хидрогенирано масло
@@ -16712,6 +16719,10 @@ ru:растительные жиры
 sk:rastlinný tuk
 sv:vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 
+<en:shortening
+<en:vegetable fat
+en:vegetable shortening
+
 <en:vegetable fat
 fr:matières grasses végétales de colza, matières grasses de colza
 
@@ -16910,6 +16921,9 @@ nl:biologische palmolie
 ru:Органическое пальмовое масло
 # ingredient/nl:biologische-palmolie has 1 product @2019-05-24
 
+<en:palm oil
+en:fractionated palm oil
+
 # comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
 <en:palm oil
@@ -17086,6 +17100,9 @@ sv:härdat palmkärnolja, härdat palmkärna
 
 <en:palm kernel oil
 fr:palmiste totalement hydrogénée, huile de palmiste entièrement hydrogénée
+
+<en:palm kernel oil
+en:fractionated palm kernel oil
 
 # The and/or ingredients, also used as a container
 
@@ -28674,6 +28691,13 @@ hu:dextróz kukoricából vagy búzából
 nl:dextrose van tarwe of maïs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-or-corn-dextrose
 # 64 products in 3 languages @2018-09-25
+
+<en:dextrose
+en:dextrose monohydrate
+es:dextrosa monohidrato, dextrosa monohidratada
+fr:dextrose monohydraté
+nl:dextrose monohydraat
+pt:dextrose monohidratada
 
 # POLYDEXTROSE is a synthetic polymer of glucose.
 
