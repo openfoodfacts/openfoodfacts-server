@@ -2962,7 +2962,7 @@ sub display_tag($) {
 	}
 
 	my $weblinks_html = '';
-	my @map_layers = ();
+	my @wikidata_objects = ();
 	if ( ($tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype})) {
 		my @weblinks = ();
@@ -2979,7 +2979,7 @@ sub display_tag($) {
 			}
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
-				push @map_layers, 'addWikidataObjectToMap("' . $properties{$tagtype}{$canon_tagid}{'wikidata:en'} . '")';
+				push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
 			}
 		}
 
@@ -3481,8 +3481,8 @@ HTML
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
 			if ((defined $lat) and (defined $lng)) {
-				my $geo = "$lat,$lng";
-				push @markers, $geo;
+				my @geo = ($lat + 0.0, $lng + 0.0);
+				push @markers, \@geo;
 			}
 
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
@@ -3559,7 +3559,23 @@ HTML
 		}
 	}
 
-	$description = <<HTML
+	my $map_html;
+	if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		my $json = JSON::PP->new->utf8(0);
+		my $map_template_data_ref = {
+			lang => \&lang,
+			encode_json => sub {
+				my ($obj_ref) = @_;
+				return $json->encode($obj_ref);
+			},
+			wikidata => \@wikidata_objects,
+			pointers => \@markers
+		};
+		$tt->process('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+	}
+
+	if ($map_html) {
+		$description = <<HTML
 <div class="row">
 
 	<div id="tag_description" class="large-12 columns">
@@ -3570,44 +3586,9 @@ HTML
 	</div>
 
 </div>
-
+$map_html
 HTML
 ;
-
-	if ((scalar @markers) > 0) {
-		my $layer = '';
-		foreach my $geo (@markers) {
-			$layer .= "\nmarkers.push(L.marker([$geo]))\n";
-		}
-
-		$layer .= <<JS
-runCallbackOnJson(function (map) {
-	L.featureGroup(markers).addTo(map);
-	fitBoundsToAllLayers(map);
-	map.setZoom(10);
-})
-JS
-;
-		push @map_layers, $layer;
-	}
-
-	if ((scalar @map_layers) > 0) {
-		$header .= <<HTML
-	<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
-	<script src="$static_subdomain/js/dist/leaflet.js"></script>
-	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
-	<script src="$static_subdomain/js/dist/display-tag.js"></script>
-HTML
-;
-
-		my $js = '';
-		foreach my $layer (@map_layers) {
-			$js .= $layer;
-		}
-
-		$js .= $request_ref->{map_options};
-
-		$initjs .= $js;
 	}
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
@@ -5759,7 +5740,6 @@ sub search_and_map_products($$$) {
 
 	# Points to display?
 	my $count_string = q{};
-	my $json = JSON::PP->new->utf8(0);
 	if ($emb_codes > 0) {
 		$count_string = sprintf(lang("map_count"), $count, $seen_products);
 	}
@@ -5769,6 +5749,7 @@ sub search_and_map_products($$$) {
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	}
 
+	my $json = JSON::PP->new->utf8(0);
 	my $map_template_data_ref = {
 		lang => \&lang,
 		encode_json => sub {
