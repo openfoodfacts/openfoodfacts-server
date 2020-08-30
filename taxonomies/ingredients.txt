@@ -1479,6 +1479,9 @@ pl:zelatyna wieprzowa
 vegan:en:no
 vegetarian:en:no
 
+<en:gelatin
+en:kosher gelatin
+
 
 # PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
 
@@ -5372,7 +5375,7 @@ fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, c
 hu:tejsavbaktériumok, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, syrekultur
-nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur
+nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur, yoghurtculturen
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos, fermentos lácticos
 ro:culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt
@@ -5864,6 +5867,7 @@ fr:Streptococcus thermophilus
 hu:Streptococcus thermophilus, S.thermophilus
 it:Streptococcus thermophilus, S.thermophilus
 ja:サーモフィラス菌
+nl:Streptococcus thermophilus
 pl:Streptococcus thermophilus
 pt:Streptococcus thermophilus
 sr:Streptococcus thermophilus, S.thermophilus.
@@ -7144,7 +7148,7 @@ fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
-en:semi-skimmed milk, reduced-fat milk
+en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk
 ca:llet parcialment desnatada, llet semidesnatada
 de:fettarme Milch, teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada,Leche semidescremada
@@ -11723,7 +11727,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_A
 en:retinyl acetate, retinol acetate, vitamin A acetate
 ca:acetat de retinol
 de:Retinylacetat
-es:acetato de retinilo
+es:acetato de retinilo, acetato de vitamina A
 fa:استات رتینیل
 fi:retinyyliasetaatti
 fr:acétate de rétinol
@@ -11736,6 +11740,7 @@ sr:Retinil acetat, retinil-acetat
 # azb:استات رتینیل
 # en-ca:Retinyl acetate
 # en-ca:Retinyl acetate
+wikidata:en:Q7316808
 wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_acetate
 # vitamin/retinyl-acetate has 42 products @2018-11-20
 
@@ -11930,7 +11935,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Thiamine
 # ingredient/vitamin-b1 has 4607 products in 11 languages @2018-11-23
 
 <en:Thiamine
-en:Thiamin mononitrate
+en:Thiamin mononitrate, thiamine mononitrate
 ca:mononitrat de tiamina
 da:thiamin-mononitrat
 de:Thiaminmononitrat
@@ -13557,7 +13562,7 @@ ar:ملح معالج باليود
 ca:sal iodada
 cs:Jodidovaná sůl
 da:salt tilsat jod
-de:Jodsalz, Iodsalz,jodiertes Speisesalz
+de:Jodsalz, Iodsalz, jodiertes Speisesalz, Salz jodiert
 es:Sal yodada
 fa:نمک یددار
 fi:jodioitu suola, jodia sisältävä suola
@@ -15707,7 +15712,7 @@ vegan:en:no
 vegetarian:en:no
 
 <en:collagen
-en:hydrolyzed collagen
+en:hydrolyzed collagen, collagen hydrolyzate, collagen hydrolysate
 ar:كولاجين متحلل
 de:kollagen-hydrolysat
 es:colágeno hidrolizado
@@ -16833,7 +16838,7 @@ bg:Растително масло
 ca:Oli vegetal
 cs:Rostlinný olej
 da:vegetabilsk olie, vegetabilisk olie, vegetabilske olier
-de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl
+de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl, Pflanzenöl
 eo:Legoma oleo
 es:Aceite vegetal, aceites vegetales
 et:Taimeõli
@@ -20985,7 +20990,7 @@ wikidata:en:Q2596994
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
-de:natürliches Aroma, natürliche Aromen
+de:natürliches Aroma, natürliche Aromen, natürliche Aromastoffe
 es:aroma natural, aromas naturales,saborizante natural
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit, luontaisia aromeja
 fr:arôme naturel, arômes naturels
@@ -21009,7 +21014,7 @@ vegetarian:en:maybe
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
 da:kunstig smag
 de:künstliches Aroma
-es:aroma artificial, saborizante artificial,sabor artificial
+es:aroma artificial, saborizante artificial, sabor artificial, saborizantes artificiales
 fi:keinotekoinen aromi, keinotekoiset aromit
 fr:arôme artificiel, arômes artificiels
 hu:mesterséges aroma, mesterséges aromák
@@ -21288,6 +21293,7 @@ hu:természetes kóla aroma
 
 <en:flavouring
 en:chocolate flavouring
+es:saborizante a chocolate
 de:Schokoladengeschmack
 fi:suklaa-aromi
 fr:arôme de chocolat
@@ -25289,6 +25295,7 @@ nb:havremel
 nl:havermeel
 pl:mąka owsiana
 pt:farinha de aveia
+ru:овсяная мука
 sv:havremjöl
 
 # Question
@@ -28620,6 +28627,7 @@ vegetarian:en:yes
 
 <en:corn syrup
 en:corn syrup solids
+es:sólidos de jarabe de maíz
 fr:solides de sirop de maïs
 
 <en:corn syrup
@@ -28694,9 +28702,11 @@ en:wheat syrup
 da:hvedesirup
 fi:vehnäsiirappi
 fr:sirop de blé
+nl:tarwestroop
 # ingredient/fr:sirop-de-ble has 381 products in 4 languages @2020-06-08
 
 <en:sugar
+en:cane sugar syrup
 fr:sirop de sucre de canne
 de:rohrzuckersirup
 fi:ruokosokerisiirappi
@@ -28748,6 +28758,7 @@ vegetarian:en:yes
 de:Reisdrinkpulver
 
 <en:rice syrup
+en:brown rice syrup
 de:brauner Reissirup
 
 <en:rice syrup
@@ -29287,12 +29298,13 @@ sv:rehydrerat sojaprotein
 fr:concentré de protéines de soja
 
 <en:soy protein
+en:soy protein isolate, soya protein isolate
 fr:isolat de protéine de soja
-de:Sojaproteinisolat
+de:Sojaproteinisolat, Sojaeiweißisolat
 fi:soijaproteiini-isolaatti
 
 <en:soy protein
-en:hydrolysed soy protein
+en:hydrolysed soy protein, hydrolyzed soy protein
 de:Sojaproteinhydrolysat
 es:proteína de soja hidrolizada
 fi:soijaproteiinihydrolysaatti
@@ -29447,6 +29459,7 @@ vegetarian:en:yes
 
 <en:milk protein
 en:milk protein isolate
+de:Milcheiweißisolat
 
 <en:milk proteins
 en:organic milk proteins
@@ -29518,7 +29531,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
 
 <en:whey protein
 en:concentrated whey protein
-de:konzentriertes Molkeprotein
+de:konzentriertes Molkeprotein, Molkeneiweißkonzentrat
 es:concentrado de proteína de suero
 fi:heraproteiinikonsentraatti
 fr:concentré de protéines de lactosérum, concentré de protéines de sérum
@@ -29627,6 +29640,13 @@ pt:caseinato de sódio
 wikidata:en: Q63120038
 # ingredient/fr:caséinate-de-sodium has 130 products in 4 languages @2019-04-13
 # usage:fr: caséinate de sodium (de lait)
+
+<en:caseinate
+en:calcium caseinate
+de:Calciumcaseinat
+es:caseinato de calcio
+wikidata:en:Q522243
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
 <en:vegetable protein
 en:rapeseed protein
@@ -34313,6 +34333,7 @@ fi:mangopyree
 fr:purée de mangue, purée de mangues, pulpe de mangue
 it:polpa di mango
 nl:mangopuree
+ru:манговое пюре
 sv:mangopuré
 # In process de:Mangopüree, Mangomark
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-mangue
@@ -36391,12 +36412,13 @@ fi:appelsiinimehutiiviste, appelsiinitäysmehutiiviste
 fr:jus d'orange concentré, concentré de jus d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
+ru:концентрированный апельсиновый сок
 sv:apelsinjuicekoncentrat
 
 # comment:en:This seems a compound ingredient, i.e. concentrated orange juice + water, but is never described as such.
 
 <en:orange juice
-en:orange juice from concentrate
+en:orange juice from concentrate, orange juice from orange juice concentrate
 da:Appelsinjuice fra koncentrat
 de:Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat
 es:Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado
@@ -37568,6 +37590,8 @@ pl:Mleko kokosowe
 ru:Кокосовое молоко
 sv:kokosmjölk
 zh:椰子奶
+wikidata:en:Q841779
+wikipedia:en:https://en.wikipedia.org/wiki/Coconut_milk
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
 
@@ -37576,16 +37600,25 @@ en:coconut milk drink
 es:bebida de coco
 
 <en:coconut
-en:coconut water
+en:coconut water, coconut juice
 ca:aigua de coco
 de:Kokosnusswasser
 es:Agua de coco
 fr:Eau de coco
+wikidata:en:Q633401
+wikipedia:en:https://en.wikipedia.org/wiki/Coconut_water
 
 <en:coconut water
 en:natural coconut water
 de:Natürliches Kokosnusswasser
 fr:Eau de noix de coco naturelle
+
+<en:coconut water
+en:nata de coco
+es:nata de coco
+fr:nata de coco
+wikidata:en:Q1193612
+wikipedia:en:https://en.wikipedia.org/wiki/Nata_de_coco
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
@@ -38705,7 +38738,7 @@ fr:papayes séchées
 # PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
 
 <en:fruit
-en:passion fruit
+en:passion fruit, passionfruit
 da:Passionsfrugt
 de:Passionsfrucht
 eo:Pasifrukto
@@ -38727,7 +38760,7 @@ wikidata:en:Q28836257
 
 <en:passion fruit
 <en:fruit juice
-en:passion fruit juice
+en:passion fruit juice, passionfruit juice
 de:Maracujasaft, Passionsfruchtsaft
 es:zumo de maracuyá
 fi:passiohedelmämehu
@@ -38748,6 +38781,10 @@ fr:jus de fruit de la passion à base de concentré
 sv:passionsfruktsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
+
+<en:passion fruit juice
+en:concentrated passion fruit juice, concentrated passionfruit juice
+ru:концентрированный сок маракуйи
 
 <en:passion fruit
 <en:purée
@@ -47786,6 +47823,7 @@ es:guisantes verdes
 fi:vihreät herneet
 fr:Petits pois
 sv:gröna ärtor
+th:ถั่ว ลันเตา
 vegan:en:yes
 vegetarian:en:yes
 
@@ -49244,7 +49282,7 @@ wikidata:en:Q22810770
 #
 ###################################################################################################
 <en:nut
-en:cashew nuts, cashews, cashew
+en:cashew nuts, cashews, cashew, cashewnut
 ar:كاجو
 bg:кашу
 ca:anacards
@@ -49676,7 +49714,7 @@ nl:pinda, pinda's, aardnoot, aardnoten, pindanoten, pindas
 nn:peanøtter
 nv:Neeshchʼííłbáhí
 pl:orzeszki, orzeski arachidowe, orzeszki ziemne, arachidowe
-pt:amendois, amendoins
+pt:amendois, amendoins, amendoim
 ro:alune, arahide
 ru:арахис
 sk:arašidy
@@ -57396,7 +57434,7 @@ it:estratto puro di vaniglia
 <en:vanilla extract
 en:natural vanilla extract
 da:naturlig vanilleekstrakt
-de:natürlicher Vanilleextrakt
+de:natürlicher Vanilleextrakt, natürliches Vanille-Extrakt
 el:φυσικό εκχύλισμα βανίλιας
 es:Extracto natural de vainilla
 fi:luontainen vaniljauute
@@ -68766,8 +68804,9 @@ sv:äggulepulver
 en:eggs yolk powder from free range hens
 
 <en:egg yolk
+en:pasteurised egg yolk, pasteurized egg yolk
 fr:jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
-de:Pasteurisierter Eigelb Eier
+de:Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
 it:tuorlo d'uovo pastorizzato
 pt:gema de ovo pasteurizado
 # ingredient/fr:jaune-d’oeuf-pasteurisé has 81 products in 4 languages @2018-12-18
@@ -69053,7 +69092,7 @@ ca:Fibra
 cs:vlákno
 cv:Чĕлкĕм
 da:Fiber
-de:Faser
+de:Faser, Nahrungsfasern
 el:ίνα
 eo:fibro
 es:fibra, fibra alimentaria
@@ -69085,7 +69124,7 @@ nl:vezel, voedingsvezel
 nn:fiber
 oc:fibra
 pl:włókno
-pt:fibra, fibra alimentar
+pt:fibra, fibra alimentar, fibras alimentares
 qu:Q'aytucha
 ro:Fibră
 ru:волокна
@@ -69121,7 +69160,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
 
 <en:fiber
+en:soluble fibre, soluble fiber
+ca:fibra soluble
+de:lösliche Ballaststoffe
+es:fibra soluble
 fr:fibres solubles
+it:fibra solubile
 nl:oplosbare vezels
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
