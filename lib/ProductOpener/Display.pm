@@ -9451,52 +9451,54 @@ sub display_product_history($$) {
 	my $code = shift;
 	my $product_ref = shift;
 
-	my $html = '';
-	if ($product_ref->{rev} > 0) {
-
-		my $path = product_path($product_ref);
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		if (not defined $changes_ref) {
-			$changes_ref = [];
-		}
-
-		$html .= "<h2 id=\"history\">" . lang("history") . "</h2>\n<ul id=\"history_list\">\n";
-
-		my $current_rev = $product_ref->{rev};
-
-		foreach my $change_ref (reverse @{$changes_ref}) {
-
-			my $date = display_date_tag($change_ref->{t});
-			my $userid = get_change_userid_or_uuid($change_ref);
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
-
-			my $comment = _format_comment($change_ref->{comment});
-
-			if ($comment ne '') {
-				$comment = "- $comment";
-			}
-
-			my $change_rev = $change_ref->{rev};
-
-			if (not defined $change_rev) {
-				$change_rev = $current_rev;
-			}
-			$current_rev--;
-
-			# Display diffs
-			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-
-			my $diffs = compute_changes_diff_text($change_ref);
-			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
-
-		}
-
-		$html .= "</ul>\n";
+	if ($product_ref->{rev} <= 0) {
+		return;
 	}
 
+	my $path = product_path($product_ref);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		$changes_ref = [];
+	}
+
+	my $current_rev = $product_ref->{rev};
+	my @revisions = ();
+
+	foreach my $change_ref (reverse @{$changes_ref}) {
+
+		my $userid = get_change_userid_or_uuid($change_ref);
+		my $comment = _format_comment($change_ref->{comment});
+
+		my $change_rev = $change_ref->{rev};
+
+		if (not defined $change_rev) {
+			$change_rev = $current_rev;
+		}
+
+		$current_rev--;
+
+		push @revisions, {
+			number => $change_rev,
+			date => display_date_tag($change_ref->{t}),
+			userid => $userid,
+			diffs => compute_changes_diff_text($change_ref),
+			comment => $comment
+		};
+
+	}
+
+	my $template_data_ref = {
+		lang => \&lang,
+		display_editor_link => sub {
+			my ($uid) = @_;
+			return display_tag_link('editors', $uid);
+		},
+		product_url => product_url($product_ref),
+		revisions => \@revisions
+	};
+
+	my $html;
+	$tt->process('display_product_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
