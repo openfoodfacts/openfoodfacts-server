@@ -2363,7 +2363,7 @@ sv:järn(III)natrium-EDTA
 # comment:en:The diphosphate translation is preferred.
 
 <en:iron
-en:ferric diphosphate, iron diphosphate
+en:ferric diphosphate, iron diphosphate, ferrous phosphate
 bg:Железен дифосфат
 cs:difosforečnan železitý
 da:ferridiphosphat
@@ -2392,6 +2392,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_phosphate
 # ingredient/fr:diphosphate-ferrique has 116 products in 7 languages @2019-05-07
 # usage:de:Mineralstoff (Eisendiphosphat)
 
+# description:en:Iron(III) phosphate, also ferric phosphate, is the inorganic compound with the formula FePO4. Iron(III) phosphate is not allowed as food additive in the European Union. It was withdrawn from the list of allowed substances in the directive 2002/46/EC in 2007.
+
+<en:iron
+en:ferric orthophosphate, ferric phosphate, iron orthophosphate, iron phosphate
+es:ortofosfato férrico
+wikidata:en:Q1311179
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(III)_phosphate
 
 <en:Iron
 en:ferric saccharate
@@ -3290,7 +3297,7 @@ bg:Меден глюконат
 cs:glukonan měďnatý
 de:Kupfergluconat
 el:γλυκονικός χαλκός
-es:gluconato cúprico
+es:gluconato cúprico, gluconato de cobre
 et:vaskglükonaat
 fi:kupariglukonaatti
 fr:gluconate de cuivre
@@ -4289,6 +4296,12 @@ ro:picolinat de crom
 sk:pikolinát chromitý
 sl:kromov pikolinat
 sv:krompikolinat
+
+<en:Chromium
+en:chromium nicotinate, chromium(III) nicotinate, chromium trinicotinate, chromium polynicotinate
+es:polinicotinato de cromo
+wikidata:en:Q5113831
+wikipedia:en:https://en.wikipedia.org/wiki/Chromium(III)_nicotinate
 
 # description:en:MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 

@@ -248,6 +248,7 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
+		ENCODING     => 'UTF-8'
 	}
 );
 
@@ -2172,12 +2173,12 @@ HTML
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
 			my $json = JSON::PP->new->utf8(0);
-			$initjs .= "var countries_map_data=JSON.parse('" . $json->encode($countries_map_data) . "');"
-					.= "var countries_map_links=JSON.parse('" . $json->encode($countries_map_links) . "');"
-					.= "var countries_map_names=JSON.parse('" . $json->encode($countries_map_names) . "');"
-					.= <<JS
+			$initjs .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
+					.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
+					.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
+					.= <<"JS";
 \$('#world-map').vectorMap({
-  map: 'world_mill_en',
+  map: 'world_mill',
   series: {
     regions: [{
       values: countries_map_data,
@@ -2201,15 +2202,14 @@ HTML
 });
 
 JS
-;
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="$static_subdomain/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="$static_subdomain/js/dist/jquery-jvectormap.js"></script>
+<script src="$static_subdomain/js/dist/world-mill.js"></script>
 SCRIPTS
 ;
 
 			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/js/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" media="all" href="/css/dist/jquery-jvectormap.css">
 HEADER
 ;
 			my $map_html = <<HTML
@@ -9405,48 +9405,43 @@ sub display_rev_info {
 	my $rev = shift;
 	my $code = $product_ref->{code};
 
-	my $html = '';
-
 	my $path = product_path($product_ref);
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
 	}
-	my $change_ref = $changes_ref->[$rev-1];
+
+	my $change_ref = $changes_ref->[$rev - 1];
 
 	my $date = display_date_tag($change_ref->{t});
 	my $userid = get_change_userid_or_uuid($change_ref);
-	my $user = display_tag_link("editors", $userid);
-	my $previous_link = '';
+	my $user = display_tag_link('editors', $userid);
+	my $previous_link = qw{};
+	my $product_url = product_url($product_ref);
 	if ($rev > 1) {
-		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+		$previous_link = $product_url . '?rev='. ($rev - 1);
 	}
-	my $next_link = '';
+
+	my $next_link = qw{};
 	if ($rev < scalar @{$changes_ref}) {
-		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+		$next_link = $product_url . '?rev=' . ($rev + 1);
 	}
 
 	my $comment = _format_comment($change_ref->{comment});
 
-	$html .= <<"HTML"
-<div id='rev_summary' class='panel callout'>
-	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
-	<p>
-		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
-		<time datetime='$change_ref->{t}'>$date</time> -
-		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
-	</p>
-	$comment
-HTML
-;
-	if ($previous_link ne '') {
-		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
-	}
-	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
-	if ($next_link ne '') {
-		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
-	}
-	$html .="</div>";
+	my $template_data_ref = {
+		lang => \&lang,
+		rev_number => $rev,
+		date => $date,
+		user => $user,
+		comment => $comment,
+		previous_link => $previous_link,
+		current_link => $product_url,
+		next_link => $next_link,
+	};
+
+	my $html;
+	$tt->process('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
