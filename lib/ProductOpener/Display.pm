@@ -248,6 +248,7 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
+		ENCODING     => 'UTF-8'
 	}
 );
 
@@ -9404,59 +9405,43 @@ sub display_rev_info {
 	my $rev = shift;
 	my $code = $product_ref->{code};
 
-	my $html = '';
-
 	my $path = product_path($product_ref);
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
 	}
-	my $change_ref = $changes_ref->[$rev-1];
+
+	my $change_ref = $changes_ref->[$rev - 1];
 
 	my $date = display_date_tag($change_ref->{t});
 	my $userid = get_change_userid_or_uuid($change_ref);
-	my $user = display_tag_link("editors", $userid);
-	my $previous_link = '';
+	my $user = display_tag_link('editors', $userid);
+	my $previous_link = qw{};
+	my $product_url = product_url($product_ref);
 	if ($rev > 1) {
-		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+		$previous_link = $product_url . '?rev='. ($rev - 1);
 	}
-	my $next_link = '';
+
+	my $next_link = qw{};
 	if ($rev < scalar @{$changes_ref}) {
-		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+		$next_link = $product_url . '?rev=' . ($rev + 1);
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
+	my $comment = _format_comment($change_ref->{comment});
 
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-	if ($comment ne '') {
-		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
-	}
+	my $template_data_ref = {
+		lang => \&lang,
+		rev_number => $rev,
+		date => $date,
+		user => $user,
+		comment => $comment,
+		previous_link => $previous_link,
+		current_link => $product_url,
+		next_link => $next_link,
+	};
 
-
-	$html .= <<"HTML"
-<div id='rev_summary' class='panel callout'>
-	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
-	<p>
-		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
-		<time datetime='$change_ref->{t}'>$date</time> -
-		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
-	</p>
-	$comment
-HTML
-;
-	if ($previous_link ne '') {
-		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
-	}
-	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
-	if ($next_link ne '') {
-		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
-	}
-	$html .="</div>";
+	my $html;
+	$tt->process('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -9488,14 +9473,7 @@ sub display_product_history($$) {
 				$user = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 			}
 
-			my $comment = $change_ref->{comment};
-			$comment = lang($comment) if $comment eq 'product_created';
-
-			$comment =~ s/^Modification :\s+//;
-			if ($comment eq 'Modification :') {
-				$comment = '';
-			}
-			$comment =~ s/\new image \d+( -)?//;
+			my $comment = _format_comment($change_ref->{comment});
 
 			if ($comment ne '') {
 				$comment = "- $comment";
@@ -9857,18 +9835,7 @@ sub display_change($$) {
 		$user = "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
-
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-
-	if ($comment ne '') {
-		$comment = "- $comment";
-	}
+	my $comment = _format_comment($change_ref->{comment});
 
 	my $change_rev = $change_ref->{rev};
 
@@ -10142,6 +10109,21 @@ sub display_ingredients_analysis($) {
 	}
 
 	return $html;
+}
+
+sub _format_comment {
+	my ($comment) = @_;
+
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = q{};
+	}
+
+	$comment =~ s/\new image \d+( -)?//;
+
+	return $comment;
 }
 
 1;
