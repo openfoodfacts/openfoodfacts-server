@@ -696,14 +696,17 @@ description:sk:Penotvorné činidlá sú látky, ktoré umožňujú tvorbu homog
 description:sl:Sredstva za penjenje so snovi, ki omogočajo homogeno razpršitev plinaste faze v tekočem ali v trdem živilu.
 description:sv:Skumbildande medel: ämnen som gör det möjligt att skapa en homogen spridning av en gasfas i ett flytande eller fast livsmedel.
 
-en:Gelling agent
+
+
+
+en:Gelling agent, gelifier
 bg:Желиращ агент
-ca:Gelificant
+ca:Gelificant, gelificants, agent gelificant, agents gelificants
 cs:Želírující látka
 de:Geliermittel
 da:Geleringsmiddel, Geleringsmidler
 el:Πηκτωματογόνο
-es:Gelificante, Agente gelificante
+es:Gelificante, gelificantes, agente gelificante, agentes gelificantes
 et:Želeeriv aine
 fi:Hyytelöimisaine, Hyytelöimisainetta, Hyytelöimisaineet, Hyytelöimisaineita
 fr:Gélifiant, Agent gélifiant
@@ -713,14 +716,16 @@ it:Gelificante, gelificanti, agente gelificante, agenti gelificanti
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f’ġel
-nl:Geleermiddel
+nl:Geleermiddel, Geleermiddelen, Verdikkingsmiddel, Verdikkingsmiddelen
 pl:Substancja żelująca, Substancje żelujące
 pt:Gelificante
 ro:Agent gelatinizant
+ru:загустители
 sk:Želírujúca látka
 sl:Želirno sredstvo
 sv:Geleringsmedel, Geleringmedel
 wikidata:en:Q27862636
+# fr:Gélifiant has 8019 products in 18 languages @2018-11-03
 description:en:Gelling agents are substances which give a foodstuff texture through formation of a gel.
 description:cs:Želírujícími látkami se rozumějí látky, které udělují potravině texturu tím, že vytvářejí gel.
 description:da:Geleringsmidler: stoffer, der giver en fødevare konsistens ved geldannelse.
@@ -1052,20 +1057,22 @@ description:sk:Komplexotvorné látky (sekvestranty) sú látky, ktoré tvoria c
 description:sl:Veziva so snovi, ki tvorijo kemične komplekse s kovinskimi ioni.
 description:sv:Komplexbildare: ämnen som bildar kemiska komplex med metalljoner.
 
+
 en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist, stabilizers
 bg: Стабилизатор
 ca: Estabilitzador, estabilitzadors, estabilizants, estabilitzants, estabilitzat
 cs: Stabilizátor
 da: Stabilisator, Stabilisatorer
-de: Stabilisator, Stabilisatoren
+de: Stabilisator, Stabilisatoren, Bindemittel
 el: Σταθεροποιητής
-es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas, estabilizante, estabilizantes
+es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores de emulsión, estabilizadores de espuma, estabilizador coloidal, estabilizador de emulsión, estabilizador de espuma, sinergistas, estabilizante, estabilizantes, ligante
 et: Stabilisaator
-fi: Stabilointiaine, Stabilointiainetta, Stabilointiaineet, Stabilointiaineita
+fi: Stabilointiaine, Stabilointiainetta, Stabilointiaineet, Stabilointiaineita, sideaine, sidonta-aine, sidonta-aineet
 fr: Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse, agent stabilisant, stabilisateur, stabilisateurs
-hu: Stabilizátor
+hu: Stabilizátor, kötőanyag
 ga: Cobhsaitheoir
-it: Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti
+is:bindiefni
+it: Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, legante, leganti
 lt: Stabilizatorius
 lv: Stabilizētājs
 mt: Stabbilizzatur
@@ -1076,9 +1083,12 @@ pl: Stabilizator, Stabilizatory
 ro: Stabilizator
 sk: Stabilizátor
 sl: Vezivo
-sv: Stabiliseringsmedel, Stabiliseringsämne, Stabilisator, Stabilisatorer, Stabilisering
+sv: Stabiliseringsmedel, Stabiliseringsämne, Stabilisator, Stabilisatorer, Stabilisering, bindningsämnen
 wikidata:en:Q7595716
 #latest wikidata merge 2020-08-18 @aleene
+# ingredient/fr:liant has 52 products in 5 languages @2019-02-05
+# liant (amidon modifié de pomme de terre)
+# legante (gomma di guar, xantano)
 description:en:Stabilisers are substances which make it possible to maintain the physico-chemical state of a foodstuff; stabilisers include substances which enable the maintenance of a homogenous dispersion of two or more immiscible substances in a foodstuff, substances which stabilise, retain or intensify an existing colour of a foodstuff and substances which increase the binding capacity of the food, including the formation of cross-links between proteins enabling the binding of food pieces into re-constituted food.
 description:cs:Stabilizátory se rozumějí látky, které umožňují udržovat fyzikálně-chemický stav potraviny; mezi stabilizátory patří látky, které umožňují udržet jednotný rozptyl dvou nebo více navzájem se nesměšujících látek v potravinách, látky, které stabilizují, udržují nebo zintenzivňují stávající barvu potravin, a látky, které zvyšují pojivost určité potraviny, včetně vytváření vzájemných vazeb mezi bílkovinami, které umožňují spojení kusů potravin do rekonstituované potraviny.
 description:da:Stabilisatorer: stoffer, hvormed man kan opretholde en fødevares fysisk-kemiske tilstand. Til stabilisatorer hører stoffer, hvormed der kan opretholdes en homogen fordeling af to eller flere ikke-blandbare stoffer i en fødevare, stoffer, som stabiliserer, bevarer eller forstærker en fødevares farve, og stoffer, som øger fødevarens bindeevne, herunder dannelse af tværbindinger mellem proteiner, der kan binde fødevarestykker i rekonstituerede fødevarer.
