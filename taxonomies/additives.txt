@@ -275,7 +275,7 @@ e_number:en:101a
 
 # description:en:TARTRAZINE is a synthetic lemon yellow azo dye primarily used as a food coloring.
 
-en:E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5
+en:E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5, Yellow 5 lake
 bg:E102, Тартразин
 ca:E102, Tartrazina
 cs:E102, Tartrazin, FD&C žluť 5, E 102, Tartazin
@@ -459,7 +459,7 @@ colour_index:en:CI 18965
 vegan:en:yes
 vegetarian:en:yes
 
-en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985
+en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985, Yellow 6 lake, Sunset Yellow
 bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yellow 6
 ca:E110, Groc ataronjat S
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
@@ -791,7 +791,7 @@ vegetarian:en:yes
 
 # description:en:ERYTHROSINE, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
 
-en:E127, Erythrosine, FD&C Red 3, FD & C Red No.3, Red No. 3, FD&C Red no3, FD and C Red 3
+en:E127, Erythrosine, FD&C Red 3, FD & C Red No.3, Red No. 3, FD&C Red no3, FD and C Red 3, Red 3, Red 3 lake
 bg:E127, Еритрозин
 ca:E127, Eritrosina
 cs:E127, Erythrosin, Erytrosin, E 127
@@ -878,14 +878,14 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-en:E129, Allura red ac, Allura Red AC, FD&C Red 40, FD and C Red 40, Red 40, Red no40, Red no. 40, FD and C Red no. 40, Food Red 17, C.I. 16035
+en:E129, Allura red ac, Allura Red AC, FD&C Red 40, FD and C Red 40, Red 40, Red no40, Red no. 40, FD and C Red no. 40, Food Red 17, C.I. 16035, Red 40 lake
 bg:E129, Алура червено ac
 ca:E129, Vermell Allure 2C
 cs:E129, Allura red ac, červeň ac, Červeň Allura AC
 da:E129, Allura red ac
 de:E129, Allurarot ac, Allurarot, E 129
 el:E129, Ερυθρο allura ac
-es:E129, Rojo allura ac, E 129, Rojo Allura 2C,rojo FD&C 40
+es:E129, Rojo allura ac, E 129, Rojo Allura 2C, rojo FD&C 40, rojo 40
 et:E129, Võlupunane ac
 fi:E129, Alluranpunainen ac, Alluranpunainen, E 129, CI 16035
 fr:E129, Rouge allura AC, Rouge Allura, Rouge alimentaire 17, FD&C Rouge 40, Allura Red, Food Red 17, C.I. 16035, FD&C Red 40, Red 40 lake, Red 40, 2-naphthalenesulfonic acid disodium salt, Allura Red AC, C18H14N2Na2O8S2
@@ -992,7 +992,7 @@ efsa_evaluation_adi:en: 5
 vegan:en:yes
 vegetarian:en:yes
 
-en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2
+en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2, C.I. Food Blue 2, Blue 2 lake, Blue 2
 bg:E132, Индиготин, индиго кармин
 ca:E132, Indigotina, carmí indi, carmi indi
 cs:E132, Indigotin, indigocarmine, Indigo karmín
@@ -1018,6 +1018,7 @@ sv:E132, Indigotin, indigokarmin
 # nl_be:E132, Indigotine, indigokarmijn
 e_number:en:132
 wikidata:en:Q410120
+wikipedia:en:https://en.wikipedia.org/wiki/Indigo_carmine
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2014.3768
 efsa_evaluation_date:en: 2014/07/25
@@ -1030,7 +1031,7 @@ vegetarian:en:yes
 
 # description:en: BRILLIANT BLUE FCF (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
 
-en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1.
+en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1, Blue 1 lake
 bg:E133, Брилянтно синьо FCF
 ca:E133, Blau brillant FCF
 cs:E133, Brilantní modř FCF
@@ -1040,7 +1041,7 @@ el:E133, Λαμπρο κυανο FCF
 es:E133, Azul brillante FCF, Azul brillante FCP, E 133, Brilliant Blue FCF, azul FD&C 1
 et:E133, Briljantsinine FCF
 fi:E133, Briljanttisininen FCF
-fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, C.I. Food Blue 2, Blue 2 lake, Blue 2, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3
+fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3
 ga:E133, gorm lonrach FCF
 he:E133, כחול בוהק FCF
 hu:E133, Brilliánskék FCF
@@ -1409,7 +1410,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 vegan:en:yes
 vegetarian:en:yes
 
-en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3
+en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3, Green 3
 bg:E143, E143 food additive
 cs:E143, E143 food additive
 da:E143, E143 food additive
@@ -5869,7 +5870,7 @@ vegetarian:en:yes
 
 # description:en:CALCIUM PROPIONATE has the formula Ca(C2H5COO)2. Calcium propionate is used as a preservative in a wide variety of products, including but not limited to:bread, other baked goods, processed meat, whey, and other dairy products.
 
-en:E282, calcium propionate
+en:E282, calcium propionate, calcium propanoate
 ar:E282, بروبيونات الكالسيوم
 bg:E282, Калциев пропионат
 ca:E282, Propanoat de calci
@@ -14245,7 +14246,7 @@ organic_eu:en:authorized
 # comment:en:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
 <en:E500
-en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda
+en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 af:E500(ii), Natriumbikarbonaat
 ar:E500(ii), بيكربونات الصوديوم
 bg:E500(ii), Натриев бикарбонат
