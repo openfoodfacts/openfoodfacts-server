@@ -110,22 +110,26 @@ function getGeoJsonFromOsmRelation(id, callback) {
   });
 }
 
+function displayPointers(pointers) {
+  runCallbackOnJson(function (actualMap) {
+    var markers = [];
+    for (var i = 0; i < pointers.length; ++i) {
+      var pointer = pointers[i];
+      var marker = new L.marker(pointer);
+      markers.push(marker);
+    }
+
+    if (markers.length > 0) {
+      L.featureGroup(markers).addTo(actualMap);
+      fitBoundsToAllLayers(actualMap);
+      actualMap.setZoom(10);
+    }
+  });
+}
+
 function displayMap(pointers, wikidataObjects) {
   if (pointers.length > 0) {
-    runCallbackOnJson(function (map) {
-      var markers = [];
-      for (var i = 0; i < pointers.length; ++i) {
-        var pointer = pointers[i];
-        var marker = new L.marker(pointer);
-        markers.push(marker);
-      }
-
-      if (markers.length > 0) {
-        L.featureGroup(markers).addTo(map);
-        fitBoundsToAllLayers(map);
-        map.setZoom(10);
-      }
-    });
+    displayPointers(pointers);
   }
 
   for (var i = 0; i < wikidataObjects.length; ++i) {
