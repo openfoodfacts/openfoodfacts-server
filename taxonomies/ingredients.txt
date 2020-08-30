@@ -1479,6 +1479,9 @@ pl:zelatyna wieprzowa
 vegan:en:no
 vegetarian:en:no
 
+<en:gelatin
+en:kosher gelatin
+
 
 # PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
 
@@ -29721,6 +29724,13 @@ wikidata:en: Q63120038
 # ingredient/fr:caséinate-de-sodium has 130 products in 4 languages @2019-04-13
 # usage:fr: caséinate de sodium (de lait)
 
+<en:caseinate
+en:calcium caseinate
+de:Calciumcaseinat
+es:caseinato de calcio
+wikidata:en:Q522243
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
+
 <en:vegetable protein
 en:rapeseed protein
 fi:rapsiproteiini
@@ -37678,6 +37688,13 @@ en:natural coconut water
 de:Natürliches Kokosnusswasser
 fr:Eau de noix de coco naturelle
 
+<en:coconut water
+en:nata de coco
+es:nata de coco
+fr:nata de coco
+wikidata:en:Q1193612
+wikipedia:en:https://en.wikipedia.org/wiki/Nata_de_coco
+
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
 ca:llet de coco en pols
@@ -38839,6 +38856,10 @@ fr:jus de fruit de la passion à base de concentré
 sv:passionsfruktsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
+
+<en:passion fruit juice
+en:concentrated passion fruit juice, concentrated passionfruit juice
+ru:концентрированный сок маракуйи
 
 <en:passion fruit
 <en:purée
