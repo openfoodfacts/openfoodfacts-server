@@ -2177,7 +2177,7 @@ HTML
 					.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 					.= <<"JS";
 \$('#world-map').vectorMap({
-  map: 'world_mill_en',
+  map: 'world_mill',
   series: {
     regions: [{
       values: countries_map_data,
@@ -2202,13 +2202,13 @@ HTML
 
 JS
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="$static_subdomain/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="$static_subdomain/js/dist/jquery-jvectormap.js"></script>
+<script src="$static_subdomain/js/dist/world-mill.js"></script>
 SCRIPTS
 ;
 
 			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/js/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" media="all" href="/css/dist/jquery-jvectormap.css">
 HEADER
 ;
 			my $map_html = <<HTML
