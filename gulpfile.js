@@ -60,7 +60,9 @@ function copyJs() {
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
       "./node_modules/cropper/dist/cropper.js",
       "./node_modules/jquery-form/src/jquery.form.js",
-      "./node_modules/highcharts/highcharts.js"
+      "./node_modules/highcharts/highcharts.js",
+      "./node_modules/jvectormap-next/jquery-jvectormap.js",
+      "./node_modules/jvectormap-content/world-mill.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -119,7 +121,8 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css"
+      "./node_modules/cropper/dist/cropper.css",
+      "./node_modules/jvectormap-next/jquery-jvectormap.css"
     ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
