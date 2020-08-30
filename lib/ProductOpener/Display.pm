@@ -9426,18 +9426,7 @@ sub display_rev_info {
 		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
-
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-	if ($comment ne '') {
-		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
-	}
-
+	my $comment = _format_comment($change_ref->{comment});
 
 	$html .= <<"HTML"
 <div id='rev_summary' class='panel callout'>
@@ -9483,15 +9472,7 @@ sub display_product_history($$) {
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
-		my $comment = $change_ref->{comment};
-		$comment = lang($comment) if $comment eq 'product_created';
-
-		$comment =~ s/^Modification :\s+//;
-		if ($comment eq 'Modification :') {
-			$comment = q{};
-		}
-
-		$comment =~ s/\new image \d+( -)?//;
+		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
 
@@ -9861,18 +9842,7 @@ sub display_change($$) {
 		$user = "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
-
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-
-	if ($comment ne '') {
-		$comment = "- $comment";
-	}
+	my $comment = _format_comment($change_ref->{comment});
 
 	my $change_rev = $change_ref->{rev};
 
@@ -10146,6 +10116,21 @@ sub display_ingredients_analysis($) {
 	}
 
 	return $html;
+}
+
+sub _format_comment {
+	my ($comment) = @_;
+
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = q{};
+	}
+
+	$comment =~ s/\new image \d+( -)?//;
+
+	return $comment;
 }
 
 1;
