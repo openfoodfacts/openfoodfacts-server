@@ -5680,186 +5680,106 @@ sub search_and_map_products($$$) {
 	}
 
 	if ($count <= 0) {
-		# $request_ref->{content_html} = $html;
 		$log->warn("could not retrieve enough products for a map", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 
-	if ($count > 0) {
+	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-		my $js_example = <<JS
+	my $matching_products = 0;
+	my $places = 0;
+	my $emb_codes = 0;
+	my $seen_products = 0;
 
- var markers = new L.MarkerClusterGroup();
-markers.addLayer(new L.Marker(getRandomLatLng(map)));
-... Add more layers ...
-map.addLayer(markers);
+	my %seen = ();
+	my @pointers = ();
 
+	foreach my $product_ref (@products) {
+		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
-var markers = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: false });
+		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
+		$manufacturing_places =~ s/,( )?/, /g;
+		if ($manufacturing_places ne '') {
+			$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
+		}
 
-singleMarkerMode: If set to true, overrides the icon for all added markers to make them appear as a 1 size cluster
-{ singleMarkerMode: true}
+		my $origins =  escape_single_quote($product_ref->{origins});
+		$origins =~ s/,( )?/, /g;
+		if ($origins ne '') {
+			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+		}
 
-addLayers and removeLayers are bulk methods for adding and removing markers and should be favoured over the single versions when doing bulk addition/removal of markers. Each takes an array of markers
+		$origins = $manufacturing_places . $origins;
 
+		my $pointer = {
+			product_name => $product_ref->{product_name},
+			brands => $product_ref->{brands},
+			url => $url,
+			origins => $origins,
+			img => display_image_thumb($product_ref, 'front')
+		};
 
+		# Loop on cities: multiple emb codes can be on one product
 
-JS
-;
+		my $field = 'emb_codes';
+		if (defined $product_ref->{"emb_codes_tags" }) {
 
-		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
+			my %current_seen = (); # only one product when there are multiple city codes for the same city
 
-		my $matching_products = 0;
-		my $places = 0;
-		my $emb_codes = 0;
-		my $seen_products = 0;
+			foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 
-		my %seen = ();
-		my $data = '';
+				my ($lat, $lng) = get_packager_code_coordinates($emb_code);
 
-		foreach my $product_ref (@products) {
+				if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
+					my $geo = "$lat,$lng";
+					if (not defined $current_seen{$geo}) {
 
-			if (1) {
-
-				my $url = $formatted_subdomain . product_url($product_ref->{code});
-
-				my $data_start = '{';
-
-				my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
-				$manufacturing_places =~ s/,( )?/, /g;
-				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
-				}
-
-				my $origins =  escape_single_quote($product_ref->{origins});
-				$origins =~ s/,( )?/, /g;
-				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
-				}
-
-				$origins = $manufacturing_places . $origins;
-
-				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
-
-				# Loop on cities: multiple emb codes can be on one product
-
-				my $field = 'emb_codes';
-				if (defined $product_ref->{"emb_codes_tags" }) {
-
-					my %current_seen = (); # only one product when there are multiple city codes for the same city
-
-					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
-
-						my ($lat, $lng) = get_packager_code_coordinates($emb_code);
-
-						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
-							my $geo = "$lat,$lng";
-							if (not defined $current_seen{$geo}) {
-
-								$current_seen{$geo} = 1;
-								$data .= $data_start . ', geo:[' . $geo . "]},\n";
-								$emb_codes++;
-								if (not defined $seen{$geo}) {
-									$seen{$geo} = 1;
-									$places++;
-								}
-							}
+						$current_seen{$geo} = 1;
+						my @geo = ($lat + 0.0, $lng + 0.0);
+						$pointer->{geo} = \@geo;
+						push @pointers, $pointer;
+						$emb_codes++;
+						if (not defined $seen{$geo}) {
+							$seen{$geo} = 1;
+							$places++;
 						}
 					}
-					if (scalar keys %current_seen > 0) {
-						$seen_products++;
-					}
 				}
+			}
 
-				$matching_products++;
+			if (scalar keys %current_seen > 0) {
+				$seen_products++;
 			}
 		}
 
-		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
-
-		# Points to display?
-
-		if ($emb_codes > 0) {
-
-			$header .= <<HTML
-<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
-<script src="$static_subdomain/js/dist/leaflet.js"></script>
-<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.css">
-<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.Default.css">
-<script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
-HTML
-;
-
-
-# 18/07/2016 -> mapquest removed free access to their tiles without registration
-#L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-#	subdomains: '1234',
-#    maxZoom: 18
-#}).addTo(map);
-
-			my $js = <<JS
-var pointers = [
-				$data
-			];
-
-var map = L.map('container', {maxZoom:12});
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-
-var markers = new L.MarkerClusterGroup({singleMarkerMode: true});
-
-var length = pointers.length,
-    pointer = null;
-
-var layers = [];
-
-for (var i = 0; i < length; i++) {
-  pointer = pointers[i];
-  var marker = new L.marker(pointer.geo);
-  marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands  + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
-  layers.push(marker);
-}
-
-markers.addLayers(layers);
-
-map.addLayer(markers);
-map.fitBounds(markers.getBounds());
-$request_ref->{map_options}
-JS
-;
-			$initjs .= $js;
-
-			my $count_string = sprintf(lang("map_count"), $count, $seen_products);
-
-			$html .= <<HTML
-<p>$count_string</p>
-<div id="container" style="height: 600px"></div>
-<p>&nbsp;</p>
-HTML
-;
-
-		}
-
-		if (defined $request_ref->{current_link_query}) {
-			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_map_link") . "</a><br>";
-		}
-
-		$html .= "<p>" . lang("search_map_warning") . "</p>";
-
-		$html .= lang("search_map_blog");
+		$matching_products++;
 	}
 
+	$log->info("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
 
+	# Points to display?
+	my $count_string = q{};
+	my $json = JSON::PP->new->utf8(0);
+	if ($emb_codes > 0) {
+		$count_string = sprintf(lang("map_count"), $count, $seen_products);
+	}
 
+	if (defined $request_ref->{current_link_query}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+	}
 
+	my $map_template_data_ref = {
+		lang => \&lang,
+		encode_json => sub {
+			my ($obj_ref) = @_;
+			return $json->encode($obj_ref);
+		},
+		title => $count_string,
+		pointers => \@pointers,
+		current_link_query => $request_ref->{current_link_query},
+	};
+	$tt->process('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
 }
