@@ -872,28 +872,34 @@ description:en:A food additive gas, which is introduced into a container before,
 description:es:Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr:Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l’intention de protéger l’aliment par exemple de l’oxydation ou de l’altération.
 
-en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
+
+
+
+en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, ingredients of conservation
 bg: Консервант
-ca: Conservant, conservador
+ca: Conservant, conservador, conservadors, conservants
 cs: Konzervant
-de: Konservierungsstoff, Konservierungsstoffe, Konservierungsmittel
 da: Konserveringsmiddel, Konserveringsmidler, Konservering
+de: Konservierungsstoff, Konservierungsstoffe, Konservierungsmittel
 el: Συντηρητικό
-es: Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores
+es: Conservante, conservantes, Conservador, conservadores, agente conservador, agentes conservadores, sustancias conservadoras, sustancia conservadora, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, preservante
 et: Säilitusaine
 fi: Säilöntäaine, Säilöntäainetta, Säilöntäaineet, Säilöntäaineita
-fr: Conservateur, agent antimoisissure et antifilant, agent antimoisissure, antifilant, agent antimycoses, agent de conservation, agent de conservation antimicrobien, agent de contrôle bactériologique, antimicrobien synergique, agent antimicrobien, antimicrobien, fongiostatique, agent antifongique
+fr: Conservateur, agent conservateur, agent antimoisissure et antifilant, agent antimoisissure, antifilant, agent antimycoses, agent de conservation, agent de conservation antimicrobien, agent de contrôle bactériologique, antimicrobien synergique, agent antimicrobien, antimicrobien, fongiostatique, agent antifongique
 ga: Leasaitheach
+he:חומר משמר
 hu: Tartósítószer
 is: Rotvarnarefni
 it: Conservante, conservanti, agente conservante, agenti conservanti
 lv: Konservants
 lt: Konservantas
 mt: Preservattiv
-nl: Conserveermiddel, conserveringsmiddelen
+nb:Konserveringsmiddel
+nl: Conserveermiddel, Conserveermiddelen, conserveringsmiddelen
 pl: Substancja konserwująca, Substancje konserwujące
-pt: Conservante
+pt: Conservante, conservantes
 ro: Conservant
+ru:Консервант
 sk: Konzervačná látka
 sl: Konzervans
 sv: Konserveringsmedel, Konservering
@@ -917,6 +923,15 @@ description:pt:Conservantes: substâncias que prolongam o prazo de conservação
 description:sk:Konzervačné látky sú látky, ktoré predlžujú trvanlivosť potravín tak, že ich chránia pred skazením spôsobeným mikroorganizmami, a/alebo ktoré chránia potraviny pred množením patogénnych mikroorganizmov.
 description:sl:Konzervansi so snovi, ki podaljšajo rok uporabnosti živil tako, da jih ščitijo pred kvarjenjem, ki ga povzročajo mikroorganizmi, in/ali jih ščitijo pred razvojem patogenih mikroorganizmov.
 description:sv:Konserveringsmedel: ämnen som förlänger hållbarheten hos livsmedel genom att skydda dem mot nedbrytning orsakad av mikroorganismer och/eller skydda dem mot tillväxt av patogena mikroorganismer.
+
+
+<en:preservative
+en:fruit preservative
+de:Fruchtkonserve
+fr:conservateur de fruit, conservateur du fruit
+# ingredient/fr:conservateur-de-fruit has 43 products in french@2019-02-10
+# ingredient/fr:conservateur-du-fruit has 124 produits in french @2019-05-02
+# usage:fr: Conservateur du fruit : Sorbate de potassium
 
 en: Propellent gas, propellant gas, propellent, propellant
 ga: Gás tiomána
