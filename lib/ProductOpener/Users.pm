@@ -63,8 +63,6 @@ BEGIN
 		&process_user_form
 		&check_edit_owner
 
-		&display_login_form
-
 		&init_user
 		&save_user
 
@@ -168,12 +166,11 @@ sub create_user($) {
 }
 
 
-sub display_user_form($$) {
+sub display_user_form($$$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $scripts_ref = shift;
-
-	my $type = param('type') || 'add';
 
 	my $html = '';
 
@@ -319,11 +316,10 @@ SCRIPT
 }
 
 
-sub display_user_form_optional($) {
+sub display_user_form_optional($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
 
 	my $html = '';
 
@@ -341,11 +337,10 @@ sub display_user_form_optional($) {
 }
 
 
-sub display_user_form_admin_only($) {
+sub display_user_form_admin_only($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
 
 	my $html = '';
 
@@ -378,26 +373,31 @@ sub display_user_form_admin_only($) {
 }
 
 
-sub check_user_form($$) {
+sub check_user_form($$$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $errors_ref = shift;
 
-	my $type = param('type') || 'add';
-
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
+	
+	my $email = remove_tags_and_quote(decode utf8=>param('email'));
+	
+	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
 
-	if ($user_ref->{email} ne decode utf8=>param('email')) {
+	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users_emails.sto");
-		if (defined $emails_ref->{decode utf8=>param('email')}) {
+		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
 
-		$user_ref->{email} = remove_tags_and_quote(decode utf8=>param('email'));
-
+		# Keep old email until the user is saved
+		$user_ref->{old_email} = $user_ref->{email};
+		$user_ref->{email} = $email;
 	}
 
 	if (defined param('twitter')) {
@@ -442,7 +442,6 @@ sub check_user_form($$) {
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
-
 	}
 
 	if ($admin) {
@@ -540,11 +539,14 @@ sub check_user_form($$) {
 
 
 
-sub process_user_form($) {
+sub process_user_form($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
+    
+	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();    
     
     # Professional account with requested org?
     
@@ -604,10 +606,14 @@ EMAIL
 	if ((defined $email) and ($email =~/\@/)) {
 		$emails_ref->{$email} = [$userid];
 	}
+	if (defined $user_ref->{old_email}) {
+		delete $emails_ref->{$user_ref->{old_email}};
+		delete $user_ref->{old_email};
+	}
 	store("$data_root/users_emails.sto", $emails_ref);
 
 
-	if (param('type') eq 'add') {
+	if ($type eq 'add') {
 		
 		# Initialize the session to send a session cookie back
 		# so that newly created users do not have to login right after
@@ -685,11 +691,6 @@ sub check_edit_owner($$) {
 	}
 
 	return;
-}
-
-
-
-sub display_login_form() {
 }
 
 
