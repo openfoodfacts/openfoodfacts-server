@@ -156,7 +156,7 @@ my %may_contain_regexps = (
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	ro => "Poate con[țţ]ine urme de",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
