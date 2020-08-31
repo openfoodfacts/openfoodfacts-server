@@ -984,13 +984,16 @@ ciqual_food_name:en:Sangria
 ciqual_food_name:fr:Sangria
 
 <en:Alcoholic beverages
-fr:Pastis
+en:Pastis
 de:Pastis
+fr:Pastis
 nl:Pastis, Anijsdranken
 ro:Pastis
 agribalyse_food_code:en:1000
 ciqual_food_code:en:1000
 ciqual_food_name:en:Pastis (anise-flavoured spirit)
+wikidata:en:Q16976
+wikipedia:en:https://en.wikipedia.org/wiki/Pastis
 
 <en:Alcoholic beverages
 en:Sake
@@ -1300,18 +1303,25 @@ ro:Beri belgiene, Beri Belgia, Bere Belgiană, Bere Belgia, Bere Belgiana
 origins:en: en:Belgium
 
 <en:Belgian beers
+en:Lambic beers
 fr:Lambic, Gueuze-Lambic, Gueuze, Lambiek, Geuze-Lambiek, Geuze
 protected_name_file_number:en: TSG-BE-0005
 protected_name_type:en: tsg
 origins:en: en:Belgium
+wikidata:en:Q526314
+wikipedia:en:https://en.wikipedia.org/wiki/Lambic
 
 <en:Belgian beers
+en:Kriek lambic beers
 nl:Kriek, Kriek-Lambic, Framboise-Lambic, Fruit-Lambic, Kriek, Kriekenlambiek, Frambozenlambiek, Vruchtenlambiek
 protected_name_file_number:en: TSG-BE-0008
 protected_name_type:en: tsg
 origins:en: en:Belgium
+wikidata:en:Q1756073
+wikipedia:en:https://en.wikipedia.org/wiki/Kriek_lambic
 
 <en:Belgian beers
+en:Faro beers
 fr:Faro
 protected_name_file_number:en: TSG-BE-0006
 protected_name_type:en: tsg
@@ -1856,8 +1866,9 @@ nl_be:Tequilas
 ro:Tequilla
 
 <en:Hard liquors
-fr:Eaux-de-vie, Eau-de-vie
+en:Eaux de vie, Eau de vie, Clear fruit brandies
 de:Eau de vie, Branntwein
+fr:Eaux-de-vie, Eau-de-vie
 nl:Vruchtendistillaten
 wikidata:en:Q2166541
 agribalyse_food_code:en:1001
@@ -2132,8 +2143,9 @@ ciqual_food_code:en:1005
 ciqual_food_name:en:Whisky
 
 <en:Whisky
-fr:Blended whisky, blend
+en:Blended whisky
 de:Blended Whisky
+fr:Blended whisky, blend
 hu:Kevert Whisky
 nl:Blended whiskies
 wikidata:en:Q883744
@@ -2317,28 +2329,39 @@ fr:Whiskys allemands, Whisky allemand, Whiskey allemand, Whiskeys allemands, Whi
 nl:Duitse whiskies
 
 <fr:Eaux-de-vie
-fr:Aquavit
+en:Aquavit
 de:Aquavit
+fr:Aquavit
 nl:Aquavits, Aquavit
+wikidata:en:Q178899
+wikipedia:en:https://en.wikipedia.org/wiki/Akvavit
 
 <fr:Eaux-de-vie
-fr:Armagnacs, Armagnac
+en:Armagnac
 de:Armagnac, Branntwein aus de Gascogne
+fr:Armagnacs, Armagnac
 nl:Armagnacs, Armagnac
 wikidata_category:en:Q9469550
 origins:en: en:France, fr:Gascogne
+wikidata:en:Q503252
+wikipedia:en:https://en.wikipedia.org/wiki/Armagnac
 
 <fr:Armagnacs
-fr:Armagnac-Ténarèze
+en:Armagnac-Ténarèze
 de:Armagnac aus dem Anbaugebiet Ténarèze
+fr:Armagnac-Ténarèze
 nl:Armagnac uit Ténarèze
 origins:en: en:France, fr:Gascogne
+wikidata:en:Q4792603
+wikipedia:en:https://en.wikipedia.org/wiki/Armagnac-T%C3%A9nar%C3%A8ze
 
 <fr:Armagnacs
-fr:Bas-Armagnac
+en:Bas-Armagnac
 de:Armagnac aus dem Anbaugebiet Bas-Armagnac
+fr:Bas-Armagnac
 country:en:France
 wikidata:en:Q2201024
+wikipedia:en:https://en.wikipedia.org/wiki/Bas-Armagnac
 origins:en: en:France, fr:Gascogne
 
 <fr:Armagnacs
@@ -2349,14 +2372,16 @@ country:en:France
 
 <fr:Eaux-de-vie
 <en:Wines from France
-fr:Calvados
+en:Calvados
 de:Calvados
+fr:Calvados
 nl:Calvados
 protected_name_file_number:en: PGI-FR-02033
 protected_name_type:en: gi
 origins:en: en:France
 country:en:France
 wikidata:en:Q3268
+wikipedia:en:https://en.wikipedia.org/wiki/Calvados
 origins:en: en:France, fr:Calvados
 
 <fr:Eaux-de-vie
@@ -2374,11 +2399,13 @@ protected_name_type:en: gi
 origins:en: en:France
 
 <fr:Eaux-de-vie
-fr:Cognac
+en:Cognac
 de:Cognacs
+fr:Cognac
 nl:Cognacs, Cognac
 ro:Coniacuri, Coniac
 wikidata:en:Q284
+wikipedia:en:https://en.wikipedia.org/wiki/Cognac
 
 <fr:Eaux-de-vie
 en:Swiss Eaux-de-vie
@@ -2552,16 +2579,21 @@ nl:Abricotines, Abricotine
 wikidata:en:Q10216
 
 <en:Swiss Eaux-de-vie
-fr:Damassine
+en:Damassine
 de:Eau de Damassine, Pflaumenbrand aus der Schweiz
+fr:Damassine
 nl:Damasinnes, Damasinne
 origins:en: en:France, fr:Suisse
+wikidata:en:Q3012619
+wikipedia:en:https://en.wikipedia.org/wiki/Damassine
 
 <en:Swiss Eaux-de-vie
-fr:Williamine
+en:Williamine
 de:Williamsbirnen Brand
+fr:Williamine
 nl:Williamines, Williamine
 wikidata:en:Q3569050
+wikipedia:en:https://en.wikipedia.org/wiki/Williamine
 
 <fr:Eaux-de-vie
 en:Tunisian Eaux-de-vie
@@ -2572,14 +2604,17 @@ nl:Tunesische eau-de-vies
 origins:en: en:Tunisia
 
 <en:Tunisian Eaux-de-vie
-fr:Boukha
+en:Boukha
 de:Boukha, Feigenbrand aus Tunesien
+fr:Boukha
 nl:Boukha
 wikidata:en:Q429372
+wikipedia:en:https://en.wikipedia.org/wiki/Boukha
 
 <en:Tunisian Eaux-de-vie
-fr:Thibarine
+en:Thibarine
 de:Thibarine, Dattellikör aus Tunesien
+fr:Thibarine
 nl:Thibarines, Thibarine
 wikidata:en:Q944170
 
@@ -2602,28 +2637,37 @@ sv:Genever
 wikidata:en:Q80680
 
 <fr:Eaux-de-vie
-fr:Gentiane
+en:Gentian spirit
 de:Enzian
+fr:Gentiane
 nl:Gentiaan
+wikidata:en:Q1254524
+wikipedia:en:https://en.wikipedia.org/wiki/Gentian_(spirit)
 
 <fr:Eaux-de-vie
-fr:Kirsch
+en:Kirsch
 de:Kirsch, Kirschwasser
+fr:Kirsch
 nl:Kirsch
 nl_be:Kirsch
 wikidata:en:Q279034
+wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 
 <fr:Eaux-de-vie
-fr:Lambig
+en:Lambig
 de:Lambig
+fr:Lambig
 nl:Lambig
 wikidata:en:Q3216660
+wikipedia:en:https://en.wikipedia.org/wiki/Lambig
 
 <fr:Eaux-de-vie
-fr:Raki, Rakı
+en:Raki
 de:Raki, Anisbrand aus der Türkei
+fr:Raki, Rakı
 nl:Raki
 wikidata:en:Q638290
+wikipedia:en:https://en.wikipedia.org/wiki/Rak%C4%B1
 origins:en: en:Turkey
 
 <fr:Eaux-de-vie
@@ -4344,8 +4388,9 @@ ciqual_food_name:fr:Jus de pamplemousse (pomelo), pur jus
 
 
 <en:Grapefruit juices
-fr:Jus de pamplemousse rose, Jus de pamplemousses roses
+en:Pink grapefruit juices
 de:Pink Grapefruit Säfte
+fr:Jus de pamplemousse rose, Jus de pamplemousses roses
 nl:Roze grapefruitsappen, Roze grapefruitsap
 
 <en:Fruit juices
@@ -4468,8 +4513,9 @@ ciqual_food_name:en:Orange juice, home-made
 ciqual_food_name:fr:Jus d'orange, maison
 
 <en:Orange juices
-fr:Jus d'orange sanguine, jus d'oranges sanguines
+en:Blood orange juices
 de:Blutorangensäfte
+fr:Jus d'orange sanguine, jus d'oranges sanguines
 nl:Bloedsinaasappelsappen, Bloedsinaasappelsap
 
 <en:Fruit juices
@@ -5064,6 +5110,7 @@ ciqual_food_name:en:Carrot juice, pure juice
 ciqual_food_name:fr:Jus de carotte, pur jus
 
 <en:Vegetable juices
+en:Beetroot juices
 fr:Jus de betterave
 it:Succo di barbabietola
 nl:Rode bietensappen, Rode bietensap
@@ -5904,8 +5951,9 @@ fr:Thés verts torréfiés japonais
 nl:Geroosterde Japanse groene theeën, Geroosterde Japanse groene thee
 
 <en:Roasted Japanese green teas
-fr:Thés Hojicha, Hojicha, Bancha Hojicha
+en:Hōjicha teas, Hojicha teas
 de:Hōjicha
+fr:Thés Hojicha, Hojicha, Bancha Hojicha
 nl: Hojicha
 wikidata:en:Q1652744
 
@@ -25101,8 +25149,9 @@ pt:Pães especiais
 zh:特殊面包
 
 <en:Special breads
-fr:Pains Bretzels, Pain bretzel, Pains bretzel
+en:Pretzels
 de:Brezeln, Brot Brezeln
+fr:Pains Bretzels, Pain bretzel, Pains bretzel
 nl:Pretzels, Pretzel
 wikidata:en:Q160525
 
@@ -25888,8 +25937,9 @@ fr:Cheesecakes à la fraise
 nl:Aardbeiencheesecakes, Aardbeiencheesecake
 
 <en:Cheesecakes with fruits
-fr:Cheesecakes à la framboise
+en:Raspberry cheesecakes
 de:Himbeerkäsekuchen
+fr:Cheesecakes à la framboise
 nl:Frambozencheesecakes, Frambozencheesecake
 
 <en:Cheesecakes with fruits
@@ -37703,20 +37753,24 @@ wikidata:en:Q11009
 
 <en:Nuts
 <en:Salty snacks
+en:Salted nuts
 fr:Fruits à coque salés, fruits à coques salés
 de:gesalzene Nüsse
 nl:Gezoute peulvruchten
 
 <en:Cashew nuts
 <fr:Fruits à coque salés
+en:Salted cashews
 fr:Noix de cajou salées
 
 <en:Pistachios
 <fr:Fruits à coque salés
+en:Salted pistachios
 fr:Pistaches salées
 
 <en:Peanuts
 <fr:Fruits à coque salés
+en:Salted peanuts
 fr:Cacahuètes salées
 nl:Gezouten pinda’s
 
@@ -52699,8 +52753,9 @@ ciqual_food_name:fr:Meloukhia, plat à base de boeuf et corete
 <en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
-fr:Ravioli frais
+en:Fresh ravioli
 de:Frische Ravioli
+fr:Ravioli frais
 nl:Verse raviolis
 
 <en:Pies
