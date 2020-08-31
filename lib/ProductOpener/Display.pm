@@ -248,6 +248,7 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
+		ENCODING     => 'UTF-8'
 	}
 );
 
@@ -2961,7 +2962,7 @@ sub display_tag($) {
 	}
 
 	my $weblinks_html = '';
-	my @map_layers = ();
+	my @wikidata_objects = ();
 	if ( ($tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype})) {
 		my @weblinks = ();
@@ -2978,7 +2979,7 @@ sub display_tag($) {
 			}
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
-				push @map_layers, 'addWikidataObjectToMap("' . $properties{$tagtype}{$canon_tagid}{'wikidata:en'} . '")';
+				push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
 			}
 		}
 
@@ -3480,8 +3481,8 @@ HTML
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
 			if ((defined $lat) and (defined $lng)) {
-				my $geo = "$lat,$lng";
-				push @markers, $geo;
+				my @geo = ($lat + 0.0, $lng + 0.0);
+				push @markers, \@geo;
 			}
 
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
@@ -3558,7 +3559,23 @@ HTML
 		}
 	}
 
-	$description = <<HTML
+	my $map_html;
+	if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		my $json = JSON::PP->new->utf8(0);
+		my $map_template_data_ref = {
+			lang => \&lang,
+			encode_json => sub {
+				my ($obj_ref) = @_;
+				return $json->encode($obj_ref);
+			},
+			wikidata => \@wikidata_objects,
+			pointers => \@markers
+		};
+		$tt->process('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+	}
+
+	if ($map_html) {
+		$description = <<HTML
 <div class="row">
 
 	<div id="tag_description" class="large-12 columns">
@@ -3569,44 +3586,9 @@ HTML
 	</div>
 
 </div>
-
+$map_html
 HTML
 ;
-
-	if ((scalar @markers) > 0) {
-		my $layer = '';
-		foreach my $geo (@markers) {
-			$layer .= "\nmarkers.push(L.marker([$geo]))\n";
-		}
-
-		$layer .= <<JS
-runCallbackOnJson(function (map) {
-	L.featureGroup(markers).addTo(map);
-	fitBoundsToAllLayers(map);
-	map.setZoom(10);
-})
-JS
-;
-		push @map_layers, $layer;
-	}
-
-	if ((scalar @map_layers) > 0) {
-		$header .= <<HTML
-	<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
-	<script src="$static_subdomain/js/dist/leaflet.js"></script>
-	<script src="$static_subdomain/js/dist/osmtogeojson.js"></script>
-	<script src="$static_subdomain/js/dist/display-tag.js"></script>
-HTML
-;
-
-		my $js = '';
-		foreach my $layer (@map_layers) {
-			$js .= $layer;
-		}
-
-		$js .= $request_ref->{map_options};
-
-		$initjs .= $js;
 	}
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
@@ -5679,186 +5661,106 @@ sub search_and_map_products($$$) {
 	}
 
 	if ($count <= 0) {
-		# $request_ref->{content_html} = $html;
 		$log->warn("could not retrieve enough products for a map", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 
-	if ($count > 0) {
+	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
-		my $js_example = <<JS
+	my $matching_products = 0;
+	my $places = 0;
+	my $emb_codes = 0;
+	my $seen_products = 0;
 
- var markers = new L.MarkerClusterGroup();
-markers.addLayer(new L.Marker(getRandomLatLng(map)));
-... Add more layers ...
-map.addLayer(markers);
+	my %seen = ();
+	my @pointers = ();
 
+	foreach my $product_ref (@products) {
+		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
-var markers = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: false });
+		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
+		$manufacturing_places =~ s/,( )?/, /g;
+		if ($manufacturing_places ne '') {
+			$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
+		}
 
-singleMarkerMode: If set to true, overrides the icon for all added markers to make them appear as a 1 size cluster
-{ singleMarkerMode: true}
+		my $origins =  escape_single_quote($product_ref->{origins});
+		$origins =~ s/,( )?/, /g;
+		if ($origins ne '') {
+			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+		}
 
-addLayers and removeLayers are bulk methods for adding and removing markers and should be favoured over the single versions when doing bulk addition/removal of markers. Each takes an array of markers
+		$origins = $manufacturing_places . $origins;
 
+		my $pointer = {
+			product_name => $product_ref->{product_name},
+			brands => $product_ref->{brands},
+			url => $url,
+			origins => $origins,
+			img => display_image_thumb($product_ref, 'front')
+		};
 
+		# Loop on cities: multiple emb codes can be on one product
 
-JS
-;
+		my $field = 'emb_codes';
+		if (defined $product_ref->{"emb_codes_tags" }) {
 
-		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
+			my %current_seen = (); # only one product when there are multiple city codes for the same city
 
-		my $matching_products = 0;
-		my $places = 0;
-		my $emb_codes = 0;
-		my $seen_products = 0;
+			foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 
-		my %seen = ();
-		my $data = '';
+				my ($lat, $lng) = get_packager_code_coordinates($emb_code);
 
-		foreach my $product_ref (@products) {
+				if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
+					my $geo = "$lat,$lng";
+					if (not defined $current_seen{$geo}) {
 
-			if (1) {
-
-				my $url = $formatted_subdomain . product_url($product_ref->{code});
-
-				my $data_start = '{';
-
-				my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
-				$manufacturing_places =~ s/,( )?/, /g;
-				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
-				}
-
-				my $origins =  escape_single_quote($product_ref->{origins});
-				$origins =~ s/,( )?/, /g;
-				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
-				}
-
-				$origins = $manufacturing_places . $origins;
-
-				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";
-
-				# Loop on cities: multiple emb codes can be on one product
-
-				my $field = 'emb_codes';
-				if (defined $product_ref->{"emb_codes_tags" }) {
-
-					my %current_seen = (); # only one product when there are multiple city codes for the same city
-
-					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
-
-						my ($lat, $lng) = get_packager_code_coordinates($emb_code);
-
-						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
-							my $geo = "$lat,$lng";
-							if (not defined $current_seen{$geo}) {
-
-								$current_seen{$geo} = 1;
-								$data .= $data_start . ', geo:[' . $geo . "]},\n";
-								$emb_codes++;
-								if (not defined $seen{$geo}) {
-									$seen{$geo} = 1;
-									$places++;
-								}
-							}
+						$current_seen{$geo} = 1;
+						my @geo = ($lat + 0.0, $lng + 0.0);
+						$pointer->{geo} = \@geo;
+						push @pointers, $pointer;
+						$emb_codes++;
+						if (not defined $seen{$geo}) {
+							$seen{$geo} = 1;
+							$places++;
 						}
 					}
-					if (scalar keys %current_seen > 0) {
-						$seen_products++;
-					}
 				}
+			}
 
-				$matching_products++;
+			if (scalar keys %current_seen > 0) {
+				$seen_products++;
 			}
 		}
 
-		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
-
-		# Points to display?
-
-		if ($emb_codes > 0) {
-
-			$header .= <<HTML
-<link rel="stylesheet" href="$static_subdomain/css/dist/leaflet.css">
-<script src="$static_subdomain/js/dist/leaflet.js"></script>
-<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.css">
-<link rel="stylesheet" href="$static_subdomain/css/dist/MarkerCluster.Default.css">
-<script src="$static_subdomain/js/dist/leaflet.markercluster.js"></script>
-HTML
-;
-
-
-# 18/07/2016 -> mapquest removed free access to their tiles without registration
-#L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-#	subdomains: '1234',
-#    maxZoom: 18
-#}).addTo(map);
-
-			my $js = <<JS
-var pointers = [
-				$data
-			];
-
-var map = L.map('container', {maxZoom:12});
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-
-var markers = new L.MarkerClusterGroup({singleMarkerMode: true});
-
-var length = pointers.length,
-    pointer = null;
-
-var layers = [];
-
-for (var i = 0; i < length; i++) {
-  pointer = pointers[i];
-  var marker = new L.marker(pointer.geo);
-  marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands  + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
-  layers.push(marker);
-}
-
-markers.addLayers(layers);
-
-map.addLayer(markers);
-map.fitBounds(markers.getBounds());
-$request_ref->{map_options}
-JS
-;
-			$initjs .= $js;
-
-			my $count_string = sprintf(lang("map_count"), $count, $seen_products);
-
-			$html .= <<HTML
-<p>$count_string</p>
-<div id="container" style="height: 600px"></div>
-<p>&nbsp;</p>
-HTML
-;
-
-		}
-
-		if (defined $request_ref->{current_link_query}) {
-			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_map_link") . "</a><br>";
-		}
-
-		$html .= "<p>" . lang("search_map_warning") . "</p>";
-
-		$html .= lang("search_map_blog");
+		$matching_products++;
 	}
 
+	$log->info("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes }) if $log->is_debug();
 
+	# Points to display?
+	my $count_string = q{};
+	if ($emb_codes > 0) {
+		$count_string = sprintf(lang("map_count"), $count, $seen_products);
+	}
 
+	if (defined $request_ref->{current_link_query}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+	}
 
+	my $json = JSON::PP->new->utf8(0);
+	my $map_template_data_ref = {
+		lang => \&lang,
+		encode_json => sub {
+			my ($obj_ref) = @_;
+			return $json->encode($obj_ref);
+		},
+		title => $count_string,
+		pointers => \@pointers,
+		current_link_query => $request_ref->{current_link_query},
+	};
+	$tt->process('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
 }
@@ -9404,59 +9306,43 @@ sub display_rev_info {
 	my $rev = shift;
 	my $code = $product_ref->{code};
 
-	my $html = '';
-
 	my $path = product_path($product_ref);
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
 	}
-	my $change_ref = $changes_ref->[$rev-1];
+
+	my $change_ref = $changes_ref->[$rev - 1];
 
 	my $date = display_date_tag($change_ref->{t});
 	my $userid = get_change_userid_or_uuid($change_ref);
-	my $user = display_tag_link("editors", $userid);
-	my $previous_link = '';
+	my $user = display_tag_link('editors', $userid);
+	my $previous_link = qw{};
+	my $product_url = product_url($product_ref);
 	if ($rev > 1) {
-		$previous_link = '/product/' . $code . '?rev='. ($rev - 1);
+		$previous_link = $product_url . '?rev='. ($rev - 1);
 	}
-	my $next_link = '';
+
+	my $next_link = qw{};
 	if ($rev < scalar @{$changes_ref}) {
-		$next_link = '/product/' . $code . '?rev=' . ($rev + 1);
+		$next_link = $product_url . '?rev=' . ($rev + 1);
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
+	my $comment = _format_comment($change_ref->{comment});
 
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-	if ($comment ne '') {
-		$comment = "<p> ${\lang('edit_comment')}: $comment</p>";
-	}
+	my $template_data_ref = {
+		lang => \&lang,
+		rev_number => $rev,
+		date => $date,
+		user => $user,
+		comment => $comment,
+		previous_link => $previous_link,
+		current_link => $product_url,
+		next_link => $next_link,
+	};
 
-
-	$html .= <<"HTML"
-<div id='rev_summary' class='panel callout'>
-	<h4 class='rev_warning'>${\lang('rev_warning')}</h4>
-	<p>
-		${\lang('rev_number')} <span class='rev_nb'>$change_ref->{rev}</span> -
-		<time datetime='$change_ref->{t}'>$date</time> -
-		${\lang('rev_contributor')} <a href='/contributor/$userid' class='rev_contributor'>$user</a>
-	</p>
-	$comment
-HTML
-;
-	if ($previous_link ne '') {
-		$html .= "<span style='margin-right: 2em;'><a href='$previous_link'>← ${\lang('rev_previous')}</a></span>";
-	}
-	$html .= "<span><a href='/product/$code'>${\lang('rev_latest')}</a></span>";
-	if ($next_link ne '') {
-		$html .= "<span style='margin-left: 2em;'><a href='$next_link'>${\lang('rev_next')} →</a></span>";
-	}
-	$html .="</div>";
+	my $html;
+	$tt->process('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -9466,59 +9352,54 @@ sub display_product_history($$) {
 	my $code = shift;
 	my $product_ref = shift;
 
-	my $html = '';
-	if ($product_ref->{rev} > 0) {
-
-		my $path = product_path($product_ref);
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		if (not defined $changes_ref) {
-			$changes_ref = [];
-		}
-
-		$html .= "<h2 id=\"history\">" . lang("history") . "</h2>\n<ul id=\"history_list\">\n";
-
-		my $current_rev = $product_ref->{rev};
-
-		foreach my $change_ref (reverse @{$changes_ref}) {
-
-			my $date = display_date_tag($change_ref->{t});
-			my $userid = get_change_userid_or_uuid($change_ref);
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
-
-			my $comment = $change_ref->{comment};
-			$comment = lang($comment) if $comment eq 'product_created';
-
-			$comment =~ s/^Modification :\s+//;
-			if ($comment eq 'Modification :') {
-				$comment = '';
-			}
-			$comment =~ s/\new image \d+( -)?//;
-
-			if ($comment ne '') {
-				$comment = "- $comment";
-			}
-
-			my $change_rev = $change_ref->{rev};
-
-			if (not defined $change_rev) {
-				$change_rev = $current_rev;
-			}
-			$current_rev--;
-
-			# Display diffs
-			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-
-			my $diffs = compute_changes_diff_text($change_ref);
-			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
-
-		}
-
-		$html .= "</ul>\n";
+	if ($product_ref->{rev} <= 0) {
+		return;
 	}
 
+	my $path = product_path($product_ref);
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	if (not defined $changes_ref) {
+		$changes_ref = [];
+	}
+
+	my $current_rev = $product_ref->{rev};
+	my @revisions = ();
+
+	foreach my $change_ref (reverse @{$changes_ref}) {
+
+		my $userid = get_change_userid_or_uuid($change_ref);
+		my $comment = _format_comment($change_ref->{comment});
+
+		my $change_rev = $change_ref->{rev};
+
+		if (not defined $change_rev) {
+			$change_rev = $current_rev;
+		}
+
+		$current_rev--;
+
+		push @revisions, {
+			number => $change_rev,
+			date => display_date_tag($change_ref->{t}),
+			userid => $userid,
+			diffs => compute_changes_diff_text($change_ref),
+			comment => $comment
+		};
+
+	}
+
+	my $template_data_ref = {
+		lang => \&lang,
+		display_editor_link => sub {
+			my ($uid) = @_;
+			return display_tag_link('editors', $uid);
+		},
+		product_url => product_url($product_ref),
+		revisions => \@revisions
+	};
+
+	my $html;
+	$tt->process('display_product_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -9857,18 +9738,7 @@ sub display_change($$) {
 		$user = "<a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 	}
 
-	my $comment = $change_ref->{comment};
-	$comment = lang($comment) if $comment eq 'product_created';
-
-	$comment =~ s/^Modification :\s+//;
-	if ($comment eq 'Modification :') {
-		$comment = '';
-	}
-	$comment =~ s/\new image \d+( -)?//;
-
-	if ($comment ne '') {
-		$comment = "- $comment";
-	}
+	my $comment = _format_comment($change_ref->{comment});
 
 	my $change_rev = $change_ref->{rev};
 
@@ -10142,6 +10012,21 @@ sub display_ingredients_analysis($) {
 	}
 
 	return $html;
+}
+
+sub _format_comment {
+	my ($comment) = @_;
+
+	$comment = lang($comment) if $comment eq 'product_created';
+
+	$comment =~ s/^Modification :\s+//;
+	if ($comment eq 'Modification :') {
+		$comment = q{};
+	}
+
+	$comment =~ s/\new image \d+( -)?//;
+
+	return $comment;
 }
 
 1;
