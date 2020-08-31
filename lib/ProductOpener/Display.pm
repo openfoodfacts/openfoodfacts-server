@@ -139,6 +139,7 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Attributes qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -9221,6 +9222,14 @@ HTML
 						}
 					}
 				}
+				
+				# Product attributes fields requested in a specific language
+				
+				# Taxonomy fields requested in a specific language
+				if ($field =~ /^attributes_([a-z]{2})$/) {
+					my $target_lc = $1;
+					compute_attributes($product_ref, $target_lc);
+				}				
 
 				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
