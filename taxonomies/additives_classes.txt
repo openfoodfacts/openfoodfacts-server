@@ -115,7 +115,7 @@ el: Αντισυσσωματωτικό
 es: Antiaglomerante, antiaglutinante, agente antiadherente, agente antiaglutinante, angente de empolvo, agente de sacado
 et: Paakumisvastane aine
 fi: Paakkuuntumisenestoaine, Paakkuuntumisenestoainetta, Paakkuuntumisenestoaineet, Paakkuuntumisenestoaineita
-fr: Antiagglomérant, poudre de fleurage, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant
+fr: Antiagglomérant, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant
 ga: Oibreán frithstolptha
 hu: Csomósodást és lesülést gátló anyag, Csomósodást gátló anyag
 it: Agente antiagglomerante, agenti antiagglomeranti, antiagglomerante, antiagglomeranti
@@ -321,10 +321,10 @@ description:fr:Additif alimentaire utilisé pour dissoudre, diluer, disperser ou
 
 en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour
 bg:Оцветител
-ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
+ca:Color, colors, colorant, colorants, pigment decoratiu
 cs:Barvivo
 da:Farvestof, Farve
-de: Farbstoff, Farbstoffe, färbende Lebensmittel, färbendes Lebensmittel
+de: Farbstoff, Farbstoffe
 el: Χρωστική ουσία
 es: Colorante, colorantes, color, colorante de superficie, pigmentos de coloración y decoración, pigmentos de coloración, pigmentos de decoración, colorantes alimentarios, colorante alimentario
 et: Toiduvärv
@@ -390,7 +390,7 @@ nl:Natuurlijke kleurstoffen
 <en:colour
 fr:denrée alimentaire colorante, denrées alimentaires colorantes
 ca:colorant alimentari, colorants alimentaris
-de:färbendes Lebensmittel
+de:färbendes Lebensmittel, färbende Lebensmittel
 es:colorante alimenticio, colorantes alimenticios
 hu:élelmiszer színezék
 it:sostanze alimentari coloranti
@@ -716,7 +716,7 @@ it:Gelificante, gelificanti, agente gelificante, agenti gelificanti
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f’ġel
-nl:Geleermiddel, Geleermiddelen, Verdikkingsmiddel, Verdikkingsmiddelen
+nl:Geleermiddel, Geleermiddelen
 pl:Substancja żelująca, Substancje żelujące
 pt:Gelificante
 ro:Agent gelatinizant
@@ -1356,6 +1356,7 @@ it:sostituto del sale
 fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
+<en:anti-caking agent
 fr:poudre de fleurage
 # ingredient/fr:poudre-de-fleurage has 80 products in french @2019-02-25
 # poudre de fleurage : carbonate de calcium, talc
