@@ -116,6 +116,11 @@ sub compute_attributes($$) {
 	
 	my $attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
 	add_attribute($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+	
+	# Processing
+	
+	my $attribute_ref = compute_attribute_nova($product_ref, $target_lc);
+	add_attribute($product_ref, $target_lc, "processing", $attribute_ref);	
 		
 	# Labels groups
 	
@@ -429,6 +434,86 @@ sub compute_attribute_nutriscore($$) {
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{match} = 0;
+	}
+	
+	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_nova ( $product_ref, $target_lc )
+
+Computes a processing attribute based on the Nova group.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- NOVA 1: 100%
+- NOVA 2: 100%
+- NOVA 3: 50%
+- NOVA 4: 0%
+
+=cut
+
+sub compute_attribute_nova($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+	$log->debug("compute nova attribute", { code => $product_ref->{code} }) if $log->is_debug();
+
+	my $attribute_ref;
+	my $attribute_id = "nova";
+	
+	$attribute_ref = {
+		id => $attribute_id,
+		name => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_name"),
+		description => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description"),
+		description_short => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description_short"),
+	};
+		
+	if (defined $product_ref->{nova_group}) {
+		$attribute_ref->{status} = "known";
+		
+		my $nova_group = $product_ref->{nova_group};
+		
+		$log->debug("compute nutriscore attribute - known", { code => $product_ref->{code},
+			nova_group => $nova_group}) if $log->is_debug();
+		
+		# Compute match based on NOVA group
+		
+		my $match = 0;
+		
+		if (($nova_group == 1) or ($nova_group == 2)) {
+			$match = 100;
+		}
+		elsif ($nova_group == 3) {
+			$match = 50;
+		}
+	
+		$attribute_ref->{match} = $match;
+		$attribute_ref->{title} = sprintf(lang("attribute_nova_group_title"), $nova_group);
+		$attribute_ref->{description} = lang("attribute_nova_" . $nova_group . "_description");
+		$attribute_ref->{description_short} = lang("attribute_nova_" . $nova_group . "_description_short");
+		
+	}
+	else {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{match} = 0;
 	}
 	
 	return $attribute_ref;
