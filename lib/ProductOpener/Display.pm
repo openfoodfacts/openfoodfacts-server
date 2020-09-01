@@ -4796,6 +4796,7 @@ sub display_scatter_plot($$) {
 
 		my %series = ();
 		my %series_n = ();
+		my %min = ();	# Minimum for the axis, 0 except -15 for Nutri-Score score
 
 		foreach my $product_ref (@products) {
 
@@ -4859,6 +4860,8 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
+					
+					$min{$axis} = 0;
 
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
@@ -4870,6 +4873,7 @@ sub display_scatter_plot($$) {
 					}
 					elsif ($nid =~ /^nutrition-score/) {
 						$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
+						$min{$axis} = -15;
 					}
 					else {
 						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
@@ -4997,7 +5001,7 @@ JS
             },
             xAxis: {
 				$x_allowDecimals
-				min:0,
+				min:$min{x},
                 title: {
                     enabled: true,
                     text: '${x_title}${x_unit}'
@@ -5008,7 +5012,7 @@ JS
             },
             yAxis: {
 				$y_allowDecimals
-				min:0,
+				min:$min{y},
                 title: {
                     text: '${y_title}${y_unit}'
                 }
