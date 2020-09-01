@@ -264,7 +264,7 @@ print STDERR "importing products\n";
 			if ($code eq '') {
 				print STDERR "empty code\n";
 				require Data::Dumper;
-				print STDERR Data::Dumper->Dumper($fleurymichon_product_ref);
+				print STDERR Data::Dumper::Dumper($fleurymichon_product_ref);
 				exit;
 			}
 
