@@ -112,12 +112,16 @@ sub compute_attributes($$) {
 	# Populate the attributes groups and the attributes of each group
 	# in a default order (a meaningful order that apps / clients can decide to reorder or not)
 	
+	# Nutritional quality
+	
+	my $attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
+	add_attribute($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+		
 	# Labels groups
 	
 	foreach my $label_id ("en:organic", "en:fair-trade") {
 		
-		my $attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", $label_id);
-		
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", $label_id);
 		add_attribute($product_ref, $target_lc, "labels", $attribute_ref);
 	}
 	
@@ -301,6 +305,133 @@ sub override_general_value($$$$) {
 	if ($string ne "") {
 		$attribute_ref->{$field} = $string;
 	}
+}
+
+
+=head2 compute_attribute_nutriscore ( $product_ref, $target_lc )
+
+Computes a nutritional quality attribute based on the Nutri-Score.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+To differentiate products more finely, the match is based on the Nutri-Score score
+that is used to define the Nutri-Score grade from A to E.
+
+- Nutri-Score A: 80 to 100%
+- Nutri-Score B: 61 to 80%
+
+=cut
+
+sub compute_attribute_nutriscore($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+	$log->debug("compute nutriscore attribute", { code => $product_ref->{code} }) if $log->is_debug();
+
+	my $attribute_ref;
+	my $attribute_id = "nutriscore";
+	
+	$attribute_ref = {
+		id => $attribute_id,
+		name => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_name"),
+		description => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description"),
+		description_short => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description_short"),
+	};
+	
+	if (defined $product_ref->{nutriscore_data}) {
+		$attribute_ref->{status} = "known";
+		
+		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
+		my $is_beverage = $nutriscore_data_ref->{is_beverage};
+		my $is_water = $nutriscore_data_ref->{is_water};
+		my $nutrition_score = $nutriscore_data_ref->{score};
+		my $grade = $nutriscore_data_ref->{grade};
+		
+		$log->debug("compute nutriscore attribute - known", { code => $product_ref->{code},
+			is_beverage => $is_beverage, is_water => $is_water,
+			nutrition_score => $nutrition_score,
+			grade => $grade }) if $log->is_debug();
+		
+		# Compute match based on score
+		
+		my $match = 0;
+		
+		# Score ranges from -15 to 40
+		
+		if ($is_beverage) {
+
+			if ($is_water) {
+				# Grade A
+				$match = 100;
+			}
+			elsif ($nutrition_score <= 1) {
+				# Grade B
+				$match = 80 - ($nutrition_score - (- 15)) / (1 - (- 15)) * 20;
+			}
+			elsif ($nutrition_score <= 5) {
+				# Grade C
+				$match = 60 - ($nutrition_score - 1) / (5 - 1) * 20;
+			}
+			elsif ($nutrition_score <= 9) {
+				# Grade D
+				$match = 40 - ($nutrition_score - 5) / (9 - 5) * 20;
+			}
+			else {
+				# Grade E
+				$match = 20 - ($nutrition_score - 9) / (40 - 9) * 20;
+			}
+		}
+		else {
+
+			if ($nutrition_score <= -1) {
+				# Grade A
+				$match = 100 - ($nutrition_score - (- 15)) / (-1 - (- 15)) * 20;
+			}
+			elsif ($nutrition_score <= 2) {
+				# Grade B
+				$match = 80 - ($nutrition_score - (- 1)) / (2 - (- 1)) * 20;
+			}
+			elsif ($nutrition_score <= 10) {
+				# Grade C
+				$match = 60 - ($nutrition_score - 2) / (10 - 2) * 20;
+			}
+			elsif ($nutrition_score <= 18) {
+				# Grade D
+				$match = 40 - ($nutrition_score - 10) / (18 - 10) * 20;
+			}
+			else {
+				# Grade E
+				$match = 20 - ($nutrition_score - 18) / (40 - 18) * 20;
+			}
+		}
+		
+		$attribute_ref->{match} = $match;
+		$attribute_ref->{title} = sprintf(lang("attribute_nutriscore_grade_title"), uc($grade));		
+		$attribute_ref->{description} = lang("attribute_nutriscore_" . $grade . "_description");
+		$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
+		
+	}
+	else {
+		$attribute_ref->{status} = "unknown";
+	}
+	
+	return $attribute_ref;
 }
 
 1;
