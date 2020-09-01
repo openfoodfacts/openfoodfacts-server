@@ -264,10 +264,10 @@ all => [
 ],
 
 da => [
-	[ "bl. a", "blandt andet" ],
-	[ "inkl.", "inklusive" ],
-	[ "mod.",  "modificeret" ],
-	[ "past.", "pasteuriserede" ],
+	[ "bl. a.", "blandt andet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "mod.",   "modificeret" ],
+	[ "past.",  "pasteuriserede" ],
 ],
 
 en => [
@@ -291,24 +291,24 @@ fr => [
 ],
 
 nb => [
-	[ "bl. a", "blant annet" ],
-	[ "inkl.", "inklusive" ],
-	[ "papr.", "paprika" ],
+	[ "bl. a.", "blant annet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "papr.",  "paprika" ],
 ],
 
 sv => [
-	[ "bl. a",            "bland annat" ],
-	[ "förtjockn.medel",  "förtjockningsmedel" ],
-	[ "inkl.",            "inklusive" ],
-	[ "kons.medel",       "konserveringsmedel" ],
-	[ "max.",             "maximum" ],
-	[ "mikrob.",          "mikrobiellt" ],
-	[ "min.",             "minimum" ],
-	[ "mod.",             "modifierad" ],
-	[ "past.",            "pastöriserad" ],
-	[ "stabil.",          "stabiliseringsämne" ],
-	[ "surhetsreg.",      "surhetsreglerande" ],
-	[ "veg.",             "vegetabilisk" ],
+	[ "bl. a.",          "bland annat" ],
+	[ "förtjockn.medel", "förtjockningsmedel" ],
+	[ "inkl.",           "inklusive" ],
+	[ "kons.medel",      "konserveringsmedel" ],
+	[ "max.",            "maximum" ],
+	[ "mikrob.",         "mikrobiellt" ],
+	[ "min.",            "minimum" ],
+	[ "mod.",            "modifierad" ],
+	[ "past.",           "pastöriserad" ],
+	[ "stabil.",         "stabiliseringsämne" ],
+	[ "surhetsreg.",     "surhetsreglerande" ],
+	[ "veg.",            "vegetabilisk" ],
 ],
 );
 
