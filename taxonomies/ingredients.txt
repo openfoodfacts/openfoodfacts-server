@@ -17473,6 +17473,8 @@ sk:repkový olej
 sv:Rapsolja, Rapsfett,rypsolja
 from_palm_oil:en:no
 
+<en:rapeseed oil
+en:low erucic acid rapeseed oil
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
@@ -33282,7 +33284,7 @@ fr:jus concentré de fruits rouges
 
 <en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
-de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
+de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
@@ -43513,13 +43515,13 @@ sv:svartmorotjuice
 <fr:jus de carotte noire
 fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
 de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
-nl:zwarte wortelsapconcentraat
+nl:zwarte wortelsapconcentraat, geconcentreerd zwarte wortelsap
 # fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
 # fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
 
 <en:black carrot
 en:concentrated black carrot, black carrot concentrate
-de:schwarze Möhre Konzentrat
+de:schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr:concentré de carotte pourpre
 sv:svart morotskoncentrat
 
@@ -54253,7 +54255,7 @@ fr:extrait d'origan
 #
 ###################################################################################################
 <en:herb
-en:bay leaf, bay leaves, bay
+en:bay leaf, bay leaves, bay, laurel
 af:Lourierblaar
 be:Лаўровы ліст
 bg:Дафинов лист
@@ -54295,6 +54297,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bay_leaf
 wikidata:en:Q2370943
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
 # 1302 products in 6 languages @2018-10-08
+
+<en:bay leaf
+la:Laurus Nobilis
 
 ###################################################################################################
 #
@@ -58092,10 +58097,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
 # en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
 
 <en:seaweed
+en:kelp
+la:Laminariales
+wikidata:en:Q1055316
+wikipedia:en:https://en.wikipedia.org/wiki/Kelp
+
+<en:kelp
 en:Laminaria
 de:Laminaria
 fr:Laminaire
 la:Laminaria
+wikidata:en:Q310748
 wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
 
