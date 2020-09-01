@@ -24153,7 +24153,10 @@ protected_name_file_number:en: PGI-DE-01354
 protected_name_type:en: pgi
 origins:en: en:Germany
 
+<en:Pumpernickel
+<en:Rye breads
 <en:German bakery products
+en:Westphalian Pumpernickel
 de:Westfälischer Pumpernickel
 protected_name_file_number:en: PGI-DE-1095
 protected_name_type:en: pgi
@@ -24654,12 +24657,6 @@ nl:Pompernikkel
 pl:Pumpernikiel
 pt:Pumpernickel
 wikidata:en:Q837207
-
-<en:Pumpernickel
-<en:Rye breads
-de:Westfälischer Pumpernickel
-protected_name_type:en: pgi
-origins:en: en:Germany
 
 <en:Breads
 en:Rye-and-wheat breads, Rye-and-wheat bread
@@ -25686,13 +25683,6 @@ nl:Chocolademuffins, Chocolademuffin
 zh:巧克力松饼
 
 <en:Muffins
-en:Banana muffins
-de:Bananenmuffins
-fr:Muffins à la banane
-nl:Bananenmuffins, Bananenmuffin
-zh:草莓松饼
-
-<en:Muffins
 en:Vanilla muffins
 de:Vanillemuffins
 fr:Muffins à la vanille
@@ -25700,15 +25690,29 @@ nl:Vanille muffins, Vanille muffin
 zh:香草松饼
 
 <en:Muffins
-en:Blueberry muffins
+en:Fruit Muffins
+de:Muffins mit Früchten, Früchtemuffins
+fi:hedelmämuffinit
+fr:Muffins aux fruits
+nl:Fruitmuffins
+
+<en:Fruit muffins
+en:Banana Muffins
+de:Bananenmuffins
+fr:Muffins à la banane
+nl:Bananenmuffins, Bananenmuffin
+zh:草莓松饼
+
+<en:Fruit muffins
+en:Blueberry Muffins
 de:Heidelbeermuffins, Blaubeermuffins
 fi:Mustikkamuffinit
-fr:Muffins à la myrtille
+fr:Muffins aux myrtilles, Muffins à la myrtille, Muffins aux bleuets
 nl:Blauwe bessen muffins
 zh:蓝莓松饼
-
-<fr:Muffins
-fr:Muffins aux bleuets
+agribalyse_food_code:en:23950
+ciqual_food_code:en:23950
+ciqual_food_name:en:Muffin, with blueberry or chocolate
 
 <en:Cakes
 en:Doughnuts, Donuts
@@ -79979,26 +79983,6 @@ agribalyse_food_code:en:19579
 ciqual_food_code:en:19579
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w cereals
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales
-
-<en:Muffins
-en:Fruit Muffins
-de:Muffins mit Früchten, Früchtemuffins
-fi:hedelmämuffinit
-fr:Muffins aux fruits
-nl:Fruitmuffins
-
-<en:Fruit muffins
-en:Banana Muffins
-fr:Muffins à la banane
-nl:Bananenmuffins
-
-<en:Fruit muffins
-en:Blueberry Muffins
-fi:Mustikkamuffinit
-fr:Muffins aux myrtilles
-agribalyse_food_code:en:23950
-ciqual_food_code:en:23950
-ciqual_food_name:en:Muffin, with blueberry or chocolate
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
