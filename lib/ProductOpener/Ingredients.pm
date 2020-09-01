@@ -1142,7 +1142,18 @@ sub parse_ingredients_text($) {
 				}
 
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+				if ($ingredient =~ m{^
+									 \s*
+									 ( \d+ ([,.] \d+)? )
+									 \s*
+									 (\%|g)
+									 \s*
+
+									 ( (?: pur | de ) \s | d' )?
+									 \s*
+									}sxmi
+					)
+				{
 					$percent = $1;
 					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
 					$ingredient = $';
