@@ -30023,7 +30023,7 @@ de:Fermentierte Milch, Sauermilchprodukte
 es:Productos fermentados de la leche
 fi:Hapatetut maitotuotteet
 fr:Produits laitiers fermentés
-he:מוצרי מזון מותססים, מוצרי חלב, מוצרים חלביים
+he:מוצרי מזון מותססים, מוצרים חלביים
 hu:Fermentált tejtermékek, Erjesztett tejtermékek
 it:Prodotti lattiero-caseari fermentati, Alimenti caseari fermentati, Prodotti lattiero-caseari fermentati, Prodotti a base di latte fermentato, Prodotti caseari fermentati, latticini fermentati
 nl:Gefermenteerde zuivelproducten
@@ -35032,14 +35032,6 @@ ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
-<en:Dairies
-en:Condensed milks
-de:Kondensmilch
-es:Leche condensada
-fi:Kondensoidut maidot
-fr:Laits condensés, Lait condensé
-nl:Gecondenseerde melken
-
 <en:Condensed milks
 en:Whole condensed milk without sugar
 fr:Lait concentré entier non sucré
@@ -36530,13 +36522,21 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, à
 en:Evaporated milks, evaporated milk
 ca:Llet evaporada
 de:Kondensmilch, Kondensmilch
-es:Leches evaporadas, Leche evaporada, Leches condensadas, leche condensada
+es:Leches evaporadas, Leche evaporada
 fi:maitotiivisteet
 fr:Laits concentrés, Lait concentré
 it:Latti evaporati
 nl:Verdikte melken
 sv:Kondenserad mjölk
 wikidata:en:Q13417087
+
+<en:Dairies
+en:Condensed milks
+de:Kondensmilch
+es:Leche condensada, Leches condensadas
+fi:Kondensoidut maidot
+fr:Laits condensés, Lait condensé
+nl:Gecondenseerde melken
 
 <fr:Laits concentrés
 fr:Laits concentrés non sucrés, Lait concentré non sucré
@@ -37728,7 +37728,6 @@ de:Nusskerne, geschälte Nüsse, Nüsse ohne Schale
 es:Frutos de cáscara sin cáscara
 fi:pähkinät kuoressa
 fr:Fruits à coques décortiqués, Fruits à coques décortiquées
-it:Frutta a guscio
 nl:Gepelde noten
 zh:带壳坚果
 
@@ -40721,16 +40720,6 @@ it:Fiocchi
 nl:Vlokken
 
 <en:Plant-based foods
-en:Puffed grains, Popped grains
-de:Puffkörner, gepuffte körner, gepufftes Getreide
-es:Granos inflados
-fi:puffatut jyvät
-fr:Grains soufflées
-it:Chicchi soffiati
-nl:Gepofte granen
-wikidata:en:Q12961445
-
-<en:Plant-based foods
 en:Starches, Starch
 de:Stärke
 es:Almidones
@@ -40858,7 +40847,7 @@ de:Frühstückscerealien, Frühstückszerealien
 es:Cereales para el desayuno, Cereales para desayunar
 fi:Aamiaismurot
 fr:Céréales pour petit-déjeuner, céréale pour petit-déjeuner, Céréales petit-déjeuner, Céréales type petit déjeuner, Céréales du petit déjeuner
-he:דגני בוקר, מדגני בוקר, מדגנים
+he:דגני בוקר, מדגני בוקר
 hu:Reggeli gabonafélék
 it:Cereali da colazione
 nl:Ontbijtgranen
@@ -41467,6 +41456,16 @@ fi:puffatut jyvät
 fr:Céréales soufflées
 it:Cereali soffiati
 nl:Gepofte ontbijtgranen
+
+<en:Plant-based foods
+en:Puffed grains, Popped grains
+de:Puffkörner, gepuffte körner
+es:Granos inflados
+fi:puffatut jyvät
+fr:Grains soufflées
+it:Chicchi soffiati
+nl:Gepofte granen
+wikidata:en:Q12961445
 
 <en:Puffed cereals
 en:Mixed puffed cereals
@@ -46779,7 +46778,7 @@ it:Condimenti
 nl:Smaakmakers
 pl:Przyprawy
 pt:Condimentos
-ru:Вкусовые добавки, Приправы, Пряности, Специи
+ru:Вкусовые добавки, Приправы, Пряности
 zh:调味品, 调料
 
 <en:Condiments
@@ -53536,7 +53535,7 @@ de:Flüssige Brühen
 es:Caldos líquidos, Caldos en brik
 fi:nestemäiset liemet
 fr:Bouillons liquides
-it:Brodo liquido, Brodo
+it:Brodo liquido
 nl:Vloeibare bouillons
 
 <en:Broths
@@ -62398,6 +62397,14 @@ fr:Torti
 it:Torti
 nl:Torti
 
+<en:Pasta
+en:Fusilli
+de:Fusilli, Spirelli
+es:Hélices
+fr:Torsades
+it:Fusilli
+nl:Fusilli
+
 <en:Pastas
 en:Linguine
 de:Linguine
@@ -62657,14 +62664,6 @@ fr:Vermicelles de blé dur
 
 <en:Durum wheat pasta
 es:Fideuá de trigo duro
-
-<en:Pasta
-en:Fusilli
-de:Fusilli, Spirelli, Spiralnudeln
-es:Hélices
-fr:Torsades
-it:Fusilli
-nl:Fusilli
 
 <en:Durum wheat pasta
 <fr:Torsades
@@ -65721,7 +65720,7 @@ ciqual_food_name:fr:Brochette de crevettes
 <en:Shrimps
 en:Prawns
 de:Garnelen
-es:Gambas, Camarones
+es:Gambas
 fi:katkaravut
 fr:Crevettes roses
 it:Gamberetti
