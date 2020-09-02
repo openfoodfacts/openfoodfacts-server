@@ -3,7 +3,7 @@ stopwords:es:de,del,la,las,los,una
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 
 
-en:Acid, Acidifier
+en:Acid, Acidifier, Acidulant
 bg:Киселина
 ca:Àcid, Acidulant
 cs:Kyselina
@@ -49,7 +49,7 @@ description:pt: Acidificantes: substâncias que aumentam a acidez dos géneros a
 description:sk: Kyseliny sú látky, ktoré zvyšujú kyslosť potravín a/alebo im dodávajú kyslú chuť.
 description:sl: Kisline so snovi, ki povečajo kislost živila in/ali mu dajejo kisel okus.
 description:sv: Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger det en syrlig smak.
-wikidata:en: Q898753
+wikidata:en: Q337038
 
 en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity
 bg:Регулатор на киселинност
@@ -71,7 +71,7 @@ lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
 nb:Surhetsregulerende middel, Surhetsregulerende midler
-nl:Zuurteregelaar
+nl:Zuurteregelaar, Zuurteregelaars
 pl:Regulator kwasowości, Regulatory kwasowości
 pt:Regulador de acidez
 ro:Corector de aciditate, Regulator de aciditate
@@ -325,7 +325,7 @@ description:en: A food additive used to dissolve, dilute, disperse or otherwise 
 description:es: Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función -y sin generar por sí mismos efecto tecnológico alguno- con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction -et sans produire lui-même d'effet technologique- afin de faciliter sa manipulation, son application ou son utilisationde l'additif alimentaire ou du nutriment.
 
-en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food
+en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour
 bg:Оцветител
 ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
 cs:Barvivo
@@ -655,14 +655,14 @@ description:sl: Sredstva za penjenje so snovi, ki omogočajo homogeno razpršite
 description:sv: Skumbildande medel: ämnen som gör det möjligt att skapa en homogen spridning av en gasfas i ett flytande eller fast livsmedel.
 wikidata:en: Q759922
 
-en:Gelling agent
+en:Gelling agent, gelifier
 bg:Желиращ агент
-ca:Gelificant
+ca:Gelificant, gelificants, agent gelificant, agents gelificants
 cs:Želírující látka
 da:Geleringsmiddel, Geleringsmidler
 de:Geliermittel
 el:Πηκτωματογόνο
-es:Gelificante, Agente gelificante
+es:Gelificante, gelificantes, Agente gelificante, agentes gelificantes
 et:Želeeriv aine
 fi:Hyytelöimisaine, Hyytelöimisainetta, Hyytelöimisaineet, Hyytelöimisaineita
 fr:Gélifiant, Agent gélifiant
@@ -672,10 +672,11 @@ it:Gelificante, gelificanti, agente gelificante, agenti gelificanti
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f'ġel
-nl:Geleermiddel
+nl:Geleermiddel, Geleermiddelen
 pl:Substancja żelująca, Substancje żelujące
 pt:Gelificante
 ro:Agent gelatinizant
+ru:загустители
 sk:Želírujúca látka
 sl:Želirno sredstvo
 sv:Geleringsmedel, Geleringmedel
@@ -923,6 +924,7 @@ wikidata:en: Q274579
 
 en:Propellent gas, propellant gas, propellent, propellant
 bg:Опаковъчен газ
+ca:gas propellent
 cs:Balicí plyn
 da:Drivgas
 de:Treibgas
@@ -937,11 +939,12 @@ it:Gas propulsore
 lt:Suslėgtosios dujos
 lv:Propelents
 mt:Gass propellent
-nl:Drijfgas
+nl:Drijfgas, drijfgassen
 pl:Gaz nośny, Gazy nośne
 pt:Gás propulsor
 ro:Agent de propulsare
 sk:Hnací plyn
+sv:Drivgas
 description:cs: Propelenty se rozumějí plyny jiné než vzduch, které vytlačují potravinu z obalu.
 description:da: Drivgasser: andre gasser end luft, som presser en fødevare ud af en beholder.
 description:de: Treibgase sind andere Gase als Luft, die ein Lebensmittel aus seinem Behältnis herauspressen.
@@ -961,7 +964,8 @@ description:pt: Propulsores: gases, com excepção do ar, que expelem os género
 description:sk: Hnacie plyny -propelanty- sú plyny iné ako vzduch, ktoré vytláčajú potravinu z obalu.
 description:sl: Potisni plini so plini, razen zraka, ki potisnejo živilo iz embalaže.
 description:sv: Drivgaser: andra gaser än luft som driver ut ett livsmedel ur en behållare.
-wikidata:en: Q50419221
+wikidata:en: Q1875049
+wikipedia:de: https://de.wikipedia.org/wiki/Treibgas
 
 en:Raising agent, leavening
 bg:Набухвател

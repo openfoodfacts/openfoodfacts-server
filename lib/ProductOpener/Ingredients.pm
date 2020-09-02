@@ -156,6 +156,7 @@ my %may_contain_regexps = (
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
@@ -166,6 +167,7 @@ my %contains_regexps = (
 	es => "contiene",
 	fr => "contient",
 	nl => "bevat",
+	ro => "con[țţ]ine",
 	sv => "innehåller",
 );
 
@@ -262,10 +264,10 @@ all => [
 ],
 
 da => [
-	[ "bl. a", "blandt andet" ],
-	[ "inkl.", "inklusive" ],
-	[ "mod.",  "modificeret" ],
-	[ "past.", "pasteuriserede" ],
+	[ "bl. a.", "blandt andet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "mod.",   "modificeret" ],
+	[ "past.",  "pasteuriserede" ],
 ],
 
 en => [
@@ -289,24 +291,24 @@ fr => [
 ],
 
 nb => [
-	[ "bl. a", "blant annet" ],
-	[ "inkl.", "inklusive" ],
-	[ "papr.", "paprika" ],
+	[ "bl. a.", "blant annet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "papr.",  "paprika" ],
 ],
 
 sv => [
-	[ "bl. a",            "bland annat" ],
-	[ "förtjockn.medel",  "förtjockningsmedel" ],
-	[ "inkl.",            "inklusive" ],
-	[ "kons.medel",       "konserveringsmedel" ],
-	[ "max.",             "maximum" ],
-	[ "mikrob.",          "mikrobiellt" ],
-	[ "min.",             "minimum" ],
-	[ "mod.",             "modifierad" ],
-	[ "past.",            "pastöriserad" ],
-	[ "stabil.",          "stabiliseringsämne" ],
-	[ "surhetsreg.",      "surhetsreglerande" ],
-	[ "veg.",             "vegetabilisk" ],
+	[ "bl. a.",          "bland annat" ],
+	[ "förtjockn.medel", "förtjockningsmedel" ],
+	[ "inkl.",           "inklusive" ],
+	[ "kons.medel",      "konserveringsmedel" ],
+	[ "max.",            "maximum" ],
+	[ "mikrob.",         "mikrobiellt" ],
+	[ "min.",            "minimum" ],
+	[ "mod.",            "modifierad" ],
+	[ "past.",           "pastöriserad" ],
+	[ "stabil.",         "stabiliseringsämne" ],
+	[ "surhetsreg.",     "surhetsreglerande" ],
+	[ "veg.",            "vegetabilisk" ],
 ],
 );
 
@@ -1140,7 +1142,18 @@ sub parse_ingredients_text($) {
 				}
 
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+				if ($ingredient =~ m{^
+									 \s*
+									 ( \d+ ([,.] \d+)? )
+									 \s*
+									 (\%|g)
+									 \s*
+
+									 ( (?: pur | de ) \s | d' )?
+									 \s*
+									}sxmi
+					)
+				{
 					$percent = $1;
 					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
 					$ingredient = $';

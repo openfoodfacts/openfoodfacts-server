@@ -1477,7 +1477,7 @@ nl:mono- en diglyceriden van vetzuren
 nn:mono- och diglycerider av fettsyror
 pl:mono- i diglicerydy kwasów tłuszczowych, mono i diglicerydy kwasów tłuszczowych
 pt:mono e diglicéridos de ácidos gordos
-ro:mono sindigliceride ale acizilor grași
+ro:mono sindigliceride ale acizilor grași, mono- și digliceride ale acizilor grași
 ru:Моно- и диглицериды жирных кислот
 sk:mono- a diglyceridy mastných kyselín
 sl:mono- in digliceridi maščobnih kislin
@@ -5416,7 +5416,7 @@ pl:enzymy
 ps:انزايم
 pt:enzima
 qu:huptana
-ro:enzimă
+ro:enzimă, enzime
 ru:Ферменты
 se:entsyma
 sh:enzim
@@ -5634,6 +5634,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cellulase
 # ingredient/fr:cellulase has 173 products in 6 languages @2019–07-09
 
 <en:cellulase
+en:hemicellulase
 fr:hémicellulase
 fi:hemisellulaasi, hemisellulaasit
 # ingredient/fr:hémicellulase has 27 products in french @2019-02-01
@@ -7368,6 +7369,7 @@ it:latte in polvere
 nl:melkpoeder
 pl:mleko w proszku
 pt:leite em pó
+ro:lapte praf
 ru:сухое молоко
 sv:mjölkpulver
 vegan:en:no
@@ -8052,6 +8054,7 @@ nb:mysepulver, mysepulver av melk
 nl:weipoeder, wei poeder
 pl:Serwatka w proszku, preparat serwatkowy
 pt:soro de leite em pó
+ro:produs din zer praf
 ru:сухая молочная сыворотка
 sk:sušená srvátka
 sv:vasslepulver, vasslepulver från mjölk
@@ -15605,6 +15608,8 @@ sv:modifierad vetestärkelse
 <en:wheat starch
 fr:amidon de blé partiellement modifié
 
+<en:wheat starch
+en:pregelatinized wheat starch
 
 <en:syrup
 en:tapioca syrup
@@ -15999,6 +16004,13 @@ vegan:en:no
 vegetarian:en:maybe
 from_palm_oil:en:no
 
+# description:en:Any fat that is solid at room temperature and used to make crumbly pastry and other food products. Not guaranteed to be from any particular source.
+<en:fat
+en:shortening
+fr:graisse alimentaire
+wikidata:en:Q1194601
+wikipedia:en:https://en.wikipedia.org/wiki/Shortening
+
 <en:fat
 en:hydrogenated fat
 bg:хидрогенирано масло
@@ -16362,6 +16374,10 @@ ru:растительные жиры
 sk:rastlinný tuk
 sv:vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 
+<en:shortening
+<en:vegetable fat
+en:vegetable shortening
+
 <en:vegetable fat
 fr:matières grasses végétales de colza, matières grasses de colza
 
@@ -16560,6 +16576,9 @@ nl:biologische palmolie
 ru:Органическое пальмовое масло
 # ingredient/nl:biologische-palmolie has 1 product @2019-05-24
 
+<en:palm oil
+en:fractionated palm oil
+
 # comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
 <en:palm oil
@@ -16736,6 +16755,9 @@ sv:härdat palmkärnolja, härdat palmkärna
 
 <en:palm kernel oil
 fr:palmiste totalement hydrogénée, huile de palmiste entièrement hydrogénée
+
+<en:palm kernel oil
+en:fractionated palm kernel oil
 
 # The and/or ingredients, also used as a container
 
@@ -18402,6 +18424,7 @@ it:aceto di vino
 nl:wijnazijn
 pl:Ocet winny
 pt:vinagre de vinho
+ro:oțet din vin
 ru:Винный уксус
 sv:vinsvinäger, vinättika, vinäger av vin
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
@@ -20730,6 +20753,7 @@ de:Bananengeschmack, Bananenaroma, Bananen-Aroma
 fi:banaaniaromi
 fr:arôme de banane
 hu:banán aroma
+ro:aromă de banane
 
 <en:natural flavouring
 en:natural banana flavouring
@@ -21259,6 +21283,7 @@ nb:røykaroma
 nl:rookaroma, rookaroma's
 pl:Aromat dymu wędzarniczego
 pt:aroma de fumo
+ro:aroma de fum
 sv:rökarom
 
 <en:natural flavouring
@@ -22293,6 +22318,7 @@ it:fiocchi di frumento
 nb:hveteflak
 nl:tarwevlokken
 pl:płatki pszenne
+ro:fulgi de grâu
 sv:veteflingor
 
 <en:wheat flakes
@@ -22611,6 +22637,7 @@ nb:hvetekim
 nl:tarwekiem
 pl:kielki pszenicy
 pt:gérmen de trigo
+ro:germeni de grâu
 sv:vetegroddar
 wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
@@ -23062,6 +23089,7 @@ hu:árpapehely
 it:fiocchi d'orzo
 nl:gerstvlokken
 pl:płatki jęczmienne
+ro:fulgi de orz
 sv:kornflingor
 
 <en:wholemeal barley
@@ -23596,7 +23624,7 @@ nb:havreflak, havregryn
 nl:havermoutvlokken, havermout, havervlokken, havervlok
 pl:płatki owsiane
 pt:flocos de aveia
-ro:Haferflocken
+ro:fulgi de ovăz, Haferflocken
 ru:Овсяные хлопья
 sv:havreflingor, havreflager, havregryn
 tr:Tahıl ezmesi
@@ -23637,6 +23665,7 @@ hu:zabrost
 it:fibra d'avena
 nl:havervezel
 pt:fibra de aveia
+ro:fibre de ovăz
 sv:havrefiber
 
 
@@ -23983,6 +24012,7 @@ fr:flocons de seigle
 hu:rozspehely
 it:fiocchi di segale
 nb:rugflak
+ro:fulgi de secară
 sv:rågflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-seigle/
 # 87 entries @ 2018-09-22
@@ -24590,6 +24620,7 @@ hu:teljes kiőrlélsű búzaliszt
 it:farina integrale di frumento, farina di frumento integrale
 nl:volkorentarwemeel, volkoren tarwemeel
 pt:farinha de trigo integral, farinha integral de trigo
+ro:făină integrală de grâu
 sv:fullkornsvetemjöl, grahamsmjöl av vete
 
 <en:wheat flour
@@ -24599,6 +24630,10 @@ es:harina de trigo dextrinada
 fr:farine de blé dextrinée
 hu:dextrinált búzaliszt
 nl:gedextrineerd tarwemeel
+
+<en:wheat flour
+en:pre-gelatinized wheat flour
+fr:farine de blé prégélatinisée, farine de froment prégélatinisée
 
 <en:wheat flour
 
@@ -24847,6 +24882,10 @@ da:sigtet rugmel
 fi:lestyruisjauho, ruissihtijauho
 sv:siktat rågmjöl, rågsiktmjöl
 
+<en:rye flour
+en:pregelatinized rye flour
+ro:făină de secară pregelatinizată
+
 <en:cereal flour
 en:millet flour
 de:Hirsemehl
@@ -25045,6 +25084,10 @@ hu:dextrinált rizsliszt
 nl:gedextrineerd rijstmeel
 
 <en:rice flour
+en:pregelatinized rice flour
+fr:farine de riz prégélatinisée
+
+<en:rice flour
 fr:farine de riz blanc
 
 <en:rice flour
@@ -25059,6 +25102,7 @@ nl:volkoren rijstmeel
 <en:rice flour
 <en:wholemeal flour
 en:whole rice flour, whole grain rice flour
+de:Vollkornreismehl
 es:harina integral de arroz
 
 <en:flour
@@ -26671,7 +26715,7 @@ pl:cukier, cukier spożywczy
 ps:بوره
 pt:Açúcar
 qu:Asukar
-ro:Zahăr, zahar
+ro:Zahăr, zahar, zaharuri
 ru:Сахар
 rw:Isukari
 sa:शर्करा
@@ -27213,8 +27257,11 @@ it:zucchero d'uva
 nb:druesukker
 sv:druvsocker
 
+# description:en:Re vanilla sugar: "Cheaper vanilla sugar is also available, made only from sugar and vanillin."
 <en:sugar
+<en:vanillin
 fr:sucre vanilline
+de:Vanillinzucker
 fi:vanilliinisokeri
 
 # description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
@@ -27933,6 +27980,7 @@ fr:oligofructose
 it:oligofruttosio
 nb:oligofruktose
 nl:oligofructose
+ro:oligofructoză
 sv:oligofruktos
 wikidata:en: Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
@@ -28324,6 +28372,13 @@ hu:dextróz kukoricából vagy búzából
 nl:dextrose van tarwe of maïs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-or-corn-dextrose
 # 64 products in 3 languages @2018-09-25
+
+<en:dextrose
+en:dextrose monohydrate
+es:dextrosa monohidrato, dextrosa monohidratada
+fr:dextrose monohydraté
+nl:dextrose monohydraat
+pt:dextrose monohidratada
 
 # POLYDEXTROSE is a synthetic polymer of glucose.
 
@@ -28905,7 +28960,7 @@ it:proteine del latte
 nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka
 pt:proteína do leite, proteínas lácteas
-ro:proteine din lapte
+ro:proteină din lapte, proteine din lapte
 ru:молочный белок, молочные белки
 sv:mjölkprotein
 nova:en:4
@@ -29302,6 +29357,7 @@ fr:beurre de cacao émulsifiant
 <en:cocoa
 en:cocoa fat
 es:grasa de cacao
+ro:grăsime de cacao
 
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
@@ -29866,6 +29922,7 @@ nl:Melkchocola, melkchocolade
 nn:Mjølkesjokolade
 pl:Czekolada mleczna
 pt:chocolate de leite, chocolate ao leite
+ro:ciocolată cu lapte
 ru:молочный шоколад
 sv:mjölkchoklad
 tr:Sütlü çikolata
@@ -30951,6 +31008,7 @@ nb:hvetegluten
 nl:tarwegluten
 pl:gluten pszenny
 pt:glúten de trigo
+ro:gluten de grâu, gluten din grâu
 sv:vetegluten
 
 <en:wheat gluten
@@ -32042,7 +32100,7 @@ nl:xanthaangom, Xanthaan
 nn:xanthan gum
 pl:Guma ksantanowa
 pt:goma xanthano
-ro:Gumă de xantan
+ro:Gumă de xantan, gumă xantan
 ru:Ксантановая камедь, Ксантан
 sk:Xantánová živica
 sl:Ksantan gumi
@@ -33312,6 +33370,7 @@ fi:kuivattu banaani, kuivatut banaanit
 fr:bananes séchées
 it:banane secche
 nl:gedroogde banaan
+ro:banane uscate
 # ingredient/fr:bananes-sechees has 19 products in 4 languages @2019-06-03
 
 <en:banana
@@ -37080,7 +37139,7 @@ nl:dadels
 nn:dadler
 nv:Hashkʼaan dijéʼé
 pl:Daktyle
-ro:Curmală
+ro:Curmală, curmale
 ru:финик, финики
 sk:Datľa
 sv:dadel, dadlar
@@ -38139,7 +38198,8 @@ lo:ໝາກນັດ
 nl:ananas
 nv:Bilasáana diwozhí
 pl:ananas
-pt:ananas 
+pt:ananas
+ro:ananas
 ru:ананас
 sd:انناس
 sk:Ananás pestovaný
@@ -39256,7 +39316,7 @@ pa:ਮੁਨੱਕਾ
 pl:Rodzynki
 pt:passa
 qu:Pasa
-ro:Stafidă
+ro:Stafidă, stafide
 ru:Изюм
 sd:ڪشمش
 sk:Hrozienka
@@ -39502,8 +39562,6 @@ zh:葡萄漿
 # zh-tw:水果酒
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
-# 273 products in 4 languages @2018-10-02
 
 <en:grape
 <en:must
@@ -39515,11 +39573,10 @@ fi:puristemehu, rypäleen puristemehu
 fr:moût de raisin
 it:mosto d'uva
 nl:druivenmost
+ro:must de struguri
 ru:Виноградное сусло
 sq:Mushti i rrushit
 ta:நொதியேறாப் பழச்சாறு
-wikipedia:en:https://en.wikipedia.org/wiki/Must
-wikidata:en:Q278818
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
@@ -48442,6 +48499,7 @@ es:pasta de almendra
 <en:almond
 en:almond flour
 es:harina de almendra
+fr:farine d'amandes
 
 <en:almond
 en:organic almond flour
@@ -49286,6 +49344,7 @@ pa:ਅਖਰੋਟ
 pl:orzech włoski, orzechy włoskie
 ps:غوز
 pt:noz
+ro:nucă
 ru:грецкий орех
 sd:اکروٽ
 sk:vlašské orechy
@@ -49308,6 +49367,7 @@ zh:胡桃木, 核桃仁, 核桃
 carbon_footprint_fr_foodges_ingredient:fr:Noix entières
 carbon_footprint_fr_foodges_value:fr:1.3
 wikidata:en:Q208021
+wikipedia:en:https://en.wikipedia.org/wiki/Walnut
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
 
@@ -50571,6 +50631,7 @@ de:Gewürze und Gewürzextrakte
 fi:mausteet ja mausteuutteet
 fr:épices et extrait d'épices
 nb:krydder og krydderekstrakter
+ro:condimente și extracte de condimente
 sv:kryddor och kryddextrakt
 # ingredient/fr:epices-et-extrait-d'epices has 135 products in 3 languages @2020-05-21
 
@@ -51915,7 +51976,7 @@ pa:ਸਰੋਂ
 pl:Musztarda, gorczyca
 pt:mostarda
 qu:Mustasa
-ro:muștar
+ro:muștar, muştar
 ru:горчица
 sh:Senf
 sk:Horčica
@@ -51969,6 +52030,7 @@ nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
 pl:ziarno gorczyca
 pt:Semente de mostarda
+ro:boabe de muștar
 sl:gorčično seme
 sv:senapsfrö, senapsfrön
 
@@ -55788,7 +55850,16 @@ de:rosenblatt
 fi:ruusun terälehdet
 fr:pétales de rose
 it:petalo di rosa
+ro:petale de trandafiri
 # ingredient/en:rose-petals has 72 products in 4 languages @2018-12-29
+
+<en:rose petals
+en:rose water
+de:Rosenwasser
+fr:eau de rose
+ro:apă de trandafiri
+wikidata:en:Q900450
+wikipedia:en:https://en.wikipedia.org/wiki/Rose_water
 
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
