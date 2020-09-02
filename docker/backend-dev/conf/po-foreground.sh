@@ -56,4 +56,8 @@ set -e
 # Apache gets grumpy about PID files pre-existing
 rm -f /usr/local/apache2/logs/httpd.pid
 
-exec apache2ctl -DFOREGROUND
+if [ -n "$PERLDB" ]; then
+  exec apache2ctl -X -DPERLDB
+else
+  exec apache2ctl -DFOREGROUND
+fi

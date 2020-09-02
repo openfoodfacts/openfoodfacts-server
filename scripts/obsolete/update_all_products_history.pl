@@ -66,12 +66,12 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 				
 		$lc = $product_ref->{lc};
 		$lang = $lc;
-		
+
 		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		if (not defined $changes_ref) {
+		if ( not defined $changes_ref ) {
 			$changes_ref = [];
-		}		
-	
+		}
+
 		#make sure we have numbers for dates
 		$product_ref->{last_modified_t} += 0;
 		$product_ref->{created_t} += 0;
@@ -82,11 +82,10 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
 		$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
 
-
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		store("$data_root/products/$path/changes.sto", $changes_ref);
-		}
+		store( "$data_root/products/$path/changes.sto", $changes_ref );
+	}
 	}
 
 exit(0);

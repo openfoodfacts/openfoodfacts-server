@@ -24,14 +24,14 @@ use utf8;
 use Modern::Perl '2019';
 
 use Data::Table;
-use Future::Utils	qw( fmap_scalar );
+use Future::Utils   qw( fmap_scalar );
 use Future;
 use Geo::Coder::Google 0.19_01;    # dev version for the apikey support
 use IO::Async::Function;
 use IO::Async::Loop;
 use IO::Async::SSL;
 use Net::Async::HTTP;
-use Text::CSV		qw( csv );
+use Text::CSV       qw( csv );
 use URI;
 
 use ProductOpener::Config qw/:all/;
@@ -76,14 +76,17 @@ my $outfile = 'FR-merge-UTF-8.csv';
 my %coord_cache;
 if ( -e "$data_root/packager-codes/$outfile" ) {
 	my $row_refs = csv(
-		in      => "$data_root/packager-codes/$outfile",
-		headers => 'auto'
+		in         => "$data_root/packager-codes/$outfile",
+		headers    => 'auto',
+		sep_char   => ';',
+		quote_char => q{"}
 	);
-	foreach my $row_ref (@$row_refs) {
+	foreach my $row_ref (@{$row_refs}) {
 		if ( $row_ref->{'lat'} && $row_ref->{'lng'} ) {
 			my $address = join ', ', @{$row_ref}{@address_columns};
 			my $lat     = $row_ref->{'lat'};
 			my $lng     = $row_ref->{'lng'};
+			$address =~ tr/;/,/;
 			if ($address) {
 				$coord_cache{$address}{'lat'} = $lat;
 				$coord_cache{$address}{'lng'} = $lng;
@@ -105,7 +108,7 @@ sub make_table {
 	# The CSV-files have trailing empty columns without separators,
 	# which Data::Table doesn't handle. We parse the CSV the hard way.
 	my $rows_ref = csv( in => $fh, keep_headers => \my @headers );
-	my @data     = map { [ @{$_}{@headers} ] } @$rows_ref;
+	my @data     = map { [ @{$_}{@headers} ] } @{$rows_ref};
 
 	close $fh;
 
@@ -117,11 +120,10 @@ sub make_table {
 			'$_{"Numéro agrément/Approval number"} eq "34" && $_{SIRET}==301'
 		);
 		for ( @{ $t_ref->{MATCH} } ) {
-			my $r = $t_ref->delRow($_);
-			$r->[1] = join '.', @$r[ 1, 3 ];
-			splice @$r, 2, -0, ( splice @$r, 4 );
-			@$r[ -2 .. -1 ] = undef;
-			$t_ref->addRow( $r, $_ );
+			my $r = $t_ref->rowRef($_);
+			$r->[1] = join '.', $r->@[ 1 .. 3 ];
+			splice @{$r}, 2, -0, ( splice @{$r}, 4 );
+			$r->@[ -2 .. -1 ] = undef;
 		}
 	}
 
@@ -132,10 +134,11 @@ sub make_table {
 	foreach my $row_idx ( 0 .. $t_ref->lastRow ) {
 		foreach my $col_idx ( 0 .. $t_ref->lastCol ) {
 			my $elm_ref = $t_ref->elmRef( $row_idx, $col_idx );
-			if ( defined $$elm_ref ) {
-				$$elm_ref
+			if ( defined ${$elm_ref} ) {
+				${$elm_ref} =~ tr/;/,/;
+				${$elm_ref}
 					=~ s/â\200\223/\N{EN DASH}/g;    # Some UTF-8 mixed in...
-				$$elm_ref =~ s/^\s+|\s+$//g;
+				${$elm_ref} =~ s/^\s+|\s+$//g;
 			}
 		}
 	}
@@ -208,7 +211,7 @@ my $tables_f = fmap_scalar {
 			  $geocode_table->call( args => [$t_ref] );
 		  } );
 } foreach       => \@urls,
-  concurrent	=> 5;
+  concurrent    => 5;
 
 my @table_refs = $loop->await($tables_f)->get;
 

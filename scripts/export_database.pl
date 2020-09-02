@@ -28,11 +28,10 @@
 # TODO: factorize code with search_and_export_products() function
 # from ./lib/ProductOpener/Display.pm
 
-
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;

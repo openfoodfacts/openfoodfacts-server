@@ -95,15 +95,15 @@ my @lists =(
 	# SCANDINAVIAN LANGUAGES  #
 	###########################
 	[ "da",
-	  "bl. a inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
+	  "bl. a. inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
 	  "blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
 	],
 	[ "nb",
-	  "bl. a inkl. E322 E103, E140, E250 og E100",
+	  "bl. a. inkl. E322 E103, E140, E250 og E100",
 	  "blant annet inklusive E322, E103, E140, E250, E100"
 	],
 	[ "sv",
-	  "bl. a förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
+	  "bl. a. förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
 	  "bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
 	],
 	[ "da",
@@ -141,6 +141,7 @@ my @lists =(
 	["fi","omenamehu, vesi, sokeri. jossa käsitellään myös maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","luomurypsiöljy, luomu kaura, vihreä luomutee", "luomu rypsiöljy, luomu kaura, vihreä luomu tee"],
 
 
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],

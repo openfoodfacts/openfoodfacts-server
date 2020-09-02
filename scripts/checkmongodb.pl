@@ -35,6 +35,7 @@ sub send_msg($) {
 		print "HTTP POST error message: " . $resp->message . "\n";
 	}
 
+	return;
 }
 
 my $count;
