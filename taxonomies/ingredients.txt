@@ -383,10 +383,13 @@ ca:xarop de sucre caramelitzat
 da:karamelliseret sukkersirup, karameliseret sukkersirup
 de:Caramelzuckersirup, Karamellzuckersirup, Karamell-Zuckersirup
 es:jarabe de azúcar caramelizado, sirope de azúcar caramelizado
+et:karamelliseeritud suhkrusiirup
 fi:karamellisoitu sokerisiirappi, karamellisokerisiirappi
 fr:sirop de sucre caramel, sirop de sucre caramélisé
 hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
+lt:karamelizuotas cukraus sirupas
+lv:karamelizēts cukura sīrups
 nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
 pl:cukier skarmelizowanny
 sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap
@@ -880,14 +883,14 @@ da:solsikkelecithin
 de:Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine
 el:λεκιθίνες ηλιστροπιου
 es:lecitina de girasol, lecitinas de girasol
-et:päevalilleletsitiin
+et:päevalilleletsitiin, päevalille letsitiin
 fi:auringonkukkalesitiini, auringonkukkalesitiiniä
 fr:lécithine de tournesol
 hr:suncokretov lecitin
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole
-lt:saulėgrąžu lecitinas
-lv:lecitinai iš saulègrąžų, saulespuku lecitīns
+lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
+lv:lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīni
 nb:solsikkelecithin, solsikkelecitin
 nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
@@ -1865,7 +1868,7 @@ from_palm_oil:en:yes
 
 <en:mono and diglycerides of fatty acids of vegetable origin
 fr:mono et diglycérides d'acides gras de colza
-ca: monoglicèrids i diglicèrids d'àcids grassos de colza
+ca:monoglicèrids i diglicèrids d'àcids grassos de colza
 es:monoglicéridos y diglicéridos de ácidos grasos de colza
 
 <en:mono- and diglycerides of fatty acids
@@ -6743,6 +6746,7 @@ ca:llet pasteuritzada
 da:pasteuriseret mælk
 de:Pasteurisierte Milch
 es:leche pasteurizada
+et:pastöriseeritud piim
 fi:pastöroitu maito, pastöroidusta maidosta
 fr:lait pasteurisé
 hu:pasztőrözött tej, pasztörizált tej
@@ -12587,7 +12591,7 @@ fa:ارگوکالسیفرول
 fi:Ergokalsiferoli, D2-vitamiini
 fr:ergocalciférol, vitamine D2
 hi:एर्गोकैल्सिफेरॉल
-hu: D2-vitamin, Ergokalciferol, D2
+hu:D2-vitamin, Ergokalciferol, D2
 it:Ergocalciferolo, Vitamina D2
 ja:エルゴカルシフェロール
 nl:Ergocalciferol, vitamine D2
@@ -12972,6 +12976,7 @@ kk:Ас тұзы
 kn:ಉಪ್ಪು
 ko:소금
 ku:Xwê
+lt:druska
 lv:Sāls
 ml:ഉപ്പ്
 mn:Хоолны давс
@@ -13085,6 +13090,7 @@ fr:concentré salin liquide
 en:Himalayan salt
 ca:Sal de l'Himalaya
 de:Himalayasalz
+el:αλάτι Ιμαλάιων
 es:Sal del Himalaya
 fr:Sel de l'Himalaya
 
@@ -14969,7 +14975,7 @@ fi:savustettu pekoni
 fr:lard fumé
 hu:füstölt bacon, füstölt bacon szalonna
 it:lardo affumicato
-nl: gerookte spek, gerookt spek
+nl:gerookte spek, gerookt spek
 # ingredient/fr:lard-fumé has 66 products in 4 languages @2019-05-10
 
 # description:fr:La BARDE est une fine tranche de lard gras frais, de lard salé ou de lard fumé avec laquelle on enveloppe divers morceaux de viandes, fruits ou légumes pour garder leur texture moelleuse et éviter le dessèchement.
@@ -15362,7 +15368,7 @@ cv:Смалец
 da:Svinefedt
 de:Schweinefett, Schmalz
 eo:Ŝmalco
-es:grasa de cerdo,grasa animal de cerdo,tocino,magro de cerdo,manteca, manteca de cerdo,manteca de cerdo iberico, tocino de cerdo,tocino de jamón de cerdo 
+es:grasa de cerdo,grasa animal de cerdo,tocino,magro de cerdo,manteca, manteca de cerdo,manteca de cerdo iberico, tocino de cerdo,tocino de jamón de cerdo
 eu:Txerri-gantz
 fa:چربی خوک
 fi:ihra, silava, läski
@@ -16793,6 +16799,7 @@ it:oli vegetali non idrogenati
 en:hydrogenated vegetable oil
 fr:huile végétale hydrogénée
 de:pflanzliches Öl gehärtet
+tr:hidrojene bitkisel yağ
 
 <en:hydrogenated vegetable oil
 en:fully hydrogenated vegetable oils
@@ -17252,10 +17259,13 @@ ca:greix de coco
 da:kokosfedt
 de:Kokosfett
 es:Grasa de coco,grasa vegetal de coco,manteca de coco
+et:kookosrasv
 fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
 hu:kókuszzsír
 it:grasso di cocco
+lt:kokoso riebalai
+lv:kokosriekstu tauki
 nl:kokosvet
 sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
@@ -17463,6 +17473,8 @@ sk:repkový olej
 sv:Rapsolja, Rapsfett,rypsolja
 from_palm_oil:en:no
 
+<en:rapeseed oil
+en:low erucic acid rapeseed oil
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
@@ -18865,6 +18877,7 @@ ca:Vinagre balsàmic
 cs:Balzámový ocet
 da:balsamicoeddike
 de:Aceto balsamico, Balsamessig
+el:βαλσαμικό ξύδι
 eo:Balzamvinagro
 es:Aceto balsámico,vinagre balsamico,vinagre balsamico de modena
 eu:Ozpin baltsamiko
@@ -20766,11 +20779,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Absinthe
 
 # nova:en:flavouring
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
-bg:аромат
+bg:аромат, ароматизант
 ca:Aromes, aroma
 cs:Aroma
 da:smagsstof, smagstoffer, aromaer
 de:Aroma, Aromen
+el:αρωματικό
 es:aroma, aromas, aromatizante,aromatizantes,sustancias-aromatizantes,saborizante,saborizantes
 et:lōhna- ja maitseaine, lōhna- ja maitseained, aroomiaine
 fi:aromi, aromit, aromeja, aromiaineet, aromiaineita, makuaineet
@@ -20827,6 +20841,7 @@ hr:Prirodna aroma
 hu:természetes aroma, természetes aromák, természetazonos aroma, természetazonos aromák
 is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
+lv:dabīgs aromatizētājs
 nb:naturlig aroma
 nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
 pl:Naturalny aromat
@@ -22688,7 +22703,7 @@ pl:chrupki pszenno-żytnie
 
 <fr:pétales de blé
 en:whole wheat flakes
-ca:flocs de blat integral 
+ca:flocs de blat integral
 de:Vollkornflocken
 es:copos de trigo integral
 fi:täysjyvävehnähiutale
@@ -23587,10 +23602,13 @@ da:bygmalt
 de:Gerstenmalz
 el:βυνοποιημένο κιθάρι
 es:malta de cebada,cebada de malta
+et:odralinnased
 fi:ohramallas, ohramallasta
 fr:malt d'orge, malts d'orge, orge malté, orge maltée
 hu:árpamálata
 it:malto d'orzo
+lt:miežių salyklas
+lv:miežu iesals
 nl:gerstemout, mout van gerst
 nn:bygg malt
 pl:Słód jęczmienny
@@ -23615,6 +23633,7 @@ fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 hu:árpamaláta kivonat
 it:estratto di malto d'orzo
+lt:miežių salyklo ekstraktas
 nb:byggmaltekstrakt
 nl:Gerstemoutextract, gerstmoutextract
 pl:Ekstrakt słodu jęczmiennego
@@ -25332,6 +25351,7 @@ ro:făină de soia, faina de soia
 ru:Соевая мука
 sr:sojino brašno
 sv:sojamjöl, mjöl av sojabönor
+tr:soya unu
 
 <en:flour
 <en:corn
@@ -25341,10 +25361,13 @@ da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
 es:harina de maíz, harina maiz
+et:maisijahu
 fi:maissijauho, maissijauhoa
 fr:farine de maïs, farine de mais
 hu:kukoricaliszt
 it:farina di mais
+lt:kukurūzų miltai
+lv:kukurūzas milti
 nb:maismel
 nl:maïsmeel, maismeel
 pl:mąka kukurydziana
@@ -25413,10 +25436,13 @@ cs:Rýžová mouka
 da:rismel
 de:Reismehl
 es:harina de arroz
+et:riisijahu
 fi:riisijauho
 fr:Farine de riz
 hu:rizsliszt
 it:farina di riso
+lt:ryžių miltai
+lv:rīsu milti
 nb:rismel
 nl:rijstebloem, rijstbloem, rijstmeel
 pl:Mąka ryżowa
@@ -25593,7 +25619,7 @@ oc:Milh
 or:ମକା
 os:Нартхор
 pa:ਮੱਕੀ
-pl:kukurydziana, Kukurydza zwyczajna, Kukurydza 
+pl:kukurydziana, Kukurydza zwyczajna, Kukurydza
 ps:جوار
 pt:milho
 qu:Sara
@@ -27511,7 +27537,7 @@ sv:rårörsocker
 <en:cane sugar
 en:whole cane sugar
 fr:sucre de canne complet, suc de canne intégral, sucre de canne intégral, sucre complet de canne
-es:azucar de caña integral,azucar integral de caña 
+es:azucar de caña integral,azucar integral de caña
 
 <en:whole cane sugar
 en:whole brown cane sugar
@@ -28365,6 +28391,7 @@ sv:Glukos-Fruktos
 <en:glucose
 <en:fructose
 en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
+bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
@@ -28376,6 +28403,7 @@ fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
 hu:glükóz-fruktózszörp, glükóz-fruktózszőrp, glükóz-fruktóz szirup, fruktóz-glükóz-szirup
 it:sciroppo di glucosio-fruttosio
+lt:gliukozės-fruktozės sirupas
 nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
@@ -28642,6 +28670,7 @@ sv:mörk sirap
 # nova:en:dextrose
 <en:glucose
 en:dextrose
+bg:декстроза
 bs:dekstroza
 ca:Dextrosa
 cs:dextróza
@@ -29778,6 +29807,7 @@ pt:cacau em pó
 ro:pudră de cacao, pudra de cacao, cacao pudră, cacao pudra
 ru:какао-порошок
 sv:kakaopulver
+tr:kakao tozu
 uk:Какао-порошок
 # be-tarask:Какава-парашок
 # nds-nl:Kakoupouder
@@ -31189,7 +31219,7 @@ sk:Sója fazuľová, sójové bôby
 sl:zrnje soje
 sv:sojabönor
 th:ถั่วเหลือง
-zh: 黄豆, 大豆
+zh:黄豆, 大豆
 # als:Sojabohne
 # bar:Sojaboanl
 # fiu-vro:Sojauba
@@ -33254,7 +33284,7 @@ fr:jus concentré de fruits rouges
 
 <en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
-de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
+de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
@@ -33573,7 +33603,7 @@ bn:কলা
 bo:ངང་ལག
 br:Bananez
 bs:Banana
-ca:Banana,plàtan,plàtans 
+ca:Banana,plàtan,plàtans
 ce:Банан
 co:Banana
 cs:Banán
@@ -36696,7 +36726,7 @@ sv:blåbärssaftkoncentrat
 
 <en:blueberry juice
 en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat 
+de:Heidelbeersaft aus Heidelbeerkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
@@ -38527,7 +38557,7 @@ ak:aborɔbɛ
 ay:Achupalla
 bo:ཐང་འབྲས།
 cs:ananas
-ca:pinya,pinyes 
+ca:pinya,pinyes
 da:ananas
 de:Ananas
 dv:އަލަނާސި
@@ -39624,7 +39654,7 @@ az:Kişmiş
 be:Разынкі
 bg:Стафида
 bs:Grožđica
-ca:pansa,panses sultanes,panses 
+ca:pansa,panses sultanes,panses
 cs:rozinka
 da:Rosin
 de:Rosine, Rosinen
@@ -41048,7 +41078,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/List_of_root_vegetables
 
 <en:vegetable
 en:tuber,tubers
-es:tubérculo,tubérculos 
+es:tubérculo,tubérculos
 
 # description:en:Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
 
@@ -43485,13 +43515,13 @@ sv:svartmorotjuice
 <fr:jus de carotte noire
 fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
 de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
-nl:zwarte wortelsapconcentraat
+nl:zwarte wortelsapconcentraat, geconcentreerd zwarte wortelsap
 # fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
 # fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
 
 <en:black carrot
 en:concentrated black carrot, black carrot concentrate
-de:schwarze Möhre Konzentrat
+de:schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr:concentré de carotte pourpre
 sv:svart morotskoncentrat
 
@@ -46974,7 +47004,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Watercress
 # ingredient/watercress has 107 products in 4 languages @2019-04-13
 # ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
 
-# description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb. 
+# description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
 <en:cress
 en:Garden cress
@@ -47661,7 +47691,7 @@ fr:haricots vertes très fins coupés, haricots verts extra fines coupés
 <fr:haricot vert
 fr:haricots verts extra-fins
 
-# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape. 
+# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 
 en:flat bean, helda bean, romano bean
 fi:romanopapu, romanopavut
@@ -48561,7 +48591,7 @@ sv:linsmjöl
 # 1 entry @ 2019-10-31
 
 <en:lentil flour
-en:wholwemeal lentil flour 
+en:wholemeal lentil flour
 ca:farina integral de llentia
 es:harina integral de lenteja
 
@@ -48744,7 +48774,7 @@ ia:amandola
 it:mandorla, mandorle
 ja:アーモンド
 la:Prunis dulcis
-lt:migdolai
+lt:migdolai, migdolų
 lv:mandeles
 mt:lewż
 nb:mandel
@@ -49180,7 +49210,7 @@ it:nocciola, nocciole
 ja:ヘーゼルナッツ
 ko:헤이즐넛
 lb:Hieselnoss
-lt:lazdynų riešutai
+lt:lazdynų riešutai, lazdyno riešutai
 lv:lazdu rieksti
 ms:Kacang hazel
 mt:ġellewż
@@ -49419,7 +49449,7 @@ ko:땅콩
 ku:Fistiqa axê
 la:arachis hypogaea
 ln:Ngúba
-lt:žemės riešutai
+lt:žemės riešutai, žemės riešutų
 lv:zemesrieksti
 mr:भुईमूग
 mt:karawett
@@ -49892,7 +49922,7 @@ fr:graines grillées
 en:aniseed
 da:anisfrø
 de:Anissamen, anis
-es:semilla de anís,anis,matalahúga 
+es:semilla de anís,anis,matalahúga
 fi:anis
 fr:graine d'anis vert, anis vert, graine d'anis, anis
 nl:anijszaad
@@ -49965,7 +49995,7 @@ de:chia
 es:chia, chía negra
 fi:chia
 fr:chia
-it:chia, 
+it:chia
 la:Salvia hispanica
 nb:chia
 nl:chia
@@ -50997,7 +51027,7 @@ nl:gemengde specerijen
 sv:kryddblandning, kryddmix
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
-# description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns. 
+# description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns.
 
 # <en:compound
 <en:mixed spices
@@ -53722,25 +53752,25 @@ fi:basilikajauhe
 
 <en:herb
 en:chervil
-da: kørvel
-de: Kerbel
-el: σκαντζίκι
-es: perifollo
+da:kørvel
+de:Kerbel
+el:σκαντζίκι
+es:perifollo
 fi:kirveli
 fr:cerfeuil
-ga: costóg
-hu: turbolya
-it: cerfogilo
-la: Anthriscus cerefolium
-lv: kārvele
-mt: sorfolja
+ga:costóg
+hu:turbolya
+it:cerfogilo
+la:Anthriscus cerefolium
+lv:kārvele
+mt:sorfolja
 nl:kervel
-pl: trybula ogrodowa
-pt: cerefólio
-ro: asmățui
-sk: trebuľka voňavá
-sl: krebuljica
-sv: körvel
+pl:trybula ogrodowa
+pt:cerefólio
+ro:asmățui
+sk:trebuľka voňavá
+sl:krebuljica
+sv:körvel
 wikipedia:en:https://en.wikipedia.org/wiki/Chervil
 # ingredient/fr:cerfeuil has 242 products in 5 languages @2019-05-13
 
@@ -54225,7 +54255,7 @@ fr:extrait d'origan
 #
 ###################################################################################################
 <en:herb
-en:bay leaf, bay leaves, bay
+en:bay leaf, bay leaves, bay, laurel
 af:Lourierblaar
 be:Лаўровы ліст
 bg:Дафинов лист
@@ -54267,6 +54297,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bay_leaf
 wikidata:en:Q2370943
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
 # 1302 products in 6 languages @2018-10-08
+
+<en:bay leaf
+la:Laurus Nobilis
 
 ###################################################################################################
 #
@@ -54979,27 +55012,27 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juniper
 
 <en:juniper
 en:juniper berry, juniper berries
-af: Jenewerbessie
-be: Ядловец
+af:Jenewerbessie
+be:Ядловец
 da:enebær
 de:Wacholderbeere
 es:baya de enebro
-fa: جونیپر بری
+fa:جونیپر بری
 fi:katajanmarja, katajanmarjat
 fr:baies de genièvre
 it:coccola di ginepro
 ko:두송자
 lt:paprastasis kadagys
-lv: Čiekuroga
-mk: смрекинка
+lv:Čiekuroga
+mk:смрекинка
 ml:ജൂനിപ്പർ കായ
 mt:frotta tal-ġnibru
 nl:bessen van de jeneverbes
 pl:jałowiec pospolity
 pt:semente de zimbro, Baga de zimbro
-ru: Можжевельник
+ru:Можжевельник
 sv:enbär
-uk: Ялівець
+uk:Ялівець
 zh:杜松子
 wikidata:en: Q3251025
 wikipedia:en:https://en.wikipedia.org/wiki/Juniper_berry
@@ -57896,9 +57929,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kombu
 # Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
 
 <en:kombu
-en: Saccharina japonica
+en:Saccharina japonica
 de:Japanischer Blatttang (Saccharina japonica)
-la: Saccharina japonica, Laminaria Japonica
+la:Saccharina japonica, Laminaria Japonica
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 
@@ -58064,10 +58097,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
 # en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
 
 <en:seaweed
+en:kelp
+la:Laminariales
+wikidata:en:Q1055316
+wikipedia:en:https://en.wikipedia.org/wiki/Kelp
+
+<en:kelp
 en:Laminaria
 de:Laminaria
 fr:Laminaire
 la:Laminaria
+wikidata:en:Q310748
 wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
 
@@ -59349,6 +59389,7 @@ la:pencillium roqueforti
 
 <en:penicillium
 en:penicillium candidum
+et:penicillium candidum
 ia:penicillium candidum
 la:penicillium candidum
 nl:penicillium candidum
@@ -59675,7 +59716,7 @@ carbon_footprint_fr_foodges_value:fr:10.2
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 carbon_footprint_fr_foodges_value:fr:11.5
 
-# Fish are classified as while or oily 
+# Fish are classified as while or oily
 <en:fish
 en:oily fish
 es:pescado azul
@@ -66641,7 +66682,7 @@ fi:kylmäuutettu kahvi
 fr:Café infusé à froid
 wikidata:en:Q5142444
 
-# description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue. 
+# description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue.
 
 en:creatine
 ar:كرياتين
@@ -70313,7 +70354,7 @@ fr:pain spécial viennois, pain special viennois
 # <en:compound
 fr:brisures de crêpe dentelle
 es:trozos de barquillo
-nl: gebroken flinterdunne flensjes
+nl:gebroken flinterdunne flensjes
 # ingredient/fr:brisures-de-crêpe-dentelle has 125 products in 4 languages @2019-03-16
 # trozos de barquillo (harina de trigo, azúcar, aceite de girasol, leche desnatada en polvo, cebada malteada, sal)
 
@@ -72381,7 +72422,7 @@ nl:chocoladeijs
 ###################################################################################################
 #
 #                                SAUCES
-#			These are compound sauces. 
+#			These are compound sauces.
 #			Sauces comprising of individual ingredients are in their corresponding ingredient
 #
 ###################################################################################################
@@ -73133,7 +73174,7 @@ eo:Remolado
 es:Remoulade
 et:remoulade
 fi:remoulade
-fr: sauce rémoulade
+fr:sauce rémoulade
 he:רמול
 io:Remulado
 ja:レムラード・ソース
