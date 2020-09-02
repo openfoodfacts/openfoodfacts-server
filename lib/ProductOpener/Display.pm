@@ -437,7 +437,7 @@ sub init()
 			$log->debug("lc override from request parameter", { lc => $lc , lcs => \@lcs}) if $log->is_debug();
 		}
 		else {
-			@lcs = ();
+			@lcs = ($lc);
 		}
 	}
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
@@ -4106,6 +4106,117 @@ sub add_params_to_query($$) {
 }
 
 
+=head2 customize_response_for_product ( $product_ref )
+
+Using the fields parameter, API product or search queries can request
+a specific set of fields to be returned.
+
+This function filters the field to return only the requested fields,
+and computes requested fields that are not stored in the database but
+created on demand.
+
+=head3 Parameters
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
+
+=cut
+
+sub customize_response_for_product($) {
+	
+	my $product_ref = shift;
+	
+	my $customized_product_ref = {};
+	
+	my $carbon_footprint_computed = 0;
+	
+	foreach my $field (split(/,/, param('fields'))) {
+
+		# On demand carbon footprint tags
+		if ((not $carbon_footprint_computed)
+			and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
+			compute_carbon_footprint_infocard($product_ref);
+			$carbon_footprint_computed = 1;
+		}
+		
+		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
+		if ($field eq "nutrition_table_html") {
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+		}
+		
+		# fields in %language_fields can have different values by language
+		# by priority, return the first existing value in the language requested,
+		# possibly multiple languages if sent ?lc=fr,nl for instance,
+		# and otherwise fallback on the main language of the product
+		elsif (defined $language_fields{$field}) {
+			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
+				if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
+					$customized_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
+					last;
+				}
+			}
+		}
+		
+		# [language_field]_languages : return a value with all existing values for a specific language field
+		elsif ($field =~ /^(.*)_languages$/) {
+
+			my $language_field = $1;
+			$customized_product_ref->{$field} = {};
+			if (defined $product_ref->{languages_codes}) {
+				foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+					if (defined $product_ref->{$language_field . "_" . $language_code}) {
+						$customized_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+					}
+				}
+			}
+		}
+
+		# Taxonomy fields requested in a specific language
+		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+			my $tagtype = $1;
+			my $target_lc = $2;
+			if (defined $product_ref->{$tagtype . "_tags"}) {
+				$customized_product_ref->{$field} = [];
+				foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+					push @{$customized_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
+				}
+			}
+		}
+		
+		# Apps can request the full nutriments hash
+		# or specific nutrients:
+		# - saturated-fat_prepared_100g : return field at top level
+		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
+		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
+			my $return_hash = $2;
+			my $nutrient = $3;
+			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
+				if (defined $return_hash) {
+					if (not defined $customized_product_ref->{$return_hash}) {
+						$customized_product_ref->{$return_hash} = {};
+					}
+					$customized_product_ref->{$return_hash}{$nutrient} = $product_ref->{nutriments}{$nutrient};
+				}
+				else {
+					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
+				}
+			}
+		}
+
+		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
+	}
+	
+	return $customized_product_ref;
+}
+
+
 sub search_and_display_products($$$$$) {
 
 	my $request_ref = shift;
@@ -4413,46 +4524,16 @@ sub search_and_display_products($$$$$) {
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		if ((defined $request_ref->{api}) and (defined param('fields'))) {
 
-			my $compact_products = [];
+			my $customized_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
-				my $compact_product_ref = {};
-				foreach my $field (split(/,/, param('fields'))) {
+				my $customized_product_ref = customize_response_for_product($product_ref);
 
-					if ($field =~ /^(.*)_languages$/) {
-
-						my $language_field = $1;
-						$compact_product_ref->{$field} = {};
-						if (defined $product_ref->{languages_codes}) {
-							foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-								if (defined $product_ref->{$language_field . "_" . $language_code}) {
-									$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
-								}
-							}
-						}
-
-					}
-					elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-						my $tagtype = $1;
-						my $target_lc = $2;
-						if (defined $product_ref->{$tagtype . "_tags"}) {
-							$compact_product_ref->{$field} = [];
-							foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-								push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
-							}
-						}
-					}
-					
-					elsif (defined $product_ref->{$field}) {
-						$compact_product_ref->{$field} = $product_ref->{$field};
-					}
-				}
-
-				push @{$compact_products}, $compact_product_ref;
+				push @{$customized_products}, $customized_product_ref;
 			}
 
-			$request_ref->{structured_response}{products} = $compact_products;
+			$request_ref->{structured_response}{products} = $customized_products;
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
@@ -9448,80 +9529,28 @@ HTML
 			
 			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
 			
-			my $compact_product_ref = {};
-			my $carbon_footprint_computed = 0;
-			foreach my $field (split(/,/, param('fields'))) {
-				# On demand carbon footprint tags
-				if ((not $carbon_footprint_computed)
-					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
-					compute_carbon_footprint_infocard($product_ref);
-					$carbon_footprint_computed = 1;
-				}
-				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-				if ($field eq "nutrition_table_html") {
-					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
-				}
-				# fields in %language_fields can have different values by language
-				if (defined $language_fields{$field}) {
-					foreach my $preferred_lc (@lcs) {
-						if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
-							$compact_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
-							last;
-						}
-					}
-				}
-				# [language_field]_languages : return a value with all existing values for a specific language field
-				if ($field =~ /^(.*)_languages$/) {
-
-					my $language_field = $1;
-					$compact_product_ref->{$field} = {};
-					if (defined $product_ref->{languages_codes}) {
-						foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-							if (defined $product_ref->{$language_field . "_" . $language_code}) {
-								$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
-							}
-						}
-					}
-
-				}
-
-				# Taxonomy fields requested in a specific language
-				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-					my $tagtype = $1;
-					my $target_lc = $2;
-					if (defined $product_ref->{$tagtype . "_tags"}) {
-						$compact_product_ref->{$field} = [];
-						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-							push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
-						}
-					}
-				}
-
-				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
-					$compact_product_ref->{$field} = $product_ref->{$field};
-				}
-			}
+			my $customized_product_ref = customize_response_for_product($product_ref);
 
 			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 			# the "" values have been removed
 			# -> temporarily add back the _serving "" values
 			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-				if (defined $compact_product_ref->{nutriments}) {
-					foreach my $nid (keys %{$compact_product_ref->{nutriments}}) {
+				if (defined $customized_product_ref->{nutriments}) {
+					foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
 						next if ($nid =~ /_/);
-						if ((defined $compact_product_ref->{nutriments}{$nid . "_100g"})
-							and (not defined $compact_product_ref->{nutriments}{$nid . "_serving"})) {
-							$compact_product_ref->{nutriments}{$nid . "_serving"} = "";
+						if ((defined $customized_product_ref->{nutriments}{$nid . "_100g"})
+							and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"})) {
+							$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
 						}
-						if ((defined $compact_product_ref->{nutriments}{$nid . "_serving"})
-							and (not defined $compact_product_ref->{nutriments}{$nid . "_100g"})) {
-							$compact_product_ref->{nutriments}{$nid . "_100g"} = "";
+						if ((defined $customized_product_ref->{nutriments}{$nid . "_serving"})
+							and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"})) {
+							$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
 						}
 					}
 				}
 			}
 
-			$response{product} = $compact_product_ref;
+			$response{product} = $customized_product_ref;
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
