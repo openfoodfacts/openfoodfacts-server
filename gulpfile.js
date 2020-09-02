@@ -16,31 +16,31 @@ const sassOptions = {
 
 function icons() {
   return src("*.svg", { cwd: "./icons" }).
-    pipe(
-      svgmin({
+  pipe(
+    svgmin({
       plugins: [
         { removeMetadata: false },
         { removeTitle: false },
         { removeDimensions: true },
-          { addClassesToSVGElement: { className: "icon" } },
-          {
-            addAttributesToSVGElement: {
-              attributes: [{ "aria-hidden": "true", focusable: "false" }]
-            }
+        { addClassesToSVGElement: { className: "icon" } },
+        {
+          addAttributesToSVGElement: {
+            attributes: [{ "aria-hidden": "true", focusable: "false" }]
           }
+        }
       ]
-      })
-    ).
-    pipe(dest("./html/images/icons/dist"));
+    })
+  ).
+  pipe(dest("./html/images/icons/dist"));
 }
 
 function css() {
   return src("./scss/**/*.scss").
-    pipe(sourcemaps.init()).
-    pipe(sass(sassOptions).on("error", sass.logError)).
-    pipe(minifyCSS()).
-    pipe(sourcemaps.write(".")).
-    pipe(dest("./html/css/dist"));
+  pipe(sourcemaps.init()).
+  pipe(sass(sassOptions).on("error", sass.logError)).
+  pipe(minifyCSS()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest("./html/css/dist"));
 }
 
 function copyJs() {
@@ -61,12 +61,14 @@ function copyJs() {
       "./node_modules/cropper/dist/cropper.js",
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
+      "./node_modules/jvectormap-next/jquery-jvectormap.js",
+      "./node_modules/jvectormap-content/world-mill.js",
       "./node_modules/d3/d3.js"
     ]).
-    pipe(sourcemaps.init()).
-    pipe(terser()).
-    pipe(sourcemaps.write(".")).
-    pipe(dest("./html/js/dist"));
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest("./html/js/dist"));
 }
 
 function buildJs() {
@@ -102,37 +104,38 @@ function buildjQueryUi() {
 
 function jQueryUiThemes() {
   return src([
-      './node_modules/jquery-ui/themes/base/core.css',
-      './node_modules/jquery-ui/themes/base/autocomplete.css',
-      './node_modules/jquery-ui/themes/base/menu.css',
-      './node_modules/jquery-ui/themes/base/theme.css',
-    ]).
-    pipe(sourcemaps.init()).
-    pipe(minifyCSS()).
-    pipe(concat('jquery-ui.css')).
-    pipe(sourcemaps.write(".")).
-    pipe(dest('./html/css/dist/jqueryui/themes/base'));
+    './node_modules/jquery-ui/themes/base/core.css',
+    './node_modules/jquery-ui/themes/base/autocomplete.css',
+    './node_modules/jquery-ui/themes/base/menu.css',
+    './node_modules/jquery-ui/themes/base/theme.css',
+  ]).
+  pipe(sourcemaps.init()).
+  pipe(minifyCSS()).
+  pipe(concat('jquery-ui.css')).
+  pipe(sourcemaps.write(".")).
+  pipe(dest('./html/css/dist/jqueryui/themes/base'));
 }
 
 function copyCss() {
   return src([
-      "./node_modules/leaflet/dist/leaflet.css",
-      "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-      "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/@yaireo/tagify/dist/tagify.css",
-      "./html/css/graph.css",
-      "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css"
-    ]).
-    pipe(sourcemaps.init()).
-    pipe(minifyCSS()).
-    pipe(sourcemaps.write(".")).
-    pipe(dest("./html/css/dist"));
+    "./node_modules/leaflet/dist/leaflet.css",
+    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/@yaireo/tagify/dist/tagify.css",
+    "./html/css/product-multilingual.css",
+    "./node_modules/cropper/dist/cropper.css",
+    "./node_modules/jvectormap-next/jquery-jvectormap.css",
+    "./html/css/graph.css"
+  ]).
+  pipe(sourcemaps.init()).
+  pipe(minifyCSS()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest("./html/css/dist"));
 }
 
 function copyImages() {
   return src(["./node_modules/leaflet/dist/**/*.png"]).
-    pipe(dest("./html/css/dist"));
+  pipe(dest("./html/css/dist"));
 }
 
 exports.copyJs = copyJs;
