@@ -638,11 +638,11 @@ function draw_graph(db_graph,
     var x = d3.scale.linear().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    var nb_categs = (Object.prototype.hasOwnProperty.call("categories_tags", prod_ref) && prod_ref.categories_tags.length > 0) ? prod_ref.categories_tags.length : 8;
+    var nb_categs = (Object.prototype.hasOwnProperty.call(prod_ref, "categories_tags") && prod_ref.categories_tags.length > 0) ? prod_ref.categories_tags.length : 8;
 
     /* Number of x-axis ticks displayed in the graph (score is then minimum 1-(nb_categs_displayed/nb_categs) ) */
     var nb_categs_displayed = Math.ceil(nb_categs / 2);
-    var nb_nutrition_grades = (Object.prototype.hasOwnProperty.call("scoreNbIntervals", db_graph)) ? db_graph.scoreNbIntervals : 5;
+    var nb_nutrition_grades = (Object.prototype.hasOwnProperty.call(db_graph, "scoreNbIntervals")) ? db_graph.scoreNbIntervals : 5;
     var x_axis_min_value = 1 - (nb_categs_displayed / nb_categs);
     var shift_left_x_values = x_axis_min_value;
 
