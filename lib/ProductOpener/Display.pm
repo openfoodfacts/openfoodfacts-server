@@ -98,7 +98,6 @@ BEGIN
 		$styles
 		$header
 		$bodyabout
-		$debug_template
 
 		$original_subdomain
 		$subdomain
@@ -143,7 +142,7 @@ use ProductOpener::Nutriscore qw(:all);
 use Cache::Memcached::Fast;
 use Encode;
 use URI::Escape::XS;
-use CGI qw(:cgi :form escapeHTML);
+use CGI qw(:cgi :cgi-lib :form escapeHTML');
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
@@ -302,7 +301,6 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	$debug_template = undef;
 
 	my $r = shift;
 
@@ -583,42 +581,13 @@ sub analyze_request($)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 
-	# first check and set parameters in the query string
-
-	foreach my $parameter ('api_version', 'blame', 'fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'filter', 'limit', 'translate', 'stats', 'status', 'missing_property', 'debug_template') {
-
-		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
-
-			# Remove them from string
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
-
-			# Set the value in the request ref, ex: \?json=value
-			$request_ref->{$parameter} = $2;
-
-			# If the parameter is field decode "%2C" to ","
-			if ($parameter eq "fields") {
-				$request_ref->{$parameter} =~ s/\%2C/,/g;
-			}
-
-			if ($parameter eq "debug_template") {
-				# Use a global variable so that we can access it in functions that do not have $request_ref as a parameter
-				$debug_template = $request_ref->{$parameter};
-			}
-
-			$log->debug("parameter $parameter was set from query string: " . $request_ref->{$parameter}, { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
-		}
-	}
-
-	# then check suffixes .json etc.
+	# check suffixes .json etc. and set the corresponding CGI parameter so that we can retrieve it with param() later
 
 	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
 
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 
-			# Remove from query string
-			$request_ref->{query_string} =~ s/\.$parameter$//;
-
-			$request_ref->{$parameter} = 1;
+			param($parameter, 1);
 
 			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
@@ -657,23 +626,32 @@ sub analyze_request($)
 	}
 
 	# Api access
+	# /api/v0/product/[code]
+	# /api/v0/search
 	elsif ($components[0] eq 'api') {
-
 
 		# Set version, method and code
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
-			$request_ref->{api_version} = $1;
+			param("api_version", $1);
 		}
-		$request_ref->{api_method} = $components[2];
-		$request_ref->{code} = $components[3];
+		param("api_method", $components[2]);
+		if (defined $components[3]) {
+			param("code", $components[3]);
+			$request_ref->{code} = $components[3];
+		}
 
 		# If return format is not xml or jqm or jsonp, default to json
-		if ((not exists $request_ref->{xml}) and (not exists $request_ref->{jqm}) and (not exists $request_ref->{jsonp})) {
-			$request_ref->{json} = 1;
+		if ((not defined param("xml")) and (not defined param("jqm")) and (not defined param("jsonp"))) {
+			param("json", 1);
 		}
 
-		$log->debug("got API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
+		$log->debug("got API request", { api => $request_ref->{api}, api_version => param("api_version"), api_method => param("api_method"), code => $request_ref->{code}, jqm => param("jqm"), json => param("json"), xml => param("xml") } ) if $log->is_debug();
+	}
+	
+	# Search endpoint, parameters will be parser by CGI.pm param()
+	elsif ($components[0] eq "search") {
+		$request_ref->{search} = 1;
 	}
 
 	# Renamed text?
@@ -1378,8 +1356,8 @@ sub get_cache_results($$){
 
 	# disable caching if ?nocache=1
 	# or if the user is logged in and nocache is different from 0
-	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
+	if ( ((defined param("nocache")) and (param("nocache")))
+		or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
 		) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
@@ -1439,8 +1417,8 @@ sub query_list_of_tags($$) {
 	# define limit and skip values
 	my $limit;
 
-	#If ?stats=1 or ?filter=  than do not limit results size
-	if ((defined $request_ref->{stats}) or (defined $request_ref->{filter}) or (defined $request_ref->{status}) or (defined $request_ref->{translate}) ) {
+	#If ?stats=1 or ?filter=  then do not limit results size
+	if ((defined param("stats")) or (defined param("filter")) or (defined param("status")) or (defined param("translate")) ) {
 		$limit = 999999999999;
 	}
 	elsif (defined $request_ref->{tags_page_size}) {
@@ -1507,8 +1485,8 @@ sub query_list_of_tags($$) {
 
 		# do not used the smaller cached products_tags collection if ?nocache=1
 		# or if the user is logged in and nocache is different from 0
-		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
+		if ( ((defined param("nocache")) and (param("nocache")))
+			or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
 			) {
 
 			eval {
@@ -1580,8 +1558,8 @@ sub query_list_of_tags($$) {
 
 			# do not used the smaller cached products_tags collection if ?nocache=1
 			# or if the user is logged in and nocache is different from 0
-			if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
-				or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))
+			if ( ((defined param("nocache")) and (param("nocache")))
+				or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
 				) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
@@ -1736,7 +1714,7 @@ sub display_list_of_tags($$) {
 			unknown_tags_products => 0,
 		);
 
-		my $missing_property = $request_ref->{missing_property};
+		my $missing_property = param("missing_property");
 		if ((defined $missing_property) and ($missing_property !~ /:/)) {
 			$missing_property .= ":en";
 			$log->debug("missing_property defined", {missing_property => $missing_property});
@@ -1754,10 +1732,10 @@ sub display_list_of_tags($$) {
 			my $count = $tagcount_ref->{count};
 
 			# allow filtering tags with a search pattern
-			if (defined $request_ref->{filter}) {
+			if (defined param("filter")) {
 				my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
 				my $display = $tag_ref->{display};
-				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{filter})));
+				my $regexp = quotemeta(decode("utf8",URI::Escape::XS::decodeURIComponent(param("filter"))));
 				next if ($display !~ /$regexp/i);
 			}
 
@@ -1821,7 +1799,7 @@ sub display_list_of_tags($$) {
 					if ($missing_property) {
 						next if (defined get_inherited_property($tagtype, $tagid, $missing_property));
 					}
-					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "unknown")) {
+					if ((defined param("status")) and (param("status") eq "unknown")) {
 						next;
 					}
 				}
@@ -1833,7 +1811,7 @@ sub display_list_of_tags($$) {
 					# ?missing_property=vegan
 					# keep only known tags
 					next if ($missing_property);
-					if ((defined $request_ref->{status}) and ($request_ref->{status} eq "known")) {
+					if ((defined param("status")) and (param("status") eq "known")) {
 						next;
 					}
 				}
@@ -1842,12 +1820,12 @@ sub display_list_of_tags($$) {
 			$j++;
 
 			# allow limiting the number of results returned
-			if ((defined $request_ref->{limit}) and ($j >= $request_ref->{limit})) {
+			if ((defined param("limit")) and ($j >= param("limit"))) {
 				last;
 			}
 
 			# do not compute the tag display if we just need stats
-			next if ((defined $request_ref->{stats}) and ($request_ref->{stats}));
+			next if ((defined param("stats")) and (param("stats")));
 
 			my $info = '';
 			my $css_class = '';
@@ -2004,11 +1982,11 @@ sub display_list_of_tags($$) {
 		$html .= "</tbody></table></div>";
 
 		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
-		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined $request_ref->{stats}) and not (defined $request_ref->{filter})) {
+		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined param("stats")) and not (defined param("filter"))) {
 			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
 		}
 
-		if ((defined $request_ref->{stats}) and ($request_ref->{stats})) {
+		if ((defined param("stats")) and (param("stats"))) {
 			#TODO: HERE WE ARE DOING A LOT OF EXTRA WORK BY FIRST CREATING THE TABLE AND THEN DESTROYING IT
 			$html =~ s/<table(.*)<\/table>//is;
 
@@ -2389,7 +2367,7 @@ sub display_list_of_tags_translate($$) {
 				next;
 			}
 
-			if ((not $request_ref->{translate} eq "all") and
+			if ((not param("translate") eq "all") and
 				((defined $tag_ref->{display_lc}) and (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en")))) {
 
 				$log->debug("display_list_of_tags_translate - entry $tagid already has a translation to $lc") if $log->is_debug();
@@ -2405,9 +2383,9 @@ sub display_list_of_tags_translate($$) {
 
 				$log->debug("display_list_of_tags_translate - entry $tagid has existing user translation to $lc", $users_translations_ref->{$lc}{$tagid}) if $log->is_debug();
 
-				if ($request_ref->{translate} eq "add") {
+				if (param("translate") eq "add") {
 					# Add mode: show only entries without translations
-					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry with existing user translation") if $log->is_debug();
+					$log->debug("display_list_of_tags_translate - translate=" . param("translate") . " - skip $tagid entry with existing user translation") if $log->is_debug();
 					next;
 				}
 				# All, Edit or Review mode: show the new translation
@@ -2418,9 +2396,9 @@ sub display_list_of_tags_translate($$) {
 
 				$log->debug("display_list_of_tags_translate - entry $tagid does not have user translation to $lc") if $log->is_debug();
 
-				if ($request_ref->{translate} eq "review") {
+				if (param("translate") eq "review") {
 					# Review mode: show only entries with new translations
-					$log->debug("display_list_of_tags_translate - translate=" . $request_ref->{translate} . " - skip $tagid entry without existing user translation") if $log->is_debug();
+					$log->debug("display_list_of_tags_translate - translate=" . param("translate") . " - skip $tagid entry without existing user translation") if $log->is_debug();
 					next;
 				}
 			}
@@ -2953,10 +2931,10 @@ sub display_tag($) {
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
 		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
-		$request_ref->{redirect} .= '.json' if $request_ref->{json};
-		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
-		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
-		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
+		$request_ref->{redirect} .= '.json' if param("json");
+		$request_ref->{redirect} .= '.jsonp' if param("jsonp");
+		$request_ref->{redirect} .= '.xml' if param("xml");
+		$request_ref->{redirect} .= '.jqm' if param("jqm");
 		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
@@ -3810,7 +3788,7 @@ HTML
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		if (defined $request_ref->{translate}) {
+		if (defined param("translate")) {
 			${$request_ref->{content_ref}} .= $html . display_list_of_tags_translate($request_ref, $query_ref);
 		}
 		else {
@@ -3920,6 +3898,119 @@ sub count_products($$) {
 }
 
 
+sub add_params_to_query($$) {
+	
+	my $request_ref = shift;
+	my $query_ref = shift;
+	
+	$log->debug("add_params_to_query", { params => {CGI::Vars()} }) if $log->is_debug();
+
+	my $and = $query_ref->{"\$and"};
+	
+	foreach my $field (param()) {
+		
+		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
+		
+		if (($field eq "page") or ($field eq "page_size")) {
+			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
+		}
+		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
+			my $tagtype = $1;
+			my $tag_lc = $lc;
+			if (defined $3) {
+				$tag_lc = $3;
+			}
+			
+			# Possible values:
+			# xyz_tags=a
+			# xyz_tags=a,b	products with tag a and b
+			# xyz_tags=a|b	products with either tag a or tag b
+			# xyz_tags=-c	products without the c tag
+			# xyz_tags=a,b,-c,-d
+			
+			my $values = param($field);
+			
+			$log->debug("add_params_to_query - param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
+			
+			foreach my $tag (split(/,/, $values)) {
+				
+				my $suffix = "_tags";
+				
+				# If there is more than one criteria on the same field, we need to use a $and query
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
+					}
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+				}				
+				
+				my $not;
+				if ($tag =~ /^-/) {
+					$not = 1;
+					$tag = $';
+				}
+				
+				# Multiple values separated by | 
+				if ($tag =~ /\|/) {
+					my @tagids = ();
+					foreach my $tag2 (split(/\|/, $tag)) {
+						my $tagid2;
+						if (defined $taxonomy_fields{$tagtype}) {
+							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc,$tagtype, $tag2));
+							if ($tagtype eq 'additives') {
+								$tagid2 =~ s/-.*//;
+							}
+						}
+						else {
+							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+						}
+						push @tagids, $tagid2;				
+					}
+					
+					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
+					
+					if ($not) {
+						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
+					}
+					else {
+						$query_ref->{$tagtype . $suffix} = { '$in' => \@tagids };
+					}					
+				}
+				# Single value
+				else {
+					my $tagid;
+					if (defined $taxonomy_fields{$tagtype}) {
+						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc,$tagtype, $tag));
+						if ($tagtype eq 'additives') {
+							$tagid =~ s/-.*//;
+						}				
+					}
+					else {
+						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+					}
+					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
+
+					if ($not) {
+						$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
+					}
+					else {
+						$query_ref->{$tagtype . $suffix} = $tagid;
+					}
+				}
+
+				if ($remove) {
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+			}
+		}
+	}
+}
+
+
 sub search_and_display_products($$$$$) {
 
 	my $request_ref = shift;
@@ -3932,6 +4023,8 @@ sub search_and_display_products($$$$$) {
 		lang => \&lang,
 		display_pagination => \&display_pagination,
 	};
+	
+	add_params_to_query($request_ref, $query_ref);
 
 	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
 
@@ -3998,7 +4091,7 @@ sub search_and_display_products($$$$$) {
 	my $fields_ref;
 
 	#for API (json, xml, rss,...), display all fields
-	if ($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss}) {
+	if (param("json") or param("jsonp") or param("xml") or param("jqm") or $request_ref->{rss}) {
 		$fields_ref = {};
 	} else {
 	#for HTML, limit the fields we retrieve from MongoDB
@@ -4135,7 +4228,7 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{html_count} = $html_count;
 	}
 
-	$template_data_ref->{jqm} = $request_ref->{jqm};
+	$template_data_ref->{jqm} = param("jqm");
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
@@ -4203,12 +4296,15 @@ sub search_and_display_products($$$$$) {
 			$product_ref->{url} = $formatted_subdomain . $url;
 
 			add_images_urls_to_product($product_ref);
+			
+			my $jqm = param("jqm");	# Assigning to a scalar to make sure we get a scalar
+			# jqm => param("jqm") in the hash below does not work
 
 			push @{$template_data_ref->{structured_response_products}}, {
 				code => $code,
 				product_name => $product_name,
 				img => $img,
-				jqm => $request_ref->{jqm},
+				jqm => $jqm,
 				url => $url,
 			};
 
@@ -4219,15 +4315,15 @@ sub search_and_display_products($$$$$) {
 		}
 
 
-		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined $request_ref->{fields}) {
+		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
+		if ((defined $request_ref->{api}) and (defined param('fields'))) {
 
 			my $compact_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 				my $compact_product_ref = {};
-				foreach my $field (split(/,/, $request_ref->{fields})) {
+				foreach my $field (split(/,/, param('fields'))) {
 
 					if ($field =~ /^(.*)_languages$/) {
 
@@ -4271,7 +4367,7 @@ sub search_and_display_products($$$$$) {
 				my $i = 0;
 				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 					$i++;
-					if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
+					if ((defined param("api_version")) and (param("api_version") > 1)) {
 						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
 						if (not exists $ingredient_ref->{rank}) {
 							# delete this ingredient and ingredients after
@@ -4325,7 +4421,7 @@ sub display_pagination($$$$) {
 
 	$log->info("current link: $current_link, current_link_query: $current_link_query") if $log->is_info();
 
-	if ($request_ref->{jqm}) {
+	if (param("jqm")) {
 		$current_link_query .= "&jqm=1";
 	}
 
@@ -4414,7 +4510,7 @@ sub display_pagination($$$$) {
 	# Close the list
 
 
-	if (defined $request_ref->{jqm}) {
+	if (defined param("jqm")) {
 		if (defined $next_page_url) {
 			my $loadmore = lang("loadmore");
 			$html .= <<HTML
@@ -4431,7 +4527,7 @@ HTML
 		$html .= "</ul>\n";
 	}
 
-	if (not defined $request_ref->{jqm}) {
+	if (not defined param("jqm")) {
 		$html .= $html_pages;
 	}
 	return $html;
@@ -4449,6 +4545,8 @@ sub search_and_export_products($$$) {
 	if (defined $request_ref->{format}) {
 		$format = $request_ref->{format};
 	}
+	
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5446,6 +5544,8 @@ sub search_and_graph_products($$$) {
 	my $request_ref = shift;
 	my $query_ref = shift;
 	my $graph_ref = shift;
+	
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5617,6 +5717,8 @@ sub search_and_map_products($$$) {
 	my $request_ref = shift;
 	my $query_ref = shift;
 	my $graph_ref = shift;
+
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -5996,7 +6098,7 @@ sub display_new($) {
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
 
-	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss})
+	if ((param("json") or param("jsonp") or param("xml") or param("jqm") or $request_ref->{rss})
 		and (exists $request_ref->{structured_response})) {
 
 		display_structured_response($request_ref);
@@ -6921,7 +7023,7 @@ CSS
 
 	my $product_ref;
 
-	my $rev = $request_ref->{rev};
+	my $rev = param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision") if $log->is_info();
@@ -7217,9 +7319,13 @@ JS
 	}
 
 	$template_data_ref->{display_ingredients_in_lang} = sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc,'languages',$language_codes{$lc}));
+
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
+
 	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
+
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
+
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
 	my $html_ingredients_classes = "";
@@ -7602,7 +7708,7 @@ sub display_product_jqm ($) # jquerymobile
 
 	my $product_ref;
 
-	my $rev = $request_ref->{rev};
+	my $rev = param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->info("displaying product revision on jquery mobile") if $log->is_info();
@@ -9073,11 +9179,6 @@ JS
 
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
-	if ((defined $debug_template)
-		and ($debug_template eq "nutrition_facts_table")) {
-		$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
-	}
-
 	return $html;
 }
 
@@ -9092,7 +9193,7 @@ sub display_product_api($)
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product api", { code => $code }) if $log->is_info();
+	$log->debug("display_product_api", { code => $code, params => {CGI::Vars()} }) if $log->is_debug();
 
 	my %response = ();
 
@@ -9106,12 +9207,12 @@ sub display_product_api($)
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if ($request_ref->{api_version} >= 1) {
+		if (param("api_version") >= 1) {
 			$request_ref->{status} = 404;
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
-		if ($request_ref->{jqm}) {
+		if (param("jqm")) {
 			$response{jqm} = <<HTML
 $Lang{app_please_take_pictures}{$lang}
 <button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button>
@@ -9119,7 +9220,7 @@ $Lang{app_please_take_pictures}{$lang}
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
 HTML
 ;
-			if ($request_ref->{api_version} >= 0.1) {
+			if (param("api_version") >= 0.1) {
 
 				my @app_fields = qw(product_name brands quantity);
 
@@ -9172,10 +9273,13 @@ HTML
 		$response{product} = $product_ref;
 
 		# If the request specified a value for the fields parameter, return only the fields listed
-		if (defined $request_ref->{fields}) {
+		if (defined param('fields')) {
+			
+			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
+			
 			my $compact_product_ref = {};
 			my $carbon_footprint_computed = 0;
-			foreach my $field (split(/,/, $request_ref->{fields})) {
+			foreach my $field (split(/,/, param('fields'))) {
 				# On demand carbon footprint tags
 				if ((not $carbon_footprint_computed)
 					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
@@ -9254,7 +9358,7 @@ HTML
 			my $i = 0;
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 				$i++;
-				if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} > 1)) {
+				if ((defined param("api_version")) and (param("api_version") > 1)) {
 					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
 					if ( not exists $ingredient_ref->{rank} ) {
 						# delete this ingredient and ingredients after
@@ -9272,7 +9376,7 @@ HTML
 		}
 
 		# Return blame information
-		if (defined $request_ref->{blame}) {
+		if (defined param("blame")) {
 			my $path = product_path_from_id($product_id);
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 			if (not defined $changes_ref) {
@@ -9282,7 +9386,7 @@ HTML
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response{blame});
 		}
 
-		if ($request_ref->{jqm}) {
+		if (param("jqm")) {
 			# return a jquerymobile page for the product
 
 			display_product_jqm($request_ref);
@@ -9472,8 +9576,8 @@ sub display_structured_response($)
 	my $request_ref = shift;
 
 
-	$log->debug("Displaying structured response", { json => $request_ref->{json}, jsonp => $request_ref->{jsonp}, xml => $request_ref->{xml}, jqm => $request_ref->{jqm}, rss => $request_ref->{rss} }) if $log->is_debug();
-	if ($request_ref->{xml}) {
+	$log->debug("Displaying structured response", { json => param("json"), jsonp => param("jsonp"), xml => param("xml"), jqm => param("jqm"), rss => $request_ref->{rss} }) if $log->is_debug();
+	if (param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
 		my $xs = XML::Simple->new(NumericEscape => 2);
@@ -9622,6 +9726,8 @@ XML
 sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
+	
+	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
