@@ -3917,6 +3917,27 @@ sub count_products($$) {
 }
 
 
+=head2 add_params_to_query ( $request_ref, $query_ref )
+
+This function is used to parse search query parameters that are passed
+to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
+either as query string parameters (e.g. ?labels_tags=en:organic) or
+POST parameters.
+
+The function adds the corresponding query filters in the MongoDB query.
+
+=head3 Parameters
+
+=head4 $request_ref (output)
+
+Reference to the internal request object.
+
+=head4 $query_ref (output)
+
+Reference to the MongoDB query object.
+
+=cut
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -3933,6 +3954,10 @@ sub add_params_to_query($$) {
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
+		
+		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
+		# or with values in a given language (e.g. labels_tags_fr=bio)
+		
 		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
@@ -3949,7 +3974,7 @@ sub add_params_to_query($$) {
 			
 			my $values = param($field);
 			
-			$log->debug("add_params_to_query - param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
+			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
 			
 			foreach my $tag (split(/,/, $values)) {
 				
@@ -3988,7 +4013,7 @@ sub add_params_to_query($$) {
 						push @tagids, $tagid2;				
 					}
 					
-					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
+					$log->debug("add_params_to_query - tags param - multiple values (OR) separated by | ", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
 					
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
@@ -4009,7 +4034,7 @@ sub add_params_to_query($$) {
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 					}
-					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
+					$log->debug("add_params_to_query - tags param - single value", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
 
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
@@ -4024,6 +4049,57 @@ sub add_params_to_query($$) {
 					delete $query_ref->{$tagtype . $suffix};
 					$query_ref->{"\$and"} = $and;
 				}
+			}
+		}
+		
+		# Conditions on nutrients
+		
+		# e.g. saturated-fat_prepared_serving=<3=0
+		# the parameter name is exactly the same as the key in the nutriments hash of the product
+		
+		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
+			
+			# We can have multiple conditions, separated with a comma
+			# e.g. sugars_100g=>10,<=20
+			
+			my $conditions = param($field);
+			
+			$log->debug("add_params_to_query - nutrient conditions", { field => $field, conditions => $conditions}) if $log->is_debug();			
+			
+			foreach my $condition (split(/,/, $conditions)) {
+			
+				# the field value is a number, possibly preceded by <, >, <= or >=
+				
+				my $operator;
+				my $value;
+				
+				if ($condition =~ /^(<|>|<=|>=)(\d.*)$/) {
+					$operator = $1;
+					$value = $2;
+				}
+				else {
+					$operator = '=';
+					$value = param($field);
+				}
+				
+				$log->debug("add_params_to_query - nutrient condition", { field => $field, condition => $condition, operator => $operator, value => $value}) if $log->is_debug();
+				
+				my %mongo_operators = (
+					'<' => 'lt',
+					'<=' => 'lte',
+					'>' => 'gt',
+					'>=' => 'gte',
+				);
+				
+				if ($operator eq '=') {
+					$query_ref->{"nutriments." . $field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
+				}
+				else {
+					if (not defined $query_ref->{$field}) {
+						$query_ref->{"nutriments." . $field} = {};
+					}
+					$query_ref->{"nutriments." . $field}{ '$' . $mongo_operators{$operator}} = $value + 0.0;
+				}			
 			}
 		}
 	}
@@ -4367,7 +4443,7 @@ sub search_and_display_products($$$$$) {
 							}
 						}
 					}
-
+					
 					elsif (defined $product_ref->{$field}) {
 						$compact_product_ref->{$field} = $product_ref->{$field};
 					}
@@ -10018,11 +10094,11 @@ This function calls itself to display sub-ingredients of ingredients.
 
 Reference to the product's ingredients array or the ingredients array of an ingredient.
 
-$head4 $ingredients_text_ref (output)
+=head4 $ingredients_text_ref (output)
 
 Reference to a list of ingredients in text format that we will reconstruct from the ingredients array.
 
-$head4 $ingredients_list_ref (output)
+=head4 $ingredients_list_ref (output)
 
 Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
 
