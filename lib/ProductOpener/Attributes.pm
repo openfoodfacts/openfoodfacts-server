@@ -73,9 +73,8 @@ use ProductOpener::Lang qw/:all/;
 
 =head2 compute_attributes ( $product_ref, $target_lc )
 
-Compute all attributes for a product, with strings (descriptions,
-recommendations etc.) in a specific language, and return them in the
-"attributes" array.
+Compute all attributes for a product, with strings (descriptions, recommendations etc.)
+in a specific language, and return them in an array of attribute groups.
 
 =head3 Arguments
 
@@ -90,11 +89,10 @@ This parameter sets the desired language for the user facing strings.
 
 =head3 Return values
 
-Attributes are stored in the "attributes_[$target_lc]" array of the product reference
+Attributes are returned in the "attribute_groups_[$target_lc]" array of the product reference
 passed as input.
 
-The array contains attributes groups, and each attributes group
-contains individual attributes.
+The array contains attribute groups, and each attribute group contains individual attributes.
 
 =cut
 
@@ -107,7 +105,7 @@ sub compute_attributes($$) {
 
 	# Initialize attributes
 
-	$product_ref->{attributes} = [];
+	$product_ref->{"attribute_groups_" . $target_lc} = [];
 	
 	# Populate the attributes groups and the attributes of each group
 	# in a default order (a meaningful order that apps / clients can decide to reorder or not)
@@ -131,13 +129,13 @@ sub compute_attributes($$) {
 	}
 	
 	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
-		"attributes_" . $target_lc => $product_ref->{"attributes_" . $target_lc} }) if $log->is_debug();
+		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
 }
 
 
 =head2 add_attributes ( $product_ref, $target_lc, $group_id, $attribute_ref )
 
-Add an attribute to a given attributes group, if the attribute is defined.
+Add an attribute to a given attribute group, if the attribute is defined.
 
 =head3 Arguments
 
@@ -170,7 +168,7 @@ sub add_attribute($$$$) {
 	if (defined $attribute_ref) {
 		my $group_ref;
 		# Select the requested group
-		foreach my $each_group_ref (@{$product_ref->{"attributes_" . $target_lc}}) {
+		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
 			$log->debug("add_attribute - existing group", { group_ref => $group_ref,, group_id => $group_id }) if $log->is_debug();	
 			if ($each_group_ref->{id} eq $group_id) {
 				$group_ref = $each_group_ref;
@@ -184,10 +182,10 @@ sub add_attribute($$$$) {
 			
 			$group_ref = {
 				id => $group_id,
-				name => lang_in_other_lc($target_lc, "attributes_group_" . $group_id . "_name"),
+				name => lang_in_other_lc($target_lc, "attribute_group_" . $group_id . "_name"),
 				attributes => [],
 			};
-			push @{$product_ref->{"attributes_" . $target_lc}}, $group_ref;
+			push @{$product_ref->{"attribute_groups_" . $target_lc}}, $group_ref;
 		}
 		
 		push @{$group_ref->{attributes}}, $attribute_ref;

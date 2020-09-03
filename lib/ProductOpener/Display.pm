@@ -4191,15 +4191,15 @@ sub customize_response_for_product($) {
 		}
 		
 		# Product attributes requested in a specific language
-		elsif ($field =~ /^attributes_([a-z]{2})$/) {
+		elsif ($field =~ /^attribute_groups_([a-z]{2})$/) {
 			my $target_lc = $1;
 			compute_attributes($product_ref, $target_lc);
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
 		# Product attributes in the $lc language
-		elsif ($field eq "attributes") {
+		elsif ($field eq "attribute_groups") {
 			compute_attributes($product_ref, $lc);
-			$customized_product_ref->{$field} = $product_ref->{"attributes_" . $lc};
+			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 		}		
 
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
