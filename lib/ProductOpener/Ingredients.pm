@@ -147,15 +147,20 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en => "possible traces|traces|may contain",
+	bg => "продуктът може да съдържа следи от|може да съдържа следи от",
 	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
+	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	lt => "sudėtyje gali būti",
+	lv => "var saturēt",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
@@ -166,6 +171,7 @@ my %contains_regexps = (
 	es => "contiene",
 	fr => "contient",
 	nl => "bevat",
+	ro => "con[țţ]ine",
 	sv => "innehåller",
 );
 
@@ -262,10 +268,10 @@ all => [
 ],
 
 da => [
-	[ "bl. a", "blandt andet" ],
-	[ "inkl.", "inklusive" ],
-	[ "mod.",  "modificeret" ],
-	[ "past.", "pasteuriserede" ],
+	[ "bl. a.", "blandt andet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "mod.",   "modificeret" ],
+	[ "past.",  "pasteuriserede" ],
 ],
 
 en => [
@@ -289,24 +295,24 @@ fr => [
 ],
 
 nb => [
-	[ "bl. a", "blant annet" ],
-	[ "inkl.", "inklusive" ],
-	[ "papr.", "paprika" ],
+	[ "bl. a.", "blant annet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "papr.",  "paprika" ],
 ],
 
 sv => [
-	[ "bl. a",            "bland annat" ],
-	[ "förtjockn.medel",  "förtjockningsmedel" ],
-	[ "inkl.",            "inklusive" ],
-	[ "kons.medel",       "konserveringsmedel" ],
-	[ "max.",             "maximum" ],
-	[ "mikrob.",          "mikrobiellt" ],
-	[ "min.",             "minimum" ],
-	[ "mod.",             "modifierad" ],
-	[ "past.",            "pastöriserad" ],
-	[ "stabil.",          "stabiliseringsämne" ],
-	[ "surhetsreg.",      "surhetsreglerande" ],
-	[ "veg.",             "vegetabilisk" ],
+	[ "bl. a.",          "bland annat" ],
+	[ "förtjockn.medel", "förtjockningsmedel" ],
+	[ "inkl.",           "inklusive" ],
+	[ "kons.medel",      "konserveringsmedel" ],
+	[ "max.",            "maximum" ],
+	[ "mikrob.",         "mikrobiellt" ],
+	[ "min.",            "minimum" ],
+	[ "mod.",            "modifierad" ],
+	[ "past.",           "pastöriserad" ],
+	[ "stabil.",         "stabiliseringsämne" ],
+	[ "surhetsreg.",     "surhetsreglerande" ],
+	[ "veg.",            "vegetabilisk" ],
 ],
 );
 
@@ -319,7 +325,7 @@ my %of = (
 	fr => " de la | de | du | des | d'",
 	is => " af ",
 	it => " di | d'",
-	nl => " of ",
+	nl => " van ",
 	nb => " av ",
 	sv => " av ",
 );
@@ -330,10 +336,13 @@ my %and = (
 	da => " og ",
 	de => " und ",
 	es => " y ", # Spanish "e" before "i" and "hi" is handled by preparse_text()
+	et => " ja ",
 	fi => " ja ",
 	fr => " et ",
 	is => " og ",
 	it => " e ",
+	lt => " ir ",
+	lv => " un ",
 	nl => " en ",
 	nb => " og ",
 	pt => " e ",
@@ -1140,7 +1149,18 @@ sub parse_ingredients_text($) {
 				}
 
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+				if ($ingredient =~ m{^
+									 \s*
+									 ( \d+ ([,.] \d+)? )
+									 \s*
+									 (\%|g)
+									 \s*
+
+									 ( (?: pur | de ) \s | d' )?
+									 \s*
+									}sxmi
+					)
+				{
 					$percent = $1;
 					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
 					$ingredient = $';

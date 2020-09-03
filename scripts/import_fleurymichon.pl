@@ -51,6 +51,7 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use XML::Rules;
+use HTML::Entities qw/decode_entities/;
 
 $lc = "fr";
 $country = "en:france";
@@ -263,7 +264,7 @@ print STDERR "importing products\n";
 			if ($code eq '') {
 				print STDERR "empty code\n";
 				require Data::Dumper;
-				print STDERR Data::Dumper->Dumper($fleurymichon_product_ref);
+				print STDERR Data::Dumper::Dumper($fleurymichon_product_ref);
 				exit;
 			}
 
@@ -591,9 +592,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 					$debug and print STDERR "ingredients 2 : $params{$ingredients_fields{$field}} \n";
 
 
-					require HTML::Entities;
-					$params{ $ingredients_fields{$field} }
-						= HTML::Entities->decode_entities(
+					$params{ $ingredients_fields{$field} } = decode_entities(
 						$params{ $ingredients_fields{$field} } );
 
 					$debug and print STDERR "ingredients 3 : $params{$ingredients_fields{$field}} \n";

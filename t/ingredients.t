@@ -1609,6 +1609,53 @@ is_deeply ($product_ref->{ingredients},
 
 ) or diag explain $product_ref;
 
+# Bugs #3827, #3706, #3826 - truncated purée
+$product_ref = {
+	lc => "fr",
+	ingredients_text =>
+		"19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
+};
+
+extract_ingredients_from_text($product_ref);
+
+delete_ingredients_percent_values( $product_ref->{ingredients} );
+delete $product_ref->{ingredients_percent_analysis};
+
+is_deeply(
+	$product_ref->{ingredients},
+	[   {   'id'         => 'en:crushed-tomato',
+			'percent'    => 19,
+			'rank'       => 1,
+			'text'       => "pur\x{e9}e de tomate",
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		},
+		{   'id'         => 'en:beef',
+			'percent'    => '90',
+			'rank'       => 2,
+			'text'       => 'boeuf',
+			'vegan'      => 'no',
+			'vegetarian' => 'no'
+		},
+		{   'id'         => 'en:fruit-juice',
+			'percent'    => 100,
+			'rank'       => 3,
+			'text'       => 'jus de fruit',
+			'vegan'      => 'yes',
+			'vegetarian' => 'yes'
+		},
+		{   'from_palm_oil' => 'maybe',
+			'id'            => 'en:oil-and-fat',
+			'percent'       => '45',
+			'rank'          => 4,
+			'text'          => "mati\x{e8}re grasses",
+			'vegan'         => 'maybe',
+			'vegetarian'    => 'maybe'
+		}
+	],
+) or diag explain $product_ref;
+
+
 # Finnish
 $product_ref = {
 	lc => "fi",
