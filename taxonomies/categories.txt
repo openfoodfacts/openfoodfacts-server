@@ -1607,7 +1607,7 @@ agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
 
 <en:Beers
-en:Stout, stout, Dark beers, Dark beer
+en:Stouts, stout, Dark beers, Dark beer
 de:Stouts
 fi:Stout
 fr:Bières brunes, bière brune
@@ -24993,14 +24993,13 @@ ciqual_food_name:fr:Pain blanc maison (avec farine pour machine à pain)
 # <en:compound
 # mainIngredient:en:wheat
 <en:Breads
-en:Croutons
+en:Croutons, crouton
 af:Crouton
 be:грэнкі
 bg:крутон
 ca:crostó
 de:Croûtons, Crouton
 el:κρουτόν
-en:croutons, crouton
 es:croûton
 eu:ogi-txigorki
 fi:leivät
@@ -25031,10 +25030,10 @@ ciqual_food_code:en:7430
 ciqual_food_name:en:Croutons
 
 <en:Breads
-en:Croutons
+en:Croutons for spreads
 fr:Croûtons à tartiner
 ciqual_food_code:en:7431
-ciqual_food_name:en:Croutons
+ciqual_food_name:en:Croutons, for spreads
 
 <en:Breads
 en:Croutons plain prepacked
@@ -55664,7 +55663,7 @@ ciqual_food_name:fr:Langue, boeuf, crue
 
 <en:Beef tongues
 <en:Beef preparations
-en:Tongue of beef with hot sauce, Tongue of beef with hot sauce
+en:Tongue of beef with hot sauce
 fr:Langues de bœuf sauce piquante, Langues de bœuf sauce piquante
 nl:Kalfstong in pikante saus
 
@@ -59386,6 +59385,7 @@ ciqual_food_name:fr:Saucisse de langue à la pistache
 <en:Sausages
 <en:Veal meat
 en:Veal sausages, Veal Sausage
+es:Salchichas de Ternera
 fi:Vasikanmakkarat
 fr:Saucisses de veau, Saucisse de veau
 
@@ -59411,11 +59411,6 @@ fr:Saucisses de dinde
 hu:Pulyka kolbász
 it:Salsicce di tacchino
 nl:Kalkoenworst
-
-<en:Sausages
-en:Veal Sausages, Veal Sausage
-es:Salchichas de Ternera
-fr:Saucisses de veau, Saucisse de veau
 
 <en:Sausages
 fr:Merguez, Merguez crue
@@ -66717,7 +66712,6 @@ ciqual_food_name:en:Swordfish, roasted/baked
 en:Smoked haddock
 fr:Haddocks fumés, haddock fumé, eglefins fumés, eglefin fumé, aiglefins fumés, aigrefin fumés, églefins fumés, églefin fumé
 nl:Gerookte schelvis
-en:Smoked haddock
 agribalyse_food_code:en:26090
 ciqual_food_code:en:26090
 ciqual_food_name:en:Haddock, smoked
