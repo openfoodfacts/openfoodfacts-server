@@ -596,6 +596,29 @@ sk:draselné soli kyseliny ortofosforečnej
 sl:kalijeve soli ortofosforne kisline
 sv:kaliumsalter av ortofosforsyra
 
+<en:Potassium
+en:magnesium potassium citrate
+bg:Магнезиево-калиев цитрат
+cs:citronan draselno-hořečnatý
+de:Magnesiumkaliumcitrat
+el:κιτρικό καλιομαγνήσιο
+es:citrato de magnesio y potasio
+et:magneesiumkaaliumtsitraat
+fi:magnesiumkaliumsitraatti
+fr:citrate potassium-magnésium
+hu:magnézium-kálium-citrát
+it:citrato di potassio e magnesio
+lt:magnio kalio citratas
+lv:magnija kālija citrāts
+mt:ċitrat tal-potassju tal-manjesju
+nl:kaliummagnesiumcitraat
+pl:cytrynian magnezu-potasu
+pt:citrato de magnésio e potássio
+ro:citrat de magneziu și potasiu
+sk:citran horečnato-draselný
+sl:magnezijev kalijev citrat
+sv:magnesiumkaliumcitrat
+
 
 # description:en:CALCIUM is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
 
@@ -757,10 +780,10 @@ zh:钙
 wikidata:en:Q706
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium
 
-# description:en:CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
-
+description:en:CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
+comment:en:The same entry must be put in the additives taxonomy
 <en:calcium
-<en:E170(i)
+en:E170(i)
 en:Calcium carbonate, CI Pigment White 18, Chalk
 af:Kalsiumkarbonaat
 an:Carbonato calcico
@@ -799,7 +822,7 @@ la:Carbonatum calcii
 lt:Kalcio karbonatas, Baltasis pigmentas CI Nr. 18
 lv:Kalcija karbonāts, CI baltais pigments 18
 mk:Калциум карбонат
-ml:കാൽസ്യം കാർബണേറ്റ്
+ml:ചുണ്ണാമ്പ്
 mr:कॅल्शियम कार्बोनेट
 mt:Karbonat tal-kalċju, CI Pigment White 18
 my:Kalsium karbonat
@@ -913,7 +936,7 @@ lv:ortofosforskābes kalcija sāļi
 mt:melħ tal-kalċju tal-aċidu ortofosforiku
 nl:calciumzouten van orthofosforzuur
 pl:sole wapniowe kwasu ortofosforowego
-pt:sais de calcio de acido ortofosforico
+pt: sais de calcio de acido ortofosforico
 ro:săruri de calciu ale acidului ortofosforic
 sk:vápenaté soli kyseliny ortofosforečnej
 sl:kalcijeve soli ortofosforne kisline
@@ -1518,7 +1541,7 @@ sv:magnesiumsalter av citronsyra
 <en:Magnesium
 en:magnesium gluconate
 bg:Магнезиев глюконат
-cs:glukonát hořečnatý
+cs:glukonan vápenatý
 de:Magnesiumgluconat
 el:γλυκονικό μαγνήσιο
 es:gluconato de magnesio
@@ -1780,7 +1803,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:L-pidolat tal-manjesju
+mt:L-aspartat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -1790,7 +1813,6 @@ sl:magnezijev L-pidolat
 sv:magnesium-L-pidolat
 
 <en:Magnesium
-<en:Potassium
 en:magnesium potassium citrate
 bg:Магнезиево-калиев цитрат
 cs:citronan draselno-hořečnatý
@@ -2594,6 +2616,7 @@ da:Zink
 de:Zink
 dv:ޒިންކް
 el:Ψευδάργυρος
+en:Zinc
 eo:zinko
 es:Zinc
 et:Tsink
@@ -3667,7 +3690,7 @@ ar:كبريتات المنغنيز الثنائي
 bg:Манганов сулфат
 bs:Mangan sulfat
 cs:Síran manganatý
-da:mangansulfat
+da: mangansulfat
 de:Mangan-sulfat
 el:θειικό μαγγάνιο
 es:Sulfato de manganeso
@@ -4008,7 +4031,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenin sodu
+pl:selenian sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
