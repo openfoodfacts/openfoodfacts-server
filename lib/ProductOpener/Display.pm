@@ -9372,7 +9372,18 @@ sub display_product_api($)
 	my %response = ();
 
 	$response{code} = $code;
-	my $product_ref = retrieve_product($product_id);
+	
+	my $product_ref;
+
+	my $rev = param("rev");
+	local $log->context->{rev} = $rev;
+	if (defined $rev) {
+		$log->info("displaying product revision") if $log->is_info();
+		$product_ref = retrieve_product_rev($product_id, $rev);
+	}
+	else {
+		$product_ref = retrieve_product($product_id);
+	}	
 
 	if ($code !~ /^\d{4,24}$/) {
 

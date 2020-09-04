@@ -18,18 +18,26 @@
 
 <!-- Edit product page -->
 <div class="edit_button">
-    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small" title="[% lang('edit_product_page') %]">
         [% display_icon('edit') %]
         <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
     </a>
 </div>
 
-<!-- Delete product page -->
 [% IF user_moderator %]
+<!-- Delete product page -->
     <div class="delete_button">
-        <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small">
+        <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small" title="[% lang('delete_product_page') %]">
             [% display_icon('delete') %]
             <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
+        </a>
+    </div>
+[% END %]
+
+[% IF server_options_producers_platform %]
+    <div class="delete_button">
+        <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+            <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
         </a>
     </div>
 [% END %]
