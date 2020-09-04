@@ -2157,7 +2157,8 @@ wikidata:en:Q473522
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
+description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
+comment:en:IRON(II) GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:iron
 #<en:E579
 en:iron gluconate, ferrous gluconate
@@ -2165,7 +2166,7 @@ ar:غلوكونات الحديد الثنائي
 bg:Феро глюконат
 cs:Glukonan železnatý
 da:Ferrogluconat
-de:Eisengluconat, Eisen(II)-gluconat
+de:Eisengluconat, Eisen-II-gluconat
 el:Γλυκονικος σιδηρος
 es:Gluconato ferroso
 et:Ferroglükonaat
@@ -2189,14 +2190,17 @@ sr:Gvožđe glukonat
 sv:Järnglukonat
 tr:ferrous gluconate
 # azb:قلوکونات دمیر
-wikidata:en: Q421291
+e_number:en:579
+wikidata:en:Q421291
+vegan:en:yes
+vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 # ingredient/fr:gluconate-de-fer has 37 products in 6 languages @2019-02-22
 
 <en:iron gluconate
 en:ferrous gluconate to stabilize color
 
-# description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
+description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
 
 <en:iron
 en:iron fumarate, iron(II) fumarate, ferrous fumarate
