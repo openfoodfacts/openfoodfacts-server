@@ -12937,7 +12937,7 @@ av:ЦӀам
 ay:Jayu
 az:Duz, Xörək duzu
 ba:Аш тоҙо
-be:Павараная соль
+be:Павараная соль, трапезна сол
 bn:লবণ
 bo:ཚྭ།
 br:Holen
@@ -13412,10 +13412,12 @@ wikipedia:https://en.wikipedia.org/wiki/Curing_salt
 
 # <en:compound
 <en:curing salt
-en:nitrite curing salt
+en:nitrite curing salt, nitrite salt
+bg:нитритна сол
 da:nitritsalt
 de:Nitritpökelsalz
 fi:nitriittisuola
+it:sale nitritato
 sv:nitritsalt
 # usage:en:nitrite curing salt (salt, preservative: sodium nitrite)
 # ingredient/en:nitrite-curing-salt has 2 products in 3 languages @2020-06-08
@@ -14713,7 +14715,7 @@ es:carne de cerdo
 fi:sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
 fr:viande de porc, viande porc
 hu:sertéshús, disznóhús
-it:carne di suino
+it:carne di suino, carne di maiale
 nb:svinekjøtt, kjøtt av svin
 nl:Varkensvlees
 pl:Wieprzowina
@@ -15537,6 +15539,7 @@ wikidata:en:Q1779264
 
 <en:casing
 <en:collagen
+en:natural casing
 fr:boyau naturel
 fi:luonnonsuoli
 ro:Membrana naturala comestibila
@@ -15646,12 +15649,15 @@ fr:plasma déshydraté
 
 
 # <en:context
+<en:meat
+en:liver
 fr:foie
 # ingredient/fr:foie has 57 products in french @2019-03-01
 # Porc 91% (gorge, foie, épaule)
 
 <en:meat
 <en:animal
+en:frog legs
 fr:Cuisses de grenouilles
 
 
@@ -17688,6 +17694,7 @@ nb:Maisolje
 nl:Maïskiemolie, Maïsolie
 pl:Olej kukurydziany
 pt:Óleo de milho
+ro:ulei de porumb
 ru:Кукурузное масло
 uk:Кукурудзяна олія
 zh:粟米油
@@ -18775,6 +18782,7 @@ fr:Poudre de vinaigre
 
 <en:vinegar
 en:wine vinegar
+bg:винен оцет
 ca:vinagre
 da:Vineddike
 de:Weinessig
@@ -20816,6 +20824,7 @@ hu:fűszerkészítmény
 it:preparazione di spezie
 nl:aromatiserende bereiding
 pt:preparacao aromatizante
+ro:preparat aromatizant
 sv:smakberedning
 # ingredient/fr:préparation-aromatisante has  50 products in 5 languages @2019-03-04
 # usage:de:Aromaextrakte (Pfefferminzextrakt)
@@ -29046,7 +29055,7 @@ fr:protéines végétales, protéine végétale
 hu:növényi fehérje, növényi fehérjék
 it:proteine vegetali
 nb:vegetabilsk protein
-nl:plantaardige eiwit
+nl:plantaardige eiwit, plantaardig eiwit
 pl:Białko roślinne
 pt:Proteína vegetal
 sv:grönsaksprotein
@@ -29138,6 +29147,7 @@ ca:proteïna de soja
 da:sojaprotein
 de:Sojaprotein, Sojaproteine, Sojaeiweiß
 es:Proteina de soya, proteina de soja,proteina vegetal hidrolizada de soya
+et:sojavalk
 fi:soijaproteiini, soijaproteiinivalmiste
 fr:protéine de soja, protéines de soja
 hu:szójafehérje
@@ -31144,7 +31154,7 @@ ms:soya
 nl:soja
 oc:Sòja
 os:Сойæ
-pl:Soja
+pl:Soja, soję
 pt:Soja
 qu:Suya
 ro:soia
@@ -32756,6 +32766,7 @@ fr:diphosphate disodique et carbonate acide de sodium
 
 
 en:triphosphates, triphosphate, E451, e 451, e-451
+bg:трифосфати
 de:Triphosphate
 es:trifosfatos
 fi:trifosfaatit
@@ -41844,7 +41855,7 @@ nl:knoflookpoeder
 nn:hvitløkspulver
 pl:czosnek sproszkowany, czosnek w proszku
 pt:alho em pó
-ro:pudră de usturoi
+ro:pudră de usturoi, usturoi pudră
 ru:Чесночный порошок
 sk:sušený cesnak
 sl:česen v prahu
@@ -44491,6 +44502,7 @@ nb:løkpulver
 nl:uienpoeder, uipoeder, Uienpoeders
 pl:Cebula w proszku
 pt:cebola em pó
+ro:ceapă pudră
 ru:Луковый порошок
 sk:sušená cibuľa
 sl:čebula v prahu
@@ -45727,6 +45739,7 @@ fi:perunahiutale, perunahiutaleita
 fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
 it:fiocchi di patate
 nl:aardappelvlokken
+pl:płatki ziemniaczane
 ru:картофельние хлопья
 sv:potatisflingor
 # fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
@@ -51018,6 +51031,7 @@ sv:kryddor och kryddextrakt
 
 <en:spice
 en:mixed spices
+bg:смес от подправки
 da:krydderimix
 de:gemischte Gewürze
 es:Mezcla de especias,preparado aromatico de especias
@@ -68448,7 +68462,7 @@ en:egg yolk, eggs yolk
 am:አስኳል
 ar:مح
 be:Жаўток
-bg:жълтък
+bg:жълтък, яйчен жълтък
 bn:কুসুম
 bs:Žumance
 ca:rovell d'ou, gema d'ou
