@@ -160,6 +160,7 @@ my %may_contain_regexps = (
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	pl => "może zawierać śladowe ilości|może zawierać",
 	ro => "poate con[țţ]ine urme de|poate con[țţ]ine",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -345,6 +346,7 @@ my %and = (
 	lv => " un ",
 	nl => " en ",
 	nb => " og ",
+	pl => " i ",
 	pt => " e ",
 	sv => " och ",
 );
