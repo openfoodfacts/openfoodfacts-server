@@ -9206,7 +9206,6 @@ sub display_product_api($)
 	if (defined $rev) {
 		$log->info("displaying product revision") if $log->is_info();
 		$product_ref = retrieve_product_rev($product_id, $rev);
-		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
