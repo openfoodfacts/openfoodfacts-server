@@ -945,6 +945,7 @@ wikidata:en: Q57657491
 # ingredient/calcium-salts-from-orthophosphoric-acid has 9 products in french @2019-04-04
 # mineral/calcium-salts-of-orthophosphoric-acid has 28 products in 4 langages @2019-04-04
 
+comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Calcium
 #<en:E578
 en:calcium gluconate
@@ -969,6 +970,12 @@ ro:gluconat de calciu
 sk:glukónan vápenatý
 sl:kalcijev glukonat
 sv:kalciumglukonat
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
+e_number:en:578
+wikidata:en:Q413739
+additives_classes:en: en:sequestrant
+vegan:en:yes
+vegetarian:en:yes
 
 <en:Calcium
 #<en:E383
