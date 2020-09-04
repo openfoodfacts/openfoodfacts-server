@@ -3091,10 +3091,8 @@ nl:IJsciders
 wikidata:en:Q2972307
 
 <en:Ciders
-fr:Cidres bruts, Cidre brut
-de:Cidre halbtrocken
 en:Dry ciders
-nl:Halfdroge ciders
+fr:Cidres bruts, Cidre brut
 agribalyse_food_code:en:5006
 ciqual_food_code:en:5006
 ciqual_food_name:en:Cider, dry
@@ -3102,7 +3100,9 @@ ciqual_food_name:fr:Cidre brut
 
 <en:Ciders
 en:Half-dry ciders
+de:Cidre halbtrocken
 fr:Cidres demi-secs, Cidre demi-sec, Cidres bouchés demi-secs, Cidre bouché demi-sec
+nl:Halfdroge ciders
 agribalyse_food_code:en:5021
 ciqual_food_code:en:5021
 ciqual_food_name:en:Cider, half-dry
@@ -3167,7 +3167,7 @@ protected_name_type:en: pgi
 origins:en: en:France, fr:Normandie
 
 <en:Alcoholic beverages
-en:Champagne kir, Cocktail of champagne with red fruit liqueur
+en:Kir Royal, Kir Royale, Champagne kir, Cocktail of champagne with red fruit liqueur
 fr:Kir royal, Kir au champagne, Kir royal au champagne
 agribalyse_food_code:en:1019
 ciqual_food_code:en:1019
@@ -6490,15 +6490,19 @@ zh:咖啡豆
 wikidata:en:Q153697
 
 <en:Coffees
+en:Arabica ground coffees
 fr:Café Arabica moulu
 
 <en:Coffee beans
+en:Arabica coffee beans
 fr:Grains de café arabica
 
 <en:Coffees
+en:Robusta ground coffees
 fr:Café Robusta moulu
 
 <en:Coffee beans
+en:Robusta coffee beans
 fr:Grains de café robusta
 
 <en:Coffee beans
@@ -6684,7 +6688,7 @@ nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
 
 <en:Beverages
-en:Municipal water
+en:Municipal water, Tap water
 fr:Eau du robinet
 ciqual_food_code:en:18066
 ciqual_food_name:en:Water, municipal
@@ -6713,8 +6717,6 @@ pnns_group_2:en:Waters and flavored waters
 ciqual_food_code:en:18008
 ciqual_food_name:en:Water, bottled (average)
 ciqual_food_name:fr:Eau de source, embouteillée (aliment moyen)
-
-<en:Waters
 
 <en:Waters
 en:Drinking water
@@ -29735,6 +29737,7 @@ pnns_group_2:en:Appetizers
 
 <en:Salty snacks
 <en:Breaded cheeses
+en:Cheese croquettes
 fr:Croquettes au fromage
 nl:Kaaskroketten
 
@@ -29810,8 +29813,9 @@ fr:Chips de pommes de terre lisses
 es:Chips de patatas fritas lisas
 
 <en:Potato crisps
-fr:Chips de pommes de terre ondulées
+en:Wavy potato crisps, Wavy potato chips
 es:Chips de patatas fritas onduladas
+fr:Chips de pommes de terre ondulées
 
 <en:Potato crisps
 en:Light potato crisps, Potato crisps with reduced fat
@@ -31701,7 +31705,7 @@ ciqual_food_code:en:12356
 ciqual_food_name:en:Processed cheese snack w breadsticks, for children
 
 <en:Processed cheese
-fr:cubic appetizer cheese
+en:Cubed appetizer cheese
 fr:fromage apéritif en cube, fromage apéritif en cube type Apéricube
 
 <en:Processed cheese
@@ -32827,8 +32831,9 @@ ciqual_food_name:en:Mozzarella cheese, from cow's milk
 
 <en:Mozzarella
 <en:Buffalo's milk-cheese
-fr:Mozzarella di Bufala Campana
+en:Buffalo mozzarella
 de:Büffelmozzarella
+fr:Mozzarella di Bufala Campana
 it:Mozzarella di Bufala Campana
 country:en:Italy
 wikidata:en:Q941068
@@ -33855,6 +33860,7 @@ de:Crème Chantilly
 wikidata:en:Q6384329
 
 <en:Creams
+en:Squirty creams, Spray creams
 fr:Crèmes sous pression
 de:Sprühsahne
 
@@ -35870,7 +35876,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 
 <en:Yogurts
 <en:Fermented milk drinks
-en:Drinkable yogurts
+en:Drinkable yogurts, Yogurt drinks
 ca:Iogurt per beure
 de:Trinkjoghurt, Trinkjogurt, Trinkjoghurts, Trinkjogurts
 es:Yogures para beber
@@ -35886,9 +35892,11 @@ agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, flavoured
 agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
 
 <en:Drinkable yogurts
+en:Strawberry yogurt drinks
 fr:Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 
 <en:Drinkable yogurts
+en:Vanilla yogurt drinks
 fr:Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire saveur vanille
 
 <en:Drinkable yogurts
@@ -36213,7 +36221,7 @@ nl:Yoghurt met banaan
 ro:Iaurturi cu banane
 
 <en:Fruit yogurts
-en:Figs yogurts
+en:Fig yogurts, Figs yogurts
 de:Feigenjoghurt
 fr:Yaourts aux figues
 it:Yogurt al fico
@@ -36221,6 +36229,7 @@ nl:Yoghurt met vijg
 ro:Iaurturi cu smochine
 
 <en:Fruit yogurts
+en:Grapefruit yogurts
 fr:Yaourts au pamplemousse
 
 <en:Fruit yogurts
@@ -52244,6 +52253,7 @@ nl:Konijnmaaltijden
 
 <fr:Civets
 <en:Rabbit dishes
+en:Jugged rabbits
 fr:Civets de lapin, Civet de lapin
 nl:Gestoofde konijn
 
@@ -52262,6 +52272,7 @@ nl:Hazevleesmaaltijden
 
 <fr:Civets
 <en:Hare dishes
+en:Jugged hares
 fr:Civet de lièvre
 nl:Gestoofde haas
 
@@ -52289,7 +52300,9 @@ fr:Plats au mouton, plats à base de mouton, plats à base de viande de mouton, 
 nl:Schapenvleesmaaltijden
 
 <en:sheep dishes
+en:Tripoux, Tripous
 fr:Tripoux, Tripous
+wikidata:en:Q3106401
 
 <en:Beef dishes
 en:Veal meat dishes
@@ -65394,9 +65407,8 @@ origins:en: en:Spain
 
 <en:Sardines in olive oil
 <en:Sardine fillets
-fr:Filets de sardines à l’huile d’olive
-en:sardine fillets in olive oil
-fr:filets de sardine à l'huile d'olive
+en:Sardine fillets in olive oil
+fr:Filets de sardines à l’huile d’olive, filets de sardine à l'huile d'olive
 nl:Sardientjesfilets op olijfolie
 agribalyse_food_code:en:26231
 ciqual_food_code:en:26231
@@ -65561,14 +65573,22 @@ it:Code di gambero
 nl:Garnaalstaarten
 
 <en:Shrimps
+en:Giant tiger prawns
 fr:Crevettes géantes tigrées, Crevette géante tigrée, Penaeus monodon
 nl:Grote tijgergarnalen
 
 <en:Shrimps
-fr:Crevettes grises, Crangon crangon, Boucaut, Sauterelle, Garnote, Karkalec deti i kafenjtë, Nordseegarnele, Sandgarnele, Brown shrimp, Camba d'alguer, Almindelig hestereje, Garnaal, Gewone garnaal, Grijze garnaal, Noordzeegarnaal, Garnela nakrapiana, Hästräka
-nl:Noorzeegarnalen, grijze garnalen
+en:Brown shrimp, grey shrimp
+ca:Gamba d'alguer
+da:Almindelig hestereje
+de:Nordseegarnele, Sandgarnele
+fr:Crevettes grises, Crangon crangon, Boucaut, Sauterelle, Garnote, Garnela nakrapiana
+nl:Noorzeegarnalen, grijze garnalen, Gewone garnaal, Grijze garnaal, Noordzeegarnaal
+sq:Karkalec deti i kafenjtë
+sv:Hästräka
 
 <en:Shrimps
+en:Northern prawns, Pandalus borealis
 fr:Crevettes nordiques, Crevette nordique, Crevette nordique du Canada, Pandalus borealis
 it:Gamberetti boreali
 nl:Pandalis Borealis
@@ -66705,6 +66725,7 @@ ciqual_food_name:en:Mackerel, smoked
 ciqual_food_name:fr:Maquereau, fumé
 
 <en:Smoked fishes
+en:Smoked marlins
 fr:Marlins fumés, marlin fumé
 nl:Geookte marlijn
 
@@ -66976,6 +66997,7 @@ es:atún claro en aceite de oliva
 fr:thons pales à l'huile d'olive
 
 <en:Tunas in oil
+en:Tunas in sunflower oil
 fr:Thons à l’huile de tournesol
 de:Thunfische in Sonnenblumenöl, Thunfisch in Sonnenblumenöl
 es:Atún en aceite de girasol
@@ -67661,8 +67683,9 @@ ciqual_food_name:en:Abalone or ormer or sea ear, raw
 ciqual_food_name:fr:Ormeau, cru
 
 <en:Mollusc
+en:Cockles
 fr:Coques
-nl:Schelpdieren
+nl:Kokkels
 
 <en:Mollusc
 en:Scallop, Noix de Saint-Jacques
@@ -79615,16 +79638,19 @@ ciqual_food_code:en:4041
 ciqual_food_name:en:Mashed potatoes w fresh tome cheese
 ciqual_food_name:fr:Aligot (purée de pomme de terre à la tomme fraîche)
 
-<fr:Pâté
-fr:Pâtés de foie
-
 <fr:Charcuteries diverses
-en:Paté, Pâté
+en:Pâté, Paté, Pate
 es:Paté
 fr:Pâté
 ciqual_food_code:en:8332
 ciqual_food_name:en:Paté (average)
 ciqual_food_name:fr:Pâté (aliment moyen)
+wikidata:en:Q816704
+
+<fr:Pâté
+en:Liver Pâtés, Liver Pates
+fr:Pâtés de foie
+wikidata:en:Q2878697
 
 <fr:Saucisses sèches
 fr:Saucisses sèches de jambon
