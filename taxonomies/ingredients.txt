@@ -57506,9 +57506,9 @@ fr:Palmaria palmata
 la:Palmaria palmata
 
 
-# Eucheuma, commonly known as gusô, is a seaweed algae that may be brown, red, or green in color.
-
+description:en:Eucheuma, commonly known as gusô, is a seaweed algae that may be brown, red, or green in color.
 <en:seaweed
+#<en:e407a
 en:processed euchema algae
 de:verarbeitete euchema algae
 fr:algues euchema transformées
@@ -57518,8 +57518,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eucheuma
 # ingredient/fr:algues-euchema-transformées has 147 products in 4 languages @2019-02-22
 
 
-# Fucus is a genus of brown algae found in the intertidal zones of rocky seashores almost throughout the world.
-
+description:en:Fucus is a genus of brown algae found in the intertidal zones of rocky seashores almost throughout the world.
 <en:seaweed
 en:Fucus
 ar:فوقس
@@ -59703,17 +59702,17 @@ it:filetti di acciughe salate
 # ingredient/fr:filets-d’anchois-salés has 41 products in 4 languages @2019-02-06
 
 
-# The European anchovy (Engraulis encrasicolus) is a forage fish somewhat related to the herring.
-
+description:en:The European anchovy (Engraulis encrasicolus) is a forage fish somewhat related to the herring.
 <en:anchovy
 en:European anchovy
 be:Еўрапейскі анчоус
 br:Genougamm Europa
 de:Europäische Sardelle
 fi:sardelli
-fr:anchois commun
+fr:anchois commun, Anchois européen, Anchois de l'Afrique australe, Anchois italien
 it:European anchovy, acciuga o alice
 kw:Lavyn europek
+la:Engraulis encrasicolus
 lt:Europinis ančiuvis
 pl:Sardela europejska
 ru:Европейский анчоус
@@ -59722,19 +59721,12 @@ uk:Анчоус європейський
 wikidata:en:188387
 # translations can not be trusted
 wikipedia:en:https://en.wikipedia.org/wiki/European_anchovy
-
-<en:European anchovy
-en:Engraulis encrasicolus
-de:Sardelle (Engraulis encrasicolus)
-fr:Engraulis encrasicolus, Anchois commun, Anchois européen, Anchois de l'Afrique australe, Anchois italien, Anchois
-la:Engraulis encrasicolus, Engraulis encrasicholus
 # ingredient/fr:Engraulis-encrasicolus has 32 products @2019-01-12
 # ingredient/fr:Engraulis-encrasicholus has 1 product @2019-01-12
 
 
 
-# The anglerfish is a fish of the teleost order Lophiiformes
-
+DESCRIPTION:en:The anglerfish is a fish of the teleost order Lophiiformes
 <en:fish
 <en:white fish
 en:Anglerfish, angler fish
@@ -59765,6 +59757,7 @@ is:Skötuselur
 it:Rana Pescatrice
 ja:ニシアンコウ
 ka:ზღვის ეშმაკი
+la:Lophius piscatorius
 nb:breiflabb
 nl:Zeeduivel
 nn:Breiflabb
@@ -59790,19 +59783,11 @@ lij:Budego
 wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
 # ingredient/en:angler-fish has 2 products @2019-01-12
 
-# latin name is kept separate as there are multiple species for an anglerfish
-
-<en:anglerfish
-en:Lophius piscatorius
-la:Lophius piscatorius
-
-# description:fr:Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
-
+description:fr:Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
 <en:fish
 fr:loup
 
-# description:en:The Atlantic wolffish (Anarhichas lupus), also known as the seawolf, Atlantic catfish, ocean catfish, devil fish, wolf eel (the common name for its Pacific relative), woof or sea cat, is a marine fish of the wolffish family Anarhichadidae.
-
+description:en:The Atlantic wolffish (Anarhichas lupus), also known as the seawolf, Atlantic catfish, ocean catfish, devil fish, wolf eel (the common name for its Pacific relative), woof or sea cat, is a marine fish of the wolffish family Anarhichadidae.
 <en:fish
 en:Atlantic wolffish
 ar:عريك أطلسي
@@ -59819,6 +59804,7 @@ fr:loup d'atlantique
 ga:Cat mara an Atlantaigh
 he:דג זאב אטלנטי
 is:Steinbítur
+la:Anarhichas lupus
 lt:Paprastoji vilkžuvė
 mk:морски волк
 nb:Gråsteinbit
@@ -59832,13 +59818,9 @@ wikidata:en:Q934761
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_wolffish
 # ingredient/fr:loup-d’atlantique has 1 product @2019-01-15
 
-<en:Atlantic wolffish
-en:Anarhichas lupus
-la:Anarhichas lupus
 
 
-# en:description:The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
-
+description:en:The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 <en:fish
 <en:white fish
 en:blue whiting, Micromesistius poutassou
@@ -59867,8 +59849,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Blue_whiting
 # ingredient/fr:merlan-bleu has 3 products @2018-12-31
 
 
-# en:description:The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
-
+description:en:The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
 <en:fish
 <en:white fish
 en:burbot
@@ -59896,6 +59877,7 @@ it:bottatrice
 ja:カワメンタイ
 ka:ღლაბუტა
 kk:Нәлім
+la:lota lota
 lt:Vėgėlė
 nb:lake
 nl:kwabaal
@@ -59941,13 +59923,8 @@ zh:江鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Burbot
 # ingredient/fr:lotte has 10 products in french @2018-12-31
 
-<en:burbot
-en:lota lota
-la:lota lota
 
-
-# en:description:The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
-
+description:en:The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
 <en:fish
 en:capelin, caplin, Mallotus villosus
 ar:كبلين, Mallotus villosus
