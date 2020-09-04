@@ -7877,38 +7877,61 @@ additives_classes:en: en:sequestrant, en:stabilizer
 wikidata:en:Q63255997
 # additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
 
-# description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
-# comment:en:Not sure which word is preferred on packaged, either the more chemical tripotassium or just potassiumcitrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
-#comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix. 
+#comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
+description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
 <en:E332
-en:E332(ii), Tripotassium citrate
-bg:E332(ii), Трикалиев цитрат
-cs:E332(ii), Tripotassium citrate
+#<en:Potassium
+#<en:E332(ii)
+en:E332(ii), Tripotassium citrate, potassium citrate
+bg:E332(ii), Трикалиев цитрат, Калиев цитрат
+bs:E332(ii), Kalij citrat
+cs:E332(ii), Tripotassium citrate, citronan draselný
+cy:E332(ii), Potasiwm sitrad
 da:E332(ii), Trikaliumcitrat
-de:E332(ii), Trikaliumcitrat
-el:E332(ii), E332(ii) food additive
-es:E332(ii), E332(ii) food additive
-et:E332(ii), Kaaliumtsitraat
-fi:E332(ii), Trikaliumsitraatti, Trikaliumsitraattia
-fr:E332(ii), Citrate tripotassique
-hu:E332(ii), Trikálium-citrát
-it:E332(ii), Citrato tripotassico
-lt:E332(ii), Trikalio citratas
-lv:E332(ii), Trikālija citrāts
-mt:E332(ii), Ċitrat tripotassiku
-nl:E332(ii), Trikaliumcitraat
-pl:E332(ii), Cytrynian tripotasowy
-pt:E332(ii), Citrato tripotássico
-ro:E332(ii), Citrat tripotasic
-sk:E332(ii), Citran tridraselný
-sl:E332(ii), Trikalijev citrat
-sv:E332(ii), Trikaliumcitrat
+de:E332(ii), Trikaliumcitrat, Kaliumcitrat
+el:E332(ii), κιτρικό κάλιο
+eo:E332(ii), E332(ii), Kalia citrato tribaza
+es:E332(ii), Citrato tripotásico, citrato de potasio
+et:E332(ii), kaaliumtsitraat
+fa:E332(ii), پتاسیم سیترات
+fi:E332(ii), Trikaliumsitraatti, Trikaliumsitraattia, kaliumsitraatti
+fr:E332(ii), Citrate tripotassique, citrate de potassium
+hu:E332(ii), Trikálium-citrát, kálium-citrát
+it:E332(ii), Citrato tripotassico, citrato di potassio
+ja:E332(ii), クエン酸カリウム
+lt:E332(ii), Trikalio citratas, kalio citratas
+lv:E332(ii), Trikālija citrāts, kālija citrāts
+mt:E332(ii), Ċitrat tripotassiku, ċitrat tal-potassju
+nb:E332(ii), Kaliumsitrat
+nl:E332(ii), Trikaliumcitraat, kaliumcitraat, kaliumzouten van citroenzuur
+pl:E332(ii), Cytrynian tripotasowy, cytrynian potasu
+pt:E332(ii), Citrato tripotássico, citrato de potássio
+ro:E332(ii), Citrat tripotasic, citrat de potasiu
+ru:E332(ii), цитрат калия
+sk:E332(ii), Citran tridraselný, citran draselný
+sl:E332(ii), Trikalijev citrat, kalijev citrat
+sr:E332(ii), Kalijum citrat
+sv:E332(ii), Trikaliumcitrat, kaliumcitrat
+ta:E332(ii), பொட்டாசியம் சிட்ரேட்டு
+te:E332(ii), పొటాషియం సిట్రేట్
+vi:E332(ii), Kali xitrat
+zh:E332(ii), 檸檬酸鉀
+#azb:E332(ii), پوتاسیوم سیترات
+#zh-cn:E332(ii), 柠檬酸钾
+#zh-hans:E332(ii), 柠檬酸钾
+#zh-hant:E332(ii), 檸檬酸鉀
+#zh-hk:E332(ii), 檸檬酸鉀
+#zh-sg:E332(ii), 柠檬酸钾
+#zh-tw:E332(ii), 檸檬酸鉀
 e_number:en:332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en:Q419921
+# last wikidatasynchronisation 4-sep-2020
 additives_classes:en: en:sequestrant, en:stabilizer
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
 # additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
+
 
 #comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 en:E333, Calcium citrates, Calcium citrate

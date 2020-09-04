@@ -451,31 +451,60 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_chloride
 # ingredient/fr:chlorure-de-potassium has 731 products @2019-05-19
 # usage:pl:chlorek potasu (potas)
 
-
-
+#comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
+description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
+comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
+#<en:E332
 <en:Potassium
-#en:E332(ii)
-en:potassium citrate
-bg:Калиев цитрат
-cs:citronan draselný
-de:Kaliumcitrat
+#<en:E332(ii)
+en:Tripotassium citrate, potassium citrate
+bg:Трикалиев цитрат, Калиев цитрат
+bs:Kalij citrat
+cs:Tripotassium citrate, citronan draselný
+cy:Potasiwm sitrad
+da:Trikaliumcitrat
+de:Trikaliumcitrat, Kaliumcitrat
 el:κιτρικό κάλιο
-es:citrato de potasio
+eo:E332(ii), Kalia citrato tribaza
+es:Citrato tripotásico, citrato de potasio
 et:kaaliumtsitraat
-fi:kaliumsitraatti
-fr:citrate de potassium
-hu:kálium-citrát
-it:citrato di potassio
-lt:kalio citratas
-lv:kālija citrāts
-mt:ċitrat tal-potassju
-nl:kaliumcitraat, kaliumzouten van citroenzuur
-pl:cytrynian potasu
-pt:citrato de potássio
-ro:citrat de potasiu
-sk:citran draselný
-sl:kalijev citrat
-sv:kaliumcitrat
+fa:پتاسیم سیترات
+fi:Trikaliumsitraatti, Trikaliumsitraattia, kaliumsitraatti
+fr:Citrate tripotassique, citrate de potassium
+hu:Trikálium-citrát, kálium-citrát
+it:Citrato tripotassico, citrato di potassio
+ja:クエン酸カリウム
+lt:Trikalio citratas, kalio citratas
+lv:Trikālija citrāts, kālija citrāts
+mt:Ċitrat tripotassiku, ċitrat tal-potassju
+nb:Kaliumsitrat
+nl:Trikaliumcitraat, kaliumcitraat, kaliumzouten van citroenzuur
+pl:Cytrynian tripotasowy, cytrynian potasu
+pt:Citrato tripotássico, citrato de potássio
+ro:Citrat tripotasic, citrat de potasiu
+ru:цитрат калия
+sk:Citran tridraselný, citran draselný
+sl:Trikalijev citrat, kalijev citrat
+sr:Kalijum citrat
+sv:Trikaliumcitrat, kaliumcitrat
+ta:பொட்டாசியம் சிட்ரேட்டு
+te:పొటాషియం సిట్రేట్
+vi:Kali xitrat
+zh:檸檬酸鉀
+#azb:پوتاسیوم سیترات
+#zh-cn:柠檬酸钾
+#zh-hans:柠檬酸钾
+#zh-hant:檸檬酸鉀
+#zh-hk:檸檬酸鉀
+#zh-sg:柠檬酸钾
+#zh-tw:檸檬酸鉀
+e_number:en:332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
+wikidata:en:Q419921
+# last wikidatasynchronisation 4-sep-2020
+additives_classes:en: en:sequestrant, en:stabilizer
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
 
 <en:Potassium
 en:potassium gluconate
