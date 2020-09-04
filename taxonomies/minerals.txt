@@ -4741,19 +4741,26 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
 # mineral/potassium-iodide has 718 products in 8 languages @2019-04-24
 # ingredient/fr:iodure-de-potassium has 504 products in 4 languages @2019-04-24
 
+comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Iodine
 # <en:E917
 en:potassium iodate
+ar:يودات البوتاسيوم
 bg:Калиев йодат
+ca:iodat de potassi
 cs:jodičnan draselný, Jodečnan draselný
 de:Kaliumiodat, Kaliumjodat
 el:ιωδικό κάλιο
+eo:kalia jodato
 es:yodato de potasio, Yodato potásico
 et:kaaliumjodaat
+fa:پتاسیم یدات
 fi:Kaliumjodaatti, Kaliumjodaattia
 fr:Iodate de potassium
 hu:Kálium-jodát
+id:Kalium iodat
 it:Iodato di potassio
+ja:ヨウ素酸カリウム
 lt:kalio jodatas
 lv:kālija jodāts
 mt:jodat tal-potassju
@@ -4761,9 +4768,31 @@ nl:Kaliumjodaat
 pl:Jodan potasu, Jodan-V potasu
 pt:Iodato de potássio
 ro:Iodat de potasiu
+ru:иодат калия
+sh:Kalijum jodat
 sk:jodičnan draselný
 sl:kalijev jodat
+sr:Kalijum jodat
 sv:kaliumjodat
+ta:பொட்டாசியம் அயோடேட்டு|
+tr:Potasyum iyodat
+uk:Йодат калію
+vi:Kali iodat
+zh:碘酸钾
+#azb:پوتاسیوم یدات
+#zh-cn:碘酸钾
+#zh-hans:碘酸钾
+#zh-hant:碘酸鉀
+#zh-hk:碘酸鉀
+#zh-sg:碘酸钾
+#zh-tw:碘酸鉀
+e_number:en:917
+mandatory_additive_class:en: en:flour-treatment-agent
+wikidata:en:Q414599
+# last wikidata synchro:4-sep-2020
+organic_eu:en:authorized
+vegan:en:yes
+vegetarian:en:yes
 
 <en:Iodine
 en:sodium iodate
