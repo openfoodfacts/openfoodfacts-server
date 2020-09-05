@@ -685,7 +685,7 @@ nb:melbehandlingsmiddel
 nl:Meelverbeteraar, Meelverbeteraars
 pl:Środek do przetwarzania mąki
 pt:Agente de tratamento da farinha
-ro:Agent de tratare a făinii
+ro:Agent de tratare a făinii, agent de tratare făină
 sk:Múku upravujúca látka
 sl:Sredstvo za obdelavo moke
 sv:Mjölbehandlingsmedel
@@ -9854,6 +9854,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 
 <en:cheddar
 en:mature cheddar, mature cheddar cheese
+fr:fromage cheddar affiné
 
 <en:cheddar
 fr:cheddar orange
@@ -22795,6 +22796,7 @@ it:crusca di frumento
 nb:hvetekli
 nl:tarwezemelen
 pt:farelo de trigo
+ro:tărâțe de grâu
 sv:vetekli
 
 <en:wheat
@@ -23036,6 +23038,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 <en:wheat
 en:graham flour, whole grain graham flour
 es:harina de graham
+ro:făină graham
 wikipedia:en:https://en.wikipedia.org/wiki/Graham_flour
 
 # Wheat gluten is a food made from gluten, the main protein of wheat.
@@ -37430,7 +37433,7 @@ fi:kookosuute, kookospähkinäuute
 fr:extrait de noix de coco, extrait de coco
 it:estratto di noce di cocco
 nl:Kokosextract
-sv:kokosnötsextrakt
+sv:kokosnötsextrakt, extrakt av kokosnöt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
 # 216 products in 6 languages @2018-10-03
 
@@ -37599,6 +37602,10 @@ en:date paste
 fr:pâte de datte
 nl:dadelpuree
 sv:dadelpuré
+
+<en:date
+en:date syrup
+fr:sirop de datte
 
 <en:date
 fr:jus de dattes concentré
@@ -48310,6 +48317,7 @@ da:kikærtemel
 es:harina de garbanzo
 fi:kikhernejauho
 fr:farine de pois chiche, farine de pois chiches
+nl:kikkererwtenmeel
 sv:kikärtsmjöl
 wikidata:en:Q651829
 wikipedia:en:https://en.wikipedia.org/wiki/Gram_flour
@@ -52138,6 +52146,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Galangal
 # fr:galanga has 122 products in 6 languages @2018-10-25
 
 <en:galangal
+en:black galangal
+
+<en:galangal
 nl:gemalen galangawortel, laos
 
 ###################################################################################################
@@ -52647,7 +52658,7 @@ da:Korianderblade
 de:Korianderblätter
 es:Hojas de cilantro
 fi:korianterinlehti, korianterinlehdet
-fr:feuilles de coriandre, feuille de coriandre
+fr:feuilles de coriandre, feuille de coriandre, coriandre en feuille
 it:Foglie di coriandolo
 nl:koriander blaadjes
 sv:korianderblad
