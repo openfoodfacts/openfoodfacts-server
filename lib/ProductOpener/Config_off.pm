@@ -1,4 +1,5 @@
 # This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -671,6 +672,7 @@ $options{import_export_fields_groups} = [
 	[   "other",
 		[   "nutriscore_score_producer",
 			"nutriscore_grade_producer",
+			"nova_group_producer",
 			"conservation_conditions",
 			"warning",
 			"preparation",
