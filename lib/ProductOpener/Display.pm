@@ -586,7 +586,7 @@ sub analyze_request($)
 
 	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
 
-		if ($request_ref->{query_string} =~ /\.$parameter$/) {
+		if ($request_ref->{query_string} =~ /\.$parameter(\b|$)/) {
 
 			param($parameter, 1);
 
