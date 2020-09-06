@@ -15944,6 +15944,7 @@ ro:amidon din grâu
 ru:Пшеничный крахмал
 se:pšenični skrob
 sv:vetestärkelse
+allergen:en:en:gluten
 
 <en:wheat starch
 de:Weizenquellstärke
@@ -16036,6 +16037,7 @@ en:barley starch
 fi:ohratärkkelys
 fr:amidon d'orge
 sv:kornstärkelse
+allergen:en:en:gluten
 # ingredient/fr:amidon-d'orge has 1 product in 1 language @2020-06-08
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -18938,6 +18940,7 @@ de:gerstenmalzessig
 fi:ohramallasetikka
 fr:vinaigre de malt d'orge
 sv:kornmaltsvinäger
+allergen:en:en:gluten
 
 # Two parents due to and/or ingredient
 
@@ -22373,6 +22376,7 @@ es:cereales con gluten, cereales que contienen gluten
 fi:gluteenia sisältävät viljat, gluteenia sisältävää viljaa
 fr:céréales contenant du gluten
 hu:glutént tartalmazó gabonafélék, glutént tartalmazó gabona
+allergen:en:en:gluten
 
 <en:cereal
 fr:céréales biscuitées
@@ -22628,6 +22632,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat
 wikidata:en:Q15645384
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
+allergen:en:en:gluten
 
 <en:wheat
 en:sprouted wheat
@@ -23426,7 +23431,7 @@ zh:大麦
 # yue:大麥
 wikidata:en:Q61665121
 wikipedia:en:https://en.wikipedia.org/wiki/Barley
-
+allergen:en:en:gluten
 <en:barley
 en:sprouted barley
 
@@ -23618,6 +23623,7 @@ ru:Солодовый ячмень
 sk:jechyi slad
 sv:kornmalt, korn malt, malt av korn
 zh:含大麥芽片
+allergen:en:en:gluten
 
 <en:malted barley
 fr:blé malté concassé
@@ -23662,7 +23668,7 @@ fr:sirop d'orge malté
 wikidata:en:Q3485291
 wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
 
-<fr:sirop d'orge malté
+<en:barley malt syrup
 fr:sirop de malt d'orge déshydraté
 
 <en:syrup
@@ -24359,6 +24365,7 @@ zh:裸麥
 # yue:黑麥
 wikipedia:en:https://en.wikipedia.org/wiki/Rye
 wikidata:en:Q12099
+allergen:en:en:gluten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle/
 # 560 entries @ 2018-09-22
 
@@ -24557,6 +24564,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Spelt
 wikidata:en:Q158767
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
 # 278 products in 6 languages @2018-09-22
+allergen:en:en:gluten
 
 <en:spelt
 en:whole spelt
@@ -24631,6 +24639,7 @@ sl:kamut
 sv:kamut
 wikidata:en:Q11163068
 wikipedia:en:https://en.wikipedia.org/wiki/Khorasan_wheat
+allergen:en:en:gluten
 
 <en:khorasan wheat
 <en:cereal flour
@@ -25003,8 +25012,6 @@ nl:gedextrineerd tarwemeel
 <en:wheat flour
 en:pre-gelatinized wheat flour
 fr:farine de blé prégélatinisée, farine de froment prégélatinisée
-
-<en:wheat flour
 
 <en:wheat flour
 fr:farine mi-blanche
@@ -28218,14 +28225,15 @@ sv:majsglukossirap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-maïs
 # 148 products in 1 language @2018-09-24
 
-<en:wheat
+#<en:wheat
 <en:glucose
 fr:glucose de blé
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose-de-blé
 # 30 products in 1 language @2018-09-24
+allergen:en:en:gluten
 
 <en:glucose syrup
-<en:wheat
+#<en:wheat
 en:wheat glucose syrup
 de:Weizenglukosesirup
 es:Sirope de glucosa de trigo
@@ -28236,6 +28244,7 @@ it:sciroppo di glucosio di frumento
 nl:tarweglucosestroop
 pl:syrop glukozowy z pszenicy
 pt:xarope de glucose de trigo
+allergen:en:en:gluten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-glucose-syrup
 # 661 products in 7 languages @2018-09-24
 
@@ -28323,8 +28332,9 @@ vegetarian:en:yes
 # 3267 products in 11 languages @2018-09-24
 
 <en:fructose
-<en:wheat
+#<en:wheat
 fr:fructose de blé
+allergen:en:en:gluten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose-de-blé
 # 39 products in 4 languages @2018-09-24
 
@@ -28416,12 +28426,13 @@ sv:glukos-fruktossirap, glukosfruktossirap
 openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
 # 5775 products in 21 languages @2018-09-24
 
-<en:wheat
+#<en:wheat
 <en:glucose-fructose syrup
 en:wheat glucose-fructose syrup
 de:Glukose-und Fruktosesirup (Weizen)
 fr:sirop de glucose-fructose de blé
 nl:glucose-fructosestroop van tarwe
+allergen:en:en:gluten
 openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
@@ -28584,6 +28595,7 @@ da:hvedesirup
 fi:vehnäsiirappi
 fr:sirop de blé
 nl:tarwestroop
+allergen:en:en:gluten
 # ingredient/fr:sirop-de-ble has 381 products in 4 languages @2020-06-08
 
 <en:sugar
@@ -28738,6 +28750,7 @@ it:destrosio di frumento
 nl:tarwedextrose
 pl:dekstroza pszenna
 pt:dextrose de trigo
+allergen:en:en:gluten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-dextrose
 # 992 products in 9 languages @2018-09-25
 
@@ -29216,6 +29229,7 @@ it:proteine del grano
 nl:graneneiwit
 pt:proteína de trigo
 sv:veteprotein
+allergen:en:en:gluten
 
 <en:wheat protein
 fr:protéines de blé déshydratées
@@ -31373,6 +31387,7 @@ uk:Глютен
 zh:麸质
 vegan:en:yes
 vegetarian:en:yes
+allergen:en:en:gluten
 
 <en:gluten
 en:wheat gluten
@@ -31811,6 +31826,7 @@ zh:老麵
 # nap:Criscito
 wikidata:en:Q904889
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
+allergen:en:en:gluten
 
 <en:sourdough
 fr:levain lactique
@@ -70444,6 +70460,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tortilla
 <en:tortilla
 en:wheat tortilla, flour tortilla
 fr:Tortillas de blé
+allergen:en:en:gluten
 wikidata:en:Q204251
 wikipedia:en:https://en.wikipedia.org/wiki/Flour_tortilla
 
@@ -70725,6 +70742,7 @@ fr:spéculoos
 it:speculoos
 nl:speculoos
 ru:Спекулос
+allergen:en:en:gluten
 # ingredient/fr:spéculoos has 67 products in 3 languages @2019-03-01
 # speculoos (corn flour, corn starch, rapeseed oil, water, cane sugar, sugar, candy sugar syrup, cinnamon, salt , baking powder, emulsifier: rapeseed lecithin)
 # spéculoos 12% (farine de blé complet, sucre de canne brut, beurre, lait entier en poudre, sirop de sucre caramélisé, épices, poudre à lever: carbonate acide d'ammonium, sel marin)
@@ -70757,6 +70775,7 @@ zh:斯派庫魯斯
 # en-gb:speculaas
 # ksh:Spekulatius
 # pcd:Spéculaas
+allergen:en:en:gluten
 wikidata:en:Q6591
 wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
 
@@ -71075,6 +71094,7 @@ en:wheat cakes
 de:Weizenfladen
 fr:galette de blé
 it:torte di grano
+allergen:en:en:gluten
 # ingredient/fr:galette-de-blé has 60 products in 4 languages @2019-02-09
 # Weizenfladen [ Weizenmehl, Wasser, Kokosnussöl, Kochsalz ]
 
@@ -71094,6 +71114,7 @@ sr:Пти-бер
 tr:Petibör
 zh:不的波
 # yue:不的波
+allergen:en:en:gluten
 wikipedia:en:https://en.wikipedia.org/wiki/Petit-Beurre
 wikidata:en:Q19573669
 # ingredient/fr:petit-beurre has 20 products in french @2018-02-08
@@ -71133,6 +71154,7 @@ sv:krutong, krutonger
 tr:kruton
 uk:грінки
 zh:麵包丁
+allergen:en:en:gluten
 wikidata:en:Q1197400
 wikipedia:en:https://en.wikipedia.org/wiki/Crouton
 # ingredient/fr:croûtons has 107 products in 5 languages @2019-04-21
@@ -73778,7 +73800,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nonpareils
 en:pizza base
 fi:pizzapohja
 fr:fond de pizza
+nl:pizzabodem
 sv:pizzabotten
+allergen:en:en:gluten
 # ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
 # usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
 # mainIngredient:en:wheat flour
