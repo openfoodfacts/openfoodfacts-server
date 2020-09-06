@@ -1,0 +1,38 @@
+<p>[% lang('producers_platform_licence') %]</p>
+<p>[% lang('export_product_data_photos_please_check') %]</p>
+
+<form method="post" enctype="multipart/form-data" id="export_products_form">
+	<input type="hidden" name="action" value="process">
+	[% IF query_filters %]
+		<ul>
+		[% FOREACH query_filter IN query_filters %]
+
+			<li>[% lang('query_filter') %]: [% query_filter.field %] = [% query_filter.value %]</li>
+			<input type="hidden" name="query_[% query_filter.field %]" value="[% query_filter.value %]"  />
+
+		[% END %]
+		</ul>
+	[% END %]
+
+	<p>[% n_products_will_be_exported %]</p>
+
+	[% IF count > 0 %]
+		[% IF allow_submit %]
+
+			<label for="export_photos">
+				<input type="checkbox" name="export_photos" [% export_photos_value %]>
+				[% lang('export_photos') %]
+			</label>
+
+			<label for="replace_selected_photos">
+				<input type="checkbox" name="replace_selected_photos" [% replace_selected_photos_value %]>	
+				[% lang('replace_selected_photos') %]
+			</label>
+
+			<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
+		[% ELSE %]
+			<p>[% lang('export_products_to_public_database_email') %]</p>
+		[% END %]
+	[% END %]
+
+</form>
