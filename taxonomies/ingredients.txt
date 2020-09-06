@@ -17696,10 +17696,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
 wikidata:en:Q856775
 from_palm_oil:en:no
 
-# PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
-
+description:en:PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
 <en:vegetable oil
-# <en:peanut link needed for allergens
 en:peanut oil
 ar:زيت فول سوداني
 be:Арахісавы алей
@@ -17740,13 +17738,12 @@ zh:花生油
 # yue:花生油
 wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
+allergen:en:en:peanut
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
 from_palm_oil:en:no
 
 # description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
-# comment:en:The parent en:sesam enables the sesam allergen detection
 
-# <en:sesam
 <en:vegetable oil
 en:sesame oil
 ar:زيت السمسم
@@ -17798,6 +17795,7 @@ zh:芝麻油
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
 from_palm_oil:en:no
+allergen:en:en:sesame
 
 <en:sesame oil
 en:organic sesame oil
@@ -17909,8 +17907,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
 from_palm_oil:en:no
 
-# description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
-
+description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 <en:vegetable oil
 # producedFrom:en:rice
 en:Rice bran oil
@@ -48749,7 +48746,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 ###################################################################################################
 # Almonds
 
-<en:nut
+<en:tree nut
 en:almond, almonds
 am:አልመንድ
 ar:لوز
@@ -48940,7 +48937,7 @@ nl:amandelschilfers, amandelschaafsel
 pt:amêndoas laminadas
 # 191 products in 7 languages @2018-10-06
 
-<en:nut
+<en:tree nut
 en:bitter almond
 de:Bittermandeln
 es:almendras amargas
@@ -48954,7 +48951,7 @@ wikidata:en:Q902704
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:amandes-amères
 # 39 products in 3 languages @2018-10-06
 
-<en:nut
+<en:tree nut
 en:sweet almond
 fr:amande douce, amandes douces
 fi:makea manteli, makeat mantelit
@@ -48989,7 +48986,7 @@ nl:amandelen-hazelnotenpraliné
 #                                Brazil nut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:brazil nut, brazil nuts
 bg:бразилски орехи
 cs:para ořechy
@@ -49025,7 +49022,7 @@ wikidata:en:Q22810770
 #                                Cashew nuts
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:cashew nuts, cashews, cashew, cashewnut
 ar:كاجو
 bg:кашу
@@ -49072,7 +49069,7 @@ es:pasta de anacardos
 #                                Chestnut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:chestnut, chestnuts
 da:Kastanje, kastanjer
 de:Kastanie, Kastanien
@@ -49146,7 +49143,7 @@ fr:purée de marrons
 #                                Chinese chestnut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:chinese chestnut
 fi:kiinankastanja
 zh:板栗
@@ -49156,7 +49153,7 @@ zh:板栗
 #                                Colan nut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:cola nut
 es:nuez de cola
 wikipedia:en:https://en.wikipedia.org/wiki/Kola_nut
@@ -49166,7 +49163,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kola_nut
 #                                Ginko nut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:Ginkgo nuts
 de:Ginkgosamen, Ginkgonüsse
 fr:noix de gingko
@@ -49179,7 +49176,7 @@ zh:银杏果, 白果
 ###################################################################################################
 # description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
-<en:nut
+<en:tree nut
 en:hazelnut, hazelnuts
 af:Haselneut
 an:Avellana
@@ -49383,7 +49380,7 @@ it:nocciole a scaglie é macinate
 #                                Macademia nut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:macademia nut, macadamia, Queensland nuts
 ar:المكاداميا
 bg:орехи макадамия, орехи Куинсленд
@@ -49421,7 +49418,8 @@ wikidata:en:Q11027461
 #                                Peanut
 #
 ###################################################################################################
-# <en:nut
+
+<en:nut
 en:peanut, peanuts
 ar:فول سوداني
 ay:Chuqupa
@@ -49477,6 +49475,7 @@ zh:花生仁, 花生
 # mrj:Кӹдӓлӓн пӱкш
 # scn:Calacavisi
 # tt-cyrl:җир чикләвеге
+#allergens:en:en:peanut
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
@@ -49567,7 +49566,7 @@ en:crunchy peanut butter
 #                                Pecan nut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:pecan nut, pecan nuts, pecan, pecans
 bg:пеканови ядки
 cs:pekanové ořechy
@@ -49606,7 +49605,7 @@ sv:karamelliserade pekannötter
 #                                Pistachio
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:pistachio nuts, pistachio
 bg:шамфъстък
 ca:festuc,festucs
@@ -49658,7 +49657,7 @@ de:Pistazienstücke
 #                                Tigernut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:tigernut
 ca:xufa,xufas
 es:chufa,xufa,chufas,xufas
@@ -49675,15 +49674,16 @@ es:horchata de chufa
 #
 ###################################################################################################
 <en:nut
-en:tree nuts, treenuts
+en:tree nut, treenuts, tree nuts
 es:nueces de árboles
+allergens:en: en:nut
 
 ###################################################################################################
 #
 #                                Walnut
 #
 ###################################################################################################
-<en:nut
+<en:tree nut
 en:walnut, walnuts
 af:Okkerneut
 ar:جوز
