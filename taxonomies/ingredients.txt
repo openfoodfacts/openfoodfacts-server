@@ -23264,10 +23264,12 @@ en:emmer
 de:Emmer
 fr:blé amidonnier, amidonnier
 ru:двузернянка
+allergen:en:en:gluten
 
 <en:cereal
 en:teff
 es:teff, semilla de teff
+allergen:en:en:gluten
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
 
 <en:teff
@@ -23280,6 +23282,7 @@ en:whole grain teff flour
 
 # <en:compound
 fr:préparation pain d'épices
+allergen:en:en:gluten
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
 
 ##################################################################################
@@ -23288,9 +23291,8 @@ fr:préparation pain d'épices
 #
 ##################################################################################
 
-# Barley (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
-# The translations taken from wikipedia need to be checked. They can refer to the plant species.
-
+description:en:BARLEY (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
+comment:en:The translations taken from wikipedia need to be checked. They can refer to the plant species.
 <en:cereal
 en:barley
 am:ገብስ
@@ -23778,6 +23780,7 @@ fr:sarrasin réhydraté
 #
 ##################################################################################
 
+comment:en:does not contain gluten
 <en:cereal
 en:millet
 de:Hirse
@@ -23807,8 +23810,7 @@ fr:graines de millet
 # https://world.openfoodfacts.org/ingredient/fr:graines-de-millet/
 # 111 products in 1 languages @1018-09-22
 
-# Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
-
+description:en:Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
 <en:cereal
 en:amaranth
 de:Amarant
@@ -23829,8 +23831,8 @@ wikidata:en:Q156344
 #
 ##################################################################################
 
-# description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
-
+description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
+comment:en:oat does not contain gluten, but is often contaminated by gluten containing cereals.
 <en:cereal
 en:oat
 am:ገረማ
@@ -24245,8 +24247,7 @@ fr:quinoa rouge et blanc
 #
 ##################################################################################
 
-# RYE (Secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
-
+description:en:RYE (Secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
 <en:cereal
 en:rye
 af:Rog
@@ -24498,8 +24499,7 @@ es:malta molida de centeno
 #
 ##################################################################################
 
-#descrption:en:SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
-
+description:en:SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
 <en:cereal
 en:spelt
 ar:حنطة
