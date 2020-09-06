@@ -21727,11 +21727,12 @@ sv:vanillinarom
 fr:arôme caféine
 
 <en:flavouring
-<en:crustacean
+#<en:crustacean
 fr:arôme crabe
 fi:rapuaromi
 nl:krabaroma
 sv:krabbarom
+allergen:en:en:crustaceans
 
 <en:flavouring
 fr:arôme identique nature
@@ -21830,6 +21831,7 @@ en:crustaceans flavouring
 de:Krustentieraroma, Schalentieraroma
 fi:äyriäisaromi
 fr:arôme de crustacés
+allergen:en:en:en:crustaceans
 
 <en:natural flavouring
 <en:crustaceans flavouring
@@ -62753,8 +62755,7 @@ fr:oeufs de lompe noirs
 fr:oeufs de lompe rouges
 # usage:fr:oeufs de lompe rouges: oeufs de lompe (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e160a, e101, e120; sucre
 
-# Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms.
-
+description:en:Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms.
 en:shellfish
 ar:بكلويز
 bn:শেলফিশ
@@ -62807,7 +62808,6 @@ vegetarian:en:no
 en:shellfish extract
 de:Schalentierextrakt
 fi:äyriäisuute
-fr:extrait de crustacé
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -64232,6 +64232,7 @@ zh:甲壳亚门
 # shn:ပူ
 # vls:Kriftachtign
 # yue:甲殼動物
+allergen:en:en:crustaceans
 wikidata:en:Q25364
 wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
 vegan:en:no
@@ -64240,8 +64241,10 @@ vegetarian:en:no
 carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
 carbon_footprint_fr_foodges_value:fr:10.7
 
-# Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
+<en:crustacean
+fr:extrait de crustacé
 
+description:en:CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 <en:crustacean
 en:crab
 af:Krap
@@ -64392,8 +64395,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cancer_pagurus
 # ingredient/fr:cancer-pagurus has 12 products @2019-01-14
 
 
-# Crayfish, also known as crawfish, crawdads, crawlfish,[1] crawldads,[2] freshwater lobsters, mountain lobsters, mudbugs, or yabbies, are freshwater crustaceans resembling small lobsters
-
+description:en:CRAYFISH, also known as crawfish, crawdads, crawlfish,[1] crawldads,[2] freshwater lobsters, mountain lobsters, mudbugs, or yabbies, are freshwater crustaceans resembling small lobsters
 <en:crustacean
 en:crayfish
 ar:جراد البحر
@@ -64483,8 +64485,7 @@ wikidata:en:Q1133124
 wikipedia:en:https://en.wikipedia.org/wiki/Procambarus_clarkii
 
 
-# Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
-
+description:en:LOBSTERS comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 <en:crustacean
 en:lobster
 ar:همار,كركند
@@ -64653,8 +64654,7 @@ sv:hummerfond
 # compound ingredient
 
 
-# Spiny lobsters, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans
-
+description:en:SPINY LOBSTERS, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans
 <en:lobster
 en:spiny lobster, langustas, langouste, rock lobsters
 ar:كركند شائك
@@ -64767,8 +64767,7 @@ wikidata:en:Q551915
 en:lobster flavour
 es:aroma de langosta
 
-# The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
-
+comment:en:The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 <en:crustacean
 en:shrimp, prawn
 ak:Monko
