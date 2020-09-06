@@ -1,5 +1,4 @@
 # This file is part of Product Opener.
-# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
