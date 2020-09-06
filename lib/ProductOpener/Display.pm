@@ -138,6 +138,7 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Attributes qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -4188,6 +4189,18 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
+		
+		# Product attributes requested in a specific language
+		elsif ($field =~ /^attribute_groups_([a-z]{2})$/) {
+			my $target_lc = $1;
+			compute_attributes($product_ref, $target_lc);
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
+		# Product attributes in the $lc language
+		elsif ($field eq "attribute_groups") {
+			compute_attributes($product_ref, $lc);
+			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
+		}		
 
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
@@ -5050,6 +5063,7 @@ sub display_scatter_plot($$) {
 
 		my %series = ();
 		my %series_n = ();
+		my %min = ();	# Minimum for the axis, 0 except -15 for Nutri-Score score
 
 		foreach my $product_ref (@products) {
 
@@ -5113,6 +5127,8 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
+					
+					$min{$axis} = 0;
 
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
@@ -5124,6 +5140,7 @@ sub display_scatter_plot($$) {
 					}
 					elsif ($nid =~ /^nutrition-score/) {
 						$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
+						$min{$axis} = -15;
 					}
 					else {
 						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
@@ -5251,7 +5268,7 @@ JS
             },
             xAxis: {
 				$x_allowDecimals
-				min:0,
+				min:$min{x},
                 title: {
                     enabled: true,
                     text: '${x_title}${x_unit}'
@@ -5262,7 +5279,7 @@ JS
             },
             yAxis: {
 				$y_allowDecimals
-				min:0,
+				min:$min{y},
                 title: {
                     text: '${y_title}${y_unit}'
                 }
@@ -9429,7 +9446,6 @@ HTML
 				$response{jqm} .= $html;
 
 			}
-
 		}
 	}
 	else {
@@ -9509,7 +9525,6 @@ HTML
 			$response{jqm} = $request_ref->{jqm_content};
 			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
-
 		}
 	}
 
