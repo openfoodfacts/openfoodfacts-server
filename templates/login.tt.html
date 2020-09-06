@@ -1,0 +1,29 @@
+[% INCLUDE 'error_list.tt.html' %]
+<form method="post" action="/cgi/login.pl" enctype="multipart/form-data">
+    <div class="row">
+        <div class="large-12 columns">
+            <label>
+                [% lang('login_username_email') %]
+		        <input type="text" name="user_id" autocomplete="username" required="required" />
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <label>
+                [% lang('password') %]
+                <input type="password" name="password" autocomplete="current-password" required="required" />
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <label>
+                <input type="submit" name="submit" class="button" />
+                <input type="hidden" name="redirect" value="[% redirect %]"/>
+            </label>
+        </div>
+    </div>
+</form>
