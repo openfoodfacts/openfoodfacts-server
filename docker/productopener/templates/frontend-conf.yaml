@@ -41,7 +41,7 @@ data:
 
       # Static files are served directly by NGINX
 
-      location ~ ^/(.well-known|fonts|images|js|css|rss|data|files|resources|foundation|bower_components)/ {
+      location ~ ^/(fonts|images|js|css|rss|data|files|resources|foundation|bower_components)/ {
         # First attempt to serve request as file, then
         # as directory, then fall back to displaying a 404.
         try_files $uri $uri/ =404;
