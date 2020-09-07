@@ -1193,6 +1193,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
@@ -1307,6 +1309,17 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'en' => [
+								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
+								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
+								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
+								'^allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
+								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
+								'^see ingredients in bold$',
+							],
+
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
 								'(sur|de) produit fini',             # préparé avec 50g de fruits pour 100g de produit fini
