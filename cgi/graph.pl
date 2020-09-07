@@ -40,7 +40,7 @@ $header .= <<HEADER
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.js"></script>
 <script src="$static_subdomain/js/dist/d3.js"></script>
-<script src="$static_subdomain/js/graph.js"></script>
+<script src="$static_subdomain/js/dist/graph.js"></script>
 
 HEADER
 ;
