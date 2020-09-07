@@ -860,6 +860,7 @@ sr:sojin lecitin
 sv:sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin
 tr:soya lesitini
 uk:Соєвий лецитин
+allergens:en: en:soybeans
 # en:soya-lecithin has 27949 products in 29 languages @2018-11-10
 vegan:en:yes
 vegetarian:en:yes
@@ -17816,8 +17817,7 @@ nl:olie van biologische sesamzaadjes
 fr:huile vierge de sésame
 # ingredient/fr:huile-vierge-de-sesame has 12 products in french @2019-05-29
 
-# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
-
+description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 <en:vegetable oil
 en:soya oil, Soybean oil, soy oil
 ar:زيت فول الصويا
@@ -17852,11 +17852,12 @@ uk:Соєва олія
 zh:大豆油
 # zh-min-nan:Toā-tāu-iû
 # yue:豆油
+allergens:en: en:soybeans
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
 from_palm_oil:en:no
 
-<en:soy oil
+<en:soya oil
 en:hydrogenated soy oil
 de:gehärtetes Sojaöl
 es:Aceite de soja hidrogenada
@@ -17864,14 +17865,13 @@ fi:kovetettu soijaöljy, hydrogenoitu soijaöljy
 fr:huile de soja hydrogénée
 hu:hidrogénezett szójaolaj
 
-<en:soy oil
+<en:soya oil
 en:partially hydrogenated soybean oil
 
-<en:soy oil
+<en:soya oil
 fr:huile de soja entièrement raffinée
 
-# description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
-
+description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
 <en:vegetable oil
 en:camelina oil
 de:Leindotteröl
@@ -17882,8 +17882,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Camelina_sativa
 # ingredient/fr:huile-de-cameline has 10 products @2019-06-03
 from_palm_oil:en:no
 
-# description:en:GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
-
+description:en:GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
 <en:vegetable oil
 en:Grape seed oil
 bg:Олио от гроздови семки
@@ -17912,8 +17911,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
 from_palm_oil:en:no
 
-# description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
-
+description:en:RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 <en:vegetable oil
 # producedFrom:en:rice
 en:Rice bran oil
@@ -17944,8 +17942,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rice_bran_oil
 from_palm_oil:en:no
 
 
-# description:en:SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
-
+description:en:SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
 <en:vegetable fat
 en:shea butter, shea
 ak:Nkuto
@@ -17979,8 +17976,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shea_butter
 # ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
 from_palm_oil:en:no
 
-# description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
-
+description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 <en:vegetable fat
 en:illipe oil
 de:Illipebutter
@@ -25346,7 +25342,8 @@ sv:solrosfrömjöl
 # ingredient/en:sunflower-seed-flour has 14 products in 1 language @2020-05-24
 
 <en:flour
-en:soy flour, soya flour
+<en:soya
+en:soya flour, soy flour
 da:Sojamel, sojabønnemel
 de:Sojamehl
 es:harina de soja
@@ -25362,6 +25359,7 @@ ru:Соевая мука
 sr:sojino brašno
 sv:sojamjöl, mjöl av sojabönor
 tr:soya unu
+allergens:en: en:soybeans
 
 <en:flour
 <en:corn
@@ -29163,6 +29161,7 @@ pl:Białko sojowe
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин
 sv:sojaprotein, sojaproteinpeparat
+allergens:en: en:soybeans
 
 <en:vegetable fiber
 en:soy fiber
@@ -29170,6 +29169,7 @@ de:Sojafaser
 es:fibra de soja
 fi:soijakuitu
 fr:fibres de soja
+allergens:en: en:soybeans
 
 <en:soy fiber
 en:rehydrated soy fiber
@@ -31118,9 +31118,9 @@ fr:eau et sel
 
 
 
-# SOYA is used as a generic word to indicate it is made from soybeans
-# Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
-# note that soya is english and soy is american
+description:en:SOYA is used as a generic word to indicate it is made from soybeans
+comment:en:Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
+comment:en:note that soya is english and soy is american
 
 en:soya, soy, soja, soia
 an:soya
@@ -31189,7 +31189,7 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
-#This is the actual flower, not flour
+comment:en:This is the actual flower, not flour
 <en:soya
 en:soya flower
 es:flor de soja
@@ -31244,6 +31244,7 @@ zh:黄豆, 大豆
 # ilo:bukel ti soya
 # jam:Sayabiin
 # sco:Soya bean
+allergens:en: en:soybeans
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean
 wikidata:en:Q11006
 # ingredient/soy-beans has 872 products in 9 languages @2018-09-25
@@ -50869,8 +50870,8 @@ fr:assaisonnement goût fromage
 #                                Miso
 #
 ###################################################################################################
-# MISO is a traditional Japanese seasoning produced by fermenting soybeans with salt and kōji (the fungus Aspergillus oryzae) and sometimes rice, barley, seaweed or other ingredients.
 
+description:en:MISO is a traditional Japanese seasoning produced by fermenting soybeans with salt and kōji (the fungus Aspergillus oryzae) and sometimes rice, barley, seaweed or other ingredients.
 <en:condiment
 en:miso, miso paste
 ar:ميسو
@@ -71309,6 +71310,7 @@ zh:豆腐
 # zh-my:豆腐
 # zh-sg:豆腐
 # zh-tw:豆腐
+allergens:en: en:soybeans
 wikidata:en:Q177378
 wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 # ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
@@ -71980,9 +71982,9 @@ fr:préparation à base de soja
 nl:sojabereiding
 pt:preparado à base de soja
 sv:sojabönsberedning
+allergens:en: en:soybeans
 
-# description:en:SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
-
+description:en:SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 <en:soy preparation
 # mainIngredient:en:water
 en:soy milk
@@ -72242,9 +72244,8 @@ es:morcilla
 fr:Viande cuisinée
 # usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau
 
-# description:en:ICE CREAM is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
-
-# comment:en:Maybe it is possible to distinguish between ice and ice cream by look if it is a compound ingredient.
+description:en:ICE CREAM is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
+comment:en:Maybe it is possible to distinguish between ice and ice cream by look if it is a compound ingredient.
 en:ice cream, ice creams
 ab:аршәы
 af:Roomys
@@ -73057,7 +73058,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
 
-# description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
+description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
 #en:category:en:Soy sauces
 <en:sauce
@@ -73138,6 +73139,7 @@ zh:酱油
 # zh-hant:醬油
 # zh-tw:醬油
 # en:process:en:powder
+allergens:en: en:soybeans
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
