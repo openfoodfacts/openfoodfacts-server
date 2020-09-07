@@ -589,6 +589,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /\.$parameter(\b|$)/) {
 
 			param($parameter, 1);
+			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
 
 			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
