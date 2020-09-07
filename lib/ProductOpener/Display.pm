@@ -139,6 +139,7 @@ use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Attributes qw(:all);
+use ProductOpener::Orgs qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -3571,28 +3572,53 @@ HTML
 	}
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		
+		# Users starting with org- are organizations, not actual users
+		
+		my $user_or_org_ref;
+		
+		if ($tagid =~ /^org-/) {
+			
+			# Organization
+			
+			my $org_id = $';
+			my $user_or_org_ref = retrieve_org($org_id);
+			
+			if (not defined $user_or_org_ref) {
+				display_error(lang("error_unknown_org"), 404);
+			}			
+		}
+		else {
+			
+			# User
 
-		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+			my $user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+			
+			if (not defined $user_or_org_ref) {
+				display_error(lang("error_unknown_user"), 404);
+			}
+		}
 
-		if (defined $user_ref) {
+		if (defined $user_or_org_ref) {
 
-			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
-				$title = $user_ref->{name} . " ($tagid)";
-				$products_title = $user_ref->{name};
+			if ($user_or_org_ref->{name} ne '') {
+				$title = $user_or_org_ref->{name} . " ($tagid)";
+				$products_title = $user_or_org_ref->{name};
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
 				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
-
 			}
 
 			else {
 
-				if ($admin) {
-					$description .= "<p>" . $user_ref->{email} . "</p>";
+				if (($admin) and (defined $user_or_org_ref->{email})) {
+					$description .= "<p>" . $user_or_org_ref->{email} . "</p>";
 				}
 
-				$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
+				if (defined $user_or_org_ref->{registered_t}) {
+					$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_or_org_ref->{registered_t}) . "</p>";
+				}
 
 				# Display links to products edited, photographed etc.
 
@@ -3603,11 +3629,11 @@ HTML
 
 
 				# 2018/12/19 - disable displaying missions (broken since 2013)
-				if (0 and (defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
+				if (0 and (defined $user_or_org_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 					my $missions = '';
 					my $i = 0;
 
-					foreach my $missionid (sort { $user_ref->{missions}{$b} <=> $user_ref->{missions}{$a}} keys %{$user_ref->{missions}}) {
+					foreach my $missionid (sort { $user_or_org_ref->{missions}{$b} <=> $user_or_org_ref->{missions}{$a}} keys %{$user_or_org_ref->{missions}}) {
 						$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
 						. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
 						. $Missions{$missionid}{name} . "</a></div></li>\n";
@@ -3623,7 +3649,6 @@ HTML
 
 					$description .= $missions;
 				}
-
 			}
 		}
 	}
@@ -6696,7 +6721,7 @@ HTML
 		print header ( -status => $status );
 		my $r = Apache2::RequestUtil->request();
 		$r->rflush;
-		$r->status(200);
+		$r->status($status);
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
