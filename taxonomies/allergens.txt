@@ -6,7 +6,10 @@ stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transform�
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 
-en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour, cereals containing gluten, wheatflour, spelt, speltflour
+en:none, allergens-free, without allergens, without, n, no, no allergens, 0
+fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
+
+en:gluten, cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina
 ar:غلوتين
 bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж,  овес, шпелта, камут, вид едра твърда пшеница
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
@@ -69,7 +72,7 @@ sv:kräftdjur
 th:ครัสเตเชียน,ปู,กั้ง,กุ้ง,กะปิ
 zh:甲壳亚门
 
-en:eggs, egg, barn egg
+en:eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
 ar:بيض,بيضة
 bg:яйца, яйце
 cs:vejce
@@ -162,7 +165,7 @@ th:ถั่วลิสง
 zh:花生
 wikidata:en:Q7157933
 
-en:soybeans, soya, soja, soia, soy
+en:soybeans, soya, soja, soia, soy, soya bean, soy flour, soya flour, soy lecithin, soy lecithins, soya lecithin, soya lecithins
 ar:فول الصويا
 bg:соя, соеви, соево
 cs:sójové boby, sójové
@@ -174,6 +177,7 @@ et:sojaoad
 fi:soija, soijaa, soijasta, soijat, soijia, soijista, soijapapu, soijapapua, soijapavusta, soijapavut, soijapapuja, soijapavuista, soijajuoma, soijajuomaa, soijajuomasta, soijajuomat, soijajuomia, soijajuomista, soijamaito, soijamaitoa, soijamaidosta, soijamaidot, soijamaitoja, soijamaidoista, soijalesitiini, soijalesitiiniä, soijalesitiinistä, soijalesitiinit, soijalesitiinejä, soijalesitiineistä, soijaproteiini, soijaproteiinia, soijaproteiinista, soijaproteiinit, soijaproteiineja, soijaproteiineista, soijakastike, soijakastiketta, soijakastikkeesta, soijakastikkeet, soijakastikkeita, soijakastikkeista, soijahiutale, soijahiutaletta, soijahiutaleesta, soijahiutaleet, soijahiutaleita, soijahiutaleista, soijajauho, soijajauhoa, soijajauhosta, soijajauhot, soijajauhoja, soijajauhoista, soijarouhe, soijarouhetta, soijarouheesta, soijarouheet, soijarouheita, soijarouheista, soijaöljy, soijaöljyä, soijaöljystä, soijaöljyt, soijaöljyjä, soijaöljyistä, soijapapuöljy, soijapapuöljyä, soijapapuöljystä, soijapapuöljyt, soijapapuöljyjä, soijapapuöljyistä, soijaproteiini-isolaatti, soijaproteiini-isolaattia, soijaproteiini-isolaatista, soijaproteiinihydrolysaatti, soijaproteiinihydrolysaattia, soijaproteiinihydrolysaatista
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graine de soja, graines de soja, tofu
 ga:pónairí soighe, soighe
+hr:soju
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
 is:soja
 it:soia, lecitina di soia
@@ -184,7 +188,7 @@ mt:soybeans
 nb:soya
 nl:soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be:soja, sojalecithine, sojaeiwitten, sojabonen
-pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe
+pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, soję
 pt:soja
 ro:soia, lecitină din soia
 ru:соя, соевые бобы

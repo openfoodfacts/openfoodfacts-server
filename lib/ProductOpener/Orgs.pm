@@ -171,7 +171,7 @@ sub create_org($$) {
 		created_t => time(),
 		creator   => $creator,
 		org_id    => $org_id,
-		org_name  => $org_id_or_name,
+		name  => $org_id_or_name,
 		admins    => {},
 		members   => {},
 	};
@@ -181,7 +181,7 @@ sub create_org($$) {
 	my $admin_mail_body = <<EMAIL
 creator: $creator
 org_id: $org_id
-org_name: $org_id_or_name
+name: $org_id_or_name
 EMAIL
 ;
 	send_email_to_producers_admin(

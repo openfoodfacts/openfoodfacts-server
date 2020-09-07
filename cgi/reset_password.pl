@@ -112,7 +112,6 @@ if ($action eq 'process') {
 }
 
 $template_data_ref->{action} = $action;
-$template_data_ref->{error_count} = $#errors;
 $template_data_ref->{type} = $type;
 
 
