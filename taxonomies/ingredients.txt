@@ -17699,10 +17699,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
 wikidata:en:Q856775
 from_palm_oil:en:no
 
-# PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
+description:en:PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
 
 <en:vegetable oil
-# <en:peanut link needed for allergens
 en:peanut oil
 ar:زيت فول سوداني
 be:Арахісавы алей
@@ -17741,7 +17740,7 @@ zh:花生油
 # wuu:花生油
 # zh-min-nam:Thô͘-tāu-iû
 # yue:花生油
-allergens:en: en:peanut
+allergens:en: en:peanuts
 wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
@@ -49441,7 +49440,7 @@ wikidata:en:Q11027461
 #                                Peanut
 #
 ###################################################################################################
-# <en:nut
+<en:nut
 en:peanut, peanuts
 ar:فول سوداني
 ay:Chuqupa
@@ -49497,6 +49496,7 @@ zh:花生仁, 花生
 # mrj:Кӹдӓлӓн пӱкш
 # scn:Calacavisi
 # tt-cyrl:җир чикләвеге
+allergens:en: en:peanuts
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
@@ -49564,6 +49564,7 @@ fr:farine d'arachide
 en:honey roasted peanuts
 fi:hunajapaahdettu maapähkinä
 sv:honungsrostade jordnötter
+allergens:en: en:peanuts
 # usage:en:honey roasted peanuts (peanuts, honey, sugar, corn starch, cottonseed oil and salt)
 # mainIngredient:en:peanuts
 
