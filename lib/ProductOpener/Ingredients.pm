@@ -1186,7 +1186,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
-				# Check ingredient against labels taxonomy. If it exists there, don't parse it as an ingredient, and add it to labels. See also further down.
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
