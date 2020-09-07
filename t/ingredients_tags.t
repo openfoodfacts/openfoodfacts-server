@@ -121,6 +121,12 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
 	# mismatch between name and number
 	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+	
+	# removal of "allergy advice..." in %ignore_regexps
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."}, ['en:salt','en:spice','en:water']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice: for allergens, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+
 
 );
 
