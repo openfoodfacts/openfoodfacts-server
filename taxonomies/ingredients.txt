@@ -6199,6 +6199,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dairy_product
 wikidata:en:Q185217
 vegan:en:no
 vegetarian:en:maybe
+allergens:en: en:milk
 
 <en:dairy
 es:derivado lacteo en polvo
@@ -29361,6 +29362,7 @@ ru:молочный белок, молочные белки
 sv:mjölkprotein
 nova:en:4
 vegetarian:en:yes
+allergens:en: en:milk
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
 
 <en:milk protein
@@ -29455,8 +29457,7 @@ wikidata:en:Q7993541
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:heraproteiini-isolaatti
 # 1 entry @ 2019-10-31
 
-# Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
-
+description:en:Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 <en:milk proteins
 en:Casein
 ar:كازين
@@ -30186,6 +30187,7 @@ sv:Choklad bitar, chokladbitar
 <en:chocolate
 en:milk chocolate chips,milk chocolate drops
 es:pepitas de chocolate con leche
+allergens:en: en:milk
 
 <en:chocolate
 en:sugar free chocolate chips
@@ -30214,8 +30216,7 @@ nl:chocolade met pure cacaoboter
 en:chocolate cream
 es:crema de chocolate
 
-# description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
-
+description:en:DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
 <en:chocolate
 en:dark chocolate, black chocolate,plain chocolate
 ar:شوكولاتة داكنة
@@ -30289,8 +30290,7 @@ nl:biologische pure chocola
 <en:chocolate
 de:Halbbitterschokolade
 
-# description:en:MILK CHOCOLATE is solid chocolate made with milk added in the form of powdered milk, liquid milk, or condensed milk.
-
+description:en:MILK CHOCOLATE is solid chocolate made with milk added in the form of powdered milk, liquid milk, or condensed milk.
 # <en:contains:en:sugar
 # <en:contains:en:milk powder
 # <en:contains:en:cocoa mass
@@ -30327,6 +30327,7 @@ uk:Молочний шоколад
 wikidata:en:Q2164820
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 carbon_footprint_fr_foodges_value:fr:5.9
+allergens:en: en:milk
 # ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
 # category/milk-chocolates has 2071 products @2019-05-25
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
@@ -30354,7 +30355,7 @@ it:Cioccolato superiore al latte
 # ingredient/fr:chocolat-supérieur-au-lait has 207 products in 12 languages @2019-05-25
 # usage:fr:Chocolat supérieur au lait (sucre, lait en poudre, beurre de cacao, pâte de cacao, émulsifiants:lécithine [soja], vanilline)
 
-# comment:en:Milka marketing
+comment:en:Milka marketing
 <en:milk chocolate
 fr:chocolat au lait du pays alpin
 # ingredient/fr:chocolat-au-lait-du-pays-alpin has 22 products @2019-05-25
@@ -30369,8 +30370,7 @@ fr:chocolat au lait en poudre
 <en:milk chocolate
 fr:barre de chocolat au lait
 
-# description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
-
+description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 # <en:category:en:White chocolates
 # <en:contains:en:cocoa butter
 <en:chocolate
@@ -30424,6 +30424,7 @@ zh:白朱古力
 # zh-hant:白朱古力
 # zh-hk:白朱古力
 wikidata:en:Q742385
+allergens:en: en:milk
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_value:fr:6.5
 # ingredient/white-chocolate has 1212 products in 8 languages @2019-05-25
@@ -32519,8 +32520,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xanthan_gum
 fr:épaississant e415
 
 
-# description:en:GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
-
+description:en:GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
 bg:Гума джелан
@@ -58644,8 +58644,7 @@ en:Tremella fuciformis
 la:Tremella fuciformis
 
 
-# description:en:LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
-
+description:en:LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
 <en:mushroom
 en:milkcap
 be:Млечнік
@@ -69302,6 +69301,7 @@ fr:fourrage lait, fourrage au lait
 it:farcitura al latte
 nl:melkvulling
 pt:recheio de leite
+allergens:en: en:milk
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
 vegan:en:no
@@ -70584,6 +70584,7 @@ sv:Grissini
 # mainIngredient:en:milk
 # <en:dessert
 fr:Ile flottante sur lit de crème anglaise
+allergens:en: en:milk
 
 # mainIngredient:en:milk
 # <en:dessert
@@ -72641,6 +72642,7 @@ zh:白汁
 # zh-tw:白汁
 wikidata:en:Q209974
 wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
+allergens:en: en:milk
 # ingredient/fr:sauce-béchamel has 89 products in 4 languages @2019-04-04
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
 
