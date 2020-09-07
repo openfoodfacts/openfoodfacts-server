@@ -712,6 +712,8 @@ EMAIL
 						my $tag_name = $';
 						my $tag_to_add;
 						
+						$log->debug("specific field", { field => $field, tag_name => $tag_name, value => $imported_product_ref->{$subfield} } ) if $log->is_debug();
+						
 						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
 							$tag_to_add = $tag_name;
 						}
