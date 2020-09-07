@@ -13453,6 +13453,8 @@ en:Celery salt
 ca:sal d'api
 es:sal de apio
 fr:Sel de céleri, sel au céleri
+allergens:en: en:celery
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -21425,6 +21427,7 @@ de:natürliches Selleriearoma
 fi:luontainen selleriaromi
 hu:természetes zeller aroma
 nl:natuurlijk selderijaroma
+allergens:en: en:celery
 
 <en:natural flavouring
 en:natural carrot flavouring
@@ -21810,6 +21813,7 @@ de:Sellerie-Aroma
 fi:selleriaromi
 fr:arôme de céleri
 hu:zeller aroma
+allergens:en: en:celery
 
 <en:flavouring
 en:laurel flavouring
@@ -43597,8 +43601,7 @@ ru:Концентрированный морковный сок
 sv:morotjuicekoncentrat
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
 
-# description:en:CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
-
+description:en:CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 <en:vegetable
 en:celery
 af:Seldery
@@ -43688,6 +43691,7 @@ zh:旱芹
 # sco:Celery
 # xmf:სონა
 # yue:西芹
+allergens:en: en:celery
 wikidata:en:Q23012379
 wikipedia:en:https://en.wikipedia.org/wiki/Celery
 # fr:celeri has 4877 products in 10 languages @2018-10-21
@@ -43795,6 +43799,7 @@ ms:Akar saderi
 nl:knolselderij
 sv:Rotselleri
 # ru:сельдерей пахучий translation error, see also en:celery
+allergens:en: en:celery
 wikidata:en:Q575174
 wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
@@ -52641,9 +52646,9 @@ fr:pimprenelle
 #                                Dill
 #
 ###################################################################################################
-# Dill (Anethum graveolens) is an annual herb in the celery family Apiaceae. Dill is widely grown in Eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
-# The wikidata page mixes the common name and latin name
 
+description:en:Dill (Anethum graveolens) is an annual herb in the celery family Apiaceae. Dill is widely grown in Eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
+comment:en:The wikidata page mixes the common name and latin name
 <en:herb
 en:dill
 af:Dille
