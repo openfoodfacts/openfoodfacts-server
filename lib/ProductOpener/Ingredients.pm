@@ -2607,19 +2607,19 @@ el => [
 ],
 
 en => [
-'nutritional values',
 'after opening',
-'nutrition values',
+'nutrition(al)? (facts|information|value[s]?)',
+# "nutrition advice" seems to appear before ingredients rather than after.
+# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 'of whlch saturates',
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 'once opened keep in the refrigerator',
-'Store in a cool, dry place',
+'Store in a cool[,]? dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
-
 ],
 
 es => [
