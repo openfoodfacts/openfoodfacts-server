@@ -36,7 +36,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 
 $header .= <<HEADER
-<link rel="stylesheet" href="$static_subdomain/css/graph.css" >
+<link rel="stylesheet" href="$static_subdomain/css/dist/graph.css">
 <script src="$static_subdomain/js/dist/jquery.js"></script>
 <script src="$static_subdomain/js/dist/jquery-ui.js"></script>
 <script src="$static_subdomain/js/dist/d3.js"></script>
