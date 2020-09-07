@@ -1396,6 +1396,7 @@ fr:gélatine de poisson
 it:gelatina di pesce
 vegan:en:no
 vegetarian:en:no
+allergens:en: en:fish
 # ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
 
 <en:gelatin
@@ -18535,8 +18536,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eucalyptus_oil
 # derivedFrom:en:eucalyptus
 # ingredient/fr:huile-essentielle-d'eucalyptus has 20 products in 2 languages @2020-06-08
 
-# FISH OIL is oil derived from the tissues of oily fish
-
+description:en:FISH OIL is oil derived from the tissues of oily fish
 <en:oil
 # from:en:fish
 en:fish oil
@@ -18578,6 +18578,7 @@ wikidata:en:Q1786125
 vegan:en:no
 vegetarian:en:no
 from_palm_oil:en:no
+allergens:en: en:fish
 
 <en:oil
 en:marine oil
@@ -21902,6 +21903,7 @@ de:natürliches Fischaroma, natürliches Fisch-Aroma
 fi:luontainen kala-aromi
 fr:arôme naturel de poisson
 hu:természetes hal aroma
+allergens:en: en:fish
 vegan:en:no
 vegetarian:en:no
 
@@ -59439,17 +59441,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quorn
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# EN:FISH TAXONOMY APPROACH
-#
-# For the en:fish ingredients a special approach to the taxonomy has been chosen:
-# the latin fish species names are always the lowest child of a common fish name.
-# These latin names are noted as en:and la:lines.
-# The common fish names can not be trusted for correctly identifying the fish species.
-# The same generic name is often used to (incorrectly) designate multiple fish species.
 
-
-# Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
-
+description:en:Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
 en:fish
 ab:Аҧсыӡ
 af:Vis
@@ -59728,6 +59721,7 @@ wikidata:en:Q600396
 wikipedia:en:https://en.wikipedia.org/wiki/Fish
 vegan:en:no
 vegetarian:en:no
+allergens:en: en:fish
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 carbon_footprint_fr_foodges_value:fr:10.2
@@ -59804,8 +59798,7 @@ fi:mäti
 wikidata:en:Q219426
 wikipedia:en:https://en.wikipedia.org/wiki/Roe
 
-# Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
-
+description:en:ROCKFISH is a common term for several species of fish, referring to their tendency to hide among rocks.
 <en:fish
 en:rockfish
 da:rødfisk
@@ -59818,8 +59811,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rockfish
 # structure:inner:role:synonym:optional, eg poissons de roche (congre, rascasse, grondin)
 
 
-#  Freshwater fish are those that spend some or all of their lives in fresh water, such as rivers and lakes, with a salinity of less than 0.05%.
-
+description:en:FRESHWATER FISH are those that spend some or all of their lives in fresh water, such as rivers and lakes, with a salinity of less than 0.05%.
 <en:fish
 en:fresh water fish
 af:varswatervis
@@ -59900,8 +59892,7 @@ carbon_footprint_fr_foodges_value:fr:10.7
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
 
-# The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae.
-
+description:en:The Alaska pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae.
 <en:fish
 <en:white fish
 en:alaska pollock, Alaskan pollock, Theragra chalcogramma
@@ -73036,6 +73027,7 @@ it:salsa di pesce
 nl:vissaus
 nn:fiskesaus
 sv:fisksås
+allergens:en: en:fish
 wikipedia:en:https://en.wikipedia.org/wiki/Fish_sauce
 # ingredient/fr:sauce-poisson has 106 products in 9 languages @2019-04-11
 # usage:en: fish sauce (anchovy (fish), salt, sugar)
