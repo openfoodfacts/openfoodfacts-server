@@ -46,109 +46,110 @@ HEADER
 ;
 
 my $html = <<HTML
-<!-- Waiting Screen -->
+<div>
 
-<!-- Display details of selected product among those which are suggested in the bottom banner -->
-<div id="selected_product_details">
+	<!-- Display details of selected product among those which are suggested in the bottom banner -->
+	<div id="selected_product_details">
 
-</div>
+	</div>
 
-<!-- GRAPH HEADER -->
+	<!-- GRAPH HEADER -->
 
-<div id="banner">Open Food Facts Graph - Product comparison</div>
+	<div id="banner">Open Food Facts Graph - Product comparison</div>
 
-<div id="product_details"><span id="prod_ref_code">&nbsp;</span> &nbsp;&nbsp;
-    <span id="prod_ref_name"/></div>
-<div style='width: 98%; text-align: right;'>
-    <table style='text-align: right; width: 100%'>
-        <tbody>
-        <tr>
-            <td style='border-radius: 5px;'>
-                <table style="width: 100%">
-                    <tr style='text-align: right; vertical-align: top; background-color: #d0d0d0;'>
-                        <td id="cell_product_image">
-                        	<div style="text-align:center">
-								<img id="prod_ref_image" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem" />
-							</div>
-                            <div id="links_off">
-                                <div><a id="url_off_prod" href='$static_subdomain' target='_blank'>
-                                    Product page
-                                </a></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="prod_ref_categories" style="display:none"></div>
-                            <div id="criteria">
-                                <table>
-                                    <tr>
-                                        <td>Country</td>
-                                        <td>
-                                            <select id="input_country">
-                                                <option></option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Store</td>
-                                        <td>
-                                            <select id="input_store" title="select a store">
-                                                <option></option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Score</td>
-                                        <td>
-                                            <select id="input_score_db" title="select a score">
-                                                <option></option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Barcode</td>
-                                        <td>
-                                            <div id="panel_input_code">
-                                                <input id='input_product_code' type='text' title="product code"
-                                                       value=""/>
-                                                <div id="submitBtn" class="button expand" name="submitBtn">Go!</div>
-                                            </div>
+	<div id="product_details"><span id="prod_ref_code">&nbsp;</span> &nbsp;&nbsp;
+		<span id="prod_ref_name"/></div>
+	<div style='width: 98%; text-align: right;'>
+		<table style='text-align: right; width: 100%'>
+			<tbody>
+			<tr>
+				<td style='border-radius: 5px;'>
+					<table style="width: 100%">
+						<tr style='text-align: right; vertical-align: top; background-color: #d0d0d0;'>
+							<td id="cell_product_image">
+								<div style="text-align:center">
+									<img id="prod_ref_image" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem" />
+								</div>
+								<div id="links_off">
+									<div><a id="url_off_prod" href='$static_subdomain' target='_blank'>
+										Product page
+									</a></div>
+								</div>
+							</td>
+							<td>
+								<div id="prod_ref_categories" style="display:none"></div>
+								<div id="criteria">
+									<table>
+										<tr>
+											<td>Country</td>
+											<td>
+												<select id="input_country">
+													<option></option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Store</td>
+											<td>
+												<select id="input_store" title="select a store">
+													<option></option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Score</td>
+											<td>
+												<select id="input_score_db" title="select a score">
+													<option></option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Barcode</td>
+											<td>
+												<div id="panel_input_code">
+													<input id='input_product_code' type='text' title="product code"
+														value=""/>
+													<div id="submitBtn" class="button expand" name="submitBtn">Go!</div>
+												</div>
 
-                                        </td>
-                                    </tr>
+											</td>
+										</tr>
 
-                                </table>
-                            </div>
-                            <div id="msg_warning_prod_ref">&nbsp;</div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+									</table>
+								</div>
+								<div id="msg_warning_prod_ref">&nbsp;</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 
-<div id="graph">&nbsp;</div>
+	<div id="graph">&nbsp;</div>
 
-<!-- Panel for the suggestion of products with a better score -->
-<!-- navigation icons -->
-<div id="menu_selection">
-    <div>
-        <div id="nb_suggestions"></div>
-        suggestions
-    </div>
-    <a href="#" id="suggestion_left">
-    	<img src="/images/graph/leftArrow.png" title="previous product" />
-    </a>
-    <a href="#" id="suggestion_details">
-    	<img src="/images/graph/details.png" title="compare this product" />
-   	</a>
-    <a href="#" id="suggestion_right">
-    	<img src="/images/graph/rightArrow.png" title="next product" />
-    </a>
-</div>
+	<!-- Panel for the suggestion of products with a better score -->
+	<!-- navigation icons -->
+	<div id="menu_selection">
+		<div>
+			<div id="nb_suggestions"></div>
+			suggestions
+		</div>
+		<a href="#" id="suggestion_left">
+			<img src="/images/graph/leftArrow.png" title="previous product" />
+		</a>
+		<a href="#" id="suggestion_details">
+			<img src="/images/graph/details.png" title="compare this product" />
+		</a>
+		<a href="#" id="suggestion_right">
+			<img src="/images/graph/rightArrow.png" title="next product" />
+		</a>
+	</div>
 
-<div id="products_suggestion">
+	<div id="products_suggestion">
+	</div>
 
 </div>
 
