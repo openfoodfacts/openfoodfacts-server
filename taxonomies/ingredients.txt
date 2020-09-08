@@ -17593,8 +17593,7 @@ hu:pálma- és repcemag
 <en:sunflower oil
 fi:rapsi- ja auringonkukkaöljy
 
-# description:en:WALNUT OIL is oil extracted from walnuts, Juglans regia
-
+description:en:WALNUT OIL is oil extracted from walnuts, Juglans regia
 <en:vegetable oil
 # producedFrom:en:walnut
 en:walnut oil
@@ -17617,6 +17616,7 @@ sr:Орахово уље
 sv:Valnötsolja, Bomullsfröolja
 th:น้ำมันวอลนัต
 zh:核桃油
+allergens:en: en:nuts
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
 from_palm_oil:en:no
@@ -49704,9 +49704,11 @@ es:horchata de chufa
 #                                Tree nut
 #
 ###################################################################################################
+
 <en:nut
 en:tree nuts, treenuts
 es:nueces de árboles
+allergens:en: en:nuts
 
 ###################################################################################################
 #
