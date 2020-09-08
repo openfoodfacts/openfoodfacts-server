@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 16:44\n"
+"PO-Revision-Date: 2020-09-08 09:07\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -18,26 +18,26 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 #. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openbeautyfacts-logo-en-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openbeautyfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
@@ -45,7 +45,7 @@ msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -54,7 +54,7 @@ msgstr "המיזם Open Beauty Facts אוסף מידע ונתונים על מו�
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr ""
+msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
@@ -70,7 +70,7 @@ msgstr "תרומה ל־Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
@@ -80,7 +80,13 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openbeautyfacts.org/legal\">מידע משפטי</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">תנאי השימוש</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/who-we-are\">מי אנחנו</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/faq\">שאלות נפוצות</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">פורום הרעיונות</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">בלוג</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">עתונות ובלוגים</a>\n"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -92,7 +98,7 @@ msgstr "שמפו נגד קשקשים, משחת שיניים מלבינה"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -138,7 +144,7 @@ msgstr "חיפוש מוצרים ב־Open Beauty Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
