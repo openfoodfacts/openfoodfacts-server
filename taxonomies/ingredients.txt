@@ -9853,6 +9853,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
 # en:cheddar has 366 products @2018-10-27
 
 <en:cheddar
+en:mild cheddar, mild cheddar cheese
+fr:fromage cheddar jeune
+
+<en:cheddar
 en:medium mature cheddar, medium mature cheddar cheese
 
 <en:cheddar
@@ -9861,6 +9865,7 @@ fr:fromage cheddar affiné
 
 <en:cheddar
 en:extra mature cheddar, extra mature cheddar cheese
+fr:fromage cheddar très affiné
 
 <en:cheddar
 en:vintage cheddar, vintage cheddar cheese
@@ -9912,6 +9917,15 @@ ca:comté DOP
 es:comté DOP
 nl:Comté AOC
 # fr:comté-aop has 40 products in 1 language @2018-10-27
+
+
+# description:en:Gloucester is a traditional, semi-hard cheese which has been made in Gloucestershire, England, since the 16th century, at one time made only with the milk of the once nearly extinct Gloucester cattle.
+
+<en:cheese
+en:Double Gloucester, Double Gloucester cheese
+fr:fromage de Double Gloucester
+wikidata:en:Q174539
+wikipedia:en:https://en.wikipedia.org/wiki/Gloucester_cheese
 
 
 # EDAM (Dutch:Edammer) is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
@@ -10499,6 +10513,15 @@ it:Gruyère AOP
 # fr:gruyère-aop has 16 products in 3 languages @2018-10-27
 
 
+# description:en:Lancashire is an English cow's-milk cheese from the county of Lancashire.
+
+<en:cheese
+en:Lancashire cheese
+fr:fromage lancashire, fromage lancashire au lait pasteurisé
+wikidata:en:Q1244290
+wikipedia:en:https://en.wikipedia.org/wiki/Lancashire_cheese
+
+
 # description:en:MAASDAM cheese is a Swiss-style Dutch cheese.
 
 <en:cheese
@@ -11009,10 +11032,10 @@ fr:Reblochon AOP
 en:red leicester, red leicester cheese
 af:red leicester
 cy:Caws Caerlŷr
-de:Red Leicester
+de:Red Leicester, red leicester käse
 es:Red Leicester
 fi:Red Leicester
-fr:Red Leicester
+fr:Red Leicester, fromage red leicester
 id:Keju Leicester
 it:Red Leicester
 lt:Raudonasis Lesteršyras
@@ -11148,6 +11171,22 @@ zh:罗克福干酪
 wikidata:en:Q189221
 wikipedia:en:https://en.wikipedia.org/wiki/Roquefort
 # ingredient/fr:roquefort has 74 products in 4 languages @2019-04-03
+
+
+# description:en:Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
+
+<en:cheese
+en:Stilton, Stilton cheese
+fr:stilton
+wikidata:en:Q466749
+wikipedia:en:https://en.wikipedia.org/wiki/Stilton_cheese
+
+<en:stilton
+en:Blue Stilton, Blue Stilton cheese
+fr:fromage blue stilton
+
+<en:stilton
+en:White Stilton, White Stilton cheese
 
 
 # TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
@@ -11320,6 +11359,15 @@ sv:västerbottensost
 wikidata:en:Q2096655
 wikipedia:en:https://en.wikipedia.org/wiki/V%C3%A4sterbotten_cheese
 # ingredient/sv:västerbottensost has 2 products in 1 language @2020-06-08
+
+
+# description:en:Wensleydale is a style of cheese originally produced in Wensleydale, North Yorkshire, England
+
+<en:cheese
+en:Wensleydale, Wensleydale cheese
+wikidata:en:Q1972540
+wikipedia:en:https://en.wikipedia.org/wiki/Wensleydale_cheese
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
