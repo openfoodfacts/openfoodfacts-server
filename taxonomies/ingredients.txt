@@ -21,6 +21,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen
 stopwords:nn:av
@@ -891,7 +892,7 @@ hr:suncokretov lecitin
 hu:napraforgó lecitin
 it:lecitina girasole, lecitina di girasole
 lt:saulėgrąžu lecitinas, saulėgrąžų lecitinai
-lv:lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīni
+lv:lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīns, saulespuķu lecitīni
 nb:solsikkelecithin, solsikkelecitin
 nl:zonnebloemlecithine, zonnebloem-lecithine
 nn:solsikkelecithin
@@ -15911,10 +15912,12 @@ cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
 es:Almidón modificado de maiz, almidon de maiz modificado
+et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
 hu:módosított kukoricakeményítő
 it:amido modificato di mais, amido di mais modificato
+lt:modifikuotas kukurūzų krakmolas
 nb:modifisert maisstivelse
 nl:gemodificeerd maïszetmeel, gemodificeerd maiszetmeel
 pl:Modyfikowana skrobia kukurydziana
@@ -17413,7 +17416,7 @@ nb:Olivenolje
 nl:olijfolie
 nn:Olivenolje
 oc:Òli d'oliva
-pl:Olej oliwkowy
+pl:Olej oliwkowy, oliwa z oliwek
 pt:Azeite
 ro:Ulei de măsline
 ru:Оливковое масло
@@ -18879,10 +18882,12 @@ en:white wine vinegar
 da:Hvidvinseddike
 de:Weißweinessig, Weissweinessig
 es:Vinagre de vino blanco
+et:valge veini äädikas
 fi:valkoviinietikka
 fr:vinaigre de vin blanc
 hu:fehérborecet
 it:aceto di vino bianco
+lt:baltojo vyno actas
 nl:witte wijnazijn
 sv:vitvinsvinäger
 
@@ -19007,10 +19012,13 @@ fr:condiment balsamique blanc
 # derivedFrom:en:malt
 en:malt vinegar
 de:Malzessig
+et:linnaseäädikas
 fi:mallasetikka
 fr:vinaigre de malt
 hu:malátaecet
+lt:salyklo actas
 nl:Moutazijn
+pl:ocet słodowy
 sv:maltvinäger
 
 <en:malt vinegar
@@ -23711,6 +23719,7 @@ fr:blé malté concassé
 <en:malted barley
 en:barley malt extract
 ca:extracte de malta d'ordi
+cs:sladový výtažek z ječmene
 da:bygmaltekstrakt
 de:Gerstenmalzextrakt
 es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada
@@ -23720,6 +23729,7 @@ fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extra
 hu:árpamaláta kivonat
 it:estratto di malto d'orzo
 lt:miežių salyklo ekstraktas
+lv:miežu iesala ekstrakts
 nb:byggmaltekstrakt
 nl:Gerstemoutextract, gerstmoutextract
 pl:Ekstrakt słodu jęczmiennego
@@ -24074,6 +24084,7 @@ it:fiocchi di avena, fiocchi d'avena
 ja:ロールド・オーツ
 ko:납작귀리
 lt:avižiniai dribsniai
+lv:auzu pārslas
 ms:Emping oat
 nb:havreflak, havregryn
 nl:havermoutvlokken, havermout, havervlokken, havervlok
@@ -26034,7 +26045,7 @@ ca:arròs
 ce:Дуга
 ch:Ineksa
 co:risu
-cs:rýže a obilniny
+cs:rýže, rýže a obilniny
 cv:Рис
 cy:reis
 da:ris
@@ -27933,6 +27944,7 @@ de:Melasse
 el:μελάσα
 eo:melaso
 es:melaza
+et:melass
 eu:Melaza
 fa:ملاس
 fi:Melassi, melassia, melassisiirappi
@@ -28002,9 +28014,12 @@ carbon_footprint_fr_foodges_value:fr:7.3
 
 <en:molasses
 en:cane sugar molasses, cane molasses
+cs:melasa z třtinového cukru
 fr:mélasse de sucre de canne, mélasse de canne
 fi:ruokosokerimelassi, ruokomelassi
+lv:cukurniedru melase
 nl:rietsuikermelasse
+pl:melasa trzcinowa
 sv:rörsockermelass
 
 # description:en: TREHALOSE is a sugar consisting of two molecules of glucose. It is also known as mycose or tremalose. Trehalose has about 45% the sweetness of sucrose at concentrations above 22%, but when the concentration is reduced, its sweetness decreases more quickly than that of sucrose, so that a 2.3% solution tastes 6.5 times less sweet as the equivalent sugar solution. It is commonly used in prepared frozen foods, like ice cream, because it lowers the freezing point of foods.
@@ -28546,12 +28561,14 @@ zh:高果糖浆
 <en:invert sugar
 <en:sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
+cs:sirup z invertního cukru
 de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti
 hu:invert cukorszirup, invertcukor-szirup, invertcukor szirup
 it:sciroppo di zucchero invertito
+lv:invertcukura sīrups
 nl:Invertsuikerstroop
 ro:sirop de zahăr invertit, sirop de zahar invertit
 sv:invertsockersirap
@@ -28652,6 +28669,7 @@ fi:sokerisiirappi, sokeriliemi
 fr:sirop de sucre
 hu:cukorszirup
 it:sciroppo di zucchero
+lv:cukura sīrups
 nl:Suikerstroop
 pl:Syrop cukrowy
 pt:Xaropa de açúcar
@@ -35713,13 +35731,15 @@ ca:Suc de llimona concentrat
 da:citronsaftkonsentrat, citronjuicekoncentrat
 de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
 es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado
+et:sidrunimahla kontsentraat
 fi:sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunauute, sitruunatiiviste
 fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
 hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
 it:succo di limone concentrato, concentrato di limone, estratto di limone
+lt:citrinų sulčių koncentratas
 nb:sitronjuicekonsentrat
 nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
-pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy
+pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy, koncentrat soku z cytryny
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
@@ -41796,7 +41816,7 @@ lb:Knuewelek
 lg:Emisuwa egikaluba
 li:witlouk
 lo:ຜັກທຽມ
-lt:Valgomasis česnakas
+lt:Valgomasis česnakas, česnakai
 lv:ķiploks
 mk:Лук
 ml:വെളുത്തുള്ളി
@@ -44662,9 +44682,11 @@ sv:rehydrerad lök
 en:Onion Extract
 de:Zwiebelextrakt
 es:Extracto de cebolla
+et:sibulaekstrakt
 fi:sipuliuute
 fr:extrait d'oignon
 it:Estratto di cipolla
+lt:svogūnų ekstraktas
 sv:lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
@@ -46785,12 +46807,13 @@ en:tomato purée, tomato paste, tomato concentrate
 da:tomatpuré, tomatpure, tomatkoncentrat
 de:Tomatenmark, Tomatenkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
 es:concentrado de tomate, pasta de tomate, tomate-concentrado
-et:tomatipüree
+et:tomatipüree, tomatipasta
 fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
 fr:purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates, puree de tomate, concentre de tomate
 he:מחית עגבניות
 hu:paradicsompüré
 it:passata di pomodoro, concentrato di pomodoro
+lt:pomidorų pasta
 nb:tomatpuré
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pl:koncentrat pomidorowy
@@ -47404,7 +47427,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 # ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
 
 <en:root vegetable
-en:Rapeseed, rape, oilseed rape
+en:Rapeseed, rape, oilseed rape, rape seed
 da:raps
 de:Raps
 es:Colza,nabina
@@ -49572,7 +49595,7 @@ ku:Fistiqa axê
 la:arachis hypogaea
 ln:Ngúba
 lt:žemės riešutai, žemės riešutų
-lv:zemesrieksti
+lv:zemesrieksti, zemesriekstus
 mr:भुईमूग
 mt:karawett
 nb:peanøtter
@@ -65197,7 +65220,7 @@ wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 # psyllium can be used for the fibres or as infusion
 
 <en:vegetable fiber
-en:Psyllium, plantago, psyllium fibre
+en:Psyllium, plantago, psyllium fibre, psyllium husk
 ar:بزر قطونة
 da:Psyllium
 de:Psyllium
