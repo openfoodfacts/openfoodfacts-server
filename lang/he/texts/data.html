@@ -6,7 +6,7 @@
 תמונות המוצרים זמינות תחת <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">הרישיון Creative Commons Attribution ShareAlike</a>.
 כל אלו עשויים להכיל רכיבים גרפיים שכפופים לזכויות יוצרים או זכויות אחרות, שבמקרים אחרים מאפשרים יצירה מחדש (זכויות ציטוט או שימוש הוגן).</p>
 
-<p>נא לקרוא את <a href="https://world.openfoodfacts.org/terms-of-use">תנאי השימוש והגזירה</a> לפני גזירת הנתונים.</p> 
+<p>נא לקרוא את <a href="https://world.openfoodfacts.org/terms-of-use">תנאי השימוש והגזירה</a> לפני גזירת הנתונים.</p>
 
 
 <p>אנו מאוד מעוניינים ללמוד למה משמשים אותך הנתונים של Open Food Facts. אמנם אין חובה לכך, אך נעריך מאוד אם נוכל <a href="mailto:contact@openfoodfacts.org">לשמוע ממך על הנגזרות שיצרת</a> כדי שנוכל לשתף אותן עם קהילת Open Food Facts.</p>
@@ -38,11 +38,11 @@
  כל שורה מייצגת קובץ שקיים תחת <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
  שם הקובץ מכיל חותמת זמן יוניקס של השינוי הראשון והאחרון שבקובץ ה־JSON, כדי שניתן יהיה לייבא את קובצי ההפרש (לאחר החילוץ) בעזרת <code>mongoimport</code> בסדר אלפביתי.</p>
 <p>נא לשים לב שעקב אופן ההתנהלות של <code>mongoexport</code>, בקובצי ההפרשים לא מתועדים מוצרים שנמחקו. כדי להסיר מוצרים שהוסרו ממסד הנתונים שלך, יהיה עליך לייבא את אוסף ה־MongoDB המלא.</p>
- 
+
 <h3>יצוא נתונים ב־CSV</h3>
 
 <p>הנתונים של כל המוצרים או חלקם, ניתנים להורדה בתבנית CSV (נתמכת על ידי OpenOffice, Excel ועוד) דרך <a href="https://world.openfoodfacts.org/cgi/search.pl">טופס החיפוש המתקדם</a>.</p>
- 
+
 <dl>
  <dt>קישור</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
@@ -61,21 +61,21 @@
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Live JSON API</h2>
+<h2>API חי מסוג JSON</h2>
 
 <p>יש גם API בתצורת JSON לקריאת נתוני המוצרים. ב־API הזה במיוחד נעשה שימוש ביישומון לנייד של Open Food Facts עבור iPhone ועבור Android.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. נא לספר לנו אם נעזרת בו כדי שנוכל לספר לך על שינויים שעשויים לקרות.</p>
+<p>אנו משנים את ה־API מדי פעם בפעם אבל אנחנו משתדלים לשמור על תמיכה לאחור. נא לספר לנו אם נעזרת בו כדי שנוכל לספר לך על שינויים שעשויים לקרות.</p>
 
 <p>הכתובת לקריאת נתוני מוצר היא: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>לדוגמה: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-תיעוד נוסף ניתן <a href="https://wiki.openfoodfacts.org/API">למצוא בוויקי</a>. (Important note: the page is divided into subpages for READ and WRITE). 
-A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
+תיעוד נוסף ניתן <a href="https://wiki.openfoodfacts.org/API">למצוא בוויקי</a>. (הערה חשובה: העמוד מופרד לתת־עמודים לטובת READ - קריאה ו־WRITE - כתיבה).
+כרגע מתגבש תיעוד מוצלח יותר עם מקרי בוחן להצגת מוצר ומתן האפשרות למשתמשים שלך להוסיף את הנתונים הנדרשים כדי לקבל Nutri-Score, קבוצות NOVA ותוספים.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">ניתן לגשת אליו כאן</a>.
 <p>אנו מזמינים אותך להשתמש ב־API למטרות פעילות שוטפת, כל עוד כל קריאת API אחת = סריקה אמתית אחת מצד המשתמש.
-Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
+כל ניסיון לשאוב את מסד הנתונים דרך ה־API כנראה ייחסם כיוון שכל הנתונים מיוצאים מדי יום ומופיעים ממש בעמוד הזה.</p>
 <p>כמו כן, שליחת כותרות HTTP עם קריאות ה־API שלך היא דרך מצוינת בה נוכל ליצור אתך קשר במקרה שיש תקלות כלשהן.</p>
 <p>במקרה של ספק, או אם יש לך שאלות (אין דבר כזה שאלה טיפשית), ניתן לשאול ב־Slack :-)</p>
 
