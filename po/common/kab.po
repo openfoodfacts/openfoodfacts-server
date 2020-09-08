@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kab\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 07:58\n"
+"PO-Revision-Date: 2020-09-08 11:13\n"
 "Language-Team: Kabyle\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: kab\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -52,7 +52,7 @@ msgstr "Jerred"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Anṣuf!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -247,7 +247,7 @@ msgstr "Tazmilt: tiwlafin i d-tceyyɛeḍ ttwasiẓergent-d s turagt n Creative 
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Tzemreḍ ad ternuḍ tiwlafin"
+msgstr "Tzemreḍ ad ternuḍ tiwlafin:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -395,7 +395,7 @@ msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Tangalt"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -491,15 +491,15 @@ msgstr "Kkes amseqdec"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "Yettwarna"
+msgstr "Yettwarna:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "Yettwabeddel"
+msgstr "Yettwabeddel:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr "Yettwakkes"
+msgstr "Yettwakkes:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -519,7 +519,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr "Ẓreg"
+msgstr "ẓreg"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -577,21 +577,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "tansa n yimayl"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "Tangalt EMB"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
 msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "Tangalt EMB"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "Tangalt EMB"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -599,23 +615,7 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr ""
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr ""
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr ""
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
 msgstr ""
 
 msgctxt "entry_dates_p"
@@ -648,7 +648,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr "Ur tettwaqbal ara tansa-ya"
+msgstr "Ur tettwaqbal ara tansa-ya."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -660,7 +660,7 @@ msgstr ""
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Ur yettwaqbal ara umseqdec-a"
+msgstr "Ur yettwaqbal ara umseqdec-a."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -708,7 +708,7 @@ msgstr ""
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Imedyaten:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
@@ -1046,7 +1046,7 @@ msgstr "Umuɣ n yisufar"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Ttwasizewren yisufar seg win yesɛan azal meqqṛen ar umeẓẓyan"
+msgstr "Ttwasizewren yisufar seg win yesɛan azal meqqṛen ar umeẓẓyan."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1629,6 +1629,10 @@ msgctxt "password"
 msgid "Password"
 msgstr "Tasarut"
 
+msgctxt "password_new"
+msgid "New password"
+msgstr ""
+
 msgctxt "password_confirm"
 msgid "Confirm password"
 msgstr "Sentem awal uffir"
@@ -1907,7 +1911,7 @@ msgstr "Ifarisen yettnuzun deg %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Tasmekta"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -1943,7 +1947,7 @@ msgstr ""
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr "Ttettwabeddel tsarutt-inek. Tzemreḍ tura ad tkecmeḍ s tsarutt-ik tamaynutt"
+msgstr "Ttettwabeddel tsarutt-inek. Tzemreḍ tura ad tkecmeḍ s tsarutt-ik tamaynutt."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
@@ -1987,7 +1991,7 @@ msgstr "Sekles"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "Yettwasekles"
+msgstr "Yettwasekles."
 
 msgctxt "saving"
 msgid "Saving."
@@ -2116,7 +2120,7 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Takarḍa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2156,7 +2160,7 @@ msgstr ""
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Nadi igmaḍ"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2196,7 +2200,7 @@ msgstr ""
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Asebdad"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2224,7 +2228,7 @@ msgstr ""
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "azal"
 
 msgctxt "search_with"
 msgid "With"
@@ -2308,7 +2312,7 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Smizwer s:"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2332,7 +2336,7 @@ msgstr "Isem n ufaris"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Awanak"
 
 msgctxt "states_p"
 msgid "states"
@@ -2372,7 +2376,7 @@ msgstr ""
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Jerred"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
@@ -2424,7 +2428,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Arusin"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2436,7 +2440,7 @@ msgstr ""
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Ffeɣ seg ujerred"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
@@ -2484,7 +2488,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "iwizi"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2492,7 +2496,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "sken"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2643,7 +2647,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr "-"
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2731,7 +2735,7 @@ msgstr ""
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Aferdis"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -2973,7 +2977,7 @@ msgstr ""
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "Tarnut aɣectan"
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3005,7 +3009,7 @@ msgstr ""
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "Amfares"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3173,7 +3177,7 @@ msgstr ""
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "ittusuqel"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
@@ -3193,7 +3197,7 @@ msgstr "Uhu"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Meḥyef"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3404,7 +3408,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Azal"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3464,7 +3468,7 @@ msgstr ""
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Tuddsa"
 
 msgctxt "column_in_file"
 msgid "Column in file"
@@ -3522,7 +3526,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Ssefex"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3615,12 +3619,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "Tesdat"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "Afellay"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3676,11 +3680,11 @@ msgstr ""
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Aẓayer"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Yettusɣiwes"
 
 msgctxt "job_status_active"
 msgid "In progress"
@@ -3688,11 +3692,11 @@ msgstr ""
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Immed"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "Yecceḍ"
 
 msgctxt "import_file_result"
 msgid "Import result"
@@ -3793,7 +3797,7 @@ msgstr ""
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Sekker"
 
 msgctxt "close"
 msgid "Close"
@@ -3805,7 +3809,7 @@ msgstr ""
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Alɣu"
 
 msgctxt "file_received"
 msgid "File received"
@@ -3885,7 +3889,7 @@ msgstr "Ipṛutinen"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "azal"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3944,11 +3948,11 @@ msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Tirebuyaɛ"
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "Amfares"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
@@ -3964,7 +3968,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Asnas"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4045,7 +4049,7 @@ msgstr ""
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "Snifel"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4179,7 +4183,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Tfukk"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4231,6 +4235,10 @@ msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr ""
 
+msgctxt "we_need_your_help"
+msgid "We need your help!"
+msgstr ""
+
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
 msgstr ""
@@ -4254,5 +4262,254 @@ msgstr ""
 
 msgctxt "footer_producers"
 msgid "Producers"
+msgstr ""
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
+msgstr ""
+
+# Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
+msgctxt "text_direction"
+msgid "ltr"
+msgstr ""
+
+msgctxt "separate_values_with_commas"
+msgid "Separate multiple values with commas."
+msgstr ""
+
+msgctxt "lc_note"
+msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
+msgstr ""
+
+msgctxt "obsolete_import_note"
+msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
+msgstr ""
+
+msgctxt "specify_value_and_unit_or_use_default_unit"
+msgid "Specify both the value and unit, or use the default unit: %s"
+msgstr ""
+
+msgctxt "specify_value_and_unit"
+msgid "Specify both the value and unit."
+msgstr ""
+
+msgctxt "download_sample_import_file"
+msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
+msgstr ""
+
+msgctxt "code_import_note"
+msgid "Barcode as it appears on the product."
+msgstr ""
+
+msgctxt "producer_product_id_import_note"
+msgid "Internal code used by the producer to identify the product, different from the product's barcode."
+msgstr ""
+
+msgctxt "producer_version_id_import_note"
+msgid "Internal code used by the producer to identify a specific version of a product when it changes."
+msgstr ""
+
+msgctxt "categories_import_note"
+msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
+msgstr ""
+
+msgctxt "labels_import_note"
+msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
+msgstr ""
+
+msgctxt "origins_import_note"
+msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
+msgstr ""
+
+msgctxt "origin_import_note"
+msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
+msgstr ""
+
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score grade from A to E displayed on the product label"
+msgstr ""
+
+msgctxt "nutriscore_grade_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr ""
+
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
+msgstr ""
+
+msgctxt "nutriscore_score_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr ""
+
+msgctxt "mandatory_field"
+msgid "Mandatory field"
+msgstr ""
+
+msgctxt "mandatory_field_note"
+msgid "All products should have this information."
+msgstr ""
+
+msgctxt "recommended_field"
+msgid "Recommended field"
+msgstr ""
+
+msgctxt "recommended_field_note"
+msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
+msgstr ""
+
+msgctxt "optional_field"
+msgid "Optional field"
+msgstr ""
+
+msgctxt "optional_field_note"
+msgid "If available, this information will be displayed on the product page."
+msgstr ""
+
+# product photos here means photos of multiple products
+msgctxt "images_can_be_provided_separately"
+msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
+msgstr ""
+
+msgctxt "attribute_group_labels_name"
+msgid "Labels"
+msgstr "Tibzimin"
+
+msgctxt "attribute_labels_organic_name"
+msgid "Organic farming"
+msgstr ""
+
+msgctxt "attribute_labels_organic_yes_title"
+msgid "Organic product"
+msgstr ""
+
+msgctxt "attribute_labels_organic_no_title"
+msgid "Not an organic product"
+msgstr ""
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Promotes ecological sustainability and biodiversity."
+msgstr ""
+
+msgctxt "attribute_labels_organic_description"
+msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_name"
+msgid "Fair trade"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_yes_title"
+msgid "Fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_no_title"
+msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_yes_description_short"
+msgid "Helps producers in developping countries."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_description_short"
+msgid "Fair trade products help producers in developping countries."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_description"
+msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
+msgstr ""
+
+msgctxt "attribute_group_nutritional_quality_name"
+msgid "Nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_name"
+msgid "Nutri-Score"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_nutriscore_grade_title"
+msgid "Nutri-Score %s"
+msgstr ""
+
+msgctxt "attribute_nutriscore_a_description_short"
+msgid "Very good nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_b_description_short"
+msgid "Good nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_c_description_short"
+msgid "Average nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_d_description_short"
+msgid "Poor nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_e_description_short"
+msgid "Bad nutritional quality"
+msgstr ""
+
+msgctxt "attribute_group_processing_name"
+msgid "Food processing"
+msgstr ""
+
+msgctxt "attribute_nova_name"
+msgid "NOVA group"
+msgstr ""
+
+# keep %s, it will be replaced by the group 1, 2, 3 or 4
+msgctxt "attribute_nova_group_title"
+msgid "NOVA %s"
+msgstr ""
+
+msgctxt "attribute_nova_1_description_short"
+msgid "Unprocessed or minimally processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_2_description_short"
+msgid "Processed culinary ingredients"
+msgstr ""
+
+msgctxt "attribute_nova_3_description_short"
+msgid "Processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_4_description_short"
+msgid "Ultra processed foods"
+msgstr ""
+
+msgctxt "export_product_page"
+msgid "Export product to public database"
+msgstr ""
+
+msgctxt "one_product_will_be_exported"
+msgid "1 product will be exported."
+msgstr ""
+
+msgctxt "no_products_to_export"
+msgid "No products to export."
+msgstr ""
+
+msgctxt "query_filter"
+msgid "Query filter"
+msgstr ""
+
+msgctxt "error_unknown_org"
+msgid "Unknown organization."
+msgstr ""
+
+msgctxt "error_unknown_user"
+msgid "Unknown user."
 msgstr ""
 
