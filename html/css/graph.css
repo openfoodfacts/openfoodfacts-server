@@ -1,7 +1,7 @@
-/********************************************/
-/* part related to graph (former graph.css) */
-/********************************************/
-#banner {
+/*************************/
+/* part related to graph */
+/*************************/
+.graph #banner {
     width: 98%;
     text-align: center;
     font-weight: bold;
@@ -11,43 +11,43 @@
     padding-bottom: 0.2em;
 }
 
-#cell_product_image {
+.graph #cell_product_image {
     text-align: center;
     width: 23%;
 }
 
-#prod_ref_image {
+.graph #prod_ref_image {
     max-width: 99%;
 }
 
-#links_off {
+.graph #links_off {
     text-align: center;
     vertical-align: bottom;
     padding: 0px;
     margin: 0px;
 }
 
-#links_off > div {
+.graph #links_off > div {
     padding-top: 0.2em;
 }
 
-#links_off a, a {
+.graph #links_off a, .graph a {
     text-decoration: none;
         color: #09f;
     font-weight: 700;
 }
 
 /* display json product page only on wide screens (not interesting on smartphones) */
-#link_json_off {
+.graph #link_json_off {
     visibility: hidden;
 }
 @media screen and (min-width: 12in) {
-  #link_json_off {
+    .graph #link_json_off {
     visibility: visible;
   }
 }
 
-#product_details {
+.graph #product_details {
     width: auto;
     height: 2.2em;
     font-size: larger;
@@ -55,11 +55,11 @@
     overflow-y: hidden;
 }
 
-#prod_ref_code {
+.graph #prod_ref_code {
     font-weight: bold;
 }
 
-#criteria {
+.graph #criteria {
     font-size: inherit;
     text-align: right;
     padding: 0px;
@@ -67,64 +67,64 @@
     min-width: 99%;
 }
 
-#criteria * {
+.graph #criteria * {
     vertical-align: middle;
 }
 
 /*
 Classes for the barcode input-box
 */
-.barcode_product_selected {
+.graph .barcode_product_selected {
   background-color: #09f !important;
 }
 
-.barcode_no_selection {
-  background-color: none;
+.graph .barcode_no_selection {
+  background-color: transparent;
 }
 
-#msg_warning_prod_ref {
+.graph #msg_warning_prod_ref {
     font-size: x-large;
     color: red;
     margin-right: 2ex;
 }
 
-td > select {
+.graph td > select {
     font-size: inherit;
     width: 18em;
 }
 
-#input_product_code {
+.graph #input_product_code {
     font-size: inherit;
     width: 8em;
 }
 
-#panel_input_code {
+.graph #panel_input_code {
     font-size: inherit;
     display: flex;
     float: left;
 }
 
-#graph {
+.graph #graph {
   text-align: center;
 }
 
-#svg_graph {
+.graph #svg_graph {
     font-size: medium;
 }
 
-.axis path,
-.axis line {
+.graph .axis path,
+.graph .axis line {
     fill: none;
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
 
-svg > g:first-child > g:first-child text {
+.graph svg > g:first-child > g:first-child text {
     display: none;
 }
 
-div.tooltip {
+.graph div.tooltip {
     position: absolute;
     text-align: center;
     width: 450px;
@@ -137,21 +137,21 @@ div.tooltip {
     pointer-events: none;
 }
 
-#server_log_cell > * {
+.graph #server_log_cell > * {
     display: none !important;
 }
 
 /***********************/
 /* products_suggestion */
 /***********************/
-#products_suggestion {
+.graph #products_suggestion {
     margin:5px;
     background:#A3CBE0;
     border:2px solid #000;
     box-shadow:0 0 10px #000;
 }
 
-#products_suggestion ul {
+.graph #products_suggestion ul {
     margin: 0px;
     padding: 0px;
     height: 250px;
@@ -159,14 +159,14 @@ div.tooltip {
     white-space:nowrap;
     list-style:none;
 }
-#products_suggestion li {
+.graph #products_suggestion li {
     display:table-cell;
     text-align:center;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-.cell_suggestion {
+.graph .cell_suggestion {
     float: left;
     padding-left: 2px;
     padding-right: 2px;
@@ -175,20 +175,20 @@ div.tooltip {
     border: solid thin #0099ff;
 }
 
-img.grade_border {
+.graph img.grade_border {
     border: 18px solid rgb(230, 62, 17);
 }
 
-.product_selected {
+.graph .product_selected {
     border: 18px solid #0099ff;
 }
 
-#menu_selection {
+.graph #menu_selection {
     visibility: visible;
     background-color: #0099ff;
 }
 
-#menu_selection > div {
+.graph #menu_selection > div {
     width: 15%;
     float: left;
     text-align: center;
@@ -197,7 +197,7 @@ img.grade_border {
     color: white;
 }
 
-#menu_selection img {
+.graph #menu_selection img {
     height: 85px;
     padding-top: 2%;
     padding-bottom: 1%;
@@ -205,7 +205,7 @@ img.grade_border {
     padding-right: 5%;
 }
 
-#nb_suggestions {
+.graph #nb_suggestions {
     padding-top: 2%;
     font-size: xx-large;
 }
@@ -214,7 +214,7 @@ img.grade_border {
 /* product_details */
 /*******************/
 
-.detailsProduct {
+.graph .detailsProduct {
     font-size: larger;
     text-align: center;
     vertical-align: middle;
@@ -226,31 +226,31 @@ img.grade_border {
     z-index: 10;
 }
 
-.table_sel_prod {
+.graph .table_sel_prod {
     width: 99%
 }
 
-.sel_prod_img {
+.graph .sel_prod_img {
     margin-top: 1%;
     margin-bottom: 1%;
     text-align: right;
 }
 
-.sel_prod_header {
+.graph .sel_prod_header {
     text-align: center;
     padding-left: 1%;
 }
 
-.sel_prod_name {
+.graph .sel_prod_name {
     color: dodgerblue;
 }
 
-.sel_prod_similarity {
+.graph .sel_prod_similarity {
     font-weight: bold;
     color: purple;
 }
 
-.close_details_sel_prod {
+.graph .close_details_sel_prod {
     position: absolute;
     /*bottom: 0;*/
     left: 0;

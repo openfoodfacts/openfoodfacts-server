@@ -46,7 +46,7 @@ HEADER
 ;
 
 my $html = <<HTML
-<div>
+<div class="graph">
 
 	<!-- Display details of selected product among those which are suggested in the bottom banner -->
 	<div id="selected_product_details">
