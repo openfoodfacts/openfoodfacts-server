@@ -147,31 +147,35 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en => "possible traces|traces|may contain",
-	bg => "продуктът може да съдържа следи от|може да съдържа следи от",
+	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	hr => "može sadržavati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	ro => "poate con[țţ]ine urme de|poate con[țţ]ine",
+	pl => "może zawierać śladowe ilości|może zawierać",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
 
 	en => "contains",
+	bg => "съдържа",
 	da => "indeholder",
 	es => "contiene",
+	et => "sisaldab",
 	fr => "contient",
 	nl => "bevat",
-	ro => "con[țţ]ine",
+	ro => "con[țţ]ine|con[țţ]in",
 	sv => "innehåller",
 );
 
@@ -339,13 +343,16 @@ my %and = (
 	et => " ja ",
 	fi => " ja ",
 	fr => " et ",
+	hr => " i ",
 	is => " og ",
 	it => " e ",
 	lt => " ir ",
 	lv => " un ",
 	nl => " en ",
 	nb => " og ",
+	pl => " i ",
 	pt => " e ",
+	ro => " și ",
 	sv => " och ",
 );
 
@@ -1186,6 +1193,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
@@ -1300,6 +1309,17 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'en' => [
+								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
+								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
+								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
+								'^allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
+								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
+								'^see ingredients in bold$',
+							],
+
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
 								'(sur|de) produit fini',             # préparé avec 50g de fruits pour 100g de produit fini
