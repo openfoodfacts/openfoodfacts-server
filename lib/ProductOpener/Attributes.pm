@@ -49,6 +49,7 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&list_attributes
 		&initialize_attribute
 		&override_general_value
 		&add_attribute
@@ -126,7 +127,7 @@ The return value is cached for each language in the %attribute_groups hash.
 # Global structure to cache the return structure for each language
 my %attribute_groups = ();
 
-sub list_attributes($$) {
+sub list_attributes($) {
 
 	my $target_lc = shift;	
 
@@ -143,7 +144,7 @@ sub list_attributes($$) {
 			foreach my $options_attribute_group_ref (@{$options{attribute_groups}}) {
 				
 				my $group_id = $options_attribute_group_ref->[0];
-				my $attributes_ref = $options_attribute_group_ref->[0];
+				my $attributes_ref = $options_attribute_group_ref->[1];
 				
 				my $group_ref = {
 					id => $group_id,
@@ -155,6 +156,7 @@ sub list_attributes($$) {
 					
 					my $attribute_ref = {};
 					initialize_attribute($attribute_ref, $attribute_id, $target_lc);
+					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 				
 				push @{$attribute_groups{$target_lc}}, $group_ref;
@@ -205,7 +207,7 @@ sub initialize_attribute($$$) {
 
 	foreach my $field ("name", "description", "description_short") {
 		
-		my $value = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_" . $field);*
+		my $value = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_" . $field);
 		if ((defined $value) and ($value ne "")) {
 			$attribute_ref->{$field} = $value;
 		}
@@ -632,7 +634,7 @@ sub compute_attributes($$) {
 	
 	# Processing
 	
-	my $attribute_ref = compute_attribute_nova($product_ref, $target_lc);
+	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
 	add_attribute($product_ref, $target_lc, "processing", $attribute_ref);	
 		
 	# Labels groups

@@ -74,6 +74,7 @@ BEGIN
 		&display_product
 		&display_product_api
 		&display_product_history
+		&display_attribute_groups_api
 		&search_and_display_products
 		&search_and_export_products
 		&search_and_graph_products
@@ -9389,6 +9390,46 @@ JS
 	return $html;
 }
 
+
+=head2 display_attribute_groups_api ( $target_lc )
+
+Return a JSON structure with all available attribute groups and attributes,
+with strings (names, descriptions etc.) in a specific language,
+and return them in an array of attribute groups.
+
+This is used in particular for clients of the API to know which
+preferences they can ask users for, and then use for personalized
+filtering and ranking.
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=cut
+
+
+sub display_attribute_groups_api($$)
+{
+	my $request_ref = shift;
+	my $target_lc = shift;
+	
+	if (not defined $target_lc) {
+		$target_lc = $lc;
+	}
+	
+	my $attribute_groups_ref = list_attributes($target_lc);
+	
+	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	display_structured_response($request_ref);
+	
+	return;
+}
 
 
 sub display_product_api($)
