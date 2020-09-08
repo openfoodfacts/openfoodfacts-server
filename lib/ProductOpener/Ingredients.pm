@@ -2383,6 +2383,10 @@ es => [
 'ingredientes',
 ],
 
+et => [
+'koostisosad',
+],
+
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
 'valmistusaineet',
@@ -2432,7 +2436,7 @@ lt => [
 ],
 
 lv => [
-'sastāv(s|dalas)',
+'sast[āäa]v(s|da[ļl]as)',
 ],
 
 nl => [
