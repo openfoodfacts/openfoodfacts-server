@@ -1,28 +1,27 @@
 
 <h1>Data</h1>
 
-<p>Pangkalan data Open Food Facts boleh didapati bawah <a href="https://opendatacommons.org/licenses/odbl/1.0/"> Open Database License </a>. <br/> Kandungan individu pnagkalan data boleh didapati bawah <a href="https://opendatacommons.org/licenses/dbcl/1.0/"> Database Contents License </a>. <br/> Imej produk boleh didapati bawah <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike License</a>.
-Ia mungkin mengandungi elemen-elemen grafik tertakluk kepada hak cipta atau hak lain, yang mungkin dalam beberapa kes boleh ditertikan semula (hak sebutan atau penggunaan adil).</p>
+<p>Pangkalan data Open Food Facts telah tersedia di bawah <a href="https://opendatacommons.org/licenses/odbl/1.0/"> Open Database License </a>. <br/> Kandungan-kandungan pangkalan data secara individu tersedia di bawah <a href="https://opendatacommons.org/licenses/dbcl/1.0/"> Database Contents License </a>. <br/> Imej-imej produk puls tersedia di bawah <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike License</a>.
+Ia mungkin mengandungi unsur-unsur bergrafik yang tertakluk kepada hak cipta atau lain-lain hak, yang mungkin dalam beberapa kes boleh dihasilkan semula (hak sebutan atau penggunaan adil).</p>
 
-<p>Sila baca <a href="https://world.openfoodfacts.org/terms-of-use">Terma dan syarat-syarat pengunaan dan penggunaan semula</a> sebelum menggunakan data.</p> 
-
-
-<p>Kami amat berminat mempelajari bagaimana cara data Open Food Food Facts digunakan. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
-with the Open Food Facts community.</p>
-
-<h2>Data eksport Open Food Facts</h2>
-
-<p>Dump pangkalan data dan eksport dijana setiap malam.</p>
-
-<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+<p>Sila baca <a href="https://world.openfoodfacts.org/terms-of-use">Terma-terma dan syarat-syarat penggunaan dan penggunaan-semula</a> sebelum menggunakan semula data.</p>
 
 
-<h3>Dump MongoDB</h3>
+<p>Kami amat berminat mengetahui bagaimanakah data Open Food Food Facts digunakan. Ia tidak wajib, tetapi kami sangat menghargainya jika anda <a href="mailto:contact@openfoodfacts.org">beritahu kami berkenaan guna-semula anda</a> supaya kami dapat kongsikannya dengan komuniti Open Food Facts.</p>
 
-<p>Data untuk semua produk boleh didapati di dump pangkalan data MongoDB.</p>
+<h2>Eksport data Open Food Facts</h2>
+
+<p>Longgok pangkalan data dan eksport dijana setiap malam.</p>
+
+<p>Maklumat mengenai medan-medan berbeza untuk longgok MongoDB dan eksport CSV telah tersedia di <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+
+
+<h3>Longgok MongoDB</h3>
+
+<p>Data untuk semua produk telah tersedia dalam longgok pangkalan data MongoDB.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>Pautan</dt>
  <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
  <dt>sha256sum</dt>
  <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
@@ -30,89 +29,88 @@ with the Open Food Facts community.</p>
  <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
 </dl>
 
-<h4>Delta Export</h4>
+<h4>Eksport Delta</h4>
 
-<p>Daily delta exports are provided for the previous 14 days. The list of currently available delta files can be found at
- <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
- be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
-<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
- deleted products from your database, you will need to import the full MongoDB dump.</p>
- 
-<h3>CSV Data Export</h3>
+<p>Eksport delta harian disediakan selama 14 hari sebelumnya. Senarai fail delta semasa yang tersedia boleh diperolehi di
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt"> https://static.openfoodfacts.org/data/delta/index.txt </a>.
+ Setiap baris mewakili satu fail yang tersedia di <code> https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ Nama fail mengandungi setem masa UNIX bagi perubahan pertama dan terakhir yang terkandung di dalam fail JSON, supaya fai-fail delta boleh
+diimport (setelah pengekstrakan) dengan <code> mongoimport </code> dalam tertib berabjad.</p>
+<p>Harap maklum, disebabkan sifat <code>mongoexport</code>, fail-fail delta tidak dapat memberitahu anda berkenaan produk-produk yang terpadam. Untuk membuang
+ produk-produk terpadam dari pangkalan data anda, anda perlu mengimport longgok MongoDB sepenuhnya.</p>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
- 
+<h3>Eksport Data CSV</h3>
+
+<p>Data untuk semua produk, atau sebahagian produk, boleh dimuat turun dalam format CSV (boleh-baca menerusi OpenOffice, Excel dan lain-lain perisian) melalui <a href="https://world.openfoodfacts.org/cgi/search.pl">borang gelintar lanjutan</a>.</p>
+
 <dl>
- <dt>Link</dt>
+ <dt>Pautan</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>Pengekodan fail ialah Unicode UTF-8. Aksara yang memisahkan medan-medan ialah &lt;tab&gt; (penjadualan).</p>
 
 
 
-<h3>RDF Data Export</h3>
+<h3>Eksport Data RDF</h3>
 
-<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
+<p>Pangkalan data juga telah tersedia dalam format RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">pengumuman dalam bahasa Perancis</a>.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>Pautan</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Live JSON API</h2>
+<h2>API JSON Langsung</h2>
 
-<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
+<p>Satu API JSON juga tersedia untuk membaca data sesebuah produk. API ini khususnya digunakan dalam aplikasi mudah alih Open Food Facts untuk iPhone dan Android.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>Kami telah mengubah API dari masa-ke-semasa tetapi kami berhati-hati bagi keserasian yang terdahulu. Sila beritahu kami jika anda telah menggunakannya, supaya kami dapat memberitahu anda berkenaan perubahan-perubahan yang ada.</p>
 
-<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
 
-<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+<p>Contoh: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Dokumentasi lebih lanjut <a href="https://wiki.openfoodfacts.org/API"> tersedia di Wiki </a>. (Important note: the page is divided into subpages for READ and WRITE). 
-A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
-<p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
-Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
-<p>Also, sending an HTTP header with your API call is a good way we can get in touch, should any issue arise.</p>
-<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
+Dokumentasi lanjutan <a href="https://wiki.openfoodfacts.org/API"> tersedia dalam Wiki </a>. (Perhatian penting: halaman telah dibahagikan kepada beberapa sub-halaman untuk BACA dan TULIS).
+Satu dokumentasi yang lebih baik sedang dibangunkan, dengan menggunakan kes-kes untuk memaparkan satu produk, dan membolehkan pengguna anda menambahkan data yang diperlukan untuk mendapatkan Nutri-Score, kumpulan NOVA dan bahan tambahan.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro"> Anda boleh mencapainya di sini </a>.
+<p>Anda sangat dialu-alukan menggunakan API untuk tujuan-tujuan pengeluaran, asalkan 1 panggilan API = 1 imbasan sebenar oleh seorang pengguna.
+Sebarang percubaan untuk mengikis pangkalan data menggunakan API berkemungkinan akan disekat, kerana eksport harian penuh tersedia dalam halaman ini.</p>
+<p>Dan juga, penghantaran satu tajuk HTTP dengan panggilan API anda adalah cara yang baik untuk kita berhubung, jika ada masalah.</p>
+<p>Sekiranya anda tidak pasti berkenaan apa-apa yang ada di sini, atau mempunyai sebarang pertanyaan (bukan pertanyaan bodoh), silalah bertanya di Slack :-)</p>
 
-<h2>Android and iPhone mobile app</h2>
+<h2>Apl Android dan iPhone</h2>
 
-<p>The code for the Open Food Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
-The app allows users to scan the barcode of products, to view the product information, and to take and send pictures and data for missing products.</p>
+<p>Kod untuk apl mudah alih Open Food Facts telah tersedia di GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp"> Android </a> dan <a href="https://github.com/openfoodfacts/openfoodfacts-ios"> iOS </a>).
+Apl ini membolehkan para pengguna mengimbas barkod produk, melihat maklumat produk, dan mengambil serta menghantar gambar dan data bagi produk yang tiada.</p>
 
-<p>The app for iOS is developed in Swift.</p>
-<p>The app for Android is developed in Java.</p>
-<p>You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.
+<p>Apl untuk iOS dibangunkan dengan Swift.</p>
+<p>Aplikasi untuk Android dibangunkan dengan Java.</p>
+<p>Anda dialu-alukan untuk mengguna-semula kod (ia sumber terbuka) dan bantu kami menambahbaiknya, untuk semua orang, di planet ini.
 
-<h2>Wrappers and SDKs</h2>
-<p>We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it.</p>
-<p>They will let you consume data, as well as let your users contribute new data</p>
+<h2>Pembalut dan SDK</h2>
+<p>Kami mungkin mempunyai satu pembalut untuk bahasa pengaturcaraan kegemaran anda. Sekiranya ada, anda boleh menggunakan dan menambahbaiknya. Sekiranya tiada, anda boleh bantu membuatnya.</p>
+<p>Ia membolehkan anda guna data tersebut, dan pengguna anda dapat menyumbang data baharu</p>
 <ul>
-<li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>
+<li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app"> GitHub (apl rasmi Open Food Facts lama) </a></li>
 <li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
 <li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
 <li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
 <li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a></li>
 <li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
-<li>PHP (Lararel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
+<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
 <li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
 <li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
 <li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
 </ul>
 
-<h2>Discussing data, API and exports</h2>
-<p>You can <a href="https://slack.openfoodfacts.org">join the Open Food Facts Slack chatroom which is the preferred way to ask questions and discuss the API</a>.</p>
+<h2>Perbincangan data, API dan eksport</h2>
+<p>Anda boleh <a href="https://slack.openfoodfacts.org"> menyertai bilik sembang Open Food Facts Slack yang merupakan cara terbaik untuk bertanya soalan dan berbincang mengenai API </a>.</p>
 
-<p>You can also join the mailing list to discuss the API and exports, tell us about your re-uses, and be notified when improvements or changes are made to the API. Send an empty e-mail to
-<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> to subscribe.</p>
+<p>Anda juga boleh menyertai senarai e-mel untuk berbincang mengenai API dan eksport, beritahu kami tentang penggunaan-semula anda, dan mendapat makluman jika ada penambahbaikan atau perubahan yang dibuat ke atas API. Hantarkan satu e-mel kosong kepada
+<a href="mailto:api-subscribe@openfoodfacts.org"> api-subscribe@openfoodfacts.org </a> untuk melanggan.</p>
 
 
 <h2>Contact</h2>
 
-<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
+<p>Untuk sebarang pertanyaan mengenai data, anda boleh terus hubungi kami di <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
