@@ -386,7 +386,6 @@ function fetch_score_databases() {
         }
         if (current_db_for_graph === null) {
             current_db_for_graph = cached_databases.stats[0];
-            //alert("caching default since null");
         }
         cacheCurrentScoreDatabase(current_db_for_graph);
         fillHtmlElementWithDatabases(cached_databases.stats);
@@ -477,9 +476,12 @@ function cleanup_suggestions() {
     $(ID_PRODUCTS_SUGGESTION).empty();
     $(ID_NB_SUGGESTIONS).empty();
     $(ID_NB_SUGGESTIONS).append(0);
-    $(ID_PRODUCTS_SUGGESTION).attr("height", `String(6 + $(window).innerHeight() / 3)` + "px");
+    let component_height;
+    component_height = 6 + ($(window).innerHeight() / 5);
+    $(ID_PRODUCTS_SUGGESTION).attr("height", String(component_height) + "px");
     $(ID_PRODUCTS_SUGGESTION).append("<ul></ul>");
-    $(ID_MENU_SELECTION).attr("height", `String($(window).innerHeight() / 5)` + "px");
+    component_height = $(window).innerHeight() / 5;
+    $(ID_MENU_SELECTION).attr("height", String(component_height) + "px");
 }
 
 function get_graph_stripe_colour (db_graph, score_of_product) {
@@ -511,7 +513,6 @@ function make_suggestions(product_ref, products, db_graph) {
         $(ID_NB_SUGGESTIONS).empty();
         $(ID_NB_SUGGESTIONS).append(suggested_products.length);
         suggested_products.forEach(function (product, index) {
-            // $(ID_PRODUCTS_SUGGESTION + " > div").append("<div class='cell_suggestion' onclick='alert("+cx+")'><img src='" + product.img + "' height='150px' /></div>");
             const style_for_border_colour = "border-color: " + get_graph_stripe_colour(db_graph, product.score);
             $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' onclick='process_selected_suggestion(this, " + index + ")' /></li>");
             $(ID_PRODUCTS_SUGGESTION + " > ul").append("<li><img id='" + ID_PRODUCT_IMAGE_PARTIAL + index + "' src='" + product.img + "' class='grade_border' style='" + style_for_border_colour + "' height='250px' /></li>");
@@ -539,7 +540,7 @@ function deactivate_previous_selection() {
         client_current_selection[1].setAttribute("style", style_for_border_colour);
 
         const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-        circle_node.setAttribute("r", `String(CIRCLE_RADIUS_DEFAULT)`);
+        circle_node.setAttribute("r", String(CIRCLE_RADIUS_DEFAULT));
         circle_node.setAttribute("fill", CIRCLE_COLOR_DEFAULT);
     }
 }
@@ -551,7 +552,7 @@ function activate_selection() {
     client_current_selection[1].setAttribute("style", "");
     // focus circle bound to selection
     const circle_node = $("#svg_graph")[0].childNodes[0].childNodes[suggested_products[client_current_selection[0]].num_circle + SHIFT_ARRAY_POSITION_SVG_CIRCLES_VS_PRODUCTS + rangeInterval];
-    circle_node.setAttribute("r", `String(CIRCLE_RADIUS_SELECTED)`);
+    circle_node.setAttribute("r", String(CIRCLE_RADIUS_SELECTED));
     circle_node.setAttribute("fill", CIRCLE_COLOR_SELECTED);
     $(ID_INPUT_PRODUCT_CODE).val(suggested_products[client_current_selection[0]].code);
 }
@@ -839,11 +840,14 @@ function display_product_ref_details(prod_ref) {
     $(ID_PRODUCT_NAME).empty();
     $(ID_PRODUCT_NAME).append(name);
     $(ID_PRODUCT_IMG).attr("src", image);
-    $(ID_PRODUCT_IMG).attr("height", `String($(window).innerHeight() / 7)` + "px");
+    let component_height;
+    component_height = $(window).innerHeight() / 7;
+    $(ID_PRODUCT_IMG).attr("height", String(component_height) + "px");
     $(ID_PRODUCT_IMG).attr("class", style_for_border_colour);
-    $(ID_IMG_OFF).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
+    component_height = $(window).innerHeight() / 7 / 3;
+    $(ID_IMG_OFF).attr("height", String(component_height) + "px");
     $(ID_IMG_OFF).attr("max-height", "28px");
-    $(ID_IMG_JSON).attr("height", `String($(window).innerHeight() / 7 / 3)` + "px");
+    $(ID_IMG_JSON).attr("height", String(component_height) + "px");
     $(ID_IMG_JSON).attr("max-height", "28px");
 
     $(ID_PRODUCT_CATEGORIES).empty();
@@ -903,7 +907,6 @@ function init() {
     if (current_db_used !== null && current_db_used !== undefined) {
         current_db_for_graph = current_db_used;
         $(ID_INPUT_SCORE_DB).val(current_db_used[FLD_DB_NICK_NAME]);
-        //alert("using db "+current_db_used[FLD_DB_NICK_NAME]);
     }
     $(ID_INPUT_PRODUCT_CODE).removeClass("barcode_no_selection");
     $(ID_INPUT_PRODUCT_CODE).addClass("barcode_product_selected");
