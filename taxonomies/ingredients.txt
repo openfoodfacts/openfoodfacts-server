@@ -67729,20 +67729,24 @@ fi:ankanliha
 fr:viande de canard
 
 <en:duck meat
+en:duck leg, duck legs
 fr:cuisses de canard
 
 <en:duck meat
+en:duck wing, duck wings
 fr:manchons de canard
 
 <fr:manchons de canard
 fr:Manchons de canard du Sud-Ouest
 
 <en:duck meat
+en:duck breast
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr:Magret canard
 carbon_footprint_fr_foodges_value:fr:9.7
 
 <en:duck meat
+en:duck gizzards
 fr:gésiers de canard
 
 # <en:compound
@@ -67765,9 +67769,11 @@ sv:Anka lever
 zh:鸭肝
 
 <en:duck liver
+en:lean duck liver
 fr:foie maigre de canard
 
 <en:duck liver
+en:duck foie gras
 fr:foie gras de canard
 
 <fr:foie gras de canard
@@ -67954,10 +67960,6 @@ sv:kalkonbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
 carbon_footprint_fr_foodges_value:fr:6.5
 
-<en:turkey
-en:turkey thigh
-es:muslo de pavo,contramuslo de pavo
-
 <en:turkey meat
 en:mechanically separated meat of turkey
 de:mechanisch getrenntes Fleisch von Truthahn
@@ -67967,13 +67969,16 @@ it:carne di tacchino separata meccanicamente
 # ingredient/fr:viande-séparée-mécaniquement-de-dinde has 80 products in 4 languages @2019-04-16
 
 <en:turkey meat
+en:turkey thigh, turkey leg, turkey drumstick
+es:muslo de pavo, contramuslo de pavo
 fr:cuisse de dinde
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
 carbon_footprint_fr_foodges_value:fr:6.6
 # ingredient/fr:cuisse-de-dinde has 84 products in french @2019-04-16
 
-<fr:Cuisse de dinde
+<en:turkey thigh
 <en:turkey meat
+en:turkey thigh meat
 fr:viande de cuisse de dinde
 de:putenoberkeulenfleisch
 # ingredient/fr:viande-de-cuisse-de-dinde has 58 products in french @2019-04-16
@@ -68005,8 +68010,11 @@ fr:jambon de dinde cuit standard goût fumé
 en:roasted turkey including natural turkey juices
 
 <en:poultry
+en:quail
 fr:caille, cailles
 nl:kwartel, kwartels
+wikidata:en:Q6072584
+wikipedia:en:https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -68024,6 +68032,9 @@ nl:kwartel, kwartels
 <en:game animal
 en:partridge
 es:perdiz
+fr:perdrix, perdreaux
+wikidata:en:Q732775
+wikipedia:en:https://en.wikipedia.org/wiki/Partridge
 
 <en:partridge
 es:fumé de perdiz
