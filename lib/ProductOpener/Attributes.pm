@@ -49,9 +49,13 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&list_attributes
+		&initialize_attribute
 		&override_general_value
 		&add_attribute
 		&compute_attributes
+		&compute_attribute_nutriscore
+		&compute_attribute_nova
 		&compute_attribute_has_tag
 
 		);    # symbols to export on request
@@ -68,19 +72,40 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
+=head1 CONFIGURATION
+
+=head2 Attribute groups and attributes
+
+The list of attribute groups ids and the attribute ids they contained
+is defined in the Config.pm file
+
+e.g.
+
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore"]
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+[..]
+
 
 =head1 FUNCTIONS
 
-=head2 compute_attributes ( $product_ref, $target_lc )
+=head2 list_attributes ( $target_lc )
 
-Compute all attributes for a product, with strings (descriptions, recommendations etc.)
-in a specific language, and return them in an array of attribute groups.
+List all available attribute groups and attributes,
+with strings (names, descriptions etc.) in a specific language,
+and return them in an array of attribute groups.
+
+This is used in particular for clients of the API to know which
+preferences they can ask users for, and then use for personalized
+filtering and ranking.
 
 =head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
 
 =head4 language code $target_lc
 
@@ -89,185 +114,104 @@ This parameter sets the desired language for the user facing strings.
 
 =head3 Return values
 
-Attributes are returned in the "attribute_groups_[$target_lc]" array of the product reference
-passed as input.
+=head4 attribute groups reference $attribute_groups_ref
 
-The array contains attribute groups, and each attribute group contains individual attributes.
+The return value is a reference to an array of attribute groups that contains individual attributes.
+
+=head3 Caching
+
+The return value is cached for each language in the %attribute_groups hash.
 
 =cut
 
-sub compute_attributes($$) {
+# Global structure to cache the return structure for each language
+my %attribute_groups = ();
 
-	my $product_ref = shift;
+sub list_attributes($) {
+
 	my $target_lc = shift;	
 
-	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
+	$log->debug("list attributes", { target_lc => $target_lc }) if $log->is_debug();
 
-	# Initialize attributes
-
-	$product_ref->{"attribute_groups_" . $target_lc} = [];
+	# Construct the return structure only once for each language
 	
-	# Populate the attributes groups and the attributes of each group
-	# in a default order (a meaningful order that apps / clients can decide to reorder or not)
-	
-	# Nutritional quality
-	
-	my $attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
-	add_attribute($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
-	
-	# Processing
-	
-	my $attribute_ref = compute_attribute_nova($product_ref, $target_lc);
-	add_attribute($product_ref, $target_lc, "processing", $attribute_ref);	
+	if (not defined $attribute_groups{$target_lc}) {
 		
-	# Labels groups
-	
-	foreach my $label_id ("en:organic", "en:fair-trade") {
+		$attribute_groups{$target_lc} = [];
 		
-		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", $label_id);
-		add_attribute($product_ref, $target_lc, "labels", $attribute_ref);
+		if (defined $options{attribute_groups}) {
+			
+			foreach my $options_attribute_group_ref (@{$options{attribute_groups}}) {
+				
+				my $group_id = $options_attribute_group_ref->[0];
+				my $attributes_ref = $options_attribute_group_ref->[1];
+				
+				my $group_ref = {
+					id => $group_id,
+					name => lang_in_other_lc($target_lc, "attribute_group_" . $group_id . "_name"),
+					attributes => [],
+				};
+				
+				foreach my $attribute_id (@{$attributes_ref}) {
+					
+					my $attribute_ref = {};
+					initialize_attribute($attribute_ref, $attribute_id, $target_lc);
+					push @{$group_ref->{attributes}}, $attribute_ref;
+				}
+				
+				push @{$attribute_groups{$target_lc}}, $group_ref;
+			}
+		}
 	}
 	
-	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
-		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
+	return $attribute_groups{$target_lc};
 }
 
 
-=head2 add_attributes ( $product_ref, $target_lc, $group_id, $attribute_ref )
+=head2 initialize_attribute ( $attribute_ref, $attribute_id, $target_lc )
 
-Add an attribute to a given attribute group, if the attribute is defined.
+Initialiaze attributes fields (e.g. strings like description, description_short etc.)
+for a specific attribute if the corresponding values are defined in the .po translation files.
+
+The initialization values for the fields are not dependent on a specific product.
+
+Some of them may be overridden later (e.g. the title and description) based
+on how the attribute matches for the specific product.
 
 =head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=head4 group id $group_id
-
-e.g. nutritional_quality, allergens, labels
 
 =head4 attribute reference $attribute_ref
 
-=cut
+Must be a reference to a hash table.
 
-sub add_attribute($$$$) {
-	
-	my $product_ref = shift;
-	my $target_lc = shift;
-	my $group_id = shift;
-	my $attribute_ref = shift;
-	
-	$log->debug("add_attribute", { target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref }) if $log->is_debug();	
-	
-	if (defined $attribute_ref) {
-		my $group_ref;
-		# Select the requested group
-		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
-			$log->debug("add_attribute - existing group", { group_ref => $group_ref,, group_id => $group_id }) if $log->is_debug();	
-			if ($each_group_ref->{id} eq $group_id) {
-				$group_ref = $each_group_ref;
-				last;
-			}
-		}
-		# Add group if it doesn't exist yet
-		if ((not defined $group_ref) or ($group_ref->{id} ne $group_id)) {
-			
-			$log->debug("add_attribute - create new group", { group_ref => $group_ref, group_id => $group_id }) if $log->is_debug();
-			
-			$group_ref = {
-				id => $group_id,
-				name => lang_in_other_lc($target_lc, "attribute_group_" . $group_id . "_name"),
-				attributes => [],
-			};
-			push @{$product_ref->{"attribute_groups_" . $target_lc}}, $group_ref;
-		}
-		
-		push @{$group_ref->{attributes}}, $attribute_ref;
-	}
-}
-
-
-=head2 compute_attribute_has_tag ( $product_ref, $target_lc, $tagtype, $tagid )
-
-Checks if the product has a specific tag (e.g. a label)
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
+=head4 attribute id $attribute_id
 
 =head4 language code $target_lc
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
 
-=head4 tag type $tagtype
+=head3 Initialized fields
 
-e.g. labels, categories, origins
 
-=head4 tag id $tagid
-
-e.g. en:organic
-
-=head3 Return value
-
-The return value is a reference to the resulting attribute data structure.
-
-=head4 % Match
-
-- 100% if the product has the requested tag
-- 0% if the product does not have the requested tag
 
 =cut
 
-sub compute_attribute_has_tag($$$$) {
-
-	my $product_ref = shift;
+sub initialize_attribute($$$) {
+	
+	my $attribute_ref = shift;
+	my $attribute_id = shift;
 	my $target_lc = shift;
-	my $tagtype = shift;
-	my $tagid = shift;	
-
-	$log->debug("compute attributes for product", { code => $product_ref->{code} }) if $log->is_debug();
-
-	my $attribute_ref;
-	my $attribute_id = $tagid;
-	$attribute_id =~ s/^en://;
-	$attribute_id =~ s/-|:/_/g;
-	$attribute_id = $tagtype . "_" . $attribute_id;
 	
-	$attribute_ref = {
-		id => $attribute_id,
-		name => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_name"),
-		description => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description"),
-		description_short => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description_short"),
-		status => "known",
-	};
-	
-	# TODO: decide when to mark status unknown (e.g. new products)
+	$attribute_ref->{id} = $attribute_id;
 
-	if (has_tag($product_ref, $tagtype, $tagid)) {
-		$attribute_ref->{match} = 100;
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
-		# Override default texts if specific texts are available
-		override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
-		override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+	foreach my $field ("name", "description", "description_short") {
+		
+		my $value = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_" . $field);
+		if ((defined $value) and ($value ne "")) {
+			$attribute_ref->{$field} = $value;
+		}
 	}
-	else {
-		$attribute_ref->{match} = 0;
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_no_title");
-		# Override default texts if specific texts are available
-		override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
-		override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");			
-	}
-	
-	return $attribute_ref;
 }
 
 
@@ -347,15 +291,10 @@ sub compute_attribute_nutriscore($$) {
 
 	$log->debug("compute nutriscore attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
-	my $attribute_ref;
+	my $attribute_ref = {};
 	my $attribute_id = "nutriscore";
 	
-	$attribute_ref = {
-		id => $attribute_id,
-		name => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_name"),
-		description => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description"),
-		description_short => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description_short"),
-	};
+	initialize_attribute($attribute_ref, $attribute_id, $target_lc);
 	
 	if (defined $product_ref->{nutriscore_data}) {
 		$attribute_ref->{status} = "known";
@@ -474,15 +413,10 @@ sub compute_attribute_nova($$) {
 
 	$log->debug("compute nova attribute", { code => $product_ref->{code} }) if $log->is_debug();
 
-	my $attribute_ref;
+	my $attribute_ref = {};
 	my $attribute_id = "nova";
 	
-	$attribute_ref = {
-		id => $attribute_id,
-		name => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_name"),
-		description => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description"),
-		description_short => lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_description_short"),
-	};
+	initialize_attribute($attribute_ref, $attribute_id, $target_lc);
 		
 	if (defined $product_ref->{nova_group}) {
 		$attribute_ref->{status} = "known";
@@ -515,6 +449,204 @@ sub compute_attribute_nova($$) {
 	}
 	
 	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_has_tag ( $product_ref, $target_lc, $tagtype, $tagid )
+
+Checks if the product has a specific tag (e.g. a label)
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 tag type $tagtype
+
+e.g. labels, categories, origins
+
+=head4 tag id $tagid
+
+e.g. en:organic
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- 100% if the product has the requested tag
+- 0% if the product does not have the requested tag
+
+=cut
+
+sub compute_attribute_has_tag($$$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $tagid = shift;	
+
+	$log->debug("compute attributes for product", { code => $product_ref->{code} }) if $log->is_debug();
+
+	my $attribute_ref = {};
+	my $attribute_id = $tagid;
+	$attribute_id =~ s/^en://;
+	$attribute_id =~ s/-|:/_/g;
+	$attribute_id = $tagtype . "_" . $attribute_id;
+	
+	# Initialize general values that do not depend on the product (or that will be overriden later)
+	
+	initialize_attribute($attribute_ref, $attribute_id, $target_lc);
+	
+	$attribute_ref->{status} = "known";
+	
+	# TODO: decide when to mark status unknown (e.g. new products)
+
+	if (has_tag($product_ref, $tagtype, $tagid)) {
+		$attribute_ref->{match} = 100;
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
+		# Override default texts if specific texts are available
+		override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
+		override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+	}
+	else {
+		$attribute_ref->{match} = 0;
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_no_title");
+		# Override default texts if specific texts are available
+		override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
+		override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");			
+	}
+	
+	return $attribute_ref;
+}
+
+
+=head2 add_attributes ( $product_ref, $target_lc, $group_id, $attribute_ref )
+
+Add an attribute to a given attribute group, if the attribute is defined.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 group id $group_id
+
+e.g. nutritional_quality, allergens, labels
+
+=head4 attribute reference $attribute_ref
+
+=cut
+
+sub add_attribute($$$$) {
+	
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $group_id = shift;
+	my $attribute_ref = shift;
+	
+	$log->debug("add_attribute", { target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref }) if $log->is_debug();	
+	
+	if (defined $attribute_ref) {
+		my $group_ref;
+		# Select the requested group
+		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
+			$log->debug("add_attribute - existing group", { group_ref => $group_ref,group_id => $group_id }) if $log->is_debug();	
+			if ($each_group_ref->{id} eq $group_id) {
+				$group_ref = $each_group_ref;
+				last;
+			}
+		}
+		# Add group if it doesn't exist yet
+		if ((not defined $group_ref) or ($group_ref->{id} ne $group_id)) {
+			
+			$log->debug("add_attribute - create new group", { group_ref => $group_ref, group_id => $group_id }) if $log->is_debug();
+			
+			$group_ref = {
+				id => $group_id,
+				name => lang_in_other_lc($target_lc, "attribute_group_" . $group_id . "_name"),
+				attributes => [],
+			};
+			push @{$product_ref->{"attribute_groups_" . $target_lc}}, $group_ref;
+		}
+		
+		push @{$group_ref->{attributes}}, $attribute_ref;
+	}
+}
+
+
+=head2 compute_attributes ( $product_ref, $target_lc )
+
+Compute all attributes for a product, with strings (descriptions, recommendations etc.)
+in a specific language, and return them in an array of attribute groups.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return values
+
+Attributes are returned in the "attribute_groups_[$target_lc]" array of the product reference
+passed as input.
+
+The array contains attribute groups, and each attribute group contains individual attributes.
+
+=cut
+
+sub compute_attributes($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;	
+
+	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
+
+	# Initialize attributes
+
+	$product_ref->{"attribute_groups_" . $target_lc} = [];
+	
+	# Populate the attributes groups and the attributes of each group
+	# in a default order (a meaningful order that apps / clients can decide to reorder or not)
+	
+	# Nutritional quality
+	
+	my $attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
+	add_attribute($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+	
+	# Processing
+	
+	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
+	add_attribute($product_ref, $target_lc, "processing", $attribute_ref);	
+		
+	# Labels groups
+	
+	foreach my $label_id ("en:organic", "en:fair-trade") {
+		
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", $label_id);
+		add_attribute($product_ref, $target_lc, "labels", $attribute_ref);
+	}
+	
+	$log->debug("computed attributes for product", { code => $product_ref->{code}, target_lc => $target_lc,
+		"attribute_groups_" . $target_lc => $product_ref->{"attribute_groups_" . $target_lc} }) if $log->is_debug();
 }
 
 1;
