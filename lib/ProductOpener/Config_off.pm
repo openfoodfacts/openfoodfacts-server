@@ -671,6 +671,7 @@ $options{import_export_fields_groups} = [
 	[   "other",
 		[   "nutriscore_score_producer",
 			"nutriscore_grade_producer",
+			"nova_group_producer",
 			"conservation_conditions",
 			"warning",
 			"preparation",

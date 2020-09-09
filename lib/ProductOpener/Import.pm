@@ -710,12 +710,37 @@ EMAIL
 					
 					if ($subfield =~ /^$field:/) {
 						my $tag_name = $';
+						my $tag_to_add;
+						
+						$log->debug("specific field", { field => $field, tag_name => $tag_name, value => $imported_product_ref->{$subfield} } ) if $log->is_debug();
+						
 						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
+							$tag_to_add = $tag_name;
+						}
+						
+						# If we have a value like 0, N, No and an opposite entry exists in the taxonomy
+						# then add the negative entry
+						elsif ($imported_product_ref->{$subfield} =~ /^\s*(0|n|no|not|non)\s*$/i) {
+							
+							my $tagid = canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag_name);
+							
+							$log->debug("opposite value for specific field", { field => $field, value => $imported_product_ref->{$subfield},
+								tag_name => $tag_name, tagid => $tagid, opposite_tagid => get_property($field, $tagid, "opposite:en") } ) if $log->is_debug();
+							
+							if (exists_taxonomy_tag($field, $tagid)) {
+								my $opposite_tagid = get_property($field, $tagid, "opposite:en");
+								if (defined $opposite_tagid) {
+									$tag_to_add = $opposite_tagid;
+								}
+							}
+						}
+						
+						if (defined $tag_to_add) {
 							if (defined $imported_product_ref->{$field}) {
-								$imported_product_ref->{$field} .= "," . $tag_name;
+								$imported_product_ref->{$field} .= "," . $tag_to_add;
 							}
 							else {
-								$imported_product_ref->{$field} = $tag_name;
+								$imported_product_ref->{$field} = $tag_to_add;
 							}
 						}
 					}
@@ -809,7 +834,7 @@ EMAIL
 						my $tagid;
 
 						next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
-						next if $tag =~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*$/i;
+						next if $tag =~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*$/i;
 
 						$tag =~ s/^\s+//;
 						$tag =~ s/\s+$//;
