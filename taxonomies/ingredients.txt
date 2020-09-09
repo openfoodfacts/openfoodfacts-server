@@ -9615,6 +9615,7 @@ nl:poeder van gesmolten kazen
 # fr:fromage-fondu-en-poudre has 98 products in 6 languages @2018-10-28
 
 <en:cheese
+en:low fat cheese
 fr:fromage maigre
 ca:formatge magre
 de:fettarmer Käse
@@ -9680,6 +9681,34 @@ es:queso suizo
 it:formaggio svizzero, formaggi svizzeri
 # fr:fromage-suisse has 21 products in 3 languages @2018-10-27
 
+<en:sauce
+en:cheese sauce
+es:salsa de queso
+fi:juustokastike
+fr:sauce au fromage
+nl:kaassaus
+sv:ostsås
+wikidata:en:Q27972032
+# ingredient/en:cheese-sauce has 425 products in 2 languages @2020-06-07
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Specific named cheeses start here
+
+
+# description:en:Asiago is an Italian cow's milk cheese that can assume different textures, according to its aging, from smooth for the fresh Asiago (called Asiago Pressato, which means 'Pressed Asiago') to a crumbly texture for the aged cheese (Asiago d'allevo, which means 'Breeding farm Asiago').
+
+<en:cheese
+en:asiago, Asiago cheese
+fr:Asiago, Asiago AOP, fromage asiago, fromage Asiago AOP
+it:Asiago, formaggio Asiago, formaggio Asiago DOP
+wikidata:en:Q727210
+wikipedia:en:https://en.wikipedia.org/wiki/Asiago_cheese
+
+<en:asiago
+en:asiago medium cheese
+
+
 # description:en:Beaufort is a firm, raw cow's milk cheese associated with the gruyère family.
 
 <en:cheese
@@ -9691,15 +9720,6 @@ fr:beaufort, beaufort aop, Beaufort Appellation d'Origine Protégée, Beaufort R
 hu:Beaufort, Beaufort sajt
 wikipedia:en:https://en.wikipedia.org/wiki/Beaufort_cheese
 
-<en:sauce
-en:cheese sauce
-es:salsa de queso
-fi:juustokastike
-fr:sauce au fromage
-nl:kaassaus
-sv:ostsås
-wikidata:en:Q27972032
-# ingredient/en:cheese-sauce has 425 products in 2 languages @2020-06-07
 
 # CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese.
 
@@ -9977,15 +9997,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
 # EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
 
 <en:cheese
-en:emmental, emmental cheese
+en:emmental, emmental cheese, emmentaler cheese
 af:Emmentaler
 ar:إمنتال
 bg:Ементал
 bs:Ementaler
-ca:emmental
+ca:emmental, formatge emmental
 cs:Ementál
 da:emmental, Emmentaler, emmentaler-ost
-de:Emmentaler
+de:Emmentaler, Emmentaler Käse
 el:Έμενταλ
 eo:Emental
 es:emmenthal, emmental, queso emmental
@@ -10258,17 +10278,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Feta
 # fr:feta has 49 products in 3 languages @2018-10-28
 
 <en:cheese
-en:fontina
+en:fontina, fontina cheese
+es:fontina, queso fontina
+fr:Fontine, Fontina AOP, Fontine DOP
+it:Fontina, Fontina DOP
+wikidata:en:Q534043
 wikipedia:en:https://en.wikipedia.org/wiki/Fontina
 
 <en:fontina
-en:fontal
+en:fontal, fontal cheese
+de:Fontal, Fontal Käse
 es:fontal
+fr:fontal, fromage fontal
+wikidata:en:Q3076339
 
 # GORGONZOLA is a veined Italian blue cheese, made from unskimmed cow's milk.
 
 <en:cheese
-en:gorgonzola
+en:gorgonzola, gorgonzola cheese
 af:Gorgonzola
 ar:جبنة غورغونزولا
 be:Гаргандзола
@@ -10286,7 +10313,7 @@ et:Gorgonzola juust
 eu:Gorgonzola
 fa:گورگونتزولا
 fi:gorgonzola, gorgonzolajuusto
-fr:gorgonzola, gorgonzola AOP
+fr:gorgonzola, fromage gorgonzola, gorgonzola AOP, fromage gorgonzola AOP
 gl:Gorgonzola
 he:גורגונזולה
 hr:Gorgonzola
@@ -10911,14 +10938,14 @@ it:Pecorino romano
 # PROVOLONE is an Italian cheese. It is an aged pasta filata (stretched-curd) cheese originating in Casilli near Vesuvius.
 
 <en:cheese
-en:provolone
+en:provolone, provolone cheese
 af:Provolone
 ca:Provolone
-de:provolone
+de:provolone, provolone käse
 eo:Provolono
 es:Provolone
 fi:provolone
-fr:provolone
+fr:provolone, fromage provolone
 he:פרובולונה
 hu:provolone, provolone sajt
 id:Provolone
