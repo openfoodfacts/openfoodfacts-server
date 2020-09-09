@@ -20851,6 +20851,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chartreuse_(liqueur)
 # nl:chartreuse
 # de:Chartreuse
 
+<en:alcohol
+en:sake
+fr:Saké
+ja:日本酒
+wikidata:en:Q170219
+wikipedia:en:https://en.wikipedia.org/wiki/Sake
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -51036,6 +51042,10 @@ wikidata:en:Q235169
 wikipedia:en:https://en.wikipedia.org/wiki/Miso
 # ingredient/fr:miso has 46 products in 2 languages @2020-06-13
 
+<en:miso
+en:red miso paste
+fr:pâte miso rouge
+
 ###################################################################################################
 #
 #                                Spices (general)
@@ -73101,7 +73111,7 @@ sv:chilimajonnäs
 # description:en:MIRIN is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
 
 <en:sauce
-en:mirin
+en:mirin, mirin sauce, mirin wine
 ar:ميرين
 bn:মিরিন
 cs:mirin
@@ -73111,7 +73121,7 @@ eo:Mirino
 et:mirin
 fa:میرین
 fi:mirin
-fr:mirin
+fr:mirin, sauce mirin
 he:מירין
 hi:मीरीन
 hu:mirin
@@ -73278,6 +73288,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # 449 products in 5 languages @2018-09-25
 
 <en:soy sauce
+en:light soy sauce
+
+<en:soy sauce
+en:dark soy sauce
+fr:sauce soja foncée
+
+<en:soy sauce
 en:soy and sesame sauce, sesame and soy sauce
 fi:soija-seesamikastike
 fr:sauce au soja et au sésame, sauce au sésame et au soja
@@ -73371,8 +73388,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_and_sour
 # ingredient/fr:sauce-aigre-douce has 72 products in 4 languages @2019-05-01
 
 
-# description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes.
+# description:en:Teriyaki (kanji: 照り焼き) is a cooking technique used in Japanese cuisine in which foods are broiled or grilled with a glaze of soy sauce, mirin, and sugar.
 
+<en:sauce
+en:teriyaki sauce
+fr:sauce teriyaki
+nl:teriyakisaus
+wikidata:en:Q647175
+wikipedia:en:https://en.wikipedia.org/wiki/Teriyaki
+
+
+# description:en:TOMATO SAUCE (also known as Neapolitan sauce) can refer to a large number of different sauces made primarily from tomatoes, usually to be served as part of a dish, rather than as a condiment. Tomato sauces are common for meat and vegetables, but they are perhaps best known as bases for Mexican salsas or sauces for pasta dishes.
 
 <en:sauce
 en:tomato sauce
