@@ -693,7 +693,9 @@ $options{import_export_fields_groups} = [
 $options{attribute_groups} = [
 	[
 		"nutritional_quality",
-		["nutriscore"]
+		["nutriscore",
+		"low_salt", "low_sugars", "low_fat", "low_saturated_fat",
+		],
 	],
 	[
 		"processing",
@@ -701,8 +703,12 @@ $options{attribute_groups} = [
 	],
 	[
 		"labels",
-		["organic", "fair_trade"]
+		["labels_organic", "labels_fair_trade"]
 	],
+	[
+		"allergens",
+		["allergens_gluten", "allergens_milk", "allergens_eggs"],
+	]
 ];
 
 # Used to generate the sample import file for the producers platform
