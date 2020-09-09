@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 09:17\n"
+"PO-Revision-Date: 2020-09-09 09:07\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -868,7 +868,7 @@ msgstr "<<site_name>> wiki (angolul)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org&hl=hu"
+msgstr ""
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -4532,6 +4532,10 @@ msgstr ""
 msgctxt "query_filter"
 msgid "Query filter"
 msgstr ""
+
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "NOVA csoport"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
