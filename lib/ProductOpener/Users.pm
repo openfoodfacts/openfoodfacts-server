@@ -186,16 +186,16 @@ sub display_user_form($$$) {
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
 	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	;
-	
+
 	# Professional account
-	
+
 	$html .= "\n<tr><td>" . lang("pro_account") . "</td><td>";
-	
+
 	$html .= "<p>" . lang("if_you_work_for_a_producer") . "</p>"
 	. "<p>" . lang("producers_platform_description_long") . "</p>";
-	
+
 	my $teams_display = '';
-	
+
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
 		# Existing user with an accepted organization
@@ -208,31 +208,31 @@ sub display_user_form($$$) {
 	}
 
 	# Pro platform is only for food right now
-	
+
 	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		# New user or existing user without an accepted organization
-		
+
 		my $pro_checked = '';
 		my $pro_org_display = 'style="display:none"';
-		
+
 		# Check the "pro account" checkbox for register screen on the producers platform
-		
+
 		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
 			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
 			$pro_checked = "checked";
 			$pro_org_display = "";
 			$teams_display = 'style="display:none"';
 		}
-				
+
 		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
 		. "<label for=\"pro\">"
 		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
 		. lang("this_is_a_pro_account") . "</label>"
 		. "<div id=\"pro_org\" $pro_org_display>"
 		. "<p id=\"org-field\">" . lang("producer_or_brand") . separator_before_colon($lc) . ": "
-		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1) 
+		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1)
 		. "</p>";
-						
+
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 
 		if ( defined $requested_org_ref ) {
@@ -246,11 +246,11 @@ sub display_user_form($$$) {
 		else {
 			$html .= "<p>" . lang("enter_name_of_org") . "</p>";
 		}
-		
+
 		$html .= "</div>";
-		
+
 		$html .= "</td></tr>";
-		
+
 		$initjs .= <<JAVASCRIPT
 \$('#pro').change(function() {
 	if (\$(this).prop('checked')) {
@@ -281,7 +281,7 @@ JAVASCRIPT
 
 		$html .= "</div></td></tr>";
 	}
-	
+
 
 	${$scripts_ref} .= <<SCRIPT
 <script type="text/javascript">
@@ -352,7 +352,7 @@ sub display_user_form_admin_only($$) {
 	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
 
 	if (($type eq 'add') or ($type eq 'edit')) {
-		
+
 		$html .= "\n<tr><td colspan=\"2\" style=\"background-color:#ffcccc\">Administrator fields</td></tr>";
 
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
@@ -381,9 +381,9 @@ sub check_user_form($$$) {
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-	
+
 	my $email = remove_tags_and_quote(decode utf8=>param('email'));
-	
+
 	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
 
 	if ($user_ref->{email} ne $email) {
@@ -405,18 +405,18 @@ sub check_user_form($$$) {
 		$user_ref->{twitter} =~ s/^http:\/\/twitter.com\///;
 		$user_ref->{twitter} =~ s/^\@//;
 	}
-	
+
 	# Is there a checkbox to make a professional account
 	if (defined param("pro_checkbox")) {
-		
+
 		if (param("pro")) {
 			$user_ref->{pro} = 1;
-			
+
 			if (defined param("requested_org")) {
 				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
-				
+
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
-				
+
 				if ($requested_org_id ne "") {
 					$user_ref->{requested_org_id} = $requested_org_id;
 				}
@@ -433,7 +433,7 @@ sub check_user_form($$$) {
 			delete $user_ref->{requested_org_id}
 		}
 	}
-	
+
 
 	if ($type eq 'add') {
 		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
@@ -445,9 +445,9 @@ sub check_user_form($$$) {
 	}
 
 	if ($admin) {
-		
+
 		# Org
-		
+
 		my $previous_org = $user_ref->{org};
 		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
 		if ($user_ref->{org} ne "") {
@@ -455,9 +455,9 @@ sub check_user_form($$$) {
 			# Admin field for org overrides the requested org field
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id};
-			
+
 			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
-			
+
 			add_user_to_org( $org_ref, $user_ref->{userid},
 				[ "admins", "members" ] );
 		}
@@ -465,7 +465,7 @@ sub check_user_form($$$) {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
 		}
-			
+
 		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
 			my $org_ref = retrieve_org($previous_org);
 			if (defined $org_ref) {
@@ -545,18 +545,18 @@ sub process_user_form($$) {
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
-    
-	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();    
-    
+
+	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+
     # Professional account with requested org?
-    
+
     if (defined $user_ref->{requested_org_id}) {
-		
+
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
-		
+
 		if (defined $requested_org_ref) {
 			# The requested org already exists
-			
+
 			my $admin_mail_body = <<EMAIL
 requested_org_id: $user_ref->{requested_org_id}
 userid: $user_ref->{userid}
@@ -570,13 +570,13 @@ EMAIL
 		}
 		else {
 			# The requested org does not exist, create it
-			
+
 			my $org_ref = create_org($userid, $user_ref->{requested_org});
 			add_user_to_org($org_ref, $userid, ["admins", "members"]);
-						
+
 			$user_ref->{org} = $user_ref->{requested_org_id};
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
-			
+
 			my $admin_mail_body = <<EMAIL
 requested_org_id: $user_ref->{requested_org_id}
 userid: $user_ref->{userid}
@@ -614,14 +614,14 @@ EMAIL
 
 
 	if ($type eq 'add') {
-		
+
 		# Initialize the session to send a session cookie back
 		# so that newly created users do not have to login right after
-		
+
 		param("user_id", $userid);
 		init_user();
-		
-		
+
+
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
@@ -692,7 +692,6 @@ sub check_edit_owner($$) {
 
 	return;
 }
-
 
 sub init_user()
 {

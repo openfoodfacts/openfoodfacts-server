@@ -1,14 +1,5 @@
 [% IF action == 'display' || action == 'none' %]
-    [% IF error_count >= 0 %]
-        <div class='alert-box alert'>
-            <p>
-                <strong>[% lang('correct_the_following_errors') %]</strong>
-            </p>
-            [% FOREACH error IN errors %]
-                [% error %]<br />
-            [% END %]
-        </div>
-    [% END %]
+[% INCLUDE 'error_list.tt.html' %]
 [% END %]
 
 [% IF action == 'display' %]

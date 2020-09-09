@@ -42,6 +42,7 @@ BEGIN
 		@Langs
 
 		&lang
+		&lang_in_other_lc
 		%lang_lc
 
 		&init_languages
@@ -77,7 +78,8 @@ sub separator_before_colon($) {
 }
 
 
-# same logic can be implemented by creating the missing values for all keys
+# English values have been copied to languages that do not have defined values
+# Use the global $lang variable
 sub lang($) {
 
 	my $s = shift;
@@ -87,17 +89,39 @@ sub lang($) {
 		$short_l = $`;  # pt_pt
 	}
 
-	if (defined $Lang{$s}{$lang}) {
+	if (not defined $Lang{$s}) {
+		return '';
+	}
+	elsif (defined $Lang{$s}{$lang}) {
 		return $Lang{$s}{$lang};
 	}
 	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
 		return $Lang{$s}{$short_l};
 	}
-	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-		return $Lang{$s}{en};
+	else {
+		return '';
 	}
-	elsif (defined $Lang{$s}{fr}) {
-		return $Lang{$s}{fr};
+}
+
+# Lang in a target language that may not be the same as the global $lang
+sub lang_in_other_lc($$) {
+
+	my $target_lc = shift;
+	my $s = shift;	
+
+	my $short_l = undef;
+	if ($target_lc =~ /_/) {
+		$short_l = $`;  # pt_pt
+	}
+
+	if (not defined $Lang{$s}) {
+		return '';
+	}
+	elsif (defined $Lang{$s}{$target_lc}) {
+		return $Lang{$s}{$target_lc};
+	}
+	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+		return $Lang{$s}{$short_l};
 	}
 	else {
 		return '';

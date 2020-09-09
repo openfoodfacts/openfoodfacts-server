@@ -74,6 +74,7 @@ BEGIN
 		&display_product
 		&display_product_api
 		&display_product_history
+		&display_attribute_groups_api
 		&search_and_display_products
 		&search_and_export_products
 		&search_and_graph_products
@@ -138,6 +139,8 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Attributes qw(:all);
+use ProductOpener::Orgs qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -438,7 +441,7 @@ sub init()
 			$log->debug("lc override from request parameter", { lc => $lc , lcs => \@lcs}) if $log->is_debug();
 		}
 		else {
-			@lcs = ();
+			@lcs = ($lc);
 		}
 	}
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
@@ -585,9 +588,10 @@ sub analyze_request($)
 
 	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
 
-		if ($request_ref->{query_string} =~ /\.$parameter$/) {
+		if ($request_ref->{query_string} =~ /\.$parameter(\b|$)/) {
 
 			param($parameter, 1);
+			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
 
 			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
@@ -711,6 +715,13 @@ sub analyze_request($)
 	elsif ($components[0] eq $tag_type_singular{missions}{$lc}) {
 		$request_ref->{mission} = 1;
 		$request_ref->{missionid} = $components[1];
+	}
+
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/4140
+	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
+		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
+		$log->info('well-known password change page - redirecting', { redirect => $request_ref->{redirect} }) if $log->is_info();
+		return 307;
 	}
 
 	elsif ($#components == -1) {
@@ -3572,28 +3583,53 @@ HTML
 	}
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		
+		# Users starting with org- are organizations, not actual users
+		
+		my $user_or_org_ref;
+		
+		if ($tagid =~ /^org-/) {
+			
+			# Organization
+			
+			my $org_id = $';
+			my $user_or_org_ref = retrieve_org($org_id);
+			
+			if (not defined $user_or_org_ref) {
+				display_error(lang("error_unknown_org"), 404);
+			}			
+		}
+		else {
+			
+			# User
 
-		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+			my $user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+			
+			if (not defined $user_or_org_ref) {
+				display_error(lang("error_unknown_user"), 404);
+			}
+		}
 
-		if (defined $user_ref) {
+		if (defined $user_or_org_ref) {
 
-			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
-				$title = $user_ref->{name} . " ($tagid)";
-				$products_title = $user_ref->{name};
+			if ($user_or_org_ref->{name} ne '') {
+				$title = $user_or_org_ref->{name} . " ($tagid)";
+				$products_title = $user_or_org_ref->{name};
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
 				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
-
 			}
 
 			else {
 
-				if ($admin) {
-					$description .= "<p>" . $user_ref->{email} . "</p>";
+				if (($admin) and (defined $user_or_org_ref->{email})) {
+					$description .= "<p>" . $user_or_org_ref->{email} . "</p>";
 				}
 
-				$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
+				if (defined $user_or_org_ref->{registered_t}) {
+					$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_or_org_ref->{registered_t}) . "</p>";
+				}
 
 				# Display links to products edited, photographed etc.
 
@@ -3604,11 +3640,11 @@ HTML
 
 
 				# 2018/12/19 - disable displaying missions (broken since 2013)
-				if (0 and (defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
+				if (0 and (defined $user_or_org_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 					my $missions = '';
 					my $i = 0;
 
-					foreach my $missionid (sort { $user_ref->{missions}{$b} <=> $user_ref->{missions}{$a}} keys %{$user_ref->{missions}}) {
+					foreach my $missionid (sort { $user_or_org_ref->{missions}{$b} <=> $user_or_org_ref->{missions}{$a}} keys %{$user_or_org_ref->{missions}}) {
 						$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
 						. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
 						. $Missions{$missionid}{name} . "</a></div></li>\n";
@@ -3624,7 +3660,6 @@ HTML
 
 					$description .= $missions;
 				}
-
 			}
 		}
 	}
@@ -3900,6 +3935,27 @@ sub count_products($$) {
 }
 
 
+=head2 add_params_to_query ( $request_ref, $query_ref )
+
+This function is used to parse search query parameters that are passed
+to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
+either as query string parameters (e.g. ?labels_tags=en:organic) or
+POST parameters.
+
+The function adds the corresponding query filters in the MongoDB query.
+
+=head3 Parameters
+
+=head4 $request_ref (output)
+
+Reference to the internal request object.
+
+=head4 $query_ref (output)
+
+Reference to the MongoDB query object.
+
+=cut
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -3916,6 +3972,10 @@ sub add_params_to_query($$) {
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
+		
+		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
+		# or with values in a given language (e.g. labels_tags_fr=bio)
+		
 		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
@@ -3932,7 +3992,7 @@ sub add_params_to_query($$) {
 			
 			my $values = param($field);
 			
-			$log->debug("add_params_to_query - param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
+			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
 			
 			foreach my $tag (split(/,/, $values)) {
 				
@@ -3971,7 +4031,7 @@ sub add_params_to_query($$) {
 						push @tagids, $tagid2;				
 					}
 					
-					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
+					$log->debug("add_params_to_query - tags param - multiple values (OR) separated by | ", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
 					
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
@@ -3992,7 +4052,7 @@ sub add_params_to_query($$) {
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
 					}
-					$log->debug("add_params_to_query", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
+					$log->debug("add_params_to_query - tags param - single value", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid }) if $log->is_debug();
 
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
@@ -4009,7 +4069,181 @@ sub add_params_to_query($$) {
 				}
 			}
 		}
+		
+		# Conditions on nutrients
+		
+		# e.g. saturated-fat_prepared_serving=<3=0
+		# the parameter name is exactly the same as the key in the nutriments hash of the product
+		
+		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
+			
+			# We can have multiple conditions, separated with a comma
+			# e.g. sugars_100g=>10,<=20
+			
+			my $conditions = param($field);
+			
+			$log->debug("add_params_to_query - nutrient conditions", { field => $field, conditions => $conditions}) if $log->is_debug();			
+			
+			foreach my $condition (split(/,/, $conditions)) {
+			
+				# the field value is a number, possibly preceded by <, >, <= or >=
+				
+				my $operator;
+				my $value;
+				
+				if ($condition =~ /^(<|>|<=|>=)(\d.*)$/) {
+					$operator = $1;
+					$value = $2;
+				}
+				else {
+					$operator = '=';
+					$value = param($field);
+				}
+				
+				$log->debug("add_params_to_query - nutrient condition", { field => $field, condition => $condition, operator => $operator, value => $value}) if $log->is_debug();
+				
+				my %mongo_operators = (
+					'<' => 'lt',
+					'<=' => 'lte',
+					'>' => 'gt',
+					'>=' => 'gte',
+				);
+				
+				if ($operator eq '=') {
+					$query_ref->{"nutriments." . $field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
+				}
+				else {
+					if (not defined $query_ref->{$field}) {
+						$query_ref->{"nutriments." . $field} = {};
+					}
+					$query_ref->{"nutriments." . $field}{ '$' . $mongo_operators{$operator}} = $value + 0.0;
+				}			
+			}
+		}
 	}
+}
+
+
+=head2 customize_response_for_product ( $product_ref )
+
+Using the fields parameter, API product or search queries can request
+a specific set of fields to be returned.
+
+This function filters the field to return only the requested fields,
+and computes requested fields that are not stored in the database but
+created on demand.
+
+=head3 Parameters
+
+=head4 $product_ref (input)
+
+Reference to the product object (retrieved from disk or from a MongoDB query)
+
+=head3 Return value
+
+Reference to the customized product object.
+
+=cut
+
+sub customize_response_for_product($) {
+	
+	my $product_ref = shift;
+	
+	my $customized_product_ref = {};
+	
+	my $carbon_footprint_computed = 0;
+	
+	foreach my $field (split(/,/, param('fields'))) {
+
+		# On demand carbon footprint tags
+		if ((not $carbon_footprint_computed)
+			and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
+			compute_carbon_footprint_infocard($product_ref);
+			$carbon_footprint_computed = 1;
+		}
+		
+		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
+		if ($field eq "nutrition_table_html") {
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+		}
+		
+		# fields in %language_fields can have different values by language
+		# by priority, return the first existing value in the language requested,
+		# possibly multiple languages if sent ?lc=fr,nl for instance,
+		# and otherwise fallback on the main language of the product
+		elsif (defined $language_fields{$field}) {
+			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
+				if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
+					$customized_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
+					last;
+				}
+			}
+		}
+		
+		# [language_field]_languages : return a value with all existing values for a specific language field
+		elsif ($field =~ /^(.*)_languages$/) {
+
+			my $language_field = $1;
+			$customized_product_ref->{$field} = {};
+			if (defined $product_ref->{languages_codes}) {
+				foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
+					if (defined $product_ref->{$language_field . "_" . $language_code}) {
+						$customized_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
+					}
+				}
+			}
+		}
+
+		# Taxonomy fields requested in a specific language
+		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+			my $tagtype = $1;
+			my $target_lc = $2;
+			if (defined $product_ref->{$tagtype . "_tags"}) {
+				$customized_product_ref->{$field} = [];
+				foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+					push @{$customized_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
+				}
+			}
+		}
+		
+		# Apps can request the full nutriments hash
+		# or specific nutrients:
+		# - saturated-fat_prepared_100g : return field at top level
+		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
+		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
+			my $return_hash = $2;
+			my $nutrient = $3;
+			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
+				if (defined $return_hash) {
+					if (not defined $customized_product_ref->{$return_hash}) {
+						$customized_product_ref->{$return_hash} = {};
+					}
+					$customized_product_ref->{$return_hash}{$nutrient} = $product_ref->{nutriments}{$nutrient};
+				}
+				else {
+					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
+				}
+			}
+		}
+		
+		# Product attributes requested in a specific language
+		elsif ($field =~ /^attribute_groups_([a-z]{2})$/) {
+			my $target_lc = $1;
+			compute_attributes($product_ref, $target_lc);
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
+		# Product attributes in the $lc language
+		elsif ($field eq "attribute_groups") {
+			compute_attributes($product_ref, $lc);
+			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
+		}		
+
+		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
+	}
+	
+	return $customized_product_ref;
 }
 
 
@@ -4320,46 +4554,16 @@ sub search_and_display_products($$$$$) {
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		if ((defined $request_ref->{api}) and (defined param('fields'))) {
 
-			my $compact_products = [];
+			my $customized_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
-				my $compact_product_ref = {};
-				foreach my $field (split(/,/, param('fields'))) {
+				my $customized_product_ref = customize_response_for_product($product_ref);
 
-					if ($field =~ /^(.*)_languages$/) {
-
-						my $language_field = $1;
-						$compact_product_ref->{$field} = {};
-						if (defined $product_ref->{languages_codes}) {
-							foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-								if (defined $product_ref->{$language_field . "_" . $language_code}) {
-									$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
-								}
-							}
-						}
-
-					}
-					elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-						my $tagtype = $1;
-						my $target_lc = $2;
-						if (defined $product_ref->{$tagtype . "_tags"}) {
-							$compact_product_ref->{$field} = [];
-							foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-								push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
-							}
-						}
-					}
-
-					elsif (defined $product_ref->{$field}) {
-						$compact_product_ref->{$field} = $product_ref->{$field};
-					}
-				}
-
-				push @{$compact_products}, $compact_product_ref;
+				push @{$customized_products}, $customized_product_ref;
 			}
 
-			$request_ref->{structured_response}{products} = $compact_products;
+			$request_ref->{structured_response}{products} = $customized_products;
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
@@ -4895,6 +5099,7 @@ sub display_scatter_plot($$) {
 
 		my %series = ();
 		my %series_n = ();
+		my %min = ();	# Minimum for the axis, 0 except -15 for Nutri-Score score
 
 		foreach my $product_ref (@products) {
 
@@ -4958,6 +5163,8 @@ sub display_scatter_plot($$) {
 
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
+					
+					$min{$axis} = 0;
 
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
@@ -4969,6 +5176,7 @@ sub display_scatter_plot($$) {
 					}
 					elsif ($nid =~ /^nutrition-score/) {
 						$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
+						$min{$axis} = -15;
 					}
 					else {
 						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
@@ -5096,7 +5304,7 @@ JS
             },
             xAxis: {
 				$x_allowDecimals
-				min:0,
+				min:$min{x},
                 title: {
                     enabled: true,
                     text: '${x_title}${x_unit}'
@@ -5107,7 +5315,7 @@ JS
             },
             yAxis: {
 				$y_allowDecimals
-				min:0,
+				min:$min{y},
                 title: {
                     text: '${y_title}${y_unit}'
                 }
@@ -6524,7 +6732,7 @@ HTML
 		print header ( -status => $status );
 		my $r = Apache2::RequestUtil->request();
 		$r->rflush;
-		$r->status(200);
+		$r->status($status);
 	}
 
 	binmode(STDOUT, ":encoding(UTF-8)");
@@ -9185,6 +9393,46 @@ JS
 }
 
 
+=head2 display_attribute_groups_api ( $target_lc )
+
+Return a JSON structure with all available attribute groups and attributes,
+with strings (names, descriptions etc.) in a specific language,
+and return them in an array of attribute groups.
+
+This is used in particular for clients of the API to know which
+preferences they can ask users for, and then use for personalized
+filtering and ranking.
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=cut
+
+
+sub display_attribute_groups_api($$)
+{
+	my $request_ref = shift;
+	my $target_lc = shift;
+	
+	if (not defined $target_lc) {
+		$target_lc = $lc;
+	}
+	
+	my $attribute_groups_ref = list_attributes($target_lc);
+	
+	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	display_structured_response($request_ref);
+	
+	return;
+}
+
 
 sub display_product_api($)
 {
@@ -9200,7 +9448,18 @@ sub display_product_api($)
 	my %response = ();
 
 	$response{code} = $code;
-	my $product_ref = retrieve_product($product_id);
+	
+	my $product_ref;
+
+	my $rev = param("rev");
+	local $log->context->{rev} = $rev;
+	if (defined $rev) {
+		$log->info("displaying product revision") if $log->is_info();
+		$product_ref = retrieve_product_rev($product_id, $rev);
+	}
+	else {
+		$product_ref = retrieve_product($product_id);
+	}	
 
 	if ($code !~ /^\d{4,24}$/) {
 
@@ -9263,7 +9522,6 @@ HTML
 				$response{jqm} .= $html;
 
 			}
-
 		}
 	}
 	else {
@@ -9279,92 +9537,28 @@ HTML
 			
 			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
 			
-			my $compact_product_ref = {};
-			my $carbon_footprint_computed = 0;
-			foreach my $field (split(/,/, param('fields'))) {
-				# On demand carbon footprint tags
-				if ((not $carbon_footprint_computed)
-					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
-					compute_carbon_footprint_infocard($product_ref);
-					$carbon_footprint_computed = 1;
-				}
-				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-				if ($field eq "nutrition_table_html") {
-					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
-				}
-				# fields in %language_fields can have different values by language
-				if (defined $language_fields{$field}) {
-					foreach my $preferred_lc (@lcs) {
-						if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
-							$compact_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
-							last;
-						}
-					}
-				}
-				# [language_field]_languages : return a value with all existing values for a specific language field
-				if ($field =~ /^(.*)_languages$/) {
-
-					my $language_field = $1;
-					$compact_product_ref->{$field} = {};
-					if (defined $product_ref->{languages_codes}) {
-						foreach my $language_code (sort keys %{$product_ref->{languages_codes}}) {
-							if (defined $product_ref->{$language_field . "_" . $language_code}) {
-								$compact_product_ref->{$field}{$language_code} = $product_ref->{$language_field . "_" . $language_code};
-							}
-						}
-					}
-
-				}
-
-				# Taxonomy fields requested in a specific language
-				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-					my $tagtype = $1;
-					my $target_lc = $2;
-					if (defined $product_ref->{$tagtype . "_tags"}) {
-						$compact_product_ref->{$field} = [];
-						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-							push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
-						}
-					}
-				}
-
-				# Taxonomy fields requested in a specific language
-				if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
-					my $tagtype = $1;
-					my $target_lc = $2;
-					if (defined $product_ref->{$tagtype . "_tags"}) {
-						$compact_product_ref->{$field} = [];
-						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-							push @{$compact_product_ref->{$field}} , display_taxonomy_tag($target_lc, $tagtype, $tagid);
-						}
-					}
-				}
-
-				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
-					$compact_product_ref->{$field} = $product_ref->{$field};
-				}
-			}
+			my $customized_product_ref = customize_response_for_product($product_ref);
 
 			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 			# the "" values have been removed
 			# -> temporarily add back the _serving "" values
 			if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-				if (defined $compact_product_ref->{nutriments}) {
-					foreach my $nid (keys %{$compact_product_ref->{nutriments}}) {
+				if (defined $customized_product_ref->{nutriments}) {
+					foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
 						next if ($nid =~ /_/);
-						if ((defined $compact_product_ref->{nutriments}{$nid . "_100g"})
-							and (not defined $compact_product_ref->{nutriments}{$nid . "_serving"})) {
-							$compact_product_ref->{nutriments}{$nid . "_serving"} = "";
+						if ((defined $customized_product_ref->{nutriments}{$nid . "_100g"})
+							and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"})) {
+							$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
 						}
-						if ((defined $compact_product_ref->{nutriments}{$nid . "_serving"})
-							and (not defined $compact_product_ref->{nutriments}{$nid . "_100g"})) {
-							$compact_product_ref->{nutriments}{$nid . "_100g"} = "";
+						if ((defined $customized_product_ref->{nutriments}{$nid . "_serving"})
+							and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"})) {
+							$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
 						}
 					}
 				}
 			}
 
-			$response{product} = $compact_product_ref;
+			$response{product} = $customized_product_ref;
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
@@ -9407,7 +9601,6 @@ HTML
 			$response{jqm} = $request_ref->{jqm_content};
 			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
-
 		}
 	}
 
@@ -9905,11 +10098,11 @@ This function calls itself to display sub-ingredients of ingredients.
 
 Reference to the product's ingredients array or the ingredients array of an ingredient.
 
-$head4 $ingredients_text_ref (output)
+=head4 $ingredients_text_ref (output)
 
 Reference to a list of ingredients in text format that we will reconstruct from the ingredients array.
 
-$head4 $ingredients_list_ref (output)
+=head4 $ingredients_list_ref (output)
 
 Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
 

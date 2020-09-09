@@ -514,6 +514,11 @@ nl:Rechtvaardige handel, fair trade
 pl:Fair trade
 wikidata:en:Q188485
 label_categories:en: en:Social responsibility
+opposite:en: en:non-fair-trade
+
+en:Non-fair trade, Not fair trade
+fr:Non issu du commerce équitable
+opposite:en: en:fair-trade
 
 # Should not be translated, "Fairtrade International" is a label
 
@@ -625,6 +630,7 @@ th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
 wikidata:en:Q2632776
+opposite:en: en:contains-gluten
 
 <en:Gluten-free
 en:FACE
@@ -651,6 +657,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
+opposite:en: en:gluten-free
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -2252,7 +2259,7 @@ nl:Alcoholvrij, Zonder alchohol
 pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
 
-en:No artificial colors, free of artificial color
+en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
 de:Ohne künstliche Farbstoffe
 es:Sin colorantes artificiales
@@ -2270,7 +2277,7 @@ en:without azo dyes, without azodyes
 fi:atsoväritön, ei atsovärejä, ilman atsovärejä
 fr:Sans colorants azoïques
 
-en:No artificial flavors, free of artificial flavor
+en:No artificial flavors, free of artificial flavor, No artificial flavours
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
 es:Sin aromas artificiales
@@ -2297,6 +2304,10 @@ nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
 label_categories:en: en:Health, en:Claim
 
+<en:No artificial flavors
+<en:No artificial sweeteners
+en:No artificial flavourings or sweeteners
+
 en:No artificial preservatives, free of artificial preservative
 ca:Sense conservants artificials
 de:Ohne künstliche Konservierungsstoffe
@@ -2308,9 +2319,13 @@ it:Senza conservanti artificiali
 nl:Zonder kunstmatige bewaarstoffen
 pt:Sem conservantes artificiais
 
+<en:No artificial preservatives
+<en:No artificial colors
+en:No artificial colours and preservatives
+
 <en:No artificial flavors
 <en:No artificial colors
-en:No artificial colours or flavours
+en:No artificial colours or flavours, No artificial colours and flavours, No artificial colours and flavourings
 ca:Sense colorants ni aromes artificials
 de:Keine künstlichen Farbstoffe oder Aromen
 es:Sin colorantes o saborizantes artificiales
@@ -2766,13 +2781,14 @@ es:Certificado por l'Asociación Española de Normalización y Certificación
 fi:AENOR:in sertifioima
 fr:Certifié par l'AENOR
 
-en:Non-vegetarian, not suitable for vegetarians
+en:Non-vegetarian, not vegetarian, not suitable for vegetarians
 de:Nicht-vegetarisch, nicht für Vegetarier geeignet
 fi:ei-vegetaarinen, ei sovellu kasvissyöjille
 fr:Non végétarien, ne convient pas aux végétariens
 hu:Nem Vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
 label_categories:en: en:Specific diets
+opposite:en: en:vegetarian
 
 <en:Non-vegetarian
 en:Brown Dot India, India Brown dot, indian brown dot, non-vegetarian mark india, brown dot
@@ -2860,6 +2876,12 @@ th:ออร์แกนิค
 zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
+opposite:en: en:non-organic
+
+# Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
+en:Non-organic, not organic
+fr:Non-bio
+
 
 <en:Organic
 fr:Nature et Progrès
@@ -16003,6 +16025,11 @@ ru:Без пальмового масла
 sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
+opposite:en: en:contains-palm-oil
+
+en:Contains palm oil
+fr:Contient de l'huile de palme
+opposite:en: en:palm-oil-free
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
@@ -16840,6 +16867,11 @@ pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 zh:纯素
+opposite:en: en:non-vegan
+
+en:Non-vegan, not vegan, not suitable for vegans
+fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
+opposite:en: en:vegan
 
 <en:Vegan
 en:Vegan Action

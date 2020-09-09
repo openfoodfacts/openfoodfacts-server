@@ -109,6 +109,14 @@ Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä"],
 	"Caories per gram: at 9 Carbekydrate 4 . Protein 4 INGREDIENTS: MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA. DIST& SOLD EXCLUSIVELY BY: ALD ALDI Tuice as Nice GLUTEN FREE BATAVIA, IL 610 GUARANTEE NET WT 48 0Z (3 LB) 1. 0. TRANS FATNG Item eplaced money refunded PLASTIC WRAP
 Edit ingredients (en)",
 	"MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA."],
+	
+	["en",
+	"INGREDIENTS Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt. NUTRITIONAL INFORMATION Serving: 1, Serving size: 20g",
+	"Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt."],
+	
+	["en",
+	"Savoury crackers with sesame seeds. Ingredients: Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts. Nutrition Information 1 Portion %*/1 Portion (25 g) 100 g (25 g) 2023 kJ",
+	"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts."],
 
 	# Polish
 	["pl",

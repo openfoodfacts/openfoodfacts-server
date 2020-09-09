@@ -62,62 +62,67 @@ if (not defined $Owner_id) {
 }
 
 if ($action eq "display") {
+	
+	my $template_data_ref = {
+		lang => \&lang,
+	};
+	
+	# Query filters
 
-	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
-	$html .= "<p>" . lang("export_product_data_photos_please_check") . "</p>";
+	my $query_ref = {};
 
-	# Display button for moderators only
-
-	if ($User{moderator}) {
-
-		# Query filters
-
-		my $query_ref = {};
-
-		my $html_hidden = "";
-
-		foreach my $param (multi_param()) {
-			if ($param =~ /^query_/) {
-				my $query = $';
-				my $value = remove_tags_and_quote(decode utf8=>param($param));
-				$html .= "<p>Query filter $query : $value</p>";
-				$html_hidden .= hidden(-name => "query_" . $query, -value => $value);
-				$query_ref->{$query} = $value;
+	foreach my $param (multi_param()) {
+		if ($param =~ /^query_/) {
+			my $field = $';
+			my $value = remove_tags_and_quote(decode utf8=>param($param));
+			
+			if (not defined $template_data_ref->{query_filters}) {
+				$template_data_ref->{query_filters} = [];
 			}
+			
+			push @{$template_data_ref->{query_filters}}, { field => $field, value => $value };
+
+			$query_ref->{$field} = $value;
 		}
-
-		$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
-
-		$html .= start_multipart_form(-id=>"export_products_form") ;
-		
-		my $export_photos_value = "";
-		my $replace_selected_photos_value = "";
-		if ((defined $Org_id)
-			and ($Org_id !~ /^(app|database|label)-/)) {
-			$export_photos_value = "checked";
-			$replace_selected_photos_value = "checked";
-		}
-
-		$html .= <<HTML
-<input type="checkbox" name="export_photos" $export_photos_value>	
-<label for="export_photos">$Lang{export_photos}{$lc}</label><br>
-<input type="checkbox" name="replace_selected_photos" $replace_selected_photos_value>	
-<label for="replace_selected_photos">$Lang{replace_selected_photos}{$lc}</label><br>
-<input type="submit" class="button small" value="$Lang{export_product_data_photos}{$lc}">
-<input type="hidden" name="action" value="process">
-$html_hidden
-HTML
-;
-		$html .= end_form();
-
+	}
+	
+	my $count = count_products({}, $query_ref);
+	$template_data_ref->{count} = $count;
+	
+	if ($count == 0) {
+		$template_data_ref->{n_products_will_be_exported} = lang("no_products_to_export");
+	}
+	elsif ($count == 1) {
+		$template_data_ref->{n_products_will_be_exported} = lang("one_product_will_be_exported");
 	}
 	else {
-		$html .= "<p>" . lang("export_products_to_public_database_email") . "</p>";
+		$template_data_ref->{n_products_will_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
 	}
+	
+	my $export_photos_value = "";
+	my $replace_selected_photos_value = "";
+	if ((defined $Org_id)
+		and ($Org_id !~ /^(app|database|label)-/)) {
+		$export_photos_value = "checked";
+		$replace_selected_photos_value = "checked";
+	}
+	
+	$template_data_ref->{export_photos_value} = $export_photos_value;
+	$template_data_ref->{replace_selected_photos_value} = $replace_selected_photos_value;
+
+	# Require moderator status to launch the export / import process,
+	# unless there is only one product specified through the ?query_code= parameter
+	if (($User{moderator}) or (defined param("query_code"))) {
+		$template_data_ref->{allow_submit} = 1;
+	}
+	
+	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 }
 
-elsif (($action eq "process") and ($User{moderator})) {
+# Require moderator status to launch the export / import process,
+# unless there is only one product specified through the ?query_code= parameter
+elsif (($action eq "process") and (($User{moderator}) or (defined param("query_code")))) {
 	
 	# First export CSV from the producers platform, then import on the public platform
 	
