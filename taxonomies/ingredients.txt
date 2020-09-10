@@ -14976,7 +14976,7 @@ da:Bacon
 de:Speck, Schweinespeck
 el:Μπέικον, χοιρινό λίπος
 eo:lardo
-es:panceta,bacon
+es:panceta, bacon, tocineta
 eu:Hirugihar
 fa:بیکن
 fi:Pekoni
@@ -15450,7 +15450,7 @@ nl:varkensbindweefsel
 
 # from:en:pork
 <en:animal fat
-en:lard, pork fat
+en:lard, pork fat, pork lard
 an:Redetiu
 ar:دهن خنزير
 bg:Свинска мас
@@ -16781,6 +16781,8 @@ it:Olio vegetale, oli vegetali
 ja:植物油
 ko:식물성 기름
 ky:Өсүмдүк майлары
+lt:augaliniai aliejai
+lv:augu eļļas
 ml:സസ്യ എണ്ണകൾ
 mr:वनस्पती तूप
 ms:Minyak sayur
@@ -16815,6 +16817,7 @@ da:vegetabilsk fedt
 de:pflanzliche Fette, pflanzliches Fett
 el:φυτικά λίπη
 es:grasas vegetales, grasa vegetal,grasa vegetal no hidrogenada
+et:taimsed rasvad
 fi:kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
 hu:növényi zsír, növényi zsírok
@@ -16849,7 +16852,8 @@ sv:vegetabilisk fettprodukt
 
 <en:vegetable oil and fat
 en:non hydrogenated vegetable oil and fat
-de:ungehärtete Pflanzenfette und Pflanzenöle
+de:ungehärtete Pflanzenfette und Pflanzenöle, nicht hydrierte pflanzliche Fette und Öle
+el:μη υδρογονωμένα φυτικά λίπη και έλαια
 fi:kovettamaton kasviöljy ja -rasva, hydrogenoimaton kasviöljy ja -rasva
 fr:graisse et huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
 
@@ -16861,6 +16865,7 @@ es:Grasa vegetal hidrogenada
 fi:kovetettu kasvirasva, hydrogenoitu kasvirasva
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
 hu:hidrogénezett növényi zsír
+pt:gordura vegetal hidrogenada
 sv:härdat vegetabiliskt fett
 
 <en:hydrogenated vegetable fat
@@ -16959,6 +16964,7 @@ cs:Palmový olej
 cz:palmu olejovou
 da:Palmeolie
 de:Palmöl, Ölpalme
+el:φοινικέλαιο
 eo:Palmoleo
 es:aceite de palma, aceite vegetal de palma,oleina de palma
 et:Palmiõli
@@ -17507,7 +17513,8 @@ fr:huile d'olive extra
 en:extra virgin olive oil
 ca:Oli d'oliva verge extra, oli OVE
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
-de:natives Olivenöl Extra, Olivenöl nativ extra
+de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl
+el:εξαιρετικό Παρθένο ελαιόλαδο
 es:aceite de oliva virgen extra,aceite extra virgen de oliva
 fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
@@ -17729,12 +17736,13 @@ fr:huile vierge de noix
 # description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
 
 <en:vegetable oil
-en:Cottonseed oil
+en:Cottonseed oil, cotton seed oil
 ar:زيت بذرة القطن
 az:Pambıq yağı
 be:Баваўняны алей
 ca:Oli de llavors de cotó
 de:Baumwollsaatöl, Baumwollsamenöl
+el:Βαμβακέλαιο
 es:aceite de algodón
 fa:روغن پنبه‌دانه
 fi:puuvillansiemenöljy
@@ -17922,7 +17930,7 @@ fr:huile vierge de sésame
 # description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 
 <en:vegetable oil
-en:soya oil, Soybean oil, soy oil
+en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
 be:Соевы алей
 bg:Соево олио
