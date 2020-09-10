@@ -689,6 +689,23 @@ $options{import_export_fields_groups} = [
 	],
 ];
 
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore"]
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"labels",
+		["organic", "fair_trade"]
+	],
+];
+
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.
 # when not specified, fields are considered optional

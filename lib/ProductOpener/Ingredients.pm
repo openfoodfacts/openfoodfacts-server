@@ -146,8 +146,9 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may contain",
+	en => "possible traces|traces|may also contain|may contain",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
@@ -1193,6 +1194,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
@@ -1307,6 +1310,17 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'en' => [
+								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
+								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
+								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
+								'^allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
+								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
+								'^see ingredients in bold$',
+							],
+
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
 								'(sur|de) produit fini',             # préparé avec 50g de fruits pour 100g de produit fini
@@ -2370,6 +2384,10 @@ es => [
 'ingredientes',
 ],
 
+et => [
+'koostisosad',
+],
+
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
 'valmistusaineet',
@@ -2419,7 +2437,7 @@ lt => [
 ],
 
 lv => [
-'sastāv(s|dalas)',
+'sast[āäa]v(s|da[ļl]as)',
 ],
 
 nl => [
@@ -2433,7 +2451,7 @@ nb => [
 ],
 
 pl => [
-'składniki',
+'sk[łl]adniki',
 'skład',
 ],
 

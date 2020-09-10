@@ -63,8 +63,9 @@ my @tests = (
 
 	# Currently not supported
 	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
-  
+
 	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+	[ { lc => "en", ingredients_text => "salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:eggs'], ['en:nuts'] ],
 
 );
 

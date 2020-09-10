@@ -80,6 +80,10 @@ if (defined $request{api}) {
 		# /api/v0/search
 		display_tag(\%request);
 	}
+	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
+		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
+		display_attribute_groups_api(\%request, $2);
+	}
 	else {
 		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
 		display_product_api(\%request);
