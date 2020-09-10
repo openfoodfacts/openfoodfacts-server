@@ -671,6 +671,7 @@ $options{import_export_fields_groups} = [
 	[   "other",
 		[   "nutriscore_score_producer",
 			"nutriscore_grade_producer",
+			"nova_group_producer",
 			"conservation_conditions",
 			"warning",
 			"preparation",
@@ -685,6 +686,23 @@ $options{import_export_fields_groups} = [
 		[   "image_front_url",     "image_ingredients_url",
 			"image_nutrition_url", "image_other_url"
 		]
+	],
+];
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore"]
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"labels",
+		["organic", "fair_trade"]
 	],
 ];
 

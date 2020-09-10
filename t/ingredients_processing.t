@@ -784,17 +784,17 @@ my @tests = (
 				  },
 				  {
 				    'id' => 'en:spinach',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'spinat'
 				  },
 				  {
 				    'id' => 'en:gherkin',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'gurken'
 				  },
 				  {
 				    'id' => 'en:fig',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'Feigen'
 				  },
 				  {
