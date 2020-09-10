@@ -23394,19 +23394,6 @@ de:Emmer
 fr:blé amidonnier, amidonnier
 ru:двузернянка
 
-<en:cereal
-en:teff, teff seeds
-es:teff, semilla de teff
-wikipedia:en:https://en.wikipedia.org/wiki/Teff
-
-<en:teff
-<en:cereal flour
-en:teff flour
-
-<en:teff flour
-<en:wholemeal flour
-en:whole grain teff flour
-
 # <en:compound
 fr:préparation pain d'épices
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -24776,6 +24763,49 @@ en:khorasan wheat flour, kamut flour
 <en:khorasan wheat flour
 <en:wholemeal flour
 en:whole grain khorasan flour, whole grain kamut flour
+
+##################################################################################
+#
+#                        Teff
+#
+##################################################################################
+
+<en:cereal
+en:teff
+es:teff
+wikipedia:en:https://en.wikipedia.org/wiki/Teff
+
+<en:teff
+en:teff seed
+es:semilla de teff
+
+<en:teff
+en:whole grain teff seed, whole grain teff
+
+<en:teff
+<en:cereal flour
+en:teff flour
+de:teffmehl
+es:harina de teff
+fr:farine de teff
+it:farina di teff
+sv:teffmjöl
+
+<en:teff
+<en:wholemeal flour
+en:whole grain teff flour, whole teff flour
+
+<en:teff
+<en:cereal flour
+en:ivory teff flour
+
+<en:teff
+<en:wholemeal flour
+en:whole grain ivory teff flour
+
+<en:teff
+fr:teff soufflé
+
 
 ##################################################################################
 #
