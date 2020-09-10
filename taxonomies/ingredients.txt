@@ -9,7 +9,7 @@ synonyms:es:sirope,jarabe
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
 
 stopwords:ca:i,de
-stopwords:da:av, blandt andet, bl a, inklusive, heraf, indeholder
+stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including
@@ -259,6 +259,7 @@ de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
 <en:colour
 en:natural colours
 ca:Color natural, colors naturals
+da:naturlig farve
 de:natürliche Farbstoffe
 es:Color natural, colores naturales
 fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
@@ -4766,7 +4767,7 @@ de:Lysozym aus Ei
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
 fr:lysozyme d'œuf, lysozyme d'oeuf
-it:lisozima da uovo
+it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei
 sv:lysozym från ägg, lysozym av ägg
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
@@ -11849,7 +11850,7 @@ it:mononitrato di tiamina
 # Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
 
 <en:vitamins
-en:Riboflavin, vitamin b2, E101
+en:Riboflavin, vitamin b2, E101, B2
 af:Riboflavien
 ar:فيتامين ب2
 be:Рыбафлавін
@@ -13037,7 +13038,7 @@ cs:Sůl
 cy:Halen
 da:Husholdningssalt, køkkensalt, bordsalt, salt
 de:Speisesalz, Kochsalz, Tafelsalz, Salz
-el:Αλάτι
+el:Αλάτι, μαγειρικό αλάτι
 eo:Salo, Komuna salo
 es:Sal, sal común, sal de mesa,sales,sal de cocina,sal de grano
 et:sool, söögisool, keedusool
@@ -15893,6 +15894,7 @@ ca:Midó de blat de moro
 cs:Kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
+el:άμυλο αραβοσίτου
 eo:Maizamelo
 es:almidón de maíz, Maicena,fecula de maiz,almidones de maiz modificados
 eu:Maizena
@@ -15932,6 +15934,7 @@ ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro m
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
+el:τροποποιημένο άμυλο αραβοσίτου
 es:Almidón modificado de maiz, almidon de maiz modificado
 et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
@@ -21771,7 +21774,7 @@ es:aroma de humo,humo de madera
 fi:savuaromi, savuaromia
 fr:arôme de fumée, arôme fumé, arôme fumée, aromes de fumee, saveur de fumée
 hu:füst aroma, füst ízesétés, füst íz
-it:aroma di affumicato, aroma di affumicatura
+it:aroma di affumicato, aroma di affumicatura, affumicatura
 nb:røykaroma
 nl:rookaroma, rookaroma's
 pl:Aromat dymu wędzarniczego
@@ -22781,7 +22784,7 @@ it:frumento soffiato
 # 15 products in 3 languages @2018-09-22
 
 <en:wheat
-en:whole wheat, whole grain wheat
+en:whole wheat, whole grain wheat, wholegrain wheat
 da:fuldkornshvede
 de:Vollkornweizen
 el:Σίτος ολικής αλέσεως
@@ -23225,6 +23228,7 @@ en:wheat semolina
 ca:semola de blat
 ar:سميد
 de:Weizengrieß, Weizengriess
+el:σιμιγδάλι σίτου
 es:sémola de trigo,semolina de trigo
 fi:mannasuurimo, vehnäsuurimo
 fr:semoule de blé
@@ -23391,7 +23395,7 @@ fr:blé amidonnier, amidonnier
 ru:двузернянка
 
 <en:cereal
-en:teff
+en:teff, teff seeds
 es:teff, semilla de teff
 wikipedia:en:https://en.wikipedia.org/wiki/Teff
 
@@ -25200,7 +25204,7 @@ sv:kornmjöl
 
 <en:wholemeal flour
 <en:barley flour
-en:wholemeal barley flour, whole grain barley flour
+en:wholemeal barley flour, whole grain barley flour, wholegrain barley flour
 de:Gerstenvollkornmehl, Gersten-Vollkornmehl
 es:harina de cebada integral, harina integral de cebada
 fi:täysjyväohrajauho
@@ -25250,7 +25254,7 @@ fr:Farine de blé d'épeautre T110
 
 <en:wholemeal flour
 <en:spelt flour
-en:wholemeal spelt flour, whole grain spelt flour
+en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 ca:farina de blat d'espelta integral
 de:Dinkelvollkornmehl
 es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
@@ -27655,7 +27659,7 @@ sv:råsocker
 
 <en:cane sugar
 <en:unrefined sugar
-en:unrefined cane sugar, raw cane sugar
+en:unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
 de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
@@ -28043,10 +28047,6 @@ zh:糖蜜
 wikidata:en:Q154389
 wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
-
-fr:pâte à tarte
-carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
-carbon_footprint_fr_foodges_value:fr:7.3
 
 <en:molasses
 en:cane sugar molasses, cane molasses
@@ -30646,7 +30646,7 @@ ie:Aqua
 ig:Mmiri
 io:Aquo
 is:Vatn
-it:Acqua
+it:Acqua, acqua potabile
 iu:ᐃᒪᖅ
 ja:水
 jv:Banyu
@@ -35046,6 +35046,9 @@ sv:äppelpuré
 # 1022 products @2018-10-04
 
 <en:apple purée
+en:bramley apple purée
+
+<en:apple purée
 fr:purée de pommes françaises
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pommes-françaises
 # 28 products in 1 language @2018-10-04
@@ -37573,7 +37576,7 @@ ca:coco deshidratat
 da:tørret kokos
 es:coco deshidratado
 fi:kuivattu kookos, kuivattua kookosta
-fr:noix de coco séchée, noix de coco déshydratée
+fr:noix de coco séchée, noix de coco déshydratée, noix de coco desséchée
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
 sv:torkad kokosnöt
@@ -41708,7 +41711,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
 
 <en:vegetable
 en:chicory
-de:Chicoree
+de:Chicoree, Zichorie
 es:Achicoria
 fi:sikuri
 fr:Chicorée
@@ -46685,7 +46688,7 @@ el:τομάτες τσέρυ
 es:tomates cerezas, tomate cherry, tomates cherry
 fi:kirsikkatomaatti, kirsikkatomaatit
 fr:tomate cerise, tomates cerises, tomates cerise
-it:pomodorini, pomodorini ciliegia
+it:pomodorini, pomodorini ciliegia, pomodoro ciliegino
 nl:kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten
 nn:cocktailtomater
 pt:tomates cerejas, tomates cereja
@@ -49561,11 +49564,11 @@ it:nocciole a scaglie é macinate
 
 ###################################################################################################
 #
-#                                Macademia nut
+#                                Macadamia nut
 #
 ###################################################################################################
 <en:tree nut
-en:macademia nut, macadamia, Queensland nuts
+en:macadamia nut, macadamia, Queensland nuts
 ar:المكاداميا
 bg:орехи макадамия, орехи Куинсленд
 cs:makadamie
@@ -50891,6 +50894,7 @@ fi:seesamitahna, sesamtahna
 fr:pâte de sésame, pâte de graines de sésame
 it:pasta di sesamo
 nl:sesampasta
+ro:pastă de susan
 sv:sesam-kräm, sesampasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
@@ -51215,6 +51219,14 @@ nb:krydderimix
 nl:gemengde specerijen
 sv:kryddblandning, kryddmix
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
+
+<en:mixed spices
+en:garam masala
+de:garam masala, gewürzmischung garam masala, garam masala gewürzmischung
+fr:garam masala
+wikidata:en:Q14624
+wikipedia:en:https://en.wikipedia.org/wiki/Garam_masala
+
 
 # description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns.
 
@@ -52545,7 +52557,7 @@ nl:mosterd
 nn:sennep
 or:ଶୋରିଷ ଆଚାର
 pa:ਸਰੋਂ
-pl:Musztarda, gorczyca
+pl:Musztarda, gorczyca, gorczycę
 pt:mostarda
 qu:Mustasa
 ro:muștar, muştar
@@ -52654,6 +52666,9 @@ nl:mosterdpoeder, mosterdmeel
 sv:senapspulver, senapsfröpulver
 # fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
 # fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
+
+<en:mustard flour
+en:yellow mustard flour
 
 # fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
@@ -52769,11 +52784,14 @@ nl:speculaaskruiden
 
 #
 <en:herb
+en:summer savory, savory
 fr:sariette, sarriette
 de:Bohnenkraut
 it:santoreggia
 nl:bonenkruid
 pl:cząber
+wikidata:en:Q157283
+wikipedia:en:https://en.wikipedia.org/wiki/Summer_savory
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
 # 258 products in 5 languages @2018-10-10
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
@@ -53423,7 +53441,7 @@ fr:menthe douce
 # 81 products in 1 language @018-10-10
 
 <en:mint
-en:mint leaves
+en:mint leaf, mint leaves
 de:Minzblätter
 fi:mintunlehti, mintunlehdet
 fr:feuilles de menthe
@@ -68280,6 +68298,7 @@ fr:œufs frais de poule
 # 3@2019-05-31
 
 <en:chicken egg
+en:eggs from caged hens
 fr:œufs de poules élevées en cage, oeufs de poules élevées en cage, 20 oeufs de poules élevées en cage, 6 oeufs de poules élevées en cage
 # ingredient/fr:oeufs-de-poules-élevées-en-cage has 53 products in french @2018-12-18
 
@@ -69208,10 +69227,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inulin
 de:Inulin aus Topinambur
 
 <en:fiber
-en:vegetable fiber, vegetable fibers, plant fiber
+en:vegetable fiber, vegetable fibers, plant fiber, plant fibre
 ca:fibra vegetal
 cs:rostlinná textilní vlákna
-de:pflanzliche Fasern, Pflanzenfaser
+de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern
 eo:planta fibro
 es:fibra vegetal
 fi:kasvikuitu, kasvikuidut
@@ -69577,7 +69596,7 @@ cy:toes
 da:Dej
 de:Teig
 ee:ayma
-el:Ζυμάρι
+el:Ζυμάρι, ζύμη
 eo:pasto
 es:masa
 et:Taigen
@@ -70031,7 +70050,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lasagne
 # description:en:PENNE is an extruded type of pasta with cylinder-shaped pieces, their ends cut at a bias.  Penne is the plural form of the Italian penna (meaning feather but pen as well), deriving from Latin penna (meaning "feather" or "quill"), and is a cognate of the English word pen. When this format was created, it was intended to imitate the then-ubiquitous fountain pen's steel nibs.
 
 <en:pasta
-en:penne
+en:penne, penne pasta
 af:penne
 ar:بيني
 ca:macarró
@@ -70643,7 +70662,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pita
 # description:en:A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
 
 <en:bread
-en:tortilla
+en:tortilla, tortilla wrap
 fr:tortilla
 wikidata:en:Q55642411
 wikipedia:en:https://en.wikipedia.org/wiki/Tortilla
@@ -70651,6 +70670,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tortilla
 # mainIngredient:en:wheat
 <en:tortilla
 en:wheat tortilla, flour tortilla
+de:Weizenmehltortilla
+es:tortilla de trigo
 fr:Tortillas de blé
 wikidata:en:Q204251
 wikipedia:en:https://en.wikipedia.org/wiki/Flour_tortilla
@@ -73366,7 +73387,7 @@ en:tamari
 de:Tamari
 es:tamari
 fi:tamari
-fr:tamari
+fr:tamari, sauce soja tamari
 he:תמרי
 it:Tamari
 ja:たまり
