@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-09 09:04\n"
+"PO-Revision-Date: 2020-09-11 12:32\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4340,7 +4340,7 @@ msgstr "Spécifiez la valeur et l'unité."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Téléchargez un modèle .XLSX pour Excel ou LibreOffice avec les champs pouvant être importés."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
@@ -4433,7 +4433,7 @@ msgstr "Pas un produit bio"
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Promeut la durabilité écologique et la biodiversité."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4449,7 +4449,7 @@ msgstr "Produit du commerce équitable"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Ne provient pas du commerce équitable"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4457,7 +4457,7 @@ msgstr "Aide les producteurs des pays en développement."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developping countries."
-msgstr ""
+msgstr "Les produits du commerce équitable aident les producteurs des pays en voie de développement."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4470,6 +4470,14 @@ msgstr "Qualité nutritionnelle"
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
+
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr "Bonne qualité nutritionnelle (Nutri-Score)"
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr "Le Nutri-Score est calculé et peut être pris en compte pour tous les produits, même s'il n'est pas affiché sur l'emballage."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4503,6 +4511,10 @@ msgstr "Préparation des aliments"
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Groupe NOVA"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr "Pas ou peu d'aliments transformés (groupe NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4552,4 +4564,36 @@ msgstr "Organisation inconnue."
 msgctxt "error_unknown_user"
 msgid "Unknown user."
 msgstr "Utilisateur inconnu."
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr "Le niveau de sel est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime pauvre en sel."
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr "Le taux de sucres est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en sucres."
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en gras."
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr "Le taux de graisses saturées est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en graisses saturées."
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr "Allergènes"
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Additifs"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
+msgstr "Pas ou peu d'additifs"
 

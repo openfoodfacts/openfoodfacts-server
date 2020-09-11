@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-08-18 16:58\n"
+"PO-Revision-Date: 2020-09-10 13:04\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -153,6 +153,6 @@ msgstr "Wyszukiwanie produktów w Open Pet Food Facts"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
-msgstr "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
 
