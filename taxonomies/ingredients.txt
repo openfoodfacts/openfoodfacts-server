@@ -35552,7 +35552,7 @@ sv:naturlig citronarom
 
 ###################################################################################################
 #
-#                                Clemantine
+#                                Clementine
 #
 ###################################################################################################
 # A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
@@ -35709,10 +35709,11 @@ vegetarian:en:yes
 <en:citrus fruit
 en:kaffir lime
 bn:কাফির লেবু
-de:Kaffernlimette, Kaffernlimetten
+de:Kaffernlimette, Kaffernlimetten, Kaffirlimette
+es:lima kaffir
 fa:لیموی کفیر
 fi:ryppylimetti, kafferilimetti, kaffirlime
-fr:combava
+fr:combava, lime kaffir
 id:Jeruk purut
 it:limone kaffir
 ja:コブミカン
@@ -35746,11 +35747,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 <en:kaffir lime
 <en:spice
 en:kaffir lime leaf, kaffir lime leaves
-de:Kaffirlimettenblatt, Kaffirlimettenblätter
+de:Kaffirlimettenblatt, Kaffirlimettenblätter, Kaffir limettenblätter, Kaffernlimettenblätter
 fr:feuilles de combava, feuilles de lime kaffir
 fi:kaffirlimetinlehti, kaffirlimenlehti
 # kaffir-lime-leaf has 25 products in 2 languages @2018-10-25
 
+<en:kaffir lime
+en:kaffir lime peel
+de:Kaffirlimettenschale, Kaffirlimettenschalen, Kaffernlimettenschale
+es:piel de lima Kaffir
 
 
 ###################################################################################################
@@ -37508,6 +37513,7 @@ it:purea di ciliegie
 # 35 products @2018-09-29
 
 <en:cherry
+en:cherry stem, cherry stalk
 fr:queues de cerise
 
 ###################################################################################################
@@ -37816,6 +37822,7 @@ fr:Chips de coco
 # 1 entry @ 2019-10-31
 
 <en:coconut
+en:coconut paste
 fr:pâte de noix de coco
 
 <en:coconut
@@ -38961,6 +38968,7 @@ wikidata:en:Q10817602
 # 2512 products in 11 languages @2018-09-30
 
 <en:pineapple
+en:pineapple segments, pineapple chunks, pineapple rings
 fr:segments d'ananas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
@@ -39093,9 +39101,10 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # 53 products in 3 languages @2018-10-03
 
 <en:pomegranate
-fr:graines de grenade
+en:pomegranate seeds
 de:Granatapfelkerne
 fi:granaattiomenan siemen, granaattiomenan siemenet
+fr:graines de grenade
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
 # 4 products in 3 languages @2018-10-03
 
@@ -43039,6 +43048,7 @@ carbon_footprint_fr_foodges_value:fr:0.5
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 
 <en:cauliflower
+en:cauliflower florets
 fr:Choux-fleurs en fleurettes
 nl:Bloemkoolroosjes
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
@@ -43672,6 +43682,7 @@ nl:biologische wortel
 # en:organic-carrots has 580 products in 3 languages @2018-10-20
 
 <en:carrot
+en:baby carrots
 fr:jeunes carottes
 # fr:jeunes-carottes has 34 products in 1 language @2018-10-20
 
@@ -44587,7 +44598,7 @@ fr:Oignon de printemps séché
 # Zilveruitjes zijn in azijn ingelegde kleine uitjes. These are small white onions only used in pickles.
 
 <en:onion
-en:small white onions
+en:small white onions, silverskin onions
 de:Silberzwiebeln
 eo:peklita cepo
 es:Cebollitas
@@ -44630,6 +44641,8 @@ ro:ceapă roșie
 ru:красный лук
 sq:qepë e kuqe
 sv:rödlök
+wikidata:en:Q622350
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 # pnb:لال پیاز
 # ingredient/red-onions has 76 products in english @2018-12-06
 # ingredient/fr:oignon-rouge has 93 products in 6 languages @2018-12-06
@@ -44715,10 +44728,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Allium_fistulosum
 # ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
 
 <en:onion
+en:yellow onion
 fr:oignon jaune, oignons jaunes
 fi:keltasipuli
 sv:gul lök
+wikidata:en:Q8051898
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
 # ingredient/fr:oignons-jaunes has 15 products @2019-05-25
+
+<en:onion
+en:white onion
+wikidata:en:Q7995660
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 
 <en:onion
 en:fresh onions
