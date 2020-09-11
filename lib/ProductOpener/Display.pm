@@ -1731,6 +1731,8 @@ sub display_list_of_tags($$) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
+		init_tags_texts_levels() unless %tags_levels;
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -2831,6 +2833,8 @@ sub display_tag($) {
 
 	local $log->context->{tagtype2} = $tagtype2;
 	local $log->context->{tagid2} = $tagid2;
+
+	init_tags_texts_levels() unless %tags_texts;
 
 	# Add a meta robot noindex for pages related to users
 	if ( ((defined $tagtype) and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
@@ -7540,6 +7544,8 @@ JS
 
 	# to compute the number of columns displayed
 	my $ingredients_classes_n = 0;
+
+	init_tags_texts_levels() unless %tags_levels;
 
 	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 
