@@ -466,7 +466,20 @@ sub normalize_column_name($) {
 	$name =~ s/percent (of |en |de |d')?/percent /i;
 	
 	# move percent at the end
-	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/;
+	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/i;
+	
+	# remove question mark
+	$name =~ s/ ?\?$//;
+	
+	# remove "of the product" at the end (e.g. "category of the product")
+	$name =~ s/ ((of the )?product|(del )?producto|(du )?produit)$//i;
+	
+	# remove "is the product" at the start (e.g. "is the product vegan")
+	$name =~ s/^(is the product|le produit est(-| )il) //i;
+	
+	# "does the product contains XYZ"
+	$name =~ s/^(does the product contain|the product contains) /contains /i;
+	$name =~ s/^(le produit contient((-| )il)?) /contient /i;
 
 	return $name;
 }
@@ -489,6 +502,7 @@ en => {
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
+	nova_group_producer => ["nova"],
 },
 
 es => {
@@ -503,7 +517,7 @@ fr => {
 	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
@@ -605,8 +619,6 @@ sub init_fields_columns_names_for_lang($) {
 		$fields_columns_names_for_lang{$l}{$column_id} = { field=>"energy-kcal_100g_value_unit", value_unit=>"value_in_kcal" };
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
-
-	$log->debug("fields_columns_names_for_lang", { l=>$l, fields_columns_names_for_lang=>$fields_columns_names_for_lang{$l} }) if $log->is_debug();
 
 	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
 
@@ -763,7 +775,7 @@ sub init_nutrients_columns_names_for_lang($) {
 						}
 					}
 
-					$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
+					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
@@ -880,19 +892,24 @@ sub init_other_fields_columns_names_for_lang($) {
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field };
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
 				}
+				
+				if ($field eq "nova_group_producer") {
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", lang("nova_groups_s"))} = {field => $field };
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", lang("nova_groups_p"))} = {field => $field };
+				}
 			}
 		}
 	}
 
 	# Specific labels that can have a dedicated column
-	my @labels = ("en:organic", "en:fair-trade", "fr:ab-agriculture-biologique","fr:label-rouge");
+	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge");
 	foreach my $labelid (@labels) {
 		next if not defined $translations_to{labels}{$labelid}{$l};
 		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };
 		my @synonyms = ();
 		my $label_lc_labelid = get_string_id_for_lang($l, $translations_to{labels}{$labelid}{$l});
 		foreach my $synonym (@{$synonyms_for{labels}{$l}{$label_lc_labelid}}) {
-			$log->debug("labels_specific", { l=>$l, label_lc_labelid=>$label_lc_labelid, label=>$labelid, synonym=>$synonym }) if $log->is_debug();
+			# $log->debug("labels_specific", { l=>$l, label_lc_labelid=>$label_lc_labelid, label=>$labelid, synonym=>$synonym }) if $log->is_debug();
 
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = $results_ref;
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{"labels_s"}{$l}) } = $results_ref;
@@ -904,7 +921,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	if (defined $fields_synonyms{$l}) {
 		foreach my $field (keys %{$fields_synonyms{$l}}) {
 			foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
-				$log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
+				# $log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = {field => $field};
 			}
 		}
