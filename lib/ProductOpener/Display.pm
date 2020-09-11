@@ -74,6 +74,7 @@ BEGIN
 		&display_product
 		&display_product_api
 		&display_product_history
+		&display_preferences_api
 		&display_attribute_groups_api
 		&search_and_display_products
 		&search_and_export_products
@@ -9388,6 +9389,48 @@ JS
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
+}
+
+
+=head2 display_preferences_api ( $target_lc )
+
+Return a JSON structure with all available preference values for attributes.
+
+This is used by clients that ask for user preferences to personalize
+filtering and ranking based on product attributes.
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=head4 language code $target_lc
+
+Sets the desired language for the user facing strings.
+
+=cut
+
+sub display_preferences_api($$)
+{
+	my $request_ref = shift;
+	my $target_lc = shift;
+	
+	if (not defined $target_lc) {
+		$target_lc = $lc;
+	}
+		
+	$request_ref->{structured_response} = [];
+	
+	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
+		
+		push @{$request_ref->{structured_response}}, {
+			id => $preference,
+			name => lang("preference_" . $preference),
+		};
+	}
+
+	display_structured_response($request_ref);
+	
+	return;
 }
 
 
