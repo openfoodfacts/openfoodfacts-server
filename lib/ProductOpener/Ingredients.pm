@@ -146,14 +146,15 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may contain",
+	en => "possible traces|traces|may also contain|may contain",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
-	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	cs => "může obsahovat",
+	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
-	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr => "može sadržavati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -1314,7 +1315,7 @@ sub parse_ingredients_text($) {
 								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
 								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
 								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
-								'^allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^(!|! )?allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
 								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
 								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
 								'^see ingredients in bold$',
@@ -2383,6 +2384,10 @@ es => [
 'ingredientes',
 ],
 
+et => [
+'koostisosad',
+],
+
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
 'valmistusaineet',
@@ -2432,7 +2437,7 @@ lt => [
 ],
 
 lv => [
-'sastāv(s|dalas)',
+'sast[āäa]v(s|da[ļl]as)',
 ],
 
 nl => [
@@ -2446,7 +2451,7 @@ nb => [
 ],
 
 pl => [
-'składniki',
+'sk[łl]adniki',
 'skład',
 ],
 
@@ -2461,7 +2466,8 @@ ro => [
 ],
 
 ru => [
-'coctaB',
+'состав',
+'coctab',
 'Ингредиенты',
 ],
 
@@ -2621,7 +2627,7 @@ el => [
 
 en => [
 'after opening',
-'nutrition(al)? (facts|information|value[s]?)',
+'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 # "nutrition advice" seems to appear before ingredients rather than after.
 # "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 'of whlch saturates',

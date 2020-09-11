@@ -965,10 +965,16 @@ sub clean_fields($) {
 		}
 
 		# remove N, N/A, NA etc.
-		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no|n)\s*(,|$)//ig;
+		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*(,|$)//ig;
+		
+		# remove none except for allergens and traces
+		if ($field !~ /allergens|traces/) {
+			$product_ref->{$field} =~ s/(^|,)\s*(none|aucun|aucune|aucun\(e\))\s*(,|$)//ig;			
+		}
 
 		if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-			$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
+			$product_ref->{$field} =~ s/^\s*(autre logo)?\s*$//ig;
 		}
 
 		$product_ref->{$field} =~ s/ +/ /g;
