@@ -34631,15 +34631,103 @@ sv:päronjuice från koncentrat
 
 ###################################################################################################
 #
-#                                Plum
+#                                Plum & Prune
 #
 ###################################################################################################
+# comment:en: NB en:plum = fr:prune, and en:prune = fr:pruneau.
+
 <en:fruit
 en:plum
+da:blomme
+de:Pflaume, Pflaumen
+el:Δαμάσκηνο
 es:ciruela
+fi:luumu
+fr:prune, prunes
+it:prugna
+ms:plum, Prun
+nl:pruim, pruimen
+pl:Śliwka, Śliwki
+ru:слива, сливы
+sr:Шљива, šljiva
+sv:plommon
+th:พรุน
+uk:слива, сливи
+wa:pronne
+wikidata:en:Q12372598
+wikipedia:en:https://en.wikipedia.org/wiki/Plum
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
+# 35 products in 1 language @2018-09-30
 
 <en:plum
 en:plum sugar
+
+
+# A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
+# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
+
+# Some langauges seem to give the specific plum cultivars used for making "dried plums" a name 
+# similar to "prune", and then have the concept of "dried prune".
+# Also some languages call the tree "plum", and the fruit "prune".
+
+# This is the dried fruit, whether it has its own name, or is "dried plum/prune".
+# Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
+<en:plum
+en:prune
+ar:برقوق مجفف,خوخ مجفف
+da:Sveske, svesker
+de:Trockenpflaumen
+es:Ciruela pasa, ciruelas pasas
+fa:آلو بخارا
+fi:kuivattu luumu
+fr:pruneau, pruneaux, pruneaux séchés
+it:prugne secche
+ja:プルーン
+ko:프룬
+ms:prun kering, plum kering
+nb:sviske
+nl:gedroogde pruimen
+nn:sviske
+pl:Śliwki suszone
+ru:чернослив
+sr:суве шљиве, suve šljive, suva šljiva
+sv:Sviskon
+tl:Pruno
+uk:Чорнослив
+vi:Mận khô
+wa:Souwêye pronne
+zh:梅乾
+# chy:Náhkôhematôtse
+# de-ch:Trockenpflaume
+# en-ca:Prune
+# en-gb:Prune
+# pcd:Pronnieu
+# yue:西梅乾
+wikidata:en:Q6766526
+wikipedia:en:https://en.wikipedia.org/wiki/Prune
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
+# 182 products in 3 languages @2018-09-30
+
+# description:en:Prune juice is a fruit juice derived from prunes (dried plums) that have been rehydrated.
+<en:prune
+en:prune juice
+da:sveskejuice
+de:Pflaumensaft
+fr:Jus de prune
+wikidata:en:Q65088683
+wikipedia:en:https://en.wikipedia.org/wiki/Prune_juice
+
+<en:prune
+fr:pruneaux d'agen
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
+# 57 products @2018-09-30
+
+<en:prune
+<en:purée
+fr:purée de pruneaux
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
+# 39 products in 1 language @2018-09-30
+
 
 ###################################################################################################
 #
@@ -39032,46 +39120,9 @@ fr:écorces de grenade
 
 ###################################################################################################
 #
-#                                Prune
+#                                
 #
 ###################################################################################################
-# A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
-# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
-
-<en:fruit
-en:prune
-ar:خوخ مجفف
-da:Sveske, svesker
-de:Pflaume, Pflaumen
-es:Ciruela pasa
-fa:آلو بخارا
-fi:kuivattu luumu
-fr:prune, prunes
-it:prugna
-ja:プルーン
-ko:프룬
-ms:Prun
-nb:sviske
-nl:pruim, pruimen
-nn:sviske
-pl:Śliwka, Śliwki
-ru:чернослив
-sr:šljiva
-sv:Sviskon
-th:พรุน
-tl:Pruno
-uk:Чорнослив
-wa:pronne
-zh:梅乾
-# chy:Náhkôhematôtse
-# en-ca:Prune
-# en-gb:Prune
-# pcd:Pronnieu
-# sr-ec:шљива
-# yue:西梅乾
-wikidata:en:Q6766526
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
-# 35 products in 1 language @2018-09-30
 
 <en:fruit
 en:custard apple, cherimoya
@@ -39088,40 +39139,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 en:persimmon juice
 es:zumo de caqui
 
-<en:prune
-en:prune juice
-da:sveskejuice
-de:Pflaumensaft
-fr:Jus de prune
-
-# Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
-
-<en:prune
-fr:pruneau, pruneaux, pruneaux séchés
-de:Trockenpflaumen
-el:Δαμάσκηνο
-es:ciruelas pasas
-it:prugne secche
-nl:gedroogde pruimen
-pl:Śliwki suszone
-sr:suva šljiva
-vi:Mận khô
-wa:Souwêye pronne
-# de-ch:Trockenpflaume
-# sr-ec:сува шљива
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
-# 182 products in 3 languages @2018-09-30
-
-<fr:pruneau
-fr:pruneaux d'agen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
-# 57 products @2018-09-30
-
-<fr:pruneau
-<en:purée
-fr:purée de pruneaux
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
-# 39 products in 1 language @2018-09-30
 
 ###################################################################################################
 #
