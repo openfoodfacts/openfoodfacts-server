@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 09:03\n"
+"PO-Revision-Date: 2020-09-11 10:03\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4514,7 +4514,7 @@ msgstr "Groupe NOVA"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Pas ou peu d'aliments transformés (groupe NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4567,27 +4567,27 @@ msgstr "Utilisateur inconnu."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Le niveau de sel est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime pauvre en sel."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Le taux de sucres est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en sucres."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en gras."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Le taux de graisses saturées est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en graisses saturées."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Allergènes"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4595,5 +4595,5 @@ msgstr "Additifs"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Pas ou peu d'additifs"
 
