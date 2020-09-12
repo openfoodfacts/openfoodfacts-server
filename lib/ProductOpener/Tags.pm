@@ -3355,6 +3355,7 @@ sub init_tags_texts_levels {
 				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
 				defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
 
+				# this runs number-of-languages * number-of-tag-types times.
 				if (-e "$data_root/lang/$langid/$tagtype") {
 					opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
 					foreach my $file (readdir(DH)) {
