@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 09:02\n"
+"PO-Revision-Date: 2020-09-12 00:52\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4469,11 +4469,11 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "God ernæringskvalitet (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score beregnes og kan tages i betragtning for alle produkter, selvom denne ikke vises på emballagen."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4510,7 +4510,7 @@ msgstr "Nova-gruppe"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Ingen eller begrænset fødevareforarbejdning (NOVA-gruppe)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4563,27 +4563,27 @@ msgstr "Ukendt bruger."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Saltniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt saltindhold."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Sukkerniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt sukkerindhold."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Fedtniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt fedtindhold."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Mættet fedt-niveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt mættet fedt-indhold."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Allergener"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Der er altid en mulighed for, at data om allergener kan mangle, være ufuldstændige, ukorrekte eller at produktets sammensætning er ændret. Har du allergi, så tjek altid oplysningerne på den faktiske produktemballage."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4591,5 +4591,5 @@ msgstr "Tilsætningsstoffer"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Ingen eller få tilsætningsstoffer"
 
