@@ -1080,16 +1080,21 @@ sub build_tags_taxonomy($$$) {
 
 					# replace whole words/phrases only
 
-					if ($tagid =~ /-${tagid2}-/) {
+					# String comparisons are many times faster than the regexps, as long as tags only ever need simple string matching.
+					#if ($tagid =~ /-${tagid2}-/) {
+					if (index($tagid, "-${tagid2}-") >= 0) {
 						$replace = "-${tagid2}-";
 						$before = '-';
 						$after = '-';
 					}
-					elsif ($tagid =~ /-${tagid2}$/) {
+					#elsif ($tagid =~ /-${tagid2}$/) {
+					# despite how convoluted it is, this is still faster than the regexp.
+					elsif (rindex($tagid, "-${tagid2}") + length("-${tagid2}") == length($tagid)) {
 						$replace = "-${tagid2}\$";
 						$before = '-';
 					}
-					elsif ($tagid =~ /^${tagid2}-/) {
+					#elsif ($tagid =~ /^${tagid2}-/) {
+					elsif (index($tagid, "${tagid2}-") == 0) {
 						$replace = "^${tagid2}-";
 						$after = '-';
 					}
