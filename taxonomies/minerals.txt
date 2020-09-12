@@ -451,6 +451,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_chloride
 # ingredient/fr:chlorure-de-potassium has 731 products @2019-05-19
 # usage:pl:chlorek potasu (potas)
 
+#comment:en:POTASSIUM CITRATES is entered both under the minerals and the additives for the moment.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singlar variant is ii.
+en:Potassium citrates
+ca:Citrats de potassi
+de:Kaliumcitraten
+es:Citratos de potasio
+fr:Citrates de potassium
+it:Citrati di potassio
+nl:Kaliumcitraten
+pt:Citratos de potássio
+sv:Kaliumcitrater
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
+e_number:en:332
+wikidata:en:Q419921
+additives_classes:en: en:sequestrant, en:stabilizer
+vegan:en:yes
+vegetarian:en:yes
+
 #comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
 description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
 comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
