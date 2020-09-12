@@ -10,7 +10,9 @@ if (user_product_preferences_string) {
 	user_product_preferences = JSON.parse(user_product_preferences_string);
 }
 
-function show_user_product_preferences (target) {
+// show_user_product_preferences can be called by other scripts
+
+function show_user_product_preferences (target) { // eslint-disable-line no-unused-vars
 
 	// Retrieve all the supported attribute groups from the server, unless we have them already
 	
@@ -39,18 +41,18 @@ function show_user_product_preferences (target) {
 		var attribute_groups_html = [];
 		
 		// Iterate over attribute groups
-		$.each( attribute_groups, function( key, attribute_group ) {
+		$.each( attribute_groups, function(key, attribute_group) {
 			
 			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group'>" + attribute_group.name 
 			+ "<ul>";
 			
 			// Iterate over attributes
 			
-			$.each( attribute_group.attributes, function( key, attribute ) {
+			$.each(attribute_group.attributes, function(key, attribute) {
 				
 				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'><spanc class='attribute_name'>" + attribute.setting_name + "</span><br>";
 								
-				$.each ( preferences, function ( key, preference) {
+				$.each(preferences, function (key, preference) {
 					
 					var checked = '';
 					
@@ -61,17 +63,17 @@ function show_user_product_preferences (target) {
 					attribute_group_html += "<input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id
 					+ "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">"
 					+ "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label>"
-					+ "</input>"
+					+ "</input>";
 				});
 				
-				attribute_group_html + "</li>";
+				attribute_group_html += "</li>";
 			});
 						
 			attribute_group_html += "</ul></li>";
 			
-			attribute_groups_html.push( attribute_group_html );
+			attribute_groups_html.push(attribute_group_html);
 		});
-	 
+
 		$( "<ul/>", {
 			"class": "user_product_preferences",
 			html: attribute_groups_html.join( "" )
