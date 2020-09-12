@@ -4224,8 +4224,8 @@ sub customize_response_for_product($) {
 			}
 		}
 		
-		# Product attributes requested in a specific language
-		elsif ($field =~ /^attribute_groups_([a-z]{2})$/) {
+		# Product attributes requested in a specific language (or data only)
+		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
 			compute_attributes($product_ref, $target_lc);
 			$customized_product_ref->{$field} = $product_ref->{$field};
