@@ -11,8 +11,9 @@ if (user_product_preferences_string) {
 }
 
 // show_user_product_preferences can be called by other scripts
+/* exported show_user_product_preferences */
 
-function show_user_product_preferences (target) { // eslint-disable-line no-unused-vars
+function show_user_product_preferences (target) {
 
 	// Retrieve all the supported attribute groups from the server, unless we have them already
 	
@@ -32,7 +33,7 @@ function show_user_product_preferences (target) { // eslint-disable-line no-unus
 		
 			preferences = data;
 		
-			show_user_product_preferences(target); // eslint-disable-line no-unused-vars
+			show_user_product_preferences(target);
 		});		
 	}
 	
