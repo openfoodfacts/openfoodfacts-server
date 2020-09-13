@@ -100,6 +100,8 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
+		&init_tags_texts_levels
+
 		&get_city_code
 		%emb_codes_cities
 		%emb_codes_geo
