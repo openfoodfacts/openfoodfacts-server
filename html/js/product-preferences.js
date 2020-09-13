@@ -32,7 +32,7 @@ function show_user_product_preferences (target) { // eslint-disable-line no-unus
 		
 			preferences = data;
 		
-			show_user_product_preferences(target);
+			show_user_product_preferences(target); // eslint-disable-line no-unused-vars
 		});		
 	}
 	
