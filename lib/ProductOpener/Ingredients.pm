@@ -1335,6 +1335,10 @@ sub parse_ingredients_text($) {
 								'^(facultatif|facultative)',            # sometime indicated by producers when listing ingredients is not mandatory
 								'^(éventuellement|eventuellement)$',    # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
 								'^(les )?informations ((en (gras|majuscule|italique))|soulign)', # Informations en gras destinées aux personnes allergiques.
+								'^(pour les )?allerg[èe]nes[:]?$',      # see english above.
+								'^y compris les cereales contenant du gluten$',
+								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
+								'^(les allerg[èe]nes )?sont indiques en gras$',
 							],
 
 							'fi' => [
