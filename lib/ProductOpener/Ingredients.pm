@@ -2685,7 +2685,6 @@ es => [
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
-'Liiallisella käytöllä',
 'Makeisten sekoitussuhde voi vaihdella',
 'Pakattu suojakaasuun',
 'Parasta ennen',
