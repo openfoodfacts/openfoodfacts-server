@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css">
+<script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
+<link rel="stylesheet" href="[% static_subdomain %]/css/dist/MarkerCluster.css">
+<link rel="stylesheet" href="[% static_subdomain %]/css/dist/MarkerCluster.Default.css">
+<script src="[% static_subdomain %]/js/dist/leaflet.markercluster.js"></script>
+<script src="[% static_subdomain %]/js/dist/display-map.js"></script>
+
+<p>[% title %]</p>
+<div id="container" style="height: 600px"></div>
+<p>&nbsp;</p>
+
+[% IF current_link_query %]
+<p>&rarr; <a href="[% current_link_query %]">[% lang('search_map_link') %]</a></p>
+[% END %]
+
+<script>
+  displayMap('container', [% encode_json(pointers) %]);
+</script>

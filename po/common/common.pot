@@ -1722,6 +1722,10 @@ msgctxt "password"
 msgid "Password"
 msgstr ""
 
+msgctxt "password_new"
+msgid "New password"
+msgstr ""
+
 msgctxt "password_confirm"
 msgid "Confirm password"
 msgstr ""
@@ -4402,6 +4406,10 @@ msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr "CIQUAL food names"
 
+msgctxt "we_need_your_help"
+msgid "We need your help!"
+msgstr "We need your help!"
+
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
 msgstr "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others:"
@@ -4541,3 +4549,205 @@ msgstr "If available, this information will be displayed on the product page."
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
 msgstr "Product photos can also be provided separately through the Import product photos function of the platform for producers."
+
+msgctxt "attribute_group_labels_name"
+msgid "Labels"
+msgstr "Labels"
+
+msgctxt "attribute_labels_organic_name"
+msgid "Organic farming"
+msgstr "Organic farming"
+
+msgctxt "attribute_labels_organic_yes_title"
+msgid "Organic product"
+msgstr "Organic product"
+
+msgctxt "attribute_labels_organic_no_title"
+msgid "Not an organic product"
+msgstr "Not an organic product"
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Promotes ecological sustainability and biodiversity."
+msgstr "Promotes ecological sustainability and biodiversity."
+
+msgctxt "attribute_labels_organic_description"
+msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+msgstr "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+
+msgctxt "attribute_labels_fair_trade_name"
+msgid "Fair trade"
+msgstr "Fair trade"
+
+msgctxt "attribute_labels_fair_trade_yes_title"
+msgid "Fair trade product"
+msgstr "Fair trade product"
+
+msgctxt "attribute_labels_fair_trade_no_title"
+msgid "Not a fair trade product"
+msgstr "Not a fair trade product"
+
+msgctxt "attribute_labels_fair_trade_yes_description_short"
+msgid "Helps producers in developping countries."
+msgstr "Helps producers in developping countries."
+
+msgctxt "attribute_labels_fair_trade_description_short"
+msgid "Fair trade products help producers in developping countries."
+msgstr "Fair trade products help producers in developping countries."
+
+msgctxt "attribute_labels_fair_trade_description"
+msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
+msgstr "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
+
+msgctxt "attribute_group_nutritional_quality_name"
+msgid "Nutritional quality"
+msgstr "Nutritional quality"
+
+msgctxt "attribute_nutriscore_name"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr "Good nutritional quality (Nutri-Score)"
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_nutriscore_grade_title"
+msgid "Nutri-Score %s"
+msgstr "Nutri-Score %s"
+
+msgctxt "attribute_nutriscore_a_description_short"
+msgid "Very good nutritional quality"
+msgstr "Very good nutritional quality"
+
+msgctxt "attribute_nutriscore_b_description_short"
+msgid "Good nutritional quality"
+msgstr "Good nutritional quality"
+
+msgctxt "attribute_nutriscore_c_description_short"
+msgid "Average nutritional quality"
+msgstr "Average nutritional quality"
+
+msgctxt "attribute_nutriscore_d_description_short"
+msgid "Poor nutritional quality"
+msgstr "Poor nutritional quality"
+
+msgctxt "attribute_nutriscore_e_description_short"
+msgid "Bad nutritional quality"
+msgstr "Bad nutritional quality"
+
+msgctxt "attribute_group_processing_name"
+msgid "Food processing"
+msgstr "Food processing"
+
+msgctxt "attribute_nova_name"
+msgid "NOVA group"
+msgstr "NOVA group"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr "No or little food processing (NOVA group)"
+
+# keep %s, it will be replaced by the group 1, 2, 3 or 4
+msgctxt "attribute_nova_group_title"
+msgid "NOVA %s"
+msgstr "NOVA %s"
+
+msgctxt "attribute_nova_1_description_short"
+msgid "Unprocessed or minimally processed foods"
+msgstr "Unprocessed or minimally processed foods"
+
+msgctxt "attribute_nova_2_description_short"
+msgid "Processed culinary ingredients"
+msgstr "Processed culinary ingredients"
+
+msgctxt "attribute_nova_3_description_short"
+msgid "Processed foods"
+msgstr "Processed foods"
+
+msgctxt "attribute_nova_4_description_short"
+msgid "Ultra processed foods"
+msgstr "Ultra processed foods"
+
+msgctxt "export_product_page"
+msgid "Export product to public database"
+msgstr "Export product to public database"
+
+msgctxt "one_product_will_be_exported"
+msgid "1 product will be exported."
+msgstr "1 product will be exported."
+
+msgctxt "no_products_to_export"
+msgid "No products to export."
+msgstr "No products to export."
+
+msgctxt "query_filter"
+msgid "Query filter"
+msgstr "Query filter"
+
+msgctxt "nova_group_producer"	
+msgid "NOVA group"	
+msgstr "NOVA group"
+
+msgctxt "error_unknown_org"
+msgid "Unknown organization."
+msgstr "Unknown organization."
+
+msgctxt "error_unknown_user"
+msgid "Unknown user."
+msgstr "Unknown user."
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr "Allergens"
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed."
+" "
+"If you are allergic, always check the information on the actual product packaging."
+msgstr "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed."
+" "
+"If you are allergic, always check the information on the actual product packaging."
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Additives"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
+msgstr "No or few additives"
+
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr "Not important"
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr "Important"
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr "Very important"
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr "Mandatory"

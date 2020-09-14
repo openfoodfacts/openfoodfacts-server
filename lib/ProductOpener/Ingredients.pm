@@ -146,26 +146,37 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may contain",
-	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	en => "possible traces|traces|may also contain|also may contain|may contain",
+	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	cs => "může obsahovat",
+	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
+	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
-	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	hr => "može sadržavati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	lt => "sudėtyje gali būti",
+	lv => "var saturēt",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	pl => "może zawierać śladowe ilości|może zawierać",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
 
 	en => "contains",
+	bg => "съдържа",
 	da => "indeholder",
 	es => "contiene",
+	et => "sisaldab",
 	fr => "contient",
 	nl => "bevat",
+	ro => "con[țţ]ine|con[țţ]in",
 	sv => "innehåller",
 );
 
@@ -262,10 +273,10 @@ all => [
 ],
 
 da => [
-	[ "bl. a", "blandt andet" ],
-	[ "inkl.", "inklusive" ],
-	[ "mod.",  "modificeret" ],
-	[ "past.", "pasteuriserede" ],
+	[ "bl. a.", "blandt andet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "mod.",   "modificeret" ],
+	[ "past.",  "pasteuriserede" ],
 ],
 
 en => [
@@ -289,24 +300,24 @@ fr => [
 ],
 
 nb => [
-	[ "bl. a", "blant annet" ],
-	[ "inkl.", "inklusive" ],
-	[ "papr.", "paprika" ],
+	[ "bl. a.", "blant annet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "papr.",  "paprika" ],
 ],
 
 sv => [
-	[ "bl. a",            "bland annat" ],
-	[ "förtjockn.medel",  "förtjockningsmedel" ],
-	[ "inkl.",            "inklusive" ],
-	[ "kons.medel",       "konserveringsmedel" ],
-	[ "max.",             "maximum" ],
-	[ "mikrob.",          "mikrobiellt" ],
-	[ "min.",             "minimum" ],
-	[ "mod.",             "modifierad" ],
-	[ "past.",            "pastöriserad" ],
-	[ "stabil.",          "stabiliseringsämne" ],
-	[ "surhetsreg.",      "surhetsreglerande" ],
-	[ "veg.",             "vegetabilisk" ],
+	[ "bl. a.",          "bland annat" ],
+	[ "förtjockn.medel", "förtjockningsmedel" ],
+	[ "inkl.",           "inklusive" ],
+	[ "kons.medel",      "konserveringsmedel" ],
+	[ "max.",            "maximum" ],
+	[ "mikrob.",         "mikrobiellt" ],
+	[ "min.",            "minimum" ],
+	[ "mod.",            "modifierad" ],
+	[ "past.",           "pastöriserad" ],
+	[ "stabil.",         "stabiliseringsämne" ],
+	[ "surhetsreg.",     "surhetsreglerande" ],
+	[ "veg.",            "vegetabilisk" ],
 ],
 );
 
@@ -319,7 +330,7 @@ my %of = (
 	fr => " de la | de | du | des | d'",
 	is => " af ",
 	it => " di | d'",
-	nl => " of ",
+	nl => " van ",
 	nb => " av ",
 	sv => " av ",
 );
@@ -330,13 +341,19 @@ my %and = (
 	da => " og ",
 	de => " und ",
 	es => " y ", # Spanish "e" before "i" and "hi" is handled by preparse_text()
+	et => " ja ",
 	fi => " ja ",
 	fr => " et ",
+	hr => " i ",
 	is => " og ",
 	it => " e ",
+	lt => " ir ",
+	lv => " un ",
 	nl => " en ",
 	nb => " og ",
+	pl => " i ",
 	pt => " e ",
+	ro => " și ",
 	sv => " och ",
 );
 
@@ -1140,7 +1157,18 @@ sub parse_ingredients_text($) {
 				}
 
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+				if ($ingredient =~ m{^
+									 \s*
+									 ( \d+ ([,.] \d+)? )
+									 \s*
+									 (\%|g)
+									 \s*
+
+									 ( (?: pur | de ) \s | d' )?
+									 \s*
+									}sxmi
+					)
+				{
 					$percent = $1;
 					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
 					$ingredient = $';
@@ -1166,6 +1194,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
@@ -1280,6 +1310,17 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'en' => [
+								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
+								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
+								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
+								'^(!|! )?allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
+								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
+								'^see ingredients in bold$',
+							],
+
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
 								'(sur|de) produit fini',             # préparé avec 50g de fruits pour 100g de produit fini
@@ -1294,6 +1335,10 @@ sub parse_ingredients_text($) {
 								'^(facultatif|facultative)',            # sometime indicated by producers when listing ingredients is not mandatory
 								'^(éventuellement|eventuellement)$',    # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
 								'^(les )?informations ((en (gras|majuscule|italique))|soulign)', # Informations en gras destinées aux personnes allergiques.
+								'^(pour les )?allerg[èe]nes[:]?$',      # see english above.
+								'^y compris les cereales contenant du gluten$',
+								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
+								'^(les allerg[èe]nes )?sont indiques en gras$',
 							],
 
 							'fi' => [
@@ -2316,17 +2361,13 @@ cs => [
 ],
 
 da => [
-'N(æ|ae)ringsindhold',
+'ingredienser',
 'indeholder',
 ],
 
 de => [
 'Zusammensetzung',
 'zutat(en)?',
-],
-
-dk => [
-'ingredienser',
 ],
 
 el => [
@@ -2341,6 +2382,10 @@ en => [
 es => [
 'composición',
 'ingredientes',
+],
+
+et => [
+'koostisosad',
 ],
 
 fi => [
@@ -2369,8 +2414,8 @@ id => [
 ],
 
 is => [
+'innihald(?:slýsing|sefni)?',
 'inneald',
-'Innihaldslýsing',
 ],
 
 it => [
@@ -2392,7 +2437,7 @@ lt => [
 ],
 
 lv => [
-'sastāv(s|dalas)',
+'sast[āäa]v(s|da[ļl]as)',
 ],
 
 nl => [
@@ -2406,7 +2451,7 @@ nb => [
 ],
 
 pl => [
-'składniki',
+'sk[łl]adniki',
 'skład',
 ],
 
@@ -2421,7 +2466,8 @@ ro => [
 ],
 
 ru => [
-'coctaB',
+'состав',
+'coctab',
 'Ингредиенты',
 ],
 
@@ -2433,6 +2479,7 @@ sk => [
 'obsahuje',
 'zloženie',
 ],
+
 sl => [
 'vsebuje',
 'sestavine',
@@ -2507,8 +2554,17 @@ hu => [
 '(Ö|O|0)SSZETEVOK',
 ],
 
+is => [
+'INNIHALD(?:SLÝSING|SEFNI)?',
+'INNEALD',
+],
+
 it => [
 'INGREDIENTI(\s*)',
+],
+
+nb => [
+'INGREDIENSER',
 ],
 
 nl => [
@@ -2523,9 +2579,13 @@ pt => [
 'INGREDIENTES(\s*)',
 ],
 
-
 si => [
 'SESTAVINE',
+],
+
+sv => [
+'INGREDIENSER',
+'INNEHÅLL(ER)?',
 ],
 
 vi => [
@@ -2544,6 +2604,18 @@ my %phrases_after_ingredients_list = (
 cs => [
 'doporučeny způsob přípravy',
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+da => [
+'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+'tilberedning(?:svejledning)?',
+'holdbarhed efter åbning',
+'opbevar(?:ing|res)?',
+'(?:for )?allergener',
+'produceret af',
+'beskyttes',
+'nettovægt',
+'åbnet',
 ],
 
 de => [
@@ -2580,19 +2652,19 @@ el => [
 ],
 
 en => [
-'nutritional values',
 'after opening',
-'nutrition values',
+'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
+# "nutrition advice" seems to appear before ingredients rather than after.
+# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 'of whlch saturates',
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'once opened keep in the refrigerator',
-'Store in a cool, dry place',
+'once opened[,]? (consume|keep|refrigerate|store|use)',
+'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
-
 ],
 
 es => [
@@ -2617,7 +2689,6 @@ es => [
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
-'Liiallisella käytöllä',
 'Makeisten sekoitussuhde voi vaihdella',
 'Pakattu suojakaasuun',
 'Parasta ennen',
@@ -2707,6 +2778,13 @@ hr => [
 'Atlagos tápérték 100g termékben',
 ],
 
+is => [
+'n(æ|ae)ringargildi',
+'geymi(st|ð) á',
+'eftir opnum',
+'aðferð',
+],
+
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
@@ -2720,6 +2798,13 @@ it => [
 
 ja => [
 '栄養価',
+],
+
+nb => [
+'netto(?:innhold|vekt)',
+'oppbevar(?:ing|es)',
+'næringsinnhold',
+'kjølevare',
 ],
 
 nl => [
@@ -2774,14 +2859,30 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-
+sv => [
+'närings(?:deklaration|innehåll|värde)',
+'(?:bör )?förvar(?:ing|as?)',
+'till(?:agning|redning)',
+'serveringsförslag',
+'produkterna bör',
+'bruksanvisning',
+'källsortering',
+'anvisningar',
+'skyddas mot',
+'uppvärmning',
+'återvinning',
+'hållbarhet',
+'producerad',
+'upptining',
+'o?öppnad',
+'bevaras',
+'kylvara',
+'tappat',
+],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
-
-
-
 );
 
 
@@ -4664,7 +4765,7 @@ sub detect_allergens_from_text($) {
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
 		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
-		$product_ref->{$field . "_from_user"} = "($tag_lc) " . $product_ref->{$field};
+		$product_ref->{$field . "_from_user"} = "($tag_lc) " . ( $product_ref->{$field} // "" );
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 

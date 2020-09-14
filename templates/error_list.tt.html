@@ -1,0 +1,10 @@
+[% IF errors && errors.size %]
+<div data-alert class="alert-box alert">
+    <p><strong>[% lang('correct_the_following_errors') %]</strong></p>
+    <ul>
+        [% FOREACH error IN errors %]
+            <li class="error">[% error %]</li>
+        [% END %]
+    </ul>
+</div>
+[% END %]

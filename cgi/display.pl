@@ -39,6 +39,21 @@ use Log::Any qw($log);
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
+# The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
+# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the querty string
+# CGI.pm thus adds somepath? at the start of the name of the first parameter.
+# we need to remove it so that we can use the CGI.pm param() function to later access the parameters
+
+my @params = param();
+if (defined $params[0]) {
+	my $first_param = $params[0];
+	my $first_param_value = param($first_param);
+	$log->debug("replacing first param to remove path from parameter name", { first_param => $first_param, $first_param_value => $first_param_value });
+	CGI::delete($first_param);
+	$first_param =~ s/^(.*?)\?//;
+	param($first_param, $first_param_value);
+}
+
 ProductOpener::Display::init();
 
 my %request = (
@@ -61,7 +76,25 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 }
 
 if (defined $request{api}) {
-	display_product_api(\%request);
+	if (param("api_method") eq "search") {
+		# /api/v0/search
+		display_tag(\%request);
+	}
+	elsif (param("api_method") =~ /^preferences(_(\w\w))?$/) {
+		# /api/v0/preferences or /api/v0/preferences_[language code]
+		display_preferences_api(\%request, $2);
+	}	
+	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
+		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
+		display_attribute_groups_api(\%request, $2);
+	}
+	else {
+		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
+		display_product_api(\%request);
+	}
+}
+elsif (defined $request{search}) {
+	display_tag(\%request);
 }
 elsif (defined $request{text}) {
 	display_text(\%request);

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:27\n"
+"PO-Revision-Date: 2020-09-10 13:04\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pl\n"
 "X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 446\n"
+"X-Crowdin-File-ID: 1384\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -110,7 +110,7 @@ msgstr "Wspólna, darmowa i otwarta baza danych produktów z całego świata."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -143,6 +143,6 @@ msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL 
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
 msgstr ""
 

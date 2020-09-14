@@ -116,7 +116,7 @@ vegetarian:en:yes
 
 # description:en:used to be extracted from milk, but not anymore.
 
-# comment:en:e106 is the same as e101(ii)...
+# comment:en:e106 is the same as e101a, moved synonyms to E101a
 
 en:E106, flavin mononucleotide
 bg:E106, E106 food additive
@@ -126,7 +126,7 @@ de:E106, Flavinmononukleotid
 el:E106, E106 food additive
 es:E106, Flavín mononucleótido
 et:E106, E106 food additive
-fi:E106, Flaviinimononukleotidi
+fi:E106, E106 food additive
 fr:E106, Flavine mononucléotide
 hu:E106, E106 food additive
 it:E106, Flavina mononucleotide
@@ -244,7 +244,8 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:colour
 
-en:E101a, Riboflavin-5'-Phosphate
+comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
+en:E101a, E101a food additive
 bg:E101a, E101a food additive
 cs:E101a, E101a food additive
 da:E101a, E101a food additive
@@ -262,7 +263,7 @@ mt:E101a, E101a food additive
 nl:E101a, E101a food additive
 pl:E101a, E101a food additive
 pt:E101a, E101a food additive
-ro:E101a, Riboflavină 5-fosfat
+ro:E101a, E101a food additive
 sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
@@ -275,7 +276,7 @@ e_number:en:101a
 
 # description:en:TARTRAZINE is a synthetic lemon yellow azo dye primarily used as a food coloring.
 
-en:E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5
+en:E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5, Yellow 5 lake
 bg:E102, Тартразин
 ca:E102, Tartrazina
 cs:E102, Tartrazin, FD&C žluť 5, E 102, Tartazin
@@ -459,7 +460,7 @@ colour_index:en:CI 18965
 vegan:en:yes
 vegetarian:en:yes
 
-en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985
+en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985, Yellow 6 lake, Sunset Yellow
 bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yellow 6
 ca:E110, Groc ataronjat S
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
@@ -560,7 +561,7 @@ nl_be:E120, Cochenille, karmijnzuur, karmijn
 oc:E120, Carmin
 pl:E120, Koszenila, kwas karminowy, karminy, Koszelina, Karmina
 pt:E120, Cochonilha, ácido carmínico, carminas
-ro:E120, Coșenilă, acid carminic, carmine, Acidului carminic
+ro:E120, Coșenilă, acid carminic, carmine, Acidului carminic, carmin
 ru:E120, Кошениль, карминовая кислота, кармин
 sh:E120, Carmine
 sk:E120, Košenila, kyselina karmínová, karmíny
@@ -791,7 +792,7 @@ vegetarian:en:yes
 
 # description:en:ERYTHROSINE, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
 
-en:E127, Erythrosine, FD&C Red 3, FD & C Red No.3, Red No. 3, FD&C Red no3, FD and C Red 3
+en:E127, Erythrosine, FD&C Red 3, FD & C Red No.3, Red No. 3, FD&C Red no3, FD and C Red 3, Red 3, Red 3 lake
 bg:E127, Еритрозин
 ca:E127, Eritrosina
 cs:E127, Erythrosin, Erytrosin, E 127
@@ -878,14 +879,14 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-en:E129, Allura red ac, Allura Red AC, FD&C Red 40, FD and C Red 40, Red 40, Red no40, Red no. 40, FD and C Red no. 40, Food Red 17, C.I. 16035
+en:E129, Allura red ac, Allura Red AC, FD&C Red 40, FD and C Red 40, Red 40, Red no40, Red no. 40, FD and C Red no. 40, Food Red 17, C.I. 16035, Red 40 lake
 bg:E129, Алура червено ac
 ca:E129, Vermell Allure 2C
 cs:E129, Allura red ac, červeň ac, Červeň Allura AC
 da:E129, Allura red ac
 de:E129, Allurarot ac, Allurarot, E 129
 el:E129, Ερυθρο allura ac
-es:E129, Rojo allura ac, E 129, Rojo Allura 2C,rojo FD&C 40
+es:E129, Rojo allura ac, E 129, Rojo Allura 2C, rojo FD&C 40, rojo 40
 et:E129, Võlupunane ac
 fi:E129, Alluranpunainen ac, Alluranpunainen, E 129, CI 16035
 fr:E129, Rouge allura AC, Rouge Allura, Rouge alimentaire 17, FD&C Rouge 40, Allura Red, Food Red 17, C.I. 16035, FD&C Red 40, Red 40 lake, Red 40, 2-naphthalenesulfonic acid disodium salt, Allura Red AC, C18H14N2Na2O8S2
@@ -992,7 +993,7 @@ efsa_evaluation_adi:en: 5
 vegan:en:yes
 vegetarian:en:yes
 
-en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2
+en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2, C.I. Food Blue 2, Blue 2 lake, Blue 2
 bg:E132, Индиготин, индиго кармин
 ca:E132, Indigotina, carmí indi, carmi indi
 cs:E132, Indigotin, indigocarmine, Indigo karmín
@@ -1018,6 +1019,7 @@ sv:E132, Indigotin, indigokarmin
 # nl_be:E132, Indigotine, indigokarmijn
 e_number:en:132
 wikidata:en:Q410120
+wikipedia:en:https://en.wikipedia.org/wiki/Indigo_carmine
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2014.3768
 efsa_evaluation_date:en: 2014/07/25
@@ -1030,7 +1032,7 @@ vegetarian:en:yes
 
 # description:en: BRILLIANT BLUE FCF (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
 
-en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1.
+en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1, Blue 1 lake
 bg:E133, Брилянтно синьо FCF
 ca:E133, Blau brillant FCF
 cs:E133, Brilantní modř FCF
@@ -1040,7 +1042,7 @@ el:E133, Λαμπρο κυανο FCF
 es:E133, Azul brillante FCF, Azul brillante FCP, E 133, Brilliant Blue FCF, azul FD&C 1
 et:E133, Briljantsinine FCF
 fi:E133, Briljanttisininen FCF
-fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, C.I. Food Blue 2, Blue 2 lake, Blue 2, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3
+fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3
 ga:E133, gorm lonrach FCF
 he:E133, כחול בוהק FCF
 hu:E133, Brilliánskék FCF
@@ -1235,7 +1237,7 @@ el:E140(ii), Χλωροφυλλινες, Πράσινο CI natural 5, χλωρο
 es:E140(ii), Clorofilinas, CI Natural Green 5, clorofilina sódica
 et:E140(ii), Klorofülliinid, CI looduslik roheline 5, naatriumklorofülliin
 fi:E140(ii), Klorofylliinit, Klorofylliinejä, CI Natural Green 5, Natriumklorofylliini, Natriumklorofylliiniä
-fr:E140(ii), Chlorophyllines, sels basiques des chlorophyllines, Vert naturel CI no5, Vert naturel CI n°5, chlorophylline sodique, chlorophylline potassique, Chlorophyllines, Vert naturel C. I. no 5
+fr:E140(ii), Chlorophyllines, sels basiques des chlorophyllines, Vert naturel CI no5, Vert naturel CI n°5, chlorophylline sodique, chlorophylline potassique, Vert naturel C. I. no 5
 hu:E140(ii), Klorofillinek, CI Natural Green 5, Nátrium-klorofillin
 it:E140(ii), Clorofilline, CI verde naturale 5, clorofillina di sodio
 lt:E140(ii), Chlorofilinai, Natūralus žaliasis CI Nr. 5, natrio chlorofilinas
@@ -1332,7 +1334,7 @@ el:E141(ii), Συμπλοκα των χλωροφυλλινων με χαλκο,
 es:E141(ii), Complejos cúpricos de clorofilinas, Clorofilina cúprica de sodio, clorofilina cúprica de potasio
 et:E141(ii), Klorofülliinide vasekompleksid, Naatriumvaskklorofülliin, kaaliumvaskklorofülliin
 fi:E141(ii), Klorofylliinikuparikompleksit, Natriumkupariklorofylliini, Kaliumkupariklorofylliini, Klorofylliinikuparikomplekseja, Natriumkupariklorofylliiniä, Kaliumkupariklorofylliiniä
-fr:E141(ii), Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Cuivre phaeophytin a, Cuivre phaeophytin b, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline, cuivre - chlorophyllines, chlorophyllines, cuivre-chlorophyllines
+fr:E141(ii), Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Cuivre phaeophytin a, Cuivre phaeophytin b, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline, cuivre - chlorophyllines, cuivre-chlorophyllines
 hu:E141(ii), Klorofillinek rézkomplexei, Nátrium-réz-klorofillin, Kálium-réz-klorofillin
 it:E141(ii), Complessi rameici delle clorofilline
 lt:E141(ii), Chlorofilinų vario kompleksiniai junginiai, Natrio-vario chlorofilinas, kalio-vario chlorofilinas
@@ -1409,7 +1411,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 vegan:en:yes
 vegetarian:en:yes
 
-en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3
+en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3, Green 3
 bg:E143, E143 food additive
 cs:E143, E143 food additive
 da:E143, E143 food additive
@@ -2119,7 +2121,7 @@ en:E160b, Annatto, bixin, norbixin, roucou, achiote, annatto color, annatto colo
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
 ca:E160b, Bixina
 cs:E160b, Annatto, bixin, norbixin
-da:E160b, Annattoekstrakter (bixin og norbixin), Annattoekstrakter, Bixin, Norbixin
+da:E160b, Annatto, Annattoekstrakter (bixin og norbixin), Annattoekstrakter, Bixin, Norbixin
 de:E160b, Annatto (Bixin und Norbixin), Bixin und Norbixin, Annatto, Achote, Orlean, E 160b, Anatto, Bixin, Norbixin
 el:E160b, Αννατο, μπιξινη, νορμπιξινη (i)
 es:E160b, Annato, bixina, norbixina, Achiote,anato
@@ -4570,13 +4572,14 @@ additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+
 en:E232, Sodium orthophenyl phenol
 bg:E232, E232 food additive
 cs:E232, E232 food additive
 da:E232, E232 food additive
 de:E232, E232 food additive
 el:E232, E232 food additive
-es:E232, Ortofenilfenato sódico, Orto-fenilfenato sódico, Ortofenilfenato de sodio, Orto-fenilfenato de sodio, Sodio difenil-2-ilo, Orto-fenilfenol imazalil, Imazalil
+es:E232, Ortofenilfenato sódico, Orto-fenilfenato sódico, Ortofenilfenato de sodio, Orto-fenilfenato de sodio, Sodio difenil-2-ilo, Orto-fenilfenol imazalil
 et:E232, E232 food additive
 fi:E232, Natriumortofenyylifenoli, Natriumortofenyylifenolia
 fr:E232, Orthophénylphénate de sodium, Sodium diphényl 2 yl
@@ -5298,7 +5301,7 @@ gl:E260, Ácido acético
 he:E260, חומצה אצטית
 hi:E260, एसिटिक अम्ल
 hr:E260, Octena kiselina
-hu:E260, Ecetsav, Ecetsav, Jégecet, Ecet, CH3COOH, Acetic acid, Etánsav, Acetát
+hu:E260, Ecetsav, Ecetsav, Jégecet, Acetic acid, Etánsav, Acetát
 hy:E260, Քացախաթթու
 ia:E260, Acido acetic
 id:E260, Asam asetat
@@ -5416,14 +5419,14 @@ vegetarian:en:yes
 # comment:en:Note that E262 must be in plural (Sodium acetates), as it is unspecified which one. The specific ones come as E262i, E262ii, etc.
 
 en:E262, Sodium acetates
-bg:E262, Натриев ацетат
+bg:E262, E262 food additive
 ca:E262, Acetats de sodi
-cs:E262
+cs:E262, E262 food additive
 da:E262, CH_3 COONa
 de:E262, Natriumacetate
 el:E262, E262 food additive
 es:E262, Acetatos de sodio, Acetatos sódico
-et:E262, Naatriumetanoaat, Naatriumatsetaat
+et:E262, E262 food additive
 fi:E262, Natriumasetaatit, Natriumasetaatteja
 fr:E262, Acétates de sodium
 hu:E262, Nátrium-acetáts
@@ -5432,10 +5435,10 @@ lt:E262, E262 food additive
 lv:E262, E262 food additive
 mt:E262, E262 food additive
 nl:E262, natriumacetaten
-pl:E262, Octany sodu, Octan sodu, Octan sodowy
+pl:E262, Octany sodu, Octan sodowy
 pt:E262, acétates de sodium
 ro:E262, E262 food additive
-sk:E262, Octan sodný
+sk:E262, E262 food additive
 sl:E262, Natrijev acetats
 sv:E262, Natriumacetater
 # additive/e262-sodium-acetates has 4654 products @2018-11-18
@@ -5869,10 +5872,10 @@ vegetarian:en:yes
 
 # description:en:CALCIUM PROPIONATE has the formula Ca(C2H5COO)2. Calcium propionate is used as a preservative in a wide variety of products, including but not limited to:bread, other baked goods, processed meat, whey, and other dairy products.
 
-en:E282, calcium propionate
+en:E282, calcium propionate, calcium propanoate
 ar:E282, بروبيونات الكالسيوم
 bg:E282, Калциев пропионат
-ca:E282, Propanoat de calci
+ca:E282, Propanoat de calci, propionat càlcic
 cs:E282, Propionan vápenatý
 da:E282, Calciumpropionat
 de:E282, Calciumpropionat
@@ -6028,7 +6031,7 @@ bs:E290, Ugljik-dioksid
 ca:E290, Diòxid de carboni, dioxid de carboni
 cs:E290, Oxid uhličitý, Plynný oxid uhličitý
 cy:E290, carbon deuocsid
-da:E290, Carbondioxid, Kuldioxidgas,, Kuldioxid
+da:E290, Carbondioxid, Kuldioxidgas, Kuldioxid
 de:E290, Kohlendioxid, Kohlensäure, Kohlenstoffdioxid
 el:E290, Διοξειδιο του ανθρακα, Αέριο ανθρακικό οξύ
 eo:E290, karbona dioksido 
@@ -6195,7 +6198,7 @@ jv:E296, Asam malat
 kk:E296, Алма қышқылы
 ko:E296, 말산
 lt:E296, Obuolių rūgštis
-lv:E296, Ābolskābe, C4H6O5, Malāti
+lv:E296, Ābolskābe, Malāti
 mk:E296, Јаболкова киселина
 mt:E296, Aċidu maliku
 nl:E296, Appelzuur
@@ -6208,7 +6211,7 @@ sh:E296, Malinska kiselina
 sk:E296, Kyselina jablčná
 sl:E296, Jabolčna kislina
 sr:E296, Malinska kiselina
-sv:E296, Äppelsyra, Malat, Äpplesyra, E 296
+sv:E296, Äppelsyra, Malat, Äpplesyra
 ta:E296, மேலிக் அமிலம்
 th:E296, กรดมาลิก
 tr:E296, Malik asit
@@ -6980,7 +6983,7 @@ mt:E316, Eritorbat tas-sodju
 nl:E316, natriumisoascorbaat, Natriumerythorbaat
 pl:E316, Izoaskorbinian sodu
 pt:E316, Eritorbato de sódio
-ro:E316, eritorbat de sodiu
+ro:E316, eritorbat de sodiu, erithorbat de sodiu
 ru:E316, Эриторбат натрия
 sh:E316, Natrijum erithorbat
 sk:E316, Erytorban sodný, izoaskorban sodný
@@ -7168,7 +7171,7 @@ da:E322, Lecithiner, Phosphatider
 de:E322, Lecithinen, Phosphatide
 el:E322, Λεκιθινες, Φωσφατίδια
 es:E322, Lecitinas, Fosfátidos
-et:E322, Letsitiinid, Fosfatiidid, Letsitiin
+et:E322, Letsitiinid, Fosfatiidid
 fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
 fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
 hu:E322, Lecitinek, Foszfatidek
@@ -7648,7 +7651,7 @@ de:E331, Natriumcitraten, Natriumcitrat
 el:E331, E331 food additive
 es:E331, Citratos de sodio
 et:E331, Naatriumtsitraat
-fi:E331, E331 food additive
+fi:E331, natriumsitraatti
 fr:E331, Citrates de sodium
 hu:E331, Nátrium-citrát
 it:E331, E331 food additive
@@ -7759,7 +7762,7 @@ bg:E332, E332 food additive
 ca:E332, Citrats de potassi
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrate, Kaliumcitrat
+de:E332, Kaliumcitrate
 el:E332, Κιτρικο καλιο
 es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
 et:E332, E332 food additive
@@ -7857,7 +7860,7 @@ da:E333, E333 food additive
 de:E333, Calciumcitrat, Kalziumzitrat, Calciumcitrate
 el:E333, Κιτρικο ασβεστιο
 es:E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga
-et:E333, Kaltsiumtsitraat
+et:E333, E333 food additive
 fi:E333, Kalsiumsitraatti, Kalsiumsitraattia
 fr:E333, Citrates de calcium, Citrate de calcium
 hu:E333, Kalcium-citrát
@@ -7865,10 +7868,10 @@ it:E333, Citrato di calcio
 lt:E333, E333 food additive
 lv:E333, E333 food additive
 mt:E333, E333 food additive
-nl:E333, Calciumcitraat
+nl:E333, Calciumcitraten
 pl:E333, cytrynian wapnia
 pt:E333, Citrato de cálcio
-ro:E333, Citrat tricalcic
+ro:E333, E333 food additive
 ru:E333, Цитрат кальция
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
@@ -8136,7 +8139,7 @@ de:E336, Kaliumtartrate
 el:E336, E336 food additive
 eo:E336, Kalia tartrato
 es:E336, tartratos de potasio
-et:E336, Kaaliumtartraat
+et:E336, E336 food additive
 fi:E336, kaliumtartraatit, Kaliumtartraatti, Kaliumtartraattia
 fr:E336, Tartrates de potassium, Tartrate de potassium, argol, crème de tartre
 hu:E336, tartrati di potassio, kálium-tartarát
@@ -8153,7 +8156,7 @@ sh:E336, Kalijum tartrat
 sk:E336, E336 food additive
 sl:E336, E336 food additive
 sr:E336, Kalijum tartrat
-sv:E336, Kaliumtartrat
+sv:E336, Kaliumtartrater
 e_number:en:336
 wikidata:en:Q418064
 organic_eu:en:authorized
@@ -8167,7 +8170,7 @@ en:E336(i), Monopotassium tartrate, monopotassic tartrate
 bg:E336(i), Монокалиев тартарат
 cs:E336(i), Monopotassium tartrate
 da:E336(i), Monokaliumtartrat
-de:E336(i), Monokaliumtartrat, Kaliumtartrat, einbasig
+de:E336(i), Monokaliumtartrat, Kaliumtartrat - einbasig
 el:E336(i), Οξινο τρυγικο καλιο
 es:E336(i), Tartrato monopotásico
 et:E336(i), Kaaliumvesiniktartraat
@@ -8282,6 +8285,12 @@ sl:E338, Fosforjeva (v) kislina, ortofosforjeva kislina, Fosforna kislina, H3PO4
 sv:E338, Fosforsyra, Ortofosforsyra, E 338
 e_number:en:338
 wikidata:en:Q184782
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:antioxidant, en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
@@ -8323,6 +8332,12 @@ zh:E339, 磷酸钠
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 e_number:en:339
 wikidata:en:Q3249706
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -8351,7 +8366,7 @@ lt:E339(i), Mononatrio fosfatas
 lv:E339(i), Mononātrija fosfāts
 mt:E339(i), Fosfat monosodiku
 nl:E339(i), Mononatriumfosfaat, Mononatriummonofosfaat, zuur mononatriummonofosfaat, mononatriumorthofosfaat, eenbasisch natriumfosfaat
-pl:E339(i), Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, fosforan sodu, jednozasadowy
+pl:E339(i), Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, jednozasadowy
 pt:E339(i), Fosfato monossódico, Monofosfato monossódico, monofosfato ácido monossódico, ortofosfato monossódico, fosfato de sódio monobásico
 ro:E339(i), Fosfat monosodic, Monofosfat monosodic, Acid monofosfat monosodic, Ortofosfat monosodic, Fosfat de sodiu monobazic
 ru:E339(i), Дигидрофосфат натрия
@@ -8478,6 +8493,12 @@ sl:E340, E340 food additive
 sv:E340, E340 food additive
 e_number:en:340
 wikidata:en:Q3381491
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -8589,6 +8610,12 @@ sv:E341, Kalciumfosfater, Kalciumfosfat
 e_number:en:341
 mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q426664
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 organic_eu:en:authorized
 vegan:en:yes
@@ -8734,6 +8761,12 @@ sl:E343, E343 food additive
 sv:E343, E343 food additive
 e_number:en:343
 wikidata:en:Q2634889
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -9251,21 +9284,21 @@ wikidata:en:Q4747299
 vegan:en:yes
 vegetarian:en:yes
 
-en:E363, Succinic acid, Asuccin, Amber acid, 1\,2-Ethanedicarboxylic acid, Butanedioic acid, Bernsteinsaeure, Ethylenesuccinic acid, Spirit of amber, Butanedionic acid, Bernsteinsaure, Succinate, Butandisaeure, Dihydrofumaric acid, Acidum succinicum, Acide butanedioique, Acide succinique, HOOC-CH2-CH2-COOH
+en:E363, Succinic acid, Asuccin, Amber acid, 1/2-Ethanedicarboxylic acid, Butanedioic acid, Bernsteinsaeure, Ethylenesuccinic acid, Spirit of amber, Butanedionic acid, Bernsteinsaure, Succinate, Butandisaeure, Dihydrofumaric acid, Acidum succinicum, Acide butanedioique, Acide succinique
 bg:E363, Сукцинова киселина, Янтарна киселина, Бискарбоксиметил, Бутандиова киселина
 ca:E363, Àcid succínic, acid succinic
-cs:E363, Kyselina jantarová, Sukcinát, E 363
-da:E363, Ravsyre, Succinat, E-363
-de:E363, Bernsteinsäure, 1\,4-Butandisäure, E 363, Succinylsäure, Butandisäure
+cs:E363, Kyselina jantarová, Sukcinát
+da:E363, Ravsyre, Succinat
+de:E363, Bernsteinsäure, 1/4-Butandisäure, Succinylsäure, Butandisäure
 el:E363, Ηλεκτρικο οξυ
-es:E363, Ácido succínico, Ácido butanodioico, E 363, Succinato
+es:E363, Ácido succínico, Ácido butanodioico, Succinato
 et:E363, Merevaikhape
 fi:E363, Meripihkahappo, Butaanidikarbonihappo, Butaanidihappo, Sukkiinihappo, Meripihkahappoa, Butaanidikarbonihappoa, Butaanidihappoa, Sukkiinihappoa
-fr:E363, Acide succinique, Succinate, 110-15-6, Acide butanedioïque
+fr:E363, Acide succinique, Succinate, Acide butanedioïque
 hu:E363, Borostyánkősav
-it:E363, Acido succinico, HOOCCH2CH2COOH, Succinato, Acido 1\,4-butandioico
+it:E363, Acido succinico, Succinato, Acido 1/4-butandioico
 lt:E363, Gintaro rūgštis
-lv:E363, Dzintarskābe, Hooc(ch2)2cooh, C4h6o4, Butāndiskābe, Sukcināts, Etāndikarbonskābe
+lv:E363, Dzintarskābe, Butāndiskābe, Sukcināts, Etāndikarbonskābe
 mt:E363, Aċidu suċċiniku
 nl:E363, Barnsteenzuur, Succinyl, Succinaat, Butaandizuur
 pl:E363, Kwas bursztynowy, Bursztynian
@@ -9273,7 +9306,7 @@ pt:E363, Ácido succínico, Succinato, Ácido butanodióico
 ro:E363, Acid succinic
 sk:E363, Kyselina jantárová
 sl:E363, Jantarna kislina
-sv:E363, Bärnstenssyra, Bärnstensyra, E 363, Bernstenssyra
+sv:E363, Bärnstenssyra, Bärnstensyra, Bernstenssyra
 e_number:en:363
 wikidata:en:Q213050
 vegan:en:yes
@@ -9520,13 +9553,16 @@ wikidata:en:Q473522
 vegan:en:yes
 vegetarian:en:yes
 
+
+description:en:Calcium glycerylphosphate (or calcium glycerophosphate) is a mineral supplement
 en:E383, Calcium glycerylphosphate
+ar:E383, فوسفات غليسيريل الكالسيوم
 bg:E383, E383 food additive
 cs:E383, E383 food additive
 da:E383, E383 food additive
-de:E383, E383 food additive
+de:E383, Calciumglycerophosphat
 el:E383, E383 food additive
-es:E383, E383 food additive
+es:E383, glicerofosfato de calcio
 et:E383, E383 food additive
 fi:E383, Kalsiumglyserofosfaatti, Kalsiumglyserofosfaattia
 fr:E383, Glycerophosphate de calcium
@@ -9535,15 +9571,20 @@ it:E383, E383 food additive
 lt:E383, E383 food additive
 lv:E383, E383 food additive
 mt:E383, E383 food additive
-nl:E383, E383 food additive
+nl:E383, calciumglycerofosfaat
 pl:E383, E383 food additive
 pt:E383, E383 food additive
 ro:E383, E383 food additive
+ru:E383, Глицерофосфат кальция
+sh:E383, Kalcijum glicerilfosfat
 sk:E383, E383 food additive
 sl:E383, E383 food additive
+sr:E383, Kalcijum glicerilfosfat
 sv:E383, E383 food additive
 e_number:en:383
 wikidata:en:Q4119838
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
+# ingredient/calcium-glycerophosphate has 1 product in french @2018-12-11
 vegan:en:yes
 vegetarian:en:yes
 
@@ -10203,7 +10244,7 @@ cs:E410, Guma karubin
 da:E410, Locust bean gum
 de:E410, Johannisbrotgummi
 el:E410, Κομμι χαρουπιων, κόμμι γκουάρ
-es:E410, Goma garrofín, Goma de garrofín, Goma de semillas de algarrobo, goma de garrofina
+es:E410, Goma garrofín, Goma de garrofín, goma de algarrobo, Goma de semillas de algarrobo, goma de garrofina
 et:E410, E410 food additive
 eu:E410, algarrobo-goma
 fi:E410, Karobikumi, Karobikumia
@@ -11670,7 +11711,7 @@ en:E541, Sodium aluminium phosphate
 bg:E541, Натриевоалуминиев фосфат
 ca:E541, Fosfat de sodi i alumini
 cs:E541, fosforečnan sodno-hlinitý
-da:E541, Natriumaluminiumphosphat
+da:E541, Natriumaluminiumphosphater
 de:E541, Natriumaluminiumphosphat
 el:E541, E541 food additive
 es:E541, Fosfato de aluminio y sodio
@@ -11682,7 +11723,7 @@ it:E541, Fosfato di sodio e alluminio
 lt:E541, Natrio aliuminio fosfatas
 lv:E541, Skābais nātrija alumīnija fosfāts
 mt:E541, Fosfat tas-sodju u tal-aluminju
-nl:E541, Natriumaluminiumfosfaat
+nl:E541, Natriumaluminiumfosfaten
 pl:E541, Fosforan glinowo-sodowy
 pt:E541, Fosfato de alumínio e sódio
 ro:E541, Fosfat de aluminiu și sodiu
@@ -11942,6 +11983,12 @@ sl:E450, E450 food additive
 sv:E450, Difosfater, Pyrofosfat
 e_number:en:450
 wikidata:en:Q290828
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -11957,7 +12004,7 @@ el:E450(i), Δισοξινο πυροφωσφορικο νατριο
 es:E450(i), Difosfato disódico, Pirofosfato ácido de sodio
 et:E450(i), Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fi:E450(i), Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti, Dinatriumdifosfaattia, Dinatriumdivetydifosfaattia, Dinatriumdivetypyrofosfaattia, E450a
-fr:E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
+fr:E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate
 hu:E450(i), Dinátrium-difoszfát
 it:E450(i), Difosfato disodico
 lt:E450(i), Dinatrio difosfatas
@@ -12165,32 +12212,39 @@ wikidata:en:Q290828
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 
 
-en:E451, Triphosphates, sodium triphosphate
+#comment:en:E451 is the triphosphates group, either bound with sodium (i) or potassium (ii).
+en:E451, Triphosphates
 bg:E451, E451 food additive
 ca:E451, Trifosfat
 cs:E451, E451 food additive
 da:E451, E451 food additive
-de:E451, Natriumtripolyphosphat
-el:E451, Τριφωσφορικο νατριο, Τριπολυφωσφορικό νάτριο
-es:E451, Tripolifosfato de sodio,trifosfato pentasodico
+de:E451, Tripolyphosphat
+el:E451, Τριφωσφορικο, Τριπολυφωσφορικό
+es:E451, Tripolifosfatos, trifosfatos
 et:E451, E451 food additive
 fi:E451, Trifosfaatit, Trifosfaatteja
-fr:E451, Triphosphates, E450b, Tripolyphosphates, triphosphate de sodium
+fr:E451, Triphosphates, Tripolyphosphates
 hu:E451, E451 food additive
-it:E451, trifosfato pentasodico, Trifosfato di sodio, Polifosfato di sodio, Na5P3O10
+it:E451, trifosfati, Polifosfati
 lt:E451, E451 food additive
 lv:E451, E451 food additive
 mt:E451, E451 food additive
-nl:E451, Trifosfaten, Natriumtripolyfosfaat
+nl:E451, Trifosfaten, 
 pl:E451, E451 food additive
-pt:E451, Tripolifosfato de sódio, Trifosfato de sódio
+pt:E451, Tripolifosfato, Trifosfato
 ro:E451, E451 food additive
-ru:E451, Tрифосфаты, трифосфат натрия, Триполифосфат натрия
+ru:E451, Tрифосфаты
 sk:E451, E451 food additive
 sl:E451, E451 food additive
-sv:E451, Natriumtrifosfat
+sv:E451, Trifosfat
 e_number:en:451
 wikidata:en:Q29145
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -12275,6 +12329,12 @@ sl:E452, E452 food additive
 sv:E452, Polyfosfater
 e_number:en:452
 wikidata:en:Q11867365
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
+efsa_evaluation_date:en: 2019/06/12
+efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates (E 338–341, E 343, E 450–452) as food additives and the safety of proposed extension of use
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers, en:infants
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
@@ -12671,7 +12731,7 @@ pl:E460(ii), Celuloza sproszkowana, Oczyszczona
 pt:E460(ii), Celulose em pó
 ro:E460(ii), Celuloză pulbere
 sk:E460(ii), Prášková celulóza
-sl:E460(ii), Celuloza, uprašena, čiščena, mehanično razgrajena celuloza, pripravljena iz alfaceluloze
+sl:E460(ii), uprašena, čiščena, mehanično razgrajena celuloza, pripravljena iz alfaceluloze
 sv:E460(ii), Cellulosapulver, Renad
 e_number:en:460
 wikidata:en:Q80294
@@ -12855,7 +12915,7 @@ cs:E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová g
 da:E466, Natriumcarboxymethylcellulose (carboxymethylcellulose og cellulosegummi), Cellulosegummi
 de:E466, Carboxymethylcellulose, natrium-carboxymethylcellulose, cellulosegummi, CMC, NaCMC, Carboxymethylcellulosen, Carboxymethylzellulose, E 466, Natriumcarboxymethylcellulose
 el:E466, Αλας με νατριο της καρβοξυμεθυλοκυτταρινης, καρβοξυμεθυλοκυτταρινη, κομμι κυτταρινης, CMC, NaCMC
-es:E466, Carboximetilcelulosa sódica, carboximetilcelulosa, carboximetil celulosa, goma de celulosa, CMC, NaCMC
+es:E466, Carboximetilcelulosa sódica, carboximetil celulosa de sodio, carboximetilcelulosa, carboximetil celulosa, goma de celulosa, CMC, NaCMC
 et:E466, Naatriumkarboksümetüültselluloos, Karboksümetüültselluloos
 fi:E466, Karboksimetyyliselluloosa, Natriumkarboksimetyyliselluloosa, CMC, selluloosakumi, Karboksimetyyliselluloosaa, Natriumkarboksimetyyliselluloosaa, selluloosakumia
 fr:E466, Carboxyméthylcellulose, Gomme cellulosique, CMC sodique, CMC, Carboxyméthylcellulose sodique, Carboxyméthylcellulose de sodium, Carboxyméthyl-cellulose sodique, Gomme de cellulose, Gommes de cellulose, épaississant 466, NaCMC, Carboxyméthyl cellulose, 9004-32-4, Carmellose sodique, Carboxyle méthyle cellulose
@@ -12997,29 +13057,29 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-en:E470a, Sodium\, potassium and calcium salts of fatty acids, Sodium\, potassium and calcium salts of fatty acids
-bg:E470a, Натриеви\, калиеви и калциеви соли на мастни киселини
+en:E470a, Sodium/potassium and calcium salts of fatty acids, Sodium/potassium and calcium salts of fatty acids
+bg:E470a, Натриеви/калиеви и калциеви соли на мастни киселини
 ca:E470a, Sal sòdica d'àcids grassos
-cs:E470a, Sodné\, draselné a vápenaté soli mastných kyselin
-da:E470a, Natrium-\, kalium- og calciumsalte af fedtsyrer
-de:E470a, Natrium-\, Kalium- und Calciumsalze der Speisefettsäuren
-el:E470a, Αλατα λιπαρων οξεων με νατριο, καλιο και ασβεστιο, Άλατα με νάτριο
-es:E470a, Sales sódicas\, potásicas y cálcicas de ácidos grasos
-et:E470a, Rasvhapete naatrium-\, kaalium- ja kaltsiumsoolad
-fi:E470a, Rasvahappojen natrium-\, kalium- ja kalsiumsuolat, Rasvahappojen natrium-\, kalium- ja kalsiumsuoloja
+cs:E470a, Sodné/draselné a vápenaté soli mastných kyselin
+da:E470a, Natrium-/kalium- og calciumsalte af fedtsyrer
+de:E470a, Natrium-/Kalium- und Calciumsalze der Speisefettsäuren
+el:E470a, Αλατα λιπαρων οξεων με νατριο/καλιο και ασβεστιο
+es:E470a, Sales sódicas/ potásicas y cálcicas de ácidos grasos
+et:E470a, Rasvhapete naatrium-/kaalium- ja kaltsiumsoolad
+fi:E470a, Rasvahappojen natrium-/kalium- ja kalsiumsuolat, Rasvahappojen natrium-/kalium- ja kalsiumsuoloja
 fr:E470a, Stéarate de sodium/potassium/calcium, Stéarate de sodium, Stéarate de potassium, Stéarate de calcium, Sels de sodium de potassium et de calcium d'acides gras
-hu:E470a, Zsírsavak nátrium-\, kálium- és kalciumsói
-it:E470a, Sali di sodio\, di potassio e di calcio degli acidi grassi
-lt:E470a, Sodium\, potassium and calcium salts of fatty acids
-lv:E470a, Taukskābju nātrija\, kālija un kalcija sāļi, Taukskābju nātrija
-mt:E470a, L-imlieħ tas-sodju\, il-potassju u l-kalċju tal-aċidi grassi
-nl:E470a, Natrium-\, kalium- en calciumzouten van vetzuren
-pl:E470a, Sole sodowe\, potasowe i wapniowe kwasów tłuszczowych
-pt:E470a, Sais de sódio\, potássio e cálcio de ácidos gordos, Sais de sódio
-ro:E470a, Săruri de sodiu\, potasiu și calciu ale acizilor grași
-sk:E470a, Sodné\, draselné a vápenaté soli mastných kyselín
-sl:E470a, Natrijeve\, kalijeve in kalcijeve soli maščobnih kislin, natrijeve
-sv:E470a, Natrium-\, kalium- och kalciumsalter av fettsyror, Natrium-
+hu:E470a, Zsírsavak nátrium-/kálium- és kalciumsói
+it:E470a, Sali di sodio/di potassio e di calcio degli acidi grassi
+lt:E470a, Sodium/potassium and calcium salts of fatty acids
+lv:E470a, Taukskābju nātrija/kālija un kalcija sāļi
+mt:E470a, L-imlieħ tas-sodju/il-potassju u l-kalċju tal-aċidi grassi
+nl:E470a, Natrium-/kalium- en calciumzouten van vetzuren
+pl:E470a, Sole sodowe/potasowe i wapniowe kwasów tłuszczowych
+pt:E470a, Sais de sódio/potássio e cálcio de ácidos gordos
+ro:E470a, Săruri de sodiu/potasiu și calciu ale acizilor grași
+sk:E470a, Sodné/draselné a vápenaté soli mastných kyselín
+sl:E470a, Natrijeve/kalijeve in kalcijeve soli maščobnih kislin
+sv:E470a, Natrium-/kalium- och kalciumsalter av fettsyror
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 e_number:en:470a
 vegan:en:maybe
@@ -13251,9 +13311,9 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-en:E472e, Mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids, Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, DATEM
+en:E472e, Mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids, Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, DATEM, Mono- and diacetyltartaric esters of mono- and diglycerides of fatty acids
 bg:E472e, Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини
-ca:E472e, Èster monoacetiltartàric o diacetiltartàric de monoglicèrids o diglicèrids d'àcids grassos
+ca:E472e, Èsters monoacetil i diacetil tartàrics de monoglicèrids i diglicèrids d'àcids grassos, èster monoacetiltartàric o diacetiltartàric de monoglicèrids o diglicèrids d'àcids grassos
 cs:E472e, Estery mono- a diglyceridů mastných kyselin s kyselinou mono- a diacetylvinnou
 da:E472e, Mono- og diacetylvinsyreestere af mono- og diglycerider af fedtsyrer
 de:E472e, Mono- und Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren, Diacetylweinsäureglyceride, Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren, E 472e
@@ -13599,7 +13659,7 @@ vegetarian:en:maybe
 # origin:en:pork:en:maybe
 en:E481, Sodium stearoyl-2-lactylate, Sodium stearoyl lactylate
 bg:E481, Натриев стераоил-2-лактилат, Натриев стеароил лактилат
-ca:E481, Estearoïl-2-lactilat de sodi
+ca:E481, Estearoïl-2-lactilat de sodi, estearoïl-2-lactilat sòdic
 cs:E481, Stearoyl-2-mléčnan sodný, Stearoyllaktylát sodný
 da:E481, Natriumstearoyllactylat, Natriumstearoyllactylat
 de:E481, Natriumstearoyl-2-lactylat, Natriumstearoyllaktylat, E 481, Natriumstearoyllactylat
@@ -14126,7 +14186,7 @@ vegetarian:en:yes
 en:E500, Sodium carbonates
 bg:E500, E500 food additive
 ca:E500, E500 food additive
-cs:E500, Uhličitan sodný
+cs:E500, E500 food additive
 da:E500, Natriumcarbonater
 de:E500, Natriumcarbonate
 el:E500, E500 food additive
@@ -14178,7 +14238,7 @@ et:E500(i), Naatriumkarbonaat
 fa:E500(i), سدیم کربنات
 fi:E500(i), Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda
 fi:E500(i), , Sooda, Pesusooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
-fr:E500(i), Carbonate de sodium, sodium, Carbonate acide de sodium, Carbonate de soude, Cristaux de soude
+fr:E500(i), Carbonate de sodium, Carbonate de soude, Cristaux de soude
 gv:E500(i), Carboanaayt sodjum
 he:E500(i), נתרן פחמתי
 hi:E500(i), क्षारातु प्रांगारीय
@@ -14245,7 +14305,7 @@ organic_eu:en:authorized
 # comment:en:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
 <en:E500
-en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda
+en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 af:E500(ii), Natriumbikarbonaat
 ar:E500(ii), بيكربونات الصوديوم
 bg:E500(ii), Натриев бикарбонат
@@ -14494,21 +14554,22 @@ e_number:en:502
 vegan:en:yes
 vegetarian:en:yes
 
-#comment:en:Use plural for 
- and singular(specific) for E503i
+
+
+#comment:en:Use plural for E503 and singular(specific) for E503i
 en:E503, Ammonium carbonates
 bg:E503, E503 food additive
-ca:E503, E503 food additive
+ca:E503, carbonatos de amonio
 cs:E503, E503 food additive
-da:E503, E503 food additive
+da:E503, ammoniumcarbonater
 de:E503, Ammoniumcarbonaten
 el:E503, E503 food additive
 es:E503, Carbonatos de amonio
 et:E503, E503 food additive
-fi:E503, E503 food additive
+fi:E503, ammoniumkarbonaatit
 fr:E503, Carbonates d'ammonium
 hu:E503, E503 food additive
-it:E503, Carbonati d'ammonio
+it:E503, Carbonati d'ammonio, carbonati di ammonio
 lt:E503, E503 food additive
 lv:E503, E503 food additive
 mt:E503, E503 food additive
@@ -14527,60 +14588,115 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+description:en:Ammonium carbonate is a salt with the chemical formula (NH4)2CO3. Since it readily degrades to gaseous ammonia and carbon dioxide upon heating, it is used as a leavening agent. It is also known as baker's ammonia and was a predecessor to the more modern leavening agents baking soda and baking powder.
 <en:E503
 en:E503(i), Ammonium carbonate
+af:E503(i), Ammoniumkarbonaat
+ar:E503(i), كربونات الأمونيوم
 bg:E503(i), Амониев карбонат
 ca:E503(i), Carbonat d'amoni
 cs:E503(i), Uhličitan amonný
 da:E503(i), Ammoniumcarbonat
 de:E503(i), Ammoniumcarbonat
 el:E503(i), Ανθρακικα αλατα του αμμωνιου
+eo:E503(i), Amonia karbonato
 es:E503(i), Carbonato de amonio, Carbonato amónico, carbonato de aminiaco
 et:E503(i), Ammooniumkarbonaat
+fa:E503(i), آمونیوم کربنات
 fi:E503(i), Ammoniumkarbonaatti, Ammoniumkarbonaattia
 fr:E503(i), Carbonate d'ammonium
 hu:E503(i), Ammónium-karbonát
+hy:E503(i), Ամոնիումի կարբոնատ
+id:E503(i), Amonium karbonat
+is:E503(i), Hjartarsalt
 it:E503(i), Carbonato d'ammonio
+ja:E503(i), 炭酸アンモニウム
+ko:E503(i), 탄산 암모늄
 lt:E503(i), Amonio karbonatas
 lv:E503(i), Amonija karbonāts
 mt:E503(i), Karbonat tal-ammonju
 nl:E503(i), Ammoniumcarbonaat
+nn:E503(i), ammoniumkarbonat
 pl:E503(i), Węglan amonu
 pt:E503(i), Carbonato de amónio
 ro:E503(i), Carbonat de amoniu
+ru:E503(i), карбонат аммония
+sh:E503(i), Amonijum karbonat
 sk:E503(i), Uhličitan amónny
 sl:E503(i), Amonijev karbonat
+sr:E503(i), Amonijum karbonat
 sv:E503(i), Ammoniumkarbonat
+th:E503(i), แอมโมเนียมคาร์บอเนต
+uz:E503(i), Ammoniy karbonat
+vi:E503(i), Amoni cacbonat
+zh:E503(i), 碳酸铵
+# azb:E503(i), آمونیوم کربونات
+# en-ca:E503(i), Ammonium carbonate
+# en-gb:E503(i), Ammonium carbonate
+# pt-br:E503(i), Carbonato de amônio
+wikidata:en:Q204873
+wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_carbonate
+# ingredient/fr:carbonate-d'ammonium has 1983 products in 19 languages @2019-04-05
+# additive/e503i-ammonium-carbonate has 584 products in 21 languages @2019-04-05
+e_number:en:503
+organic_eu:en:authorized
+
+description:en:Ammonium bicarbonate is an inorganic compound with formula (NH4)HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
+<en:E503
+en:E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn, Ammonium bicarbonate
+ar:E503(ii), بيكربونات الأمونيوم
+bg:E503(ii), Амониев хидроген карбонат
+ca:E503(ii), carbonat àcid d'amoni, bicarbonato amonico
+cs:E503(ii), Hydrogenuhličitan amonný
+da:E503(ii), Ammoniumhydrogencarbonat, Hjortetakssalt, ammoniumvätekarbonat
+de:E503(ii), Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat, Hirschhornsalz
+el:E503(ii), Οξινο ανθρακικο αμμωνιο
+eo:E503(ii), Amonia bikarbonato
+es:E503(ii), Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico, bicarbonatado de amonio
+et:E503(ii), Ammooniumvesinikkarbonaat
+fa:E503(ii), بی‌کربنات آمونیوم
+fi:E503(ii), Ammoniumvetykarbonaatti, Ammoniumvetykarbonaattia, hirvensarvisuola
+fr:E503(ii), Carbonate acide d'ammonium, bicarbonate d'ammonium
+gl:E503(ii), Bicarbonato amónico
+hi:E503(ii), अमोनियम बाईकार्बोनेट
+hu:E503(ii), Ammónium-hidrogén-karbonát
+is:E503(ii), Ammoníumbíkarbónat
+it:E503(ii), Carbonato acido di ammonio, carbonato acido d'ammonio, Bicarbonato di ammonio
+ja:E503(ii), 炭酸水素アンモニウム
+ko:E503(ii), 탄산 수소 암모늄
+lt:E503(ii), Amonio hidrokarbonatas
+lv:E503(ii), Amonija hidrogēnkarbonāts
+mk:E503(ii), Амониум бикарбонат
+mt:E503(ii), Karbonat idroġenat tal-ammonju
+nb:E503(ii), Ammoniumhydrogenkarbonat
+nl:E503(ii), Ammoniumwaterstofcarbonaat
+nn:E503(ii), Hjortetakksalt
+pl:E503(ii), Wodorowęglan amonu
+pt:E503(ii), Hidrogenocarbonato de amónio, carbonato ácido de amónio
+ro:E503(ii), Bicarbonat de amoniu, Carbonat acid de amoniu
+ru:E503(ii), гидрокарбонат аммония
+sh:E503(ii), Amonijum bikarbonat
+sk:E503(ii), Hydrogenuhličitan amónny
+sl:E503(ii), Amonijev hidrogenkarbonat, hjorthornssalt
+sr:E503(ii), Amonijum bikarbonat
+sv:E503(ii), Ammoniumvätekarbonat
+te:E503(ii), అమ్మోనియం బైకార్బొనేట్
+th:E503(ii), แอมโมเนียมไบคาร์บอเนต
+zh:E503(ii), 碳酸氢铵
+# azb:E503(ii), بیکربونات آمونیوم
+# zh-cn:E503(ii), 碳酸氢铵
+# zh-hans:E503(ii), 碳酸氢铵
+# zh-hant:E503(ii), 碳酸氫銨
+# zh-hk:E503(ii), 碳酸氫銨
+# zh-sg:E503(ii), 碳酸氢铵
+# zh-tw:E503(ii), 碳酸氫銨
+wikidata:en:Q421123
+wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_bicarbonate
+# additive/e503ii-ammonium-hydrogen-carbonate has 1665 products in 23 languages @2019-04-05
 e_number:en:503
 wikidata:en:Q204873
 organic_eu:en:authorized
 
-<en:E503
-en:E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn
-bg:E503(ii), Амониев хидроген карбонат
-cs:E503(ii), Hydrogenuhličitan amonný
-da:E503(ii), Ammoniumhydrogencarbonat, Hjortetakssalt
-de:E503(ii), Ammoniumhydrogencarbonat
-el:E503(ii), Οξινο ανθρακικο αμμωνιο
-es:E503(ii), Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico, bicarbonatado de amonio
-et:E503(ii), Ammooniumvesinikkarbonaat
-fi:E503(ii), Ammoniumvetykarbonaatti, Ammoniumvetykarbonaattia, hirvensarvisuola
-fr:E503(ii), Carbonate acide d'ammonium
-hu:E503(ii), Ammónium-hidrogén-karbonát
-it:E503(ii), Carbonato acido di ammonio
-lt:E503(ii), Amonio hidrokarbonatas
-lv:E503(ii), Amonija hidrogēnkarbonāts
-mt:E503(ii), Karbonat idroġenat tal-ammonju
-nl:E503(ii), Ammoniumwaterstofcarbonaat
-pl:E503(ii), Wodorowęglan amonu
-pt:E503(ii), Hidrogenocarbonato de amónio
-ro:E503(ii), Bicarbonat de amoniu, Carbonat acid de amoniu
-sk:E503(ii), Hydrogenuhličitan amónny
-sl:E503(ii), Amonijev hidrogenkarbonat, hjorthornssalt
-sv:E503(ii), Ammoniumvätekarbonat
-e_number:en:503
-wikidata:en:Q204873
-organic_eu:en:authorized
 
 #comment:en:Use plural for E504 and singular (specific) for E504i
 en:E504, Magnesium carbonates
@@ -14589,7 +14705,7 @@ ca:E504, E504 food additive
 cs:E504, E504 food additive
 da:E504, Magnesiumcarbonater
 de:E504, Magnesiumcarbonaten
-el:E504, Ανθρακικό μαγνήσιο
+el:E504, E504 food additive
 es:E504, Carbonatos de magnesio
 et:E504, E504 food additive
 fi:E504, Magnesiumkarbonaatit
@@ -14613,35 +14729,65 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+description:en:MAGNESIUM CARBONATE  , MgCO3 (archaic name magnesia alba), is an inorganic salt that is a white solid.
 <en:E504
 en:E504(i), Magnesium carbonate
+ar:E504(i), كربونات المغنسيوم
 bg:E504(i), Магнезиев карбонат
+bs:E504(i), Magnezijum karbonat
 ca:E504(i), Carbonat de magnesi
 cs:E504(i), Uhličitan hořečnatý
 da:E504(i), Magnesiumcarbonat
 de:E504(i), Magnesiumcarbonat
-el:E504(i), Ανθρακικα αλατα του μαγνησιου
+el:E504(i), Ανθρακικό μαγνήσιο, Ανθρακικα αλατα του μαγνησιου
+eo:E504(i), magnezia karbonato
 es:E504(i), Carbonato de magnesio
 et:E504(i), Magneesiumkarbonaat
+fa:E504(i), منیزیم کربنات
 fi:E504(i), Magnesiumkarbonaatti, Magnesiumkarbonaattia
 fr:E504(i), Carbonate de magnésium
+ga:E504(i), carbónáit mhaignéisiam
+hi:E504(i), मैग्निसियम कार्बोनेट
 hu:E504(i), Magnézium-karbonát
 it:E504(i), Carbonato di magnesio
+ja:E504(i), 炭酸マグネシウム
+ky:E504(i), Магний карбонаты
 lt:E504(i), Magnio karbonatas
 lv:E504(i), Magnija karbonāts
 mt:E504(i), Karbonat tal-manjeżju
+nb:E504(i), Magnesiumkarbonat
 nl:E504(i), Magnesiumcarbonaat
+nn:E504(i), magnesiumkarbonat
 pl:E504(i), Węglan magnezu
 pt:E504(i), Carbonato de magnésio
 ro:E504(i), Carbonat de magneziu
+ru:E504(i), карбонат магния
+sh:E504(i), Magnezijum karbonat
 sk:E504(i), Uhličitan horečnatý
 sl:E504(i), Magnezijev karbonat
+sr:E504(i), магнезијум карбонат
 sv:E504(i), Magnesiumkarbonat
+ta:E504(i), மக்னீசியம் கார்பனேட்டு
+th:E504(i), แมกนีเซียมคาร์บอเนต
+uk:E504(i), Карбонат магнію
+vi:E504(i), magie cacbonat
+zh:E504(i), 碳酸鎂
+# azb:E504(i), منیزیوم کربونات
+# sr-ec:E504(i), магнезијум карбонат
+# sr-el:vMagnezijum karbonat
+# zh-cn:E504(i), 碳酸镁
+# zh-hans:E504(i), 碳酸镁
+# zh-hant:E504(i), 碳酸鎂
+# zh-hk:E504(i), 碳酸鎂
+# zh-sg:E504(i), 碳酸镁
+# zh-tw:E504(i), 碳酸鎂
 e_number:en:504
 mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
 wikidata:en:Q407931
 additives_classes:en: en:carrier
 organic_eu:en:authorized
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_carbonate
+# ingredient/fr:carbonates-de-magnésium has 61 products in 4 languages @2019-03-20
 
 <en:E504
 en:E504(ii), Magnesium hydroxide carbonate
@@ -14789,28 +14935,90 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+
+
+description:en:Ammonium chloride is an inorganic compound with the formula NH4Cl and a white crystalline salt that is highly soluble in water.
 en:E510, Ammonium chloride, ammonia solution
-bg:E510, E510 food additive
-cs:E510, E510 food additive
-da:E510, Salmiak, Ammoniumklorid
-de:E510, E510 food additive
-el:E510, E510 food additive
-es:E510, E510 food additive
-et:E510, E510 food additive
-fi:E510, Salmiakki, Ammoniumkloridi, Salmiakkia, Ammoniumkloridia
+af:E510, Ammoniumchloried
+ar:E510, كلوريد الأمونيوم
+bg:E510, Амониев хлорид
+bn:E510, অ্যামোনিয়াম ক্লোরাইড
+bs:E510, Amonijum hlorid
+ca:E510, clorur d'amoni
+cs:E510, Chlorid amonný
+cy:E510, Amoniwm clorid
+da:E510, Ammoniumklorid, Salmiak
+de:E510, Ammoniumchlorid
+el:E510, Χλωριούχο αμμώνιο
+eo:E510, Amonia klorido
+es:E510, Cloruro de amonio
+et:E510, Ammooniumkloriid
+fa:E510, آمونیوم کلرید
+fi:E510, Ammoniumkloridi, Salmiakki,  Salmiakkia, Ammoniumkloridia
 fr:E510, Chlorure d'ammonium
-hu:E510, E510 food additive
-it:E510, E510 food additive
+he:E510, אמוניום כלוריד
+hi:E510, नौसादर
+hr:E510, Amonijev klorid
+hu:E510, Ammónium-klorid
+hy:E510, Ամոնիումի քլորիդ
+id:E510, amonium klorida
+is:E510, Ammoníumklóríð, salmíaksalt
+it:E510, Cloruro d'ammonio
+ja:E510, 塩化アンモニウム
+jv:E510, Amonium klorida
+ka:E510, ამონიუმქლორიდი
+ko:E510, 염화 암모늄
+ku:E510, Amonyûmklorîd
+ky:E510, Аммоний хлориди
 lt:E510, E510 food additive
-lv:E510, E510 food additive
+lv:E510, amonija hlorīds
+ml:E510, navasaram
+ms:E510, Amonium klorida
 mt:E510, E510 food additive
-nl:E510, Ammoniumchloride
-pl:E510, E510 food additive
-pt:E510, E510 food additive
-ro:E510, E510 food additive
-sk:E510, E510 food additive
-sl:E510, E510 food additive
+my:E510, ဇဝက်သာ
+nb:E510, Salmiakk
+nl:E510, Ammoniumchloride, salmiakzout
+nn:E510, ammoniumklorid
+pa:E510, ਨਸਾਦਰ
+pl:E510, chlorek amonu
+pt:E510, cloreto de amónio
+ro:E510, Clorură de amoniu
+ru:E510, хлорид аммония
+sh:E510, Amonijum hlorid
+sk:E510, Chlorid amónny
+sl:E510, Amonijev klorid
+sr:E510, амонијум хлорид
 sv:E510, Salmiak, Ammoniumklorid
+ta:E510, அம்மோனியம் குளோரைடு
+te:E510, అమ్మోనియం క్లోరైడ్
+tg:E510, Навшодир
+th:E510, แอมโมเนียมคลอไรด์
+tr:E510, Amonyum klorür
+uk:E510, хлорид амонію
+ur:E510, نشادر
+uz:E510, Ammoniy xlorid
+vi:E510, Amoni clorua
+zh:E510, 氯化铵
+# azb:E510, آمونیوم کولورید
+# csb:E510, Salmiak
+# en-ca:E510, Ammonium chloride
+# en-gb:E510, Ammonium chloride
+# ku-arab:E510, ئامۆنیوومکلۆرید
+# ku-latn:E510, Amonyûmklorîd
+# pt-br:E510, cloreto de amônio
+# sco:E510, ammonium chloride
+# sr-ec:E510, амонијум хлорид
+# sr-el:E510, Amonijum hlorid
+# zh-cn:E510, 氯化铵
+# zh-hans:E510, 氯化铵
+# zh-hant:E510, 氯化銨
+# zh-hk:E510, 氯化銨
+# zh-sg:E510, 氯化铵
+# zh-tw:E510, 氯化銨
+wikidata:en:Q188543
+wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_chloride
+# ingredient/fr:chlorure-d’ammonium has 34 products in 3 languages @2019-02-10
+# additive/e510-ammonium-chloride has 133 products @2019-02-10
 e_number:en:510
 vegan:en:yes
 vegetarian:en:yes
@@ -14924,7 +15132,7 @@ pl:E514, E514 food additive
 pt:E514, Sulfatos de sódio
 ro:E514, Sulfati de sodiu, Sulfati de natriu
 sk:E514, E514 food additive
-sl:E514, Natrijev sulfat
+sl:E514, E514 food additive
 sv:E514, Natriumsulfater
 e_number:en:514
 wikidata:en:Q211737
@@ -14993,7 +15201,7 @@ es:E515, Sulfatos de potasio
 et:E515, E515 food additive
 fi:E515, Kaliumsulfaattit
 fr:E515, Sulfates de potassium
-hu:E515, Kálium-szulfát
+hu:E515, E515 food additive
 it:E515, Solfatos di potassio
 lt:E515, E515 food additive
 lv:E515, E515 food additive
@@ -15004,7 +15212,7 @@ pt:E515, Sulfatos de potássio
 ro:E515, Sulfati de potasiu
 sk:E515, E515 food additive
 sl:E515, E515 food additive
-sv:E515, Kaliumsulfat
+sv:E515, Kaliumsulfater
 e_number:en:515
 wikidata:en:Q193054
 vegan:en:yes
@@ -15013,7 +15221,7 @@ vegetarian:en:yes
 <en:E515
 en:E515(i), Potassium sulphate
 bg:E515(i), Калиев сулфат
-ca:E515(i), Sulfats de potassi
+ca:E515(i), Sulfat de potassi
 cs:E515(i), Síran draselný
 da:E515(i), Kaliumsulfat
 de:E515(i), Kaliumsulfat
@@ -15369,7 +15577,7 @@ mt:E526, Idrossidu tal-kalċju, Ġir bl-ilma
 nl:E526, Calciumhydroxide, Gebluste kalk, Kalkmelk, Calciumdihydroxide, Kalkwater
 pl:E526, Wodorotlenek wapnia, Wapno gaszone, Wapno lasowane
 pt:E526, Hidróxido de cálcio, Cal apagada, Cal hidratada
-ro:E526, Hidroxid de calciu, Var stins, Hidroxid de bor
+ro:E526, Hidroxid de calciu, Var stins
 ru:E526, Гидроксид кальция, Гашеная известь, Кальция гидроксид, Известковое молоко, Кальция гидроокись, Ca(OH)2, Известковая вода, Пушонка
 sk:E526, Hydroxid vápenatý, Hasené vápno, Vápenné mlieko
 sl:E526, Kalcijev hidroksid, gašeno apno
@@ -15414,24 +15622,24 @@ bg:E528, Магнезиев хидроксид
 ca:E528, Hidròxid de magnesi, hidroxid de magnesi
 cs:E528, Hydroxid hořečnatý
 da:E528, Magnesiumhydroxid
-de:E528, Magnesiumhydroxid, Mg(OH)2, E 528
+de:E528, Magnesiumhydroxid
 el:E528, Υδροξειδιο του μαγνησιου
-es:E528, Hidróxido magnésico, Hidróxido de magnesio, Leche de magnesia, E 528
+es:E528, Hidróxido magnésico, Hidróxido de magnesio, Leche de magnesia
 et:E528, Magneesiumhüdroksiid
 fi:E528, Magnesiumhydroksidi, Magnesiamaito, Magnesiumhydroksidia, Magnesiamaitoa
-fr:E528, Hydroxyde de magnésium, Hydrate de magnésie, Mgoh2, Lait de magnésie, Magnésium hydroxyde de, 1309-42-8, Magnésie hydratée, E 528, Mg(oh)2
+fr:E528, Hydroxyde de magnésium, Hydrate de magnésie, Lait de magnésie, Magnésium hydroxyde de, Magnésie hydratée
 hu:E528, Magnézium-hidroxid
-it:E528, Idrossido di magnesio, Magnesio idrossido, Mg(OH)2
+it:E528, Idrossido di magnesio, Magnesio idrossido
 lt:E528, Magnio hidroksidas
 lv:E528, Magnija hidroksīds
 mt:E528, Idrossidu tal-manjeżju
 nl:E528, Magnesiumhydroxide
-pl:E528, Wodorotlenek magnezu, Mg(OH)2
+pl:E528, Wodorotlenek magnezu
 pt:E528, Hidróxido de magnésio
-ro:E528, Hidroxid de magneziu, Hidroxid de bor
+ro:E528, Hidroxid de magneziu
 sk:E528, Hydroxid horečnatý
-sl:E528, Magnezijev hidroksid, Mg(OH)2
-sv:E528, Magnesiumhydroxid, E 528
+sl:E528, Magnezijev hidroksid
+sv:E528, Magnesiumhydroxid
 e_number:en:528
 mandatory_additive_class:en: en:acidity-regulator, en:colour-retention-agent
 wikidata:en:Q407548
@@ -15441,14 +15649,14 @@ vegetarian:en:yes
 en:E529, Calcium oxide
 bg:E529, Калциев оксид, Негасена вар
 ca:E529, Òxid de calci, oxid de calci
-cs:E529, Oxid vápenatý, Vápno, E 529, Nehašené vápno, Pálené vápno, Kysličník vápenatý
+cs:E529, Oxid vápenatý, Vápno, Nehašené vápno, Pálené vápno, Kysličník vápenatý
 da:E529, Calciumoxid, Kalciumoxid, Brændt kalk
 de:E529, Calciumoxid, Kalziumoxid, Ätzkalk, Freikalk, Branntkalk, Kalkerde, Hartbrannt, Feinkalk, Brandkalk, Weichbrannt, E 529, gebrannter Kalk, ungelöschter Kalk
 el:E529, Οξειδιο του ασβεστιου
-es:E529, Óxido de calcio, Cal viva, Caliche, Óxido cálcico, Calcareo, E 529
+es:E529, Óxido de calcio, Cal viva, Caliche, Óxido cálcico, Calcareo
 et:E529, Kaltsiumoksiid, Kustutamata lubi, Põletatud lubi
 fi:E529, Kalsiumoksidi, Poltettu kalkki, Kalkki, Sammuttamaton kalkki, Kalsiumoksidia, Poltettua kalkkia, Kalkkia, Sammuttamatonta kalkkia
-fr:E529, Oxyde de calcium, chaux vive, E 529, 1305-78-8
+fr:E529, Oxyde de calcium, chaux vive
 hu:E529, Kalcium-oxid
 it:E529, Ossido di calcio
 lt:E529, Kalcio oksidas
@@ -15460,7 +15668,7 @@ pt:E529, Óxido de cálcio, Cal, Caiação, Cal viva
 ro:E529, Oxid de calciu
 sk:E529, Oxid vápenatý, Pálené vápno
 sl:E529, Kalcijev oksid, Žgano apno
-sv:E529, Kalciumoxid, Bränd kalk, Osläckt kalk, Bränt kalk, E 529, Packsten
+sv:E529, Kalciumoxid, Bränd kalk, Osläckt kalk, Bränt kalk, Packsten
 e_number:en:529
 wikidata:en:Q185006
 vegan:en:yes
@@ -17436,7 +17644,7 @@ nb:E904, Skjellakk
 nl:E904, Schellak, Gebleekte schellak
 pl:E904, Szelak, Szelak bielony
 pt:E904, Goma-laca, Goma-laca branqueada
-ro:E904, Șelac, Șelac albit
+ro:E904, Șelac, Șelac albit, şelac
 ru:E904, Шеллак
 sh:E904, Šelak
 sk:E904, Šelak, Bielený šelak
@@ -18994,7 +19202,7 @@ lt:E943a, Butanas
 lv:E943a, Butāns
 mt:E943a, Butan
 nl:E943a, Butaan, Orthobutaan
-pl:E943a, Butan, Izobutan, N-Butan, Metylopropan
+pl:E943a, Butan, N-Butan, Metylopropan
 pt:E943a, Butano, N-butano, Gás butano
 ro:E943a, Butan
 sk:E943a, Bután

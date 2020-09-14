@@ -4,7 +4,7 @@
 <p>Atklātā pārtikas faktu datu bāze pieejama zem atvērtās datu bāzes licences </a>. <1 /> Atsevišķs datubāzes saturs ir pieejams zem <a href="https://opendatacommons.org/licenses/dbcl/1.0/"> Datubāzes satura licences </a>. <1 /> Produktu attēli ir pieejami zem licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en"> Creative Commons Attribution ShareAlike </a>.
 Tie var ietvert grafiskos elementus, uz kuriem attiecas autortiesības vai citas tiesības, un dažos gadījumos tos var reproducēt (citēšanas tiesības vai godīgas izmantošanas tiesības).</p>
 
-<p>Lūdzu, izlasiet <a href="https://world.openfoodfacts.org/terms-of-use"> Lietošanas un atkārtotas lietošanas noteikumi </a> pirms datu atkārtotas izmantošanas.</p> 
+<p>Lūdzu, izlasiet <a href="https://world.openfoodfacts.org/terms-of-use"> Lietošanas un atkārtotas lietošanas noteikumi </a> pirms datu atkārtotas izmantošanas.</p>
 
 
 <p>Mēs esam ļoti ieinteresēti, lai uzzinātu, kādi dati par atklātajiem pārtikas faktiem tiek izmantoti. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
@@ -39,12 +39,12 @@ with the Open Food Facts community.</p>
  be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
 <p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
  deleted products from your database, you will need to import the full MongoDB dump.</p>
- 
+
 <h3>CSV Data Export</h3>
 
 <p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
  through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
- 
+
 <dl>
  <dt>Link</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
@@ -69,11 +69,11 @@ with the Open Food Facts community.</p>
 
 <p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
 
-<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
 
 <p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
+Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE).
 A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
 <p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.

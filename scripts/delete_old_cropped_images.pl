@@ -149,7 +149,7 @@ my %codes = ();
 						}
 
 						require File::Copy;
-						File::Copy->move( "$dir/$file",
+						File::Copy::move( "$dir/$file",
 							"$www_root/old-images/products/$path/" )
 							or die("could not move: $!\n");
 

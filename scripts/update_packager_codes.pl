@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use autodie;
 use utf8;
+use Modern::Perl '2017';
+use experimental qw/switch/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -29,267 +31,306 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
-use URI::Escape::XS;
-use Storable qw/dclone/;
-use Encode;
+use Term::ANSIColor;
+use Carp;
 use JSON::PP;
-use LWP::Simple;
+use Text::CSV ();
 
 
-print STDERR "loading geocoded addresses\n";
+say {*STDERR} "loading geocoded addresses";
 
-if (opendir (DH, "$data_root/packager-codes")) {
-	foreach my $file (readdir(DH)) {
-		print STDERR "$file\n";
-		if ($file =~ /geocode-(\w+).json/) {
-			my $country = lc($1);
-			print "loading geocode for country $country\n";
-			open (my $IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my $json = join("", (<$IN>));
-			close ($IN);
-			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
+if (opendir DH, "$data_root/packager-codes") {
+	foreach my $file (readdir DH) {
+		if ($file =~ /geocode-(\w+).json/sxm) {
+			my $country = lc $1;
+			say "loading geocode for country $country";
+			open my $IN, '<:encoding(windows-1252)', "$data_root/packager-codes/$file";
+			my $json = join q{}, (<$IN>);
+			close $IN;
+			my $json_ref =  decode_json($json) or carp "could not decode json: $!\n";
 
 			my $addresses_ref = $json_ref->{data};
 			foreach my $item_ref (@{$addresses_ref}) {
-				$geocode_addresses{$country . '.' . $item_ref->{item}{address}} = [$item_ref->{item}{latitude},$item_ref->{item}{longitude}];
+				$geocode_addresses{$country . q{.} . $item_ref->{item}{address}} = [$item_ref->{item}{latitude},$item_ref->{item}{longitude}];
 				#print STDERR $country . '.' . $item_ref->{item}{address} . '--> ' . $item_ref->{item}{latitude} . ", " . $item_ref->{item}{longitude} . "\n";
 			}
 		}
-		elsif ($file =~ /openlylocal/) {
+		elsif ($file =~ /openlylocal/xsm) {
 			my $country = 'uk';
-			print "loading geocode for country $country - $file\n";
-			open (my $IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my $json = join("", (<$IN>));
-			close ($IN);
-			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
+			say "loading geocode for country $country - $file";
+			open my $IN, '<:encoding(windows-1252)', "$data_root/packager-codes/$file";
+			my $json = join q{}, (<$IN>);
+			close $IN;
+			my $json_ref =  decode_json($json) or say "could not decode json: $!";
 
 			my $addresses_ref = $json_ref->{councils};
 			foreach my $item_ref (@{$addresses_ref}) {
 				my $canon_local_authority = get_canon_local_authority($item_ref->{name});
-				$geocode_addresses{$country . '.' . $canon_local_authority} = [$item_ref->{lat},$item_ref->{lng}];
+				$geocode_addresses{$country . q{.} . $canon_local_authority} = [$item_ref->{lat},$item_ref->{lng}];
 				#print  "Name: " . $item_ref->{name} . " canon: " . $country . '.' . $canon_local_authority . '--> ' . $item_ref->{lat} . ", " . $item_ref->{item}{lng} . "\n";
 			}
 		}
 	}
-	close DH;
+	closedir DH;
 }
 else {
-	print STDERR "could not open $data_root/packager-codes: $!\n";
+	carp "could not open $data_root/packager-codes: $!\n";
 }
 
 
 # Load packager codes data
 
-my %packager_code_key = ('fr' => 'numero_agrement', 'uk' => 'approval_number');
-
-print STDERR "loading packager codes\n";
-
-my $found = 0;
-my $notfound = 0;
-
-my $tsv_separator = qr/\t/;
-my $csv_separator = qr/;/;
-
 %packager_codes = ();
 
-if (opendir (DH, "$data_root/packager-codes")) {
-	foreach my $file (readdir(DH)) {
-		if ($file =~ /(\w+)-merge(-UTF-8)?\.([ct]sv)$/i) {
-			my $country = lc($1);
-			my $encoding = "windows-1252";
-			if (defined $2) {
+sub trim { my ($s) = @_; $s =~ s/^\s+|\s+$//sxmg; return $s };
+
+sub normalize_code {
+	my ( $cc, $code ) = @_;
+
+	my $arg = do {
+		given ($cc) {
+			"BE $code EC" when 'be';
+			"CH-$code"    when 'ch';
+			"DE $code EC" when 'de';
+			"EE $code EC" when 'ee';
+			"ES $code CE" when 'es';
+			"FI $code EC" when 'fi';
+			"FR $code CE" when 'fr';
+			"$code EC"    when 'hu';
+			"$code EC"    when 'it';
+			"LT $code EC" when 'lt';
+			"LU $code EC" when 'lu';
+			"PL $code EC" when 'pl';
+			"$code EC"    when 'rs';
+			"SE $code EC" when 'se';
+			"SK $code EC" when 'sk';
+			"UK $code EC" when 'uk';
+			join q{  }, uc($cc), $code, 'EC';
+		}
+	};
+
+	return normalize_packager_codes($arg);
+}
+
+my %code_processor = (
+	it => sub {
+		my ($c) = @_;
+		$c =~ s/^CE //sxm;
+		return $c;
+	},
+	uk => sub {
+		my ($c) = @_;
+		$c =~ s/(\s|\/)*ec$//isxm;
+		$c =~ s/^uk//isxm;
+		return $c;
+	},
+);
+
+sub process_code {
+	my ($cc, $code) = @_;
+
+	if (exists $code_processor{$cc}) {
+		$code = $code_processor{$cc}->($code);
+	}
+
+	$code = normalize_code( $cc, $code );
+
+	$code = get_string_id_for_lang( 'no_language', $code );
+
+	$code =~ s/-($ec_code_regexp)$/-ec/isxm;
+
+	return $code;
+}
+
+sub normalize_local_authority {
+	my ( $country, $authority, $district ) = @_;
+
+	foreach my $local_authority (
+		split /[,\/]/, (join ', ', $authority, $district ) )
+	{
+		my $canon_authority = get_canon_local_authority($local_authority);
+		if (defined $geocode_addresses{
+				join q{.}, $country, $canon_authority } )
+		{
+			return $canon_authority;
+		}
+	}
+
+	return;
+}
+
+my $sep_set = [ q{;}, qq{\t} ];
+
+my %approval_key = (
+	be => 'no_agrement',
+	ch => 'bew_nr',
+	de => 'code',
+	ee => 'tunnusnumber',
+	es => 'n_rgseaa',
+	fi => 'numero',
+	fr => 'numero_agrement',
+	hu => 'code',
+	it => 'approvalnumber',
+	lt => 'vet_approval_no',
+	lu => 'zulassungsnummer',
+	pl => 'code',
+	rs => 'approval_number',
+	se => 'nr',
+	sk => 'schvaľovacie_čislo',
+	uk => 'approval_number',
+);
+
+say {*STDERR} "loading packager codes";
+
+my $found    = 0;
+my $notfound = 0;
+
+if (opendir DH, "$data_root/packager-codes") {
+	foreach my $file (readdir DH) {
+		if ( $file =~ /(\w+)-merge(-UTF-8)?[.][ct]sv$/isxm ) {
+			my $country  = lc $1;
+			my $encoding = 'windows-1252';
+			if ( defined $2 ) {
 				$encoding = $2;
-				$encoding =~ s/^-//;
+				$encoding =~ s/^-//sxm;
 			}
 
-			my $extension = lc($3);
-			my $separator = $csv_separator;
-			if ($extension eq 'tsv') {
-				$separator = $tsv_separator;
+			if ( not exists $approval_key{$country} ) {
+				say {*STDERR}
+					"Approval number column not set for '$country'! Skipping...";
+				next;
 			}
 
-			my $key = $packager_code_key{$country};
+			say "loading packager codes for country '$country'";
 
-			open (my $IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my $header = <$IN>;
-			$header =~ s/(\r|\n)+$//;
-			my @fields = split($separator, $header);
-			my @headers = ();
-			my %headers = ();
-			foreach my $field (@fields) {
-				$field =~ s/\/.*//;
-				$field = get_string_id_for_lang("no_language", $field);
-				$field =~ s/-/_/g;
-				($field eq 'latitude') and $field = 'lat';
-				($field eq 'longitude') and $field = 'lng';
-				push @headers, $field;
-				$headers{$field} = $#headers;
-				# print STDERR "Tags.pm - packaging_codes - load - country: $country - header: $field\n";
-			}
+			my $key = $approval_key{$country};
 
-			while (my $line = <$IN>) {
-				$line =~ s/(\r|\n)+$//;
-				my @fields = split($separator, $line);
+			my $abs_file = "$data_root/packager-codes/$file";
+			open my $in_fh, '<', $abs_file;
 
-				my $code = '';
-				if ($country eq 'fr') {
-					$code = $fields[$headers{numero_agrement}];
-					$code = normalize_packager_codes("FR $code CE");
+			my $parser = Text::CSV->new(
+				{   quote_char     => q{"},
+					binary         => 1,
+					empty_is_undef => 1
 				}
-				elsif ($country eq 'uk') {
-					$code = $fields[$headers{approval_number}];
-					$code =~ s/(\s|\/)*ec$//i;
-					$code =~ s/^uk//i;
-					#print STDERR "uk - code: $code\n";
-					$code = normalize_packager_codes("UK $code EC");
+			) or croak q{} . Text::CSV->error_diag();
 
+			$parser->header(
+				$in_fh,
+				{   sep_set            => $sep_set,
+					munge_column_names => sub {
+						my ($col) = @_;
+						$col =~ s{/.*}{}sxm;
+						$col = get_string_id_for_lang( 'no_language', $col );
+						$col =~ s{-}{_}gsxm;
+						( $col eq 'latitude' )  and $col = 'lat';
+						( $col eq 'longitude' ) and $col = 'lng';
+						return $col;
+					}
 				}
-				elsif ($country eq 'es') {
-					$code = $fields[$headers{n_rgseaa}];
-					$code = normalize_packager_codes("ES $code CE");
-				}
-				elsif ($country eq 'ch') {
-					$code = $fields[$headers{bew_nr}];
-					$code = normalize_packager_codes("CH-$code");
-				}
-				elsif ($country eq 'de') {
-					$code = $fields[$headers{code}];
-					$code = normalize_packager_codes("DE $code EC");
-				}
-				elsif ($country eq 'it') {
-					$code = $fields[$headers{approvalnumber}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("$code EC");
-				}
-				elsif ($country eq 'be') {
-					$code = $fields[$headers{no_agrement}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("BE $code EC");
-				}
-				elsif ($country eq 'hu') {
-					$code = $fields[$headers{code}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("$code EC");
-				}
-				elsif ($country eq 'lu') {
-					$code = $fields[$headers{zulassungsnummer}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("LU $code EC");
-				}
-				elsif ($country eq 'lt') {
-					$code = $fields[$headers{vet_approval_no}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("LT $code EC");
-				}
-				elsif ($country eq 'pl') {
-					$code = $fields[$headers{code}];
-					$code = normalize_packager_codes("PL $code EC");
-				}
-				elsif ($country eq 'sv') {
-					$code = $fields[$headers{nr}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("SV $code EC");
-				}
-				elsif ($country eq 'rs') {
-					$code = $fields[$headers{approval_number}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("$code EC");
-				}
-				elsif ($country eq 'fi') {
-					$code = $fields[$headers{numero}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("FI $code EC");
-				}
-				elsif ($country eq 'ee') {
-					$code = $fields[$headers{tunnusnumber}];
-					$code =~ s/^CE //;
-					$code = normalize_packager_codes("EE $code EC");
-				}
+			);
 
-				$code = get_string_id_for_lang("no_language", $code);
-				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
+			binmode $in_fh, ":encoding($encoding)";
 
-				if ($country eq 'it') {
-					print STDERR "$code: $code\n";
-				}
+			while ( my $row = $parser->getline_hr($in_fh) ) {
+				my $code = $row->{$key};
+				next if not $code;
 
-				#print "country: $country - code: $code\n";
+				$code = process_code( $country, $code );
 
 				# if we already have some info for the packager
 				# code from a previous line, keep it
-				if (not defined $packager_codes{$code}) {
-					$packager_codes{$code} = { cc => $country};
+				if ( not defined $packager_codes{$code} ) {
+					$packager_codes{$code} = { cc => $country };
 				}
 
-				foreach (my $f = 0; $f <= $#headers; $f++) {
+				while ( my ( $k, $v ) = each %{$row} ) {
+
 					# do not overwrite with empty values
 					# in case we already have some info
 					# from another line with the same code
 					# e.g. current CH file contains
 					# multiple lines for CH 336 with geo
 					# info missing on last line. bug #781
-					if ((defined $fields[$f]) and ( $fields[$f] ne '')) {
-						if (($headers[$f] eq "lat") or ($headers[$f] eq "lng")) {
-							# turn comma to dot
-							$fields[$f] =~ s/,/./;
+					if (    ( defined $v )
+						and ( ( $v ne q{} ) and ( $v ne '\N' ) ) )
+					{
+
+						if ( ( $k eq 'lat' ) or ( $k eq 'lng' ) ) {
+							$v =~ s/,/./sxm;
 						}
-						$fields[$f] =~ s/(\r|\n)+$//;
-						$fields[$f] =~ s/^\s+//;
-						$fields[$f] =~ s/\s+$//;
-						$packager_codes{$code}{$headers[$f]} = $fields[$f];
+
+						$v =~ s/\R+$//sxm;
+						$v = trim($v);
+
+						$packager_codes{$code}{$k} = $v;
 					}
-					if (not defined $packager_codes{$code}{$headers[$f]}) {
-						$packager_codes{$code}{$headers[$f]} = '';
+
+					if ( not defined $packager_codes{$code}{$k} ) {
+						$packager_codes{$code}{$k} = q{};
 					}
-					#print "$code - f:$f - $headers[$f] - $packager_codes{$code}{$headers[$f]}\n";
 				}
 
 				# Normalize local authority
+				if ( $country eq 'uk' ) {
 
-				if ($country eq 'uk') {
+					my $authority = $packager_codes{$code}{local_authority};
+					my $district  = $packager_codes{$code}{district};
 
-					my $debug = "local_authority: " . $packager_codes{$code}{local_authority} . "\ndistrict: " . $packager_codes{$code}{district} . " \n";
+					my $canon_authority
+						= normalize_local_authority( $country, $authority,
+						$district );
 
-					foreach my $local_authority (split (/,|\//, $packager_codes{$code}{local_authority} . ', ' . $packager_codes{$code}{district})) {
-						my $canon_local_authority = get_canon_local_authority($local_authority);
-						$debug .= "$local_authority --> $canon_local_authority\n";
-						if (defined $geocode_addresses{$country . '.' . $canon_local_authority}) {
-							$packager_codes{$code}{canon_local_authority} = $canon_local_authority;
-							last;
-						}
-					}
-
-					if (not defined $packager_codes{$code}{canon_local_authority}) {
-						$notfound++;
-						# print "code: $code - could not find canon local authority for local authority: $packager_codes{$code}{local_authority} - district: $packager_codes{$code}{district}\ndebug: $debug\n";
-					}
-					else {
+					if ( defined $canon_authority ) {
+						$packager_codes{$code}{canon_local_authority}
+							= $canon_authority;
 						$found++;
 					}
-
+					else {
+						$notfound++;
+					}
 				}
-
 			}
-			close ($IN);
 
-			print "UK - found $found local authorities, not found: $notfound\n";
+			close $in_fh;
+
+			if ( $country eq 'uk' ) {
+				say
+					"UK - found $found local authorities, not found: $notfound";
+			}
 		}
 	}
-	close DH;
+	closedir DH;
+
 }
 else {
-	print STDERR "could not open $data_root/packager-codes: $!\n";
+	carp "could not open $data_root/packager-codes: $!\n";
 }
 
 # Check that we have correct lat and lng fields
-
-foreach my $code (sort keys %packager_codes) {
-	foreach my $coordinate ("lat", "lng") {
-		if ((not defined $packager_codes{$code}{$coordinate}) or ($packager_codes{$code}{$coordinate} eq "")) {
+foreach my $code ( sort keys %packager_codes ) {
+	foreach my $coordinate ( 'lat', 'lng' ) {
+		if (   ( not defined $packager_codes{$code}{$coordinate} )
+			or ( $packager_codes{$code}{$coordinate} eq q{} ) )
+		{
 			#print STDERR "$code\tmissing $coordinate\n";
 		}
-		elsif ($packager_codes{$code}{$coordinate} !~ /^-?(\d+)((\.|\,)(\d+))$/) {
-			print STDERR "$code\tinvalid $coordinate\t" . $packager_codes{$code}{$coordinate} . "\n";
+		elsif (
+			$packager_codes{$code}{$coordinate} !~ m{
+														^
+
+														-?
+														\d+
+														[.,]
+														\d+
+
+														$
+												}sxm
+			)
+		{
+			my $invalid = $packager_codes{$code}{$coordinate};
+			my $msg = "$code\tinvalid $coordinate\t$invalid";
+			say {*STDERR} colored($msg, 'red');
 			delete $packager_codes{$code}{$coordinate};
 		}
 	}

@@ -493,7 +493,7 @@ while (my $product_ref = $cursor->next) {
 									my $source = "$www_root/images/products/$path/${imgid}_zu.$rev.$size.jpg";
 									my $target = "$www_root/images/products/$path/${imgid}_" . $product_ref->{lc} . ".$rev.$size.jpg";
 									print STDERR "move $source to $target\n";
-									File::Copy->move($source, $target);
+									File::Copy::move($source, $target);
 								}
 							}
 							$product_values_changed = 1;

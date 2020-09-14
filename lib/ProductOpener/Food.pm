@@ -315,10 +315,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	if ($nid eq 'water-hardness') {
+	if ($nid =~ /^water-hardness(_prepared)?$/) {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
-	elsif ( $nid eq 'energy-kcal' ) {
+	elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
 
 		# energy-kcal is stored in kcal
 		$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
@@ -5505,8 +5505,33 @@ sub normalize_packager_codes($) {
 	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
 
 	# RS 731 -> RS 731 EC
+	my $start_pat = qr{ (?<start> ^ | [,.] ) }xsm;
+	my $sep_pat   = qr{ \s | - | _ | \. | / }xsm;
+	my $rs_pat    = qr{
+					   $start_pat
 
-	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?($ec_code_regexp)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;
+					   rs
+
+					   (?: $sep_pat )*
+
+					   (?<code>
+						   (?:
+							   \d+
+							   (?:
+								   -
+								   (?= \d )
+							   )?
+						   )+
+					   )
+
+					   (?: $sep_pat )*
+
+					   (?: $ec_code_regexp )?
+
+					   \b
+			   }ixsm;
+	$codes =~ s{ $rs_pat }
+			   {$+{start} . $normalize_rs_ce_code->('rs', $+{code})}iegxsm;
 
 	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
 
