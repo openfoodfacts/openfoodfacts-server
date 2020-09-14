@@ -556,9 +556,18 @@ sub check_nutrition_data($) {
 
 		my $total = 0;
 
-		if ((defined $product_ref->{nutriments}{"energy-kcal_value"}) and (defined $product_ref->{nutriments}{"energy-kj_value"})
-			and ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"})) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+		if ((defined $product_ref->{nutriments}{"energy-kcal_value"}) and (defined $product_ref->{nutriments}{"energy-kj_value"})) {
+			
+			# energy in kcal greater than in kj
+			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+			}
+			
+			# check energy in kcal is ~ 4.2 energy in kj	
+			if (($product_ref->{nutriments}{"energy-kj_value"} < 3.5 *  $product_ref->{nutriments}{"energy-kcal_value"})
+				or ($product_ref->{nutriments}{"energy-kj_value"} > 4.7 *  $product_ref->{nutriments}{"energy-kcal_value"})) {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
+			}
 		}
 
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {

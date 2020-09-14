@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 09:24\n"
+"PO-Revision-Date: 2020-09-11 09:05\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4323,31 +4323,31 @@ msgstr "Separare più valori con virgole."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "Se la confezione del prodotto è in più lingue, indicare la lingua più visibile sul prodotto."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "Immettere Sì, Y o 1 se il prodotto non è più disponibile nei negozi."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "Specificare sia il valore che l'unità oppure utilizzare l'unità predefinita: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Specificare sia il valore che l'unità."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Scarica un file modello XLSX per Excel o LibreOffice con i campi che possono essere importati."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "Codice a barre come appare sul prodotto."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Codice interno utilizzato dal produttore per identificare il prodotto, diverso dal codice a barre del prodotto."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
@@ -4470,6 +4470,14 @@ msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr ""
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr ""
+
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
@@ -4502,6 +4510,10 @@ msgstr ""
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Gruppo Nova"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4540,11 +4552,47 @@ msgctxt "query_filter"
 msgid "Query filter"
 msgstr "Filtro query"
 
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "Gruppo Nova"
+
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
 msgstr "Organizzazione sconosciuta."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
+msgstr ""
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr ""
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr ""
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr ""
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr ""
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr ""
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr ""
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Additivi"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
 msgstr ""
 

@@ -2357,17 +2357,13 @@ cs => [
 ],
 
 da => [
-'N(æ|ae)ringsindhold',
+'ingredienser',
 'indeholder',
 ],
 
 de => [
 'Zusammensetzung',
 'zutat(en)?',
-],
-
-dk => [
-'ingredienser',
 ],
 
 el => [
@@ -2414,8 +2410,8 @@ id => [
 ],
 
 is => [
+'innihald(?:slýsing|sefni)?',
 'inneald',
-'Innihaldslýsing',
 ],
 
 it => [
@@ -2479,6 +2475,7 @@ sk => [
 'obsahuje',
 'zloženie',
 ],
+
 sl => [
 'vsebuje',
 'sestavine',
@@ -2553,8 +2550,17 @@ hu => [
 '(Ö|O|0)SSZETEVOK',
 ],
 
+is => [
+'INNIHALD(?:SLÝSING|SEFNI)?',
+'INNEALD',
+],
+
 it => [
 'INGREDIENTI(\s*)',
+],
+
+nb => [
+'INGREDIENSER',
 ],
 
 nl => [
@@ -2569,9 +2575,13 @@ pt => [
 'INGREDIENTES(\s*)',
 ],
 
-
 si => [
 'SESTAVINE',
+],
+
+sv => [
+'INGREDIENSER',
+'INNEHÅLL(ER)?',
 ],
 
 vi => [
@@ -2590,6 +2600,18 @@ my %phrases_after_ingredients_list = (
 cs => [
 'doporučeny způsob přípravy',
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+da => [
+'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+'tilberedning(?:svejledning)?',
+'holdbarhed efter åbning',
+'opbevar(?:ing|res)?',
+'(?:for )?allergener',
+'produceret af',
+'beskyttes',
+'nettovægt',
+'åbnet',
 ],
 
 de => [
@@ -2663,7 +2685,6 @@ es => [
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
-'Liiallisella käytöllä',
 'Makeisten sekoitussuhde voi vaihdella',
 'Pakattu suojakaasuun',
 'Parasta ennen',
@@ -2753,6 +2774,13 @@ hr => [
 'Atlagos tápérték 100g termékben',
 ],
 
+is => [
+'n(æ|ae)ringargildi',
+'geymi(st|ð) á',
+'eftir opnum',
+'aðferð',
+],
+
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
@@ -2766,6 +2794,13 @@ it => [
 
 ja => [
 '栄養価',
+],
+
+nb => [
+'netto(?:innhold|vekt)',
+'oppbevar(?:ing|es)',
+'næringsinnhold',
+'kjølevare',
 ],
 
 nl => [
@@ -2820,14 +2855,30 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-
+sv => [
+'närings(?:deklaration|innehåll|värde)',
+'(?:bör )?förvar(?:ing|as?)',
+'till(?:agning|redning)',
+'serveringsförslag',
+'produkterna bör',
+'bruksanvisning',
+'källsortering',
+'anvisningar',
+'skyddas mot',
+'uppvärmning',
+'återvinning',
+'hållbarhet',
+'producerad',
+'upptining',
+'o?öppnad',
+'bevaras',
+'kylvara',
+'tappat',
+],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
-
-
-
 );
 
 

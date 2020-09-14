@@ -80,6 +80,10 @@ if (defined $request{api}) {
 		# /api/v0/search
 		display_tag(\%request);
 	}
+	elsif (param("api_method") =~ /^preferences(_(\w\w))?$/) {
+		# /api/v0/preferences or /api/v0/preferences_[language code]
+		display_preferences_api(\%request, $2);
+	}	
 	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api(\%request, $2);

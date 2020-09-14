@@ -58,6 +58,59 @@ crème fraîche
 	["fr", "Lait demi - écrémé, fromage Saint - Moret 3% - pommes - bananes",
 	"Lait demi-écrémé, fromage Saint-Moret 3% - pommes - bananes"],
 
+	############################
+	# # SCANDINAVIAN LANGUAGES #
+	############################
+	["da",
+	 "ingredienser: 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["da",
+	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["da",
+	 "INGREDIENSER : 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt. NÆRINGSINDHOLD pr. 100 g; Energi 1204 kJ /291 kcal Fedt 24g heraf mættede fedtsyrer 2,89g Kulhydrat 7,3g heraf sukkerarter 0,9g",
+	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["is",
+	 "Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni. Næringargildi í 100g af þurrefni: Orka 527kJ Fita 3,6g Þar af mettuð 2,7g Kolvetni 19,1g þar af sykurtegundii 3,1g",
+	 "Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni."
+	],
+	["is",
+	 "Innihald: Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli.",
+	 "Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli."
+	],
+	["is",
+	 "INNIHALDSEFNI : Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt. Eftir opnum skal geyma drykkinn í kæli og neyta innan 3-4 daga.",
+	 "Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt."
+	],
+	["nb",
+	 "pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+	 "pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["nb",
+	 "Ingredienser: pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+	 "Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["nb",
+	 "INGREDIENSER : pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid). NÆRINGSINNHOLD: 100 g vare gir ca.: energi 1458 kJ (351 kcal), fett 27 g, -hvorav mettede fettsyrer 17 g, karbohydrat 0 g, -hvorav sukkerarter 0 g, protein 27 g, salt 1,2g.",
+	 "Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["sv",
+	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+	["sv",
+	 "INGREDIENSER : Pastöriserad mjölk, salt, syrningskultur, ystenzym. Näringsvärde per 100 g ost Energi 1763 kJ/426 kcal Fett 38g varav mättat fett 24g Kolhydrater 0g varav sockerarter 0g Protein 20g Salt 1,8g",
+	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+	["sv",
+	 "Ingredienser: Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+
+	############################
 	# Finnish
 
 	["fi",

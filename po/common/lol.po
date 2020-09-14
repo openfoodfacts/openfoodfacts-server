@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 11:10\n"
+"PO-Revision-Date: 2020-09-11 09:49\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4435,6 +4435,14 @@ msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
 msgstr "crwdns152734:0crwdne152734:0"
 
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr "crwdns152784:0crwdne152784:0"
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr "crwdns152786:0crwdne152786:0"
+
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
@@ -4467,6 +4475,10 @@ msgstr "crwdns152748:0crwdne152748:0"
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "crwdns152750:0crwdne152750:0"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr "crwdns152788:0crwdne152788:0"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4505,6 +4517,10 @@ msgctxt "query_filter"
 msgid "Query filter"
 msgstr "crwdns152768:0crwdne152768:0"
 
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "crwdns152776:0crwdne152776:0"
+
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
 msgstr "crwdns152770:0crwdne152770:0"
@@ -4512,4 +4528,36 @@ msgstr "crwdns152770:0crwdne152770:0"
 msgctxt "error_unknown_user"
 msgid "Unknown user."
 msgstr "crwdns152772:0crwdne152772:0"
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr "crwdns152790:0crwdne152790:0"
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr "crwdns152792:0crwdne152792:0"
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr "crwdns152794:0crwdne152794:0"
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr "crwdns152796:0crwdne152796:0"
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr "crwdns152798:0crwdne152798:0"
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr "crwdns152800:0crwdne152800:0"
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "crwdns152802:0crwdne152802:0"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
+msgstr "crwdns152804:0crwdne152804:0"
 

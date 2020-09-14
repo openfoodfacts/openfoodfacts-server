@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 09:42\n"
+"PO-Revision-Date: 2020-09-11 09:11\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -60,43 +60,43 @@ msgstr "Bizi seçtiğiniz için teşekkürler!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Artık ürünleri Web'de veya ücretsiz <a href=\"%s\">mobil uygulamamızda</a> ekleyip düzenleyebilirsiniz."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slack'de bize katılın"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s yeni ürünlerden çok daha fazlasını getirebileceğiniz ortak bir projedir: enerjiniz, çoşkunuz ve fikirleriniz!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Tüm proje katılımcılarının fikir alışverişinde bulunabilceği ve işbirliği içinde olacağı Slack adlı bir tartışma sistemi kullanıyoruz. Lütfen katılın! Sizi tanımaktan mutluluk duyarız!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slack'de bize katılın"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Artık ürün verilerinizi ve fotoğraflarınızı kolayca içe aktarabilirsiniz."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Artık ürünlerinizi ekleyip düzenleyebilir, veri ve fotoğraflarını üreticiler için ücretsiz <a href=\"%s\">platformumuzda</a> içe aktarabilirsiniz."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Zaten %s adında mevcut bir organizasyon var."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Organizasyona katılma talebiniz, organizasyon yöneticisinin onayını bekliyor."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Herhangi bir sorunuz varsa lütfen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> adresine mail gönderin."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -4463,6 +4463,14 @@ msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr ""
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr ""
+
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
@@ -4495,6 +4503,10 @@ msgstr ""
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "NOVA grubu"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4533,11 +4545,47 @@ msgctxt "query_filter"
 msgid "Query filter"
 msgstr ""
 
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "NOVA grubu"
+
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
 msgstr ""
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
+msgstr ""
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr ""
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr ""
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr ""
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr ""
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr ""
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr ""
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Katkı maddeleri"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
 msgstr ""
 

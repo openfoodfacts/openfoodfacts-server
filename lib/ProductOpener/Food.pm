@@ -315,10 +315,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$value = $value / 100 * $Nutriments{$nid}{dv} ;
 		$unit = $Nutriments{$nid}{unit};
 	}
-	if ($nid eq 'water-hardness') {
+	if ($nid =~ /^water-hardness(_prepared)?$/) {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 	}
-	elsif ( $nid eq 'energy-kcal' ) {
+	elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
 
 		# energy-kcal is stored in kcal
 		$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
