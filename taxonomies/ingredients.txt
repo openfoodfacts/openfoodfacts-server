@@ -9401,6 +9401,7 @@ fr:Fromage fabriqué à partir de lait pasteurisé
 hu:pasztőrözött tejből készült sajt
 
 <en:cheese made from pasteurized milk
+<en:soft cheese
 en:Soft cheese made from pasteurized milk
 ca:formatge suau de llet pasteuritzada
 de:Weichkäse aus pasteurisierter Milch
@@ -9414,9 +9415,6 @@ it:Formaggio a pasta molle di latte pastorizzato
 <en:cheese
 de:Bergkäse
 hu:hegyisajt
-
-<en:cheese
-de:Hartkäse
 
 <en:cheese
 en:cow cheese
@@ -9679,11 +9677,27 @@ pt:queijo de pasta dura, queijo duro
 sv:Hårdost
 # fr:fromage-à-pâte-dure has 133 products in 5 languages @2018-10-28
 
+<en:hard cheese
+en:medium fat hard cheese
+
 <en:cheese
-fr:fromage suisse
+en:soft cheese
+
+<en:soft cheese
+en:skimmed milk soft cheese, reduced fat soft cheese, low fat soft cheese
+
+<en:soft cheese
+en:medium fat soft cheese
+
+<en:soft cheese
+en:full fat soft cheese
+
+<en:cheese
+en:Swiss cheese
 ca:formatge suís
 de:Schweizer Käse
 es:queso suizo
+fr:fromage suisse
 it:formaggio svizzero, formaggi svizzeri
 # fr:fromage-suisse has 21 products in 3 languages @2018-10-27
 
@@ -9727,10 +9741,20 @@ hu:Beaufort, Beaufort sajt
 wikipedia:en:https://en.wikipedia.org/wiki/Beaufort_cheese
 
 
+# description:en:Brie is a soft cow's-milk cheese named after Brie, the French region from which it originated (roughly corresponding to the modern département of Seine-et-Marne). It is pale in color with a slight grayish tinge under a rind of white mould.
+
+<en:cheese
+en:Brie, brie cheese
+de:Brie
+fr:Brie
+wikidata:en:Q193411
+wikipedia:en:https://en.wikipedia.org/wiki/Brie
+
+
 # CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese.
 
 <en:cheese
-en:camembert
+en:camembert, camembert cheese
 ar:كامامبير
 az:Kamamber
 be:Камамбер
@@ -16548,6 +16572,11 @@ vegan:en:no
 vegetarian:en:maybe
 
 <en:animal fat
+en:suet
+wikidata:en:Q420683
+wikipedia:en:https://en.wikipedia.org/wiki/Suet
+
+<en:animal fat
 # from:en:sheep
 en:sheeps fat
 de:Schafsfett
@@ -16581,6 +16610,10 @@ nl:rundvet
 
 <en:beef fat
 de:Rinderknochenmarkfett
+
+<en:suet
+<en:beef fat
+en:beef suet
 
 ########################################## milk fat ################################
 
@@ -16849,6 +16882,12 @@ sv:vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 <en:shortening
 <en:vegetable fat
 en:vegetable shortening
+
+<en:vegetable fat
+en:vegetable suet
+
+<en:vegetable suet
+en:non hydrogenated vegetable suet
 
 <en:vegetable fat
 fr:matières grasses végétales de colza, matières grasses de colza
@@ -17589,7 +17628,7 @@ lt:rapsų aliejus
 lv:rapšu eļļa, rapšu ella
 nb:rapsolje
 nb:rapsolje
-nl:raapolie, raapzaad, raap
+nl:raapolie, raapzaad, raap, raapzaadolie
 pl:Olej rzepakowy, rybsolja, olej roślinny rzepakowy
 ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
@@ -21032,12 +21071,6 @@ fr:avec autres arômes naturels, autres arômes naturels
 nl:Met andere natuurlijke smaakstoffen
 
 <en:natural flavouring
-fr:arôme naturel d'agrumes, arômes naturels d'agrumes
-de:natürliche Zitrusfruchtaromen
-hu:természetes citrusaroma
-nl:natuurlijke aroma's van citrusvruchten
-
-<en:natural flavouring
 en:natural dill flavouring
 fr:arôme naturel d'aneth
 # ingredient/fr:arome-naturel-d'aneth has 34 products in 1 language @2020-05-21
@@ -22796,7 +22829,7 @@ it:frumento soffiato
 # 15 products in 3 languages @2018-09-22
 
 <en:wheat
-en:whole wheat, whole grain wheat, wholegrain wheat
+en:whole wheat, whole grain wheat, wholegrain wheat, wholewheat
 da:fuldkornshvede
 de:Vollkornweizen
 el:Σίτος ολικής αλέσεως
@@ -28028,7 +28061,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sucrose
 # Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar.
 
 <en:sugar
-en:molasses
+en:molasses, black treacle
 af:Melasse
 ar:دبس السكر
 as:গুড়
@@ -28673,6 +28706,11 @@ sv:invertsockersirap
 
 <en:invert sugar syrup
 fr:sirop de sucre inverti cristallisé
+
+<en:invert sugar syrup
+en:golden syrup, partially inverted refiners syrup, treacle
+wikidata:en:Q2688129
+wikipedia:en:https://en.wikipedia.org/wiki/Golden_syrup
 
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
@@ -34637,15 +34675,106 @@ sv:päronjuice från koncentrat
 
 ###################################################################################################
 #
-#                                Plum
+#                                Plum & Prune
 #
 ###################################################################################################
+# comment:en: NB en:plum = fr:prune, and en:prune = fr:pruneau.
+
 <en:fruit
 en:plum
+da:blomme
+de:Pflaume, Pflaumen
+el:Δαμάσκηνο
 es:ciruela
+fi:luumu
+fr:prune, prunes
+it:prugna
+ms:plum, Prun
+nl:pruim, pruimen
+pl:Śliwka, Śliwki
+ru:слива, сливы
+sr:Шљива, šljiva
+sv:plommon
+th:พรุน
+uk:слива, сливи
+wa:pronne
+wikidata:en:Q12372598
+wikipedia:en:https://en.wikipedia.org/wiki/Plum
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
+# 35 products in 1 language @2018-09-30
 
 <en:plum
 en:plum sugar
+
+
+# A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
+# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
+
+# Some langauges seem to give the specific plum cultivars used for making "dried plums" a name 
+# similar to "prune", and then have the concept of "dried prune".
+# Also some languages call the tree "plum", and the fruit "prune".
+
+# This is the dried fruit, whether it has its own name, or is "dried plum/prune".
+# Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
+<en:plum
+en:prune
+ar:برقوق مجفف,خوخ مجفف
+da:Sveske, svesker
+de:Trockenpflaumen
+es:Ciruela pasa, ciruelas pasas
+fa:آلو بخارا
+fi:kuivattu luumu
+fr:pruneau, pruneaux, pruneaux séchés
+it:prugne secche
+ja:プルーン
+ko:프룬
+ms:prun kering, plum kering
+nb:sviske
+nl:gedroogde pruimen
+nn:sviske
+pl:Śliwki suszone
+ru:чернослив
+sr:суве шљиве, suve šljive, suva šljiva
+sv:Sviskon
+tl:Pruno
+uk:Чорнослив
+vi:Mận khô
+wa:Souwêye pronne
+zh:梅乾
+# chy:Náhkôhematôtse
+# de-ch:Trockenpflaume
+# en-ca:Prune
+# en-gb:Prune
+# pcd:Pronnieu
+# yue:西梅乾
+wikidata:en:Q6766526
+wikipedia:en:https://en.wikipedia.org/wiki/Prune
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
+# 182 products in 3 languages @2018-09-30
+
+# description:en:Prune juice is a fruit juice derived from prunes (dried plums) that have been rehydrated.
+<en:prune
+en:prune juice
+da:sveskejuice
+de:Pflaumensaft
+fr:Jus de prune
+wikidata:en:Q65088683
+wikipedia:en:https://en.wikipedia.org/wiki/Prune_juice
+
+<en:prune juice
+fr:Jus de pruneau obtenu par extraction hydrique
+
+<en:prune
+fr:pruneaux d'agen
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
+# 57 products @2018-09-30
+
+<en:prune
+<en:purée
+fr:purée de pruneaux
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
+# 39 products in 1 language @2018-09-30
+
 
 ###################################################################################################
 #
@@ -35458,15 +35587,16 @@ hu:citrus aroma
 <en:citrus flavouring
 en:natural citrus flavouring
 es:aroma natural de cítricos
-de:natürliches Citrusaroma, natürliches Zitrusaroma
+de:natürliches Citrusaroma, natürliches Zitrusaroma, natürliche Zitrusfruchtaromen
 fi:luontainen sitrusaromi
-fr:arôme naturel d'agrumes
-hu:természetes citrus aroma
+fr:arôme naturel d'agrumes, arômes naturels d'agrumes
+hu:természetes citrus aroma, természetes citrusaroma
+nl:natuurlijke aroma's van citrusvruchten
 sv:naturlig citronarom
 
 ###################################################################################################
 #
-#                                Clemantine
+#                                Clementine
 #
 ###################################################################################################
 # A CLEMENTINE (Citrus × clementina) is a tangor, a hybrid between a willowleaf mandarin orange (C. × deliciosa) and a sweet orange (C. × sinensis).
@@ -35623,10 +35753,11 @@ vegetarian:en:yes
 <en:citrus fruit
 en:kaffir lime
 bn:কাফির লেবু
-de:Kaffernlimette, Kaffernlimetten
+de:Kaffernlimette, Kaffernlimetten, Kaffirlimette
+es:lima kaffir
 fa:لیموی کفیر
 fi:ryppylimetti, kafferilimetti, kaffirlime
-fr:combava
+fr:combava, lime kaffir
 id:Jeruk purut
 it:limone kaffir
 ja:コブミカン
@@ -35658,7 +35789,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
 #  fr:combava has 42 products in 4 languages @2019-02-16
 
 <en:kaffir lime
-fr:feuilles de combava
+<en:spice
+en:kaffir lime leaf, kaffir lime leaves
+de:Kaffirlimettenblatt, Kaffirlimettenblätter, Kaffir limettenblätter, Kaffernlimettenblätter
+fr:feuilles de combava, feuilles de lime kaffir
+fi:kaffirlimetinlehti, kaffirlimenlehti
+# kaffir-lime-leaf has 25 products in 2 languages @2018-10-25
+
+<en:kaffir lime
+en:kaffir lime peel
+de:Kaffirlimettenschale, Kaffirlimettenschalen, Kaffernlimettenschale
+es:piel de lima Kaffir
 
 
 ###################################################################################################
@@ -35711,6 +35852,13 @@ nl:citroenrasp
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce-de-citron
 # 314 products @2018-10-01
 
+<en:lemon
+<en:spice
+en:lemon leaf, lemon leaves
+de:Zitronenblatt
+es:hoja limón
+fr:feuille de citron
+nl:citroenblad
 
 <en:lemon
 en:lemon pulpe
@@ -36038,6 +36186,16 @@ nl:limoensap uit concentraat
 de:Limettenschale
 fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
+
+<en:spice
+<en:lime
+en:lime leaf, lime leaves
+da:limeblad
+fi:limetinlehti, limenlehti
+fr:feuille de lime, feuille de citron vert
+sv:limeblad
+# ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
+
 
 ###################################################################################################
 #
@@ -37272,6 +37430,9 @@ de:Sauerkirschsaft
 fi:hapankirsikkamehu
 fr:jus de cerise aigre
 
+<en:cherry
+en:glacé cherry, glacé cherries
+
 ###################################################################################################
 #
 #                                Cherry (Sweet)
@@ -37399,6 +37560,7 @@ it:purea di ciliegie
 # 35 products @2018-09-29
 
 <en:cherry
+en:cherry stem, cherry stalk
 fr:queues de cerise
 
 ###################################################################################################
@@ -37707,6 +37869,7 @@ fr:Chips de coco
 # 1 entry @ 2019-10-31
 
 <en:coconut
+en:coconut paste
 fr:pâte de noix de coco
 
 <en:coconut
@@ -38852,6 +39015,7 @@ wikidata:en:Q10817602
 # 2512 products in 11 languages @2018-09-30
 
 <en:pineapple
+en:pineapple segments, pineapple chunks, pineapple rings
 fr:segments d'ananas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
@@ -38984,9 +39148,10 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # 53 products in 3 languages @2018-10-03
 
 <en:pomegranate
-fr:graines de grenade
+en:pomegranate seeds
 de:Granatapfelkerne
 fi:granaattiomenan siemen, granaattiomenan siemenet
+fr:graines de grenade
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
 # 4 products in 3 languages @2018-10-03
 
@@ -39014,46 +39179,9 @@ fr:écorces de grenade
 
 ###################################################################################################
 #
-#                                Prune
+#                                
 #
 ###################################################################################################
-# A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
-# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
-
-<en:fruit
-en:prune
-ar:خوخ مجفف
-da:Sveske, svesker
-de:Pflaume, Pflaumen
-es:Ciruela pasa
-fa:آلو بخارا
-fi:kuivattu luumu
-fr:prune, prunes
-it:prugna
-ja:プルーン
-ko:프룬
-ms:Prun
-nb:sviske
-nl:pruim, pruimen
-nn:sviske
-pl:Śliwka, Śliwki
-ru:чернослив
-sr:šljiva
-sv:Sviskon
-th:พรุน
-tl:Pruno
-uk:Чорнослив
-wa:pronne
-zh:梅乾
-# chy:Náhkôhematôtse
-# en-ca:Prune
-# en-gb:Prune
-# pcd:Pronnieu
-# sr-ec:шљива
-# yue:西梅乾
-wikidata:en:Q6766526
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
-# 35 products in 1 language @2018-09-30
 
 <en:fruit
 en:custard apple, cherimoya
@@ -39070,40 +39198,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 en:persimmon juice
 es:zumo de caqui
 
-<en:prune
-en:prune juice
-da:sveskejuice
-de:Pflaumensaft
-fr:Jus de prune
-
-# Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
-
-<en:prune
-fr:pruneau, pruneaux, pruneaux séchés
-de:Trockenpflaumen
-el:Δαμάσκηνο
-es:ciruelas pasas
-it:prugne secche
-nl:gedroogde pruimen
-pl:Śliwki suszone
-sr:suva šljiva
-vi:Mận khô
-wa:Souwêye pronne
-# de-ch:Trockenpflaume
-# sr-ec:сува шљива
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
-# 182 products in 3 languages @2018-09-30
-
-<fr:pruneau
-fr:pruneaux d'agen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
-# 57 products @2018-09-30
-
-<fr:pruneau
-<en:purée
-fr:purée de pruneaux
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
-# 39 products in 1 language @2018-09-30
 
 ###################################################################################################
 #
@@ -40011,7 +40105,7 @@ de:Kalifornische kernlose Rosinen
 fr:Raisins secs sans grains californiens
 
 <en:grape
-en:Zante currant
+en:Zante currant, currant
 da:Korend
 de:korinthische Rosinen, Korinthiaki
 es:Pasa de Corinto
@@ -40229,9 +40323,6 @@ it:mosto cotto
 nl:gekookte druivenmost
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin-cuit
 # 117 products in 4 languages @2018-10-02
-
-<en:fruit juice
-fr:Jus de pruneau obtenu par extraction hydrique
 
 
 # Technically this is a grape, but not one you will find in the shop
@@ -43004,6 +43095,7 @@ carbon_footprint_fr_foodges_value:fr:0.5
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 
 <en:cauliflower
+en:cauliflower florets
 fr:Choux-fleurs en fleurettes
 nl:Bloemkoolroosjes
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
@@ -43637,6 +43729,7 @@ nl:biologische wortel
 # en:organic-carrots has 580 products in 3 languages @2018-10-20
 
 <en:carrot
+en:baby carrots
 fr:jeunes carottes
 # fr:jeunes-carottes has 34 products in 1 language @2018-10-20
 
@@ -44552,7 +44645,7 @@ fr:Oignon de printemps séché
 # Zilveruitjes zijn in azijn ingelegde kleine uitjes. These are small white onions only used in pickles.
 
 <en:onion
-en:small white onions
+en:small white onions, silverskin onions
 de:Silberzwiebeln
 eo:peklita cepo
 es:Cebollitas
@@ -44595,6 +44688,8 @@ ro:ceapă roșie
 ru:красный лук
 sq:qepë e kuqe
 sv:rödlök
+wikidata:en:Q622350
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 # pnb:لال پیاز
 # ingredient/red-onions has 76 products in english @2018-12-06
 # ingredient/fr:oignon-rouge has 93 products in 6 languages @2018-12-06
@@ -44680,10 +44775,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Allium_fistulosum
 # ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
 
 <en:onion
+en:yellow onion
 fr:oignon jaune, oignons jaunes
 fi:keltasipuli
 sv:gul lök
+wikidata:en:Q8051898
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
 # ingredient/fr:oignons-jaunes has 15 products @2019-05-25
+
+<en:onion
+en:white onion
+wikidata:en:Q7995660
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 
 <en:onion
 en:fresh onions
@@ -46178,7 +46281,7 @@ it:peperoni rossi e gialli
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
 <en:vegetable
-en:chili pepper, chilli pepper
+en:chili pepper, chilli pepper, chilli, chillies
 ar:فلفل حار
 be:чырвоны перац
 bg:Люта чушка
@@ -46382,7 +46485,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Espelette_pepper
 # The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 <en:chili pepper
-en:Jalapeno peppers
+en:jalapeno, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies
 ar:هالبينو
 bg:халапеньо
 ca:bitxo jalapeño
@@ -51997,12 +52100,26 @@ wikidata:en:Q18360378
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
+<en:cardamom
+en:green cardamom
+fr:cardamome verte
+la:elettaria cardamomum
+wikidata:en:Q33466
+wikipedia:en:https://en.wikipedia.org/wiki/Elettaria_cardamomum
+
+<en:cardamom
+en:black cardamom
+fr:cardamome noire
+wikidata:en:Q1369048
+wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
+
 <en:seed
 <en:cardamom
 en:cardamom seed, cardamom seeds
 fi:kardemumman siemen, kardemumman siemeniä
 fr:graines de cardamome
 nl:kardemomzaden, hele kardemomzaden
+wikidata:en:Q14625808
 # ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
 
 ###################################################################################################
@@ -52562,23 +52679,6 @@ fr:extrait de gingembre
 vegan:en:yes
 vegetarian:en:yes
 
-
-<en:spice
-en:lime leaf
-da:limeblad
-fi:limetinlehti, limenlehti
-sv:limeblad
-# ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
-
-<en:spice
-en:kaffir lime leaf
-de:Zitronenblatt
-es:hoja limón
-fi:kaffirlimetinlehti, kaffirlimenlehti
-fr:feuille de citron
-nl:citroenblad
-wikipedia:en:https://en.wikipedia.org/wiki/Kaffir_lime
-# kaffir-lime-leaf has 25 products in 2 languages @2018-10-25
 
 <en:spice
 # <en:flavour
@@ -70651,6 +70751,14 @@ nl:gebroken flinterdunne flensjes
 # ingredient/fr:brisures-de-crêpe-dentelle has 125 products in 4 languages @2019-03-16
 # trozos de barquillo (harina de trigo, azúcar, aceite de girasol, leche desnatada en polvo, cebada malteada, sal)
 
+<en:bread
+en:rusk
+de:Zwieback
+fr:biscotte
+nl:beschuit
+wikidata:en:Q5477096
+wikipedia:en:https://en.wikipedia.org/wiki/Rusk
+
 # <en:compound
 <en:special bread
 en:rye bread
@@ -74042,7 +74150,7 @@ carbon_footprint_fr_foodges_value:fr:2.7
 fr:margarine végétale non hydrogénée
 
 <en:Margarine
-en:Vegetal margarine
+en:Vegetal margarine, vegetable margarine
 de:Pflanzliche Margarine
 es:Margarina vegetal
 fi:kasvimargariini

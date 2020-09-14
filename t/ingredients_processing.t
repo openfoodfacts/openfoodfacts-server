@@ -818,7 +818,7 @@ my @tests = (
 				    'text' => 'Ananas'
 				  },
 				  {
-				    'id' => 'en:prune',
+				    'id' => 'en:plum',
 				    'processing' => 'en:sundried',
 				    'text' => 'Pflaumen'
 				  },
@@ -866,7 +866,7 @@ my @tests = (
 	gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
+				'id' => "en:hard-cheese",
 				'processing' => 'en:salted',
 				'text' => "hartk\x{e4}se"
 			},
@@ -962,7 +962,7 @@ my @tests = (
 		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
-				'id' => "de:hartkäse",
+				'id' => "en:hard-cheese",
 				'processing' => 'en:sliced',
 				'text' => "hartkäse"
 			},

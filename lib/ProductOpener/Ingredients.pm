@@ -146,7 +146,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may also contain|may contain",
+	en => "possible traces|traces|may also contain|also may contain|may contain",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
@@ -2660,8 +2660,8 @@ en => [
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'once opened keep in the refrigerator',
-'Store in a cool[,]? dry place',
+'once opened[,]? (consume|keep|refrigerate|store|use)',
+'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
