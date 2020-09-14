@@ -564,6 +564,7 @@ nl:Max Havelaar Frankrijk
 <en:Fair trade
 en:TransFer, TransFer Canada
 
+
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
 fi:eläintä on ruokittu gmo-vapaalla rehulla, ruokittu ilman GMO:ita
@@ -2528,6 +2529,8 @@ hu:Hozzáadott MSG nélkül, Hozzáadott nátrium-glutamát nélkül
 nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 pt:Nenhum MSG adicionado
 
+########################## GMO ###############
+
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 de:gentechnikfrei
@@ -2542,6 +2545,7 @@ pl:bez GMO
 pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
+opposite:en: en:Contains GMOs
 
 en:Contains GMOs, with GMOs
 ca:Conté Transgènics
@@ -2555,6 +2559,7 @@ pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs
 th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
+opposite:en: en:No GMOs
 
 <en:No GMOs
 en:Non GMO project
@@ -2576,6 +2581,11 @@ en:Ohne Gentechnik hergestellt
 de:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 it:Prodotto Senza Ingegneria Genetica
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
+
+<en:No GMOs
+<fr:Soja Français
+fr:Soja Français sans OGM, Soja Français garanti sans OGM
+origins:en: en:France
 
 en:No lactose, lactose-free, Lactose free
 ca:Sense lactosa, lliure de lactosa
@@ -17160,10 +17170,6 @@ origins:en: en:France
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
 
-<en:No GMOs
-<fr:Soja Français
-fr:Soja Français sans OGM, Soja Français garanti sans OGM
-origins:en: en:France
 
 fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
 
