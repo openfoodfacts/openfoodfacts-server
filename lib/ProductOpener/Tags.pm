@@ -1316,7 +1316,7 @@ sub build_tags_taxonomy($$$) {
 				}
 			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
-				# Other lines -  wikidata:en:, description:fr:, etc.
+				# Other lines - wikidata:en:, description:fr:, etc.
 				
 				my $property = $1;
 				my $lc = $2;
