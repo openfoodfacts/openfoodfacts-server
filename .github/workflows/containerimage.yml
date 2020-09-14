@@ -13,7 +13,7 @@ jobs:
       with:
         fetch-depth: 1
     - name: Publish frontend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@2.19
+      uses: elgohr/Publish-Docker-Github-Action@2.21
       with:
         name: ${{ github.repository }}/frontend
         username: ${{ github.actor }}
@@ -34,7 +34,7 @@ jobs:
         rm icons.tar js.tar css.tar
         docker rm -v $CONTAINER
     - name: Publish backend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@2.19
+      uses: elgohr/Publish-Docker-Github-Action@2.21
       with:
         name: ${{ github.repository }}/backend
         username: ${{ github.actor }}

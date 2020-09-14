@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 07:24\n"
+"PO-Revision-Date: 2020-09-11 09:04\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -52,83 +52,83 @@ msgstr "登録"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "ようこそ！"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "ご参加ありがとうございます！"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Webまたは無料の <a href=\"%s\">モバイルアプリ</a>製品を追加および編集できるようになりました。"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slackにご参加ください"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "は、あなたがエネルギー、熱意、そしてアイデアを新製品よりもはるかにもたらすことができる共同プロジェクトです！"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "私たちはSlackと呼ばれるディスカッションシステムを使用しています。このシステムでは、プロジェクトの参加者全員が交流し、コラボレーションできます。どうぞ参加して下さい！よろしくお願いします！"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Slackにご参加ください"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "製品データと写真を簡単にインポートできるようになりました。"
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "これで、製品を追加および編集し、データと写真をプロデューサー向けの無料の <a href=\"%s\">プラットフォームにインポートできます</a>。"
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "%sという名前の既存の組織が既に存在し%s 。"
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "組織への参加リクエストは、組織管理者の承認待ちです。"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "ご不明な点がございましたら、 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> メールでお問い合わせください。"
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "プロデューサーまたはブランドで働いており、独自の製品のデータのみを追加または完成させる場合は、完全に無料のプロデューサー向けプラットフォームにアクセスできます。"
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "生産者向けのプラットフォームにより、製造業者はすべての製品のデータと写真を簡単にインポートし、それらを公式としてマーク付けし、製品の改善の機会を無料で分析できます。"
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "プロフェッショナルアカウント"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "これはプロデューサーまたはブランドのアカウントです。"
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "プロデューサーまたはブランド"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "プロフェッショナルアカウントには、関連する組織（会社名またはブランド）が必要です。"
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "組織名（会社名またはブランド）を入力してください。"
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "このアカウントは、プロデューサーまたはブランド %s関連付けられたプロフェッショナルアカウントです。生産者向けプラットフォームにアクセスできます。"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -226,7 +226,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -323,11 +323,11 @@ msgstr "%s ブランドではない製品"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "ブランドオーナー"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "ザコカコーラカンパニー"
 
 msgctxt "by"
 msgid "by"
@@ -579,7 +579,7 @@ msgstr "アカウント パラメーター"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "アカウントパラメータが変更されました。"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -593,21 +593,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "メールアドレス"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "EMBコード"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "製品はEMBコード %s の会社で包装されました"
+msgid "Products packaged by the company with traceability code %s"
+msgstr ""
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr ""
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "EMBコード"
+msgid "Traceability code"
+msgstr ""
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "EMBコード"
+msgid "Traceability code"
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr ""
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr ""
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr ""
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr ""
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -615,24 +631,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "ヨーロッパでは、楕円に2桁の国の頭文字のあるコードに、数字およびCEが続きます。"
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "包装者コード"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "EMBコードのある製品 %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "包装者コード"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "EMBコードのない製品 %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -870,7 +870,7 @@ msgstr "<<site_name>> wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -1041,11 +1041,11 @@ msgstr "原材料の数"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "認定された成分の数"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "認識されていない成分の数"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1652,6 +1652,10 @@ msgstr "ページ："
 msgctxt "password"
 msgid "Password"
 msgstr "パスワード"
+
+msgctxt "password_new"
+msgid "New password"
+msgstr ""
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2584,11 +2588,11 @@ msgstr "画像の選択を解除する際にエラーが発生しました。"
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "マウスホイールでズームを有効にします。"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "低解像度の画像を読み込む（接続速度が遅い場合）"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4264,6 +4268,10 @@ msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr ""
 
+msgctxt "we_need_your_help"
+msgid "We need your help!"
+msgstr ""
+
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
 msgstr ""
@@ -4287,5 +4295,302 @@ msgstr ""
 
 msgctxt "footer_producers"
 msgid "Producers"
+msgstr ""
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr ""
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr ""
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
+msgstr ""
+
+# Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
+msgctxt "text_direction"
+msgid "ltr"
+msgstr ""
+
+msgctxt "separate_values_with_commas"
+msgid "Separate multiple values with commas."
+msgstr ""
+
+msgctxt "lc_note"
+msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
+msgstr ""
+
+msgctxt "obsolete_import_note"
+msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
+msgstr ""
+
+msgctxt "specify_value_and_unit_or_use_default_unit"
+msgid "Specify both the value and unit, or use the default unit: %s"
+msgstr ""
+
+msgctxt "specify_value_and_unit"
+msgid "Specify both the value and unit."
+msgstr ""
+
+msgctxt "download_sample_import_file"
+msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
+msgstr ""
+
+msgctxt "code_import_note"
+msgid "Barcode as it appears on the product."
+msgstr ""
+
+msgctxt "producer_product_id_import_note"
+msgid "Internal code used by the producer to identify the product, different from the product's barcode."
+msgstr ""
+
+msgctxt "producer_version_id_import_note"
+msgid "Internal code used by the producer to identify a specific version of a product when it changes."
+msgstr ""
+
+msgctxt "categories_import_note"
+msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
+msgstr ""
+
+msgctxt "labels_import_note"
+msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
+msgstr ""
+
+msgctxt "origins_import_note"
+msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
+msgstr ""
+
+msgctxt "origin_import_note"
+msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
+msgstr ""
+
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score grade from A to E displayed on the product label"
+msgstr ""
+
+msgctxt "nutriscore_grade_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr ""
+
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
+msgstr ""
+
+msgctxt "nutriscore_score_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr ""
+
+msgctxt "mandatory_field"
+msgid "Mandatory field"
+msgstr ""
+
+msgctxt "mandatory_field_note"
+msgid "All products should have this information."
+msgstr ""
+
+msgctxt "recommended_field"
+msgid "Recommended field"
+msgstr ""
+
+msgctxt "recommended_field_note"
+msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
+msgstr ""
+
+msgctxt "optional_field"
+msgid "Optional field"
+msgstr ""
+
+msgctxt "optional_field_note"
+msgid "If available, this information will be displayed on the product page."
+msgstr ""
+
+# product photos here means photos of multiple products
+msgctxt "images_can_be_provided_separately"
+msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
+msgstr ""
+
+msgctxt "attribute_group_labels_name"
+msgid "Labels"
+msgstr "ラベル"
+
+msgctxt "attribute_labels_organic_name"
+msgid "Organic farming"
+msgstr ""
+
+msgctxt "attribute_labels_organic_yes_title"
+msgid "Organic product"
+msgstr ""
+
+msgctxt "attribute_labels_organic_no_title"
+msgid "Not an organic product"
+msgstr ""
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Promotes ecological sustainability and biodiversity."
+msgstr ""
+
+msgctxt "attribute_labels_organic_description"
+msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_name"
+msgid "Fair trade"
+msgstr "フェアトレード"
+
+msgctxt "attribute_labels_fair_trade_yes_title"
+msgid "Fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_no_title"
+msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_yes_description_short"
+msgid "Helps producers in developping countries."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_description_short"
+msgid "Fair trade products help producers in developping countries."
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_description"
+msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
+msgstr ""
+
+msgctxt "attribute_group_nutritional_quality_name"
+msgid "Nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_name"
+msgid "Nutri-Score"
+msgstr ""
+
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr ""
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_nutriscore_grade_title"
+msgid "Nutri-Score %s"
+msgstr ""
+
+msgctxt "attribute_nutriscore_a_description_short"
+msgid "Very good nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_b_description_short"
+msgid "Good nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_c_description_short"
+msgid "Average nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_d_description_short"
+msgid "Poor nutritional quality"
+msgstr ""
+
+msgctxt "attribute_nutriscore_e_description_short"
+msgid "Bad nutritional quality"
+msgstr ""
+
+msgctxt "attribute_group_processing_name"
+msgid "Food processing"
+msgstr ""
+
+msgctxt "attribute_nova_name"
+msgid "NOVA group"
+msgstr "NOVA グループ"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr ""
+
+# keep %s, it will be replaced by the group 1, 2, 3 or 4
+msgctxt "attribute_nova_group_title"
+msgid "NOVA %s"
+msgstr ""
+
+msgctxt "attribute_nova_1_description_short"
+msgid "Unprocessed or minimally processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_2_description_short"
+msgid "Processed culinary ingredients"
+msgstr ""
+
+msgctxt "attribute_nova_3_description_short"
+msgid "Processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_4_description_short"
+msgid "Ultra processed foods"
+msgstr ""
+
+msgctxt "export_product_page"
+msgid "Export product to public database"
+msgstr ""
+
+msgctxt "one_product_will_be_exported"
+msgid "1 product will be exported."
+msgstr ""
+
+msgctxt "no_products_to_export"
+msgid "No products to export."
+msgstr ""
+
+msgctxt "query_filter"
+msgid "Query filter"
+msgstr ""
+
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "NOVA グループ"
+
+msgctxt "error_unknown_org"
+msgid "Unknown organization."
+msgstr ""
+
+msgctxt "error_unknown_user"
+msgid "Unknown user."
+msgstr ""
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr ""
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr ""
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr ""
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr ""
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr ""
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr ""
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "添加物"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
 msgstr ""
 

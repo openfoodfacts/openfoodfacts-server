@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-20 09:01\n"
+"PO-Revision-Date: 2020-09-11 14:12\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 440\n"
+"X-Crowdin-File-ID: 1378\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -254,7 +254,7 @@ msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank e
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Machen Sie ein Foto"
+msgstr "Foto aufnehmen"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -592,21 +592,37 @@ msgctxt "email"
 msgid "e-mail address"
 msgstr "E-Mail-Adresse"
 
-msgctxt "emb_code_p"
-msgid "EMB codes"
-msgstr "Identitätskennzeichen"
-
 msgctxt "emb_code_products"
-msgid "Products packaged by the company with emb code %s"
-msgstr "Produkte vom Unternehmen mit Produzenten-Code %s verpackt"
+msgid "Products packaged by the company with traceability code %s"
+msgstr "Produkte, die vom Unternehmen mit Rückverfolgbarkeitscode %s verpackt wurden"
+
+msgctxt "emb_code_p"
+msgid "Traceability codes"
+msgstr "Rückverfolgbarkeitscodes"
 
 msgctxt "emb_code_s"
-msgid "EMB code"
-msgstr "Zulassungsnummern"
+msgid "Traceability code"
+msgstr "Rückverfolgbarkeitscode"
 
 msgctxt "emb_codes"
-msgid "EMB code"
-msgstr "Zulassungsnummern"
+msgid "Traceability code"
+msgstr "Rückverfolgbarkeitscode"
+
+msgctxt "emb_codes_p"
+msgid "traceability codes"
+msgstr "Rückverfolgbarkeitscodes"
+
+msgctxt "emb_codes_products"
+msgid "Products with the traceability code %s"
+msgstr "Produkte mit dem Rückverfolgbarkeitscode %s"
+
+msgctxt "emb_codes_s"
+msgid "traceability code"
+msgstr "Rückverfolgbarkeitscode"
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the traceability code %s"
+msgstr "Produkte ohne dem Rückverfolgbarkeitscode %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -614,24 +630,8 @@ msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "DE BY117 EG, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
-msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "In Europa befindet sich der Code in einer Ellipse mit zweistelligem Ländercode gefolgt von einer Nummer und EG (EG-Herkunftskennzeichnung)."
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr "Produzenten-Codes"
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr "Die Produkte mit Produzenten-Code %s"
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr "Produzenten-Code"
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr "Produkte ohne Produzenten-Code %s"
+msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
+msgstr "In Europa befindet sich der Code in einer Ellipse mit den beiden Länderinitialen, gefolgt von einer Nummer und CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -1084,7 +1084,7 @@ msgstr "Inhaltsstoff, der möglicherweise aus Palmöl hergestellt wird"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkte, die nicht den Inhaltsstoff %s enthalten"
+msgstr "Produkte, die den Inhaltsstoff %s nicht enthalten"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1651,6 +1651,10 @@ msgstr "Seiten:"
 msgctxt "password"
 msgid "Password"
 msgstr "Passwort"
+
+msgctxt "password_new"
+msgid "New password"
+msgstr "Neues Passwort"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -3761,7 +3765,7 @@ msgstr "Importe"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr "Anzahl der Produkte mit Datenqualitätsfehlern"
+msgstr "Anzahl der Produkte mit Fehlern in der Datenqualität"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
@@ -3973,7 +3977,7 @@ msgstr "Der Nutri-Score kann von %s auf %s geändert werden, indem der %s-Wert v
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr "Die Plattform für Produzenten befindet sich noch in der Entwicklung und wir führen manuelle Kontrollen durch, bevor wir Produkte in die öffentliche Datenbank importieren. Bitte senden Sie uns eine E-Mail an <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>, um die öffentliche Datenbank zu aktualisieren."
+msgstr "Die Plattform für Hersteller befindet sich noch in der Entwicklung und wir führen manuelle Überprüfungen durch, bevor wir Produkte in die öffentliche Datenbank importieren. Bitte senden Sie uns eine E-Mail an <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>, um die öffentliche Datenbank zu aktualisieren."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4175,11 +4179,11 @@ msgstr "Du kannst alle deine Produkte von der Plattform für Hersteler entfernen
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr "Bitte beachte, dass die Aktion nicht rückgängig gemacht werden kann."
+msgstr "Bitte beachten Sie, dass diese Aktion nicht rückgängig gemacht werden kann."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr "Warnung: Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher, dass du alle deine Produkte von der Plattform der Hersteller entfernen möchtest?"
+msgstr "Warnung: Diese Aktion kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie alle Ihre Produkte von der Plattform für Hersteller entfernen möchten?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
@@ -4264,6 +4268,10 @@ msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
 msgstr "CIQUAL Lebensmittelnamen"
 
+msgctxt "we_need_your_help"
+msgid "We need your help!"
+msgstr "### Wir benötigen Ihre Hilfe!"
+
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
 msgstr "Sie können uns dabei helfen, weitere Zutaten zu erkennen und die Zutatenliste für dieses und andere Produkte besser zu analysieren:"
@@ -4288,4 +4296,301 @@ msgstr "https://de.pro.openfoodfacts.org/"
 msgctxt "footer_producers"
 msgid "Producers"
 msgstr "Produzenten"
+
+# %s will be replaced by the language name
+msgctxt "add_ingredients_in_language"
+msgid "If this product has an ingredients list in %s, please add it."
+msgstr "Wenn dieses Produkt eine Zutatenliste in %s hat, fügen Sie diese bitte hinzu."
+
+msgctxt "missing_barcode"
+msgid "Missing barcode"
+msgstr "Strichcode fehlt"
+
+msgctxt "invalid_barcode"
+msgid "Invalid barcode"
+msgstr "Strichcode ungültig"
+
+# Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
+msgctxt "text_direction"
+msgid "ltr"
+msgstr "ltr"
+
+msgctxt "separate_values_with_commas"
+msgid "Separate multiple values with commas."
+msgstr "Trennen Sie mehrere Werte durch Komma."
+
+msgctxt "lc_note"
+msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
+msgstr "Wenn die Verpackung des Produkts mehrsprachig ist, geben Sie die am deutlichsten sichtbare Sprache auf dem Produkt an."
+
+msgctxt "obsolete_import_note"
+msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
+msgstr "Geben Sie „Ja”, „J” oder „1” ein, wenn das Produkt nicht mehr im Handel erhältlich ist."
+
+msgctxt "specify_value_and_unit_or_use_default_unit"
+msgid "Specify both the value and unit, or use the default unit: %s"
+msgstr "Geben Sie sowohl den Wert als auch die Einheit an, oder verwenden Sie die Standardeinheit: %s"
+
+msgctxt "specify_value_and_unit"
+msgid "Specify both the value and unit."
+msgstr "Geben Sie sowohl den Wert als auch die Einheit an."
+
+msgctxt "download_sample_import_file"
+msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
+msgstr "Laden Sie eine XLSX-Vorlagendatei mit den importierbaren Feldern für Excel oder LibreOffice herunter."
+
+msgctxt "code_import_note"
+msgid "Barcode as it appears on the product."
+msgstr "Strichcode, wie er auf dem Produkt angegeben ist."
+
+msgctxt "producer_product_id_import_note"
+msgid "Internal code used by the producer to identify the product, different from the product's barcode."
+msgstr "Interner Schlüssel, der vom Hersteller zur Identifizierung des Produkts verwendet wird und sich vom Strichcode des Produkts unterscheidet."
+
+msgctxt "producer_version_id_import_note"
+msgid "Internal code used by the producer to identify a specific version of a product when it changes."
+msgstr "Interner Schlüssel, der vom Hersteller verwendet wird, um eine bestimmte Variante eines Produkts zu identifizieren, wenn es sich ändert."
+
+msgctxt "categories_import_note"
+msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
+msgstr "Die Angabe einer Kategorie ist sehr wichtig, um die Suche nach einem Produkt zu erleichtern und den Nutri-Score zu berechnen."
+
+msgctxt "labels_import_note"
+msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
+msgstr "Einige Kennzeichnungen, wie z.B. das Bio-Label, werden verwendet, um Suchergebnisse zu filtern und/oder einzustufen, daher wird dringend empfohlen, diese anzugeben."
+
+msgctxt "origins_import_note"
+msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
+msgstr "Dieses Feld darf nur eine durch Komma getrennte Liste der Herkunftsländer der Inhaltsstoffe enthalten."
+
+msgctxt "origin_import_note"
+msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
+msgstr "Text oder Sätze, die den Ursprung des Produkts und/oder seiner Bestandteile angeben."
+
+msgctxt "nutriscore_grade_producer"
+msgid "Nutri-Score grade from A to E displayed on the product label"
+msgstr "Nutri-Score-Wert von A bis E auf dem Produktetikett"
+
+msgctxt "nutriscore_grade_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr "Open Food Facts berechnet den Nutri-Score-Wert auf der Grundlage der bereitgestellten Informationen (Nährwertangaben und Kategorie). Wenn der von uns berechnete Wert von dem von Ihnen angegebenen abweicht, erhalten Sie eine private Benachrichtigung auf der Produzentenplattform, damit der Unterschied geklärt werden kann."
+
+msgctxt "nutriscore_score_producer"
+msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
+msgstr "Nutri-Score-Punktzahl (numerischer Wert, von dem die Einstufung A bis E abgeleitet wird)"
+
+msgctxt "nutriscore_score_producer_import_note"
+msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
+msgstr "Open Food Facts berechnet den Nutri-Score auf der Grundlage der bereitgestellten Informationen (Nährwertangaben und Kategorie). Wenn der von uns berechnete Wert von dem von Ihnen angegebenen Wert abweicht, erhalten Sie eine private Benachrichtigung auf der Produzentenplattform, damit der Unterschied geklärt werden kann."
+
+msgctxt "mandatory_field"
+msgid "Mandatory field"
+msgstr "Pflichtfeld"
+
+msgctxt "mandatory_field_note"
+msgid "All products should have this information."
+msgstr "Alle Produkte sollten über diese Informationen verfügen."
+
+msgctxt "recommended_field"
+msgid "Recommended field"
+msgstr "Empfohlene Angaben"
+
+msgctxt "recommended_field_note"
+msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
+msgstr "Wenn diese Informationen vorhanden und für das Produkt relevant sind, wird empfohlen, sie zur Verfügung zu stellen, um die Suche nach dem Produkt zu erleichtern und die Produktdaten nützlicher zu gestalten."
+
+msgctxt "optional_field"
+msgid "Optional field"
+msgstr "Optionale Angaben"
+
+msgctxt "optional_field_note"
+msgid "If available, this information will be displayed on the product page."
+msgstr "Falls verfügbar, werden diese Informationen auf der Produktseite angezeigt."
+
+# product photos here means photos of multiple products
+msgctxt "images_can_be_provided_separately"
+msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
+msgstr "Produktfotos können auch separat über die Funktion „Produktfotos importieren” der Plattform für Produzenten zur Verfügung gestellt werden."
+
+msgctxt "attribute_group_labels_name"
+msgid "Labels"
+msgstr "Etiketten"
+
+msgctxt "attribute_labels_organic_name"
+msgid "Organic farming"
+msgstr "Ökologischen Landbau"
+
+msgctxt "attribute_labels_organic_yes_title"
+msgid "Organic product"
+msgstr "Bio-Produkt"
+
+msgctxt "attribute_labels_organic_no_title"
+msgid "Not an organic product"
+msgstr "Kein Bio-Produkt"
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Promotes ecological sustainability and biodiversity."
+msgstr "Fördert die ökologische Nachhaltigkeit und die biologische Vielfalt."
+
+msgctxt "attribute_labels_organic_description"
+msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+msgstr "Die biologische Landwirtschaft zielt darauf ab, die Umwelt zu schützen und die biologische Vielfalt zu erhalten, indem sie die Verwendung von synthetischen Düngemitteln, Pestiziden und Lebensmittelzusatzstoffen verbietet oder einschränkt."
+
+msgctxt "attribute_labels_fair_trade_name"
+msgid "Fair trade"
+msgstr "Fair Trade (Fair gehandelt)"
+
+msgctxt "attribute_labels_fair_trade_yes_title"
+msgid "Fair trade product"
+msgstr "Fair gehandeltes Produkt"
+
+msgctxt "attribute_labels_fair_trade_no_title"
+msgid "Not a fair trade product"
+msgstr "Kein fair gehandeltes Produkt"
+
+msgctxt "attribute_labels_fair_trade_yes_description_short"
+msgid "Helps producers in developping countries."
+msgstr "Hilft Produzenten in Entwicklungsländern."
+
+msgctxt "attribute_labels_fair_trade_description_short"
+msgid "Fair trade products help producers in developping countries."
+msgstr "Produkte aus fairem Handel helfen Produzenten in Entwicklungsländern."
+
+msgctxt "attribute_labels_fair_trade_description"
+msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
+msgstr "Wenn Sie Produkte aus fairem Handel kaufen, erhalten Produzenten in Entwicklungsländern einen höheren und faireren Preis, der ihnen hilft, höhere Sozial- und oft auch Umweltstandards zu verbessern und aufrechtzuerhalten."
+
+msgctxt "attribute_group_nutritional_quality_name"
+msgid "Nutritional quality"
+msgstr "Nahrungsqualität"
+
+msgctxt "attribute_nutriscore_name"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr "Gute Lebensmittelqualität (Nutri-Score)"
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr "Der Nutri-Score wird berechnet und kann für alle Produkte verwendet werden, auch wenn er nicht auf der Verpackung angegeben ist."
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_nutriscore_grade_title"
+msgid "Nutri-Score %s"
+msgstr "Nutri-Score %s"
+
+msgctxt "attribute_nutriscore_a_description_short"
+msgid "Very good nutritional quality"
+msgstr "Sehr gute Nährwertqualität"
+
+msgctxt "attribute_nutriscore_b_description_short"
+msgid "Good nutritional quality"
+msgstr "Gute Nährwertqualität"
+
+msgctxt "attribute_nutriscore_c_description_short"
+msgid "Average nutritional quality"
+msgstr "Durchschnittliche Nährwertqualität"
+
+msgctxt "attribute_nutriscore_d_description_short"
+msgid "Poor nutritional quality"
+msgstr "Niedrige Nährwertqualität"
+
+msgctxt "attribute_nutriscore_e_description_short"
+msgid "Bad nutritional quality"
+msgstr "Schlechte Nährwertqualität"
+
+msgctxt "attribute_group_processing_name"
+msgid "Food processing"
+msgstr "Lebensmittelverarbeitung"
+
+msgctxt "attribute_nova_name"
+msgid "NOVA group"
+msgstr "Nova-Gruppe"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr "Keine oder geringe Lebensmittelverarbeitung (NOVA-Gruppe)"
+
+# keep %s, it will be replaced by the group 1, 2, 3 or 4
+msgctxt "attribute_nova_group_title"
+msgid "NOVA %s"
+msgstr "NOVA %s"
+
+msgctxt "attribute_nova_1_description_short"
+msgid "Unprocessed or minimally processed foods"
+msgstr "Unverarbeitete oder minimal verarbeitete Lebensmittel"
+
+msgctxt "attribute_nova_2_description_short"
+msgid "Processed culinary ingredients"
+msgstr "Verarbeitete Küchenzutaten"
+
+msgctxt "attribute_nova_3_description_short"
+msgid "Processed foods"
+msgstr "Verarbeitete Lebensmittel"
+
+msgctxt "attribute_nova_4_description_short"
+msgid "Ultra processed foods"
+msgstr "Hochverarbeitete Lebensmittel"
+
+msgctxt "export_product_page"
+msgid "Export product to public database"
+msgstr "Produkt in öffentliche Datenbank exportieren"
+
+msgctxt "one_product_will_be_exported"
+msgid "1 product will be exported."
+msgstr "Ein Produkt wird exportiert."
+
+msgctxt "no_products_to_export"
+msgid "No products to export."
+msgstr "Keine zu exportierenden Produkte."
+
+msgctxt "query_filter"
+msgid "Query filter"
+msgstr "Abfragefilter"
+
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "Nova-Gruppe"
+
+msgctxt "error_unknown_org"
+msgid "Unknown organization."
+msgstr "Unbekannte Organisation"
+
+msgctxt "error_unknown_user"
+msgid "Unknown user."
+msgstr "Unbekannter Benutzer"
+
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr "Der Salzgehalt wird durch den Nutri-Score berücksichtigt. Verwenden Sie diese Einstellung nur, wenn Sie sich gezielt salzarm ernähren möchten."
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr "Der Zuckergehalt wird durch den Nutri-Score berücksichtigt. Verwenden Sie diese Einstellung nur, wenn Sie sich gezielt zuckerarm ernähren möchten."
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr "Der Fettgehalt wird durch den Nutri-Score berücksichtigt. Verwenden Sie diese Einstellung nur, wenn Sie sich gezielt fettarm ernähren möchten."
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr "Der Gehalt an gesättigten Fettsäuren wird durch den Nutri-Score berücksichtigt. Verwenden Sie diese Einstellung nur, wenn Sie sich gezielt mit wenig gesättigten Fettsäuren ernähren möchten."
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr "Allergene"
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr "Es besteht immer die Möglichkeit, dass Daten über Allergene fehlen, unvollständig oder falsch sind oder dass sich die Zusammensetzung des Produkts geändert hat. Wenn Sie allergisch sind, überprüfen Sie immer die Angaben auf der tatsächlichen Produktverpackung."
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Zusatzstoffe"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
+msgstr "Keine oder wenige Zusatzstoffe"
 

@@ -71,7 +71,7 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_10_19_ok.csv";
+my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_09_2020.csv";
 my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
 #$imagedir = "/srv2/off/imports/systemeu/images";
@@ -427,7 +427,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			if ($code eq '') {
 				print STDERR "empty code\n";
 				require Data::Dumper;
-				print STDERR Data::Dumper->Dumper($imported_product_ref);
+				print STDERR Data::Dumper::Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
 			}
@@ -1452,13 +1452,19 @@ TXT
 
 					my $enid = encodeURIComponent($nid);
 
-					print STDERR "product $code - nutrient - $nid - $modifier $value $unit\n";
+					print STDERR "product $code - nutrient - $nid - modifier: $modifier - value: $value - unit: $unit\n";
 
 					$value =~ s/,/./;
 					$value += 0;
 
-
-					my $new_value = unit_to_g($value, $unit);
+					my $new_value;
+					
+					if ($nid =~ /^energy-(kj|kcal)/) {
+						$new_value = $value;
+					}
+					else {
+						$new_value = unit_to_g($value, $unit);
+					}
 
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
 						and ($new_value ne $product_ref->{nutriments}{$nid}) ) {

@@ -483,7 +483,7 @@ it:Denominazione di Origine Designata
 wikidata:en:Q3139487
 
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
-ru: Обозначение происхождения
+ru:Обозначение происхождения
 
 en:EAC
 ca:EAC
@@ -514,6 +514,16 @@ nl:Rechtvaardige handel, fair trade
 pl:Fair trade
 wikidata:en:Q188485
 label_categories:en: en:Social responsibility
+opposite:en: en:non-fair-trade
+description:en:Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards. 
+description:de:Als Fairer Handel (englisch fair trade) wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
+description:es:El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
+description:fr:Le commerce équitable est un système d'échange dont l'objectif est de proposer une plus grande équité dans le commerce conventionnel, voire une alternative à celui-ci, basée notamment sur la réappropriation des échanges marchands par ceux qui les pratiquent.
+description:nl:Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
+
+en:Non-fair trade, Not fair trade
+fr:Non issu du commerce équitable
+opposite:en: en:fair-trade
 
 # Should not be translated, "Fairtrade International" is a label
 
@@ -553,6 +563,7 @@ nl:Max Havelaar Frankrijk
 
 <en:Fair trade
 en:TransFer, TransFer Canada
+
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -619,12 +630,13 @@ nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
 pl:Bezglutenowy
 pt:Sem gluten, Isento de gluten
 ru:Без глютена
-sk: Bez lepku
+sk:Bez lepku
 sv:Glutenfri
 th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
 wikidata:en:Q2632776
+opposite:en: en:contains-gluten
 
 <en:Gluten-free
 en:FACE
@@ -651,6 +663,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
+opposite:en: en:gluten-free
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -2270,8 +2283,12 @@ it:Senza alcol
 nl:Alcoholvrij, Zonder alchohol
 pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
+opposite:en: en:contains alcohol
 
-en:No artificial colors, free of artificial color
+en:Contains alcohol
+opposite:en: en:no alcohol
+
+en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
 de:Ohne künstliche Farbstoffe
 es:Sin colorantes artificiales
@@ -2291,7 +2308,7 @@ fi:atsoväritön, ei atsovärejä, ilman atsovärejä
 fr:Sans colorants azoïques
 label_categories:en: en:Health, en:Additives
 
-en:No artificial flavors, free of artificial flavor
+en:No artificial flavors, free of artificial flavor, No artificial flavours
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
 es:Sin aromas artificiales
@@ -2318,6 +2335,10 @@ nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
 label_categories:en: en:Health, en:Claim
 
+<en:No artificial flavors
+<en:No artificial sweeteners
+en:No artificial flavourings or sweeteners
+
 en:No artificial preservatives, free of artificial preservative
 ca:Sense conservants artificials
 de:Ohne künstliche Konservierungsstoffe
@@ -2330,9 +2351,13 @@ nl:Zonder kunstmatige bewaarstoffen
 pt:Sem conservantes artificiais
 label_categories:en: en:Health, en:Additives
 
+<en:No artificial preservatives
+<en:No artificial colors
+en:No artificial colours and preservatives
+
 <en:No artificial flavors
 <en:No artificial colors
-en:No artificial colours or flavours
+en:No artificial colours or flavours, No artificial colours and flavours, No artificial colours and flavourings
 ca:Sense colorants ni aromes artificials
 de:Keine künstlichen Farbstoffe oder Aromen
 es:Sin colorantes o saborizantes artificiales
@@ -2534,6 +2559,8 @@ nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 pt:Nenhum MSG adicionado
 label_categories:en: en:Health, en:Additives
 
+########################## GMO ###############
+
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 de:gentechnikfrei
@@ -2549,6 +2576,7 @@ pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
+opposite:en: en:Contains GMOs
 
 en:Contains GMOs, with GMOs
 ca:Conté Transgènics
@@ -2562,6 +2590,7 @@ pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs
 th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
+opposite:en: en:No GMOs
 
 <en:No GMOs
 en:Non GMO project
@@ -2583,6 +2612,11 @@ en:Ohne Gentechnik hergestellt
 de:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 it:Prodotto Senza Ingegneria Genetica
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
+
+<en:No GMOs
+<fr:Soja Français
+fr:Soja Français sans OGM, Soja Français garanti sans OGM
+origins:en: en:France
 
 en:No lactose, lactose-free, Lactose free
 ca:Sense lactosa, lliure de lactosa
@@ -2815,13 +2849,14 @@ fi:AENOR:in sertifioima
 fr:Certifié par l'AENOR
 label_categories:en: en:Certification
 
-en:Non-vegetarian, not suitable for vegetarians
+en:Non-vegetarian, not vegetarian, not suitable for vegetarians
 de:Nicht-vegetarisch, nicht für Vegetarier geeignet
 fi:ei-vegetaarinen, ei sovellu kasvissyöjille
 fr:Non végétarien, ne convient pas aux végétariens
 hu:Nem Vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
 label_categories:en: en:Specific diets
+opposite:en: en:vegetarian
 
 <en:Non-vegetarian
 en:Brown Dot India, India Brown dot, indian brown dot, non-vegetarian mark india, brown dot
@@ -2909,11 +2944,20 @@ th:ออร์แกนิค
 zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
+opposite:en: en:non-organic
+description:en:Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity. 
+description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methoden die voldoen aan de normen van de biologische landbouw, welke een ecologisch evenwicht en het behoud van biodiversiteit nastreeft.
+description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
+description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
+description:fr:Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L’agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
+
+
+# Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
+en:Non-organic, not organic
+fr:Non-bio
+opposite:en: en:organic
 
 <en:Organic
-fr:Nature et Progrès
-wikidata:en:Q3337101
-
 en:Farm Verified Organic
 
 # The entry below is needed to correctly parse ingredients lists that
@@ -2938,6 +2982,11 @@ it:Agricoltura biodinamica
 nl:Biodynamische landbouw
 pl:Rolnictwo biodynamiczne
 wikidata:en:Q847611
+
+
+<en:Biodynamic agriculture
+fr:Nature et Progrès
+wikidata:en:Q3337101
 
 <en:Biodynamic agriculture
 en:Demeter
@@ -2978,16 +3027,6 @@ sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
-en:EU/non-EU Agriculture, EU and non EU Agriculture
-ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
-de:EU-/Nicht-EU-Landwirtschaft
-es:Agricultura UE/no UE
-fi:Tuotettu EU:ssa ja EU:n ulkopuolella
-fr:Agriculture UE/Non UE
-hu:EU/nem-EU mezőgazdaság
-it:Agricoltura EU/non-EU
-nl:EU/Non EU landbouw
-ru:EU/не-EU агрокультура
 
 en:non-EU Agriculture
 ca:Agricultura No-UE
@@ -3014,6 +3053,19 @@ hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
 nl:EU landbouw
 ru:EU агрокультура, агрокультура Европейского Союза
+
+<en:non-EU Agriculture
+<en:EU Agriculture
+en:EU/non-EU Agriculture, EU and non EU Agriculture
+ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
+de:EU-/Nicht-EU-Landwirtschaft
+es:Agricultura UE/no UE
+fi:Tuotettu EU:ssa ja EU:n ulkopuolella
+fr:Agriculture UE/Non UE
+hu:EU/nem-EU mezőgazdaság
+it:Agricoltura EU/non-EU
+nl:EU/Non EU landbouw
+ru:EU/не-EU агрокультура
 
 <en:Organic
 en:Bio Austria
@@ -4920,6 +4972,7 @@ en:SK-BIO-003
 fi:SK-BIO-003
 country:en:Slovakia
 
+<en:EU organic
 en:AL-BIO-171
 country:en:Albania
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food (*),
@@ -16052,6 +16105,11 @@ ru:Без пальмового масла
 sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
+opposite:en: en:contains-palm-oil
+
+en:Contains palm oil
+fr:Contient de l'huile de palme
+opposite:en: en:palm-oil-free
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
@@ -16843,7 +16901,7 @@ en:UTZ Certified Cacao, UTZ Certified Cocoa
 ca:Cacau certificat UTZ
 de:UTZ Certified Kakao
 fi:UTZ-sertifioitua kaakaota
-fr: Cacao certifié UTZ
+fr:Cacao certifié UTZ
 it:Cacao certificato UTZ
 nl:UTZ gecertificeerde cacao
 pl:UTZ Certified Cacao
@@ -16853,7 +16911,7 @@ en:UTZ Certified Coffee
 ca:Cafè amb certificat UTZ
 de:UTZ Certified Kaffee
 fi:UTZ-sertifioitua kahvia
-fr: Café certifié UTZ
+fr:Café certifié UTZ
 it:Caffè certificato UTZ, Caffe certificato UTZ
 pl:UTZ Certified Coffee
 
@@ -16880,7 +16938,7 @@ en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en:Q7918353
 
 <en:Vegetarian
-en:Vegan, Suitable for vegans
+en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans
 ca:Vegà, Adequat per persones veganes
 de:Vegan
 es:Vegano, Producto vegano, Vegan
@@ -16895,6 +16953,11 @@ pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 zh:纯素
+opposite:en: en:non-vegan
+
+en:Non-vegan, not vegan, not suitable for vegans
+fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
+opposite:en: en:vegan
 
 <en:Vegan
 en:Vegan Action
@@ -17160,12 +17223,6 @@ fr:Farine de blé français
 origins:en: en:France
 
 fr:Soja Français, Soja de Français, Filière Soja Français
-origins:en: en:France
-label_categories:en: en:Soy
-
-<en:No GMOs
-<fr:Soja Français
-fr:Soja Français sans OGM, Soja Français garanti sans OGM
 origins:en: en:France
 label_categories:en: en:Soy
 
@@ -18613,7 +18670,7 @@ hu:Hír, Hagyomámyok ízek régiók
 
 hu:Hungarikum baromfitermékek,HU-Ba
 
-hu: Magyar minőség
+hu:Magyar minőség
 
 hu:Magyar termék világszínvonalon
 

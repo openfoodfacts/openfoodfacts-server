@@ -101,7 +101,7 @@ sub retrieve_org($) {
 	
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
-	$log->debug("retrieve_org", { $org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
+	$log->debug("retrieve_org", { org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
 
 	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
 
@@ -171,7 +171,7 @@ sub create_org($$) {
 		created_t => time(),
 		creator   => $creator,
 		org_id    => $org_id,
-		org_name  => $org_id_or_name,
+		name  => $org_id_or_name,
 		admins    => {},
 		members   => {},
 	};
@@ -181,7 +181,7 @@ sub create_org($$) {
 	my $admin_mail_body = <<EMAIL
 creator: $creator
 org_id: $org_id
-org_name: $org_id_or_name
+name: $org_id_or_name
 EMAIL
 ;
 	send_email_to_producers_admin(

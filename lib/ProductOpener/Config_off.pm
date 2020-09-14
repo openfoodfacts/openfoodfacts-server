@@ -671,6 +671,7 @@ $options{import_export_fields_groups} = [
 	[   "other",
 		[   "nutriscore_score_producer",
 			"nutriscore_grade_producer",
+			"nova_group_producer",
 			"conservation_conditions",
 			"warning",
 			"preparation",
@@ -686,6 +687,29 @@ $options{import_export_fields_groups} = [
 			"image_nutrition_url", "image_other_url"
 		]
 	],
+];
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore",
+		"low_salt", "low_sugars", "low_fat", "low_saturated_fat",
+		],
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"labels",
+		["labels_organic", "labels_fair_trade"]
+	],
+	[
+		"allergens",
+		["allergens_gluten", "allergens_milk", "allergens_eggs"],
+	]
 ];
 
 # Used to generate the sample import file for the producers platform

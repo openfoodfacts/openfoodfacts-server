@@ -113,7 +113,7 @@ while (my $product_ref = $cursor->next) {
 				print STDERR "$file - id: $imageid\n";
 
 				require File::Copy;
-				File::Copy->copy( "$dir/$file",
+				File::Copy::copy( "$dir/$file",
 					"$target_dir/$code" . '_' . $imageid . ".jpg" )
 					or die("could not copy: $!\n");
 

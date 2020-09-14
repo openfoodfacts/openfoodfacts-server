@@ -658,6 +658,11 @@ is_deeply($tag_ref,
 )
 or diag explain $tag_ref;
 
+# check %tags_texts and %tags_levels are populated on demand
+ProductOpener::Tags::init_tags_texts_levels();
+# Assumes we will always have french additive texts for E100.
+like($tags_texts{'fr'}{'additives'}{'e100'}, qr/curcumine/, 'e100 text contains "curcumine"') or diag explain($tags_texts{'fr'}{'additives'}{'e100'});
+isnt($tags_levels{'fr'}{'additives'}{'e100'}, undef, 'e100 level has a value') or diag explain($tags_levels{'fr'}{'additives'});
 
 
 done_testing();

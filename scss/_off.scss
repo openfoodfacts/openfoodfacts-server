@@ -422,6 +422,16 @@ a[aria-controls="idOfLeftMenu"] {
   float: right;
 }
 
+.rev_summary {
+  .rev_previous {
+    margin-right: 2em;
+  }
+
+  .rev_next {
+    margin-left: 2em;
+  }
+}
+
 html[dir="rtl"] {
   .tab-bar-section.middle {
     left: 0;
@@ -445,5 +455,15 @@ html[dir="rtl"] {
 
   .search_and_links {
     float: left;
+  }
+
+  .rev_summary {
+    .rev_previous {
+      margin-left: 2em;
+    }
+
+    .rev_next {
+      margin-right: 2em;
+    }
   }
 }

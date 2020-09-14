@@ -536,6 +536,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
+opposite:en: en:gluten-free
 
 en:Contains GMOs, with GMOs
 ca:Conté Transgènics
@@ -564,6 +565,10 @@ pl:Zawiera mleko, Z mlekiem
 pt:Contem leite
 ru:Содержит молоко
 th:มีส่วนผสมของนม
+
+en:Contains palm oil
+fr:Contient de l'huile de palme
+opposite:en: en:palm-oil-free
 
 en:Contains soy
 de:Enthält Soja
@@ -13638,6 +13643,7 @@ it:Commercio equo
 nl:Rechtvaardige handel, fair trade
 pl:Fair trade
 label_categories:en: en:Social responsibility
+opposite:en: en:non-fair-trade
 wikidata:en: Q188485
 
 < en:Fair trade
@@ -13954,6 +13960,7 @@ sv:Glutenfri
 th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
+opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
 < en:Gluten-free
@@ -15535,13 +15542,25 @@ es:BO-BIO-126
 fi:BO-BIO-126
 pt:BO-BIO-126
 
-en:Non-vegetarian, not suitable for vegetarians
+en:Non-fair trade, Not fair trade
+fr:Non issu du commerce équitable
+opposite:en: en:fair-trade
+
+en:Non-organic, not organic
+fr:Non-bio
+
+en:Non-vegan, not vegan, not suitable for vegans
+fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
+opposite:en: en:vegan
+
+en:Non-vegetarian, not vegetarian, not suitable for vegetarians
 de:Nicht-vegetarisch, nicht für Vegetarier geeignet
 fi:ei-vegetaarinen, ei sovellu kasvissyöjille
 fr:Non végétarien, ne convient pas aux végétariens
 hu:Nem Vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
 label_categories:en: en:Specific diets
+opposite:en: en:vegetarian
 
 < en:Non-vegetarian
 en:Brown Dot India, India Brown dot, indian brown dot, non-vegetarian mark india, brown dot
@@ -15802,6 +15821,7 @@ sv:Ekologisk, ekologiskt
 th:ออร์แกนิค
 zh:有机
 label_categories:en: en:Environnement
+opposite:en: en:non-organic
 wikidata:en: Q380778
 
 < en:Organic
@@ -16059,6 +16079,7 @@ it:Confezionato in Francia
 en:Pair trawling
 fi:Paritroolattu
 fr:Pêché à deux chaluts
+wikidata:en: Q7125126
 
 en:Palm oil free, Without palm oil, No palm oil
 ca:Lliure d'oli de palma, Sense oli de palma
@@ -16077,6 +16098,7 @@ ru:Без пальмового масла
 sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
+opposite:en: en:contains-palm-oil
 
 en:pasteurized product
 es:Producto pasteurizado
@@ -16234,6 +16256,7 @@ wikidata:en: Q13533432
 en:PGI Alcachofa de Tudela, Alcachofa de Tudela
 ca:PGI Alcachofa de Tudela, Carxofa de Tudela
 es:IGP Alcachofa de Tudela, I.G.P. Alcachofa de Tudela, Alcachofa de Tudela
+wikidata:en: Q60828679
 
 < en:PGI
 < en:Spanish protected product
@@ -17164,6 +17187,7 @@ it:Marchio di qualità spagnolo
 en:Alimentos Artesanos de Navarra
 es:Alimentos Artesanos de Navarra
 it:Alimentos Artesanos de Navarra, Alimenti artigianali della Navarra
+wikidata:en: Q20983806
 
 < en:Spanish quality label
 en:Alimentos de Castilla-La Mancha
@@ -17487,6 +17511,7 @@ wikidata:en: Q443112
 
 < en:Vegetarian
 en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
+wikidata:en: Q7918353
 
 < en:Vegetarian
 en:Vegan, Suitable for vegans
@@ -17504,6 +17529,7 @@ pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 zh:纯素
+opposite:en: en:non-vegan
 
 < en:Vegetarian
 en:Vegetarian Society
