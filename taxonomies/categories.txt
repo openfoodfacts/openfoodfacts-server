@@ -36267,7 +36267,6 @@ en:Stirred yogurts
 de:cremiger Joghurt
 fi:Sekoitetut jogurtit
 fr:Yaourts brassés, Yaourt brassé
-it:Yogurt
 nl:Roeryoghurts
 
 <ru:Йогурт
@@ -36755,7 +36754,7 @@ it:Composte di pera
 <en:Apple compotes
 fr:Compotes pommes abricot
 de:Apfel-Aprikosen-Kompott, Aprikosen-Apfel-Kompott
-it:Composte mela e pera
+it:Composte mela e albicocca
 nl:Appel-abrikozencompotes, Abrikozen-appelcompotes
 
 <en:Apple compotes
@@ -37377,7 +37376,6 @@ de:Einfacher Soja-Joghurt, Natürlicher Soja-Joghurt
 es:Yogures de soja naturales, Yogures de soja natural
 fr:Yaourts soja natures
 hu:Természetes szójatej
-it:Yogurt di soia
 nl:Naturel sojayoghurts
 
 <en:Soy milk yogurts
@@ -49552,7 +49550,6 @@ es:Mostazas dulces
 fi:Makeat sinapit
 fr:Moutardes douces
 hu:Édes mustár
-it:Senapi
 nl:Zoete mosterds
 
 <en:Mustards
@@ -49896,7 +49893,7 @@ en:Italian meat products
 
 <en:Italian meat products
 it:Mortadella di Prato
-protected_name_file_number:en: PGI-IT-01333-AM01
+protected_name_file_number:en: PGI-IT-01333, PGI-IT-01333-AM01
 protected_name_type:en: pgi
 origins:en: en:Italy
 
@@ -49909,12 +49906,6 @@ origins:en: en:Italy
 <en:Italian meat products
 it:Pitina
 protected_name_file_number:en: PGI-IT-02332
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian meat products
-it:Mortadella di Prato
-protected_name_file_number:en: PGI-IT-01333
 protected_name_type:en: pgi
 origins:en: en:Italy
 
@@ -50111,7 +50102,11 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Dried hams
+en:Hams of San Daniele
+fr:Jambons de San Daniele, jambon de san daniele
 it:Prosciutto di San Daniele
+nl:Ham uit San Daniele
 protected_name_file_number:en: PDO-IT-0065
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -50123,7 +50118,16 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Dried hams
+en:Parma ham, Dry-cured Parma ham
+fr:Jambons de Parme, jambon de parme, Jambon sec de Parme
 it:Prosciutto di Parma
+nl:Parmahammen
+wikidata:en:Q13360207
+agribalyse_food_code:en:28844
+ciqual_food_code:en:28844
+ciqual_food_name:en:Parma dry-cured ham
+ciqual_food_name:fr:Jambon sec de Parme
 protected_name_file_number:en: PDO-IT-0067
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -58619,23 +58623,6 @@ origins:en: en:France
 fr:Jambons de Mayence, jambon de Mayence
 de:Mainzer Schinken
 wikidata:en:Q1885761
-
-<en:Dried hams
-en:Dry-cured Parma ham
-fr:Jambons de Parme, jambon de parme, Jambon sec de Parme
-it:Prosciutto di Parma
-nl:Parmahammen
-wikidata:en:Q13360207
-agribalyse_food_code:en:28844
-ciqual_food_code:en:28844
-ciqual_food_name:en:Parma dry-cured ham
-ciqual_food_name:fr:Jambon sec de Parme
-
-<en:Dried hams
-en:Hams of San Daniele
-fr:Jambons de San Daniele, jambon de san daniele
-it:Prosciutto di San Daniele
-nl:Ham uit San Daniele
 
 <en:Dried hams
 fr:Jambons ibériques, jambon ibérique, jambons pata negra, pata negra, jambon pata negra
@@ -69462,7 +69449,6 @@ es:Siropes simples, Jarabes simples
 fi:siirapit
 fr:Sirops simples
 he:סירופים פשוטים
-it:Sciroppi
 nl:Basissiropen
 
 <en:Simple syrups
@@ -69995,7 +69981,7 @@ de:Dosentomaten, Tomaten in Dosen
 es:Tomates en conserva
 fi:purkitetut tomaatit
 fr:Tomates en conserve, conserves de tomate
-it:Pelati, Pomodori in scatola
+it:Pomodori in scatola
 nl:Tomaten in blik
 pt:Tomates enlatados
 
