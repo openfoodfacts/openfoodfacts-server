@@ -18104,7 +18104,7 @@ from_palm_oil:en:no
 
 description:en:SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
 <en:vegetable fat
-en:shea butter, shea
+en:shea butter, shea, shea fat
 ak:Nkuto
 ar:زبدة الشيا
 bg:Масло от ший
@@ -18135,6 +18135,10 @@ wikidata:en:Q495857
 wikipedia:en:https://en.wikipedia.org/wiki/Shea_butter
 # ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
 from_palm_oil:en:no
+
+<en:vegetable oil
+<en:shea
+en:shea oil
 
 description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 <en:vegetable fat
@@ -18295,7 +18299,7 @@ nl:olie van biologisch geteelde zaden van de vlasplant
 # description:en:SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
 
 <en:vegetable oil
-en:sunflower oil
+en:sunflower oil, sunflower seed oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
@@ -18493,7 +18497,7 @@ from_palm_oil:en:no
 # Shorea robusta, the SAL tree, is a species of tree in the family Dipterocarpaceae.
 # WARNING: do not put "sal" as a synonym in languages where it also means salt
 
-en:sal tree, shorea robusta
+en:sal tree, shorea robusta, sal
 ar:شورية قاسية
 as:শাল গছ
 bn:শাল
@@ -18548,6 +18552,10 @@ from_palm_oil:en:no
 wikidata:en:Q15087371
 wikipedia:en:https://en.wikipedia.org/wiki/Shorea_robusta_seed_oil
 # ingredient/en:sal-oil has 10 products in 2 languages @2020-06-08
+
+<en:vegetable fat
+<en:sal
+en:sal fat
 
 # ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
@@ -23981,6 +23989,7 @@ it:fiocchi di miglio
 # 46 products in 3 languages @2018-09-22
 
 <en:millet
+en:millet seed
 fr:graines de millet
 # https://world.openfoodfacts.org/ingredient/fr:graines-de-millet/
 # 111 products in 1 languages @1018-09-22
@@ -46410,6 +46419,9 @@ it:purea di peperoncino
 # usage:fr:purée de piments (piments, sel)
 
 <en:chili pepper
+en:chilli flakes
+
+<en:chili pepper
 en:chili in vinegar
 es:guindillas en vinagre
 
@@ -46419,7 +46431,7 @@ de:konservierter Chilipfeffer
 fi:säilötty chili
 
 <en:chili pepper
-en:red chili pepper, red chili, red chilli pepper, red chilli
+en:red chili pepper, red chili, red chilli pepper, red chilli, red chillies
 da:rød chili
 de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
@@ -46442,7 +46454,7 @@ fr:huile de graines de piment rouge
 nl:rode peper zaad olie
 
 <en:chili pepper
-en:green chili pepper, green chili, green chilli pepper, green chilli
+en:green chili pepper, green chili, green chilli pepper, green chilli, green chillies
 de:grüne Chili
 es:guindilla verde
 fi:vihreä chili
@@ -50155,7 +50167,7 @@ cerneaux de noix invalides
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-en:seed, seeds
+en:seed, seeds, seed blend, seed mix
 af:Saad
 ak:aba
 an:Simient
@@ -50616,7 +50628,7 @@ fr:lin jaune
 # It is possible to derive oil from flax seed
 
 <en:seed
-en:flax seed, flax seeds, flaxseed
+en:flax seed, flax seeds, flaxseed, linseed
 bg:Ленено семе
 cs:Len setý
 da:Hørfrø
@@ -50644,14 +50656,14 @@ nutriscore_fruits_vegetables_nuts:en:no
 de:Leinsaat geschrotet
 
 <en:flax seed
-en:golden flax seeds
+en:golden flax seeds, golden linseed
 es:semillas de lino dorado, lino dorado
 fr:graines de lin doré, graines de lin jaune
 de:goldgelbe Leinsaat
 # ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
 
 <en:flax seed
-en:brown flax seeds
+en:brown flax seeds, brown linseed
 de:brauner Leinsamen
 es:linaza marron,lino marron
 fi:ruskeat pellavansiemenet
@@ -53582,6 +53594,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peppermint
 # 510 products in 6 languages @2018-10-10
 
 <en:peppermint
+en:peppermint leaves
+de:Pfefferminzblätter
 fr:feuilles de menthe poivrée
 
 <en:peppermint
@@ -57170,6 +57184,9 @@ carbon_footprint_fr_foodges_value:fr:30.5
 # ingredient/tea has 217 products in 5 languages @2019-04-21
 
 <en:tea
+en:tea leaf, tea leaves
+
+<en:tea
 en:tea from Ceylon
 de:Tee aus Ceylon
 fr:the de ceylan
@@ -57258,6 +57275,10 @@ zh:红茶
 wikidata:en:Q203415
 wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
+
+<en:black tea
+en:black tea leaf, black tea leaves
+fr:feuilles de thé noir
 
 <en:black tea
 en:Ceylon black tea
@@ -57373,6 +57394,9 @@ zh:綠茶
 wikidata:en:Q484083
 wikipedia:en:https://en.wikipedia.org/wiki/Green_tea
 # ingredient/green-tea has 902 products in 14 languages @2019-04-21
+
+<en:green tea
+en:green tea leaf, green tea leaves
 
 <en:green tea
 en:organic green tea
@@ -70843,7 +70867,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tortilla
 
 # mainIngredient:en:wheat
 <en:tortilla
-en:wheat tortilla, flour tortilla
+en:wheat tortilla, wheat flour tortilla, wheat flour tortilla wrap, flour tortilla
 de:Weizenmehltortilla
 es:tortilla de trigo
 fr:Tortillas de blé
@@ -74147,10 +74171,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Margarine
 carbon_footprint_fr_foodges_value:fr:2.7
 
 <en:Margarine
-fr:margarine végétale non hydrogénée
-
-<en:Margarine
-en:Vegetal margarine, vegetable margarine
+en:vegetable margarine, vegetal margarine
 de:Pflanzliche Margarine
 es:Margarina vegetal
 fi:kasvimargariini
@@ -74159,6 +74180,9 @@ it:margarina vegetale
 pt:margarina vegetal
 vegan:en:yes
 vegetarian:en:yes
+
+<en:vegetable margarine
+fr:margarine végétale non hydrogénée
 
 <en:margarine
 <en:dairy

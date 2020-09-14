@@ -1319,6 +1319,7 @@ sub parse_ingredients_text($) {
 								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
 								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
 								'^see ingredients in bold$',
+								'^in var(iable|ying) proportions$',
 							],
 
 							'fr' => [
