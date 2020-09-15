@@ -175,14 +175,6 @@ nl:2016 Voedingslabel experiment
 
 en:Agri Natura, AgriNatura
 
-en:AL-BIO-171
-auth_address:en: 2 Tilou street, 54638, Thessaloniki, Greece
-auth_name:en: A CERT European Organization for Certification S.A.
-auth_url:en: http://www.a-cert.org
-country:en: Albania
-eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food -*-,
-exceptions:en: en:except products covered by Annex III,en:in-conversion products
-
 en:Angled fish
 ca:Pescat amb canya
 fi:koukulla pyydystettyä kalaa
@@ -262,6 +254,10 @@ nl:Demeter
 pl:Demeter
 pt:Demeter
 wikidata:en: Q939877
+
+< en:Biodynamic agriculture
+fr:Nature et Progrès
+wikidata:en: Q3337101
 
 < en:Biogarantie
 en:Biogarantie BEL, Biogarantie Made in Belgium
@@ -524,6 +520,9 @@ nb:Inneholder en fenylalaninkilde
 nl:Bevat een bron van phenylalanine
 sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
+en:Contains alcohol
+opposite:en: en:no alcohol
+
 en:Contains gluten
 ca:Conté gluten
 de:Enthält Gluten
@@ -550,6 +549,7 @@ pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs
 th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
+opposite:en: en:No GMOs
 
 en:Contains milk
 ca:Conté llet
@@ -778,6 +778,8 @@ it:Agricoltura dell'Unione Europea
 nl:EU landbouw
 ru:EU агрокультура, агрокультура Европейского Союза
 
+< en:EU Agriculture
+< en:Non-EU Agriculture
 en:EU/non-EU Agriculture, EU and non EU Agriculture
 ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
 de:EU-/Nicht-EU-Landwirtschaft
@@ -1095,6 +1097,15 @@ auth_url:en: http://www.bio-inspecta.ch
 country:en: Albania
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food -*-,en:EU Group E: processed agricultural products for use as feed -*-,en:EU Group F: vegetative propagating material and seeds for cultivation
 exceptions:en: en:wine,en:until 30 June 2021
+
+< en:EU Organic
+en:AL-BIO-171
+auth_address:en: 2 Tilou street, 54638, Thessaloniki, Greece
+auth_name:en: A CERT European Organization for Certification S.A.
+auth_url:en: http://www.a-cert.org
+country:en: Albania
+eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food -*-,
+exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU Organic
 en:AL-BIO-179
@@ -13642,6 +13653,11 @@ hu:Fair trade
 it:Commercio equo
 nl:Rechtvaardige handel, fair trade
 pl:Fair trade
+description:de: Als Fairer Handel -englisch fair trade- wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
+description:en: Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards.
+description:es: El comercio justo es una forma alternativa de comercio promovida por varias ONG -organizaciones no gubernamentales-, por la Organización de las Naciones Unidas y por los movimientos sociales y políticos -como el pacifismo y el ecologismo- que promueven una relación comercial voluntaria y justa entre productores y consumidores.
+description:fr: Le commerce équitable est un système d'échange dont l'objectif est de proposer une plus grande équité dans le commerce conventionnel, voire une alternative à celui-ci, basée notamment sur la réappropriation des échanges marchands par ceux qui les pratiquent.
+description:nl: Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
 label_categories:en: en:Social responsibility
 opposite:en: en:non-fair-trade
 wikidata:en: Q188485
@@ -13688,8 +13704,6 @@ en:TransFer, TransFer Canada
 
 < en:Fairtrade International
 en:Fairtrade USA
-
-en:Farm Verified Organic
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -15148,6 +15162,7 @@ it:Senza alcol
 nl:Alcoholvrij, Zonder alchohol
 pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
+opposite:en: en:contains alcohol
 
 en:No artificial additives
 de:Ohne künstliche Zusätze
@@ -15160,7 +15175,7 @@ it:Senza additivi artificiali
 nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
 
-en:No artificial colors, free of artificial color
+en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
 de:Ohne künstliche Farbstoffe
 es:Sin colorantes artificiales
@@ -15176,7 +15191,7 @@ th:ไม่เติมสีสังเคราะห์
 
 < en:No artificial colors
 < en:No artificial flavors
-en:No artificial colours or flavours
+en:No artificial colours or flavours, No artificial colours and flavours, No artificial colours and flavourings
 ca:Sense colorants ni aromes artificials
 de:Keine künstlichen Farbstoffe oder Aromen
 es:Sin colorantes o saborizantes artificiales
@@ -15189,7 +15204,11 @@ nl:Zonder kunstmatige kleurstoffen
 pt:Sem corantes nem aromas artificiais
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
 
-en:No artificial flavors, free of artificial flavor
+< en:No artificial colors
+< en:No artificial preservatives
+en:No artificial colours and preservatives
+
+en:No artificial flavors, free of artificial flavor, No artificial flavours
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
 es:Sin aromas artificiales
@@ -15234,6 +15253,10 @@ it:Senza dolcificanti artificiali
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
 pt:Sem adoçantes artificiais
 label_categories:en: en:Health, en:Claim
+
+< en:No artificial flavors
+< en:No artificial sweeteners
+en:No artificial flavourings or sweeteners
 
 en:No aspartame, aspartame free, without aspartame
 ca:Sense aspartam, Lliure d'aspartam
@@ -15364,6 +15387,7 @@ pl:bez GMO
 pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
+opposite:en: en:Contains GMOs
 
 < en:No GMOs
 en:Non GMO project
@@ -15548,6 +15572,7 @@ opposite:en: en:fair-trade
 
 en:Non-organic, not organic
 fr:Non-bio
+opposite:en: en:organic
 
 en:Non-vegan, not vegan, not suitable for vegans
 fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
@@ -15820,6 +15845,11 @@ pt:Orgânico
 sv:Ekologisk, ekologiskt
 th:ออร์แกนิค
 zh:有机
+description:de: Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
+description:en: Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity.
+description:es: Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
+description:fr: Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L'agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
+description:nl: Biologische voeding is voedsel dat wordt geproduceerd met methoden die voldoen aan de normen van de biologische landbouw, welke een ecologisch evenwicht en het behoud van biodiversiteit nastreeft.
 label_categories:en: en:Environnement
 opposite:en: en:non-organic
 wikidata:en: Q380778
@@ -15938,6 +15968,9 @@ zh:欧盟有机
 wikidata:en: Q380448
 
 < en:Organic
+en:Farm Verified Organic
+
+< en:Organic
 en:Finnish organic association
 fi:Leppäkerttumerkki, Luomuliitto
 sv:Nyckelpigamärket
@@ -16039,10 +16072,6 @@ wikidata:en: Q30751117
 
 < en:Organic
 fr:Bio-Solidaire, biosolidaire
-
-< en:Organic
-fr:Nature et Progrès
-wikidata:en: Q3337101
 
 en:Ovo-vegetarian
 ca:Ovovegetarià
@@ -17494,7 +17523,14 @@ pt:Vegetariano
 ro:Vegetarian
 th:มังสวิรัติ
 zh:素食
+description:de: Vegetarismus bezeichnet eine Ernährungs- und Lebensweise, welche Nahrungsmittel meidet, die von getöteten Tieren stammen.
+description:en: Vegetarianism is the practice of abstaining from the consumption of meat, and may also include abstention from by-products of animal slaughter.
+description:es: El vegetarianismo, también conocido como vegetarismo, es el régimen alimentario que tiene como principio dejar de consumir cualquier tipo de carne y pescado.
+description:fr: Le végétarisme est une pratique alimentaire qui exclut la consommation de chair animale.
+description:nl: Vegetarisme is de voedingswijze waarbij men geen vlees eet -inclusief gevogelte, vis, schaaldieren en insecten-. Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
+descrption:it: Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
 wikidata:en: Q638022
+wikipedia:en: Vegetarianism
 
 < en:Vegetarian
 en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
@@ -17514,7 +17550,7 @@ en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en: Q7918353
 
 < en:Vegetarian
-en:Vegan, Suitable for vegans
+en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans
 ca:Vegà, Adequat per persones veganes
 de:Vegan
 es:Vegano, Producto vegano, Vegan
@@ -17529,7 +17565,13 @@ pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 zh:纯素
+description:de: Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstellung sowie Lebens- und Ernährungsweise. Vegan lebende Menschen meiden entweder alle Nahrungsmittel tierischen Ursprungs oder sie lehnen generell die Verwertung tierischer Produkte und Ausbeutung der Tiere ab.
+description:en: Veganism is the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals.
+description:es: El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía.
+descrption:fr: Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
+descrption:nl: Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
 opposite:en: en:non-vegan
+wikipedia:en: Veganism
 
 < en:Vegetarian
 en:Vegetarian Society
