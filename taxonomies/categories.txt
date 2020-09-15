@@ -23646,8 +23646,13 @@ ro:Biscuiți cu ciocolată neagră
 
 # Biscuits type granola, pepito and other digestive biscuits covered with chocolate
 <en:Chocolate biscuits
-en:Chocolate-covered biscuits
-fr:Biscuits nappés de chocolat
+en:Digestives covered with chocolate, Chocolate-covered biscuits
+fr:Sablés nappés de chocolat, Biscuits nappés de chocolat
+
+# Biscuits type Mikado
+<en:Chocolate biscuits
+en:Stick biscuits covered with chocolate
+fr:Biscuits bâtonnets au chocolat
 
 <en:Chocolate biscuits
 es:Galletas con tableta de chocolate
@@ -24647,31 +24652,26 @@ ro:Pâine cu făină de grâu, Pâine de grâu
 
 <en:Wheat breads
 <en:Flatbreads
-en:Wheat flatbreads, wheat tortillas
+en:Wheat flatbreads, wheat tortillas, Wheat tortilla wraps to be filled
 de:Weizenfladenbrote, Weizenfladenbrot, Soft Bröd
-fi:tortillat
-fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé
+fi:tortillat, Täytettävät vehnätortillawrapit
+fr:Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wraps de blé, galettes au blé pour tortillas, tortillas au blé, wraps au blé, Tortillas souples à base de blé à garnir
 it:Tortilla, Wrap, Piadine
 nl:Platte graanbroden, Platte graanbrood
 sv:Halvtjockkakor, Hällakaka
 wikidata:en:Q10516678
-
-<en:Meals
-en:Corn tortilla wraps to be filled
-fr:Tortillas souples à base de maïs à garnir
-agribalyse_food_code:en:7813
-ciqual_food_code:en:7813
-ciqual_food_name:en:Corn tortilla wrap, to be filled
-ciqual_food_name:fr:Tortilla souple (à garnir), à base de maïs
-
-<en:Meals
-en:Wheat tortilla wraps to be filled
-fi:Täytettävät vehnätortillawrapit
-fr:Tortillas souples à base de blé à garnir
 agribalyse_food_code:en:7815
 ciqual_food_code:en:7815
 ciqual_food_name:en:Wheat tortilla wrap, to be filled
 ciqual_food_name:fr:Tortilla souple (à garnir), à base de blé
+
+<en:Flatbreads
+en:Corn flatbreads, Corn tortilla wraps to be filled
+fr:Tortillas de maïs, Tortillas souples à base de maïs à garnir
+agribalyse_food_code:en:7813
+ciqual_food_code:en:7813
+ciqual_food_name:en:Corn tortilla wrap, to be filled
+ciqual_food_name:fr:Tortilla souple (à garnir), à base de maïs
 
 <en:Meals
 en:Fajitas
@@ -30562,6 +30562,14 @@ agribalyse_food_code:en:12740
 ciqual_food_code:en:12740
 ciqual_food_name:en:Mimolette cheese, from cow's milk
 ciqual_food_name:fr:Mimolette, sans précision
+
+<en:Cow cheeses
+en:Tilsit
+de:Tilsiter
+fi:Tilsiter
+fr:Tilsit
+no:Tilsiter
+wikidata:en:Q2433798
 
 <en:Cheeses
 en:String cheeses
@@ -43592,7 +43600,7 @@ en:Plant-based ice creams, Non-dairy ice creams
 de:Pflanzliche Eiscremes, Milchfreie Eiscremes
 es:Helados con leche vegetal, Helados con bebida vegetal, Helados vegetales
 fi:kasvispohjaiset jäätelöt
-fr:Crèmes glacées végétales, glaces végétales
+fr:Crèmes glacées végétales, glaces végétales, Crème glacée à base de plante
 it:Gelati di origine vegetale
 nl:Plantaardig IJs
 
@@ -43618,18 +43626,19 @@ es:Polos de horchata de chufa, Helados de palo de horchata de chufa
 en:Plant-based ice cream tubs
 es:Tarrinas y bloques de helado con leche vegetal, Tarrinas de helado con leche vegetal, Bloques de helado con leche vegetal
 fi:Kasvipohjaiset jäätelöpurkit
-fr:Crème glacée à base de plante
+fr:Crèmes glacées végétales en pot
 nl:Plantaardig roomijs
 
 <en:Plant-based ice creams
 en:Plant-based ice cream cones
 es:Conos de helado con leche vegetal
-fr:Crème glacée à base de plante
+fr:Cônes glacés végétaux
 nl:Plantaardige ijshoorntjes
 
 <en:Plant-based ice creams
 en:Plant-based ice cream sandwiches
 es:Sándwiches de helado con leche vegetal
+fr:Sandwiches à la crème glacée végétale
 it:Tramezzini al gelato a base vegetale
 nl:Plantaardige ijswafels
 
@@ -53845,14 +53854,6 @@ ciqual_food_name:en:Vegetable rosti, pre-fried, frozen, cooked
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé, cuit
 
 <en:Prepared vegetables
-en:Rostis, Potatoes cakes, Potato cakes
-fr:Rostis, Galette de pomme de terre, Galette de pommes de terre
-agribalyse_food_code:en:4039
-ciqual_food_code:en:4039
-ciqual_food_name:en:Rostis or Potatoes cake
-ciqual_food_name:fr:Rostis ou Galette de pomme de terre
-
-<en:Prepared vegetables
 en:Stuffed vegetables
 fi:Täytetyt kasvikset
 fr:Légumes farcis
@@ -63263,12 +63264,6 @@ ciqual_food_name:en:Pastry (average)
 ciqual_food_name:fr:Pâtisserie (aliment moyen)
 
 <en:Pastries
-en:Makroudh
-de:Makroud
-fr:Makrout, Makroud
-wikidata:Q1886522
-
-<en:Pastries
 de:Nussecken
 
 <en:Pastries
@@ -63739,7 +63734,15 @@ wikidata:en:Q3442427
 <en:Pastries
 <en:Desserts
 en:Baklava
-fr:Baklava
+da:Baklava
+de:Baklava
+es:Baklava
+fi:Baklava
+fr:Baklava, baklawa
+it:Baklava
+nl:Baklava
+no:Baklava
+wikidata:en:Q187495
 agribalyse_food_code:en:23300
 ciqual_food_code:en:23300
 ciqual_food_name:en:Baklava (oriental pastry with almonds and syrup)
@@ -63754,6 +63757,11 @@ ciqual_food_code:en:23301
 ciqual_food_name:en:Gazelle horn (oriental pastry with almonds and syrup)
 ciqual_food_name:fr:Corne de gazelle (pâtisserie orientale aux amandes et sirop)
 
+<en:Pastries
+en:Makroudh
+de:Makroud
+fr:Makrout, Makroud
+wikidata:Q1886522
 
 en:Pickles
 ca:Conserves
@@ -78064,6 +78072,10 @@ ciqual_food_name:en:Salty snacks, crackers, plain
 ciqual_food_name:fr:Biscuit apéritif, crackers, nature
 
 <en:Crackers
+en:Salty canistrelli
+fr:Canistrelli salés
+
+<en:Crackers
 en:Salty palmiers
 fr:Palmiers salés
 nl:Gezouten vlinders, Gezouten palmiers
@@ -78602,8 +78614,20 @@ nl:Puree, Moes
 nl_be:Puree, Moes
 wikidata:en:Q636056
 
-<fr:Purées
 <en:Cereals and potatoes
+en:Potato preparations
+fr:Préparations à base de pommes de terre
+
+<en:Potato preparations
+en:Rostis, Potatoes cakes, Potato cakes
+fr:Rostis, Galette de pomme de terre, Galette de pommes de terre
+agribalyse_food_code:en:4039
+ciqual_food_code:en:4039
+ciqual_food_name:en:Rostis or Potatoes cake
+ciqual_food_name:fr:Rostis ou Galette de pomme de terre
+
+<fr:Purées
+<en:Potato preparations
 en:Mashed potatoes
 de:Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi:perunamuusit
