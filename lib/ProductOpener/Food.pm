@@ -92,9 +92,12 @@ BEGIN
 
 		&compare_nutriments
 
-		$ec_code_regexp
 		%packager_codes
 		%geocode_addresses
+		&init_packager_codes
+		&init_geocode_addresses
+		
+		$ec_code_regexp
 		&normalize_packager_codes
 		&localize_packager_code
 		&get_canon_local_authority
@@ -5597,14 +5600,19 @@ sub get_canon_local_authority($) {
 	return $canon_local_authority;
 }
 
-# Slow, and the variables are only used from within functions or non-resident scripts,
-# so only run this when actually executing (INIT), not just checking syntax (BEGIN).
-INIT {
+
+sub init_packager_codes() {
+	return if (%packager_codes);
 
 	if (-e "$data_root/packager-codes/packager_codes.sto") {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
 	}
+
+}
+
+sub init_geocode_addresses() {
+	return if (%geocode_addresses);
 
 	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
 		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
@@ -5612,6 +5620,13 @@ INIT {
 	}
 
 }
+
+# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
+INIT {
+	init_packager_codes();
+	init_geocode_addresses();
+}
+
 
 sub compute_nova_group($) {
 
