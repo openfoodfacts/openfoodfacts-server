@@ -5597,16 +5597,21 @@ sub get_canon_local_authority($) {
 	return $canon_local_authority;
 }
 
-if (-e "$data_root/packager-codes/packager_codes.sto") {
-	my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
-	%packager_codes = %{$packager_codes_ref};
-}
+# Slow, and the variables are only used from within functions or non-resident scripts,
+# so only run this when actually executing (INIT), not just checking syntax (BEGIN).
+INIT {
 
-if (-e "$data_root/packager-codes/geocode_addresses.sto") {
-	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
-	%geocode_addresses = %{$geocode_addresses_ref};
-}
+	if (-e "$data_root/packager-codes/packager_codes.sto") {
+		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
+		%packager_codes = %{$packager_codes_ref};
+	}
 
+	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
+		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
+		%geocode_addresses = %{$geocode_addresses_ref};
+	}
+
+}
 
 sub compute_nova_group($) {
 
