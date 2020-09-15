@@ -305,6 +305,11 @@ nb => [
 	[ "papr.",  "paprika" ],
 ],
 
+ru => [
+	[ "в/с", "высшего сорта" ], # or "высший сорт". = top grade, superfine. applied to flour.
+	[ "х/п", "хлебопекарная" ], # bakery/baking, also for flour.
+],
+
 sv => [
 	[ "bl. a.",          "bland annat" ],
 	[ "förtjockn.medel", "förtjockningsmedel" ],
