@@ -1236,7 +1236,8 @@ sub build_tags_taxonomy($$$) {
 			next if ($line =~ /^\#/);
 
 			if ($line =~ /^<(\s*)(\w\w):/) {
-				# Parent
+				# Parent lines, starting with "<".
+				
 				my $lc = $2;
 				my $parent = $';
 				$parent =~ s/^\s+//;
@@ -1248,13 +1249,15 @@ sub build_tags_taxonomy($$$) {
 					$stopped_parentid = remove_stopwords($tagtype,$lc,$parentid);
 					$stopped_parentid = remove_plurals($lc,$stopped_parentid);
 					$canon_parentid = $synonyms{$tagtype}{$lc}{$stopped_parentid};
-					print STDERR "taxonomy : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: $canon_parentid\n";
+					print STDERR "taxonomy : $tagtype : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: " . ($canon_parentid // "") . "\n";
 				}
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
 				# display a warning if the same parent is specified twice?
 			}
 			elsif ($line =~ /^(\w\w):/) {
+				# Synonym/translation lines, starting with a language code.
+				
 				my $lc = $1;
 				$line = $';
 				$line =~ s/^\s+//;
@@ -1291,7 +1294,7 @@ sub build_tags_taxonomy($$$) {
 						}
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
-							print STDERR "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							print STDERR "taxonomy : $tagtype : we already have a canon_tagid $canon_tagid for the tag $tag\n";
 							last;
 						}
 					}
@@ -1313,6 +1316,8 @@ sub build_tags_taxonomy($$$) {
 				}
 			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				# Other lines - wikidata:en:, description:fr:, etc.
+				
 				my $property = $1;
 				my $lc = $2;
 				$line = $';
@@ -1320,8 +1325,12 @@ sub build_tags_taxonomy($$$) {
 				next if $property eq 'synonyms';
 				next if $property eq 'stopwords';
 
-				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
-				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				if (defined $canon_tagid) {
+					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				} else {
+					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : " . substr($line, 0, 50) . "...\n";
+				}
 			}
 		}
 
