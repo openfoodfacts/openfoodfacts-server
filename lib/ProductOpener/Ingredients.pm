@@ -480,8 +480,12 @@ sub init_ingredients_processing_regexps() {
 
 			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
 				push @{ $ingredients_processing_regexps{$l} },
-					[ $ingredients_processing, $_ ]
-					for ( $synonym, unac_string_perl($synonym) );
+					[ $ingredients_processing, $synonym ];
+
+				if ( ( my $unacc = unac_string_perl($synonym) ) ne $synonym ) {
+					push @{ $ingredients_processing_regexps{$l} },
+						[ $ingredients_processing, $unacc ];
+				}
 			}
 		}
 	}
