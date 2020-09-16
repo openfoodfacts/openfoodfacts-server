@@ -468,34 +468,32 @@ my %ingredients_processing_regexps = ();
 
 sub init_ingredients_processing_regexps() {
 
-	foreach my $ingredients_processing (sort { (length($b) <=> length($a)) || ($a cmp $b) } keys %{$translations_to{ingredients_processing}}) {
+	foreach my $ingredients_processing ( keys %{ $translations_to{ingredients_processing} } ) {
 
-		foreach my $l (sort keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
+		foreach my $l ( keys %{ $translations_to{ingredients_processing}{$ingredients_processing} } ) {
 
 			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
-
-			my %synonyms = ();
 
 			# the synonyms below also contain the main translation as the first entry
 
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
-			foreach my $synonym (sort @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
-				$synonyms{$synonym} = 1;
-				# unaccented forms
-				$synonyms{unac_string_perl($synonym)} = 1;
-			}
-
-			# We want to match the longest strings first
-			# Unfortunately, the following does not work:
-			# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
-			# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
-			# -> just create one regexp for each synonym...
-			foreach my $synonym (sort { length($b) <=> length($a) } keys %synonyms) {
-				push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $synonym];
-				#print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredients_processing - regexp: $synonym \n";
+			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
+				push @{ $ingredients_processing_regexps{$l} },
+					[ $ingredients_processing, $_ ]
+					for ( $synonym, unac_string_perl($synonym) );
 			}
 		}
+	}
+
+	# We want to match the longest strings first
+	# Unfortunately, the following does not work:
+	# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
+	# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
+	foreach my $lc ( keys %ingredients_processing_regexps ) {
+		@{ $ingredients_processing_regexps{$lc} }
+			= sort { length $b->[1] <=> length $a->[1] }
+			@{ $ingredients_processing_regexps{$lc} };
 	}
 
 	return;
