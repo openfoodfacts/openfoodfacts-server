@@ -269,6 +269,7 @@ my $products_collection = get_products_collection();
 my $products_count = $products_collection->count_documents($query_ref);
 
 print STDERR "$products_count documents to update.\n";
+if ($count) { exit(0); }
 
 my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
 $cursor->immortal(1);
