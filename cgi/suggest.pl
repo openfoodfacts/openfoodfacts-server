@@ -75,7 +75,7 @@ if ($tagtype eq 'emb_codes') {
 		push @suggestions, normalize_packager_codes($canon_tagid);
 		last if ++$i >= $limit;
 	}
-	$cache_max_age = 86400;
+	$cache_max_age = 3600;
 }
 else {
 	my $stringid = get_string_id_for_lang($search_lc, $string) . get_string_id_for_lang($search_lc, $term);
@@ -98,7 +98,7 @@ else {
 		}
 		last if ++$i >= $limit;
 	}
-	$cache_max_age = 86400;
+	$cache_max_age = 3600;
 }
 push @suggestions, @suggestions_c;
 my $data =  encode_json(\@suggestions);
