@@ -1796,6 +1796,7 @@ foreach my $langid (readdir($DH2)) {
 closedir($DH2);
 
 
+# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 	# print STDERR "loading taxonomy $taxonomyid\n";

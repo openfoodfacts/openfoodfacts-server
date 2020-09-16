@@ -92,9 +92,12 @@ BEGIN
 
 		&compare_nutriments
 
-		$ec_code_regexp
 		%packager_codes
 		%geocode_addresses
+		&init_packager_codes
+		&init_geocode_addresses
+		
+		$ec_code_regexp
 		&normalize_packager_codes
 		&localize_packager_code
 		&get_canon_local_authority
@@ -5597,14 +5600,31 @@ sub get_canon_local_authority($) {
 	return $canon_local_authority;
 }
 
-if (-e "$data_root/packager-codes/packager_codes.sto") {
-	my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
-	%packager_codes = %{$packager_codes_ref};
+
+sub init_packager_codes() {
+	return if (%packager_codes);
+
+	if (-e "$data_root/packager-codes/packager_codes.sto") {
+		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
+		%packager_codes = %{$packager_codes_ref};
+	}
+
 }
 
-if (-e "$data_root/packager-codes/geocode_addresses.sto") {
-	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
-	%geocode_addresses = %{$geocode_addresses_ref};
+sub init_geocode_addresses() {
+	return if (%geocode_addresses);
+
+	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
+		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
+		%geocode_addresses = %{$geocode_addresses_ref};
+	}
+
+}
+
+# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
+INIT {
+	init_packager_codes();
+	init_geocode_addresses();
 }
 
 
