@@ -517,6 +517,11 @@ pl:Fair trade
 wikidata:en:Q188485
 label_categories:en: en:Social responsibility
 opposite:en: en:non-fair-trade
+description:en:Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards. 
+description:de:Als Fairer Handel (englisch fair trade) wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
+description:es:El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
+description:fr:Le commerce équitable est un système d'échange dont l'objectif est de proposer une plus grande équité dans le commerce conventionnel, voire une alternative à celui-ci, basée notamment sur la réappropriation des échanges marchands par ceux qui les pratiquent.
+description:nl:Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
 
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
@@ -2270,6 +2275,10 @@ it:Senza alcol
 nl:Alcoholvrij, Zonder alchohol
 pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
+opposite:en: en:contains alcohol
+
+en:Contains alcohol
+opposite:en: en:no alcohol
 
 en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
@@ -2531,6 +2540,8 @@ hu:Hozzáadott MSG nélkül, Hozzáadott nátrium-glutamát nélkül
 nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 pt:Nenhum MSG adicionado
 
+########################## GMO ###############
+
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 de:gentechnikfrei
@@ -2545,6 +2556,7 @@ pl:bez GMO
 pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
+opposite:en: en:Contains GMOs
 
 en:Contains GMOs, with GMOs
 ca:Conté Transgènics
@@ -2558,6 +2570,7 @@ pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs
 th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
+opposite:en: en:No GMOs
 
 <en:No GMOs
 en:Non GMO project
@@ -2579,6 +2592,11 @@ en:Ohne Gentechnik hergestellt
 de:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 it:Prodotto Senza Ingegneria Genetica
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
+
+<en:No GMOs
+<fr:Soja Français
+fr:Soja Français sans OGM, Soja Français garanti sans OGM
+origins:en: en:France
 
 en:No lactose, lactose-free, Lactose free
 ca:Sense lactosa, lliure de lactosa
@@ -2889,16 +2907,19 @@ zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
 opposite:en: en:non-organic
+description:en:Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity. 
+description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methoden die voldoen aan de normen van de biologische landbouw, welke een ecologisch evenwicht en het behoud van biodiversiteit nastreeft.
+description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
+description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
+description:fr:Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L’agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
+
 
 # Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
 en:Non-organic, not organic
 fr:Non-bio
-
+opposite:en: en:organic
 
 <en:Organic
-fr:Nature et Progrès
-wikidata:en:Q3337101
-
 en:Farm Verified Organic
 
 # The entry below is needed to correctly parse ingredients lists that
@@ -2923,6 +2944,11 @@ it:Agricoltura biodinamica
 nl:Biodynamische landbouw
 pl:Rolnictwo biodynamiczne
 wikidata:en:Q847611
+
+
+<en:Biodynamic agriculture
+fr:Nature et Progrès
+wikidata:en:Q3337101
 
 <en:Biodynamic agriculture
 en:Demeter
@@ -2963,16 +2989,6 @@ sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
-en:EU/non-EU Agriculture, EU and non EU Agriculture
-ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
-de:EU-/Nicht-EU-Landwirtschaft
-es:Agricultura UE/no UE
-fi:Tuotettu EU:ssa ja EU:n ulkopuolella
-fr:Agriculture UE/Non UE
-hu:EU/nem-EU mezőgazdaság
-it:Agricoltura EU/non-EU
-nl:EU/Non EU landbouw
-ru:EU/не-EU агрокультура
 
 en:non-EU Agriculture
 ca:Agricultura No-UE
@@ -2999,6 +3015,19 @@ hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
 nl:EU landbouw
 ru:EU агрокультура, агрокультура Европейского Союза
+
+<en:non-EU Agriculture
+<en:EU Agriculture
+en:EU/non-EU Agriculture, EU and non EU Agriculture
+ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
+de:EU-/Nicht-EU-Landwirtschaft
+es:Agricultura UE/no UE
+fi:Tuotettu EU:ssa ja EU:n ulkopuolella
+fr:Agriculture UE/Non UE
+hu:EU/nem-EU mezőgazdaság
+it:Agricoltura EU/non-EU
+nl:EU/Non EU landbouw
+ru:EU/не-EU агрокультура
 
 <en:Organic
 en:Bio Austria
@@ -4905,6 +4934,7 @@ en:SK-BIO-003
 fi:SK-BIO-003
 country:en:Slovakia
 
+<en:EU organic
 en:AL-BIO-171
 country:en:Albania
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed agricultural products for use as food (*),
@@ -16858,6 +16888,13 @@ ro:Vegetarian
 th:มังสวิรัติ
 zh:素食
 wikidata:en:Q638022
+description:en:Vegetarianism is the practice of abstaining from the consumption of meat, and may also include abstention from by-products of animal slaughter.
+description:de:Vegetarismus bezeichnet eine Ernährungs- und Lebensweise, welche Nahrungsmittel meidet, die von getöteten Tieren stammen.
+description:es:El vegetarianismo, también conocido como vegetarismo, es el régimen alimentario que tiene como principio dejar de consumir cualquier tipo de carne y pescado.
+description:fr:Le végétarisme est une pratique alimentaire qui exclut la consommation de chair animale. 
+descrption:it:Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
+description:nl:Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
+wikipedia:en:Vegetarianism
 
 <en:Vegetarian
 en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
@@ -16880,6 +16917,12 @@ pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 zh:纯素
 opposite:en: en:non-vegan
+description:en:Veganism is the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals.
+description:de:Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstellung sowie Lebens- und Ernährungsweise. Vegan lebende Menschen meiden entweder alle Nahrungsmittel tierischen Ursprungs oder sie lehnen generell die Verwertung tierischer Produkte und Ausbeutung der Tiere ab.
+description:es:El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía. 
+descrption:fr:Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
+descrption:nl:Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten. 
+wikipedia:en:Veganism
 
 en:Non-vegan, not vegan, not suitable for vegans
 fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
@@ -17151,10 +17194,6 @@ origins:en: en:France
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
 
-<en:No GMOs
-<fr:Soja Français
-fr:Soja Français sans OGM, Soja Français garanti sans OGM
-origins:en: en:France
 
 fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
 

@@ -146,7 +146,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may also contain|may contain",
+	en => "possible traces|traces|may also contain|also may contain|may contain",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
@@ -303,6 +303,11 @@ nb => [
 	[ "bl. a.", "blant annet" ],
 	[ "inkl.",  "inklusive" ],
 	[ "papr.",  "paprika" ],
+],
+
+ru => [
+	[ "в/с", "высшего сорта" ], # or "высший сорт". = top grade, superfine. applied to flour.
+	[ "х/п", "хлебопекарная" ], # bakery/baking, also for flour.
 ],
 
 sv => [
@@ -1319,6 +1324,7 @@ sub parse_ingredients_text($) {
 								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
 								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
 								'^see ingredients in bold$',
+								'^in var(iable|ying) proportions$',
 							],
 
 							'fr' => [
@@ -1335,6 +1341,10 @@ sub parse_ingredients_text($) {
 								'^(facultatif|facultative)',            # sometime indicated by producers when listing ingredients is not mandatory
 								'^(éventuellement|eventuellement)$',    # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
 								'^(les )?informations ((en (gras|majuscule|italique))|soulign)', # Informations en gras destinées aux personnes allergiques.
+								'^(pour les )?allerg[èe]nes[:]?$',      # see english above.
+								'^y compris les cereales contenant du gluten$',
+								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
+								'^(les allerg[èe]nes )?sont indiques en gras$',
 							],
 
 							'fi' => [
@@ -2357,17 +2367,13 @@ cs => [
 ],
 
 da => [
-'N(æ|ae)ringsindhold',
+'ingredienser',
 'indeholder',
 ],
 
 de => [
 'Zusammensetzung',
 'zutat(en)?',
-],
-
-dk => [
-'ingredienser',
 ],
 
 el => [
@@ -2414,8 +2420,8 @@ id => [
 ],
 
 is => [
+'innihald(?:slýsing|sefni)?',
 'inneald',
-'Innihaldslýsing',
 ],
 
 it => [
@@ -2479,6 +2485,7 @@ sk => [
 'obsahuje',
 'zloženie',
 ],
+
 sl => [
 'vsebuje',
 'sestavine',
@@ -2553,8 +2560,17 @@ hu => [
 '(Ö|O|0)SSZETEVOK',
 ],
 
+is => [
+'INNIHALD(?:SLÝSING|SEFNI)?',
+'INNEALD',
+],
+
 it => [
 'INGREDIENTI(\s*)',
+],
+
+nb => [
+'INGREDIENSER',
 ],
 
 nl => [
@@ -2569,9 +2585,13 @@ pt => [
 'INGREDIENTES(\s*)',
 ],
 
-
 si => [
 'SESTAVINE',
+],
+
+sv => [
+'INGREDIENSER',
+'INNEHÅLL(ER)?',
 ],
 
 vi => [
@@ -2590,6 +2610,18 @@ my %phrases_after_ingredients_list = (
 cs => [
 'doporučeny způsob přípravy',
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+da => [
+'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+'tilberedning(?:svejledning)?',
+'holdbarhed efter åbning',
+'opbevar(?:ing|res)?',
+'(?:for )?allergener',
+'produceret af',
+'beskyttes',
+'nettovægt',
+'åbnet',
 ],
 
 de => [
@@ -2634,8 +2666,8 @@ en => [
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'once opened keep in the refrigerator',
-'Store in a cool[,]? dry place',
+'once opened[,]? (consume|keep|refrigerate|store|use)',
+'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
@@ -2663,7 +2695,6 @@ es => [
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
-'Liiallisella käytöllä',
 'Makeisten sekoitussuhde voi vaihdella',
 'Pakattu suojakaasuun',
 'Parasta ennen',
@@ -2753,6 +2784,13 @@ hr => [
 'Atlagos tápérték 100g termékben',
 ],
 
+is => [
+'n(æ|ae)ringargildi',
+'geymi(st|ð) á',
+'eftir opnum',
+'aðferð',
+],
+
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
@@ -2766,6 +2804,13 @@ it => [
 
 ja => [
 '栄養価',
+],
+
+nb => [
+'netto(?:innhold|vekt)',
+'oppbevar(?:ing|es)',
+'næringsinnhold',
+'kjølevare',
 ],
 
 nl => [
@@ -2820,14 +2865,30 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-
+sv => [
+'närings(?:deklaration|innehåll|värde)',
+'(?:bör )?förvar(?:ing|as?)',
+'till(?:agning|redning)',
+'serveringsförslag',
+'produkterna bör',
+'bruksanvisning',
+'källsortering',
+'anvisningar',
+'skyddas mot',
+'uppvärmning',
+'återvinning',
+'hållbarhet',
+'producerad',
+'upptining',
+'o?öppnad',
+'bevaras',
+'kylvara',
+'tappat',
+],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
-
-
-
 );
 
 
@@ -4710,7 +4771,7 @@ sub detect_allergens_from_text($) {
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
 		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
-		$product_ref->{$field . "_from_user"} = "($tag_lc) " . $product_ref->{$field};
+		$product_ref->{$field . "_from_user"} = "($tag_lc) " . ( $product_ref->{$field} // "" );
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 

@@ -272,6 +272,9 @@ my @lists =(
 	# do not separate acide acétique into acide : acétique
 	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
 	["fr","acide acétique","acide acétique"],
+	
+	# russian abbreviations
+	["ru","мука пшеничная х/п в/с","мука пшеничная хлебопекарная высшего сорта"],
 
 );
 

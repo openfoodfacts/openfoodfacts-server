@@ -262,8 +262,8 @@ if (-e $path) {
 		$Langs{$l}   = $Lang{ "language_" . $l }{$l};    # Name of the language in the language itself
 	}
 
-	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();
-	sleep(1);
+	$log->info("Loaded languages", { langs => (scalar @Langs) }) if $log->is_info();
+	sleep(1) if $log->is_info();
 }
 else {
 	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();

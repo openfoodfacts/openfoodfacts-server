@@ -74,6 +74,7 @@ BEGIN
 		&display_product
 		&display_product_api
 		&display_product_history
+		&display_preferences_api
 		&display_attribute_groups_api
 		&search_and_display_products
 		&search_and_export_products
@@ -1731,6 +1732,8 @@ sub display_list_of_tags($$) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
+		init_tags_texts_levels() unless %tags_levels;
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -2831,6 +2834,8 @@ sub display_tag($) {
 
 	local $log->context->{tagtype2} = $tagtype2;
 	local $log->context->{tagid2} = $tagid2;
+
+	init_tags_texts_levels() unless %tags_texts;
 
 	# Add a meta robot noindex for pages related to users
 	if ( ((defined $tagtype) and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
@@ -7541,6 +7546,8 @@ JS
 	# to compute the number of columns displayed
 	my $ingredients_classes_n = 0;
 
+	init_tags_texts_levels() unless %tags_levels;
+
 	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 
 		my $tagtype = $class;
@@ -9388,6 +9395,48 @@ JS
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
+}
+
+
+=head2 display_preferences_api ( $target_lc )
+
+Return a JSON structure with all available preference values for attributes.
+
+This is used by clients that ask for user preferences to personalize
+filtering and ranking based on product attributes.
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=head4 language code $target_lc
+
+Sets the desired language for the user facing strings.
+
+=cut
+
+sub display_preferences_api($$)
+{
+	my $request_ref = shift;
+	my $target_lc = shift;
+	
+	if (not defined $target_lc) {
+		$target_lc = $lc;
+	}
+		
+	$request_ref->{structured_response} = [];
+	
+	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
+		
+		push @{$request_ref->{structured_response}}, {
+			id => $preference,
+			name => lang("preference_" . $preference),
+		};
+	}
+
+	display_structured_response($request_ref);
+	
+	return;
 }
 
 

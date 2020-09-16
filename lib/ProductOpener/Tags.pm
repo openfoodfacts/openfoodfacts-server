@@ -100,6 +100,8 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
+		&init_tags_texts_levels
+
 		&get_city_code
 		%emb_codes_cities
 		%emb_codes_geo
@@ -1080,16 +1082,21 @@ sub build_tags_taxonomy($$$) {
 
 					# replace whole words/phrases only
 
-					if ($tagid =~ /-${tagid2}-/) {
+					# String comparisons are many times faster than the regexps, as long as tags only ever need simple string matching.
+					#if ($tagid =~ /-${tagid2}-/) {
+					if (index($tagid, "-${tagid2}-") >= 0) {
 						$replace = "-${tagid2}-";
 						$before = '-';
 						$after = '-';
 					}
-					elsif ($tagid =~ /-${tagid2}$/) {
+					#elsif ($tagid =~ /-${tagid2}$/) {
+					# despite how convoluted it is, this is still faster than the regexp.
+					elsif (rindex($tagid, "-${tagid2}") + length("-${tagid2}") == length($tagid)) {
 						$replace = "-${tagid2}\$";
 						$before = '-';
 					}
-					elsif ($tagid =~ /^${tagid2}-/) {
+					#elsif ($tagid =~ /^${tagid2}-/) {
+					elsif (index($tagid, "${tagid2}-") == 0) {
 						$replace = "^${tagid2}-";
 						$after = '-';
 					}
@@ -1229,7 +1236,8 @@ sub build_tags_taxonomy($$$) {
 			next if ($line =~ /^\#/);
 
 			if ($line =~ /^<(\s*)(\w\w):/) {
-				# Parent
+				# Parent lines, starting with "<".
+				
 				my $lc = $2;
 				my $parent = $';
 				$parent =~ s/^\s+//;
@@ -1241,13 +1249,15 @@ sub build_tags_taxonomy($$$) {
 					$stopped_parentid = remove_stopwords($tagtype,$lc,$parentid);
 					$stopped_parentid = remove_plurals($lc,$stopped_parentid);
 					$canon_parentid = $synonyms{$tagtype}{$lc}{$stopped_parentid};
-					print STDERR "taxonomy : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: $canon_parentid\n";
+					print STDERR "taxonomy : $tagtype : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: " . ($canon_parentid // "") . "\n";
 				}
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
 				# display a warning if the same parent is specified twice?
 			}
 			elsif ($line =~ /^(\w\w):/) {
+				# Synonym/translation lines, starting with a language code.
+				
 				my $lc = $1;
 				$line = $';
 				$line =~ s/^\s+//;
@@ -1284,7 +1294,7 @@ sub build_tags_taxonomy($$$) {
 						}
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
-							print STDERR "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							print STDERR "taxonomy : $tagtype : we already have a canon_tagid $canon_tagid for the tag $tag\n";
 							last;
 						}
 					}
@@ -1306,6 +1316,8 @@ sub build_tags_taxonomy($$$) {
 				}
 			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				# Other lines - wikidata:en:, description:fr:, etc.
+				
 				my $property = $1;
 				my $lc = $2;
 				$line = $';
@@ -1313,8 +1325,12 @@ sub build_tags_taxonomy($$$) {
 				next if $property eq 'synonyms';
 				next if $property eq 'stopwords';
 
-				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
-				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				if (defined $canon_tagid) {
+					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				} else {
+					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : " . substr($line, 0, 50) . "...\n";
+				}
 			}
 		}
 
@@ -1780,6 +1796,7 @@ foreach my $langid (readdir($DH2)) {
 closedir($DH2);
 
 
+# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 	# print STDERR "loading taxonomy $taxonomyid\n";
@@ -3332,50 +3349,56 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
+sub init_tags_texts_levels {
+	return if ((%tags_texts) and (%tags_levels));
 
-$log->info("loading tags texts") if $log->is_info();
-opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir(DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
+	$log->info("loading tags texts") if $log->is_info();
+	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
+	foreach my $langid (readdir(DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
 
-	# print STDERR "Tags.pm - reading texts for lang $langid\n";
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
+		# print STDERR "Tags.pm - reading texts for lang $langid\n";
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-	my $lc = $langid;
+		my $lc = $langid;
 
-	defined $tags_texts{$lc} or $tags_texts{$lc} = {};
-	defined $tags_levels{$lc} or $tags_levels{$lc} = {};
+		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
+		defined $tags_levels{$lc} or $tags_levels{$lc} = {};
 
-	if (-e "$data_root/lang/$langid") {
-		foreach my $tagtype (sort keys %tag_type_singular) {
+		if (-e "$data_root/lang/$langid") {
+			foreach my $tagtype (sort keys %tag_type_singular) {
 
-			defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
-			defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
+				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
+				defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
 
-			if (-e "$data_root/lang/$langid/$tagtype") {
-				opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
-				foreach my $file (readdir(DH)) {
-					next if $file !~ /(.*)\.html/;
-					my $tagid = $1;
-					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
+				# this runs number-of-languages * number-of-tag-types times.
+				if (-e "$data_root/lang/$langid/$tagtype") {
+					opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
+					foreach my $file (readdir(DH)) {
+						next if $file !~ /(.*)\.html/;
+						my $tagid = $1;
+						open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
 
-					my $text = join("",(<$IN>));
-					close $IN;
-					if ($text =~ /class="level_(\d+)"/) {
-						$tags_levels{$lc}{$tagtype}{$tagid} = $1;
+						my $text = join("",(<$IN>));
+						close $IN;
+						if ($text =~ /class="level_(\d+)"/) {
+							$tags_levels{$lc}{$tagtype}{$tagid} = $1;
+						}
+						$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
+						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
+
 					}
-					$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
-					$tags_texts{$lc}{$tagtype}{$tagid} = $text;
-
+					closedir(DH);
 				}
-				closedir(DH);
 			}
 		}
 	}
+	closedir(DH2);
+	$log->debug("tags texts loaded") if $log->is_debug();
+	
+	return;
 }
-closedir(DH2);
-$log->debug("tags texts loaded") if $log->is_debug();
 
 sub add_tags_to_field($$$$) {
 

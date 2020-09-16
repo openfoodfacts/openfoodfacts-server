@@ -8,6 +8,8 @@
 # This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
 # and if "pork" is a known ingredient.
 
+# If including both accented and unaccented versions of a term, list the accented version first,
+# or the accented version won't match. E.g. "es:puré, pure, ..."
 
 # be careful: raw in English can mean "unrefined" as in "raw cane sugar"
 # or uncooked "raw fish"
@@ -207,7 +209,7 @@ de:frischgemahlen, frishgemahlene
 en:pureed
 da:puré, pure
 de:püree, puree, püree aus
-es:pure,puré,pure de,cremogenado,cremogenada
+es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
 nb:puré
@@ -528,6 +530,8 @@ sv:rehydrerat, rehydrerad
 
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
+
+en:partially reconstituted
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
 ca:xtracte,extracte

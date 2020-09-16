@@ -83,12 +83,15 @@ sub get_remote_proxy_address {
 
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
-	if ((
-		( $r->useragent_ip eq '127.0.0.1' )
-		or 1    # all IPs
-	) and $r->headers_in->get('X-Forwarded-For')) {
-    return Apache2::Const::OK;
-  }
+if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
+			or 1    # all IPs
+		)
+		and $r->headers_in->get('X-Forwarded-For')
+	)
+	)
+{
+	return Apache2::Const::OK;
+}
 
   # Select last value in the chain -- original client's ip
   if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/sxm) {
@@ -99,6 +102,8 @@ sub get_remote_proxy_address {
 }
 
 init_emb_codes();
+init_packager_codes();
+init_geocode_addresses();
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module
