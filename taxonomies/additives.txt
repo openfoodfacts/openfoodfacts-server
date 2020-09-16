@@ -114,9 +114,8 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:used to be extracted from milk, but not anymore.
 
-# comment:en:e106 is the same as e101a, moved synonyms to E101a
+# WARNING:e106 is the same as e101a, moved synonyms to E101a
 
 en:E106, flavin mononucleotide
 bg:E106, E106 food additive
@@ -144,6 +143,7 @@ e_number:en:106
 wikidata:en:Q376061
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:used to be extracted from milk, but not anymore.
 
 en:E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, Lactoflavin
 bg:E101, E101 food additive
@@ -274,7 +274,6 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 additives_classes:en: en:colour
 e_number:en:101a
 
-# description:en:TARTRAZINE is a synthetic lemon yellow azo dye primarily used as a food coloring.
 
 en:E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5, Yellow 5 lake
 bg:E102, Тартразин
@@ -335,6 +334,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation Tartrazine (E 102)
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+description:en:TARTRAZINE is a synthetic lemon yellow azo dye primarily used as a food coloring.
 
 en:E103, Alkannin
 bg:E103, E103 food additive
@@ -366,7 +366,6 @@ colour_index:en:CI 14270
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:E104 can be consumed by all religious groups, vegans and vegetarians
 
 en:E104, Quinoline yellow, Quinoline Yellow WS, C.I. 47005, Food Yellow 13
 bg:E104, Хинолин жълто
@@ -402,6 +401,8 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of Quinoline Yellow 
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E104 can be consumed by all religious groups, vegans and vegetarians
+
 
 en:E105, E105 food additive
 bg:E105, E105 food additive
@@ -526,7 +527,6 @@ wikidata:en:Q929052
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
 
 en:E120, Cochineal, carminic acid, carmines, Natural Red 4, Cochineal Red
 be:E120, Кармін
@@ -591,6 +591,7 @@ additives_classes:en: en:colour
 mandatory_additive_class:en: en:colour
 vegan:en:no
 vegetarian:en:no
+description:en:CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
 
 en:E121, Citrus Red 2
 bg:E121, E121 food additive
@@ -790,7 +791,6 @@ wikidata:en:Q596946
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:ERYTHROSINE, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
 
 en:E127, Erythrosine, FD&C Red 3, FD & C Red No.3, Red No. 3, FD&C Red no3, FD and C Red 3, Red 3, Red 3 lake
 bg:E127, Еритрозин
@@ -843,6 +843,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of Erythrosine (E 12
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+description:en:ERYTHROSINE, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
 
 en:E128, Red 2G
 bg:E128, E128 food additive
@@ -945,7 +946,6 @@ wikidata:en:Q185929
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties (though not in actual Jell-O brand products), among others.
 
 en:E131, Patent blue v, Food Blue 5, Sulphan Blue, Acid Blue 3, L-Blau 3, C-Blau 20, Patentblau V, Sky Blue, C.I. 42051
 bg:E131, Патент синьо v
@@ -992,6 +992,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_adi:en: 5
 vegan:en:yes
 vegetarian:en:yes
+description:en:PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties (though not in actual Jell-O brand products), among others.
 
 en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2, C.I. Food Blue 2, Blue 2 lake, Blue 2
 bg:E132, Индиготин, индиго кармин
@@ -1030,7 +1031,6 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en: BRILLIANT BLUE FCF (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
 
 en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1, Blue 1 lake
 bg:E133, Брилянтно синьо FCF
@@ -1082,6 +1082,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+description:en: BRILLIANT BLUE FCF (Blue 1) is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
 
 # https://www.iacmcolor.org/safety-of-color/natural-colors/chlorophylls-and-chlorophyllins/
 # https://www.iacmcolor.org/safety-of-color/natural-colors/chlorophylls-chlorophyllins-copper-complexes/
@@ -1124,7 +1125,6 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:CHLOROPHYLL is any of several related green pigments found in cyanobacteria and the chloroplasts of algae and plants. Chefs use chlorophyll to color a variety of foods and beverages green, such as pasta and spirits.
 
 <en:E140
 en:E140(i), Chlorophylls, CI Natural Green 3, Magnesium Chlorophyll, chlorophyll
@@ -1226,6 +1226,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4089
 efsa_evaluation_date:en: 2015-05-07
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of chlorophylls (E 140(i)) as food additives
 additives_classes:en: en:colour
+description:en:CHLOROPHYLL is any of several related green pigments found in cyanobacteria and the chloroplasts of algae and plants. Chefs use chlorophyll to color a variety of foods and beverages green, such as pasta and spirits.
 
 <en:E140
 en:E140(ii), Chlorophyllins, CI Natural Green 5, Sodium Chlorophyllin
@@ -1358,7 +1359,6 @@ additives_classes:en: en:colour
 # colorants :complexe cuivre - chlorophylline
 # additive/e141ii-copper-complexes-of-chlorophyllins has 138 products in 4 languages @2019-02-03
 
-# description:en:GREEN S is a green synthetic coal tar triarylmethane dye with the molecular formula C27H25N2O7S2Na. It can be used in mint sauce, desserts, gravy granules, sweets, ice creams, and tinned peas.
 
 en:E142, Green s, CI Food Green 4
 bg:E142, Зелено s, CI хранително зелено 4
@@ -1410,6 +1410,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 #Toddlers are counted as children in this study
 vegan:en:yes
 vegetarian:en:yes
+description:en:GREEN S is a green synthetic coal tar triarylmethane dye with the molecular formula C27H25N2O7S2Na. It can be used in mint sauce, desserts, gravy granules, sweets, ice creams, and tinned peas.
 
 en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3, Green 3
 bg:E143, E143 food additive
@@ -1439,9 +1440,6 @@ wikidata:en:Q898299
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
-
-# description:en:CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
-# comment:en:Assumed to be a synonym of plain caramel, as it has the same ingredients
 
 en:E150, Caramel
 ar:E150, كراميل
@@ -1532,8 +1530,8 @@ efsa_evaluation_date:en: 2011-03-08
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 vegan:en:yes
 vegetarian:en:yes
+description:en:CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
 
-# description:en:Caramel color or caramel coloring is a water-soluble food coloring.
 
 en:E150a, Plain caramel, caramel color, caramel coloring, aromatic caramel
 ar:E150a, لون الكراميل
@@ -1588,6 +1586,7 @@ vegetarian:en:yes
 # ingredient/fr:caramel-ordinaire has 1547 products in 7 languages @2019-03-09
 # ingredient/fr:caramel-aromatique has 279 products in 9 languages @2019-03-09
 # caramel aromatique (sirop de glucose, sucre, eau)
+description:en:Caramel color or caramel coloring is a water-soluble food coloring.
 
 en:E150b, Caustic sulphite caramel, caramel E150b
 bg:E150b, Карамел основен сулфит
@@ -1771,7 +1770,6 @@ colour_index:en:CI 27755
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:E153 can be consumed by all religious groups, vegans and vegetarians.
 
 en:E153, Vegetable carbon
 bg:E153, Растителен въглен
@@ -1808,6 +1806,7 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/fr:charbon%20végétal%20médicinal has 82 products in 6 languages @2019-04-05
+# comment:en:E153 can be consumed by all religious groups, vegans and vegetarians.
 
 en:E154, Brown FK, Kipper Brown
 bg:E154, E154 food additive
@@ -1980,7 +1979,6 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-# description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
 <en:E160a
 en:E160a(i), Beta-carotene
@@ -2015,8 +2013,8 @@ efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-ca
 additives_classes:en: en:colour
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
-# description:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
 <en:E160a
 en:E160a(ii), Plant carotenes
@@ -2050,6 +2048,7 @@ efsa_evaluation:en: Safety of the proposed extension of use of synthetic Beta-ca
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
 <en:E160a
 en:E160a(iii), Beta-carotene from blakeslea trispora
@@ -2115,7 +2114,6 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:E160b can be consumed by all religious groups, vegans and vegetarians.
 
 en:E160b, Annatto, bixin, norbixin, roucou, achiote, annatto color, annatto colour
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
@@ -2150,6 +2148,7 @@ additives_classes:en: en:colour
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E160b can be consumed by all religious groups, vegans and vegetarians.
 
 en:E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
 bg:E160c, Паприка екстракт, капсантин, капсорубин
@@ -2281,7 +2280,6 @@ additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
 
-# description:fr:Dans l'alimentation transformée, les xantophylles sont soit synthétiques, soit d'origine naturelle extraits par solvants chimiques.
 
 en:E161, Xanthophylls
 bg:E161, E161 food additive
@@ -2312,6 +2310,7 @@ efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
 vegan:en:yes
 vegetarian:en:yes
+# comment:fr:Dans l'alimentation transformée, les xantophylles sont soit synthétiques, soit d'origine naturelle extraits par solvants chimiques.
 
 en:E161a, Flavoxanthin
 bg:E161a, E161a food additive
@@ -2343,7 +2342,6 @@ e_number:en:161a
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:LUTEIN is a xanthophyll and one of 600 known naturally occurring carotenoids. Lutein is extracted from the petals of African marigold (Tagetes erecta). It is approved for use in the EU and Australia and New Zealand. In the United States lutein may not be used as a food coloring for foods intended for human consumption, but can be added to animal feed.
 
 en:E161b, Lutein, Mixed Carotenoids, Xanthophyll, tagete extract
 ar:E161b, لوتين
@@ -2407,6 +2405,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of lutein (E 161b) a
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+description:en:LUTEIN is a xanthophyll and one of 600 known naturally occurring carotenoids. Lutein is extracted from the petals of African marigold (Tagetes erecta). It is approved for use in the EU and Australia and New Zealand. In the United States lutein may not be used as a food coloring for foods intended for human consumption, but can be added to animal feed.
 
 en:E161c, Cryptoaxanthin, Cryptoxanthin
 bg:E161c, E161c food additive
@@ -2528,7 +2527,6 @@ e_number:en:161f
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:E161g can be consumed by all religious groups, vegans and vegetarians.
 
 en:E161g, Canthaxanthin
 bg:E161g, Кантаксантин
@@ -2561,8 +2559,8 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E161g can be consumed by all religious groups, vegans and vegetarians.
 
-# description:en:E161h can be consumed by all religious groups, vegans and vegetarians.
 
 en:E161h, Zeaxanthin
 bg:E161h, Зеаксантин
@@ -2593,8 +2591,8 @@ e_number:en:161h
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E161h can be consumed by all religious groups, vegans and vegetarians.
 
-# description:fr:La citranaxanthine est un pigment xantophylle  naturel (famille des caroténoïdes  ), mais elle est vraisemblablement produite par synthèse
 
 en:E161i, Citranaxanthin
 bg:E161i, E161i food additive
@@ -2624,8 +2622,8 @@ efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
 vegan:en:yes
 vegetarian:en:yes
+description:fr:La CITRANAXANTHINE est un pigment xantophylle naturel (famille des caroténoïdes  ), mais elle est vraisemblablement produite par synthèse
 
-# description:fr:La production commerciale d'astaxanthine serait d'origine naturelle ou synthétisée de sources pétrochimiques
 
 en:E161j, Astaxanthin
 bg:E161j, Астаксантин
@@ -2655,6 +2653,7 @@ efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
 vegan:en:yes
 vegetarian:en:yes
+# comment:fr:La production commerciale d'astaxanthine serait d'origine naturelle ou synthétisée de sources pétrochimiques
 
 en:E162, Beetroot red, betanin
 ar:E162, بيتانين
@@ -3235,7 +3234,7 @@ efsa_evaluation:en: Re-evaluation of titanium dioxide (E 171) as a food additive
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
-# description:en:  TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
+# description:en:TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
 
 #<en:E171
 #en:colorant E171
@@ -3616,7 +3615,7 @@ efsa_evaluation_adi:en: 3
 additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
-description:en:Sorbic acid, or 2,4-hexadienoic acid, is a natural organic compound used as a food preservative. It has the chemical formula CH3(CH)4CO2H.
+description:en:SORBIC ACID, or 2,4-hexadienoic acid, is a natural organic compound used as a food preservative. It has the chemical formula CH3(CH)4CO2H.
 
 en:E201, Sodium sorbate, sodium (E\,E)-hexa-2\,4-dienoate
 bg:E201, E201 food additive
@@ -3707,7 +3706,7 @@ efsa_evaluation_adi:en: 3
 additives_classes:en: en:preservative
 vegan:en:yes
 vegetarian:en:yes
-description:en:Potassium sorbate is the potassium salt of sorbic acid, chemical formula CH3CH=CH−CH=CH−CO2K.
+description:en:POTASSIUM SORBATE is the potassium salt of sorbic acid, chemical formula CH3CH=CH−CH=CH−CO2K.
 
 #<en:E202
 #en:preservative potassium sorbate, preservative E202
@@ -4274,7 +4273,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:ado
 efsa_evaluation_adi:en: 0.7
 vegan:en:yes
 vegetarian:en:yes
-description:en: SODIUM SULFITE is a soluble sodium salt of sulfurous acid (sulfite) with the chemical formula Na2SO3.
+description:en:SODIUM SULFITE is a soluble sodium salt of sulfurous acid (sulfite) with the chemical formula Na2SO3.
 
 
 en:E222, Sodium bisulphite, Sodium bisulfite
@@ -12680,8 +12679,6 @@ additives_classes:en: en:carrier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Cellulose is an organic compound with the formula (C6H10O5)n, a polysaccharide consisting of a linear chain of several hundred to many thousands of linked D-glucose units. Cellulose is used as emulsifier, thickener and stabilizer in processed foods. Cellulose powder is, for example, used in processed cheese to prevent caking inside the package.
-# comment:en:This covers E460, E-460, E 460, INS460, INS-460, INS 460, SIN460, SIN-460, SIN 460
 
 # <en:additive
 en:E460, Cellulose
@@ -12770,6 +12767,7 @@ additives_classes:en:en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:
 # usage:it:stabilizzanti:cellulosa
 vegan:en:yes
 vegetarian:en:yes
+description:en:CELLULOSE is an organic compound with the formula (C6H10O5)n, a polysaccharide consisting of a linear chain of several hundred to many thousands of linked D-glucose units. Cellulose is used as emulsifier, thickener and stabilizer in processed foods. Cellulose powder is, for example, used in processed cheese to prevent caking inside the package.
 
 <en:E460
 en:E460(i), Microcrystalline cellulose
@@ -12827,8 +12825,6 @@ wikidata:en:Q80294
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
 
 
-# description:en:METHYL CELLULOSE is a chemical compound derived from cellulose. Methyl cellulose is added to food products, to generate their characteristic thick consistency, for example ice cream or croquette.
-# comment:en:This covers E461, E-461, E 461, INS461, INS-461, INS 461, SIN461, SIN-461, SIN 461.
 
 en:E461, methyl cellulose, methylcellulose,
 ar:E461, ميثيل السليولوز
@@ -12875,6 +12871,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Methyl_cellulose
 # usage:fr:agents de charge:E461
 vegan:en:yes
 vegetarian:en:yes
+description:en:METHYL CELLULOSE is a chemical compound derived from cellulose. Methyl cellulose is added to food products, to generate their characteristic thick consistency, for example ice cream or croquette.
 
 
 en:E462, Ethyl cellulose, Ethylcellulose
@@ -13113,9 +13110,6 @@ additives_classes:en: en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
-
-# origin:en:pork:maybe
 
 en:E470, Sodium/potassium/calcium and magnesium salts of fatty acids
 bg:E470, E470 food additive
@@ -13174,6 +13168,7 @@ e_number:en:470a
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 <en:E470a
 en:E470a(i), Sodium salts of fatty acids
@@ -13258,8 +13253,6 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
-# origin:en:pork:maybe
 
 en:E472, acid esters of mono- and diglycerides of fatty acids
 bg:E472, E472 food additive
@@ -13287,6 +13280,7 @@ e_number:en:472
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 en:E472a, Acetic acid esters of mono- and diglycerides of fatty acids
 bg:E472a, Естери на оцетната киселина с моно- и диглицериди на мастни киселини
@@ -13483,7 +13477,6 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 # origin:en:pork:en:maybe
 en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester
@@ -13521,8 +13514,8 @@ efsa_evaluation_adi:en: 40
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E473a, E473a food additive
 bg:E473a, E473a food additive
 cs:E473a, E473a food additive
@@ -13554,9 +13547,7 @@ efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourin
 vegan:en:maybe
 vegetarian:en:maybe
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E474, Sucroglycerides, Sucroglyceride
 bg:E474, Захароглицериди
 ca:E474, Sucroglicèrid
@@ -13588,8 +13579,8 @@ efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourin
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 # origin:en:pork:en:maybe
 en:E475, Polyglycerol esters of fatty acids, Polyglycerol fatty acid esters
@@ -13620,6 +13611,7 @@ wikidata:en:Q4037764
 additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 en:E476, Polyglycerol polyricinoleate, PGPR
 bg:E476, Полиглицерол полирицинолеат, Е476, PGPR
@@ -13650,7 +13642,6 @@ additives_classes:en: en:emulsifier
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 # origin:en:pork:en:maybe
 en:E477, Propane-1\,2-diol esters of fatty acids, Propane-1\,2-diol esters of fatty acids
@@ -13681,8 +13672,8 @@ wikidata:en:Q18944660
 additives_classes:en: en:emulsifier
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 # origin:en:pork:en:maybe
 en:E478, Lactylated fatty acid esters of glycerol and propane-1
@@ -13711,10 +13702,9 @@ e_number:en:478
 wikidata:en:Q18935693
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E479b, Thermally oxidised soya bean oil interacted with mono- and diglycerides of fatty acids, Thermally oxidised soya bean oil interacted with mono­ and diglycerides of fatty acids
 bg:E479b, Термично окислено соево масло с моно-и диглицериди на мастни киселини
 ca:E479b, Oli de soja oxidat tèrmicament i en interacció amb monoglicèrids i diglicèrids d'àcids grassos
@@ -13742,10 +13732,9 @@ additives_classes:en: en:emulsifier
 e_number:en:479b
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E481, Sodium stearoyl-2-lactylate, Sodium stearoyl lactylate
 bg:E481, Натриев стераоил-2-лактилат, Натриев стеароил лактилат
 ca:E481, Estearoïl-2-lactilat de sodi, estearoïl-2-lactilat sòdic
@@ -13782,10 +13771,9 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E482, Calcium stearoyl-2-lactylate
 bg:E482, Калциев стераоил-2-лактилат
 ca:E482, Estearoïl-2-lactilat de calci
@@ -13822,10 +13810,9 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E483, Stearyl tartrate, Stearyl palmityl tartrate
 bg:E483, Стеарил тартарат
 ca:E483, Tartrat d'estearoïl, tartrat d'estearoil
@@ -13854,10 +13841,9 @@ wikidata:en:Q673260
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E484, Stearyl citrate
 bg:E484, E484 food additive
 cs:E484, E484 food additive
@@ -13886,6 +13872,7 @@ additives_classes:en: en:antioxidant, en:emulsifier, en:sequestrant
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 en:E485, Sodium stearoyl fumarate
 bg:E485, E485 food additive
@@ -14051,9 +14038,7 @@ wikidata:en:Q161495
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E491, Sorbitan monostearate
 bg:E491, Сорбитан моностеарат
 ca:E491, Monoestearat de sorbitan
@@ -14089,10 +14074,9 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 efsa_evaluation_adi:en: 26
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E492, Sorbitan tristearate
 bg:E492, Сорбитан тристеарат
 ca:E492, Triestearat de sorbitan
@@ -14127,10 +14111,9 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E493, Sorbitan monolaurate
 bg:E493, Сорбитан монолауарат
 ca:E493, Monolaurat de sorbitan
@@ -14165,10 +14148,9 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E494, Sorbitan monooleate
 bg:E494, Сорбитан моноолеат
 ca:E494, Monooleat de sorbitan
@@ -14203,10 +14185,9 @@ efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescent, children, en:toddlers, infants
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# description:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-# origin:en:pork:en:maybe
 en:E495, Sorbitan monopalmitate
 bg:E495, Сорбитан монопалмитат
 ca:E495, Monopalmitat de sorbitan
@@ -14242,6 +14223,7 @@ efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, elderly, adolescen
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
+# comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
 en:E496, Sorbitan trioleate
 bg:E496, E496 food additive
@@ -14270,8 +14252,7 @@ wikidata:en:Q18601524
 vegan:en:yes
 vegetarian:en:yes
 
-#description:en:SODIUM CARBONATES is the generic term for a Na and CO3 combination.
-#comment:en:Use the plural for E500 and the singular for E500i, Iin order to distinghuish between E500 and E500i
+#WARNING: Use the plural for E500 and the singular for E500i, Iin order to distinghuish between E500 and E500i
 en:E500, Sodium carbonates
 bg:E500, E500 food additive
 ca:E500, E500 food additive
@@ -14307,8 +14288,8 @@ additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+description:en:SODIUM CARBONATES is the generic term for a Na and CO3 combination.
 
-#description:en:Sodium carbonate, Na2CO3, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
 <en:E500
 en:E500(i), Sodium carbonate, washing soda
 ar:E500(i), كربونات الصوديوم
@@ -14387,11 +14368,11 @@ efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
+description:en:SODIUM CARBONATE, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
 
 
 
-#description:en:SODIUM BICARBONATE (sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
-# comment:en:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
+#WARNING:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
 <en:E500
 en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
@@ -14485,6 +14466,7 @@ efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
+description:en:SODIUM BICARBONATE (sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
 
 
 <en:E500
@@ -14677,7 +14659,6 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
-description:en:Ammonium carbonate is a salt with the chemical formula (NH4)2CO3. Since it readily degrades to gaseous ammonia and carbon dioxide upon heating, it is used as a leavening agent. It is also known as baker's ammonia and was a predecessor to the more modern leavening agents baking soda and baking powder.
 <en:E503
 en:E503(i), Ammonium carbonate
 af:E503(i), Ammoniumkarbonaat
@@ -14729,8 +14710,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_carbonate
 # additive/e503i-ammonium-carbonate has 584 products in 21 languages @2019-04-05
 e_number:en:503
 organic_eu:en:authorized
+description:en:AMMONIUM CARBONATE is a salt with the chemical formula (NH4)2CO3. Since it readily degrades to gaseous ammonia and carbon dioxide upon heating, it is used as a leavening agent. It is also known as baker's ammonia and was a predecessor to the more modern leavening agents baking soda and baking powder.
 
-description:en:Ammonium bicarbonate is an inorganic compound with formula (NH4)HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
 <en:E503
 en:E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn, Ammonium bicarbonate
 ar:E503(ii), بيكربونات الأمونيوم
@@ -14785,9 +14766,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_bicarbonate
 e_number:en:503
 wikidata:en:Q204873
 organic_eu:en:authorized
+description:en:AMMONIUM BICARBONATE is an inorganic compound with formula (NH4)HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
 
 
-#comment:en:Use plural for E504 and singular (specific) for E504i
+#WARNING:Use plural for E504 and singular (specific) for E504i
 en:E504, Magnesium carbonates
 bg:E504, E504 food additive
 ca:E504, E504 food additive
@@ -14818,7 +14800,6 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
-description:en:MAGNESIUM CARBONATE  , MgCO3 (archaic name magnesia alba), is an inorganic salt that is a white solid.
 <en:E504
 en:E504(i), Magnesium carbonate
 ar:E504(i), كربونات المغنسيوم
@@ -14877,6 +14858,7 @@ additives_classes:en: en:carrier
 organic_eu:en:authorized
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_carbonate
 # ingredient/fr:carbonates-de-magnésium has 61 products in 4 languages @2019-03-20
+description:en:MAGNESIUM CARBONATE, MgCO3 (archaic name magnesia alba), is an inorganic salt that is a white solid.
 
 <en:E504
 en:E504(ii), Magnesium hydroxide carbonate
@@ -15026,7 +15008,6 @@ vegetarian:en:yes
 
 
 
-description:en:Ammonium chloride is an inorganic compound with the formula NH4Cl and a white crystalline salt that is highly soluble in water.
 en:E510, Ammonium chloride, ammonia solution
 af:E510, Ammoniumchloried
 ar:E510, كلوريد الأمونيوم
@@ -15111,6 +15092,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_chloride
 e_number:en:510
 vegan:en:yes
 vegetarian:en:yes
+description:en:AMMONIUM CHLORIDE is an inorganic compound with the formula NH4Cl and a white crystalline salt that is highly soluble in water.
 
 en:E511, Magnesium chloride
 bg:E511, Магнезиев хлорид, Магнезиев дихлорид
@@ -16330,9 +16312,7 @@ wikidata:en:Q419390
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Although stearic acid and stearates are commercially obtained from plant sources, the use of animal fat (including pork and beef) can not be excluded.
 
-# origin:en:pork:en:maybe
 en:E570, Fatty acids, Linear fatty acids, caprylic acid (C8), capric acid (C10), lauric acid (C12), myristic acid (C14), palmitic acid (C16), stearic acid (C18), fatty acid
 bg:E570, Мастни киселини, Мастна киселина
 ca:E570, Àcid gras, acid gras
@@ -16360,6 +16340,7 @@ e_number:en:570
 wikidata:en:Q61476
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although stearic acid and stearates are commercially obtained from plant sources, the use of animal fat (including pork and beef) can not be excluded.
 
 en:E571, E571 food additive
 bg:E571, E571 food additive
@@ -16387,7 +16368,6 @@ e_number:en:571
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:Although stearic acid and stearates are commercially obtained from plant sources, the use of animal fat (including pork and beef) can not be excluded.
 
 # origin:en:pork:en:maybe
 en:E572, Magnesium stearate, calcium stearate
@@ -16416,6 +16396,7 @@ e_number:en:572
 wikidata:en:Q416713
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:Although stearic acid and stearates are commercially obtained from plant sources, the use of animal fat (including pork and beef) can not be excluded.
 
 en:E573, Aluminium stearate, Aluminum stearate
 bg:E573, E573 food additive
@@ -16590,8 +16571,7 @@ additives_classes:en: en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
-description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
-comment:en:IRON(II) GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
+#WARNING:IRON(II) GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 #<en:iron
 #<en:E579
 en:E579, iron gluconate, ferrous gluconate
@@ -16629,6 +16609,7 @@ vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 # ingredient/fr:gluconate-de-fer has 37 products in 6 languages @2019-02-22
+description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
 
 en:E580, Magnesium Gluconate
 bg:E580, E580 food additive
@@ -17311,9 +17292,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-# description:en:Glycine is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
 
-# origin:en:animal:maybe
 
 en:E640, Glycine and its sodium salt
 bg:E640, Глицин и натриевата му сол
@@ -17342,6 +17321,7 @@ e_number:en:640
 wikidata:en:Q18967228
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en:GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
 
 
 <en:E640
@@ -18618,9 +18598,7 @@ wikidata:en:Q419266
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en: E920 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
 
-# origin:en:pork:maybe
 
 en:E920, L-cysteine hydrochloride, L-Cysteine, L-2-Amino-3-mercaptopropionic acid, L-Cys, (R)-2-Amino-3-mercaptopropanoic acid, (2R)-2-amino-3-sulfanylpropanoic acid, (2R)-2-amino-3-mercaptopropanoic acid
 bg:E920, L-цистеин
@@ -18650,10 +18628,8 @@ mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en: E920 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
 
-# description:en: E921 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
-
-# origin:en:pork:maybe
 
 en:E921, L-cysteine hydrochloride monohydrate
 bg:E921, E921 food additive
@@ -18680,6 +18656,7 @@ sv:E921, E921 food additive
 e_number:en:921
 vegan:en:maybe
 vegetarian:en:maybe
+# comment:en: E921 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
 
 en:E922, Potassium persulfate
 bg:E922, E922 food additive
@@ -19602,7 +19579,6 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-# description:en:ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
 
 en:E953, isomalt
 af:E953, Isomalt
@@ -19652,6 +19628,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomalt
 # usage:fr:édulcorants (maltitol, isomalt)
 vegan:en:yes
 vegetarian:en:yes
+description:en:ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
 
 
 en:E954, Saccharin and its salts, Saccharin, Saccharin sodium salt, saccharin sodium, sodium saccharin salt, Saccharin calcium salt, Saccharin calcium, Calcium saccharine, Saccharin potassium salt, Saccharine potassium, Potassium saccharine
@@ -19981,7 +19958,6 @@ additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:MALTITOL is a sugar alcohol (a polyol) used as a sugar substitute. It has 75–90% of the sweetness of sucrose (table sugar) and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream.
 
 
 en:E965, maltitol
@@ -20034,6 +20010,7 @@ additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, 
 # usage:de:Süssungsmittel (Maltit)
 vegan:en:yes
 vegetarian:en:yes
+description:en:MALTITOL is a sugar alcohol (a polyol) used as a sugar substitute. It has 75–90% of the sweetness of sucrose (table sugar) and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream.
 
 <en:maltitol
 en:E965(i), D-Maltitol
@@ -20095,8 +20072,6 @@ efsa_evaluation_date:en: 2006-05-18
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965(ii) new production process. Change of specification
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
 
-# description:en:Lactitol can be used by all religious groups and vegetarians, but not by vegans, as the source is milk sugar. The term carbohydrate alcohol is a chemical definition; lactitol does not contain alcohol (ethanol).
-# origin:en:milk:yes
 
 en:E966, Lactitol, Lactit, Lactositol
 bg:E966, Лактитол, Лактит, лактозитол
@@ -20126,6 +20101,7 @@ wikidata:en:Q415020
 additives_classes:en: en:emulsifier, en:sweetener, en:thickener
 vegan:en:no
 vegetarian:en:yes
+# comment:en:LACTITOL can be used by all religious groups and vegetarians, but not by vegans, as the source is milk sugar. The term carbohydrate alcohol is a chemical definition; lactitol does not contain alcohol (ethanol).
 
 en:E967, Xylitol
 bg:E967, Ксилитол
@@ -20427,7 +20403,6 @@ additives_classes:en: en:stabilizer
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:A lipase is any enzyme that catalyzes the hydrolysis of fats (lipids). Lipases serve important roles in human practices as ancient as yogurt and cheese fermentation. Lipases are generally animal sourced, but can also be sourced microbially.
 
 en:E1104, lipase
 ar:E1104, ليباز
@@ -20497,6 +20472,7 @@ wikidata:en:Q380967
 vegan:en:maybe
 vegetarian:en:maybe
 # ingredient/fr:lipase has 155 products in 3 languages @2019-07-09
+description:en:A LIPASE is any enzyme that catalyzes the hydrolysis of fats (lipids). Lipases serve important roles in human practices as ancient as yogurt and cheese fermentation. Lipases are generally animal sourced, but can also be sourced microbially.
 
 en:E1105, Lysozyme, Lysozyme hydrochloride
 bg:E1105, Лизоцим, Лизоцим хидрохлорид
@@ -21391,7 +21367,6 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:1503 can be used by all religious groups, vegetarians and vegans.
 
 en:E1503, Castor oil
 bg:E1503, E1503 food additive
@@ -21421,6 +21396,7 @@ wikidata:en:Q337492
 additives_classes:en: en:carrier, en:emulsifier
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:1503 can be used by all religious groups, vegetarians and vegans.
 
 en:E1504, ethyl acetate, ethyl ethanoate
 bg:E1504, E1504 food additive
@@ -21535,7 +21511,6 @@ wikidata:en:Q904648
 vegan:en:yes
 vegetarian:en:yes
 
-# description:en:E1518 can be used by all religious groups, vegetarians and vegans.
 
 en:E1518, Glyceryl triacetate, Triacetin, glycerin triacetate, 1\,2\,3-triacetoxypropane
 bg:E1518, Глицерил триацетат
@@ -21565,6 +21540,7 @@ wikidata:en:Q83253
 additives_classes:en: en:carrier, en:emulsifier, en:humectant
 vegan:en:yes
 vegetarian:en:yes
+# comment:en:E1518 can be used by all religious groups, vegetarians and vegans.
 
 en:E1519, Benzyl alcohol, Phenylcarbinol, Phenylmethyl alcohol, Benzenemethanol
 bg:E1519, Бензил алкохол, Фенилкарбинол, фенилметил алкохол, бензенметанол
