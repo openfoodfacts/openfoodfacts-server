@@ -362,7 +362,7 @@ sub import_csv_file($) {
 
 				if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
 
-					if ((-s "$file") < 10000) {
+					if ((-s $args_ref->{images_dir} . "/" . "$file") < 10000) {
 						$log->debug("skipping too small image file", { file => $file, size => (-s $file)}) if $log->is_debug();
 						next;
 					}
