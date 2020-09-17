@@ -180,10 +180,11 @@ JS
               <span>$Lang{add_photos}{$lang}</span>
               <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
             </span>
+            <!-- automatically start uploads, hide start upload button
             <button type="submit" class="button small btn-primary start">
               @{[ display_icon('arrow_upward') ]}
               <span>$Lang{start_upload}{$lang}</span>
-            </button>
+            </button> -->
             <!-- The global file processing state -->
             <span class="fileupload-process"></span>
           </div>
@@ -234,20 +235,6 @@ HTML
                   <span class="size">Processing...</span><br>
                   <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success meter" style="width:0\%;"></div></div>
               </td>
-              <td>
-                  {\% if (!i && !o.options.autoUpload) { \%}
-                      <button class="button tiny btn-primary start" disabled>
-                          @{[ display_icon('arrow_upward') ]}
-                          <span>$Lang{start}{$lang}</span>
-                      </button>
-                  {\% } \%}
-                  {\% if (!i) { \%}
-                      <button class="button tiny btn-warning cancel alert">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{cancel}{$lang}</span>
-                      </button>
-                  {\% } \%}
-              </td>
           </tr>
       {\% } \%}
     </script>
@@ -291,15 +278,6 @@ HTML
                   <span class="size">{\%=o.formatFileSize(file.size)\%}</span><br>
 				  {\% if (!file.error) { \%}
                       $Lang{file_received}{$lang} </div>
-                  {\% } \%}
-              </td>
-              <td>
-                  {\% if (file.deleteUrl) { \%}
-                  {\% } else { \%}
-                      <button class="button tiny btn-warning cancel">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{close}{$lang}</span>
-                      </button>
                   {\% } \%}
               </td>
           </tr>
@@ -377,7 +355,8 @@ HTML
 	sequentialUploads: true,
 	replaceFileInput : false,
 	// Uncomment the following to send cross-domain cookies:
-	xhrFields: {withCredentials: true}
+	xhrFields: {withCredentials: true},
+	autoUpload: true
 });
 
 
