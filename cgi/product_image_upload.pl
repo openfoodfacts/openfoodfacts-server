@@ -129,19 +129,28 @@ if (not defined $code) {
 	}
 }
 
+
+my $response_ref = {
+	files => [{
+			filename => $filename . "",	# Make filename a scalar
+	}],
+};
+
 if ((not defined $code) or ($code eq '')) {
 
 	$log->warn("no code");
-	my %response = ( status => 'status not ok');
-	$response{error} = "error - missing product code";
+	$response_ref->{status} = 'status not ok';
+	$response_ref->{error} = "error - missing product code";
 	if (not $code_specified) {
 		# for jquery.fileupload-ui.js
-		$response{files} = [ { error => $response{error} } ]
+		$response_ref->{files}[0]{error} = $response_ref->{error};
 	}
-	my $data =  encode_json(\%response);
+	my $data =  encode_json($response_ref);
 	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
+
+$response_ref->{code} = $code;
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -157,6 +166,8 @@ if (! -e "$www_root/images/products") {
 
 if ($imagefield) {
 
+	$response_ref->{imagefield} = $imagefield;
+
 	my $path = product_path_from_id($product_id);
 
 	$log->debug("path determined", { imagefield => $imagefield, path => $path, delete => $delete });
@@ -164,9 +175,10 @@ if ($imagefield) {
 	if ($path eq 'invalid') {
 		# non numeric code was given
 		$log->warn("no code", { code => $code });
-		my %response = ( status => 'status not ok');
-		$response{error} = "error - invalid product code: $code";
-		my $data =  encode_json(\%response);
+		$response_ref->{status} = 'status not ok';
+		$response_ref->{error} = "error - invalid product code: $code";
+		$response_ref->{files}[0]{error} = $response_ref->{error};
+		my $data =  encode_json($response_ref);
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit(0);
 	}
@@ -185,6 +197,16 @@ if ($imagefield) {
 		else {
 			$log->info("product code already exists", { code => $code });
 		}
+		
+		my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+		if ((not defined $product_name) or ($product_name eq "")) {
+			$product_name = $code;
+		}
+
+		my $product_url = product_url($product_ref);	
+		
+		$response_ref->{files}[0]{url} = $product_url;
+		$response_ref->{files}[0]{name} = $product_name;
 
 		# Some apps may be passing a full locale like imagefield=front_pt-BR
 		$imagefield =~ s/^(front|ingredients|nutrition|other)_(\w\w)-.*/$1_$2/;
@@ -195,6 +217,8 @@ if ($imagefield) {
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};
 		}
+		
+		$response_ref->{imagefield} = $imagefield;
 
 		my $imgid;
 		my $debug_string;
@@ -205,12 +229,14 @@ if ($imagefield) {
 		my $imgid_returncode = process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid, \$debug_string);
 
 		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode, debug_string => $debug_string }) if $log->is_debug();
-
-		my $data;
-		my $response_ref;
+		
+		$response_ref->{imgid} = $imgid;
+		if ($imgid > 0) {
+			$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
+		}
 
 		if ($imgid_returncode < 0) {
-			$response_ref = { status => 'status not ok', imgid => $imgid_returncode };
+			$response_ref->{status} = 'status not ok';
 			$response_ref->{error} = "error";
 			($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
 			($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
@@ -220,17 +246,16 @@ if ($imagefield) {
 			if (not $code_specified) {
 				# for jquery.fileupload-ui.js
 				if ($imgid_returncode == -3) {
-					$response_ref->{files} = [ { info => $response_ref->{error} } ]
+					$response_ref->{files}[0]{info} = $response_ref->{error};
 				}
 				else {
-					$response_ref->{files} = [ { error => $response_ref->{error} } ]
+					$response_ref->{files}[0]{error} = $response_ref->{error};
 				}
 			}
 
 			if (defined $debug_string) {
 				$response_ref->{debug} = $debug_string;
 			}
-
 		}
 		else {
 
@@ -253,17 +278,8 @@ if ($imagefield) {
 
 			my $product_url = product_url($product_ref);
 
-			$response_ref = { status => 'status ok',
-				image => $image_data_ref,
-				imagefield => $imagefield,
-				code => $code,
-				files => [{
-					url => $product_url,
-					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
-					name => $product_name,
-					filename => $filename . "",	# Make filename a scalar
-				}],
-			};
+			$response_ref->{status} = 'status ok';
+			$response_ref->{image} = $image_data_ref;
 
 			# Select the image
 			if ((($imagefield =~ /^front_/) or ($imagefield =~ /^ingredients_/) or ($imagefield =~ /^nutrition_/))
@@ -294,7 +310,7 @@ if ($imagefield) {
 		(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
 		(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
 
-		$data =  encode_json($response_ref);
+		my $data = encode_json($response_ref);
 
 		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
@@ -304,9 +320,9 @@ if ($imagefield) {
 	else {
 
 			$log->warn("no image field defined");
-			my %response = ( status => 'status not ok');
-			$response{error} = "error - imagefield not defined";
-			my $data =  encode_json(\%response);
+			$response_ref->{status} = 'status not ok';
+			$response_ref->{error} = "error - imagefield not defined";
+			my $data =  encode_json($response_ref);
 			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	}
 
