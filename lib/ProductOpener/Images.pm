@@ -436,7 +436,8 @@ sub get_code_and_imagefield_from_file_name($$) {
 	if ($filename =~ /(\d{8}\d*)/) {
 		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		# e.g. IMG_20200810_111131.jpg
+		if ($filename =~ /(^|[^0-9])20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
 		}
 		else {
