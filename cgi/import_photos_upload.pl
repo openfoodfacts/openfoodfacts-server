@@ -180,11 +180,6 @@ JS
               <span>$Lang{add_photos}{$lang}</span>
               <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
             </span>
-            <!-- automatically start uploads, hide start upload button
-            <button type="submit" class="button small btn-primary start">
-              @{[ display_icon('arrow_upward') ]}
-              <span>$Lang{start_upload}{$lang}</span>
-            </button> -->
             <!-- The global file processing state -->
             <span class="fileupload-process"></span>
           </div>
