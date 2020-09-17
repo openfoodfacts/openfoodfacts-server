@@ -238,6 +238,27 @@ my @tests = (
 #		]
 #	],
 
+	# Assert that processing patterns are in descending length order
+	# i.e 'fi:jauhettu' is matched before 'fi:jauhe'
+	# [   {   lc => "fi",
+	# 		ingredients_text =>
+	# 			"raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+	# 	},
+	# 	[   {   'id'   => 'en:raw-milk',
+	# 			'text' => 'raakamaito'
+	# 		},
+	# 		{   'id'         => 'en:blueberry',
+	# 			'processing' => 'en:powdered',
+	# 			'text'       => 'mustikka'
+	# 		},
+	# 		{   'id'         => 'en:vanilla-pod',
+	# 			'processing' => 'en:ground',
+	# 			'text'       => 'vaniljatanko'
+	# 		}
+	# 	]
+	# ],
+
+
 ##################################################################
 #
 #                           D U T C H ( N L )
