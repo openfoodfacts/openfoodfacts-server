@@ -219,7 +219,12 @@ sub scan_code($) {
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
 	local $log->context->{file} = $file;
-	if ("$x") {
+	
+	# Disabling the check for $x, as ImageMagick triggers an exception for some images
+	# that it can read anyway
+	# Exception 365: CorruptImageProfile `xmp' @ warning/profile.c/SetImageProfileInternal/1704
+	# if ("$x") {
+	if (0) {
 		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
 	else {
