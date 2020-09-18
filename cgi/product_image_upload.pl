@@ -140,7 +140,7 @@ if ((not defined $code) or ($code eq '')) {
 
 	$log->warn("no code");
 	$response_ref->{status} = 'status not ok';
-	$response_ref->{error} = "error - missing product code";
+	$response_ref->{error} = lang("image_upload_error_no_barcode_specified_or_found");
 	if (not $code_specified) {
 		# for jquery.fileupload-ui.js
 		$response_ref->{files}[0]{error} = $response_ref->{error};
@@ -241,7 +241,7 @@ if ($imagefield) {
 			($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
 			($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
 			($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
-			($imgid_returncode == -5) and $response_ref->{error} = "could not read image";
+			($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
 
 			if (not $code_specified) {
 				# for jquery.fileupload-ui.js
