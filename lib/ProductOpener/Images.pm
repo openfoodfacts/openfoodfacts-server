@@ -219,7 +219,11 @@ sub scan_code($) {
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
 	local $log->context->{file} = $file;
-	if ("$x") {
+	
+	# ImageMagick can trigger an exception for some images that it can read anyway
+	# Exception codes less than 400 are warnings and not errors (see https://www.imagemagick.org/script/perl-magick.php#exceptions )
+	# e.g. Exception 365: CorruptImageProfile `xmp' @ warning/profile.c/SetImageProfileInternal/1704
+	if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
 		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
 	else {
@@ -436,7 +440,8 @@ sub get_code_and_imagefield_from_file_name($$) {
 	if ($filename =~ /(\d{8}\d*)/) {
 		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		# e.g. IMG_20200810_111131.jpg
+		if ($filename =~ /(^|[^0-9])20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
 		}
 		else {
