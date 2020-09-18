@@ -52,7 +52,8 @@
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc_code == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
+        [% lang("barcode") %]: <p id="_barcode">[% code %]</p>
+      <svg id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;"></svg>
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]

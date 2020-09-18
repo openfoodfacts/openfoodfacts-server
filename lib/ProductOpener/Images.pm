@@ -311,6 +311,13 @@ HTML
 
 
 	$scripts .= <<JS
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+<script type="text/javascript">
+const barcode = document.getElementById('_barcode');
+JsBarcode("#barcode", barcode.innerHTML);
+
+barcode.parentNode.removeChild(barcode);
+</script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -445,9 +452,9 @@ sub get_code_and_imagefield_from_file_name($$) {
 	}
 
 	# Check for a specified imagefield
-	
+
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
-	
+
 	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
@@ -479,7 +486,7 @@ sub process_image_upload($$$$$$$) {
 	my $debug_string_ref = shift;    # to return debug information to clients
 
 	$log->debug("process_image_upload", { product_id => $product_id, imagefield => $imagefield }) if $log->is_debug();
-	
+
 	# The product_id can be prefixed by a server (e.g. off:[code]) with a different $www_root
 	my $product_www_root = www_root_for_product_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
@@ -527,7 +534,7 @@ sub process_image_upload($$$$$$$) {
 			}
 		}
 	}
-	
+
 	local $log->context->{imagefield} = $imagefield;
 	local $log->context->{uploader}   = $userid;
 	local $log->context->{file}       = $file;
@@ -536,9 +543,9 @@ sub process_image_upload($$$$$$$) {
 	# Check if we have already received this image before
 	my $images_ref = retrieve("$product_data_root/products/$path/images.sto");
 	defined $images_ref or $images_ref = {};
-	
+
 	my $file_size = -s $file;
-	
+
 	if (($file_size > 0) and (defined $images_ref->{$file_size})) {
 		$log->debug("we have already received an image with the same size", {file_size => $file_size, imgid => $images_ref->{$file_size}}) if $log->is_debug();
 		${$imgid_ref} = $images_ref->{$file_size};
@@ -614,7 +621,7 @@ sub process_image_upload($$$$$$$) {
 				$bg->Composite(compose => 'Over', image => $source);
 				$source = $bg;
 			}
-			
+
 			my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
 
 			$source->Set('quality',95);
@@ -623,7 +630,7 @@ sub process_image_upload($$$$$$$) {
 			# Check that we don't already have the image
 			my $size_orig = -s $img_orig;
 			my $size_jpg = -s $img_jpg;
-			
+
 			local $log->context->{img_size_orig} = $size_orig;
 			local $log->context->{img_size_jpg} = $size_jpg;
 
@@ -631,11 +638,11 @@ sub process_image_upload($$$$$$$) {
 
 			$log->debug("comparing existing images with size of new image", { img_orig => $img_orig, size_orig => $size_orig, img_jpg => $img_jpg, size_jpg => $size_jpg }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
-				
+
 				# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
 				# but we stored original PNG files before they were converted to JPG in [imgid].png
 				# We compare both the sizes of the original files and the converted files
-						
+
 				my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
 				if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
 					push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
@@ -643,13 +650,13 @@ sub process_image_upload($$$$$$$) {
 				if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
 					push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
 				}
-				
+
 				foreach my $existing_image (@existing_images) {
-					
+
 					my $existing_image_size = -s $existing_image;
-					
+
 					foreach my $size ($size_orig, $size_jpg) {
-					
+
 						$log->debug("comparing image", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
 						if ((defined $existing_image_size) and ($existing_image_size == $size)) {
 							$log->debug("image with same size detected", { existing_image_index => $i, existing_image => $existing_image, existing_image_size => $existing_image_size }) if $log->is_debug();
@@ -765,7 +772,7 @@ sub process_image_upload($$$$$$$) {
 				my $code = $product_id;
 				$code =~ s/.*\///;
 				symlink("$product_www_root/images/products/$path/$imgid.jpg", "$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
-				
+
 				# Save the image file size so that we can skip the image before processing it if it is uploaded again
 				$images_ref->{$size_orig} = $imgid;
 				store("$product_data_root/products/$path/images.sto", $images_ref);
@@ -842,7 +849,7 @@ sub process_image_move($$$$) {
 		if (defined $product_ref->{images}{$imgid}) {
 
 			my $ok = 1;
-			
+
 			my $new_imgid;
 			my $debug;
 
