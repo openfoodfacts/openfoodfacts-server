@@ -6561,47 +6561,29 @@ sub display_new($) {
 	$template_data_ref->{image} = $image;
 	$template_data_ref->{image_en} = $image_en;
 	$template_data_ref->{link} = $link;
-	$template_data_ref->{banners} = @banners;
-	$template_data_ref->{banner} = $banner;
 	$template_data_ref->{lc} = $lc;
 
-	if (not($server_options{producers_platform})) {
+	if (not($server_options{producers_platform})
+	and ((not (defined cookie('hide_image_banner')))
+	or (not (cookie('hide_image_banner') eq '1')))) {
+		$template_data_ref->{banner} = $banner;
 
-		$initjs .= <<JS
-
-if (\$.cookie('hide_image_banner') == '1') {
-	\$('#hide_image_banner').prop('checked',true);
-	\$("#image_banner").hide();
-	\$("#hide_image_banner_hide").hide();
-	\$("#hide_image_banner_show").show();
+		$initjs .= <<'JS';
+if ($.cookie('hide_image_banner') == '1') {
+	$('#hide_image_banner').prop('checked', true);
+	$('#donate_banner').remove();
 }
 else {
-	\$('#hide_image_banner').prop('checked',false);
-	\$("#image_banner").show();
-	\$("#hide_image_banner_hide").show();
-	\$("#hide_image_banner_show").hide();
+	$('#hide_image_banner').prop('checked', false);	
+	$('#donate_banner').show();
+	$('#hide_image_banner').change(function () {
+		if ($('#hide_image_banner').prop('checked')) {
+			$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+			$('#donate_banner').remove();
+		}
+	});
 }
-
-\$("#hide_image_banner").change(function () {
-	if (\$('#hide_image_banner').prop('checked')) {
-		\$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
-		\$("#image_banner").hide();
-		\$("#hide_image_banner_hide").hide();
-		\$("#hide_image_banner_show").show();
-	}
-	else {
-		\$.cookie('hide_image_banner', null, { path: '/'});
-
-		\$("#image_banner").show();
-		\$("#hide_image_banner_hide").show();
-		\$("#hide_image_banner_show").hide();
-	}
-}
-);
-
 JS
-;
-
 	}
 
 	if ($server_options{producers_platform}) {
