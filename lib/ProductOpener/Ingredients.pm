@@ -4412,16 +4412,27 @@ sub extract_ingredients_classes_from_text($) {
 					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> no exact match ";
 
 					foreach my $id (@{$ingredients_classes_sorted{$class}}) {
-						if (($ingredient_id =~ /^$id\b/) and (not defined $seen{$ingredients_classes{$class}{$id}{id}})) {
+						
+						if (index($ingredient_id, $id) == 0) {
+							# only compile the regex if we can't avoid it
+							if (
+								($ingredient_id =~ /^$id\b/)
+								and (not defined $seen{$ingredients_classes{$class}{$id}{id}})
+							) {
 
-							next if (($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
+								next if (
+									($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale')
+									and (defined $all_seen{"huile-de-palme"})
+								);
 
-							#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
+								#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
 
-							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
-							$seen{$ingredients_classes{$class}{$id}{id}} = 1;
-							$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
+								push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
+								$seen{$ingredients_classes{$class}{$id}{id}} = 1;
+								$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
+							}
 						}
+						
 					}
 				}
 			}
