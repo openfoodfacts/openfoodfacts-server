@@ -1244,13 +1244,22 @@ sub parse_ingredients_text($) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
 								if (
 									# English, French etc. match before or after the ingredient, require a space
-									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
+									(
+										#($product_lc =~ /^(en|es|it|fr)$/)
+										( ($product_lc eq 'en') or ($product_lc eq 'es') or ($product_lc eq 'fr') or ($product_lc eq 'it') )
+										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
+									)
+									
 									#  match after, do not require a space
 									# currently no language
-									or  (($product_lc =~ /^(xx)$/) and ($new_ingredient =~ /($regexp)$/i))
+									#or ( ($product_lc eq 'xx') and ($new_ingredient =~ /($regexp)$/i) )
+									
 									#  Dutch: match before or after, do not require a space
-									or  (($product_lc =~ /^(de|nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
-										) {
+									or (
+										( ($product_lc eq 'de') or ($product_lc eq 'nl') )
+										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
+									)
+								) {
 									$new_ingredient = $` . $';
 
 									$debug_ingredients and $log->debug("found processing", { ingredient => $ingredient, new_ingredient => $new_ingredient, processing => $ingredient_processing_regexp_ref->[0], regexp => $regexp }) if $log->is_debug();
@@ -4403,16 +4412,27 @@ sub extract_ingredients_classes_from_text($) {
 					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> no exact match ";
 
 					foreach my $id (@{$ingredients_classes_sorted{$class}}) {
-						if (($ingredient_id =~ /^$id\b/) and (not defined $seen{$ingredients_classes{$class}{$id}{id}})) {
+						
+						if (index($ingredient_id, $id) == 0) {
+							# only compile the regex if we can't avoid it
+							if (
+								($ingredient_id =~ /^$id\b/)
+								and (not defined $seen{$ingredients_classes{$class}{$id}{id}})
+							) {
 
-							next if (($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
+								next if (
+									($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale')
+									and (defined $all_seen{"huile-de-palme"})
+								);
 
-							#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
+								#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
 
-							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
-							$seen{$ingredients_classes{$class}{$id}{id}} = 1;
-							$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
+								push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
+								$seen{$ingredients_classes{$class}{$id}{id}} = 1;
+								$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
+							}
 						}
+						
 					}
 				}
 			}
