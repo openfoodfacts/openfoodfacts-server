@@ -321,14 +321,17 @@ const barcode = document.getElementById('barcode');
 // Get the barcode_paragraph `p` element from DOM.
 const barcodeParagraph = document.getElementById('barcode_paragraph');
 
-// Remove barcode span and add svg
-barcodeParagraph.removeChild(barcode);
+// Only if the barcodeParagraph exists.
+if (barcodeParagraph) {
+	// Remove barcode span and add svg
+	barcodeParagraph.removeChild(barcode);
 
-const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-barcodeParagraph.appendChild(svg);
+	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	barcodeParagraph.appendChild(svg);
 
-// generate the barcode svg
-JsBarcode(svg, barcode.innerHTML);
+	// generate the barcode svg
+	JsBarcode(svg, barcode.innerHTML);
+}
 </script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
