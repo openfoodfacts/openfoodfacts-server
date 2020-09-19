@@ -208,7 +208,6 @@ if (
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
-	and (not $mongodb_to_mongodb)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -1008,4 +1007,3 @@ if ($restore_values_deleted_by_user) {
 }
 
 exit(0);
-
