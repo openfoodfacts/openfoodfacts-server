@@ -250,19 +250,19 @@
 </script>
 <script type="application/ld+json">
 {
-	"\@context" : "https://schema.org",
-	"\@type" : "WebSite",
+	"@context" : "https://schema.org",
+	"@type" : "WebSite",
 	"name" : "[% lang('site_name') %]",
 	"url" : "[% formatted_subdomain %]",
 	"potentialAction": {
-		"\@type": "SearchAction",
+		"@type": "SearchAction",
 		"target": "[% formatted_subdomain %]/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
 {
-	"\@context": "https://schema.org/",
-	"\@type": "Organization",
+	"@context": "https://schema.org/",
+	"@type": "Organization",
 	"url": "[% formatted_subdomain %]",
 	"logo": "/images/misc/[% lang('logo') %]",
 	"name": "[% lang('site_name') %]",
