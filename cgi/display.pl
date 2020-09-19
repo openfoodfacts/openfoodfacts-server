@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,6 +39,21 @@ use Log::Any qw($log);
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
+# The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
+# so that all non /cgi/ queries are sent to display.pl and that we can get the path in the querty string
+# CGI.pm thus adds somepath? at the start of the name of the first parameter.
+# we need to remove it so that we can use the CGI.pm param() function to later access the parameters
+
+my @params = param();
+if (defined $params[0]) {
+	my $first_param = $params[0];
+	my $first_param_value = param($first_param);
+	$log->debug("replacing first param to remove path from parameter name", { first_param => $first_param, $first_param_value => $first_param_value });
+	CGI::delete($first_param);
+	$first_param =~ s/^(.*?)\?//;
+	param($first_param, $first_param_value);
+}
+
 ProductOpener::Display::init();
 
 my %request = (
@@ -61,7 +76,25 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 }
 
 if (defined $request{api}) {
-	display_product_api(\%request);
+	if (param("api_method") eq "search") {
+		# /api/v0/search
+		display_tag(\%request);
+	}
+	elsif (param("api_method") =~ /^preferences(_(\w\w))?$/) {
+		# /api/v0/preferences or /api/v0/preferences_[language code]
+		display_preferences_api(\%request, $2);
+	}	
+	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
+		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
+		display_attribute_groups_api(\%request, $2);
+	}
+	else {
+		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
+		display_product_api(\%request);
+	}
+}
+elsif (defined $request{search}) {
+	display_tag(\%request);
 }
 elsif (defined $request{text}) {
 	display_text(\%request);
@@ -79,33 +112,12 @@ elsif ((defined $request{groupby_tagtype}) or ((defined $request{tagtype}) and (
 	display_tag(\%request);
 }
 
-
-
-if (0) {
-
-	if (($request{tag} ne $request{tagid}) and ($request{tagid} ne 'all') and (not defined $request{query}) and (not defined $request{user}) and (not defined $request{menuid})) {
-		# my $location =  URI::Escape::XS::encodeURIComponent($request{canon_tag});
-		my $location = "/by/" . $request{tagid};
-
-		my $r = shift;
-
-		$r->headers_out->set(Location =>$location);
-		$r->status(301);
-		return 301;
-
-	}
-
-
-	display_news(\%request);
-}
-
 if (defined $request{redirect}) {
-		my $r = shift;
+	my $r = shift;
 
-		$r->headers_out->set(Location => $request{redirect});
-		$r->status(301);
-		return 301;
+	$r->headers_out->set(Location => $request{redirect});
+	$r->status(301);
+	return 301;
 }
 
-exit(0);
-
+exit 0;

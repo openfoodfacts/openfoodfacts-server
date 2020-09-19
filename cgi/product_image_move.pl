@@ -165,7 +165,8 @@ if ($move_to ne 'trash') {
 			$product_ref = retrieve_product($product_id);
 			my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries allergens states  );
 
-			use Clone 'clone';
+			require Clone;
+			Clone->import( qw( clone ) );
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang','nutriments') {
 				if (defined $product_ref->{$field}) {

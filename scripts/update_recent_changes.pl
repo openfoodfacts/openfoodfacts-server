@@ -66,7 +66,7 @@ while (my $product_ref = $cursor->next) {
 		$changes_ref = [];
 	}
 
-	foreach my $change_ref (@$changes_ref) {
+	foreach my $change_ref (@{$changes_ref}) {
 		log_change($product_ref, $change_ref);
 	}
 

@@ -6,7 +6,10 @@ stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transform�
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 
-en:gluten, wheat, rye, barley, spelt, kamut, wheat semolina, wheat flour, cereals containing gluten, wheatflour, spelt, speltflour
+en:none, allergens-free, without allergens, without, n, no, no allergens, 0
+fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
+
+en:gluten, cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina
 ar:غلوتين
 bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, ръж,  овес, шпелта, камут, вид едра твърда пшеница
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut
@@ -69,7 +72,7 @@ sv:kräftdjur
 th:ครัสเตเชียน,ปู,กั้ง,กุ้ง,กะปิ
 zh:甲壳亚门
 
-en:eggs, egg, barn egg
+en:eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
 ar:بيض,بيضة
 bg:яйца, яйце
 cs:vejce
@@ -162,7 +165,7 @@ th:ถั่วลิสง
 zh:花生
 wikidata:en:Q7157933
 
-en:soybeans, soya, soja, soia, soy
+en:soybeans, soya, soja, soia, soy, soya bean, soy flour, soya flour, soy lecithin, soy lecithins, soya lecithin, soya lecithins
 ar:فول الصويا
 bg:соя, соеви, соево
 cs:sójové boby, sójové
@@ -174,6 +177,7 @@ et:sojaoad
 fi:soija, soijaa, soijasta, soijat, soijia, soijista, soijapapu, soijapapua, soijapavusta, soijapavut, soijapapuja, soijapavuista, soijajuoma, soijajuomaa, soijajuomasta, soijajuomat, soijajuomia, soijajuomista, soijamaito, soijamaitoa, soijamaidosta, soijamaidot, soijamaitoja, soijamaidoista, soijalesitiini, soijalesitiiniä, soijalesitiinistä, soijalesitiinit, soijalesitiinejä, soijalesitiineistä, soijaproteiini, soijaproteiinia, soijaproteiinista, soijaproteiinit, soijaproteiineja, soijaproteiineista, soijakastike, soijakastiketta, soijakastikkeesta, soijakastikkeet, soijakastikkeita, soijakastikkeista, soijahiutale, soijahiutaletta, soijahiutaleesta, soijahiutaleet, soijahiutaleita, soijahiutaleista, soijajauho, soijajauhoa, soijajauhosta, soijajauhot, soijajauhoja, soijajauhoista, soijarouhe, soijarouhetta, soijarouheesta, soijarouheet, soijarouheita, soijarouheista, soijaöljy, soijaöljyä, soijaöljystä, soijaöljyt, soijaöljyjä, soijaöljyistä, soijapapuöljy, soijapapuöljyä, soijapapuöljystä, soijapapuöljyt, soijapapuöljyjä, soijapapuöljyistä, soijaproteiini-isolaatti, soijaproteiini-isolaattia, soijaproteiini-isolaatista, soijaproteiinihydrolysaatti, soijaproteiinihydrolysaattia, soijaproteiinihydrolysaatista
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graine de soja, graines de soja, tofu
 ga:pónairí soighe, soighe
+hr:soju
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
 is:soja
 it:soia, lecitina di soia
@@ -184,7 +188,7 @@ mt:soybeans
 nb:soya
 nl:soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be:soja, sojalecithine, sojaeiwitten, sojabonen
-pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe
+pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, soję
 pt:soja
 ro:soia, lecitină din soia
 ru:соя, соевые бобы
@@ -232,9 +236,9 @@ ar:بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
 bg:ядки, бадеми, лешници, орехи, кашу, пеканови ядки,  бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд
 cs:skořápkové plody, mandle, lískové ořechy, vlašské ořechy, kešu ořechy, pekanové ořechy,  para ořechy, pistácie, makadamie
 da:nødder, mandler, hasselnødder, valnødder, cashewnødder, pekannødder,  paranødder, pistacienødder, queenslandnødder
-de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnüssen, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl
+de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnüssen, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl, andere Nüsse
 el:καρποί με κέλυφος, αμύγδαλα, φουντούκια, καρύδια, καρύδια κάσιους, καρύδια πεκάν, καρύδια Βραζιλίας, φυστίκια, καρύδια μακαντάμια, καρύδια Κουίνσλαντ
-es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles
+es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles, otros nueces
 et:pähklid, mandlid, sarapuupähklid, kreeka pähklid, india pähklid, kašupähklid, pekanipähklid,  brasiilia pähklid, parapähklid, pistaatsiapähklid, makadaamiapähklid
 fi:pähkinät, pähkinä, pähkinää, pähkinästä, pähkinöitä, pähkinöistä, manteli, mantelia, mantelista, mantelit, manteleita, manteleja, manteleista, hasselpähkinä, hasselpähkinää, hasselpähkinästä, hasselpähkinät, hasselpähkinöitä, hasselpähkinöistä, saksanpähkinä, saksanpähkinää, saksanpähkinästä, saksanpähkinät, saksanpähkinöitä, saksanpähkinöistä, cashewpähkinä, cashewpähkinää, cashewpähkinästä, cashewpähkinät, cashewpähkinöitä, cashewpähkinöistä, pekaanipähkinä, pekaanipähkinää, pekaanipähkinästä, pekaanipähkinät, pekaanipähkinöitä, pekaanipähkinöistä, parapähkinä, parapähkinää, parapähkinästä, parapähkinät, parapähkinöitä, parapähkinöistä, pistaasipähkinä, pistaasipähkinää, pistaasipähkinästä, pistaasipähkinät, pistaasipähkinöitä, pistaasipähkinöistä, pistaasi, pistaasia, pistaasista, pistaasit, pistaaseja, pistaaseista, Macadamia-pähkinä, Macadamia-pähkinää, Macadamia-pähkinästä, Macadamia-pähkinät, Macadamia-pähkinöitä, Macadamia-pähkinöistä, Macadamiapähkinä, Macadamiapähkinää, Macadamiapähkinästä, Macadamiapähkinät, Macadamiapähkinöitä, Macadamiapähkinöistä, Queensland-pähkinä, Queensland-pähkinää, Queensland-pähkinästä, Queensland-pähkinät, Queensland-pähkinöitä, Queensland-pähkinöistä, pekaania, pekaanista, pekaanit, pekaaneja, pekaaneista, muu pähkinä, muuta pähkinää, muusta pähkinästä, muut pähkinät, muita pähkinöitä, muista pähkinöistä
 fr:fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de Macadamia, noix du Queensland, fruits secs, autres fruits secs, autres fruits à coque, fruits secs à coque, fruits à coque dure
@@ -249,7 +253,7 @@ mt:ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan,  ġewż tal-Bra
 nb:nøtter, andre nøtter
 nl:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 nl_be:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten,  paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
-pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan,  orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland
+pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy
 pt:nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, nozes de macadâmia, nozes do Queensland
 ro:fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan,  nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland
 ru:орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
@@ -310,7 +314,7 @@ lv:sinepes
 mt:mustarda
 nl:mosterd, mosterzaad, mosterdzaden
 nl_be:mosterd, mosterzaad, mosterdzaden
-pl:gorczyca
+pl:gorczyca, gorczycę
 pt:mostarda
 ro:muștar
 ru:горчица
@@ -341,7 +345,7 @@ lv:sezama sēklas, sezama
 mt:ġulġlien
 nl:sesamzaad, sesam
 nl_be:sesamzaad, sesam
-pl:nasiona sezamu, sezamu, sezamowy, sezamków, sezamowe
+pl:nasiona sezamu, sezamu, sezamowy, sezamków, sezamowe, sezam
 pt:sementes de sésamo, sésamo
 ro:semințe de susan
 ru:сезам, кунжут
@@ -376,8 +380,8 @@ jp:二酸化硫黄および亜硫酸塩, 二酸化硫黄, 亜硫酸塩
 lt:sieros dioksidas ir sulfitai, sieros dioksidas, sulfitai
 lv:sēra dioksīds un sulfīt, sēra dioksīds, sulfīti
 mt:dijossidu tal-kubrit u sulfiti, dijossidu tal-kubrit, sulfiti
-nl:zwaveldioxide en sulfieten, zwaveldioxide, sulfieten
-nl_be:zwaveldioxide en sulfieten, zwaveldioxide, sulfieten
+nl:zwaveldioxide en sulfieten, zwaveldioxide, sulfieten, sulfiet
+nl_be:zwaveldioxide en sulfieten, zwaveldioxide, sulfieten, sulfiet
 pl:dwutlenek siarki i siarczyny, dwutlenek siarki, siarczyny
 pt:dióxido de enxofre e sulfitos, dióxido de enxofre, sulfitos
 ro:dioxidul de sulf și sulfiții, dioxidul de sulf, sulfiții
@@ -385,7 +389,7 @@ ru:диоксид и сульфит серы, серный диоксид, су�
 sk:oxid siričitý a siričitany, oxid siričitý, siričitany
 sl:žveplov dioksid in sulfiti, žveplov dioksid, sulfiti
 sv:svaveldioxid och sulfit, svaveldioxid, sulfit
-th: ซัลเฟอร์ไดออกไซด์และซัลไฟต์, ซัลเฟอร์ไดออกไซด์, ซัลไฟต์,
+th:ซัลเฟอร์ไดออกไซด์และซัลไฟต์, ซัลเฟอร์ไดออกไซด์, ซัลไฟต์,
 zh:二氧化硫和亚硫酸盐, 二氧化硫，亚硫酸盐
 
 en:lupin

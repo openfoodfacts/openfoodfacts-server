@@ -1,14 +1,5 @@
 [% IF action == 'display' || action == 'none' %]
-    [% IF error_count >= 0 %]
-        <div class='alert-box alert'>
-            <p>
-                <b>[% lang('correct_the_following_errors') %]</b>
-            </p>
-            [% FOREACH error IN errors %]
-                [% error %]<br />
-            [% END %]
-        </div>
-    [% END %]
+[% INCLUDE 'error_list.tt.html' %]
 [% END %]
 
 [% IF action == 'display' %]
@@ -23,14 +14,19 @@
 
             [% IF admin %]
                 <tr><td colspan="2">
-                        <input type="checkbox" name="delete" value="on" checked="checked" />[% lang("delete_user") %]
+					<label>
+						<input type="checkbox" name="delete" value="on" />
+						[% lang("delete_user") %]
+					</label>
                 </td></tr>
             [% END %]
             <tr>
                 <td>
                     <input type="hidden" name="action" value="process"  />
                     <input type="hidden" name="type" value="[% type %]"  />
-                    <input type="hidden" name="[% userid %]" value="1"  />
+                    [% IF userid %]
+						<input type="hidden" name="userid" value="[% userid %]"  />
+					[% END %]
                     <input type="submit" name=".submit" class="button" />
                 </td>
             </tr>

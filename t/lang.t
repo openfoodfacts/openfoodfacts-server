@@ -21,6 +21,7 @@ sub test_links {
         }
     }
 
+	return;
 }
 
 # https://stackoverflow.com/a/190405/11963
@@ -70,6 +71,8 @@ sub test_logo_exists {
 		my $path = "$www_root/images/misc/$Lang{$logo}{$lang}";
 		ok( -e $path, "file '$path' exists");
 	}
+
+	return;
 }
 
 test_logo_exists('logo');

@@ -1424,9 +1424,9 @@ langual	LANGUAL codes assigned to the food
 code	LANGUAL code
 desc	description of the code			
 TEXT
-;			
-			
-			
+;
+
+
 			my $ndb_ref;
 
 
@@ -1487,9 +1487,9 @@ TEXT
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
-					delete $product_ref->{countries_hierarchy};					
-					#store_product($product_ref, "Creating product (import_us_ndb.pl bulk upload) - " . $comment );					
-				}				
+					delete $product_ref->{countries_hierarchy};
+					#store_product($product_ref, "Creating product (import_us_ndb.pl bulk upload) - " . $comment );
+				}
 				
 			}
 			else {
@@ -1588,13 +1588,13 @@ TEXT
 				$params{product_name} = lc ($params{product_name});
 				$params{product_name} =~ s/\b([a-z-_])/uc($1)/eg;
 				$params{product_name} =~ s/'S/'s/g;
-				
-				# copy value to main language				
+
+				# copy value to main language
 				$params{"product_name_" . $global_params{lc}} = $params{product_name};
-				
-				
-			}			
-			
+
+
+			}
+
 			if (defined $ndb_product_ref->{quantity}) {
 				$params{quantity} = $ndb_product_ref->{quantity} . ' ' .  $ndb_product_ref->{unit};
 				print "set quantity to $params{quantity}\n";
@@ -1621,13 +1621,13 @@ TEXT
 			if ((defined $ndb_product_ref->{"nutrients"}) and (defined $ndb_product_ref->{"nutrients"}[0])
 				 and (defined $ndb_product_ref->{"nutrients"}[0]{measures})
 				  and (defined $ndb_product_ref->{"nutrients"}[0]{measures}[0]{eqv})){
-				
+
 				$params{serving_size} = $ndb_product_ref->{"nutrients"}[0]{measures}[0]{eqv} . " " . $ndb_product_ref->{"nutrients"}[0]{measures}[0]{eunit}
 					. " (" . $ndb_product_ref->{"nutrients"}[0]{measures}[0]{qty} . ' ' . $ndb_product_ref->{"nutrients"}[0]{measures}[0]{label} . ")";
 				#$params{serving_size} = $ndb_product_ref->{"portion-quantity"} . ' ' .  $ndb_product_ref->{"unit"};
 				print "set serving_size to $params{serving_size}\n";
-			}			
-			
+			}
+
 			my %ndb_language_specific_fields = (
 				'ing' => 'ingredients_text',
 			);
@@ -1641,7 +1641,7 @@ TEXT
 #            "ing": {
 #                "desc": "DARK CHOCOLATE (COCOA MASS, SUGAR, COCOA BUTTER, SOY LECITHIN [EMULSIFIER], AND NATURAL VANILLA EXTRACT).",
 #                "upd": "09/23/2016"
-#            },				
+#            },
 				if (defined $ndb_product_ref->{$field}) {
 					$params{$off_field} = $ndb_product_ref->{$field}{desc};
 					if (defined $ndb_product_ref->{$field}{upd}) {
@@ -1649,18 +1649,18 @@ TEXT
 					}
 					if (ref ($params{$off_field}) eq 'ARRAY') {
 						$params{$off_field} = join(', ', @{$params{$off_field}});
-					}					
-					
+					}
+
 					# lowercase ingredients
 					$params{$off_field} = ucfirst(lc($params{$off_field}));
-					
+
 					print "set $field to $params{$field}\n";
-					
+
 					my $language = 'en';
 					$params{$off_field . "_" . $language} = $params{$off_field};
-					
-				}			
-			
+
+				}
+
 			}
 
 
@@ -1682,13 +1682,13 @@ TEXT
 					push @param_fields, $field;
 				}
 			}
-	
-					
-			foreach my $field (@param_fields) {
-				
-				if (defined $params{$field}) {				
 
-				
+
+			foreach my $field (@param_fields) {
+
+				if (defined $params{$field}) {
+
+
 					# for tag fields, only add entries to it, do not remove other entries
 					
 					if (defined $tags_fields{$field}) {
@@ -1719,16 +1719,15 @@ TEXT
 						}
 						
 						# next if ($code ne '3017620401473');
-						
-						
-						if ($product_ref->{$field} =~ /^, /) {
+
+						if ( $product_ref->{$field} =~ /^, / ) {
 							$product_ref->{$field} = $';
-						}	
-						
+						}
+
 						if ($field eq 'emb_codes') {
 							# French emb codes
 							$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
+							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 						}
 						if ($current_field ne $product_ref->{$field}) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field \n";
@@ -1740,25 +1739,25 @@ TEXT
 					else {
 						# non-tag field
 						my $new_field_value = $params{$field};
-						
+
 						if (($field eq 'quantity') or ($field eq 'serving_size')) {
-							
+
 								# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-								$new_field_value =~ s/\.0 / /;					
+								$new_field_value =~ s/\.0 / /;
 						}
 
 						my $normalized_new_field_value = $new_field_value;
 
-						
+
 						# existing value?
 						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 							my $current_value = $product_ref->{$field};
 							$current_value =~ s/\s+$//g;
-							$current_value =~ s/^\s+//g;							
-							
+							$current_value =~ s/^\s+//g;
+
 							# normalize current value
-							if (($field eq 'quantity') or ($field eq 'serving_size')) {								
-							
+							if (($field eq 'quantity') or ($field eq 'serving_size')) {
+
 								$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
 								$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
@@ -1781,11 +1780,11 @@ TEXT
 								$normalized_new_field_value =~ s/\W+//g;
 								
 							}
-							
+
 							if (lc($current_value) ne lc($normalized_new_field_value)) {
 								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.openfoodfacts.org/product/$code \n";
 								$differing++;
-								$differing_fields{$field}++;								
+								$differing_fields{$field}++;
 							}
 						}
 						else {
@@ -1793,7 +1792,7 @@ TEXT
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
 						}
-					}					
+					}
 				}
 			}
 			
@@ -1846,23 +1845,22 @@ TEXT
 												
 						$nutrients_names{$nutrient_name}++;
 						$nutrients_ids{$nutrient_ref->{"nutrient_id"}}++;
-						
+
 						# %nutrients
-						if (defined $ndb_nutrients{$nutrient_name}) {
+						if ( defined $ndb_nutrients{$nutrient_name} ) {
 							my $nid = $ndb_nutrients{$nutrient_name};
 							$nid =~ s/^(-|!)+//g;
-							$nid =~ s/-$//g;		
-							
-							
+							$nid =~ s/-$//g;
+
 							# skip sodium if we have salt
 							# ($nid eq 'sodium') and next;
 
 							my $enid = encodeURIComponent($nid);
 							my $value = $nutrient_ref->{"value"};
 							# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-							$value =~ s/\.0$//;	
+							$value =~ s/\.0$//;
 							my $unit = $nutrient_ref->{"unit"};
-							
+
 
 							my $value_new = $value;
 							my $unit_new = $unit;
@@ -1877,10 +1875,10 @@ TEXT
 							print "debug - nutrient - $value $unit -> $value_new $unit_new -> $value_g g\n";
 							
 							if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq "")) {
-							
-								$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+
+								$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 								$product_ref->{nutriments}{$nid . "_value"} = $value;
-								
+
 								if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and ($Nutriments{$nid}{iu} > 0)) {
 									$value = $value * $Nutriments{$nid}{iu} ;
 									$unit = $Nutriments{$nid}{unit};
@@ -1895,7 +1893,7 @@ TEXT
 								}
 								else {
 									$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-								}							
+								}
 								print "setting nutrient for code $code - nid $nid - value $value unit $unit = $product_ref->{nutriments}{$nid} \n";
 								push @modified_fields, "nutrients.$nid";
 							}
@@ -1915,9 +1913,9 @@ TEXT
 					# avoid mixing apple and oranges
 					print "skipping nutrition data as product_ref->{nutrition_data_per} is set to " . $product_ref->{nutrition_data_per} . "\n";
 				}
-			}			
-			
-			
+			}
+
+
 			if (scalar @modified_fields > 0) {
 			
 			# Process the fields
@@ -1928,13 +1926,13 @@ TEXT
 			if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
-			
-			
+
+
 			if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 				push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
-			}	
-			
+			}
+
 			if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 				push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
@@ -1945,12 +1943,12 @@ TEXT
 			if (defined $product_ref->{lang}) {
 				$product_ref->{lc} = $product_ref->{lang};
 			}
-			
+
 			if (not defined $lang_lc{$product_ref->{lc}}) {
 				$product_ref->{lc} = 'xx';
-			}	
-			
-			
+			}
+
+
 			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 			
 			foreach my $field (keys %language_fields) {
@@ -1962,15 +1960,16 @@ TEXT
 			}
 							
 
-			if (not $testing) {							
+			if ( not $testing ) {
+
 				# Ingredients classes
 				extract_ingredients_from_text($product_ref);
 				extract_ingredients_classes_from_text($product_ref);
 
-				compute_languages($product_ref); # need languages for allergens detection
-				detect_allergens_from_text($product_ref);			
+				compute_languages($product_ref);    # need languages for allergens detection
+				detect_allergens_from_text($product_ref);
 			}
-			
+
 			
 #"sources": [
 #{
@@ -1991,13 +1990,13 @@ TEXT
 			if (not defined $product_ref->{sources}) {
 				$product_ref->{sources} = [];
 			}
-			
+
 			push @{$product_ref->{sources}}, {
 				id => "usda-ndb",
 				url => "https://api.nal.usda.gov/ndb/reports/?ndbno=$ndb_id&type=f&format=json&api_key=DEMO_KEY",
 				import_t => time(),
 				fields => \@modified_fields,
-				images => \@images_ids,	
+				images => \@images_ids,
 			};
 
 			
@@ -2005,17 +2004,17 @@ TEXT
 			$User_id = $editor_user_id;
 			
 			if (not $testing) {
-			
+
 				fix_salt_equivalent($product_ref);
-					
+
 				compute_serving_size_data($product_ref);
-				
+
 				compute_nutrition_score($product_ref);
-				
+
 				compute_nutrient_levels($product_ref);
-				
-				compute_unknown_nutrients($product_ref);			
-			
+
+				compute_unknown_nutrients($product_ref);
+
 				store_product($product_ref, "Editing product (import_us_ndb.pl bulk import) - " . $comment . " - upd: " . $updated);
 				
 				push @edited, $code;

@@ -136,6 +136,10 @@ Protéines (g) : 0
 Sel (g) : 0
 Cette bouteille contient 20 portions de 25ml pour un verre de 200ml de sirop dilué (1 volume de sirop + 7 volumes d'eau).", { 'carbohydrates'=>['16.8','g',''], 'energy-kcal'=>['67','kcal',''], 'energy-kj'=>['285','kJ',''], 'fat'=>['0','g',''], 'fiber'=>['0','g',''], 'proteins'=>['0','g',''], 'salt'=>['0','g',''], 'saturated-fat'=>['0','g',''], 'sugars'=>['16.8','g',''] }
  , "serving", "0.025L"],
+
+	["fr", "Pour 100g : Energie 391 kJ/ 93kcal, Matières grasses 0.8 g dont Acides gras saturés 0.1 g, Glucides 12 g dont Sucres <0.5 g , Fibres alimentaires 6.3 g, Protéines 6.1 g, Sel 0.58 g", 
+	{ 'carbohydrates'=>['12','g',''], 'energy-kcal'=>['93','kcal',''], 'energy-kj'=>['391','kJ',''], 'fat'=>['0.8','g',''], 'fiber'=>['6.3','g',''], 'proteins'=>['6.1','g',''], 'salt'=>['0.58','g',''], 'saturated-fat'=>['0.1','g',''], 'sugars'=>['0.5','g','<'] }
+	 ],
 );
 
 foreach my $test_ref (@tests) {
@@ -214,7 +218,7 @@ foreach my $test_ref (@tests) {
 
 foreach my $test_ref (@tests) {
 
-	clean_fields($test_ref->[0]);	
+	clean_fields( $test_ref->[0] );
 	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
 
 }

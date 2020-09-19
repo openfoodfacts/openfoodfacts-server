@@ -27,17 +27,18 @@ use experimental 'smartmatch';
 
 use List::Util qw( all );
 
-use CHI					();
-use Data::Table			();
-use Encode::ZapCP1252	qw( fix_cp1252 );
+use CHI                 ();
+use Data::Table         ();
+use Encode::ZapCP1252   qw( fix_cp1252 );
 use Future::AsyncAwait;
-use Future::Utils		qw( fmap_scalar fmap0 );
+use Future::Utils       qw( fmap_scalar fmap0 );
 use Geo::Coder::Google 0.19_01;    # dev version for the apikey support
-use HTML::TableExtract	();
+use HTML::TableExtract  ();
 use IO::Async::Function ();
-use IO::Async::Loop		();
-use Sort::Naturally		qw( ncmp );
-use Text::CSV			qw( csv );
+use IO::Async::Loop     ();
+use Math::BigNum        ();
+use Sort::Naturally         qw( ncmp );
+use Text::CSV           qw( csv );
 
 use ProductOpener::Config qw/:all/;
 
@@ -73,6 +74,7 @@ sub clean_col {
 	fix_cp1252 $col;
 	$col = trim $col;
 	$col =~ tr/ / /s;
+	$col =~ tr/;/,/;
 	$col =~ s/\R+/ /g;
 
 	return $col;
@@ -81,7 +83,7 @@ sub clean_col {
 sub clean_row {
 	my ($row_ref) = @_;
 
-	[ map { clean_col $_ } @$row_ref ];
+	return [ map { clean_col $_ } @{$row_ref} ];
 }
 
 sub build_headers {
@@ -89,7 +91,7 @@ sub build_headers {
 
 	my $es = qr{nº rgseaa|razón social|dom\. indl\.|localidad|provincia|ccaa}i;
 
-	map { s{^($es)\s*}{$1/}r } @hdrs;
+	return map { s{^($es)\s*}{$1/}r } @hdrs;
 }
 
 sub fill_cache {
@@ -100,21 +102,26 @@ sub fill_cache {
 			in           => "$data_root/packager-codes/$outfile",
 			headers      => 'auto',
 			keep_headers => \my @headers,
+			sep_char     => ';',
+			quote_char   => q{"}
 		);
 
 		return if not all { $_ ~~ @headers } @address_columns;
 
-		foreach my $row_ref (@$row_refs) {
+		foreach my $row_ref (@{$row_refs}) {
 			if ( $row_ref->{'lat'} && $row_ref->{'lng'} ) {
 				my $address = join ', ', @{$row_ref}{@address_columns};
 				my $lat     = $row_ref->{'lat'};
 				my $lng     = $row_ref->{'lng'};
+				$address =~ tr/;/,/;
 				if ($address) {
 					$cache->set( $address, { lat => $lat, lng => $lng } );
 				}
 			}
 		}
 	}
+
+	return;
 }
 
 ###########################################
@@ -174,6 +181,10 @@ async sub geocode_address {
 			$lat = $res->{'geometry'}{'location'}{'lat'};
 			$lng = $res->{'geometry'}{'location'}{'lng'};
 
+			# Exponential notation won't work
+			$lat = Math::BigNum->new($lat)->as_float;
+			$lng = Math::BigNum->new($lng)->as_float;
+
 			$cache->set( $address, { lat => $lat, lng => $lng } );
 		}
 		else {
@@ -210,7 +221,7 @@ async sub geocode_table {
 		geocode_row( $t_ref, $i );
 	}
 	  foreach       => [ 0 .. $t_ref->lastRow ],
-	  concurrent	=> 10;
+	  concurrent    => 10;
 }
 
 my $tables_f = fmap_scalar {
@@ -250,7 +261,7 @@ my $tables_f = fmap_scalar {
 	);
 }
   foreach       => \@html_files,
-  concurrent	=> 10;
+  concurrent    => 10;
 
 my @table_refs = $loop->await($tables_f)->get;
 

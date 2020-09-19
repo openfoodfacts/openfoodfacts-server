@@ -88,7 +88,8 @@ elsif ($action eq "process") {
 	my $products_collection = get_products_collection();
 	$products_collection->delete_many({"owner" => $Owner_id});
 
-	use File::Copy::Recursive qw(dirmove);
+	require File::Copy::Recursive;
+	File::Copy::Recursive->import( qw( dirmove ) );
 
 	my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
 	(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));

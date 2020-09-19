@@ -76,7 +76,7 @@ foreach (my $i = 0; $i <= $#titles; $i++) {
 	}
 
 	$cols[$i] = $id;
-	$title_to_col{$id} = $i;			
+	$title_to_col{$id} = $i;
 }
 		
 
@@ -115,24 +115,22 @@ while (<$IN>) {
 
 	my $code = $row[$title_to_col{$code_field}];
 	$products{$code} = {};
-	
-		my $univers = $row[$title_to_col{"univers"}];
-		my $sous_groupe = $row[$title_to_col{"sous-groupe"}];
-		my $libelle = $row[$title_to_col{"libelle"}];
 
-		next if $univers eq "DPH";		
-	
-	foreach (my $i = 0; $i <= $#row; $i++) {
-	
-
+		my $univers     = $row[ $title_to_col{"univers"} ];
+		my $sous_groupe = $row[ $title_to_col{"sous-groupe"} ];
+		my $libelle     = $row[ $title_to_col{"libelle"} ];
 
 		next if $univers eq "DPH";
-	
-		$products{$code}{$cols[$i]} = $row[$i];
-	
-		$groups{$univers}{$code} = 1;
-		$groups{$univers . " - " . $sous_groupe}{$code} = 1;
-		$groups{"TOTAL"}{$code} = 1;		
+
+	foreach (my $i = 0; $i <= $#row; $i++) {
+
+		next if $univers eq "DPH";
+
+		$products{$code}{ $cols[$i] } = $row[$i];
+
+		$groups{$univers}{$code}                          = 1;
+		$groups{ $univers . " - " . $sous_groupe }{$code} = 1;
+		$groups{"TOTAL"}{$code}                           = 1;
 	}
 	
 		my $franprix_marque =  $row[$title_to_col{"marque"}];
@@ -263,8 +261,8 @@ HTML
 						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 					}
 					$values2 .=  "\n$Nutriments{$nid}{$lang}" . $sodium . " " . $unit;
-				}				
-			
+				}
+
 				$nutrition .= "$Nutriments{$nid}{$lang} : $value $unit\n";
 		}
 		}
@@ -272,19 +270,19 @@ HTML
 		if ($nutrition ne "") {
 			$presentation .= "Informations nutritionelles :\n\n" . $nutrition;
 		}
-		
+
 		$presentation =~ s/\r//g;
-		
+
 		$presentation =~ s/\n(\n+)/\n\n/isg;
 		$presentation =~ s/\n/<br\/>/g;
-			
-			print $OUT3 "$code\t$libelle\t$description\t$presentation\n";
-		}	
-		
-		print $OUT $p;
-}			
 
-		
+		print $OUT3 "$code\t$libelle\t$description\t$presentation\n";
+	}
+
+	print $OUT $p;
+}
+
+
 
 
 close($OUT);

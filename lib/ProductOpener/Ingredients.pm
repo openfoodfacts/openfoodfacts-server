@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -57,8 +57,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&extract_ingredients_from_image
 
@@ -94,7 +93,7 @@ BEGIN
 		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
 
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -147,26 +146,37 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may contain",
-	da => "produktet kan indeholde|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	en => "possible traces|traces|may also contain|also may contain|may contain",
+	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	cs => "může obsahovat",
+	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
 	es => "puede contener|trazas|traza",
+	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
-	fr => "peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+	hr => "može sadržavati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "può contenere|puo contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
+	lt => "sudėtyje gali būti",
+	lv => "var saturēt",
 	nl => "Dit product kan sporen van|Kan sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	pl => "może zawierać śladowe ilości|może zawierać",
+	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
 
 	en => "contains",
+	bg => "съдържа",
 	da => "indeholder",
 	es => "contiene",
+	et => "sisaldab",
 	fr => "contient",
 	nl => "bevat",
+	ro => "con[țţ]ine|con[țţ]in",
 	sv => "innehåller",
 );
 
@@ -239,6 +249,8 @@ sub init_allergens_regexps() {
 		}
 		$allergens_regexps{$allergens_lc} =~ s/^\|//;
 	}
+
+	return;
 }
 
 
@@ -261,10 +273,10 @@ all => [
 ],
 
 da => [
-	[ "bl. a", "blandt andet" ],
-	[ "inkl.", "inklusive" ],
-	[ "mod.",  "modificeret" ],
-	[ "past.", "pasteuriserede" ],
+	[ "bl. a.", "blandt andet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "mod.",   "modificeret" ],
+	[ "past.",  "pasteuriserede" ],
 ],
 
 en => [
@@ -288,24 +300,29 @@ fr => [
 ],
 
 nb => [
-	[ "bl. a", "blant annet" ],
-	[ "inkl.", "inklusive" ],
-	[ "papr.", "paprika" ],
+	[ "bl. a.", "blant annet" ],
+	[ "inkl.",  "inklusive" ],
+	[ "papr.",  "paprika" ],
+],
+
+ru => [
+	[ "в/с", "высшего сорта" ], # or "высший сорт". = top grade, superfine. applied to flour.
+	[ "х/п", "хлебопекарная" ], # bakery/baking, also for flour.
 ],
 
 sv => [
-	[ "bl. a",            "bland annat" ],
-	[ "förtjockn.medel",  "förtjockningsmedel" ],
-	[ "inkl.",            "inklusive" ],
-	[ "kons.medel",       "konserveringsmedel" ],
-	[ "max.",             "maximum" ],
-	[ "mikrob.",          "mikrobiellt" ],
-	[ "min.",             "minimum" ],
-	[ "mod.",             "modifierad" ],
-	[ "past.",            "pastöriserad" ],
-	[ "stabil.",          "stabiliseringsämne" ],
-	[ "surhetsreg.",      "surhetsreglerande" ],
-	[ "veg.",             "vegetabilisk" ],
+	[ "bl. a.",          "bland annat" ],
+	[ "förtjockn.medel", "förtjockningsmedel" ],
+	[ "inkl.",           "inklusive" ],
+	[ "kons.medel",      "konserveringsmedel" ],
+	[ "max.",            "maximum" ],
+	[ "mikrob.",         "mikrobiellt" ],
+	[ "min.",            "minimum" ],
+	[ "mod.",            "modifierad" ],
+	[ "past.",           "pastöriserad" ],
+	[ "stabil.",         "stabiliseringsämne" ],
+	[ "surhetsreg.",     "surhetsreglerande" ],
+	[ "veg.",            "vegetabilisk" ],
 ],
 );
 
@@ -318,7 +335,7 @@ my %of = (
 	fr => " de la | de | du | des | d'",
 	is => " af ",
 	it => " di | d'",
-	nl => " of ",
+	nl => " van ",
 	nb => " av ",
 	sv => " av ",
 );
@@ -328,14 +345,20 @@ my %and = (
 	ca => " i ",
 	da => " og ",
 	de => " und ",
-	es => " y ",	# Spanish "e" before "i" and "hi" is handled by preparse_text()
+	es => " y ", # Spanish "e" before "i" and "hi" is handled by preparse_text()
+	et => " ja ",
 	fi => " ja ",
 	fr => " et ",
+	hr => " i ",
 	is => " og ",
 	it => " e ",
+	lt => " ir ",
+	lv => " un ",
 	nl => " en ",
 	nb => " og ",
+	pl => " i ",
 	pt => " e ",
+	ro => " și ",
 	sv => " och ",
 );
 
@@ -435,6 +458,8 @@ sub init_labels_regexps() {
 			#print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
 		}
 	}
+
+	return;
 }
 
 # Ingredients processing regexps
@@ -443,35 +468,39 @@ my %ingredients_processing_regexps = ();
 
 sub init_ingredients_processing_regexps() {
 
-	foreach my $ingredients_processing (sort { (length($b) <=> length($a)) || ($a cmp $b) } keys %{$translations_to{ingredients_processing}}) {
+	foreach my $ingredients_processing ( keys %{ $translations_to{ingredients_processing} } ) {
 
-		foreach my $l (sort keys %{$translations_to{ingredients_processing}{$ingredients_processing}}) {
+		foreach my $l ( keys %{ $translations_to{ingredients_processing}{$ingredients_processing} } ) {
 
 			defined $ingredients_processing_regexps{$l}  or $ingredients_processing_regexps{$l}  = [];
-
-			my %synonyms = ();
 
 			# the synonyms below also contain the main translation as the first entry
 
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
-			foreach my $synonym (sort @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}}) {
-				$synonyms{$synonym} = 1;
-				# unaccented forms
-				$synonyms{unac_string_perl($synonym)} = 1;
-			}
+			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
+				push @{ $ingredients_processing_regexps{$l} },
+					[ $ingredients_processing, $synonym ];
 
-			# We want to match the longest strings first
-			# Unfortunately, the following does not work:
-			# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
-			# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
-			# -> just create one regexp for each synonym...
-			foreach my $synonym (sort { length($b) <=> length($a) } keys %synonyms) {
-				push @{$ingredients_processing_regexps{$l}}, [$ingredients_processing , $synonym];
-				#print STDERR "ingredients_processing_regexps{$l}: ingredient_processing: $ingredients_processing - regexp: $synonym \n";
+				if ( ( my $unacc = unac_string_perl($synonym) ) ne $synonym ) {
+					push @{ $ingredients_processing_regexps{$l} },
+						[ $ingredients_processing, $unacc ];
+				}
 			}
 		}
 	}
+
+	# We want to match the longest strings first
+	# Unfortunately, the following does not work:
+	# my $regexp = join('|', sort { length($b) <=> length($a) } keys %synonyms);
+	# -> if we have (gehackte|gehackt) and we parse "gehackte something", it will match "gehackt".
+	foreach my $lc ( keys %ingredients_processing_regexps ) {
+		@{ $ingredients_processing_regexps{$lc} }
+			= sort { length $b->[1] <=> length $a->[1] }
+			@{ $ingredients_processing_regexps{$lc} };
+	}
+
+	return;
 }
 
 
@@ -515,6 +544,8 @@ sub init_additives_classes_regexps() {
 		$additives_classes_regexps{$l} = join('|', sort { length($b) <=> length($a) } keys %{$additives_classes_synonyms{$l}});
 		# print STDERR "additives_classes_regexps{$l}: " . $additives_classes_regexps{$l} . "\n";
 	}
+
+	return;
 }
 
 if ((keys %labels_regexps) > 0) { exit; }
@@ -607,7 +638,7 @@ sub compute_carbon_footprint_from_ingredients($) {
 				if(defined $carbon_footprint_ingredient)
 				{
 					$carbon_footprint += $ingredient_ref->{percent} * $carbon_footprint_ingredient;
-					$carbon_percent	+= $ingredient_ref->{percent};
+					$carbon_percent += $ingredient_ref->{percent};
 
 					if (not defined $product_ref->{"carbon_footprint_from_known_ingredients_debug"}) {
 						$product_ref->{"carbon_footprint_from_known_ingredients_debug"} = "";
@@ -626,6 +657,8 @@ sub compute_carbon_footprint_from_ingredients($) {
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-known-ingredients");
 		}
 	}
+
+	return;
 }
 
 
@@ -722,6 +755,8 @@ sub compute_carbon_footprint_from_meat_or_fish($) {
 			add_tag($product_ref, "misc", "en:carbon-footprint-from-meat-or-fish");
 		}
 	}
+
+	return;
 }
 
 
@@ -748,6 +783,8 @@ sub extract_ingredients_from_image($$$$) {
 		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
 
 	}
+
+	return;
 }
 
 
@@ -875,7 +912,7 @@ sub parse_ingredients_text($) {
 			if ($sep =~ /(:|\[|\{|\()/i) {
 
 				# Single separators like commas and dashes
-				my $match = '.*?';	# non greedy match
+				my $match  = '.*?';             # non greedy match
 				my $ending = $last_separator;
 				if (not defined $ending) {
 					$ending = "$commas|;|:|( $dashes )";
@@ -986,13 +1023,17 @@ sub parse_ingredients_text($) {
 									else {
 
 										# processing method?
-										my $processingid = 	canonicalize_taxonomy_tag($product_lc, "ingredients_processing", $between);
+										my $processingid
+											= canonicalize_taxonomy_tag(
+											$product_lc,
+											"ingredients_processing",
+											$between );
 										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
 											if (defined $processing) {
 												$processing .= ", " . $processingid;
 											}
 											else {
-												$processing = $$processingid;
+												$processing = ${$processingid};
 											}
 											$debug_ingredients and $log->debug("between is a processing", { between => $between, processing => $processingid }) if $log->is_debug();
 											$between = '';
@@ -1081,8 +1122,8 @@ sub parse_ingredients_text($) {
 
 			# if we have nothing before, then we can be in the case where between applies to the last ingredient
 			# e.g. if we have "Vegetables (97%) (Potatoes, Tomatoes)"
-			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @$ingredients_ref) > 0)) {
-				my $last_ingredient = (scalar @$ingredients_ref) - 1;
+			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @{$ingredients_ref}) > 0)) {
+				my $last_ingredient = (scalar @{$ingredients_ref}) - 1;
 				$debug_ingredients and $log->debug("between applies to last ingredient", { between => $between, last_ingredient => $ingredients_ref->[$last_ingredient]{text }}) if $log->is_debug();
 
 				(defined $ingredients_ref->[$last_ingredient]{ingredients}) or $ingredients_ref->[$last_ingredient]{ingredients} = [];
@@ -1095,7 +1136,7 @@ sub parse_ingredients_text($) {
 			}
 		}
 
-		my $i = 0;	# Counter for ingredients, used to know if it is the last ingredient
+		my $i = 0; # Counter for ingredients, used to know if it is the last ingredient
 
 		foreach my $ingredient (@ingredients) {
 
@@ -1123,7 +1164,18 @@ sub parse_ingredients_text($) {
 				}
 
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if ($ingredient =~ /^\s*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(pur|de|d')?\s*/i) {
+				if ($ingredient =~ m{^
+									 \s*
+									 ( \d+ ([,.] \d+)? )
+									 \s*
+									 (\%|g)
+									 \s*
+
+									 ( (?: pur | de ) \s | d' )?
+									 \s*
+									}sxmi
+					)
+				{
 					$percent = $1;
 					$debug_ingredients and $log->debug("percent found before", { ingredient => $ingredient, percent => $percent, new_ingredient => $'}) if $log->is_debug();
 					$ingredient = $';
@@ -1149,6 +1201,8 @@ sub parse_ingredients_text($) {
 					}
 				}
 
+				# Check if we have an ingredient + some specific labels like organic and fair-trade.
+				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$product_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
@@ -1180,10 +1234,10 @@ sub parse_ingredients_text($) {
 
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$product_lc}) {
-						my $matches = 0;
+						my $matches        = 0;
 						my $new_ingredient = $ingredient;
 						my $new_processing = '';
-						my $matching = 1;	# remove prefixes / suffixes one by one
+						my $matching       = 1;             # remove prefixes / suffixes one by one
 						while ($matching) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
@@ -1193,9 +1247,9 @@ sub parse_ingredients_text($) {
 									(($product_lc =~ /^(en|es|it|fr)$/) and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i))
 									#  match after, do not require a space
 									# currently no language
-									or	(($product_lc =~ /^(xx)$/) and ($new_ingredient =~ /($regexp)$/i))
+									or  (($product_lc =~ /^(xx)$/) and ($new_ingredient =~ /($regexp)$/i))
 									#  Dutch: match before or after, do not require a space
-									or	(($product_lc =~ /^(de|nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+									or  (($product_lc =~ /^(de|nl)$/) and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
 										) {
 									$new_ingredient = $` . $';
 
@@ -1263,20 +1317,36 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'en' => [
+								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
+								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
+								# We can't just trim it from the end of the ingredients, because trace allergens can come after it.
+								'^(!|! )?allerg(en|y) advice([:!]? for allergens)?( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$', 
+								'^for allergens( including cereals containing gluten)?( see ingredients (highlighted )?in bold)?$',
+								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
+								'^see ingredients in bold$',
+								'^in var(iable|ying) proportions$',
+							],
+
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
-								'(sur|de) produit fini',	# préparé avec 50g de fruits pour 100g de produit fini
-								'pour( | faire | fabriquer )100',	# x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
-								'contenir|présence',	# présence exceptionnelle de ... peut contenir ... noyaux etc.
-								'^soit ',	# soit 20g de beurre reconstitué
+								'(sur|de) produit fini',             # préparé avec 50g de fruits pour 100g de produit fini
+								'pour( | faire | fabriquer )100',    # x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
+								'contenir|présence',                 # présence exceptionnelle de ... peut contenir ... noyaux etc.
+								'^soit ',                            # soit 20g de beurre reconstitué
 								'en proportions variables',
 								'en proportion variable',
-								'^équivalent ', # équivalent à 20% de fruits rouges
-								'^malgré ', # malgré les soins apportés...
-								'^il est possible', # il est possible qu'il contienne...
-								'^(facultatif|facultative)', # sometime indicated by producers when listing ingredients is not mandatory
-								'^(éventuellement|eventuellement)$', # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
+								'^équivalent ',                         # équivalent à 20% de fruits rouges
+								'^malgré ',                             # malgré les soins apportés...
+								'^il est possible',                     # il est possible qu'il contienne...
+								'^(facultatif|facultative)',            # sometime indicated by producers when listing ingredients is not mandatory
+								'^(éventuellement|eventuellement)$',    # jus de citrons concentrés et, éventuellement, gélifiant : pectine de fruits.
 								'^(les )?informations ((en (gras|majuscule|italique))|soulign)', # Informations en gras destinées aux personnes allergiques.
+								'^(pour les )?allerg[èe]nes[:]?$',      # see english above.
+								'^y compris les cereales contenant du gluten$',
+								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
+								'^(les allerg[èe]nes )?sont indiques en gras$',
 							],
 
 							'fi' => [
@@ -1287,23 +1357,20 @@ sub parse_ingredients_text($) {
 								'^Täysmehu(?:osuus|pitoisuus)',
 								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
 								'^Kuiva-aineiden täysjyväpitoisuus',
-								'^Valmistettu myllyssä', # Valmistettu myllyssä, jossa käsitellään vehnää.
-								'^Tuote on valmistettu linjalla', # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
-								'^Leivottu tuotantolinjalla', # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
-								'^jota käytetään leivonnassa', # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'^Valmistettu myllyssä',                # Valmistettu myllyssä, jossa käsitellään vehnää.
+								'^Tuote on valmistettu linjalla',       # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
+								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 								'vaihtelevina osuuksina',
 							],
-							
+
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o.a.',
 							],
-							
-							'sv' => [
-								'varierande proportion',
-							],
-							
+
+							'sv' => [ 'varierande proportion', ],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -1353,7 +1420,7 @@ sub parse_ingredients_text($) {
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 
 					if (length($ingredient{id}) < 500) {
-						push @$ingredients_ref, \%ingredient;
+						push @{$ingredients_ref}, \%ingredient;
 
 						if ($between ne '') {
 							# Ingredient has sub-ingredients
@@ -1382,6 +1449,7 @@ sub parse_ingredients_text($) {
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients} , 0, $text);
 
+	return;
 }
 
 
@@ -1464,6 +1532,7 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		delete $product_ref->{ingredients_n_tags};
 	}
 
+	return;
 }
 
 =head2 extract_ingredients_from_text ( product_ref )
@@ -1524,6 +1593,8 @@ sub extract_ingredients_from_text($) {
 	# and compute the resulting value for the complete product
 
 	analyze_ingredients($product_ref);
+
+	return;
 }
 
 
@@ -1543,7 +1614,7 @@ sub delete_ingredients_percent_values($) {
 
 	my $ingredients_ref = shift;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		delete $ingredient_ref->{percent_min};
 		delete $ingredient_ref->{percent_max};
@@ -1552,6 +1623,8 @@ sub delete_ingredients_percent_values($) {
 			delete_ingredients_percent_values($ingredient_ref->{ingredients});
 		}
 	}
+
+	return;
 }
 
 
@@ -1646,7 +1719,7 @@ sub init_percent_values($$$) {
 	my $total_max = shift;
 	my $ingredients_ref = shift;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
 			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
@@ -1660,6 +1733,8 @@ sub init_percent_values($$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 sub set_percent_max_values($$$) {
@@ -1675,9 +1750,9 @@ sub set_percent_max_values($$$) {
 	my $sum_of_maxs_before = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		$i++;
 
@@ -1707,7 +1782,7 @@ sub set_percent_max_values($$$) {
 		# the max of sugar to be set to 15 / 2 = 7.5 %
 		# the max of cornflour to be set to 15 / 3 etc.
 
-		if ($i > 2) {	# This rule applies to the third ingredient and ingredients after
+		if ( $i > 2 ) {    # This rule applies to the third ingredient and ingredients after
 			# We check that the current ingredient + the ingredient before it have a max
 			# inferior to the ingredients before, divided by 2.
 			# Then we do the same with 3 ingredients instead of 2, then 4 etc.
@@ -1764,9 +1839,9 @@ sub set_percent_min_values($$$) {
 	my $sum_of_maxs_after = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (reverse @$ingredients_ref) {
+	foreach my $ingredient_ref (reverse @{$ingredients_ref}) {
 
 		$i++;
 
@@ -1833,9 +1908,9 @@ sub set_percent_sub_ingredients($) {
 	my $changed = 0;
 
 	my $i = 0;
-	my $n = scalar @$ingredients_ref;
+	my $n = scalar @{$ingredients_ref};
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		$i++;
 
@@ -2044,6 +2119,8 @@ sub analyze_ingredients($) {
 
 		delete $product_ref->{ingredients_analysis};
 	}
+
+	return;
 }
 
 
@@ -2210,9 +2287,10 @@ sub normalize_allergen($$$) {
 
 	my $type = shift; # allergens or traces
 	my $lc = shift;
-	my $a = shift;
+	my $allergen = shift;
 
-	$log->debug("normalize allergen", { allergen => $a }) if $log->is_debug();
+	$log->debug( "normalize allergen", { allergen => $allergen } )
+		if $log->is_debug();
 
 	my $of = ' - ';
 	if (defined $of{$lc}) {
@@ -2226,12 +2304,12 @@ sub normalize_allergen($$$) {
 	# "de moutarde" -> moutarde
 	# "et de la moutarde" -> moutarde
 
-	$a = " " . $a;
-	$a =~ s/^($and_of|$of)\b//;
-	$a =~ s/\s+$//;
-	$a =~ s/^\s+//;
+	$allergen = " " . $allergen;
+	$allergen =~ s/^($and_of|$of)\b//;
+	$allergen =~ s/\s+$//;
+	$allergen =~ s/^\s+//;
 
-	return $Lang{$type}{$lc} . " : " . $a;
+	return $Lang{$type}{$lc} . " : " . $allergen;
 }
 
 sub normalize_allergens_enumeration($$$) {
@@ -2291,17 +2369,13 @@ cs => [
 ],
 
 da => [
-'N(æ|ae)ringsindhold',
+'ingredienser',
 'indeholder',
 ],
 
 de => [
 'Zusammensetzung',
 'zutat(en)?',
-],
-
-dk => [
-'ingredienser',
 ],
 
 el => [
@@ -2316,6 +2390,10 @@ en => [
 es => [
 'composición',
 'ingredientes',
+],
+
+et => [
+'koostisosad',
 ],
 
 fi => [
@@ -2344,8 +2422,8 @@ id => [
 ],
 
 is => [
+'innihald(?:slýsing|sefni)?',
 'inneald',
-'Innihaldslýsing',
 ],
 
 it => [
@@ -2367,7 +2445,7 @@ lt => [
 ],
 
 lv => [
-'sastāv(s|dalas)',
+'sast[āäa]v(s|da[ļl]as)',
 ],
 
 nl => [
@@ -2381,7 +2459,7 @@ nb => [
 ],
 
 pl => [
-'składniki',
+'sk[łl]adniki',
 'skład',
 ],
 
@@ -2396,7 +2474,8 @@ ro => [
 ],
 
 ru => [
-'coctaB',
+'состав',
+'coctab',
 'Ингредиенты',
 ],
 
@@ -2408,6 +2487,7 @@ sk => [
 'obsahuje',
 'zloženie',
 ],
+
 sl => [
 'vsebuje',
 'sestavine',
@@ -2482,8 +2562,17 @@ hu => [
 '(Ö|O|0)SSZETEVOK',
 ],
 
+is => [
+'INNIHALD(?:SLÝSING|SEFNI)?',
+'INNEALD',
+],
+
 it => [
 'INGREDIENTI(\s*)',
+],
+
+nb => [
+'INGREDIENSER',
 ],
 
 nl => [
@@ -2498,9 +2587,13 @@ pt => [
 'INGREDIENTES(\s*)',
 ],
 
-
 si => [
 'SESTAVINE',
+],
+
+sv => [
+'INGREDIENSER',
+'INNEHÅLL(ER)?',
 ],
 
 vi => [
@@ -2519,6 +2612,18 @@ my %phrases_after_ingredients_list = (
 cs => [
 'doporučeny způsob přípravy',
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+],
+
+da => [
+'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+'tilberedning(?:svejledning)?',
+'holdbarhed efter åbning',
+'opbevar(?:ing|res)?',
+'(?:for )?allergener',
+'produceret af',
+'beskyttes',
+'nettovægt',
+'åbnet',
 ],
 
 de => [
@@ -2555,19 +2660,19 @@ el => [
 ],
 
 en => [
-'nutritional values',
 'after opening',
-'nutrition values',
+'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
+# "nutrition advice" seems to appear before ingredients rather than after.
+# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 'of whlch saturates',
 'of which saturates',
 'of which saturated fat',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'once opened keep in the refrigerator',
-'Store in a cool, dry place',
+'once opened[,]? (consume|keep|refrigerate|store|use)',
+'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 '(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 #'Best before',
 #'See bottom of tin',
-
 ],
 
 es => [
@@ -2592,7 +2697,6 @@ es => [
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
-'Liiallisella käytöllä',
 'Makeisten sekoitussuhde voi vaihdella',
 'Pakattu suojakaasuun',
 'Parasta ennen',
@@ -2640,13 +2744,13 @@ fr => [
 'Fabriqué dans un atelier qui utilise',
 'information nutritionnelle',
 '((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
-'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
+'la pr(e|é)sence de vide',    # La présence de vide au fond du pot est due au procédé de fabrication.
 'Modes de pr(e|é)paration',
 'Mode de pr(e|é)paration',
 'moyennes pour 100(g|ml)',
 'Naturellement riche en fibres',
 'ne jamais recongeler un produit décongelé',
-'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
+'nutritionnelles mo(y|v)ennes',    # in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
 'nutritionnelles pour 100(g|ml)', #Arôme Valeum nutritionnelles pour 100g: Energie
 'Nutrition pour 100 (g|ml)',
 'pensez au tri',
@@ -2682,6 +2786,13 @@ hr => [
 'Atlagos tápérték 100g termékben',
 ],
 
+is => [
+'n(æ|ae)ringargildi',
+'geymi(st|ð) á',
+'eftir opnum',
+'aðferð',
+],
+
 it => [
 'valori nutrizionali',
 'consigli per la preparazione',
@@ -2695,6 +2806,13 @@ it => [
 
 ja => [
 '栄養価',
+],
+
+nb => [
+'netto(?:innhold|vekt)',
+'oppbevar(?:ing|es)',
+'næringsinnhold',
+'kjølevare',
 ],
 
 nl => [
@@ -2749,14 +2867,30 @@ ro => [
 'Valori nutritionale medii',
 ],
 
-
+sv => [
+'närings(?:deklaration|innehåll|värde)',
+'(?:bör )?förvar(?:ing|as?)',
+'till(?:agning|redning)',
+'serveringsförslag',
+'produkterna bör',
+'bruksanvisning',
+'källsortering',
+'anvisningar',
+'skyddas mot',
+'uppvärmning',
+'återvinning',
+'hållbarhet',
+'producerad',
+'upptining',
+'o?öppnad',
+'bevaras',
+'kylvara',
+'tappat',
+],
 
 vi => [
 'GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',
 ],
-
-
-
 );
 
 
@@ -2816,6 +2950,8 @@ sub validate_regular_expressions() {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -2860,6 +2996,8 @@ sub split_generic_name_from_ingredients($$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -2971,7 +3109,7 @@ sub cut_ingredients_text_for_lang($$) {
 				$log->debug("removed phrases_before_ingredients_list_uppercase", { kept => $text, regexp => $regexp }) if $log->is_debug();
 				$cut = 1;
 				last;
-			}			
+			}
 		}
 	}
 
@@ -3040,6 +3178,8 @@ sub clean_ingredients_text($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -3086,7 +3226,7 @@ sub separate_additive_class($$$$$) {
 	# also check that we are not separating an actual ingredient
 	# e.g. acide acétique -> acide : acétique
 
-	if (	(not exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $additive_class . " " . $after))) 
+	if (    (not exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $additive_class . " " . $after)))
  	and (exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after) )
 		or ((defined $after2) and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($product_lc, "additives", $after2) )))
 	) {
@@ -3117,10 +3257,10 @@ to deal with undefined $letter or $variant without triggering an undefined warni
 
 sub replace_additive($$$) {
 
-		my $number = shift;	# e.g. 160
-		my $letter = shift;	# e.g. a
-		my $variant = shift;	# e.g. ii
-		
+		my $number  = shift;    # e.g. 160
+		my $letter  = shift;    # e.g. a
+		my $variant = shift;    # e.g. ii
+
 		my $additive = "e" . $number;
 		if (defined $letter) {
 			$additive .= $letter;
@@ -3281,7 +3421,7 @@ sub preparse_ingredients_text($$) {
 	# E250-E251-E260
 	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
 	# do not turn E172-i into E172 - i
-	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;	
+	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
@@ -3619,7 +3759,7 @@ sub preparse_ingredients_text($$) {
 			# TODO 18/07/2020 remove when we have a better solution
 			$text =~ s/fer élémentaire/fer_élémentaire/g;
 			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
-			$text =~ s/fer_élémentaire/fer élémentaire/g;			
+			$text =~ s/fer_élémentaire/fer élémentaire/g;
 		}
 
 		# Caramel ordinaire et curcumine
@@ -4389,6 +4529,8 @@ sub extract_ingredients_classes_from_text($) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -4631,7 +4773,7 @@ sub detect_allergens_from_text($) {
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
 		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
-		$product_ref->{$field . "_from_user"} = "($tag_lc) " . $product_ref->{$field};
+		$product_ref->{$field . "_from_user"} = "($tag_lc) " . ( $product_ref->{$field} // "" );
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 
@@ -4657,6 +4799,8 @@ sub detect_allergens_from_text($) {
 	}
 
 	$log->debug("detect_allergens_from_text - done", { }) if $log->is_debug();
+
+	return;
 }
 
 
@@ -4673,7 +4817,7 @@ sub add_fruits($) {
 
 	my $fruits = 0;
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
 		my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_ref->{id}, "nutriscore_fruits_vegetables_nuts:en");
 
@@ -4728,6 +4872,8 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
 	}
+
+	return;
 }
 
 1;

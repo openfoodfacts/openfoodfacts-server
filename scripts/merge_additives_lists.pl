@@ -82,7 +82,7 @@ while (<$IN>) {
 			}
 			
 			$langs{$lang} ++;
-		}		
+		}
 }
 close $IN;
 

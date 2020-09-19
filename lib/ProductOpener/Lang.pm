@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -26,30 +26,30 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();	# symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					$lang
-					$lc
-					$text_direction
+		$lang
+		$lc
+		$text_direction
 
-					%tag_type_singular
-					%tag_type_from_singular
-					%tag_type_plural
-					%tag_type_from_plural
-					%Lang
-					%CanonicalLang
-					%Langs
-					@Langs
+		%tag_type_singular
+		%tag_type_from_singular
+		%tag_type_plural
+		%tag_type_from_plural
+		%Lang
+		%CanonicalLang
+		%Langs
+		@Langs
 
-					&lang
-					%lang_lc
+		&lang
+		&lang_in_other_lc
+		%lang_lc
 
-					&init_languages
+		&init_languages
 
-					&separator_before_colon
+		&separator_before_colon
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -78,27 +78,50 @@ sub separator_before_colon($) {
 }
 
 
-# same logic can be implemented by creating the missing values for all keys
+# English values have been copied to languages that do not have defined values
+# Use the global $lang variable
 sub lang($) {
 
 	my $s = shift;
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
+		$short_l = $`;  # pt_pt
 	}
 
-	if (defined $Lang{$s}{$lang}) {
+	if (not defined $Lang{$s}) {
+		return '';
+	}
+	elsif (defined $Lang{$s}{$lang}) {
 		return $Lang{$s}{$lang};
 	}
 	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
 		return $Lang{$s}{$short_l};
 	}
-	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-		return $Lang{$s}{en};
+	else {
+		return '';
 	}
-	elsif (defined $Lang{$s}{fr}) {
-		return $Lang{$s}{fr};
+}
+
+# Lang in a target language that may not be the same as the global $lang
+sub lang_in_other_lc($$) {
+
+	my $target_lc = shift;
+	my $s = shift;	
+
+	my $short_l = undef;
+	if ($target_lc =~ /_/) {
+		$short_l = $`;  # pt_pt
+	}
+
+	if (not defined $Lang{$s}) {
+		return '';
+	}
+	elsif (defined $Lang{$s}{$target_lc}) {
+		return $Lang{$s}{$target_lc};
+	}
+	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+		return $Lang{$s}{$short_l};
 	}
 	else {
 		return '';
@@ -214,6 +237,7 @@ PO
 	}
 
 
+	return;
 }
 
 #generate_po_files("common", \%Lang);
@@ -230,16 +254,16 @@ if (-e $path) {
 	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
 
 	# Initialize @Langs and $lang_lc
-	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
-	%Langs = ();
+	@Langs = sort keys %{ $Lang{site_name} }; # any existing key can be used, as %Lang should contain values for all languages for all keys
+	%Langs   = ();
 	%lang_lc = ();
 	foreach my $l (@Langs) {
 		$lang_lc{$l} = $l;
-		$Langs{$l} = $Lang{"language_" . $l}{$l};	# Name of the language in the language itself
+		$Langs{$l}   = $Lang{ "language_" . $l }{$l};    # Name of the language in the language itself
 	}
 
-	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();
-	sleep(1);
+	$log->info("Loaded languages", { langs => (scalar @Langs) }) if $log->is_info();
+	sleep(1) if $log->is_info();
 }
 else {
 	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
@@ -254,8 +278,8 @@ else {
 my ($tag_type_singular_ref, $tag_type_plural_ref)
     = ProductOpener::I18N::split_tags(
         ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
-%tag_type_singular = %$tag_type_singular_ref;
-%tag_type_plural   = %$tag_type_plural_ref;
+%tag_type_singular = %{$tag_type_singular_ref};
+%tag_type_plural   = %{$tag_type_plural_ref};
 
 my @debug_taxonomies = ("categories", "labels", "additives");
 
@@ -343,7 +367,7 @@ sub build_lang($) {
 
 	# Initialize %Langs and @Langs and add language names to %Lang
 
-	%Langs = %$Languages_ref;
+	%Langs = %{$Languages_ref};
 	@Langs = sort keys %{$Languages_ref};
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
@@ -413,7 +437,7 @@ sub build_lang($) {
 
 				my $short_l = undef;
 				if ($l =~ /_/) {
-					$short_l = $`,  # pt_pt
+					$short_l = $`;  # pt_pt
 				}
 
 				if (not defined $Lang{$key}{$l}) {
@@ -456,7 +480,7 @@ sub build_lang($) {
 	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
 		my $locale;
-		if ( grep $_ eq $l, @locale_codes ) {
+		if ( grep { $_ eq $l } @locale_codes ) {
 			$locale = DateTime::Locale->load($l);
 		}
 		else {
@@ -477,6 +501,8 @@ sub build_lang($) {
 
 		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
+
+	return;
 } # build_lang
 
 sub build_json {
@@ -495,7 +521,7 @@ sub build_json {
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
-			$short_l = $`,  # pt_pt
+			$short_l = $`;  # pt_pt
 		}
 
 		my %result = ();
@@ -525,6 +551,8 @@ sub build_json {
 	}
 
 	$log->info("I18N JSON completed") if $log->is_info();
+
+	return;
 }
 
 1;

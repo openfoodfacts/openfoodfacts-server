@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
@@ -139,11 +139,11 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper::Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
-			}			
+			}
 	
 			
 		
@@ -158,16 +158,16 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			if (not $product_ref) {
 				print "- does not exist in OFF yet\n";
-				next;								
+				next;
 			}
 			else {
 				print "- already exists in OFF\n";
 				$existing++;
 			}
-	
+
 			# First load the global params, then apply the product params on top
-			my %params = %global_params;		
-		
+			my %params = %global_params;
+
 			# Create or update fields
 			
 			my @param_fields = ('stores', 'countries');
@@ -176,7 +176,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 
 				
-				if (defined $params{$field}) {				
+				if ( defined $params{$field} ) {
 
 				
 					print STDERR "defined value for field $field : " . $params{$field} . "\n";
@@ -221,10 +221,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							
 						}
 						
-						if ($product_ref->{$field} =~ /^, /) {
+						if ( $product_ref->{$field} =~ /^, / ) {
 							$product_ref->{$field} = $';
-						}	
-						
+						}
+
 						if (get_fileid($current_field) ne get_fileid($product_ref->{$field})) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
 							compute_field_tags($product_ref, $lc, $field);
@@ -239,11 +239,12 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			}
 			
 			print STDERR "product code $code - number of modifications - $modified\n";
-			if ($modified == 0) {
-				print STDERR "skipping product code $code - no modifications\n";
+			if ( $modified == 0 ) {
+				print STDERR
+					"skipping product code $code - no modifications\n";
 				next;
-			}	
-				
+			}
+
 			$User_id = $editor_user_id;
 			
 			if ($modified and (not $testing) and (not $testing_allergens)) {

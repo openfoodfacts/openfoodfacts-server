@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd /srv/off/scripts
+export PERL5LIB="../lib:${PERL5LIB}"
 
 ./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
 ./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html

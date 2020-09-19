@@ -79,6 +79,8 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 
@@ -114,7 +116,7 @@ my $count = $#products;
 			$changes_ref = [];
 		}
 		else {
-			my $last = pop(@$changes_ref);
+			my $last = pop(@{$changes_ref});
 			if ($last->{comment} =~ /automatic removal/) {
 				print "* automatically deleted: $code  - empty: $product_ref->{empty} - complete: $product_ref->{complete} \n";
 			}
@@ -128,23 +130,23 @@ my $count = $#products;
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 			if ($product_ref->{empty} != 1) {
 				print "product was empty but is not - code: $code\n";
-				
+
 				#if ($product_ref->{code} eq '3596710313266') {
 				delete $product_ref->{deleted};
-				store("$data_root/products/$path/product.sto", $product_ref);		
+				store("$data_root/products/$path/product.sto", $product_ref);
 				$products_collection->save($product_ref);
-				store("$data_root/products/$path/changes.sto", $changes_ref);				
+				store("$data_root/products/$path/changes.sto", $changes_ref);
 				#}
 			}
 		}
-		
-	
-			
+
+
+
 		# compute_product_history_and_completeness($product_ref, $changes_ref);
 
 		if (($product_ref->{empty} != 1) and ($product_ref->{deleted} eq 'on')) {
 			print "!!! deleted non empty product: $code\n";
-		}		
+		}
 
 		#store("$data_root/products/$path/product.sto", $product_ref);		
 		#$products_collection->save($product_ref);

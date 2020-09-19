@@ -79,7 +79,7 @@ foreach my $tmx_file (@tmx_files) {
 			if (not $skip) {
 				$translations{$english}{$lang} = $translation;
 				# print STDERR "English: $english - lang: $lang - translation: $translation\n";
-			}			
+			}
 		}
 		$i++;
 		($i % 1000 == 0) and print STDERR ".";

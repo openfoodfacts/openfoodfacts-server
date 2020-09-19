@@ -89,7 +89,7 @@ foreach my $qc (@countries) {
 					print "$qc - alias: $lc - value:  $alias->{value}\n";
 					
 				}
-			}			
+			}
 		}
 		
 		print "properties\n";
@@ -152,7 +152,7 @@ foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 	
 	if (defined $countries{$qc}{properties}{country_code_3}) {
 		print $OUT ", $countries{$qc}{properties}{country_code_3}";
-	}	
+	}
 	
 	print $OUT "\n";
 	foreach my $lc (sort keys %{$countries{$qc}{labels}}) {
@@ -164,7 +164,7 @@ foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 		if (defined $countries{$qc}{properties}{$p}) {
 			print $OUT "$p:en:$countries{$qc}{properties}{$p}\n";
 		}
-	}	
+	}
 	print $OUT "official_languages:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
 
 	print $OUT "\n";

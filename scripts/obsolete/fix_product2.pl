@@ -58,8 +58,8 @@ print STDERR "updating product $code\n";
 		
 $product_ref = retrieve_product($code);
 $product_ref->{creator} = 'adeline';
-		
-store("$data_root/products/$path/product.sto", $product_ref);		
+
+store( "$data_root/products/$path/product.sto", $product_ref );
 get_products_collection()->save($product_ref);
 
 exit(0);

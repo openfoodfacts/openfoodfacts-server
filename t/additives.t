@@ -50,10 +50,11 @@ compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, [
-	"en:e330",
-	"en:e570", # detected wrongly because of the bogus data after the ingredients list	
-                              ],
+is_deeply(
+	$product_ref->{additives_original_tags},
+	[   "en:e330",
+		"en:e570",    # detected wrongly because of the bogus data after the ingredients list
+	],
 ) or diag explain $product_ref;
 
 
@@ -248,7 +249,7 @@ extract_ingredients_classes_from_text($product_ref);
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e14xx',
           'en:e412',
-          'en:e410',
+          #'en:e410', should now appear as parent
           'en:e415',
           'en:e334',
           'en:e330',
@@ -281,7 +282,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e968',
           'en:e421',
           'en:e965',
-          'en:e420i',
+          'en:e420',
           'en:e965ii',
           'en:e951',
           'en:e950',
@@ -1243,7 +1244,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e322i',
           'en:e422',
           'en:e330',
-          'en:e440i',
+          'en:e440',
           'en:e331',
           'en:e500',
           'en:e503',
@@ -1340,7 +1341,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e412',
           'en:e336',
           'en:e500',
-          'en:e440i',
+          'en:e440',
           'en:e330',
 
                               ],
@@ -1470,7 +1471,7 @@ extract_ingredients_classes_from_text($product_ref);
 
 is_deeply($product_ref->{additives_original_tags}, [
 			  'en:e414',
-			  'en:e420i',
+			  'en:e420',
 			  'en:e965ii',
 			  'en:e950',
 			  'en:e330',

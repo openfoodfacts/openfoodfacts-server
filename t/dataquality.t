@@ -19,6 +19,8 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	else {
 		ok( !has_tag($product_ref, 'data_quality', $tag), $reason ) or diag explain $product_ref;
 	}
+
+	return;
 }
 
 sub product_with_code_has_quality_tag($$$$) {
@@ -32,6 +34,8 @@ sub product_with_code_has_quality_tag($$$$) {
 	};
 
 	check_quality_and_test_product_has_quality_tag($product_ref, $tag, $reason, $yesno);
+
+	return;
 }
 
 

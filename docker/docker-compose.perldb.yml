@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  backend:
+    image: productopener-backend-perldb
+    build:
+      target: perldb
+    environment:
+      - PERLDB=1
+    depends_on:
+      - socat
+  socat:
+    image: bpack/socat
+    container_name: socat
+    tty: true
+    stdin_open: true
+    command: READLINE,history=$HOME/.perldbhistory TCP4-LISTEN:53505,reuseaddr
+    networks:
+      - webnet

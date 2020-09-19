@@ -64,6 +64,7 @@ if ($term =~ /^(\w\w):/) {
 my @suggestions = (); # Suggestions starting with the term
 my @suggestions_c = (); # Suggestions containing the term
 
+my $cache_max_age = 0;
 my $limit = 25;
 my $i = 0;
 if ($tagtype eq 'emb_codes') {
@@ -74,6 +75,7 @@ if ($tagtype eq 'emb_codes') {
 		push @suggestions, normalize_packager_codes($canon_tagid);
 		last if ++$i >= $limit;
 	}
+	$cache_max_age = 3600;
 }
 else {
 	my $stringid = get_string_id_for_lang($search_lc, $string) . get_string_id_for_lang($search_lc, $term);
@@ -96,8 +98,19 @@ else {
 		}
 		last if ++$i >= $limit;
 	}
+	$cache_max_age = 3600;
 }
 push @suggestions, @suggestions_c;
 my $data =  encode_json(\@suggestions);
 
-print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
+print header(
+	-type => 'application/json',
+	-charset => 'utf-8',
+	-access_control_allow_origin => '*'
+);
+if ($cache_max_age) {
+	print header(
+		-cache_control => 'public, max-age=' . $cache_max_age,
+	);
+}
+print $data;

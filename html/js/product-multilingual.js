@@ -363,13 +363,13 @@ function change_image(imagefield, imgid) {
   });
 
 	$('img#crop_' + imagefield).cropper({
-		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true, "checkCrossOrigin" : false
 	});
 
 	$("#zoom_on_wheel_" + imagefield).change(function() {
     var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
     $('img#crop_' + imagefield).cropper('destroy').cropper({
-      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true, "checkCrossOrigin": false
 	});	} );
 
 	$(document).foundation('equalizer', 'reflow');

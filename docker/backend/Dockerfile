@@ -50,6 +50,12 @@ COPY ./cpanfile /tmp/cpanfile
 # Add ProductOpener runtime dependencies from cpan
 RUN cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
+# Stage for installing/compiling cpanfile dependencies with dev dependencies
+FROM builder AS builder-vscode
+
+# Add ProductOpener runtime dependencies from cpan
+RUN cpanm --with-develop --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
+
 FROM modperl AS runnable
 
 # Prepare Apache to include our custom config
@@ -57,11 +63,15 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 # Copy Perl libraries from the builder image
 COPY --from=builder /tmp/local/ /opt/perl/local/
-ENV PERL5LIB /opt/perl/local/lib/perl5/
+ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
+ENV PATH="/opt/perl/local/bin:${PATH}"
 
 EXPOSE 80
 
-FROM runnable AS vscode
+FROM runnable AS runnable-vscode
+COPY --from=builder-vscode /tmp/local/ /opt/perl/local/
+
+FROM runnable-vscode AS vscode
 # This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
 # this user's GID/UID must match your local user UID/GID to avoid permission issues
 # with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
@@ -82,6 +92,11 @@ RUN install_packages apt-utils dialog 2>&1 \
     && install_packages sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME
+
+FROM runnable-vscode AS perldb
+
+# Readline support for the Perl debugger
+RUN install_packages libterm-readline-gnu-perl libterm-readkey-perl
 
 FROM runnable AS withsrc
 

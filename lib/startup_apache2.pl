@@ -20,8 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-
 # startup file for preloading modules into Apache/mod_perl when the server starts
 # (instead of when each httpd child starts)
 # see http://apache.perl.org/docs/1.0/guide/performance.html#Code_Profiling_Techniques
@@ -31,17 +29,18 @@ use Modern::Perl '2017';
 
 use Carp ();
 
-eval { Carp::confess("init") };
+eval { Carp::confess('init') };  ## no critic (RequireCheckingReturnValueOfEval)
 
 # used for debugging hanging httpd processes
 # http://perl.apache.org/docs/1.0/guide/debug.html#Detecting_hanging_processes
-$SIG{'USR2'} = sub {
-   Carp::confess("caught SIGUSR2!");
+local $SIG{'USR2'} = sub {
+   Carp::confess('caught SIGUSR2!');
 };
 
 use CGI ();
 CGI->compile(':all');
 
+use Fcntl qw/:mode/;
 use Storable ();
 use LWP::Simple ();
 use LWP::UserAgent ();
@@ -79,22 +78,23 @@ use Apache2::Connection ();
 use Apache2::RequestRec ();
 use APR::Table ();
 
-
-$Apache::Registry::NameWithVirtualHost = 0;
-
-sub My::ProxyRemoteAddr ($) {
+sub get_remote_proxy_address {
   my $r = shift;
 
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
-  return Apache2::Const::OK
-      unless (($r->useragent_ip eq "127.0.0.1")
-	or 1	# all IPs
-)
-          and $r->headers_in->get('X-Forwarded-For');
+if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
+			or 1    # all IPs
+		)
+		and $r->headers_in->get('X-Forwarded-For')
+	)
+	)
+{
+	return Apache2::Const::OK;
+}
 
   # Select last value in the chain -- original client's ip
-  if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/) {
+  if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/sxm) {
     $r->useragent_ip($ip);
   }
 
@@ -102,17 +102,19 @@ sub My::ProxyRemoteAddr ($) {
 }
 
 init_emb_codes();
+init_packager_codes();
+init_geocode_addresses();
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module
 # We need to set more permissive permissions so that it can be writable by the Apache user.
 
-chmod_recursive( oct(777), "$data_root/tmp" );
+chmod_recursive( S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp" );
 
-$log->info("product opener started", { version => $ProductOpener::Version::version });
+$log->info('product opener started', { version => $version });
 
-open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
+open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
 
-print STDERR $log;
+print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
 
 1;

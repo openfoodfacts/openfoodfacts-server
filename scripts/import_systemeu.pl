@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
@@ -71,7 +71,7 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_10_19_ok.csv";
+my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_09_2020.csv";
 my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
 my $imagedir;
 #$imagedir = "/srv2/off/imports/systemeu/images";
@@ -426,8 +426,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper::Dumper($imported_product_ref);
 				print "EMPTY CODE\n";
 				next;
 			}
@@ -716,7 +716,7 @@ U_TOUT_PETITS => "U Tout Petits",
 DANREMONT => "Danremont",
 U_SANS_GLUTEN => "U Sans Gluten",
 U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
-)			;
+);
 
 
 			# Fromage double crème au lait pasteurisé U, 30%MG, 200g
@@ -1131,8 +1131,8 @@ ble => "bouteille",
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
 					}
-					elsif ($field eq "brands") {	# we removed it earlier
-						compute_field_tags($product_ref, $tag_lc, $field);
+					elsif ( $field eq "brands" ) {    # we removed it earlier
+						compute_field_tags( $product_ref, $tag_lc, $field );
 					}
 				}
 					else {
@@ -1452,16 +1452,22 @@ TXT
 
 					my $enid = encodeURIComponent($nid);
 
-					print STDERR "product $code - nutrient - $nid - $modifier $value $unit\n";
+					print STDERR "product $code - nutrient - $nid - modifier: $modifier - value: $value - unit: $unit\n";
 
 					$value =~ s/,/./;
 					$value += 0;
 
-
-					my $new_value = unit_to_g($value, $unit);
+					my $new_value;
+					
+					if ($nid =~ /^energy-(kj|kcal)/) {
+						$new_value = $value;
+					}
+					else {
+						$new_value = unit_to_g($value, $unit);
+					}
 
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value ne $product_ref->{nutriments}{$nid})						) {
+						and ($new_value ne $product_ref->{nutriments}{$nid}) ) {
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
 					}

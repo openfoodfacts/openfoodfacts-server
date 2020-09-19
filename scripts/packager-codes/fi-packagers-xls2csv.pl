@@ -137,7 +137,7 @@ foreach my $file (@FILES) {
 
 	my $hdrRow_ref = $t_ref->delRow(0);
 
-	for ( my $col = 0; $col <= $#$hdrRow_ref; $col++ ) {
+	for ( my $col = 0; $col <= $#{$hdrRow_ref}; $col++ ) {
 		my $hdr = $hdrRow_ref->[$col];
 
 		if ( !defined $hdr || $hdr eq '' ) {

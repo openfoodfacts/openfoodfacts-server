@@ -1,0 +1,35 @@
+
+
+<p>[% lang("producers_platform_private_database") %]</p>
+<p>[% lang("import_data_file_description") %]</p>
+<p>[% lang("import_data_file_format") %]</p>
+<p>&rarr; <a href="/cgi/generate_sample_import_file.pl">[% lang("download_sample_import_file") %]</a></p>
+
+<form method="post" action="/cgi/import_file_upload.pl" enctype="multipart/form-data" id="upload_file_form">
+	<a href="#" class="button small expanded" id="file_input_button_$id">
+		<div id="file_input_div_$id">
+			[% display_icon('arrow_upward') %] [% lang("upload_product_data_file") %]
+			<input type="file" accept=".csv,.tsv,.xlsx,.xls,.ods" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
+	right:0;
+	bottom:0;
+	top:0;
+	cursor:pointer;
+	opacity:0;
+	font-size:60px;"/>
+		</div>
+	</a>
+
+	<div id="progressbar_$id" class="progress" style="display:none">
+		<span id="progressmeter_$id" class="meter" style="width:0%"></span>
+	</div>
+
+	<div id="file_input_msg_$id" data-alert class="alert-box info" style="display:none">
+		[% lang("uploading_file") %]
+		<a href="#" class="close">&times;</a>
+	</div>
+
+	<div id="file_input_error_$id" data-alert class="alert-box alert" style="display:none">
+		[% lang("upload_error") %]
+		<a href="#" class="close">&times;</a>
+	</div>
+</form>

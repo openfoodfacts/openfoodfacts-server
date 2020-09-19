@@ -111,12 +111,12 @@ while (my $product_ref = $cursor->next) {
 	(($n % 100) == 0) and print STDERR $n . " products checked\n";
 	
 	$n++;
-	
+
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-	if (not defined $changes_ref) {
+	if ( not defined $changes_ref ) {
 		next;
-	}	
-	
+	}
+
 	$product_ref = retrieve_product($code);
 	
 	if ((defined $product_ref) and ($code ne '')) {

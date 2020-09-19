@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -206,7 +206,7 @@ my $stats_ref = import_csv_file( {
 
 print STDERR "\n\nstats:\n\n";
 
-foreach my $stat (sort keys %$stats_ref) {
+foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 

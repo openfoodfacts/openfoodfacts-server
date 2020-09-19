@@ -238,6 +238,27 @@ my @tests = (
 #		]
 #	],
 
+	# Assert that processing patterns are in descending length order
+	# i.e 'fi:jauhettu' is matched before 'fi:jauhe'
+	# [   {   lc => "fi",
+	# 		ingredients_text =>
+	# 			"raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+	# 	},
+	# 	[   {   'id'   => 'en:raw-milk',
+	# 			'text' => 'raakamaito'
+	# 		},
+	# 		{   'id'         => 'en:blueberry',
+	# 			'processing' => 'en:powdered',
+	# 			'text'       => 'mustikka'
+	# 		},
+	# 		{   'id'         => 'en:vanilla-pod',
+	# 			'processing' => 'en:ground',
+	# 			'text'       => 'vaniljatanko'
+	# 		}
+	# 	]
+	# ],
+
+
 ##################################################################
 #
 #                           D U T C H ( N L )
@@ -591,60 +612,47 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen, 
 		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
 		200fach konzentriertes, eingekochter" }, 
-		[
-			{
-				'id' => 'en:shallot',
+		[   {   'id'         => 'en:shallot',
 				'processing' => 'en:concentrated',
-				'text' => 'schalotte'
+				'text'       => 'schalotte'
 			},
-			{
-				'id' => 'en:hazelnut',
+			{   'id'         => 'en:hazelnut',
 				'processing' => 'en:concentrated',
-				'text' => "haseln\x{fc}sse"
+				'text'       => "haseln\x{fc}sse"
 			},
-			{
-				'id' => 'en:almond',
+			{   'id'         => 'en:almond',
 				'processing' => 'en:concentrated',
-				'text' => 'mandeln'
+				'text'       => 'mandeln'
 			},
-			{
-				'id' => 'en:acerola',
+			{   'id'         => 'en:acerola',
 				'processing' => 'en:concentrated',
-				'text' => 'acerolakirschen'
+				'text'       => 'acerolakirschen'
 			},
-			{
-			    'id' => 'de:zweifach konzentriert',
-			    'text' => 'zweifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:2 fach konzentriert',
-			    'text' => '2 fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:doppelt konzentriertes',
-			    'text' => 'doppelt konzentriertes'
+			{   'id'   => 'de:zweifach konzentriert',
+				'text' => 'zweifach konzentriert'
 			},
-			{
-				'id' => 'de:zweifach konzentriertes',
+			{   'id'   => 'de:2 fach konzentriert',
+				'text' => '2 fach konzentriert'
+			},
+			{   'id'   => 'de:doppelt konzentriertes',
+				'text' => 'doppelt konzentriertes'
+			},
+			{   'id'   => 'de:zweifach konzentriertes',
 				'text' => 'zweifach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:2-fach konzentriert',
-			    'text' => '2-fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:dreifach konzentriert',
-			    'text' => 'dreifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:200fach konzentriertes',
-			    'text' => '200fach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:eingekochter',
-			    'text' => 'eingekochter'
-			 }
-		]	
+			},
+			{   'id'   => 'de:2-fach konzentriert',
+				'text' => '2-fach konzentriert'
+			},
+			{   'id'   => 'de:dreifach konzentriert',
+				'text' => 'dreifach konzentriert'
+			},
+			{   'id'   => 'de:200fach konzentriertes',
+				'text' => '200fach konzentriertes'
+			},
+			{   'id'   => 'de:eingekochter',
+				'text' => 'eingekochter'
+			}
+		]
 	],
 
 # de:zerkleinert and variants
@@ -797,17 +805,17 @@ my @tests = (
 				  },
 				  {
 				    'id' => 'en:spinach',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'spinat'
 				  },
 				  {
 				    'id' => 'en:gherkin',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'gurken'
 				  },
 				  {
 				    'id' => 'en:fig',
-				    'processing' => 'de:halbgetrocknet',
+				    'processing' => 'en:semi-dried',
 				    'text' => 'Feigen'
 				  },
 				  {
@@ -831,7 +839,7 @@ my @tests = (
 				    'text' => 'Ananas'
 				  },
 				  {
-				    'id' => 'en:prune',
+				    'id' => 'en:plum',
 				    'processing' => 'en:sundried',
 				    'text' => 'Pflaumen'
 				  },
@@ -846,7 +854,7 @@ my @tests = (
 				    'text' => 'Guaven'
 				  },
 				  {
-				    'id' => 'en:rosehip',
+				    'id' => 'en:rose-hip',
 				    'processing' => 'en:air-dried',
 				    'text' => 'Hagebutten'
 				  },
@@ -879,7 +887,7 @@ my @tests = (
 	gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
+				'id' => "en:hard-cheese",
 				'processing' => 'en:salted',
 				'text' => "hartk\x{e4}se"
 			},
@@ -975,7 +983,7 @@ my @tests = (
 		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
 		[
 			{
-				'id' => "de:hartkäse",
+				'id' => "en:hard-cheese",
 				'processing' => 'en:sliced',
 				'text' => "hartkäse"
 			},

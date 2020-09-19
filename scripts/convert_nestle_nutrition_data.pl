@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,9 +20,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
-
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -49,7 +48,7 @@ my $rows_ref = $results_ref->{rows};
 
 my %headers = ();
 my $i =0;
-foreach my $header (@$headers_ref) {
+foreach my $header (@{$headers_ref}) {
 
 	$headers{$header} = $i;
 	$i++;
@@ -61,7 +60,7 @@ my %products = ();
 my @keys = ("code", "serving_size");
 my %keys = ("code" => 1, "serving_size" => 1);
 
-foreach my $row_ref (@$rows_ref) {
+foreach my $row_ref (@{$rows_ref}) {
 	my $code = $row_ref->[$headers{EAN}];
 	my $per_value = $row_ref->[$headers{"Quantité"}];
 	my $per_unit = $row_ref->[$headers{"Quantité Valeur"}];

@@ -8,6 +8,8 @@
 # This works only if "cooked pork" is not a known ingredient in the ingredients taxonomy,
 # and if "pork" is a known ingredient.
 
+# If including both accented and unaccented versions of a term, list the accented version first,
+# or the accented version won't match. E.g. "es:puré, pure, ..."
 
 # be careful: raw in English can mean "unrefined" as in "raw cane sugar"
 # or uncooked "raw fish"
@@ -114,10 +116,10 @@ da:hakket
 de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados,trocitos,trocitas
 fi:pilkottu, pilkotut
-fr:hâché, hâchée, hâchés, hâchées
+fr:hâché, hâchée, hâchés, hâchées, hachées
 is:hakkaðar
 nb:hakkede
-nl:gehakt
+nl:gehakt, gehakte
 nn:hakkede
 pt:picadas
 sv:hackade
@@ -155,10 +157,12 @@ es:arrollada,arrollado
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
+ca:ratllat
 de:gerieben, geriebener, geriebene, geraspelt
-es:rallada, rallado,ralladas, rallados,rayada, rayado,rayadas, rayados
+es:rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi:raastettu, raastetut, raaste
 fr:râpé, râpée, râpés, râpées
+it:grattugiato, grattugiata, grattugiati
 nl:geraspt, geraspte
 sv:riven
 # nl:parse:geraspte_$
@@ -205,7 +209,7 @@ de:frischgemahlen, frishgemahlene
 en:pureed
 da:puré, pure
 de:püree, puree, püree aus
-es:pure,puré,pure de,cremogenado,cremogenada
+es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
 nb:puré
@@ -476,10 +480,14 @@ fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
 nb:tørkede
 nl:gedroogd, gedroogde
+pl:suszony
 sv:torkad
 
 # <en:dried
+en:semi-dried
 de:halbgetrocknet, halbgetrocknete, halb getrocknet
+es:semiseco
+fr:semi-séchées, semi-déshydratées
 nl:halfgedroogd, halfgedroogde
 
 # <en:dried
@@ -487,6 +495,7 @@ en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrocknetes
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 nb:frysetørkede
+nl:gevriesdroogde
 
 # <en:dried
 en:sundried, sun dried
@@ -502,9 +511,6 @@ de:luftgetrocknet, luftgetrockneter
 en:spray dried
 de:sprühgetrocknet, sprühgetrockneter 
 
-en:semi-dried
-es:semiseco
-fr:semi-déshydratées
 
 # en:description:cured means dried
 #<en:dried
@@ -524,6 +530,8 @@ sv:rehydrerat, rehydrerad
 
 en:reconstituted
 fr:reconstitué, reconstituée, reconstitués, reconstituées
+
+en:partially reconstituted
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
 ca:xtracte,extracte
@@ -709,6 +717,7 @@ en:roasted
 ca:rostit,rostits,rostida,rostides
 de:gebraten, gebratene
 es:asado, asada, asados, asadas
+et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden

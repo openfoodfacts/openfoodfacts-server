@@ -63,7 +63,7 @@ use boolean;
 use Getopt::Long;
 
 
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 my $days;
 
 GetOptions (
@@ -84,7 +84,7 @@ else {
 	
 # First export CSV from the producers platform, then import on the public platform
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -92,7 +92,7 @@ foreach my $field (sort keys %$query_ref) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
-	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+	elsif ( $field =~ /_t$/ ) {    # created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
 }

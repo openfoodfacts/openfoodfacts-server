@@ -69,7 +69,7 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, [ "fr:Fromage étrange à pâte cuite" ], ],
 	[ { lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
-	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["en:chicken-fillet" ], ],
+	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["fr:filet-de-poulet-traite-en-salaison-cuit" ], ],
 	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
 
 	# [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"}, [ "en:sugar" ], ],
@@ -121,6 +121,13 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
 	# mismatch between name and number
 	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+	
+	# removal of "allergy advice..." in %ignore_regexps
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."}, ['en:salt','en:spice','en:water']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice: for allergens, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:sugar', 'en:soya-lecithin', 'en:salt']],
+
 
 );
 

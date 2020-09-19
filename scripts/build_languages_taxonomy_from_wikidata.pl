@@ -275,11 +275,11 @@ foreach my $qc (@languages) {
 				foreach my $alias (@{$language->{aliases}{$lc}}) {
 					$languages{$qc}{aliases}{$lc} .= ', ' . $alias->{value};
 					print "$qc - alias: $lc - value:  $alias->{value}\n";
-					
+
 				}
-			}			
+			}
 		}
-		
+
 		print "properties\n";
 		
 		foreach my $p (keys %properties) {
@@ -309,23 +309,23 @@ foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 	if (defined $languages{$qc}{properties}{language_code_2}) {
 		print $OUT ", $languages{$qc}{properties}{language_code_2}";
 	}
-	
-	if (defined $languages{$qc}{properties}{language_code_3}) {
+
+	if ( defined $languages{$qc}{properties}{language_code_3} ) {
 		print $OUT ", $languages{$qc}{properties}{language_code_3}";
-	}	
-	
+	}
+
 	print $OUT "\n";
 	foreach my $lc (sort keys %{$languages{$qc}{labels}}) {
 		#next if length($lc) > 2;
 		next if ($lc eq 'en');
 		print $OUT "$lc:" . $languages{$qc}{labels}{$lc} . $languages{$qc}{aliases}{$lc} . "\n";
 	}
-	foreach my $p (sort keys %properties) {
-		if (defined $languages{$qc}{properties}{$p}) {
+	foreach my $p ( sort keys %properties ) {
+		if ( defined $languages{$qc}{properties}{$p} ) {
 			print $OUT "$p:en:$languages{$qc}{properties}{$p}\n";
 		}
-	}	
-	
+	}
+
 	print $OUT "wikidata:en:Q$qc\n";
 
 	print $OUT "\n";

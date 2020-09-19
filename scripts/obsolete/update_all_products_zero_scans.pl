@@ -65,14 +65,15 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		if ((defined $product_ref) and ($code ne '')) {
 		
 		$lc = $product_ref->{lc};
-		
-		delete $product_ref->{unique_scans_n} ;
+
+		delete $product_ref->{unique_scans_n};
 		delete $product_ref->{scans_n};
+
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$data_root/products/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		
+
 		}
 	}
 

@@ -109,8 +109,8 @@ elsif (defined $translations_to{$tagtype}) {
 					elsif ((not defined $value) or ($value ne $query)) {
 						$match = 0;
 						last;
-					}			
-				}			
+					}
+				}
 			}
 			
 			if (not $match) {

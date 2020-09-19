@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -114,10 +114,10 @@ foreach my $l (values %lang_lc) {
 			
 			$product_ref->{image_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 			$product_ref->{image_small_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-			
+
 			push @products, $product_ref;
-		}		
-		
+		}
+
 		$n++;
 		$langs{$l}++;
 		$total++;
@@ -125,11 +125,11 @@ foreach my $l (values %lang_lc) {
 
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
-	my $data =  encode_json(\@products);
+	my $data = encode_json( \@products );
 	$data =~ s/\.100g/_100g/g;
-	print $OUT  $data;		
+	print $OUT $data;
 	close $OUT;
-	
+
 }
 
 exit(0);

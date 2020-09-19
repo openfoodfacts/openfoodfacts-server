@@ -21,5 +21,5 @@ node equadis-xml2csv.js
 
 # import CSV file
 
-export PERL5LIB=/srv/off-pro/lib
+export PERL5LIB="/srv/off-pro/lib:${PERL5LIB}"
 /srv/off-pro/scripts/import_csv_file.pl --user_id equadis --org_id equadis --source_id equadis --source_name Equadis --source_url https://equadis.com/ --manufacturer 1 --comment "Import from Equadis" --define lc=fr --images_download_dir /srv2/off-pro/equadis-images-tmp --csv_file /srv2/off-pro/equadis-data-tmp/equadis-data.tsv

@@ -51,12 +51,11 @@ use JSON::PP;
 
 
 my $cursor = $products_collection->query({})->fields({ code => 1 });
-	
-my $i=0;	
-	
-	while (my $product_ref = $cursor->next) {
-        
-		
+
+my $i = 0;
+
+while ( my $product_ref = $cursor->next ) {
+
 		my $code = $product_ref->{code};
 		my $path = product_path($code);
 				
@@ -99,8 +98,8 @@ my $i=0;
 	extract_ingredients_classes_from_text($product_ref);
 
 	compute_languages($product_ref); # need languages for allergens detection
-	detect_allergens_from_text($product_ref);					
-					
+	detect_allergens_from_text($product_ref);
+
 					store_product($product_ref, "Changing unknown main language xx to fr - scanparty-franprix-05-2016");
 					
 					#last;
@@ -114,7 +113,6 @@ my $i=0;
 	
 	}
 
-print "\n$i products modified\n\n";	
-	
-exit(0);
+print "\n$i products modified\n\n";
 
+exit(0);

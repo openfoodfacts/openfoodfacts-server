@@ -595,29 +595,6 @@ sk:draselné soli kyseliny ortofosforečnej
 sl:kalijeve soli ortofosforne kisline
 sv:kaliumsalter av ortofosforsyra
 
-<en:Potassium
-en:magnesium potassium citrate
-bg:Магнезиево-калиев цитрат
-cs:citronan draselno-hořečnatý
-de:Magnesiumkaliumcitrat
-el:κιτρικό καλιομαγνήσιο
-es:citrato de magnesio y potasio
-et:magneesiumkaaliumtsitraat
-fi:magnesiumkaliumsitraatti
-fr:citrate potassium-magnésium
-hu:magnézium-kálium-citrát
-it:citrato di potassio e magnesio
-lt:magnio kalio citratas
-lv:magnija kālija citrāts
-mt:ċitrat tal-potassju tal-manjesju
-nl:kaliummagnesiumcitraat
-pl:cytrynian magnezu-potasu
-pt:citrato de magnésio e potássio
-ro:citrat de magneziu și potasiu
-sk:citran horečnato-draselný
-sl:magnezijev kalijev citrat
-sv:magnesiumkaliumcitrat
-
 
 # description:en:CALCIUM is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
 
@@ -821,7 +798,7 @@ la:Carbonatum calcii
 lt:Kalcio karbonatas
 lv:Kalcija karbonāts
 mk:Калциум карбонат
-ml:ചുണ്ണാമ്പ്
+ml:കാൽസ്യം കാർബണേറ്റ്
 mr:कॅल्शियम कार्बोनेट
 mt:Karbonat tal-kalċju
 my:Kalsium karbonat
@@ -935,7 +912,7 @@ lv:ortofosforskābes kalcija sāļi
 mt:melħ tal-kalċju tal-aċidu ortofosforiku
 nl:calciumzouten van orthofosforzuur
 pl:sole wapniowe kwasu ortofosforowego
-pt: sais de calcio de acido ortofosforico
+pt:sais de calcio de acido ortofosforico
 ro:săruri de calciu ale acidului ortofosforic
 sk:vápenaté soli kyseliny ortofosforečnej
 sl:kalcijeve soli ortofosforne kisline
@@ -1533,7 +1510,7 @@ sv:magnesiumsalter av citronsyra
 <en:Magnesium
 en:magnesium gluconate
 bg:Магнезиев глюконат
-cs:glukonan vápenatý
+cs:glukonát hořečnatý
 de:Magnesiumgluconat
 el:γλυκονικό μαγνήσιο
 es:gluconato de magnesio
@@ -1795,7 +1772,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:L-aspartat tal-manjesju
+mt:L-pidolat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -1805,6 +1782,7 @@ sl:magnezijev L-pidolat
 sv:magnesium-L-pidolat
 
 <en:Magnesium
+<en:Potassium
 en:magnesium potassium citrate
 bg:Магнезиево-калиев цитрат
 cs:citronan draselno-hořečnatý
@@ -2363,7 +2341,7 @@ sv:järn(III)natrium-EDTA
 # comment:en:The diphosphate translation is preferred.
 
 <en:iron
-en:ferric diphosphate, iron diphosphate
+en:ferric diphosphate, iron diphosphate, ferrous phosphate
 bg:Железен дифосфат
 cs:difosforečnan železitý
 da:ferridiphosphat
@@ -2392,6 +2370,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_phosphate
 # ingredient/fr:diphosphate-ferrique has 116 products in 7 languages @2019-05-07
 # usage:de:Mineralstoff (Eisendiphosphat)
 
+# description:en:Iron(III) phosphate, also ferric phosphate, is the inorganic compound with the formula FePO4. Iron(III) phosphate is not allowed as food additive in the European Union. It was withdrawn from the list of allowed substances in the directive 2002/46/EC in 2007.
+
+<en:iron
+en:ferric orthophosphate, ferric phosphate, iron orthophosphate, iron phosphate
+es:ortofosfato férrico
+wikidata:en:Q1311179
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(III)_phosphate
 
 <en:Iron
 en:ferric saccharate
@@ -2600,7 +2585,6 @@ da:Zink
 de:Zink
 dv:ޒިންކް
 el:Ψευδάργυρος
-en:Zinc
 eo:zinko
 es:Zinc
 et:Tsink
@@ -3290,7 +3274,7 @@ bg:Меден глюконат
 cs:glukonan měďnatý
 de:Kupfergluconat
 el:γλυκονικός χαλκός
-es:gluconato cúprico
+es:gluconato cúprico, gluconato de cobre
 et:vaskglükonaat
 fi:kupariglukonaatti
 fr:gluconate de cuivre
@@ -3674,7 +3658,7 @@ ar:كبريتات المنغنيز الثنائي
 bg:Манганов сулфат
 bs:Mangan sulfat
 cs:Síran manganatý
-da: mangansulfat
+da:mangansulfat
 de:Mangan-sulfat
 el:θειικό μαγγάνιο
 es:Sulfato de manganeso
@@ -4015,7 +3999,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenian sodu
+pl:selenin sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
@@ -4289,6 +4273,12 @@ ro:picolinat de crom
 sk:pikolinát chromitý
 sl:kromov pikolinat
 sv:krompikolinat
+
+<en:Chromium
+en:chromium nicotinate, chromium(III) nicotinate, chromium trinicotinate, chromium polynicotinate
+es:polinicotinato de cromo
+wikidata:en:Q5113831
+wikipedia:en:https://en.wikipedia.org/wiki/Chromium(III)_nicotinate
 
 # description:en:MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 
@@ -4945,6 +4935,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium
 <en:Sodium
 en:sodium bicarbonate
 bg:Натриев бикарбонат
+ca:bicarbonat sòdic
 cs:hydrogenuhličitan sodný
 de:Natriumbicarbonat
 el:διττανθρακικό νάτριο

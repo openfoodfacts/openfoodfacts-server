@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,8 +48,7 @@ use Log::Any qw($log);
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		$minion
@@ -64,14 +63,14 @@ BEGIN
 		&generate_import_export_columns_groups_for_select2
 
 		&convert_file
-		
+
 		&export_and_import_to_public_database
 
 		&import_csv_file_task
 		&export_csv_file_task
 		&import_products_categories_from_public_database_task
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -144,7 +143,7 @@ A reference to an array of rows, containing each an array of column values
 
 sub load_csv_or_excel_file($) {
 
-	my $file = shift;	# path and file name
+	my $file = shift;    # path and file name
 
 	my $headers_ref;
 	my $rows_ref = [];
@@ -179,7 +178,7 @@ sub load_csv_or_excel_file($) {
 
 		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
 
-		my $csv_options_ref = { binary => 1 , sep_char => $separator };	# should set binary attribute.
+		my $csv_options_ref = { binary => 1, sep_char => $separator };    # should set binary attribute.
 
 		my $csv = Text::CSV->new ( $csv_options_ref )
 			or die("Cannot use CSV: " . Text::CSV->error_diag ());
@@ -195,10 +194,10 @@ sub load_csv_or_excel_file($) {
 
 			if (defined $row_ref) {
 
-				@$headers_ref = @$row_ref;
+				@{$headers_ref} = @{$row_ref};
 
 				while ($row_ref = $csv->getline ($io)) {
-					push @$rows_ref, $row_ref;
+					push @{$rows_ref}, $row_ref;
 				}
 			}
 			else {
@@ -220,7 +219,7 @@ sub load_csv_or_excel_file($) {
 
 		system("ssconvert", $file, $file . ".csv");
 
-		my $csv_options_ref = { binary => 1 , sep_char => "," };	# should set binary attribute.
+		my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
 
 		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 
@@ -245,16 +244,16 @@ sub load_csv_or_excel_file($) {
 				$results_ref->{error} = "Could not read headers row $file.csv: $!";
 			}
 			else {
-				@$headers_ref = @$row_ref;
+				@{$headers_ref} = @{$row_ref};
 
 				# May need to deal with possible empty lines before header
 
 				while ($row_ref = $csv->getline ($io)) {
 					
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @$row_ref) !~ /[0-9]{8}/);
+					next if (join(" ", @{$row_ref}) !~ /[0-9]{8}/);
 					
-					push @$rows_ref, $row_ref;
+					push @{$rows_ref}, $row_ref;
 				}
 			}
 		}
@@ -268,7 +267,7 @@ sub load_csv_or_excel_file($) {
 		# If some columns have the same name, add a suffix
 		my %headers = ();
 		my $i = 0;
-		foreach my $header (@$headers_ref) {
+		foreach my $header (@{$headers_ref}) {
 			if (defined $headers{$header}) {
 				$headers{$header}++;
 				$headers_ref->[$i] = $header . " - " . $headers{$header};
@@ -289,10 +288,10 @@ sub load_csv_or_excel_file($) {
 
 sub convert_file($$$$) {
 
-	my $default_values_ref = shift;	# default values for lc, countries
-	my $file = shift;	# path and file name
+	my $default_values_ref  = shift;    # default values for lc, countries
+	my $file                = shift;    # path and file name
 	my $columns_fields_file = shift;
-	my $converted_file = shift;
+	my $converted_file      = shift;
 
 	my $load_results_ref = load_csv_or_excel_file($file);
 
@@ -323,7 +322,7 @@ sub convert_file($$$$) {
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
 			my $field = $columns_fields_ref->{$column}{field};
@@ -382,7 +381,7 @@ sub convert_file($$$$) {
 	my @default_headers = ();
 	my @default_values = ();
 
-	foreach my $field (sort keys %$default_values_ref) {
+	foreach my $field (sort keys %{$default_values_ref}) {
 
 		if (not defined $headers_cols{$field}) {
 			push @default_headers, $field;
@@ -398,7 +397,7 @@ sub convert_file($$$$) {
 
 	# Output CSV product data
 
-	foreach my $row_ref (@$rows_ref) {
+	foreach my $row_ref (@{$rows_ref}) {
 
 		# Go through all fields to populate $product_ref with OFF field names
 		# so that we can run clean_fields() or other OFF functions
@@ -467,7 +466,20 @@ sub normalize_column_name($) {
 	$name =~ s/percent (of |en |de |d')?/percent /i;
 	
 	# move percent at the end
-	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/;
+	$name =~ s/^(\)?percent\)?)(\s)?(.*)$/$3$2$1/i;
+	
+	# remove question mark
+	$name =~ s/ ?\?$//;
+	
+	# remove "of the product" at the end (e.g. "category of the product")
+	$name =~ s/ ((of the )?product|(del )?producto|(du )?produit)$//i;
+	
+	# remove "is the product" at the start (e.g. "is the product vegan")
+	$name =~ s/^(is the product|le produit est(-| )il) //i;
+	
+	# "does the product contains XYZ"
+	$name =~ s/^(does the product contain|the product contains) /contains /i;
+	$name =~ s/^(le produit contient((-| )il)?) /contient /i;
 
 	return $name;
 }
@@ -490,12 +502,13 @@ en => {
 	allergens => ["allergens", "allergens list", "allergen list", "list of allergens"],
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
+	nova_group_producer => ["nova"],
 },
 
 es => {
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
-	net_weight_value_unit => ["peso unitrario", "peso unitario"],	# Yuka
+	net_weight_value_unit => ["peso unitrario", "peso unitario"],   # Yuka
 	"energy-kcal_100g_value_unit" => ["calorias"],
 },
 
@@ -504,7 +517,7 @@ fr => {
 	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
@@ -547,7 +560,7 @@ my %per_synonyms = (
 	# may need to be changed for the US, CA etc.
 	"100g" => {
 	# code with i18n opportunity
-		en => ["", "per 100g", "100g", "100gr", "100 gr", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		en => ["", "for 100g", "per 100g", "100g", "100gr", "100 gr", "for 100 g", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
 	},
 	"serving" => {
@@ -607,11 +620,11 @@ sub init_fields_columns_names_for_lang($) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
 
-	$log->debug("fields_columns_names_for_lang", { l=>$l, fields_columns_names_for_lang=>$fields_columns_names_for_lang{$l} }) if $log->is_debug();
-
 	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+
+	return;
 }
 
 
@@ -673,7 +686,7 @@ sub init_nutrients_columns_names_for_lang($) {
 							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
-						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, lang("nutrition_data_per_" . $per)) {
 
 							# field name without "unit" or "quantity"
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
@@ -762,11 +775,13 @@ sub init_nutrients_columns_names_for_lang($) {
 						}
 					}
 
-					$log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
+					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -775,7 +790,7 @@ sub init_other_fields_columns_names_for_lang($) {
 	my $l = shift;
 	my $fields_groups_ref = $options{import_export_fields_groups};
 
-	foreach my $group_ref (@$fields_groups_ref) {
+	foreach my $group_ref (@{$fields_groups_ref}) {
 
 		my $group_id = $group_ref->[0];
 
@@ -788,6 +803,7 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
@@ -876,19 +892,24 @@ sub init_other_fields_columns_names_for_lang($) {
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field };
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
 				}
+				
+				if ($field eq "nova_group_producer") {
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", lang("nova_groups_s"))} = {field => $field };
+					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", lang("nova_groups_p"))} = {field => $field };
+				}
 			}
 		}
 	}
 
 	# Specific labels that can have a dedicated column
-	my @labels = ("en:organic", "en:fair-trade", "fr:ab-agriculture-biologique","fr:label-rouge");
+	my @labels = ("en:organic", "en:fair-trade", "en:palm-oil-free", "en:contains-palm-oil", "en:gluten-free", "en:contains-gluten", "en:vegan", "en:vegetarian", "fr:ab-agriculture-biologique","fr:label-rouge");
 	foreach my $labelid (@labels) {
 		next if not defined $translations_to{labels}{$labelid}{$l};
 		my $results_ref = { field => "labels_specific", tag => $translations_to{labels}{$labelid}{$l} };
 		my @synonyms = ();
 		my $label_lc_labelid = get_string_id_for_lang($l, $translations_to{labels}{$labelid}{$l});
 		foreach my $synonym (@{$synonyms_for{labels}{$l}{$label_lc_labelid}}) {
-			$log->debug("labels_specific", { l=>$l, label_lc_labelid=>$label_lc_labelid, label=>$labelid, synonym=>$synonym }) if $log->is_debug();
+			# $log->debug("labels_specific", { l=>$l, label_lc_labelid=>$label_lc_labelid, label=>$labelid, synonym=>$synonym }) if $log->is_debug();
 
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = $results_ref;
 			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $Lang{"labels_s"}{$l}) } = $results_ref;
@@ -900,11 +921,13 @@ sub init_other_fields_columns_names_for_lang($) {
 	if (defined $fields_synonyms{$l}) {
 		foreach my $field (keys %{$fields_synonyms{$l}}) {
 			foreach my $synonym (@{$fields_synonyms{$l}{$field}}) {
-				$log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
+				# $log->debug("synonyms", { l=>$l, field=>$field, synonym=>$synonym }) if $log->is_debug();
 				$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym) } = {field => $field};
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -945,7 +968,7 @@ sub compute_statistics_and_examples($$$) {
 	my $rows_ref = shift;
 	my $columns_fields_ref = shift;
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
 			$columns_fields_ref->{$column} = {
 				examples => [],
@@ -962,11 +985,11 @@ sub compute_statistics_and_examples($$$) {
 
 	my $row = 0;
 
-	foreach my $row_ref (@$rows_ref) {
+	foreach my $row_ref (@{$rows_ref}) {
 
 		my $col = 0;
 
-		foreach my $value (@$row_ref) {
+		foreach my $value (@{$row_ref}) {
 
 			my $column = $headers_ref->[$col];
 
@@ -1013,6 +1036,8 @@ sub compute_statistics_and_examples($$$) {
 
 		$row++;
 	}
+
+	return;
 }
 
 
@@ -1053,7 +1078,7 @@ sub init_columns_fields_match($$) {
 
 	$log->debug("after init_fields_columns_names_for_lang", { }) if $log->is_debug();
 
-	foreach my $column (@$headers_ref) {
+	foreach my $column (@{$headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 
@@ -1182,10 +1207,10 @@ JSON
 
 	my $select2_options_ref  = [ ];
 
-	foreach my $group_ref (@$fields_groups_ref) {
+	foreach my $group_ref (@{$fields_groups_ref}) {
 
 		my $group_id = $group_ref->[0];
-		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ] };
+		my $select2_group_ref = { text => lang("fields_group_" . $group_id), children => [ ], group_id => $group_id };
 
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
@@ -1254,9 +1279,9 @@ JSON
 
 				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
 
-					foreach my $l (@$lcs_ref) {
-						my $language = "";	# Don't specify the language if there is just one
-						if (@$lcs_ref > 1) {
+					foreach my $l (@{$lcs_ref}) {
+						my $language = "";    # Don't specify the language if there is just one
+						if (@{$lcs_ref} > 1) {
 							$language = " (" . display_taxonomy_tag($lc,'languages',$language_codes{$l}) . ")";
 						}
 						$log->debug("Select2 option - language field", { group_id => $group_id, field=>$field, name=>$name, lc=>$lc, l=>$l, language=>$language }) if $log->is_debug();
@@ -1269,7 +1294,7 @@ JSON
 			}
 		}
 
-		push @$select2_options_ref, $select2_group_ref;
+		push @{$select2_options_ref}, $select2_group_ref;
 	}
 
 	return $select2_options_ref;
@@ -1308,13 +1333,13 @@ sub export_and_import_to_public_database($) {
 
 	# First export the data locally
 
-	$args_ref->{user_id} = $user_id;
-	$args_ref->{org_id} = $Org_id;
-	$args_ref->{owner_id} = $Owner_id;
-	$args_ref->{csv_file} = $exported_file;
-	$args_ref->{export_id} = $export_id;
-	$args_ref->{comment} = "Import from producers platform";
-	$args_ref->{include_images_paths} = 1;	# Export file paths to images
+	$args_ref->{user_id}              = $user_id;
+	$args_ref->{org_id}               = $Org_id;
+	$args_ref->{owner_id}             = $Owner_id;
+	$args_ref->{csv_file}             = $exported_file;
+	$args_ref->{export_id}            = $export_id;
+	$args_ref->{comment}              = "Import from producers platform";
+	$args_ref->{include_images_paths} = 1;                                  # Export file paths to images
 
 
 	if (defined $Org_id) {
@@ -1329,18 +1354,20 @@ sub export_and_import_to_public_database($) {
 			$args_ref->{manufacturer} = 0;
 			$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id};
 		}
-		elsif ($Org_id =~ /^database-/) {
+		elsif ( $Org_id =~ /^database-/ ) {
 			$args_ref->{manufacturer} = 0;
-			$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id};
-		}	
+			$args_ref->{global_values}
+				= { data_sources => "Databases, " . $Org_id };
+		}
 		elsif ($Org_id =~ /^label-/) {
 			$args_ref->{manufacturer} = 0;
 			$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id};
 		}
 		else {
 			$args_ref->{manufacturer} = 1;
-			$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id};
-		}		
+			$args_ref->{global_values}
+				= { data_sources => "Producers, Producer - " . $Org_id };
+		}
 	}
 	else {
 		$args_ref->{no_source} = 1;
@@ -1388,7 +1415,7 @@ After=postgresql.service
 Type=simple
 User=off
 WorkingDirectory=/srv/off/scripts
-Environment="PERL5LIB=."
+Environment="PERL5LIB=/srv/off/lib/"
 ExecStart=/srv/off/scripts/minion_producers.pl minion worker -m production -q openfoodfacts.org
 KillMode=process
 
@@ -1417,6 +1444,8 @@ sub import_csv_file_task() {
 	ProductOpener::Import::import_csv_file($args_ref);
 
 	$job->finish("done");
+
+	return;
 }
 
 
@@ -1453,6 +1482,8 @@ sub export_csv_file_task() {
 	close($log);
 
 	$job->finish("done");
+
+	return;
 }
 
 
@@ -1480,6 +1511,8 @@ sub import_products_categories_from_public_database_task() {
 	close($log);
 
 	$job->finish("done");
+
+	return;
 }
 
 

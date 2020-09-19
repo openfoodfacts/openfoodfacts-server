@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -53,6 +53,7 @@ my $action = param('action') || 'display';
 
 my $title = lang("import_data_file_title");
 my $html = '';
+my $js = '';
 
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
@@ -125,110 +126,24 @@ else {
 
 	# Display upload info and form
 
+	# Passing values to the template
+	my $template_data_ref = {
+		lang => \&lang,
+		display_icon => \&display_icon,
+		id => "data",
+		url => "/cgi/import_file_upload.pl",
+	};
 
-	# Upload a file
+	$tt->process('import_file_upload.tt.html', $template_data_ref, \$html);
+	$tt->process('import_file_upload.tt.js', $template_data_ref, \$js);
 
-	$html .= "<p>" . lang("producers_platform_private_database") . "</p>\n";
-	$html .= "<p>" . lang("import_data_file_description") . "</p>\n";
-	$html .= "<p>" . lang("import_data_file_format") . "</p>\n";
-
-	$html .= start_multipart_form(-id=>"upload_file_form") ;
-
-	my $id = "data";
-
-	$html .= <<HTML
-<a href="#" class="button small expanded" id="file_input_button_$id">
-<div id="file_input_div_$id">
-@{[ display_icon('arrow_upward') ]} $Lang{upload_product_data_file}{$lc}
-<input type="file" accept=".csv,.tsv,.xlsx,.xls,.ods" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;
-	right:0;
-	bottom:0;
-	top:0;
-	cursor:pointer;
-	opacity:0;
-	font-size:60px;"/>
-
-</div>
-</a>
-
-<div id="progressbar_$id" class="progress" style="display:none">
-  <span id="progressmeter_$id" class="meter" style="width:0%"></span>
-</div>
-
-<div id="file_input_msg_$id" data-alert class="alert-box info" style="display:none">
-  $Lang{uploading_file}{$lang}
-  <a href="#" class="close">&times;</a>
-</div>
-
-<div id="file_input_error_$id" data-alert class="alert-box alert" style="display:none">
-  $Lang{upload_error}{$lang}
-  <a href="#" class="close">&times;</a>
-</div>
-
-HTML
-;
-
-	$html .= end_form();
+	$initjs .= $js;
 
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML
-;
-
-	$initjs .= <<JS
-
-\$('#file_input_$id').fileupload({
-	sequentialUploads: true,
-	dataType: 'json',
-	url: "/cgi/import_file_upload.pl",
-	formData : [{name: 'action', value: 'process'}],
-	done: function (e, data) {
-		if (data.result.location) {
-			\$(location).attr('href',data.result.location);
-		}
-		if (data.result.error) {
-			\$("#file_input_error_$id").html(data.result.error);
-			\$("#file_input_error_$id").show();
-		}
-	},
-	fail : function (e, data) {
-		\$("#file_input_error_$id").show();
-		\$("#file_input_button_$id").show();
-		\$("#file_input_msg_$id").hide();
-	},
-	always : function (e, data) {
-		\$("#progressbar_$id").hide();
-	},
-	start: function (e, data) {
-		\$("#file_input_button_$id").hide();
-		\$("#file_input_error_$id").hide();
-		\$("#file_input_msg_$id").show();
-		\$("#progressbar_$id").show();
-		\$("#progressmeter_$id").css('width', "0%");
-
-	},
-		sent: function (e, data) {
-			if (data.dataType &&
-					data.dataType.substr(0, 6) === 'iframe') {
-				// Iframe Transport does not support progress events.
-				// In lack of an indeterminate progress bar, we set
-				// the progress to 100%, showing the full animated bar:
-				\$("#progressmeter_$id").css('width', "100%");
-			}
-		},
-		progress: function (e, data) {
-
-			   \$("#progressmeter_$id").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
-				\$("#file_input_debug_$id").html(data.loaded + ' / ' + data.total);
-
-		}
-
-});
-
-
-JS
 ;
 
 	display_new( {

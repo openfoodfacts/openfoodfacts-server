@@ -61,6 +61,8 @@ ProductOpener::Display::init();
 
 my $userid = get_fileid(param('userid'), 1);
 
+$log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
+
 my $html = '';
 
 my $user_ref = {};
@@ -100,7 +102,7 @@ if ($action eq 'process') {
 		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 	}
 	else {
-		ProductOpener::Users::check_user_form($user_ref, \@errors);
+		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 
 	if ($#errors >= 0) {
@@ -114,9 +116,9 @@ if ($action eq 'process') {
 }
 
 $template_data_ref->{action} = $action;
-
-$template_data_ref->{error_count} = $#errors;
 $template_data_ref->{errors} = \@errors;
+
+$log->debug("user form - before display / process", { type => $type, action => $action, userid => $userid }) if $log->is_debug();
 
 if ($action eq 'display') {
 
@@ -144,9 +146,9 @@ SCRIPT
 		}
 	}
 
-	$template_data_ref->{display_user_form} = ProductOpener::Users::display_user_form($user_ref,\$scripts);
-	$template_data_ref->{display_user_form_optional} = ProductOpener::Users::display_user_form_optional($user_ref);
-	$template_data_ref->{display_user_form_admin_only} = ProductOpener::Users::display_user_form_admin_only($user_ref);
+	$template_data_ref->{display_user_form} = ProductOpener::Users::display_user_form($type, $user_ref,\$scripts);
+	$template_data_ref->{display_user_form_optional} = ProductOpener::Users::display_user_form_optional($type, $user_ref);
+	$template_data_ref->{display_user_form_admin_only} = ProductOpener::Users::display_user_form_admin_only($type, $user_ref);
 
 	$template_data_ref->{admin} = $admin;
 
@@ -154,12 +156,11 @@ SCRIPT
 elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		ProductOpener::Users::process_user_form($user_ref);
+		ProductOpener::Users::process_user_form($type, $user_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
-	$template_data_ref->{type} = $type;
 	
 	if ($type eq 'add') {
 
@@ -183,6 +184,7 @@ elsif ($action eq 'process') {
 
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
+$template_data_ref->{type} = $type;
 
 my $full_width = 1;
 if ($action ne 'display') {

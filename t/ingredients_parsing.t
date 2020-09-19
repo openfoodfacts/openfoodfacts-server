@@ -95,15 +95,15 @@ my @lists =(
 	# SCANDINAVIAN LANGUAGES  #
 	###########################
 	[ "da",
-	  "bl. a inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
+	  "bl. a. inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
 	  "blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
 	],
 	[ "nb",
-	  "bl. a inkl. E322 E103, E140, E250 og E100",
+	  "bl. a. inkl. E322 E103, E140, E250 og E100",
 	  "blant annet inklusive E322, E103, E140, E250, E100"
 	],
 	[ "sv",
-	  "bl. a förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
+	  "bl. a. förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
 	  "bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
 	],
 	[ "da",
@@ -272,6 +272,9 @@ my @lists =(
 	# do not separate acide acétique into acide : acétique
 	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
 	["fr","acide acétique","acide acétique"],
+	
+	# russian abbreviations
+	["ru","мука пшеничная х/п в/с","мука пшеничная хлебопекарная высшего сорта"],
 
 );
 
