@@ -12,17 +12,30 @@ use ProductOpener::Config qw/:all/;
 
 # Ensure that <<site_name>> is not translated - https://github.com/openfoodfacts/openfoodfacts-server/issues/1648
 my $site_name_regex = qr/<<site_name>>/;
+
 foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts', 'openproductsfacts', 'tags') {
+	
 	my $path = "$data_root/po/$dir/";
-	my %lang = %{ ProductOpener::I18N::read_po_files($path) };
-	foreach my $key (keys %lang) {
-		#diag explain $lang{$key}{en};
-		if ((defined $lang{$key}{en}) and ($lang{$key}{en} =~ /$site_name_regex/)) {
-			foreach my $lang (keys %{$lang{$key}}) {
-				like($lang{$key}{$lang}, $site_name_regex, "'$key' in '$lang' should contain '<<site_name>>'");
+	my %terms = %{ ProductOpener::I18N::read_po_files($path) };
+	
+	foreach my $key (keys %terms) {
+		#diag explain $terms{$key}{en};
+		if ((defined $terms{$key}{en}) and ($terms{$key}{en} =~ /$site_name_regex/)) {
+			foreach my $lang (keys %{$terms{$key}}) {
+				like($terms{$key}{$lang}, $site_name_regex, "$dir: '$key' in '$lang' should contain '<<site_name>>'");
 			}
 		}
 	}
+	
+	# check that text_direction is only ltr or rtl.
+	my $key = 'text_direction';
+	my $regex = qr/^(ltr|rtl)$/;
+	if (defined $terms{$key}) {
+		foreach my $alang (keys %{$terms{$key}}) {
+			like($terms{$key}{$alang}, $regex, "$dir: '$key' in '$alang' must be 'ltr' or 'rtl'");
+		}
+	}
+	
 }
 
 done_testing();
