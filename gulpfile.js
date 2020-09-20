@@ -19,8 +19,8 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: false },
-        { removeTitle: false },
+        { removeMetadata: true },
+        { removeTitle: true },
         { removeDimensions: true },
           { addClassesToSVGElement: { className: "icon" } },
           {
