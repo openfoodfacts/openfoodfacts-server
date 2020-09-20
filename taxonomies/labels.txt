@@ -501,6 +501,8 @@ label_categories:en: en:Social responsibility
 fr:Entreprise du Patrimoine Vivant, EPV
 wikidata:en:Q3214304
 
+############################# FAIR TRADE ######################
+
 en:Fair trade
 ca:Comerç Just
 de:Fairer Handel
@@ -536,9 +538,12 @@ fr:Fairtrade International, Fairtrade, FLO international, FLO
 it:Commercio Equo Internazionale
 nl:Fairtrade International, Eerlijke handel
 ru:Честная торговля, FLO
+wikipedia:en:https://en.wikipedia.org/wiki/Fairtrade_certification
 
-<en:Fairtrade
+<en:Fair trade
 en:Fairtrade USA
+# web:en:https://www.fairtradecertified.org
+wikipedia:en:https://en.wikipedia.org/wiki/Fair_Trade_USA
 
 <en:Fair trade
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
@@ -564,6 +569,12 @@ nl:Max Havelaar Frankrijk
 <en:Fair trade
 en:TransFer, TransFer Canada
 
+<en:Fair trade
+en:Small Producers' Symbol, SPP, Small Producers
+es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
+fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
+auth_name:en: SPP
+auth_url:en: https://spp.coop/
 
 en:Fed without GMOs
 ca:Alimentat sense Organismes Modificats Genèticament
@@ -2916,7 +2927,7 @@ en:Farm Verified Organic
 # the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
 # without "and"
 <en:Organic
-<en:Fair-trade
+<en:Fair trade
 en:Fair-Trade Organic, Fair-Trade and Organic
 fi:Reilu kauppa ja luomu
 fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équitable et de l'agriculture biologique, Issus de l'agriculture biologique et du commerce équitable
@@ -18672,12 +18683,6 @@ es:Producto pasteurizado
 fr:produit pasteurisé
 it:Prodotto pastorizzato
 
-<en:Fair trade
-en:Small Producers' Symbol, SPP, Small Producers
-es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
-fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
-auth_name:en: SPP
-auth_url:en: https://spp.coop/
 
 en:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088

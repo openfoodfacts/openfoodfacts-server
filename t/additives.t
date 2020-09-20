@@ -575,7 +575,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-chloride",
 	"en:potassium-chloride",
 	"en:magnesium-chloride",
-	"en:potassium-citrate",
+	"en:potassium-citrates",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
@@ -610,7 +610,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-chloride",
 	"en:potassium-chloride",
 	"en:magnesium-chloride",
-	"en:potassium-citrate",
+	"en:potassium-citrates",
 	"en:sodium-citrate",
 	"en:calcium-phosphate",
 	"en:ferrous-sulfate",
@@ -1041,7 +1041,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:calcium-carbonate",
-	"en:potassium-citrate",
+	"en:potassium-citrates",
                               ],
 );
 
