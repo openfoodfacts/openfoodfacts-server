@@ -44,14 +44,24 @@ function show_user_product_preferences (target) {
 		// Iterate over attribute groups
 		$.each( attribute_groups, function(key, attribute_group) {
 			
-			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group'>" + attribute_group.name 
-			+ "<ul>";
+			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group'>" 
+			+ "<span class='attribute_group_name'>" + attribute_group.name + "</span>";
+			
+			if (attribute_group.warning) {
+				attribute_group_html += "<p class='attribute_group_warning'>" + attribute_group.warning + "</p>";
+			}
+			
+			attribute_group_html += "<ul>";
 			
 			// Iterate over attributes
 			
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
-				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'><spanc class='attribute_name'>" + attribute.setting_name + "</span><br>";
+				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'><span class='attribute_name'>" + attribute.setting_name + "</span><br>";
+				
+				if (attribute.description_short) {
+					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
+				}				
 								
 				$.each(preferences, function (key, preference) {
 					
