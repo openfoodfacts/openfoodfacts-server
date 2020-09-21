@@ -2419,15 +2419,21 @@ sub display_list_of_tags_translate($$) {
 
 			$j++;
 
-			$link = "/$path/" . $tag_ref->{tagurl};
+			$link = "/$path/" . $tag_ref->{tagurl}; # "en:yule-log"
 
-			my $display = $tag_ref->{display};
-			my $display_lc = $tag_ref->{display_lc};
+			my $display = $tag_ref->{display}; # "en:Yule log"
+			my $display_lc = $tag_ref->{display_lc}; # "en"
 
+			# $synonyms_for keys don't have language codes, so we need to strip it off $display to get a valid lookup
+			# E.g. 'yule-log' => ['Yule log','Christmas log cake']
+			my $display_without_lc = $display =~ s/^..://r; # strip lc off -> "Yule log"
 			my $synonyms = "";
-			my $lc_tagid = get_string_id_for_lang($display_lc, $display);
+			my $lc_tagid = get_string_id_for_lang($display_lc, $display_without_lc); # "yule-log"
 
-			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
+			if (
+				(defined $synonyms_for{$tagtype}{$display_lc}) 
+				and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})
+			) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
 			}
 
@@ -6300,7 +6306,8 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
-	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
+	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
+	$log->trace("Start of display_new") if $log->is_trace();
 
 	my $template_data_ref = {
 		lang => \&lang,
