@@ -264,8 +264,12 @@ all => [
 	["B. lactis", "bifidobacterium lactis"],
 	["L. acidophilus", "lactobacillus acidophilus"],
 	["L. bulgaricus", "lactobacillus bulgaricus"],
+	["L. delbrueckii subsp. bulgaricus", "lactobacillus bulgaricus"],
+	["Lactobacillus delbrueckii subsp. bulgaricus", "lactobacillus bulgaricus"],
 	["L. casei", "lactobacillus casei"],
 	["L. lactis", "lactobacillus lactis"],
+	["L. delbrueckii subsp. lactis", "lactobacillus lactis"],
+	["Lactobacillus delbrueckii subsp. lactis", "lactobacillus lactis"],
 	["L. plantarum", "lactobacillus plantarum"],
 	["L. reuteri", "lactobacillus reuteri"],
 	["L. rhamnosus", "lactobacillus rhamnosus"],
@@ -1336,6 +1340,7 @@ sub parse_ingredients_text($) {
 								'^including cereals containing gluten( see ingredients (highlighted )?in bold)?$',
 								'^see ingredients in bold$',
 								'^in var(iable|ying) proportions$',
+								'^dietary advice[:]?$',
 							],
 
 							'fr' => [

@@ -4534,7 +4534,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lysozyme
 # <en:egg white
 # <en:conservator
 <en:lysozyme
-en:lysozyme from eggs
+en:lysozyme from eggs, egg lysozyme
 de:Lysozym aus Ei
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
@@ -4542,6 +4542,7 @@ fr:lysozyme d'œuf, lysozyme d'oeuf
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei
 sv:lysozym från ägg, lysozym av ägg
+allergens:en: en:eggs
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
 
 
@@ -5247,7 +5248,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 # description:en:LACTOBACILLUS DELBRUECKII SUBSP. BULGARICUS (until 2014 known as Lactobacillus bulgaricus) is the main bacteria used for the production of yogurt.
 
 <en:Lactobacillus
-en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus
+en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
 cs:Lactobacillus bulgaricus, L. bulgaricus
 da:Lactobacillus bulgaricus, L. bulgaricus
 de:Lactobacillus bulgaricus, L. bulgaricus
@@ -5312,7 +5313,7 @@ nl:Lactobacillus helveticus
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_helveticus
 
 <en:Lactobacillus
-en:Lactobacillus lactis, L. lactis, Lactobacillus delbrueckii
+en:Lactobacillus lactis, L. lactis, Lactobacillus delbrueckii, Lactobacillus delbrueckii subsp. lactis, L. delbrueckii subsp. lactis
 bg:Lactobacillus lactis
 de:Lactobacillus lactis
 es:Lactobacillus lactis
@@ -6250,6 +6251,10 @@ de:Deutsche Markenbutter mildgesäuert
 <en:butter
 fr:beurre d'isigny AOP
 # ingredient/fr:beurre-d'isigny-AOP has 60 products in 4 languages @2019-07-10
+
+<en:butter
+en:Charentes butter PDO
+fr:Beurre Charentes-Poitou AOP, Beurre des Charentes
 
 # description:fr:BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
@@ -7339,7 +7344,7 @@ lb:Béchsemëllech
 lt:Kondensuotas pienas
 ms:Susu pekat
 nl:gecondenseerde melk
-pl:Mleko skondensowane
+pl:Mleko skondensowane, mleko zagęszczone
 pt:leche condensada, leite condensado
 ro:Lapte condensat
 ru:сгущённое молоко
@@ -17601,7 +17606,7 @@ ar:زيت الذرة
 be:Кукурузны алей
 ca:Oli de blat de moro
 da:Majsolie
-de:Maiskeimöl
+de:Maiskeimöl, Maisöl
 el:Αραβοσιτέλαιο
 eo:Maizoleo
 es:Aceite de maíz
@@ -23056,7 +23061,7 @@ fi:mannasuurimo, vehnäsuurimo
 fr:semoule de blé
 hu:búzadara, gríz
 it:semolino di frumento
-nl:tarwegries
+nl:tarwegries, tarwegriesmeel
 pt:sêmola de trigo
 sv:vetegryn
 wikipedia:en:https://en.wikipedia.org/wiki/Semolina
@@ -25147,7 +25152,7 @@ nl:gedextrineerd speltmeel
 # Question
 
 <en:cereal flour
-en:oat flour
+en:oat flour, oatflour
 cs:Ovesná mouka
 da:Havremel
 de:Hafermehl
@@ -25438,7 +25443,7 @@ sv:fullkornsmajsmjöl
 
 <en:flour
 <en:rice
-en:rice flour
+en:rice flour, riceflour
 ca:Farina d'arròs
 cs:Rýžová mouka
 da:rismel
@@ -29091,13 +29096,13 @@ nl:gehydrolyseerde plantaardige eiwitten
 <en:vegetable protein
 en:pea protein
 da:Ærteprotein
-de:Erbsenprotein
+de:Erbsenprotein, erbseneiweiß
 es:Proteína de guisante
 fi:herneproteiini
 fr:protéines de pois, protéine de pois
 hu:borsófehérje
 it:proteine di piselli
-nl:boneneiwit, erwteiwit
+nl:boneneiwit, erwteiwit, erwteneiwit
 pl:Białko grochu
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
@@ -34249,6 +34254,7 @@ ru:Персиковый сок
 
 <en:peach juice
 fr:jus de pêche à base de concentré
+de:pfirsichsaft aus pfirsichsaftkonzentrat
 
 <en:peach
 en:peach syrup
@@ -35482,7 +35488,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse
 
 <en:grapefruit juice
 fr:jus de pamplemousse à base de concentré
-de:Grapefruitsaft aus Konzentrat
+de:Grapefruitsaft aus Konzentrat, Grapefruitsaft aus Grapefruitsaftkonzentrat
 fi:greippimehu tiivisteestä
 it:succo di pompelmo a base di concentrato
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-à-base-de-concentré
@@ -35951,8 +35957,10 @@ sv:limejuice, limesaft
 # 342 products @2018-10-01
 
 <en:lime juice
-fr:jus de citron vert concentré
+en:lime juice concentrate
+de:limettensaftkonzentrat
 fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
+fr:jus de citron vert concentré
 sv:limesaftkoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-concentré
 # 43 products in 1 language @2018-10-01
@@ -39121,7 +39129,7 @@ sv:hallonjuice
 
 <fr:jus de framboise
 fr:jus de framboise à base de concentré
-de:Himbeersaft aus Konzentrat
+de:Himbeersaft aus Konzentrat, himbeersaft aus himbeersaftkonzentrat
 fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
 it:succo di lamponi a base di concentrato
 nl:frambozensap uit sapconcentraat
@@ -39435,7 +39443,7 @@ fr:concentré de jus de fraise
 <en:strawberry juice concentrate
 en:strawberry juice from concentrate
 fr:jus de fraise à base de concentré
-de:Erdbeersaft aus Konzentrat
+de:Erdbeersaft aus Konzentrat, erdbeersaft aus erdbeersaftkonzentrat
 fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
 nl:geconcentreerd aardbeiensap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fraise-à-base-de-concentré
@@ -43794,20 +43802,18 @@ carbon_footprint_fr_foodges_ingredient:fr:Céleri
 carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:celery
-en:celery leaves
-es:apio hoja
-
-<en:celery
 fr:céleri branche
 de:Stangensellerie
 # fr:céleri-branche has 50 products in 3 languages @2018-10-21
 
 <en:celery
 <en:herb
-fr:feuilles de céleri
+en:celery leaves
+es:apio hoja
 de:Sellerieblätter, Sellerieblatt
+fr:feuilles de céleri
 it:foglie di sedano
-nl:selderblad
+nl:selderblad, bladselderij
 # fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
 
 <en:celery
@@ -50827,7 +50833,7 @@ lt:sezamo sėklos
 lv:sezama sēklas
 nb:sesamfrø
 nl:sesamzaad, sesam zaden, sesamzaden
-pl:nasiona sezamu
+pl:nasiona sezamu, ziarno sezamu
 pt:sementes de sésamo, sementes de sésam
 ro:semințe de susan
 sk:sezamové semeno
@@ -58698,7 +58704,7 @@ la:Boletus pinophilus, Boletus pinicola, pinicola
 # description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 
 <en:mushroom
-en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus
+en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, white mushroom, cup mushroom
 af:Sampioen
 ar:غاريقون ثنائي البوغ
 bg:култивирана печурка
@@ -58753,6 +58759,11 @@ carbon_footprint_fr_foodges_value:fr:1.9
 
 <en:champignon
 fr:champignons de Paris émincés
+
+# the brown mushroom, not to be confused with Pholiota adiposa.
+<en:champignon
+en:chestnut mushroom
+
 
 # description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
@@ -66764,6 +66775,7 @@ fi:kahviuute
 fr:extrait de café, extraits de café
 it:estratto di caffè
 nl:koffie-extract
+pl:ekstrakt kawy
 sv:kaffeextrakt
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
 
@@ -68130,7 +68142,7 @@ fr:gros oeufs
 # 3@2019-05-31
 
 <en:eggs
-en:free range eggs
+en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
 fi:ulkomunat
