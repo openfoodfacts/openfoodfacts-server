@@ -94,7 +94,7 @@ if (defined $request{api}) {
 	}
 }
 elsif (defined $request{search}) {
-	display_tag(\%request);
+	display_search_results(\%request);
 }
 elsif (defined $request{text}) {
 	display_text(\%request);

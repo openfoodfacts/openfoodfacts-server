@@ -64,6 +64,7 @@ BEGIN
 		&display_points
 		&display_mission
 		&display_tag
+		&display_search_results
 		&display_field
 		&display_error
 		&gen_feeds
@@ -654,7 +655,7 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => param("api_version"), api_method => param("api_method"), code => $request_ref->{code}, jqm => param("jqm"), json => param("json"), xml => param("xml") } ) if $log->is_debug();
 	}
 	
-	# Search endpoint, parameters will be parser by CGI.pm param()
+	# /search search endpoint, parameters will be parser by CGI.pm param()
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
 	}
@@ -2807,6 +2808,30 @@ sub add_tag_prefix_to_link($$) {
 	return $link;
 }
 
+
+=head2 display_tag ( $request_ref )
+
+This function is called to display either:
+
+1. Products that have a specific tag:  /category/cakes
+  or that don't have a specific tag /category/-cakes
+  or that have 2 specific tags /category/cake/brand/oreo
+2. List of tags of a given type:  /labels
+  possibly for products that have a specific tag: /category/cakes/labels
+  or 2 specific tags:  /category/cakes/label/organic/additives
+
+When displaying products for a tag, the function generates tag type specific HTML
+that is displayed at the top of the page:
+- tag parents and children
+- maps for tag types that have a location (e.g. packaging codes)
+- special properties for some tag types (e.g. additives)
+
+The function then calls search_and_display_products() to display the paginated list of products.
+
+When displaying a list of tags, the function calls display_list_of_tags().
+
+=cut
+
 sub display_tag($) {
 
 	my $request_ref = shift;
@@ -3866,6 +3891,100 @@ HTML
 }
 
 
+=head2 display_search_results ( $request_ref )
+
+This function builds the HTML returned by the /search endpoint.
+
+The results can be displayed in different ways:
+
+1. a paginated list of products (default)
+The function calls search_and_display_products() to display the paginated list of products.
+
+2. results filtered and ranked on the client-side
+2.1. according to user preferences that are locally saved on the client: &user_preferences=1
+2.2. according to preferences passed in the url: &preferences=..
+
+3. on a graph (histogram or scatter plot): &graph=1 -- TODO: not supported yet
+
+4. on a map &map=1 -- TODO: not supported yet
+
+=cut
+
+sub display_search_results($) {
+
+	my $request_ref = shift;
+
+	my $html = '';
+
+	my $title = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
+	
+	my $current_link = '';
+	
+	foreach my $field (param()) {
+		if (
+			($field eq "page")
+			or ($field eq "keywords")	# returned by CGI.pm when there are not params: keywords=search
+			) {
+			next;
+		}
+		
+		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param($field));
+	}
+	
+	$current_link =~ s/^\&/\?/;
+	$current_link = "/search" . $current_link;
+	
+	if ((defined param("user_preferences")) and (param("user_preferences"))) {
+	
+		# The results will be filtered and ranked on the client side
+		
+		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
+		
+		$scripts .= <<JS
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+
+show_user_product_preferences("#preferences_settings");
+search_products("#search_results", "$search_api_url");
+JS
+;
+
+		my $template_data_ref = {};
+
+		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
+			$html = $tt->error();
+		}
+		$request_ref->{content_ref} = \$html;
+		
+	}
+	else {
+		
+		# The server generates the search results
+	
+		my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
+		if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
+			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
+			$sort_by = 'popularity_key';
+		}	
+		
+		my $query_ref = {};
+		
+		$request_ref->{current_link_query} = $current_link;
+		
+		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+	}
+
+	display_new($request_ref);
+
+	return;
+}
+
+
 sub add_country_and_owner_filters_to_query($$) {
 
 	my $request_ref = shift;
@@ -4471,13 +4590,23 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
-	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
+	
+	# Query from search form: display a link back to the search form
+	if ($request_ref->{current_link_query} =~ /action=process/) {
+		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
+	}
+	
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
 		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-		$request_ref->{current_link_query_download} .= "&download=on";
+		if ($request_ref->{current_link_query} =~ /\?/) {
+			$request_ref->{current_link_query_download} .= "&download=on";
+		}
+		else {
+			$request_ref->{current_link_query_download} .= "?download=on";
+		}
 
 		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
 		$template_data_ref->{export_limit} = $export_limit;
@@ -4513,8 +4642,8 @@ sub search_and_display_products($$$$$) {
 					tagtype => $newtagtype,
 				};
 			}
-
 		}
+		
 		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
 		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
@@ -4552,7 +4681,6 @@ sub search_and_display_products($$$$$) {
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};
 		}
-
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		if ((defined $request_ref->{api}) and (defined param('fields'))) {
@@ -4682,11 +4810,12 @@ sub display_pagination($$$$) {
 					}
 					elsif (defined $current_link_query) {
 
-						if ($current_link_query eq '') {
-							$current_link_query = '?';
+						if ($current_link_query !~ /\?/) {
+							$link = $current_link_query . "?page=$i";
 						}
-
-						$link = $current_link_query . "&page=$i";
+						else {
+							$link = $current_link_query . "&page=$i";
+						}
 
 						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
 						# so it is lost on subsequent pages
