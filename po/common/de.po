@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-22 10:58\n"
+"PO-Revision-Date: 2020-09-22 14:04\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -964,11 +964,11 @@ msgstr "Kein Strichcode im Foto gefunden."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Kein Strichcode angegeben oder nicht im Foto oder Dateinamen gefunden."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Das Foto konnte nicht geladen werden."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -4045,11 +4045,11 @@ msgstr "Ich habe bereits gespendet oder bin nicht interessiert. Den Banner ausbl
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Ein unabhängiges und bürgernahes Projekt für Lebensmitteltransparenz?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Lebensmitteldaten für Forschung zur Verbesserung der öffentlichen Gesundheit?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4600,15 +4600,15 @@ msgstr "Keine oder wenige Zusatzstoffe"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr ""
+msgstr "Unwichtig"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr ""
+msgstr "Wichtig"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr ""
+msgstr "Sehr wichtig"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
