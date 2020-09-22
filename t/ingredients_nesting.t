@@ -293,6 +293,49 @@ my @tests = (
 ]
 ],
 
+	[ { lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
+[
+  {
+    'id' => 'en:minerals',
+    'text' => 'minéraux',
+    'ingredients' => [
+      {
+        'id' => 'en:e170i',
+        'text' => 'carbonate de calcium'
+      },
+      {
+        'id' => 'en:e504i',
+        'text' => 'carbonate de magnésium'
+      },
+      {
+        'id' => 'en:elemental-iron',
+        'text' => 'fer élémentaire'
+      }
+    ],
+  },
+]
+],
+
+	[ { lc => "fr", ingredients_text => "minéraux (carbonate de magnésium, fer élémentaire)"},
+[
+  {
+    'id' => 'en:minerals',
+    'text' => 'minéraux',
+    'ingredients' => [
+      {
+        'id' => 'en:e504i',
+        'text' => 'carbonate de magnésium'
+      },
+      {
+        'id' => 'en:elemental-iron',
+        'text' => 'fer élémentaire'
+      }
+    ],
+  },
+]
+],
+
+
 );
 
 foreach my $test_ref (@tests) {
