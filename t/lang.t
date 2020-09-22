@@ -12,14 +12,14 @@ use ProductOpener::Config qw/:all/;
 
 sub test_links {
 
-    my $regex = shift;
-    my @links = shift;
+	my $regex = shift;
+	my @links = shift;
 
-    foreach my $key (@links) {
-	foreach my $lang (keys %{$Lang{$key}}) {
-            like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
-        }
-    }
+	foreach my $key (@links) {
+		foreach my $lang (keys %{$Lang{$key}}) {
+			like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
+		}
+	}
 
 	return;
 }
