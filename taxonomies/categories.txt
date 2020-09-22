@@ -7117,20 +7117,26 @@ ciqual_food_name:en:Non-alcoholic beverage (average)
 ciqual_food_name:fr:Boisson rafraîchissante sans alcool (aliment moyen)
 
 <en:Tea-based beverages
+en:Still soft drink with tea extract
+fr:Boisson au thé aromatisée
+agribalyse_proxy_food_code:en:18015
+agribalyse_proxy_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
+
+<en:Still soft drink with tea extract
 en:Still soft drink with tea extract with sugar and artificial sweetener(s)
 fr:Boisson au thé aromatisée sucrée avec édulcorants
 agribalyse_food_code:en:18015
 ciqual_food_code:en:18015
 ciqual_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
-<en:Tea-based beverages
+<en:Still soft drink with tea extract
 en:Still soft drink with tea extract flavoured without sugar and with artificial sweeteners
 fr:Boisson au thé aromatisée non sucrée avec édulcorants
 agribalyse_food_code:en:18065
 ciqual_food_code:en:18065
 ciqual_food_name:en:Still soft drink with tea extract, flavoured, without sugar and with artificial sweeteners
 
-<en:Tea-based beverages
+<en:Still soft drink with tea extract
 en:Still soft drink with tea extract flavoured with sugar
 fr:Boisson au thé aromatisée sucrée
 agribalyse_food_code:en:18075
@@ -21984,6 +21990,8 @@ pnns_group_2:en:Teas and herbal teas and coffees
 ciqual_food_code:en:18062
 ciqual_food_name:en:Still soft drink with tea extract, sugar and sweetener(s) content (average)
 ciqual_food_name:fr:Boisson au thé, aromatisée, teneur en sucre et édulcorant inconnue (aliment moyen)
+agribalyse_proxy_food_code:en:18015
+agribalyse_proxy_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
 <en:Beverages
 #Do not put herbal tea beverages under herbal teas
@@ -23764,6 +23772,8 @@ fi:Kaakao- ja suklaajauheet
 fr:Cacaos et chocolats en poudre, chocolats et cacaos en poudre
 hu:Kakaó- és csokoládéporok
 nl:Cacao en cacaopoeders, cacao en cacapoeder
+agribalyse_proxy_food_code:en:18167
+agribalyse_proxy_food_name:en:Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins and chemical elements
 
 <en:Cocoa and chocolate powders
 en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders
@@ -36829,6 +36839,9 @@ ru:Яйца куриные, куриные яйца, яйца кур
 zh:鸡蛋
 wikidata:en:Q15260613
 #allergy:wikidata:en:Q23037742
+agribalyse_proxy_food_code:en:22000
+agribalyse_proxy_food_name:en:Egg, raw
+agribalyse_proxy_food_name:fr:Oeuf, cru
 
 <en:Bird eggs
 en:Ostrich eggs
@@ -38490,6 +38503,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Muesli
 ciqual_food_code:en:32004
 ciqual_food_name:en:Muesli (average)
 ciqual_food_name:fr:Muesli (aliment moyen)
+agribalyse_proxy_food_code:en:32128
+agribalyse_proxy_food_name:en:Muesli, flakes (Bircher-style)
+agribalyse_proxy_food_name:fr:Muesli floconneux ou de type traditionnel
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
@@ -38518,6 +38534,7 @@ nl:Mueslis met fruit, Muesli met fruit
 ro:Müsli cu fructe
 
 <en:Mueslis
+en:Walnut muesli
 fr:Mueslis aux noix
 it:Muesli con nocciole
 
@@ -39822,6 +39839,13 @@ agribalyse_food_code:en:11045
 ciqual_food_code:en:11045
 ciqual_food_name:en:Baker's yeast, dehydrated
 
+<en:baker's yeast
+en:Baker's yeast compressed
+fr:Levure de boulanger compressée
+agribalyse_food_code:en:11010
+ciqual_food_code:en:11010
+ciqual_food_name:en:Baker's yeast, compressed
+
 <en:Food additives
 en:Baking powder or raising agent
 fr:levure chimique
@@ -39835,13 +39859,6 @@ fr:Levure alimentaire
 agribalyse_food_code:en:11009
 ciqual_food_code:en:11009
 ciqual_food_name:en:Nutritional yeast
-
-<en:Food additives
-en:Baker's yeast compressed
-fr:Levure de boulanger compressée
-agribalyse_food_code:en:11010
-ciqual_food_code:en:11010
-ciqual_food_name:en:Baker's yeast, compressed
 
 <en:Food additives
 en:Yeast
@@ -44260,28 +44277,41 @@ sv:Salter, salt
 zh:盐类
 nova:en:2
 
+
 <en:Salts
 fr:Gros sels, gros sel
 de:Grobe Salze, Grobes Salz
 it:Sale grosso
 nl:Grove zouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 fr:Sels fins, sel fin
 de:Feine Salze, Feines Salz
 it:Sale fino
 nl:Fijne zouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 fr:Sels liquides
 de:Flüssigsalze, Flüssigsalz
 nl:Vloeibare zouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 fr:Sels des mines de sel
 de:Steinsalze, Steinsalz
 it:Salgemma, sale dalle miniere
 nl:Steenzouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 en:Himalaya salts
@@ -44297,10 +44327,16 @@ fi:merisuolat
 fr:Sels marins, sels de mer, sel de mer
 it:Sale marino
 nl:Zeezouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 en:Iodised salts, iodised salt
 it:Sale iodato
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 en:Sea igneous white salt for human consumption without enrichment, Rock white salt for human consumption without enrichment
@@ -44341,6 +44377,9 @@ fr:Sels non raffinés, sels naturels
 hu:Tengeri sók
 it:Sale non raffinato, sale naturale
 nl:Ongeraffineerde zouten
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Unrefined salts
 <en:Sea salts
@@ -44348,6 +44387,9 @@ en:Fleurs de sel
 de:Salzblume, Fleurs de sel
 fr:Fleurs de sel
 nl:Fleurs de sel, Bloem van het zout
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Unrefined salts
 <en:Sea salts
@@ -44378,14 +44420,6 @@ nl:Ongeraffineerde steenzouten
 fr:Sels des marais salants, sels marins gris, sels marins gris de table, sels marins gris de cuisine
 nl:Grijze steenzouten
 
-<en:Sea salts
-en:Guerande salts
-de:Sels de Guérande
-fr:Sels de Guérande
-nl:Zout uit de Guérande
-protected_name_file_number:en: PGI-FR-0861
-protected_name_type:en: pgi
-origins:en: en:France
 
 <en:Salts
 en:Croatian salts
@@ -44398,6 +44432,19 @@ origins:en: en:Croatia
 
 <en:Salts
 en:French salts
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
+
+<en:Sea salts
+<en:French salts
+en:Guerande salts
+de:Sels de Guérande
+fr:Sels de Guérande
+nl:Zout uit de Guérande
+protected_name_file_number:en: PGI-FR-0861
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Guerande salts
 <en:Fleurs de sel
@@ -45909,6 +45956,7 @@ wikidata:en:Q167893
 agribalyse_proxy_food_code:en:11054
 agribalyse_proxy_food_name:en:Mayonnaise (70% fat and more)
 agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
+# For some reason, Mayonnaises still appear unknown
 
 <en:Mayonnaises
 nl:Fritessauzen
@@ -54942,6 +54990,14 @@ agribalyse_food_code:en:30104
 ciqual_food_code:en:30104
 ciqual_food_name:en:Morteaux sausage
 
+<fr:Charcuteries cuites
+<en:Morteau sausages
+en:Morteaux sausage boiled/cooked in water
+fr:Saucisse de Morteau bouillie
+agribalyse_food_code:en:30108
+ciqual_food_code:en:30108
+ciqual_food_name:en:Morteaux sausage, boiled/cooked in water
+
 <en:French sausages
 en:Strasbourg sausages
 de:Straßburger Würstchen
@@ -55080,13 +55136,6 @@ ciqual_food_code:en:8391
 ciqual_food_name:en:Pâté in crust
 
 <fr:Charcuteries cuites
-en:Morteaux sausage boiled/cooked in water
-fr:Saucisse de Morteau bouillie
-agribalyse_food_code:en:30108
-ciqual_food_code:en:30108
-ciqual_food_name:en:Morteaux sausage, boiled/cooked in water
-
-<fr:Charcuteries cuites
 en:Swiss sausage intended to be cook
 fr:Saucisse suisse à cuire
 agribalyse_food_code:en:30118
@@ -55131,6 +55180,7 @@ wikidata:en:Q11164
 
 <fr:Andouillettes
 fr:Andouillettes de Troyes
+origins:en: en:France
 
 <fr:Andouillettes
 en:Raw chitterling sausage from Troyes
@@ -55139,9 +55189,11 @@ agribalyse_food_code:en:8552
 ciqual_food_code:en:8552
 ciqual_food_name:en:Chitterling sausage from Troyes, raw
 ciqual_food_name:fr:Andouillette de Troyes, crue
+origins:en: en:France
 
 <fr:Andouillettes
 fr:Andouillettes provençales, Andouillettes de Provence
+origins:en: en:France
 
 <en:Prepared meats
 fr:Charcuteries diverses
@@ -58018,7 +58070,10 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment mo
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
-<en:Pasta dishes
+<en:Stuffed pasta
+en:Pasta stuffed with cheese
+
+<en:Stuffed pastas
 fr:Ravioles
 
 <en:Stuffed Pastas
@@ -58029,7 +58084,7 @@ protected_name_file_number:en: PGI-FR-0583
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:Stuffed Pastas
+<en:Pasta stuffed with cheese
 en:Cooked fresh pasta stuffed with cheese, Cooked raviolis
 fr:Pâtes fraîches au fromage farcies et cuites, Raviolis du Dauphiné cuits, Ravioles du Dauphiné cuites
 agribalyse_food_code:en:25149
@@ -58037,7 +58092,7 @@ ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
 
-<en:Stuffed Pastas
+<en:Pasta stuffed with cheese
 en:Raw fresh pasta stuffed with cheese, Raw raviolis
 fr:Pâtes fraîches au fromage farcies et crues, Raviolis du Dauphiné crus, Ravioles du Dauphiné crues
 agribalyse_food_code:en:25181
@@ -58045,7 +58100,7 @@ ciqual_food_code:en:25181
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
-<en:Stuffed Pastas
+<en:Pasta stuffed with cheese
 en:Cooked fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches cuites farcies au fromage et aux légumes
 agribalyse_food_code:en:25155
@@ -58053,10 +58108,15 @@ ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, cuites
 
-<en:ravioli
+<en:Pasta stuffed with meat
+<en:Ravioli
 en:Meat ravioli
 
 <en:Stuffed Pastas
+en:Pasta stuffed with meat
+fr:Pâtes farcies à la viande
+
+<en:Pasta stuffed with meat
 en:Raw fresh pasta stuffed with meat
 fr:Pâtes fraîches crues farcies à la viande
 agribalyse_food_code:en:25157
@@ -58064,13 +58124,36 @@ ciqual_food_code:en:25157
 ciqual_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
 
-<en:Stuffed Pastas
+<en:Pasta stuffed with meat
 en:Cooked fresh pasta stuffed with meat
 fr:Pâtes fraîches cuites farcies à la viande
 agribalyse_food_code:en:25158
 ciqual_food_code:en:25158
 ciqual_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), cuites
+
+<en:Beef dishes
+<en:Meat ravioli
+en:Beef ravioli
+de:Rindfleischravioli, Rindfleisch-Ravioli
+fi:naudanliharavioli
+fr:Raviolis au bœuf, Ravioli pur bœuf
+hu:Marha ravioli
+nl:Rundvleesraviolis
+
+<en:Ravioli
+en:Bolognese Raviolis, Ravioli with Bolognese
+de:Ravioli Bolognese
+fr:Ravioli à la bolognaise, raviolis à la bolognaise, Ravioli bolognaise, Raviolis bolognaise
+hu:Bolognais ravioli, Ravioli bolognaival
+nl:Bolognese Raviolis
+
+<en:Meat ravioli
+<en:Poultry meals
+<en:Pasta stuffed with meat
+fr:Ravioli à la volaille, Raviolis volaille, raviolis à la volaille, raviolis au poulet
+de:Geflügelravioli, Geflügel-Ravioli
+nl:Gevogelteraviolis
 
 <en:Stuffed Pastas
 en:Raw fresh pasta stuffed with cheese and vegetables
@@ -58081,6 +58164,9 @@ ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. raviol
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, crues
 
 <en:Stuffed Pastas
+en:Pasta stuffed with vegetables
+
+<en:Pasta stuffed with vegetables
 en:Cooked fresh pasta stuffed with vegetables
 fr:Pâtes fraîches cuites farcies aux légumes
 agribalyse_food_code:en:25193
@@ -58088,7 +58174,7 @@ ciqual_food_code:en:25193
 ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), aux légumes, cuites
 
-<en:Stuffed Pastas
+<en:Pasta stuffed with vegetables
 en:Raw fresh pasta stuffed with vegetables
 fr:Pâtes fraîches crues farcies aux légumes
 agribalyse_food_code:en:25203
@@ -58097,28 +58183,7 @@ ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : ravioli), aux légumes, crues
 
 <en:Ravioli
-en:Bolognese Raviolis, Ravioli with Bolognese
-de:Ravioli Bolognese
-fr:Ravioli à la bolognaise, raviolis à la bolognaise, Ravioli bolognaise, Raviolis bolognaise
-hu:Bolognais ravioli, Ravioli bolognaival
-nl:Bolognese Raviolis
-
-<en:Ravioli
-<en:Poultry meals
-fr:Ravioli à la volaille, Raviolis volaille, raviolis à la volaille, raviolis au poulet
-de:Geflügelravioli, Geflügel-Ravioli
-nl:Gevogelteraviolis
-
-<en:Ravioli
-<en:Beef dishes
-en:Beef ravioli
-de:Rindfleischravioli, Rindfleisch-Ravioli
-fi:naudanliharavioli
-fr:Raviolis au bœuf, Ravioli pur bœuf
-hu:Marha ravioli
-nl:Rundvleesraviolis
-
-<en:Ravioli
+<en:Pasta stuffed with cheese
 en:Cheese ravioli, Ravioli with cheese
 de:Käseravioli, Käse-Ravioli
 es:Ravioli de queso
@@ -58128,6 +58193,7 @@ hu:Sajtos  ravioli, Ravioli sajttal
 nl:Kaasraviolis
 
 <en:Ravioli
+<en:Pasta stuffed with vegetables
 en:Mushroom ravioli, mushroom raviolis
 de:Pilzravioli, Pilz-Ravioli
 es:Ravioli de champiñones
@@ -60484,14 +60550,6 @@ agribalyse_food_code:en:26027
 ciqual_food_code:en:26027
 ciqual_food_name:en:Pilchard, in tomato sauce, canned, drained
 
-<en:Sardines in olive oil
-<en:Sardine fillets
-en:European pilchard or sardine in tomato sauce canned drained
-fr:Sardine sauce tomate appertisée égouttée
-agribalyse_food_code:en:26035
-ciqual_food_code:en:26035
-ciqual_food_name:en:European pilchard or sardine, in tomato sauce, canned, drained
-
 <en:Canned fishes
 <en:Mackerels
 en:Tinned Mackerels
@@ -60965,6 +61023,7 @@ nl:Sardientjes  op olie en citroen
 ro:Sardine în ulei și lămâie
 
 <en:Sardines in oil
+en:Sardines in oil and chili
 fr:Sardines à l’huile et au piment, Sardines au piment, Sardines à l’huile au piment
 nl:Sardientjes op olie en piment
 
@@ -60975,6 +61034,16 @@ fi:sardiineja tomaattikastikkeessa
 fr:Sardines à la tomate
 nl:Sardientjes op tomatensaus
 ro:Sardine în sos de roșii, Sardine în sos tomat
+agribalyse_proxy_food_code:en:26035
+agribalyse_proxy_food_name:en:European pilchard or sardine, in tomato sauce, canned, drained
+
+<en:Sardines in tomato sauce
+<en:Sardine fillets
+en:European pilchard or sardine in tomato sauce canned drained
+fr:Sardine sauce tomate appertisée égouttée
+agribalyse_food_code:en:26035
+ciqual_food_code:en:26035
+ciqual_food_name:en:European pilchard or sardine, in tomato sauce, canned, drained
 
 <en:Canned sardines
 en:Sardines without oil
@@ -62322,6 +62391,7 @@ pl:Filety z makreli
 agribalyse_food_code:en:26123
 ciqual_food_code:en:26123
 ciqual_food_name:en:Mackerel, canned in brine, drained
+# Mackerels fillets still appear unknown https://fr.openfoodfacts.org/categories-properties/agribalyse-food-code-unknown/categorie/en:mackerels-fillets
 
 <en:Mackerels
 <en:Fish fillets
@@ -69966,6 +70036,10 @@ nl:Groene olijven
 pt:Azeitonas verdes
 ro:Măsline verzi
 ru:Оливки зелёные, Зелёные оливки, Маслины зелёные, Зелёные маслины
+agribalyse_proxy_food_code:en:13147
+agribalyse_proxy_food_name:en:Olive, green, stuffed (anchovy, sweet peppers, etc…)
+agribalyse_proxy_food_name:fr:Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+# No Green or black olives in AGB. Only Stuffed olives.
 
 <en:Chopped olives
 <en:Green olives
@@ -70017,6 +70091,9 @@ es:Aceitunas verdes rellenas
 fi:täytetyt vihreät oliivit
 fr:Olives vertes farcies
 nl:Groene gevulde olijven
+agribalyse_proxy_food_code:en:13147
+agribalyse_proxy_food_name:en:Olive, green, stuffed (anchovy, sweet peppers, etc…)
+agribalyse_proxy_food_name:fr:Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 
 <en:Green stuffed olives
 en:Green olives stuffed of almond
