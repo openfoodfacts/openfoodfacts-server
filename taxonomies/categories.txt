@@ -4098,6 +4098,9 @@ pt:Sumos de macã
 ru:Яблочные соки, Яблочный сок
 zh:苹果汁
 wikidata:en:Q618355
+agribalyse_proxy_food_code:en:2074
+agribalyse_proxy_food_name:en:Apple juice, pure juice
+agribalyse_proxy_food_name:fr:Jus de pomme, pur jus
 
 <en:Fruit juices
 en:Clementine juices
@@ -4119,6 +4122,9 @@ ciqual_food_name:fr:Jus de clémentine ou mandarine, pur jus
 en:Lime juice
 fr:Jus de citron vert
 nl:Limoensap
+agribalyse_food_code:en:13067
+agribalyse_proxy_food_name:en:Lime, pulp, raw
+agribalyse_proxy_food_name:fr:Citron vert ou Lime, pulpe, cru
 
 <en:Lime juice
 en:Home-made lime juice
@@ -30512,14 +30518,21 @@ agribalyse_food_code:en:12061
 ciqual_food_code:en:12061
 ciqual_food_name:en:Feta cheese, from ewe's milk
 
-<en:Greek cheeses
+<en:Cheeses
+en:Feta-type cheese
+agribalyse_proxy_food_code:en:12063
+agribalyse_proxy_food_name:en:Feta-type cheese from cow's milk, in oil and spices
+
+<en:Feta-type cheese
+<en:Cow cheeses
 en:Feta-type cheese from cow's milk
 fr:Fromage type feta au lait de vache
 agribalyse_food_code:en:12060
 ciqual_food_code:en:12060
 ciqual_food_name:en:Feta-type cheese from cow's milk
 
-<en:Greek cheeses
+<en:Feta-type cheese
+<en:Cow cheeses
 en:Feta-type cheese from cow's milk in oil and spices
 fr:Fromage type feta au lait de vache à l'huile et aux aromates
 agribalyse_food_code:en:12063
@@ -32265,12 +32278,12 @@ origins:en: en:Italy
 <en:Italian cheeses
 it:Castelmagno
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q1249286
 
 <en:Italian cheeses
 it:Fiore Sardo
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q176236
 
 <en:Italian cheeses
 it:Fontina
@@ -32284,17 +32297,17 @@ ciqual_food_name:en:Fontina cheese, from cow's milk
 <en:Italian cheeses
 it:Formaggella del Luinese
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q20009675
 
 <en:Italian cheeses
 it:Formaggio di Fossa di Sogliano
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q21272237
 
 <en:Italian cheeses
 it:Formai de Mut Dell'alta Valle Brembana
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q848380
 
 <en:Italian cheeses
 en:Grana Padano
@@ -32319,7 +32332,7 @@ country:en:Italy
 <en:Italian cheeses
 it:Monte Veronese
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q1223352
 
 <en:Italian cheeses
 <en:Stretched-curd cheeses
@@ -33341,6 +33354,9 @@ fi:Iskukuumennetut kermat
 fr:Crèmes UHT
 it:Creme UHT
 nl:UHT room, UHT romen
+agribalyse_proxy_food_code:en:19415
+agribalyse_proxy_food_name:en:Liquid cream 30% fat, UHT
+agribalyse_proxy_food_name:fr:Crème de lait, 30% MG, semi-épaisse, UHT
 
 <en:UHT Creams
 <fr:Crèmes sous pression
@@ -33595,6 +33611,7 @@ sv:Smör
 wikidata:en:Q34172
 agribalyse_proxy_food_code:en:16400
 agribalyse_proxy_food_name:en:Butter, 82% fat, unsalted
+# Does not work
 
 <en:Butters
 fr:Beurres de baratte
@@ -35422,6 +35439,7 @@ it:Yogurt allo Bifidus
 nl:Bifidus yoghurts
 
 <en:Bifidus yogurts
+en:Plain bifidus yogurts
 fr:Yaourts au bifidus nature
 
 <en:Bifidus yogurts
