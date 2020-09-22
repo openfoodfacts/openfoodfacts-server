@@ -1,14 +1,20 @@
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
 
-// Retrieve user preferences from local storage
 
-var user_product_preferences = {};
-var user_product_preferences_string = localStorage.getItem('user_product_preferences');
+function get_user_product_preferences () {
+	// Retrieve user preferences from local storage
 
-if (user_product_preferences_string) {
-	user_product_preferences = JSON.parse(user_product_preferences_string);
+	var user_product_preferences = {};
+	var user_product_preferences_string = localStorage.getItem('user_product_preferences');
+
+	if (user_product_preferences_string) {
+		user_product_preferences = JSON.parse(user_product_preferences_string);
+	}
+	
+	return user_product_preferences;
 }
+
 
 // show_user_product_preferences can be called by other scripts
 /* exported show_user_product_preferences */
@@ -38,6 +44,8 @@ function show_user_product_preferences (target) {
 	}
 	
 	if (attribute_groups && preferences) {
+		
+		var user_product_preferences = get_user_product_preferences();
 		
 		var attribute_groups_html = [];
 		

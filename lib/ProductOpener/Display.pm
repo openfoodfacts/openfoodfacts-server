@@ -3923,6 +3923,7 @@ sub display_search_results($) {
 	foreach my $field (param()) {
 		if (
 			($field eq "page")
+			or ($field eq "fields")
 			or ($field eq "keywords")	# returned by CGI.pm when there are not params: keywords=search
 			) {
 			next;
@@ -3939,6 +3940,11 @@ sub display_search_results($) {
 		# The results will be filtered and ranked on the client side
 		
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
+		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
+		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		if ($search_api_url !~ /\?/) {
+			$search_api_url =~ s/\&/\?/;
+		}
 		
 		$scripts .= <<JS
 <script src="/js/product-preferences.js"></script>
@@ -3949,7 +3955,7 @@ JS
 		$initjs .= <<JS
 
 show_user_product_preferences("#preferences_settings");
-search_products("#search_results", "$search_api_url");
+search_products("#search_results", "$search_api_url", get_user_product_preferences());
 JS
 ;
 

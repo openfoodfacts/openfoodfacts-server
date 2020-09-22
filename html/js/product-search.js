@@ -8,47 +8,162 @@ if (user_product_preferences_string) {
 	user_product_preferences = JSON.parse(user_product_preferences_string);
 }
 
-var products;
 
+// match_product_to_preference checks if a product matches
+// a given set of preferences and scores the product according to
+// the preferences
+//
+// The product object must contain the attribute_groups field
+//
+// Output values are returned in the product object
+//
+// match_status: yes, no, unknown
+// match_score: number (maximum depends on the preferences)
 
-function rank_and_filter_products() {
+function match_product_to_preferences (product, product_preferences) {
+
+	var score = 0;
+	var status = "yes";
+	var debug = "";
+
+	if (! product.attribute_groups) {
+		status = "unknown";
+	}
+	else {
+		
+		// Iterate over attribute groups
+		$.each( product.attribute_groups, function(key, attribute_group) {
+			
+			// Iterate over attributes
+			
+			$.each(attribute_group.attributes, function(key, attribute) {
+				
+				if ((! user_product_preferences[attribute.id]) || (user_product_preferences[attribute.id] == "not_important")) {
+					// Ignore attribute
+					debug += attribute.id + " not_important" + "\n";
+				}
+				else {
+					
+					if (attribute.status == "unknown") {
+						
+						// If the attribute is important or more, then mark the product unknown
+						// if the attribute is unknown (unless the product is already not matching)				
+						
+						if (status == "yes") {
+							status == "unknown";
+						}
+					}
+					else {
+						
+						debug += attribute.id + " " + user_product_preferences[attribute.id] + " - match: " + attribute.match + "\n";
+					
+						if (user_product_preferences[attribute.id] == "important") {
+					
+							score += attribute.match;
+						}
+						else if (user_product_preferences[attribute.id] == "very_important") {
+							
+							score += attribute.match * 2;
+						}
+						else if (user_product_preferences[attribute.id] == "mandatory") {
+
+							score += attribute.match * 4;
+					
+							if (attribute.match <= 20) {
+								status = "no";
+							}
+						}
+					}					
+				}
+			});
+		});		
+		
+	}
 	
-	// TODO
-	
+	product.match_status = status;
+	product.match_score = score;	
+	product.match_debug = debug;	
 }
 
+// rank_and_filter_products (products, product_preferences)
 
-function show_products(target) {
+function rank_and_filter_products(products, product_preferences) {
 	
-	var products_html = [];
+	// Score all products
 	
-	$.each( products, function(key, product) {
-	
-		var product_html = "<li>";
+	$.each(products, function (key, product) {
 		
-		product_html += '<a href="' + product.url + '"><div>';
+		match_product_to_preferences (product, product_preferences);
 		
-		if (product.image_front_thumb_url) {
-			product_html += '<img src="' + product.image_front_thumb_url + '">';
-		}
-		
-		product_html += "</div>";
-		
-		product_html += "<span>" + product.product_name + "</span>";
-		
-		product_html += '</a>';
-		
-		product_html += "</li>";
-			
-		products_html.push(product_html);		
 	});
 	
-	$( "<ul/>", {
-		"class": "products search_results",
-		html: products_html.join( "" )
-	}).replaceAll(target);	
+	// Rank all products, and return them in 3 arrays: "yes", "no", "unknown"
+	
+	products.sort(function(a, b) {
+		return b.match_score - a.match_score;
+	});
+	
+	var product_groups = {
+		"yes" : [],
+		"unknown" : [],
+		"no" : [],
+	};
+	
+	$.each( products, function(key, product) {
+
+		product_groups[product.match_status].push(product);
+	});
+	
+	return product_groups;
 }
 
+
+function show_products(target, product_groups, product_preferences) {
+	
+	$( target ).empty();
+	
+	$.each ( product_groups, function(key, product_group) {
+	
+		var products_html = [];
+		
+		$.each( product_group, function(key, product) {
+		
+			var product_html = "<li>";
+			
+			product_html += '<a href="' + product.url + '"><div>';
+			
+			if (product.image_front_thumb_url) {
+				product_html += '<img src="' + product.image_front_thumb_url + '">';
+			}
+			
+			product_html += "</div>";
+			
+			product_html += "<span>" + product.product_name + "</span>";
+			
+			product_html += '</a>';
+			
+			product_html += '<span title="' + product.match_debug + '">' + Math.round(product.match_score) + '</span>';
+			
+			product_html += "</li>";
+				
+			products_html.push(product_html);		
+		});
+		
+		$( "<div/>", {
+			"id": "div_products_match_" + key,
+			html: '<h3 style="clear:left;margin-top:2rem;">' + key + "</h3>",
+		}).appendTo(target);
+
+		$( "<ul/>", {
+			"class": "products search_results",
+			"id": "products_match_" + key,
+			html: products_html.join( "" )
+		}).appendTo("#div_products_match_" + key);
+		
+	});
+}
+
+/* exported search_products */
 
 function search_products (target, search_api_url) {
 
@@ -60,9 +175,9 @@ function search_products (target, search_api_url) {
 			
 			products = data.products;
 			
-			rank_and_filter_products();
+			var ranked_products = rank_and_filter_products(products, user_product_preferences);
 			
-			show_products(target);
+			show_products(target, ranked_products, user_product_preferences);
 			
 			$(document).foundation('equalizer', 'reflow');
 		}		
