@@ -4118,7 +4118,7 @@ sub add_params_to_query($$) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 			
-			my $values = param($field);
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
 			
 			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
 			
