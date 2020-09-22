@@ -37305,6 +37305,7 @@ zh:栗子
 wikidata:en:Q129324
 
 <en:Chestnuts
+en:Fresh chestnuts
 fr:Châtaignes fraîches
 season_in_country_fr:en: 10,11
 
@@ -63820,13 +63821,6 @@ ciqual_food_code:en:25536
 ciqual_food_name:en:Sandwich made with French bread, salami and butter
 
 <en:French bread sandwiches
-en:Sandwich made with French bread ham and butter
-fr:Sandwich baguette jambon beurre
-agribalyse_food_code:en:25517
-ciqual_food_code:en:25517
-ciqual_food_name:en:Sandwich made with French bread, ham and butter
-
-<en:French bread sandwiches
 en:Sandwich made with French bread ham and emmental cheese
 fr:Sandwich baguette jambon emmental
 agribalyse_food_code:en:25485
@@ -63840,21 +63834,6 @@ agribalyse_food_code:en:25521
 ciqual_food_code:en:25521
 ciqual_food_name:en:Sandwich made with French bread, ham, emmental cheese and butter
 
-<en:Sandwiches
-en:Sandwich made with wholemeal loaf bread ham and cheese
-fr:Sandwich pain de mie complet jambon fromage
-agribalyse_food_code:en:25576
-ciqual_food_code:en:25576
-ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
-
-<en:French bread sandwiches
-en:Sandwich made with French bread camembert cheese and butter
-fr:Sandwich baguette camembert beurre
-agribalyse_food_code:en:25518
-ciqual_food_code:en:25518
-ciqual_food_name:en:Sandwich made with French bread, camembert cheese and butter
-ciqual_food_name:fr:Sandwich baguette, camembert, beurre
-
 <en:French bread sandwiches
 en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
 fr:Sandwich baguette jambon oeuf dur crudités beurre
@@ -63863,7 +63842,19 @@ ciqual_food_code:en:25475
 ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
+en:Sandwich with tuna and raw vegetables and mayonnaise
+fr:Sandwich crudités-thon
+
+<en:Sandwich with tuna and raw vegetables and mayonnaise
+en:Sandwich made with wholemeal loaf bread and tuna and raw vegetables and mayonnaise
+fr:Sandwich pain de mie complet thon crudités mayonnaise
+agribalyse_food_code:en:25575
+ciqual_food_code:en:25575
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
+ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
+
 <en:French bread sandwiches
+<en:Sandwich with tuna and raw vegetables and mayonnaise
 en:Sandwich made with French bread and tuna and raw vegetables and mayonnaise
 fr:Sandwich baguette thon crudités mayonnaise
 agribalyse_food_code:en:25431
@@ -63879,29 +63870,17 @@ ciqual_food_code:en:25490
 ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw vegetables
 ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
 
-<en:Sandwiches
-en:Sandwich made with wholemeal loaf bread and tuna and raw vegetables and mayonnaise
-fr:Sandwich pain de mie complet thon crudités mayonnaise
-agribalyse_food_code:en:25575
-ciqual_food_code:en:25575
-ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
-ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
+en:Sandwich with egg and raw vegetables and mayonnaise
+fr:Sandwich crudités-oeuf, Sandwich oeuf-crudités
 
 <en:French bread sandwiches
+<en:Sandwich with egg and raw vegetables and mayonnaise
 en:Sandwich made with French bread and egg and raw vegetables and mayonnaise
 fr:Sandwich baguette oeuf crudités mayonnaise
 agribalyse_food_code:en:25532
 ciqual_food_code:en:25532
 ciqual_food_name:en:Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
-
-<en:French bread sandwiches
-en:Sandwich made with French bread and smoked salmon and butter
-fr:Sandwich baguette saumon fumé beurre
-agribalyse_food_code:en:25488
-ciqual_food_code:en:25488
-ciqual_food_name:en:Sandwich made with French bread, smoked salmon and butter
-ciqual_food_name:fr:Sandwich baguette, saumon fumé, beurre
 
 <en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
@@ -63911,15 +63890,6 @@ agribalyse_food_code:en:25533
 ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
-
-<en:French bread sandwiches
-<en:Sandwiches filled with cold cuts
-en:Sandwich made with French bread and turkey and raw vegetables and mayonnaise
-fr:Sandwich baguette dinde crudités mayonnaise
-agribalyse_food_code:en:25531
-ciqual_food_code:en:25531
-ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
-ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
 <en:French bread sandwiches
 <en:Sandwiches
@@ -63945,12 +63915,44 @@ fi:kanavoileivät
 fr:Sandwichs au poulet
 it:Panini al pollo, Tramezzini al pollo, Sandwich al pollo
 nl:Kipsandwiches
+agribalyse_proxy_food_code:en:25577
+agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
+agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
+
+<en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
+<en:Chicken sandwiches
+en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
+fr:Sandwich baguette poulet crudités mayonnaise
+agribalyse_food_code:en:25476
+ciqual_food_code:en:25476
+ciqual_food_name:en:Sandwich made with French bread, chicken, raw vegetables (lettuce & tomato) and mayonnaise
+ciqual_food_name:fr:Sandwich baguette, poulet, crudités (tomate, salade), mayonnaise
+
+<en:Sandwiches filled with cold cuts
+<en:Chicken sandwiches
+en:Sandwich made with wholemeal loaf bread and chicken and raw vegetables and mayonnaise
+fr:Sandwich pain de mie complet poulet crudités mayonnaise
+agribalyse_food_code:en:25577
+ciqual_food_code:en:25577
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
+ciqual_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
 
 <en:Poultry sandwiches
 en:Turkey sandwiches
 de:Truthahn-Sandwichs, Truthahn-Sandwiches, Puten-Sandwichs, Puten-Sandwiches
 fr:Sandwichs à la dinde
 nl:Kalkoensandwiches
+
+<en:French bread sandwiches
+<en:Sandwiches filled with cold cuts
+<en:Turkey sandwiches
+en:Sandwich made with French bread and turkey and raw vegetables and mayonnaise
+fr:Sandwich baguette dinde crudités mayonnaise
+agribalyse_food_code:en:25531
+ciqual_food_code:en:25531
+ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
+ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
 <en:Sandwiches
 en:Sandwiches filled with cold cuts
@@ -63960,9 +63962,21 @@ fr:Sandwichs garnis de charcuteries
 nl:Vleeswaren sandwiches
 
 <en:Sandwiches filled with cold cuts
+<en:French bread sandwiches
+en:Sandwich made with French bread and dry sausage and butter
+fr:Sandwich baguette saucisson beurre
+agribalyse_food_code:en:25520
+ciqual_food_code:en:25520
+ciqual_food_name:en:Sandwich made with French bread, dry sausage and butter
+ciqual_food_name:fr:Sandwich baguette, saucisson, beurre
+
+<en:Sandwiches filled with cold cuts
 en:Rosette Sandwiches, Sandwiches filled with rosette
 fr:Sandwichs à la rosette
 nl:Rosette sandwich
+agribalyse_proxy_food_code:en:25520
+agribalyse_proxy_food_name:en:Sandwich made with French bread, dry sausage and butter
+agribalyse_proxy_food_name:fr:Sandwich baguette, saucisson, beurre
 
 <en:Sandwiches filled with cold cuts
 en:Coppa sandwiches, Sandwiches filled with coppa
@@ -63973,15 +63987,6 @@ nl:Coppa sandwich
 en:Bacon sandwiches
 fr:Sandwichs au bacon
 nl:Speksandwiches
-
-<en:Sandwiches filled with cold cuts
-<en:French bread sandwiches
-en:Sandwich made with French bread and dry sausage and butter
-fr:Sandwich baguette saucisson beurre
-agribalyse_food_code:en:25520
-ciqual_food_code:en:25520
-ciqual_food_name:en:Sandwich made with French bread, dry sausage and butter
-ciqual_food_name:fr:Sandwich baguette, saucisson, beurre
 
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
@@ -64010,22 +64015,19 @@ fr:Sandwichs au jambon
 it:Panini al prosciutto, Tramezzini al prosciutto, Sandwich al prosciutto
 nl:Hamsandwiches
 
-<en:Sandwiches filled with cold cuts
-<en:French bread sandwiches
-en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
-fr:Sandwich baguette poulet crudités mayonnaise
-agribalyse_food_code:en:25476
-ciqual_food_code:en:25476
-ciqual_food_name:en:Sandwich made with French bread, chicken, raw vegetables (lettuce & tomato) and mayonnaise
-ciqual_food_name:fr:Sandwich baguette, poulet, crudités (tomate, salade), mayonnaise
+<en:Ham sandwiches
+en:Ham and butter sandwiches
+fr:Sandwichs Jambon Beurre, Jambon-beurre
+nl:Sandwiches met boter en ham
+wikidata:en:Q3160836
 
-<en:Sandwiches filled with cold cuts
-en:Sandwich made with wholemeal loaf bread and chicken and raw vegetables and mayonnaise
-fr:Sandwich pain de mie complet poulet crudités mayonnaise
-agribalyse_food_code:en:25577
-ciqual_food_code:en:25577
-ciqual_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
-ciqual_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
+<en:French bread sandwiches
+<en:Ham and butter sandwiches
+en:Sandwich made with French bread ham and butter
+fr:Sandwich baguette jambon beurre
+agribalyse_food_code:en:25517
+ciqual_food_code:en:25517
+ciqual_food_name:en:Sandwich made with French bread, ham and butter
 
 <en:Sandwiches filled with cold cuts
 en:Sandwich made with loaf bread and various fillings
@@ -64049,12 +64051,6 @@ fr:Sandwichs au jambon de dinde
 nl:Kalkoenhamsandwiches
 
 <en:Ham sandwiches
-en:Ham and butter sandwiches
-fr:Sandwichs Jambon Beurre, Jambon-beurre
-nl:Sandwiches met boter en ham
-wikidata:en:Q3160836
-
-<en:Ham sandwiches
 <en:Cheese sandwiches
 en:Ham and cheese sandwiches
 de:Sandwiches mit Schinken und Käse
@@ -64063,6 +64059,13 @@ fr:Sandwichs Jambon Fromage
 it:Panini prosciutto e formaggio, Sandwich prosciutto e formaggio, Tramezzini prosciutto e formaggio
 nl:Ham-kaas sandwiches
 wikidata:en:Q3782694
+
+<en:Ham and cheese sandwiches
+en:Sandwich made with wholemeal loaf bread ham and cheese
+fr:Sandwich pain de mie complet jambon fromage
+agribalyse_food_code:en:25576
+ciqual_food_code:en:25576
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
 
 <en:Sandwiches
 en:Cheese sandwiches
@@ -64121,6 +64124,19 @@ en:Brie cheese sandwiches
 fr:Sandwichs au brie
 nl:Sandwiches met Brie
 
+<en:Cheese sandwiches
+en:Sandwich made with camembert cheese
+fr:Sandwich au camembert
+
+<en:French bread sandwiches
+<en:Sandwich made with camembert cheese
+en:Sandwich made with French bread camembert cheese and butter
+fr:Sandwich baguette camembert beurre
+agribalyse_food_code:en:25518
+ciqual_food_code:en:25518
+ciqual_food_name:en:Sandwich made with French bread, camembert cheese and butter
+ciqual_food_name:fr:Sandwich baguette, camembert, beurre
+
 <en:Sandwiches
 en:Fish sandwiches
 de:Fischsemmeln
@@ -64142,6 +64158,15 @@ zh:吞拿鱼三明治
 en:Salmon sandwiches
 fr:Sandwichs au saumon, sandwich saumon fumé, sandwichs au saumon fumé, sandwich au saumon fumé
 nl:Zalmsandwiches
+
+<en:French bread sandwiches
+<en:Salmon sandwiches
+en:Sandwich made with French bread and smoked salmon and butter
+fr:Sandwich baguette saumon fumé beurre
+agribalyse_food_code:en:25488
+ciqual_food_code:en:25488
+ciqual_food_name:en:Sandwich made with French bread, smoked salmon and butter
+ciqual_food_name:fr:Sandwich baguette, saumon fumé, beurre
 
 <en:Fish sandwiches
 en:Surimi sandwiches
