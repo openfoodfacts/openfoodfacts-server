@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 09:00\n"
+"PO-Revision-Date: 2020-09-22 10:53\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -957,6 +957,14 @@ msgstr "Codul de bare din imagine nu a putut fi citit sau imaginea nu conține c
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "Nu a fost găsit niciun cod de bare în imagine."
+
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr ""
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -4019,16 +4027,12 @@ msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr ""
 
-msgctxt "donation_banner_show"
-msgid "Hey, a box to uncheck?!"
-msgstr ""
-
 msgctxt "donation_banner_independant"
-msgid "An independant and citizen-led project for food transparency ?"
+msgid "An independant and citizen-led project for food transparency?"
 msgstr ""
 
 msgctxt "donation_banner_public_health"
-msgid "Food product data for research that improves public health ?"
+msgid "Food product data for research that improves public health?"
 msgstr ""
 
 msgctxt "donation_banner_choices"
@@ -4576,5 +4580,21 @@ msgstr "Aditivi"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
+msgstr ""
+
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr ""
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr ""
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr ""
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
 msgstr ""
 
