@@ -60964,6 +60964,9 @@ hu:Gombák
 it:Funghi
 la:Fungi
 nl:Paddestoelen
+agribalyse_proxy_food_code:en:20105
+agribalyse_proxy_food_name:en:Morel, raw
+agribalyse_proxy_food_name:fr:Champignon, morille, crue
 
 <en:Mushrooms
 <en:Fresh vegetables
@@ -63925,6 +63928,7 @@ ciqual_food_code:en:25475
 ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
+<en:Sandwiches
 en:Sandwich with tuna and raw vegetables and mayonnaise
 fr:Sandwich crudités-thon
 
@@ -63953,6 +63957,7 @@ ciqual_food_code:en:25490
 ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw vegetables
 ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
 
+<en:Sandwiches
 en:Sandwich with egg and raw vegetables and mayonnaise
 fr:Sandwich crudités-oeuf, Sandwich oeuf-crudités
 
@@ -63974,7 +63979,7 @@ ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
-
+<en:Sandwiches
 en:Sandwich with raw vegetables and mayonnaise
 fr:Sandwich crudités mayonnaise
 
@@ -64189,6 +64194,7 @@ fr:Sandwichs au cheddar
 nl:Sandwiches met Cheddar
 
 <en:Cheese sandwiches
+en:Tomme cheese sandwiches
 fr:Sandwichs à la tomme
 
 <en:Cheese sandwiches
@@ -65536,6 +65542,40 @@ de:Seelachsfilets, Seelachsfilet
 fr:Filets de colin
 nl:Koolvisfilets
 
+<en:Fishes
+en:Anchovy
+de:Sardellen
+es:Anchoa
+fi:anjovis
+fr:Anchois
+it:Acciughe
+nl:Ansjovis
+
+<en:Anchovy
+en:Raw common anchovy
+fr:Anchois commun cru
+agribalyse_food_code:en:26079
+ciqual_food_code:en:26079
+ciqual_food_name:en:Common anchovy, raw
+ciqual_food_name:fr:Anchois commun, cru
+
+<en:Anchovy
+<en:Semi-preserved foods
+en:Semi-preserved anchovy in salt
+fr:Anchois au sel, Anchoité semi-conserve
+agribalyse_food_code:en:26177
+ciqual_food_code:en:26177
+ciqual_food_name:en:Anchovy, in salt (semi-preserved)
+ciqual_food_name:fr:Anchois au sel (anchoité, semi-conserve)
+
+<en:Anchovy
+en:Marinated common anchovy
+fr:Anchois commun mariné
+agribalyse_food_code:en:26187
+ciqual_food_code:en:26187
+ciqual_food_name:en:Common anchovy, marinated
+ciqual_food_name:fr:Anchois commun, mariné
+
 <en:Fish fillets
 en:Anchovy fillets
 de:Sardellenfilets, Sardellenfilet
@@ -65547,6 +65587,10 @@ nl:Ansjovisfilets
 
 <en:Anchovy fillets
 <en:Semi-preserved foods
+en:Anchovy fillets rolled with capers
+fr:Filets d'anchois roulés aux câpres
+
+<en:Anchovy fillets rolled with capers
 en:Semi-preserved drained anchovy fillets rolled with capers
 fr:Filets d'anchois roulés aux câpres égouttés en semi-conserve
 agribalyse_food_code:en:25999
@@ -65564,15 +65608,21 @@ ciqual_food_name:en:Anchovy, fillets, in oil, semi-preserved, drained
 ciqual_food_name:fr:Anchois, filets à l'huile, semi-conserve, égoutté
 
 <en:Anchovy fillets
+en:Marinated anchovy fillets
 fr:Filets d'anchois marinés
+agribalyse_proxy_food_code:en:26187
+agribalyse_proxy_food_name:en:Common anchovy, marinated
+agribalyse_proxy_food_name:fr:Anchois commun, mariné
 
 <fr:Filets d'anchois marinés
 fr:Filets d'anchois marinés à l'ail et au persil
 
 <fr:Filets d'anchois marinés
+en:Marinated anchovy fillets with vegetable oil
 fr:Filets d'anchois marinés à l'huile végétale
 
 <fr:Filets d'anchois marinés
+en:Marinated anchovy fillets with confit lemon
 fr:Filets d'anchois marinés au citron confit
 
 <fr:Filets d'anchois marinés
@@ -65855,40 +65905,6 @@ en:Scottish Farmed Salmon
 protected_name_file_number:en: PGI-GB-0141
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
-
-<en:Fishes
-en:Anchovy
-de:Sardellen
-es:Anchoa
-fi:anjovis
-fr:Anchois
-it:Acciughe
-nl:Ansjovis
-
-<en:Anchovy
-en:Raw common anchovy
-fr:Anchois commun cru
-agribalyse_food_code:en:26079
-ciqual_food_code:en:26079
-ciqual_food_name:en:Common anchovy, raw
-ciqual_food_name:fr:Anchois commun, cru
-
-<en:Anchovy
-<en:Semi-preserved foods
-en:Semi-preserved anchovy in salt
-fr:Anchois au sel, Anchoité semi-conserve
-agribalyse_food_code:en:26177
-ciqual_food_code:en:26177
-ciqual_food_name:en:Anchovy, in salt (semi-preserved)
-ciqual_food_name:fr:Anchois au sel (anchoité, semi-conserve)
-
-<en:Anchovy
-en:Marinated common anchovy
-fr:Anchois commun mariné
-agribalyse_food_code:en:26187
-ciqual_food_code:en:26187
-ciqual_food_name:en:Common anchovy, marinated
-ciqual_food_name:fr:Anchois commun, mariné
 
 <en:Fishes
 en:Sardines
