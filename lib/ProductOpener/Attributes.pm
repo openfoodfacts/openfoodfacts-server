@@ -72,6 +72,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 =head1 CONFIGURATION
 
@@ -455,7 +456,7 @@ sub compute_attribute_nutriscore($$) {
 			$attribute_ref->{description} = lang("attribute_nutriscore_" . $grade . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
 		}
-		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-$grade.svg";
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -531,6 +532,7 @@ sub compute_attribute_nova($$) {
 			$attribute_ref->{description} = lang("attribute_nova_" . $nova_group . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nova_" . $nova_group . "_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-$nova_group.svg";
 		
 	}
 	else {

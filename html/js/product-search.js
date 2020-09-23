@@ -17,14 +17,22 @@ if (user_product_preferences_string) {
 //
 // Output values are returned in the product object
 //
-// match_status: yes, no, unknown
-// match_score: number (maximum depends on the preferences)
+// - match_status: yes, no, unknown
+// - match_score: number (maximum depends on the preferences)
+// - match_icons: array of arrays of urls of icons corresponding to the product and 
+// each set of preferences: mandatory, very_important, important
 
 function match_product_to_preferences (product, product_preferences) {
 
 	var score = 0;
 	var status = "yes";
 	var debug = "";
+	
+	product.match_icons = {
+		"mandatory" : [],
+		"very_important" : [],
+		"important" : []
+	};
 
 	if (! product.attribute_groups) {
 		status = "unknown";
@@ -73,11 +81,14 @@ function match_product_to_preferences (product, product_preferences) {
 								status = "no";
 							}
 						}
+					}
+					
+					if (attribute.icon_url) {
+						product.match_icons[user_product_preferences[attribute.id]].push(attribute.icon_url);
 					}					
 				}
 			});
 		});		
-		
 	}
 	
 	product.match_status = status;
@@ -141,6 +152,11 @@ function show_products(target, product_groups, product_preferences) {
 			product_html += "<span>" + product.product_name + "</span>";
 			
 			product_html += '</a>';
+			
+			$.each (product.match_icons["mandatory"].concat(product.match_icons["very_important"], product.match_icons["important"]), function (key, icon_url) {
+				
+				product_html += '<img src="' + icon_url + '" class="match_icons">';
+			});
 			
 			product_html += '<span title="' + product.match_debug + '">' + Math.round(product.match_score) + '</span>';
 			
