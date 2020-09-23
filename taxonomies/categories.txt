@@ -3726,6 +3726,9 @@ sv:Energidrycker
 zh:能量饮料
 wikidata:en:Q215754
 wikidata_category:en:Q7214078
+agribalyse_proxy_food_code:en:18352
+agribalyse_proxy_food_name:en:Energy drink, with sugar
+agribalyse_proxy_food_name:fr:Boisson énergisante, sucrée
 
 <en:Energy drinks
 en:Energy drink with sugar
@@ -27187,6 +27190,7 @@ ciqual_food_name:en:Candied fruits
 ciqual_food_name:fr:Fruit confit
 
 <en:Candied fruit
+en:Candied lemon
 fr:Citron confit
 de:Kandierte Zitrone
 
@@ -27217,10 +27221,12 @@ nl:Chocolade eieren
 
 <en:Chocolate eggs
 <en:Bonbons
+en:Filled chocolate eggs
 fr:Œufs en chocolat fourrés, oeufs en chocolat fourrés
 
 <en:Chocolate eggs
 <en:Chocolate molds
+en:Hollow chocolate eggs
 fr:Œufs en chocolat creux, oeufs en chocolat creux
 
 en:Christmas foods and drinks
@@ -35877,6 +35883,7 @@ ciqual_food_name:en:Yogurt, Greek-style, plain
 ciqual_food_name:fr:Yaourt à la grecque, nature
 
 <en:Greek yogurts
+<en:Sheep milk Yogurts
 en:Yogurt Greek-style ewe's milk
 fr:Yaourt à la grecque au lait de brebis
 agribalyse_food_code:en:19550
@@ -57198,8 +57205,12 @@ agribalyse_food_code:en:36300
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
-<en:Cooked poultries
 <en:Turkeys
+en:Turkey heart
+fr:Coeur de dinde
+
+<en:Cooked poultries
+<en:Turkey heart
 en:Cooked turkey heart
 fr:Coeur de dinde cuit
 agribalyse_food_code:en:40057
@@ -57208,6 +57219,7 @@ ciqual_food_name:en:Heart, turkey, cooked
 ciqual_food_name:fr:Coeur, dinde, cuit
 
 <en:Raw turkey meat
+<en:Turkey heart
 en:Raw turkey heart
 fr:Coeur de dinde cru
 agribalyse_food_code:en:40055
@@ -57703,69 +57715,6 @@ nl:Kippeborst
 zh:鸡胸
 
 <en:Cooked poultries
-<en:Chicken breasts
-en:Cooked chicken breast without skin
-fr:Filet de poulet sans peau cuit
-agribalyse_food_code:en:36018
-ciqual_food_code:en:36018
-ciqual_food_name:en:Chicken, breast, without skin, cooked
-ciqual_food_name:fr:Poulet, filet, sans peau, cuit
-
-<en:Cooked poultries
-<en:Chicken breasts
-en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
-fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
-agribalyse_food_code:en:36032
-ciqual_food_code:en:36032
-ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
-ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
-
-<en:Cooked poultries
-<en:Chicken wings
-en:Roasted chicken wing meat and skin, Baked chicken wing meat and skin
-fr:Aile de poulet avec viande et peau rôtie, Aile de poulet avec viande et peau cuite au four
-agribalyse_food_code:en:36033
-ciqual_food_code:en:36033
-ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
-ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
-
-<en:Cooked poultries
-<en:Chicken thighs
-en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
-fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
-agribalyse_food_code:en:36004
-ciqual_food_code:en:36004
-ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
-ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
-
-<en:Cooked poultries
-<en:Chicken thighs
-en:Roasted chicken leg meat, Baked chicken leg meat
-fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
-agribalyse_food_code:en:36006
-ciqual_food_code:en:36006
-ciqual_food_name:en:Chicken leg, meat, roasted/baked
-ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
-
-<en:Cooked poultries
-<en:Chicken thighs
-en:Boiled chicken leg meat, Chicken leg meat cooked in water
-fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
-agribalyse_food_code:en:36030
-ciqual_food_code:en:36030
-ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
-ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
-
-<en:Cooked poultries
-<en:Chicken thighs
-en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
-fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
-agribalyse_food_code:en:36031
-ciqual_food_code:en:36031
-ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
-ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
-
-<en:Cooked poultries
 <en:Chickens
 en:Cooked chicken
 ca:Pollastre precuinat
@@ -57777,6 +57726,69 @@ he:עוף מבושל
 it:Pollo cotto
 nl:Geprepareerde kip
 pt:Frango cozido
+
+<en:Cooked chicken
+<en:Chicken breasts
+en:Cooked chicken breast without skin
+fr:Filet de poulet sans peau cuit
+agribalyse_food_code:en:36018
+ciqual_food_code:en:36018
+ciqual_food_name:en:Chicken, breast, without skin, cooked
+ciqual_food_name:fr:Poulet, filet, sans peau, cuit
+
+<en:Cooked chicken
+<en:Chicken breasts
+en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
+fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
+agribalyse_food_code:en:36032
+ciqual_food_code:en:36032
+ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
+
+<en:Cooked chicken
+<en:Chicken wings
+en:Roasted chicken wing meat and skin, Baked chicken wing meat and skin
+fr:Aile de poulet avec viande et peau rôtie, Aile de poulet avec viande et peau cuite au four
+agribalyse_food_code:en:36033
+ciqual_food_code:en:36033
+ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
+fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
+agribalyse_food_code:en:36004
+ciqual_food_code:en:36004
+ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Roasted chicken leg meat, Baked chicken leg meat
+fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
+agribalyse_food_code:en:36006
+ciqual_food_code:en:36006
+ciqual_food_name:en:Chicken leg, meat, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Boiled chicken leg meat, Chicken leg meat cooked in water
+fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
+agribalyse_food_code:en:36030
+ciqual_food_code:en:36030
+ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
+fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
+agribalyse_food_code:en:36031
+ciqual_food_code:en:36031
+ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
 <en:Cooked chicken
 en:Chicken drumsticks
