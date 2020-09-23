@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests of Ingredients::preparse_ingredients_text()
+
 use strict;
 use warnings;
 
@@ -95,32 +97,32 @@ my @lists =(
 	# SCANDINAVIAN LANGUAGES  #
 	###########################
 	[ "da",
-	  "bl. a. inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
-	  "blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
+		"bl. a. inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
+		"blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
 	],
 	[ "nb",
-	  "bl. a. inkl. E322 E103, E140, E250 og E100",
-	  "blant annet inklusive E322, E103, E140, E250, E100"
+		"bl. a. inkl. E322 E103, E140, E250 og E100",
+		"blant annet inklusive E322, E103, E140, E250, E100"
 	],
 	[ "sv",
-	  "bl. a. förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
-	  "bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
+		"bl. a. förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
+		"bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
 	],
 	[ "da",
-	  "Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
-	  "Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Hvede Økologisk. Stoffer, eller produkter, som forårsager allergi eller overfølsomhed : mælk. Spor : soja, Spor : mælk, Spor : mandler, Spor : sesam."
+		"Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
+		"Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Hvede Økologisk. Stoffer, eller produkter, som forårsager allergi eller overfølsomhed : mælk. Spor : soja, Spor : mælk, Spor : mandler, Spor : sesam."
 	],
 	[ "is",
-	  "Vítamín (B2, E og D). Getur innihaldið hnetur, soja og mjólk í snefilmagni.",
-	  "Vítamín, B2-Vítamín, E-Vítamín, D-Vítamín. Leifar : hnetur, Leifar : Soja, Leifar : mjólk."
+		"Vítamín (B2, E og D). Getur innihaldið hnetur, soja og mjólk í snefilmagni.",
+		"Vítamín, B2-Vítamín, E-Vítamín, D-Vítamín. Leifar : hnetur, Leifar : Soja, Leifar : mjólk."
 	],
 	[ "nb",
-	  "Vitaminer A, B og C. Vitaminer (B2, E, D). Kan inneholde spor av andre nøtter, soya og melk.",
-	  "Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D. Spor : andre nøtter, Spor : soya, Spor : melk."
+		"Vitaminer A, B og C. Vitaminer (B2, E, D). Kan inneholde spor av andre nøtter, soya og melk.",
+		"Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D. Spor : andre nøtter, Spor : soya, Spor : melk."
 	],
 	[ "sv",
-	  "Vitaminer (B2, E och D), Vete*. Innehåller hasselnötter. Kan innehålla spår av råg, jordnötter, mandel, hasselnötter, cashewnötter och valnötter. *Ekologisk",
-	  "Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Vete Ekologisk. Ämnen eller produkter som orsakar allergi eller intolerans : hasselnötter. Spår : råg, Spår : jordnötter, Spår : mandel, Spår : hasselnötter, Spår : cashewnötter, Spår : valnötter."
+		"Vitaminer (B2, E och D), Vete*. Innehåller hasselnötter. Kan innehålla spår av råg, jordnötter, mandel, hasselnötter, cashewnötter och valnötter. *Ekologisk",
+		"Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Vete Ekologisk. Ämnen eller produkter som orsakar allergi eller intolerans : hasselnötter. Spår : råg, Spår : jordnötter, Spår : mandel, Spår : hasselnötter, Spår : cashewnötter, Spår : valnötter."
 	],
 	###########################
 
@@ -272,7 +274,7 @@ my @lists =(
 	# do not separate acide acétique into acide : acétique
 	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
 	["fr","acide acétique","acide acétique"],
-	
+
 	# russian abbreviations
 	["ru","мука пшеничная х/п в/с","мука пшеничная хлебопекарная высшего сорта"],
 
