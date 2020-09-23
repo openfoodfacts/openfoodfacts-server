@@ -114,6 +114,36 @@ my @tests = (
 		]
 	],
 
+	# ingredient group: (element1, element2, element3) needs to be parsed as ingredient group (element1, element2, element3)
+	#комплексная пищевая добавка: (порошок сыра гауда, данбо, камамбер, голубой сыр, эмульгирующая соль Е 339)
+	# using english, because the explain() output \x-escapes utf8.
+	[
+		"Issue #3959 - 'ingredient with colon before subingredients opening bracket' - https://github.com/openfoodfacts/openfoodfacts-server/issues/3959",
+		{
+			lc => "en",
+			ingredients_text => "meat: (beef, pork, lamb)",
+		},
+		[
+			{
+				'id' => 'en:meat',
+				'text' => 'meat',
+				'ingredients' => [
+					{
+						'id' => 'en:beef',
+						'text' => 'beef',
+					},
+					{
+						'id' => 'en:pork',
+						'text' => 'pork',
+					},
+					{
+						'id' => 'en:lamb',
+						'text' => 'lamb',
+					},
+				],
+			},
+		]
+	],
 
 
 
