@@ -145,6 +145,29 @@ my @tests = (
 		]
 	],
 
+	# interpret animal attribute in brackets as part of the ingredient name, instead of a separate ingredient.
+	# présure (animale) -> présure animale
+	[
+		"Issue #3882 - 'présure (animale) -> présure animale' - https://github.com/openfoodfacts/openfoodfacts-server/issues/3882",
+		{
+			lc => "fr",
+			ingredients_text => "ferments lactiques, présure (animale), sucre",
+		},
+		[
+			{
+				'id' => 'en:lactic-ferments',
+				'text' => 'ferments lactiques',
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'text' => 'présure animale',
+			},
+			{
+				'id' => 'en:sugar',
+				'text' => 'sucre',
+			},
+		]
+	],
 
 
 
