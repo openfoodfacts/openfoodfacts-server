@@ -284,6 +284,8 @@ da => [
 ],
 
 en => [
+	["w/o", "without"],
+	["w/", "with "], # note trailing space
 	["vit.", "vitamin"],
 
 ],

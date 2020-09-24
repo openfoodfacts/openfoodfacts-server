@@ -277,6 +277,10 @@ my @lists =(
 
 	# russian abbreviations
 	["ru","мука пшеничная х/п в/с","мука пшеничная хлебопекарная высшего сорта"],
+	
+	# w/ with and w/o without abbreviations
+	["en","Organic garbanzo beans (cooked w/o salt), water", "Organic garbanzo beans (cooked without salt), water"],
+	["en","sugar, cocoa (processed w/alkali), egg yolk", "sugar, cocoa (processed with alkali), egg yolk"],
 
 );
 
