@@ -50997,8 +50997,18 @@ fi:aterian korvikkeet
 fr:Substituts de repas
 it:Sostituto del pasto
 nl:Maaltijdvervangers
+agribalyse_proxy_food_code:en:42003
+agribalyse_proxy_food_name:en:Meal replacement low calorie, ready-to-drink
+agribalyse_proxy_food_name:fr:Substitut de repas hypocalorique, prêt à boire
 
 <en:Meal replacements
+en:Low calorie meal replacement
+fr:Substitut de repas hypocalorique
+agribalyse_proxy_food_code:en:42003
+agribalyse_proxy_food_name:en:Meal replacement low calorie, ready-to-drink
+agribalyse_proxy_food_name:fr:Substitut de repas hypocalorique, prêt à boire
+
+<en:Low calorie meal replacement
 en:Low calorie custard cream meal replacement
 fr:Substitut de repas hypocalorique crème dessert
 agribalyse_food_code:en:42000
@@ -51006,7 +51016,7 @@ ciqual_food_code:en:42000
 ciqual_food_name:en:Meal replacement low calorie, Custard cream dessert-type
 ciqual_food_name:fr:Substitut de repas hypocalorique, crème dessert
 
-<en:Meal replacements
+<en:Low calorie meal replacement
 en:Low calorie ready-to-drink meal replacement
 fr:Substitut de repas hypocalorique prêt à boire
 agribalyse_food_code:en:42003
@@ -51014,7 +51024,7 @@ ciqual_food_code:en:42003
 ciqual_food_name:en:Meal replacement low calorie, ready-to-drink
 ciqual_food_name:fr:Substitut de repas hypocalorique, prêt à boire
 
-<en:Meal replacements
+<en:Low calorie meal replacement
 en:Low calorie meal replacement in powder reconstituted with skimmed milk
 fr:Substitut de repas hypocalorique en poudre reconstituée avec lait écrémé
 agribalyse_food_code:en:42004
@@ -51022,7 +51032,7 @@ ciqual_food_code:en:42004
 ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk
 ciqual_food_name:fr:Substitut de repas hypocalorique, poudre reconstituée avec lait écrémé
 
-<en:Meal replacements
+<en:Low calorie meal replacement
 en:Low calorie milkshake meal replacement in powder reconstituted with skimmed milk
 fr:Substitut de repas hypocalorique milk-shake en poudre reconstitué avec lait écrémé
 agribalyse_food_code:en:42005
@@ -51076,18 +51086,30 @@ zh:寿司
 en:Salmon sushis
 fr:Sushis au saumon
 nl:Zalmsushi
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi
 en:Tuna sushis
 fr:Sushis au thon
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi
 en:Avocado and salmon sushis
 fr:Sushis saumon avocat
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi
 en:Shrimp sushis
 fr:Sushi à la crevette
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi
 en:Cucumber sushis
@@ -51099,6 +51121,9 @@ fr:Sushi au concombre
 en:Sushi medley
 fr:Assortiments de sushi
 nl:Gemengde sushi
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi and Maki
 en:Makis
@@ -51111,6 +51136,9 @@ nl:Maki
 en:Californian makis
 fr:Makis californiens
 nl:Avocado en zalm sushi
+agribalyse_proxy_food_code:en:25456
+agribalyse_proxy_food_name:en:Sushi or maki with seafood products
+agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 
 <en:Sushi and Maki
 en:Sushi with seafood products, Maki with seafood products
@@ -51176,7 +51204,7 @@ ciqual_food_name:fr:Nem ou Pâté impérial aux crevettes et/ou au crabe cuit
 <en:Meals
 en:Chinese dumplings, Chinese dumpling
 fi:Kiinalaiset mykyt, Kiinalainen myky
-fr:Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites
+fr:Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
 agribalyse_food_code:en:25169
 ciqual_food_code:en:25169
 ciqual_food_name:en:Chinese specialty or dumplings
@@ -51184,7 +51212,7 @@ ciqual_food_name:fr:Spécialité chinoise ou bouchées à la vapeur, cuite
 
 <en:Meals
 en:Cooked steamed shrimp dumplings, Cooked steamed shrimp dumpling
-fr:Ravioli vapeur chinois à la crevette cuit, Raviolis vapeur chinois à la crevette cuits
+fr:Ravioli vapeur chinois à la crevette cuit, Raviolis vapeur chinois à la crevette cuits, Ravioli vapeur à la crevette 
 agribalyse_food_code:en:25110
 ciqual_food_code:en:25110
 ciqual_food_name:en:Dumplings, steamed, with shrimps, cooked
@@ -51343,7 +51371,18 @@ agribalyse_food_code:en:22505
 ciqual_food_code:en:22505
 ciqual_food_name:en:Egg, fried without added fat
 
+<en:Prepared vegetables
+<en:Tomatoes and their products
+en:Stuffed tomatoes, Stuffed tomato
+fr:Tomates farcies, Tomate farcie
+nl:Gevulde tomaat
+agribalyse_food_code:en:25103
+ciqual_food_code:en:25103
+ciqual_food_name:en:Stuffed tomatoes
+ciqual_food_name:fr:Tomate farcie
+
 <en:Rice dishes
+<en:Prepared vegetables
 en:Rice stuffed tomatoes
 fr:Tomates farcies et riz, tomates farcies au riz, Tomate farcie au riz
 nl:Tomaten gevuld met rijst
@@ -51373,17 +51412,6 @@ nl:Risottos, Risotto
 wikidata:en:Q208105
 
 <en:Risottos
-en:Crab risottos
-fr:Risottos au crabe
-#wikidata:en:
-
-<en:Risottos
-en:Shrimp risottos
-fr:Risottos aux crevettes
-nl:Garnaalrisotto
-#wikidata:en:
-
-<en:Risottos
 en:Risotto with seafood, Seafood risotto
 fr:Risotto aux fruits de mer
 agribalyse_food_code:en:25188
@@ -51391,28 +51419,33 @@ ciqual_food_code:en:25188
 ciqual_food_name:en:Risotto, w seafood
 ciqual_food_name:fr:Risotto, aux fruits de mer
 
-<en:Risottos
-en:Veal risottos
-fr:Risottos au veau, risottos de veau
-nl:Kalfsvleesrisotto
-#wikidata:en:
 
-<en:Risottos
-en:Mushrooms risottos
-de:Pilzrisotto, Pilz-Risotto
-es:Risottos de champiñones
-fr:Risottos aux champignons
-nl:Paddenstoelrisotto
+<en:Risotto with seafood
+en:Crab risottos
+fr:Risottos au crabe
+agribalyse_proxy_food_code:en:25188
+agribalyse_proxy_food_name:en:Risotto, w seafood
+agribalyse_proxy_food_name:fr:Risotto, aux fruits de mer
 
-<en:Mushrooms risottos
-fr:Risottos aux cèpes
-#wikidata:en:
+<en:Risotto with seafood
+en:Shrimp risottos
+fr:Risottos aux crevettes
+nl:Garnaalrisotto
+agribalyse_proxy_food_code:en:25188
+agribalyse_proxy_food_name:en:Risotto, w seafood
+agribalyse_proxy_food_name:fr:Risotto, aux fruits de mer
 
-<en:Risottos
+<en:Risotto with seafood
 en:Salmon risottos
 de:Lachsrisotto, Lachs-Risotto
 fr:Risottos au saumon
 nl:Zalmrisotto
+#wikidata:en:
+
+<en:Risottos
+en:Veal risottos
+fr:Risottos au veau, risottos de veau
+nl:Kalfsvleesrisotto
 #wikidata:en:
 
 <en:Risottos
@@ -51460,8 +51493,19 @@ en:Potato dishes
 fr:Plats à base de pommes de terre
 
 <en:Meals
-en:Pork chop suey, Chicken chop suey
-fr:Chop suey de porc, Chop suey de poulet, Chop suey au porc, Chop suey au poulet
+en:Chop suey
+fr:Chop suey
+
+<en:Chop suey
+en:Chicken chop suey
+fr:Chop suey de poulet, Chop suey au poulet
+ciqual_food_code:en:25205
+ciqual_food_name:en:Chop suey (pork or chicken)
+ciqual_food_name:fr:Chop suey (porc ou poulet)
+
+<en:Chop suey
+en:Pork chop suey
+fr:Chop suey de porc, Chop suey au porc
 ciqual_food_code:en:25205
 ciqual_food_name:en:Chop suey (pork or chicken)
 ciqual_food_name:fr:Chop suey (porc ou poulet)
@@ -51561,7 +51605,6 @@ ciqual_food_code:en:20497
 ciqual_food_name:en:Mixed vegetables for couscous, cooked
 ciqual_food_name:fr:Légumes pour couscous, cuits
 
-
 <en:Meals
 en:Meals with shellfish
 fr:Plats aux fruits de mer
@@ -51602,6 +51645,7 @@ ru:Блюда с рыбой
 
 <en:Meals with fish
 en:Frozen fish in sauce
+fr:Poisson en sauce surgelé
 agribalyse_food_code:en:26054
 ciqual_food_code:en:26054
 ciqual_food_name:en:Fish, in sauce, frozen
@@ -53717,16 +53761,6 @@ fr:Légumes cuits
 ciqual_food_code:en:20499
 ciqual_food_name:en:Vegetable, cooked (average)
 ciqual_food_name:fr:Légume cuit (aliment moyen)
-
-<en:Prepared vegetables
-<en:Tomatoes and their products
-en:Stuffed tomatoes, Stuffed tomato
-fr:Tomates farcies, Tomate farcie
-nl:Gevulde tomaat
-agribalyse_food_code:en:25103
-ciqual_food_code:en:25103
-ciqual_food_name:en:Stuffed tomatoes
-ciqual_food_name:fr:Tomate farcie
 
 <en:Prepared vegetables
 en:Grated carrots
@@ -79321,6 +79355,17 @@ agribalyse_food_code:en:25187
 ciqual_food_code:en:25187
 ciqual_food_name:en:Risotto, w vegetables
 ciqual_food_name:fr:Risotto, aux légumes
+
+<en:Vegetable risottos
+en:Mushrooms risottos
+de:Pilzrisotto, Pilz-Risotto
+es:Risottos de champiñones
+fr:Risottos aux champignons
+nl:Paddenstoelrisotto
+
+<en:Mushrooms risottos
+fr:Risottos aux cèpes
+#wikidata:en:
 
 <en:Ravioli
 en:Chinese raviolis
