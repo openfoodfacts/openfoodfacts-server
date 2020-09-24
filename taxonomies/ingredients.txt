@@ -602,7 +602,7 @@ wikidata:en:Q425431
 
 <en:paprika extract
 en:capsicum extract
-da:paprikaekstrakt
+da:capsicum ekstrakt
 de:Capsaicin-Extrakt
 es:extracto de capsicum
 fr:extrait de capsicum
@@ -7809,7 +7809,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 en:Lactose powder, powdered lactose
 ca:lactosa en pols
 da:laktosepulver
-de:Milchpulver
+de:Laktosepulver
 es:lactosa en polvo
 fi:laktoosijauhe
 fr:poudre de lactose
@@ -8242,7 +8242,7 @@ de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Sü�
 es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 fi:makea herajauhe, makeutettu herajauhe
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
-it:siero di latte in polvere
+it:siero di latte dolce in polvere
 nl:Zoete weipoeder
 ro:zer pudră îndulcit
 
@@ -18704,7 +18704,7 @@ fr:Poudre de vinaigre
 <en:vinegar
 en:wine vinegar
 bg:винен оцет
-ca:vinagre
+ca:Vinagre de vi
 da:Vineddike
 de:Weinessig
 es:vinagre de vino
@@ -21078,11 +21078,12 @@ es:saborizante a chocolate
 de:Schokoladengeschmack
 fi:suklaa-aromi
 fr:arôme de chocolat
-hu:természetes csokoládé aroma
+hu:csokoládé aroma
 
 <en:flavouring
+en:elderberry flavouring
 fr:arôme de sureau
-hu:természetes bodza aroma
+hu:bodza aroma
 
 <en:natural flavouring
 en:natural tarragon flavouring
@@ -22222,7 +22223,6 @@ sv:bokträrök
 
 <en:smoke
 en:liquid smoke
-de:Raucharoma
 eo:likva fumo
 es:Humo líquido
 fa:دود مایع
@@ -31118,7 +31118,7 @@ be:Соя
 bg:Соя, соеви, соево
 br:Soja
 bs:Soja
-ca:Soia
+ca:Soia, soja
 cs:sója, sójové
 cy:Soia
 da:soja
@@ -31195,7 +31195,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 <en:legume
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
-ca:soia, soja,faves de soja
+ca:faves de soja
 cs:Sója luštinatá, sójové boby
 da:Sojabønne
 de:Sojabohne, Sojabohnen, Sojakerne, soja bohnen
@@ -35153,7 +35153,7 @@ fi:omenamehutiiviste
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
 nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
-pl:Sok jabłkowy z koncentratu
+pl:zagęszczony sok jabłkowy
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-apple-juice
@@ -35703,7 +35703,7 @@ hu:Citromlé
 it:succo di limone
 nl:citroensap
 nn:sitronsaft
-pl:Sok cytrynowy
+pl:Sok cytrynowy, sok z cytryny
 pt:sumo de limão
 ru:Лимонный сок
 sv:citronsaft, citronjuice
@@ -35763,7 +35763,7 @@ it:succo di limone concentrato, concentrato di limone, estratto di limone
 lt:citrinų sulčių koncentratas
 nb:sitronjuicekonsentrat
 nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
-pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy, koncentrat soku z cytryny
+pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
@@ -35785,7 +35785,7 @@ de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
 fi:sitruunamehu tiivisteestä, sitruunatäysmehu tiivisteestä, tiivisteestä valmistettu sitruunatäysmehu
 fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
-hu:citromlé koncentrátum
+hu:citromlé koncentrátumból
 it:succo di limone da concentrato
 nl:citroensap uit concentraat
 pl:sok cytrynowy z koncentratu
@@ -35927,7 +35927,7 @@ fi:limettimehu, limetäysmehu, limetinmehu
 fr:jus de citron vert
 it:succo di lime
 nl:limoensap
-pl:Sok cytrynowy, sok z cytryny
+pl:Sok limonkowy
 ru:Лаймовый сок
 sv:limejuice, limesaft
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
@@ -45615,16 +45615,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:root vegetable
-en:manioc, cassava, yuka, manioc root
+en:cassava, cassava root, manioc, manioc root, yuca, yuca root
 de:Maniok
 fr:manioc, racine de manioc
 nutriscore_fruits_vegetables_nuts:en:no
+wikidata:en:Q43304555
+wikipedia:en:https://en.wikipedia.org/wiki/Cassava
 
+# Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
+# In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
 <en:root vegetable
 en:yam
-de:Süßkartoffel
 fr:igname
 nutriscore_fruits_vegetables_nuts:en:no
+wikidata:en:Q8047551
+wikipedia:en:https://en.wikipedia.org/wiki/Yam_(vegetable)
 
 # The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
@@ -67130,7 +67135,7 @@ vegetarian:en:no
 
 <en:poultry
 en:poultry meat
-da:Fjerkræ
+da:Fjerkrækød
 de:Geflügelfleisch
 es:Carne de ave
 fi:siipikarjanliha
@@ -68317,7 +68322,7 @@ sv:äggpulver
 
 <en:egg
 en:whole egg, whole eggs
-da:Æg
+da:hele æg
 de:Vollei
 es:huevos enteros
 fi:kokonainen muna, kokonaiset munat
