@@ -3954,8 +3954,8 @@ JS
 
 		$initjs .= <<JS
 
-show_user_product_preferences("#preferences_settings");
-search_products("#search_results", "$search_api_url", get_user_product_preferences());
+display_user_product_preferences("#preferences_settings", function () { rank_and_display_products("#search_results"); });
+search_products("#search_results", "$search_api_url");
 JS
 ;
 

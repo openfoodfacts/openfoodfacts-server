@@ -16,10 +16,10 @@ function get_user_product_preferences () {
 }
 
 
-// show_user_product_preferences can be called by other scripts
-/* exported show_user_product_preferences */
+// display_user_product_preferences can be called by other scripts
+/* exported display_user_product_preferences */
 
-function show_user_product_preferences (target) {
+function display_user_product_preferences (target, change) {
 
 	// Retrieve all the supported attribute groups from the server, unless we have them already
 	
@@ -29,7 +29,7 @@ function show_user_product_preferences (target) {
 		
 			attribute_groups = data;
 		
-			show_user_product_preferences(target);
+			display_user_product_preferences(target, change);
 		});
 	}
 	
@@ -39,7 +39,7 @@ function show_user_product_preferences (target) {
 		
 			preferences = data;
 		
-			show_user_product_preferences(target);
+			display_user_product_preferences(target, change);
 		});		
 	}
 	
@@ -98,9 +98,17 @@ function show_user_product_preferences (target) {
 			html: attribute_groups_html.join( "" )
 		}).replaceAll(target);
 		
-		$( ".attribute_radio").change(function () {
-			user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
-			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
+		$( ".attribute_radio").change( function () {
+			if (this.checked) {
+
+				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
+				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
+				
+				// Call the change callback if we have one (e.g. to update the search results)
+				if (change) {
+					change();
+				}
+			}
 		});
 	}
 }

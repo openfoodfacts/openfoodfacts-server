@@ -1,13 +1,4 @@
 
-// Retrieve user preferences from local storage
-
-var user_product_preferences = {};
-var user_product_preferences_string = localStorage.getItem('user_product_preferences');
-
-if (user_product_preferences_string) {
-	user_product_preferences = JSON.parse(user_product_preferences_string);
-}
-
 // Will hold product data retrieved from the search API
 var products = [];
 
@@ -46,7 +37,7 @@ function match_product_to_preferences (product, product_preferences) {
 			
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
-				if ((! user_product_preferences[attribute.id]) || (product_preferences[attribute.id] == "not_important")) {
+				if ((! product_preferences[attribute.id]) || (product_preferences[attribute.id] == "not_important")) {
 					// Ignore attribute
 					debug += attribute.id + " not_important" + "\n";
 				}
@@ -100,9 +91,9 @@ function match_product_to_preferences (product, product_preferences) {
 	product.match_debug = debug;	
 }
 
-// rank_and_filter_products (products, product_preferences)
+// rank_products (products, product_preferences)
 
-function rank_and_filter_products(products, product_preferences) {
+function rank_products(products, product_preferences) {
 	
 	// Score all products
 	
@@ -132,13 +123,8 @@ function rank_and_filter_products(products, product_preferences) {
 	return product_groups;
 }
 
-/*eslint no-unused-vars: [2, {"args": "after-used", "varsIgnorePattern": "unused"}]*/
 
-function show_products(target, product_groups, product_preferences_currently_unused ) {
-	
-	// product_preferences is currently unused, as we get some of them
-	// indirectly through product.match_icons
-	// but at some point we may display products differently based on the preferences	
+function display_products(target, product_groups ) {
 	
 	$( target ).empty();
 	
@@ -188,6 +174,26 @@ function show_products(target, product_groups, product_preferences_currently_unu
 	});
 }
 
+
+function rank_and_display_products (target) {
+	
+	// Retrieve user preferences from local storage
+
+	var user_product_preferences = {};
+	var user_product_preferences_string = localStorage.getItem('user_product_preferences');
+
+	if (user_product_preferences_string) {
+		user_product_preferences = JSON.parse(user_product_preferences_string);
+	}	
+	
+	var ranked_products = rank_products(products, user_product_preferences);
+			
+	display_products(target, ranked_products);
+			
+	$(document).foundation('equalizer', 'reflow');
+}
+
+
 /* exported search_products */
 
 function search_products (target, search_api_url) {
@@ -200,11 +206,7 @@ function search_products (target, search_api_url) {
 			
 			products = data.products;
 			
-			var ranked_products = rank_and_filter_products(products, user_product_preferences);
-			
-			show_products(target, ranked_products, user_product_preferences);
-			
-			$(document).foundation('equalizer', 'reflow');
+			rank_and_display_products(target);
 		}		
 	});
 }
