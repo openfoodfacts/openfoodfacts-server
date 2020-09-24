@@ -263,20 +263,24 @@ my @lists =(
 	["es", "E102(i)-E101i", "e102i - e101i"],
 	["es", "E102(i)", "e102i"],
 	["es", "S.I.N.:160 b", "e160b"],
-	["pt", "estabilizadores (E 422, E 412)","estabilizadores (e422, e412)"],
+	["pt", "estabilizadores (E 422, E 412)", "estabilizadores (e422, e412)"],
 
-	["es", "contiene apio y derivados de leche","Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
+	["es", "contiene apio y derivados de leche", "Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
 
 	["fr", "E160a(ii)","e160aii"],
 	["fr", "(E160a-ii)","(e160aii)"],
 	["fr", "colorant (E160a(ii))","colorant (e160aii)"],
 
 	# do not separate acide acétique into acide : acétique
-	["fr","Esters glycéroliques de l'acide acétique et d'acides gras","Esters glycéroliques de l'acide acétique et d'acides gras"],
-	["fr","acide acétique","acide acétique"],
+	["fr", "Esters glycéroliques de l'acide acétique et d'acides gras", "Esters glycéroliques de l'acide acétique et d'acides gras"],
+	["fr", "acide acétique", "acide acétique"],
 
 	# russian abbreviations
-	["ru","мука пшеничная х/п в/с","мука пшеничная хлебопекарная высшего сорта"],
+	["ru", "мука пшеничная х/п в/с", "мука пшеничная хлебопекарная высшего сорта"],
+	
+	# w/ with and w/o without abbreviations
+	["en", "Organic garbanzo beans (cooked w/o salt), water", "Organic garbanzo beans (cooked without salt), water"],
+	["en", "sugar, cocoa (processed w/alkali), egg yolk", "sugar, cocoa (processed with alkali), egg yolk"],
 
 );
 
