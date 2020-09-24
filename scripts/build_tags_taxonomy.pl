@@ -69,7 +69,7 @@ if (($tagtype eq "ingredients") and (defined $options{product_type}) and ($optio
 			close($IN);
 		}
 		else {
-			print STDERR "Missing $data_root/taxonomies/$tagtype.txt\n";
+			print STDERR "Missing $data_root/taxonomies/$taxonomy.txt\n";
 		}
 	}
 
