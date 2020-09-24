@@ -13557,6 +13557,9 @@ fr:viande-bovine-de-race-charolaise
 fr:viande bovine hachée
 
 <en:beef meat
+en:british beef
+
+<en:beef meat
 fr:viande bovine origine france
 ca:carn de res francès
 es:carne de res francesa
@@ -13732,6 +13735,9 @@ carbon_footprint_fr_foodges_value:fr:55
 # <en:meat
 # fr:cotelettes d'agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
+
+<en:lamb meat
+en:british lamb
 
 <en:lamb
 en:lamb gut
@@ -14651,6 +14657,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
 en:lean pork
 es:magra de cerdo
 
+<en:pork meat
+en:british pork
+
 <en:pork
 en:acorn fed iberian pig
 es:cerdo de bellota ibéric
@@ -15029,6 +15038,9 @@ fr:jambon de porc issu d'animaux nourris sans ogm
 fr:jambon de porc frais, jambon frais de porc
 
 <en:ham
+en:british ham
+
+<en:ham
 fr:jambon de porc français
 
 <en:ham
@@ -15187,6 +15199,9 @@ en:pork belly, pork bellies
 de:Schweinebauch
 fr:ventre de porc
 sv:sidfläsk
+
+<en:pork belly
+en:british pork belly
 
 en:breast
 da:Bryst
@@ -22615,6 +22630,9 @@ pt:trigo integral
 sv:fullkornsvete
 zh:全麥小麥
 
+<en:wholegrain wheat
+en:british wholegrain wheat
+
 <en:wheat
 en:wheat flakes
 ca:flocs de blat
@@ -24013,11 +24031,14 @@ fr:Flocon d'avoine complet
 sv:fullkornshavre
 
 <en:oat
-en:whole grain oat flakes
+en:whole grain oat flakes, wholegrain oat flakes
 es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
 et:täisterakaerahelbed
 lt:pilno grūdo avižiniai dribsniai
 lv:pilngraudu auzu pārslas
+
+<en:whole grain oat flakes
+en:british wholegrain oat flakes
 
 <en:oat
 en:oat bran, oatbran
@@ -25022,6 +25043,9 @@ it:farina di frumento fortificada
 nl:verrijkt tarwebloem
 pl:Wzbogacona mąka pszenna
 sv:berikat vetemjöl
+
+<en:fortified wheat flour
+en:fortified british wheat flour
 
 <en:wheat flour
 de:Weichweizenmehl
@@ -67462,6 +67486,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
+en:british chicken
+
+<en:chicken meat
 de:Hähnchenfleisch
 fi:broilerinliha
 
@@ -67635,6 +67662,9 @@ ro:piept de pui
 sv:kycklingbröst
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
+
+<en:chicken breast
+en:british chicken breast
 
 <en:chicken fillet
 en:chicken breast fillet
