@@ -1,10 +1,16 @@
 
 #comment:en:These are synonyms of ingredients
 
+#synonyms need to be separated with an empty line.
+#If a term is also in the taxonomy, it must come first. e.g. "es:jarabe".
+
 synonyms:en:hydrolysed, hydrolyzed
+
 synonyms:en:pasteurised, pasteurized
+
 synonyms:es:zumo, jugo
-synonyms:es:sirope,jarabe
+
+synonyms:es:jarabe, sirope
 
 
 # comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
@@ -1190,7 +1196,7 @@ es:gelatina de pollo
 <en:pork
 en:pork gelatin
 ca:gelatina de porc
-da:Gelatine
+da:svin gelatine
 de:Schweinegelatine
 es:gelatina de cerdo
 fi:sikaliivate, sikagelatiini, sian liivate, liivate siasta
@@ -1563,17 +1569,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carboxymethyl_cellulose
 #   MAGNESIUM STEARATE   is the chemical compound with the formula Mg(C18H35O2)2
 
 # <en:Emulsifying salt
-en:Magnesium stearate, E470b
+en:Magnesium stearate, E572
 ar:ستيرات المغنسيوم
-ca:Estereat de magnesi, sals de magnesi d'àcids grassos
+ca:Estereat de magnesi
 cs:Stearan hořečnatý
 de:Magnesiumstearat
-es:Estereato de magnesio, sales de magnesio de ácidos grasos
+es:Estereato de magnesio
 fa:منیزیم استارات
 fi:magnesiumstearaatti
-fr:Stéarate de magnésium, sels de magnésium d'acides gras
+fr:Stéarate de magnésium
 hu:Magnézium-sztearát
-it:stearato di magnesio, sale di magnesio dell'acido stearico
+it:stearato di magnesio
 nl:Magnesiumstearaat
 pl:Stearynian magnezu
 pt:Estearato de magnésio
@@ -2059,7 +2065,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sorbitan_monostearate
 # comment:en:POTASSIUM CARBONATES is the generic name for several molecules involving potassium and carbonates. It is written in plural, in order to distinguish it from E501i.
 
 en:Potassium carbonates, E501, E-501, E 501
-ca:carbonat de potassi, carbonats de potassi
+ca:carbonats de potassi
 da:kaliumkarbonater
 de:Kaliumcarbonate
 el:ανθρακικά άλατα καλίου
@@ -2290,9 +2296,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_chloride
 
 <en:E511
 en:nigari, bittern
-ca:Nigari, clorur de magnesi
+ca:Nigari
 de:Nigari
-es:Nigari, cloruro de magnesio
+es:Nigari
 fi:nigari
 fr:nigari
 it:nigari
@@ -3026,7 +3032,7 @@ eo:ununatria L-glutamato
 es:Glutamato monosódico, glutamato sódico
 et:Naatriumvesinikglutamaat
 fa:مونوسدیم گلوتامات
-fi:natriumglutamaatti, mononatriumglutamaatti, glutamaatti, MSG
+fi:natriumglutamaatti, mononatriumglutamaatti, MSG
 fr:monosodium glutamate, monoglutamate de sodium
 ga:Glútamáit aonsóidiam
 he:מונוסודיום גלוטמט
@@ -4020,7 +4026,7 @@ es:Ciclamato de sodio
 fa:سیکلامات سدیم
 fi:natriumsyklamaatti
 fr:cyclamate de sodium
-hu:ciklamát
+hu:nátrium-ciklamát
 hy:Նատրիումի ցիկլամատ
 id:Natrium siklamat
 kk:Натрий цикламаты
@@ -12811,6 +12817,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
 
 
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
+# "sodium chloride" is defined in minerals.txt
 
 # nova
 en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
@@ -12853,7 +12860,7 @@ id:Garam dapur
 ig:Ńnú
 io:Manjebla salo
 is:Borðsalt, matarsalt
-it:sale,Cloruro di sodio, sale da cucina
+it:sale, sale da cucina
 ja:塩, 食塩
 jv:Uyah
 ka:სუფრის მარილი
@@ -16710,7 +16717,6 @@ sv:ej härdade vegetabilisk fetter
 
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
-de:Emulgator Mono- und Diglyceride von Fettsäuren
 es:aceite vegetales no hidrogenados
 fi:kovettamaton kasviöljy, kovettamattomat kasviöljyt, hydrogenoimaton kasviöljy hydrogenoimattomat kasviöljyt
 fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
@@ -21461,7 +21467,7 @@ fa:وانیلین
 fi:vanilliini, vaniliini
 fr:vanilline
 he:ונילין
-hu:vanillin, vanillin aroma
+hu:vanillin
 hy:Վանիլին
 it:vanillina
 ja:バニリン
@@ -26983,7 +26989,7 @@ fr:farine de graines de caroube et farine de graines de guar
 <en:xanthan gum
 en:xanthan gum and guar gum
 de:Xanthan und Guarkernmehl
-es:goma xantana y goma guar,goma guar, goma xantica
+es:goma xantana y goma guar
 fi:ksantaanikumi ja johanneksenleipäpuujauhe
 fr:gomme xanthane et gomme guar, gomme xanthane et gomme de guar
 hu:xantángumi és guargumi
@@ -31416,7 +31422,7 @@ lt:maltodekstrinas
 lv:maltodekstrīns
 nb:maltodekstrin
 nl:Maltodextrine
-pl:Maltodekstryny
+pl:Maltodekstryny, Maltodekstryna
 pt:Maltodextrinas, maltodextrina
 ro:maltodextrină, maltodextrina
 ru:Мальтодекстрин
@@ -32346,7 +32352,7 @@ en:magnesium phosphate
 ar:فوسفات المغنسيوم
 de:Magnesiumphosphat
 es:Fosfato de magnesio
-fi:magnesiumfosfaatti
+fi:magnesiumfosfaatti, magnesiumfosfaattia
 fr:phosphate de magnésium
 hu:Magnézium-foszfát
 it:Fosfato di magnesio
@@ -32472,7 +32478,7 @@ cs:Xanthanová guma, Xanthan
 da:Xanthangummi
 de:Xanthan, Xanthangummi
 el:Ξανθανικο κομμι
-es:goma de xantano
+es:goma de xantano, goma xantica
 et:Ksantaankummi
 fa:صمغ زانتان
 fi:Ksantaanikumi
@@ -32597,7 +32603,7 @@ nl:difosfaten en natriumcarbonaten
 en:disodium diphosphate, disodium pyrophosphate, sodium acid pyrophosphate, SAPP, e450i
 ar:بيروفوسفات ثنائي الصوديوم
 bg:Динатриев дифосфат
-cs:Dihydrogenfosforečnan sodný
+cs:Dihydrogendifosforečnan disodný
 da:dinatriumdiphosphat
 de:Dinatriumdiphosphat, Dinatriumdihydrogendiphosphat
 el:Δισοξινο πυροφωσφορικο νατριο
@@ -45897,7 +45903,7 @@ ar:فلفل حلو
 ca:Pebrot morro de bou
 cs:kapie
 da:paprika, peberfrugt
-de:peberfrugt, Paprika
+de:Paprika
 eo:Kapsiko
 es:Pimiento, morrón, Pimiento morrón
 fa:فلفل دلمه‌ای
@@ -63354,7 +63360,7 @@ zh:藍貝, Mytilus edulis
 wikidata:en:Q27855
 
 <en:blue mussel
-fr:Mytilus edulis, Mytilus edulis pêchées en Atlantique Nord
+fr:Mytilus edulis pêchées en Atlantique Nord
 # ingredient/fr:Mytilus-edulis has 55 products @2019-01-05
 
 
