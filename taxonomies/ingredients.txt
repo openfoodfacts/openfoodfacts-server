@@ -30719,6 +30719,8 @@ nl:bergbronwater
 # ingredient/fr:eau-de-source-de-montagne has 13 products in french @2019-05-23
 
 <en:spring water
+<en:carbonated water
+en:carbonated spring water
 fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
 
 <fr:eau de source gazéifiée
@@ -30818,7 +30820,7 @@ fr:Eau minérale naturelle de Luchon
 # description:en:CARBONATED WATER (bubbly water, fizzy water) is water into which carbon dioxide gas under pressure has been dissolved
 
 <en:water
-en:Carbonated water
+en:carbonated water, sparkling water
 af:Sodawater, klubsoda, bruiswater, vonkelwater, seltzerwater
 ar:ماء مكربن
 az:Qazlı su
@@ -30826,7 +30828,7 @@ bs:Soda voda
 ca:Aigua carbonatada
 cs:sodovka, Sodová voda, sifon, sycená, perlivá voda
 da:Danskvand
-de:Tafelwasser
+de:Tafelwasser, Sprudelwasser, Wasser mit Kohlensäure
 el:σόδα
 eo:Karbonata akvo
 es:Agua carbonatada
@@ -30872,24 +30874,19 @@ zh:碳酸水
 # yue:荷蘭水
 wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
 
-<en:Carbonated water
-en:Sparkling water
-de:Sprudelwasser, Wasser mit Kohlensäure
-fr:Eau pétillante
-wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
-
 <en:mineral water
-<en:spring water
+<en:carbonated water
 en:Carbonated mineral water, sparkling mineral water
 de:Mineralwasser mit Kohlensäure, kohlensäurehaltiges Mineralwasser
 fi:hiilihapotettu kivennäisvesi
-fr:eau de source gazéifiée, Eau minérale gazeuse
+fr:eau minérale gazeuse
 nl:Bruisend mineraalwater, gashoudendmineraalwater
 # ingredient/fr:eau-minerale-gazeuse has 9 products @2019-06-02
 
 # comment:en:eau minérale naturelle gazéifiée implies that gas is present
 
 <en:natural mineral water
+<en:carbonated water
 en:carbonated natural mineral water, natural sparkling mineral water
 de:natürliches Mineralwasser mit Kohlensäure versetzt
 es:Agua mineral carbonatada
