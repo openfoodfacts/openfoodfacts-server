@@ -36210,6 +36210,9 @@ fr:Mousses au chocolat, Mousse au chocolat
 it:Mousse al cioccolato
 nl:Chocolademousses
 wikidata:en:Q1381277
+agribalyse_proxy_food_code:en:39206
+agribalyse_proxy_food_name:en:Chocolate mousse (milk-based), refrigerated
+agribalyse_proxy_food_name:fr:Mousse au chocolat (base laitière), rayon frais
 
 <en:Chocolate mousses
 en:Refrigerated milk-based chocolate mousses
@@ -44899,6 +44902,9 @@ fi:kiivihedelmät
 fr:Kiwis
 it:Kiwi
 nl:Kiwis
+agribalyse_proxy_food_code:en:13021
+agribalyse_proxy_food_name:en:Kiwi fruit, pulp and seeds, raw
+agribalyse_proxy_food_name:fr:Kiwi, pulpe et graines, cru
 
 <en:Kiwifruits
 <en:Fresh fruits
@@ -51878,7 +51884,7 @@ agribalyse_food_code:en:8903
 ciqual_food_code:en:8903
 ciqual_food_name:en:Veal quenelle, in sauce
 
-<en:Beef dishes
+<en:Veal meat dishes
 en:Veal quenelle in sauce
 fr:Quenelle de veau en sauce
 agribalyse_food_code:en:8903
@@ -52147,6 +52153,8 @@ pt:Refeições com frango
 
 <en:Meals with chicken
 fr:Parmentiers de poulet
+agribalyse_proxy_food_code:en:25587
+agribalyse_proxy_food_name:en:Shepherd's pie with duck, cooked
 
 <en:Meals with chicken
 en:Chicken tajine
@@ -52451,6 +52459,9 @@ wikidata:en:Q471866
 ciqual_food_code:en:25972
 ciqual_food_name:en:Miso soup
 ciqual_food_name:fr:Soupe miso
+#agribalyse_proxy_food_code:en:20916
+#agribalyse_proxy_food_name:en:Miso
+#agribalyse_proxy_food_name:fr:Miso
 
 <en:Soups
 en:Dehydrated and reconstituted Moroccan soup
@@ -52461,6 +52472,7 @@ ciqual_food_name:en:Soup, Moroccan, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe marocaine, déshydratée reconstituée
 
 <en:Soups
+<en:Reheatable soups
 en:Fish soups
 de:Fischsuppen
 es:Sopa de pescado
@@ -52478,8 +52490,15 @@ ciqual_food_name:en:Soup, fish and/or crustacean, prepacked, to be reheated
 
 <en:Soups
 <en:Fish soups
-en:Soup fish and/or crustacean dehydrated and reconstituted
-fr:soupe de poissons
+en:Reconstituted fish soup
+fr:Soupe de poissons reconstituée
+agribalyse_food_code:en:25919
+ciqual_food_code:en:25919
+ciqual_food_name:en:Soup, fish and/or crustacean, dehydrated and reconstituted
+
+<en:Soups
+en:Reconstituted crustacean soup
+fr:Soupe de crustacés reconstituée
 agribalyse_food_code:en:25919
 ciqual_food_code:en:25919
 ciqual_food_name:en:Soup, fish and/or crustacean, dehydrated and reconstituted
@@ -52502,6 +52521,10 @@ zh:蔬菜汤
 pnns_group_2:en:Soups
 
 <en:Soups
+en:Reheatable soups
+
+<en:Soups
+<en:Reheatable soups
 en:Mushroom soups
 fr:Soupe aux champignons
 nl:Paddestoelensoep
@@ -52529,6 +52552,11 @@ ciqual_food_name:en:Soup, chicken and vegetables, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux légumes, préemballée à réchauffer
 
 <en:Soups
+en:Chicken and vermicelli soup
+fr:Soupe à la volaille et aux vermicelles
+
+<en:Chicken and vermicelli soup
+<en:Reheatable soups
 en:Reheatable chicken and vermicelli soup
 fr:Soupe à la volaille et aux vermicelles à réchauffer
 agribalyse_food_code:en:25908
@@ -52536,7 +52564,12 @@ ciqual_food_code:en:25908
 ciqual_food_name:en:Soup, chicken and vermicelli, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux vermicelles, préemballée à réchauffer
 
+
 <en:Soups
+en:tomato and vermicelli soup
+fr:Soupe à la tomate et aux vermicelles
+
+<en:tomato and vermicelli soup
 <en:Dried products to be rehydrated
 en:Dehydrated and reconstituted tomato and vermicelli soup
 fr:Soupe à la tomate et aux vermicelles déshydratée reconstituée
@@ -52563,7 +52596,7 @@ ciqual_food_code:en:25928
 ciqual_food_name:en:Soup, chicken and vegetables, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconstituée
 
-<en:Soups
+<en:Chicken and vermicelli soup
 <en:Dried products to be rehydrated
 en:Dehydrated and reconstituted chicken and vermicelli soup
 fr:Soupe à la volaille et aux vermicelles déshydratée reconstituée
@@ -52589,6 +52622,7 @@ ciqual_food_name:en:Soup, minestrone, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe minestrone, déshydratée reconstituée
 
 <en:Vegetable soups
+<en:Reheatable soups
 en:Reheatable tomato soup
 fr:Soupe à la tomate à réchauffer
 agribalyse_food_code:en:25914
@@ -53954,14 +53988,6 @@ ciqual_food_name:en:Pizza, chicken
 ciqual_food_name:fr:Pizza au poulet
 
 <en:Pizzas
-en:Cured Ham Pizza
-fr:Pizza au speck, Pizza au jambon cru
-agribalyse_food_code:en:26274
-ciqual_food_code:en:26274
-ciqual_food_name:en:Pizza, cured ham
-ciqual_food_name:fr:Pizza au speck ou jambon cru
-
-<en:Pizzas
 en:Chorizo pizzas, Chorizo pizza, Salami pizza
 de:Chorizo Pizzas
 es:Pizzas de chorizo
@@ -54048,6 +54074,24 @@ fi:kinkkupizzat
 fr:Pizzas au jambon
 it:Pizze al prosciutto
 nl:Hampizza
+agribalyse_proxy_food_code:en:26274
+agribalyse_proxy_food_name:en:Pizza, cured ham
+agribalyse_proxy_food_name:fr:Pizza au speck ou jambon cru
+
+<en:Ham pizzas
+en:Cured Ham Pizza
+fr:Pizza au jambon cru
+agribalyse_food_code:en:26274
+ciqual_food_code:en:26274
+ciqual_food_name:en:Pizza, cured ham
+ciqual_food_name:fr:Pizza au speck ou jambon cru
+
+<en:Ham pizzas
+fr:Pizza au speck
+agribalyse_food_code:en:26274
+ciqual_food_code:en:26274
+ciqual_food_name:en:Pizza, cured ham
+ciqual_food_name:fr:Pizza au speck ou jambon cru
 
 <en:Pizzas
 en:Kebab pizzas, Kebab pizza
@@ -54079,6 +54123,9 @@ fr:Pizzas au fromage, Pizza au fromage
 it:Pizze al formaggio
 nl:Kaaspizzas
 sv:Ostpizzor
+agribalyse_proxy_food_code:en:25404
+agribalyse_proxy_food_name:en:Pizza, cheese and tomato or Margherita pizza
+agribalyse_proxy_food_name:fr:Pizza au fromage ou Pizza margherita
 
 <en:Cheese pizzas
 en:Three Cheese Pizza
@@ -54087,6 +54134,9 @@ fi:kolmen juuston pizza
 fr:Pizzas aux trois fromages, pizzas 3 fromages, Pizza aux trois fromages, pizza 3 fromages
 it:Pizza ai tre formaggi
 nl:Drie kazenpizzas
+agribalyse_proxy_food_code:en:25478
+agribalyse_proxy_food_name:en:Pizza, four cheeses
+agribalyse_proxy_food_name:fr:Pizza 4 fromages
 
 <en:Cheese pizzas
 en:Four Cheese Pizza
@@ -54106,10 +54156,16 @@ en:Five Cheese Pizza
 fr:Pizzas aux cinq fromages, pizzas 5 fromages, Pizza aux cinq fromages, pizza 5 fromages
 it:Pizze ai cinque formaggi
 nl:Vijf kazen pizza
+agribalyse_proxy_food_code:en:25478
+agribalyse_proxy_food_name:en:Pizza, four cheeses
+agribalyse_proxy_food_name:fr:Pizza 4 fromages
 
 <en:Cheese pizzas
 en:Six Cheese Pizza
 fr:Pizzas aux six fromages, pizzas 6 fromages, Pizza aux six fromages, pizza 6 fromages
+agribalyse_proxy_food_code:en:25478
+agribalyse_proxy_food_name:en:Pizza, four cheeses
+agribalyse_proxy_food_name:fr:Pizza 4 fromages
 
 <en:Cheese pizzas
 en:Cheese and onion pizza with lardoons
