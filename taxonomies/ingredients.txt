@@ -1421,7 +1421,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Microcrystalline_cellulose
 # stabilizzante:cellulosa microcristallina
 
 # E461 is moved to the additives taxonomy
-en:E461
+#en:E461
 
 
 #   METHYL CELLULOSE   (or methylcellulose) is a chemical compound derived from cellulose.
@@ -1647,9 +1647,6 @@ from_palm_oil:en:yes
 fr:mono et diglycérides d'acides gras de colza
 ca:monoglicèrids i diglicèrids d'àcids grassos de colza
 es:monoglicéridos y diglicéridos de ácidos grasos de colza
-
-<en:mono- and diglycerides of fatty acids
-fr:émulsifiant e471
 
 <en:mono- and diglycerides of fatty acids
 <en:sodium stearoyl-2-lactylate
@@ -2066,7 +2063,7 @@ ca:carbonat de potassi, carbonats de potassi
 da:kaliumkarbonater
 de:Kaliumcarbonate
 el:ανθρακικά άλατα καλίου
-es:carbonato de potasio, carbonatos de potasio
+es:carbonatos de potasio
 et:kaaliumkarbonaadid
 fi:kaliumkarbonaatit
 fr:carbonates de potassium
@@ -4015,7 +4012,7 @@ en:E953
 # Sodium cyclamate (sweetener code 952) is an artificial sweetener.
 
 <en:cyclamate
-en:cyclamate, E952iv, E-952iv, E952(iv)
+en:Sodium cyclamate, E952iv, E-952iv, E952(iv)
 ca:ciclamat de sodi
 de:Natriumcyclamat
 el:Κυκλαμικό νάτριο
@@ -15474,9 +15471,6 @@ it:budello di maiale
 <en:pork collagen
 fr:boyau naturel de porc
 
-
-<en:beef
-fr:extrait de boeuf
 
 <en:beef
 fr:sous-produit du boeuf
@@ -29633,7 +29627,7 @@ fr:Cacao alcalinisé
 <en:cocoa-powder
 en:cocoa powder processed with alkali, alkalized cocoa powder
 es:Cacao en polvo procesado con álcali
-fr:Cacao alcalinisé
+fr:Cacao en poudre alcalinisé
 
 <en:cocoa-powder
 en:skimmed cocoa powder
@@ -32609,7 +32603,7 @@ nl:difosfaten en natriumcarbonaten
 # ingredient/fr:diphosphate-et-carbonate-de-calcium has 678 products @2019-05-18
 
 <en:diphosphates
-en:disodium diphosphate, sodium pyrophosphate, e450i
+en:disodium diphosphate, sodium acid pyrophosphate, e450i
 ar:بيروفوسفات ثنائي الصوديوم
 bg:Динатриев дифосфат
 cs:Dihydrogenfosforečnan sodný
@@ -45892,11 +45886,12 @@ carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
 carbon_footprint_fr_foodges_value:fr:1.3
 
 # description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
-# comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word
+# comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word.
+# wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 # do not make pepper a synonym of bell pepper
 
 <en:vegetable
-en:bell pepper, paprika
+en:bell pepper
 af:Soetrissie
 an:Pimiento
 ar:فلفل حلو
@@ -68333,7 +68328,7 @@ nl:hele eieren, geheel eieren
 
 <en:whole egg
 fr:œuf entier pasteurisé, œufs entiers pasteurisés, oeuf entier pasteurisé, oeufs entiers pasteurisés
-de:Vollei pasteurisiert
+de:Vollei pasteurisiert, pasteurisiertes Vollei
 it:uovo intero pastorizzato
 # ingredient/fr:oeuf-entier-pasteurisé has 51 products in 4 languages @2018-12-18
 
@@ -68377,10 +68372,6 @@ pt:ovos inteiros frescos
 fr:œufs entiers extra-frais, oeufs entiers extra-frais
 nl:extra-verse hele eieren
 # fr:oeufs-entiers-extra-frais has 73 products in french @2018-12-18
-
-<en:whole egg
-fr:Oeufs entiers pasteurisés
-de:pasteurisiertes Vollei
 
 <en:whole egg
 fr:œuf entier d'élevage au sol, oeuf entier d'élevage au sol
