@@ -8,6 +8,9 @@ if (user_product_preferences_string) {
 	user_product_preferences = JSON.parse(user_product_preferences_string);
 }
 
+// Will hold product data retrieved from the search API
+var products = [];
+
 
 // match_product_to_preference checks if a product matches
 // a given set of preferences and scores the product according to
@@ -34,10 +37,7 @@ function match_product_to_preferences (product, product_preferences) {
 		"important" : []
 	};
 
-	if (! product.attribute_groups) {
-		status = "unknown";
-	}
-	else {
+	if (product.attribute_groups) {
 		
 		// Iterate over attribute groups
 		$.each( product.attribute_groups, function(key, attribute_group) {
@@ -46,7 +46,7 @@ function match_product_to_preferences (product, product_preferences) {
 			
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
-				if ((! user_product_preferences[attribute.id]) || (user_product_preferences[attribute.id] == "not_important")) {
+				if ((! user_product_preferences[attribute.id]) || (product_preferences[attribute.id] == "not_important")) {
 					// Ignore attribute
 					debug += attribute.id + " not_important" + "\n";
 				}
@@ -58,22 +58,22 @@ function match_product_to_preferences (product, product_preferences) {
 						// if the attribute is unknown (unless the product is already not matching)				
 						
 						if (status == "yes") {
-							status == "unknown";
+							status = "unknown";
 						}
 					}
 					else {
 						
-						debug += attribute.id + " " + user_product_preferences[attribute.id] + " - match: " + attribute.match + "\n";
+						debug += attribute.id + " " + product_preferences[attribute.id] + " - match: " + attribute.match + "\n";
 					
-						if (user_product_preferences[attribute.id] == "important") {
+						if (product_preferences[attribute.id] == "important") {
 					
 							score += attribute.match;
 						}
-						else if (user_product_preferences[attribute.id] == "very_important") {
+						else if (product_preferences[attribute.id] == "very_important") {
 							
 							score += attribute.match * 2;
 						}
-						else if (user_product_preferences[attribute.id] == "mandatory") {
+						else if (product_preferences[attribute.id] == "mandatory") {
 
 							score += attribute.match * 4;
 					
@@ -84,13 +84,17 @@ function match_product_to_preferences (product, product_preferences) {
 					}
 					
 					if (attribute.icon_url) {
-						product.match_icons[user_product_preferences[attribute.id]].push(attribute.icon_url);
+						product.match_icons[product_preferences[attribute.id]].push(attribute.icon_url);
 					}					
 				}
 			});
 		});		
 	}
-	
+	else {
+		// the product does not have the attribute_group field 
+		status = "unknown";
+	}
+
 	product.match_status = status;
 	product.match_score = score;	
 	product.match_debug = debug;	
@@ -104,7 +108,7 @@ function rank_and_filter_products(products, product_preferences) {
 	
 	$.each(products, function (key, product) {
 		
-		match_product_to_preferences (product, product_preferences);
+		match_product_to_preferences(product, product_preferences);
 		
 	});
 	
@@ -128,12 +132,17 @@ function rank_and_filter_products(products, product_preferences) {
 	return product_groups;
 }
 
+/*eslint no-unused-vars: [2, {"args": "after-used", "varsIgnorePattern": "unused"}]*/
 
-function show_products(target, product_groups, product_preferences) {
+function show_products(target, product_groups, product_preferences_currently_unused ) {
+	
+	// product_preferences is currently unused, as we get some of them
+	// indirectly through product.match_icons
+	// but at some point we may display products differently based on the preferences	
 	
 	$( target ).empty();
 	
-	$.each ( product_groups, function(key, product_group) {
+	$.each(product_groups, function(key, product_group) {
 	
 		var products_html = [];
 		
@@ -153,7 +162,7 @@ function show_products(target, product_groups, product_preferences) {
 			
 			product_html += '</a>';
 			
-			$.each (product.match_icons["mandatory"].concat(product.match_icons["very_important"], product.match_icons["important"]), function (key, icon_url) {
+			$.each(product.match_icons.mandatory.concat(product.match_icons.very_important, product.match_icons.important), function (key, icon_url) {
 				
 				product_html += '<img src="' + icon_url + '" class="match_icons">';
 			});
