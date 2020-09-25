@@ -11191,6 +11191,12 @@ wikidata:en:Q1972540
 wikipedia:en:https://en.wikipedia.org/wiki/Wensleydale_cheese
 
 
+<en:cheese
+en:american cheese
+wikidata:en:Q2671520
+wikipedia:en:https://en.wikipedia.org/wiki/American_cheese
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                                  V I T A M I N S     S E C T I O N
@@ -15744,7 +15750,7 @@ fr:amidon de maïs cireux
 
 <en:corn starch
 <en:modified starch
-en:modified corn starch, modified corn starches, modified maize starch
+en:modified corn starch, modified corn starches, modified maize starch, corn starch modified
 ca:Midó de moresc modificat, midó de panís modificat, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
 cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
@@ -20726,6 +20732,14 @@ fr:Saké
 ja:日本酒
 wikidata:en:Q170219
 wikipedia:en:https://en.wikipedia.org/wiki/Sake
+
+<en:alcohol
+en:vodka
+de:wodka
+es:vodka
+fr:vodka
+wikidata:en:Q374
+wikipedia:en:https://en.wikipedia.org/wiki/Vodka
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -31809,6 +31823,8 @@ fi:Hiivauutejauhe
 fr:extrait de levure en poudre
 it:estratto di lievito in polvere
 
+<en:yeast extract
+en:autolyzed yeast extract, autolysed yeast extract
 
 
 
@@ -50889,7 +50905,7 @@ sv:sesam-kräm, sesampasta
 # Tahini is a condiment made from toasted ground hulled sesame.
 
 <en:sesame paste
-en:tahini, tahini paste
+en:tahini, tahini paste, sesame tahini
 ar:طحينة
 az:Tahini
 be:Тахіні
@@ -57353,6 +57369,9 @@ fi:luontainen vanilja
 # ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
 
 <en:vanilla
+en:pure vanilla
+
+<en:vanilla
 en:Bourbon vanilla
 de:Bourbon Vanille, Bourbon-Vanille
 es:Vainilla Bourbon
@@ -61969,6 +61988,31 @@ en:Nemipterus spp
 wikidata:en:Q1842575
 wikipedia:en:https://en.wikipedia.org/wiki/Nemipterus
 # ingredient/fr:Nemipterus-spp has 2 products in french @2019-01-07
+
+
+# Tilapia is the common name for nearly a hundred species of cichlid fish from the  coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine and tilapiine tribes (formerly all were in Tilapiini).
+
+<en:fish
+en:tilapia
+fr:tilapia
+wikidata:en:Q47793
+wikipedia:en:https://en.wikipedia.org/wiki/Tilapia
+
+<en:tilapia
+en:farmed tilapia, farm raised tilapia
+
+<en:tilapia
+en:tilapia fillet
+de:Tilapiafilet
+fr:filet de tilapia
+
+<en:tilapia
+en:mozambique tilapia
+la:Oreochromis mossambicus
+
+<en:tilapia
+en:nile tilapia
+la:Oreochromis niloticus
 
 
 # A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
@@ -67654,7 +67698,7 @@ fi:uunipaahdettu broilerinfilee
 # 1 entry @ 2019-10-31
 
 <en:chicken meat
-en:chicken breast
+en:chicken breast, chicken breast meat
 ca:pit de pollastre
 es:pechuga de pollo,carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
@@ -73373,7 +73417,7 @@ sv:sojasåspulver
 # description:en:TAMARI is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance.
 
 <en:soy sauce
-en:tamari
+en:tamari, tamari soy sauce
 de:Tamari
 es:tamari
 fi:tamari
