@@ -2962,7 +2962,6 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
 			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
 		}
-
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -3420,7 +3419,6 @@ HTML
 			else {
 					$log->debug("display_tag - property not defined", { tagtype => $tagtype, property_id => $propertyid{property}, canon_tagid => $canon_tagid }) if $log->is_debug();
 			}
-
 		}
 
 		# Remove titles without content
@@ -3438,7 +3436,6 @@ HTML
 	}
 
 	$description =~ s/<tag>/$title/g;
-
 
 	if (defined $ingredients_classes{$tagtype}) {
 		my $class = $tagtype;
@@ -3883,8 +3880,6 @@ HTML
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
-
-
 	display_new($request_ref);
 
 	return;
@@ -3935,7 +3930,7 @@ sub display_search_results($) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 	
-	if ((defined param("user_preferences")) and (param("user_preferences"))) {
+	if ((defined param("user_preferences")) and (param("user_preferences")) and not ($request_ref->{api}) ) {
 	
 		# The results will be filtered and ranked on the client side
 		
@@ -3963,9 +3958,7 @@ JS
 
 		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
-		}
-		$request_ref->{content_ref} = \$html;
-		
+		}		
 	}
 	else {
 		
@@ -3982,8 +3975,10 @@ JS
 		
 		$request_ref->{current_link_query} = $current_link;
 		
-		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+		$html .= search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
+	
+	$request_ref->{content_ref} = \$html;
 
 	display_new($request_ref);
 
