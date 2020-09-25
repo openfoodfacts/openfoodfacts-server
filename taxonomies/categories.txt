@@ -31634,9 +31634,15 @@ nl:Notenkazen
 fr:Fromages blancs, fromage blanc
 de:Weißer Käse
 wikidata:en:Q15080546
+agribalyse_proxy_food_code:en:19646
+agribalyse_proxy_food_name:en:Fresh cream cheese, plain, around 3% fat
+agribalyse_proxy_food_name:fr:Fromage blanc nature, 3% MG environ
 
 <fr:Fromages blancs
 fr:Fromages blancs natures
+agribalyse_proxy_food_code:en:19646
+agribalyse_proxy_food_name:en:Fresh cream cheese, plain, around 3% fat
+agribalyse_proxy_food_name:fr:Fromage blanc nature, 3% MG environ
 
 <fr:Fromages blancs
 en:Fat free plain fresh cream cheese
@@ -55610,13 +55616,13 @@ agribalyse_food_code:en:34001
 ciqual_food_code:en:34001
 ciqual_food_name:en:Rabbit, meat, raw
 
-<en:Rabbit meat
-en:Raw rabbit liver
-fr:Foie de lapin cru
-agribalyse_food_code:en:40110
-ciqual_food_code:en:40110
-ciqual_food_name:en:Liver, rabbit, raw
-ciqual_food_name:fr:Foie, lapin, cru
+<en:rabbit meat
+en:Cooked rabbit meat
+fr:Viande de lapin cuite
+agribalyse_food_code:en:34002
+ciqual_food_code:en:34002
+ciqual_food_name:en:Rabbit, meat, cooked
+ciqual_food_name:fr:Lapin, viande cuite
 
 <en:Cooked rabbit meat
 en:Braised rabbit meat
@@ -55626,13 +55632,13 @@ ciqual_food_code:en:34000
 ciqual_food_name:en:Rabbit, meat, braised
 ciqual_food_name:fr:Lapin, viande braisée
 
-<en:rabbit meat
-en:Cooked rabbit meat
-fr:Viande de lapin cuite
-agribalyse_food_code:en:34002
-ciqual_food_code:en:34002
-ciqual_food_name:en:Rabbit, meat, cooked
-ciqual_food_name:fr:Lapin, viande cuite
+<en:Cooked rabbit meat
+en:Cooked wild rabbit meat
+fr:Viande de lapin de garenne cuite
+agribalyse_food_code:en:34004
+ciqual_food_code:en:34004
+ciqual_food_name:en:Rabbit, wild, meat, cooked
+ciqual_food_name:fr:Lapin de garenne, viande, cuite
 
 <en:Rabbit meat
 en:Wild Rabbit meat
@@ -55642,14 +55648,6 @@ ciqual_food_code:en:34003
 ciqual_food_name:en:Rabbit, wild, meat, raw
 ciqual_food_name:fr:Lapin de garenne, viande, crue
 
-<en:Cooked rabbit meat
-en:Cooked wild rabbit meat
-fr:Viande de lapin de garenne cuite
-agribalyse_food_code:en:34004
-ciqual_food_code:en:34004
-ciqual_food_name:en:Rabbit, wild, meat, cooked
-ciqual_food_name:fr:Lapin de garenne, viande, cuite
-
 <en:Meat preparations
 <en:Rabbit meat
 en:Rabbit with mustard sauce
@@ -55658,9 +55656,21 @@ agribalyse_food_code:en:25063
 ciqual_food_code:en:25063
 ciqual_food_name:en:Rabbit with mustard sauce
 
+<en:Rabbit meat
 en:Rabbit liver
 fr:Foies de lapin
 wikidata:en:Q67883965
+agribalyse_proxy_food_code:en:40110
+agribalyse_proxy_food_name:en:Liver, rabbit, raw
+agribalyse_proxy_food_name:fr:Foie, lapin, cru
+
+<en:Rabbit liver
+en:Raw rabbit liver
+fr:Foie de lapin cru
+agribalyse_food_code:en:40110
+ciqual_food_code:en:40110
+ciqual_food_name:en:Liver, rabbit, raw
+ciqual_food_name:fr:Foie, lapin, cru
 
 <en:Fresh meats
 en:Horse fresh meat, Raw horse meat
@@ -63014,6 +63024,9 @@ ru:Лапша быстрого приготовления, быстрая лап
 sv:Snabbnudlar
 zh:方便面, 速食面条
 wikidata:en:Q1051265
+agribalyse_proxy_food_code:en:9863
+agribalyse_proxy_food_name:en:Asian noodles, flavoured, dehydrated
+agribalyse_proxy_food_name:fr:Nouilles asiatiques aromatisées, déshydratées
 
 <en:Instant noodles
 en:Instant noodle soups
@@ -77858,6 +77871,9 @@ he:עוגות אורז תפוח
 hu:Puffasztott rizs
 it:Gallette di riso
 nl:Rijstwafels
+agribalyse_proxy_food_code:en:7352
+agribalyse_proxy_food_name:en:Puffed rice textured bread, wholemeal
+agribalyse_proxy_food_name:fr:Galette de riz soufflé complet
 
 <en:Puffed rice cakes
 en:Puffed wholegrain rice cakes, Puffed rice textured bread wholemeal
@@ -77903,6 +77919,7 @@ it:Gallette di avena
 nl:Haverwafels
 
 <en:Puffed cereal cakes
+en:Puffed buckwheat cakes
 fr:Galettes de sarrasin soufflé
 
 <en:Puffed cereal cakes
@@ -78020,6 +78037,9 @@ ciqual_food_name:fr:Biscuit apéritif feuilleté
 <en:Crackers
 fr:Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
 nl:Gepofte zoutjes
+agribalyse_proxy_food_code:en:38108
+agribalyse_proxy_food_name:en:Puffed salty snacks, made from potato and soy
+agribalyse_proxy_food_name:fr:Biscuit apéritif soufflé, à base de pomme de terre et de soja
 
 <en:Crackers
 en:Salty snacks with reduced fat, Crackers with reduced fat
@@ -78277,6 +78297,10 @@ ciqual_food_code:en:23422
 ciqual_food_name:en:Puff pastry, cooked
 ciqual_food_name:fr:Pâte feuilletée, cuite
 
+#<en:Pie dough
+#en:Cooked puff pastry
+#fr:Pâte feuilletée cuite
+
 <en:Pie dough
 <en:Frozen foods
 en:Frozen raw shortcrust pastry with pure butter
@@ -78286,7 +78310,8 @@ ciqual_food_code:en:23415
 ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
-<en:Pie dough
+
+<en:Cooked puff pastry
 en:Cooked pure butter puff pastry
 fr:Pâte feuilletée pur beurre cuite
 agribalyse_food_code:en:23426
@@ -78295,6 +78320,10 @@ ciqual_food_name:en:Puff pastry, pure butter, cooked
 ciqual_food_name:fr:Pâte feuilletée pur beurre, cuite
 
 <en:Pie dough
+en:Raw puff pastry
+fr:Pâte feuilletée crue
+
+<en:Raw puff pastry
 en:Raw puff pastry with pure butter
 fr:Pâte feuilletée pur beurre crue
 agribalyse_food_code:en:23424
@@ -78310,8 +78339,8 @@ ciqual_food_code:en:23420
 ciqual_food_name:en:Puff pastry, raw
 ciqual_food_name:fr:Pâte feuilletée, matière grasse végétale, crue
 
-<en:Pie dough
 <en:Frozen foods
+<en:Raw puff pastry
 en:Frozen raw puff pastry
 fr:Pâte feuilletée surgelée crue
 agribalyse_food_code:en:23421
@@ -78319,7 +78348,7 @@ ciqual_food_code:en:23421
 ciqual_food_name:en:Puff pastry, frozen, raw
 ciqual_food_name:fr:Pâte feuilletée, surgelée, crue
 
-<en:Pie dough
+<en:Raw puff pastry
 <en:Frozen foods
 en:Frozen raw puff pastry with pure butter
 fr:Pâte feuilletée pur beurre surgelée crue
