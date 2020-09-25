@@ -59,8 +59,8 @@ function display_selected_preferences (target_selected, target_selection_form, p
 	if (target_selection_form) {
 		$( target_selected ).append('<a id="show_selection_form">' + "Edit preferences" + '</a>');
 		$( "#show_selection_form").click(function() {
-		  $( target_selected ).hide();
-		  $( target_selection_form ).show();
+			$( target_selected ).hide();
+			$( target_selection_form ).show();
 		});
 	}
 }
@@ -158,7 +158,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
 				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 				
-				display_selected_preferences (target_selected, target_selection_form, user_product_preferences);
+				display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
 				
 				// Call the change callback if we have one (e.g. to update search results)
 				if (change) {
@@ -170,12 +170,12 @@ function display_user_product_preferences (target_selected, target_selection_for
 		// Show a button to close the preferences selection form and show the selected preferences
 		if (target_selected) {
 			
-			display_selected_preferences (target_selected, target_selection_form, user_product_preferences);
+			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
 			
 			$( target_selection_form ).prepend('<a id="show_selected">' + "Close preferences" + '</a>');
 			$( "#show_selected").click(function() {
-			  $( target_selection_form ).hide();
-			  $( target_selected ).show();
+				$( target_selection_form ).hide();
+				$( target_selected ).show();
 			});
 		}		
 	}
