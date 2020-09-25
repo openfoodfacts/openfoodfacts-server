@@ -6709,6 +6709,7 @@ it:Acqua potabile
 nl:Drinkwaters, Drinkwater
 ru:Питьевая вода, вода питьевая
 zh:饮用水
+# Wrong match
 agribalyse_food_code:en:18430
 ciqual_food_code:en:18430
 ciqual_food_name:en:Water, bottled
@@ -7616,6 +7617,10 @@ nl:Bronwaters, Bronwater
 pt:Águas de nascente
 zh:泉水
 wikidata:en:Q3046697
+agribalyse_food_code:en:18430
+ciqual_food_code:en:18430
+ciqual_food_name:en:Water, bottled
+ciqual_food_name:fr:Eau embouteillée de source
 #previous german translation rollwasser doesn't exist please change category name
 
 <en:Waters
@@ -26173,6 +26178,9 @@ sv:Mörk choklad
 th:ดาร์กช็อกโกแลต
 zh:黑巧克力
 wikidata:en:Q2366206
+agribalyse_proxy_food_code:en:31080
+agribalyse_proxy_food_name:en:Dark chocolate bar, filled with praline
+agribalyse_proxy_food_name:fr:Chocolat noir fourré praliné, tablette
 #if you use all those german synonyms you have nothing left for the subcategories. I'd say Dunkle Schokoladen would be enough
 
 <en:Dark chocolates
@@ -32417,6 +32425,10 @@ oqali_family:en: fr:Fromages - Mozzarella
 agribalyse_food_code:en:19590
 ciqual_food_code:en:19590
 ciqual_food_name:en:Mozzarella cheese, from cow's milk
+
+<en:Grated cheese
+en:Grated Mozzarella
+fr:Mozzarella râpée
 
 <en:Mozzarella
 <en:Buffalo's milk-cheese
@@ -50616,6 +50628,17 @@ en:Provençale sauces, Provençal sauces, Provencale sauces, Provencal sauces
 es:Salsas provenzales
 fr:Sauces provençales
 nl:Provencaalse sauzen
+agribalyse_proxy_food_code:en:11107
+agribalyse_proxy_food_name:en:Tomato sauce, with onions, prepacked
+agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
+
+<en:Tomato sauces
+en:Tomato sauces with onions
+fr:Sauces tomate aux oignons
+agribalyse_food_code:en:11107
+ciqual_food_code:en:11107
+ciqual_food_name:en:Tomato sauce, with onions, prepacked
+ciqual_food_name:fr:Sauce tomate aux oignons, préemballée
 
 <en:Salad dressings
 en:Vinaigrettes
@@ -50723,14 +50746,6 @@ fr:Sauces tomates pimentées
 <en:Vegetable sauces
 en:Tomato sauces with vegetables
 fr:Sauces tomates aux légumes
-
-<en:Tomato sauces
-en:Tomato sauces with onions
-fr:Sauces tomate aux oignons
-agribalyse_food_code:en:11107
-ciqual_food_code:en:11107
-ciqual_food_name:en:Tomato sauce, with onions, prepacked
-ciqual_food_name:fr:Sauce tomate aux oignons, préemballée
 
 <en:Tomato sauces
 en:Tomato sauce with olives
@@ -64266,7 +64281,7 @@ ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
-<en:Sandwiches
+<en:Raw vegetable sandwiches
 en:Sandwich with raw vegetables and mayonnaise
 fr:Sandwich crudités mayonnaise
 
@@ -64452,6 +64467,9 @@ fi:juustovoileivät
 fr:Sandwichs au fromage
 it:Panini al formaggio, Tramezzini al formaggio, Sandwich al formaggio
 nl:Kaassandwiches
+agribalyse_proxy_food_code:en:25518
+agribalyse_proxy_food_name:en:Sandwich made with French bread, camembert cheese and butter
+agribalyse_proxy_food_name:fr:Sandwich baguette, camembert, beurre
 
 <en:Cheese sandwiches
 en:Goat cheese sandwiches
@@ -74861,6 +74879,9 @@ fr:Gaufres
 it:Waffle
 nl:Wavels
 ro:Vafe, Gaufre, Gofre
+agribalyse_proxy_food_code:en:23851
+agribalyse_proxy_food_name:en:Soft waffle (Brussels-style), plain or with sugar, prepacked
+agribalyse_proxy_food_name:fr:Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
 
 <en:Waffles
 fr:Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufre de Liège, Gaufre moelleuse nature liégeoise préemballée, Gaufre moelleuse sucrée liégeoise, Gaufre moelleuse nature bruxelloise, Gaufre moelleuse sucrée bruxelloise
@@ -74873,19 +74894,10 @@ ciqual_food_name:en:Soft waffle (Brussels-style), plain or with sugar, prepacked
 ciqual_food_name:fr:Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
 
 <en:Waffles
-en:Chocolate coated waffles, Chocolate waffles, Thin crunchy wafer biscuit with chocolate, Dry crunchy wafer biscuit with chocolate
-de:Waffeln mit Schokoladenüberzug, Mit Schokolade überzogene Waffeln
-fi:suklaapäällysteiset vohvelit
-fr:Gaufres nappées de chocolat, Gaufres au chocolat, Gaufres au cacao, Gaufre croustillante fine chocolatée, Gaufre croustillante sèche chocolatée
+en:Chocolate coated waffles, Chocolate waffles, Soft waffle (Brussels-style) with chocolate prepacked
+fr:Gaufre chocolatée, Gaufres nappées de chocolat, Gaufres au chocolat, Gaufres au cacao, 
 nl:Wafels met chocola
 ro:Vafe cu ciocolată
-agribalyse_food_code:en:23854
-ciqual_food_code:en:23854
-ciqual_food_name:en:Wafer biscuit, crunchy (thin or dry), with chocolate, prepacked
-
-<en:Waffles
-en:Soft waffle (Brussels-style) with chocolate prepacked
-fr:Gaufre chocolatée
 agribalyse_food_code:en:23852
 ciqual_food_code:en:23852
 ciqual_food_name:en:Soft waffle (Brussels-style), with chocolate, prepacked
@@ -74917,6 +74929,14 @@ nl:Waveltjes
 pt:Bolachas
 ro:Napilitane, Napolitană
 wikidata:en:Q1226651
+
+<en:Wafers
+en:Thin crunchy wafer biscuit with chocolate, Dry crunchy wafer biscuit with chocolate
+de:Waffeln mit Schokoladenüberzug, Mit Schokolade überzogene Waffeln
+fr:Gaufre croustillante fine chocolatée, Gaufre croustillante sèche chocolatée
+agribalyse_food_code:en:23854
+ciqual_food_code:en:23854
+ciqual_food_name:en:Wafer biscuit, crunchy (thin or dry), with chocolate, prepacked
 
 <en:Biscuits and cakes
 en:Plain wafers, Wafer biscuit without filling
