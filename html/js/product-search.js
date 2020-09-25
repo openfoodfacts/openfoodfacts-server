@@ -128,7 +128,7 @@ function display_products(target, product_groups ) {
 	
 	$( target ).empty();
 	
-	$.each(product_groups, function(key, product_group) {
+	$.each(product_groups, function(product_group_id, product_group) {
 	
 		var products_html = [];
 		
@@ -161,15 +161,15 @@ function display_products(target, product_groups ) {
 		});
 		
 		$( "<div/>", {
-			"id": "div_products_match_" + key,
-			html: '<h3 style="clear:left;margin-top:2rem;">' + key + "</h3>",
+			"id": "div_products_match_" + product_group_id,
+			html: '<h3 style="clear:left;padding-top:2rem;">' + product_group_id + " : " + product_group.length + " products" + "</h3>",
 		}).appendTo(target);
 
 		$( "<ul/>", {
 			"class": "products search_results",
-			"id": "products_match_" + key,
+			"id": "products_match_" + product_group_id,
 			html: products_html.join( "" )
-		}).appendTo("#div_products_match_" + key);
+		}).appendTo("#div_products_match_" + product_group_id);
 		
 	});
 }
