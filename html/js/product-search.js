@@ -126,7 +126,8 @@ function rank_products(products, product_preferences) {
 
 function display_products(target, product_groups ) {
 	
-	$( target ).empty();
+	$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
+		+ '<div id="products_tabs_content" class="tabs-content"></div>');
 	
 	$.each(product_groups, function(product_group_id, product_group) {
 	
@@ -160,17 +161,25 @@ function display_products(target, product_groups ) {
 			products_html.push(product_html);		
 		});
 		
-		$( "<div/>", {
-			"id": "div_products_match_" + product_group_id,
-			html: '<h3 style="clear:left;padding-top:2rem;">' + product_group_id + " : " + product_group.length + " products" + "</h3>",
-		}).appendTo(target);
-
-		$( "<ul/>", {
-			"class": "products search_results",
-			"id": "products_match_" + product_group_id,
-			html: products_html.join( "" )
-		}).appendTo("#div_products_match_" + product_group_id);
+		var active = "";
+		if (product_group_id == "yes") {
+			active = " active";
+		}
 		
+		$("#products_tabs_titles").append(
+			'<li class="tabs tab-title' + active + '"><a href="#products_' + product_group_id + '">'
+			+ product_group_id + " : " + product_group.length + " products" + "</a></li>"
+		);
+		
+		$("#products_tabs_content").append(
+			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
+			+ '<ul class="products search_results" id="products_match_' + product_group_id + '">'
+			+ products_html.join( "" )
+			+ '</ul>'
+		);
+		
+		$(document).foundation('tab', 'reflow');
+
 	});
 }
 
