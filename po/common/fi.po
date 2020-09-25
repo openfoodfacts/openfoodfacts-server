@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-25 15:33\n"
+"PO-Revision-Date: 2020-09-25 16:34\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4569,23 +4569,24 @@ msgstr "Nutri-Score ottaa huomioon suolapitoisuuden. Käytä tätä asetusta vai
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Nutri-Score ottaa huomioon sokeripitoisuuden. Käytä tätä asetusta vain, jos olet nimenomaisesti vähäsokerisella ruokavaliolla."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Nutri-Score ottaa huomioon rasvapitoisuuden. Käytä tätä asetusta vain, jos nimenomaisesti olet vähärasvaisella ruokavaliolla."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Nutri-Score ottaa huomioon tyydyttyneiden rasvojen pitoisuuden. Käytä tätä asetusta vain, jos \n"
+"nimenomaisesti olet vähän tyydyttyneitä rasvoja sisältävällä ruokavaliolla."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Allergeenit"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Aina on mahdollista, että allergeeneja koskevat tiedot saattavat olla puuttuvia, puutteellisia, virheellisiä tai että tuotteen koostumus on muuttunut. Jos olet allerginen, tarkista aina tiedot varsinaisesta tuotepakkauksesta."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4593,21 +4594,21 @@ msgstr "Lisäaineet"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Ei tai vähän lisäaineita"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr ""
+msgstr "Ei tärkeä"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr ""
+msgstr "Tärkeä"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr ""
+msgstr "Erittäin tärkeä"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
-msgstr ""
+msgstr "Pakollinen"
 
