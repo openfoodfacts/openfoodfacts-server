@@ -199,7 +199,7 @@ while (my $product_ref = $cursor->next) {
 		}
 		if (defined $product_ref->{"nutrition_grade_fr"}) {
 			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
-			print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
+			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
 	}
 
@@ -354,7 +354,9 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
-		print "completed products: $complete\n";
+		if ($complete % 10 == 0) {
+			print "completed products: $complete\n";
+		}
 	}
 
 
@@ -447,7 +449,7 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 					print "WARNING - product code $code - nid: $nid - value is nan: $products_nutriments{$code}{$nid} \n";
 				}
 				if ($nid eq 'nutrition-grade') {
-					print "NUT - code: $code - nid: nutrition-grade\n";
+					#print "NUT - code: $code - nid: nutrition-grade\n";
 				}
 				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
 			}
