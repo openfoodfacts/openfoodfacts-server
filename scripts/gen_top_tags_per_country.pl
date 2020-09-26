@@ -489,7 +489,7 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 		my $current = 0;
 		for (my $i = $start; $i <= $end; $i++) {
-			$current += $dates{$country}{$date}{$i};
+			$current += ( $dates{$country}{$date}{$i} // 0 );
 			$countries_dates{$country}{$date}{$i} = $current;
 			#print "dates_current_$cc lc: $cc - date: $date - start: $start - end: $end - i: $i - $current\n";
 		}
