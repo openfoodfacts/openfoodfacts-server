@@ -5229,6 +5229,7 @@ JS
 				my $g = $nutrition_grades_colors{$nutrition_grade}{g};
 				my $b = $nutrition_grades_colors{$nutrition_grade}{b};
 				my $seriesid = $nutrition_grade;
+				$series_n{$seriesid} //= 0;
 				$series_data .= <<JS
 {
 	name: '$title : $series_n{$seriesid} $Lang{products}{$lc}',
