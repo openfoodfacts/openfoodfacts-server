@@ -445,7 +445,7 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
 
-				if ($products_nutriments{$code}{$nid} =~ /nan/i) {
+				if (lc($products_nutriments{$code}{$nid} // '') =~ /nan/) {
 					print "WARNING - product code $code - nid: $nid - value is nan: $products_nutriments{$code}{$nid} \n";
 				}
 				if ($nid eq 'nutrition-grade') {
