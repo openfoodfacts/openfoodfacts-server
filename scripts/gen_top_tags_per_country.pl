@@ -449,9 +449,6 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
 
-				if (lc($products_nutriments{$code}{$nid} // '') =~ /nan/) {
-					print "WARNING - product code $code - nid: $nid - value is nan: $products_nutriments{$code}{$nid} \n";
-				}
 				if ($nid eq 'nutrition-grade') {
 					#print "NUT - code: $code - nid: nutrition-grade\n";
 				}
@@ -638,8 +635,8 @@ if ($server_domain eq 'openbeautyfacts.org') {
 	my $c = 0;
 	foreach my $country (sort { ($countries_tags{$b}{categories}{"en:shampoos"} // 0) <=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0) } keys %countries) {
 
-		print $DEBUG "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
-		print STDERR "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
+		print $DEBUG "shampoos - $country - " . ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+		print STDERR "shampoos - $country - " . ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
 		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
 			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
 			if ($country eq 'en:world') {
