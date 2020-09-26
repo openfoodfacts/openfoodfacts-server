@@ -615,6 +615,7 @@ wikidata:en:Q53792073
 # nova:en:lecithin
 <en:E322i
 en:soya lecithin, soy lecithin
+bg:соев лецитин
 ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
 da:sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
@@ -6864,6 +6865,7 @@ nb:helmelk
 nl:volle melk
 pl:Mleko pełne
 pt:leite enteiro, leite integral
+ro:lapte integral
 sv:Helmjölk, sötmjölk
 zh:全脂牛奶
 
@@ -7553,7 +7555,7 @@ ca:llet desnatada en pols,llet en pols desnatada
 cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
-es:leche desnatada en polvo, leche en polvo desnatada
+es:leche desnatada en polvo, leche en polvo desnatada, leche en polvo descremada
 et:lössipulber, kooritud piimapulber
 fi:rasvaton maitojauhe, rasvatonta maitojauhetta, rasvatonmaitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
@@ -7561,7 +7563,7 @@ he:אבקת חלב רזה
 hr:obrano mlijeko u orahu
 hu:sovány tejpor
 is:undanrennuduft
-it:latte scremato in polvere
+it:latte scremato in polvere, latte in polvere scremato
 lt:nugriebto pieno milteliai
 lv:sausais vajpiena pulveris
 nb:skummetmelkepulver, skummetmelkpulver
@@ -7872,6 +7874,7 @@ it:yogurt
 ja:ヨーグルト
 nl:Joghurt, yoghurt, jogurt
 pl:Jogurt
+ro:iaurt
 ru:йогурт
 sv:yoghurt
 th:นมเปรี้ยว
@@ -8008,6 +8011,11 @@ fr:yaourt doux entier
 
 <en:yogurt
 de:Joghurterzeugnis
+
+<en:yogurt
+en:british yogurt
+fr:yaourt britannique
+
 
 # no products in OFF
 # <en:Whey
@@ -8457,6 +8465,10 @@ de:Rehydriertes Sahnepulver
 es:crema de leche en polvo rehidratada, crema de leche en polvo reconstituida, nata en pols rehidratada, nata en pols reconstituida
 fr:crème en poudre réhydratée
 # ingredient/rehydrated-cream-powder has 2 products @2019-07-12
+
+<en:cream
+en:british cream
+fr:crème britannique
 
 <en:cream
 en:cream from Normandy
@@ -16648,15 +16660,17 @@ fr:huile végétale raffinée
 
 <en:vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
+bg:растителна мазнина
 ca:Greixos vegetals
 cs:Rostlinný tuk
 da:vegetabilsk fedt
-de:pflanzliche Fette, pflanzliches Fett
+de:pflanzliche Fette, pflanzliches Fett, pflanzenfett
 el:φυτικά λίπη
 es:grasas vegetales, grasa vegetal,grasa vegetal no hidrogenada
 et:taimsed rasvad
 fi:kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
+hr:biljna mast
 hu:növényi zsír, növényi zsírok
 is:jurtafeiti, jurtafeta
 it:grassi vegetali
@@ -16722,10 +16736,14 @@ it:grassi vegetali totalmente idrogenati
 nl:volledig gehydrogeneerde plantaardig vet
 
 <en:hydrogenated vegetable fat
-en:partially hydrogenated vegetable fat
+en:partially hydrogenated vegetable fat, partly hydrogenated vegetable fat
+bg:частично хидрогенирана растителна мазнина
 es:grasa vegetal parcialmente hidrogenada
 fi:osittain kovetettu kasvirasva
 fr:graisse végétale partiellement hydrogénée
+hr:djelomično očvrsnuta biljna mast
+it:grasso vegetale parzialmente idrogenato
+ro:grăsime vegetală parțial hidrogenată
 sv:delvis härdade vegetabiliska fetter
 # ingredient/fr:graisse-vegetale-partiellement-hydrogenee has 34 products in 1 language @2020-06-10
 
@@ -16892,6 +16910,7 @@ en:fractionated palm oil
 
 <en:palm oil
 en:palm
+bg:палмова
 da:palme
 de:Palme
 es:palma
@@ -16903,6 +16922,7 @@ nb:palme
 nl:palm
 pl:palma
 pt:palma
+ro:palmier
 ru:пальмовое
 sk:palma
 sv:Palm
@@ -17905,11 +17925,11 @@ bg:Масло от ший
 de:Shea Butter, Sheabutter, Shea
 el:λίπος shea
 eo:karitea butero
-es:manteca de karité, grasa de karite,karite
+es:manteca de karité, grasa de karite, karite, shea
 fi:karitevoi, sheavoi, shea, karite, sheaydin
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
-hr:shea maslac
+hr:shea maslac, šea
 hu:sheavaj
 it:Burro di karité
 ja:シアバター
@@ -17918,7 +17938,7 @@ ms:Mentega syea
 nl:sheaboter, shea
 pl:Masło shea
 pt:ori,shea
-ro:unt de shea
+ro:unt de shea, shea
 ru:Масло дерева ши
 sk:Bambucké maslo
 sl:Karitejevo maslo
@@ -17936,7 +17956,7 @@ en:shea oil
 
 description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
 <en:vegetable fat
-en:illipe oil
+en:illipe oil, illipe
 de:Illipebutter
 fi:illipeöljy
 fr:illipé, huile d'illipé, graisse d'illipé, huile végétale d'illipé, graisses végétales d'illipe, matières grasses végétales d'illipe, matière grasse d'illipe
@@ -20750,7 +20770,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vodka
 
 # nova:en:flavouring
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
-bg:аромат, ароматизант
+bg:аромат, аромати, ароматизант
 ca:Aromes, aroma
 cs:Aroma
 da:smagsstof, smagstoffer, aromaer
@@ -28171,7 +28191,7 @@ vegetarian:en:yes
 # nova:en:glucose-syrup
 <en:glucose
 en:glucose syrup
-bg:глюкозе сироп
+bg:глюкозе сироп, глюкозен сироп
 ca:xarop de glucosa
 cs:glukózový sirup
 da:glukosesirup, glucosesirup
@@ -28432,7 +28452,7 @@ nl:glucose-fructosestroop, glucose-fructose-stroop
 nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
 pt:xarope de glucose-frutose, xarope de glucose e frutose
-ro:sirop de glucoză-fructoză
+ro:sirop de glucoză-fructoză, sirop glucoză-fructoză
 ru:глюкозно-фруктозный сироп
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
@@ -31155,7 +31175,7 @@ an:soya
 az:Soya
 ba:Соя
 be:Соя
-bg:Соя, соеви, соево
+bg:Соя, соеви, соево, соева
 br:Soja
 bs:Soja
 ca:Soia, soja
@@ -36611,7 +36631,7 @@ hu:savanyú narancsaroma
 #<en:orange
 <en:natural flavouring
 en:natural orange flavouring, natural orange flavor
-de:natürlichen Orangenaroma
+de:natürlichen Orangenaroma, Natürliches orangenaroma
 es:aroma de naranja natural,aroma natural naranja,aroma natural de naranja
 et:apelsini aroomaine
 fi:luontainen appelsiiniaromi
@@ -37206,6 +37226,10 @@ fr:jus de cerise
 ru:Вишневый сок
 
 <en:cherry
+de:Kirschsaft aus Kirschsaftkonzentrat
+ro:suc de cireșe din suc concentrat de cireș
+
+<en:cherry
 en:black cherry
 de:schwarze Kirsche, Schwarzkirsche
 es:cereza negra
@@ -37240,6 +37264,9 @@ en:sour cherry juice
 de:Sauerkirschsaft
 fi:hapankirsikkamehu
 fr:jus de cerise aigre
+
+<en:sour cherry
+de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 
 <en:cherry
 en:glacé cherry, glacé cherries
@@ -41113,6 +41140,7 @@ fi:vihannesuute
 # <en:compound
 <en:vegetable
 en:vegetable blend, vegetable mix
+de:Gemüsemischung
 fi:vihannessekoitus, kasvissekoitus
 fr:mélange de légumes
 sv:grönsaksmix
@@ -47466,6 +47494,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
 
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
+bg:рапична
 da:raps
 de:Raps
 es:Colza,nabina
@@ -47476,6 +47505,7 @@ la:Brassica napus
 nb:raps
 nl:Koolzaad
 pl:Rzepak
+ro:rapiță
 sv:Raps, rapsfrön
 wikidata:en:Q177932
 wikipedia:en:https://en.wikipedia.org/wiki/Rapeseed
@@ -47848,6 +47878,7 @@ fr:haricots beurre
 <en:beans
 en:green bean, green beans
 da:grønner bønner
+de:grüne bohnen
 es:judía verde, judías verdes
 fr:haricot vert, haricots verts
 sv:gröna bönor, brytböna, brytbönor
@@ -48441,6 +48472,7 @@ it:ceci reidratati
 en:chickpea flour, chick pea flour, gram flour
 ca:farina de cigro
 da:kikærtemel
+de:Kichererbsenmehl
 es:harina de garbanzo
 fi:kikhernejauho
 fr:farine de pois chiche, farine de pois chiches
@@ -51215,7 +51247,7 @@ sv:kryddor och kryddextrakt
 en:mixed spices
 bg:смес от подправки
 da:krydderimix
-de:gemischte Gewürze
+de:gemischte Gewürze, gewürzmischung
 es:Mezcla de especias,preparado aromatico de especias
 fi:mausteseos
 fr:mélange d'épices
@@ -52615,7 +52647,7 @@ da:sennepsfrø
 de:Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
 es:grano de mostaza, semillas de mostaza
 fi:sinapinsiemen, sinapinsiemenet
-fr:graine de moutarde, graines de moutarde
+fr:graine de moutarde, graines de moutarde, cosse de moutarde
 hu:káposztafélék, Mustármag
 it:Semi di senape
 ja:カラシナ,シロガラシ
@@ -52646,6 +52678,10 @@ en:brown mustard seed
 de:Braunsenfsaat
 fi:ruskea sinapinsiemen
 fr:Graines de moutarde brune
+
+<en:mustard seed
+en:black mustard seed
+fr:Graines de moutarde noire
 
 # <en:aggregate
 <en:yellow mustard seed
@@ -66772,8 +66808,22 @@ fi:kahvipavut
 fr:café en grains
 nl:koffiebonen
 
+<en:coffee
+en:ground coffee
+bg:смляно кафе
+de:gemahlener Kaffee
+es:cafe molido
+fi:jauhettu kahvi
+fr:café moulu
+it:caffè macinato
+nl:gemalen koffie
+ro:cafea măcinată
+carbon_footprint_fr_foodges_ingredient:fr:Café moulu
+carbon_footprint_fr_foodges_value:fr:15.7
+# ingredient/fr:café-moulu has 151 products in 5 languages @2018-11-30
+
 <en:ground coffee
-en:Ground roasted coffee
+en:Ground roasted coffee, roast and ground coffee
 de:Röstkaffee gemahlen
 es:café tostado y molido
 fi:paahdettu kahvijauhe
@@ -66782,18 +66832,6 @@ it:caffè torrefatto macinato
 nl:gemalen gebrande koffie, gebrande koffie gemalen, gebrande en gemalen koffie
 pt:café torrado moído
 # ingredient/fr:café-torréfié-moulu has 85 products in 4 languages @2018-11-30
-
-<en:coffee
-en:ground coffee
-de:gemahlener Kaffee
-es:cafe molido
-fi:jauhettu kahvi
-fr:café moulu
-it:caffè macinato
-nl:gemalen koffie
-carbon_footprint_fr_foodges_ingredient:fr:Café moulu
-carbon_footprint_fr_foodges_value:fr:15.7
-# ingredient/fr:café-moulu has 151 products in 5 languages @2018-11-30
 
 <en:ground coffee
 fr:Café moulu en capsules
@@ -67281,7 +67319,7 @@ ce:Kotam
 cs:kur
 cy:Iâr
 da:høns
-de:Hühnchen, Huhn, Hühner
+de:Hühnchen, Huhn, Hühner, hähnchen
 ee:Koklo
 el:Όρνιθα
 eo:koko
@@ -67704,6 +67742,7 @@ fi:uunipaahdettu broilerinfilee
 <en:chicken meat
 en:chicken breast, chicken breast meat
 ca:pit de pollastre
+de:Hähnchenbrust
 es:pechuga de pollo,carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
 ro:piept de pui
@@ -67717,6 +67756,7 @@ en:british chicken breast
 <en:chicken fillet
 en:chicken breast fillet
 da:kyllingebrystfilet
+de:hähnchenbrustfilet
 fi:broilerin rintafilee, broilerin rintafileetä
 fr:filet de poitrine de poulet
 sv:kycklingbröstfilé
@@ -68394,6 +68434,7 @@ it:uova in polvere
 lv:kiausšinių milteliai
 nl:eipoeder, ei-poeder
 pt:ovo em pó
+ro:ou praf
 ru:Яичный порошок
 sv:äggpulver
 # ingredient/powdered-egg has 623 products in 12 languages @2018-12-18
@@ -68434,7 +68475,7 @@ nl:kipheeleipoeder
 
 <en:whole egg
 en:liquid whole egg
-de:Vollei flüssig
+de:Vollei flüssig, flüssiges vollei
 es:Huevo entero líquido
 fi:Nestemäinen kokonainen muna
 fr:œuf entier liquide, œufs entiers liquides, oeuf entier liquide, oeufs entiers liquides
