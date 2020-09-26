@@ -709,7 +709,6 @@ HTML
 		}
 
 		foreach my $date (@dates) {
-			my @sorted_dates = sort ( {$countries_dates{$country}{$date}{$a} <=> $countries_dates{$country}{$b}} keys %{$countries_dates{$country}{$date}});
 
 			my $series_start = $countries_dates{$country}{$date . ".start"};
 			my $series_end = $countries_dates{$country}{$date . ".end"};
@@ -855,8 +854,6 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 foreach my $country (sort  { $countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"} } keys %countries) {
 
 	$lang = $lc;
-
-	my @sorted_dates = sort ( {$countries_dates{$country}{$date}{$a} <=> $countries_dates{$country}{$b}} keys %{$countries_dates{$country}{$date}});
 
 	my $series_start = $countries_dates{$country}{$date . ".start"};
 	my $series_end = $countries_dates{$country}{$date . ".end"};
