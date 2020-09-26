@@ -5231,7 +5231,7 @@ JS
 				my $seriesid = $nutrition_grade;
 				$series_data .= <<JS
 {
-	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	name: '$title : $series_n{$seriesid} $Lang{products}{$lc}',
 	color: 'rgba($r, $g, $b, .9)',
 	turboThreshold : 0,
 	data: [ $series{$seriesid} ]
@@ -5276,7 +5276,7 @@ JS
 
 				$series_data .= <<JS
 {
-	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	name: '$title : $series_n{$seriesid} $Lang{products}{$lc}',
 	color: 'rgba($r, $g, $b, .9)',
 	turboThreshold : 0,
 	data: [ $series{$seriesid} ]

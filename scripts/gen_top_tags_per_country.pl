@@ -771,7 +771,7 @@ Highcharts.setOptions({
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products_p}{$lang}'
+                    text: '$Lang{products}{$lang}'
                 },
                 labels: {
                     formatter: function() {
@@ -913,7 +913,7 @@ HTML
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products_p}{$lang}'
+                    text: '$Lang{products}{$lang}'
                 },
                 labels: {
                     formatter: function() {
