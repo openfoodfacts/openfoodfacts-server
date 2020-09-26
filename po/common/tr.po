@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-26 19:13\n"
+"PO-Revision-Date: 2020-09-26 20:13\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -104,7 +104,7 @@ msgstr "Bir üretici veya marka için çalışıyorsanız ve yalnızca kendi ür
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Üreticilere yönelik platform, imalatçılara tüm ürünleri için verileri ve fotoğrafları kolayca içe aktarmalarına, bunları resmi olarak işaretlemelerine ve ürünleri için iyileştirme fırsatlarının ücretsiz analizini almalarına olanak tanır."
 
 msgctxt "pro_account"
 msgid "Professional account"
@@ -120,15 +120,15 @@ msgstr "Üretici veya marka"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesyonel hesapların ilişkili bir kuruluşu (şirket adı veya markası) olmalıdır."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Lütfen kuruluşunuzun adını (şirket adı veya markası) girin."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Bu hesap, üretici veya marka %s ile ilişkili profesyonel bir hesaptır. Yapımcılar için Platform'a erişiminiz var."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -577,7 +577,7 @@ msgstr "Hesap parametreleri"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Hesap parametreleriniz değiştirildi."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -3291,7 +3291,7 @@ msgstr "Ürün veri dosyasını içe aktar"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Ürün verilerini içeren bir çalışma tablosu (Excel dosyası veya bir virgül veya sekmeyle ayrılmış UTF-8 kodlu CSV dosyası) yükleyin."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3554,11 +3554,11 @@ msgstr "Lütfen herkese açık veritabanına aktarmadan önce, üreticiler platf
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Fotoğrafları herkese açık veritabanına aktarın"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Mevcut seçili fotoğrafları değiştirin"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4273,41 +4273,41 @@ msgstr ""
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Aşağıdakileri yaparak daha fazla bileşeni tanımamıza ve bu ürün ve diğerlerinin içerik listesini daha iyi analiz etmemize yardımcı olabilirsiniz:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "İçindekiler listesindeki yazım hatalarını düzeltmek ve/veya malzemelerle ilgili olmayan diğer dillerde ve cümlelerde malzemeleri kaldırmak için bu ürün sayfasını düzenleyin."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Çok dilli içerik listelerimize, içerik işleme yöntemlerine ve etiketlere yeni girişler, eşanlamlı kelimeler veya çeviriler ekleyin."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Eğer yardımcı olmak isterseniz, #içerik kanalımıza Slack tartışma alanımız</a> <a href=\"https://slack.openfoodfacts.org\"> üzerinden katılın ve/veya Wiki'miz </a> üzerinden içerik analizini öğrenin <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\"> . Teşekkürler!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Üreticiler"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Bu ürünün %s listesinde bir içeriği varsa, lütfen ekleyin."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Eksik barkod"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Geçersiz barkod"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
