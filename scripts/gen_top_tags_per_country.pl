@@ -733,10 +733,13 @@ HTML
 				if (defined $countries_dates{$country}{$date}{$t}) {
 					$current = $countries_dates{$country}{$date}{$t};
 				}
-				$series .= $current . ', ';
+				#$series .= $current . ', ';
 				$i++;
 				if ($i % 10 == 0) {
-					$series =~ s/ $/\n/;
+					#$series =~ s/ $/\n/;
+					$series .= $current . ",\n";
+				} else {
+					$series .= $current . ', ';
 				}
 			}
 			$series =~ s/,\n?$//;
@@ -877,10 +880,13 @@ HTML
 		if (defined $countries_dates{$country}{$date}{$t}) {
 			$current = $countries_dates{$country}{$date}{$t};
 		}
-		$series .= $current . ', ';
+		#$series .= $current . ', ';
 		$i++;
 		if ($i % 10 == 0) {
-			$series =~ s/ $/\n/;
+			#$series =~ s/ $/\n/;
+			$series .= $current . ",\n";
+		} else {
+			$series .= $current . ', ';
 		}
 	}
 	$series =~ s/,\n?$//;
