@@ -421,7 +421,7 @@ is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vega
 
 is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
-is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'); # "test" taxonomy causes warning in Tags.pm
 is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
 is(canonicalize_taxonomy_tag("fr","test","Pâte de cacao"), "fr:Pâte de cacao");
 is(display_taxonomy_tag("fr","test","fr:Pâte de cacao"), "Pâte de cacao");
@@ -625,7 +625,7 @@ is_deeply($product_ref->{categories_tags},
 ]
 ) or diag explain $product_ref;
 
-my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","en:organic");
+$tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","en:organic");
 is_deeply($tag_ref,
 {
 	'css_class' => 'tag known ',

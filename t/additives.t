@@ -40,7 +40,7 @@ is_deeply($product_ref->{vitamins_tags}, [
 # false positives: acides gras -> E-570
 
 # Make sure 100% is not recognized as E-100
-my $product_ref = {
+$product_ref = {
 	lc => "fr",
 	ingredients_text => "Acide citrique, Gorge, foie et gras de fermier, œuf, graines de tournesol (4%), vin blanc, graines de sésame (2%), sel, poivre. Peut contenir des traces de gluten, soja, lait, fruits à coque. À conserver à l'abri de laichateur et de Ihumidité* À consommer de préférence avant la date figurant sur le bocal. Après -ouverture, à conserver au Téfrigérateuretàconsommerrapidernent? Servir frais. Sans colorant ni conservateur ajouté. Mateurs nutritionnelles moyennes pour 100 g : énergie (1584 kJ / 383 kcal), matières grasses (36 g) dont : acides gras saturés (14 g), glucides (2 g) dont : sucres (0,9 g), protéines (14,3 g), sel (1 ,6 g).",
 	ingredients_text_fr => "Acide citrique, Gorge, foie et gras de fermier, œuf, graines de tournesol (4%), vin blanc, graines de sésame (2%), sel, poivre. Peut contenir des traces de gluten, soja, lait, fruits à coque. À conserver à l'abri de laichateur et de Ihumidité* À consommer de préférence avant la date figurant sur le bocal. Après -ouverture, à conserver au Téfrigérateuretàconsommerrapidernent? Servir frais. Sans colorant ni conservateur ajouté. Mateurs nutritionnelles moyennes pour 100 g : énergie (1584 kJ / 383 kcal), matières grasses (36 g) dont : acides gras saturés (14 g), glucides (2 g) dont : sucres (0,9 g), protéines (14,3 g), sel (1 ,6 g).",
@@ -60,7 +60,7 @@ is_deeply(
 
 
 # Make sure 100% is not recognized as E-100
-my $product_ref = {
+$product_ref = {
 	lc => "fr",
 	ingredients_text => "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total)."
 };
@@ -73,7 +73,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 
 
-my $product_ref = {
+$product_ref = {
 	lc => "fr",
 	ingredients_text => "Acide citrique, colorant : e120, vitamine C, E-500",
 	categories_tags => ["en:debug"],

@@ -322,7 +322,9 @@ $product_ref = {
 
 fix_salt_equivalent($product_ref);
 
-my $expected_product_ref = {
+my $expected_product_ref;
+
+$expected_product_ref = {
 	nutriments => {
 		salt => 3,
 		salt_value => 3000,
@@ -345,7 +347,7 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
+$expected_product_ref =
 {
 	'nutriments' => {
 		'nova-group' => 4,
@@ -372,7 +374,7 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
+$expected_product_ref =
 {
 	'nutriments' => {
 		'sugars' => 4,
@@ -400,7 +402,7 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
+$expected_product_ref =
 {
 	'nutriments' => {
 		'energy-kcal_prepared' => 58,
