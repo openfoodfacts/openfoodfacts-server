@@ -8572,13 +8572,9 @@ sub add_product_nutriment_to_stats($$$) {
 
 	my $nutriments_ref = shift;
 	my $nid = shift;
-	my $value = shift;
+	my $value = shift // '';
 
-	if ($value =~ /nan/i) {
-
-		return -1;
-	}
-	elsif ($value ne '') {
+	if ($value ne '') {
 
 		if (not defined $nutriments_ref->{"${nid}_n"}) {
 			$nutriments_ref->{"${nid}_n"} = 0;
