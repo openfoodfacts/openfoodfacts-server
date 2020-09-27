@@ -88,6 +88,7 @@ BEGIN
 		&spellcheck_taxonomy_tag
 
 		&get_tag_css_class
+		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
@@ -2469,6 +2470,66 @@ HTML
 }
 
 
+
+=head2 get_tag_image ( $target_lc, $tagtype, $canon_tagid )
+
+If an image is associated to a tag, return its relative url, otherwise return undef.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the image. If an image is not available in the target language,
+it can be returned in the tag language, or in English.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $canon_tagid
+
+=cut
+
+sub get_tag_image($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $canon_tagid = shift;
+	
+	my $img;
+	
+	my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
+
+	my $img_lc = $target_lc;
+
+	my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
+	my $en_imgid = get_taxonomyid("en",$canon_tagid);
+	my $tag_lc = undef;
+	if ($en_imgid =~ /^(\w\w):/) {
+		$en_imgid = $';
+		$tag_lc = $1;
+	}
+
+	if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
+		$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+	}
+	elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+		$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+		$img_lc = $tag_lc;
+	}
+	elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
+		$img = $tags_images{'en'}{$tagtype}{$en_imgid};
+		$img_lc = 'en';
+	}	
+	
+	if ($img) {
+		$img = "/images/lang/${img_lc}/$tagtype/" . $img;
+	}
+	
+	return $img;
+}
+
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2482,36 +2543,8 @@ sub display_tags_hierarchy_taxonomy($$$) {
 		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
-			my $img;
 			my $canon_tagid = canonicalize_taxonomy_tag($target_lc,$tagtype, $tag);
-			my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
-
-			my $img_lc = $target_lc;
-
-			my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-			my $en_imgid = get_taxonomyid("en",$canon_tagid);
-			my $tag_lc = undef;
-			if ($en_imgid =~ /^(\w\w):/) {
-				$en_imgid = $';
-				$tag_lc = $1;
-			}
-
-			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
-				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
-			}
-			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
-				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
-				$img_lc = $tag_lc;
-			}
-			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
-				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
-				$img_lc = 'en';
-			}
-
-			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
-				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
-			}
-
+			my $img = get_tag_image($target_lc, $tagtype, $canon_tagid);
 
 			if ($img) {
 				my $size = '';
@@ -2519,7 +2552,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				$images .= <<HTML
-<img src="/images/lang/${img_lc}/$tagtype/$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline">
 HTML
 ;
 			}

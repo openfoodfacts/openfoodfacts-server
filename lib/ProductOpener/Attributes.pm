@@ -72,6 +72,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 =head1 CONFIGURATION
 
@@ -375,7 +376,7 @@ sub compute_attribute_nutriscore($$) {
 	my $product_ref = shift;
 	my $target_lc = shift;
 
-	$log->debug("compute nutriscore attribute", { code => $product_ref->{code} }) if $log->is_debug();
+	$log->debug("compute nutriscore attribute", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
 	my $attribute_id = "nutriscore";
 	
@@ -455,7 +456,7 @@ sub compute_attribute_nutriscore($$) {
 			$attribute_ref->{description} = lang("attribute_nutriscore_" . $grade . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
 		}
-		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-$grade.svg";
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -531,6 +532,7 @@ sub compute_attribute_nova($$) {
 			$attribute_ref->{description} = lang("attribute_nova_" . $nova_group . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nova_" . $nova_group . "_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-$nova_group.svg";
 		
 	}
 	else {
@@ -603,8 +605,16 @@ sub compute_attribute_has_tag($$$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
 			# Override default texts if specific texts are available
-			override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
-			override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
+			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+		}
+		
+		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
+		
+		$log->debug("checking for tag image", { target_lc => $target_lc, tagtype => $tagtype, tagid => $tagid, img_url => $img_url}) if $log->is_debug();
+		
+		if (defined $img_url) {
+			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
 		}
 	}
 	else {
@@ -612,8 +622,8 @@ sub compute_attribute_has_tag($$$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_no_title");
 			# Override default texts if specific texts are available
-			override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
-			override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
+			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
+			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
 		}
 	}
 	
@@ -649,7 +659,6 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
-
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
