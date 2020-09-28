@@ -63,7 +63,6 @@ BEGIN
 		%canon_tags
 		%tags_images
 		%tags_texts
-		%tags_levels
 		%level
 		%special_tags
 
@@ -101,7 +100,7 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
-		&init_tags_texts_levels
+		&init_tags_texts
 
 		&get_city_code
 		%emb_codes_cities
@@ -230,7 +229,6 @@ my %all_parents     = ();
 
 
 %tags_images = ();
-%tags_levels = ();
 %tags_texts = ();
 
 my $logo_height = 90;
@@ -3382,8 +3380,8 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
-sub init_tags_texts_levels {
-	return if ((%tags_texts) and (%tags_levels));
+sub init_tags_texts {
+	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
 	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
@@ -3397,13 +3395,11 @@ sub init_tags_texts_levels {
 		my $lc = $langid;
 
 		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
-		defined $tags_levels{$lc} or $tags_levels{$lc} = {};
 
 		if (-e "$data_root/lang/$langid") {
 			foreach my $tagtype (sort keys %tag_type_singular) {
 
 				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
-				defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
 
 				# this runs number-of-languages * number-of-tag-types times.
 				if (-e "$data_root/lang/$langid/$tagtype") {
@@ -3415,12 +3411,8 @@ sub init_tags_texts_levels {
 
 						my $text = join("",(<$IN>));
 						close $IN;
-						if ($text =~ /class="level_(\d+)"/) {
-							$tags_levels{$lc}{$tagtype}{$tagid} = $1;
-						}
-						$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
-						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 
+						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 					}
 					closedir(DH);
 				}
