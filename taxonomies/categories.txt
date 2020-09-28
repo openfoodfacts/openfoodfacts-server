@@ -60446,6 +60446,10 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Lamb meat
+en:Lamb brain
+fr:Cervelle d'agneau
+
+<en:Lamb brain
 en:Cooked lamb brains
 fr:Cervelles d'agneau cuites
 agribalyse_food_code:en:40003
@@ -60453,13 +60457,17 @@ ciqual_food_code:en:40003
 ciqual_food_name:en:Brain, lamb, cooked
 ciqual_food_name:fr:Cervelle, agneau, cuite
 
-<en:Lamb meat
+<en:Lamb brain
 en:Raw lamb brain
 fr:Cervelle d'agneau crue
 agribalyse_food_code:en:40002
 ciqual_food_code:en:40002
 ciqual_food_name:en:Brain, lamb, raw
 ciqual_food_name:fr:Cervelle, agneau, crue
+
+<en:Lamb meat
+en:Lamb heart
+fr:Coeur d'agneau
 
 <en:Cooked lamb meat
 en:Cooked lamb hearts
@@ -60477,7 +60485,12 @@ ciqual_food_code:en:40058
 ciqual_food_name:en:Heart, lamb, raw
 ciqual_food_name:fr:Coeur, agneau, cru
 
+<en:Lamb meat
+en:Lamb liver
+fr:Foie d'agneau
+
 <en:Cooked lamb meat
+<en:Lamb liver
 en:Cooked lamb liver
 fr:Foie d'agneau cuit
 agribalyse_food_code:en:40103
@@ -60485,7 +60498,7 @@ ciqual_food_code:en:40103
 ciqual_food_name:en:Liver, lamb, cooked
 ciqual_food_name:fr:Foie, agneau, cuit
 
-<en:Lamb meat
+<en:Lamb liver
 en:Raw lamb liver
 fr:Foie d'agneau cru
 agribalyse_food_code:en:40102
@@ -60493,8 +60506,13 @@ ciqual_food_code:en:40102
 ciqual_food_name:en:Liver, lamb, raw
 ciqual_food_name:fr:Foie, agneau, cru
 
+<en:Lamb meat
+en:Lamb kidneys
+fr:Rognons d'agneau
+
 <en:Cooked lamb meat
 <en:Cooked kidneys
+<en:Lamb kidneys
 en:Braised lamb kidneys
 fr:Rognons d'agneau braisés
 agribalyse_food_code:en:40406
@@ -60502,7 +60520,7 @@ ciqual_food_code:en:40406
 ciqual_food_name:en:Kidney, lamb, braised
 ciqual_food_name:fr:Rognon, agneau, braisé
 
-<en:Lamb meat
+<en:Lamb kidneys
 en:Raw lamb kidneys
 fr:Rognons d'agneau crus
 agribalyse_food_code:en:40407
