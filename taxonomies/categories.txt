@@ -1753,9 +1753,11 @@ ciqual_food_name:en:Pure alcohol
 
 <en:Alcoholic beverages
 en:Spirit drinks
+fr:Boissons spiritueuses
 
 <en:Spirit drinks
 en:Austrian spirit drinks
+fr:Boissons spiritueuses autrichiennes
 
 <en:Austrian spirit drinks
 de:Inländerrum
@@ -1765,6 +1767,7 @@ origins:en: en:Austria
 
 <en:Spirit drinks
 en:Slovenian spirit drinks
+fr:Boissons spiritueuses slovènes
 
 <en:Slovenian spirit drinks
 sl:Domači rum
@@ -1811,12 +1814,14 @@ wikidata:en:Q56139
 
 <en:Distilled beverages
 en:distilled anis
+fr:anis distillé
 
 #<en:Cypriot distilled anis
 #<en:Greek distilled anis
 
 <en:distilled anis
 en:Greek distilled anis
+fr:Anis distillé grec
 
 <en:Greek distilled anis
 el:Ouzo, Oύζο
@@ -3273,6 +3278,7 @@ origins:en: en:Italy
 
 <en:Liqueurs
 en:Spanish liqueur
+fr:Liqueurs espagnoles
 
 <en:Spanish liqueur
 es:Cantueso Alicantino
@@ -3315,6 +3321,7 @@ ciqual_food_name:fr:Crème de cassis
 
 <fr:Crèmes de cassis
 en:French Crème de cassis
+fr:Crèmes de cassis françaises
 
 <en:French Crème de cassis
 fr:Cassis de Saintonge
@@ -3400,6 +3407,13 @@ protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Beverages
+en:Still fruit soft drink
+fr:Boisson plate aux fruits, Boisson aux fruits plate
+agribalyse_proxy_food_code:en:18021
+agribalyse_proxy_food_name:en:Fruit soft drink, still (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
+agribalyse_proxy_food_name:fr:Boisson plate aux fruits, (à moins de 10% de jus), non sucrée, avec édulcorants
+
+<en:Still fruit soft drink
 en:Still fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
 fr:Boisson plate aux fruits non sucrée avec édulcorants et moins de 10% de jus
 agribalyse_food_code:en:18021
@@ -3407,7 +3421,7 @@ ciqual_food_code:en:18021
 ciqual_food_name:en:Fruit soft drink, still (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
 ciqual_food_name:fr:Boisson plate aux fruits, (à moins de 10% de jus), non sucrée, avec édulcorants
 
-<en:Beverages
+<en:Still fruit soft drink
 en:Still fruit soft drink with sugar
 fr:Boisson plate aux fruits sucrée
 agribalyse_food_code:en:18309
@@ -3415,7 +3429,7 @@ ciqual_food_code:en:18309
 ciqual_food_name:en:Fruit soft drink, still (fruit juice content unspecified), with sugar
 ciqual_food_name:fr:Boisson plate aux fruits (teneur en jus non spécifiée), sucrée
 
-<en:Beverages
+<en:Still fruit soft drink
 en:Still fruit soft drink with sugar and with less than 10% of fruit juice
 fr:Boisson plate aux fruits sucrée avec moins de 10% de jus
 agribalyse_food_code:en:18023
@@ -3423,7 +3437,7 @@ ciqual_food_code:en:18023
 ciqual_food_name:en:Fruit soft drink, still (less than 10% of fruit juice), with sugar
 ciqual_food_name:fr:Boisson plate aux fruits (à moins de 10% de jus), sucrée
 
-<en:Beverages
+<en:Still fruit soft drink
 en:Still fruit soft drink with reduced sugar and with 10-50% of fruit juice
 fr:Boisson plate aux fruits avec 10 à 50% de jus à teneur réduite en sucres
 agribalyse_food_code:en:18304
@@ -3431,7 +3445,7 @@ ciqual_food_code:en:18304
 ciqual_food_name:en:Fruit soft drink, still (10-50% of fruit juice), reduced sugar
 ciqual_food_name:fr:Boisson plate aux fruits (10 à 50% de jus), à teneur réduite en sucres
 
-<en:Beverages
+<en:Still fruit soft drink
 en:Still fruit soft drink with sugar and with 10-50% of fruit juice
 fr:Boisson plate aux fruits sucrée avec 10 à 50% de jus
 agribalyse_food_code:en:18339
@@ -3831,6 +3845,9 @@ zh:檸檬水
 # zh-hant:檸檬水
 wikidata:en:Q893
 wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
+agribalyse_proxy_food_code:en:18010
+agribalyse_proxy_food_name:en:Lemonade, with sugar
+agribalyse_proxy_food_name:fr:Limonade, sucrée
 
 <en:Lemonades
 en:Lemonade with sugar
