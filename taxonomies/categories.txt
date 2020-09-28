@@ -4407,6 +4407,10 @@ fr:Jus multifruits, Jus multifruit
 it:Succhi multifrutta
 nl:Multi-vruchtensappen, Multi-vruchtensap
 pl:Soki wieloowocowe
+agribalyse_proxy_food_code:en:2002
+agribalyse_proxy_food_name:en:Mixed fruits juice, pure juice, multivitamin
+agribalyse_proxy_food_name:fr:Jus multifruit, pur jus, multivitaminé
+
 
 <en:Multifruit juices
 en:Mixed fruits pure multivitamin juice
@@ -42724,6 +42728,9 @@ wo:galaas
 yi:אייזקרעם
 zh:冰淇淋
 zu:u-ayisikhilimu
+agribalyse_proxy_food_code:en:39509
+agribalyse_proxy_food_name:en:Ice cream, cone (normal size)
+agribalyse_proxy_food_name:fr:Glace ou crème glacée, cône (taille standard)
 # ang:Īsrēam
 # ary:لجلاس
 # arz:ايس كريم
@@ -43060,6 +43067,9 @@ it:Sorbetto
 nl:Sorbets
 pl:Sorbet, sorbety
 wikidata:en:Q13302
+agribalyse_proxy_food_code:en:31013
+agribalyse_proxy_food_name:en:Sorbet, on stick
+agribalyse_proxy_food_name:fr:Sorbet, bâtonnet
 
 <en:Sorbets
 en:Sorbet tub, Sorbet in box
@@ -43303,6 +43313,7 @@ wikidata:en:Q5595968
 
 <en:Granizados
 es:Granizados de limón
+fr:Slush au citron
 
 <en:Granizados
 es:Granizados de horchata de chufa
@@ -58625,6 +58636,9 @@ agribalyse_food_code:en:8026
 ciqual_food_code:en:8026
 ciqual_food_name:en:Rillettes, duck
 
+<en:duck rillettes
+fr:Grillons de canard
+
 <fr:Rillettes de volaille
 en:Turkey rillettes
 fr:Rillettes de dinde
@@ -60591,15 +60605,30 @@ ciqual_food_code:en:40304
 ciqual_food_name:en:Sweetbread, calf, raw
 ciqual_food_name:fr:Ris, veau, cru
 
+<en:Veal meat
+en:Veal knuckle, Veal shank
+fr:Jarret de veau
+
 <en:Cooked veal meat
-en:Braised veal knuckle, Braised veal shank, Boiled veal knuckle, Boiled veal shank
-fr:Jarret de veau braisé, Jarret de veau bouilli
+en:Cooked veal knuckle
+
+<en:Cooked veal knuckle
+en:Boiled veal knuckle, Boiled veal shank
+fr:Jarret de veau bouilli
 agribalyse_food_code:en:6581
 ciqual_food_code:en:6581
 ciqual_food_name:en:Veal, knuckle or shank, braised or boiled
 ciqual_food_name:fr:Veau, jarret, braisé ou bouilli
 
-<en:Veal meat
+<en:Cooked veal knuckle
+en:Braised veal knuckle, Braised veal shank
+fr:Jarret de veau braisé
+agribalyse_food_code:en:6581
+ciqual_food_code:en:6581
+ciqual_food_name:en:Veal, knuckle or shank, braised or boiled
+ciqual_food_name:fr:Veau, jarret, braisé ou bouilli
+
+<en:Veal knuckle
 en:Raw veal knuckle, Raw veal shank
 fr:Jarret de veau cru
 agribalyse_food_code:en:6583
@@ -60631,7 +60660,12 @@ ciqual_food_code:en:6590
 ciqual_food_name:en:Veal, neck, raw
 ciqual_food_name:fr:Veau, collier, cru
 
+<en:Veal meat
+en:Veal chop
+fr:Côte de veau
+
 <en:Cooked veal meat
+<en:Veal chop
 en:Grilled veal chop, Pan-fried veal chop
 fr:Côte de veau grillée, Côte de veau poêlée
 agribalyse_food_code:en:6511
@@ -60639,7 +60673,7 @@ ciqual_food_code:en:6511
 ciqual_food_name:en:Veal, chop, grilled/pan-fried
 ciqual_food_name:fr:Veau, côte, grillée/poêlée
 
-<en:Veal meat
+<en:Veal chop
 en:Raw veal chop
 fr:Côte de veau crue
 agribalyse_food_code:en:6510
@@ -60664,7 +60698,12 @@ ciqual_food_code:en:40409
 ciqual_food_name:en:Kidney, calf, raw
 ciqual_food_name:fr:Rognon, veau, cru
 
+<en:Veal meat
+en:Calf brain
+fr:Cervelle de veau
+
 <en:Cooked veal meat
+<en:Calf brain
 en:Cooked calf brain
 fr:Cervelle de veau cuite
 agribalyse_food_code:en:40007
@@ -60672,7 +60711,7 @@ ciqual_food_code:en:40007
 ciqual_food_name:en:Brain, calf, cooked
 ciqual_food_name:fr:Cervelle, veau, cuite
 
-<en:Veal meat
+<en:Calf brain
 en:Raw calf brain
 fr:Cervelle de veau crue
 agribalyse_food_code:en:40006
@@ -60696,7 +60735,12 @@ ciqual_food_code:en:40106
 ciqual_food_name:en:Liver, calf, raw
 ciqual_food_name:fr:Foie, veau, cru
 
+<en:Veal meat
+en:Calf tongue
+fr:Langue de veau
+
 <en:Cooked veal meat
+<en:Calf tongue
 en:Cooked calf tongue
 fr:Langue de veau cuite
 agribalyse_food_code:en:40201
@@ -60704,7 +60748,7 @@ ciqual_food_code:en:40201
 ciqual_food_name:en:Tongue, calf, cooked
 ciqual_food_name:fr:Langue, veau, cuite
 
-<en:Veal meat
+<en:Calf tongue
 en:Raw calf tongue
 fr:Langue de veau crue
 agribalyse_food_code:en:40204
@@ -60752,7 +60796,12 @@ ciqual_food_code:en:6580
 ciqual_food_name:en:Calf, foot, raw
 ciqual_food_name:fr:Veau, pied, cru
 
+<en:Veal meat
+en:Veal tenderloins
+fr:Noix de veau
+
 <en:Cooked veal meat
+<en:Veal tenderloins
 en:Grilled veal tenderloin, Pan-fried veal tenderloin
 fr:Noix de veau grillée, Noix de veau poêlée
 agribalyse_food_code:en:6523
@@ -60761,6 +60810,7 @@ ciqual_food_name:en:Veal, tenderloin, grilled/pan-fried
 ciqual_food_name:fr:Veau, noix, grillée/poêlée
 
 <en:Cooked veal meat
+<en:Veal tenderloins
 en:Roasted veal tenderloin
 fr:Noix de veau rôtie
 agribalyse_food_code:en:6524
@@ -60768,7 +60818,7 @@ ciqual_food_code:en:6524
 ciqual_food_name:en:Veal, tenderloin, roasted
 ciqual_food_name:fr:Veau, noix, rôtie
 
-<en:Veal meat
+<en:Veal tenderloins
 en:Raw veal tenderloins
 fr:Noix de veau crues
 agribalyse_food_code:en:6522
@@ -60776,7 +60826,12 @@ ciqual_food_code:en:6522
 ciqual_food_name:en:Veal, tenderloin, raw
 ciqual_food_name:fr:Veau, noix, crue
 
+<en:Veal meat
+en:Veal escalopes
+fr:Escalopes de veau
+
 <en:Cooked veal meat
+<en:Veal escalopes
 en:Cooked veal escalopes
 fr:Escalopes de veau cuites
 agribalyse_food_code:en:6520
@@ -60784,7 +60839,7 @@ ciqual_food_code:en:6520
 ciqual_food_name:en:Veal, escalope, cooked
 ciqual_food_name:fr:Veau, escalope, cuite
 
-<en:Veal meat
+<en:Veal escalopes
 en:Raw veal escalopes
 fr:Escalopes de veau crues
 agribalyse_food_code:en:6521
@@ -60965,11 +61020,11 @@ ru:Сигареты
 <en:Non food products
 en:Open Beauty Facts, OBF
 de:Open Beauty Facts, OBF
-es:Open Beauty Facts
-fi:Open Beauty Facts
+es:Open Beauty Facts, OBF
+fi:Open Beauty Facts, OBF
 fr:Open Beauty Facts, OBF
-it:Open Beauty Facts
-nl:Open Beauty Facts
+it:Open Beauty Facts, OBF
+nl:Open Beauty Facts, OBF
 
 <en:Open Beauty Facts
 en:Toothpaste
@@ -61810,7 +61865,6 @@ fr:Penne rigate
 it:Penne rigate
 nl:Penne rigate
 
-
 <en:Penne
 en:Penne lisce
 it:Penne lisce
@@ -62108,14 +62162,6 @@ agribalyse_food_code:en:9811
 ciqual_food_code:en:9811
 ciqual_food_name:en:Dried pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes sèches standard, cuites, non salées
-
-<en:Egg pastas
-en:Raw fresh egg pasta
-fr:Pâtes fraîches aux œufs crues
-agribalyse_food_code:en:9815
-ciqual_food_code:en:9815
-ciqual_food_name:en:Fresh egg pasta, raw
-ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Egg pastas
 <en:Dry pastas
@@ -62516,6 +62562,10 @@ protected_name_file_number:en: PGI-FR-0324
 protected_name_type:en: pgi
 origins:en: en:France
 
+<en:Egg pastas
+en:Fresh egg pasta
+fr:Pâtes fraîches aux œufs
+
 <en:Fresh pasta
 en:Fresh cooked unsalted egg pasta
 fr:Pâtes fraîches aux œufs cuites non salées
@@ -62523,6 +62573,14 @@ agribalyse_food_code:en:9816
 ciqual_food_code:en:9816
 ciqual_food_name:en:Fresh egg pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
+
+<en:Fresh egg pasta
+en:Raw fresh egg pasta
+fr:Pâtes fraîches aux œufs crues
+agribalyse_food_code:en:9815
+ciqual_food_code:en:9815
+ciqual_food_name:en:Fresh egg pasta, raw
+ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Pastas
 en:Dry pasta
@@ -63059,13 +63117,17 @@ it:Noodle di Grano
 nl:Volkorennoedels
 
 <en:Noodles
+en:Soy vermicelli, soy noodles
+fr:Vermicelles de soja
+
+<en:Soy vermicelli
 en:Unsalted cooked soy noodles
 fr:Vermicelles de soja cuites non salées
 ciqual_food_code:en:9903
 ciqual_food_name:en:Soy noodle, cooked, unsalted
 ciqual_food_name:fr:Vermicelle de soja, cuite, non salée
 
-<en:Noodles
+<en:Soy vermicelli
 en:Dried soy vermicelli, Dried soy noodles
 fr:Vermicelles de soja sèches
 ciqual_food_code:en:9902
@@ -70099,6 +70161,9 @@ fi:purkitetut pinaatit
 fr:Épinards en conserve
 it:Spinaci in scatola
 nl:Spinazie in blik
+agribalyse_proxy_food_code:en:20060
+agribalyse_proxy_food_name:en:Spinach, canned, drained
+agribalyse_proxy_food_name:fr:Épinard, appertisé, égoutté
 
 <en:Canned vegetables
 <en:Spinachs
@@ -79472,6 +79537,7 @@ fr:Risottos aux champignons
 nl:Paddenstoelrisotto
 
 <en:Mushrooms risottos
+en:Risottos with porcini mushrooms
 fr:Risottos aux cèpes
 #wikidata:en:
 
@@ -79545,8 +79611,12 @@ nl:Gevogelte bilvlees
 en:Frozen butter beans
 fr:Haricots beurre surgelés
 nl:Diepvries limabonen
+agribalyse_proxy_food_code:en:20203
+agribalyse_proxy_food_name:en:Butter bean or yellow bean, frozen, raw
+agribalyse_proxy_food_name:fr:Haricot beurre, surgelé, cru
 
-<en:Frozen vegetables
+
+<en:Frozen butter beans
 en:Frozen raw butter beans, Frozen raw yellow beans
 fr:Haricots beurre surgelés crus
 agribalyse_food_code:en:20203
