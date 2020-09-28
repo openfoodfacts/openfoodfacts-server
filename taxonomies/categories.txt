@@ -60197,13 +60197,13 @@ protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:Lamb meat
-ie:Comeragh Mountain Lamb
+en:Comeragh Mountain Lamb
 protected_name_file_number:en: PGI-IE-02496
 protected_name_type:en: pgi
 origins:en: en:Ireland
 
 <en:Lamb meat
-ie:Connemara Hill Lamb, Uain Sléibhe Chonamara
+en:Connemara Hill Lamb, Uain Sléibhe Chonamara
 protected_name_file_number:en: PGI-IE-0366
 protected_name_type:en: pgi
 origins:en: en:Ireland
@@ -66198,7 +66198,12 @@ ciqual_food_code:en:26069
 ciqual_food_name:en:Atlantic bluefin tuna, raw
 ciqual_food_name:fr:Thon rouge, cru
 
+<en:Fishes
+en:Swordfish
+fr:Espadon
+
 <en:Raw fishes
+<en:Swordfish
 en:Raw swordfish
 fr:Espadon cru
 agribalyse_food_code:en:26082
@@ -66214,7 +66219,12 @@ ciqual_food_code:en:26107
 ciqual_food_name:en:Brown meagre, raw
 ciqual_food_name:fr:Corb, cru
 
+<en:Fishes
+en:Snapper
+fr:Vivaneau
+
 <en:Raw fishes
+<en:Snapper
 en:Raw snapper
 fr:Vivaneau cru
 agribalyse_food_code:en:26146
@@ -66222,14 +66232,19 @@ ciqual_food_code:en:26146
 ciqual_food_name:en:Snapper, raw
 ciqual_food_name:fr:Vivaneau, cru
 
-<en:Fishes
+<en:Snapper
 en:Snapper cooked
 fr:Vivaneau cuit
 agribalyse_food_code:en:26147
 ciqual_food_code:en:26147
 ciqual_food_name:en:Snapper, cooked
 
+<en:Fishes
+en:Crevalle jack
+fr:Carangue
+
 <en:Raw fishes
+<en:Crevalle jack
 en:Raw crevalle jack
 fr:Carangue cru
 agribalyse_food_code:en:26157
@@ -66237,7 +66252,12 @@ ciqual_food_code:en:26157
 ciqual_food_name:en:Crevalle jack, raw
 ciqual_food_name:fr:Carangue, cru
 
+<en:Fishes
+en:Grouper
+fr:Mérou
+
 <en:Raw fishes
+<en:Grouper
 en:Raw grouper
 fr:Mérou cru
 agribalyse_food_code:en:26178
@@ -66246,6 +66266,11 @@ ciqual_food_name:en:Grouper, raw
 ciqual_food_name:fr:Mérou, cru
 
 <en:Fishes
+en:Bigeye scad
+fr:Coulirou
+
+<en:Bigeye scad
+<en:Raw fishes
 en:Raw bigeye scad
 fr:Coulirou cru
 agribalyse_food_code:en:26159
@@ -66254,6 +66279,11 @@ ciqual_food_name:en:Bigeye scad, raw
 ciqual_food_name:fr:Coulirou, cru
 
 <en:Fishes
+en:Bogue, Boops boops
+fr:Bogue
+
+<en:Bogue
+<en:Raw fishes
 en:Raw bogue, Raw boops boops
 fr:Bogue crue
 agribalyse_food_code:en:26100
@@ -66293,7 +66323,7 @@ ciqual_food_name:fr:Saumon, cuit, sans précision (aliment moyen)
 
 <en:Cooked salmons
 en:grilled salmon, pan-fried salmon
-fr:saumon grillé, saumé poêlé
+fr:saumon grillé, saumon poêlé
 agribalyse_food_code:en:26229
 ciqual_food_code:en:26229
 ciqual_food_name:en:Salmon, grilled/pan-fried
@@ -66365,7 +66395,6 @@ agribalyse_food_code:en:25077
 ciqual_food_code:en:25077
 ciqual_food_name:en:Salmon with sorrel
 
-#<en:British sea products
 <en:Salmons
 en:Scottish Wild Salmon
 protected_name_file_number:en: PGI-GB-0863
@@ -66382,7 +66411,6 @@ agribalyse_food_code:en:26161
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 
-#<en:British sea products
 <en:Salmons
 en:Scottish Farmed Salmon
 protected_name_file_number:en: PGI-GB-0141
@@ -66446,6 +66474,11 @@ ciqual_food_name:en:Conger, raw
 ciqual_food_name:fr:Congre, cru
 cooking_method:en en:raw
 
+
+<en:Fishes
+en:Roundnose grenadier
+fr:Grenadier, Grenadier de roche
+
 <en:Fishes
 en:Raw roundnose grenadier
 fr:Grenadier cru, Grenadier de roche cru
@@ -66465,6 +66498,10 @@ ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
 cooking_method:en en:raw
 
 <en:Fishes
+en:Tub gurnard
+fr:Grondin perlon
+
+<en:Fishes
 en:Raw tub gurnard
 fr:Grondin perlon cru
 agribalyse_food_code:en:26219
@@ -66474,6 +66511,10 @@ ciqual_food_name:fr:Grondin perlon, cru
 cooking_method:en en:raw
 
 <en:Fishes
+en:Blue shark
+fr:Empereur
+
+<en:Blue shark
 en:Raw blue shark fillet without skin
 fr:Filet d'empereur sans peau cru
 agribalyse_food_code:en:26241
@@ -66499,14 +66540,19 @@ zh:烟熏鱼类
 cooking_method:en en:smoked
 
 <en:Fishes
-en:Surmullet or red mullet raw
+en:Surmullet, red mullet
+la:Mullus surmuletus
+fr:Rouget-barbet de roche
+
+<en:Surmullet
+en:Raw surmullet, Raw red mullet
 fr:Rouget-barbet de roche cru
 agribalyse_food_code:en:26085
 ciqual_food_code:en:26085
 ciqual_food_name:en:Surmullet or red mullet, raw
 
-<en:Fishes
-en:Surmullet or red mullet steamed
+<en:Surmullet
+en:Steamed surmullet, steamed red mullet
 fr:Rouget-barbet de roche vapeur
 agribalyse_food_code:en:26110
 ciqual_food_code:en:26110
@@ -66520,6 +66566,10 @@ ciqual_food_code:en:26244
 ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
 
 <en:Fishes
+en:Common sole
+fr:Sole
+
+<en:Common sole
 en:Common sole raw
 fr:Sole crue
 agribalyse_food_code:en:26058
@@ -66527,7 +66577,7 @@ ciqual_food_code:en:26058
 ciqual_food_name:en:Common sole, raw
 cooking_method:en en:raw
 
-<en:Fishes
+<en:Common sole
 en:Common sole fried
 fr:Sole frite
 agribalyse_food_code:en:26062
@@ -66535,7 +66585,7 @@ ciqual_food_code:en:26062
 ciqual_food_name:en:Common sole, fried
 cooking_method:en en:fried
 
-<en:Fishes
+<en:Common sole
 en:Common sole steamed
 fr:Sole cuite à la vapeur
 agribalyse_food_code:en:26059
@@ -66543,14 +66593,14 @@ ciqual_food_code:en:26059
 ciqual_food_name:en:Common sole, steamed
 cooking_method:en en:steamed
 
-<en:Fishes
-en:Common sole boiled/cooked in water
+<en:Common sole
+en:Boiled Common sole, Common sole cooked in water
 fr:Sole cuite à l'eau
 agribalyse_food_code:en:26061
 ciqual_food_code:en:26061
 ciqual_food_name:en:Common sole, boiled/cooked in water
 
-<en:Fishes
+<en:Common sole
 en:Common sole grilled
 fr:Sole poêlée
 agribalyse_food_code:en:26248
@@ -66558,8 +66608,8 @@ ciqual_food_code:en:26248
 ciqual_food_name:en:Common sole, grilled
 cooking_method:en en:grilled
 
-<en:Fishes
-en:Common sole roasted/baked
+<en:Common sole
+en:Roasted Common sole, Baked Common sole
 fr:sole rôtie ou cuite au four
 agribalyse_food_code:en:26060
 ciqual_food_code:en:26060
@@ -66636,12 +66686,14 @@ ciqual_food_code:en:26222
 ciqual_food_name:en:Black seabream, roasted/baked
 
 <en:Smoked fishes
+<en:Swordfish
 en:Smoked swordfish
 fr:Espadons fumés, espadon fumé
 nl:Gerookte zwaardvis
 
 <en:Smoked fishes
-en:Swordfish roasted/baked
+<en:Swordfish
+en:Roasted Swordfish, Baked Swordfish
 fr:Espadon rôti, espadon cuit au four
 agribalyse_food_code:en:26093
 ciqual_food_code:en:26093
@@ -77611,6 +77663,9 @@ ciqual_food_name:fr:Crêpe préemballée, fourrée au sucre
 
 <en:Crêpes
 fr:Crêpes de froment, crêpe de froment
+agribalyse_proxy_food_code:en:23799
+agribalyse_proxy_food_name:en:Crepe, plain, prepacked, refrigerated
+agribalyse_proxy_food_name:fr:Crêpe, nature, préemballée, rayon frais
 
 <en:Crêpes
 en:Sugared crêpes
