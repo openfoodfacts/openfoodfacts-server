@@ -337,8 +337,16 @@ ciqual_food_name:en:Dairy dessert for baby, custard type
 ciqual_food_name:fr:Dessert lacté infantile type crème dessert
 
 <en:Snacks and desserts for babies
-en:Dairy dessert for baby with rice, Dairy dessert for baby with semolina
-fr:Dessert lacté pour bébé au riz, Dessert lacté pour bébé à la semoule
+en:Dairy dessert for baby with semolina
+fr:Dessert lacté pour bébé à la semoule
+agribalyse_food_code:en:13165
+ciqual_food_code:en:13165
+ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
+ciqual_food_name:fr:Dessert lacté infantile au riz ou à la semoule
+
+<en:Snacks and desserts for babies
+en:Dairy dessert for baby with rice
+fr:Dessert lacté pour bébé au riz
 agribalyse_food_code:en:13165
 ciqual_food_code:en:13165
 ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
@@ -22464,6 +22472,10 @@ fr:Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit 
 nl:Maaltijdpakketten
 nova:en:3
 
+<en:Meal kits
+en:Fajitas kits
+fr:Kit pour fajitas
+
 <en:Beverages
 <en:Dried products to be rehydrated
 en:Dehydrated beverages, dehydrated drinks
@@ -24878,6 +24890,9 @@ fi:kaakaojauheet
 fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao
 it:Cacao in polvere
 nl:Cacaopoeders, Cacaopoeder, Cacao
+
+<en:Cocoa powders
+fr:Cacao en poudre non sucré
 
 <en:Breakfasts
 <en:Instant beverages
@@ -46909,6 +46924,9 @@ es:Orégano seco molido
 fr:Origan séché moulu, origan sec moulu
 it:Origano essiccato
 nl:Gemalen gedroogde oregano
+agribalyse_proxy_food_code:en:11035
+agribalyse_proxy_food_name:en:Oregano, dried
+agribalyse_proxy_food_name:fr:Origan, séché
 
 <en:Oregano
 <en:Potted aromatic plants
@@ -47346,6 +47364,9 @@ fr:Herbes de Provence
 it:Erbe della Provenza
 nl:Provencaalse kruiden
 wikidata:en:Q913548
+agribalyse_proxy_food_code:en:11060
+agribalyse_proxy_food_name:en:Provence herbs, dried
+agribalyse_proxy_food_name:fr:Herbes de Provence, séchées
 
 <en:Herbes de Provence
 en:Dried Provence herbs
@@ -47392,6 +47413,9 @@ pt:Sais
 sv:Salter, salt
 zh:盐类
 nova:en:2
+agribalyse_proxy_food_code:en:11017
+agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
 fr:Gros sels, gros sel
@@ -47438,6 +47462,7 @@ fi:Himalajan suolat
 fr:Sels de l'Himalaya
 it:Sale dell'Himalaya
 # Not applying a proxy due to the distance
+# TODO disable AGB on it
 
 <en:Himalaya salts
 fr:Sels roses de l'Himalaya
@@ -47536,6 +47561,7 @@ nl:Grijze steenzouten
 
 <en:Salts
 en:Croatian salts
+fr:Sels croates
 
 <en:Croatian salts
 hr:Paška sol
@@ -47593,6 +47619,7 @@ origins:en: en:France
 
 <en:Salts
 en:Portuguese salts
+fr:Sels portugais
 
 <en:Portuguese salts
 pt:Sal de Rio Maior, Flor de Sal de Rio Maior
@@ -47608,6 +47635,7 @@ origins:en: en:Portugal
 
 <en:Salts
 en:Slovenian salts
+fr:Sels slovènes
 
 <en:Slovenian salts
 sl:Piranska sol
@@ -47616,6 +47644,7 @@ protected_name_type:en: pdo
 origins:en: en:Slovenia
 
 <en:Salts
+en:Salts from Québec
 fr:Sels du Québéc
 origins:en: en:Canada, fr:Québéc
 
@@ -47789,6 +47818,9 @@ la:Cuminum cyminum
 nl:Komijn
 nl_be:Komijn
 wikidata:en:Q132624
+agribalyse_proxy_food_code:en:11042
+agribalyse_proxy_food_name:en:Cumin, seed
+agribalyse_proxy_food_name:fr:Cumin, graine
 
 <en:Cumin
 en:Ground cumin seeds
@@ -51740,6 +51772,9 @@ pt:Refeições com peixe, pratos com peixe
 ru:Блюда с рыбой
 
 <en:Meals with fish
+fr:Poisson en sauce et riz
+
+<en:Meals with fish
 en:Frozen fish in sauce
 fr:Poisson en sauce surgelé
 agribalyse_food_code:en:26054
@@ -53766,6 +53801,14 @@ es:Lasaña de atún
 fr:Lasagnes au thon
 nl:Tonijnlasagna
 
+<en:Prepared lasagne
+en:Lasagna with goat cheese and spinach
+fr:Lasagnes au fromage et aux épinards
+agribalyse_food_code:en:25635
+ciqual_food_code:en:25635
+ciqual_food_name:en:Lasagna or cannelloni with goat cheese and spinach
+ciqual_food_name:fr:Lasagnes ou cannelloni au fromage et aux épinards
+
 <en:Fish dishes
 en:Braised European hake
 fr:Merlu cuit à l'étouffée
@@ -53923,9 +53966,13 @@ ciqual_food_name:en:Celeriac in remoulade sauce, prepacked
 ciqual_food_name:fr:Céleri rémoulade, préemballé
 
 <en:Prepared vegetables
-en:Greek mushroom
+en:Greek-style marinated mushrooms, Greek mushroom
 fr:Champignons à la grecque
 nl:Paddestoelen op griekse wijze
+agribalyse_food_code:en:25605
+ciqual_food_code:en:25605
+ciqual_food_name:en:Greek-style marinated mushrooms
+ciqual_food_name:fr:Champignon à la grecque
 
 <en:Prepared vegetables
 en:Baked beans in tomato sauce, baked beans
@@ -54331,6 +54378,10 @@ en:Instant pasta with chicken, Pasta box with chicken
 fr:Pâtes instantanées au poulet, Box de pâtes au poulet
 nl:Instant pasta met kip
 
+<en:Instant pasta
+en:Instant pasta with cheese, Pasta box with cheese
+fr:Pâtes instantanées au fromage, Box de pâtes au fromage
+
 <fr:Box
 en:Rice in a box
 fr:Box de riz
@@ -54533,6 +54584,10 @@ nl:Opgemaakte salades
 ru:Готовые салаты
 
 <en:Prepared salads
+en:Buddha Bowl
+fr:Buddha Bowl
+
+<en:Prepared salads
 <en:Meals with fish
 en:Tuna salad
 de:Thunfischsalat
@@ -54613,6 +54668,12 @@ de:Gurken Salate
 fi:Kurkkusalaatit
 fr:Salades de concombres
 nl:Kokommersalade
+
+<en:Cucumber salads
+fr:Concombres au fromage blanc
+
+<en:Cucumber salads
+fr:Concombres à la crème
 
 <en:Prepared salads
 en:Lentil salads
@@ -54702,20 +54763,44 @@ fr:Salades de pâtes végétariennes
 nl:Vegetarische pasta salades
 
 <en:Pasta salads
-en:Prepared vegetable and pasta salad with meat, Prepared vegetable and pasta salad with fish
-fr:Salade de pâtes aux légumes avec poisson, Salade de pâtes aux légumes avec viande
-agribalyse_food_code:en:25619
-ciqual_food_code:en:25619
-ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
-ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
-
-<en:Pasta salads
 en:Prepared vegetarian pasta salad
 fr:Salade de pâtes végétarienne
 agribalyse_food_code:en:25615
 ciqual_food_code:en:25615
 ciqual_food_name:en:Prepared pasta salad, vegetarian
 ciqual_food_name:fr:Salade de pâtes, végétarienne
+
+<en:Pasta salads
+en:Prepared vegetable and pasta salad with fish
+fr:Salade de pâtes aux légumes avec poisson
+agribalyse_food_code:en:25619
+ciqual_food_code:en:25619
+ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
+ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
+
+<en:Prepared vegetable and pasta salad with fish
+en:Surimi and pasta salads
+fr:Salades au surimi et aux pâtes
+
+<en:Prepared vegetable and pasta salad with fish
+en:Salmon and pasta salads
+fr:Salades au saumon et aux pâtes
+
+<en:Prepared vegetable and pasta salad with fish
+en:Tuna and pasta salads
+fr:Salades au thon et aux pâtes
+
+<en:Pasta salads
+en:Prepared vegetable and pasta salad with meat
+fr:Salade de pâtes aux légumes avec viande
+agribalyse_food_code:en:25619
+ciqual_food_code:en:25619
+ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
+ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
+
+<en:Prepared vegetable and pasta salad with meat
+en:Chicken and pasta salads
+fr:Salades au poulet et aux pâtes
 
 <en:Pies
 en:Two-crust Pies, 2 crust pies
@@ -61509,14 +61594,6 @@ fr:Mélanges de champignons, Mélange de champignons
 nl:Paddestoelenmelanges
 
 <en:Mushrooms
-en:Greek-style marinated mushrooms
-fr:Champignons à la grecque
-agribalyse_food_code:en:25605
-ciqual_food_code:en:25605
-ciqual_food_name:en:Greek-style marinated mushrooms
-ciqual_food_name:fr:Champignon à la grecque
-
-<en:Mushrooms
 en:Truffles
 de:Trüffel, Trüffeln
 es:Trufas
@@ -62577,7 +62654,7 @@ ciqual_food_code:en:25131
 ciqual_food_name:en:Lasagna or cannelloni with vegetables
 ciqual_food_name:fr:Lasagnes ou cannelloni aux légumes
 
-<en:Cannelloni
+<en:Cannelloni with vegetables
 en:Cannelloni with cooked vegetables
 fr:Cannelloni aux légumes cuits
 agribalyse_food_code:en:25218
@@ -62594,14 +62671,17 @@ ciqual_food_name:en:Lasagna or cannelloni with fish
 ciqual_food_name:fr:Lasagnes ou cannelloni au poisson
 
 <en:Cannelloni
-en:Lasagna with goat cheese and spinach, Cannelloni with goat cheese and spinach
-fr:Lasagnes au fromage et aux épinards, Cannelloni au fromage et aux épinards
+en:Vegetarian canelloni
+
+<en:Vegetarian canelloni
+en:Cannelloni with goat cheese and spinach
+fr:Cannelloni au fromage et aux épinards
 agribalyse_food_code:en:25635
 ciqual_food_code:en:25635
 ciqual_food_name:en:Lasagna or cannelloni with goat cheese and spinach
 ciqual_food_name:fr:Lasagnes ou cannelloni au fromage et aux épinards
 
-<en:Cannelloni
+<en:Vegetarian canelloni
 en:Cannelloni with cooked vegetables and goat cheese
 fr:Canelloni aux légumes cuits et au fromage de chèvre
 agribalyse_food_code:en:25219
@@ -62761,6 +62841,7 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment mo
 
 <en:Stuffed pasta
 en:Pasta stuffed with cheese
+fr:Pâtes farcies au fromage
 
 <en:Stuffed pastas
 <en:Pasta dishes
@@ -62774,17 +62855,19 @@ protected_name_file_number:en: PGI-FR-0583
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:Pasta stuffed with cheese
-en:Cooked fresh pasta stuffed with cheese, Cooked raviolis
-fr:Pâtes fraîches au fromage farcies et cuites, Raviolis du Dauphiné cuits, Ravioles du Dauphiné cuites
+<fr:Ravioles du Dauphiné
+<en:Fresh pasta
+en:Cooked Ravioles du Dauphiné
+fr:Raviolis du Dauphiné cuits, Ravioles du Dauphiné cuites
 agribalyse_food_code:en:25149
 ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
 
-<en:Pasta stuffed with cheese
-en:Raw fresh pasta stuffed with cheese, Raw raviolis
-fr:Pâtes fraîches au fromage farcies et crues, Raviolis du Dauphiné crus, Ravioles du Dauphiné crues
+<fr:Ravioles du Dauphiné
+<en:Fresh pasta
+en:Raw Ravioles du Dauphiné
+fr:Raviolis du Dauphiné crus, Ravioles du Dauphiné crues
 agribalyse_food_code:en:25181
 ciqual_food_code:en:25181
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
@@ -62801,6 +62884,15 @@ hu:Sajtos ravioli, Ravioli sajttal
 it:Ravioli al formaggio
 nl:Kaasraviolis
 
+<en:Pasta stuffed with cheese
+<en:Fresh pasta
+en:Cooked fresh pasta stuffed with cheese
+fr:Pâtes fraîches au fromage farcies et cuites
+agribalyse_food_code:en:25149
+ciqual_food_code:en:25149
+ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
+
 <en:Stuffed Pastas
 en:Cooked fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches cuites farcies au fromage et aux légumes
@@ -62811,9 +62903,17 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux 
 
 <en:Stuffed Pastas
 en:Pasta stuffed with meat
+fr:Pates farcies à la viande
 
 <en:ravioli
+<en:Pasta stuffed with meat
 en:Meat ravioli
+fr:Ravioli à la viande
+
+<en:ravioli
+<en:Pasta stuffed with vegetables
+en:Ravioli filled with vegetables
+fr:Raviolis aux légumes
 
 <en:Meat ravioli
 <en:Poultry meals
@@ -62863,6 +62963,7 @@ hu:Bolognais ravioli, Ravioli bolognaival
 nl:Bolognese Raviolis
 
 <en:Stuffed Pastas
+<en:Fresh pasta
 en:Raw fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches crues farcies au fromage et aux légumes
 agribalyse_food_code:en:25182
@@ -62872,6 +62973,7 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux 
 
 <en:Stuffed Pastas
 en:Pasta stuffed with vegetables
+fr:Pates farcies aux légumes
 
 <en:Pasta stuffed with vegetables
 en:Cooked fresh pasta stuffed with vegetables
@@ -71105,6 +71207,10 @@ ciqual_food_name:en:White cabbage, raw
 ciqual_food_name:fr:Chou blanc, cru
 
 <en:Cabbages
+en:Green cabbage
+fr:Chou vert
+
+<en:Green cabbage
 en:Boiled green cabbage boiled, Green cabbage cooked in water
 fr:Chou vert boulli, Chou vert cuit à l'eau
 agribalyse_food_code:en:20015
@@ -71112,7 +71218,7 @@ ciqual_food_code:en:20015
 ciqual_food_name:en:Green cabbage, boiled/cooked in water
 ciqual_food_name:fr:Chou vert, cuit
 
-<en:Cabbages
+<en:Green cabbage
 en:Raw green cabbage
 fr:Chou vert cru
 agribalyse_food_code:en:20069
@@ -71121,6 +71227,10 @@ ciqual_food_name:en:Green cabbage, raw
 ciqual_food_name:fr:Chou vert, cru
 
 <en:Cabbages
+en:Red cabbage
+fr:Chou rouge
+
+<en:Red cabbage
 en:Boiled red cabbage, Red cabbage cooked in water
 fr:Chou rouge boulli, Chou rouge cuit à l'eau
 agribalyse_food_code:en:20095
@@ -71128,7 +71238,7 @@ ciqual_food_code:en:20095
 ciqual_food_name:en:Red cabbage, boiled/cooked in water
 ciqual_food_name:fr:Chou rouge, bouilli/cuit à l'eau
 
-<en:Cabbages
+<en:Red cabbage
 en:Raw red cabbage
 fr:Chou rouge cru
 agribalyse_food_code:en:20014
@@ -71153,6 +71263,10 @@ ciqual_food_name:en:Turnip cabbage, raw
 ciqual_food_name:fr:Chou-rave, cru
 
 <en:Cabbages
+en:Chinese cabbage, nappa cabbage, Bok choy
+fr:Chou chinois, pak-choi, pé-tsai
+
+<en:Chinese cabbage
 en:Raw Chinese cabbage, Raw nappa cabbage, Raw bok choy
 fr:Chou chinois, Pak-choi, Pé-tsai cru
 agribalyse_food_code:en:20167
@@ -71160,7 +71274,7 @@ ciqual_food_code:en:20167
 ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 
-<en:Cabbages
+<en:Chinese cabbage
 <en:Cooked vegetables
 en:Cooked Chinese cabbage, Cooked nappa cabbage, Bok choy
 fr:Chou chinois (pak-choi ou pé-tsai) cuit
@@ -71352,6 +71466,10 @@ ciqual_food_name:en:Celery stalk, raw
 ciqual_food_name:fr:Céleri branche, cru
 
 <en:Celery
+en:Celeriac
+fr:Céleri-rave
+
+<en:Celeriac
 en:Raw celeriac
 fr:Céleri-rave cru
 agribalyse_food_code:en:20055
@@ -71359,7 +71477,7 @@ ciqual_food_code:en:20055
 ciqual_food_name:en:Celeriac, raw
 ciqual_food_name:fr:Céleri-rave, cru
 
-<en:Celery
+<en:Celeriac
 <en:Cooked vegetables
 en:Cooked celeriac
 fr:Céleri-rave cuit
@@ -79756,6 +79874,9 @@ de:Fleischtortellini
 fr:Tortellini à la viande
 it:Tortellini di carne
 nl:Vleestortellini
+
+<en:Meat tortellinis
+fr:Tortellini au jambon cru, Pâtes Tortellini jambon cru
 
 <en:Tortellini
 en:Vegetables tortellinis
