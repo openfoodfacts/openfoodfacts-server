@@ -1733,7 +1733,7 @@ sub display_list_of_tags($$) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
-		init_tags_texts_levels() unless %tags_levels;
+		init_tags_texts_levels() unless %tags_texts;
 
 		foreach my $tagcount_ref (@tags) {
 
@@ -1870,28 +1870,23 @@ sub display_list_of_tags($$) {
 			my $extra_td = '';
 
 			my $icid = $tagid;
+			my $canon_tagid = $tagid;
 			$icid =~ s/^(.*)://;    # additives
 
-			my $risk_level;
 			if ($tagtype eq 'additives') {
-				# Take additive level from more complete FR list.
-				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
+				
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+					and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})) {
 
-				if ($risk_level) {
-					# $css_class .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
-					# $info .= ' title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
-					my $risk_level_label = lang("risk_level_" . $risk_level);
-					$risk_level_label =~ s/ /\&nbsp;/g;
-					$extra_td = '<td class="level_' . $risk_level . '">' . $risk_level_label . '</td>';
+					my $tagtype_field = "additives_efsa_evaluation_overexposure_risk";
+					my $valueid = $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"};
+					$valueid =~ s/^en://;
+					my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+					$extra_td = '<td class="additives_efsa_evaluation_overexposure_risk_' . $valueid . '">' . $alt . '</td>';
 				}
 				else {
-					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';
 					$extra_td = '<td></td>';
 				}
-			}
-
-			if ($risk_level) {
-				$css_class .= ' level_' . $risk_level;
 			}
 
 			my $product_link = $main_link . $link;
@@ -7666,7 +7661,7 @@ JS
 	# to compute the number of columns displayed
 	my $ingredients_classes_n = 0;
 
-	init_tags_texts_levels() unless %tags_levels;
+	init_tags_texts_levels() unless %tags_texts;
 
 	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 
@@ -7695,16 +7690,6 @@ HTML
 ;
 			}
 
-			if ($tagtype eq 'additives') {
-
-				$styles .= <<CSS
-a.additives_efsa_evaluation_overexposure_risk_high { color:red }
-a.additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
-CSS
-;
-
-			}
-
 			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 
@@ -7728,10 +7713,6 @@ CSS
 
 					my $canon_tagid = $tagid;
 					$tagid =~ s/.*://; # levels are defined only in old French list
-
-					if ($ingredients_classes{$class}{$tagid}{level} > 0) {
-						$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
-					}
 
 					if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
 						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
@@ -7759,11 +7740,6 @@ HTML
 
 					}
 				}
-
-				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
-					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-				}
-
 
 				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a>$more_info</li>\n";
 			}
