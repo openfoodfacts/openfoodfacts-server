@@ -66757,6 +66757,11 @@ ciqual_food_code:en:26087
 ciqual_food_name:en:Mackerel, smoked
 ciqual_food_name:fr:Maquereau, fumé
 
+<en:Fishes
+en:Marlins
+fr:Marlins
+nl:Marlijn
+
 <en:Smoked fishes
 en:Smoked marlins
 fr:Marlins fumés, marlin fumé
@@ -66788,27 +66793,28 @@ agribalyse_food_code:en:26092
 ciqual_food_code:en:26092
 ciqual_food_name:en:Sea trout, raw
 
-<en:Fishes
 <en:Trouts
-en:Trout farmed raw
+en:Farmed trout
+fr:Truite d'élevage
+
+<en:Farmed trout
+en:Raw farmed trout
 fr:Truite d'élevage crue
 agribalyse_food_code:en:27008
 ciqual_food_code:en:27008
 ciqual_food_name:en:Trout, farmed, raw
 cooking_method:en en:raw
 
-<en:Fishes
-<en:Trouts
-en:Trout farmed smoked
+<en:Farmed trout
+en:Smoked farmed trout
 fr:Truite d'élevage fumée
 agribalyse_food_code:en:27029
 ciqual_food_code:en:27029
 ciqual_food_name:en:Trout, farmed, smoked
 cooking_method:en en:smoked
 
-<en:Fishes
-<en:Trouts
-en:Rainbow trout raw farmed
+<en:Farmed trout
+en:Raw farmed rainbow trout
 fr:Truite arc en ciel crue élevage, Truite arc en ciel crue d'élevage
 agribalyse_food_code:en:27009
 ciqual_food_code:en:27009
@@ -66824,13 +66830,21 @@ ciqual_food_name:en:Salmon trout, raw
 cooking_method:en en:raw
 
 <en:Fishes
-en:Carp raw farmed
-fr:Carpe crue élevage
+en:Carp
+fr:Carpe
+
+<en:Carp
+en:Raw farmed Carp
+fr:Carpe crue d'élevage
 agribalyse_food_code:en:27003
 ciqual_food_code:en:27003
 ciqual_food_name:en:Carp, raw, farmed
 
 <en:Fishes
+en:European perch
+fr:Perche
+
+<en:European perch
 en:European perch raw
 fr:Perche crue
 agribalyse_food_code:en:27010
@@ -66838,7 +66852,18 @@ ciqual_food_code:en:27010
 ciqual_food_name:en:European perch, raw
 cooking_method:en en:raw
 
+<en:European perch
+en:Roasted European perch, Baked European perch
+fr:Perche rôtie, Perche cuite au four
+agribalyse_food_code:en:27005
+ciqual_food_code:en:27005
+ciqual_food_name:en:European perch, roasted/baked
+
 <en:Fishes
+en:Nile perch
+fr:Perche du Nil
+
+<en:Nile perch
 en:Nile perch raw
 fr:Perche du Nil crue
 agribalyse_food_code:en:27025
@@ -66848,6 +66873,7 @@ cooking_method:en en:raw
 
 <en:Trouts
 en:Cooked trouts
+fr:Truites cuites
 
 <en:Cooked trouts
 en:Rainbow trout farmed roasted, Rainbow trout farmed baked
@@ -66879,13 +66905,10 @@ ciqual_food_name:en:Trout, steamed
 cooking_method:en en:steamed
 
 <en:Fishes
-en:European perch roasted/baked
-fr:Perche rôtie ou cuite au four
-agribalyse_food_code:en:27005
-ciqual_food_code:en:27005
-ciqual_food_name:en:European perch, roasted/baked
+en:Red gurnard
+fr:Grondin
 
-<en:Fishes
+<en:Red gurnard
 en:Red gurnard raw
 fr:Grondin cru
 agribalyse_food_code:en:26106
@@ -67229,6 +67252,10 @@ ciqual_food_name:en:Gilthead seabream, raw, farmed
 ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
 
 <en:Breams
+en:Freshwater bream
+fr:Brèmes
+
+<en:Freshwater bream
 en:Raw freshwater bream
 fr:Brème cru
 agribalyse_food_code:en:26170
