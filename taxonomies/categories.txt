@@ -3924,14 +3924,6 @@ ciqual_food_name:en:Cola, with sugar and artificial sweetener(s)
 ciqual_food_name:fr:Cola, sucré, avec édulcorants
 
 <en:Colas
-en:Cola with sugar and without caffeine
-fr:Cola sucré sans caféine
-agribalyse_food_code:en:18067
-ciqual_food_code:en:18067
-ciqual_food_name:en:Cola, with sugar and without caffeine
-ciqual_food_name:fr:Cola, sucré, sans caféine
-
-<en:Colas
 en:Cola sodas without caffeine
 de:Koffeinfreie Colas
 es:Cola sin cafeína
@@ -3940,6 +3932,14 @@ fr:Sodas au cola sans caféine
 it:Bibite alla cola senza caffeina, Cole senza caffeina
 nl:Caffeinevrije colas
 ro:Cola fără cafeină
+
+<en:Cola sodas without caffeine
+en:Cola with sugar and without caffeine
+fr:Cola sucré sans caféine
+agribalyse_food_code:en:18067
+ciqual_food_code:en:18067
+ciqual_food_name:en:Cola, with sugar and without caffeine
+ciqual_food_name:fr:Cola, sucré, sans caféine
 
 <en:Beverages
 <en:Plant-based foods and beverages
@@ -58485,49 +58485,53 @@ ciqual_food_name:en:Pork ham w parsley and jelly
 ciqual_food_name:fr:Jambon persillé en gelée
 
 <en:Hams
+en:Cooked ham
+fr:Jambon cuit
+
+<en:Cooked ham
 en:Cooked ham superior quality
 fr:Jambon cuit supérieur
 agribalyse_food_code:en:28900
 ciqual_food_code:en:28900
 ciqual_food_name:en:Cooked ham, superior quality
 
-<en:Hams
+<en:Cooked ham
 en:Cooked ham superior quality with rind
 fr:Jambon cuit supérieur avec couenne
 agribalyse_food_code:en:28901
 ciqual_food_code:en:28901
 ciqual_food_name:en:Cooked ham, superior quality, with rind
 
-<en:Hams
+<en:Cooked ham
 en:Cooked ham superior quality rind less
 fr:Jambon cuit supérieur découenné
 agribalyse_food_code:en:28902
 ciqual_food_code:en:28902
 ciqual_food_name:en:Cooked ham, superior quality, rind less
 
-<en:Hams
+<en:Cooked ham
 en:Cooked ham superior quality rind less and fatless
 fr:Jambon cuit supérieur découenné dégraissé
 agribalyse_food_code:en:28906
 ciqual_food_code:en:28906
 ciqual_food_name:en:Cooked ham, superior quality, rind less and fatless
 
-<en:Hams
+<en:Cooked ham
 en:Cooked ham superior quality reduced salt
 fr:Jambon cuit supérieur à teneur réduite en sel
 agribalyse_food_code:en:28907
 ciqual_food_code:en:28907
 ciqual_food_name:en:Cooked ham, superior quality, reduced salt
 
-<en:Hams
+<en:Cooked ham
 en:Cooked ham choice
 fr:Jambon de choix cuit
 agribalyse_food_code:en:28910
 ciqual_food_code:en:28910
 ciqual_food_name:en:Cooked ham, choice
 
-<en:Hams
-en:Cooked ham choice w rind
+<en:Cooked ham
+en:Cooked ham choice with rind
 fr:Jambon cuit choix avec couenne
 agribalyse_food_code:en:28912
 ciqual_food_code:en:28912
@@ -58540,12 +58544,15 @@ it:Prosciutto francese
 
 <en:Hams
 en:British hams
+fr:Jambons britanniques
 
 <en:Hams
 en:Italian hams
+fr:Jambons italiens
 
 <en:Hams
 en:Spanish hams
+fr:Jambons espagnols
 
 <en:British hams
 en:Carmarthen Ham
