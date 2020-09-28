@@ -1733,8 +1733,6 @@ sub display_list_of_tags($$) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
-		init_tags_texts_levels() unless %tags_texts;
-
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -7660,8 +7658,6 @@ JS
 
 	# to compute the number of columns displayed
 	my $ingredients_classes_n = 0;
-
-	init_tags_texts_levels() unless %tags_texts;
 
 	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 
