@@ -192,24 +192,24 @@ foreach my $test_ref (@tests) {
 	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
 
 [
-	{ serving_size_value => "10", serving_size_unit => "g" },
-	{ serving_size => "10 g", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "10 g", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
 [
-	{ serving_size => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
-	{ serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
 [
-	{ serving_size_value_unit => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
-	{ serving_size_value_unit => "1 biscuit", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size_value_unit => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size_value_unit => "1 biscuit", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
 
 [
-	{ serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
-	{ serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
 

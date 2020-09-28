@@ -2322,7 +2322,7 @@ sub compute_languages($) {
 
 	foreach my $field (keys %{$product_ref}) {
 
-		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
 			if (defined $language_codes{$language_code}) {
