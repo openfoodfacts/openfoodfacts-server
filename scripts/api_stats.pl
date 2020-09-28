@@ -31,6 +31,8 @@
 # -> the user agent has changed, it used to be "Official Android App"
 # and is now "Open Food Facts Official Android App" 
 # for ios, grep org.openfoodfacts.scanner
+# old app in 2018:
+# grep "nutrition_data_per" api.20200716 | grep "okhttp" > api.20200716.android-old-app
 #
 # cat api.20200716.ios api.20200928.ios | ./api_stats.pl
 
