@@ -100,7 +100,7 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
-		&init_tags_texts_levels
+		&init_tags_texts
 
 		&get_city_code
 		%emb_codes_cities
@@ -3380,7 +3380,7 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
-sub init_tags_texts_levels {
+sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();

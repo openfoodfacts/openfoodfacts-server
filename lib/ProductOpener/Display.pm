@@ -2859,7 +2859,7 @@ sub display_tag($) {
 	local $log->context->{tagtype2} = $tagtype2;
 	local $log->context->{tagid2} = $tagid2;
 
-	init_tags_texts_levels() unless %tags_texts;
+	init_tags_texts() unless %tags_texts;
 
 	# Add a meta robot noindex for pages related to users
 	if ( ((defined $tagtype) and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
