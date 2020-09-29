@@ -129,12 +129,16 @@ foreach my $l ("en", "fr") {
 
 	$langs{$l} = 0;
 
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
+	my $csv_filename = "$www_root/data/$lang.$server_domain.products.csv";
+	my $rdf_filename = "$www_root/data/$lang.$server_domain.products.rdf";
+	my $log_filename = "$www_root/data/$lang.$server_domain.products.bad-chars.log";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
-	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
-	open (my $BAD, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.bad-chars.log");
+	print STDERR "Write file: $csv_filename.temp\n";
+	print STDERR "Write file: $rdf_filename.temp\n";
+
+	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp");
+	open (my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
+	open (my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
 
 	# Headers
@@ -426,6 +430,18 @@ XML
 	close $OUT;
 	close $BAD;
 
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $csv_size_old = (-s $csv_filename) // 0;
+	my $csv_size_new = -s "$csv_filename.temp";
+	if ($csv_size_new >= $csv_size_old) {
+		unlink $csv_filename;
+		rename "$csv_filename.temp", $csv_filename;
+	} else {
+		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
+		unlink "$csv_filename.temp";
+	}
+
+
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
 
@@ -470,6 +486,17 @@ XML
 	print $RDF "</rdf:RDF>\n";
 
 	close $RDF;
+
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $rdf_size_old = (-s $rdf_filename) // 0;
+	my $rdf_size_new = -s "$rdf_filename.temp";
+	if ($rdf_size_new >= $rdf_size_old) {
+		unlink $rdf_filename;
+		rename "$rdf_filename.temp", $rdf_filename;
+	} else {
+		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
+		unlink "$rdf_filename.temp";
+	}
 
 }
 
