@@ -6474,6 +6474,7 @@ ru:Кофе без кофеина, декофеинизированный коф
 zh:无咖啡因咖啡
 
 <en:Decaffeinated coffees
+<en:Coffee capsules
 en:Decaffeinated coffee capsules
 de:entkoffeinierte Kaffees in Pads, koffeinfreie Kaffees in Pads
 nl:Cafeïnevrije koffiepads, Caffeïnevrije koffiepad
@@ -28702,6 +28703,9 @@ ru:Рис
 sv:Ris
 zh:米
 wikidata:en:Q161426
+agribalyse_proxy_food_code:en:9101
+agribalyse_proxy_food_name:en:Rice, parboiled, raw
+agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
 
 <en:Rices
 en:Brown rices, Raw brown rice
@@ -28718,6 +28722,13 @@ ciqual_food_name:en:Rice, brown, raw
 ciqual_food_name:fr:Riz complet, cru
 
 <en:Brown rices
+en:Cooked brown rices
+fr:Riz complet cuit
+agribalyse_proxy_food_code:en:9103
+agribalyse_proxy_food_name:en:Rice, brown, cooked, unsalted
+agribalyse_proxy_food_name:fr:Riz complet, cuit, non salé
+
+<en:Cooked brown rices
 en:Unsalted cooked brown rices
 fr:Riz complet cuit non salé
 agribalyse_food_code:en:9103
@@ -28757,6 +28768,10 @@ ciqual_food_name:fr:Riz blanc, cru
 
 <en:White rices
 <en:Parboiled rices
+en:Parboiled white rices
+fr:Riz blanc étuvé
+
+<en:Parboiled white rices
 en:Raw parboiled rice
 fr:Riz blanc étuvé cru
 agribalyse_food_code:en:9101
@@ -28764,7 +28779,7 @@ ciqual_food_code:en:9101
 ciqual_food_name:en:Rice, parboiled, raw
 ciqual_food_name:fr:Riz blanc étuvé, cru
 
-<en:Parboiled rices
+<en:Parboiled white rices
 en:Unsalted cooked parboiled rice
 fr:Riz blanc étuvé cuit non salé
 agribalyse_food_code:en:9105
@@ -62498,6 +62513,21 @@ nl:Glutenvrije pastas
 pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
+fr:Spaghetti sans gluten
+
+<en:Gluten-free pasta
+fr:Penne sans gluten
+
+<en:Gluten-free pasta
+fr:Penne Rigate sans gluten
+
+<en:Gluten-free pasta
+fr:Tagliatelles sans gluten
+
+<en:Gluten-free pasta
+fr:Coquillettes sans gluten
+
+<en:Gluten-free pasta
 en:Dried gluten-free pasta
 fr:Pâtes sèches sans gluten
 agribalyse_proxy_food_code:en:9824
@@ -62869,8 +62899,11 @@ origins:en: en:France
 <en:Egg pastas
 en:Fresh egg pasta
 fr:Pâtes fraîches aux œufs
+agribalyse_proxy_food_code:en:9816
+agribalyse_proxy_food_name:en:Fresh egg pasta, cooked, unsalted
+agribalyse_proxy_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
 
-<en:Fresh pasta
+<en:Fresh egg pasta
 en:Fresh cooked unsalted egg pasta
 fr:Pâtes fraîches aux œufs cuites non salées
 agribalyse_food_code:en:9816
@@ -72990,7 +73023,15 @@ ciqual_food_code:en:53201
 ciqual_food_name:en:Taro, tuber, cooked
 ciqual_food_name:fr:Taro, tubercule, cuit
 
+<en:Vegetables
+en:Cassava roots, Manioc roots
+fr:Racines de manioc
+agribalyse_proxy_food_code:en:54034
+agribalyse_proxy_food_name:en:Cassava or manioc, roots, cooked
+agribalyse_proxy_food_name:fr:Manioc, racine cuite
+
 <en:Cooked vegetables
+<en:Cassava roots
 en:Cooked cassava, Cooked manioc roots
 fr:Manioc, Racine cuite
 agribalyse_food_code:en:54034
@@ -72998,7 +73039,7 @@ ciqual_food_code:en:54034
 ciqual_food_name:en:Cassava or manioc, roots, cooked
 ciqual_food_name:fr:Manioc, racine cuite
 
-<en:Vegetables
+<en:Cassava roots
 en:Raw cassava roots, Raw manioc roots
 fr:Racines de manioc crues
 agribalyse_food_code:en:54031
