@@ -2,11 +2,11 @@
 # FAO reference: http://www.fao.org/gsfaonline/reference/techfuncs.html?lang=en
 
 # agent de blanchiment de la farine
-stopwords:en:a,an,for,added,to
+stopwords:en:a,an,for,added,to,as
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:es:de,del,la,las,los,una
 
-en: Acid, Acidifier, Acidulant
+en: Acid, Acidifier, Acidulant, tartness, provides tartness
 bg: Киселина
 ca:Àcid, Acidulant
 cs: Kyselina
@@ -106,7 +106,7 @@ description:sl:Sredstva za uravnavanje kislosti so snovi, ki spremenijo ali nadz
 description:sv:Surhetsreglerande medel: ämnen som förändrar eller styr ett livsmedels surhet eller alkalinitet.
 
 # nova:en:anti-caking-agent
-en: Anti-caking agent, anticaking agent, anti-stick agent, drying agent, dusting agent
+en: Anti-caking agent, anticaking agent, anti-stick agent, anti-sticking, drying agent, dusting agent, prevent caking, prevents caking, anti-clumping
 bg: Антислепващ агент
 ca: Antiaglomerant
 cs: Protispékavá látka
@@ -152,7 +152,7 @@ description:sl:Sredstva proti sprijemanju so snovi, ki zmanjšujejo težnjo posa
 description:sv:Klumpförebyggande medel: ämnen som minskar tendensen hos enskilda partiklar i ett livsmedel att klumpa ihop sig.
 
 
-en: Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent
+en: Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent, anti-foaming
 bg: Антипенител
 ca: Antiespumant
 cs: Odpěňovač
@@ -197,7 +197,7 @@ description:sk:Protipeniace činidlá sú látky, ktoré zabraňujú vzniku peny
 description:sl:Sredstva proti penjenju so snovi, ki preprečujejo ali zmanjšujejo nastanek pene.
 description:sv:Skumdämpningsmedel: ämnen som förhindrar eller minskar skumbildning.
 
-en: Antioxidant, antibrowning agent, antioxidany synergist
+en: Antioxidant, antibrowning agent, antioxidant synergist
 bg: Антиоксидант
 ca: Antioxidant, antioxidants, agent antienfosquiment
 cs:Antioxidant
@@ -218,6 +218,7 @@ nb: Antioxidant, Antioksidant
 nl: antioxidant, antioxidanten
 pl: Przeciwutleniacz, przeciwutleniacze
 pt: Antioxidante
+ro: antioxidant
 ru:антиоксидант, антиокислитель
 sl: Antioksidant
 sv: Antioxidationsmedel, Antioxidantmedel
@@ -306,7 +307,7 @@ en:anti-bulking agent
 
 # nova:en:carbonating-agent
 comment:en:The word carbonating should be in here, otherwise it is a gasificant. And carbon dioxide is a specific carbonating agent,
-en: Carbonating agent
+en: Carbonating agent, carbonation
 fi: Karbonointiaine, Karbonointiainetta, Karbonointiaineet, Karbonointiaineita
 fr: Agent de carbonation
 description:en:A food additive used to provide carbonation in a food.
@@ -404,7 +405,7 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
-en:colour retention agent, colour adjunct, colour fixative, colour stabilizer
+en:colour retention agent, colour adjunct, colour fixative, colour stabilizer, maintain color, color retention
 de:Farbstabilisator
 es:Agente de retención de color, complementos del color, estabilizador del color, estabilizadores del color, fijadores del color, fijador del color
 fr:agent de rétention de la couleur, fixateur de la couleur, fixateur de couleur, adjuvant de la couleur, stabilisant de la couleur, agent de rétention de couleur, fixateur de couleur, adjuvant de couleur, stabilisant de couleur
@@ -415,7 +416,7 @@ description:fr:Additif alimentaire qui stabilise, retient ou intensifie la coule
 
 # nova:en:emulsifier
 en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent, emulsifier blend
-bg: Емулгатор
+bg: Емулгатор, емулгатори
 ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
 cs: Emulgátor
 de: Emulgator, Emulgatoren
@@ -426,6 +427,7 @@ et: Emulgaator
 fi: Emulgointiaine, Emulgointiainetta, Emulgointiaineet, Emulgointiaineita
 fr: Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristallisation, nébulisant, plastifiant
 ga: Eiblitheoir
+hr: Emulgator, emulgatori
 hu: Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 is: Yruefni
 it: Emulsionante, emulsionanti, agente emulsionante, agenti emulsionanti
@@ -437,7 +439,7 @@ nb: Emulgeringsmiddel, Emulgator
 nl: Emulgator, Emulgatoren
 pl: Emulgator, Emulgatory
 pt: Emulsionante, emulsionantes, emulsificante
-ro: Emulsifiant, Emulgator
+ro: Emulsifiant, Emulgator, emulsifianți
 ru: Эмульгатор
 sk: Emulgátor
 sl: Emulgator
@@ -796,7 +798,7 @@ description:sl:Sredstva za glaziranje so snovi (vključno z mazivi), ki dajejo �
 description:sv:Ytbehandlingsmedel (inklusive smörjmedel): ämnen som ger ett blankt utseende eller ett skyddande skikt när de appliceras på ytan av ett livsmedel.
 
 
-en: Humectant, moisture retention agent, water retention agent, wetting agent
+en: Humectant, moisture retention agent, water retention agent, wetting agent, moisture retention
 bg: Влагозадържащ агент
 ca: Humectant
 cs: Zvlhčující látka
@@ -875,7 +877,7 @@ description:en:A food additive gas, which is introduced into a container before,
 description:es:Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr:Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l’intention de protéger l’aliment par exemple de l’oxydation ou de l’altération.
 
-en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
+en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, natural mold inhibitor, maintain freshness, protect flavor
 bg: Консервант, консерванти
 ca: Conservant, conservador
 cs: Konzervant
@@ -1095,6 +1097,7 @@ es: Estabilizador, estabilizadores, estabilizadores coloidales, estabilizadores 
 et: Stabilisaator
 fi: Stabilointiaine, Stabilointiainetta, Stabilointiaineet, Stabilointiaineita, sideaine, sidonta-aine, sidonta-aineet
 fr: Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse, agent stabilisant, stabilisateur, stabilisateurs
+hr: Stabilizator
 hu: Stabilizátor, kötőanyag
 ga: Cobhsaitheoir
 is:bindiefni
@@ -1141,7 +1144,7 @@ bg: Подсладител
 ca: Edulcorant, esdulcorants
 cs: Sladidlo
 da: Sødestof, Sødestoffer, Kunstigt sødemiddel, sødemiddel
-de: Süßungsmittel
+de: Süßungsmittel, süssungsmittel
 el: Γλυκαντικό
 es: Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
 et: Magusaine
@@ -1186,7 +1189,7 @@ description:sv:Sötningsmedel: ämnen som används för att ge livsmedel söt sm
 
 
 
-en: Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent
+en: Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent, provides body, provides thickness
 bg: Сгъстител, сгъстители
 ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs: Zahušťovadlo
@@ -1279,6 +1282,10 @@ sk:Minerálne látky
 sl:Minerali
 sv:Mineraler
 #wikidata:en:
+
+<en:Vitamins
+<en:Minerals
+en:vitamin and mineral blend
 
 en:Amino acids
 bg:Аминокиселини
