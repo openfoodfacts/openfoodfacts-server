@@ -62770,6 +62770,9 @@ ciqual_food_name:fr:Lasagnes ou cannelloni au poisson
 
 <en:Cannelloni
 en:Vegetarian canelloni
+agribalyse_proxy_food_code:en:25635
+agribalyse_proxy_food_name:en:Lasagna or cannelloni with goat cheese and spinach
+agribalyse_proxy_food_name:fr:Lasagnes ou cannelloni au fromage et aux épinards
 
 <en:Vegetarian canelloni
 en:Cannelloni with goat cheese and spinach
@@ -65200,13 +65203,13 @@ ciqual_food_name:en:European plaice, raw
 ciqual_food_name:fr:Plie commune, crue
 
 <en:Fishes
-fr:Carpe rôtie, carpe cuite au four
-agribalyse_food_code:en:27004
-ciqual_food_code:en:27004
-ciqual_food_name:en:Carp roasted, carp baked
-ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
+en:Lemon sole
+fr:Limande-sole
+agribalyse_proxy_food_code:en:26016
+agribalyse_proxy_food_name:en:Lemon sole, breaded, fried
+agribalyse_proxy_food_name:fr:Limande-sole, panée, frite
 
-<en:Fishes
+<en:Lemon sole
 en:Breaded fried lemon sole
 fr:Limande-sole panée frite
 agribalyse_food_code:en:26016
@@ -65214,7 +65217,7 @@ ciqual_food_code:en:26016
 ciqual_food_name:en:Lemon sole, breaded, fried
 ciqual_food_name:fr:Limande-sole, panée, frite
 
-<en:Fishes
+<en:Lemon sole
 en:Steamed lemon sole
 fr:Limande-sole cuite à la vapeur
 agribalyse_food_code:en:26017
@@ -65222,7 +65225,7 @@ ciqual_food_code:en:26017
 ciqual_food_name:en:Lemon sole, steamed
 ciqual_food_name:fr:Limande-sole, cuite à la vapeur
 
-<en:Fishes
+<en:Lemon sole
 en:Raw lemon sole
 fr:Limande-sole crue
 agribalyse_food_code:en:26135
@@ -67059,6 +67062,13 @@ fr:Carpe crue d'élevage
 agribalyse_food_code:en:27003
 ciqual_food_code:en:27003
 ciqual_food_name:en:Carp, raw, farmed
+
+<en:Carp
+fr:Carpe rôtie, carpe cuite au four
+agribalyse_food_code:en:27004
+ciqual_food_code:en:27004
+ciqual_food_name:en:Carp roasted, carp baked
+ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
 
 <en:Fishes
 en:European perch
