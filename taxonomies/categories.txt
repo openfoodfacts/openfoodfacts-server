@@ -43556,7 +43556,12 @@ it:Pesci surgelati
 nl:Diepvriesvis
 pl:Ryby mrożone
 
+<en:Fish
+en:Saithe
+fr:Lieu noir
+
 <en:Frozen fishes
+<en:Saithe
 en:Frozen raw saithe
 fr:Lieu noir cru surgelé
 agribalyse_food_code:en:26047
@@ -43564,14 +43569,14 @@ ciqual_food_code:en:26047
 ciqual_food_name:en:Saithe, frozen, raw
 ciqual_food_name:fr:Lieu noir, surgelé, cru
 
-<en:Fish
+<en:Saithe
 en:Saithe cooked
 fr:Lieu noir cuit
 agribalyse_food_code:en:26015
 ciqual_food_code:en:26015
 ciqual_food_name:en:Saithe, cooked
 
-<en:Fish
+<en:Saithe
 en:Saithe raw
 fr:Lieu noir cru
 agribalyse_food_code:en:26134
@@ -43665,9 +43670,11 @@ wikidata:en:Q1364
 
 <en:Fruits
 en:Belgian fruits
+fr:Fruits belges
 
 <en:Fruits
 en:Belgian vegetables
+fr:Légumes belges
 
 <en:Belgian vegetables
 fr:Plate de Florenville
@@ -43695,9 +43702,11 @@ origins:en: en:Belgium
 
 <en:Fruits
 en:Dutch fruits
+fr:Fruits néerlandais
 
 <en:Fruits
 en:Dutch vegetables
+fr:Légumes néerlandais
 
 <en:Dutch vegetables
 nl:Brabantse Wal Asperges
@@ -43720,12 +43729,15 @@ it:Frutta francese
 
 <en:Fruits
 en:British fruit
+fr:Fruits britannique
 
 <en:Fruits
 en:Austrian fruit
+fr:Fruits autrichiens
 
 <en:Vegetables
 en:Austrian vegetables
+fr:Légumes autrichiens
 
 <en:Austrian vegetables
 de:Steirische Käferbohne
@@ -43793,12 +43805,15 @@ origins:en: en:Germany
 
 <en:Fruits
 en:Spanish fruits
+fr:Fruits espagnols
 
 <en:Vegetables
 en:Spanish vegetables
+fr:Légumes espagnols
 
 <en:Cereals
 en:Spanish cereals
+fr:Céréales espagnoles
 
 <en:Legumes
 en:Spanish legumes
@@ -44556,14 +44571,6 @@ es:Frambuesas frescas
 fr:Framboises fraîches
 nl:Verse frambozen
 season_in_country_fr:en: 6,7,8
-
-<en:Raspberries
-en:Frozen raw raspberries
-fr:Framboises surgelées crues
-agribalyse_food_code:en:13136
-ciqual_food_code:en:13136
-ciqual_food_name:en:Raspberry, frozen, raw
-ciqual_food_name:fr:Framboise, surgelée, crue
 
 <en:Berries
 en:Redcurrants, Raw red currants
@@ -45331,16 +45338,19 @@ fi:Luumut
 fr:Prunes
 nl:Pruimen
 ru:Сливы
-
-<en:Fresh plums
-fr:Mirabelles fraîches
-season_in_country_fr:en: 8,9
+agribalyse_proxy_food_code:en:13100
+agribalyse_proxy_food_name:en:Plum, raw
+agribalyse_proxy_food_name:fr:Prune, crue
 
 <en:Plums
 <en:Fresh fruits
 en:Fresh plums
 fr:Prunes fraîches
 season_in_country_fr:en: 7,8,9
+
+<en:Fresh plums
+fr:Mirabelles fraîches
+season_in_country_fr:en: 8,9
 
 <en:Plums
 en:Raw plums
@@ -45620,6 +45630,15 @@ ciqual_food_code:en:13025
 ciqual_food_name:en:Mango, pulp, raw
 ciqual_food_name:fr:Mangue, pulpe, crue
 
+<en:Raw mango pulp
+fr:Mangue importée par avion, pulpe, crue
+agribalyse_food_code:en:13025_1
+
+
+<en:Raw mango pulp
+fr:Mangue importée par bateau, pulpe, crue
+agribalyse_food_code:en:13025_2
+
 <en:Tropical fruits
 en:Papayas
 de:Papayas
@@ -45742,6 +45761,10 @@ fi:Pakastevadelmat
 fr:Framboises surgelées
 it:Lamponi congelati
 nl:Bevroren frambozen
+agribalyse_food_code:en:13136
+ciqual_food_code:en:13136
+ciqual_food_name:en:Raspberry, frozen, raw
+ciqual_food_name:fr:Framboise, surgelée, crue
 
 <en:Frozen berries
 <en:Redcurrants
@@ -51746,10 +51769,7 @@ agribalyse_food_code:en:25152
 ciqual_food_code:en:25152
 ciqual_food_name:en:Couscous w meat
 ciqual_food_name:fr:Couscous à la viande
-agribalyse_food_code:en:25029
-ciqual_food_code:en:25029
-ciqual_food_name:en:Couscous w mutton
-#TODO fixme 2 agribalyse
+
 
 <en:Prepared couscous
 en:Chicken couscous
@@ -57404,14 +57424,6 @@ agribalyse_food_code:en:36201
 ciqual_food_code:en:36201
 ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
-
-<en:Raw duck meat
-en:Raw duck liver
-fr:Foie de canard cru
-agribalyse_food_code:en:40121
-ciqual_food_code:en:40121
-ciqual_food_name:en:Liver, duck, raw
-ciqual_food_name:fr:Foie, canard, cru
 
 <en:Ducks
 en:Peking duck
@@ -78170,6 +78182,14 @@ nl:Eendenfoie gras
 ciqual_food_code:en:8331
 ciqual_food_name:en:Foie gras, block (average)
 ciqual_food_name:fr:Foie gras, canard, bloc (aliment moyen)
+
+<en:Raw duck meat
+en:Raw duck liver
+fr:Foie de canard cru
+agribalyse_food_code:en:40121
+ciqual_food_code:en:40121
+ciqual_food_name:en:Liver, duck, raw
+ciqual_food_name:fr:Foie, canard, cru
 
 <en:Foies gras from ducks
 <en:Whole foies gras
