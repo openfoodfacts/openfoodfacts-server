@@ -8,6 +8,7 @@ RUN set -x \
     cpanminus \
     g++ \
     gcc \
+    less \
     libapache2-mod-perl2 \
     # libexpat1-dev \
     make \
