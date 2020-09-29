@@ -38117,8 +38117,15 @@ ciqual_food_code:en:15013
 ciqual_food_name:en:Chestnut cream
 ciqual_food_name:fr:Crème de marrons
 
+<en:Chestnut spreads
+en:Vanilla flavoured chestnut cream
+fr:Crème de marrons vanillée, Crème de marrons à la vanille
+agribalyse_proxy_food_code:en:15016
+agribalyse_proxy_food_name:en:Chestnut cream, vanilla flavoured, canned
+agribalyse_proxy_food_name:fr:Crème de marrons vanillée, appertisée
+
 <en:Canned plant-based foods
-<en:Plant-based spreads
+<en:Vanilla flavoured chestnut cream
 en:Canned vanilla flavoured chestnut cream
 fr:Crème de marrons vanillée appertisée, Crème de marrons à la vanille en conserve
 agribalyse_food_code:en:15016
@@ -38142,6 +38149,8 @@ de:Nüsse in Dosen
 es:Frutos de cáscara en conserva, Conservas de frutos de cáscara
 fr:Fruits à coques en conserve
 nl:Noten in blik
+
+#<en:Chestnuts
 
 <en:Canned nuts
 en:Chestnuts in syrup, Candied chestnuts in syrup
@@ -48341,6 +48350,9 @@ fr:Extrait de vanille
 nl:Vanille-extracten
 pt:Extracto de vainilla
 wikidata:en:Q10749869
+agribalyse_proxy_food_code:en:11065
+agribalyse_proxy_food_name:en:Vanilla, alcoholic extract
+agribalyse_proxy_food_name:fr:Vanille, extrait alcoolique
 
 <en:Vanilla
 en:Vanilla alcoholic extract
@@ -51440,7 +51452,7 @@ ciqual_food_code:en:25503
 ciqual_food_name:en:Vol-au-vent with fish and seafood
 
 <en:Vol-au-vent
-en:Vol-au-vent with meat/poultry/quenelle
+en:Vol-au-vent with meat, Vol-au-vent with poultry, Vol-au-vent with quenelle
 fr:Bouchées à la reine à la viande, Bouchée à la reine à la viande
 agribalyse_food_code:en:25412
 ciqual_food_code:en:25412
@@ -51721,7 +51733,7 @@ ciqual_food_name:en:Couscous royal (with different meats)
 ciqual_food_name:fr:Couscous royal (avec plusieurs viandes)
 
 <en:Prepared couscous
-en:Couscous w mutton
+en:Couscous with mutton
 fr:Couscous au mouton
 agribalyse_food_code:en:25029
 ciqual_food_code:en:25029
@@ -51737,6 +51749,7 @@ ciqual_food_name:fr:Couscous à la viande
 agribalyse_food_code:en:25029
 ciqual_food_code:en:25029
 ciqual_food_name:en:Couscous w mutton
+#TODO fixme 2 agribalyse
 
 <en:Prepared couscous
 en:Chicken couscous
@@ -56357,6 +56370,10 @@ nl:Bevroren gehakte vleesproducten
 fr:Cordons bleus
 nl:Cordon bleus
 wikidata:en:Q429518
+agribalyse_food_code:en:25089
+ciqual_food_code:en:25089
+ciqual_food_name:en:Veal escalope cordon bleu (topped with a ham slice and Gruyere sauce)
+# TODO : in the file I have, the same number is named Cordon bleu de volaille
 
 <fr:Cordons bleus
 <en:Turkey preparations
@@ -57978,6 +57995,9 @@ fi:kanan reidet
 fr:Cuisses de poulet
 it:Cosce di pollo, coscia di pollo
 nl:Kippendijen, Kipdij
+agribalyse_proxy_food_code:en:36032
+agribalyse_proxy_food_name:en:Chicken, breast, meat and skin, roasted/baked
+agribalyse_proxy_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
 
 <en:Chickens
 en:Chicken ham
@@ -59810,7 +59830,7 @@ ciqual_food_name:en:Country-style pâté with mushrooms
 ciqual_food_name:fr:Pâté ou terrine aux champignons (forestier)
 
 <fr:Pâté
-en:Pâté w green pepper
+en:Pâté with green pepper
 fr:Pâté au poivre vert
 agribalyse_food_code:en:8201
 ciqual_food_code:en:8201
@@ -65553,7 +65573,7 @@ ciqual_food_name:en:European pilchard or sardine, fillets without fishbone, in o
 
 <en:Sardines in olive oil
 <en:Sardine fillets
-en:European pilchard or sardine in olive oil canned drained
+en:European pilchard in olive oil canned drained, sardine in olive oil canned drained
 fr:Sardine à l'huile d'olive appertisée égouttée
 agribalyse_food_code:en:26040
 ciqual_food_code:en:26040
@@ -65561,7 +65581,7 @@ ciqual_food_name:en:European pilchard or sardine, in olive oil, canned, drained
 
 <en:Sardines in oil
 <en:Sardine fillets
-en:European pilchard or sardine in oil canned drained
+en:European pilchard in oil canned drained, sardine in oil canned drained
 fr:Sardine à l'huile appertisée égouttée
 agribalyse_food_code:en:26034
 ciqual_food_code:en:26034
@@ -65970,6 +65990,10 @@ ciqual_food_name:en:Whiting, breaded
 ciqual_food_name:fr:Merlan, pané
 
 <en:Fishes
+en:Whiting
+fr:Merlan
+
+<en:Whiting
 en:Fried whiting
 fr:Merlans frits, Merlan frit
 agribalyse_food_code:en:26021
@@ -65977,7 +66001,7 @@ ciqual_food_code:en:26021
 ciqual_food_name:en:Whiting, fried
 ciqual_food_name:fr:Merlan, frit
 
-<en:Fishes
+<en:Whiting
 en:Steamed whiting
 fr:Merlan cuit à la vapeur
 agribalyse_food_code:en:26022
@@ -65985,7 +66009,7 @@ ciqual_food_code:en:26022
 ciqual_food_name:en:Whiting, steamed
 ciqual_food_name:fr:Merlan, cuit à la vapeur
 
-<en:Fishes
+<en:Whiting
 en:Raw whiting
 fr:Merlan cru
 agribalyse_food_code:en:26095
@@ -66787,12 +66811,16 @@ cooking_method:en en:grilled
 
 <en:Common sole
 en:Roasted Common sole, Baked Common sole
-fr:sole rôtie ou cuite au four
+fr:Sole rôtie, Sole cuite au four
 agribalyse_food_code:en:26060
 ciqual_food_code:en:26060
 ciqual_food_name:en:Common sole, roasted/baked
 
 <en:Fishes
+en:Tonguesole
+fr:sole tropicale, sole langue
+
+<en:Tonguesole
 en:Tonguesole raw
 fr:sole tropicale crue, sole langue crue
 agribalyse_food_code:en:26200
@@ -66818,7 +66846,6 @@ zh:烟熏三文鱼
 agribalyse_food_code:en:26037
 ciqual_food_code:en:26037
 ciqual_food_name:en:Salmon, smoked
-
 
 <en:Smoked salmons
 en:Smoked salmons from farming
@@ -66856,8 +66883,8 @@ nl:Gerookte brasem
 
 <en:Smoked fishes
 <en:Breams
-en:Black seabream roasted/baked
-fr:Dorade grise rôtie ou cuite au four, daurade grise rôtie ou cuite au four
+en:Roasted Black seabream, baked black seabream
+fr:Dorade grise rôtie, Dorade grise cuite au four
 agribalyse_food_code:en:26222
 ciqual_food_code:en:26222
 ciqual_food_name:en:Black seabream, roasted/baked
@@ -68176,8 +68203,8 @@ ciqual_food_code:en:10037
 ciqual_food_name:en:Squid, boiled/cooked in water
 
 <en:Mollusc
-en:Squid fried or pan-fried with fat
-fr:calamar frit ou poêlé
+en:Fried Squid, Pan-fried Squid
+fr:calamar frit, calamar poêlé
 agribalyse_food_code:en:10084
 ciqual_food_code:en:10084
 ciqual_food_name:en:Squid, fried or pan-fried with fat
@@ -76913,6 +76940,9 @@ fr:Épinards surgelés
 it:Spinaci surgelati
 nl:Diepvriesspinazies
 pl:Szpinak mrożony
+agribalyse_proxy_food_code:en:20121
+agribalyse_proxy_food_name:en:Spinach, frozen, cooked
+agribalyse_proxy_food_name:fr:Épinard, surgelé, cuit
 
 <en:Frozen spinachs
 en:Frozen chopped spinachs
