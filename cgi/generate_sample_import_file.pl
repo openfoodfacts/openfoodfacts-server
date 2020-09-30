@@ -78,6 +78,8 @@ foreach my $group_ref (@$select2_options_ref) {
 	# Skip nutrition_other, only add default nutrients
 	next if ($group_id eq "nutrition_other");
 	
+	my $seen_salt_or_sodium = 0;
+	
 	foreach my $field_ref (@{$group_ref->{children}}) {
 		
 		my $field_id = $field_ref->{id};
@@ -92,8 +94,11 @@ foreach my $group_ref (@$select2_options_ref) {
 		# Skip fields intended only for the select2 dropdown
 		next if ($field_id =~ /_specific$/);
 		
+		# Skip carbon footprint
+		next if ($field_id =~ /carbon-footprint/);
+		
 		# For now, keep only the per 100g as sold fields
-		next if ($field_id =~ /_serving_|_prepared_/);
+		next if ($field_id =~ /_serving|_prepared/);
 		
 		# Comment / note / examples
 		my $comment = "";
@@ -157,6 +162,16 @@ foreach my $group_ref (@$select2_options_ref) {
 				$importance = $options{import_export_fields_importance}{$field_id};
 			}
 			
+			# Make sodium optional if we have seen salt already (or the reverse)
+			if (($field_id eq "salt_100g_value_unit") or ($field_id eq "sodium_100g_value_unit")) {
+				if ($seen_salt_or_sodium) {
+					$importance = "optional";
+				}
+				else {
+					$seen_salt_or_sodium = 1;
+				}
+			}
+
 			$comment .= lang($importance . "_field") . " - " . lang($importance . "_field_note") . "\n\n";
 		}
 		

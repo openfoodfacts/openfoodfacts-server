@@ -744,6 +744,9 @@ $options{import_export_fields_importance} = {
 	recycling_instructions_to_discard => "recommended",
 	
 	image_other_url => "optional",
+	
+	alcohol_100g_value_unit => "optional",
+
 };
 
 
