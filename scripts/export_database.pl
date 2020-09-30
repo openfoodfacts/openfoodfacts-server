@@ -56,7 +56,8 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
-use DateTime qw/:all/;
+#use DateTime qw/:all/;
+use POSIX qw(strftime);
 
 init_emb_codes();
 
@@ -261,7 +262,9 @@ XML
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
 
-			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			if ($field_value ne '') {
+				$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			}
 
 			# Add field value to CSV file
 			$csv .= $field_value . "\t";
@@ -278,8 +281,11 @@ XML
 			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
-					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
-					$csv .= $dt->datetime() . 'Z' . "\t";
+					# surprisingly slow, approx 10% of script time is here.
+					#my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
+					#$csv .= $dt->datetime() . 'Z' . "\t";
+					my $dt = strftime("%FT%TZ", gmtime($product_ref->{$field}));
+					$csv .= $dt . "\t";
 				}
 				else {
 					$csv .= "\t";
@@ -314,7 +320,9 @@ XML
 					}
 				}
 				# sanitize_field_content($field_value, $log_file, $log_msg);
-				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				if ($geo ne '') {
+					$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				}
 
 				$csv .= $geo . "\t";
 			}
@@ -349,7 +357,8 @@ XML
 
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
-			$nid =~/^#/ and next;
+			#$nid =~/^#/ and next;
+			next if (substr($nid, 0, 1) eq '#');
 
 			$nid =~ s/!//g;
 			$nid =~ s/^-//g;
@@ -370,7 +379,10 @@ XML
 			}
 		}
 
-		$csv =~ s/\t$/\n/;
+		#$csv =~ s/\t$/\n/;
+		if (substr($csv, -1, 1) eq "\t") {
+			substr $csv, -1, 1, "\n";
+		}
 
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
