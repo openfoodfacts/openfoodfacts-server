@@ -432,8 +432,8 @@ XML
 
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
-	my $csv_size_new = -s "$csv_filename.temp";
-	if ($csv_size_new >= $csv_size_old) {
+	my $csv_size_new = (-s "$csv_filename.temp") // 0;
+	if ($csv_size_new >= $csv_size_old * 0.99) {
 		unlink $csv_filename;
 		rename "$csv_filename.temp", $csv_filename;
 	} else {
@@ -489,8 +489,8 @@ XML
 
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $rdf_size_old = (-s $rdf_filename) // 0;
-	my $rdf_size_new = -s "$rdf_filename.temp";
-	if ($rdf_size_new >= $rdf_size_old) {
+	my $rdf_size_new = (-s "$rdf_filename.temp") // 0;
+	if ($rdf_size_new >= $rdf_size_old * 0.99) {
 		unlink $rdf_filename;
 		rename "$rdf_filename.temp", $rdf_filename;
 	} else {
