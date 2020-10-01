@@ -118,6 +118,10 @@ use ProductOpener::Config2;
 		lowercase => 1,
 	},
 	# Same for Spanish, Italian and Portuguese
+	ca => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
