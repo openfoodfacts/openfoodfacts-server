@@ -93,8 +93,6 @@ sub load_agribalyse_data() {
 
 	if (open (my $io, "<:encoding($encoding)", $agribalyse_details_by_step_csv_file)) {
 
-		# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
-		# the header function crashes with some csv files... use getline instead
 		my $row_ref;
 
 		# Skip 3 first lines
