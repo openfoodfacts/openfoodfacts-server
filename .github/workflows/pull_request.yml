@@ -46,6 +46,7 @@ jobs:
         sudo apt-get install -y --no-install-recommends cpanminus tesseract-ocr
         # apt packages from cpanfile
         sudo apt-get install -y --no-install-recommends graphviz \
+        libtie-ixhash-perl \
         libwww-perl \
         libimage-magick-perl \
         libxml-encoding-perl \
@@ -67,6 +68,67 @@ jobs:
         libtime-local-perl \
         libpq-dev \
         libdbd-pg-perl \
+        libtemplate-perl \
+        liburi-escape-xs-perl \
+        libfile-copy-recursive-perl \
+        libemail-stuffer-perl \
+        liblist-moreutils-perl \
+        libexcel-writer-xlsx-perl \
+        libpod-simple-perl \
+        liblog-any-perl \
+        liblog-log4perl-perl \
+        liblog-any-adapter-log4perl-perl \
+        libemail-valid-perl \
+        libmath-fibonacci-perl \
+        libprobe-perl-perl \
+        libmath-round-perl \
+        libsoftware-license-perl \
+        libtest-differences-perl \
+        libtest-exception-perl \
+        libclass-accessor-lite-perl \
+        libclass-singleton-perl \
+        libfile-sharedir-install-perl \
+        libnet-idn-encode-perl \
+        libtest-nowarnings-perl \
+        libfile-chmod-perl \
+        libdata-dumper-concise-perl \
+        libdata-printer-perl \
+        libdata-validate-ip-perl \
+        libio-compress-perl \
+        libjson-maybexs-perl \
+        liblist-allutils-perl \
+        liblist-someutils-perl \
+        libdata-section-simple-perl \
+        libfile-which-perl \
+        libipc-run3-perl \
+        liblog-handler-perl \
+        libtest-deep-perl \
+        libwant-perl \
+        libfile-find-rule-perl \
+        liblinux-usermod-perl \
+        liblocale-maketext-lexicon-perl \
+        liblog-any-adapter-tap-perl \
+        libcrypt-random-source-perl \
+        libmath-random-isaac-perl \
+        libtest-sharedfork-perl \
+        libtest-warn-perl \
+        libsql-abstract-perl \
+        libauthen-sasl-saslprep-perl \
+        libauthen-scram-perl \
+        libbson-perl \
+        libclass-xsaccessor-perl \
+        libconfig-autoconf-perl \
+        libdigest-hmac-perl \
+        libpath-tiny-perl \
+        libsafe-isa-perl \
+        libspreadsheet-parseexcel-perl \
+        libtest-number-delta-perl
+        # 
+        # Not available in Ubuntu 18.04 LTS
+        # libmath-random-secure-perl
+        # libgeoip2-perl
+        # libmodule-build-pluggable-perl
+        #
         # setup local::lib
         cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
         # install perl dependencies
