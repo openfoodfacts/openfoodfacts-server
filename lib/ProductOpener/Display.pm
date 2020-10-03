@@ -141,6 +141,7 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::Orgs qw(:all);
 
@@ -4348,6 +4349,11 @@ sub customize_response_for_product($) {
 			}
 		}
 		
+		# Eco-Score
+		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
+			compute_ecoscore($product_ref);
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
