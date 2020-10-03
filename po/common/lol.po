@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-30 20:38\n"
+"PO-Revision-Date: 2020-10-03 09:19\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4584,4 +4584,41 @@ msgstr "crwdns152818:0crwdne152818:0"
 msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "crwdns152820:0crwdne152820:0"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "crwdns152830:0crwdne152830:0"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr "crwdns152832:0crwdne152832:0"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr "crwdns152834:0crwdne152834:0"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr "crwdns152836:0%scrwdne152836:0"
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr "crwdns152838:0crwdne152838:0"
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr "crwdns152840:0crwdne152840:0"
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr "crwdns152842:0crwdne152842:0"
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr "crwdns152844:0crwdne152844:0"
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "crwdns152846:0crwdne152846:0"
 
