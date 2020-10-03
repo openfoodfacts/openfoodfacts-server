@@ -104,7 +104,7 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
+	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -453,7 +453,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
-	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
 	}
@@ -1299,7 +1299,7 @@ sub _set_magickal_options($$) {
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1366,7 +1366,7 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 	my $size        = shift;    # currently = $small_size , 200px
 
 	my $html = '';

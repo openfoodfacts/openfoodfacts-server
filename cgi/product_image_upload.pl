@@ -209,10 +209,10 @@ if ($imagefield) {
 		$response_ref->{files}[0]{name} = $product_name;
 
 		# Some apps may be passing a full locale like imagefield=front_pt-BR
-		$imagefield =~ s/^(front|ingredients|nutrition|other)_(\w\w)-.*/$1_$2/;
+		$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
 
 		# For apps that do not specify the language associated with the image, try to assign one
-		if ($imagefield =~ /^(front|ingredients|nutrition|other)$/) {
+		if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
 			# If the product exists, use the main language of the product
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};
@@ -282,7 +282,7 @@ if ($imagefield) {
 			$response_ref->{image} = $image_data_ref;
 
 			# Select the image
-			if ((($imagefield =~ /^front_/) or ($imagefield =~ /^ingredients_/) or ($imagefield =~ /^nutrition_/))
+			if (($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
 				# Changed 2020-03-05: overwrite already selected images
 				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
 				# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form

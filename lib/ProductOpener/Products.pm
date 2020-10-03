@@ -1290,15 +1290,30 @@ sub compute_completeness_and_missing_tags($$$) {
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 3.0);
-		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
-		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
-		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
-
-		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
+		my $image_step = $half_step * (1.0 / 4.0);
+		
+		my $images_completeness = 0;
+		
+		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		
+			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
+				$images_completeness += $image_step;
+				push @states_tags, "en:" . $imagetype . "-photo-selected";
+			}
+			else {
+				if (($imagetype eq "nutrition")
+					and (defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+					$images_completeness += $image_step;
+				}
+				else {
+					push @states_tags, "en:" . $imagetype . "-photo-not-selected";
+				}
+			}
+		}
+		
+		$completeness += $images_completeness;
+		
+		if ($images_completeness == $half_step) {
 			push @states_tags, "en:photos-validated";
 
 		}

@@ -7865,6 +7865,27 @@ HTML
 	}
 
 
+	# Packaging
+	
+	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight);
+
+	# try to display packaging in the local language if available
+
+	my $packaging_text = $product_ref->{packaging_text};
+	my $packaging_text_lang = $product_ref->{lc};
+
+	if ((defined $product_ref->{"packaging_text" . "_" . $lc}) and ($product_ref->{"packaging_text" . "_" . $lc} ne '')) {
+		$packaging_text = $product_ref->{"packaging_text" . "_" . $lc};
+		$packaging_text_lang = $lc;
+	}
+
+	if (not defined $packaging_text) {
+		$packaging_text = "";
+	}
+	
+	$template_data_ref->{packaging_text} = $packaging_text;
+	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
+
 	# other fields
 
 	my $other_fields = "";

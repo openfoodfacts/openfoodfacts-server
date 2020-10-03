@@ -787,7 +787,6 @@ sub extract_ingredients_from_image($$$$) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
-
 	}
 
 	return;
