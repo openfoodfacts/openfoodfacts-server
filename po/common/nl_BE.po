@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-30 20:34\n"
+"PO-Revision-Date: 2020-10-03 09:05\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,83 +52,83 @@ msgstr "Registreren"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Welkom!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Bedankt om erbij te komen!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "U kunt nu producten toevoegen en bewerken op het internet of met onze gratis <a href=\"%s\">mobiele app</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Volg ons op Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s is een samenwerkingsproject waarnaar u veel meer dan nieuwe producten kunt brengen: uw energie, enthousiasme en ideeën!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "We gebruiken een discussiesysteem genaamd Slack waar alle projectdeelnemers kunnen uitwisselen en samenwerken. Doe mee! We willen je graag leren kennen!"
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Volg ons op Slack"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "U kunt nu eenvoudig uw productgegevens en foto's importeren."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "U kunt nu uw producten toevoegen en bewerken en hun gegevens en foto's importeren op ons gratis <a href=\"%s\">platform voor producenten</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Er is al een bestaande organisatie met de naam %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Uw verzoek om lid te worden van de organisatie is in afwachting van goedkeuring door de organisatiebeheerder."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Stuur een e-mail naar <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> als je vragen hebt."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Als u voor een producent of merk werkt en alleen gegevens voor uw eigen producten wilt toevoegen of aanvullen, kunt u toegang krijgen tot ons volledig gratis platform voor producenten."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Het platform voor producenten stelt fabrikanten in staat om eenvoudig gegevens en foto's van al hun producten te importeren, deze als officieel te markeren en gratis analyses te krijgen van verbetermogelijkheden voor hun producten."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Professioneel account"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Dit is een producent- of merkaccount."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "Producent of merk"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Professionele accounts moeten een bijbehorende organisatie hebben (bedrijfsnaam of merk)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Voer de naam van uw organisatie in (bedrijfsnaam of merk)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Dit account is een professioneel account dat aan de producent of het merk %s gekoppeld is. U heeft toegang tot het platform voor producenten."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -578,7 +578,7 @@ msgstr "Accountinstellingen"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Uw accountparameters zijn gewijzigd."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -3298,7 +3298,7 @@ msgstr "Importeer een productdatabestand"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Upload een spreadsheetbestand (Excel-bestand of een door komma's of tabs gescheiden UTF-8-gecodeerd CSV-bestand) met productgegevens."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3425,29 +3425,29 @@ msgstr "alleen de eenheid, met de waarde in een andere kolom"
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Selecteer deze optie als de kolom de aanwezigheid van een specifiek label aangeeft (bijv. Biologisch, Fair-Trade) als de waarde Y, Ja of 1 is."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Typ de naam van het label in het tekstveld aan de rechterkant."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Selecteer deze optie als de kolom de aanwezigheid van een specifieke categorie aangeeft (bijv. Dranken) als de waarde Y, Ja of 1 is."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Typ de naam van de categorie in het tekstveld aan de rechterkant."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Selecteer deze optie voor velden die specifiek zijn voor de bron en die we als bronspecifieke velden willen behouden."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Typ de naam van het doelveld in het tekstveld aan de rechterkant, of laat het leeg om de naam van het bronveld te gebruiken."
 
 msgctxt "value"
 msgid "Value"
@@ -3491,7 +3491,7 @@ msgstr "Waarde in μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Waarde in IE"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3561,11 +3561,11 @@ msgstr "Controleer of de gegevens op het platform voor producenten correct zijn 
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Exporteer foto's naar de openbare database"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Vervang de geselecteerde bestaande foto's"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4210,15 +4210,15 @@ msgstr "Sommige ingrediënten konden niet worden herkend."
 # keep the 2 %s : they will be replaced by language names.
 msgctxt "move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr ""
+msgstr "Verplaats alle gegevens en geselecteerde foto's in %s naar de hoofdtaal van het product: %s"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Vervang bestaande waarden en geselecteerde foto's"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Bewaar bestaande waarden en geselecteerde foto's"
 
 msgctxt "done_status"
 msgid "Done"
@@ -4226,11 +4226,11 @@ msgstr "Voltooid"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Nog te doen"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Teams"
 
 msgctxt "optional"
 msgid "optional"
@@ -4238,41 +4238,41 @@ msgstr "optioneel"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "teams"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "team"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Je kunt lid worden van 1 tot 3 teams. Producten die u toevoegt of bewerkt, worden aan u en uw teams toegekend. Teams kunnen op elk moment worden gewijzigd."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Teamnamen zijn openbaar. Maak geen teams met namen die persoonlijke gegevens bevatten (bv. familienamen), handelsmerken (tenzij u de eigenaar bent) of iets aanstootgevends."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Team %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d producten worden geëxporteerd."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL voedselnaam"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL voedselnaam"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL voedselnamen"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
@@ -4280,20 +4280,20 @@ msgstr ""
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Je kunt ons helpen om meer ingrediënten te herkennen en de ingrediëntenlijst voor dit product beter te analyseren door:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Bewerk deze productpagina om spelfouten in de ingrediëntenlijst te corrigeren en/of om ingrediënten in andere talen en zinnen die geen verband houden met de ingrediënten te verwijderen."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Voeg nieuwe items, synoniemen of vertalingen toe aan onze meertalige lijsten van ingrediënten, ingrediëntenverwerkingsmethoden en labels."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Volg het #ingrediëntenkanaal op <a href=\"https://slack.openfoodfacts.org\">onze Slack discussieruimte</a> en/of leer over <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediëntenanalyse op onze wiki</a>, als je wilt helpen. Dank u wel!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4301,20 +4301,20 @@ msgstr "https://world-nl.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Producenten"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Als dit product een ingrediëntenlijst heeft in %s, voeg deze dan toe."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Barcode ontbreekt"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Ongeldige barcode"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4615,4 +4615,41 @@ msgstr ""
 msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "* Verplicht"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Milieu"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr ""
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr ""
 
