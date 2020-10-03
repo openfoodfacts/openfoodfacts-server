@@ -6512,6 +6512,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
 
 <en:milk
+en:unpasteurised milk
+
+<en:milk
 en:sterilised milk
 ca:llet esterilitzada
 da:steriliseret mælk
@@ -6727,7 +6730,7 @@ sv:pastöriserad skummjölk
 
 <en:skimmed milk
 <en:sterilised milk
-en:UHT sterilised skimmed milk
+en:UHT sterilised skimmed milk, UHT skimmed milk, ultra heat treated skimmed milk
 ca:llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
 de:entrahmte H-Milch
 es:leche descremada esterilizada UHT, leche desnatada esterilizada UHT
@@ -7115,7 +7118,7 @@ hu:nyers kecsketej
 # description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
 
 <en:milk
-en:goat's milk
+en:goat's milk, goat milk, goats milk, goats' milk
 ca:llet de cabra
 da:Gedemælk
 de:Ziegenmilch
@@ -7132,7 +7135,7 @@ sv:getmjölk
 wikidata:en:Q1418287
 
 <en:goat's milk
-en:whole goat's milk
+en:whole goat's milk, whole goat milk
 ca:llet sencera de cabra, llet de cabra sencera
 de:Ziegenvollmilch, Ziegen-Vollmilch
 es:leche entera de cabra, leche de cabra entera
@@ -7150,7 +7153,7 @@ fr:lait de chevre demi-écrémé
 hu:zsírszegény kecsketej
 
 <en:goat's milk
-en:skimmed goat's milk
+en:skimmed goat's milk, skimmed goat milk
 ca:llet de cabra descremada, llet de cabra desnatada, llet desnatada de cabra, llet descremada de cabra
 de:entrahmte Ziegenmilch
 es:leche de cabra descremada, leche de cabra desnatada, leche desnatada de cabra, leche descremada de cabra
@@ -7736,7 +7739,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomaltulose
 # nova:en:lactose
 # <en:Disaccharide
 # <en:dairy
-en:lactose, milk sugar
+en:lactose, milk sugar, milk lactose
 ar:لاكتوز
 be:Лактоза
 bg:Лактоза
@@ -9685,7 +9688,7 @@ en:mild cheddar, mild cheddar cheese
 fr:fromage cheddar jeune
 
 <en:cheddar
-en:medium mature cheddar, medium mature cheddar cheese
+en:medium mature cheddar, medium mature cheddar cheese, medium cheddar cheese
 
 <en:cheddar
 en:mature cheddar, mature cheddar cheese
@@ -16036,6 +16039,7 @@ fr:huiles et graisses végétales, graisses et huiles végétales, graisse et hu
 he:שומן ושמן מן הצומח
 hu:növényi olaj és zsír
 it:oli e grassi vegetali, olio e grasso vegetale
+ja:植物油脂
 lv:Augu eļļas un tauki
 mt:xaħam u żejt veġetali
 nl:plantaardige vetten en olie, plantaardige oliën en vetten
@@ -16832,7 +16836,7 @@ et:Palmiõli
 eu:Palmondo olio
 fa:روغن نخل
 fi:Palmuöljy
-fr:huile de palme, huile végétale de palme, huile palmique, huile de palme issue de plantations durables et certifiées
+fr:huile de palme, huile végétale de palme, huile palmique
 ga:Ola phailme
 gl:Aceite de palma
 he:שמן דקלים
@@ -16903,6 +16907,10 @@ hu:bio pálmaolaj
 nl:biologische palmolie
 ru:Органическое пальмовое масло
 # ingredient/nl:biologische-palmolie has 1 product @2019-05-24
+
+<en:palm oil
+en:sustainable palm oil, sustainable palm fruit oil, sustainable palm
+fr:huile de palme issue de plantations durables et certifiées
 
 <en:palm oil
 en:fractionated palm oil
@@ -17210,6 +17218,10 @@ fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 fr:huile de coco vierge biologique, huile vierge de noix de coco bio
 
 <en:coconut oil
+en:extra virgin coconut oil
+fr:huile de coco extra vierge
+
+<en:coconut oil
 fr:huile de coco non-hydrogénée, huile de coprah non hydrogénée
 
 <en:coconut oil
@@ -17453,6 +17465,9 @@ from_palm_oil:en:no
 
 <en:rapeseed oil
 en:low erucic acid rapeseed oil
+
+<en:rapeseed oil
+en:british rapeseed oil
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
@@ -17789,7 +17804,7 @@ nl:olie van biologische sesamzaadjes
 # ingredient/nl:olie-van-biologische-sesamzaadjes has 1 product @2019-05-24
 
 <en:sesame oil
-fr:huile vierge de sésame
+fr:huile vierge de sésame, huile de sésame vierge
 # ingredient/fr:huile-vierge-de-sesame has 12 products in french @2019-05-29
 
 description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
@@ -18289,7 +18304,7 @@ fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza,
 
 # <en:mango
 <en:vegetable oil
-en:mango kernel oil, mango oil
+en:mango kernel oil, mango oil, mango kernel
 de:Mangokernöl
 fi:mangoydinöljy, mangoöljy
 fr:huile de noyaux de mangue, huile végétale de noyau de mangue, graisses végétales de noyaux de mangue, matières grasses de noyaux de mangue, matières grasses végétales de noyaux de mangue, graisses végétales de noyau de mangue, matières grasses de noyau de mangue, graisses végétales de mangue, matières grasses végétales de mangue, matières grasse de mangue, huile de mangue, huile végétale de mangue
@@ -18933,9 +18948,9 @@ nl:alcohol- en witte wijnazijn
 
 <en:vinegar
 # derivedFrom:en:rice
-en:rice vinegar
+en:rice vinegar, rice wine vinegar
 ca:vinagre d'arròs
-de:Reisessig
+de:Reisessig, Reisweinessig
 el:ξύδι ρυζιού
 eo:rizvinagro
 es:vinagre de arroz
@@ -18958,7 +18973,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rice_vinegar
 wikidata:en:Q1849012
 
 <en:vinegar
-en:xeres vinegar
+en:sherry vinegar
 de:Sherry Wein Essig
 es:Vinagre de Jerez
 fi:sherryviinietikka
@@ -20470,6 +20485,12 @@ wikidata:en:Q16398
 wikipedia:en:https://en.wikipedia.org/wiki/Sherry
 # ingredient/en:sherry has 78 products in 1 language @2020-05-24
 
+<en:sherry
+en:amontillado sherry
+de:Amontillado-Sherry
+fr:xérès amontillado
+
+
 # BRANDY is a spirit produced by distilling wine. Brandy generally contains 35–60% alcohol by volume (70–120 US proof) and is typically consumed as an after-dinner digestif.
 
 <en:alcohol
@@ -20705,6 +20726,7 @@ nl:armagnac
 
 <en:alcohol
 en:beer
+ca:cervesa
 da:øl
 de:Bier
 es:Cerveza
@@ -20787,6 +20809,7 @@ hr:aroma
 hu:aroma, aromák
 is:bragðefni
 it:aroma, aromi
+ja:香料
 lt:kvapioji medžiaga
 lv:aromatizētājs
 nb:aroma, aromaer, smakstilsetninger
@@ -22353,7 +22376,7 @@ fr:billes de céréales
 # usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
 
 <en:cereal
-en:wholemeal cereal
+en:wholemeal cereal, wholegrain cereal
 de:Vollkorngetreide
 es:Cereal integral,cereales integrales
 fi:täysjyvävilja
@@ -23973,7 +23996,7 @@ sv:fullkornshavre
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
-en:oat flakes, rolled oats
+en:oat flakes, oatflakes, rolled oats
 ca:flocs de civada gruixuts, flocs de civada
 cs:ovesné vločky
 da:Havregryn
@@ -25523,6 +25546,7 @@ en:pregelatinized rice flour
 fr:farine de riz prégélatinisée
 
 <en:rice flour
+en:White rice flour
 fr:farine de riz blanc
 
 <en:rice flour
@@ -25856,7 +25880,7 @@ fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
 nl:Maïsgrits
-pl:grys kukurydziany
+pl:grys kukurydziany, kasza kukurydziana
 pt:grãos de milho
 ro:porumb boabe
 ru:Кукурузная мука
@@ -26848,10 +26872,14 @@ nl:rijst gemalen
 #en:rice flour
 
 <en:rice
+en:rice bran
+fr:son de riz
+
+<en:rice
 es:sémola de arroz
 de:Reisgriess
 fi:riisisuurimo
-fr:semoule de riz, son de riz
+fr:semoule de riz
 hu:rizsdara
 it:semolino di riso
 pt:sêmola de arroz
@@ -30203,6 +30231,13 @@ vegan:en:maybe
 vegetarian:en:yes
 
 <en:chocolate
+en:belgian chocolate
+de:belgische Schokolade
+es:chocolate belga
+fr:chocolat belge
+ro:ciocolată belgiană
+
+<en:chocolate
 en:chocolate powder
 ca:xocolata en pols
 da:chokoladepulver
@@ -30316,6 +30351,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:dark chocolate
+en:belgian dark chocolate, dark belgian chocolate
+fr:chocolat noir belge
+
+<en:dark chocolate
 fr:chocolat noir à 70 de cacao
 # ingredient/fr:chocolat-noir-a-70-de-cacao-minimum has 31 products in french @2019-05-25
 
@@ -30385,6 +30424,10 @@ allergens:en: en:milk
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
 vegan:en:no
 vegetarian:en:yes
+
+<en:milk chocolate
+en:belgian milk chocolate
+fr:chocolat au lait belge
 
 <en:milk chocolate
 # <en:chocolate chips
@@ -33204,6 +33247,9 @@ nutriscore_fruits_vegetables_nuts:en:yes
 en:mixed fruit
 es:mix de frutas,mezcla de frutas
 
+<en:mixed fruit
+en:mixed peel
+
 <en:fruit
 en:red fruits
 es:frutos rojos
@@ -35243,19 +35289,27 @@ sv:äppeljuice från koncentrat
 fi:omena- päärynä- ja rypäletäysmehu tiivisteestä
 
 <en:apple juice
-en:cidre apple juice
+en:cider apple juice
 fr:pur jus de pommes à cidre
 # ingredient/fr:pur-jus-de-pommes-a-cidre has 10 products @2019-05-28
 
-<en:cidre apple juice
-en:organic cidre apple juice
+<en:cider apple juice
+en:organic cider apple juice
 fr:pur jus de pommes à cidre bio
+
+<en:apple
+en:bramley apple
+wikidata:en:Q2923647
+wikipedia:en:https://en.wikipedia.org/wiki/Bramley_apple
+
 <en:apple
 en:Golden Delicious apple
 de:Golden Delicious Apfel
 es:manzana golden
 fi:golden delicious -omena
 fr:pomme Golden Delicious, pommes Golden Delicious, pommes golden
+wikidata:en:Q201996
+wikipedia:en:https://en.wikipedia.org/wiki/Golden_Delicious
 # ingredient/fr:pommes-golden-delicious has 8 products in french @2019-05-25
 
 #US plant patent 3637, McKenzie, Oct 15 1974
@@ -35265,6 +35319,8 @@ de:Gala Apfel
 es:manzana gala
 fr:pomme Gala, pommes Gala
 nl:Gala appel
+wikidata:en:Q494259
+wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
 
 #US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 <en:apple
@@ -38120,7 +38176,7 @@ it:purea di guaiave
 # KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
 
 <en:fruit
-en:kiwi, kiwifruit
+en:kiwi, kiwifruit, kiwi fruit
 af:Kiwivrug
 ar:كيوي
 be:Ківі
@@ -39795,6 +39851,9 @@ fr:raisin blanc, raisins blancs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin-blanc
 # 81 products in 2 languages @2018-10-02
 
+<en:white grape
+en:white seedless grape
+
 <en:grape
 en:grapes of other varieties
 es:uva de otras variedades
@@ -39819,6 +39878,10 @@ en:Concord grape, Concord black grape
 <en:grape
 en:red grape
 fr:raisin rouge, raisins rouges
+
+<en:red grape
+en:red seedless grape
+fr:raisin rouge sans pépin
 
 # A RAISIN is a dried grape.
 
@@ -41793,7 +41856,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
 <en:root vegetable
-en:garlic
+en:garlic, garlic bulb
 af:Knoffel
 am:ነጭ ሽንኩርት
 ar:ثوم
@@ -44438,6 +44501,8 @@ fr:oignon fumé en poudre
 <en:onion
 en:onion purée
 
+en:onion oil
+
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
 
@@ -45690,6 +45755,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 en:cassava, cassava root, manioc, manioc root, yuca, yuca root
 de:Maniok
 fr:manioc, racine de manioc
+pt:mandioca
 nutriscore_fruits_vegetables_nuts:en:no
 wikidata:en:Q43304555
 wikipedia:en:https://en.wikipedia.org/wiki/Cassava
@@ -45813,6 +45879,9 @@ nutriscore_fruits_vegetables_nuts:en:no
 <en:potato
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
+
+<en:potato
+en:British potato
 
 <en:potato
 <en:flour
@@ -47133,7 +47202,7 @@ da:Vandkastanje
 de:Wasserkastanien
 el:Κινέζικο νεροκάστανο
 eo:Akvokaŝtano
-es:Agua de castaña
+es:castaña de agua
 fi:Vesikastanja
 fr:châtaigne d'eau, châtaignes d'eau
 ga:Castán uisce
@@ -50143,7 +50212,7 @@ fr:graines grillées
 # comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
 <en:seed
-en:aniseed
+en:aniseed, anise
 da:anisfrø
 de:Anissamen, anis
 es:semilla de anís,anis,matalahúga
@@ -52311,6 +52380,9 @@ sv:bockhornsklöver
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
 
 <en:fenugreek
+en:fenugreek leaf, fenugreek leaves
+
+<en:fenugreek leaf
 en:dried fenugreek leaves
 de:getrockneter Bockshornklee
 es:hoja de fenegreco seca
@@ -53856,7 +53928,7 @@ nl:Gedehydrateerde peterselie
 # fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 <en:parsley
-en:parsley leaves
+en:parsley leaf, parsley leaves
 es:hojas de perejil
 hr:peršinov list
 ro:frunze de pătrunjel
@@ -53977,6 +54049,9 @@ wikidata:en:Q38859
 wikipedia:en:https://en.wikipedia.org/wiki/Basil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
 # 3605 products in 14 languages @2108-10-10
+
+<en:basil
+en:basil leaf, basil leaves
 
 <en:basil
 en:dried basil
@@ -55122,6 +55197,7 @@ en:hops, hop
 ar:جنجل
 be:хмель
 bg:хмель, хмел
+ca:llúpol
 cs:chmel
 cy:Hopys
 da:humle
@@ -61571,6 +61647,10 @@ carbon_footprint_fr_foodges_value:fr:5.5
 
 <en:smoked salmon
 fr:chutes de saumon fumé
+
+<en:salmon
+en:scottish salmon
+fr:saumon d'écosse
 
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 
@@ -73268,6 +73348,7 @@ cs:mirin
 da:mirin
 de:mirin
 eo:Mirino
+es:mirin
 et:mirin
 fa:میرین
 fi:mirin
