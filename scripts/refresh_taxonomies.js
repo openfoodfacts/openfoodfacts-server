@@ -59,11 +59,16 @@ async function main() {
         );
         spawns.push(perl);
 
-        perl.on('close', (code) => {
-          console.log(`[${file}] child process exited with code ${code}`);
+        perl.on('close', (code, signal) => {
+          if (code !== null) {
+            console.log(`[${file}] child process exited with code ${code}`);
 
-          if (code != 0) {
-            process.exitCode = code;
+            if (code != 0) {
+              process.exitCode = code;
+            }
+          }
+          else if ( signal !== null ) {
+            console.log(`[${file}] child process exited with signal ${signal}`);
           }
         });
       } catch (e) {
@@ -74,7 +79,7 @@ async function main() {
     }
   }
 
-  console.log('Waiting for spawned processed to exit.');
+  console.log('Waiting for spawned processes to exit.');
   let running = Number.MAX_SAFE_INTEGER;
   let lastMsg = new Date();
   while (running > 0) {
