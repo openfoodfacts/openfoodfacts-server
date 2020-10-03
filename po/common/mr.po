@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-30 19:43\n"
+"PO-Revision-Date: 2020-10-03 08:46\n"
 "Language-Team: Marathi\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4583,5 +4583,42 @@ msgstr ""
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
+msgstr ""
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr ""
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr ""
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
 msgstr ""
 
