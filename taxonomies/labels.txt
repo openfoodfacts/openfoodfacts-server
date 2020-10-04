@@ -522,6 +522,7 @@ description:de:Als Fairer Handel (englisch fair trade) wird ein kontrollierter H
 description:es:El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
 description:fr:Le commerce équitable est un système d'échange dont l'objectif est de proposer une plus grande équité dans le commerce conventionnel, voire une alternative à celui-ci, basée notamment sur la réappropriation des échanges marchands par ceux qui les pratiquent.
 description:nl:Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
+#auth_url:en:http://www.fairtrade.net
 
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
@@ -796,6 +797,7 @@ fr:Label Rouge
 nl:Label Rouge
 wikidata:en:Q3214309
 label_categories:en: en:Quality, en:Environment
+auth_url:fr:https://www.labelrouge.fr/
 
 
 pl:Gwarancja jakości
@@ -16207,6 +16209,7 @@ fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% ca
 it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
 wikidata:en:Q2034373
+auth_url:en:https://www.rainforest-alliance.org
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -16765,6 +16768,7 @@ fr:Pêche durable MSC, MSC, Marine Stewardship Council
 it:Frutti di Mare Sostenibili MSC
 nl:Duurzaam Zeevruchten MSC
 wikidata:en:Q1891246
+auth_url:en:https://www.msc.org
 
 en:Responsible aquaculture
 ca:Aqüicultura responsable
@@ -16785,6 +16789,7 @@ fr:Aquaculture responsable ASC, ASC, Aquaculture Stewardship Council
 it:Acquacoltura responsabile ASC, ASC, Aquaculture Stewardship Council
 nl:Verantwoorde aquacultuur MSC
 wikidata:en:Q2028860
+auth_url:en:https://www.asc-aqua.org
 
 <en:Responsible aquaculture ASC
 en:ASC C00386
@@ -16851,6 +16856,7 @@ fi:UTZ-sertifioitu, UTZ
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
 wikidata:en:Q2305872
+auth_url:en:https://utz.org
 
 <en:UTZ Certified
 en:UTZ Certified Cacao, UTZ Certified Cocoa
@@ -17194,8 +17200,20 @@ origins:en: en:France
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
 
+fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition
+auth_url:fr:https://www.bleu-blanc-coeur.org
 
-fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Poulet
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Bœuf
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Porc
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Œuf
 
 fr:Nouvelle Agriculture
 
@@ -18718,3 +18736,4 @@ en:Health Star Rating 5
 fr:Haute Valeur Environnementale
 wikidata:en:Q3128557
 label_categories:en: en:Environment
+auth_url:fr:https://hve-asso.com
