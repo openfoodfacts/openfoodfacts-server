@@ -20,7 +20,7 @@
 
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
-/*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
+/*global toggle_manage_images_buttons */ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
