@@ -17,7 +17,11 @@ RUN set -x \
     graphviz \
     tesseract-ocr \
     # perlmagick \
-    # Packages from ./cpanfile
+    #
+    # Packages from ./cpanfile:
+    # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
+    #
+    libtie-ixhash-perl \
     libwww-perl \
     libimage-magick-perl \
     libxml-encoding-perl  \
@@ -38,7 +42,88 @@ RUN set -x \
     libdigest-md5-perl \
     libtime-local-perl \
     libdbd-pg-perl \
-    libtemplate-perl
+    libtemplate-perl \
+    liburi-escape-xs-perl \
+    # NB: not available in ubuntu 1804 LTS:
+    libmath-random-secure-perl \
+    libfile-copy-recursive-perl \
+    libemail-stuffer-perl \
+    liblist-moreutils-perl \
+    libexcel-writer-xlsx-perl \
+    libpod-simple-perl \
+    liblog-any-perl \
+    liblog-log4perl-perl \
+    liblog-any-adapter-log4perl-perl \
+    # NB: not available in ubuntu 1804 LTS:
+    libgeoip2-perl \
+    libemail-valid-perl \
+    #
+    # cpan dependencies that can be satisfied by apt even if the package itself can't:
+    #
+    # Action::Retry
+    libmath-fibonacci-perl \
+    # Algorithm::CheckDigits
+    libprobe-perl-perl \
+    # CLDR::Number
+    libmath-round-perl \
+    libsoftware-license-perl \
+    libtest-differences-perl \
+    libtest-exception-perl \
+    # Data::Dumper::AutoEncode
+    # NB: not available in ubuntu 1804 LTS:
+    libmodule-build-pluggable-perl \
+    libclass-accessor-lite-perl \
+    # DateTime
+    libclass-singleton-perl \
+    # DateTime::Locale
+    libfile-sharedir-install-perl \
+    # Encode::Punycode
+    libnet-idn-encode-perl \
+    libtest-nowarnings-perl \
+    # File::chmod::Recursive
+    libfile-chmod-perl \
+    # GeoIP2
+    libdata-dumper-concise-perl \
+    libdata-printer-perl \
+    libdata-validate-ip-perl \
+    libio-compress-perl \
+    libjson-maybexs-perl \
+    liblist-allutils-perl \
+    liblist-someutils-perl \
+    # GraphViz2
+    libdata-section-simple-perl \
+    libfile-which-perl \
+    libipc-run3-perl \
+    liblog-handler-perl \
+    libtest-deep-perl \
+    libwant-perl \
+    # Image::OCR::Tesseract
+    libfile-find-rule-perl \
+    liblinux-usermod-perl \
+    # Locale::Maketext::Lexicon::Getcontext
+    liblocale-maketext-lexicon-perl \
+    # Log::Any::Adapter::TAP
+    liblog-any-adapter-tap-perl \
+    # Math::Random::Secure
+    libcrypt-random-source-perl \
+    libmath-random-isaac-perl \
+    libtest-sharedfork-perl \
+    libtest-warn-perl \
+    # Mojo::Pg
+    libsql-abstract-perl \
+    # MongoDB
+    libauthen-sasl-saslprep-perl \
+    libauthen-scram-perl \
+    libbson-perl \
+    libclass-xsaccessor-perl \
+    libconfig-autoconf-perl \
+    libdigest-hmac-perl \
+    libpath-tiny-perl \
+    libsafe-isa-perl \
+    # Spreadsheet::CSV
+    libspreadsheet-parseexcel-perl \
+    # Test::Number::Delta
+    libtest-number-delta-perl
 
 # Stage for installing/compiling cpanfile dependencies
 FROM modperl AS builder

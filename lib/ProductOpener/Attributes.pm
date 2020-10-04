@@ -73,6 +73,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
 
 =head1 CONFIGURATION
 
@@ -457,6 +458,91 @@ sub compute_attribute_nutriscore($$) {
 			$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-$grade.svg";
+	}
+	else {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{match} = 0;
+	}
+	
+	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_ecoscore ( $product_ref, $target_lc )
+
+Computes an environmental impact attribute based on the Eco-Score.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+To differentiate products more finely, the match is based on the Eco-Score score
+that is used to define the Eco-Score grade from A to E.
+
+- Eco-Score A: 80 to 100%
+- Eco-Score B: 61 to 80%
+
+=cut
+
+sub compute_attribute_ecoscore($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+	# Compute the environmental score first, as it is currently not stored in the database
+	compute_ecoscore($product_ref);
+
+	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
+
+	my $attribute_id = "ecoscore";
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	
+	if (defined $product_ref->{ecoscore_data}) {
+		$attribute_ref->{status} = "known";
+		
+		my $score = $product_ref->{ecoscore_data}{score};
+		my $grade = $product_ref->{ecoscore_data}{grade};
+		
+		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
+		
+		# Compute match based on score
+		
+		my $match = 0;
+		
+		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
+		
+		if ($score < 0) {
+			$match = 0;
+		}
+		elsif ($score > 100) {
+			$match = 100;
+		}
+		else {
+			$match = $score;
+		}
+		
+		$attribute_ref->{match} = $match;
+		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = sprintf(lang("attribute_ecoscore_grade_title"), uc($grade));		
+			$attribute_ref->{description} = lang("attribute_ecoscore_" . $grade . "_description");
+			$attribute_ref->{description_short} = lang("attribute_ecoscore_" . $grade . "_description_short");
+		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/ecoscore-$grade.svg";
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -861,6 +947,11 @@ sub compute_attributes($$) {
 	
 	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
 	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);	
+	
+	# Environment
+	
+	$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
+	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);	
 		
 	# Labels groups
 	

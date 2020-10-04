@@ -1481,7 +1481,7 @@ JAVASCRIPT
 
 
 
-	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);	
+	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 
 	$initjs .= display_select_crop_init($product_ref);
 
