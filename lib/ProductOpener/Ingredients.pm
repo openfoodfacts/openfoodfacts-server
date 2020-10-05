@@ -1329,6 +1329,7 @@ sub parse_ingredients_text($) {
 
 					if (not $ingredient_recognized) {
 						# Check if it is a phrase we want to ignore
+						# NB: If these match, the whole ingredient is ignored, so they're not suitable for ignoring *part* of an ingredient.
 
 						# Remove some sentences
 						my %ignore_regexps = (
@@ -2447,6 +2448,10 @@ it => [
 'composizione',
 ],
 
+ja => [
+'原材料名',
+],
+
 kk => [
 'Курамы',
 ],
@@ -2524,6 +2529,10 @@ tg => [
 
 th => [
 'ส่วนประกอบ',
+],
+
+tr => [
+'İçindekiler',
 ],
 
 uz => [

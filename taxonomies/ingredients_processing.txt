@@ -59,6 +59,9 @@ pt:fresco
 
 #################### THE PROCESS ITSELF ##########
 
+# the ends/small amounts cut off, e.g. beans.
+# possible false positive "trimmed with"="garnished with", but no instances in the data currently.
+en:trimmed
 
 en:cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -139,6 +142,9 @@ fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 nl:blokjes, in blokjes, blokje
 es:troceado, troceada,troceados, troceadas
 sv:tärnad
+
+# en:description:nuts cut into small pointed pieces
+en:nibbed
 
 #de:in Sticks geschnitten
 
@@ -639,7 +645,7 @@ pt:pasteurizado
 ro:pasteurizat, pasteurizata
 sv:pastöriserad
 
-en:unpasteurized
+en:unpasteurized, unpasteurised
 
 en:pre-cooked,precooked
 ca:precuit
