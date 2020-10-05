@@ -112,8 +112,6 @@ BEGIN
 
 		&assign_categories_properties_to_product
 
-		&remove_insignificant_digits
-
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
