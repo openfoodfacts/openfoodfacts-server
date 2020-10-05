@@ -103,6 +103,11 @@ if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
   return Apache2::Const::OK;
 }
 
+# set up error logging
+open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
+print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
+
+# load large data files into mod_perl memory
 init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
@@ -115,9 +120,5 @@ load_agribalyse_data();
 chmod_recursive( S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp" );
 
 $log->info('product opener started', { version => $version });
-
-open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
-
-print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
 
 1;
