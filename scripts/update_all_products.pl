@@ -51,6 +51,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --team		optional team for the user that is credited with the change
 --comment	comment for change in product history
 --pretend	do not actually update products
+--mongodb-to-mongodb	do not use the .sto files at all, and only read from and write to mongodb
 TXT
 ;
 
@@ -117,6 +118,7 @@ my $all_owners = '';
 my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
+my $mongodb_to_mongodb = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -159,6 +161,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"mark-as-obsolete-since-date=s" => \$mark_as_obsolete_since_date,
 			"all-owners" => \$all_owners,
 			"delete-old-fields" => \$delete_old_fields,
+			"mongodb-to-mongodb" => \$mongodb_to_mongodb,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -192,7 +195,8 @@ if ($unknown_fields > 0) {
 	die("Unknown fields, check for typos.");
 }
 
-if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
+if (
+	(not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova)
 	and (not $clean_ingredients) and (not $delete_old_fields)
 	and (not $compute_serving_size) and (not $reassign_energy_kcal)
 	and (not $compute_data_sources) and (not $compute_history)
@@ -203,7 +207,8 @@ if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $comp
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
-	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)) {
+	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
+) {
 	die("Missing fields to update or --count option:\n$usage");
 }
 
@@ -269,8 +274,16 @@ my $products_collection = get_products_collection();
 my $products_count = $products_collection->count_documents($query_ref);
 
 print STDERR "$products_count documents to update.\n";
+if ($count) { exit(0); }
 
-my $cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
+my $cursor;
+if ($mongodb_to_mongodb) {
+	# retrieve all fields
+	$cursor = $products_collection->query($query_ref);
+} else {
+	# only retrieve important fields
+	$cursor = $products_collection->query($query_ref)->fields({ _id => 1, code => 1, owner => 1 });
+}
 $cursor->immortal(1);
 
 my $n = 0;    # number of products updated
@@ -301,7 +314,10 @@ while (my $product_ref = $cursor->next) {
 
 	next if $just_print_codes;
 
-	$product_ref = retrieve_product($productid);
+	if (!$mongodb_to_mongodb) {
+		# read product data from .sto file
+		$product_ref = retrieve_product($productid);
+	}
 
 	if ((defined $product_ref) and ($productid ne '')) {
 
@@ -954,8 +970,12 @@ while (my $product_ref = $cursor->next) {
 				# make sure nutrient values are numbers
 				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
-				store("$data_root/products/$path/product.sto", $product_ref);
+				if (!$mongodb_to_mongodb) {
+					# Store data to .sto file
+					store("$data_root/products/$path/product.sto", $product_ref);
+				}
 
+				# Store data to mongodb
 				# Make sure product code is saved as string and not a number
 				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
@@ -987,4 +1007,3 @@ if ($restore_values_deleted_by_user) {
 }
 
 exit(0);
-

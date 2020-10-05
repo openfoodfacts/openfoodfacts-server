@@ -503,6 +503,7 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 	nova_group_producer => ["nova"],
+	obsolete => ["The product is no longer sold", "Product is no longer sold."],
 },
 
 es => {
@@ -537,6 +538,7 @@ fr => {
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
+	obsolete => ["Le produit n'est plus en vente."],
 },
 
 );
@@ -620,7 +622,9 @@ sub init_fields_columns_names_for_lang($) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
 
-	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	if (! -e "$data_root/debug") {
+		mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	}
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
@@ -803,7 +807,7 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
@@ -812,7 +816,7 @@ sub init_other_fields_columns_names_for_lang($) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 					}
 					elsif ($field =~ /image_(other)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field };
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field};
 					}
@@ -926,6 +930,9 @@ sub init_other_fields_columns_names_for_lang($) {
 			}
 		}
 	}
+	
+	# lc field uses translations for "lang"
+	$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{lang}{$l})} = {field => "lc" };
 
 	return;
 }

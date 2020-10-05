@@ -354,6 +354,14 @@ function change_image(imagefield, imgid) {
       $(document).foundation('equalizer', 'reflow');
     }, 'json');
   });
+  $('img#crop_' + imagefield).on('ready', function () {
+    $("#rotate_left_" + imagefield).attr("disabled", false);
+    $("#rotate_right_" + imagefield).attr("disabled", false);
+    $("." + crop_button).attr("disabled", false);
+  });
+  $("#rotate_left_" + imagefield).attr("disabled", true);
+  $("#rotate_right_" + imagefield).attr("disabled", true);
+  $("." + crop_button).attr("disabled", true);
 
 	$("#rotate_left_" + imagefield).click({imagefield:imagefield, angle:-90}, rotate_image);
 	$("#rotate_right_" + imagefield).click({imagefield:imagefield, angle:90}, rotate_image);

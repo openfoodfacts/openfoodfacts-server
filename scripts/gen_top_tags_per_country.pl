@@ -166,11 +166,11 @@ my $end_t = 1424476800 - 12 * 3600 + 10 * 86400;
 
 
 my %nutrition_grades_to_n = (
-a => 1,
-b => 2,
-c => 3,
-d => 4,
-e => 5,
+	a => 1,
+	b => 2,
+	c => 3,
+	d => 4,
+	e => 5,
 );
 
 while (my $product_ref = $cursor->next) {
@@ -199,7 +199,7 @@ while (my $product_ref = $cursor->next) {
 		}
 		if (defined $product_ref->{"nutrition_grade_fr"}) {
 			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
-			print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
+			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
 	}
 
@@ -330,7 +330,11 @@ while (my $product_ref = $cursor->next) {
 		}
 	}
 
+	# for each country listed in the product
 	foreach my $country (@{$product_ref->{countries_tags}}, 'en:world') {
+
+		# don't process invalid countries - 'en:frankreich-deutschland', 'fr:francja', 'de:autriche', etc.
+		next if (!defined($properties{countries}{$country}));
 
 		$countries{$country}++;
 
@@ -354,7 +358,9 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
-		print "completed products: $complete\n";
+		if ($complete % 10 == 0) {
+			print "completed products: $complete\n";
+		}
 	}
 
 
@@ -362,59 +368,59 @@ while (my $product_ref = $cursor->next) {
 
 
 # compute points
-	# Read ambassadors.txt
-	my %ambassadors = ();
-	if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
-		while (<$IN>) {
-			chomp();
-			if (/\s+/) {
-				my $user = get_string_id_for_lang("no_language", $`);
-				my $ambassador = get_string_id_for_lang("no_language", $');
-				$ambassadors{$user} = $ambassador;
-			}
+# Read ambassadors.txt
+my %ambassadors = ();
+if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
+	while (<$IN>) {
+		chomp();
+		if (/\s+/) {
+			my $user = get_string_id_for_lang("no_language", $`);
+			my $ambassador = get_string_id_for_lang("no_language", $');
+			$ambassadors{$user} = $ambassador;
 		}
 	}
-	else {
-		print STDERR "$data_root/ambassadors.txt does not exist\n";
-	}
+}
+else {
+	print STDERR "$data_root/ambassadors.txt does not exist\n";
+}
 
-	my %ambassadors_countries_points = (_all_ => {});
-	my %ambassadors_users_points = (_all_ => {});
+my %ambassadors_countries_points = (_all_ => {});
+my %ambassadors_users_points = (_all_ => {});
 
-	foreach my $country (keys %countries_points) {
-		defined $ambassadors_countries_points{$country} or $ambassadors_countries_points{$country} = {};
-		foreach my $user (keys %{$countries_points{$country}}) {
-			next if $user eq 'all_users';
-			if (exists $ambassadors{$user}) {
-				my $ambassador = $ambassadors{$user};
-				defined $ambassadors_countries_points{$country}{$ambassador} or $ambassadors_countries_points{$country}{$ambassador} = 0;
-				defined $ambassadors_countries_points{_all_}{$ambassador} or $ambassadors_countries_points{_all_}{$ambassador} = 0;
-				$ambassadors_countries_points{$country}{$ambassador} += $countries_points{$country}{$user};
-				$ambassadors_countries_points{_all_}{$ambassador} += $countries_points{$country}{$user};
+foreach my $country (keys %countries_points) {
+	defined $ambassadors_countries_points{$country} or $ambassadors_countries_points{$country} = {};
+	foreach my $user (keys %{$countries_points{$country}}) {
+		next if $user eq 'all_users';
+		if (exists $ambassadors{$user}) {
+			my $ambassador = $ambassadors{$user};
+			defined $ambassadors_countries_points{$country}{$ambassador} or $ambassadors_countries_points{$country}{$ambassador} = 0;
+			defined $ambassadors_countries_points{_all_}{$ambassador} or $ambassadors_countries_points{_all_}{$ambassador} = 0;
+			$ambassadors_countries_points{$country}{$ambassador} += $countries_points{$country}{$user};
+			$ambassadors_countries_points{_all_}{$ambassador} += $countries_points{$country}{$user};
 
-				defined $ambassadors_users_points{$ambassador} or $ambassadors_users_points{$ambassador} = {};
-				defined $ambassadors_users_points{$ambassador}{$country} or $ambassadors_users_points{$ambassador}{$country} = 0;
-				defined $ambassadors_users_points{_all_}{$country} or $ambassadors_users_points{_all_}{$country} = 0;
-				#$ambassadors_users_points{$ambassador}{_all_} += $countries_points{$country}{$user};
-				$ambassadors_users_points{$ambassador}{$country} += $users_points{$user}{$country};
-				$ambassadors_users_points{_all_}{$country} += $users_points{$user}{$country};
-			}
+			defined $ambassadors_users_points{$ambassador} or $ambassadors_users_points{$ambassador} = {};
+			defined $ambassadors_users_points{$ambassador}{$country} or $ambassadors_users_points{$ambassador}{$country} = 0;
+			defined $ambassadors_users_points{_all_}{$country} or $ambassadors_users_points{_all_}{$country} = 0;
+			#$ambassadors_users_points{$ambassador}{_all_} += $countries_points{$country}{$user};
+			$ambassadors_users_points{$ambassador}{$country} += $users_points{$user}{$country};
+			$ambassadors_users_points{_all_}{$country} += $users_points{$user}{$country};
 		}
 	}
+}
 
 
-	store("$data_root/index/countries_points.sto", \%countries_points);
-	store("$data_root/index/users_points.sto", \%users_points);
+store("$data_root/index/countries_points.sto", \%countries_points);
+store("$data_root/index/users_points.sto", \%users_points);
 
-	store("$data_root/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-	store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$data_root/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 
 
 
 foreach my $country ('en:world', keys %{$properties{countries}}) {
 
-	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+	my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
 	if ($country eq 'en:world') {
 		$cc = 'world';
 	}
@@ -443,11 +449,8 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
 
-				if ($products_nutriments{$code}{$nid} =~ /nan/i) {
-					print "WARNING - product code $code - nid: $nid - value is nan: $products_nutriments{$code}{$nid} \n";
-				}
 				if ($nid eq 'nutrition-grade') {
-					print "NUT - code: $code - nid: nutrition-grade\n";
+					#print "NUT - code: $code - nid: nutrition-grade\n";
 				}
 				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
 			}
@@ -473,10 +476,10 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 		my $end = $sorted_dates[-1];
 
 		# somehow we don't get the biggest day...
-		if ($true_end{$country} > $end) {
+		if (!defined($end) || $true_end{$country} > $end) {
 			$end = $true_end{$country};
 		}
-		if ($true_start{$country} < $start) {
+		if (!defined($start) || $true_start{$country} < $start) {
 			$start = $true_start{$country};
 		}
 
@@ -487,7 +490,7 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 
 		my $current = 0;
 		for (my $i = $start; $i <= $end; $i++) {
-			$current += $dates{$country}{$date}{$i};
+			$current += ( $dates{$country}{$date}{$i} // 0 );
 			$countries_dates{$country}{$date}{$i} = $current;
 			#print "dates_current_$cc lc: $cc - date: $date - start: $start - end: $end - i: $i - $current\n";
 		}
@@ -495,19 +498,22 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 }
 
 
+print "Starting countries.html...\n";
 my $html = "<p>$total products:</p>";
 foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
 
-        if ($countries{$country} > 0) {
-				$l = "en";
-				$lc = $l;
-                $lang = $l;
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
-				}
-                $html .= "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "<br />";
-        }
+	if ($countries{$country} > 0) {
+		$l = "en";
+		$lc = $l;
+		$lang = $l;
+		my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
+		if ($country eq 'en:world') {
+			$cc = 'world';
+		}
+		# this is generating nested links, e.g.
+		# <a href="https://pl.productopener.localhost/"><a href="/country/poland" class="tag well_known">Poland</a></a> : 280 products
+		$html .= "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "\n<br />";
+	}
 
 }
 
@@ -516,41 +522,42 @@ print $OUT $html;
 close $OUT;
 
 
+print "Starting products_countries.html...\n";
 my $html = "";
 my $c = 0;
 foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
 
-        if ($countries{$country} > 0) {
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
+	if ($countries{$country} > 0) {
+		my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
+		if ($country eq 'en:world') {
+			$cc = 'world';
+		}
+		$cc ne '' or next;
+		$c++;
+
+		my $n = $countries{$country};
+		$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+		my $link = "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+		my $i = 0;
+		foreach my $lc (@{$country_languages{$cc}}) {
+			if ($lc ne 'en') {
+				my $subdomain = $cc;
+				if ($i != 0) {
+					$subdomain = "$cc-$lc";
 				}
-				$cc ne '' or next;
-				$c++;
+				$link .= " / " . "<a href=\"https://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
+			}
 
-				my $n = $countries{$country};
-				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
-				my $i = 0;
-				foreach my $lc (@{$country_languages{$cc}}) {
-					if ($lc ne 'en') {
-						my $subdomain = $cc;
-						if ($i != 0) {
-							$subdomain = "$cc-$lc";
-						}
-						$link .= " / " . "<a href=\"https://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
-					}
+			$i++;
+		}
 
-					$i++;
-				}
+		if ($link =~ / \/ /) {
+			$link =~ s/ \/ / \(/;
+			$link .= ")";
+		}
 
-					if ($link =~ / \/ /) {
-						$link =~ s/ \/ / \(/;
-						$link .= ")";
-					}
-
-                $html .= "<li>$link - " . $countries{$country} . " " . lang("products") . "</li>\n";
-        }
+		$html .= "<li>$link - " . $countries{$country} . " " . lang("products") . "</li>\n";
+	}
 
 }
 $html =~ s/ - $//;
@@ -566,52 +573,53 @@ close $OUT;
 # Open Food Facts - What's in my yogurt?
 
 if ($server_domain eq 'openfoodfacts.org') {
+	print "Starting yogurts_countries.html...\n";
 
-open (my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
+	open (my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
 
-my $html = "";
-my $c = 0;
-foreach my $country (sort { $countries_tags{$b}{categories}{"en:yogurts"} <=> $countries_tags{$a}{categories}{"en:yogurts"}} keys %countries) {
+	my $html = "";
+	my $c = 0;
+	foreach my $country (sort { ($countries_tags{$b}{categories}{"en:yogurts"} // 0) <=> ($countries_tags{$a}{categories}{"en:yogurts"} // 0) } keys %countries) {
 
-		print $DEBUG "yogurts - $country - " . $countries_tags{$country}{categories}{"en:yogurts"} . "\n";
-		print STDERR "yogurts - $country - " . $countries_tags{$country}{categories}{"en:yogurts"} . "\n";
-        if ($countries_tags{$country}{categories}{"en:yogurts"}  > 0) {
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
-				}
-				$lc = $country_languages{$cc}[0]; # first official language
+		print $DEBUG "yogurts - $country - " . ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+		print STDERR "yogurts - $country - " . ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+		if (($countries_tags{$country}{categories}{"en:yogurts"} // 0) > 0) {
+			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+			if ($country eq 'en:world') {
+				$cc = 'world';
+			}
+			$lc = $country_languages{$cc}[0]; # first official language
 
-				if (not exists $Langs{$lc}) {
-					$lc = 'en';
-				}
+			if (not exists $Langs{$lc}) {
+				$lc = 'en';
+			}
 
-				print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
+			print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
 
-				$cc ne '' or next;
-				$c++;
+			$cc ne '' or next;
+			$c++;
 
-				my $n = $countries_tags{$country}{categories}{"en:yogurts"};
-				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
-
-
-                $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
-        }
-
-}
-$html =~ s/ 1 yogurts/ 1 yogurt/g;
-
-my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
+			my $n = $countries_tags{$country}{categories}{"en:yogurts"};
+			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+			my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 
 
-$html = "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
+		}
 
-open (my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
-print $OUT $html;
-close $OUT;
+	}
+	$html =~ s/ 1 yogurts/ 1 yogurt/g;
 
-close $DEBUG;
+	my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
+
+
+	$html = "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+
+	open (my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
+	print $OUT $html;
+	close $OUT;
+
+	close $DEBUG;
 
 }
 
@@ -619,60 +627,67 @@ close $DEBUG;
 
 
 if ($server_domain eq 'openbeautyfacts.org') {
+	print "Starting shampoos_countries.html...\n";
 
-open (my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
+	open (my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
 
-my $html = "";
-my $c = 0;
-foreach my $country (sort { $countries_tags{$b}{categories}{"en:shampoos"} <=> $countries_tags{$a}{categories}{"en:shampoos"}} keys %countries) {
+	my $html = "";
+	my $c = 0;
+	foreach my $country (sort { ($countries_tags{$b}{categories}{"en:shampoos"} // 0) <=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0) } keys %countries) {
 
-		print $DEBUG "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
-		print STDERR "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
-        if ($countries_tags{$country}{categories}{"en:shampoos"}  > 0) {
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
-				}
-				$lc = $country_languages{$cc}[0]; # first official language
+		print $DEBUG "shampoos - $country - " . ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+		print STDERR "shampoos - $country - " . ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
+			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+			if ($country eq 'en:world') {
+				$cc = 'world';
+			}
+			$lc = $country_languages{$cc}[0]; # first official language
 
-				if (not exists $Langs{$lc}) {
-					$lc = 'en';
-				}
+			if (not exists $Langs{$lc}) {
+				$lc = 'en';
+			}
 
-				print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
+			print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
 
-				$cc ne '' or next;
-				$c++;
+			$cc ne '' or next;
+			$c++;
 
-				my $n = $countries_tags{$country}{categories}{"en:shampoos"};
-				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:shampoos") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
-
-
-                $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
-        }
-
-}
-$html =~ s/ 1 shampoos/ 1 shampoo/g;
-
-my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
+			my $n = $countries_tags{$country}{categories}{"en:shampoos"};
+			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+			my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:shampoos") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 
 
-$html = "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
+		}
 
-open (my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
-print $OUT $html;
-close $OUT;
+	}
+	$html =~ s/ 1 shampoos/ 1 shampoo/g;
 
-close $DEBUG;
+	my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
+
+
+	$html = "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+
+	open (my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
+	print $OUT $html;
+	close $OUT;
+
+	close $DEBUG;
 
 }
 
 
 # Number of products and complete products
 
+print "Starting products_stats_??.html...\n";
 foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
 
+	if (!defined($properties{countries}{$country}{"country_code_2:en"})) {
+		print "No country_code_2 found for $country\n";
+		next;
+	}
+	
 	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
 	if ($country eq 'en:world') {
 		$cc = 'world';
@@ -690,62 +705,65 @@ HTML
 
 	foreach my $lc (@{$country_languages{$cc}}) {
 
-	$lang = $lc;
+		$lang = $lc;
 
-	my $series = '';
+		my $series = '';
 
-	my $end = 0;
-	my $start = 100000000000;
+		my $end = 0;
+		my $start = 100000000000;
 
-	foreach my $date (@dates) {
-		if ($countries_dates{$country}{$date . ".start"} < $start) {
-			$start = $countries_dates{$country}{$date . ".start"};
+		foreach my $date (@dates) {
+			if ($countries_dates{$country}{$date . ".start"} < $start) {
+				$start = $countries_dates{$country}{$date . ".start"};
+			}
+			if ($countries_dates{$country}{$date . ".end"} > $end) {
+				$end = $countries_dates{$country}{$date . ".end"};
+			}
 		}
-		if ($countries_dates{$country}{$date . ".end"} > $end) {
-			$end = $countries_dates{$country}{$date . ".end"};
-		}
-	}
 
-	foreach my $date (@dates) {
-		my @sorted_dates = sort ( {$countries_dates{$country}{$date}{$a} <=> $countries_dates{$country}{$b}} keys %{$countries_dates{$country}{$date}});
+		foreach my $date (@dates) {
 
-		my $series_start = $countries_dates{$country}{$date . ".start"};
-		my $series_end = $countries_dates{$country}{$date . ".end"};
+			my $series_start = $countries_dates{$country}{$date . ".start"};
+			my $series_end = $countries_dates{$country}{$date . ".end"};
 
 
 
-		my $name = $Lang{"products_stats_$date"}{$lang};
-		my $series_point_start = $series_start * 86400 * 1000;
-		$series .= <<HTML
+			my $name = $Lang{"products_stats_$date"}{$lang};
+			my $series_point_start = $series_start * 86400 * 1000;
+			$series .= <<HTML
 {
 	name: '$name',
 	pointInterval: 24 * 3600 * 1000,
-    pointStart: $series_point_start,
+	pointStart: $series_point_start,
 	data: [
 HTML
 ;
 
-		my $current = 0;
-		my $i = 0;
-		for (my $t = $series_start ; $t < $end; $t++) {
-			if (defined $countries_dates{$country}{$date}{$t}) {
-				$current = $countries_dates{$country}{$date}{$t};
+			my $current = 0;
+			my $i = 0;
+			for (my $t = $series_start ; $t < $end; $t++) {
+				if (defined $countries_dates{$country}{$date}{$t}) {
+					$current = $countries_dates{$country}{$date}{$t};
+				}
+				#$series .= $current . ', ';
+				$i++;
+				if ($i % 10 == 0) {
+					#$series =~ s/ $/\n/;
+					$series .= $current . ",\n";
+				} else {
+					$series .= $current . ', ';
+				}
 			}
-			$series .= $current . ', ';
-			$i++;
-			if ($i % 10 == 0) {
-				$series =~ s/ $/\n/;
-			}
+			$series =~ s/,\n?$//;
+			$series .= "\n]\n},\n";
 		}
-		$series =~ s/,\n?$//;
-		$series .= "\n]\n},\n";
-	}
 
-	$series =~ s/,\n$//;
+		$series =~ s/,\n$//;
 
-	my $country_name = display_taxonomy_tag($lang,'countries',$country);
+		my $country_name = display_taxonomy_tag($lang,'countries',$country);
 
-	my $html = <<HTML
+		#$Lang{products_p}{$lang} is undefined, products_p doesn't appear to be in the .po files.
+		my $html = <<HTML
 <initjs>
 
 Highcharts.setOptions({
@@ -767,11 +785,11 @@ Highcharts.setOptions({
                     '$cc.$server_domain</a>'
             },
             xAxis: {
-		        type: 'datetime',
+                type: 'datetime',
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products_p}{$lang}'
+                    text: '$Lang{products}{$lang}'
                 },
                 labels: {
                     formatter: function() {
@@ -779,9 +797,9 @@ Highcharts.setOptions({
                     }
                 }
             },
-			tooltip: {
+            tooltip: {
                 shared: true
-			},
+            },
             plotOptions: {
                 area: {
                     //pointStart: 1940,
@@ -799,7 +817,7 @@ Highcharts.setOptions({
             },
             series: [
 $series
-			]
+            ]
         });
 
 </initjs>
@@ -815,12 +833,15 @@ $meta
 HTML
 ;
 
-	print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html");
-	print $OUT $html;
-	close $OUT;
+		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
+		if (open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html")) {
+			print $OUT $html;
+			close $OUT;
+		} else {
+			print STDERR "Failed to write to '$data_root/lang/$lang/texts/products_stats_$cc.html'\n";
+		}
 
-}
+	}
 }
 
 
@@ -829,69 +850,72 @@ HTML
 
 # Number of products and complete products
 
+print "Starting products_countries.js...\n";
+
 my $date = "created_t";
 
 
-	my $series = '';
+my $series = '';
 
-	my $end = 0;
-	my $start = 100000000000;
+my $end = 0;
+my $start = 100000000000;
 
-	foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
+foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
 
-		if ($countries_dates{$country}{$date . ".start"} < $start) {
-			$start = $countries_dates{$country}{$date . ".start"};
-		}
-		if ($countries_dates{$country}{$date . ".end"} > $end) {
-			$end = $countries_dates{$country}{$date . ".end"};
-		}
+	if ($countries_dates{$country}{$date . ".start"} < $start) {
+		$start = $countries_dates{$country}{$date . ".start"};
 	}
+	if ($countries_dates{$country}{$date . ".end"} > $end) {
+		$end = $countries_dates{$country}{$date . ".end"};
+	}
+}
 
-	foreach my $country (sort  { $countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"} } keys %countries) {
+foreach my $country (sort  { $countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"} } keys %countries) {
 
 	$lang = $lc;
 
-		my @sorted_dates = sort ( {$countries_dates{$country}{$date}{$a} <=> $countries_dates{$country}{$b}} keys %{$countries_dates{$country}{$date}});
+	my $series_start = $countries_dates{$country}{$date . ".start"};
+	my $series_end = $countries_dates{$country}{$date . ".end"};
 
-		my $series_start = $countries_dates{$country}{$date . ".start"};
-		my $series_end = $countries_dates{$country}{$date . ".end"};
+	next if $series_start < 100;
 
-		next if $series_start < 100;
-
-		my $name = $Langs{$lc};
-		my $series_point_start = $series_start * 86400 * 1000;
-		$series .= <<HTML
+	my $name = $Langs{$lc};
+	my $series_point_start = $series_start * 86400 * 1000;
+	$series .= <<HTML
 {
 	name: '$name',
 	pointInterval: 24 * 3600 * 1000,
-    pointStart: $series_point_start,
+	pointStart: $series_point_start,
 	data: [
 HTML
 ;
 
-		my $current = 0;
-		my $i = 0;
-		for (my $t = $series_start ; $t < $end; $t++) {
-			if (defined $countries_dates{$country}{$date}{$t}) {
-				$current = $countries_dates{$country}{$date}{$t};
-			}
-			$series .= $current . ', ';
-			$i++;
-			if ($i % 10 == 0) {
-				$series =~ s/ $/\n/;
-			}
+	my $current = 0;
+	my $i = 0;
+	for (my $t = $series_start ; $t < $end; $t++) {
+		if (defined $countries_dates{$country}{$date}{$t}) {
+			$current = $countries_dates{$country}{$date}{$t};
 		}
-		$series =~ s/,\n?$//;
-		$series .= "\n]\n},\n";
+		#$series .= $current . ', ';
+		$i++;
+		if ($i % 10 == 0) {
+			#$series =~ s/ $/\n/;
+			$series .= $current . ",\n";
+		} else {
+			$series .= $current . ', ';
+		}
 	}
+	$series =~ s/,\n?$//;
+	$series .= "\n]\n},\n";
+}
 
-	$series =~ s/,\n$//;
+$series =~ s/,\n$//;
 
 
-	$lang = 'en';
-	$lc = 'en';
+$lang = 'en';
+$lc = 'en';
 
-	my $html = <<HTML
+my $html = <<HTML
 
 
         \$('#container').highcharts({
@@ -905,15 +929,15 @@ HTML
                 text: 'Source: <a href="https://$server_domain">'+
                     '$server_domain</a>'
             },
-			tooltip: {
+            tooltip: {
                 shared: true
-			},
+            },
             xAxis: {
-		        type: 'datetime',
+                type: 'datetime',
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products_p}{$lang}'
+                    text: '$Lang{products}{$lang}'
                 },
                 labels: {
                     formatter: function() {
@@ -938,16 +962,16 @@ HTML
             },
             series: [
 $series
-			]
+            ]
         });
 
 
 HTML
 ;
 
-	open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
-	print $OUT $html;
-	close $OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
+print $OUT $html;
+close $OUT;
 
 
 

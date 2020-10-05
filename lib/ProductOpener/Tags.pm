@@ -63,7 +63,6 @@ BEGIN
 		%canon_tags
 		%tags_images
 		%tags_texts
-		%tags_levels
 		%level
 		%special_tags
 
@@ -88,6 +87,7 @@ BEGIN
 		&spellcheck_taxonomy_tag
 
 		&get_tag_css_class
+		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
@@ -100,7 +100,7 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
-		&init_tags_texts_levels
+		&init_tags_texts
 
 		&get_city_code
 		%emb_codes_cities
@@ -229,7 +229,6 @@ my %all_parents     = ();
 
 
 %tags_images = ();
-%tags_levels = ();
 %tags_texts = ();
 
 my $logo_height = 90;
@@ -2159,7 +2158,7 @@ sub display_taxonomy_tag_link($$$) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
@@ -2469,6 +2468,66 @@ HTML
 }
 
 
+
+=head2 get_tag_image ( $target_lc, $tagtype, $canon_tagid )
+
+If an image is associated to a tag, return its relative url, otherwise return undef.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the image. If an image is not available in the target language,
+it can be returned in the tag language, or in English.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $canon_tagid
+
+=cut
+
+sub get_tag_image($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $canon_tagid = shift;
+	
+	my $img;
+	
+	my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
+
+	my $img_lc = $target_lc;
+
+	my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
+	my $en_imgid = get_taxonomyid("en",$canon_tagid);
+	my $tag_lc = undef;
+	if ($en_imgid =~ /^(\w\w):/) {
+		$en_imgid = $';
+		$tag_lc = $1;
+	}
+
+	if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
+		$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+	}
+	elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+		$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+		$img_lc = $tag_lc;
+	}
+	elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
+		$img = $tags_images{'en'}{$tagtype}{$en_imgid};
+		$img_lc = 'en';
+	}	
+	
+	if ($img) {
+		$img = "/images/lang/${img_lc}/$tagtype/" . $img;
+	}
+	
+	return $img;
+}
+
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2482,36 +2541,8 @@ sub display_tags_hierarchy_taxonomy($$$) {
 		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
-			my $img;
 			my $canon_tagid = canonicalize_taxonomy_tag($target_lc,$tagtype, $tag);
-			my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
-
-			my $img_lc = $target_lc;
-
-			my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-			my $en_imgid = get_taxonomyid("en",$canon_tagid);
-			my $tag_lc = undef;
-			if ($en_imgid =~ /^(\w\w):/) {
-				$en_imgid = $';
-				$tag_lc = $1;
-			}
-
-			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
-				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
-			}
-			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
-				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
-				$img_lc = $tag_lc;
-			}
-			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
-				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
-				$img_lc = 'en';
-			}
-
-			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
-				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
-			}
-
+			my $img = get_tag_image($target_lc, $tagtype, $canon_tagid);
 
 			if ($img) {
 				my $size = '';
@@ -2519,7 +2550,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				$images .= <<HTML
-<img src="/images/lang/${img_lc}/$tagtype/$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline">
 HTML
 ;
 			}
@@ -3349,8 +3380,8 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
-sub init_tags_texts_levels {
-	return if ((%tags_texts) and (%tags_levels));
+sub init_tags_texts {
+	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
 	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
@@ -3364,13 +3395,11 @@ sub init_tags_texts_levels {
 		my $lc = $langid;
 
 		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
-		defined $tags_levels{$lc} or $tags_levels{$lc} = {};
 
 		if (-e "$data_root/lang/$langid") {
 			foreach my $tagtype (sort keys %tag_type_singular) {
 
 				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
-				defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
 
 				# this runs number-of-languages * number-of-tag-types times.
 				if (-e "$data_root/lang/$langid/$tagtype") {
@@ -3382,12 +3411,8 @@ sub init_tags_texts_levels {
 
 						my $text = join("",(<$IN>));
 						close $IN;
-						if ($text =~ /class="level_(\d+)"/) {
-							$tags_levels{$lc}{$tagtype}{$tagid} = $1;
-						}
-						$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
-						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 
+						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 					}
 					closedir(DH);
 				}

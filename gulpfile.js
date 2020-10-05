@@ -1,6 +1,6 @@
 /*global exports */
 
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
@@ -9,6 +9,14 @@ const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
 const modernizr = require("gulp-modernizr");
 const autoprefixer = require("gulp-autoprefixer");
+
+const jsSrc = [
+  './html/js/display*.js',
+  './html/js/product-multilingual.js',
+  './html/js/search.js'
+];
+
+const sassSrc = "./scss/**/*.scss";
 
 const sassOptions = {
   errLogToConsole: true,
@@ -21,8 +29,8 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: false },
-        { removeTitle: false },
+        { removeMetadata: true },
+        { removeTitle: true },
         { removeDimensions: true },
           { addClassesToSVGElement: { className: "icon" } },
           {
@@ -37,7 +45,7 @@ function icons() {
 }
 
 function css() {
-  return src("./scss/**/*.scss").
+  return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(autoprefixer()).
@@ -76,11 +84,7 @@ function copyJs() {
 }
 
 function buildJs() {
-  return src([
-    './html/js/display*.js',
-    './html/js/product-multilingual.js',
-    './html/js/search.js'
-  ]).
+  return src(jsSrc).
   pipe(sourcemaps.init()).
   pipe(terser()).
   pipe(sourcemaps.write(".")).
@@ -156,3 +160,7 @@ exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
 exports.default = parallel(series(parallel(copyJs, buildJs, buildjQueryUi), modernizeJs), copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.watch = function () {
+  watch(jsSrc, { delay: 500 }, series(buildJs, modernizeJs));
+  watch(sassSrc, { delay: 500 }, css);
+};

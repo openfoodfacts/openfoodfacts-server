@@ -82,6 +82,7 @@ $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
 $product_ref->{selected_images}->{ingredients_de} = 'bar';
 $product_ref->{selected_images}->{nutrition_de} = 'bar';
+$product_ref->{last_modified_t} = time();
 foreach my $field (@string_fields) {
 	$product_ref->{$field} = 'foo';
 }

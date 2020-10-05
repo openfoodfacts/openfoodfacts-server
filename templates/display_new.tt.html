@@ -5,7 +5,7 @@
     <title>[% title %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="fb:app_id" content="[% fb_config %]">
+    <meta property="fb:app_id" content="[% fb_config %]">
     <meta property="og:type" content="[% og_type %]">
     <meta property="og:title" content="[% canon_title %]">
     <meta property="og:url" content="[% canon_url %]">
@@ -158,29 +158,7 @@
       <div id="main_column" class="cell xxlarge-11 xlarge-10 large-9 medium-8" style="padding-top:1rem"
       data-equalizer-watch>
       <!-- main column content - comment used to remove left column and center content on some pages -->
-
-				[% IF (! server_options_producers_platform) %]
-                <div id="donate_banner" class="grid-x">
-                    <div class="cell small-12 large-12 xlarge-8 xxlarge-7">
-          <!-- /* image_banner */ -->
-          [% IF lc == ( 'fr' || 'fi' || 'es' || 'it' || 'de' ) %]
-          <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a
-              href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term[% banner %]"><img
-                src="[% image %]" alt="" /></a></div>
-          [% ELSE %]
-          <div id="image_banner" style="margin-bottom:1rem;" style="display:none;"><a
-              href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2019&utm_term[% banner %]"><img
-                src="[% image_en %]" alt="" /></a></div>
-          [% END %]
-          <div><input id="hide_image_banner" type="checkbox">
-            <label for="hide_image_banner">
-              <span id="hide_image_banner_hide" style="display:none;">[% lang('donation_banner_hide') %]</span>
-              <span id="hide_image_banner_show" style="display:none;">[% lang('donation_banner_show') %]</span>
-            </label>
-          </div>
-        </div>
-      </div>
-				[% END %]
+      [% INCLUDE 'donate_banner.tt.html' %]
       [% h1_title %]
       [% content_ref %]
       </div>
@@ -253,19 +231,19 @@
 </script>
 <script type="application/ld+json">
 {
-	"\@context" : "https://schema.org",
-	"\@type" : "WebSite",
+	"@context" : "https://schema.org",
+	"@type" : "WebSite",
 	"name" : "[% lang('site_name') %]",
 	"url" : "[% formatted_subdomain %]",
 	"potentialAction": {
-		"\@type": "SearchAction",
+		"@type": "SearchAction",
 		"target": "[% formatted_subdomain %]/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
 {
-	"\@context": "https://schema.org/",
-	"\@type": "Organization",
+	"@context": "https://schema.org/",
+	"@type": "Organization",
 	"url": "[% formatted_subdomain %]",
 	"logo": "/images/misc/[% lang('logo') %]",
 	"name": "[% lang('site_name') %]",

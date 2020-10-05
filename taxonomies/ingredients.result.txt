@@ -30,6 +30,8 @@ stopwords:zh::配料
 
 synonyms:en:FD&C, FD and C, FDC, FFDCA, FDCA
 
+synonyms:en:hydrolysed, hydrolyzed
+
 < en:Minerals
 synonyms:en:iron, ferric, ferrous
 synonyms:af:yster
@@ -157,6 +159,7 @@ synonyms:yi:אייזן
 synonyms:yo:Iron
 synonyms:za:Diet
 synonyms:zh:铁
+description:en: IRON is a chemical element with symbol Fe -from Latin:ferrum- and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as ironII fumarate, although iron-II- sulfate is cheaper and is absorbed equally well.
 wikidata:en: Q677
 wikipedia:en: https://en.wikipedia.org/wiki/Iron
 
@@ -187,9 +190,12 @@ synonyms:en:no8, n8, 8
 synonyms:en:no9, n9, 9
 
 synonyms:en:pasteurised, pasteurized
-synonyms:es:zumo, jugo, sirope, jarabe
 
 synonyms:en:sulfide, sulphide
+
+synonyms:es:jarabe, sirope
+
+synonyms:es:zumo, jugo
 
 synonyms:fr:de fer, ferreux, ferrique
 
@@ -308,6 +314,7 @@ ga:Aigéad
 he:חומצה
 hu:Étkezési sav
 it:Acidificante, acidificanti
+ja:酸味料
 lt:Rūgštis
 lv:Skābe
 mt:Aċidu
@@ -356,7 +363,7 @@ ga:Rialtán aigéadachta
 he:מווסת חומציות
 hu:Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Savanyúságot szabályzó anyag, Savanyúságot szabályzó anyagok
 is:Sýrustillar
-it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità
+it:correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità, correttore d'acidità
 lt:Rūgštingumą reguliuojanti medžiaga
 lv:Skābuma regulētājs
 mt:Regolatur tal-Aċidità
@@ -1613,9 +1620,10 @@ be:Еўрапейскі анчоус
 br:Genougamm Europa
 de:Europäische Sardelle
 fi:sardelli
-fr:anchois commun
+fr:anchois commun, Anchois européen, Anchois de l'Afrique australe, Anchois italien
 it:European anchovy, acciuga o alice
 kw:Lavyn europek
+la:Engraulis encrasicolus
 lt:Europinis ančiuvis
 pl:Sardela europejska
 ru:Европейский анчоус
@@ -1636,10 +1644,6 @@ fr:anchois salés
 < en:Anchovy
 la:Stolephorus spp
 wikipedia:en: https://en.wikipedia.org/wiki/Stolephorus
-
-< en:Anglerfish
-en:Lophius piscatorius
-la:Lophius piscatorius
 
 en:animal
 ca:Animal
@@ -2167,6 +2171,7 @@ pl:Białka mleczne, białka mleka
 pt:proteína do leite, proteínas lácteas
 ro:proteină din lapte, proteine din lapte
 ru:молочный белок, молочные белки
+sk:mliečne bielkoviny
 sv:mjölkprotein
 allergens:en: en:milk
 nova:en: 4
@@ -2209,7 +2214,7 @@ el:Αντισυσσωματωτικό
 es:Antiaglomerante, antiaglutinante, agente antiadherente, agente antiaglutinante, angente de empolvo, agente de sacado
 et:Paakumisvastane aine
 fi:Paakkuuntumisenestoaine, Paakkuuntumisenestoainetta, Paakkuuntumisenestoaineet, Paakkuuntumisenestoaineita
-fr:Antiagglomérant, poudre de fleurage, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant
+fr:Antiagglomérant, agent antiadhésif, agent de pulvérisation sèche, agent dessicateur, anti-agglomérant, poudre de fleurage
 ga:Oibreán frithstolptha
 hu:Csomósodást és lesülést gátló anyag, Csomósodást gátló anyag
 it:Agente antiagglomerante, agenti antiagglomeranti, antiagglomerante, antiagglomeranti
@@ -2302,6 +2307,7 @@ fr:Antioxydant, antioxygène, antibrunissant, antioxydant synergique, anti-oxyda
 ga:Frithocsaídeoir
 hu:Antioxidáns
 it:Antiossidante, antiossidanti, agente antiossidante, agenti antiossidanti
+ja:酸化防止剤
 lt:Antioksidantas
 lv:Antioksidants
 mt:Antiossidant
@@ -2438,7 +2444,7 @@ fi:omenamehutiiviste
 fr:concentré de jus de pomme, jus de pommes concentré
 it:concentrato di succo di mele
 nl:appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
-pl:Sok jabłkowy z koncentratu
+pl:zagęszczony sok jabłkowy
 ru:Концентрированный яблочный сок
 sv:äppeljuicekoncentrat
 
@@ -2646,10 +2652,6 @@ fr:clupea harengus pêché en Atlantique Nord
 en:smoked atlantic salmon
 de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
-
-< en:Atlantic wolffish
-en:Anarhichas lupus
-la:Anarhichas lupus
 
 < en:Aubergine
 en:dried aubergine
@@ -3110,9 +3112,6 @@ vegan:en: no
 vegetarian:en: no
 
 < en:Beef
-fr:extrait de bœuf
-
-< en:Beef
 fr:jus de cuisson de viande de bœuf, jus de cuisson du boeuf
 
 < en:Beef
@@ -3308,24 +3307,12 @@ da:rødbedejuice fra koncentrat
 de:Randensaft aus Konzentrat
 fi:punajuurimehutiiviste
 fr:jus de betterave concentré, jus concentré de betterave
-
-< en:Bell pepper
-en:paprika paste
-de:Paprikapaste
-fi:paprikatahna
-fr:Pâte de paprika
-
-< en:Bell pepper
-en:paprika powder
+sk:koncentrát šťavy z cvikly
 
 < en:Bell pepper
 en:piquillo pepper
 es:pimiento del piquillo
 fr:Poivrons du piquillo
-
-< en:Bell pepper
-en:sweet paprika
-es:pimienta roja dulce
 
 < en:Bell pepper
 en:sweet peppers
@@ -3344,10 +3331,6 @@ fi:keltainen paprika
 fr:poivron jaune, poivrons jaunes
 it:peperone giallo
 nl:gele paprika
-
-< en:Bell pepper
-fr:paprika doux
-es:pimentón dulce
 
 < en:Berries
 en:berry blend, berry mix
@@ -3370,7 +3353,7 @@ fi:mustikka, pensasmustikka
 fr:myrtille
 hu:áfonya
 is:Aðalbláber
-it:mirtillli
+it:mirtillo, mirtilli
 ja:ビルベリー
 ka:მოცვი
 nb:blåbær
@@ -3839,6 +3822,9 @@ en:Lactarius sanguifluus, lactarus sanguifluus
 la:Lactarius sanguifluus
 wikidata:en: Q961386
 wikipedia:en: https://en.wikipedia.org/wiki/Lactarius_sanguifluus
+
+< en:Blue mussel
+fr:Mytilus edulis pêchées en Atlantique Nord
 
 < en:Blueberry
 en:blueberry juice
@@ -4745,12 +4731,12 @@ description:sk: Objemové činidlá sú látky, ktoré prispievajú k zväčšov
 description:sl: Sredstva za povečanje prostornine so snovi, ki povečajo prostornino živila, ne da bi bistveno povečale njegovo energetsko vrednost.
 description:sv: Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att väsentligt bidra till dess tillgängliga näringsvärde.
 
-< en:Burbot
-en:lota lota
-la:lota lota
-
 < en:Butter
 de:Deutsche Markenbutter
+
+< en:Butter
+en:Charentes butter PDO
+fr:Beurre Charentes-Poitou AOP, Beurre des Charentes
 
 < en:Butter
 en:churned butter
@@ -5100,6 +5086,7 @@ fr:chou chinois
 id:Sawi putih
 ja:ハクサイ
 ko:배추
+la:Brassica rapa subsp. pekinensis
 lt:Pekininis kopūstas
 mk:кинеска зелка
 ms:Kubis Cina
@@ -5120,10 +5107,12 @@ en:pak choi, Bok choy, pok choi
 de:Pak Choi
 el:Μποκ τσόι
 fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr:Brassica rapa, Bok choy, Pak choï
+fr:Bok choy, Pak choï
+la:Brassica rapa subsp. chinensis
 nl:Paksoi
 ru:бок-чой
 uk:Бок-чой
+wikidata:en: Q18968514
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
 
 < en:Cabbage
@@ -5435,29 +5424,6 @@ sl:kalcijev citrat malat
 sv:kalciumcitratmalat
 
 < en:Calcium
-en:calcium glycerophosphate
-bg:Калциев глицерофосфат
-cs:glycerofosforečnan vápenatý
-de:
-el:γλυκεροφωσφορικό ασβέστιο
-es:
-et:kaltsiumglütserofosfaat
-fi:
-fr:
-hu:kalcium-glicerofoszfát
-it:glicerofosfato di calcio
-lt:kalcio glicerofosfatas
-lv:kalcija glicerofosfāts
-mt:gliċerofosfat tal-kalċju
-nl:
-pl:glicerofosforan wapnia
-pt:glicerofosfato de cálcio
-ro:glicerofosfat de calciu
-sk:glycerofosforečnan vápenatý
-sl:kalcijev glicerofosfat
-sv:kalciumglycerolfosfat
-
-< en:Calcium
 en:calcium L-pidolate
 bg:Калциев L-пидолат
 cs:L-pyroglutaman vápenatý
@@ -5669,15 +5635,18 @@ de:natürliches Mineralwasser mit Kohlensäure versetzt
 < en:Carbonated natural mineral water
 fr:Eau minérale naturelle renforcée au gaz de la source
 
+< en:Carbonated spring water
+fr:eau de source St Benoît gazéifiée
+
 < en:Carbonated water
-en:Sparkling water
-de:Sprudelwasser, Wasser mit Kohlensäure
-fr:
-wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
+< en:Mineral water
+en:Carbonated mineral water, sparkling mineral water
+de:Mineralwasser mit Kohlensäure, kohlensäurehaltiges Mineralwasser
+fi:hiilihapotettu kivennäisvesi
+fr:eau minérale gazeuse
+nl:Bruisend mineraalwater, gashoudendmineraalwater
 
 en:Carbonating agent
-ca:Gasificant
-es:Agente gasificante
 fi:Karbonointiaine, Karbonointiainetta, Karbonointiaineet, Karbonointiaineita
 fr:Agent de carbonation
 description:en: A food additive used to provide carbonation in a food.
@@ -6016,10 +5985,6 @@ es:Jugo de apio
 fr:jus de céleri
 
 < en:Celery
-en:celery leaves
-es:apio hoja
-
-< en:Celery
 en:celery powder
 de:Selleriepulver
 fi:sellerijauhe
@@ -6035,10 +6000,12 @@ fr:purée de céleri
 
 < en:Celery
 < en:Herb
-fr:feuilles de céleri
+en:celery leaves
 de:Sellerieblätter, Sellerieblatt
+es:apio hoja
+fr:feuilles de céleri
 it:foglie di sedano
-nl:selderblad
+nl:selderblad, bladselderij
 
 < en:Celery
 fr:céleri branche
@@ -6737,7 +6704,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Spelt
 
 < en:Cereal
 en:teff
-es:teff, semilla de teff
+es:teff
 allergens:en: en:gluten
 wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
@@ -6912,7 +6879,7 @@ hu:kölesliszt
 it:farina di miglio
 
 < en:Cereal flour
-en:oat flour
+en:oat flour, oatflour
 cs:Ovesná mouka
 da:Havremel
 de:Hafermehl
@@ -6937,7 +6904,7 @@ es:harina de centeno
 fi:ruisjauho
 fr:farine de seigle
 hu:rozsliszt
-it:farina di segala
+it:farina di segala, farina di segale
 nb:rugmel
 nl:roggemeel, roggebloem, rogge-bloem
 pl:mąka żytnia
@@ -6948,7 +6915,7 @@ sv:rågmjöl
 
 < en:Cereal flour
 en:spelt flour
-de:Dinkelmehl
+de:Dinkelmehl, dinkelweizenmehl
 es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
 fi:spelttijauho
 fr:farine d'épeautre, farine de blé d'épeautre
@@ -7026,6 +6993,9 @@ fr:Thé noir de Ceylan bio
 
 < en:Champagne
 fr:champagne brut
+
+< en:Champignon
+en:chestnut mushroom
 
 < en:Champignon
 fr:champignons de Paris émincés
@@ -9614,6 +9584,7 @@ pl:chlorek chromuIII
 ru:хлорид хромаIII
 sk:Chlorid chromitý
 sv:KromIIIklorid
+description:en: CHROMIUMIII chloride -also called chromic chloride- describes any of several compounds of with the formula CrCl3 · xH2O, where x can be 0, 5, and 6. Although trivalent chromium is far less poisonous than hexavalent, chromium salts are generally considered toxic
 wikidata:en: Q411885
 wikipedia:en: https://en.wikipedia.org/wiki/ChromiumIII_chloride
 
@@ -10379,6 +10350,7 @@ hr:kakaova masa
 hu:kakaómassza
 is:kakómassi
 it:pasta di cacao, massa di cacao
+ja:カカオマス
 kk:үгілген какао
 ky:майдаланган какао
 lt:kakavos masė
@@ -10524,7 +10496,7 @@ fr:pâte et beurre de cacao, pâte de cacao et beurre de cacao
 < en:Cocoa powder
 en:cocoa powder processed with alkali, alkalized cocoa powder
 es:Cacao en polvo procesado con álcali
-fr:Cacao alcalinisé
+fr:Cacao en poudre alcalinisé
 
 < en:Cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, cocoa powder with low fat content
@@ -10534,7 +10506,7 @@ cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
 de:fettarmes Kakaopulver, Kakaopulver stark entölt, mageres Kakaopulver, fettreduziertes Kakaopulver, Magerkakaopulver, Kakaopulver mit reduziertem Fettgehalt
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa
-et:lahja kakaopulber
+et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
 fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses
 hr:kakao u prahu smanjene masnoce
@@ -11027,6 +10999,7 @@ fi:kahviuute
 fr:extrait de café, extraits de café
 it:estratto di caffè
 nl:koffie-extract
+pl:ekstrakt kawy
 sv:kaffeextrakt
 
 < en:Coffee
@@ -11238,10 +11211,10 @@ nl:collageendarm
 
 en:Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour, colouring agent, coloring agent
 bg:Оцветител, оцветители
-ca:Color, colors, colorant, colorants, pigment decoratiu, colorant alimentari, colorants alimentaris
+ca:Color, colors, colorant, colorants, pigment decoratiu
 cs:Barvivo
 da:Farvestof, Farve
-de:Farbstoff, Farbstoffe, färbende Lebensmittel, färbendes Lebensmittel
+de:Farbstoff, Farbstoffe
 el:Χρωστική ουσία
 es:Colorante, colorantes, color, colorante de superficie, pigmentos de coloración y decoración, pigmentos de coloración, pigmentos de decoración, colorantes alimentarios, colorante alimentario
 et:Toiduvärv
@@ -11312,8 +11285,8 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 
 < en:Colour
 fr:denrée alimentaire colorante, denrées alimentaires colorantes
-ca:
-de:
+ca:colorant alimentari, colorants alimentaris
+de:färbendes Lebensmittel, färbende Lebensmittel
 es:colorante alimenticio, colorantes alimenticios
 hu:élelmiszer színezék
 it:sostanze alimentari coloranti
@@ -11321,7 +11294,7 @@ it:sostanze alimentari coloranti
 en:colour retention agent, colour adjunct, colour fixative, colour stabilizer
 de:Farbstabilisator
 es:Agente de retención de color, complementos del color, estabilizador del color, estabilizadores del color, fijadores del color, fijador del color
-fr:agent de rétention de la couleur, fixateur de la couleur, adjuvant de la couleur, stabilisant de la couleur, agent de rétention de couleur, fixateur de couleur, adjuvant de couleur, stabilisant de couleur
+fr:agent de rétention de la couleur, fixateur de la couleur, fixateur de couleur, adjuvant de la couleur, stabilisant de la couleur, agent de rétention de couleur, adjuvant de couleur, stabilisant de couleur
 description:es: Aditivos alimentarios que estabilizan, retienen o intensifican el color de un alimento.
 description:fr: Additif alimentaire qui stabilise, retient ou intensifie la couleur d'une denrée alimentaire.
 
@@ -11393,7 +11366,7 @@ fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré, J
 hu:sűrített almalé, almalé sűrítmény, almalé koncentrátum, almalé koncentrátumból
 it:succo di mele a base di concentrato
 nl:appelsap uit concentraat
-pl:Sok jabłkowy z koncentratu
+pl:sok jabłkowy z koncentratu
 sv:äppeljuice från koncentrat
 
 < en:Concentrated celery juice
@@ -11683,6 +11656,7 @@ sl:bakrov glukonat
 sr:Bakar glukonat
 sv:kopparglukonat
 zh:葡萄糖酸铜
+description:en: COPPER GLUCONATE is the copper salt of D-gluconic acid.
 wikidata:en: Q3109285
 wikipedia:en: https://en.wikipedia.org/wiki/Copper_gluconate
 
@@ -12844,7 +12818,7 @@ br:Chevrenn
 ca:gamba
 cs:krevety
 da:Reje, rejer
-de:Garnele, crevetten
+de:Garnele, Garnelen, crevetten
 eo:salikoko
 es:gamba, langostino, gambon
 eu:Izkira
@@ -13099,7 +13073,7 @@ ar:منتجات الألبان
 be:Малочныя прадукты
 br:Boued-laezh
 bs:Mliječni proizvodi
-ca:Làctic, producte làctic, llet i els seus derivats, llet i derivats, derivats làctics, làctics
+ca:Làctic, producte làctic, llet i els seus derivats, llet i derivats, derivats làctics, làctics, productes làctics
 cs:Mléčný výrobek
 cy:Cynnyrch llaeth
 da:Mejeriprodukter
@@ -14555,7 +14529,7 @@ fr:fins finots de blé dur
 it:friscello di grano duro
 
 < en:Durum wheat
-en:bulgur
+en:bulgur, bulgur wheat
 ar:برغل
 az:Bulqur
 be:Булгур
@@ -14563,7 +14537,7 @@ bg:Булгур
 ca:Bulgur
 cs:Bulgur
 da:Bulgur
-de:Bulgur
+de:Bulgur, Bulgurweizen
 el:Πλιγούρι
 eo:Bulguro
 es:Bulgur
@@ -14594,6 +14568,14 @@ uk:Булгур
 zh:布格麦
 wikidata:en: Q250432
 wikipedia:en: https://en.wikipedia.org/wiki/Bulgur
+
+< en:Durum wheat
+en:freekeh
+de:Freekeh
+fr:freekeh
+pt:freekeh
+wikidata:en: Q771079
+wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
 < en:Durum wheat
 en:organic durum wheat
@@ -14915,7 +14897,7 @@ es:E101a, E101a food additive
 et:E101a, E101a food additive
 fi:E101a, Flaviinimononukleotidi, Flaviinimononukleotidia, FMN
 fr:E101a, 5'-phosphate sodique de riboflavine, phosphate-5' de riboflavine de sodium, sel monosodique de l'ester du phosphate-5' de riboflavine, sel monosodique de l'ester de phosphate de la vitamine B2, sel de l'ester monosodique de la riboflavine 5-monophosphatée
-hu:E101a
+hu:E101a, E101a food additive
 it:E101a, E101a food additive
 lt:E101a, E101a food additive
 lv:E101a, E101a food additive
@@ -14975,6 +14957,7 @@ uk:E102, Тартразин
 zh:E102, :柠檬黄
 additives_classes:en: en:colour
 colour_index:en: CI 19140
+description:en: TARTRAZINE is a synthetic lemon yellow azo dye primarily used as a food coloring.
 e_number:en: 102
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1331.pdf
 efsa_evaluation:en: Scientific Opinion on the re-evaluation Tartrazine -E 102-
@@ -15369,7 +15352,7 @@ vegetarian:en: no
 wikidata:en: Q273144
 
 < en:E1105
-en:lysozyme from eggs
+en:lysozyme from eggs, egg lysozyme
 de:Lysozym aus Ei
 es:lisozima de huevo
 fi:lysotsyymi kananmunasta
@@ -15377,6 +15360,7 @@ fr:lysozyme d'œuf
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei
 sv:lysozym från ägg, lysozym av ägg
+allergens:en: en:eggs
 
 en:E111, Orange GGN, Alpha-naphthol, Alpha-naphtol, alpha-naphthol orange
 bg:E111, E111 food additive
@@ -15451,6 +15435,7 @@ vi:E120, Đỏ yên chi
 zh:E120, 胭脂红
 additives_classes:en: en:colour
 colour_index:en: CI 75470
+description:en: CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
 e_number:en: 120
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of cochineal, carminic acid, carmines -E 120- as a food additive
 efsa_evaluation_date:en: 2015-11-18
@@ -15825,6 +15810,7 @@ sv:E127, Erytrosin, E 127
 uk:E127, Еритрозин
 zh:E127, 赤藓红
 additives_classes:en: en:colour
+description:en: ERYTHROSINE, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
 e_number:en: 127
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1854.pdf
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of Erythrosine -E 127- as a food additive
@@ -15961,6 +15947,7 @@ sv:E131, Patentblått v, E 131
 uk:E131, Синій патентований V
 zh:E131, 專利藍V
 colour_index:en: CI 42051
+description:en: PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties -though not in actual Jell-O brand products-, among others.
 e_number:en: 131
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Patent Blue V -E 131- as a food additive
@@ -16044,6 +16031,7 @@ sv:E133, Briljantblått FCF, Briljantblått
 uk:E133, Діамантовий синій
 additives_classes:en: en:colour
 colour_index:en: CI 42090
+description:en: BRILLIANT BLUE FCF -Blue 1- is an organic compound classified as a blue triarylmethane dye, reflecting its chemical structure. Known under various commercial names, it is a colorant for foods and other substances.
 e_number:en: 133
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1853.pdf
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Brilliant Blue FCF -E 133- as a food additive
@@ -16166,6 +16154,7 @@ wa:E140i, Clorofile
 zh:E140i, 叶绿素
 additives_classes:en: en:colour
 colour_index:en: CI 75810
+description:en: CHLOROPHYLL is any of several related green pigments found in cyanobacteria and the chloroplasts of algae and plants. Chefs use chlorophyll to color a variety of foods and beverages green, such as pasta and spirits.
 e_number:en: 140
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of chlorophylls -E 140i- as food additives
 efsa_evaluation_date:en: 2015-05-07
@@ -16238,7 +16227,7 @@ mn:Декстрин
 mt:E1400, E1400 food additive
 nb:Dekstrin
 nl:E1400, Dextrine
-pl:E1400, Dekstryny, Maltodekstryna, Maltodekstryny, Dekstryna
+pl:E1400, Dekstryny, Dekstryna
 pt:E1400, Dextrina
 ro:E1400, Dextrină
 ru:декстрин
@@ -16652,6 +16641,7 @@ sr:E142, Zeleno S
 sv:E142, Grön s, CI Food Green 4, E 142
 uk:E142, Зелений S
 colour_index:en: CI 5
+description:en: GREEN S is a green synthetic coal tar triarylmethane dye with the molecular formula C27H25N2O7S2Na. It can be used in mint sauce, desserts, gravy granules, sweets, ice creams, and tinned peas.
 e_number:en: 142
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1851.pdf
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Green S -E 142- as a food additive
@@ -17067,6 +17057,7 @@ ur:E150, محروق
 uz:E150, Karamel
 vi:E150, Nước caramen
 zh:E150, 焦糖
+description:en: CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
 e_number:en: 150
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours -E 150 a,b,c,d- as food additives
 efsa_evaluation_date:en: 2011-03-08
@@ -17209,6 +17200,7 @@ tt:E150a, кәрәмил буягычы
 vi:E150a, Màu caramel
 zh:E150a, 焦糖色素
 additives_classes:en: en:colour
+description:en: Caramel color or caramel coloring is a water-soluble food coloring.
 e_number:en: 150a
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours -E 150 a,b,c,d- as food additives
@@ -18047,7 +18039,7 @@ vegetarian:en: yes
 
 < en:E160c
 en:capsicum extract
-da:
+da:capsicum ekstrakt
 de:Capsaicin-Extrakt
 es:extracto de capsicum
 fr:extrait de capsicum
@@ -18253,6 +18245,7 @@ uk:E161b, Лютеїн
 vi:E161b, lutein
 zh:E161b, 葉黃素
 additives_classes:en: en:colour
+description:en: LUTEIN is a xanthophyll and one of 600 known naturally occurring carotenoids. Lutein is extracted from the petals of African marigold -Tagetes erecta-. It is approved for use in the EU and Australia and New Zealand. In the United States lutein may not be used as a food coloring for foods intended for human consumption, but can be added to animal feed.
 e_number:en: 161b
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of lutein -E 161b- as a food additive
 efsa_evaluation_date:en: 2010-07-28
@@ -18464,6 +18457,7 @@ ro:E161i, E161i food additive
 sk:E161i, E161i food additive
 sl:E161i, E161i food additive
 sv:E161i, E161i food additive
+description:fr: La CITRANAXANTHINE est un pigment xantophylle naturel -famille des caroténoïdes  -, mais elle est vraisemblablement produite par synthèse
 e_number:en: 161
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin -E 161 g- as a food additive
 efsa_evaluation_date:en: 2010-10-22
@@ -18882,69 +18876,70 @@ nl:E170, Calciumcarbonaten
 
 < en:E170
 en:E170i, Calcium carbonate, CI Pigment White 18, Chalk
-af:Kalsiumkarbonaat
-an:Carbonato calcico
-ar:كربونات الكالسيوم
+af:E170i, Kalsiumkarbonaat
+an:E170i, Carbonato calcico
+ar:E170i, كربونات الكالسيوم
 bg:E170i, Калциев карбонат, CI бял пигмент 18
-bn:ক্যালসিয়াম কার্বনেট
-bs:Kalcij-karbonat
+bn:E170i, ক্যালসিয়াম কার্বনেট
+bs:E170i, Kalcij-karbonat
 ca:E170i, Carbonat de calci
 cs:E170i, Uhličitan vápenatý, CI bílý pigment 18
-cy:calsiwm carbonad
+cy:E170i, calsiwm carbonad
 da:E170i, Calciumcarbonat, CI Pigment White 18
 de:E170i, Calciumcarbonat, Pigment White 18, Kalk
 el:E170i, Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
-eo:kalcia karbonato
+eo:E170i, kalcia karbonato
 es:E170i, Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
 et:E170i, Kaltsiumkarbonaat, CI valge pigment 18
-eu:Kaltzio karbonato
-fa:کلسیم کربنات
+eu:E170i, Kaltzio karbonato
+fa:E170i, کلسیم کربنات
 fi:E170i, Kalsiumkarbonaatti, Kalsiumkarbonaattia, CI Pigment White 18
 fr:E170i, Carbonate de calcium, Pigment blanc C. I. no 18
-ga:carbónáit chailciam
-gl:Carbonato de calcio
-gv:Carboanaayt kelkium
-he:סידן פחמתי
-hi:कैल्सियम कार्बोनेट
-hr:Kalcijev karbonat
+ga:E170i, carbónáit chailciam
+gl:E170i, Carbonato de calcio
+gv:E170i, Carboanaayt kelkium
+he:E170i, סידן פחמתי
+hi:E170i, कैल्सियम कार्बोनेट
+hr:E170i, Kalcijev karbonat
 hu:E170i, Kalcium-karbonát, CI Pigment White 18
-hy:Կալցիումի կարբոնատ
-id:calsium carbonat
-is:Kalsíumkarbónat
+hy:E170i, Կալցիումի կարբոնատ
+id:E170i, calsium carbonat
+is:E170i, Kalsíumkarbónat
 it:E170i, Carbonato di calcio, CI pigmento bianco 18
-ja:炭酸カルシウム
-ko:탄산 칼슘
-ky:Кальций карбонаты
-la:Carbonatum calcii
+ja:E170i, 炭酸カルシウム
+ko:E170i, 탄산 칼슘
+ky:E170i, Кальций карбонаты
+la:E170i, Carbonatum calcii
 lt:E170i, Kalcio karbonatas, Baltasis pigmentas CI Nr. 18
 lv:E170i, Kalcija karbonāts, CI baltais pigments 18
-mk:Калциум карбонат
-ml:കാൽസ്യം കാർബണേറ്റ്
-mr:कॅल्शियम कार्बोनेट
+mk:E170i, Калциум карбонат
+ml:E170i, ചുണ്ണാമ്പ്
+mr:E170i, कॅल्शियम कार्बोनेट
 mt:E170i, Karbonat tal-kalċju, CI Pigment White 18
-my:Kalsium karbonat
-nb:kalsiumkarbonat
+my:E170i, Kalsium karbonat
+nb:E170i, kalsiumkarbonat
 nl:E170i, Calciumcarbonaat, CI Pigment White 18
-nn:kalsiumkarbonat
-oc:Carbonat de calci
+nn:E170i, kalsiumkarbonat
+oc:E170i, Carbonat de calci
 pl:E170i, Węglan wapnia, CI Pigment biały 18
 pt:E170i, Carbonato de cálcio, Pigmento branco CI 18
 ro:E170i, Carbonat de calciu, Pigment alb CI 18
-ru:карбонат кальция
-sh:Kalcijum karbonat
-si:කැල්සියම් කාබනේට්
+ru:E170i, карбонат кальция
+sh:E170i, Kalcijum karbonat
+si:E170i, කැල්සියම් කාබනේට්
 sk:E170i, Uhličitan vápenatý, CI pigment biely 18
 sl:E170i, Kalcijev karbonat, CI Pigment White 18
-sr:калцијум карбонат
+sr:E170i, калцијум карбонат
 sv:E170i, Kalciumkarbonat, CI Pigment White 18
-ta:கால்சியம் கார்பனேட்
-th:แคลเซียมคาร์บอเนต
-tr:Kalsiyum karbonat
-uk:Карбонат кальцію
-uz:Kalsiy karbonat
-vi:canxi cacbonat
-zh:碳酸鈣
+ta:E170i, கால்சியம் கார்பனேட்
+th:E170i, แคลเซียมคาร์บอเนต
+tr:E170i, Kalsiyum karbonat
+uk:E170i, Карбонат кальцію
+uz:E170i, Kalsiy karbonat
+vi:E170i, canxi cacbonat
+zh:E170i, 碳酸鈣
 additives_classes:en: en:colour, en:stabilizer
+description:en: CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
 e_number:en: 170
 efsa_evaluation:en: Scientific Opinion on re‐evaluation of calcium carbonate -E 170- as a food additive
 efsa_evaluation_date:en: 2011/07/26
@@ -18955,6 +18950,7 @@ organic_eu:en: authorized
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q23767
+wikipedia:en: https://en.wikipedia.org/wiki/Calcium_carbonate
 
 < en:E170
 en:E170ii, Calcium hydrogen carbonate, Calcium bicarbonate, Calcium acid carbonate
@@ -19397,6 +19393,7 @@ uk:E200, Сорбінова кислота
 vi:E200, Axit sorbic
 zh:E200, 山梨酸
 additives_classes:en: en:preservative
+description:en: SORBIC ACID, or 2‚4-hexadienoic acid, is a natural organic compound used as a food preservative. It has the chemical formula CH3-CH-4CO2H.
 e_number:en: 200
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of sorbic acid -E 200-, potassium sorbate -E 202- and calcium sorbate -E 203- as food additives
 efsa_evaluation_adi:en: 3
@@ -19474,6 +19471,7 @@ uk:E202, Сорбат калію
 vi:E202, Kali Sorbate
 zh:E202, 山梨酸钾
 additives_classes:en: en:preservative
+description:en: POTASSIUM SORBATE is the potassium salt of sorbic acid, chemical formula CH3CH=CH−CH=CH−CO2K.
 e_number:en: 202
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of sorbic acid -E 200-, potassium sorbate -E 202- and calcium sorbate -E 203- as food additives
 efsa_evaluation_adi:en: 3
@@ -19518,6 +19516,7 @@ sv:E203, Kalciumsorbat
 ta:E203, கால்சியம் சார்பேட்டு
 vi:E203, Canxi sorbat
 additives_classes:en: en:preservative
+description:en: CALCIUM SORBATE  is the calcium salt of sorbic acid. Calcium sorbate is a polyunsaturated fatty acid salt.
 e_number:en: 203
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sorbic acid -E 200-, potassium sorbate -E 202- and calcium sorbate -E 203- as food additives
 efsa_evaluation_date:en: 2015-06-30
@@ -19626,6 +19625,7 @@ tr:E211, Sodyum Benzoat
 vi:E211, natri benzoat
 zh:E211, 苯甲酸钠
 additives_classes:en: en:preservative
+description:en: SODIUM BENZOATE is a substance which has the chemical formula NaC7H5O2
 e_number:en: 211
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of benzoic acid -E 210-, sodium benzoate -E 211-, potassium benzoate -E 212- and calcium benzoate -E 213- as food additives
 efsa_evaluation_adi:en: 5
@@ -19934,6 +19934,7 @@ uk:Діоксид сірки
 vi:Lưu huỳnh điôxit
 zh:二氧化硫
 additives_classes:en: en:antioxidant, en:preservative
+description:en: SULPHUR DIOXIDE is the chemical compound with the formula SO2.
 e_number:en: 220
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide -E 220-, sodium sulfite -E 221-, sodium bisulfite -E 222-, sodium metabisulfite -E 223-, potassium metabisulfite -E 224-, calcium sulfite -E 226-, calcium bisulfite -E 227- and potassium bisulfite -E 228- as food additives
 efsa_evaluation_adi:en: 0.7
@@ -19985,6 +19986,7 @@ uk:E221, Сульфіт натрію
 vi:E221, Natri sunfit
 zh:E221, 亚硫酸钠
 additives_classes:en: en:antioxidant, en:preservative
+description:en: SODIUM SULFITE is a soluble sodium salt of sulfurous acid -sulfite- with the chemical formula Na2SO3.
 e_number:en: 221
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide -E 220-, sodium sulfite -E 221-, sodium bisulfite -E 222-, sodium metabisulfite -E 223-, potassium metabisulfite -E 224-, calcium sulfite -E 226-, calcium bisulfite -E 227- and potassium bisulfite -E 228- as food additives
 efsa_evaluation_adi:en: 0.7
@@ -20033,6 +20035,7 @@ sv:E222, Natriumvätesulfit
 vi:E222, Natri bisunfit
 zh:E222, 亚硫酸氢钠
 additives_classes:en: en:antioxidant, en:preservative
+description:en: SODIUM BISULFITE is a chemical compound with the chemical formula NaHSO3.
 e_number:en: 222
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide -E 220-, sodium sulfite -E 221-, sodium bisulfite -E 222-, sodium metabisulfite -E 223-, potassium metabisulfite -E 224-, calcium sulfite -E 226-, calcium bisulfite -E 227- and potassium bisulfite -E 228- as food additives
 efsa_evaluation_adi:en: 0.7
@@ -20081,6 +20084,7 @@ sv:E223, Natriumdisulfit, Pyrosulfit, natriumpyrosulfit
 vi:E223, Natri metabisunfit
 zh:E223, 焦亚硫酸钠
 additives_classes:en: en:antioxidant, en:preservative
+description:en: SODIUM METABISULFITE or sodium pyrosulfite -IUPAC spelling; Br. E. sodium metabisulphite or sodium pyrosulphite- is an inorganic compound of chemical formula Na2S2O5.
 e_number:en: 223
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide -E 220-, sodium sulfite -E 221-, sodium bisulfite -E 222-, sodium metabisulfite -E 223-, potassium metabisulfite -E 224-, calcium sulfite -E 226-, calcium bisulfite -E 227- and potassium bisulfite -E 228- as food additives
 efsa_evaluation_adi:en: 0.7
@@ -20128,6 +20132,7 @@ sr:E224, Kalijum metabisulfit
 sv:E224, Kaliumdisulfit, Kaliumpyrosulfit
 vi:E224, Kali metabisunfit
 additives_classes:en: en:antioxidant, en:preservative
+description:en: POTASSIUM METABISULFITE, K2S2O5, also known as potassium pyrosulfite, is a white crystalline powder with a pungent sulfur odour. The main use for the chemical is as an antioxidant or chemical sterilant.
 e_number:en: 224
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide -E 220-, sodium sulfite -E 221-, sodium bisulfite -E 222-, sodium metabisulfite -E 223-, potassium metabisulfite -E 224-, calcium sulfite -E 226-, calcium bisulfite -E 227- and potassium bisulfite -E 228- as food additives
 efsa_evaluation_adi:en: 0.7
@@ -20453,6 +20458,7 @@ sv:E235, Natamycin
 uk:E235, Натаміцин
 vi:E235, Natamycin
 additives_classes:en: en:preservative
+description:en: NATAMYCIN is used in the food industry as a preservative.
 e_number:en: 235
 efsa_evaluation:en: Scientific Opinion on the use of natamycin -E 235- as a food additive
 efsa_evaluation_date:en: 2009-12-14
@@ -20626,6 +20632,7 @@ ro:E241, E241 food additive
 sk:E241, E241 food additive
 sl:E241, E241 food additive
 sv:E241, E241 food additive
+description:en: GUM GUAICUM, or guaiac resin, is a substance produced from the tree species Guaiacum officinale.
 e_number:en: 241
 vegan:en: yes
 vegetarian:en: yes
@@ -20660,6 +20667,7 @@ sl:E242, Dimetildikarbonat, DMDC
 sr:E242, Dimetil dikarbonat
 sv:E242, Dimetyldikarbonat, DMDC
 additives_classes:en: en:preservative
+description:en: DIMETHYL DICARBONATE is an organic compound which is a colorless liquid with a pungent odor at high concentration at room temperature. It is primarily used as a beverage preservative, processing aid, or sterilant
 e_number:en: 242
 efsa_evaluation:en: Scientific opinion on the re-evaluation of dimethyl dicarbonate -DMDC, E 242- as a food additive
 efsa_evaluation_date:en: 2015-12-10
@@ -20776,6 +20784,7 @@ uk:E250, Нітрит натрію
 vi:E250, Natri nitrit
 zh:E250, 亚硝酸钠
 additives_classes:en: en:preservative
+description:en: SODIUM NITRITE is an inorganic compound with the chemical formula NaNO2. it is a food additive used in processed meats and -in some countries- in fish products.
 e_number:en: 250
 efsa_evaluation:en: Re-evaluation of potassium nitrite -E 249- and sodium nitrite -E 250- as food additives
 efsa_evaluation_date:en: 2017/06/15
@@ -20841,6 +20850,7 @@ uk:E251, Нітрат натрію
 vi:E251, Natri nitrat
 zh:E251, 硝酸鈉
 additives_classes:en: en:preservative
+description:en: SODIUM NITRATE is the chemical compound with the formula NaNO3. Sodium nitrate is a food additive used as a preservative and colour fixative in cured meats and poultry
 e_number:en: 251
 efsa_evaluation:en: Re‐evaluation of sodium nitrate -E 251- and potassium nitrate -E 252- as food additives
 efsa_evaluation_adi:en: 3.7
@@ -20912,6 +20922,7 @@ uk:E252, Нітрат калію
 vi:E252, kali nitrat
 zh:E252, 硝酸钾
 additives_classes:en: en:preservative
+description:en: POTASSIUM NITRATE is a chemical compound with the chemical formula KNO3. The widespread adoption of nitrate use is more recent and is linked to the development of large-scale meat processing. potassium nitrate is still used in some food applications, such as salami, dry-cured ham, charcuterie.
 e_number:en: 252
 efsa_evaluation:en: Re‐evaluation of sodium nitrate -E 251- and potassium nitrate -E 252- as food additives
 efsa_evaluation_adi:en: 3.7
@@ -20997,6 +21008,7 @@ ur:E260, ایسیٹک ایسڈ
 vi:E260, axit axetic
 zh:E260, 乙酸
 additives_classes:en: en:preservative
+description:en: ACETIC ACID, systematically named ethanoic acid, is a colourless liquid organic compound with the chemical formula CH3COOH -also written as CH3CO2H or C2H4O2-.
 e_number:en: 260
 vegan:en: yes
 vegetarian:en: yes
@@ -21118,6 +21130,7 @@ uk:E262i, Ацетат натрію
 vi:E262i, Natri axetat
 zh:E262i, 乙酸钠
 additives_classes:en: en:preservative, en:sequestrant
+description:en: SODIUM ACETATE, also abbreviated NaOAc,[8] is the sodium salt of acetic acid.
 e_number:en: 262
 wikidata:en: Q339940
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_acetate
@@ -21191,6 +21204,7 @@ tr:E263, Kalsiyum asetat
 vi:E263, Canxi axetat
 zh:E263, 乙酸钙
 additives_classes:en: en:preservative, en:stabilizer
+description:en: CALCIUM ACETATE is a chemical compound which is a calcium salt of acetic acid. Calcium acetate is used as a food additive, as a stabilizer, buffer and sequestrant, mainly in candy products.
 e_number:en: 263
 vegan:en: yes
 vegetarian:en: yes
@@ -21337,6 +21351,7 @@ uk:E270, Молочна кислота
 uz:E270, Sut kislota
 vi:E270, axit lactic
 zh:E270, 乳酸
+description:en: LACTIC ACID is an organic compound with the formula CH3CH-OH-CO2H. In the form of its conjugate base called lactate -this is thus different and kept as a separate ingredient-. Lactic acid is chiral, consisting of two optical isomers. One is known as L--+--lactic acid or -S--lactic acid and the other, its mirror image, is D--−--lactic acid or -R--lactic acid in food the L-variant is used
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -21412,6 +21427,7 @@ ta:E281, சோடியம் புரோப்பனோயேட்டு
 vi:E281, Natri propionat
 zh:E281, 丙酸钠
 additives_classes:en: en:preservative
+description:en: Sodium propanoate or SODIUM PROPIONATE is the sodium salt of propionic acid.
 e_number:en: 281
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of propionic acid -E 280-, sodium propionate -E 281-, calcium propionate -E 282- and potassium propionate -E 283- as food additives
 efsa_evaluation_adi_established:en: en:no
@@ -21452,6 +21468,7 @@ sl:E282, Kalcijev propionat
 sv:E282, Kalciumpropionat
 zh:E282, 丙酸钙
 additives_classes:en: en:preservative
+description:en: CALCIUM PROPIONATE has the formula Ca-C2H5COO-2. Calcium propionate is used as a preservative in a wide variety of products, including but not limited to:bread, other baked goods, processed meat, whey, and other dairy products.
 e_number:en: 282
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of propionic acid -E 280-, sodium propionate -E 281-, calcium propionate -E 282- and potassium propionate -E 283- as food additives
 efsa_evaluation_adi_established:en: en:no
@@ -21651,6 +21668,7 @@ yo:E290, Kárbónì ọlọ́ksíjínìméjì
 za:E290, Ngeihyangjvaqdanq
 zh:E290, 二氧化碳
 additives_classes:en: en:preservative, en:propellant
+description:en: CARBON DIOXIDE chemical formula CO2- is a colorless gas with a density about 60% higher than that of dry air.
 e_number:en: 290
 organic_eu:en: authorized
 vegan:en: yes
@@ -21814,6 +21832,7 @@ sr:E301, Natrijum askorbat
 sv:E301, Natriumaskorbat, Natrium-L-askorbat
 uk:E301, Аскорбат натрію
 additives_classes:en: en:antioxidant
+description:en: SODIUM ASCORBATE is one of a number of mineral salts of ascorbic acid -vitamin C-.
 e_number:en: 301
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid -E 300-, sodium ascorbate -E 301- and calcium ascorbate -E 302- as food additives
 efsa_evaluation_adi_established:en: en:no
@@ -22299,6 +22318,7 @@ sr:E316, Natrijum erithorbat
 sv:E316, natriumisoaskorbat
 zh:E316, 异抗坏血酸钠
 additives_classes:en: en:antioxidant
+description:en: SODIUM ERYTHORBATE is the sodium salt of erythorbic acid. Sodium erythorbate is produced from sugars derived from different sources, such as beets, sugar cane, and corn. It is used predominantly in meats, poultry, and soft drinks.
 e_number:en: 316
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of erythorbic acid -E 315- and sodium erythorbate -E 316- as food additives
 efsa_evaluation_adi:en: 6
@@ -22746,6 +22766,7 @@ sv:E325, natriumlaktat
 vi:E325, Natri lactat
 zh:E325, 乳酸钠
 additives_classes:en: en:antioxidant, en:emulsifier, en:humectant, en:thickener
+description:en: SODIUM LACTATE is the sodium salt of lactic acid, and has a mild saline taste. It is produced by fermentation of a sugar source, such as corn or beets. It acts as a preservative, acidity regulator, and bulking agent.
 e_number:en: 325
 organic_eu:en: authorized
 vegan:en: yes
@@ -22783,6 +22804,7 @@ sr:E326, Kalijum laktat
 sv:E326, kaliumlaktat
 ta:E326, பொட்டாசியம் லாக்டேட்டு
 additives_classes:en: en:antioxidant, en:emulsifier, en:humectant
+description:en: POTASSIUM LACTATE is a compound with formula KC3H5O3. It is produced by neutralizing lactic acid which is fermented from a sugar source. Potassium lactate is commonly used in meat and poultry products to extend shelf life and increase food safety as it has a broad antimicrobial action. lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance.
 e_number:en: 326
 vegan:en: yes
 vegetarian:en: yes
@@ -22961,7 +22983,7 @@ bg:E331, E331 food additive
 ca:E331, Citrats de sodi
 cs:E331, E331 food additive
 da:E331, Natriumcitrater
-de:E331, Natriumcitraten, Natriumcitrat
+de:E331, Natriumcitraten, Natriumcitrat, natriumcitrate
 el:E331, E331 food additive
 es:E331, Citratos de sodio
 et:E331, Naatriumtsitraat
@@ -23012,6 +23034,7 @@ sk:E331i, E331(i) food additive
 sl:E331i, Mononatrijev citrat
 sv:E331i, Mononatriumcitrat
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
+description:en: MONOSODIUM CITRATE, more correctly, sodium dihydrogen citrate, is an acid salt of citric acid.
 e_number:en: 331
 organic_eu:en: authorized
 wikidata:en: Q4179018
@@ -23042,6 +23065,7 @@ sk:E331ii, Citran disodný
 sl:E331ii, Dinatrijev citrat
 sv:E331ii, Dinatriumcitrat
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabilizer
+description:en: DISODIUM CITRATE, more properly, disodium hydrogen citrate, is an acid salt of citric acid with the chemical formula Na2C6H6O7. It is used as an antioxidant in food and to improve the effects of other antioxidants. It is also used as an acidity regulator and sequestrant. Typical products include gelatin, jam, sweets, ice cream, carbonated beverages, milk powder, wine, and processed cheeses.
 e_number:en: 331
 organic_eu:en: authorized
 wikidata:en: Q4177124
@@ -23061,30 +23085,30 @@ pt:E331iii, Citrato trissódico
 sv:E331iii, Trinatriumcitrat
 e_number:en: 331
 
-en:E332, Potassium citrates, Potassium citrate
-bg:E332, E332 food additive, Калиев цитрат
+en:E332, Potassium citrates
+bg:E332, E332 food additive
 ca:E332, Citrats de potassi
-cs:E332, E332 food additive, citronan draselný
+cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrate
-el:E332, Κιτρικο καλιο, κιτρικό κάλιο
-es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico
+de:E332, Kaliumcitraten
+el:E332, E332 food additive
+es:E332, Citratos de potasio
 et:E332, E332 food additive
-fi:E332, Kaliumsitraatti, Kaliumsitraattia
-fr:E332, Citrates de potassium, Citrate de potassium
-hu:E332, Kálium-citrát
-it:E332, Citrato di potassio
-lt:E332, E332 food additive, kalio citratas
-lv:E332, E332 food additive, kālija citrāts
-mt:E332, E332 food additive, ċitrat tal-potassju
-nl:E332, Kaliumcitraat, kaliumzouten van citroenzuur
-pl:E332, E332 food additive, cytrynian potasu
-pt:E332, Citrato de potássio
-ro:E332, E332 food additive, citrat de potasiu
-ru:E332, Цитрат калия
-sk:E332, Kálium-citrát, Citran draselný
-sl:E332, E332 food additive, kalijev citrat
-sv:E332, Kaliumcitrat, Kaliumcitrater
+fi:E332, E332 food additive
+fr:E332, Citrates de potassium
+hu:E332, E332 food additive
+it:E332, Citrati di potassio
+lt:E332, E332 food additive
+lv:E332, E332 food additive
+mt:E332, E332 food additive
+nl:E332, Kaliumcitraten
+pl:E332, E332 food additive
+pt:E332, Citratos de potássio
+ro:E332, E332 food additive
+ru:E332, E332 food additive
+sk:E332, E332 food additive
+sl:E332, E332 food additive
+sv:E332, Kaliumcitrater
 additives_classes:en: en:sequestrant, en:stabilizer
 e_number:en: 332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
@@ -23121,29 +23145,42 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en: Q63255997
 
 < en:E332
-en:E332ii, Tripotassium citrate
-bg:E332ii, Трикалиев цитрат
-cs:E332ii, Tripotassium citrate
+en:E332ii, Tripotassium citrate, potassium citrate
+bg:E332ii, Трикалиев цитрат, Калиев цитрат
+bs:E332ii, Kalij citrat
+cs:E332ii, Tripotassium citrate, citronan draselný
+cy:E332ii, Potasiwm sitrad
 da:E332ii, Trikaliumcitrat
 de:E332ii, Trikaliumcitrat, Kaliumcitrat
-el:E332ii, E332(ii) food additive
-es:E332ii, Citrato tripotásico
-et:E332ii, Kaaliumtsitraat
-fi:E332ii, Trikaliumsitraatti, Trikaliumsitraattia
-fr:E332ii, Citrate tripotassique
-hu:E332ii, Trikálium-citrát
-it:E332ii, Citrato tripotassico
-lt:E332ii, Trikalio citratas
-lv:E332ii, Trikālija citrāts
-mt:E332ii, Ċitrat tripotassiku
-nl:E332ii, Trikaliumcitraat
-pl:E332ii, Cytrynian tripotasowy
-pt:E332ii, Citrato tripotássico
-ro:E332ii, Citrat tripotasic
-sk:E332ii, Citran tridraselný
-sl:E332ii, Trikalijev citrat
-sv:E332ii, Trikaliumcitrat
+el:E332ii, κιτρικό κάλιο
+eo:E332ii, E332(ii), Kalia citrato tribaza
+es:E332ii, Citrato tripotásico, citrato de potasio
+et:E332ii, kaaliumtsitraat
+fa:E332ii, پتاسیم سیترات
+fi:E332ii, Trikaliumsitraatti, Trikaliumsitraattia, kaliumsitraatti
+fr:E332ii, Citrate tripotassique, citratex de potassium, citrate de potassium
+hu:E332ii, Trikálium-citrát, kálium-citrát
+it:E332ii, Citrato tripotassico, citrato di potassio
+ja:E332ii, クエン酸カリウム
+lt:E332ii, Trikalio citratas, kalio citratas
+lv:E332ii, Trikālija citrāts, kālija citrāts
+mt:E332ii, Ċitrat tripotassiku, ċitrat tal-potassju
+nb:E332ii, Kaliumsitrat
+nl:E332ii, Trikaliumcitraat, kaliumcitraat, kaliumzouten van citroenzuur
+pl:E332ii, Cytrynian tripotasowy, cytrynian potasu
+pt:E332ii, Citrato tripotássico, citrato de potássio
+ro:E332ii, Citrat tripotasic, citrat de potasiu
+ru:E332ii, цитрат калия
+sk:E332ii, Citran tridraselný, citran draselný
+sl:E332ii, Trikalijev citrat, kalijev citrat
+sr:E332ii, Kalijum citrat
+sv:E332ii, Trikaliumcitrat, kaliumcitrat
+ta:E332ii, பொட்டாசியம் சிட்ரேட்டு
+te:E332ii, పొటాషియం సిట్రేట్
+vi:E332ii, Kali xitrat
+zh:E332ii, 檸檬酸鉀
 additives_classes:en: en:sequestrant, en:stabilizer
+description:en: POTASSIUM CITRATE -also known as tripotassium citrate- is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
 e_number:en: 332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
 wikidata:en: Q419921
@@ -23317,6 +23354,7 @@ uk:E334, Винна кислота
 uz:E334, Vino kislota
 zh:E334, 酒石酸
 additives_classes:en: en:antioxidant, en:sequestrant
+description:en: TARTARIC ACID is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
 e_number:en: 334
 organic_eu:en: authorized
 vegan:en: yes
@@ -23498,6 +23536,7 @@ ro:E336ii, Tartrat dipotasic
 sk:E336ii, Vínan didraselný
 sl:E336ii, Dikalijev tartrat
 sv:E336ii, Dikaliumtartrat
+description:en: POTASSIUM BITARTRATE, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
 e_number:en: 336
 organic_eu:en: authorized
 wikidata:en: Q418064
@@ -23632,6 +23671,7 @@ sv:E339, Natriumfosfater, Natriumfosfat
 vi:E339, Natri phosphat
 zh:E339, 磷酸钠
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+description:en: SODIUM PHOSPHATES is a generic term for a variety of salts of sodium -Na+- and phosphate -PO43−-.
 e_number:en: 339
 efsa_evaluation:en: Re‐evaluation of phosphoric acid–phosphates – di‐, tri‐ and polyphosphates -E 338–341, E 343, E 450–452- as food additives and the safety of proposed extension of use
 efsa_evaluation_date:en: 2019/06/12
@@ -23677,6 +23717,7 @@ sv:E339i, Mononatriumfosfat, Mononatriummonofosfat, mononatriumortofosfat, natri
 vi:E339i, Natri đihiđrophotphat
 zh:E339i, 磷酸二氢钠
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+description:en: MONOSODIUM PHOSPHATE, also known as monobasic sodium phosphate and sodium dihydrogen phosphate, is an inorganic compound of sodium with a dihydrogen phosphate -H2PO4−- anion.
 e_number:en: 339
 wikidata:en: Q415877
 wikipedia:en: https://en.wikipedia.org/wiki/Monosodium_phosphate
@@ -23710,6 +23751,7 @@ sl:E339iii, Trinatrijev fosfat, tribazični natrijev fosfat
 sr:E339iii, Trinatrijum fosfat
 sv:E339iii, Trinatriumfosfat, Trinatriummonofosfat
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+description:en: TRISODIUM PHOSPHATE is the inorganic compound with the chemical formula Na3PO4.
 e_number:en: 339
 wikidata:en: Q3249706
 wikipedia:en: https://en.wikipedia.org/wiki/Trisodium_phosphate
@@ -23745,6 +23787,7 @@ ta:E339ii, இருசோடியம் பாசுபேட்டு
 vi:E339ii, Natri hiđrophotphat
 zh:E339ii, 磷酸一氢钠
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabilizer, en:thickener
+description:en: DISODIUM PHOSPHATE, or sodium hydrogen phosphate, or sodium phosphate dibasic, is the inorganic compound with the formula Na2HPO4.
 e_number:en: 339
 wikidata:en: Q418448
 wikipedia:en: https://en.wikipedia.org/wiki/Disodium_phosphate
@@ -23760,7 +23803,7 @@ es:E340, Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
 et:E340, E340 food additive
 fi:E340, Kaliumfosfaatti, Kaliumfosfaattia, kaliumfosfaatit
 fr:E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, K3PO4, E 340, Dihydrogénophosphate de potassium, Phosphate de monopotassium
-hu:E340, E340 food additive
+hu:E340, E340 food additive, Fosforany potasu, fosforan potasu
 it:E340, E340 food additive, fosfati di potassio
 lt:E340, E340 food additive
 lv:E340, E340 food additive
@@ -23802,7 +23845,7 @@ lt:E340i, Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas
 lv:E340i, Monokālija fosfāts, Monobāziskais kālija fosfāts, Monokālija monofosfāts
 mt:E340i, Fosfat monopotassiku, Fosfat tal-potassju monobażiku, Monofosfat monopotassiku
 nl:E340i, Monokaliumfosfaat, Eenbasisch kaliumfosfaat, monokaliummonofosfaat
-pl:E340i, Fosforan monopotasowy, Fosforan potasu monozasadowy, monofosforan monopotasowy, monozasadowy
+pl:E340i, Fosforan monopotasowy, Fosforan potasu monozasadowy, monofosforan monopotasowy
 pt:E340i, Fosfato monopotássico, Fosfato monobásico de potássio, monofosfato monopotássico
 ro:E340i, Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic
 ru:орто-Фосфат калия 3-замещенный
@@ -23871,7 +23914,7 @@ lt:E340iii, Trikalio fosfatas, Tribazis kalio fosfatas
 lv:E340iii, Trikālija fosfāts, Tribāziskais kālija fosfāts
 mt:E340iii, Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku
 nl:E340iii, Trikaliumfosfaat, Driebasisch kaliumfosfaat
-pl:E340iii, Fosforan tripotasowy, Fosforan potasu trizasadowy, trizasadowy
+pl:E340iii, Fosforan tripotasowy, Fosforan potasu trizasadowy
 pt:E340iii, Fosfato tripotássico, Fosfato tribásico de potássio
 ro:E340iii, Fosfat tripotasic, Fosfat de potasiu tribazic
 ru:Ортофосфат калия
@@ -24080,7 +24123,7 @@ de:E343, E343 food additive, Magnesiumphosphaten
 el:E343, E343 food additive
 es:E343, E343 food additive
 et:E343, E343 food additive
-fi:E343, Magnesiumfosfaatti, Magnesiumfosfaattia, magnesiumfosfaatit
+fi:E343, Magnesiumfosfaatit
 fr:E343, phosphates de magnésium, Orthophosphates de magnésium
 hu:E343, E343 food additive
 it:E343, E343 food additive, fosfati di magnesio
@@ -24107,7 +24150,7 @@ vegetarian:en: yes
 wikidata:en: Q2634889
 
 < en:E343
-en:E343i, Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, E343ii, Dimagnesium phosphate, Magnesiumhydrogenphosphate, dibasic, Dimagnesium orthophosphate, E 343i, E343 i, E 343ii, E343 ii
+en:E343i, Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, E343ii, Dimagnesium phosphate, Magnesiumhydrogenphosphate, dibasic, Dimagnesium orthophosphate, magnesium dihydrogen phosphate, E 343i, E343 i, magnesium hydrogen phosphate, E 343ii, E343 ii
 bg:E343i, Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен, E343ii, Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
 cs:E343i, Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý, E343ii, Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
 da:E343i, Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat, E343ii, Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat
@@ -24119,7 +24162,7 @@ fi:E343i, Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti m
 fr:E343i, Phosphate monomagnésique, E343ii, dimagnésium phosphate, Phosphate dimagnésique
 hu:E343i, Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú, E343ii, Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát kétbázisú, Dimagnézium-ortofoszfát
 it:E343i, Fosfato di magnesio, Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico, E343ii, Fosfato di dimagnesio, Idrogeno fosfato di magnesio, fosfato di magnesio dibasico, ortofosfato bimagnesico
-lt:E343i, Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis, E343ii, Dimagnio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas
+lt:E343i, Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis, E343ii, Dimagnio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas, magnio vandenilio fosfatas
 lv:E343i, Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts, E343ii, Dimagnija fosfāts, Magnija hidrogēnfosfāts, Divbāziskais magnija fosfāts, Dimagnija ortofosfāts
 mt:E343i, Fosfat monomanjeżiku, E343ii, Fosfat dimanjeżiku, Fosfat idroġenat tal-manjeżju, Fosfat tal-manjeżju dibażiku, Ortofosfat dimanjeżiku
 nl:E343i, Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat, E343ii, Dimagnesiumfosfaat, Magnesiumwaterstoffosfaat, tweebasisch magnesiumfosfaat, dimagnesiumorthofosfaat
@@ -24861,59 +24904,58 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q13081798
 
-en:E381, Ammoniumferrocitrate, ammonium ferric citrate
-bg:E381, E381 food additive
-cs:E381, E381 food additive
-da:E381, E381 food additive
+en:E381, ferric ammonium citrate, ammonium ferric citrate
+bg:E381, Железен амониев цитрат
+cs:E381, citrát železito-amonný
 de:E381, Ammoniumeisen-III-citrat, Ammoniumeisenzitrat, Ammoniumeisencitrat, Ferriammoniumcitrat, Eisenammoniumcitrat
-el:E381, E381 food additive
-es:E381, Citrato de amonio férrico
-et:E381, E381 food additive
+el:E381, εναμμώνιος κιτρικός σίδηρος
+es:E381, citrato férrico de amonio
+et:E381, raud-III-ammooniumtsitraat
 fi:E381, Ammoniumrautasitraatti, Ammoniumrautasitraattia
-fr:E381, Citrate d'ammonium ferrique vert, Citrate d'ammonium ferrique
-hu:E381, Ammónium-ferrocitrát
-it:E381, E381 food additive
-lt:E381, E381 food additive
-lv:E381, E381 food additive
-mt:E381, E381 food additive
-nl:E381, E381 food additive
-pl:E381, E381 food additive
-pt:E381, E381 food additive
-ro:E381, E381 food additive
-sk:E381, Citrát železnato-amónny
-sl:E381, E381 food additive
-sv:E381, E381 food additive
+fr:E381, citrate ferrique d'ammonium, Citrate d'ammonium ferrique vert, Citrate d'ammonium ferrique
+hu:E381, vas-III-ammónium-citrát
+it:E381, citrato ferrico di ammonio
+lt:E381, geležies amonio citratas
+lv:E381, dzelzs amonija citrāts
+mt:E381, ċitrat ferriku tal-ammonju
+nl:E381, ijzer-III-ammoniumcitraat
+pl:E381, cytrynian amonu i żelaza-III
+pt:E381, citrato férrico de amónio
+ro:E381, citrat feric de amoniu
+sk:E381, citran amónno-železitý
+sl:E381, železov amonijev citrat
+sv:E381, ferriammoniumcitrat
 e_number:en: 381
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q473522
 
-en:E383, Calcium glycerylphosphate
+en:E383, calcium glycerophosphate
 ar:E383, فوسفات غليسيريل الكالسيوم
-bg:E383, E383 food additive
-cs:E383, E383 food additive
-da:E383, E383 food additive
+bg:E383, Калциев глицерофосфат
+cs:E383, glycerofosforečnan vápenatý
 de:E383, Calciumglycerophosphat
-el:E383, E383 food additive
+el:E383, γλυκεροφωσφορικό ασβέστιο
 es:E383, glicerofosfato de calcio
-et:E383, E383 food additive
+et:E383, kaltsiumglütserofosfaat
 fi:E383, Kalsiumglyserofosfaatti, Kalsiumglyserofosfaattia
-fr:E383, Glycerophosphate de calcium
-hu:E383, E383 food additive
-it:E383, E383 food additive
-lt:E383, E383 food additive
-lv:E383, E383 food additive
-mt:E383, E383 food additive
+fr:E383, glycérophosphate de calcium
+hu:E383, kalcium-glicerofoszfát
+it:E383, glicerofosfato di calcio
+lt:E383, kalcio glicerofosfatas
+lv:E383, kalcija glicerofosfāts
+mt:E383, gliċerofosfat tal-kalċju
 nl:E383, calciumglycerofosfaat
-pl:E383, E383 food additive
-pt:E383, E383 food additive
-ro:E383, E383 food additive
+pl:E383, glicerofosforan wapnia
+pt:E383, glicerofosfato de cálcio
+ro:E383, glicerofosfat de calciu
 ru:E383, Глицерофосфат кальция
 sh:E383, Kalcijum glicerilfosfat
-sk:E383, E383 food additive
-sl:E383, E383 food additive
+sk:E383, glycerofosforečnan vápenatý
+sl:E383, kalcijev glicerofosfat
 sr:E383, Kalcijum glicerilfosfat
-sv:E383, E383 food additive
+sv:E383, kalciumglycerolfosfat
+description:en: CALCIUM GLYCERYLPHOSPHATE -or calcium glycerophosphate- is a mineral supplement for Calcium.
 e_number:en: 383
 vegan:en: yes
 vegetarian:en: yes
@@ -25895,7 +25937,7 @@ cs:E415, Xanthan, Xanthanová guma, E 415, Xantan
 da:E415, Xanthangummi
 de:E415, Xanthan, Xanthangummi, E 415, Xantan
 el:E415, Ξανθανικο κομμι, uc
-es:E415, Goma xantana, Xantano, Xantana, E 415, goma de xantano
+es:E415, Goma xantana, Xantano, Xantana, E 415, goma de xantano, goma xantica
 et:E415, Ksantaankummi, Ksantaan
 fa:صمغ زانتان
 fi:E415, Ksantaanikumi, Ksantaanikumia
@@ -25935,7 +25977,7 @@ wikidata:en: Q410768
 < en:E415
 en:xanthan gum and guar gum
 de:Xanthan und Guarkernmehl
-es:goma xantana y goma guar, goma xantica
+es:goma xantana y goma guar
 fi:ksantaanikumi ja johanneksenleipäpuujauhe
 fr:gomme xanthane et gomme guar, gomme xanthane et gomme de guar
 hu:xantángumi és guargumi
@@ -26275,6 +26317,7 @@ uk:Гліцерин
 vi:glyxêrin
 zh:甘油
 additives_classes:en: en:humectant, en:thickener
+description:en: GLYCEROL can be used by all religious groups, vegans and vegetarians. The term carbohydrate alcohol is a chemical definition; glycerol does not contain alcohol -ethanol-.
 e_number:en: 422
 organic_eu:en: authorized
 vegan:en: yes
@@ -26466,7 +26509,7 @@ cs:E428, želatina
 cv:E428, Желатин
 cy:E428, Gelatin
 da:E428, gelatine, Husblas
-de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren, Rindergelatine
+de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren
 el:E428, ζελατίνη
 eo:E428, gelateno
 es:E428, Gelatina, Gelatinosa, Grenetina, Gelatinoso
@@ -26526,7 +26569,7 @@ vegetarian:en: no
 < en:Beef
 < en:E428
 en:beef gelatin
-de:
+de:Rindergelatine
 es:Gelatina de ternera
 fi:nautaliivate, nautagelatiini, naudan liivate, liivate naudasta
 fr:gélatine de bœuf, gélatine bovine
@@ -26555,7 +26598,7 @@ en:kosher gelatin
 < en:Pork
 en:pork gelatin
 ca:gelatina de porc
-da:
+da:svin gelatine
 de:Schweinegelatine
 es:gelatina de cerdo
 fi:sikaliivate, sikagelatiini, sian liivate, liivate siasta
@@ -26886,7 +26929,7 @@ pt:E440a, E440a food additive, E440, Pectina, pectinas
 ro:E440a, E440a food additive, E440, E440 food additive, Pectină, pectina
 ru:E440, Пектин, Пектиновые вещества, Пектиновое вещество, Пектины
 sh:Pektin
-sk:E440a, E440a food additive, E440, Pektín
+sk:E440a, E440a food additive, E440, Pektín, pektíny
 sl:E440a, E440a food additive, E440, Pektin
 sr:пектин
 sv:E440a, Pektin, E440, Pektiner
@@ -27260,18 +27303,18 @@ de:Stabilisator E450
 fr:stabilisant e450
 
 < en:E450
-en:E450i, Disodium diphosphate, Sodium Acid Pyrophosphate, sapp, sodium pyrophosphate
+en:E450i, Disodium diphosphate, Sodium Acid Pyrophosphate, sapp, disodium pyrophosphate
 ar:بيروفوسفات ثنائي الصوديوم
 bg:E450i, Динатриев дифосфат
-cs:E450idiphosphate-disodique
+cs:E450idiphosphate-disodique, Dihydrogendifosforečnan disodný
 da:E450i, Dinatriumdiphosphat
-de:E450i, Dinatriumdiphosphat
+de:E450i, Dinatriumdiphosphat, Dinatriumdihydrogendiphosphat
 el:E450i, Δισοξινο πυροφωσφορικο νατριο
 es:E450i, Difosfato disódico, Pirofosfato ácido de sodio
 et:E450i, Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fa:دی‌سدیم پیروفسفات
 fi:E450i, Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti, Dinatriumdifosfaattia, Dinatriumdivetydifosfaattia, Dinatriumdivetypyrofosfaattia, E450a
-fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, diphosphates de sodium, Pyrophosphate acide de soude, pyrophosphate de sodium, pyrophosphate de soude
+fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, diphosphates de sodium, Pyrophosphate acide de soude
 hu:E450i, Dinátrium-difoszfát
 it:E450i, Difosfato disodico
 ja:二リン酸二水素二ナトリウム
@@ -27291,6 +27334,7 @@ sv:E450i, Dinatriumdifosfat, Dinatriumdivätedifosfat, dinatriumdivätepyrofosfa
 vi:Natri đihiđropyrophotphat
 zh:酸式焦磷酸钠
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabilizer, en:thickener
+description:en: SODIUM ACID PYROPHOSPHATE is an additive used to prevent the formation of crystals and discoloration of the crab meat.
 e_number:en: 450
 wikidata:en: Q290828
 
@@ -27322,7 +27366,7 @@ e_number:en: 450
 wikidata:en: Q290828
 
 < en:E450
-en:E450iii, Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate
+en:E450iii, Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate, sodium pyrophosphate, TSPP
 ar:بيروفوسفات صوديوم
 bg:E450iii, Тетранатриев дифосфат, Тетранатриев пирофосфат
 cs:E450iii, Difosforečnan sodný, Pyrofosforečnan tetrasodný
@@ -27334,7 +27378,7 @@ es:E450iii, Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetra
 et:E450iii, Tetranaatriumdifosfaat
 fa:تتراسدیوم پیروفسفات
 fi:E450iii, Tetranatriumdifosfaatti, Tetranatriumdifosfaattia, Natriumpyrofosfaatti
-fr:E450iii, Diphosphate tétrasodique, Tetra-sodium pyrophosphate, CAS 7722-88-5, Pyrophosphate tétrasodique
+fr:E450iii, Diphosphate tétrasodique, Tetra-sodium pyrophosphate, CAS 7722-88-5, Pyrophosphate tétrasodique, Pyrophosphate de sodium, pyrophosphate de soude
 hu:E450iii, Tetranátrium-difoszfát, Tetranátrium-pirofoszfát
 it:E450iii, Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio
 lt:E450iii, Tetranatrio difosfatas, Tetranatrio pirofosfatas
@@ -27886,6 +27930,7 @@ uk:E460, Целюлоза
 vi:E460, Cellulose
 zh:E460, 纤维素
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en:thickener
+description:en: CELLULOSE is an organic compound with the formula -C6H10O5-n, a polysaccharide consisting of a linear chain of several hundred to many thousands of linked D-glucose units. Cellulose is used as emulsifier, thickener and stabilizer in processed foods. Cellulose powder is, for example, used in processed cheese to prevent caking inside the package.
 e_number:en: 460
 vegan:en: yes
 vegetarian:en: yes
@@ -27977,6 +28022,7 @@ sl:E461, Metilceluloza
 sv:E461, Metylcellulosa
 uk:E461, Метилцелюлоза
 additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
+description:en: METHYL CELLULOSE is a chemical compound derived from cellulose. Methyl cellulose is added to food products, to generate their characteristic thick consistency, for example ice cream or croquette.
 e_number:en: 461
 vegan:en: yes
 vegetarian:en: yes
@@ -28314,12 +28360,12 @@ e_number:en: 470a
 
 en:E470b, Magnesium salts of fatty acids
 bg:E470b, Магнезиеви соли на мастни киселини
-ca:E470b, Sal magnèsica d'àcids grassos
+ca:E470b, Sal magnèsica d'àcids grassos, sals de magnesi d'àcids grassos
 cs:E470b, Hořečnaté soli mastných kyselin
 da:E470b, Magnesiumsalte af fedtsyrer
 de:E470b, Magnesiumsalze der Speisefettsäuren
 el:E470b, Αλατα λιπαρων οξεων με μαγνησιο
-es:E470b, Sales magnésicas de ácidos grasos
+es:E470b, Sales magnésicas de ácidos grasos, sales de magnesio de ácidos grasos
 et:E470b, Rasvhapete magneesiumisoolad
 fi:E470b, Rasvahappojen magnesiumsuolat, Rasvahappojen magnesiumsuoloja
 fr:E470b, Sels de magnésium d'acides gras, Sel de magnésium d'acides gras
@@ -28394,9 +28440,6 @@ es:monoglicéridos y diglicéridos de ácidos grasos de origen vegetal, monoglic
 fr:mono- et diglycérides d'acides gras d'origine végétale
 nl:mono- en diglyceriden van plantaardige vetzuren
 pt:mono e diglicéridos de ácidos gordos de origem vegetal
-
-< en:E471
-fr:émulsifiant e471
 
 en:E472, acid esters of mono- and diglycerides of fatty acids, E 472
 bg:E472, E472 food additive
@@ -28701,6 +28744,7 @@ sk:E473, Estery sacharózy s mastnými kyselinami, Sacharoestery
 sl:E473, Saharozni estri maščobnih kislin, saharozni estri
 sv:E473, Sackarosestrar av fettsyror, Sackarosestrar
 additives_classes:en: en:emulsifier, en:stabilizer
+comment:en: Although mainly vegetable oils are used, the use of animal fat -incl. pork- can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 e_number:en: 473
 efsa_evaluation:en: Refined exposure assessment of sucrose esters of fatty acids -E 473- from its use as a food additive
 efsa_evaluation_adi:en: 40
@@ -29464,6 +29508,7 @@ sk:E500, E500 food additive
 sl:E500, E500 food additive
 sv:E500, natriumkarbonater
 additives_classes:en: en:stabilizer, en:thickener
+description:en: SODIUM CARBONATES is the generic term for a Na and CO3 combination.
 e_number:en: 500
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid -E330- and sodium hydrogen carbonate -E500ii-, used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 efsa_evaluation_date:en: 2013-04-09
@@ -29540,6 +29585,7 @@ uz:E500i, Natriy karbonat
 vi:E500i, Natri carbonat
 zh:E500i, 碳酸钠
 additives_classes:en: en:stabilizer, en:thickener
+description:en: SODIUM CARBONATE, -also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate- is the water-soluble sodium salt of carbonic acid.
 e_number:en: 500
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid -E330- and sodium hydrogen carbonate -E500ii-, used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 efsa_evaluation_date:en: 2013-04-09
@@ -29611,6 +29657,7 @@ uk:E500ii, Гідрокарбонат натрію
 vi:E500ii, natri bicacbonat
 zh:E500ii, 碳酸氢钠
 additives_classes:en: en:stabilizer, en:thickener
+description:en: SODIUM BICARBONATE -sodium hydrogen carbonate-, commonly known as baking soda, is a chemical compound with the formula NaHCO3.
 e_number:en: 500
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid -E330- and sodium hydrogen carbonate -E500ii-, used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
 efsa_evaluation_date:en: 2013-04-09
@@ -29900,6 +29947,7 @@ th:E503i, แอมโมเนียมคาร์บอเนต
 uz:E503i, Ammoniy karbonat
 vi:E503i, Amoni cacbonat
 zh:E503i, 碳酸铵
+description:en: AMMONIUM CARBONATE is a salt with the chemical formula -NH4-2CO3. Since it readily degrades to gaseous ammonia and carbon dioxide upon heating, it is used as a leavening agent. It is also known as baker's ammonia and was a predecessor to the more modern leavening agents baking soda and baking powder.
 e_number:en: 503
 organic_eu:en: authorized
 wikidata:en: Q204873
@@ -29915,7 +29963,7 @@ da:E503ii, Ammoniumhydrogencarbonat, Hjortetakssalt, ammoniumvätekarbonat
 de:E503ii, Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat, Hirschhornsalz
 el:E503ii, Οξινο ανθρακικο αμμωνιο
 eo:E503ii, Amonia bikarbonato
-es:E503ii, Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico, bicarbonatado de amonio, bicarbonato amonio
+es:E503ii, Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato amónico, bicarbonatado de amonio
 et:E503ii, Ammooniumvesinikkarbonaat
 fa:E503ii, بی‌کربنات آمونیوم
 fi:E503ii, Ammoniumvetykarbonaatti, Ammoniumvetykarbonaattia, hirvensarvisuola
@@ -29946,6 +29994,7 @@ sv:E503ii, Ammoniumvätekarbonat
 te:E503ii, అమ్మోనియం బైకార్బొనేట్
 th:E503ii, แอมโมเนียมไบคาร์บอเนต
 zh:E503ii, 碳酸氢铵
+description:en: AMMONIUM BICARBONATE is an inorganic compound with formula -NH4-HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
 e_number:en: 503
 organic_eu:en: authorized
 wikidata:en: Q204873
@@ -30028,6 +30077,7 @@ uk:E504i, Карбонат магнію
 vi:E504i, magie cacbonat
 zh:E504i, 碳酸鎂
 additives_classes:en: en:carrier
+description:en: MAGNESIUM CARBONATE, MgCO3 -archaic name magnesia alba-, is an inorganic salt that is a white solid.
 e_number:en: 504
 mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
 organic_eu:en: authorized
@@ -30296,6 +30346,7 @@ ur:E510, نشادر
 uz:E510, Ammoniy xlorid
 vi:E510, Amoni clorua
 zh:E510, 氯化铵
+description:en: AMMONIUM CHLORIDE is an inorganic compound with the formula NH4Cl and a white crystalline salt that is highly soluble in water.
 e_number:en: 510
 vegan:en: yes
 vegetarian:en: yes
@@ -30312,11 +30363,11 @@ da:E511, Magnesiumchlorid
 de:E511, Magnesiumchlorid
 el:E511, Χλωριουχο μαγνησιο
 eo:magnezia klorido
-es:E511, Cloruro de magnesio, Cloruro magnésico, Nigari
+es:E511, Cloruro de magnesio, Cloruro magnésico
 et:E511, Magneesiumkloriid
 fa:کلرید منیزیم
 fi:E511, Magnesiumkloridi, Magnesiumkloridia
-fr:E511, Chlorure de magnésium, Nigari
+fr:E511, Chlorure de magnésium
 ga:clóiríd mhaignéisiam
 gl:Cloruro de magnesio
 gv:Cloreed vagnaishum
@@ -30352,9 +30403,9 @@ wikidata:en: Q265414
 en:nigari, bittern
 ca:Nigari
 de:Nigari
-es:
+es:Nigari
 fi:nigari
-fr:
+fr:nigari
 it:nigari
 ja:にがり
 nl:nigari
@@ -31044,7 +31095,6 @@ ky:Кальций гидроксиди
 la:Calx exstincta
 lt:E526, Kalcio hidroksidas, Gesintos kalkės, Kalcio šarmas
 lv:E526, Kalcija hidroksīds, Dzēstie kaļķi, Veldzētie kaļķi, Dzēstais kaļķis
-ml:ചുണ്ണാമ്പ്
 ms:Kalsium hidroksida
 mt:E526, Idrossidu tal-kalċju, Ġir bl-ilma
 nb:Kalsiumhydroksid
@@ -32136,7 +32186,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q419390
 
-en:E570, Fatty acids, Linear fatty acids, caprylic acid (C8), capric acid (C10), lauric acid (C12), myristic acid (C14), palmitic acid (C16), stearic acid (C18), fatty acid
+en:E570, Fatty acids, Linear fatty acids, caprylic acid (C8), caprylic acid, capric acid (C10), capric acid, lauric acid (C12), lauric acid, myristic acid (C14), myristic acid, palmitic acid (C16), palmitic acid, stearic acid (C18), stearic acid, fatty acid
 bg:E570, Мастни киселини, Мастна киселина
 ca:E570, Àcid gras
 cs:E570, Mastné kyseliny, Mastné kyseliny s rovným, nerozvětveným řetězcem, kyselina kaprylová (C8), kyselina kaprinová (C10), kyselina laurová (C12), kyselina myristová (C14), kyselina palmitová (C16), kyselina stearová (C18), Mastná kyselina, Nenasycené mastné kyseliny, Nenasycená mastná kyselina, E 570
@@ -32193,18 +32243,18 @@ vegetarian:en: yes
 en:E572, Magnesium stearate, calcium stearate
 ar:ستيرات المغنسيوم
 bg:E572, E572 food additive
-ca:Estereat de magnesi, sals de magnesi d'àcids grassos
+ca:Estereat de magnesi
 cs:E572, Stearan hořečnatý, Hořečnatá sůl kyseliny oktadekanové, Oktadekanoát hořečnatý, Stearát hořečnatý
 da:E572, E572 food additive
 de:E572, Magnesiumstearat
 el:E572, E572 food additive
-es:E572, E572 food additive, estearato de calcio, Estereato de magnesio, sales de magnesio de ácidos grasos
+es:E572, E572 food additive, estearato de calcio, Estereato de magnesio
 et:E572, E572 food additive
 fa:منیزیم استارات
 fi:E572, Magnesiumstearaatti
 fr:E572, Stéarate de magnésium, C36H70MgO4, 557-04-0
 hu:E572, Magnézium-sztearát
-it:E572, Stearato di magnesio, C36H70MgO4, sale di magnesio dell'acido stearico
+it:E572, Stearato di magnesio, C36H70MgO4
 lt:E572, E572 food additive
 lv:E572, E572 food additive
 mt:E572, E572 food additive
@@ -32373,41 +32423,41 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1122870
 
-en:E578, Calcium gluconate, E 578
+en:E578, calcium gluconate
 af:Kalsiumglukonaat
 ar:غلوكونات الكالسيوم
 az:Kalsium qlükonat
 bg:E578, Калциев глюконат
 ca:E578, Gluconat de calci
-cs:E578, Glukonan vápenatý, Glukonát vápenatý
+cs:E578, glukonan vápenatý, Glukonát vápenatý
 cy:calsiwm gluconad
-da:E578, Calciumgluconat
+da:Calciumgluconat
 de:E578, Calciumgluconat, Kalziumglukonat
-el:E578, Γλυκονικο ασβεστιο, γλυκονικό ασβέστιο
+el:E578, γλυκονικό ασβέστιο
 eo:kalcia glukonato
 es:E578, Gluconato cálcico, Gluconato de calcio
-et:E578, Kaltsiumglükonaat
+et:E578, kaltsiumglükonaat
 fa:کلسیم گلوکونات
 fi:E578, Kalsiumglukonaatti, Kalsiumglukonaattia
 fr:E578, Gluconate de calcium, Pentahydroxyéthanoate de calcium, Gluconate calcique
-hu:E578, Kalcium-glükonát
-it:E578, Gluconato di calcio
+hu:E578, kalcium-glükonát
+it:E578, gluconato di calcio
 ja:グルコン酸カルシウム
-lt:E578, Kalcio gliukonatas
-lv:E578, Kalcija glikonāts
-mt:E578, Glukonat tal-kalċju
-nl:E578, Calciumgluconaat
+lt:E578, kalcio gliukonatas
+lv:E578, kalcija glikonāts
+mt:E578, glukonat tal-kalċju
+nl:E578, calciumgluconaat
 nn:kalsiumglukonat
 or:କ୍ୟାଲସିଅମ ଗ୍ଲୁକୋନେଟ
 pl:E578, Glukonian wapnia, calcio gluconato
-pt:E578, Gluconato de cálcio
-ro:E578, Gluconat de calciu
+pt:E578, gluconato de cálcio
+ro:E578, gluconat de calciu
 ru:Глюконат кальция
 sh:Kalcijum glukonat
-sk:E578, Glukonan vápenatý, glukónan vápenatý
-sl:E578, Kalcijev glukonat
+sk:E578, glukónan vápenatý, Glukonan vápenatý
+sl:E578, kalcijev glukonat
 sr:Kalcijum glukonat
-sv:E578, Kalciumglukonat
+sv:E578, kalciumglukonat
 ta:கால்சியம் குளுக்கோனேட்டு
 uk:Глюконат кальцію
 vi:canxi gluconat
@@ -32419,39 +32469,40 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q413739
 
-en:E579, Ferrous gluconate, iron gluconate, E-579
-ar:غلوكونات الحديد الثنائي
-bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат
-ca:E579, Gluconat ferrós
+en:E579, iron gluconate, ferrous gluconate
+ar:E579, غلوكونات الحديد الثنائي
+bg:E579, Феро глюконат
 cs:E579, Glukonan železnatý
-da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
-de:E579, Eisengluconat, EisenII-gluconat
+da:E579, Ferrogluconat
+de:E579, Eisengluconat, Eisen-II-gluconat
 el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
 et:E579, Ferroglükonaat
-fa:گلوکونات آهن
-fi:E579, Rautaglukonaatti, Ferroglukonaatti, Rautaglukonaattia, Ferroglukonaattia
-fr:E579, Gluconate ferreux, Di-D-gluconate ferreux dihydraté, gluconate de fer II, gluconate de fer
-hu:E579, Vas-glükonát, Vas-di-D-glükonát-dihidrát, Vas-glukonát
-it:E579, Gluconato ferroso, gluconato di ferro
+fa:E579, گلوکونات آهن
+fi:E579, Ferroglukonaatti
+fr:E579, gluconate de fer, gluconate ferreux
+hu:E579, Vas-glukonát
+it:E579, gluconato di ferro, Gluconato ferroso
 lt:E579, Geležies gliukonatas
 lv:E579, Dzelzs glikonāts
 mt:E579, Glukonat ferruż
-nl:E579, Ijzeriigluconaat, Ijzergluconaat
-pl:E579, Glukonian żelazawy, Żelaza di-D-glukonian, diwodzian, żelaza diglukonian
+nl:E579, Ijzergluconaat
+pl:E579, Glukonian żelazawy
 pt:E579, Gluconato ferroso
-ro:E579, Gluconat feros, Di-D-gluconat feros dihidrat
-ru:глюконат железа
-sh:Gvožđe glukonat
+ro:E579, Gluconat feros
+ru:E579, глюконат железа
+sh:E579, Gvožđe glukonat
 sk:E579, Glukonan železnatý
-sl:E579, Železov glukonat, železov di-D-glukonat dihidrat
-sr:Gvožđe glukonat
-sv:E579, Järnglukonat, Järn-di-D-glukonatdihydrat
-tr:ferrous gluconate
+sl:E579, Železov glukonat
+sr:E579, Gvožđe glukonat
+sv:E579, Järnglukonat
+tr:E579, ferrous gluconate
+description:en: IRONII GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron-II- salt of gluconic acid.
 e_number:en: 579
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q421291
+wikipedia:en: https://en.wikipedia.org/wiki/IronII_gluconate
 
 < en:E579
 en:ferrous gluconate to stabilize color
@@ -34465,28 +34516,41 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2185998
 
-en:E917, Potassium iodate
-bg:E917, E917 food additive, Калиев йодат
-cs:E917, Jodičnan draselný, Jodečnan draselný
-da:E917, E917 food additive
+en:E917, potassium iodate
+ar:E917, يودات البوتاسيوم
+bg:E917, Калиев йодат
+ca:E917, iodat de potassi
+cs:E917, jodičnan draselný, Jodečnan draselný
 de:E917, Kaliumiodat, Kaliumjodat
-el:E917, E917 food additive, ιωδικό κάλιο
-es:E917, Yodato potásico, yodato de potasio
-et:E917, E917 food additive, kaaliumjodaat
+el:E917, ιωδικό κάλιο
+eo:E917, kalia jodato
+es:E917, yodato de potasio, Yodato potásico
+et:E917, kaaliumjodaat
+fa:E917, پتاسیم یدات
 fi:E917, Kaliumjodaatti, Kaliumjodaattia
 fr:E917, Iodate de potassium
 hu:E917, Kálium-jodát
-it:E917, Iodato di potassio, iodato di sodio
-lt:E917, E917 food additive, kalio jodatas
-lv:E917, E917 food additive, kālija jodāts
-mt:E917, E917 food additive, jodat tal-potassju
-nl:E917, Kaliumjodaat, KIO3
+id:E917, Kalium iodat
+it:E917, Iodato di potassio
+ja:E917, ヨウ素酸カリウム
+lt:E917, kalio jodatas
+lv:E917, kālija jodāts
+mt:E917, jodat tal-potassju
+nl:E917, Kaliumjodaat
 pl:E917, Jodan potasu, Jodan-V potasu
 pt:E917, Iodato de potássio
 ro:E917, Iodat de potasiu
-sk:E917, E917 food additive, jodičnan draselný
-sl:E917, E917 food additive, kalijev jodat
-sv:E917, E917 food additive, kaliumjodat
+ru:E917, иодат калия
+sh:E917, Kalijum jodat
+sk:E917, jodičnan draselný
+sl:E917, kalijev jodat
+sr:E917, Kalijum jodat
+sv:E917, kaliumjodat
+ta:E917, பொட்டாசியம் அயோடேட்டு|
+tr:E917, Potasyum iyodat
+uk:E917, Йодат калію
+vi:E917, Kali iodat
+zh:E917, 碘酸钾
 e_number:en: 917
 mandatory_additive_class:en: en:flour-treatment-agent
 organic_eu:en: authorized
@@ -35656,7 +35720,7 @@ fr:E952, Acide cyclamique et ses sels, cyclamates, Acide cyclamique, Cyclamate d
 ga:Cioglamáit
 gl:Ciclamato
 he:ציקלמאט
-hu:E952, Ciklamimsav és na- és ca-sói, Ciklaminsav, ciklamát
+hu:E952, Ciklamimsav és na- és ca-sói, Ciklaminsav, ciklamát, nátrium-ciklamát
 hy:Նատրիումի ցիկլամատ
 id:Natrium siklamat
 it:E952, Acido ciclamico e suoi sali di sodio e di calcio, Acido ciclamico, Ciclamato, Ciclammato, Ciclamato di sodio, Ciclamato di calcio
@@ -35725,6 +35789,7 @@ tr:E953, Izomalt
 uk:E953, Ізомальт
 zh:E953, 異麥芽酮糖醇
 additives_classes:en: en:stabilizer, en:sweetener, en:thickener
+description:en: ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
 e_number:en: 953
 vegan:en: yes
 vegetarian:en: yes
@@ -36141,6 +36206,7 @@ uk:E965, Мальтитол
 vi:E965, Maltitol
 zh:E965, 麦芽糖醇
 additives_classes:en: en:emulsifier, en:humectant, en:stabilizer, en:sweetener, en:thickener
+description:en: MALTITOL is a sugar alcohol -a polyol- used as a sugar substitute. It has 75–90% of the sweetness of sucrose -table sugar- and nearly identical properties, except for browning. Maltitol's high sweetness allows it to be used without being mixed with other sweeteners. It is used in candy manufacture, particularly sugar-free hard candy, chewing gum, chocolates, baked goods, and ice cream.
 e_number:en: 965
 efsa_evaluation:en: Opinion of the Scientific Panel on Food Additives, Flavourings, Processing Aids and Materials in Contact with Food on a request from the Commission related to Maltitol Syrup E 965ii new production process. Change of specification
 efsa_evaluation_date:en: 2006-05-18
@@ -36643,7 +36709,7 @@ it:uova svizzere, 6 uova svizzere, 4 uova svizzere
 nl:eieren uit Zwitserland, zwitserse eieren
 
 < en:Egg
-en:free range eggs
+en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral, huevos de gallinas criadas en el suelo
 fi:ulkomunat
@@ -36701,7 +36767,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Quail_eggs
 
 < en:Egg
 en:whole egg, whole eggs
-da:æg, aeg
+da:hele æg
 de:Vollei
 es:huevos enteros
 fi:kokonainen muna, kokonaiset munat
@@ -36942,6 +37008,7 @@ ga:Eiblitheoir
 hu:Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 is:Yruefni
 it:Emulsionante, emulsionanti, agente emulsionante, agenti emulsionanti
+ja:乳化剤
 lt:Emulsiklis, emulsikliai
 lv:Emulgators
 mt:Emulsifikant
@@ -37221,6 +37288,7 @@ uk:E1104, Ліпаза
 uz:E1104, Lipaza
 vi:E1104, Lipase
 zh:E1104, 脂酶
+description:en: A LIPASE is any enzyme that catalyzes the hydrolysis of fats -lipids-. Lipases serve important roles in human practices as ancient as yogurt and cheese fermentation. Lipases are generally animal sourced, but can also be sourced microbially.
 e_number:en: 1104
 vegan:en: maybe
 vegetarian:en: maybe
@@ -37448,12 +37516,6 @@ en:organic eucalyptus honey
 fi:luomu eukalyptushunaja
 fr:miel d'eucalyptus issu de l'agriculture biologique
 
-< en:European anchovy
-en:Engraulis encrasicolus
-de:Sardelle (Engraulis encrasicolus)
-fr:Engraulis encrasicolus, Anchois européen, Anchois de l'Afrique australe, Anchois italien
-la:Engraulis encrasicolus, Engraulis encrasicholus
-
 en:evaporated cane juice
 es:Jugo de caña evaporado
 fr:jus de canne évaporé
@@ -37469,6 +37531,13 @@ fr:crème à café
 hu:kévékrém, kávétejszín
 it:panna da caffè
 nl:koffieroom
+
+< en:Exhausted vanilla pod
+en:exhausted ground vanilla pod, exhausted ground vanilla bean
+de:gemahlene extrahierte Vanilleschoten, extrahierte gemahlene Vanilleschoten
+fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
+it:baccelli di vaniglia curati macinati
+nl:gemalen geëxtraheerde vanillestokjes
 
 < en:Extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
@@ -37544,6 +37613,14 @@ e_number:en: 999
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q118843
+
+en:falafel
+de:falafel
+es:falafel
+fr:falafel
+sv:falafel
+wikidata:en: Q188788
+wikipedia:en: https://en.wikipedia.org/wiki/Falafel
 
 < en:Fat
 en:animal fat
@@ -37630,6 +37707,7 @@ vegetarian:en: no
 < en:Fat
 en:shortening
 fr:graisse alimentaire
+ja:ショートニング
 wikidata:en: Q1194601
 wikipedia:en: https://en.wikipedia.org/wiki/Shortening
 
@@ -37787,7 +37865,7 @@ ro:Fibră
 ru:волокна
 sd:ريشو
 sh:Vlakno
-sk:vlákno
+sk:vlákno, vláknina
 sq:Fibrat
 sr:влакно
 sv:fiber, kostfiber, fibrer
@@ -37918,7 +37996,7 @@ fi:vadelmatäyte
 fr:garniture aux framboises
 sv:hallonfyllning
 
-en:Firming agent, firming
+en:Firming agent
 bg:Втвърдител
 ca:Enfortidor
 cs:Zpevňující látka
@@ -37928,7 +38006,7 @@ el:Σκληρυντικό
 es:Endurecedor, Agentes endurecedores, Agente endurecedor
 et:Tardaine
 fi:Kiinteyttämisaine, Kiinteyttämisainetta, Kiinteyttämisaineet, Kiinteyttämisaineita
-fr:Affermissant, agent affermissant, affermissants
+fr:Affermissant, agent affermissant
 ga:Oibreán teannta
 hu:Szilárdítóanyag
 it:Agente di resistenza, agenti di resistenza
@@ -38146,6 +38224,7 @@ fr:loup d'atlantique
 ga:Cat mara an Atlantaigh
 he:דג זאב אטלנטי
 is:Steinbítur
+la:Anarhichas lupus
 lt:Paprastoji vilkžuvė
 mk:морски волк
 nb:Gråsteinbit
@@ -38566,15 +38645,15 @@ wikipedia:en: https://en.wikipedia.org/wiki/Flat_bean
 
 en:Flavour enhancer, flavour synergist, flavor enhancer, flavor enhancers
 bg:Овкусител
-ca:Potenciador del sabor, Potenciador del gust, potenciadors del gust, potenciadors del sabor
+ca:Potenciador del gust, potenciadors del gust, potenciadors del sabor
 cs:Látka zvýrazňující chuť a vůni
 da:Smagsforstærker, Smagsforstærkere
 de:Geschmacksverstärker
 el:Ενισχυτικό γεύσης
-es:Potenciador del sabor, potenciadores del sabor, Acentuadores del sabor, acentuadores del aroma, aromatizantes sinergistas, potenciador de sabor, intensificador del sabor, intensificadores del sabor
+es:Potenciador del sabor, potenciadores del sabor, Acentuadores del sabor, acentuadores del aroma, aromatizantes sinergistas, intensificador del sabor, intensificadores del sabor
 et:Lõhna- ja maitsetugevdaja
 fi:Arominvahvenne, Arominvahvennetta, Arominvahventeet, Arominvahventeita, Aromivahvenne, Aromivahvennetta, Aromivahventeen, Aromivahventeita
-fr:Exhausteur de goût, Exaltateur d'arôme, agent de sapidité, activateur d'arôme, exaltateur de goût, exhausteur d'arôme, exhausteurs de goût, exhausteurs de saveur, exhausteur de saveur
+fr:Exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme, agent de sapidité, activateur d'arôme, exaltateur de goût, exhausteur d'arôme, exhausteurs de saveur, exhausteur de saveur
 ga:Méadaitheoir blais
 hu:Ízfokozó, Ízfokozók
 it:Esaltatore di sapidità, esaltatori di sapidità
@@ -38585,7 +38664,7 @@ nl:Smaakversterker, Smaakversterkers
 pl:Wzmacniacz smaku, Wzmacniacze smaku
 pt:Intensificador de sabor
 ro:Potențiator de aromă, potenţiatori de aromă
-sk:Stimulátor/zvýrazňovač chuti
+sk:Stimulátor, zvýrazňovač chuti
 sl:Ojačevalec arome
 sv:Smakförstärkare
 description:cs: Látkami zvýrazňujícími chuť a vůni se rozumějí látky, které zvýrazňují stávající chuť nebo vůni potraviny.
@@ -38617,7 +38696,7 @@ da:smagsstof, smagstoffer, aromaer
 de:Aroma, Aromen
 el:αρωματικό
 es:aroma, aromas, aromatizante, aromatizantes, sustancias-aromatizantes, saborizante, saborizantes
-et:lõhna- ja maitseaine, lõhna- ja maitseained, aroomiaine
+et:lõhna- ja maitseaine, lõhna- ja maitseained, aroomiaine, lõhnaained
 fi:aromi, aromit, aromeja, aromiaineet, aromiaineita, makuaineet
 fr:arôme, arômes
 he:חומרי טעם
@@ -38645,7 +38724,7 @@ de:Aroma Koffein
 de:Aroma Vanillin
 fi:vanilliiniaromi
 fr:arôme vanilline
-hu:
+hu:vanillin aroma
 it:aroma vanillina
 sv:vanillinarom
 
@@ -38772,7 +38851,7 @@ de:Schokoladengeschmack
 es:saborizante a chocolate
 fi:suklaa-aromi
 fr:arôme de chocolat
-hu:természetes csokoládé aroma
+hu:csokoládé aroma
 
 < en:Flavouring
 en:citrus flavouring
@@ -38827,6 +38906,11 @@ sv:dillarom
 < en:Flavouring
 en:egg flavour
 es:aroma de huevo
+
+< en:Flavouring
+en:elderberry flavouring
+fr:arôme de sureau
+hu:bodza aroma
 
 < en:Flavouring
 en:flavouring preparation, spice preparation
@@ -39121,10 +39205,6 @@ fi:katkeroaromi
 fr:arôme de malt d'orge
 
 < en:Flavouring
-fr:arôme de sureau
-hu:természetes bodza aroma
-
-< en:Flavouring
 fr:arôme identique nature
 
 < en:Flavouring preparation
@@ -39359,12 +39439,12 @@ cs:Látka zlepšující mouku
 da:Melbehandlingsmiddel
 de:Mehlbehandlungsmittel
 el:Βελτιωτικό αλεύρων
-es:Agente de tratamiento de la harina, acondicionadores de masa, acondicionador de masa, blanqueadores de las harinas, blanqueador de la harina, mejoradores de harinas, mejorador de la harina, reforzadores de la masa, reforzador de la masa, mejorante, mejorante panario, agentes de tratamiento de la harina
+es:Agente de tratamiento de la harina, agentes de tratamiento de la harina, acondicionadores de masa, acondicionador de masa, blanqueadores de las harinas, blanqueador de la harina, mejoradores de harinas, mejorador de la harina, reforzadores de la masa, reforzador de la masa, mejorante, mejorante panario
 et:Jahu parendaja
 fi:Jauhonparanne, Jauhoparannetta, Jauhonparanteet, Jauhonparanteita
-fr:Agent de traitement de la farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine, agents de traitement de la farine, agent de traitement de farine, agent de traitement de la farine e300
+fr:Agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga:Oibreán plúrchóireála
-hu:Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer, liszkezelő szerek
+hu:Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
 it:Agente di trattamento della farina, agenti di trattamento della farina
 lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
@@ -39373,7 +39453,7 @@ nb:Melbehandlingsmiddel
 nl:Meelverbeteraar, Meelverbeteraars
 pl:Środek do przetwarzania mąki, Środki do przetwarzania mąki
 pt:Agente de tratamento da farinha
-ro:Agent de tratare a făinii, agent de tratare făină
+ro:Agent de tratare a făinii
 sk:Múku upravujúca látka
 sl:Sredstvo za obdelavo moke
 sv:Mjölbehandlingsmedel
@@ -39467,20 +39547,20 @@ sk:fluorid sodný
 sl:natrijev fluorid
 sv:natriumfluorid
 
-en:Foaming agent, aerating agent, whipping agent, for whipping
+en:Foaming agent, aerating agent, whipping agent
 bg:Пенители
 ca:Escumant, escumants, agent escumant, agents escumants
 cs:Pěnotvorná látka
 da:Skumdannende middel
 de:Schaummittel
 el:Αφριστικοί παράγοντες
-es:Espumante, agente de aireación, agente de batido, agente espumante, espumantes, agentes espumantes
+es:Espumante, espumantes, agente de aireación, agente de batido, agente espumante, agentes espumantes
 et:Vahustusaine
 fi:Vaahdotusaine, Vaahdotusainetta, Vaahdotusaineet, Vaahdotusaineita
 fr:Agent moussant, agent d'aération, agent fouettant, moussant, pour fouetter
 ga:Oibreáin chúrtha
 hu:Habosítószer
-it:Agente schiumogeno, agenti schiumogeni, per montare
+it:Agente schiumogeno, agenti schiumogeni
 lt:Putojimą sukelianti medžiaga
 lv:Putu veidotājs
 mt:Aġent li jagħmel ir-ragħwa
@@ -39956,7 +40036,7 @@ dv:އާފަލް
 el:Μήλο, μήλα
 eo:pomo
 es:manzana
-et:õun
+et:õun, õunad
 eu:Sagar
 fa:سیب
 fi:omena, omenaa
@@ -39997,8 +40077,8 @@ la:Malum
 lb:Apel
 li:appel
 lo:ໝາກປົ່ມ
-lt:Obuolys
-lv:ābols
+lt:Obuolys, obuoliai
+lv:ābols, āboli
 mg:Paoma
 mi:āporo
 mk:јаболко
@@ -40965,7 +41045,7 @@ ca:raïm
 cs:bobule
 cy:Grawnwin
 da:vinstok
-de:Traube
+de:Traube, Trauben
 dv:މޭބިސްކަދުރު
 el:Σταφύλι
 eo:vinbero
@@ -41917,6 +41997,10 @@ zh:欧洲甜樱桃
 wikidata:en: Q165137
 
 < en:Fruit
+en:tamarillo
+fr:tamarillo
+
+< en:Fruit
 fr:fruits confits
 de:Früchte kandiert
 es:frutas confitadas
@@ -42020,7 +42104,7 @@ fi:limettimehu, limetäysmehu, limetinmehu
 fr:jus de citron vert
 it:succo di lime
 nl:limoensap
-pl:Sok cytrynowy, sok z cytryny
+pl:Sok limonkowy
 ru:Лаймовый сок
 sv:limejuice, limesaft
 
@@ -42048,7 +42132,7 @@ fr:jus et purées de fruits à base de concentrés
 < en:Fruit pectin
 en:apple pectin
 ca:pectina de poma
-de:Apfelpectin
+de:Apfelpektin
 es:pectina de manzana
 fr:pectine de pomme
 
@@ -42285,7 +42369,7 @@ cs:Želírující látka
 da:Geleringsmiddel, Geleringsmidler
 de:Geliermittel
 el:Πηκτωματογόνο
-es:Gelificante, gelificantes, Agente gelificante, agentes gelificantes
+es:gelificante, gelificantes, agente gelificante, agentes gelificantes
 et:Želeeriv aine
 fi:Hyytelöimisaine, Hyytelöimisainetta, Hyytelöimisaineet, Hyytelöimisaineita
 fr:Gélifiant, Agent gélifiant
@@ -42426,7 +42510,7 @@ el:Υλικό για γλασάρισμα
 es:Agente de recubrimiento, Agente de glaseado, agente de abrillantado, agente de acabado en superficie, agente de revestimiento, agente formadores de película, agente sellantes
 et:Glaseeraine
 fi:Pintakäsittelyaine, Pintakäsittelyainetta, Pintakäsittelyaineet, Pintakäsittelyaineita
-fr:Agent d'enrobage, agent de conditionnement hermétique, agent de finition superficielle, agent de polissage, filmogène, agents d'enrobage
+fr:Agent d'enrobage, agents d'enrobage, agent de conditionnement hermétique, agent de finition superficielle, agent de polissage, filmogène
 ga:Oibreán glónrúcháin
 hu:Fényezőanyag, bevonószer, bevonó
 it:Agente di rivestimento, agenti di rivestimento
@@ -43143,7 +43227,7 @@ hu:természetes grépfrút aroma
 
 < en:Grapefruit juice
 fr:jus de pamplemousse à base de concentré
-de:Grapefruitsaft aus Konzentrat
+de:Grapefruitsaft aus Konzentrat, Grapefruitsaft aus Grapefruitsaftkonzentrat
 fi:greippimehu tiivisteestä
 it:succo di pompelmo a base di concentrato
 
@@ -43497,6 +43581,7 @@ la:Merluccius capensis
 nl:Zuid-Afrikaanse heek
 sv:Kapkummel
 zh:南非無鬚鱈
+description:en: Merluccius capensis -shallow-water Cape hake or South African hake- is a ray-finned fish in the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of South Africa.
 wikidata:en: Q386641
 wikipedia:en: https://en.wikipedia.org/wiki/Merluccius_capensis
 
@@ -45866,6 +45951,7 @@ tr:Potasyum iyodür
 uk:Йодид калію
 vi:Kali iođua
 zh:碘化钾
+description:en: POTASSIUM IODIDE is a chemical compound, medication, and dietary supplement. As a medication it is used to treat hyperthyroidism, in radiation emergencies, and to protect the thyroid gland when certain types of radiopharmaceuticals are used.
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 
@@ -45880,7 +45966,7 @@ et:naatriumjodaat
 fi:natriumjodaatti
 fr:iodate de sodium
 hu:nátrium-jodát
-it:
+it:iodato di sodio
 lt:natrio jodatas
 lv:nātrija jodāts
 mt:jodat tas-sodju
@@ -45929,29 +46015,6 @@ sl:elementarno železo
 sv:elementarjärn
 
 < en:Iron
-en:ferric ammonium citrate
-bg:Железен амониев цитрат
-cs:citrát železito-amonný
-de:
-el:εναμμώνιος κιτρικός σίδηρος
-es:citrato férrico de amonio
-et:raudIIIammooniumtsitraat
-fi:ferriammoniumsitraatti
-fr:citrate ferrique d'ammonium
-hu:vasIII-ammónium-citrát
-it:citrato ferrico di ammonio
-lt:geležies amonio citratas
-lv:dzelzs amonija citrāts
-mt:ċitrat ferriku tal-ammonju
-nl:ijzer III ammoniumcitraat
-pl:cytrynian amonu i żelazaIII
-pt:citrato férrico de amónio
-ro:citrat feric de amoniu
-sk:citran amónno-železitý
-sl:železov amonijev citrat
-sv:ferriammoniumcitrat
-
-< en:Iron
 en:ferric diphosphate, iron diphosphate, ferrous phosphate
 bg:Железен дифосфат
 cs:difosforečnan železitý
@@ -45976,12 +46039,14 @@ sl:železov difosfat, železov pirofosfat
 sv:ferridifosfat, ferripyrofosfat, järndifosfat
 ta:இரும்பு பைரோபாசுபேட்டு
 zh:焦磷酸铁
+description:en: IRONII PHOSPHATE, Fe3-PO4-2, is an iron salt of phosphoric acid.
 wikidata:en: Q9207442
 wikipedia:en: https://en.wikipedia.org/wiki/IronII_phosphate
 
 < en:Iron
 en:ferric orthophosphate, ferric phosphate, iron orthophosphate, iron phosphate
 es:ortofosfato férrico
+description:en: IronIII phosphate, also ferric phosphate, is the inorganic compound with the formula FePO4. Iron-III- phosphate is not allowed as food additive in the European Union. It was withdrawn from the list of allowed substances in the directive 2002/46/EC in 2007.
 wikidata:en: Q1311179
 wikipedia:en: https://en.wikipedia.org/wiki/IronIII_phosphate
 
@@ -46216,6 +46281,7 @@ sl:železov fumarat
 sr:GvožđeII fumarat
 sv:ferrofumarat
 zh:延胡索酸亚铁
+description:en: IRONII GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron-II- salt of gluconic acid.
 wikidata:en: Q416370
 wikipedia:en: https://en.wikipedia.org/wiki/IronII_fumarate
 
@@ -46266,7 +46332,7 @@ sv:grön jalapeño
 
 en:juice
 de:Saft
-es:zumo, jugo, sirope, jarabe
+es:zumo, jugo
 fi:mehu
 fr:jus
 it:succo
@@ -46604,7 +46670,7 @@ wikidata:en: Q132644
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
 < en:Lactobacillus
-en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus
+en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
 cs:Lactobacillus bulgaricus, L. bulgaricus
 da:Lactobacillus bulgaricus, L. bulgaricus
 de:Lactobacillus bulgaricus, L. bulgaricus
@@ -46649,7 +46715,7 @@ wikidata:en: Q139777
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_casei
 
 < en:Lactobacillus
-en:Lactobacillus lactis, L. lactis, Lactobacillus delbrueckii
+en:Lactobacillus lactis, L. lactis, Lactobacillus delbrueckii, Lactobacillus delbrueckii subsp. lactis, L. delbrueckii subsp. lactis
 bg:Lactobacillus lactis
 de:Lactobacillus lactis
 es:Lactobacillus lactis
@@ -46769,7 +46835,7 @@ ia:Lactosa
 id:Laktosa
 is:Laktósi, mjólkursykur
 it:Lattosio
-ja:ラクトース
+ja:ラクトース, 乳糖
 ka:ლაქტოზა
 ko:락토스
 ky:Лактоза
@@ -46810,7 +46876,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 en:Lactose powder, powdered lactose
 ca:lactosa en pols
 da:laktosepulver
-de:Milchpulver
+de:Laktosepulver
 es:lactosa en polvo
 fi:laktoosijauhe
 fr:poudre de lactose
@@ -47508,13 +47574,26 @@ it:succo di limone concentrato, concentrato di limone, estratto di limone
 lt:citrinų sulčių koncentratas
 nb:sitronjuicekonsentrat
 nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
-pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy, koncentrat soku z cytryny
+pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
 
 < en:Lemon
 en:lemon marmalade
 ca:melmelada de llimona
+
+< en:Lemon
+en:lemon oil
+da:citronolie
+de:Zitronenöl
+es:Aceite de limón
+fi:Sitruunaöljy
+fr:essence de citron, huile essentielle de citron, huile de citron
+hu:citromolaj
+it:essenza di limone, olio essenziale di limone
+nl:Citroenolie
+sv:citronolja
+from_palm_oil:en: no
 
 < en:Lemon
 en:lemon peel, lemon rind
@@ -47586,20 +47665,6 @@ fi:sitruunakuitu
 fr:fibre de citron, fibres de citron
 nl:citroenvezels
 
-< en:Lemon
-< en:Vegetable oil
-en:lemon oil
-da:citronolie
-de:Zitronenöl
-es:Aceite de limón
-fi:sitruunaöljy
-fr:huile de citron, essence de citron, huile essentielle de citron
-hu:citromolaj
-it:essenza di limone, olio essenziale di limone
-nl:Citroenolie
-sv:citronolja
-from_palm_oil:en: no
-
 < en:Lemon balm
 en:organic lemon balm
 fi:luomu sitruunamelissa
@@ -47613,10 +47678,10 @@ de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
 fi:sitruunamehu tiivisteestä, sitruunatäysmehu tiivisteestä, tiivisteestä valmistettu sitruunatäysmehu
 fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
-hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
+hu:citromlé koncentrátumból
 it:succo di limone da concentrato
 nl:citroensap uit concentraat
-pl:Sok cytrynowy z koncentratu, Zagęszczony sok cytrynowy, koncentrat soku z cytryny
+pl:sok cytrynowy z koncentratu
 sv:citronjuice från koncentrat, citronsaft från koncentrat
 
 < en:Lemon juice
@@ -47841,16 +47906,18 @@ fr:feuille de lime, feuille de citron vert
 sv:limeblad
 
 < en:Lime juice
+en:lime juice concentrate
+de:limettensaftkonzentrat
+fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
+fr:jus de citron vert concentré
+sv:limesaftkoncentrat
+
+< en:Lime juice
 en:reconstituted lime juice
-de:rekonstituierter Limettensaft
+de:rekonstituierter Limettensaft, limettensaft aus limettensaftkonzentrat
 fi:limettimehu tiivisteestä, tiivisteestä valmistettu limettitäysmehu
 fr:jus de citron vert à base de concentré
 nl:limoensap uit concentraat
-
-< en:Lime juice
-fr:jus de citron vert concentré
-fi:limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
-sv:limesaftkoncentrat
 
 < en:Honey from France
 < en:Linden honey
@@ -48304,7 +48371,7 @@ fr:livèche séchée
 
 < en:Lovage
 en:lovage leaves
-de:Liebstöckel Blätter
+de:Liebstöckel Blätter, Liebstöckelblätter
 fi:liperin lehdet
 fr:feuilles de livèche
 
@@ -48391,7 +48458,7 @@ en:Magnesium phosphate
 ar:فوسفات المغنسيوم
 de:Magnesiumphosphat
 es:Fosfato de magnesio
-fi:
+fi:magnesiumfosfaatti, magnesiumfosfaattia
 fr:Phosphate de magnesium
 hu:Magnézium-foszfát
 it:
@@ -48507,7 +48574,7 @@ hu:magnézium-L-pidolát
 it:L-pidolato di magnesio
 lt:magnio L-pidolatas
 lv:magnija L-pidolāts
-mt:L-pidolat tal-manjesju
+mt:L-aspartat tal-manjesju
 nl:magnesium-L-pidolaat
 pl:L-pidolan magnezu
 pt:L-pidolato de magnésio
@@ -48725,7 +48792,7 @@ lt:maltodekstrinas
 lv:maltodekstrīns
 nb:maltodekstrin
 nl:Maltodextrine
-pl:
+pl:Maltodekstryny, Maltodekstryna
 pt:Maltodextrinas, maltodextrina
 ro:maltodextrină, maltodextrina
 ru:Мальтодекстрин
@@ -48939,6 +49006,7 @@ tr:Manganez sülfat
 uk:Сульфат марганцю
 vi:Mangan sulfat
 zh:硫酸锰
+description:en: MANGANESE SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O. Magnesium sulfate is used as a brewing salt in making beer. It may also be used as a coagulant for making tofu.
 wikidata:en: Q409393
 
 < en:Mango
@@ -49658,7 +49726,7 @@ lb:Béchsemëllech
 lt:Kondensuotas pienas
 ms:Susu pekat
 nl:gecondenseerde melk
-pl:Mleko skondensowane
+pl:Mleko skondensowane, mleko zagęszczone
 pt:leche condensada, leite condensado
 ro:Lapte condensat
 ru:сгущённое молоко
@@ -49847,7 +49915,7 @@ wikidata:en: Q10572454
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
-en:sheeps milk, sheep milk, ewe's milk
+en:sheeps milk, sheep milk, ewe's milk, sheep's milk
 ca:lley d'ovella
 da:Fåremælk
 de:Schafsmilch, Schafmilch
@@ -50011,7 +50079,7 @@ cs:Sušené odstředěné mléko
 da:skummetmælkspulver
 de:Magermilchpulver
 es:leche desnatada en polvo, leche en polvo desnatada
-et:lössipulber
+et:lössipulber, kooritud piimapulber
 fi:rasvaton maitojauhe, rasvatonta maitojauhetta, rasvatonmaitojauhe
 fr:lait en poudre écrémé, lait écrémé en poudre, poudre de lait écrémé
 he:אבקת חלב רזה
@@ -50040,13 +50108,14 @@ da:sødmælkspulver
 de:Vollmilchpulver, Voll_milch_pulver
 el:γάλα Πλήρες σε σκόνη
 es:leche entera en polvo, leche en polvo entera
-et:täispiimapulber
+et:täispiimapulber, koorimata piimapulber
 fi:täysmaitojauhe, kuivattu täysmaito, täysmaitojauhetta, rasvainen maitojauhe
 fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
 hr:punomasno mlijeko u prahu
 hu:zsiros tejpor, teljes tejpor
 is:nýmjólkurduft
 it:latte intero in polvere
+ja:全粉乳
 lt:nenugriebto pieno milteliai
 lv:pilnpiena pulveris
 nl:volle melkpoeder, vollemelkpoeder
@@ -50078,9 +50147,6 @@ fr:lait maigre en poudre, lait en poudre maigre
 
 < en:Milk powder
 fr:poudre de lait réhydratée
-
-< en:Milk powder
-fr:produits laitiers en poudre
 
 < en:Milk proteins
 en:Casein
@@ -50661,6 +50727,7 @@ vi:crom
 yi:כראם
 yo:Krómíọ̀mù
 zh:铬
+description:en: CHROMIUM is a chemical element with symbol Cr and atomic number 24.
 wikidata:en: Q725
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
@@ -50787,6 +50854,7 @@ yo:Bàbàowó
 za:Doengz
 zh:铜
 zu:Umthofu
+description:en: COPPER is a chemical element with symbol Cu -from Latin:cuprum- and atomic number 29.
 wikidata:en: Q753
 wikipedia:en: https://en.wikipedia.org/wiki/Copper
 
@@ -50918,6 +50986,7 @@ vi:iốt
 yi:יאד
 yo:Iodine
 zh:碘
+description:en: IODINE is a chemical element with symbol I and atomic number 53.
 wikidata:en: Q1103
 wikipedia:en: https://en.wikipedia.org/wiki/Iodine
 
@@ -51030,6 +51099,7 @@ vi:magiê
 yi:מאגנעזיום
 yo:Magnésíọ̀mù
 zh:镁
+description:en: MAGNESIUM is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium
 
 < en:Minerals
@@ -51136,6 +51206,7 @@ vi:mangan
 yi:מאנגאן
 yo:Manganisi
 zh:锰
+description:en: MANGANESE is a chemical element with symbol Mn and atomic number 25. Manganese is an essential human dietary element. It is present as a coenzyme in several biological processes, which include macronutrient metabolism, bone formation, free radical defense systems.
 wikidata:en: Q731
 wikipedia:en: https://en.wikipedia.org/wiki/Manganese
 
@@ -51239,6 +51310,7 @@ uz:Molibden
 vi:molypden
 yo:Molybdenum
 zh:钼
+description:en: MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 wikidata:en: Q1053
 wikipedia:en: https://en.wikipedia.org/wiki/Molybdenum
 
@@ -51353,6 +51425,7 @@ yi:קאליום
 yo:Potassium
 za:Gyaz
 zh:钾
+description:en: POTASSIUM is a chemical element with symbol K -from Neo-Latin kalium- and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 wikidata:en: Q703
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium
 
@@ -51459,6 +51532,7 @@ vi:selen
 yi:סעלעניום
 yo:Selenium
 zh:硒
+description:en: SELENIUM is a chemical element with symbol Se and atomic number 34.
 wikipedia:en: https://en.wikipedia.org/wiki/Selenium
 
 < en:Minerals
@@ -51574,6 +51648,7 @@ wa:Sodiom
 yi:נאטריום
 yo:Sodiomu
 zh:钠
+description:en: SODIUM is a chemical element with symbol Na -from Latin natrium- and atomic number 11. In humans, sodium is an essential mineral that regulates blood volume, blood pressure, osmotic equilibrium and pH; the minimum physiological requirement for sodium is 500 milligrams per day.
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
 
@@ -51744,6 +51819,7 @@ ur:خارصین
 uz:Rux
 vi:kẽm
 zh:锌
+description:en: ZINC is a chemical element with symbol Zn and atomic number 30.
 wikidata:en: Q758
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc
 
@@ -51892,6 +51968,13 @@ lv:citronpipari
 sv:citronpeppar
 wikidata:en: Q206491
 wikipedia:en: https://en.wikipedia.org/wiki/Lemon_pepper
+
+< en:Mixed spices
+en:ras el hanout
+de:Ras el Hanout, Gewürzmischung Ras el Hanout
+fr:ras el hanout, mélange d'épices ras el hanout, mix ras el hanout
+wikidata:en: Q1067261
+wikipedia:en: https://en.wikipedia.org/wiki/Ras_el_hanout
 
 < en:Corn starch
 < en:Modified starch
@@ -52421,6 +52504,7 @@ sr:Natrijum molibdat
 ta:சோடியம் மாலிப்டேட்டு
 vi:Natri molipđat
 zh:钼酸钠
+description:en: SODIUM MOLYBDATE, Na2MoO4, is useful as a source of molybdenum.
 wikidata:en: Q414518
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_molybdate
 
@@ -52728,7 +52812,7 @@ wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 
 < en:Mushroom
-en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus
+en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, white mushroom, cup mushroom
 af:Sampioen
 ar:غاريقون ثنائي البوغ
 bg:култивирана печурка
@@ -53098,7 +53182,7 @@ en:shiitake, lentinula edodes, lentinus edodes, shiitake mushrooms
 de:shiitake, schwarzer Pilz
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
-fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé
+fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
 it:funghi shiitake
 la:Lentinula edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
@@ -53284,7 +53368,7 @@ da:Blåmusling, Mytilus edulis
 de:Gemeine Miesmuschel, Mytilus edulis
 et:Söödav rannakarp, Mytilus edulis
 fi:Sinisimpukka, Mytilus edulis
-fr:moule commune, Mytilus edulis, Mytilus edulis pêchées en Atlantique Nord
+fr:moule commune, Mytilus edulis
 hu:Ehető kékkagyló, Mytilus edulis
 ja:ヨーロッパイガイ, Mytilus edulis
 ko:섭조개, Mytilus edulis
@@ -53454,13 +53538,6 @@ fr:Graines de moutarde issues de l'agriculture durable
 < en:Mustard seed
 fr:graines de moutarde moulues
 nl:gemalen mosterdzaden
-
-< en:Nameko
-en:Pholiota nameko
-de:Nameko (Pholiota nameko)
-fr:Pholiota microspora, Pholiota nameko, Nameko
-la:Pholiota nameko, Pholiota microspora
-wikipedia:en: https://en.wikipedia.org/wiki/Pholiota_microspora
 
 < en:Natural apple flavouring
 < en:Natural flavouring
@@ -54088,6 +54165,7 @@ fr:arôme naturel de citron vert avec autres arômes naturels
 fr:arôme naturel de citron-citron vert
 nl:natuurlijke citroen en limoen aromas
 
+< en:Carbonated water
 < en:Natural mineral water
 en:carbonated natural mineral water, natural sparkling mineral water
 de:natürliches Mineralwasser mit Kohlensäure versetzt
@@ -54663,6 +54741,9 @@ ru:Органический овес
 < en:Oat
 en:whole grain oat flakes
 es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
+et:täisterakaerahelbed
+lt:pilno grūdo avižiniai dribsniai
+lv:pilngraudu auzu pārslas
 
 < en:Oat
 en:whole grain oats
@@ -56418,6 +56499,7 @@ cs:Palmojádrový olej
 da:palmekerne olie, palmekerne
 de:Palmkernöl, Palmkern
 es:palmiste, aceite de nuez de palma
+et:palmituuma
 eu:Palmiste olio
 fa:روغن هسته پالم
 fi:palmuydinöljy, palmuydin, palmunydin, palmunsiemenöljy
@@ -56428,7 +56510,7 @@ is:pálmakjarmaolía
 it:olio di palmisto, palmisto
 kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln:Mafúta ma ndiká
-lt:Alyvpalmių sėklų aliejus
+lt:Alyvpalmių sėklų aliejus, palmių branduolių
 ms:Minyak isirong sawit
 nl:Palmkernolie, palmpit
 pl:Olej z ziaren palmowych
@@ -56734,6 +56816,23 @@ sv:dexpantenol
 
 < en:Papaya
 fr:papayes séchées
+
+< en:Paprika
+en:paprika paste
+de:Paprikapaste
+fi:paprikatahna
+fr:Pâte de paprika
+
+< en:Paprika
+en:paprika powder
+
+< en:Paprika
+en:sweet paprika
+es:pimienta roja dulce
+
+< en:Paprika
+fr:paprika doux
+es:pimentón dulce
 
 < en:Parboiled long grain rice
 en:superior quality long grain parboiled rice
@@ -57237,6 +57336,10 @@ es:paraguaya, chato
 wikipedia:en: https://en.wikipedia.org/wiki/Saturn_Peach
 
 < en:Peach
+en:white peach, white peaches
+fr:pêche blanche
+
+< en:Peach
 fr:demi-pêches
 
 < en:Peach
@@ -57255,6 +57358,7 @@ sv:persikopuré
 
 < en:Peach juice
 fr:jus de pêche à base de concentré
+de:pfirsichsaft aus pfirsichsaftkonzentrat
 
 < en:Peanut
 en:peanut butter
@@ -57516,6 +57620,53 @@ ru:Красный перец
 sv:röd paprika
 
 < en:Pepper
+< en:Spice
+en:paprika
+ar:بابريكا
+az:paprika
+bg:червен пипер
+br:paprika
+bs:paprika
+ca:piment vermell
+cs:paprika
+cy:Paprica
+da:paprika, peberfrugt
+de:Paprika
+el:πάπρικα
+eo:papriko
+es:pimentón, paprika
+et:paprika
+eu:piperrauts
+fa:پاپریکا
+fi:paprika, paprikaa
+fr:paprika
+ga:pemento
+he:פפריקה
+hu:fűszerpaprika-őrlemény
+io:papriko
+it:paprika
+ja:パプリカ
+ko:파프리카
+lt:paprika
+lv:paprika
+mk:црвен пипер
+ms:paprika
+nl:paprika
+pl:papryka
+pt:paprica
+ro:boia
+ru:паприка
+sl:paprika
+sr:паприка
+sv:paprika
+tg:паприка
+tl:Paprika
+uk:паприка
+zh:辣椒粉
+wikidata:en: Q3127593
+wikipedia:en: https://en.wikipedia.org/wiki/Paprika
+
+< en:Pepper
 en:white pepper
 ca:pebre blanc
 cs:Bílý pepř
@@ -57604,17 +57755,19 @@ wikidata:en: Q19573669
 wikipedia:en: https://en.wikipedia.org/wiki/Petit-Beurre
 
 < en:Pholiota
-en:nameko
+en:nameko, Pholiota nameko, Pholiota microspora
 ar:ناميكو
 cs:šupinovka nameko
-de:Japanisches Stockschwämmchen
+de:Japanisches Stockschwämmchen, Nameko, Pholiota nameko
 es:nameco
 fr:Pholiota microspora, Pholiota nameko, Nameko
 ja:ナメコ
 ko:나도팽나무버섯
+la:Pholiota nameko, Pholiota microspora
 ru:Чешуйчатка съедобная
 sv:Namekotofsskivling
 zh:滑菇
+wikipedia:en: https://en.wikipedia.org/wiki/Pholiota_microspora
 
 < en:Pholiota
 en:sheathed woodtuft
@@ -59309,7 +59462,7 @@ es:carne de cerdo
 fi:sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
 fr:viande de porc, viande porc
 hu:sertéshús, disznóhús
-it:carne di suino, carne di maiale
+it:carne di suino, carne di maiale, carne suina
 nb:svinekjøtt, kjøtt av svin
 nl:Varkensvlees
 pl:Wieprzowina
@@ -60020,7 +60173,7 @@ zh:禽类肝脏
 
 < en:Poultry
 en:poultry meat
-da:Fjerkræ
+da:Fjerkrækød
 de:Geflügelfleisch
 es:Carne de ave
 fi:siipikarjanliha
@@ -60287,17 +60440,17 @@ zh:低聚半乳糖
 wikidata:en: Q2315231
 wikipedia:en: https://en.wikipedia.org/wiki/Galactooligosaccharide
 
-en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, ingredients of conservation
+en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
 bg:Консервант, консерванти
-ca:Conservant, conservador, conservadors, conservants
+ca:Conservant, conservador
 cs:Konzervant
 da:Konserveringsmiddel, Konserveringsmidler, Konservering
 de:Konservierungsstoff, Konservierungsstoffe, Konservierungsmittel
 el:Συντηρητικό
-es:Conservante, Conservador, agente conservador, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, sustancias conservadoras, sustancia conservadora, conservadores, conservantes, agentes conservadores, preservante
+es:Conservante, conservantes, Conservador, conservadores, agente conservador, agentes conservadores, sustancias conservadoras, sustancia conservadora, agente antimicótico, agente de control de bacteriófagos, agente fungistático, agentes inhibidores de mohos y hongos filamentosos, conservadores antimicrobianos, conservador antimicrobiano, preservante
 et:Säilitusaine, säilitusained
 fi:Säilöntäaine, Säilöntäainetta, Säilöntäaineet, Säilöntäaineita
-fr:Conservateur, agent antimoisissure et antifilant, agent antimoisissure, antifilant, agent antimycoses, agent de conservation, agent de conservation antimicrobien, agent de contrôle bactériologique, antimicrobien synergique, agent antimicrobien, antimicrobien, fongiostatique, agent antifongique, agent conservateur
+fr:Conservateur, agent conservateur, agent antimoisissure et antifilant, agent antimoisissure, antifilant, agent antimycoses, agent de conservation, agent de conservation antimicrobien, agent de contrôle bactériologique, antimicrobien synergique, agent antimicrobien, antimicrobien, fongiostatique, agent antifongique
 ga:Leasaitheach
 he:חומר משמר
 hu:Tartósítószer
@@ -60307,7 +60460,7 @@ lt:Konservantas
 lv:Konservants
 mt:Preservattiv
 nb:Konserveringsmiddel
-nl:Conserveermiddel, conserveringsmiddelen, Conserveermiddelen
+nl:Conserveermiddel, Conserveermiddelen, conserveringsmiddelen
 pl:Substancja konserwująca, Substancje konserwujące
 pt:Conservante, conservantes
 ro:Conservant, conservanți
@@ -60979,7 +61132,7 @@ da:rapsolie
 de:Ölrübsenöl
 es:aceite de canola
 fi:rypsiöljy, rypsiöljyä
-fr:huile de navette, huile de canola, navette
+fr:huile de navette, huile de canola
 hu:kanolaolaj, canolaolaj, canola olaj, kanola olaj
 it:Olio di canola
 nl:canola olie
@@ -61091,7 +61244,7 @@ nl:frambozendiksap
 
 < en:Raspberry juice
 fr:jus de framboise à base de concentré
-de:Himbeersaft aus Konzentrat
+de:Himbeersaft aus Konzentrat, himbeersaft aus himbeersaftkonzentrat
 fi:vadelmamehu tiivisteestä, vadelmatäysmehu tiivisteestä
 it:succo di lamponi a base di concentrato
 nl:frambozensap uit sapconcentraat
@@ -61617,7 +61770,7 @@ es:arroz extruido
 
 < en:Flour
 < en:Rice
-en:rice flour
+en:rice flour, riceflour
 ca:Farina d'arròs
 cs:Rýžová mouka
 da:rismel
@@ -61668,15 +61821,15 @@ hu:forrázott rizs, előfőzött rizs
 it:riso parboiled
 
 < en:Rice
-en:puffed rice, crisped rice, rice crips
-da:puffede ris, puffat ris
-de:Reisflocken, Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice
-es:arroz inflados, arroz inflado
+en:puffed rice, crisped rice, rice crisps
+da:puffat ris, puffede ris
+de:Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice
+es:arroz inflado, arroz inflados
 et:riisikrõpsud
-fi:riisihiutale, riisimuro, riisimurot, puffattu riisi
-fr:flocons de riz, riz soufflé, riz croustillant
+fi:riisimuro, riisimurot, puffattu riisi
+fr:riz soufflé, riz croustillant
 hu:puffasztott rizs
-it:fiocchi di riso, riso soffiato
+it:riso soffiato
 nl:gepofte rijst, rijst pofte
 pt:arroz tufado
 sv:riskrisp, puffat ris
@@ -61704,7 +61857,11 @@ sv:risextrakt
 
 < en:Rice
 en:rice flakes
+de:Reisflocken
 es:copos de arroz
+fi:riisihiutale
+fr:flocons de riz
+it:fiocchi di riso
 
 < en:Rice
 en:rice from Italy, Italian rice
@@ -62079,6 +62236,7 @@ it:barbabietola
 nl:biet, bieten
 pl:Burak
 ru:Свёкла
+sk:cvikly
 sv:rödbeta, rödbetor
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
 carbon_footprint_fr_foodges_value:fr: 0.2
@@ -62139,7 +62297,7 @@ ky:Сабиз
 lb:Muert
 li:Moeër
 lo:ຫົວຜັກກາດເຫຼືອງ
-lt:motkos
+lt:morkos
 lv:burkāns, burkāni
 mk:морков
 ml:കാരറ്റ്
@@ -62197,6 +62355,14 @@ carbon_footprint_fr_foodges_ingredient:fr: Carottes fraîches
 carbon_footprint_fr_foodges_value:fr: 0.3
 wikidata:en: Q81
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot
+
+< en:Root vegetable
+en:cassava, cassava root, manioc, manioc root, yuca, yuca root
+de:Maniok
+fr:manioc, racine de manioc
+nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q43304555
+wikipedia:en: https://en.wikipedia.org/wiki/Cassava
 
 < en:Root vegetable
 en:celeriac
@@ -62695,12 +62861,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Leek
 < en:Root vegetable
 en:lotus root
 fr:racine de lotus
-
-< en:Root vegetable
-en:manioc, cassava, yuka, manioc root
-de:Maniok
-fr:manioc, racine de manioc
-nutriscore_fruits_vegetables_nuts:en: no
 
 < en:Root vegetable
 en:onion, onions
@@ -63320,12 +63480,13 @@ wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 
 < en:Root vegetable
-en:turnip-rape
+en:turnip-rape, field mustard
 de:Rübsamen
 fi:Rypsi
-fr:navet, navets
+fr:Navette
 la:Brassica rapa subsp. oleifera
 wikidata:en: Q3337246
+wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_-plante-
 
 < en:Root vegetable
 en:water chestnut, water chestnuts
@@ -63365,9 +63526,10 @@ wikidata:en: Q932664
 
 < en:Root vegetable
 en:yam
-de:Süßkartoffel, Süsskartoffeln, Süßkartoffeln
 fr:igname
 nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q8047551
+wikipedia:en: https://en.wikipedia.org/wiki/Yam_-vegetable-
 
 < en:Roscoff onions
 en:Roscoff onion powder
@@ -64149,7 +64311,7 @@ ig:Ńnú
 io:Manjebla salo
 is:Borðsalt, matarsalt
 it:sale, sale da cucina
-ja:塩
+ja:塩, 食塩
 jv:Uyah
 ka:სუფრის მარილი
 kk:Ас тұзы
@@ -66031,7 +66193,7 @@ id:wijen
 io:Sezamo
 is:Sesam
 it:sesamo
-ja:ゴマ
+ja:ゴマ, ごま
 jv:Wijèn
 kk:Күнжіт
 kn:ಎಳ್ಳು
@@ -66164,6 +66326,7 @@ sr:Natrijum selenat
 sv:natriumselenat
 vi:Natri selenat
 zh:硒酸鹽
+description:en: SODIUM SELENATE is the inorganic compound with the formula Na2SeO4. Chosen for its selenium content and high solubility, sodium selenate is a common ingredient in over-the-counter vitamin supplements.
 wikidata:en: Q419488
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_selenate
 
@@ -66188,7 +66351,7 @@ lt:natrio selenitas
 lv:nātrija selenīts
 mt:selenit tas-sodju
 nl:natriumseleniet
-pl:selenin sodu
+pl:selenian sodu
 pt:selenito de sódio
 ro:selenit de sodiu
 ru:селенит натрия
@@ -66200,6 +66363,7 @@ sv:natriumselenit
 ta:சோடியம் செலீனைட்டு
 vi:Natri selenit
 zh:亞硒酸鹽
+description:en: SODIUM SELENITE is the inorganic compound with the formula Na2SeO3. Because selenium is an essential element, sodium selenite is an ingredient in dietary supplements such as multi-vitamin/mineral products.
 wikidata:en: Q414626
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_selenite
 
@@ -66290,7 +66454,7 @@ fi:mannasuurimo, vehnäsuurimo
 fr:semoule de blé
 hu:búzadara, gríz
 it:semolino di frumento
-nl:tarwegries
+nl:tarwegries, tarwegriesmeel
 pt:sêmola de trigo
 sv:vetegryn
 carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
@@ -66377,7 +66541,7 @@ lt:sezamo sėklos
 lv:sezama sēklas
 nb:sesamfrø
 nl:sesamzaad, sesam zaden, sesamzaden
-pl:nasiona sezamu
+pl:nasiona sezamu, ziarno sezamu
 pt:sementes de sésamo, sementes de sésam
 ro:semințe de susan
 sk:sezamové semeno
@@ -66412,14 +66576,14 @@ ca:tahina
 cs:tahina
 cy:Tahini
 da:tahini
-de:Tahina
+de:Tahina, Tahin, Tahini
 el:Ταχίνι
 eo:Sezama pasto
-es:Tahini
+es:Tahini, tahin, tahina
 et:tahhiini
 fa:ارده
 fi:tahini
-fr:tahini, crème de sésame
+fr:tahini, crème de sésame, tahin, tahina, tahiné
 gl:Tahini
 he:טחינה
 hi:ताहिनी
@@ -67115,7 +67279,6 @@ sv:bokträrök
 
 < en:Smoke
 en:liquid smoke
-de:Raucharoma
 eo:likva fumo
 es:Humo líquido
 fa:دود مایع
@@ -67228,6 +67391,7 @@ tl:Sodium chloride
 uk:Хлорид натрію
 uz:Natriy xlorid
 vi:natri clorua
+description:en: SODIUM CHLORIDE commonly known as salt -though sea salt also contains other chemical salts-, is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 wikidata:en: Q2314
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_chloride
 
@@ -67587,7 +67751,7 @@ be:Соя
 bg:Соя, соеви, соево
 br:Soja
 bs:Soja
-ca:Soia, soja, faves de soja
+ca:Soia, soja
 cs:sója, sójové
 cy:Soia
 da:soja
@@ -67665,10 +67829,10 @@ allergens:en: en:soybeans
 < en:Soya
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
-ca:Soia, soja, faves de soja
+ca:faves de soja
 cs:Sója luštinatá, sójové boby
 da:Sojabønne
-de:Sojabohne, Sojabohnen, Sojakerne
+de:Sojabohne, Sojabohnen, Sojakerne, soja bohnen
 eo:Sojfabo
 es:granos de soja, habas de soja, habas de soya, semillas de soja
 et:Sojauba, sojaoad
@@ -67905,6 +68069,7 @@ en:sprouted spelt
 
 < en:Spelt
 en:whole spelt
+de:Dinkelvollkorn
 nl:volkoren spelt
 
 < en:Spelt
@@ -67935,7 +68100,7 @@ fr:farine de petit épeautre
 < en:Wholemeal flour
 en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 ca:farina de blat d'espelta integral
-de:Dinkelvollkornmehl
+de:Dinkelvollkornmehl, dinkel vollkornmehl
 es:harina de espelta integral, harina integral de espelta, harina integral de trigo de espelta
 fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
 fr:farine complète d'épeautre, farine d'épeautre complète, farine d'épeautre complet
@@ -68495,7 +68660,7 @@ en:mace
 ca:Macís
 cs:Muškátový květ
 da:muskatblomme
-de:Macis
+de:Macis, Muskatblüte
 eo:Maciso
 es:Macis, maza
 fi:muskotinkukka, muskottikukka
@@ -69010,13 +69175,10 @@ fr:pois cassés verts
 it:piselli verdi spezzati
 nl:groene spliterwten
 
-< en:Mineral water
+< en:Carbonated water
 < en:Spring water
-en:Carbonated mineral water, sparkling mineral water
-de:Mineralwasser mit Kohlensäure, kohlensäurehaltiges Mineralwasser
-fi:hiilihapotettu kivennäisvesi
-fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique, Eau minérale gazeuse
-nl:Bruisend mineraalwater, gashoudendmineraalwater
+en:carbonated spring water
+fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
 
 < en:Spring water
 en:mountain spring water
@@ -69030,9 +69192,6 @@ en:natural spring water
 de:natürliches Quellwasser
 fi:luontainen lähdevesi
 fr:eau de source naturelle
-
-< en:Spring water
-fr:eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique, Eau minérale gazeuse
 
 < en:Spring water
 fr:eau de source St Benoît, Eau de source Saint Benoît
@@ -69097,20 +69256,20 @@ zh:中國槍魷, Uroteuthis chinensis
 wikidata:en: Q920979
 
 < en:Squid
-en:Patagonian squid, Doryteuthis gahi
-de:Patagonien-Tintenfisch, Doryteuthis gahi
-es:Calamar de patagonia, Doryteuthis gahi
-fr:calmar de Patagonie, Doryteuthis gahi
+en:Patagonian squid
+de:Patagonien-Tintenfisch
+es:Calamar de patagonia
+fr:calmar de Patagonie
 la:Doryteuthis gahi, Loligo Gahi
 wikidata:en: Q13596602
 wikipedia:en: https://en.wikipedia.org/wiki/Doryteuthis_gahi
 
 < en:Squid
-en:swordtip squid, Uroteuthis edulis
-fr:Uroteuthis edulis, Calmar épée
+en:swordtip squid
+fr:Calmar épée
 ja:ケンサキイカ, Uroteuthis edulis
 la:Uroteuthis edulis, Loligo edulis
-zh:剑尖枪乌贼, Uroteuthis edulis
+zh:剑尖枪乌贼
 wikidata:en: Q2202434
 
 < en:Squid
@@ -69140,7 +69299,7 @@ fr:Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stab
 ga:Cobhsaitheoir
 hu:Stabilizátor, kötőanyag
 is:bindiefni
-it:Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, Stabilizzatore, legante, leganti
+it:Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, legante, leganti
 lt:Stabilizatorius
 lv:Stabilizētājs
 mt:Stabbilizzatur
@@ -69176,7 +69335,7 @@ wikidata:en: Q7595716
 < en:Star anise
 fr:anéthol de badiane
 
-en:starch, food starch
+en:starch, food starch, starches
 an:Amelón
 ar:نشا
 az:Nişasta
@@ -69409,6 +69568,7 @@ da:Hvedestivelse
 de:Weizenstärke
 el:άμυλο σιταριού
 es:almidón de trigo
+et:nisutärklis
 fi:vehnätärkkelys, vehnätärkkelystä
 fr:amidon de froment, amidon de blé
 hu:búzakeményítő
@@ -69530,7 +69690,7 @@ fr:concentré de jus de fraise
 
 < en:Strawberry juice concentrate
 en:strawberry juice from concentrate
-de:Erdbeersaft aus Konzentrat
+de:Erdbeersaft aus Konzentrat, erdbeersaft aus erdbeersaftkonzentrat
 fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
 fr:jus de fraise à base de concentré
 nl:geconcentreerd aardbeiensap
@@ -69745,6 +69905,7 @@ en:caramelised sugar
 da:karamelliseret sukker
 de:Karamellzucker, karamellisierter Zucker
 es:azúcar caramelizado
+et:karamelliseeritud suhkur
 fi:karamellisoitu sokeri, karamellisoitua sokeria, karamellisokeri
 fr:sucre brun, sucre caramel, sucre caramélisé
 hu:karamellizált cukor
@@ -70454,7 +70615,7 @@ es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 et:magus vadakupulber
 fi:makea herajauhe, makeutettu herajauhe
 fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
-it:siero di latte in polvere, siero di latte polvere
+it:siero di latte dolce in polvere
 nl:Zoete weipoeder
 ro:zer pudră îndulcit
 
@@ -70574,7 +70735,7 @@ da:sirup
 de:Sirup
 el:σιρόπι
 eo:Siropo
-es:
+es:jarabe, sirope
 fa:شیره
 fi:siirappi
 fr:sirop
@@ -70964,7 +71125,7 @@ en:tea leaf, tea leaves
 
 < en:Teff
 en:teff seed
-es:
+es:semilla de teff
 
 < en:Teff
 en:whole grain teff seed, whole grain teff
@@ -70990,7 +71151,6 @@ sv:teffmjöl
 en:whole grain ivory teff flour
 
 < en:Teff
-< en:Teff flour
 < en:Wholemeal flour
 en:whole grain teff flour, whole teff flour
 
@@ -71077,7 +71237,7 @@ hy:Թիամին, Վիտամին B1
 id:Tiamina, Vitamin B1
 is:Þíamín, B1-vítamín
 it:Tiamina, tiammina, vitamina B1
-ja:チアミン, ビタミンB1, V.B1
+ja:チアミン, ビタミンB1, ビタミン B1, V.B1
 ko:티아민, 바이타민 B1
 ky:Витамин В1
 lb:Thiamin, Vitamin B1
@@ -71181,6 +71341,7 @@ fr:Épaississant, agent de texture, épaississan synergiste, raffermissant, agen
 ga:Tiúsóir
 hu:Sűrítőanyag
 it:Addensante, addensanti, agente addensante, agenti addensanti
+ja:増粘剤
 lt:Tirštiklis
 lv:Biezinātājs
 mt:Aġent li jgħaqqad
@@ -71675,7 +71836,7 @@ fi:cashewpähkinä, cashewpähkinät
 fr:noix de cajou
 ga:cnónna caisiú
 hu:kesudió
-it:noci di acagiù
+it:noci di acagiù, anacardi
 ja:カシューナッツ
 lt:anakardžiai, Anakardium occidentale
 lv:Indijas rieksti
@@ -72143,7 +72304,7 @@ fi:Keltaevätonnikala
 fr:thon albacore, Thon jaune
 gl:Atún de aleta amarela
 hu:Sárgaúszójú tonhal
-it:Tonno a pinna gialla, tonno pinna gialla
+it:Tonno a pinna gialla, tonno pinna gialla, tonno a pinne gialle
 la:Thunnus albacares
 nl:Geelvintonijn
 pt:atum albacora
@@ -72436,6 +72597,7 @@ ca:Aroma natural de vainilla, aromes naturals de vainilla
 da:naturlig vanillearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
+et:looduslik vanillimaitseaine
 fi:luontainen vanilja-aromi
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
 hu:természetes vanília aroma
@@ -72460,6 +72622,12 @@ it:baccello di vaniglia Bourbon, bourbon vanilla bean
 de:Vanilleschotenpulver
 
 < en:Vanilla pod
+en:exhausted vanilla pod, exhausted vanilla bean
+de:extrahierte Vanilleschote
+fr:gousse de vanille épuisée, gousses de vanille épuisées
+nl:uitgeputte vanillestokjes, geëxtraheerde vanillestokjes, leeg vanillestokje
+
+< en:Vanilla pod
 en:ground vanilla beans, vanilla bean pieces
 da:formalede vaniljestænger
 de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
@@ -72469,11 +72637,6 @@ it:semi di vaniglia macinat
 pl:kawałki wanilii
 sv:mald vaniljstång, vaniljstångbitar
 
-< en:Vanilla pod
-fr:gousse de vanille épuisée, gousses de vanille épuisées
-de:extrahierte Vanilleschote
-nl:uitgeputte vanillestokjes, geëxtraheerde vanillestokjes, leeg vanillestokje
-
 < en:Bourbon vanilla
 < en:Vanilla powder
 en:Bourbon vanilla powder
@@ -72481,7 +72644,7 @@ de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver
 fr:poudre de vanille Bourbon
 
 < en:Vanilla seeds
-en:vanilla beans exhausted
+en:exhausted vanilla seeds
 de:Vanillesamen extrahiert
 fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille épuisées
 it:semi di vaniglia estratti
@@ -72503,7 +72666,7 @@ fa:وانیلین
 fi:vanilliini, vaniliini
 fr:vanilline
 he:ונילין
-hu:vanillin, vanillin aroma
+hu:vanillin
 hy:Վանիլին
 it:vanillina
 ja:バニリン
@@ -73620,69 +73783,53 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 wikidata:en: Q1474
 
 < en:Vegetable
-en:bell pepper, paprika
+en:bell pepper
 af:Soetrissie
 an:Pimiento
-ar:فلفل حلو, بابريكا
-az:paprika
-bg:червен пипер
-br:paprika
-bs:paprika
-ca:Pebrot morro de bou, piment vermell
-cs:kapie, paprika
-cy:Paprica
+ar:فلفل حلو
+ca:Pebrot morro de bou
+cs:kapie
 da:paprika, peberfrugt
-de:peberfrugt, Paprika
-el:πάπρικα
-eo:Kapsiko, papriko
-es:Pimiento, morrón, Pimiento morrón, pimentón, paprika
-et:paprika
-eu:piperrauts
-fa:فلفل دلمه‌ای, پاپریکا
+de:Paprika
+eo:Kapsiko
+es:Pimiento, morrón, Pimiento morrón
+fa:فلفل دلمه‌ای
 fi:paprika, paprikaa
-fr:poivron, poivrons, paprika
-ga:pemento
+fr:poivron, poivrons
 ha:Barkono
-he:גמבה, פלפל, פפריקה
-hu:bell paprika, fűszerpaprika-őrlemény
+he:גמבה, פלפל
+hu:bell paprika
 id:Paprika
-io:papriko
 is:Paprika
-it:Peperone, peperoni, paprika
-ja:ピーマン, パプリカ
+it:Peperone, peperoni
+ja:ピーマン
 kk:Бұрыш
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
-ko:단고추, 파프리카
-lt:Saldžioji paprika, paprika
-lv:paprika
-mk:бабура, црвен пипер
+ko:단고추
+lt:Saldžioji paprika
+mk:бабура
 mr:ढोबळी मिरची
-ms:paprika
 nb:Paprika
 nl:paprika
 nn:Paprika
 oc:Pebron
-pl:papryka
 ps:خواږه مرچ
-pt:pimentão, paprica
-ro:boia
-ru:перец овощной, паприка
+pt:pimentão
+ru:перец овощной
 sa:महामरीचिका
-sl:Kapia, paprika
-sr:паприка
+sl:Kapia
 sv:paprika
 ta:குடைமிளகாய்
 te:కూరమిరప
-tg:паприка
 th:พริกหยวก
-tl:Siling-pula, Paprika
+tl:Siling-pula
 tr:Dolma biber
-uk:овочевий перець, паприка
+uk:овочевий перець
 uz:Shirin qalampir
 vi:Ớt chuông
 wa:poevron
 yi:פאפריקע
-zh:菜椒, 辣椒粉
+zh:菜椒
 carbon_footprint_fr_foodges_ingredient:fr: Poivron
 carbon_footprint_fr_foodges_value:fr: 0.9
 wikidata:en: Q1548030
@@ -73796,6 +73943,7 @@ fr:chou, choux
 hu:fejeskáposzta
 it:cavolo
 li:Kappes
+lt:kopūstai
 nl:Kool
 pl:Kapusta
 ru:Капуста
@@ -74848,6 +74996,7 @@ nl:bamboevezels
 < en:Citrus fruit
 < en:Vegetable fiber
 en:citrus fibre, citrus fibres
+de:citrusfaser, zitrusfaser
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes
 sv:citrusfiber
@@ -74965,7 +75114,7 @@ es:fibras de trigo
 fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
 hu:búzarost
-it:fibre di frumento
+it:fibra di frumento, fibre di frumento
 nl:tarwevezel
 pt:fibras de trigo
 ru:Пшеничные волокна
@@ -75145,7 +75294,7 @@ ar:زيت الذرة
 be:Кукурузны алей
 ca:Oli de blat de moro
 da:Majsolie
-de:Maiskeimöl
+de:Maiskeimöl, Maisöl
 el:Αραβοσιτέλαιο
 eo:Maizoleo
 es:Aceite de maíz
@@ -75297,7 +75446,6 @@ from_palm_oil:en: no
 
 < en:Vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
-de:Emulgator Mono- und Diglyceride von Fettsäuren
 es:aceite vegetales no hidrogenados
 fi:kovettamaton kasviöljy, kovettamattomat kasviöljyt, hydrogenoimaton kasviöljy hydrogenoimattomat kasviöljyt
 fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
@@ -75761,7 +75909,7 @@ da:vegetabilsk olie, vegetabilisk olie, vegetabilske olier
 de:Pflanzenöle, pflanzliche Öle, pflanzliches Öl, Pflanzenöl
 eo:Legoma oleo
 es:Aceite vegetal, aceites vegetales
-et:Taimeõli
+et:Taimeõli, taimsed õlid
 eu:Landare-olio
 fa:دانه‌های روغنی
 fi:kasviöljy, kasviöljyt, kasviöljyjä
@@ -75831,13 +75979,13 @@ sv:havreprotein
 < en:Vegetable protein
 en:pea protein
 da:Ærteprotein
-de:Erbsenprotein
+de:Erbsenprotein, erbseneiweiß
 es:Proteína de guisante
 fi:herneproteiini
 fr:protéines de pois, protéine de pois
 hu:borsófehérje
 it:proteine di piselli
-nl:boneneiwit, erwteiwit
+nl:boneneiwit, erwteiwit, erwteneiwit
 pl:Białko grochu
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
@@ -76172,7 +76320,7 @@ fr:vinaigre blanc
 < en:Vinegar
 en:wine vinegar
 bg:винен оцет
-ca:Vinagre
+ca:Vinagre de vi
 da:Vineddike
 de:Weinessig
 es:vinagre de vino
@@ -76216,7 +76364,7 @@ es:aceite de oliva virgen extra, aceite extra virgen de oliva
 fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
-it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva
+it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva, olio extravergine d'oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 
@@ -77787,7 +77935,7 @@ fr:Eau de brassage
 wikipedia:de: https://de.wikipedia.org/wiki/Brauwasser
 
 < en:Water
-en:Carbonated water
+en:carbonated water, sparkling water
 af:Sodawater, klubsoda, bruiswater, vonkelwater, seltzerwater
 ar:ماء مكربن
 az:Qazlı su
@@ -77795,7 +77943,7 @@ bs:Soda voda
 ca:Aigua carbonatada
 cs:sodovka, Sodová voda, sifon, sycená, perlivá voda
 da:Danskvand
-de:Tafelwasser
+de:Tafelwasser, Sprudelwasser, Wasser mit Kohlensäure
 el:σόδα
 eo:Karbonata akvo
 es:Agua carbonatada
@@ -78261,7 +78409,7 @@ es:germen de trigo
 fi:vehnänalkio
 fr:germe de blé, germes de blé
 hu:búzacsíra
-it:germi di frumento
+it:germe di frumento, germi di frumento
 nb:hvetekim
 nl:tarwekiem
 pl:kielki pszenicy
@@ -78826,6 +78974,7 @@ is:Skötuselur
 it:Rana Pescatrice
 ja:ニシアンコウ
 ka:ზღვის ეშმაკი
+la:Lophius piscatorius
 nb:breiflabb
 nl:Zeeduivel
 nn:Breiflabb
@@ -78915,6 +79064,7 @@ it:bottatrice
 ja:カワメンタイ
 ka:ღლაბუტა
 kk:Нәлім
+la:lota lota
 lt:Vėgėlė
 nb:lake
 nl:kwabaal
@@ -79633,7 +79783,7 @@ fr:yaourt doux entier
 
 < en:Wholemeal barley
 en:whole grain barley flakes, wholegrain barley flakes
-de:vollkorn-gerstenflocken, vollkorngerstenflocken
+de:vollkorn-gerstenflocken, vollkorngerstenflocken, Gerstenvollkornflocken
 fi:täysjyväohrahiutale
 fr:flocons d'orge complète
 sv:fullkornskornflingor
@@ -80401,6 +80551,7 @@ sk:glukónan zinočnatý
 sl:cinkov glukonat
 sr:Cink glukonat
 sv:zinkglukonat
+description:en: ZINC GLUCONATE  is the zinc salt of gluconic acid. It is an ionic compound consisting of two anions of gluconate for each zincII cation. Zinc gluconate is a popular form for the delivery of zinc as a dietary supplement
 wikidata:en: Q3822815
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc_gluconate
 
@@ -80472,6 +80623,7 @@ th:สังกะสีออกไซด์
 uk:Оксид цинку
 vi:Kẽm ôxít
 zh:氧化鋅
+description:en: ZINC OXIDE is an inorganic compound with the formula ZnO. Zinc oxide is added to many food products, including breakfast cereals, as a source of zinc, a necessary nutrient.
 wikidata:en: Q190077
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc_oxide
 
@@ -80515,6 +80667,7 @@ tr:zinc sulfate
 uk:Цинковий купорос
 vi:Kẽm sulfat
 zh:硫酸锌
+description:en: ZINC SULFATE has the formula ZnSO4 as well as any of three hydrates. As a supplement it is used to treat zinc deficiency and to prevent the condition in those at high risk.
 
 es:potassium iodide, yoduro potásico
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
@@ -80632,9 +80785,6 @@ fi:
 it:saccarina di sodio
 ru:Натрия сахаринат
 
-< fr:Eau de source gazéifiée
-fr:eau de source St Benoît gazéifiée
-
 < fr:Eau minérale naturelle gazéifiée
 fr:Eau minérale naturelle de Spa gazéifiée
 nl:Koolzuurhoudend Spa natuurlijk mineraalwater
@@ -80730,7 +80880,7 @@ pl:maliny
 pt:framboesas
 ru:Малина
 sd:راسپ بيري
-sk:Malina
+sk:Malina, maliny, malinové
 sr:Малина
 sv:hallon
 sw:Mrasiberi
@@ -80769,13 +80919,6 @@ fr:génoise
 < en:E415
 < fr:Glycérol d'origine végétale
 fr:glycérol de colza et gomme xanthane
-
-< en:Vanilla beans exhausted
-< fr:Gousse de vanille épuisée
-fr:gousses de vanille épuisées broyées, gousses de vanille broyées épuisées
-de:gemahlene extrahierte Vanilleschoten, extrahierte gemahlene Vanilleschoten
-it:baccelli di vaniglia curati macinati
-nl:gemalen geëxtraheerde vanillestokjes
 
 fr:Gratinage
 
@@ -80880,7 +81023,6 @@ fr:miel de carotte récolté dans le gatinais
 < fr:Morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
-
 < fr:Moules cuites
 fr:moules du Pacifique décoquillées cuites
 
@@ -80954,9 +81096,6 @@ fr:préparation de viande de boeuf cuite
 
 fr:préparation pain d'épices
 allergens:en: en:gluten
-
-ca:productes làctics
-es:productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos, lácteo
 
 < fr:Purée de fruits
 fr:purées de fruits à base de concentrés

@@ -218,7 +218,7 @@ sub normalize_nutriment_value_and_modifier($$) {
 
 	return if not defined ${$value_ref};
 
-	if (${$value_ref} =~ /nan/i) {
+	if (lc(${$value_ref}) =~ /nan/) {
 		${$value_ref} = '';
 	}
 

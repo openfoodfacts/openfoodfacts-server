@@ -72,6 +72,8 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
 
 =head1 CONFIGURATION
 
@@ -375,7 +377,7 @@ sub compute_attribute_nutriscore($$) {
 	my $product_ref = shift;
 	my $target_lc = shift;
 
-	$log->debug("compute nutriscore attribute", { code => $product_ref->{code} }) if $log->is_debug();
+	$log->debug("compute nutriscore attribute", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
 
 	my $attribute_id = "nutriscore";
 	
@@ -455,7 +457,92 @@ sub compute_attribute_nutriscore($$) {
 			$attribute_ref->{description} = lang("attribute_nutriscore_" . $grade . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-$grade.svg";
+	}
+	else {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{match} = 0;
+	}
+	
+	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_ecoscore ( $product_ref, $target_lc )
+
+Computes an environmental impact attribute based on the Eco-Score.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+To differentiate products more finely, the match is based on the Eco-Score score
+that is used to define the Eco-Score grade from A to E.
+
+- Eco-Score A: 80 to 100%
+- Eco-Score B: 61 to 80%
+
+=cut
+
+sub compute_attribute_ecoscore($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+	# Compute the environmental score first, as it is currently not stored in the database
+	compute_ecoscore($product_ref);
+
+	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
+
+	my $attribute_id = "ecoscore";
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	
+	if (defined $product_ref->{ecoscore_data}) {
+		$attribute_ref->{status} = "known";
 		
+		my $score = $product_ref->{ecoscore_data}{score};
+		my $grade = $product_ref->{ecoscore_data}{grade};
+		
+		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
+		
+		# Compute match based on score
+		
+		my $match = 0;
+		
+		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
+		
+		if ($score < 0) {
+			$match = 0;
+		}
+		elsif ($score > 100) {
+			$match = 100;
+		}
+		else {
+			$match = $score;
+		}
+		
+		$attribute_ref->{match} = $match;
+		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = sprintf(lang("attribute_ecoscore_grade_title"), uc($grade));		
+			$attribute_ref->{description} = lang("attribute_ecoscore_" . $grade . "_description");
+			$attribute_ref->{description_short} = lang("attribute_ecoscore_" . $grade . "_description_short");
+		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/ecoscore-$grade.svg";
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -531,6 +618,7 @@ sub compute_attribute_nova($$) {
 			$attribute_ref->{description} = lang("attribute_nova_" . $nova_group . "_description");
 			$attribute_ref->{description_short} = lang("attribute_nova_" . $nova_group . "_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-$nova_group.svg";
 		
 	}
 	else {
@@ -603,8 +691,16 @@ sub compute_attribute_has_tag($$$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
 			# Override default texts if specific texts are available
-			override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
-			override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
+			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
+		}
+		
+		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
+		
+		$log->debug("checking for tag image", { target_lc => $target_lc, tagtype => $tagtype, tagid => $tagid, img_url => $img_url}) if $log->is_debug();
+		
+		if (defined $img_url) {
+			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
 		}
 	}
 	else {
@@ -612,8 +708,8 @@ sub compute_attribute_has_tag($$$$) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_no_title");
 			# Override default texts if specific texts are available
-			override_general_value($product_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
-			override_general_value($product_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
+			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
+			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
 		}
 	}
 	
@@ -649,7 +745,6 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
-
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
@@ -852,6 +947,11 @@ sub compute_attributes($$) {
 	
 	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
 	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);	
+	
+	# Environment
+	
+	$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
+	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);	
 		
 	# Labels groups
 	
