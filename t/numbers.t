@@ -9,7 +9,7 @@ use Test::More;
 use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Numbers qw/:all/;
 
 my @tests = (
 ["1", "1"],
@@ -36,6 +36,25 @@ foreach my $test_ref (@tests) {
 	my $expected = $test_ref->[1];
 
 	is(remove_insignificant_digits($input), $expected);
+}
+
+@tests = (
+["1","1"],
+["1.0","1.0"],
+["2,2","2.2"],
+["2,20","2.20"],
+["100 000","100000"],
+["33,000,000","33000000"],
+["3,760,00","3760"],
+);
+
+
+foreach my $test_ref (@tests) {
+
+        my $input = $test_ref->[0];
+        my $expected = $test_ref->[1];
+
+        is(convert_string_to_number($input), $expected + 0);
 }
 
 
