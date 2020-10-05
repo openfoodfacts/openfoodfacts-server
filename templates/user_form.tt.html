@@ -42,7 +42,7 @@
 
         <!-- Show different messages depending on whether it is a pro account
         and whether we are on the public platform or the pro platform -->
-        
+
         [% IF user_requested_org.defined %]
 
             <!-- Pro account, but the requested org already exists -->
@@ -56,13 +56,13 @@
         [% ELSIF user_org.defined %]
 
             <!-- Pro-account, with a newly created org -->
-        
+
             [% IF server_options_producers_platform.defined %]
 
                 <!-- We are on the producers platform -->
                 <!-- Suggest next steps: -->
                 <!-- - import product data -->
-                
+
                 <p>[% lang("add_user_you_can_edit_pro") %]</p>
                 <p>&rarr; <a href="/cgi/import_file_upload.pl">[% lang("import_product_data") %]</a></p>
 
@@ -77,7 +77,7 @@
         [% ELSE %]
 
             <!-- Personal account -->
-                
+
             <!-- Suggest next steps:
             - add or edit products on the web site or through the app
             - join us on Slack -->

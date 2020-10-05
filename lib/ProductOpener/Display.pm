@@ -2368,6 +2368,8 @@ sub display_list_of_tags_translate($$) {
 
 			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
 
+			$log->debug("display_list_of_tags_translate - tagf_ref", $tag_ref) if $log->is_debug();
+
 			# Keep only known tags that do not have a translation in the current lc
 			if ( not $tag_ref->{known} ) {
 				$log->debug(

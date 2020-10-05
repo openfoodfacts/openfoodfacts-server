@@ -1,0 +1,265 @@
+/*************************/
+/* part related to graph */
+/*************************/
+.graph #banner {
+    width: 98%;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
+}
+
+.graph #cell_product_image {
+    text-align: center;
+    width: 23%;
+}
+
+.graph #prod_ref_image {
+    max-width: 99%;
+}
+
+.graph #links_off {
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0px;
+    margin: 0px;
+}
+
+.graph #links_off > div {
+    padding-top: 0.2em;
+}
+
+.graph #links_off a, .graph a {
+    text-decoration: none;
+        color: #09f;
+    font-weight: 700;
+}
+
+/* display json product page only on wide screens (not interesting on smartphones) */
+.graph #link_json_off {
+    visibility: hidden;
+}
+@media screen and (min-width: 12in) {
+    .graph #link_json_off {
+    visibility: visible;
+  }
+}
+
+.graph #product_details {
+    width: auto;
+    height: 2.2em;
+    font-size: larger;
+    text-align: center;
+    overflow-y: hidden;
+}
+
+.graph #prod_ref_code {
+    font-weight: bold;
+}
+
+.graph #criteria {
+    font-size: inherit;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+    min-width: 99%;
+}
+
+.graph #criteria * {
+    vertical-align: middle;
+}
+
+/*
+Classes for the barcode input-box
+*/
+.graph .barcode_product_selected {
+  background-color: #09f !important;
+}
+
+.graph .barcode_no_selection {
+  background-color: transparent;
+}
+
+.graph #msg_warning_prod_ref {
+    font-size: x-large;
+    color: red;
+    margin-right: 2ex;
+}
+
+.graph td > select {
+    font-size: inherit;
+    width: 18em;
+}
+
+.graph #input_product_code {
+    font-size: inherit;
+    width: 8em;
+}
+
+.graph #panel_input_code {
+    font-size: inherit;
+    display: flex;
+    float: left;
+}
+
+.graph #graph {
+  text-align: center;
+}
+
+.graph #svg_graph {
+    font-size: medium;
+}
+
+.graph .axis path,
+.graph .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.graph svg > g:first-child > g:first-child text {
+    display: none;
+}
+
+.graph div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 450px;
+    height: 140px;
+    padding: 2px;
+    font: 10px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.graph #server_log_cell > * {
+    display: none !important;
+}
+
+/***********************/
+/* products_suggestion */
+/***********************/
+.graph #products_suggestion {
+    margin:5px;
+    background:#A3CBE0;
+    border:2px solid #000;
+    box-shadow:0 0 10px #000;
+}
+
+.graph #products_suggestion ul {
+    margin: 0px;
+    padding: 0px;
+    height: 250px;
+    display:table;
+    white-space:nowrap;
+    list-style:none;
+}
+.graph #products_suggestion li {
+    display:table-cell;
+    text-align:center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.graph .cell_suggestion {
+    float: left;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 14%;
+    height: auto;
+    border: solid thin #0099ff;
+}
+
+.graph img.grade_border {
+    border: 18px solid rgb(230, 62, 17);
+}
+
+.graph .product_selected {
+    border: 18px solid #0099ff;
+}
+
+.graph #menu_selection {
+    visibility: visible;
+    background-color: #0099ff;
+}
+
+.graph #menu_selection > div {
+    width: 15%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    font-size: large;
+    color: white;
+}
+
+.graph #menu_selection img {
+    height: 85px;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.graph #nb_suggestions {
+    padding-top: 2%;
+    font-size: xx-large;
+}
+
+/*******************/
+/* product_details */
+/*******************/
+
+.graph .detailsProduct {
+    font-size: larger;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    padding-top: 2%;
+    background-color: silver;
+    width: 0px;
+    height: 0px;
+    z-index: 10;
+}
+
+.graph .table_sel_prod {
+    width: 99%
+}
+
+.graph .sel_prod_img {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: right;
+}
+
+.graph .sel_prod_header {
+    text-align: center;
+    padding-left: 1%;
+}
+
+.graph .sel_prod_name {
+    color: dodgerblue;
+}
+
+.graph .sel_prod_similarity {
+    font-weight: bold;
+    color: purple;
+}
+
+.graph .close_details_sel_prod {
+    position: absolute;
+    /*bottom: 0;*/
+    left: 0;
+    width: 100%;
+    background-color: #2cb4da;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 1%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
