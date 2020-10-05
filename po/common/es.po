@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 11:22\n"
+"PO-Revision-Date: 2020-10-03 11:32\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -739,7 +739,7 @@ msgstr "Desglosar los productos por..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "es_ES"
+msgstr "es_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -961,6 +961,14 @@ msgstr "El código de barras de la imagen no se puede leer, o la imagen no tiene
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "No se ha encontrado ningún código de barras en la imagen."
+
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr "No se ha especificado ni encontrado ningún código de barras, ni en la imagen ni en el nombre del archivo."
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr "No se ha podido leer la imagen."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -2906,6 +2914,10 @@ msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
 msgstr "Riesgo moderado de sobreexposición"
 
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
+msgid "No or very low risk of over exposure"
+msgstr "Riesgo muy bajo o nulo de sobreexposición"
+
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
 msgstr "Riesgo de superar la ingesta diaria admisible (ADI)"
@@ -3095,8 +3107,8 @@ msgid "%s's page"
 msgstr "Página de %s"
 
 msgctxt "obsolete"
-msgid "The product is no longer sold."
-msgstr "El producto ya no se vende."
+msgid "Product taken off the market"
+msgstr "Producto retirado del mercado"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -4033,17 +4045,13 @@ msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "Ya he donado o no estoy interesado. Ocultar el banner."
 
-msgctxt "donation_banner_show"
-msgid "Hey, a box to uncheck?!"
-msgstr "¡¿Eh, una caja para desmarcar?!"
-
 msgctxt "donation_banner_independant"
-msgid "An independant and citizen-led project for food transparency ?"
-msgstr "¿Un proyecto independiente y dirigido por ciudadanos por la transparencia alimentaria?"
+msgid "An independant and citizen-led project for food transparency?"
+msgstr "¿Un proyecto independiente y dirigido por los ciudadanos para la transparencia alimentaria?"
 
 msgctxt "donation_banner_public_health"
-msgid "Food product data for research that improves public health ?"
-msgstr "Datos de productos alimenticios para la investigación que mejora la salud pública?"
+msgid "Food product data for research that improves public health?"
+msgstr "¿Datos de productos alimenticios para la investigación que mejora la salud pública?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4365,17 +4373,17 @@ msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
 msgstr "Texto o frases que indican el origen del producto y/o sus ingredientes."
 
-msgctxt "nutriscore_grade_producer"
+msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr "Nutri-Score de A a E que se muestra en la etiqueta del producto"
+msgstr "Nutri-Score entre A y E mostrada en la etiqueta del producto"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
 msgstr "Open Food Facts calcula el grado Nutri-Score basándose en la información proporcionada (datos nutricionales y categoría). Si es diferente de la que tú proporcionas, recibirás una notificación privada en la plataforma de productores para poder resolver la diferencia."
 
-msgctxt "nutriscore_score_producer"
+msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "Nutri-Score (valor numérico del cual se deriva la calificación A a E)"
+msgstr "Nutri-Score (valor numérico del que se deriva la calificación entre A y E)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
@@ -4466,6 +4474,14 @@ msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
 msgstr "Nutri-Score"
 
+msgctxt "attribute_nutriscore_setting_name"
+msgid "Good nutritional quality (Nutri-Score)"
+msgstr ""
+
+msgctxt "attribute_nutriscore_setting_note"
+msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
+msgstr ""
+
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
@@ -4498,6 +4514,10 @@ msgstr "Procesamiento de alimentos"
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Grupo Nova"
+
+msgctxt "attribute_nova_setting_name"
+msgid "No or little food processing (NOVA group)"
+msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4536,6 +4556,10 @@ msgctxt "query_filter"
 msgid "Query filter"
 msgstr "Filtro de consulta"
 
+msgctxt "nova_group_producer"
+msgid "NOVA group"
+msgstr "Grupo Nova"
+
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
 msgstr "Organización desconocida."
@@ -4544,3 +4568,87 @@ msgctxt "error_unknown_user"
 msgid "Unknown user."
 msgstr ""
 
+msgctxt "attribute_low_salt_setting_note"
+msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
+msgstr ""
+
+msgctxt "attribute_low_sugars_setting_note"
+msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
+msgstr ""
+
+msgctxt "attribute_low_fat_setting_note"
+msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
+msgstr ""
+
+msgctxt "attribute_low_saturated_fat_setting_note"
+msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
+msgstr ""
+
+msgctxt "attribute_group_allergens_name"
+msgid "Allergens"
+msgstr ""
+
+msgctxt "attribute_group_allergens_warning"
+msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+msgstr ""
+
+msgctxt "attribute_additives_name"
+msgid "Additives"
+msgstr "Aditivos"
+
+msgctxt "attribute_additives_setting_name"
+msgid "No or few additives"
+msgstr ""
+
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr "No es importante"
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr "Importante"
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr "Muy importante"
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr "Obligatorio"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Medio ambiente"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr "Eco-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr "Bajo impacto ambiental"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr "Impacto ambiental muy bajo"
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr "Bajo impacto ambiental"
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr "Moderado impacto ambiental"
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr "Alto impacto ambiental"
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Muy alto impacto ambiental"
