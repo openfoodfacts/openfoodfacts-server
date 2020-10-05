@@ -72,6 +72,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -104,6 +106,7 @@ if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
 init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
+load_agribalyse_data();
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module
