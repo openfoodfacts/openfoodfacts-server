@@ -4606,12 +4606,17 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
-		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-		if ($request_ref->{current_link_query} =~ /\?/) {
-			$request_ref->{current_link_query_download} .= "&download=on";
-		}
-		else {
-			$request_ref->{current_link_query_download} .= "?download=on";
+		
+		# Show a download link only for search queries (and not for the home page of facets)
+		
+		if ($request_ref->{search}) {
+			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+			if ($request_ref->{current_link_query} =~ /\?/) {
+				$request_ref->{current_link_query_download} .= "&download=on";
+			}
+			else {
+				$request_ref->{current_link_query_download} .= "?download=on";
+			}
 		}
 
 		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
