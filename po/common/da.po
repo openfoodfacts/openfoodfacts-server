@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 09:02\n"
+"PO-Revision-Date: 2020-10-03 08:35\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -593,35 +593,35 @@ msgstr "email-adresse"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Produkter pakket af virksomheden med sporbarhedskode %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Sporbarhedskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "sporbarhedskoder"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Produkter med sporbarhedskoden %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "sporbarhedskode"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Produkter med sporbarhedskoden %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -630,7 +630,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "I Europa udgøres koden af en ellipse med 2 landsinitialer efterfulgt af et tal samt CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -960,6 +960,14 @@ msgstr "Stregkoden i billedet kunne ikke aflæses, eller billedet indeholdt inge
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "Ingen stregkode fundet i billedet."
+
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr "Ingen stregkode angivet eller fundet i fotoet eller filnavnet."
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr "Fotoet kunne ikke læses."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -2907,6 +2915,10 @@ msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
 msgstr "Moderat risiko for overeksponering"
 
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
+msgid "No or very low risk of over exposure"
+msgstr "Ingen eller meget lav risiko for overeksponering"
+
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
 msgstr "Risiko for at overskride acceptablt dagligt indtag (ADI)"
@@ -3096,8 +3108,8 @@ msgid "%s's page"
 msgstr "%s side"
 
 msgctxt "obsolete"
-msgid "The product is no longer sold."
-msgstr "Produktet sælges ikke længere."
+msgid "Product taken off the market"
+msgstr "Produkt taget af markedet"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -4034,17 +4046,13 @@ msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "Jeg har allerede doneret, eller jeg er ikke interesseret. Skjul banneret."
 
-msgctxt "donation_banner_show"
-msgid "Hey, a box to uncheck?!"
-msgstr "Hej, en felt at afmarkere?!"
-
 msgctxt "donation_banner_independant"
-msgid "An independant and citizen-led project for food transparency ?"
-msgstr "Et uafhængigt og borgerledet fødevaregennemsigtighedsprojekt?"
+msgid "An independant and citizen-led project for food transparency?"
+msgstr "Et uafhængigt og borgerledet projekt for fødevaregennemsigtighed?"
 
 msgctxt "donation_banner_public_health"
-msgid "Food product data for research that improves public health ?"
-msgstr "Fødevaredata til forskning, sam forbedrer folkesundheden?"
+msgid "Food product data for research that improves public health?"
+msgstr "Fødevareproduktdata til forskning, som forbedrer folkesundheden?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4312,7 +4320,7 @@ msgstr "Ugyldig stregkode"
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -4366,17 +4374,17 @@ msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
 msgstr "Tekst eller sætninger angivende produktoprindelsen og/eller -ingredienser."
 
-msgctxt "nutriscore_grade_producer"
+msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr "Nutri-Score klasse fra A til E vist på produktetiketten"
+msgstr "Nutri-Score klasse fra A til E vises på produktetiketten"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
 msgstr "Open Food Facts beregner Nutri-Score-karakteren baseret på de leverede oplysninger (ernæringsfakta og kategori). Er den beregnede karakter forskellig fra karakteren, du angiver, får du en privat notifikation på producentplatformen, så forskellen kan afklares."
 
-msgctxt "nutriscore_score_producer"
+msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "Nutri-Score score (numerisk værdi, hvorfra A- til E-karakteren er afledt)"
+msgstr "Nutri-Score score (numerisk værdi, fra hvilken A- til E-karakteren er afledt)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
@@ -4469,11 +4477,11 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "God ernæringskvalitet (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score beregnes og kan tages i betragtning for alle produkter, selvom denne ikke vises på emballagen."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4510,7 +4518,7 @@ msgstr "Nova-gruppe"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Ingen eller begrænset fødevareforarbejdning (NOVA-gruppe)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4563,27 +4571,27 @@ msgstr "Ukendt bruger."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Saltniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt saltindhold."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Sukkerniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt sukkerindhold."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Fedtniveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt fedtindhold."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Mættet fedt-niveauet tages i betragtning i Nutri-Score. Brug kun denne indstilling, såfremt din kost skal være med lavt mættet fedt-indhold."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Allergener"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Der er altid en mulighed for, at data om allergener kan mangle, være ufuldstændige, ukorrekte eller at produktets sammensætning er ændret. Har du allergi, så tjek altid oplysningerne på den faktiske produktemballage."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4591,5 +4599,58 @@ msgstr "Tilsætningsstoffer"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
+msgstr "Ingen eller få tilsætningsstoffer"
+
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr "Ikke vigtigt"
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr "Vigtigt"
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr "Meget vigtigt"
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr "Obligatorisk"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Miljø"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr ""
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
 msgstr ""
 

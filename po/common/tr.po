@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 09:11\n"
+"PO-Revision-Date: 2020-10-03 08:39\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -100,35 +100,35 @@ msgstr "Herhangi bir sorunuz varsa lütfen <a href=\"mailto:producers@openfoodfa
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Bir üretici veya marka için çalışıyorsanız ve yalnızca kendi ürünleriniz için veri ekleyecek veya tamamlayacaksanız, tamamen ücretsiz Yapımcılar Platformumuza erişim sağlayabilirsiniz."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Üreticilere yönelik platform, imalatçılara tüm ürünleri için verileri ve fotoğrafları kolayca içe aktarmalarına, bunları resmi olarak işaretlemelerine ve ürünleri için iyileştirme fırsatlarının ücretsiz analizini almalarına olanak tanır."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Profesyonel hesap"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Bu bir üretici veya marka hesabıdır."
 
 msgctxt "producer_or_brand"
 msgid "Producer or brand"
-msgstr ""
+msgstr "Üretici veya marka"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesyonel hesapların ilişkili bir kuruluşu (şirket adı veya markası) olmalıdır."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Lütfen kuruluşunuzun adını (şirket adı veya markası) girin."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Bu hesap, üretici veya marka %s ile ilişkili profesyonel bir hesaptır. Yapımcılar için Platform'a erişiminiz var."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -577,7 +577,7 @@ msgstr "Hesap parametreleri"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Hesap parametreleriniz değiştirildi."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -958,6 +958,14 @@ msgstr "Resimdeki barkod okunamadı veya resimde barkod yoktu.\n"
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "Resimde barkod bulunamadı."
+
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr ""
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -2903,6 +2911,10 @@ msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
 msgstr "Orta derecede aşırı maruz kalma riski"
 
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
+msgid "No or very low risk of over exposure"
+msgstr "Aşırı maruz kalma riski yok veya çok düşük"
+
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
 msgstr "Kabul edilebilir günlük alım miktarını (ADI) aşma riski"
@@ -3092,8 +3104,8 @@ msgid "%s's page"
 msgstr "%s'in sayfası"
 
 msgctxt "obsolete"
-msgid "The product is no longer sold."
-msgstr "Ürün artık satılmamaktadır."
+msgid "Product taken off the market"
+msgstr ""
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3283,7 +3295,7 @@ msgstr "Ürün veri dosyasını içe aktar"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Ürün verilerini içeren bir çalışma tablosu (Excel dosyası veya bir virgül veya sekmeyle ayrılmış UTF-8 kodlu CSV dosyası) yükleyin."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3546,11 +3558,11 @@ msgstr "Lütfen herkese açık veritabanına aktarmadan önce, üreticiler platf
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Fotoğrafları herkese açık veritabanına aktarın"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Mevcut seçili fotoğrafları değiştirin"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -4030,17 +4042,13 @@ msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "Ben zaten bağış yaptım ya da ilgilenmiyorum. Afişi gizle."
 
-msgctxt "donation_banner_show"
-msgid "Hey, a box to uncheck?!"
-msgstr "Hey, işareti kaldırılacak bir kutu?!"
-
 msgctxt "donation_banner_independant"
-msgid "An independant and citizen-led project for food transparency ?"
-msgstr "Gıda şeffaflığı için bağımsız ve vatandaşların önderliğinde bir proje?"
+msgid "An independant and citizen-led project for food transparency?"
+msgstr ""
 
 msgctxt "donation_banner_public_health"
-msgid "Food product data for research that improves public health ?"
-msgstr "Halk sağlığını iyileştiren araştırmalar için gıda ürünleri verileri?"
+msgid "Food product data for research that improves public health?"
+msgstr ""
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4269,41 +4277,41 @@ msgstr ""
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Aşağıdakileri yaparak daha fazla bileşeni tanımamıza ve bu ürün ve diğerlerinin içerik listesini daha iyi analiz etmemize yardımcı olabilirsiniz:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "İçindekiler listesindeki yazım hatalarını düzeltmek ve/veya malzemelerle ilgili olmayan diğer dillerde ve cümlelerde malzemeleri kaldırmak için bu ürün sayfasını düzenleyin."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Çok dilli içerik listelerimize, içerik işleme yöntemlerine ve etiketlere yeni girişler, eşanlamlı kelimeler veya çeviriler ekleyin."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Eğer yardımcı olmak isterseniz, #içerik kanalımıza Slack tartışma alanımız</a> <a href=\"https://slack.openfoodfacts.org\"> üzerinden katılın ve/veya Wiki'miz </a> üzerinden içerik analizini öğrenin <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\"> . Teşekkürler!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://tr.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Üreticiler"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Bu ürünün %s listesinde bir içeriği varsa, lütfen ekleyin."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Eksik barkod"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Geçersiz barkod"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4362,7 +4370,7 @@ msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
 msgstr ""
 
-msgctxt "nutriscore_grade_producer"
+msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
 msgstr ""
 
@@ -4370,7 +4378,7 @@ msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
 msgstr ""
 
-msgctxt "nutriscore_score_producer"
+msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
 msgstr ""
 
@@ -4589,3 +4597,55 @@ msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr ""
 
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr ""
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr ""
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr ""
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr ""
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Çevre"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr ""
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr ""
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr ""

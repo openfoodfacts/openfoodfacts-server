@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-11 12:32\n"
+"PO-Revision-Date: 2020-10-03 09:32\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -962,6 +962,14 @@ msgstr "Le code-barre dans l'image n'a pas pu être lu ou l'image ne contenait p
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "Aucun code-barre trouvé dans l'image."
+
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr ""
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -2911,6 +2919,10 @@ msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
 msgstr "Risque modéré de sur-exposition"
 
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
+msgid "No or very low risk of over exposure"
+msgstr ""
+
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
 msgstr "Risque de dépasser la dose journalière admissible (DJA)"
@@ -4038,16 +4050,12 @@ msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
 msgstr "J'ai déjà fait un don ou je ne suis pas intéressé. Cacher la bannière."
 
-msgctxt "donation_banner_show"
-msgid "Hey, a box to uncheck?!"
-msgstr "Hé, une case à décocher ?!"
-
 msgctxt "donation_banner_independant"
-msgid "An independant and citizen-led project for food transparency ?"
+msgid "An independant and citizen-led project for food transparency?"
 msgstr "Un projet citoyen indépendant pour la transparence alimentaire ?"
 
 msgctxt "donation_banner_public_health"
-msgid "Food product data for research that improves public health ?"
+msgid "Food product data for research that improves public health?"
 msgstr "Des données sur les produits alimentaires pour améliorer la santé publique ?"
 
 msgctxt "donation_banner_choices"
@@ -4597,3 +4605,55 @@ msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Pas ou peu d'additifs"
 
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr ""
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr ""
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr ""
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr "Obligatoire"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Environnement"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr "Éco-score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr "Faible impact environnemental"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr "Éco-score %s"
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr "Très faible impact environnemental"
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr "Faible impact environnemental"
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr "Impact modéré sur l'environnement"
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr "Impact environnemental élevé"
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Impact environnemental très élevé"
