@@ -833,6 +833,135 @@ sub compute_attribute_nutrient_quantity($$$$) {
 }
 
 
+=head2 compute_attribute_allergen($product_ref, $target_lc, $allergen_id);
+
+Checks if the product contains or may contain traces of an allergen.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 allergen_id $allergen_id
+
+"en:gluten", "en:sulphur-dioxide-and-sulphites" : allergen ids from the allergens taxonomy
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+100: no indication of the allergen or trace of the allergen
+20: may contain the allergen
+0: contains allergen
+
+=cut
+
+sub compute_attribute_allergen($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $allergen_id = shift;	
+
+	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, allergen_id => $allergen_id }) if $log->is_debug();
+
+	my $allergen = $allergen_id;
+	$allergen =~ s/^en://;
+
+	my $attribute_id = "allergens_" . $allergen;
+	$attribute_id =~ s/-/_/g;
+	
+	# Initialize general values that do not depend on the product (or that will be overriden later)
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	
+	# There may be conflicting information on allergens (e.g. a product that claims to be "gluten-free",
+	# but that also says it may contain traces of cereals containing gluten, or that contains an ingredient
+	# that usually contains gluten)
+	
+	# The algorithm below is designed to be conservative: information that indicates the presence
+	# or the possibility of presence of an allergen prevails on information that indicates its absence
+	
+	# - Check for no gluten / lactose-free etc. labels
+	# the canonical entry in the taxonomy for those labels is of the form "no-something"
+	if (has_tag($product_ref, "labels", "en:no-" . $allergen)) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{debug} = "en:no-$allergen label";
+		$attribute_ref->{match} = 100;
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
+			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+	}
+	
+	# - Check for "none" in the allergens field
+	if (has_tag($product_ref, "allergens", "en:none")) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{debug} = "en:none in allergens";
+		$attribute_ref->{match} = 100;	
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
+			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+	}
+	
+	# - If we have an ingredient list, allergens are extracted and added to the allergens_tags field
+	# mark the match as 100, and then let the allergens and traces fields override it
+	if ((defined $product_ref->{ingredients_n}) and (defined $product_ref->{unknown_ingredients_n})) {
+		if ($product_ref->{unknown_ingredients_n} <= $product_ref->{ingredients_n} / 10) {
+			$attribute_ref->{status} = "known";
+			$attribute_ref->{debug} = $product_ref->{ingredients_n} . " ingredients (" . $product_ref->{unknown_ingredients_n} . " unknown)";
+			$attribute_ref->{match} = 100;
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
+				. display_taxonomy_tag($target_lc, "allergens", $allergen_id);				
+		}
+		else {
+			$attribute_ref->{debug} = "too many unknown ingredients: " . $product_ref->{ingredients_n} . " ingredients (" . $product_ref->{unknown_ingredients_n} . " unknown)";
+		}
+	}
+	else {
+		$attribute_ref->{debug} = "missing ingredients list";
+	}
+	
+	# - Check for allergen in the traces_tags field
+	if (has_tag($product_ref, "traces", $allergen_id)) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{debug} = "$allergen_id in traces";
+		$attribute_ref->{match} = 20;	# match <= 20 will make products non-matching if the preference is set to mandatory
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "may_contain") . separator_before_colon($lc) . ': '
+			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+	}
+	
+	# - Check for allergen in the allergens_tags field
+	if (has_tag($product_ref, "allergens", $allergen_id)) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{debug} = "$allergen_id in allergens";
+		$attribute_ref->{match} = 0;
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains") . separator_before_colon($lc) . ': '
+			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+	}	
+	
+	# - Check for contains gluten etc. labels
+	if (has_tag($product_ref, "labels", "en:contains-" . $allergen)) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{debug} = "en:contains-$allergen label";
+		$attribute_ref->{match} = 0;
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains") . separator_before_colon($lc) . ': '
+			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+	}
+	
+	# No match: mark the attribute unknown
+	if (not defined $attribute_ref->{match}) {
+		$attribute_ref->{status} = "unknown";
+	}
+	
+	return $attribute_ref;
+}
+
+
 =head2 add_attribute_to_group ( $product_ref, $target_lc, $group_id, $attribute_ref )
 
 Add an attribute to a given attribute group, if the attribute is defined.
@@ -941,6 +1070,12 @@ sub compute_attributes($$) {
 	foreach my $nutrient ("salt", "fat", "sugars", "saturated-fat") {
 		$attribute_ref = compute_attribute_nutrient_quantity($product_ref, $target_lc, "low", $nutrient);
 		add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+	}
+	
+	# Allergens
+	foreach my $allergen (keys %{$translations_to{allergens}}) {
+		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
+		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
 	}
 	
 	# Processing

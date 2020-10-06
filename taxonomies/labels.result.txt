@@ -521,7 +521,7 @@ nl:Bevat een bron van phenylalanine
 sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
 en:Contains alcohol
-opposite:en: en:no alcohol
+opposite:en: en:no-alcohol
 
 en:Contains gluten
 ca:Conté gluten
@@ -535,7 +535,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
-opposite:en: en:gluten-free
+opposite:en: en:no-gluten
 
 en:Contains GMOs, with GMOs
 ca:Conté Transgènics
@@ -568,7 +568,7 @@ th:มีส่วนผสมของนม
 
 en:Contains palm oil
 fr:Contient de l'huile de palme
-opposite:en: en:palm-oil-free
+opposite:en: en:no-palm-oil
 
 en:Contains soy
 de:Enthält Soja
@@ -578,6 +578,7 @@ fr:Contient du soja
 hu:Szójatartalmú, szóját tartalmaz
 it:Contiene soia
 pt:Contem soja
+opposite:en: en:contains-soy
 
 en:Cooked in France
 ca:Cuinat a França
@@ -13957,41 +13958,6 @@ en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
 
-en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free, ni gluten
-ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Sense gluten d'orígen
-cs:Bez lepku
-de:Glutenfrei
-es:Sin gluten, Libre de gluten
-fi:gluteeniton, ilman gluteenia, ei gluteenia, gluteenivapaa, luonnollisesti gluteeniton
-fr:Sans gluten
-he:נטול גלוטן
-hu:Gluténmentes, Glutén nélkül, Gluténmentes élelmiszer, Nem tartalmaz glutént, Glutént nem tartalmaz
-it:Senza glutine
-nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
-pl:Bezglutenowy
-pt:Sem gluten, Isento de gluten
-ru:Без глютена
-sk:Bez lepku
-sv:Glutenfri
-th:ไม่มีกลูเตน
-uk:Не містить глютену
-zh:无麸质
-opposite:en: en:contains-gluten
-wikidata:en: Q2632776
-
-< en:Gluten-free
-en:DZG Gluten free
-de:DZG glutenfrei
-
-< en:Gluten-free
-en:FACE
-fi:FACE
-it:FACE
-nl:FACE
-
-< en:Gluten-free
-fr:Afdiag, Association Française des Intolérants au Gluten
-
 < en:Gold medal of the German Agricultural Society
 en:2009 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2009
@@ -14571,6 +14537,7 @@ es:Label Rouge
 fi:Label Rouge
 fr:Label Rouge
 nl:Label Rouge
+auth_url:fr: https://www.labelrouge.fr/
 label_categories:en: en:Quality, en:Environment
 wikidata:en: Q3214309
 
@@ -15166,6 +15133,51 @@ pt:Sem álcool
 th:ไม่มีแอลกอฮอล์
 opposite:en: en:contains alcohol
 
+en:No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free, no antibiotic, raised without antibiotics, no Antibiotics Administered
+ca:Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
+de:Ohne Antibiotika, Frei von Antibiotika, Enthält kein Antibiotika, antibiotika-frei, antibiotikafrei
+es:Sin antibióticos
+fi:antibiootiton, antibioottivapaa, kasvatettu ilman antibiootteja
+fr:Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevage sans antibiotique, élevé sans antibiotique, élevés sans antibiotique, élevée sans antibiotique, élevées sans antibiotique
+hu:Antibiotikum mentes
+it:Senza antibiotici
+label_categories:en: en:Health
+
+< en:No antibiotics
+en:Chickens raised without antibiotics
+de:Hühneraufzucht ohne Antibiotika
+fi:Kanat kasvatettu ilman antibiootteja
+fr:Poulets élevés sans antibiotique
+it:Polli allevati senza antibiotici
+
+< en:No antibiotics
+en:Hens raised without antibiotics
+de:Hennenaufzucht ohne Antibiotika
+fr:Poules élevées sans antibiotique
+
+< en:No antibiotics
+en:Porks raised without antibiotics
+de:Schweineaufzucht ohne Antibiotika
+fi:porsaat kasvatettu ilman antibiootteja, siat kasvatettu ilman antibiootteja
+fr:Porcs élevés sans antibiotique, Cochons élevés sans antibiotique
+it:Maiali allevati senza antibiotici
+pt:Porco levantada sem antibióticos, Carne de porco sem antibióticos
+
+< en:No antibiotics
+en:Without antibiotics after first age, Without antibiotics after 1st age
+fr:Sans antibiotique après le premier âge, Sans antibiotique après le 1er âge
+
+< en:No antibiotics
+en:Without antibiotics after weaning
+fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
+
+< en:No antibiotics
+en:Without antibiotics since birth, no antibiotics ever
+es:Sin antibióticos desde el nacimiento
+fi:Ei antibiootteja syntymän jälkeen
+fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
+pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
+
 en:No artificial additives
 de:Ohne künstliche Zusätze
 es:Sin aditivos artificiales
@@ -15375,6 +15387,52 @@ it:Senza glutammato, senza glutammato monosodico, senza glutammato di sodio, sen
 th:ไม่ใช้ผงชูรส
 label_categories:en: en:Health, en:Additives
 
+en:No gelatin, Without gelatin, Gelatinfree, Gelatin-free
+ca:Sense gelatina
+de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
+es:Sin gelatina
+fi:gelatiiniton, ei gelatiinia, ilman gelatiinia
+fr:Sans gélatine
+he:ללא ג׳לטין, נטול ג׳לטין
+hu:Zselatinmentes, zselatin nélkül
+it:Senza gelatina
+nl:Zonder gelatine, Gelatinevrij
+
+en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, ni gluten
+ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Sense gluten d'orígen
+cs:Bez lepku
+de:Glutenfrei
+es:Sin gluten, Libre de gluten
+fi:gluteeniton, ilman gluteenia, ei gluteenia, gluteenivapaa, luonnollisesti gluteeniton
+fr:Sans gluten
+he:נטול גלוטן
+hu:Gluténmentes, Glutén nélkül, Gluténmentes élelmiszer, Nem tartalmaz glutént, Glutént nem tartalmaz
+it:Senza glutine
+nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
+pl:Bezglutenowy
+pt:Sem gluten, Isento de gluten
+ru:Без глютена
+sk:Bez lepku
+sv:Glutenfri
+th:ไม่มีกลูเตน
+uk:Не містить глютену
+zh:无麸质
+opposite:en: en:contains-gluten
+wikidata:en: Q2632776
+
+< en:No gluten
+en:DZG Gluten free
+de:DZG glutenfrei
+
+< en:No gluten
+en:FACE
+fi:FACE
+it:FACE
+nl:FACE
+
+< en:No gluten
+fr:Afdiag, Association Française des Intolérants au Gluten
+
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 de:gentechnikfrei
@@ -15421,7 +15479,7 @@ it:Senza grassi idrogenati
 pt:Sem gorduras hidrogenadas
 label_categories:en: en:Health, en:Nutrition
 
-en:No lactose, lactose-free
+en:No lactose, lactose-free, without lactose
 ca:Sense lactosa, lliure de lactosa
 cz:Bez laktozy
 de:Laktosefrei, Lactosefrei
@@ -15461,12 +15519,12 @@ it:Senza lecitina di soia
 pt:Sem lecitina de soja
 ru:Без соевого лецитина
 
-en:No milk, milk-free, dairy-free, no dairy
+en:No milk, milk-free, dairy-free, no dairy, without milk
 ca:Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 de:Ohne Milch, Milchfrei
 es:Sin leche
 fi:maidoton, maitotuotteeton, ei maitoa, ilman maitoa
-fr:sans lait
+fr:sans lait, sans produits laitiers
 he:ללא חלב
 hu:Tej nélkül, tejmentes
 it:Senza latte
@@ -15475,6 +15533,36 @@ pl:Bez mleka, Bez zawartości mleka
 ru:Без молока
 sv:Mjölkfri, Fri från mjölk
 th:ไม่มีส่วนผสมของนม
+
+en:No palm oil, Palm oil free, Without palm oil
+ca:Lliure d'oli de palma, Sense oli de palma
+cs:Bez palmového oleje
+de:Ohne Palmöl
+es:Sin aceite de palma
+fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
+fr:Sans huile de palme
+he:ללא שמן דקלים, נקי משמן דקלים
+hu:Pálmaolajmentes, Pálmaolaj nélkül
+it:Senza olio di palma
+nl:Zonder palmolie, Palmolie-vrij
+pl:Wolne od oleju palmowego, bez oleju palmowego
+pt:Sem óleo de palma
+ru:Без пальмового масла
+sv:Utan palmolja
+th:ไม่ใช้น้ำมันปาล์ม
+zh:不含棕榈油
+opposite:en: en:contains-palm-oil
+
+en:No peanuts, without peanuts, Peanut Free
+ca:Lliure de cacauet
+de:Ohne Erdnüsse
+es:Sin cacahuetes
+fi:maapähkinätön, ei sisällä maapähkinää
+fr:Sans arachide, sans arachides, sans cacahuète, sans cacahuètes
+he:ללא בוטנים
+hu:Földimogyorómentes
+it:Senza arachidi, Non contiene arachidi
+th:ไม่มีส่วนผสมของถั่วลิสงค์
 
 en:No preservatives, no added preservatives
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
@@ -15509,7 +15597,7 @@ pt:Sem corantes ou conservantes
 ru:Без красителей и консервантов
 th:ไม่เติมสีและวัตถุกันเสีย
 
-en:No soy, soy free
+en:No soy, soy free, without soy
 ca:Lliure de soja, Sense soja
 de:Sojafrei
 es:Sin soja, Sin soya, Libre de soja, Libre de soya
@@ -15522,6 +15610,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+opposite:en: en:contains-soy
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -15546,6 +15635,10 @@ nl:Geen transvetten
 ru:без трансжиров
 th:ไม่มีไขมันทรานส์
 label_categories:en: en:Health
+
+en:No wheat, without wheat, Wheat-free
+de:Ohne Weizen
+nl:Zonder graan
 
 en:non-EU Agriculture
 ca:Agricultura No-UE
@@ -16112,25 +16205,6 @@ fi:Paritroolattu
 fr:Pêché à deux chaluts
 wikidata:en: Q7125126
 
-en:Palm oil free, Without palm oil, No palm oil
-ca:Lliure d'oli de palma, Sense oli de palma
-cs:Bez palmového oleje
-de:Ohne Palmöl
-es:Sin aceite de palma
-fi:palmuöljytön, ei palmuöljyä, ilman palmuöljyä
-fr:Sans huile de palme
-he:ללא שמן דקלים, נקי משמן דקלים
-hu:Pálmaolajmentes, Pálmaolaj nélkül
-it:Senza olio di palma
-nl:Zonder palmolie, Palmolie-vrij
-pl:Wolne od oleju palmowego, bez oleju palmowego
-pt:Sem óleo de palma
-ru:Без пальмового масла
-sv:Utan palmolja
-th:ไม่ใช้น้ำมันปาล์ม
-zh:不含棕榈油
-opposite:en: en:contains-palm-oil
-
 en:pasteurized product
 es:Producto pasteurizado
 fr:produit pasteurisé
@@ -16244,17 +16318,6 @@ wikidata:en: Q6127611
 < en:Spanish protected product
 en:PDO Vinagre de Jerez, Vinagre de Jerez
 es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
-
-en:Peanut Free
-ca:Lliure de cacauet
-de:Ohne Erdnüsse
-es:Sin cacahuetes
-fi:maapähkinätön, ei sisällä maapähkinää
-fr:Sans arachide, sans arachides, sans cacahuète, sans cacahuètes
-he:ללא בוטנים
-hu:Földimogyorómentes
-it:Senza arachidi, Non contiene arachidi
-th:ไม่มีส่วนผสมของถั่วลิสงค์
 
 en:PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
 ca:PEFC
@@ -16493,6 +16556,7 @@ fi:Rainforset Alliance
 fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% cacao, Certifié Rainforest Alliance
 it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
+auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
 en:raised in Ireland
@@ -16913,6 +16977,7 @@ fi:ASC -vastuullinen kalatalous, ASC
 fr:Aquaculture responsable ASC, ASC, Aquaculture Stewardship Council
 it:Acquacoltura responsabile ASC, ASC, Aquaculture Stewardship Council
 nl:Verantwoorde aquacultuur MSC
+auth_url:en: https://www.asc-aqua.org
 wikidata:en: Q2028860
 
 < en:Responsible aquaculture ASC
@@ -17292,6 +17357,7 @@ es:Certificado UTZ
 fi:UTZ-sertifioitu, UTZ
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
+auth_url:en: https://utz.org
 wikidata:en: Q2305872
 
 en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -17314,6 +17380,7 @@ fi:MSC-sertifioitu, MSC-sertifioidusta, MSC
 fr:Pêche durable MSC, MSC, Marine Stewardship Council
 it:Frutti di Mare Sostenibili MSC
 nl:Duurzaam Zeevruchten MSC
+auth_url:en: https://www.msc.org
 wikidata:en: Q1891246
 
 en:Sustainable Palm Oil
@@ -17714,10 +17781,6 @@ nl:Bron van Vitamine E
 pt:Fonte de vitamina
 ru:Источник витамина E
 
-en:Wheat-free
-de:Ohne Weizen
-nl:Zonder graan
-
 en:Wine Masters Challenge
 pt:Concurso Mundial de Vinhos
 categories:en: en:Wines
@@ -17803,55 +17866,10 @@ th:ใช้น้ำตาลเทียม
 en:Without addition of dairy products
 de:Ohne Zusatz von Milchprodukten
 fi:ei lisättyjä maitotuotteita
-fr:Sans ajout de produit laitiers, sans produits laitiers
+fr:Sans ajout de produit laitiers
 it:Senza aggiunta di latticini
 nl:Zonder toevoeging van zuivel
 ru:Без добавления молочных продуктов
-
-en:Without antibiotics, antibiotic-free, antibiotics-free, no antibiotics, no antibiotic, raised without antibiotics, no Antibiotics Administered
-ca:Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
-de:Ohne Antibiotika, Frei von Antibiotika, Enthält kein Antibiotika, antibiotika-frei, antibiotikafrei
-es:Sin antibióticos
-fi:antibiootiton, antibioottivapaa, kasvatettu ilman antibiootteja
-fr:Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevage sans antibiotique, élevé sans antibiotique, élevés sans antibiotique, élevée sans antibiotique, élevées sans antibiotique
-hu:Antibiotikum mentes
-it:Senza antibiotici
-label_categories:en: en:Health
-
-< en:Without antibiotics
-en:Chickens raised without antibiotics
-de:Hühneraufzucht ohne Antibiotika
-fi:Kanat kasvatettu ilman antibiootteja
-fr:Poulets élevés sans antibiotique
-it:Polli allevati senza antibiotici
-
-< en:Without antibiotics
-en:Hens raised without antibiotics
-de:Hennenaufzucht ohne Antibiotika
-fr:Poules élevées sans antibiotique
-
-< en:Without antibiotics
-en:Porks raised without antibiotics
-de:Schweineaufzucht ohne Antibiotika
-fi:porsaat kasvatettu ilman antibiootteja, siat kasvatettu ilman antibiootteja
-fr:Porcs élevés sans antibiotique, Cochons élevés sans antibiotique
-it:Maiali allevati senza antibiotici
-pt:Porco levantada sem antibióticos, Carne de porco sem antibióticos
-
-< en:Without antibiotics
-en:Without antibiotics after first age, Without antibiotics after 1st age
-fr:Sans antibiotique après le premier âge, Sans antibiotique après le 1er âge
-
-< en:Without antibiotics
-en:Without antibiotics after weaning
-fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
-
-< en:Without antibiotics
-en:Without antibiotics since birth, no antibiotics ever
-es:Sin antibióticos desde el nacimiento
-fi:Ei antibiootteja syntymän jälkeen
-fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
-pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 en:without azo dyes, without azodyes
 fi:atsoväritön, ei atsovärejä, ilman atsovärejä
@@ -17861,24 +17879,13 @@ en:Without brown muscle
 fi:ilman ruskeaa lihasta
 fr:Sans muscle brun, Sans chair brune
 
-en:Without gelatin, Gelatinfree, Gelatin-free
-ca:Sense gelatina
-de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
-es:Sin gelatina
-fi:gelatiiniton, ei gelatiinia, ilman gelatiinia
-fr:Sans gélatine
-he:ללא ג׳לטין, נטול ג׳לטין
-hu:Zselatinmentes, zselatin nélkül
-it:Senza gelatina
-nl:Zonder gelatine, Gelatinevrij
-
 en:Without hormones, raised without hormones
 de:ohne Hormone, Aufzucht ohne Hormone
 fi:hormoniton, kasvatettu ilman hormoneja
 fr:Sans hormone, élevé sans hormone
 it:Senza ormoni, allevato senza ormoni
 
-< en:Without antibiotics
+< en:No antibiotics
 < en:Without hormones
 en:Without antibiotics or hormones, Without hormones or antibiotics
 de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika
@@ -18061,7 +18068,20 @@ label_categories:en: en:Wines
 fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
 origins:en: en:France
 
-fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
+fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition
+auth_url:fr: https://www.bleu-blanc-coeur.org
+
+< fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Bœuf
+
+< fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Œuf
+
+< fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Porc
+
+< fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Poulet
 
 fr:Certifié écosocial par IBD
 
@@ -18213,6 +18233,7 @@ fr:Grand cru
 label_categories:en: en:Wines
 
 fr:Haute Valeur Environnementale
+auth_url:fr: https://hve-asso.com
 label_categories:en: en:Environment
 wikidata:en: Q3128557
 
