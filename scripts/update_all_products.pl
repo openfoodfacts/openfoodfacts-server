@@ -488,7 +488,7 @@ while (my $product_ref = $cursor->next) {
 
 				# Remove selected "zu" images
 				if (defined $product_ref->{images}) {
-					foreach my $imgid ("front", "ingredients", "nutrition") {
+					foreach my $imgid ("front", "ingredients", "nutrition", "packaging") {
 						if (defined $product_ref->{images}{$imgid . "_zu"}) {
 							# Already selected image in correct language? remove the zu selected image
 							if (defined $product_ref->{images}{$imgid . "_" . $product_ref->{lc}}) {

@@ -612,6 +612,7 @@ improvements
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -652,6 +653,7 @@ $options{import_export_fields_groups} = [
 			"quantity_value_unit",       "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit",   "packaging",
+			"packaging_text",
 			"brands",                    "brand_owner",
 			"categories",                "categories_specific",
 			"labels",                    "labels_specific",
@@ -730,6 +732,7 @@ $options{import_export_fields_importance} = {
 	quantity => "mandatory",
 	serving_size => "recommended",
 	packaging => "recommended",
+	packaging_text => "mandatory",
 	brands => "mandatory",
 	categories => "mandatory",
 	labels => "mandatory",
