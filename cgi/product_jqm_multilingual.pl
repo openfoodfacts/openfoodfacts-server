@@ -264,7 +264,7 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 
 

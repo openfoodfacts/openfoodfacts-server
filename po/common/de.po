@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 12:32\n"
+"PO-Revision-Date: 2020-10-06 13:22\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4617,6 +4617,55 @@ msgstr "Sehr wichtig"
 msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "Pflichtfeld"
+
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationen"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "Wiederverwertungsanweisungen und/oder Foto mit Verpackungsinformationen"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "Link zu Wiederverwertungsanweisungen und/oder Foto mit Verpackungsinformationen"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_es.jpg: Wiederverwertungsanweisungen auf Spanisch."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationen"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "1 Plastikfolie zum Wegwerfen, 1 FSC-Karton zum Wiederverwenden, 6 transparente 1,5-Liter-PET-Plastikflaschen zum Wiederverwenden, 6 farbige undurchsichtige Plastikkappen, 12 0,33l-Aluminiumdosen"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "Listen Sie alle Verpackungsteile durch Komma oder Zeilenumbruch getrennt auf, mit deren Menge (z.B. 1 oder 6), ihrer Art (z.B. Flasche, Schachtel, Dose), ihrem Material (z.B. Kunststoff, Metall, Aluminium) und, falls vorhanden, ihrer Größe (z.B. 0,33l) und den Anweisungen zur Wiederverwertung."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "Versuchen Sie, so spezifisch wie möglich zu sein. Bei Kunststoff geben Sie bitte an, ob er undurchsichtig oder transparent, farbig, PET oder PEHD ist."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationen dem Foto entnehmen"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationstexte konnten nicht extrahiert werden. Versuchen Sie es mit einem schärferen Foto, einer höheren Auflösung oder einer besseren Rahmung des Textes."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationstexte wurden extrahiert. Die Texterkennung ist nicht perfekt, daher überprüfen Sie bitte den untenstehenden Text und korrigieren Sie gegebenenfalls Fehler."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "Wiederverwertungsanweisungen und/oder Verpackungsinformationen extrahieren"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"

@@ -92,9 +92,12 @@ BEGIN
 
 		&compare_nutriments
 
-		$ec_code_regexp
 		%packager_codes
 		%geocode_addresses
+		&init_packager_codes
+		&init_geocode_addresses
+		
+		$ec_code_regexp
 		&normalize_packager_codes
 		&localize_packager_code
 		&get_canon_local_authority
@@ -109,8 +112,6 @@ BEGIN
 
 		&assign_categories_properties_to_product
 
-		&remove_insignificant_digits
-
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -123,75 +124,13 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Numbers qw/:all/;
 
 use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
-
-
-=head2 remove_insignificant_digits($)
-
-Some apps send us nutrient values that they have stored internally as
-floating point numbers.
-
-So we get values like:
-
-2.9000000953674
-1.6000000238419
-0.89999997615814
-0.359999990463256
-2.5999999046326
-
-On the other hand, when we get values like 2.0, 2.50 or 2.500,
-we want to keep the trailing 0s.
-
-The goal is to keep the precision if it makes sense. The tricky part
-is that we do not know in advance how many significant digits we can have,
-it varies from products to products, and even nutrients to nutrients.
-
-The desired output is thus:
-
-2.9000000953674 -> 2.9
-1.6000000238419 -> 1.6
-0.89999997615814 -> 0.9
-0.359999990463256 -> 0.36
-2.5999999046326 -> 2.6
-2 -> 2
-2.0 -> 2.0
-2.000 -> 2.000
-2.0001 -> 2
-0.0001 -> 0.0001
-
-=cut
-
-
-sub remove_insignificant_digits($) {
-
-	my $value = shift;
-	
-	# Make the value a string
-	$value .= '';
-	
-	# Very small values may have been converted to scientific notation
-	
-	if ($value =~ /\.(\d*?[1-9]\d*?)0{3}/) {
-		$value = $`. '.' . $1;
-	}
-	elsif ($value =~ /([1-9]0*)\.0{3}/) {
-		$value = $`. $1;
-	}
-	elsif ($value =~ /\.(\d*)([0-8]+)9999/) {
-		$value = $`. '.' . $1 . ($2 + 1);
-	}
-	elsif ($value =~ /\.9999/) {
-		$value = $` + 1;
-	}
-	return $value;
-}
-
-
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -215,7 +154,7 @@ sub normalize_nutriment_value_and_modifier($$) {
 
 	return if not defined ${$value_ref};
 
-	if (${$value_ref} =~ /nan/i) {
+	if (lc(${$value_ref}) =~ /nan/) {
 		${$value_ref} = '';
 	}
 
@@ -242,9 +181,6 @@ sub normalize_nutriment_value_and_modifier($$) {
 	if (${$value_ref} =~ /trace|traces/) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
-	}
-	if (${$value_ref} !~ /\./) {
-		${$value_ref} =~ s/,/\./;
 	}
 
 	return;
@@ -294,9 +230,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$unit = default_unit_for_nid($nid);
 	}
 
-	$value =~ s/(\d) (\d)/$1$2/g;
-	$value =~ s/,/./;
-	$value += 0;
+	$value = convert_string_to_number($value);
 
 	if ((defined $modifier) and ($modifier ne '')) {
 		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -4185,13 +4119,13 @@ sub normalize_quantity($) {
 		my $m = $1;
 		$q = lc($7);
 		$u = $12;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q * $m, $u);
 	}
 	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		$q = lc($1);
 		$u = $6;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q,$u);
 	}
 
@@ -4217,7 +4151,7 @@ sub normalize_serving_size($) {
 	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
 		$q = lc($1);
 		$u = $6;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q,$u);
 	}
 
@@ -5597,14 +5531,31 @@ sub get_canon_local_authority($) {
 	return $canon_local_authority;
 }
 
-if (-e "$data_root/packager-codes/packager_codes.sto") {
-	my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
-	%packager_codes = %{$packager_codes_ref};
+
+sub init_packager_codes() {
+	return if (%packager_codes);
+
+	if (-e "$data_root/packager-codes/packager_codes.sto") {
+		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
+		%packager_codes = %{$packager_codes_ref};
+	}
+
 }
 
-if (-e "$data_root/packager-codes/geocode_addresses.sto") {
-	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
-	%geocode_addresses = %{$geocode_addresses_ref};
+sub init_geocode_addresses() {
+	return if (%geocode_addresses);
+
+	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
+		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
+		%geocode_addresses = %{$geocode_addresses_ref};
+	}
+
+}
+
+# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
+INIT {
+	init_packager_codes();
+	init_geocode_addresses();
 }
 
 

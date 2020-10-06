@@ -104,7 +104,7 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
+	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -219,7 +219,11 @@ sub scan_code($) {
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
 	local $log->context->{file} = $file;
-	if ("$x") {
+	
+	# ImageMagick can trigger an exception for some images that it can read anyway
+	# Exception codes less than 400 are warnings and not errors (see https://www.imagemagick.org/script/perl-magick.php#exceptions )
+	# e.g. Exception 365: CorruptImageProfile `xmp' @ warning/profile.c/SetImageProfileInternal/1704
+	if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
 		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
 	else {
@@ -436,7 +440,8 @@ sub get_code_and_imagefield_from_file_name($$) {
 	if ($filename =~ /(\d{8}\d*)/) {
 		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		# e.g. IMG_20200810_111131.jpg
+		if ($filename =~ /(^|[^0-9])20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
 		}
 		else {
@@ -448,7 +453,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
-	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
 	}
@@ -1294,7 +1299,7 @@ sub _set_magickal_options($$) {
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1361,7 +1366,7 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 	my $size        = shift;    # currently = $small_size , 200px
 
 	my $html = '';

@@ -58,36 +58,36 @@ is (display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]), '<
 # test add_tags_to_field
 
 $product_ref = {
-        lc => "fr",
+	lc => "fr",
 };
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
 is_deeply($product_ref,
 {
-   'categories' => 'pommes, bananes',
-   'lc' => 'fr',
-   'categories_hierarchy' => [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:tropical-fruits',
-     'en:bananas'
-   ],
-   'categories_lc' => 'fr',
-   'categories_tags' => [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:tropical-fruits',
-     'en:bananas'
-   ],
+	'categories' => 'pommes, bananes',
+	'lc' => 'fr',
+	'categories_hierarchy' => [
+		'en:plant-based-foods-and-beverages',
+		'en:plant-based-foods',
+		'en:fruits-and-vegetables-based-foods',
+		'en:fruits-based-foods',
+		'en:fruits',
+		'en:apples',
+		'en:tropical-fruits',
+		'en:bananas'
+	],
+	'categories_lc' => 'fr',
+	'categories_tags' => [
+		'en:plant-based-foods-and-beverages',
+		'en:plant-based-foods',
+		'en:fruits-and-vegetables-based-foods',
+		'en:fruits-based-foods',
+		'en:fruits',
+		'en:apples',
+		'en:tropical-fruits',
+		'en:bananas'
+	],
 
 }
 ) or diag explain $product_ref;
@@ -101,31 +101,31 @@ delete($product_ref->{categories_next_hierarchy});
 delete($product_ref->{categories_next_tags});
 
 is_deeply($product_ref,
- {
-   'categories' => 'pommes, bananes',
-   'categories_hierarchy' => [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:tropical-fruits',
-     'en:bananas',
-   ],
-   'categories_lc' => 'fr',
-   'categories_tags' => [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:tropical-fruits',
-     'en:bananas',
-   ],
-   'lc' => 'fr'
- }
+{
+	'categories' => 'pommes, bananes',
+	'categories_hierarchy' => [
+		'en:plant-based-foods-and-beverages',
+		'en:plant-based-foods',
+		'en:fruits-and-vegetables-based-foods',
+		'en:fruits-based-foods',
+		'en:fruits',
+		'en:apples',
+		'en:tropical-fruits',
+		'en:bananas',
+	],
+	'categories_lc' => 'fr',
+	'categories_tags' => [
+		'en:plant-based-foods-and-beverages',
+		'en:plant-based-foods',
+		'en:fruits-and-vegetables-based-foods',
+		'en:fruits-based-foods',
+		'en:fruits',
+		'en:apples',
+		'en:tropical-fruits',
+		'en:bananas',
+	],
+	'lc' => 'fr'
+}
 
 ) or diag explain $product_ref;
 
@@ -147,20 +147,20 @@ add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 compute_field_tags($product_ref, "fr", "categories");
 
 is_deeply($product_ref->{categories_tags},
- [
-   'en:plant-based-foods-and-beverages',
-   'en:plant-based-foods',
-   'en:fruits-and-vegetables-based-foods',
-   'en:fruits-based-foods',
-   'en:fruits',
-   'en:apples',
-   'en:berries',
-   'en:tropical-fruits',
-   'en:bananas',
-   'en:plums',
-   'en:raspberries',
-   'en:strawberries',
- ]
+[
+	'en:plant-based-foods-and-beverages',
+	'en:plant-based-foods',
+	'en:fruits-and-vegetables-based-foods',
+	'en:fruits-based-foods',
+	'en:fruits',
+	'en:apples',
+	'en:berries',
+	'en:tropical-fruits',
+	'en:bananas',
+	'en:plums',
+	'en:raspberries',
+	'en:strawberries',
+]
 
 ) or diag explain $product_ref->{categories_tags};
 
@@ -169,23 +169,23 @@ compute_field_tags($product_ref, "es", "categories");
 
 
 is_deeply($product_ref->{categories_tags},
- [
-   'en:plant-based-foods-and-beverages',
-   'en:plant-based-foods',
-   'en:fruits-and-vegetables-based-foods',
-   'en:fruits-based-foods',
-   'en:fruits',
-   'en:apples',
-   'en:berries',
-   'en:citrus',
-   'en:tropical-fruits',
-   'en:bananas',
-   'en:lemons',
-   'en:oranges',
-   'en:plums',
-   'en:raspberries',
-   'en:strawberries',
- ]
+[
+	'en:plant-based-foods-and-beverages',
+	'en:plant-based-foods',
+	'en:fruits-and-vegetables-based-foods',
+	'en:fruits-based-foods',
+	'en:fruits',
+	'en:apples',
+	'en:berries',
+	'en:citrus',
+	'en:tropical-fruits',
+	'en:bananas',
+	'en:lemons',
+	'en:oranges',
+	'en:plums',
+	'en:raspberries',
+	'en:strawberries',
+]
 
 ) or diag explain $product_ref->{categories_tags};
 
@@ -195,60 +195,60 @@ add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
 compute_field_tags($product_ref, "it", "categories");
 
 is_deeply($product_ref->{categories_tags},
- [
-   'en:plant-based-foods-and-beverages',
-   'en:plant-based-foods',
-   'en:fruits-and-vegetables-based-foods',
-   'en:fruits-based-foods',
-   'en:fruits',
-   'en:apples',
-   'en:berries',
-   'en:citrus',
-   'en:tropical-fruits',
-   'en:bananas',
-   'en:lemons',
-   'en:oranges',
-   'en:plums',
-   'en:raspberries',
-   'en:strawberries',
-   'it:bogus',
- ]
+[
+	'en:plant-based-foods-and-beverages',
+	'en:plant-based-foods',
+	'en:fruits-and-vegetables-based-foods',
+	'en:fruits-based-foods',
+	'en:fruits',
+	'en:apples',
+	'en:berries',
+	'en:citrus',
+	'en:tropical-fruits',
+	'en:bananas',
+	'en:lemons',
+	'en:oranges',
+	'en:plums',
+	'en:raspberries',
+	'en:strawberries',
+	'it:bogus',
+]
 
 #) or diag explain $product_ref->{categories_tags};
 ) or diag explain $product_ref;
 
 
 $product_ref = {
-        lc => "fr",
+	lc => "fr",
 };
 
 add_tags_to_field($product_ref, "fr", "countries", "france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon");
 
 is_deeply($product_ref,
 {
-   'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
-   'lc' => 'fr',
-   'countries_hierarchy' => [
-     'en:bolivia',
-     'en:colombia',
-     'en:france',
-     'en:italy',
-     'en:spain',
-     'en:switzerland',
-     'fr:bidon',
-     'fr:deutschland'
-   ],
-   'countries_lc' => 'fr',
-   'countries_tags' => [
-     'en:bolivia',
-     'en:colombia',
-     'en:france',
-     'en:italy',
-     'en:spain',
-     'en:switzerland',
-     'fr:bidon',
-     'fr:deutschland'
-   ],
+	'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
+	'lc' => 'fr',
+	'countries_hierarchy' => [
+		'en:bolivia',
+		'en:colombia',
+		'en:france',
+		'en:italy',
+		'en:spain',
+		'en:switzerland',
+		'fr:bidon',
+		'fr:deutschland'
+	],
+	'countries_lc' => 'fr',
+	'countries_tags' => [
+		'en:bolivia',
+		'en:colombia',
+		'en:france',
+		'en:italy',
+		'en:spain',
+		'en:switzerland',
+		'fr:bidon',
+		'fr:deutschland'
+	],
 
 
 }) or diag explain($product_ref);
@@ -258,14 +258,14 @@ compute_field_tags($product_ref, "fr", "countries");
 
 is_deeply($product_ref->{countries_tags},
 [
-   'en:bolivia',
-   'en:colombia',
-   'en:france',
-   'en:italy',
-   'en:spain',
-   'en:switzerland',
-   'fr:bidon',
-   'fr:deutschland',
+	'en:bolivia',
+	'en:colombia',
+	'en:france',
+	'en:italy',
+	'en:spain',
+	'en:switzerland',
+	'fr:bidon',
+	'fr:deutschland',
 ]
 )  or diag explain $product_ref->{countries_tags};
 
@@ -274,35 +274,35 @@ compute_field_tags($product_ref, "es", "countries");
 
 is_deeply($product_ref->{countries_tags},
 [
-   'en:bolivia',
-   'en:colombia',
-   'en:france',
-   'en:italy',
-   'en:peru',
-   'en:spain',
-   'en:switzerland',
-   'es:bogus',
-   'fr:bidon',
-   'fr:deutschland',
+	'en:bolivia',
+	'en:colombia',
+	'en:france',
+	'en:italy',
+	'en:peru',
+	'en:spain',
+	'en:switzerland',
+	'es:bogus',
+	'fr:bidon',
+	'fr:deutschland',
 ]
 )  or diag explain $product_ref->{countries_tags};
 
 
 $product_ref = {
-        lc => "fr",
+	lc => "fr",
 };
 
 add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
 
 is_deeply($product_ref,
 {
-   'brands' => 'Baba, Bobo',
-  'brands_tags' => [
-     'baba',
-     'bobo'
-   ],
+	'brands' => 'Baba, Bobo',
+	'brands_tags' => [
+		'baba',
+		'bobo'
+	],
 
-   'lc' => 'fr'
+	'lc' => 'fr'
 }) or diag explain($product_ref);
 
 
@@ -310,8 +310,8 @@ compute_field_tags($product_ref, "fr", "brands");
 
 is_deeply($product_ref->{brands_tags},
 [
-   'baba',
-   'bobo',
+	'baba',
+	'bobo',
 ]
 )  or diag explain $product_ref->{brands_tags};
 
@@ -321,14 +321,14 @@ delete $product_ref->{brands_debug_tags};
 
 is_deeply($product_ref,
 {
-   'brands' => 'Baba, Bobo, Bibi',
-   'brands_tags' => [
-     'baba',
-     'bobo',
-     'bibi',
-   ],
+	'brands' => 'Baba, Bobo, Bibi',
+	'brands_tags' => [
+		'baba',
+		'bobo',
+		'bibi',
+	],
 
-   'lc' => 'fr'
+	'lc' => 'fr'
 }) or diag explain($product_ref);
 
 
@@ -338,9 +338,9 @@ delete $product_ref->{brands_debug_tags};
 
 is_deeply($product_ref->{brands_tags},
 [
-   'baba',
-   'bobo',
-   'bibi',
+	'baba',
+	'bobo',
+	'bibi',
 ]
 )  or diag explain $product_ref->{brands_tags};
 
@@ -349,16 +349,16 @@ my @tags = ();
 @tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
-   'en:fruit',
-   'en:citrus-fruit',
-   'en:fruit-juice',
-   'en:salt',
-   'en:sugar',
-   'en:orange',
-   'en:orange-juice',
-   'en:concentrated-orange-juice'
- ]
- ) or diag explain(\@tags);
+	'en:fruit',
+	'en:citrus-fruit',
+	'en:fruit-juice',
+	'en:salt',
+	'en:sugar',
+	'en:orange',
+	'en:orange-juice',
+	'en:concentrated-orange-juice'
+]
+) or diag explain(\@tags);
 
 
 foreach my $tag (@tags) {
@@ -370,16 +370,16 @@ foreach my $tag (@tags) {
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
-   'en:concentrated-orange-juice',
-   'en:fruit',
-   'en:citrus-fruit',
-   'en:fruit-juice',
-   'en:orange',
-   'en:orange-juice',
-   'en:sugar',
-   'en:salt',
- ]
- ) or diag explain(\@tags);
+	'en:concentrated-orange-juice',
+	'en:fruit',
+	'en:citrus-fruit',
+	'en:fruit-juice',
+	'en:orange',
+	'en:orange-juice',
+	'en:sugar',
+	'en:salt',
+]
+) or diag explain(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
@@ -421,7 +421,7 @@ is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vega
 
 is(canonicalize_taxonomy_tag("de","test","Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de","test","en:kale"), "Grünkohl");
-is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
+is(display_taxonomy_tag_link("de","test","en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'); # "test" taxonomy causes warning in Tags.pm
 is(display_tags_hierarchy_taxonomy("de","test",["en:kale"]), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>');
 is(canonicalize_taxonomy_tag("fr","test","Pâte de cacao"), "fr:Pâte de cacao");
 is(display_taxonomy_tag("fr","test","fr:Pâte de cacao"), "Pâte de cacao");
@@ -439,26 +439,24 @@ $product_ref = {
 compute_field_tags($product_ref, "de", "test");
 
 is_deeply($product_ref,
-	 {
-	    'lc' => 'de',
-	    'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
-	    'test_hierarchy' => [
-	      'en:kale',
-	      "de:caf\x{e9}",
-	      'de:test',
-	      "de:\x{c4}pfel"
-	    ],
-	    'test_lc' => 'de',
-	    'test_tags' => [
-	      'en:kale',
-	      "de:caf\x{e9}",
-	      'de:test',
-	      "de:\x{e4}pfel"
-	    ]
-	  }
-
-)
-	or diag explain $product_ref;
+	{
+		'lc' => 'de',
+		'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
+		'test_hierarchy' => [
+			'en:kale',
+			"de:caf\x{e9}",
+			'de:test',
+			"de:\x{c4}pfel"
+		],
+		'test_lc' => 'de',
+		'test_tags' => [
+			'en:kale',
+			"de:caf\x{e9}",
+			'de:test',
+			"de:\x{e4}pfel"
+		]
+	}
+) or diag explain $product_ref;
 
 
 $product_ref = { "stores" => "Intermarché" };
@@ -485,16 +483,16 @@ is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "fruits-en-proport
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), "des-de-tomate");
 
 my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
-is_deeply($tag_ref,  {
-'css_class' => 'tag known ',
-'display' => "Yaourts \x{e0} la fraise",
-'display_lc' => 'fr',
-'html_lang' => ' lang="fr"',
-'known' => 1,
-'tagid' => 'en:strawberry-yogurts',
-'tagurl' => 'yaourts-a-la-fraise'
-}
-   ) or diag explain $tag_ref;
+is_deeply($tag_ref, {
+		'css_class' => 'tag known ',
+		'display' => "Yaourts \x{e0} la fraise",
+		'display_lc' => 'fr',
+		'html_lang' => ' lang="fr"',
+		'known' => 1,
+		'tagid' => 'en:strawberry-yogurts',
+		'tagurl' => 'yaourts-a-la-fraise'
+	}
+) or diag explain $tag_ref;
 
 is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 
@@ -502,35 +500,35 @@ is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 @tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
 
 is_deeply (\@tags, [
-   'en:organic',
-   'en:no-gmos',
- ]
- ) or diag explain(\@tags);
+		'en:organic',
+		'en:no-gmos',
+	]
+) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
 is_deeply (\@tags, [
-   'en:organic',
-   'en:fair-trade',
-   'en:label-rouge',
- ]
- ) or diag explain(\@tags);
+		'en:organic',
+		'en:fair-trade',
+		'en:label-rouge',
+	]
+) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
 
 is_deeply (\@tags, [
- 'en:not-advised-for-specific-people',
- 'en:not-advised-for-children-and-pregnant-women'
- ]
- ) or diag explain(\@tags);
+		'en:not-advised-for-specific-people',
+		'en:not-advised-for-children-and-pregnant-women'
+	]
+) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "traces", "MOUTARDE ET SULFITES");
 
 is_deeply (\@tags, [
-   'en:mustard',
-   'en:sulphur-dioxide-and-sulphites'
- ]
- ) or diag explain(\@tags);
+	'en:mustard',
+	'en:sulphur-dioxide-and-sulphites'
+]
+) or diag explain(\@tags);
 
 is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:passion-fruit-yogurts");
 is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
@@ -545,9 +543,9 @@ is_deeply(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
 
 $product_ref = {
 	lc => "fr",
-          'categories_hierarchy' => [
-                                 'en:meals',
-                               ],
+	'categories_hierarchy' => [
+		'en:meals',
+	],
 };
 
 
@@ -564,18 +562,18 @@ add_tags_to_field($product_ref, "es", "categories", "en:peaches");
 compute_field_tags($product_ref, "es", "categories");
 
 is_deeply($product_ref->{categories_tags},  [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:meals',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:peaches',
-     'en:tropical-fruits',
-     'en:bananas',
-     'en:pears',
-   ],
+		'en:plant-based-foods-and-beverages',
+		'en:plant-based-foods',
+		'en:fruits-and-vegetables-based-foods',
+		'en:meals',
+		'en:fruits-based-foods',
+		'en:fruits',
+		'en:apples',
+		'en:peaches',
+		'en:tropical-fruits',
+		'en:bananas',
+		'en:pears',
+	],
 ) or diag explain $product_ref;
 
 $product_ref = {
@@ -586,60 +584,57 @@ $product_ref = {
 compute_field_tags($product_ref, "fr", "categories");
 
 is_deeply($product_ref->{categories_tags}, [
-     'en:plant-based-foods-and-beverages',
-     'en:plant-based-foods',
-     'en:fruits-and-vegetables-based-foods',
-     'en:fruits-based-foods',
-     'en:fruits',
-     'en:apples',
-     'en:berries',
-     'en:citrus',
-     'en:tropical-fruits',
-     'en:bananas',
-     'en:lemons',
-     'en:pears',
-     'en:strawberries'
+	'en:plant-based-foods-and-beverages',
+	'en:plant-based-foods',
+	'en:fruits-and-vegetables-based-foods',
+	'en:fruits-based-foods',
+	'en:fruits',
+	'en:apples',
+	'en:berries',
+	'en:citrus',
+	'en:tropical-fruits',
+	'en:bananas',
+	'en:lemons',
+	'en:pears',
+	'en:strawberries'
 ]) or diag explain $product_ref;
 
 $product_ref = {
-'categories' => "Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon",
-'categories_lc' => 'fr',
-         'categories_tags' => [
-                                 'en:meals',
-                                 'en:pasta-dishes',
-                                 'en:prepared-lasagne',
-                                 'en:meals-with-fish',
-                                 'en:meals-with-salmon',
-                               ],
-
-lc => 'fr',
-lang => 'fr',
-
+	'categories' => "Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon",
+	'categories_lc' => 'fr',
+	'categories_tags' => [
+		'en:meals',
+		'en:pasta-dishes',
+		'en:prepared-lasagne',
+		'en:meals-with-fish',
+		'en:meals-with-salmon',
+	],
+	lc => 'fr',
+	lang => 'fr',
 };
 
 add_tags_to_field($product_ref, "en", "categories", "Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon");
 
-is_deeply($product_ref->{categories_tags}, 
+is_deeply($product_ref->{categories_tags},
 [
-     'en:meals',
-     'en:pasta-dishes',
-     'en:prepared-lasagne',
-     'en:meals-with-fish',
-     'en:meals-with-salmon',
-
+	'en:meals',
+	'en:pasta-dishes',
+	'en:prepared-lasagne',
+	'en:meals-with-fish',
+	'en:meals-with-salmon',
 ]
 ) or diag explain $product_ref;
 
-my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","en:organic");
-is_deeply($tag_ref, 
+$tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","en:organic");
+is_deeply($tag_ref,
 {
-  'css_class' => 'tag known ',
-  'display' => 'Bio',
-  'display_lc' => 'fr',
-  'html_lang' => ' lang="fr"',
-  'known' => 1,
-  'tagid' => 'en:organic',
-  'tagurl' => 'bio'
+	'css_class' => 'tag known ',
+	'display' => 'Bio',
+	'display_lc' => 'fr',
+	'html_lang' => ' lang="fr"',
+	'known' => 1,
+	'tagid' => 'en:organic',
+	'tagurl' => 'bio'
 }
 )
 or diag explain $tag_ref;
@@ -647,17 +642,20 @@ or diag explain $tag_ref;
 $tag_ref = get_taxonomy_tag_and_link_for_lang("fr","labels","fr:some unknown label");
 is_deeply($tag_ref,
 {
-  'css_class' => 'tag user_defined ',
-  'display' => 'some unknown label',
-  'display_lc' => 'fr',
-  'html_lang' => ' lang="fr"',
-  'known' => 0,
-  'tagid' => 'fr:some unknown label',
-  'tagurl' => 'some-unknown-label'
+	'css_class' => 'tag user_defined ',
+	'display' => 'some unknown label',
+	'display_lc' => 'fr',
+	'html_lang' => ' lang="fr"',
+	'known' => 0,
+	'tagid' => 'fr:some unknown label',
+	'tagurl' => 'some-unknown-label'
 }
 )
 or diag explain $tag_ref;
 
-
+# check that %tags_texts is populated on demand
+ProductOpener::Tags::init_tags_texts();
+# Assumes we will always have french additive texts for E100.
+like($tags_texts{'fr'}{'additives'}{'e100'}, qr/curcumine/, 'e100 text contains "curcumine"') or diag explain($tags_texts{'fr'}{'additives'}{'e100'});
 
 done_testing();

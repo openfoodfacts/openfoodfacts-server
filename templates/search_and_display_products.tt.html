@@ -4,11 +4,13 @@
         <p>&rarr; <a href= "[% world_subdomain %][% current_link_query %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
     [% END %]
     &rarr; <a href="[% current_link_query %]">[% lang('search_link') %]</a><br>
+[% END %]
+[% IF (current_link_query_edit.defined) && !(jqm.defined) %]
     &rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a><br>
 [% END %]
 
 [% IF count > 0 %]
-    [% IF (current_link_query.defined) && !(jqm.defined) %]
+    [% IF (current_link_query_download.defined) && !(jqm.defined) %]
         &rarr;[% lang('search_download_results') %]<br>
         [% IF count <= export_limit %]
             <ul>

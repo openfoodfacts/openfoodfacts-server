@@ -64,6 +64,7 @@ BEGIN
 		&display_points
 		&display_mission
 		&display_tag
+		&display_search_results
 		&display_field
 		&display_error
 		&gen_feeds
@@ -74,6 +75,7 @@ BEGIN
 		&display_product
 		&display_product_api
 		&display_product_history
+		&display_preferences_api
 		&display_attribute_groups_api
 		&search_and_display_products
 		&search_and_export_products
@@ -139,6 +141,7 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::Orgs qw(:all);
 
@@ -653,7 +656,7 @@ sub analyze_request($)
 		$log->debug("got API request", { api => $request_ref->{api}, api_version => param("api_version"), api_method => param("api_method"), code => $request_ref->{code}, jqm => param("jqm"), json => param("json"), xml => param("xml") } ) if $log->is_debug();
 	}
 	
-	# Search endpoint, parameters will be parser by CGI.pm param()
+	# /search search endpoint, parameters will be parser by CGI.pm param()
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
 	}
@@ -1866,28 +1869,23 @@ sub display_list_of_tags($$) {
 			my $extra_td = '';
 
 			my $icid = $tagid;
+			my $canon_tagid = $tagid;
 			$icid =~ s/^(.*)://;    # additives
 
-			my $risk_level;
 			if ($tagtype eq 'additives') {
-				# Take additive level from more complete FR list.
-				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
+				
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+					and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})) {
 
-				if ($risk_level) {
-					# $css_class .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
-					# $info .= ' title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
-					my $risk_level_label = lang("risk_level_" . $risk_level);
-					$risk_level_label =~ s/ /\&nbsp;/g;
-					$extra_td = '<td class="level_' . $risk_level . '">' . $risk_level_label . '</td>';
+					my $tagtype_field = "additives_efsa_evaluation_overexposure_risk";
+					my $valueid = $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"};
+					$valueid =~ s/^en://;
+					my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+					$extra_td = '<td class="additives_efsa_evaluation_overexposure_risk_' . $valueid . '">' . $alt . '</td>';
 				}
 				else {
-					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';
 					$extra_td = '<td></td>';
 				}
-			}
-
-			if ($risk_level) {
-				$css_class .= ' level_' . $risk_level;
 			}
 
 			my $product_link = $main_link . $link;
@@ -2416,15 +2414,21 @@ sub display_list_of_tags_translate($$) {
 
 			$j++;
 
-			$link = "/$path/" . $tag_ref->{tagurl};
+			$link = "/$path/" . $tag_ref->{tagurl}; # "en:yule-log"
 
-			my $display = $tag_ref->{display};
-			my $display_lc = $tag_ref->{display_lc};
+			my $display = $tag_ref->{display}; # "en:Yule log"
+			my $display_lc = $tag_ref->{display_lc}; # "en"
 
+			# $synonyms_for keys don't have language codes, so we need to strip it off $display to get a valid lookup
+			# E.g. 'yule-log' => ['Yule log','Christmas log cake']
+			my $display_without_lc = $display =~ s/^..://r; # strip lc off -> "Yule log"
 			my $synonyms = "";
-			my $lc_tagid = get_string_id_for_lang($display_lc, $display);
+			my $lc_tagid = get_string_id_for_lang($display_lc, $display_without_lc); # "yule-log"
 
-			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
+			if (
+				(defined $synonyms_for{$tagtype}{$display_lc}) 
+				and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})
+			) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
 			}
 
@@ -2804,6 +2808,30 @@ sub add_tag_prefix_to_link($$) {
 	return $link;
 }
 
+
+=head2 display_tag ( $request_ref )
+
+This function is called to display either:
+
+1. Products that have a specific tag:  /category/cakes
+  or that don't have a specific tag /category/-cakes
+  or that have 2 specific tags /category/cake/brand/oreo
+2. List of tags of a given type:  /labels
+  possibly for products that have a specific tag: /category/cakes/labels
+  or 2 specific tags:  /category/cakes/label/organic/additives
+
+When displaying products for a tag, the function generates tag type specific HTML
+that is displayed at the top of the page:
+- tag parents and children
+- maps for tag types that have a location (e.g. packaging codes)
+- special properties for some tag types (e.g. additives)
+
+The function then calls search_and_display_products() to display the paginated list of products.
+
+When displaying a list of tags, the function calls display_list_of_tags().
+
+=cut
+
 sub display_tag($) {
 
 	my $request_ref = shift;
@@ -2831,6 +2859,8 @@ sub display_tag($) {
 
 	local $log->context->{tagtype2} = $tagtype2;
 	local $log->context->{tagid2} = $tagid2;
+
+	init_tags_texts() unless %tags_texts;
 
 	# Add a meta robot noindex for pages related to users
 	if ( ((defined $tagtype) and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
@@ -2932,7 +2962,6 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link},$prefix);
 			$log->debug("Found tag prefix 2 " . Dumper($request_ref)) if $log->is_debug();
 		}
-
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -3390,7 +3419,6 @@ HTML
 			else {
 					$log->debug("display_tag - property not defined", { tagtype => $tagtype, property_id => $propertyid{property}, canon_tagid => $canon_tagid }) if $log->is_debug();
 			}
-
 		}
 
 		# Remove titles without content
@@ -3408,7 +3436,6 @@ HTML
 	}
 
 	$description =~ s/<tag>/$title/g;
-
 
 	if (defined $ingredients_classes{$tagtype}) {
 		my $class = $tagtype;
@@ -3853,7 +3880,105 @@ HTML
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
+	display_new($request_ref);
 
+	return;
+}
+
+
+=head2 display_search_results ( $request_ref )
+
+This function builds the HTML returned by the /search endpoint.
+
+The results can be displayed in different ways:
+
+1. a paginated list of products (default)
+The function calls search_and_display_products() to display the paginated list of products.
+
+2. results filtered and ranked on the client-side
+2.1. according to user preferences that are locally saved on the client: &user_preferences=1
+2.2. according to preferences passed in the url: &preferences=..
+
+3. on a graph (histogram or scatter plot): &graph=1 -- TODO: not supported yet
+
+4. on a map &map=1 -- TODO: not supported yet
+
+=cut
+
+sub display_search_results($) {
+
+	my $request_ref = shift;
+
+	my $html = '';
+
+	my $title = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
+	
+	my $current_link = '';
+	
+	foreach my $field (param()) {
+		if (
+			($field eq "page")
+			or ($field eq "fields")
+			or ($field eq "keywords")	# returned by CGI.pm when there are not params: keywords=search
+			) {
+			next;
+		}
+		
+		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param($field));
+	}
+	
+	$current_link =~ s/^\&/\?/;
+	$current_link = "/search" . $current_link;
+	
+	if ((defined param("user_preferences")) and (param("user_preferences")) and not ($request_ref->{api}) ) {
+	
+		# The results will be filtered and ranked on the client side
+		
+		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
+		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
+		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		if ($search_api_url !~ /\?/) {
+			$search_api_url =~ s/\&/\?/;
+		}
+		
+		$scripts .= <<JS
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results"); });
+search_products("#search_results", "$search_api_url");
+JS
+;
+
+		my $template_data_ref = {};
+
+		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
+			$html = $tt->error();
+		}		
+	}
+	else {
+		
+		# The server generates the search results
+	
+		my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
+		if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
+			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
+			$sort_by = 'popularity_key';
+		}	
+		
+		my $query_ref = {};
+		
+		$request_ref->{current_link_query} = $current_link;
+		
+		$html .= search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+	}
+	
+	$request_ref->{content_ref} = \$html;
 
 	display_new($request_ref);
 
@@ -3988,7 +4113,7 @@ sub add_params_to_query($$) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 			
-			my $values = param($field);
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
 			
 			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
 			
@@ -4224,6 +4349,11 @@ sub customize_response_for_product($) {
 			}
 		}
 		
+		# Eco-Score
+		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
+			compute_ecoscore($product_ref);
+			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
@@ -4466,13 +4596,28 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
-	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
+	
+	# Query from search form: display a link back to the search form
+	if ($request_ref->{current_link_query} =~ /action=process/) {
+		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
+		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
+	}
+	
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
-		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
-		$request_ref->{current_link_query_download} .= "&download=on";
+		
+		# Show a download link only for search queries (and not for the home page of facets)
+		
+		if ($request_ref->{search}) {
+			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+			if ($request_ref->{current_link_query} =~ /\?/) {
+				$request_ref->{current_link_query_download} .= "&download=on";
+			}
+			else {
+				$request_ref->{current_link_query_download} .= "?download=on";
+			}
+		}
 
 		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
 		$template_data_ref->{export_limit} = $export_limit;
@@ -4508,8 +4653,8 @@ sub search_and_display_products($$$$$) {
 					tagtype => $newtagtype,
 				};
 			}
-
 		}
+		
 		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
 		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
@@ -4547,7 +4692,6 @@ sub search_and_display_products($$$$$) {
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};
 		}
-
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		if ((defined $request_ref->{api}) and (defined param('fields'))) {
@@ -4677,11 +4821,12 @@ sub display_pagination($$$$) {
 					}
 					elsif (defined $current_link_query) {
 
-						if ($current_link_query eq '') {
-							$current_link_query = '?';
+						if ($current_link_query !~ /\?/) {
+							$link = $current_link_query . "?page=$i";
 						}
-
-						$link = $current_link_query . "&page=$i";
+						else {
+							$link = $current_link_query . "&page=$i";
+						}
 
 						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
 						# so it is lost on subsequent pages
@@ -5218,9 +5363,10 @@ JS
 				my $g = $nutrition_grades_colors{$nutrition_grade}{g};
 				my $b = $nutrition_grades_colors{$nutrition_grade}{b};
 				my $seriesid = $nutrition_grade;
+				$series_n{$seriesid} //= 0;
 				$series_data .= <<JS
 {
-	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	name: '$title : $series_n{$seriesid} $Lang{products}{$lc}',
 	color: 'rgba($r, $g, $b, .9)',
 	turboThreshold : 0,
 	data: [ $series{$seriesid} ]
@@ -5265,7 +5411,7 @@ JS
 
 				$series_data .= <<JS
 {
-	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	name: '$title : $series_n{$seriesid} $Lang{products}{$lc}',
 	color: 'rgba($r, $g, $b, .9)',
 	turboThreshold : 0,
 	data: [ $series{$seriesid} ]
@@ -6295,7 +6441,8 @@ $block_ref->{content}
 sub display_new($) {
 
 	my $request_ref = shift;
-	$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
+	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
+	$log->trace("Start of display_new") if $log->is_trace();
 
 	my $template_data_ref = {
 		lang => \&lang,
@@ -6556,47 +6703,29 @@ sub display_new($) {
 	$template_data_ref->{image} = $image;
 	$template_data_ref->{image_en} = $image_en;
 	$template_data_ref->{link} = $link;
-	$template_data_ref->{banners} = @banners;
-	$template_data_ref->{banner} = $banner;
 	$template_data_ref->{lc} = $lc;
 
-	if (not($server_options{producers_platform})) {
+	if (not($server_options{producers_platform})
+	and ((not (defined cookie('hide_image_banner')))
+	or (not (cookie('hide_image_banner') eq '1')))) {
+		$template_data_ref->{banner} = $banner;
 
-		$initjs .= <<JS
-
-if (\$.cookie('hide_image_banner') == '1') {
-	\$('#hide_image_banner').prop('checked',true);
-	\$("#image_banner").hide();
-	\$("#hide_image_banner_hide").hide();
-	\$("#hide_image_banner_show").show();
+		$initjs .= <<'JS';
+if ($.cookie('hide_image_banner') == '1') {
+	$('#hide_image_banner').prop('checked', true);
+	$('#donate_banner').remove();
 }
 else {
-	\$('#hide_image_banner').prop('checked',false);
-	\$("#image_banner").show();
-	\$("#hide_image_banner_hide").show();
-	\$("#hide_image_banner_show").hide();
+	$('#hide_image_banner').prop('checked', false);	
+	$('#donate_banner').show();
+	$('#hide_image_banner').change(function () {
+		if ($('#hide_image_banner').prop('checked')) {
+			$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+			$('#donate_banner').remove();
+		}
+	});
 }
-
-\$("#hide_image_banner").change(function () {
-	if (\$('#hide_image_banner').prop('checked')) {
-		\$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
-		\$("#image_banner").hide();
-		\$("#hide_image_banner_hide").hide();
-		\$("#hide_image_banner_show").show();
-	}
-	else {
-		\$.cookie('hide_image_banner', null, { path: '/'});
-
-		\$("#image_banner").show();
-		\$("#hide_image_banner_hide").show();
-		\$("#hide_image_banner_show").hide();
-	}
-}
-);
-
 JS
-;
-
 	}
 
 	if ($server_options{producers_platform}) {
@@ -7568,16 +7697,6 @@ HTML
 ;
 			}
 
-			if ($tagtype eq 'additives') {
-
-				$styles .= <<CSS
-a.additives_efsa_evaluation_overexposure_risk_high { color:red }
-a.additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
-CSS
-;
-
-			}
-
 			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 
@@ -7601,10 +7720,6 @@ CSS
 
 					my $canon_tagid = $tagid;
 					$tagid =~ s/.*://; # levels are defined only in old French list
-
-					if ($ingredients_classes{$class}{$tagid}{level} > 0) {
-						$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
-					}
 
 					if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
 						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
@@ -7632,11 +7747,6 @@ HTML
 
 					}
 				}
-
-				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
-					$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$tagid} . '" ';
-				}
-
 
 				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a>$more_info</li>\n";
 			}
@@ -7765,6 +7875,27 @@ HTML
 
 	}
 
+
+	# Packaging
+	
+	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight);
+
+	# try to display packaging in the local language if available
+
+	my $packaging_text = $product_ref->{packaging_text};
+	my $packaging_text_lang = $product_ref->{lc};
+
+	if ((defined $product_ref->{"packaging_text" . "_" . $lc}) and ($product_ref->{"packaging_text" . "_" . $lc} ne '')) {
+		$packaging_text = $product_ref->{"packaging_text" . "_" . $lc};
+		$packaging_text_lang = $lc;
+	}
+
+	if (not defined $packaging_text) {
+		$packaging_text = "";
+	}
+	
+	$template_data_ref->{packaging_text} = $packaging_text;
+	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
 
 	# other fields
 
@@ -8576,13 +8707,9 @@ sub add_product_nutriment_to_stats($$$) {
 
 	my $nutriments_ref = shift;
 	my $nid = shift;
-	my $value = shift;
+	my $value = shift // '';
 
-	if ($value =~ /nan/i) {
-
-		return -1;
-	}
-	elsif ($value ne '') {
+	if ($value ne '') {
 
 		if (not defined $nutriments_ref->{"${nid}_n"}) {
 			$nutriments_ref->{"${nid}_n"} = 0;
@@ -9388,6 +9515,48 @@ JS
 	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
+}
+
+
+=head2 display_preferences_api ( $target_lc )
+
+Return a JSON structure with all available preference values for attributes.
+
+This is used by clients that ask for user preferences to personalize
+filtering and ranking based on product attributes.
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=head4 language code $target_lc
+
+Sets the desired language for the user facing strings.
+
+=cut
+
+sub display_preferences_api($$)
+{
+	my $request_ref = shift;
+	my $target_lc = shift;
+	
+	if (not defined $target_lc) {
+		$target_lc = $lc;
+	}
+		
+	$request_ref->{structured_response} = [];
+	
+	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
+		
+		push @{$request_ref->{structured_response}}, {
+			id => $preference,
+			name => lang("preference_" . $preference),
+		};
+	}
+
+	display_structured_response($request_ref);
+	
+	return;
 }
 
 

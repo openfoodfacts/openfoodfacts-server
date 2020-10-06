@@ -63,7 +63,6 @@ BEGIN
 		%canon_tags
 		%tags_images
 		%tags_texts
-		%tags_levels
 		%level
 		%special_tags
 
@@ -88,6 +87,7 @@ BEGIN
 		&spellcheck_taxonomy_tag
 
 		&get_tag_css_class
+		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
@@ -99,6 +99,8 @@ BEGIN
 
 		&compute_field_tags
 		&add_tags_to_field
+
+		&init_tags_texts
 
 		&get_city_code
 		%emb_codes_cities
@@ -187,6 +189,7 @@ generic_name => 1,
 ingredients_text => 1,
 conservation_conditions => 1,
 other_information => 1,
+packaging_text => 1,
 recycling_instructions_to_recycle => 1,
 recycling_instructions_to_discard => 1,
 producer => 1,
@@ -227,7 +230,6 @@ my %all_parents     = ();
 
 
 %tags_images = ();
-%tags_levels = ();
 %tags_texts = ();
 
 my $logo_height = 90;
@@ -1080,16 +1082,21 @@ sub build_tags_taxonomy($$$) {
 
 					# replace whole words/phrases only
 
-					if ($tagid =~ /-${tagid2}-/) {
+					# String comparisons are many times faster than the regexps, as long as tags only ever need simple string matching.
+					#if ($tagid =~ /-${tagid2}-/) {
+					if (index($tagid, "-${tagid2}-") >= 0) {
 						$replace = "-${tagid2}-";
 						$before = '-';
 						$after = '-';
 					}
-					elsif ($tagid =~ /-${tagid2}$/) {
+					#elsif ($tagid =~ /-${tagid2}$/) {
+					# despite how convoluted it is, this is still faster than the regexp.
+					elsif (rindex($tagid, "-${tagid2}") + length("-${tagid2}") == length($tagid)) {
 						$replace = "-${tagid2}\$";
 						$before = '-';
 					}
-					elsif ($tagid =~ /^${tagid2}-/) {
+					#elsif ($tagid =~ /^${tagid2}-/) {
+					elsif (index($tagid, "${tagid2}-") == 0) {
 						$replace = "^${tagid2}-";
 						$after = '-';
 					}
@@ -1229,7 +1236,8 @@ sub build_tags_taxonomy($$$) {
 			next if ($line =~ /^\#/);
 
 			if ($line =~ /^<(\s*)(\w\w):/) {
-				# Parent
+				# Parent lines, starting with "<".
+				
 				my $lc = $2;
 				my $parent = $';
 				$parent =~ s/^\s+//;
@@ -1241,13 +1249,15 @@ sub build_tags_taxonomy($$$) {
 					$stopped_parentid = remove_stopwords($tagtype,$lc,$parentid);
 					$stopped_parentid = remove_plurals($lc,$stopped_parentid);
 					$canon_parentid = $synonyms{$tagtype}{$lc}{$stopped_parentid};
-					print STDERR "taxonomy : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: $canon_parentid\n";
+					print STDERR "taxonomy : $tagtype : did not find parentid $parentid, trying stopped_parentid $stopped_parentid - result canon_parentid: " . ($canon_parentid // "") . "\n";
 				}
 				my $main_parentid = $translations_from{$tagtype}{"$lc:" . $canon_parentid};
 				$parents{$main_parentid}++;
 				# display a warning if the same parent is specified twice?
 			}
 			elsif ($line =~ /^(\w\w):/) {
+				# Synonym/translation lines, starting with a language code.
+				
 				my $lc = $1;
 				$line = $';
 				$line =~ s/^\s+//;
@@ -1284,7 +1294,7 @@ sub build_tags_taxonomy($$$) {
 						}
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
-							print STDERR "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							print STDERR "taxonomy : $tagtype : we already have a canon_tagid $canon_tagid for the tag $tag\n";
 							last;
 						}
 					}
@@ -1306,6 +1316,8 @@ sub build_tags_taxonomy($$$) {
 				}
 			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				# Other lines - wikidata:en:, description:fr:, etc.
+				
 				my $property = $1;
 				my $lc = $2;
 				$line = $';
@@ -1313,8 +1325,12 @@ sub build_tags_taxonomy($$$) {
 				next if $property eq 'synonyms';
 				next if $property eq 'stopwords';
 
-				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
-				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				if (defined $canon_tagid) {
+					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+				} else {
+					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : " . substr($line, 0, 50) . "...\n";
+				}
 			}
 		}
 
@@ -1780,6 +1796,7 @@ foreach my $langid (readdir($DH2)) {
 closedir($DH2);
 
 
+# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 	# print STDERR "loading taxonomy $taxonomyid\n";
@@ -2142,7 +2159,7 @@ sub display_taxonomy_tag_link($$$) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
@@ -2452,6 +2469,66 @@ HTML
 }
 
 
+
+=head2 get_tag_image ( $target_lc, $tagtype, $canon_tagid )
+
+If an image is associated to a tag, return its relative url, otherwise return undef.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the image. If an image is not available in the target language,
+it can be returned in the tag language, or in English.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $canon_tagid
+
+=cut
+
+sub get_tag_image($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $canon_tagid = shift;
+	
+	my $img;
+	
+	my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
+
+	my $img_lc = $target_lc;
+
+	my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
+	my $en_imgid = get_taxonomyid("en",$canon_tagid);
+	my $tag_lc = undef;
+	if ($en_imgid =~ /^(\w\w):/) {
+		$en_imgid = $';
+		$tag_lc = $1;
+	}
+
+	if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
+		$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+	}
+	elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+		$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+		$img_lc = $tag_lc;
+	}
+	elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
+		$img = $tags_images{'en'}{$tagtype}{$en_imgid};
+		$img_lc = 'en';
+	}	
+	
+	if ($img) {
+		$img = "/images/lang/${img_lc}/$tagtype/" . $img;
+	}
+	
+	return $img;
+}
+
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2465,36 +2542,8 @@ sub display_tags_hierarchy_taxonomy($$$) {
 		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
-			my $img;
 			my $canon_tagid = canonicalize_taxonomy_tag($target_lc,$tagtype, $tag);
-			my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
-
-			my $img_lc = $target_lc;
-
-			my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-			my $en_imgid = get_taxonomyid("en",$canon_tagid);
-			my $tag_lc = undef;
-			if ($en_imgid =~ /^(\w\w):/) {
-				$en_imgid = $';
-				$tag_lc = $1;
-			}
-
-			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
-				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
-			}
-			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
-				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
-				$img_lc = $tag_lc;
-			}
-			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
-				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
-				$img_lc = 'en';
-			}
-
-			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
-				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
-			}
-
+			my $img = get_tag_image($target_lc, $tagtype, $canon_tagid);
 
 			if ($img) {
 				my $size = '';
@@ -2502,7 +2551,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				$images .= <<HTML
-<img src="/images/lang/${img_lc}/$tagtype/$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline">
 HTML
 ;
 			}
@@ -3332,50 +3381,50 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
+sub init_tags_texts {
+	return if (%tags_texts);
 
-$log->info("loading tags texts") if $log->is_info();
-opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir(DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
+	$log->info("loading tags texts") if $log->is_info();
+	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
+	foreach my $langid (readdir(DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
 
-	# print STDERR "Tags.pm - reading texts for lang $langid\n";
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
+		# print STDERR "Tags.pm - reading texts for lang $langid\n";
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-	my $lc = $langid;
+		my $lc = $langid;
 
-	defined $tags_texts{$lc} or $tags_texts{$lc} = {};
-	defined $tags_levels{$lc} or $tags_levels{$lc} = {};
+		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
 
-	if (-e "$data_root/lang/$langid") {
-		foreach my $tagtype (sort keys %tag_type_singular) {
+		if (-e "$data_root/lang/$langid") {
+			foreach my $tagtype (sort keys %tag_type_singular) {
 
-			defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
-			defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
+				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
 
-			if (-e "$data_root/lang/$langid/$tagtype") {
-				opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
-				foreach my $file (readdir(DH)) {
-					next if $file !~ /(.*)\.html/;
-					my $tagid = $1;
-					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
+				# this runs number-of-languages * number-of-tag-types times.
+				if (-e "$data_root/lang/$langid/$tagtype") {
+					opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
+					foreach my $file (readdir(DH)) {
+						next if $file !~ /(.*)\.html/;
+						my $tagid = $1;
+						open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
 
-					my $text = join("",(<$IN>));
-					close $IN;
-					if ($text =~ /class="level_(\d+)"/) {
-						$tags_levels{$lc}{$tagtype}{$tagid} = $1;
+						my $text = join("",(<$IN>));
+						close $IN;
+
+						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 					}
-					$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
-					$tags_texts{$lc}{$tagtype}{$tagid} = $text;
-
+					closedir(DH);
 				}
-				closedir(DH);
 			}
 		}
 	}
+	closedir(DH2);
+	$log->debug("tags texts loaded") if $log->is_debug();
+	
+	return;
 }
-closedir(DH2);
-$log->debug("tags texts loaded") if $log->is_debug();
 
 sub add_tags_to_field($$$$) {
 

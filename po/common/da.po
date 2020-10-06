@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 21:32\n"
+"PO-Revision-Date: 2020-10-06 15:22\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4616,6 +4616,55 @@ msgstr "Meget vigtigt"
 msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "Obligatorisk"
+
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Genbrugsinstruktioner og/eller emballageoplysninger"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "Genbrugsinstruktions- og/eller emballageoplysningsfoto"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "Link til genbrugsinstruktions- og/eller emballageoplysningsfoto"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_es.jpg: Genbrugsinstruktioner på spansk."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Genbrugsinstruktioner og/eller emballageoplysninger"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "1 plastfilm til kassering, 1 FSC-papkasse til genbrug, 6 1,5L gennemsigtige PET-plastflasker til genbrug, 6 farvede uigennemsigtige plasthætter, 12 33cl aluminiumsdåser"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "Angiv alle emballagedele (adskilt med komma eller ny linje) med deres mængde (f.eks. 1 eller 6), type (f.eks. flaske, æske, dåse), materiale (f.eks. plast, metal, aluminium), og hvis tilgængelig, deres størrelse (f.eks. 33 cl) samt genbrugsinstruktioner."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "Forsøg at være så specifik som muligt. For plast angives, om det er uigennemsigtigt eller gennemsigtigt, farvet, PET eller PEHD."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "Udtræk genbrugsinstruktioner og/eller emballageoplysninger fra fotoet"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "Tekst til genbrugsinstruktioner og/eller emballageoplysninger kunne ikke udtrækkes. Prøv med et skarpere foto med højere opløsning eller en bedre tekstindramning."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "Tekst til genbrugsinstruktioner og/eller emballageinformation er udtrukket. Tjek nedenstående tekst og korrigér om nødvendigt evt. fejl i tekstgenkendelsen."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "Udtrækker genbrugsinstruktioner og/eller emballageoplysninger"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"

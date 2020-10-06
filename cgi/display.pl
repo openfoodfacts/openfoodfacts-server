@@ -78,8 +78,16 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 if (defined $request{api}) {
 	if (param("api_method") eq "search") {
 		# /api/v0/search
+		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
+		# because of missing fields like nova_group or nutriscore_data, but not for all products.
+		# this does not seem to happen with display_tag()
+		# display_search_results(\%request);
 		display_tag(\%request);
 	}
+	elsif (param("api_method") =~ /^preferences(_(\w\w))?$/) {
+		# /api/v0/preferences or /api/v0/preferences_[language code]
+		display_preferences_api(\%request, $2);
+	}	
 	elsif (param("api_method") =~ /^attribute_groups(_(\w\w))?$/) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api(\%request, $2);
@@ -90,7 +98,13 @@ if (defined $request{api}) {
 	}
 }
 elsif (defined $request{search}) {
-	display_tag(\%request);
+	if (param("download") and param("format")) {
+		$request{format} = param('format');
+		search_and_export_products(\%request,{}, undef);
+	}
+	else {
+		display_search_results(\%request);
+	}
 }
 elsif (defined $request{text}) {
 	display_text(\%request);

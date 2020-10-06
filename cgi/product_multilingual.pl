@@ -309,7 +309,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -788,7 +788,7 @@ sub display_field($$) {
 HTML
 ;
 
-	if ($field =~ /infocard/) {	# currently not used
+	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
@@ -803,11 +803,13 @@ HTML
 ;
 	}
 
-	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
-		$html .= <<HTML
-<p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>
+	foreach my $note ("_note", "_note_2") {
+		if (defined $Lang{$fieldtype . $note }{$lang}) {
+			$html .= <<HTML
+<p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
 HTML
 ;
+		}
 	}
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
@@ -2026,6 +2028,22 @@ HTML
 ;
 
 	$html .= "</div><!-- fieldset -->";
+	
+	
+	# Packaging photo and data
+
+	my @packaging_fields = ("packaging_image", "packaging_text");
+	
+	$html .= <<HTML
+
+<div id="packaging" class="fieldset">
+<legend>$Lang{packaging}{$lang}</legend>
+HTML
+;	
+	
+	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+
+	$html .= "</div><!-- fieldset -->";	
 
 
 	# Product check

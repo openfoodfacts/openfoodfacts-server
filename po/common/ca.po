@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 20:32\n"
+"PO-Revision-Date: 2020-10-06 10:12\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4617,6 +4617,55 @@ msgstr ""
 msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "Obligatori"
+
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Instruccions de reciclatge i/o informació d’embalatge"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "Imatge d'instruccions de reciclatge i/o informació d’embalatge"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "Enllaç a foto amb instruccions de reciclatge i/o d’informació d’envasos"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_es.jpg: instruccions de reciclatge en castellà."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Instruccions de reciclatge i/o informació d’embalatge"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "1 pel·lícula de plàstic per descartar, 1 caixa de cartró FSC per reciclar, 6 ampolles de plàstic transparent de 1,5 l per reciclar, 6 taps de plàstic opac de colors, 12 llaunes d'alumini de 33 cl"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "Enumereu totes les parts de l’embalatge separades per una coma o una línia nova, amb la seva quantitat (per exemple, 1 o 6), tipus (per exemple, ampolla, caixa, llauna), material (per exemple, plàstic, metall, alumini) i, si està disponible, la seva mida (per exemple, 33cl) i instruccions de reciclatge."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "Intenta ser el més específic possible. Per al plàstic, indiqueu si és opac o transparent, de color, PET o PEHD."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "Extreu de la imatge les instruccions de reciclatge i/o la informació sobre l’envasament"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "No s'han pogut extreure les instruccions de reciclatge i/o el text d'informació sobre l'embalatge. Proveu-ho amb una imatge més nítida, amb una resolució més alta o amb un millor enquadrament del text."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "S'han extret les instruccions de reciclatge i/o el text d'informació sobre l'embalatge. El reconeixement de text no és perfecte, així que comproveu el text següent i corregiu els errors si cal."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "Extraient de la imatge les instruccions de reciclatge i/o la informació sobre l’envasament"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"

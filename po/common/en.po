@@ -960,6 +960,14 @@ msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
 msgstr "No barcode found in the image."
 
+msgctxt "image_upload_error_no_barcode_specified_or_found"
+msgid "No barcode specified or found in the image or filename."
+msgstr "No barcode specified or found in the image or filename."
+
+msgctxt "image_upload_error_could_not_read_image"
+msgid "The image could not be read."
+msgstr "The image could not be read."
+
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -3068,6 +3076,10 @@ msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
 msgstr "Moderate risk of over exposure"
 
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
+msgid "No or very low risk of over exposure"
+msgstr "No or very low risk of over exposure"
+
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
 msgstr "Risk of exceeding the acceptable daily intake (ADI)"
@@ -3257,8 +3269,8 @@ msgid "%s's page"
 msgstr "%s's page"
 
 msgctxt "obsolete"
-msgid "The product is no longer sold."
-msgstr "The product is no longer sold."
+msgid "Product taken off the market"
+msgstr "Product taken off the market"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3949,8 +3961,8 @@ msgid "Import product photos"
 msgstr "Import product photos"
 
 msgctxt "import_photos_description"
-msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
+msgid "You can use the form below to easily upload photos (front of product, ingredients list, nutrition facts table and recycling instructions) for many products."
+msgstr "You can use the form below to easily upload photos (front of product, ingredients list, nutrition facts table and recycling instructions) for many products."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
@@ -4491,7 +4503,7 @@ msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
 msgstr "Text or sentences that indicate the origin of the product and/or its ingredients."
 
-msgctxt "nutriscore_grade_producer"
+msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
 msgstr "Nutri-Score grade from A to E displayed on the product label"
 
@@ -4499,7 +4511,7 @@ msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
 msgstr "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
 
-msgctxt "nutriscore_score_producer"
+msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
 msgstr "Nutri-Score score (numeric value from which the A to E grade is derived)"
 
@@ -4721,3 +4733,105 @@ msgstr "Additives"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "No or few additives"
+
+msgctxt "preference_not_important"
+msgid "Not important"
+msgstr "Not important"
+
+msgctxt "preference_important"
+msgid "Important"
+msgstr "Important"
+
+msgctxt "preference_very_important"
+msgid "Very important"
+msgstr "Very important"
+
+msgctxt "preference_mandatory"
+msgid "Mandatory"
+msgstr "Mandatory"
+
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Recycling instructions and/or packaging information"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "Recycling instructions and/or packaging information picture"
+
+msgctxt "attribute_group_environment_name"
+msgid "Environment"
+msgstr "Environment"
+
+msgctxt "attribute_ecoscore_name"
+msgid "Eco-Score"
+msgstr "Eco-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact"
+msgstr "Low environmental impact"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_ecoscore_grade_title"
+msgid "Eco-Score %s"
+msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_description_short"
+msgid "Very low environmental impact"
+msgstr "Very low environmental impact"
+
+msgctxt "attribute_ecoscore_b_description_short"
+msgid "Low environmental impact"
+msgstr "Low environmental impact"
+
+msgctxt "attribute_ecoscore_c_description_short"
+msgid "Moderate environmental impact"
+msgstr "Moderate environmental impact"
+
+msgctxt "attribute_ecoscore_d_description_short"
+msgid "High environmental impact"
+msgstr "High environmental impact"
+
+msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Very high environmental impact"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "Link to recycling instructions and/or packaging information photo"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "Recycling instructions and/or packaging information"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "Extract the recycling instructions and/or packaging information from the picture"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "Extracting recycling instructions and/or packaging information"

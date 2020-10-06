@@ -69,19 +69,19 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, [ "fr:Fromage étrange à pâte cuite" ], ],
 	[ { lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
-	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["en:chicken-fillet" ], ],
+	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["fr:filet-de-poulet-traite-en-salaison-cuit" ], ],
 	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
 
 	# [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"}, [ "en:sugar" ], ],
-	 [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"}, [ "en:water", "en:e290", "en:sweetener", "en:e951", "en:e950" ], ],
-	 [ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
-	 [ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+	[ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"}, [ "en:water", "en:e290", "en:sweetener", "en:e951", "en:e950" ], ],
+	[ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
+	[ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
 
-	 [ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+	[ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
 
-	 [ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
-	 [ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
-	 [ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
+	[ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
+	[ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
+	[ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
 
 	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
 
@@ -126,6 +126,7 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."}, ['en:salt','en:spice','en:water']],
 	[ { lc => "en", ingredients_text => "salt, spice. allergy advice: for allergens, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
 	[ { lc => "en", ingredients_text => "salt, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:sugar', 'en:soya-lecithin', 'en:salt']],
 
 
 );
