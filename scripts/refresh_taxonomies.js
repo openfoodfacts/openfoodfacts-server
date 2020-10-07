@@ -69,6 +69,7 @@ async function main() {
           }
           else if ( signal !== null ) {
             console.log(`[${file}] child process exited with signal ${signal}`);
+            process.exitCode = 128; // consider a spawn getting killed a failure
           }
         });
       } catch (e) {
