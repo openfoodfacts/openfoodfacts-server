@@ -42,7 +42,7 @@ async function main() {
 
     // count how many spawned processes don't have an exit code yet
     running = spawns.reduce((pv, cv) => {
-      if (cv.exitCode === null) {
+      if (cv.exitCode === null && cv.signalCode === null) {
         return pv + 1;
       }
       else {
@@ -99,7 +99,7 @@ async function main() {
   running = Number.MAX_SAFE_INTEGER;
   while (running > 0) {
     running = spawns.reduce((pv, cv) => {
-      if (cv.exitCode === null) {
+      if (cv.exitCode === null && cv.signalCode === null) {
         return pv + 1;
       }
       else {
