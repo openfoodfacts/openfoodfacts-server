@@ -84,7 +84,7 @@ async function main() {
   let lastMsg = new Date();
   while (running > 0) {
     running = spawns.reduce((pv, cv) => {
-      if (cv.exitCode === null) {
+      if (cv.exitCode === null && cv.signalCode === null) {
         return pv + 1;
       }
       else {
