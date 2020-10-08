@@ -3335,6 +3335,20 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
 
+
+	# if we're called twice with the same input in succession, such as in update_all_products.pl,
+	# cache the result, so we can instantly return the 2nd time.
+	state $prev_lc = '';
+	state $prev_text = '';
+	state $prev_return = '';
+	
+	if (($product_lc eq $prev_lc) && ($text eq $prev_text)) {
+		return $prev_return;
+	}
+	$prev_lc = $product_lc;
+	$prev_text = $text;
+
+
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
 	my $symbols_regexp = join('|', @symbols);
@@ -3985,6 +3999,7 @@ INFO
 
 	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 
+	$prev_return = $text;
 	return $text;
 }
 
