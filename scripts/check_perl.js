@@ -14,7 +14,9 @@ function checkFile(path, doneCallback) {
     child.stderr.on("data", (data) => console.error("[" + path + "] " + data));
     child.on("close", (code) => {
       console.log("[" + path + "] result: " + code);
-      process.exitCode = code;
+      if (code != 0) {
+        process.exitCode = code;
+      }
       doneCallback();
     });
   } catch (e) {
