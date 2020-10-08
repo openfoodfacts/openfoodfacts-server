@@ -109,4 +109,3 @@ display_new( {
 	content_ref=>\$html,
 	full_width=>$full_width,
 });
-
