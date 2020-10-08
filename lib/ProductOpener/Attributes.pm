@@ -895,8 +895,7 @@ sub compute_attribute_allergen($$$) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{debug} = "en:no-$allergen label";
 		$attribute_ref->{match} = 100;
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
-			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "does_not_contain_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 	}
 	
 	# - Check for "none" in the allergens field
@@ -904,8 +903,7 @@ sub compute_attribute_allergen($$$) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{debug} = "en:none in allergens";
 		$attribute_ref->{match} = 100;	
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
-			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "does_not_contain_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 	}
 	
 	# - If we have an ingredient list, allergens are extracted and added to the allergens_tags field
@@ -915,8 +913,7 @@ sub compute_attribute_allergen($$$) {
 			$attribute_ref->{status} = "known";
 			$attribute_ref->{debug} = $product_ref->{ingredients_n} . " ingredients (" . $product_ref->{unknown_ingredients_n} . " unknown)";
 			$attribute_ref->{match} = 100;
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "does_not_contain") . separator_before_colon($lc) . ': '
-				. display_taxonomy_tag($target_lc, "allergens", $allergen_id);				
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "does_not_contain_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 		}
 		else {
 			$attribute_ref->{debug} = "too many unknown ingredients: " . $product_ref->{ingredients_n} . " ingredients (" . $product_ref->{unknown_ingredients_n} . " unknown)";
@@ -931,8 +928,7 @@ sub compute_attribute_allergen($$$) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{debug} = "$allergen_id in traces";
 		$attribute_ref->{match} = 20;	# match <= 20 will make products non-matching if the preference is set to mandatory
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "may_contain") . separator_before_colon($lc) . ': '
-			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "may_contain_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 	}
 	
 	# - Check for allergen in the allergens_tags field
@@ -940,8 +936,7 @@ sub compute_attribute_allergen($$$) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{debug} = "$allergen_id in allergens";
 		$attribute_ref->{match} = 0;
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains") . separator_before_colon($lc) . ': '
-			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);		
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "contains_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 	}	
 	
 	# - Check for contains gluten etc. labels
@@ -949,8 +944,7 @@ sub compute_attribute_allergen($$$) {
 		$attribute_ref->{status} = "known";
 		$attribute_ref->{debug} = "en:contains-$allergen label";
 		$attribute_ref->{match} = 0;
-		$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains") . separator_before_colon($lc) . ': '
-			. display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "contains_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 	}
 	
 	# No match: mark the attribute unknown
