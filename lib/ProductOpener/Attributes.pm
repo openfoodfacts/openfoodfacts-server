@@ -271,6 +271,17 @@ sub initialize_attribute($$) {
 		
 		# Allergens
 		
+		if ($attribute_id =~ /^allergens_no_(.*)$/) {
+		
+			my $allergen_id = $1;
+			$allergen_id =~ s/_/-/g;
+			
+			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+			
+			$attribute_ref->{name} = $allergen;
+			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "without_s"), $allergen);
+		}		
+		
 		# Nutrient levels
 		
 		if ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
@@ -279,7 +290,7 @@ sub initialize_attribute($$) {
 			my $nid = $2;
 			$nid =~ s/_/-/g;
 			
-			$attribute_ref->{name} = $Nutriments{$nid}{$lc};
+			$attribute_ref->{name} = $Nutriments{$nid}{$target_lc};
 			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
 				lang_in_other_lc($target_lc, $level . "_quantity"));
 		}
@@ -453,9 +464,9 @@ sub compute_attribute_nutriscore($$) {
 		$attribute_ref->{match} = $match;
 		
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang("attribute_nutriscore_grade_title"), uc($grade));		
-			$attribute_ref->{description} = lang("attribute_nutriscore_" . $grade . "_description");
-			$attribute_ref->{description_short} = lang("attribute_nutriscore_" . $grade . "_description_short");
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nutriscore_grade_title"), uc($grade));		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $grade . "_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $grade . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-$grade.svg";
 	}
@@ -538,9 +549,9 @@ sub compute_attribute_ecoscore($$) {
 		$attribute_ref->{match} = $match;
 		
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang("attribute_ecoscore_grade_title"), uc($grade));		
-			$attribute_ref->{description} = lang("attribute_ecoscore_" . $grade . "_description");
-			$attribute_ref->{description_short} = lang("attribute_ecoscore_" . $grade . "_description_short");
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade));		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/ecoscore-$grade.svg";
 	}
@@ -614,9 +625,9 @@ sub compute_attribute_nova($$) {
 		$attribute_ref->{match} = $match;
 		
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang("attribute_nova_group_title"), $nova_group);
-			$attribute_ref->{description} = lang("attribute_nova_" . $nova_group . "_description");
-			$attribute_ref->{description_short} = lang("attribute_nova_" . $nova_group . "_description_short");
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-$nova_group.svg";
 		
@@ -717,7 +728,7 @@ sub compute_attribute_has_tag($$$$) {
 }
 
 
-=head2 compute_attribute_nutrient_quantity($product_ref, $target_lc, $level, $nid);
+=head2 compute_attribute_nutrient_level($product_ref, $target_lc, $level, $nid);
 
 Checks if the product has a nutrient in a low or high quantity.
 
@@ -763,7 +774,7 @@ Traffic lights levels are defined in Food.pm:
 
 =cut
 
-sub compute_attribute_nutrient_quantity($$$$) {
+sub compute_attribute_nutrient_level($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
@@ -814,15 +825,19 @@ sub compute_attribute_nutrient_quantity($$$$) {
 		
 			if ($value <= $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
+				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-low.svg";
 			}
 			elsif ($value <= $high) {
 				$match = 20 + 60 * ($high - $value) / ($high - $low);
+				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-medium.svg";
 			}
 			elsif ($value < $high * 2) {
 				$match = 20 * ($value - $high) / $high;
+				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-high.svg";
 			}
 			else {
 				$match = 0;
+				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-high.svg";
 			}
 			
 			$attribute_ref->{match} = $match;
@@ -875,7 +890,7 @@ sub compute_attribute_allergen($$$) {
 	my $allergen = $allergen_id;
 	$allergen =~ s/^en://;
 
-	my $attribute_id = "allergens_" . $allergen;
+	my $attribute_id = "allergens_no_" . $allergen;
 	$attribute_id =~ s/-/_/g;
 	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
@@ -1062,7 +1077,7 @@ sub compute_attributes($$) {
 	add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
 	
 	foreach my $nutrient ("salt", "fat", "sugars", "saturated-fat") {
-		$attribute_ref = compute_attribute_nutrient_quantity($product_ref, $target_lc, "low", $nutrient);
+		$attribute_ref = compute_attribute_nutrient_level($product_ref, $target_lc, "low", $nutrient);
 		add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
 	}
 	
