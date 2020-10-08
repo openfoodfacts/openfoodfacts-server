@@ -40322,7 +40322,7 @@ it:Alimenti vegetali fritti, Cibi vegetali fritti
 nl:Gefrituurde plaantaardige producten
 
 <en:Plant-based foods
-en:Flakes, Rolled grains
+en:Flakes
 ca:Flocs, grans enrotllats
 de:Getreideflocken
 es:Copos
@@ -40331,6 +40331,14 @@ fr:Flocons
 hu:Pelyhek
 it:Fiocchi
 nl:Vlokken
+
+<en:Flakes
+en:Rolled flakes, Rolled grains
+fr:Flocons laminés
+
+<en:Flakes
+en:Extruded flakes
+fr:Flocons extrudés
 
 <en:Plant-based foods
 en:Starches, Starch
@@ -40474,6 +40482,18 @@ ciqual_food_code:en:32003
 ciqual_food_name:en:Breakfast cereals, sweet (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner (aliment moyen)
 who_id:en:6
+
+<en:Breakfast cereals
+en:Cereals with fruits
+fr:Céréales aux fruits
+
+<en:Cereals with fruits
+en:Cereal flakes with fruits
+fr:Pétales de céréales aux fruits
+
+<en:Chocolate cereals
+en:Cereal flakes with chocolate
+fr:Pétales de céréales au chocolat
 
 <en:Breakfast cereals
 en:Sweet breakfast cereals fortified with vitamins and chemical elements
@@ -40826,6 +40846,7 @@ ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, for
 ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
 
 <en:Mueslis
+<en:Cereals with fruits
 en:Mueslis with fruits
 de:Müslis mit Früchten, Früchtemüslis
 es:Mueslis con frutas
@@ -40923,6 +40944,7 @@ it:Fiocchi di cereali
 nl:Ontbijtvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Amaranth flakes
 de:Amaranthflocken
 es:Copos de amaranto
@@ -40930,6 +40952,7 @@ fr:Flocons d'amarante
 nl:Amarantvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Barley flakes
 es:Copos de cebada
 fr:Flocons d’orge
@@ -40944,6 +40967,7 @@ nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
 <en:Cereal flakes
+<en:Extruded flakes
 en:Corn flakes, Corn-Flakes
 cs:Kukuřičné lupínky
 de:Cornflakes
@@ -40955,7 +40979,8 @@ nl:Cornflakes
 pl:Płatki kukurydziane
 
 <en:Cereal flakes
-en:Oat flakes, Oatmeal, Oatmeal flakes
+<en:Rolled flakes
+en:Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
 de:Haferflocken
 es:Copos de avena
 fi:kaurahiutaleet
@@ -40987,6 +41012,7 @@ ciqual_food_name:en:Oat flakes, boiled/cooked in water
 ciqual_food_name:fr:Flocons d'avoine, bouillis/cuits à l'eau
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Millet flakes
 de:Hirseflocken
 es:Copos de mijo
@@ -40994,17 +41020,19 @@ fr:Flocons de millet
 nl:Gierstvlokken
 
 <en:Cereal flakes
+<en:Extruded flakes
 en:Mixed cereal flakes
 ca:Barreja de flocs de cereals
 de:gemischte Getreideflocken
 es:Mezclas de copos de cereales
 fi:hiutalesekoitus
-fr:Mélanges de flocons de céréales
+fr:Pétales multicéréales, mélanges de flocons de céréales
 hu:Vegyes gabonapelyhek
 it:Fiocchi di cereali misti
 nl:Gemengde granenvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Quinoa flakes
 de:Quinoaflocken
 es:Copos de quinoa
@@ -41012,6 +41040,7 @@ fr:Flocons de quinoa
 nl:Quinoavlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Rice flakes
 de:Reisflocken
 es:Copos de arroz
@@ -41020,6 +41049,7 @@ fr:Flocons de riz
 nl:Rijstvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Rye flakes
 de:Roggenflocken
 es:Copos de centeno
@@ -41028,6 +41058,7 @@ fr:Flocons de seigle
 nl:Roggevlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Teff flakes
 de:Teff-Flocken, Zwerghirseflocken
 es:Copos de teff
@@ -41035,6 +41066,7 @@ fr:Flocons de teff
 nl:Teffvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Wheat flakes
 de:Weizenflocken
 es:Copos de trigo
@@ -41058,6 +41090,7 @@ fr:Flocons de blé khorasan, Flocons de blé de khorasan, Flocons de Kamut
 nl:Kamutvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Wild rice flakes
 es:Copos de arroz salvaje
 fr:Flocons de riz sauvage, flocons de zizanie
@@ -74670,6 +74703,7 @@ fr:Flocons de légumineuses
 nl:Peulvruchtenvlokken
 
 <en:Legume flakes
+<en:Extruded flakes
 en:Soy flakes, Soya flakes
 de:Sojaflocken
 es:Copos de soja
