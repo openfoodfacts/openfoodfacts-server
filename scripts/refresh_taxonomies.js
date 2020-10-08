@@ -69,6 +69,7 @@ async function main() {
           }
           else if ( signal !== null ) {
             console.log(`[${file}] child process exited with signal ${signal}`);
+            console.log('If this is in Travis: To make it rerun the workflow, close the pull request, wait a minute, and reopen it.');
             process.exitCode = 128; // consider a spawn getting killed a failure
           }
         });
