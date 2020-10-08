@@ -4592,19 +4592,24 @@ ciqual_food_name:en:Pineapple juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:Pineapple juices
+<en:Squeezed juices
+en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices, Pure pineapple juice
+de:Ananasdirektsäfte
+es:Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos de piña exprimidos ambiente
+fi:puristetut ananasmehut
+fr:Jus d'ananas pur jus, pur jus d'ananas
+nl:Vers geperste ananassappen, Vers geperst ananassap
+ciqual_food_code:en:2073
+ciqual_food_name:en:Pineapple juice, pure juice
+ciqual_food_name:fr:Jus d'ananas, pur jus
+
+<en:Pineapple juices
 <en:Refrigerated squeezed juices
 en:Refrigerated squeezed pineapple juices
 de:Gekühlte Ananasdirektsäfte, Gekühlter gepresster Ananassaft
 es:Zumos de piña exprimidos refrigerados
 fr:Jus d'ananas frais
 nl:Verse Ananassappen, Verse Ananassap
-
-<en:Pineapple juices
-en:Pure pineapple juices
-fr:Jus d'ananas pur jus
-ciqual_food_code:en:2073
-ciqual_food_name:en:Pineapple juice, pure juice
-ciqual_food_name:fr:Jus d'ananas, pur jus
 
 <en:Pineapple juices
 en:Pineapple juice for canned pineapple
@@ -4742,15 +4747,6 @@ nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
 ciqual_food_code:en:2070
 ciqual_food_name:en:Orange juice, pure juice
 ciqual_food_name:fr:Jus d'orange, pur jus
-
-<en:Pineapple juices
-<en:Squeezed juices
-en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices
-de:Ananasdirektsäfte
-es:Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos de piña exprimidos ambiente
-fi:puristetut ananasmehut
-fr:Jus d'ananas pur jus, pur jus d'ananas
-nl:Vers geperste ananassappen, Vers geperst ananassap
 
 <en:Fruit juices
 en:Tangerine juices
@@ -57897,31 +57893,31 @@ fr:Cuisses de poulet
 it:Cosce di pollo, coscia di pollo
 nl:Kippendijen, Kipdij
 
-<en:Chickens
-en:Chicken ham
-de:Hühner Schinken
+<en:Poultry hams
+en:Cooked chicken breast slices, chicken ham
+de:Hähnchen-brustfilet in Scheiben, Geflügelschinken
 fi:kanaleikkele
-fr:Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
-it:Prosciutto di pollo
+fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 nl:Kippendijen, Kippendij
 zh:鸡火腿
 
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet doré au four, Blanc de poulet doré au four
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 en:Smoked chicken breast
 fr:Blancs de poulet fumé, Blanc de poulet fumé
 nl:Gerookte kippenborst
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
+
+<en:Cooked chicken breast slices
+en:Reconstituted chicken breast slices
+fr:Blancs de poulet reconstitués
 
 <en:Cooked poultries
 <en:Chickens
@@ -58066,13 +58062,16 @@ fr:Blancs de dinde, blancs de dindes, blanc de dindes, blanc de dinde
 it:Petti di tacchino
 nl:Kalkoenfilets
 
-<en:Turkey breasts
-en:Turkey ham, cooked turkey breast
-fr:blanc de dinde en tranche, jambon de dinde
+<en:Poultry hams
+en:Cooked turkey breast slices, Turkey ham, cooked turkey breast
+fr:Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
 agribalyse_food_code:en:28964
 ciqual_food_code:en:28964
 ciqual_food_name:en:Turkey cooked ham, in slices
 ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
+
+<en:Poultry hams
+fr:Blancs de dinde doré au four
 
 <en:Turkeys
 en:Turkey wings
@@ -58081,9 +58080,6 @@ agribalyse_food_code:en:36310
 ciqual_food_code:en:36310
 ciqual_food_name:en:Turkey, wing, raw
 ciqual_food_name:fr:Dinde, aile, crue
-
-<en:Turkey breasts
-fr:Blancs de dinde doré au four
 
 <en:Turkeys
 en:Turkey cutlets
