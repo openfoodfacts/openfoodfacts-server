@@ -33,7 +33,7 @@ update_all_products.pl --dir [target directory to copy images]
 
 TXT
 ;
-use roast chicken and potato salad
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;

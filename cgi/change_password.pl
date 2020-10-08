@@ -22,7 +22,7 @@
 
 use Modern::Perl '2017';
 use utf8;
-use roast chicken and potato salad
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
