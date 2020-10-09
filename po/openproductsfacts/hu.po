@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-08 09:17\n"
+"PO-Revision-Date: 2020-10-09 17:35\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -23,7 +23,7 @@ msgstr ""
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=hu"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
@@ -42,7 +42,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Products Facts"
-msgstr "Open Products Facts"
+msgstr "Open Products Facts (Nyílt Termék Tények)"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
@@ -110,7 +110,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "https://wiki.openfoodfacts.org"
+msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -143,6 +143,6 @@ msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL 
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
 msgstr ""
 
