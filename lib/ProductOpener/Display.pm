@@ -3936,7 +3936,7 @@ sub display_search_results($) {
 		
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		$search_api_url .= "&fields=product_name,url,image_front_thumb_url,attribute_groups";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}

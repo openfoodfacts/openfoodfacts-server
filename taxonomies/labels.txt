@@ -1,5 +1,7 @@
 # Please note: English needs to be first.
 
+# For labels that indicate the absence of something, in English, always make "No something" the first entry, and make "Something-free", "Without something" synonyms
+
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua
@@ -624,11 +626,11 @@ de:ohne Nanopartikel
 fi:nanopartikkeliton, ei nanopartikkeleita, ilman nanopartikkeleita
 fr:sans nano-particules
 
-en:Wheat-free
+en:No wheat, without wheat, Wheat-free
 de:Ohne Weizen
 nl:Zonder graan
 
-en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
+en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
 de:Glutenfrei
@@ -675,7 +677,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
-opposite:en: en:gluten-free
+opposite:en: en:no-gluten
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -2229,7 +2231,7 @@ en:Without modified starches, without modified starch
 fi:ilman muunneltuja tärkkelyksiä, ilman muunneltua tärkkelystä
 fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 
-en:Without gelatin, Gelatinfree, Gelatin-free
+en:No gelatin, Without gelatin, Gelatinfree, Gelatin-free
 ca:Sense gelatina
 de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
 es:Sin gelatina
@@ -2280,7 +2282,7 @@ th:ไม่มีแอลกอฮอล์
 opposite:en: en:contains alcohol
 
 en:Contains alcohol
-opposite:en: en:no alcohol
+opposite:en: en:no-alcohol
 
 en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
@@ -2600,7 +2602,7 @@ it:Prodotto Senza Ingegneria Genetica
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 origins:en: en:France
 
-en:No lactose, lactose-free, Lactose free
+en:No lactose, lactose-free, Lactose free, without lactose
 ca:Sense lactosa, lliure de lactosa
 cz:Bez laktozy
 de:Laktosefrei, Lactosefrei
@@ -2640,12 +2642,12 @@ it:Senza lecitina di soia
 pt:Sem lecitina de soja
 ru:Без соевого лецитина
 
-en:No milk, milk-free, dairy-free, no dairy
+en:No milk, milk-free, dairy-free, no dairy, without milk
 ca:Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 de:Ohne Milch, Milchfrei
 es:Sin leche
 fi:maidoton, maitotuotteeton, ei maitoa, ilman maitoa
-fr:sans lait
+fr:sans lait, sans produits laitiers
 he:ללא חלב
 hu:Tej nélkül, tejmentes
 it:Senza latte
@@ -2660,7 +2662,7 @@ fr:Contrat Biolait
 en:Without addition of dairy products
 de:Ohne Zusatz von Milchprodukten
 fi:ei lisättyjä maitotuotteita
-fr:Sans ajout de produit laitiers, sans produits laitiers
+fr:Sans ajout de produit laitiers
 it:Senza aggiunta di latticini
 nl:Zonder toevoeging van zuivel
 ru:Без добавления молочных продуктов
@@ -2713,7 +2715,7 @@ pt:Sem corantes ou conservantes
 ru:Без красителей и консервантов
 th:ไม่เติมสีและวัตถุกันเสีย
 
-en:No soy, soy free
+en:No soy, soy free, without soy
 ca:Lliure de soja, Sense soja
 de:Sojafrei
 es:Sin soja, Sin soya, Libre de soja, Libre de soya
@@ -2726,6 +2728,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+opposite:en: en:contains-soy
 
 en:Contains soy
 de:Enthält Soja
@@ -2735,7 +2738,7 @@ fr:Contient du soja
 hu:Szójatartalmú, szóját tartalmaz
 it:Contiene soia
 pt:Contem soja
-
+opposite:en: en:no-soy
 
 en:Certified by Ecocert, Ecocert
 ar:Ecocert
@@ -16052,7 +16055,7 @@ it:Classe II
 
 ru:высший сорт, сорт высший
 
-en:Palm oil free, Without palm oil, No palm oil
+en:No palm oil, Palm oil free, Without palm oil
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
 de:Ohne Palmöl
@@ -16073,7 +16076,7 @@ opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
 fr:Contient de l'huile de palme
-opposite:en: en:palm-oil-free
+opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
@@ -17275,7 +17278,7 @@ pt:Salgado com sal seco
 
 fr:Salage naturel
 
-en:Peanut Free
+en:No peanuts, without peanuts, Peanut Free
 ca:Lliure de cacauet
 de:Ohne Erdnüsse
 es:Sin cacahuetes
@@ -18507,7 +18510,7 @@ en:Free from E number
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
 
-en:Without antibiotics, antibiotic-free, antibiotics-free, no antibiotics, no antibiotic, raised without antibiotics, no Antibiotics Administered
+en:No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free,no antibiotic, raised without antibiotics, no Antibiotics Administered
 ca:Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
 de:Ohne Antibiotika, Frei von Antibiotika, Enthält kein Antibiotika, antibiotika-frei, antibiotikafrei
 es:Sin antibióticos

@@ -1514,8 +1514,8 @@ extract_ingredients_from_text($product_ref);
 delete_ingredients_percent_values($product_ref->{ingredients});
 delete $product_ref->{ingredients_percent_analysis};
 
-is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
-is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
+is ($product_ref->{labels}, "en:no-gluten") or diag explain $product_ref;
+is_deeply ($product_ref->{labels_tags}, ["en:no-gluten"]) or diag explain $product_ref;
 
 is_deeply (
 	$product_ref->{ingredients},
@@ -2122,8 +2122,8 @@ delete_ingredients_percent_values($product_ref->{ingredients});
 delete $product_ref->{ingredients_percent_analysis};
 
 
-is ($product_ref->{labels}, "en:gluten-free") or diag explain $product_ref;
-is_deeply ($product_ref->{labels_tags}, ["en:gluten-free"]) or diag explain $product_ref;
+is ($product_ref->{labels}, "en:no-gluten") or diag explain $product_ref;
+is_deeply ($product_ref->{labels_tags}, ["en:no-gluten"]) or diag explain $product_ref;
 
 is_deeply (
 	$product_ref->{ingredients},
