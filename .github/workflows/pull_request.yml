@@ -48,7 +48,7 @@ jobs:
       id: changed-perl
       with:
         repo-token: ${{ github.token }}
-        pattern: '^(cgi|scripts)/.*\.pl$'
+        pattern: '^(cgi|scripts)/.*\.pl$|^lib/ProductOpener/.*\.pm$'
         result-encoding: 'string'
     
     - name: prepare, build, and test
