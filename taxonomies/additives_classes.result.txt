@@ -1,9 +1,9 @@
-stopwords:en:a,an,for,added,to
+stopwords:en:a,an,for,added,to,as
 stopwords:es:de,del,la,las,los,una
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 
 
-en:Acid, Acidifier, Acidulant
+en:Acid, Acidifier, Acidulant, tartness, provides tartness
 bg:Киселина
 ca:Àcid, Acidulant
 cs:Kyselina
@@ -52,7 +52,7 @@ description:sl: Kisline so snovi, ki povečajo kislost živila in/ali mu dajejo 
 description:sv: Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger det en syrlig smak.
 wikidata:en: Q337038
 
-en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity
+en:Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity, acid regulator
 bg:Регулатор на киселинност, регулатор на киселинността
 ca:Corrector de l'acidesa, correctors de l'acidesa, correctiu de l acidesa
 cs:Regulátor kyselosti
@@ -124,7 +124,7 @@ sv:Aminosyror
 
 en:anti-bulking agent
 
-en:Anti-caking agent, anticaking agent, anti-stick agent, drying agent, dusting agent
+en:Anti-caking agent, anticaking agent, anti-stick agent, anti-sticking, drying agent, dusting agent, prevent caking, prevents caking, anti-clumping
 bg:Антислепващ агент
 ca:Antiaglomerant
 cs:Protispékavá látka
@@ -169,7 +169,7 @@ description:sl: Sredstva proti sprijemanju so snovi, ki zmanjšujejo težnjo pos
 description:sv: Klumpförebyggande medel: ämnen som minskar tendensen hos enskilda partiklar i ett livsmedel att klumpa ihop sig.
 wikidata:en: Q726460
 
-en:Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent
+en:Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent, anti-foaming
 bg:Антипенител
 ca:Antiespumant
 cs:Odpěňovač
@@ -214,7 +214,7 @@ description:sl: Sredstva proti penjenju so snovi, ki preprečujejo ali zmanjšuj
 description:sv: Skumdämpningsmedel: ämnen som förhindrar eller minskar skumbildning.
 wikidata:en: Q904035
 
-en:Antioxidant, antibrowning agent, antioxidany synergist
+en:Antioxidant, antibrowning agent, antioxidant synergist
 bg:Антиоксидант
 ca:Antioxidant, antioxidants, agent antienfosquiment
 cs:Antioxidant
@@ -235,6 +235,7 @@ nb:Antioxidant, Antioksidant
 nl:antioxidant, antioxidanten
 pl:Przeciwutleniacz, przeciwutleniacze
 pt:Antioxidante
+ro:antioxidant
 ru:антиоксидант, антиокислитель
 sl:Antioksidant
 sv:Antioxidationsmedel, Antioxidantmedel
@@ -313,7 +314,7 @@ description:sk: Objemové činidlá sú látky, ktoré prispievajú k zväčšov
 description:sl: Sredstva za povečanje prostornine so snovi, ki povečajo prostornino živila, ne da bi bistveno povečale njegovo energetsko vrednost.
 description:sv: Fyllnadsmedel: ämnen som ökar ett livsmedels volym utan att väsentligt bidra till dess tillgängliga näringsvärde.
 
-en:Carbonating agent
+en:Carbonating agent, carbonation
 fi:Karbonointiaine, Karbonointiainetta, Karbonointiaineet, Karbonointiaineita
 fr:Agent de carbonation
 description:en: A food additive used to provide carbonation in a food.
@@ -412,7 +413,7 @@ es:colorante alimenticio, colorantes alimenticios
 hu:élelmiszer színezék
 it:sostanze alimentari coloranti
 
-en:colour retention agent, colour adjunct, colour fixative, colour stabilizer
+en:colour retention agent, colour adjunct, colour fixative, colour stabilizer, maintain color, color retention
 de:Farbstabilisator
 es:Agente de retención de color, complementos del color, estabilizador del color, estabilizadores del color, fijadores del color, fijador del color
 fr:agent de rétention de la couleur, fixateur de la couleur, fixateur de couleur, adjuvant de la couleur, stabilisant de la couleur, agent de rétention de couleur, adjuvant de couleur, stabilisant de couleur
@@ -420,7 +421,7 @@ description:es: Aditivos alimentarios que estabilizan, retienen o intensifican e
 description:fr: Additif alimentaire qui stabilise, retient ou intensifie la couleur d'une denrée alimentaire.
 
 en:Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, plasticizer, surface active agent, suspension agent, emulsifier blend
-bg:Емулгатор
+bg:Емулгатор, емулгатори
 ca:Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
 cs:Emulgátor
 da:Emulgator, Emulgatorer, Emulgeringsmiddel
@@ -431,6 +432,7 @@ et:Emulgaator
 fi:Emulgointiaine, Emulgointiainetta, Emulgointiaineet, Emulgointiaineita
 fr:Émulsifiant, agent de dispersion, agent de surface, agent de suspension, agent d'ajustement de la densité, inhibiteur de cristallisation, nébulisant, plastifiant
 ga:Eiblitheoir
+hr:Emulgator, emulgatori
 hu:Emulgeálószer, kristályosodásgátló, sűrűségszabályozó szer, diszpergálószer, lágyító, felületaktív anyag, szuszpenziós szer
 is:Yruefni
 it:Emulsionante, emulsionanti, agente emulsionante, agenti emulsionanti
@@ -442,7 +444,7 @@ nb:Emulgeringsmiddel, Emulgator
 nl:Emulgator, Emulgatoren
 pl:Emulgator, Emulgatory
 pt:Emulsionante, emulsionantes, emulsificante
-ro:Emulsifiant, Emulgator
+ro:Emulsifiant, Emulgator, emulsifianți
 ru:Эмульгатор
 sk:Emulgátor
 sl:Emulgator
@@ -804,7 +806,7 @@ description:sl: Sredstva za glaziranje so snovi -vključno z mazivi-, ki dajejo 
 description:sv: Ytbehandlingsmedel -inklusive smörjmedel-: ämnen som ger ett blankt utseende eller ett skyddande skikt när de appliceras på ytan av ett livsmedel.
 wikidata:en: Q334582
 
-en:Humectant, moisture retention agent, water retention agent, wetting agent
+en:Humectant, moisture retention agent, water retention agent, wetting agent, moisture retention
 bg:Влагозадържащ агент
 ca:Humectant
 cs:Zvlhčující látka
@@ -868,6 +870,10 @@ ro:Minerale
 sk:Minerálne látky
 sl:Minerali
 sv:Mineraler
+
+< en:Minerals
+< en:Vitamins
+en:vitamin and mineral blend, vitamin and mineral mix
 
 en:Modified starch
 bg:Модифицирано нишесте
@@ -934,7 +940,7 @@ description:en: A food additive gas, which is introduced into a container before
 description:es: Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr: Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l'intention de protéger l'aliment par exemple de l'oxydation ou de l'altération.
 
-en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent
+en:Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, natural mold inhibitor, maintain freshness, protect flavor
 bg:Консервант, консерванти
 ca:Conservant, conservador
 cs:Konzervant
@@ -1141,6 +1147,7 @@ et:Stabilisaator
 fi:Stabilointiaine, Stabilointiainetta, Stabilointiaineet, Stabilointiaineita, sideaine, sidonta-aine, sidonta-aineet
 fr:Stabilisant, liant, stabilisateur colloïdal, stabilisateur d'émulsion, stabilisateur de mousse, agent stabilisant, stabilisateur, stabilisateurs
 ga:Cobhsaitheoir
+hr:Stabilizator
 hu:Stabilizátor, kötőanyag
 is:bindiefni
 it:Stabilizzante, stabilizzanti, agente stabilizzante, agenti stabilizzanti, legante, leganti
@@ -1181,7 +1188,7 @@ bg:Подсладител
 ca:Edulcorant, esdulcorants
 cs:Sladidlo
 da:Sødestof, Sødestoffer, Kunstigt sødemiddel, sødemiddel
-de:Süßungsmittel
+de:Süßungsmittel, süssungsmittel
 el:Γλυκαντικό
 es:Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo
 et:Magusaine
@@ -1223,7 +1230,7 @@ description:sl: Sladila so snovi, ki se uporabljajo za sladkanje živil ali kot 
 description:sv: Sötningsmedel: ämnen som används för att ge livsmedel söt smak eller i bordssötningsmedel.
 wikidata:en: Q626292
 
-en:Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent
+en:Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent, provides body, provides thickness
 bg:Сгъстител, сгъстители
 ca:Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
 cs:Zahušťovadlo
