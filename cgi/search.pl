@@ -304,26 +304,26 @@ if ($action eq 'display') {
 	$template_data_ref->{fields_options} = \@fields_options;
 
 	$template_data_ref->{compare_options} = [
-	  	{
-	  		'value' => "lt",
-	  		'label' => '<',
-	  	},
-	  	{
-	  		'value' => "lte",
-	  		'label' => "\N{U+2264}",
-	  	},
 		{
-	  		'value' => "gt",
-	  		'label' => '>',
-	  	},
+			'value' => "lt",
+			'label' => '<',
+		},
 		{
-	  		'value' => "gte",
-	  		'label' => "\N{U+2265}",
-	  	},
+			'value' => "lte",
+			'label' => "\N{U+2264}",
+		},
 		{
-	  		'value' => "eq",
-	  		'label' => '=',
-	  	},
+			'value' => "gt",
+			'label' => '>',
+		},
+		{
+			'value' => "gte",
+			'label' => "\N{U+2265}",
+		},
+		{
+			'value' => "eq",
+			'label' => '=',
+		},
 	];
 	
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
@@ -338,27 +338,27 @@ if ($action eq 'display') {
 
 	# Different types to display results
 
-	push @{$template_data_ref->{sort_options}}, [
-	  	{
-	  		'value' => "unique_scans_n",
-	  		'label' => lang("sort_popularity"),
-	  	},
-	  	{
-	  		'value' => "product_name",
-	  		'label' => lang("sort_product_name"),
-	  	},
+	$template_data_ref->{sort_options} = [
 		{
-	  		'value' => "created_t",
-	  		'label' => lang("sort_created_t"),
-	  	},
+			'value' => "unique_scans_n",
+			'label' => lang("sort_popularity"),
+		},
 		{
-	  		'value' => "last_modified_t",
-	  		'label' => lang("sort_modified_t"),
-	  	},
+			'value' => "product_name",
+			'label' => lang("sort_product_name"),
+		},
 		{
-	  		'value' => "completeness",
-	  		'label' => lang("sort_completeness"),
-	  	},
+			'value' => "created_t",
+			'label' => lang("sort_created_t"),
+		},
+		{
+			'value' => "last_modified_t",
+			'label' => lang("sort_modified_t"),
+		},
+		{
+			'value' => "completeness",
+			'label' => lang("sort_completeness"),
+		},
 	];
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
@@ -370,7 +370,7 @@ if ($action eq 'display') {
 	foreach my $axis ('x','y') {
 		push @{$template_data_ref->{axes}}, {
 			id => $axis,
-			selected_field_value => $graph_ref->{"axis_" . $axis},		
+			selected_field_value => $graph_ref->{"axis_" . $axis},
 		}; 
 	}
 
@@ -378,7 +378,7 @@ if ($action eq 'display') {
 
 		next if $series eq 'default';
 		my $checked = '';
-		if ($graph_ref->{"series_$series"} eq 'on') {
+		if (($graph_ref->{"series_$series"} // '') eq 'on') {
 			$checked = 'checked="checked"';
 		}
 
