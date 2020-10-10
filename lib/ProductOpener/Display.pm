@@ -7077,7 +7077,7 @@ sub display_field($$) {
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@{$state_items}){
-			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
 				push(@to_do_status, $val);
 			}
 			else {
