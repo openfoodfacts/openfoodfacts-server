@@ -10177,7 +10177,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gorgonzola
 # GOUDA (Dutch:Goudse kaas, "cheese from Gouda") is a mild, yellow cheese made from cow's milk.
 
 <en:cheese
-en:gouda
+en:gouda, gouda cheese
 af:Goudakaas
 ar:جودة
 az:Quda
@@ -10259,7 +10259,7 @@ ja:グラナ・パダーノ
 jv:Grana Padano
 ko:그라나 파다노
 la:Grana Padano
-nl:Grana Padano
+nl:Grana Padano, Grana Padano kaas
 pl:Grana padano
 pt:Grana padano
 ru:Грана падано
@@ -10346,6 +10346,12 @@ de:Gruyère AOP
 es:gruyer DOP
 it:Gruyère AOP
 # fr:gruyère-aop has 16 products in 3 languages @2018-10-27
+
+
+<en:cheese
+en:jarlsberg, jarlsberg cheese
+wikidata:en:Q1329765
+wikipedia:en:https://en.wikipedia.org/wiki/Jarlsberg_cheese
 
 
 # description:en:Lancashire is an English cow's-milk cheese from the county of Lancashire.
@@ -10746,6 +10752,7 @@ es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
 fr:pecorino romano, romano, fromage pecorino romano aop
 it:Pecorino romano
+nl:pecorino romano, pecorino romano kaas
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
@@ -12931,7 +12938,7 @@ wa:Sé d' coujhene
 xh:Ityiwa
 yi:זאלץ
 yo:Iyọ̀
-zh:食盐
+zh:食盐, 鹽
 # ace:Sira
 # als:Spiissalz, Chochsalz, Salz
 # arc:ܡܠܚܐ
@@ -17393,7 +17400,7 @@ fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva, olio extravergine d'oliva
-nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie
+nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 
 <en:extra virgin olive oil
@@ -29220,7 +29227,7 @@ sv:hydrolyserat ärtprotein
 en:soy protein
 ca:proteïna de soja
 da:sojaprotein
-de:Sojaprotein, Sojaproteine, Sojaeiweiß
+de:Sojaprotein, Sojaproteine, Sojaeiweiß, Sojaeiweiss
 es:Proteina de soya, proteina de soja,proteina vegetal hidrolizada de soya
 et:sojavalk
 fi:soijaproteiini, soijaproteiinivalmiste
@@ -62177,7 +62184,7 @@ th:ปลาทูน่า
 tr:orkinos
 uk:тунець
 ur:ٹیونا
-zh:鮪魚
+zh:鮪魚, 吞拿魚
 # eml:Tôṅ
 # nan:Chhńg-á
 # pt-br:Atum
@@ -68721,7 +68728,7 @@ nl:scharrelkipeiwit
 nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:powdered egg white
-de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
+de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnereiweiss-pulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
 fi:kananmunanvalkuaisjauhe
 nl:kippenei-eiwitpoeder
 
@@ -73938,9 +73945,18 @@ en:sambal
 de:Sambal
 fr:sambal
 nl:sambal
+wikidata:en:Q1056554
+wikipedia:en:https://en.wikipedia.org/wiki/Sambal
+description:en:Sambal is an Indonesian chili sauce or paste typically made from a mixture of a variety of chili peppers with secondary ingredients such as shrimp paste, garlic, ginger, shallot, scallion, palm sugar, and lime juice.
 
-<de:Sambal
+<en:sambal
+en:sambal oelek
+de:sambal oelek
+es:sambal oelek
+fr:sambal oelek
 nl:sambal oelek
+description:en:Raw chili paste (bright red, thin and sharp tasting). Can be used as the base for making other sambals or as an ingredient for other cuisines.
+
 
 # description:en:BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
 
