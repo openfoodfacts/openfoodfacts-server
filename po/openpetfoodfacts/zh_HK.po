@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_HK\n"
+"Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:45\n"
+"PO-Revision-Date: 2020-10-09 19:05\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: zh-HK\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 448\n"
+"X-Crowdin-File-ID: 1386\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -42,32 +42,32 @@ msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scann
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
-msgstr "普瑞納, 血統"
+msgstr "普瑞納，血統"
 
 msgctxt "product_name_example"
 msgid "Pro Plan Adult, rich in chicken"
-msgstr "贊成計畫成人, 豐富的雞肉"
+msgstr "Pro Plan Adult，富含雞肉"
 
 msgctxt "generic_name_example"
 msgid "Complete pet food for adult cats"
-msgstr "成年貓的完整寵物食品"
+msgstr "成貓所需的寵物食品"
 
 msgctxt "categories_example"
 msgid "Dry adult cat food"
-msgstr "干, 成人貓食品"
+msgstr "乾燥的成年貓糧"
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
-msgstr "沒有糖, 沒有色素"
+msgstr "無糖，無色素"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
-msgstr "穀物85.5％（蕎麥粉，全麥粉11％），麥芽汁，抗壞血酸"
+msgstr "穀物85.5％（蕎麥粉，全麥粉11％），麥芽精 ，抗壞血酸"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
@@ -84,7 +84,7 @@ msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "此產品頁面不完整。您可以協助編輯，並從我們現有的照片中添加更多的資料，或者使用 <a href=\"Https://android.openfoodfacts.org\"> Android </a> 或 <a href=\"Https://ios.openfoodfacts.org\"> iPhone/iPad </a> 應用程式拍下更多產品的照片。感謝你的幫助！"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -92,11 +92,11 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "捐助Open Pet Food Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
@@ -147,6 +147,6 @@ msgstr ""
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
 msgstr ""
 
