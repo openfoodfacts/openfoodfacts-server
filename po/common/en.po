@@ -4835,3 +4835,23 @@ msgstr "Recycling instructions and/or packaging information text has been extrac
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
 msgstr "Extracting recycling instructions and/or packaging information"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr "Contains: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr "May contain: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr "Does not contain: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr "Without %s"
