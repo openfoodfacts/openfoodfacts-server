@@ -705,10 +705,6 @@ $options{attribute_groups} = [
 		["nova","additives"]
 	],
 	[
-		"labels",
-		["labels_organic", "labels_fair_trade"]
-	],
-	[
 		"allergens",
 		[
 			"allergens_no_gluten",
@@ -726,7 +722,23 @@ $options{attribute_groups} = [
 			"allergens_no_molluscs",
 			"allergens_no_sulphur_dioxide_and_sulphites",
 		],
-	]
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm-oil-free",
+		]		
+	],
+	[
+		"labels",
+		["labels_organic", "labels_fair_trade"]
+	],
+	[
+		"environment",
+		[
+			"ecoscore",
+		]
+	],
 ];
 
 # Used to generate the sample import file for the producers platform

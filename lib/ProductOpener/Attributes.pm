@@ -280,7 +280,16 @@ sub initialize_attribute($$) {
 			
 			$attribute_ref->{name} = $allergen;
 			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "without_s"), $allergen);
-		}		
+		}
+		
+		# Ingredients analysis
+		
+		if (($attribute_id eq "vegan") or ($attribute_id eq "vegetarian") or ($attribute_id eq "palm-oil-free")) {
+			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$attribute_id");
+			$attribute_ref->{name} = $name;
+			$attribute_ref->{setting_name} = $name;
+			
+		}
 		
 		# Nutrient levels
 		
@@ -522,7 +531,7 @@ sub compute_attribute_ecoscore($$) {
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
-	if (defined $product_ref->{ecoscore_data}) {
+	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 		$attribute_ref->{status} = "known";
 		
 		my $score = $product_ref->{ecoscore_data}{score};
@@ -553,7 +562,7 @@ sub compute_attribute_ecoscore($$) {
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description");
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/ecoscore-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/ecoscore-$grade.svg";
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -971,6 +980,125 @@ sub compute_attribute_allergen($$$) {
 }
 
 
+=head2 compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
+
+Checks properties derived from ingredients analysis
+(e.g. vegetarian, vegan, palm oil free)
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 analysis $analysis
+
+There are currently 2 types of ingredients analysis:
+
+- if $analysis contains "-free" at the end (e.g. palm-oil-free), ingredients_analysis_tags contains values like:
+contains-palm-oil, may-contain-palm-oil, palm-oil-free and palm-oil-content-unknown
+
+- otherwise, for values like vegan and vegetarian, it contains values like:
+vegan, non-vegan, maybe-vegan, vegan-status-unknown
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+For "low" levels:
+
+- 100% if the property matches
+- 20% if the property may match
+- 0% if the property does not match
+
+=cut
+
+sub compute_attribute_ingredients_analysis($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $analysis = shift;
+	
+	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, analysis => $analysis }) if $log->is_debug();
+
+	my $attribute_id = $analysis;
+	$attribute_id =~ s/-/_/g;
+	
+	# Initialize general values that do not depend on the product (or that will be overriden later)
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	
+	my $match;
+	my $status;
+	my $analysis_tag;
+	
+	if ($analysis =~ /^(.*)-free$/) {
+		# e.g. palm-oil-free
+		my $ingredient = $1;
+		
+		if (has_tag($product_ref, "labels", "en:no-$ingredient")
+			or has_tag($product_ref, "ingredients_analysis", "en:$ingredient-free")) {
+			$match = 100;
+			$analysis_tag = "$ingredient-free";
+			$status = "known";
+		}
+		elsif (has_tag($product_ref, "ingredients_analysis", "en:may-contain-$ingredient")) {
+			$match = 20;
+			$analysis_tag = "may-contain-$ingredient";
+			$status = "known";
+		}
+		elsif (has_tag($product_ref, "ingredients_analysis", "en:contains-$ingredient")) {
+			$match = 0;
+			$analysis_tag = "contains-$ingredient";
+			$status = "known";
+		}
+		else {
+			$status = "unknown";
+			$analysis_tag = $ingredient . "-content-unknown";
+		}
+	}
+	else {
+		# vegan / vegetarian
+		
+		if (has_tag($product_ref, "labels", "en:$analysis")
+			or has_tag($product_ref, "ingredients_analysis", "en:$analysis")) {
+			$match = 100;
+			$analysis_tag = $analysis;
+			$status = "known";
+		}
+		elsif (has_tag($product_ref, "labels", "en:maybe-$analysis")
+			or has_tag($product_ref, "ingredients_analysis", "en:maybe-$analysis")) {
+			$match = 20;
+			$analysis_tag = "maybe-$analysis";
+			$status = "known";
+		}		
+		elsif (has_tag($product_ref, "labels", "en:non-$analysis")
+			or has_tag($product_ref, "ingredients_analysis", "en:non-$analysis")) {
+			$match = 0;
+			$analysis_tag = "non-$analysis";
+			$status = "known";
+		}
+		else {
+			$status = "unknown";
+			$analysis_tag = "$analysis-status-unknown";
+		}		
+	}
+	
+	$attribute_ref->{match} = $match;
+	$attribute_ref->{status} = $status;	
+	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
+	$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$analysis_tag.svg";
+
+	return $attribute_ref;
+}
+
+
 =head2 add_attribute_to_group ( $product_ref, $target_lc, $group_id, $attribute_ref )
 
 Add an attribute to a given attribute group, if the attribute is defined.
@@ -1085,6 +1213,12 @@ sub compute_attributes($$) {
 	foreach my $allergen (keys %{$translations_to{allergens}}) {
 		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
 		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
+	}
+	
+	# Ingredients analysis
+	foreach my $analysis ("vegan", "vegatarian", "palm-oil-free") {
+		$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
+		add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 	}
 	
 	# Processing
