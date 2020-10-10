@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 17:38\n"
+"PO-Revision-Date: 2020-10-10 13:22\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4476,11 +4476,11 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "Buena información nutricional (Nutri-score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "La puntuación de Nutri-Score puede ser calculada sobre todos los productos, aunque no sea mostrada en el envase."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4517,7 +4517,7 @@ msgstr "Grupo Nova"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Alimento poco o nada procesado (Grupo NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4566,31 +4566,31 @@ msgstr "Organización desconocida."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
-msgstr ""
+msgstr "Usuario desconocido."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Nutri-score tiene en cuenta el nivel de sal. Usa esta opción solo si está específicamente en una dieta baja en sal."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Nutri-score tiene en cuenta el nivel de azúcar. Usa esta opción solo si está específicamente en una dieta baja en azúcar."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Nutri-score tiene en cuenta el nivel de grasa. Usa esta opción solo si está específicamente en una dieta baja en grasa."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Nutri-score tiene en cuenta el nivel de grasa saturada. Usa esta opción solo si está específicamente en una dieta baja en grasa saturada."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Alérgenos"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Siempre existe la posibilidad de que falten datos sobre alérgenos, estén incompletos, sean incorrectos o que la composición del producto haya cambiado. Si es alérgico, siempre compruebe la información en el paquete del producto real."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4598,7 +4598,7 @@ msgstr "Aditivos"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Sin o con pocos aditivos"
 
 msgctxt "preference_not_important"
 msgid "Not important"
