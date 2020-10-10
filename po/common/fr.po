@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-06 15:22\n"
+"PO-Revision-Date: 2020-10-10 08:02\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4706,4 +4706,24 @@ msgstr "Impact environnemental élevé"
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
 msgstr "Impact environnemental très élevé"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr "Contient : %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr "Peut contenir : %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr "Ne contient pas : %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr "Sans %s"
 

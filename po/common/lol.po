@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 09:19\n"
+"PO-Revision-Date: 2020-10-09 19:16\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4585,6 +4585,55 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "crwdns152820:0crwdne152820:0"
 
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "crwdns152848:0crwdne152848:0"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "crwdns152850:0crwdne152850:0"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "crwdns152852:0crwdne152852:0"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "crwdns152854:0crwdne152854:0"
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "crwdns152856:0crwdne152856:0"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "crwdns152858:0crwdne152858:0"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "crwdns152860:0crwdne152860:0"
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "crwdns152862:0crwdne152862:0"
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "crwdns152864:0crwdne152864:0"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "crwdns152866:0crwdne152866:0"
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "crwdns152868:0crwdne152868:0"
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "crwdns152870:0crwdne152870:0"
+
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "crwdns152830:0crwdne152830:0"
@@ -4621,4 +4670,24 @@ msgstr "crwdns152844:0crwdne152844:0"
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
 msgstr "crwdns152846:0crwdne152846:0"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr "crwdns152872:0%scrwdne152872:0"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr "crwdns152874:0%scrwdne152874:0"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr "crwdns152876:0%scrwdne152876:0"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr "crwdns152878:0%scrwdne152878:0"
 
