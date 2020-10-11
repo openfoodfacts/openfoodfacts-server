@@ -4364,7 +4364,35 @@ sub customize_response_for_product($) {
 		elsif ($field eq "attribute_groups") {
 			compute_attributes($product_ref, $lc);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
-		}		
+		}
+		
+		# Images to update in a specific language
+		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
+			my $target_lc = $1;
+			$customized_product_ref->{$field} = {};
+
+			foreach my $imagetype ("front", "ingredients", "nutrition", "packaging") {
+				
+				my $imagetype_lc = $imagetype . "_" . $target_lc;
+
+				# Ask for images in a specific language if we already have an old image for that language
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagetype_lc})) {
+					
+					my $imgid = $product_ref->{images}{$imagetype . "_" . $target_lc}{imgid};
+					my $age = time() - $product_ref->{images}{$imgid}{uploaded_t};
+					
+					if ($age > 365 * 86400) {	# 1 year
+						$customized_product_ref->{$field}{$imagetype_lc} = $age;
+					}
+				}
+				# or if the language is the main language of the product
+				# or if we have a text value for ingredients / packagings
+				elsif (($product_ref->{lc} eq $target_lc) 
+					or ((defined $product_ref->{$imagetype . "_text_" . $target_lc}) and ($product_ref->{$imagetype . "_text_" . $target_lc} ne ""))) {
+					$customized_product_ref->{$field}{$imagetype_lc} = 0;
+				}
+			}
+		}
 
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
