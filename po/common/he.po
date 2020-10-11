@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 09:32\n"
+"PO-Revision-Date: 2020-10-10 04:52\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -213,7 +213,7 @@ msgstr "אלרגנים"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "khomer-alergeni"
+msgstr "אלרגן"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -310,7 +310,7 @@ msgstr "מוצרים מבית המותג %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "mutag"
+msgstr "מותג"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -354,7 +354,7 @@ msgstr "מוצרים מהקטגוריה %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "categoria"
+msgstr "קטגוריה"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -370,7 +370,7 @@ msgstr "נתונים"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "מרכיבים תזונתיים"
+msgstr "חומרי הזנה"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -386,7 +386,7 @@ msgstr "בודקים"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "bodek"
+msgstr "בודק"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -438,7 +438,7 @@ msgstr "מתקנים"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "metaken"
+msgstr "מתקן"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -1421,7 +1421,7 @@ msgstr "מספר המוצרים"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s ב־%s"
+msgstr "%s ב%s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -2384,7 +2384,7 @@ msgstr "מצבים"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "matzav"
+msgstr "מצב"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2404,7 +2404,7 @@ msgstr "מוצרים שנמכרים אצל"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "khanut"
+msgstr "חנות"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -4618,6 +4618,55 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "חובה"
 
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "תמונת הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "קישור לתמונת הנחיות מיחזור ו/או פרטי אריזה"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_he.jpg: הנחיות מיחזור בעברית."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr ""
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "הצגת כל חלקי האריזה מופרדים בפסיקים או ירידת שורה, בצירוף הכמות (למשל: 1 או 6), סוג (למשל: בקבוק, קופסה, פחית), חומר (למשל: פלסטיק, מתכת, אלומיניום) והגודל אם יש (למשל: 330 מ״ל) והנחיות מיחזור."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "מוטב להתמקד עד כמה שניתן. לפלסטיק רצוי לציין אם הוא אטום או שקוף, צבוע, פוליאתילן טרפתלט (PET) או פוליאתילן בצפיפות גבוהה (PEHD)."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "חילוץ הנחיות מיחזור ו/או פרטי אריזה מהתמונה"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "חילוץ הטקסט מהנחיות המיחזור ו/או פרטי האריזה לא הצליח. כדאי לנסות עם תמונה ברורה יותר, ברזולוציה גבוהה יותר או מסגור טוב יותר של הטקסט."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "חילוץ הטקסט מהנחיות המיחזור ו/או פרטי האריזה הצליח. זיהוי טקסט אינו מושלם, לכן כדאי לבדוק את הטקסט שלהלן ולתקן שגיאות במקרה הצורך."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה מחולצים"
+
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "סביבה"
@@ -4654,4 +4703,24 @@ msgstr "השפעה רבה על איכות הסביבה"
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
 msgstr "השפעה רבה מאוד על איכות הסביבה"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr "מכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr "עשוי להכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr "אינו מכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr "ללא %s"
 

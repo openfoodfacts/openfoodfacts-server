@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 08:38\n"
+"PO-Revision-Date: 2020-10-09 16:37\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4615,40 +4615,108 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr ""
 
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr ""
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr ""
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr ""
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr ""
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr ""
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr ""
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr ""
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr ""
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr ""
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr ""
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr ""
+
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "Okolje"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr ""
+msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Nizek vpliv na okolje"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr ""
+msgstr "Ekološka ocena %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Zelo majhen vpliv na okolje"
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Nizek vpliv na okolje"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Zmeren vpliv na okolje"
 
 msgctxt "attribute_ecoscore_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Velik vpliv na okolje"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
+msgstr "Zelo velik vpliv na okolje"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
 msgstr ""
 
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr ""
