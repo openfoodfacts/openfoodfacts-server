@@ -11,7 +11,7 @@
     "test:lang": "npm run test:lang:common && npm run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
-    "prove": "prove -l",
+    "prove": "prove -l --jobs 2",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
     "lint:js": "eslint gulpfile.js html/js/*.js scripts/*.js",
     "lint:css": "stylelint html/css/*.css",

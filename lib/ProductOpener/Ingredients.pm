@@ -1234,8 +1234,11 @@ sub parse_ingredients_text($) {
 
 				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
 					$ingredient_recognized = 1;
+					$debug_ingredients and $log->trace("ingredient recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
 				}
 				else {
+					
+					$debug_ingredients and $log->trace("ingredient not recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
 
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$product_lc}) {
@@ -1323,6 +1326,8 @@ sub parse_ingredients_text($) {
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
 							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
+							
+							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
 						}
 					}
 
@@ -1383,7 +1388,7 @@ sub parse_ingredients_text($) {
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
-								'o.a.',
+								'o\.a\.',
 							],
 
 							'sv' => [ 'varierande proportion', ],
@@ -1392,7 +1397,9 @@ sub parse_ingredients_text($) {
 						if (defined $ignore_regexps{$product_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
 								if ($ingredient =~ /$regexp/i) {
-									#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+									
+									$debug_ingredients and $log->debug("unknown ingredient matches a phrase to ignore", { ingredient => $ingredient, regexp => $regexp }) if $log->is_debug();
+
 									$skip_ingredient = 1;
 									$ingredient_recognized = 1;
 									last;
@@ -3335,6 +3342,19 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
 
+	# if we're called twice with the same input in succession, such as in update_all_products.pl,
+	# cache the result, so we can instantly return the 2nd time.
+	state $prev_lc = '';
+	state $prev_text = '';
+	state $prev_return = '';
+
+	if (($product_lc eq $prev_lc) && ($text eq $prev_text)) {
+		return $prev_return;
+	}
+
+	$prev_lc = $product_lc;
+	$prev_text = $text;
+
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
 	my $symbols_regexp = join('|', @symbols);
@@ -3985,6 +4005,7 @@ INFO
 
 	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 
+	$prev_return = $text;
 	return $text;
 }
 

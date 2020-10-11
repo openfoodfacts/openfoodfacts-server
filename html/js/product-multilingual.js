@@ -455,6 +455,10 @@ function update_display(imagefield, first_display) {
 				$(document).foundation('equalizer', 'reflow');
 			});
 
+		} else {
+			
+			$('div[id="display_' + imagefield +'"]').html(html);
+			
 		}
 
 		$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {

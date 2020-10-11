@@ -4592,19 +4592,24 @@ ciqual_food_name:en:Pineapple juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus d'ananas, à base de concentré
 
 <en:Pineapple juices
+<en:Squeezed juices
+en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices, Pure pineapple juice
+de:Ananasdirektsäfte
+es:Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos de piña exprimidos ambiente
+fi:puristetut ananasmehut
+fr:Jus d'ananas pur jus, pur jus d'ananas
+nl:Vers geperste ananassappen, Vers geperst ananassap
+ciqual_food_code:en:2073
+ciqual_food_name:en:Pineapple juice, pure juice
+ciqual_food_name:fr:Jus d'ananas, pur jus
+
+<en:Pineapple juices
 <en:Refrigerated squeezed juices
 en:Refrigerated squeezed pineapple juices
 de:Gekühlte Ananasdirektsäfte, Gekühlter gepresster Ananassaft
 es:Zumos de piña exprimidos refrigerados
 fr:Jus d'ananas frais
 nl:Verse Ananassappen, Verse Ananassap
-
-<en:Pineapple juices
-en:Pure pineapple juices
-fr:Jus d'ananas pur jus
-ciqual_food_code:en:2073
-ciqual_food_name:en:Pineapple juice, pure juice
-ciqual_food_name:fr:Jus d'ananas, pur jus
 
 <en:Pineapple juices
 en:Pineapple juice for canned pineapple
@@ -4742,15 +4747,6 @@ nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
 ciqual_food_code:en:2070
 ciqual_food_name:en:Orange juice, pure juice
 ciqual_food_name:fr:Jus d'orange, pur jus
-
-<en:Pineapple juices
-<en:Squeezed juices
-en:Squeezed pineapple juices, Non-refrigerated squeezed pineapple juices
-de:Ananasdirektsäfte
-es:Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos de piña exprimidos ambiente
-fi:puristetut ananasmehut
-fr:Jus d'ananas pur jus, pur jus d'ananas
-nl:Vers geperste ananassappen, Vers geperst ananassap
 
 <en:Fruit juices
 en:Tangerine juices
@@ -6803,764 +6799,11 @@ nl:Natuurlijke mineraalwaters, Natuurlijk mineraalwater
 ru:Природная минеральная вода
 zh:天然矿泉水, 天然矿物质水
 
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Abatilles
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Abatilles Arcachon 33
-agribalyse_food_code:en:76000
-ciqual_food_code:en:76000
-ciqual_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Avra
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Avra Grèce
-agribalyse_food_code:en:76062
-ciqual_food_code:en:76062
-ciqual_food_name:en:Mineral still water (Avra), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Avra, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Beckerich
-fr:Eau minérale Beckerich embouteillée non gazeuse faiblement minéralisée Luxembourg
-agribalyse_food_code:en:76063
-ciqual_food_code:en:76063
-ciqual_food_name:en:Mineral still water (Beckerich), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Beckerich, embouteillée, non gazeuse, faiblement minéralisée (Luxembourg)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Caramulo
-fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Caramulo Portugal
-agribalyse_food_code:en:76064
-ciqual_food_code:en:76064
-ciqual_food_name:en:Mineral still water (Caramulo), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Caramulo, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Chaudfontaine
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chaudfontaine Belgique
-agribalyse_food_code:en:76065
-ciqual_food_code:en:76065
-ciqual_food_name:en:Mineral still water (Chaudfontaine), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Chaudfontaine, embouteillée, non gazeuse, faiblement minéralisée (Belgique)
-
-<en:Mineral waters
-en:Bottled averagely mineralized still water Christinen Brunnen
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Christinen Brunnen Allemagne
-agribalyse_food_code:en:76066
-ciqual_food_code:en:76066
-ciqual_food_name:en:Mineral still water (Christinen Brunnen), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Christinen Brunnen, embouteillée, non gazeuse, moyennement minéralisée (Allemagne)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water Courmayer
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Courmayeur Italie
-agribalyse_food_code:en:76067
-ciqual_food_code:en:76067
-ciqual_food_name:en:Mineral still water (Courmayer), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Courmayeur, embouteillée, non gazeuse, fortement minéralisée (Italie)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Highland spring
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Highland spring Écosse
-agribalyse_food_code:en:76068
-ciqual_food_code:en:76068
-ciqual_food_name:en:Mineral still water (Highland spring), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Highland spring, embouteillée, non gazeuse, faiblement minéralisée (Écosse)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Levissima
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Levissima Italie
-agribalyse_food_code:en:76069
-ciqual_food_code:en:76069
-ciqual_food_name:en:Mineral still water (Levissima), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Levissima, embouteillée, non gazeuse, faiblement minéralisée (Italie)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Luso
-fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Luso Portugal
-agribalyse_food_code:en:76070
-ciqual_food_code:en:76070
-ciqual_food_name:en:Mineral still water (Luso), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Luso, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Néro
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Néro Grèce
-agribalyse_food_code:en:76071
-ciqual_food_code:en:76071
-ciqual_food_name:en:Mineral still water (Néro), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Néro, embouteillée, non gazeuse, faiblement minéralisée (Grèce)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Penacova
-fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Penacova Portugal
-agribalyse_food_code:en:76072
-ciqual_food_code:en:76072
-ciqual_food_name:en:Mineral still water (Penacova), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Penacova, embouteillée, non gazeuse, très faiblement minéralisée (Portugal)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized water San Benedetto
-fr:Eau minérale embouteillée faiblement minéralisée San Benedetto Italie
-agribalyse_food_code:en:76073
-ciqual_food_code:en:76073
-ciqual_food_name:en:Mineral water (San Benedetto), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale San Benedetto, embouteillée, faiblement minéralisée (Italie)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Aix-les-Bains
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Aix-les-Bains 73
-agribalyse_food_code:en:76001
-ciqual_food_code:en:76001
-ciqual_food_name:en:Mineral still water (Aix-les-Bains), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Aix-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Aix-les-Bains, 73)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized water San Bernardo
-fr:Eau minérale embouteillée très faiblement minéralisée San Bernardo Italie
-agribalyse_food_code:en:76074
-ciqual_food_code:en:76074
-ciqual_food_name:en:Mineral water (San Bernardo), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale San Bernardo, embouteillée, très faiblement minéralisée (Italie)
-
-<en:Mineral waters
-en:Bottled averagely mineralized still water Spa-Reine
-fr:Eau minérale embouteillée moyennement minéralisée Spa-Reine Belgique
-agribalyse_food_code:en:76076
-ciqual_food_code:en:76076
-ciqual_food_name:en:Mineral still water (Spa-Reine), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Spa-Reine, embouteillée, gazeuse ou non non gazeuse, moyennement minéralisée (Belgique)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water Talians
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Talians Italie
-agribalyse_food_code:en:76077
-ciqual_food_code:en:76077
-ciqual_food_name:en:Mineral still water (Talians), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Talians, embouteillée, non gazeuse, fortement minéralisée (Italie)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Valvert
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Valvert Belgique
-agribalyse_food_code:en:76078
-ciqual_food_code:en:76078
-ciqual_food_name:en:Mineral still water (Valvert), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Valvert, embouteillée, non gazeuse, faiblement minéralisée (Belgique)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water Appollinaris
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Appollinaris Allemagne
-agribalyse_food_code:en:76079
-ciqual_food_code:en:76079
-ciqual_food_name:en:Mineral still water (Appollinaris), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Appollinaris, embouteillée, non gazeuse, fortement minéralisée (Allemagne)
-
-<en:Mineral waters
-en:Bottled spring still water Cristaline
-fr:Eau de source embouteillée non gazeuse Cristaline
-agribalyse_food_code:en:76080
-ciqual_food_code:en:76080
-ciqual_food_name:en:Spring still water (Cristaline), bottled
-ciqual_food_name:fr:Eau de source Cristaline, embouteillée, non gazeuse
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Biovive
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Biovive Dax 40
-agribalyse_food_code:en:76081
-ciqual_food_code:en:76081
-ciqual_food_name:en:Mineral still water (Biovive), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Biovive, embouteillée, non gazeuse, faiblement minéralisée (Dax, 40)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water La Cairolle
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée La Cairolle Les Aires 34
-agribalyse_food_code:en:76082
-ciqual_food_code:en:76082
-ciqual_food_name:en:Mineral still water (La Cairolle), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale La Cairolle, embouteillée, non gazeuse, fortement minéralisée (Les Aires, 34)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water La Française
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée La Française Propiac 26
-agribalyse_food_code:en:76085
-ciqual_food_code:en:76085
-ciqual_food_name:en:Mineral still water (La Française), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale La Française, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Montcalm
-fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Montcalm Auzat 09
-agribalyse_food_code:en:76086
-ciqual_food_code:en:76086
-ciqual_food_name:en:Mineral still water (Montcalm), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Montcalm, embouteillée, non gazeuse, très faiblement minéralisée (Auzat, 09)
-
-<en:Low mineral bottled waters
-en:Mineral still water bottled lightly mineralized Montclar
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée (Montclar 04)
-agribalyse_food_code:en:76087
-ciqual_food_code:en:76087
-ciqual_food_name:en:Mineral still water (Montclar), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Montclar, embouteillée, non gazeuse, faiblement minéralisée (Montclar, 04)
-
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Ogeu
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Ogeu-les-Bains 64
-agribalyse_food_code:en:76090
-ciqual_food_code:en:76090
-ciqual_food_name:en:Mineral still water (Ogeu), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Ogeu, embouteillée, non gazeuse, faiblement minéralisée (Ogeu-les-Bains, 64)
-
-<en:Mineral waters
-en:Bottled strongly mineralized still water Prince Noir
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Prince Noir St-Antonin-Noble-Val 82
-agribalyse_food_code:en:76091
-ciqual_food_code:en:76091
-ciqual_food_name:en:Mineral still water (Prince Noir), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Prince Noir, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
-
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Treignac
-fr:Eau minérale embouteillée non gazeuse très faiblement minéralisée Treignac 19
-agribalyse_food_code:en:76095
-ciqual_food_code:en:76095
-ciqual_food_name:en:Mineral still water (Treignac), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Treignac, embouteillée, non gazeuse, très faiblement minéralisée (Treignac, 19)
-
-<en:Mineral waters
-en:Bottled averagely mineralized still water Vauban
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Vauban St-Amand-les-Eaux 59
-agribalyse_food_code:en:76097
-ciqual_food_code:en:76097
-ciqual_food_name:en:Mineral still water (Vauban), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Vauban, embouteillée, non gazeuse, moyennement minéralisée (St-Amand-les-Eaux, 59)
-
-<en:Mineral waters
-en:Mineral water Carola
-fr:Eau minérale embouteillée moyennement minéralisée Carola Ribeauville 68
-agribalyse_food_code:en:76100
-ciqual_food_code:en:76100
-ciqual_food_name:en:Water, mineral, carbonated ou non-carbonated, CAROLA
-ciqual_food_name:fr:Eau minérale Carola, embouteillée, gazeuse ou non gazeuse, moyennement minéralisée (Ribeauville, 68)
-
-<en:Non-carbonated natural mineral waters
-en:Non-carbonated mineral water Mont-Blanc
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Mont-Blanc Italie
-agribalyse_food_code:en:76101
-ciqual_food_code:en:76101
-ciqual_food_name:en:Water, mineral, non-carbonated, MONT-BLANC
-ciqual_food_name:fr:Eau minérale Mont-Blanc, embouteillée, non gazeuse, faiblement minéralisée (Italie)
-
-<en:Non-carbonated natural mineral waters
-en:Non-carbonated mineral water Eden
-fr:Eau minérale Eden embouteillée non gazeuse faiblement minéralisée La Goa Suisse
-agribalyse_food_code:en:76102
-ciqual_food_code:en:76102
-ciqual_food_name:en:Water, mineral, non-carbonated, EDEN
-ciqual_food_name:fr:Eau minérale Eden (La Goa), embouteillée, non gazeuse, faiblement minéralisée (Suisse)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water Nessel
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Nessel Soultzmatt 68
-agribalyse_food_code:en:76088
-ciqual_food_code:en:76088
-ciqual_food_name:en:Mineral sparkling water (Nessel), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Nessel, embouteillée, gazeuse, moyennement minéralisée (Soultzmatt, 68)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water Vals
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Vals-les-Bains 07
-agribalyse_food_code:en:76096
-ciqual_food_code:en:76096
-ciqual_food_name:en:Mineral sparkling water (Vals), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyennement minéralisée (Vals-les-Bains, 07)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water St-Alban
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée (St-Alban 42)
-agribalyse_food_code:en:76092
-ciqual_food_code:en:76092
-ciqual_food_name:en:Mineral sparkling water (St-Alban), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale St-Alban, embouteillée, gazeuse, moyennement minéralisée (St-Alban, 42)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water St-Géron
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée St-Géron 43
-agribalyse_food_code:en:76093
-ciqual_food_code:en:76093
-ciqual_food_name:en:Mineral sparkling water (St-Géron), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale St-Géron, embouteillée, gazeuse, moyennement minéralisée (St-Géron, 43)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water St-Michel-de-Mourcairol
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée St-Michel-de-Mourcairol Les Aires 34
-agribalyse_food_code:en:76094
-ciqual_food_code:en:76094
-ciqual_food_name:en:Mineral sparkling water (St-Michel-de-Mourcairol), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale St-Michel-de-Mourcairol, embouteillée, gazeuse, moyennement minéralisée (Les Aires, 34)
-
-<en:Low mineral bottled waters
-<en:Carbonated waters
-en:Bottled lightly mineralized sparkling water Ogeu
-fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ogeu-les-Bains 64
-agribalyse_food_code:en:76089
-ciqual_food_code:en:76089
-ciqual_food_name:en:Mineral sparkling water (Ogeu), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Ogeu, embouteillée, gazeuse, faiblement minéralisée (Ogeu-les-Bains, 64)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled strongly mineralized sparkling water Cilaos
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Cilaos 974
-agribalyse_food_code:en:76083
-ciqual_food_code:en:76083
-ciqual_food_name:en:Mineral sparkling water (Cilaos), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Cilaos, embouteillée, gazeuse, fortement minéralisée (Cilaos, 974)
-
-<en:Low mineral bottled waters
-<en:Carbonated waters
-en:Bottled lightly mineralized sparkling water Aziac
-fr:Eau minérale embouteillée gazeuse faiblement minéralisée Aizac 07
-agribalyse_food_code:en:76002
-ciqual_food_code:en:76002
-ciqual_food_name:en:Mineral sparkling water (Aziac), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Aizac, embouteillée, gazeuse, faiblement minéralisée (Aizac, 07)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water San Pellegrino
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée San Pellegrino Italie
-agribalyse_food_code:en:76075
-ciqual_food_code:en:76075
-ciqual_food_name:en:Mineral sparkling water (San Pellegrino), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale San Pellegrino, embouteillée, gazeuse, moyennement minéralisée (Italie)
-
-<en:Mineral waters
-<en:Carbonated waters
-en:Bottled averagely mineralized sparkling water Badoit
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Badoit St-Galmier 42
-agribalyse_food_code:en:76061
-ciqual_food_code:en:76061
-ciqual_food_name:en:Mineral sparkling water (Badoit), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Badoit, embouteillée, gazeuse, moyennement minéralisée (St-Galmier, 42)
-
-<en:Low mineral bottled waters
-<en:Carbonated waters
-en:Bottled lightly mineralized sparkling water Perrier
-fr:Eau minérale embouteillée gazeuse faiblement minéralisée Perrier Vergèse 30
-agribalyse_food_code:en:76060
-ciqual_food_code:en:76060
-ciqual_food_name:en:Mineral sparkling water (Perrier), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Perrier, embouteillée, gazeuse, faiblement minéralisée (Vergèse, 30)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water Amanda
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée St-Amand 59
-agribalyse_food_code:en:76004
-ciqual_food_code:en:76004
-ciqual_food_name:en:Mineral still water (Amanda), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Amanda, embouteillée, non gazeuse, fortement minéralisée (St-Amand, 59)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Arcens
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Arcens 07
-agribalyse_food_code:en:76006
-ciqual_food_code:en:76006
-ciqual_food_name:en:Mineral sparkling water (Arcens), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Arcens, embouteillée, gazeuse, moyennement minéralisée (Arcens, 07)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Ardesy
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Ardesy Ardes 63
-agribalyse_food_code:en:76007
-ciqual_food_code:en:76007
-ciqual_food_name:en:Mineral sparkling water (Ardesy), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Ardesy, embouteillée, gazeuse, fortement minéralisée (Ardes, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Auvergne
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Auvergne Cornillon 38
-agribalyse_food_code:en:76008
-ciqual_food_code:en:76008
-ciqual_food_name:en:Mineral sparkling water (Auvergne), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Auvergne, embouteillée, gazeuse, fortement minéralisée (Cornillon, 38)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized still water Celtic
-fr:Eau minérale embouteillée très faiblement minéralisée Celtic Niederbronn 67
-agribalyse_food_code:en:76010
-ciqual_food_code:en:76010
-ciqual_food_name:en:Mineral still water (Celtic), bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Celtic, embouteillée, gazeuse ou non gazeuse, très faiblement minéralisée (Niederbronn, 67)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Chambon
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chambon 45
-agribalyse_food_code:en:76011
-ciqual_food_code:en:76011
-ciqual_food_name:en:Mineral still water (Chambon), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Chambon, embouteillée, non gazeuse, faiblement minéralisée (Chambon, 45)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Chantemerle
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Chantemerle Le Pestrin 07
-agribalyse_food_code:en:76012
-ciqual_food_code:en:76012
-ciqual_food_name:en:Mineral still water (Chantemerle), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Chantemerle, embouteillée, non gazeuse, faiblement minéralisée (Le Pestrin, 07)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water Contrex
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Contrex Contrexéville 88
-agribalyse_food_code:en:76016
-ciqual_food_code:en:76016
-ciqual_food_name:en:Mineral still water (Contrex), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Contrex, embouteillée, non gazeuse, fortement minéralisée (Contrexéville, 88)
-
-<en:Natural mineral waters
-en:Bottled averagely mineralized still water Dax
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Dax 40
-agribalyse_food_code:en:76017
-ciqual_food_code:en:76017
-ciqual_food_name:en:Mineral still water (Dax), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Dax, embouteillée, non gazeuse, moyennement minéralisée (Dax, 40)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water Didier
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Didier Martinique
-agribalyse_food_code:en:76019
-ciqual_food_code:en:76019
-ciqual_food_name:en:Mineral still water (Didier), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Didier, embouteillée non gazeuse, fortement minéralisée (Martinique)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Evian
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Evian 74
-agribalyse_food_code:en:76020
-ciqual_food_code:en:76020
-ciqual_food_name:en:Mineral still water (Evian), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Evian, embouteillée, non gazeuse, faiblement minéralisée (Evian, 74)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water Hépar
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Hépar Vittel 88
-agribalyse_food_code:en:76022
-ciqual_food_code:en:76022
-ciqual_food_name:en:Mineral still water (Hépar), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Hépar, embouteillée, non gazeuse, fortement minéralisée (Vittel, 88)
-
-<en:Natural mineral waters
-en:Bottled averagely mineralized still water Vittel
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Vittel 88
-agribalyse_food_code:en:76056
-ciqual_food_code:en:76056
-ciqual_food_name:en:Mineral still water (Vittel), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Vittel, embouteillée, non gazeuse, moyennement minéralisée (Vittel, 88)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Volvic
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Volvic 63
-agribalyse_food_code:en:76057
-ciqual_food_code:en:76057
-ciqual_food_name:en:Mineral still water (Volvic), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Volvic, embouteillée, non gazeuse, faiblement minéralisée (Volvic, 63)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Luchon
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Luchon 31
-agribalyse_food_code:en:76025
-ciqual_food_code:en:76025
-ciqual_food_name:en:Mineral still water (Luchon), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Luchon, embouteillée, non gazeuse, faiblement minéralisée (Luchon, 31)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled very lightly mineralized water Mont-Roucous
-fr:Eau minérale embouteillée très faiblement minéralisée Mont-Roucous Lacaune 81
-agribalyse_food_code:en:76027
-ciqual_food_code:en:76027
-ciqual_food_name:en:Mineral water (Mont-Roucous, bottled, very lightly mineralized
-ciqual_food_name:fr:Eau minérale Mont-Roucous, embouteillée, très faiblement minéralisée (Lacaune, 81)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized spring water Ogeu
-fr:Eau de source embouteillée faiblement minéralisée Ogeu 64
-agribalyse_food_code:en:76028
-ciqual_food_code:en:76028
-ciqual_food_name:en:Spring water (Ogeu), bottled, lightly mineralized
-ciqual_food_name:fr:Eau de source Ogeu, embouteillée, faiblement minéralisée (Ogeu, 64)
-
-<en:Natural mineral waters
-en:Bottled averagely mineralized still water Orée du bois
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Orée du bois St-Amand 59
-agribalyse_food_code:en:76029
-ciqual_food_code:en:76029
-ciqual_food_name:en:Mineral still water (Orée du bois), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Orée du bois, embouteillée, non gazeuse, moyennement minéralisée (St-Amand, 59)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Plancoet
-fr:Eau minérale embouteillée faiblement minéralisée Plancoet 22
-agribalyse_food_code:en:76032
-ciqual_food_code:en:76032
-ciqual_food_name:en:Mineral still water (Plancoet), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Plancoet, embouteillée, gazeuse ou non gazeuse, faiblement minéralisée (Plancoet, 22)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water Propiac
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée Propiac 26
-agribalyse_food_code:en:76033
-ciqual_food_code:en:76033
-ciqual_food_name:en:Mineral still water (Propiac), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Propiac, embouteillée, non gazeuse, fortement minéralisée (Propiac, 26)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Sail-les-Bains
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Sail-les-Bains 42
-agribalyse_food_code:en:76038
-ciqual_food_code:en:76038
-ciqual_food_name:en:Mineral still water (Sail-les-Bains), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Sail-les-Bains, embouteillée, non gazeuse, faiblement minéralisée (Sail-les-Bains, 42)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Wattwiller
-fr:Eau minérale embouteillée faiblement minéraliséee Wattwiller 68
-agribalyse_food_code:en:76059
-ciqual_food_code:en:76059
-ciqual_food_name:en:Mineral still water (Wattwiller), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Wattwiller, embouteillée, gazeuse ou non gazeuse, faiblement minéraliséee (Wattwiller, 68)
-
-<en:Natural mineral waters
-en:Bottled averagely mineralized still water St-Amand
-fr:Eau minérale embouteillée moyennement minéralisée St-Amand 59
-agribalyse_food_code:en:76043
-ciqual_food_code:en:76043
-ciqual_food_name:en:Mineral still water (St-Amand), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale St-Amand, embouteillée, gazeuse ou non gazeuse, moyennement minéralisée (St-Amand, 59)
-
-<en:Natural mineral waters
-en:Bottled strongly mineralized still water St-Antonin
-fr:Eau minérale embouteillée non gazeuse fortement minéralisée St-Antonin-Noble-Val 82
-agribalyse_food_code:en:76044
-ciqual_food_code:en:76044
-ciqual_food_name:en:Mineral still water (St-Antonin), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale St-Antonin, embouteillée, non gazeuse, fortement minéralisée (St-Antonin-Noble-Val, 82)
-
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized still water Thonon
-fr:Eau minérale embouteillée non gazeuse faiblement minéralisée Thonon 74
-agribalyse_food_code:en:76050
-ciqual_food_code:en:76050
-ciqual_food_name:en:Mineral still water (Thonon), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Thonon, embouteillée, non gazeuse, faiblement minéralisée (Thonon, 74)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water St-Diéry
-fr:Eau minérale embouteillée gazeuse fortement minéralisée St-Diéry 63
-agribalyse_food_code:en:76046
-ciqual_food_code:en:76046
-ciqual_food_name:en:Mineral sparkling water (St-Diéry), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale St-Diéry, embouteillée, gazeuse, fortement minéralisée (St-Diéry, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized sparkling water Ventadour
-fr:Eau minérale embouteillée gazeuse faiblement minéralisée Ventadour Le Pestrin 07
-agribalyse_food_code:en:76053
-ciqual_food_code:en:76053
-ciqual_food_name:en:Mineral sparkling water (Ventadour), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Ventadour, embouteillée, gazeuse, faiblement minéralisée (Le Pestrin, 07)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized sparkling water Vernet
-fr:Eau minérale embouteillée gazeuse faiblement minéralisée Vernet Prades 07
-agribalyse_food_code:en:76054
-ciqual_food_code:en:76054
-ciqual_food_name:en:Mineral sparkling water (Vernet), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Vernet, embouteillée, gazeuse, faiblement minéralisée (Prades, 07)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Vichy Célestins
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Vichy Célestins Saint-Yorre 03
-agribalyse_food_code:en:76055
-ciqual_food_code:en:76055
-ciqual_food_name:en:Mineral sparkling water (Vichy Célestins), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Vichy Célestins, embouteillée, gazeuse, fortement minéralisée (Saint-Yorre, 03)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Ste-Marguerite
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Ste-Marguerite St-Maurice 63
-agribalyse_food_code:en:76047
-ciqual_food_code:en:76047
-ciqual_food_name:en:Mineral sparkling water (Ste-Marguerite), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Ste-Marguerite, embouteillée, gazeuse, moyennement minéralisée (St-Maurice, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water St-Yorre
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Saint-Yorre 03
-agribalyse_food_code:en:76049
-ciqual_food_code:en:76049
-ciqual_food_name:en:Mineral sparkling water (St-Yorre), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale St-Yorre, embouteillée, gazeuse, fortement minéralisée (Saint-Yorre, 03)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-<en:Low mineral bottled waters
-en:Bottled lightly mineralized sparkling water Volvic active
-fr:Eau minérale active embouteillée gazeuse faiblement minéralisée Volvic 63
-agribalyse_food_code:en:76058
-ciqual_food_code:en:76058
-ciqual_food_name:en:Mineral sparkling water (Volvic active), bottled, lightly mineralized
-ciqual_food_name:fr:Eau minérale Volvic active, embouteillée, gazeuse, faiblement minéralisée (Volvic, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Salvetat
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée La Salvetat 34
-agribalyse_food_code:en:76039
-ciqual_food_code:en:76039
-ciqual_food_name:en:Mineral sparkling water (Salvetat), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Salvetat, embouteillée, gazeuse, moyennement minéralisée (La Salvetat, 34)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Soultzmatt
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Soultzmatt 68
-agribalyse_food_code:en:76040
-ciqual_food_code:en:76040
-ciqual_food_name:en:Mineral sparkling water (Soultzmatt), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Soultzmatt , embouteillée, gazeuse, moyennement minéralisée ( Soultzmatt, 68)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Puits St Georges
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Puits St-Georges St-Romain-le-Puy 42
-agribalyse_food_code:en:76034
-ciqual_food_code:en:76034
-ciqual_food_name:en:Mineral sparkling water (Puits St Georges), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Puits St-Georges, embouteillée, gazeuse, moyennement minéralisée (St-Romain-le-Puy, 42)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Quézac
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Quézac 48
-agribalyse_food_code:en:76035
-ciqual_food_code:en:76035
-ciqual_food_name:en:Mineral sparkling water (Quézac), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Quézac, embouteillée, gazeuse, moyennement minéralisée (Quézac, 48)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Reine des basaltes
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Reine des basaltes Asperjoc 07
-agribalyse_food_code:en:76036
-ciqual_food_code:en:76036
-ciqual_food_name:en:Mineral sparkling water (Reine des basaltes), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Reine des basaltes, embouteillée, gazeuse, moyennement minéralisée (Asperjoc, 07)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Rozana
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Rozana Beauregard 63
-agribalyse_food_code:en:76037
-ciqual_food_code:en:76037
-ciqual_food_name:en:Mineral sparkling water (Rozana), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Rozana, embouteillée, gazeuse, fortement minéralisée (Beauregard, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Orezza
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Orezza Rapaggio 20B
-agribalyse_food_code:en:76030
-ciqual_food_code:en:76030
-ciqual_food_name:en:Mineral sparkling water (Orezza), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Orezza, embouteillée, gazeuse, moyennement minéralisée (Rapaggio, 20B)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Parot
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Parot St-Romain-le-Puy 42
-agribalyse_food_code:en:76031
-ciqual_food_code:en:76031
-ciqual_food_name:en:Mineral sparkling water (Parot), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Parot, embouteillée, gazeuse, moyennement minéralisée (St-Romain-le-Puy, 42)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized sparkling water Vernière
-fr:Eau minérale embouteillée gazeuse moyennement minéralisée Vernière Les Aires 34
-agribalyse_food_code:en:76024
-ciqual_food_code:en:76024
-ciqual_food_name:en:Mineral sparkling water (Vernière), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Vernière, embouteillée, gazeuse, moyennement minéralisée (Les Aires, 34)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Didier
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Didier Martinique
-agribalyse_food_code:en:76018
-ciqual_food_code:en:76018
-ciqual_food_name:en:Mineral sparkling water (Didier), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Didier, embouteillée, gazeuse, fortement minéralisée (Martinique)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Chateauneuf
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Chateauneuf 63
-agribalyse_food_code:en:76013
-ciqual_food_code:en:76013
-ciqual_food_name:en:Mineral sparkling water (Chateauneuf), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Chateauneuf, embouteillée, gazeuse, fortement minéralisée (Chateauneuf, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled strongly mineralized sparkling water Chateldon
-fr:Eau minérale embouteillée gazeuse fortement minéralisée Chateldon 63
-agribalyse_food_code:en:76014
-ciqual_food_code:en:76014
-ciqual_food_name:en:Mineral sparkling water (Chateldon), bottled, strongly mineralized
-ciqual_food_name:fr:Eau minérale Chateldon, embouteillée, gazeuse, fortement minéralisée (Chateldon, 63)
-
-<en:Carbonated waters
-<en:Natural mineral waters
-en:Bottled averagely mineralized still water Clos de l'Abbaye
-fr:Eau minérale embouteillée non gazeuse moyennement minéralisée Clos de l'Abbaye St-Amand 59
-agribalyse_food_code:en:76015
-ciqual_food_code:en:76015
-ciqual_food_name:en:Mineral still water (Clos de l'Abbaye), bottled, averagely mineralized
-ciqual_food_name:fr:Eau minérale Clos de l'Abbaye, embouteillée, non gazeuse, moyennement minéralisée (St-Amand, 59)
-
 <en:Carbonated waters
 <en:Natural mineral waters
 en:Carbonated natural mineral waters
 de:natürliches Mineralwasser mit Kohlensäure versetzt, natürliche Mineralwässer mit Kohlensäure versetzt
-es:Aguas minerales naturales carbonatadas.
+es:Aguas minerales naturales carbonatadas
 fi:hiilihapotetut luontaiset kivennäisvedet
 fr:Eau minérale naturelle gazéifiée
 it:Acque minerali naturali carbonate
@@ -40322,7 +39565,7 @@ it:Alimenti vegetali fritti, Cibi vegetali fritti
 nl:Gefrituurde plaantaardige producten
 
 <en:Plant-based foods
-en:Flakes, Rolled grains
+en:Flakes
 ca:Flocs, grans enrotllats
 de:Getreideflocken
 es:Copos
@@ -40331,6 +39574,14 @@ fr:Flocons
 hu:Pelyhek
 it:Fiocchi
 nl:Vlokken
+
+<en:Flakes
+en:Rolled flakes, Rolled grains
+fr:Flocons laminés
+
+<en:Flakes
+en:Extruded flakes
+fr:Flocons extrudés
 
 <en:Plant-based foods
 en:Starches, Starch
@@ -40474,6 +39725,18 @@ ciqual_food_code:en:32003
 ciqual_food_name:en:Breakfast cereals, sweet (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner (aliment moyen)
 who_id:en:6
+
+<en:Breakfast cereals
+en:Cereals with fruits
+fr:Céréales aux fruits
+
+<en:Cereals with fruits
+en:Cereal flakes with fruits
+fr:Pétales de céréales aux fruits
+
+<en:Chocolate cereals
+en:Cereal flakes with chocolate
+fr:Pétales de céréales au chocolat
 
 <en:Breakfast cereals
 en:Sweet breakfast cereals fortified with vitamins and chemical elements
@@ -40826,6 +40089,7 @@ ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, for
 ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
 
 <en:Mueslis
+<en:Cereals with fruits
 en:Mueslis with fruits
 de:Müslis mit Früchten, Früchtemüslis
 es:Mueslis con frutas
@@ -40923,6 +40187,7 @@ it:Fiocchi di cereali
 nl:Ontbijtvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Amaranth flakes
 de:Amaranthflocken
 es:Copos de amaranto
@@ -40930,6 +40195,7 @@ fr:Flocons d'amarante
 nl:Amarantvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Barley flakes
 es:Copos de cebada
 fr:Flocons d’orge
@@ -40944,6 +40210,7 @@ nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
 <en:Cereal flakes
+<en:Extruded flakes
 en:Corn flakes, Corn-Flakes
 cs:Kukuřičné lupínky
 de:Cornflakes
@@ -40955,7 +40222,8 @@ nl:Cornflakes
 pl:Płatki kukurydziane
 
 <en:Cereal flakes
-en:Oat flakes, Oatmeal, Oatmeal flakes
+<en:Rolled flakes
+en:Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
 de:Haferflocken
 es:Copos de avena
 fi:kaurahiutaleet
@@ -40987,6 +40255,7 @@ ciqual_food_name:en:Oat flakes, boiled/cooked in water
 ciqual_food_name:fr:Flocons d'avoine, bouillis/cuits à l'eau
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Millet flakes
 de:Hirseflocken
 es:Copos de mijo
@@ -40994,17 +40263,19 @@ fr:Flocons de millet
 nl:Gierstvlokken
 
 <en:Cereal flakes
+<en:Extruded flakes
 en:Mixed cereal flakes
 ca:Barreja de flocs de cereals
 de:gemischte Getreideflocken
 es:Mezclas de copos de cereales
 fi:hiutalesekoitus
-fr:Mélanges de flocons de céréales
+fr:Pétales multicéréales, mélanges de flocons de céréales
 hu:Vegyes gabonapelyhek
 it:Fiocchi di cereali misti
 nl:Gemengde granenvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Quinoa flakes
 de:Quinoaflocken
 es:Copos de quinoa
@@ -41012,6 +40283,7 @@ fr:Flocons de quinoa
 nl:Quinoavlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Rice flakes
 de:Reisflocken
 es:Copos de arroz
@@ -41020,6 +40292,7 @@ fr:Flocons de riz
 nl:Rijstvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Rye flakes
 de:Roggenflocken
 es:Copos de centeno
@@ -41028,6 +40301,7 @@ fr:Flocons de seigle
 nl:Roggevlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Teff flakes
 de:Teff-Flocken, Zwerghirseflocken
 es:Copos de teff
@@ -41035,6 +40309,7 @@ fr:Flocons de teff
 nl:Teffvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Wheat flakes
 de:Weizenflocken
 es:Copos de trigo
@@ -41058,6 +40333,7 @@ fr:Flocons de blé khorasan, Flocons de blé de khorasan, Flocons de Kamut
 nl:Kamutvlokken
 
 <en:Cereal flakes
+<en:Rolled flakes
 en:Wild rice flakes
 es:Copos de arroz salvaje
 fr:Flocons de riz sauvage, flocons de zizanie
@@ -57864,31 +57140,31 @@ fr:Cuisses de poulet
 it:Cosce di pollo, coscia di pollo
 nl:Kippendijen, Kipdij
 
-<en:Chickens
-en:Chicken ham
-de:Hühner Schinken
+<en:Poultry hams
+en:Cooked chicken breast slices, chicken ham
+de:Hähnchen-brustfilet in Scheiben
 fi:kanaleikkele
-fr:Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
-it:Prosciutto di pollo
+fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 nl:Kippendijen, Kippendij
 zh:鸡火腿
 
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet doré au four, Blanc de poulet doré au four
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 en:Smoked chicken breast
 fr:Blancs de poulet fumé, Blanc de poulet fumé
 nl:Gerookte kippenborst
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
 
-<en:Cooked poultries
-<en:Chicken ham
+<en:Cooked chicken breast slices
 fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
+
+<en:Cooked chicken breast slices
+en:Reconstituted chicken breast slices
+fr:Blancs de poulet reconstitués
 
 <en:Cooked poultries
 <en:Chickens
@@ -58033,13 +57309,16 @@ fr:Blancs de dinde, blancs de dindes, blanc de dindes, blanc de dinde
 it:Petti di tacchino
 nl:Kalkoenfilets
 
-<en:Turkey breasts
-en:Turkey ham, cooked turkey breast
-fr:blanc de dinde en tranche, jambon de dinde
+<en:Poultry hams
+en:Cooked turkey breast slices, Turkey ham, cooked turkey breast
+fr:Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
 agribalyse_food_code:en:28964
 ciqual_food_code:en:28964
 ciqual_food_name:en:Turkey cooked ham, in slices
 ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
+
+<en:Poultry hams
+fr:Blancs de dinde doré au four
 
 <en:Turkeys
 en:Turkey wings
@@ -58048,9 +57327,6 @@ agribalyse_food_code:en:36310
 ciqual_food_code:en:36310
 ciqual_food_name:en:Turkey, wing, raw
 ciqual_food_name:fr:Dinde, aile, crue
-
-<en:Turkey breasts
-fr:Blancs de dinde doré au four
 
 <en:Turkeys
 en:Turkey cutlets
@@ -74670,6 +73946,7 @@ fr:Flocons de légumineuses
 nl:Peulvruchtenvlokken
 
 <en:Legume flakes
+<en:Extruded flakes
 en:Soy flakes, Soya flakes
 de:Sojaflocken
 es:Copos de soja

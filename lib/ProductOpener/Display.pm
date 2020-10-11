@@ -3936,7 +3936,7 @@ sub display_search_results($) {
 		
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		$search_api_url .= "&fields=product_name,url,image_front_thumb_url,attribute_groups";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -7077,7 +7077,7 @@ sub display_field($$) {
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@{$state_items}){
-			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
 				push(@to_do_status, $val);
 			}
 			else {

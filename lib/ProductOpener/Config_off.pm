@@ -705,13 +705,40 @@ $options{attribute_groups} = [
 		["nova","additives"]
 	],
 	[
+		"allergens",
+		[
+			"allergens_no_gluten",
+			"allergens_no_milk",
+			"allergens_no_eggs",
+			"allergens_no_nuts",
+			"allergens_no_peanuts",
+			"allergens_no_sesame_seeds",
+			"allergens_no_soybeans",
+			"allergens_no_celery",
+			"allergens_no_mustard",
+			"allergens_no_lupin",
+			"allergens_no_fish",
+			"allergens_no_crustaceans",
+			"allergens_no_molluscs",
+			"allergens_no_sulphur_dioxide_and_sulphites",
+		],
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm-oil-free",
+		]		
+	],
+	[
 		"labels",
 		["labels_organic", "labels_fair_trade"]
 	],
 	[
-		"allergens",
-		["allergens_gluten", "allergens_milk", "allergens_eggs"],
-	]
+		"environment",
+		[
+			"ecoscore",
+		]
+	],
 ];
 
 # Used to generate the sample import file for the producers platform
