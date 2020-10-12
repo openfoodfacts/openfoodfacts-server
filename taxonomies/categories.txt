@@ -4247,7 +4247,7 @@ nl:Blauwe bessensappen op basis van concentraat, Blauwe bessensap op basis van c
 <en:Squeezed juices
 en:Squeezed blueberry juices, Non-refrigerated squeezed blueberry juices
 de:Heidelbeerdirektsäfte, Blaubeerdirektsäfte
-es:Zumos de arándanos exprimidos no refrigerados, Zumos de arándanos exprimidos, Zumos de arándanos exprimidos ambiente
+es:Zumos de arándanos exprimidos, Zumos de arándanos exprimidos no refrigerados, Zumos de arándanos exprimidos ambiente
 fr:Jus de myrtilles pur jus
 nl:Geperste blauwe bessensappen, Geperste blauwe bessensap
 
@@ -4292,8 +4292,12 @@ zh:葡萄汁
 wikidata:en:Q1209756
 
 <en:Grape juices
-en:Pure grape juice
+<en:Squeezed juices
+en:Squeezed grape juices, Non-refrigerated squeezed grape juices, Pure grape juice
+de:Traubendirektsäfte
+es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
 fr:Jus de raisin pur jus
+nl:Pure Druivensappen, Pure Druivensap
 ciqual_food_code:en:2016
 ciqual_food_name:en:Grape juice, pure juice
 ciqual_food_name:fr:Jus de raisin, pur jus
@@ -4309,14 +4313,6 @@ nl:Druivensappen uit concentraat, Druivensap uit concentraat
 ciqual_food_code:en:2019
 ciqual_food_name:en:Grape juice, reconstituted from a concentrate
 ciqual_food_name:fr:Jus de raisin, à base de concentré
-
-<en:Grape juices
-<en:Squeezed juices
-en:Squeezed grape juices, Non-refrigerated squeezed grape juices
-de:Traubendirektsäfte
-es:Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
-fr:Jus de raisin pur jus
-nl:Pure Druivensappen, Pure Druivensap
 
 <en:Fruit juices
 en:Grapefruit juices
@@ -4358,12 +4354,17 @@ ciqual_food_name:en:Grapefruit juice, home-made
 ciqual_food_name:fr:Jus de pamplemousse (pomélo), maison
 
 <en:Grapefruit juices
-en:Pure grapefruit juice
-fr:Jus de pamplemousse pur jus
+<en:Squeezed juices
+en:Squeezed grapefruit juices, Non-refrigerated squeezed grapefruit juices
+de:Grapefruitdirektsäfte
+es:Zumos de pomelo exprimidos no refrigerados, Zumos de pomelo exprimido, Zumos de pomelo exprimido ambiente
+fi:puristetut greippimehut
+fr:Jus de pamplemousse pur jus, jus de pamplemousse 100% pur jus, Jus de pamplemousses 100% pur jus, 100% pur jus de pamplemousses
+it:Spremuta di pompelmo
+nl:Verse grapefruitsappen
 ciqual_food_code:en:2027
 ciqual_food_name:en:Grapefruit juice, pure juice
 ciqual_food_name:fr:Jus de pamplemousse (pomelo), pur jus
-
 
 <en:Grapefruit juices
 en:Pink grapefruit juices
@@ -4724,16 +4725,6 @@ zh:鲜榨果汁
 ciqual_food_code:en:2072
 ciqual_food_name:en:Fruit juice, pure juice (average)
 ciqual_food_name:fr:Jus de fruits, pur jus (aliment moyen)
-
-<en:Grapefruit juices
-<en:Squeezed juices
-en:Squeezed grapefruit juices, Non-refrigerated squeezed grapefruit juices
-de:Grapefruitdirektsäfte
-es:Zumos de pomelo exprimidos no refrigerados, Zumos de pomelo exprimido, Zumos de pomelo exprimido ambiente
-fi:puristetut greippimehut
-fr:Jus de pamplemousse pur jus, jus de pamplemousse 100% pur jus, Jus de pamplemousses 100% pur jus, 100% pur jus de pamplemousses
-it:Spremuta di pompelmo
-nl:Verse grapefruitsappen
 
 <en:Orange juices
 <en:Squeezed juices
@@ -22174,7 +22165,7 @@ da:kiks
 de:Kekse, Biskuit
 el:Μπισκότο
 eo:biskvito
-es:galleta
+es:Galletas, galleta
 eu:Gaileta
 fa:بیسکویت
 fi:Keksit
@@ -22278,16 +22269,16 @@ zh:曲奇, 曲奇饼干
 wikidata:en:Q13266
 oqali_family:en: fr:Biscuits et gateaux industriels - Cookies
 
-<en:Drop Cookies
+<en:Drop cookies
 <en:Chocolate biscuits
 en:Chocolate chip cookies
 de:Schokoladen-Cookies
-es:Galletas de chocolate
+es:Cookies con chocolate
 fi:Suklaahippukeksit
 fr:Cookies au chocolat
 hu:Csokoládés kekszek
 it:Biscotti con gocce di cioccolato
-nl:Chocolade koekjes, Chocolade koekje
+nl:Cookies met chocoladestukjes
 ro:Prăjituri cu ciocolată
 zh:巧克力曲奇, 巧克力曲奇饼干
 agribalyse_food_code:en:24684
@@ -22297,7 +22288,7 @@ ciqual_food_name:en:Biscuit (cookie), with chocolate drops
 <en:Chocolate chip cookies
 en:Cookies with milk chocolate
 de:Cookies mit Milchschokolade
-es:Galletas con chocolate con leche
+es:Cookies con chocolate con leche
 fi:Maitosuklaacookiet
 fr:Cookies au chocolat au lait
 it:Biscotti con cioccolato al latte
@@ -22321,7 +22312,7 @@ nl:Chocolade-nogakoekjes, Chocolade-nogakoekje
 <en:Chocolate chip cookies
 en:Chocolate and hazelnut cookies
 de:Cookies und Haselnuss-Cookies
-es:Galletas de chocolate y avellanas
+es:Cookies con chocolate y avellanas
 fr:Cookies au chocolat et aux noisettes
 it:Biscotti di nocciola e cioccolato
 nl:Chocoladehazelnootkoekjes, Chocoladehazelnootkoekje
@@ -22364,14 +22355,22 @@ nl:Gevulde koekjes
 pt:Biscoitos recheados
 ro:Biscuiți umpluți
 
-#Oreo like biscuits
-<en:Filled Biscuits
-en:Chocolate sandwich cookies
+#Oreo-like biscuits
+<en:Filled biscuits
+en:Chocolate sandwich cookies, Biscuit (cookie) snack with dairy or vanilla filling
 de:Kakao Kekse gefüllt mit Vanillegeschmack
-fi:Kaakaotäytekeksit
-fr:Biscuits cacaotés fourrés goût vanille, biscuits cacaotés fourrés
-it:Biscotti a sandwich di cioccolato
-nl:Geperste chocoladekoekjes
+es:Galletas de cacao rellenas de crema
+fi:Kreemitäytteinen kaakaokeksi, Kaakaotäytekeksit
+fr:Biscuits cacaotés fourrés goût vanille, biscuits cacaotés fourrés, biscuit lait vanille
+it:Biscotti al cacao ripieni di crema, Biscotti a sandwich di cioccolato
+nl:Cacaokoekjes met een vanillesmaakvulling, Geperste chocoladekoekjes
+agribalyse_food_code:en:24225
+ciqual_food_code:en:24225
+ciqual_food_name:en:Biscuit (cookie), snack with dairy or vanilla filling
+
+<en:Filled biscuits
+en:Filled drop cookies
+fr:Cookies fourrés
 
 <en:Biscuits
 fr:Barquettes
@@ -22434,7 +22433,7 @@ fr:Biscuits au chocolat, biscuit au chocolat, biscuit chocolaté, biscuits choco
 he:ביסקוויט שוקולד, ופל שוקולד, ואפל שוקולד, בפלה שוקולה, באפלה שוקולד
 hu:Csokoládés kekszek
 it:Biscotti al cioccolato
-nl:Chocoladebiscuits, Chocoladebiscuit
+nl:Chocolade koekjes, Chocolade koekje, Chocoladebiscuits, Chocoladebiscuit
 pt:Biscoitos de chocolate
 ro:Biscuiți cu ciocolată
 ru:Шоколадное печенье
@@ -22454,7 +22453,7 @@ ro:Biscuiți cu ciocolată albă
 <en:Chocolate biscuits
 en:Milk chocolate biscuits
 de:Kekse mit Milchschokolade
-es:Galletas de chocolate con leche
+es:Galletas de chocolate con leche, Galletas con chocolate con leche
 fi:maitosuklaakeksit
 fr:Biscuits au chocolat au lait
 it:Biscotti al cioccolato al latte
@@ -22556,22 +22555,6 @@ agribalyse_food_code:en:24001
 ciqual_food_code:en:24001
 ciqual_food_name:en:Biscuit (cookie), plain
 ciqual_food_name:fr:Biscuit sec nature
-
-<fr:Biscuits secs
-en:Biscuit with guaranteed vitamins and chemical elements content
-fr:Biscuit sec à teneur garantie en vitamines et minéraux
-agribalyse_food_code:en:24003
-ciqual_food_code:en:24003
-ciqual_food_name:en:Biscuit (cookie) vitamins and chemical elements content guaranteed
-ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines et minéraux
-
-<fr:Biscuits secs
-en:Biscuit with guaranteed vitamins content
-fr:Biscuit sec à teneur garantie en vitamines
-agribalyse_food_code:en:24002
-ciqual_food_code:en:24002
-ciqual_food_name:en:Biscuit (cookie) vitamins content guaranteed
-ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines
 
 <fr:Biscuits secs
 en:Biscuit with vegetal fat, Cookie with vegetal fat
@@ -22732,25 +22715,11 @@ ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
 
 <en:Biscuits
-en:Shortbread cookie (other)
-fr:sablé (autres)
-agribalyse_food_code:en:24080
-ciqual_food_code:en:24080
-ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
-
-<en:Biscuits
 en:Biscuit shortbread with chocolate pre-packed
 fr:galette au chocolat
 agribalyse_food_code:en:24053
 ciqual_food_code:en:24053
 ciqual_food_name:en:Biscuit shortbread, with chocolate, pre-packed
-
-<en:Biscuits
-en:Biscuit (cookie) snack with dairy or vanilla filling
-fr:biscuit lait vanille
-agribalyse_food_code:en:24225
-ciqual_food_code:en:24225
-ciqual_food_name:en:Biscuit (cookie), snack with dairy or vanilla filling
 
 <en:Biscuits
 en:Shortbread cookie with coconut
@@ -23372,7 +23341,7 @@ es:Picos de pan, Picos
 wikidata:en:Q6075158
 
 <en:Breads
-en:Brown breads
+en:Wholemeal breads, Brown breads
 de:Vollkornbrote, Vollkornbrot
 es:Panes integrales, Pan integral
 fi:Tummat leivät
@@ -23588,7 +23557,7 @@ ciqual_food_name:en:Sandwich loaf
 ciqual_food_name:fr:Pain de mie, courant
 
 <en:Sliced breads
-en:English bread without crust, Sandwich loaf without crust
+en:Sliced breads without crust, English bread without crust, Sandwich loaf without crust
 de:Brot ohne Kruste
 es:Pan inglés sin corteza, Pan de molde sin corteza
 fr:Pains de mie sans croûte
@@ -23600,7 +23569,7 @@ ciqual_food_name:en:Sandwich loaf, crust less, prepacked
 ciqual_food_name:fr:Pain de mie, sans croûte, préemballé
 
 <en:Sliced breads
-en:Sliced breads with cereals, Multigrain sandwich loaf
+en:Multigrain sliced breads, Sliced breads with cereals, Multigrain sandwich loaf
 de:Geschnittenes Mehrkornbrot
 es:Panes de molde con cereales
 fi:viipaloidut siemenleivät
@@ -23613,7 +23582,8 @@ ciqual_food_name:en:Sandwich loaf, multigrain
 ciqual_food_name:fr:Pain de mie, multicéréale
 
 <en:Sliced breads
-en:Wholemeal English bread, Wholemeal sandwich loaf
+<en:Wholemeal breads
+en:Wholemeal sliced breads, Wholemeal English bread, Wholemeal sandwich loaf
 de:Vollkorntoast
 es:Panes de molde integrales
 fr:Pains de mie complet, Pain de mie complet
@@ -23632,7 +23602,7 @@ ciqual_food_name:en:Brioche sandwich bread, prepacked
 ciqual_food_name:fr:Pain de mie brioché, préemballé
 
 <en:Sliced breads
-en:Bran grain sandwich loaf
+en:Bran sliced breads, Bran grain sandwich loaf
 fr:Pain de mie au son
 agribalyse_food_code:en:7112
 ciqual_food_code:en:7112
@@ -24113,14 +24083,18 @@ agribalyse_proxy_food_code:en:18167
 agribalyse_proxy_food_name:en:Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins and chemical elements
 
 <en:Cocoa and chocolate powders
-en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders
+en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders, Instant cocoa powder without sugar
 ca:Cacau en pols, Cacau
 de:Kakaopulver, Kakao
 es:Cacaos en polvo, cacao en polvo, cacao
 fi:kaakaojauheet
-fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao
+fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao, Cacao non sucré en poudre soluble
 it:Cacao in polvere
 nl:Cacaopoeders, Cacaopoeder, Cacao
+agribalyse_food_code:en:18100
+ciqual_food_code:en:18100
+ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
+ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:Breakfasts
 <en:Instant beverages
@@ -24142,14 +24116,6 @@ agribalyse_food_code:en:18101
 ciqual_food_code:en:18101
 ciqual_food_name:en:Cocoa or chocolate powder, for beverages, with sugar
 ciqual_food_name:fr:Poudre cacaotée ou au chocolat pour boisson, sucrée
-
-<en:Cocoa and chocolate powders
-en:Instant cocoa powder without sugar
-fr:Cacao non sucré en poudre soluble
-agribalyse_food_code:en:18100
-ciqual_food_code:en:18100
-ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
-ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:Cocoa and chocolate powders
 en:Cocoa powder for beverages with sugar fortified with vitamins and chemical elements, Chocolate powder for beverages with sugar fortified with vitamins and chemical elements
@@ -31596,6 +31562,14 @@ ciqual_food_code:en:19584
 ciqual_food_name:en:Mascarpone cheese, from cow's milk
 
 <en:Italian cheeses
+en:Stracchino
+es:Stracchino
+de:Stracchino
+fr:Stracchino
+it:Stracchino, Crescenza
+wikidata:en:Q432440
+
+<en:Italian cheeses
 it:Asiago
 en:Asiago
 fr:Asiago
@@ -35330,29 +35304,19 @@ nl:Volle yoghurts
 <en:Yogurts
 en:Plain yogurts, Plain yoghurts
 es:Yogures naturales
+fi:Luonnonjogurtit
 fr:Yaourts nature, Yaourt nature
 it:Yogurt bianco
-nl:Natuurlijke yoghurt
+nl:Natuurlijke yoghurt, Naturelyoghurts
+pl:Jogurty naturalne, Jogurt naturalny
+pt:Iogurtes naturales, iogurte naturale
+ro:Iaurturi naturale
 ciqual_food_code:en:19600
 ciqual_food_name:en:Yoghurt, plain (average)
 ciqual_food_name:fr:Yaourt ou spécialité laitière nature (aliment moyen)
 agribalyse_proxy_food_code:en:19593
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
-
-<en:Plain yogurts
-en:Plain unsweetened yogurts, Plain fermented milk yogurt, Plain dairy specialty
-ca:Iogurts naturals
-de:Naturjogurts
-es:Yogures naturales
-fi:Luonnonjogurtit
-fr:Yaourts au lait fermenté nature, Spécialités laitières nature
-it:Yogurt intero
-nl:Naturelyoghurts
-pl:Jogurty naturalne, Jogurt naturalny
-pt:Iogurtes naturales, iogurte naturale
-ro:Iaurturi naturale
-agribalyse_food_code:en:19593
 ciqual_food_code:en:19593
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
@@ -40100,8 +40064,8 @@ nl:Mueslis met fruit, Muesli met fruit
 ro:Müsli cu fructe
 
 <en:Mueslis
-en:Walnut muesli
-fr:Mueslis aux noix
+en:Mueslis with nuts, Walnut muesli
+fr:Mueslis aux fruits à coque, Mueslis aux noix
 it:Muesli con nocciole
 
 <en:Mueslis
