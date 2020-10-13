@@ -56315,6 +56315,10 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Chickens
+en:Raw chicken
+fr:Poulets crus
+
+<en:Raw chicken
 en:Hen meat and skin raw
 fr:viande de poulet avec peau crue
 agribalyse_food_code:en:36000
@@ -56322,7 +56326,7 @@ ciqual_food_code:en:36000
 ciqual_food_name:en:Hen, meat and skin, raw
 ciqual_food_name:fr:Poule, viande et peau, crue
 
-<en:Chickens
+<en:Raw chicken
 en:Hen meat only raw
 fr:viande de poule crue
 agribalyse_food_code:en:36001
@@ -56330,8 +56334,7 @@ ciqual_food_code:en:36001
 ciqual_food_name:en:Hen, meat only, raw
 ciqual_food_name:fr:Poule, viande ,crue
 
-<en:Cooked poultries
-<en:Chickens
+<en:Cooked chicken
 en:Cooked chicken heart
 fr:Coeur de poulet cuit
 agribalyse_food_code:en:40056
@@ -56339,7 +56342,7 @@ ciqual_food_code:en:40056
 ciqual_food_name:en:Heart, chicken, cooked
 ciqual_food_name:fr:Coeur, poulet, cuit
 
-<en:Chickens
+<en:Raw chicken
 en:Raw chicken heart
 fr:Coeur de poulet cru
 agribalyse_food_code:en:40054
@@ -56347,8 +56350,7 @@ ciqual_food_code:en:40054
 ciqual_food_name:en:Heart, chicken, raw
 ciqual_food_name:fr:Coeur, poulet, cru
 
-<en:Cooked poultries
-<en:Chickens
+<en:Cooked chicken
 en:Cooked chicken liver
 fr:Foie de poulet cuit
 agribalyse_food_code:en:40116
@@ -56356,7 +56358,7 @@ ciqual_food_code:en:40116
 ciqual_food_name:en:Liver, chicken, cooked
 ciqual_food_name:fr:Foie, poulet, cuit
 
-<en:Chickens
+<en:Raw chicken
 en:Raw chicken liver
 fr:Foie de poulet cru
 agribalyse_food_code:en:40111
@@ -56397,6 +56399,7 @@ it:Preparati di pollo
 
 <en:Breaded products
 <en:Chicken preparations
+en:Breaded chicken
 fr:Poulets panés, Poulet pané
 
 <en:Breaded products
@@ -56409,7 +56412,7 @@ agribalyse_food_code:en:25512
 ciqual_food_code:en:25512
 ciqual_food_name:en:Poultry nuggets
 
-<en:Chicken preparations
+<en:Breaded chicken
 <en:Poultry nuggets
 en:Chicken nuggets
 de:Hähnchen-Nuggets
@@ -56425,6 +56428,17 @@ wikidata:en:Q1072190
 agribalyse_food_code:en:36027
 ciqual_food_code:en:36027
 ciqual_food_name:en:Chicken, nugget, breaded croquette
+
+<en:Breaded chicken
+en:Breaded chicken cutlets, Breaded turkey escalope
+fi:Leivitetyt kanaleikkeet
+fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
+it:Cotoletta di pollo impanata
+nl:Kippenschnitzel
+agribalyse_food_code:en:36036
+ciqual_food_code:en:36036
+ciqual_food_name:en:Turkey, breaded escalope
+ciqual_food_name:fr:Poulet, escalope panée
 
 <en:Meat preparations
 <en:Turkeys
@@ -57106,7 +57120,7 @@ nl:Kippendijen, Kipdij
 
 <en:Poultry hams
 en:Cooked chicken breast slices, chicken ham
-de:Hähnchen-brustfilet in Scheiben
+de:Hähnchen-brustfilet in Scheiben, Geflügelschinken
 fi:kanaleikkele
 fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 nl:Kippendijen, Kippendij
@@ -57139,17 +57153,6 @@ fr:Escalopes de poulet, escalope de poulet
 it:Cotolette di pollo
 nl:Kipschnitzel
 
-<fr:Escalopes de poulet
-en:Breaded chicken cutlets, Breaded turkey escalope
-fi:Leivitetyt kanaleikkeet
-fr:Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
-it:Cotoletta di pollo impanata
-nl:Kippenschnitzel
-agribalyse_food_code:en:36036
-ciqual_food_code:en:36036
-ciqual_food_name:en:Turkey, breaded escalope
-ciqual_food_name:fr:Poulet, escalope panée
-
 <en:Chickens
 en:Chicken breasts
 ca:Pits de pollastre
@@ -57163,6 +57166,11 @@ hu:Csirkemellek
 it:Petti di pollo
 nl:Kippeborst
 zh:鸡胸
+
+<en:Chicken breasts
+<en:Raw chicken
+en:Raw chicken breasts
+fr:Filets de poulet crus
 
 <en:Cooked poultries
 <en:Chickens
