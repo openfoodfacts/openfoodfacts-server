@@ -50,6 +50,15 @@ my $template_data_ref = {
 
 my $html;
 
+# Automated requests by Google Spreadsheet can overload the server
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/4357
+# User-Agent: Mozilla/5.0 (compatible; GoogleDocs; apps-spreadsheets; +http://docs.google.com)
+
+if (user_agent() =~ /apps-spreadsheets/) {
+
+	display_error("Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.", 200);
+}
+
 if (0) {
 	if (param('jqm')) {
 		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
