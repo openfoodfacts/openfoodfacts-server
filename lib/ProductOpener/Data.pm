@@ -99,6 +99,8 @@ sub get_database {
 }
 
 sub get_mongodb_client() {
+	# Note that for web pages, $client will be cached in mod_perl,
+	# so passing in different options for different queries won't do anything after the first call.
 	my ($timeout) = @_;
 
 	my $max_time_ms = $timeout // $mongodb_timeout_ms;
