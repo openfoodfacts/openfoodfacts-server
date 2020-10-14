@@ -3543,14 +3543,6 @@ ciqual_food_name:en:Fruit soft drink, carbonated (fruit juice content unknown), 
 ciqual_food_name:fr:Boisson gazeuse aux fruits (teneur en jus non spécifiée), sucrée (aliment moyen)
 
 <en:Carbonated fruit soft drink
-en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
-fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
-agribalyse_food_code:en:18340
-ciqual_food_code:en:18340
-ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
-ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
-
-<en:Carbonated fruit soft drink
 en:Carbonated fruit soft drinks with sugar with 10-50% of fruit juice
 fr:Boissons gazeuses non sucrées aux fruits avec 10 à 50% de jus
 agribalyse_food_code:en:18019
@@ -3559,6 +3551,18 @@ ciqual_food_name:en:Fruit soft drink, carbonated (10-50% of fruit juice), with s
 ciqual_food_name:fr:Boisson gazeuse aux fruits (de 10 à 50% de jus), sucrée
 
 <en:Carbonated fruit soft drink
+en:Carbonated fruit soft drink with less than 10% of fruit juice
+fr:Boisson gazeuse aux fruits avec moins de 10% de jus
+
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
+en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
+fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
+agribalyse_food_code:en:18340
+ciqual_food_code:en:18340
+ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
+
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with sugar and artificial sweeteners and with less than 10% of fruit juice
 fr:Boisson gazeuse aux fruits sucrée avec édulcorants et moins de 10% de jus
 agribalyse_food_code:en:18033
@@ -3566,7 +3570,7 @@ ciqual_food_code:en:18033
 ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar and artificial sweetener(s)
 ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée, avec édulcorants
 
-<en:Carbonated fruit soft drink
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with sugar and less than 10% of fruit juice
 fr:Boisson gazeuse aux fruits sucrée avec moins de 10% de jus
 agribalyse_food_code:en:18049
@@ -3574,7 +3578,7 @@ ciqual_food_code:en:18049
 ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar
 ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée
 
-<en:Carbonated fruit soft drink
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and artificial sweeteners
 fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée sans édulcorant
 agribalyse_food_code:en:18345
@@ -21701,6 +21705,9 @@ fi:rosé-viinit
 fr:Vins rosés, vin rosé
 it:Vini rosé
 nl:Rosé wijnen, Rosé wijn, Rosé
+agribalyse_proxy_food_code:en:5206
+agribalyse_proxy_food_name:en:Wine, rose, 11°
+agribalyse_proxy_food_name:fr:Vin rosé 11°
 
 <en:Rosé wines
 en:11% rosé wine
@@ -22743,21 +22750,21 @@ ciqual_food_name:fr:Sablé pâtissier
 
 <en:Biscuits
 en:Shortbread biscuit with butter and chocolate
-fr:sablé au chocolat
+fr:Sablés beurrés au chocolat
 agribalyse_food_code:en:24050
 ciqual_food_code:en:24050
 ciqual_food_name:en:Biscuit shortbread, with butter and chocolate
 
 <en:Biscuits
-en:Shortbread cookie with cocoa
-fr:sablé au cacao
+en:Shortbread cookie with chocolate
+fr:Sablés au chocolat
 agribalyse_food_code:en:24080
 ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
 
 <en:Biscuits
-en:Shortbread cookie with chocolate
-fr:sablé au chocolat
+en:Shortbread cookie with cocoa
+fr:Sablés au cacao
 agribalyse_food_code:en:24080
 ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
@@ -22770,23 +22777,31 @@ ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
 
 <en:Biscuits
-en:Biscuit shortbread with chocolate pre-packed
-fr:galette au chocolat
+en:Shortbread biscuit with chocolate
+fr:Galettes au chocolat
 agribalyse_food_code:en:24053
 ciqual_food_code:en:24053
 ciqual_food_name:en:Biscuit shortbread, with chocolate, pre-packed
 
 <en:Biscuits
 en:Shortbread cookie with coconut
-fr:Sablé à la noix de coco
+fr:Sablés à la noix de coco
 agribalyse_food_code:en:24070
 ciqual_food_code:en:24070
 ciqual_food_name:en:Shortbread cookie w coconut
 ciqual_food_name:fr:Sablé à la noix de coco
 
 <en:Biscuits
-en:Shortbread cookie with apple, Shortbread cookie with red berries
-fr:Sablé aux pommes, Sablé aux fruits rouges
+en:Shortbread cookie with red berries
+fr:Sablés aux fruits rouges
+agribalyse_food_code:en:24072
+ciqual_food_code:en:24072
+ciqual_food_name:en:Shortbread cookie with fruit (apple, red berries, etc.)
+ciqual_food_name:fr:Sablé aux fruits (pomme, fruits rouges, etc.)
+
+<en:Biscuits
+en:Shortbread cookie with apple
+fr:Sablés aux pommes
 agribalyse_food_code:en:24072
 ciqual_food_code:en:24072
 ciqual_food_name:en:Shortbread cookie with fruit (apple, red berries, etc.)
@@ -47847,6 +47862,9 @@ fi:maustesekoitus
 fr:Mélanges d'épices, Mélange d'épices, Mélange d'épice, Mélanges d'épice
 it:Mix di spezie, Spezie miste
 nl:Specerijenmengelingen
+agribalyse_proxy_food_code:en:11056
+agribalyse_proxy_food_name:en:Mix of 4 spices
+agribalyse_proxy_food_name:fr:Quatre épices
 
 <en:Spice Mix
 en:Guacamole spice mix
@@ -65969,8 +65987,8 @@ ciqual_food_name:fr:Saumon, bouilli/cuit à l'eau, élevage
 
 <en:Salmons from farming
 <en:Cooked salmons
-en:Farmed salmon farmed roasted/baked
-fr:saumon d'élevage cuit au four
+en:Baked farmed salmons, Roasted farmed salmons
+fr:Saumons d'élevage cuit au four
 agribalyse_food_code:en:26230
 ciqual_food_code:en:26230
 ciqual_food_name:en:Salmon, farmed, roasted/baked
@@ -66257,6 +66275,7 @@ it:Salmoni affumicati d'allevamenti
 nl:Gerookte kweekzalm
 
 <en:Smoked salmons
+en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
 
 <en:Smoked salmons
@@ -66268,7 +66287,7 @@ fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumon
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
-#<en:British sea products
+<en:British sea products
 <en:Smoked salmons
 en:London Cure Smoked Salmon
 protected_name_file_number:en: PGI-GB-01350
@@ -66367,6 +66386,7 @@ fr:Marlins
 nl:Marlijn
 
 <en:Smoked fishes
+<en:Marlins
 en:Smoked marlins
 fr:Marlins fumés, marlin fumé
 nl:Geookte marlijn
@@ -66658,6 +66678,9 @@ es:Atún en aceite de oliva
 fr:Thons à l’huile d’olive
 it:Tonno sott'olio di oliva
 nl:Tonijn op olijfolie
+agribalyse_proxy_food_code:en:26179
+agribalyse_proxy_food_name:en:Albacore, in olive oil, canned, drained
+agribalyse_proxy_food_name:fr:Thon germon ou thon blanc, à l'huile d'olive, appertisé, égoutté
 
 <en:Tuna in olive oil
 es:atún claro en aceite de oliva
@@ -66679,6 +66702,19 @@ fr:Thons au naturel
 it:Tonno al naturale
 nl:Tonijn natuur
 
+<en:Tunas
+en:Albacore
+de:Weißer Thun
+es:Bonito del Norte
+fi:Valkotonnikalat
+fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
+la:Thunnus alalunga
+nl:Witte tonijn
+wikidata:en:Q239977
+agribalyse_food_code:en:26076
+ciqual_food_code:en:26076
+ciqual_food_name:en:Albacore, raw
+
 <en:Tuna in brine
 <en:Albacore
 fr:Thons blancs au naturel
@@ -66686,6 +66722,7 @@ it:Tonno bianco al naturale
 nl:Witte tonijn natuur
 
 <en:Albacore
+<en:Tuna in olive oil
 en:Canned drained albacore in olive oil
 fr:Thon germon à l'huile d'olive appertisé égoutté, Thon blanc à l'huile d'olive appertisé égoutté
 agribalyse_food_code:en:26179
@@ -66700,19 +66737,6 @@ agribalyse_food_code:en:26077
 ciqual_food_code:en:26077
 ciqual_food_name:en:Albacore, steamed under pressure
 ciqual_food_name:fr:Thon germon ou thon blanc, cuit à la vapeur sous pression
-
-<en:Tunas
-en:Albacore
-de:Weißer Thun
-es:Bonito del Norte
-fi:Valkotonnikalat
-fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
-la:Thunnus alalunga
-nl:Witte tonijn
-wikidata:en:Q239977
-agribalyse_food_code:en:26076
-ciqual_food_code:en:26076
-ciqual_food_name:en:Albacore, raw
 
 <en:Tunas
 es:atún claro
@@ -67488,11 +67512,17 @@ fr:Moules en conserve
 it:Mitili in scatola
 nl:Mossels in blik
 ro:Conserve de midii
+agribalyse_proxy_food_code:en:10028
+agribalyse_proxy_food_name:en:Mussel, canned, drained
+agribalyse_proxy_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
 en:Mussels with escabeche
 es:Mejillones en escabeche, Mejillon en escabeche
 fr:Moules à l'escabèche
+agribalyse_proxy_food_code:en:10081
+agribalyse_proxy_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
+agribalyse_proxy_food_name:fr:Moules à la sauce catalane ou escabèche (tomate), appertisée, égouttée
 
 <en:Canned mussels
 en:Canned drained mussels
@@ -67503,8 +67533,8 @@ ciqual_food_name:en:Mussel, canned, drained
 ciqual_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
-en:Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
-fr:Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
+en:Canned mussels in Catalan sauce, Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
+fr:Moules à la sauce catalane, Moules à la sauce escabèche, Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
 agribalyse_food_code:en:10081
 ciqual_food_code:en:10081
 ciqual_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
@@ -74206,6 +74236,9 @@ fi:purkitetut herneet ja porkkanat
 fr:Petits pois et carottes en conserve, Carottes et petits pois en conserve
 it:Piselli e carote in scatola
 nl:Doperwten met worteltjes in blik
+agribalyse_proxy_food_code:en:20093
+agribalyse_proxy_food_name:en:Garden peas and carrots, canned, drained
+agribalyse_proxy_food_name:fr:Petits pois et carottes, appertisés, égouttés
 
 <en:Canned peas and carrots
 en:Canned drained garden peas and carrots
