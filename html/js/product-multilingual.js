@@ -18,7 +18,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-/*eslint dot-location: ["error", "property"]*/
+/*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
 /*global toggle_manage_images_buttons */ // These are weird.
