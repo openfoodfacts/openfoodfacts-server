@@ -38133,16 +38133,11 @@ ciqual_food_name:en:Chestnut cream
 ciqual_food_name:fr:Crème de marrons
 
 <en:Chestnut spreads
-en:Vanilla flavoured chestnut cream
-fr:Crème de marrons vanillée, Crème de marrons à la vanille
+en:Vanilla flavoured chestnut cream, Canned vanilla flavoured chestnut cream
+fr:Crème de marrons vanillée, Crème de marrons à la vanille, Crème de marrons vanillée appertisée, Crème de marrons à la vanille en conserve
 agribalyse_proxy_food_code:en:15016
 agribalyse_proxy_food_name:en:Chestnut cream, vanilla flavoured, canned
 agribalyse_proxy_food_name:fr:Crème de marrons vanillée, appertisée
-
-<en:Canned plant-based foods
-<en:Vanilla flavoured chestnut cream
-en:Canned vanilla flavoured chestnut cream
-fr:Crème de marrons vanillée appertisée, Crème de marrons à la vanille en conserve
 agribalyse_food_code:en:15016
 ciqual_food_code:en:15016
 ciqual_food_name:en:Chestnut cream, vanilla flavoured, canned
@@ -43744,7 +43739,7 @@ it:Frutta francese
 
 <en:Fruits
 en:British fruit
-fr:Fruits britannique
+fr:Fruits britanniques
 
 <en:Fruits
 en:Austrian fruit
@@ -45645,11 +45640,11 @@ ciqual_food_code:en:13025
 ciqual_food_name:en:Mango, pulp, raw
 ciqual_food_name:fr:Mangue, pulpe, crue
 
-<en:Raw mango pulp
+<en:Mangoes
 fr:Mangue importée par avion
 agribalyse_food_code:en:13025_1
 
-<en:Raw mango pulp
+<en:Mangoes
 fr:Mangue importée par bateau
 agribalyse_food_code:en:13025_2
 
@@ -59950,6 +59945,9 @@ fr:Pâtés de canard
 nl:Eendenpaté
 ro:Pateu de rață
 
+<fr:Pâté
+fr:Pâtés de Taureau
+
 <en:Prepared meats
 <en:Salted spreads
 en:Savory mousses, savory mousse, savoury mousses, savoury mousse
@@ -62422,15 +62420,11 @@ wikidata:en:Q20065
 
 <en:Pastas
 <en:Dry pastas
-en:Dried wholemeal pasta
-fr:Pâtes sèches au blé complet
+en:Dried wholemeal pasta, Dried raw wholemeal pasta
+fr:Pâtes sèches au blé complet, Pâtes sèches au blé complet crues
 agribalyse_proxy_food_code:en:9871
 agribalyse_proxy_food_name:en:Dried pasta, wholemeal, cooked, unsalted
 agribalyse_proxy_food_name:fr:Pâtes sèches, au blé complet, cuites, non salées
-
-<en:Dried wholemeal pasta
-en:Dried raw wholemeal pasta
-fr:Pâtes sèches au blé complet crues
 agribalyse_food_code:en:9870
 ciqual_food_code:en:9870
 ciqual_food_name:en:Dried pasta, wholemeal, raw
@@ -77172,15 +77166,6 @@ pl:Konserwy roślinne w puszkach i słoikach
 pt:Alimentos à base de plantas enlatados
 ru:Консервы из растительных продуктов
 
-<en:Canned plant-based foods
-en:Canned hearts of palm
-de:Palmherzen in der Dose
-es:Palmitos en conserva, Palmito en conserva
-fr:Cœurs de palmier en conserve
-it:Cuori di palma in scatola
-nl:Palmharten in blik
-wikidata:en:Q743144
-
 <en:Plant-based foods
 <en:Fresh foods
 en:Fresh plant-based foods
@@ -77223,7 +77208,22 @@ sv:Palmhjärta
 tl:Ubod
 wikidata:en:Q743144
 wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
+agribalyse_proxy_food_code:en:20018
+agribalyse_proxy_food_name:en:Palm heart, canned, drained
+agribalyse_proxy_food_name:fr:Coeur de palmier, appertisé, égoutté
 # fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
+
+<en:Canned plant-based foods
+en:Canned hearts of palm
+de:Palmherzen in der Dose
+es:Palmitos en conserva, Palmito en conserva
+fr:Cœurs de palmier en conserve
+it:Cuori di palma in scatola
+nl:Palmharten in blik
+wikidata:en:Q743144
+agribalyse_proxy_food_code:en:20018
+agribalyse_proxy_food_name:en:Palm heart, canned, drained
+agribalyse_proxy_food_name:fr:Coeur de palmier, appertisé, égoutté
 
 <en:Hearts of palm
 en:Canned palm heart, Canned drained palm heart
@@ -79381,6 +79381,9 @@ fr:Terrines de bison
 nl:Bizonvleesterrines, Bizonvleespotten
 
 <en:Terrines
+fr:Terrines aux herbes de Provence
+
+<en:Terrines
 <en:Meat-based products
 <en:Prepared meats
 en:Blood sausage terrines
@@ -79422,6 +79425,11 @@ nl:Hertevleesterrines, Hertevleespotten
 <en:Meat-based products
 <en:Prepared meats
 fr:Terrines de chevreuil
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+fr:Terrines au Roquefort
 
 <en:Terrines
 <en:Meat-based products
@@ -79513,6 +79521,12 @@ nl:Eendterrines, Eendterrine, Eendevleespotten
 agribalyse_food_code:en:8232
 ciqual_food_code:en:8232
 ciqual_food_name:en:Duck terrine
+
+<en:Duck terrines
+fr:Terrines de canard aux morilles
+
+<en:Duck terrines
+fr:Terrines de canard au muscat
 
 en:Dietary supplements
 ca:Suplements dietètics
