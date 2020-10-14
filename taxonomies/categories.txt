@@ -6492,7 +6492,7 @@ en:Coffee beans
 de:Kaffeebohnen, Ungemahlene Kaffeebohnen, Kaffeekirschen
 es:Granos de café
 fi:kahvinpavut
-fr:Grains de café
+fr:Grains de café, Café en grains
 he:פולי קפה
 it:Chicchi di caffè
 nl:Koffiebonen
@@ -29115,7 +29115,7 @@ nl:Lactose-vrije kaas, Lactose-vrije kazen
 <en:Cheeses
 en:Sliced cheeses
 de:Scheibenkäse, Käseaufschnitt, Schnittkäse
-es:Quesos en lonchas
+es:Quesos en lonchas, Lonchas de queso
 fi:siivutetut juustot
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
@@ -36098,6 +36098,16 @@ pnns_group_2:en:Dairy desserts
 fr:Crèmes brûlées
 agribalyse_food_code:en:39213
 
+<en:Pastries
+<en:Desserts
+en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
+fr:Crème brûlée rayon frais
+agribalyse_food_code:en:39213
+ciqual_food_code:en:39213
+ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
+ciqual_food_name:fr:Crème brûlée, rayon frais
+#TODO Check if non refrigerated one exists before merge
+
 #really similar to crème brûlé but made with milk instead of cream
 <en:Dairy desserts
 en:Crema catalana
@@ -36116,6 +36126,9 @@ fi:Pannacotta
 fr:Panna cottas, pannacottas, Panna cotta, pannacotta, panacotta
 it:Panna cotta
 nl:Panna cottas
+agribalyse_proxy_food_code:en:19685
+agribalyse_proxy_food_name:en:Panna cotta, refrigerated
+agribalyse_proxy_food_name:fr:Panna cotta, rayon frais
 
 <en:Panna cottas
 en:Plain panna cottas
@@ -55861,6 +55874,7 @@ ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
 <en:Cooked pork meat
+<en:Pork loin
 en:Cooked pork loin
 fr:Longe de porc cuite
 agribalyse_food_code:en:28007
@@ -55868,7 +55882,12 @@ ciqual_food_code:en:28007
 ciqual_food_name:en:Pork loin, cooked
 ciqual_food_name:fr:Porc, longe, cuite
 
+<en:Pork meat
+en:Pork tenderloin
+fr:Filet maigre de porc
+
 <en:Cooked pork meat
+<en:Pork tenderloin
 en:Cooked pork tenderloin roast
 fr:Filet maigre de porc en rôti cuit
 agribalyse_food_code:en:28202
@@ -55885,6 +55904,7 @@ ciqual_food_name:en:Pork, round steak, cooked
 ciqual_food_name:fr:Porc, rouelle de jambon, cuite
 
 <en:Cooked pork meat
+<en:Pork filet mignon
 en:Cooked pork filet mignon
 fr:Filet mignon de porc cuit
 agribalyse_food_code:en:28203
@@ -55972,14 +55992,6 @@ agribalyse_food_code:en:8313
 ciqual_food_code:en:8313
 ciqual_food_name:en:Pork liver mousse
 
-<en:Cooked pork meat
-en:Cooked pork kidney
-fr:Rognon de porc cuit
-agribalyse_food_code:en:40405
-ciqual_food_code:en:40405
-ciqual_food_name:en:Kidney, pork, cooked
-ciqual_food_name:fr:Rognon, porc, cuit
-
 <en:Pork
 en:Salt-cured pork ear
 fr:Oreille de porc demi-sel
@@ -55997,6 +56009,7 @@ ciqual_food_name:en:Pork, rind, raw
 ciqual_food_name:fr:Porc, couenne, crue
 
 <en:Raw pork meat
+<en:Pork belly
 en:Raw pork belly with flank removed, Raw pork belly flank off
 fr:Poitrine de porc crue sans mouille, Poitrine de porc crue cutter
 agribalyse_food_code:en:28479
@@ -56020,6 +56033,7 @@ ciqual_food_name:en:Pork, shoulder, cooked
 ciqual_food_name:fr:Porc, épaule, cuite
 
 <en:Raw pork meat
+<en:Pork belly
 en:Raw smoked pork belly
 fr:Poitrine de porc fumée crue
 agribalyse_food_code:en:28502
@@ -56114,7 +56128,12 @@ agribalyse_food_code:en:28002
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 
+<en:Pork meat
+en:Pork loin
+fr:longue de porc
+
 <en:Raw pork meat
+<en:Pork loin
 en:Pork loin raw
 fr:longue de porc crue
 agribalyse_food_code:en:28003
@@ -56129,6 +56148,7 @@ ciqual_food_code:en:28102
 ciqual_food_name:en:Pork, round steak, raw
 
 <en:Raw pork meat
+<en:Pork tenderloin
 en:Pork tenderloin lean raw
 fr:filet de porc cru
 agribalyse_food_code:en:28201
@@ -56143,8 +56163,13 @@ ciqual_food_code:en:28480
 ciqual_food_name:en:Prok, eye of shortloin, raw
 
 <en:Pork
+<en:Raw pork meat
+en:Pork filet mignon
+fr:filet mignon de porc
+
+<en:Pork filet mignon
 en:Pork filet mignon raw
-fr:filet mingon de porc
+fr:filet mignon de porc cru
 agribalyse_food_code:en:28204
 ciqual_food_code:en:28204
 ciqual_food_name:en:Pork filet mignon, raw
@@ -56206,7 +56231,12 @@ ciqual_food_code:en:8120
 ciqual_food_name:en:Preserved pork liver
 ciqual_food_name:fr:Confit de foie de porc
 
+<en:Pork
+en:Pork liver
+fr:Foie de porc
+
 <en:Raw pork meat
+<en:Pork liver
 en:Raw pork liver
 fr:Foie de porc cru
 agribalyse_food_code:en:40119
@@ -56214,7 +56244,12 @@ ciqual_food_code:en:40119
 ciqual_food_name:en:Liver, pork, raw
 ciqual_food_name:fr:Foie, porc, cru
 
+<en:Pork
+en:Pork heart
+fr:Coeur de porc
+
 <en:Raw pork meat
+<en:Pork heart
 en:Raw pork heart
 fr:Coeur de porc cru
 agribalyse_food_code:en:40060
@@ -56226,6 +56261,14 @@ ciqual_food_name:fr:Coeur, porc, cru
 <en:Cooked kidneys
 en:Cooked pork kidneys
 fr:Rognons de porc cuits
+agribalyse_food_code:en:40405
+ciqual_food_code:en:40405
+ciqual_food_name:en:Kidney, pork, cooked
+ciqual_food_name:fr:Rognon, porc, cuit
+
+<en:Cooked pork meat
+en:Cooked pork kidney
+fr:Rognon de porc cuit
 agribalyse_food_code:en:40405
 ciqual_food_code:en:40405
 ciqual_food_name:en:Kidney, pork, cooked
@@ -62147,6 +62190,9 @@ nl:Boekweit pasta
 fr:Crozets, Pâtes crozets, Crozet, Pate crozet
 wikidata:en:Q3005487
 
+<fr:Crozets
+fr:Crozets de Savoie
+
 <en:Pastas
 en:Fresh pasta
 de:Frische Nudeln
@@ -62823,14 +62869,14 @@ ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
 <en:Biscuits
-en:Crispy biscuit (cookie) with chocolate reduced fat
+en:Crispy biscuit with reduced-fat chocolate, Crispy cookie with reduced-fat chocolate
 fr:Biscuit sec croquant au chocolat allégé en matière grasse
 agribalyse_food_code:en:24007
 ciqual_food_code:en:24007
 ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) with chocolate prepacked
+en:Biscuit with chocolate prepacked, cookie with chocolate prepacked
 fr:Biscuit sec au chocolat
 agribalyse_food_code:en:24036
 ciqual_food_code:en:24036
@@ -62890,7 +62936,7 @@ ciqual_food_name:en:Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr:Goûter sec fourré (sandwiché) parfum fruits
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) covering with a chocolate bar
+en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
 fr:Biscuit sec avec tablette de chocolat
 agribalyse_food_code:en:24016
 ciqual_food_code:en:24016
@@ -62898,7 +62944,7 @@ ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
 # Petit Ecolier
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) chocolate covering
+en:Biscuit with chocolate covering, Cookie with chocolate covering
 fr:Biscuit sec avec nappage au chocolat
 agribalyse_food_code:en:24038
 ciqual_food_code:en:24038
@@ -63019,15 +63065,6 @@ agribalyse_food_code:en:39215
 ciqual_food_code:en:39215
 ciqual_food_name:en:Floating island (meringue poached in milk and served in a light custard cream), refrigerated
 ciqual_food_name:fr:Ile flottante, rayon frais
-
-<en:Pastries
-<en:Desserts
-en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
-fr:Crème brûlée rayon frais
-agribalyse_food_code:en:39213
-ciqual_food_code:en:39213
-ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
-ciqual_food_name:fr:Crème brûlée, rayon frais
 
 <en:Pastries
 <en:Desserts
