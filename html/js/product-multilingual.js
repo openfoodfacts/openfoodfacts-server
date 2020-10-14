@@ -64,6 +64,8 @@ function add_language_tab (lc, language) {
     var newLcID = $newTh.attr('id').replace(/new_lc/, lc);
     $newTh.attr('id', newLcID);
 
+    $clone.attr('data-language', lc);
+
     $clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
 
     $clone.find('[id]').each(function() {
