@@ -475,7 +475,6 @@ function update_display(imagefield, first_display) {
 						$(document).foundation('equalizer', 'reflow');
 					});
 
-				//$(document).foundation('equalizer', 'reflow');
 			});
 
 		} else {
@@ -512,8 +511,6 @@ function update_display(imagefield, first_display) {
 				.always(function() {
 					$(document).foundation('equalizer', 'reflow');
 				});
-
-			//$(document).foundation('equalizer', 'reflow');
 
 		});
 
