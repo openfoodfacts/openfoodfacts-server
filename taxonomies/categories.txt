@@ -23015,6 +23015,7 @@ origins:en: en:Belgium
 
 <en:Bakery products
 en:German bakery products
+fr:Produits de boulangerie allemands
 
 <en:German bakery products
 de:Bayrisch Blockmalz, Bayrischer Blockmalz, Echt Bayrisch Blockmalz, Aecht Bayrischer Blockmalz
@@ -23081,6 +23082,7 @@ origins:en: en:Germany
 
 <en:Bakery products
 en:Spanish bakery products
+fr:Produits de boulangerie espagnols
 
 <en:Spanish bakery products
 es:Pan Galego, Pan Gallego
@@ -51764,6 +51766,11 @@ de:Frische Ravioli
 fr:Ravioli frais
 nl:Verse raviolis
 
+<en:Fresh ravioli
+<en:Meat ravioli
+en:Fresh meat ravioli
+fr:Ravioli frais à la viande
+
 <en:Pies
 <en:Pizzas pies and quiches
 en:Salted pies, Savoury tarts
@@ -62375,16 +62382,22 @@ nl:Kaasraviolis
 
 <en:Pasta stuffed with cheese
 <en:Fresh pasta
-en:Cooked fresh pasta stuffed with cheese
-fr:Pâtes fraîches au fromage farcies et cuites
+en:Fresh pasta stuffed with cheese
+fr:Pâtes fraîches au fromage
 agribalyse_food_code:en:25149
 ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
 
+<en:Cooked fresh pasta stuffed with cheese
+fr:Raviolis fraîs au fromage
+
+<en:Cooked fresh pasta stuffed with cheese
+fr:Ravioles fraîches du Dauphiné
+
 <en:Stuffed Pastas
 en:Cooked fresh pasta stuffed with cheese and vegetables
-fr:Pâtes fraîches cuites farcies au fromage et aux légumes
+fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25155
 ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
@@ -62426,14 +62439,14 @@ fr:Pâtes fraîches crues
 
 <en:Pasta stuffed with meat
 <en:Raw fresh pasta
-en:Raw fresh pasta stuffed with meat
-fr:Pâtes fraîches crues farcies à la viande
+en:Fresh pasta stuffed with meat
+fr:Pâtes fraîches farcies à la viande
 agribalyse_food_code:en:25157
 ciqual_food_code:en:25157
 ciqual_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
 
-<en:Pasta stuffed with meat
+<en:Fresh pasta stuffed with meat
 en:Cooked fresh pasta stuffed with meat
 fr:Pâtes fraîches cuites farcies à la viande
 agribalyse_food_code:en:25158
@@ -62458,8 +62471,8 @@ nl:Bolognese Raviolis
 
 <en:Stuffed Pastas
 <en:Raw fresh pasta
-en:Raw fresh pasta stuffed with cheese and vegetables
-fr:Pâtes fraîches crues farcies au fromage et aux légumes
+en:Fresh pasta stuffed with cheese and vegetables
+fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25182
 ciqual_food_code:en:25182
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), raw
@@ -62470,21 +62483,21 @@ en:Pasta stuffed with vegetables
 fr:Pates farcies aux légumes
 
 <en:Pasta stuffed with vegetables
+<en:Raw fresh pasta
+en:Fresh pasta stuffed with vegetables
+fr:Pâtes fraîches farcies aux légumes
+agribalyse_food_code:en:25203
+ciqual_food_code:en:25203
+ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), raw
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : ravioli), aux légumes, crues
+
+<en:Fresh pasta stuffed with vegetables
 en:Cooked fresh pasta stuffed with vegetables
 fr:Pâtes fraîches cuites farcies aux légumes
 agribalyse_food_code:en:25193
 ciqual_food_code:en:25193
 ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), aux légumes, cuites
-
-<en:Pasta stuffed with vegetables
-<en:Raw fresh pasta
-en:Raw fresh pasta stuffed with vegetables
-fr:Pâtes fraîches crues farcies aux légumes
-agribalyse_food_code:en:25203
-ciqual_food_code:en:25203
-ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), raw
-ciqual_food_name:fr:Pâtes fraîches farcies (ex : ravioli), aux légumes, crues
 
 <en:Ravioli
 <en:Pasta stuffed with vegetables
@@ -62711,7 +62724,7 @@ it:Vermicelli di riso
 nl:Rijstvermicellis
 wikidata:en:Q716004
 
-<en:Noodles
+<en:Rice noodles
 en:Cooked unsalted rice noodles
 fr:Vermicelles de riz cuits non salés
 agribalyse_food_code:en:9901
@@ -62719,7 +62732,7 @@ ciqual_food_code:en:9901
 ciqual_food_name:en:Rice noodle, cooked, unsalted
 ciqual_food_name:fr:Vermicelle de riz, cuite, non salée
 
-<en:Noodles
+<en:Rice noodles
 en:Dried rice noodles
 es:Fideos de arroz deshidratados
 fr:Vermicelles de riz secs
@@ -65348,21 +65361,34 @@ fr:Acras de morue, Accras de morue, acras de cabillaud
 it:Frittelle di merluzzo, Frittelle di baccalà
 nl:Kabeljauwacra
 wikidata:en:Q12860188
+agribalyse_proxy_food_code:en:26028
+agribalyse_proxy_food_name:en:Fish, croquette, fritter or nuggets, fried
 
 <en:Fish preparations
-en:Fish croquette fritter, nuggets fried
-fr:Croquettes de poisson, beignet de poisson frit, nuggets de poisson frit
+en:Fried fish croquette, Fried fish fritter, Fried fish nuggets
+fr:Croquettes de poisson frites, beignet de poisson frit, nuggets de poisson frit
 agribalyse_food_code:en:26028
 ciqual_food_code:en:26028
 ciqual_food_name:en:Fish, croquette, fritter or nuggets, fried
 
-<en:Fish preparations
-en:Meat poultry or fish fritters home-made
-fr:nuggets fait maisons
+<en:Meat preparations
+en:Home-made meat fritters
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
+#<en:Poultry preparations
+<en:Meat preparations
+en:Home-made poultry fritters
+agribalyse_food_code:en:25551
+ciqual_food_code:en:25551
+ciqual_food_name:en:Meat, poultry or fish fritters, home-made
+
+<en:Fish preparations
+en:Home made fish fritters
+agribalyse_food_code:en:25551
+ciqual_food_code:en:25551
+ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 <en:Breaded products
 <en:Fish preparations
