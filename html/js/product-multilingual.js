@@ -18,6 +18,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+/*eslint dot-location: ["error", "property"]*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
 /*global toggle_manage_images_buttons */ // These are weird.
@@ -340,7 +341,7 @@ function change_image(imagefield, imgid) {
     $('.cropbutton_' + imagefield).hide();
     $('.cropbuttonmsg_' + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
     $('.cropbuttonmsg_' + imagefield).show();
-    var crop_post = $.post(
+    $.post(
       '/cgi/product_image_crop.pl',
       {
         code: code, id: imagefield, imgid: imagefield_imgid[imagefield],
@@ -449,7 +450,7 @@ function update_display(imagefield, first_display) {
 				// alert(event.data.imagefield);
 				$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
 				$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
-				var ocr_post = $.post(
+				$.post(
 					'/cgi/' + imagetype + '.pl',
 					{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" },
 					null,
@@ -468,7 +469,7 @@ function update_display(imagefield, first_display) {
 					})
 					.fail(function() {
 						$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
-						$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang()["job_status_failed"]);
+						$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().job_status_failed);
 					})
 					.always(function() {
 						$(document).foundation('equalizer', 'reflow');
@@ -488,7 +489,7 @@ function update_display(imagefield, first_display) {
 			event.preventDefault();
 			// alert(event.data.imagefield);
 			$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
-			var unselect_post = $.post(
+			$.post(
 				'/cgi/product_image_unselect.pl',
 				{code: code, id: imagefield },
 				null, 
