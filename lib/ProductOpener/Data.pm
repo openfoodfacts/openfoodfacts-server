@@ -94,7 +94,7 @@ sub get_collection {
 }
 
 sub get_database {
-	my ($database) = @_ // $mongodb;
+	$database = $_[0] // $mongodb;
 	return get_mongodb_client()->get_database($database);
 }
 
