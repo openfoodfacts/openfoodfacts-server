@@ -110,7 +110,7 @@ sub get_mongodb_client() {
 	);
 
 	if (!defined($client)) {
-		$log->info("Creating new DB connection, socket_timeout_ms ${client_options{socket_timeout_ms}}");
+		$log->info("Creating new DB connection", { socket_timeout_ms => $client_options{socket_timeout_ms} });
 		$client = MongoDB::MongoClient->new(%client_options);
 	} else {
 		$log->info("DB connection already exists");
