@@ -3496,6 +3496,10 @@ wikidata:en:Q147538
 nova:en:3
 
 <en:Carbonated drinks
+en:Carbonated soft drinks without fruit juice
+fr:Boissons gazeuses sans jus de fruit
+
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drinks without fruit juice with sugar
 fr:Boissons gazeuses sucrées sans jus de fruit
 agribalyse_food_code:en:18026
@@ -3503,7 +3507,7 @@ ciqual_food_code:en:18026
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 <en:Diet beverages
 en:Carbonated soft drinks without fruit juice with reduced sugar
 fr:Boissons gazeuses sans jus de fruit à teneur réduite en sucres
@@ -3512,7 +3516,7 @@ ciqual_food_code:en:18032
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, reduced sugar
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, à teneur réduite en sucres
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drinks without fruit juice with sugar and artificial sweeteners
 fr:Boissons gazeuses sans jus de fruit sucrées avec édulcorants
 agribalyse_food_code:en:18078
@@ -3520,7 +3524,7 @@ ciqual_food_code:en:18078
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar and artificial sweetener(s)
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée, avec édulcorants
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drink without fruit juice without sugar and with artificial sweeteners
 fr:Boisson gazeuse sans jus de fruit non sucrée avec édulcorants
 ciqual_food_code:en:18001
@@ -3916,7 +3920,7 @@ ciqual_food_name:en:Cola, with sugar
 ciqual_food_name:fr:Cola, sucré
 
 <en:Colas
-en:Cola with sugar and artificial sweetener(s)
+en:Cola with sugar and artificial sweetener, Cola with sugar and artificial sweeteners
 fr:Cola sucré avec édulcorants
 agribalyse_food_code:en:18037
 ciqual_food_code:en:18037
@@ -3934,6 +3938,7 @@ nl:Caffeinevrije colas
 ro:Cola fără cafeină
 
 <en:Cola sodas without caffeine
+<en:Cola with sugar
 en:Cola with sugar and without caffeine
 fr:Cola sucré sans caféine
 agribalyse_food_code:en:18067
@@ -6494,22 +6499,6 @@ nl:Koffiebonen
 zh:咖啡豆
 wikidata:en:Q153697
 
-<en:Coffees
-en:Arabica ground coffees
-fr:Café Arabica moulu
-
-<en:Coffee beans
-en:Arabica coffee beans
-fr:Grains de café arabica
-
-<en:Coffees
-en:Robusta ground coffees
-fr:Café Robusta moulu
-
-<en:Coffee beans
-en:Robusta coffee beans
-fr:Grains de café robusta
-
 <en:Coffee beans
 en:Roasted coffee beans
 de:Geröstete Kaffeebohnen
@@ -6517,6 +6506,34 @@ es:Granos de café tostados
 fr:Grains de café torréfiés
 nl:Geroosterde koffiebonen
 zh:烘焙咖啡豆, 烘烤咖啡豆
+
+<en:Coffees
+en:Arabica coffees
+fr:Café Arabica 
+
+<en:Ground coffees
+<en:Arabica coffees
+en:Arabica ground coffees
+fr:Café Arabica moulu
+
+<en:Coffee beans
+<en:Arabica coffees
+en:Arabica coffee beans
+fr:Grains de café arabica
+
+<en:Coffees
+en:Robusta coffees
+fr:Café Robusta
+
+<en:Ground coffees
+<en:Robusta coffees
+en:Robusta ground coffees
+fr:Café Robusta moulu
+
+<en:Coffee beans
+<en:Robusta coffees
+en:Robusta coffee beans
+fr:Grains de café robusta
 
 <en:Coffees
 <en:Instant beverages
@@ -22414,6 +22431,7 @@ ciqual_food_name:en:Biscuit sponge cake with fruits covering, pre-packed
 ciqual_food_name:fr:Biscuit sec (génoise) nappage aux fruits, type barquette
 
 <fr:Barquettes
+<en:Chocolate biscuits
 fr:Barquettes au chocolat
 agribalyse_food_code:en:24051
 ciqual_food_code:en:24051
@@ -22451,6 +22469,9 @@ it:Biscotti alle fragole
 nl:Aardbeienbiscuits, Aardbeienbiscuit
 ro:Biscuiți cu căpșuni
 zh:草莓饼干
+
+<en:Strawberry biscuits
+fr:Lunettes à la fraise
 
 <en:Biscuits
 en:Chocolate biscuits
@@ -62069,6 +62090,9 @@ ciqual_food_code:en:25219
 ciqual_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
 ciqual_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
+<en:Cannelloni with cooked vegetables and goat cheese
+fr:Cannelloni à la ricotta et aux épinards
+
 <en:Pastas
 fr:Coquillettes, coquillette
 wikidata:en:Q2996948
@@ -68047,7 +68071,7 @@ en:Apricot jams
 de:Aprikosen Konfitüren, Aprikosenkonfitüren
 es:Confituras de albaricoque
 fi:aprikoosihillot
-fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot
+fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot, Confiture d'abricot extra
 hu:Sárgabarack
 it:Confetture di albicocca
 nl:Abrikozenjams
@@ -68062,7 +68086,7 @@ en:Cherry jams
 de:Kirsche Konfitüren, Kirschmarmeladen
 es:Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
 fi:kirsikkahillot
-fr:Confitures de cerises
+fr:Confitures de cerises, Confiture de cerise extra
 hu:Cseresznye lekvár
 it:Confetture di ciliegie
 nl:Kersenjams
@@ -72681,9 +72705,18 @@ fr:Tomates pelées
 it:Pelati, Pomodori pelati
 nl:Geschilde tomaten
 pt:Tomates pelados
+agribalyse_proxy_food_code:en:20048
+agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
+agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
 fr:Chair de tomates
+
+<en:Peeled tomatoes
+fr:Tomates entières pelées au jus
+agribalyse_proxy_food_code:en:20048
+agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
+agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
 en:Canned drained peeled tomatoes
@@ -77318,15 +77351,15 @@ ciqual_food_code:en:25409
 ciqual_food_name:en:Crepe, filled with ham
 
 <en:Crêpes and galettes
-en:Crepe or buckwheat crepe filled with cheese ham and bechamel sauce
+en:Crepe filled with cheese ham and bechamel sauce, buckwheat crepe filled with cheese ham and bechamel sauce
 fr:Galette fourrée béchamel jambon fromage
 agribalyse_food_code:en:25410
 ciqual_food_code:en:25410
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
 
 <en:Crêpes and galettes
-en:Crepe or buckwheat crepe filled with mushrooms and bechamel sauce cooked
-fr:Galette fourrée béchamel champignon cuite
+en:Crepe filled with mushrooms and bechamel sauce cooked, buckwheat crepe filled with mushrooms and bechamel sauce cooked
+fr:Galette fourrée béchamel champignon, Galette fourrée béchamel champignon cuite
 agribalyse_food_code:en:25581
 ciqual_food_code:en:25581
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel sauce, cooked
