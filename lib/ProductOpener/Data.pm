@@ -101,12 +101,18 @@ sub get_database {
 sub get_mongodb_client() {
 	my ($timeout) = @_;
 
+	my $max_time_ms = $timeout // $mongodb_timeout_ms;
+
 	my %client_options = (
 		host => $mongodb_host,
 
+		# https://metacpan.org/pod/MongoDB::MongoClient#max_time_ms
+		# default is 0, meaning failures cause socket timeouts instead.
+		max_time_ms => $max_time_ms,
+
 		# https://metacpan.org/pod/MongoDB::MongoClient#socket_timeout_ms
 		# default is 30000 ms
-		socket_timeout_ms => $timeout // 30000,
+		socket_timeout_ms => $max_time_ms + 5000,
 	);
 
 	if (!defined($client)) {
