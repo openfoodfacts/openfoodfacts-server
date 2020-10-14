@@ -29301,7 +29301,7 @@ ca:Formatge de llet de vaca
 da:Ost, ost fra komælk
 de:Kuhmilchkäse, Käse aus Kuhmilch
 el:αγελαδινό τυρί
-es:Quesos De Vaca, Quesos De Leche De Vaca
+es:Quesos de vaca, Quesos De Leche De Vaca
 fi:Lehmänmaitojuustot
 fr:Fromages de vache, fromages au lait de vache
 he:גבינות פרה, גבינות מחלב פרה
@@ -30862,7 +30862,7 @@ nl:Rauwmelkse kazen
 wikidata:en:Q3088297
 
 <en:Cheeses
-en:Buffalo's milk-cheese
+en:Buffalo cheeses, Buffalo's milk-cheese
 de:Büffelkäse
 es:Queso de leche de búfalo
 fi:puhvelinmaitojuusto
@@ -31699,19 +31699,31 @@ en:Grated Mozzarella
 fr:Mozzarella râpée
 
 <en:Mozzarella
-<en:Buffalo's milk-cheese
-en:Buffalo mozzarella
-de:Büffelmozzarella
-fr:Mozzarella di Bufala Campana
-it:Mozzarella di Bufala Campana
-country:en:Italy
-wikidata:en:Q941068
+<en:Cow cheeses
+en:Cow mozzarella
+fr:Mozzarella de vache
+it:Mozzarella di mucca
 
-<en:Mozzarella
+<en:Cow mozzarella
 it:Mozzarella di Gioia del Colle
 protected_name_file_number:en: PDO-IT-02384
 protected_name_type:en: pdo
 origins:en: en:Italy
+
+<en:Mozzarella
+<en:Buffalo cheeses
+en:Buffalo mozzarella
+de:Büffelmozzarella
+fr:Mozzarella de bufflonne
+it:Mozzarella di bufala
+
+<en:Buffalo mozzarella
+en:Mozzarella di Bufala Campana 
+de:Mozzarella di Bufala Campana 
+fr:Mozzarella di Bufala Campana
+it:Mozzarella di Bufala Campana
+country:en:Italy
+wikidata:en:Q941068
 
 <en:Italian cheeses
 <en:Stretched-curd cheeses
@@ -31722,11 +31734,23 @@ it:Burrata
 wikidata:en:Q543512
 oqali_family:en: fr:Fromages - Mozzarella
 
-<fr:Burrata
+<en:Burrata
+<en:Cow cheeses
+en:Cow burrata
+fr:Burrata de vache
+it:Burrata di mucca
+
+<en:Cow burrata
 it:Burrata di Andria
 protected_name_file_number:en: PGI-IT-01393
 protected_name_type:en: pgi
 origins:en: en:Italy
+
+<en:Burrata
+<en:Buffalo cheeses
+en:Buffalo burrata
+fr:Burrata de vache
+it:Burrata di bufala
 
 <en:Italian cheeses
 it:Murazzano
