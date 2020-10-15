@@ -24611,14 +24611,6 @@ de:Bretonischer Kuche, Gâteau Breton
 fr:Gâteaux bretons, gâteau breton
 nl:Bretons cakes
 
-<en:Breton cakes
-en:Breton pudding cake with prunes
-fr:Far aux pruneaux
-agribalyse_food_code:en:23121
-ciqual_food_code:en:23121
-ciqual_food_name:en:Breton pudding cake with prunes
-ciqual_food_name:fr:Far aux pruneaux
-
 <en:Cakes
 <en:Pastries
 en:Kouign-amann, Buttered and caramelized milk bread cake
@@ -24633,11 +24625,34 @@ ciqual_food_code:en:23122
 ciqual_food_name:en:Buttered and caramelized milk bread cake
 ciqual_food_name:fr:Kouign Amann
 
-<en:Cakes
+<en:Breton cakes
 en:Far Bretons, Fars, Far, Fars bretons, Breton fars
 fr:Fars, Far, Fars bretons
 nl:Fars
 wikidata:en:Q1396059
+agribalyse_proxy_food_code:en:23121
+agribalyse_proxy_food_name:en:Breton pudding cake with prunes
+agribalyse_proxy_food_name:fr:Far aux pruneaux
+
+<en:Far Bretons
+en:Breton pudding cake with prunes
+fr:Far aux pruneaux
+agribalyse_food_code:en:23121
+ciqual_food_code:en:23121
+ciqual_food_name:en:Breton pudding cake with prunes
+ciqual_food_name:fr:Far aux pruneaux
+
+<en:Far Bretons
+en:Breton pudding cake with raisins
+fr:Far aux raisins
+
+<en:Far Bretons
+en:Breton pudding cake with apples
+fr:Far aux pommes
+
+<en:Far Bretons
+en:Plain breton pudding cake
+fr:Far nature
 
 <en:Cakes
 <en:Desserts
@@ -27911,6 +27926,9 @@ la:Chenopodium quinoa
 nl:Quinoa, Gierstmelde
 zh:藜麦
 wikidata:en:Q139925
+agribalyse_proxy_food_code:en:9340
+agribalyse_proxy_food_name:en:Quinoa, raw
+agribalyse_proxy_food_name:fr:Quinoa, cru
 
 <en:Quinoa
 en:Raw quinoa
@@ -63154,10 +63172,22 @@ agribalyse_food_code:en:23027
 ciqual_food_code:en:23027
 ciqual_food_name:en:Macaroon
 
-<en:Pastries
-<en:Desserts
-en:Macaron filled with jam or cream
-fr:Macaron moelleux fourré à la confiture ou à la crème
+<en:Macarons
+fr:Assortiments de macarons
+agribalyse_food_code:en:23027
+ciqual_food_code:en:23027
+ciqual_food_name:en:Macaroon
+
+<en:Macarons
+en:Macaron filled with jam
+fr:Macaron moelleux fourré à la confiture
+agribalyse_food_code:en:23024
+ciqual_food_code:en:23024
+ciqual_food_name:en:Macaron filled with jam or cream
+
+<en:Macarons
+en:Macaron filled with cream
+fr:Macaron moelleux fourré à la crème
 agribalyse_food_code:en:23024
 ciqual_food_code:en:23024
 ciqual_food_name:en:Macaron filled with jam or cream
@@ -63240,20 +63270,6 @@ ciqual_food_code:en:23455
 ciqual_food_name:en:Pastry cream puff
 ciqual_food_name:fr:Chou à la crème (chantilly ou pâtissière)
 
-<en:Pastries
-en:Profiteroles (chou pastry) with vanilla ice cream and chocolate sauce
-fr:Profiterole avec glace vanille et sauce chocolat
-agribalyse_food_code:en:23472
-ciqual_food_code:en:23472
-ciqual_food_name:en:Profiteroles (chou pastry), with vanilla ice cream and chocolate sauce
-
-<en:Pastries
-en:Profiteroles (chou pastry) with custard and chocolate sauce refrigerated
-fr:Profiteroles (crème pâtissière et sauce chocolat) rayon frais
-agribalyse_food_code:en:23474
-ciqual_food_code:en:23474
-ciqual_food_name:en:Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
-
 <en:Cream puff
 en:Chou pastry filled with whipped cream
 fr:Choux à la crème chantilly, Chou à la crème chantilly
@@ -63269,6 +63285,20 @@ agribalyse_food_code:en:23457
 ciqual_food_code:en:23457
 ciqual_food_name:en:Chou pastry filled with custard
 ciqual_food_name:fr:Chou à la crème pâtissière
+
+<en:Cream puff
+en:Profiteroles with vanilla ice cream and chocolate sauce, Chou pastry with vanilla ice cream and chocolate sauce
+fr:Profiterole avec glace vanille et sauce chocolat
+agribalyse_food_code:en:23472
+ciqual_food_code:en:23472
+ciqual_food_name:en:Profiteroles (chou pastry), with vanilla ice cream and chocolate sauce
+
+<en:Cream puff
+en:Profiteroles with custard and chocolate sauce refrigerated, Chou pastry with custard and chocolate sauce refrigerated
+fr:Profiteroles avec crème pâtissière et sauce chocolat
+agribalyse_food_code:en:23474
+ciqual_food_code:en:23474
+ciqual_food_name:en:Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
 
 <en:Pastries
 en:Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
