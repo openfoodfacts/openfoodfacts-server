@@ -57111,6 +57111,10 @@ fi:kanaleikkele
 fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 nl:Kippendijen, Kippendij
 zh:鸡火腿
+agribalyse_food_code:en:28963
+ciqual_food_code:en:28963
+ciqual_food_name:en:Chicken cooked ham, in slices
+ciqual_food_name:fr:Jambon de poulet ou Blanc de poulet en tranche
 
 <en:Cooked chicken breast slices
 fr:Blancs de poulet doré au four, Blanc de poulet doré au four
@@ -61456,15 +61460,6 @@ it:Spätzle
 wikidata:en:Q20065
 
 <en:Pastas
-<en:Dry pastas
-en:Dried raw wholemeal pasta
-fr:Pâtes sèches au blé complet crues
-agribalyse_food_code:en:9870
-ciqual_food_code:en:9870
-ciqual_food_name:en:Dried pasta, wholemeal, raw
-ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
-
-<en:Pastas
 en:Cooked unsalted wholemeal dried pasta
 fr:Pâtes sèches au blé complet cuites non salées
 agribalyse_food_code:en:9871
@@ -61482,15 +61477,6 @@ it:Paste all'uovo
 nl:Eierpastas, eierpasta
 
 <en:Pastas
-en:Dried raw pasta
-fr:Pâtes sèches crues
-it:Pasta cruda essiccata
-agribalyse_food_code:en:9810
-ciqual_food_code:en:9810
-ciqual_food_name:en:Dried pasta, raw
-ciqual_food_name:fr:Pâtes sèches standard, crues
-
-<en:Pastas
 en:Cooked unsalted dried pasta
 fr:Pâtes sèches cuites non salées
 agribalyse_food_code:en:9811
@@ -61498,18 +61484,21 @@ ciqual_food_code:en:9811
 ciqual_food_name:en:Dried pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes sèches standard, cuites, non salées
 
-<en:Egg pastas
 <en:Dry pastas
-en:Dry egg pastas
-fi:kuivat munapastat
-fr:Pâtes sèches aux œufs
-it:Pasta al'uovo secca
-nl:Gedroogde eipasta
+en:Dried raw wholemeal pasta
+fr:Pâtes sèches au blé complet crues
+agribalyse_food_code:en:9870
+ciqual_food_code:en:9870
+ciqual_food_name:en:Dried pasta, wholemeal, raw
+ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
 
 <en:Egg pastas
 <en:Dry pastas
-en:Dried raw egg pasta
-fr:Pâtes sèches aux œufs crues
+en:Dry egg pastas, Dried raw egg pasta
+fi:kuivat munapastat
+fr:Pâtes sèches aux œufs, Pâtes sèches aux œufs crues
+it:Pasta al'uovo secca
+nl:Gedroogde eipasta
 agribalyse_food_code:en:9821
 ciqual_food_code:en:9821
 ciqual_food_name:en:Dried egg pasta, raw
@@ -61542,8 +61531,9 @@ nl:Glutenvrije pastas
 pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
-en:Dried raw gluten-free pasta
-fr:Pâtes sèches sans gluten crues
+<en:Dry pastas
+en:Dried gluten-free pasta, Dried raw gluten-free pasta
+fr:Pâtes sèches sans gluten, Pâtes sèches sans gluten crues
 agribalyse_food_code:en:9874
 ciqual_food_code:en:9874
 ciqual_food_name:en:Dried pasta, gluten-free, raw
@@ -61616,18 +61606,6 @@ it:Pasta di mais
 nl:Maispastas
 
 <en:Pastas
-en:Wheat pasta
-ca:Pasta de blat
-de:Weizennudeln
-es:Pastas de trigo
-fi:vehnäpasta
-fr:Pâtes de blé
-he:פסטה מחיטה
-hu:Búzatészta
-it:Pasta di grano
-nl:Tarwepastas
-
-<en:Wheat pasta
 en:Durum wheat pasta
 ca:Pasta de blat dur
 de:Hartweizenteigwaren, Nudelprodukte aus Hartweizen
@@ -61641,14 +61619,20 @@ nl:Durum tarwepastas
 ru:Макаронные изделия из муки твёрдой пшеницы, макаронные изделия из муки твердой пшеницы, макаронные изделия группы А, Макаронные изделия. Группа «А»
 
 <en:Durum wheat pasta
-en:Whole durum wheat pasta
+en:Whole durum wheat pasta, durum wholewheat pasta
+es:Pastas de trigo duro integrales
 fr:Pâtes de blé dur complet
-it:Pasta di grano duro
+it:Pasta di grano duro integrale
 nl:Volkoren durum pasta
 
 <en:Durum wheat pasta
 en:Durum wheat pasta vysshiy sort GOST
 ru:Макаронные изделия группы А высший сорт по ГОСТ, Макаронные изделия группы А высшего сорта по ГОСТ, макаронные изделия из муки твёрдой пшеницы высший сорт ГОСТ
+
+<en:Durum wheat pasta
+es:Pastas de trigo duro semi-integrales
+fr:Pâtes de blé dur semi-complet
+it:Pasta di grano duro semi integrale
 
 <en:Durum wheat pasta
 en:Spirals of durum wheat
@@ -61918,18 +61902,22 @@ ciqual_food_name:en:Fresh egg pasta, raw
 ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Pastas
-en:Dry pasta
+en:Dry pasta, Dried raw pasta
 ca:Pasta seca
 de:getrocknete Teigwaren
 es:Pasta seca
 fi:kuiva pasta
-fr:Pâtes sèches, Pâtes alimentaires sèches
+fr:Pâtes sèches, Pâtes alimentaires sèches, Pâtes sèches crues
 he:פסטה מיובשת
 hu:Száraztészták
-it:Pasta secca
+it:Pasta secca, Pasta cruda essiccata
 nl:Gedroogde pastas
 pt:Massas secas
 th:กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
+agribalyse_food_code:en:9810
+ciqual_food_code:en:9810
+ciqual_food_name:en:Dried pasta, raw
+ciqual_food_name:fr:Pâtes sèches standard, crues
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
@@ -79028,10 +79016,10 @@ wikidata:en:Q2878697
 fr:Saucisses sèches de jambon
 
 <fr:Charcuteries cuites
-en:Poultry hams
+en:Cooked poultry breast slices, Poultry hams
 de:Geflügelschinken
 fi:siipikarjakinkut
-fr:Jambons de volaille
+fr:Blancs de volaille en tranches, Jambons de volaille
 it:Prosciutti di pollame
 nl:Gevogelte bilvlees
 
