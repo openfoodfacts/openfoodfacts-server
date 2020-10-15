@@ -3496,6 +3496,10 @@ wikidata:en:Q147538
 nova:en:3
 
 <en:Carbonated drinks
+en:Carbonated soft drinks without fruit juice
+fr:Boissons gazeuses sans jus de fruit
+
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drinks without fruit juice with sugar
 fr:Boissons gazeuses sucrées sans jus de fruit
 agribalyse_food_code:en:18026
@@ -3503,7 +3507,7 @@ ciqual_food_code:en:18026
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 <en:Diet beverages
 en:Carbonated soft drinks without fruit juice with reduced sugar
 fr:Boissons gazeuses sans jus de fruit à teneur réduite en sucres
@@ -3512,7 +3516,7 @@ ciqual_food_code:en:18032
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, reduced sugar
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, à teneur réduite en sucres
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drinks without fruit juice with sugar and artificial sweeteners
 fr:Boissons gazeuses sans jus de fruit sucrées avec édulcorants
 agribalyse_food_code:en:18078
@@ -3520,7 +3524,7 @@ ciqual_food_code:en:18078
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar and artificial sweetener(s)
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, sucrée, avec édulcorants
 
-<en:Carbonated drinks
+<en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drink without fruit juice without sugar and with artificial sweeteners
 fr:Boisson gazeuse sans jus de fruit non sucrée avec édulcorants
 ciqual_food_code:en:18001
@@ -3528,21 +3532,17 @@ ciqual_food_name:en:Soft drink, carbonated, without fruit juice, without sugar a
 ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, non sucrée, avec édulcorants
 
 <en:Carbonated drinks
+en:Carbonated fruit soft drink
+fr:Boisson gazeuse aux fruits
+
+<en:Carbonated fruit soft drink
 en:Carbonated fruit soft drink with sugar
 fr:Boisson gazeuse aux fruits sucrée
 ciqual_food_code:en:18048
 ciqual_food_name:en:Fruit soft drink, carbonated (fruit juice content unknown), with sugar
 ciqual_food_name:fr:Boisson gazeuse aux fruits (teneur en jus non spécifiée), sucrée (aliment moyen)
 
-<en:Carbonated drinks
-en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
-fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
-agribalyse_food_code:en:18340
-ciqual_food_code:en:18340
-ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
-ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
-
-<en:Carbonated drinks
+<en:Carbonated fruit soft drink
 en:Carbonated fruit soft drinks with sugar with 10-50% of fruit juice
 fr:Boissons gazeuses non sucrées aux fruits avec 10 à 50% de jus
 agribalyse_food_code:en:18019
@@ -3550,7 +3550,19 @@ ciqual_food_code:en:18019
 ciqual_food_name:en:Fruit soft drink, carbonated (10-50% of fruit juice), with sugar
 ciqual_food_name:fr:Boisson gazeuse aux fruits (de 10 à 50% de jus), sucrée
 
-<en:Carbonated drinks
+<en:Carbonated fruit soft drink
+en:Carbonated fruit soft drink with less than 10% of fruit juice
+fr:Boisson gazeuse aux fruits avec moins de 10% de jus
+
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
+en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and with artificial sweeteners
+fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée avec édulcorants
+agribalyse_food_code:en:18340
+ciqual_food_code:en:18340
+ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
+ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
+
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with sugar and artificial sweeteners and with less than 10% of fruit juice
 fr:Boisson gazeuse aux fruits sucrée avec édulcorants et moins de 10% de jus
 agribalyse_food_code:en:18033
@@ -3558,7 +3570,7 @@ ciqual_food_code:en:18033
 ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar and artificial sweetener(s)
 ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée, avec édulcorants
 
-<en:Carbonated drinks
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with sugar and less than 10% of fruit juice
 fr:Boisson gazeuse aux fruits sucrée avec moins de 10% de jus
 agribalyse_food_code:en:18049
@@ -3566,7 +3578,7 @@ ciqual_food_code:en:18049
 ciqual_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), with sugar
 ciqual_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée
 
-<en:Carbonated drinks
+<en:Carbonated fruit soft drink with less than 10% of fruit juice
 en:Carbonated fruit soft drink with less than 10% of fruit juice without sugar and artificial sweeteners
 fr:Boisson gazeuse aux fruits avec moins de 10% de jus non sucrée sans édulcorant
 agribalyse_food_code:en:18345
@@ -3643,6 +3655,20 @@ fr:Sodas au citron light, soda au citron light
 it:Bibite gassate dietetiche al limone, Bibite gassate dietetiche al gusto di limone
 nl:Light citroenfrisdanken
 
+<en:Sodas
+<en:Fruit-based beverages
+en:Fruit sodas
+de:Fruchtlimonaden
+es:Sodas a base de frutas
+fi:Hedelmävirvoitusjuomat
+fr:Sodas aux fruits
+hu:Szénsavas gyümölcs ital, gyümölcs fröccs
+it:Bibite gassate alla frutta, Bibite gassate al gusto di frutta
+nl:Vruchtenfrisdranken
+ro:Băuturi carbogazoase cu fructe, Bauturi carbogazoase cu fructe, Băuturi carbogazoase din fructe, Bauturi carbogazoase din fructe
+ru:Напитки на основе фруктов
+zh:水果汽水
+
 <en:Diet sodas
 <en:Fruit sodas
 en:Light fruit sodas
@@ -3675,20 +3701,6 @@ agribalyse_food_code:en:18068
 ciqual_food_code:en:18068
 ciqual_food_name:en:Cola, without sugar, with artificial sweetener(s) and with caffeine
 ciqual_food_name:fr:Cola, non sucré, avec édulcorants, sans caféine
-
-<en:Sodas
-<en:Fruit-based beverages
-en:Fruit sodas
-de:Fruchtlimonaden
-es:Sodas a base de frutas
-fi:Hedelmävirvoitusjuomat
-fr:Sodas aux fruits
-hu:Szénsavas gyümölcs ital, gyümölcs fröccs
-it:Bibite gassate alla frutta, Bibite gassate al gusto di frutta
-nl:Vruchtenfrisdranken
-ro:Băuturi carbogazoase cu fructe, Bauturi carbogazoase cu fructe, Băuturi carbogazoase din fructe, Bauturi carbogazoase din fructe
-ru:Напитки на основе фруктов
-zh:水果汽水
 
 <en:Sodas
 <en:Colas
@@ -3916,7 +3928,7 @@ ciqual_food_name:en:Cola, with sugar
 ciqual_food_name:fr:Cola, sucré
 
 <en:Colas
-en:Cola with sugar and artificial sweetener(s)
+en:Cola with sugar and artificial sweetener, Cola with sugar and artificial sweeteners
 fr:Cola sucré avec édulcorants
 agribalyse_food_code:en:18037
 ciqual_food_code:en:18037
@@ -3934,6 +3946,7 @@ nl:Caffeinevrije colas
 ro:Cola fără cafeină
 
 <en:Cola sodas without caffeine
+<en:Cola with sugar
 en:Cola with sugar and without caffeine
 fr:Cola sucré sans caféine
 agribalyse_food_code:en:18067
@@ -6487,28 +6500,12 @@ en:Coffee beans
 de:Kaffeebohnen, Ungemahlene Kaffeebohnen, Kaffeekirschen
 es:Granos de café
 fi:kahvinpavut
-fr:Grains de café
+fr:Grains de café, Café en grains
 he:פולי קפה
 it:Chicchi di caffè
 nl:Koffiebonen
 zh:咖啡豆
 wikidata:en:Q153697
-
-<en:Coffees
-en:Arabica ground coffees
-fr:Café Arabica moulu
-
-<en:Coffee beans
-en:Arabica coffee beans
-fr:Grains de café arabica
-
-<en:Coffees
-en:Robusta ground coffees
-fr:Café Robusta moulu
-
-<en:Coffee beans
-en:Robusta coffee beans
-fr:Grains de café robusta
 
 <en:Coffee beans
 en:Roasted coffee beans
@@ -6517,6 +6514,34 @@ es:Granos de café tostados
 fr:Grains de café torréfiés
 nl:Geroosterde koffiebonen
 zh:烘焙咖啡豆, 烘烤咖啡豆
+
+<en:Coffees
+en:Arabica coffees
+fr:Café Arabica 
+
+<en:Ground coffees
+<en:Arabica coffees
+en:Arabica ground coffees
+fr:Café Arabica moulu
+
+<en:Coffee beans
+<en:Arabica coffees
+en:Arabica coffee beans
+fr:Grains de café arabica
+
+<en:Coffees
+en:Robusta coffees
+fr:Café Robusta
+
+<en:Ground coffees
+<en:Robusta coffees
+en:Robusta ground coffees
+fr:Café Robusta moulu
+
+<en:Coffee beans
+<en:Robusta coffees
+en:Robusta coffee beans
+fr:Grains de café robusta
 
 <en:Coffees
 <en:Instant beverages
@@ -21680,6 +21705,9 @@ fi:rosé-viinit
 fr:Vins rosés, vin rosé
 it:Vini rosé
 nl:Rosé wijnen, Rosé wijn, Rosé
+agribalyse_proxy_food_code:en:5206
+agribalyse_proxy_food_name:en:Wine, rose, 11°
+agribalyse_proxy_food_name:fr:Vin rosé 11°
 
 <en:Rosé wines
 en:11% rosé wine
@@ -22414,6 +22442,7 @@ ciqual_food_name:en:Biscuit sponge cake with fruits covering, pre-packed
 ciqual_food_name:fr:Biscuit sec (génoise) nappage aux fruits, type barquette
 
 <fr:Barquettes
+<en:Chocolate biscuits
 fr:Barquettes au chocolat
 agribalyse_food_code:en:24051
 ciqual_food_code:en:24051
@@ -22451,6 +22480,9 @@ it:Biscotti alle fragole
 nl:Aardbeienbiscuits, Aardbeienbiscuit
 ro:Biscuiți cu căpșuni
 zh:草莓饼干
+
+<en:Strawberry biscuits
+fr:Lunettes à la fraise
 
 <en:Biscuits
 en:Chocolate biscuits
@@ -22718,21 +22750,21 @@ ciqual_food_name:fr:Sablé pâtissier
 
 <en:Biscuits
 en:Shortbread biscuit with butter and chocolate
-fr:sablé au chocolat
+fr:Sablés beurrés au chocolat
 agribalyse_food_code:en:24050
 ciqual_food_code:en:24050
 ciqual_food_name:en:Biscuit shortbread, with butter and chocolate
 
 <en:Biscuits
-en:Shortbread cookie with cocoa
-fr:sablé au cacao
+en:Shortbread cookie with chocolate
+fr:Sablés au chocolat
 agribalyse_food_code:en:24080
 ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
 
 <en:Biscuits
-en:Shortbread cookie with chocolate
-fr:sablé au chocolat
+en:Shortbread cookie with cocoa
+fr:Sablés au cacao
 agribalyse_food_code:en:24080
 ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
@@ -22745,23 +22777,31 @@ ciqual_food_code:en:24080
 ciqual_food_name:en:Shortbread cookie with cocoa or chocolate, or praline or other
 
 <en:Biscuits
-en:Biscuit shortbread with chocolate pre-packed
-fr:galette au chocolat
+en:Shortbread biscuit with chocolate
+fr:Galettes au chocolat
 agribalyse_food_code:en:24053
 ciqual_food_code:en:24053
 ciqual_food_name:en:Biscuit shortbread, with chocolate, pre-packed
 
 <en:Biscuits
 en:Shortbread cookie with coconut
-fr:Sablé à la noix de coco
+fr:Sablés à la noix de coco
 agribalyse_food_code:en:24070
 ciqual_food_code:en:24070
 ciqual_food_name:en:Shortbread cookie w coconut
 ciqual_food_name:fr:Sablé à la noix de coco
 
 <en:Biscuits
-en:Shortbread cookie with apple, Shortbread cookie with red berries
-fr:Sablé aux pommes, Sablé aux fruits rouges
+en:Shortbread cookie with red berries
+fr:Sablés aux fruits rouges
+agribalyse_food_code:en:24072
+ciqual_food_code:en:24072
+ciqual_food_name:en:Shortbread cookie with fruit (apple, red berries, etc.)
+ciqual_food_name:fr:Sablé aux fruits (pomme, fruits rouges, etc.)
+
+<en:Biscuits
+en:Shortbread cookie with apple
+fr:Sablés aux pommes
 agribalyse_food_code:en:24072
 ciqual_food_code:en:24072
 ciqual_food_name:en:Shortbread cookie with fruit (apple, red berries, etc.)
@@ -22975,6 +23015,7 @@ origins:en: en:Belgium
 
 <en:Bakery products
 en:German bakery products
+fr:Produits de boulangerie allemands
 
 <en:German bakery products
 de:Bayrisch Blockmalz, Bayrischer Blockmalz, Echt Bayrisch Blockmalz, Aecht Bayrischer Blockmalz
@@ -23041,6 +23082,7 @@ origins:en: en:Germany
 
 <en:Bakery products
 en:Spanish bakery products
+fr:Produits de boulangerie espagnols
 
 <en:Spanish bakery products
 es:Pan Galego, Pan Gallego
@@ -27056,6 +27098,7 @@ nl:Ravioli in blik
 ro:Conserve de ravioli
 
 <en:Canned raviolis
+<en:Meat ravioli
 en:Canned raviolis filled with meat in tomato sauce
 fr:Raviolis à la viande sauce tomate appertisés, Raviolis à la viande sauce tomate en conserve
 agribalyse_food_code:en:25019
@@ -27064,6 +27107,7 @@ ciqual_food_name:en:Ravioli filled with meat, in tomato sauce, canned
 ciqual_food_name:fr:Ravioli à la viande, sauce tomate, appertisé
 
 <en:Canned raviolis
+<en:Ravioli with vegetables
 en:Canned ravioli filled with vegetables in tomato sauce
 fr:Raviolis aux légumes sauce tomate appertisés
 agribalyse_food_code:en:25192
@@ -29094,7 +29138,7 @@ nl:Lactose-vrije kaas, Lactose-vrije kazen
 <en:Cheeses
 en:Sliced cheeses
 de:Scheibenkäse, Käseaufschnitt, Schnittkäse
-es:Quesos en lonchas
+es:Quesos en lonchas, Lonchas de queso
 fi:siivutetut juustot
 fr:Fromages en tranches, tranches de fromage, tranches de fromages
 hu:Szeletel sajtok
@@ -36098,6 +36142,16 @@ pnns_group_2:en:Dairy desserts
 fr:Crèmes brûlées
 agribalyse_food_code:en:39213
 
+<en:Pastries
+<en:Desserts
+en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
+fr:Crème brûlée rayon frais
+agribalyse_food_code:en:39213
+ciqual_food_code:en:39213
+ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
+ciqual_food_name:fr:Crème brûlée, rayon frais
+#TODO Check if non refrigerated one exists before merge
+
 #really similar to crème brûlé but made with milk instead of cream
 <en:Dairy desserts
 en:Crema catalana
@@ -36116,6 +36170,9 @@ fi:Pannacotta
 fr:Panna cottas, pannacottas, Panna cotta, pannacotta, panacotta
 it:Panna cotta
 nl:Panna cottas
+agribalyse_proxy_food_code:en:19685
+agribalyse_proxy_food_name:en:Panna cotta, refrigerated
+agribalyse_proxy_food_name:fr:Panna cotta, rayon frais
 
 <en:Panna cottas
 en:Plain panna cottas
@@ -42347,6 +42404,9 @@ it:Vaschette di gelato al cioccolato
 nl:Chocolade-roomijs
 
 <en:Ice cream tubs
+fr:Glace aux calissons
+
+<en:Ice cream tubs
 en:Nougat ice cream tubs
 es:Tarrinas y bloques de helado de turrón, Tarrinas de helado de turrón, Bloques de helado de turrón, helado de turrón
 fr:Glaces au nougat
@@ -47825,6 +47885,9 @@ fi:maustesekoitus
 fr:Mélanges d'épices, Mélange d'épices, Mélange d'épice, Mélanges d'épice
 it:Mix di spezie, Spezie miste
 nl:Specerijenmengelingen
+agribalyse_proxy_food_code:en:11056
+agribalyse_proxy_food_name:en:Mix of 4 spices
+agribalyse_proxy_food_name:fr:Quatre épices
 
 <en:Spice Mix
 en:Guacamole spice mix
@@ -51723,6 +51786,11 @@ en:Fresh ravioli
 de:Frische Ravioli
 fr:Ravioli frais
 nl:Verse raviolis
+
+<en:Fresh ravioli
+<en:Meat ravioli
+en:Fresh meat ravioli
+fr:Ravioli frais à la viande
 
 <en:Pies
 <en:Pizzas pies and quiches
@@ -55861,6 +55929,7 @@ ciqual_food_name:en:Pork, knuckle or shank, raw
 ciqual_food_name:fr:Porc, jarret, cru
 
 <en:Cooked pork meat
+<en:Pork loin
 en:Cooked pork loin
 fr:Longe de porc cuite
 agribalyse_food_code:en:28007
@@ -55868,7 +55937,12 @@ ciqual_food_code:en:28007
 ciqual_food_name:en:Pork loin, cooked
 ciqual_food_name:fr:Porc, longe, cuite
 
+<en:Pork meat
+en:Pork tenderloin
+fr:Filet maigre de porc
+
 <en:Cooked pork meat
+<en:Pork tenderloin
 en:Cooked pork tenderloin roast
 fr:Filet maigre de porc en rôti cuit
 agribalyse_food_code:en:28202
@@ -55885,6 +55959,7 @@ ciqual_food_name:en:Pork, round steak, cooked
 ciqual_food_name:fr:Porc, rouelle de jambon, cuite
 
 <en:Cooked pork meat
+<en:Pork filet mignon
 en:Cooked pork filet mignon
 fr:Filet mignon de porc cuit
 agribalyse_food_code:en:28203
@@ -55972,14 +56047,6 @@ agribalyse_food_code:en:8313
 ciqual_food_code:en:8313
 ciqual_food_name:en:Pork liver mousse
 
-<en:Cooked pork meat
-en:Cooked pork kidney
-fr:Rognon de porc cuit
-agribalyse_food_code:en:40405
-ciqual_food_code:en:40405
-ciqual_food_name:en:Kidney, pork, cooked
-ciqual_food_name:fr:Rognon, porc, cuit
-
 <en:Pork
 en:Salt-cured pork ear
 fr:Oreille de porc demi-sel
@@ -55997,6 +56064,7 @@ ciqual_food_name:en:Pork, rind, raw
 ciqual_food_name:fr:Porc, couenne, crue
 
 <en:Raw pork meat
+<en:Pork belly
 en:Raw pork belly with flank removed, Raw pork belly flank off
 fr:Poitrine de porc crue sans mouille, Poitrine de porc crue cutter
 agribalyse_food_code:en:28479
@@ -56020,6 +56088,7 @@ ciqual_food_name:en:Pork, shoulder, cooked
 ciqual_food_name:fr:Porc, épaule, cuite
 
 <en:Raw pork meat
+<en:Pork belly
 en:Raw smoked pork belly
 fr:Poitrine de porc fumée crue
 agribalyse_food_code:en:28502
@@ -56114,7 +56183,12 @@ agribalyse_food_code:en:28002
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 
+<en:Pork meat
+en:Pork loin
+fr:longue de porc
+
 <en:Raw pork meat
+<en:Pork loin
 en:Pork loin raw
 fr:longue de porc crue
 agribalyse_food_code:en:28003
@@ -56129,6 +56203,7 @@ ciqual_food_code:en:28102
 ciqual_food_name:en:Pork, round steak, raw
 
 <en:Raw pork meat
+<en:Pork tenderloin
 en:Pork tenderloin lean raw
 fr:filet de porc cru
 agribalyse_food_code:en:28201
@@ -56143,8 +56218,13 @@ ciqual_food_code:en:28480
 ciqual_food_name:en:Prok, eye of shortloin, raw
 
 <en:Pork
+<en:Raw pork meat
+en:Pork filet mignon
+fr:filet mignon de porc
+
+<en:Pork filet mignon
 en:Pork filet mignon raw
-fr:filet mingon de porc
+fr:filet mignon de porc cru
 agribalyse_food_code:en:28204
 ciqual_food_code:en:28204
 ciqual_food_name:en:Pork filet mignon, raw
@@ -56206,7 +56286,12 @@ ciqual_food_code:en:8120
 ciqual_food_name:en:Preserved pork liver
 ciqual_food_name:fr:Confit de foie de porc
 
+<en:Pork
+en:Pork liver
+fr:Foie de porc
+
 <en:Raw pork meat
+<en:Pork liver
 en:Raw pork liver
 fr:Foie de porc cru
 agribalyse_food_code:en:40119
@@ -56214,7 +56299,12 @@ ciqual_food_code:en:40119
 ciqual_food_name:en:Liver, pork, raw
 ciqual_food_name:fr:Foie, porc, cru
 
+<en:Pork
+en:Pork heart
+fr:Coeur de porc
+
 <en:Raw pork meat
+<en:Pork heart
 en:Raw pork heart
 fr:Coeur de porc cru
 agribalyse_food_code:en:40060
@@ -56226,6 +56316,14 @@ ciqual_food_name:fr:Coeur, porc, cru
 <en:Cooked kidneys
 en:Cooked pork kidneys
 fr:Rognons de porc cuits
+agribalyse_food_code:en:40405
+ciqual_food_code:en:40405
+ciqual_food_name:en:Kidney, pork, cooked
+ciqual_food_name:fr:Rognon, porc, cuit
+
+<en:Cooked pork meat
+en:Cooked pork kidney
+fr:Rognon de porc cuit
 agribalyse_food_code:en:40405
 ciqual_food_code:en:40405
 ciqual_food_name:en:Kidney, pork, cooked
@@ -58709,6 +58807,12 @@ agribalyse_proxy_food_name:fr:Chipolata, cuite
 
 <fr:Chipolatas
 fr:Chipolatas aux herbes, Chipolats herbes
+
+<en:Sausages
+fr:Assortiments de saucisses
+
+<fr:Assortiments de saucisses
+fr:Assortiments chipolatas et merguez
 
 <fr:Chipolatas
 en:Raw chipolata slim sausage
@@ -61779,12 +61883,15 @@ nl:Glutenvrije pastas
 pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
+en:Gluten-free Spaghetti
 fr:Spaghetti sans gluten
 
 <en:Gluten-free pasta
+en:Gluten-free penne
 fr:Penne sans gluten
 
 <en:Gluten-free pasta
+en:Gluten-free penne rigate
 fr:Penne Rigate sans gluten
 
 <en:Gluten-free pasta
@@ -62098,6 +62205,9 @@ ciqual_food_code:en:25219
 ciqual_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
 ciqual_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
+<en:Cannelloni with cooked vegetables and goat cheese
+fr:Cannelloni à la ricotta et aux épinards
+
 <en:Pastas
 fr:Coquillettes, coquillette
 wikidata:en:Q2996948
@@ -62145,6 +62255,9 @@ nl:Boekweit pasta
 <en:Pastas
 fr:Crozets, Pâtes crozets, Crozet, Pate crozet
 wikidata:en:Q3005487
+
+<fr:Crozets
+fr:Crozets de Savoie
 
 <en:Pastas
 en:Fresh pasta
@@ -62298,16 +62411,22 @@ nl:Kaasraviolis
 
 <en:Pasta stuffed with cheese
 <en:Fresh pasta
-en:Cooked fresh pasta stuffed with cheese
-fr:Pâtes fraîches au fromage farcies et cuites
+en:Fresh pasta stuffed with cheese
+fr:Pâtes fraîches au fromage
 agribalyse_food_code:en:25149
 ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
 
+<en:Fresh pasta stuffed with cheese
+fr:Raviolis fraîs au fromage
+
+<en:Fresh pasta stuffed with cheese
+fr:Ravioles fraîches du Dauphiné
+
 <en:Stuffed Pastas
 en:Cooked fresh pasta stuffed with cheese and vegetables
-fr:Pâtes fraîches cuites farcies au fromage et aux légumes
+fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25155
 ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
@@ -62343,15 +62462,20 @@ hu:Marha ravioli
 it:Ravioli di manzo, Ravioli con ripieno di manzo, Ravioli con ripieno di carne di manzo
 nl:Rundvleesraviolis
 
+<en:Fresh pasta
+en:Raw fresh pasta
+fr:Pâtes fraîches crues
+
 <en:Pasta stuffed with meat
-en:Raw fresh pasta stuffed with meat
-fr:Pâtes fraîches crues farcies à la viande
+<en:Raw fresh pasta
+en:Fresh pasta stuffed with meat
+fr:Pâtes fraîches farcies à la viande
 agribalyse_food_code:en:25157
 ciqual_food_code:en:25157
 ciqual_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
 
-<en:Pasta stuffed with meat
+<en:Fresh pasta stuffed with meat
 en:Cooked fresh pasta stuffed with meat
 fr:Pâtes fraîches cuites farcies à la viande
 agribalyse_food_code:en:25158
@@ -62375,9 +62499,9 @@ hu:Bolognais ravioli, Ravioli bolognaival
 nl:Bolognese Raviolis
 
 <en:Stuffed Pastas
-<en:Fresh pasta
-en:Raw fresh pasta stuffed with cheese and vegetables
-fr:Pâtes fraîches crues farcies au fromage et aux légumes
+<en:Raw fresh pasta
+en:Fresh pasta stuffed with cheese and vegetables
+fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25182
 ciqual_food_code:en:25182
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), raw
@@ -62388,20 +62512,21 @@ en:Pasta stuffed with vegetables
 fr:Pates farcies aux légumes
 
 <en:Pasta stuffed with vegetables
+<en:Raw fresh pasta
+en:Fresh pasta stuffed with vegetables
+fr:Pâtes fraîches farcies aux légumes
+agribalyse_food_code:en:25203
+ciqual_food_code:en:25203
+ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), raw
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : ravioli), aux légumes, crues
+
+<en:Fresh pasta stuffed with vegetables
 en:Cooked fresh pasta stuffed with vegetables
 fr:Pâtes fraîches cuites farcies aux légumes
 agribalyse_food_code:en:25193
 ciqual_food_code:en:25193
 ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), aux légumes, cuites
-
-<en:Pasta stuffed with vegetables
-en:Raw fresh pasta stuffed with vegetables
-fr:Pâtes fraîches crues farcies aux légumes
-agribalyse_food_code:en:25203
-ciqual_food_code:en:25203
-ciqual_food_name:en:Fresh pasta, stuffed with vegetables (e.g. ravioli), raw
-ciqual_food_name:fr:Pâtes fraîches farcies (ex : ravioli), aux légumes, crues
 
 <en:Ravioli
 <en:Pasta stuffed with vegetables
@@ -62421,13 +62546,16 @@ hu:Vargánya gombás ravioli, Ravioli vargánya gombával
 nl:Eekhoorntjesbroodraviolis
 
 <en:Pasta stuffed with vegetables
-en:Ravioli with vegetables
+en:Ravioli with vegetables, Vegetable ravioli
 de:Gemüseravioli, Gemüse-Ravioli
 fi:Raviolia kasviksilla
 fr:Ravioli aux légumes, Raviolis légumes, Ravioli légumes
 hu:Zöldséges ravioli, Ravioli zöldséggel
 it:Ravioli con ripieno vegetale
 nl:Groenteraviolis
+agribalyse_proxy_food_code:en:25192
+agribalyse_proxy_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
+agribalyse_proxy_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
 
 <en:Pastas
 en:Chinese pasta
@@ -62625,7 +62753,7 @@ it:Vermicelli di riso
 nl:Rijstvermicellis
 wikidata:en:Q716004
 
-<en:Noodles
+<en:Rice vermicelli
 en:Cooked unsalted rice noodles
 fr:Vermicelles de riz cuits non salés
 agribalyse_food_code:en:9901
@@ -62633,7 +62761,7 @@ ciqual_food_code:en:9901
 ciqual_food_name:en:Rice noodle, cooked, unsalted
 ciqual_food_name:fr:Vermicelle de riz, cuite, non salée
 
-<en:Noodles
+<en:Rice vermicelli
 en:Dried rice noodles
 es:Fideos de arroz deshidratados
 fr:Vermicelles de riz secs
@@ -62670,16 +62798,16 @@ nl:Chinese eiernoedels
 zh:中式鸡蛋面
 
 <en:Chinese noodles
-en:Flavoured cooked Asian noodles
-fr:Nouilles asiatiques cuites aromatisées
+en:Flavoured cooked Asian noodles, Flavoured chinese noodles
+fr:Nouilles asiatiques cuites aromatisées, Nouilles asiatiques aromatisées
 agribalyse_food_code:en:9085
 ciqual_food_code:en:9085
 ciqual_food_name:en:Asian noodles, flavoured, cooked
 ciqual_food_name:fr:Nouilles asiatiques cuites, aromatisées
 
 <en:Chinese noodles
-en:Cooked unsalted plain Asian noodles
-fr:Nouilles asiatiques cuites nature non salées
+en:Cooked unsalted plain Asian noodles, plain Asian noodles
+fr:Nouilles asiatiques cuites nature non salées, Nouilles asiatiques nature
 agribalyse_food_code:en:9086
 ciqual_food_code:en:9086
 ciqual_food_name:en:Asian noodles, plain, cooked, unsalted
@@ -62822,14 +62950,14 @@ ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
 <en:Biscuits
-en:Crispy biscuit (cookie) with chocolate reduced fat
+en:Crispy biscuit with reduced-fat chocolate, Crispy cookie with reduced-fat chocolate
 fr:Biscuit sec croquant au chocolat allégé en matière grasse
 agribalyse_food_code:en:24007
 ciqual_food_code:en:24007
 ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) with chocolate prepacked
+en:Biscuit with chocolate, cookie with chocolate
 fr:Biscuit sec au chocolat
 agribalyse_food_code:en:24036
 ciqual_food_code:en:24036
@@ -62889,7 +63017,7 @@ ciqual_food_name:en:Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr:Goûter sec fourré (sandwiché) parfum fruits
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) covering with a chocolate bar
+en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
 fr:Biscuit sec avec tablette de chocolat
 agribalyse_food_code:en:24016
 ciqual_food_code:en:24016
@@ -62897,7 +63025,7 @@ ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
 # Petit Ecolier
 
 <en:Biscuits and cakes
-en:Biscuit (cookie) chocolate covering
+en:Biscuit with chocolate covering, Cookie with chocolate covering
 fr:Biscuit sec avec nappage au chocolat
 agribalyse_food_code:en:24038
 ciqual_food_code:en:24038
@@ -63018,15 +63146,6 @@ agribalyse_food_code:en:39215
 ciqual_food_code:en:39215
 ciqual_food_name:en:Floating island (meringue poached in milk and served in a light custard cream), refrigerated
 ciqual_food_name:fr:Ile flottante, rayon frais
-
-<en:Pastries
-<en:Desserts
-en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
-fr:Crème brûlée rayon frais
-agribalyse_food_code:en:39213
-ciqual_food_code:en:39213
-ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
-ciqual_food_name:fr:Crème brûlée, rayon frais
 
 <en:Pastries
 <en:Desserts
@@ -64306,6 +64425,7 @@ ciqual_food_name:fr:Fruits de mer, cuits, surgelés
 
 <en:Seafood
 en:Armenian sea products
+fr:Produits de la mer arméniens
 
 <en:Armenian sea products
 hy:ՍԵՒԱՆԻ ԻՇԽԱՆ, SEVANI ISHKHAN
@@ -64327,6 +64447,7 @@ origins:en: en:Belgium
 
 <en:Seafood
 en:Brazilian sea products
+fr:Produits de la mer brésiliens
 
 <en:Brazilian sea products
 <en:Shrimps
@@ -64337,9 +64458,11 @@ origins:en: en:Brazil
 
 <en:Seafood
 en:British sea products
+fr:Produits de la mer britanniques
 
 <en:Seafood
 en:Hungarian sea products
+fr:Produits de la mer hongrois
 
 <en:Hungarian sea products
 hu:Szegedi tükörponty
@@ -64366,22 +64489,22 @@ protected_name_type:en: pdo
 origins:en: en:Hungary
 
 <en:Fishes
-en:Raw tilapia
-fr:Tilapia cru
+en:Tilapia
+fr:Tilapia
 ciqual_food_code:en:27019
 ciqual_food_name:en:Tilapia, raw
 ciqual_food_name:fr:Tilapia, cru
 
 <en:Fishes
-en:Raw lump fish
-fr:Lompe crue
+en:Lump fish
+fr:Lompe
 ciqual_food_code:en:26168
 ciqual_food_name:en:Lump fish, raw
 ciqual_food_name:fr:Lompe, crue
 
 <en:Fishes
-en:Raw sturgeon
-fr:Esturgeon cru
+en:Sturgeon
+fr:Esturgeon
 ciqual_food_code:en:27012
 ciqual_food_name:en:Sturgeon, raw
 ciqual_food_name:fr:Esturgeon, cru
@@ -64401,20 +64524,20 @@ ciqual_food_name:en:European whitefish, raw
 ciqual_food_name:fr:Corégone lavaret, cru
 
 <en:Fishes
+en:Spiny scorpionfish
+fr:Rascasse
+agribalyse_food_code:en:26063
+ciqual_food_code:en:26063
+ciqual_food_name:en:Spiny scorpionfish, raw
+ciqual_food_name:fr:Rascasse, crue
+
+<en:Spiny scorpionfish
 en:Steamed spiny scorpionfish
 fr:Rascasse cuite à la vapeur
 agribalyse_food_code:en:26148
 ciqual_food_code:en:26148
 ciqual_food_name:en:Spiny scorpionfish, steamed
 ciqual_food_name:fr:Rascasse, cuite à la vapeur
-
-<en:Fishes
-en:Raw spiny scorpionfish
-fr:Rascasse crue
-agribalyse_food_code:en:26063
-ciqual_food_code:en:26063
-ciqual_food_name:en:Spiny scorpionfish, raw
-ciqual_food_name:fr:Rascasse, crue
 
 <en:Fishes
 en:Cooked ling
@@ -64425,32 +64548,32 @@ ciqual_food_name:en:Ling, cooked
 ciqual_food_name:fr:Julienne ou Lingue, cuite
 
 <en:Fishes
-en:Raw ling
-fr:Julienne crue, Lingue crue
+en:ling
+fr:Julienne, Lingue
 agribalyse_food_code:en:26130
 ciqual_food_code:en:26130
 ciqual_food_name:en:Ling, raw
 ciqual_food_name:fr:Julienne ou Lingue, crue
 
 <en:Fishes
-en:Raw blue ling
-fr:Lingue bleue crue
+en:blue ling
+fr:Lingue bleue
 agribalyse_food_code:en:26194
 ciqual_food_code:en:26194
 ciqual_food_name:en:Blue ling, raw
 ciqual_food_name:fr:Lingue bleue ou Lingue, crue
 
 <en:Fishes
-en:Raw common dentex
-fr:Denté cru
+en:Common dentex
+fr:Denté
 agribalyse_food_code:en:26103
 ciqual_food_code:en:26103
 ciqual_food_name:en:Common dentex, raw
 ciqual_food_name:fr:Denté, cru
 
 <en:Fishes
-en:Raw John Dory
-fr:Saint-Pierre cru
+en:John Dory
+fr:Saint-Pierre
 agribalyse_food_code:en:26104
 ciqual_food_code:en:26104
 ciqual_food_name:en:John dory, raw
@@ -64757,6 +64880,7 @@ wikidata:en:Q4784939
 
 <en:Seafood
 en:Chinese sea products
+fr:Produits de la mer chinois
 
 <en:Chinese sea products
 <en:Lobsters
@@ -64795,6 +64919,7 @@ ciqual_food_name:fr:Langouste, crue
 
 <en:Seafood
 en:Finnish sea products
+fr:Produits de la mer finnois
 
 <en:Finnish sea products
 fi:Puruveden muikku
@@ -64810,6 +64935,7 @@ origins:en: en:Finland
 
 <en:Meat-based products
 en:Norwegian sea products
+fr:Produits de la mer norvégiens
 
 <en:Norwegian sea products
 no:Tørrfisk fra Lofoten
@@ -64830,6 +64956,7 @@ origins:en: en:Portugal
 
 <en:Seafood
 en:Romanian sea products
+fr:Produits de la mer roumains
 
 <en:Romanian sea products
 ro:Salată tradițională cu icre de crap
@@ -64854,7 +64981,6 @@ ro:Novac afumat din Ţara Bârsei
 protected_name_file_number:en: PGI-RO-01183
 protected_name_type:en: pgi
 origins:en: en:Romania
-
 
 <en:Seafood
 en:Spanish sea products
@@ -65043,7 +65169,7 @@ ciqual_food_code:en:10021
 ciqual_food_name:en:Shrimp or prawn, raw
 ciqual_food_name:fr:Crevette, crue
 
-<en:Shrimps
+<en:Raw shrimps
 <en:Frozen seafood
 en:Raw frozen shrimps
 fr:Crevettes crues surgelées
@@ -65079,6 +65205,10 @@ en:Northern prawns, Pandalus borealis
 fr:Crevettes nordiques, Crevette nordique, Crevette nordique du Canada, Pandalus borealis
 it:Gamberetti boreali
 nl:Pandalis Borealis
+
+<en:Shrimps
+en:Pacific shrimps
+fr:Crevettes du Pacifique
 
 <en:Shrimps
 <en:skewers
@@ -65260,21 +65390,34 @@ fr:Acras de morue, Accras de morue, acras de cabillaud
 it:Frittelle di merluzzo, Frittelle di baccalà
 nl:Kabeljauwacra
 wikidata:en:Q12860188
+agribalyse_proxy_food_code:en:26028
+agribalyse_proxy_food_name:en:Fish, croquette, fritter or nuggets, fried
 
 <en:Fish preparations
-en:Fish croquette fritter, nuggets fried
-fr:Croquettes de poisson, beignet de poisson frit, nuggets de poisson frit
+en:Fried fish croquette, Fried fish fritter, Fried fish nuggets
+fr:Croquettes de poisson frites, beignet de poisson frit, nuggets de poisson frit
 agribalyse_food_code:en:26028
 ciqual_food_code:en:26028
 ciqual_food_name:en:Fish, croquette, fritter or nuggets, fried
 
-<en:Fish preparations
-en:Meat poultry or fish fritters home-made
-fr:nuggets fait maisons
+<en:Meat preparations
+en:Home-made meat fritters
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
+#<en:Poultry preparations
+<en:Meat preparations
+en:Home-made poultry fritters
+agribalyse_food_code:en:25551
+ciqual_food_code:en:25551
+ciqual_food_name:en:Meat, poultry or fish fritters, home-made
+
+<en:Fish preparations
+en:Home made fish fritters
+agribalyse_food_code:en:25551
+ciqual_food_code:en:25551
+ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 <en:Breaded products
 <en:Fish preparations
@@ -65899,8 +66042,8 @@ ciqual_food_name:fr:Saumon, bouilli/cuit à l'eau, élevage
 
 <en:Salmons from farming
 <en:Cooked salmons
-en:Farmed salmon farmed roasted/baked
-fr:saumon d'élevage cuit au four
+en:Baked farmed salmons, Roasted farmed salmons
+fr:Saumons d'élevage cuit au four
 agribalyse_food_code:en:26230
 ciqual_food_code:en:26230
 ciqual_food_name:en:Salmon, farmed, roasted/baked
@@ -66187,6 +66330,7 @@ it:Salmoni affumicati d'allevamenti
 nl:Gerookte kweekzalm
 
 <en:Smoked salmons
+en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
 
 <en:Smoked salmons
@@ -66198,7 +66342,7 @@ fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumon
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
-#<en:British sea products
+<en:British sea products
 <en:Smoked salmons
 en:London Cure Smoked Salmon
 protected_name_file_number:en: PGI-GB-01350
@@ -66297,6 +66441,7 @@ fr:Marlins
 nl:Marlijn
 
 <en:Smoked fishes
+<en:Marlins
 en:Smoked marlins
 fr:Marlins fumés, marlin fumé
 nl:Geookte marlijn
@@ -66588,6 +66733,9 @@ es:Atún en aceite de oliva
 fr:Thons à l’huile d’olive
 it:Tonno sott'olio di oliva
 nl:Tonijn op olijfolie
+agribalyse_proxy_food_code:en:26179
+agribalyse_proxy_food_name:en:Albacore, in olive oil, canned, drained
+agribalyse_proxy_food_name:fr:Thon germon ou thon blanc, à l'huile d'olive, appertisé, égoutté
 
 <en:Tuna in olive oil
 es:atún claro en aceite de oliva
@@ -66609,6 +66757,19 @@ fr:Thons au naturel
 it:Tonno al naturale
 nl:Tonijn natuur
 
+<en:Tunas
+en:Albacore
+de:Weißer Thun
+es:Bonito del Norte
+fi:Valkotonnikalat
+fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
+la:Thunnus alalunga
+nl:Witte tonijn
+wikidata:en:Q239977
+agribalyse_food_code:en:26076
+ciqual_food_code:en:26076
+ciqual_food_name:en:Albacore, raw
+
 <en:Tuna in brine
 <en:Albacore
 fr:Thons blancs au naturel
@@ -66616,6 +66777,7 @@ it:Tonno bianco al naturale
 nl:Witte tonijn natuur
 
 <en:Albacore
+<en:Tuna in olive oil
 en:Canned drained albacore in olive oil
 fr:Thon germon à l'huile d'olive appertisé égoutté, Thon blanc à l'huile d'olive appertisé égoutté
 agribalyse_food_code:en:26179
@@ -66630,19 +66792,6 @@ agribalyse_food_code:en:26077
 ciqual_food_code:en:26077
 ciqual_food_name:en:Albacore, steamed under pressure
 ciqual_food_name:fr:Thon germon ou thon blanc, cuit à la vapeur sous pression
-
-<en:Tunas
-en:Albacore
-de:Weißer Thun
-es:Bonito del Norte
-fi:Valkotonnikalat
-fr:Thons blancs, Thons germon, thons blanc germon, germon, thon blanc germon
-la:Thunnus alalunga
-nl:Witte tonijn
-wikidata:en:Q239977
-agribalyse_food_code:en:26076
-ciqual_food_code:en:26076
-ciqual_food_name:en:Albacore, raw
 
 <en:Tunas
 es:atún claro
@@ -67418,11 +67567,17 @@ fr:Moules en conserve
 it:Mitili in scatola
 nl:Mossels in blik
 ro:Conserve de midii
+agribalyse_proxy_food_code:en:10028
+agribalyse_proxy_food_name:en:Mussel, canned, drained
+agribalyse_proxy_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
 en:Mussels with escabeche
 es:Mejillones en escabeche, Mejillon en escabeche
 fr:Moules à l'escabèche
+agribalyse_proxy_food_code:en:10081
+agribalyse_proxy_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
+agribalyse_proxy_food_name:fr:Moules à la sauce catalane ou escabèche (tomate), appertisée, égouttée
 
 <en:Canned mussels
 en:Canned drained mussels
@@ -67433,8 +67588,8 @@ ciqual_food_name:en:Mussel, canned, drained
 ciqual_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
-en:Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
-fr:Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
+en:Canned mussels in Catalan sauce, Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
+fr:Moules à la sauce catalane, Moules à la sauce escabèche, Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
 agribalyse_food_code:en:10081
 ciqual_food_code:en:10081
 ciqual_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
@@ -68076,7 +68231,7 @@ en:Apricot jams
 de:Aprikosen Konfitüren, Aprikosenkonfitüren
 es:Confituras de albaricoque
 fi:aprikoosihillot
-fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot
+fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot, Confiture d'abricot extra
 hu:Sárgabarack
 it:Confetture di albicocca
 nl:Abrikozenjams
@@ -68091,7 +68246,7 @@ en:Cherry jams
 de:Kirsche Konfitüren, Kirschmarmeladen
 es:Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
 fi:kirsikkahillot
-fr:Confitures de cerises
+fr:Confitures de cerises, Confiture de cerise extra
 hu:Cseresznye lekvár
 it:Confetture di ciliegie
 nl:Kersenjams
@@ -72710,9 +72865,18 @@ fr:Tomates pelées
 it:Pelati, Pomodori pelati
 nl:Geschilde tomaten
 pt:Tomates pelados
+agribalyse_proxy_food_code:en:20048
+agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
+agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
 fr:Chair de tomates
+
+<en:Peeled tomatoes
+fr:Tomates entières pelées au jus
+agribalyse_proxy_food_code:en:20048
+agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
+agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
 en:Canned drained peeled tomatoes
@@ -74127,6 +74291,9 @@ fi:purkitetut herneet ja porkkanat
 fr:Petits pois et carottes en conserve, Carottes et petits pois en conserve
 it:Piselli e carote in scatola
 nl:Doperwten met worteltjes in blik
+agribalyse_proxy_food_code:en:20093
+agribalyse_proxy_food_name:en:Garden peas and carrots, canned, drained
+agribalyse_proxy_food_name:fr:Petits pois et carottes, appertisés, égouttés
 
 <en:Canned peas and carrots
 en:Canned drained garden peas and carrots
@@ -77215,6 +77382,9 @@ uk:Креп
 vi:Bánh kếp
 wa:Vôte
 zh:可麗餅
+agribalyse_proxy_food_code:en:23799
+agribalyse_proxy_food_name:en:Crepe, plain, prepacked, refrigerated
+agribalyse_proxy_food_name:fr:Crêpe, nature, préemballée, rayon frais
 # atj:tekirep
 # bar:Palatschinken
 # chy:E'kôsé'haseo'o
@@ -77305,8 +77475,10 @@ ciqual_food_code:en:23821
 ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
 
-#ciqual_food_code:en:23829
-#ciqual_food_name:en:Crepe filled with chocolate, prepacked
+<en:Filled crêpes
+en:Prepacked crepe filled with chocolate
+ciqual_food_code:en:23829
+ciqual_food_name:en:Crepe filled with chocolate, prepacked
 
 <en:Filled crêpes
 en:Filled crêpes with jam, Home-made crepes filled with jam
@@ -77347,15 +77519,15 @@ ciqual_food_code:en:25409
 ciqual_food_name:en:Crepe, filled with ham
 
 <en:Crêpes and galettes
-en:Crepe or buckwheat crepe filled with cheese ham and bechamel sauce
+en:Crepe filled with cheese ham and bechamel sauce, buckwheat crepe filled with cheese ham and bechamel sauce
 fr:Galette fourrée béchamel jambon fromage
 agribalyse_food_code:en:25410
 ciqual_food_code:en:25410
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
 
 <en:Crêpes and galettes
-en:Crepe or buckwheat crepe filled with mushrooms and bechamel sauce cooked
-fr:Galette fourrée béchamel champignon cuite
+en:Crepe filled with mushrooms and bechamel sauce cooked, buckwheat crepe filled with mushrooms and bechamel sauce cooked
+fr:Galette fourrée béchamel champignon, Galette fourrée béchamel champignon cuite
 agribalyse_food_code:en:25581
 ciqual_food_code:en:25581
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel sauce, cooked
@@ -77566,6 +77738,7 @@ fr:Mousses de foie gras
 nl:Foie gras moussen
 
 <en:Foies gras
+en:Foies gras pâtés
 fr:Pâtés de foie gras
 
 <en:Plant-based foods
@@ -77613,6 +77786,7 @@ ciqual_food_name:en:Soy burger or vegetable escalope
 ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
+en:Tofu patties
 fr:Galettes de tofu, steaks de tofu
 
 <en:Veggie patties
@@ -77815,7 +77989,7 @@ ciqual_food_name:fr:Biscuit apéritif (aliment moyen)
 
 <en:Crackers
 en:Wheat crackers
-fr:Crackers de table au froment
+fr:Crackers au froment, Biscuits apéritifs au froment
 ciqual_food_code:en:7351
 ciqual_food_name:en:Wheat crackers
 ciqual_food_name:fr:Crackers de table au froment
@@ -77873,6 +78047,7 @@ ciqual_food_name:en:Salty snacks, puff pastry
 ciqual_food_name:fr:Biscuit apéritif feuilleté
 
 <en:Crackers
+en:Puffed salty snacks
 fr:Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
 nl:Gepofte zoutjes
 agribalyse_proxy_food_code:en:38108
@@ -77888,6 +78063,7 @@ ciqual_food_name:en:Salty snacks, crackers, reduced fat
 ciqual_food_name:fr:Biscuit apéritif, crackers, nature, allégé en matière grasse
 
 <en:Crackers
+en:Salty sesame snacks
 fr:Biscuits apéritifs au sésame
 
 <en:Crackers
@@ -77898,7 +78074,7 @@ ciqual_food_code:en:38401
 ciqual_food_name:en:Salty snacks, crackers, garnished or filled with cheese
 ciqual_food_name:fr:Biscuit apéritif, crackers, garni ou fourré, au fromage
 
-<fr:Biscuits apéritifs soufflés
+<en:Puffed salty snacks
 en:Puffed salty snacks made from maize, Puffed salty snacks made from corn
 fr:Biscuits apéritifs soufflés à base de maïs
 agribalyse_food_code:en:38400
@@ -77906,7 +78082,7 @@ ciqual_food_code:en:38400
 ciqual_food_name:en:Puffed salty snacks, made from maize/corn, without peanuts
 ciqual_food_name:fr:Biscuit apéritif soufflé, à base de maïs, sans cacahuète
 
-<fr:Biscuits apéritifs soufflés
+<en:Puffed salty snacks
 en:Puffed salty snacks made from maize with peanuts, Puffed salty snacks made from corn with peanuts
 fr:Biscuit apéritif soufflé à base de maïs à la cacahuète
 agribalyse_food_code:en:38404
@@ -77914,7 +78090,7 @@ ciqual_food_code:en:38404
 ciqual_food_name:en:Puffed salty snacks, made from maize/corn, with peanuts
 ciqual_food_name:fr:Biscuit apéritif soufflé, à base de maïs, à la cacahuète
 
-<fr:Biscuits apéritifs soufflés
+<en:Puffed salty snacks
 en:Puffed salty snacks made from potato
 fr:Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
 agribalyse_food_code:en:38106
@@ -77922,7 +78098,7 @@ ciqual_food_code:en:38106
 ciqual_food_name:en:Puffed salty snacks, made from potato
 ciqual_food_name:fr:Biscuit apéritif soufflé, à base de pomme de terre
 
-<fr:Biscuits apéritifs soufflés
+<en:Puffed salty snacks
 en:Puffed salty snacks made from potato and soy
 fr:Biscuit apéritif soufflé à base de pomme de terre et de soja
 agribalyse_food_code:en:38108
