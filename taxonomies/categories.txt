@@ -23435,6 +23435,9 @@ fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine crou
 it:Fette biscottate
 nl:Crackers, Cracker
 wikidata:en:Q251981
+agribalyse_proxy_food_code:en:7410
+agribalyse_proxy_food_name:en:Crispbread, extruded and grilled
+agribalyse_proxy_food_name:fr:Tartine craquante, extrudée et grillée
 
 <en:Crispbreads
 en:Extruded and grilled crispbread
@@ -23451,6 +23454,7 @@ agribalyse_food_code:en:7412
 ciqual_food_code:en:7412
 ciqual_food_name:en:Biscuit, extruded and grilled, chocolate filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée au chocolat
+#Example: Cracottes chocolat
 
 <en:Crispbreads
 en:Extruded and grilled biscuits with fruits filling
@@ -23459,6 +23463,7 @@ agribalyse_food_code:en:7413
 ciqual_food_code:en:7413
 ciqual_food_name:en:Biscuit, extruded and grilled, fruits filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée aux fruits
+# Example: Cracottes fraises
 
 <en:Breads
 <en:Products without gluten
@@ -25128,6 +25133,9 @@ de:Calissons
 fr:Calissons
 it:Calissons
 nl:Calissons
+agribalyse_proxy_food_code:en:31092
+agribalyse_proxy_food_name:en:Melon and almond Candy on a unleavened bread layer
+agribalyse_proxy_food_name:fr:Calissons d'Aix en Provence
 
 <en:Calissons
 en:Calissons d'Aix, Calissons of Aix, Melon and almond candy on a unleavened bread layer
@@ -34338,7 +34346,7 @@ en:Spelt milks, Spelt drinks
 de:Dinkelmilch, Dinkelmilche, Dinkelmilchen, Dinkel-Drinks, Dinkel-Drink, Dinkeldrink, Dinkeldrinks
 es:Bebidas de espelta, Leches de espelta
 fi:Spelttijuomat, Spelttimaidot
-fr:Boissons végétales d'épeautre, Laits d’épeautre, Laits d’Épeautre
+fr:Boissons végétales d'épeautre, Laits d’épeautre, Laits d’Épeautre, Boissons à l'épeautre, Boissons d'épeautre
 it:Bevanda di farro
 nl:Speltdranken
 
@@ -35008,7 +35016,7 @@ ciqual_food_code:en:19539
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
 
-<en:Bifidus yogurts
+<en:Plain bifidus yogurts
 en:Sweetened plain bifidus yogurts, Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
 fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
 agribalyse_food_code:en:19546
@@ -63616,14 +63624,23 @@ ciqual_food_name:en:Fruit pie with confectioner's custard
 ciqual_food_name:fr:Tarte aux fruits et crème pâtissière
 
 <en:Sweet pies
-en:Fruit tarts, Fruit pies
-fr:Tartes aux fruits, Tartelettes aux fruits
+<en:Tartlets
+en:Fruit tarts
+fr:Tartelettes aux fruits
 agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
 ciqual_food_name:en:Fruit tart
 ciqual_food_name:fr:Tarte ou tartelette aux fruits
 
 <en:Sweet pies
+en:Fruit pies
+fr:Tartes aux fruits
+agribalyse_food_code:en:23499
+ciqual_food_code:en:23499
+ciqual_food_name:en:Fruit tart
+ciqual_food_name:fr:Tarte ou tartelette aux fruits
+
+<en:Fruit tarts
 en:Lemon tarts, Lemon pies, Lemon tart
 de:Zitronentörtchen
 fi:sitruunaleivokset
@@ -63667,7 +63684,7 @@ fr:Tartes au sucre, Tarte au sucre
 nl:Taarten met suiker
 wikidata:en:Q3515853
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Apricot pies, Apricots tart
 de:Aprikosenkuchen, Marillenkuchen
 fr:Tartes aux abricots, Tartes à l'abricot, Tarte aux abricots, Tarte à l'abricot
@@ -63677,7 +63694,7 @@ ciqual_food_code:en:23494
 ciqual_food_name:en:Apricots tart
 ciqual_food_name:fr:Tarte aux abricots
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Raspberry pies, Raspberry tarts
 de:Himbeerkuchen
 fi:Vadelmapiirakat, Vadelmatortut
@@ -63692,14 +63709,14 @@ ciqual_food_code:en:23009
 ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr:Fraisier ou framboisier
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Blueberry pies, blueberry pie
 fi:Mustikkapiirakat, mustikkapiirakka
 fr:Tartes aux myrtilles, Tartes à la myrtille, Tarte aux myrtilles, Tarte à la myrtille
 nl:Bosbestaart
 n:Bosbessentaarten
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Strawberry pies
 de:Erdbeerkuchen
 fr:Tartes aux fraises, tartes à la fraise, tarte aux fraises, tarte à la fraise
@@ -63742,7 +63759,7 @@ ciqual_food_code:en:23496
 ciqual_food_name:en:Tatin tart (caramelized upside-down apple tart)
 ciqual_food_name:fr:Tarte Tatin aux pommes
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Strawberry tart, Strawberries tart
 fr:Tartes aux fraises
 agribalyse_food_code:en:23491
@@ -63750,14 +63767,14 @@ ciqual_food_code:en:23491
 ciqual_food_name:en:Strawberries tart
 ciqual_food_name:fr:Tarte aux fraises
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Pear pies
 de:Birnenkuchen
 fr:Tartes aux poires, Tarte aux poires, Tartes à la poire, Tarte à la poire
 nl:Peertaarten
 
-<en:Sweet pies
-en:Peer tart with almonds
+<en:Pear pies
+en:Pear tart with almonds
 fr:Tarte aux poires amandine
 agribalyse_food_code:en:24663
 ciqual_food_code:en:24663
@@ -63802,11 +63819,14 @@ ciqual_food_code:en:23497
 ciqual_food_name:en:Chocolate tart from bakery
 
 <en:Tartlets
+en:Fruit tartlets
+
+<en:Fruit tartlets
 en:Blueberry tartlets
 fr:Tartelettes à la myrtille, tartelette à la myrtille
 it:Tortini di mirtilli
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Strawberry tartlets
 de:Erdbeer Törtchen
 es:Tartaletas De Fresas
@@ -63814,34 +63834,34 @@ fr:Tartelettes à la fraise, Tartelettes aux fraises, tartelette à la fraise, T
 it:Tortini alle fragole
 nl:Aardbeientaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Raspberry tartlets
 de:Himbeer Törtchen
 fr:Tartelettes à la framboise
 it:Tortini di lampone
 nl:Frambozentaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Apricot tartlets
 es:Tartaletas de albaricoque
 fr:Tartelettes à l'abricot
 it:Tortini all'albicocca
 nl:Abrikozentaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Lemon tartlets
 de:Zitronentörtchen
 fr:Tartelettes au citron
 it:Crostatina al limone
 nl:Citroentaartjes
 
-<en:Tartlets
-fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
-
-<en:Tartlets
+<en:Fruit tartlets
 en:Pear tartlets
 fr:Tartelettes à la poire
 nl:Peertaartjes
+
+<en:Tartlets
+fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
 
 <en:Tartlets
 en:Biscuit (small tart) with chocolate pre-packed
@@ -66410,6 +66430,9 @@ nl:Gerookte kweekzalm
 <en:Smoked salmons
 en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
+
+<en:Smoked salmons
+fr:Saumons fumés d'Ecosse
 
 <en:Smoked salmons
 en:Wild smoked salmons
