@@ -6638,8 +6638,16 @@ ciqual_food_name:en:Instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, instantané, non sucré, prêt à boire
 
 <en:Instant coffees
-en:Instant powder for coffee with milk, Instant powder for cappuccino with chocolate
-fr:Café au lait en poudre soluble, Cappuccino au chocolat en poudre soluble
+en:Instant powder for cappuccino with chocolate
+fr:Cappuccino au chocolat en poudre soluble
+agribalyse_food_code:en:18163
+ciqual_food_code:en:18163
+ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
+ciqual_food_name:fr:Café au lait ou cappuccino au chocolat, poudre soluble
+
+<en:Instant coffees
+en:Instant powder for coffee with milk
+fr:Café au lait en poudre soluble
 agribalyse_food_code:en:18163
 ciqual_food_code:en:18163
 ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
@@ -47264,6 +47272,14 @@ es:Clavos enteros, Clavo entero
 nl:Hele kruidnagels
 
 <en:Spices
+fr:Curry, kari
+de:Curry
+nl:Curry
+agribalyse_proxy_food_code:en:11005
+agribalyse_proxy_food_name:en:Curry, powder
+agribalyse_proxy_food_name:fr:Curry, poudre
+
+<fr:Curry
 en:Curry powder
 es:Curry en polvo
 fr:Curry en poudre, Poudre de curry
@@ -47937,12 +47953,6 @@ agribalyse_food_code:en:20151
 ciqual_food_code:en:20151
 ciqual_food_name:en:Chili pepper, raw
 ciqual_food_name:fr:Piment, cru
-
-
-<en:Spices
-fr:Curry, kari
-de:Curry
-nl:Curry
 
 <en:Peppers
 en:Gray peppers
@@ -48767,6 +48777,7 @@ fr:Moutardes au cassis
 nl:Cassismosterds
 
 <en:Mustards
+en:Curry mustards
 fr:Moutardes au curry
 
 <en:Mustards
@@ -48784,6 +48795,7 @@ wikidata:en:Q204226
 
 <en:Mustards
 en:French mustards
+fr:Moutardes françaises
 
 <en:French mustards
 fr:Moutarde de Bourgogne
