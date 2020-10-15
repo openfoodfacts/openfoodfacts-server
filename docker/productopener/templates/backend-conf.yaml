@@ -75,6 +75,7 @@ data:
 
     		$mongodb
     		$mongodb_host
+    		$mongodb_timeout_ms
 
     		$memd_servers
 
@@ -245,6 +246,7 @@ data:
     @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
     $mongodb = $ProductOpener::Config2::mongodb;
     $mongodb_host = $ProductOpener::Config2::mongodb_host;
+    $mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
     $memd_servers = $ProductOpener::Config2::memd_servers;
 
     # server paths
@@ -528,6 +530,7 @@ data:
         $geolite2_path
     		$mongodb
         $mongodb_host
+        $mongodb_timeout_ms
         $memd_servers
     		$facebook_app_id
     	  $facebook_app_secret
@@ -552,6 +555,7 @@ data:
 
     $mongodb = "off";
     $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";
+    $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
     $memd_servers = [ "{{ .Release.Name }}-memcached:11211" ];
 
