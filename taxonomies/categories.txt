@@ -62769,16 +62769,16 @@ nl:Chinese eiernoedels
 zh:中式鸡蛋面
 
 <en:Chinese noodles
-en:Flavoured cooked Asian noodles
-fr:Nouilles asiatiques cuites aromatisées
+en:Flavoured cooked Asian noodles, Flavoured chinese noodles
+fr:Nouilles asiatiques cuites aromatisées, Nouilles asiatiques aromatisées
 agribalyse_food_code:en:9085
 ciqual_food_code:en:9085
 ciqual_food_name:en:Asian noodles, flavoured, cooked
 ciqual_food_name:fr:Nouilles asiatiques cuites, aromatisées
 
 <en:Chinese noodles
-en:Cooked unsalted plain Asian noodles
-fr:Nouilles asiatiques cuites nature non salées
+en:Cooked unsalted plain Asian noodles, plain Asian noodles
+fr:Nouilles asiatiques cuites nature non salées, Nouilles asiatiques nature
 agribalyse_food_code:en:9086
 ciqual_food_code:en:9086
 ciqual_food_name:en:Asian noodles, plain, cooked, unsalted
@@ -62928,7 +62928,7 @@ ciqual_food_code:en:24007
 ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
 
 <en:Biscuits and cakes
-en:Biscuit with chocolate prepacked, cookie with chocolate prepacked
+en:Biscuit with chocolate, cookie with chocolate
 fr:Biscuit sec au chocolat
 agribalyse_food_code:en:24036
 ciqual_food_code:en:24036
@@ -77353,6 +77353,9 @@ uk:Креп
 vi:Bánh kếp
 wa:Vôte
 zh:可麗餅
+agribalyse_proxy_food_code:en:23799
+agribalyse_proxy_food_name:en:Crepe, plain, prepacked, refrigerated
+agribalyse_proxy_food_name:fr:Crêpe, nature, préemballée, rayon frais
 # atj:tekirep
 # bar:Palatschinken
 # chy:E'kôsé'haseo'o
@@ -77443,8 +77446,10 @@ ciqual_food_code:en:23821
 ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
 
-#ciqual_food_code:en:23829
-#ciqual_food_name:en:Crepe filled with chocolate, prepacked
+<en:Filled crêpes
+en:Prepacked crepe filled with chocolate
+ciqual_food_code:en:23829
+ciqual_food_name:en:Crepe filled with chocolate, prepacked
 
 <en:Filled crêpes
 en:Filled crêpes with jam, Home-made crepes filled with jam
@@ -77704,6 +77709,7 @@ fr:Mousses de foie gras
 nl:Foie gras moussen
 
 <en:Foies gras
+en:Foies gras pâtés
 fr:Pâtés de foie gras
 
 <en:Plant-based foods
@@ -77751,6 +77757,7 @@ ciqual_food_name:en:Soy burger or vegetable escalope
 ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
+en:Tofu patties
 fr:Galettes de tofu, steaks de tofu
 
 <en:Veggie patties
@@ -77953,7 +77960,7 @@ ciqual_food_name:fr:Biscuit apéritif (aliment moyen)
 
 <en:Crackers
 en:Wheat crackers
-fr:Crackers de table au froment
+fr:Crackers au froment, Biscuits apéritifs au froment
 ciqual_food_code:en:7351
 ciqual_food_name:en:Wheat crackers
 ciqual_food_name:fr:Crackers de table au froment
@@ -78026,6 +78033,7 @@ ciqual_food_name:en:Salty snacks, crackers, reduced fat
 ciqual_food_name:fr:Biscuit apéritif, crackers, nature, allégé en matière grasse
 
 <en:Crackers
+en:Salty sesame snacks
 fr:Biscuits apéritifs au sésame
 
 <en:Crackers
