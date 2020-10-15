@@ -6783,6 +6783,9 @@ wikidata:en:Q264554
 ciqual_food_code:en:18046
 ciqual_food_name:en:Water, mineral, carbonated, bottled (average)
 ciqual_food_name:fr:Eau minérale, gazeuse (aliment moyen)
+agribalyse_proxy_food_code:en:76096
+agribalyse_proxy_food_name:en:Mineral sparkling water (Vals), bottled, averagely mineralized
+agribalyse_proxy_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyennement minéralisée (Vals-les-Bains, 07)
 
 <en:Waters
 <en:Spring waters
@@ -6809,6 +6812,7 @@ ciqual_food_name:fr:Eau minérale (aliment moyen)
 agribalyse_proxy_food_code:en:76000
 agribalyse_proxy_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
 agribalyse_proxy_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
+# In case we want to re-add granularity: https://github.com/openfoodfacts/openfoodfacts-server/pull/4336/files
 
 <en:Mineral waters
 en:Low mineral bottled waters, Bottled waters with low mineralization levels
@@ -6828,6 +6832,9 @@ it:Acqua minerale frizzante, Acqua minerale gassata, Acqua minerale gasata
 nl:Koolzuurhoudende mineraalwaters
 pl:woda mineralna gazowana
 ru:Газированная минеральная вода, Минеральная газированная вода
+agribalyse_proxy_food_code:en:76096
+agribalyse_proxy_food_name:en:Mineral sparkling water (Vals), bottled, averagely mineralized
+agribalyse_proxy_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyennement minéralisée (Vals-les-Bains, 07)
 
 <en:Spring waters
 <en:Mineral waters
@@ -6946,7 +6953,6 @@ fi:Maustetut porevedet
 fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
 it:Acque gassate aromatizzate, acqua aromatizzata gassata
 nl:Mineraalwater met smaak
-
 
 <en:Flavored bottled water
 en:Bottled water flavoured with sugar
@@ -38485,6 +38491,9 @@ hu:Hal olaj
 it:Olio di pesce
 nl:Visoliën
 zh:鱼油
+agribalyse_proxy_food_code:en:17640
+agribalyse_proxy_food_name:en:Sardine oil
+agribalyse_proxy_food_name:fr:Huile de sardine
 
 <en:Animal fats
 en:Butter fat
@@ -39173,11 +39182,12 @@ zh:核桃油
 wikidata:en:Q1434098
 ciqual_food_code:en:17220
 ciqual_food_name:en:Walnut oil
-
-#en:French oils
+agribalyse_proxy_food_code:en:17210
+agribalyse_proxy_food_code:en:17210
+agribalyse_proxy_food_name:en:Hazelnut oil
+#TODO validate proxy
 
 <en:Walnut oils
-#<en:French oils
 fr:Huile de noix du Périgord
 protected_name_file_number:en: PDO-FR-02445
 protected_name_type:en: pdo
@@ -39203,6 +39213,9 @@ sv:Olivoljor, olivolja
 th:น้ำมันมะกอก
 zh:橄榄油
 wikidata:en:Q93165
+agribalyse_proxy_food_code:en:17270
+agribalyse_proxy_food_name:en:Olive oil, extra virgin
+agribalyse_proxy_food_name:fr:Huile d'olive vierge extra
 
 <en:Olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
