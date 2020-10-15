@@ -27241,15 +27241,15 @@ ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel
 ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel champignon
 
 <en:Meals
-en:Crepe or buckwheat crepe filled with egg ham and cheese
-fr:Crêpe ou Galette complète (œuf jambon fromage)
+en:Crepe filled with egg ham and cheese, buckwheat crepe filled with egg ham and cheese
+fr:Crêpe complète, Galette complète, Crêpe œuf jambon fromage, Galette œuf jambon fromage
 agribalyse_food_code:en:25562
 ciqual_food_code:en:25562
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with egg, ham and cheese
 
 <en:Meals
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
-fr:Crêpe ou Galette fourrée béchamel fromage
+fr:Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
 agribalyse_food_code:en:25549
 ciqual_food_code:en:25549
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese and bechamel sauce
@@ -27286,7 +27286,6 @@ agribalyse_food_code:en:25071
 ciqual_food_code:en:25071
 ciqual_food_name:en:Pork sausage stew with cabbage, carrots and potatoes
 ciqual_food_name:fr:Potée auvergnate (chou et porc)
-
 
 <en:Meals
 en:Stuffed cabbage
@@ -51498,6 +51497,10 @@ ciqual_food_code:en:25538
 ciqual_food_name:en:Beef carpaccio, w marinade
 ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
 
+<en:Beef dishes
+en:Beef pastrami
+fr:Pastrami de bœuf
+
 <en:Meals with meat
 en:Pork meals
 ca:Aliments del porc
@@ -61791,7 +61794,7 @@ fr:Pâtes aux œufs, Pâtes alimentaires aux œufs
 it:Paste all'uovo
 nl:Eierpastas, eierpasta
 
-<en:Pastas
+<en:Dry pastas
 en:Dried raw pasta
 fr:Pâtes sèches crues
 it:Pasta cruda essiccata
@@ -61800,7 +61803,7 @@ ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
 
-<en:Pastas
+<en:Dry pastas
 en:Cooked unsalted dried pasta
 fr:Pâtes sèches cuites non salées
 agribalyse_food_code:en:9811
@@ -77511,6 +77514,9 @@ ciqual_food_code:en:23801
 ciqual_food_name:en:Buckwheat crepe, plain, prepacked
 ciqual_food_name:fr:Galette de sarrasin, nature, préemballée
 
+<en:Galettes
+fr:Galettes au chèvre et aux lardons
+
 en:Fish and meat and eggs, Fish meat eggs
 ca:Peix carn i ous
 de:Fisch und Fleisch und Eier, Fisch Fleisch Eier
@@ -77818,6 +77824,21 @@ fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
 it:Gallette di cereali
 nl:Graanwafels
+agribalyse_proxy_food_code:en:7353
+agribalyse_proxy_food_name:en:Puffed cereals textured bread
+agribalyse_proxy_food_name:fr:Galettes multicéréales soufflées
+
+<en:Puffed cereal cakes
+en:Puffed multigrain cakes, Puffed cereals textured bread
+de:Gepuffte Vollkornkuchen
+es:Tortitas multicereales, Tortitas de varios cereales
+fr:Galettes multicéréales soufflées, Galettes muticéréales
+it:Torte di multicereali soffiati
+nl:Meergranen wafels
+agribalyse_food_code:en:7353
+ciqual_food_code:en:7353
+ciqual_food_name:en:Puffed cereals textured bread
+ciqual_food_name:fr:Galettes multicéréales soufflées
 
 <en:Puffed cereal cakes
 en:Puffed corn cakes
@@ -77927,18 +77948,6 @@ es:Tortitas de trigo de Jorasán, Tortitas de Kamut
 fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 it:Torte di grano Khorasan soffiato
 nl:Kamutwafels
-
-<en:Puffed cereal cakes
-en:Puffed multigrain cakes, Puffed cereals textured bread
-de:Gepuffte Vollkornkuchen
-es:Tortitas multicereales, Tortitas de varios cereales
-fr:Galettes multicéréales soufflées, Galettes muticéréales
-it:Torte di multicereali soffiati
-nl:Meergranen wafels
-agribalyse_food_code:en:7353
-ciqual_food_code:en:7353
-ciqual_food_name:en:Puffed cereals textured bread
-ciqual_food_name:fr:Galettes multicéréales soufflées
 
 
 <en:Appetizers
