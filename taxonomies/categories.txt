@@ -50586,6 +50586,8 @@ agribalyse_food_code:en:22003
 ciqual_food_code:en:22003
 ciqual_food_name:en:Egg yolk, powder
 
+# "Sushi and Maki" doesn't make sense. Maki is a subset of sushi. Is "sushi" being used to mean "nigiri"?
+# Also, sashimi is missing, so perhaps the parent category should be "sushi and sashimi".
 <en:Meals
 en:Sushis and makis, Sushi and Maki
 de:Sushis und Maki-Sushis
@@ -50606,6 +50608,8 @@ it:Sushi
 ja:すし, 寿司, 鮨
 nl:Sushis
 zh:寿司
+wikidata:en:Q46383
+wikipedia:en:https://en.wikipedia.org/wiki/Sushi
 
 <en:Sushi
 en:Salmon sushis
@@ -50656,6 +50660,7 @@ de:Maki-Sushi, Maki
 es:Makis
 fr:Makis
 nl:Maki
+wikidata:en:Q5739461
 
 <en:Maki
 en:Californian makis
