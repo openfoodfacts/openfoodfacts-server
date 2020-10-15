@@ -163,6 +163,7 @@ my %may_contain_regexps = (
 	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
+	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
 	sk => "Môže obsahovať",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
@@ -2881,7 +2882,7 @@ pl => [
 ],
 
 pt => [
-'conservar em local fresco',
+'conservar em local (seco e )?fresco',
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',

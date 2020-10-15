@@ -5695,9 +5695,14 @@ fr:présure de veau
 nl:kalfsstremsel
 # fr:présure-de-veau has 40 products in 2 languages @2019-07-08
 
+<en:rennet
+en:vegetarian rennet
+vegan:en:yes
+vegetarian:en:yes
+
 # description:en:Some molds such as Rhizomucor miehei are able to produce proteolytic enzymes. Cheeses produced this way are suitable for vegetarians, provided no animal-based alimentation was used during the production.
 
-<en:rennet
+<en:vegetarian rennet
 en:microbial rennet
 da:mikrobiel osteløbe, mikrobiel løbe
 de:mikrobielles Lab
@@ -5714,7 +5719,7 @@ sv:mikrobiell ostlöpe, mikrobiellt ystenzym, mikrobiellt löpe
 vegan:en:yes
 vegetarian:en:yes
 
-<en:rennet
+<en:vegetarian rennet
 en:vegetable rennet
 da:vegetabilsk osteløbe
 fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
@@ -18902,6 +18907,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
 
 <en:balsamic vinegar
 en:balsamic vinegar of modena, modena balsamic vinegar
+de:Balsamessig aus Modena
 fr:vinaigre balsamique de modène
 it:aceto balsamico di modena
 wikidata:en:Q3604285
@@ -21506,7 +21512,7 @@ it:aroma naturale di vaniglia, aroma naturale vaniglia
 nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma, natuurlijk vanille aroma, natuurlijke vanille aroma
 pl:naturalny aromat wanilii, naturalny aromat waniliowy
-pt:aroma de baunilha natural, aromatizante de baunilha natural
+pt:aroma de baunilha natural, aromatizante de baunilha natural, aroma natural de baunilha
 sv:naturlig vaniljarom, naturlig vanilijarom
 vegan:en:yes
 vegetarian:en:yes
@@ -33281,6 +33287,9 @@ nl:bosvruchten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-des-bois
 # 35 products in 1 language @2018-09-29
 
+<en:fruit
+en:vine fruit, mixed vine fruit
+
 # description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 <en:fruit
@@ -33340,6 +33349,8 @@ it:frutta candita
 <en:fruit
 en:medlar, loquat
 es:nispero
+wikidata:en:Q7071497
+wikipedia:en:https://en.wikipedia.org/wiki/N%C3%ADspero
 
 <en:fruit
 fr:fruits exotiques
@@ -47978,7 +47989,7 @@ fr:haricots beurre
 
 <en:beans
 en:green bean, green beans
-da:grønner bønner
+da:grønne bønner, grønner bønner
 de:grüne bohnen
 es:judía verde, judías verdes
 fr:haricot vert, haricots verts
@@ -50111,7 +50122,7 @@ cerneaux de noix invalides
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-en:seed, seeds, seed blend, seed mix
+en:seed, seeds, seed blend, seed mix, mixed seeds
 af:Saad
 ak:aba
 an:Simient
@@ -52400,10 +52411,13 @@ es:fenogreco
 fi:sarviapila
 fr:fenugrec
 it:fieno greco
+la:Trigonella foenum-graecum
 nb:bukkehornkløver, bukkehornskløver
 nl:fenergriek
 pl:kozieradka, kozieradki
 sv:bockhornsklöver
+wikidata:en:Q133205
+wikipedia:en:https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
 
 <en:fenugreek
@@ -52418,6 +52432,11 @@ fr:feuille de fenugrec séchée
 nl:gedroogd fenegriekblad
 # en:dried-fenugreek-leaves has 6 products in 2 languages @2018-10-23
 
+<en:herb
+en:blue fenugreek
+la:Trigonella caerulea, Trigonella melilotus-caerulea
+wikidata:en:Q164849
+wikipedia:en:https://en.wikipedia.org/wiki/Trigonella_caerulea
 
 ###################################################################################################
 #
@@ -68632,6 +68651,10 @@ fr:œuf entier liquide, œufs entiers liquides, oeuf entier liquide, oeufs entie
 it:uovo intero liquido
 # ingredient/llwiquid-whole-egg has 131 products in 4 languages @2018-12-18
 
+<en:free range eggs
+<en:liquid whole egg
+en:liquid whole free range egg
+
 <en:liquid whole egg
 fr:oeuf entier liquide pasteurisé salé
 
@@ -68782,6 +68805,7 @@ sv:äggvitepulver, äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
 
 <en:egg white
+en:free range egg white
 nl:scharrelei-eiwit
 
 <en:chicken egg white
@@ -70412,6 +70436,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Noodle
 # ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
+
+<en:noodle
+en:rice noodles
+da:risnudler
+de:Reisnudeln
+es:fideos de arroz
+fr:nouilles de riz
+nl:rijstnoedels
+wikidata:en:Q1322949
+wikipedia:en:https://en.wikipedia.org/wiki/Rice_noodles
 
 
 <en:dough
