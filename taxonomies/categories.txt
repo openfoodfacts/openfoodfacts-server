@@ -33771,6 +33771,10 @@ agribalyse_proxy_food_name:fr:Lait de chèvre, entier, UHT
 <en:Goat milks
 en:Whole goat milk
 fr:Lait de chèvre entier
+agribalyse_food_code:en:19202
+ciqual_food_code:en:19202
+ciqual_food_name:en:Goat milk, whole, raw
+ciqual_food_name:fr:Lait de chèvre, entier, cru
 
 <en:Whole goat milk
 <en:UHT Milks
@@ -33794,14 +33798,6 @@ agribalyse_food_code:en:19201
 ciqual_food_code:en:19201
 ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
 ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
-
-<en:Goat milks
-en:Raw whole goat milk
-fr:Lait de chèvre entier cru
-agribalyse_food_code:en:19202
-ciqual_food_code:en:19202
-ciqual_food_name:en:Goat milk, whole, raw
-ciqual_food_name:fr:Lait de chèvre, entier, cru
 
 <en:Milks
 en:Sheep milks, Sheep milk, Ewe milk, Ewes milk, Sheep's milks, Sheep's milk, Whole sheep milk
@@ -33834,10 +33830,13 @@ it:Latte scremato
 nl:Magere melken
 pt:Leites desnatados, leite desnatado
 wikidata:en:Q2352187
+agribalyse_proxy_food_code:en:19050
+agribalyse_proxy_food_name:en:Milk, skimmed, UHT
+agribalyse_proxy_food_name:fr:Lait écrémé, UHT
 
 <en:UHT Milks
 <en:Skimmed milks
-en:Skimmed milks UHT
+en:UHT Skimmed milks
 fr:Laits écrémés UHT
 agribalyse_food_code:en:19050
 ciqual_food_code:en:19050
