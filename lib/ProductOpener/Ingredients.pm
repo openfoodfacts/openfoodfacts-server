@@ -4737,6 +4737,15 @@ sub detect_allergens_from_text($) {
 		$product_ref->{$field . "_from_ingredients"} = "";
 	}
 
+	# Remove ingredients_text_with_allergens_* fields
+	# they will be recomputed for existing ingredients languages
+
+	foreach my $field (keys %$product_ref) {
+		if ($field =~ /^ingredients_text_with_allergens/) {
+			delete $product_ref->{$field};
+		}
+	}
+
 	if (defined $product_ref->{languages_codes}) {
 
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
