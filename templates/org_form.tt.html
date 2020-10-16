@@ -10,68 +10,66 @@
     <p>[% lang('org_profile_description_2') %]</p>
 
     <form method="post" action="/cgi/org.pl" enctype="multipart/form-data">
-        <table>
-            [% IF admin %]
-                <tr><td colspan="2">
-					<label>
-						<input type="checkbox" name="delete" value="on" />
-						[% lang("delete_org") %]
-					</label>
-                </td></tr>
-            [% END %]
-            
-            [% FOREACH field IN fields %]
-            
-				<tr>
-					<td><label for="[% field.field %]">[% field.label %]</label></td>
-					<td>
-						[% IF field.description %]
-							<p>[% field.description %]</p>
-						[% END %]
-						[% IF field.type == 'text' %]
-							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
-						[% END %]
-						[% IF field.note %]
-							<p>[% field.note %]</p>
-						[% END %]						
-						
-						[% IF field.sub_fields %]
-							[% FOREACH sub_field IN field.sub_fields %]
-								<div class="row">
-									<div class="small-12 large-3 xlarge-2 columns">
-										<label for="[% field.field %]_[% sub_field.field %]">[% sub_field.label %]</label>
-									</div>
-									<div class="small-12 large-9 xlarge-10 columns">
-										[% IF sub_field.type == 'text' %]
-											<input type="text" id="[% field.field %]_[% sub_field.field %]" name="[% field.field %]_[% sub_field.field %]" value="[% sub_field.value %]" />
-										[% END %]
-										[% IF sub_field.type == 'textarea' %]
-											<textarea name="[% field.field %]_[% sub_field.field %]" style="height:100px;">[% sub_field.value %]</textarea>
-										[% END %]
-									</div>
-								</div>
-							[% END %]
-						[% END %]
-					</td>
-				</tr>
-            
-            [% END %]
-            
-            <tr>
-                <td>
-                    <input type="hidden" name="action" value="process"  />
-                    <input type="hidden" name="type" value="[% type %]"  />
-					<input type="hidden" name="orgid" value="[% orgid %]"  />
-                    <input type="submit" name=".submit" class="button" />
-                </td>
-            </tr>
-        </table>
+
+		[% IF admin %]
+			<div>
+				<label>
+					<input type="checkbox" name="delete" value="on" />
+					[% lang("delete_org") %]
+				</label>
+			</div>
+		[% END %]
+		
+		[% FOREACH section IN sections %]
+		
+			[% IF section.name %]
+				<fieldset>
+					<legend>[% section.name %]</legend>
+			[% END %]
+			
+			[% IF section.description %]
+				<p>[% section.description %]</p>
+			[% END %]
+			[% IF section.note %]
+				<p>[% section.note %]</p>
+			[% END %]
+
+			[% FOREACH field IN section.fields %]
+
+				[% IF field.description %]
+					<p>[% field.description %]</p>
+				[% END %]			
+			
+				<label for="[% field.field %]">[% field.label %]</label>
+
+				[% IF field.type == 'text' %]
+					<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
+				[% ELSIF field.type == 'textarea' %]
+					<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+				[% END %]
+				
+				[% IF field.note %]
+					<p>[% field.note %]</p>
+				[% END %]
+
+			[% END %]
+			
+			[% IF section.name %]
+				</fieldset>
+			[% END %]
+
+		[% END %]
+
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="[% type %]" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" />
     </form>
 
     <!-- End form -->
 
 [% ELSIF action == 'process' %]
     <p>[% result %]</p>
-    <p>&rar;r <a href="[% profile_url %]">[% profile_name %]</a></p>
+    <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
 

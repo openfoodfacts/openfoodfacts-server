@@ -136,71 +136,92 @@ if ($action eq 'display') {
 
 	$template_data_ref->{admin} = $admin;
 	
-	$template_data_ref->{fields} = [
+	# Create the list of sections and fields
+	
+	$template_data_ref->{sections} = [
 		{
-			field => "name",
-			type => "text",
-		},
-		{
-			field => "link",
-			type => "text",
-		},
+			fields => [
+				{
+					field => "name",
+				},
+				{
+					field => "link",
+				},
+			]
+		}
 	];
 	
 	foreach my $contact ("customer_service", "commercial_service") {
 		
-		my $contact_ref = {
-			field => $contact,
-			sub_fields => [
-				{ field => "name" },
-				{ field => "address", type => "textarea" },
-				{ field => "email" },
-				{ field => "link" },
-				{ field => "phone" },				
-				{ field => "info", type => "textarea"  },
+		push @{$template_data_ref->{sections}}, {
+			section => $contact,
+			fields => [
+				{ field => $contact . "_name" },
+				{ field => $contact . "_address", type => "textarea" },
+				{ field => $contact . "_email" },
+				{ field => $contact . "_link" },
+				{ field => $contact . "_phone" },				
+				{ field => $contact . "_info", type => "textarea"  },
 			],
 		};
+	}
+	
+	# Add labels, types, descriptions, notes and existing values for all fields
+	
+	foreach my $section_ref (@{$template_data_ref->{sections}}) {
 		
-		foreach my $field_ref (@{$contact_ref->{sub_fields}}) {
+		# Descriptions and notes for sections
+		if (defined $section_ref->{section}) {
+			if (lang("org_" . $section_ref->{section})) {
+				$section_ref->{name} = lang("org_" . $section_ref->{section});
+			}			
+			if (lang("org_" . $section_ref->{section} . "_description")) {
+				$section_ref->{description} = lang("org_" . $section_ref->{section} . "_description");
+			}
+			if (lang("org_" . $section_ref->{section} . "_note")) {
+				$section_ref->{note} = lang("org_" . $section_ref->{section} . "_note");
+			}
+		}
+		
+		foreach my $field_ref (@{$section_ref->{fields}}) {
+		
 			my $field = $field_ref->{field};
-			$field_ref->{label} = lang("contact_$field");
+			
 			# Default to text field
 			if (not defined $field_ref->{type}) {
 				$field_ref->{type} = "text";
 			}
 			
-			# Descriptions and notes for contact sub fields
-			if (lang("contact_${field}_description")) {
-				$field_ref->{description} = lang("contact_${field}_description");
-			}
-			if (lang("contact_${field}_note")) {
-				$field_ref->{note} = lang("contact_${field}_note");
-			}
+			# id to use for lang() strings
+			my $field_lang_id = $field;
 			
 			# Existing value
-			if ((defined $org_ref->{$contact}) and (defined $org_ref->{$contact}{$field})) {
-				$field_ref->{value} = $org_ref->{$contact}{$field};
+			
+			if ($field =~ /^(customer_service|commercial_service)_(.*)$/) {
+				
+				# Field names for phone etc.
+				$field_lang_id = "contact_" . $2;
+				
+				if ((defined $org_ref->{$1}) and (defined $org_ref->{$1}{$2})) {
+					$field_ref->{value} = $org_ref->{$1}{$2};
+				}
+			}
+			else { 
+				$field_ref->{value} = $org_ref->{$field};
+				
+				$field_lang_id = "org_" . $field;
+			}
+			
+			# Label
+			$field_ref->{label} = lang($field_lang_id);
+			
+			# Descriptions and notes for fields
+			if (lang($field_lang_id . "_description")) {
+				$field_ref->{description} = lang($field_lang_id . "_description");
+			}
+			if (lang($field_lang_id . "_note")) {
+				$field_ref->{note} = lang($field_lang_id . "_note");
 			}			
-		}
-		
-		push @{$template_data_ref->{fields}}, $contact_ref;
-	}
-	
-	foreach my $field_ref (@{$template_data_ref->{fields}}) {
-	
-		my $field = $field_ref->{field};
-		$field_ref->{label} = lang("org_$field");
-	
-		# Descriptions and notes for fields
-		if (lang("org_${field}_description")) {
-			$field_ref->{description} = lang("org_${field}_description");
-		}
-		if (lang("org_${field}_note")) {
-			$field_ref->{note} = lang("org_${field}_note");
-		}
-		
-		if (defined $org_ref->{$field}) {
-			$field_ref->{value} = $org_ref->{$field};
 		}
 	}
 }
