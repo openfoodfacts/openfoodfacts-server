@@ -15,6 +15,8 @@ synonyms:fi:hapatetut, fermentoidut
 
 synonyms:fr:premier cru, 1er cru
 
+synonyms:fr:sandwich club, sandwich triangle, sandwich pain de mie
+
 synonyms:ru:икра овощная, овощная икра
 
 synonyms:ru:икра из кабачков, кабачковая икра, икра кабачковая
@@ -6781,6 +6783,9 @@ wikidata:en:Q264554
 ciqual_food_code:en:18046
 ciqual_food_name:en:Water, mineral, carbonated, bottled (average)
 ciqual_food_name:fr:Eau minérale, gazeuse (aliment moyen)
+agribalyse_proxy_food_code:en:76096
+agribalyse_proxy_food_name:en:Mineral sparkling water (Vals), bottled, averagely mineralized
+agribalyse_proxy_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyennement minéralisée (Vals-les-Bains, 07)
 
 <en:Waters
 <en:Spring waters
@@ -6807,6 +6812,7 @@ ciqual_food_name:fr:Eau minérale (aliment moyen)
 agribalyse_proxy_food_code:en:76000
 agribalyse_proxy_food_name:en:Mineral still water (Abatilles), bottled, lightly mineralized
 agribalyse_proxy_food_name:fr:Eau minérale Abatilles, embouteillée, non gazeuse, faiblement minéralisée (Arcachon, 33)
+# In case we want to re-add granularity: https://github.com/openfoodfacts/openfoodfacts-server/pull/4336/files
 
 <en:Mineral waters
 en:Low mineral bottled waters, Bottled waters with low mineralization levels
@@ -6826,6 +6832,9 @@ it:Acqua minerale frizzante, Acqua minerale gassata, Acqua minerale gasata
 nl:Koolzuurhoudende mineraalwaters
 pl:woda mineralna gazowana
 ru:Газированная минеральная вода, Минеральная газированная вода
+agribalyse_proxy_food_code:en:76096
+agribalyse_proxy_food_name:en:Mineral sparkling water (Vals), bottled, averagely mineralized
+agribalyse_proxy_food_name:fr:Eau minérale Vals, embouteillée, gazeuse, moyennement minéralisée (Vals-les-Bains, 07)
 
 <en:Spring waters
 <en:Mineral waters
@@ -6944,7 +6953,6 @@ fi:Maustetut porevedet
 fr:Eaux gazeuses aromatisées, eux aromatisées gazeuses
 it:Acque gassate aromatizzate, acqua aromatizzata gassata
 nl:Mineraalwater met smaak
-
 
 <en:Flavored bottled water
 en:Bottled water flavoured with sugar
@@ -21870,6 +21878,9 @@ it:Sciroppi aromatizzati
 nl:Gearomatiseerde siropen, Gearomatiseerde Siroop
 wikidata:en:Q5458204
 pnns_group_2:en:Sweetened beverages
+agribalyse_proxy_food_code:en:18058
+agribalyse_proxy_food_name:en:Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
+agribalyse_proxy_food_name:fr:Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
 
 <en:Flavoured syrups
 en:Sugar-free flavoured syrups, Flavoured syrups without sugar
@@ -23432,6 +23443,9 @@ fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine crou
 it:Fette biscottate
 nl:Crackers, Cracker
 wikidata:en:Q251981
+agribalyse_proxy_food_code:en:7410
+agribalyse_proxy_food_name:en:Crispbread, extruded and grilled
+agribalyse_proxy_food_name:fr:Tartine craquante, extrudée et grillée
 
 <en:Crispbreads
 en:Extruded and grilled crispbread
@@ -23448,6 +23462,7 @@ agribalyse_food_code:en:7412
 ciqual_food_code:en:7412
 ciqual_food_name:en:Biscuit, extruded and grilled, chocolate filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée au chocolat
+#Example: Cracottes chocolat
 
 <en:Crispbreads
 en:Extruded and grilled biscuits with fruits filling
@@ -23456,6 +23471,7 @@ agribalyse_food_code:en:7413
 ciqual_food_code:en:7413
 ciqual_food_name:en:Biscuit, extruded and grilled, fruits filling
 ciqual_food_name:fr:Tartine craquante, extrudée et grillée, fourrée aux fruits
+# Example: Cracottes fraises
 
 <en:Breads
 <en:Products without gluten
@@ -24171,7 +24187,6 @@ ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 <en:Cocoa powders
 fr:Cacao en poudre non sucré
 
-<en:Breakfasts
 <en:Instant beverages
 <en:Cocoa and chocolate powders
 en:Chocolate powders, Instant chocolate drinks, Instant hot chocolates
@@ -24611,14 +24626,6 @@ de:Bretonischer Kuche, Gâteau Breton
 fr:Gâteaux bretons, gâteau breton
 nl:Bretons cakes
 
-<en:Breton cakes
-en:Breton pudding cake with prunes
-fr:Far aux pruneaux
-agribalyse_food_code:en:23121
-ciqual_food_code:en:23121
-ciqual_food_name:en:Breton pudding cake with prunes
-ciqual_food_name:fr:Far aux pruneaux
-
 <en:Cakes
 <en:Pastries
 en:Kouign-amann, Buttered and caramelized milk bread cake
@@ -24633,11 +24640,34 @@ ciqual_food_code:en:23122
 ciqual_food_name:en:Buttered and caramelized milk bread cake
 ciqual_food_name:fr:Kouign Amann
 
-<en:Cakes
+<en:Breton cakes
 en:Far Bretons, Fars, Far, Fars bretons, Breton fars
 fr:Fars, Far, Fars bretons
 nl:Fars
 wikidata:en:Q1396059
+agribalyse_proxy_food_code:en:23121
+agribalyse_proxy_food_name:en:Breton pudding cake with prunes
+agribalyse_proxy_food_name:fr:Far aux pruneaux
+
+<en:Far Bretons
+en:Breton pudding cake with prunes
+fr:Far aux pruneaux
+agribalyse_food_code:en:23121
+ciqual_food_code:en:23121
+ciqual_food_name:en:Breton pudding cake with prunes
+ciqual_food_name:fr:Far aux pruneaux
+
+<en:Far Bretons
+en:Breton pudding cake with raisins
+fr:Far aux raisins
+
+<en:Far Bretons
+en:Breton pudding cake with apples
+fr:Far aux pommes
+
+<en:Far Bretons
+en:Plain breton pudding cake
+fr:Far nature
 
 <en:Cakes
 <en:Desserts
@@ -25110,6 +25140,9 @@ de:Calissons
 fr:Calissons
 it:Calissons
 nl:Calissons
+agribalyse_proxy_food_code:en:31092
+agribalyse_proxy_food_name:en:Melon and almond Candy on a unleavened bread layer
+agribalyse_proxy_food_name:fr:Calissons d'Aix en Provence
 
 <en:Calissons
 en:Calissons d'Aix, Calissons of Aix, Melon and almond candy on a unleavened bread layer
@@ -27241,15 +27274,15 @@ ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel
 ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel champignon
 
 <en:Meals
-en:Crepe or buckwheat crepe filled with egg ham and cheese
-fr:Crêpe ou Galette complète (œuf jambon fromage)
+en:Crepe filled with egg ham and cheese, buckwheat crepe filled with egg ham and cheese
+fr:Crêpe complète, Galette complète, Crêpe œuf jambon fromage, Galette œuf jambon fromage
 agribalyse_food_code:en:25562
 ciqual_food_code:en:25562
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with egg, ham and cheese
 
 <en:Meals
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
-fr:Crêpe ou Galette fourrée béchamel fromage
+fr:Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
 agribalyse_food_code:en:25549
 ciqual_food_code:en:25549
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese and bechamel sauce
@@ -27286,7 +27319,6 @@ agribalyse_food_code:en:25071
 ciqual_food_code:en:25071
 ciqual_food_name:en:Pork sausage stew with cabbage, carrots and potatoes
 ciqual_food_name:fr:Potée auvergnate (chou et porc)
-
 
 <en:Meals
 en:Stuffed cabbage
@@ -27912,6 +27944,9 @@ la:Chenopodium quinoa
 nl:Quinoa, Gierstmelde
 zh:藜麦
 wikidata:en:Q139925
+agribalyse_proxy_food_code:en:9340
+agribalyse_proxy_food_name:en:Quinoa, raw
+agribalyse_proxy_food_name:fr:Quinoa, cru
 
 <en:Quinoa
 en:Raw quinoa
@@ -33660,6 +33695,9 @@ nl:Halfvolle melk
 pt:Leites semi-desnatados, leite semi-desnatado
 sv:Mellanmjölk, Mellan mjölk
 wikidata:en:Q10581201
+agribalyse_proxy_food_code:en:19041
+agribalyse_proxy_food_name:en:Milk, semi-skimmed, UHT
+agribalyse_proxy_food_name:fr:Lait demi-écrémé, UHT
 
 <en:Semi-skimmed milks
 en:Organic semi-skimmed milks
@@ -33736,6 +33774,14 @@ agribalyse_proxy_food_name:en:Goat milk, whole, UHT
 agribalyse_proxy_food_name:fr:Lait de chèvre, entier, UHT
 
 <en:Goat milks
+en:Whole goat milk
+fr:Lait de chèvre entier
+agribalyse_food_code:en:19202
+ciqual_food_code:en:19202
+ciqual_food_name:en:Goat milk, whole, raw
+ciqual_food_name:fr:Lait de chèvre, entier, cru
+
+<en:Whole goat milk
 <en:UHT Milks
 en:Whole goat milk UHT
 fr:Lait de chèvre entier UHT
@@ -33745,22 +33791,18 @@ ciqual_food_name:en:Goat milk, whole, UHT
 ciqual_food_name:fr:Lait de chèvre, entier, UHT
 
 <en:Goat milks
-<en:UHT Milks
 <en:Semi-skimmed milks
+en:Semi-skimmed goat milks, Half skimmed goat milk
+fr:Lait de chèvre demi-écrémé
+
+<en:Semi-skimmed goat milks
+<en:UHT Milks
 en:Half skimmed pasteurized goat milk UHT
 fr:Lait de chèvre demi-écrémé UHT
 agribalyse_food_code:en:19201
 ciqual_food_code:en:19201
 ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
 ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
-
-<en:Goat milks
-en:Raw whole goat milk
-fr:Lait de chèvre entier cru
-agribalyse_food_code:en:19202
-ciqual_food_code:en:19202
-ciqual_food_name:en:Goat milk, whole, raw
-ciqual_food_name:fr:Lait de chèvre, entier, cru
 
 <en:Milks
 en:Sheep milks, Sheep milk, Ewe milk, Ewes milk, Sheep's milks, Sheep's milk, Whole sheep milk
@@ -33793,10 +33835,13 @@ it:Latte scremato
 nl:Magere melken
 pt:Leites desnatados, leite desnatado
 wikidata:en:Q2352187
+agribalyse_proxy_food_code:en:19050
+agribalyse_proxy_food_name:en:Milk, skimmed, UHT
+agribalyse_proxy_food_name:fr:Lait écrémé, UHT
 
 <en:UHT Milks
 <en:Skimmed milks
-en:Skimmed milks UHT
+en:UHT Skimmed milks
 fr:Laits écrémés UHT
 agribalyse_food_code:en:19050
 ciqual_food_code:en:19050
@@ -33975,7 +34020,35 @@ ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
-<en:Condensed milks
+<en:Dairies
+en:Evaporated milks, evaporated milk
+ca:Llet evaporada
+de:Kondensmilch
+es:Leches evaporadas, Leche evaporada
+fi:maitotiivisteet
+fr:Laits concentrés, Lait concentré
+it:Latti evaporati
+nl:Verdikte melken
+sv:Kondenserad mjölk
+wikidata:en:Q13417087
+agribalyse_proxy_food_code:en:19026
+agribalyse_proxy_food_name:en:Condensed milk, without sugar, whole
+agribalyse_proxy_food_name:fr:Lait concentré non sucré, entier
+
+<en:Dairies
+en:Condensed milks
+de:Kondensmilch, Kondensmilche, Kondensmilchen
+es:Leche condensada, Leches condensadas
+fi:Kondensoidut maidot
+fr:Laits condensés, Lait condensé
+nl:Gecondenseerde melken
+
+<fr:Laits concentrés
+fr:Laits concentrés non sucrés, Lait concentré non sucré
+de:ungezuckerte Kondensmilcherzeugnisse
+nl:Verdikte melken zonder suiker
+
+<fr:Laits concentrés non sucrés
 en:Whole condensed milk without sugar
 fr:Lait concentré entier non sucré
 agribalyse_food_code:en:19026
@@ -33983,13 +34056,39 @@ ciqual_food_code:en:19026
 ciqual_food_name:en:Condensed milk, without sugar, whole
 ciqual_food_name:fr:Lait concentré non sucré, entier
 
-<en:Condensed milks
+<fr:Laits concentrés
+fr:Laits concentrés sucrés, Lait concentré sucré
+de:gezuckerte Kondensmilcherzeugnisse
+nl:Verdikte melken met suiker
+wikidata:en:Q2830455
+
+<fr:Laits concentrés sucrés
 en:Whole condensed milk with sugar
 fr:Lait concentré entier sucré
 agribalyse_food_code:en:19027
 ciqual_food_code:en:19027
 ciqual_food_name:en:Condensed milk, with sugar, whole
 ciqual_food_name:fr:Lait concentré sucré, entier
+
+<de:ungezuckerte Kondensmilcherzeugnisse
+fr:Laits entiers concentrés, Lait entier concentré
+de:kondensierte Vollmilch, kondensierte Vollmilche, kondensierte Vollmilchen
+nl:Volle verdikte melken
+
+<de:ungezuckerte Kondensmilcherzeugnisse
+de:teilentrahmte Kondensmilch, teilentrahmte Kondensmilche, teilentrahmte Kondensmilchen, teilentrahmte kondensierte Vollmilch, teilentrahmte kondensierte Vollmilche, teilentrahmte kondensierte Vollmilchen
+
+<de:ungezuckerte Kondensmilcherzeugnisse
+de:Kondensmagermilch, Kondensmagermilche, Kondensmagermilchen, kondensierte Magermilch, kondensierte Magermilche, kondensierte Magermilchen
+
+<de:gezuckerte Kondensmilcherzeugnisse
+de:gezuckerte Kondensmilch, gezuckerte Kondensmilche, gezuckerte Kondensmilchen, gezuckerte kondensierte Vollmilch, gezuckerte kondensierte Vollmilche, gezuckerte kondensierte Vollmilchen
+
+<de:gezuckerte Kondensmilcherzeugnisse
+de:gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte Kondensmilche, gezuckerte teilentrahmte Kondensmilchen, gezuckerte teilentrahmte kondensierte Vollmilch, gezuckerte teilentrahmte kondensierte Vollmilche, gezuckerte teilentrahmte kondensierte Vollmilchen
+
+<de:gezuckerte Kondensmilcherzeugnisse
+de:gezuckerte Kondensmagermilch, gezuckerte Kondensmagermilche, gezuckerte Kondensmagermilchen, gezuckerte kondensierte Magermilch, gezuckerte kondensierte Magermilche, gezuckerte kondensierte Magermilchen
 
 <en:Milks
 en:Pasteurised milks, Pasterized milks
@@ -34264,7 +34363,7 @@ en:Spelt milks, Spelt drinks
 de:Dinkelmilch, Dinkelmilche, Dinkelmilchen, Dinkel-Drinks, Dinkel-Drink, Dinkeldrink, Dinkeldrinks
 es:Bebidas de espelta, Leches de espelta
 fi:Spelttijuomat, Spelttimaidot
-fr:Boissons végétales d'épeautre, Laits d’épeautre, Laits d’Épeautre
+fr:Boissons végétales d'épeautre, Laits d’épeautre, Laits d’Épeautre, Boissons à l'épeautre, Boissons d'épeautre
 it:Bevanda di farro
 nl:Speltdranken
 
@@ -34934,7 +35033,7 @@ ciqual_food_code:en:19539
 ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, with sugar, with bifidus
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
 
-<en:Bifidus yogurts
+<en:Plain bifidus yogurts
 en:Sweetened plain bifidus yogurts, Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
 fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
 agribalyse_food_code:en:19546
@@ -35453,57 +35552,6 @@ agribalyse_food_code:en:19598
 ciqual_food_code:en:19598
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w cream
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, à la crème
-
-<en:Dairies
-en:Evaporated milks, evaporated milk
-ca:Llet evaporada
-de:Kondensmilch
-es:Leches evaporadas, Leche evaporada
-fi:maitotiivisteet
-fr:Laits concentrés, Lait concentré
-it:Latti evaporati
-nl:Verdikte melken
-sv:Kondenserad mjölk
-wikidata:en:Q13417087
-
-<en:Dairies
-en:Condensed milks
-de:Kondensmilch, Kondensmilche, Kondensmilchen
-es:Leche condensada, Leches condensadas
-fi:Kondensoidut maidot
-fr:Laits condensés, Lait condensé
-nl:Gecondenseerde melken
-
-<fr:Laits concentrés
-fr:Laits concentrés non sucrés, Lait concentré non sucré
-de:ungezuckerte Kondensmilcherzeugnisse
-nl:Verdikte melken zonder suiker
-
-<fr:Laits concentrés
-fr:Laits concentrés sucrés, Lait concentré sucré
-de:gezuckerte Kondensmilcherzeugnisse
-nl:Verdikte melken met suiker
-wikidata:en:Q2830455
-
-<de:ungezuckerte Kondensmilcherzeugnisse
-fr:Laits entiers concentrés, Lait entier concentré
-de:kondensierte Vollmilch, kondensierte Vollmilche, kondensierte Vollmilchen
-nl:Volle verdikte melken
-
-<de:ungezuckerte Kondensmilcherzeugnisse
-de:teilentrahmte Kondensmilch, teilentrahmte Kondensmilche, teilentrahmte Kondensmilchen, teilentrahmte kondensierte Vollmilch, teilentrahmte kondensierte Vollmilche, teilentrahmte kondensierte Vollmilchen
-
-<de:ungezuckerte Kondensmilcherzeugnisse
-de:Kondensmagermilch, Kondensmagermilche, Kondensmagermilchen, kondensierte Magermilch, kondensierte Magermilche, kondensierte Magermilchen
-
-<de:gezuckerte Kondensmilcherzeugnisse
-de:gezuckerte Kondensmilch, gezuckerte Kondensmilche, gezuckerte Kondensmilchen, gezuckerte kondensierte Vollmilch, gezuckerte kondensierte Vollmilche, gezuckerte kondensierte Vollmilchen
-
-<de:gezuckerte Kondensmilcherzeugnisse
-de:gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte Kondensmilche, gezuckerte teilentrahmte Kondensmilchen, gezuckerte teilentrahmte kondensierte Vollmilch, gezuckerte teilentrahmte kondensierte Vollmilche, gezuckerte teilentrahmte kondensierte Vollmilchen
-
-<de:gezuckerte Kondensmilcherzeugnisse
-de:gezuckerte Kondensmagermilch, gezuckerte Kondensmagermilche, gezuckerte Kondensmagermilchen, gezuckerte kondensierte Magermilch, gezuckerte kondensierte Magermilche, gezuckerte kondensierte Magermilchen
 
 en:Desserts
 ca:Postres
@@ -38442,6 +38490,9 @@ hu:Hal olaj
 it:Olio di pesce
 nl:Visoliën
 zh:鱼油
+agribalyse_proxy_food_code:en:17640
+agribalyse_proxy_food_name:en:Sardine oil
+agribalyse_proxy_food_name:fr:Huile de sardine
 
 <en:Animal fats
 en:Butter fat
@@ -38556,41 +38607,51 @@ es:Margarinas con sal
 fr:Margarines salées
 nl:Gezouten margarine
 
+<en:Margarines
+en:Margarines high in omega 3
+fr:Margarines riche en oméga 3
+
 <en:Light margarines
 <en:Unsalted margarines
 en:Light unsalted margarines, Light unsalted spreadable vegetable fat, Unsalted spreadfat
-fr:Matière grasse végétale de type margarine doux à teneur réduite en matière grasse
+fr:Matière grasse végétale douce à teneur réduite en matière grasse, margarines douces à teneur réduite en matière grasse
 ciqual_food_code:en:16725
 ciqual_food_name:en:Fat spreadfat content unknown, unsalted (average)
 ciqual_food_name:fr:Matière grasse végétale (type margarine), teneur réduite en matière grasse inconnue, doux (aliment moyen)
 
 <en:Light unsalted margarines
-en:60% unsalted vegetable fat margarine type with sunflowerseed
-fr:Matière grasse végétale allégée à 60% type margarine doux au tournesol
+en:60% unsalted vegetable fat with sunflowerseed, 60% fat unsalted margarine with sunflowerseed
+fr:Matière grasse végétale allégée à 60% doux au tournesol, margarine allégée à 60% doux au tournesol
 agribalyse_food_code:en:16654
 ciqual_food_code:en:16654
 ciqual_food_name:en:Vegetable fat (margarine type), 60% fat, unsalted, sunflowerseed
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 60% de MG, allégée, au tournesol, doux
 
 <en:Light unsalted margarines
-en:30-40% unsalted vegetable fat margarine type
-fr:Matière grasse végétale légère à 30-40% type margarine doux
+en:30-40% fat unsalted vegetable fat, 30-40% fat unsalted margarine
+fr:Matière grasse végétale légère à 30-40% doux, Margarine légère à 30-40% MG doux
 agribalyse_food_code:en:16733
 ciqual_food_code:en:16733
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux
 
+<en:Margarines
+en:Margarines with plant sterols esters
+fr:Margarine aux esters de stérol végétal
+
 <en:Light unsalted margarines
-en:30-40% unsalted vegetable fat margarine type with plant sterols esters
-fr:Matière grasse végétale légère à 30-40% type margarine doux aux esters de stérol végétal
+<en:Margarines with plant sterols esters
+en:30-40% fat unsalted vegetable fat with plant sterols esters, 30-40% unsalted margarine with plant sterols esters
+fr:Matière grasse végétale légère à 30-40% doux aux esters de stérol végétal, Margarine légère à 30-40% doux aux esters de stérol végétal
 agribalyse_food_code:en:16735
 ciqual_food_code:en:16735
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, doux, aux esters de stérol végétal
 
 <en:Light unsalted margarines
-en:30-40% unsalted vegetable fat margarine type high in omega 3
-fr:Matière grasse végétale légère à 30-40% type margarine doux riche en oméga 3
+<en:Margarines high in omega 3
+en:30-40% fat unsalted vegetable fat high in omega 3, 30-40% fat unsalted margarine high in omega 3
+fr:Matière grasse végétale légère à 30-40% doux riche en oméga 3, Margarine légère à 30-40% MG doux riche en oméga 3
 agribalyse_food_code:en:16736
 ciqual_food_code:en:16736
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, unsalted, rich in omega 3
@@ -38598,8 +38659,8 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à
 
 <en:Salted margarines
 <en:Light margarines
-en:30-40% lightly salted vegetable fat margarine type
-fr:Matière grasse végétale légère à 30-40% type margarine doux demi-sel
+en:30-40% fat lightly salted vegetable fat, 30-40% fat lightly salted margarine
+fr:Matière grasse végétale légère à 30-40% doux demi-sel, Margarines demi-sel doux légères à 30-40% MG
 agribalyse_food_code:en:16734
 ciqual_food_code:en:16734
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, lightly salted
@@ -38607,8 +38668,8 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine), à tartiner, à
 
 <en:Salted margarines
 <en:Light margarines
-en:50-63% lightly salted vegetable fat margarine type
-fr:Matière grasse végétale allégée à 50-63% type margarine demi-sel
+en:50-63% fat lightly salted vegetable fat, 50-63% fat lightly salted margarine
+fr:Matière grasse végétale demi-sel allégée à 50-63% MG, Margarines demi-sel allégées à 50-63% MG
 agribalyse_food_code:en:16738
 ciqual_food_code:en:16738
 ciqual_food_name:en:Vegetable fat (margarine type), 50-63% fat, light, lightly salted
@@ -38616,8 +38677,9 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, al
 
 <en:Salted margarines
 <en:Light margarines
-en:50-63% lightly salted vegetable fat margarine type high in omega 3
-fr:Matière grasse végétale allégée à 50-63% type margarine demi-sel riche en oméga 3
+<en:Margarines high in omega 3
+en:50-63% lightly salted vegetable fat high in omega 3, 50-63% lightly salted margarine high in omega 3
+fr:Matière grasse végétale demi-sel riche en oméga 3 allégée à 50-63% MG, Margarine demi-sel riche en oméga 3 allégée à 50-63% MG
 agribalyse_food_code:en:16740
 ciqual_food_code:en:16740
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, lightly salted, rich in omega 3
@@ -38625,39 +38687,41 @@ ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, al
 
 <en:Salted margarines
 <en:Light margarines
-en:30-40% lightly salted vegetable fat margarine type with plant sterols esters
-fr:Matière grasse végétale légère à 30-40% type margarine demi-sel aux esters de stérol végétal
+<en:Margarines with plant sterols esters
+en:30-40% lightly salted vegetable fat with plant sterols esters, 30-40% lightly salted margarine with plant sterols esters
+fr:Matière grasse végétale demi-sel légère à 30-40% aux esters de stérol végétal, Margarine demi-sel légère à 30-40% aux esters de stérol végétal
 agribalyse_food_code:en:16742
 ciqual_food_code:en:16742
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 30-40% fat, light, lightly salted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 30-40% MG, légère, demi-sel, aux esters de stérol végétal
 
 <en:Salted margarines
-en:80% salted vegetable fat margarine type
-fr:Matière grasse végétale salée à 80% type margarine
+en:80% salted vegetable fat, 80% fat salted margarine
+fr:Matière grasse végétale salée à 80%, Margarine salée à 80% MG
 agribalyse_food_code:en:16614
 ciqual_food_code:en:16614
 ciqual_food_name:en:Vegetable fat (like margarine), 80% fat, salted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 80% MG, salé
 
 <en:Unsalted margarines
-en:80% unsalted vegetable fat margarine type
-fr:Matière grasse végétale à 80% type margarine doux
+en:80% unsalted vegetable fat, 80% fat unsalted margarine
+fr:Matière grasse végétale à 80% doux, Margarine douce à 80% MG
 agribalyse_food_code:en:16615
 ciqual_food_code:en:16615
 ciqual_food_name:en:Vegetable fat (margarine type), 80% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale ou margarine, 80% MG, doux
 
 <en:Unsalted margarines
-en:70% unsalted vegetable fat margarine type
-fr:Matière grasse végétale à 70% type margarine doux
+en:70% unsalted vegetable fat, 70% fat salted margarine
+fr:Matière grasse végétale à 70% doux, Margarine douce à 70% MG
 agribalyse_food_code:en:16616
 ciqual_food_code:en:16616
 ciqual_food_name:en:Vegetable fat (margarine type), 70% fat, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
 
 <en:Light unsalted margarines
-en:50-63% unsalted vegetable fat margarine type high in omega 3
+<en:Margarines high in omega 3
+en:50-63% unsalted vegetable fat high in omega 3, 50-63% unsalted margarine high in omega 3
 fr:Matière grasse végétale allégée à 50-63% de matières grasses riche en oméga 3, margarine douce
 agribalyse_food_code:en:16737
 ciqual_food_code:en:16737
@@ -38665,29 +38729,29 @@ ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, ligh
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
 
 <en:Light unsalted margarines
-en:50-63% unsalted vegetable fat margarine type with plant sterols esters
-fr:Matière grasse végétale allégée à 50-63% type margarine doux aux esters de stérol végétal
+<en:Margarines with plant sterols esters
+en:50-63% unsalted vegetable fat with plant sterols esters, 50-63% unsalted margarine with plant sterols esters
+fr:Matière grasse végétale douce allégée à 50-63% aux esters de stérol végétal, Margarine douce allégée à 50-63% aux esters de stérol végétal
 agribalyse_food_code:en:16739
 ciqual_food_code:en:16739
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, with plant sterols esters
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, aux esters de stérol végétal
 
 <en:Light unsalted margarines
-en:50-63% unsalted vegetable fat margarine type
-fr:Matière grasse végétale allégée à 50-63% type margarine doux
+en:50-63% unsalted vegetable fat, 50-63% unsalted margarine
+fr:Matière grasse végétale douce allégée à 50-63%, Margarine douce allégée à 50-63%
 agribalyse_food_code:en:16741
 ciqual_food_code:en:16741
 ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted
 ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux
 
 <en:Margarines
-en:Solid vegetable fat margarine type for frying
-fr:Matière grasse ou graisse végétale solide type margarine pour friture
+en:Solid vegetable fat for frying, margarine for frying
+fr:Matière grasse solide pour friture, graisse végétale solide pour friture, margarine pour friture
 agribalyse_food_code:en:16080
 ciqual_food_code:en:16080
 ciqual_food_name:en:Solid vegetable fat (margarine type), for frying
 ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
-
 
 <en:Margarines
 en:Light margarines
@@ -39117,11 +39181,12 @@ zh:核桃油
 wikidata:en:Q1434098
 ciqual_food_code:en:17220
 ciqual_food_name:en:Walnut oil
-
-#en:French oils
+agribalyse_proxy_food_code:en:17210
+agribalyse_proxy_food_code:en:17210
+agribalyse_proxy_food_name:en:Hazelnut oil
+#TODO validate proxy
 
 <en:Walnut oils
-#<en:French oils
 fr:Huile de noix du Périgord
 protected_name_file_number:en: PDO-FR-02445
 protected_name_type:en: pdo
@@ -39147,6 +39212,9 @@ sv:Olivoljor, olivolja
 th:น้ำมันมะกอก
 zh:橄榄油
 wikidata:en:Q93165
+agribalyse_proxy_food_code:en:17270
+agribalyse_proxy_food_name:en:Olive oil, extra virgin
+agribalyse_proxy_food_name:fr:Huile d'olive vierge extra
 
 <en:Olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
@@ -40864,6 +40932,9 @@ pl:Mąki pszenne, mąka pszenna
 pt:Farinhas de trigo
 ru:Мука пшеничная, Пшеничная мука
 wikidata:en:Q2249305
+agribalyse_proxy_food_code:en:9440
+agribalyse_proxy_food_name:en:Wheat flour, type 45 (for pastry)
+agribalyse_proxy_food_name:fr:Farine de blé tendre ou froment T45 (pour pâtisserie)
 
 <en:Wheat flours
 en:Self-raising wheat flour
@@ -50592,6 +50663,8 @@ agribalyse_food_code:en:22003
 ciqual_food_code:en:22003
 ciqual_food_name:en:Egg yolk, powder
 
+# "Sushi and Maki" doesn't make sense. Maki is a subset of sushi. Is "sushi" being used to mean "nigiri"?
+# Also, sashimi is missing, so perhaps the parent category should be "sushi and sashimi".
 <en:Meals
 en:Sushis and makis, Sushi and Maki
 de:Sushis und Maki-Sushis
@@ -50612,6 +50685,8 @@ it:Sushi
 ja:すし, 寿司, 鮨
 nl:Sushis
 zh:寿司
+wikidata:en:Q46383
+wikipedia:en:https://en.wikipedia.org/wiki/Sushi
 
 <en:Sushi
 en:Salmon sushis
@@ -50662,6 +50737,7 @@ de:Maki-Sushi, Maki
 es:Makis
 fr:Makis
 nl:Maki
+wikidata:en:Q5739461
 
 <en:Maki
 en:Californian makis
@@ -51523,6 +51599,10 @@ nl:Rundvleescarpaccio
 ciqual_food_code:en:25538
 ciqual_food_name:en:Beef carpaccio, w marinade
 ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
+
+<en:Beef dishes
+en:Beef pastrami
+fr:Pastrami de bœuf
 
 <en:Meals with meat
 en:Pork meals
@@ -52976,6 +53056,10 @@ nl:Gevogelte samosa
 #wikidata:en:
 
 <en:Samosas
+en:Samoussas with chicken
+fr:Samoussas au poulet, samossas au poulet
+
+<en:Samosas
 <en:Beef dishes
 en:Beef samosas
 fr:Samoussas au bœuf, samossas au bœuf
@@ -53199,6 +53283,9 @@ fr:Lasagnes au saumon
 it:Lasagne al salmone
 nl:Lasagne met zalm
 #wikidata:en:
+
+<en:Salmon lasagne
+fr:Lasagnes au saumon et épinards
 
 <en:Lasagne with fish
 <en:Fish dishes
@@ -57405,6 +57492,10 @@ fi:kanaleikkele
 fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 nl:Kippendijen, Kippendij
 zh:鸡火腿
+agribalyse_food_code:en:28963
+ciqual_food_code:en:28963
+ciqual_food_name:en:Chicken cooked ham, in slices
+ciqual_food_name:fr:Jambon de poulet ou Blanc de poulet en tranche
 
 <en:Cooked chicken breast slices
 fr:Blancs de poulet doré au four, Blanc de poulet doré au four
@@ -57560,6 +57651,10 @@ fi:kalkkunan rinnat
 fr:Blancs de dinde, blancs de dindes, blanc de dindes, blanc de dinde
 it:Petti di tacchino
 nl:Kalkoenfilets
+agribalyse_food_code:en:28964
+ciqual_food_code:en:28964
+ciqual_food_name:en:Turkey cooked ham, in slices
+ciqual_food_name:fr:Jambon de dinde ou Blanc de dinde en tranche
 
 <en:Poultry hams
 en:Cooked turkey breast slices, Turkey ham, cooked turkey breast
@@ -57937,28 +58032,28 @@ ciqual_food_name:en:Pork ham w parsley and jelly
 ciqual_food_name:fr:Jambon persillé en gelée
 
 <en:White hams
-en:Cooked ham superior quality
+en:Cooked ham of superior quality
 fr:Jambon cuit supérieur
 agribalyse_food_code:en:28900
 ciqual_food_code:en:28900
 ciqual_food_name:en:Cooked ham, superior quality
 
 <en:Cooked ham
-en:Cooked ham superior quality with rind
+en:Cooked ham with rind of superior quality
 fr:Jambon cuit supérieur avec couenne
 agribalyse_food_code:en:28901
 ciqual_food_code:en:28901
 ciqual_food_name:en:Cooked ham, superior quality, with rind
 
 <en:Cooked ham
-en:Cooked ham superior quality rind less
+en:Rind-less cooked ham of superior quality
 fr:Jambon cuit supérieur découenné
 agribalyse_food_code:en:28902
 ciqual_food_code:en:28902
 ciqual_food_name:en:Cooked ham, superior quality, rind less
 
-<en:Cooked ham
-en:Cooked ham superior quality rind less and fatless
+<en:Rind-less cooked ham of superior quality
+en:Rind-less and fatless cooked ham of superior quality
 fr:Jambon cuit supérieur découenné dégraissé
 agribalyse_food_code:en:28906
 ciqual_food_code:en:28906
@@ -58010,15 +58105,6 @@ origins:en: en:United Kingdom
 
 <en:Hams
 es:Jamón Curado
-
-<en:Hams
-en:Diced ham, Dices of ham, Ham in cube
-fi:kinkkukuutiot
-fr:Dés de jambon, dés de jambons
-nl:Hamblokjes
-agribalyse_food_code:en:28922
-ciqual_food_code:en:28922
-ciqual_food_name:en:Ham in cube, grated or minced
 
 <en:Hams
 fr:Jambon de derrière
@@ -59168,35 +59254,19 @@ nl:Spekjes
 wikidata:en:Q3217888
 
 <en:Lardons
-en:Raw lardoons
-fr:Lardons nature crus
+en:Plain lardons, Raw lardoons
+fr:Lardons de porc natures, Lardons nature crus
 agribalyse_food_code:en:28501
 ciqual_food_code:en:28501
 ciqual_food_name:en:Lardoons, raw
 ciqual_food_name:fr:Lardon nature, cru
 
 <en:Lardons
-en:Lardoons cooked
-fr:Lardons nature cuits
-agribalyse_food_code:en:28504
-ciqual_food_code:en:28504
-ciqual_food_name:en:Cooked lardoons
-ciqual_food_name:fr:Lardon nature, cuit
-
-<en:Lardons
-en:Smoked lardons, Cooked smoked lardoons
+en:Smoked lardons, Raw smoked lardoons
 de:Räucherspeck
 es:Lardones ahumados
-fr:Lardons de porc fumés, Lardons fumés cuits
+fr:Lardons de porc fumés, Lardons fumés crus
 nl:Gerookte spekjes
-agribalyse_food_code:en:28725
-ciqual_food_code:en:28725
-ciqual_food_name:en:Smoked lardoons, cooked
-ciqual_food_name:fr:Lardon fumé, cuit
-
-<en:Lardons
-en:Raw smoked lardoons
-fr:Lardons fumés crus
 agribalyse_food_code:en:28720
 ciqual_food_code:en:28720
 ciqual_food_name:en:Smoked lardoons, raw
@@ -59209,6 +59279,19 @@ fr:Allumettes de volaille
 en:Poultry lardons
 fr:Lardons de volaille
 nl:Gevogeltespekjes
+
+<en:Hams
+en:Diced ham, Dices of ham, Ham in cube, Grated ham, minced ham, diced ham
+fi:kinkkukuutiot
+fr:Dés de jambon, dés de jambons, râpé de jambon, haché de jambon, Allumettes de jambon
+nl:Hamblokjes
+agribalyse_food_code:en:28922
+ciqual_food_code:en:28922
+ciqual_food_name:en:Ham in cube, grated or minced
+
+<en:Poultry hams
+en:Poultry ham in cube, Grated Poultry ham, Minced poultry ham
+fr:Allumettes de jambon de volaille, haché de jambon de volaille, dés de jambon de volaille, râpé de jambon de volaille, haché de jambon de volaille
 
 <fr:Pâté
 en:Head cheese, Head-cheese pâté, Brawn pâté
@@ -60183,8 +60266,6 @@ fr:Allumettes de bacon
 it:Lardo di bacon affumicato
 nl:Gerookte hamspekjes
 zh:腊肉, 烟熏腊肉
-
-fr:Allumettes de jambon
 
 <en:Bacon
 en:Sliced bacon
@@ -61796,14 +61877,10 @@ fr:Spätzle
 it:Spätzle
 wikidata:en:Q20065
 
-<en:Pastas
 <en:Dry pastas
-en:Dried wholemeal pasta, Dried raw wholemeal pasta
-fr:Pâtes sèches au blé complet, Pâtes sèches au blé complet crues
-agribalyse_proxy_food_code:en:9871
-agribalyse_proxy_food_name:en:Dried pasta, wholemeal, cooked, unsalted
-agribalyse_proxy_food_name:fr:Pâtes sèches, au blé complet, cuites, non salées
-agribalyse_food_code:en:9870
+en:Dried wholemeal pasta
+fr:Pâtes sèches au blé complet, Pâtes sèches au blé complet, Pâtes sèches complètes
+agribalyse_proxy_food_code:en:9870
 ciqual_food_code:en:9870
 ciqual_food_name:en:Dried pasta, wholemeal, raw
 ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
@@ -61825,16 +61902,7 @@ fr:Pâtes aux œufs, Pâtes alimentaires aux œufs
 it:Paste all'uovo
 nl:Eierpastas, eierpasta
 
-<en:Pastas
-en:Dried raw pasta
-fr:Pâtes sèches crues
-it:Pasta cruda essiccata
-agribalyse_food_code:en:9810
-ciqual_food_code:en:9810
-ciqual_food_name:en:Dried pasta, raw
-ciqual_food_name:fr:Pâtes sèches standard, crues
-
-<en:Pastas
+<en:Dry pastas
 en:Cooked unsalted dried pasta
 fr:Pâtes sèches cuites non salées
 agribalyse_food_code:en:9811
@@ -61842,20 +61910,21 @@ ciqual_food_code:en:9811
 ciqual_food_name:en:Dried pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes sèches standard, cuites, non salées
 
+<en:Dry pastas
+en:Dried raw wholemeal pasta
+fr:Pâtes sèches au blé complet crues
+agribalyse_food_code:en:9870
+ciqual_food_code:en:9870
+ciqual_food_name:en:Dried pasta, wholemeal, raw
+ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
+
 <en:Egg pastas
 <en:Dry pastas
-en:Dry egg pastas, Dried egg pasta
+en:Dry egg pastas, dried egg pastas, Dried raw egg pasta
 fi:kuivat munapastat
-fr:Pâtes sèches aux œufs
+fr:Pâtes sèches aux œufs, Pâtes sèches aux œufs crues
 it:Pasta al'uovo secca
 nl:Gedroogde eipasta
-agribalyse_proxy_food_code:en:9822
-agribalyse_proxy_food_name:en:Dried egg pasta, cooked, unsalted
-agribalyse_proxy_food_name:fr:Pâtes sèches, aux œufs, cuites, non salées
-
-<en:Dried egg pasta
-en:Dried raw egg pasta
-fr:Pâtes sèches aux œufs crues
 agribalyse_food_code:en:9821
 ciqual_food_code:en:9821
 ciqual_food_name:en:Dried egg pasta, raw
@@ -61906,21 +61975,22 @@ fr:Tagliatelles sans gluten
 fr:Coquillettes sans gluten
 
 <en:Gluten-free pasta
-en:Dried gluten-free pasta
+<en:Dry pastas
+en:Dry gluten-free pasta, Dried gluten-free pasta
 fr:Pâtes sèches sans gluten
 agribalyse_proxy_food_code:en:9824
 agribalyse_proxy_food_name:en:Dried pasta, gluten-free, cooked, unsalted
 agribalyse_proxy_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
 
 <en:Dried gluten-free pasta
-en:Dried raw gluten-free pasta
+en:Dry raw gluten-free pasta, Dried raw gluten-free pasta
 fr:Pâtes sèches sans gluten crues
 agribalyse_food_code:en:9874
 ciqual_food_code:en:9874
 ciqual_food_name:en:Dried pasta, gluten-free, raw
 ciqual_food_name:fr:Pâtes sèches, sans gluten, crues
 
-<en:Dried gluten-free pasta
+<en:Dry gluten-free pasta
 en:Cooked unsalted gluten-free dried pasta
 fr:Pâtes sèches sans gluten cuites non salées
 agribalyse_food_code:en:9824
@@ -61987,18 +62057,6 @@ it:Pasta di mais
 nl:Maispastas
 
 <en:Pastas
-en:Wheat pasta
-ca:Pasta de blat
-de:Weizennudeln
-es:Pastas de trigo
-fi:vehnäpasta
-fr:Pâtes de blé
-he:פסטה מחיטה
-hu:Búzatészta
-it:Pasta di grano
-nl:Tarwepastas
-
-<en:Wheat pasta
 en:Durum wheat pasta
 ca:Pasta de blat dur
 de:Hartweizenteigwaren, Nudelprodukte aus Hartweizen
@@ -62012,14 +62070,20 @@ nl:Durum tarwepastas
 ru:Макаронные изделия из муки твёрдой пшеницы, макаронные изделия из муки твердой пшеницы, макаронные изделия группы А, Макаронные изделия. Группа «А»
 
 <en:Durum wheat pasta
-en:Whole durum wheat pasta
+en:Whole durum wheat pasta, durum wholewheat pasta
+es:Pastas de trigo duro integrales
 fr:Pâtes de blé dur complet
-it:Pasta di grano duro
+it:Pasta di grano duro integrale
 nl:Volkoren durum pasta
 
 <en:Durum wheat pasta
 en:Durum wheat pasta vysshiy sort GOST
 ru:Макаронные изделия группы А высший сорт по ГОСТ, Макаронные изделия группы А высшего сорта по ГОСТ, макаронные изделия из муки твёрдой пшеницы высший сорт ГОСТ
+
+<en:Durum wheat pasta
+es:Pastas de trigo duro semi-integrales
+fr:Pâtes de blé dur semi-complet
+it:Pasta di grano duro semi integrale
 
 <en:Durum wheat pasta
 en:Spirals of durum wheat
@@ -62080,9 +62144,12 @@ es:Tallarines de trigo duro
 fr:Nouilles de blé dur
 nl:Durum tarwe noedels
 
+
 <en:Wheat pasta
 en:Whole or semi-whole durum wheat pasta
 fr:Pâtes de blé dur entier ou semi-entier
+
+<en:Whole or semi-whole durum wheat pasta
 es:Pastas de trigo duro integrales o semi-integrales
 nl:Harde Volkorenpastas
 
@@ -62104,21 +62171,26 @@ fr:Étoiles de blé dur entier ou semi-entier
 
 <en:Whole or semi-whole durum wheat pasta
 en:Whole or semi-whole durum wheat farfalle
+fr:Farfalle de blé dur entières ou semi-entières
 es:Farfalle de trigo duro integrales o semi-integrales
 nl:Volkorenfarfalle
 
 <en:Whole or semi-whole durum wheat pasta
 es:Fideos de trigo duro integrales o semi-integrales
+fr:Nouilles de blé dur entières ou semi-entières
 
 <en:Whole or semi-whole durum wheat pasta
 es:Fideuá de trigo duro integrales o semi-integrales
+fr:Fideuá de blé dur entier ou semi-entier
 
 <en:Whole or semi-whole durum wheat pasta
 es:Hélices de trigo duro integrales o semi-integrales
+fr:Hélices de blé dur entier ou semi-entier
 
 <en:Whole or semi-whole durum wheat pasta
 en:Whole or semi-whole durum wheat letters
 es:Letras de trigo duro integrales o semi-integrales
+fr:Lettres de blé dur entières ou semi-entières
 
 <en:Whole or semi-whole durum wheat pasta
 es:Macarrones de trigo duro integrales o semi-integrales
@@ -62135,6 +62207,7 @@ es:Placas de trigo duro para lasaña integrales o semi-integrales
 
 <en:Whole or semi-whole durum wheat pasta
 es:Plumas de trigo duro integrales o semi-integrales
+fr:Plumes de blé dur entières ou semi-entières
 
 <en:Whole or semi-whole durum wheat pasta
 es:Tallarines de trigo duro integrales o semi-integrales
@@ -62289,9 +62362,9 @@ origins:en: en:France
 <en:Egg pastas
 en:Fresh egg pasta
 fr:Pâtes fraîches aux œufs
-agribalyse_proxy_food_code:en:9816
-agribalyse_proxy_food_name:en:Fresh egg pasta, cooked, unsalted
-agribalyse_proxy_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
+agribalyse_proxy_food_code:en:9815
+agribalyse_proxy_food_name:en:Fresh egg pasta, raw
+agribalyse_proxy_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Fresh egg pasta
 en:Fresh cooked unsalted egg pasta
@@ -62310,18 +62383,22 @@ ciqual_food_name:en:Fresh egg pasta, raw
 ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Pastas
-en:Dry pasta
+en:Dry pastas, Dried pastas, Dry raw pastas, Dried raw pastas
 ca:Pasta seca
 de:getrocknete Teigwaren
 es:Pasta seca
 fi:kuiva pasta
-fr:Pâtes sèches, Pâtes alimentaires sèches
+fr:Pâtes sèches, Pâtes alimentaires sèches, Pâtes sèches crues
 he:פסטה מיובשת
 hu:Száraztészták
-it:Pasta secca
+it:Pasta secca, Pasta cruda essiccata
 nl:Gedroogde pastas
 pt:Massas secas
 th:กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
+agribalyse_food_code:en:9810
+ciqual_food_code:en:9810
+ciqual_food_name:en:Dried pasta, raw
+ciqual_food_name:fr:Pâtes sèches standard, crues
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
@@ -62654,30 +62731,62 @@ fr:Tagliatelles fraîches
 wikidata:en:Q20044
 
 <en:Pasta dishes
-en:Tagliatelle with carbonara, Tagliatelle Carbonara
-fr:Tagliatelles à la carbonara
-nl:Tagliatella carbonara
-
-<en:Pasta dishes
-en:Bolognese-style pasta (spaghetti tagliatelle…)
-fr:Pâtes à la bolognaise
-agribalyse_food_code:en:25085
-ciqual_food_code:en:25085
-ciqual_food_name:en:Bolognese-style pasta (spaghetti, tagliatelle…)
-
-<en:Pasta dishes
-en:Carbonara-style pasta (spaghetti tagliatelle…)
+en:Carbonara-style pasta
 fr:Pâtes à la carbonara
 agribalyse_food_code:en:25135
 ciqual_food_code:en:25135
 ciqual_food_name:en:Carbonara-style pasta (spaghetti, tagliatelle…)
 
+<en:Carbonara-style pasta
+en:Tagliatelle with carbonara, Tagliatelle Carbonara
+fr:Tagliatelles à la carbonara
+nl:Tagliatella carbonara
+
+<en:Carbonara-style pasta
+en:Spaghetti with carbonara
+fr:Spaghetti à la carbonara
+
 <en:Pasta dishes
-en:Pasta with cheese sauce (spaghetti tagliatelle…)
+fr:Pâtes aux champignons
+
+<fr:Pâtes aux champignons
+fr:Tagliatelles aux champignons
+
+<fr:Tagliatelles aux champignons
+fr:Tagliatelles aux truffes
+
+<fr:Pâtes aux champignons
+fr:Tagliatelles aux champignons de Paris
+
+<en:Pasta dishes
+en:Bolognese-style pasta
+fr:Pâtes à la bolognaise
+agribalyse_food_code:en:25085
+ciqual_food_code:en:25085
+ciqual_food_name:en:Bolognese-style pasta (spaghetti, tagliatelle…)
+
+<en:Bolognese-style pasta
+en:Bolognese spaghetti
+fr:spaghetti à la bolognaise
+
+<en:Bolognese-style pasta
+en:Bolognese tagliatelle
+fr:tagliatelle à la bolognaise
+
+<en:Pasta dishes
+en:Pasta with cheese sauce
 fr:Pâtes en sauce aux fromages
 agribalyse_food_code:en:25198
 ciqual_food_code:en:25198
 ciqual_food_name:en:Pasta with cheese sauce (spaghetti, tagliatelle…)
+
+<en:Pasta with cheese sauce
+en:spaghetti with cheese sauce
+fr:spaghetti en sauce aux fromages
+
+<en:Pasta with cheese sauce
+en:tagliatelle with cheese sauce
+fr:tagliatelle en sauce aux fromages
 
 <en:Stuffed Pastas
 en:Tortellini
@@ -63191,10 +63300,22 @@ agribalyse_food_code:en:23027
 ciqual_food_code:en:23027
 ciqual_food_name:en:Macaroon
 
-<en:Pastries
-<en:Desserts
-en:Macaron filled with jam or cream
-fr:Macaron moelleux fourré à la confiture ou à la crème
+<en:Macarons
+fr:Assortiments de macarons
+agribalyse_food_code:en:23027
+ciqual_food_code:en:23027
+ciqual_food_name:en:Macaroon
+
+<en:Macarons
+en:Macaron filled with jam
+fr:Macaron moelleux fourré à la confiture
+agribalyse_food_code:en:23024
+ciqual_food_code:en:23024
+ciqual_food_name:en:Macaron filled with jam or cream
+
+<en:Macarons
+en:Macaron filled with cream
+fr:Macaron moelleux fourré à la crème
 agribalyse_food_code:en:23024
 ciqual_food_code:en:23024
 ciqual_food_name:en:Macaron filled with jam or cream
@@ -63277,20 +63398,6 @@ ciqual_food_code:en:23455
 ciqual_food_name:en:Pastry cream puff
 ciqual_food_name:fr:Chou à la crème (chantilly ou pâtissière)
 
-<en:Pastries
-en:Profiteroles (chou pastry) with vanilla ice cream and chocolate sauce
-fr:Profiterole avec glace vanille et sauce chocolat
-agribalyse_food_code:en:23472
-ciqual_food_code:en:23472
-ciqual_food_name:en:Profiteroles (chou pastry), with vanilla ice cream and chocolate sauce
-
-<en:Pastries
-en:Profiteroles (chou pastry) with custard and chocolate sauce refrigerated
-fr:Profiteroles (crème pâtissière et sauce chocolat) rayon frais
-agribalyse_food_code:en:23474
-ciqual_food_code:en:23474
-ciqual_food_name:en:Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
-
 <en:Cream puff
 en:Chou pastry filled with whipped cream
 fr:Choux à la crème chantilly, Chou à la crème chantilly
@@ -63306,6 +63413,20 @@ agribalyse_food_code:en:23457
 ciqual_food_code:en:23457
 ciqual_food_name:en:Chou pastry filled with custard
 ciqual_food_name:fr:Chou à la crème pâtissière
+
+<en:Cream puff
+en:Profiteroles with vanilla ice cream and chocolate sauce, Chou pastry with vanilla ice cream and chocolate sauce
+fr:Profiterole avec glace vanille et sauce chocolat
+agribalyse_food_code:en:23472
+ciqual_food_code:en:23472
+ciqual_food_name:en:Profiteroles (chou pastry), with vanilla ice cream and chocolate sauce
+
+<en:Cream puff
+en:Profiteroles with custard and chocolate sauce refrigerated, Chou pastry with custard and chocolate sauce refrigerated
+fr:Profiteroles avec crème pâtissière et sauce chocolat
+agribalyse_food_code:en:23474
+ciqual_food_code:en:23474
+ciqual_food_name:en:Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
 
 <en:Pastries
 en:Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
@@ -63550,14 +63671,23 @@ ciqual_food_name:en:Fruit pie with confectioner's custard
 ciqual_food_name:fr:Tarte aux fruits et crème pâtissière
 
 <en:Sweet pies
-en:Fruit tarts, Fruit pies
-fr:Tartes aux fruits, Tartelettes aux fruits
+<en:Tartlets
+en:Fruit tarts
+fr:Tartelettes aux fruits
 agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
 ciqual_food_name:en:Fruit tart
 ciqual_food_name:fr:Tarte ou tartelette aux fruits
 
 <en:Sweet pies
+en:Fruit pies
+fr:Tartes aux fruits
+agribalyse_food_code:en:23499
+ciqual_food_code:en:23499
+ciqual_food_name:en:Fruit tart
+ciqual_food_name:fr:Tarte ou tartelette aux fruits
+
+<en:Fruit tarts
 en:Lemon tarts, Lemon pies, Lemon tart
 de:Zitronentörtchen
 fi:sitruunaleivokset
@@ -63601,7 +63731,7 @@ fr:Tartes au sucre, Tarte au sucre
 nl:Taarten met suiker
 wikidata:en:Q3515853
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Apricot pies, Apricots tart
 de:Aprikosenkuchen, Marillenkuchen
 fr:Tartes aux abricots, Tartes à l'abricot, Tarte aux abricots, Tarte à l'abricot
@@ -63611,7 +63741,7 @@ ciqual_food_code:en:23494
 ciqual_food_name:en:Apricots tart
 ciqual_food_name:fr:Tarte aux abricots
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Raspberry pies, Raspberry tarts
 de:Himbeerkuchen
 fi:Vadelmapiirakat, Vadelmatortut
@@ -63626,14 +63756,14 @@ ciqual_food_code:en:23009
 ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr:Fraisier ou framboisier
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Blueberry pies, blueberry pie
 fi:Mustikkapiirakat, mustikkapiirakka
 fr:Tartes aux myrtilles, Tartes à la myrtille, Tarte aux myrtilles, Tarte à la myrtille
 nl:Bosbestaart
 n:Bosbessentaarten
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Strawberry pies
 de:Erdbeerkuchen
 fr:Tartes aux fraises, tartes à la fraise, tarte aux fraises, tarte à la fraise
@@ -63676,7 +63806,7 @@ ciqual_food_code:en:23496
 ciqual_food_name:en:Tatin tart (caramelized upside-down apple tart)
 ciqual_food_name:fr:Tarte Tatin aux pommes
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Strawberry tart, Strawberries tart
 fr:Tartes aux fraises
 agribalyse_food_code:en:23491
@@ -63684,14 +63814,14 @@ ciqual_food_code:en:23491
 ciqual_food_name:en:Strawberries tart
 ciqual_food_name:fr:Tarte aux fraises
 
-<en:Sweet pies
+<en:Fruit tarts
 en:Pear pies
 de:Birnenkuchen
 fr:Tartes aux poires, Tarte aux poires, Tartes à la poire, Tarte à la poire
 nl:Peertaarten
 
-<en:Sweet pies
-en:Peer tart with almonds
+<en:Pear pies
+en:Pear tart with almonds
 fr:Tarte aux poires amandine
 agribalyse_food_code:en:24663
 ciqual_food_code:en:24663
@@ -63736,11 +63866,14 @@ ciqual_food_code:en:23497
 ciqual_food_name:en:Chocolate tart from bakery
 
 <en:Tartlets
+en:Fruit tartlets
+
+<en:Fruit tartlets
 en:Blueberry tartlets
 fr:Tartelettes à la myrtille, tartelette à la myrtille
 it:Tortini di mirtilli
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Strawberry tartlets
 de:Erdbeer Törtchen
 es:Tartaletas De Fresas
@@ -63748,34 +63881,34 @@ fr:Tartelettes à la fraise, Tartelettes aux fraises, tartelette à la fraise, T
 it:Tortini alle fragole
 nl:Aardbeientaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Raspberry tartlets
 de:Himbeer Törtchen
 fr:Tartelettes à la framboise
 it:Tortini di lampone
 nl:Frambozentaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Apricot tartlets
 es:Tartaletas de albaricoque
 fr:Tartelettes à l'abricot
 it:Tortini all'albicocca
 nl:Abrikozentaartjes
 
-<en:Tartlets
+<en:Fruit tartlets
 en:Lemon tartlets
 de:Zitronentörtchen
 fr:Tartelettes au citron
 it:Crostatina al limone
 nl:Citroentaartjes
 
-<en:Tartlets
-fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
-
-<en:Tartlets
+<en:Fruit tartlets
 en:Pear tartlets
 fr:Tartelettes à la poire
 nl:Peertaartjes
+
+<en:Tartlets
+fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
 
 <en:Tartlets
 en:Biscuit (small tart) with chocolate pre-packed
@@ -64210,7 +64343,7 @@ ciqual_food_name:fr:Sandwich baguette, saucisson, beurre
 
 <en:Sandwiches filled with cold cuts
 en:Rosette Sandwiches, Sandwiches filled with rosette
-fr:Sandwichs à la rosette
+fr:Sandwichs baguette à la rosette
 nl:Rosette sandwich
 agribalyse_proxy_food_code:en:25520
 agribalyse_proxy_food_name:en:Sandwich made with French bread, dry sausage and butter
@@ -65428,6 +65561,7 @@ ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 #<en:Poultry preparations
+<en:Home-made meat fritters
 <en:Meat preparations
 en:Home-made poultry fritters
 agribalyse_food_code:en:25551
@@ -66354,6 +66488,9 @@ nl:Gerookte kweekzalm
 <en:Smoked salmons
 en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
+
+<en:Smoked salmons
+fr:Saumons fumés d'Ecosse
 
 <en:Smoked salmons
 en:Wild smoked salmons
@@ -77562,6 +77699,9 @@ ciqual_food_code:en:23801
 ciqual_food_name:en:Buckwheat crepe, plain, prepacked
 ciqual_food_name:fr:Galette de sarrasin, nature, préemballée
 
+<en:Galettes
+fr:Galettes au chèvre et aux lardons
+
 en:Fish and meat and eggs, Fish meat eggs
 ca:Peix carn i ous
 de:Fisch und Fleisch und Eier, Fisch Fleisch Eier
@@ -77869,6 +78009,21 @@ fr:Galettes de céréales soufflées, galettes de céréales
 hu:Puffasztott gabonakészítmények
 it:Gallette di cereali
 nl:Graanwafels
+agribalyse_proxy_food_code:en:7353
+agribalyse_proxy_food_name:en:Puffed cereals textured bread
+agribalyse_proxy_food_name:fr:Galettes multicéréales soufflées
+
+<en:Puffed cereal cakes
+en:Puffed multigrain cakes, Puffed cereals textured bread
+de:Gepuffte Vollkornkuchen
+es:Tortitas multicereales, Tortitas de varios cereales
+fr:Galettes multicéréales soufflées, Galettes muticéréales
+it:Torte di multicereali soffiati
+nl:Meergranen wafels
+agribalyse_food_code:en:7353
+ciqual_food_code:en:7353
+ciqual_food_name:en:Puffed cereals textured bread
+ciqual_food_name:fr:Galettes multicéréales soufflées
 
 <en:Puffed cereal cakes
 en:Puffed corn cakes
@@ -77978,18 +78133,6 @@ es:Tortitas de trigo de Jorasán, Tortitas de Kamut
 fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 it:Torte di grano Khorasan soffiato
 nl:Kamutwafels
-
-<en:Puffed cereal cakes
-en:Puffed multigrain cakes, Puffed cereals textured bread
-de:Gepuffte Vollkornkuchen
-es:Tortitas multicereales, Tortitas de varios cereales
-fr:Galettes multicéréales soufflées, Galettes muticéréales
-it:Torte di multicereali soffiati
-nl:Meergranen wafels
-agribalyse_food_code:en:7353
-ciqual_food_code:en:7353
-ciqual_food_name:en:Puffed cereals textured bread
-ciqual_food_name:fr:Galettes multicéréales soufflées
 
 
 <en:Appetizers
@@ -79594,10 +79737,10 @@ wikidata:en:Q2878697
 fr:Saucisses sèches de jambon
 
 <fr:Charcuteries cuites
-en:Poultry hams
+en:Cooked poultry breast slices, Poultry hams
 de:Geflügelschinken
 fi:siipikarjakinkut
-fr:Jambons de volaille
+fr:Blancs de volaille en tranches, Jambons de volaille
 it:Prosciutti di pollame
 nl:Gevogelte bilvlees
 

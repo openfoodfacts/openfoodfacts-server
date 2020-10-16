@@ -151,7 +151,7 @@ my %may_contain_regexps = (
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
-	es => "puede contener huellas de|puede contener|trazas|traza",
+	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
@@ -160,10 +160,12 @@ my %may_contain_regexps = (
 	it => "Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
-	nl => "Dit product kan sporen van|Kan sporen bevatten van|Kan sporen van",
+	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
+	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
+	sk => "Môže obsahovať",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
@@ -2713,7 +2715,7 @@ es => [
 'valor energ(e|é)tico',
 'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
-'conservar en lug(a|e)r fresco y seco',
+'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 'de los cuates az(u|ü)cares',
 'de las cuales saturadas',
 'protegido de la luz',
@@ -2880,7 +2882,7 @@ pl => [
 ],
 
 pt => [
-'conservar em local fresco',
+'conservar em local (seco e )?fresco',
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',

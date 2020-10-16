@@ -8241,7 +8241,6 @@ sl:E336, E336 food additive
 sr:E336, Kalijum tartrat
 sv:E336, Kaliumtartrater
 e_number:en:336
-wikidata:en:Q418064
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
@@ -8249,13 +8248,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
 # ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
 
 <en:E336
-en:E336(i), Monopotassium tartrate, monopotassic tartrate
+en:E336(i), Monopotassium tartrate, monopotassic tartrate, Potassium bitartrate, potassium hydrogen tartrate, cream of tartar
 bg:E336(i), Монокалиев тартарат
 cs:E336(i), Monopotassium tartrate
 da:E336(i), Monokaliumtartrat
 de:E336(i), Monokaliumtartrat, Kaliumtartrat - einbasig
 el:E336(i), Οξινο τρυγικο καλιο
-es:E336(i), Tartrato monopotásico
+es:E336(i), Tartrato monopotásico, bitartrato de potasio
 et:E336(i), Kaaliumvesiniktartraat
 fi:E336(i), Monokaliumtartraatti, Monokaliumtartraattia
 fr:E336(i), Tartrate monopotassique
@@ -8272,15 +8271,16 @@ sk:E336(i), Vínan draselný
 sl:E336(i), Monokalijev tartrat
 sv:E336(i), Monokaliumtartrat
 e_number:en:336
-wikidata:en:Q418064
+wikidata:en:Q18745
 organic_eu:en:authorized
-wikidata:en: Q42807499
+wikidata:en:Q42807499
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_bitartrate
+#Potassium bitartrate, also known as potassium hydrogen tartrate, with formula K C4 H5 O6
 # additive/e336i-monopotassium-tartrate has 127 products in 5 languages @2019-03-22
-
+description:en:POTASSIUM BITARTRATE, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
 
 <en:E336
-en:E336(ii), Dipotassium tartrate, dipotassic tartrate, Potassium bitartrate
+en:E336(ii), Dipotassium tartrate, dipotassic tartrate, Potassium tartrate
 bg:E336(ii), Дикалиев тартарат
 ca:E336(ii), Tàrtic dipotàssic, tartàric dipotàssic
 cs:E336(ii), Dipotassium tartrate
@@ -8308,10 +8308,11 @@ sv:E336(ii), Dikaliumtartrat
 # azb:E336(ii), پوتاسیوم تارترات
 e_number:en:336
 wikidata:en:Q418064
+wikidata:en:Q65770886
+wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
 organic_eu:en:authorized
 # additive/e336ii-dipotassium-tartrate/ has 9 products in 3 languages @2019-03-22
 # Potassium tartrate, dipotassium tartrate or argol has formula K2C4H4O6.
-description:en:POTASSIUM BITARTRATE, also known as potassium hydrogen tartrate, with formula KC4H5O6, is a byproduct of winemaking.
 
 
 en:E337, Potassium sodium tartrate
@@ -10694,9 +10695,9 @@ it:E420, Sorbitolo, Glucitolo
 lt:E420, Sorbitolis
 lv:E420, sorbitolis, Sorbīts
 mt:E420, sorbitol
-nl:E420, Sorbitol
+nl:E420, Sorbitol, Sorbitolen
 pl:E420, Sorbitole, Sorbitol
-pt:E420, Sorbitol
+pt:E420, Sorbitol, sorbitóis
 ro:E420, Sorbitol
 ru:E420, Сорбит, сорбитовый сироп, Сорбитол, Глюцит
 sk:E420, Sorbitol
@@ -12429,7 +12430,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E452
-en:E452(i), Sodium polyphosphate
+en:E452(i), Sodium polyphosphate, sodium hexametaphosphate, sodium polymetaphosphate
 bg:E452(i), Натриев полифосфат
 cs:E452(i), Polyfosforečnan sodný
 da:E452(i), Natriumpolyphosphater
@@ -12995,7 +12996,7 @@ additives_classes:en: en:emulsifier, en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
-en:E466, Sodium carboxy methyl cellulose, carboxy methyl cellulose, Carboxymethylcellulose, cellulose gum, carboxymethyl cellulose, CMC, NaCMC
+en:E466, Sodium carboxy methyl cellulose, sodium carboxymethylcellulose, carboxy methyl cellulose, Carboxymethylcellulose, cellulose gum, carboxymethyl cellulose, CMC, NaCMC
 bg:E466, Натриева карбокси метил целулоза, карбокси метил целулоза, целулозна гума, CMC, NaCMC
 ca:E466, Carboximetilcellulosa sòdica
 cs:E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová guma, CMC, NaCMC, Karboxymethylcelulóza, Karboxymetylcelulóza, Karboxymetylcelulosa, E 466
