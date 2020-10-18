@@ -66,7 +66,8 @@ function copyJs() {
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
-      "./node_modules/cropper/dist/cropper.js",
+      "./node_modules/cropperjs/dist/cropper.js",
+      "./node_modules/jquery-cropper/dist/jquery-cropper.js",
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
       "./node_modules/jvectormap-next/jquery-jvectormap.js",
@@ -125,7 +126,7 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css",
+      "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/jvectormap-next/jquery-jvectormap.css"
     ]).
     pipe(sourcemaps.init()).
