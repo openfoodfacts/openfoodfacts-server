@@ -31236,16 +31236,17 @@ ciqual_food_name:en:Soft-ripened cheese, from goat's milk, from pasteurised milk
 #<en:Goat cheeses
 #<en:French cheeses
 #en:French goat cheeses
+#fr:fromages de chèvre français
 
 <en:Goat cheeses
-en:Cheese semi-dry from goat's milk
+en:Semi-dry cheese from goat's milk
 fr:Fromage de chèvre demi-sec
 agribalyse_food_code:en:12810
 ciqual_food_code:en:12810
 ciqual_food_name:en:Cheese, semi-dry, from goat's milk
 
 <en:Goat cheeses
-en:Cheese dry from goat's milk
+en:Dry cheese from goat's milk
 fr:Fromage de chèvre sec
 agribalyse_food_code:en:12815
 ciqual_food_code:en:12815
@@ -31263,36 +31264,36 @@ ciqual_food_code:en:12800
 ciqual_food_name:en:Cheese, from goat's milk, fresh, from pasteurised milk
 
 <en:Goat cheeses
-en:Cheese buche from goat's milk light
-fr:bûche de chèvre allégée en matière grasse
+en:Light cheese buche from goat's milk
+fr:Bûche de chèvre allégée en matière grasse
 agribalyse_food_code:en:12813
 ciqual_food_code:en:12813
 ciqual_food_name:en:Cheese, buche, from goat's milk, light
 
 <en:Goat cheeses
 en:Cheese from goat's milk from pasteurised milk
-fr:Fromage de chèvre lactique affiné au lait pasteurisé (type bûchette ou crottin)
+fr:Fromage de chèvre lactique affiné au lait pasteurisé, bûchette pasteurisée de chèvre, crottin pasteurisé de chèvre
 agribalyse_food_code:en:12802
 ciqual_food_code:en:12802
 ciqual_food_name:en:Cheese, from goat's milk, from pasteurised milk
 
 <en:Goat cheeses
 en:Cheese from goat's milk fresh from raw milk
-fr:Fromage de chèvre frais au lait cru (type palet ou crottin frais)
+fr:Fromage de chèvre frais au lait cru, palet frais de chèvre au lait cru, crottin frais de chèvre au lait cru
 agribalyse_food_code:en:12804
 ciqual_food_code:en:12804
 ciqual_food_name:en:Cheese, from goat's milk, fresh, from raw milk
 
 <en:Goat cheeses
 en:Cheese from goat's milk fresh
-fr:Fromage de chèvre frais au lait pasteurisé ou cru (type crottin frais ou bûchette fraîche)
+fr:Fromage de chèvre frais au lait pasteurisé ou cru, bûchette de chèvre frais, crottin de chèvre frais
 agribalyse_food_code:en:12805
 ciqual_food_code:en:12805
 ciqual_food_name:en:Cheese, from goat's milk, fresh
 
 <en:Goat cheeses
-en:Cheese from goat's milk spreadable plain
-fr:Fromage de chèvre à tartiner nature
+en:Spreadable goat cheese, Spreadable cheese from goat's milk
+fr:Fromage de chèvre à tartiner
 ciqual_food_code:en:12819
 ciqual_food_name:en:Cheese, from goat's milk, spreadable, plain
 
@@ -31440,74 +31441,92 @@ origins:en: en:United Kingdom
 
 <en:Cheeses from England
 en:Harbourne Blue
+origins:en: en:United Kingdom
 wikidata:en:Q5654906
 
 <en:Cheeses from England
 en:Lancashire cheese
+origins:en: en:United Kingdom
 wikidata:en:Q1244290
 
 <en:Cheeses from England
 en:Lincolnshire Poacher cheese
+origins:en: en:United Kingdom
 wikidata:en:Q3057964
 
 <en:Cheeses from England
 en:Little Derby
+origins:en: en:United Kingdom
 wikidata:en:Q3256676
 
 <en:Cheeses from England
 en:Lymeswold cheese
+origins:en: en:United Kingdom
 wikidata:en:Q16997125
 
 <en:Cheeses from England
 en:Newport 1665
+origins:en: en:United Kingdom
 wikidata:en:Q3339139
 
 <en:Cheeses from England
 en:Norbury Blue
+origins:en: en:United Kingdom
 wikidata:en:Q7050450
 
 <en:Cheeses from England
 en:Parlick Fell cheese
+origins:en: en:United Kingdom
 wikidata:en:Q3184021
 
 <en:Cheeses from England
 en:Pilgrims Choice
+origins:en: en:United Kingdom
 wikidata:en:Q7193978
 
 <en:Cheeses from England
 en:Red Leicester
+origins:en: en:United Kingdom
 wikidata:en:Q1892828
 
 <en:Cheeses from England
 en:Red Windsor
+origins:en: en:United Kingdom
 wikidata:en:Q3422800
 
 <en:Cheeses from England
 en:Sage Derby
+origins:en: en:United Kingdom
 wikidata:en:Q1591102
 
 <en:Cheeses from England
 en:Shropshire Blue
+origins:en: en:United Kingdom
 wikidata:en:Q1887104
 
 <en:Cheeses from England
 en:Stichelton
+origins:en: en:United Kingdom
 wikidata:en:Q3499388
 
 <en:Cheeses from England
 en:Stilton cheese
+origins:en: en:United Kingdom
 wikidata:en:Q466749
 
 <en:Cheeses from England
 en:Stinking Bishop cheese
 wikidata:en:Q572557
+origins:en: en:United Kingdom
 
 <en:Cheeses from England
 en:Suffolk Gold cheese
+origins:en: en:United Kingdom
 wikidata:en:Q17026015
 
 <en:Cheeses from England
 en:Sussex Slipcote
+origins:en: en:United Kingdom
 wikidata:en:Q3505742
 
 <en:Cheeses from England
@@ -31520,6 +31539,7 @@ wikidata:en:Q94011
 
 <en:Cheeses from England
 en:Waterloo cheese
+origins:en: en:United Kingdom
 wikidata:en:Q3566692
 
 <en:Cheeses from England
@@ -31531,6 +31551,7 @@ wikidata:en:Q1972540
 
 <en:Cheeses from England
 en:Wrekin White
+origins:en: en:United Kingdom
 wikidata:en:Q3570104
 
 <en:Cheeses from the United Kingdom
@@ -31554,10 +31575,12 @@ wikidata:en:Q135178
 
 <en:Cheeses from Scotland
 en:Caboc
+origins:en: en:Scotland
 wikidata:en:Q1024912
 
 <en:Cheeses from Scotland
 en:Crowdie
+origins:en: en:Scotland
 wikidata:en:Q2895215
 
 <en:Cheeses from Scotland
@@ -31569,10 +31592,12 @@ wikidata:en:Q1266163
 
 <en:Cheeses from Scotland
 en:Isle of Mull Cheddar
+origins:en: en:Scotland
 wikidata:en:Q16920603
 
 <en:Cheeses from Scotland
 en:Lanark Blue
+origins:en: en:Scotland
 wikidata:en:Q537897
 
 <en:Cheeses from the United Kingdom
@@ -31581,6 +31606,7 @@ de:Walisischer Käse
 fr:Fromages du Pays de Galles, Fromages gallois
 nl:Welshe kazen
 pt:Queijos do País de Gales
+origins:en: en:United Kingdom, en:Wales
 
 <en:Cheeses from Wales
 en:Caerphilly, Traditional Welsh Caerphilly, Traditional Welsh Caerffili
@@ -31591,15 +31617,18 @@ wikidata:en:Q1025407
 
 <en:Cheeses from Wales
 en:Pantysgawn
+origins:en: en:United Kingdom, en:Wales
 wikidata:en:Q3362437
 
 <en:Cheeses from Wales
 en:Tintern
+origins:en: en:United Kingdom, en:Wales
 wikidata:en:Q3529217
 
 <en:Cheeses from Wales
 en:Y Fenni
 nl:Y Fenni
+origins:en: en:United Kingdom, en:Wales
 wikidata:en:Q3058285
 
 <en:Cheeses from the United Kingdom
@@ -31607,15 +31636,18 @@ en:Cheeses from Northern Ireland
 de:Nord Irischer Käse
 fr:Fromages d'Irlande du Nord, Fromages nord-irlandais
 nl:Noordierse kazen
+origins:en: en:United Kingdom, en:Northern Ireland
 
 <en:Cheeses from Northern Ireland
 en:Coleraine cheddar
 wikidata:en:Q2961937
+origins:en: en:United Kingdom, en:Northern Ireland
 
 <en:Cheeses
 en:German cheeses, Cheeses from Germany
 de:Deutscher Käse
 fr:Fromages allemands
+origins:en: en:Germany
 
 #Cheese of cow and goat (15% min) milk
 <en:German cheeses
