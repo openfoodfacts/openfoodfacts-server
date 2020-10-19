@@ -27270,7 +27270,16 @@ ciqual_food_code:en:22506
 ciqual_food_name:en:Omelette, with cheese
 
 <en:Meals
-fr:Crêpes au jambon
+fr:Crêpes fourrées
+en:Filled crêpes
+
+<fr:Crêpes fourrées
+fr:Crêpes fourrées sucrées
+en:Sugary filled crêpes
+
+<fr:Crêpes fourrées
+fr:Crêpes fourrées salées
+en:Salty filled crêpes
 
 <en:Meals
 fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage
@@ -53068,9 +53077,19 @@ ciqual_food_code:en:25550
 ciqual_food_name:en:Flamed tart (thin-crusted onion tart with cream and lardoons)
 ciqual_food_name:fr:Flammenkueche ou Tarte flambée aux lardons
 
-Flammekueches aux Noix de St Jacques
+<en:Flammekueche
+fr:Flammekueches salées
 
-Flammekueches aux pommes
+<fr:Flammekueches salées
+fr:Flammekueches aux Noix de St Jacques
+
+<fr:Flammekueches salées
+fr:Flammekueches aux gambas
+
+fr:Flammekueches sucrées
+
+<fr:Flammekueches sucrées
+fr:Flammekueches aux pommes
 
 <en:Meals
 fr:Fondues, fondue, fondues de fromage, fondue de fromage
@@ -77746,26 +77765,44 @@ agribalyse_food_code:en:26256
 ciqual_food_code:en:26256
 ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
 
-<en:Crêpes and galettes
+<en:Meals
+en:Filled buckwheat crepes
+fr:Galettes fourrées, Galettes de blé noir fourrées
+
+<en:Filled buckwheat crepes
+fr:Galettes fourrées sucrées, Galettes de blé noir fourrées sucrées
+en:Sugary filled buckwheat crepes
+
+<en:Filled buckwheat crepes
+fr:Galettes fourrées salées, Galettes de blé noir fourrées salées
+en:Salty filled buckwheat crepes
+
+<en:Salty filled buckwheat crepes
 en:Crepe filled with ham
 fr:Galette fourrée béchamel jambon
 agribalyse_food_code:en:25409
 ciqual_food_code:en:25409
 ciqual_food_name:en:Crepe, filled with ham
 
-<en:Crêpes and galettes
+<en:Salty filled buckwheat crepes
 en:Crepe filled with cheese ham and bechamel sauce, buckwheat crepe filled with cheese ham and bechamel sauce
 fr:Galette fourrée béchamel jambon fromage
 agribalyse_food_code:en:25410
 ciqual_food_code:en:25410
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
 
-<en:Crêpes and galettes
+<en:Salty filled buckwheat crepes
 en:Crepe filled with mushrooms and bechamel sauce cooked, buckwheat crepe filled with mushrooms and bechamel sauce cooked
 fr:Galette fourrée béchamel champignon, Galette fourrée béchamel champignon cuite
 agribalyse_food_code:en:25581
 ciqual_food_code:en:25581
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel sauce, cooked
+
+<en:Salty filled buckwheat crepes
+fr:Galettes de blé noir champignons lardons emmental
+
+<en:Salty filled buckwheat crepes
+fr:Galettes au chèvre et aux lardons
 
 <en:Galettes
 en:Plain buckwheat crepes
@@ -77774,9 +77811,6 @@ agribalyse_food_code:en:23801
 ciqual_food_code:en:23801
 ciqual_food_name:en:Buckwheat crepe, plain, prepacked
 ciqual_food_name:fr:Galette de sarrasin, nature, préemballée
-
-<en:Galettes
-fr:Galettes au chèvre et aux lardons
 
 en:Fish and meat and eggs, Fish meat eggs
 ca:Peix carn i ous
