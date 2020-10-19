@@ -3180,6 +3180,13 @@ nl:Schapps
 wikidata:en:Q1815494
 
 <en:Alcoholic beverages
+en:Punchs
+fr:Punchs
+agribalyse_proxy_food_code:en:1022
+agribalyse_proxy_food_name:en:Cocktail, punch type, 16% alcohol
+agribalyse_proxy_food_name:fr:Cocktail type punch, 16% alcool
+
+<en:Punchs
 en:Punch cocktail with 16% alcohol, Punch with 16% alcohol
 fr:Cocktail type punch à 16% d'alcool, Punch à 16% d'alcool
 agribalyse_food_code:en:1022
@@ -3194,6 +3201,12 @@ agribalyse_food_code:en:1012
 ciqual_food_code:en:1012
 ciqual_food_name:en:Rum-based cocktail
 ciqual_food_name:fr:Cocktail à base de rhum
+
+<en:Rum-based cocktail
+fr:Daïquiri
+
+<en:Non-Alcoholic beverages
+fr:Daïquiri sans alcool
 
 <en:Alcoholic beverages
 en:Liqueurs
@@ -24564,6 +24577,10 @@ fr:Muffins au chocolat, muffin au chocolat
 it:Muffin al cioccolato
 nl:Chocolademuffins, Chocolademuffin
 zh:巧克力松饼
+
+<en:Muffins
+fr:Muffins aux pépites de chocolat
+it:Muffin con gocce di cioccolato
 
 <en:Muffins
 en:Vanilla muffins
@@ -52143,6 +52160,10 @@ ciqual_food_name:fr:Soupe miso
 #agribalyse_proxy_food_name:fr:Miso
 
 <en:Soups
+en:Moroccan soup
+fr:Soupe marocaine
+
+<en:Moroccan soup
 en:Dehydrated and reconstituted Moroccan soup
 fr:Soupe marocaine déshydratée reconstituée
 agribalyse_food_code:en:25924
@@ -52210,6 +52231,7 @@ pnns_group_2:en:Soups
 
 <en:Soups
 en:Reheatable soups
+fr:Soupes à réchauffer
 
 <en:Soups
 <en:Reheatable soups
@@ -52251,7 +52273,6 @@ agribalyse_food_code:en:25908
 ciqual_food_code:en:25908
 ciqual_food_name:en:Soup, chicken and vermicelli, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux vermicelles, préemballée à réchauffer
-
 
 <en:Soups
 en:tomato and vermicelli soup
@@ -54589,6 +54610,9 @@ it:Lumache, Chiocciole
 nl:Slakken
 zh:蜗牛, 田螺
 wikidata:en:Q308841
+agribalyse_proxy_food_code:en:10042
+agribalyse_proxy_food_name:en:Snail in parsley butter, cooked
+agribalyse_proxy_food_name:fr:Escargot en sauce au beurre persillé, cuit
 
 <en:Snails
 en:Snails from Burgundy
@@ -54641,7 +54665,7 @@ ciqual_food_name:en:Snail, without added fat, cooked
 ciqual_food_name:fr:Escargot, sans matière grasse ajoutée, cuit
 
 <en:Snails
-en:Raw snail
+en:Raw snails
 fr:Escargots crus
 ciqual_food_code:en:10008
 ciqual_food_name:en:Snail, raw
@@ -54715,6 +54739,7 @@ ciqual_food_name:fr:Grenouille, cuisse, crue
 
 <en:meats
 en:Belgian fresh meat and offal
+fr:Viandes et abats frais belges
 
 <en:Belgian fresh meat and offal
 nl:Vlees van het rood ras van West-Vlaanderen
@@ -55020,15 +55045,16 @@ ciqual_food_code:en:25201
 ciqual_food_name:en:Beef tongue with Madeira wine sauce
 ciqual_food_name:fr:Langue de bœuf sauce madère
 
-<en:Raw beef meat
-en:Raw beef knuckle
-fr:Jarret de boeuf cru
+<en:Beef meat
+en:Beef knuckle
+fr:Jarret de boeuf
 agribalyse_food_code:en:6150
 ciqual_food_code:en:6150
 ciqual_food_name:en:Beef, knuckle, raw
 ciqual_food_name:fr:Boeuf, jarret, cru
 
 <en:Cooked beef meat
+<en:Beef knuckle
 en:Boiled beef knuckle, Beef knuckle cooked in water
 fr:Jarret de boeuf bouilli, Jarret de boeuf cuit à l'eau
 agribalyse_food_code:en:6151
@@ -55036,7 +55062,12 @@ ciqual_food_code:en:6151
 ciqual_food_name:en:Beef, knuckle, boiled/cooked in water
 ciqual_food_name:fr:Boeuf, jarret, bouilli/cuit à l'eau
 
+<en:Beef meat
+en:Beef oxtail
+fr:Queue de boeuf
+
 <en:Cooked beef meat
+<en:Beef oxtail
 en:Boiled beef oxtail, Beef oxtail cooked in water
 fr:Queue de boeuf bouillie, Queue de boeuf cuite à l'eau
 agribalyse_food_code:en:6310
@@ -55045,20 +55076,28 @@ ciqual_food_name:en:Beef, oxtail, boiled/cooked in water
 ciqual_food_name:fr:Boeuf, queue, bouillie/cuite à l'eau
 
 <en:Beef
-en:Grilled lean beef rib steak, Pan-fried lean beef rib steak
-fr:Entrecôte de boeuf partie maigre grillée, Entrecôte de boeuf partie maigre poêlée
-agribalyse_food_code:en:6100
-ciqual_food_code:en:6100
-ciqual_food_name:en:Beef, rib steak, lean, grilled/pan-fried
-ciqual_food_name:fr:Boeuf, entrecôte, partie maigre, grillée/poêlée
+en:Beef rib steak
+fr:Entrecôte de boeuf
+agribalyse_proxy_food_code:en:6103
+agribalyse_proxy_food_name:en:Beef, rib steak, raw
+agribalyse_proxy_food_name:fr:Boeuf, entrecôte, crue
 
 <en:Raw beef meat
+<en:Beef rib steak
 en:Raw beef rib steak
 fr:Entrecôte de boeuf crue
 agribalyse_food_code:en:6103
 ciqual_food_code:en:6103
 ciqual_food_name:en:Beef, rib steak, raw
 ciqual_food_name:fr:Boeuf, entrecôte, crue
+
+<en:Beef rib steak
+en:Grilled lean beef rib steak, Pan-fried lean beef rib steak
+fr:Entrecôte de boeuf partie maigre grillée, Entrecôte de boeuf partie maigre poêlée
+agribalyse_food_code:en:6100
+ciqual_food_code:en:6100
+ciqual_food_name:en:Beef, rib steak, lean, grilled/pan-fried
+ciqual_food_name:fr:Boeuf, entrecôte, partie maigre, grillée/poêlée
 
 <en:Raw beef meat
 en:Raw beef rib
@@ -55068,7 +55107,27 @@ ciqual_food_code:en:6001
 ciqual_food_name:en:Beef, rib, raw
 ciqual_food_name:fr:Boeuf, côte, crue
 
+<en:Beef meat
+en:beef short ribs
+fr:côtes de boeuf
+agribalyse_proxy_food_code:en:6122
+agribalyse_proxy_food_name:en:Beef, short ribs, raw
+agribalyse_proxy_food_name:fr:Boeuf, plat de côtes, cru
+
+<en:beef short ribs
+fr:Ribs de bœuf sauce barbecue
+
+<en:Raw beef meat
+<en:beef short ribs
+en:Raw beef short ribs
+fr:Plats de côtes de boeuf cru
+agribalyse_food_code:en:6122
+ciqual_food_code:en:6122
+ciqual_food_name:en:Beef, short ribs, raw
+ciqual_food_name:fr:Boeuf, plat de côtes, cru
+
 <en:Cooked beef meat
+<en:beef short ribs
 en:Braised beef short ribs
 fr:Plat de côtes de boeuf braisées
 agribalyse_food_code:en:6123
@@ -55076,13 +55135,9 @@ ciqual_food_code:en:6123
 ciqual_food_name:en:Beef, short ribs, braised
 ciqual_food_name:fr:Boeuf, plat de côtes, braisé
 
-<en:Raw beef meat
-en:Raw beef short ribs
-fr:Plats de côtes de boeuf cru
-agribalyse_food_code:en:6122
-ciqual_food_code:en:6122
-ciqual_food_name:en:Beef, short ribs, raw
-ciqual_food_name:fr:Boeuf, plat de côtes, cru
+<en:Beef meat
+en:Beef heart
+fr:Coeur de boeuf
 
 <en:Cooked beef meat
 en:Cooked beef heart
@@ -55771,7 +55826,16 @@ ciqual_food_code:en:6250
 ciqual_food_name:en:Beef, minced steak, 5% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 5% MG, cru
 
+<en:Ground beef steaks
+en:Minced beef steak with 10% fat, Raw minced beef steak with 10% fat
+fr:Steak haché de bœuf à 10% de matières grasses, Steak haché de bœuf cru à 10% de matières grasses
+agribalyse_food_code:en:6252
+ciqual_food_code:en:6252
+ciqual_food_name:en:Beef, minced steak, 10% fat, raw
+ciqual_food_name:fr:Bœuf, steak haché 10% MG, cru
+
 <en:Cooked ground beef steaks
+<en:Minced beef steak with 10% fat
 en:Cooked minced beef steak with 10% fat
 fr:Steak haché de bœuf cuit à 10% de matières grasses
 agribalyse_food_code:en:6253
@@ -55780,12 +55844,12 @@ ciqual_food_name:en:Beef, minced steak, 10% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 10% MG, cuit
 
 <en:Ground beef steaks
-en:Raw minced beef steak with 10% fat
-fr:Steak haché de bœuf cru à 10% de matières grasses
-agribalyse_food_code:en:6252
-ciqual_food_code:en:6252
-ciqual_food_name:en:Beef, minced steak, 10% fat, raw
-ciqual_food_name:fr:Bœuf, steak haché 10% MG, cru
+en:Minced beef steak with 15% fat, Raw minced beef steak with 15% fat
+fr:Steak haché de bœuf à 15% de matières grasses, Steak haché de bœuf cru à 15% de matières grasses
+agribalyse_food_code:en:6254
+ciqual_food_code:en:6254
+ciqual_food_name:en:Beef, minced steak, 15% fat, raw
+ciqual_food_name:fr:Bœuf, steak haché 15% MG, cru
 
 <en:Cooked ground beef steaks
 en:Cooked minced beef steak with 15% fat
@@ -55796,28 +55860,21 @@ ciqual_food_name:en:Beef, minced steak, 15% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 15% MG, cuit
 
 <en:Ground beef steaks
-en:Raw minced beef steak with 15% fat
-fr:Steak haché de bœuf cru à 15% de matières grasses
-agribalyse_food_code:en:6254
-ciqual_food_code:en:6254
-ciqual_food_name:en:Beef, minced steak, 15% fat, raw
-ciqual_food_name:fr:Bœuf, steak haché 15% MG, cru
+en:Minced beef steak with 20% fat, Raw minced beef steak with 20% fat
+fr:Steak haché de bœuf à 20% de matières grasses, Steak haché de bœuf cru à 20% de matières grasses
+agribalyse_food_code:en:6256
+ciqual_food_code:en:6256
+ciqual_food_name:en:Beef, minced steak, 20% fat, raw
+ciqual_food_name:fr:Bœuf, steak haché 20% MG, cru
 
 <en:Cooked ground beef steaks
+<en:Minced beef steak with 20% fat
 en:Cooked minced beef steak with 20% fat
 fr:Steak haché de bœuf cuit à 20% de matières grasses
 agribalyse_food_code:en:6257
 ciqual_food_code:en:6257
 ciqual_food_name:en:Beef, minced steak, 20% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 20% MG, cuit
-
-<en:Ground beef steaks
-en:Raw minced beef steak with 20% fat
-fr:Steak haché de bœuf cru à 20% de matières grasses
-agribalyse_food_code:en:6256
-ciqual_food_code:en:6256
-ciqual_food_name:en:Beef, minced steak, 20% fat, raw
-ciqual_food_name:fr:Bœuf, steak haché 20% MG, cru
 
 <en:Beef steaks
 en:Grilled beef steaks, Grilled beef steak
