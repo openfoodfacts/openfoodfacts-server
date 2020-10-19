@@ -179,6 +179,11 @@ function display_products(target, product_groups ) {
 		);
 		
 		$(document).foundation('tab', 'reflow');
+		$(document).foundation('equalizer', 'reflow');
+		
+		$('#products_tabs_titles').on('toggled', function (event, tab) {
+			$(document).foundation('equalizer', 'reflow');
+		});
 
 	});
 }
