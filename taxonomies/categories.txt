@@ -32961,7 +32961,7 @@ en:Squirty creams, Spray creams
 fr:Crèmes sous pression
 de:Sprühsahne
 
-<en:Creams
+<en:Liquid cream
 en:UHT Creams
 de:H-Sahne,H-Schlagsahne
 fi:Iskukuumennetut kermat
@@ -33037,6 +33037,10 @@ it:Creme fermentate
 nl:Gefermenteerde room
 
 <en:Creams
+en:Thick cream
+fr:Crème de lait épaisse
+
+<en:Thick cream
 en:Refrigerated 30% fat thick cream
 fr:Crème de lait épaisse à 30% de matières grasses rayon frais
 agribalyse_food_code:en:19410
@@ -33044,7 +33048,12 @@ ciqual_food_code:en:19410
 ciqual_food_name:en:Thick cream 30% fat, refrigerated
 ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
 
+<en:Creams
+en:Liquid cream
+fr:Crème de lait semi-épaisse
+
 <en:UHT Creams
+<en:Liquid cream
 en:Liquid 30% fat UHT cream
 fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
 agribalyse_food_code:en:19415
@@ -33053,6 +33062,7 @@ ciqual_food_name:en:Liquid cream 30% fat, UHT
 ciqual_food_name:fr:Crème de lait, 30% MG, semi-épaisse, UHT
 
 <en:UHT Creams
+<en:Liquid cream
 en:Liquid 15-20% fat light cream UHT
 fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
 agribalyse_food_code:en:19430
@@ -33060,7 +33070,7 @@ ciqual_food_code:en:19430
 ciqual_food_name:en:Liquid cream, light, 15-20% fat, UHT
 ciqual_food_name:fr:Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
 
-<en:Creams
+<en:Thick cream
 en:Refrigerated 15-20% fat light thick cream
 fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
 agribalyse_food_code:en:19431
@@ -33716,13 +33726,26 @@ ciqual_food_code:en:19120
 ciqual_food_name:en:Flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
 ciqual_food_name:fr:Boisson lactée aromatisée (arôme inconnu), sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux (aliment moyen)
 
+<en:Milks
+en:Renneted milks
+fr:Laits emprésurés
+
 <en:Flavoured milks
-en:Refrigerated flavoured renneted milks
-fr:Laits emprésurés aromatisés rayon frais
+en:Flavoured renneted milks
+fr:Laits emprésurés aromatisés
 agribalyse_food_code:en:19678
 ciqual_food_code:en:19678
 ciqual_food_name:en:Renneted milk, flavoured, refrigerated
 ciqual_food_name:fr:Lait emprésuré aromatisé, rayon frais
+
+<en:Flavoured renneted milks
+fr:Laits emprésurés au chocolat
+
+<en:Flavoured renneted milks
+fr:Laits emprésurés au caramel
+
+<en:Flavoured renneted milks
+fr:Laits emprésurés à la vanille
 
 <en:Flavoured milks
 en:Chocolate milks
@@ -33774,6 +33797,13 @@ ciqual_food_name:en:Strawberry flavoured milk, with sugar, partially skimmed, fo
 ciqual_food_name:fr:Boisson lactée aromatisée à la fraise, sucrée, au lait partiellement écrémé, enrichie à la vitamine D
 
 <en:Flavoured milks
+en:Milkshakes, Milk-shakes
+fr:Milkshakes, Milk-shakes
+agribalyse_proxy_food_code:en:39001
+agribalyse_proxy_food_name:en:Milkshake, from fast foods restaurant
+agribalyse_proxy_food_name:fr:Milk-shake, provenant de fast food
+
+<en:Milkshakes
 en:Milkshakes from fast foods restaurant, Milk-shakes from fast foods restaurant
 fr:Milkshakes de fast food, Milk-shakes de fast food
 agribalyse_food_code:en:39001
@@ -33982,6 +34012,10 @@ wikidata:en:Q496696
 agribalyse_proxy_food_code:en:19054
 agribalyse_proxy_food_name:en:Milk, powder, skimmed
 agribalyse_proxy_food_name:fr:Lait en poudre, écrémé
+
+<en:Dehydrated beverages
+en:Milk-shakes preparations
+fr:Préparations pour Milk-shakes
 
 <en:Milk powders
 <en:Whole milks
@@ -34711,11 +34745,14 @@ es:Horchatas de chufa congeladas
 fr:Horchatas de chufa surgelés
 
 <en:Frozen vegetables
-en:Frozen peas and carrots
+en:Frozen peas and carrots, Frozen garden peas and carrots
 fr:Petits pois et carottes surgelés
 nl:Diepries doperwten en worteltjes
+agribalyse_proxy_food_code:en:20214
+agribalyse_proxy_food_name:en:Garden peas and carrots, frozen, raw
+agribalyse_proxy_food_name:fr:Petits pois et carottes, surgelés, crus
 
-<en:Frozen vegetables
+<en:Frozen peas and carrots
 en:Frozen cooked garden peas and carrots
 fr:Petits pois et carottes surgelés cuits
 agribalyse_food_code:en:20215
@@ -34723,7 +34760,7 @@ ciqual_food_code:en:20215
 ciqual_food_name:en:Garden peas and carrots, frozen, cooked
 ciqual_food_name:fr:Petits pois et carottes, surgelés, cuits
 
-<en:Frozen vegetables
+<en:Frozen peas and carrots
 en:Frozen raw garden peas and carrots
 fr:Petits pois et carottes surgelés crus
 agribalyse_food_code:en:20214
