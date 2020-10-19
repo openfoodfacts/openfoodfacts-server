@@ -53,6 +53,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -319,6 +320,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -685,8 +687,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url",     "image_ingredients_url",
-			"image_nutrition_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
 		]
 	],
 ];
