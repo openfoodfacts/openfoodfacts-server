@@ -29879,7 +29879,7 @@ ciqual_food_name:fr:Emmental ou emmenthal
 
 <en:Emmentaler
 en:Hard cheese emmental-type cheese reduced fat
-fr:fromage de type emmental
+fr:Fromage de type emmental, Fromage de type emmenthal
 agribalyse_food_code:en:12116
 ciqual_food_code:en:12116
 ciqual_food_name:en:Hard cheese, emmental-type cheese, reduced fat
@@ -30651,7 +30651,7 @@ ciqual_food_name:en:Sainte Maure cheese, from goat's milk
 <en:Soft cheese with a natural rind
 <en:French cheeses
 en:Cheese from goat's milk
-fr:Fromage de chèvre lactique affiné (type bûchette crottin Sainte-Maure)
+fr:Fromage de chèvre lactique affiné, bûchette crottin Sainte-Maure
 agribalyse_food_code:en:12803
 ciqual_food_code:en:12803
 ciqual_food_name:en:Cheese, from goat's milk
@@ -48247,17 +48247,17 @@ fr:Sauces pour poissons, Sauces pour poisson
 nl:Sauzen voor visgerechten
 
 <en:Sauces
-fr:Sauces à base d'extrait de levure, Sauces à base d'extrait de levure type Marmite ou Cenovis
+fr:Sauces à base d'extrait de levure, Marmite, Cenovis
 
 <en:Sauces
-fr:Sauces à base d'extrait de viande, Sauces à base d'extrait de viande type Viandox
+fr:Sauces à base d'extrait de viande, Viandox
 
 <en:Sauces
 fr:Sauces à l'oseille, Sauce à l'oseille
 
 <en:Warm sauces
-en:Molokhia sauce, Home-made molokhia sauce
-fr:Sauce meloukhia artisanale
+en:Molokhia sauce
+fr:Sauce meloukhia
 ciqual_food_code:en:51502
 ciqual_food_name:en:Molokhia sauce, home-made
 ciqual_food_name:fr:Meloukhia, sauce, artisanale
@@ -48280,7 +48280,7 @@ ciqual_food_name:en:Armorican-style sauce, prepacked
 ciqual_food_name:fr:Sauce armoricaine, préemballée
 
 <en:Sauces
-fr:Sauces au lait de coco, Sauces au lait de coco type thaï
+fr:Sauces au lait de coco, Sauces thaï
 
 <en:Sauces
 en:Honey sauces, Sauces with honey, Honey dressings
@@ -48613,7 +48613,7 @@ hu:Indiai mártások
 nl:Indiaase sauzen
 
 <en:Indian sauces
-en:Tikka masala sauce, Indian-style garam masala sauce
+en:Tikka masala sauce, garam masala sauce
 fr:Sauces tikka masala, Sauce indienne tikka masala
 nl:Tikka masala sauzen
 agribalyse_food_code:en:11202
@@ -48834,6 +48834,7 @@ ciqual_food_code:en:11212
 ciqual_food_name:en:Sauce, pepper, prepacked
 
 <en:Pepper sauces
+en:Green pepper sauces
 fr:Sauces au poivre vert, sauce poivre vert
 hu:zöldpaprika mártások
 
@@ -48872,6 +48873,7 @@ ru:Майонезы на подсолнечном масле
 <en:Mayonnaises
 en:Mayonnaise with caramelized onion
 es:Mayonesas con cebolla caramelizada
+fr:Mayonnaises à l'oignon caramélisé
 
 <en:Mayonnaises
 en:Dijon mayonnaises
@@ -48921,6 +48923,7 @@ fr:Mojos, Sauce mojo
 wikidata:en:Q2227032
 
 <en:Sauces
+en:Algerian sauces
 fr:Sauces algériennes
 
 <en:Sauces
@@ -49186,6 +49189,7 @@ origins:en: en:Belgium
 
 <en:Meat-based products
 en:Czech meat products
+fr:Produits carnés tchèques
 
 <en:Czech meat products
 cs:Pražská šunka
@@ -49195,6 +49199,7 @@ origins:en: en:Czech Republic
 
 <en:Meat-based products
 en:Croatian meat products
+fr:Produits carnés croates
 
 <en:Croatian meat products
 hr:Dalmatinska pečenica
@@ -49291,6 +49296,7 @@ origins:en: en:Bulgaria
 
 <en:Meat-based products
 en:Finnish meat products
+fr:Produits carnés finnois
 
 <en:Finnish meat products
 fi:Aito saunapalvikinkku, Äkta basturökt skinka
@@ -49312,6 +49318,7 @@ origins:en: en:Finland
 
 <en:Meat-based products
 en:German meat products
+fr:Produits carnés allemands
 
 <en:German meat products
 de:Thüringer Leberwurst
@@ -49423,8 +49430,10 @@ origins:en: en:Germany
 
 <en:Meat-based products
 en:Italian meat products
+fr:Produits carnés italiens
 
 <en:Italian meat products
+<en:Mortadelle
 it:Mortadella di Prato
 protected_name_file_number:en: PGI-IT-01333, PGI-IT-01333-AM01
 protected_name_type:en: pgi
@@ -61178,7 +61187,7 @@ fr:Tomme d’Italie, Tommes d'Italie
 
 <fr:Tommes
 <en:French cheeses
-en:Tomme cheese from mountain or Savoy
+en:Tomme cheese from Savoy
 fr:Tomme de Savoie, Tommes de Savoie
 origins:en: en:France
 protected_name_file_number_en: PGI-FR-0177-AM03
@@ -62204,6 +62213,14 @@ ciqual_food_code:en:9871
 ciqual_food_name:en:Dried pasta, wholemeal, cooked, unsalted
 ciqual_food_name:fr:Pâtes sèches, au blé complet, cuites, non salées
 
+<en:Dried wholemeal pasta
+en:Raw wholemeal dried pasta
+fr:Pâtes sèches au blé complet crues
+agribalyse_food_code:en:9870
+ciqual_food_code:en:9870
+ciqual_food_name:en:Dried pasta, wholemeal, raw
+ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
+
 <en:Pastas
 en:Egg pastas
 de:Eiernudeln
@@ -62220,14 +62237,6 @@ agribalyse_food_code:en:9811
 ciqual_food_code:en:9811
 ciqual_food_name:en:Dried pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes sèches standard, cuites, non salées
-
-<en:Dry pastas
-en:Dried raw wholemeal pasta
-fr:Pâtes sèches au blé complet crues
-agribalyse_food_code:en:9870
-ciqual_food_code:en:9870
-ciqual_food_name:en:Dried pasta, wholemeal, raw
-ciqual_food_name:fr:Pâtes sèches, au blé complet, crues
 
 <en:Egg pastas
 <en:Dry pastas
