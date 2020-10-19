@@ -3618,7 +3618,7 @@ HTML
 			# Organization
 			
 			my $org_id = $';
-			my $user_or_org_ref = retrieve_org($org_id);
+			$user_or_org_ref = retrieve_org($org_id);
 			
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
@@ -3628,7 +3628,7 @@ HTML
 			
 			# User
 
-			my $user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+			$user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
 			
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_user"), 404);
