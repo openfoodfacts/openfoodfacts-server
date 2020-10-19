@@ -1,0 +1,19 @@
+[% IF edit_profile %]
+	<!-- Edit product page -->
+	<div class="edit_button">
+		<a href="/cgi/user.pl?userid=[% userid %]&type=edit&action=display" class="button small" title="[% lang("edit_user_profile") %]">
+			[% display_icon('edit') %]
+			<span class="show-for-large-up">[% lang("edit_user_profile") %]</span>
+		</a>
+	</div>	
+[% END %]
+
+[% IF admin %]
+	<p>email: [% email %]</p>
+[% END %]
+
+<p>[% lang("contributor_since") %][% sep %]: [% registered_t_display %]</p>
+
+[% FOREACH link IN links %]
+	&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
+[% END %]
