@@ -31181,23 +31181,7 @@ agribalyse_food_code:en:12310
 ciqual_food_code:en:12310
 ciqual_food_name:en:Processed cheese, around 20% fat, in wedges or cubes
 
-<en:Cheeses
-en:Uncured soft cheese spreadable in a tub
-fr:fromage en barquette à tartiner
-
-<en:Uncured soft cheese spreadable in a tub
-en:Uncured soft cheese spreadable around 25% fat in a tub
-fr:fromage en barquette à tartiner à environ 25% MG, Spécialité fromagère non affinée environ 25% MG, coque fromagère à environ 25% MG
-agribalyse_food_code:en:12315
-ciqual_food_code:en:12315
-ciqual_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
-
-<en:Uncured soft cheese spreadable in a tub
-en:Uncured soft cheese spreadable around 20% fat in a tub
-fr:fromage en barquette à tartiner à environ 20% MG, Spécialité fromagère non affinée environ 20% MG, coque fromagère à environ 20% MG
-agribalyse_food_code:en:12340
-ciqual_food_code:en:12340
-ciqual_food_name:en:Uncured soft cheese, spreadable, around 20% fat, in a tub
+#TODO
 
 <en:Cheeses
 <fr:Fondues
@@ -34843,9 +34827,25 @@ he:ממרחי גבינה
 hu:Kenhető sajtok
 it:Formaggi spalmabili
 nl:Smeerkazen
+agribalyse_proxy_food_code:en:12315
+agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
 
-<en:Cheeses
-en:Uncured soft cheese spreadable around 30-40% fat flavoured
+<en:Cheese spreads
+en:Uncured soft cheese spreadable with around 25% fat
+fr:fromage en barquette à tartiner à environ 25% MG, Spécialité fromagère non affinée environ 25% MG, coque fromagère à environ 25% MG
+agribalyse_food_code:en:12315
+ciqual_food_code:en:12315
+ciqual_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+
+<en:Cheese spreads
+en:Uncured soft cheese spreadable with around 20% fat
+fr:fromage en barquette à tartiner à environ 20% MG, Spécialité fromagère non affinée environ 20% MG, coque fromagère à environ 20% MG
+agribalyse_food_code:en:12340
+ciqual_food_code:en:12340
+ciqual_food_name:en:Uncured soft cheese, spreadable, around 20% fat, in a tub
+
+<en:Cheese spreads
+en:Flavoured uncured soft cheese spreadable with around 30-40% fat
 fr:Fromages Ail et fines herbes
 agribalyse_food_code:en:19530
 ciqual_food_code:en:19530
@@ -79140,6 +79140,11 @@ fr:Terrines de chevreuil
 <en:Meat-based products
 <en:Prepared meats
 fr:Terrines au Roquefort
+
+<en:Terrines
+<en:Meat-based products
+<en:Prepared meats
+fr:Terrines au bleu d'Auvergne
 
 <en:Terrines
 <en:Meat-based products
