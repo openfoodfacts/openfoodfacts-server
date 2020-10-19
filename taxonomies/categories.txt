@@ -29467,7 +29467,7 @@ ciqual_food_name:fr:Provolone
 <en:Cow cheeses
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
-en:Coulommiers cheese from cow's milk
+en:Coulommiers, Coulommiers cheese from cow's milk
 fr:Coulommiers
 hu:Coulommiers sajt
 wikidata:en:Q774297
@@ -29475,6 +29475,16 @@ oqali_family:en: fr:Fromages - Coulommiers
 agribalyse_food_code:en:12010
 ciqual_food_code:en:12010
 ciqual_food_name:en:Coulommiers cheese, from cow's milk
+
+<en:Cow cheeses
+<en:French cheeses
+en:Soumaintrain
+de:Soumaintrain
+fr:Soumaintrain
+nl:Soumaintrain
+wikidata:en:Q2304082
+country:en:France
+instanceof:fr:IGP
 
 <en:Cow cheeses
 <en:French cheeses
@@ -30753,15 +30763,6 @@ protected_name_file_number:en: PDO-FR-02424
 protected_name_type:en: pdo
 origins:en: en:France
 
-<en:Cream cheeses
-en:Drained soft fresh cheese around 6% fat
-fr:Faisselles
-wikidata:en:Q3064619
-agribalyse_food_code:en:19641
-ciqual_food_code:en:19641
-ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
-
-
 <en:Cheeses
 en:Soft cheeses with bloomy rind, white mold-rind cheese
 ca:Formatges tendres amb crosta florida, Formatges amb crosta emmotllada blanca
@@ -31019,6 +31020,16 @@ fr:Fromages aux noix, Fromage au noix
 nl:Notenkazen
 
 <en:Dairy desserts
+<en:Fermented milk products
+en:Faiselles, Drained soft fresh cheese around 6% fat
+fr:Faisselles
+wikidata:en:Q3064619
+agribalyse_food_code:en:19641
+ciqual_food_code:en:19641
+ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
+
+<en:Dairy desserts
+<en:Fermented milk products
 fr:Fromages blancs, fromage blanc
 de:Weißer Käse
 wikidata:en:Q15080546
@@ -31883,7 +31894,7 @@ origins:en: en:Italy
 <en:Burrata
 <en:Buffalo cheeses
 en:Buffalo burrata
-fr:Burrata de vache
+fr:Burrata de bufflonne
 it:Burrata di bufala
 
 <en:Italian cheeses
@@ -33304,7 +33315,8 @@ agribalyse_food_code:en:12110
 ciqual_food_code:en:12110
 ciqual_food_name:en:Comté cheese, from cow's milk
 
-<en:Cream cheeses
+<en:Dairy desserts
+<en:Fermented milk products
 en:Skyr
 ca:Skyr
 da:Skyr
@@ -33327,7 +33339,8 @@ wikidata:en:Q742127
 
 # description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
-<en:Cream cheeses
+<en:Dairy desserts
+<en:Fermented milk products
 # <en:ingredient:en:cheese
 en:Quark, Plain quark, Quark with fruits
 ar:كوارك
@@ -33338,7 +33351,7 @@ da:Kvark
 de:Quark, Weißkäse, Topfen, Schotten, Speisequark
 es:Queso quark
 fi:Rahka
-fr:quark, Fromage blanc nature, Fromage blanc aux fruits
+fr:Quark
 he:גבינה לבנה
 hu:Túró
 hy:Կաթնաշոռ
@@ -33450,7 +33463,7 @@ fi:Herajauhe
 fr:lactosérum en poudre
 it:Siero in polvere
 
-<en:Dairies
+<en:Fermented milk products
 en:Buttermilks
 de:Buttermilch, Buttermilche, Buttermilchen
 fi:piimät
@@ -36324,7 +36337,7 @@ ciqual_food_code:en:23589
 ciqual_food_name:en:Fresh cream cheese cake
 ciqual_food_name:fr:Gâteau au fromage blanc
 
-<en:Dairy desserts
+<en:Pastries
 en:Tiramisu
 de:Tiramisu
 es:Tiramisu
@@ -36348,9 +36361,9 @@ fr:Tiramisu au chocolat
 <en:Tiramisu
 fr:Tiramisu au café
 
-<en:Dairy desserts
+<en:Pastries
 en:Dessert Opera cake type
-fr:opéra
+fr:Opéra
 agribalyse_food_code:en:23008
 ciqual_food_code:en:23008
 ciqual_food_name:en:Dessert, Opera cake type
@@ -49374,6 +49387,7 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Pancetta
 it:Pancetta di Calabria
 protected_name_file_number:en: PDO-IT-1567
 protected_name_type:en: pdo
@@ -49428,6 +49442,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Pancetta
 it:Pancetta Piacentina
 protected_name_file_number:en: PDO-IT-1497
 protected_name_type:en: pdo
@@ -56282,7 +56297,7 @@ ciqual_food_name:en:Pork belly salt-cured
 ciqual_food_name:fr:Poitrine de porc demi-sel
 
 <en:Pork
-en:Dried pancetta
+en:Pancetta, Dried pancetta
 fr:Pancetta, Poitrine roulée sèche
 it:Pancetta essiccata
 agribalyse_food_code:en:28858
