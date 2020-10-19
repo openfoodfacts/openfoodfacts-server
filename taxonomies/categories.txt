@@ -6638,8 +6638,16 @@ ciqual_food_name:en:Instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, instantané, non sucré, prêt à boire
 
 <en:Instant coffees
-en:Instant powder for coffee with milk, Instant powder for cappuccino with chocolate
-fr:Café au lait en poudre soluble, Cappuccino au chocolat en poudre soluble
+en:Instant powder for cappuccino with chocolate
+fr:Cappuccino au chocolat en poudre soluble
+agribalyse_food_code:en:18163
+ciqual_food_code:en:18163
+ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
+ciqual_food_name:fr:Café au lait ou cappuccino au chocolat, poudre soluble
+
+<en:Instant coffees
+en:Instant powder for coffee with milk
+fr:Café au lait en poudre soluble
 agribalyse_food_code:en:18163
 ciqual_food_code:en:18163
 ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
@@ -38389,6 +38397,12 @@ zh:动物脂肪
 wikidata:en:Q1423543
 nova:en:2
 
+<en:Margarines
+en:Liquid margarines
+es:Margarinas liquidas
+fr:Margarines liquides
+nl:Vloeibare margarine
+
 <en:Fats
 <en:Margarines
 en:50-63% blended fat with vegetable and animal origins
@@ -47276,6 +47290,14 @@ es:Clavos enteros, Clavo entero
 nl:Hele kruidnagels
 
 <en:Spices
+fr:Curry, kari
+de:Curry
+nl:Curry
+agribalyse_proxy_food_code:en:11005
+agribalyse_proxy_food_name:en:Curry, powder
+agribalyse_proxy_food_name:fr:Curry, poudre
+
+<fr:Curry
 en:Curry powder
 es:Curry en polvo
 fr:Curry en poudre, Poudre de curry
@@ -47949,12 +47971,6 @@ agribalyse_food_code:en:20151
 ciqual_food_code:en:20151
 ciqual_food_name:en:Chili pepper, raw
 ciqual_food_name:fr:Piment, cru
-
-
-<en:Spices
-fr:Curry, kari
-de:Curry
-nl:Curry
 
 <en:Peppers
 en:Gray peppers
@@ -48779,6 +48795,7 @@ fr:Moutardes au cassis
 nl:Cassismosterds
 
 <en:Mustards
+en:Curry mustards
 fr:Moutardes au curry
 
 <en:Mustards
@@ -48796,6 +48813,7 @@ wikidata:en:Q204226
 
 <en:Mustards
 en:French mustards
+fr:Moutardes françaises
 
 <en:French mustards
 fr:Moutarde de Bourgogne
@@ -53295,6 +53313,7 @@ nl:Lasagne met zalm
 #wikidata:en:
 
 <en:Salmon lasagne
+en:Salmon and spinach lasagna
 fr:Lasagnes au saumon et épinards
 
 <en:Lasagne with fish
@@ -53451,13 +53470,14 @@ pl:Tarta marchew
 wikidata:en:Q22708802
 
 <en:Grated carrots
-en:Seasoned shredded carrots
+en:Seasoned shredded carrots, Seasoned grated carrots
 de:Geriebene Karotten, Karottensalat
 fi:maustetut raastetut porkkanat
 fr:Carottes râpées assaisonnées
 nl:Aangemaakte geraspte wortels
 
 <en:Grated carrots
+en:Unseasoned grated carrots, Unseasoned shredded carrots
 fr:Carottes râpées non assaisonnées
 
 <en:Prepared vegetables
@@ -53495,8 +53515,8 @@ ciqual_food_name:en:Haricot beans with tomato sauce, canned
 ciqual_food_name:fr:Haricots blancs à la sauce tomate, appertisés
 
 <en:Prepared vegetables
-es:alubias con verduras
-fr:haricots aux légumes
+es:Alubias con verduras
+fr:Haricots aux légumes
 
 <en:Prepared vegetables
 en:Refried beans
@@ -53536,6 +53556,13 @@ ciqual_food_name:en:Salt-cured pork belly with lentils
 ciqual_food_name:fr:Petit salé ou saucisse aux lentilles
 
 <en:Meals
+en:Focaccia
+fr:Focaccia
+agribalyse_proxy_food_code:en:7811
+agribalyse_proxy_food_name:en:Focaccia, filled
+agribalyse_proxy_food_name:fr:Focaccia, garnie
+
+<en:Focaccia
 en:Filled Focaccia
 fr:Focaccia garnie
 agribalyse_food_code:en:7811
@@ -53734,6 +53761,7 @@ ciqual_food_name:en:Pizza, cured ham
 ciqual_food_name:fr:Pizza au speck ou jambon cru
 
 <en:Ham pizzas
+en:Speck pizza
 fr:Pizza au speck
 agribalyse_food_code:en:26274
 ciqual_food_code:en:26274
@@ -76957,7 +76985,7 @@ ciqual_food_name:en:Chocolate cereal bar
 
 <en:Cereal bars
 en:Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
-fr:barre de céréales au lait et au chocholat
+fr:barre de céréales au lait et au chocolat
 agribalyse_food_code:en:31100
 ciqual_food_code:en:31100
 ciqual_food_name:en:Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
@@ -76970,15 +76998,15 @@ ciqual_food_code:en:31102
 ciqual_food_name:en:Cereal bar with chocolate, fortified with vitamins and minerals
 
 <en:Chocolate cereal bars
-en:Chocolate confectionery or bar with dairy filling
-fr:Barres ou confiserie chocolatées au lait
+en:Chocolate confectionery with dairy filling, Chocolate  bar with dairy filling
+fr:Barres chocolatées au lait, Confiserie chocolatées au lait
 agribalyse_food_code:en:31012
 ciqual_food_code:en:31012
 ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
 
 <en:Chocolate cereal bars
 en:Chocolate snack bar dairy filling
-fr:barre de chocolat au lait frais
+fr:Barre de chocolat au lait frais
 agribalyse_food_code:en:31073
 ciqual_food_code:en:31073
 ciqual_food_name:en:Chocolate snack bar, dairy filling
@@ -77559,6 +77587,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crêpe
 # category/crepes has 582 products @2019-05-18
 
 <en:Crêpes
+en:Plain crepe
+fr:Crêpe nature
+
+<en:Plain crepe
 en:Refrigerated plain crepe
 fr:Crêpe nature rayon frais
 agribalyse_food_code:en:23799
@@ -77566,7 +77598,7 @@ ciqual_food_code:en:23799
 ciqual_food_name:en:Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon frais
 
-<en:Crêpes
+<en:Plain crepe
 en:Plain crepe at room temperature
 fr:Crêpe nature
 agribalyse_food_code:en:23800
@@ -78124,7 +78156,6 @@ fr:Galettes de blé khorasan soufflé, galettes de blé khorasan, Galettes de bl
 it:Torte di grano Khorasan soffiato
 nl:Kamutwafels
 
-
 <en:Appetizers
 en:Crackers
 ca:Galetes salades
@@ -78261,162 +78292,6 @@ ciqual_food_code:en:38108
 ciqual_food_name:en:Puffed salty snacks, made from potato and soy
 ciqual_food_name:fr:Biscuit apéritif soufflé, à base de pomme de terre et de soja
 
-en:Batches withdrawn from retail stores
-de:Aus dem Handel genommene Posten
-fr:Lots retirés de la vente
-nl:Uit de handel genomen
-
-<en:Batches withdrawn from retail stores
-en:Batches withdrawn from retail stores in february 2013
-de:Posten die im Februar 2013 aus dem Handel genommen wurden
-fr:lots retirés de la vente en février 2013
-nl:Uit de handel genomen voor februari 2013
-
-<en:Batches withdrawn from retail stores in february 2013
-<fr:Plats susceptibles de contenir de la viande de cheval
-fr:Plats susceptibles de contenir de la viande de cheval - lots retirés de la vente en février 2013, Plats-susceptibles-de-contenir-de-la-viande-de-cheval-retires-en-fevrier-2013
-
-en:Pet food, pet products, animal food
-de:Tierfutter, Tiernahung, Futter
-es:Comida para mascotas
-fi:Lemmikkiruoka, lemmikkituotteet, eläinruoka
-fr:Nourriture pour animaux, produits pour animaux
-hu:Állateledel
-it:Cibo per animali
-nl:Dierenvoer
-nl_be:Dierenvoer
-ru:Корма для домашних животных, Корм для домашних животных
-wikidata:en:Q6648982
-
-<en:Pet food
-en:Dry pet food, dry food
-de:Trockenfutter, trockenes Futter
-fr:Nourriture sèche pour animaux, Croquettes pour animaux
-nl:Droog dierenvoedsel
-
-<en:Pet food
-en:Wet pet food, wet food
-de:Nassfutter, nasses Futter
-fr:Nourriture humide pour animaux, Pâtées pour animaux
-
-<en:Pet food
-en:Cat food, cat products
-de:Katzenfutter, Katzennahrung
-es:Comida para gatos
-fr:Nourriture pour chats, produits pour chats, Aliments pour chat
-hu:Macska eledel
-nl:Kattenvoer, Kattevoer
-nl_be:Kattenvoer, Kattevoer
-ru:Кошачий корм, Корм для кошек, Корма для кошек, Кошачьи корма
-wikidata:en:Q1736906
-
-<en:Cat food
-<en:Dry pet food
-en:Dry cat food
-de:Katzentrockenfutter, Katzentrockennahrung, trockenes Katzenfutter, Trockenfutter für Katzen
-fr:Croquettes pour chat
-hu:Száraz macska eledel
-nl:Kattebrokken, Kattenbrokken
-nl_be:Kattebrokken, Kattenbrokken
-ru:Сухой корм для кошек, Сухие корма для кошек
-
-<en:Cat food
-<en:Wet pet food
-en:Wet cat food, canned cat food
-de:Katzennassfutter, Katzennassnahrung, nasses Katzenfutter, feuchtes Katzenfutter
-fr:pâtées pour chat, nourriture humide pour chat, boites pour chat, sachet fraicheur pour chat
-hu:Macskakonzerv, Kozerv macskaeledel, Nedves macsakaeledel
-ru:Консервированный корм для кошек, Консервированный кошачий корм, Консервы для кошек, Консервированные корма для кошек, Консервированные кошачьи корма, Кошачьи консервы
-
-<en:cat food
-en:cat biscuits, cat treats
-de:Katzensnacks, Snacks für Katzen
-fr:biscuits pour chats, friandises pour chats
-
-<en:cat food
-en:senior cat food
-de:Senioren Katzenfutter, Katzenfutter für Senioren, Senior Katzenfutter
-fr:Nourriture pour chat agé
-ru:корм для пожилых кошек
-wikidata:en:Q28455745
-
-<en:cat food
-en:castrated cat food
-de:Futter für kastrierte und sterilisierte Katzen, Futter für sterilisierte und kastrierte Katzen
-fr:Nourriture pour chat castré
-ru:корм для кастрированных кошек
-
-<en:Pet food
-en:Dog food
-de:Hundefutter, Hundenahrung
-es:Comida para perros
-fr:Nourriture pour chiens, produits pour chiens
-hu:Kutyaeledel
-nl:Hondenvoedsel
-nl_be:Hondenvoedsel
-ru:Собачий корм, Корм для собак, Собачьи корма, Корма для собак
-wikidata:en:Q38420
-
-<en:Dog food
-<en:Dry pet food
-en:Dry Dog Food
-de:Hundetrockenfutter, Hundetrockennahrung, trockenes Hundefutter
-fr:Croquettes pour chien
-hu:Száraz kutyaeledel
-nl:Hondenbrokken
-nl_be:Hondenbrokken
-ru:Сухой корм для собак, Сухие корма для собак
-
-<en:Dog food
-<en:Wet pet food
-en:Wet dog food, canned dog food
-de:Hundenassfutter, Hundenassnahrung, nasses Hundefutter
-fr:Pâtées pour chien, nourriture humide pour chien, boites pour chien
-
-<en:Pet food
-en:Bird food
-de:Vogelfutter
-fr:Nourriture pour oiseaux
-hu:Madáreledel
-nl:Vogelvoer, Vogelvoedsel
-nl_be:Vogelvoer, Vogelvoedsel
-ru:Корм для птиц, Корма для птиц
-wikidata:en:Q471236
-
-<en:Pet food
-en:Fish food
-de:Fischfutter
-fr:Nourriture pour poissons
-nl:Visvoeding
-
-<en:Pet food
-en:Rabbit food
-de:Kaninchenfutter
-fr:Nourriture pour lapins
-
-
-<en:Pet food
-en:Horse food
-de:Pferdefutter
-fr:Nourriture pour chevaux
-
-<en:Pet food
-en:rodent food
-de:Nagetierfutter
-fr:nourriture pour rongeurs
-ru:корм для грызунов
-
-<en:Pet food
-en:reptile food
-de:Futter für Reptilien, Terrarientierfutter
-fr:nourriture pour reptiles
-ru:корм для пресмыкающихся, корм для рептилий
-
-<en:Pet food
-en:miscellaneous pet food, miscellaneous animal food
-de:sonstiges Tierfutter
-fr:nourriture pour animaux variés
-
 <en:Cereals and their products
 en:Pie dough
 de:Kuchenteig
@@ -78426,7 +78301,6 @@ fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
 it:Impasto per torte
 nl:Taartdegen
 nl_be:Taartdeeg
-
 
 <en:Pie dough
 en:Baked shortcrust pastry
@@ -79602,12 +79476,6 @@ de:Spekulatius Brotaufstrich,Spekulatiuscreme
 fr:Pâtes à tartiner au spéculoos
 nl:Speculoospasta
 
-<en:Margarines
-en:Liquid margarines
-es:Margarinas liquidas
-fr:Margarines liquides
-nl:Vloeibare margarine
-
 <en:Mackerel fillets
 en:Mackerel fillets in oil
 de:Makrelenfilets in Öl
@@ -79666,9 +79534,11 @@ hu:Kínai ravioli
 nl:Chinese ravioli
 
 <en:Ravioli
+en:Japanese ravioli
 fr:Ravioli japonais
 
-<fr:Ravioli japonais
+<en:Japanese ravioli
+en:Vegetable gyoza
 fr:Gyoza aux légumes
 
 <en:Tortellini
@@ -79775,8 +79645,8 @@ nl:Panini
 wikidata:en:Q1366456
 
 <en:Sandwiches
-en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
-fr:Sandwich panini jambon cru mozzarella tomates
+en:Panini with raw cured ham mozzarella cheese and tomato
+fr:Panini jambon cru mozzarella tomates
 agribalyse_food_code:en:25434
 ciqual_food_code:en:25434
 ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
@@ -79819,7 +79689,7 @@ nl:Yoghurt met granen
 ro:Iaurturi cu cereale
 
 <en:Yogurts with cereals
-en:Fat free fermented yogurt with cereals, Fat free fermented milk dairy specialty with cereals
+en:Fat-free fermented yogurt with cereals, Fat-free fermented milk dairy specialty with cereals
 fr:Yaourt au lait fermenté aux céréales à 0% de matières grasses, Spécialité laitière aux céréales à 0% de matières grasses
 agribalyse_food_code:en:19558
 ciqual_food_code:en:19558
@@ -79974,3 +79844,160 @@ fr:Couverts comestibles, Vaisselles comestibles
 
 en:stuffing
 fr:farces
+
+### Extra categories
+
+en:Batches withdrawn from retail stores
+de:Aus dem Handel genommene Posten
+fr:Lots retirés de la vente
+nl:Uit de handel genomen
+
+<en:Batches withdrawn from retail stores
+en:Batches withdrawn from retail stores in february 2013
+de:Posten die im Februar 2013 aus dem Handel genommen wurden
+fr:lots retirés de la vente en février 2013
+nl:Uit de handel genomen voor februari 2013
+
+<en:Batches withdrawn from retail stores in february 2013
+<fr:Plats susceptibles de contenir de la viande de cheval
+fr:Plats susceptibles de contenir de la viande de cheval - lots retirés de la vente en février 2013, Plats-susceptibles-de-contenir-de-la-viande-de-cheval-retires-en-fevrier-2013
+
+en:Pet food, pet products, animal food
+de:Tierfutter, Tiernahung, Futter
+es:Comida para mascotas
+fi:Lemmikkiruoka, lemmikkituotteet, eläinruoka
+fr:Nourriture pour animaux, produits pour animaux
+hu:Állateledel
+it:Cibo per animali
+nl:Dierenvoer
+nl_be:Dierenvoer
+ru:Корма для домашних животных, Корм для домашних животных
+wikidata:en:Q6648982
+
+<en:Pet food
+en:Dry pet food, dry food
+de:Trockenfutter, trockenes Futter
+fr:Nourriture sèche pour animaux, Croquettes pour animaux
+nl:Droog dierenvoedsel
+
+<en:Pet food
+en:Wet pet food, wet food
+de:Nassfutter, nasses Futter
+fr:Nourriture humide pour animaux, Pâtées pour animaux
+
+<en:Pet food
+en:Cat food, cat products
+de:Katzenfutter, Katzennahrung
+es:Comida para gatos
+fr:Nourriture pour chats, produits pour chats, Aliments pour chat
+hu:Macska eledel
+nl:Kattenvoer, Kattevoer
+nl_be:Kattenvoer, Kattevoer
+ru:Кошачий корм, Корм для кошек, Корма для кошек, Кошачьи корма
+wikidata:en:Q1736906
+
+<en:Cat food
+<en:Dry pet food
+en:Dry cat food
+de:Katzentrockenfutter, Katzentrockennahrung, trockenes Katzenfutter, Trockenfutter für Katzen
+fr:Croquettes pour chat
+hu:Száraz macska eledel
+nl:Kattebrokken, Kattenbrokken
+nl_be:Kattebrokken, Kattenbrokken
+ru:Сухой корм для кошек, Сухие корма для кошек
+
+<en:Cat food
+<en:Wet pet food
+en:Wet cat food, canned cat food
+de:Katzennassfutter, Katzennassnahrung, nasses Katzenfutter, feuchtes Katzenfutter
+fr:pâtées pour chat, nourriture humide pour chat, boites pour chat, sachet fraicheur pour chat
+hu:Macskakonzerv, Kozerv macskaeledel, Nedves macsakaeledel
+ru:Консервированный корм для кошек, Консервированный кошачий корм, Консервы для кошек, Консервированные корма для кошек, Консервированные кошачьи корма, Кошачьи консервы
+
+<en:cat food
+en:cat biscuits, cat treats
+de:Katzensnacks, Snacks für Katzen
+fr:biscuits pour chats, friandises pour chats
+
+<en:cat food
+en:senior cat food
+de:Senioren Katzenfutter, Katzenfutter für Senioren, Senior Katzenfutter
+fr:Nourriture pour chat agé
+ru:корм для пожилых кошек
+wikidata:en:Q28455745
+
+<en:cat food
+en:castrated cat food
+de:Futter für kastrierte und sterilisierte Katzen, Futter für sterilisierte und kastrierte Katzen
+fr:Nourriture pour chat castré
+ru:корм для кастрированных кошек
+
+<en:Pet food
+en:Dog food
+de:Hundefutter, Hundenahrung
+es:Comida para perros
+fr:Nourriture pour chiens, produits pour chiens
+hu:Kutyaeledel
+nl:Hondenvoedsel
+nl_be:Hondenvoedsel
+ru:Собачий корм, Корм для собак, Собачьи корма, Корма для собак
+wikidata:en:Q38420
+
+<en:Dog food
+<en:Dry pet food
+en:Dry Dog Food
+de:Hundetrockenfutter, Hundetrockennahrung, trockenes Hundefutter
+fr:Croquettes pour chien
+hu:Száraz kutyaeledel
+nl:Hondenbrokken
+nl_be:Hondenbrokken
+ru:Сухой корм для собак, Сухие корма для собак
+
+<en:Dog food
+<en:Wet pet food
+en:Wet dog food, canned dog food
+de:Hundenassfutter, Hundenassnahrung, nasses Hundefutter
+fr:Pâtées pour chien, nourriture humide pour chien, boites pour chien
+
+<en:Pet food
+en:Bird food
+de:Vogelfutter
+fr:Nourriture pour oiseaux
+hu:Madáreledel
+nl:Vogelvoer, Vogelvoedsel
+nl_be:Vogelvoer, Vogelvoedsel
+ru:Корм для птиц, Корма для птиц
+wikidata:en:Q471236
+
+<en:Pet food
+en:Fish food
+de:Fischfutter
+fr:Nourriture pour poissons
+nl:Visvoeding
+
+<en:Pet food
+en:Rabbit food
+de:Kaninchenfutter
+fr:Nourriture pour lapins
+
+<en:Pet food
+en:Horse food
+de:Pferdefutter
+fr:Nourriture pour chevaux
+
+<en:Pet food
+en:rodent food
+de:Nagetierfutter
+fr:nourriture pour rongeurs
+ru:корм для грызунов
+
+<en:Pet food
+en:reptile food
+de:Futter für Reptilien, Terrarientierfutter
+fr:nourriture pour reptiles
+ru:корм для пресмыкающихся, корм для рептилий
+
+<en:Pet food
+en:miscellaneous pet food, miscellaneous animal food
+de:sonstiges Tierfutter
+fr:nourriture pour animaux variés
