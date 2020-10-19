@@ -31182,15 +31182,19 @@ ciqual_food_code:en:12310
 ciqual_food_name:en:Processed cheese, around 20% fat, in wedges or cubes
 
 <en:Cheeses
+en:Uncured soft cheese spreadable in a tub
+fr:fromage en barquette à tartiner
+
+<en:Uncured soft cheese spreadable in a tub
 en:Uncured soft cheese spreadable around 25% fat in a tub
-fr:Spécialité fromagère non affinée environ 25% MG type fromage en barquette à tartiner ou coque fromagère
+fr:fromage en barquette à tartiner à environ 25% MG, Spécialité fromagère non affinée environ 25% MG, coque fromagère à environ 25% MG
 agribalyse_food_code:en:12315
 ciqual_food_code:en:12315
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
 
-<en:Cheeses
+<en:Uncured soft cheese spreadable in a tub
 en:Uncured soft cheese spreadable around 20% fat in a tub
-fr:Spécialité fromagère non affinée environ 20% MG type fromage en barquette à tartiner ou coque fromagère
+fr:fromage en barquette à tartiner à environ 20% MG, Spécialité fromagère non affinée environ 20% MG, coque fromagère à environ 20% MG
 agribalyse_food_code:en:12340
 ciqual_food_code:en:12340
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 20% fat, in a tub
@@ -52277,6 +52281,15 @@ ciqual_food_name:en:Soup, chicken and vegetables, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux légumes, préemballée à réchauffer
 
 <en:Soups
+<en:Dried products to be rehydrated
+en:Dehydrated and reconstituted soup with chicken and vegetables
+fr:Soupe à la volaille et aux légumes déshydratée et reconstituée
+agribalyse_food_code:en:25928
+ciqual_food_code:en:25928
+ciqual_food_name:en:Soup, chicken and vegetables, dehydrated and reconstituted
+ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconstituée
+
+<en:Soups
 en:Chicken and vermicelli soup
 fr:Soupe à la volaille et aux vermicelles
 
@@ -52290,7 +52303,7 @@ ciqual_food_name:en:Soup, chicken and vermicelli, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux vermicelles, préemballée à réchauffer
 
 <en:Soups
-en:tomato and vermicelli soup
+en:Tomato and vermicelli soup
 fr:Soupe à la tomate et aux vermicelles
 
 <en:tomato and vermicelli soup
@@ -52311,15 +52324,6 @@ ciqual_food_code:en:25934
 ciqual_food_name:en:Soup, cereals and vegetables, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe aux céréales et aux légumes, déshydratée reconstituée
 
-<en:Soups
-<en:Dried products to be rehydrated
-en:Dehydrated and reconstituted soup with chicken and vegetables
-fr:Soupe à la volaille et aux légumes déshydratée et reconstituée
-agribalyse_food_code:en:25928
-ciqual_food_code:en:25928
-ciqual_food_name:en:Soup, chicken and vegetables, dehydrated and reconstituted
-ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconstituée
-
 <en:Chicken and vermicelli soup
 <en:Dried products to be rehydrated
 en:Dehydrated and reconstituted chicken and vermicelli soup
@@ -52337,7 +52341,7 @@ ciqual_food_code:en:25915
 ciqual_food_name:en:Soup, chorba frik, w meat and frik
 ciqual_food_name:fr:Soupe chorba frik, à base de viande et de frik
 
-<en:Soups
+<en:Minestrone soups
 en:Dehydrated and reconstituted minestrone soup
 fr:Soupe minestrone déshydratée et reconstituée
 agribalyse_food_code:en:25956
@@ -52400,6 +52404,15 @@ ciqual_food_name:en:Soup, mixed vegetables, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe aux légumes variés, déshydratée reconstituée
 
 <en:Reheatable soups
+<en:Vegetable soups
+en:Reheatable vegetable soups
+
+<en:Soups
+en:Minestrone soups
+fr:Soupes minestrone
+
+<en:Reheatable vegetable soups
+<en:Minestrone soups
 en:Reheatable minestrone soup
 fr:Soupe minestrone à réchauffer
 agribalyse_food_code:en:25916
@@ -52407,25 +52420,25 @@ ciqual_food_code:en:25916
 ciqual_food_name:en:Soup, minestrone, prepacked, to be reheated
 ciqual_food_name:fr:Soupe minestrone, préemballée à réchauffer
 
-<en:Reheatable soups
-en:Reheatable lentils soup
-fr:Soupe aux lentilles à réchauffer
+<en:Reheatable vegetable soups
+en:Lentils soup
+fr:Soupe aux lentilles
 agribalyse_food_code:en:25900
 ciqual_food_code:en:25900
 ciqual_food_name:en:Soup, lentils, prepacked, to be reheated
 ciqual_food_name:fr:Soupe aux lentilles, préemballée à réchauffer
 
-<en:Reheatable soups
-en:Reheatable split peas soup
-fr:Soupe aux pois cassés à réchauffer
+<en:Reheatable vegetable soups
+en:Split peas soup
+fr:Soupe aux pois cassés
 agribalyse_food_code:en:25965
 ciqual_food_code:en:25965
 ciqual_food_name:en:Soup, split peas, prepacked, to be reheated
 ciqual_food_name:fr:Soupe aux pois cassés, préemballée à réchauffer
 
-<en:Reheatable soups
-en:Reheatable leek and potato soup
-fr:Soupe aux poireaux et aux pommes de terre à réchauffer
+<en:Reheatable vegetable soups
+en:Leek and potato soup
+fr:Soupe aux poireaux et aux pommes de terre
 agribalyse_food_code:en:25907
 ciqual_food_code:en:25907
 ciqual_food_name:en:Soup, leek and potato, prepacked, to be reheated
@@ -52448,19 +52461,17 @@ fr:Soupes aux courgettes
 nl:Corgettesoep
 
 <en:Vegetable soups
-en:Carrot soups
+en:Carrot soups, Reheatable carrot soups
 de:Karottensuppe, Möhrensuppe
-fr:Soupes de carottes
+fr:Soupes de carottes, Soupe à la carotte à réchauffer
 nl:Wortelsoep
-
-<en:Vegetable soups
-<en:Reheatable soups
-en:Reheatable carrot soup
-fr:Soupe à la carotte à réchauffer
 agribalyse_food_code:en:25913
 ciqual_food_code:en:25913
 ciqual_food_name:en:Soup, carrots, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la carotte, préemballée à réchauffer
+
+en:Dehydrated and reconstituted carrot soups
+fr:Soupes de carottes déshydratées reconstituées
 
 <en:Vegetable soups
 en:Pumpkin soups
@@ -79641,7 +79652,7 @@ en:Watercress soups
 fr:Soupes de cresson
 nl:Waterkerssoep
 
-<en:Soups
+<en:Watercress soups
 en:Reheatable watercress soup
 fr:Soupe au cresson à réchauffer
 agribalyse_food_code:en:25958
@@ -79649,7 +79660,7 @@ ciqual_food_code:en:25958
 ciqual_food_name:en:Soup, watercress, prepacked, to be reheated
 ciqual_food_name:fr:Soupe au cresson, préemballée à réchauffer
 
-<en:Soups
+<en:Watercress soups
 en:Dehydrated and reconstituted watercress soup
 fr:Soupe au cresson déshydratée reconstituée
 agribalyse_food_code:en:25957
