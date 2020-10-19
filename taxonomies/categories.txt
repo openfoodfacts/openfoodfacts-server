@@ -56142,6 +56142,8 @@ agribalyse_food_code:en:8373
 ciqual_food_code:en:8373
 ciqual_food_name:en:Rolled escalope of pork with pistachios
 
+#fr:Roulade au jambon pistachée
+
 <en:Raw pork meat
 en:Pork ham escalope raw
 fr:escalope de porc crue
@@ -67072,7 +67074,11 @@ pt:Atuns em óleo
 fr:Thons à la Catalane
 
 <en:Tunas
+en:Tunas with tomato sauce
 fr:Thons à la tomate
+
+<en:Tunas with tomato sauce
+fr:Axoa de thon
 
 <en:Tunas in oil
 en:Tuna in olive oil
@@ -67086,8 +67092,8 @@ agribalyse_proxy_food_name:en:Albacore, in olive oil, canned, drained
 agribalyse_proxy_food_name:fr:Thon germon ou thon blanc, à l'huile d'olive, appertisé, égoutté
 
 <en:Tuna in olive oil
-es:atún claro en aceite de oliva
-fr:thons pales à l'huile d'olive
+es:Atún claro en aceite de oliva
+fr:Thons pales à l'huile d'olive
 
 <en:Tunas in oil
 en:Tunas in sunflower oil
@@ -67274,6 +67280,10 @@ fr:Dorades, daurades
 nl:Brasem
 
 <en:Breams
+en:Gilthead seabream
+fr:Dorade royale
+
+<en:Gilthead seabream
 en:Raw wild gilthead seabream
 fr:Daurade sauvage crue, Dorade royale sauvage crue, Vraie daurade sauvage crue
 agribalyse_food_code:en:26080
@@ -67281,8 +67291,8 @@ ciqual_food_code:en:26080
 ciqual_food_name:en:Gilthead seabream, raw, wild
 ciqual_food_name:fr:Dorade royale, ou daurade ou vraie daurade, crue, sauvage
 
-<en:Breams
-en:Farmed wild gilthead seabream
+<en:Gilthead seabream
+en:Farmed gilthead seabream
 fr:Dorade royale d'élevage crue, Daurade d'élevage crue, Vraie daurade d'élevage crue
 agribalyse_food_code:en:26088
 ciqual_food_code:en:26088
@@ -67291,11 +67301,11 @@ ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
 
 <en:Breams
 en:Freshwater bream
-fr:Brèmes
+fr:Brème d'eau douce
 
 <en:Freshwater bream
 en:Raw freshwater bream
-fr:Brème cru
+fr:Brème d'eau douce crue
 agribalyse_food_code:en:26170
 ciqual_food_code:en:26170
 ciqual_food_name:en:Freshwater bream, raw
@@ -67458,30 +67468,6 @@ ciqual_food_name:en:Mackerel, canned in brine, drained
 # Mackerels fillets still appear unknown https://fr.openfoodfacts.org/categories-properties/agribalyse-food-code-unknown/categorie/en:mackerels-fillets
 
 <en:Mackerels
-<en:Fish fillets
-en:Mackerel fillet in tomato sauce canned drained
-fr:Maquereau filet sauce tomate appertisé égoutté
-agribalyse_food_code:en:26086
-ciqual_food_code:en:26086
-ciqual_food_name:en:Mackerel, fillet, in tomato sauce, canned, drained
-
-<en:Mackerels
-<en:Fish fillets
-en:Mackerel fillet in mustard sauce canned drained
-fr:Maquereau filet sauce moutarde appertisé égoutté
-agribalyse_food_code:en:26096
-ciqual_food_code:en:26096
-ciqual_food_name:en:Mackerel, fillet, in mustard sauce, canned, drained
-
-<en:Mackerels
-<en:Fish fillets
-en:Mackerel fillet in white wine canned drained
-fr:Maquereau filet au vin blanc appertisé égoutté
-agribalyse_food_code:en:26097
-ciqual_food_code:en:26097
-ciqual_food_name:en:Mackerel, fillet, in white wine, canned, drained
-
-<en:Mackerels
 en:Raw mackerel
 fr:Maquereau cru
 agribalyse_food_code:en:26051
@@ -67546,18 +67532,24 @@ ciqual_food_name:en:Horse mackerel, lean (spring, summer), raw
 ciqual_food_name:fr:Chinchard maigre, cru
 
 <en:Mackerel fillets
-en:Mackerel fillets in mustard sauce
+en:Mackerel fillets in mustard sauce, Mackerel fillet in mustard sauce canned drained
 fi:Makrillifileet sinappikastikkeessa
-fr:Filets de maquereaux à la moutarde
+fr:Filets de maquereaux à la moutarde, Maquereau filet sauce moutarde appertisé égoutté
 nl:Makreelfilets met mosterd
 pl:Filety z makreli w sosie musztardowym
+agribalyse_food_code:en:26096
+ciqual_food_code:en:26096
+ciqual_food_name:en:Mackerel, fillet, in mustard sauce, canned, drained
 
 <en:Mackerel fillets
-en:Mackerel fillets in white wine and herbs
+en:Mackerel fillets in white wine and herbs, Mackerel fillet in white wine canned drained
 fi:Makrillifileet valkoviinissä yrteillä
-fr:Filets de maquereaux au vin blanc et aromates
+fr:Filets de maquereaux au vin blanc et aromates, Maquereau filet au vin blanc appertisé égoutté
 nl:Makreelfilets in witte wijn en kruiden
 pl:Filety z makreli w białym winie z ziołami
+agribalyse_food_code:en:26097
+ciqual_food_code:en:26097
+ciqual_food_name:en:Mackerel, fillet, in white wine, canned, drained
 
 <en:Mackerel fillets
 en:Mackerel fillets with tomato and basil, Mackerels fillets with tomato and basilisk
@@ -67565,9 +67557,13 @@ fr:Filets de maquereaux tomate-basilic
 nl:Makreelfilets in tomatenbasilicumsaus
 
 <en:Mackerel fillets
-en:Mackerel fillets with tomato sauce
+en:Mackerel fillets with tomato sauce, Mackerel fillet in tomato sauce canned drained
 fi:Makrillifileet tomaattikastikkeella
 ro:Macrou file în sos tomat, File de macrou în sos de roșii
+fr:Maquereau filet sauce tomate appertisé égoutté
+agribalyse_food_code:en:26086
+ciqual_food_code:en:26086
+ciqual_food_name:en:Mackerel, fillet, in tomato sauce, canned, drained
 
 <en:Mackerel fillets
 en:Mackerel fillets in escabeche
