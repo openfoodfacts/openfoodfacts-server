@@ -2423,6 +2423,7 @@ et => [
 
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'ainesosia',
 'valmistusaineet',
 'koostumus',
 ],
@@ -2549,6 +2550,7 @@ uz => [
 
 zh => [
 '配料',
+'成份',
 ],
 
 );
@@ -2641,6 +2643,10 @@ my %phrases_after_ingredients_list = (
 
 # TODO: Introduce a common list for kcal
 
+
+bg => [
+'да се съхранява (в закрити|на сухо)', # store in ...
+],
 
 cs => [
 'doporučeny způsob přípravy',
@@ -2816,6 +2822,10 @@ fr => [
 ],
 
 hr => [
+'Čuvati na (hladnom|suhom|temperaturi)', # store in...
+],
+
+hu => [
 'Atlagos tápérték 100g termékben',
 ],
 
@@ -2898,6 +2908,7 @@ ro => [
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
 'Valori nutritionale medii',
+'a se p[ăa]stra la', # store in...
 ],
 
 sv => [

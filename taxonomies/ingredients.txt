@@ -614,7 +614,7 @@ wikidata:en:Q53792073
 
 # nova:en:lecithin
 <en:E322i
-en:soya lecithin, soy lecithin
+en:soya lecithin, soy lecithin, soybean lecithin
 bg:соев лецитин
 ca:Lecitina de soja, lecitines de soja
 cs:sójový lecitin
@@ -647,7 +647,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:soya lecithin
-en:GMO-free soy lecithin
+en:GMO-free soy lecithin, non-gmo soy lecithin
 de:GVO-freies Sojalecithin, gentechnikfreies Soja-Lecithin, Soja-Lecithin gentechnikfrei
 fi:GMO-vapaa soijalesitiini
 fr:lécithine de soja sans ogm
@@ -686,6 +686,9 @@ wikidata:en:Q57271747
 # fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
 vegan:en:yes
 vegetarian:en:yes
+
+<en:sunflower lecithin
+en:non-gmo sunflower lecithin
 
 # <en:emulsifier
 <en:sunflower lecithin
@@ -4617,9 +4620,10 @@ wikidata:en:Q191978
 wikipedia:en:https://en.wikipedia.org/wiki/Dextrin
 
 # <en:dextrin
-fr:dextrine de tapioca, dextrine de manioc
+en:tapioca dextrin
 de:Tapiokadextrine
 fi:tapiokadekstriini
+fr:dextrine de tapioca, dextrine de manioc
 it:destrina di tapioca
 # ingredient/fr:dextrine-de-tapioca has 49 products in 4 languages @2019-01-26
 
@@ -6754,7 +6758,7 @@ fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
-en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk
+en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk, part skim milk
 ca:llet parcialment desnatada, llet semidesnatada
 de:fettarme Milch, teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada,Leche semidescremada
@@ -8319,7 +8323,7 @@ de:Molkepermeat, Milchpermeat
 es:permeado de suero
 fi:herapermeaatti, maitopermeaatti
 fr:perméat de petit lait
-nl:melkweipermeaat
+nl:weipermeaat, melkweipermeaat
 sv:vasslepermeat
 # ingredient/fr:perméat-de-petit-lait has 126 products in 5 languages @2019-04-21
 
@@ -10763,6 +10767,13 @@ nl:pecorino romano, pecorino romano kaas
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
+
+# Romano cheese is a term used in the United States and Canada for a class of hard, salty cheeses suitable primarily for grating similar to Pecorino Romano, from which the name is derived
+
+<en:cheese
+en:romano cheese
+wikidata:en:Q7362740
+wikipedia:en:https://en.wikipedia.org/wiki/Romano_cheese
 
 
 # PROVOLONE is an Italian cheese. It is an aged pasta filata (stretched-curd) cheese originating in Casilli near Vesuvius.
@@ -17241,7 +17252,7 @@ fr:huile de coco extra vierge
 fr:huile de coco non-hydrogénée, huile de coprah non hydrogénée
 
 <en:coconut oil
-en:fully hydrogenated coconut oil
+en:hydrogenated coconut oil, fully hydrogenated coconut oil
 fr:huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
 fi:kokonaan kovetettu kookosöljy
 sv:fullhärdad kokosolja
@@ -17659,6 +17670,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cottonseed_oil
 wikidata:en:Q811663
 from_palm_oil:en:no
 
+<en:Cottonseed oil
+en:hydrogenated cottonseed oil
+
 <en:vegetable oil
 en:avocado oil
 de:Avocadoöl
@@ -17756,7 +17770,7 @@ from_palm_oil:en:no
 # description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
 
 <en:vegetable oil
-en:sesame oil
+en:sesame oil, sesame seed oil
 ar:زيت السمسم
 be:Кунжутавы алей
 bg:Сусамово олио
@@ -18150,7 +18164,7 @@ en:sunflower oil, sunflower seed oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
-bg:Слънчогледово олио
+bg:Слънчогледово олио, слънчогледово масло
 ca:oli de gira-sol, oli vegetal de gira-sol,oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
@@ -18164,6 +18178,7 @@ fi:auringonkukkaöljy, auringonkukkaöljyä
 fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol, graisses végétales de tournesol
 gl:Aceite de xirasol
 he:שמן חמניות
+hr:suncokretovo ulje
 hu:napraforgóolaj
 id:Minyak biji bunga matahari
 is:Sólblómaolía
@@ -18926,6 +18941,9 @@ en:condiment with white balsamic
 fr:condiment balsamique blanc
 # ingredient/fr:condiment-balsamique-blanc has 56 products @2019-03-29
 # usage:fr:condiment balsamique blanc (vinaigre de vin, moût de raisin)
+
+<en:vinegar
+en:grain vinegar
 
 <en:vinegar
 # derivedFrom:en:malt
@@ -20453,7 +20471,7 @@ fr:porto rouge modifié
 # description:en:SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 
 <en:liqueur wine
-en:sherry
+en:sherry, sherry wine
 af:sjerrie
 bg:шери
 br:gwin jerez
@@ -20788,7 +20806,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chartreuse_(liqueur)
 # de:Chartreuse
 
 <en:alcohol
-en:sake
+en:sake, sake wine
 fr:Saké
 ja:日本酒
 wikidata:en:Q170219
@@ -25456,6 +25474,7 @@ allergens:en: en:soybeans
 <en:flour
 <en:corn
 en:corn flour, maize flour, cornflour
+bg:царевично брашно
 ca:farina de blat de moro,farina de blat
 da:majsmel
 de:Maismehl
@@ -25464,6 +25483,7 @@ es:harina de maíz, harina maiz
 et:maisijahu
 fi:maissijauho, maissijauhoa
 fr:farine de maïs, farine de mais
+hr:kukuruzno brašno
 hu:kukoricaliszt
 it:farina di mais
 lt:kukurūzų miltai
@@ -27221,7 +27241,7 @@ ur:شکّر
 uz:Qand
 vi:Đường
 wa:Souke
-zh:食糖
+zh:糖, 食糖
 # als:Zucker
 # arc:ܫܟܪ
 # arz:سكر
@@ -27500,7 +27520,7 @@ nl:Arenga bossuiker
 # description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 
 <en:sugar
-en:cane sugar
+en:cane sugar, pure cane sugar
 bg:захар от захарна тръстика
 ca:Sucre de canya
 cs:třtinový cukr
@@ -28692,7 +28712,7 @@ allergens:en: en:gluten
 # ingredient/fr:sirop-de-ble has 381 products in 4 languages @2020-06-08
 
 <en:sugar
-en:cane sugar syrup
+en:cane sugar syrup, cane syrup
 fr:sirop de sucre de canne
 de:rohrzuckersirup
 fi:ruokosokerisiirappi
@@ -28970,6 +28990,7 @@ fr:fructooligosaccharides, Fructo-oligosaccharide
 hu:frukto-oligoszacharid
 it:Frutto-oligosaccaridi
 ja:フラクトオリゴ糖
+nl:fructo-oligosachariden
 pt:Frutooligossacarídeo
 sh:Fruktooligosaharid
 sr:Fruktooligosaharid
@@ -30000,7 +30021,7 @@ nl:cacao-extract
 # comment:en:the wikidata-page mixes cocoa and cocoa bean
 
 <en:cocoa
-en:cocoa bean, cocoa beans
+en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
 ar:كاكاو
 ca:gra de cacau
@@ -31875,6 +31896,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae
 # usage:en:bakery yeast (saccharomyces cerevisae)
 # usage:fr:Levure Boulangère (Saccharomyces Cerevisiae)
 
+<en:yeast
+en:torula yeast
+la:Cyberlindnera jadinii, Candida utilis
+wikidata:en:Q1527729
+wikipedia:en:https://en.wikipedia.org/wiki/Torula
+
+
 # description:en:YEAST EXTRACT is the common name for yeast products made by extracting the cell contents
 
 <en:yeast
@@ -32604,7 +32632,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gum_arabic
 
 #   XANTHAN GUM   is a polysaccharide with many industrial uses, including as a common food additive.
 
-en:Xanthan gum, E415, E-415, e 415
+en:Xanthan gum, xanthan, E415, E-415, e 415
 ar:صمغ الكزانتان
 bg:Гума ксантан, Ксантанова гума
 ca:goma xantana
@@ -36974,7 +37002,7 @@ it:mirtillo, mirtilli
 ja:ビルベリー
 ka:მოცვი
 nb:blåbær
-nl:bosbes, blauwe bes
+nl:bosbes, bosbessen, blauwe bes, blauwe bessen
 nn:blåbær
 pl:Borówka czarna
 pt:mirtilo
@@ -41816,6 +41844,7 @@ it:Cicoria
 <en:chicory
 en:chicory root
 fr:racine de chicorée
+it:radice di cicoria
 
 <en:vegetable fiber
 <en:chicory
@@ -46242,7 +46271,7 @@ it:peperoni rossi e gialli
 # description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
 
 <en:vegetable
-en:chili pepper, chilli pepper, chilli, chillies
+en:chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
 ar:فلفل حار
 be:чырвоны перац
 bg:Люта чушка
@@ -46383,7 +46412,7 @@ de:konservierter Chilipfeffer
 fi:säilötty chili
 
 <en:chili pepper
-en:red chili pepper, red chili, red chilli pepper, red chilli, red chillies
+en:red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper
 da:rød chili
 de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
@@ -46406,7 +46435,7 @@ fr:huile de graines de piment rouge
 nl:rode peper zaad olie
 
 <en:chili pepper
-en:green chili pepper, green chili, green chilli pepper, green chilli, green chillies
+en:green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper
 de:grüne Chili
 es:guindilla verde
 fi:vihreä chili
@@ -46499,7 +46528,7 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno pepper
-en:chipotle, chipotle chilli
+en:chipotle, chipotle chilli, chipotle chile
 ca:chipotle
 cs:chipotle
 da:chipotle
@@ -51157,10 +51186,10 @@ it:condimento in polvere
 
 # <en:compound
 <en:condiment
-en:mixed condiments, seasoning mix, flavored seasoning, mélange aromatique
+en:mixed condiments, seasoning blend, seasoning mix, flavored seasoning
 de:Würzmischung
 fi:maustesekoitus
-fr:mélange de condiments, assaisonnement aromatisé
+fr:mélange de condiments, assaisonnement aromatisé, mélange aromatique
 it:condimenti misti
 # ingredient/fr:mélange-de-condiments has 161 products @2019-03-09
 # ingredient/fr:assaisonnement-aromatisé has 45 products @2019-04-04
@@ -51168,6 +51197,7 @@ it:condimenti misti
 # usage:fr:mélange aromatique (maltodextrine, arômes naturels, épices et plantes aromatiques, sel, saccharose, extrait de crustacé )
 
 <en:condiment
+en:barbecue seasoning
 fr:assaisonnement saveur barbecue
 
 <en:condiment
@@ -52497,7 +52527,7 @@ bs:Đumbir
 ca:gingebre
 cs:zázvor
 cy:Sinsir
-da:Ingefær
+da:Ingefær, Ingefær rod
 de:Ingwer
 el:Πιπερόριζα
 eo:zingibro
@@ -52505,8 +52535,8 @@ es:Gengibre, jengibre
 et:Ingver
 eu:jengibre
 fa:زنجبیل
-fi:inkivääri
-fr:gingembre
+fi:inkivääri, inkiväärinjuuri
+fr:gingembre, racine de gingembre
 ga:Sinséar
 gd:Dinnsear
 gl:Sinxebra
@@ -52539,9 +52569,9 @@ ml:ഇഞ്ചി
 mr:आले
 ms:Halia
 my:ချင်းပင်
-nb:ingefær
+nb:ingefær, ingefærrot
 ne:अदुवा
-nl:gember
+nl:gember, gemberwortel
 nn:ingefær
 oc:Gengibre
 or:ଅଦା
@@ -53283,6 +53313,7 @@ lg:Kalifuwa
 lo:ຫົວສີໄຄ
 mr:गवती चहा
 ms:daun serai
+nb:sitrongress
 ne:कागते घाँस
 nl:citroengras, Sereh
 or:ଲେମନ ଗ୍ରାସ୍
@@ -57665,7 +57696,7 @@ sv:bourbon vaniljextrakt
 # To make vanilla look like vanilla
 
 <en:vanilla
-en:vanilla pod, vanilla pods
+en:vanilla pod, vanilla pods, vanilla bean
 da:vaniljestang, vaniljestænger
 de:Vanilleschoten
 es:vainas de vainilla, vaina de vainilla
@@ -63682,7 +63713,7 @@ ml:നീരാളി
 nv:Łóóʼ bigaan tseebíí íiyisígíí
 ru:осьминоги
 te:అక్టోపస్
-zh:章鱼属
+zh:章鱼属, 章魚丁
 # nds:Kraken an sik
 wikidata:en:Q611843
 wikipedia:en:https://en.wikipedia.org/wiki/Octopus
