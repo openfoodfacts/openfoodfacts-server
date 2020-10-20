@@ -30748,13 +30748,6 @@ ciqual_food_code:en:12356
 ciqual_food_name:en:Processed cheese snack w breadsticks, for children
 
 <en:Processed cheese
-en:Cubed appetizer cheese
-fr:fromage apéritif en cube, fromage apéritif en cube type Apéricube
-
-<en:Processed cheese
-fr:Fromages apéritif
-
-<en:Processed cheese
 <en:French cheeses
 en:Cancoillottes, Cancoyottes, Processed cheese from cow's milk
 de:Kochkäse
@@ -31738,8 +31731,18 @@ agribalyse_food_code:en:12310
 ciqual_food_code:en:12310
 ciqual_food_name:en:Processed cheese, around 20% fat, in wedges or cubes
 
+<en:Processed cheese
+en:Cubed appetizer cheese
+fr:fromage apéritif en cube, fromage apéritif en cube type Apéricube
+agribalyse_proxy_food_code:en:12310
+agribalyse_proxy_food_name:en:Processed cheese, around 20% fat, in wedges or cubes
+
+<en:Processed cheese
+fr:Fromages apéritif
+
 # Apéricube
 <en:Processed cheese
+<en:Cubed appetizer cheese
 en:Processed cheese around 20% fat in cubes
 fr:Fromage fondu en cubes environ 20% MG
 agribalyse_food_code:en:12310
