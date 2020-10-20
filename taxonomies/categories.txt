@@ -71748,7 +71748,7 @@ ciqual_food_name:fr:Céleri-rave, cuit
 
 # <en:Vegetable rods
 <en:vegetable
-en:Chards, Chard
+en:Chards, Chard, Swiss chard
 ar:سلق 
 bg:Манголд
 bs:Blitva
@@ -71811,6 +71811,9 @@ wikidata:en:Q157954
 wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
 # category/chards has 16 products @2019-05-22
+agribalyse_proxy_food_code:en:20004
+agribalyse_proxy_food_name:en:Swiss chard, raw
+agribalyse_proxy_food_name:fr:Bette ou blette, crue
 
 <en:Chards
 <en:Fresh vegetables
@@ -71818,13 +71821,6 @@ en:Fresh chards
 es:Acelgas frescas
 fr:Blettes fraîches
 season_in_country_fr:en: 6,7,8,9,10,11
-
-<en:Chards
-en:Swiss chard
-fr:Bette, Blette
-agribalyse_proxy_food_code:en:20004
-agribalyse_proxy_food_name:en:Swiss chard, raw
-agribalyse_proxy_food_name:fr:Bette ou blette, crue
 
 <en:Chards
 <en:Cooked vegetables
@@ -74218,14 +74214,6 @@ ciqual_food_code:en:20037
 ciqual_food_name:en:Garden peas, cooked
 ciqual_food_name:fr:Petits pois, cuits
 
-<en:Green peas
-en:Canned garden peas
-fr:Petits pois appertisés égouttés, Petits pois en conserve
-agribalyse_food_code:en:20036
-ciqual_food_code:en:20036
-ciqual_food_name:en:Garden peas, canned, drained
-ciqual_food_name:fr:Petits pois, appertisés, égouttés
-
 <en:Legumes
 <en:Seeds
 en:Legume seeds
@@ -75040,16 +75028,20 @@ nl:Duivenbonen in blik
 <en:Canned legumes
 <en:Canned vegetables
 <en:Green peas
-en:Canned peas
+en:Canned peas, Canned garden peas
 de:Erbsen in Dosen, Dosenerbsen
 es:Guisantes en conserva
 fi:purkitetut herneet
-fr:Petits pois en conserve
+fr:Petits pois en conserve, Petits pois appertisés égouttés
 hu:Borsó konzervek
 it:Piselli in scatola
 nl:Doperwten in blik
 ru:Горошек консервированный, зелёный горошек консервированный, консервированный зелёный горошек
 wikidata:en:Q4145855
+agribalyse_food_code:en:20036
+ciqual_food_code:en:20036
+ciqual_food_name:en:Garden peas, canned, drained
+ciqual_food_name:fr:Petits pois, appertisés, égouttés
 
 <en:Canned legumes
 <en:Canned vegetables
