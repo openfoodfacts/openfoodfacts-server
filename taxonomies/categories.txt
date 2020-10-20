@@ -51375,7 +51375,7 @@ nl:Kant-en-klaar couscous
 
 <en:Prepared couscous
 en:Couscous with vegetables
-fr:Couscous de légumes
+fr:Couscous de légumes, Couscous aux légumes
 agribalyse_food_code:en:25150
 ciqual_food_code:en:25150
 ciqual_food_name:en:Couscous with vegetables
@@ -51388,14 +51388,6 @@ agribalyse_food_code:en:25107
 ciqual_food_code:en:25107
 ciqual_food_name:en:Couscous w fish
 ciqual_food_name:fr:Couscous au poisson
-
-<en:Prepared couscous
-en:Royal couscous with different meats
-fr:Couscous royal avec plusieurs viandes
-agribalyse_food_code:en:25127
-ciqual_food_code:en:25127
-ciqual_food_name:en:Couscous royal (with different meats)
-ciqual_food_name:fr:Couscous royal (avec plusieurs viandes)
 
 <en:Prepared couscous
 en:Couscous with mutton
@@ -51412,8 +51404,15 @@ ciqual_food_code:en:25152
 ciqual_food_name:en:Couscous w meat
 ciqual_food_name:fr:Couscous à la viande
 
+<en:Couscous with meat
+en:Royal couscous, Royal couscous with different meats
+fr:Couscous royal, Couscous avec plusieurs viandes, Couscous royal avec plusieurs viandes
+agribalyse_food_code:en:25127
+ciqual_food_code:en:25127
+ciqual_food_name:en:Couscous royal (with different meats)
+ciqual_food_name:fr:Couscous royal (avec plusieurs viandes)
 
-<en:Prepared couscous
+<en:Couscous with meat
 en:Chicken couscous
 fr:Couscous au poulet
 agribalyse_food_code:en:25138
@@ -51421,7 +51420,7 @@ ciqual_food_code:en:25138
 ciqual_food_name:en:Couscous w chicken
 ciqual_food_name:fr:Couscous au poulet
 
-<en:Prepared couscous
+<en:Couscous with meat
 en:Light couscous with meat, Light couscous with chicken, Low fat couscous with meat, Low fat couscous with chicken
 fr:Couscous à la viande allégé, Couscous au poulet allégé
 agribalyse_food_code:en:25043
@@ -51487,27 +51486,31 @@ ciqual_food_code:en:26054
 ciqual_food_name:en:Fish, in sauce, frozen
 
 <en:Meals with fish
+en:Meals with cooked white fish
+fr:Plats préparés au poisson blanc cuit
+
+<en:Meals with cooked white fish
 en:Cooked white fish without skin
 fr:Poisson blanc cuit, Poisson blanc cuit sans la peau
 ciqual_food_code:en:26249
 ciqual_food_name:en:Fish, white, without skin, cooked
 ciqual_food_name:fr:Poisson blanc, cuit (aliment moyen)
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:Cooked marine white fish without skin
 fr:Poisson blanc de mer cuit
 ciqual_food_code:en:26250
 ciqual_food_name:en:Marine fish, white, without skin, cooked
 ciqual_food_name:fr:Poisson blanc, de mer, cuit (aliment moyen)
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:White fish with Provencal-style tomato sauce
 fr:Poisson blanc à la provençale, Poisson blanc à la niçoise
 agribalyse_food_code:en:25128
 ciqual_food_code:en:25128
 ciqual_food_name:en:White fish with Provencal-style sauce (tomato sauce)
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:White fish with Florentine-style sauce, White fish with spinach sauce
 fr:Poisson blanc à la sauce florentine, Poisson blanc à la sauce aux épinards
 agribalyse_food_code:en:25140
@@ -51515,14 +51518,14 @@ ciqual_food_code:en:25140
 ciqual_food_name:en:White fish with Florentine-style sauce (spinach sauce)
 ciqual_food_name:fr:Poisson blanc à la florentine (sauce aux épinards)
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:White fish with mustard sauce
 fr:Poisson blanc à la sauce moutarde
 agribalyse_food_code:en:25142
 ciqual_food_code:en:25142
 ciqual_food_name:en:White fish with mustard sauce
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:White fish with tarragon sauce
 fr:Poisson blanc à l'estragon
 agribalyse_food_code:en:25145
@@ -51530,7 +51533,7 @@ ciqual_food_code:en:25145
 ciqual_food_name:en:White fish with tarragon sauce
 ciqual_food_name:fr:Poisson blanc à l'estragon
 
-<en:Meals with fish
+<en:Meals with cooked white fish
 en:White fish with sorrel sauce
 fr:Poisson blanc sauce oseille
 agribalyse_food_code:en:25146
@@ -51629,8 +51632,8 @@ ciqual_food_name:en:Salt-cured pork belly with lentils
 ciqual_food_name:fr:Petit salé ou saucisse aux lentilles
 
 <en:Meals with meat
-en:Sausage in a brioche crust cooked
-fr:Saucisson brioché cuit
+en:Sausage in a brioche crust
+fr:Saucissons briochés, Brioches au saucisson
 agribalyse_food_code:en:30707
 ciqual_food_code:en:30707
 ciqual_food_name:en:Sausage in a brioche crust, cooked
@@ -51751,6 +51754,10 @@ ciqual_food_name:en:Shepherd's pie or cottage pie with meat
 ciqual_food_name:fr:Hachis Parmentier à la viande
 
 <en:Beef dishes
+en:Beef stews
+fr:Ragoûts de boeuf
+
+<en:Beef stews
 en:Bœufs bourguignons, Burgundian beef, Burgundy-style beef stew
 fi:burgundinpata
 fr:Bœufs bourguignons, Bœuf bourguignon, Boeuf bourguignon
@@ -51760,7 +51767,7 @@ ciqual_food_code:en:25033
 ciqual_food_name:en:Burgundy-style beef stew
 ciqual_food_name:fr:Boeuf bourguignon
 
-<en:Beef dishes
+<en:Bœufs bourguignons
 en:Cooked beef stew meat
 fr:Boeuf bourguignon cuit, Pot au feu de boeuf cuit
 agribalyse_food_code:en:6230
@@ -51768,7 +51775,7 @@ ciqual_food_code:en:6230
 ciqual_food_name:en:Beef, stewing meat, cooked
 ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cuit
 
-<en:Beef dishes
+<en:Bœufs bourguignons
 en:Raw beef stew meat
 fr:Boeuf bourguignon cru, Pot-au-feu de boeuf cru
 agribalyse_food_code:en:6231
@@ -51776,7 +51783,7 @@ ciqual_food_code:en:6231
 ciqual_food_name:en:Beef, stewing meat, raw
 ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cru
 
-<en:Beef dishes
+<en:Beef stews
 en:Beef stew with carrots
 fr:Boeuf aux carottes
 agribalyse_food_code:en:25065
@@ -51820,8 +51827,8 @@ ciqual_food_code:en:25207
 ciqual_food_name:en:Pork with caramel sauce
 
 <en:Pork meals
-en:Pork snout in salad dressing sauce
-fr:Museau de porc vinaigrette
+en:Pork snout in salad dressing sauce, Pork snout in salad sauce, Pork snout in salad dressing
+fr:Museau de porc vinaigrette, Museau de porc sauce vinaigrette
 agribalyse_food_code:en:8406
 ciqual_food_code:en:8406
 ciqual_food_name:en:Pork snout in salad dressing sauce
@@ -51843,18 +51850,18 @@ ciqual_food_code:en:25126
 ciqual_food_name:en:Poultry paupiette
 
 <en:Poultry meals
-fr:Coq au vin
 en:Cockerel in red wine sauce
+fr:Coq au vin
 wikidata:en:Q527323
 agribalyse_food_code:en:25121
 ciqual_food_code:en:25121
 ciqual_food_name:en:Cockerel in red wine sauce
 
-<fr:Coq au vin
+<en:Cockerel in red wine sauce
 fr:Coq au vin de chanturgue
 wikidata:en:Q2996892
 
-<fr:Coq au vin
+<en:Cockerel in red wine sauce
 fr:Coq au vin jaune, Coq au vin jaune et aux morilles
 wikidata:en:Q2996891
 
@@ -51889,28 +51896,6 @@ fr:Parmentier de canard non cuit
 agribalyse_food_code:en:25195
 ciqual_food_code:en:25195
 ciqual_food_name:en:Shepherd's pie with duck
-
-<en:Duck dishes
-<en:Cassoulets
-en:Cassoulets with duck confit
-fr:Cassoulets au confit de canard
-nl:Cassoulet met geconfijte eend
-
-<en:Cassoulets
-en:Canned white bean stew with pork
-fr:Cassoulet au porc appertisé, Cassoulet au porc en conserve
-agribalyse_food_code:en:25098
-ciqual_food_code:en:25098
-ciqual_food_name:en:White bean stew, with pork, canned
-ciqual_food_name:fr:Cassoulet au porc, appertisé
-
-<en:Cassoulets
-en:Canned white bean stew with duck, Canned white bean stew with goose
-fr:Cassoulet au canard appertisé, Cassoulet au canard en conserve, Cassoulet à l'oie appertisé, Cassoulet à l'oie en conserve
-agribalyse_food_code:en:25099
-ciqual_food_code:en:25099
-ciqual_food_name:en:White bean stew, with duck or goose, canned
-ciqual_food_name:fr:Cassoulet au canard ou oie, appertisé
 
 <en:Duck dishes
 en:Blanquettes of duck, Blanquette of duck
@@ -53145,6 +53130,40 @@ ciqual_food_name:fr:Cassoulet, appertisé
 en:Cassoulets from Toulouse
 fr:Cassoulets toulousains
 nl:Cassoulet uit Toulouse
+
+<en:Duck dishes
+<en:Cassoulets
+en:Cassoulets with duck confit
+fr:Cassoulets au confit de canard
+nl:Cassoulet met geconfijte eend
+
+<en:Cassoulets
+en:Pork cassoulets, White bean stew with pork
+fr:Cassoulet au porc
+
+<en:Pork cassoulets
+en:Canned white bean stew with pork
+fr:Cassoulet au porc en conserve, Cassoulet au porc appertisé
+agribalyse_food_code:en:25098
+ciqual_food_code:en:25098
+ciqual_food_name:en:White bean stew, with pork, canned
+ciqual_food_name:fr:Cassoulet au porc, appertisé
+
+<en:Cassoulets
+en:Canned white bean stew with goose
+fr:Cassoulet à l'oie appertisé, Cassoulet à l'oie en conserve
+agribalyse_food_code:en:25099
+ciqual_food_code:en:25099
+ciqual_food_name:en:White bean stew, with duck or goose, canned
+ciqual_food_name:fr:Cassoulet au canard ou oie, appertisé
+
+<en:Cassoulets
+en:Canned white bean stew with duck
+fr:Cassoulet au canard appertisé, Cassoulet au canard en conserve
+agribalyse_food_code:en:25099
+ciqual_food_code:en:25099
+ciqual_food_name:en:White bean stew, with duck or goose, canned
+ciqual_food_name:fr:Cassoulet au canard ou oie, appertisé
 
 <en:Meals
 fr:Céréales préparées, céréale préparée
