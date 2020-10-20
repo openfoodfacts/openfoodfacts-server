@@ -72610,7 +72610,22 @@ agribalyse_proxy_food_code:en:20086
 agribalyse_proxy_food_name:en:Sweet pepper, green, cooked
 agribalyse_proxy_food_name:fr:Poivron vert, cuit
 
-<en:Sweet Peppers
+<en:Cooked vegetables
+en:Cooked peppers
+
+en:Green sweet peppers
+fr:Poivrons verts
+
+<en:Raw sweet peppers
+<en:Green sweet peppers
+en:Raw green sweet peppers
+fr:Poivrons verts crus
+agribalyse_food_code:en:20085
+ciqual_food_code:en:20085
+ciqual_food_name:en:Sweet pepper, green, raw
+ciqual_food_name:fr:Poivron vert, cru
+
+<en:Green sweet peppers
 <en:Cooked peppers
 en:Cooked sweet green peppers
 fr:Poivrons verts cuits
@@ -72627,7 +72642,12 @@ ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 
+<en:Sweet Peppers
+en:Yellow sweet peppers
+fr:Poivrons jaunes
+
 <en:Raw sweet peppers
+<en:Yellow sweet peppers
 en:Raw yellow sweet peppers
 fr:Poivrons jaunes crus
 agribalyse_food_code:en:20168
@@ -72635,37 +72655,11 @@ ciqual_food_code:en:20168
 ciqual_food_name:en:Sweet pepper, yellow, raw
 ciqual_food_name:fr:Poivron jaune, cru
 
-<en:Raw sweet peppers
-en:Raw red sweet peppers
-fr:Poivrons rouges crus
-agribalyse_food_code:en:20087
-ciqual_food_code:en:20087
-ciqual_food_name:en:Sweet pepper, red, raw
-ciqual_food_name:fr:Poivron rouge, cru
-
-<en:Raw sweet peppers
-en:Raw green sweet peppers
-fr:Poivrons verts crus
-agribalyse_food_code:en:20085
-ciqual_food_code:en:20085
-ciqual_food_name:en:Sweet pepper, green, raw
-ciqual_food_name:fr:Poivron vert, cru
-
 <en:Sweet Peppers
-en:Mixed bell peppers
-de:Paprika Mix, gemischte Paprika
-es:Mezclas de pimientos multicolores
-fr:Mélanges de poivrons multicolores
-nl:Gemengde paprikas
-
-<en:Sweet Peppers
-en:Red bell peppers, Red peppers
-de:Rote Paprika
-es:Pimientos rojos
+en:Red sweet peppers
 fr:Poivrons rouges
-nl:Rode paprikas
 
-<en:Sweet Peppers
+<en:Red sweet peppers
 <en:Cooked peppers
 en:Cooked sweet red peppers
 fr:Poivrons rouges cuits
@@ -72674,9 +72668,37 @@ ciqual_food_code:en:20088
 ciqual_food_name:en:Sweet pepper, red, cooked
 ciqual_food_name:fr:Poivron rouge, cuit
 
+<en:Raw sweet peppers
+<en:Red sweet peppers
+en:Raw red sweet peppers
+fr:Poivrons rouges crus
+agribalyse_food_code:en:20087
+ciqual_food_code:en:20087
+ciqual_food_name:en:Sweet pepper, red, raw
+ciqual_food_name:fr:Poivron rouge, cru
+
+en:Bell peppers
+
 <en:Sweet Peppers
-en:Canned drained sweet red peppers
-fr:Poivrons rouges appertisés égouttés
+<en:Bell peppers
+en:Mixed bell peppers
+de:Paprika Mix, gemischte Paprika
+es:Mezclas de pimientos multicolores
+fr:Mélanges de poivrons multicolores
+nl:Gemengde paprikas
+
+<en:Sweet Peppers
+<en:Bell peppers
+en:Red bell peppers, Red peppers
+de:Rote Paprika
+es:Pimientos rojos
+fr:Poivrons rouges
+nl:Rode paprikas
+
+<en:Sweet Peppers
+<en:Red sweet peppers
+en:Canned sweet red peppers
+fr:Poivrons rouges en conserve, Poivrons rouges appertisés
 agribalyse_food_code:en:20275
 ciqual_food_code:en:20275
 ciqual_food_name:en:Sweet pepper, red, canned, drained
