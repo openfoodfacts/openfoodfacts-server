@@ -13,6 +13,8 @@ synonyms:fi:hapatettu, fermentoitu
 
 synonyms:fi:hapatetut, fermentoidut
 
+synonyms:fr:% de matières grasses, % MG
+
 synonyms:fr:premier cru, 1er cru
 
 synonyms:fr:sandwich club, sandwich triangle, sandwich pain de mie
@@ -54250,7 +54252,7 @@ agribalyse_proxy_food_name:en:Veal quenelle, in sauce
 
 <en:Veal meat dishes
 en:Veal quenelle in sauce
-fr:Quenelle de veau en sauce
+fr:Quenelle de veau en sauce, Quenelles de veau sauce financière
 agribalyse_food_code:en:8903
 ciqual_food_code:en:8903
 ciqual_food_name:en:Veal quenelle, in sauce
@@ -54628,7 +54630,8 @@ nl:Pies, pie
 wikidata:en:Q13360264
 
 <en:Meat-based products
-en:meat pies
+en:Meat pies
+fr:Tourtes à la viande
 
 <en:salted pies
 <en:meat pies
@@ -54643,7 +54646,7 @@ agribalyse_food_code:en:25560
 ciqual_food_code:en:25560
 ciqual_food_name:en:Riesling wine and pork pie
 
-<en:Pies
+<en:Pork pies
 en:Riesling wine and pork pie
 fr:Tourte au porc et riesling
 agribalyse_food_code:en:25560
@@ -62335,6 +62338,14 @@ nl:Glutenvrije pastas
 pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
+<en:Dry pastas
+en:Gluten-free dry pasta, Dry gluten-free pasta, Dried gluten-free pasta
+fr:Pâtes sèches sans gluten
+agribalyse_proxy_food_code:en:9824
+agribalyse_proxy_food_name:en:Dried pasta, gluten-free, cooked, unsalted
+agribalyse_proxy_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
+
+<en:Gluten-free pasta
 en:Gluten-free Spaghetti
 fr:Spaghetti sans gluten
 
@@ -62347,18 +62358,11 @@ en:Gluten-free penne rigate
 fr:Penne Rigate sans gluten
 
 <en:Gluten-free pasta
+en:Gluten-free tagliatelles
 fr:Tagliatelles sans gluten
 
 <en:Gluten-free pasta
 fr:Coquillettes sans gluten
-
-<en:Gluten-free pasta
-<en:Dry pastas
-en:Dry gluten-free pasta, Dried gluten-free pasta
-fr:Pâtes sèches sans gluten
-agribalyse_proxy_food_code:en:9824
-agribalyse_proxy_food_name:en:Dried pasta, gluten-free, cooked, unsalted
-agribalyse_proxy_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
 
 <en:Dried gluten-free pasta
 en:Dry raw gluten-free pasta, Dried raw gluten-free pasta
