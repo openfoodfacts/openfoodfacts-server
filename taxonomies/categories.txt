@@ -51717,41 +51717,6 @@ ciqual_food_code:en:8903
 ciqual_food_name:en:Veal quenelle, in sauce
 
 <en:Veal meat dishes
-en:Veal quenelle in sauce
-fr:Quenelle de veau en sauce
-agribalyse_food_code:en:8903
-ciqual_food_code:en:8903
-ciqual_food_name:en:Veal quenelle, in sauce
-
-<en:Meals with meat
-en:Poultry quenelle in sauce
-fr:Quenelle de volaille en sauce
-agribalyse_food_code:en:8912
-ciqual_food_code:en:8912
-ciqual_food_name:en:Poultry quenelle, in sauce
-
-<en:Meals with meat
-en:Poultry quenelle raw
-fr:Quenelle de volaille crue
-agribalyse_food_code:en:8910
-ciqual_food_code:en:8910
-ciqual_food_name:en:Poultry quenelle, raw
-
-<en:Meals with meat
-en:Fish quenelle in sauce
-fr:Quenelle de poisson en sauce
-agribalyse_food_code:en:8932
-ciqual_food_code:en:8932
-ciqual_food_name:en:Fish quenelle, in sauce
-
-<en:Meals with meat
-en:Fish quenelle raw
-fr:Quenelle de poisson crue
-agribalyse_food_code:en:8933
-ciqual_food_code:en:8933
-ciqual_food_name:en:Fish quenelle, raw
-
-<en:Veal meat dishes
 fr:Veau marengo
 
 <en:Veal meat dishes
@@ -51771,7 +51736,7 @@ ciqual_food_name:en:Veal stew in white sauce
 ciqual_food_name:fr:Blanquette de veau
 
 <en:Beef dishes
-en:Corned-beef
+veal meat den:Corned-beef
 fr:Corned-beef, Corned-beef appertisé, Corned-beef en conserve
 ciqual_food_code:en:28505
 ciqual_food_name:en:Corned-beef
@@ -54248,11 +54213,26 @@ fr:Quenelles
 wikidata:en:Q12958
 
 <fr:Quenelles
+<en:Meals with fish
 en:Fish quenelles
 es:Quenelles de pescado
 fr:Quenelles de poisson
 it:Quenelle di pesce, Polpette di pesce
 nl:Visquenelle
+
+<en:Fish quenelles
+en:Fish quenelle in sauce
+fr:Quenelle de poisson en sauce
+agribalyse_food_code:en:8932
+ciqual_food_code:en:8932
+ciqual_food_name:en:Fish quenelle, in sauce
+
+<en:Fish quenelles
+en:Fish quenelle raw
+fr:Quenelle de poisson crue
+agribalyse_food_code:en:8933
+ciqual_food_code:en:8933
+ciqual_food_name:en:Fish quenelle, raw
 
 <en:Fish quenelles
 en:Pike quenelles
@@ -54269,11 +54249,41 @@ nl:Zalmquenelle
 en:Veal quenelles
 fr:Quenelles de veau
 nl:Kalfsvleesquenelle
+agribalyse_proxy_food_code:en:8903
+agribalyse_proxy_food_name:en:Veal quenelle, in sauce
+
+<en:Veal meat dishes
+en:Veal quenelle in sauce
+fr:Quenelle de veau en sauce
+agribalyse_food_code:en:8903
+ciqual_food_code:en:8903
+ciqual_food_name:en:Veal quenelle, in sauce
 
 <fr:Quenelles
+<en:Meals with meat
+en:Poultry quenelle
+fr:Quenelle de volaille
+agribalyse_proxy_food_code:en:8912
+agribalyse_proxy_food_name:en:Poultry quenelle, in sauce
+
+<en:Poultry quenelle
 en:Chicken quenelles
-fr:Quenelles de volaille
+fr:Quenelles de poulet
 nl:Kipquenelle
+
+<en:Poultry quenelle
+en:Poultry quenelle in sauce
+fr:Quenelle de volaille en sauce
+agribalyse_food_code:en:8912
+ciqual_food_code:en:8912
+ciqual_food_name:en:Poultry quenelle, in sauce
+
+<en:Poultry quenelle
+en:Poultry quenelle raw
+fr:Quenelle de volaille crue
+agribalyse_food_code:en:8910
+ciqual_food_code:en:8910
+ciqual_food_name:en:Poultry quenelle, raw
 
 <fr:Quenelles
 en:Plain quenelles
@@ -78116,10 +78126,10 @@ ciqual_food_code:en:40601
 ciqual_food_name:en:Offal, cooked (average)
 ciqual_food_name:fr:Abat, cuit (aliment moyen)
 
-<en:offals
-en:kidneys
+<en:Offals
+en:Kidneys
 
-<en:kidneys
+<en:Kidneys
 en:Cooked kidneys, Cooked kidney
 fr:Rognons cuits, Rognon cuit
 ciqual_food_code:en:40401
@@ -78143,7 +78153,7 @@ nl:Eendenspiermaag
 
 <en:Duck gizzards
 en:Canned preserved duck gizzards
-fr:Gésiers de canard confits appertisés, Gésiers de canard confits en conserve
+fr:Gésiers de canard confits en conserve, Gésiers de canard confits appertisés
 ciqual_food_code:en:40701
 ciqual_food_name:en:Preserved gizzards, duck, canned
 ciqual_food_name:fr:Gésier, canard, confit, appertisé
