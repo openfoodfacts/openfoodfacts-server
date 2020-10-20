@@ -25338,6 +25338,10 @@ fr:Chocolats au lait aux noisettes
 hu:Tejcsokoládé mogyoróval
 it:Cioccolato al latte con nocciole
 nl:Melkchocola met hazelnoot
+agribalyse_food_code:en:31018
+ciqual_food_code:en:31018
+ciqual_food_name:en:Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
 
 <en:Chocolates with almonds
 <en:Milk chocolates
@@ -25350,6 +25354,26 @@ hu:Tejes csokoládé mandulával
 it:Cioccolato al latte con mandorle
 nl:Melkchocola met amandelen
 sv:Mjölkchoklad med mandlar
+agribalyse_food_code:en:31018
+ciqual_food_code:en:31018
+ciqual_food_name:en:Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
+
+<en:Chocolates with raisins
+<en:Milk chocolates
+en:Milk chocolates with raisins
+agribalyse_food_code:en:31018
+ciqual_food_code:en:31018
+ciqual_food_name:en:Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
+
+<en:Chocolates with praline
+<en:Milk chocolates
+en:Milk chocolates with praline
+agribalyse_food_code:en:31018
+ciqual_food_code:en:31018
+ciqual_food_name:en:Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
 
 <en:Chocolates
 en:Chocolates with almonds
@@ -25364,8 +25388,8 @@ ru:Шоколад с миндалём
 sv:Choklad med mandlar, choklad med mandel
 
 <en:Chocolates
-en:Toblerone milk cholcolate bar w nougat
-fr:Barre chocolat au lait avec nougat
+en:Milk chocolate bar with nougat, Toblerone
+fr:Barre de chocolat au lait avec nougat, Toblerone
 agribalyse_food_code:en:31098
 ciqual_food_code:en:31098
 ciqual_food_name:en:Toblerone milk cholcolate bar w nougat
@@ -25383,9 +25407,11 @@ nl:Chocola met hazelnoten
 
 <en:Chocolates
 en:Chocolates with raisins
+fr:Chocolats aux raisins
 
 <en:Chocolates
 en:Chocolates with praline
+fr:Chocolats à la praline
 
 <en:Chocolates
 en:Rice chocolates
@@ -25742,8 +25768,26 @@ agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 
 <en:Dark chocolates
-en:Dark chocolate bar with fruits (orange raspberries pear)
+en:Dark chocolate bar with fruits
 fr:Chocolat noir aux fruits
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+
+<en:Dark chocolate bar with fruits
+en:Dark chocolate bar with orange
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+
+<en:Dark chocolate bar with fruits
+en:Dark chocolate bar with raspberries
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+
+<en:Dark chocolate bar with fruits
+en:Dark chocolate bar with pear
 agribalyse_food_code:en:31069
 ciqual_food_code:en:31069
 ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
