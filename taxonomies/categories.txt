@@ -72744,6 +72744,7 @@ wikidata:en:Q1067085
 
 <en:Potatoes
 en:French potatoes
+fr:Pommes de terre françaises
 
 <en:French potatoes
 fr:Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
@@ -72786,6 +72787,9 @@ ciqual_food_name:fr:Pomme de terre primeur, sans peau, bouillie/cuite à l'eau
 <en:Potatoes
 en:Peeled potatoes
 fr:Pommes de terre sans peau
+agribalyse_proxy_food_code:en:4008
+agribalyse_proxy_food_name:en:Potato, peeled, raw
+agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Peeled potatoes
 en:Baked peeled potatoes
@@ -72819,7 +72823,7 @@ ciqual_food_code:en:4015
 ciqual_food_name:en:Potato, sautéed/pan-fried
 ciqual_food_name:fr:Pomme de terre, sautée/poêlée
 
-<en:Potatoes
+<en:Sautéed Potatoes
 en:Sautéed potato with goose fat, Pan-fried potato with goose fat
 fr:Pommes de terre sautées à la graisse de canard, Pommes de terre poêlées à la graisse de canard
 agribalyse_food_code:en:4036
@@ -72856,22 +72860,18 @@ es:Calabazas
 fi:kurpitsat
 fr:Courges, Potirons, Citrouilles
 nl:Pompoenen
-
-<en:Pumpkins
-fr:Potiron frais
-season_in_country_fr:en: 1,9,10,11,12
-
-<en:Pumpkins
-en:Raw pumpkin
-fr:Potiron cru
 agribalyse_food_code:en:20044
 ciqual_food_code:en:20044
 ciqual_food_name:en:Pumpkin, raw
 ciqual_food_name:fr:Potiron, cru
 
 <en:Pumpkins
-en:Raw pulp of melonnette jaspée from Vendée, Squash of melonnette jaspée from Vendée
-fr:Pulpe de courge melonnette crue
+fr:Potiron frais
+season_in_country_fr:en: 1,9,10,11,12
+
+<en:Pumpkins
+en:Pulp of melonnette jaspée from Vendée, Squash of melonnette jaspée from Vendée
+fr:Pulpe de courge melonnette
 agribalyse_food_code:en:20136
 ciqual_food_code:en:20136
 ciqual_food_name:en:Squash, melonnette jaspée from Vendée, pulp, raw
@@ -72887,8 +72887,8 @@ ciqual_food_name:en:Pumpkin, cooked
 ciqual_food_name:fr:Potiron, cuit
 
 <en:Pumpkins
-en:Canned drained pumpkin
-fr:Potiron appertisé égoutté
+en:Canned pumpkin
+fr:Potiron appertisé
 agribalyse_food_code:en:20043
 ciqual_food_code:en:20043
 ciqual_food_name:en:Pumpkin, canned, drained
@@ -73104,6 +73104,13 @@ es:Lombarda fresca
 fr:Choux rouges frais
 
 <en:Vegetables
+en:Taro tubers
+fr:Tubercules de taro
+agribalyse_proxy_food_code:en:53200
+agribalyse_proxy_food_name:en:Taro, tuber, raw
+agribalyse_proxy_food_name:fr:Taro, tubercule, cru
+
+<en:Taro tubers
 en:Raw taro tubers
 fr:Tubercules de taro crus
 agribalyse_food_code:en:53200
@@ -73112,6 +73119,7 @@ ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
 <en:Cooked vegetables
+<en:Taro tubers
 en:Cooked taro tubes
 fr:Tubercules de taro cuits
 agribalyse_food_code:en:53201
@@ -73144,8 +73152,8 @@ ciqual_food_name:en:Cassava or manioc, roots, raw
 ciqual_food_name:fr:Manioc, racine crue
 
 <en:Vegetables
-en:Raw tapioca
-fr:Tapioca cru, Tapioca, Perles du Japon crues, Perles du Japon
+en:Tapioca
+fr:Tapioca, Tapioca cru, Perles du Japon crues, Perles du Japon
 agribalyse_food_code:en:4000
 ciqual_food_code:en:4000
 ciqual_food_name:en:Tapioca, raw
@@ -73183,6 +73191,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
 # ingredient/fr:rhubarbe has 191 products in 4  languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
 season_in_country_fr:en: 4,5,6
+agribalyse_proxy_food_code:en:13047
+agribalyse_proxy_food_name:en:Rhubarb, stalk, raw
+agribalyse_proxy_food_name:fr:Rhubarbe, tige, crue
 
 <en:Rhubarbs
 <en:Fresh fruits
@@ -73191,6 +73202,13 @@ fr:Rhubarbes fraîches
 nl:Verse rabarber
 
 <en:Vegetable rods
+en:Rhubarb stalk
+fr:Tiges de rhubarbe
+agribalyse_proxy_food_code:en:13047
+agribalyse_proxy_food_name:en:Rhubarb, stalk, raw
+agribalyse_proxy_food_name:fr:Rhubarbe, tige, crue
+
+<en:Rhubarb stalk
 en:Rhubarb stalk cooked with sugar
 fr:Tiges de rhubarbe cuites sucrées
 agribalyse_food_code:en:13048
@@ -73198,7 +73216,7 @@ ciqual_food_code:en:13048
 ciqual_food_name:en:Rhubarb, stalk, cooked, with sugar
 ciqual_food_name:fr:Rhubarbe, tige, cuite, sucrée
 
-<en:Vegetable rods
+<en:Rhubarb stalk
 en:Raw rhubarb stalk
 fr:Tiges de rhubarbe crues
 agribalyse_food_code:en:13047
@@ -73262,6 +73280,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallion
 # category/scallions has 7 products @2019-05-22
 
 <en:Leaf vegetables
+en:New Zealand spinach
+fr:Tétragone cornue
+
+<en:New Zealand spinach
 <en:Cooked vegetables
 en:Cooked New Zealand spinach
 fr:Tétragone cornue cuite
@@ -73281,6 +73303,9 @@ la:Spinacia oleracea
 nl:Spinazie
 pl:Szpinak
 wikidata:en:Q81464
+agribalyse_proxy_food_code:en:20059
+agribalyse_proxy_food_name:en:Spinach, raw
+agribalyse_proxy_food_name:fr:Épinard, cru
 
 <en:Spinachs
 en:Spinach with cream sauce
