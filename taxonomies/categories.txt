@@ -24741,6 +24741,15 @@ nl:Panettones, Panettone, panetonnes, panetonne
 pt:Panettone
 wikidata:en:Q854342
 
+<en:Panettone
+fr:Panettone aux cerises
+
+<en:Panettone
+fr:Panettone au chocolat
+
+<en:Panettone
+fr:Panettone sans gluten
+
 <en:Brioches
 en:Pandoro
 fr:Pandoro
@@ -41887,6 +41896,8 @@ ciqual_food_name:en:Nutritional yeast
 
 <en:Food additives
 fr:Poudres à lever
+agribalyse_proxy_food_code:en:11045
+agribalyse_proxy_food_name:en:Baker's yeast, dehydrated
 
 <en:Food additives
 en:Yeast
@@ -42148,6 +42159,33 @@ pl:Frytki mrożone
 who_id:en:16
 
 <fr:Pommes de terre préfrites surgelées
+en:Frozen roasted French fries, Frozen baked French fries, Frozen roasted French chips
+fr:Frites de pommes de terre surgelées rôties, Frites de pommes de terre surgelées cuites au four
+agribalyse_food_code:en:4030
+ciqual_food_code:en:4030
+ciqual_food_name:en:French fries or chips, frozen, roasted/baked
+ciqual_food_name:fr:Frites de pommes de terre, surgelées, rôties/cuites au four
+
+<fr:Pommes de terre préfrites surgelées
+en:Frozen raw French fries intended to be roasted, Frozen raw French fries intended to be baked, Frozen raw French chips intended to be roasted, Frozen raw French chips intended to be baked
+fr:Frites de pommes de terre surgelées pour cuisson rôtie, Frites de pommes de terre surgelées pour cuisson rôtie cuites au four
+agribalyse_food_code:en:4044
+ciqual_food_code:en:4044
+ciqual_food_name:en:French fries or chips, frozen, raw, intended to be roasted/baked
+ciqual_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson rôtie/ au four
+
+<en:Fries
+en:Microwave fries
+fr:Frites micro-ondables
+
+<fr:Pommes de terre préfrites surgelées
+en:Frozen microwave fries
+fr:Frites surgelées micro-ondables
+agribalyse_proxy_food_code:en:4045
+agribalyse_proxy_food_name:en:French fries or chips, frozen, raw, intended to be microwaved
+agribalyse_proxy_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson micro-ondes
+
+<en:Frozen microwave fries
 en:Frozen raw French fries intended to be microwaved, Frozen raw French chips intended to be microwaved
 fr:Frites de pommes de terre surgelées pour cuisson au micro-ondes
 agribalyse_food_code:en:4045
@@ -42170,22 +42208,6 @@ agribalyse_food_code:en:4046
 ciqual_food_code:en:4046
 ciqual_food_name:en:French fries or chips, frozen, raw, intended to be deep-fried
 ciqual_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson en friteuse
-
-<fr:Pommes de terre préfrites surgelées
-en:Frozen roasted French fries, Frozen baked French fries, Frozen roasted French chips
-fr:Frites de pommes de terre surgelées rôties, Frites de pommes de terre surgelées cuites au four
-agribalyse_food_code:en:4030
-ciqual_food_code:en:4030
-ciqual_food_name:en:French fries or chips, frozen, roasted/baked
-ciqual_food_name:fr:Frites de pommes de terre, surgelées, rôties/cuites au four
-
-<fr:Pommes de terre préfrites surgelées
-en:Frozen raw French fries intended to be roasted, Frozen raw French fries intended to be baked, Frozen raw French chips intended to be roasted, Frozen raw French chips intended to be baked
-fr:Frites de pommes de terre surgelées pour cuisson rôtie, Frites de pommes de terre surgelées pour cuisson rôtie cuites au four
-agribalyse_food_code:en:4044
-ciqual_food_code:en:4044
-ciqual_food_name:en:French fries or chips, frozen, raw, intended to be roasted/baked
-ciqual_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson rôtie/ au four
 
 <fr:Pommes de terre préfrites surgelées
 en:Frozen cooked pre-fried potato cubes
@@ -42221,6 +42243,7 @@ ciqual_food_name:en:Mashed potato balls pre-fried, frozen, raw
 ciqual_food_name:fr:Pomme de terre noisette, surgelée, crue
 
 <fr:Pommes de terre préfrites surgelées
+<fr:Pommes dauphines
 en:Frozen cooked dauphine potato
 fr:Pommes dauphines surgelées, Pomme de terre dauphine cuite surgelée
 agribalyse_food_code:en:4021
@@ -56330,6 +56353,9 @@ fr:Porc de Franche-Comté
 protected_name_file_number:en: PGI-FR-0504
 protected_name_type:en: pgi
 origins:en: en:France
+
+<en:French pork
+fr:Porc de l’Aveyron
 
 <en:Raw meats
 <en:Pork
