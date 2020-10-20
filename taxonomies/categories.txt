@@ -71489,6 +71489,13 @@ ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), cooked
 ciqual_food_name:fr:Chou chinois cuit, Pak-choi, Pé-tsai
 
 <en:Cabbages
+en:Curly kale
+fr:Chou frisé
+agribalyse_proxy_food_code:en:20218
+agribalyse_proxy_food_name:en:Curly kale, raw
+agribalyse_proxy_food_name:fr:Chou frisé, cru
+
+<en:Curly kale
 <en:Cooked vegetables
 en:Cooked curly kale
 fr:Chou frisé cuit
@@ -71497,7 +71504,7 @@ ciqual_food_code:en:20219
 ciqual_food_name:en:Curly kale, cooked
 ciqual_food_name:fr:Chou frisé, cuit
 
-<en:Cabbages
+<en:Curly kale
 en:Raw curly kale
 fr:Chou frisé cru
 agribalyse_food_code:en:20218
@@ -71517,6 +71524,9 @@ es:Cardos
 fr:Cardons, Cardes
 la:Cynara cardunculus
 nl:Kardoen
+agribalyse_proxy_food_code:en:20054
+agribalyse_proxy_food_name:en:Cardoon, raw
+agribalyse_proxy_food_name:fr:Cardon, cru
 
 <en:Cardoons
 en:Raw cardoons
@@ -71547,6 +71557,9 @@ nl:Wortels
 pl:Marchew
 ru:Морковь
 sv:Morötter, morot
+agribalyse_proxy_food_code:en:20009
+agribalyse_proxy_food_name:en:Carrot, raw
+agribalyse_proxy_food_name:fr:Carotte, crue
 
 <en:Carrots
 <en:Cooked vegetables
@@ -71592,6 +71605,9 @@ fr:Choux-fleurs, Chou-fleur
 it:Cavolfiori
 la:Brassica oleracea var. botrytis
 nl:Bloemkolen
+agribalyse_proxy_food_code:en:20016
+agribalyse_proxy_food_name:en:Cauliflower, raw
+agribalyse_proxy_food_name:fr:Chou-fleur, cru
 
 <en:Cauliflowers
 en:Fresh cauliflowers
@@ -71646,14 +71662,22 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Celery
-en:Canned drained celery stalks
-fr:Céleri-branche appertisé égoutté, Céleri branche appertisé égoutté
+en:Celery stalk, Raw celery stalk
+fr:Céleris branche
+agribalyse_food_code:en:20023
+ciqual_food_code:en:20023
+ciqual_food_name:en:Celery stalk, raw
+ciqual_food_name:fr:Céleri branche, cru
+
+<en:Celery
+en:Canned celery stalks
+fr:Céleri-branche en conserve, Céleri-branche appertisé égoutté, Céleri branche appertisé égoutté
 agribalyse_food_code:en:20078
 ciqual_food_code:en:20078
 ciqual_food_name:en:Celery stalk, canned, drained
 ciqual_food_name:fr:Céleri branche, appertisé, égoutté
 
-<en:Celery
+<en:Celery stalk
 <en:Cooked vegetables
 en:Cooked celery stalks
 fr:Céleri-branche cuit
@@ -71663,16 +71687,11 @@ ciqual_food_name:en:Celery stalk, cooked
 ciqual_food_name:fr:Céleri branche, cuit
 
 <en:Celery
-en:Celery stalk, Raw celery stalk
-fr:Céleris branche
-agribalyse_food_code:en:20023
-ciqual_food_code:en:20023
-ciqual_food_name:en:Celery stalk, raw
-ciqual_food_name:fr:Céleri branche, cru
-
-<en:Celery
 en:Celeriac
 fr:Céleri-rave
+agribalyse_proxy_food_code:en:20055
+agribalyse_proxy_food_name:en:Celeriac, raw
+agribalyse_proxy_food_name:fr:Céleri-rave, cru
 
 <en:Celeriac
 en:Raw celeriac
@@ -71765,6 +71784,13 @@ en:Fresh chards
 es:Acelgas frescas
 fr:Blettes fraîches
 season_in_country_fr:en: 6,7,8,9,10,11
+
+<en:Chards
+en:Swiss chard
+fr:Bette, Blette
+agribalyse_proxy_food_code:en:20004
+agribalyse_proxy_food_name:en:Swiss chard, raw
+agribalyse_proxy_food_name:fr:Bette ou blette, crue
 
 <en:Chards
 <en:Cooked vegetables
