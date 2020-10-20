@@ -81,22 +81,38 @@ else {
 	my $stringid = get_string_id_for_lang($search_lc, $string) . get_string_id_for_lang($search_lc, $term);
 	my @tags = sort keys %{$translations_to{$tagtype}} ;
 	foreach my $canon_tagid (@tags) {
-		next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
+		
 		next if defined $just_synonyms{$tagtype}{$canon_tagid};
-		my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-		my $tagid = get_string_id_for_lang($search_lc, $tag);
-		next if $tagid !~ /$stringid/;
-
-		if (not ($search_lc eq $original_lc)) {
-			$tag = $search_lc . ":" . $tag;
+		
+		my $tag;
+		my $tagid;
+		
+		if (defined $translations_to{$tagtype}{$canon_tagid}{$search_lc}) {
+		
+			$tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
+			$tagid = get_string_id_for_lang($search_lc, $tag);
+			
+			if (not ($search_lc eq $original_lc)) {
+				$tag = $search_lc . ":" . $tag;
+			}
 		}
-		if ($tag =~ /^$stringid/i) {
-			push @suggestions, $tag;
+		elsif (defined $translations_to{$tagtype}{$canon_tagid}{xx}) {
+			$tag = $translations_to{$tagtype}{$canon_tagid}{xx};
+			$tagid = get_string_id_for_lang("xx", $tag);
 		}
-		else {
-			push @suggestions_c, $tag;
+		
+		if (defined $tag) {
+		
+			next if $tagid !~ /$stringid/;
+			
+			if ($tag =~ /^$stringid/i) {
+				push @suggestions, $tag;
+			}
+			else {
+				push @suggestions_c, $tag;
+			}
+			last if ++$i >= $limit;
 		}
-		last if ++$i >= $limit;
 	}
 	$cache_max_age = 3600;
 }
