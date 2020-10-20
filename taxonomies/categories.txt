@@ -74048,26 +74048,8 @@ ciqual_food_name:en:Garden peas, cooked
 ciqual_food_name:fr:Petits pois, cuits
 
 <en:Green peas
-<en:Frozen foods
-en:Frozen cooked garden peas
-fr:Petits pois surgelés cuits
-agribalyse_food_code:en:20124
-ciqual_food_code:en:20124
-ciqual_food_name:en:Garden peas, frozen, cooked
-ciqual_food_name:fr:Petits pois, surgelés, cuits
-
-<en:Green peas
-<en:Frozen foods
-en:Frozen raw garden peas
-fr:Petits pois surgelés crus
-agribalyse_food_code:en:20084
-ciqual_food_code:en:20084
-ciqual_food_name:en:Garden peas, frozen, raw
-ciqual_food_name:fr:Petits pois, surgelés, crus
-
-<en:Green peas
-en:Canned drained garden peas
-fr:Petits pois appertisés égouttés
+en:Canned garden peas
+fr:Petits pois appertisés égouttés, Petits pois en conserve
 agribalyse_food_code:en:20036
 ciqual_food_code:en:20036
 ciqual_food_name:en:Garden peas, canned, drained
@@ -76912,6 +76894,13 @@ ciqual_food_name:fr:Fève, fraîche, surgelée
 
 <en:Frozen vegetables
 <en:Frozen legumes
+en:Frozen broad beans without peal
+fr:Fèves pelées surgelées
+agribalyse_proxy_food_code:en:20541
+agribalyse_proxy_food_name:en:Broad bean, peeled, frozen, raw
+agribalyse_proxy_food_name:fr:Fève, pelée, surgelée, crue
+
+<en:Frozen broad beans without peal
 en:Frozen raw peeled broad beans
 fr:Fèves pelées surgelées crues
 agribalyse_food_code:en:20541
@@ -76919,8 +76908,7 @@ ciqual_food_code:en:20541
 ciqual_food_name:en:Broad bean, peeled, frozen, raw
 ciqual_food_name:fr:Fève, pelée, surgelée, crue
 
-<en:Frozen vegetables
-<en:Frozen legumes
+<en:Frozen broad beans without peal
 en:Frozen water boiled broad beans without peal
 fr:Fèves pelées surgelées cuites à l'eau
 agribalyse_food_code:en:20542
@@ -76956,6 +76944,9 @@ fi:pakastetut vihreät pavut
 fr:Haricots verts surgelés
 it:Fagiolini surgelati
 nl:Diepvries sperziebonen
+agribalyse_proxy_food_code:en:20070
+agribalyse_proxy_food_name:en:French bean, frozen, raw
+agribalyse_proxy_food_name:fr:Haricot vert, surgelé, cru
 
 <en:Frozen green beans
 en:Frozen cooked French bean
@@ -77019,9 +77010,28 @@ es:Guisantes verdes congelados, Guisantes congelados
 fr:Petits pois surgelés, Pois frais surgelés
 it:Piselli congelati
 nl:Diepvries doperwten
+agribalyse_proxy_food_code:en:20084
+agribalyse_proxy_food_name:en:Garden peas, frozen, raw
+agribalyse_proxy_food_name:fr:Petits pois, surgelés, crus
 
 <en:Frozen green peas
 fr:Petits pois surgelés précuits
+
+<en:Frozen green peas
+en:Frozen cooked garden peas
+fr:Petits pois surgelés cuits
+agribalyse_food_code:en:20124
+ciqual_food_code:en:20124
+ciqual_food_name:en:Garden peas, frozen, cooked
+ciqual_food_name:fr:Petits pois, surgelés, cuits
+
+<en:Frozen green peas
+en:Frozen raw garden peas
+fr:Petits pois surgelés crus
+agribalyse_food_code:en:20084
+ciqual_food_code:en:20084
+ciqual_food_name:en:Garden peas, frozen, raw
+ciqual_food_name:fr:Petits pois, surgelés, crus
 
 <en:Frozen vegetables
 <en:Sweet peppers
