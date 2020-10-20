@@ -267,25 +267,71 @@ sub initialize_attribute($$) {
 	
 	my $attribute_ref = {id => $attribute_id};
 	
+	# Initialize icon for the attribute
+	
+	if ($attribute_id eq "nutriscore") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-a.svg";
+	}
+	elsif ($attribute_id eq "ecoscore") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/ecoscore-a.svg";
+	}
+	elsif ($attribute_id eq "nova") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-1.svg";
+	}
+	elsif ($attribute_id eq "additives") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/0-additives.svg";
+	}	
+	elsif ($attribute_id =~ /^allergens_no_(.*)$/) {
+		my $allergen = $1;
+		$allergen =~ s/_/-/g;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/no-$allergen.svg";
+	}
+	elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
+		my $nid = $2;
+		$nid =~ s/_/-/g;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-low.svg";
+	}
+	elsif (($attribute_id eq "vegan") or ($attribute_id eq "vegetarian") or ($attribute_id eq "palm_oil_free")) {
+		my $analysis_tag = $attribute_id;
+		$analysis_tag =~ s/_/-/g;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$analysis_tag.svg";
+	}
+	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
+		my $tagtype = $1;
+		my $tagid = "en:" . $2;
+		$tagid =~ s/_/-/g;
+		
+		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
+				
+		if (defined $img_url) {
+			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
+		}		
+	}
+	
+	# Initialize name and setting name if a language is requested
+	
 	if ($target_lc ne "data") {
 		
 		# Allergens
 		
 		if ($attribute_id =~ /^allergens_no_(.*)$/) {
 		
-			my $allergen_id = $1;
+			my $allergen_id = "en:$1";
 			$allergen_id =~ s/_/-/g;
 			
 			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
 			
 			$attribute_ref->{name} = $allergen;
-			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "without_s"), $allergen);
+			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "without_s"),
+				display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 		}
 		
 		# Ingredients analysis
 		
-		if (($attribute_id eq "vegan") or ($attribute_id eq "vegetarian") or ($attribute_id eq "palm-oil-free")) {
-			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$attribute_id");
+		elsif (($attribute_id eq "vegan") or ($attribute_id eq "vegetarian") or ($attribute_id eq "palm_oil_free")) {
+			my $analysis_tag = $attribute_id;
+			$analysis_tag =~ s/_/-/g;
+			my $name = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 			$attribute_ref->{name} = $name;
 			$attribute_ref->{setting_name} = $name;
 			
@@ -293,7 +339,7 @@ sub initialize_attribute($$) {
 		
 		# Nutrient levels
 		
-		if ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
+		elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
 		
 			my $level = $1;
 			my $nid = $2;
@@ -617,7 +663,7 @@ sub compute_attribute_nova($$) {
 		
 		my $nova_group = $product_ref->{nova_group};
 		
-		$log->debug("compute nutriscore attribute - known", { code => $product_ref->{code},
+		$log->debug("compute nova attribute - known", { code => $product_ref->{code},
 			nova_group => $nova_group}) if $log->is_debug();
 		
 		# Compute match based on NOVA group
@@ -639,6 +685,92 @@ sub compute_attribute_nova($$) {
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-$nova_group.svg";
+		
+	}
+	else {
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{match} = 0;
+	}
+	
+	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_additives ( $product_ref, $target_lc )
+
+Computes a processing attribute based on the number of additives.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- 0 additive: 100%
+- 1 to 4 additives: 80% to 20%
+- 5 or more additives: 0%
+
+=cut
+
+sub compute_attribute_additives($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+	$log->debug("compute additives attribute", { code => $product_ref->{code} }) if $log->is_debug();
+
+	my $attribute_id = "additives";
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+		
+	if (defined $product_ref->{additives_n}) {
+		$attribute_ref->{status} = "known";
+		
+		my $additives =  $product_ref->{additives_n};
+		
+		$log->debug("compute additives attribute - known", { code => $product_ref->{code},
+			additives => $additives}) if $log->is_debug();
+		
+		# Compute match based on number of additives
+		
+		my $match = 0;
+		
+		if ($additives <= 4) {
+			$match = 100 - $additives * 20;
+		}
+	
+		$attribute_ref->{match} = $match;
+		
+		if ($target_lc ne "data") {
+			if ($additives == 0) {
+				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "without_s"), lang("additives_p"));
+			}
+			elsif ($additives == 1) {
+				$attribute_ref->{title} = $additives . " " . lang("additives_s");
+			}
+			else {
+				$attribute_ref->{title} = $additives . " " . lang("additives_p");
+			}				
+		}
+		
+		# We have 10 icons
+		my $n = $additives;
+		if ($n > 10) {
+			$n = 10;
+		}
+		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$n-additives.svg";
 		
 	}
 	else {
@@ -1030,12 +1162,13 @@ sub compute_attribute_ingredients_analysis($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $analysis = shift;
+	my $attribute_id = shift;
 	
-	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, analysis => $analysis }) if $log->is_debug();
-
-	my $attribute_id = $analysis;
-	$attribute_id =~ s/-/_/g;
+	my $analysis = $attribute_id;
+	$analysis =~ s/_/-/g;
+	
+	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, attribute_id => $attribute_id, analysis => $analysis }) if $log->is_debug();
+	
 	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
@@ -1237,6 +1370,9 @@ sub compute_attributes($$) {
 	
 	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
 	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);	
+	
+	$attribute_ref = compute_attribute_additives($product_ref, $target_lc);
+	add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
 	
 	# Environment
 	

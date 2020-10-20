@@ -727,7 +727,7 @@ $options{attribute_groups} = [
 	[
 		"ingredients_analysis",
 		[
-			"vegan", "vegetarian", "palm-oil-free",
+			"vegan", "vegetarian", "palm_oil_free",
 		]		
 	],
 	[
