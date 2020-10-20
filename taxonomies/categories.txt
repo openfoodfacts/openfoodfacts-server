@@ -70450,34 +70450,31 @@ fr:Endives en conserve
 
 <en:Canned vegetables
 <en:Artichokes
-en:Canned artichokes
+en:Canned artichokes, Canned drained artichokes
 de:Artischocken in Dosen, Dosen-Artischocken
 es:Alcachofas en conserva
 fi:purkitetut artisokat
-fr:Artichauts en conserve
+fr:Artichauts en conserve, Artichauts appertisés
 it:Carciofi in scatola
 nl:Artisjokken en blik
-
-<en:Canned artichokes
-en:Canned drained artichoke, Canned drained artichokes
-fr:Artichaut appertisé et égoutté, Artichauts appertisés et égouttés
 agribalyse_food_code:en:20067
 ciqual_food_code:en:20067
 ciqual_food_name:en:Artichoke, canned, drained
 ciqual_food_name:fr:Artichaut, appertisé, égoutté
 
+
 <en:Canned artichokes
 <en:Artichoke hearts
-en:Canned drained artichoke hearts
-fr:Coeurs d'artichaut appertisés et égouttés
+en:Canned artichoke hearts
+fr:Coeurs d'artichaut en conserve, Coeurs d'artichaut appertisés
 agribalyse_food_code:en:20155
 ciqual_food_code:en:20155
 ciqual_food_name:en:Artichoke, heart, canned, drained
 ciqual_food_name:fr:Artichaut, coeur, appertisé, égoutté
 
 <en:Canned artichokes
-en:Canned drained artichoke base
-fr:Fonds d'artichaut appertisés égouttés
+en:Canned artichoke base
+fr:Fonds d'artichaut en conserve, Fonds d'artichaut appertisés
 agribalyse_food_code:en:20156
 ciqual_food_code:en:20156
 ciqual_food_name:en:Artichoke base, canned, drained
@@ -70489,9 +70486,13 @@ en:Canned asparagus
 de:Spargel in Dosen
 es:Espárragos en conserva
 fi:purkitettu parsa
-fr:Asperges en conserve
+fr:Asperges en conserve, Asperges appertisées
 it:Asparagi in scatola
 nl:Asperges in blik
+agribalyse_food_code:en:20076
+ciqual_food_code:en:20076
+ciqual_food_name:en:Asparagus, canned, drained
+ciqual_food_name:fr:Asperge, appertisée, égouttée
 
 <en:Canned asparagus
 en:Canned green asparagus
@@ -70507,14 +70508,6 @@ fi:purkitettu valkoinen parsa
 fr:Asperges blanches en conserve
 it:Asparagi bianchi in scatola
 nl:Witte asperges in blik
-
-<en:Canned asparagus
-en:Canned drained asparagus
-fr:Asperges appertisées égouttées
-agribalyse_food_code:en:20076
-ciqual_food_code:en:20076
-ciqual_food_name:en:Asparagus, canned, drained
-ciqual_food_name:fr:Asperge, appertisée, égouttée
 
 <en:Canned vegetables
 <en:Beet
@@ -71017,7 +71010,7 @@ ciqual_food_name:en:Artichoke, globe, raw
 <en:Artichokes
 <en:Frozen foods
 en:Frozen raw artichoke bottom
-fr:Fond d'artichaut cru surgelé
+fr:Fonds d'artichaut cru surgelé
 agribalyse_food_code:en:20232
 ciqual_food_code:en:20232
 ciqual_food_name:en:Artichoke base, frozen, raw
@@ -71057,7 +71050,21 @@ fr:Asperges blanches
 it:Asparagi bianchi
 nl:Witte asperges
 
+<en:Asparagus
+en:Peeled raw asparagus
+fr:Asperges pelées crues
+agribalyse_food_code:en:20073
+ciqual_food_code:en:20073
+ciqual_food_name:en:Asparagus, peeled, raw
+ciqual_food_name:fr:Asperge, pelée, crue
+
+
+<en:Asparagus
+fr:Asperges pelées à la main
+nl:Handgeschilde asperges
+
 <en:White asparagus
+<en:Peeled raw asparagus
 en:Raw peeled white asparagus, Raw peeled purple asparagus
 fr:Asperges blanches pelées crues, Asperges violettes pelées crues
 agribalyse_food_code:en:20282
@@ -71079,18 +71086,6 @@ agribalyse_food_code:en:20279
 ciqual_food_code:en:20279
 ciqual_food_name:en:Asparagus, green, raw
 ciqual_food_name:fr:Asperge, verte, crue
-
-<en:Asparagus
-fr:Asperges pelées à la main
-nl:Handgeschilde asperges
-
-<en:Asparagus
-en:Peeled raw asparagus
-fr:Asperges pelées crues
-agribalyse_food_code:en:20073
-ciqual_food_code:en:20073
-ciqual_food_name:en:Asparagus, peeled, raw
-ciqual_food_name:fr:Asperge, pelée, crue
 
 <en:Asparagus
 en:Wild asparagus
@@ -71164,8 +71159,7 @@ ciqual_food_name:en:Eggplant, cooked
 
 <en:Aubergines
 en:Riste with eggplant and tomatoes and onions
-fr:Ristes d’aubergines
-fr:Riste d'aubergines avec aubergines et tomates et oignons
+fr:Ristes d’aubergines, Mélange d'aubergines et tomates et oignons
 wikidata:en:Q53560342
 agribalyse_food_code:en:25196
 ciqual_food_code:en:25196
@@ -71181,6 +71175,9 @@ fr:Betteraves
 it:Barbabietola
 la:Beta vulgaris
 nl:Rode bieten
+agribalyse_proxy_food_code:en:20091
+agribalyse_proxy_food_name:en:Beetroot, raw
+agribalyse_proxy_food_name:fr:Betterave rouge, crue
 
 <en:Beet
 <en:Fresh vegetables
@@ -71216,24 +71213,24 @@ la:Cichorium intybus var. foliosum
 nl:Witlof
 
 <en:Leaf vegetables
-en:Raw curly endives
-fr:Chicorée frisée crue
+en:Curly endives
+fr:Chicorée frisée
 agribalyse_food_code:en:20012
 ciqual_food_code:en:20012
 ciqual_food_name:en:Curly endive, raw
 ciqual_food_name:fr:Salade ou chicorée frisée, crue
 
 <en:Leaf vegetables
-en:Raw red endives
-fr:Chicorée rouge crue
+en:Red endives
+fr:Chicorée rouge
 agribalyse_food_code:en:20162
 ciqual_food_code:en:20162
 ciqual_food_name:en:Red endive, raw
 ciqual_food_name:fr:Chicorée rouge, crue
 
 <en:Leaf vegetables
-en:Raw green endive
-fr:Chicorée verte crue
+en:Green endive
+fr:Chicorée verte
 agribalyse_food_code:en:20163
 ciqual_food_code:en:20163
 ciqual_food_name:en:Green endive, raw
@@ -71344,6 +71341,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
 # carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
+agribalyse_proxy_food_code:en:20057
+agribalyse_proxy_food_name:en:Broccoli, raw
+agribalyse_proxy_food_name:fr:Brocoli, cru
 
 <en:Broccoli
 <en:Fresh vegetables
@@ -71404,6 +71404,13 @@ la:Brassica oleracea var. capitata
 nl:Kolen
 
 <en:Cabbages
+en:White cabbage
+fr:Chou blanc
+agribalyse_proxy_food_code:en:20116
+agribalyse_proxy_food_name:en:White cabbage, raw
+agribalyse_proxy_food_name:fr:Chou blanc, cru
+
+<en:White cabbage
 en:Raw white cabbage
 fr:Chou blanc cru
 agribalyse_food_code:en:20116
@@ -71414,6 +71421,9 @@ ciqual_food_name:fr:Chou blanc, cru
 <en:Cabbages
 en:Green cabbage
 fr:Chou vert
+agribalyse_proxy_food_code:en:20069
+agribalyse_proxy_food_name:en:Green cabbage, raw
+agribalyse_proxy_food_name:fr:Chou vert, cru
 
 <en:Green cabbage
 en:Boiled green cabbage boiled, Green cabbage cooked in water
@@ -71434,6 +71444,9 @@ ciqual_food_name:fr:Chou vert, cru
 <en:Cabbages
 en:Red cabbage
 fr:Chou rouge
+agribalyse_proxy_food_code:en:20014
+agribalyse_proxy_food_name:en:Red cabbage, raw
+agribalyse_proxy_food_name:fr:Chou rouge, cru
 
 <en:Red cabbage
 en:Boiled red cabbage, Red cabbage cooked in water
@@ -71450,6 +71463,12 @@ agribalyse_food_code:en:20014
 ciqual_food_code:en:20014
 ciqual_food_name:en:Red cabbage, raw
 ciqual_food_name:fr:Chou rouge, cru
+
+# TODO difference between the Chou-raves
+
+<en:Cabbages
+en:Kohlrabi
+fr:Chou-rave
 
 <en:Cabbages
 en:Boiled kohlrabi, Kohlrabi cooked in water
@@ -71470,6 +71489,9 @@ ciqual_food_name:fr:Chou-rave, cru
 <en:Cabbages
 en:Chinese cabbage, nappa cabbage, Bok choy
 fr:Chou chinois, pak-choi, pé-tsai
+agribalyse_proxy_food_code:en:20167
+agribalyse_proxy_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+agribalyse_proxy_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 
 <en:Chinese cabbage
 en:Raw Chinese cabbage, Raw nappa cabbage, Raw bok choy
