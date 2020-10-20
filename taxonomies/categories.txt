@@ -35188,7 +35188,7 @@ fr:Yaourts au bifidus nature
 
 <en:Bifidus yogurts
 <en:Fruit yogurts
-en:Fruit bifidus yogurts, Yogurt type fermented milk with fruits with sugar with bifidus, Yogurt type dairy specialty with fruits with sugar with bifidus
+en:Fruit bifidus yogurts, Yogurt-type fermented milk with fruits with sugar with bifidus, Yogurt-type dairy specialty with fruits with sugar with bifidus
 fr:Yaourts au bifidus aux fruits, Lait fermenté de type yaourt aux fruits sucré au bifidus, Spécialité laitière de type yaourt aromatisé aux fruits au bifidus
 agribalyse_food_code:en:19542
 ciqual_food_code:en:19542
@@ -35197,7 +35197,7 @@ ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aux fr
 
 <en:Bifidus yogurts
 <en:Flavoured yogurts
-en:Flavoured bifidus yogurts, Yogurt type fermented flavoured milk with sugar with bifidus, Yogurt type flavoured dairy specialty with sugar with bifidus
+en:Flavoured bifidus yogurts, Yogurt-type fermented flavoured milk with sugar with bifidus, Yogurt-type flavoured dairy specialty with sugar with bifidus
 fr:Yaourts au bifidus aromatisés, Lait fermenté de type yaourt aromatisé sucré au bifidus, spécialité laitière de type yaourt aromatisé sucré au bifidus
 it:Yogurt aromatizzato al bifidus
 agribalyse_food_code:en:19539
@@ -35206,7 +35206,7 @@ ciqual_food_name:en:Fermented milk or dairy specialty, yogurt type, flavoured, w
 ciqual_food_name:fr:Lait fermenté ou spécialité laitière type yaourt, aromatisé, sucré, au bifidus
 
 <en:Plain bifidus yogurts
-en:Sweetened plain bifidus yogurts, Yogurt type plain fermented milk with sugar with bifidus, Yogurt type plain dairy specialty with sugar with bifidus
+en:Sweetened plain bifidus yogurts, Yogurt-type plain fermented milk with sugar with bifidus, Yogurt-type plain dairy specialty with sugar with bifidus
 fr:Yaourts au bifidus sucrés natures, Lait fermenté de type yaourt nature sucré au bifidus, spécialité laitière de type yaourt nature sucré au bifidus
 agribalyse_food_code:en:19546
 ciqual_food_code:en:19546
@@ -35781,7 +35781,7 @@ ciqual_food_name:fr:Coupe glacée type café ou chocolat liégeois
 
 <en:Desserts
 en:Goblet of chocolate ice cream topped with whipped cream
-fr:Coupe glace au chocolat, Chocolat liégeois
+fr:Coupe glacée au chocolat, Chocolat liégeois
 agribalyse_food_code:en:39532
 ciqual_food_code:en:39532
 ciqual_food_name:en:Goblet of ice cream, coffee or chocolate ice cream topped with whipped cream
@@ -36232,6 +36232,14 @@ ciqual_food_name:en:Custard dessert, refrigerated (average)
 ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
 
 <en:Dessert creams
+en:Coffee custard dessert
+fr:Crèmes dessert café
+
+<en:Dessert creams
+en:Pistachio custard dessert
+fr:Crèmes dessert pistache
+
+<en:Dessert creams
 en:Canned custard desserts
 fr:Crèmes dessert appertisées, Crèmes dessert en conserve
 ciqual_food_code:en:39505
@@ -36270,7 +36278,7 @@ ciqual_food_name:fr:Crème dessert au chocolat, rayon frais
 <en:Chocolate desserts
 <en:Canned custard desserts
 en:Canned chocolate custard dessert
-fr:Crème dessert au chocolat appertisée
+fr:Crème dessert au chocolat en conserve, Crème dessert au chocolat appertisée
 agribalyse_food_code:en:39506
 ciqual_food_code:en:39506
 ciqual_food_name:en:Custard dessert, chocolate, canned
@@ -36278,7 +36286,7 @@ ciqual_food_name:fr:Crème dessert au chocolat, appertisée
 
 <en:Canned custard desserts
 en:Canned vanilla custard dessert
-fr:Crème dessert à la vanille appertisée
+fr:Crème dessert à la vanille en conserve, Crème dessert à la vanille appertisée
 agribalyse_food_code:en:39214
 ciqual_food_code:en:39214
 ciqual_food_name:en:Custard dessert, vanilla, canned
@@ -36301,6 +36309,7 @@ ciqual_food_name:en:Custard dessert, vanilla, refrigerated
 ciqual_food_name:fr:Crème dessert à la vanille, rayon frais
 
 <en:Refrigerated dessert creams
+<en:Coffee custard dessert
 en:Refrigerated coffee custard dessert
 fr:Crème dessert au café rayon frais
 agribalyse_food_code:en:39246
@@ -36308,7 +36317,13 @@ ciqual_food_code:en:39246
 ciqual_food_name:en:Custard dessert, coffee, refrigerated
 ciqual_food_name:fr:Crème dessert au café, rayon frais
 
+<en:Dessert creams
+en:Caramel custard dessert
+fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
+nl:Caramel vla's
+
 <en:Refrigerated dessert creams
+<en:Caramel custard dessert
 en:Refrigerated caramel custard dessert
 fr:Crème dessert au caramel rayon frais
 agribalyse_food_code:en:39247
@@ -36329,16 +36344,6 @@ nl:vanilla vla's
 agribalyse_food_code:en:39211
 ciqual_food_code:en:39211
 ciqual_food_name:en:Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
-
-<en:Dessert creams
-fr:Crèmes dessert caramel, Crème dessert caramel, Crèmes dessert au caramel, Crème dessert au caramel
-nl:Caramel vla's
-
-<en:Dessert creams
-fr:Crèmes dessert café
-
-<en:Dessert creams
-fr:Crèmes dessert pistache
 
 <en:Desserts
 en:Non-dairy desserts, vegetal desserts, vegan desserts
@@ -36374,8 +36379,8 @@ agribalyse_food_code:en:39213
 
 <en:Pastries
 <en:Desserts
-en:Refrigerated caramelized custard cream, Refrigerated crème brûlée
-fr:Crème brûlée rayon frais
+en:Refrigerated caramelized custard cream, Refrigerated crèmes brûlées
+fr:Crèmes brûlées rayon frais
 agribalyse_food_code:en:39213
 ciqual_food_code:en:39213
 ciqual_food_name:en:Caramelized custard cream (crème brûlée), refrigerated
@@ -36475,8 +36480,12 @@ ciqual_food_name:en:Semolina pudding, refrigerated
 ciqual_food_name:fr:Semoule au lait, rayon frais
 
 <fr:Gâteaux de semoule
-en:Refrigerated semolina pudding with raisins and caramel sauce
-fr:Gâteau de semoule aux raisins et au caramel rayon frais
+en:Semolina puddings with raisins and caramel sauce
+fr:Gâteaux de semoule aux raisins et au caramel
+
+<fr:Gâteaux de semoule
+en:Refrigerated semolina puddings with raisins and caramel sauce
+fr:Gâteaux de semoule aux raisins et au caramel rayon frais
 agribalyse_food_code:en:23534
 ciqual_food_code:en:23534
 ciqual_food_name:en:Semolina pudding, with raisins and caramel sauce, refrigerated
@@ -36514,12 +36523,15 @@ ciqual_food_name:en:Tiramisu, refrigerated
 ciqual_food_name:fr:Tiramisu, rayon frais
 
 <en:Tiramisu
+en:Fruit tiramisu
 fr:Tiramisu aux fruits
 
 <en:Tiramisu
+en:Chocolate tiramisu
 fr:Tiramisu au chocolat
 
 <en:Tiramisu
+en:Coffee tiramisu
 fr:Tiramisu au café
 
 <en:Pastries
