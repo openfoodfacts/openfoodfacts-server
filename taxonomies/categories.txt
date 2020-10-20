@@ -76458,8 +76458,16 @@ ciqual_food_name:en:Mixed diced vegetables, frozen
 ciqual_food_name:fr:Macédoine de légumes, surgelée
 
 <en:Frozen vegetable mixes
-en:Frozen raw thinly-shredded vegetables, Frozen raw diced vegetables
-fr:Julienne de légumes surgelée, Brunoise de légumes surgelée
+en:Frozen raw thinly-shredded vegetables
+fr:Julienne de légumes surgelée 
+agribalyse_food_code:en:20265
+ciqual_food_code:en:20265
+ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
+ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
+
+<en:Frozen vegetable mixes
+en:Frozen raw diced vegetables
+fr:Brunoise de légumes surgelée
 agribalyse_food_code:en:20265
 ciqual_food_code:en:20265
 ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
@@ -76572,6 +76580,9 @@ de:Tiefkühl-Lauch, Gefrohrene Lauche
 es:Puerro congelado
 fr:Poireaux surgelés
 nl:Diepvries prei
+agribalyse_proxy_food_code:en:20236
+agribalyse_proxy_food_name:en:Leek, frozen, raw
+agribalyse_proxy_food_name:fr:Poireau, surgelé, cru
 
 <en:Frozen vegetables
 <en:Leeks
@@ -76667,9 +76678,11 @@ fr:Brocolis en fleurettes surgelés, Brocolis surgelés
 it:Cime di broccoli surgelate
 nl:Diepvries broccoli
 pl:Brokuł (różyczki) głęboko mrożony
+agribalyse_proxy_food_code:en:20204
+agribalyse_proxy_food_name:en:Broccoli, frozen, raw
+agribalyse_proxy_food_name:fr:Brocoli, surgelé, cru
 
-<en:Broccoli
-<en:Frozen vegetables
+<en:Frozen broccoli florets
 en:Frozen raw broccoli
 fr:Brocoli surgelé cru
 agribalyse_food_code:en:20204
@@ -76677,8 +76690,7 @@ ciqual_food_code:en:20204
 ciqual_food_name:en:Broccoli, frozen, raw
 ciqual_food_name:fr:Brocoli, surgelé, cru
 
-<en:Broccoli
-<en:Frozen vegetables
+<en:Frozen broccoli florets
 en:Frozen cooked broccoli
 fr:Brocoli surgelé cuit
 agribalyse_food_code:en:20205
@@ -76693,6 +76705,9 @@ de:Tiefkühl-Rosenkohl
 es:Coles de Bruselas congeladas
 fr:Choux de Bruxelles surgelés
 nl:Diepvriesspruitjes
+agribalyse_proxy_food_code:en:20206
+agribalyse_proxy_food_name:en:Brussels sprout, frozen, raw
+agribalyse_proxy_food_name:fr:Chou de Bruxelles, surgelé, cru
 
 <en:Frozen vegetables
 <en:Brussels sprouts
@@ -76731,6 +76746,9 @@ fr:Carottes surgelées
 it:Carote surgelate
 nl:Diepvrieswortels
 pl:Marchew mrożona
+agribalyse_proxy_food_code:en:20208
+agribalyse_proxy_food_name:en:Carrot, frozen, raw
+agribalyse_proxy_food_name:fr:Carotte, surgelée, crue
 
 <en:Frozen carrots
 en:Frozen baby carrots
@@ -76772,9 +76790,11 @@ fi:pakastetut kukkakaalinuput
 fr:Choux-fleurs en fleurettes surgelés
 it:Cime di cavolfiore surgelate
 nl:Diepvries bloemkool
+agribalyse_proxy_food_code:en:20082
+agribalyse_proxy_food_name:en:Cauliflower, frozen, raw
+agribalyse_proxy_food_name:fr:Chou-fleur, surgelé, cru
 
-<en:Cauliflowers
-<en:Frozen vegetables
+<en:Frozen cauliflower florets
 en:Frozen cooked cauliflowers
 fr:Choux-fleurs surgelés cuits, Chou-fleur surgelé cuit
 agribalyse_food_code:en:20122
@@ -76782,8 +76802,7 @@ ciqual_food_code:en:20122
 ciqual_food_name:en:Cauliflower, frozen, cooked
 ciqual_food_name:fr:Chou-fleur, surgelé, cuit
 
-<en:Cauliflowers
-<en:Frozen vegetables
+<en:Frozen cauliflower florets
 en:Raw frozen cauliflowers
 fr:Choux-fleurs surgelés crus, Chou-fleur surgelé cru
 agribalyse_food_code:en:20082
@@ -76829,6 +76848,9 @@ en:Frozen turnips, Frozen turnip
 de:Tiefkühl-Rüben
 fr:Navets surgelés, navet surgelé
 nl:Diepvries knolrapen
+agribalyse_proxy_food_code:en:20234
+agribalyse_proxy_food_name:en:Turnip, frozen, raw
+agribalyse_proxy_food_name:fr:Navet, surgelé, cru
 
 <en:Frozen vegetables
 <en:Turnip
@@ -76840,6 +76862,29 @@ ciqual_food_name:en:Turnip, frozen, raw
 ciqual_food_name:fr:Navet, surgelé, cru
 
 <en:Frozen vegetables
+<en:Onions
+en:Frozen onions
+fr:Oignons surgelés
+agribalyse_proxy_food_code:en:20235
+agribalyse_proxy_food_name:en:Onion, frozen, raw
+agribalyse_proxy_food_name:fr:Oignon, surgelé, cru
+
+<en:Frozen onions
+en:Frozen chopped onions
+de:Tiefgefrorene gehackte Zwiebeln
+es:Cebollas troceadas congeladas, Cebollas congeladas troceadas
+fr:Oignons hachés surgelés, Oignons émincés surgelés
+nl:Diepvries gehakte uien
+
+<en:Frozen onions
+en:Frozen raw onions
+fr:Oignons surgelés crus
+agribalyse_food_code:en:20235
+ciqual_food_code:en:20235
+ciqual_food_name:en:Onion, frozen, raw
+ciqual_food_name:fr:Oignon, surgelé, cru
+
+<en:Frozen vegetables
 <en:Garlic
 en:Frozen chopped garlic
 de:Tiefgefrorener gehackter Knoblauch
@@ -76848,12 +76893,11 @@ fr:Ail haché surgelé
 nl:Diepvries gehakte knoflook
 
 <en:Frozen vegetables
-<en:Onions
-en:Frozen chopped onions
-de:Tiefgefrorene gehackte Zwiebeln
-es:Cebollas troceadas congeladas, Cebollas congeladas troceadas
-fr:Oignons hachés surgelés
-nl:Diepvries gehakte uien
+en:Frozen green garlic
+es:Ajos tiernos congelados, Brotes de ajo congelados
+fr:Aillets surgelés
+he:שום ירוק קפוא
+nl:Diepvries groene knoflook
 
 <en:Frozen vegetables
 <en:Frozen legumes
@@ -76965,13 +77009,6 @@ es:Judías verdes redondas enteras congeladas
 <en:Frozen flat green beans
 en:Frozen whole flat green beans
 es:Judías verdes planas enteras congeladas
-
-<en:Frozen vegetables
-en:Frozen green garlic
-es:Ajos tiernos congelados, Brotes de ajo congelados
-fr:Aillets surgelés
-he:שום ירוק קפוא
-nl:Diepvries groene knoflook
 
 <en:Frozen vegetables
 <en:Frozen legumes
@@ -80085,15 +80122,6 @@ agribalyse_food_code:en:20203
 ciqual_food_code:en:20203
 ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
 ciqual_food_name:fr:Haricot beurre, surgelé, cru
-
-<en:Frozen vegetables
-<en:Onions
-en:Frozen raw onions
-fr:Oignons surgelés crus
-agribalyse_food_code:en:20235
-ciqual_food_code:en:20235
-ciqual_food_name:en:Onion, frozen, raw
-ciqual_food_name:fr:Oignon, surgelé, cru
 
 <en:Sandwiches
 en:Surprise breads
