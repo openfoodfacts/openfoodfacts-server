@@ -54289,6 +54289,9 @@ ciqual_food_name:en:Poultry quenelle, raw
 en:Plain quenelles
 fr:Quenelles nature
 nl:Natuurquenelles
+agribalyse_proxy_food_code:en:8937
+agribalyse_proxy_food_name:en:Quenelle, plain, raw
+agribalyse_proxy_food_name:fr:Quenelle nature, crue
 
 <fr:Quenelles
 en:Raw plain quenelle
@@ -54399,61 +54402,42 @@ it:Insalata di tonno
 nl:Tonijnsalades
 pl:Sałatka z tuńczykiem, Sałatka z tuńczyka
 
+<en:Prepared salads
+<en:Canned foods
+en:Canned prepared salads
+fr:Salades préparées en conserve
+
+<en:Canned prepared salads
 en:Prepared and canned salad with meat
-fr:salade composée avec viande apertisée égouttée
+fr:Salades composées en conserve à la viande
 ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
 
+<en:Canned prepared salads
 en:Prepared and canned salad with fish
-fr:salade composée avec poisson appertisée égouttée
+fr:Salades composées en conserve au poisson
 agribalyse_food_code:en:25602
 ciqual_food_code:en:25602
 ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
 
-<en:Potato salads
-en:Piemontese salads
-fr:Salades piémontaises
-nl:Salade uit Piëmont
-wikidata:en:Q30738187
-
-<en:Potato salads
-en:Prepared potatoes salad home-made
-fr:Salade de pommes de terre maison
-agribalyse_food_code:en:25606
-ciqual_food_code:en:25606
-ciqual_food_name:en:Prepared potatoes salad, home-made
-
-<en:Piemontese salads
-en:Potato salad piémontaise-style
-fr:Salade de pomme de terre à la piémontaise
-agribalyse_food_code:en:25609
-ciqual_food_code:en:25609
-ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
-ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
-
-<en:Piemontese salads
-<en:Pork meals
-en:Piemontese salads with ham
-fr:Salades piémontaises au jambon, piémontaises au jambon
-nl:Salades uit Piëmont met ham
-
-<en:Piemontese salads
-<en:Meals with chicken
-en:Piemontese salads with chicken
-fr:Salades piémontaises au poulet, piémontaises au poulet
-
 <en:Prepared salads
 fr:Salades nicoises
 wikidata:en:Q209486
 
-<en:Prepared salads
-en:Canned prepared drained mixed tuna and vegetable salad
-fr:Salade de thon et légumes appertisée égouttée
+<fr:Salades au thon
+en:Tuna and vegetable salads
+fr:Salades de thon et légumes
+
+<en:Mixed tuna and vegetable salad
+en:Canned prepared mixed tuna and vegetable salad
+fr:Salade de thon et légumes en conserve, Salade de thon et légumes appertisée
 agribalyse_food_code:en:25601
 ciqual_food_code:en:25601
 ciqual_food_name:en:Prepared mixed tuna and vegetable salad, canned, drained
 ciqual_food_name:fr:Salade de thon et légumes, appertisée, égouttée
+
+#TODO
 
 <en:Prepared salads
 fr:Salades catalanes
@@ -54536,6 +54520,44 @@ it:Insalata di patate
 nl:Aardappelsalade
 sv:Potatissallad, Potatissallader
 wikidata:en:Q152964
+agribalyse_proxy_food_code:en:25609
+agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
+agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
+
+<en:Potato salads
+en:Piemontese salads
+fr:Salades piémontaises
+nl:Salade uit Piëmont
+wikidata:en:Q30738187
+agribalyse_proxy_food_code:en:25609
+agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
+agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
+
+<en:Potato salads
+en:Prepared potatoes salad home-made
+fr:Salade de pommes de terre maison
+agribalyse_food_code:en:25606
+ciqual_food_code:en:25606
+ciqual_food_name:en:Prepared potatoes salad, home-made
+
+<en:Piemontese salads
+en:Potato salad piémontaise-style
+fr:Salade de pomme de terre à la piémontaise
+agribalyse_food_code:en:25609
+ciqual_food_code:en:25609
+ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
+ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
+
+<en:Piemontese salads
+<en:Pork meals
+en:Piemontese salads with ham
+fr:Salades piémontaises au jambon, piémontaises au jambon
+nl:Salades uit Piëmont met ham
+
+<en:Piemontese salads
+<en:Meals with chicken
+en:Piemontese salads with chicken
+fr:Salades piémontaises au poulet, piémontaises au poulet
 
 <en:Prepared salads
 en:Rice salads, Prepared rice salads
