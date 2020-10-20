@@ -25416,7 +25416,7 @@ wikidata:en:Q742385
 agribalyse_proxy_food_code:en:31010
 
 <en:White chocolates
-en:White chocolate bar
+en:White chocolate bars
 fr:Chocolat blanc en tablette, Tablette de chocolat blanc
 agribalyse_food_code:en:31010
 ciqual_food_code:en:31010
@@ -25458,6 +25458,30 @@ fr:Chocolats blancs aux amandes
 en:Filled white chocolates
 fr:Chocolats blancs fourrés
 nl:Gevulde witte chocola
+
+<en:White chocolate bars
+en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux fruits secs
+agribalyse_food_code:en:31026
+ciqual_food_code:en:31026
+ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
+ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
+
+<en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux noisettes
+en:White chocolate bar with nuts
+
+<en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux amandes
+en:White chocolate bar with almonds
+
+<en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux raisins
+en:White chocolate bar with raisins
+
+<en:White chocolate bar with dried fruits
+fr:Chocolat blanc en tablette aux praliné
+en:White chocolate bar with praline
 
 <en:Easter food
 <en:Chocolate molds
@@ -73473,6 +73497,13 @@ wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 
 <en:Turnip
+en:Rutabaga, Swede
+fr:Rutabaga
+agribalyse_proxy_food_code:en:20201
+agribalyse_proxy_food_name:en:Rutabaga or Swede, raw
+agribalyse_proxy_food_name:fr:Rutabaga, cru
+
+<en:Rutabaga
 en:Raw rutabaga, Raw swede
 fr:Rutabaga cru
 agribalyse_food_code:en:20201
@@ -73480,7 +73511,7 @@ ciqual_food_code:en:20201
 ciqual_food_name:en:Rutabaga or Swede, raw
 ciqual_food_name:fr:Rutabaga, cru
 
-<en:Turnip
+<en:Rutabaga
 <en:Cooked vegetables
 en:Cooked rutabaga, Cooked swede
 fr:Rutabaga cuit
@@ -73590,6 +73621,14 @@ agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
 agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
+en:Canned drained peeled tomatoes
+fr:Tomates pelées appertisées égouttées
+agribalyse_food_code:en:20048
+ciqual_food_code:en:20048
+ciqual_food_name:en:Tomato, peeled, canned, drained
+ciqual_food_name:fr:Tomate, pelée, appertisée, égouttée
+
+<en:Peeled tomatoes
 fr:Chair de tomates
 
 <en:Peeled tomatoes
@@ -73597,14 +73636,6 @@ fr:Tomates entières pelées au jus
 agribalyse_proxy_food_code:en:20048
 agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
 agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
-
-<en:Peeled tomatoes
-en:Canned drained peeled tomatoes
-fr:Tomates pelées appertisées égouttées
-agribalyse_food_code:en:20048
-ciqual_food_code:en:20048
-ciqual_food_name:en:Tomato, peeled, canned, drained
-ciqual_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Vegetables
 en:Zucchini, Courgettes
@@ -74012,8 +74043,8 @@ who_id:en:15
 
 <en:Legumes
 <en:Fresh plant-based foods
-en:Raw mix of cereals and legumes
-fr:Mélange de céréales et légumineuses crues
+en:Mix of cereals and legumes
+fr:Mélange de céréales et légumineuses
 agribalyse_food_code:en:9612
 ciqual_food_code:en:9612
 ciqual_food_name:en:Mix of cereals and legumes, raw
@@ -80220,7 +80251,6 @@ agribalyse_proxy_food_code:en:20203
 agribalyse_proxy_food_name:en:Butter bean or yellow bean, frozen, raw
 agribalyse_proxy_food_name:fr:Haricot beurre, surgelé, cru
 
-
 <en:Frozen butter beans
 en:Frozen raw butter beans, Frozen raw yellow beans
 fr:Haricots beurre surgelés crus
@@ -80305,14 +80335,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
-
-<en:White chocolates
-en:White chocolate bar with dried fruits
-fr:Chocolat blanc en tablette aux fruits secs
-agribalyse_food_code:en:31026
-ciqual_food_code:en:31026
-ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
-ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
 
 <en:Stuffed wafers
 en:Stuffed fruits wafers
