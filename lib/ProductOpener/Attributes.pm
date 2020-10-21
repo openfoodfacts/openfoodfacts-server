@@ -964,7 +964,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			
 			my $match;
 		
-			if ($value <= $low) {
+			if ($value < $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-low.svg";
 			}
@@ -973,7 +973,7 @@ sub compute_attribute_nutrient_level($$$$) {
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-medium.svg";
 			}
 			elsif ($value < $high * 2) {
-				$match = 20 * ($value - $high) / $high;
+				$match = 20 * ($high * 2 - $value) / $high;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-high.svg";
 			}
 			else {
@@ -982,6 +982,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			}
 			
 			$attribute_ref->{match} = $match;
+			$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
 		}
 	}
 	
@@ -1100,6 +1101,7 @@ sub compute_attribute_allergen($$$) {
 	# No match: mark the attribute unknown
 	if (not defined $attribute_ref->{match}) {
 		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "not_known_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$allergen-content-unknown.svg";
 	}
 	elsif ($attribute_ref->{match} == 100) {
@@ -1193,7 +1195,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$analysis_tag = "may-contain-$ingredient";
 			$status = "known";
 		}
-		elsif (has_tag($product_ref, "ingredients_analysis", "en:contains-$ingredient")) {
+		elsif (has_tag($product_ref, "ingredients_analysis", "en:$ingredient")) {
 			$match = 0;
 			$analysis_tag = "contains-$ingredient";
 			$status = "known";
@@ -1230,10 +1232,14 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}		
 	}
 	
-	$attribute_ref->{match} = $match;
+	if (defined $match) {
+		$attribute_ref->{match} = $match;
+	}
 	$attribute_ref->{status} = $status;	
-	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 	$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$analysis_tag.svg";
+	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
+	$analysis_tag =~ s/contains-(.*)$/$1/;
+	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 
 	return $attribute_ref;
 }
