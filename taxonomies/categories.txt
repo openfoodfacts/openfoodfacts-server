@@ -24808,6 +24808,10 @@ it:Gelatina dolce
 wikidata:en:Q4545971
 
 <en:Jelly desserts
+en:Flavoured milk jelly
+fr:Lait gélifié aromatisé
+
+<en:Flavoured milk jelly
 en:Refrigerated flavoured milk jelly covered with caramel
 fr:Lait gélifié aromatisé nappé caramel rayon frais
 agribalyse_food_code:en:19679
@@ -24817,7 +24821,7 @@ ciqual_food_name:fr:Lait gélifié aromatisé, nappé caramel, rayon frais
 #eg: Danette
 
 #eg: Danette nature, light
-<en:Jelly desserts
+<en:Flavoured milk jelly
 en:Refrigerated flavoured milk jelly with reduced fat and sugar
 fr:Lait gélifié aromatisé allégé en matière grasse et en sucre rayon frais
 agribalyse_food_code:en:19683
@@ -24826,7 +24830,7 @@ ciqual_food_name:en:Milk jelly, flavoured, reduced fat and sugar, refrigerated
 ciqual_food_name:fr:Lait gélifié aromatisé, allégé en matière grasse et en sucre, rayon frais
 
 #eg: Danette
-<en:Jelly desserts
+<en:Flavoured milk jelly
 en:Refrigerated flavoured milk jelly
 fr:Lait gélifié aromatisé rayon frais
 agribalyse_food_code:en:19680
@@ -27664,14 +27668,17 @@ ciqual_food_name:fr:Gnocchi à la pomme de terre, cuit
 
 <en:Gnocchi
 <en:Cereals and their products
-en:Gnocchi of durum wheat semolina
+en:Gnocchi of durum wheat semolina, gnocchis from semolina
 de:Grießgnocchi, Gnocchi aus Hartweizengrieß
 fr:Gnocchi de semoule de blé dur
 nl:Gnocchi van durum tarwe
 pnns_group_2:en:Cereals
+agribalyse_proxy_food_code:en:26265
+agribalyse_proxy_food_name:en:Gnocchi, from semolina, raw
+agribalyse_proxy_food_name:fr:Gnocchi à la semoule, cru
 
 <en:Cooked gnocchis
-<en:Cereals and their products
+<en:Gnocchi of durum wheat semolina
 en:Cooked gnocchis from semolina
 fr:Gnocchis à la semoule cuits
 agribalyse_food_code:en:25479
@@ -27679,8 +27686,7 @@ ciqual_food_code:en:25479
 ciqual_food_name:en:Gnocchi, from semolina, cooked
 ciqual_food_name:fr:Gnocchi à la semoule, cuit
 
-<en:Gnocchi
-<en:Cereals and their products
+<en:Gnocchi of durum wheat semolina
 en:Raw gnocchi from semolina
 fr:Gnocchi à la semoule cru
 agribalyse_food_code:en:26265
@@ -27758,21 +27764,17 @@ zh:燕麦属
 wikidata:en:Q146760
 
 <en:Avena
-en:Oat
+en:Oat, Raw oat
 de:Hafer, Echter Hafer
 es:Avena sativa
 fi:kaura
-fr:Avoines
+fr:Avoines, Avoines crues
 he:שיבולת שועל
 it:Avena
 la:Avena sativa
 nl:Havers
 zh:燕麦
 wikidata:en:Q12104
-
-<en:Avena
-en:Raw oat
-fr:Avoines crues
 agribalyse_food_code:en:9310
 ciqual_food_code:en:9310
 ciqual_food_name:en:Oat, raw
