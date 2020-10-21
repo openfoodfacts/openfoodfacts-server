@@ -4660,7 +4660,7 @@ hu:módosított burgonyakeményítő
 it:amido di patate modificiate, amido modificato di patata
 nb:modifisert potetstivelse
 nl:gemodificeerd aardappelzetmeel
-pt:amido modificado de batata
+pt:amido modificado de batata, amido de batata modificado
 sv:modifierad potatisstärkelse
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
 # fr:e1404 has 19 products in 4 languages @2018-10-15
@@ -8026,6 +8026,10 @@ de:Joghurterzeugnis
 <en:yogurt
 en:british yogurt
 fr:yaourt britannique
+
+<en:yogurt
+en:greek yogurt
+fr:yaourt grec
 
 
 # no products in OFF
@@ -18910,7 +18914,7 @@ ja:バルサミコ酢
 ko:발사믹 식초
 lt:Balzaminis actas
 nb:balsamico
-nl:balsamico
+nl:balsamico, balsamicoazijn, balsamico-azijn
 pl:Ocet balsamiczny
 pt:Vinagre balsâmico
 ru:Бальзамический уксус
@@ -21510,7 +21514,7 @@ fi:vanilja-aromi
 fr:arôme vanille, arôme de vanille
 hu:vanília aroma, vaníliaaroma
 it:aroma di vaniglia
-nl:vanillearoma
+nl:vanillearoma, vanille aroma
 pl:Aromat waniliowy
 pt:aroma baunilha
 sv:vaniljarom
@@ -22059,11 +22063,12 @@ fr:arôme naturel d'échalote
 hu:természetes mogyoróhagyma aroma
 
 <en:natural flavouring
-en:butter natural flavouring
+en:butter natural flavouring, natural butter flavour
 de:natürliches Butteraroma, natürliches Butter-Aroma
 fi:luontainen voiaromi
 fr:arôme naturel de beurre
 hu:természetes vaj aroma
+nl:natuurlijk boteraroma
 vegan:en:no
 
 <en:flavouring
@@ -22719,7 +22724,7 @@ fr:blé complet
 hu:teljes kiőrlésű búza
 it:frumento integrale
 nb:sammalt hvete
-nl:volkorentarwe
+nl:volkorentarwe, volkoren tarwe
 pl:pszenica z pełnego przemiału
 pt:trigo integral
 sv:fullkornsvete
@@ -24099,6 +24104,8 @@ pt:fibra de aveia
 ro:fibre de ovăz
 sv:havrefiber
 
+<en:oat fibre
+en:gluten free oat fibre
 
 <en:oat
 en:whole grain rolled oats, whole oat flakes
@@ -24299,7 +24306,7 @@ fr:quinoa cuit
 
 <en:red quinoa
 <en:white quinoa
-fr:quinoa rouge et blanc
+fr:quinoa rouge et blanc, quinoa blanc et rouge
 
 ##################################################################################
 #
@@ -29163,7 +29170,7 @@ es:proteína hidrolizada
 fi:proteiinihydrosylaatit, proteiinihydrosylaatti
 fr:protéine hydrolysée
 hu:hidrolizált fehérjék, hidolizált fehérje
-nl:gehydroliseerd eiwit
+nl:gehydroliseerd eiwit, gehydrolyseerd eiwit
 sv:proteinhydrolysat
 
 <en:protein
@@ -29249,7 +29256,7 @@ fi:hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr:protéine végétale hydrolysée, protéines végétales hydrolysées
 hu:hidrolizált növényi fehérjék, hidolizált növényi fehérje
 nb:hydrolysert vegetabilsk protein
-nl:gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit, gehydroliseerde plantaardige eiwitten
+nl:gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit, gehydrolyseerd plantaardig eiwit, gehydroliseerde plantaardige eiwitten
 pl:Hydrolizowane białko roślinne
 sv:hydrolyserat vegetabiliskt protein, hydroliserat vegetabiliskt protein
 zh:酸水解植物蛋白
@@ -29334,7 +29341,7 @@ fi:soijaproteiinihydrolysaatti
 fr:protéine de soja hydrolysée, protéines de soja hydrolysées
 hu:hidrolizált szójafehérje
 it:proteine di soia idrolizzate
-nl:gehydroliseerd soja-eiwit
+nl:gehydroliseerd soja-eiwit, gehydrolyseerd soja-eiwit
 
 <en:soy protein
 fr:protéines de soja i.p
@@ -29389,7 +29396,7 @@ es:proteína de maíz hidrolizada
 fi:hydrolysoitu maissiproteiini, maissiproteiinihydrosylaatti
 fr:protéine de maïs hydrolysée
 hu:hidrolizált kukoricafehérje
-nl:gehydroliseerd maïseiwit
+nl:gehydroliseerd maïseiwit, gehydrolyseerd mais-eiwit
 pl:hydrolizat białka kukurydzy
 sv:hydrolyserat majsprotein
 
@@ -29682,6 +29689,9 @@ en:rapeseed protein
 fi:rapsiproteiini
 fr:protéine de colza, protéines de colza
 sv:rapsprotein
+
+<en:rapeseed protein
+nl:gehydrolyseerd koolzaadeiwit
 
 en:proteins mix
 fr:mélange de protéines
@@ -41851,7 +41861,7 @@ it:radice di cicoria
 en:chicory fibre, chicory root fiber
 cs:vláknina z kořene čekanky
 da:cikoriefibre
-de:Zichorienfäser
+de:Zichorienfäser, Zichorienwurzelfaser
 es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
@@ -48001,7 +48011,7 @@ fr:haricots cannellini
 wikidata:en:Q74663825
 
 <en:beans
-en:mung bean
+en:mung bean, mungbean
 es:habas de mungo,judias mungo
 fr:haricot mungo
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
@@ -48928,6 +48938,7 @@ fr:lentilles noires Beluga, lentilles Béluga
 fr:lentilles brunes
 
 <en:red lentils
+en:red lentil flour
 fr:farine de lentilles corail
 
 <en:lentils
@@ -73678,7 +73689,7 @@ sv:sojasåspulver
 # description:en:TAMARI is the "original" Japanese soy sauce, as its recipe is closest to the soy sauce originally introduced to Japan from China. It contains little or no wheat. Wheat-free tamari can be used by people with gluten intolerance.
 
 <en:soy sauce
-en:tamari, tamari soy sauce
+en:tamari, tamari sauce, tamari soy sauce
 de:Tamari
 es:tamari
 fi:tamari

@@ -146,7 +146,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may also contain|also may contain|may contain",
+	en => "it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
@@ -2370,6 +2370,10 @@ sub normalize_allergens_enumeration($$$) {
 # Ingredients: list of ingredients -> phrases followed by a colon, dash, or line feed
 
 my %phrases_before_ingredients_list = (
+
+ar => [
+'المكونات',
+],
 
 az => [
 'Tarkibi',
