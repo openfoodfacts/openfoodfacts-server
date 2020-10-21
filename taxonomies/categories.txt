@@ -44915,6 +44915,10 @@ nl:Suikermeloenen
 wikidata:en:Q81602
 
 <en:Muskmelons
+<en:Dried plant-based foods
+fr:Melons déshydratés, Melons séchés
+
+<en:Muskmelons
 <en:Fresh fruits
 en:Fresh muskmelons
 fr:Melons frais
@@ -67177,6 +67181,9 @@ fr:Truites fumées, truite fumée
 it:Trote affumicate
 nl:Gerookte forel
 
+<en:Trouts
+fr:Filets de truite
+
 <en:Fishes
 en:Trouts
 de:Forelle, Forellen
@@ -67192,14 +67199,13 @@ ciqual_food_name:en:Sea trout, raw
 <en:Trouts
 en:Farmed trout
 fr:Truite d'élevage
-
-<en:Farmed trout
-en:Raw farmed trout
-fr:Truite d'élevage crue
 agribalyse_food_code:en:27008
 ciqual_food_code:en:27008
 ciqual_food_name:en:Trout, farmed, raw
 cooking_method:en en:raw
+
+<en:Farmed trout
+fr:Filets de truite d'élevage
 
 <en:Farmed trout
 en:Smoked farmed trout
@@ -67210,16 +67216,16 @@ ciqual_food_name:en:Trout, farmed, smoked
 cooking_method:en en:smoked
 
 <en:Farmed trout
-en:Raw farmed rainbow trout
-fr:Truite arc en ciel crue élevage, Truite arc en ciel crue d'élevage
+en:Farmed rainbow trout
+fr:Truite arc en ciel d'élevage
 agribalyse_food_code:en:27009
 ciqual_food_code:en:27009
 ciqual_food_name:en:Rainbow trout, raw, farmed
 
 <en:Fishes
 <en:Trouts
-en:Salmon trout raw
-fr:Truite saumonée crue
+en:Salmon trout
+fr:Truite saumonée
 agribalyse_food_code:en:27021
 ciqual_food_code:en:27021
 ciqual_food_name:en:Salmon trout, raw
@@ -67230,8 +67236,8 @@ en:Carp
 fr:Carpe
 
 <en:Carp
-en:Raw farmed Carp
-fr:Carpe crue d'élevage
+en:Farmed Carp
+fr:Carpe d'élevage
 agribalyse_food_code:en:27003
 ciqual_food_code:en:27003
 ciqual_food_name:en:Carp, raw, farmed
@@ -67246,10 +67252,6 @@ ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
 <en:Fishes
 en:European perch
 fr:Perche
-
-<en:European perch
-en:European perch raw
-fr:Perche crue
 agribalyse_food_code:en:27010
 ciqual_food_code:en:27010
 ciqual_food_name:en:European perch, raw
@@ -67265,10 +67267,6 @@ ciqual_food_name:en:European perch, roasted/baked
 <en:Fishes
 en:Nile perch
 fr:Perche du Nil
-
-<en:Nile perch
-en:Nile perch raw
-fr:Perche du Nil crue
 agribalyse_food_code:en:27025
 ciqual_food_code:en:27025
 ciqual_food_name:en:Nile perch, raw
@@ -67310,10 +67308,6 @@ cooking_method:en en:steamed
 <en:Fishes
 en:Red gurnard
 fr:Grondin
-
-<en:Red gurnard
-en:Red gurnard raw
-fr:Grondin cru
 agribalyse_food_code:en:26106
 ciqual_food_code:en:26106
 ciqual_food_name:en:Red gurnard, raw
@@ -69333,6 +69327,8 @@ fr:Pâtes à tartiner aux noisettes, pâte à tartiner aux noisettes
 hu:Kenhető mogyoró
 it:Crema con nocciole, crema alle nocciole
 nl:Hazelnootpastas
+agribalyse_proxy_food_code:en:31032
+agribalyse_proxy_food_name:en:Chocolate spread with hazelnuts
 
 <en:Chocolate spreads
 <en:Hazelnut spreads
