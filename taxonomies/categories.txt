@@ -24240,6 +24240,9 @@ it:Cioccolata in polvere
 nl:Oplospoeder voor chocolademelk, Oploschocoladepoede
 pt:Pós de chocolate
 ro:Ciocolată caldă instant, Pudră de ciocolată
+agribalyse_proxy_food_code:en:18101
+agribalyse_proxy_food_name:en:Cocoa or chocolate powder, for beverages, with sugar
+agribalyse_proxy_food_name:fr:Poudre cacaotée ou au chocolat pour boisson, sucrée
 
 <en:Cocoa and chocolate powders
 en:Cocoa powder for beverages with sugar, Chocolate powder for beverages with sugar
@@ -24272,6 +24275,7 @@ ciqual_food_code:en:18102
 ciqual_food_name:en:Malted cocoa or chocolate powder for beverage, with sugar
 ciqual_food_name:fr:Poudre maltée, cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines et minéraux
 
+#TODO Nesquik 
 <en:Instant beverages
 en:Ready-to-drink instant cocoa with sugar reconstituted with standard semi-skimmed milk, Ready-to-drink instant chocolate beverage with sugar reconstituted with standard semi-skimmed milk
 fr:Boisson cacaotée instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard, Boisson au chocolat instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé standard
@@ -24280,6 +24284,7 @@ ciqual_food_code:en:18104
 ciqual_food_name:en:Instant cocoa or chocolate beverage, with sugar, ready-to-drink (reconstituted with standard semi-skimmed milk)
 ciqual_food_name:fr:Boisson cacaotée ou au chocolat, instantanée, sucrée, prête à boire (reconstituée avec du lait demi-écrémé standard)
 
+#TODO Nesquik 
 <en:Instant beverages
 en:Ready-to-drink instant cocoa with sugar fortified with vitamins and chemical elements reconstituted with standard semi-skimmed milk, Ready-to-drink instant chocolate beverage with sugar fortified with vitamins and chemical elements reconstituted with standard semi-skimmed milk
 fr:Boisson cacaotée instantanée sucrée enrichie en vitamines prête à boire reconstituée avec du lait demi-écrémé, Boisson au chocolat instantanée sucrée enrichie en vitamines prête à boire reconstituée avec du lait demi-écrémé
@@ -24499,15 +24504,18 @@ ciqual_food_name:fr:Gâteau au chocolat type forêt noire (génoise au chocolat 
 
 <en:Cakes
 <en:Desserts
+en:Sponge cake
+fr:Génoise
+
+<en:Sponge cake
 en:Plain soft cake, Plain sponge cake
-fr:Gâteau moelleux nature, Génoise
+fr:Génoise, Gâteau moelleux nature
 agribalyse_food_code:en:23594
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
 
-<en:Cakes
-<en:Desserts
+<en:Sponge cake
 en:Dried sponge cake filled with fruits and covered with chocolate
 fr:Génoise sèche fourrée aux fruits et nappée de chocolat
 agribalyse_food_code:en:24686
@@ -24515,8 +24523,7 @@ ciqual_food_code:en:24686
 ciqual_food_name:en:Dried sponge cake filled with fruits and covered with chocolate
 ciqual_food_name:fr:Génoise sèche fourrée aux fruits et nappée de chocolat
 
-<en:Cakes
-<en:Desserts
+<en:Sponge cake
 en:Sponge cake filled and covered with chocolate
 fr:Génoise fourrée et nappée au chocolat
 agribalyse_food_code:en:23940
@@ -24634,6 +24641,9 @@ fr:Donuts
 it:Ciambelle
 nl:Donuts, Donut
 pl:Pączki, Pączek
+agribalyse_proxy_food_code:en:23880
+agribalyse_proxy_food_name:en:Doughnut, plain
+agribalyse_proxy_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
 
 <en:Doughnuts
 en:Plain doughnuts, Plain doughnut
@@ -24726,6 +24736,10 @@ nl:Clafoutis, Clafouti
 wikidata:en:Q1094707
 
 <en:Clafoutis
+en:Fruits batter-pudding
+fr:Clafoutis aux fruits
+
+<en:Fruits batter-pudding
 en:Refrigerated fruits batter-pudding, Refrigerated fruit batter pudding
 fr:Clafoutis aux fruits rayon frais
 agribalyse_food_code:en:39216
@@ -24733,7 +24747,7 @@ ciqual_food_code:en:39216
 ciqual_food_name:en:Fruits batter-pudding, refrigerated
 ciqual_food_name:fr:Clafoutis aux fruits, rayon frais
 
-<en:Clafoutis
+<en:Fruits batter-pudding
 en:Cherry clafoutis
 fr:Clafoutis aux cerises
 nl:Kersenclafoutis, Kersenclafouti
