@@ -27624,8 +27624,9 @@ ciqual_food_name:en:Gnocchi, from potato, raw
 ciqual_food_name:fr:Gnocchi à la pomme de terre, cru
 
 <en:Cooked gnocchis
+<en:Potato gnocchi
 en:Cooked gnocchis from potato
-fr:Gnocchis à la pomme de terre cuits
+fr:Gnocchi de pommes de terre cuits, Gnocchis à la pomme de terre cuits
 agribalyse_food_code:en:25510
 ciqual_food_code:en:25510
 ciqual_food_name:en:Gnocchi, from potato, cooked
@@ -27777,6 +27778,13 @@ ciqual_food_name:en:Barley, whole, raw
 ciqual_food_name:fr:Orge entière, crue
 
 <en:Barley
+en:Pearled barley
+fr:Orge perlée
+agribalyse_proxy_food_code:en:9321
+agribalyse_proxy_food_name:en:Pearled barley, raw
+agribalyse_proxy_food_name:fr:Orge perlée, crue
+
+<en:Barley
 en:Raw pearled barley
 fr:Orge perlée crue
 agribalyse_food_code:en:9321
@@ -27837,7 +27845,7 @@ wikidata:en:Q1186042
 en:Job's Tears
 de:Hiobsträne
 es:Lágrimas de Job
-fr:Coix lacryma-jobi, Coix - lacryma-jobi
+fr:Coix lacryma-jobi, Coix lacryma-jobi
 la:Coix lacryma-jobi
 nl:Jobstranen
 wikidata:en:Q827098
@@ -27872,28 +27880,16 @@ en:Fresh sweet corn
 fr:Maïs doux frais
 
 <en:Corn
+en:Sweet corn on the cob
+fr:Maïs doux en épis
+
+<en:Sweet corn on the cob
 en:Cooked sweet corn on the cob
 fr:Maïs doux en épis cuit
 agribalyse_food_code:en:20049
 ciqual_food_code:en:20049
 ciqual_food_name:en:Sweet corn, on the cob, cooked
 ciqual_food_name:fr:Maïs doux, en épis, cuit
-
-<en:Corn
-en:Frozen raw sweet corn on the cob
-fr:Maïs doux en épis surgelé cru
-agribalyse_food_code:en:20108
-ciqual_food_code:en:20108
-ciqual_food_name:en:Sweet corn, on the cob, frozen, raw
-ciqual_food_name:fr:Maïs doux, en épis, surgelé, cru
-
-<en:Corn
-en:Frozen raw sweet corn
-fr:Maïs doux surgelé cru
-agribalyse_food_code:en:20233
-ciqual_food_code:en:20233
-ciqual_food_name:en:Sweet corn, frozen, raw
-ciqual_food_name:fr:Maïs doux, surgelé, cru
 
 <en:Corn
 en:Raw corn grain, Raw maize grain
@@ -76694,11 +76690,15 @@ nl:Diepvriesgranen
 pnns_group_2:en:cereals
 
 <en:Frozen cereals
-en:Frozen corn, Frozen maize
+en:Frozen corn, Frozen maize, Frozen raw sweet corn
 es:Maíz congelado
-fr:Maïs surgelé
+fr:Maïs surgelé, Maïs doux surgelé cru
 it:Mais surgelato
 nl:Diepvriesmais
+agribalyse_food_code:en:20233
+ciqual_food_code:en:20233
+ciqual_food_name:en:Sweet corn, frozen, raw
+ciqual_food_name:fr:Maïs doux, surgelé, cru
 
 <en:Frozen corn
 en:Frozen corn kernels
@@ -76707,11 +76707,16 @@ fr:Grains de maïs surgelés
 nl:Diepvriesmaiskorrels
 
 <en:Frozen corn
-<en:Corn on the cob
-en:Frozen corn on the cob
+<en:Sweet corn on the cob
+<en:Corn on the cob, Frozen raw sweet corn on the cob
+en:Frozen corn on the cob, Maïs doux en épis surgelé cru
 de:Gefrorene Maise
 es:Maíz en mazorca congelado, Mazorcas de maíz congeladas
 fr:Maïs en épis surgelé, Épis de maïs surgelé
+agribalyse_food_code:en:20108
+ciqual_food_code:en:20108
+ciqual_food_name:en:Sweet corn, on the cob, frozen, raw
+ciqual_food_name:fr:Maïs doux, en épis, surgelé, cru
 
 <en:Frozen cereals
 en:Frozen pre-cooked rice
