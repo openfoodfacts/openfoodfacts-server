@@ -66082,16 +66082,6 @@ ciqual_food_name:en:Surimi, filled w cheese
 ciqual_food_name:fr:Surimi, fourré au fromage
 
 <en:Fish preparations
-<en:Appetizers
-en:Cod acras, Cod accras
-fr:Acras de morue, Accras de morue, acras de cabillaud
-it:Frittelle di merluzzo, Frittelle di baccalà
-nl:Kabeljauwacra
-wikidata:en:Q12860188
-agribalyse_proxy_food_code:en:26028
-agribalyse_proxy_food_name:en:Fish, croquette, fritter or nuggets, fried
-
-<en:Fish preparations
 en:Fried fish croquette, Fried fish fritter, Fried fish nuggets
 fr:Croquettes de poisson frites, beignet de poisson frit, nuggets de poisson frit
 agribalyse_food_code:en:26028
@@ -76763,11 +76753,10 @@ nl:Diepvriesmaiskorrels
 
 <en:Frozen corn
 <en:Sweet corn on the cob
-<en:Corn on the cob, Frozen raw sweet corn on the cob
-en:Frozen corn on the cob, Maïs doux en épis surgelé cru
+en:Frozen corn on the cob, Frozen raw sweet corn on the cob
 de:Gefrorene Maise
 es:Maíz en mazorca congelado, Mazorcas de maíz congeladas
-fr:Maïs en épis surgelé, Épis de maïs surgelé
+fr:Maïs en épis surgelé, Épis de maïs surgelé, Maïs doux en épis surgelé cru
 agribalyse_food_code:en:20108
 ciqual_food_code:en:20108
 ciqual_food_name:en:Sweet corn, on the cob, frozen, raw
@@ -77451,6 +77440,22 @@ es:Garrofones congelados, Garrofón congelado, Habones congelados, Judías de Li
 fr:Haricots de Lima surgelés
 nl:Diepvrieslimabonen
 #Please don't add Frozen butter beans as synonym of Frozen lima beans because this name is also a synonym of yellow Runner bean
+
+<en:Frozen vegetables
+en:Frozen butter beans
+fr:Haricots beurre surgelés
+nl:Diepvries limabonen
+agribalyse_proxy_food_code:en:20203
+agribalyse_proxy_food_name:en:Butter bean or yellow bean, frozen, raw
+agribalyse_proxy_food_name:fr:Haricot beurre, surgelé, cru
+
+<en:Frozen butter beans
+en:Frozen raw butter beans, Frozen raw yellow beans
+fr:Haricots beurre surgelés crus
+agribalyse_food_code:en:20203
+ciqual_food_code:en:20203
+ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
+ciqual_food_name:fr:Haricot beurre, surgelé, cru
 
 <en:Frozen legumes
 <en:Chickpeas
@@ -80155,8 +80160,8 @@ fr:Feuilles de vigne farcies
 nl:Gevulde wijnbladeren
 
 <en:Stuffed vine leaves
-en:Dolmas, Drained vine leaf stuffed wih rice
-fr:Dolmas, Feuille de vigne égouttée farcie au riz
+en:Dolmas, Vine leaf stuffed wih rice
+fr:Dolmas, Feuille de vigne farcie au riz
 ciqual_food_code:en:25217
 ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
 ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
@@ -80210,14 +80215,9 @@ nl:Pruimencompote
 
 <en:Frozen vegetables
 <en:Salsifis
-en:Frozen salsify
-fr:Salsifis surgelés
+en:Frozen salsify, Frozen raw salsify
+fr:Salsifis surgelés, Salsifis surgelés crus
 nl:Diepvriesschorseneren
-
-<en:Frozen vegetables
-<en:Salsifis
-en:Frozen raw salsify
-fr:Salsifis surgelés crus
 agribalyse_food_code:en:20237
 ciqual_food_code:en:20237
 ciqual_food_name:en:Salsify, frozen, raw
@@ -80258,20 +80258,20 @@ fr:Nappages
 nl:Garnering
 
 <en:Cooking helpers
-en:Dehydrated Madeira wine aspic
-fr:Gelée au madère déshydratée
-agribalyse_food_code:en:11175
-ciqual_food_code:en:11175
-ciqual_food_name:en:Madeira wine aspic, dehydrated
-ciqual_food_name:fr:Gelée au madère, déshydratée
-
-<en:Cooking helpers
 en:Madeira wine aspic
 fr:Gelée au madère
 agribalyse_food_code:en:11176
 ciqual_food_code:en:11176
 ciqual_food_name:en:Madeira wine aspic
 ciqual_food_name:fr:Gelée au madère
+
+<en:Cooking helpers
+en:Dehydrated Madeira wine aspic
+fr:Gelée au madère déshydratée
+agribalyse_food_code:en:11175
+ciqual_food_code:en:11175
+ciqual_food_name:en:Madeira wine aspic, dehydrated
+ciqual_food_name:fr:Gelée au madère, déshydratée
 
 <en:Salty snacks
 en:Vegetable cakes
@@ -80373,6 +80373,8 @@ en:Vegetables tortellinis
 fr:Tortellini aux légumes
 nl:Groentetortellini
 
+# TODO check the difference
+
 <en:Meals
 en:Acras, Accras
 fr:Acras, Accras
@@ -80380,6 +80382,16 @@ nl:Acra
 agribalyse_food_code:en:25433
 ciqual_food_code:en:25433
 ciqual_food_name:en:Caribbean-style fish fritters, fish acras
+
+<en:Fish preparations
+<en:Appetizers
+en:Cod acras, Cod accras
+fr:Acras de morue, Accras de morue, acras de cabillaud
+it:Frittelle di merluzzo, Frittelle di baccalà
+nl:Kabeljauwacra
+wikidata:en:Q12860188
+agribalyse_proxy_food_code:en:26028
+agribalyse_proxy_food_name:en:Fish, croquette, fritter or nuggets, fried
 
 <en:Meals
 en:Truffades
@@ -80420,22 +80432,6 @@ fi:siipikarjakinkut
 fr:Blancs de volaille en tranches, Jambons de volaille
 it:Prosciutti di pollame
 nl:Gevogelte bilvlees
-
-<en:Frozen vegetables
-en:Frozen butter beans
-fr:Haricots beurre surgelés
-nl:Diepvries limabonen
-agribalyse_proxy_food_code:en:20203
-agribalyse_proxy_food_name:en:Butter bean or yellow bean, frozen, raw
-agribalyse_proxy_food_name:fr:Haricot beurre, surgelé, cru
-
-<en:Frozen butter beans
-en:Frozen raw butter beans, Frozen raw yellow beans
-fr:Haricots beurre surgelés crus
-agribalyse_food_code:en:20203
-ciqual_food_code:en:20203
-ciqual_food_name:en:Butter bean or yellow bean, frozen, raw
-ciqual_food_name:fr:Haricot beurre, surgelé, cru
 
 <en:Sandwiches
 en:Surprise breads
