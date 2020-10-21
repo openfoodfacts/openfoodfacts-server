@@ -196,6 +196,8 @@ function display_products(target, product_groups ) {
 	});
 }
 
+/* global get_user_product_preferences */
+/* exported display_product_summary */
 
 function display_product_summary(target, product) {
 	
@@ -234,7 +236,7 @@ function display_product_summary(target, product) {
 		+ '<h4>' + attribute.title + '</h4>';
 		
 		if (attribute.description_short) {
-			attributes_html += '<span>' + attribute.description_short + '</span>'
+			attributes_html += '<span>' + attribute.description_short + '</span>';
 		}
 		
 		attributes_html += '</div>'
