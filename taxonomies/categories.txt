@@ -31212,13 +31212,16 @@ ciqual_food_name:en:Fresh cream cheese, with fruits, creamy, with sugar, around 
 ciqual_food_name:fr:Fromage blanc ou spécialité laitière, aux fruits, sucré, gourmand, 7% MG environ
 
 <fr:Fromages blancs
+en:Fresh cream cheese with cow's milk
 fr:Fromages blancs au lait de vache
 
-<fr:Fromages blancs
+<fr:Fromages blancs 
 fr:Fromages blancs au lait de brebis
+en:Fresh cream cheese with sheeps's milk
 
 <fr:Fromages blancs
 fr:Fromages blancs au lait de chèvre
+en:Fresh cream cheese with goat's milk
 
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 
@@ -31254,6 +31257,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk_cheese
 agribalyse_food_code:en:12824
 ciqual_food_code:en:12824
 ciqual_food_name:en:Soft ripened cheese with bloomy rind, from ewe's milk, Camembert-type cheese
+
+# TODO check the proxy above
 
 <en:Cheeses
 fr:Fondues, fondue, fondues de fromage, fondue de fromage
@@ -66536,6 +66541,10 @@ it:Filetti di tonno
 nl:Tonijnfilets
 
 <en:Fishes
+en:Greenland halibut
+fr:Flétan du Groënland 
+
+<en:Greenland halibut
 en:Steamed Greenland halibut
 fr:Flétan du Groënland cuit à la vapeur, Flétan noir cuit à la vapeur, Flétan commun cuit à la vapeur
 agribalyse_food_code:en:26247
@@ -77969,6 +77978,9 @@ agribalyse_food_code:en:23480
 ciqual_food_code:en:23480
 ciqual_food_name:en:Apple turnover
 ciqual_food_name:fr:Chausson aux pommes
+
+<en:Viennoiseries
+fr:Assortiment de croissants et pains au chocolat
 
 <en:Viennoiseries
 en:Chocolate croissant
