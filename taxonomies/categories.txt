@@ -51900,9 +51900,9 @@ ciqual_food_code:en:6230
 ciqual_food_name:en:Beef, stewing meat, cooked
 ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cuit
 
-<en:Bœufs bourguignons
-en:Raw beef stew meat
-fr:Boeuf bourguignon cru, Pot-au-feu de boeuf cru
+<en:Beef
+en:Beef stew meat
+fr:Boeuf à bourguignon, Boeuf à Pot-au-feu
 agribalyse_food_code:en:6231
 ciqual_food_code:en:6231
 ciqual_food_name:en:Beef, stewing meat, raw
@@ -53258,17 +53258,9 @@ nl:Cassoulet uit Toulouse
 
 <en:Duck dishes
 <en:Cassoulets
-en:Cassoulets with duck confit
-fr:Cassoulets au confit de canard
+en:Cassoulets with duck confit, White bean stew with duck, Canned white bean stew with duck
+fr:Cassoulets au confit de canard, Cassoulet au canard, Cassoulet au canard appertisé, Cassoulet au canard en conserve
 nl:Cassoulet met geconfijte eend
-agribalyse_proxy_food_code:en:25099
-agribalyse_proxy_food_name:en:White bean stew, with duck or goose, canned
-agribalyse_proxy_food_name:fr:Cassoulet au canard ou oie, appertisé
-
-<en:Duck dishes
-<en:Cassoulets
-en:White bean stew with duck, Canned white bean stew with duck
-fr:Cassoulet au canard, Cassoulet au canard appertisé, Cassoulet au canard en conserve
 agribalyse_food_code:en:25099
 ciqual_food_code:en:25099
 ciqual_food_name:en:White bean stew, with duck or goose, canned
@@ -62489,11 +62481,20 @@ pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
 <en:Dry pastas
-en:Gluten-free dry pasta, Dry gluten-free pasta, Dried gluten-free pasta
-fr:Pâtes sèches sans gluten
-agribalyse_proxy_food_code:en:9824
-agribalyse_proxy_food_name:en:Dried pasta, gluten-free, cooked, unsalted
-agribalyse_proxy_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
+en:Gluten-free dry pasta, Dry gluten-free pasta, Dried gluten-free pasta, Dry raw gluten-free pasta, Dried raw gluten-free pasta
+fr:Pâtes sèches sans gluten, Pâtes sèches sans gluten crues
+agribalyse_food_code:en:9874
+ciqual_food_code:en:9874
+ciqual_food_name:en:Dried pasta, gluten-free, raw
+ciqual_food_name:fr:Pâtes sèches, sans gluten, crues
+
+<en:Gluten-free dry pasta
+en:Cooked unsalted gluten-free dry pasta
+fr:Pâtes sèches sans gluten cuites non salées
+agribalyse_food_code:en:9824
+ciqual_food_code:en:9824
+ciqual_food_name:en:Dried pasta, gluten-free, cooked, unsalted
+ciqual_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
 
 <en:Gluten-free pasta
 en:Gluten-free Spaghetti
@@ -62513,22 +62514,6 @@ fr:Tagliatelles sans gluten
 
 <en:Gluten-free pasta
 fr:Coquillettes sans gluten
-
-<en:Dried gluten-free pasta
-en:Dry raw gluten-free pasta, Dried raw gluten-free pasta
-fr:Pâtes sèches sans gluten crues
-agribalyse_food_code:en:9874
-ciqual_food_code:en:9874
-ciqual_food_name:en:Dried pasta, gluten-free, raw
-ciqual_food_name:fr:Pâtes sèches, sans gluten, crues
-
-<en:Dry gluten-free pasta
-en:Cooked unsalted gluten-free dried pasta
-fr:Pâtes sèches sans gluten cuites non salées
-agribalyse_food_code:en:9824
-ciqual_food_code:en:9824
-ciqual_food_name:en:Dried pasta, gluten-free, cooked, unsalted
-ciqual_food_name:fr:Pâtes sèches, sans gluten, cuites, non salées
 
 <en:Pasta dishes
 en:Stuffed pastas
@@ -71449,15 +71434,8 @@ la:Brassica oleracea var. capitata
 nl:Kolen
 
 <en:Cabbages
-en:White cabbage
-fr:Chou blanc
-agribalyse_proxy_food_code:en:20116
-agribalyse_proxy_food_name:en:White cabbage, raw
-agribalyse_proxy_food_name:fr:Chou blanc, cru
-
-<en:White cabbage
-en:Raw white cabbage
-fr:Chou blanc cru
+en:White cabbage, Raw white cabbage
+fr:Chou blanc, Chou blanc cru
 agribalyse_food_code:en:20116
 ciqual_food_code:en:20116
 ciqual_food_name:en:White cabbage, raw
@@ -75195,7 +75173,7 @@ ciqual_food_code:en:20029
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
 ciqual_food_name:fr:Haricot mungo germé ou pousse de soja, appertisé, égoutté
 
-<en:Canned soy sprouts
+<en:Canned sprouts
 en:Canned soy sprouts
 fr:Pousses de soja en conserve, Pousses de soja appertisées
 agribalyse_food_code:en:20029
