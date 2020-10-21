@@ -79005,6 +79005,9 @@ ciqual_food_code:en:38107
 ciqual_food_name:en:Salty snacks, mini pretzels or sticks
 ciqual_food_name:fr:Biscuit apéritif, mini bretzel ou sticks
 
+<en:Pretzel
+fr:mélange Sticks et Bretzels
+
 <en:Crackers
 en:Salty snacks puff pastry
 fr:Biscuit apéritif feuilleté
@@ -79102,12 +79105,25 @@ ciqual_food_name:en:Short crust pastry, raw
 ciqual_food_name:fr:Pâte brisée, crue
 
 <en:Pie dough
+en:Shortcrust pastry with pure butter
+fr:Pâte brisée pur beurre
+
+<en:Shortcrust pastry with pure butter
 en:Raw shortcrust pastry with pure butter
 fr:Pâte brisée pur beurre crue
 agribalyse_food_code:en:23414
 ciqual_food_code:en:23414
 ciqual_food_name:en:Short crust pastry, pure butter, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, crue
+
+<en:Shortcrust pastry with pure butter
+<en:Frozen foods
+en:Frozen raw shortcrust pastry with pure butter
+fr:Pâte brisée pur beurre surgelée crue
+agribalyse_food_code:en:23415
+ciqual_food_code:en:23415
+ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
+ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
 <en:Pie dough
 en:Puff pastry sheets, Cooked puff pastry
@@ -79121,21 +79137,16 @@ ciqual_food_code:en:23422
 ciqual_food_name:en:Puff pastry, cooked
 ciqual_food_name:fr:Pâte feuilletée, cuite
 
-#<en:Pie dough
-#en:Cooked puff pastry
-#fr:Pâte feuilletée cuite
+<en:Pie dough
+en:Raw puff pastry
+fr:Pâte feuilletée crue
 
 <en:Pie dough
-<en:Frozen foods
-en:Frozen raw shortcrust pastry with pure butter
-fr:Pâte brisée pur beurre surgelée crue
-agribalyse_food_code:en:23415
-ciqual_food_code:en:23415
-ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
-ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
-
+en:Pure butter puff pastry
+fr:Pâte feuilletée pur beurre
 
 <en:Cooked puff pastry
+<en:Pure butter puff pastry
 en:Cooked pure butter puff pastry
 fr:Pâte feuilletée pur beurre cuite
 agribalyse_food_code:en:23426
@@ -79143,11 +79154,8 @@ ciqual_food_code:en:23426
 ciqual_food_name:en:Puff pastry, pure butter, cooked
 ciqual_food_name:fr:Pâte feuilletée pur beurre, cuite
 
-<en:Pie dough
-en:Raw puff pastry
-fr:Pâte feuilletée crue
-
 <en:Raw puff pastry
+<en:Pure butter puff pastry
 en:Raw puff pastry with pure butter
 fr:Pâte feuilletée pur beurre crue
 agribalyse_food_code:en:23424
@@ -79165,8 +79173,8 @@ ciqual_food_name:fr:Pâte feuilletée, matière grasse végétale, crue
 
 <en:Frozen foods
 <en:Raw puff pastry
-en:Frozen raw puff pastry
-fr:Pâte feuilletée surgelée crue
+en:Frozen puff pastry
+fr:Pâte feuilletée surgelée
 agribalyse_food_code:en:23421
 ciqual_food_code:en:23421
 ciqual_food_name:en:Puff pastry, frozen, raw
@@ -79174,16 +79182,16 @@ ciqual_food_name:fr:Pâte feuilletée, surgelée, crue
 
 <en:Raw puff pastry
 <en:Frozen foods
-en:Frozen raw puff pastry with pure butter
-fr:Pâte feuilletée pur beurre surgelée crue
+en:Frozen puff pastry with pure butter
+fr:Pâte feuilletée pur beurre surgelée
 agribalyse_food_code:en:23425
 ciqual_food_code:en:23425
 ciqual_food_name:en:Puff pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte feuilletée pur beurre, surgelée crue
 
 <en:Pie dough
-en:Phyllo dough raw, Filo dough raw
-fr:Pâte phyllo crue, Pâte filo crue
+en:Phyllo dough, Filo dough
+fr:Pâte phyllo, Pâte filo
 agribalyse_food_code:en:23445
 ciqual_food_code:en:23445
 ciqual_food_name:en:Phyllo or filo dough, raw
@@ -79195,31 +79203,30 @@ nl:Korstdegen
 nl_be:Korstdeeg
 
 <fr:Pâtes sablées
-en:Raw shortbread dough
-fr:Pâte sablée crue
+en:Shortbread dough
+fr:Pâte sablée
 agribalyse_food_code:en:23440
 ciqual_food_code:en:23440
 ciqual_food_name:en:Shortbread dough, raw
 ciqual_food_name:fr:Pâte sablée, crue
 
+<en:Shortbread dough
+en:Cooked shortbread dough
+fr:Pâte sablée cuite
+agribalyse_food_code:en:23442
+ciqual_food_code:en:23442
+ciqual_food_name:en:Shortbread dough, cooked
+ciqual_food_name:fr:Pâte sablée, cuite
+
 <fr:Pâtes sablées
-en:Raw shortbread dough with pure butter
-fr:Pâte sablée pur beurre crue
+en:Shortbread dough with pure butter
+fr:Pâte sablée pur beurre
 agribalyse_food_code:en:23444
 ciqual_food_code:en:23444
 ciqual_food_name:en:Shortbread dough, pure butter, raw
 ciqual_food_name:fr:Pâte sablée pur beurre, crue
 
-<fr:Pâtes sablées
-<en:Frozen foods
-en:Frozen raw shortbread dough with pure butter
-fr:Pâte sablée pur beurre surgelée crue
-agribalyse_food_code:en:23446
-ciqual_food_code:en:23446
-ciqual_food_name:en:Shortbread dough, pure butter, frozen, raw
-ciqual_food_name:fr:Pâte sablée pur beurre, surgelée, crue
-
-<fr:Pâtes sablées
+<en:Shortbread dough with pure butter
 en:Cooked shortbread dough with pure butter
 fr:Pâte sablée pur beurre cuite
 agribalyse_food_code:en:23448
@@ -79228,12 +79235,13 @@ ciqual_food_name:en:Shortbread dough, pure butter, cooked
 ciqual_food_name:fr:Pâte sablée pur beurre, cuite
 
 <fr:Pâtes sablées
-en:Cooked shortbread dough
-fr:Pâte sablée cuite
-agribalyse_food_code:en:23442
-ciqual_food_code:en:23442
-ciqual_food_name:en:Shortbread dough, cooked
-ciqual_food_name:fr:Pâte sablée, cuite
+<en:Frozen foods
+en:Frozen shortbread dough with pure butter
+fr:Pâte sablée pur beurre surgelée
+agribalyse_food_code:en:23446
+ciqual_food_code:en:23446
+ciqual_food_name:en:Shortbread dough, pure butter, frozen, raw
+ciqual_food_name:fr:Pâte sablée pur beurre, surgelée, crue
 
 en:Pizza dough, Pizzas dough
 de:Pizzateige
@@ -79243,11 +79251,6 @@ fr:Pâtes à pizza, Pâtes à pizzas, Pâte à pizzas, Pâte à pizza
 hu:Pizza tészta
 it:Impasto per pizza
 nl:Pizzadeeg
-
-en:Dishes that may contain horse meat
-de:Gerichte die Pferdefleisch beinhalten könnten
-fr:Plats susceptibles de contenir de la viande de cheval
-nl:Gerechten die paardenvlees kunnen bevatten
 
 <en:Pizza dough
 en:Cooked pizza base
@@ -80665,6 +80668,11 @@ en:stuffing
 fr:farces
 
 ### Extra categories
+
+en:Dishes that may contain horse meat
+de:Gerichte die Pferdefleisch beinhalten könnten
+fr:Plats susceptibles de contenir de la viande de cheval
+nl:Gerechten die paardenvlees kunnen bevatten
 
 en:Batches withdrawn from retail stores
 de:Aus dem Handel genommene Posten
