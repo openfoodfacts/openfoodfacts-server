@@ -160,7 +160,7 @@ my %may_contain_regexps = (
 	it => "Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
-	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk",
+	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
@@ -1388,6 +1388,7 @@ sub parse_ingredients_text($) {
 							],
 
 							'nl' => [
+								'^allergie.informatie$',
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
