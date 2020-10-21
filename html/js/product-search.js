@@ -28,6 +28,12 @@ function match_product_to_preferences (product, product_preferences) {
 		"important" : []
 	};
 
+	product.match_attributes = {
+		"mandatory" : [],
+		"very_important" : [],
+		"important" : []
+	};
+
 	if (product.attribute_groups) {
 		
 		// Iterate over attribute groups
@@ -76,7 +82,9 @@ function match_product_to_preferences (product, product_preferences) {
 					
 					if (attribute.icon_url) {
 						product.match_icons[product_preferences[attribute.id]].push(attribute.icon_url);
-					}					
+					}
+					
+					product.match_attributes[product_preferences[attribute.id]].push(attribute);
 				}
 			});
 		});		
@@ -189,16 +197,61 @@ function display_products(target, product_groups ) {
 }
 
 
+function display_product_summary(target, product) {
+	
+	var user_product_preferences = get_user_product_preferences();
+	
+	match_product_to_preferences(product, user_product_preferences);
+	
+	var attributes_html = '';
+	
+	$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
+		
+		// vary the color from green to red
+		var color = "#eee";
+		
+		if (attribute.status == "known") {
+			if (attribute.match <= 20) {
+				color = "hsl(0, 100%, 90%)";
+			}
+			else if (attribute.match <= 40) {
+				color = "hsl(30, 100%, 90%)";
+			}
+			else if (attribute.match <= 60) {
+				color = "hsl(60, 100%, 90%)";
+			}
+			else if (attribute.match <= 80) {
+				color = "hsl(90, 100%, 90%)";
+			}
+			else {
+				color = "hsl(120, 100%, 90%)";
+			}
+		}
+		
+		attributes_html += '<div class="small-12 medium-6 large-4 columns">'
+		+ '<div style="border-radius:12px;background-color:' + color + ';padding:1rem;margin-bottom:1rem;min-height:96px;">'
+		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;">'
+		+ '<h4>' + attribute.title + '</h4>';
+		
+		if (attribute.description_short) {
+			attributes_html += '<span>' + attribute.description_short + '</span>'
+		}
+		
+		attributes_html += '</div>'
+		+ '</div>';
+	});
+	
+	$( target ).html('<div class="row" id="attributes_row">' + attributes_html + '</div>');
+		
+	$(document).foundation('equalizer', 'reflow');
+}
+
+
 function rank_and_display_products (target) {
 	
 	// Retrieve user preferences from local storage
 
-	var user_product_preferences = {};
-	var user_product_preferences_string = localStorage.getItem('user_product_preferences');
-
-	if (user_product_preferences_string) {
-		user_product_preferences = JSON.parse(user_product_preferences_string);
-	}	
+	var user_product_preferences = get_user_product_preferences();
 	
 	var ranked_products = rank_products(products, user_product_preferences);
 			
