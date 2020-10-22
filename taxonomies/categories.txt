@@ -68196,6 +68196,10 @@ fr:Morues, Morue, Cabillauds, Cabillaud
 it:Merluzzo
 nl:Kabeljauw
 ro:Cod, Cozi
+agribalyse_food_code:en:26043
+ciqual_food_code:en:26043
+ciqual_food_name:en:Cod, raw
+ciqual_food_name:fr:Cabillaud, cru
 
 <en:Cods
 en:Cooked cods, Cooked cod
@@ -68240,14 +68244,6 @@ agribalyse_food_code:en:26025
 ciqual_food_code:en:26025
 ciqual_food_name:en:Cod, steamed
 ciqual_food_name:fr:Cabillaud, cuit à la vapeur
-
-<en:Cods
-en:Cod
-fr:Cabillaud
-agribalyse_food_code:en:26043
-ciqual_food_code:en:26043
-ciqual_food_name:en:Cod, raw
-ciqual_food_name:fr:Cabillaud, cru
 
 <en:Cods
 en:Salted boiled cod, Salted cod cooked in water
@@ -68612,7 +68608,7 @@ ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cu
 #TODO Split
 <en:Seafood
 en:Fish and shrimp au gratin previously frozen
-fr:Gratin de poissons cuit, Gratin de fruits de mer à cuire, Cassolette de poissons cuit, Cassolette de fruits de mer cuit
+fr:Gratin de poissons cuit, Gratin de fruits de mer cuit, Cassolette de poissons cuit, Cassolette de fruits de mer cuit
 agribalyse_food_code:en:25038
 ciqual_food_code:en:25038
 ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
@@ -79352,13 +79348,10 @@ ciqual_food_name:en:Phyllo or filo dough, raw
 ciqual_food_name:fr:Pâte phyllo ou Pâte filo, crue
 
 <en:Pie dough
+en:Shortbread dough
 fr:Pâtes sablées, Pâte sablée, Pâtes à tarte sablées
 nl:Korstdegen
 nl_be:Korstdeeg
-
-<fr:Pâtes sablées
-en:Shortbread dough
-fr:Pâte sablée
 agribalyse_food_code:en:23440
 ciqual_food_code:en:23440
 ciqual_food_name:en:Shortbread dough, raw
