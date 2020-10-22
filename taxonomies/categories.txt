@@ -25964,7 +25964,7 @@ nl:Pure chocolade met gember
 
 <en:Dark chocolate
 en:Dark chocolate bar with less than 70% cocoa
-fr:Chocolat noir à moins de 70% de cacao en tablette à croquer
+fr:Chocolat noir à moins de 70% de cacao en tablette, Tablettes de chocolat noir à moins de 70% de cacao
 agribalyse_food_code:en:31005
 ciqual_food_code:en:31005
 ciqual_food_name:en:Dark chocolate bar, less than 70% cocoa
@@ -25973,7 +25973,7 @@ ciqual_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
 <en:Dark chocolate
 <en:Filled chocolates
 en:Dark chocolate filled with mint confectionery
-fr:Chocolats noirs fourrés à la menthe
+fr:Chocolats noirs fourrés à la menthe, Tablettes de chocolat noir fourrés à la menthe
 agribalyse_food_code:en:31072
 ciqual_food_code:en:31072
 ciqual_food_name:en:Dark chocolate, filled with mint confectionery
@@ -25990,7 +25990,7 @@ ciqual_food_name:fr:Chocolat noir à 70% cacao minimum, extra, dégustation, tab
 <en:Dark chocolate
 <en:Filled chocolates
 en:Dark chocolate bar filled with praline
-fr:Chocolat noir en tablette fourré au praliné
+fr:Chocolat noir en tablette fourré au praliné, Tablettes de chocolat noir fourré au praliné
 agribalyse_food_code:en:31080
 ciqual_food_code:en:31080
 ciqual_food_name:en:Dark chocolate bar, filled with praline
@@ -25998,7 +25998,7 @@ ciqual_food_name:fr:Chocolat noir fourré praliné, tablette
 
 <en:Dark chocolate
 en:Dark chocolate bar for cooking with more than 40% cocoa
-fr:Chocolat noir pâtissier en tablette à 40% de cacao minimum
+fr:Chocolat noir pâtissier en tablette à 40% de cacao minimum, Tablettes de chocolat noir pâtissier à 40% de cacao minimum
 agribalyse_food_code:en:31085
 ciqual_food_code:en:31085
 ciqual_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
@@ -26023,13 +26023,6 @@ fr:Chocolats noirs salés
 it:Cioccolato fondente salato
 nl:Pure chocola met zout
 
-<en:Fleur de sel chocolates
-<en:Salted dark chocolates
-en:Dark chocolates with fleur de sel
-de:Dunkle Schokolade mit Fleur de Sel
-fr:Chocolats noirs à la fleur de sel
-nl:Pure chocola met fleur de sel
-
 <en:Milk chocolates
 <en:Salted chocolates
 en:Salted milk chocolates
@@ -26038,18 +26031,25 @@ fi:suolaiset maitosuklaat
 fr:Chocolats au lait salés
 nl:Melkchocola met zout
 
+<en:Salted chocolates
+en:Fleur de sel chocolates
+de:Schokoladen mit Fleur de Sel
+fr:Chocolats à la fleur de sel
+nl:Chocola met fleur de sel
+
+<en:Fleur de sel chocolates
+<en:Salted dark chocolates
+en:Dark chocolates with fleur de sel
+de:Dunkle Schokolade mit Fleur de Sel
+fr:Chocolats noirs à la fleur de sel
+nl:Pure chocola met fleur de sel
+
 <en:Fleur de sel chocolates
 <en:Salted milk chocolates
 en:Milk chocolates with fleur de sel
 de:Milchschokolade mit Fleur de Sel
 fr:Chocolats au lait à la fleur de sel
 nl:Melkchocola met fleur de sel
-
-<en:Salted chocolates
-en:Fleur de sel chocolates
-de:Schokoladen mit Fleur de Sel
-fr:Chocolats à la fleur de sel
-nl:Chocola met fleur de sel
 
 <en:Chocolates
 en:Caramel chocolates
@@ -26142,8 +26142,9 @@ fr:Barres chocolatées biscuitées
 it:Barrette biscottate al cioccolato
 nl:Chocoladerepen met biscuit
 
+# Kitkat
 <fr:Barres chocolatées biscuitées
-fr:Barre chocolatée biscuitée type KitKat, Kitkat
+fr:Barre chocolatée biscuitée type KitKat, Barre chocolatée biscuitée, Kitkat
 
 <en:Chocolate bars
 fr:Barres chocolatées à la noix de coco, barre chocolatée à la noix de coco type Bounty, Bounty
@@ -26231,6 +26232,7 @@ wikidata:en:Q3272827
 
 <en:Candies
 en:French candies
+fr:Bonbons français
 
 <en:French candies
 fr:Bergamote de Nancy, Bergamotes de Nancy
@@ -26269,6 +26271,15 @@ fr:Papillotes en chocolat
 
 <en:Bonbons
 fr:Rochers au chocolat
+agribalyse_proxy_food_code:en:31066
+agribalyse_proxy_food_name:en:Chocolate and nut confectionery filled with praline
+agribalyse_proxy_food_name:fr:Rocher chocolat fourré praliné
+
+<fr:Rochers au chocolat
+fr:Rochers au chocolat au lait
+
+<fr:Rochers au chocolat
+fr:Rochers au chocolat noir
 
 <fr:Rochers au chocolat
 en:Chocolate confectioneries filled with praline, chocolate and nut confectioneries filled with praline
@@ -26305,7 +26316,7 @@ fr:Gingembrettes
 <en:Chocolate covered fruits
 en:Chocolate-covered prune
 de:Pflaumen mit Schokoladenüberzug
-fr:Pruneau recouvert de chocolat
+fr:Pruneau recouvert de chocolat, Pruneau au chocolat
 wikidata:en:Q16826630
 
 <en:Chocolate covered fruits
@@ -26313,13 +26324,13 @@ en:Chocolate-covered raisins
 de:Schokoladenrosinen
 es:Pasas recubiertas de chocolate
 fi:Suklaarusinat
-fr:Raisins secs enrobés de chocolat
+fr:Raisins secs enrobés de chocolat, Raisins secs au chocolat
 nl:Chocoladerozijnen
 wikidata:en:Q5103586
 
 <en:Chocolate covered fruits
 en:Chocolate covered cranberries
-fr:Canneberges enrobées de chocolat
+fr:Canneberges enrobées de chocolat, Canneberges au chocolat
 
 <en:Chocolate covered fruits
 en:Chocolate covered cherries
