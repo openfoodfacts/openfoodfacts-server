@@ -68439,13 +68439,14 @@ en:Canned mussels
 de:Miesmuscheln in Dosen, Muscheln in Dosen
 es:Mejillones enlatados
 fi:purkitetut simpukat
-fr:Moules en conserve
+fr:Moules en conserve, Moules appertisées
 it:Mitili in scatola
 nl:Mossels in blik
 ro:Conserve de midii
-agribalyse_proxy_food_code:en:10028
-agribalyse_proxy_food_name:en:Mussel, canned, drained
-agribalyse_proxy_food_name:fr:Moule, appertisée, égouttée
+agribalyse_food_code:en:10028
+ciqual_food_code:en:10028
+ciqual_food_name:en:Mussel, canned, drained
+ciqual_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
 en:Mussels with escabeche
@@ -68454,14 +68455,6 @@ fr:Moules à l'escabèche
 agribalyse_proxy_food_code:en:10081
 agribalyse_proxy_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
 agribalyse_proxy_food_name:fr:Moules à la sauce catalane ou escabèche (tomate), appertisée, égouttée
-
-<en:Canned mussels
-en:Canned drained mussels
-fr:Moules appertisées égouttées
-agribalyse_food_code:en:10028
-ciqual_food_code:en:10028
-ciqual_food_name:en:Mussel, canned, drained
-ciqual_food_name:fr:Moule, appertisée, égouttée
 
 <en:Canned mussels
 en:Canned mussels in Catalan sauce, Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
@@ -68480,9 +68473,10 @@ fr:Huîtres
 it:Ostriche
 nl:Oesters
 ro:Stridii
-agribalyse_proxy_food_code:en:10035
-agribalyse_proxy_food_name:en:Pacific oyster, raw
-agribalyse_proxy_food_name:fr:Huître creuse, crue
+agribalyse_food_code:en:10011
+ciqual_food_code:en:10011
+ciqual_food_name:en:Oyster, raw
+ciqual_food_name:fr:Huître, sans précision, crue
 wikidata:en:Q107411
 
 #<en:British sea products
@@ -68493,24 +68487,16 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Oysters
-en:Raw oysters
-fr:Huîtres crues
-agribalyse_food_code:en:10011
-ciqual_food_code:en:10011
-ciqual_food_name:en:Oyster, raw
-ciqual_food_name:fr:Huître, sans précision, crue
-
-<en:Oysters
-en:Raw Pacific oysters
-fr:Huîtres creuses crues
+en:Pacific oysters
+fr:Huîtres creuses
 agribalyse_food_code:en:10035
 ciqual_food_code:en:10035
 ciqual_food_name:en:Pacific oyster, raw
 ciqual_food_name:fr:Huître creuse, crue
 
 <en:Oysters
-en:Raw European oysters
-fr:Huîtres plates crues
+en:European oysters
+fr:Huîtres plates
 agribalyse_food_code:en:10036
 ciqual_food_code:en:10036
 ciqual_food_name:en:European oyster, raw
@@ -68523,15 +68509,15 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Mollusc
-en:Raw cuttlefish
-fr:Seiche crue
+en:Cuttlefish
+fr:Seiche
 ciqual_food_code:en:10016
 ciqual_food_name:en:Cuttlefish, raw
 ciqual_food_name:fr:Seiche, crue
 
 <en:Mollusc
-en:Raw common octopus
-fr:Poulpe cru
+en:Common octopus
+fr:Poulpe
 ciqual_food_code:en:10018
 ciqual_food_name:en:Octopus, common, raw
 ciqual_food_name:fr:Poulpe, cru
@@ -68556,15 +68542,15 @@ ru:Кальмар, Кальмары
 wikidata:en:Q550774
 
 <en:Calamari
-en:Raw squid
-fr:Calmar cru, Calamar cru, Encornet cru
+en:Squid
+fr:Calmar, Calamar, Encornet
 agribalyse_food_code:en:10001
 ciqual_food_code:en:10001
 ciqual_food_name:en:Squid, raw
 ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
 
 <en:Mollusc
-en:Squid boiled/cooked in water
+en:Squid boiled in water, Squid cooked in water
 fr:calamar cuit à l'eau, encornet cuit à l'eau, calmar cuit à l'eau
 agribalyse_food_code:en:10037
 ciqual_food_code:en:10037
@@ -68623,9 +68609,10 @@ ciqual_food_code:en:25037
 ciqual_food_name:en:Fish or seafood au gratin, intended to be cook
 ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
 
+#TODO Split
 <en:Seafood
 en:Fish and shrimp au gratin previously frozen
-fr:Gratin de poissons cuit, Gratin de fruits de mer à cuit, Cassolette de poissons cuit, Cassolette de fruits de mer cuit
+fr:Gratin de poissons cuit, Gratin de fruits de mer à cuire, Cassolette de poissons cuit, Cassolette de fruits de mer cuit
 agribalyse_food_code:en:25038
 ciqual_food_code:en:25038
 ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
