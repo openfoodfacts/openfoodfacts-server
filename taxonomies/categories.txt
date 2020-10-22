@@ -357,8 +357,24 @@ ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
 ciqual_food_name:fr:Dessert lacté infantile au riz ou à la semoule
 
 <en:Snacks and desserts for babies
-en:Plain dairy dessert for baby with sugar, Dairy dessert for baby with sugar and fruits
-fr:Dessert lacté pour bébé nature sucré, Dessert lacté pour bébé sucré aux fruits
+en:Plain dairy dessert for baby
+fr:Dessert lacté pour bébé nature
+agribalyse_food_code:en:13166
+ciqual_food_code:en:13166
+ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
+ciqual_food_name:fr:Dessert lacté infantile nature sucré ou aux fruits
+
+<en:Snacks and desserts for babies
+en:Dairy dessert for baby with sugar
+fr:Dessert lacté pour bébé sucré
+agribalyse_food_code:en:13166
+ciqual_food_code:en:13166
+ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
+ciqual_food_name:fr:Dessert lacté infantile nature sucré ou aux fruits
+
+<en:Snacks and desserts for babies
+en:Plain dairy dessert for baby with fruits
+fr:Dessert lacté pour bébé aux fruits
 agribalyse_food_code:en:13166
 ciqual_food_code:en:13166
 ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
@@ -625,8 +641,17 @@ ciqual_food_name:fr:Soupe pour bébé légumes et pomme de terre
 
 <en:Main meals for babies
 <en:From 6 months
-en:Vegetable dish for baby with starch and meat or fish
-fr:Plat avec légumes et féculents et viande ou poisson
+en:Vegetable dish for baby with starch and fish
+fr:Plat avec légumes et féculents et poisson
+agribalyse_food_code:en:42603
+ciqual_food_code:en:42603
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 6-8 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+
+<en:Main meals for babies
+<en:From 6 months
+en:Vegetable dish for baby with starch and meat
+fr:Plat avec légumes et féculents et viande
 agribalyse_food_code:en:42603
 ciqual_food_code:en:42603
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 6-8 months
@@ -652,8 +677,17 @@ ciqual_food_name:fr:Plat légumes, avec féculent, dès 6-8 mois
 
 <en:Main meals for babies
 <en:From 8 months
-en:Vegetable dish for baby with starch and meat or fish
-fr:Plat avec légumes et féculents et viande ou poisson
+en:Vegetable dish for baby with starch and fish
+fr:Plat avec légumes et féculents et poisson
+agribalyse_food_code:en:42604
+ciqual_food_code:en:42604
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 8-12 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+
+<en:Main meals for babies
+<en:From 8 months
+en:Vegetable dish for baby with starch and meat
+fr:Plat avec légumes et féculents et viande
 agribalyse_food_code:en:42604
 ciqual_food_code:en:42604
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 8-12 months
@@ -670,8 +704,17 @@ ciqual_food_name:fr:Plat légumes, avec féculent et lait/crème, dès 8-12 mois
 
 <en:Main meals for babies
 <en:From 12 months old
-en:Vegetable dish for baby with starch and meat or fish
-fr:Plat avec légumes et féculents et viande ou poisson
+en:Vegetable dish for baby with starch and fish
+fr:Plat avec légumes et féculents et poisson
+agribalyse_food_code:en:42605
+ciqual_food_code:en:42605
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 12 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 12 mois
+
+<en:Main meals for babies
+<en:From 12 months old
+en:Vegetable dish for baby with starch and meat
+fr:Plat avec légumes et féculents et viande
 agribalyse_food_code:en:42605
 ciqual_food_code:en:42605
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 12 months
@@ -688,8 +731,17 @@ ciqual_food_name:fr:Plat légumes, avec féculent et lait/crème, dès 12 mois
 
 <en:Main meals for babies
 <en:From 18 months
-en:Vegetable dish for baby with starch and meat or fish
-fr:Plat avec légumes et féculents et viande ou poisson
+en:Vegetable dish for baby with starch and fish
+fr:Plat avec légumes et féculents et poisson
+agribalyse_food_code:en:42606
+ciqual_food_code:en:42606
+ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 18 months
+ciqual_food_name:fr:Plat légumes, avec féculent et viande/poisson, dès 18 mois
+
+<en:Main meals for babies
+<en:From 18 months
+en:Vegetable dish for baby with starch and meat
+fr:Plat avec légumes et féculents et viande
 agribalyse_food_code:en:42606
 ciqual_food_code:en:42606
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 18 months
@@ -80108,12 +80160,21 @@ zh:食品装饰品
 
 <en:Food decorations
 <en:Pastry helpers
-en:Sprinkles, Chocolat or sugar sprinkles, Multi-coloured vermicelli
-fr:Vermicelles en chocolat ou en sucre, Vermicelles multicolores
-nl:Chocolade of suiker hagel
+en:Sprinkles, Multi-coloured vermicelli
+fr:Vermicelles multicolores
 ciqual_food_code:en:11510
 ciqual_food_name:en:Multi-coloured vermicelli
 ciqual_food_name:fr:Vermicelles multicolores
+
+<en:Sprinkles
+en:Sugar sprinkles
+fr:Vermicelles en sucre
+nl:Suiker hagel
+
+<en:Sprinkles
+en:Chocolate sprinkles
+fr:Vermicelles en chocolat
+nl:Chocolade hagel
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
