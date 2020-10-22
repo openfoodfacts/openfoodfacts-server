@@ -67286,7 +67286,8 @@ agribalyse_food_code:en:25998
 agribalyse_proxy_food_name:en:Atlantic herring, smoked, fillet
 agribalyse_proxy_food_name:fr:Hareng fumé, filet, doux
 
-<en:Herring
+<en:Smoked herrings
+<en:Herring fillets
 en:Smoked Atlantic herring fillet
 fr:Filet de hareng fumé doux
 agribalyse_food_code:en:25998
@@ -67294,7 +67295,7 @@ ciqual_food_code:en:25998
 ciqual_food_name:en:Atlantic herring, smoked, fillet
 ciqual_food_name:fr:Hareng fumé, filet, doux
 
-<en:Herring
+<en:Smoked herrings
 en:Smoked Atlantic herring in oil
 fr:Hareng fumé à l'huile
 agribalyse_food_code:en:26232
@@ -67302,7 +67303,7 @@ ciqual_food_code:en:26232
 ciqual_food_name:en:Atlantic herring, smoked, in oil
 ciqual_food_name:fr:Hareng fumé, à l'huile
 
-<en:Herring
+<en:Smoked herrings
 en:Plain smoked Atlantic herring
 fr:Hareng fumé au naturel
 agribalyse_food_code:en:26013
@@ -67755,32 +67756,32 @@ nl:Baars
 wikidata:en:Q1224135
 
 <en:Bass
-en:Raw American bass
-fr:Bar rayé cru, Bar d'Amérique cru
+en:American bass
+fr:Bar rayé, Bar d'Amérique
 agribalyse_food_code:en:26001
 ciqual_food_code:en:26001
 ciqual_food_name:en:American bass, raw
 ciqual_food_name:fr:Bar rayé ou bar d'Amérique cru
 
 <en:Bass
-en:Raw Atlantic bass
-fr:Bar cru, Loup de l'Atlantique
+en:Atlantic bass
+fr:Bar, Loup de l'Atlantique
 agribalyse_food_code:en:26075
 ciqual_food_code:en:26075
 ciqual_food_name:en:Atlantic bass, raw
 ciqual_food_name:fr:Bar ou loup de l'Atlantique, cru
 
 <en:Bass
-en:Raw European bass
-fr:Bar commun cru, Loup cru
+en:European bass
+fr:Bar commun, Loup
 agribalyse_food_code:en:26072
 ciqual_food_code:en:26072
 ciqual_food_name:en:European bass, raw
 ciqual_food_name:fr:Bar commun ou loup, cru, sans précision
 
 <en:Bass
-en:Raw wild mediterranean bass
-fr:Bar commun cru sauvage, Loup de Méditerranée cru sauvage
+en:Wild mediterranean bass
+fr:Bar commun sauvage, Loup de Méditerranée sauvage
 agribalyse_food_code:en:26205
 ciqual_food_code:en:26205
 ciqual_food_name:en:Mediterranean bass, raw, wild
@@ -67788,7 +67789,7 @@ ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
 
 <en:Bass
 en:Raw farmed Mediterranean bass
-fr:Bar commun cru d'élevage, Loup de Méditerranée cru d'élevage
+fr:Bar commun d'élevage, Loup de Méditerranée d'élevage
 agribalyse_food_code:en:26206
 ciqual_food_code:en:26206
 ciqual_food_name:en:Mediterranean bass, raw, farmed
@@ -67796,7 +67797,7 @@ ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
 
 <en:Fishes
 en:Spotted wolffish
-fr:Loup tacheté cru
+fr:Loup tacheté
 agribalyse_food_code:en:26172
 ciqual_food_code:en:26172
 ciqual_food_name:en:Spotted wolffish
@@ -67821,8 +67822,8 @@ en:Gilthead seabream
 fr:Dorade royale
 
 <en:Gilthead seabream
-en:Raw wild gilthead seabream
-fr:Daurade sauvage crue, Dorade royale sauvage crue, Vraie daurade sauvage crue
+en:Wild gilthead seabream
+fr:Daurade sauvage, Dorade royale sauvage, Vraie daurade sauvage
 agribalyse_food_code:en:26080
 ciqual_food_code:en:26080
 ciqual_food_name:en:Gilthead seabream, raw, wild
@@ -67830,7 +67831,7 @@ ciqual_food_name:fr:Dorade royale, ou daurade ou vraie daurade, crue, sauvage
 
 <en:Gilthead seabream
 en:Farmed gilthead seabream
-fr:Dorade royale d'élevage crue, Daurade d'élevage crue, Vraie daurade d'élevage crue
+fr:Dorade royale d'élevage, Daurade d'élevage, Vraie daurade d'élevage
 agribalyse_food_code:en:26088
 ciqual_food_code:en:26088
 ciqual_food_name:en:Gilthead seabream, raw, farmed
@@ -67907,8 +67908,8 @@ ciqual_food_name:en:Atlantic herring, grilled/pan-fried
 ciqual_food_name:fr:Hareng, grillé/poêlé
 
 <en:Herring
-en:Raw Atlantic herring
-fr:Hareng cru
+en:Atlantic herring
+fr:Hareng
 agribalyse_food_code:en:26011
 ciqual_food_code:en:26011
 ciqual_food_name:en:Atlantic herring, raw
@@ -67939,8 +67940,8 @@ ciqual_food_name:en:Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Fishes
-en:Raw pike-perch
-fr:Sandre cru
+en:Pike-perch
+fr:Sandre
 ciqual_food_code:en:27024
 ciqual_food_name:en:Pike-perch, raw
 ciqual_food_name:fr:Sandre, cru
@@ -67960,16 +67961,16 @@ ciqual_food_name:en:Anglerfish, grilled
 ciqual_food_name:fr:Lotte ou baudroie, grillée/poêlée
 
 <en:Anglers
-en:Raw anglerfish
-fr:Lotte crue, Baudroie crue
+en:Anglerfish
+fr:Lotte, Baudroie
 agribalyse_food_code:en:26018
 ciqual_food_code:en:26018
 ciqual_food_name:en:Anglerfish, raw
 ciqual_food_name:fr:Lotte ou baudroie, crue
 
 <en:Anglers
-en:Raw burbot
-fr:Lotte de rivière crue
+en:Burbot
+fr:Lotte de rivière
 ciqual_food_code:en:27023
 ciqual_food_name:en:Burbot, raw
 ciqual_food_name:fr:Lotte de rivière, crue
@@ -68035,8 +68036,8 @@ ciqual_food_name:en:Mackerel, marinated
 ciqual_food_name:fr:Maquereau, mariné
 
 <en:Mackerels
-en:Raw Atlantic chub mackerel
-fr:Maquereau espagnol cru, Maquereau blanc cru, Maquereau billard cru
+en:Atlantic chub mackerel
+fr:Maquereau espagnol, Maquereau blanc, Maquereau billard
 agribalyse_food_code:en:26102
 ciqual_food_code:en:26102
 ciqual_food_name:en:Atlantic chub mackerel, raw
@@ -68067,9 +68068,9 @@ ciqual_food_name:en:Horse mackerel, lean (spring, summer), raw
 ciqual_food_name:fr:Chinchard maigre, cru
 
 <en:Mackerel fillets
-en:Mackerel fillets in mustard sauce, Mackerel fillet in mustard sauce canned drained
+en:Mackerel fillets in mustard sauce, Canned mackerel fillets in mustard sauce
 fi:Makrillifileet sinappikastikkeessa
-fr:Filets de maquereaux à la moutarde, Maquereau filet sauce moutarde appertisé égoutté
+fr:Filets de maquereaux à la moutarde, Maquereau filet sauce moutarde appertisé
 nl:Makreelfilets met mosterd
 pl:Filety z makreli w sosie musztardowym
 agribalyse_food_code:en:26096
@@ -68077,9 +68078,9 @@ ciqual_food_code:en:26096
 ciqual_food_name:en:Mackerel, fillet, in mustard sauce, canned, drained
 
 <en:Mackerel fillets
-en:Mackerel fillets in white wine and herbs, Mackerel fillet in white wine canned drained
+en:Mackerel fillets in white wine and herbs, Canned mackerel fillets in white wine
 fi:Makrillifileet valkoviinissä yrteillä
-fr:Filets de maquereaux au vin blanc et aromates, Maquereau filet au vin blanc appertisé égoutté
+fr:Filets de maquereaux au vin blanc et aromates, Maquereau filet au vin blanc appertisé
 nl:Makreelfilets in witte wijn en kruiden
 pl:Filety z makreli w białym winie z ziołami
 agribalyse_food_code:en:26097
@@ -68092,10 +68093,10 @@ fr:Filets de maquereaux tomate-basilic
 nl:Makreelfilets in tomatenbasilicumsaus
 
 <en:Mackerel fillets
-en:Mackerel fillets with tomato sauce, Mackerel fillet in tomato sauce canned drained
+en:Mackerel fillets with tomato sauce, Mackerel fillet in tomato sauce canned
 fi:Makrillifileet tomaattikastikkeella
 ro:Macrou file în sos tomat, File de macrou în sos de roșii
-fr:Maquereau filet sauce tomate appertisé égoutté
+fr:Filets de maquereau sauce tomate en conserve, Filets de maquereau sauce tomate appertisé
 agribalyse_food_code:en:26086
 ciqual_food_code:en:26086
 ciqual_food_name:en:Mackerel, fillet, in tomato sauce, canned, drained
@@ -68204,22 +68205,22 @@ ciqual_food_name:en:Cod, cooked (average)
 ciqual_food_name:fr:Cabillaud, cuit, sans précision (aliment moyen)
 
 <en:Fishes
-en:Black seabream raw
-fr:dorade grise crue, daurade grise crue, griset crue
+en:Black seabream
+fr:dorade grise, daurade grise, griset
 agribalyse_food_code:en:26099
 ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
 
 <en:Fishes
-en:Blackspot seabream raw
-fr:dorade rose crue, daurade rose crue
+en:Blackspot seabream
+fr:dorade rose, daurade rose
 agribalyse_food_code:en:26109
 ciqual_food_code:en:26109
 ciqual_food_name:en:Blackspot seabream, raw
 
 <en:Fishes
-en:Salema raw
-fr:Saupe crue
+en:Salema
+fr:Saupe
 agribalyse_food_code:en:26111
 ciqual_food_code:en:26111
 ciqual_food_name:en:Salema, raw
@@ -68241,8 +68242,8 @@ ciqual_food_name:en:Cod, steamed
 ciqual_food_name:fr:Cabillaud, cuit à la vapeur
 
 <en:Cods
-en:Raw cod
-fr:Cabillaud cru
+en:Cod
+fr:Cabillaud
 agribalyse_food_code:en:26043
 ciqual_food_code:en:26043
 ciqual_food_name:en:Cod, raw
@@ -68270,17 +68271,13 @@ de:Kabeljaulebern
 fi:turskanmaksat
 fr:Foies de morue, foie de morue
 nl:Kabeljauwlevers
-
-<en:Cod livers
-en:Raw cod liver
-fr:Foie de morue cru
 ciqual_food_code:en:26141
 ciqual_food_name:en:Cod liver, raw
 ciqual_food_name:fr:Foie de morue, cru
 
 <en:Cod livers
-en:Canned drained cod liver
-fr:Foie de morue appertisé égoutté
+en:Canned cod liver
+fr:Foie de morue appertisé, Foie de morue en conserve
 ciqual_food_code:en:26142
 ciqual_food_name:en:Cod liver, canned, drained
 ciqual_food_name:fr:Foie de morue, appertisé, égoutté
@@ -68309,8 +68306,8 @@ ciqual_food_name:en:Crustacean or mollusk (average)
 ciqual_food_name:fr:Fruits de mer (aliment moyen)
 
 <en:Mollusc
-en:Raw abalone, Raw ormer, Raw sea ear
-fr:Ormeau cru
+en:Abalone, Ormer, Sea ear
+fr:Ormeau
 ciqual_food_code:en:10041
 ciqual_food_name:en:Abalone or ormer or sea ear, raw
 ciqual_food_name:fr:Ormeau, cru
@@ -68340,8 +68337,8 @@ ciqual_food_name:en:Clam, boiled/cooked in water
 ciqual_food_name:fr:Clam, Praire ou Palourde, bouilli/cuit à l'eau
 
 <en:Mollusc
-en:Raw clam
-fr:Palourde crue, Praire crue, Clam cru
+en:Clam
+fr:Palourde, Praire, Clam
 ciqual_food_code:en:10017
 ciqual_food_name:en:Clam, raw
 ciqual_food_name:fr:Clam, Praire ou Palourde, cru
@@ -68354,13 +68351,13 @@ ciqual_food_name:en:Whelk, cooked
 ciqual_food_name:fr:Bulot ou Buccin, cuit
 
 <en:Mollusc
-en:Raw whelk
-fr:Bulot cru, Buccin cru
+en:Whelk
+fr:Bulot, Buccin
 ciqual_food_code:en:10019
 ciqual_food_name:en:Whelk, raw
 ciqual_food_name:fr:Bulot ou Buccin, cru
 
-<en:Mollusc
+<en:Whelk
 fr:Bulot de la Baie de Granville
 protected_name_file_number:en: PGI-FR-02319
 protected_name_type:en: pgi
@@ -68377,16 +68374,16 @@ nl:Mosselen
 wikidata:en:Q15735642
 
 <en:Mussels
-en:Raw common mussels
-fr:Moules communes crues
+en:Common mussels
+fr:Moules communes
 agribalyse_food_code:en:10014
 ciqual_food_code:en:10014
 ciqual_food_name:en:Mussel, common, raw
 ciqual_food_name:fr:Moule commune, crue
 
 <en:Mussels
-en:Raw Mediterranean mussels
-fr:Moules de Méditerranée crues
+en:Mediterranean mussels
+fr:Moules de Méditerranée
 agribalyse_food_code:en:10026
 ciqual_food_code:en:10026
 ciqual_food_name:en:Mediterranean mussel, raw
@@ -68402,7 +68399,7 @@ ciqual_food_name:fr:Moules marinières (oignons et vin blanc)
 
 <en:Mussels
 en:Filled mussels, Mussels filled with fat parsley and garlic
-fr:Moules farcies crues, Moules farcies en persillade crues
+fr:Moules farcies, Moules farcies en persillade
 agribalyse_food_code:en:10083
 ciqual_food_code:en:10083
 ciqual_food_name:en:Mussels, filled (fat, parsley and garlic…)
