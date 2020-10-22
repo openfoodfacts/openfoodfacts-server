@@ -147,8 +147,98 @@ sub compute_ecoscore($) {
 
 	my $product_ref = shift;
 	
-	$product_ref->{ecoscore_data} = {};
+	$product_ref->{ecoscore_data} = {
+		adjustments => {},
+	};
 	
+	# Compute the LCA Eco-Score based on AgriBalyse
+	
+	compute_ecoscore_agribalyse($product_ref);
+	
+	# Compute the bonuses and maluses
+	
+	compute_ecoscore_production_system_adjustment($product_ref);
+	
+	# Compute the final Eco-Score and assign the A to E grade
+	
+	# We need an AgriBalyse category match to compute the Eco-Score
+	if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
+		
+		$product_ref->{ecoscore_data}{status} = "known";
+		$product_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{agribalyse}{score};
+		
+		$log->debug("compute_ecoscore - agribalyse score", { agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
+		
+		# Add adjustments (maluses or bonuses)
+		
+		foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
+				$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
+				$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
+					value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+			}
+		}
+		
+		# Assign A to E grade
+		
+		if ($product_ref->{ecoscore_score} >= 80) {
+			$product_ref->{ecoscore_grade} = "a";
+		}
+		elsif ($product_ref->{ecoscore_score} >= 60) {
+			$product_ref->{ecoscore_grade} = "b";
+		}
+		elsif ($product_ref->{ecoscore_score} >= 40) {
+			$product_ref->{ecoscore_grade} = "c";
+		}
+		elsif ($product_ref->{ecoscore_score} >= 20) {
+			$product_ref->{ecoscore_grade} = "d";
+		}
+		else {
+			$product_ref->{ecoscore_grade} = "e";
+		}
+		$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
+		$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
+		
+		$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
+	}
+	else {
+		# No AgriBalyse category match
+		$product_ref->{ecoscore_data}{status} = "unknown";
+	}
+}
+
+
+=head2 compute_ecoscore_agribalyse ( $product_ref )
+
+C<compute_ecoscore()> computes the Life Cycle Analysis (LCA) part of the Eco-Score,
+based on the French AgriBalyse database.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The LCA score and computations details are stored in the product reference passed as input parameter.
+
+Returned values:
+
+$product_ref->{agribalyse} hash with:
+- 
+
+$product_ref->{ecoscore_data}{missing} hash with:
+- categories if the product does not have a category
+- agb_category if the product does not have an Agribalyse match
+or proxy match for at least one of its categories.
+
+=cut
+
+sub compute_ecoscore_agribalyse($) {
+
+	my $product_ref = shift;
+	
+	$product_ref->{ecoscore_data}{agribalyse} = {};
+		
 	# Check the input data
 	
 	# Check if one of the product categories has an Agribalyse match or proxy match
@@ -171,11 +261,11 @@ sub compute_ecoscore($) {
 		}
 		
 		if ($agb_match) {
-			$product_ref->{ecoscore_data}{agribalyse_food_code} = $agb_match;
+			$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_code} = $agb_match;
 			$agb = $agb_match;
 		}
 		elsif ($agb_proxy_match) {
-			$product_ref->{ecoscore_data}{agribalyse_proxy_food_code} = $agb_proxy_match;
+			$product_ref->{ecoscore_data}{agribalyse}{agribalyse_proxy_food_code} = $agb_proxy_match;
 			$agb = $agb_proxy_match;
 		}
 		else {
@@ -188,51 +278,85 @@ sub compute_ecoscore($) {
 		$product_ref->{ecoscore_data}{missing}{categories} = 1;
 	}
 	
-	# Compute the Eco-Score
-	
-	my $ecoscore_score;
-	
+	# Compute the Eco-Score on a 0 to 100 scale
+		
 	if ($agb) {
-		$product_ref->{ecoscore_data}{agribalyse_food_name_fr} = $agribalyse{$agb}{name_fr};
-		$product_ref->{ecoscore_data}{agribalyse_food_name_en} = $agribalyse{$agb}{name_en};
-		$product_ref->{ecoscore_data}{agribalyse_ef_total} = $agribalyse{$agb}{ef_total};
+		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_fr} = $agribalyse{$agb}{name_fr};
+		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_en} = $agribalyse{$agb}{name_en};
+		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_ef_total} = $agribalyse{$agb}{ef_total};
 		
 		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
-		$ecoscore_score = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 195 ) + 178;
-	}
-	else {
-		# We need an AgriBalyse category match to compute the Eco-Score
-		$product_ref->{ecoscore_data}{status} = "unknown";
-	}
-	
-	if ($ecoscore_score) {
-		$product_ref->{ecoscore_data}{status} = "known";
-		$product_ref->{ecoscore_score} = $ecoscore_score;
-		
-		if ($product_ref->{ecoscore_score} >= 80) {
-			$product_ref->{ecoscore_grade} = "a";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 60) {
-			$product_ref->{ecoscore_grade} = "b";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 40) {
-			$product_ref->{ecoscore_grade} = "c";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 20) {
-			$product_ref->{ecoscore_grade} = "d";
-		}
-		else {
-			$product_ref->{ecoscore_grade} = "e";
-		}
-		$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
-		$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
-	}
-	else {
-		$product_ref->{ecoscore_data}{status} = "unknown";
+		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 195 ) + 178;
 	}
 }
 
+
+=head2 compute_ecoscore_production_system_adjustment ( $product_ref )
+
+Computes an adjustment (bonus or malus) based on production system of the product (e.g. organic).
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+Returned values:
+
+$product_ref->{adjustments}{production_system} hash with:
+- 
+
+$product_ref->{ecoscore_data}{missing} hash with:
+
+
+=cut
+
+my @production_system_labels = (
+	["fr:nature-et-progres", 20],
+	["fr:bio-coherence", 20],
+	["en:demeter", 20],
+	
+	["fr:ab-agriculture-biologique", 15],
+	["en:eu-organic", 15],
+	
+	["fr:haute-valeur-environnementale", 10],
+	["en:utz-certified", 10],
+	["en:rainforest-alliance", 10],
+	["en:fairtrade-international", 10],
+	["fr:bleu-blanc-coeur", 10],
+	["fr:label-rouge", 10],
+	["en:sustainable-seafood-msc", 10],
+	["en:responsible-aquaculture-asc", 10],
+);
+
+sub compute_ecoscore_production_system_adjustment($) {
+
+	my $product_ref = shift;
+	
+	$product_ref->{ecoscore_data}{adjustments}{production_system} = {};
+		
+	foreach my $label_ref (@production_system_labels) {
+		
+		my ($label, $value) = @$label_ref;
+		
+		if (has_tag($product_ref, "labels", $label)
+			# Label Rouge labels is counted only for beef, veal and lamb
+			and (($label ne "fr:label-rouge")
+				or (has_tag($product_ref, "categories", "en:beef"))
+				or (has_tag($product_ref, "categories", "en:veal-meat"))
+				or (has_tag($product_ref, "categories", "en:lamb-meat")))) {
+					
+			$product_ref->{ecoscore_data}{adjustments}{production_system}{value} = $value;
+			$product_ref->{ecoscore_data}{adjustments}{production_system}{label} = $label;
+			
+			last;
+		}
+	}
+	
+}
 
 1;
 
