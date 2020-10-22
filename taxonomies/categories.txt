@@ -71723,13 +71723,6 @@ es:Cardos
 fr:Cardons, Cardes
 la:Cynara cardunculus
 nl:Kardoen
-agribalyse_proxy_food_code:en:20054
-agribalyse_proxy_food_name:en:Cardoon, raw
-agribalyse_proxy_food_name:fr:Cardon, cru
-
-<en:Cardoons
-en:Raw cardoons
-fr:Cardon crus
 agribalyse_food_code:en:20054
 ciqual_food_code:en:20054
 ciqual_food_name:en:Cardoon, raw
@@ -71756,9 +71749,10 @@ nl:Wortels
 pl:Marchew
 ru:Морковь
 sv:Morötter, morot
-agribalyse_proxy_food_code:en:20009
-agribalyse_proxy_food_name:en:Carrot, raw
-agribalyse_proxy_food_name:fr:Carotte, crue
+agribalyse_food_code:en:20009
+ciqual_food_code:en:20009
+ciqual_food_name:en:Carrot, raw
+ciqual_food_name:fr:Carotte, crue
 
 <en:Carrots
 <en:Cooked vegetables
@@ -71769,13 +71763,6 @@ ciqual_food_code:en:20008
 ciqual_food_name:en:Carrot, cooked
 ciqual_food_name:fr:Carotte, cuite
 
-<en:Carrots
-en:Raw carrots
-fr:Carottes crues
-agribalyse_food_code:en:20009
-ciqual_food_code:en:20009
-ciqual_food_name:en:Carrot, raw
-ciqual_food_name:fr:Carotte, crue
 
 <en:Carrots
 <en:Fresh vegetables
@@ -72649,9 +72636,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # ingredient/onion has 12754 products in 18 languages @2018-12-06
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
-agribalyse_proxy_food_code:en:20034
-agribalyse_proxy_food_name:en:Onion, raw
-agribalyse_proxy_food_name:fr:Oignon, cru
+agribalyse_food_code:en:20034
+ciqual_food_code:en:20034
+ciqual_food_name:en:Onion, raw
+ciqual_food_name:fr:Oignon, cru
 
 <en:Onions
 en:Yellow onions, yellow onion
@@ -72691,14 +72679,6 @@ en:Fresh red onions
 fr:Oignons rouges frais
 
 <en:Onions
-en:Raw onions
-fr:Oignons crus
-agribalyse_food_code:en:20034
-ciqual_food_code:en:20034
-ciqual_food_name:en:Onion, raw
-ciqual_food_name:fr:Oignon, cru
-
-<en:Onions
 <en:Cooked vegetables
 en:Cooked onions
 fr:Oignons cuits
@@ -72716,23 +72696,16 @@ fr:Échalotes, Echalotes
 la:Allium cepa var. aggregatum, Allium ascalonicum
 nl:Sjalotjes
 wikidata:en:Q193498
-agribalyse_proxy_food_code:en:20097
-agribalyse_proxy_food_name:en:Shallot, raw
-agribalyse_proxy_food_name:fr:Échalote, crue
+agribalyse_food_code:en:20097
+ciqual_food_code:en:20097
+ciqual_food_name:en:Shallot, raw
+ciqual_food_name:fr:Échalote, crue
 
 <en:Shallots
 <en:Fresh vegetables
 en:Fresh shallots
 fr:Échalotes fraîches
 season_in_country_fr:en: 10,11,12
-
-<en:Shallots
-en:Raw shallots
-fr:Échalotes crues
-agribalyse_food_code:en:20097
-ciqual_food_code:en:20097
-ciqual_food_name:en:Shallot, raw
-ciqual_food_name:fr:Échalote, crue
 
 <en:Shallots
 <en:Cooked vegetables
@@ -72758,6 +72731,10 @@ fi:paprikat
 fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
 la:Capsicum annuum
 nl:Pepers en paprikas
+agribalyse_food_code:en:20041
+ciqual_food_code:en:20041
+ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
+ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 
 <en:Sweet peppers
 <en:Fresh vegetables
@@ -72802,13 +72779,6 @@ ciqual_food_code:en:20086
 ciqual_food_name:en:Sweet pepper, green, cooked
 ciqual_food_name:fr:Poivron vert, cuit
 
-<en:Sweet Peppers
-en:Raw sweet peppers
-fr:Poivrons crus
-agribalyse_food_code:en:20041
-ciqual_food_code:en:20041
-ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
-ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 
 <en:Sweet Peppers
 en:Yellow sweet peppers
@@ -73041,9 +73011,10 @@ ciqual_food_name:fr:Pomme de terre primeur, sans peau, bouillie/cuite à l'eau
 <en:Potatoes
 en:Peeled potatoes
 fr:Pommes de terre sans peau
-agribalyse_proxy_food_code:en:4008
-agribalyse_proxy_food_name:en:Potato, peeled, raw
-agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
+agribalyse_food_code:en:4008
+ciqual_food_code:en:4008
+ciqual_food_name:en:Potato, peeled, raw
+ciqual_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Peeled potatoes
 en:Baked peeled potatoes
@@ -73052,14 +73023,6 @@ agribalyse_food_code:en:4002
 ciqual_food_code:en:4002
 ciqual_food_name:en:Potato, peeled, baked
 ciqual_food_name:fr:Pomme de terre, sans peau, cuite au four
-
-<en:Peeled potatoes
-en:Raw peeled potatoes
-fr:Pommes de terre sans peau crues
-agribalyse_food_code:en:4008
-ciqual_food_code:en:4008
-ciqual_food_name:en:Potato, peeled, raw
-ciqual_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Potatoes
 en:Roasted potatoes, Baked potatoes
@@ -73146,7 +73109,7 @@ ciqual_food_name:fr:Potiron, cuit
 
 <en:Pumpkins
 en:Canned pumpkin
-fr:Potiron appertisé
+fr:Potiron en conserve, Potiron appertisé
 agribalyse_food_code:en:20043
 ciqual_food_code:en:20043
 ciqual_food_name:en:Pumpkin, canned, drained
@@ -73601,7 +73564,7 @@ fr:Épinards frais
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Spinachs
-en:Raw spinach young leaves
+en:Spinach young leaves
 fr:Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en:20270
 ciqual_food_code:en:20270
@@ -73791,10 +73754,6 @@ nl:Tomaten
 pl:Pomidory
 pt:Tomates
 ru:Помидоры
-
-<en:Tomatoes
-en:Raw tomatoes
-fr:Tomates crues
 ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
@@ -73855,8 +73814,8 @@ agribalyse_proxy_food_name:en:Tomato, peeled, canned, drained
 agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
-en:Canned drained peeled tomatoes
-fr:Tomates pelées appertisées égouttées
+en:Canned peeled tomatoes
+fr:Tomates pelées appertisées
 agribalyse_food_code:en:20048
 ciqual_food_code:en:20048
 ciqual_food_name:en:Tomato, peeled, canned, drained
@@ -73892,8 +73851,8 @@ it:Zucchine fresche
 season_in_country_fr:en: 5,6,7,8,9,10
 
 <en:Zucchini
-en:Raw courgette pulp and peel, Raw zucchini pulp and peel
-fr:Pulpe et peau de courgette crue
+en:Courgette pulp and peel, Zucchini pulp and peel
+fr:Pulpe et peau de courgette
 agribalyse_food_code:en:20020
 ciqual_food_code:en:20020
 ciqual_food_name:en:Courgette or zucchini, pulp and peel, raw
@@ -73910,8 +73869,8 @@ ciqual_food_name:fr:Courgette, pulpe et peau, cuite
 
 <en:Zucchini
 <en:Frozen vegetables
-en:Frozen raw courgette pulp and peel, Frozen raw zucchini pulp and peel
-fr:Pulpe et peau de courgette surgelée crue
+en:Frozen courgette pulp and peel, Frozen zucchini pulp and peel
+fr:Pulpe et peau de courgette surgelée
 agribalyse_food_code:en:20230
 ciqual_food_code:en:20230
 ciqual_food_name:en:Courgette or zucchini, pulp and peel, frozen, raw
@@ -73942,8 +73901,8 @@ fr:Mélanges de légumes pour soupes
 
 <en:Fresh vegetable mixes
 <en:Frozen foods
-en:Frozen raw mixed vegetables for soups
-fr:Légumes surgelés crus pour potage
+en:Frozen mixed vegetables for soups
+fr:Légumes surgelés pour potage
 agribalyse_food_code:en:20263
 ciqual_food_code:en:20263
 ciqual_food_name:en:Mixed vegetables for soups, frozen, raw
@@ -74087,14 +74046,6 @@ ciqual_food_name:fr:Cresson de fontaine, cru
 <en:Watercress
 fr:Cresson frais
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
-
-<en:Leaf vegetables
-en:Raw curly endive
-fr:Salade frisée crue
-agribalyse_food_code:en:20012
-ciqual_food_code:en:20012
-ciqual_food_name:en:Curly endive, raw
-ciqual_food_name:fr:Salade ou chicorée frisée, crue
 
 <en:Vegetables based foods
 <en:Fresh sprouts
