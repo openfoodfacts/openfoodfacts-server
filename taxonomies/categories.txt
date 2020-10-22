@@ -78392,6 +78392,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crêpe
 <en:Crêpes
 en:Plain crepe
 fr:Crêpe nature
+agribalyse_food_code:en:23800
+ciqual_food_code:en:23800
+ciqual_food_name:en:Crepe, plain, prepacked, room temperature
+ciqual_food_name:fr:Crêpe, nature, préemballée, rayon température ambiante
 
 <en:Plain crepe
 en:Refrigerated plain crepe
@@ -78400,14 +78404,6 @@ agribalyse_food_code:en:23799
 ciqual_food_code:en:23799
 ciqual_food_name:en:Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon frais
-
-<en:Plain crepe
-en:Plain crepe at room temperature
-fr:Crêpe nature
-agribalyse_food_code:en:23800
-ciqual_food_code:en:23800
-ciqual_food_name:en:Crepe, plain, prepacked, room temperature
-ciqual_food_name:fr:Crêpe, nature, préemballée, rayon température ambiante
 
 <en:Crêpes
 en:Crepe filled with sugar
@@ -79275,7 +79271,7 @@ ciqual_food_code:en:23448
 ciqual_food_name:en:Shortbread dough, pure butter, cooked
 ciqual_food_name:fr:Pâte sablée pur beurre, cuite
 
-<fr:Pâtes sablées
+<en:Shortbread dough with pure butter
 <en:Frozen foods
 en:Frozen shortbread dough with pure butter
 fr:Pâte sablée pur beurre surgelée
@@ -79584,7 +79580,7 @@ ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, vian
 
 <en:Filled fritters
 en:Filled fritter garnished with shrimps, Filo pastry garnished with shrimps
-fr:Brick garni aux crevettes
+fr:Brick aux crevettes, Brick garni aux crevettes
 agribalyse_food_code:en:25438
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
@@ -79592,7 +79588,7 @@ ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, vian
 
 <<en:Filled fritters
 en:Filled fritter garnished with vegetables, Filo pastry garnished with vegetables
-fr:Brick garni aux légumes
+fr:Brick aux légumes, Brick garni aux légumes
 agribalyse_food_code:en:25438
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
@@ -79600,7 +79596,7 @@ ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, vian
 
 <en:Filled fritters
 en:Filled fritter garnished with poultry, Filo pastry garnished with poultry
-fr:Brick garni à la volaille
+fr:Brick à la volaille, Brick garni à la volaille
 agribalyse_food_code:en:25438
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
@@ -79608,7 +79604,7 @@ ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, vian
 
 <en:Filled fritters
 en:Filled fritter garnished with meat, Filo pastry garnished with meat
-fr:Brick garni à la viande
+fr:Brick à la viande, Brick garni à la viande
 agribalyse_food_code:en:25438
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
@@ -79616,7 +79612,7 @@ ciqual_food_name:fr:Brick garni (garniture : crevettes, légumes, volaille, vian
 
 <en:Filled fritters
 en:Filled fritter garnished with fish, Filo pastry garnished with fish
-fr:Brick garni au poisson
+fr:Brick au poisson, Brick garni au poisson
 agribalyse_food_code:en:25438
 ciqual_food_code:en:25438
 ciqual_food_name:en:Fritter, filled (filo pastry) (garnish : shrimps, vegetables, poultry, meat, etc.)
@@ -79747,8 +79743,22 @@ ciqual_food_code:en:8291
 ciqual_food_name:en:Fish terrine
 
 <en:Terrines
-en:Seafood terrine with or without fish
-fr:Terrine de fruits de mer avec ou sans poisson
+en:Seafood terrine
+fr:Terrine de fruits de mer
+agribalyse_food_code:en:8292
+ciqual_food_code:en:8292
+ciqual_food_name:en:Seafood terrine, with or without fish
+
+<en:Seafood terrine
+en:Seafood terrine with fish
+fr:Terrine de fruits de mer avec poisson
+agribalyse_food_code:en:8292
+ciqual_food_code:en:8292
+ciqual_food_name:en:Seafood terrine, with or without fish
+
+<en:Seafood terrine
+en:Seafood terrine without fish
+fr:Terrine de fruits de mer sans poisson
 agribalyse_food_code:en:8292
 ciqual_food_code:en:8292
 ciqual_food_name:en:Seafood terrine, with or without fish
