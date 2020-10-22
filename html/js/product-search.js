@@ -206,7 +206,7 @@ function display_product_summary(target, product) {
 	match_product_to_preferences(product, user_product_preferences);
 	
 	var attributes_html = '';
-	
+		
 	$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
 		
 		// vary the color from green to red
@@ -229,21 +229,20 @@ function display_product_summary(target, product) {
 				color = "hsl(120, 100%, 90%)";
 			}
 		}
-		
-		attributes_html += '<div class="small-12 medium-6 large-4 columns">'
-		+ '<div style="border-radius:12px;background-color:' + color + ';padding:1rem;margin-bottom:1rem;min-height:96px;">'
+
+		attributes_html += '<li>'
+		+ '<div style="border-radius:12px;background-color:' + color + ';padding:1rem;min-height:96px;">'
 		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;">'
 		+ '<h4>' + attribute.title + '</h4>';
 		
 		if (attribute.description_short) {
 			attributes_html += '<span>' + attribute.description_short + '</span>';
 		}
-		
-		attributes_html += '</div>'
-		+ '</div>';
+
+		attributes_html += '</div></li>';
 	});
 	
-	$( target ).html('<div class="row" id="attributes_row">' + attributes_html + '</div>');
+	$( target ).html('<ul id="attributes_grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">' + attributes_html + '</ul>');
 		
 	$(document).foundation('equalizer', 'reflow');
 }
