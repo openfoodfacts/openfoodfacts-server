@@ -67097,10 +67097,6 @@ cooking_method:en en:smoked
 en:Surmullet, red mullet
 la:Mullus surmuletus
 fr:Rouget-barbet de roche
-
-<en:Surmullet
-en:Raw surmullet, Raw red mullet
-fr:Rouget-barbet de roche cru
 agribalyse_food_code:en:26085
 ciqual_food_code:en:26085
 ciqual_food_name:en:Surmullet or red mullet, raw
@@ -67113,8 +67109,22 @@ ciqual_food_code:en:26110
 ciqual_food_name:en:Surmullet or red mullet, steamed
 
 <en:Fishes
-en:Surmullet or red mullet fillet with skin frozen raw (from Thailand or Senegal)
-fr:Rouget-barbet filet avec peau surgelé cru (Thaïlande Sénégal…)
+en:Frozen Surmullet with skin, Frozen red mullet fillet with skin
+fr:Filet de Rouget-barbet surgelé avec peau
+agribalyse_food_code:en:26244
+ciqual_food_code:en:26244
+ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
+
+<en:Frozen Surmullet with skin
+en:Frozen Surmullet with skin, Frozen red mullet fillet with skin from Senegal
+fr:Filet de Rouget-barbet surgelé avec peau from Sénégal
+agribalyse_food_code:en:26244
+ciqual_food_code:en:26244
+ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
+
+<en:Frozen Surmullet with skin
+en:Frozen Surmullet with skin, Frozen red mullet fillet with skin de Thailand
+fr:Filet de Rouget-barbet surgelé avec peau de Thaïlande
 agribalyse_food_code:en:26244
 ciqual_food_code:en:26244
 ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
@@ -67122,17 +67132,13 @@ ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from
 <en:Fishes
 en:Common sole
 fr:Sole
-
-<en:Common sole
-en:Common sole raw
-fr:Sole crue
 agribalyse_food_code:en:26058
 ciqual_food_code:en:26058
 ciqual_food_name:en:Common sole, raw
 cooking_method:en en:raw
 
 <en:Common sole
-en:Common sole fried
+en:Fried common sole
 fr:Sole frite
 agribalyse_food_code:en:26062
 ciqual_food_code:en:26062
@@ -67140,7 +67146,7 @@ ciqual_food_name:en:Common sole, fried
 cooking_method:en en:fried
 
 <en:Common sole
-en:Common sole steamed
+en:Steammed common sole
 fr:Sole cuite à la vapeur
 agribalyse_food_code:en:26059
 ciqual_food_code:en:26059
@@ -67148,7 +67154,7 @@ ciqual_food_name:en:Common sole, steamed
 cooking_method:en en:steamed
 
 <en:Common sole
-en:Boiled Common sole, Common sole cooked in water
+en:Boiled common sole, Common sole cooked in water
 fr:Sole cuite à l'eau
 agribalyse_food_code:en:26061
 ciqual_food_code:en:26061
@@ -67172,10 +67178,6 @@ ciqual_food_name:en:Common sole, roasted/baked
 <en:Fishes
 en:Tonguesole
 fr:sole tropicale, sole langue
-
-<en:Tonguesole
-en:Tonguesole raw
-fr:sole tropicale crue, sole langue crue
 agribalyse_food_code:en:26200
 ciqual_food_code:en:26200
 ciqual_food_name:en:Tonguesole, raw
@@ -67214,6 +67216,7 @@ en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
 
 <en:Smoked salmons
+en:Smoked salmons from Scotland, Scottish smoked salmons
 fr:Saumons fumés d'Ecosse
 
 <en:Smoked salmons
@@ -67359,6 +67362,9 @@ ciqual_food_code:en:26092
 ciqual_food_name:en:Sea trout, raw
 
 <en:Trouts
+fr:Filets de truite
+
+<en:Trouts
 en:Farmed trout
 fr:Truite d'élevage
 agribalyse_food_code:en:27008
@@ -67384,6 +67390,9 @@ agribalyse_food_code:en:27009
 ciqual_food_code:en:27009
 ciqual_food_name:en:Rainbow trout, raw, farmed
 
+<en:Farmed rainbow trout
+fr:Filets de truite arc en ciel d'élevage
+
 <en:Fishes
 <en:Trouts
 en:Salmon trout
@@ -67392,6 +67401,9 @@ agribalyse_food_code:en:27021
 ciqual_food_code:en:27021
 ciqual_food_name:en:Salmon trout, raw
 cooking_method:en en:raw
+
+<en:Salmon trout
+fr:Filets de truite saumonée
 
 <en:Fishes
 en:Carp
@@ -67439,14 +67451,16 @@ en:Cooked trouts
 fr:Truites cuites
 
 <en:Cooked trouts
-en:Rainbow trout farmed roasted, Rainbow trout farmed baked
-fr:Truite arc en ciel élevage rôtie, truite arc en ciel élevage cuite au four
+<en:Farmed rainbow trout
+en:Roasted rainbow trout from farming, Baked rainbow trout from farming
+fr:Truite arc en ciel d'élevage rôtie, truite arc en ciel élevage cuite au four
 agribalyse_food_code:en:27014
 ciqual_food_code:en:27014
 ciqual_food_name:en:Rainbow trout, farmed, roasted/baked
 
 <en:Cooked trouts
-en:Steamed Rainbow trout from farming
+<en:Farmed rainbow trout
+en:Steamed rainbow trout from farming
 fr:Truite arc en ciel d'élevage cuite à la vapeur
 agribalyse_food_code:en:27015
 ciqual_food_code:en:27015
@@ -67527,24 +67541,24 @@ it:Tranci di tonno
 nl:Tonijnstukjes
 
 <en:Canned tunas
-en:Canned drained tuna in oil
-fr:Thon à l'huile appertisé égoutté, Thon à l'huile égoutté en conserve
+en:Canned tuna in oil
+fr:Thon à l'huile appertisé, Thon à l'huile en conserve
 agribalyse_food_code:en:26071
 ciqual_food_code:en:26071
 ciqual_food_name:en:Tuna, in oil, canned, drained
 ciqual_food_name:fr:Thon à l'huile, appertisé, égoutté
 
 <en:Canned tunas
-en:Canned drained tuna flaked in tomato sauce
-fr:Miettes de thon à la tomate appertisées, Miettes de thon à la tomate en conserve
+en:Canned tuna flaked in tomato sauce
+fr:Miettes de thon à la tomate en conserve, Miettes de thon à la tomate appertisées
 agribalyse_food_code:en:26242
 ciqual_food_code:en:26242
 ciqual_food_name:en:Tuna, flaked, in tomato sauce, canned, drained
 ciqual_food_name:fr:Miettes de thon à la tomate, appertisées
 
 <en:Canned tunas
-en:Canned drained tuna flaked in oil
-fr:Miettes de thon à l'huile appertisées, Miettes de thon à l'huile en conserve
+en:Canned tuna flakes in oil
+fr:Miettes de thon à l'huile en conserve, Miettes de thon à l'huile appertisées
 agribalyse_food_code:en:26245
 ciqual_food_code:en:26245
 ciqual_food_name:en:Tuna, flaked, in oil, canned, drained
@@ -67568,7 +67582,7 @@ nl:Gerookte tonijn
 ru:Тунец копчёный, Копчёный тунец
 
 <en:Tunas
-en:Tuna roasted/baked
+en:Roasted Tuna, Baked tuna
 fr:Thon rôti, thon cuit au four
 agribalyse_food_code:en:26041
 ciqual_food_code:en:26041
@@ -67825,10 +67839,6 @@ ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
 <en:Breams
 en:Freshwater bream
 fr:Brème d'eau douce
-
-<en:Freshwater bream
-en:Raw freshwater bream
-fr:Brème d'eau douce crue
 agribalyse_food_code:en:26170
 ciqual_food_code:en:26170
 ciqual_food_name:en:Freshwater bream, raw
@@ -67988,7 +67998,6 @@ pl:Filety z makreli
 agribalyse_food_code:en:26123
 ciqual_food_code:en:26123
 ciqual_food_name:en:Mackerel, canned in brine, drained
-# Mackerels fillets still appear unknown https://fr.openfoodfacts.org/categories-properties/agribalyse-food-code-unknown/categorie/en:mackerels-fillets
 
 <en:Mackerel fillets
 fr:Filets de maquereaux grillés
@@ -68034,24 +68043,24 @@ ciqual_food_name:en:Atlantic chub mackerel, raw
 ciqual_food_name:fr:Maquereau espagnol ou maquereau blanc ou billard cru
 
 <en:Mackerels
-en:Raw horse mackerel
-fr:Chinchard cru
+en:Horse mackerel
+fr:Chinchard
 agribalyse_food_code:en:26113
 ciqual_food_code:en:26113
 ciqual_food_name:en:Horse mackerel, raw
 ciqual_food_name:fr:Chinchard, cru
 
 <en:Mackerels
-en:Raw oily horse mackerel
-fr:Chinchard gras cru
+en:Oily horse mackerel
+fr:Chinchard gras
 agribalyse_food_code:en:26236
 ciqual_food_code:en:26236
 ciqual_food_name:en:Horse mackerel, oily (autumn, winter), raw
 ciqual_food_name:fr:Chinchard gras, cru
 
 <en:Mackerels
-en:Raw lean horse mackerel
-fr:Chinchard maigre cru
+en:Lean horse mackerel
+fr:Chinchard maigre
 agribalyse_food_code:en:26235
 ciqual_food_code:en:26235
 ciqual_food_name:en:Horse mackerel, lean (spring, summer), raw
@@ -68106,6 +68115,14 @@ fr:Filets de maquereaux natures
 nl:Makreelfilets natuur
 
 <en:Fishes
+en:Turbot
+fr:Turbot
+agribalyse_food_code:en:26174
+ciqual_food_code:en:26174
+ciqual_food_name:en:Turbot, raw
+ciqual_food_name:fr:Turbot, cru
+
+<en:Turbot
 en:Roasted turbot, Baked turbot
 fr:Turbot rôti, Turbot cuit au four
 agribalyse_food_code:en:26094
@@ -68113,29 +68130,29 @@ ciqual_food_code:en:26094
 ciqual_food_name:en:Turbot, roasted/baked
 ciqual_food_name:fr:Turbot, rôti/cuit au four
 
-<en:Fishes
-en:Raw wild turbot
-fr:Turbot sauvage cru
+<en:Turbot
+en:Wild turbot
+fr:Turbot sauvage
 agribalyse_food_code:en:26042
 ciqual_food_code:en:26042
 ciqual_food_name:en:Turbot, raw, wild
 ciqual_food_name:fr:Turbot sauvage, cru
 
-<en:Fishes
-en:Raw turbot
-fr:Turbot cru
-agribalyse_food_code:en:26174
-ciqual_food_code:en:26174
-ciqual_food_name:en:Turbot, raw
-ciqual_food_name:fr:Turbot, cru
-
-<en:Fishes
-en:Farmed raw turbot
-fr:Turbot d'élevage cru
+<en:Turbot
+en:Farmed turbot
+fr:Turbot d'élevage
 agribalyse_food_code:en:26201
 ciqual_food_code:en:26201
 ciqual_food_name:en:Turbot, raw, farmed
 ciqual_food_name:fr:Turbot d'élevage, cru
+
+<en:Fishes
+en:Brown bullhead
+fr:Pangasius, Poisson-chat
+agribalyse_food_code:en:27017
+ciqual_food_code:en:27017
+ciqual_food_name:en:Brown bullhead, raw
+ciqual_food_name:fr:Pangasius ou Poisson-chat, cru
 
 <en:Fishes
 en:Cooked Pangasius filets
@@ -68144,14 +68161,6 @@ agribalyse_food_code:en:27018
 ciqual_food_code:en:27018
 ciqual_food_name:en:Pangasius, filets, cooked
 ciqual_food_name:fr:Panga, Pangasius, ou poisson-chat du Mékong, filet, cuit
-
-<en:Fishes
-en:Raw brown bullhead
-fr:Pangasius cru, Poisson-chat cru
-agribalyse_food_code:en:27017
-ciqual_food_code:en:27017
-ciqual_food_name:en:Brown bullhead, raw
-ciqual_food_name:fr:Pangasius ou Poisson-chat, cru
 
 <en:Bass
 en:Roasted European bass, Baked European bass
@@ -68170,8 +68179,8 @@ ciqual_food_name:en:Mullet, roasted/baked
 ciqual_food_name:fr:Mulet, rôti/cuit au four
 
 <en:Fishes
-en:Raw mullet
-fr:Mulet cru
+en:Mullet
+fr:Mulet
 agribalyse_food_code:en:26091
 ciqual_food_code:en:26091
 ciqual_food_name:en:Mullet, raw
