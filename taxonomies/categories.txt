@@ -68654,6 +68654,12 @@ th:แยม
 zh:果酱
 wikidata:en:Q8752059
 #es:Mermeladas, Confituras
+agribalyse_proxy_food_code:en:31024
+ciqual_proxy_food_code:en:31024
+ciqual_proxy_food_name:en:Jam, strawberry
+ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
+# strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
+# we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
 
 <en:Artisan products
 <en:Jams
@@ -68712,6 +68718,10 @@ it:Confetture di frutti di bosco
 nl:Jams van rode vruchten
 ru:Варенье из ягод
 zh:莓类果酱
+agribalyse_proxy_food_code:en:31024
+ciqual_proxy_food_code:en:31024
+ciqual_proxy_food_name:en:Jam, strawberry
+ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 
 <en:Berry jams
 en:Bilberries jams
@@ -68932,6 +68942,10 @@ hu:Alma lekvár
 it:Confitture di mela
 nl:Appeljams
 sv:Äpplesylter
+agribalyse_proxy_food_code:en:31037
+ciqual_proxy_food_code:en:31037
+ciqual_proxy_food_name:en:Jam, apricot
+ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Jams
 en:Apricot jams
@@ -69003,6 +69017,10 @@ hu:Őszibarack lekvár, Barack lekvár
 it:Confitture di pesca
 nl:Perzikkenjams
 sv:Persikasylter
+agribalyse_proxy_food_code:en:31037
+ciqual_proxy_food_code:en:31037
+ciqual_proxy_food_name:en:Jam, apricot
+ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Jams
 en:Pear jams
@@ -69014,6 +69032,10 @@ hu:Körte lekvár
 it:Confitture di pera
 nl:Perenjams
 sv:Päronsylter
+agribalyse_proxy_food_code:en:31037
+ciqual_proxy_food_code:en:31037
+ciqual_proxy_food_name:en:Jam, apricot
+ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Jams
 en:Quince jams
@@ -69021,6 +69043,10 @@ de:Quitte Konfitüren
 fr:Confitures de coings
 hu:Birs lekvár
 sv:Kvittensylter
+agribalyse_proxy_food_code:en:31037
+ciqual_proxy_food_code:en:31037
+ciqual_proxy_food_name:en:Jam, apricot
+ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Jams
 en:Kiwi jams, kiwi jam
@@ -69044,6 +69070,10 @@ hu:Szilva lekvár
 it:Confetture di susina
 nl:Pruimenjams
 sv:Plommonsylter
+agribalyse_proxy_food_code:en:31037
+ciqual_proxy_food_code:en:31037
+ciqual_proxy_food_name:en:Jam, apricot
+ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 
 <en:Plum jams
 fr:Confitures de quetsches, Confiture de quetsches
