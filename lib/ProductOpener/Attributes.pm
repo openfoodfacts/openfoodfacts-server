@@ -298,14 +298,10 @@ sub initialize_attribute($$) {
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
-		my $tagid = "en:" . $2;
-		$tagid =~ s/_/-/g;
+		my $tag = $2;
+		$tag =~ s/_/-/g;
 		
-		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
-				
-		if (defined $img_url) {
-			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
-		}		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}.svg";	
 	}
 	
 	# Initialize name and setting name if a language is requested
@@ -830,15 +826,25 @@ sub compute_attribute_has_tag($$$$) {
 	$attribute_id =~ s/-|:/_/g;
 	$attribute_id = $tagtype . "_" . $attribute_id;
 	
+	my $tag = $tagid;
+	$tag =~ s/^\w\w://;
+	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
 	$attribute_ref->{status} = "known";
 	
-	# TODO: decide when to mark status unknown (e.g. new products)
-
-	if (has_tag($product_ref, $tagtype, $tagid)) {
+	# If we don't have any tags for the tagtype, mark the status unknown (e.g. new products)
+	
+	if ((not defined $product_ref->{$tagtype . "_tags"}) or ($product_ref->{$tagtype . "_tags"} == 0)) {
+		
+		$attribute_ref->{status} = "unknown";
+		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}-unknown.svg";
+	}
+	elsif (has_tag($product_ref, $tagtype, $tagid)) {
+		
 		$attribute_ref->{match} = 100;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
@@ -847,13 +853,7 @@ sub compute_attribute_has_tag($$$$) {
 			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
 		}
 		
-		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
-		
-		$log->debug("checking for tag image", { target_lc => $target_lc, tagtype => $tagtype, tagid => $tagid, img_url => $img_url}) if $log->is_debug();
-		
-		if (defined $img_url) {
-			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
-		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}.svg";
 	}
 	else {
 		$attribute_ref->{match} = 0;
@@ -863,6 +863,7 @@ sub compute_attribute_has_tag($$$$) {
 			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
 			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/not-${tag}.svg";
 	}
 	
 	return $attribute_ref;
