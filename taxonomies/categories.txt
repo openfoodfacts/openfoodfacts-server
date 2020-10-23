@@ -27926,8 +27926,8 @@ nl:Wintergerst
 wikidata:en:Q3057987
 
 <en:Barley
-en:Row whole barley
-fr:Orge entière crue
+en:Whole barley
+fr:Orge entière
 agribalyse_food_code:en:9320
 ciqual_food_code:en:9320
 ciqual_food_name:en:Barley, whole, raw
@@ -56851,29 +56851,21 @@ ciqual_food_code:en:28105
 ciqual_food_name:en:Pork, rack, cooked
 ciqual_food_name:fr:Porc, carré, cuit
 
-<en:Cooked pork meat
+<en:Raw pork meat
+en:Pork spare-ribs
+fr:Travers de porc
+agribalyse_food_code:en:28400
+ciqual_food_code:en:28400
+ciqual_food_name:en:Pork, spare-ribs, raw
+ciqual_food_name:fr:Porc, travers, cru
+
+<en:Pork spare-ribs
 en:Braised pork spare-ribs
 fr:Travers de porc braisés
 agribalyse_food_code:en:28401
 ciqual_food_code:en:28401
 ciqual_food_name:en:Pork, spare-ribs, braised
 ciqual_food_name:fr:Porc, travers, braisé
-
-<en:Raw pork meat
-en:Raw pork spare-ribs
-fr:Travers de porc crus
-agribalyse_food_code:en:28400
-ciqual_food_code:en:28400
-ciqual_food_name:en:Pork, spare-ribs, raw
-ciqual_food_name:fr:Porc, travers, cru
-
-<en:Raw pork meat
-en:Raw pork knuckle, Raw pork shank
-fr:Jarret de porc cru
-agribalyse_food_code:en:28004
-ciqual_food_code:en:28004
-ciqual_food_name:en:Pork, knuckle or shank, raw
-ciqual_food_name:fr:Porc, jarret, cru
 
 <en:Cooked pork meat
 <en:Pork loin
@@ -58817,21 +58809,13 @@ hu:Párolt sonka
 it:Prosciutti brasati
 nl:Gesmoorde ham
 
-<en:Braised hams
-en:Braised ham on the bone
-fr:Jambon à l'os braisé
-agribalyse_food_code:en:28905
-ciqual_food_code:en:28905
-ciqual_food_name:en:Braised ham on the bone
-ciqual_food_name:fr:Jambon à l'os braisé
-
-<en:Braised hams
-en:Round of ham cooked
-fr:Rond de jambon cuit
-agribalyse_food_code:en:28917
-ciqual_food_code:en:28917
-ciqual_food_name:en:Round of ham, cooked
-ciqual_food_name:fr:Rond de jambon cuit
+<en:Raw pork meat
+en:Pork knuckle, Pork shank
+fr:Jarret de porc
+agribalyse_food_code:en:28004
+ciqual_food_code:en:28004
+ciqual_food_name:en:Pork, knuckle or shank, raw
+ciqual_food_name:fr:Porc, jarret, cru
 
 <en:Braised hams
 en:Knuckle of ham cooked
@@ -58848,6 +58832,22 @@ agribalyse_food_code:en:28474
 ciqual_food_code:en:28474
 ciqual_food_name:en:Pork, knuckle oh ham, without rind, fat and bone, raw
 ciqual_food_name:fr:Porc, jambonneau arrière, découenné, dégraisssé, désossé, cru
+
+<en:Braised hams
+en:Braised ham on the bone
+fr:Jambon à l'os braisé
+agribalyse_food_code:en:28905
+ciqual_food_code:en:28905
+ciqual_food_name:en:Braised ham on the bone
+ciqual_food_name:fr:Jambon à l'os braisé
+
+<en:Braised hams
+en:Round of ham cooked
+fr:Rond de jambon cuit
+agribalyse_food_code:en:28917
+ciqual_food_code:en:28917
+ciqual_food_name:en:Round of ham, cooked
+ciqual_food_name:fr:Rond de jambon cuit
 
 <fr:Charcuteries à teneur réduite en sel
 <en:White hams
@@ -59002,7 +59002,6 @@ ciqual_food_code:en:28812
 ciqual_food_name:en:Dry-cured ham
 ciqual_food_name:fr:Jambon sec
 
-
 <en:Dried hams
 en:Bayonne ham
 es:Jamón de Bayona
@@ -59012,9 +59011,6 @@ protected_name_file_number:en: PGI-FR-0031, PGI-FR-0031-AM01
 protected_name_type:en: pgi
 origins:en: en:France
 wikidata:en:Q1230067
-
-<en:Bayonne ham
-en:Raw smoked cured Bayonne ham
 agribalyse_food_code:en:28811
 ciqual_food_code:en:28811
 ciqual_food_name:en:Bayonne Cured ham, raw, smoked
@@ -59430,8 +59426,8 @@ ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
 
 <en:Sausages
-en:Raw sausage meat with pure pork
-fr:Chair à saucisse pur porc crue
+en:Sausage meat with pure pork
+fr:Chair à saucisse pur porc
 agribalyse_food_code:en:30051
 ciqual_food_code:en:30051
 ciqual_food_name:en:Sausage meat, pure pork, raw
@@ -59446,8 +59442,8 @@ ciqual_food_name:en:Ham sausage
 ciqual_food_name:fr:Saucisse de jambon pur porc
 
 <en:Sausages
-en:Raw sausage meat with pork and beef
-fr:Chair à saucisse porc et bœuf crue
+en:Sausage meat with pork and beef
+fr:Chair à saucisse porc et bœuf
 agribalyse_food_code:en:30052
 ciqual_food_code:en:30052
 ciqual_food_name:en:Sausage meat, pork and beef, raw
@@ -59580,14 +59576,13 @@ nl:Schaapsvlees-merguez
 en:Beef merguez
 fr:Merguez de bœuf
 nl:Rundvlees-merguez
+agribalyse_proxy_food_code:en:30152
+agribalyse_proxy_food_name:en:Merguez sausage, pure beef, raw
+agribalyse_proxy_food_name:fr:Merguez, pur bœuf, crue
 
 <en:Beef merguez
 en:Pure beef merguez sausage
 fr:Merguez pur bœuf
-
-<en:Pure beef merguez sausage
-en:Raw pure beef merguez sausage
-fr:Merguez pur bœuf crue
 agribalyse_food_code:en:30152
 ciqual_food_code:en:30152
 ciqual_food_name:en:Merguez sausage, pure beef, raw
@@ -59596,6 +59591,10 @@ ciqual_food_name:fr:Merguez, pur bœuf, crue
 <fr:Merguez
 en:Beef and mutton merguez sausages
 fr:Merguez de boeuf et mouton
+agribalyse_food_code:en:30156
+ciqual_food_code:en:30156
+ciqual_food_name:en:Merguez sausage, beef and mutton, raw
+ciqual_food_name:fr:Merguez, boeuf et mouton, crue
 
 <en:Beef and mutton merguez sausages
 en:Cooked beef and mutton merguez sausages
@@ -59605,29 +59604,17 @@ ciqual_food_code:en:30155
 ciqual_food_name:en:Merguez sausage, beef and mutton, cooked
 ciqual_food_name:fr:Merguez, boeuf et mouton, cuite
 
-<en:Beef and mutton merguez sausages
-en:Raw beef and mutton merguez sausages
-fr:Merguez de boeuf et mouton crues
-agribalyse_food_code:en:30156
-ciqual_food_code:en:30156
-ciqual_food_name:en:Merguez sausage, beef and mutton, raw
-ciqual_food_name:fr:Merguez, boeuf et mouton, crue
-
 <fr:Merguez
 en:Beef mutton and pork merguez sausage
 fr:Merguez bœuf mouton et porc
-
-<en:Beef mutton and pork merguez sausage
-en:Raw beef mutton and pork merguez sausage
-fr:Merguez bœuf mouton et porc crue
 agribalyse_food_code:en:30154
 ciqual_food_code:en:30154
 ciqual_food_name:en:Merguez sausage, beef, mutton and pork, raw
 ciqual_food_name:fr:Merguez, bœuf, mouton et porc, crue
 
 <fr:Merguez
-en:Raw pork and beef merguez sausage
-fr:Merguez de porc et bœuf crue
+en:Pork and beef merguez sausage
+fr:Merguez de porc et bœuf
 agribalyse_food_code:en:30153
 ciqual_food_code:en:30153
 ciqual_food_name:en:Merguez sausage, pork and beef, raw
@@ -59659,22 +59646,21 @@ ciqual_food_code:en:30732
 ciqual_food_name:en:Saveloy or cervelat, pure pork with garlic
 ciqual_food_name:fr:Cervelas à l'ail, pur porc
 
-
 <fr:Cervelas
+en:Pork brain
+fr:Cervelle de porc
+agribalyse_food_code:en:40005
+ciqual_food_code:en:40005
+ciqual_food_name:en:Brain, pork, raw
+ciqual_food_name:fr:Cervelle, porc, crue
+
+<en:Pork brain
 en:Braised pork brain
 fr:Cervelle de porc braisée
 agribalyse_food_code:en:40004
 ciqual_food_code:en:40004
 ciqual_food_name:en:Brain, pork, braised
 ciqual_food_name:fr:Cervelle, porc, braisée
-
-<fr:Cervelas
-en:Raw pork brain
-fr:Cervelle de porc crue
-agribalyse_food_code:en:40005
-ciqual_food_code:en:40005
-ciqual_food_name:en:Brain, pork, raw
-ciqual_food_name:fr:Cervelle, porc, crue
 
 <en:Sausages
 en:German sausages
@@ -59762,12 +59748,14 @@ fr:Fouets au roquefort
 fr:Fouets aux pignons
 
 <en:French sausages
+en:Chipolatas, Chipolata slim sausage
 fr:Chipolatas
-agribalyse_proxy_food_code:en:30005
-agribalyse_proxy_food_name:en:Chipolata sausage, cooked
-agribalyse_proxy_food_name:fr:Chipolata, cuite
+agribalyse_food_code:en:30115
+ciqual_food_code:en:30115
+ciqual_food_name:en:Chipolata slim sausage, raw
+ciqual_food_name:fr:Chipolata, crue
 
-<fr:Chipolatas
+<en:Chipolatas
 fr:Chipolatas aux herbes, Chipolats herbes
 
 <en:Sausages
@@ -59776,15 +59764,7 @@ fr:Assortiments de saucisses
 <fr:Assortiments de saucisses
 fr:Assortiments chipolatas et merguez
 
-<fr:Chipolatas
-en:Raw chipolata slim sausage
-fr:Chipolata crue
-agribalyse_food_code:en:30115
-ciqual_food_code:en:30115
-ciqual_food_name:en:Chipolata slim sausage, raw
-ciqual_food_name:fr:Chipolata, crue
-
-<fr:Chipolatas
+<en:Chipolatas
 en:Cooked chipolata sausages
 fr:Chipolatas cuites
 agribalyse_food_code:en:30005
@@ -59798,11 +59778,9 @@ fr:Fuseau de lorrain
 nl:Worst uit de Lorraine
 
 <en:French sausages
-fr:Diot de Savoie
-
-<fr:Diot de Savoie
-en:Raw Diot, Raw sausage from Savoy
-fr:Diot cru
+<fr:Diots
+en:Sausage from Savoy
+fr:Diots de Savoie
 agribalyse_food_code:en:30177
 ciqual_food_code:en:30177
 ciqual_food_name:en:Diot (sausage from Savoy), raw
@@ -59908,17 +59886,11 @@ de:Toulouser Würstchen
 es:Salchichas de Toulouse
 fr:Saucisses de Toulouse
 nl:Worsten uit Toulouse, Toulouseworsten
-agribalyse_proxy_food_code:en:30011
-agribalyse_proxy_food_name:en:Toulouse sausage, cooked
-agribalyse_proxy_food_name:fr:Saucisse de Toulouse, cuite
-
-<en:Toulouse sausages
-en:Raw Toulouse sausages
-fr:Saucisse de Toulouse crue
 agribalyse_food_code:en:30110
 ciqual_food_code:en:30110
 ciqual_food_name:en:Toulouse sausage, raw
 ciqual_food_name:fr:Saucisse de Toulouse, crue
+
 
 <en:Toulouse sausages
 en:Cooked Toulouse sausage
@@ -59937,8 +59909,8 @@ nl:Worst uit de Savoie
 fr:Diots, Diot
 
 <en:French sausages
-en:Raw Viennese pork and veal sausages
-fr:Saucisses viennoises crues
+en:Viennese pork and veal sausages
+fr:Saucisses viennoises
 agribalyse_food_code:en:30750
 ciqual_food_code:en:30750
 ciqual_food_name:en:Viennese sausage, pork and veal, raw
@@ -59973,8 +59945,8 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <fr:Boudins blancs
-en:Raw truffled white pudding
-fr:Boudin blanc truffé cru
+en:Truffled white pudding
+fr:Boudin blanc truffé
 agribalyse_food_code:en:8803
 ciqual_food_code:en:8803
 ciqual_food_name:en:White pudding, truffled, raw
@@ -60614,42 +60586,38 @@ ciqual_food_name:en:Tuna, in Catalan-style or in tomato sauce, canned
 <en:Meats
 en:Sheep meat
 fr:Viandes de mouton
-
-<en:sheep meat
-en:Raw mutton leg
-fr:Gigot de mouton cru
-agribalyse_food_code:en:21006
-ciqual_food_code:en:21006
-ciqual_food_name:en:Mutton, leg, raw
-ciqual_food_name:fr:Mouton, gigot, cru
-
-<en:sheep meat
-en:Raw sheep foot
-fr:Pied de mouton cru
-agribalyse_food_code:en:21004
-ciqual_food_code:en:21004
-ciqual_food_name:en:Sheep, foot, raw
-ciqual_food_name:fr:Mouton, pied, cru
-
-<en:sheep meat
-en:Raw sheep head
-fr:Tête de mouton crue
-agribalyse_food_code:en:21005
-ciqual_food_code:en:21005
-ciqual_food_name:en:Sheep, head, raw
-ciqual_food_name:fr:Mouton, tête, crue
-
-<en:sheep meat
-en:Raw mutton meat
-fr:Viande de mouton crue
 agribalyse_food_code:en:21001
 ciqual_food_code:en:21001
 ciqual_food_name:en:Mutton, meat, raw
 ciqual_food_name:fr:Mouton, viande, crue
 
 <en:sheep meat
-en:Raw mutton shoulder
-fr:Epaule de mouton crue
+en:Mutton leg
+fr:Gigot de mouton
+agribalyse_food_code:en:21006
+ciqual_food_code:en:21006
+ciqual_food_name:en:Mutton, leg, raw
+ciqual_food_name:fr:Mouton, gigot, cru
+
+<en:sheep meat
+en:Sheep foot
+fr:Pied de mouton
+agribalyse_food_code:en:21004
+ciqual_food_code:en:21004
+ciqual_food_name:en:Sheep, foot, raw
+ciqual_food_name:fr:Mouton, pied, cru
+
+<en:sheep meat
+en:Sheep head
+fr:Tête de mouton
+agribalyse_food_code:en:21005
+ciqual_food_code:en:21005
+ciqual_food_name:en:Sheep, head, raw
+ciqual_food_name:fr:Mouton, tête, crue
+
+<en:sheep meat
+en:Mutton shoulder
+fr:Epaule de mouton
 agribalyse_food_code:en:21003
 ciqual_food_code:en:21003
 ciqual_food_name:en:Mutton, shoulder, raw
@@ -60707,15 +60675,15 @@ ciqual_food_name:en:Lamb cutlet, grilled
 ciqual_food_name:fr:Agneau, côtelette, grillée
 
 <en:Lamb meat
-en:Raw lamb chop
-fr:Côtes d'agneau crues, Côtelettes d'agneau crues, Côte d'agneau crue
+en:Lamb chop
+fr:Côtes d'agneau, Côte d'agneau
 ciqual_food_code:en:21521
 ciqual_food_name:en:Lamb, chop, raw (average)
 ciqual_food_name:fr:Agneau, côte ou côtelette, crue (aliment moyen)
 
 <en:Lamb meat
-en:Raw lamb cutlet
-fr:Côtelette d'agneau crue
+en:Lamb cutlet
+fr:Côtelette d'agneau
 agribalyse_food_code:en:21500
 ciqual_food_code:en:21500
 ciqual_food_name:en:Lamb, cutlet, raw
@@ -60800,22 +60768,23 @@ ciqual_food_name:en:Sweetbread, lamb, cooked
 ciqual_food_name:fr:Ris, agneau, cuit
 
 <fr:Ris d'agneau
-en:Raw lamb sweetbread
-fr:Ris d'agneau cru
+en:Lamb sweetbread
+fr:Ris d'agneau
 agribalyse_food_code:en:40302
 ciqual_food_code:en:40302
 ciqual_food_name:en:Sweetbread, lamb, raw
 ciqual_food_name:fr:Ris, agneau, cru
 
 <en:Lamb meat
-en:Raw lamb chop fillet
-fr:Filet de côte d'agneau crue
+en:Lamb chop fillet
+fr:Filet de côte d'agneau
 agribalyse_food_code:en:21516
 ciqual_food_code:en:21516
 ciqual_food_name:en:Lamb, chop fillet, raw
 ciqual_food_name:fr:Agneau, côte filet, crue
 
 <en:Grilled lamb chops
+<en:Lamb chop fillet
 en:Grilled lamb chop fillet, Pan-fried lamb chop fillet
 fr:Côte de filet d'agneau grillée, Côte de filet d'agneau poêlée
 agribalyse_food_code:en:21509
@@ -60832,14 +60801,41 @@ ciqual_food_name:en:Lamb, rib chop, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte première, grillée/poêlée
 
 <en:Lamb meat
-en:Raw lamb rib chop
-fr:Côte d'agneau première crue
+en:Lamb rib chop
+fr:Côte d'agneau première
 agribalyse_food_code:en:21517
 ciqual_food_code:en:21517
 ciqual_food_name:en:Lamb, rib chop, raw
 ciqual_food_name:fr:Agneau, côte première, crue
 
+<en:Lamb meat
+en:Lamb leg
+fr:Gigot d'agneau
+agribalyse_food_code:en:21502
+ciqual_food_code:en:21502
+ciqual_food_name:en:Lamb, leg, raw
+ciqual_food_name:fr:Agneau, gigot, cru
+
 <en:Cooked lamb meat
+<en:Lamb leg
+en:Roasted lamb leg, Baked lamb leg
+fr:Gigot d'agneau rôti au four, Gigot d'agneau cuit au four
+agribalyse_food_code:en:21503
+ciqual_food_code:en:21503
+ciqual_food_name:en:Lamb, leg, roasted/baked
+ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
+
+<en:Cooked lamb meat
+<en:Lamb leg
+en:Braised lamb leg
+fr:Gigot d'agneau braisé
+agribalyse_food_code:en:21519
+ciqual_food_code:en:21519
+ciqual_food_name:en:Lamb, leg, braised
+ciqual_food_name:fr:Agneau, gigot, braisé
+
+<en:Cooked lamb meat
+<en:Lamb leg
 en:Grilled lamb leg, Pan-fried lamb leg
 fr:Gigot d'agneau grillé, Gigot d'agneau poêlé
 agribalyse_food_code:en:21518
@@ -60848,22 +60844,15 @@ ciqual_food_name:en:Lamb, leg, grilled/pan-fried
 ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
 
 <en:Lamb meat
-en:Raw lamb leg
-fr:Gigot d'agneau cru
-agribalyse_food_code:en:21502
-ciqual_food_code:en:21502
-ciqual_food_name:en:Lamb, leg, raw
-ciqual_food_name:fr:Agneau, gigot, cru
-
-<en:Lamb meat
-en:Raw lamb saddle
-fr:Selle d'agneau crue
+en:Lamb saddle
+fr:Selle d'agneau
 agribalyse_food_code:en:21515
 ciqual_food_code:en:21515
 ciqual_food_name:en:Lamb, saddle, raw
 ciqual_food_name:fr:Agneau, selle, crue
 
 <en:Cooked lamb meat
+<en:Lamb saddle
 en:Grilled lamb saddle, Pan-fried lamb saddle
 fr:Selle d'agneau partie maigre grillée, Selle d'agneau partie maigre poêlée
 agribalyse_food_code:en:21520
@@ -60880,22 +60869,6 @@ ciqual_food_name:en:Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr:Agneau, selle, partie maigre, rôtie/cuite au four
 
 <en:Cooked lamb meat
-en:Roasted lamb leg, Baked lamb leg
-fr:Gigot d'agneau rôti au four, Gigot d'agneau cuit au four
-agribalyse_food_code:en:21503
-ciqual_food_code:en:21503
-ciqual_food_name:en:Lamb, leg, roasted/baked
-ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
-
-<en:Cooked lamb meat
-en:Braised lamb leg
-fr:Gigot d'agneau braisé
-agribalyse_food_code:en:21519
-ciqual_food_code:en:21519
-ciqual_food_name:en:Lamb, leg, braised
-ciqual_food_name:fr:Agneau, gigot, braisé
-
-<en:Cooked lamb meat
 en:Braised lamb neck, Boiled lamb neck
 fr:Collier d'agneau braisé, Collier d'agneau bouilli
 agribalyse_food_code:en:21508
@@ -60904,8 +60877,8 @@ ciqual_food_name:en:Lamb, neck, braised or boiled
 ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
 
 <en:Cooked lamb meat
-en:Raw lamb neck
-fr:Collier d'agneau cru
+en:Lamb neck
+fr:Collier d'agneau
 agribalyse_food_code:en:21514
 ciqual_food_code:en:21514
 ciqual_food_name:en:Lamb, neck, raw
@@ -61001,8 +60974,8 @@ ciqual_food_name:en:Brain, lamb, cooked
 ciqual_food_name:fr:Cervelle, agneau, cuite
 
 <en:Lamb brain
-en:Raw lamb brain
-fr:Cervelle d'agneau crue
+en:Lamb brain
+fr:Cervelle d'agneau
 agribalyse_food_code:en:40002
 ciqual_food_code:en:40002
 ciqual_food_name:en:Brain, lamb, raw
@@ -61011,8 +60984,13 @@ ciqual_food_name:fr:Cervelle, agneau, crue
 <en:Lamb meat
 en:Lamb heart
 fr:Coeur d'agneau
+agribalyse_food_code:en:40058
+ciqual_food_code:en:40058
+ciqual_food_name:en:Heart, lamb, raw
+ciqual_food_name:fr:Coeur, agneau, cru
 
 <en:Cooked lamb meat
+<en:Lamb heart
 en:Cooked lamb hearts
 fr:Coeurs d'agneau cuits
 agribalyse_food_code:en:40059
@@ -61021,16 +60999,12 @@ ciqual_food_name:en:Heart, lamb, cooked
 ciqual_food_name:fr:Coeur, agneau, cuit
 
 <en:Lamb meat
-en:Raw lamb heart
-fr:Coeur d'agneau cru
-agribalyse_food_code:en:40058
-ciqual_food_code:en:40058
-ciqual_food_name:en:Heart, lamb, raw
-ciqual_food_name:fr:Coeur, agneau, cru
-
-<en:Lamb meat
 en:Lamb liver
 fr:Foie d'agneau
+agribalyse_food_code:en:40102
+ciqual_food_code:en:40102
+ciqual_food_name:en:Liver, lamb, raw
+ciqual_food_name:fr:Foie, agneau, cru
 
 <en:Cooked lamb meat
 <en:Lamb liver
@@ -61041,17 +61015,13 @@ ciqual_food_code:en:40103
 ciqual_food_name:en:Liver, lamb, cooked
 ciqual_food_name:fr:Foie, agneau, cuit
 
-<en:Lamb liver
-en:Raw lamb liver
-fr:Foie d'agneau cru
-agribalyse_food_code:en:40102
-ciqual_food_code:en:40102
-ciqual_food_name:en:Liver, lamb, raw
-ciqual_food_name:fr:Foie, agneau, cru
-
 <en:Lamb meat
 en:Lamb kidneys
 fr:Rognons d'agneau
+agribalyse_food_code:en:40407
+ciqual_food_code:en:40407
+ciqual_food_name:en:Kidney, lamb, raw
+ciqual_food_name:fr:Rognon, agneau, cru
 
 <en:Cooked lamb meat
 <en:Cooked kidneys
@@ -61062,14 +61032,6 @@ agribalyse_food_code:en:40406
 ciqual_food_code:en:40406
 ciqual_food_name:en:Kidney, lamb, braised
 ciqual_food_name:fr:Rognon, agneau, braisé
-
-<en:Lamb kidneys
-en:Raw lamb kidneys
-fr:Rognons d'agneau crus
-agribalyse_food_code:en:40407
-ciqual_food_code:en:40407
-ciqual_food_name:en:Kidney, lamb, raw
-ciqual_food_name:fr:Rognon, agneau, cru
 
 <en:Cooked lamb meat
 en:Roasted lamb shoulders, baked lamb shoulders
@@ -61088,16 +61050,16 @@ ciqual_food_name:en:Lamb, shoulder, lean, roasted/baked
 ciqual_food_name:fr:Agneau, épaule, maigre, rôtie/cuite au four
 
 <en:Lamb meat
-en:Raw lamb shoulder
-fr:Epaule d'agneau crue
+en:Lamb shoulder
+fr:Epaule d'agneau
 agribalyse_food_code:en:21504
 ciqual_food_code:en:21504
 ciqual_food_name:en:Lamb, shoulder, raw
 ciqual_food_name:fr:Agneau, épaule, crue
 
-<en:Lamb meat
-en:Raw lean lamb shoulder
-fr:Epaule d'agneau maigre crue
+<en:Lamb shoulder
+en:Lean lamb shoulder
+fr:Epaule d'agneau maigre
 agribalyse_food_code:en:21505
 ciqual_food_code:en:21505
 ciqual_food_name:en:Lamb, shoulder, lean, raw
@@ -61123,16 +61085,16 @@ sv:Bacon
 zh:培根, 猪培根, 猪肉培根
 
 <en:Bacon
-en:Raw rindless pork back fat
-fr:Bardière de porc découennée crue
+en:Rindless pork back fat
+fr:Bardière de porc découennée
 agribalyse_food_code:en:28470
 ciqual_food_code:en:28470
 ciqual_food_name:en:Pork, back fat, rindless, raw
 ciqual_food_name:fr:Porc, bardière découennée, crue
 
 <en:Bacon
-en:Raw pork fat
-fr:Lard gras cru
+en:Pork fat
+fr:Lard gras
 agribalyse_food_code:en:16530
 ciqual_food_code:en:16530
 ciqual_food_name:en:Pork fat, raw
@@ -61228,21 +61190,22 @@ ciqual_food_code:en:6564
 ciqual_food_name:en:Veal, meat, cooked (average)
 ciqual_food_name:fr:Veau, viande, cuite (aliment moyen)
 
+<en:Veal meat
+en:Calf sweetbread
+fr:Ris de veau
+agribalyse_food_code:en:40304
+ciqual_food_code:en:40304
+ciqual_food_name:en:Sweetbread, calf, raw
+ciqual_food_name:fr:Ris, veau, cru
+
 <en:Cooked veal meat
+<en:Calf sweetbread
 en:Pan-fried calf sweetbread, Sautéed calf sweetbread
 fr:Ris de veau braisé, Ris de veau sauté, Ris de veau poêlé
 agribalyse_food_code:en:40305
 ciqual_food_code:en:40305
 ciqual_food_name:en:Sweetbread, calf, sautéed/pan-fried
 ciqual_food_name:fr:Ris, veau, braisé ou sauté/poêlé
-
-<en:Veal meat
-en:Raw calf sweetbread
-fr:Ris de veau cru
-agribalyse_food_code:en:40304
-ciqual_food_code:en:40304
-ciqual_food_name:en:Sweetbread, calf, raw
-ciqual_food_name:fr:Ris, veau, cru
 
 <en:Veal meat
 en:Veal knuckle, Veal shank
@@ -61268,8 +61231,8 @@ ciqual_food_name:en:Veal, knuckle or shank, braised or boiled
 ciqual_food_name:fr:Veau, jarret, braisé ou bouilli
 
 <en:Veal knuckle
-en:Raw veal knuckle, Raw veal shank
-fr:Jarret de veau cru
+en:Veal knuckle, veal shank
+fr:Jarret de veau
 agribalyse_food_code:en:6583
 ciqual_food_code:en:6583
 ciqual_food_name:en:Veal, knuckle or shank, raw
@@ -61292,8 +61255,8 @@ ciqual_food_name:en:Veal, neck, braised or boiled
 ciqual_food_name:fr:Veau, collier, braisé ou bouilli
 
 <en:Veal meat
-en:Raw veal neck
-fr:Collier de veau cru
+en:Veal neck
+fr:Collier de veau
 agribalyse_food_code:en:6590
 ciqual_food_code:en:6590
 ciqual_food_name:en:Veal, neck, raw
@@ -61302,6 +61265,10 @@ ciqual_food_name:fr:Veau, collier, cru
 <en:Veal meat
 en:Veal chop
 fr:Côte de veau
+agribalyse_food_code:en:6510
+ciqual_food_code:en:6510
+ciqual_food_name:en:Veal, chop, raw
+ciqual_food_name:fr:Veau, côte, crue
 
 <en:Cooked veal meat
 <en:Veal chop
@@ -61312,30 +61279,23 @@ ciqual_food_code:en:6511
 ciqual_food_name:en:Veal, chop, grilled/pan-fried
 ciqual_food_name:fr:Veau, côte, grillée/poêlée
 
-<en:Veal chop
-en:Raw veal chop
-fr:Côte de veau crue
-agribalyse_food_code:en:6510
-ciqual_food_code:en:6510
-ciqual_food_name:en:Veal, chop, raw
-ciqual_food_name:fr:Veau, côte, crue
+<en:Veal meat
+en:Calf kidney
+fr:Rognons de veau
+agribalyse_food_code:en:40409
+ciqual_food_code:en:40409
+ciqual_food_name:en:Kidney, calf, raw
+ciqual_food_name:fr:Rognon, veau, cru
 
 <en:Cooked veal meat
 <en:Cooked kidneys
+<en:Calf kidney
 en:Sautéed veal kidney, Pan-fried veal kidney
 fr:Rognons de veau braisés, Rognons de veau sautés, Rognons de veau poêlés
 agribalyse_food_code:en:40408
 ciqual_food_code:en:40408
 ciqual_food_name:en:Kidney, veal, sautéed/pan-fried
 ciqual_food_name:fr:Rognon, veau, braisé ou sauté/poêlé
-
-<en:Veal meat
-en:Raw calf kidney
-fr:Rognons de veau crus
-agribalyse_food_code:en:40409
-ciqual_food_code:en:40409
-ciqual_food_name:en:Kidney, calf, raw
-ciqual_food_name:fr:Rognon, veau, cru
 
 <en:Veal meat
 en:Calf brain
@@ -61351,14 +61311,23 @@ ciqual_food_name:en:Brain, calf, cooked
 ciqual_food_name:fr:Cervelle, veau, cuite
 
 <en:Calf brain
-en:Raw calf brain
-fr:Cervelle de veau crue
+en:Calf brain
+fr:Cervelle de veau
 agribalyse_food_code:en:40006
 ciqual_food_code:en:40006
 ciqual_food_name:en:Brain, calf, raw
 ciqual_food_name:fr:Cervelle, veau, crue
 
+<en:Veal meat
+en:Calf liver
+fr:Foie de veau
+agribalyse_food_code:en:40106
+ciqual_food_code:en:40106
+ciqual_food_name:en:Liver, calf, raw
+ciqual_food_name:fr:Foie, veau, cru
+
 <en:Cooked veal meat
+<en:Calf liver
 en:Cooked calf liver
 fr:Foie de veau cuit
 agribalyse_food_code:en:40107
@@ -61367,16 +61336,12 @@ ciqual_food_name:en:Liver, calf, cooked
 ciqual_food_name:fr:Foie, veau, cuit
 
 <en:Veal meat
-en:Raw calf liver
-fr:Foie de veau cru
-agribalyse_food_code:en:40106
-ciqual_food_code:en:40106
-ciqual_food_name:en:Liver, calf, raw
-ciqual_food_name:fr:Foie, veau, cru
-
-<en:Veal meat
 en:Calf tongue
 fr:Langue de veau
+agribalyse_food_code:en:40204
+ciqual_food_code:en:40204
+ciqual_food_name:en:Tongue, calf, raw
+ciqual_food_name:fr:Langue, veau, crue
 
 <en:Cooked veal meat
 <en:Calf tongue
@@ -61387,15 +61352,16 @@ ciqual_food_code:en:40201
 ciqual_food_name:en:Tongue, calf, cooked
 ciqual_food_name:fr:Langue, veau, cuite
 
-<en:Calf tongue
-en:Raw calf tongue
-fr:Langue de veau crue
-agribalyse_food_code:en:40204
-ciqual_food_code:en:40204
-ciqual_food_name:en:Tongue, calf, raw
-ciqual_food_name:fr:Langue, veau, crue
+<en:Veal meat
+en:Veal loin
+fr:Carré de veau
+agribalyse_food_code:en:6513
+ciqual_food_code:en:6513
+ciqual_food_name:en:Veal, loin, raw
+ciqual_food_name:fr:Veau, carré, cru
 
 <en:Cooked veal meat
+<en:Veal loin
 en:Sautéed veal loin, Pan-fried veal loin
 fr:Carré de veau sauté, Carré de veau poêlé
 agribalyse_food_code:en:6512
@@ -61404,14 +61370,15 @@ ciqual_food_name:en:Veal, loin, sautéed/pan-fried
 ciqual_food_name:fr:Veau, carré, sauté/poêlé
 
 <en:Veal meat
-en:Raw veal loin
-fr:Carré de veau cru
-agribalyse_food_code:en:6513
-ciqual_food_code:en:6513
-ciqual_food_name:en:Veal, loin, raw
-ciqual_food_name:fr:Veau, carré, cru
+en:Veal shoulder
+fr:Epaule de veau
+agribalyse_food_code:en:6560
+ciqual_food_code:en:6560
+ciqual_food_name:en:Veal, shoulder, raw
+ciqual_food_name:fr:Veau, épaule, crue
 
 <en:Cooked veal meat
+<en:Veal shoulder
 en:Grilled veal shoulder, Pan-fried veal shoulder
 fr:Epaule de veau grillée, Epaule de veau poêlée
 agribalyse_food_code:en:6562
@@ -61420,16 +61387,8 @@ ciqual_food_name:en:Veal, shoulder, grilled/pan-fried
 ciqual_food_name:fr:Veau, épaule, grillée/poêlée
 
 <en:Veal meat
-en:Raw veal shoulder
-fr:Epaule de veau crue
-agribalyse_food_code:en:6560
-ciqual_food_code:en:6560
-ciqual_food_name:en:Veal, shoulder, raw
-ciqual_food_name:fr:Veau, épaule, crue
-
-<en:Veal meat
-en:Raw calf foot
-fr:Pied de veau cru
+en:Calf foot
+fr:Pied de veau
 agribalyse_food_code:en:6580
 ciqual_food_code:en:6580
 ciqual_food_name:en:Calf, foot, raw
@@ -61438,6 +61397,10 @@ ciqual_food_name:fr:Veau, pied, cru
 <en:Veal meat
 en:Veal tenderloins
 fr:Noix de veau
+agribalyse_food_code:en:6522
+ciqual_food_code:en:6522
+ciqual_food_name:en:Veal, tenderloin, raw
+ciqual_food_name:fr:Veau, noix, crue
 
 <en:Cooked veal meat
 <en:Veal tenderloins
@@ -61457,17 +61420,13 @@ ciqual_food_code:en:6524
 ciqual_food_name:en:Veal, tenderloin, roasted
 ciqual_food_name:fr:Veau, noix, rôtie
 
-<en:Veal tenderloins
-en:Raw veal tenderloins
-fr:Noix de veau crues
-agribalyse_food_code:en:6522
-ciqual_food_code:en:6522
-ciqual_food_name:en:Veal, tenderloin, raw
-ciqual_food_name:fr:Veau, noix, crue
-
 <en:Veal meat
 en:Veal escalopes
 fr:Escalopes de veau
+agribalyse_food_code:en:6521
+ciqual_food_code:en:6521
+ciqual_food_name:en:Veal, escalope, raw
+ciqual_food_name:fr:Veau, escalope, crue
 
 <en:Cooked veal meat
 <en:Veal escalopes
@@ -61478,14 +61437,6 @@ ciqual_food_code:en:6520
 ciqual_food_name:en:Veal, escalope, cooked
 ciqual_food_name:fr:Veau, escalope, cuite
 
-<en:Veal escalopes
-en:Raw veal escalopes
-fr:Escalopes de veau crues
-agribalyse_food_code:en:6521
-ciqual_food_code:en:6521
-ciqual_food_name:en:Veal, escalope, raw
-ciqual_food_name:fr:Veau, escalope, crue
-
 <en:Cooked veal meat
 en:Cooked veal bread escalopes
 fr:Escalopes panées de veau cuites
@@ -61494,7 +61445,16 @@ ciqual_food_code:en:25173
 ciqual_food_name:en:Veal, bread escalope, cooked
 ciqual_food_name:fr:Veau, escalope panée, cuite
 
+<en:Veal meat
+en:Veal fillets
+fr:Filets de veau
+agribalyse_food_code:en:6530
+ciqual_food_code:en:6530
+ciqual_food_name:en:Veal fillet, raw
+ciqual_food_name:fr:Veau, filet, cru
+
 <en:Cooked veal meat
+<en:Veal fillets
 en:Roasted veal fillet, Baked veal fillet
 fr:Filets de veau rôtis, Filets de veau cuits au four
 agribalyse_food_code:en:6531
@@ -61503,24 +61463,16 @@ ciqual_food_name:en:Veal fillet, roasted/baked
 ciqual_food_name:fr:Veau, filet, rôti/cuit au four
 
 <en:Veal meat
-en:Raw veal fillets
-fr:Filets de veau crus
-agribalyse_food_code:en:6530
-ciqual_food_code:en:6530
-ciqual_food_name:en:Veal fillet, raw
-ciqual_food_name:fr:Veau, filet, cru
-
-<en:Veal meat
-en:Raw veal breast
-fr:Poitrine de veau crue
+en:Veal breast
+fr:Poitrine de veau
 agribalyse_food_code:en:6540
 ciqual_food_code:en:6540
 ciqual_food_name:en:Veal, breast, raw
 ciqual_food_name:fr:Veau, poitrine, crue
 
 <en:Veal meat
-en:Raw veal heart
-fr:Coeur de veau cru
+en:Veal heart
+fr:Coeur de veau
 agribalyse_food_code:en:40062
 ciqual_food_code:en:40062
 ciqual_food_name:en:Heart, veal, raw
@@ -61535,6 +61487,7 @@ ciqual_food_name:en:Veal olive or veal paupiette
 ciqual_food_name:fr:Paupiette de veau
 
 <en:Cooked veal meat
+<en:Olive veal
 en:Veal paupiette cooked in oven
 fr:Paupiette de veau cuite au four
 agribalyse_food_code:en:25213
@@ -61544,8 +61497,8 @@ ciqual_food_name:fr:Paupiette de veau, cuite au four
 
 <en:Veal meat
 <en:Ground steaks
-en:Raw veal minced steak with 20% fat
-fr:Steak haché de veau cru à 20% de matières grasses
+en:Veal minced steak with 20% fat
+fr:Steak haché de veau à 20% de matières grasses
 agribalyse_food_code:en:6535
 ciqual_food_code:en:6535
 ciqual_food_name:en:Veal, minced steak, 20% fat, raw
@@ -61553,8 +61506,8 @@ ciqual_food_name:fr:Veau, steak haché 20% MG, cru
 
 <en:Veal meat
 <en:Ground steaks
-en:Raw veal minced steak with 15% fat
-fr:Steak haché de veau cru à 15% de matières grasses
+en:Veal minced steak with 15% fat
+fr:Steak haché de veau à 15% de matières grasses
 agribalyse_food_code:en:6536
 ciqual_food_code:en:6536
 ciqual_food_name:en:Veal, minced steak, 15% fat, raw
@@ -61565,29 +61518,29 @@ en:Game
 fr:Gibiers, Gibier
 
 <en:Game
-en:Raw hare meat
-fr:Viande de lièvre crue
+en:Hare meats
+fr:Viande de lièvre
 ciqual_food_code:en:14004
 ciqual_food_name:en:Hare, meat, raw
 ciqual_food_name:fr:Lièvre, viande crue
 
 <en:Game
-en:Raw wild boar
-fr:Sanglier cru
+en:Wild boars
+fr:Sangliers
 ciqual_food_code:en:14002
 ciqual_food_name:en:Wild boar, raw
 ciqual_food_name:fr:Sanglier, cru
 
 <en:Game
-en:Raw venison, Raw roebuck
-fr:Chevreuil cru
+en:Venison, Roebuck
+fr:Chevreuil
 ciqual_food_code:en:14005
 ciqual_food_name:en:Venison (roebuck), raw
 ciqual_food_name:fr:Chevreuil, cru
 
 <en:Game
-en:Raw hart
-fr:Cerf cru
+en:Hart
+fr:Cerf
 ciqual_food_code:en:14006
 ciqual_food_name:en:Venison (hart), raw
 ciqual_food_name:fr:Cerf, cru
@@ -61797,6 +61750,9 @@ nl:Paddestoelen
 agribalyse_proxy_food_code:en:20105
 agribalyse_proxy_food_name:en:Morel, raw
 agribalyse_proxy_food_name:fr:Champignon, morille, crue
+ciqual_food_code:en:20010
+ciqual_food_name:en:Mushroom, all types, raw
+ciqual_food_name:fr:Champignon, tout type, cru
 
 <en:Mushrooms
 <en:Fresh vegetables
@@ -61807,14 +61763,6 @@ fi:Tuoreet sienet
 fr:Champignons frais
 it:Funghi freschi
 nl:Verse paddestoelen
-
-<en:Mushrooms
-<en:Fresh vegetables
-en:Raw mushrooms
-fr:Champignons crus
-ciqual_food_code:en:20010
-ciqual_food_name:en:Mushroom, all types, raw
-ciqual_food_name:fr:Champignon, tout type, cru
 
 <en:Mushrooms
 en:Bloody milk caps, Lactarius sanguifluus
@@ -61835,8 +61783,8 @@ nl:Champignons
 wikidata:en:Q227690
 
 <en:Mushrooms
-en:Raw field mushrooms
-fr:Champignons rosés des prés crus
+en:Field mushrooms
+fr:Champignons rosés des prés
 ciqual_food_code:en:20161
 ciqual_food_name:en:Field mushroom, raw
 ciqual_food_name:fr:Champignon, rosé des prés, cru
@@ -61869,13 +61817,6 @@ fi:kokonaiset herkkusienet
 fr:Champignons de Paris entiers
 it:Funghi champignon interi, Champignon interi
 nl:Hele champignons
-
-<en:Champignon mushrooms
-en:Raw button mushrooms, Raw cultivated mushrooms
-fr:Champignons de Paris crus, Champignons de couche crus
-ciqual_food_code:en:20056
-ciqual_food_name:en:Button mushroom or cultivated mushroom, raw
-ciqual_food_name:fr:Champignon de Paris ou champignon de couche, cru
 
 <en:Champignon mushrooms
 en:Boiled button mushrooms, Boiled cultivated mushrooms, Button mushrooms cooked in water, Cultivated mushrooms cooked in water
@@ -62129,6 +62070,13 @@ en:Canned bloody milk cap
 es:Rovellones en conserva, Rovellón en conserva, Lactarius sanguifluus en conserva
 fr:Lactaires sanguins en conserve, Lactarius sanguifluus en conserve
 nl:Bloedmelkzammen in blik
+
+<en:Champignon mushrooms
+en:Raw button mushrooms, Raw cultivated mushrooms
+fr:Champignons de Paris crus, Champignons de couche crus
+ciqual_food_code:en:20056
+ciqual_food_name:en:Button mushroom or cultivated mushroom, raw
+ciqual_food_name:fr:Champignon de Paris ou champignon de couche, cru
 
 <en:Canned mushrooms
 en:Canned champignon mushrooms, Canned common mushrooms, Canned white mushrooms, Canned white button mushrooms, Canned button mushrooms, Canned Agaricus bisporus
