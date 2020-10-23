@@ -158,6 +158,7 @@ sub compute_ecoscore($) {
 	# Compute the bonuses and maluses
 	
 	compute_ecoscore_production_system_adjustment($product_ref);
+	compute_ecoscore_threatened_species_adjustment($product_ref);
 	
 	# Compute the final Eco-Score and assign the A to E grade
 	
@@ -336,6 +337,7 @@ my @production_system_labels = (
 	["en:responsible-aquaculture-asc", 10],
 );
 
+
 sub compute_ecoscore_production_system_adjustment($) {
 
 	my $product_ref = shift;
@@ -358,6 +360,45 @@ sub compute_ecoscore_production_system_adjustment($) {
 			
 			last;
 		}
+	}
+	
+}
+
+
+=head2 compute_ecoscore_threatened_species_adjustment ( $product_ref )
+
+Computes an adjustment (malus) if the ingredients are harmful to threatened species.
+e.g. threatened fishes, or ingredients like palm oil that threaten the habitat of threatened species.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+Returned values:
+
+$product_ref->{adjustments}{threatened_species} hash with:
+- value: malus (-10 for palm oil)
+- ingredient: the id of the ingredient responsible for the malus
+
+=cut
+
+sub compute_ecoscore_threatened_species_adjustment($) {
+
+	my $product_ref = shift;
+	
+	$product_ref->{ecoscore_data}{adjustments}{threatened_species} = {};
+	
+	# Products that contain palm oil that is not certified RSPO
+	
+	if ((has_tag($product_ref, "ingredients_analysis", "en:palm-oil"))
+		and not (has_tag($product_ref, "labels", "en:roundtable-on-sustainable-palm-oil"))) {
+		
+		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} = -10;
+		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{ingredient} = "en:palm-oil";
 	}
 	
 }
