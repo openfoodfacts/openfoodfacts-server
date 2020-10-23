@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-13 03:32\n"
+"PO-Revision-Date: 2020-10-23 11:30\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4641,7 +4641,7 @@ msgstr "הנחיות מיחזור ו/או פרטי אריזה"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "סרט פלסטיק אחד להשלכה, קופסת קרטון אחת באישור FSC למיחזור, 6 בקבוקי פלסטיק PET שקופים של 1.5 ליטר למיחזור, 6 פקקי פלסטיק צבעוניים אטומים, 12 פחיות אלומיניום של 330 מיליליטר"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
@@ -4676,8 +4676,8 @@ msgid "Eco-Score"
 msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "השפעה נמוכה על איכות הסביבה"
+msgid "Low environmental impact (Eco-Score)"
+msgstr ""
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4723,4 +4723,121 @@ msgstr "אינו מכיל: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "ללא %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr ""
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr ""
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr ""
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr ""
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr ""
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "שירות לקוחות"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr ""
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr ""
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr ""
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr ""
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr ""
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr ""
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "כתובת דוא״ל"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr ""
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "פרטים נוספים"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr ""
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr ""
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr ""
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr ""
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr ""
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr ""
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr ""
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr ""
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr ""
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr ""
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "רכיבים"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr ""
 
