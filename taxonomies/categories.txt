@@ -40480,26 +40480,6 @@ ciqual_food_code:en:32028
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
 ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat (non enrichies en vitamines et minéraux)
 
-# Puffed wheat grains
-
-<en:Wheat grains
-<en:Puffed cereals
-en:Puffed wheat grains
-
-<en:Chocolate cereals
-<en:Puffed wheat grains
-en:Chocolate puffed wheat grains
-fr:Grains de blé soufflés chocolatés
-
-<en:Chocolate puffed wheat grains
-<en:Breakfast cereals fortified with vitamins and chemical elements
-en:Chocolate puffed wheat grains fortified with vitamins and chemical elements, Chocolate popped wheat grains fortified with vitamins and chemical elements
-fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
-agribalyse_food_code:en:32115
-ciqual_food_code:en:32115
-ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
-ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
-
 <en:Chocolate cereals
 <en:Breakfast cereals fortified with vitamins and chemical elements
 en:Breakfast chocolate high-fiber cereals fortified with vitamins and chemical elements
@@ -40560,13 +40540,6 @@ agribalyse_food_code:en:32018
 ciqual_food_code:en:32018
 ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
-
-<en:Breakfast cereals
-en:Popped wheat grain with honey fortified with vitamins and chemical elements, Popped wheat grain with caramel fortified with vitamins and chemical elements, Puffed wheat grain with honey fortified with vitamins and chemical elements, Puffed wheat grain with caramel fortified with vitamins and chemical elements
-fr:Grains de blé soufflés au miel enrichis en vitamines et minéraux, Grains de blé soufflés au miel caramel enrichis en vitamines et minéraux
-agribalyse_food_code:en:32000
-ciqual_food_code:en:32000
-ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
 <en:Breakfast cereals
 en:Breakfast cereals rich in fibre
@@ -41284,6 +41257,34 @@ es:Espelta inflada, Espelta hinchada
 fr:Épeautre soufflé
 it:Farro soffiato
 nl:Gepofte spelt
+
+# Puffed wheat grains
+
+<en:Wheat grains
+<en:Puffed cereals
+en:Puffed wheat grains
+
+<en:Chocolate cereals
+<en:Puffed wheat grains
+en:Chocolate puffed wheat grains
+fr:Grains de blé soufflés chocolatés
+
+<en:Chocolate puffed wheat grains
+<en:Breakfast cereals fortified with vitamins and chemical elements
+en:Chocolate puffed wheat grains fortified with vitamins and chemical elements, Chocolate popped wheat grains fortified with vitamins and chemical elements
+fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
+agribalyse_food_code:en:32115
+ciqual_food_code:en:32115
+ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
+
+<en:Puffed wheat grains
+en:Popped wheat grain with honey fortified with vitamins and chemical elements, Popped wheat grain with caramel fortified with vitamins and chemical elements, Puffed wheat grain with honey fortified with vitamins and chemical elements, Puffed wheat grain with caramel fortified with vitamins and chemical elements
+fr:Grains de blé soufflés au miel enrichis en vitamines et minéraux, Grains de blé soufflés au miel caramel enrichis en vitamines et minéraux
+agribalyse_food_code:en:32000
+ciqual_food_code:en:32000
+ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
+
 
 <en:Cereals and their products
 <en:Flours
