@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 18:12\n"
+"PO-Revision-Date: 2020-10-23 20:02\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4738,7 +4738,7 @@ msgstr "ניתן לספק מידע על החברה שלך שיופיע בפרו�
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "חלק מהמידע כגון פרטי יצירת קשר עם שירות הלקוחות עשוי להופיע ישירות על עמודי המוצרים שלכם."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4746,7 +4746,7 @@ msgstr "שם"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "קישור לאתר הרשמי"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4754,19 +4754,19 @@ msgstr "שירות לקוחות"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "פרטי שירות הלקוחות גלויים לציבור וניתן להציג אותם באתר של Open Food Facts וביישומונים."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "כל השדות הם בגדר רשות."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "שירות מסחרי"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "פרטי השירות המסחרי מופיעים בפרופיל הארגון בלבד."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4774,11 +4774,11 @@ msgstr "שם"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "כתובת"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "מספר טלפון"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4786,7 +4786,7 @@ msgstr "כתובת דוא״ל"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "קישור לטופס יצירת קשר"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4794,43 +4794,43 @@ msgstr "פרטים נוספים"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "למשל שעות פתיחה"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "הארגון לא נמצא."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "שם הארגון חסר."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "פרופיל הארגון"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "פרופיל הארגון עודכן."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "למחוק את הארגון"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "האתר הרשמי"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "טופס יצירת קשר"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "עריכת פרופיל הארגון שלך"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "עריכת פרופיל המשתמש שלך"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4839,5 +4839,5 @@ msgstr "רכיבים"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
-msgstr ""
+msgstr "לא ידוע: %s"
 
