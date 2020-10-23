@@ -40774,6 +40774,32 @@ fr:Mueslis aux fruits
 it:Muesli alla frutta, muesli con frutta
 nl:Mueslis met fruit, Muesli met fruit
 ro:Müsli cu fructe
+agribalyse_proxy_food_code:en:32111
+agribalyse_proxy_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+agribalyse_proxy_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+<en:Mueslis with fruits
+en:Crunchy muesli with fruits
+fr:Muesli croustillant aux fruits
+agribalyse_proxy_food_code:en:32111
+agribalyse_proxy_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+agribalyse_proxy_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+<en:Crunchy muesli with fruits
+en:Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
+fr:Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
+agribalyse_food_code:en:32111
+ciqual_food_code:en:32111
+ciqual_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+<en:Crunchy muesli with fruits
+en:Crunchy Muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
+fr:Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
+agribalyse_food_code:en:32108
+ciqual_food_code:en:32108
+ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
 en:Mueslis with nuts, Walnut muesli
@@ -40833,26 +40859,6 @@ ciqual_food_name:en:Muesli, flakes, not fortified with vitamins and chemical ele
 ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
 
 <en:Mueslis
-en:Crunchy muesli with fruits
-fr:Muesli croustillant aux fruits
-
-<en:Crunchy muesli with fruits
-en:Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
-fr:Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
-agribalyse_food_code:en:32111
-ciqual_food_code:en:32111
-ciqual_food_name:en:Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr:Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
-
-<en:Crunchy muesli with fruits
-en:Crunchy Muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
-fr:Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
-agribalyse_food_code:en:32108
-ciqual_food_code:en:32108
-ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (not fortified with vitamins and chemical elements)
-ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
-
-<en:Mueslis
 en:Mueslis with chocolate
 de:Müslis mit Schokolade, Schokomüslis
 es:Mueslis con chocolate
@@ -40862,6 +40868,9 @@ it:Muesli con cioccolato
 nl:Muesli met chocola
 pl:Musli czekoladowe, musli z czekoladą
 ro:Müsli cu ciocolată
+agribalyse_proxy_food_code:en:32112
+agribalyse_proxy_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
+agribalyse_proxy_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
 
 <en:Mueslis with chocolate
 en:Crunchy chocolate muesli fortified with vitamins and chemical elements
@@ -41200,6 +41209,7 @@ es:Quinoa inflada, Quinoa hinchada
 fr:Quinoa soufflé
 nl:Gepofte quinoa
 
+# Rice Krispies
 <en:Puffed cereals
 en:Puffed rice
 de:Puffreis
@@ -41209,14 +41219,14 @@ fr:Riz soufflé
 it:Riso soffiato
 nl:Gepofte rijst
 
-# Rice Krispies
+# Coco pops
 <en:Chocolate cereals
 <en:Puffed rice
 en:Chocolate puffed rice
 fr:Riz soufflé chocolaté, Riz soufflé au chocolat
 
 <en:Chocolate puffed rice
-en:Breakfast cereals with chocolate puffed rice not fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice not fortified with vitamins and chemical elements
+en:Chocolate puffed rice not fortified with vitamins and chemical elements, Chocolate popped rice not fortified with vitamins and chemical elements
 fr:Riz soufflé chocolaté non enrichi en vitamines et minéraux
 ciqual_food_code:en:32012
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice (not fortified with vitamins and chemical elements)
@@ -41224,14 +41234,14 @@ ciqual_food_name:fr:Riz soufflé chocolaté (non enrichi en vitamines et minéra
 
 <en:Chocolate puffed rice
 <en:Breakfast cereals fortified with vitamins and chemical elements
-en:Breakfast cereals with chocolate puffed rice fortified with vitamins and chemical elements, Breakfast cereals with chocolate popped rice fortified with vitamins and chemical elements
+en:Chocolate puffed rice fortified with vitamins and chemical elements, Chocolate popped rice fortified with vitamins and chemical elements
 fr:Riz soufflé chocolaté enrichi en vitamines et minéraux
 ciqual_food_code:en:32131
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped rice, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Riz soufflé chocolaté, enrichi en vitamines et minéraux
 
 <en:Puffed rice
-en:Breakfast cereals with puffed rice fortified with vitamins and chemical elements, Breakfast cereals with popped rice fortified with vitamins and chemical elements
+en:Puffed rice fortified with vitamins and chemical elements, Popped rice fortified with vitamins and chemical elements
 fr:Riz soufflé nature enrichi en vitamines et minéraux
 ciqual_food_code:en:32006
 ciqual_food_name:en:Breakfast cereals, puffed/popped rice, fortified with vitamins and chemical elements
@@ -41271,13 +41281,14 @@ nl:Gepofte spelt
 
 <en:Puffed cereals
 en:Puffed wheat grains
+fr:Grains de blé soufflés
 agribalyse_proxy_food_code:en:32000
 agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
 <en:Chocolate cereals
 <en:Puffed wheat grains
 en:Chocolate puffed wheat grains
-fr:Grains de blé soufflés chocolatés
+fr:Grains de blé soufflés chocolatés, Grains de blé soufflés au chocolat
 
 <en:Chocolate puffed wheat grains
 <en:Breakfast cereals fortified with vitamins and chemical elements
@@ -41289,11 +41300,23 @@ ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fort
 ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
 
 <en:Puffed wheat grains
+en:Popped wheat grain with honey
+fr:Grains de blé soufflés au miel
+agribalyse_proxy_food_code:en:32000
+agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
+
+<en:Popped wheat grain with honey
 en:Popped wheat grain with honey fortified with vitamins and chemical elements, Puffed wheat grain with honey fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au miel enrichis en vitamines et minéraux
 agribalyse_food_code:en:32000
 ciqual_food_code:en:32000
 ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
+
+<en:Puffed wheat grains
+en:Popped wheat grain with caramel
+fr:Grains de blé soufflés au caramel
+agribalyse_proxy_food_code:en:32000
+agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
 <en:Puffed wheat grains
 en:Popped wheat grain with caramel fortified with vitamins and chemical elements, Puffed wheat grain with caramel fortified with vitamins and chemical elements
@@ -59334,6 +59357,12 @@ fr:Rillettes de langoustine
 <en:Rillettes
 en:Mullet rillettes
 fr:Rillettes de mulet
+
+<en:Fish preparations
+fr:Boulettes de poissons
+
+<fr:Boulettes de poissons
+fr:Boulettes de sardines à la sauce tomate
 
 <en:Fish preparations
 <en:Rillettes
