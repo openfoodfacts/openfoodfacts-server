@@ -70023,14 +70023,6 @@ es:Semillas de girasol con cáscara tostadas, Pipas de girasol con cáscara tost
 fr:Graines de tournesol en coque grillées
 nl:Geroosterde ongepelde zonnebloempitten
 
-<en:Sunflower seeds
-<en:Shelled sunflower seeds
-en:Shelled sunflower seeds
-de:Ungeschälte rohe Sonnenblumenkerne
-es:Semillas de girasol sin cáscara
-fr:Graines de tournesol décortiquées
-nl:Ongepelde rauwe zonnebloempitten
-
 <en:Roasted sunflower seeds
 <en:Shelled sunflower seeds
 en:Roasted shelled sunflower seeds
@@ -71660,9 +71652,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
 # carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
-agribalyse_proxy_food_code:en:20057
-agribalyse_proxy_food_name:en:Broccoli, raw
-agribalyse_proxy_food_name:fr:Brocoli, cru
+agribalyse_food_code:en:20057
+ciqual_food_code:en:20057
+ciqual_food_name:en:Broccoli, raw
+ciqual_food_name:fr:Brocoli, cru
 
 <en:Broccoli
 <en:Fresh vegetables
@@ -71671,14 +71664,6 @@ es:Brócoli fresco
 fi:Tuore parsakaali
 fr:Brocolis frais
 season_in_country_fr:en: 9,10,11
-
-<en:Broccoli
-en:Broccoli
-fr:Brocolis
-agribalyse_food_code:en:20057
-ciqual_food_code:en:20057
-ciqual_food_name:en:Broccoli, raw
-ciqual_food_name:fr:Brocoli, cru
 
 <en:Broccoli
 <en:Cooked vegetables
@@ -71698,10 +71683,6 @@ fr:Choux de Bruxelles
 it:Cavoletti di Bruxelles, Cavolini di Bruxelles
 la:Brassica oleracea var. gemmifera
 nl:Spruiten
-
-<en:Brussels sprouts
-en:Brussels sprouts
-fr:Choux de Bruxelles
 agribalyse_food_code:en:20058
 ciqual_food_code:en:20058
 ciqual_food_name:en:Brussels sprout, raw
@@ -71733,9 +71714,10 @@ ciqual_food_name:fr:Chou blanc, cru
 <en:Cabbages
 en:Green cabbage
 fr:Chou vert
-agribalyse_proxy_food_code:en:20069
-agribalyse_proxy_food_name:en:Green cabbage, raw
-agribalyse_proxy_food_name:fr:Chou vert, cru
+agribalyse_food_code:en:20069
+ciqual_food_code:en:20069
+ciqual_food_name:en:Green cabbage, raw
+ciqual_food_name:fr:Chou vert, cru
 
 <en:Green cabbage
 en:Boiled green cabbage boiled, Green cabbage cooked in water
@@ -71744,14 +71726,6 @@ agribalyse_food_code:en:20015
 ciqual_food_code:en:20015
 ciqual_food_name:en:Green cabbage, boiled/cooked in water
 ciqual_food_name:fr:Chou vert, cuit
-
-<en:Green cabbage
-en:Green cabbage
-fr:Chou vert
-agribalyse_food_code:en:20069
-ciqual_food_code:en:20069
-ciqual_food_name:en:Green cabbage, raw
-ciqual_food_name:fr:Chou vert, cru
 
 <en:Cabbages
 en:Red cabbage
