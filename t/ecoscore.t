@@ -21,7 +21,6 @@ labels => [
 	"fr:bio-coherence",
 	"en:demeter",
 	
-	"en:ab-agriculture-biologique",
 	"fr:ab-agriculture-biologique",
 	"en:eu-organic",
 	
