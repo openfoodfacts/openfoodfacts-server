@@ -4,39 +4,39 @@
 
 <h1>Pontuação Nutricional e de Cor da Nutri-Score</h1>
 
-<h2>Um sistema de notas de A a E para simplificar a rotulagem nutricional</h2>
+<h2>A system of grades from A to E to simplify nutritional labeling</h2>
 
-<p>No relatório "Propostas para um novo impulso à política francesa de nutrição em saúde pública no âmbito da Estratégia Nacional de Saúde" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
-Professor Serge Hercberg defende a adoção de um sistema de graus de A a E na frente de alimentos
-para permitir a comparação simplificada da qualidade nutricional dos produtos.</p>
+<p>In the report "Proposals for a new impetus to the French public health nutrition policy in the framework of the National Health Strategy" (<a href="https://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf">pdf</a>),
+Professor Serge Hercberg advocates for the adoption of a system of grades from A to E on the front of food
+to allow to simply compare the nutritional quality of products.</p>
 
 <img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
 
 <p>Essas cores são definidas pelo cálculo de uma pontuação nutricional que reflete para a primeira parte da energia, Gorduras saturadas, açúcares, sódio (níveis altos são considerados prejudiciais), e pela segunda parte da proporção de frutas, legumes e castanhas, fibras e proteínas
   (altos níveis são considerados bons para a saúde).</p>
 
-<p>Para saber mais:</p>
+<p>To learn more:</p>
 
 <ul>
 <li><a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">Apresentação oficial do Nutri-Score</a> e das <a href="https://www.santepubliquefrance.fr/Media/Files/NUTRISCORE/Questions_reponses_EN">Perguntas Científicas e Técnicas do Nutri-Score</a> no site da agência nacional de saúde pública francesa Santé Publique França.</li>
-<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Um vídeo de 2 minutos: que rotulagem para produtos alimentares?</a></li>
-<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petição por um rótulo nutricional simples, intuitivo e compreensível para todos na frente dos pacotes de alimentos</a>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">A 2 minutes video : What labeling for food products?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Petition for a simple , intuitive and understandable by all nutritional labeling on the front of food packages</a>
 </li>
 </ul>
 
-<h2>A pontuação nutricional no Open Food Facts</h2>
+<h2>The nutritional score on Open Food Facts</h2>
 
-<p>A fórmula para o cálculo da pontuação nutricional, os limiares das notas e as várias propostas de síntese foram transmitidas pela equipa do Professor Hercberg. Esta fórmula foi objeto de estudos e de adaptações ao mercado francês.</p>
+<p>The formula for calculating the nutritional score, the thresholds of the grades and the various tweaking proposals were transmitted by Professor Hercberg's team. This formula was the subject of studies and adaptations for the French market.</p>
 
 <p>A versão adoptada oficialmente e implementada sobre o Open Food Facts é a do relatório
 <a href="/files/hcspa20150625_infoqualnutprodalim.pdf">AVISO do Alto Conselho para a Saúde Pública relacionado às informações sobre a qualidade nutricional dos produtos alimentares publicadas em 25 de junho 2015</a>.</p>
 
-<p>No entanto, calculamos a pontuação nutricional para produtos vendidos em solo francês e referenciados no banco de dados Open Food Facts,
-e determinou as correspondentes notas de A a E. Isto permite, em particular, comparar a nota nutricional e/ou as notas de diferentes produtos, e estudar a distribuição para cada categoria de produtos.</p>
+<p>However, we calculated the nutritional score for products sold on French soil and referenced in the database Open Food Facts,
+and determined the corresponding A to E grades. This allows in particular to compare the nutritional score and / or notes of different products, and to study the distribution for each product category.</p>
 
-<h2>Fórmula para calcular a pontuação nutricional</h2>
+<h2>Formula to calculate the nutritional score</h2>
 
-<p>São dados pontos aos produtos de acordo com a quantidade de nutrientes que eles contêm a cada 100 g.</p>
+<p>Points are given to the products according to the amount of nutrients they contain per 100 g.</p>
 
 <p>São dados pontos A para os nutrientes considerados "ruins" e pontos C são dados para os nutrientes "bons" e o conteúdo em frutas, vegetais e nozes.</p>
 
@@ -133,17 +133,17 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 </tbody>
   </table>
 
-<h3>Pontos C</h3>
+<h3>C Points</h3>
 
-<p>Os pontos C são a soma de pontos para frutas, legumes e castanhas, para fibras e proteínas.</p>
+<p>The C points are the sum of points for fruits, vegetables and nuts, for fiber and protein.</p>
 
 <table class="points">
 <tbody>
   <tr>
     <th>Pontos</th>
-    <th>Frutas, legumes e castanhas(%)</th>
+    <th>Fruits, vegetables and nuts (%)</th>
     <th>Fibre (g)</th>
-    <th>Proteínas (g)</th>
+    <th>Protein (g)</th>
   </tr>
 <tr>
   <td>0</td>
@@ -184,32 +184,32 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 </tbody>
 </table>
 
-<p>Nota: batatas, batatas doces, tarugo, cassava e tapioca não estão incluídas nas frutas, legumes e nozes.</p>
+<p>Note: potatoes, sweet potatoes, taro, cassava and tapioca are not included in fruits, vegetables and nuts.</p>
 
-<h3>Cálculo de pontuação nutricional</h3>
+<h3>Nutritional score calculation</h3>
 
 <ul>
-<li>Se Um ponto &lt; 11 então marque = pontos A - pontos C</li>
-<li>Se um ponto ≥ 11
+<li>If A points &lt; 11 then score = A points - C points</li>
+<li>If A points ≥ 11
 <ul>
-<li>Se os pontos de fruta, legumes e nozes = 5, então pontuação = pontos A - pontos C</li>
-<li>Se os pontos para frutas, legumes e nozes &lt; 5, então marque = Pontos A - (pontos de fibra + pontos para frutas, legumes e nozes)</li>
+<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
+<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
 </ul>
 
 </li>
 </ul>
 
-<h3>Adaptações para o mercado francês</h3>
+<h3>Adaptations for the French market</h3>
 
 <p>A fórmula da pontuação nutricional indicada acima corresponde à fórmula da pontuação nutricional da Food Standards Agency (FSA) no Reino Unido.</p>
 
 <p>A equipe do professor Hercberg oferece adaptações para o mercado francês que são implementadas para calcular a pontuação no Open Food Facts.</p>
 
-<h4>Adaptação para o queijo</h4>
+<h4>Adaptation for cheese</h4>
 
-<p>Para queijos, os pontos para as proteínas são subtraídos da pontuação, mesmo que os pontos A sejam ≥ 11.</p>
+<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
 
-<h4>Adaptação para a gordura</h4>
+<h4>Adaptation for fat</h4>
 
 <p>Para ajudar a diferenciar gorduras (óleos, margarinas, crèmes fraîches), todos os que têm taxas de
   gordura saturada mais altas que o limite máximo de 10 g,
@@ -219,7 +219,7 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 <tbody>
   <tr>
     <td>Pontos</td>
-    <td>Relação Gordura Saturada / Gordura Total</td>
+    <td>Ratio Saturated Fat / Total Fat</td>
   </tr>
 <tr>
   <td>0</td>
@@ -268,15 +268,15 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 </tbody>
 </table>
 
-<h4>Adaptações para frutas e legumes</h4>
+<h4>Adaptations for fruits and vegetables</h4>
 
-<p>As castanhas não são levadas em consideração para o cálculo do conteúdo de frutas e vegetais.</p>
+<p>The nuts are not taken into account for the calculation of the content of fruits and vegetables.</p>
 
-<h4>Adaptações para bebidas</h4>
+<h4>Adaptations for drinks</h4>
 
 <p>Atenção: a pontuação nutricional do leite e dos leites vegetais é calculada com a fórmula geral e não com a fórmula das bebidas.</p>
 
-<p>O limite de pontos para a energia e para os açúcares são modificados para as bebidas e os pontos são dobrados para os frutos:</p>
+<p>The threshold of points for energy and for sugars are modified for drinks, and points are doubled for fruits:</p>
 
 <table class="points">
 <tbody>
@@ -284,7 +284,7 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
   <th>Pontos</th>
   <th>Energia (kJ)</th>
   <th>Açúcares (g)</th>
-  <th>Frutas, legumes (%)</th>
+  <th>Fruits, vegetables (%)</th>
 </tr>
 <tr>
   <td>0</td>
@@ -355,7 +355,7 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 <h2>Limites de notas Nutri-Score</h2>
 
 <p>Os limites usados ​​para atribuir as notas de A a E são:</p> <p>
-</p><h3>Comidas sólidas:</h3>
+</p><h3>Solid Foods:</h3>
 <ul>
 <li>A: até -1</li>
 <li>B: de 0 a 2</li>
@@ -363,8 +363,8 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 <li>D: de 11 a 18</li>
 <li>E: acima de 19</li>
 </ul>
-<h3>Bebidas:</h3>
-<p>Só a água (mineral e de nascente, com exceção das águas saborizadas) é classificada como A.</p>
+<h3>Beverages:</h3>
+<p>Only water (mineral and spring, with the exclusion of flavored waters) is graded A.</p>
 
 <ul>
 <li>A: águas minerais e águas de nascente</li>
@@ -374,44 +374,45 @@ e determinou as correspondentes notas de A a E. Isto permite, em particular, com
 <li>E: acima de 10</li>
 </ul>
 
-<p><b>Aviso: Esta pontuação ainda pode não corresponder à pontuação recomendada:</b></p>
+<p><b>Warning: This score may still not match the recommended score:</b></p>
 
 <ul>
-<li>O conteúdo da fibra não está necessariamente presente na tabela nutricional. Quando a última não é indicada, qualquer contribuição positiva das fibras não é levada em conta. Nós encorajamos todos os produtores a indicar
+<li>The fiber content is not necessarily present in the nutrition table. When the latter is not indicated, any
+positive contribution of the fibers is not taken into account. Nós encorajamos todos os produtores a indicar
   o conteúdo da fibra de seus produtos na embalagem dos mesmos.</li>
 
   <--end of current proofread -->
-<li>Os pontos que correspondem aos níveis das frutas e dos legumes não são levados em conta em todos os produtos. O conteúdo de frutas e legumes
-  não está de fato no pacote dentro da tabela nutricional. e teremos que determinar
-com outras informações (como as palavras "conteúdo mínimo de fruta", a categoria de produtos (por exemplo,. geleias contêm 50% de fruta) e/ou a lista de ingredientes.)
+<li>The points corresponding to the levels in fruits and vegetables are not taken into account for all products. The fruit , vegetables content
+  is indeed not on the package within the nutrition table, and we'll have to determine it
+with other information (such as the words "minimum fruit content", the category of products (eg. jams contain 50% fruit) and/or the ingredient list.)
 <ul>
-<li>Um novo campo "Frutas, legumes (mínimo) foi criado para registrar os valores dos termos "conteúdo mínimo de fruta / legumes", etc.</li>
-<li>Por padrão, os produtos em certas categorias são considerados como tendo um conteúdo mínimo de:
+<li>A new field "Fruits, vegetables (minimum)" was created to record the values of the terms "minimum content of fruit / vegetables" etc.</li>
+<li>By default, the products in certain categories are considered to have a minimum content of:
 <ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">suco</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">compotas</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">legumes</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">geleias</a></li>
-<li>outras categorias para definir</li>
+<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">juice</a></li>
+<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">stewed fruits</a></li>
+<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">vegetables</a></li>
+<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">jams</a></li>
+<li>other categories to define</li>
 </ul>
 
-Para calcular a pontuação nutricional, é importante distinguir os níveis acima dos 40%, 60% e 80%.
+To calculate the nutritional score, it is important to distinguish levels above 40%, 60% and 80%.
 </li>
 </ul>
 
 </li>
 
-<li>Para os alimentos liofilizados (sopas embaladas, etc.), a pontuação deve ser calculada para o produto reconstituído, não para o produto bruto, como é atualmente o caso.</li>
+<li>For the lyophilized food (packaged soups, etc.), the score should be calculated for the reconstituted product, not the raw product as is currently the case.</li>
 </ul>
 
-<p>Você pode nos ajudar a aprender o conteúdo de frutos, legumes e castanhas em produtos. Para obter mais informações, consulte
+<p>You can help us learn the fruit content, vegetables and nuts products. Para obter mais informações, consulte
 <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">o projeto de Marcação Nutricional</a> na wiki.</p>
 
-<p>Nota: tubérculos como batata e batata doce não são considerados vegetais para calcular a pontuação nutricional.</p>
-<h2>Obrigado</h2>
-<p>Agradecemos ao Professor Serge Hercberg e à Dra. Chantal Julia por sua ajuda e os dados que
-nos comunicaram para calcular a pontuação nutricional. Estes dados provêm do trabalho da
-<a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Equipe de Pesquisa na Epidemia Nutricional (EREN) </a>
-do Hospital de Paris 13 Universidade/Avicenne.</p>
+<p>Note: tubers such as potatoes and sweet potatoes are not considered vegetables to calculate nutritional score.</p>
+<h2>Thank You</h2>
+<p>We thank Professor Serge Hercberg and Dr. Chantal Julia for their help and the data they have
+communicated us to calculate the nutritional score. These data come from the work of the
+<a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html">Research Team in Nutritional Epidemiology (EREN)</a>
+of the Paris 13 University / Avicenne Hospital.</p>
 
 </div>
