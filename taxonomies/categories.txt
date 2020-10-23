@@ -40355,6 +40355,15 @@ fr:Céréales aux fruits
 en:Cereal flakes with fruits
 fr:Pétales de céréales aux fruits
 
+<en:Breakfast cereals
+en:Chocolate cereals
+de:Schokoflocken, Schokoladenflocken
+es:Cereales de chocolate
+fi:Suklaa-aamiaismurot
+fr:Céréales au chocolat
+it:Cereali al cioccolato
+nl:Chocolade ontbijtgranen
+
 <en:Chocolate cereals
 en:Cereal flakes with chocolate
 fr:Pétales de céréales au chocolat
@@ -40362,6 +40371,47 @@ fr:Pétales de céréales au chocolat
 <en:Breakfast cereals
 en:Sweet breakfast cereals
 fr:Céréales pour petit déjeuner
+
+<en:Breakfast cereals
+en:Cereals with caramel
+fi:aamiaismurot kinuskilla
+fr:Céréales au caramel
+it:Cereali al caramello
+nl:Ontbijtgranen met caramel
+
+<en:Breakfast cereals
+en:Cereals with honey
+de:Honigflocken
+es:Cereales con miel
+fi:aamiaismurot hunajan kera
+fr:Céréales au miel
+it:Cereali al miele
+nl:Ontbijtgranen met honing
+
+<en:Breakfast cereals
+en:Filled cereals
+de:Gefüllte Cerealien
+es:Cereales rellenos
+fi:täytetyt aamiaismurot
+fr:Céréales fourrées
+it:Cereali ripieni
+nl:Gevulde ontbijtgranen
+
+<en:Filled cereals
+en:Breakfast cereals filled with chocolate
+fr:Céréales pour petit déjeuner fourrées au chocolat
+
+<en:Filled cereals
+en:Breakfast cereals filled with chocolate-hazelnuts
+fr:Céréales pour petit déjeuner fourrées au chocolat-noisettes
+
+<en:Breakfast cereals
+en:Wheat grain flakes
+fr:Pétales de blé
+
+<en:Chocolate cereals
+en:Diet chocolate breakfast cereals
+fr:Céréales au chocolat pour petit-déjeuner équilibré
 
 <en:Sweet breakfast cereals
 <en:Breakfast cereals fortified with vitamins and chemical elements
@@ -40378,18 +40428,7 @@ ciqual_food_code:en:32032
 ciqual_food_name:en:Breakfast cereals, sweet, not fortified with vitamins and chemical elements (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines et minéraux (aliment moyen)
 
-<en:Breakfast cereals
-en:Chocolate cereals
-de:Schokoflocken, Schokoladenflocken
-es:Cereales de chocolate
-fi:Suklaa-aamiaismurot
-fr:Céréales au chocolat
-it:Cereali al cioccolato
-nl:Chocolade ontbijtgranen
-
-<en:Breakfast cereals
-en:Wheat grain flakes
-fr:Pétales de blé
+# Wheat grain flakes
 
 <en:Chocolate cereals
 <en:Wheat grain flakes
@@ -40421,10 +40460,6 @@ ciqual_food_code:en:32013
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled (not fortified with vitamins and chemical elements)
 ciqual_food_name:fr:Céréales chocolatées pour petit déjeuner, non fourrées, (non enrichies en vitamines et minéraux)
 
-<en:Chocolate cereals
-en:Diet chocolate breakfast cereals
-fr:Céréales au chocolat pour petit-déjeuner équilibré
-
 <en:Diet chocolate breakfast cereals
 <en:Breakfast cereals fortified with vitamins and chemical elements
 en:Diet chocolate breakfast cereals fortified with vitamins and chemical elements
@@ -40441,6 +40476,8 @@ agribalyse_food_code:en:32028
 ciqual_food_code:en:32028
 ciqual_food_name:en:Breakfast cereals, diet, with chocolate, not fortified
 ciqual_food_name:fr:Céréales pour petit déjeuner équilibre au chocolat (non enrichies en vitamines et minéraux)
+
+# Puffed wheat grains
 
 <en:Wheat grains
 <en:Puffed cereals
@@ -40497,39 +40534,6 @@ agribalyse_food_code:en:32001
 ciqual_food_code:en:32001
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
-
-<en:Breakfast cereals
-en:Cereals with caramel
-fi:aamiaismurot kinuskilla
-fr:Céréales au caramel
-it:Cereali al caramello
-nl:Ontbijtgranen met caramel
-
-<en:Breakfast cereals
-en:Cereals with honey
-de:Honigflocken
-es:Cereales con miel
-fi:aamiaismurot hunajan kera
-fr:Céréales au miel
-it:Cereali al miele
-nl:Ontbijtgranen met honing
-
-<en:Breakfast cereals
-en:Filled cereals
-de:Gefüllte Cerealien
-es:Cereales rellenos
-fi:täytetyt aamiaismurot
-fr:Céréales fourrées
-it:Cereali ripieni
-nl:Gevulde ontbijtgranen
-
-<en:Filled cereals
-en:Breakfast cereals filled with chocolate
-fr:Céréales pour petit déjeuner fourrées au chocolat
-
-<en:Filled cereals
-en:Breakfast cereals filled with chocolate-hazelnuts
-fr:Céréales pour petit déjeuner fourrées au chocolat-noisettes
 
 <en:Breakfast cereals filled with chocolate
 <en:Breakfast cereals fortified with vitamins and chemical elements
@@ -40668,20 +40672,14 @@ agribalyse_food_code:en:32116
 ciqual_food_code:en:32116
 ciqual_food_name:en:Breakfast cereals, very rich in fibre, fortified with vitamins and chemical elements
 
+# Wheat flakes
+
 <en:Breakfast cereals
 en:Wheat flakes
 
 <en:Wheat flakes
 en:Wheat flakes with walnuts
 fr:Pétales de blé avec noix
-
-<en:Wheat flakes
-en:Wheat flakes with hazelnuts
-fr:Pétales de blé avec noisettes
-
-<en:Wheat flakes
-en:Wheat flakes with almonds
-fr:Pétales de blé avec amandes
 
 <en:Wheat flakes with walnuts
 en:Wheat flakes with walnuts fortified with vitamins and chemical elements
@@ -40690,12 +40688,20 @@ agribalyse_food_code:en:32123
 ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
 
+<en:Wheat flakes
+en:Wheat flakes with hazelnuts
+fr:Pétales de blé avec noisettes
+
 <en:Wheat flakes with hazelnuts
 en:Wheat flakes with hazelnuts fortified with vitamins and chemical elements
 fr:Pétales de blé avec noisettes enrichis en vitamines et minéraux
 agribalyse_food_code:en:32123
 ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
+
+<en:Wheat flakes
+en:Wheat flakes with almonds
+fr:Pétales de blé avec amandes
 
 <en:Wheat flakes with almonds
 en:Wheat flakes with almonds fortified with vitamins and chemical elements
@@ -40704,6 +40710,8 @@ agribalyse_food_code:en:32123
 ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
 
+
+# Puffed corn
 # Miel Pops
 <en:Breakfast cereals
 en:Breakfast cereals puffed corn with honey
@@ -40823,6 +40831,8 @@ agribalyse_food_code:en:32128
 ciqual_food_code:en:32128
 ciqual_food_name:en:Muesli, flakes (Bircher-style)
 ciqual_food_name:fr:Muesli floconneux ou de type traditionnel
+
+# Bircher-style muesli 
 
 <en:Muesli flakes
 en:Bircher-style muesli flakes with fruits
@@ -40948,6 +40958,8 @@ fr:Flocons de sarrasin
 nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
+# Corn Flakes
+
 <en:Cereal flakes
 <en:Extruded flakes
 en:Corn flakes, Corn-Flakes
@@ -40988,6 +41000,8 @@ agribalyse_food_code:en:32121
 ciqual_food_code:en:32121
 ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
 
+# Oat Flakes
+
 <en:Cereal flakes
 <en:Rolled flakes
 en:Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
@@ -41006,7 +41020,7 @@ ciqual_food_name:en:Oatmeal flakes
 ciqual_food_name:fr:Flocon d'avoine
 
 <en:Oat flakes
-en:Raw pre-cooked oat flakes
+en:Pre-cooked oat flakes
 fr:Flocons d'avoine précuits
 agribalyse_food_code:en:32140
 ciqual_food_code:en:32140
