@@ -29422,7 +29422,11 @@ nova:en:3
 ciqual_food_code:en:12999
 ciqual_food_name:en:Cheese (average)
 ciqual_food_name:fr:Fromage (aliment moyen)
+agribalyse_proxy_food_code:en:12001
+ciqual_proxy_food_code:en:12001
+ciqual_proxy_food_name:en:Camembert cheese, from cow's milk
 who_id:en:8
+# Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 <en:Cheeses
 fr:Fromages pour enfants
@@ -31306,9 +31310,9 @@ nl:Geitenkazen
 pl:Ser kozi, Sery kozie
 ru:Сыр из козьего молока
 wikidata:en:Q198815
-agribalyse_food_code:en:12814
-ciqual_food_code:en:12814
-ciqual_food_name:en:Soft-ripened cheese, from goat's milk, from pasteurised milk
+agribalyse_proxy_food_code:en:12814
+ciqual_proxy_food_code:en:12814
+ciqual_proxy_food_name:en:Soft-ripened cheese, from goat's milk, from pasteurised milk
 
 #<en:Goat cheeses
 #<en:French cheeses
@@ -31335,8 +31339,6 @@ en:Cheese buche from goat's milk
 fr:Bûche de chèvre
 agribalyse_food_code:en:12812
 ciqual_food_code:en:12812
-ciqual_food_name:en:Cheese, buche, from goat's milk
-agribalyse_food_code:en:12800
 ciqual_food_code:en:12800
 ciqual_food_name:en:Cheese, from goat's milk, fresh, from pasteurised milk
 
@@ -49284,9 +49286,9 @@ wikidata:en:Q1891043
 <en:Pasta sauces
 en:Meat-based pasta sauces, Tomato sauce with meat
 fr:Sauce tomate à la viande
-agribalyse_proxy_food_code:en:11114
-agribalyse_proxy_food_name:en:Tomato sauce, with meat or Bolognese sauce, prepacked
-agribalyse_proxy_food_name:fr:Sauce tomate à la viande ou Sauce bolognaise, préemballée
+agribalyse_food_code:en:11114
+agribalyse_food_name:en:Tomato sauce, with meat or Bolognese sauce, prepacked
+agribalyse_food_name:fr:Sauce tomate à la viande ou Sauce bolognaise, préemballée
 
 <en:Meat-based pasta sauces
 it:Amatriciana
@@ -50677,6 +50679,11 @@ ru:Томатные соусы
 sv:Tomatsåser, Tomatsås
 zh:番茄酱
 wikidata:en:Q3596097
+agribalyse_proxy_food_code:en:11107
+agribalyse_proxy_food_name:en:Tomato sauce, with onions, prepacked
+agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
+# only tomato sauces with meat have very different agribalyse values
+# e.g. bolognaise sauce. those have specific agribalyse food codes
 
 <en:Tomato sauces
 en:Tomato sauces with basil
@@ -69855,6 +69862,10 @@ zh:糖类
 wikidata:en:Q11002
 pnns_group_2:en:Sweets
 nova:en:2
+agribalyse_proxy_food_code:en:31016
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:Sugars
 en:Brown sugars, Brown sugar
@@ -69912,6 +69923,10 @@ it:Zucchero di canna
 nl:Rietsuikers
 ru:Тростниковый сахар
 wikidata:en:Q9362753
+agribalyse_proxy_food_code:en:31017
+ciqual_proxy_food_code:en:31017
+ciqual_proxy_food_name:en:Sugar, brown
+ciqual_proxy_food_name:fr:Sucre roux
 
 <en:Sugars
 en:Coconut sugar
