@@ -40678,21 +40678,6 @@ agribalyse_proxy_food_name:fr:Muesli floconneux ou de type traditionnel
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
 <en:Mueslis
-en:Mueslis with chocolate, Crunchy chocolate muesli fortified with vitamins and chemical elements
-de:Müslis mit Schokolade, Schokomüslis
-es:Mueslis con chocolate
-fi:myslit suklaalla
-fr:Mueslis au chocolat, Muesli croustillant au chocolat enrichi en vitamines et minéraux
-it:Muesli con cioccolato
-nl:Muesli met chocola
-pl:Musli czekoladowe, musli z czekoladą
-ro:Müsli cu ciocolată
-agribalyse_food_code:en:32112
-ciqual_food_code:en:32112
-ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
-
-<en:Mueslis
 <en:Cereals with fruits
 en:Mueslis with fruits
 de:Müslis mit Früchten, Früchtemüslis
@@ -40717,12 +40702,32 @@ ciqual_food_name:en:Muesli, flakes (Bircher-style)
 ciqual_food_name:fr:Muesli floconneux ou de type traditionnel
 
 <en:Muesli flakes
+en:Bircher-style muesli flakes with fruits
+fr:Muesli floconneux aux fruits
+
+<en:Bircher-style muesli flakes with fruits
 en:Bircher-style muesli flakes with fruits not fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits not fortified with vitamins and chemical elements
 fr:Muesli floconneux aux fruits non enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs non enrichi en vitamines et minéraux
 agribalyse_food_code:en:32138
 ciqual_food_code:en:32138
 ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits (not fortified with vitamins and chemical elements)
 ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs (non enrichi en vitamines et minéraux)
+
+<en:Bircher-style muesli flakes with fruits
+en:Bircher-style muesli flakes with fruits fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits fortified with vitamins and chemical elements
+fr:Muesli floconneux aux fruits enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs enrichi en vitamines et minéraux
+agribalyse_food_code:en:32110
+ciqual_food_code:en:32110
+ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+<en:Bircher-style muesli flakes with fruits
+en:Bircher-style sugar free Muesli flakes with fruits, Bircher-style sugar free Muesli flakes with dried fruits
+fr:Muesli floconneux aux fruits sans sucres ajoutés, Muesli floconneux aux fruits secs sans sucres ajoutés
+agribalyse_food_code:en:32113
+ciqual_food_code:en:32113
+ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, without sugar
+ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, sans sucres ajoutés
 
 <en:Muesli flakes
 en:Muesli flakes fortified with vitamins and chemical elements
@@ -40737,22 +40742,6 @@ fr:Muesli non enrichi en vitamines et minéraux
 ciqual_food_code:en:32141
 ciqual_food_name:en:Muesli, flakes, not fortified with vitamins and chemical elements (average food)
 ciqual_food_name:fr:Muesli non enrichi en vitamines et minéraux (aliment moyen)
-
-<en:Muesli flakes
-en:Bircher-style muesli flakes with fruits fortified with vitamins and chemical elements, Bircher-style muesli flakes with dried fruits fortified with vitamins and chemical elements
-fr:Muesli floconneux aux fruits enrichi en vitamines et minéraux, Muesli floconneux aux fruits secs enrichi en vitamines et minéraux
-agribalyse_food_code:en:32110
-ciqual_food_code:en:32110
-ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, enrichi en vitamines et minéraux
-
-<en:Muesli flakes
-en:Bircher-style sugar free Muesli flakes with fruits, Bircher-style sugar free Muesli flakes with dried fruits
-fr:Muesli floconneux aux fruits sans sucres ajoutés, Muesli floconneux aux fruits secs sans sucres ajoutés
-agribalyse_food_code:en:32113
-ciqual_food_code:en:32113
-ciqual_food_name:en:Muesli, flakes (Bircher-style), with fruits or dried fruits, without sugar
-ciqual_food_name:fr:Muesli floconneux aux fruits ou fruits secs, sans sucres ajoutés
 
 <en:Mueslis
 en:Crunchy muesli with fruits
@@ -40775,6 +40764,25 @@ ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (no
 ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
+en:Mueslis with chocolate
+de:Müslis mit Schokolade, Schokomüslis
+es:Mueslis con chocolate
+fi:myslit suklaalla
+fr:Mueslis au chocolat
+it:Muesli con cioccolato
+nl:Muesli met chocola
+pl:Musli czekoladowe, musli z czekoladą
+ro:Müsli cu ciocolată
+
+<en:Mueslis with chocolate
+en:Crunchy chocolate muesli fortified with vitamins and chemical elements
+fr:Muesli croustillant au chocolat enrichi en vitamines et minéraux
+agribalyse_food_code:en:32112
+ciqual_food_code:en:32112
+ciqual_food_name:en:Muesli, crunchy, with chocolate, with or without fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr:Muesli croustillant au chocolat, avec ou sans fruits, enrichi en vitamines et minéraux
+
+<en:Mueslis with chocolate
 en:Crunchy muesli with chocolate not fortified with vitamins and chemical elements
 fr:Muesli croustillant au chocolat non enrichi en vitamines et minéraux
 agribalyse_food_code:en:32109
