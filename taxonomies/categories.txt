@@ -40360,13 +40360,17 @@ en:Cereal flakes with chocolate
 fr:Pétales de céréales au chocolat
 
 <en:Breakfast cereals
+en:Sweet breakfast cereals
+fr:Céréales pour petit déjeuner
+
+<en:Sweet breakfast cereals
 en:Sweet breakfast cereals fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner enrichies en vitamines et minéraux
 ciqual_food_code:en:32031
 ciqual_food_name:en:Breakfast cereals, sweet, fortified with vitamins and chemical elements (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et minéraux (aliment moyen)
 
-<en:Breakfast cereals
+<en:Sweet breakfast cereals
 en:Sweet breakfast cereals not fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner non enrichies en vitamines et minéraux
 ciqual_food_code:en:32032
@@ -40403,8 +40407,8 @@ ciqual_food_name:en:Breakfast cereals, chocolate wheat grain flakes, fortified w
 ciqual_food_name:fr:Pétales de blé chocolatés, enrichis en vitamines et minéraux
 
 <en:Chocolate cereals
-en:Breakfast chocolate cereals not filled, not fortified with vitamins and chemical elements
-fr:Céréales chocolatées pour petit-déjeuner non fourrées, non enrichies en vitamines et minéraux
+en:Breakfast chocolate cereals not filled and not fortified with vitamins and chemical elements
+fr:Céréales chocolatées pour petit-déjeuner non fourrées et non enrichies en vitamines et minéraux
 agribalyse_food_code:en:32013
 ciqual_food_code:en:32013
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled (not fortified with vitamins and chemical elements)
@@ -40523,76 +40527,102 @@ ciqual_food_code:en:32018
 ciqual_food_name:en:Breakfast cereals, filled with a filling other than chocolate, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées avec autre chose que du chocolat (enrichies en vitamines et minéraux)
 
-<en:Filled cereals
-en:Breakfast cereals popped wheat grain with honey or caramel fortified with vitamins and chemical elements, Breakfast cereals puffed wheat grain with honey or caramel fortified with vitamins and chemical elements
+<en:Breakfast cereals
+en:Popped wheat grain with honey fortified with vitamins and chemical elements, Popped wheat grain with caramel fortified with vitamins and chemical elements, Puffed wheat grain with honey fortified with vitamins and chemical elements, Puffed wheat grain with caramel fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au miel ou caramel enrichis en vitamines et minéraux
 agribalyse_food_code:en:32000
 ciqual_food_code:en:32000
 ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
-<en:Filled cereals
-en:Breakfast cereals rich in fibre with or without fruits fortified with vitamins and chemical elements
-fr:Céréales pour petit déjeuner riches en fibres avec ou sans fruits enrichies en vitamines et minéraux
+<en:Breakfast cereals
+en:Breakfast cereals rich in fibre
+fr:Céréales pour petit déjeuner riches en fibres
+
+<en:Breakfast cereals rich in fibre
+en:Breakfast cereals rich in fibre fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner riches en fibres enrichies en vitamines et minéraux
+
+<en:Breakfast cereals rich in fibre fortified with vitamins and chemical elements
+en:Breakfast cereals rich in fibre with fruits fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner riches en fibres avec fruits enrichies en vitamines et minéraux
 agribalyse_food_code:en:32002
 ciqual_food_code:en:32002
 ciqual_food_name:en:Breakfast cereals, rich in fibre, with or without fruits, fortified with vitamins and chemical elements
 
-<en:Filled cereals
-en:Breakfast cereals diet plain or with honey fortified with vitamins and chemical elements
-fr:Céréales pour petit déjeuner équilibre nature ou au miel enrichies en vitamines et minéraux
+<en:Breakfast cereals rich in fibre fortified with vitamins and chemical elements
+en:Breakfast cereals rich in fibre without fruits fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner riches en fibres sans fruits enrichies en vitamines et minéraux
+agribalyse_food_code:en:32002
+ciqual_food_code:en:32002
+ciqual_food_name:en:Breakfast cereals, rich in fibre, with or without fruits, fortified with vitamins and chemical elements
+
+<en:Breakfast cereals
+en:Diet breakfast cereals fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre enrichies en vitamines et minéraux
+
+<en:Diet breakfast cereals fortified with vitamins and chemical elements
+en:Diet breakfast cereals with honey fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre au miel enrichies en vitamines et minéraux
+agribalyse_food_code:en:32021
+ciqual_food_code:en:32021
+ciqual_food_name:en:Breakfast cereals, diet, plain or with honey, fortified with vitamins and chemical elements
+
+<en:Diet breakfast cereals fortified with vitamins and chemical elements
+en:Diet breakfast cereals plain fortified with vitamins and chemical elements
+fr:Céréales pour petit déjeuner équilibre nature enrichies en vitamines et minéraux
 agribalyse_food_code:en:32021
 ciqual_food_code:en:32021
 ciqual_food_name:en:Breakfast cereals, diet, plain or with honey, fortified with vitamins and chemical elements
 
 # Wrong parent
-<en:Filled cereals
-en:Breakfast cereals diet with fruits
+<en:Breakfast cereals
+en:Diet Breakfast cereals with fruits
 fr:Céréales pour petit déjeuner équilibre aux fruits
 
-<en:Breakfast cereals diet with fruits
-en:Breakfast cereals diet with fruits fortified with vitamins and chemical elements
+<en:Diet Breakfast cereals with fruits
+en:Diet Breakfast cereals with fruits fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner équilibre aux fruits enrichies en vitamines et minéraux
 agribalyse_food_code:en:32023
 ciqual_food_code:en:32023
 ciqual_food_name:en:Breakfast cereals, diet, with fruits, fortified with vitamins and chemical elements
 
-<en:Breakfast cereals diet with fruits
+<en:Diet Breakfast cereals with fruits
 en:Breakfast cereals diet with dried fruits fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner équilibre aux fruits secs (à coque) enrichis en vitamines et minéraux
 agribalyse_food_code:en:32025
 ciqual_food_code:en:32025
 ciqual_food_name:en:Breakfast cereals, diet, with dried fruits, fortified with vitamins and chemical elements
 
-<en:Breakfast cereals diet with fruits
-en:Breakfast cereals diet with fruits not fortified
+<en:Diet Breakfast cereals with fruits
+en:Diet Breakfast cereals with fruits not fortified
 fr:Céréales pour petit déjeuner équilibre aux fruits non enrichies en vitamines et minéraux
 agribalyse_food_code:en:32029
 ciqual_food_code:en:32029
 ciqual_food_name:en:Breakfast cereals, diet, with fruits, not fortified
 
-<en:Filled cereals
+<en:Breakfast cereals
 en:Breakfast cereals diet plain not fortified
 fr:Céréales pour petit déjeuner équilibre nature non enrichies en vitamines et minéraux
 agribalyse_food_code:en:32030
 ciqual_food_code:en:32030
 ciqual_food_name:en:Breakfast cereals, diet, plain, not fortified
 
-<en:Filled cereals
+<en:Breakfast cereals
 en:Breakfast cereals very rich in fibre fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner très riches en fibres enrichies en vitamines et minéraux
 agribalyse_food_code:en:32116
 ciqual_food_code:en:32116
 ciqual_food_name:en:Breakfast cereals, very rich in fibre, fortified with vitamins and chemical elements
 
-<en:Filled cereals
+<en:Breakfast cereals
 en:Breakfast cereals wheat flakes with walnuts fortified with vitamins and chemical elements, Breakfast cereals wheat flakes with hazelnuts fortified with vitamins and chemical elements, Breakfast cereals wheat flakes with almonds fortified with vitamins and chemical elements
 fr:Pétales de blé avec noix enrichis en vitamines et minéraux, Pétales de blé avec noisettes enrichis en vitamines et minéraux, Pétales de blé avec amandes enrichis en vitamines et minéraux
 agribalyse_food_code:en:32123
 ciqual_food_code:en:32123
 ciqual_food_name:en:Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
 
-# Miel Pops and wrong parent
-<en:Filled cereals
+# Miel Pops
+<en:Breakfast cereals
 en:Breakfast cereals puffed corn with honey
 fr:Boules de maïs soufflées au miel
 
@@ -40610,14 +40640,14 @@ agribalyse_food_code:en:32133
 ciqual_food_code:en:32133
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey, fortified with vitamins and chemical elements
 
-<en:Filled cereals
+<en:Breakfast cereals
 en:Breakfast cereals puffed cereals wholemeal fortified with vitamins and chemical elements, Breakfast cereals popped cereals wholemeal fortified with vitamins and chemical elements
 fr:Céréales complètes soufflées enrichies en vitamines et minéraux
 agribalyse_food_code:en:32134
 ciqual_food_code:en:32134
 ciqual_food_name:en:Breakfast cereals, puffed/popped cereals, wholemeal, fortified with vitamins and chemical elements
 
-<en:Filled cereals
+<en:Breakfast cereals
 en:Breakfast cereals mix of puffed cereals fortified with vitamins and chemical elements, Breakfast cereals mix of extruded cereals fortified with vitamins and chemical elements
 fr:Multi-céréales soufflées ou extrudées enrichies en vitamines et minéraux
 agribalyse_food_code:en:32135
