@@ -2756,8 +2756,8 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 		else {
 
-			# try matching in other languages (by default, in English)
-			my @test_languages = ("en");
+			# try matching in other languages (by default, in the "language-less" language xx, and in English)
+			my @test_languages = ("xx", "en");
 			
 			if (defined $options{product_type}) {
 				
@@ -3057,18 +3057,49 @@ sub display_taxonomy_tag($$$)
 		$tag_lc = $target_lc;
 	}
 
-	my $tagid = $tag_lc . ':' . get_string_id_for_lang($tag_lc, $tag);
+	my $tagid_no_lc = get_string_id_for_lang($tag_lc, $tag);
+	my $tagid = $tag_lc . ':' . $tagid_no_lc;
 
 	my $display = '';
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
 		# we have a translation for the target language
-		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$tagtype}{$tagid}{$target_lc} : $translations_to{$tagtype}{$tagid}{$target_lc}\n";
 		$display = $translations_to{$tagtype}{$tagid}{$target_lc};
 	}
+	elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+		# we have a translation for the default xx language
+		$display = $translations_to{$tagtype}{$tagid}{xx};
+	}	
 	else {
+		# We may have changed a canonical en: entry into an language-less xx: entry,
+		# or removed a canonical en: entry to replace it to a language-specific entry
+		# (e.g. we used to have en:label-rouge, we now have fr:label-rouge + xx:label-rouge)
+		
+		my $xx_tagid = 'xx:' . $tagid_no_lc;
+		
+		# if we didn't find a language specific entry but there is a corresponding xx: synonym for it,
+		# assume the language specific entry was changed to a language-less xx: entry
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{xx}) and (defined $synonyms{$tagtype}{xx}{$tagid_no_lc})) {
+			$tagid = "xx:" . $synonyms{$tagtype}{xx}{$tagid_no_lc};
+			$tagid = $translations_from{$tagtype}{$tagid};
+		}		
+
+		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
+			# we have a translation for the target language
+			$display = $translations_to{$tagtype}{$tagid}{$target_lc};
+		}
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$tagid}{xx};
+		}	
+
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$xx_tagid}) and (defined $translations_to{$tagtype}{$xx_tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$xx_tagid}{xx};
+		}	
+
 		# use tag language
-		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";
 
