@@ -311,6 +311,10 @@ $product_ref->{adjustments}{production_system} hash with:
 
 $product_ref->{ecoscore_data}{missing} hash with:
 
+=head3 Notes
+
+This function tests the presence of specific labels and categories that should not be renamed.
+They are listed in the t/ecoscore.t test file so that the test fail if they are renamed.
 
 =cut
 
