@@ -297,14 +297,30 @@ else {
 
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-
-				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-					my $field_lc = $field . "_" . $product_ref->{lc};
-					$product_ref->{$field_lc} = $product_ref->{$field};
+				if ($field eq "lang") {
+					my $value = remove_tags_and_quote(decode utf8=>param($field));
+					
+					# strip variants fr-BE fr_BE
+					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+					$value = lc($value);
+					
+					# skip unrecognized languages (keep the existing lang & lc value)
+					if (defined $lang_lc{$value}) {
+						$product_ref->{lang} = $value;
+						$product_ref->{lc} = $value;
+					}				
+					
 				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
-				compute_field_tags($product_ref, $lc, $field);
+					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
+						my $field_lc = $field . "_" . $product_ref->{lc};
+						$product_ref->{$field_lc} = $product_ref->{$field};
+					}
+
+					compute_field_tags($product_ref, $lc, $field);
+				}
 			}
 		}
 
@@ -341,20 +357,6 @@ else {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		# strip variants fr-BE fr_BE
-		$product_ref->{lang} =~ s/^([a-z][a-z])(-|_).*/$1/ig;
-		$product_ref->{lang} = lc($product_ref->{lang});
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
