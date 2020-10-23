@@ -38899,7 +38899,7 @@ ciqual_food_name:en:Duck fat
 ciqual_food_name:fr:Graisse de canard
 
 <en:Animal fats
-en:Lards, Lard fat, Pork fat
+en:Lards, Lard fat
 de:Schmalz, Schmalze
 fr:Saindoux
 it:Lardo
@@ -38909,6 +38909,16 @@ agribalyse_food_code:en:16520
 ciqual_food_code:en:16520
 ciqual_food_name:en:Lard or pork fat
 ciqual_food_name:fr:Saindoux
+
+# TODO find the difference
+
+<en:Bacon
+en:Pork fat
+fr:Lard gras
+agribalyse_food_code:en:16530
+ciqual_food_code:en:16530
+ciqual_food_name:en:Pork fat, raw
+ciqual_food_name:fr:Lard gras, cru
 
 <en:Animal fats
 nl:Goose fats
@@ -61090,14 +61100,6 @@ agribalyse_food_code:en:28470
 ciqual_food_code:en:28470
 ciqual_food_name:en:Pork, back fat, rindless, raw
 ciqual_food_name:fr:Porc, bardière découennée, crue
-
-<en:Bacon
-en:Pork fat
-fr:Lard gras
-agribalyse_food_code:en:16530
-ciqual_food_code:en:16530
-ciqual_food_name:en:Pork fat, raw
-ciqual_food_name:fr:Lard gras, cru
 
 <en:Bacon
 en:Smoked bacon lardons
