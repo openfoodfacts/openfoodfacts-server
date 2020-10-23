@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 11:26\n"
+"PO-Revision-Date: 2020-10-23 16:22\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4680,7 +4680,7 @@ msgstr "Éco-score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Faible impact environnemental (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4729,19 +4729,19 @@ msgstr "Sans %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "propriétaires"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "propriétaire"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Vous pouvez fournir des informations sur votre entreprise qui seront affichées dans le profil de votre organisation."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Certaines informations telles que les coordonnées du service client peuvent également être affichées directement sur les pages de vos produits."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4749,7 +4749,7 @@ msgstr "Nom"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Lien vers le site Web officiel"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4757,19 +4757,19 @@ msgstr "Service consommateur"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Les informations sur le service client sont publiques et peuvent être affichées sur le site Web et les applications d'Open Food Facts."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Tous les champs sont optionnels."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Service commercial"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Les informations sur le service commercial sont uniquement affichées dans le profil de l'organisation."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4777,11 +4777,11 @@ msgstr "Nom"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "N° de téléphone"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4789,7 +4789,7 @@ msgstr "Adresse e-mail"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Lien vers le formulaire de contact"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4797,43 +4797,43 @@ msgstr "Autres informations"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "par exemple les heures d'ouverture"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "L'organisation n'a pas été trouvée."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Le nom de l'organisation est manquant."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Profil de l’organisation"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Le profil de l'organisation a été mis à jour."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Supprimer l'organisation"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Site officiel"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Formulaire de contact"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Modifier le profil de votre organisation"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Modifier votre profil utilisateur"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4842,5 +4842,5 @@ msgstr "Ingrédients"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
-msgstr ""
+msgstr "Inconnu: %s"
 
