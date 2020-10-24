@@ -42699,20 +42699,20 @@ ciqual_food_name:en:French fries or chips, frozen, raw, intended to be deep-frie
 ciqual_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson en friteuse
 
 <fr:Pommes de terre préfrites surgelées
-en:Frozen cooked pre-fried potato cubes
-fr:Pommes rissolées surgelées, Pommes de terre rissolées surgelées
-agribalyse_food_code:en:4027
-ciqual_food_code:en:4027
-ciqual_food_name:en:Potato, pre-fried into cubes, frozen, cooked
-ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
-
-<fr:Pommes de terre préfrites surgelées
 en:Frozen pre-fried potato cubes
-fr:Pommes de terre rissolée surgelées
+fr:Pommes de terre rissolées surgelées
 agribalyse_food_code:en:4043
 ciqual_food_code:en:4043
 ciqual_food_name:en:Potato, pre-fried into cubes, frozen, raw
 ciqual_food_name:fr:Pomme de terre rissolée, surgelée, crue
+
+<en:Frozen pre-fried potato cubes
+en:Frozen cooked pre-fried potato cubes
+fr:Pommes rissolées surgelées cuites, Pommes de terre rissolées surgelées cuites
+agribalyse_food_code:en:4027
+ciqual_food_code:en:4027
+ciqual_food_name:en:Potato, pre-fried into cubes, frozen, cooked
+ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
 
 <fr:Pommes de terre préfrites surgelées
 fr:Croquettes de pommes de terre surgelées
@@ -43700,7 +43700,7 @@ fr:Lieu noir
 <en:Frozen fishes
 <en:Saithe
 en:Frozen saithe
-fr:Lieu noir cru surgelé
+fr:Lieu noir surgelé
 agribalyse_food_code:en:26047
 ciqual_food_code:en:26047
 ciqual_food_name:en:Saithe, frozen, raw
@@ -43714,14 +43714,14 @@ ciqual_food_code:en:26015
 ciqual_food_name:en:Saithe, cooked
 
 <en:Saithe
-en:Saithe raw
+en:Saithe
 fr:Lieu noir
 agribalyse_food_code:en:26134
 ciqual_food_code:en:26134
 ciqual_food_name:en:Saithe, raw
 
 <en:Fish
-en:Arctic char raw
+en:Arctic char
 fr:Omble chevalier
 agribalyse_food_code:en:26171
 ciqual_food_code:en:26171
@@ -54805,7 +54805,7 @@ ciqual_food_code:en:8932
 ciqual_food_name:en:Fish quenelle, in sauce
 
 <en:Fish quenelles
-en:Fish quenelle raw
+en:Fish quenelle
 fr:Quenelle de poisson crue
 agribalyse_food_code:en:8933
 ciqual_food_code:en:8933
@@ -54856,7 +54856,7 @@ ciqual_food_code:en:8912
 ciqual_food_name:en:Poultry quenelle, in sauce
 
 <en:Poultry quenelle
-en:Poultry quenelle raw
+en:Poultry quenelle
 fr:Quenelle de volaille crue
 agribalyse_food_code:en:8910
 ciqual_food_code:en:8910
@@ -57179,7 +57179,7 @@ ciqual_food_code:en:28003
 ciqual_food_name:en:Pork loin, raw
 
 <en:Pork
-en:Pork round steak, Pork round steak raw
+en:Pork round steak, Pork round steak
 fr:Rouelle de porc, rouelle de porc crue
 agribalyse_food_code:en:28102
 ciqual_food_code:en:28102
@@ -57187,14 +57187,14 @@ ciqual_food_name:en:Pork, round steak, raw
 
 <en:pork meat
 <en:Pork tenderloin
-en:Pork tenderloin lean raw
+en:Pork tenderloin lean
 fr:filet de porc
 agribalyse_food_code:en:28201
 ciqual_food_code:en:28201
 ciqual_food_name:en:Pork tenderloin, lean, raw
 
 <en:Cooked pork meat
-en:Pork eye of shortloin raw
+en:Pork eye of shortloin
 fr:filet de porc rôti avec chaînette
 agribalyse_food_code:en:28480
 ciqual_food_code:en:28480
@@ -57202,28 +57202,28 @@ ciqual_food_name:en:Prok, eye of shortloin, raw
 
 <en:Pork
 <en:pork meat
-en:Pork filet mignon, Pork filet mignon raw
+en:Pork filet mignon, Pork filet mignon
 fr:filet mignon de porc, filet mignon de porc
 agribalyse_food_code:en:28204
 ciqual_food_code:en:28204
 ciqual_food_name:en:Pork filet mignon, raw
 
 <en:pork meat
-en:Pork 90/10 trimming raw
+en:Pork 90/10 trimming
 fr:Porc maigre 90/10
 agribalyse_food_code:en:28475
 ciqual_food_code:en:28475
 ciqual_food_name:en:Pork, 90/10 trimming, raw
 
 <en:pork meat
-en:Pork 80/20 trimming raw
+en:Pork 80/20 trimming
 fr:Porc maigre 80/20
 agribalyse_food_code:en:28476
 ciqual_food_code:en:28476
 ciqual_food_name:en:Pork, 80/20 trimming, raw
 
 <en:Pork
-en:Pork shoulder upper half without rind fat and bone raw
+en:Pork shoulder upper half without rind fat and bone
 fr:palette de porc
 agribalyse_food_code:en:28477
 ciqual_food_code:en:28477
@@ -57557,7 +57557,7 @@ en:chicken
 fr:Poulets
 
 <en:chicken
-en:Hen meat and skin raw
+en:Hen meat and skin
 fr:viande de poulet avec peau crue
 agribalyse_food_code:en:36000
 ciqual_food_code:en:36000
@@ -57565,7 +57565,7 @@ ciqual_food_name:en:Hen, meat and skin, raw
 ciqual_food_name:fr:Poule, viande et peau, crue
 
 <en:chicken
-en:Hen meat only raw
+en:Hen meat only
 fr:viande de poule crue
 agribalyse_food_code:en:36001
 ciqual_food_code:en:36001
@@ -57831,7 +57831,7 @@ ciqual_food_name:en:Duck, leg, meat and skin, raw
 ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
 
 <en:Ducks
-en:Duck meat and skin raw
+en:Duck meat and skin
 fr:Viande de canard avec peau
 agribalyse_food_code:en:36204
 ciqual_food_code:en:36204
@@ -57919,14 +57919,14 @@ ciqual_food_name:en:Liver, turkey, cooked
 ciqual_food_name:fr:Foie, dinde, cuit
 
 <en:turkey meat
-en:Turkey meat raw
+en:Turkey meat
 fr:viande de dinde sans peau crue
 agribalyse_food_code:en:36301
 ciqual_food_code:en:36301
 ciqual_food_name:en:Turkey, meat, raw
 
 <en:turkey meat
-en:Turkey leg meat only raw
+en:Turkey leg meat only
 fr:cuisse de dinde sans peau crue
 agribalyse_food_code:en:36307
 ciqual_food_code:en:36307
@@ -58263,7 +58263,7 @@ ciqual_food_code:en:36016
 ciqual_food_name:en:Chicken, meat and skin, raw
 
 <en:Chickens
-en:chicken meat without skin, Chicken meat raw
+en:chicken meat without skin, Chicken meat
 fr:Viande de poulet crue sans peau, viande de poulet sans peau crue
 agribalyse_food_code:en:36003
 ciqual_food_code:en:36003
@@ -58761,7 +58761,7 @@ ciqual_food_name:en:Pork, ham escalope, cooked
 ciqual_food_name:fr:Porc, escalope de jambon, cuite
 
 <en:Pork
-en:Pork way leg without rind fat and bone raw
+en:Pork way leg without rind fat and bone
 fr:Porc jambon sans jarret sans bateau découenné dégraisssé désossé
 agribalyse_food_code:en:28473
 ciqual_food_code:en:28473
@@ -59437,7 +59437,7 @@ ciqual_food_name:en:Beer sausage
 ciqual_food_name:fr:Saucisse de bière
 
 <en:Sausages
-en:Sausage meat raw
+en:Sausage meat
 fr:Chair à saucisse crue
 agribalyse_food_code:en:30050
 ciqual_food_code:en:30050
@@ -66393,7 +66393,7 @@ ciqual_food_code:en:26030
 ciqual_food_name:en:Fish, breaded, fried
 
 <en:Breaded fish
-en:Fish breaded frozen raw
+en:Fish breaded frozen
 fr:Poisson pané surgelé
 agribalyse_food_code:en:26029
 ciqual_food_code:en:26029
@@ -66758,7 +66758,7 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Fish fillets
-en:Capelin raw
+en:Capelin
 fr:Capelan
 agribalyse_food_code:en:26108
 ciqual_food_code:en:26108
@@ -67798,7 +67798,7 @@ ciqual_food_code:en:26181
 ciqual_food_name:en:Yellowfin tuna, canned in brine, drained
 
 <en:Yellowfin tunas
-en:Yellowfin tuna raw
+en:Yellowfin tuna
 fr:Thons albacore au naturel, thon jaune
 agribalyse_food_code:en:26064
 ciqual_food_code:en:26064
@@ -71311,7 +71311,7 @@ ciqual_food_name:fr:Artichaut, cuit
 
 <en:Artichokes
 <en:Fresh vegetables
-en:Fresh artichokes, Artichoke globe raw
+en:Fresh artichokes, Artichoke globe
 fr:Artichauts frais
 season_in_country_fr:en: 5,6,7,8,9
 agribalyse_food_code:en:20052
