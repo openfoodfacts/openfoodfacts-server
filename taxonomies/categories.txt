@@ -28949,7 +28949,7 @@ en:Canned sweet corn, Canned drained sweet corn
 de:Dosenzuckermais, Zuckermaiskonserve
 es:Maíz dulce en conserva
 fi:purkitettu makea maissi
-fr:Maïs doux en conserve, Maïs doux appertisé égoutté, Maïs doux en conserve égoutté
+fr:Maïs doux en conserve, Maïs doux appertisé, Maïs doux en conserve égoutté
 it:Mais dolce in scatola
 nl:Suikermaïs in blik
 agribalyse_food_code:en:20066
@@ -46448,7 +46448,7 @@ nl:Perzikken op siroop
 
 <en:Peaches in syrup
 en:Canned drained peach in light syrup
-fr:Pêches au sirop léger appertisées égouttées
+fr:Pêches au sirop léger appertisées
 agribalyse_food_code:en:13730
 ciqual_food_code:en:13730
 ciqual_food_name:en:Peach, canned in light syrup, drained
@@ -48089,6 +48089,10 @@ la:Zingiber officinale
 nl:Gember
 pl:Imbir
 wikidata:en:Q35625
+agribalyse_food_code:en:11074
+ciqual_food_code:en:11074
+ciqual_food_name:en:Ginger, raw
+ciqual_food_name:fr:Gingembre, racine crue
 
 <en:Ginger
 <en:Candied fruit
@@ -48113,7 +48117,7 @@ ciqual_food_name:en:Ginger, powder
 ciqual_food_name:fr:Gingembre, poudre
 
 <en:Ginger
-en:Fresh ginger rhizomes, ginger
+en:Fresh ginger rhizomes
 es:Rizomas de jengibre frescos
 fr:Rhizomes de gingembre frais, Racines de gingembre
 nl:Verse gemberwortels
@@ -51579,7 +51583,7 @@ ciqual_food_name:en:Moussaka
 ciqual_food_name:fr:Moussaka
 
 <en:Meals
-en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes, Puff pastry, Savoury, Puff pastries
+en:Puff pastry meals, puff pastry dishes, flaky pastry meals, flaky pastry dishes
 de:Blätterteiggerichte
 fr:Feuilleté salé
 nl:Kant-en-klaar maaltijden met bladerdeeg
@@ -55650,12 +55654,6 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Beef
-<en:meats
-en:beef meat
-fr:Viande de boeuf crue
-nl:Rauw rundvlees, Rauwe rundvlezen
-
-<en:Beef
 fr:Taureau de Camargue
 protected_name_file_number:en: PDO-FR-0041
 protected_name_type:en: pdo
@@ -56795,8 +56793,18 @@ ru:Свинина
 sv:griskött, fläskkött, gris, fläsk
 zh:猪肉
 
+# TODO map properly
+#<en:meats
+#<en:Pork
+#en:pork meat
+#fr:Viande de porc
+#agribalyse_food_code:en:28472
+#ciqual_food_code:en:28472
+#ciqual_food_name:en:Pork, shoulder lower half, without rind, fat and bone, raw
+
 <en:Pork
 en:French pork
+fr:Porc français
 
 <en:French pork
 fr:Porc noir de Bigorre
@@ -56824,14 +56832,6 @@ origins:en: en:France
 
 <en:French pork
 fr:Porc de l’Aveyron
-
-<en:meats
-<en:Pork
-en:pork meat
-fr:Viande de porc
-agribalyse_food_code:en:28472
-ciqual_food_code:en:28472
-ciqual_food_name:en:Pork, shoulder lower half, without rind, fat and bone, raw
 
 <en:Cooked white meat
 <en:Pork
@@ -57120,10 +57120,10 @@ ciqual_food_name:en:Pork, rack, raw
 ciqual_food_name:fr:Porc, carré, cru
 
 <en:Pork
-en:Pork belly, Salt-cured pork belly
+en:Pork belly
 de:Schweinebauch
 fi:possun maha
-fr:Poitrine de porc, Poitrine de porc demi-sel
+fr:Poitrine de porc
 it:Pancia di maiale
 nl:Varkensbuik
 zh:猪肚, 猪肚肉
@@ -57862,6 +57862,13 @@ agribalyse_food_code:en:36300
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
+# TODO check this one
+<en:Turkeys
+fr:viande de dinde sans peau
+agribalyse_food_code:en:36301
+ciqual_food_code:en:36301
+ciqual_food_name:en:Turkey, meat, raw
+
 <en:Turkeys
 en:Turkey heart, turkey heart
 fr:Coeur de dinde, Coeur de dinde
@@ -57895,13 +57902,6 @@ agribalyse_food_code:en:40118
 ciqual_food_code:en:40118
 ciqual_food_name:en:Liver, turkey, cooked
 ciqual_food_name:fr:Foie, dinde, cuit
-
-<en:turkey meat
-en:Turkey meat
-fr:viande de dinde sans peau
-agribalyse_food_code:en:36301
-ciqual_food_code:en:36301
-ciqual_food_name:en:Turkey, meat, raw
 
 <en:turkey meat
 en:Turkey leg meat only
@@ -58050,7 +58050,7 @@ ciqual_food_name:fr:Pintade, poitrine, crue
 
 
 <en:Poultries
-en:Chickens, Chicken, chicken meat
+en:Chickens, chicken meat
 af:hoender
 ak:akokɔ
 am:ዶሮ
@@ -58241,11 +58241,13 @@ ciqual_food_code:en:36016
 ciqual_food_name:en:Chicken, meat and skin, raw
 
 <en:Chickens
-en:chicken meat without skin, Chicken meat
+en:chicken meat without skin
 fr:Viande de poulet crue sans peau, viande de poulet sans peau
 agribalyse_food_code:en:36003
 ciqual_food_code:en:36003
 ciqual_food_name:en:Chicken, meat, raw
+
+# TODO check skin or skinless
 
 <en:Chickens
 fr:Poulet du Périgord
@@ -60065,7 +60067,7 @@ ciqual_proxy_food_name:en:Lardoons, raw
 ciqual_proxy_food_name:fr:Lardon nature, cru
 
 <en:Lardons
-en:Plain lardons, lardoons
+en:Plain lardons, plain lardoons
 fr:Lardons de porc natures, Lardons nature
 agribalyse_food_code:en:28501
 ciqual_food_code:en:28501
@@ -61714,15 +61716,18 @@ la:Lactarius sanguifluus
 nl:Bloedmelkzwammen
 
 <en:Mushrooms
-en:Champignon mushrooms, Common mushrooms, White mushrooms, White button mushrooms, Button mushrooms, Agaricus bisporus
+en:Champignon mushrooms, Common mushrooms, White mushrooms, White button mushrooms, Button mushrooms, Agaricus bisporus, Cultivated mushrooms
 de:Champignons
 es:Champiñones, Champiñones de París, Champiñones comunes, Champiñones blancos, Agaricus bisporus
 fi:sienet
-fr:Champignons de Paris, Agaricus bisporus
+fr:Champignons de Paris, Agaricus bisporus, Champignons de couche
 it:Funghi champignon
 la:Agaricus bisporus
 nl:Champignons
 wikidata:en:Q227690
+ciqual_food_code:en:20056
+ciqual_food_name:en:Button mushroom or cultivated mushroom, raw
+ciqual_food_name:fr:Champignon de Paris ou champignon de couche, cru
 
 <en:Mushrooms
 en:Field mushrooms
@@ -61999,35 +62004,23 @@ ciqual_food_code:en:20011
 ciqual_food_name:en:Mushroom, all types, canned, drained
 ciqual_food_name:fr:Champignon, tout type, appertisé, égoutté
 
-<en:Mushrooms
-<en:Canned plant-based foods
-en:Canned button mushrooms, Canned cultivated mushrooms
-fr:Champignons de Paris appertisés, Champignons de couche appertisés
-ciqual_food_code:en:20079
-ciqual_food_name:en:Button mushroom or cultivated mushroom, canned, drained
-ciqual_food_name:fr:Champignon de Paris ou champignon de couche, appertisé, égoutté
-
 <en:Canned mushrooms
 en:Canned bloody milk cap
 es:Rovellones en conserva, Rovellón en conserva, Lactarius sanguifluus en conserva
 fr:Lactaires sanguins en conserve, Lactarius sanguifluus en conserve
 nl:Bloedmelkzammen in blik
 
-<en:Champignon mushrooms
-en:Button mushrooms, Cultivated mushrooms
-fr:Champignons de Paris, Champignons de couche
-ciqual_food_code:en:20056
-ciqual_food_name:en:Button mushroom or cultivated mushroom, raw
-ciqual_food_name:fr:Champignon de Paris ou champignon de couche, cru
-
 <en:Canned mushrooms
-en:Canned champignon mushrooms, Canned common mushrooms, Canned white mushrooms, Canned white button mushrooms, Canned button mushrooms, Canned Agaricus bisporus
+en:Canned champignon mushrooms, Canned common mushrooms, Canned white mushrooms, Canned white button mushrooms, Canned button mushrooms, Canned Agaricus bisporus, Canned cultivated mushrooms
 de:Dosenchampignons, Champignons in Dosen
 es:Champiñones en conserva, Champiñones de París en conserva, Champiñones comunes en conserva, Champiñones blancos en conserva, Agaricus bisporus en conserva
 fi:purkitetut sienet
-fr:Champignons de Paris en conserve, Conserves de champignons de Paris, Agaricus bisporus en conserve
+fr:Champignons de Paris en conserve, Conserves de champignons de Paris, Agaricus bisporus en conserve, Champignons de Paris appertisés, Champignons de couche appertisés
 it:Funghi champignon in scatola, Champignon in scatola
 nl:Champignons in blik
+ciqual_food_code:en:20079
+ciqual_food_name:en:Button mushroom or cultivated mushroom, canned, drained
+ciqual_food_name:fr:Champignon de Paris ou champignon de couche, appertisé, égoutté
 
 <en:Canned champignon mushrooms
 en:Canned quartered champignon mushrooms, Canned quartered common mushrooms, Canned quartered white mushrooms, Canned quartered white button mushrooms, Canned quartered button mushrooms
@@ -62130,10 +62123,13 @@ fr:Girolles surgelés, Girolle surgelé, Jaunotte surgelé, Jauniré surgelé, C
 nl:Diepvries cantharellen, Diepvries hanekammen
 
 <en:Frozen mushrooms
-en:Frozen champignon mushrooms, Frozen common mushrooms, Frozen white mushrooms, Frozen white button mushrooms, Frozen button mushrooms, Frozen Agaricus bisporus
+en:Frozen champignon mushrooms, Frozen common mushrooms, Frozen white mushrooms, Frozen white button mushrooms, Frozen button mushrooms, Frozen Agaricus bisporus, Frozen button mushrooms, Frozen cultivated mushrooms
 es:Champiñones congelados, Champiñones de París congelados, Champiñones comunes congelados, Champiñones blancos congelados, Agaricus bisporus congelados
-fr:Champignons de Paris surgelés, Agaricus bisporus surgelés
+fr:Champignons de Paris surgelés, Agaricus bisporus surgelés, Champignons de Paris surgelés, Champignons de couche surgelés
 nl:Diepvries champignons
+ciqual_food_code:en:20228
+ciqual_food_name:en:Button mushroom or cultivated mushroom, frozen, raw
+ciqual_food_name:fr:Champignon de Paris ou champignon de couche, surgelé, cru
 
 <en:Frozen champignon mushrooms
 en:Frozen sliced champignon mushrooms, Frozen sliced common mushrooms, Frozen sliced white mushrooms, Frozen sliced white button mushrooms, Frozen sliced button mushrooms
@@ -62177,13 +62173,6 @@ en:Frozen mixed mushrooms
 es:Mezclas de setas congeladas, Mezclas de hongos congelados, Surtidos de setas congeladas, Surtidos de hongos congelados, Surtido de setas congeladas
 fr:Mélanges de champignons surgelés
 nl:Diepvries paddestoelenmengsels
-
-<en:Frozen mushrooms
-en:Frozen button mushrooms, Frozen cultivated mushrooms
-fr:Champignons de Paris surgelés, Champignons de couche surgelés
-ciqual_food_code:en:20228
-ciqual_food_name:en:Button mushroom or cultivated mushroom, frozen, raw
-ciqual_food_name:fr:Champignon de Paris ou champignon de couche, surgelé, cru
 
 <en:Mushrooms and their products
 <en:Dried plant-based foods
@@ -65951,32 +65940,32 @@ ciqual_food_name:en:European pilchard or sardine, fillets without fishbone, in o
 
 <en:Sardines in olive oil
 <en:Sardine fillets
-en:European pilchard in olive oil canned drained, sardine in olive oil canned drained
-fr:Sardine à l'huile d'olive appertisée égouttée
+en:Canned European pilchard in olive oil, canned sardine in olive oil
+fr:Sardine à l'huile d'olive appertisée
 agribalyse_food_code:en:26040
 ciqual_food_code:en:26040
 ciqual_food_name:en:European pilchard or sardine, in olive oil, canned, drained
 
 <en:Sardines in oil
 <en:Sardine fillets
-en:European pilchard in oil canned drained, sardine in oil canned drained
-fr:Sardine à l'huile appertisée égouttée
+en:Canned European pilchard in oil, Canned sardine in oil
+fr:Sardine à l'huile appertisée
 agribalyse_food_code:en:26034
 ciqual_food_code:en:26034
 ciqual_food_name:en:European pilchard or sardine, in oil, canned, drained
 
 <en:Sardines in olive oil
 <en:Sardine fillets
-en:Pilchard in tomato sauce canned drained
-fr:Pilchard sauce tomate appertisé égoutté
+en:Canned Pilchard in tomato sauce
+fr:Pilchard sauce tomate appertisé
 agribalyse_food_code:en:26027
 ciqual_food_code:en:26027
 ciqual_food_name:en:Pilchard, in tomato sauce, canned, drained
 
 <en:Sardines in olive oil
 <en:Sardine fillets
-en:European pilchard or sardine in tomato sauce canned drained
-fr:Sardine sauce tomate appertisée égouttée
+en:Canned European pilchard or sardine in tomato sauce
+fr:Sardine sauce tomate appertisée
 agribalyse_food_code:en:26035
 ciqual_food_code:en:26035
 ciqual_food_name:en:European pilchard or sardine, in tomato sauce, canned, drained
@@ -66028,7 +66017,7 @@ nl:Krab-producten
 
 <en:Preparations made from crabs
 en:Canned drained flaked crab, Canned drained decorticated crab leg
-fr:Miettes de crabe égouttées appertisées, Pattes de crabe décortiquées appertisées égouttées
+fr:Miettes de crabe appertisées, Pattes de crabe décortiquées appertisées
 ciqual_food_code:en:10005
 ciqual_food_name:en:Flaked crab and/or decorticated crab leg, canned, drained
 ciqual_food_name:fr:Crabe, miettes et ou pattes décortiquées, appertisé, égoutté
@@ -67084,10 +67073,6 @@ cooking_method:en en:raw
 <en:Fishes
 en:Roundnose grenadier
 fr:Grenadier, Grenadier de roche
-
-<en:Fishes
-en:roundnose grenadier
-fr:Grenadier cru, Grenadier de roche
 agribalyse_food_code:en:26128
 ciqual_food_code:en:26128
 ciqual_food_name:en:Roundnose grenadier, raw
@@ -67723,7 +67708,7 @@ nl:Witte tonijn natuur
 <en:Albacore
 <en:Tuna in olive oil
 en:Canned drained albacore in olive oil
-fr:Thon germon à l'huile d'olive appertisé égoutté, Thon blanc à l'huile d'olive appertisé égoutté
+fr:Thon germon à l'huile d'olive appertisé, Thon blanc à l'huile d'olive appertisé égoutté
 agribalyse_food_code:en:26179
 ciqual_food_code:en:26179
 ciqual_food_name:en:Albacore, in olive oil, canned, drained
@@ -67762,7 +67747,7 @@ nl:Geelvintonijn
 wikidata:en:Q269781
 
 <en:Yellowfin tunas
-fr:Thons albacore au naturel, Thon albacore naturel appertisé égoutté, thon jaune naturel appertisé égoutté
+fr:Thons albacore au naturel, Thon albacore naturel appertisé, thon jaune naturel appertisé égoutté
 agribalyse_food_code:en:26181
 ciqual_food_code:en:26181
 ciqual_food_name:en:Yellowfin tuna, canned in brine, drained
@@ -68506,7 +68491,7 @@ agribalyse_proxy_food_name:fr:Moules à la sauce catalane ou escabèche (tomate)
 
 <en:Canned mussels
 en:Canned mussels in Catalan sauce, Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
-fr:Moules à la sauce catalane, Moules à la sauce escabèche, Moules appertisées égouttées à la sauce catalane, Moules appertisées égouttées à la sauce escabèche, Moules appertisées égouttées à la sauce tomate
+fr:Moules à la sauce catalane, Moules à la sauce escabèche, Moules appertisées à la sauce catalane, Moules appertisées à la sauce escabèche, Moules appertisées à la sauce tomate
 agribalyse_food_code:en:10081
 ciqual_food_code:en:10081
 ciqual_food_name:en:Mussels, in Catalan-style sauce or marinade (tomatoes), canned, drained
@@ -70832,7 +70817,7 @@ nl:Wortels in blik
 <en:Canned vegetables
 <en:Carrots
 en:Canned drained carrots
-fr:Carottes en conserve égouttées, Carottes appertisées égouttées
+fr:Carottes en conserve, Carottes appertisées
 agribalyse_food_code:en:20007
 ciqual_food_code:en:20007
 ciqual_food_name:en:Carrot, canned, drained
@@ -70868,7 +70853,7 @@ nl:Snijbiet in blik
 
 <en:Canned vegetables
 en:Canned drained diced mixed vegetables
-fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées égouttées
+fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées
 agribalyse_food_code:en:20051
 ciqual_food_code:en:20051
 ciqual_food_name:en:Diced mixed vegetables, canned, drained
@@ -70907,7 +70892,7 @@ nl:Rode pepers in blik
 <en:Potatoes
 en:Canned potatoes, Canned drained potatoes
 es:Patatas en conserva
-fr:Pommes de terre en conserve, Pommes de terre appertisées égouttées
+fr:Pommes de terre en conserve, Pommes de terre appertisées
 it:Patate in scatola
 nl:Aardappel in blik
 ciqual_food_code:en:4011
@@ -71860,7 +71845,7 @@ ciqual_food_name:fr:Céleri branche, cru
 
 <en:Celery
 en:Canned celery stalks
-fr:Céleri-branche en conserve, Céleri-branche appertisé égoutté, Céleri branche appertisé égoutté
+fr:Céleri-branche en conserve, Céleri-branche appertisé, Céleri branche appertisé égoutté
 agribalyse_food_code:en:20078
 ciqual_food_code:en:20078
 ciqual_food_name:en:Celery stalk, canned, drained
@@ -71985,14 +71970,6 @@ agribalyse_food_code:en:20005
 ciqual_food_code:en:20005
 ciqual_food_name:en:Swiss chard, cooked
 ciqual_food_name:fr:Bette ou blette, cuite
-
-<en:Chards
-en:Swiss chard
-fr:Bette crue, Blette
-agribalyse_food_code:en:20004
-ciqual_food_code:en:20004
-ciqual_food_name:en:Swiss chard, raw
-ciqual_food_name:fr:Bette ou blette, crue
 
 <en:Vegetables
 en:Cucumbers
@@ -72426,9 +72403,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Leek
 carbon_footprint_fr_foodges_ingredient:fr:Poireau
 # ingredient/leek has 3620 products in 19 languages @2019-05-22
 # category/leeks has 34 products @2019-05-22
-agribalyse_proxy_food_code:en:20039
-agribalyse_proxy_food_name:en:Leek, raw
-agribalyse_proxy_food_name:fr:Poireau, cru
+agribalyse_food_code:en:20039
+ciqual_food_code:en:20039
+ciqual_food_name:en:Leek, raw
+ciqual_food_name:fr:Poireau, cru
 
 <en:Leeks
 <en:Cooked vegetables
@@ -72438,14 +72416,6 @@ agribalyse_food_code:en:20040
 ciqual_food_code:en:20040
 ciqual_food_name:en:Leek, cooked
 ciqual_food_name:fr:Poireau, cuit
-
-<en:Leeks
-en:leek
-fr:Poireaux
-agribalyse_food_code:en:20039
-ciqual_food_code:en:20039
-ciqual_food_name:en:Leek, raw
-ciqual_food_name:fr:Poireau, cru
 
 <en:Leeks
 <en:Fresh vegetables
@@ -79121,22 +79091,22 @@ nl:Taartdegen
 nl_be:Taartdeeg
 
 <en:Pie dough
-en:Baked shortcrust pastry
-fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées, Pâte brisée cuite à la matière grasse végétale
+en:Shortcrust pastry
+fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées, 
 nl:Zanddegen
 nl_be:Zanddeeg
-agribalyse_food_code:en:23412
-ciqual_food_code:en:23412
-ciqual_food_name:en:Pastry, short crust, baked
-ciqual_food_name:fr:Pâte brisée, matière grasse végétale, cuite
-
-<en:Pie dough
-en:Shortcrust pastry
-fr:Pâte brisée
 agribalyse_food_code:en:23410
 ciqual_food_code:en:23410
 ciqual_food_name:en:Short crust pastry, raw
 ciqual_food_name:fr:Pâte brisée, crue
+
+<en:Shortcrust pastry
+en:Baked shortcrust pastry with vegetable oil
+fr:Pâte brisée cuite à la matière grasse végétale
+agribalyse_food_code:en:23412
+ciqual_food_code:en:23412
+ciqual_food_name:en:Pastry, short crust, baked
+ciqual_food_name:fr:Pâte brisée, matière grasse végétale, cuite
 
 <en:Pie dough
 en:Shortcrust pastry with pure butter
@@ -79156,9 +79126,9 @@ ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
 <en:Pie dough
-en:Puff pastry sheets, Cooked puff pastry
+en:Puff pastry sheets
 de:Blätterteig Platten
-fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées, Pâte feuilletée cuite
+fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées
 it:Pasta sfoglia, Fogli di pasta sfoglia, Pasta sfoglia tirata
 nl:Bladerdegen
 nl_be:Bladerdeeg
@@ -79167,9 +79137,13 @@ ciqual_food_code:en:23422
 ciqual_food_name:en:Puff pastry, cooked
 ciqual_food_name:fr:Pâte feuilletée, cuite
 
-<en:Pie dough
+<en:Puff pastry sheets
 en:Puff pastry
 fr:Pâte feuilletée
+
+<en:Puff pastry
+en:Cooked puff pastry
+fr:Pâte feuilletée cuite
 
 <en:Puff pastry
 en:Pure butter puff pastry
