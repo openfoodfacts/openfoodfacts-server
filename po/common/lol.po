@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 19:16\n"
+"PO-Revision-Date: 2020-10-23 14:04\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4643,8 +4643,8 @@ msgid "Eco-Score"
 msgstr "crwdns152832:0crwdne152832:0"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "crwdns152834:0crwdne152834:0"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "crwdns152882:0crwdne152882:0"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4690,4 +4690,121 @@ msgstr "crwdns152876:0%scrwdne152876:0"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "crwdns152878:0%scrwdne152878:0"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "crwdns152884:0crwdne152884:0"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "crwdns152886:0crwdne152886:0"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "crwdns152888:0crwdne152888:0"
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "crwdns152890:0crwdne152890:0"
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "crwdns152892:0crwdne152892:0"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "crwdns152894:0crwdne152894:0"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "crwdns152896:0crwdne152896:0"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "crwdns152898:0crwdne152898:0"
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "crwdns152900:0crwdne152900:0"
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "crwdns152902:0crwdne152902:0"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "crwdns152904:0crwdne152904:0"
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "crwdns152906:0crwdne152906:0"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "crwdns152908:0crwdne152908:0"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "crwdns152910:0crwdne152910:0"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "crwdns152912:0crwdne152912:0"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "crwdns152914:0crwdne152914:0"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "crwdns152916:0crwdne152916:0"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "crwdns152918:0crwdne152918:0"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "crwdns152920:0crwdne152920:0"
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "crwdns152922:0crwdne152922:0"
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "crwdns152924:0crwdne152924:0"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "crwdns152926:0crwdne152926:0"
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "crwdns152928:0crwdne152928:0"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "crwdns152930:0crwdne152930:0"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "crwdns152932:0crwdne152932:0"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "crwdns152934:0crwdne152934:0"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "crwdns152936:0crwdne152936:0"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "crwdns152938:0crwdne152938:0"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "crwdns152940:0%scrwdne152940:0"
 

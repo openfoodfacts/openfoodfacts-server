@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-10 04:52\n"
+"PO-Revision-Date: 2020-10-23 20:02\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3765,15 +3765,15 @@ msgstr "רשימת מוצרים שנוספו או השתנו"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "סבבי ייבוא"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "ייבוא"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "סבבי ייבוא"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -4641,7 +4641,7 @@ msgstr "הנחיות מיחזור ו/או פרטי אריזה"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "סרט פלסטיק אחד להשלכה, קופסת קרטון אחת באישור FSC למיחזור, 6 בקבוקי פלסטיק PET שקופים של 1.5 ליטר למיחזור, 6 פקקי פלסטיק צבעוניים אטומים, 12 פחיות אלומיניום של 330 מיליליטר"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
@@ -4676,8 +4676,8 @@ msgid "Eco-Score"
 msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "השפעה נמוכה על איכות הסביבה"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "השפעה סביבתית נמוכה (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4723,4 +4723,121 @@ msgstr "אינו מכיל: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "ללא %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "בעלים"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "בעלים"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "ניתן לספק מידע על החברה שלך שיופיע בפרופיל הארגון שלך."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "חלק מהמידע כגון פרטי יצירת קשר עם שירות הלקוחות עשוי להופיע ישירות על עמודי המוצרים שלכם."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "קישור לאתר הרשמי"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "שירות לקוחות"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "פרטי שירות הלקוחות גלויים לציבור וניתן להציג אותם באתר של Open Food Facts וביישומונים."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "כל השדות הם בגדר רשות."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "שירות מסחרי"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "פרטי השירות המסחרי מופיעים בפרופיל הארגון בלבד."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "כתובת"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "מספר טלפון"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "כתובת דוא״ל"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "קישור לטופס יצירת קשר"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "פרטים נוספים"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "למשל שעות פתיחה"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "הארגון לא נמצא."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "שם הארגון חסר."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "פרופיל הארגון"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "פרופיל הארגון עודכן."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "למחוק את הארגון"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "האתר הרשמי"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "טופס יצירת קשר"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "עריכת פרופיל הארגון שלך"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "עריכת פרופיל המשתמש שלך"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "רכיבים"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "לא ידוע: %s"
 
