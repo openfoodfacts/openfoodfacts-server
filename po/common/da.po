@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 23:02\n"
+"PO-Revision-Date: 2020-10-24 00:02\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4737,7 +4737,7 @@ msgstr "Du kan angive oplysninger om din virksomhed, som vil fremgå af din orga
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Nogle af oplysningerne, f.eks. kundeservicekontaktoplysninger, kan også fremgå direkte af dine produktsider."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4745,7 +4745,7 @@ msgstr "Navn"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Link til det officielle websted"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4753,19 +4753,19 @@ msgstr "Kundeservice"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Kundeserviceoplysninger er offentlige og kan fremgå af Open Food Facts-websted og -apps."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Alle felter er valgfrie."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Kommerciel service"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Kommercielserviceoplysninger fremgår kun af organisationsprofilen."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4773,11 +4773,11 @@ msgstr "Navn"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Telefon"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4785,7 +4785,7 @@ msgstr "email-adresse"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Kontaktformularlink"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4793,43 +4793,43 @@ msgstr "Anden information"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "f.eks. åbningstider"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organisation ikke fundet."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Organisationsnavn mangler."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Organisationsprofil"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Organisationsprofilen er blevet opdateret."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Slet organisation"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Officielt websted"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Kontaktformular"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Redigér din organisationsprofil"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Redigér din brugerprofil"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4838,5 +4838,5 @@ msgstr "Ingredienser"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
-msgstr ""
+msgstr "Ukendt: %s"
 
