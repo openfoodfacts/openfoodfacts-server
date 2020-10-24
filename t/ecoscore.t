@@ -17,6 +17,8 @@ load_agribalyse_data();
 
 my %tags = (
 labels => [
+
+	# Production system
 	"fr:nature-et-progres",
 	"fr:bio-coherence",
 	"en:demeter",
@@ -32,6 +34,10 @@ labels => [
 	"fr:label-rouge",
 	"en:sustainable-seafood-msc",
 	"en:responsible-aquaculture-asc",
+	
+	# Threatened species
+	"en:roundtable-on-sustainable-palm-oil",
+	
 	],
 categories => [
 	"en:beef",
@@ -53,6 +59,9 @@ my @tests = (
 [ { lc=>"en", categories_tags=>["en:some-unknown-category"] }, undef ],
 [ { lc=>"en", categories_tags=>["en:butters"] }, 35.3946474732019 ],
 [ { lc=>"en", categories_tags=>["en:butters"], labels_tags=>["fr:ab-agriculture-biologique"] }, 50.3946474732019 ],
+[ { lc=>"en", categories_tags=>["en:margarines"] }, 70.230149592005 ],
+[ { lc=>"en", categories_tags=>["en:margarines"], ingredients_analysis_tags=>["en:palm-oil"] }, 60.230149592005 ],
+[ { lc=>"en", categories_tags=>["en:margarines"], ingredients_analysis_tags=>["en:palm-oil"], labels_tags=>["en:roundtable-on-sustainable-palm-oil"] }, 70.230149592005 ],
 
 );
 
