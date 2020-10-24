@@ -28945,7 +28945,7 @@ nl:Maïs in conserven, Maïs in blik
 pl:Kukurydza w puszce
 
 <en:Canned corn
-en:Canned sweet corn, Canned drained sweet corn
+en:Canned sweet corn, Canned sweet corn
 de:Dosenzuckermais, Zuckermaiskonserve
 es:Maíz dulce en conserva
 fi:purkitettu makea maissi
@@ -28959,7 +28959,7 @@ ciqual_food_name:fr:Maïs doux, appertisé, égoutté
 
 <en:Canned vegetables
 <en:White beans
-en:Canned drained haricot beans, Canned haricot beans
+en:Canned haricot beans, Canned haricot beans
 fr:Haricots blancs appertisés égouttés, Haricots blancs en conserve égouttés
 agribalyse_food_code:en:20511
 ciqual_food_code:en:20511
@@ -36531,7 +36531,7 @@ fr:Crèmes dessert pistache
 
 <en:Dessert creams
 en:Canned custard desserts
-fr:Crèmes dessert appertisées, Crèmes dessert en conserve
+fr:Crèmes dessert en conserve, Crèmes dessert appertisées
 ciqual_food_code:en:39505
 ciqual_food_name:en:Custard dessert, canned (average)
 ciqual_food_name:fr:Crème dessert, appertisée (aliment moyen)
@@ -46332,6 +46332,9 @@ de:Aprikosen in Sirup
 es:Albaricoques en almíbar
 fr:Abricots au sirop
 nl:Abrikozen op siroop
+agribalyse_proxy_food_code:en:13715
+agribalyse_proxy_food_name:en:Apricot, in syrup, canned, not drained
+agribalyse_proxy_food_name:fr:Abricot au sirop, appertisé, non égoutté
 
 <en:Apricots in syrup
 en:Canned drained apricots in light syrup
@@ -46404,6 +46407,9 @@ es:Piña en almíbar, Piña en almíbar ligero
 fi:ananasta sokeriliemessä
 fr:Ananas au sirop
 nl:Ananas op siroop
+agribalyse_proxy_food_code:en:13717
+agribalyse_proxy_food_name:en:Pineapple, in pineapple juice and syrup, canned, not drained
+agribalyse_proxy_food_name:fr:Ananas au sirop et jus d'ananas, appertisé, non égoutté
 
 <en:Pineapple in syrup
 en:Canned drained pineapple in pineapple juice and syrup
@@ -46445,10 +46451,13 @@ fi:persikoita sokeriliemessä
 fr:Pêches au sirop
 it:Pesche sciroppate
 nl:Perzikken op siroop
+agribalyse_proxy_food_code:en:13731
+agribalyse_proxy_food_name:en:Peach, canned in light syrup, not drained
+agribalyse_proxy_food_name:fr:Pêche au sirop léger, appertisée, non égouttée
 
 <en:Peaches in syrup
 en:Canned drained peach in light syrup
-fr:Pêches au sirop léger appertisées
+fr:Pêches au sirop léger en conserve, Pêches au sirop léger appertisées
 agribalyse_food_code:en:13730
 ciqual_food_code:en:13730
 ciqual_food_name:en:Peach, canned in light syrup, drained
@@ -46456,7 +46465,7 @@ ciqual_food_name:fr:Pêche au sirop léger, appertisée, égouttée
 
 <en:Peaches in syrup
 en:Canned peach in light syrup
-fr:Pêches au sirop léger appertisées non égouttées
+fr:Pêches au sirop léger en conserve non égouttées, Pêches au sirop léger appertisées non égouttées
 agribalyse_food_code:en:13731
 ciqual_food_code:en:13731
 ciqual_food_name:en:Peach, canned in light syrup, not drained
@@ -46470,6 +46479,9 @@ fi:päärynät sokeriliemessä
 fr:Poires au sirop
 it:Pere sciroppate
 nl:Peren op siroop
+agribalyse_proxy_food_code:en:13735
+agribalyse_proxy_food_name:en:Pear, canned in light syrup, not drained
+agribalyse_proxy_food_name:fr:Poire au sirop léger, appertisée, non égouttée
 
 <en:Pears in syrup
 en:Canned pears in light syrup not drained
@@ -53754,7 +53766,7 @@ ciqual_food_name:en:Sauerkraut, without garnish, drained
 ciqual_food_name:fr:Choucroute, sans garniture, égouttée
 
 <en:Sauerkraut without garnish
-en:Cooked drained sauerkraut without garnish
+en:Cooked sauerkraut without garnish
 fr:Choucroute, sans garniture égouttée cuite
 ciqual_food_code:en:25220
 ciqual_food_name:en:Sauerkraut, without garnish, drained, cooked
@@ -61998,7 +62010,7 @@ nl:Paddestoelen in blik
 
 <en:Mushrooms
 <en:Canned plant-based foods
-en:Canned drained mushrooms
+en:Canned mushrooms
 fr:Champignons appertisés égouttés
 ciqual_food_code:en:20011
 ciqual_food_name:en:Mushroom, all types, canned, drained
@@ -66015,8 +66027,11 @@ es:Preparado hechos de cangrejos
 fr:Préparations à base de crabes
 nl:Krab-producten
 
+en:Flaked crab
+fr:Miettes de crabe
+
 <en:Preparations made from crabs
-en:Canned drained flaked crab, Canned drained decorticated crab leg
+en:Canned flaked crab, Canned decorticated crab leg
 fr:Miettes de crabe appertisées, Pattes de crabe décortiquées appertisées
 ciqual_food_code:en:10005
 ciqual_food_name:en:Flaked crab and/or decorticated crab leg, canned, drained
@@ -66487,7 +66502,7 @@ en:Sardines in olive oil, sardines in extra virgin olive oil
 de:Sardinen in Olivenöl
 es:Sardinas en aceite de oliva
 fi:sardiineja oliiviöljyssä
-fr:Sardines à l'huile d'olive, sardines à l'huile d'olive vierge, sardines à l'huile d'olive vierge extra, sardines à l'huile d'olive égouttée
+fr:Sardines à l'huile d'olive, sardines à l'huile d'olive vierge, sardines à l'huile d'olive vierge extra, sardines à l'huile d'olive
 it:Sardine in olio d'oliva
 nl:Sardientjes op olijfolie
 ro:Sardine în ulei de măsline
@@ -66542,8 +66557,8 @@ fr:Saumon en conserve, Saumons en conserve
 nl:Zalm in blik
 
 <en:Canned salmons
-en:Canned drained salmons
-fr:Saumons appertisés égouttés, Saumons égouttés en conserve
+en:Canned salmons
+fr:Saumons appertisés , Saumons en conserve
 agribalyse_food_code:en:26119
 ciqual_food_code:en:26119
 ciqual_food_name:en:Salmon, canned, drained
@@ -66665,8 +66680,8 @@ nl:Ansjovisfilets
 
 <en:Anchovy fillets
 <en:Semi-preserved foods
-en:Anchovy fillets rolled with capers, Semi-preserved drained anchovy fillets rolled with capers
-fr:Filets d'anchois roulés aux câpres, Filets d'anchois roulés aux câpres égouttés en semi-conserve
+en:Anchovy fillets rolled with capers, Semi-preserved anchovy fillets rolled with capers
+fr:Filets d'anchois roulés aux câpres, Filets d'anchois roulés aux câpres en semi-conserve
 agribalyse_food_code:en:25999
 ciqual_food_code:en:25999
 ciqual_food_name:en:Anchovy, fillets, rolled with capers, semi-preserved, drained
@@ -66678,8 +66693,8 @@ fr:Filets d'anchois à l'huile
 
 <en:Anchovy fillets in oil
 <en:Semi-preserved foods
-en:Semi-preserved drained anchovy fillets in oil
-fr:Filets d'anchois égouttés à l'huile en semi-conserve
+en:Semi-preserved anchovy fillets in oil
+fr:Filets d'anchois à l'huile en semi-conserve
 agribalyse_food_code:en:26000
 ciqual_food_code:en:26000
 ciqual_food_name:en:Anchovy, fillets, in oil, semi-preserved, drained
@@ -67707,7 +67722,7 @@ nl:Witte tonijn natuur
 
 <en:Albacore
 <en:Tuna in olive oil
-en:Canned drained albacore in olive oil
+en:Canned albacore in olive oil
 fr:Thon germon à l'huile d'olive appertisé, Thon blanc à l'huile d'olive appertisé égoutté
 agribalyse_food_code:en:26179
 ciqual_food_code:en:26179
@@ -68490,7 +68505,7 @@ agribalyse_proxy_food_name:en:Mussels, in Catalan-style sauce or marinade (tomat
 agribalyse_proxy_food_name:fr:Moules à la sauce catalane ou escabèche (tomate), appertisée, égouttée
 
 <en:Canned mussels
-en:Canned mussels in Catalan sauce, Canned drained mussels in Catalan-style sauce, Canned drained mussels in Catalan-style marinade, Canned drained mussels in tomato sauce
+en:Canned mussels in Catalan sauce, Canned mussels in Catalan-style sauce, Canned mussels in Catalan-style marinade, Canned mussels in tomato sauce
 fr:Moules à la sauce catalane, Moules à la sauce escabèche, Moules appertisées à la sauce catalane, Moules appertisées à la sauce escabèche, Moules appertisées à la sauce tomate
 agribalyse_food_code:en:10081
 ciqual_food_code:en:10081
@@ -70719,7 +70734,7 @@ who_id:en:16
 
 <en:Canned vegetables
 <en:Artichokes
-en:Canned artichokes, Canned drained artichokes
+en:Canned artichokes, Canned artichokes
 de:Artischocken in Dosen, Dosen-Artischocken
 es:Alcachofas en conserva
 fi:purkitetut artisokat
@@ -70797,7 +70812,7 @@ nl:Spruiten in blik
 
 <en:Canned vegetables
 <en:Brussels sprouts
-en:Canned drained Brussels sprouts
+en:Canned Brussels sprouts
 fr:Choux de Bruxelles appertisés égouttés
 agribalyse_food_code:en:20077
 ciqual_food_code:en:20077
@@ -70816,7 +70831,7 @@ nl:Wortels in blik
 
 <en:Canned vegetables
 <en:Carrots
-en:Canned drained carrots
+en:Canned carrots
 fr:Carottes en conserve, Carottes appertisées
 agribalyse_food_code:en:20007
 ciqual_food_code:en:20007
@@ -70852,7 +70867,7 @@ fr:Bettes en conserve, Blettes en conserve
 nl:Snijbiet in blik
 
 <en:Canned vegetables
-en:Canned drained diced mixed vegetables
+en:Canned diced mixed vegetables
 fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées
 agribalyse_food_code:en:20051
 ciqual_food_code:en:20051
@@ -70890,7 +70905,7 @@ nl:Rode pepers in blik
 
 <en:Canned plant-based foods
 <en:Potatoes
-en:Canned potatoes, Canned drained potatoes
+en:Canned potatoes, Canned potatoes
 es:Patatas en conserva
 fr:Pommes de terre en conserve, Pommes de terre appertisées
 it:Patate in scatola
@@ -70906,7 +70921,7 @@ fr:Salsifis en conserve
 nl:Schorseneer in blik
 
 <en:Canned vegetables
-en:Canned drained salsify
+en:Canned salsify
 fr:Salsifis appertisés égouttés, Salsifis en conserve égouttés
 agribalyse_food_code:en:20081
 ciqual_food_code:en:20081
@@ -70928,7 +70943,7 @@ agribalyse_proxy_food_name:fr:Épinard, appertisé, égoutté
 
 <en:Canned vegetables
 <en:Spinachs
-en:Canned drained spinachs
+en:Canned spinachs
 fr:Épinards appertisés égouttés
 agribalyse_food_code:en:20060
 ciqual_food_code:en:20060
@@ -73724,7 +73739,7 @@ agribalyse_proxy_food_name:fr:Tomate, pelée, appertisée, égouttée
 
 <en:Peeled tomatoes
 en:Canned peeled tomatoes
-fr:Tomates pelées appertisées
+fr:Tomates pelées en conserve, Tomates pelées appertisées
 agribalyse_food_code:en:20048
 ciqual_food_code:en:20048
 ciqual_food_name:en:Tomato, peeled, canned, drained
@@ -74957,7 +74972,7 @@ who_id:en:16
 
 <en:Canned legumes
 <en:Chickpeas
-en:Canned chickpeas, Canned drained chick peas
+en:Canned chickpeas, Canned chick peas
 de:Kichererbsen in Dosen
 es:Garbanzos cocidos en conserva, Garbanzos en conserva
 fi:purkitetut kikherneet
@@ -74980,7 +74995,7 @@ nl:Gewone bonen in blik
 ru:Бобы в консервах
 
 <en:Canned common beans
-en:Canned flageolet beans, Canned drained flageolet beans
+en:Canned flageolet beans, Canned flageolet beans
 es:Flageolets en conserva
 fr:Flageolets en conserve, Flageolets appertisés égouttés, Flageolets en conserve égouttés, Haricots flageolets appertisés égouttés, Haricots flageolets en conserve égouttés
 nl:Flageoletbonen in blik
@@ -75022,6 +75037,9 @@ fi:purkitettuja linssejä
 fr:Lentilles en conserve
 it:Lenticchie in scatola
 nl:Linzen in blik
+agribalyse_proxy_food_code:en:20510
+agribalyse_proxy_food_name:en:Lentil, seasoned, canned, drained
+agribalyse_proxy_food_name:fr:Lentille, cuisinée, appertisée, égouttée
 
 <en:Canned legumes
 en:Canned seasoned lentils
@@ -75048,7 +75066,7 @@ nl:Tuinbonen in blik
 <en:Canned legumes
 <en:Canned vegetables
 <en:Green beans
-en:Canned green beans, Canned drained French beans
+en:Canned green beans, Canned French beans
 de:Grüne Bohnen in Dosen
 es:Judías verdes en conserva
 fi:purkitettuja vihreitä papuja
@@ -77597,7 +77615,7 @@ agribalyse_proxy_food_name:en:Palm heart, canned, drained
 agribalyse_proxy_food_name:fr:Coeur de palmier, appertisé, égoutté
 
 <en:Hearts of palm
-en:Canned palm heart, Canned drained palm heart
+en:Canned palm heart, Canned palm heart
 fr:Coeur de palmier appertisé égoutté
 agribalyse_food_code:en:20018
 ciqual_food_code:en:20018
@@ -79343,7 +79361,7 @@ ciqual_food_name:en:Bamboo shoots, raw
 ciqual_food_name:fr:Bambou, pousse, crue
 
 <en:Bamboo shoots
-en:Canned drained bamboo shoots, canned bamboo shoots
+en:Canned bamboo shoots
 fr:Pousses de bambou en conserve, Pousses de bambou appertisées
 agribalyse_food_code:en:20188
 ciqual_food_code:en:20188
