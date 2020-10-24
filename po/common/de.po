@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 18:43\n"
+"PO-Revision-Date: 2020-10-23 14:23\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4676,8 +4676,8 @@ msgid "Eco-Score"
 msgstr "Ökobilanz"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "Geringe Umweltbelastung"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Geringe Umweltbelastung (Öko-Bilanz)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4723,4 +4723,121 @@ msgstr "Enthält nicht: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "Ohne %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "Eigentümer"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "Eigentümer"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "Sie können Informationen über Ihr Unternehmen angeben, die in Ihrem Organisationsprofil angezeigt werden."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Einige der Informationen, wie z.B. die Kontaktmöglichkeiten des Kundendienstes, können auch direkt auf Seiten für Ihre Produkte angezeigt werden."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Link zur offiziellen Webseite"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Kundendienst"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "Informationen zum Kundenservice sind öffentlich und können auf der Open Food Facts Website und in Apps angezeigt werden."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "Alle Angaben sind freiwillig."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Gewerblicher Dienst"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "Informationen zu kommerziellen Dienstleistungen werden nur im Organisationsprofil angezeigt."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Adresse"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "Rufnummer"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "E-Mail-Adresse"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Link zum Kontaktformular"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Weitere Informationen"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "z.B. Öffnungszeiten"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "Die Organisation wurde nicht gefunden."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "Der Name der Organisation fehlt."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Organisationsprofil"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "Das Organisationsprofil wurde aktualisiert."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Organisation löschen"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Offizielle Webseite"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Kontaktformular"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Eigenes Organisationprofil bearbeiten"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Eigenes Benutzerprofil bearbeiten"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Zutaten"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Unbekannt: %s"
 
