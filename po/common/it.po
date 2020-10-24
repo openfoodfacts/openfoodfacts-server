@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 13:26\n"
+"PO-Revision-Date: 2020-10-24 01:02\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4760,15 +4760,15 @@ msgstr "Le informazioni sul servizio clienti sono pubbliche e possono essere vis
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Tutti i campi sono opzionali."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Servizio commerciale"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Le informazioni del servizio commerciale sono mostrate solo nel profilo dell'organizzazione."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4776,11 +4776,11 @@ msgstr "Nome"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Indirizzo"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Numero telefonico"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4788,7 +4788,7 @@ msgstr "Indirizzo e-mail"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Collegamento modulo di contatto"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4796,43 +4796,43 @@ msgstr "Altre informazioni"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "es. orari di apertura"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Impossibile trovare l'organizzazione."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Il nome dell'organizzazione è mancante."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Profilo dell'Organizzazione"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Il profilo dell'organizzazione è stato aggiornato."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Elimina l'organizzazione"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Sito ufficiale"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Modulo di contatto"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Modifica il profilo della tua organizzazione"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Modifica il tuo profilo utente"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4841,5 +4841,5 @@ msgstr "Ingredienti"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
-msgstr ""
+msgstr "Sconosciuto: %s"
 
