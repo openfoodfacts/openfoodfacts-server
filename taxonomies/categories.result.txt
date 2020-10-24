@@ -780,9 +780,13 @@ it:Crackers
 nl:Zoutjes
 ru:Солёное печенье
 sv:Kex
+agribalyse_proxy_food_code:en: 38402
 ciqual_food_code:en: 38399
 ciqual_food_name:en: Salty snacks
 ciqual_food_name:fr: Biscuit apéritif -aliment moyen-
+ciqual_proxy_food_code:en: 38402
+ciqual_proxy_food_name:en: Salty snacks, crackers, plain
+ciqual_proxy_food_name:fr: Biscuit apéritif, crackers, nature
 
 < en:Appetizers
 en:Filled fougasse
@@ -4402,6 +4406,9 @@ pt:Biscoitos de chocolate
 ro:Biscuiți cu ciocolată
 ru:Шоколадное печенье
 zh:巧克力饼干
+agribalyse_proxy_food_code:en: 24036
+ciqual_proxy_food_code:en: 24036
+ciqual_proxy_food_name:en: Biscuit -cookie-, with chocolate, prepacked
 
 < en:Biscuits
 en:Cigarette Russes, Russian cigarettes
@@ -5013,7 +5020,11 @@ ur:بسکٹ
 vi:Bích quy
 wa:Biscûte
 zh:面饼
+agribalyse_proxy_food_code:en: 24000
 carbon_footprint_fr_foodges_ingredient:fr: Biscuit au beurre
+ciqual_proxy_food_code:en: 24000
+ciqual_proxy_food_name:en: Biscuit -cookie-
+ciqual_proxy_food_name:fr: Biscuit sec, sans précision
 wikidata:en: Q13270
 wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
 
@@ -6033,6 +6044,10 @@ it:Toast
 nl:Toasts, Toast
 pt:Tostas
 zh:吐司面包
+agribalyse_proxy_food_code:en: 7407
+ciqual_proxy_food_code:en: 7407
+ciqual_proxy_food_name:en: Wheat swedish toast
+ciqual_proxy_food_name:fr: Pain grillé suédois au froment
 wikidata:en: Q6128
 
 < en:Breads
@@ -8536,7 +8551,7 @@ nl:Selderij in blik
 
 < en:Canned vegetables
 en:Canned drained diced mixed vegetables
-fr:Macédoines de légumes appertisées égouttées
+fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées égouttées
 agribalyse_food_code:en: 20051
 ciqual_food_code:en: 20051
 ciqual_food_name:en: Diced mixed vegetables, canned, drained
@@ -8555,9 +8570,6 @@ en:Canned salsifis
 es:Salsifis en conserva
 fr:Salsifis en conserve
 nl:Schorseneer in blik
-
-< en:Canned vegetables
-fr:Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve
 
 < en:Cannelloni
 en:Cannelloni with fish
@@ -8729,6 +8741,10 @@ ru:Газированные безалкагольные напитки
 sv:Läsk, Läskedrycker, läskedryck
 th:น้ำอัดลม
 zh:汽水, 软性饮料, 苏打饮料
+agribalyse_proxy_food_code:en: 18340
+ciqual_proxy_food_code:en: 18340
+ciqual_proxy_food_name:en: Fruit soft drink, carbonated -less than 10% of fruit juice-, without sugar and with artificial sweetener-s-
+ciqual_proxy_food_name:fr: Boisson gazeuse aux fruits -à moins de 10% de jus-, non sucrée, avec édulcorants
 nova:en: 3
 wikidata:en: Q147538
 
@@ -9837,6 +9853,10 @@ fr:Boissons au riz, Boissons végétales de riz, Laits de riz, lait de riz
 hu:Rizstejek
 it:Bevanda di riso
 nl:Rijstdranken
+agribalyse_food_code:en: 18904
+ciqual_food_code:en: 18904
+ciqual_food_name:en: Rice-based drink, plain
+ciqual_food_name:fr: Boisson à base de riz, nature
 wikidata:en: Q715187
 
 < en:Cereal milks
@@ -10146,9 +10166,12 @@ pt:Cereias para pequeno-almoçco
 ru:Хлопья к завтраку
 sv:Frukostflingor
 th:อาหารเช้าธัญพืช
+agribalyse_proxy_food_code:en: 32135
 ciqual_food_code:en: 32003
 ciqual_food_name:en: Breakfast cereals, sweet -average-
 ciqual_food_name:fr: Céréales pour petit déjeuner -aliment moyen-
+ciqual_proxy_food_code:en: 32135
+ciqual_proxy_food_name:en: Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements
 pnns_group_2:en: Breakfast cereals
 who_id:en: 6
 
@@ -11243,9 +11266,9 @@ it:Formaggio di capra
 nl:Geitenkazen
 pl:Ser kozi, Sery kozie
 ru:Сыр из козьего молока
-agribalyse_food_code:en: 12814
-ciqual_food_code:en: 12814
-ciqual_food_name:en: Soft-ripened cheese, from goat's milk, from pasteurised milk
+agribalyse_proxy_food_code:en: 12814
+ciqual_proxy_food_code:en: 12814
+ciqual_proxy_food_name:en: Soft-ripened cheese, from goat's milk, from pasteurised milk
 wikidata:en: Q198815
 
 < en:Cheeses
@@ -12792,9 +12815,6 @@ ciqual_food_code:en: 31002
 ciqual_food_name:en: Coconut bar, with chocolate coating
 
 < en:Chocolate bars
-fr:Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi, Confiserie chocolatées au lait
-
-< en:Chocolate bars
 fr:Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country
 
 < en:Chocolate bars
@@ -12941,8 +12961,8 @@ ciqual_food_code:en: 31102
 ciqual_food_name:en: Cereal bar with chocolate, fortified with vitamins and minerals
 
 < en:Chocolate cereal bars
-en:Chocolate confectionery with dairy filling, Chocolate  bar with dairy filling
-fr:Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi, Confiserie chocolatées au lait
+en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
+fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
 agribalyse_food_code:en: 31012
 ciqual_food_code:en: 31012
 ciqual_food_name:en: Chocolate confectionery or bar, with dairy filling
@@ -14225,6 +14245,10 @@ he:קפסולות קפה
 it:Capsule di caffè
 nl:Koffiepads, Koffiepad
 zh:咖啡胶囊
+agribalyse_proxy_food_code:en: 18003
+ciqual_proxy_food_code:en: 18003
+ciqual_proxy_food_name:en: Coffee, ground
+ciqual_proxy_food_name:fr: Café, moulu
 
 < en:Coffees
 en:Arabica coffees
@@ -14245,6 +14269,10 @@ he:פולי קפה
 it:Chicchi di caffè
 nl:Koffiebonen
 zh:咖啡豆
+agribalyse_proxy_food_code:en: 18003
+ciqual_proxy_food_code:en: 18003
+ciqual_proxy_food_name:en: Coffee, ground
+ciqual_proxy_food_name:fr: Café, moulu
 wikidata:en: Q153697
 
 < en:Coffees
@@ -14494,6 +14522,10 @@ wikidata:en: Q202677
 en:Prepared vegetables macedoines
 fr:Macédoines de légumes préparées
 nl:Bereide macedoine groenten
+agribalyse_proxy_food_code:en: 20051
+ciqual_proxy_food_code:en: 20051
+ciqual_proxy_food_name:en: Diced mixed vegetables, canned, drained
+ciqual_proxy_food_name:fr: Macédoine de légumes, appertisée, égouttée
 
 < en:Common beans
 en:Black beans
@@ -17218,6 +17250,10 @@ pl:Śmietanki
 pt:Natas, nata
 sl:Smetana
 sv:Grädde
+agribalyse_proxy_food_code:en: 19430
+ciqual_proxy_food_code:en: 19430
+ciqual_proxy_food_name:en: Liquid cream, light, 15-20% fat, UHT
+ciqual_proxy_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q13228
 
@@ -17382,6 +17418,10 @@ en:Petits suisses
 de:Milchdesserts
 fr:Petits suisses
 nl:Petits suisses
+agribalyse_proxy_food_code:en: 19666
+ciqual_proxy_food_code:en: 19666
+ciqual_proxy_food_name:en: Petit-Suisse like fresh cream cheese, plain, around 9% fat
+ciqual_proxy_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 wikidata:en: Q585246
 
 < en:Dairy desserts
@@ -21020,9 +21060,12 @@ ru:Сыры
 sv:Ostar, Ost
 th:ชีส
 zh:奶酪, 乳酪, 芝士, 起司
+agribalyse_proxy_food_code:en: 12001
 ciqual_food_code:en: 12999
 ciqual_food_name:en: Cheese -average-
 ciqual_food_name:fr: Fromage -aliment moyen-
+ciqual_proxy_food_code:en: 12001
+ciqual_proxy_food_name:en: Camembert cheese, from cow's milk
 nova:en: 3
 pnns_group_2:en: Cheese
 who_id:en: 8
@@ -21296,13 +21339,6 @@ fr:Croissants fourrés à la confiture, Croissant fourré à la confiture
 it:Cornetti farciti con confettura
 nl:Croissants met jam
 
-en:Filled fritter garnished with vegetables, Filo pastry garnished with vegetables
-fr:Brick aux légumes, Brick garni aux légumes
-agribalyse_food_code:en: 25438
-ciqual_food_code:en: 25438
-ciqual_food_name:en: Fritter, filled -filo pastry- -garnish : shrimps, vegetables, poultry, meat, etc.-
-ciqual_food_name:fr: Brick garni -garniture : crevettes, légumes, volaille, viande, poisson, etc.-
-
 < en:Filled fritters
 en:Filled fritter assortment, Filled filo pastry assortment
 fr:Assortiment de brick garnies
@@ -21338,6 +21374,14 @@ ciqual_food_name:fr: Brick garni -garniture : crevettes, légumes, volaille, via
 < en:Filled fritters
 en:Filled fritter garnished with shrimps, Filo pastry garnished with shrimps
 fr:Brick aux crevettes, Brick garni aux crevettes
+agribalyse_food_code:en: 25438
+ciqual_food_code:en: 25438
+ciqual_food_name:en: Fritter, filled -filo pastry- -garnish : shrimps, vegetables, poultry, meat, etc.-
+ciqual_food_name:fr: Brick garni -garniture : crevettes, légumes, volaille, viande, poisson, etc.-
+
+< en:Filled fritters
+en:Filled fritter garnished with vegetables, Filo pastry garnished with vegetables
+fr:Brick aux légumes, Brick garni aux légumes
 agribalyse_food_code:en: 25438
 ciqual_food_code:en: 25438
 ciqual_food_name:en: Fritter, filled -filo pastry- -garnish : shrimps, vegetables, poultry, meat, etc.-
@@ -26517,6 +26561,10 @@ fr:Gelées de fruits, Gelées
 it:Gelatine di frutta
 nl:Vruchtengeleien
 sv:Fruktgeléer
+agribalyse_proxy_food_code:en: 31024
+ciqual_proxy_food_code:en: 31024
+ciqual_proxy_food_name:en: Jam, strawberry
+ciqual_proxy_food_name:fr: Confiture de fraise -extra ou classique-
 
 < en:Fruit and vegetable preserves
 en:Jams
@@ -26536,6 +26584,10 @@ ru:Варенья
 sv:Sylter, sylt
 th:แยม
 zh:果酱
+agribalyse_proxy_food_code:en: 31024
+ciqual_proxy_food_code:en: 31024
+ciqual_proxy_food_name:en: Jam, strawberry
+ciqual_proxy_food_name:fr: Confiture de fraise -extra ou classique-
 wikidata:en: Q8752059
 
 < en:Fruit and vegetable preserves
@@ -26587,9 +26639,13 @@ ru:Фруктовые соки
 sv:Fruktsafter, fruktsaft
 th:น้ำผลไม้
 zh:水果汁, 果汁
+agribalyse_proxy_food_code:en: 2035
 ciqual_food_code:en: 2004
 ciqual_food_name:en: Fruit juice -average-
 ciqual_food_name:fr: Jus de fruits -aliment moyen-
+ciqual_proxy_food_code:en: 2035
+ciqual_proxy_food_name:en: Mixed fruits juice, pure juice
+ciqual_proxy_food_name:fr: Jus multifruit, pur jus, standard
 pnns_group_2:en: Fruit juices
 
 < en:Fruit-based beverages
@@ -26606,6 +26662,10 @@ it:Nettare di frutta
 nl:Vruchtennectars, Vruchtennectar
 pt:Néctares de frutas, néctares
 ru:Плодовые нектары, Нектары плодовые
+agribalyse_proxy_food_code:en: 2061
+ciqual_proxy_food_code:en: 2061
+ciqual_proxy_food_name:en: Mixed fruits nectar
+ciqual_proxy_food_name:fr: Nectar multifruit, standard
 pnns_group_2:en: Fruit nectars
 
 < en:Fruit-based beverages
@@ -29399,7 +29459,7 @@ ciqual_food_name:en: Cheese, from goat's milk, spreadable, plain
 es:Rulo de cabra, Rulo de queso de cabra
 en:Cheese buche from goat's milk
 fr:Bûche de chèvre
-agribalyse_food_code:en: 12800
+agribalyse_food_code:en: 12812
 ciqual_food_code:en: 12800
 ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 
@@ -32352,15 +32412,6 @@ zh:蚂蚁
 wikidata:en: Q7386
 
 < en:Instant beverages
-en:Powdered cappucino
-de:Cappuccinopulver
-es:Cappucino en polvo
-fi:Cappuccino-pikakahvit
-fr:Cappuccino en poudre
-it:Cappuccino in polvere
-nl:Cappucinopoeders, Cappucinopoeder
-
-< en:Instant beverages
 en:Ready-to-drink instant cocoa with sugar reconstituted with semi-skimmed milk
 fr:Boisson cacaotée instantanée sucrée prête à boire reconstituée avec du lait demi-écrémé
 
@@ -32489,8 +32540,21 @@ ciqual_food_name:en: Coffee with milk or Cappuccino with chocolate, powder, inst
 ciqual_food_name:fr: Café au lait ou cappuccino au chocolat, poudre soluble
 
 < en:Instant coffees
-en:Instant powder for coffee with milk, Instant powder for cappuccino
-fr:Café au lait en poudre soluble, Cappuccino en poudre soluble
+en:Instant powder for coffee with milk
+fr:Café au lait en poudre soluble
+agribalyse_food_code:en: 18163
+ciqual_food_code:en: 18163
+ciqual_food_name:en: Coffee with milk or Cappuccino with chocolate, powder, instant
+ciqual_food_name:fr: Café au lait ou cappuccino au chocolat, poudre soluble
+
+< en:Instant coffees
+en:Powdered cappucino, Instant powder for cappuccino
+de:Cappuccinopulver
+es:Cappucino en polvo
+fi:Cappuccino-pikakahvit
+fr:Cappuccino en poudre, Cappuccino en poudre soluble
+it:Cappuccino in polvere
+nl:Cappucinopoeders, Cappucinopoeder
 agribalyse_food_code:en: 18160
 ciqual_food_code:en: 18160
 ciqual_food_name:en: Coffee with milk or Cappuccino, powder, instant
@@ -33268,6 +33332,10 @@ hu:Alma lekvár
 it:Confitture di mela
 nl:Appeljams
 sv:Äpplesylter
+agribalyse_proxy_food_code:en: 31037
+ciqual_proxy_food_code:en: 31037
+ciqual_proxy_food_name:en: Jam, apricot
+ciqual_proxy_food_name:fr: Confiture d'abricot -extra ou classique-
 
 < en:Jams
 en:Apricot jams
@@ -33302,6 +33370,10 @@ it:Confetture di frutti di bosco
 nl:Jams van rode vruchten
 ru:Варенье из ягод
 zh:莓类果酱
+agribalyse_proxy_food_code:en: 31024
+ciqual_proxy_food_code:en: 31024
+ciqual_proxy_food_name:en: Jam, strawberry
+ciqual_proxy_food_name:fr: Confiture de fraise -extra ou classique-
 
 < en:Jams
 en:Cherry jams
@@ -33407,6 +33479,10 @@ hu:Őszibarack lekvár, Barack lekvár
 it:Confitture di pesca
 nl:Perzikkenjams
 sv:Persikasylter
+agribalyse_proxy_food_code:en: 31037
+ciqual_proxy_food_code:en: 31037
+ciqual_proxy_food_name:en: Jam, apricot
+ciqual_proxy_food_name:fr: Confiture d'abricot -extra ou classique-
 
 < en:Jams
 en:Pear jams
@@ -33418,6 +33494,10 @@ hu:Körte lekvár
 it:Confitture di pera
 nl:Perenjams
 sv:Päronsylter
+agribalyse_proxy_food_code:en: 31037
+ciqual_proxy_food_code:en: 31037
+ciqual_proxy_food_name:en: Jam, apricot
+ciqual_proxy_food_name:fr: Confiture d'abricot -extra ou classique-
 
 < en:Jams
 en:Plum jams
@@ -33429,6 +33509,10 @@ hu:Szilva lekvár
 it:Confetture di susina
 nl:Pruimenjams
 sv:Plommonsylter
+agribalyse_proxy_food_code:en: 31037
+ciqual_proxy_food_code:en: 31037
+ciqual_proxy_food_name:en: Jam, apricot
+ciqual_proxy_food_name:fr: Confiture d'abricot -extra ou classique-
 
 < en:Jams
 en:Quince jams
@@ -33436,6 +33520,10 @@ de:Quitte Konfitüren
 fr:Confitures de coings
 hu:Birs lekvár
 sv:Kvittensylter
+agribalyse_proxy_food_code:en: 31037
+ciqual_proxy_food_code:en: 31037
+ciqual_proxy_food_name:en: Jam, apricot
+ciqual_proxy_food_name:fr: Confiture d'abricot -extra ou classique-
 
 < en:Jams
 en:Rhubarb jams
@@ -35993,9 +36081,13 @@ ciqual_food_name:fr: Pomme de terre, flocons déshydratés, au lait ou à la cr�
 en:Instant mashed potatoes, dehydrated mashed potatoes
 de:Kartoffelpulver
 fi:perunamuusijauheet
-fr:Purées en flocons, purées instantanées
+fr:Purées de pommes de terre en flocons, purées de pommes de terre instantanées, Purées en flocons, purées instantanées
 it:Puré di patate istantaneo
 nl:Aardappelpureeën in gedroogde vorm, Aardappelpuree in gedroogde vorm, Aardappelpoeder
+agribalyse_proxy_food_code:en: 4019
+ciqual_proxy_food_code:en: 4019
+ciqual_proxy_food_name:en: Potato puree, made from flakes, reconstituted with semi-skimmed milk and water, unsalted
+ciqual_proxy_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée avec lait demi-écrémé et eau, non salée
 wikidata:en: Q3411001
 
 < en:Dried products to be rehydrated
@@ -41359,9 +41451,9 @@ nl:Vegetarische pasta salades
 < en:Pasta sauces
 en:Meat-based pasta sauces, Tomato sauce with meat
 fr:Sauce tomate à la viande
-agribalyse_proxy_food_code:en: 11114
-agribalyse_proxy_food_name:en: Tomato sauce, with meat or Bolognese sauce, prepacked
-agribalyse_proxy_food_name:fr: Sauce tomate à la viande ou Sauce bolognaise, préemballée
+agribalyse_food_code:en: 11114
+agribalyse_food_name:en: Tomato sauce, with meat or Bolognese sauce, prepacked
+agribalyse_food_name:fr: Sauce tomate à la viande ou Sauce bolognaise, préemballée
 
 < en:Pasta stuffed with cheese
 < en:Ravioli
@@ -43574,6 +43666,10 @@ pt:Bebidas à base de frutas
 ru:Напитки на основе фруктов
 sv:Fruktbaserade drycker
 zh:果汁饮料, 水果饮料
+agribalyse_proxy_food_code:en: 18309
+ciqual_proxy_food_code:en: 18309
+ciqual_proxy_food_name:en: Fruit soft drink, still -fruit juice content unspecified-, with sugar
+ciqual_proxy_food_name:fr: Boisson plate aux fruits -teneur en jus non spécifiée-, sucrée
 
 < en:Plant-based beverages
 en:Juices and nectars, fruit-juices-and-nectars
@@ -44459,6 +44555,10 @@ hu:Gabona tejek
 it:Latte di cereali
 nl:Tarwemelken
 ru:Зерновое молоко
+agribalyse_proxy_food_code:en: 18905
+ciqual_proxy_food_code:en: 18905
+ciqual_proxy_food_name:en: Oat-based drink, plain
+ciqual_proxy_food_name:fr: Boisson à base d'avoine, nature
 wikidata:en: Q1754817
 
 < en:Legumes and their products
@@ -44483,6 +44583,10 @@ fr:Boissons végétales de fruits à coque, Laits de fruits à coques
 hu:Dió tejek
 it:Latte di semi oleosi
 nl:Notendranken
+agribalyse_proxy_food_code:en: 18107
+ciqual_proxy_food_code:en: 18107
+ciqual_proxy_food_name:en: Almond drink
+ciqual_proxy_food_name:fr: Boisson à l'amande
 
 < en:Plantain bananas
 en:Cooked plantain bananas
@@ -47064,6 +47168,9 @@ fr:Carottes râpées
 it:Carote grattugiate
 nl:Geraspte wortelen
 pl:Tarta marchew
+agribalyse_proxy_food_code:en: 20009
+agribalyse_proxy_food_name:en: Carrot, raw
+agribalyse_proxy_food_name:fr: Carotte, crue
 wikidata:en: Q22708802
 
 < en:Prepared vegetables
@@ -52497,6 +52604,9 @@ ro:Sosuri de roșii
 ru:Томатные соусы, Томатный соус, Соус томатный, Соусы томатные
 sv:Tomatsåser, Tomatsås
 zh:番茄酱
+agribalyse_proxy_food_code:en: 11107
+agribalyse_proxy_food_name:en: Tomato sauce, with onions, prepacked
+agribalyse_proxy_food_name:fr: Sauce tomate aux oignons, préemballée
 wikidata:en: Q3596097
 
 < en:Sauces
@@ -54077,7 +54187,7 @@ en:Multigrain sliced breads, Sliced breads with cereals, Multigrain sandwich loa
 de:Geschnittenes Mehrkornbrot
 es:Panes de molde con cereales
 fi:viipaloidut siemenleivät
-fr:Pains de mie aux céréales, Pain de mie aux céréales, Pain de mie multicéréales
+fr:Pains de mie aux céréales, Pain de mie aux céréales, Pain de mie multicéréales, Pains de mie aux graines et céréales, pain de mie aux graines
 it:Pane ai cereali a fette
 nl:Gesneden Meergranenbroden
 agribalyse_food_code:en: 7113
@@ -55439,6 +55549,10 @@ it:Zuppe di verdura
 nl:Groentesoepen
 ru:Овощные супы
 zh:蔬菜汤
+agribalyse_proxy_food_code:en: 25903
+ciqual_proxy_food_code:en: 25903
+ciqual_proxy_food_name:en: Soup, mixed vegetables, prepacked, to be reheated
+ciqual_proxy_food_name:fr: Soupe aux légumes variés, préemballée à réchauffer
 pnns_group_2:en: Soups
 
 < en:Soups
@@ -58360,6 +58474,10 @@ fr:Sucres de canne
 it:Zucchero di canna, zucchero grezzo
 nl:Rietsuikers
 ru:Тростниковый сахар
+agribalyse_proxy_food_code:en: 31017
+ciqual_proxy_food_code:en: 31017
+ciqual_proxy_food_name:en: Sugar, brown
+ciqual_proxy_food_name:fr: Sucre roux
 wikidata:en: Q9362753
 
 < en:Sugars
@@ -59205,6 +59323,10 @@ pt:Açucar
 ru:Сахар, сахара
 sv:Socker
 zh:糖类
+agribalyse_proxy_food_code:en: 31016
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
 nova:en: 2
 pnns_group_2:en: Sweets
 wikidata:en: Q11002
@@ -60068,6 +60190,10 @@ es:Panecillos tostados
 fi:paahdetut sämpylät
 fr:Petits pains grillés
 nl:Zweedse toasts, Zweedse toast
+agribalyse_proxy_food_code:en: 7407
+ciqual_proxy_food_code:en: 7407
+ciqual_proxy_food_name:en: Wheat swedish toast
+ciqual_proxy_food_name:fr: Pain grillé suédois au froment
 
 < en:Toasts
 en:Unsalted rusk
@@ -62034,6 +62160,10 @@ it:Margarina
 nl:Margarines
 pl:Margaryny, margaryna
 sv:Margarin
+agribalyse_proxy_food_code:en: 16737
+ciqual_proxy_food_code:en: 16737
+ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
+ciqual_proxy_food_name:fr: Matière grasse végétale -type margarine- à 50-63% MG, allégée, doux, riche en oméga 3
 wikidata:en: Q4287
 
 < en:Vegetable gratins
@@ -62233,13 +62363,16 @@ sv:Hampfröoljor, Hampfröolja
 wikidata:en: Q1575477
 
 < en:Vegetable oils
-en:Mixed vegetable oils
+en:Mixed vegetable oils, blended vegetable oils, combined vegetable oils
 es:Mezclas de aceites vegetales
 fi:Kasvisöljysekoitukset
-fr:Mélanges d'huiles
+fr:Mélanges d'huiles, huiles combinées
 it:Oli vegetali misti
 nl:Oliemelanges
 zh:混合植物油
+agribalyse_food_code:en: 17700
+ciqual_food_code:en: 17700
+ciqual_food_name:en: Combined oil -blended vegetable oils-
 
 < en:Vegetable oils
 en:Mustard oils
@@ -72890,6 +73023,10 @@ de:Speck, Schweinespeck
 fi:laardi
 fr:Lardons de porc, Lardons
 nl:Spekjes
+agribalyse_proxy_food_code:en: 28501
+ciqual_proxy_food_code:en: 28501
+ciqual_proxy_food_name:en: Lardoons, raw
+ciqual_proxy_food_name:fr: Lardon nature, cru
 wikidata:en: Q3217888
 
 < fr:Allumettes de poulet
@@ -77034,6 +77171,7 @@ it:Crema con nocciole, crema alle nocciole
 nl:Hazelnootpastas
 agribalyse_proxy_food_code:en: 31032
 agribalyse_proxy_food_name:en: Chocolate spread with hazelnuts
+ciqual_proxy_food_code:en: 31032
 
 < fr:Pâtes à tartiner
 en:Speculoos spreads
