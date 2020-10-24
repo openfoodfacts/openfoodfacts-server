@@ -510,7 +510,7 @@ is_deeply (\@tags, [
 is_deeply (\@tags, [
 		'en:organic',
 		'en:fair-trade',
-		'fr:label-rouge',
+		'en:label-rouge',
 	]
 ) or diag explain(\@tags);
 
@@ -657,71 +657,5 @@ or diag explain $tag_ref;
 ProductOpener::Tags::init_tags_texts();
 # Assumes we will always have french additive texts for E100.
 like($tags_texts{'fr'}{'additives'}{'e100'}, qr/curcumine/, 'e100 text contains "curcumine"') or diag explain($tags_texts{'fr'}{'additives'}{'e100'});
-
-# Test default or language-less xx: values
-# see https://github.com/openfoodfacts/openfoodfacts-server/issues/3872
-
-is (canonicalize_taxonomy_tag("fr","test","french entry"), "fr:french-entry");
-is (canonicalize_taxonomy_tag("fr","test","fr:french entry"), "fr:french-entry");
-is (canonicalize_taxonomy_tag("en","test","french entry"), "en:french entry");
-is (canonicalize_taxonomy_tag("en","test","en:french-entry"), "en:french-entry");
-is (canonicalize_taxonomy_tag("es","test","french entry"), "es:french entry");
-is (canonicalize_taxonomy_tag("es","test","es:french-entry"), "es:french-entry");
-is (canonicalize_taxonomy_tag("de","test","french entry"), "de:french entry");
-is (canonicalize_taxonomy_tag("it","test","nl:french-entry"), "nl:french-entry");
-
-is (canonicalize_taxonomy_tag("fr","test","french entry with default value"), "fr:french-entry-with-default-value");
-is (canonicalize_taxonomy_tag("en","test","french entry with default value"), "fr:french-entry-with-default-value");
-is (canonicalize_taxonomy_tag("es","test","french entry with default value"), "fr:french-entry-with-default-value");
-is (canonicalize_taxonomy_tag("de","test","french entry with default value"), "fr:french-entry-with-default-value");
-is (canonicalize_taxonomy_tag("de","test","special value for German 2"), "fr:french-entry-with-default-value");
-
-is (canonicalize_taxonomy_tag("en","test","language less entry"), "xx:language-less-entry");
-is (canonicalize_taxonomy_tag("fr","test","language less entry"), "xx:language-less-entry");
-is (canonicalize_taxonomy_tag("de","test","language less entry"), "xx:language-less-entry");
-is (canonicalize_taxonomy_tag("nl","test","xx:language less entry"), "xx:language-less-entry");
-is (canonicalize_taxonomy_tag("de","test","special value for German 3"), "xx:language-less-entry");
-
-is(display_taxonomy_tag("fr","test","fr:french-entry"), "French entry");
-is(display_taxonomy_tag("fr","test","french entry"), "French entry");
-is(display_taxonomy_tag("de","test","fr:french-entry"), "Special value for German");
-is(display_taxonomy_tag("de","test","french entry"), "French entry");
-
-is(display_taxonomy_tag("fr","test","fr:french-entry-with-default-value"), "French entry with default value");
-is(display_taxonomy_tag("en","test","fr:french-entry-with-default-value"), "French entry with default value");
-is(display_taxonomy_tag("es","test","fr:french-entry-with-default-value"), "French entry with default value");
-is(display_taxonomy_tag("de","test","fr:french-entry-with-default-value"), "Special value for German 2");
-
-is(display_taxonomy_tag("fr","test","language less entry"), "Language-less entry");
-is(display_taxonomy_tag("fr","test","xx:language-less-entry"), "Language-less entry");
-is(display_taxonomy_tag("fr","test","en:language less entry"), "Language-less entry");
-is(display_taxonomy_tag("en","test","en:language less entry"), "Language-less entry");
-is(display_taxonomy_tag("de","test","xx:language-less-entry"), "Special value for German 3");
-
-is ( display_tags_hierarchy_taxonomy("fr","test",["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]), '<a href="//french-entry" class="tag well_known">French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>');
-
-is ( display_tags_hierarchy_taxonomy("es","test",["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]), '<a href="//fr:french-entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>');
-
-is ( display_tags_hierarchy_taxonomy("de","test",["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]), '<a href="//special-value-for-german" class="tag well_known">Special value for German</a>, <a href="//special-value-for-german-2" class="tag well_known">Special value for German 2</a>, <a href="//special-value-for-german-3" class="tag well_known">Special value for German 3</a>');
-
-is(display_taxonomy_tag("fr","test","es:french-entry-with-default-value"), "French entry with default value");
-
-my $value = display_tags_hierarchy_taxonomy("fr", "test", ["fr:french-entry", "es:french-entry-with-default-value", "xx:language-less-entry"]);
-
-is ($value, '<a href="//french-entry" class="tag well_known">French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>');
-
-# Remove tags
-$value =~ s/<(([^>]|\n)*)>//g;
-
-$product_ref->{"test"} = $value;
-compute_field_tags($product_ref, "fr", "test");
-
-is_deeply ($product_ref->{test_tags}, 
-[
-   'fr:french-entry',
-   'fr:french-entry-with-default-value',
-   'xx:language-less-entry'
-]
-) or diag explain $product_ref->{test_tags};
 
 done_testing();
