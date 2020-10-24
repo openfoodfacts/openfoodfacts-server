@@ -3231,7 +3231,8 @@ sub mmoll_to_unit {
 		unit    => "mg",
 		dv      => 1000,
 		dv_2016 => 1300,
-		unit_us => "% DV",
+		# 2020: US now also indicate value in mg (preferred as %DV is based on changing daily values)
+		# unit_us => "% DV",
 		unit_ca => "% DV",
 	},
 	phosphorus => {
@@ -3299,7 +3300,8 @@ sub mmoll_to_unit {
 		unit    => "mg",
 		dv      => 18,
 		dv_2016 => 18,
-		unit_us => "% DV",
+		# 2020: US now also indicate value in mg (preferred as %DV is based on changing daily values)
+		# unit_us => "% DV",
 		unit_ca => "% DV",
 	},
 	magnesium => {

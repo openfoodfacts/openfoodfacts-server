@@ -1861,8 +1861,13 @@ HTML
 				if (lc($unit) eq lc($u)) {
 					$selected = 'selected="selected" ';
 				}
+				my $label = $u;
+				# Display both mcg and µg as different food labels show the unit differently
+				if ($u eq 'µg') {
+					$label = "mcg/µg";
+				}
 				$input .= <<HTML
-<option value="$u" $selected>$u</option>
+<option value="$u" $selected>$label</option>
 HTML
 ;
 			}
