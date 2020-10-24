@@ -4,7 +4,7 @@
 <p>O banco de dados do Open Food Facts está disponível sob <a href="https://opendatacommons.org/licenses/odbl/1.0/"> Open Database License </a>. <1 /> Conteúdos individuais do banco de dados estão disponíveis sob a <a href="https://opendatacommons.org/licenses/dbcl/1.0/"> Database Contents License </a>. <1 /> Imagens dos produtos estão disponíveis sob a licença <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en"> Creative Commons Attribution ShareAlike </a>.
 Eles podem conter elementos gráficos sujeitos a direitos de autor ou outros direitos, que em alguns casos podem ser reproduzidos (direitos de citação ou uso justo).</p>
 
-<p>Por favor, leia os <a href="https://world.openfoodfacts.org/terms-of-use"> Termos e condições de uso e reutilização </a> antes de reutilizar os dados.</p> 
+<p>Por favor, leia os <a href="https://world.openfoodfacts.org/terms-of-use"> Termos e condições de uso e reutilização </a> antes de reutilizar os dados.</p>
 
 
 <p>Estamos muito interessados ​​em saber para que servem os dados do Open Food Facts. Não é obrigatório, mas gostaríamos muito que você <a href="mailto:contact@openfoodfacts.org">nos dissesse sobre as suas reutilizações. </a> para que possamos compartilhá-los
@@ -36,11 +36,11 @@ com a comunidade do Open Food Facts.</p>
  Cada linha representa um ficheiro que está disponível em <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
  O nome do ficheiro contém o timestamp do UNIX da primeira e última alteração contida no ficheiro JSON, para que os ficheiros delta possam ser importados (após a extração) com <code>mongoimport</code> em ordem alfabética.</p>
 <p>Por favor, note que, devido à natureza do <code> mongoexport </code>, os ficheiros delta não podem informá-lo sobre produtos excluídos. Para remover produtos deletados do seu banco de dados, você precisará importar o dump completo do MongoDB.</p>
- 
+
 <h3>Exportação de dados CSV</h3>
 
 <p>Os dados de todos os produtos, ou alguns dos produtos, podem ser descarregados no formato CSV (legível com o OpenOffice, Excel e muitos outros softwares) através do <a href="https://world.openfoodfacts.org/cgi/search.pl"> formulário de pesquisa avançada </a>.</p>
- 
+
 <dl>
  <dt>Hiperligação</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
@@ -69,7 +69,7 @@ com a comunidade do Open Food Facts.</p>
 
 <p>Exemplo: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json"> https://world.openfoodfacts.org/api/v0/product/737628064502.json </a></p>
 
-Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Nota importante: a página está dividida em subpáginas para READ e WRITE). 
+Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Nota importante: a página está dividida em subpáginas para READ e WRITE).
 Uma documentação melhor está a ser desenvolvida, com casos de uso para a exibição de um produto e permitindo que os seus utilizadores adicionem os dados necessários para obter os grupos Nutri-Score, NOVA e aditivos.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro"> Pode acessá-lo aqui </a>.
 <p>Pode usar a API para casos de produção, desde que 1 chamada de API = 1 varredura real de um utilizador.
