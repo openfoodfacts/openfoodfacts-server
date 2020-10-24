@@ -27900,10 +27900,10 @@ nl:Kanariezaden
 wikidata:en:Q2086586
 
 <en:Cereal grains
-en:Amaranth, amaranth
+en:Amaranth
 de:Amaranth, Amarant
 es:Amaranto
-fr:Amarante, Amarante crue
+fr:Amarante, Amarante
 it:Amaranto
 la:Amaranthus
 nl:Amaranth
@@ -27926,11 +27926,11 @@ zh:燕麦属
 wikidata:en:Q146760
 
 <en:Avena
-en:Oat, oat
+en:Oat
 de:Hafer, Echter Hafer
 es:Avena sativa
 fi:kaura
-fr:Avoines, Avoines
+fr:Avoines
 he:שיבולת שועל
 it:Avena
 la:Avena sativa
@@ -57660,14 +57660,14 @@ ciqual_food_name:fr:Caille, viande et peau, cuite
 
 <en:Poultries
 en:quail meat and skin
-fr:Viande et peau de caille crue
+fr:Viande et peau de caille
 ciqual_food_code:en:36100
 ciqual_food_name:en:Quail, meat and skin, raw
 ciqual_food_name:fr:Caille, viande et peau, crue
 
 <en:Poultries
-en:Quail meat, quail meat
-fr:Viande de caille, Viande de caille crue
+en:Quail meat
+fr:Viande de caille
 ciqual_food_code:en:36101
 ciqual_food_name:en:Quail, meat, raw
 ciqual_food_name:fr:Caille, viande, crue
@@ -57678,8 +57678,8 @@ fr:Faisans
 
 <en:Game
 <en:Pheasant
-en:Pheasant meat, pheasant meat
-fr:Viande de faisan, Viande de faisan crue
+en:Pheasant meat
+fr:Viande de faisan
 ciqual_food_code:en:36401
 ciqual_food_name:en:Pheasant, meat, raw
 ciqual_food_name:fr:Faisan, viande, cru
@@ -57687,7 +57687,7 @@ ciqual_food_name:fr:Faisan, viande, cru
 <en:Game
 <en:Pheasant
 en:pheasant meat and skin
-fr:Viande et peau de faisan crue
+fr:Viande et peau de faisan
 ciqual_food_code:en:36403
 ciqual_food_name:en:Pheasant, meat and skin, raw
 ciqual_food_name:fr:Faisan, viande et peau, cru
@@ -57833,7 +57833,7 @@ da:Kalkun, kalkunkød
 de:Putenfleisch
 es:Pavo
 fi:kalkkunat
-fr:Dindes, dinde, Viande de dinde crue
+fr:Dindes, dinde, Viande de dinde
 hu:Pulykák
 it:Tacchini, Tacchino
 nl:Kalkoenvlezen
@@ -65459,19 +65459,18 @@ ciqual_food_name:en:John dory, raw
 ciqual_food_name:fr:Saint-Pierre, cru
 
 <en:Fishes
-en:golden redfish
-fr:Grand sébaste cru, Dorade sébaste cru, Daurade sébaste
+en:Golden redfish
+fr:Grand sébaste, Daurade sébaste, Sébaste du nord
 ciqual_food_code:en:26132
 ciqual_food_name:en:Golden redfish, raw
 ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
 
-<en:Fishes
-en:golden redfish
-fr:Sébaste du nord crue, Dorade sébaste crue, Daurade sébaste
-agribalyse_food_code:en:26210
-ciqual_food_code:en:26210
-ciqual_food_name:en:Golden redfish, raw
-ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
+# TODO check the duplicate
+
+#agribalyse_food_code:en:26210
+#ciqual_food_code:en:26210
+#ciqual_food_name:en:Golden redfish, raw
+#ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
 
 <en:Fishes
 en:pouting
@@ -65784,7 +65783,7 @@ ciqual_food_name:fr:Langouste, bouillie/cuite à l'eau
 
 <en:Spiny lobsters
 en:spiny lobster
-fr:Langouste crue
+fr:Langouste
 ciqual_food_code:en:10015
 ciqual_food_name:en:Spiny lobster, raw
 ciqual_food_name:fr:Langouste, crue
@@ -65996,8 +65995,8 @@ ciqual_food_name:en:Crayfish, cooked
 ciqual_food_name:fr:Écrevisse, cuite
 
 <en:Crustaceans
-en:crayfish
-fr:Écrevisse crue
+en:Crayfish
+fr:Écrevisse
 ciqual_food_code:en:10030
 ciqual_food_name:en:Crayfish, raw
 ciqual_food_name:fr:Écrevisse, crue
@@ -66080,7 +66079,7 @@ en:Prawns
 de:Garnelen
 es:Gambas
 fi:katkaravut
-fr:Crevettes roses
+fr:Crevettes
 it:Gamberetti
 nl:Garnalen
 wikidata:en:Q1058410
@@ -72777,6 +72776,9 @@ nl:Aardappelen
 nl_be:Aardappelen
 sv:Potatisar, potatis
 pnns_group_2:en:Potatoes
+agribalyse_proxy_food_code:en:4008
+agribalyse_proxy_food_name:en:Potato, peeled, raw
+agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
 
 <en:Potatoes
 <en:Cooked vegetables
