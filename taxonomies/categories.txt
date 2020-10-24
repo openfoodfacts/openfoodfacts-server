@@ -28258,13 +28258,6 @@ la:Chenopodium quinoa
 nl:Quinoa, Gierstmelde
 zh:藜麦
 wikidata:en:Q139925
-agribalyse_proxy_food_code:en:9340
-agribalyse_proxy_food_name:en:Quinoa, raw
-agribalyse_proxy_food_name:fr:Quinoa, cru
-
-<en:Quinoa
-en:quinoa
-fr:Quinoa
 agribalyse_food_code:en:9340
 ciqual_food_code:en:9340
 ciqual_food_name:en:Quinoa, raw
@@ -28352,6 +28345,18 @@ fi:Parboiled-riisit
 fr:Riz étuvé
 nl:Parboiled rijst, Inkaf gekookte rijst
 wikidata:en:Q732925
+agribalyse_proxy_food_code:en:9101
+agribalyse_proxy_food_name:en:Rice, parboiled, raw
+agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
+
+<en:White rices
+<en:Parboiled rices
+en:Parboiled white rices
+fr:Riz blanc étuvé
+agribalyse_food_code:en:9101
+ciqual_food_code:en:9101
+ciqual_food_name:en:Rice, parboiled, raw
+ciqual_food_name:fr:Riz blanc étuvé, cru
 
 <en:Rices
 en:White rices,rice,white rice
@@ -28367,19 +28372,6 @@ agribalyse_food_code:en:9100
 ciqual_food_code:en:9100
 ciqual_food_name:en:Rice, raw
 ciqual_food_name:fr:Riz blanc, cru
-
-<en:White rices
-<en:Parboiled rices
-en:Parboiled white rices
-fr:Riz blanc étuvé
-
-<en:Parboiled white rices
-en:parboiled rice
-fr:Riz blanc étuvé
-agribalyse_food_code:en:9101
-ciqual_food_code:en:9101
-ciqual_food_name:en:Rice, parboiled, raw
-ciqual_food_name:fr:Riz blanc étuvé, cru
 
 <en:Parboiled white rices
 en:Unsalted cooked parboiled rice
@@ -33278,10 +33270,6 @@ ciqual_food_code:en:19420
 ciqual_food_name:en:Whipped cream or Chantilly cream, under pressure, UHT
 ciqual_food_name:fr:Crème chantilly, sous pression, UHT
 
-<en:Creams
-en:creams
-fr:Crèmes
-
 #Cream that haven't been pasteurized
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
@@ -34403,7 +34391,7 @@ fr:Lait non homogénéisé
 nl:Ongehomogeniseerde melken
 
 <en:non-homogenized milks
-en:milks
+en:Raw milks
 de:Rohmilch, Rohmilche, Rohmilchen
 es:Leche cruda
 fr:Laits cru, lait cru
@@ -36844,6 +36832,10 @@ fi:hedelmäsalaatit
 fr:Salades de fruits
 it:Macedonia, Insalate di frutta
 nl:Fruitsalade
+agribalyse_food_code:en:13134
+ciqual_food_code:en:13134
+ciqual_food_name:en:Fruit salad, raw
+ciqual_food_name:fr:Salade de fruits, crue
 
 <en:Fruit salads
 en:Fruit salads in syrup
@@ -36887,14 +36879,6 @@ en:Fresh fruit salad
 fr:Salades de fruits frais
 he:סלט פירות טרי
 nl:Verse fruitsalade
-
-<en:Fruit salads
-en:fruit salad
-fr:Salade de fruits
-agribalyse_food_code:en:13134
-ciqual_food_code:en:13134
-ciqual_food_name:en:Fruit salad, raw
-ciqual_food_name:fr:Salade de fruits, crue
 
 <en:Dairy desserts
 en:Flans
@@ -37409,13 +37393,6 @@ fr:Noisettes décortiquées
 hu:Héjas mogyoró
 it:Nocciole con guscio
 nl:Gepelde hazelnoten
-
-<en:Hazelnuts
-en:hazelnuts
-de:ganze Haselnüsse mit Haut
-es:Avellanas crudas
-fr:Noisettes crues
-nl:Rauwe hazelnoten
 
 <en:Shelled hazelnuts
 en:Shelled hazelnuts with skin
@@ -43684,6 +43661,9 @@ pl:Ryby mrożone
 <en:Fish
 en:Saithe
 fr:Lieu noir
+agribalyse_food_code:en:26134
+ciqual_food_code:en:26134
+ciqual_food_name:en:Saithe, raw
 
 <en:Frozen fishes
 <en:Saithe
@@ -43700,13 +43680,6 @@ fr:Lieu noir cuit
 agribalyse_food_code:en:26015
 ciqual_food_code:en:26015
 ciqual_food_name:en:Saithe, cooked
-
-<en:Saithe
-en:Saithe
-fr:Lieu noir
-agribalyse_food_code:en:26134
-ciqual_food_code:en:26134
-ciqual_food_name:en:Saithe, raw
 
 <en:Fish
 en:Arctic char
@@ -54844,8 +54817,9 @@ ciqual_food_name:en:Veal quenelle, in sauce
 <en:Meals with meat
 en:Poultry quenelle
 fr:Quenelle de volaille
-agribalyse_proxy_food_code:en:8912
-agribalyse_proxy_food_name:en:Poultry quenelle, in sauce
+agribalyse_food_code:en:8910
+ciqual_food_code:en:8910
+ciqual_food_name:en:Poultry quenelle, raw
 
 <en:Poultry quenelle
 en:Chicken quenelles
@@ -54858,13 +54832,6 @@ fr:Quenelle de volaille en sauce
 agribalyse_food_code:en:8912
 ciqual_food_code:en:8912
 ciqual_food_name:en:Poultry quenelle, in sauce
-
-<en:Poultry quenelle
-en:Poultry quenelle
-fr:Quenelle de volaille
-agribalyse_food_code:en:8910
-ciqual_food_code:en:8910
-ciqual_food_name:en:Poultry quenelle, raw
 
 <fr:Quenelles
 en:Plain quenelles
@@ -56486,6 +56453,10 @@ it:Bistecche di manzo
 nl:Rundersteaks
 pl:Stek wołowy
 zh:牛排
+agribalyse_food_code:en:6201
+ciqual_food_code:en:6201
+ciqual_food_name:en:Beef, steak or beef steak, raw
+ciqual_food_name:fr:Boeuf, steak ou bifteck, cru
 
 <en:Beef
 <en:Meat preparations
@@ -56613,14 +56584,6 @@ agribalyse_food_code:en:6200
 ciqual_food_code:en:6200
 ciqual_food_name:en:Beef, steak or beef steak, grilled
 ciqual_food_name:fr:Boeuf, steak ou bifteck, grillé
-
-<en:Beef steaks
-en:beef steaks,beef steak
-fr:Steak de boeuf cru, Bifteck
-agribalyse_food_code:en:6201
-ciqual_food_code:en:6201
-ciqual_food_name:en:Beef, steak or beef steak, raw
-ciqual_food_name:fr:Boeuf, steak ou bifteck, cru
 
 <en:Beef preparations
 en:Ground beef preparations, ground beef meat preparations
@@ -58382,11 +58345,6 @@ zh:鸡胸
 agribalyse_proxy_food_code:en:36018
 agribalyse_proxy_food_name:en:Chicken, breast, without skin, cooked
 agribalyse_proxy_food_name:fr:Poulet, filet, sans peau, cuit
-
-<en:Chicken breasts
-<en:chicken
-en:chicken breasts
-fr:Filets de poulet
 
 <en:Chicken breasts
 fr:Filets de poulet rotis
@@ -63129,9 +63087,10 @@ origins:en: en:France
 <en:Egg pastas
 en:Fresh egg pasta
 fr:Pâtes fraîches aux œufs
-agribalyse_proxy_food_code:en:9815
-agribalyse_proxy_food_name:en:Fresh egg pasta, raw
-agribalyse_proxy_food_name:fr:Pâtes fraîches, aux œufs, crues
+agribalyse_food_code:en:9815
+ciqual_food_code:en:9815
+ciqual_food_name:en:Fresh egg pasta, raw
+ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Fresh egg pasta
 en:Fresh cooked unsalted egg pasta
@@ -63140,14 +63099,6 @@ agribalyse_food_code:en:9816
 ciqual_food_code:en:9816
 ciqual_food_name:en:Fresh egg pasta, cooked, unsalted
 ciqual_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
-
-<en:Fresh egg pasta
-en:fresh egg pasta
-fr:Pâtes fraîches aux œufs
-agribalyse_food_code:en:9815
-ciqual_food_code:en:9815
-ciqual_food_name:en:Fresh egg pasta, raw
-ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Pastas
 en:Dry pastas, Dried pastas, Dry pastas, Dried pastas
@@ -65439,14 +65390,14 @@ ciqual_food_name:fr:Esturgeon, cru
 
 <en:Fishes
 en:European whitefish
-fr:Lavaret cru
+fr:Lavaret
 ciqual_food_code:en:26150
 ciqual_food_name:en:European whitefish, raw
 ciqual_food_name:fr:Lavaret, cru
 
 <en:Fishes
 en:European whitefish
-fr:Corégone lavaret cru
+fr:Corégone lavaret
 ciqual_food_code:en:26175
 ciqual_food_name:en:European whitefish, raw
 ciqual_food_name:fr:Corégone lavaret, cru
@@ -65509,7 +65460,7 @@ ciqual_food_name:fr:Saint-Pierre, cru
 
 <en:Fishes
 en:golden redfish
-fr:Grand sébaste cru, Dorade sébaste cru, Daurade sébaste cru
+fr:Grand sébaste cru, Dorade sébaste cru, Daurade sébaste
 ciqual_food_code:en:26132
 ciqual_food_name:en:Golden redfish, raw
 ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
@@ -65551,13 +65502,13 @@ ciqual_food_name:fr:Carrelet ou plie, cuit à la vapeur
 
 <en:Fishes
 en:European plaice
-fr:Carrelet crue, Plie cru
+fr:Carrelet crue, Plie
 ciqual_food_code:en:26055
 ciqual_food_name:en:European plaice, raw
 ciqual_food_name:fr:Carrelet ou plie, cru
 
 <en:Fishes
-en:European plaice
+#en:European plaice
 fr:Plie commun
 agribalyse_food_code:en:26204
 ciqual_food_code:en:26204
@@ -65567,9 +65518,10 @@ ciqual_food_name:fr:Plie commune, crue
 <en:Fishes
 en:Lemon sole
 fr:Limande-sole
-agribalyse_proxy_food_code:en:26016
-agribalyse_proxy_food_name:en:Lemon sole, breaded, fried
-agribalyse_proxy_food_name:fr:Limande-sole, panée, frite
+agribalyse_food_code:en:26135
+ciqual_food_code:en:26135
+ciqual_food_name:en:Lemon sole, raw
+ciqual_food_name:fr:Limande-sole, crue
 
 <en:Lemon sole
 en:Breaded fried lemon sole
@@ -65586,14 +65538,6 @@ agribalyse_food_code:en:26017
 ciqual_food_code:en:26017
 ciqual_food_name:en:Lemon sole, steamed
 ciqual_food_name:fr:Limande-sole, cuite à la vapeur
-
-<en:Lemon sole
-en:lemon sole
-fr:Limande-sole
-agribalyse_food_code:en:26135
-ciqual_food_code:en:26135
-ciqual_food_name:en:Lemon sole, raw
-ciqual_food_name:fr:Limande-sole, crue
 
 <en:Fishes
 en:Common dab
@@ -65819,7 +65763,7 @@ origins:en: en:China, en:Yancheng
 
 <en:Lobsters
 en:lobster
-fr:Homard cru
+fr:Homard
 ciqual_food_code:en:10010
 ciqual_food_name:en:Lobster, raw
 ciqual_food_name:fr:Homard, cru
@@ -66017,6 +65961,9 @@ fi:rapu
 fr:Crabes
 it:Granchi
 nl:Krab
+ciqual_food_code:en:10039
+ciqual_food_name:en:Crab, raw
+ciqual_food_name:fr:Crabe, cru
 
 <en:Crab
 en:Preparations made from crabs
@@ -66040,13 +65987,6 @@ fr:Crabe bouilli, Crabe cuit à l'eau, Tourteau bouilli, Tourteau cuit à l'eau
 ciqual_food_code:en:10025
 ciqual_food_name:en:Crab, boiled/cooked in water
 ciqual_food_name:fr:Crabe ou Tourteau, bouilli/cuit à l'eau
-
-<en:Crab
-en:crab
-fr:Crabe cru
-ciqual_food_code:en:10039
-ciqual_food_name:en:Crab, raw
-ciqual_food_name:fr:Crabe, cru
 
 <en:Crustaceans
 en:Cooked crayfish
@@ -66072,9 +66012,10 @@ he:שרימפס, חסילונים
 it:Gamberetti
 nl:Garnalen
 pl:Krewetki
-agribalyse_proxy_food_code:en:10007
-agribalyse_proxy_food_name:en:Shrimp or prawn, cooked
-agribalyse_proxy_food_name:fr:Crevette, cuite
+agribalyse_food_code:en:10021
+ciqual_food_code:en:10021
+ciqual_food_name:en:Shrimp or prawn, raw
+ciqual_food_name:fr:Crevette, crue
 
 <en:Shrimps
 en:Cooked shrimps
@@ -66083,14 +66024,6 @@ agribalyse_food_code:en:10007
 ciqual_food_code:en:10007
 ciqual_food_name:en:Shrimp or prawn, cooked
 ciqual_food_name:fr:Crevette, cuite
-
-<en:Shrimps
-en:shrimps
-fr:Crevettes
-agribalyse_food_code:en:10021
-ciqual_food_code:en:10021
-ciqual_food_name:en:Shrimp or prawn, raw
-ciqual_food_name:fr:Crevette, crue
 
 <en:shrimps
 <en:Frozen seafood
@@ -66151,6 +66084,10 @@ fr:Crevettes roses
 it:Gamberetti
 nl:Garnalen
 wikidata:en:Q1058410
+agribalyse_food_code:en:10021
+ciqual_food_code:en:10021
+ciqual_food_name:en:Shrimp or prawn, raw
+ciqual_food_name:fr:Crevette, crue
 
 <en:Prawns
 en:Prawn cooked
@@ -66250,7 +66187,7 @@ ciqual_food_name:fr:Brochet, rôti/cuit au four
 
 <en:Fishes
 en:northern pike
-fr:Brochet cru
+fr:Brochet
 ciqual_food_code:en:27011
 ciqual_food_name:en:Northern pike, raw
 ciqual_food_name:fr:Brochet, cru
@@ -66395,6 +66332,10 @@ ciqual_food_name:fr:Merlan, pané
 <en:Fishes
 en:Whiting
 fr:Merlan
+agribalyse_food_code:en:26095
+ciqual_food_code:en:26095
+ciqual_food_name:en:Whiting, raw
+ciqual_food_name:fr:Merlan, cru
 
 <en:Whiting
 en:Fried whiting
@@ -66411,14 +66352,6 @@ agribalyse_food_code:en:26022
 ciqual_food_code:en:26022
 ciqual_food_name:en:Whiting, steamed
 ciqual_food_name:fr:Merlan, cuit à la vapeur
-
-<en:Whiting
-en:whiting
-fr:Merlan
-agribalyse_food_code:en:26095
-ciqual_food_code:en:26095
-ciqual_food_name:en:Whiting, raw
-ciqual_food_name:fr:Merlan, cru
 
 <en:Breaded fish
 fr:Poissons panés de merlu, Poisson pané de merlu
@@ -66783,13 +66716,6 @@ ciqual_food_code:en:26247
 ciqual_food_name:en:Greenland halibut, steamed
 ciqual_food_name:fr:Flétan du Groënland ou flétan noir ou flétan commun, cuit à la vapeur
 
-<en:Fishes
-en:fishes
-de:Roher Fisch, Rohe Fische
-fi:Raa'at kalat
-fr:Poissons
-nl:Rauwe vis
-
 <en:fishes
 en:Atlantic halibut
 fr:Flétan de l'Atlantique cru, flétan blanc
@@ -66800,18 +66726,13 @@ ciqual_food_name:fr:Flétan de l'Atlantique ou flétan blanc, cru
 
 <en:fishes
 en:Atlantic bluefin tuna
-fr:Thon rouge cru
+fr:Thon rouge
 ciqual_food_code:en:26069
 ciqual_food_name:en:Atlantic bluefin tuna, raw
 ciqual_food_name:fr:Thon rouge, cru
 
 <en:Fishes
 en:Swordfish
-fr:Espadon
-
-<en:fishes
-<en:Swordfish
-en:swordfish
 fr:Espadon
 agribalyse_food_code:en:26082
 ciqual_food_code:en:26082
@@ -66829,11 +66750,6 @@ ciqual_food_name:fr:Corb, cru
 <en:Fishes
 en:Snapper
 fr:Vivaneau
-
-<en:fishes
-<en:Snapper
-en:snapper
-fr:Vivaneau
 agribalyse_food_code:en:26146
 ciqual_food_code:en:26146
 ciqual_food_name:en:Snapper, raw
@@ -66849,11 +66765,6 @@ ciqual_food_name:en:Snapper, cooked
 <en:Fishes
 en:Crevalle jack
 fr:Carangue
-
-<en:fishes
-<en:Crevalle jack
-en:crevalle jack
-fr:Carangue
 agribalyse_food_code:en:26157
 ciqual_food_code:en:26157
 ciqual_food_name:en:Crevalle jack, raw
@@ -66862,11 +66773,6 @@ ciqual_food_name:fr:Carangue, cru
 <en:Fishes
 en:Grouper
 fr:Mérou
-
-<en:fishes
-<en:Grouper
-en:grouper
-fr:Mérou
 agribalyse_food_code:en:26178
 ciqual_food_code:en:26178
 ciqual_food_name:en:Grouper, raw
@@ -66874,11 +66780,6 @@ ciqual_food_name:fr:Mérou, cru
 
 <en:Fishes
 en:Bigeye scad
-fr:Coulirou
-
-<en:Bigeye scad
-<en:fishes
-en:bigeye scad
 fr:Coulirou
 agribalyse_food_code:en:26159
 ciqual_food_code:en:26159
@@ -67049,6 +66950,11 @@ ciqual_food_name:fr:Sardine, crue
 <en:Fishes
 en:Haddock
 fr:Églefin, Haddock
+agribalyse_food_code:en:26122
+ciqual_food_code:en:26122
+ciqual_food_name:en:Haddock, raw
+ciqual_food_name:fr:Églefin, cru
+cooking_method:en en:raw
 
 <en:Haddock
 en:Grilled haddock, Pan-fried haddock
@@ -67067,15 +66973,6 @@ ciqual_food_code:en:26008
 ciqual_food_name:en:Haddock, steamed
 ciqual_food_name:fr:Églefin, cuit à la vapeur
 cooking_method:en en:steamed
-
-<en:Haddock
-en:haddock
-fr:Églefin
-agribalyse_food_code:en:26122
-ciqual_food_code:en:26122
-ciqual_food_name:en:Haddock, raw
-ciqual_food_name:fr:Églefin, cru
-cooking_method:en en:raw
 
 <en:Fishes
 en:conger
@@ -67725,7 +67622,7 @@ nl:Witte tonijn natuur
 <en:Albacore
 <en:Tuna in olive oil
 en:Canned albacore in olive oil
-fr:Thon germon à l'huile d'olive appertisé, Thon blanc à l'huile d'olive appertisé égoutté
+fr:Thon germon à l'huile d'olive appertisé, Thon blanc à l'huile d'olive appertisé
 agribalyse_food_code:en:26179
 ciqual_food_code:en:26179
 ciqual_food_name:en:Albacore, in olive oil, canned, drained
@@ -71337,13 +71234,12 @@ ciqual_food_code:en:20073
 ciqual_food_name:en:Asparagus, peeled, raw
 ciqual_food_name:fr:Asperge, pelée, crue
 
-
 <en:Asparagus
 fr:Asperges pelées à la main
 nl:Handgeschilde asperges
 
 <en:White asparagus
-<en:Peeled raw asparagus
+<en:Peeled asparagus
 en:Peeled white asparagus, Peeled purple asparagus
 fr:Asperges blanches pelées, Asperges violettes pelées
 agribalyse_food_code:en:20282
@@ -71858,7 +71754,7 @@ ciqual_food_name:fr:Céleri branche, cru
 
 <en:Celery
 en:Canned celery stalks
-fr:Céleri-branche en conserve, Céleri-branche appertisé, Céleri branche appertisé égoutté
+fr:Céleri-branche en conserve, Céleri-branche appertisé, Céleri branche appertisé
 agribalyse_food_code:en:20078
 ciqual_food_code:en:20078
 ciqual_food_name:en:Celery stalk, canned, drained
@@ -71875,13 +71771,6 @@ ciqual_food_name:fr:Céleri branche, cuit
 
 <en:Celery
 en:Celeriac
-fr:Céleri-rave
-agribalyse_proxy_food_code:en:20055
-agribalyse_proxy_food_name:en:Celeriac, raw
-agribalyse_proxy_food_name:fr:Céleri-rave, cru
-
-<en:Celeriac
-en:celeriac
 fr:Céleri-rave
 agribalyse_food_code:en:20055
 ciqual_food_code:en:20055
@@ -76984,9 +76873,10 @@ fr:Carottes surgelées
 it:Carote surgelate
 nl:Diepvrieswortels
 pl:Marchew mrożona
-agribalyse_proxy_food_code:en:20208
-agribalyse_proxy_food_name:en:Carrot, frozen, raw
-agribalyse_proxy_food_name:fr:Carotte, surgelée, crue
+agribalyse_food_code:en:20208
+ciqual_food_code:en:20208
+ciqual_food_name:en:Carrot, frozen, raw
+ciqual_food_name:fr:Carotte, surgelée, crue
 
 <en:Frozen carrots
 en:Frozen baby carrots
@@ -77010,14 +76900,6 @@ agribalyse_food_code:en:20209
 ciqual_food_code:en:20209
 ciqual_food_name:en:Carrot, frozen, cooked
 ciqual_food_name:fr:Carotte, surgelée, cuite
-
-<en:Frozen carrots
-en:Frozen carrots
-fr:Carottes surgeléess
-agribalyse_food_code:en:20208
-ciqual_food_code:en:20208
-ciqual_food_name:en:Carrot, frozen, raw
-ciqual_food_name:fr:Carotte, surgelée, crue
 
 <en:Cauliflowers
 <en:Frozen vegetables
@@ -77103,9 +76985,10 @@ ciqual_food_name:fr:Navet, surgelé, cru
 <en:Onions
 en:Frozen onions
 fr:Oignons surgelés
-agribalyse_proxy_food_code:en:20235
-agribalyse_proxy_food_name:en:Onion, frozen, raw
-agribalyse_proxy_food_name:fr:Oignon, surgelé, cru
+agribalyse_food_code:en:20235
+ciqual_food_code:en:20235
+ciqual_food_name:en:Onion, frozen, raw
+ciqual_food_name:fr:Oignon, surgelé, cru
 
 <en:Frozen onions
 en:Frozen chopped onions
@@ -77113,14 +76996,6 @@ de:Tiefgefrorene gehackte Zwiebeln
 es:Cebollas troceadas congeladas, Cebollas congeladas troceadas
 fr:Oignons hachés surgelés, Oignons émincés surgelés
 nl:Diepvries gehakte uien
-
-<en:Frozen onions
-en:Frozen onions
-fr:Oignons surgelés
-agribalyse_food_code:en:20235
-ciqual_food_code:en:20235
-ciqual_food_name:en:Onion, frozen, raw
-ciqual_food_name:fr:Oignon, surgelé, cru
 
 <en:Frozen vegetables
 <en:Garlic
@@ -77613,8 +77488,8 @@ agribalyse_proxy_food_name:en:Palm heart, canned, drained
 agribalyse_proxy_food_name:fr:Coeur de palmier, appertisé, égoutté
 
 <en:Hearts of palm
-en:Canned palm heart, Canned palm heart
-fr:Coeur de palmier appertisé égoutté
+en:Canned palm heart
+fr:Coeur de palmier appertisé
 agribalyse_food_code:en:20018
 ciqual_food_code:en:20018
 ciqual_food_name:en:Palm heart, canned, drained
@@ -78369,24 +78244,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crêpe
 # category/crepes has 582 products @2019-05-18
 
 <en:Crêpes
-en:Plain crepe
+en:Plain crepes
 fr:Crêpe nature
 agribalyse_food_code:en:23800
 ciqual_food_code:en:23800
 ciqual_food_name:en:Crepe, plain, prepacked, room temperature
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon température ambiante
 
-<en:Plain crepe
-en:Refrigerated plain crepe
-fr:Crêpe nature rayon frais
+<en:Plain crepes
+en:Refrigerated plain crepes
+fr:Crêpes nature rayon frais
 agribalyse_food_code:en:23799
 ciqual_food_code:en:23799
 ciqual_food_name:en:Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon frais
 
 <en:Crêpes
-en:Crepe filled with sugar
-fr:Crêpe fourrée au sucre
+en:Crepes filled with sugar
+fr:Crêpes fourrées au sucre
 agribalyse_food_code:en:23815
 ciqual_food_code:en:23815
 ciqual_food_name:en:Crepe filled with sugar, prepacked
@@ -78575,15 +78450,15 @@ fr:Gésiers de canard
 nl:Eendenspiermaag
 
 <en:Duck gizzards
-en:Canned preserved duck gizzards
-fr:Gésiers de canard confits en conserve, Gésiers de canard confits appertisés
+en:preserved duck gizzards, Canned preserved duck gizzards
+fr:Gésiers de canard confits, Gésiers de canard confits en conserve, Gésiers de canard confits appertisés
 ciqual_food_code:en:40701
 ciqual_food_name:en:Preserved gizzards, duck, canned
 ciqual_food_name:fr:Gésier, canard, confit, appertisé
 
 <en:Gizzards
-en:Chicken gizzards, chicken gizzards
-fr:Gésiers de poulet, Gésiers de poulet
+en:Chicken gizzards
+fr:Gésiers de poulet
 nl:Kippenspiermaag
 agribalyse_food_code:en:40700
 ciqual_food_code:en:40700
@@ -78628,10 +78503,6 @@ it:Foie gras intero
 nl:Hele foie gras
 
 <en:Foies gras
-fr:Foies gras
-nl:Rauwe foie gras
-
-<en:Foies gras
 fr:Foies gras cuits, foies gras cuit, foie gras cuit
 nl:Gekookte foie gras
 
@@ -78652,7 +78523,7 @@ ciqual_food_name:fr:Foie gras, canard, bloc (aliment moyen)
 
 <en:duck meat
 en:duck liver
-fr:Foie de canard cru
+fr:Foie de canard
 agribalyse_food_code:en:40121
 ciqual_food_code:en:40121
 ciqual_food_name:en:Liver, duck, raw
@@ -78697,7 +78568,7 @@ ciqual_food_name:fr:Foie gras, canard, bloc, 50% de morceaux
 
 <en:Foies gras from ducks
 en:duck foie gras
-fr:Foie gras de canard cru
+fr:Foie gras de canard
 ciqual_food_code:en:8328
 ciqual_food_name:en:Foie gras, duck, raw
 ciqual_food_name:fr:Foie gras de canard, cru
@@ -79303,7 +79174,7 @@ wikidata:en:Q1057052
 <en:Sprouts
 <en:Wheats
 en:sprouted wheat
-fr:Blé germé cru
+fr:Blé germé
 ciqual_food_code:en:9011
 ciqual_food_name:en:Wheat sprouted, raw
 ciqual_food_name:fr:Blé germé, cru
