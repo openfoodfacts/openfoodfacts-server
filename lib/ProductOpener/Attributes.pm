@@ -298,14 +298,10 @@ sub initialize_attribute($$) {
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
-		my $tagid = "en:" . $2;
-		$tagid =~ s/_/-/g;
+		my $tag = $2;
+		$tag =~ s/_/-/g;
 		
-		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
-				
-		if (defined $img_url) {
-			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
-		}		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}.svg";	
 	}
 	
 	# Initialize name and setting name if a language is requested
@@ -830,15 +826,25 @@ sub compute_attribute_has_tag($$$$) {
 	$attribute_id =~ s/-|:/_/g;
 	$attribute_id = $tagtype . "_" . $attribute_id;
 	
+	my $tag = $tagid;
+	$tag =~ s/^\w\w://;
+	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
 	$attribute_ref->{status} = "known";
 	
-	# TODO: decide when to mark status unknown (e.g. new products)
-
-	if (has_tag($product_ref, $tagtype, $tagid)) {
+	# If we don't have any tags for the tagtype, mark the status unknown (e.g. new products)
+	
+	if ((not defined $product_ref->{$tagtype . "_tags"}) or ($product_ref->{$tagtype . "_tags"} == 0)) {
+		
+		$attribute_ref->{status} = "unknown";
+		
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}-unknown.svg";
+	}
+	elsif (has_tag($product_ref, $tagtype, $tagid)) {
+		
 		$attribute_ref->{match} = 100;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
@@ -847,13 +853,7 @@ sub compute_attribute_has_tag($$$$) {
 			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
 		}
 		
-		my $img_url = get_tag_image($target_lc, $tagtype, $tagid);
-		
-		$log->debug("checking for tag image", { target_lc => $target_lc, tagtype => $tagtype, tagid => $tagid, img_url => $img_url}) if $log->is_debug();
-		
-		if (defined $img_url) {
-			$attribute_ref->{icon_url} = $static_subdomain . $img_url;
-		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}.svg";
 	}
 	else {
 		$attribute_ref->{match} = 0;
@@ -863,6 +863,7 @@ sub compute_attribute_has_tag($$$$) {
 			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
 			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
 		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/not-${tag}.svg";
 	}
 	
 	return $attribute_ref;
@@ -964,7 +965,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			
 			my $match;
 		
-			if ($value <= $low) {
+			if ($value < $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-low.svg";
 			}
@@ -973,7 +974,7 @@ sub compute_attribute_nutrient_level($$$$) {
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-medium.svg";
 			}
 			elsif ($value < $high * 2) {
-				$match = 20 * ($value - $high) / $high;
+				$match = 20 * ($high * 2 - $value) / $high;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-high.svg";
 			}
 			else {
@@ -982,6 +983,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			}
 			
 			$attribute_ref->{match} = $match;
+			$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
 		}
 	}
 	
@@ -1100,6 +1102,7 @@ sub compute_attribute_allergen($$$) {
 	# No match: mark the attribute unknown
 	if (not defined $attribute_ref->{match}) {
 		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "not_known_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$allergen-content-unknown.svg";
 	}
 	elsif ($attribute_ref->{match} == 100) {
@@ -1193,7 +1196,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$analysis_tag = "may-contain-$ingredient";
 			$status = "known";
 		}
-		elsif (has_tag($product_ref, "ingredients_analysis", "en:contains-$ingredient")) {
+		elsif (has_tag($product_ref, "ingredients_analysis", "en:$ingredient")) {
 			$match = 0;
 			$analysis_tag = "contains-$ingredient";
 			$status = "known";
@@ -1230,10 +1233,14 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}		
 	}
 	
-	$attribute_ref->{match} = $match;
+	if (defined $match) {
+		$attribute_ref->{match} = $match;
+	}
 	$attribute_ref->{status} = $status;	
-	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 	$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$analysis_tag.svg";
+	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
+	$analysis_tag =~ s/contains-(.*)$/$1/;
+	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 
 	return $attribute_ref;
 }

@@ -8049,6 +8049,35 @@ $meta_product_image_url
 
 HTML
 ;
+
+	# Compute attributes and embed them as JSON
+	
+	if ((defined param("user_preferences")) and (param("user_preferences"))) {
+	
+		# A result summary will be computed according to user preferences on the client side
+
+		compute_attributes($product_ref, $lc);
+		
+		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+
+		$scripts .= <<JS
+<script type="text/javascript">
+var product = $product_attribute_groups_json;
+</script>
+
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
+display_product_summary("#product_summary", product); 
+JS
+;	
+	}
+
 	my $html_display_product;
 	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
@@ -9634,6 +9663,17 @@ sub display_attribute_groups_api($$)
 	
 	my $attribute_groups_ref = list_attributes($target_lc);
 	
+	# Add default preferences
+	if (defined $options{attribute_default_preferences}) {
+		foreach my $attribute_group_ref (@$attribute_groups_ref) {
+			foreach my $attribute_ref (@{$attribute_group_ref->{attributes}}) {
+				if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+					$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+				}
+			}
+		}
+	}
+
 	$request_ref->{structured_response} = $attribute_groups_ref;
 
 	display_structured_response($request_ref);

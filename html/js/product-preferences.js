@@ -11,6 +11,10 @@ function get_user_product_preferences () {
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
 	}
+	else {
+		// Default preferences
+		user_product_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
+	}
 	
 	return user_product_preferences;
 }
@@ -35,7 +39,7 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		$.each(attribute_group.attributes, function(key, attribute) {
 			
 			if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-				var attribute_html = '<span>' + attribute.setting_name + '</span>';
+				var attribute_html = '<li>' + attribute.setting_name + '</li>';
 				selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
 			}
 		});
@@ -57,7 +61,7 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		if (selected_preference_group.length > 0) {
 			selected_preferences_html += "<div>"
 			+ "<strong>" + selected_preference_name + " - </strong>"
-			+ selected_preference_group.join(", ")
+			+ "<ul>" + selected_preference_group.join("") + "</ul>"
 			+ "</div>";
 		}
 	});
@@ -69,7 +73,10 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
 		+ " Edit your food preferences" + '</a></div>'
 		+ "<h2>" + "Your food preferences" + "</h2>"
+		+ '<a id="preferences_link" data-dropdown="selected_preferences">Currently selected preferences &raquo;</a>'
+		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
 		+ selected_preferences_html
+		+ '</div>'
 		+ '</div>'
 	);
 		

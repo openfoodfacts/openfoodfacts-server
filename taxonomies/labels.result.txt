@@ -243,20 +243,12 @@ ca:Vi biodinàmic
 
 < en:Biodynamic agriculture
 en:Demeter
-ca:Demeter
-de:Demeter
-es:Demeter
-fi:demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
-hu:Demeter
-it:Demetra
-nl:Demeter
-pl:Demeter
-pt:Demeter
+xx:Demeter
 wikidata:en: Q939877
 
 < en:Biodynamic agriculture
-fr:Nature et Progrès
+fr:Nature et Progrès, Nature & Progrès
 wikidata:en: Q3337101
 
 < en:Biogarantie
@@ -791,16 +783,6 @@ hu:EU/nem-EU mezőgazdaság
 it:Agricoltura EU/non-EU
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
-
-< en:EU Organic
-en:AB Agriculture Biologique
-de:AB Agriculture Biologique
-fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
-hu:AB Agriculture Biologique
-it:Agricoltura biologica
-nl:AB Biologische Landbouw
-country:en: France
-wikidata:en: Q396709
 
 < en:EU Organic
 en:AD-BIO-154
@@ -13593,6 +13575,12 @@ country:en: Zimbabwe
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group D: processed agricultural products for use as food -*-,en:EU Group E: processed agricultural products for use as feed -*-,en:EU Group F: vegetative propagating material and seeds for cultivation
 exceptions:en: en:except products covered by Annex III,en:in conversion products
 
+< en:EU Organic
+fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
+xx:AB Agriculture Biologique
+country:en: France
+wikidata:en: Q396709
+
 en:European Beer Star
 ca:Cervesa Estrella Europea
 he:כוכב בירה אירופי
@@ -14529,17 +14517,6 @@ it:Unione delle Sinagoghe Ortodosse del Sudafrica
 
 < en:Kosher
 fr:Rabbi Schlesinger Strasbourg, Rabbi Schlesinger
-
-en:Label Rouge
-ca:Etiqueta Vermella
-de:Label Rouge
-es:Label Rouge
-fi:Label Rouge
-fr:Label Rouge
-nl:Label Rouge
-auth_url:fr: https://www.labelrouge.fr/
-label_categories:en: en:Quality, en:Environment
-wikidata:en: Q3214309
 
 en:Lacto-vegetarian
 ca:Lactovegetarià
@@ -16162,7 +16139,7 @@ es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura 
 country:en: Spain
 
 < en:Organic
-fr:Bio-Cohérence
+fr:Bio-Cohérence, BioCohérence
 wikidata:en: Q30751117
 
 < en:Organic
@@ -18247,6 +18224,12 @@ wikidata:en: Q3150362
 
 fr:La Lorraine notre signature
 origins:en: en:France, fr:Lorraine
+
+fr:Label Rouge
+xx:Label Rouge
+auth_url:fr: https://www.labelrouge.fr/
+label_categories:en: en:Quality, en:Environment
+wikidata:en: Q3214309
 
 fr:Maïs de France
 origins:en: en:France
