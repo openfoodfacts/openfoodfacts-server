@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-10 08:02\n"
+"PO-Revision-Date: 2020-10-23 16:22\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -595,7 +595,7 @@ msgstr "Adresse e-mail"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr "Produits conditionnés par l'entreprise avec code de traçabilité %s"
+msgstr "Produits conditionnés par l'entreprise avec le code de traçabilité %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
@@ -4056,7 +4056,7 @@ msgstr "Un projet citoyen indépendant pour la transparence alimentaire ?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr "Des données sur les produits alimentaires destinées à la recherche qui améliorent la santé publique ?"
+msgstr "Des données sur les produits alimentaires pour améliorer la santé publique ?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4380,7 +4380,7 @@ msgstr "Texte ou phrases indiquant l'origine du produit et / ou de ses ingrédie
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr "Note Nutri-Score de A à E affichée sur l'étiquette produit"
+msgstr "Note Nutri-Score de A à E affichée sur l'étiquette du produit"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
@@ -4388,7 +4388,7 @@ msgstr "Open Food Facts calcule le Nutri-Score selon les informations fournies (
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "Note Nutri-Score (valeur numérique de laquelle est dérivée le rang A à E)"
+msgstr "Score Nutri-Score (valeur numérique à partir de laquelle la note de A à E est attribuée)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
@@ -4636,7 +4636,7 @@ msgstr "Lien vers la photo des instructions de recyclage et/ou d'information d'e
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
 msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
-msgstr "3001234567890.packaging_es.jpg: instructions de recyclage en espagnol."
+msgstr "3001234567890.packaging_fr.jpg: instructions de recyclage en français."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
@@ -4679,8 +4679,8 @@ msgid "Eco-Score"
 msgstr "Éco-score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "Faible impact environnemental"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Faible impact environnemental (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4726,4 +4726,121 @@ msgstr "Ne contient pas : %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "Sans %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "propriétaires"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "propriétaire"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "Vous pouvez fournir des informations sur votre entreprise qui seront affichées dans le profil de votre organisation."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Certaines informations telles que les coordonnées du service client peuvent également être affichées directement sur les pages de vos produits."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Lien vers le site Web officiel"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Service consommateur"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "Les informations sur le service client sont publiques et peuvent être affichées sur le site Web et les applications d'Open Food Facts."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "Tous les champs sont optionnels."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Service commercial"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "Les informations sur le service commercial sont uniquement affichées dans le profil de l'organisation."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Adresse"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "N° de téléphone"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "Adresse e-mail"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Lien vers le formulaire de contact"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Autres informations"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "par exemple les heures d'ouverture"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "L'organisation n'a pas été trouvée."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "Le nom de l'organisation est manquant."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Profil de l’organisation"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "Le profil de l'organisation a été mis à jour."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Supprimer l'organisation"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Site officiel"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Formulaire de contact"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Modifier le profil de votre organisation"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Modifier votre profil utilisateur"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Inconnu: %s"
 

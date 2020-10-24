@@ -1306,7 +1306,7 @@ sub compute_completeness_and_missing_tags($$$) {
 					$images_completeness += $image_step;
 				}
 				else {
-					push @states_tags, "en:" . $imagetype . "-photo-not-selected";
+					push @states_tags, "en:" . $imagetype . "-photo-to-be-selected";
 				}
 			}
 		}

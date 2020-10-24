@@ -3618,7 +3618,7 @@ HTML
 			# Organization
 			
 			my $org_id = $';
-			my $user_or_org_ref = retrieve_org($org_id);
+			$user_or_org_ref = retrieve_org($org_id);
 			
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
@@ -3628,7 +3628,7 @@ HTML
 			
 			# User
 
-			my $user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+			$user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
 			
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_user"), 404);
@@ -3936,7 +3936,7 @@ sub display_search_results($) {
 		
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		$search_api_url .= "&fields=product_name,url,image_front_thumb_url,attribute_groups";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -4364,7 +4364,35 @@ sub customize_response_for_product($) {
 		elsif ($field eq "attribute_groups") {
 			compute_attributes($product_ref, $lc);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
-		}		
+		}
+		
+		# Images to update in a specific language
+		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
+			my $target_lc = $1;
+			$customized_product_ref->{$field} = {};
+
+			foreach my $imagetype ("front", "ingredients", "nutrition", "packaging") {
+				
+				my $imagetype_lc = $imagetype . "_" . $target_lc;
+
+				# Ask for images in a specific language if we already have an old image for that language
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagetype_lc})) {
+					
+					my $imgid = $product_ref->{images}{$imagetype . "_" . $target_lc}{imgid};
+					my $age = time() - $product_ref->{images}{$imgid}{uploaded_t};
+					
+					if ($age > 365 * 86400) {	# 1 year
+						$customized_product_ref->{$field}{$imagetype_lc} = $age;
+					}
+				}
+				# or if the language is the main language of the product
+				# or if we have a text value for ingredients / packagings
+				elsif (($product_ref->{lc} eq $target_lc) 
+					or ((defined $product_ref->{$imagetype . "_text_" . $target_lc}) and ($product_ref->{$imagetype . "_text_" . $target_lc} ne ""))) {
+					$customized_product_ref->{$field}{$imagetype_lc} = 0;
+				}
+			}
+		}
 
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
@@ -7077,7 +7105,7 @@ sub display_field($$) {
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@{$state_items}){
-			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
 				push(@to_do_status, $val);
 			}
 			else {

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 18:44\n"
+"PO-Revision-Date: 2020-10-24 00:02\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4675,8 +4675,8 @@ msgid "Eco-Score"
 msgstr "Øko-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "Lav miljøpåvirkning"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Lav miljøpåvirkning (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4722,4 +4722,121 @@ msgstr "Indeholder ikke: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "Uden %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "ejere"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "ejer"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "Du kan angive oplysninger om din virksomhed, som vil fremgå af din organisationsprofil."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Nogle af oplysningerne, f.eks. kundeservicekontaktoplysninger, kan også fremgå direkte af dine produktsider."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Navn"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Link til det officielle websted"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Kundeservice"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "Kundeserviceoplysninger er offentlige og kan fremgå af Open Food Facts-websted og -apps."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "Alle felter er valgfrie."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Kommerciel service"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "Kommercielserviceoplysninger fremgår kun af organisationsprofilen."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Navn"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Adresse"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "Telefon"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "email-adresse"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Kontaktformularlink"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Anden information"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "f.eks. åbningstider"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "Organisation ikke fundet."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "Organisationsnavn mangler."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Organisationsprofil"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "Organisationsprofilen er blevet opdateret."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Slet organisation"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Officielt websted"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Kontaktformular"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Redigér din organisationsprofil"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Redigér din brugerprofil"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Ukendt: %s"
 

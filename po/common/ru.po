@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 16:40\n"
+"PO-Revision-Date: 2020-10-23 11:46\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4676,8 +4676,8 @@ msgid "Eco-Score"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr ""
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Низкая экологическая нагрузка (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4723,4 +4723,121 @@ msgstr ""
 msgctxt "without_s"
 msgid "Without %s"
 msgstr ""
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "owners"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "owner"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "Укажите информацию о вашей компании. Эта информация будет отображена в вашем профиле."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Часть этой информации будет отображена и на страницах ваших продуктов (например, контакты службы поддержки клиентов)."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Название"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Ссылка на официальный сайт"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Служба поддержки клиентов"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "Информация о службе поддержки является публичной и может быть размещена на сайте и в приложениях Open Food Facts."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "Все поля не являются обязательными."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Платные услуги"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "Информация о платных услугах указана только в профиле организации."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Название"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Адрес"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "Телефон"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "адрес эл. почты"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Ссылка на форму обратной связи"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Доп. сведения"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "Напр., часы работы"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "Организация не найдена."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "Название организации отсутствует."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Страница организации"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "Страница организации обновлена."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Удалить организацию"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Официальный сайт."
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Форма обратной связи "
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Редактировать страницу организации"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Редактировать профиль пользователя"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Ингредиенты"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Не найдено"
 

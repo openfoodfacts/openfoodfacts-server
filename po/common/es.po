@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-10 13:22\n"
+"PO-Revision-Date: 2020-10-23 11:23\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -739,7 +739,7 @@ msgstr "Desglosar los productos por..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "en_US"
+msgstr "es_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -4674,8 +4674,8 @@ msgid "Eco-Score"
 msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "Bajo impacto ambiental"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Impacto medioambiental bajo (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4721,4 +4721,121 @@ msgstr "No contiene: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "Contiene %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "propietarios"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "propietario"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "Puedes proporcionar información sobre tu empresa que se mostrará en el perfil de tu organización."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Parte de la información, como la información de contacto del servicio de atención al cliente, también se puede mostrar directamente en las páginas de tus productos."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Enlace al sitio web oficial"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Servicio al cliente"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "La información de servicio al cliente es pública y se puede mostrar en el sitio web y las aplicaciones de Open Food Facts."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "Todos los campos son opcionales."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Servicio comercial"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "La información del servicio comercial solo se muestra en el perfil de la organización."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Dirección"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "Número de teléfono"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "dirección de correo electrónico"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Enlace del formulario de contacto"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Otra información"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "ej. horario de apertura"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "No se encontró la organización."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "Falta el nombre de la organización."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Perfil de la organización"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "El perfil de la organización se ha actualizado."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Eliminar la organización"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Sitio oficial"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Formulario de contacto"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Editar el perfil de tu organización"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Editar tu perfil de usuario"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Desconocido: %s"
 

@@ -151,7 +151,7 @@ my %may_contain_regexps = (
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann Spuren|Spuren",
-	es => "puede contener huellas de|puede contener|trazas|traza",
+	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
@@ -160,10 +160,12 @@ my %may_contain_regexps = (
 	it => "Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
-	nl => "Dit product kan sporen van|Kan sporen bevatten van|Kan sporen van",
+	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
+	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
+	sk => "Môže obsahovať",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
 
@@ -1234,8 +1236,11 @@ sub parse_ingredients_text($) {
 
 				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
 					$ingredient_recognized = 1;
+					$debug_ingredients and $log->trace("ingredient recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
 				}
 				else {
+					
+					$debug_ingredients and $log->trace("ingredient not recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
 
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$product_lc}) {
@@ -1323,6 +1328,8 @@ sub parse_ingredients_text($) {
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
 							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
+							
+							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
 						}
 					}
 
@@ -1383,7 +1390,7 @@ sub parse_ingredients_text($) {
 							'nl' => [
 								'in wisselende verhoudingen',
 								'harde fractie',
-								'o.a.',
+								'o\.a\.',
 							],
 
 							'sv' => [ 'varierande proportion', ],
@@ -1392,7 +1399,9 @@ sub parse_ingredients_text($) {
 						if (defined $ignore_regexps{$product_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
 								if ($ingredient =~ /$regexp/i) {
-									#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+									
+									$debug_ingredients and $log->debug("unknown ingredient matches a phrase to ignore", { ingredient => $ingredient, regexp => $regexp }) if $log->is_debug();
+
 									$skip_ingredient = 1;
 									$ingredient_recognized = 1;
 									last;
@@ -2706,7 +2715,7 @@ es => [
 'valor energ(e|é)tico',
 'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
-'conservar en lug(a|e)r fresco y seco',
+'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 'de los cuates az(u|ü)cares',
 'de las cuales saturadas',
 'protegido de la luz',
@@ -2873,7 +2882,7 @@ pl => [
 ],
 
 pt => [
-'conservar em local fresco',
+'conservar em local (seco e )?fresco',
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
@@ -3334,6 +3343,19 @@ sub preparse_ingredients_text($$) {
 	not defined $text and return;
 
 	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
+
+	# if we're called twice with the same input in succession, such as in update_all_products.pl,
+	# cache the result, so we can instantly return the 2nd time.
+	state $prev_lc = '';
+	state $prev_text = '';
+	state $prev_return = '';
+
+	if (($product_lc eq $prev_lc) && ($text eq $prev_text)) {
+		return $prev_return;
+	}
+
+	$prev_lc = $product_lc;
+	$prev_text = $text;
 
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
@@ -3985,6 +4007,7 @@ INFO
 
 	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 
+	$prev_return = $text;
 	return $text;
 }
 
@@ -4714,6 +4737,15 @@ sub detect_allergens_from_text($) {
 		# new fields for allergens detected from ingredient list
 
 		$product_ref->{$field . "_from_ingredients"} = "";
+	}
+
+	# Remove ingredients_text_with_allergens_* fields
+	# they will be recomputed for existing ingredients languages
+
+	foreach my $field (keys %$product_ref) {
+		if ($field =~ /^ingredients_text_with_allergens/) {
+			delete $product_ref->{$field};
+		}
 	}
 
 	if (defined $product_ref->{languages_codes}) {
