@@ -4722,7 +4722,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
-	if (exists_taxonomy_tag("allergens", $tagid)) {
+	if (($tagid ne "en:none") and (exists_taxonomy_tag("allergens", $tagid))) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
