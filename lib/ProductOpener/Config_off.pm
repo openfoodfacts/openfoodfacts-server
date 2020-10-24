@@ -727,7 +727,7 @@ $options{attribute_groups} = [
 	[
 		"ingredients_analysis",
 		[
-			"vegan", "vegetarian", "palm-oil-free",
+			"vegan", "vegetarian", "palm_oil_free",
 		]		
 	],
 	[
@@ -741,6 +741,13 @@ $options{attribute_groups} = [
 		]
 	],
 ];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"nutriscore" => "very_important",
+	"nova" => "important",
+	"ecoscore" => "important",
+};
 
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.

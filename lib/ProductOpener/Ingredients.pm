@@ -126,8 +126,8 @@ my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
 
-# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA
-my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64})/i;
+# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA, ARABIC COMMA
+my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64}|\N{U+060C})/i;
 
 # '.' and synonyms - FULL STOP, SMALL FULL STOP, FULLWIDTH FULL STOP, IDEOGRAPHIC FULL STOP, HALFWIDTH IDEOGRAPHIC FULL STOP
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
@@ -146,7 +146,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may also contain|also may contain|may contain",
+	en => "it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
@@ -160,7 +160,7 @@ my %may_contain_regexps = (
 	it => "Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
-	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk",
+	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
@@ -1388,6 +1388,7 @@ sub parse_ingredients_text($) {
 							],
 
 							'nl' => [
+								'^allergie.informatie$',
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
@@ -2371,6 +2372,10 @@ sub normalize_allergens_enumeration($$$) {
 
 my %phrases_before_ingredients_list = (
 
+ar => [
+'المكونات',
+],
+
 az => [
 'Tarkibi',
 ],
@@ -2423,6 +2428,7 @@ et => [
 
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'ainesosia',
 'valmistusaineet',
 'koostumus',
 ],
@@ -2549,6 +2555,7 @@ uz => [
 
 zh => [
 '配料',
+'成份',
 ],
 
 );
@@ -2641,6 +2648,10 @@ my %phrases_after_ingredients_list = (
 
 # TODO: Introduce a common list for kcal
 
+
+bg => [
+'да се съхранява (в закрити|на сухо)', # store in ...
+],
 
 cs => [
 'doporučeny způsob přípravy',
@@ -2816,6 +2827,10 @@ fr => [
 ],
 
 hr => [
+'Čuvati na (hladnom|suhom|temperaturi)', # store in...
+],
+
+hu => [
 'Atlagos tápérték 100g termékben',
 ],
 
@@ -2898,6 +2913,7 @@ ro => [
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
 'Valori nutritionale medii',
+'a se p[ăa]stra la', # store in...
 ],
 
 sv => [

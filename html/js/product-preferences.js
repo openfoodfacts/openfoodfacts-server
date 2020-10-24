@@ -11,6 +11,10 @@ function get_user_product_preferences () {
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
 	}
+	else {
+		// Default preferences
+		user_product_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
+	}
 	
 	return user_product_preferences;
 }
@@ -35,7 +39,7 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		$.each(attribute_group.attributes, function(key, attribute) {
 			
 			if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-				var attribute_html = '<span>' + attribute.setting_name + '</span>';
+				var attribute_html = '<li>' + attribute.setting_name + '</li>';
 				selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
 			}
 		});
@@ -43,26 +47,45 @@ function display_selected_preferences (target_selected, target_selection_form, p
 
 	var selected_preferences_html = '';
 
-	$.each(selected_preference_groups, function(preference, selected_preference_group) {
+	$.each(selected_preference_groups, function(selected_preference, selected_preference_group) {
+		
+		var selected_preference_name;
+		
+		$.each(preferences, function (key, preference) {
+					
+			if (selected_preference == preference.id) {
+				selected_preference_name = preference.name;
+			}
+		});
 		
 		if (selected_preference_group.length > 0) {
 			selected_preferences_html += "<div>"
-			+ "<strong>" + preference + ": </strong>"
-			+ selected_preference_group.join(", ")
+			+ "<strong>" + selected_preference_name + " - </strong>"
+			+ "<ul>" + selected_preference_group.join("") + "</ul>"
 			+ "</div>";
 		}
 	});
 	
-	$( target_selected ).html(selected_preferences_html);
-	
-	// Show a button to edit the preferences
-	if (target_selection_form) {
-		$( target_selected ).append('<a id="show_selection_form">' + "Edit preferences" + '</a>');
-		$( "#show_selection_form").click(function() {
-			$( target_selected ).hide();
-			$( target_selection_form ).show();
-		});
-	}
+	$( target_selected ).html(
+		'<div class="panel callout">'
+		+ '<div class="edit_button">'
+		+ '<a id="show_selection_form" class="button small">'
+		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
+		+ " Edit your food preferences" + '</a></div>'
+		+ "<h2>" + "Your food preferences" + "</h2>"
+		+ '<a id="preferences_link" data-dropdown="selected_preferences">Currently selected preferences &raquo;</a>'
+		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
+		+ selected_preferences_html
+		+ '</div>'
+		+ '</div>'
+	);
+		
+	$( "#show_selection_form").click(function() {
+		$( target_selected ).hide();
+		$( target_selection_form ).show();
+		$(document).foundation('equalizer', 'reflow');
+	});
+
 }
 
 
@@ -107,20 +130,25 @@ function display_user_product_preferences (target_selected, target_selection_for
 		// Iterate over attribute groups
 		$.each( attribute_groups, function(key, attribute_group) {
 			
-			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group'>" 
-			+ "<span class='attribute_group_name'>" + attribute_group.name + "</span>";
+			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" 
+			+ "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>"
+			+ "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>"
+			// I can't get the dynamically created accordion to work, making all content active until we find a way to make it work
+			+ "<div id='attribute_group_" + attribute_group.id + "_a' class='content active'>";
 			
 			if (attribute_group.warning) {
-				attribute_group_html += "<p class='attribute_group_warning'>" + attribute_group.warning + "</p>";
+				attribute_group_html += "<div class='alert-box warning attribute_group_warning'>" + attribute_group.warning + "</div>";
 			}
 			
-			attribute_group_html += "<ul>";
+			attribute_group_html += "<ul style='list-style-type: none'>";
 			
 			// Iterate over attributes
 			
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
-				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'><span class='attribute_name'>" + attribute.setting_name + "</span><br>";
+				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>"
+				+ "<div style='display:inline-block;width:96px'><img src='" + attribute.icon_url + "' class='match_icons'></div>"
+				+ "<span class='attribute_name'>" + attribute.setting_name + "</span><br>";
 				
 				if (attribute.description_short) {
 					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
@@ -143,14 +171,29 @@ function display_user_product_preferences (target_selected, target_selection_for
 				attribute_group_html += "</li>";
 			});
 						
-			attribute_group_html += "</ul></li>";
+			attribute_group_html += "</ul></div></li>";
 			
 			attribute_groups_html.push(attribute_group_html);
 		});
 
-		$(target_selection_form).html( '<ul class="user_product_preferences">'
+		$(target_selection_form).html(
+			'<div class="panel callout">'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ " Close" + '</a></div>'
+			+ "<h2>" + "Edit your food preferences" + "</h2>"
+			+ "<p>Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else.</p>"
+			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
-			+ '</ul>');
+			+ '</ul>'
+			+ '<br><br>'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ " Close" + '</a></div><br><br>'
+			+ '</div>'
+		);
 		
 		$( ".attribute_radio").change( function () {
 			if (this.checked) {
@@ -166,17 +209,17 @@ function display_user_product_preferences (target_selected, target_selection_for
 				}
 			}
 		});
-		
-		// Show a button to close the preferences selection form and show the selected preferences
-		if (target_selected) {
 			
+		if (target_selected) {	
 			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+		}
 			
-			$( target_selection_form ).prepend('<a id="show_selected">' + "Close preferences" + '</a>');
-			$( "#show_selected").click(function() {
-				$( target_selection_form ).hide();
-				$( target_selected ).show();
-			});
-		}		
+		$( ".show_selected").click(function() {
+			$( target_selection_form ).hide();
+			$( target_selected ).show();
+		});
+
+		$("#user_product_preferences").foundation();
+		$(document).foundation('equalizer', 'reflow');
 	}
 }

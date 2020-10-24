@@ -161,7 +161,7 @@ use XML::Simple;
 use CLDR::Number;
 use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
-use Storable qw(freeze);
+use Storable qw(dclone freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
@@ -3612,13 +3612,14 @@ HTML
 		# Users starting with org- are organizations, not actual users
 		
 		my $user_or_org_ref;
+		my $orgid;
 		
 		if ($tagid =~ /^org-/) {
 			
 			# Organization
 			
-			my $org_id = $';
-			$user_or_org_ref = retrieve_org($org_id);
+			$orgid = $';
+			$user_or_org_ref = retrieve_org($orgid);
 			
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
@@ -3638,7 +3639,7 @@ HTML
 		if (defined $user_or_org_ref) {
 
 			if ($user_or_org_ref->{name} ne '') {
-				$title = $user_or_org_ref->{name} . " ($tagid)";
+				$title = $user_or_org_ref->{name} || $tagid;
 				$products_title = $user_or_org_ref->{name};
 			}
 
@@ -3648,43 +3649,55 @@ HTML
 
 			else {
 
-				if (($admin) and (defined $user_or_org_ref->{email})) {
-					$description .= "<p>" . $user_or_org_ref->{email} . "</p>";
+				# Display the user or organization profile
+				
+				my $template_data_ref = dclone($user_or_org_ref);
+				$template_data_ref->{admin} = $admin;
+				$template_data_ref->{sep} = separator_before_colon($lc);
+				$template_data_ref->{lang} = \&lang;
+				$template_data_ref->{display_icon} = \&display_icon;
+							
+				my $profile_html = "";
+
+				if ($tagid =~ /^org-/) {
+					
+					# Display the organization profile
+					
+					if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
+						$template_data_ref->{edit_profile} = 1;
+						$template_data_ref->{orgid} = $orgid;
+					}					
+					
+					$tt->process('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
 				}
-
-				if (defined $user_or_org_ref->{registered_t}) {
-					$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_or_org_ref->{registered_t}) . "</p>";
+				else {
+					
+					# Display the user profile
+					
+					if (($tagid eq $User_id) or $admin) {
+						$template_data_ref->{edit_profile} = 1;
+						$template_data_ref->{userid} = $tagid;
+					}						
+					
+					$template_data_ref->{links} = [
+						{
+							text => sprintf(lang('editors_products'), $products_title),
+							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)),
+						},
+						{
+							text => sprintf(lang('photographers_products'), $products_title),
+							url => canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)),
+						},
+					];
+					
+					if (defined $user_or_org_ref->{registered_t}) {
+						$template_data_ref->{registered_t_display} = display_date_tag($user_or_org_ref->{registered_t});
+					}					
+					
+					$tt->process('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 				}
-
-				# Display links to products edited, photographed etc.
-
-				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
-				. "</ul>\n";
-
-
-				# 2018/12/19 - disable displaying missions (broken since 2013)
-				if (0 and (defined $user_or_org_ref->{missions}) and ($request_ref->{page} <= 1 )) {
-					my $missions = '';
-					my $i = 0;
-
-					foreach my $missionid (sort { $user_or_org_ref->{missions}{$b} <=> $user_or_org_ref->{missions}{$a}} keys %{$user_or_org_ref->{missions}}) {
-						$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
-						. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
-						. $Missions{$missionid}{name} . "</a></div></li>\n";
-						$i++;
-					}
-
-					if ($i > 0) {
-						$missions = "<h2>" . lang("missions") . "</h2>\n<p>"
-						. $products_title . ' ' . sprintf(lang("completed_n_missions"), $i) . "</p>\n"
-						. '<ul id="missions" style="list-style-type:none">' . "\n" . $missions . "</ul>";
-						$missions =~ s/ 1 missions/ 1 mission/;
-					}
-
-					$description .= $missions;
-				}
+					
+				$description .= $profile_html;
 			}
 		}
 	}
@@ -8036,6 +8049,35 @@ $meta_product_image_url
 
 HTML
 ;
+
+	# Compute attributes and embed them as JSON
+	
+	if ((defined param("user_preferences")) and (param("user_preferences"))) {
+	
+		# A result summary will be computed according to user preferences on the client side
+
+		compute_attributes($product_ref, $lc);
+		
+		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+
+		$scripts .= <<JS
+<script type="text/javascript">
+var product = $product_attribute_groups_json;
+</script>
+
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
+display_product_summary("#product_summary", product); 
+JS
+;	
+	}
+
 	my $html_display_product;
 	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
@@ -9621,6 +9663,17 @@ sub display_attribute_groups_api($$)
 	
 	my $attribute_groups_ref = list_attributes($target_lc);
 	
+	# Add default preferences
+	if (defined $options{attribute_default_preferences}) {
+		foreach my $attribute_group_ref (@$attribute_groups_ref) {
+			foreach my $attribute_ref (@{$attribute_group_ref->{attributes}}) {
+				if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+					$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+				}
+			}
+		}
+	}
+
 	$request_ref->{structured_response} = $attribute_groups_ref;
 
 	display_structured_response($request_ref);

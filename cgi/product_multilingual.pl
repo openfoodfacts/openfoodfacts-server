@@ -422,7 +422,23 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
 			}
 
-			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8=>param($field));
+				
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+				
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}				
+				
+			}
+			else {
+				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
@@ -458,17 +474,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 

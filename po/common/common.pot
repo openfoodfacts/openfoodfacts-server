@@ -4818,8 +4818,8 @@ msgid "Eco-Score"
 msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "Low environmental impact"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "Low environmental impact (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4865,3 +4865,121 @@ msgstr "Does not contain: %s"
 msgctxt "without_s"
 msgid "Without %s"
 msgstr "Without %s"
+
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "owners"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "owner"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "You can provide information about your company that will be displayed in your organization profile."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "Link to the official web site"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "Customer service"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "All fields are optional."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "Commercial service"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "Commercial service information is only shown in the organization profile."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "Address"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "Phone number"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "e-mail address"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "Contact form link"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "Other information"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "e.g. opening times"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "The organization was not found."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "The organization name is missing."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "Organization profile"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "The organization profile has been updated."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "Delete the organization"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "Official site"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "Contact form"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "Edit your organization profile"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "Edit your user profile"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "Ingredients"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "not_known_s"
+msgid "Not known: %s"
+msgstr "Not known: %s"

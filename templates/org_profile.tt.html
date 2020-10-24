@@ -1,0 +1,51 @@
+[% IF edit_profile %]
+	<!-- Edit product page -->
+	<div class="edit_button">
+		<a href="/cgi/org.pl?orgid=[% orgid %]" class="button small" title="[% lang("edit_org_profile") %]">
+			[% display_icon('edit') %]
+			<span class="show-for-large-up">[% lang("edit_org_profile") %]</span>
+		</a>
+	</div>	
+[% END %]
+
+[% IF link %]
+	<p>&rarr; <a href="[% link %]">[% lang("official_site") %]</a></p>
+[% END %]
+
+<div class="row">
+
+[% FOREACH contact IN ['customer_service', 'commercial_service'] %]
+
+	[% IF $contact %]
+		<div class="small-12 large-6 columns">
+			<div class="panel">
+				<h3>[% lang("org_$contact") %]</h3>
+				
+				[% IF $contact.name %]
+					<p>[% $contact.name %]</p>
+				[% END %]
+				
+				[% IF $contact.address %]
+					<p>[% $contact.address %]</p>
+				[% END %]
+				
+				[% IF $contact.email %]
+					<p>[% display_icon('email') %] <a href="mailto:[% $contact.email %]">[% $contact.email %]</a></p>
+				[% ELSIF $contact.link %]
+					<p>[% display_icon('email') %] <a href="[% $contact.link %]">[% lang("contact_form") %]</a></p>
+				[% END %]
+				
+				[% IF $contact.phone %]
+					<p>[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% $contact.phone %]">[% $contact.phone %]</a></span></p>
+				[% END %]
+					
+				[% IF $contact.info %]
+					<p>[% $contact.info %]</p>
+				[% END %]
+			</div>
+		</div>
+	[% END %]
+
+[% END %]
+
+</div>
