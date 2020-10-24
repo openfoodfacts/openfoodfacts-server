@@ -5415,7 +5415,7 @@ nl:Heiligenbloem
 wikidata:en:Q1543811
 
 <en:Herbal teas
-en:Dandelion, Common dandelion, Raw dandelion
+en:Dandelion, Common dandelion, dandelion
 de:Löwenzahn
 es:Diente de león
 fr:Pissenlit commun, Pissenlit officinal, Pissenlit cru
@@ -27900,7 +27900,7 @@ nl:Kanariezaden
 wikidata:en:Q2086586
 
 <en:Cereal grains
-en:Amaranth, Raw amaranth
+en:Amaranth, amaranth
 de:Amaranth, Amarant
 es:Amaranto
 fr:Amarante, Amarante crue
@@ -27926,7 +27926,7 @@ zh:燕麦属
 wikidata:en:Q146760
 
 <en:Avena
-en:Oat, Raw oat
+en:Oat, oat
 de:Hafer, Echter Hafer
 es:Avena sativa
 fi:kaura
@@ -28875,7 +28875,7 @@ ciqual_food_name:en:Spelt, raw
 ciqual_food_name:fr:Épeautre, cru
 
 <en:Cereal grains
-en:Wild rice, Raw wild rice
+en:Wild rice, wild rice
 de:Wildreis, Wilder Reis
 es:Arroz salvaje, Arroz silvestre, Zizania
 fi:Intiaaniriisi, Villiriisi
@@ -37421,23 +37421,15 @@ es:Avellanas crudas
 fr:Noisettes crues
 nl:Rauwe hazelnoten
 
-<en:hazelnuts
-<en:Shelled hazelnuts
-en:Shelled raw hazelnuts
-es:Avellanas sin cáscara crudas
-fr:Noisettes décortiquées crues
-hu:Héjas nyers mogyoró
-nl:Gepelde rauwe hazelnoten
-
 <en:Shelled raw hazelnuts
-en:Shelled raw hazelnuts with skin
+en:Shelled hazelnuts with skin
 es:Avellanas sin cáscara crudas con piel
 fr:Noisettes décortiquées non émondées
 hu:Hámozott nyers mogyoró bőrrel
 nl:Gepelde rauwe hazelnoten met velletje
 
-<en:Shelled raw hazelnuts
-en:Blanched shelled raw hazelnuts, Skinless shelled raw hazelnuts
+<en:Shelled hazelnuts
+en:Blanched shelled hazelnuts, Skinless shelled hazelnuts
 es:Avellanas sin cáscara crudas sin piel, Avellanas sin cáscara crudas repeladas
 fr:Noisettes décortiquées émondées
 nl:Gepelde witte hazelnoten
@@ -38786,7 +38778,7 @@ fr:Œufs d'émeu
 wikidata:en:Q35855322
 
 <en:Bird eggs
-en:Turkey egg, Raw turkey eggs
+en:Turkey egg, turkey eggs
 fr:Oeufs de dinde, Oeuf de dinde
 agribalyse_food_code:en:22080
 ciqual_food_code:en:22080
@@ -42063,7 +42055,7 @@ it:Semole di grano
 nl:Tarwegriesmelen
 
 <en:Wheat semolinas
-en:Durum wheat semolinas, Raw durum wheat semolina
+en:Durum wheat semolinas, durum wheat semolina
 de:Hartweizengrieße, Hartweizengrieß
 es:Sémolas y semolinas de trigo duro, Sémolas de trigo duro, Sémola de trigo duro
 fi:Durumvehnäsuurimot
@@ -44477,7 +44469,7 @@ ciqual_food_name:en:Apple, Canada, pulp, raw
 ciqual_food_name:fr:Pomme Canada, pulpe, crue
 
 <en:Apples
-en:Boiled raw apples without skin,apples without skin cooked in water
+en:Boiled apples without skin,apples without skin cooked in water
 fr:Pulpe de pomme bouillie, Pulpe de pomme cuite à l'eau
 agribalyse_food_code:en:13176
 ciqual_food_code:en:13176
@@ -44592,8 +44584,8 @@ season_in_country_fr:en: 8,9
 
 # Morus nigra?
 <en:Berries
-en:Black mulberries, Raw black mulberries
-fr:Mûres noires, Mûres noires crues
+en:Black mulberries, black mulberries
+fr:Mûres noires, Mûres noires
 agribalyse_food_code:en:13071
 ciqual_food_code:en:13071
 ciqual_food_name:en:Black mulberry, raw
@@ -44629,7 +44621,7 @@ season_in_country_fr:en: 7,8,9
 
 <en:Berries
 <en:Elderberry products
-en:Elderberries, Black elders, European elders, European elderberries, European black elderberries, Raw elderberry berries
+en:Elderberries, Black elders, European elders, European elderberries, European black elderberries, elderberry berries
 es:Frutos del saúco negro, Frutos del saúco común, Saúco negro, Saúco común
 fr:Baies de sureau noir, Baies de grand sureau, Sureau noir, Grand sureau, Baies de sureau crues
 nl:Vlierbessen
@@ -44646,7 +44638,7 @@ la:Vaccinium corymbosum
 nl:Blauwe bessen
 
 <en:Berries
-en:Cranberries, Raw cranberries
+en:Cranberries, cranberries
 de:Cranberry, Moosbeeren, Kranbeeren
 es:Arándanos rojos
 fi:Karpalot
@@ -44720,7 +44712,7 @@ fr:Groseilles fraîches
 season_in_country_fr:en: 6,7,8
 
 <en:Berries
-en:Gooseberries, Raw gooseberries
+en:Gooseberries, gooseberries
 de:Stachelbeeren
 fr:Groseilles à maquereaux, Groseilles à maquereaux crues
 la:Ribes uva-crispa
@@ -45142,7 +45134,7 @@ la:Diospyros kaki
 nl:Kakis
 
 <en:Fruits
-en:Persimmon pulp, Raw persimmon pulp
+en:Persimmon pulp, persimmon pulp
 fr:Pulpe de kaki
 agribalyse_food_code:en:13066
 ciqual_food_code:en:13066
@@ -45182,7 +45174,7 @@ fr:Kiwis frais
 season_in_country_fr:en: 1,2,3,11,12
 
 <en:Kiwifruits
-en:Kiwi fruit pulp and seeds, Raw kiwi fruit pulp and seeds
+en:Kiwi fruit pulp and seeds, kiwi fruit pulp and seeds
 fr:Pulpe et graines de kiwi
 agribalyse_food_code:en:13021
 ciqual_food_code:en:13021
@@ -45818,7 +45810,7 @@ en:Fresh pineapple
 fr:Ananas frais
 
 <en:Pineapple
-en:Pineapple pulp, Raw pineapple pulp
+en:Pineapple pulp, pineapple pulp
 fr:Pulpe d'ananas, Pulpe d'ananas
 agribalyse_food_code:en:13002
 ciqual_food_code:en:13002
@@ -45852,7 +45844,7 @@ nl:Bevroren bosvruchten
 
 <en:Frozen berries
 <en:Blackberries
-en:Frozen blackberries, Frozen raw blackberries
+en:Frozen blackberries, Frozen blackberries
 es:Moras congeladas
 fr:Mûres surgelées, Mûres de ronce surgelées
 nl:Bevroren bramen
@@ -45863,7 +45855,7 @@ ciqual_food_name:fr:Mûre (de ronce), surgelée, crue
 
 <en:Frozen berries
 <en:Blueberries
-en:Frozen blueberries, Frozen raw bluberries, Frozen raw blueberry
+en:Frozen blueberries, Frozen bluberries, Frozen blueberry
 de:Tiefkühl-Heidelbeeren, Tiefkühl-Blaubeeren
 es:Arándanos congelados
 fi:Pakastemustikat
@@ -48130,7 +48122,7 @@ ciqual_food_name:en:Ginger, powder
 ciqual_food_name:fr:Gingembre, poudre
 
 <en:Ginger
-en:Fresh ginger rhizomes, Raw ginger
+en:Fresh ginger rhizomes, ginger
 es:Rizomas de jengibre frescos
 fr:Rhizomes de gingembre frais, Racines de gingembre crues
 nl:Verse gemberwortels
@@ -52127,7 +52119,7 @@ ciqual_food_code:en:25428
 ciqual_food_name:en:Sandwich made with pita bread, kebab and raw vegetables
 
 <en:Sandwiches
-en:Sandwich made with French bread kebab and raw vegetables
+en:Sandwich made with French bread kebab and vegetables
 fr:Sandwich grec non pita, Kebab non pita
 agribalyse_food_code:en:25429
 ciqual_food_code:en:25429
@@ -54754,7 +54746,7 @@ ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
 
 <fr:Poêlées
-en:Frozen pan-fried Asian-style vegetables, Frozen raw stir-fried Asian-style vegetables
+en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
 fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
 agribalyse_food_code:en:20273
 ciqual_food_code:en:20273
@@ -57010,7 +57002,7 @@ ciqual_food_name:en:Pork trotters salt-cured
 ciqual_food_name:fr:Pied de porc demi-sel
 
 <en:pork meat
-en:Rindless pork jowl, Raw rindless pork jowl
+en:Rindless pork jowl, rindless pork jowl
 fr:Gorge de porc découennée, Gorge de porc découennée crue
 agribalyse_food_code:en:28471
 ciqual_food_code:en:28471
@@ -57065,8 +57057,8 @@ ciqual_food_name:en:Pork, belly, flank removed, raw
 ciqual_food_name:fr:Porc, poitrine cutter, sans mouille, crue
 
 <en:pork meat
-en:Pork shoulders, Raw pork shoulders, Raw pork shoulder
-fr:Epaule de porc, Epaule de porc crue, épaules de porc crues
+en:Pork shoulders, pork shoulders, pork shoulder
+fr:Epaule de porc, Epaule de porc crue, épaules de porc
 agribalyse_food_code:en:28001
 ciqual_food_code:en:28001
 ciqual_food_name:en:Pork, shoulder, raw
@@ -57112,7 +57104,7 @@ ciqual_food_name:en:Pork, roast, cooked
 ciqual_food_name:fr:Porc, rôti, cuit
 
 <en:Pork
-en:Pork ribs, Raw pork chops, Raw pork ribs
+en:Pork ribs, pork chops, pork ribs
 es:Costillas de cerdo
 fi:Porsaan kylkipalat, Porsaan ribsit
 fr:Côtes de porc, Côtes de porc crues
@@ -57134,7 +57126,7 @@ ciqual_food_name:en:Pork, chop, grilled
 ciqual_food_name:fr:Porc, côte, grillée
 
 <en:pork meat
-en:Pork racks, Raw pork racks
+en:Pork racks, pork racks
 fr:Carrés de porc, Carrés de porc crus
 agribalyse_food_code:en:28104
 ciqual_food_code:en:28104
@@ -57237,7 +57229,7 @@ ciqual_food_name:en:Devilled pork shoulder in mustard sauce
 ciqual_food_name:fr:Palette à la diable
 
 <en:Pork
-en:Pork tongue, Raw pork tongue
+en:Pork tongue, pork tongue
 fr:Langue de porc, Langue de porc crue
 nl:Varkenstong
 zh:猪舌, 口条
@@ -57254,7 +57246,7 @@ it:Cuore di maiale
 zh:猪心
 
 <en:Pork
-en:Pork liver, Raw pork liver
+en:Pork liver, pork liver
 fr:Foie de porc, Foie de porc
 agribalyse_food_code:en:40119
 ciqual_food_code:en:40119
@@ -57270,7 +57262,7 @@ ciqual_food_name:en:Preserved pork liver
 ciqual_food_name:fr:Confit de foie de porc
 
 <en:Pork
-en:Pork heart, Raw pork heart
+en:Pork heart, pork heart
 fr:Coeur de porc, Coeur de porc
 agribalyse_food_code:en:40060
 ciqual_food_code:en:40060
@@ -57278,7 +57270,7 @@ ciqual_food_name:en:Heart, pork, raw
 ciqual_food_name:fr:Coeur, porc, cru
 
 <en:pork meat
-en:Pork kidney, Raw pork kidney
+en:Pork kidney, pork kidney
 fr:Rognons de porc, Rognons de porc crus
 agribalyse_food_code:en:40404
 ciqual_food_code:en:40404
@@ -57581,7 +57573,7 @@ ciqual_food_name:en:Heart, chicken, cooked
 ciqual_food_name:fr:Coeur, poulet, cuit
 
 <en:chicken
-en:Chicken heart, Raw chicken heart
+en:Chicken heart, chicken heart
 fr:Coeur de poulet, Coeur de poulet
 agribalyse_food_code:en:40054
 ciqual_food_code:en:40054
@@ -57589,7 +57581,7 @@ ciqual_food_name:en:Heart, chicken, raw
 ciqual_food_name:fr:Coeur, poulet, cru
 
 <en:chicken
-en:Chicken liver, Raw chicken liver
+en:Chicken liver, chicken liver
 fr:Foie de poulet, Foie de poulet
 agribalyse_food_code:en:40111
 ciqual_food_code:en:40111
@@ -57614,7 +57606,7 @@ ciqual_food_name:en:Preserved poultry liver
 ciqual_food_name:fr:Confit de foie de volaille
 
 <en:Poultries
-en:Poultry liver, Raw poultry liver
+en:Poultry liver, poultry liver
 fr:Foie de volaille, Foie de volaille
 agribalyse_food_code:en:40108
 ciqual_food_code:en:40108
@@ -57708,7 +57700,7 @@ ciqual_food_name:en:Quail, meat and skin, raw
 ciqual_food_name:fr:Caille, viande et peau, crue
 
 <en:Poultries
-en:Quail meat, Raw quail meat
+en:Quail meat, quail meat
 fr:Viande de caille, Viande de caille crue
 ciqual_food_code:en:36101
 ciqual_food_name:en:Quail, meat, raw
@@ -57720,7 +57712,7 @@ fr:Faisans
 
 <en:Game
 <en:Pheasant
-en:Pheasant meat, Raw pheasant meat
+en:Pheasant meat, pheasant meat
 fr:Viande de faisan, Viande de faisan crue
 ciqual_food_code:en:36401
 ciqual_food_name:en:Pheasant, meat, raw
@@ -57744,7 +57736,7 @@ ciqual_food_name:en:Pheasant, meat, roasted/baked
 ciqual_food_name:fr:Faisan, viande, rôtie/cuite au four
 
 <en:Poultries
-en:Ducks, Duck meat, Duck, Raw duck meat
+en:Ducks, Duck meat, Duck, duck meat
 de:Enten, frisches Entenfleisch, Ente
 es:Pato
 fi:ankat
@@ -57787,7 +57779,7 @@ ciqual_food_name:en:Duck confit (conserved in rendered fat), meat (leg) without 
 ciqual_food_name:fr:Confit de canard, viande (cuisse), sans peau, réchauffé
 
 <en:Ducks
-en:Duck breasts, Raw duck breasts
+en:Duck breasts, duck breasts
 de:Entenbrust
 es:Pechugas de pato
 fi:ankan rinnat
@@ -57869,7 +57861,7 @@ fr:Saucisses de canard
 nl:Eendenworst
 
 <en:Poultries
-en:Turkeys, Turkey, Turkey fresh meat, Fresh Turkey, Raw turkey meat
+en:Turkeys, Turkey, Turkey fresh meat, Fresh Turkey, turkey meat
 ca:Gall d'indi
 da:Kalkun, kalkunkød
 de:Putenfleisch
@@ -57885,7 +57877,7 @@ ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
 <en:Turkeys
-en:Turkey heart, Raw turkey heart
+en:Turkey heart, turkey heart
 fr:Coeur de dinde, Coeur de dinde
 agribalyse_food_code:en:40055
 ciqual_food_code:en:40055
@@ -57902,7 +57894,7 @@ ciqual_food_name:en:Heart, turkey, cooked
 ciqual_food_name:fr:Coeur, dinde, cuit
 
 <en:Turkeys
-en:Turkey liver, Raw turkey liver
+en:Turkey liver, turkey liver
 fr:Foie de dinde, Foie de dinde
 agribalyse_food_code:en:40115
 ciqual_food_code:en:40115
@@ -57933,7 +57925,7 @@ ciqual_food_code:en:36307
 ciqual_food_name:en:Turkey, leg, meat only, raw
 
 <en:Poultries
-en:Pigeon, pigeon fresh meat, Raw pigeon
+en:Pigeon, pigeon fresh meat, pigeon
 fr:Pigeons, viande de pigeon, pigeon, Pigeon cru
 it:Piccione
 nl:Duifvlezen
@@ -58034,7 +58026,7 @@ en:Goose confits
 fr:Confits d’oie, Confit d’oie
 
 <en:goose meat
-en:Goose liver, Raw goose liver
+en:Goose liver, goose liver
 fr:Foie d'oie, Foie d'oie
 agribalyse_food_code:en:40120
 ciqual_food_code:en:40120
@@ -58072,7 +58064,7 @@ ciqual_food_name:fr:Pintade, poitrine, crue
 
 
 <en:Poultries
-en:Chickens, Chicken, Raw chicken meat
+en:Chickens, Chicken, chicken meat
 af:hoender
 ak:akokɔ
 am:ዶሮ
@@ -60087,7 +60079,7 @@ ciqual_proxy_food_name:en:Lardoons, raw
 ciqual_proxy_food_name:fr:Lardon nature, cru
 
 <en:Lardons
-en:Plain lardons, Raw lardoons
+en:Plain lardons, lardoons
 fr:Lardons de porc natures, Lardons nature
 agribalyse_food_code:en:28501
 ciqual_food_code:en:28501
@@ -60095,7 +60087,7 @@ ciqual_food_name:en:Lardoons, raw
 ciqual_food_name:fr:Lardon nature, cru
 
 <en:Lardons
-en:Smoked lardons, Raw smoked lardoons
+en:Smoked lardons, smoked lardoons
 de:Räucherspeck
 es:Lardones ahumados
 fr:Lardons de porc fumés, Lardons fumés
@@ -61810,7 +61802,7 @@ ciqual_food_name:en:Morel, raw
 ciqual_food_name:fr:Champignon, morille, crue
 
 <en:Mushrooms
-en:Chanterelles, Golden chanterelles, Girolles, Cantharellus cibarius, Raw chanterelles, Raw girolle mushrooms
+en:Chanterelles, Golden chanterelles, Girolles, Cantharellus cibarius, chanterelles, girolle mushrooms
 es:Rebozuelos, Chantarelas, Cantharellus cibarius
 fr:Girolles, Girolle, Jaunotte, Jauniré, Cantharellus cibarius, Chanterelle ciboire, chevrette, roussotte, gallinace, Chanterelles crues, Girolles crues, Champignons chanterelles, Champignons girolles
 la:Cantharellus cibarius
@@ -62685,7 +62677,7 @@ ciqual_food_name:fr:Pâtes sèches, au blé complet, cuites, non salées
 
 <en:Dried wholemeal pasta
 en:wholemeal dried pasta
-fr:Pâtes sèches au blé complet crues
+fr:Pâtes sèches au blé complet
 agribalyse_food_code:en:9870
 ciqual_food_code:en:9870
 ciqual_food_name:en:Dried pasta, wholemeal, raw
@@ -62710,7 +62702,7 @@ ciqual_food_name:fr:Pâtes sèches standard, cuites, non salées
 
 <en:Egg pastas
 <en:Dry pastas
-en:Dry egg pastas, dried egg pastas, Dried raw egg pasta
+en:Dry egg pastas, dried egg pastas, Dried egg pasta
 fi:kuivat munapastat
 fr:Pâtes sèches aux œufs, Pâtes sèches aux œufs crues
 it:Pasta al'uovo secca
@@ -62748,8 +62740,8 @@ pl:Makaron bezglutenowy
 
 <en:Gluten-free pasta
 <en:Dry pastas
-en:Gluten-free dry pasta, Dry gluten-free pasta, Dried gluten-free pasta, Dry raw gluten-free pasta, Dried raw gluten-free pasta
-fr:Pâtes sèches sans gluten, Pâtes sèches sans gluten crues
+en:Gluten-free dry pasta, Dry gluten-free pasta, Dried gluten-free pasta, Dry gluten-free pasta, Dried gluten-free pasta
+fr:Pâtes sèches sans gluten, Pâtes sèches sans gluten
 agribalyse_food_code:en:9874
 ciqual_food_code:en:9874
 ciqual_food_name:en:Dried pasta, gluten-free, raw
@@ -63159,14 +63151,14 @@ ciqual_food_name:fr:Pâtes fraîches, aux œufs, cuites, non salées
 
 <en:Fresh egg pasta
 en:fresh egg pasta
-fr:Pâtes fraîches aux œufs crues
+fr:Pâtes fraîches aux œufs
 agribalyse_food_code:en:9815
 ciqual_food_code:en:9815
 ciqual_food_name:en:Fresh egg pasta, raw
 ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
 
 <en:Pastas
-en:Dry pastas, Dried pastas, Dry raw pastas, Dried raw pastas
+en:Dry pastas, Dried pastas, Dry pastas, Dried pastas
 ca:Pasta seca
 de:getrocknete Teigwaren
 es:Pasta seca
@@ -63248,11 +63240,16 @@ fr:Ravioles
 
 <en:Stuffed Pastas
 <fr:Ravioles
-fr:Ravioles du Dauphiné
+en:Ravioles du Dauphiné
+fr:Ravioles du Dauphiné, Raviolis du Dauphiné
 wikidata:en:Q3420363
 protected_name_file_number:en: PGI-FR-0583
 protected_name_type:en: pgi
 origins:en: en:France
+agribalyse_food_code:en:25181
+ciqual_food_code:en:25181
+ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
+ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
 <fr:Ravioles du Dauphiné
 <en:Fresh pasta
@@ -63262,15 +63259,6 @@ agribalyse_food_code:en:25149
 ciqual_food_code:en:25149
 ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, cuites
-
-<fr:Ravioles du Dauphiné
-<en:Fresh pasta
-en:Ravioles du Dauphiné
-fr:Raviolis du Dauphiné, Ravioles du Dauphiné crues
-agribalyse_food_code:en:25181
-ciqual_food_code:en:25181
-ciqual_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
-ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
 <en:Ravioli
 <en:Pasta stuffed with cheese
@@ -64989,7 +64977,7 @@ ciqual_food_code:en:25521
 ciqual_food_name:en:Sandwich made with French bread, ham, emmental cheese and butter
 
 <en:French bread sandwiches
-en:Sandwich made with French bread and hard-boiled egg and raw vegetables and butter
+en:Sandwich made with French bread and hard-boiled egg and vegetables and butter
 fr:Sandwich baguette jambon oeuf dur crudités beurre
 agribalyse_food_code:en:25475
 ciqual_food_code:en:25475
@@ -64997,11 +64985,11 @@ ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegeta
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
 <en:Sandwiches
-en:Sandwich with tuna and raw vegetables and mayonnaise
+en:Sandwich with tuna and vegetables and mayonnaise
 fr:Sandwich crudités-thon
 
-<en:Sandwich with tuna and raw vegetables and mayonnaise
-en:Sandwich made with wholemeal loaf bread and tuna and raw vegetables and mayonnaise
+<en:Sandwich with tuna and vegetables and mayonnaise
+en:Sandwich made with wholemeal loaf bread and tuna and vegetables and mayonnaise
 fr:Sandwich pain de mie complet thon crudités mayonnaise
 agribalyse_food_code:en:25575
 ciqual_food_code:en:25575
@@ -65009,8 +64997,8 @@ ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetable
 ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
 
 <en:French bread sandwiches
-<en:Sandwich with tuna and raw vegetables and mayonnaise
-en:Sandwich made with French bread and tuna and raw vegetables and mayonnaise
+<en:Sandwich with tuna and vegetables and mayonnaise
+en:Sandwich made with French bread and tuna and vegetables and mayonnaise
 fr:Sandwich baguette thon crudités mayonnaise
 agribalyse_food_code:en:25431
 ciqual_food_code:en:25431
@@ -65018,7 +65006,7 @@ ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomat
 ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
 
 <en:French bread sandwiches
-en:Sandwich made with French bread and tuna and sweet corn and raw vegetables
+en:Sandwich made with French bread and tuna and sweet corn and vegetables
 fr:Sandwich baguette thon maïs crudités
 agribalyse_food_code:en:25490
 ciqual_food_code:en:25490
@@ -65026,12 +65014,12 @@ ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw ve
 ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
 
 <en:Sandwiches
-en:Sandwich with egg and raw vegetables and mayonnaise
+en:Sandwich with egg and vegetables and mayonnaise
 fr:Sandwich crudités-oeuf, Sandwich oeuf-crudités
 
 <en:French bread sandwiches
-<en:Sandwich with egg and raw vegetables and mayonnaise
-en:Sandwich made with French bread and egg and raw vegetables and mayonnaise
+<en:Sandwich with egg and vegetables and mayonnaise
+en:Sandwich made with French bread and egg and vegetables and mayonnaise
 fr:Sandwich baguette oeuf crudités mayonnaise
 agribalyse_food_code:en:25532
 ciqual_food_code:en:25532
@@ -65040,7 +65028,7 @@ ciqual_food_name:fr:Sandwich baguette, oeuf, crudités (tomate, salade), mayonna
 
 <en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
-en:Sandwich made with French bread pork and raw vegetables and mayonnaise
+en:Sandwich made with French bread pork and vegetables and mayonnaise
 fr:Sandwich baguette porc crudités mayonnaise
 agribalyse_food_code:en:25533
 ciqual_food_code:en:25533
@@ -65048,12 +65036,12 @@ ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettu
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
 <en:vegetable sandwiches
-en:Sandwich with raw vegetables and mayonnaise
+en:Sandwich with vegetables and mayonnaise
 fr:Sandwich crudités mayonnaise
 
-<en:Sandwich with raw vegetables and mayonnaise
+<en:Sandwich with vegetables and mayonnaise
 <en:French bread sandwiches
-en:Sandwich made with French bread with raw vegetables and mayonnaise
+en:Sandwich made with French bread with vegetables and mayonnaise
 fr:Sandwich baguette crudités mayonnaise
 agribalyse_food_code:en:25530
 ciqual_food_code:en:25530
@@ -65082,7 +65070,7 @@ agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, poulet, crudités, m
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
 <en:Chicken sandwiches
-en:Sandwich made with French bread and chicken and raw vegetables and mayonnaise
+en:Sandwich made with French bread and chicken and vegetables and mayonnaise
 fr:Sandwich baguette poulet crudités mayonnaise
 agribalyse_food_code:en:25476
 ciqual_food_code:en:25476
@@ -65091,7 +65079,7 @@ ciqual_food_name:fr:Sandwich baguette, poulet, crudités (tomate, salade), mayon
 
 <en:Sandwiches filled with cold cuts
 <en:Chicken sandwiches
-en:Sandwich made with wholemeal loaf bread and chicken and raw vegetables and mayonnaise
+en:Sandwich made with wholemeal loaf bread and chicken and vegetables and mayonnaise
 fr:Sandwich pain de mie complet poulet crudités mayonnaise
 agribalyse_food_code:en:25577
 ciqual_food_code:en:25577
@@ -65107,7 +65095,7 @@ nl:Kalkoensandwiches
 <en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
 <en:Turkey sandwiches
-en:Sandwich made with French bread and turkey and raw vegetables and mayonnaise
+en:Sandwich made with French bread and turkey and vegetables and mayonnaise
 fr:Sandwich baguette dinde crudités mayonnaise
 agribalyse_food_code:en:25531
 ciqual_food_code:en:25531
@@ -65192,12 +65180,12 @@ ciqual_food_code:en:25544
 ciqual_food_name:en:Sandwich made with loaf bread, various filling
 ciqual_food_name:fr:Sandwich pain de mie, garnitures diverses
 
-en:Sandwich with ham and raw vegetables and cheese
+en:Sandwich with ham and vegetables and cheese
 fr:Sandwich jambon crudités fromage
 
 <en:Sandwiches filled with cold cuts
-<en:Sandwich with ham and raw vegetables and cheese
-en:Sandwich made with wholemeal loaf bread and ham and raw vegetables and cheese
+<en:Sandwich with ham and vegetables and cheese
+en:Sandwich made with wholemeal loaf bread and ham and vegetables and cheese
 fr:Sandwich pain de mie complet jambon crudités fromage
 agribalyse_food_code:en:25574
 ciqual_food_code:en:25574
@@ -65620,7 +65608,7 @@ ciqual_food_name:en:Lemon sole, raw
 ciqual_food_name:fr:Limande-sole, crue
 
 <en:Fishes
-en:Common raw dab
+en:Common dab
 fr:Limande crue
 agribalyse_food_code:en:26057
 ciqual_food_code:en:26057
@@ -65774,7 +65762,7 @@ en:Eels
 fr:Anguilles
 
 <en:Fishes
-en:eels, Raw eel
+en:eels, eel
 fr:Anguilles crues, Anguille crue
 ciqual_food_code:en:27016
 ciqual_food_name:en:Eel, raw
@@ -66115,7 +66103,7 @@ ciqual_food_name:fr:Crevette, cuite
 
 <en:Shrimps
 en:shrimps
-fr:Crevettes crues
+fr:Crevettes
 agribalyse_food_code:en:10021
 ciqual_food_code:en:10021
 ciqual_food_name:en:Shrimp or prawn, raw
@@ -66191,7 +66179,7 @@ ciqual_food_name:fr:Crevette, cuite
 
 <en:Prawns
 en:deep water pink shrimps
-fr:Crevettes roses crues
+fr:Crevettes roses
 agribalyse_food_code:en:10059
 ciqual_food_code:en:10059
 ciqual_food_name:en:deep water pink shrimp, raw
@@ -67041,7 +67029,7 @@ ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 
 <en:Salmons
-en:Salmon raw wild
+en:Salmon wild
 fr:Saumon cru sauvage
 agribalyse_food_code:en:26161
 ciqual_food_code:en:26161
@@ -71362,8 +71350,8 @@ it:Asparagi bianchi
 nl:Witte asperges
 
 <en:Asparagus
-en:Peeled raw asparagus
-fr:Asperges pelées crues
+en:Peeled asparagus
+fr:Asperges pelées
 agribalyse_food_code:en:20073
 ciqual_food_code:en:20073
 ciqual_food_name:en:Asparagus, peeled, raw
@@ -71660,7 +71648,7 @@ la:Brassica oleracea var. capitata
 nl:Kolen
 
 <en:Cabbages
-en:White cabbage, Raw white cabbage
+en:White cabbage, white cabbage
 fr:Chou blanc, Chou blanc
 agribalyse_food_code:en:20116
 ciqual_food_code:en:20116
@@ -71881,7 +71869,7 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Celery
-en:Celery stalk, Raw celery stalk
+en:Celery stalk, celery stalk
 fr:Céleris branche
 agribalyse_food_code:en:20023
 ciqual_food_code:en:20023
@@ -72118,7 +72106,7 @@ season_in_country_fr:en: 1,2,3,4,10
 
 <en:Leaf vegetables
 en:chicory
-fr:Endives crues
+fr:Endives
 agribalyse_food_code:en:20026
 ciqual_food_code:en:20026
 ciqual_food_name:en:Chicory, raw
@@ -73139,7 +73127,7 @@ en:Courges fraîches
 season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
-en:Butternut squashes, Butternut squash, Butternut pumpkins, Raw butternut squash, Raw butternut pulp
+en:Butternut squashes, Butternut squash, Butternut pumpkins, butternut squash, butternut pulp
 es:Calabazas Butternut
 fr:Courges Butternut, Doubeurre, Courge doubeurre, Pulpe de courge doubeurre crue, Pulpe de courge butternut crue
 nl:Muskaatpompoen
@@ -74000,7 +73988,7 @@ ciqual_food_name:en:Mesclun or salads, mix of baby leaves
 ciqual_food_name:fr:Mesclun ou salade, mélange de jeunes pousses
 
 <en:Leaf vegetables
-en:Watercress, Raw watercress
+en:Watercress, watercress
 de:Brunnenkresse
 es:Berros, Berros de agua, Mastuerzos de agua
 fr:Cresson, Cresson de fontaine, Cresson d’eau
@@ -74334,7 +74322,7 @@ pt:Sementes de legumes
 ru:Плоды бобовых
 
 <en:Legume seeds
-en:Alfalfa seeds, Raw alfalfa seeds
+en:Alfalfa seeds, alfalfa seeds
 es:Semillas de alfalfa
 fr:Graines de alfalfa
 la:Medicago sativa
@@ -74840,7 +74828,7 @@ wikidata:en:Q156811
 
 <en:Pulses
 en:lupin grains
-fr:Graines de lupin crues
+fr:Graines de lupin
 agribalyse_food_code:en:20534
 ciqual_food_code:en:20534
 ciqual_food_name:en:lupin grain, raw
@@ -76801,7 +76789,7 @@ nl:Diepvriesgranen
 pnns_group_2:en:cereals
 
 <en:Frozen cereals
-en:Frozen corn, Frozen maize, Frozen raw sweet corn
+en:Frozen corn, Frozen maize, Frozen sweet corn
 es:Maíz congelado
 fr:Maïs surgelé, Maïs doux surgelé
 it:Mais surgelato
@@ -76819,7 +76807,7 @@ nl:Diepvriesmaiskorrels
 
 <en:Frozen corn
 <en:Sweet corn on the cob
-en:Frozen corn on the cob, Frozen raw sweet corn on the cob
+en:Frozen corn on the cob, Frozen sweet corn on the cob
 de:Gefrorene Maise
 es:Maíz en mazorca congelado, Mazorcas de maíz congeladas
 fr:Maïs en épis surgelé, Épis de maïs surgelé, Maïs doux en épis surgelé
@@ -78626,7 +78614,7 @@ ciqual_food_name:en:Preserved gizzards, duck, canned
 ciqual_food_name:fr:Gésier, canard, confit, appertisé
 
 <en:Gizzards
-en:Chicken gizzards, Raw chicken gizzards
+en:Chicken gizzards, chicken gizzards
 fr:Gésiers de poulet, Gésiers de poulet
 nl:Kippenspiermaag
 agribalyse_food_code:en:40700
@@ -80301,7 +80289,7 @@ nl:Pruimencompote
 
 <en:Frozen vegetables
 <en:Salsifis
-en:Frozen salsify, Frozen raw salsify
+en:Frozen salsify, Frozen salsify
 fr:Salsifis surgelés, Salsifis surgelés
 nl:Diepvriesschorseneren
 agribalyse_food_code:en:20237
@@ -80539,7 +80527,7 @@ nl:Panini
 wikidata:en:Q1366456
 
 <en:Sandwiches
-en:Panini with raw cured ham mozzarella cheese and tomato
+en:Panini with cured ham mozzarella cheese and tomato
 fr:Panini jambon cru mozzarella tomates
 agribalyse_food_code:en:25434
 ciqual_food_code:en:25434
