@@ -28692,10 +28692,13 @@ la:Secale cereale
 nl:Rogge, Rogges
 zh:裸麦
 wikidata:en:Q12099
+agribalyse_proxy_food_code:en:9390
+agribalyse_proxy_food_name:en:Rye, whole, raw
+agribalyse_proxy_food_name:fr:Seigle entier, cru
 
 <en:Secale
-en:Whole raw rye
-fr:Seigle entier cru
+en:Whole rye
+fr:Seigle entier
 agribalyse_food_code:en:9390
 ciqual_food_code:en:9390
 ciqual_food_name:en:Rye, whole, raw
@@ -28866,10 +28869,6 @@ it:Spelta, farro spelta, farro grande
 la:Triticum spelta, Triticum aestivum subsp. spelta
 nl:Spelt
 wikidata:en:Q158767
-
-<en:Wheats
-en:spelt
-fr:Épeautre cru
 agribalyse_food_code:en:9001
 ciqual_food_code:en:9001
 ciqual_food_name:en:Spelt, raw
@@ -35065,9 +35064,10 @@ fr:Horchatas de chufa surgelés
 en:Frozen peas and carrots, Frozen garden peas and carrots
 fr:Petits pois et carottes surgelés
 nl:Diepries doperwten en worteltjes
-agribalyse_proxy_food_code:en:20214
-agribalyse_proxy_food_name:en:Garden peas and carrots, frozen, raw
-agribalyse_proxy_food_name:fr:Petits pois et carottes, surgelés, crus
+agribalyse_food_code:en:20214
+ciqual_food_code:en:20214
+ciqual_food_name:en:Garden peas and carrots, frozen, raw
+ciqual_food_name:fr:Petits pois et carottes, surgelés, crus
 
 <en:Frozen peas and carrots
 en:Frozen cooked garden peas and carrots
@@ -35076,14 +35076,6 @@ agribalyse_food_code:en:20215
 ciqual_food_code:en:20215
 ciqual_food_name:en:Garden peas and carrots, frozen, cooked
 ciqual_food_name:fr:Petits pois et carottes, surgelés, cuits
-
-<en:Frozen peas and carrots
-en:Frozen garden peas and carrots
-fr:Petits pois et carottes surgelés
-agribalyse_food_code:en:20214
-ciqual_food_code:en:20214
-ciqual_food_name:en:Garden peas and carrots, frozen, raw
-ciqual_food_name:fr:Petits pois et carottes, surgelés, crus
 
 <en:Frozen vegetables
 en:Frozen mixed vegetables for ratatouille
@@ -37344,6 +37336,10 @@ la:Castanea
 nl:Kastanjes
 zh:栗子
 wikidata:en:Q129324
+agribalyse_food_code:en:15024
+ciqual_food_code:en:15024
+ciqual_food_name:en:Chestnut, raw
+ciqual_food_name:fr:Châtaigne, crue
 
 <en:Chestnuts
 en:Fresh chestnuts
@@ -37378,14 +37374,6 @@ agribalyse_food_code:en:15021
 ciqual_food_code:en:15021
 ciqual_food_name:en:Chestnut, grilled
 ciqual_food_name:fr:Châtaigne, grillée
-
-<en:Chestnuts
-en:chestnut, Raw chestnuts
-fr:Châtaigne crue, Châtaignes crues
-agribalyse_food_code:en:15024
-ciqual_food_code:en:15024
-ciqual_food_name:en:Chestnut, raw
-ciqual_food_name:fr:Châtaigne, crue
 
 <en:Chestnuts
 <en:Canned nuts
@@ -37444,14 +37432,14 @@ nl:Gepelde rauwe hazelnoten
 <en:Shelled raw hazelnuts
 en:Shelled raw hazelnuts with skin
 es:Avellanas sin cáscara crudas con piel
-fr:Noisettes décortiquées crues non émondées
+fr:Noisettes décortiquées non émondées
 hu:Hámozott nyers mogyoró bőrrel
 nl:Gepelde rauwe hazelnoten met velletje
 
 <en:Shelled raw hazelnuts
 en:Blanched shelled raw hazelnuts, Skinless shelled raw hazelnuts
 es:Avellanas sin cáscara crudas sin piel, Avellanas sin cáscara crudas repeladas
-fr:Noisettes décortiquées crues émondées
+fr:Noisettes décortiquées émondées
 nl:Gepelde witte hazelnoten
 
 <en:Shelled hazelnuts
@@ -38721,14 +38709,10 @@ zh:鹌鹑蛋
 # tg-latn:Tuxmi bedona
 wikidata:en:Q1572135
 wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
-# ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
-
-<en:Quail eggs
-en:quail eggs, Raw quail egg
-fr:Oeufs de caille, Oeuf de caille cru
 ciqual_food_code:en:22050
 ciqual_food_name:en:Quail egg, raw
 ciqual_food_name:fr:Oeuf de caille, cru
+# ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
 
 <en:Bird eggs
 en:Duck eggs
@@ -38802,8 +38786,8 @@ fr:Œufs d'émeu
 wikidata:en:Q35855322
 
 <en:Bird eggs
-en:turkey egg, Raw turkey eggs
-fr:Oeuf de dinde cru, Oeufs de dinde
+en:Turkey egg, Raw turkey eggs
+fr:Oeufs de dinde, Oeuf de dinde cru
 agribalyse_food_code:en:22080
 ciqual_food_code:en:22080
 ciqual_food_name:en:Turkey egg, raw
@@ -38818,23 +38802,15 @@ ciqual_food_name:en:Egg, hard-boiled
 ciqual_food_name:fr:Oeuf, dur
 
 <en:Bird eggs
-en:egg
-fr:Oeuf cru
-agribalyse_food_code:en:22000
-ciqual_food_code:en:22000
-ciqual_food_name:en:Egg, raw
-ciqual_food_name:fr:Oeuf, cru
-
-<en:Bird eggs
-en:Egg white raw
-fr:Oeuf blanc (blanc d'oeuf) cru
+en:Egg white
+fr:Oeuf blanc, blanc d'oeuf
 agribalyse_food_code:en:22001
 ciqual_food_code:en:22001
 ciqual_food_name:en:Egg white, raw
 
 <en:Bird eggs
-en:Egg yolk raw
-fr:Oeuf jaune (jaune d'oeuf) cru
+en:Egg yolk
+fr:Oeuf jaune, jaune d'oeuf
 agribalyse_food_code:en:22002
 ciqual_food_code:en:22002
 ciqual_food_name:en:Egg yolk, raw
@@ -42641,7 +42617,7 @@ nl:Plantaardige gevriesdroogde producten
 
 <en:Frozen foods
 en:Frozen dauphine potato
-fr:Pomme de terre dauphine surgelée crue
+fr:Pomme de terre dauphine surgelée, Pommes dauphine surgelées
 agribalyse_food_code:en:4020
 ciqual_food_code:en:4020
 ciqual_food_name:en:Dauphine potato, frozen, raw
@@ -42649,7 +42625,7 @@ ciqual_food_name:fr:Pomme de terre dauphine, surgelée, crue
 
 <en:Frozen foods
 en:Frozen duchesse potato
-fr:Pomme de terre duchesse surgelée crue
+fr:Pomme de terre duchesse surgelée, Pommes duchesse surgelées
 agribalyse_food_code:en:4042
 ciqual_food_code:en:4042
 ciqual_food_name:en:Duchesse potato, frozen, raw
@@ -42687,7 +42663,7 @@ ciqual_food_name:en:French fries or chips, frozen, roasted/baked
 ciqual_food_name:fr:Frites de pommes de terre, surgelées, rôties/cuites au four
 
 <fr:Pommes de terre préfrites surgelées
-en:Frozen French fries intended to be roasted, Frozen raw French fries intended to be baked, Frozen raw French chips intended to be roasted, Frozen raw French chips intended to be baked
+en:Frozen French fries intended to be roasted, Frozen French fries intended to be baked, Frozen French chips intended to be roasted, Frozen French chips intended to be baked
 fr:Frites de pommes de terre surgelées pour cuisson rôtie, Frites de pommes de terre surgelées pour cuisson rôtie cuites au four
 agribalyse_food_code:en:4044
 ciqual_food_code:en:4044
@@ -42699,15 +42675,8 @@ en:Microwave fries
 fr:Frites micro-ondables
 
 <fr:Pommes de terre préfrites surgelées
-en:Frozen microwave fries
-fr:Frites surgelées micro-ondables
-agribalyse_proxy_food_code:en:4045
-agribalyse_proxy_food_name:en:French fries or chips, frozen, raw, intended to be microwaved
-agribalyse_proxy_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson micro-ondes
-
-<en:Frozen microwave fries
-en:Frozen French fries intended to be microwaved, Frozen raw French chips intended to be microwaved
-fr:Frites de pommes de terre surgelées pour cuisson au micro-ondes
+en:Frozen microwave fries, Frozen French fries intended to be microwaved, Frozen French chips intended to be microwaved
+fr:Frites surgelées micro-ondables, Frites de pommes de terre surgelées pour cuisson au micro-ondes
 agribalyse_food_code:en:4045
 ciqual_food_code:en:4045
 ciqual_food_name:en:French fries or chips, frozen, raw, intended to be microwaved
@@ -42722,7 +42691,7 @@ ciqual_food_name:en:French fries or chips, frozen, deep-fried
 ciqual_food_name:fr:Frites de pommes de terre, surgelées, cuites en friteuse
 
 <fr:Pommes de terre préfrites surgelées
-en:Frozen French fries intended to be deep-fried, Frozen raw chips intended to be deep-fried
+en:Frozen French fries intended to be deep-fried, Frozen chips intended to be deep-fried
 fr:Frites de pommes de terre surgelées pour cuisson en friteuse
 agribalyse_food_code:en:4046
 ciqual_food_code:en:4046
@@ -42739,7 +42708,7 @@ ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
 
 <fr:Pommes de terre préfrites surgelées
 en:Frozen pre-fried potato cubes
-fr:Pommes de terre rissolée crues surgelées
+fr:Pommes de terre rissolée surgelées
 agribalyse_food_code:en:4043
 ciqual_food_code:en:4043
 ciqual_food_name:en:Potato, pre-fried into cubes, frozen, raw
@@ -55607,7 +55576,7 @@ ciqual_food_name:fr:Boulettes au bœuf, à la sauce tomate
 <en:Meat balls
 <en:Beef
 en:Swedish-style pork and beef meat balls
-fr:Boulettes crues au porc et au bœuf à la suédoise
+fr:Boulettes au porc et au bœuf à la suédoise
 ciqual_food_code:en:25186
 ciqual_food_name:en:Meat balls, pork and beef, (Swedish-style)
 ciqual_food_name:fr:Boulettes au porc et au bœuf (à la suédoise), crues
@@ -55615,7 +55584,7 @@ ciqual_food_name:fr:Boulettes au porc et au bœuf (à la suédoise), crues
 <en:Meat balls
 <en:Beef
 en:Kefta,beef and lamb meat balls
-fr:Kefta, Boulettes crues au bœuf et à l'agneau
+fr:Kefta, Boulettes au bœuf et à l'agneau
 ciqual_food_code:en:25194
 ciqual_food_name:en:Meat balls, beef and lamb (kefta type), raw
 ciqual_food_name:fr:Boulettes au bœuf et à l'agneau (type kefta), crues
@@ -65760,7 +65729,7 @@ ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, cuite
 
 <en:Scallop
 en:scallop with coral
-fr:Coquilles Saint-Jacques crues avec noix et corail
+fr:Coquilles Saint-Jacques avec noix et corail
 agribalyse_food_code:en:10003
 ciqual_food_code:en:10003
 ciqual_food_name:en:Scallop, with coral, raw
@@ -65784,7 +65753,7 @@ ciqual_food_name:fr:Pétoncle ou Peigne du Pérou, noix, crue
 
 <en:Scallop
 en:scallop without coral
-fr:Coquilles Saint-Jacques crues avec noix
+fr:Coquilles Saint-Jacques avec noix
 agribalyse_food_code:en:10045
 ciqual_food_code:en:10045
 ciqual_food_name:en:Scallop, without coral, raw
@@ -66155,7 +66124,7 @@ ciqual_food_name:fr:Crevette, crue
 <en:shrimps
 <en:Frozen seafood
 en:frozen shrimps
-fr:Crevettes crues surgelées
+fr:Crevettes surgelées
 agribalyse_food_code:en:10038
 ciqual_food_code:en:10038
 ciqual_food_name:en:Shrimp, frozen, raw
