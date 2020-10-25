@@ -27642,20 +27642,21 @@ fr:Crêpes fourrées
 en:Filled crêpes
 
 <fr:Crêpes fourrées
+en:Sugary filled crêpes 
 fr:Crêpes fourrées sucrées
-en:Sugary filled crêpes
+
 
 <fr:Crêpes fourrées
-fr:Crêpes fourrées salées
 en:Salty filled crêpes
+fr:Crêpes fourrées salées
 
 <en:Meals
 fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage
 de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
 
 <en:Meals
-en:Buckwheat crepe filled with mushrooms and bechamel sauce, Crepe filled with mushrooms and bechamel sauce
-fr:Galette fourrée à la béchamel et aux champignons, Crêpe fourrée à la béchamel et aux champignons
+en:Buckwheat crepe filled with mushrooms, Buckwheat crepe filled with mushrooms and bechamel sauce, Crepe filled with mushrooms, Crepe filled with mushrooms and bechamel sauce
+fr:Galettes aux champignons, Crêpes aux champignons, Galettes fourrées aux champignons, Galette fourrée à la béchamel et aux champignons, Crêpe fourrée à la béchamel et aux champignons
 agribalyse_food_code:en:25411
 ciqual_food_code:en:25411
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with mushrooms and bechamel sauce
@@ -27670,7 +27671,7 @@ ciqual_food_name:en:Crepe or buckwheat crepe, filled with egg, ham and cheese
 
 <en:Meals
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
-fr:Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
+fr:Galettes au fromage, Crêpes au fromage, Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
 agribalyse_food_code:en:25549
 ciqual_food_code:en:25549
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese and bechamel sauce
@@ -27678,15 +27679,23 @@ ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel fromage
 
 <en:Meals
 en:Buckwheat crepe filled with cheese ham mushrooms and bechamel sauce, Crepe filled with cheese ham mushrooms and bechamel sauce
-fr:Crêpe fourrée béchamel jambon fromage champignon, Galette fourrée béchamel jambon fromage champignon
+fr:Crêpes jambon fromage champignon, Crêpe fourrée béchamel jambon fromage champignon, Galettes jambon fromage champignon, Galette fourrée béchamel jambon fromage champignon
 agribalyse_food_code:en:25552
 ciqual_food_code:en:25552
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham, mushrooms and bechamel sauce
 ciqual_food_name:fr:Crêpe ou Galette fourrée béchamel jambon fromage champignon
 
 <en:Meals
-en:Crepe filled with fish, Crepe filled with seafood, Buckwheat crepe filled with fish, Buckwheat crepe filled with seafood
-fr:Crêpe fourrée au poisson, Crêpe fourrée aux fruits de mer, Galette fourrée au poisson, Galette fourrée aux fruits de mer
+en:Crepes filled with fish, Buckwheat crepes filled with fish
+fr:Crêpes au poisson, Galettes au poisson, Crêpes fourrées au poisson, Galettes fourrées au poisson
+agribalyse_food_code:en:25625
+ciqual_food_code:en:25625
+ciqual_food_name:en:Crepe or buckwheat crepe, filled with fish and/or seafood
+ciqual_food_name:fr:Crêpe ou Galette fourrée au poisson et / ou fruits de mer
+
+<en:Meals
+en:Crepes filled with seafood, Buckwheat crepes filled with seafood
+fr:Crêpes fourrée aux fruits de mer, Galettes fourrées aux fruits de mer
 agribalyse_food_code:en:25625
 ciqual_food_code:en:25625
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with fish and/or seafood
@@ -27702,7 +27711,7 @@ ciqual_food_name:fr:Crêpe ou Galette aux noix de St Jacques
 
 <en:Meals
 en:Pork sausage stew with cabbage carrots and potatoes
-fr:Potée auvergnate avec chou et porc
+fr:Potées auvergnates, Potée auvergnate avec chou et porc
 agribalyse_food_code:en:25071
 ciqual_food_code:en:25071
 ciqual_food_name:en:Pork sausage stew with cabbage, carrots and potatoes
@@ -27726,6 +27735,9 @@ it:Caviale
 nl:Kaviaar
 ro:Caviar
 wikidata:en:Q186385
+ciqual_proxy_food_code:en:26005
+ciqual_proxy_food_name:en:Caviar, semi-preserved
+ciqual_proxy_food_name:fr:Caviar, semi-conserve
 
 <en:Caviars
 <en:Semi-preserved foods
