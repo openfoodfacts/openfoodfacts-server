@@ -27600,13 +27600,40 @@ fr:Omelettes espagnoles sans oeuf
 nl:Spaanse tortillas zonder ei
 
 <en:Meals
-en:Omelette with vegetables and cheese and meat
-fr:Omelette avec garniture, Omelette avec légumes et fromages et viandes
+fr:Omelettes, Omelettes aux oeufs
+
+<fr:Omelettes
+fr:Omelette avec garniture
+ciqual_food_code:en:22511
+ciqual_food_name:en:Omelette, with vegetables, cheese, meat
+ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
+agribalyse_proxy_food_code:en:22506
+
+<fr:Omelette avec garniture
+en:Omelette with meat
+fr:Omelette à la viande
 ciqual_food_code:en:22511
 ciqual_food_name:en:Omelette, with vegetables, cheese, meat
 ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
 
-<en:Meals
+<fr:Omelette avec garniture
+en:Omelettes with cheese
+fr:Omelettes au fromage
+agribalyse_food_code:en:22506
+ciqual_food_code:en:22506
+ciqual_food_name:en:Omelette, with cheese
+ciqual_food_code:en:22511
+ciqual_food_name:en:Omelette, with vegetables, cheese, meat
+ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
+
+<fr:Omelette avec garniture
+en:Omelette with vegetables
+fr:Omelette aux légumes
+ciqual_food_code:en:22511
+ciqual_food_name:en:Omelette, with vegetables, cheese, meat
+ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
+
+<fr:Omelettes
 en:Herb omelette
 fr:Omelette aux fines herbes
 agribalyse_food_code:en:22509
@@ -27614,7 +27641,7 @@ ciqual_food_code:en:22509
 ciqual_food_name:en:Omelette, with herbs
 ciqual_food_name:fr:Omelette aux fines herbes
 
-<en:Meals
+<fr:Omelettes
 en:Omelette with lardoons
 fr:Omelette aux lardons
 agribalyse_food_code:en:22507
@@ -27622,20 +27649,13 @@ ciqual_food_code:en:22507
 ciqual_food_name:en:Omelette, with lardoons
 ciqual_food_name:fr:Omelette aux lardons
 
-<en:Meals
+<fr:Omelettes
 en:Omelette with mushrooms, Mushroom Omelette
 fr:Omelette aux champignons
 agribalyse_food_code:en:22508
 ciqual_food_code:en:22508
 ciqual_food_name:en:Omelette, with mushrooms
 ciqual_food_name:fr:Omelette aux champignons
-
-<en:Meals
-en:Omelette with cheese
-fr:Omelette au fromage
-agribalyse_food_code:en:22506
-ciqual_food_code:en:22506
-ciqual_food_name:en:Omelette, with cheese
 
 <en:Meals
 fr:Crêpes fourrées
@@ -27692,6 +27712,9 @@ agribalyse_food_code:en:25625
 ciqual_food_code:en:25625
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with fish and/or seafood
 ciqual_food_name:fr:Crêpe ou Galette fourrée au poisson et / ou fruits de mer
+
+<en:Crepes filled with fish
+fr:Galettes au saumon, Crêpes au saumon
 
 <en:Meals
 en:Crepes filled with seafood, Buckwheat crepes filled with seafood
@@ -31593,6 +31616,8 @@ agribalyse_food_code:en:12804
 ciqual_food_code:en:12804
 ciqual_food_name:en:Cheese, from goat's milk, fresh, from raw milk
 
+# TODO check
+
 <en:Goat cheeses
 en:Cheese from goat's milk fresh
 fr:Fromage de chèvre frais au lait pasteurisé ou cru, bûchette de chèvre frais, crottin de chèvre frais
@@ -33624,20 +33649,21 @@ fi:puoliksi suolattu voi
 fr:Beurres demi-sel, beurre demi-sel
 it:Burro semi-salato
 nl:Lichtgezouten roomboters
+agribalyse_proxy_food_code:en:16402
 ciqual_food_code:en:16413
 ciqual_food_name:en:Butter, unknown fat content , half-salted (average)
 ciqual_food_name:fr:Beurre à teneur en matière grasse inconnue (allégé ou non), demi-sel (aliment moyen)
 
 <en:Half-salted butter
 en:Lightly salted butter with 80% fat
-fr:Beurre demi-sel à 80% MG
+fr:Beurres demi-sel à 80% MG
 agribalyse_food_code:en:16402
 ciqual_food_code:en:16402
 ciqual_food_name:en:Butter, 80% fat, lightly salted
 
-<en:Butters
+<en:Half-salted butter
 en:Lightly salted light butter with 60-62% fat
-fr:Beurre à 60-62% MG à teneur réduite en matière grasse demi-sel
+fr:Beurres demi-sel à 60-62% MG à teneur réduite en matière grasse 
 agribalyse_food_code:en:16411
 ciqual_food_code:en:16411
 ciqual_food_name:en:Butter, 60-62% fat, light, lightly salted
@@ -33670,6 +33696,7 @@ fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 it:Burro non salato
 nl:Ongezouten roomboter
+agribalyse_proxy_food_code:en:16400
 ciqual_food_code:en:16414
 ciqual_food_name:en:Butter, unknown fat content , unsalted (average)
 ciqual_food_name:fr:Beurre ou assimilé à teneur en matière grasse inconnue, doux (aliment moyen)
@@ -33687,6 +33714,13 @@ fr:Beurre doux tendre à 82% MG
 agribalyse_food_code:en:16404
 ciqual_food_code:en:16404
 ciqual_food_name:en:Butter, 82% fat, unsalted, easy-to-spread
+
+<en:Unsalted butters
+en:Light unsalted butter with 60-62% fat
+fr:Beurre à 60-62% MG à teneur réduite en matière grasse doux
+agribalyse_food_code:en:16410
+ciqual_food_code:en:16410
+ciqual_food_name:en:Butter, 60-62% fat, light, unsalted
 
 <en:Unsalted butters
 en:Unsalted light butter with 39-41% fat 
@@ -33721,13 +33755,6 @@ nl:Gezouten roomboters
 agribalyse_food_code:en:16403
 ciqual_food_code:en:16403
 ciqual_food_name:en:Butter, 80% fat, salted
-
-<en:Unsalted butters
-en:Light unsalted butter with 60-62% fat
-fr:Beurre à 60-62% MG à teneur réduite en matière grasse doux
-agribalyse_food_code:en:16410
-ciqual_food_code:en:16410
-ciqual_food_name:en:Butter, 60-62% fat, light, unsalted
 
 <en:Butters
 en:Three-quarter-fat butter
@@ -34302,6 +34329,7 @@ ciqual_food_name:fr:Lait de chèvre, entier, UHT
 <en:Semi-skimmed milks
 en:Semi-skimmed goat milks, Half skimmed goat milk
 fr:Lait de chèvre demi-écrémé
+agribalyse_proxy_food_code:en:19201
 
 <en:Semi-skimmed goat milks
 <en:UHT Milks
@@ -34359,7 +34387,7 @@ ciqual_food_name:fr:Lait écrémé, UHT
 <en:Pasteurised milks
 <en:Skimmed milks
 en:Pasteurised skimmed milk
-fr:Lait écrémé pasteurisé
+fr:Laits écrémés pasteurisés
 agribalyse_food_code:en:19051
 ciqual_food_code:en:19051
 ciqual_food_name:en:Milk, skimmed, pasteurised
@@ -34389,7 +34417,7 @@ fr:Préparations pour Milk-shakes
 <en:Milk powders
 <en:Whole milks
 en:Whole milk powder
-fr:Lait entier en poudre
+fr:Laits entiers en poudre
 agribalyse_food_code:en:19021
 ciqual_food_code:en:19021
 ciqual_food_name:en:Milk, powder, whole
@@ -34398,7 +34426,7 @@ ciqual_food_name:fr:Lait en poudre, entier
 <en:Milk powders
 <en:Semi-skimmed milks
 en:Semi-skimmed milk powder
-fr:Lait en poudre demi-écrémé
+fr:Laits en poudre demi-écrémés
 agribalyse_food_code:en:19044
 ciqual_food_code:en:19044
 ciqual_food_name:en:Milk, powder, semi-skimmed
@@ -34407,7 +34435,7 @@ ciqual_food_name:fr:Lait en poudre, demi-écrémé
 <en:Milk powders
 <en:Skimmed milks
 en:Skimmed milk powder
-fr:Lait en poudre écrémé
+fr:Laits en poudre écrémés
 agribalyse_food_code:en:19054
 ciqual_food_code:en:19054
 ciqual_food_name:en:Milk, powder, skimmed
@@ -34426,6 +34454,9 @@ nl:Volle melken
 pt:Leites integrais, leite integral
 sv:Standardmjölk
 wikidata:en:Q3374445
+agribalyse_proxy_food_code:en:19024
+agribalyse_proxy_food_name:en:Milk, whole, pasteurised
+agribalyse_proxy_food_name:fr:Lait entier, pasteurisé
 
 <en:Whole milks
 es:Leche entera esterilizada
@@ -35306,14 +35337,14 @@ agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, i
 
 <en:Cheese spreads
 en:Uncured soft cheese spreadable with around 25% fat
-fr:fromage en barquette à tartiner à environ 25% MG, Spécialité fromagère non affinée environ 25% MG, coque fromagère à environ 25% MG
+fr:fromage à tartiner à environ 25% MG, Spécialité fromagère non affinée environ 25% MG, coque fromagère à environ 25% MG
 agribalyse_food_code:en:12315
 ciqual_food_code:en:12315
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
 
 <en:Cheese spreads
 en:Uncured soft cheese spreadable with around 20% fat
-fr:fromage en barquette à tartiner à environ 20% MG, Spécialité fromagère non affinée environ 20% MG, coque fromagère à environ 20% MG
+fr:fromage à tartiner à environ 20% MG, Spécialité fromagère non affinée environ 20% MG, coque fromagère à environ 20% MG
 agribalyse_food_code:en:12340
 ciqual_food_code:en:12340
 ciqual_food_name:en:Uncured soft cheese, spreadable, around 20% fat, in a tub
