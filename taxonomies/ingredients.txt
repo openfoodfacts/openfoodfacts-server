@@ -58625,14 +58625,16 @@ la:Porphyra yezoensis
 # en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
 # <en:mold
-en:Aspergillus oryzae, a. oryzae
+en:koji, kōji, koji culture, koji spores, koji starter
 ar:رشاشية أوريزه
-de:Aspergillus oryzae
-es:koji, aspergillus oryzae
-fi:aspergillus oryzae
-fr:koji
+de:Koji, Koji-Ferment, Koji-Pilzkultur
+es:koji, fermento koji
+fr:koji, ferment Koji
+it:koji
 ja:ニホンコウジカビ
 ko:누룩곰팡이
+pl:koji
+pt:koji
 zh:米麴菌
 # zh-cn:米曲菌
 # zh-hans:米曲菌
@@ -58640,10 +58642,21 @@ zh:米麴菌
 # zh-hk:米麴菌
 # zh-sg:米曲菌
 # zh-tw:米麴菌
-wikidata:en:Q131911
-wikipedia:en:https://en.wikipedia.org/wiki/Aspergillus_oryzae
 # ingredient/fr:koji has 53 products @2019-02-15
 
+<en:koji
+la:Aspergillus sojae
+wikidata:en:Q4387773
+wikipedia:en:https://en.wikipedia.org/wiki/Aspergillus_sojae
+
+<en:koji
+la:Aspergillus oryzae, a. oryzae
+wikidata:en:Q22662068
+wikipedia:en:https://en.wikipedia.org/wiki/Aspergillus_oryzae
+
+<en:koji
+en:rice koji
+fr:koji de riz
 
 
 en:tegument
