@@ -42002,6 +42002,9 @@ fi:Maissisuurimot
 fr:Semoules de maïs
 it:Semolino di mais
 nl:Maïsgriesmelen
+agribalyse_proxy_food_code:en:9614
+agribalyse_proxy_food_name:en:Polenta or Maize/corn semolina, pre-cooked, dried
+agribalyse_proxy_food_name:fr:Polenta ou semoule de maïs, précuite, sèche
 
 <en:Corn semolinas
 en:Corn semolinas for polenta, Maize semolinas for polenta, Pre-cooked corn meal for polenta
@@ -57895,6 +57898,7 @@ fr:Pigeons, viande de pigeon, pigeon
 it:Piccione
 nl:Duifvlezen
 zh:鸽子, 鸽
+agribalyse_food_code:en:36602
 ciqual_food_code:en:36600
 ciqual_food_name:en:Pigeon, raw
 ciqual_food_name:fr:Pigeon, cru
@@ -58270,7 +58274,7 @@ agribalyse_proxy_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
 <en:Cooked chicken
 en:Chicken drumsticks
 fi:kanan koipinuija
-fr:Manchons de poulet, manchon de poulet
+fr:Manchons de poulet, manchon de poulet, pilons de poulet
 nl:Kippekluifen
 
 <en:Cooked chicken
@@ -58293,6 +58297,44 @@ nl:Kippendijen, Kipdij
 agribalyse_proxy_food_code:en:36032
 agribalyse_proxy_food_name:en:Chicken, breast, meat and skin, roasted/baked
 agribalyse_proxy_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
+
+# TODO why did we chose this one ?
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
+fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
+agribalyse_food_code:en:36004
+ciqual_food_code:en:36004
+ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Roasted chicken leg meat, Baked chicken leg meat
+fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
+agribalyse_food_code:en:36006
+ciqual_food_code:en:36006
+ciqual_food_name:en:Chicken leg, meat, roasted/baked
+ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Boiled chicken leg meat, Chicken leg meat cooked in water
+fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
+agribalyse_food_code:en:36030
+ciqual_food_code:en:36030
+ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
+
+<en:Cooked chicken
+<en:Chicken thighs
+en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
+fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
+agribalyse_food_code:en:36031
+ciqual_food_code:en:36031
+ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
+ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
 <en:Poultry hams
 en:Cooked chicken breast slices, chicken ham
@@ -58350,6 +58392,15 @@ agribalyse_proxy_food_code:en:36018
 agribalyse_proxy_food_name:en:Chicken, breast, without skin, cooked
 agribalyse_proxy_food_name:fr:Poulet, filet, sans peau, cuit
 
+<en:Cooked chicken
+<en:Chicken breasts
+en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
+fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
+agribalyse_food_code:en:36032
+ciqual_food_code:en:36032
+ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
+ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
+
 <en:Chicken breasts
 fr:Filets de poulet rotis
 
@@ -58374,51 +58425,6 @@ he:עוף מבושל
 it:Pollo cotto
 nl:Geprepareerde kip
 pt:Frango cozido
-
-<en:Cooked chicken
-<en:Chicken breasts
-en:Roasted chicken breast with meat and skin, Baked chicken breast with meat and skin
-fr:Poitrine de poulet rôtie avec viande et peau, Poitrine de poulet cuite au four avec viande et peau
-agribalyse_food_code:en:36032
-ciqual_food_code:en:36032
-ciqual_food_name:en:Chicken, breast, meat and skin, roasted/baked
-ciqual_food_name:fr:Poulet, poitrine, viande et peau, rôti/cuit au four
-
-<en:Cooked chicken
-<en:Chicken thighs
-en:Roasted chicken leg meat and skin, Baked chicken leg meat and skin
-fr:Cuisse de poulet rôtie avec viande et peau, Cuisse de poulet cuite au four avec viande et peau
-agribalyse_food_code:en:36004
-ciqual_food_code:en:36004
-ciqual_food_name:en:Chicken, leg, meat and skin, roasted/baked
-ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
-
-<en:Cooked chicken
-<en:Chicken thighs
-en:Roasted chicken leg meat, Baked chicken leg meat
-fr:Cuisse de poulet rôtie sans peau, Cuisse de poulet cuite au four sans peau
-agribalyse_food_code:en:36006
-ciqual_food_code:en:36006
-ciqual_food_name:en:Chicken leg, meat, roasted/baked
-ciqual_food_name:fr:Poulet, cuisse, viande, rôti/cuit au four
-
-<en:Cooked chicken
-<en:Chicken thighs
-en:Boiled chicken leg meat, Chicken leg meat cooked in water
-fr:Cuisse de poulet bouillie, Cuisse de poulet cuite à l'eau
-agribalyse_food_code:en:36030
-ciqual_food_code:en:36030
-ciqual_food_name:en:Chicken leg, meat, boiled/cooked in water
-ciqual_food_name:fr:Poulet, cuisse, viande, bouilli/cuit à l'eau
-
-<en:Cooked chicken
-<en:Chicken thighs
-en:Boiled chicken leg with meat and skin, Chicken leg with meat and skin cooked in water
-fr:Cuisse de poulet avec viande et peau bouillie, Cuisse de poulet avec viande et peau cuite à l'eau
-agribalyse_food_code:en:36031
-ciqual_food_code:en:36031
-ciqual_food_name:en:Chicken, leg, meat and skin, boiled/cooked in water
-ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 
 <en:Cooked chicken
 en:Roast chicken
@@ -74343,6 +74349,10 @@ it:Fagioli neri
 nl:Zwarte bonen
 wikidata:en:Q15062992
 
+<en:Black beans
+en:Canned black beans
+fr:Haricots noirs en conserve
+
 <en:Common beans
 en:Pinto beans
 de:Pintobohnen, Wachtelbohnen
@@ -74505,13 +74515,6 @@ fr:lentilles noires, lentilles beluga
 nl:Zwarte Belugalinzen
 
 <en:Lentils
-en:Blonde lentils
-de:Gelbe Linsen
-es:Lentejas rubias
-fr:lentilles blondes
-nl:Witte linzen
-
-<en:Lentils
 en:Brown lentils
 es:Lentejas pardas, Lentejas pardinas, Lentejas pardina
 fr:lentilles brunes
@@ -74524,6 +74527,16 @@ es:Lentejas peladas
 fr:Lentilles décortiquées
 it:Lenticchie decorticate
 nl:Gepelde linzen
+
+<en:Lentils
+en:Blonde lentils
+de:Gelbe Linsen
+es:Lentejas rubias
+fr:lentilles blondes
+nl:Witte linzen
+agribalyse_proxy_food_code:en:20586
+agribalyse_proxy_food_name:en:Lentil, blond, dried
+agribalyse_proxy_food_name:fr:Lentille blonde, sèche
 
 <en:Blonde lentils
 en:Dried blond lentils
@@ -74556,6 +74569,9 @@ es:Lentejas rojas peladas
 fr:lentilles corail, lentilles roses, Lentilles rouges décortiquées
 it:Lenticchie rosse decorticate
 nl:Gepelde rode linzen
+agribalyse_proxy_food_code:en:20535
+agribalyse_proxy_food_name:en:Lentil, pink or red, dried
+agribalyse_proxy_food_name:fr:Lentille corail, sèche
 
 <en:Red lentils
 en:Dried pink lentils, Dried red lentils
@@ -74596,7 +74612,7 @@ agribalyse_proxy_food_code:en:20585
 agribalyse_proxy_food_name:en:Lentil, green, dried
 agribalyse_proxy_food_name:fr:Lentille verte, sèche
 
-<en:Lentils
+<en:Green lentils
 <en:Cooked vegetables
 en:Cooked green lentils
 fr:Lentilles vertes cuites
@@ -74605,7 +74621,7 @@ ciqual_food_code:en:20587
 ciqual_food_name:en:-
 ciqual_food_name:fr:Lentille verte, cuite
 
-<en:Lentils
+<en:Green lentils
 en:Dried green lentils
 fr:Lentilles vertes sèches
 agribalyse_food_code:en:20585
@@ -74871,9 +74887,6 @@ fi:purkitetut pavut
 fr:Haricots blancs en conserve
 it:Fagioli bianchi in scatola
 nl:Witte bonen in blik
-
-<en:Canned common beans
-fr:Haricots noirs en conserve
 
 <en:Canned legumes
 en:Canned lentils
