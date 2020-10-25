@@ -40782,6 +40782,24 @@ agribalyse_food_code:en:32135
 ciqual_food_code:en:32135
 ciqual_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements
 
+<en:Breakfast cereals
+en:Porridge
+fr:Porridge
+
+<en:Porridge
+<en:Cereals with fruits
+en:Porridge with fruits
+fr:Porridge aux fruits
+
+<en:Porridge
+<en:Chocolate cereals
+en:Porridge with chocolate
+fr:Porrige au chocolat
+
+<en:Porridge
+en:Plain porridge
+fr:Porridge nature
+
 # description:en:MUESLI is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 
 <en:Breakfast cereals
@@ -68919,8 +68937,14 @@ pt:Doces para barrar
 ru:Сладкие намазки
 pnns_group_2:en:Sweets
 
-#Do not put it in plant-based spreads, some lemon curd contains only lemon oil.
+#Do not put it in plant-based spreads, some fruit curd contains only fruit oil.
+#Fruit curd is a spread made of sugar, eggs, butter and fruits or fruit aroma.
 <en:Sweet spreads
+en:Fruit curds
+fr:Crèmes de fruits à tartiner
+
+#Do not put it in plant-based spreads, some lemon curd contains only lemon oil.
+<en:Fruit curds
 en:Lemon curds
 de:Zitronen-Aufstrich
 es:Crema de limón
