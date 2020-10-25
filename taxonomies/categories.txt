@@ -6699,24 +6699,68 @@ ciqual_food_name:en:Coffee, powder, instant
 ciqual_food_name:fr:Café, poudre soluble
 
 <en:Coffees
-en:Ready-to-drink coffee without sugar
-fr:Café non sucré prêt à boire
+en:Coffee without sugar
+fr:Café non sucré
 agribalyse_food_code:en:18004
 ciqual_food_code:en:18004
 ciqual_food_name:en:Not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, non instantané, non sucré, prêt à boire
 
 <en:Coffees
-en:Ready-to-drink espresso coffee without sugar
-fr:Café expresso non sucré prêt à boire
+en:Espresso coffee without sugar
+fr:Café expresso non sucré
 agribalyse_food_code:en:18071
 ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café expresso, non instantané, non sucré, prêt à boire
 
 <en:Coffees
-en:Ready-to-drink coffee with milk without sugar, Ready-to-drink white coffee without sugar, Ready-to-drink cappuccino without sugar
-fr:Café au lait non sucré prêt à boire, Café crème non sucré prêt à boire, Cappuccino non sucré prêt à boire
+en:Ready-to-drink coffee with milk with sugar
+fr:Café au lait sucré prêt à boire
+
+<en:Coffees
+en:Ready-to-drink coffee with milk without sugar
+fr:Café au lait non sucré prêt à boire
+agribalyse_food_code:en:18151
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffees
+en:Instant coffee with milk without sugar
+fr:Café au lait instantané non sucré
+agribalyse_food_code:en:18151
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffees
+en:White coffee without sugar
+fr:Café crème non sucré
+agribalyse_food_code:en:18151
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffees
+en:Instant white coffee without sugar
+fr:Café crème instantané non sucré
+agribalyse_food_code:en:18151
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffees
+en:Cappuccino without sugar
+fr:Cappuccino non sucré
+agribalyse_food_code:en:18151
+ciqual_food_code:en:18151
+ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
+ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffees
+en:Instant cappuccino without sugar
+fr:Cappuccino instantané non sucré
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -6738,24 +6782,24 @@ ciqual_food_name:fr:Café, décaféiné, poudre soluble
 
 <en:Instant coffees
 <en:Decaffeinated coffees
-en:Ready-to-drink instant decaffeinated coffee without sugar
-fr:Café décaféiné non sucré instantané prêt à boire
+en:Instant decaffeinated coffee without sugar
+fr:Café décaféiné non sucré instantané
 agribalyse_food_code:en:18072
 ciqual_food_code:en:18072
 ciqual_food_name:en:Decaffeinated instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café décaféiné, instantané, non sucré, prêt à boire
 
 <en:Decaffeinated coffees
-en:Ready-to-drink decaffeinated coffee without sugar
-fr:Café décaféiné non sucré prêt à boire
+en:Decaffeinated coffee without sugar
+fr:Café décaféiné non sucré
 agribalyse_food_code:en:18070
 ciqual_food_code:en:18070
 ciqual_food_name:en:Decaffeinated not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café décaféiné, non instantané, non sucré, prêt à boire
 
 <en:Instant coffees
-en:Ready-to-drink instant coffee without sugar
-fr:Café instantané non sucré prêt à boire
+en:Instant coffee without sugar
+fr:Café instantané non sucré
 agribalyse_food_code:en:18073
 ciqual_food_code:en:18073
 ciqual_food_name:en:Instant coffee, without sugar, ready-to-drink
@@ -24005,7 +24049,7 @@ fr:Pains azymes à la farine d'épeautre, Pain azyme à la farine d'épeautre
 fr:Pains azymes à la farine de blé, Pain azyme à la farine de blé
 
 <en:Unleavened breads
-fr:Pains azymes à la farine de froment, Pain azyme à la farine de froment
+fr:Pains azymes à la farine de froment, Pain azyme à la farine de froment, Pains azymes au froment
 
 <en:Breads
 en:White breads
