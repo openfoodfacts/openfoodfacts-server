@@ -4133,6 +4133,10 @@ ciqual_proxy_food_name:fr:Boisson plate aux fruits (teneur en jus non spécifié
 # Fruits juices and fruit nectars have specific agribalyse food codes
 
 <en:Fruit-based beverages
+en:Aloe Vera drinks
+fr:Boissons à l'aloe-vera
+
+<en:Fruit-based beverages
 en:Beverages with orange
 de:Getränke mit Orange
 es:Bebidas con naranja
@@ -48517,6 +48521,7 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Vanilla
+<fr:Arômes pâtisserie
 en:Vanilla extract
 es:Extracto de vainilla
 fr:Extrait de vanille
@@ -48526,6 +48531,9 @@ wikidata:en:Q10749869
 agribalyse_proxy_food_code:en:11065
 agribalyse_proxy_food_name:en:Vanilla, alcoholic extract
 agribalyse_proxy_food_name:fr:Vanille, extrait alcoolique
+
+<en:Vanilla extract
+fr:Arôme de vanille
 
 <en:Vanilla
 en:Vanilla alcoholic extract
@@ -48543,6 +48551,9 @@ agribalyse_food_code:en:11098
 ciqual_food_code:en:11098
 ciqual_food_name:en:Vanilla, aqueous extract
 ciqual_food_name:fr:Vanille, extrait aqueux
+
+<fr:Arômes pâtisserie
+fr:Arôme de fleurs d'oranger
 
 <fr:Piments de Cayenne
 en:Cayenne powder
@@ -52882,8 +52893,9 @@ ciqual_food_code:en:25904
 ciqual_food_name:en:Soup, fish and/or crustacean, prepacked, to be reheated
 
 <fr:Soupes de crustacés
+<en:Dehydrated soups
 en:Reconstituted crustacean soup
-fr:Soupe de crustacés reconstituée
+fr:Soupes de crustacés reconstituée
 agribalyse_food_code:en:25919
 ciqual_food_code:en:25919
 ciqual_food_name:en:Soup, fish and/or crustacean, dehydrated and reconstituted
@@ -52916,7 +52928,7 @@ fr:Soupes à réchauffer
 <en:Soups
 <en:Reheatable soups
 en:Mushroom soups
-fr:Soupe aux champignons
+fr:Soupes aux champignons
 nl:Paddestoelensoep
 agribalyse_food_code:en:25912
 ciqual_food_code:en:25912
@@ -52924,15 +52936,15 @@ ciqual_food_name:en:Soup, mushrooms, prepacked, to be reheated
 ciqual_food_name:fr:Soupe aux champignons, préemballée à réchauffer
 
 <en:Dehydrated soups
+<en:Mushroom soups
 en:Dehydrated mushroom soup
-fr:Soupe aux champignons déshydratée
+fr:Soupes aux champignons déshydratée
 agribalyse_food_code:en:25936
 ciqual_food_code:en:25936
 ciqual_food_name:en:Soup, mushrooms, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe aux champignons, déshydratée reconstituée
 
-<en:Soups
-<en:Fruits and vegetables based foods
+<en:Reheatable soups
 en:Chicken and vegetables soup
 fi:Kana-vihanneskeitot
 fr:Soupe à la volaille et aux légumes
@@ -52951,25 +52963,25 @@ ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconsti
 
 <en:Soups
 en:Chicken and vermicelli soup
-fr:Soupe à la volaille et aux vermicelles
+fr:Soupes à la volaille et aux vermicelles
 
 <en:Chicken and vermicelli soup
 <en:Reheatable soups
 en:Reheatable chicken and vermicelli soup
-fr:Soupe à la volaille et aux vermicelles à réchauffer
+fr:Soupes à la volaille et aux vermicelles à réchauffer
 agribalyse_food_code:en:25908
 ciqual_food_code:en:25908
 ciqual_food_name:en:Soup, chicken and vermicelli, prepacked, to be reheated
 ciqual_food_name:fr:Soupe à la volaille et aux vermicelles, préemballée à réchauffer
 
 <en:Soups
-en:Tomato and vermicelli soup
-fr:Soupe à la tomate et aux vermicelles
+en:Tomato and vermicelli soups
+fr:Soupes à la tomate et aux vermicelles
 
-<en:tomato and vermicelli soup
+<en:Tomato and vermicelli soups
 <en:Dehydrated soups
 en:Dehydrated tomato and vermicelli soup
-fr:Soupe à la tomate et aux vermicelles déshydratée
+fr:Soupes à la tomate et aux vermicelles déshydratée
 agribalyse_food_code:en:25949
 ciqual_food_code:en:25949
 ciqual_food_name:en:Soup, tomato and vermicelli, dehydrated and reconstituted
@@ -57626,6 +57638,9 @@ it:Preparati di pollo
 <en:Chicken preparations
 en:Breaded chicken
 fr:Poulets panés, Poulet pané
+agribalyse_proxy_food_code:en:25512
+agribalyse_proxy_food_code:en:25512
+agribalyse_proxy_food_name:en:Poultry nuggets
 
 <en:Breaded products
 <en:Meat preparations
@@ -63665,7 +63680,7 @@ ciqual_food_name:en:Soup, Asian-style with noodles, prepacked, to be reheated
 <en:Instant noodle soups
 <en:Dehydrated soups
 en:Dehydrated Asian-style soup with noodles
-fr:Soupe de pâtes asiatique déshydratée
+fr:Soupes de pâtes asiatique déshydratée
 agribalyse_food_code:en:25923
 ciqual_food_code:en:25923
 ciqual_food_name:en:Soup, Asian-style with noodles, dehydrated and reconstituted
@@ -63812,7 +63827,7 @@ ciqual_food_name:fr:Biscuit sec fourré fruits à coque (non ou légèrement cho
 
 <en:Filled biscuits
 en:Biscuit filled with fruit paste, Biscuit filled with fruit puree
-fr:Biscuit sec fourré à la pâte de fruits, Biscuit sec fourré à la purée de fruits
+fr:Biscuits sec fourré à la pâte de fruits, Biscuit sec fourré à la purée de fruits
 agribalyse_food_code:en:24037
 ciqual_food_code:en:24037
 ciqual_food_name:en:Biscuit (cookie) filled with fruit paste or fruit puree
