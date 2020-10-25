@@ -53939,12 +53939,16 @@ nl:Groentencakes
 
 <en:Prepared vegetables
 <en:Frozen foods
-en:Frozen pre-fried vegetable rosti
+en:Frozen vegetable rosti, Frozen pre-fried vegetable rosti
 fr:Palets de légumes préfrits surgelés, Galettes de légumes préfrites surgelées
 agribalyse_food_code:en:25199
 ciqual_food_code:en:25199
 ciqual_food_name:en:Vegetable rosti, pre-fried, frozen
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé
+
+<en:Frozen vegetable rosti
+en:Frozen Rostis, Frozen Potatoes cakes, Frozen Potato cakes
+fr:Rostis surgelés, Galette de pomme de terre surgelée, Galette de pommes de terre surgelées
 
 <en:Prepared vegetables
 <en:Frozen foods
@@ -56498,6 +56502,9 @@ fi:jauhelihapihvit
 fr:Steaks de bœuf hachés, steaks hachés de bœuf, Steak de bœuf haché, steak haché de bœuf
 it:Hamburger di manzo
 nl:Rundertartaarsteaks
+agribalyse_proxy_food_code:en:6250
+agribalyse_proxy_food_name:en:Beef, minced steak, 5% fat, raw
+agribalyse_proxy_food_name:fr:Bœuf, steak haché 5% MG, cru
 
 <en:Ground beef steaks
 en:Cooked ground beef steaks
@@ -56506,21 +56513,22 @@ ciqual_food_code:en:6259
 ciqual_food_name:en:Beef, ground, cooked (average)
 ciqual_food_name:fr:Bœuf, steak haché, cuit (aliment moyen)
 
+<en:Ground beef steaks
+en:Minced beef steak with 5% fat
+fr:Steak haché de bœuf à 5% de matières grasses
+agribalyse_food_code:en:6250
+ciqual_food_code:en:6250
+ciqual_food_name:en:Beef, minced steak, 5% fat, raw
+ciqual_food_name:fr:Bœuf, steak haché 5% MG, cru
+
 <en:Cooked ground beef steaks
+<en:Minced beef steak with 5% fat
 en:Cooked minced beef steak with 5% fat
 fr:Steak haché de bœuf cuit à 5% de matières grasses
 agribalyse_food_code:en:6251
 ciqual_food_code:en:6251
 ciqual_food_name:en:Beef, minced steak, 5% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 5% MG, cuit
-
-<en:Ground beef steaks
-en:minced beef steak with 5% fat
-fr:Steak haché de bœuf à 5% de matières grasses
-agribalyse_food_code:en:6250
-ciqual_food_code:en:6250
-ciqual_food_name:en:Beef, minced steak, 5% fat, raw
-ciqual_food_name:fr:Bœuf, steak haché 5% MG, cru
 
 <en:Ground beef steaks
 en:Minced beef steak with 10% fat, minced beef steak with 10% fat
@@ -56540,14 +56548,15 @@ ciqual_food_name:en:Beef, minced steak, 10% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 10% MG, cuit
 
 <en:Ground beef steaks
-en:Minced beef steak with 15% fat, minced beef steak with 15% fat
-fr:Steak haché de bœuf à 15% de matières grasses, Steak haché de bœuf à 15% de matières grasses
+en:Minced beef steak with 15% fat
+fr:Steak haché de bœuf à 15% de matières grasses
 agribalyse_food_code:en:6254
 ciqual_food_code:en:6254
 ciqual_food_name:en:Beef, minced steak, 15% fat, raw
 ciqual_food_name:fr:Bœuf, steak haché 15% MG, cru
 
 <en:Cooked ground beef steaks
+<en:Minced beef steak with 15% fat
 en:Cooked minced beef steak with 15% fat
 fr:Steak haché de bœuf cuit à 15% de matières grasses
 agribalyse_food_code:en:6255
@@ -56556,8 +56565,8 @@ ciqual_food_name:en:Beef, minced steak, 15% fat, cooked
 ciqual_food_name:fr:Bœuf, steak haché 15% MG, cuit
 
 <en:Ground beef steaks
-en:Minced beef steak with 20% fat,minced beef steak with 20% fat
-fr:Steak haché de bœuf à 20% de matières grasses, Steak haché de bœuf à 20% de matières grasses
+en:Minced beef steak with 20% fat
+fr:Steak haché de bœuf à 20% de matières grasses
 agribalyse_food_code:en:6256
 ciqual_food_code:en:6256
 ciqual_food_name:en:Beef, minced steak, 20% fat, raw
@@ -56963,14 +56972,30 @@ ciqual_food_name:en:Pork trotters salt-cured
 ciqual_food_name:fr:Pied de porc demi-sel
 
 <en:Pork meat
-en:Rindless pork jowl, rindless pork jowl
-fr:Gorge de porc découennée, Gorge de porc découennée
+en:Pork jowl
+fr:Gorges de porc
+agribalyse_proxy_food_code:en:28471
+agribalyse_proxy_food_name:en:Pork, jowl, rindless, raw
+agribalyse_proxy_food_name:fr:Porc, gorge, découennée, crue
+
+<en:Pork meat
+en:Rindless pork jowl
+fr:Gorge de porc découennée
 agribalyse_food_code:en:28471
 ciqual_food_code:en:28471
 ciqual_food_name:en:Pork, jowl, rindless, raw
 ciqual_food_name:fr:Porc, gorge, découennée, crue
 
+<en:Pork
+en:Pork liver
+fr:Foie de porc
+agribalyse_food_code:en:40119
+ciqual_food_code:en:40119
+ciqual_food_name:en:Liver, pork, raw
+ciqual_food_name:fr:Foie, porc, cru
+
 <en:Cooked pork meat
+<en:Pork liver
 en:Cooked pork liver
 fr:Foie de porc cuit
 agribalyse_food_code:en:40113
@@ -56979,11 +57004,12 @@ ciqual_food_name:en:Liver, pork, cooked
 ciqual_food_name:fr:Foie, porc, cuit
 
 <en:Pork
-en:Pork liver mousse superior quality
-fr:Mousse de foie de porc supérieure
-agribalyse_food_code:en:8312
-ciqual_food_code:en:8312
-ciqual_food_name:en:Pork liver mousse, superior quality
+en:Preserved pork liver
+fr:Confit de foie de porc
+agribalyse_food_code:en:8120
+ciqual_food_code:en:8120
+ciqual_food_name:en:Preserved pork liver
+ciqual_food_name:fr:Confit de foie de porc
 
 <en:Pork
 en:Pork liver mousse
@@ -56991,6 +57017,13 @@ fr:Mousse de foie de porc
 agribalyse_food_code:en:8313
 ciqual_food_code:en:8313
 ciqual_food_name:en:Pork liver mousse
+
+<en:Pork liver mousse
+en:Pork liver mousse superior quality
+fr:Mousse de foie de porc supérieure
+agribalyse_food_code:en:8312
+ciqual_food_code:en:8312
+ciqual_food_name:en:Pork liver mousse, superior quality
 
 <en:Pork
 en:Salt-cured pork ear
@@ -57205,22 +57238,6 @@ fr:Cœur de porc
 hu:Disznó szív
 it:Cuore di maiale
 zh:猪心
-
-<en:Pork
-en:Pork liver
-fr:Foie de porc
-agribalyse_food_code:en:40119
-ciqual_food_code:en:40119
-ciqual_food_name:en:Liver, pork, raw
-ciqual_food_name:fr:Foie, porc, cru
-
-<en:Pork
-en:Preserved pork liver
-fr:Confit de foie de porc
-agribalyse_food_code:en:8120
-ciqual_food_code:en:8120
-ciqual_food_name:en:Preserved pork liver
-ciqual_food_name:fr:Confit de foie de porc
 
 <en:Pork
 en:Pork heart
@@ -60128,6 +60145,13 @@ agribalyse_food_code:en:8305
 ciqual_food_code:en:8305
 ciqual_food_name:en:Pork liver pâté
 
+<en:Pork liver Pâtés
+en:Pork liver pâté superior quality
+fr:Pâté de foie de porc supérieur
+agribalyse_food_code:en:8300
+ciqual_food_code:en:8300
+ciqual_food_name:en:Pork liver pâté, superior quality
+
 #According to french regulation, pâté de campagne contains only pork meat. Some additives are banned.
 <en:Pork Pâtés
 en:Country-style Pâtés, terrine
@@ -60139,13 +60163,6 @@ nl:Landelijke pasteien
 agribalyse_food_code:en:8211
 ciqual_food_code:en:8211
 ciqual_food_name:en:Country-style pâté or terrine
-
-<fr:Pâté
-en:Pork liver pâté superior quality
-fr:Pâté de foie de porc supérieur
-agribalyse_food_code:en:8300
-ciqual_food_code:en:8300
-ciqual_food_name:en:Pork liver pâté, superior quality
 
 <fr:Pâté
 en:Breton pâté
