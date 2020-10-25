@@ -4339,6 +4339,16 @@ es:Zumos de manzana exprimidos refrigerados
 nl:Gekoelde geperste appelsappen, Gekoeld geperst appelsap
 
 <en:Apple juices
+en:Sparkling apple juices
+fr:Jus de pomme pétillants, Jus de pomme gazeux
+
+<en:Apple nectars
+en:Sparkling apple nectars
+
+<en:Sparkling apple nectars
+de:Apfelschorle, Apfelsaftschorle
+
+<en:Apple juices
 <en:Squeezed juices
 en:Squeezed apple juices, Pressed apple juices, Non-refrigerated squeezed apple juices, Non-refrigerated pressed apple juices, Pure apple juice
 de:Apfeldirektsäfte
@@ -27417,16 +27427,16 @@ zh:鱼卵, 鱼子
 
 <en:Fish eggs
 <en:Semi-preserved foods
-en:Semi-preserved salmon roe
-fr:Oeufs de saumon en semi-conserve
+en:Salmon roe, Semi-preserved salmon roe
+fr:Oeufs de saumon, Oeufs de saumon en semi-conserve
 ciqual_food_code:en:26275
 ciqual_food_name:en:Salmon roe, semi-preserved
 ciqual_food_name:fr:Oeufs de saumon, semi-conserve
 
 <en:Fish eggs
 <en:Semi-preserved foods
-en:Semi-preserved smoked cod roe
-fr:Oeufs de cabillaud fumés en semi-conserve
+en:Smoked cod roe, Semi-preserved smoked cod roe
+fr:Oeufs de cabillaud, Oeufs de cabillaud fumés en semi-conserve
 ciqual_food_code:en:26056
 ciqual_food_name:en:Cod roe, smoked, semi-preserved
 ciqual_food_name:fr:Oeufs de cabillaud, fumés, semi-conserve
@@ -27461,15 +27471,6 @@ agribalyse_food_code:en:25019
 ciqual_food_code:en:25019
 ciqual_food_name:en:Ravioli filled with meat, in tomato sauce, canned
 ciqual_food_name:fr:Ravioli à la viande, sauce tomate, appertisé
-
-<en:Canned raviolis
-<en:Ravioli with vegetables
-en:Canned ravioli filled with vegetables in tomato sauce
-fr:Raviolis aux légumes sauce tomate appertisés
-agribalyse_food_code:en:25192
-ciqual_food_code:en:25192
-ciqual_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
-ciqual_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
 
 <en:Meals
 <en:Canned foods
@@ -47636,7 +47637,7 @@ agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous o
 agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:Salts
-en:Himalaya salts
+en:Himalaya salts, himalayan salts
 de:Himalaya-Salze
 es:Sal del himalaya
 fi:Himalajan suolat
@@ -49322,6 +49323,9 @@ fi:tuliset kastikkeet
 fr:Sauces pimentées, Sauce pimentée, Sauces au piment, Sauce au piment
 it:Salse pigmentate
 nl:Pikante sauzen
+
+<en:Pimented sauces
+fr:sauces sriracha
 
 <en:Sauces
 en:Hot sauces, Chili sauces
@@ -58498,7 +58502,7 @@ ciqual_food_name:fr:Dinde, escalope, rôtie/cuite au four
 
 <en:Cooked poultries
 <en:Turkey cutlets
-fr:Escalopes de dinde à la milanaise
+fr:Escalopes de dinde à la milanaise, escalopes milanaises
 ciqual_food_code:en:36318
 ciqual_food_name:en:Milanese-style turkey escalope or breaded veal escalope
 
@@ -60573,6 +60577,9 @@ nl:Schapevlezen
 zh:羊肉, 羊, 羊羔, 羊羔肉
 
 <en:Lamb meat
+fr:Souris d'agneau
+
+<en:Lamb meat
 en:Cooked lamb meat
 fr:Viandes d'agneau cuites, Viande d'agneau cuite
 ciqual_food_code:en:21523
@@ -60628,71 +60635,6 @@ ciqual_food_code:en:21500
 ciqual_food_name:en:Lamb, cutlet, raw
 ciqual_food_name:fr:Agneau, côtelette, crue
 
-<en:Lamb meat
-en:Orkney lamb
-protected_name_file_number:en: PDO-GB-0273
-protected_name_type:en: pdo
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Scotch Lamb
-protected_name_file_number:en: PGI-GB-0275
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Shetland Lamb
-protected_name_file_number:en: PDO-GB-0276
-protected_name_type:en: pdo
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Comeragh Mountain Lamb
-protected_name_file_number:en: PGI-IE-02496
-protected_name_type:en: pgi
-origins:en: en:Ireland
-
-<en:Lamb meat
-en:Connemara Hill Lamb, Uain Sléibhe Chonamara
-protected_name_file_number:en: PGI-IE-0366
-protected_name_type:en: pgi
-origins:en: en:Ireland
-
-<en:Lamb meat
-en:Gower Salt Marsh Lamb
-protected_name_file_number:en: PDO-GB-02452
-protected_name_type:en: pdo
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Cambrian Mountains Lamb
-protected_name_file_number:en: PDO-GB-2285
-protected_name_type:en: pdo
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Welsh Lamb
-protected_name_file_number:en: PGI-GB-0081, PGI-GB-0081-AM01
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:West Country Lamb
-protected_name_file_number:en: PGI-GB-0667
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-en:Isle of Man Manx Loaghtan Lamb
-protected_name_file_number:en: PDO-GB-0340
-protected_name_type:en: pdo
-origins:en: en:United Kingdom
-
-<en:Lamb meat
-sv:Hånnlamb
-protected_name_file_number:en: PDO-SE-01327
-protected_name_type:en: pdo
-origins:en: en:Sweden
 
 <en:Lamb meat
 en:Lamb sweetbread
@@ -60830,74 +60772,6 @@ ciqual_food_name:en:Lamb on skewer
 ciqual_food_name:fr:Brochette d'agneau
 
 <en:Lamb meat
-fr:Agneau de lait des Pyrénées
-protected_name_file_number:en: PGI-FR-0665
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau de l'Aveyron
-wikidata:en:Q2826914
-protected_name_file_number:en: PGI-FR-0186
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau de Lozère
-wikidata:en:Q21426914
-protected_name_file_number:en: PGI-FR-0501
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau de Pauillac
-wikidata:en:Q2826915
-protected_name_file_number:en: PGI-FR-0178
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau de Sisteron
-wikidata:en:Q2826916
-protected_name_file_number:en: PGI-FR-0316
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau du Bourbonnais
-wikidata:en:Q21426915
-protected_name_file_number:en: PGI-FR-0182
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau du Limousin
-wikidata:en:Q2826917
-protected_name_file_number:en: PGI-FR-0064
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau du Périgord
-protected_name_file_number:en: PGI-FR-0711
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau du Poitou-Charentes
-wikidata:en:Q2826918
-protected_name_file_number:en: PGI-FR-9177
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
-fr:Agneau du Quercy
-wikidata:en:Q2826919
-protected_name_file_number:en: PGI-FR-0185
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:Lamb meat
 en:Lamb brain
 fr:Cervelle d'agneau
 agribalyse_food_code:en:40002
@@ -60997,6 +60871,144 @@ ciqual_food_code:en:21505
 ciqual_food_name:en:Lamb, shoulder, lean, raw
 ciqual_food_name:fr:Agneau, épaule, maigre, crue
 
+# PGI lambs
+
+<en:Lamb meat
+en:Orkney lamb
+protected_name_file_number:en: PDO-GB-0273
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Scotch Lamb
+protected_name_file_number:en: PGI-GB-0275
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Shetland Lamb
+protected_name_file_number:en: PDO-GB-0276
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Comeragh Mountain Lamb
+protected_name_file_number:en: PGI-IE-02496
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
+<en:Lamb meat
+en:Connemara Hill Lamb, Uain Sléibhe Chonamara
+protected_name_file_number:en: PGI-IE-0366
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
+<en:Lamb meat
+en:Gower Salt Marsh Lamb
+protected_name_file_number:en: PDO-GB-02452
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Cambrian Mountains Lamb
+protected_name_file_number:en: PDO-GB-2285
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Welsh Lamb
+protected_name_file_number:en: PGI-GB-0081, PGI-GB-0081-AM01
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:West Country Lamb
+protected_name_file_number:en: PGI-GB-0667
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+en:Isle of Man Manx Loaghtan Lamb
+protected_name_file_number:en: PDO-GB-0340
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
+
+<en:Lamb meat
+sv:Hånnlamb
+protected_name_file_number:en: PDO-SE-01327
+protected_name_type:en: pdo
+origins:en: en:Sweden
+
+<en:Lamb meat
+fr:Agneau de lait des Pyrénées
+protected_name_file_number:en: PGI-FR-0665
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau de l'Aveyron
+wikidata:en:Q2826914
+protected_name_file_number:en: PGI-FR-0186
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau de Lozère
+wikidata:en:Q21426914
+protected_name_file_number:en: PGI-FR-0501
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau de Pauillac
+wikidata:en:Q2826915
+protected_name_file_number:en: PGI-FR-0178
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau de Sisteron
+wikidata:en:Q2826916
+protected_name_file_number:en: PGI-FR-0316
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau du Bourbonnais
+wikidata:en:Q21426915
+protected_name_file_number:en: PGI-FR-0182
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau du Limousin
+wikidata:en:Q2826917
+protected_name_file_number:en: PGI-FR-0064
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau du Périgord
+protected_name_file_number:en: PGI-FR-0711
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau du Poitou-Charentes
+wikidata:en:Q2826918
+protected_name_file_number:en: PGI-FR-9177
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Lamb meat
+fr:Agneau du Quercy
+wikidata:en:Q2826919
+protected_name_file_number:en: PGI-FR-0185
+protected_name_type:en: pgi
+origins:en: en:France
+
+# Lamb dishes
+
 <en:Lamb meat
 en:Stewed lamb garnished with potatoes and other vegetables
 fr:Navarin d'agneau aux légumes
@@ -61004,6 +61016,8 @@ agribalyse_food_code:en:25124
 ciqual_food_code:en:25124
 ciqual_food_name:en:Stewed lamb garnished with potatoes and other vegetables
 ciqual_food_name:fr:Navarin d'agneau aux légumes
+
+# Pork
 
 <en:Pork
 en:Bacon, Pork bacon
@@ -61355,8 +61369,9 @@ ciqual_food_name:en:Veal, escalope, cooked
 ciqual_food_name:fr:Veau, escalope, cuite
 
 <en:Cooked veal meat
-en:Cooked veal bread escalopes
-fr:Escalopes panées de veau cuites
+<en:Veal escalopes
+en:Breaded veal escalopes
+fr:Escalopes de veau panées, Escalopes panées de veau 
 agribalyse_food_code:en:25173
 ciqual_food_code:en:25173
 ciqual_food_name:en:Veal, bread escalope, cooked
@@ -61498,7 +61513,6 @@ ciqual_food_name:en:Venison (hart), roasted/baked
 ciqual_food_name:fr:Cerf, rôti/cuit au four
 
 
-
 en:Mountain products
 de:Produkte von den Bergen, Bergprodukte, Gebirgsprodukte, Von den Bergen, Aus den Bergen, Aus dem Gebirge
 es:Productos de montaña
@@ -61546,7 +61560,6 @@ protected_name_type:en: pgi
 agribalyse_food_code:en:12759
 ciqual_food_code:en:12759
 ciqual_food_name:en:Tomme cheese, from mountain or Savoy
-
 
 <fr:Tommes
 fr:Tomme de Suisse, Tommes de Suisse
@@ -62699,7 +62712,7 @@ it:Pasta di mais
 nl:Maispastas
 
 <en:Pastas
-en:Durum wheat pasta
+en:Durum wheat pasta, Wheat pasta
 ca:Pasta de blat dur
 de:Hartweizenteigwaren, Nudelprodukte aus Hartweizen
 es:Pasta de trigo duro
@@ -63171,8 +63184,25 @@ fr:Ravioli à la viande
 
 <en:ravioli
 <en:Pasta stuffed with vegetables
-en:Ravioli filled with vegetables
-fr:Raviolis aux légumes
+en:Ravioli with vegetables, Vegetable ravioli, Ravioli filled with vegetables
+de:Gemüseravioli, Gemüse-Ravioli
+fi:Raviolia kasviksilla
+fr:Raviolis aux légumes, Ravioli aux légumes, Raviolis légumes, Ravioli légumes
+hu:Zöldséges ravioli, Ravioli zöldséggel
+it:Ravioli con ripieno vegetale
+nl:Groenteraviolis
+agribalyse_proxy_food_code:en:25192
+agribalyse_proxy_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
+agribalyse_proxy_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
+
+<en:Canned raviolis
+<en:Ravioli with vegetables
+en:Canned vegetable ravioli, Canned ravioli filled with vegetables in tomato sauce
+fr:Raviolis aux légumes en conserve, Raviolis aux légumes sauce tomate en conserve, Raviolis aux légumes sauce tomate appertisés
+agribalyse_food_code:en:25192
+ciqual_food_code:en:25192
+ciqual_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
+ciqual_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
 
 <en:Meat ravioli
 <en:Poultry meals
@@ -63268,18 +63298,6 @@ de:Steinpilzravioli, Steinpilz-Ravioli
 fr:Ravioli aux cèpes, Raviolis aux cèpes, Ravioli cèpes, Raviolis cèpes
 hu:Vargánya gombás ravioli, Ravioli vargánya gombával
 nl:Eekhoorntjesbroodraviolis
-
-<en:Pasta stuffed with vegetables
-en:Ravioli with vegetables, Vegetable ravioli
-de:Gemüseravioli, Gemüse-Ravioli
-fi:Raviolia kasviksilla
-fr:Ravioli aux légumes, Raviolis légumes, Ravioli légumes
-hu:Zöldséges ravioli, Ravioli zöldséggel
-it:Ravioli con ripieno vegetale
-nl:Groenteraviolis
-agribalyse_proxy_food_code:en:25192
-agribalyse_proxy_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
-agribalyse_proxy_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
 
 <en:Pastas
 en:Chinese pasta
@@ -63788,7 +63806,6 @@ agribalyse_food_code:en:24038
 ciqual_food_code:en:24038
 ciqual_food_name:en:Biscuit (cookie), chocolate covering
 
-
 # TODO FIXME
 
 #<en:Biscuits and cakes
@@ -64076,7 +64093,6 @@ agribalyse_food_code:en:23033
 ciqual_food_code:en:23033
 ciqual_food_name:en:Rock-shaped coconut cake
 ciqual_food_name:fr:Rocher coco, Congolais, Petit gâteau à la noix de coco
-
 
 <en:Pastries
 en:Chou pastry with praline flavoured creme
@@ -64464,7 +64480,6 @@ agribalyse_food_code:en:24663
 ciqual_food_code:en:24663
 ciqual_food_name:en:Peer tart with almonds
 ciqual_food_name:fr:Tarte aux poires amandine
-
 
 <en:Sweet pies
 en:Pies from Normandy, Apple pie with custard and flour and eggs and cream and sugar and apple and alcohol
@@ -65963,6 +65978,9 @@ ciqual_food_code:en:10038
 ciqual_food_name:en:Shrimp, frozen, raw
 ciqual_food_name:fr:Crevette, surgelée, crue
 
+<en:shrimps
+fr:Crevettes butterfly
+
 <en:Shrimps
 en:Shrimps tails
 fi:katkaravun pyrstöt
@@ -66920,7 +66938,6 @@ ciqual_food_code:en:26127
 ciqual_food_name:en:Conger, raw
 ciqual_food_name:fr:Congre, cru
 cooking_method:en en:raw
-
 
 <en:Fishes
 en:Roundnose grenadier
@@ -68715,6 +68732,10 @@ ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 # strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
 # we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
 
+<en:Jams
+en:Fruit jams
+fr:Confitures de fruits
+
 <en:Artisan products
 <en:Jams
 en:Artisan jams
@@ -70449,7 +70470,6 @@ ciqual_food_code:en:31067
 ciqual_food_name:en:Cane molasses
 ciqual_food_name:fr:Mélasse de canne
 
-
 <en:Fruits and vegetables based foods
 en:Vegetables based foods, Vegetables
 ca:Aliments amb base de verdures
@@ -70595,7 +70615,6 @@ agribalyse_food_code:en:20067
 ciqual_food_code:en:20067
 ciqual_food_name:en:Artichoke, canned, drained
 ciqual_food_name:fr:Artichaut, appertisé, égoutté
-
 
 <en:Canned artichokes
 <en:Artichoke hearts
@@ -71602,7 +71621,6 @@ ciqual_food_code:en:20008
 ciqual_food_name:en:Carrot, cooked
 ciqual_food_name:fr:Carotte, cuite
 
-
 <en:Carrots
 <en:Fresh vegetables
 en:Fresh carrots
@@ -71931,7 +71949,6 @@ agribalyse_food_code:en:20163
 ciqual_food_code:en:20163
 ciqual_food_name:en:Green endive, raw
 ciqual_food_name:fr:Chicorée verte, crue
-
 
 # description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 
@@ -72936,7 +72953,6 @@ fr:Courges spaghetti
 nl:Spaghettipompoenen
 wikidata:en:Q2142043
 
-
 # description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 
 # <en:vegetable
@@ -73659,7 +73675,6 @@ ciqual_food_name:fr:Légumes pour potages, surgelés, crus
 
 <en:Fresh vegetable mixes
 es:Mezclas de verduras y hortalizas para gazpacho
-
 
 en:Salads
 ca:Amanides
@@ -80280,8 +80295,8 @@ hu:Kínai ravioli
 nl:Chinese ravioli
 
 <en:Ravioli
-en:Japanese ravioli
-fr:Ravioli japonais
+en:Japanese ravioli, Gyoza
+fr:Ravioli japonais, Gyoza
 
 <en:Japanese ravioli
 en:Vegetable gyoza
