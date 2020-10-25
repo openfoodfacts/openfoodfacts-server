@@ -37321,6 +37321,9 @@ la:Anacardium occidentale
 nl:Cashewnoten
 pt:Castanha de caju
 wikidata:en:Q34007
+agribalyse_proxy_food_code:en:15019
+agribalyse_proxy_food_code:en:15019
+agribalyse_proxy_food_name:en:Cashew nut, grilled, salted
 
 <en:Nuts
 en:Chestnuts
@@ -37398,6 +37401,7 @@ ciqual_food_code:en:15004
 ciqual_food_name:en:Hazelnut
 
 <en:Hazelnuts
+en:Hazelnuts powder
 fr:Noisettes en poudre
 
 <en:Hazelnuts
@@ -37510,7 +37514,6 @@ wikidata:en:Q37383
 agribalyse_food_code:en:15001
 ciqual_food_code:en:15001
 ciqual_food_name:en:Peanut
-
 
 <en:Peanuts
 en:Unshelled peanuts
@@ -37625,6 +37628,9 @@ la:Pistacia vera
 nl:Pistachenoten
 sv:Pistaschnötter, pistaschnöt
 wikidata:en:Q19958754
+agribalyse_proxy_food_code:en:15044
+agribalyse_proxy_food_code:en:15044
+agribalyse_proxy_food_name:en:Pistachio nut, grilled
 
 <en:Pistachios
 <en:Shelled nuts
@@ -37914,12 +37920,22 @@ es:Mantecas de pistachos
 fr:Beurres de pistaches
 it:Burri di pistacchio
 nl:Pistachenotenpasta's
+agribalyse_proxy_food_code:en:15202
+agribalyse_proxy_food_name:en:Peanut butter or peanut paste
+agribalyse_proxy_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
+
+# Reason: pistachios, walnuts and peanuts have roughly the same score. Almonds don't.
 
 <en:Nut butters
 en:Walnut butters
 es:Mantecas de nueces
 fr:Beurres de noix
 nl:Walnotenpasta's
+agribalyse_proxy_food_code:en:15202
+agribalyse_proxy_food_name:en:Peanut butter or peanut paste
+agribalyse_proxy_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
+
+# Reason: pistachios, walnuts and peanuts have roughly the same score. Almonds don't.
 
 <en:Nuts and their products
 <en:Plant-based spreads
@@ -37974,7 +37990,7 @@ nl:Kastanjes op siroop
 
 <en:Canned nuts
 en:Canned chestnut
-fr:Marrons en conserve, Marron en conserve
+fr:Marrons en conserve
 agribalyse_food_code:en:15039
 ciqual_food_code:en:15039
 ciqual_food_name:en:Chestnut, canned
@@ -38620,6 +38636,8 @@ sv:Ägg
 zh:鸟蛋, 蛋
 wikidata:en:Q659503
 pnns_group_2:en:Eggs
+# chicken egg as a proxy
+agribalyse_proxy_food_code:en:22000
 
 <en:Eggs
 en:Fresh eggs
@@ -39091,6 +39109,15 @@ nl:Gezouten margarine
 en:Margarines high in omega 3
 fr:Margarines riche en oméga 3
 
+<en:Margarines
+en:Light margarines
+de:Halbfettmargarinen
+es:Margarinas ligeras, Margarinas light
+fi:kevytmargariinit
+fr:Margarines allégées
+it:Margarina light, Margarina leggera
+nl:Light margarines
+
 <en:Light margarines
 <en:Unsalted margarines
 en:Light unsalted margarines, Light unsalted spreadable vegetable fat, Unsalted spreadfat
@@ -39234,15 +39261,6 @@ ciqual_food_name:en:Solid vegetable fat (margarine type), for frying
 ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
 
 <en:Margarines
-en:Light margarines
-de:Halbfettmargarinen
-es:Margarinas ligeras, Margarinas light
-fi:kevytmargariinit
-fr:Margarines allégées
-it:Margarina light, Margarina leggera
-nl:Light margarines
-
-<en:Margarines
 de:Dreiviertelfettmargarinen
 
 <en:Vegetable fats
@@ -39317,7 +39335,6 @@ agribalyse_food_code:en:16128
 ciqual_food_code:en:16128
 ciqual_food_name:en:Frying oil
 ciqual_food_name:fr:Huile pour friture, sans précision
-
 
 <en:Cereals and their products
 <en:Vegetable oils
@@ -39496,7 +39513,6 @@ agribalyse_food_code:en:17350
 ciqual_food_code:en:17350
 ciqual_food_name:en:Grapeseed oil
 ciqual_food_name:fr:Huile de pépins de raisin
-
 
 <en:Fruit and fruit seed oils
 en:Watermelon seed oils
@@ -39803,7 +39819,6 @@ protected_name_file_number:en: PDO-FR-0441
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nîmes
 
-
 <en:Olive oils from France
 en:Olive oil from Nyons
 fr:Huile d'olive de Nyons
@@ -39875,7 +39890,6 @@ agribalyse_food_code:en:16150
 ciqual_food_code:en:16150
 ciqual_food_name:en:Palm oil, refined
 
-
 <en:Vegetable oils
 en:Poppyseed oils, Poppy seed oils, Poppy oils
 de:Mohnöle
@@ -39928,6 +39942,7 @@ ciqual_food_name:fr:Huile de paraffine
 
 <en:Fats
 en:British oils and fats
+fr:Huiles et graisses britanniques
 
 <en:British oils and fats
 <en:Rapeseed oils
@@ -39945,6 +39960,7 @@ origins:en: en:United Kingdom
 
 <en:Fats
 en:Austrian oils and fats
+fr:Huiles et graisses autrichiennes
 
 <en:Austrian oils and fats
 <en:Pumpkin seed oils
@@ -39955,6 +39971,7 @@ origins:en: en:Austria
 
 <en:Fats
 en:Spanish oils and fats
+fr:Huiles et graisses espagnoles
 
 <en:Spanish oils and fats
 es:Aceite del Bajo Aragón
@@ -40391,6 +40408,7 @@ en:Cereals with fruits
 fr:Céréales aux fruits
 
 <en:Cereals with fruits
+<en:Cereal flakes
 en:Cereal flakes with fruits
 fr:Pétales de céréales aux fruits
 
@@ -40404,6 +40422,7 @@ it:Cereali al cioccolato
 nl:Chocolade ontbijtgranen
 
 <en:Chocolate cereals
+<en:Cereal flakes
 en:Cereal flakes with chocolate
 fr:Pétales de céréales au chocolat
 
