@@ -37356,8 +37356,8 @@ fr:Châtaignes décortiquées
 nl:Gepelde kastanjes
 
 <en:Chestnuts
-en:Chestnut boiled/cooked in water
-fr:Châtaigne bouillie/cuite à l'eau
+en:Boiled Chestnuts, Chestnut cooked in water
+fr:Châtaigne bouillie, Châtaigne cuite à l'eau
 agribalyse_food_code:en:15020
 ciqual_food_code:en:15020
 ciqual_food_name:en:Chestnut, boiled/cooked in water
@@ -59354,6 +59354,13 @@ ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
 
 <en:Sausages
+en:Pork sausages
+fr:Saucisses de porc, Saucisses au porc
+agribalyse_proxy_food_code:en:30051
+agribalyse_proxy_food_name:en:Sausage meat, pure pork, raw
+agribalyse_proxy_food_name:fr:Chair à saucisse, pur porc, crue
+
+<en:Pork sausages
 en:Sausage meat with pure pork
 fr:Chair à saucisse pur porc
 agribalyse_food_code:en:30051
@@ -59361,7 +59368,7 @@ ciqual_food_code:en:30051
 ciqual_food_name:en:Sausage meat, pure pork, raw
 ciqual_food_name:fr:Chair à saucisse, pur porc, crue
 
-<en:Sausages
+<en:Pork sausages
 en:Ham sausages, Ham sausage
 fr:Saucisses de jambon pur porc, Saucisse de jambon pur porc
 agribalyse_food_code:en:30764
@@ -59549,7 +59556,7 @@ ciqual_food_name:en:Merguez sausage, pork and beef, raw
 ciqual_food_name:fr:Merguez, porc et bœuf, crue
 
 <en:Sausages
-en:Saveloy, Cervelat
+en:Cervelat, Saveloy
 de:Zervelatwurst
 fr:Cervelas
 wikidata:en:Q673154
@@ -59558,7 +59565,7 @@ ciqual_food_code:en:30730
 ciqual_food_name:en:Saveloy or cervelat
 ciqual_food_name:fr:Cervelas
 
-<en:Sausages
+<en:Cervelat
 en:Saveloy from Obernai Alsace, Cervelas from Obernai Alsace
 fr:Cervelas d'Alsace, cervelas obernois, Cervelas à l'alsacienne
 agribalyse_food_code:en:30731
@@ -59566,7 +59573,7 @@ ciqual_food_code:en:30731
 ciqual_food_name:en:Saveloy or cervelat (from Obernai Alsace)
 ciqual_food_name:fr:Cervelas obernois
 
-<en:Sausages
+<en:Cervelat
 en:Pure pork saveloy with garlic, Pure pork cervelat with garlic
 fr:Cervelas à l'ail pur porc
 agribalyse_food_code:en:30732
@@ -59659,7 +59666,6 @@ nl:Franse worsten
 pt:Salsichas francesas, Salsichas da França
 zh:法国香肠
 
-
 <fr:Charcuteries à teneur réduite en sel
 <fr:Knacks industrielles
 fr:Knacks industrielles à teneur réduite en sel, Knackis à teneur réduite en sel
@@ -59684,6 +59690,14 @@ ciqual_food_name:en:Chipolata slim sausage, raw
 ciqual_food_name:fr:Chipolata, crue
 
 <en:Chipolatas
+en:Cooked chipolata sausages
+fr:Chipolatas cuites
+agribalyse_food_code:en:30005
+ciqual_food_code:en:30005
+ciqual_food_name:en:Chipolata sausage, cooked
+ciqual_food_name:fr:Chipolata, cuite
+
+<en:Chipolatas
 fr:Chipolatas aux herbes, Chipolats herbes
 
 <en:Sausages
@@ -59691,14 +59705,6 @@ fr:Assortiments de saucisses
 
 <fr:Assortiments de saucisses
 fr:Assortiments chipolatas et merguez
-
-<en:Chipolatas
-en:Cooked chipolata sausages
-fr:Chipolatas cuites
-agribalyse_food_code:en:30005
-ciqual_food_code:en:30005
-ciqual_food_name:en:Chipolata sausage, cooked
-ciqual_food_name:fr:Chipolata, cuite
 
 <en:French sausages
 en:Lorrain Sausages
@@ -59725,18 +59731,19 @@ wikidata:en:Q3267151
 fr:Saucisses d'herbe
 
 <en:French sausages
+<en:Liver sausages
 en:Alsatian liver sausages
 fr:Saucisses de foie alsacienne
 
 <en:French sausages
-en:Smoked Alsatian sausage or Landjäger
+en:Smoked Alsatian sausage, Landjäger
 fr:Saucisse alsacienne fumée, Gendarme fumé
 agribalyse_food_code:en:30125
 ciqual_food_code:en:30125
 ciqual_food_name:en:Smoked Alsatian sausage or Landjäger
 
-
 <en:French sausages
+<en:Liver sausages
 en:Liver sausages from Ariége
 fr:Saucisses de foie ariégeoise
 
@@ -59784,7 +59791,7 @@ ciqual_food_name:en:Morteaux sausage
 
 <fr:Charcuteries cuites
 <en:Morteau sausages
-en:Morteaux sausage boiled/cooked in water
+en:Morteaux sausage boiled in water, Morteaux sausage cooked in water
 fr:Saucisse de Morteau bouillie
 agribalyse_food_code:en:30108
 ciqual_food_code:en:30108
@@ -80584,6 +80591,28 @@ nl:Uit de handel genomen voor februari 2013
 <fr:Plats susceptibles de contenir de la viande de cheval
 fr:Plats susceptibles de contenir de la viande de cheval - lots retirés de la vente en février 2013, Plats-susceptibles-de-contenir-de-la-viande-de-cheval-retires-en-fevrier-2013
 
+en:Products with reduced salt
+de:Prudukte mit weniger Salz
+es:Productos con sal reducida
+fi:Tuotteet joissa vähennetty suolaa
+fr:Produits à teneur réduite en sel
+it:Prodotti a basso contenuto di sale
+nl:Producten met minder zout
+
+en:Beware multiple products
+fr:Attention produits multiples
+nl:Let op, meerdere producten
+
+en:Non food products
+de:Non-Food-Produkte, Non Food Produkte
+es:Productos no alimenticios
+fi:ei ruokatuote
+fr:Non alimentaire
+it:Prodotti non alimentari
+nl:Non-food
+ru:Непищевые продукты, Не еда
+
+<en:Non food products
 en:Open Pet Food Facts, OPFF
 fr:Open Pet Food Facts, OPFF
 
@@ -80727,27 +80756,6 @@ ru:корм для пресмыкающихся, корм для рептили�
 en:miscellaneous pet food, miscellaneous animal food
 de:sonstiges Tierfutter
 fr:nourriture pour animaux variés
-
-en:Products with reduced salt
-de:Prudukte mit weniger Salz
-es:Productos con sal reducida
-fi:Tuotteet joissa vähennetty suolaa
-fr:Produits à teneur réduite en sel
-it:Prodotti a basso contenuto di sale
-nl:Producten met minder zout
-
-en:Beware multiple products
-fr:Attention produits multiples
-nl:Let op, meerdere producten
-
-en:Non food products
-de:Non-Food-Produkte, Non Food Produkte
-es:Productos no alimenticios
-fi:ei ruokatuote
-fr:Non alimentaire
-it:Prodotti non alimentari
-nl:Non-food
-ru:Непищевые продукты, Не еда
 
 <en:Non food products
 en:Open Products Facts, OPF
