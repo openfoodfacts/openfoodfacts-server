@@ -45593,14 +45593,6 @@ ciqual_food_code:en:13005
 ciqual_food_name:en:Banana, pulp, raw
 ciqual_food_name:fr:Banane, pulpe, crue
 
-<en:Bananas
-en:Dried banana pulp
-fr:Pulpe de banane sèche
-agribalyse_food_code:en:13089
-ciqual_food_code:en:13089
-ciqual_food_name:en:Banana, pulp, dried
-ciqual_food_name:fr:Banane, pulpe, sèche
-
 <en:Tropical fruits
 en:Chirimuyas, Custard apples, Cherimoyas
 es:Chirimoyas
@@ -46108,6 +46100,14 @@ fr:Bananes séchées, Chips de banane
 it:Banana essiccata, Chips di banana essiccata
 nl:Gedroogde bananen, bananenchips
 ru:Бананы сушёные, сушёные бананы
+agribalyse_food_code:en:13089
+ciqual_food_code:en:13089
+ciqual_food_name:en:Banana, pulp, dried
+ciqual_food_name:fr:Banane, pulpe, sèche
+
+#<en:Bananas
+#en:Dried banana pulp
+#fr:Pulpe de banane sèche
 
 <en:Dried fruits
 en:Dried strawberries
@@ -63142,6 +63142,11 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux 
 <en:Stuffed Pastas
 en:Pasta stuffed with meat
 fr:Pates farcies à la viande
+agribalyse_proxy_food_code:en:25157
+agribalyse_proxy_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
+agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
+
+# I know one counter example of dry pasta stuffed with meat that is not refrigerated but putting a proxy since marginal
 
 <en:ravioli
 <en:Pasta stuffed with meat
@@ -64930,6 +64935,9 @@ en:Turkey sandwiches
 de:Truthahn-Sandwichs, Truthahn-Sandwiches, Puten-Sandwichs, Puten-Sandwiches
 fr:Sandwichs à la dinde
 nl:Kalkoensandwiches
+agribalyse_proxy_food_code:en:25531
+agribalyse_proxy_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
+agribalyse_proxy_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
 <en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
@@ -66063,6 +66071,7 @@ en:Frozen seafood
 de:Gefrorene Meeresfrüchte
 fi:Mereneläväpakasteet
 it:Frutti di mare surgelati
+fr:Fruits de mer surgelés
 
 <en:Frozen seafood
 en:Frozen cooked seafood
@@ -70877,15 +70886,11 @@ nl:Ingemaakte knoflook
 
 <en:Vegetable pickles
 <en:Onions and their products
-en:Pickled onions
+en:Pickled onions, Onions pickled in vinegar
 es:Cebollas encurtidas, Cebollitas encurtidas
 fr:Oignons au vinaigre
 it:Cipolle sottaceto
 nl:Ingemaakte ui
-
-<en:Pickled onions
-en:Onions pickled in vinegar
-fr:Oignons au vinaigre
 ciqual_food_code:en:11055
 ciqual_food_name:en:Onion, pickled in vinegar
 ciqual_food_name:fr:Oignon au vinaigre
@@ -74787,6 +74792,9 @@ fr:Haricots en conserve
 it:Fagioli in scatola
 nl:Gewone bonen in blik
 ru:Бобы в консервах
+agribalyse_proxy_food_code:en:20062
+agribalyse_proxy_food_name:en:French bean, canned, drained
+agribalyse_proxy_food_name:fr:Haricot vert, appertisé, égoutté
 
 <en:Canned common beans
 en:Canned flageolet beans, Canned flageolet beans
