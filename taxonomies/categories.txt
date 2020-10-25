@@ -26685,7 +26685,7 @@ zh:法国糖果
 
 <en:French confectioneries
 en:Confectioneries of Nord-Pas-de-Calais
-de:Konfekt aus  Nord-Pas-de-Calais, Konditorwaren aus  Nord-Pas-de-Calais
+de:Konfekt aus Nord-Pas-de-Calais, Konditorwaren aus Nord-Pas-de-Calais
 fr:Confiseries du Nord-Pas-de-Calais
 nl:Suikergoed uit Nord-Pas-de-Calais in Frankrijk
 
@@ -28991,6 +28991,9 @@ ru:Чипсы
 th:มันฝรั่งทอด
 zh:薯片
 
+<en:Crisps
+fr:Chips de pois chiches
+
 <en:Salty snacks
 en:Vegetables cakes
 fr:Cake aux legumes
@@ -29025,16 +29028,32 @@ nl:Kaaskroketten
 fr:Croquettes aux crevettes
 nl:Garnalenkroketten
 
+<en:Flavoured potato crisps
+en:Prawn cocktail crisps, Prawn crackers
+de:Garnelencocktail Chips
+fr:Chips cocktail de crevettes, Chips de crevette
+nl:Garnalen chips
+agribalyse_food_code:en:38104
+ciqual_food_code:en:38104
+ciqual_food_name:en:Prawn crackers
+ciqual_food_name:fr:Chips de crevette
+
 <en:Crisps
 en:Cassava crisps
 de:Maniok Chips, Cassava Chips
 fr:Chips de manioc
 nl:Kroepoeks cassave, Maniokchips
+agribalyse_proxy_food_code:en:38104
+agribalyse_proxy_food_name:en:Prawn crackers
+agribalyse_proxy_food_name:fr:Chips de crevette
 
 <en:Cassava crisps
 fr:Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes
 de:Krabbenchips, Krupuk
 nl:Garnalenkroepoek
+agribalyse_proxy_food_code:en:38104
+agribalyse_proxy_food_name:en:Prawn crackers
+agribalyse_proxy_food_name:fr:Chips de crevette
 
 <en:Crisps
 en:Parsnip Crisps
@@ -29140,16 +29159,6 @@ fi:maustetut perunalastut
 fr:Chips de pommes de terre aromatisées
 it:Patatine aromatizzate
 nl:Chips met smaak
-
-<en:Flavoured potato crisps
-en:Prawn cocktail crisps, Prawn crackers
-de:Garnelencocktail Chips
-fr:Chips cocktail de crevettes, Chips de crevette
-nl:Garnalen chips
-agribalyse_food_code:en:38104
-ciqual_food_code:en:38104
-ciqual_food_name:en:Prawn crackers
-ciqual_food_name:fr:Chips de crevette
 
 <en:Flavoured potato crisps
 en:Ketchup crisps
@@ -35812,7 +35821,7 @@ en:Caramel yogurts
 de:Karamell-Joghurt
 es:Yogures de caramelo
 fr:Yaourts au caramel
-hu:Karamellás  joghurtok
+hu:Karamellás joghurtok
 it:Yogurt al caramello
 nl:Yoghurt met caramel
 
@@ -40954,7 +40963,7 @@ cs:Kukuřičné lupínky
 de:Cornflakes
 es:Copos de maíz tostado
 fi:maissihiutaleet
-fr:Corn-flakes, pétales de maïs, Corn  flakes
+fr:Corn-flakes, pétales de maïs, Corn flakes
 it:Cornflakes
 nl:Cornflakes
 pl:Płatki kukurydziane
@@ -51486,7 +51495,7 @@ ciqual_food_name:fr:Nem ou Pâté impérial
 <en:Pork meals
 en:Pork nems, Egg roll with cooked pork, Nem with cooked pork
 es:Nems De Cerdo
-fr:Nems au porc, Nem  au porc cuit, Pâté impérial au porc cuit
+fr:Nems au porc, Nem au porc cuit, Pâté impérial au porc cuit
 it:Involtini di maiale
 nl:Varkensloempias
 agribalyse_food_code:en:25583
@@ -51967,6 +51976,7 @@ ru:Блюда с рыбой
 fr:Poisson en sauce et riz
 
 <en:Meals with fish
+<en:Frozen fishes
 en:Frozen fish in sauce
 fr:Poisson en sauce surgelé
 agribalyse_food_code:en:26054
@@ -53795,7 +53805,7 @@ nl:St. Jakobs schelpen
 <en:Salted pies
 en:Flammekueche, Flamed tart, Thin-crusted onion tart with cream and lardoons
 de:Flammkuchen
-fr:Flammekueches, Flammekueche, tarte flambée,  tartes flambées, flamme-küche, flamms, Flammkuchen, Flamenkuches, Tartes flambées aux lardons
+fr:Flammekueches, Flammekueche, tarte flambée, tartes flambées, flamme-küche, flamms, Flammkuchen, Flamenkuches, Tartes flambées aux lardons
 it:Flammkuchen
 nl:Flammekueche
 wikidata:en:Q316849
@@ -53888,6 +53898,7 @@ it:Torte vegetali
 nl:Groentencakes
 
 <en:Prepared vegetables
+<en:Frozen foods
 en:Frozen pre-fried vegetable rosti
 fr:Palets de légumes préfrits surgelés, Galettes de légumes préfrites surgelées
 agribalyse_food_code:en:25199
@@ -53896,6 +53907,7 @@ ciqual_food_name:en:Vegetable rosti, pre-fried, frozen
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé
 
 <en:Prepared vegetables
+<en:Frozen foods
 en:Frozen pre-fried cooked vegetable rosti
 fr:Palets de légumes préfrits cuits surgelés, Galettes de légumes préfrites cuites surgelées
 agribalyse_food_code:en:25208
@@ -54035,6 +54047,7 @@ nl:Kant-en-klaar lasagnas
 #wikidata:en:
 
 <en:Prepared lasagne
+<en:Frozen foods
 en:Frozen lasagne
 de:Tiefkühl-Lasagne
 es:Lasaña congelada
@@ -54702,75 +54715,6 @@ en:Vegetables in a box
 fr:Box de légumes
 
 <en:Meals
-fr:Poêlées, Poêlée
-
-<fr:Poêlées
-fr:Poêlées à la landaise, Poêlée à la landaise
-
-<fr:Poêlées
-fr:Poêlées à la paysanne, Poêlées paysanne, Poêlée à la paysanne, Poêlée paysanne
-
-<fr:Poêlées
-fr:Poêlées à la sarladaise, Poêlée à la sarladaise
-
-<fr:Poêlées
-fr:Poêlées campagnarde, Poêlée campagnarde
-
-<fr:Poêlées
-fr:Poêlées façon kebab, Poêlée façon kebab
-
-<fr:Poêlées
-fr:Poêlées savoyardes
-
-<fr:Poêlées de légumes
-en:Frozen pan-fried vegetables without mushrooms
-fr:Poêlée de légumes assaisonnés surgelée sans champignons
-agribalyse_food_code:en:20262
-ciqual_food_code:en:20262
-ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
-ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
-
-<fr:Poêlées de légumes
-en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
-fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
-agribalyse_food_code:en:20273
-ciqual_food_code:en:20273
-ciqual_food_name:en:Vegetables pan-fried or stir-fried, Asian-style, frozen, raw
-ciqual_food_name:fr:Poêlée de légumes assaisonnés à l'asiatiques ou wok de légumes, surgelée, crue
-
-<fr:Poêlées de légumes
-en:Frozen pan-fried Mediterranean-style grilled vegetables
-fr:Poêlée de légumes assaisonnés grillée méridionale surgelée, Poêlée de légumes assaisonnés grillée méditerranéenne surgelée
-agribalyse_food_code:en:20274
-ciqual_food_code:en:20274
-ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, raw
-ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
-
-<fr:Poêlées de légumes
-en:Frozen pan-fried vegetables  with mushrooms country-style
-fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
-agribalyse_food_code:en:20498
-ciqual_food_code:en:20498
-ciqual_food_name:en:Vegetables pan-fried with mushrooms (country-style), frozen
-ciqual_food_name:fr:Poêlée de légumes assaisonnés aux champignons (champêtre), surgelée
-
-<fr:Poêlées
-en:Pre-fried potatoes pan-fried with lardoons
-fr:Poêlée de pommes de terre préfrites aux lardons
-agribalyse_food_code:en:25057
-ciqual_food_code:en:25057
-ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
-ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
-
-<fr:Poêlées
-en:Pre-fried potatoes pan-fried with chicken
-fr:Poêlée de pommes de terre préfrites au poulet
-agribalyse_food_code:en:25057
-ciqual_food_code:en:25057
-ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
-ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
-
-<en:Meals
 fr:Quenelles
 wikidata:en:Q12958
 
@@ -55030,7 +54974,7 @@ nl:Caesarsalade
 agribalyse_food_code:en:25628
 ciqual_food_code:en:25628
 ciqual_food_name:en:Caesar's salad (salad, chicken, croûtons, sauce)
-ciqual_food_name:fr:  Salade César au poulet (salade verte, fromage, croûtos, sauce)
+ciqual_food_name:fr: Salade César au poulet (salade verte, fromage, croûtos, sauce)
 
 <en:Prepared salads
 en:Vegetable salads
@@ -55529,8 +55473,12 @@ origins:en: en:Italy
 en:Meat balls
 fr:Boulettes de viande
 
-<en:Beef
 <en:Meat balls
+<en:Beef
+en:Beef meat balls
+fr:Boulettes au bœuf
+
+<en:Beef meat balls
 en:Cooked beef meat balls
 fr:Boulettes au boeuf cuites
 agribalyse_food_code:en:25163
@@ -55538,8 +55486,7 @@ ciqual_food_code:en:25163
 ciqual_food_name:en:Beef, meat balls, cooked
 ciqual_food_name:fr:Boeuf, boulettes cuites
 
-<en:Meat balls
-<en:Beef
+<en:Beef meat balls
 en:Beef meat balls with tomato sauce
 fr:Boulettes au bœuf à la sauce tomate
 agribalyse_food_code:en:25211
@@ -57268,6 +57215,7 @@ fr:Dromadaire, Viande de dromadaire
 nl:Dromedaris, Dromedarisvlezen
 
 <en:Poultries
+<en:Frozen foods
 en:Frozen poultry
 de:Gefrorenes Geflügel
 fi:Siipikarjapakasteet
@@ -58147,7 +58095,7 @@ wo:Ganaar
 xh:Inkuku
 yi:האן
 za:Gaeq
-zh:鸡,  鸡肉
+zh:鸡, 鸡肉
 # aeb-ara:دجاج
 # ang:Cicen
 # arz:فرخه
@@ -61892,7 +61840,7 @@ en:Canned mushrooms
 de:Dosenpilze, Pilze in Dosen
 es:Setas en conserva, Hongos en conserva
 fi:purkitetut sienet
-fr:Champignons en conserve, Champignons  en conserve
+fr:Champignons en conserve, Champignons en conserve
 hu:Növényi alapú konzerv élelmiszerek
 it:Funghi in scatola
 nl:Paddestoelen in blik
@@ -62020,7 +61968,7 @@ nl:Diepvriespaddestoelen
 <en:Frozen mushrooms
 en:Frozen chanterelle mushrooms, Frozen golden chanterelles, Frozen girolles
 es:Rebozuelos congelados, Chantarelas congeladas, Setas rebozuelo congeladas
-fr:Girolles surgelés, Girolle surgelé, Jaunotte surgelé, Jauniré surgelé, Cantharellus cibarius surgelés, Chanterelle ciboire surgelés, chevrette  surgelé, roussotte surgelé, gallinace surgelé
+fr:Girolles surgelés, Girolle surgelé, Jaunotte surgelé, Jauniré surgelé, Cantharellus cibarius surgelés, Chanterelle ciboire surgelés, chevrette surgelé, roussotte surgelé, gallinace surgelé
 nl:Diepvries cantharellen, Diepvries hanekammen
 
 <en:Frozen mushrooms
@@ -62105,7 +62053,7 @@ nl:Gedroogde paddestoelenmengsels
 
 <en:Dried mushrooms
 en:Dried oyster mushrooms
-es:Setas de ostra deshidratadas, Setas ostra deshidratadas, Champiñones ostra deshidratadas, Gírgolas  deshidratadas
+es:Setas de ostra deshidratadas, Setas ostra deshidratadas, Champiñones ostra deshidratadas, Gírgolas deshidratadas
 fr:Pleurotes en huître secs
 nl:Gedroogde oesterzwammen
 
@@ -65222,13 +65170,6 @@ zh:海鲜
 pnns_group_2:en:Fish and seafood
 
 <en:Seafood
-en:Frozen cooked seafood
-fr:Fruits de mer cuits surgelés
-ciqual_food_code:en:10080
-ciqual_food_name:en:Seafood, cooked, frozen
-ciqual_food_name:fr:Fruits de mer, cuits, surgelés
-
-<en:Seafood
 en:Armenian sea products
 fr:Produits de la mer arméniens
 
@@ -66091,10 +66032,18 @@ zh:鱼类
 wikidata:en:Q600396
 
 <en:Seafood
+<en:Frozen foods
 en:Frozen seafood
 de:Gefrorene Meeresfrüchte
 fi:Mereneläväpakasteet
 it:Frutti di mare surgelati
+
+<en:Frozen seafood
+en:Frozen cooked seafood
+fr:Fruits de mer cuits surgelés
+ciqual_food_code:en:10080
+ciqual_food_name:en:Seafood, cooked, frozen
+ciqual_food_name:fr:Fruits de mer, cuits, surgelés
 
 <en:Fishes
 en:Cooked fish
@@ -66111,7 +66060,7 @@ ciqual_food_name:en:Northern pike, roasted/baked
 ciqual_food_name:fr:Brochet, rôti/cuit au four
 
 <en:Fishes
-en:northern pike
+en:Northern pike
 fr:Brochet
 ciqual_food_code:en:27011
 ciqual_food_name:en:Northern pike, raw
@@ -66192,21 +66141,20 @@ ciqual_food_code:en:26028
 ciqual_food_name:en:Fish, croquette, fritter or nuggets, fried
 
 <en:Meat preparations
-en:Home-made meat fritters
+en:Meat fritters
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 #<en:Poultry preparations
-<en:Home-made meat fritters
-<en:Meat preparations
-en:Home-made poultry fritters
+<en:Meat fritters
+en:Poultry fritters
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 <en:Fish preparations
-en:Home made fish fritters
+en:Fish fritters
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
@@ -66226,6 +66174,7 @@ ciqual_food_code:en:26030
 ciqual_food_name:en:Fish, breaded, fried
 
 <en:Breaded fish
+<en:Frozen fishes
 en:Fish breaded frozen
 fr:Poisson pané surgelé
 agribalyse_food_code:en:26029
@@ -66375,7 +66324,7 @@ en:Sardines in oil and lemon, sardines with lemon
 fi:sardiinit öljyssä sitruunalla
 fr:Sardines à l’huile et au citron, Sardines au citron
 it:Sardine in olio e limone, Sardine sottolio al limone
-nl:Sardientjes  op olie en citroen
+nl:Sardientjes op olie en citroen
 ro:Sardine în ulei și lămâie
 
 <en:Sardines in oil
@@ -66984,7 +66933,7 @@ agribalyse_food_code:en:26110
 ciqual_food_code:en:26110
 ciqual_food_name:en:Surmullet or red mullet, steamed
 
-<en:Fishes
+<en:Frozen fishes
 en:Frozen Surmullet with skin, Frozen red mullet fillet with skin
 fr:Filet de Rouget-barbet surgelé avec peau
 agribalyse_food_code:en:26244
@@ -70970,6 +70919,7 @@ ciqual_food_name:en:Sorrel, raw
 ciqual_food_name:fr:Oseille, crue
 
 <en:Vegetables
+<en:Frozen vegetables
 en:Frozen Chinese artichokes, Frozen Japanese artichokes
 fr:Crosnes surgelés
 agribalyse_food_code:en:20231
@@ -71126,7 +71076,7 @@ ciqual_food_code:en:20052
 ciqual_food_name:en:Artichoke, globe, raw
 
 <en:Artichokes
-<en:Frozen foods
+<en:Frozen vegetables
 en:Frozen artichoke bottom
 fr:Fonds d'artichaut surgelés
 agribalyse_food_code:en:20232
@@ -73199,7 +73149,7 @@ sv:rabarber
 wikidata:en:Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
-# ingredient/fr:rhubarbe has 191 products in 4  languages @2019-05-08
+# ingredient/fr:rhubarbe has 191 products in 4 languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
 season_in_country_fr:en: 4,5,6
 agribalyse_proxy_food_code:en:13047
@@ -74257,6 +74207,9 @@ ja:ヒヨコマメ
 la:Cicer arietinum
 nl:Kikkererwten
 wikidata:en:Q81375
+agribalyse_proxy_food_code:en:20516
+agribalyse_proxy_food_name:en:Chick pea, dried
+agribalyse_proxy_food_name:fr:Pois chiche, sec
 
 <en:Chickpeas
 en:Dried chickpeas, Dried chick peas
@@ -76497,6 +76450,17 @@ es:Salteados de vegetales congelados
 <es:Salteados de vegetales congelados
 es:Salteados de vegetales asados congelados
 
+<en:Frozen vegetables
+<en:Frozen plant-based foods mixes
+en:Frozen vegetable mixes
+de:Gefrorene Gemüsemischungen
+es:Mezclas de verduras y hortalizas congeladas
+fi:Pakastevihannessekoitukset
+fr:Mélanges de légumes surgelés
+it:Misti di verdure congelati
+nl:Diepvriesgroentemelanges
+pnns_group_2:en:vegetables
+
 <en:Frozen vegetable mixes
 en:Frozen spring vegetables
 fr:Printanière de légumes surgelée
@@ -76539,6 +76503,90 @@ ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 
 en:thinly-shredded vegetables, diced vegetables
 fr:Julienne de légumes, Brunoise de légumes
+
+<en:Meals
+fr:Poêlées, Poêlée
+
+<fr:Poêlées
+en:Pan-fried vegetables
+fr:Poêlée de légumes
+
+<fr:Poêlées
+en:Pan-fried meat and vegetable mixes
+fr:Poêlée de viande et de légumes
+
+<fr:Poêlées
+fr:Poêlées à la landaise, Poêlée à la landaise
+
+<fr:Poêlées
+fr:Poêlées à la paysanne, Poêlées paysanne, Poêlée à la paysanne, Poêlée paysanne
+
+<fr:Poêlées
+fr:Poêlées à la sarladaise, Poêlée à la sarladaise
+
+<fr:Poêlées
+fr:Poêlées surgelées à la sarladaise, Poêlée surgelée à la sarladaise
+
+<fr:Poêlées
+en:Pre-fried potatoes pan-fried with chicken
+fr:Poêlée de pommes de terre préfrites au poulet
+agribalyse_food_code:en:25057
+ciqual_food_code:en:25057
+ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
+ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
+
+<fr:Poêlées
+fr:Poêlées campagnardes, Poêlée campagnarde
+
+<fr:Poêlées
+fr:Poêlées façon kebab, Poêlée façon kebab
+
+<fr:Poêlées
+fr:Poêlées savoyardes
+
+<en:Frozen foods
+<en:Meat and vegetable mixes
+en:Frozen meat and vegetable mixes
+
+<en:Frozen vegetable mixes
+en:Frozen pan-fried vegetables without mushrooms
+fr:Poêlée de légumes assaisonnés surgelée sans champignons
+agribalyse_food_code:en:20262
+ciqual_food_code:en:20262
+ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
+ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
+
+<en:Frozen vegetable mixes
+en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
+fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
+agribalyse_food_code:en:20273
+ciqual_food_code:en:20273
+ciqual_food_name:en:Vegetables pan-fried or stir-fried, Asian-style, frozen, raw
+ciqual_food_name:fr:Poêlée de légumes assaisonnés à l'asiatiques ou wok de légumes, surgelée, crue
+
+<en:Frozen vegetable mixes
+en:Frozen pan-fried Mediterranean-style grilled vegetables
+fr:Poêlée de légumes assaisonnés grillée méridionale surgelée, Poêlée de légumes assaisonnés grillée méditerranéenne surgelée
+agribalyse_food_code:en:20274
+ciqual_food_code:en:20274
+ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, raw
+ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
+
+<en:Frozen vegetable mixes
+en:Frozen pan-fried vegetables with mushrooms country-style
+fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
+agribalyse_food_code:en:20498
+ciqual_food_code:en:20498
+ciqual_food_name:en:Vegetables pan-fried with mushrooms (country-style), frozen
+ciqual_food_name:fr:Poêlée de légumes assaisonnés aux champignons (champêtre), surgelée
+
+<fr:Poêlées
+en:Pre-fried potatoes pan-fried with lardoons
+fr:Poêlée de pommes de terre préfrites aux lardons
+agribalyse_food_code:en:25057
+ciqual_food_code:en:25057
+ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
+ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
 
 <en:Frozen vegetable mixes
 en:Frozen salads
@@ -77250,17 +77298,6 @@ de:Gefrohrene geschnittene Zucchini
 es:Calabacines en rodajas congelados
 fr:Courgettes en rondelles surgelées
 nl:Diepvriescourgettes in schijfjes
-
-<en:Frozen vegetables
-<en:Frozen plant-based foods mixes
-en:Frozen vegetable mixes
-de:Gefrorene Gemüsemischungen
-es:Mezclas de verduras y hortalizas congeladas
-fi:Pakastevihannessekoitukset
-fr:Mélanges de légumes surgelés
-it:Misti di verdure congelati
-nl:Diepvriesgroentemelanges
-pnns_group_2:en:vegetables
 
 <en:Frozen plant-based foods
 <en:Legumes and their products
@@ -77976,7 +78013,7 @@ wikidata:en:Q168263
 
 <en:Brioches
 en:Christmas brioche with candied fruits
-fr:Couronne de Noël aux fruits confits,  Brioche de Noël aux fruits confits
+fr:Couronne de Noël aux fruits confits, Brioche de Noël aux fruits confits
 agribalyse_food_code:en:7744
 ciqual_food_code:en:7744
 ciqual_food_name:en:Christmas brioche with candied fruits, prepacked
