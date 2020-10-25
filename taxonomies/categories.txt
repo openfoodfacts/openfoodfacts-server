@@ -36056,7 +36056,7 @@ ciqual_food_name:fr:Gâteau mousse de fruits sur génoise, type miroir, bavarois
 
 <en:Desserts
 en:Liégeois
-en:Custard topped with whipped cream (chocolate coffee caramel or vanilla custard) refrigerated
+en:chocolate custard topped with whipped cream refrigerated, coffee custard topped with whipped cream refrigerated, caramel custard topped with whipped cream refrigerated, vanilla custard topped with whipped cream refrigerated
 fr:Liégeois
 nl:Toetjes met roomlaag
 agribalyse_food_code:en:19681
@@ -36064,8 +36064,8 @@ ciqual_food_code:en:19681
 ciqual_food_name:en:Custard topped with whipped cream (chocolate, coffee, caramel or vanilla custard), refrigerated
 
 <en:Desserts
-en:Mousse (chocolate coffee caramel or vanilla) topped with whipped cream refrigerated
-fr:mousse liégoise
+en:Chocolate mousse topped with whipped cream refrigerated, Coffee mousse topped with whipped cream refrigerated, Caramel mousse topped with whipped cream refrigerated, Vanilla mousse topped with whipped cream refrigerated
+fr:mousses liégoises
 agribalyse_food_code:en:39235
 ciqual_food_code:en:39235
 ciqual_food_name:en:Mousse (chocolate, coffee, caramel or vanilla) topped with whipped cream, refrigerated
@@ -36269,8 +36269,7 @@ ciqual_food_code:en:13109
 ciqual_food_name:en:Fruits compote, miscellaneous, reduced sugar
 ciqual_food_name:fr:Compote, tout type de fruits, allégée en sucres
 
-<en:Desserts
-<en:Fruits based foods
+<en:Fruits compote with reduced sugar
 en:Refrigerated fruits compote with reduced sugar
 fr:Compote de fruits allégée en sucres rayon frais
 agribalyse_food_code:en:13129
@@ -36761,10 +36760,13 @@ fr:Gâteaux de riz, Gâteaux au riz, Gâteau de riz, Gâteau au riz
 
 <en:Dairy desserts
 fr:Gâteaux de semoule, Gâteaux à la semoule, Gâteau de semoule, Gâteau à la semoule
+agribalyse_proxy_food_code:en:23535
+agribalyse_proxy_food_name:en:Semolina pudding, canned
+agribalyse_proxy_food_name:fr:Gâteau de semoule, appertisé
 
 <fr:Gâteaux de semoule
 en:Canned semolina puddings
-fr:Gâteaux de semoule appertisés
+fr:Gâteaux de semoule en conserve, Gâteaux de semoule appertisés
 agribalyse_food_code:en:23535
 ciqual_food_code:en:23535
 ciqual_food_name:en:Semolina pudding, canned
@@ -36782,7 +36784,8 @@ ciqual_food_name:fr:Semoule au lait, rayon frais
 en:Semolina puddings with raisins and caramel sauce
 fr:Gâteaux de semoule aux raisins et au caramel
 
-<fr:Gâteaux de semoule
+<en:Semolina puddings with raisins and caramel sauce
+<en:Refrigerated semolina pudding
 en:Refrigerated semolina puddings with raisins and caramel sauce
 fr:Gâteaux de semoule aux raisins et au caramel rayon frais
 agribalyse_food_code:en:23534
@@ -36937,16 +36940,28 @@ fr:Desserts de riz au cacao, Desserts de riz au chocolat
 nl:Rijstdesserts met chocola
 
 <en:Non-dairy desserts
-en:Soy desserts, soy milk desserts
+en:Soy desserts, soy milk desserts, Refrigerated plain soy dessert
 ca:Postres de soja
 de:Soja-Nachtische, Sojamilch-Nachtische
 es:Postres de soja
 fi:Soijajälkiruoat
-fr:Desserts au soja, Desserts soja
+fr:Desserts au soja, Desserts soja, Dessert au soja nature rayon frais
 it:Dolci di soia, Dolci al latte di soia
 nl:Sojadesserts
+agribalyse_food_code:en:19693
+ciqual_food_code:en:19693
+ciqual_food_name:en:Soy dessert, plain, refrigerated
+ciqual_food_name:fr:Dessert au soja, nature, rayon frais
 
 <en:Soy desserts
+en:Flavoured soy dessert
+fr:Dessert au soja aromatisé
+agribalyse_food_code:en:20911
+ciqual_food_code:en:20911
+ciqual_food_name:en:Soy dessert, flavoured, refrigerated
+ciqual_food_name:fr:Dessert au soja aromatisé, rayon frais
+
+<en:Flavoured soy dessert
 <en:Chocolate desserts
 en:Chocolate soy desserts, cocoa soy desserts
 de:Soja Schokodessert, Soja Schokoladen Nachspeisen
@@ -36955,40 +36970,24 @@ fr:Desserts de soja au chocolat, Desserts de soja au cacao
 it:Dessert di soia al cioccolato
 nl:Sojadesserts met chocola
 
-<en:Soy desserts
+<en:Flavoured soy dessert
 en:Vanilla soy desserts
 es:Postres de soja con vainilla
 fr:Desserts de soja à la vanille
 it:Dessert di soia alla vaniglia
 nl:Sojadesserts met vanille
 
-<en:Soy desserts
+<en:Flavoured soy dessert
 en:Caramel soy desserts
 fr:Desserts de soja au caramel
 
 <en:Soy desserts
-en:Refrigerated soy dessert with fruits
-fr:Dessert au soja aux fruits rayon frais
+en:Soy dessert with fruits
+fr:Dessert au soja aux fruits
 agribalyse_food_code:en:19692
 ciqual_food_code:en:19692
 ciqual_food_name:en:Soy dessert, w fruits, refrigerated
 ciqual_food_name:fr:Dessert au soja, aux fruits, rayon frais
-
-<en:Soy desserts
-en:Refrigerated flavoured soy dessert
-fr:Dessert au soja aromatisé rayon frais
-agribalyse_food_code:en:20911
-ciqual_food_code:en:20911
-ciqual_food_name:en:Soy dessert, flavoured, refrigerated
-ciqual_food_name:fr:Dessert au soja aromatisé, rayon frais
-
-<en:Soy desserts
-en:Refrigerated plain soy dessert
-fr:Dessert au soja nature rayon frais
-agribalyse_food_code:en:19693
-ciqual_food_code:en:19693
-ciqual_food_name:en:Soy dessert, plain, refrigerated
-ciqual_food_name:fr:Dessert au soja, nature, rayon frais
 
 <en:fermented foods
 en:Non-dairy fermented foods
@@ -60227,7 +60226,7 @@ fr:Mousses salées, Mousse salée, mousses salés, mousse salé
 nl:Hartige smeerworsten
 
 en:Horseradish mousse
-fr:Mousse de raifort
+fr:Mousses de raifort
 
 <en:Savory mousses
 fr:Mousses de canard, mousses de canards, mousse de canards, mousse de canard
