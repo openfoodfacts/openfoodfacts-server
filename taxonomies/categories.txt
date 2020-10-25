@@ -27829,14 +27829,15 @@ ciqual_food_name:fr:Gnocchi à la pomme de terre, cuit
 
 <en:Gnocchi
 <en:Cereals and their products
-en:Gnocchi of durum wheat semolina, gnocchis from semolina
+en:Gnocchi of durum wheat semolina, gnocchis from semolina, gnocchi from semolina
 de:Grießgnocchi, Gnocchi aus Hartweizengrieß
-fr:Gnocchi de semoule de blé dur
+fr:Gnocchi de semoule de blé dur, Gnocchi à la semoule
 nl:Gnocchi van durum tarwe
 pnns_group_2:en:Cereals
-agribalyse_proxy_food_code:en:26265
-agribalyse_proxy_food_name:en:Gnocchi, from semolina, raw
-agribalyse_proxy_food_name:fr:Gnocchi à la semoule, cru
+agribalyse_food_code:en:26265
+ciqual_food_code:en:26265
+ciqual_food_name:en:Gnocchi, from semolina, raw
+ciqual_food_name:fr:Gnocchi à la semoule, cru
 
 <en:Cooked gnocchis
 <en:Gnocchi of durum wheat semolina
@@ -27846,14 +27847,6 @@ agribalyse_food_code:en:25479
 ciqual_food_code:en:25479
 ciqual_food_name:en:Gnocchi, from semolina, cooked
 ciqual_food_name:fr:Gnocchi à la semoule, cuit
-
-<en:Gnocchi of durum wheat semolina
-en:gnocchi from semolina
-fr:Gnocchi à la semoule
-agribalyse_food_code:en:26265
-ciqual_food_code:en:26265
-ciqual_food_name:en:Gnocchi, from semolina, raw
-ciqual_food_name:fr:Gnocchi à la semoule, cru
 
 <en:Cereals and potatoes
 en:Cereals and their products, Cereals
