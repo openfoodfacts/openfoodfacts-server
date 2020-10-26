@@ -1,0 +1,74 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:orange-juice",
+         "labels" : "en:no-preservatives",
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "rank" : 1,
+         "text" : "jus d'orange",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:salmon",
+         "labels" : "en:sustainable-seafood-msc",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "saumon",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:orange-juice",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:fruit-juice",
+      "en:orange",
+      "en:salmon",
+      "en:fish",
+      "en:oily-fish"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:orange-juice",
+      "en:salmon"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:orange-juice",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:fruit-juice",
+      "en:orange",
+      "en:salmon",
+      "en:fish",
+      "en:oily-fish"
+   ],
+   "ingredients_text" : "jus d'orange (sans conservateur), saumon (msc), sans gluten",
+   "known_ingredients_n" : 8,
+   "labels" : "en:no-gluten",
+   "labels_hierarchy" : [
+      "en:no-gluten"
+   ],
+   "labels_lc" : "fr",
+   "labels_tags" : [
+      "en:no-gluten"
+   ],
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50
+   },
+   "unknown_ingredients_n" : 0
+}

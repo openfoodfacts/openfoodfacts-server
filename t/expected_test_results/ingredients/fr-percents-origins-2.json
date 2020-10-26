@@ -1,0 +1,118 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "en:sunflower-lecithin",
+               "text" : "lécithines de tournesol"
+            }
+         ],
+         "rank" : 1,
+         "text" : "émulsifiant"
+      },
+      {
+         "id" : "en:flavouring",
+         "origin" : "en:european-union",
+         "rank" : 2,
+         "text" : "arôme",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:wheat-flour",
+         "origin" : "en:france",
+         "percent" : "33",
+         "rank" : 3,
+         "text" : "farine de blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "rank" : 4,
+         "text" : "sucre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:butterfat",
+         "origin" : "en:france",
+         "percent" : "6.5",
+         "rank" : 5,
+         "text" : "beurre concentré",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sunflower-lecithin",
+         "text" : "lécithines de tournesol",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:butterfat",
+      "en:dairy",
+      "en:oil-and-fat",
+      "en:fat",
+      "en:milkfat",
+      "en:sunflower-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:sugar",
+      "en:butterfat",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:butterfat",
+      "en:dairy",
+      "en:oil-and-fat",
+      "en:fat",
+      "en:milkfat",
+      "en:sunflower-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_text" : "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
+   "known_ingredients_n" : 16,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

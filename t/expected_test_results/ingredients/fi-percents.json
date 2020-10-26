@@ -1,0 +1,67 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "percent" : 12.3,
+         "rank" : 1,
+         "text" : "Mansikka",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:orange",
+         "percent" : 6.5,
+         "rank" : 2,
+         "text" : "Appelsiini",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:apple",
+         "percent" : 3.5,
+         "rank" : 3,
+         "text" : "Omena",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:apple"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:orange",
+      "en:apple"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:apple"
+   ],
+   "ingredients_text" : "Mansikka 12,3% ; Appelsiini 6.5%, Omena (3,5%)",
+   "known_ingredients_n" : 6,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 22.3
+   },
+   "unknown_ingredients_n" : 0
+}
