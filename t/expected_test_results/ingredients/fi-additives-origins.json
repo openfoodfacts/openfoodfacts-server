@@ -1,0 +1,109 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "en:sunflower-lecithin",
+               "percent_max" : 34,
+               "percent_min" : 33,
+               "text" : "auringonkukkalesitiini"
+            }
+         ],
+         "percent_max" : 34,
+         "percent_min" : "33",
+         "rank" : 1,
+         "text" : "emulgointiaine"
+      },
+      {
+         "id" : "en:flavouring",
+         "origin" : "en:european-union",
+         "percent_max" : 33.5,
+         "percent_min" : "33",
+         "rank" : 2,
+         "text" : "aromi",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:wheat-flour",
+         "origin" : "en:france",
+         "percent" : "33",
+         "percent_max" : "33",
+         "percent_min" : "33",
+         "rank" : 3,
+         "text" : "vehnäjauho",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent_max" : 1,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "sokeri",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sunflower-lecithin",
+         "percent_max" : 34,
+         "percent_min" : 33,
+         "text" : "auringonkukkalesitiini",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:sunflower-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:sugar",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:emulsifier",
+      "en:flavouring",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:sunflower-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_text" : "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
+   "known_ingredients_n" : 11,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

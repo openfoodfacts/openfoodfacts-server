@@ -151,7 +151,7 @@ my %may_contain_regexps = (
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann Spuren|Spuren",
+	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
@@ -2833,6 +2833,10 @@ es => [
 #Envasado por:
 ],
 
+et => [
+'parim enne', # best before
+],
+
 fi => [
 '100 g:aan tuotetta käytetään',
 'Kypsennys',
@@ -2948,7 +2952,13 @@ it => [
 ],
 
 ja => [
-'栄養価',
+'栄養価', # nutritional value
+'内容量', # weight
+'賞味期限', # best before
+],
+
+lt => [
+'geriausias iki', # best before
 ],
 
 nb => [

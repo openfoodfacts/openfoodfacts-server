@@ -1,0 +1,153 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "origin" : "en:france",
+         "percent_max" : 100,
+         "percent_min" : 11.1111111111111,
+         "rank" : 1,
+         "text" : "Fraise",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:blackcurrant",
+         "origin" : "en:south-africa",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "Cassis",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:raspberry",
+         "origin" : "en:belgium",
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "Framboise",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:grapefruit",
+         "labels" : "en:organic",
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "Pamplemousse",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:orange",
+         "labels" : "en:organic",
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "rank" : 5,
+         "text" : "Orange",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lemon",
+         "labels" : "en:organic",
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "rank" : 6,
+         "text" : "Citron",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa",
+         "labels" : "en:fair-trade",
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "rank" : 7,
+         "text" : "cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa-butter",
+         "labels" : "en:fair-trade",
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "rank" : 8,
+         "text" : "beurre de cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cherry",
+         "labels" : "en:organic",
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "rank" : 9,
+         "text" : "cerises",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:blackcurrant",
+      "fr:fruits-des-bois",
+      "en:raspberry",
+      "en:grapefruit",
+      "en:citrus-fruit",
+      "en:orange",
+      "en:lemon",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:cherry"
+   ],
+   "ingredients_n" : 9,
+   "ingredients_n_tags" : [
+      "9",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:blackcurrant",
+      "en:raspberry",
+      "en:grapefruit",
+      "en:orange",
+      "en:lemon",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:cherry"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:blackcurrant",
+      "fr:fruits-des-bois",
+      "en:raspberry",
+      "en:grapefruit",
+      "en:citrus-fruit",
+      "en:orange",
+      "en:lemon",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:cherry"
+   ],
+   "ingredients_text" : "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
+   "known_ingredients_n" : 13,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 11.1111111111111
+   },
+   "unknown_ingredients_n" : 0
+}

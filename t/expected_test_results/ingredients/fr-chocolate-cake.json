@@ -1,0 +1,266 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:flour",
+         "percent" : "12",
+         "rank" : 1,
+         "text" : "farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "id" : "en:cocoa-butter",
+               "percent" : "15",
+               "text" : "beurre de cacao"
+            },
+            {
+               "id" : "en:sugar",
+               "percent" : "10",
+               "text" : "sucre"
+            },
+            {
+               "id" : "en:milk-proteins",
+               "text" : "protéines de lait"
+            },
+            {
+               "id" : "en:egg",
+               "percent" : "1",
+               "text" : "oeuf"
+            }
+         ],
+         "rank" : 2,
+         "text" : "chocolat",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "en:e463",
+               "text" : "e463"
+            }
+         ],
+         "rank" : 3,
+         "text" : "émulsifiants"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e432",
+         "rank" : 4,
+         "text" : "e432",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e472",
+         "rank" : 5,
+         "text" : "e472",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:acidity-regulator",
+         "ingredients" : [
+            {
+               "id" : "en:e322",
+               "text" : "e322"
+            },
+            {
+               "id" : "en:e333",
+               "text" : "e333"
+            }
+         ],
+         "rank" : 6,
+         "text" : "correcteurs d'acidité"
+      },
+      {
+         "id" : "en:e474",
+         "rank" : 7,
+         "text" : "e474",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:e475",
+         "rank" : 8,
+         "text" : "e475",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:acid",
+         "ingredients" : [
+            {
+               "id" : "en:e330",
+               "text" : "acide citrique"
+            },
+            {
+               "id" : "en:e338",
+               "text" : "acide phosphorique"
+            }
+         ],
+         "rank" : 9,
+         "text" : "acidifiant"
+      },
+      {
+         "id" : "en:salt",
+         "rank" : 10,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa-butter",
+         "percent" : "15",
+         "text" : "beurre de cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent" : "10",
+         "text" : "sucre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:milk-proteins",
+         "text" : "protéines de lait",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:egg",
+         "percent" : "1",
+         "text" : "oeuf",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e463",
+         "text" : "e463",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e322",
+         "text" : "e322",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:e333",
+         "text" : "e333",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e330",
+         "text" : "acide citrique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e338",
+         "text" : "acide phosphorique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:cocoa",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_n" : 19,
+   "ingredients_n_tags" : [
+      "19",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:cocoa",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_text" : "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
+   "known_ingredients_n" : 22,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

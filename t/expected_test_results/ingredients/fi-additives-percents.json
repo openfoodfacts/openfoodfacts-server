@@ -1,0 +1,268 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:flour",
+         "percent" : "12",
+         "rank" : 1,
+         "text" : "jauho",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "id" : "en:cocoa-butter",
+               "percent" : "15",
+               "text" : "kaakaovoi"
+            },
+            {
+               "id" : "en:sugar",
+               "percent" : "10",
+               "text" : "sokeri"
+            },
+            {
+               "id" : "en:milk-proteins",
+               "text" : "maitoproteiini"
+            },
+            {
+               "id" : "en:chicken-egg",
+               "percent" : "1",
+               "text" : "kananmuna"
+            }
+         ],
+         "rank" : 2,
+         "text" : "suklaa",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "en:e463",
+               "text" : "e463"
+            }
+         ],
+         "rank" : 3,
+         "text" : "emulgointiaineet"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e432",
+         "rank" : 4,
+         "text" : "e432",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e472",
+         "rank" : 5,
+         "text" : "e472",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:acidity-regulator",
+         "ingredients" : [
+            {
+               "id" : "en:e322",
+               "text" : "e322"
+            },
+            {
+               "id" : "en:e333",
+               "text" : "e333"
+            }
+         ],
+         "rank" : 6,
+         "text" : "happamuudensäätöaineet"
+      },
+      {
+         "id" : "en:e474",
+         "rank" : 7,
+         "text" : "e474",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:e475",
+         "rank" : 8,
+         "text" : "e475",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:acid",
+         "ingredients" : [
+            {
+               "id" : "en:e330",
+               "text" : "sitruunahappo"
+            },
+            {
+               "id" : "en:e338",
+               "text" : "fosforihappo"
+            }
+         ],
+         "rank" : 9,
+         "text" : "happo"
+      },
+      {
+         "id" : "en:salt",
+         "rank" : 10,
+         "text" : "suola",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa-butter",
+         "percent" : "15",
+         "text" : "kaakaovoi",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent" : "10",
+         "text" : "sokeri",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:milk-proteins",
+         "text" : "maitoproteiini",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:chicken-egg",
+         "percent" : "1",
+         "text" : "kananmuna",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e463",
+         "text" : "e463",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e322",
+         "text" : "e322",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:e333",
+         "text" : "e333",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e330",
+         "text" : "sitruunahappo",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e338",
+         "text" : "fosforihappo",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:cocoa",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:chicken-egg",
+      "en:egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_n" : 19,
+   "ingredients_n_tags" : [
+      "19",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:chicken-egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:flour",
+      "en:chocolate",
+      "en:emulsifier",
+      "en:e432",
+      "en:e472",
+      "en:acidity-regulator",
+      "en:e474",
+      "en:e475",
+      "en:acid",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:cocoa",
+      "en:sugar",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:chicken-egg",
+      "en:egg",
+      "en:e463",
+      "en:e322",
+      "en:e333",
+      "en:e330",
+      "en:e338"
+   ],
+   "ingredients_text" : "jauho (12%), suklaa (kaakaovoi (15%), sokeri [10%], maitoproteiini, kananmuna 1%) - emulgointiaineet : E463, E432 ja E472 - happamuudensäätöaineet : E322/E333 E474-E475, happo (sitruunahappo, fosforihappo) - suola",
+   "known_ingredients_n" : 23,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

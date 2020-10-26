@@ -1,0 +1,84 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:apple-juice",
+         "labels" : "en:organic",
+         "percent" : 80,
+         "rank" : 1,
+         "text" : "jus de pomme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:quince",
+         "labels" : "en:organic",
+         "percent" : 20,
+         "rank" : 2,
+         "text" : "coing",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sea-salt",
+         "rank" : 3,
+         "text" : "sel marin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sodium-chloride",
+         "origin" : "en:france,en:italy",
+         "percent" : "98",
+         "rank" : 4,
+         "text" : "chlorure de sodium"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:apple-juice",
+      "en:fruit",
+      "en:apple",
+      "en:fruit-juice",
+      "en:quince",
+      "en:sea-salt",
+      "en:salt",
+      "en:sodium-chloride",
+      "en:minerals",
+      "en:sodium"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apple-juice",
+      "en:quince",
+      "en:sea-salt",
+      "en:sodium-chloride"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:apple-juice",
+      "en:fruit",
+      "en:apple",
+      "en:fruit-juice",
+      "en:quince",
+      "en:sea-salt",
+      "en:salt",
+      "en:sodium-chloride",
+      "en:minerals",
+      "en:sodium"
+   ],
+   "ingredients_text" : "80% jus de pomme biologique, 20% de coing biologique, sel marin, 98% chlorure de sodium (France, Italie)",
+   "known_ingredients_n" : 10,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+   },
+   "unknown_ingredients_n" : 0
+}

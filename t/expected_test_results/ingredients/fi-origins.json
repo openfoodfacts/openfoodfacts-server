@@ -1,0 +1,114 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "origin" : "en:finland",
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "rank" : 1,
+         "text" : "Mansikka",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:blackcurrant",
+         "origin" : "en:south-africa",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "Mustaherukka",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:raspberry",
+         "origin" : "en:sweden",
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "Vadelma",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:orange",
+         "labels" : "en:organic",
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "Appelsiini",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa",
+         "labels" : "en:fair-trade",
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "rank" : 5,
+         "text" : "kaakao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa-butter",
+         "labels" : "en:fair-trade",
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "rank" : 6,
+         "text" : "kaakaovoi",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:blackcurrant",
+      "fr:fruits-des-bois",
+      "en:raspberry",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:cocoa",
+      "en:cocoa-butter"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:blackcurrant",
+      "en:raspberry",
+      "en:orange",
+      "en:cocoa",
+      "en:cocoa-butter"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:blackcurrant",
+      "fr:fruits-des-bois",
+      "en:raspberry",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:cocoa",
+      "en:cocoa-butter"
+   ],
+   "ingredients_text" : "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
+   "known_ingredients_n" : 10,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667
+   },
+   "unknown_ingredients_n" : 0
+}

@@ -1,0 +1,58 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:gelling-agent",
+         "ingredients" : [
+            {
+               "id" : "en:e440a",
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "pektiinit"
+            }
+         ],
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "hyytelöimisaine"
+      },
+      {
+         "id" : "en:e440a",
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "pektiinit",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:gelling-agent",
+      "en:e440a"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:gelling-agent",
+      "en:e440a"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:gelling-agent",
+      "en:e440a"
+   ],
+   "ingredients_text" : "hyytelöimisaine (pektiinit)",
+   "known_ingredients_n" : 2,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

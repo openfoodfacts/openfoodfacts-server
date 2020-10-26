@@ -1,0 +1,68 @@
+{
+   "ingredients" : [
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e471",
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "rank" : 1,
+         "text" : "mono- et diglycérides d'acides gras",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:oil",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "huile",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      },
+      {
+         "id" : "en:e428",
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "gélatine",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:e471",
+      "en:oil",
+      "en:oil-and-fat",
+      "en:e428"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:e471",
+      "en:oil",
+      "en:e428"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:e471",
+      "en:oil",
+      "en:oil-and-fat",
+      "en:e428"
+   ],
+   "ingredients_text" : "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
