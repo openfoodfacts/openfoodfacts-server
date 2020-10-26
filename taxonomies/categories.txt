@@ -884,6 +884,9 @@ nl_be:Pollen
 ro:Polen
 zh:花粉
 wikidata:en:Q79932
+ciqual_food_code:en:31111
+ciqual_food_name:en:Pollen, fresh
+ciqual_food_name:fr:Pollen,frais
 
 <en:Pollens
 en:Partially dried pollen
@@ -1094,10 +1097,10 @@ wikidata:en:Q16976
 wikipedia:en:https://en.wikipedia.org/wiki/Pastis
 
 <en:Alcoholic beverages
-en:Sake
+en:Sake, Rice wines
 de:Sake
 fi:Sake
-fr:Saké
+fr:Saké, Alcools de riz
 hu:Szaké, Sake
 it:Sake, Sakè
 ja:日本酒, にほんしゅ
@@ -1110,7 +1113,7 @@ ciqual_food_name:en:Sake or rice wine
 
 <en:Alcoholic beverages
 en:Shandy, Beer with lemonade
-fr:Panaché, Limonade et bière
+fr:Panaché, Limonade et bière, Bières à la limonade
 it:Birra al limone
 agribalyse_food_code:en:5004
 ciqual_food_code:en:5004
@@ -1124,88 +1127,6 @@ agribalyse_food_code:en:5005
 ciqual_food_code:en:5005
 ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
 ciqual_food_name:fr:Panaché préemballé (<1° alc.)
-
-<en:Beers
-<en:Artisanal spirits
-en:Craft beers
-de:Craft Biere
-fi:Artesaanioluet
-fr:Bières artisanales
-hu:Kraft sörök
-it:Birre artigianali
-ja:クラフトビール
-nl:Ambachtelijke bieren
-pl:Piwo kraftowe, Piwa kraftowe
-ro:Beri artizanale, Bere artizanală
-wikidata:en:Q2905030
-
-<en:Beers
-fr:Bières pur malt
-
-<fr:Bières pur malt
-fr:Bières blondes pur malt
-
-<en:Beers
-en:Flavored beers, Flavored beer
-de:Aromatisierte Biere
-es:Cervezas aromatizadas
-fi:Maustetut oluet
-fr:Bières aromatisées
-hu:Ízesített sörök
-it:Birre aromatizzate, birre con aroma
-nl:Gearomatiseerde bieren
-ro:Beri aromatizate, Beri aromate, Bere aromatizata, Bere aromata, Bere aromată, Bere aromatizată
-en-GB:Flavoured beers, flavoured beer
-
-<en:Alcoholic beverages
-<en:Artisan products
-en:Artisanal spirits
-de:Craft Spirituosen
-fi:Artesaaniviinat
-fr:Alcools artisanaux
-hu:Kézmüves szezek, Kézműves alkohol tartalmú italok
-it:Bevande alcoliche artigianali, Alcolici artigianali
-nl:Ambachtelijke alcoholica
-ro:Băuturi alcoolice artizanale, Bauturi alcoolice artizanale
-
-<en:Artisanal spirits
-<en:Ciders
-en:Artisanal ciders, artisanal cider
-de:Craft Cider, Craft Apfelschaumwein, Cidre artisanal
-fi:Artesaanisiiderit
-fr:Cidres artisanaux, Cidre artisanal
-hu:Almaborok
-it:Sidri artigianali, Sidro artigianale
-nl:Ambachtelijke ciders
-
-<en:Ciders
-en:Traditional Welsh Cider
-protected_name_file_number:en: PGI-GB-01251
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Ciders
-en:Gloucestershire cider
-protected_name_file_number:en: PGI-GB-0290
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Ciders
-en:Worcestershire cider
-protected_name_file_number:en: PGI-GB-0291
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Ciders
-en:Herefordshire cider
-protected_name_file_number:en: PGI-GB-0292
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
-
-<en:Alcoholic beverages
-<en:Mixed drinks
-de:Biermischgetränk, Biermixgetränk
-wikidata:en:Q13527031
 
 <en:Alcoholic beverages
 en:Beers
@@ -1286,6 +1207,49 @@ nova:en:3
 agribalyse_proxy_food_code:en:5000
 agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
+
+<en:Beers
+<en:Artisanal spirits
+en:Craft beers
+de:Craft Biere
+fi:Artesaanioluet
+fr:Bières artisanales
+hu:Kraft sörök
+it:Birre artigianali
+ja:クラフトビール
+nl:Ambachtelijke bieren
+pl:Piwo kraftowe, Piwa kraftowe
+ro:Beri artizanale, Bere artizanală
+wikidata:en:Q2905030
+
+<en:Beers
+fr:Bières pur malt
+
+<fr:Bières pur malt
+fr:Bières blondes pur malt
+
+<en:Beers
+en:Flavored beers, Flavored beer
+de:Aromatisierte Biere
+es:Cervezas aromatizadas
+fi:Maustetut oluet
+fr:Bières aromatisées
+hu:Ízesített sörök
+it:Birre aromatizzate, birre con aroma
+nl:Gearomatiseerde bieren
+ro:Beri aromatizate, Beri aromate, Bere aromatizata, Bere aromata, Bere aromată, Bere aromatizată
+en-GB:Flavoured beers, flavoured beer
+
+<en:Alcoholic beverages
+<en:Artisan products
+en:Artisanal spirits
+de:Craft Spirituosen
+fi:Artesaaniviinat
+fr:Alcools artisanaux
+hu:Kézmüves szezek, Kézműves alkohol tartalmú italok
+it:Bevande alcoliche artigianali, Alcolici artigianali
+nl:Ambachtelijke alcoholica
+ro:Băuturi alcoolice artizanale, Bauturi alcoolice artizanale
 
 <en:Beers
 en:Abbey beer, Abbey ale, Abbey beers
@@ -1782,8 +1746,8 @@ ciqual_food_name:en:Beer, low alcohol-content (3° alcohol)
 ciqual_food_name:fr:Bière faiblement alcoolisée (3° alcool)
 
 <en:Non-Alcoholic beverages
-en:Alcohol-free juice and syrup-based cocktails
-fr:Cocktail sans alcool à base de jus de fruits et de sirop
+en:Alcohol-free cocktails, Alcohol-free juice and syrup-based cocktails
+fr:Cocktails sans alcool, Cocktail sans alcool à base de jus de fruits et de sirop
 agribalyse_food_code:en:2008
 ciqual_food_code:en:2008
 ciqual_food_name:en:Cocktail, alcohol-free (juices and syrup-based cocktail)
@@ -1912,8 +1876,8 @@ wikidata:en:Q56139
 en:distilled anis
 fr:anis distillé
 
-#<en:Cypriot distilled anis
-#<en:Greek distilled anis
+<en:distilled anis
+en:Distilled anis from Cyprus, Cypriot distilled anis
 
 <en:distilled anis
 en:Greek distilled anis
@@ -2822,6 +2786,7 @@ ciqual_food_name:en:Rum
 
 <en:Rums
 en:Portuguese rums
+fr:Rhums portugais
 
 <en:Portuguese rum
 pt:Rum da Madeira
@@ -3106,18 +3071,6 @@ agribalyse_food_code:en:1002
 ciqual_food_code:en:1002
 ciqual_food_name:en:Gin
 
-<en:Alcoholic beverages
-en:Wine-based drinks
-de:Weinbasierte Getränke, Getränke auf Weinbasis
-es:Bebidas a base de vino
-fi:Viinipohjaiset juomat
-fr:Boissons à base de vin
-nl:Draken op basis van wijn
-agribalyse_food_code:en:1007
-ciqual_food_code:en:1007
-ciqual_food_name:en:Wine-based aperitif
-ciqual_food_name:fr:Apéritif à base de vin ou vermouth
-
 #do not confuse with the biscuit spritz
 <en:Wine-based drinks
 en:Spritz cocktails
@@ -3130,23 +3083,33 @@ agribalyse_food_code:en:1013
 ciqual_food_code:en:1013
 ciqual_food_name:en:Whiskey-based cocktail
 
+<en:Alcoholic beverages
+en:Wine-based drinks
+de:Weinbasierte Getränke, Getränke auf Weinbasis
+es:Bebidas a base de vino
+fi:Viinipohjaiset juomat
+fr:Boissons à base de vin
+nl:Draken op basis van wijn
+agribalyse_food_code:en:1007
+ciqual_food_code:en:1007
+ciqual_food_name:en:Wine-based aperitif
+ciqual_food_name:fr:Apéritif à base de vin ou vermouth
+
 <en:Wine-based drinks
 en:Vermouth
 es:Vermut, Vermú
 fr:Vermouth
 agribalyse_food_code:en:1007
 ciqual_food_code:en:1007
-ciqual_food_name:en:Wine-based aperitif
+ciqual_food_name:en:Wine or fortified wine-based aperitif
 ciqual_food_name:fr:Apéritif à base de vin ou vermouth
-
-#TODO Fix me
 
 <en:Wine-based drinks
 en:Wine-based aperitif, Fortified wine-based aperitif
 fr:Apéritif anisé sans alcool
 ciqual_food_code:en:1011
-ciqual_food_name:en:Wine or fortified wine-based aperitif
 ciqual_food_name:fr:Apéritif anisé sans alcool
+ciqual_food_name:en:Pastis (anise-flavoured spirit)
 
 <en:Alcoholic beverages
 en:Ciders
@@ -3163,6 +3126,45 @@ nova:en:3
 agribalyse_proxy_food_code:en:5006
 agribalyse_proxy_food_name:en:Cider, dry
 agribalyse_proxy_food_name:fr:Cidre brut
+
+<en:Artisanal spirits
+<en:Ciders
+en:Artisanal ciders, artisanal cider
+de:Craft Cider, Craft Apfelschaumwein, Cidre artisanal
+fi:Artesaanisiiderit
+fr:Cidres artisanaux, Cidre artisanal
+hu:Almaborok
+it:Sidri artigianali, Sidro artigianale
+nl:Ambachtelijke ciders
+
+<en:Ciders
+en:Traditional Welsh Cider
+protected_name_file_number:en: PGI-GB-01251
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Ciders
+en:Gloucestershire cider
+protected_name_file_number:en: PGI-GB-0290
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Ciders
+en:Worcestershire cider
+protected_name_file_number:en: PGI-GB-0291
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Ciders
+en:Herefordshire cider
+protected_name_file_number:en: PGI-GB-0292
+protected_name_type:en: pgi
+origins:en: en:United Kingdom
+
+<en:Alcoholic beverages
+<en:Mixed drinks
+de:Biermischgetränk, Biermixgetränk
+wikidata:en:Q13527031
 
 <en:Ciders
 en:Sparkling ciders, sparkling cider
@@ -3654,6 +3656,7 @@ ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, non sucrée, avec édulc
 <en:Carbonated drinks
 en:Carbonated fruit soft drink
 fr:Boisson gazeuse aux fruits
+agribalyse_proxy_food_code:en:18019
 
 <en:Carbonated fruit soft drink
 en:Carbonated fruit soft drink with sugar
@@ -3814,13 +3817,14 @@ ciqual_food_name:en:Cola, without sugar and with artificial sweetener(s)
 ciqual_food_name:fr:Cola, non sucré, avec édulcorants
 
 <en:Diet sodas
-<en:Colas
-en:Cola without sugar with artificial sweeteners and with caffeine
-fr:Cola non sucré avec édulcorants sans caféine
+<en:Cola sodas without caffeine
+en:Sugar-free colas with artificial sweeteners and without caffeine
+fr:Colas non sucrés avec édulcorants sans caféine
 agribalyse_food_code:en:18068
 ciqual_food_code:en:18068
 ciqual_food_name:en:Cola, without sugar, with artificial sweetener(s) and with caffeine
 ciqual_food_name:fr:Cola, non sucré, avec édulcorants, sans caféine
+# TODO report the error in the Agribalyse file. It is without cafeine
 
 <en:Sodas
 <en:Colas
@@ -52775,6 +52779,13 @@ fr:Poulets au curry
 it:Curry al pollo, Pollo al curry
 nl:Kipcurry
 zh:鸡咖喱
+agribalyse_food_code:en:25174
+ciqual_food_code:en:25174
+ciqual_food_name:en:Chicken with curry and coconut milk sauce
+
+<en:Chicken curry
+en:Chicken with curry and coconut milk sauce
+fr:Poulet au curry et au lait de coco
 agribalyse_food_code:en:25174
 ciqual_food_code:en:25174
 ciqual_food_name:en:Chicken with curry and coconut milk sauce
