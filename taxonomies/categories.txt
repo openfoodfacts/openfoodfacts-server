@@ -27522,11 +27522,20 @@ ro:Conserve de ravioli
 <en:Canned raviolis
 <en:Meat ravioli
 en:Canned raviolis filled with meat in tomato sauce
-fr:Raviolis à la viande sauce tomate appertisés, Raviolis à la viande sauce tomate en conserve
+fr:Raviolis à la viande en conserve, Raviolis à la viande sauce tomate en conserve, Raviolis à la viande sauce tomate appertisés
 agribalyse_food_code:en:25019
 ciqual_food_code:en:25019
 ciqual_food_name:en:Ravioli filled with meat, in tomato sauce, canned
 ciqual_food_name:fr:Ravioli à la viande, sauce tomate, appertisé
+
+<en:Canned raviolis
+<en:Ravioli with vegetables
+en:Canned ravioli filled with vegetables in tomato sauce
+fr:Raviolis aux légumes en conserve, Raviolis aux légumes sauce tomate en conserve, Raviolis aux légumes sauce tomate appertisés
+agribalyse_food_code:en:25192
+ciqual_food_code:en:25192
+ciqual_food_name:en:Ravioli filled with vegetables, in tomato sauce, canned
+ciqual_food_name:fr:Raviolis aux légumes, sauce tomate, appertisés
 
 <en:Meals
 <en:Canned foods
@@ -63466,6 +63475,7 @@ agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la vi
 <en:Pasta stuffed with meat
 en:Meat ravioli
 fr:Ravioli à la viande
+agribalyse_proxy_food_code:en:25019
 
 <en:ravioli
 <en:Pasta stuffed with vegetables
@@ -75329,6 +75339,11 @@ fi:Purkitetut mungpavun idut
 fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
 nl:Mungoboonkiemen in blik
+agribalyse_proxy_food_code:en:20029
+
+<en:Canned mung bean sprouts
+en:Canned sprouted mung beans
+fr:Haricots mungo germés en conserve, Haricots mungo germés appertisés
 agribalyse_food_code:en:20029
 ciqual_food_code:en:20029
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
