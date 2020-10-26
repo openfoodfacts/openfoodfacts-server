@@ -31,6 +31,10 @@ synonyms:ru:икра из баклажанов, баклажанная икра,
 
 synonyms:ru:макаронные изделия, изделия макаронные
 
+synonyms:fr:thon-crudités, crudités-thon
+
+synonyms:fr:poulet-crudités, crudités-poulet
+
 # conserve or en conserve ?
 synonyms:fr:conserve,appertisé,appertisée,appertisés,appertisées
 
@@ -342,6 +346,10 @@ nl:Babymelktoetjes, Babymelktoetje
 ro:Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
 
 <en:Snacks and desserts for babies
+en:Dairy dessert for baby
+fr:Dessert lacté pour bébé
+
+<en:Dairy dessert for baby
 en:Dairy dessert for baby with custard
 fr:Dessert lacté pour bébé, Crème dessert pour bébé
 agribalyse_food_code:en:13164
@@ -349,7 +357,7 @@ ciqual_food_code:en:13164
 ciqual_food_name:en:Dairy dessert for baby, custard type
 ciqual_food_name:fr:Dessert lacté infantile type crème dessert
 
-<en:Snacks and desserts for babies
+<en:Dairy dessert for baby
 en:Dairy dessert for baby with semolina
 fr:Dessert lacté pour bébé à la semoule
 agribalyse_food_code:en:13165
@@ -357,7 +365,7 @@ ciqual_food_code:en:13165
 ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
 ciqual_food_name:fr:Dessert lacté infantile au riz ou à la semoule
 
-<en:Snacks and desserts for babies
+<en:Dairy dessert for baby
 en:Dairy dessert for baby with rice
 fr:Dessert lacté pour bébé au riz
 agribalyse_food_code:en:13165
@@ -365,7 +373,7 @@ ciqual_food_code:en:13165
 ciqual_food_name:en:Dairy dessert for baby, with rice or semolina
 ciqual_food_name:fr:Dessert lacté infantile au riz ou à la semoule
 
-<en:Snacks and desserts for babies
+<en:Dairy dessert for baby
 en:Plain dairy dessert for baby
 fr:Dessert lacté pour bébé nature
 agribalyse_food_code:en:13166
@@ -373,7 +381,7 @@ ciqual_food_code:en:13166
 ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
 ciqual_food_name:fr:Dessert lacté infantile nature sucré ou aux fruits
 
-<en:Snacks and desserts for babies
+<en:Dairy dessert for baby
 en:Dairy dessert for baby with sugar
 fr:Dessert lacté pour bébé sucré
 agribalyse_food_code:en:13166
@@ -381,7 +389,7 @@ ciqual_food_code:en:13166
 ciqual_food_name:en:Dairy dessert for baby, plain with sugar or with fruits
 ciqual_food_name:fr:Dessert lacté infantile nature sucré ou aux fruits
 
-<en:Snacks and desserts for babies
+<en:Dairy dessert for baby
 en:Plain dairy dessert for baby with fruits
 fr:Dessert lacté pour bébé aux fruits
 agribalyse_food_code:en:13166
@@ -400,6 +408,8 @@ hu:Babatejek
 it:Latte per neonati
 nl:Babymelk
 ro:Lapte pentru bebeluși, Lapte bebeluși, Lapte bebelusi, Lapte pentru bebelusi
+agribalyse_proxy_food_code:en:19013
+# The undiluted value is unusable. Thus ready to drink milks will be the proxy
 
 <en:Baby milks
 en:Infant formulas, Baby start milk up to 6 months
@@ -414,6 +424,18 @@ nl:Baby-startmelk tot 6 maanden
 ro:Formula pentru bebeluși, Formula bebeluși, Formula bebelusi, Formula pentru bebelusi
 
 <en:Infant formulas
+en:Ready to feed baby milks
+fr:Laits infantiles prêts à consommer, Laits infantiles prêts à consommer
+agribalyse_proxy_food_code:en:19013
+
+<en:Infant formulas
+<en:Dehydrated products
+en:Baby milks in powder, Infant formulas in powder
+fr:Laits infantiles en poudre
+agribalyse_proxy_food_code:en:3000
+# The undiluted value is unusable. Thus ready to drink milks will be the proxy
+
+<en:Ready to feed baby milks
 en:Ready to feed baby first milk
 fr:Laits 1er âge prêts à consommer, Laits premier âge prêts à consommer
 agribalyse_food_code:en:19013
@@ -433,7 +455,7 @@ ca:Primera llet des dels 10 mesos
 de:1-Nahrung, 1er-Babymilch
 nl:Baby-startmelk vanaf 10 maanden
 
-<en:Infant formulas
+<en:Baby milks in powder
 en:First age baby milk powder, First milk powder, First infant milk formula in powder
 fr:Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
 agribalyse_food_code:en:3000
@@ -450,6 +472,7 @@ it:Latte artificiale di proseguimento dal quinto mese, Latte artificiale di pros
 nl:Baby-opvolgmelk
 
 <en:Baby follow-on milk from 5 months
+<en:Baby milks in powder
 en:Second age baby milk powder, Second milk powder, Second infant milk formula in powder
 fr:Lait 2ème âge en poudre soluble, Lait deuxième âge en poudre soluble, Préparation de suite en poudre soluble
 agribalyse_food_code:en:3002
@@ -458,6 +481,7 @@ ciqual_food_name:en:Baby milk, second age, powder
 ciqual_food_name:fr:Lait 2e âge, poudre soluble (préparation de suite)
 
 <en:Baby follow-on milk from 5 months
+<en:Ready to feed baby milks
 en:Ready to feed baby follow on milk
 fr:Lait 2e âge prêt à consommer, Lait deuxième âge prêt à consommer
 agribalyse_food_code:en:19014
@@ -493,6 +517,7 @@ it:Latte della crescita, Latte per la crescita
 nl:Peutermelk
 
 <en:Growth milks
+<en:Ready to feed baby milks
 en:Ready to feed baby growing up milk
 fr:Lait de croissance pour enfants en bas âge, Aliment lacté liquide destiné aux enfants en bas âge
 agribalyse_food_code:en:19012
@@ -60609,6 +60634,11 @@ ciqual_food_code:en:30315
 ciqual_food_name:en:Spicy pork sausage with red pepper, no precision
 
 <en:chorizo
+en:Spicy pork sausage in large slices
+fr:Chorizo en tranches, Chiffonade de chorizo
+agribalyse_proxy_food_code:en:30317
+
+<en:Spicy pork sausage in large slices
 en:Spicy pork sausage with red pepper in large slices
 fr:Chorizo supérieur doux en tranches, Chorizo supérieur fort en tranches
 agribalyse_food_code:en:30317
@@ -65149,19 +65179,31 @@ ciqual_food_name:fr:Sandwich baguette (aliment moyen)
 
 <en:French bread sandwiches
 en:Baguette sandwiches with salami and butter
-fr:Sandwich baguette salami beurre
+fr:Sandwichs baguette salami beurre
 agribalyse_food_code:en:25536
 ciqual_food_code:en:25536
 ciqual_food_name:en:Sandwich made with French bread, salami and butter
 
+<en:Sandwiches
+en:Sandwiches with ham and emmental cheese
+fr:Sandwichs jambon-emmental
+agribalyse_proxy_food_code:en:25485
+
 <en:French bread sandwiches
+<en:Sandwiches with ham and emmental cheese
 en:Baguette sandwiches with ham and emmental cheese
-fr:Sandwich baguette jambon emmental
+fr:Sandwichs baguette jambon emmental
 agribalyse_food_code:en:25485
 ciqual_food_code:en:25485
 ciqual_food_name:en:Sandwich made with French bread, ham and emmental cheese
 
+<en:Sandwiches
+en:Sandwiches with ham and emmental cheese and butter
+fr:Sandwichs jambon-emmental-beurre
+agribalyse_proxy_food_code:en:25521
+
 <en:French bread sandwiches
+<en:Sandwiches with ham and emmental cheese and butter
 en:Baguette sandwiches with ham emmental cheese and butter
 fr:Sandwich baguette jambon emmental beurre
 agribalyse_food_code:en:25521
@@ -65178,7 +65220,7 @@ ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, sala
 
 <en:Sandwiches
 en:Sandwich with tuna and vegetables
-fr:Sandwich crudités-thon
+fr:Sandwich crudités-thon, Sandwich thon-crudités
 agribalyse_proxy_food_code:en:25575
 agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
 agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
@@ -65231,8 +65273,9 @@ ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettu
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
 
 <en:vegetable sandwiches
-en:Sandwich with vegetables and mayonnaise
-fr:Sandwich crudités mayonnaise
+en:Sandwiches with vegetables and mayonnaise
+fr:Sandwichs crudités mayonnaise
+agribalyse_proxy_food_code:en:25530
 
 <en:Sandwich with vegetables and mayonnaise
 <en:French bread sandwiches
@@ -65275,7 +65318,7 @@ ciqual_food_name:fr:Sandwich baguette, poulet, crudités (tomate, salade), mayon
 <en:Sandwiches filled with cold cuts
 <en:Chicken sandwiches
 en:Sandwich made with wholemeal loaf bread and chicken and vegetables and mayonnaise
-fr:Sandwich pain de mie complet poulet crudités mayonnaise
+fr:Sandwichs pain de mie complet poulet crudités mayonnaise
 agribalyse_food_code:en:25577
 ciqual_food_code:en:25577
 ciqual_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
@@ -65294,7 +65337,7 @@ agribalyse_proxy_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salad
 <en:Sandwiches filled with cold cuts
 <en:Turkey sandwiches
 en:Baguette sandwiches with and turkey and vegetables and mayonnaise
-fr:Sandwich baguette dinde crudités mayonnaise
+fr:Sandwichs baguette dinde crudités mayonnaise
 agribalyse_food_code:en:25531
 ciqual_food_code:en:25531
 ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (lettuce & tomato) and mayonnaise
@@ -65379,6 +65422,7 @@ ciqual_food_code:en:25544
 ciqual_food_name:en:Sandwich made with loaf bread, various filling
 ciqual_food_name:fr:Sandwich pain de mie, garnitures diverses
 
+<en:Sandwiches filled with cold cuts
 en:Sandwich with ham and vegetables and cheese
 fr:Sandwich jambon crudités fromage
 agribalyse_proxy_food_code:en:25574
@@ -65479,8 +65523,8 @@ fr:Sandwichs au brie
 nl:Sandwiches met Brie
 
 <en:Cheese sandwiches
-en:Sandwich made with camembert cheese
-fr:Sandwich au camembert
+en:Sandwiches with camembert cheese
+fr:Sandwichs au camembert
 agribalyse_proxy_food_code:en:25518
 agribalyse_proxy_food_name:en:Sandwich made with French bread, camembert cheese and butter
 agribalyse_proxy_food_name:fr:Sandwich baguette, camembert, beurre
@@ -75362,11 +75406,6 @@ fi:Purkitetut mungpavun idut
 fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
 nl:Mungoboonkiemen in blik
-agribalyse_proxy_food_code:en:20029
-
-<en:Canned mung bean sprouts
-en:Canned sprouted mung beans
-fr:Haricots mungo germés en conserve, Haricots mungo germés appertisés
 agribalyse_food_code:en:20029
 ciqual_food_code:en:20029
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
