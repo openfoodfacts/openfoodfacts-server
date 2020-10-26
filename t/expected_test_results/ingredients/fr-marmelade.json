@@ -6,27 +6,32 @@
          "ingredients" : [
             {
                "id" : "en:glucose-fructose-syrup",
+               "percent_estimate" : 20.5,
                "text" : "sirop de glucose-fructose"
             },
             {
                "id" : "en:sugar",
+               "percent_estimate" : 10.25,
                "text" : "sucre"
             },
             {
                "id" : "en:orange-pulp",
                "percent" : "4.5",
+               "percent_estimate" : "4.5",
                "text" : "pulpe d'orange"
             },
             {
                "id" : "en:concentrated-orange-juice",
                "ingredients" : [],
                "percent" : "1.4",
+               "percent_estimate" : "1.4",
                "text" : "jus d'orange concentré"
             },
             {
                "id" : "en:orange-pulp",
                "ingredients" : [],
                "percent" : "0.6",
+               "percent_estimate" : "0.6",
                "processing" : "en:concentrated",
                "text" : "pulpe d'orange"
             },
@@ -35,9 +40,11 @@
                "ingredients" : [
                   {
                      "id" : "en:e440a",
+                     "percent_estimate" : 1.875,
                      "text" : "pectines"
                   }
                ],
+               "percent_estimate" : 1.875,
                "text" : "gélifiant"
             },
             {
@@ -45,9 +52,11 @@
                "ingredients" : [
                   {
                      "id" : "en:e330",
+                     "percent_estimate" : 0.9375,
                      "text" : "acide citrique"
                   }
                ],
+               "percent_estimate" : 0.9375,
                "text" : "acidifiant"
             },
             {
@@ -55,17 +64,21 @@
                "ingredients" : [
                   {
                      "id" : "en:e333",
+                     "percent_estimate" : 0.234375,
                      "text" : "citrate de calcium"
                   },
                   {
                      "id" : "en:sodium-citrate",
+                     "percent_estimate" : 0.234375,
                      "text" : "citrate de sodium"
                   }
                ],
+               "percent_estimate" : 0.46875,
                "text" : "correcteurs d'acidité"
             },
             {
                "id" : "en:natural-orange-flavouring",
+               "percent_estimate" : 0.234375,
                "text" : "arôme naturel d'orange"
             },
             {
@@ -73,13 +86,16 @@
                "ingredients" : [
                   {
                      "id" : "en:e415",
+                     "percent_estimate" : 0.234375,
                      "text" : "gomme xanthane"
                   }
                ],
+               "percent_estimate" : 0.234375,
                "text" : "épaississant"
             }
          ],
          "percent" : "41",
+         "percent_estimate" : "41",
          "rank" : 1,
          "text" : "Marmelade d'oranges"
       },
@@ -89,38 +105,47 @@
          "ingredients" : [
             {
                "id" : "en:sugar",
+               "percent_estimate" : 12.45,
                "text" : "sucre"
             },
             {
                "id" : "en:cocoa-paste",
+               "percent_estimate" : 6.225,
                "text" : "pâte de cacao"
             },
             {
                "id" : "en:cocoa-butter",
+               "percent_estimate" : 3.1125,
                "text" : "beurre de cacao"
             },
             {
                "id" : "en:illipe-oil",
+               "percent_estimate" : 1.55625,
                "text" : "graisses végétales d'illipe"
             },
             {
                "id" : "en:mango-kernel-oil",
+               "percent_estimate" : 0.778124999999999,
                "text" : "graisses végétales de mangue"
             },
             {
                "id" : "en:shorea-robusta-seed-oil",
+               "percent_estimate" : 0.3890625,
                "text" : "graisses végétales de sal"
             },
             {
                "id" : "en:shea-butter",
+               "percent_estimate" : 0.194531250000001,
                "text" : "graisses végétales de karité"
             },
             {
                "id" : "en:palm-fat",
+               "percent_estimate" : 0.0972656250000004,
                "text" : "graisses végétales de palme"
             },
             {
                "id" : "en:flavouring",
+               "percent_estimate" : 0.0486328124999993,
                "text" : "arôme"
             },
             {
@@ -128,17 +153,21 @@
                "ingredients" : [
                   {
                      "id" : "en:soya-lecithin",
+                     "percent_estimate" : 0.0243164062499996,
                      "text" : "lécithine de soja"
                   }
                ],
+               "percent_estimate" : 0.0243164062499996,
                "text" : "émulsifiant"
             },
             {
                "id" : "en:lactose-and-milk-proteins",
+               "percent_estimate" : 0.0243164062500014,
                "text" : "lactose et protéines de lait"
             }
          ],
          "percent" : "24.9",
+         "percent_estimate" : "24.9",
          "rank" : 2,
          "text" : "chocolat",
          "vegan" : "maybe",
@@ -146,6 +175,7 @@
       },
       {
          "id" : "en:wheat-flour",
+         "percent_estimate" : 17.05,
          "rank" : 3,
          "text" : "farine de blé",
          "vegan" : "yes",
@@ -153,6 +183,7 @@
       },
       {
          "id" : "en:sugar",
+         "percent_estimate" : 8.525,
          "rank" : 4,
          "text" : "sucre",
          "vegan" : "yes",
@@ -160,6 +191,7 @@
       },
       {
          "id" : "en:egg",
+         "percent_estimate" : 4.2625,
          "rank" : 5,
          "text" : "oeufs",
          "vegan" : "no",
@@ -167,6 +199,7 @@
       },
       {
          "id" : "en:glucose-fructose-syrup",
+         "percent_estimate" : 2.13125,
          "rank" : 6,
          "text" : "sirop de glucose-fructose",
          "vegan" : "yes",
@@ -175,6 +208,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
+         "percent_estimate" : 1.065625,
          "rank" : 7,
          "text" : "huile de colza",
          "vegan" : "yes",
@@ -186,22 +220,27 @@
          "ingredients" : [
             {
                "id" : "en:e503ii",
+               "percent_estimate" : 0.266406249999999,
                "text" : "carbonate acide d'ammonium"
             },
             {
                "id" : "en:e450i",
+               "percent_estimate" : 0.133203125,
                "text" : "diphosphate disodique"
             },
             {
                "id" : "en:e500ii",
+               "percent_estimate" : 0.133203125,
                "text" : "carbonate acide de sodium"
             }
          ],
+         "percent_estimate" : 0.532812499999999,
          "rank" : 8,
          "text" : "poudre à lever"
       },
       {
          "id" : "en:salt",
+         "percent_estimate" : 0.266406250000003,
          "rank" : 9,
          "text" : "sel",
          "vegan" : "yes",
@@ -213,20 +252,24 @@
          "ingredients" : [
             {
                "id" : "en:soya-lecithin",
+               "percent_estimate" : 0.266406250000003,
                "text" : "lécithine de soja"
             }
          ],
+         "percent_estimate" : 0.266406250000003,
          "rank" : 10,
          "text" : "émulsifiant"
       },
       {
          "id" : "en:glucose-fructose-syrup",
+         "percent_estimate" : 20.5,
          "text" : "sirop de glucose-fructose",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:sugar",
+         "percent_estimate" : 10.25,
          "text" : "sucre",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -234,6 +277,7 @@
       {
          "id" : "en:orange-pulp",
          "percent" : "4.5",
+         "percent_estimate" : "4.5",
          "text" : "pulpe d'orange",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -242,6 +286,7 @@
          "has_sub_ingredients" : "yes",
          "id" : "en:concentrated-orange-juice",
          "percent" : "1.4",
+         "percent_estimate" : "1.4",
          "text" : "jus d'orange concentré",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -250,6 +295,7 @@
          "has_sub_ingredients" : "yes",
          "id" : "en:orange-pulp",
          "percent" : "0.6",
+         "percent_estimate" : "0.6",
          "processing" : "en:concentrated",
          "text" : "pulpe d'orange",
          "vegan" : "yes",
@@ -258,20 +304,24 @@
       {
          "has_sub_ingredients" : "yes",
          "id" : "en:gelling-agent",
+         "percent_estimate" : 1.875,
          "text" : "gélifiant"
       },
       {
          "has_sub_ingredients" : "yes",
          "id" : "en:acid",
+         "percent_estimate" : 0.9375,
          "text" : "acidifiant"
       },
       {
          "has_sub_ingredients" : "yes",
          "id" : "en:acidity-regulator",
+         "percent_estimate" : 0.46875,
          "text" : "correcteurs d'acidité"
       },
       {
          "id" : "en:natural-orange-flavouring",
+         "percent_estimate" : 0.234375,
          "text" : "arôme naturel d'orange",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -279,22 +329,26 @@
       {
          "has_sub_ingredients" : "yes",
          "id" : "en:thickener",
+         "percent_estimate" : 0.234375,
          "text" : "épaississant"
       },
       {
          "id" : "en:sugar",
+         "percent_estimate" : 12.45,
          "text" : "sucre",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:cocoa-paste",
+         "percent_estimate" : 6.225,
          "text" : "pâte de cacao",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:cocoa-butter",
+         "percent_estimate" : 3.1125,
          "text" : "beurre de cacao",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -302,6 +356,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:illipe-oil",
+         "percent_estimate" : 1.55625,
          "text" : "graisses végétales d'illipe",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -309,6 +364,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:mango-kernel-oil",
+         "percent_estimate" : 0.778124999999999,
          "text" : "graisses végétales de mangue",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -316,6 +372,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:shorea-robusta-seed-oil",
+         "percent_estimate" : 0.3890625,
          "text" : "graisses végétales de sal",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -323,6 +380,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:shea-butter",
+         "percent_estimate" : 0.194531250000001,
          "text" : "graisses végétales de karité",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -330,12 +388,14 @@
       {
          "from_palm_oil" : "yes",
          "id" : "en:palm-fat",
+         "percent_estimate" : 0.0972656250000004,
          "text" : "graisses végétales de palme",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:flavouring",
+         "percent_estimate" : 0.0486328124999993,
          "text" : "arôme",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -343,68 +403,80 @@
       {
          "has_sub_ingredients" : "yes",
          "id" : "en:emulsifier",
+         "percent_estimate" : 0.0243164062499996,
          "text" : "émulsifiant"
       },
       {
          "id" : "en:lactose-and-milk-proteins",
+         "percent_estimate" : 0.0243164062500014,
          "text" : "lactose et protéines de lait",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e503ii",
+         "percent_estimate" : 0.266406249999999,
          "text" : "carbonate acide d'ammonium",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e450i",
+         "percent_estimate" : 0.133203125,
          "text" : "diphosphate disodique",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e500ii",
+         "percent_estimate" : 0.133203125,
          "text" : "carbonate acide de sodium",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:soya-lecithin",
+         "percent_estimate" : 0.266406250000003,
          "text" : "lécithine de soja",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e440a",
+         "percent_estimate" : 1.875,
          "text" : "pectines",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e330",
+         "percent_estimate" : 0.9375,
          "text" : "acide citrique",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e333",
+         "percent_estimate" : 0.234375,
          "text" : "citrate de calcium",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:sodium-citrate",
+         "percent_estimate" : 0.234375,
          "text" : "citrate de sodium"
       },
       {
          "id" : "en:e415",
+         "percent_estimate" : 0.234375,
          "text" : "gomme xanthane",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:soya-lecithin",
+         "percent_estimate" : 0.0243164062499996,
          "text" : "lécithine de soja",
          "vegan" : "yes",
          "vegetarian" : "yes"
