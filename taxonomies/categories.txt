@@ -48038,6 +48038,9 @@ de:Salzblume, Fleurs de sel
 fi:Suolankukat
 fr:Fleurs de sel
 nl:Fleurs de sel, Bloem van het zout
+agribalyse_proxy_food_code:en:11082
+agribalyse_proxy_food_name:en:Pure sea salt, no enrichment
+agribalyse_proxy_food_name:fr:Fleur de sel, non iodée, non fluorée
 
 <en:Unrefined salts
 <en:Sea salts
@@ -48220,6 +48223,9 @@ fr:Cardamome
 hu:Kardámom
 nl:Kardemom
 wikidata:en:Q18360378
+agribalyse_proxy_food_code:en:11075
+agribalyse_proxy_food_name:en:Cardamom, powder
+agribalyse_proxy_food_name:fr:Cardamome, poudre
 
 <en:Cardamom
 en:Black cardamom
@@ -48260,6 +48266,9 @@ nl:Kaneel
 nl_be:Kaneel
 pl:Cynamon
 wikidata:en:Q28165
+agribalyse_proxy_food_code:en:11025
+agribalyse_proxy_food_name:en:Cinnamon, powder
+agribalyse_proxy_food_name:fr:Cannelle, poudre
 
 <en:Cinnamon
 en:Cinnamon powder
@@ -48370,6 +48379,9 @@ fr:Produits de le fenugrec, Fenugrec
 la:Trigonella foenum-graecum
 nl:Fenegriek
 wikidata:en:Q133205
+agribalyse_proxy_food_code:en:11077
+agribalyse_proxy_food_name:en:Fenugreek, seed
+agribalyse_proxy_food_name:fr:Fenugrec, graine
 
 <en:Fenugreek products
 <en:Aromatic herbs
@@ -48596,6 +48608,9 @@ fi:mustapippurit
 fr:Poivres noirs
 it:Pepe nero
 nl:Zwarte pepers
+agribalyse_proxy_food_code:en:11015
+agribalyse_proxy_food_name:en:Black pepper, powder
+agribalyse_proxy_food_name:fr:Poivre noir, poudre
 
 <en:Black peppers
 <en:Peppercorns
@@ -48687,6 +48702,9 @@ es:Pimienta blanca
 fi:valkopippurit
 fr:Poivres blancs
 nl:Witte pepers
+agribalyse_proxy_food_code:en:11019
+agribalyse_proxy_food_name:en:White pepper, powder
+agribalyse_proxy_food_name:fr:Poivre blanc, poudre
 
 <en:White peppers
 <en:Peppercorns
@@ -48776,6 +48794,9 @@ la:Curcuma longa
 nl:Kurkuma, Geelwortel, Koenjit
 nl_be:Kurkuma, Geelwortel
 wikidata:en:Q42562
+agribalyse_proxy_food_code:en:11089
+agribalyse_proxy_food_name:en:Turmeric, powder
+agribalyse_proxy_food_name:fr:Curcuma, poudre
 
 <en:Turmeric
 en:Turmeric powder
@@ -49119,9 +49140,9 @@ ciqual_food_name:en:Molokhia sauce, home-made
 ciqual_food_name:fr:Meloukhia, sauce, artisanale
 
 <en:Sauces
-en:Kebab sauce
+en:Kebab sauces
 es:Salsa kebab
-fr:Sauce kebab
+fr:Sauces kebab
 agribalyse_food_code:en:11203
 ciqual_food_code:en:11203
 ciqual_food_name:en:Kebab sauce, prepacked
@@ -49137,6 +49158,7 @@ agribalyse_food_code:en:11111
 ciqual_food_code:en:11111
 ciqual_food_name:en:Armorican-style sauce, prepacked
 ciqual_food_name:fr:Sauce armoricaine, préemballée
+# Sauce américaine : chopped onions, tomatoes, white wine, brandy, salt, cayenne pepper, butter and fish stock. 
 
 <en:Sauces
 fr:Sauces au lait de coco, Sauces thaï
@@ -49146,9 +49168,15 @@ en:Honey sauces, Sauces with honey, Honey dressings
 fr:Sauces au miel
 
 <en:Sauces
+fr:Sauces au vin
+agribalyse_proxy_food_code:en:11164
+agribalyse_proxy_food_name:en:Red wine sauce
+agribalyse_proxy_food_name:fr:Sauce au vin rouge
+
+<fr:Sauces au vin
 fr:Sauces au vin blanc, Sauce au vin blanc
 
-<en:Sauces
+<fr:Sauces au vin
 en:Red wine sauces
 fr:Sauces au vin rouge, Sauce au vin rouge
 agribalyse_food_code:en:11164
@@ -49214,23 +49242,23 @@ ciqual_food_name:en:Basque-style sauce or tomato sauce with sweet peppers, prepa
 ciqual_food_name:fr:Sauce basquaise ou Sauce aux poivrons, préemballée
 
 <en:Sauces
-en:Tomato sauce with vegetables
-fr:Sauce tomate aux petits légumes
+en:Tomato sauces with vegetables
+fr:Sauces tomate aux petits légumes
 agribalyse_food_code:en:11207
 ciqual_food_code:en:11207
 ciqual_food_name:en:Tomato sauce, w vegetables, prepacked
 ciqual_food_name:fr:Sauce tomate aux petits légumes, préemballée
 
 <en:Sauces
-en:American-style sauce
-fr:Sauce américaine
+en:American-style sauces
+fr:Sauces américaine
 agribalyse_food_code:en:11167
 ciqual_food_code:en:11167
 ciqual_food_name:en:American-style sauce, prepacked
 ciqual_food_name:fr:Sauce américaine, préemballée
 
 <en:Sauces for fishes
-en:White butter sauce
+en:White butter sauces
 fr:Sauces au beurre blanc, Sauces beurre blanc, Sauce au beurre blanc
 agribalyse_food_code:en:11140
 ciqual_food_code:en:11140
@@ -49238,8 +49266,8 @@ ciqual_food_name:en:White butter sauce, prepacked
 ciqual_food_name:fr:Sauce au beurre blanc, préemballée
 
 <en:Sauces for fishes
-en:Butter sauce
-fr:Sauce au beurre
+en:Butter sauces
+fr:Sauces au beurre
 agribalyse_food_code:en:11158
 ciqual_food_code:en:11158
 ciqual_food_name:en:Sauce, butter, prepacked
@@ -49271,9 +49299,9 @@ ciqual_food_name:en:Cream sauce with shallots, prepacked
 ciqual_food_name:fr:Sauce à l'échalote à la crème, préemballée
 
 <en:Sauces
-en:Cream sauce
+en:Cream sauces
 fi:Kermakastike
-fr:Sauce à la crème
+fr:Sauces à la crème
 agribalyse_food_code:en:11159
 ciqual_food_code:en:11159
 ciqual_food_name:en:Cream sauce
@@ -49331,6 +49359,14 @@ ciqual_food_name:en:Salad dressing, prepacked
 ciqual_food_name:fr:Sauce crudités ou Sauce salade, préemballée
 
 <en:Sauces
+en:Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
+fr:Sauces crudités allégées, Sauces crudités light, Sauce crudités allégée en matière grasse, Sauce salade allégée en matière grasse
+agribalyse_food_code:en:11198
+ciqual_food_code:en:11198
+ciqual_food_name:en:Salad dressing, reduced fat, prepacked
+ciqual_food_name:fr:Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
+
+<en:Sauces
 en:Salad dressings, dressings, Salad sauce
 ca:Amaniments, Salses per amanides
 de:Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
@@ -49345,34 +49381,10 @@ ciqual_food_code:en:11187
 ciqual_food_name:en:Salad dressing, prepacked
 ciqual_food_name:fr:Sauce crudités ou Sauce salade, préemballée
 
-
-<en:Sauces
-en:Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
-fr:Sauce crudités allégée en matière grasse, Sauce salade allégée en matière grasse
-agribalyse_food_code:en:11198
-ciqual_food_code:en:11198
-ciqual_food_name:en:Salad dressing, reduced fat, prepacked
-ciqual_food_name:fr:Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
-
-<en:Sauces
-en:Salad dressing with 50-75% of oil
-fr:Sauce vinaigrette avec 50 à 75% d'huile
-agribalyse_food_code:en:11110
-ciqual_food_code:en:11110
-ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
-ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
-
-<en:Sauces
-en:Salad dressing with reduced fat and 25-50% of oil
-fr:Sauce vinaigrette allégée en matière grasse avec 25 à 50% d'huile
-ciqual_food_code:en:11109
-ciqual_food_name:en:Salad dressing, reduced fat (25-50% of oil), prepacked
-ciqual_food_name:fr:Sauce vinaigrette allégée en MG (25 à 50% d'huile), préemballée
-
 <en:Sauces
 en:Mustard sauce
 es:Salsa de mostaza
-fr:Sauce moutarde
+fr:Sauces moutarde
 agribalyse_food_code:en:11157
 ciqual_food_code:en:11157
 ciqual_food_name:en:Mustard sauce prepacked
@@ -49718,7 +49730,7 @@ wikidata:en:Q167893
 agribalyse_proxy_food_code:en:11054
 agribalyse_proxy_food_name:en:Mayonnaise (70% fat and more)
 agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
-# For some reason, Mayonnaises still appear unknown
+# TODO For some reason, Mayonnaises still appear unknown
 
 <en:Mayonnaises
 nl:Fritessauzen
@@ -50026,6 +50038,7 @@ zh:肉制品
 
 <en:Meat-based products
 en:Andorran meat products
+fr:Produits carnés andorrins
 
 <en:Andorran meat products
 ca:Carn d'Andorra
@@ -50035,6 +50048,7 @@ origins:en: en:Andorra
 
 <en:Meat-based products
 en:Belgian meat products
+fr:Produits carnés belges
 
 <en:Belgian meat products
 nl:Potjesvlees uit de Westhoek
@@ -50118,6 +50132,7 @@ origins:en: en:Croatia
 
 <en:Meat-based products
 en:Bulgarian meat products
+fr:Produits carnés bulgares
 
 <en:Bulgarian meat products
 bg:ЛуканкаПанагюрска, Lukanka Panagyurska
@@ -50563,6 +50578,7 @@ origins:en: en:Italy
 
 <en:Meat-based products
 en:Polish meat products
+fr:Produits carnés polonais
 
 <en:Polish meat products
 pl:Kiełbasa krakowska sucha staropolska
@@ -50614,6 +50630,7 @@ origins:en: en:Poland
 
 <en:Meat-based products
 en:Norwegian meat products
+fr:Produits carnés norvégiens
 
 <en:Norwegian meat products
 no:Fenalår fra Norge
@@ -50623,6 +50640,7 @@ origins:en: en:Norway
 
 <en:Meat-based products
 en:Portuguese meat products
+fr:Produits carnés portugais
 
 <en:Portuguese meat products
 pt:Alheira de Mirandela
@@ -50872,6 +50890,7 @@ origins:en: en:Portugal
 
 <en:Meat-based products
 en:Romanian meat products
+fr:Produits carnés roumains
 
 <en:Romanian meat products
 ro:Cârnaţi de Pleşcoi
@@ -50887,6 +50906,7 @@ origins:en: en:Romania
 
 <en:Meat-based products
 en:Slovenian meat products
+fr:Produits carnés slovènes
 
 <en:Slovenian meat products
 sl:Kranjska klobasa
@@ -50938,6 +50958,7 @@ origins:en: en:Slovenia
 
 <en:Meat-based products
 en:Spanish meat products
+fr:Produits carnés espagnols
 
 <en:Spanish meat products
 es:Carne de Ávila
@@ -51238,6 +51259,9 @@ hu:Pizza szószok
 it:Salsa per la pizza
 nl:Pizzasauzen
 pl:Sos do pizzy
+agribalyse_proxy_food_code:en:25525
+agribalyse_proxy_food_name:en:Topping sauce for pizza
+agribalyse_proxy_food_name:fr:Pizza, sauce garniture pour
 
 <en:Pizza sauces
 en:Cream sauce for pizza base
@@ -51292,6 +51316,24 @@ fr:Vinaigrettes, Sauces vinaigrettes, Sauces vinaigrette
 it:Vinaigrette, Pinzimonio
 nl:Vinaigrettedressings
 wikidata:en:Q847441
+agribalyse_proxy_food_code:en:11110
+agribalyse_proxy_food_name:en:Salad dressing, (50-75% of oil), prepacked
+agribalyse_proxy_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
+
+<en:Vinaigrettes
+en:Salad dressing with 50-75% of oil
+fr:Sauce vinaigrette avec 50 à 75% d'huile
+agribalyse_food_code:en:11110
+ciqual_food_code:en:11110
+ciqual_food_name:en:Salad dressing, (50-75% of oil), prepacked
+ciqual_food_name:fr:Sauce vinaigrette (50 à 75% d'huile), préemballée
+
+<en:Vinaigrettes
+en:Salad dressing with reduced fat and 25-50% of oil
+fr:Sauce vinaigrette allégée en matière grasse avec 25 à 50% d'huile
+ciqual_food_code:en:11109
+ciqual_food_name:en:Salad dressing, reduced fat (25-50% of oil), prepacked
+ciqual_food_name:fr:Sauce vinaigrette allégée en MG (25 à 50% d'huile), préemballée
 
 <en:Vinaigrettes
 fr:Vinaigrettes allégées en matières grasses, Vinaigrette allégée en matières grasses, vinaigrettes allégées
@@ -51515,8 +51557,8 @@ ciqual_food_name:en:Tomato paste, concentrated, canned
 ciqual_food_name:fr:Tomate, concentré, appertisé
 
 <en:Tomatoes and their products
-en:Canned double concentrate tomato paste
-fr:Double concentré de tomate appertisé
+en:Double concentrate tomato paste
+fr:Double concentré de tomate
 agribalyse_food_code:en:20268
 ciqual_food_code:en:20268
 ciqual_food_name:en:Tomato paste, double concentrate, canned
@@ -51528,6 +51570,9 @@ es:Pulpa de tomate
 fr:Pulpes de tomates, pulpes de tomate, pulpe de tomates, pulpe de tomate
 it:Polpe di pomodoro, polpa di pomodoro, polpe di pomodori, polpa di pomodori
 nl:Tomatenpulp
+agribalyse_proxy_food_code:en:20169
+agribalyse_proxy_food_name:en:Tomato pulp, canned
+agribalyse_proxy_food_name:fr:Tomate, pulpe, appertisée
 
 <en:Tomatoes and their products
 en:Boiled tomato pulp and peel, Tomato pulp and peel cooked in water
@@ -51625,21 +51670,6 @@ fr:farines biscuitières, Farines pour biscuits
 
 <en:Flours
 fr:Farines pâtissières, Farines pour pâtisseries
-
-<en:Asparagus
-<en:French vegetables
-fr:Asperge des sables des Landes
-protected_name_file_number:en: PGI-FR-0272
-protected_name_type:en: pgi
-origins:en: en:France, fr:Landes
-
-<en:Asparagus
-en:Boiled asparagus, Asparagus cooked in water
-fr:Asperge bouillie, Asperge cuite à l'eau
-agribalyse_food_code:en:20001
-ciqual_food_code:en:20001
-ciqual_food_name:en:Asparagus, boiled/cooked in water
-ciqual_food_name:fr:Asperge, bouillie/cuite à l'eau
 
 en:Meals, Prepared meals, Prepared dishes
 ca:Menjar preparat
@@ -71050,35 +71080,6 @@ ciqual_food_name:en:Artichoke base, canned, drained
 ciqual_food_name:fr:Artichaut, fond, appertisé, égoutté
 
 <en:Canned vegetables
-<en:Asparagus
-en:Canned asparagus
-de:Spargel in Dosen
-es:Espárragos en conserva
-fi:purkitettu parsa
-fr:Asperges en conserve, Asperges appertisées
-it:Asparagi in scatola
-nl:Asperges in blik
-agribalyse_food_code:en:20076
-ciqual_food_code:en:20076
-ciqual_food_name:en:Asparagus, canned, drained
-ciqual_food_name:fr:Asperge, appertisée, égouttée
-
-<en:Canned asparagus
-en:Canned green asparagus
-es:Espárragos verdes en conserva
-fr:Asperges vertes en conserve
-nl:Groene asperges in blik
-
-<en:Canned asparagus
-en:Canned white asparagus
-de:Weißer Spargel in Dosen, Weißer Dosen-Spargel
-es:Espárragos blancos en conserva
-fi:purkitettu valkoinen parsa
-fr:Asperges blanches en conserve
-it:Asparagi bianchi in scatola
-nl:Witte asperges in blik
-
-<en:Canned vegetables
 <en:Beet
 en:Canned beet, Canned beetroots
 de:Rote-Bete-Konserven
@@ -71564,6 +71565,53 @@ he:אספרגוס
 it:Asparagi
 la:Asparagus officinalis
 nl:Asperges
+agribalyse_proxy_food_code:en:20076
+agribalyse_proxy_food_name:en:Asparagus, canned, drained
+agribalyse_proxy_food_name:fr:Asperge, appertisée, égouttée
+
+<en:Asparagus
+<en:French vegetables
+fr:Asperge des sables des Landes
+protected_name_file_number:en: PGI-FR-0272
+protected_name_type:en: pgi
+origins:en: en:France, fr:Landes
+
+<en:Asparagus
+en:Boiled asparagus, Asparagus cooked in water
+fr:Asperge bouillie, Asperge cuite à l'eau
+agribalyse_food_code:en:20001
+ciqual_food_code:en:20001
+ciqual_food_name:en:Asparagus, boiled/cooked in water
+ciqual_food_name:fr:Asperge, bouillie/cuite à l'eau
+
+<en:Canned vegetables
+<en:Asparagus
+en:Canned asparagus
+de:Spargel in Dosen
+es:Espárragos en conserva
+fi:purkitettu parsa
+fr:Asperges en conserve, Asperges appertisées
+it:Asparagi in scatola
+nl:Asperges in blik
+agribalyse_food_code:en:20076
+ciqual_food_code:en:20076
+ciqual_food_name:en:Asparagus, canned, drained
+ciqual_food_name:fr:Asperge, appertisée, égouttée
+
+<en:Canned asparagus
+en:Canned green asparagus
+es:Espárragos verdes en conserva
+fr:Asperges vertes en conserve
+nl:Groene asperges in blik
+
+<en:Canned asparagus
+en:Canned white asparagus
+de:Weißer Spargel in Dosen, Weißer Dosen-Spargel
+es:Espárragos blancos en conserva
+fi:purkitettu valkoinen parsa
+fr:Asperges blanches en conserve
+it:Asparagi bianchi in scatola
+nl:Witte asperges in blik
 
 <en:Asparagus
 en:Miniature asparagus
