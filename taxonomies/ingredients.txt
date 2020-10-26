@@ -4938,7 +4938,7 @@ vegetarian:en:yes
 en:microbial culture, culture, active cultures, live cultures
 ca:Cultiu microbiològic
 da:aktive kulturer, levende kulturer
-de:mikrobielle Kultur
+de:mikrobielle Kultur, Kulturen
 es:Cultivo microbiano
 fi:mikrobiviljelmä, viljelmä
 fr:culture bactérienne
@@ -7950,7 +7950,7 @@ ca:iogurt de llet sencera
 de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt, Joghurt aus Vollmilch
 es:yogur de leche entera
 fi:täysmaitojogurtti
-fr:yogourt au lait entier
+fr:yogourt au lait entier, yaourt au lait entier
 hu:teljes joghurt
 
 <en:yogurt
@@ -12953,7 +12953,7 @@ te:ఉప్పు
 tg:Намак
 th:เกลือ
 tl:Asin
-tr:Yemek tuzu
+tr:tuz, Yemek tuzu
 ug:تۇز
 uk:Кухонна сіль
 ur:نمک
@@ -12962,7 +12962,7 @@ wa:Sé d' coujhene
 xh:Ityiwa
 yi:זאלץ
 yo:Iyọ̀
-zh:食盐, 鹽
+zh:盐, 食盐, 鹽
 # ace:Sira
 # als:Spiissalz, Chochsalz, Salz
 # arc:ܡܠܚܐ
@@ -15643,7 +15643,7 @@ bs:Škrob
 ca:Midó
 cs:Škrob
 da:stivelse
-de:Stärke
+de:Stärke, Stärken
 el:άμυλο
 es:almidón,fecula
 et:Tärklis
@@ -15869,7 +15869,7 @@ en:arrowroot, arrowroot power, arrowroot starch, arrowroot flour
 en:tapioca starch, tapioca, manioc starch
 cs:tapiokový škrob
 da:tapiokastivelse, tapiocastivelse
-de:Tapiocastärke, Tapiokastärke
+de:Tapiocastärke, Tapiokastärke, Maniokstärke
 el:άμυλο ταπιόκαζ, Ταπιόκα
 es:almidón de tapioca, almidón de mandioca
 fi:tapiokatärkkelys
@@ -26185,6 +26185,7 @@ th:ข้าว
 tk:bürünç
 tl:Palay
 tm:Pirinç
+tr:pirinç
 tt:дөге
 uk:рис
 ur:چاول
@@ -27542,7 +27543,7 @@ nl:Arenga bossuiker
 # description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 
 <en:sugar
-en:cane sugar, pure cane sugar
+en:cane sugar, pure cane sugar, sugar cane
 bg:захар от захарна тръстика
 ca:Sucre de canya
 cs:třtinový cukr
@@ -31794,6 +31795,7 @@ es:levadura inactiva
 fr:levure inactivée, levure désactivée
 de:inaktivierte Hefe, inaktiveirte Hefe
 it:lievito inattivo
+nl:gedeactiveerde gist
 
 # NUTRITIONAL YEAST is a deactivated yeast, often a strain of Saccharomyces cerevisiae, which is sold commercially as a food product.
 
@@ -31929,6 +31931,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae
 
 <en:yeast
 en:torula yeast
+fr:levure torula
 la:Cyberlindnera jadinii, Candida utilis
 wikidata:en:Q1527729
 wikipedia:en:https://en.wikipedia.org/wiki/Torula
@@ -33536,6 +33539,7 @@ fr:purées de fruits à base de concentrés, purees de fruits à base de concent
 
 <en:fruit juice from concentrate
 <fr:purées de fruits à base de concentrés
+en:fruit juices and purees from concentrate
 fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
@@ -34173,6 +34177,13 @@ fi:sokeroitu karpalo, sokeroidut karpalot
 wikidata:en:Q26897677
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sokeroitu-karpalo
 # 1 entry @ 2019-10-31
+
+# Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium. 
+<en:cranberry
+la:Vaccinium macrocarpon
+wikidata:en:Q149397
+wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
+
 
 ###################################################################################################
 #
@@ -35441,7 +35452,7 @@ es:boabab fruto
 <en:vegetable fiber
 <en:citrus fruit
 en:citrus fibre, citrus fibres
-de:citrusfaser, zitrusfaser
+de:citrusfaser, zitrusfaser, Zitrusfruchtfasern
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes
 sv:citrusfiber
@@ -36596,6 +36607,7 @@ fi:Appelsiinin hedelmäliha
 fr:pulpe d'orange
 hu:narancs püré
 it:polpe d'arancia
+pt:polpa de laranja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'orange
 # 139 products in 5 languages @2018-09-28
 
@@ -56200,7 +56212,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 # comment:en:For the translations the latin name is not used, but the popular name.
 
 <en:plant
-en:nettle
+en:nettle, stinging nettle
 am:ሳማ
 ar:قراص
 ay:itapallu
@@ -56236,7 +56248,7 @@ ko:쐐기풀속
 ku:Giyagezk
 kv:Петшӧр
 ky:Чалкан
-la:Urtica
+la:Urtica, Urtica dioica
 li:Brennieëtel
 lt:Dilgėlė
 lv:Nātres
@@ -56299,6 +56311,9 @@ zh:蕁麻
 wikidata:en:Q121671
 wikipedia:en:https://en.wikipedia.org/wiki/Urtica_dioica
 # ingredient/fr:ortie has 97 products in 5 languages @2019-05-06
+
+<en:nettle
+en:nettle leaf, nettle leaves
 
 
 # The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
@@ -58441,6 +58456,11 @@ la:Saccharina japonica, Laminaria Japonica
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
 
 
+# "laver" on its own (vs "green laver") seems to refer to any species in the Porphyra genus.
+
+<en:seaweed
+en:laver
+
 # en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
 
 <en:seaweed
@@ -59834,7 +59854,7 @@ de:Sommer-trüffel
 et:Suvetrühvel
 eu:Udako boilur
 fi:kesätryffeli
-fr:truffle d’été, Truffe blanche d'été
+fr:truffe d’été, Truffe blanche d'été
 hu:Nyári szarvasgomba
 it:Tartufo Scorzione
 la:Tuber aestivum
@@ -65582,7 +65602,7 @@ wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 # psyllium can be used for the fibres or as infusion
 
 <en:vegetable fiber
-en:Psyllium, plantago, psyllium fibre, psyllium husk
+en:Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar:بزر قطونة
 da:Psyllium
 de:Psyllium
@@ -69112,7 +69132,7 @@ pt:gema de ovo pasteurizado
 # ingredient/fr:jaune-d’oeuf-pasteurisé has 81 products in 4 languages @2018-12-18
 
 <en:egg yolk
-en:liquid egg yolk
+en:liquid egg yolk, liquid yolk
 de:flüssiges Eigelb
 es:yema de huevo liquida
 fi:Nestemäinen kanan keltuainen
@@ -69573,7 +69593,7 @@ wikidata:en:Q20026824
 
 <en:vegetable fiber
 en:pea fiber
-de:Erbsenfaser
+de:Erbsenfaser, Erbsenfasern
 es:fibra de guisante
 fi:hernekuitu
 fr:fibre de pois, fibres de pois
@@ -74329,6 +74349,7 @@ es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
 it:margarina vegetale
+nl:plantaardige margarine
 pt:margarina vegetal
 vegan:en:yes
 vegetarian:en:yes
