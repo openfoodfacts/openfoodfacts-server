@@ -1150,30 +1150,32 @@ sub build_tags_taxonomy($$$) {
 
 
 		# add more synonyms: remove stopwords and deal with simple plurals
+		# -> should not be done on some taxonomies that contain only proper names
+		if (($tagtype ne "countries") and ($tagtype ne "origins")) {
 
-		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
+			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
+				foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
-				my $tagid2 = $tagid;
+					my $tagid2 = $tagid;
 
-				# remove stopwords
-				# unless we have only 2 words in the tag name
-				# check that we have at least 2 word separators (dashes)
-				if ($tagid2 =~ /-.+-/) {
+					# remove stopwords
+					# unless we have only 2 words in the tag name
+					# check that we have at least 2 word separators (dashes)
+					if ($tagid2 =~ /-.+-/) {
 
-					$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
-				}
+						$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+					}
 
-				$tagid2 = remove_plurals($lc,$tagid2);
+					$tagid2 = remove_plurals($lc,$tagid2);
 
-				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
-					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
+						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					}
 				}
 			}
 		}
-
 
 		# 3rd phase: compute the hierarchy
 
