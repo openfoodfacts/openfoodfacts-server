@@ -1394,6 +1394,10 @@ sub parse_ingredients_text($) {
 						# Remove some sentences
 						my %ignore_regexps = (
 
+							'de' => [
+								'^Unter Schutzatmosph.re verpackt$',
+							],
+
 							'en' => [
 								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
 								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
