@@ -517,7 +517,6 @@ while (my $product_ref = $cursor->next) {
 						}
 					}
 				}
-
 			}
 		}
 
@@ -661,7 +660,11 @@ while (my $product_ref = $cursor->next) {
 					$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 				}
 
-				if (defined $taxonomy_fields{$field}) {
+				if ((defined $taxonomy_fields{$field})
+					# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+					# assume the $field value is in the maing language of the product
+					and (defined $product_ref->{$field . "_hierarchy"})
+					) {
 					# we do not know the language of the current value of $product_ref->{$field}
 					# so regenerate it in the main language of the product
 					my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
