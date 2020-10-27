@@ -1,0 +1,53 @@
+# The origins taxonomy automatically include all entries from the countries taxonomy
+
+# Note (27/10/2020): at this time, this is a test taxonomy, to start to implement features
+# that need origins that can be specified at different levels of granularity (and not just countries).
+# example includes ingredients parsing and computing the Eco-Score
+
+# It may not be useful to add many entries to it as we will most likely try to create it automatically
+# from sources such as Wikidata.
+
+# World regions
+
+en:Africa
+fr:Afrique
+
+en:Latin America
+fr:Amérique Latine
+
+en:North-America
+fr:Amérique du Nord
+
+en:South-America
+fr:Amérique du Sud
+
+en:Asia
+fr:Asie
+
+en:Europe
+fr:Europe
+
+en:European Union, EU
+fr:Union Européenne, UE
+
+en:Non European Union, Non EU
+fr:Non Union Européenne, Non UE
+
+
+# Country regions
+
+<en:france
+en:Brittany
+fr:Bretagne
+
+<en:france
+en:Normandy
+fr:Normandie
+
+<en:united-states
+en:California
+fr:Californie
+
+<en:united-states
+en:Florida
+fr:Floride
