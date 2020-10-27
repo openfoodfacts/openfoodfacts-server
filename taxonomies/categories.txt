@@ -65847,14 +65847,13 @@ ciqual_food_name:fr:Saint-Pierre, cru
 <en:Fishes
 en:Golden redfish
 fr:Grand sébaste, Daurade sébaste, Sébaste du nord
-ciqual_food_code:en:26132
+agribalyse_food_code:en:26210
+ciqual_food_code:en:26210
 ciqual_food_name:en:Golden redfish, raw
 ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
 
 # TODO check the duplicate
-
-#agribalyse_food_code:en:26210
-#ciqual_food_code:en:26210
+#ciqual_food_code:en:26132
 #ciqual_food_name:en:Golden redfish, raw
 #ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
 
@@ -65870,6 +65869,18 @@ ciqual_food_name:fr:Tacaud, cru
 en:Pollan, Irish pollan
 
 <en:Fishes
+en:European plaice
+fr:Carrelet crue, Plie, Plie commun
+agribalyse_food_code:en:26204
+ciqual_food_code:en:26204
+ciqual_food_name:en:European plaice, raw
+ciqual_food_name:fr:Plie commune, crue
+
+#ciqual_food_code:en:26055
+#ciqual_food_name:en:European plaice, raw
+#ciqual_food_name:fr:Carrelet ou plie, cru
+
+<en:European plaice
 en:Breaded fried European plaice
 fr:Carrelet pané frit, Plie pané frit
 agribalyse_food_code:en:26002
@@ -65877,28 +65888,13 @@ ciqual_food_code:en:26002
 ciqual_food_name:en:European plaice, breaded, fried
 ciqual_food_name:fr:Carrelet ou plie, pané, frit
 
-<en:Fishes
+<en:European plaice
 en:Steamed European plaice
 fr:Carrelet cuit à la vapeur, Plie cuit à la vapeur
 agribalyse_food_code:en:26003
 ciqual_food_code:en:26003
 ciqual_food_name:en:European plaice, steamed
 ciqual_food_name:fr:Carrelet ou plie, cuit à la vapeur
-
-<en:Fishes
-en:European plaice
-fr:Carrelet crue, Plie
-ciqual_food_code:en:26055
-ciqual_food_name:en:European plaice, raw
-ciqual_food_name:fr:Carrelet ou plie, cru
-
-<en:Fishes
-#en:European plaice
-fr:Plie commun
-agribalyse_food_code:en:26204
-ciqual_food_code:en:26204
-ciqual_food_name:en:European plaice, raw
-ciqual_food_name:fr:Plie commune, crue
 
 <en:Fishes
 en:Lemon sole
@@ -65909,8 +65905,8 @@ ciqual_food_name:en:Lemon sole, raw
 ciqual_food_name:fr:Limande-sole, crue
 
 <en:Lemon sole
-en:Breaded fried lemon sole
-fr:Limande-sole panée frite
+en:Breaded lemon sole, Breaded fried lemon sole
+fr:Limande-sole panée, Limande-sole panée frite
 agribalyse_food_code:en:26016
 ciqual_food_code:en:26016
 ciqual_food_name:en:Lemon sole, breaded, fried
@@ -65949,6 +65945,14 @@ ciqual_food_name:en:Shark, raw
 ciqual_food_name:fr:Requin, cru
 
 <en:Fishes
+en:Ray
+fr:Raie
+agribalyse_food_code:en:26052
+ciqual_food_code:en:26052
+ciqual_food_name:en:Ray, raw
+ciqual_food_name:fr:Raie, crue
+
+<en:Ray
 en:Roasted ray, Baked ray
 fr:Raie rôtie, Raie cuite au four
 agribalyse_food_code:en:26031
@@ -65956,21 +65960,13 @@ ciqual_food_code:en:26031
 ciqual_food_name:en:Ray, roasted/baked
 ciqual_food_name:fr:Raie, rôtie/cuite au four
 
-<en:Fishes
+<en:Ray
 en:Ray cooked in an aromatic stock
 fr:Raie cuite au court-bouillon
 agribalyse_food_code:en:26073
 ciqual_food_code:en:26073
 ciqual_food_name:en:Ray, cooked in an aromatic stock
 ciqual_food_name:fr:Raie, cuite au court-bouillon
-
-<en:Fishes
-en:ray
-fr:Raie
-agribalyse_food_code:en:26052
-ciqual_food_code:en:26052
-ciqual_food_name:en:Ray, raw
-ciqual_food_name:fr:Raie, crue
 
 <en:Fishes
 en:Cooked nursehound, Cooked lesser spotted dogfish
@@ -65982,7 +65978,7 @@ ciqual_food_name:fr:Roussette ou petite roussette ou saumonette, cuite
 
 <en:Fishes
 en:nursehound,lesser spotted dogfish
-fr:Roussette crue, Petite roussette crue, Saumonette
+fr:Roussette, Roussette crue, Petite roussette crue, Saumonette
 agribalyse_food_code:en:26074
 ciqual_food_code:en:26074
 ciqual_food_name:en:Nursehound or lesser spotted dogfish, raw
@@ -66025,7 +66021,15 @@ protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
 <en:Scallop
-en:Cooked scallop with coral
+en:Scallops with coral
+fr:Coquilles Saint-Jacques avec noix et corail
+agribalyse_food_code:en:10003
+ciqual_food_code:en:10003
+ciqual_food_name:en:Scallop, with coral, raw
+ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
+
+<en:Scallop
+en:Cooked scallops with coral
 fr:Coquille Saint-Jacques cuite avec noix et corail
 agribalyse_food_code:en:10004
 ciqual_food_code:en:10004
@@ -66033,12 +66037,12 @@ ciqual_food_name:en:Scallop, with coral, cooked
 ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, cuite
 
 <en:Scallop
-en:scallop with coral
-fr:Coquilles Saint-Jacques avec noix et corail
-agribalyse_food_code:en:10003
-ciqual_food_code:en:10003
-ciqual_food_name:en:Scallop, with coral, raw
-ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
+en:Scallops without coral
+fr:Coquilles Saint-Jacques avec noix
+agribalyse_food_code:en:10045
+ciqual_food_code:en:10045
+ciqual_food_name:en:Scallop, without coral, raw
+ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
 
 <en:Scallop
 en:American sea scallop without coral,Canadian sea scallop without coral
@@ -66055,14 +66059,6 @@ agribalyse_food_code:en:10049
 ciqual_food_code:en:10049
 ciqual_food_name:en:Peru sea scallop, without coral, raw
 ciqual_food_name:fr:Pétoncle ou Peigne du Pérou, noix, crue
-
-<en:Scallop
-en:scallop without coral
-fr:Coquilles Saint-Jacques avec noix
-agribalyse_food_code:en:10045
-ciqual_food_code:en:10045
-ciqual_food_name:en:Scallop, without coral, raw
-ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
 
 <en:Scallop
 en:Queen scallops
@@ -66139,13 +66135,6 @@ wikidata:en:Q4784939
 en:Chinese sea products
 fr:Produits de la mer chinois
 
-<en:Chinese sea products
-<en:Lobsters
-zh:盐城龙虾, Yancheng Long Xia
-protected_name_file_number:en: PGI-CN-0625
-protected_name_type:en: pgi
-origins:en: en:China, en:Yancheng
-
 <en:Lobsters
 en:lobster
 fr:Homard
@@ -66173,6 +66162,13 @@ fr:Langouste
 ciqual_food_code:en:10015
 ciqual_food_name:en:Spiny lobster, raw
 ciqual_food_name:fr:Langouste, crue
+
+<en:Chinese sea products
+<en:Lobsters
+zh:盐城龙虾, Yancheng Long Xia
+protected_name_file_number:en: PGI-CN-0625
+protected_name_type:en: pgi
+origins:en: en:China, en:Yancheng
 
 <en:Seafood
 en:Finnish sea products
@@ -66366,18 +66362,18 @@ ciqual_food_name:en:Crab, boiled/cooked in water
 ciqual_food_name:fr:Crabe ou Tourteau, bouilli/cuit à l'eau
 
 <en:Crustaceans
-en:Cooked crayfish
-fr:Écrevisse cuite
-ciqual_food_code:en:10031
-ciqual_food_name:en:Crayfish, cooked
-ciqual_food_name:fr:Écrevisse, cuite
-
-<en:Crustaceans
 en:Crayfish
 fr:Écrevisse
 ciqual_food_code:en:10030
 ciqual_food_name:en:Crayfish, raw
 ciqual_food_name:fr:Écrevisse, crue
+
+<en:Crayfish
+en:Cooked crayfish
+fr:Écrevisse cuite
+ciqual_food_code:en:10031
+ciqual_food_name:en:Crayfish, cooked
+ciqual_food_name:fr:Écrevisse, cuite
 
 <en:Crustaceans
 en:Shrimps
@@ -66404,7 +66400,7 @@ ciqual_food_name:fr:Crevette, cuite
 
 <en:shrimps
 <en:Frozen seafood
-en:frozen shrimps
+en:Frozen shrimps
 fr:Crevettes surgelées
 agribalyse_food_code:en:10038
 ciqual_food_code:en:10038
@@ -66470,20 +66466,20 @@ ciqual_food_name:en:Shrimp or prawn, raw
 ciqual_food_name:fr:Crevette, crue
 
 <en:Prawns
-en:Prawn cooked
-fr:Crevettes roses cuites
-agribalyse_food_code:en:10007
-ciqual_food_code:en:10007
-ciqual_food_name:en:Shrimp or prawn, cooked
-ciqual_food_name:fr:Crevette, cuite
-
-<en:Prawns
-en:deep water pink shrimps
+en:Deep water pink shrimps
 fr:Crevettes roses
 agribalyse_food_code:en:10059
 ciqual_food_code:en:10059
 ciqual_food_name:en:deep water pink shrimp, raw
 ciqual_food_name:fr:Crevette rose, crue
+
+<en:Deep water pink shrimps
+en:Cooked Prawns
+fr:Crevettes roses cuites
+agribalyse_food_code:en:10007
+ciqual_food_code:en:10007
+ciqual_food_name:en:Shrimp or prawn, cooked
+ciqual_food_name:fr:Crevette, cuite
 
 <en:Shrimps
 en:Gambas
@@ -66518,8 +66514,8 @@ ciqual_food_name:en:Norway lobster, raw
 ciqual_food_name:fr:Langoustine, crue
 
 <en:Crustaceans
-en:Breaded fried scampi
-fr:Langoustines panées frites
+en:Breaded scampi
+fr:Langoustines panées
 ciqual_food_code:en:10012
 ciqual_food_name:en:Scampi, breaded, fried
 ciqual_food_name:fr:Langoustine, panée, frite
@@ -66568,18 +66564,18 @@ ciqual_food_name:en:Fish, cooked (average)
 ciqual_food_name:fr:Poisson cuit (aliment moyen)
 
 <en:Fishes
-en:Roasted northern pike, Baked northern pike
-fr:Brochet rôti, Brochet cuit au four
-ciqual_food_code:en:27002
-ciqual_food_name:en:Northern pike, roasted/baked
-ciqual_food_name:fr:Brochet, rôti/cuit au four
-
-<en:Fishes
 en:Northern pike
 fr:Brochet
 ciqual_food_code:en:27011
 ciqual_food_name:en:Northern pike, raw
 ciqual_food_name:fr:Brochet, cru
+
+<en:Northern pike
+en:Roasted northern pike, Baked northern pike
+fr:Brochet rôti, Brochet cuit au four
+ciqual_food_code:en:27002
+ciqual_food_name:en:Northern pike, roasted/baked
+ciqual_food_name:fr:Brochet, rôti/cuit au four
 
 <en:Fishes
 <en:skewers
@@ -66657,6 +66653,7 @@ ciqual_food_name:en:Fish, croquette, fritter or nuggets, fried
 
 <en:Meat preparations
 en:Meat fritters
+fr:Beignets de viande, Beignets à la viande
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
@@ -66664,12 +66661,14 @@ ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 #<en:Poultry preparations
 <en:Meat fritters
 en:Poultry fritters
+fr:Beignets de volaille
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
 
 <en:Fish preparations
 en:Fish fritters
+fr:Beignets de poissons
 agribalyse_food_code:en:25551
 ciqual_food_code:en:25551
 ciqual_food_name:en:Meat, poultry or fish fritters, home-made
