@@ -14,7 +14,7 @@
       },
       {
          "id" : "en:flavouring",
-         "origin" : "en:european-union",
+         "origins" : "en:european-union",
          "rank" : 2,
          "text" : "arôme",
          "vegan" : "maybe",
@@ -22,7 +22,7 @@
       },
       {
          "id" : "en:wheat-flour",
-         "origin" : "en:france",
+         "origins" : "en:france",
          "percent" : "33",
          "rank" : 3,
          "text" : "farine de blé",
@@ -39,7 +39,7 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:butterfat",
-         "origin" : "en:france",
+         "origins" : "en:france",
          "percent" : "6.5",
          "rank" : 5,
          "text" : "beurre concentré",

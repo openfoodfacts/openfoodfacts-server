@@ -1,62 +1,63 @@
 {
    "ingredients" : [
       {
-         "id" : "en:strawberry",
-         "origins" : "en:finland",
+         "id" : "en:almond",
+         "origins" : "en:california",
          "percent_max" : 100,
          "percent_min" : 16.6666666666667,
          "rank" : 1,
-         "text" : "Mansikka",
+         "text" : "almonds",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:blackcurrant",
-         "origins" : "en:south-africa",
+         "id" : "en:peach",
+         "origins" : "en:south-carolina",
          "percent_max" : 50,
          "percent_min" : 0,
          "rank" : 2,
-         "text" : "Mustaherukka",
+         "text" : "peaches",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:raspberry",
-         "origins" : "en:sweden",
+         "id" : "en:black-olive",
+         "origins" : "en:south-carolina",
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "rank" : 3,
-         "text" : "Vadelma",
+         "text" : "black olives",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:fresh-tomatoes",
+         "origins" : "en:california",
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "fresh tomatoes",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:orange",
-         "labels" : "en:organic",
-         "percent_max" : 25,
-         "percent_min" : 0,
-         "rank" : 4,
-         "text" : "Appelsiini",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:cocoa",
-         "labels" : "en:fair-trade",
+         "origins" : "en:florida,en:united-states",
          "percent_max" : 20,
          "percent_min" : 0,
          "rank" : 5,
-         "text" : "kaakao",
+         "text" : "Oranges",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:cocoa-butter",
-         "labels" : "en:fair-trade",
+         "id" : "en:orange-juice",
+         "origins" : "en:florida",
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
+         "processing" : "en:concentrated",
          "rank" : 6,
-         "text" : "kaakaovoi",
+         "text" : "orange juice",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -67,16 +68,21 @@
       "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "en:strawberry",
+      "en:almond",
+      "en:nut",
+      "en:tree-nut",
+      "en:peach",
       "en:fruit",
-      "en:berries",
-      "en:blackcurrant",
-      "fr:fruits-des-bois",
-      "en:raspberry",
+      "en:black-olive",
+      "en:plant",
+      "en:olives",
+      "en:fresh-tomatoes",
+      "en:vegetable",
+      "en:tomato",
       "en:orange",
       "en:citrus-fruit",
-      "en:cocoa",
-      "en:cocoa-butter"
+      "en:orange-juice",
+      "en:fruit-juice"
    ],
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
@@ -84,29 +90,34 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:strawberry",
-      "en:blackcurrant",
-      "en:raspberry",
+      "en:almond",
+      "en:peach",
+      "en:black-olive",
+      "en:fresh-tomatoes",
       "en:orange",
-      "en:cocoa",
-      "en:cocoa-butter"
+      "en:orange-juice"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:strawberry",
+      "en:almond",
+      "en:nut",
+      "en:tree-nut",
+      "en:peach",
       "en:fruit",
-      "en:berries",
-      "en:blackcurrant",
-      "fr:fruits-des-bois",
-      "en:raspberry",
+      "en:black-olive",
+      "en:plant",
+      "en:olives",
+      "en:fresh-tomatoes",
+      "en:vegetable",
+      "en:tomato",
       "en:orange",
       "en:citrus-fruit",
-      "en:cocoa",
-      "en:cocoa-butter"
+      "en:orange-juice",
+      "en:fruit-juice"
    ],
-   "ingredients_text" : "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
-   "known_ingredients_n" : 10,
-   "lc" : "fi",
+   "ingredients_text" : "California almonds, South Carolina peaches, South Carolina black olives, fresh tomatoes (California), Oranges (Florida, USA), orange juice concentrate from Florida",
+   "known_ingredients_n" : 15,
+   "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667
    },

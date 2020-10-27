@@ -258,6 +258,31 @@ my @tests = (
 			ingredients_text => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,10,100,1000,vt,leaf,something(bio),somethingelse(u)",
 		}
 	],
+	
+	# Origins with regions
+	[
+		"en-origins",
+		{
+			lc => "en",
+			ingredients_text => "California almonds, South Carolina peaches, South Carolina black olives, fresh tomatoes (California), Oranges (Florida, USA), orange juice concentrate from Florida",
+		},
+	],
+	# Do not match U to US -> United States (by removing the "plural" S from US)
+	[
+		"en-origins-u",
+		{
+			lc => "en",
+			ingredients_text => "Something (U)"
+		}
+	],
+	# French origins
+	[
+		"fr-origins",
+		{
+			lc => "fr",
+			ingredients_text => "Fraises de Bretagne, beurre doux de Normandie, tomates cerises (Bretagne), pommes (origine : Normandie)"
+		}
+	],
 );
 
 

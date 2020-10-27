@@ -1,13 +1,16 @@
 {
    "ingredients" : [
       {
-         "id" : "fr:pâte de cacao de Madagascar",
+         "id" : "en:cocoa-paste",
          "labels" : "en:fair-trade, en:organic",
+         "origins" : "en:madagascar",
          "percent" : "75",
          "percent_max" : "75",
          "percent_min" : "75",
          "rank" : 1,
-         "text" : "pâte de cacao de Madagascar"
+         "text" : "pâte de cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:cane-sugar",
@@ -31,16 +34,16 @@
       }
    ],
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "fr:pâte de cacao de Madagascar",
+      "en:cocoa-paste",
+      "en:cocoa",
       "en:cane-sugar",
       "en:sugar",
-      "en:cocoa-butter",
-      "en:cocoa"
+      "en:cocoa-butter"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -48,23 +51,23 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "fr:pâte de cacao de Madagascar",
+      "en:cocoa-paste",
       "en:cane-sugar",
       "en:cocoa-butter"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "fr:pate-de-cacao-de-madagascar",
+      "en:cocoa-paste",
+      "en:cocoa",
       "en:cane-sugar",
       "en:sugar",
-      "en:cocoa-butter",
-      "en:cocoa"
+      "en:cocoa-butter"
    ],
    "ingredients_text" : "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total).",
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 5,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
