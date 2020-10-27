@@ -43494,13 +43494,13 @@ nl:Rum-rozijnenroomijs, Malaga-roomijs
 
 <en:Ice cream tubs
 es:helado de vainilla y macadamia
-fr:glace à la vanille et macadamia
+fr:Glaces à la vanille et macadamia
 
 <en:Ice cream tubs
 es:helado de vainilla y almendras
 
 <en:Ice cream tubs
-fr:Glace à la stracciatella
+fr:Glaces à la stracciatella
 es:helado de stracciatella
 
 <en:Ice cream tubs
@@ -43512,6 +43512,9 @@ de:Eiskrem Karamell, Speiseeis mit Karamell, Karamelleiskrem
 
 <en:Ice cream tubs
 fr:Glaces aux noisettes
+
+<en:Ice cream tubs
+fr:Crèmes glacées à la Noix de Pécan
 
 <en:Ice cream tubs
 fr:Glaces aux fruits-rouges
@@ -71304,8 +71307,12 @@ hu:Csemegeuborka
 it:Cetriolini
 nl:Ingemaakte Augurken
 wikidata:en:Q1365891
-agribalyse_food_code:en:99999
-# Curious code TODO check if present in official Agribalyse file
+ciqual_proxy_food_code:en:11004
+ciqual_proxy_food_name:en:Gherkin, pickled in vinegar
+ciqual_proxy_food_name:fr:Cornichon, au vinaigre
+
+# agribalyse_food_code:en:99999
+# TODO Curious code not present in official Agribalyse file. Not sure who added this
 
 <en:Gherkins
 en:Pickled gherkins, Gherkins pickled in vinegar
@@ -71397,6 +71404,13 @@ ciqual_food_name:en:Sorrel, raw
 ciqual_food_name:fr:Oseille, crue
 
 <en:Vegetables
+en:Chinese artichokes, Japanese artichokes
+fr:Crosnes
+agribalyse_proxy_food_code:en:20231
+agribalyse_proxy_food_name:en:Chinese or Japanese artichokes, frozen, raw
+agribalyse_proxy_food_name:fr:Crosne, surgelé, cru
+
+<en:Chinese artichokes
 <en:Frozen vegetables
 en:Frozen Chinese artichokes, Frozen Japanese artichokes
 fr:Crosnes surgelés
@@ -71406,14 +71420,6 @@ ciqual_food_name:en:Chinese or Japanese artichokes, frozen, raw
 ciqual_food_name:fr:Crosne, surgelé, cru
 
 <en:Vegetables
-en:Cooked Jerusalem artichoke
-fr:Topinambour cuit
-agribalyse_food_code:en:20050
-ciqual_food_code:en:20050
-ciqual_food_name:en:Jerusalem artichoke, cooked
-ciqual_food_name:fr:Topinambour, cuit
-
-<en:Vegetables
 en:Jerusalem artichoke
 fr:Topinambour
 agribalyse_food_code:en:20196
@@ -71421,13 +71427,18 @@ ciqual_food_code:en:20196
 ciqual_food_name:en:Jerusalem artichoke, raw
 ciqual_food_name:fr:Topinambour, cru
 
-<en:Fresh vegetables
-fr:Topinambour frais
-season_in_country_fr:en: 1,2,11,12
+<en:Jerusalem artichoke
+en:Cooked Jerusalem artichoke
+fr:Topinambour cuit
+agribalyse_food_code:en:20050
+ciqual_food_code:en:20050
+ciqual_food_name:en:Jerusalem artichoke, cooked
+ciqual_food_name:fr:Topinambour, cuit
 
 <en:Fresh vegetables
-fr:Panais frais
-season_in_country_fr:en: 1,2,3,10,11,12
+<en:Jerusalem artichoke
+fr:Topinambour frais
+season_in_country_fr:en: 1,2,11,12
 
 <en:Vegetables
 en:Parsnip
@@ -71437,7 +71448,13 @@ ciqual_food_code:en:20181
 ciqual_food_name:en:Parsnip, raw
 ciqual_food_name:fr:Panais, cru
 
+<en:Fresh vegetables
+<en:Parsnip
+fr:Panais frais
+season_in_country_fr:en: 1,2,3,10,11,12
+
 <en:Cooked vegetables
+<en:Parsnip
 en:Cooked parsnip
 fr:Panais cuits
 agribalyse_food_code:en:20133
@@ -71446,6 +71463,7 @@ ciqual_food_name:en:Parsnip, cooked
 ciqual_food_name:fr:Panais, cuit
 
 <en:Cooked vegetables
+<en:Red kidney beans
 en:Cooked red kidney beans
 fr:Haricots rouges cuits
 agribalyse_food_code:en:20503
@@ -74793,6 +74811,9 @@ fr:Haricots rouges
 hu:Vörösbab
 it:Fagioli rossi
 nl:Rode bonen
+agribalyse_proxy_food_code:en:20524
+agribalyse_proxy_food_name:en:Red kidney bean, canned, drained
+agribalyse_proxy_food_name:fr:Haricot rouge, appertisé, égoutté
 
 <en:Red beans
 en:Red kidney beans
@@ -74803,6 +74824,7 @@ fr:Haricots rouges
 it:Fagioli rossi
 nl:Nierbonen
 wikidata:en:Q18175531
+
 
 <en:Red beans
 en:Dried red kidney beans
