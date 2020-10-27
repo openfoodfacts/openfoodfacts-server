@@ -1979,43 +1979,21 @@ sub set_percent_sub_ingredients($) {
 }
 
 
-=head2 compute_ingredients_percent_values ( total_min, total_max, ingredients_ref )
+=head2 compute_ingredients_percent_estimates ( total, ingredients_ref )
 
-This function computes the possible minimum and maximum ranges for the percent
-values of each ingredient and sub-ingredients.
+This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
 
-Ingredients lists sometimes specify the percent value for some ingredients,
-but usually not all. This functions computes minimum and maximum percent
-values for all other ingredients.
-
-Ingredients list are ordered by descending order of quantity.
-
-This function is recursive and it calls itself for each ingredients with sub-ingredients.
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
 
 =head3 Arguments
 
-=head4 total_min - the minimum percent value of the total of all the ingredients in ingredients_ref
+=head4 total - the total of all the ingredients in ingredients_ref
 
-0 when the function is called on all ingredients of a product, but can be different than 0 if called on sub-ingredients of an ingredient that has a minimum value set.
-
-=head4 total_max - the maximum percent value of all ingredients passed in ingredients_ref
-
-100 when the function is called on all ingredients of a product, but can be different than 0 if called on sub-ingredients of an ingredient that has a maximum value set.
+100 when the function is called on all ingredients of a product, but can be different than 100 if called on sub-ingredients of an ingredient.
 
 =head4 ingredient_ref : nested array of ingredients and sub-ingredients
 
 =head3 Return values
-
-=head4 Negative value - analysis error
-
-The analysis encountered an impossible value.
-e.g. "Flour, Sugar 80%": The % of Flour must be greated to the % of Sugar, but the sum would then be above 100%.
-
-Or there were too many loops to analyze the values.
-
-=head4 0 or positive value - analysis ok
-
-The return value is the number of times we adjusted min and max values for ingredients and sub ingredients.
 
 =cut
 
