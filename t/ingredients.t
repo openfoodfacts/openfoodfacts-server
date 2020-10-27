@@ -9,16 +9,35 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
-use File::Path qw/make_path/;
-use Cwd;
-
-my $dir = cwd();
+use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+my $testdir = "ingredients";
+
+my $usage = <<TXT
+
+The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+
+To verify differences and update the expected test results, actual test results
+can be saved to a directory by passing --results [path of results directory]
+
+The directory will be created if it does not already exist.
+
+TXT
+;
+
+my $resultsdir;
+
+GetOptions ("results=s"   => \$resultsdir)
+  or die("Error in command line arguments.\n\n" . $usage);
+  
+if ((defined $resultsdir) and (! -e $resultsdir)) {
+	mkdir($resultsdir, 0755) or die("Could not create $resultsdir directory: $!\n");
+}
 
 my @tests = (
 
@@ -241,14 +260,7 @@ my @tests = (
 	],
 );
 
-my $testdir = "ingredients";
 
-if (! -e "test_results") {
-	mkdir("test_results", 0755) or die("Could not create $dir/test_results directory: $!\n");
-}
-if (! -e "test_results/ingredients") {
-	mkdir("test_results/$testdir", 0755) or die("Could not create $dir/test_results/$testdir directory: $!\n");
-}
 
 my $json = JSON->new->allow_nonref->canonical;
 
@@ -263,9 +275,11 @@ foreach my $test_ref (@tests) {
 	
 	# Save the result
 	
-	open (my $result, ">:encoding(UTF-8)", "test_results/$testdir/$testid.json") or die("Could not create test_results/$testdir/$testid.json: $!\n");
-	print $result $json->pretty->encode($product_ref);
-	close ($result);
+	if (defined $resultsdir) {
+		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.json") or die("Could not create $resultsdir/$testid.json: $!\n");
+		print $result $json->pretty->encode($product_ref);
+		close ($result);
+	}
 	
 	# Compare the result with the expected result
 	
