@@ -1,0 +1,153 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:spice",
+         "ingredients" : [
+            {
+               "id" : "en:e100",
+               "percent_max" : 100,
+               "percent_min" : 16.6666666666667,
+               "text" : "muun muassa kurkuma"
+            },
+            {
+               "id" : "en:ginger",
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "inkivääri"
+            },
+            {
+               "id" : "en:bell-pepper",
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "paprika"
+            },
+            {
+               "id" : "en:garlic",
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "valkosipuli"
+            },
+            {
+               "id" : "en:coriander",
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "korianteri"
+            },
+            {
+               "id" : "en:mustard-seed",
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "sinapinsiemen"
+            }
+         ],
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "mausteet",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e100",
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "muun muassa kurkuma",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:ginger",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "inkivääri",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:bell-pepper",
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "paprika",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:garlic",
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "valkosipuli",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:coriander",
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "korianteri",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:mustard-seed",
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "sinapinsiemen",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:spice",
+      "en:e100",
+      "en:ginger",
+      "en:bell-pepper",
+      "en:vegetable",
+      "en:garlic",
+      "en:root-vegetable",
+      "en:coriander",
+      "en:herb",
+      "en:mustard-seed",
+      "en:mustard"
+   ],
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:spice",
+      "en:e100",
+      "en:ginger",
+      "en:bell-pepper",
+      "en:garlic",
+      "en:coriander",
+      "en:mustard-seed"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:spice",
+      "en:e100",
+      "en:ginger",
+      "en:bell-pepper",
+      "en:vegetable",
+      "en:garlic",
+      "en:root-vegetable",
+      "en:coriander",
+      "en:herb",
+      "en:mustard-seed",
+      "en:mustard"
+   ],
+   "ingredients_text" : "mausteet (mm. kurkuma, inkivääri, paprika, valkosipuli, korianteri, sinapinsiemen)",
+   "known_ingredients_n" : 11,
+   "lc" : "fi",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

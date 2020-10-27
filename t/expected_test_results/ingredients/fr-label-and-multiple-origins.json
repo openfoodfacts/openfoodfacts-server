@@ -1,0 +1,88 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:egg",
+         "ingredients" : [
+            {
+               "id" : "fr:d'élevage au sol",
+               "percent_max" : 100,
+               "percent_min" : 33.3333333333333,
+               "text" : "d'élevage au sol"
+            },
+            {
+               "id" : "fr:Suisse",
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "Suisse"
+            },
+            {
+               "id" : "fr:France",
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "France"
+            }
+         ],
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "oeufs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:d'élevage au sol",
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "d'élevage au sol"
+      },
+      {
+         "id" : "fr:Suisse",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Suisse"
+      },
+      {
+         "id" : "fr:France",
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "France"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:egg",
+      "fr:d'élevage au sol",
+      "fr:Suisse",
+      "fr:France"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:egg",
+      "fr:d'élevage au sol",
+      "fr:Suisse",
+      "fr:France"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:egg",
+      "fr:d-elevage-au-sol",
+      "fr:suisse",
+      "fr:france"
+   ],
+   "ingredients_text" : "oeufs (d'élevage au sol, Suisse, France)",
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 3
+}
