@@ -200,8 +200,8 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 
 	my $r = shift;
 	$r->headers_out->set(Location =>"/");
-	$r->status(301);
-	return 301;
+	$r->status(302);
+	return 302;
 }
 else {
 	

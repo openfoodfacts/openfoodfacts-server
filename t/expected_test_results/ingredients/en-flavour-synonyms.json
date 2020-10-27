@@ -1,0 +1,56 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:natural-orange-flavouring",
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "rank" : 1,
+         "text" : "Natural orange flavor",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:lemon-flavouring",
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "Lemon flavouring",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:natural-orange-flavouring",
+      "en:flavouring",
+      "en:natural-flavouring",
+      "en:lemon-flavouring"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:natural-orange-flavouring",
+      "en:lemon-flavouring"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:natural-orange-flavouring",
+      "en:flavouring",
+      "en:natural-flavouring",
+      "en:lemon-flavouring"
+   ],
+   "ingredients_text" : "Natural orange flavor, Lemon flavouring",
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
