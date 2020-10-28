@@ -51874,6 +51874,10 @@ ciqual_food_name:en:Egg roll or Nem
 ciqual_food_name:fr:Nem ou Pâté impérial
 
 <en:Nems
+fr:Nems aux légumes
+en:Nems with vegetables
+
+<en:Nems
 <en:Pork meals
 en:Pork nems, Egg roll with cooked pork, Nem with cooked pork
 es:Nems De Cerdo
@@ -72373,6 +72377,16 @@ ciqual_food_name:en:Escaroles
 ciqual_food_name:fr:Scarole, crue
 
 <en:Leaf vegetables
+en:Chicory
+fr:Endives
+agribalyse_food_code:en:20026
+ciqual_food_code:en:20026
+ciqual_food_name:en:Chicory, raw
+ciqual_food_name:fr:Endive, crue
+
+# TODO - Not sure what's going on
+
+<en:Leaf vegetables
 en:Belgian endives, Witloof
 de:Chicorée Salat
 es:Endibias, Endivias
@@ -72390,14 +72404,6 @@ fr:Endives en conserve
 en:Fresh belgian endives
 fr:Endives fraîches
 season_in_country_fr:en: 1,2,3,4,10
-
-<en:Leaf vegetables
-en:chicory
-fr:Endives
-agribalyse_food_code:en:20026
-ciqual_food_code:en:20026
-ciqual_food_name:en:Chicory, raw
-ciqual_food_name:fr:Endive, crue
 
 <en:Leaf vegetables
 en:Curly endives
@@ -72942,6 +72948,13 @@ ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
 
 <en:Onions
+<en:Fresh vegetables
+en:Fresh onions
+fr:Oignons frais
+he:בצלים טריים
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
+
+<en:Onions
 en:Yellow onions, yellow onion
 de:gelbe Zwiebel
 fi:Keltasipulit, keltasipuli, keltainen sipuli
@@ -72955,23 +72968,16 @@ fr:Oignons blancs, oignon blanc
 wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 wikidata:en:Q7995660
 
+<en:Fresh onions
+<en:White onions
+en:Fresh white onions
+fr:Oignons blancs frais
+
 <en:Onions
 en:Red onions, red onion, purple onions, Bombay onions
 fr:Oignons rouges, oignon rouge
 wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 wikidata:en:Q622350
-
-<en:Onions
-<en:Fresh vegetables
-en:Fresh onions
-fr:Oignons frais
-he:בצלים טריים
-season_in_country_fr:en: 1,2,3,4,9,10,11,12
-
-<en:Fresh onions
-<en:White onions
-en:Fresh white onions
-fr:Oignons blancs frais
 
 <en:Fresh onions
 <en:Red onions
