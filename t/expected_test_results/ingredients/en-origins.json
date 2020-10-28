@@ -1,0 +1,131 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:almond",
+         "origins" : "en:california",
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "rank" : 1,
+         "text" : "almonds",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:peach",
+         "origins" : "en:south-carolina",
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "peaches",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:black-olive",
+         "origins" : "en:south-carolina",
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "black olives",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:fresh-tomatoes",
+         "origins" : "en:california",
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "fresh tomatoes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:orange",
+         "origins" : "en:florida,en:united-states",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "rank" : 5,
+         "text" : "Oranges",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:orange-juice",
+         "origins" : "en:florida",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "processing" : "en:concentrated",
+         "rank" : 6,
+         "text" : "orange juice",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:almond",
+      "en:nut",
+      "en:tree-nut",
+      "en:peach",
+      "en:fruit",
+      "en:black-olive",
+      "en:plant",
+      "en:olives",
+      "en:fresh-tomatoes",
+      "en:vegetable",
+      "en:tomato",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:orange-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:almond",
+      "en:peach",
+      "en:black-olive",
+      "en:fresh-tomatoes",
+      "en:orange",
+      "en:orange-juice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:almond",
+      "en:nut",
+      "en:tree-nut",
+      "en:peach",
+      "en:fruit",
+      "en:black-olive",
+      "en:plant",
+      "en:olives",
+      "en:fresh-tomatoes",
+      "en:vegetable",
+      "en:tomato",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:orange-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_text" : "California almonds, South Carolina peaches, South Carolina black olives, fresh tomatoes (California), Oranges (Florida, USA), orange juice concentrate from Florida",
+   "known_ingredients_n" : 15,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667
+   },
+   "unknown_ingredients_n" : 0
+}

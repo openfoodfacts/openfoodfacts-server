@@ -1,0 +1,59 @@
+{
+   "ingredients" : [
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:Something",
+         "ingredients" : [
+            {
+               "id" : "en:U",
+               "percent_estimate" : 100,
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "U"
+            }
+         ],
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "Something"
+      },
+      {
+         "id" : "en:U",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "U"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:Something",
+      "en:U"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:Something",
+      "en:U"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:something",
+      "en:u"
+   ],
+   "ingredients_text" : "Something (U)",
+   "known_ingredients_n" : 0,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 2
+}

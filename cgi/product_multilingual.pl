@@ -774,12 +774,14 @@ sub display_field($$) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
-					}
+		}
 	}
 
 	my $value = $product_ref->{$field};
 
-	if ((defined $value) and (defined $taxonomy_fields{$field})) {
+	if ((defined $value) and (defined $taxonomy_fields{$field})
+		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+		and (defined $product_ref->{$field . "_hierarchy"})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
 		$value =~ s/<(([^>]|\n)*)>//g;
