@@ -3,6 +3,7 @@
       {
          "id" : "en:flour",
          "percent" : "12",
+         "percent_estimate" : "12",
          "rank" : 1,
          "text" : "jauho",
          "vegan" : "yes",
@@ -15,23 +16,28 @@
             {
                "id" : "en:cocoa-butter",
                "percent" : "15",
+               "percent_estimate" : "15",
                "text" : "kaakaovoi"
             },
             {
                "id" : "en:sugar",
                "percent" : "10",
+               "percent_estimate" : "10",
                "text" : "sokeri"
             },
             {
                "id" : "en:milk-proteins",
+               "percent_estimate" : 9.5,
                "text" : "maitoproteiini"
             },
             {
                "id" : "en:chicken-egg",
                "percent" : "1",
+               "percent_estimate" : 9.5,
                "text" : "kananmuna"
             }
          ],
+         "percent_estimate" : 44,
          "rank" : 2,
          "text" : "suklaa",
          "vegan" : "maybe",
@@ -43,15 +49,18 @@
          "ingredients" : [
             {
                "id" : "en:e463",
+               "percent_estimate" : 22,
                "text" : "e463"
             }
          ],
+         "percent_estimate" : 22,
          "rank" : 3,
          "text" : "emulgointiaineet"
       },
       {
          "from_palm_oil" : "maybe",
          "id" : "en:e432",
+         "percent_estimate" : 11,
          "rank" : 4,
          "text" : "e432",
          "vegan" : "maybe",
@@ -60,6 +69,7 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:e472",
+         "percent_estimate" : 5.5,
          "rank" : 5,
          "text" : "e472",
          "vegan" : "maybe",
@@ -71,18 +81,22 @@
          "ingredients" : [
             {
                "id" : "en:e322",
+               "percent_estimate" : 1.375,
                "text" : "e322"
             },
             {
                "id" : "en:e333",
+               "percent_estimate" : 1.375,
                "text" : "e333"
             }
          ],
+         "percent_estimate" : 2.75,
          "rank" : 6,
          "text" : "happamuudensäätöaineet"
       },
       {
          "id" : "en:e474",
+         "percent_estimate" : 1.375,
          "rank" : 7,
          "text" : "e474",
          "vegan" : "maybe",
@@ -90,6 +104,7 @@
       },
       {
          "id" : "en:e475",
+         "percent_estimate" : 0.6875,
          "rank" : 8,
          "text" : "e475",
          "vegan" : "maybe",
@@ -101,18 +116,22 @@
          "ingredients" : [
             {
                "id" : "en:e330",
+               "percent_estimate" : 0.171875,
                "text" : "sitruunahappo"
             },
             {
                "id" : "en:e338",
+               "percent_estimate" : 0.171875,
                "text" : "fosforihappo"
             }
          ],
+         "percent_estimate" : 0.34375,
          "rank" : 9,
          "text" : "happo"
       },
       {
          "id" : "en:salt",
+         "percent_estimate" : 0.34375,
          "rank" : 10,
          "text" : "suola",
          "vegan" : "yes",
@@ -121,6 +140,7 @@
       {
          "id" : "en:cocoa-butter",
          "percent" : "15",
+         "percent_estimate" : "15",
          "text" : "kaakaovoi",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -128,12 +148,14 @@
       {
          "id" : "en:sugar",
          "percent" : "10",
+         "percent_estimate" : "10",
          "text" : "sokeri",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:milk-proteins",
+         "percent_estimate" : 9.5,
          "text" : "maitoproteiini",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -141,36 +163,42 @@
       {
          "id" : "en:chicken-egg",
          "percent" : "1",
+         "percent_estimate" : 9.5,
          "text" : "kananmuna",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e463",
+         "percent_estimate" : 22,
          "text" : "e463",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e322",
+         "percent_estimate" : 1.375,
          "text" : "e322",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       },
       {
          "id" : "en:e333",
+         "percent_estimate" : 1.375,
          "text" : "e333",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e330",
+         "percent_estimate" : 0.171875,
          "text" : "sitruunahappo",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e338",
+         "percent_estimate" : 0.171875,
          "text" : "fosforihappo",
          "vegan" : "yes",
          "vegetarian" : "yes"
