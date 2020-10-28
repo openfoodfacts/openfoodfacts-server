@@ -7289,6 +7289,7 @@ ciqual_food_code:en:5210
 ciqual_food_name:en:Wine (average)
 ciqual_food_name:fr:Vin (aliment moyen)
 
+
 <en:Wines
 en:Wine without geographic indication
 fr:Vin sans indication géographique, VSIG (Vin sans indication géographique), VSIG
@@ -7859,6 +7860,9 @@ nl:Franse wijnen, Franse wijn
 pt:Vinhos da França, Vinhos franceses
 zh:法国葡萄酒
 wikidata:en:Q630531
+agribalyse_proxy_food_code:en:5200
+agribalyse_proxy_food_name:en:Wine, white, 11°
+agribalyse_proxy_food_name:fr:Vin blanc 11°
 
 <en:Wines from France
 fr:Agenais
@@ -13818,6 +13822,7 @@ fr:Vin Rosette
 country:en:France
 
 <en:Wines from France
+<en:White wines
 fr:Roussette de Savoie
 wikidata:en:Q2169345
 country:en:France
@@ -22151,8 +22156,12 @@ ciqual_food_name:en:Wine, white, 11°
 ciqual_food_name:fr:Vin blanc 11°
 
 <en:White wines
-en:Dry white wine
-fr:Vin blanc sec
+en:Dry white wines
+fr:Vins blancs secs
+agribalyse_proxy_food_code:en:5211
+agribalyse_proxy_food_name:en:Wine, white, dry, 11°
+agribalyse_proxy_food_name:fr:Vin blanc sec 11°
+
 
 <en:Dry white wine
 en:11% dry white wine
@@ -22173,8 +22182,9 @@ ciqual_food_name:fr:Vin blanc mousseux
 
 <en:White wines
 <en:Sparkling wines
-en:White sparkling flavoured wine
-fr:Vin blanc mousseux aromatisé
+<en:Flavoured wines
+en:White sparkling flavoured wines
+fr:Vins blancs mousseux aromatisés
 agribalyse_food_code:en:5209
 ciqual_food_code:en:5209
 ciqual_food_name:en:Wine, white, sparkling, flavoured
@@ -65904,6 +65914,17 @@ ciqual_food_name:en:European plaice, steamed
 ciqual_food_name:fr:Carrelet ou plie, cuit à la vapeur
 
 <en:Fishes
+en:Common dab
+fr:Limande
+agribalyse_food_code:en:26057
+ciqual_food_code:en:26057
+ciqual_food_name:en:Common dab, raw
+ciqual_food_name:fr:Limande, crue
+
+<en:Fishes
+fr:Limande du nord
+
+<en:Fishes
 en:Lemon sole
 fr:Limande-sole
 agribalyse_food_code:en:26135
@@ -65926,14 +65947,6 @@ agribalyse_food_code:en:26017
 ciqual_food_code:en:26017
 ciqual_food_name:en:Lemon sole, steamed
 ciqual_food_name:fr:Limande-sole, cuite à la vapeur
-
-<en:Fishes
-en:Common dab
-fr:Limande
-agribalyse_food_code:en:26057
-ciqual_food_code:en:26057
-ciqual_food_name:en:Common dab, raw
-ciqual_food_name:fr:Limande, crue
 
 <en:Fishes
 en:largehead hairtail
