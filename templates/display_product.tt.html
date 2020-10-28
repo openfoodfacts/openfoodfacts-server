@@ -212,6 +212,13 @@
     <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
 </div>
 
+<!-- ecoscore -->
+[% IF ecoscore_grade %]
+	<h2>[% lang('environmental_impact') %]</h2>
+	<p>Eco-score: [% ecoscore_grade %]</p>
+	[% ecoscore_calculation_details %]
+[% END %]
+
 <!-- other fields -->
 [% IF other_fields != "" %]
     <h2>[% lang('product_other_information') %]</h2>

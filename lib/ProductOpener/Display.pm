@@ -7937,6 +7937,19 @@ HTML
 	
 	$template_data_ref->{packaging_text} = $packaging_text;
 	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
+	
+	# Environmental impact and Eco-Score
+	# Limit to France as the Eco-Score is currently valid only for products sold in France
+	
+	if (($cc eq "fr") and ($User{moderator})) {
+		
+		if (not defined $product_ref->{ecoscore_data}) {
+			compute_ecoscore($product_ref);
+		}
+		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
+		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
+		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
+	}
 
 	# other fields
 
@@ -10588,6 +10601,32 @@ sub _format_comment {
 	$comment =~ s/\new image \d+( -)?//;
 
 	return $comment;
+}
+
+
+=head2 display_ecoscore_calculation_details( $ecoscore_data_ref )
+
+Generates HTML code with information on how the Eco-score was computed for a particular product.
+
+=cut
+
+sub display_ecoscore_calculation_details($) {
+
+	my $ecoscore_data_ref = shift;
+
+	# Generate a data structure that we will pass to the template engine
+
+	my $template_data_ref = dclone($ecoscore_data_ref);
+	
+	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{sep} = separator_before_colon($lc);
+
+	# Eco-score Calculation Template
+
+	my $html;
+	$tt->process('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
 }
 
 1;
