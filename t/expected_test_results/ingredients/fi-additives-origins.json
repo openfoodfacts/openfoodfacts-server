@@ -6,11 +6,13 @@
          "ingredients" : [
             {
                "id" : "en:sunflower-lecithin",
+               "percent_estimate" : 33.5,
                "percent_max" : 34,
                "percent_min" : 33,
                "text" : "auringonkukkalesitiini"
             }
          ],
+         "percent_estimate" : 33.5,
          "percent_max" : 34,
          "percent_min" : "33",
          "rank" : 1,
@@ -19,6 +21,7 @@
       {
          "id" : "en:flavouring",
          "origins" : "en:european-union",
+         "percent_estimate" : 33.25,
          "percent_max" : 33.5,
          "percent_min" : "33",
          "rank" : 2,
@@ -30,6 +33,7 @@
          "id" : "en:wheat-flour",
          "origins" : "en:france",
          "percent" : "33",
+         "percent_estimate" : "33",
          "percent_max" : "33",
          "percent_min" : "33",
          "rank" : 3,
@@ -39,6 +43,7 @@
       },
       {
          "id" : "en:sugar",
+         "percent_estimate" : 0.25,
          "percent_max" : 1,
          "percent_min" : 0,
          "rank" : 4,
@@ -48,6 +53,7 @@
       },
       {
          "id" : "en:sunflower-lecithin",
+         "percent_estimate" : 33.5,
          "percent_max" : 34,
          "percent_min" : 33,
          "text" : "auringonkukkalesitiini",

@@ -6,23 +6,27 @@
          "ingredients" : [
             {
                "id" : "fr:d'élevage au sol",
+               "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
                "percent_min" : 33.3333333333333,
                "text" : "d'élevage au sol"
             },
             {
                "id" : "fr:Suisse",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
                "text" : "Suisse"
             },
             {
                "id" : "fr:France",
+               "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
                "text" : "France"
             }
          ],
+         "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
          "rank" : 1,
@@ -32,18 +36,21 @@
       },
       {
          "id" : "fr:d'élevage au sol",
+         "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
          "text" : "d'élevage au sol"
       },
       {
          "id" : "fr:Suisse",
+         "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "Suisse"
       },
       {
          "id" : "fr:France",
+         "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "France"

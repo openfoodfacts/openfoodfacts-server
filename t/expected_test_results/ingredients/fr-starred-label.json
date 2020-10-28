@@ -5,6 +5,7 @@
          "labels" : "en:fair-trade, en:organic",
          "origins" : "en:madagascar",
          "percent" : "75",
+         "percent_estimate" : "75",
          "percent_max" : "75",
          "percent_min" : "75",
          "rank" : 1,
@@ -15,6 +16,7 @@
       {
          "id" : "en:cane-sugar",
          "labels" : "en:fair-trade, en:organic",
+         "percent_estimate" : 18.75,
          "percent_max" : 25,
          "percent_min" : 12.5,
          "rank" : 2,
@@ -25,6 +27,7 @@
       {
          "id" : "en:cocoa-butter",
          "labels" : "en:fair-trade, en:organic",
+         "percent_estimate" : 6.25,
          "percent_max" : 12.5,
          "percent_min" : 0,
          "rank" : 3,

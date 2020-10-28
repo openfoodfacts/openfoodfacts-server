@@ -89,6 +89,7 @@ BEGIN
 		&set_percent_min_values
 		&set_percent_max_values
 		&delete_ingredients_percent_values
+		&compute_ingredients_percent_estimates
 
 		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
@@ -1660,6 +1661,8 @@ sub extract_ingredients_from_text($) {
 	else {
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
+	
+	compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
 
 	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
@@ -2026,6 +2029,76 @@ sub set_percent_sub_ingredients($) {
 	}
 
 	return $changed;
+}
+
+
+=head2 compute_ingredients_percent_estimates ( total, ingredients_ref )
+
+This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
+
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
+
+=head3 Arguments
+
+=head4 total - the total of all the ingredients in ingredients_ref
+
+100 when the function is called on all ingredients of a product, but can be different than 100 if called on sub-ingredients of an ingredient.
+
+=head4 ingredient_ref : nested array of ingredients and sub-ingredients
+
+=head3 Return values
+
+=cut
+
+sub compute_ingredients_percent_estimates($$) {
+
+	my $total = shift;
+	my $ingredients_ref = shift;
+	
+	my $current_total = 0;
+	my $i = 0;
+	my $n = scalar (@{$ingredients_ref});
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		
+		$i++;
+
+		# Last ingredient?
+		if ($i == $n) {
+			$ingredient_ref->{percent_estimate} = $total - $current_total;
+		}
+		# Specified percent
+		elsif (defined $ingredient_ref->{percent}) {
+			if ($ingredient_ref->{percent} <= $total - $current_total) {
+				$ingredient_ref->{percent_estimate} = $ingredient_ref->{percent};
+			}
+			else {
+				$ingredient_ref->{percent_estimate} = $total - $current_total;
+			}
+		}
+		else {
+			
+			# Take the middle of the possible range
+			
+			my $max = $total - $current_total;
+			my $min = 0;
+			if ((defined $ingredient_ref->{percent_max}) and ($ingredient_ref->{percent_max} < $max)) {
+				$max = $ingredient_ref->{percent_max};
+			}
+			if (defined $ingredient_ref->{percent_min}) {
+				$min = $ingredient_ref->{percent_min};
+			}
+			$ingredient_ref->{percent_estimate} = ($max + $min) / 2;
+		}
+		
+		$current_total += $ingredient_ref->{percent_estimate};
+		
+		if (defined $ingredient_ref->{ingredients}) {
+			compute_ingredients_percent_estimates($ingredient_ref->{percent_estimate}, $ingredient_ref->{ingredients});
+		}		
+	}
+
+	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
 }
 
 
