@@ -7330,6 +7330,10 @@ it:Spumanti, Vini spumanti, Vini frizzanti
 nl:Mousserende wijnen, Schuimwijn, Bubbelwijn
 wikidata:en:Q321263
 
+<en:Sparkling wines
+<en:French wines
+en:French sparkling wines
+
 <en:Wines
 en:Red wines, red wine
 ca:Vi negre
@@ -21995,7 +21999,7 @@ protected_name_file_number:en: PDO-ES-A0735
 protected_name_type:en: pdo
 origins:en: en:Spain
 
-<en:Sparkling wines
+<en:French sparkling wines
 fr:Blanquette de Limoux
 wikidata:en:Q881685
 
@@ -27070,7 +27074,7 @@ nl:Kerstmischocola
 <en:Christmas foods and drinks
 en:Yule log, Christmas log cake
 de:Weihnachtsbaumstamm Eisdessert
-fr:Bûches de Noël
+fr:Bûches de Noël, Bûches de Noël pâtissières
 agribalyse_food_code:en:23030
 ciqual_food_code:en:23030
 ciqual_food_name:en:Christmas log cake
@@ -29846,10 +29850,27 @@ ciqual_food_code:en:12521
 ciqual_food_name:en:Auvergne blue cheese, from cow's milk
 
 <en:French blue-veined cheeses
-en:Gex blue cheese, Jura blue cheese, Septmoncel blue cheese from cow's milk
-de:Bleu du Haut Jura, Bleu de Gex
-fr:Bleus de Gex, bleus du Haut-Jura, bleus de Septmoncel
+en:Jura blue cheese
+fr:Bleu du Haut-Jura, bleus du Haut-Jura
+de:Bleu du Haut Jura
+country:en:France
+agribalyse_food_code:en:12526
+ciqual_food_code:en:12526
+ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
+
+<en:French blue-veined cheeses
+en:Septmoncel blue cheese from cow's milk
+fr:Bleu de Septmoncel, bleus de Septmoncel
+country:en:France
+agribalyse_food_code:en:12526
+ciqual_food_code:en:12526
+ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
+
+<en:French blue-veined cheeses
+en:Gex blue cheese
+fr:Bleu de Gex
 wikidata:en:Q1231078
+country:en:France
 agribalyse_food_code:en:12526
 ciqual_food_code:en:12526
 ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
@@ -30856,10 +30877,6 @@ country:en:France
 agribalyse_food_code:en:12523
 ciqual_food_code:en:12523
 ciqual_food_name:en:Causses blue cheese, from cow's milk
-
-<en:French cheeses
-fr:Bleu du Haut-Jura, Bleu de Gex, Bleu de Septmoncel
-country:en:France
 
 <en:French cheeses
 <en:Bries
@@ -65220,8 +65237,8 @@ ru:Гамбургер
 wikidata:en:Q6663
 
 <en:Hamburgers
-en:Hamburger from fast food
-fr:Hamburger de fast food
+en:Hamburgers from fast food
+fr:Hamburgers de fast food
 agribalyse_food_code:en:25413
 ciqual_food_code:en:25413
 ciqual_food_name:en:Hamburger, from fast foods restaurant
