@@ -349,6 +349,11 @@ my %of = (
 	sv => " av ",
 );
 
+my %from = (
+	en => " from ",
+	fr => " de la | de | du | des | d'",
+);
+
 my %and = (
 	en => " and ",
 	ca => " i ",
@@ -965,16 +970,16 @@ sub parse_ingredients_text($) {
 					}
 
 					# sel marin (France, Italie)
-					# -> if we have countries, put "origin:" before
+					# -> if we have origins, put "origins:" before
 					if (($between =~ $separators)
-						and (exists_taxonomy_tag("countries", canonicalize_taxonomy_tag($product_lc, "countries", $`)))) {
-						$between =~ s/^(.*?$separators)/origin:$1/;
+						and (exists_taxonomy_tag("origins", canonicalize_taxonomy_tag($product_lc, "origins", $`)))) {
+						$between =~ s/^(.*?$separators)/origins:$1/;
 					}
 
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -993,7 +998,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1002,20 +1007,21 @@ sub parse_ingredients_text($) {
 									$vegetarian = "en:yes";
 								}
 								else {
-									$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
+									$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin_string ));
 								}
 							}
 							else {
 
-								# origin:   Fraise (France)
-								my $countryid = canonicalize_taxonomy_tag($product_lc, "countries", $between);
-								if (exists_taxonomy_tag("countries", $countryid)) {
-									$origin = $countryid;
+								# origins:   Fraise (France)
+								my $originid = canonicalize_taxonomy_tag($product_lc, "origins", $between);
+								if (exists_taxonomy_tag("origins", $originid)) {
+									$origin = $originid;
 									$debug_ingredients and $log->debug("between is an origin", { between => $between, origin => $origin }) if $log->is_debug();
 									$between = '';
 								}
-								# put origin first because the country can be associated with the label "Made in ..."
-								else {
+								# put origins first because the country can be associated with the label "Made in ..."
+								# Skip too short entries (1 or 2 letters) to avoid false positives
+								elsif (length($between) >= 3) {
 
 									my $labelid = canonicalize_taxonomy_tag($product_lc, "labels", $between);
 									if (exists_taxonomy_tag("labels", $labelid)) {
@@ -1205,7 +1211,7 @@ sub parse_ingredients_text($) {
 						$vegetarian = "en:yes";
 					}
 					else {
-						$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
+						$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin_string ));
 					}
 				}
 
@@ -1242,7 +1248,54 @@ sub parse_ingredients_text($) {
 				else {
 					
 					$debug_ingredients and $log->trace("ingredient not recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
-
+					
+					# Try to see if we have an origin somewhere
+					# Build an array of origins / ingredients possibilities
+					
+					my @maybe_origins_ingredients = ();
+					my $maybe_ingredient;
+					
+					# California almonds
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					# South Carolina black olives
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+ \S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+ \S+ \S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					
+					# Currently does not work: pitted California prunes
+					
+					# Oranges from Florida
+					if (defined $from{$product_lc}) {
+						my $from = $from{$product_lc};
+						if ($ingredient =~ /^(.+)($from)(.+)$/i) {
+							push @maybe_origins_ingredients, [$3, $1];
+						}
+					}
+					
+					foreach my $maybe_origin_ingredient_ref (@maybe_origins_ingredients) {
+						
+						my ($maybe_origin, $maybe_ingredient) = @{$maybe_origin_ingredient_ref};
+						
+						# skip origins that are too small (avoid false positives with country initials etc.)
+						next if (length($maybe_origin) < 4);
+						
+						my $origin_id = canonicalize_taxonomy_tag($product_lc, "origins", $maybe_origin);
+						if (exists_taxonomy_tag("origins", $origin_id)) {
+							
+							$debug_ingredients and $log->debug("ingredient includes known origin", { ingredient => $ingredient, new_ingredient => $maybe_ingredient, origin_id => $origin_id }) if $log->is_debug();
+							
+							$origin = $origin_id;
+							$ingredient = $maybe_ingredient;
+							$ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+							last;
+						}						
+					}
+	
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$product_lc}) {
 						my $matches        = 0;
@@ -1425,7 +1478,7 @@ sub parse_ingredients_text($) {
 					$ingredient{percent} = $percent;
 				}
 				if (defined $origin) {
-					$ingredient{origin} = $origin;
+					$ingredient{origins} = $origin;
 				}
 				if (defined $labels) {
 					$ingredient{labels} = $labels;

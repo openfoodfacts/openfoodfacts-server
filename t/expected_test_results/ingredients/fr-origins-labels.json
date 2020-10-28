@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:strawberry",
-         "origin" : "en:france",
+         "origins" : "en:france",
          "percent_estimate" : 55.5555555555556,
          "percent_max" : 100,
          "percent_min" : 11.1111111111111,
@@ -13,7 +13,7 @@
       },
       {
          "id" : "en:blackcurrant",
-         "origin" : "en:south-africa",
+         "origins" : "en:south-africa",
          "percent_estimate" : 22.2222222222222,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -24,7 +24,7 @@
       },
       {
          "id" : "en:raspberry",
-         "origin" : "en:belgium",
+         "origins" : "en:belgium",
          "percent_estimate" : 11.1111111111111,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,

@@ -284,13 +284,29 @@
          "text" : "something"
       },
       {
+         "has_sub_ingredients" : "yes",
          "id" : "fr:somethingelse",
-         "origin" : "en:united-states",
+         "ingredients" : [
+            {
+               "id" : "fr:u",
+               "percent_estimate" : 2.82953749319859e-09,
+               "percent_max" : 2.77777777777778,
+               "percent_min" : 0,
+               "text" : "u"
+            }
+         ],
          "percent_estimate" : 2.82953749319859e-09,
          "percent_max" : 2.77777777777778,
          "percent_min" : 0,
          "rank" : 36,
          "text" : "somethingelse"
+      },
+      {
+         "id" : "fr:u",
+         "percent_estimate" : 2.82953749319859e-09,
+         "percent_max" : 2.77777777777778,
+         "percent_min" : 0,
+         "text" : "u"
       }
    ],
    "ingredients_analysis_tags" : [
@@ -336,9 +352,9 @@
       "fr:something",
       "fr:somethingelse"
    ],
-   "ingredients_n" : 36,
+   "ingredients_n" : 37,
    "ingredients_n_tags" : [
-      "36",
+      "37",
       "31-40"
    ],
    "ingredients_original_tags" : [
@@ -377,7 +393,8 @@
       "fr:vt",
       "fr:leaf",
       "fr:something",
-      "fr:somethingelse"
+      "fr:somethingelse",
+      "fr:u"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
