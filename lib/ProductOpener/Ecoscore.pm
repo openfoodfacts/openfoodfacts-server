@@ -52,6 +52,7 @@ BEGIN
 	@EXPORT_OK = qw(
 
 		&load_agribalyse_data
+		&load_ecoscore_data
 		&compute_ecoscore
 
 		);    # symbols to export on request
@@ -122,6 +123,65 @@ sub load_agribalyse_data() {
 }
 
 
+my %ecoscore_data = ();
+
+=head2 load_ecoscore_data( $product_ref )
+
+Loads data needed to compute the Eco-Score.
+
+=cut
+
+sub load_ecoscore_data() {
+
+	my $ecoscore_origins_csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.9";
+	
+	my $headers_ref;
+	my $rows_ref = [];
+
+	my $encoding = "UTF-8";
+	
+	$ecoscore_data{origins} = {};
+
+	$log->debug("opening ecoscore origins CSV file", { file => $ecoscore_origins_csv_file }) if $log->is_debug();
+
+	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
+
+	my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());
+
+	if (open (my $io, "<:encoding($encoding)", $ecoscore_origins_csv_file)) {
+
+		my $row_ref;
+
+		# Skip first line
+		$csv->getline ($io);
+		
+		# headers: Country,Pays,"Score Transport","Score EPI","Bonus transport","Bonus EPI",Région
+
+		while ($row_ref = $csv->getline ($io)) {
+			
+			my $origin = $row_ref->[0];
+			
+			next if ((not defined $origin) or ($origin eq ""));
+			
+			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+			
+			$ecoscore_data{origins}{$origin_id} = {
+				name_en => $row_ref->[0], # Country
+				name_fr => $row_ref->[1], # Pays
+				transportation_score => $row_ref->[2], # "Score Transport"
+				epi_score => $row_ref->[3], # "Score EPI"
+			};
+			
+			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
+		}
+	}
+	else {
+		die("Could not open ecoscore origins CSV $ecoscore_origins_csv_file: $!");
+	}
+}
+
+
 
 =head2 compute_ecoscore( $product_ref )
 
@@ -159,6 +219,7 @@ sub compute_ecoscore($) {
 	
 	compute_ecoscore_production_system_adjustment($product_ref);
 	compute_ecoscore_threatened_species_adjustment($product_ref);
+	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
 	
 	# Compute the final Eco-Score and assign the A to E grade
 	
@@ -288,7 +349,7 @@ sub compute_ecoscore_agribalyse($) {
 		
 		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
-		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 195 ) + 178;
+		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;
 	}
 }
 
@@ -401,6 +462,133 @@ sub compute_ecoscore_threatened_species_adjustment($) {
 		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{ingredient} = "en:palm-oil";
 	}
 	
+}
+
+
+=head2 compute_ecoscore_origins_of_ingredients_adjustment ( $product_ref )
+
+Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
+according to the countries of origin of the ingredients.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+Returned values:
+
+$product_ref->{adjustments}{origins_of_ingredients} hash with:
+- value: combined bonus or malus for transportation + EPI
+- epi_value
+- transportation_value
+- aggregated origins: sorted array of origin + percent to show the % of ingredients by country used in the computation
+
+=cut
+
+sub compute_ecoscore_origins_of_ingredients_adjustment($) {
+
+	my $product_ref = shift;
+	
+	# First parse the "origins" field to see which countries are listed
+	# Ignore entries that are not recognized or that do not have Eco-Score values (only countries and continents)
+	
+	my @origins_from_origins_field = ();
+	
+	if (defined $product_ref->{origins_tags}) {
+		foreach my $origin_id (@{$product_ref->{origins_tags}}) {
+			if (defined $ecoscore_data{origins}{$origin_id}) {
+				push @origins_from_origins_field, $origin_id;
+			}
+		}
+	}
+	
+	if (scalar @origins_from_origins_field == 0) {
+		@origins_from_origins_field = ("en:world");
+	}
+	
+	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - origins field", { origins_tags => $product_ref->{origins_tags}, origins_from_origins_field => \@origins_from_origins_field }) if $log->is_debug();
+	
+	# Sum the % values/estimates of all ingredients by origins
+	
+	my %aggregated_origins = ();
+	
+	if (defined $product_ref->{ingredients}) {
+		aggregate_origins_of_ingredients(\@origins_from_origins_field, \%aggregated_origins , $product_ref->{ingredients});
+	}
+	else {
+		# If we don't have ingredients listed, apply the origins from the origins field
+		# using a dummy ingredient
+		aggregate_origins_of_ingredients(\@origins_from_origins_field, \%aggregated_origins , [ { percent_estimate => 100} ]);
+	}
+	
+	# Compute the transportation and EPI values and a sorted list of aggregated origins
+	
+	my @aggregated_origins = ();
+	my $transportation_score = 0;
+	my $epi_score = 0;
+	
+	foreach my $origin_id (sort ( { $aggregated_origins{$b} <=> $aggregated_origins{$a} } keys %aggregated_origins)) {
+		
+		my $percent = $aggregated_origins{$origin_id};
+		
+		push @aggregated_origins, [ $origin_id, $percent ];
+		
+		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
+		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score} * $percent / 100;
+	}
+	
+	my $transportation_value = $transportation_score / 6.66;
+	my $epi_value = $epi_score / 10 - 5;
+	
+	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - aggregated origins", {  aggregated_origins => \@aggregated_origins } ) if $log->is_debug();
+
+	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
+		origins_from_origins_field => \@origins_from_origins_field,		
+		aggregated_origins => \@aggregated_origins,
+		transportation_score => $transportation_score,
+		epi_score => $epi_score,
+		transportation_value => $transportation_value,
+		epi_value => $epi_value,
+		value => $transportation_value + $epi_value,
+	};	
+	
+}
+
+sub aggregate_origins_of_ingredients($$$) {
+	
+	my $default_origins_ref = shift;
+	my $aggregated_origins_ref = shift;
+	my $ingredients_ref = shift;
+	
+	foreach my $ingredient_ref (@$ingredients_ref) {
+		
+		my $ingredient_origins_ref;
+		
+		# If the ingredient has an origin, use it
+		if (defined $ingredient_ref->{origins}) {
+			$ingredient_origins_ref = [split(/,/, $ingredient_ref->{origins})];
+		}
+		# Otherwise, if the ingredient has sub ingredients, use the origins of the sub ingredients
+		elsif (defined $ingredient_ref->{ingredients}) {
+			aggregate_origins_of_ingredients($default_origins_ref, $aggregated_origins_ref, $ingredient_ref->{ingredients});
+		}
+		# Else use default origins
+		else {
+			$ingredient_origins_ref = $default_origins_ref;
+		}
+		
+		# If we are not using the origins of the sub ingredients,
+		# aggregate the origins of the ingredient
+		if (defined $ingredient_origins_ref) {
+			foreach my $origin_id (@$ingredient_origins_ref) {
+				defined $aggregated_origins_ref->{$origin_id} or $aggregated_origins_ref->{$origin_id} = 0;
+				$aggregated_origins_ref->{$origin_id} += $ingredient_ref->{percent_estimate} / scalar(@$ingredient_origins_ref);
+			}
+		}
+	}
 }
 
 1;

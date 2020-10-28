@@ -12,9 +12,11 @@ use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 
 load_agribalyse_data();
+load_ecoscore_data();
 
 # Taxonomy tags used by EcoScore.pm that should not be renamed
 # (or that should be renamed in the code and tests as well).
@@ -101,7 +103,7 @@ my @tests = (
 			lc => "en",
 			categories_tags=>["en:butters"],
 		}
-	],	
+	],
 	[
 		'label-organic',
 		{
@@ -133,7 +135,60 @@ my @tests = (
 			ingredients_analysis_tags=>["en:palm-oil"],
 			labels_tags=>["en:roundtable-on-sustainable-palm-oil"],
 		}
-	],		
+	],
+	
+	# Origins of ingredients
+	
+	[
+		'origins-of-ingredients-specified',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			ingredients_text =>"60% apricots (France), 30% cane sugar (Martinique), lemon juice (Italy)",
+		}
+	],
+	[
+		'origins-of-ingredients-not-specified',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			ingredients_text =>"60% apricots, 30% cane sugar, lemon juice",
+		}
+	],
+	[
+		'origins-of-ingredients-partly-specified',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			ingredients_text =>"60% apricots (France), 30% cane sugar, lemon juice",
+		}
+	],
+	[
+		'origins-of-ingredients-specified-multiple',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			ingredients_text =>"60% apricots (France, Spain), 30% cane sugar (Martinique, Guadeloupe, Dominican Republic), lemon juice",
+		}
+	],
+	[
+		'origins-of-ingredients-in-origins-field',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			origins_tags=>["en:france"],
+			ingredients_text =>"60% apricots, 30% cane sugar (Martinique), lemon juice",
+		}
+	],
+	[
+		'origins-of-ingredients-in-origins-field-multiple',
+		{
+			lc => "en",
+			categories_tags=>["en:jams"],
+			origins_tags=>["en:france", "en:dordogne", "en:belgium"],
+			ingredients_text =>"60% apricots, 30% cane sugar (Martinique), lemon juice",
+		}
+	],	
 );
 
 
@@ -145,6 +200,11 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+	
+	if ($testid =~ /^origins-of-ingredients/) {
+		# Parse the ingredients (and extract the origins), and compute the ingredients percent
+		extract_ingredients_from_text($product_ref);
+	}
 	
 	compute_ecoscore($product_ref);
 	
@@ -166,6 +226,7 @@ foreach my $test_ref (@tests) {
 	}
 	else {
 		fail("could not load expected_test_results/$testdir/$testid.json");
+		diag explain $product_ref;
 	}
 }
 
