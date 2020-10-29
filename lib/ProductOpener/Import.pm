@@ -501,6 +501,9 @@ EMAIL
 			$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
 			next;
 		}
+		
+		# Set the $lang field to $lc
+		$imported_product_ref->{lang} = $imported_product_ref->{lc};
 
 		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
 
@@ -648,10 +651,10 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'product_name', 'generic_name',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
-			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources', 'imports') {
+			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {
 
 			if (defined $language_fields{$field}) {
 				foreach my $display_lc (@param_sorted_langs) {
