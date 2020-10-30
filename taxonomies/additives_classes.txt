@@ -56,7 +56,7 @@ description:sl:Kisline so snovi, ki povečajo kislost živila in/ali mu dajejo k
 description:sv:Syror: ämnen som ökar surheten hos ett livsmedel och/eller ger det en syrlig smak.
 
 
-en: Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity, acid regulator
+en: Acidity regulator, alkali, base, buffer, buffering agent, pH adjusting agent, corrector of acidity, acid regulator, controls acidity
 bg: Регулатор на киселинност, регулатор на киселинността
 ca: Corrector de l'acidesa, correctors de l'acidesa, correctiu de l acidesa
 cs: Regulátor kyselosti
@@ -243,6 +243,9 @@ description:pt:Antioxidantes: substâncias que prolongam o prazo de conservaçã
 description:sk:Antioxidanty sú látky, ktoré predlžujú trvanlivosť potravín tak, že ich chránia pred skazením spôsobeným oxidáciou, napríklad pred žltnutím tukov alebo farebnými zmenami.
 description:sl:Antioksidanti so snovi, ki podaljšajo rok uporabnosti živil tako, da jih ščitijo pred kvarjenjem, ki ga povzroča oksidacija, kot sta žarkost maščob in sprememba barve.
 description:sv:Antioxidationsmedel: ämnen som förlänger hållbarheten hos livsmedel genom att skydda dem från att försämras genom oxidering, som t.ex. härskning av fett och färgförändringar.
+
+<en:antioxidant
+en:natural antioxidant
 
 
 en:Bleaching agent
@@ -467,6 +470,9 @@ description:sk:Emulgátory sú látky, ktoré umožňujú vytvoriť alebo zachov
 description:sl:Emulgatorji so snovi, ki omogočajo nastanek ali ohranjanje homogene mešanice dveh ali več medsebojno nezdružljivih faz, kot sta olje in voda, v živilu.
 description:sv:Emulgeringsmedel: ämnen som gör det möjligt att skapa eller bibehålla en homogen blandning av två eller flera icke blandbara faser som olja och vatten i ett livsmedel.
 
+<en:emulsifier
+en:natural emulsifier
+
 
 en: Emulsifying salts, emulsifying salt synergist, melding salt, Emulsifying salt
 bg: Емулгаторни соли
@@ -561,6 +567,10 @@ description:pt:Agentes de endurecimento: substâncias que tornam ou mantêm firm
 description:sk:Stužovadlá sú látky, ktoré spevňujú tkanivá ovocia a zeleniny alebo ich zachovávajú v krehkom stave, alebo spolupôsobia s gélotvornými činidlami a tvoria alebo spevňujú gél.
 description:sl:Utrjevalci so snovi, ki omogočajo ali ohranjajo čvrstost sadja ali zelenjave ali v povezavi z želirnimi sredstvi tvorijo ali utrdijo žele.
 description:sv:Konsistensmedel: ämnen som gör eller håller frukt eller grönsaker fasta eller spröda eller som reagerar med geleringsmedel och bildar eller förstärker ett gel.
+
+<en:firming agent
+en:natural firming agent
+
 
 # nova:en:flavour-enhancer
 en: Flavour enhancer, flavour synergist, flavor enhancer, flavor enhancers
@@ -938,6 +948,8 @@ fr:conservateur de fruit, conservateur du fruit
 # ingredient/fr:conservateur-du-fruit has 124 produits in french @2019-05-02
 # usage:fr: Conservateur du fruit : Sorbate de potassium
 
+<en:preservative
+en:natural preservative
 
 
 comment:en:do not mix with packaging gas.
@@ -1090,7 +1102,7 @@ description:sl:Veziva so snovi, ki tvorijo kemične komplekse s kovinskimi ioni.
 description:sv:Komplexbildare: ämnen som bildar kemiska komplex med metalljoner.
 
 
-en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist, stabilizers
+en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist, stabilizers, stabilizing agent
 bg: Стабилизатор, стабилизатори
 ca: Estabilitzador, estabilitzadors, estabilizants, estabilitzant, estabilitzants, estabilitzat
 cs: Stabilizátor
@@ -1141,6 +1153,10 @@ description:pt:Estabilizadores: substâncias que tornam possível a manutenção
 description:sk:Stabilizátory sú látky, ktoré umožňujú zachovať fyzikálno-chemický stav potraviny; patria sem aj látky, ktoré umožňujú zachovávať homogénnu disperziu dvoch alebo viacerých vzájomne nemiešateľných látok v potravine, ako aj látky, ktoré stabilizujú, zachovávajú alebo zvýrazňujú existujúcu farbu potraviny, a látky, ktoré zvyšujú väzobnú kapacitu potraviny vrátane vytvárania vzájomných väzieb medzi bielkovinami, ktoré umožňujú spojenie kusov potravín do rekonštituovanej potraviny.
 description:sl:Stabilizatorji so snovi, ki vzdržujejo fizikalno-kemično stanje živila; stabilizatorji vključujejo snovi, ki vzdržujejo homogeno razpršenost dveh ali več snovi, ki se v živilu med seboj ne mešajo, snovi, ki stabilizirajo, ohranijo ali poudarijo obstoječo barvo živila, ter snovi, ki povečajo sposobnost vezave živil, vključno z nastankom navzkrižnih povezav med beljakovinami, ki omogočajo vezavo delcev živil v rekonstituiranih živilih.
 description:sv:Stabiliseringsmedel: ämnen som gör det möjligt att bevara ett livsmedels fysikaliska och kemiska tillstånd; stabiliseringsmedel inkluderar ämnen som gör det möjligt att bibehålla en homogen blandning av två eller flera icke blandbara ämnen i ett livsmedel, ämnen som stabiliserar, bevarar eller förstärker ett livsmedels existerande färg samt ämnen som ökar ett livsmedels bindande egenskaper, inklusive bildande av tvärgående bindningar mellan proteiner så att bitar av livsmedel kan bindas samman till ett rekonstituerat livsmedel.
+
+<en:stabiliser
+en:natural stabilizer
+
 
 # nova:en:sweetener
 en: Sweetener, bulk sweetener, intense sweetener
@@ -1242,6 +1258,10 @@ description:pt:Espessantes: substâncias que aumentam a viscosidade dos géneros
 description:sk:Zahusťovadlá sú látky, ktoré zvyšujú viskozitu potraviny.
 description:sl:Sredstva za zgostitev (gostila) so snovi, ki povečujejo viskoznost živila.
 description:sv:Förtjockningsmedel: ämnen som ökar ett livsmedels viskositet.
+
+<en:thickener
+en:natural thickener
+
 
 en:Vitamins
 bg:Витамини

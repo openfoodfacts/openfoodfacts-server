@@ -6870,7 +6870,7 @@ de:Frische fettarme Milch
 # description:fr:WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 <en:milk
-en:whole milk
+en:whole milk, full cream milk
 ca:llet sencera
 cs:Plnotučné mléko
 da:sødmaelk
@@ -7945,7 +7945,7 @@ ca:iogurt parcialment desnatat, iogurt semidesnatat
 es:yogur parcialmente desnatado, yogur semidesnatado
 
 <en:yogurt
-en:skimmed yogurt
+en:skimmed yogurt, fat free yogurt
 fi:rasvaton jogurtti
 fr:Yaourt écrémé
 hu:sovány joghurt
@@ -8035,6 +8035,10 @@ de:Joghurterzeugnis
 <en:yogurt
 en:british yogurt
 fr:yaourt britannique
+
+<en:british yogurt
+<en:low fat yogurt
+fr:yaourt britannique à faible teneur en matières grasses
 
 <en:yogurt
 en:greek yogurt
@@ -9178,7 +9182,7 @@ nova:en:3
 # en:cheese has 579 products in 10 languages @2018-10-28
 
 <en:cheese
-en:mixed cheese
+en:mixed cheese, cheese blend
 es:mezcla de quesos
 
 <en:cheese
@@ -9721,6 +9725,9 @@ fr:fromage cheddar très affiné
 
 <en:cheddar
 en:vintage cheddar, vintage cheddar cheese
+
+<en:cheddar
+en:white cheddar, white cheddar cheese
 
 <en:cheddar
 fr:cheddar orange
@@ -15801,6 +15808,9 @@ zh:玉米澱粉
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_starch
 
 <en:corn starch
+en:non-gmo corn starch
+
+<en:corn starch
 fr:amidon de maïs cireux
 
 <en:corn starch
@@ -16728,7 +16738,7 @@ nl:plantaardige vetten, plantaardig vet
 nn:vegetabilisk fett
 pl:tłuszcz roślinny, tłuszcze roślinne
 pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
-ro:grăsime vegetală
+ro:grăsime vegetală, grăsimi vegetale
 ru:растительные жиры
 sk:rastlinný tuk
 sq:yndyrë bimore
@@ -17112,6 +17122,7 @@ ms:Minyak isirong sawit
 nl:Palmkernolie, palmpit
 pl:Olej z ziaren palmowych
 pt:palmiste
+ro:sâmburi de palmier
 ru:Пальмоядровое масло
 sv:palmkärnolja, palmkärna, palmkärn
 te:పామ్‌కెర్నల్‌ నూనె
@@ -17534,6 +17545,9 @@ en:fully hydrogenated canola oil
 fi:kokonaan kovetettu rypsiöljy
 sv:fullhärdad rypsolja
 # ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
+
+<en:canola oil
+en:non-gmo canola oil
 
 # <en:compound
 en:canola oil preparation
@@ -22964,7 +22978,7 @@ nl:volkoren tarwegriesmeel
 <en:semolina
 <en:durum wheat
 # <en:Couscous
-en:durum wheat semolina
+en:durum wheat semolina, durum semolina
 de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro
@@ -25082,7 +25096,7 @@ it:farina di grano tenero tipo 00, farina di grano tipo 00
 es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
 
 <en:wheat flour
-en:durum wheat flour
+en:durum wheat flour, durum flour
 de:Hartweizenmehl
 es:harina de trigo duro
 fi:durumvehnäjauho
@@ -26947,8 +26961,9 @@ en:rice bran
 fr:son de riz
 
 <en:rice
+en:rice semolina
 es:sémola de arroz
-de:Reisgriess
+de:Reisgriess, Reisgrieß
 fi:riisisuurimo
 fr:semoule de riz
 hu:rizsdara
@@ -26968,9 +26983,10 @@ ja:ライスフレーク
 # ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
 
 <en:rice
-fr:riz extrudé
+en:extruded rice
 de:Reis extrudiert
 fi:ekstrudoitu riisi
+fr:riz extrudé
 hu:extrudált rizs
 it:riso estruso
 sr:pirinač ekstrudat
@@ -27048,12 +27064,30 @@ fr:crème de riz
 nl:rijst crème
 # ingredient/fr:crème-de-riz has 148 products in 10 languages @2018-12-19
 
+<en:rice
+en:germinated rice, sprouted rice
+fr:riz germé
+
 <en:brown rice
-fr:riz complet germé
+<en:germinated rice
+en:germinated brown rice, sprouted brown rice
+es:arroz integral germinado
+fr:riz complet germé, riz brun germé
 # 2019-05-30
 
 <en:red rice
+<en:germinated rice
+en:germinated red rice, sprouted red rice
+de:gekeimter roter Reis
 fr:riz rouge germé
+
+<en:black rice
+<en:germinated rice
+en:germinated black rice, sprouted black rice
+de:gekeimter schwarzer Reis
+fr:riz noir germé
+nl:ontkiemde zwarte rijst
+
 
 <en:rice
 fr:riz riceberry mélangé
@@ -29354,7 +29388,7 @@ sv:rehydrerat sojaprotein
 fr:concentré de protéines de soja
 
 <en:soy protein
-en:soy protein isolate, soya protein isolate
+en:soy protein isolate, soya protein isolate, isolated soy protein
 fr:isolat de protéine de soja
 de:Sojaproteinisolat, Sojaeiweißisolat
 fi:soijaproteiini-isolaatti
@@ -29384,6 +29418,9 @@ nl:graneneiwit
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
+
+<en:wheat protein
+en:wheat protein isolate, isolated wheat protein
 
 <en:wheat protein
 fr:protéines de blé déshydratées
@@ -29512,7 +29549,7 @@ ja:乳たんぱく質
 nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka
 pt:proteína do leite, proteínas lácteas
-ro:proteină din lapte, proteine din lapte
+ro:proteină din lapte, proteine din lapte, proteine de lapte
 ru:молочный белок, молочные белки
 sk:mliečnu bielkovinu, mliečne bielkoviny
 sv:mjölkprotein
@@ -33344,6 +33381,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruit
 en:mixed fruit
+de:fruchtmischung
 es:mix de frutas,mezcla de frutas
 
 <en:mixed fruit
@@ -33506,7 +33544,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juice
 <en:fruit juice
 en:fruit juice concentrate
 da:Frugtjuicekoncentrat
-de:Fruchtsaftkonzentrat
+de:Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
 es:Jugo de frutas concentrado
 fi:hedelmämehutiiviste
 fr:jus concentré de fruits, jus de fruits concentrés
@@ -33520,7 +33558,7 @@ fr:jus concentré de fruits rouges
 
 <en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
-de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
+de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
@@ -37695,6 +37733,7 @@ nl:kokosnoot, kokos
 nn:kokosnøtt
 pl:Kokos, kokosowy
 pt:cocos
+ro:nucă de cocos, nuca de cocos
 ru:кокос
 sa:नारिकेलम्
 sq:Arra e kokosit
@@ -41976,7 +42015,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
 <en:root vegetable
-en:garlic, garlic bulb
+en:garlic, garlic bulb, garlic clove
 af:Knoffel
 am:ነጭ ሽንኩርት
 ar:ثوم
@@ -46659,7 +46698,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Allspice
 fr:piment Oiseau
 
 <en:chili pepper
-en:habanero chili
+en:habanero chili, habanero chili pepper, habanero chile, habanero chile pepper, habanero chilli, habanero chilli pepper, habanero chillies, habanero pepper, habanero
 da:habanero chili
 de:Habanero Chili
 fi:habanero, habanero chili
@@ -48520,7 +48559,7 @@ fr:extrait de pois
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
-en:chickpea, chickpeas, garbanzo beans, chick pea, chick peas
+en:chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 am:ሽምብራ
 ar:حمص شائع
 az:Qoyunnoxudu
@@ -50382,7 +50421,7 @@ sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
-en:cottonseed
+en:cottonseed, cotton seed
 es:semillas de algodón
 
 <en:seed
@@ -56409,7 +56448,7 @@ es:aceitunas verdes con huesos
 
 <fr:olive verte
 <en:black olive
-en:green and black olives
+en:green and black olives, black and green olives
 de:grüne und schwarze Oliven
 fi:vihreä ja musta oliivi, vihreät ja mustat oliivit
 fr:olives vertes et noires
@@ -70980,7 +71019,7 @@ sv:fullkornsrågbröd
 # PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
 
 <en:bread
-en:pita, pitta
+en:pita, pitta, pita bread, pitta bread
 az:pita
 be:піта
 bg:пита

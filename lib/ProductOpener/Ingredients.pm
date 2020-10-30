@@ -1395,6 +1395,7 @@ sub parse_ingredients_text($) {
 						my %ignore_regexps = (
 
 							'de' => [
+								'^in ver[äa]nderlichen Gewichtsanteilen$',
 								'^Unter Schutzatmosph.re verpackt$',
 							],
 
@@ -1443,6 +1444,10 @@ sub parse_ingredients_text($) {
 								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 								'vaihtelevina osuuksina',
+							],
+
+							'it' => [
+								'^in proporzioni variabili$',
 							],
 
 							'nl' => [
