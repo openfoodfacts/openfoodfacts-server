@@ -305,4 +305,3 @@ sub analyze_and_combine_packaging_data($) {
 }
 
 1;
-
