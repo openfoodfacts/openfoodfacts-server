@@ -1346,10 +1346,12 @@ fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok, egyéb tápanyagok
 it:Altre sostanze nutrizionali, altre sostanze nutritive
 
-en:coagulum, coagulating agent,coagulant
+# See also Firming agent
+# also in ingredients.txt
+en:coagulant, coagulum, coagulating agent
 ca:Agent coagulant, agents coagulants
-de:Koagulat
-en:agente coagulante, agentes coagulantes,coagulante
+de:Koagulat, Gerinnungsmittel
+en:agente coagulante, agentes coagulantes, coagulante
 es:Agente coagulante, agentes coagulantes
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
@@ -1357,13 +1359,16 @@ it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 
+# also in ingredients.txt
+en:salt substitute
+de:Speisesalzersatz, kochsalzersatz
 fr:substitut du sel
-de:Speisesalzersatz
 hu:Sópótló
 it:sostituto del sale
 # ingredient/fr:substitut-du-sel has 23 products in 3 languages @2019-02-21
 # substitut du sel (chlorure de potassium)
 
+# also in ingredients.txt
 # <en:compound
 fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
@@ -1374,10 +1379,12 @@ fr:agent crémeux
 # poudre de fleurage : carbonate de calcium, talc
 
 
+# also in ingredients.txt
 fr:conservateur de surface
 # ingredient/fr:conservateur-de-surface has 43 products in french @2019-03-02
 
 
+# also in ingredients.txt
 #comment:en:This is very generic. It is not specified what is enhanced.
 en:enhancer
 es:Potenciador
@@ -1389,9 +1396,13 @@ nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
 
+# also in ingredients.txt
 <en:enhancer
+en:bread improver
+de:Backmittel
 it:miglioranti per panificazione
 
+# also in ingredients.txt
 <en:enhancer
 en:cooking enhancer
 de:Kochverstärker
