@@ -215,7 +215,19 @@
 <!-- ecoscore -->
 [% IF ecoscore_grade %]
 	<h2>[% lang('environmental_impact') %]</h2>
-	<p>Eco-score: [% ecoscore_grade %]</p>
+	
+	<h4>Eco-score
+		<a href="/eco-score" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
+	</h4>
+	<a href="/eco-score" title="[% lang('ecoscore_information') %]">
+		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
+	</a>
+	<br>
+
+	[% IF ecoscore_warning %]
+		<p>[% ecoscore_warning %]</p>
+	[% END %]
+
 	[% ecoscore_calculation_details %]
 [% END %]
 

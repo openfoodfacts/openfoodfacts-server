@@ -7947,6 +7947,7 @@ HTML
 			compute_ecoscore($product_ref);
 		}
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
+		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
 	}

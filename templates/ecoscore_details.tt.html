@@ -3,6 +3,51 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
+	<h4>Score de référence : Analyse de cycle de vie (ACV)</h4>
+
+	<p>
+		<strong>Catégorie Agribalyse : [% agribalyse.agribalyse_food_name_fr %]</strong><br>
+		[% IF agribalyse.agribalyse_proxy_food_code %]
+			(correspondance approchée avec la catégorie du produit)
+		[% ELSE %]
+			(correspondance exacte avec la catégorie du produit)
+		[% END %]
+	</p>
+	<p>
+		<strong>Score ACV sur 100 : [% agribalyse.score %]</strong>
+	</p>
+
+	<h4>Bonus / Malus complémentaires</h4>
+	
+	<h3>Mode de production</h3>
+	
+	[% IF adjustments.production_system.value %]
+		<p><strong>Bonus : [% adjustments.production_system.value %]</strong></p>
+	[% ELSE %]
+		<p>Pas de labels pris en compte pour le système de production.</p>
+	[% END %]	
+	
+	<h3>Origine des ingrédients</h3>
+	
+	[% IF adjustments.origins_of_ingredients.value %]
+		<p><strong>Bonus / malus : [% adjustments.origins_of_ingredients.value %]</strong></p>
+	[% END %]
+	
+	<h3>Espèces menacées</h3>
+	
+	[% IF adjustments.threatened_species.value %]
+		<p><strong>Malus : [% adjustments.threatened_species.value %]</strong></p>
+	[% ELSE %]
+		<p>Pas d'espèces menacées prises en compte.</p>
+	[% END %]	
+	
+	<h3>Emballage</h3>
+	
+	[% IF adjustments.packaging.value %]
+		<p><strong>Bonus / malus : [% adjustments.packaging.value %]</strong></p>
+	[% END %]	
+	
+	<h4>Score final</h4>
 
 	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% score %]</strong></p>
 	<p><strong>[% lang('ecoscore_grade') %][% sep %]: [% grade %]</strong></p>
