@@ -197,7 +197,7 @@ sub parse_packaging_from_text_phrase($$) {
 
 =head2 analyze_and_combine_packaging_data($product_ref)
 
-This functions analyze all the packaging information available for the product:
+This function analyzes all the packaging information available for the product:
 
 - the existing packagings data structure
 - the packaging_text entered by users or retrieved from the OCR of recycling instructions
@@ -205,7 +205,7 @@ This functions analyze all the packaging information available for the product:
 - labels (e.g. FSC)
 - the non-taxonomized packaging tags field
 
-And combines them in an updated packagins data structure.
+And combines them in an updated packagings data structure.
 
 =cut
 
@@ -219,71 +219,84 @@ sub analyze_and_combine_packaging_data($) {
 		$product_ref->{packagings} = [];
 	}
 	
-	# Parse the packaging_text
+	# Parse the packaging_text and the packaging tags field
 	
+	my @phrases = ();
+	
+	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 		
-		foreach my $phrase (split(/,|\n/, $product_ref->{packaging_text})) {
-			$phrase =~ s/^\s+//;
-			$phrase =~ s/\s+$//;
-			next if $phrase eq "";
+		push (@phrases, split(/,|\n/, $product_ref->{packaging_text}));
+	}
+	
+	# Packaging tags field
+	if (defined $product_ref->{packaging}) {
+		push (@phrases, split(/,|\n/, $product_ref->{packaging}));
+	}	
+	
+	# Add or merge packaging data from phrases to the existing packagings data structure
 			
-			my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
+	foreach my $phrase (@phrases) {
+		
+		$phrase =~ s/^\s+//;
+		$phrase =~ s/\s+$//;
+		next if $phrase eq "";
+		
+		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
+		
+		# Non empty packaging?
+		if ((scalar keys %$packaging_ref) > 0) {
 			
-			# Non empty packaging?
-			if ((scalar keys %$packaging_ref) > 0) {
+			# If we have an existing packaging that can correspond, augment it
+			# otherwise, add one
+			
+			my $matching_packaging_ref;
+			
+			foreach my $existing_packaging_ref (@{$product_ref->{packagings}}) {
 				
-				# If we have an existing packaging that can correspond, augment it
-				# otherwise, add one
+				my $match = 1;
 				
-				my $matching_packaging_ref;
-				
-				foreach my $existing_packaging_ref (@{$product_ref->{packagings}}) {
+				foreach my $property (sort keys %$packaging_ref) {
 					
-					my $match = 1;
+					my $tagtype = $packaging_taxonomies{$property};
 					
-					foreach my $property (sort keys %$packaging_ref) {
+					# If there is an existing value for the property,
+					# check if it is either a child or a parent of the value extracted from the packaging text
+					if ((defined $existing_packaging_ref->{$property})
+						and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
+						and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
+						and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})) ) {
 						
-						my $tagtype = $packaging_taxonomies{$property};
-						
-						# If there is an existing value for the property,
-						# check if it is either a child or a parent of the value extracted from the packaging text
-						if ((defined $existing_packaging_ref->{$property})
-							and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
-							and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
-							and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})) ) {
-							
-							$match = 0;
-							last;
-						}
-					}
-					
-					if ($match) {
-						$matching_packaging_ref = $existing_packaging_ref;
+						$match = 0;
 						last;
 					}
 				}
 				
-				if (not defined $matching_packaging_ref) {
-					# Add a new packaging
-					$log->debug("analyze_and_combine_packaging_data - add new packaging", { packaging_ref => $packaging_ref }) if $log->is_debug();
-					push @{$product_ref->{packagings}}, $packaging_ref;
+				if ($match) {
+					$matching_packaging_ref = $existing_packaging_ref;
+					last;
 				}
-				else {
-					# Merge data with matching packaging
-					$log->debug("analyze_and_combine_packaging_data - merge with existing packaging", { packaging_ref => $packaging_ref, matching_packaging_ref => $matching_packaging_ref }) if $log->is_debug();
-					foreach my $property (sort keys %$packaging_ref) {
+			}
+			
+			if (not defined $matching_packaging_ref) {
+				# Add a new packaging
+				$log->debug("analyze_and_combine_packaging_data - add new packaging", { packaging_ref => $packaging_ref }) if $log->is_debug();
+				push @{$product_ref->{packagings}}, $packaging_ref;
+			}
+			else {
+				# Merge data with matching packaging
+				$log->debug("analyze_and_combine_packaging_data - merge with existing packaging", { packaging_ref => $packaging_ref, matching_packaging_ref => $matching_packaging_ref }) if $log->is_debug();
+				foreach my $property (sort keys %$packaging_ref) {
+					
+					my $tagtype = $packaging_taxonomies{$property};
+					
+					# If we already have a value for the property,
+					# apply the new value only if it is a child of the existing value
+					# e.g. if we already have "plastic", we can override it with "PET"
+					if ((not defined $matching_packaging_ref->{$property})
+						or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property}))) {
 						
-						my $tagtype = $packaging_taxonomies{$property};
-						
-						# If we already have a value for the property,
-						# apply the new value only if it is a child of the existing value
-						# e.g. if we already have "plastic", we can override it with "PET"
-						if ((not defined $matching_packaging_ref->{$property})
-							or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property}))) {
-							
-							$matching_packaging_ref->{$property} = $packaging_ref->{$property};
-						}
+						$matching_packaging_ref->{$property} = $packaging_ref->{$property};
 					}
 				}
 			}

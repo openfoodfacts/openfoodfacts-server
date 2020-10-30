@@ -143,7 +143,23 @@ my @tests = (
 				},
 			]
 		}
-	],	
+	],
+	[
+		'merge_en_merge_packaging_tag_and_packaging_text',
+		{
+			lc => "en",
+			packaging => "plastic, box, paper bag",
+			packaging_text => "plastic box",
+		}
+	],
+	[
+		'merge_en_merge_packaging_tag_and_packaging_text',
+		{
+			lc => "en",
+			packaging => "PET, box, paper bag",
+			packaging_text => "plastic box, kraft paper",
+		}
+	],		
 );
 
 init_packaging_taxonomies_regexps();
