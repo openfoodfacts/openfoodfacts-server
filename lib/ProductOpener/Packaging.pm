@@ -205,7 +205,7 @@ This functions analyze all the packaging information available for the product:
 - labels (e.g. FSC)
 - the non-taxonomized packaging tags field
 
-And combines them in an updated packagins data structure.
+And combines them in an updated packagings data structure.
 
 =cut
 
@@ -292,4 +292,3 @@ sub analyze_and_combine_packaging_data($) {
 }
 
 1;
-
