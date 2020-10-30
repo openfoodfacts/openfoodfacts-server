@@ -9969,7 +9969,7 @@ sub add_images_urls_to_product($) {
 
 	my $path = product_path($product_ref);
 
-	foreach my $imagetype ('front','ingredients','nutrition') {
+	foreach my $imagetype ('front','ingredients','nutrition','packaging') {
 
 		my $size = $display_size;
 
