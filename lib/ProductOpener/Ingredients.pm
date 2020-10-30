@@ -2827,7 +2827,7 @@ de => [
 'Unge(ö|o)ffnet bei max.',
 'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
-'Vor Wärme geschützt (und trocken )?lagern'
+'Vor Wärme geschützt (und trocken )?lagern',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
