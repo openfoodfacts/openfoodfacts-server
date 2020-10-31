@@ -530,7 +530,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	my $transportation_score = 0;
 	my $epi_score = 0;
 	
-	foreach my $origin_id (sort ( { $aggregated_origins{$b} <=> $aggregated_origins{$a} } keys %aggregated_origins)) {
+	foreach my $origin_id (sort ( { ($aggregated_origins{$b} <=> $aggregated_origins{$a}) || ($a cmp $b) } keys %aggregated_origins)) {
 		
 		my $percent = $aggregated_origins{$origin_id};
 		
