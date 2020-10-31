@@ -444,12 +444,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gepökelt',
+				'processing' => 'en:brined',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gepökelt',
+				'processing' => 'en:brined',
 				'text' => "haselnüsse"
 			},
 			{

@@ -277,6 +277,7 @@ nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó
+ro:praf, praf de, pudră, pudră de
 sk:v prahu
 sv:pulver
 # da:parse:$pulver
@@ -446,7 +447,7 @@ en:juice crystals
 en:concentrated, concentrate, concentrates
 ca:concentrat
 da:koncentreret
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
 es:concentrado,concentrada,concentrados,concentradas, procedente de concentrado, procedente de concentrada
@@ -477,10 +478,13 @@ de:eingekochter
 
 #en:description:Water has been added to concentrate
 en:from-concentrate
-es:a base de concentrado,a base de concentrada, a partir de concentrado, a partir de concentrada
+da:fra koncentrat, fra koncentrater
+de:aus Konzentrat, aus Konzentraten
+es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
 hu:sűrítményből
+nl:uit concentraat
 pt:a partir de concentrado
 sv:från koncentrat
 
@@ -618,6 +622,7 @@ fr:première pression à froid, 1ère pression à froid, de première pression �
 
 en:mechanically separated
 es:separada mecánicamente
+fr:séparée mécaniquement
 sv:maskinurbenat
 
 #######################################################################
@@ -990,6 +995,7 @@ de:eingelegt, eingelegte, eingelegter
 es:en escabeche, en vinagre
 
 # en:description:Marinated in salt (note different from en:salted)
+en:brined
 de:gepökelt, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées

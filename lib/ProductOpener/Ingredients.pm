@@ -1394,6 +1394,11 @@ sub parse_ingredients_text($) {
 						# Remove some sentences
 						my %ignore_regexps = (
 
+							'de' => [
+								'^in ver[äa]nderlichen Gewichtsanteilen$',
+								'^Unter Schutzatmosph.re verpackt$',
+							],
+
 							'en' => [
 								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
 								# (allerg(en|y) advice[:!]? )?(for allergens[,]? )?(including cereals containing gluten, )?see ingredients (highlighted )?in bold
@@ -1439,6 +1444,10 @@ sub parse_ingredients_text($) {
 								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
 								'vaihtelevina osuuksina',
+							],
+
+							'it' => [
+								'^in proporzioni variabili$',
 							],
 
 							'nl' => [
@@ -2812,12 +2821,13 @@ de => [
 'N(â|a|ä)hrwerte je',
 'Nâhrwerte',
 'mindestens',
-'k(u|ü)hl und trocken lagern',
+'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 'Rinde nicht zum Verzehr geeignet.',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
 'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
+'Vor Wärme geschützt (und trocken )?lagern',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',

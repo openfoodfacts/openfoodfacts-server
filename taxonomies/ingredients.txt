@@ -231,11 +231,11 @@ fr:additifs alimentaires
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
-
+# also in additives_classes.txt
 # <en:function
-en:coagulum, coagulating agent,coagulant
+en:coagulant, coagulum, coagulating agent
 ca:Agent coagulant, agents coagulants
-de:Koagulat
+de:Koagulat, Gerinnungsmittel
 en:agente coagulante, agentes coagulantes,coagulante
 es:Agente coagulante, agentes coagulantes
 fi:hyydyte, koagulantti
@@ -290,15 +290,18 @@ fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 
 
 
+# also in additives_classes.txt
 # <en:function
+en:salt substitute
+de:Speisesalzersatz, kochsalzersatz
 fr:substitut du sel
-de:Speisesalzersatz
 hu:Sópótló
 it:sostituto del sale
 # ingredient/fr:substitut-du-sel has 23 products in 3 languages @2019-02-21
 # substitut du sel (chlorure de potassium)
 
 
+# also in additives_classes.txt
 # <en:function
 # <en:compound
 fr:agent crémeux
@@ -310,14 +313,15 @@ fr:poudre de fleurage
 # poudre de fleurage : carbonate de calcium, talc
 
 
+# also in additives_classes.txt
 # <en:function
 fr:conservateur de surface
 # ingredient/fr:conservateur-de-surface has 43 products in french @2019-03-02
 
 
+# also in additives_classes.txt
 # <en:function
 en:enhancer
-de:Backmittel
 es:Potenciador
 fi:vahvenne
 fr:améliorant, améliorants
@@ -327,9 +331,13 @@ nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
 
+# also in additives_classes.txt
 <en:enhancer
+en:bread improver
+de:Backmittel
 it:miglioranti per panificazione
 
+# also in additives_classes.txt
 <en:enhancer
 en:cooking enhancer
 de:Kochverstärker
@@ -6862,7 +6870,7 @@ de:Frische fettarme Milch
 # description:fr:WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 <en:milk
-en:whole milk
+en:whole milk, full cream milk
 ca:llet sencera
 cs:Plnotučné mléko
 da:sødmaelk
@@ -7937,7 +7945,7 @@ ca:iogurt parcialment desnatat, iogurt semidesnatat
 es:yogur parcialmente desnatado, yogur semidesnatado
 
 <en:yogurt
-en:skimmed yogurt
+en:skimmed yogurt, fat free yogurt
 fi:rasvaton jogurtti
 fr:Yaourt écrémé
 hu:sovány joghurt
@@ -8027,6 +8035,10 @@ de:Joghurterzeugnis
 <en:yogurt
 en:british yogurt
 fr:yaourt britannique
+
+<en:british yogurt
+<en:low fat yogurt
+fr:yaourt britannique à faible teneur en matières grasses
 
 <en:yogurt
 en:greek yogurt
@@ -9170,7 +9182,7 @@ nova:en:3
 # en:cheese has 579 products in 10 languages @2018-10-28
 
 <en:cheese
-en:mixed cheese
+en:mixed cheese, cheese blend
 es:mezcla de quesos
 
 <en:cheese
@@ -9713,6 +9725,9 @@ fr:fromage cheddar très affiné
 
 <en:cheddar
 en:vintage cheddar, vintage cheddar cheese
+
+<en:cheddar
+en:white cheddar, white cheddar cheese
 
 <en:cheddar
 fr:cheddar orange
@@ -10762,7 +10777,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
 <en:pecorino
-en:pecorino romano, romano, pecorino romano cheese, Peccorino Romano PDO cheese
+en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -10776,7 +10791,7 @@ nl:pecorino romano, pecorino romano kaas
 # Romano cheese is a term used in the United States and Canada for a class of hard, salty cheeses suitable primarily for grating similar to Pecorino Romano, from which the name is derived
 
 <en:cheese
-en:romano cheese
+en:romano cheese, romano
 wikidata:en:Q7362740
 wikipedia:en:https://en.wikipedia.org/wiki/Romano_cheese
 
@@ -14184,6 +14199,7 @@ it:budello di pecore, budello di sale
 # ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
 
 <en:sheeps casing
+en:natural sheep casing
 fr:boyau naturel de mouton
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
@@ -15571,6 +15587,7 @@ wikidata:en:Q590686
 
 <en:meat
 en:salami
+de:Salami
 es:salami
 wikipedia:en:https://en.wikipedia.org/wiki/Salami
 
@@ -15790,6 +15807,9 @@ zh:玉米澱粉
 # war:Gawgaw
 # yue:粟粉
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_starch
+
+<en:corn starch
+en:non-gmo corn starch
 
 <en:corn starch
 fr:amidon de maïs cireux
@@ -16719,7 +16739,7 @@ nl:plantaardige vetten, plantaardig vet
 nn:vegetabilisk fett
 pl:tłuszcz roślinny, tłuszcze roślinne
 pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
-ro:grăsime vegetală
+ro:grăsime vegetală, grăsimi vegetale
 ru:растительные жиры
 sk:rastlinný tuk
 sq:yndyrë bimore
@@ -16954,7 +16974,7 @@ en:fractionated palm oil
 en:palm
 bg:палмова
 da:palme
-de:Palme
+de:Palm, Palme
 es:palma
 fi:palmu
 fr:palme
@@ -17103,6 +17123,7 @@ ms:Minyak isirong sawit
 nl:Palmkernolie, palmpit
 pl:Olej z ziaren palmowych
 pt:palmiste
+ro:sâmburi de palmier
 ru:Пальмоядровое масло
 sv:palmkärnolja, palmkärna, palmkärn
 te:పామ్‌కెర్నల్‌ నూనె
@@ -17525,6 +17546,9 @@ en:fully hydrogenated canola oil
 fi:kokonaan kovetettu rypsiöljy
 sv:fullhärdad rypsolja
 # ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
+
+<en:canola oil
+en:non-gmo canola oil
 
 # <en:compound
 en:canola oil preparation
@@ -17974,7 +17998,7 @@ en:shea butter, shea, shea fat
 ak:Nkuto
 ar:زبدة الشيا
 bg:Масло от ший
-de:Shea Butter, Sheabutter, Shea
+de:Shea Butter, Sheabutter, Shea, Sheafett
 el:λίπος shea
 eo:karitea butero
 es:manteca de karité, grasa de karite, karite, shea
@@ -20902,7 +20926,7 @@ is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
 lv:dabīgs aromatizētājs
 nb:naturlig aroma
-nl:Natuurlijke smaakstoffen, natuurlijk aroma, natuurlijke aroma's
+nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
 pl:Naturalny aromat
 pt:aroma natural
 ro:aromă naturală, aroma naturala
@@ -22955,7 +22979,7 @@ nl:volkoren tarwegriesmeel
 <en:semolina
 <en:durum wheat
 # <en:Couscous
-en:durum wheat semolina
+en:durum wheat semolina, durum semolina
 de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro
@@ -25073,7 +25097,7 @@ it:farina di grano tenero tipo 00, farina di grano tipo 00
 es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
 
 <en:wheat flour
-en:durum wheat flour
+en:durum wheat flour, durum flour
 de:Hartweizenmehl
 es:harina de trigo duro
 fi:durumvehnäjauho
@@ -26278,6 +26302,7 @@ vegetarian:en:yes
 
 <en:rice
 en:rice protein, rice proteins
+de:Reisprotein
 es:proteinas de arroz
 
 <en:rice protein
@@ -26937,8 +26962,9 @@ en:rice bran
 fr:son de riz
 
 <en:rice
+en:rice semolina
 es:sémola de arroz
-de:Reisgriess
+de:Reisgriess, Reisgrieß
 fi:riisisuurimo
 fr:semoule de riz
 hu:rizsdara
@@ -26958,9 +26984,10 @@ ja:ライスフレーク
 # ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
 
 <en:rice
-fr:riz extrudé
+en:extruded rice
 de:Reis extrudiert
 fi:ekstrudoitu riisi
+fr:riz extrudé
 hu:extrudált rizs
 it:riso estruso
 sr:pirinač ekstrudat
@@ -27038,12 +27065,30 @@ fr:crème de riz
 nl:rijst crème
 # ingredient/fr:crème-de-riz has 148 products in 10 languages @2018-12-19
 
+<en:rice
+en:germinated rice, sprouted rice
+fr:riz germé
+
 <en:brown rice
-fr:riz complet germé
+<en:germinated rice
+en:germinated brown rice, sprouted brown rice
+es:arroz integral germinado
+fr:riz complet germé, riz brun germé
 # 2019-05-30
 
 <en:red rice
+<en:germinated rice
+en:germinated red rice, sprouted red rice
+de:gekeimter roter Reis
 fr:riz rouge germé
+
+<en:black rice
+<en:germinated rice
+en:germinated black rice, sprouted black rice
+de:gekeimter schwarzer Reis
+fr:riz noir germé
+nl:ontkiemde zwarte rijst
+
 
 <en:rice
 fr:riz riceberry mélangé
@@ -28533,7 +28578,7 @@ bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózový-fruktózový sirup
 da:glukos-fruktossirap
-de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup
+de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
@@ -29344,7 +29389,7 @@ sv:rehydrerat sojaprotein
 fr:concentré de protéines de soja
 
 <en:soy protein
-en:soy protein isolate, soya protein isolate
+en:soy protein isolate, soya protein isolate, isolated soy protein
 fr:isolat de protéine de soja
 de:Sojaproteinisolat, Sojaeiweißisolat
 fi:soijaproteiini-isolaatti
@@ -29374,6 +29419,9 @@ nl:graneneiwit
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
+
+<en:wheat protein
+en:wheat protein isolate, isolated wheat protein
 
 <en:wheat protein
 fr:protéines de blé déshydratées
@@ -29502,7 +29550,7 @@ ja:乳たんぱく質
 nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka
 pt:proteína do leite, proteínas lácteas
-ro:proteină din lapte, proteine din lapte
+ro:proteină din lapte, proteine din lapte, proteine de lapte
 ru:молочный белок, молочные белки
 sk:mliečnu bielkovinu, mliečne bielkoviny
 sv:mjölkprotein
@@ -33334,6 +33382,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruit
 en:mixed fruit
+de:fruchtmischung
 es:mix de frutas,mezcla de frutas
 
 <en:mixed fruit
@@ -33496,7 +33545,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juice
 <en:fruit juice
 en:fruit juice concentrate
 da:Frugtjuicekoncentrat
-de:Fruchtsaftkonzentrat
+de:Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
 es:Jugo de frutas concentrado
 fi:hedelmämehutiiviste
 fr:jus concentré de fruits, jus de fruits concentrés
@@ -33510,7 +33559,7 @@ fr:jus concentré de fruits rouges
 
 <en:fruit juice concentrate
 en:fruit juice from concentrate, fruit juices from concentrate
-de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte Konzentrat, Fruchtsäfte aus Konzentraten
+de:Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
 es:zumo de frutas a partir de concentrado
 fi:hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr:jus de fruits à base de concentré, jus de fruits à base de jus concentrés
@@ -35452,7 +35501,7 @@ es:boabab fruto
 <en:vegetable fiber
 <en:citrus fruit
 en:citrus fibre, citrus fibres
-de:citrusfaser, zitrusfaser, Zitrusfruchtfasern
+de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes
 sv:citrusfiber
@@ -36064,7 +36113,7 @@ cs:limetka
 cv:Лайм
 cy:leim
 da:lime
-de:Limetten, Limone
+de:Limette, Limetten, Limone
 el:Μοσχολέμονο
 eo:limeo
 es:lima
@@ -37033,7 +37082,7 @@ ar:عنب الأحراج
 bg:Черна боровинка
 cs:Borůvka
 da:blåbær
-de:Heidelbeer, Heidelbeeren, Heidelbeere
+de:Heidelbeer, Heidelbeeren, Heidelbeere, Blaubeer, Blaubeere, Blaubeeren
 eo:mirtelo
 es:arándano azul, arándanos azules, mora azul
 fa:بیل‌بری
@@ -37685,6 +37734,7 @@ nl:kokosnoot, kokos
 nn:kokosnøtt
 pl:Kokos, kokosowy
 pt:cocos
+ro:nucă de cocos, nuca de cocos
 ru:кокос
 sa:नारिकेलम्
 sq:Arra e kokosit
@@ -38886,15 +38936,15 @@ fr:papayes séchées
 # PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
 
 <en:fruit
-en:passion fruit, passionfruit
+en:passion fruit, passionfruit, maracuja
 da:Passionsfrugt
-de:Passionsfrucht
+de:Passionsfrucht, Maracuja
 eo:Pasifrukto
-es:maracuyá,fruta de la pasion
+es:maracuyá, fruta de la pasion
 fi:passiohedelmä, passionhedelmä, kärsimyshedelmä
-fr:fruit de la passion, passion, fruits de la passion
-it:frutto della passione
-nl:passievrucht
+fr:fruit de la passion, passion, fruits de la passion, maracuja
+it:frutto della passione, maracuja
+nl:passievrucht, maracuja
 ru:маракуйя
 sv:passionsfrukt
 ta:தாட்பூட்
@@ -41966,7 +42016,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
 <en:root vegetable
-en:garlic, garlic bulb
+en:garlic, garlic bulb, garlic clove
 af:Knoffel
 am:ነጭ ሽንኩርት
 ar:ثوم
@@ -43635,7 +43685,7 @@ ms:Lobak merah
 my:မုန်လာဥနီ
 nb:gulrot
 ne:गाजर
-nl:wortel, wortels
+nl:wortel, wortels, wortelen
 nn:gulrot
 nv:Chąąshtʼezhiitsoh
 oc:pastenaga
@@ -44612,6 +44662,7 @@ fr:oignon fumé en poudre
 en:onion purée
 
 en:onion oil
+de:Zwiebelöl
 
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
@@ -46649,7 +46700,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Allspice
 fr:piment Oiseau
 
 <en:chili pepper
-en:habanero chili
+en:habanero chili, habanero chili pepper, habanero chile, habanero chile pepper, habanero chilli, habanero chilli pepper, habanero chillies, habanero pepper, habanero
 da:habanero chili
 de:Habanero Chili
 fi:habanero, habanero chili
@@ -48510,7 +48561,7 @@ fr:extrait de pois
 # The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
-en:chickpea, chickpeas, garbanzo beans, chick pea, chick peas
+en:chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 am:ሽምብራ
 ar:حمص شائع
 az:Qoyunnoxudu
@@ -49023,7 +49074,7 @@ cs:oříšek, skořápkové plody, jiné skořápkové plody
 cv:Мăйăр
 cy:Cneuen
 da:nød, nødder
-de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht, Schalenfrüchte, Nüsse, Schalenfrüchten, andere Nüsse
+de:Nüssen, Nusskernmischung, Nussfrucht, Nußfrucht, Schalenfrüchte, Nüsse, Schalenfrüchten, andere Nüsse, anderen Nüssen, andere Schalenfrüchte, andere Schalenfrüchten, anderen Schalenfrüchte, anderen Schalenfrüchten, anderer Schalenfrüchte, anderer Schalenfrüchten
 el:Κάρυο, καρποί με κέλυφος, καρύδια
 eo:nukso
 es:frutos secos, frutos de cáscara, frutos con cáscara, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, frutos de cáscara y derivados, otros nueces
@@ -50372,7 +50423,8 @@ sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
-en:cottonseed
+en:cottonseed, cotton seed
+de:Baumwollsaat
 es:semillas de algodón
 
 <en:seed
@@ -56399,7 +56451,7 @@ es:aceitunas verdes con huesos
 
 <fr:olive verte
 <en:black olive
-en:green and black olives
+en:green and black olives, black and green olives
 de:grüne und schwarze Oliven
 fi:vihreä ja musta oliivi, vihreät ja mustat oliivit
 fr:olives vertes et noires
@@ -70970,7 +71022,7 @@ sv:fullkornsrågbröd
 # PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
 
 <en:bread
-en:pita, pitta
+en:pita, pitta, pita bread, pitta bread
 az:pita
 be:піта
 bg:пита
