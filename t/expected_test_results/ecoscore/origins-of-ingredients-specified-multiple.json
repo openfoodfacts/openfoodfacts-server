@@ -1,0 +1,134 @@
+{
+   "categories_tags" : [
+      "en:jams"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:france",
+                  30
+               ],
+               [
+                  "en:spain",
+                  30
+               ],
+               [
+                  "en:dominican-republic",
+                  10
+               ],
+               [
+                  "en:guadeloupe",
+                  10
+               ],
+               [
+                  "en:martinique",
+                  10
+               ],
+               [
+                  "en:world",
+                  10
+               ]
+            ],
+            "epi_score" : 51.0972095961541,
+            "epi_value" : 0.109720959615414,
+            "origins_from_origins_field" : [
+               "en:world"
+            ],
+            "transportation_score" : 60.45697452375,
+            "transportation_value" : 9.07762380236486,
+            "value" : 9.18734476198028
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_ef_total" : 0.55246032,
+         "agribalyse_food_name_en" : "Jam, strawberry",
+         "agribalyse_food_name_fr" : "Confiture de fraise (extra ou classique)",
+         "agribalyse_proxy_food_code" : "31024",
+         "score" : 58.6020808480656
+      },
+      "grade" : "b",
+      "score" : 67.7894256100459,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 67.7894256100459,
+   "ingredients" : [
+      {
+         "id" : "en:apricot",
+         "origins" : "en:france,en:spain",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
+         "rank" : 1,
+         "text" : "apricots",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cane-sugar",
+         "origins" : "en:martinique,en:guadeloupe,en:dominican-republic",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
+         "rank" : 2,
+         "text" : "cane sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lemon-juice",
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
+         "rank" : 3,
+         "text" : "lemon juice",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar",
+      "en:lemon-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apricot",
+      "en:cane-sugar",
+      "en:lemon-juice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar",
+      "en:lemon-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_text" : "60% apricots (France, Spain), 30% cane sugar (Martinique, Guadeloupe, Dominican Republic), lemon juice",
+   "known_ingredients_n" : 6,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
+   },
+   "unknown_ingredients_n" : 0
+}

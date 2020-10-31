@@ -4,6 +4,22 @@
    ],
    "ecoscore_data" : {
       "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:world",
+                  100
+               ]
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:world"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5
+         },
          "production_system" : {
             "label" : "fr:ab-agriculture-biologique",
             "value" : 15
@@ -15,14 +31,14 @@
          "agribalyse_food_name_en" : "Butter, 82% fat, unsalted",
          "agribalyse_food_name_fr" : "Beurre à 82% MG, doux",
          "agribalyse_proxy_food_code" : "16400",
-         "score" : 35.3946474732019
+         "score" : 37.3668003567537
       },
       "grade" : "c",
-      "score" : 50.3946474732019,
+      "score" : 47.3668003567537,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 50.3946474732019,
+   "ecoscore_score" : 47.3668003567537,
    "labels_tags" : [
       "fr:ab-agriculture-biologique"
    ],
