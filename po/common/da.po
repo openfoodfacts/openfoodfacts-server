@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-24 00:02\n"
+"PO-Revision-Date: 2020-10-31 20:22\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4839,4 +4839,23 @@ msgstr "Ingredienser"
 msgctxt "not_known_s"
 msgid "Not known: %s"
 msgstr "Ukendt: %s"
+
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr "Miljøpåvirkningpåvirkning"
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr "Eco-score værdi"
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr "Eco-score karakter"
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
+msgstr "Detaljer om beregningen af Eco-score"
 

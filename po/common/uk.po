@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 12:34\n"
+"PO-Revision-Date: 2020-10-31 10:32\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -543,7 +543,7 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Редагувати продукт"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -2829,11 +2829,11 @@ msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Діти"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "від 3 до 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2841,11 +2841,11 @@ msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Малюки"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "від 1 до 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2853,7 +2853,7 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Новонароджені"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2893,11 +2893,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Високий ризик надмірного впливу"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Помірний ризик надмірного впливу"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
@@ -3472,7 +3472,7 @@ msgstr ""
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Значення в мкг"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
@@ -4822,5 +4822,24 @@ msgstr "Інгредієнти"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
+msgstr ""
+
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr ""
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr ""
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr ""
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
 msgstr ""
 
