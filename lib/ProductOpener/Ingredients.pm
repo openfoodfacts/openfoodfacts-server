@@ -178,6 +178,7 @@ my %contains_regexps = (
 	es => "contiene",
 	et => "sisaldab",
 	fr => "contient",
+	it => "contengono",
 	nl => "bevat",
 	ro => "con[țţ]ine|con[țţ]in",
 	sv => "innehåller",
@@ -1447,7 +1448,7 @@ sub parse_ingredients_text($) {
 							],
 
 							'it' => [
-								'^in proporzioni variabili$',
+								'^in proporzion[ei] variabil[ei]$',
 							],
 
 							'nl' => [
