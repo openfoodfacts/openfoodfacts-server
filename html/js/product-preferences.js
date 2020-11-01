@@ -1,3 +1,5 @@
+/*global lang */
+
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
 
@@ -60,7 +62,7 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		
 		if (selected_preference_group.length > 0) {
 			selected_preferences_html += "<div>"
-			+ "<strong>" + selected_preference_name + " - </strong>"
+			+ "<strong>" + selected_preference_name + "</strong>"
 			+ "<ul>" + selected_preference_group.join("") + "</ul>"
 			+ "</div>";
 		}
@@ -71,9 +73,10 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		+ '<div class="edit_button">'
 		+ '<a id="show_selection_form" class="button small">'
 		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
-		+ " Edit your food preferences" + '</a></div>'
-		+ "<h2>" + "Your food preferences" + "</h2>"
-		+ '<a id="preferences_link" data-dropdown="selected_preferences">Currently selected preferences &raquo;</a>'
+		+ " " + lang().preferences_edit_your_food_preferences + '</a></div>'
+		+ "<h2>" + lang().preferences_your_preferences + "</h2>"
+		+ '<a id="preferences_link" data-dropdown="selected_preferences">'
+		+ lang().preferences_currently_selected_preferences + ' &raquo;</a>'
 		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
 		+ selected_preferences_html
 		+ '</div>'
@@ -147,13 +150,9 @@ function display_user_product_preferences (target_selected, target_selection_for
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
 				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>"
-				+ "<div style='display:inline-block;width:96px'><img src='" + attribute.icon_url + "' class='match_icons'></div>"
+				+ "<div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons'></div>"
 				+ "<span class='attribute_name'>" + attribute.setting_name + "</span><br>";
-				
-				if (attribute.description_short) {
-					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
-				}				
-								
+							
 				$.each(preferences, function (key, preference) {
 					
 					var checked = '';
@@ -168,6 +167,12 @@ function display_user_product_preferences (target_selected, target_selection_for
 					+ "</input>";
 				});
 				
+				if (attribute.description_short) {
+					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
+				}
+				
+				attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
+				
 				attribute_group_html += "</li>";
 			});
 						
@@ -181,9 +186,9 @@ function display_user_product_preferences (target_selected, target_selection_for
 			+ '<div class="edit_button">'
 			+ '<a class="show_selected button small">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
-			+ " Close" + '</a></div>'
-			+ "<h2>" + "Edit your food preferences" + "</h2>"
-			+ "<p>Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else.</p>"
+			+ " " + lang().close + '</a></div>'
+			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
+			+ "<p>" + lang().preferences_locally_saved + "</p>"
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
@@ -191,7 +196,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 			+ '<div class="edit_button">'
 			+ '<a class="show_selected button small">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
-			+ " Close" + '</a></div><br><br>'
+			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'
 		);
 		
