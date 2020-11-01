@@ -248,7 +248,7 @@ my @lists =(
 	["es", "Vitamina E y C", "vitaminas, vitamina E, vitamina C"],
 	["es", "color E 124", "color : e124"],
 	["es", "colores E (124, 125)", "colores e124, e125"],
-	["it", "vitamine A, B, E e K", "vitamins, vitamin A, vitamin B, vitamin E, vitamin K"],
+	["it", "vitamine A, B, E e K", "vitamine, vitamina A, vitamina B, vitamina E, vitamina K"],
 
 	# Additives normalization
 	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],

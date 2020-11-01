@@ -178,6 +178,7 @@ my %contains_regexps = (
 	es => "contiene",
 	et => "sisaldab",
 	fr => "contient",
+	it => "contengono",
 	nl => "bevat",
 	ro => "con[țţ]ine|con[țţ]in",
 	sv => "innehåller",
@@ -1447,7 +1448,7 @@ sub parse_ingredients_text($) {
 							],
 
 							'it' => [
-								'^in proporzioni variabili$',
+								'^in proporzion[ei] variabil[ei]$',
 							],
 
 							'nl' => [
@@ -2405,6 +2406,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'it') and return "vitamina $a";
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		return "vitamin $a";
@@ -2432,6 +2434,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
+	elsif ($lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
