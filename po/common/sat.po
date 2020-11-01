@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sat\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 13:45\n"
+"PO-Revision-Date: 2020-10-31 13:37\n"
 "Language-Team: Santali\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4693,11 +4693,11 @@ msgstr ""
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "ᱢᱟᱞᱤᱠ ᱠᱚ"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "ᱢᱟᱞᱤᱠ"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
@@ -4709,7 +4709,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr ""
+msgstr "ᱧᱩᱛᱩᱢ"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4717,7 +4717,7 @@ msgstr ""
 
 msgctxt "org_customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "ᱠᱚᱥᱴᱚᱢᱟᱹᱨ ᱥᱟᱹᱨᱣᱤᱥ"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
@@ -4737,27 +4737,27 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr ""
+msgstr "ᱧᱩᱛᱩᱢ"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "ᱴᱷᱤᱠᱬᱟᱹ"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "ᱯᱷᱚᱱ ᱱᱚᱢᱵᱚᱨ"
 
 msgctxt "contact_email"
 msgid "e-mail address"
-msgstr ""
+msgstr "ᱤᱼᱢᱮᱞ ᱴᱷᱤᱠᱬᱟᱹ"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "ᱥᱚᱢᱯᱚᱨᱠ ᱯᱦᱚᱨᱢ ᱞᱤᱸᱠ"
 
 msgctxt "contact_info"
 msgid "Other information"
-msgstr ""
+msgstr "ᱚᱞᱜᱟ ᱵᱤᱵᱨᱚᱬ"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
@@ -4777,34 +4777,52 @@ msgstr ""
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "ᱚᱨᱜᱟᱱᱟᱭᱡᱮᱥᱚᱱ ᱢᱚᱦᱲᱟ ᱦᱟᱹᱞᱤᱭᱟᱹᱠ ᱮᱱᱟ ᱾"
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "ᱚᱨᱜᱟᱱᱟᱭᱡᱮᱥᱚᱱ ᱜᱮᱫ ᱜᱤᱰᱤ ᱢᱮᱸ"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "ᱚᱯᱷᱤᱥᱤᱭᱟᱞ ᱥᱟᱭᱤᱴ"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "ᱥᱚᱢᱯᱚᱨᱠ ᱯᱷᱚᱨᱢ"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "ᱟᱢᱟᱜ ᱚᱨᱜᱟᱱᱟᱭᱡᱮᱥᱚᱱ ᱟᱜ ᱢᱚᱦᱲᱟ ᱥᱟᱯᱲᱟᱣ ᱢᱮᱸ"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱢᱚᱦᱲᱟ ᱥᱟᱯᱲᱟᱣ ᱢᱮᱸ"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
-msgstr ""
+msgstr "ᱡᱤᱱᱤᱥ ᱠᱚ"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
-msgstr ""
+msgstr "ᱵᱟᱝ ᱠᱟᱰᱟᱭᱺ %s"
 
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr "ᱯᱨᱟᱹᱠᱨᱩᱛᱤ ᱨᱮᱭᱟᱜ ᱯᱮᱟᱹᱣᱟᱣ"
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr "Eco-Score ᱥᱠᱳᱨ"
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr "Eco-Score ᱜᱨᱮᱰ"
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
+msgstr "Eco-Score ᱵᱤᱵᱨᱚᱬ ᱨᱮᱭᱟᱜ ᱠᱟᱞᱠᱩᱞᱮᱴᱚᱨ"

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 16:22\n"
+"PO-Revision-Date: 2020-10-31 12:34\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4844,3 +4844,21 @@ msgctxt "not_known_s"
 msgid "Not known: %s"
 msgstr "Inconnu: %s"
 
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr "Impact environnemental"
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr "Score Éco-score"
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr "Note Éco-score"
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
+msgstr "Détails du calcul de l'Éco-score"

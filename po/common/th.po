@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-23 12:48\n"
+"PO-Revision-Date: 2020-10-31 11:34\n"
 "Language-Team: Thai\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4820,5 +4820,24 @@ msgstr "ส่วนผสม"
 # keep the %s, it will be replaced by an allergen
 msgctxt "not_known_s"
 msgid "Not known: %s"
+msgstr ""
+
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr ""
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr ""
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr ""
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
 msgstr ""
 
