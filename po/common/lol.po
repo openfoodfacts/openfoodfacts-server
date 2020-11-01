@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-31 14:33\n"
+"PO-Revision-Date: 2020-11-01 20:24\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4403,9 +4403,13 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "crwdns152714:0crwdne152714:0"
 
-msgctxt "attribute_labels_organic_description_short"
+msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr "crwdns152716:0crwdne152716:0"
+msgstr "crwdns152962:0crwdne152962:0"
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Organic products promote ecological sustainability and biodiversity."
+msgstr "crwdns152964:0crwdne152964:0"
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4826,4 +4830,25 @@ msgstr "crwdns152958:0crwdne152958:0"
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
 msgstr "crwdns152960:0crwdne152960:0"
+
+# do not translate Eco-score
+msgctxt "ecoscore_information"
+msgid "Information about the Eco-score"
+msgstr "crwdns152966:0crwdne152966:0"
+
+msgctxt "preferences_edit_your_food_preferences"
+msgid "Edit your food preferences"
+msgstr "crwdns152968:0crwdne152968:0"
+
+msgctxt "preferences_your_preferences"
+msgid "Your food preferences"
+msgstr "crwdns152970:0crwdne152970:0"
+
+msgctxt "preferences_currently_selected_preferences"
+msgid "Currently selected preferences"
+msgstr "crwdns152972:0crwdne152972:0"
+
+msgctxt "preferences_locally_saved"
+msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "crwdns152974:0crwdne152974:0"
 
