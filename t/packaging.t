@@ -153,7 +153,7 @@ my @tests = (
 		}
 	],
 	[
-		'merge_en_merge_packaging_tag_and_packaging_text',
+		'merge_en_merge_packaging_tag_and_packaging_text_2',
 		{
 			lc => "en",
 			packaging => "PET, box, paper bag",
