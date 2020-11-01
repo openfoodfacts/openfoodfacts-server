@@ -232,7 +232,7 @@ function display_product_summary(target, product) {
 
 		attributes_html += '<li>'
 		+ '<div style="border-radius:12px;background-color:' + color + ';padding:1rem;min-height:96px;">'
-		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;">'
+		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;">'
 		+ '<h4>' + attribute.title + '</h4>';
 		
 		if (attribute.description_short) {

@@ -8065,8 +8065,11 @@ HTML
 ;
 
 	# Compute attributes and embed them as JSON
+	# enable feature for moderators
 	
-	if ((defined param("user_preferences")) and (param("user_preferences"))) {
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (not $server_options{producers_platform})
+		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
 	
 		# A result summary will be computed according to user preferences on the client side
 
