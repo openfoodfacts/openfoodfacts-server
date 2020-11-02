@@ -523,7 +523,13 @@ sub compute_attribute_nutriscore($$) {
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nutriscore-unknown.svg";
 		$attribute_ref->{match} = 0;
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_description_short");		
+		}		
 	}
 	
 	return $attribute_ref;
@@ -608,7 +614,13 @@ sub compute_attribute_ecoscore($$) {
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{match} = 0;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/ecoscore-unknown.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+		}
 	}
 	
 	return $attribute_ref;
@@ -685,7 +697,13 @@ sub compute_attribute_nova($$) {
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{match} = 0;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-unknown.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nova_unknown_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nova_unknown_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nova_unknown_description_short");		
+		}
 	}
 	
 	return $attribute_ref;
@@ -772,6 +790,13 @@ sub compute_attribute_additives($$) {
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{match} = 0;
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/additives-unknown.svg";
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_additives_unknown_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_additives_unknown_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_additives_unknown_description_short");
+			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+		}		
 	}
 	
 	return $attribute_ref;
@@ -936,12 +961,15 @@ sub compute_attribute_nutrient_level($$$$) {
 	
 	if ((not defined $product_ref->{nutrient_levels}) or (not defined $product_ref->{nutrient_levels}{$nid})) {
 		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/nutrient-level-$nid-unknown.svg";
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+				lang_in_other_lc($target_lc, "unknown_quantity"));
+			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+		}		
 	}
 	else {
 		$attribute_ref->{status} = "known";
-		
-		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
-			lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
 		
 		my $prepared = "";
 
@@ -983,7 +1011,12 @@ sub compute_attribute_nutrient_level($$$$) {
 			}
 			
 			$attribute_ref->{match} = $match;
-			$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
+			
+			if ($target_lc ne "data") {
+				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
+				$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
+			}
 		}
 	}
 	
@@ -1102,7 +1135,7 @@ sub compute_attribute_allergen($$$) {
 	# No match: mark the attribute unknown
 	if (not defined $attribute_ref->{match}) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "not_known_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "presence_unknown_s"), display_taxonomy_tag($target_lc, "allergens", $allergen_id));
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$allergen-content-unknown.svg";
 	}
 	elsif ($attribute_ref->{match} == 100) {
@@ -1240,8 +1273,11 @@ sub compute_attribute_ingredients_analysis($$$) {
 	$attribute_ref->{icon_url} = "$static_subdomain/images/icons/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
-	$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");
 
+	if ($target_lc ne "data") {
+		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");	
+	}	
+	
 	return $attribute_ref;
 }
 
@@ -1368,7 +1404,7 @@ sub compute_attributes($$) {
 	}
 	
 	# Ingredients analysis
-	foreach my $analysis ("vegan", "vegatarian", "palm-oil-free") {
+	foreach my $analysis ("vegan", "vegetarian", "palm-oil-free") {
 		$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
 		add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 	}
