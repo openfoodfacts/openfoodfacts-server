@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-01 19:50\n"
+"PO-Revision-Date: 2020-11-02 11:09\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4491,6 +4491,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr ""
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr ""
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr "Calidad nutricional muy buena"
@@ -4519,6 +4527,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Grupo Nova"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Alimento poco o nada procesado (Grupo NOVA)"
@@ -4527,6 +4543,14 @@ msgstr "Alimento poco o nada procesado (Grupo NOVA)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4603,6 +4627,10 @@ msgstr "Aditivos"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Sin o con pocos aditivos"
+
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
+msgstr ""
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4839,9 +4867,9 @@ msgid "Ingredients"
 msgstr "Ingredientes"
 
 # keep the %s, it will be replaced by an allergen
-msgctxt "not_known_s"
-msgid "Not known: %s"
-msgstr "Desconocido: %s"
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
+msgstr ""
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
@@ -4881,5 +4909,18 @@ msgstr ""
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
+msgstr ""
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr ""
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
 msgstr ""
 
