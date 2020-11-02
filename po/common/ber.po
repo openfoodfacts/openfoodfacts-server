@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ber\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-31 13:36\n"
+"PO-Revision-Date: 2020-11-01 20:23\n"
 "Language-Team: Berber\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4403,8 +4403,12 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
-msgctxt "attribute_labels_organic_description_short"
+msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
+msgstr ""
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Organic products promote ecological sustainability and biodiversity."
 msgstr ""
 
 msgctxt "attribute_labels_organic_description"
@@ -4825,5 +4829,26 @@ msgstr ""
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
+msgstr ""
+
+# do not translate Eco-score
+msgctxt "ecoscore_information"
+msgid "Information about the Eco-score"
+msgstr ""
+
+msgctxt "preferences_edit_your_food_preferences"
+msgid "Edit your food preferences"
+msgstr ""
+
+msgctxt "preferences_your_preferences"
+msgid "Your food preferences"
+msgstr ""
+
+msgctxt "preferences_currently_selected_preferences"
+msgid "Currently selected preferences"
+msgstr ""
+
+msgctxt "preferences_locally_saved"
+msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
 msgstr ""
 
