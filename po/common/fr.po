@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-01 19:50\n"
+"PO-Revision-Date: 2020-11-02 11:10\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4441,11 +4441,11 @@ msgstr "Pas un produit bio"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Encourage la durabilité écologique et la biodiversité."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Les produits bios encouragent la durabilité écologique et la biodiversité."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4496,6 +4496,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr ""
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr ""
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr "Très bonne qualité nutritionnelle"
@@ -4524,6 +4532,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Groupe NOVA"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Pas ou peu de transformation des aliments (groupe NOVA)"
@@ -4532,6 +4548,14 @@ msgstr "Pas ou peu de transformation des aliments (groupe NOVA)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4608,6 +4632,10 @@ msgstr "Additifs"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Pas ou peu d'additifs"
+
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
+msgstr ""
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4844,9 +4872,9 @@ msgid "Ingredients"
 msgstr "Ingrédients"
 
 # keep the %s, it will be replaced by an allergen
-msgctxt "not_known_s"
-msgid "Not known: %s"
-msgstr "Inconnu: %s"
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
+msgstr ""
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
@@ -4855,35 +4883,49 @@ msgstr "Impact environnemental"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Score Éco-score"
+msgstr "Score éco-score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr "Note Éco-score"
+msgstr "Niveau d’éco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Détails du calcul de l'Éco-score"
+msgstr "Détails du calcul de l'éco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Information sur l'éco-score"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Modifier vos préférences alimentaires"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Vos préférences alimentaires"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Préférences actuellement sélectionnées"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Vos préférences alimentaires sont conservées dans votre navigateur et ne sont jamais envoyées à Open Food Facts ou à quiconque."
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
 msgstr ""
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr ""
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
+msgstr ""
+
