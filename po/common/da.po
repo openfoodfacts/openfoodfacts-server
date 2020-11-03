@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-01 19:49\n"
+"PO-Revision-Date: 2020-11-02 11:08\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4437,11 +4437,11 @@ msgstr "Ikke et økologisk produkt"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Fremmer økologisk bæredygtighed og biodiversitet."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Organiske produkter fremmer økologisk bæredygtighed og biodiversitet."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4492,6 +4492,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr ""
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr ""
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr "Meget god ernæringskvalitet"
@@ -4520,6 +4528,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "Nova-gruppe"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Ingen eller begrænset fødevareforarbejdning (NOVA-gruppe)"
@@ -4528,6 +4544,14 @@ msgstr "Ingen eller begrænset fødevareforarbejdning (NOVA-gruppe)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4604,6 +4628,10 @@ msgstr "Tilsætningsstoffer"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Ingen eller få tilsætningsstoffer"
+
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
+msgstr ""
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4840,9 +4868,9 @@ msgid "Ingredients"
 msgstr "Ingredienser"
 
 # keep the %s, it will be replaced by an allergen
-msgctxt "not_known_s"
-msgid "Not known: %s"
-msgstr "Ukendt: %s"
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
+msgstr ""
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
@@ -4866,21 +4894,34 @@ msgstr "Detaljer om beregningen af Eco-score"
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Eco-score information"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Redigér dine fødevarepræferencer"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Dine fødevarepræferencer"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Aktuelt valgte præferencer"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Dine fødevarepræferencer opbevares i din browser og sendes aldrig til Open Food Facts eller nogen anden."
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
+msgstr ""
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr ""
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
 msgstr ""
 
