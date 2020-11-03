@@ -4,8 +4,12 @@
 # that need origins that can be specified at different levels of granularity (and not just countries).
 # example includes ingredients parsing and computing the Eco-Score
 
-# It may not be useful to add many entries to it as we will most likely try to create it automatically
-# from sources such as Wikidata.
+# Please include only regions for which we have actual products
+# that list ingredients for those regions.
+# e.g. look at the /origins facet
+
+en:Unknown, not specified
+fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
 
 # World regions
 
