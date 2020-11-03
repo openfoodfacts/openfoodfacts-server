@@ -1,0 +1,189 @@
+{
+   "categories_tags" : [
+      "en:cheeses"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:unknown",
+                  100
+               ]
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_ef_total" : "0.49584621999999995",
+         "agribalyse_food_name_en" : "Camembert cheese, from cow's milk",
+         "agribalyse_food_name_fr" : "Camembert, sans précision",
+         "agribalyse_proxy_food_code" : "12001",
+         "score" : 61.604062231297
+      },
+      "grade" : "c",
+      "score" : 56.604062231297,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 56.604062231297,
+   "ecoscore_tags" : [
+      "c"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:milk",
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "rank" : 1,
+         "text" : "Milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "id" : "en:cocoa",
+               "percent_estimate" : 8.33333333333333,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "cocoa"
+            },
+            {
+               "id" : "en:cocoa-butter",
+               "percent_estimate" : 4.16666666666667,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "cocoa butter"
+            },
+            {
+               "id" : "en:sweetener",
+               "ingredients" : [
+                  {
+                     "id" : "en:e951",
+                     "percent_estimate" : 4.16666666666667,
+                     "percent_max" : 16.6666666666667,
+                     "percent_min" : 0,
+                     "text" : "aspartame"
+                  }
+               ],
+               "percent_estimate" : 4.16666666666667,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "sweetener"
+            }
+         ],
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "chocolate",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:salt",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa",
+         "percent_estimate" : 8.33333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "cocoa",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa-butter",
+         "percent_estimate" : 4.16666666666667,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "cocoa butter",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "has_sub_ingredients" : "yes",
+         "id" : "en:sweetener",
+         "percent_estimate" : 4.16666666666667,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "sweetener"
+      },
+      {
+         "id" : "en:e951",
+         "percent_estimate" : 4.16666666666667,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "aspartame",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:milk",
+      "en:dairy",
+      "en:chocolate",
+      "en:salt",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:sweetener",
+      "en:e951"
+   ],
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:milk",
+      "en:chocolate",
+      "en:salt",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:sweetener",
+      "en:e951"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:milk",
+      "en:dairy",
+      "en:chocolate",
+      "en:salt",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:sweetener",
+      "en:e951"
+   ],
+   "ingredients_text" : "Milk, chocolate (cocoa, cocoa butter, sweetener: aspartame), salt",
+   "known_ingredients_n" : 8,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
