@@ -102,7 +102,7 @@ sub load_agribalyse_data() {
 		$csv->getline ($io);
 
 		while ($row_ref = $csv->getline ($io)) {
-			$agribalyse{$row_ref->[0] . ''} = {
+			$agribalyse{$row_ref->[0]} = {
 				name_fr => $row_ref->[4], # Nom du Produit en Français
 				name_en => $row_ref->[5], # LCI Name
 				dqr => $row_ref->[6], # DQR (data quality rating)
@@ -345,7 +345,6 @@ sub compute_ecoscore_agribalyse($) {
 	# Compute the Eco-Score on a 0 to 100 scale
 		
 	if ($agb) {
-		$agb .= '';	# force the key to be a string
 		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_fr} = $agribalyse{$agb}{name_fr};
 		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_en} = $agribalyse{$agb}{name_en};
 		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_ef_total} = $agribalyse{$agb}{ef_total};
