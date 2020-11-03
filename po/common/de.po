@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 15:12\n"
+"PO-Revision-Date: 2020-11-03 10:23\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4705,16 +4705,16 @@ msgstr "Umweltauswirkungen"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Ökobilanz"
+msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr "Geringe Umweltbelastung (Öko-Bilanz)"
+msgstr "Geringe Umweltbelastung (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Ökobilanz %s"
+msgstr "Eco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4880,22 +4880,22 @@ msgstr "Umweltauswirkungen"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Ökobilanz-Wert"
+msgstr "Eco-score-Wert"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr "Ökobilanz-Note"
+msgstr "Eco-score-Note"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Details zur Berechnung der Ökobilanz-Note"
+msgstr "Details zur Berechnung der Eco-score-Note"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr "Informationen über den Ökobilanz-Wert"
+msgstr "Informationen über den Eco-score-Wert"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
