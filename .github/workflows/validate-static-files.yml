@@ -1,0 +1,11 @@
+name: Check HTML files
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: HTML5 Validator
+        uses: Cyb3r-Jak3/html5validator-action@v0.4.3
+        with:
+          folder: html/
