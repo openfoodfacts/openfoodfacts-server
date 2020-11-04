@@ -283,6 +283,14 @@ my @tests = (
 			ingredients_text => "Fraises de Bretagne, beurre doux de Normandie, tomates cerises (Bretagne), pommes (origine : Normandie)"
 		}
 	],
+	[
+                "fr-origins-agriculture-ue-non-ue",
+                {
+                        lc => "fr",
+                        ingredients_text => "Fraises (agriculture UE/Non UE)"
+                }
+        ],
+
 );
 
 
@@ -315,6 +323,7 @@ foreach my $test_ref (@tests) {
 		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
 	}
 	else {
+		diag explain $product_ref;
 		fail("could not load expected_test_results/$testdir/$testid.json");
 	}
 }
