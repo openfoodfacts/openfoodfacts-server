@@ -12,6 +12,7 @@ use ProductOpener::Config qw/:all/;
 
 # Ensure that <<site_name>> is not translated - https://github.com/openfoodfacts/openfoodfacts-server/issues/1648
 my $site_name_regex = qr/<<site_name>>/;
+my $link_tag_regex = qr'<a\s[^>]+>.*</a>'is;
 
 foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts', 'openproductsfacts', 'tags') {
 	
@@ -25,6 +26,14 @@ foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts
 				like($terms{$key}{$lang}, $site_name_regex, "$dir: '$key' in '$lang' should contain '<<site_name>>'");
 			}
 		}
+
+		# check for mismatched A tags
+		if ((defined $terms{$key}{en}) and ($terms{$key}{en} =~ /$link_tag_regex/)) {
+			foreach my $lang (keys %{$terms{$key}}) {
+				like($terms{$key}{$lang}, $link_tag_regex, "$dir: '$key' in '$lang' should have matching html <a...>...</a> tags");
+			}
+		}
+
 	}
 
 	if ($dir eq 'common') {
