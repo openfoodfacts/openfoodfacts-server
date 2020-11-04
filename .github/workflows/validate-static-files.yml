@@ -8,4 +8,4 @@ jobs:
       - name: HTML5 Validator
         uses: Cyb3r-Jak3/html5validator-action@v0.4.3
         with:
-          root: lang/, html/donate/
+          root: html/donate/*.html
