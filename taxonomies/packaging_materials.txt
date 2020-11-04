@@ -1,5 +1,12 @@
 synonyms:xx:Recycling Code, RC
 
+synonyms:en:biobased, bio-based, biosourced, bio-sourced
+synonyms:fr:biosourcé, bio-sourcé
+
+synonyms:fr:transparent,transparente
+
+synonyms:fr:coloré,colorée
+
 en:Plastic
 de:Kunststoff
 fr:Plastique
@@ -45,9 +52,16 @@ nl:Hergebruikt plastic
 nl_be:Hergebruikt plastic
 pt:Plástico reciclável
 
+
+# Plastics:
+# use the following conventions for plastic:
+# in each language, for the main name, use "abbreviation + name", and put the name as the first synonym
+# all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
+# (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
+
 <en:Plastic
 en:PET - Polyethylene terephthalate,Polyethylene terephthalate, 
-xx:PET, RC 1, RC 01, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET
+xx:PET, RC 1, RC 01, RC1, RC01, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
 de:PET - Polyethylenterephtalat, Polyethylenterephtalat
 fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
 hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
@@ -63,66 +77,96 @@ recycling_code:en:1
 en:rPET - Recycled Polyethylene terephthalate, Recycled PET, Recycled Polyethylene terephthalate
 xx:rPET
 de:Wiederverwertetes PET, rPET
+fr:rPET - Polytéréphtalate d'éthylène recyclé, Polytéréphtalate d'éthylène recyclé
 hu:Újrahasznosított PET
 it:PET riciclato, Polietilene tereftalato riciclato
 nl:Hergebruikt PET
 nl_be:hergebruikt PET
 
+<xx:PET
+en:Biobased PET
+fr:PET biosourcé
+
+<xx:PET
+en:Transparent PET
+fr:PET transparent
+
+<xx:rPET
+en:Transparent rPET
+fr:rPET transparent
+
+<xx:PET
+en:Colored PET
+fr:PET coloré
+
+<xx:PET
+en:Opaque PET
+fr:PET opaque
+
 <en:Plastic
-en:High-density polyethylene, HDPE, 2 PEHD, PEHD 2, HDPE 2, ♴
-de:Polyethylen hoher Dichte, HDPE, 2 HDPE, 2-HDPE, ♴
-fr:Polyéthylène haute densité, polyéthylène haute-densité
-hu:Nagy sűrűségű polietilén, HDPE, 2 PEHD, PEHD 2, HDPE 2, ♴
-it:Polietilene ad alta densità, HDPE, ♴
+en:HDPE - High-density polyethylene, High-density polyethylene
+xx:HDPE, HD-PE, RC 2, RC 02, RC2, RC02, HDPE 2, 2 HDPE, HDPE 02, 02 HDPE, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, PE-HD, ♴
+de:Polyethylen hoher Dichte
+fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité, 
+hu:Nagy sűrűségű polietilén
+it:Polietilene ad alta densità
 nl:Hogedichtheidpolyetheen, HDPE, PE-HD
 nl_be:Hogedichtheidpolyetheen, HDPE, PE-HD 02
 wikidata:en:Q2641430
 
+<xx:HDPE
+en:Biobased HDPE
+fr:PEHD biosourcé
+
 <en:Plastic
-en:Polyvinyl chloride, 3 PVC, PVC 3, ♵
+en:PVC - Polyvinyl chloride, Polyvinyl chloride
+xx:PVC, 3 PVC, PVC 3, ♵
 de:Polyvinylchlorid, PVC, 3 PVC, 3-PVC, ♵
-fr:Polychlorure de vinyle, chlorure de polyvinyle
-hu:Polivinil-klorid, polivinilklorid, polivinil klorid, 3 PVC, PVC 3, ♵
-it:Cloruro di polivinile, polivinilcloruro, PVC, ♵
-nl:Polyvinylchloride, pvc, polychlooretheen, PCE
-nl_be:Polyvinylchloride, pvc, polychlooretheen, PCE
+fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
+hu:Polivinil-klorid, polivinilklorid, polivinil klorid
+it:Cloruro di polivinile, polivinilcloruro
+nl:Polyvinylchloride, pvc, polychlooretheen
+nl_be:Polyvinylchloride, pvc, polychlooretheen
 ru:ПВХ, Поливинилхлорид
 wikidata:en:Q146368
 
 <en:Plastic
-en:Low-density polyethylene, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, ♶
-de:Polyethylen niedriger Dichte, LDPE, 4 LDPE, 4-LDPE, ♶
-fr:Polyéthylène basse densité, polyéthylène basse-densité
-hu:Kis sűrűségű polietilén, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, ♶
-it:Polietilene a bassa densità, LDPE, ♶
-nl:lagedichtheidpolyetheen, LDPE, PE-LD 04
-nl_be:lagedichtheidpolyetheen, LDPE, PE-LD 04
+en:LDPE - Low-density polyethylene, Low-density polyethylene
+xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, ♶
+de:Polyethylen niedriger Dichte
+fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
+hu:Kis sűrűségű polietilén
+it:Polietilene a bassa densità
+nl:lagedichtheidpolyetheen
+nl_be:lagedichtheidpolyetheen
 wikidata:en:Q2033818
 
 <en:Plastic
-en:Polypropylene, 5 PP, PP 5, PP 05, 05 PP, ♷
-de:Polypropylen, PP, 5 PP, 5-PP, ♷
-fr:Polypropylène, polypropène
-hu:Polipropilén, 5 PP, PP 5, PP 05, 05 PP, ♷
-it:Polipropilene, polipropene, PP, ♷
-nl:Polypropeen, polypropyleen, PP 05
-nl_be:Polypropeen, polypropyleen, PP 05
+en:PP - Polypropylene, Polypropylene
+xx:PP, 5 PP, PP 5, PP 05, 05 PP, ♷
+de:Polypropylen
+fr:PP - Polypropylène, Polypropylène, polypropène
+hu:Polipropilén
+it:Polipropilene, polipropene
+nl:Polypropeen, polypropyleen
+nl_be:Polypropeen, polypropyleen
 ru:Полипропилен
 wikidata:en:Q146174
 
 <en:Plastic
-en:Polystyrene, 6 PS, 06 PS, PS 6, PS 06, ♸
-de:Polystyrol, PS, 6 PS, 6-PS, ♸
-fr:Polystyrène
-hu:Polisztirol, 6 PS, 06 PS, PS 6, PS 06, ♸
-it:Polistirene, polistirolo, PS, ♸
-nl:Polystyreen, PS
-nl_be:Polystyreen, PS
+en:PS - Polystyrene, Polystyrene
+xx:PS, 6 PS, 06 PS, PS 6, PS 06, ♸
+de:Polystyrol
+fr:PS - Polystyrène, Polystyrène
+hu:Polisztirol
+it:Polistirene, polistirolo
+nl:Polystyreen
+nl_be:Polystyreen
 ru:Полистирол
 wikidata:en:Q146243
 
 <en:Plastic
-en:All other plastics, 7 O, O 7, OTHER 7, 7 OTHER, ♹
+en:Other plastics, All other plastics, 7 O, O 7, OTHER 7, 7 OTHER, ♹
 de:Andere Kunststoffe, other, 7 other, 7-other, 7-o, ♹
 fr:Autres plastiques, autre plastique
 hu:Minden más műanyag, 7 O, O 7, OTHER 7, 7 OTHER, ♹
@@ -138,6 +182,11 @@ fr:Acrylonitrile butadiène styrène
 hu:Akrilnitril-butadién-sztirol, 09 ABS, ABS, ABS 09, ABS 9, 9 ABS
 nl:Acrylonitril-butadieen-styreen, ABS
 nl_be:Acrylonitril-butadieen-styreen, ABS
+
+<en:Plastic
+en:PLA - Polylactic acid, Polylactic acid
+xx:PLA
+fr:PLA - Acide polylactique, Acide polylactique
 
 en:Lead–acid battery, 8 Lead, Lead 8
 de:Bleibatterie, 8 Lead, 8-Lead
@@ -196,7 +245,7 @@ nl_be:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vor
 <en:Cardboard
 <en:Recycled material
 en:Recycled cardboard
-fr:Carton recyclé
+fr:Carton recyclé, carton recyclé (100%)
 
 <en:Cardboard
 en:FSC cardboard
@@ -266,6 +315,15 @@ ru:Алюминий
 ja:アルミ
 wikidata:en:Q663
 
+<en:Aluminium
+en:Heavy aluminium, thick aluminium
+fr:Aluminium lourd, aluminium épais
+
+# Thin sheets, small things that cannot be easily recycled
+<en:Aluminium
+en:Light aluminium, thin aluminium
+fr:Aluminium léger, aluminium fin
+
 en:Wood, 50 FOR
 de:Holz, 50 FOR, 50-FOR
 fr:Bois
@@ -301,6 +359,7 @@ hu:Egyéb textília, Más textilek, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 T
 nl:Ander textiel
 
 en:Glass
+fr:Verre
 hu:Üveg
 it:Vetro
 
@@ -311,19 +370,23 @@ hu:Vegyes üveg
 <en:Glass
 en:Clear Glass, 71 GLS, 71-GLS
 de:Klarglas
+fr:Verre transparent
 hu:Fehér üveg
 
 <en:Glass
 en:Green Glass, 72 GLS, 72-GLS
 de:Grünglas
+fr:Verre vert
 hu:Zöld üveg
 
 <en:Glass
 en:Dark Sort Glass, 73 GLS
+fr:Verre sombre
 hu:Sötét válogatott üveg
 
 <en:Glass
 en:Light Sort Glass, 74 GLS
+fr:Verre clair
 hu:Világos válogatott üveg
 
 <en:Glass
@@ -343,7 +406,8 @@ en:Silver Mixed/Silver Backed Glass, 78 GLS
 <en:Glass
 en:Gold Mixed/Gold Backed Glass, 79 GLS
 
-en:Paper + plastic, 81 PapPet
+en:Paper and plastic, Paper + Plastic, 81 PapPet
+fr:Papier et plastique
 hu:Papír és műanyag, 81 PapPet
 
 #en:Paper and cardboard / Plastic / Aluminium, 84 C/PAP, PapAl
@@ -357,11 +421,11 @@ en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard
 
-en:Biobased Tetra Pak, bio-based Tetra Pak, biosourced Tetra Pak, bio-sourced Tetra Pak
-fr:Tetra Pak biosourcé, Tetra Pak bio-sourced
+en:Biobased Tetra Pak
+fr:Tetra Pak biosourcé
 
 en:Multilayer composite, multilayer, composite composite materials, polycoat
-fr:Composites multicouches, Composite Multicouches, multi-couches
+fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
 
 en:Ceramic
 fr:Céramique

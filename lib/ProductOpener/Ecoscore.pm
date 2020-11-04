@@ -63,7 +63,9 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Packaging qw/:all/;
 
+use Storable qw(dclone freeze);
 use Text::CSV();
 
 my %agribalyse = ();
@@ -125,31 +127,28 @@ sub load_agribalyse_data() {
 
 my %ecoscore_data = ();
 
-=head2 load_ecoscore_data( $product_ref )
+=head2 load_ecoscore_data_origins_of_ingredients( $product_ref )
 
-Loads data needed to compute the Eco-Score.
+Loads origins of ingredients data needed to compute the Eco-Score.
 
 =cut
 
-sub load_ecoscore_data() {
+sub load_ecoscore_data_origins_of_ingredients() {
 
-	my $ecoscore_origins_csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.9";
-	
-	my $headers_ref;
-	my $rows_ref = [];
+	my $errors = 0;
 
+	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
+	my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());
+		
+	my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.9";
 	my $encoding = "UTF-8";
 	
 	$ecoscore_data{origins} = {};
 
-	$log->debug("opening ecoscore origins CSV file", { file => $ecoscore_origins_csv_file }) if $log->is_debug();
+	$log->debug("opening ecoscore origins CSV file", { file => $csv_file }) if $log->is_debug();
 
-	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
-
-	my $csv = Text::CSV->new ( $csv_options_ref )
-		or die("Cannot use CSV: " . Text::CSV->error_diag ());
-
-	if (open (my $io, "<:encoding($encoding)", $ecoscore_origins_csv_file)) {
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
 
 		my $row_ref;
 
@@ -166,6 +165,21 @@ sub load_ecoscore_data() {
 			
 			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
 			
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+				
+				# Eco-Score entries like "Macedonia [FYROM]": remove the [..] part
+				# but keep it in the first try, as it is needed to distinguish "Congo [DRC]" and "Congo [Republic]"
+				if ($origin =~ /^(.*)\[/) {
+					$origin_id = canonicalize_taxonomy_tag("en", "origins", $1);
+				}
+				
+				if (not exists_taxonomy_tag("origins", $origin_id)) {
+				
+					$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
+					$errors++;
+				}
+			}
+			
 			$ecoscore_data{origins}{$origin_id} = {
 				name_en => $row_ref->[0], # Country
 				name_fr => $row_ref->[1], # Pays
@@ -175,10 +189,184 @@ sub load_ecoscore_data() {
 			
 			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
 		}
+		
+		if ($errors) {
+			die("$errors unrecognized origins in CSV $csv_file");
+		}
 	}
 	else {
-		die("Could not open ecoscore origins CSV $ecoscore_origins_csv_file: $!");
+		die("Could not open ecoscore origins CSV $csv_file: $!");
 	}
+}
+
+
+=head2 load_ecoscore_data_packaging( $product_ref )
+
+Loads packaging data needed to compute the Eco-Score.
+
+=cut
+
+sub load_ecoscore_data_packaging() {
+	
+	my $errors = 0;
+	
+	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
+	my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());	
+
+	# Packaging materials
+
+	my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.11";
+	my $encoding = "UTF-8";
+		
+	$ecoscore_data{packaging_materials} = {};
+	
+	# We will also add the data as a property to the packaging_materials taxonomy so that we can use the get_inherited_property function
+	defined $properties{"packaging_materials"} or $properties{"packaging_materials"} = {};
+
+	$log->debug("opening ecoscore materials CSV file", { file => $csv_file }) if $log->is_debug();
+
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
+
+		my $row_ref;
+
+		# Skip first line
+		$csv->getline ($io);
+		
+		# headers: Matériaux,Score
+
+		while ($row_ref = $csv->getline ($io)) {
+			
+			my $material = $row_ref->[0];
+			
+			next if ((not defined $material) or ($material eq ""));
+			
+			# Special cases
+			$material =~ s/\(100\%\)//;
+			$material =~ s/bisourcé/biosourcé/ig;
+			$material =~ s/Aluminium \(léger < 60mm\)/Aluminium léger/ig;
+			$material =~ s/Aluminium \(lourd > 60mm\)/Aluminium lourd/ig;
+			$material =~ s/Bouteille PET coloré ou opaque/Bouteille PET coloré/ig;
+			
+			my $shape;
+			if ($material =~ /^bouteille /i) {
+				$shape = "en:bottle";
+				$material = $';
+			}
+			
+			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material);
+			
+			if (not exists_taxonomy_tag("packaging_materials", $material_id)) {
+				$log->error("ecoscore material does not exist in taxonomy", { material => $material, material_id => $material_id}) if $log->is_error();
+				$errors++;
+			}
+			
+			# combine material + shape
+			if (defined $shape) {
+				$material_id = $material_id . "." . $shape;
+			}
+			
+			$ecoscore_data{packaging_materials}{$material_id} = {
+				name_fr => $row_ref->[0], # Matériaux
+				score => $row_ref->[1], # Score
+			};
+			
+			(defined $properties{"packaging_materials"}{$material_id}) or $properties{"packaging_materials"}{$material_id} = {};
+			$properties{"packaging_materials"}{$material_id}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{$material_id}{score};
+			
+			$log->debug("ecoscore materials CSV file - row", { material => $material, material_id => $material_id, ecoscore_data => $ecoscore_data{packaging_materials}{$material_id}}) if $log->is_debug();
+		}
+		
+		if ($errors) {
+			die("$errors unrecognized materials in CSV $csv_file");
+		}
+		
+		# Extra assignment
+		
+		$ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
+		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"}{score};
+		
+		$ecoscore_data{packaging_materials}{"en:plastic"} = $ecoscore_data{packaging_materials}{"en:other-plastics"};		
+		$properties{"packaging_materials"}{"en:plastic"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:plastic"}{score};
+	}
+	else {
+		die("Could not open ecoscore materials CSV $csv_file: $!");
+	}
+	
+	$log->debug("ecoscore packaging_materials data", { packaging_meterials => $ecoscore_data{packaging_materials} }) if $log->is_debug();
+	
+	# Packaging shapes / formats
+
+	$csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.12";
+	$encoding = "UTF-8";
+		
+	$ecoscore_data{packaging_shapes} = {};
+	
+	# We will also add the data as a property to the packaging_shapes taxonomy so that we can use the get_inherited_property function
+	defined $properties{"packaging_shapes"} or $properties{"packaging_shapes"} = {};	
+
+	$log->debug("opening ecoscore shapes CSV file", { file => $csv_file }) if $log->is_debug();
+
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
+
+		my $row_ref;
+
+		# Skip first line
+		$csv->getline ($io);
+		
+		# headers: Format,Ratio
+
+		while ($row_ref = $csv->getline ($io)) {
+			
+			my $shape = $row_ref->[0];
+			
+			next if ((not defined $shape) or ($shape eq ""));
+			
+			# Special cases
+			
+			# skip ondulated cardboard (should be a material)
+			next if ($shape eq "Carton ondulé");
+			
+			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
+			
+			if (not exists_taxonomy_tag("packaging_shapes", $shape_id)) {
+				$log->error("ecoscore shape does not exist in taxonomy", { shape => $shape, shape_id => $shape_id}) if $log->is_error();
+				$errors++;
+			}
+			
+			$ecoscore_data{packaging_shapes}{$shape_id} = {
+				name_fr => $row_ref->[0], # Format
+				ratio => $row_ref->[1], # Ratio
+			};
+			
+			(defined $properties{"packaging_shapes"}{$shape_id}) or $properties{"packaging_shapes"}{$shape_id} = {};
+			$properties{"packaging_shapes"}{$shape_id}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{$shape_id}{ratio};
+			
+			$log->debug("ecoscore shapes CSV file - row", { shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}) if $log->is_debug();
+		}
+		
+		if ($errors) {
+			die("$errors unrecognized shapes in CSV $csv_file");
+		}
+	}
+	else {
+		die("Could not open ecoscore shapes CSV $csv_file: $!");
+	}	
+	
+	$log->debug("ecoscore packaging_shapes data", { packaging_meterials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
+}
+
+
+=head2 load_ecoscore_data( $product_ref )
+
+Loads data needed to compute the Eco-Score.
+
+=cut
+
+sub load_ecoscore_data() {
+
+	load_ecoscore_data_origins_of_ingredients();
+	load_ecoscore_data_packaging();
 }
 
 
@@ -220,6 +408,7 @@ sub compute_ecoscore($) {
 	compute_ecoscore_production_system_adjustment($product_ref);
 	compute_ecoscore_threatened_species_adjustment($product_ref);
 	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
+	compute_ecoscore_packaging_adjustment($product_ref);
 	
 	# Compute the final Eco-Score and assign the A to E grade
 	
@@ -496,6 +685,8 @@ The percentages are stored in $aggregated_origins_ref
 
 =cut
 
+sub aggregate_origins_of_ingredients($$$);
+
 sub aggregate_origins_of_ingredients($$$) {
 	
 	my $default_origins_ref = shift;
@@ -647,6 +838,89 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		transportation_value => $transportation_value,
 		epi_value => $epi_value,
 		value => $transportation_value + $epi_value,
+	};	
+	
+}
+
+
+=head2 compute_ecoscore_packaging_adjustment ( $product_ref )
+
+Computes adjustments (malus) based on the packaging of the product.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+Returned values:
+
+$product_ref->{adjustments}{packaging} hash with:
+- value: malus for packaging
+- packagings: details of the computation
+
+=cut
+
+sub compute_ecoscore_packaging_adjustment($) {
+
+	my $product_ref = shift;
+	
+	# Create or update the packagings data structure
+	# (can be removed from here once we systematically do it for all products)
+	
+	analyze_and_combine_packaging_data($product_ref);
+	
+	$log->debug("compute_ecoscore_packaging_adjustment - packagings data structure", { packagings => $product_ref->{packagings} }) if $log->is_debug();
+	
+	# Sum the scores of all packagings components
+	# Create a copy of the packagings structure, so that we can add Eco-score elements to it
+	my $packagings_ref = dclone($product_ref->{packagings});
+	
+	my $packaging_score = 0;
+	
+	foreach my $packaging_ref (@$packagings_ref) {
+		
+		# We need to match the material and shape to the Eco-score materials and shapes.
+		# We may have a child of the entries listed in the Eco-score data.
+		
+		if (defined $packaging_ref->{material}) {
+			
+			my $score = get_inherited_property("packaging_materials", $packaging_ref->{material}, "ecoscore_score:en");
+			if (defined $score) {
+				$packaging_ref->{ecoscore_material_score} = $score;
+			}
+		}
+		
+		if (defined $packaging_ref->{shape}) {
+			
+			my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
+			if (defined $ratio) {
+				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
+			}
+		}
+		
+		if ((defined $packaging_ref->{ecoscore_material_score}) and (defined $packaging_ref->{ecoscore_shape_ratio})) {
+			 $packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
+			 $packaging_ref->{ecoscore_counted} = 1;
+		}
+		else {
+			$packaging_ref->{ecoscore_counted} = 0;
+		}
+	}
+	
+	$packaging_score = 100 - $packaging_score;
+	
+	my $value = $packaging_score / 10 - 10;
+	if ($value < -10) {
+		$value = -10;
+	}
+
+	$product_ref->{ecoscore_data}{adjustments}{packaging} = {
+		packagings => $packagings_ref,
+		score => $packaging_score,
+		value => $value,
 	};	
 	
 }

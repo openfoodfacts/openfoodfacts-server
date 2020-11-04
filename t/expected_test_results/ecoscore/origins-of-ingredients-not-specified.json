@@ -20,6 +20,11 @@
             "transportation_value" : 0,
             "value" : -5
          },
+         "packaging" : {
+            "packagings" : [],
+            "score" : 100,
+            "value" : 0
+         },
          "production_system" : {},
          "threatened_species" : {}
       },
@@ -111,5 +116,6 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

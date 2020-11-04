@@ -20,6 +20,11 @@
             "transportation_value" : 0,
             "value" : -5
          },
+         "packaging" : {
+            "packagings" : [],
+            "score" : 100,
+            "value" : 0
+         },
          "production_system" : {},
          "threatened_species" : {}
       },
@@ -32,5 +37,6 @@
    "ecoscore_tags" : [
       "unknown"
    ],
-   "lc" : "en"
+   "lc" : "en",
+   "packagings" : []
 }

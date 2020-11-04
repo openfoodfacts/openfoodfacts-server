@@ -20,6 +20,11 @@
             "transportation_value" : 0,
             "value" : -5
          },
+         "packaging" : {
+            "packagings" : [],
+            "score" : 100,
+            "value" : 0
+         },
          "production_system" : {
             "label" : "fr:ab-agriculture-biologique",
             "value" : 15
@@ -45,5 +50,6 @@
    "labels_tags" : [
       "fr:ab-agriculture-biologique"
    ],
-   "lc" : "en"
+   "lc" : "en",
+   "packagings" : []
 }
