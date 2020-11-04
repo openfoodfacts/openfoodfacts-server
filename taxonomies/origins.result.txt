@@ -1,3 +1,5 @@
+stopwords:en:agriculture
+stopwords:fr:agriculture
 
 
 en:Afghanistan, Islamic Republic of Afghanistan, AF, AFG
@@ -5439,6 +5441,9 @@ country_code_2:en: CF
 country_code_3:en: CAF
 languages:en: fr,sg
 
+en:Central America
+fr:Amérique centrale
+
 en:Chad, Republic of Chad, République du Tchad, جمهورية تشاد, Ǧumhūriyyat Tšād, Tchad, TD, TCD
 af:Tsjad
 am:ቻድ
@@ -8981,6 +8986,9 @@ yo:Ìṣọ̀kan Europe
 zh:欧洲联盟
 languages:en: en,es,fi,fr,de,pt,it,hr,nl,ro,bg,pl,sv,da,cs,sk,sl,hu,et,lv,lt,el,ga,mt
 
+en:European Union and Non European Union, EU and non EU, EU non EU
+fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+
 en:Falkland Islands, Falklands, Malvinas, Islas Malvinas, FK, FLK
 af:Falkland-eilande
 an:Islas Malvinas
@@ -9709,12 +9717,56 @@ country_code_3:en: FRA
 languages:en: fr
 
 < en:France
+en:Alsace
+fr:Alsace
+
+< en:France
+en:Aquitaine
+fr:Aquitaine
+
+< en:France
+en:Ardèche
+fr:Ardèche
+
+< en:France
 en:Brittany
 fr:Bretagne
 
 < en:France
+en:Burgundy
+fr:Bourgogne
+
+< en:France
+en:Camargue
+fr:Camargue
+
+< en:France
+en:Corsica
+fr:Corse
+
+< en:France
+en:Loire-Atlantique
+fr:Loire-Atlantique
+
+< en:France
+en:Loire valley
+fr:Val de Loire
+
+< en:France
 en:Normandy
 fr:Normandie
+
+< en:France
+en:Provence
+fr:Provence
+
+< en:France
+en:Savoy
+fr:Savoie
+
+< en:France
+en:South-western France, South-west of France
+fr:Sud-ouest de la France, Sud-ouest français
 
 en:French Guiana, GF, GUF
 af:Frans-Guyana
@@ -13747,6 +13799,11 @@ zu:ITaliya
 country_code_2:en: IT
 country_code_3:en: ITA
 languages:en: it
+
+< en:Italy
+en:Sicily
+fr:Sicile
+it:Sicilia
 
 en:Jamaica, JA, Commonwealth of Jamaica, Jamdung, JM, JAM
 af:Jamaika

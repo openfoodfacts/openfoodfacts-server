@@ -6,7 +6,13 @@
 
 # Please include only regions for which we have actual products
 # that list ingredients for those regions.
-# e.g. look at the /origins facet
+# -> look at the /origins facet
+#
+# Also please don't add translations in many languages unless you are sure that they are not ambiguous
+# and may not refer to a different region / country. (e.g. "Georgia" is a country and a US state)
+
+stopwords:en:agriculture
+stopwords:fr:agriculture
 
 en:Unknown, not specified
 fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
@@ -18,6 +24,9 @@ fr:Afrique
 
 en:Latin America
 fr:Amérique Latine
+
+en:Central America
+fr:Amérique centrale
 
 en:North-America
 fr:Amérique du Nord
@@ -37,16 +46,77 @@ fr:Union Européenne, UE
 en:Non European Union, Non EU
 fr:Non Union Européenne, Non UE
 
+en:European Union and Non European Union, EU and non EU, EU non EU
+fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+
 
 # Country regions
+
+
+# France regions
+
+<en:france
+en:Alsace
+fr:Alsace
+
+<en:france
+en:Ardèche
+fr:Ardèche
+
+<en:france
+en:Aquitaine
+fr:Aquitaine
+
+<en:france
+en:Burgundy
+fr:Bourgogne
 
 <en:france
 en:Brittany
 fr:Bretagne
 
 <en:france
+en:Camargue
+fr:Camargue
+
+<en:france
+en:Corsica
+fr:Corse
+
+<en:france
+en:Loire-Atlantique
+fr:Loire-Atlantique
+
+<en:france
 en:Normandy
 fr:Normandie
+
+<en:france
+en:Provence
+fr:Provence
+
+<en:france
+en:Savoy
+fr:Savoie
+
+<en:france
+en:South-western France, South-west of France
+fr:Sud-ouest de la France, Sud-ouest français
+
+<en:france
+en:Loire valley
+fr:Val de Loire
+
+
+# Italy regions
+
+<en:italy
+en:Sicily
+fr:Sicile
+it:Sicilia
+
+
+# US states
 
 <en:united-states
 en:California

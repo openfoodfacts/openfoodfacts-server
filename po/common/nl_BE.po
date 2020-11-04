@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-01 20:23\n"
+"PO-Revision-Date: 2020-11-02 11:38\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4293,7 +4293,7 @@ msgstr "Voeg nieuwe items, synoniemen of vertalingen toe aan onze meertalige lij
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr "Volg het #ingrediëntenkanaal op <a href=\"https://slack.openfoodfacts.org\">onze Slack discussieruimte</a> en/of leer over <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediëntenanalyse op onze wiki</a>, als je wilt helpen. Dank u wel!"
+msgstr "Volg het #ingredients kanaal op <a href=\"https://slack.openfoodfacts.org\">onze Slack discussieruimte</a> en/of leer over <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediëntenanalyse op onze wiki</a>, als je wilt helpen. Dank u wel!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4491,6 +4491,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr ""
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr ""
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr ""
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr ""
@@ -4519,6 +4527,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "NOVA-groep"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr ""
@@ -4526,6 +4542,14 @@ msgstr ""
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
 msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
@@ -4602,6 +4626,10 @@ msgstr "Additieven"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
+msgstr ""
+
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
 msgstr ""
 
 msgctxt "preference_not_important"
@@ -4839,8 +4867,8 @@ msgid "Ingredients"
 msgstr "Ingrediënten"
 
 # keep the %s, it will be replaced by an allergen
-msgctxt "not_known_s"
-msgid "Not known: %s"
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
 msgstr ""
 
 msgctxt "environmental_impact"
@@ -4881,5 +4909,18 @@ msgstr ""
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
+msgstr ""
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr ""
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
 msgstr ""
 
