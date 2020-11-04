@@ -39,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -541,6 +542,8 @@ else {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	compute_ecoscore($product_ref);
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 

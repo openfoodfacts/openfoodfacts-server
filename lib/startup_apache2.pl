@@ -112,6 +112,7 @@ init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
 load_agribalyse_data();
+load_ecoscore_data();
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module

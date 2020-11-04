@@ -11,14 +11,14 @@
                   60
                ],
                [
-                  "en:world",
+                  "en:unknown",
                   40
                ]
             ],
             "epi_score" : 55.8398175682963,
             "epi_value" : 0.583981756829633,
             "origins_from_origins_field" : [
-               "en:world"
+               "en:unknown"
             ],
             "transportation_score" : 59.85406775,
             "transportation_value" : 8.98709725975976,
@@ -40,6 +40,9 @@
    },
    "ecoscore_grade" : "b",
    "ecoscore_score" : 68.173159864655,
+   "ecoscore_tags" : [
+      "b"
+   ],
    "ingredients" : [
       {
          "id" : "en:apricot",
