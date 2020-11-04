@@ -8,4 +8,4 @@ jobs:
       - name: Validate .po files
         uses: Tar-Minyatur/gettext-validation@master
         with:
-          folder: translations/
+          folder: po/
