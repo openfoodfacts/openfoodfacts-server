@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:07\n"
+"PO-Revision-Date: 2020-11-05 09:53\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4702,7 +4702,7 @@ msgstr "Okolje"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Eko-ocena"
+msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
@@ -4711,7 +4711,7 @@ msgstr ""
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Ekološka ocena %s"
+msgstr "Eco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4877,17 +4877,17 @@ msgstr "Vpliv na okolje"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Ekološka ocena"
+msgstr "Eco-score ocena"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr "Razred ekološke ocene"
+msgstr "Razred Eco-score ocene"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Podrobnosti o izračunu eko-ocene"
+msgstr "Podrobnosti o izračunu Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
@@ -4922,3 +4922,12 @@ msgstr ""
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr ""
+
