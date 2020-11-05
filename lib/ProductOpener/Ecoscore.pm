@@ -281,7 +281,7 @@ sub load_ecoscore_data_packaging() {
 			die("$errors unrecognized materials in CSV $csv_file");
 		}
 		
-		# Extra assignment
+		# Extra assignments
 		
 		$ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
 		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"}{score};
@@ -348,6 +348,11 @@ sub load_ecoscore_data_packaging() {
 		if ($errors) {
 			die("$errors unrecognized shapes in CSV $csv_file");
 		}
+		
+	# Extra assignments
+		
+		$ecoscore_data{packaging_shapes}{"en:can"} = $ecoscore_data{packaging_shapes}{"en:drink-can"};
+		$properties{"packaging_shapes"}{"en:can"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:can"}{ratio};		
 	}
 	else {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
@@ -891,6 +896,18 @@ sub compute_ecoscore_packaging_adjustment($) {
 			if (defined $score) {
 				$packaging_ref->{ecoscore_material_score} = $score;
 			}
+			else {
+				$packaging_ref->{ecoscore_material_warning} = "unscored_material";
+			}
+
+		}
+		else {
+			$packaging_ref->{ecoscore_material_warning} = "unspecified_material";
+		}
+		
+		if (not defined $packaging_ref->{ecoscore_material_score}) {
+			# No material specified, or no Eco-score score for it, use a score of 0
+			$packaging_ref->{ecoscore_material_score} = 0;
 		}
 		
 		if (defined $packaging_ref->{shape}) {
@@ -899,6 +916,12 @@ sub compute_ecoscore_packaging_adjustment($) {
 			if (defined $ratio) {
 				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
 			}
+			else {
+				$packaging_ref->{ecoscore_shape_warning} = "unscored_shape";
+			}
+		}
+		else {
+			$packaging_ref->{ecoscore_material_warning} = "unspecified_shape";
 		}
 		
 		if ((defined $packaging_ref->{ecoscore_material_score}) and (defined $packaging_ref->{ecoscore_shape_ratio})) {
