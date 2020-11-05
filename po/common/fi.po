@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 16:12\n"
+"PO-Revision-Date: 2020-11-05 09:24\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4439,7 +4439,7 @@ msgstr "Edistää ekologista kestävyyttä ja biologista monimuotoisuutta."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr "Luomutuotteet edistävät ekologista kestävyyttä ja biologista monimuotoisuutta."
+msgstr "Edistää ekologista kestävyyttä ja biologista monimuotoisuutta."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4683,19 +4683,19 @@ msgstr "Yritä olla mahdollisimman tarkka. Ilmoita muovista onko se läpinäkym�
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "Poimi kuvasta kierrätysohjeet ja/tai pakkaustiedot"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Kierrätysohjeiden ja/tai pakkaustietojen tekstiä ei voitu poimia. Kokeile terävämmällä kuvalla, korkeammalla tarkkuudella tai paremman tekstin rajauksella."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Kierrätysohjeiden ja/tai pakkaustietojen teksti on poimittu. Tekstintunnistus ei ole täydellinen, joten tarkista alla oleva teksti ja korjaa virheet tarvittaessa."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Poimitaan kierrätysohjeita ja/tai pakkaustietoja"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4707,7 +4707,7 @@ msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Vähäinen ympäristövaikutus (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4737,38 +4737,38 @@ msgstr "Erittäin suuri ympäristövaikutus"
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "Sisältää: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
 msgid "May contain: %s"
-msgstr ""
+msgstr "Saattaa sisältää: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "does_not_contain_s"
 msgid "Does not contain: %s"
-msgstr ""
+msgstr "Ei sisällä: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Ilman: %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "omistajat"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "omistaja"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Voit antaa yritystäsi koskevia tietoja, jotka näkyvät organisaatioprofiilissasi."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Osa tiedoista, kuten asiakaspalvelun yhteystiedot, voivat näkyä myös suoraan tuotteidenne sivuilla."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4776,7 +4776,7 @@ msgstr "Nimi"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Linkki viralliselle verkkosivustolle"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4784,19 +4784,19 @@ msgstr "Asiakaspalvelu"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Asiakaspalvelutiedot ovat julkisia ja ne voidaan näyttää Open Food Facts -verkkosivustolla ja -sovelluksissa."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Kaikki kentät ovat valinnaisia."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Kaupallinen palvelu"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Kaupalliset palvelutiedot näkyvät vain organisaation profiilissa."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4804,11 +4804,11 @@ msgstr "Nimi"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Osoite"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Puhelinnumero"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4816,7 +4816,7 @@ msgstr "sähköpostiosoite"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Linkki yhteydenottolomakkeeseen"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4824,43 +4824,43 @@ msgstr "Muut tiedot"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "esim. aukioloajat"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organisaatiota ei löytynyt."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Organisaation nimi puuttuu."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Organisaation profiili"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Organisaation profiili on päivitetty."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Poista organisaatio"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Virallinen sivusto"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Yhteydenottolomake"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Muokkaa organisaatioprofiiliasi"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Muokkaa käyttäjäprofiiliasi"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4869,58 +4869,66 @@ msgstr "Ainesosat"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "Läsnäolo tuntematon: %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "Ympäristövaikutus"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "Eco-score-pisteet"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "Eco-score-arvosana"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "Yksityiskohdat Eco-score-laskelmasta"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Tietoja Eco-scoresta"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Muokkaa ruokamäärityksiäsi"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Ruokamäärityksesi"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Tällä hetkellä valitut määritykset"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Ruokamääritykset säilytetään selaimessasi, eikä niitä koskaan lähetetä Open Food Factsille tai kenellekään muulle."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "tuntematon määrä"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Puuttuva ainesosaluettelo"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
+msgstr "Puuttuva ravintosisältö"
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
 msgstr ""
 
