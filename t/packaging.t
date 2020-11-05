@@ -159,6 +159,15 @@ my @tests = (
 			packaging => "PET, box, paper bag",
 			packaging_text => "plastic box, kraft paper",
 		}
+	],
+	
+	# Plurals
+	[
+		'packaging_text_en_plurals',
+		{
+			lc => "en",
+			packaging_text => "6 cans, 2 boxes, 2 knives, 3 spoons, 1 utensil"
+		}
 	],		
 );
 

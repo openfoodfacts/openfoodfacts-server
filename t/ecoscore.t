@@ -241,7 +241,34 @@ my @tests = (
 			categories_tags=>["en:sodas"],
 			packaging_text=>"Plastic bottle"
 		}
+	],
+	
+	[
+		'packaging-en-multiple',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
+		}
+	],
+	
+	[
+		'packaging-en-unspecified-material-bottle',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"bottle"
+		}
 	],		
+
+	[
+		'packaging-en-unspecified-material-can',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"can"
+		}
+	],
 );
 
 
