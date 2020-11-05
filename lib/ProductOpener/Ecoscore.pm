@@ -260,12 +260,14 @@ sub compute_ecoscore($) {
 		}
 		$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
 		$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
+		$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
 		
 		$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
 	}
 	else {
 		# No AgriBalyse category match
 		$product_ref->{ecoscore_data}{status} = "unknown";
+		$product_ref->{ecoscore_tags} = ["unknown"];
 	}
 }
 
@@ -350,6 +352,10 @@ sub compute_ecoscore_agribalyse($) {
 		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
 		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;
+		
+		if (not defined $agribalyse{$agb}{ef_total}) {
+			$log->error("compute_ecoscore - ef_total missing for category", { agb => $agb, agribalyse => $agribalyse{$agb} }) if $log->is_error();
+		}
 	}
 }
 
@@ -465,6 +471,90 @@ sub compute_ecoscore_threatened_species_adjustment($) {
 }
 
 
+=head2 aggregate_origins_of_ingredients ( $default_origins_ref, $aggregated_origins_ref, $ingredient_ref )
+
+Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
+according to the countries of origin of the ingredients.
+
+=head3 Arguments
+
+=head4 Default origins reference: $default_origins_ref
+
+Array of origins specified in the origins field, that we will use for ingredients that do not have a specific origin.
+
+=head4 Aggregated origins reference $aggregated_origins_ref
+
+Data structure to which we will add the percentages for the ingredient specified in $ingredient_ref
+
+=head4 Ingredient reference $ingredient_ref
+
+Ingredient reference that may contains an ingredients structure for sub-ingredients.
+
+=head3 Return values
+
+The percentages are stored in $aggregated_origins_ref
+
+=cut
+
+sub aggregate_origins_of_ingredients($$$) {
+	
+	my $default_origins_ref = shift;
+	my $aggregated_origins_ref = shift;
+	my $ingredients_ref = shift;
+	
+	# The ingredients array contains sub-ingredients in nested ingredients properties
+	# and they are also listed at the end on the ingredients array, without the rank property
+	# For this aggregation, we want to use the nested sub-ingredients,
+	# and ignore the same sub-ingredients listed at the end
+	my $ranked = 0;
+	
+	foreach my $ingredient_ref (@$ingredients_ref) {
+		
+		my $ingredient_origins_ref;
+		
+		# If we are at the first level of the ingredients array,
+		# ingredients have a rank, except the sub-ingredients listed at the end
+		if ($ingredient_ref->{rank}) {
+			$ranked = 1;
+		}
+		elsif ($ranked) {
+			# The ingredient does not have a rank, but a previous ingredient had one:
+			# we are at the first level of the ingredients array,
+			# and we are at the end where the sub-ingredients have been added
+			last;
+		}
+		
+		# If the ingredient has specified origins, use them
+		if (defined $ingredient_ref->{origins}) {
+			$ingredient_origins_ref = [split(/,/, $ingredient_ref->{origins})];
+			$log->debug("aggregate_origins_of_ingredients - ingredient has specified origins", { ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref }) if $log->is_debug();
+		}
+		# Otherwise, if the ingredient has sub ingredients, use the origins of the sub ingredients
+		elsif (defined $ingredient_ref->{ingredients}) {
+			$log->debug("aggregate_origins_of_ingredients - ingredient has subingredients", { ingredient_id => $ingredient_ref->{id} }) if $log->is_debug();
+			aggregate_origins_of_ingredients($default_origins_ref, $aggregated_origins_ref, $ingredient_ref->{ingredients});
+		}
+		# Else use default origins
+		else {
+			$ingredient_origins_ref = $default_origins_ref;
+			$log->debug("aggregate_origins_of_ingredients - use default origins", { ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref }) if $log->is_debug();
+		}
+		
+		# If we are not using the origins of the sub ingredients,
+		# aggregate the origins of the ingredient
+		if (defined $ingredient_origins_ref) {
+			$log->debug("aggregate_origins_of_ingredients - adding origins", { ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref }) if $log->is_debug();
+			foreach my $origin_id (@$ingredient_origins_ref) {
+				if (not defined $ecoscore_data{origins}{$origin_id}) {
+					$origin_id = "en:unknown";
+				}
+				defined $aggregated_origins_ref->{$origin_id} or $aggregated_origins_ref->{$origin_id} = 0;
+				$aggregated_origins_ref->{$origin_id} += $ingredient_ref->{percent_estimate} / scalar(@$ingredient_origins_ref);
+			}
+		}
+	}
+}
+
 =head2 compute_ecoscore_origins_of_ingredients_adjustment ( $product_ref )
 
 Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
@@ -506,7 +596,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	}
 	
 	if (scalar @origins_from_origins_field == 0) {
-		@origins_from_origins_field = ("en:world");
+		@origins_from_origins_field = ("en:unknown");
 	}
 	
 	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - origins field", { origins_tags => $product_ref->{origins_tags}, origins_from_origins_field => \@origins_from_origins_field }) if $log->is_debug();
@@ -533,8 +623,12 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	foreach my $origin_id (sort ( { ($aggregated_origins{$b} <=> $aggregated_origins{$a}) || ($a cmp $b) } keys %aggregated_origins)) {
 		
 		my $percent = $aggregated_origins{$origin_id};
-		
+				
 		push @aggregated_origins, [ $origin_id, $percent ];
+		
+		if (not defined $ecoscore_data{origins}{$origin_id}{epi_score}) {
+			$log->error("compute_ecoscore_origins_of_ingredients_adjustment - missing epi_score", {  origin_id => $origin_id, origin_data => $ecoscore_data{origins}{$origin_id} } ) if $log->is_error();
+		}
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
 		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score} * $percent / 100;
@@ -555,40 +649,6 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		value => $transportation_value + $epi_value,
 	};	
 	
-}
-
-sub aggregate_origins_of_ingredients($$$) {
-	
-	my $default_origins_ref = shift;
-	my $aggregated_origins_ref = shift;
-	my $ingredients_ref = shift;
-	
-	foreach my $ingredient_ref (@$ingredients_ref) {
-		
-		my $ingredient_origins_ref;
-		
-		# If the ingredient has an origin, use it
-		if (defined $ingredient_ref->{origins}) {
-			$ingredient_origins_ref = [split(/,/, $ingredient_ref->{origins})];
-		}
-		# Otherwise, if the ingredient has sub ingredients, use the origins of the sub ingredients
-		elsif (defined $ingredient_ref->{ingredients}) {
-			aggregate_origins_of_ingredients($default_origins_ref, $aggregated_origins_ref, $ingredient_ref->{ingredients});
-		}
-		# Else use default origins
-		else {
-			$ingredient_origins_ref = $default_origins_ref;
-		}
-		
-		# If we are not using the origins of the sub ingredients,
-		# aggregate the origins of the ingredient
-		if (defined $ingredient_origins_ref) {
-			foreach my $origin_id (@$ingredient_origins_ref) {
-				defined $aggregated_origins_ref->{$origin_id} or $aggregated_origins_ref->{$origin_id} = 0;
-				$aggregated_origins_ref->{$origin_id} += $ingredient_ref->{percent_estimate} / scalar(@$ingredient_origins_ref);
-			}
-		}
-	}
 }
 
 1;

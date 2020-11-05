@@ -7,14 +7,14 @@
          "origins_of_ingredients" : {
             "aggregated_origins" : [
                [
-                  "en:world",
+                  "en:unknown",
                   100
                ]
             ],
             "epi_score" : 0,
             "epi_value" : -5,
             "origins_from_origins_field" : [
-               "en:world"
+               "en:unknown"
             ],
             "transportation_score" : 0,
             "transportation_value" : 0,
@@ -39,6 +39,9 @@
    },
    "ecoscore_grade" : "c",
    "ecoscore_score" : 56.9485117508868,
+   "ecoscore_tags" : [
+      "c"
+   ],
    "ingredients_analysis_tags" : [
       "en:palm-oil"
    ],

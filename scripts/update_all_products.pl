@@ -70,13 +70,15 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-
+use ProductOpener::Ecoscore qw(:all);
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+
+use Log::Any::Adapter 'TAP';
 
 use Getopt::Long;
 
@@ -119,6 +121,7 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
+my $compute_ecoscore = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -140,6 +143,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-nova" => \$compute_nova,
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
+			"compute-ecoscore" => \$compute_ecoscore,
 			"check-quality" => \$check_quality,
 			"compute-sort-key" => \$compute_sort_key,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -207,9 +211,16 @@ if (
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
-	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
+	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore)
+	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
+}
+
+if ($compute_ecoscore) {
+
+	load_agribalyse_data();
+	load_ecoscore_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -655,7 +666,7 @@ while (my $product_ref = $cursor->next) {
 		foreach my $field (@fields_to_update) {
 
 			if (defined $product_ref->{$field}) {
-	
+				
 				# Keep a copy of the existing value, in case something bad happens
 				$product_ref->{$field . "_old"} = $product_ref->{$field};
 
@@ -866,6 +877,10 @@ while (my $product_ref = $cursor->next) {
 				compute_nutrient_levels($product_ref);
 			}
 		}
+		
+		if ($compute_ecoscore) {
+			compute_ecoscore($product_ref);
+		}		
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");

@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;
@@ -188,7 +189,34 @@ my @tests = (
 			origins_tags=>["en:france", "en:dordogne", "en:belgium"],
 			ingredients_text =>"60% apricots, 30% cane sugar (Martinique), lemon juice",
 		}
-	],	
+	],
+
+	[
+		'origins-of-ingredients-nested',
+		{
+			lc => "en",
+			categories_tags=>["en:cheeses"],
+			ingredients_text=>"Milk, salt, coloring: E160b",
+		}
+	],
+	
+	[
+		'origins-of-ingredients-nested-2',
+		{
+			lc => "en",
+			categories_tags=>["en:cheeses"],
+			ingredients_text=>"Milk, chocolate (cocoa, cocoa butter, sweetener: aspartame), salt",
+		}
+	],
+	
+	[
+		'origins-of-ingredients-unknown-origin',
+		{
+			lc => "en",
+			categories_tags=>["en:cheeses"],
+			ingredients_text=>"Milk (origin: Milky way)",
+		}
+	],		
 );
 
 

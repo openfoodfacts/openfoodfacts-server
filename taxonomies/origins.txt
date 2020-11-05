@@ -4,8 +4,18 @@
 # that need origins that can be specified at different levels of granularity (and not just countries).
 # example includes ingredients parsing and computing the Eco-Score
 
-# It may not be useful to add many entries to it as we will most likely try to create it automatically
-# from sources such as Wikidata.
+# Please include only regions for which we have actual products
+# that list ingredients for those regions.
+# -> look at the /origins facet
+#
+# Also please don't add translations in many languages unless you are sure that they are not ambiguous
+# and may not refer to a different region / country. (e.g. "Georgia" is a country and a US state)
+
+stopwords:en:agriculture
+stopwords:fr:agriculture
+
+en:Unknown, not specified
+fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
 
 # World regions
 
@@ -14,6 +24,9 @@ fr:Afrique
 
 en:Latin America
 fr:Amérique Latine
+
+en:Central America
+fr:Amérique centrale
 
 en:North-America
 fr:Amérique du Nord
@@ -33,16 +46,77 @@ fr:Union Européenne, UE
 en:Non European Union, Non EU
 fr:Non Union Européenne, Non UE
 
+en:European Union and Non European Union, EU and non EU, EU non EU
+fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+
 
 # Country regions
+
+
+# France regions
+
+<en:france
+en:Alsace
+fr:Alsace
+
+<en:france
+en:Ardèche
+fr:Ardèche
+
+<en:france
+en:Aquitaine
+fr:Aquitaine
+
+<en:france
+en:Burgundy
+fr:Bourgogne
 
 <en:france
 en:Brittany
 fr:Bretagne
 
 <en:france
+en:Camargue
+fr:Camargue
+
+<en:france
+en:Corsica
+fr:Corse
+
+<en:france
+en:Loire-Atlantique
+fr:Loire-Atlantique
+
+<en:france
 en:Normandy
 fr:Normandie
+
+<en:france
+en:Provence
+fr:Provence
+
+<en:france
+en:Savoy
+fr:Savoie
+
+<en:france
+en:South-western France, South-west of France
+fr:Sud-ouest de la France, Sud-ouest français
+
+<en:france
+en:Loire valley
+fr:Val de Loire
+
+
+# Italy regions
+
+<en:italy
+en:Sicily
+fr:Sicile
+it:Sicilia
+
+
+# US states
 
 <en:united-states
 en:California
@@ -51,3 +125,72 @@ fr:Californie
 <en:united-states
 en:Florida
 fr:Floride
+
+<en:United States	
+en:South Carolina	
+fr:Caroline du Sud
+
+# Marine zones
+en:Pacific Ocean
+fr:Océan Pacifique, Pacifique
+it:Oceano Pacifico
+
+<en:Pacific Ocean
+en:Northeast Pacific Ocean
+fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
+
+<en:Pacific Ocean
+en:Northwest Pacific Ocean
+fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
+
+<en:Pacific Ocean
+en:North Pacific Ocean
+fr:Océan Pacifique Nord
+
+<en:Pacific Ocean
+en:West Central Pacific Ocean
+fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
+
+<en:Pacific Ocean
+en:Southwest Pacific Ocean
+fr:Océan Pacifique Sud-Ouest, FAO 87, FAO N°87
+
+<en:Pacific Ocean
+en:Southeast Pacific Ocean
+fr:Océan Pacifique Sud-Est
+
+en:Atlantic Ocean, Atlantic
+fr:Océan Atlantique, Atlantique
+it:Oceano Atlantico, Atlantico
+
+<en:Océan Atlantique
+en:North-East Atlantic Ocean
+fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
+
+<en:Océan Atlantique
+en:Central-East Atlantic Ocean
+fr:Océan Atlantique Centre-Est, FAO 34, FAO N°34
+
+<en:Océan Atlantique
+en:Northwest Atlantic Ocean
+fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
+
+en:Indian Ocean
+fr:Océan Indien
+
+<en:Indian Ocean
+en:Western Indian Ocean
+fr:Océan Indien Ouest
+
+<en:Indian Ocean
+en:Eastern Indian Ocean
+fr:Océan Indien Est
+
+en:North Sea
+fr:Mer du Nord
+
+en:Norwegian Sea
+fr:Mer de Norvège
+
+en:Barents sea
+fr:Mer de Barents

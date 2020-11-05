@@ -3,7 +3,7 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h4>Score de référence : Analyse de cycle de vie (ACV)</h4>
+	<h3>Score de référence : Analyse de cycle de vie (ACV)</h3>
 
 	<p>
 		<strong>Catégorie Agribalyse : [% agribalyse.agribalyse_food_name_fr %]</strong><br>
@@ -14,12 +14,12 @@
 		[% END %]
 	</p>
 	<p>
-		<strong>Score ACV sur 100 : [% agribalyse.score %]</strong>
+		<strong>Score ACV sur 100 : [% round(agribalyse.score) %]</strong>
 	</p>
 
-	<h4>Bonus / Malus complémentaires</h4>
+	<h3>Bonus / Malus complémentaires</h3>
 	
-	<h3>Mode de production</h3>
+	<h4>Mode de production</h4>
 	
 	[% IF adjustments.production_system.value %]
 		<p><strong>Bonus : [% adjustments.production_system.value %]</strong></p>
@@ -27,13 +27,23 @@
 		<p>Pas de labels pris en compte pour le système de production.</p>
 	[% END %]	
 	
-	<h3>Origine des ingrédients</h3>
+	<h4>Origine des ingrédients</h4>
 	
-	[% IF adjustments.origins_of_ingredients.value %]
-		<p><strong>Bonus / malus : [% adjustments.origins_of_ingredients.value %]</strong></p>
+	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
+		<p><strong>Origines :</strong></p>
+		<ul>
+			[% FOREACH origin IN adjustments.origins_of_ingredients.aggregated_origins %]
+				<li>[% display_taxonomy_tag("origins",origin.0) %]: [% round(origin.1) %]%</li>
+			[% END %]
+		</ul>
 	[% END %]
+
+	<p>
+		<strong>Bonus / malus - Politique environnementale : [% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>Bonus / malus - Transport : [% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+	</p>
 	
-	<h3>Espèces menacées</h3>
+	<h4>Espèces menacées</h4>
 	
 	[% IF adjustments.threatened_species.value %]
 		<p><strong>Malus : [% adjustments.threatened_species.value %]</strong></p>
@@ -41,15 +51,13 @@
 		<p>Pas d'espèces menacées prises en compte.</p>
 	[% END %]	
 	
-	<h3>Emballage</h3>
+	<h4>Emballage</h4>
 	
-	[% IF adjustments.packaging.value %]
-		<p><strong>Bonus / malus : [% adjustments.packaging.value %]</strong></p>
-	[% END %]	
+	<p><strong>Bonus / malus : [% adjustments.packaging.value %]</strong></p>
 	
-	<h4>Score final</h4>
+	<h3>Score final</h3>
 
-	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% score %]</strong></p>
+	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong></p>
 	<p><strong>[% lang('ecoscore_grade') %][% sep %]: [% grade %]</strong></p>
 
 </div>
