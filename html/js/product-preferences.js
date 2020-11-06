@@ -88,7 +88,8 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		$( target_selection_form ).show();
 		$(document).foundation('equalizer', 'reflow');
 	});
-
+	
+	$(document).foundation('reflow');
 }
 
 
@@ -169,7 +170,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				
 				if (attribute.description_short) {
 					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
-				}
+				}			
 				
 				attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
 				

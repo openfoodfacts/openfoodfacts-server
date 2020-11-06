@@ -118,6 +118,7 @@ function rank_products(products, product_preferences) {
 	});
 	
 	var product_groups = {
+		"all" : [],
 		"yes" : [],
 		"unknown" : [],
 		"no" : [],
@@ -126,6 +127,7 @@ function rank_products(products, product_preferences) {
 	$.each( products, function(key, product) {
 
 		product_groups[product.match_status].push(product);
+		product_groups["all"].push(product);
 	});
 	
 	return product_groups;
@@ -143,45 +145,50 @@ function display_products(target, product_groups ) {
 		
 		$.each( product_group, function(key, product) {
 		
-			var product_html = "<li>";
+			var product_html = "";
 			
-			product_html += '<a href="' + product.url + '"><div>';
+			var color = '#eee';
+			if (product.match_status == "yes") {
+				color = '#cfc';
+			}
+			else if (product.match_status == "no") {
+				color = '#fcc';
+			}
+						
+			product_html += '<li><a href="' + product.url + '" style="background-color:' + color + ';border-radius:12px;padding:1rem;display:block;">';
+			product_html += '<div style="height:100px;line-height:100x;text-align:center;">';
 			
 			if (product.image_front_thumb_url) {
-				product_html += '<img src="' + product.image_front_thumb_url + '">';
+				product_html += '<img src="' + product.image_front_thumb_url + '" style="display:block:margin-left:auto;margin-right:auto;height:auto;display:inline-block;vertical-align:middle;">';
 			}
 			
 			product_html += "</div>";
 			
-			product_html += "<span>" + product.product_name + "</span>";
-			
-			product_html += '</a>';
-			
+			product_html += '<div style="height:80px;overflow:hidden;">' + product.product_name + "</div>";
+									
 			$.each(product.match_icons.mandatory.concat(product.match_icons.very_important, product.match_icons.important), function (key, icon_url) {
 				
-				product_html += '<img src="' + icon_url + '" class="match_icons">';
+				product_html += '<img src="' + icon_url + '" style="height:24px;margin-right:0.2rem;margin-top:0.2rem;">';
 			});
 			
-			product_html += '<span title="' + product.match_debug + '">' + Math.round(product.match_score) + '</span>';
-			
-			product_html += "</li>";
+			product_html += "</a></li>";
 				
 			products_html.push(product_html);		
 		});
 		
 		var active = "";
-		if (product_group_id == "yes") {
+		if (product_group_id == "all") {
 			active = " active";
 		}
 		
 		$("#products_tabs_titles").append(
-			'<li class="tabs tab-title' + active + '"><a href="#products_' + product_group_id + '">'
+			'<li class="tabs tab-title' + active + '" style="border:none"><a href="#products_' + product_group_id + '">'
 			+ product_group_id + " : " + product_group.length + " products" + "</a></li>"
 		);
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="products search_results" id="products_match_' + product_group_id + '">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-2 large-block-grid-4 xlarge-block-grid-6 xxlarge-block-grid-8" id="products_match_' + product_group_id + ' style="list-style:none">'
 			+ products_html.join( "" )
 			+ '</ul>'
 		);
@@ -238,6 +245,10 @@ function display_product_summary(target, product) {
 		if (attribute.description_short) {
 			attributes_html += '<span>' + attribute.description_short + '</span>';
 		}
+		
+		if (attribute.missing) {
+			attributes_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
+		}		
 
 		attributes_html += '</div></li>';
 	});
