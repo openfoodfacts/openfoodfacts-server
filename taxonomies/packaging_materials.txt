@@ -77,7 +77,7 @@ recycling_code:en:1
 en:rPET - Recycled Polyethylene terephthalate, Recycled PET, Recycled Polyethylene terephthalate
 xx:rPET
 de:Wiederverwertetes PET, rPET
-fr:rPET - Polytéréphtalate d'éthylène recyclé, Polytéréphtalate d'éthylène recyclé
+fr:rPET - Polytéréphtalate d'éthylène recyclé, Polytéréphtalate d'éthylène recyclé, PET recyclé
 hu:Újrahasznosított PET
 it:PET riciclato, Polietilene tereftalato riciclato
 nl:Hergebruikt PET
@@ -120,8 +120,8 @@ fr:PEHD biosourcé
 
 <en:Plastic
 en:PVC - Polyvinyl chloride, Polyvinyl chloride
-xx:PVC, 3 PVC, PVC 3, ♵
-de:Polyvinylchlorid, PVC, 3 PVC, 3-PVC, ♵
+xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7, ♵
+de:Polyvinylchlorid
 fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
 hu:Polivinil-klorid, polivinilklorid, polivinil klorid
 it:Cloruro di polivinile, polivinilcloruro
@@ -132,7 +132,7 @@ wikidata:en:Q146368
 
 <en:Plastic
 en:LDPE - Low-density polyethylene, Low-density polyethylene
-xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, ♶
+xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
 de:Polyethylen niedriger Dichte
 fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
 hu:Kis sűrűségű polietilén
@@ -166,11 +166,12 @@ ru:Полистирол
 wikidata:en:Q146243
 
 <en:Plastic
-en:Other plastics, All other plastics, 7 O, O 7, OTHER 7, 7 OTHER, ♹
-de:Andere Kunststoffe, other, 7 other, 7-other, 7-o, ♹
+en:Other plastics, All other plastics, other plastic
+xx:7 O, O 7, OTHER 7, 7 OTHER, ♹
+de:Andere Kunststoffe
 fr:Autres plastiques, autre plastique
-hu:Minden más műanyag, 7 O, O 7, OTHER 7, 7 OTHER, ♹
-it:Altre plastiche, ♹
+hu:Minden más műanyag
+it:Altre plastiche
 nl:Andere plastics
 nl_be:Andere plastics
 ru:Другие пластики, Другие пластмассы
@@ -184,6 +185,7 @@ nl:Acrylonitril-butadieen-styreen, ABS
 nl_be:Acrylonitril-butadieen-styreen, ABS
 
 <en:Plastic
+<en:Other plastics
 en:PLA - Polylactic acid, Polylactic acid
 xx:PLA
 fr:PLA - Acide polylactique, Acide polylactique

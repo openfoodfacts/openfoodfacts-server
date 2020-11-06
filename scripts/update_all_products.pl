@@ -71,6 +71,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Packaging qw(:all);
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -219,6 +220,7 @@ if (
 
 if ($compute_ecoscore) {
 
+	init_packaging_taxonomies_regexps();
 	load_agribalyse_data();
 	load_ecoscore_data();
 }
