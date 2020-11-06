@@ -53,7 +53,23 @@
 	
 	<h4>Emballage</h4>
 	
-	<p><strong>Bonus / malus : [% adjustments.packaging.value %]</strong></p>
+	[% IF adjustments.packaging.packagings %]
+		<p><strong>Composants :</strong></p>
+		<ul>
+			[% FOREACH packaging IN adjustments.packaging.packagings %]
+				<li>
+					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+					(ratio : [% packaging.ecoscore_shape_ratio %])
+					-
+					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
+					(score : [% packaging.ecoscore_material_score %])
+				</li>
+			[% END %]
+		</ul>
+		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
+	[% END %]	
+	
+	<p><strong>Malus : [% adjustments.packaging.value %]</strong></p>
 	
 	<h3>Score final</h3>
 

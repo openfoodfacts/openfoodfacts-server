@@ -349,7 +349,7 @@ sub load_ecoscore_data_packaging() {
 			die("$errors unrecognized shapes in CSV $csv_file");
 		}
 		
-	# Extra assignments
+		# Extra assignments
 		
 		$ecoscore_data{packaging_shapes}{"en:can"} = $ecoscore_data{packaging_shapes}{"en:drink-can"};
 		$properties{"packaging_shapes"}{"en:can"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:can"}{ratio};		
