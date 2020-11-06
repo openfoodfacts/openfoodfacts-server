@@ -1,0 +1,85 @@
+{
+   "categories_tags" : [
+      "en:sodas"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:unknown",
+                  100
+               ]
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 91.25,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:cardboard",
+                  "shape" : "en:box"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0.1,
+                  "material" : "en:plastic",
+                  "shape" : "en:film"
+               },
+               {
+                  "ecoscore_counted" : 1,
+                  "ecoscore_material_score" : 75.5,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:steel",
+                  "shape" : "en:drink-can"
+               }
+            ],
+            "score" : 56.75,
+            "value" : -4.325
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_ef_total" : 0.043941445,
+         "agribalyse_food_name_en" : "Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)",
+         "agribalyse_food_name_fr" : "Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants",
+         "agribalyse_proxy_food_code" : "18340",
+         "score" : 97.8336969127427
+      },
+      "grade" : "a",
+      "score" : 88.5086969127426,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "a",
+   "ecoscore_score" : 88.5086969127426,
+   "ecoscore_tags" : [
+      "a"
+   ],
+   "lc" : "en",
+   "packaging_text" : "1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans",
+   "packagings" : [
+      {
+         "material" : "en:cardboard",
+         "shape" : "en:box"
+      },
+      {
+         "material" : "en:plastic",
+         "shape" : "en:film"
+      },
+      {
+         "material" : "en:steel",
+         "shape" : "en:drink-can"
+      }
+   ]
+}

@@ -200,18 +200,6 @@
     [% END %]
 [% END %]
 
-<!-- packaging -->
-<h2>[% lang('packaging') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <div><span class="field">[% lang("packaging_text") %]:</span>
-            <div id="packaging_text">[% packaging_text %]</div>
-        </div>
-    </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
-</div>
-
 <!-- ecoscore -->
 [% IF ecoscore_grade %]
 	<h2>[% lang('environmental_impact') %]</h2>
@@ -230,6 +218,18 @@
 
 	[% ecoscore_calculation_details %]
 [% END %]
+
+<!-- packaging -->
+<h2>[% lang('packaging') %]</h2>
+<div class="row">
+    <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
+    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        <div><span class="field">[% lang("packaging_text") %]:</span>
+            <div id="packaging_text">[% packaging_text %]</div>
+        </div>
+    </div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
+</div>
 
 <!-- other fields -->
 [% IF other_fields != "" %]

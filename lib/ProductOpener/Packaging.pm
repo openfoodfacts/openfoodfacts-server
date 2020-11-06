@@ -189,7 +189,7 @@ sub parse_packaging_from_text_phrase($$) {
 		}
 	}
 	
-	$log->debug("parse_packaging_from_text_phrase - result", { text => $text, packaging_ref => $packaging_ref }) if $log->is_debug();
+	$log->debug("parse_packaging_from_text_phrase - result", { text => $text, text_language => $text_language, packaging_ref => $packaging_ref }) if $log->is_debug();
 	
 	return $packaging_ref;
 }
@@ -305,3 +305,4 @@ sub analyze_and_combine_packaging_data($) {
 }
 
 1;
+

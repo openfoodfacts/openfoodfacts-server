@@ -74,6 +74,7 @@ use ProductOpener::Version qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -111,6 +112,7 @@ print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
 init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
+init_packaging_taxonomies_regexps();
 load_agribalyse_data();
 load_ecoscore_data();
 

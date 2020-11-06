@@ -31,6 +31,7 @@ async function main() {
     'amino_acids',
     'categories',
     'countries',
+    'data_quality',
     'ingredients',
     'ingredients_analysis',
     'ingredients_processing',
@@ -39,7 +40,12 @@ async function main() {
     'minerals',
     'nova_groups',
     'nucleotides',
+    'origins',
     'other_nutritional_substances',
+    'packaging_materials',
+    'packaging_recycling',
+    'packaging_shapes',
+    'states',
     'test',
     'vitamins'
   ];

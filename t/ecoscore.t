@@ -15,9 +15,12 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
 
 load_agribalyse_data();
 load_ecoscore_data();
+
+init_packaging_taxonomies_regexps();
 
 # Taxonomy tags used by EcoScore.pm that should not be renamed
 # (or that should be renamed in the code and tests as well).
@@ -216,7 +219,56 @@ my @tests = (
 			categories_tags=>["en:cheeses"],
 			ingredients_text=>"Milk (origin: Milky way)",
 		}
+	],
+	
+	# Packaging adjustment
+	
+	[
+		'packaging-en-pet-bottle',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"PET bottle"
+		}
+	],
+	
+	# plastic should be mapped to the en:other-plastics value
+	
+	[
+		'packaging-en-plastic-bottle',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"Plastic bottle"
+		}
+	],
+	
+	[
+		'packaging-en-multiple',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
+		}
+	],
+	
+	[
+		'packaging-en-unspecified-material-bottle',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"bottle"
+		}
 	],		
+
+	[
+		'packaging-en-unspecified-material-can',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			packaging_text=>"can"
+		}
+	],
 );
 
 

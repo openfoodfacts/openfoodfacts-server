@@ -7941,7 +7941,10 @@ HTML
 	# Environmental impact and Eco-Score
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
 	
-	if (($cc eq "fr") and ($User{moderator})) {
+	if (
+		# for alpha test to moderators, display eco-score for all countries
+		# ($cc eq "fr") and
+		($User{moderator})) {
 		
 		if (not defined $product_ref->{ecoscore_data}) {
 			compute_ecoscore($product_ref);

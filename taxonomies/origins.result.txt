@@ -1720,6 +1720,22 @@ languages:en:
 en:Asia
 fr:Asie
 
+en:Atlantic Ocean, Atlantic
+fr:Océan Atlantique, Atlantique
+it:Oceano Atlantico, Atlantico
+
+< en:Atlantic Ocean
+en:Central-East Atlantic Ocean
+fr:Océan Atlantique Centre-Est, FAO 34, FAO N°34
+
+< en:Atlantic Ocean
+en:North-East Atlantic Ocean
+fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
+
+< en:Atlantic Ocean
+en:Northwest Atlantic Ocean
+fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
+
 en:Australia, Commonwealth of Australia, AU, AUS
 ab:Австралиа
 af:Australië
@@ -2531,6 +2547,9 @@ zh:巴巴多斯
 country_code_2:en: BB
 country_code_3:en: BRB
 languages:en: en
+
+en:Barents sea
+fr:Mer de Barents
 
 en:Belarus, White Russia, White Ruthenia, Republic of Belarus, BY, BLR
 af:Wit-Rusland
@@ -5194,7 +5213,7 @@ country_code_2:en: CV
 country_code_3:en: CPV
 languages:en: pt
 
-en:Caribbean Netherlands, BES islands, BQ, BES
+en:Caribbean Netherlands, BES islands, BQ, BES, Netherlands Antilles
 af:Karibies Nederland, BES-Eilande
 ar:الجزر الكاريبية الهولندية
 bs:Karipska Holandija
@@ -5205,7 +5224,7 @@ eo:Kariba Nederlando
 es:Caribe Neerlandés, Karibe Neerlandès, Caribisch Nederland, Islas BES
 eu:Karibeko Herbehereak, BES uharteak
 fa:جزایر کارائیب هلند, جزاير كارائيب هلند, کارائیب هلند, هلند کارائیب
-fr:Pays-Bas caribéens, Bonaire Saint-Eustache et Saba, Îles BES
+fr:Pays-Bas caribéens, Bonaire Saint-Eustache et Saba, Îles BES, Antilles Néerlandaises
 fy:Karibysk Nederlân, BES-eilannen
 id:Kepulauan BES
 it:Isole BES, Caraibi Olandesi, Municipalità olandesi d'oltremare
@@ -7236,7 +7255,7 @@ country_code_2:en: CZ
 country_code_3:en: CZE
 languages:en: cs
 
-en:Democratic Republic of the Congo, DRC, DR Congo, Congo-Kinshasa, Zaire, Congo, Democratic Republic of Congo, CD, COD
+en:Democratic Republic of the Congo, DRC, DR Congo, Congo-Kinshasa, Zaire, Congo, Democratic Republic of Congo, CD, COD, Congo DR, Congo DRC
 af:Demokratiese Republiek van die Kongo
 am:ኮንጎ ዲሞክራሲያዊ ሪፐብሊክ
 an:Republica Democratica d'o Congo
@@ -9952,7 +9971,7 @@ country_code_2:en: PF
 country_code_3:en: PYF
 languages:en: fr
 
-en:French Southern and Antarctic Lands, TF, ATF
+en:French Southern and Antarctic Lands, TF, ATF, French Southern Territories
 af:Franse Suidelike en Antarktiese Gebiede, Terres australes et antarctiques françaises, Franse Suidelike gebiede
 an:Territorios Australs Franceses, Territorios Australs Franzeses
 ar:أراضٍ فرنسية جنوبية وأنتارتيكية, أراضي فرنسية جنوبية وانتارتيكية, أراضي فرنسية جنوبية وأنتارتيكية
@@ -12830,6 +12849,17 @@ zu:INdiya
 country_code_2:en: IN
 country_code_3:en: IND
 languages:en: en,hi
+
+en:Indian Ocean
+fr:Océan Indien
+
+< en:Indian Ocean
+en:Eastern Indian Ocean
+fr:Océan Indien Est
+
+< en:Indian Ocean
+en:Western Indian Ocean
+fr:Océan Indien Ouest
 
 en:Indonesia, Republic of Indonesia, NKRI, Negara Kesatuan Republik Indonesia, Republik Indonesia, ID, IDN
 af:Indonesië
@@ -20321,6 +20351,9 @@ country_code_2:en: MK
 country_code_3:en: MKD
 languages:en: mk
 
+en:North Sea
+fr:Mer du Nord
+
 en:Northern Mariana Islands, MP, MNP
 af:Noordelike Mariana-eilande
 ar:جزر ماريانا الشمالية
@@ -20554,6 +20587,9 @@ country_code_2:en: NO
 country_code_3:en: NOR
 languages:en: nb
 
+en:Norwegian Sea
+fr:Mer de Norvège
+
 en:Oman, OM, OMN
 af:Oman
 am:ኦማን
@@ -20675,6 +20711,34 @@ zh:阿曼
 country_code_2:en: OM
 country_code_3:en: OMN
 languages:en: ar
+
+en:Pacific Ocean
+fr:Océan Pacifique, Pacifique
+it:Oceano Pacifico
+
+< en:Pacific Ocean
+en:North Pacific Ocean
+fr:Océan Pacifique Nord
+
+< en:Pacific Ocean
+en:Northeast Pacific Ocean
+fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
+
+< en:Pacific Ocean
+en:Northwest Pacific Ocean
+fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
+
+< en:Pacific Ocean
+en:Southeast Pacific Ocean
+fr:Océan Pacifique Sud-Est
+
+< en:Pacific Ocean
+en:Southwest Pacific Ocean
+fr:Océan Pacifique Sud-Ouest, FAO 87, FAO N°87
+
+< en:Pacific Ocean
+en:West Central Pacific Ocean
+fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
 
 en:Pakistan, PK, PAK
 af:Pakistan
@@ -22179,7 +22243,7 @@ country_code_2:en: QA
 country_code_3:en: QAT
 languages:en: ar
 
-en:Republic of the Congo, Congo-Brazzaville, CG, COG
+en:Republic of the Congo, Congo-Brazzaville, CG, COG, Congo Republic
 af:Republiek van die Kongo
 am:ኮንጎ ሪፐብሊክ
 an:Republica d'o Congo
@@ -26197,6 +26261,10 @@ zh:巴勒斯坦国, 巴勒斯坦國, 巴勒斯坦
 country_code_2:en: PS
 country_code_3:en: PSE
 languages:en: ar
+
+< en:State of Palestine
+en:Gaza Strip
+fr:Bande de Gaza
 
 en:Sudan, suca, SD, SDN
 af:Soedan

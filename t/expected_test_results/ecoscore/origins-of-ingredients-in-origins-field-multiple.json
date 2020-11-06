@@ -29,6 +29,11 @@
             "transportation_value" : 12.0718912956394,
             "value" : 12.9361614917843
          },
+         "packaging" : {
+            "packagings" : [],
+            "score" : 100,
+            "value" : 0
+         },
          "production_system" : {},
          "threatened_species" : {}
       },
@@ -126,5 +131,6 @@
       "en:dordogne",
       "en:belgium"
    ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

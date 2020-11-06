@@ -1,55 +1,57 @@
 # Containers
 
-en:Tray
+# Use singular as the main name, and add plural as synonym
+
+en:Tray, trays
 de:Körbchen
-fr:Barquette
+fr:Barquette, barquettes
 hu:Tálca
 
-en:Jar
+en:Jar, jars
 de:Krug
 el:Βάζο
-fr:Bocal
+fr:Bocal, bocaux
 hu:Befőttes üveg
 it:Vasetto, Barattolo
 nl:Pot
 
-en:Box
+en:Box, boxes
 de:Kasten
 el:Κουτί
 nl:Boos
-fr:Boîte
+fr:Boîte, boîtes
 hu:Doboz
 it:Scatola
 pt:Caixa
 
-en:Bottle
+en:Bottle, bottles
 de:Flasche
 el:Μπουκάλι
-fr:Bouteille
+fr:Bouteille, bouteilles
 hu:Palack
 it:Bottiglia
 nl:Fles
 pt:Garaffa
 wikidata:en:Q80228
 
-en:Brick, brick carton, brick shaped carton
-fr:Brique
+en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
+fr:Brique, briques
 
 # Can (drink or food)
-en:Can
+en:Can, cans
 de:Dose
 es:Lata
-fr:Boîte de conserve ou canette
+fr:Boîte de conserve ou canette, boîtes de conserve ou canettes
 it:Lattina, Latta
 nl:Blik
 pt:Lata
 
 # Can for drink, not canned food
 <en:can
-en:Drink can, beverage can
+en:Drink can, beverage can, drink cans, beverage cans
 de:Getränkedose
 es:Lata de bebida
-fr:Canette, cannette
+fr:Canette, cannette, canettes, cannettes
 it:Lattina per bevande
 nl:Blikje
 pt:Lata de bebida
@@ -59,112 +61,114 @@ pt:Lata de bebida
 en:Food can, tin, tin can
 de:Konservendose
 es:Lata de comida
-fr:Boîte de conserve, conserve
+fr:Boîte de conserve, conserve, boîtes de conserves, conserves
 nl:Conservenblik
 it:Lattina di cibo
 pt:Lata de comida
 
-en:pot, cup
-fr:Pot
+en:pot, cup, pots, cups
+fr:Pot, pots
 de:Kanne
 
 <en:pot
-en:individual pot, individual cup
+en:individual pot, individual cup, individual pots, individual cups
 fr:pot individuel, pots individuels
 
-en:Tube
-fr:Tube
+en:Tube, tubes
+fr:Tube, tubes
 hu:Cső
 
-en:Bag
+en:Bag, bags
 de:Tüte, Sack
 el:Σακούλα
-fr:Sachet, sac
+fr:Sachet, sac, sachets, sacs
 hu:Zacskó
 it:Sacco
 nl:Zak
 pt:Saco
 
 <en:Bag
-en:Individual bag
+en:Individual bag, individual bags
 fr:Sachet individuel, Sachets individuels
 
-en:Flask
+en:Flask, flasks
 fr:Gourde, gourde individuelle, gourdes individuelles
 hu:Kulacs
 it:Borraccia
 
-en:Sleeve
-fr:Etui
+en:Sleeve, sleeves
+fr:Etui, étuis
 
-en:Lid, cover
+en:Lid, cover, lids, covers
 de:Deckel
 el:Καπάκι
-fr:Couvercle
+fr:Couvercle, couvercles
 hu:Fedél
 nl:Deksel
 pt:Tampa
 
-en:Bottle cap, bottle top, cap, top, Wine cork, wine bottle cork, cork
-fr:Bouchon de bouteille, bouchon, capsule, bouchon de bouteille de vin
+en:Bottle cap, bottle top, cap, top, Wine cork, wine bottle cork, cork, bottle caps, bottle tops, caps, tops, wine corks, wine bottle corks, corks
+fr:Bouchon de bouteille, bouchon, capsule, bouchon de bouteille de vin, bouchons de bouteille, bouchons de bouteilles, bouchons, capsules
 
-en:Eating utensils, utensils
-fr:Couverts
+# keep the plural as the main name
+en:Eating utensils, utensils, eating utensil, utensil
+fr:Couverts, couvert
 
+# keep the plural
 <en:Eating utensils
 en:Chopsticks
 fr:Baguettes
 
 <en:Eating utensils
-en:Knife
-fr:Couteau
+en:Knife, knives
+fr:Couteau, couteaux
 
 <en:Eating utensils
-en:Fork
-fr:Fourchette
+en:Fork, forks
+fr:Fourchette, fourchettes
 
 <en:Eating utensils
-en:Spoon
-fr:Cuillère, cuiller
+en:Spoon, spoons
+fr:Cuillère, cuiller, cuillères, cuillers
 
-en:sheet
-fr:feuille
+en:sheet, sheets
+fr:feuille, feuilles
 
-en:Net
+en:Net, nets
 de:Netz
-fr:Filet
+fr:Filet, filets
 hu:Háló
 
-en:Film, wrap
+en:Film, wrap, films, wraps, film wrap, film wraps
 de:Folie
 el:Μεμβράνη
-fr:Film, pellicule
+fr:Film, pellicule, films, pellicules
 hu:Film
 it:Film, Pellicola
 nl:Film
 
-en:Overpack
-fr:Suremballage, sur-emballage
+en:Overpack, overpacks
+fr:Suremballage, sur-emballage, suremballages, sur-emballages
 
-en:Grouping package
-fr:Emballage de regroupement
+en:Grouping package, grouping packages
+fr:Emballage de regroupement, emballages de regroupement
 
-en:Seal, operculum
+en:Seal, operculum, seals
 de:Deckel
-fr:Opercule
+fr:Opercule, opercules
 
 en:bulk, without packaging
 fr:vrac, sans emballage
 
-en:Bowl
+en:Bowl, bows
 de:Schüssel
 el:Μπολ
-fr:Bol
+fr:Bol, bols
 hu:Tál
 pt:Tigela
 
-en:Plate
-fr:Assiette
+en:Plate, plates
+fr:Assiette, assiettes
 
-en:Stick
-fr:Batonnet
+en:Stick, sticks
+fr:Batonnet, bâtonnets
