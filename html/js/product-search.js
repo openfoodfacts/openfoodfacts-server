@@ -127,7 +127,7 @@ function rank_products(products, product_preferences) {
 	$.each( products, function(key, product) {
 
 		product_groups[product.match_status].push(product);
-		product_groups["all"].push(product);
+		product_groups.all.push(product);
 	});
 	
 	return product_groups;
