@@ -38181,8 +38181,8 @@ en:Coconut butters, coconut purees, Coconut butter, coconut puree
 fr:Purées de noix de coco, Purée de noix de coco, Beurres de noix de coco, Beurre de noix de coco, Purées de coco, Purée de coco, Beurres de coco, Beurre de coco
 nl:Kokosboter' kokosboters
 
+#do not put in nut butters, peanut is not a nut
 <en:Legume butters
-<en:Nut butters
 en:Peanut butters, peanut paste
 ca:Mantega de cacauet
 de:Erdnussbutter
@@ -74328,6 +74328,16 @@ es:Germinados de cebolla frescos, Brotes de cebolla frescos
 fr:Pousses d'oignons frais
 nl:Verse uikiemen
 
+<en:Fresh vegetables sprouts
+en:Fresh leek sprouts
+es:Germinados de puerros frescos
+fr:Pousses de poireaux fraîches
+
+<en:Fresh vegetables sprouts
+en:Fresh cabbage sprouts
+fr:Germes de choux fraîches
+es:Germinados de col frescos
+
 <en:Vegetables based foods
 <en:Dried plant-based foods
 en:Dried vegetables
@@ -74623,7 +74633,7 @@ ciqual_food_name:fr:Luzerne, graine
 
 <en:Alfalfa seeds
 en:sprouted alfalfa seeds
-fr:Graines de Luzerne germées, Graines de luzerne cultivée
+fr:Graines de luzerne germées, Graines de luzerne cultivée
 agribalyse_food_code:en:15029
 ciqual_food_code:en:15029
 ciqual_food_name:en:Alfalfa seeds, sprouted, raw
@@ -75525,7 +75535,7 @@ nl:Peulvruchtenkiemen
 <en:Alfalfa sprouts
 en:Fresh alfalfa sprouts
 es:Germinados de alfalfa frescos, Brotes de alfalfa frescos
-fr:Pousses d'alfalfa fraîches, Pousses de luzerne cultivée fraîches
+fr:Pousses de luzerne fraîches, pousses d'alfalfa fraîches, Pousses de luzerne cultivée fraîches
 nl:Alfalfakiemen
 
 <en:Fresh legume sprouts
