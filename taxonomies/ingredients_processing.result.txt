@@ -30,10 +30,6 @@ de:frischgemahlen, frishgemahlene
 de:gegart, gegarte, gegarter, gegartes
 nl:gegaard, gegaarde
 
-de:gepökelt, gepökeltes
-fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
-nl:gepekeld
-
 de:geschwefelt, geschwefelte
 
 de:geschält, geschälte, geschälter
@@ -92,6 +88,11 @@ en:bleached
 en:boned
 es:deshuesado
 
+en:brined
+de:gepökelt, gepökeltes
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+nl:gepekeld
+
 en:bromated
 es:bromado
 
@@ -143,16 +144,18 @@ en:cold smoked with cabernet wine
 en:concentrated, concentrate, concentrates
 ca:concentrat
 da:koncentreret
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
+hu:sűrítmény
 nl:concentraten, concentraat
 sv:koncentrerad
 
 < en:Concentrated
 en:double concentrated
 es:doble concentrado, doble concentrada
+it:doppio concentrato, doppio concentrato di
 
 en:cooked
 de:gekocht
@@ -305,9 +308,14 @@ it:fritto, fritta, fritti, fritte
 sv:friterad, stekt
 
 en:from-concentrate
+da:fra koncentrat, fra koncentrater
+de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+hu:sűrítményből
+it:da concentrato
+nl:uit concentraat
 pt:a partir de concentrado
 sv:från koncentrat
 
@@ -436,12 +444,15 @@ es:prensado mecánicamente, prensada mecánicamente
 
 en:mechanically separated
 es:separada mecánicamente
+fr:séparée mécaniquement
 sv:maskinurbenat
 
 en:melted
 es:fundido
 
 en:mesquite smoked
+
+en:minced
 
 en:natural beech smoked
 
@@ -458,7 +469,7 @@ fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées natu
 en:nibbed
 
 en:nixtamalized
-es:nixtamalizado
+es:nixtamalizado, nixtamalizada
 wikipedia:en: https://en.wikipedia.org/wiki/Nixtamalization
 
 en:not smoked, unsmoked
@@ -526,6 +537,7 @@ sv:bitar, i bitar
 en:pitted
 de:entsteint, entsteinte, entkernt
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+it:denocciolate
 nl:ontpit, ontpitte
 sv:urkärnad
 
@@ -542,6 +554,7 @@ nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó
+ro:praf, praf de, pudră, pudră de
 sk:v prahu
 sv:pulver
 
@@ -590,6 +603,7 @@ de:püree, puree, püree aus
 es:puré, puré de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
+it:purea di
 nb:puré
 sk:pyré
 sv:puré
@@ -609,6 +623,7 @@ en:rehydrated
 de:rehydriert, rehydrierte, rehydriertes
 es:rehidritado, rehidritada, rehidritados, rehidritadas
 fr:réhydraté, réhydratée, réhydratés, réhydratées
+it:reidratato
 sv:rehydrerat, rehydrerad
 
 en:roasted
