@@ -475,3 +475,54 @@ html[dir="rtl"] {
 
 .additives_efsa_evaluation_overexposure_risk_high { color:red }
 .additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
+
+
+// List of products with cards (e.g. search results, facets)
+
+.list_product_a {
+  border-radius:12px;
+  padding:10px;
+  display:block;
+}
+
+// Horizontally and vertically center images
+.list_product_img_div {
+  height:100px;
+  text-align:center;
+  line-height:100px;
+}
+
+.list_product_img {
+  height:auto;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.list_product_name {
+  margin-top:0.2rem;
+  line-height:20px;
+}
+
+.list_product_icons {
+  height:24px;
+  margin-right:0.2rem;
+  margin-top:0.2rem;
+}
+
+
+// For small screen, cards take the full width, move the image to the left
+@media #{$small-only} { 
+  .list_product_img_div { width:100px;float:left;margin-right:1em; }
+  .list_product_a { min-height:120px; }
+  .list_product_icons { height:36px; }
+}
+
+// For medium screen, force the height of the product name so that icons
+// below are vertically aligned with other cards on the same line
+@media #{$medium-up} {
+  .list_product_name {
+    height:80px;
+    overflow:hidden;
+  }
+}
+

@@ -155,20 +155,20 @@ function display_products(target, product_groups ) {
 				color = '#fcc';
 			}
 						
-			product_html += '<li><a href="' + product.url + '" style="background-color:' + color + ';border-radius:12px;padding:1rem;display:block;">';
-			product_html += '<div style="height:100px;line-height:100x;text-align:center;">';
+			product_html += '<li><a href="' + product.url + '" class="list_product_a" style="background-color:' + color + ';">';
+			product_html += '<div class="list_product_img_div">';
 			
 			if (product.image_front_thumb_url) {
-				product_html += '<img src="' + product.image_front_thumb_url + '" style="display:block:margin-left:auto;margin-right:auto;height:auto;display:inline-block;vertical-align:middle;">';
+				product_html += '<img src="' + product.image_front_thumb_url + '" class="list_product_img">';
 			}
 			
 			product_html += "</div>";
 			
-			product_html += '<div style="height:80px;overflow:hidden;">' + product.product_name + "</div>";
+			product_html += '<div class="list_product_name">' + product.product_name + "</div>";
 									
 			$.each(product.match_icons.mandatory.concat(product.match_icons.very_important, product.match_icons.important), function (key, icon_url) {
 				
-				product_html += '<img src="' + icon_url + '" style="height:24px;margin-right:0.2rem;margin-top:0.2rem;">';
+				product_html += '<img class="list_product_icons" src="' + icon_url + '">';
 			});
 			
 			product_html += "</a></li>";
@@ -188,7 +188,7 @@ function display_products(target, product_groups ) {
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="search_results small-block-grid-1 medium-block-grid-2 large-block-grid-4 xlarge-block-grid-6 xxlarge-block-grid-8" id="products_match_' + product_group_id + ' style="list-style:none">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + ' style="list-style:none">'
 			+ products_html.join( "" )
 			+ '</ul>'
 		);
