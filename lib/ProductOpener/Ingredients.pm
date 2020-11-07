@@ -2993,6 +2993,7 @@ it => [
 'MODALITA D\'USO',
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
+'Una volta aperto', # once opened...
 ],
 
 ja => [
