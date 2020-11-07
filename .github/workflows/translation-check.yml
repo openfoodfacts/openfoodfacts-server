@@ -1,5 +1,7 @@
 name: Validate translation files
-on: [push, pull_request]
+on:
+  push:
+    branches: [l10n_master]
 jobs:
   validate:
     runs-on: ubuntu-latest
