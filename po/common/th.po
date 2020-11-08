@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 10:51\n"
+"PO-Revision-Date: 2020-11-08 15:59\n"
 "Language-Team: Thai\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -48,7 +48,7 @@ msgstr "สมัครสมาชิก"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "สมัครสมาชิก"
+msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -204,11 +204,11 @@ msgstr "ภารกิจทั้งหมด"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "สารหรือผลิตภัณฑ์ที่ก่อให้เกิดอาการแพ้หรือแพ้"
+msgstr ""
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "สารก่อภูมิแพ้"
+msgstr ""
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -229,7 +229,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -238,12 +238,12 @@ msgstr "/images/misc/google-play-badge-svg-master/img/th_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr "ดาวน์โหลดที่ Google Play"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=th"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -273,7 +273,7 @@ msgstr "แกนตั้ง"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "บาร์โค้ด"
+msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -293,7 +293,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "ยี่ห้อสินค้า"
+msgstr ""
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -309,7 +309,7 @@ msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "ยี่ห้อสินค้า"
+msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -333,7 +333,7 @@ msgstr "โดย"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "หมวดหมู่"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -353,7 +353,7 @@ msgstr "ผลิตภัณฑ์จากหมวด %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "ประเภท"
+msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -365,7 +365,7 @@ msgstr "ผลิตภัณฑ์จากหมวด %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "ข้อมูล"
+msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -441,7 +441,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "ประเทศที่ขาย"
+msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -541,7 +541,7 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "แก้ไขสินค้า"
+msgstr ""
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -670,7 +670,7 @@ msgstr ""
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "รหัสผ่านของคุณ จะต้องมีความยาวอย่างน้อย 6 ตัวอักษร"
+msgstr ""
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -826,7 +826,7 @@ msgstr "กฎหมายระบุว่า"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -843,7 +843,7 @@ msgstr "การทำงานร่วมกันของฐานข้อ
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "ข้อกำหนดการใช้งาน"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -887,7 +887,7 @@ msgstr "สินค้า"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "ชื่อสามัญ"
+msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -911,7 +911,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "สวัสดี"
+msgstr ""
 
 msgctxt "high"
 msgid "high"
@@ -919,7 +919,7 @@ msgstr ""
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr "ปริมาณสูง"
+msgstr ""
 
 msgctxt "history"
 msgid "Changes history"
@@ -1008,11 +1008,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -1052,7 +1052,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -1101,7 +1101,7 @@ msgstr "ดาวน์โหลดที่ Google Play"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/th/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1113,7 +1113,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "ป้ายกำกับการรับรองรางวัล"
+msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1215,7 +1215,7 @@ msgstr "ไม่ได้ลงทะเบียนหรือยัง"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "ลงชื่อเข้าใช้"
+msgstr ""
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1248,7 +1248,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "สถานที่ผลิตหรือแปรรูป"
+msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1288,7 +1288,7 @@ msgstr "เมนู"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "เพิ่มสินค้า"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1297,7 +1297,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "สนับสนุน"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1306,7 +1306,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "ค้นพบ"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1436,7 +1436,7 @@ msgstr ""
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "nutriments"
+msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -1452,11 +1452,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "ข้อมูลโภชนาการ"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "ข้อมูลโภชนาการ"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1528,7 +1528,7 @@ msgstr "ส่วนเบี่ยงเบนมาตรฐาน"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "ข้อมูลโภชนาการ"
+msgstr ""
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1573,7 +1573,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr "แหล่งที่มาของวัตถุดิบ"
+msgstr ""
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1605,7 +1605,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "บรรจุภัณฑ์"
+msgstr ""
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1625,7 +1625,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "บรรจุภัณฑ์"
+msgstr ""
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1649,7 +1649,7 @@ msgstr "หน้า:"
 
 msgctxt "password"
 msgid "Password"
-msgstr "รหัสผ่าน"
+msgstr ""
 
 msgctxt "password_new"
 msgid "New password"
@@ -1721,7 +1721,7 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr "การจัดอันดับ"
+msgstr ""
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -1749,7 +1749,7 @@ msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr "ลักษณะสินค้า"
+msgstr ""
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1873,7 +1873,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr "ชื่อสินค้า"
+msgstr ""
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1905,7 +1905,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "เมืองรัฐและประเทศที่ซื้อ"
+msgstr ""
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1933,7 +1933,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "ปริมาณ"
+msgstr ""
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2009,7 +2009,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr "บันทึก"
+msgstr ""
 
 msgctxt "saved"
 msgid "Saved."
@@ -2021,15 +2021,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr "ค้นหา"
+msgstr ""
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr "ค้นหาสินค้า"
+msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "ค้นหา"
+msgstr ""
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2130,7 +2130,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2166,7 +2166,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "nutriments"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2266,11 +2266,11 @@ msgstr "ดูหน้าสินค้า"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "ประเทศ"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr "ภาษา"
+msgstr ""
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2286,7 +2286,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "ขนาดให้บริการ"
+msgstr ""
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2302,7 +2302,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "ลงชื่อเข้าใช้"
+msgstr ""
 
 msgctxt "share"
 msgid "Share"
@@ -2322,7 +2322,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "ออกจากระบบ"
+msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2354,7 +2354,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr "ชื่อสินค้า"
+msgstr ""
 
 msgctxt "state"
 msgid "State"
@@ -2370,7 +2370,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr "ร้านค้า"
+msgstr ""
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2422,7 +2422,7 @@ msgstr "ค้นหา:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "ร่องรอย"
+msgstr ""
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2553,7 +2553,7 @@ msgstr ""
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/th-th/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -3215,11 +3215,11 @@ msgstr ""
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr "ถูกต้อง"
+msgstr ""
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr "ไม่ใช่"
+msgstr ""
 
 msgctxt "button_caption_skip"
 msgid "Skip"
@@ -3331,11 +3331,11 @@ msgstr ""
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "ข้อมูลโภชนาการ"
+msgstr ""
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3827,7 +3827,7 @@ msgstr ""
 
 msgctxt "close"
 msgid "Close"
-msgstr "ปิด"
+msgstr ""
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -3883,15 +3883,15 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
-msgstr "พลังงาน"
+msgstr ""
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
-msgstr "น้ำตาล"
+msgstr ""
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr "ไขมันอิ่มตัว"
+msgstr ""
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
@@ -3899,7 +3899,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr "โซเดียม"
+msgstr ""
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -3907,11 +3907,11 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "ใยอาหาร"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "โปรตีน"
+msgstr ""
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -4112,26 +4112,6 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
 msgstr ""
 
 msgctxt "scanned_code"
@@ -4431,7 +4411,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
-msgstr "งานออกร้าน"
+msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
@@ -4605,7 +4585,7 @@ msgstr ""
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
-msgstr "สารเติมแต่ง"
+msgstr ""
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
@@ -4682,7 +4662,7 @@ msgstr ""
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
-msgstr "สิ่งแวดล้อม"
+msgstr ""
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
@@ -4847,7 +4827,7 @@ msgstr ""
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
-msgstr "ส่วนผสม"
+msgstr ""
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
