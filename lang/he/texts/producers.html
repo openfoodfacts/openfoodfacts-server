@@ -75,7 +75,7 @@
 
 <h3 id="licence">רישיון</h3>
   
-<p>כל הנתונים שנשלחים אל Open Food Facts מפורסמים תחת רישיון מסדי הנתונים הפתוחים (ODbL), והמתונות תחת רישיון Creative Commons מסוג CC-BY-SA. הרישיונות האלו מאפשרים לשחרר את הנתונים בצורה חופשית לשימוש חוזר לכל מטרה. למידע נוסף, יש לעיין ב<a href="https://fr.openfoodfacts.org/conditions-d-utilisation">תנאי השימוש, התרומה והגזירה.</a></p>
+<p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
   
 <h3 id="quelles_donnees">אילו נתונים</h3>
 
@@ -85,7 +85,7 @@
 
  <h4 id="une_base_dans_toutes_les_langues">מסד נתונים בכל השפות</h4>
   
-<p>מסד הנתונים, האתר והיישומונים לניידים של Open Food Facts הם גם רב־לשוניים וזמינים בכל מדינות העולם. אם יש לך תמונות ונתונים במגוון שפות, אנו יכולים לשלב גם אותם ב־Open Food Facts.</p>
+<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
 
 <h4 id="photos_et_donnees">תמונות ונתונים</h4>
 
@@ -111,7 +111,7 @@
 <li>טבלת ערכים תזונתיים</li>
 </ul>
   
-<p>יש לספק את תצוגת החזית, הרכיבים והטבלה התזונתית לפחות בשפה העיקרית של המוצר. מומלץ לספק תמונות לשפות אחרות כשאלו מופיעות על המוצר.</p>
+<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
 
 <p>למשל, למוצר שמיועד לשוק הבלגי עשויות להיות תמונות שמציגות את המוצר כתוב בצרפתית וכתוב בהולנדית.</p>
 
@@ -151,8 +151,8 @@
 <h4 id="format_des_donnees">מבנה נתונים</h4>
 
 <p>יש לספק את הנתונים בטבלה בתצורת CSV, עם סימוני הטבלה כתווים מפרידים בין שדות ובקידוד UTF-8.</p>
-<p>השורה הראשונה מכילה את שמות השדות וכל אחד מהמוצרים מאכלס את אחת מהשורות הבאות. סדר השדות לא משנה ולא כל העמודות חייבות להיות נוכחות.</p>
-<p>חלק מהשדות הם בגדר חובה וחלק מהם רשות. אנו מעודדים אותך למלא שדות רבים ככל הניתן כדי שהנתונים ישמשו כמה שיותר יישומים. במקרה של ספק או אם יש לך נתונים שלא מתאימים לשדות במד הנתונים של Open Food Facts, ניתן ליצור אתנו קשר כדי שנוסיף שדות ונגיע לתוצאה המיטבית.</p>
+<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
+<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
   <h5 id="champs_obligatoires">שדות נדרשים</h5>
 
@@ -166,7 +166,7 @@
   <li>quantity: כמות, עם סימון היחידה, אפשר גם לציין בסוגריים אם על המוצר מופיעות מספר יחידות (למשל: 120 גרם (4 × 30 גרם))</li>
   <li>categories: קטגוריית המוצר, בשפה העיקרית של המוצר (למשל: עוגות שוקולד)</li>
   <li>countries: המדינה בה נמכר המוצר, בשפה העיקרית של המוצר (אפשרות למגוון ערכים, יש להפריד בפסיקים)</li>
-  <li>ingredients_text_ [קוד שפה עיקרית בשני תווים]: רשימת רכיבים (בשדה ingredients_text_he לרשימה בעברית). ניתן לציין מעוררי רגישות באותיות לטיניות גדולות או ביניהם </li>
+  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
   <li>allergens: מעוררי רגישות (אלרגנים), בשפה העיקרית של המוצר</li>
   <li>traces: עקבות של מעוררי רגישות (אלרגנים), בשפה העיקרית של המוצר</li>
 </ul>
@@ -198,7 +198,7 @@
   <h5 id="champs_optionnels">שדות רשות</h5>
 
   <ul>
-    <li>labels: תוויות, בשפה העיקרית של המוצר (אפשר לציין מספר ערכים, יש להפריד בפסיקים) (לדוגמה: שומן בכמות גבוהה, כשר, Vegan Friendly). נא לשים לב: התוויות חייבות להופיע על אריזת המוצר.</li>
+    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
     <li>origins: מקורות הרכיבים, בשפה העיקרית של המוצר (אפשר לציין מספר ערכים, י ש להפריד בפסיקים) (לדוגמה: ישראל, יקנעם)</li>
     <li>packaging: חומרים וצורות של אריזת המוצר, בשפה העיקרית של המוצר (אפשר מספר ערכים, יש להפריד בפסיקים) (לדוגמה: פחית, אלומיניום)</li>
     <li>manufacturing_places: מיקומי ייצור, בשפה העיקרית של המוצר (אפשר מספר ערכים, להפריד בפסיקים: שמות ערים, מדינות)</li>
@@ -208,7 +208,7 @@
     <li>serving_size: כמות למנה, יש לציין יחידה</li>
   </ul>
 
-<p>ניתן לציין את הערכים התזונתיים גם עבור המזון המוכן (עם מים, חלב וכו׳). לשם כך יש להוסיף את הביטוי „‎_prepared” לשם השדה. למשל energy_prepared_100g (אנרגיה של מזון מוכן 100 גרם).</p>
+<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
 <p>אפשר לציין את הערכים לחומרי הזנה נוספים:</p>
 
 <ul>
@@ -318,15 +318,15 @@
 
 <h4 id="envoi_des_photos_et_des_donnees">שליחת תמונות ונתונים</h4>
 <p>אם מספר המוצרים קטן יחסית (פחות מאלף מוצרים) והעדכונים אינם תכופים (כל חצי שנה למשל), אפשר לשלוח לנו את התמונות ואת קובץ ה־CSV בכל דרך שהיא (למשל דוא״ל לקובץ ה־CSV ו־WeTransfer,‏ Google Drive,‏ DropBox וכו׳ לתמונות).</p>
-<p>למספר גדול של מוצרים או לעדכון בתדירות גבוהה יותר, יש לנו אפשרות ליצור נפח עם גישה ב־SFTP בו ניתן לשלוח נתונים ותמונות ידנית או אוטומטית. יש ליצור אתנו קשר כדי שנתכונן להעברה שכזאת.</p>
+<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
 
 <h2 id="questions_frequentes">שאלות ותשובות נפוצות</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">האם הוספת מוצרים לרשימה היא בחינם?</h3>
-<p>ייבוא הנתונים הוא בחינם לחלוטין. איננו מקבלים אף תגמול בגין הוספת נתונים. אנו מאוד מרוצים מכך שבחרת לתרום את נתוני המוצרים שלך לטובת שקיפות מזון ואנו מודים לך על כך.</p>
+<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">האם נתוני היצרן ידרסו את הנתונים שנוספו על ידי מתנדבים?</h3>
-<p>נתוני היצרן נשלטים אוטומטית על ידי Open Food Facts עם אלגוריתמים לבדיקת רציפות ואז על ידי חלק מהמתנדבים. אנו בוטחים לחלוטין בנתונים הנשלחים אלינו אך ברור לנו מניסיון שעלולות להופיע טעויות הקלדה.</p>
+<p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>
 <p>לאחר הבדיקה, הנתונים יחליפו או ישלימו את הנתונים שמולאו על ידי המתנדבים.</p>
 
 <p>במקרה של ייבוא אוטומטי על בסיס קבוע, הנתונים יחליפו את נתוני המתנדבים עם כל ייבוא מחדש למעט אם דווחו שגיאות תבניתיות (שתדווחנה אליך) על מוצר מצד התורם.</p>
@@ -334,10 +334,10 @@
 <h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">אפשר למחוק מוצרים שלא נמכרים עוד?</h3>
 
 <p>כאשר מוצר נעלם מהמדפים, הוא נצרך במהרה ואנו מגלים די מהר שאינו נסרק עוד.</p>
-<p>בשלב הזה אנחנו מעבירים את המוצר לארכיון כדי שיהיה זמין כארכיון למטרות מדעיות בהקשר שמיועד לקבוצות מזון שיכול להחזיק שנים. אכן נחוץ להשיג את הרכבי המוצר בתאריך מסוים, אפילו אם השתנה או נעלם.</p>
+<p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
 <p>אם יש לך מידע היסטורי על המוצרים הישנים שלך או על גרסאות ישנות של המוצרים שלך, אנו מאוד מעוניינים בנתונים היסטוריים, כדי שנוכל לחזור בזמן ולאפשר ניתוחים מדעיים לאורך זמן רב ולאפשר הצגה חזותית של התפתחותם של מגוון מוצרים.</p>
 <p>יצרנים יכולים גם לשלוח לנו את רשימות הברקודים שהוסרו מהמכירה כדי שנוכל לסמן את המוצרים כראוי.</p>
   
 <h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">האם ניתן לשלב מוצרים לחיות מחמד, מוצרים שאינם מזון, מוצרי טיפוח ומוצרים אחרים לתוך Open Food Facts?</h3>
-<p>יצרנו מיזמים ייעודיים למוצרי טיפוח, הזנה של חיות מחמד, לצד מוצרים אחרים (Open Beauty Facts,‏ Open Pet Food Facts ו־Open Products Facts בהתאמה). לכן נשמח לסייע בייבוא המוצרים שלך למיזם המתאים להם.</p>
+<p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
 </div>
