@@ -2431,10 +2431,10 @@ sub normalize_vitamins_enumeration($$) {
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') { $split_vitamins_list = "vitaminer" }
+	elsif ($lc eq 'de' || $lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	elsif ($lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
