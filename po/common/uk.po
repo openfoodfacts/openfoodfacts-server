@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 09:57\n"
+"PO-Revision-Date: 2020-11-08 15:21\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -245,7 +245,7 @@ msgstr "Завантажити з Google Play"
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -4115,26 +4115,6 @@ msgstr ""
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
 msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Відсканований код"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Код із назви файлу"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Користуючись попереднім кодом"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Ви можете зазначити необхідну кількість полів, що будуть додані до усіх продуктів, зображення до яких Ви надсилатимете"
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Додати поле для заповнення"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
