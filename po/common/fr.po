@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 09:17\n"
+"PO-Revision-Date: 2020-11-08 15:04\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -76,7 +76,7 @@ msgstr "Nous utilisons un système de discussion appelé Slack où tous les part
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Rejoignez-nous sur Slack"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -225,12 +225,12 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -1138,7 +1138,7 @@ msgstr "Les produits qui possèdent le label %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "label"
+msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1343,7 +1343,7 @@ msgstr "Objectif :"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Missions"
+msgstr ""
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1444,7 +1444,7 @@ msgstr "repère nutritionnel"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "nutriments"
+msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -2187,7 +2187,7 @@ msgstr "choisir un nutriment..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2351,7 +2351,7 @@ msgstr "Ingrédients, composition nutritionnelle et information sur les produits
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2455,7 +2455,7 @@ msgstr "Indiquer les ingrédients des mentions \"Peut contenir des traces de\", 
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "traces"
+msgstr ""
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2829,7 +2829,7 @@ msgstr "Personnes âgées"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr "65+"
+msgstr ""
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2837,7 +2837,7 @@ msgstr "A partir de 65 ans"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr "Adolescents"
+msgstr ""
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
@@ -3776,7 +3776,7 @@ msgstr "import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr "imports"
+msgstr ""
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -3921,7 +3921,7 @@ msgstr "Ratio matières grasses saturées / matières grasses"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr "Sodium"
+msgstr ""
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -3960,7 +3960,7 @@ msgstr "Score Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4135,26 +4135,6 @@ msgstr "Note Nutri-Score du producteur"
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
 msgstr "Note Nutri-Score calculée"
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Code scanné"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Code à partir du nom du fichier"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Utilisation du code précédent"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Vous pouvez définir des valeurs qui seront ajoutées à tous les produits pour lesquels vous enverrez des photos."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Ajouter un champ"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4425,7 +4405,7 @@ msgstr "Les photos du produits peuvent aussi être fournies séparément, via la
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr "Labels"
+msgstr ""
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4481,7 +4461,7 @@ msgstr "Qualité nutritionnelle"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4526,7 +4506,7 @@ msgstr "Mauvaise qualité nutritionnelle"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr "Préparation des aliments"
+msgstr "Transformation des aliments"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4551,11 +4531,11 @@ msgstr "NOVA %s"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr "NOVA non calculé"
+msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr "Niveau de transformation des aliments inconnu"
+msgstr "Degré de transformation des aliments inconnu"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
