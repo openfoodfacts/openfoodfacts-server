@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 09:54\n"
+"PO-Revision-Date: 2020-11-08 15:35\n"
 "Language-Team: Chinese Traditional\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -230,7 +230,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -829,7 +829,7 @@ msgstr "法律"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1228,7 +1228,8 @@ msgstr "登入來新增或編輯產品。"
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "請登入來新增或編輯產品。\n"
+msgstr "<p>請登錄以添加或編輯產品。</p>\n\n"
+"<p>如果您還沒有<<site_name>>帳戶，則可以在30秒內 <a href=\"/cgi/user.pl\">註冊</a>。</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -2342,7 +2343,7 @@ msgstr "來自全球有關食品原料、營養成分、及其資訊的合作、
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -4124,26 +4125,6 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
 msgstr ""
 
 msgctxt "scanned_code"
