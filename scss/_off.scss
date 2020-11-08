@@ -483,7 +483,30 @@ html[dir="rtl"] {
   border-radius:12px;
   padding:10px;
   display:block;
+  background-color:#eee;
 }
+
+.list_product_a:hover {
+  background-color:#ddd;
+  text-decoration:none;
+}
+
+.list_product_a_match_yes {
+  background-color:#cfc;
+}
+
+.list_product_a_match_yes:hover {
+  background-color:#afa;
+}
+
+.list_product_a_match_no {
+  background-color:#fcc;
+}
+
+.list_product_a_match_no:hover {
+  background-color:#faa;
+}
+
 
 // Horizontally and vertically center images
 .list_product_img_div {
@@ -526,3 +549,14 @@ html[dir="rtl"] {
   }
 }
 
+.tabs a:focus {
+  outline:none;
+}
+
+.tabs a:hover {
+  text-decoration:none;
+}
+
+.tab-title.active {
+  font-weight:bold;
+}

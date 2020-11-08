@@ -146,16 +146,8 @@ function display_products(target, product_groups ) {
 		$.each( product_group, function(key, product) {
 		
 			var product_html = "";
-			
-			var color = '#eee';
-			if (product.match_status == "yes") {
-				color = '#cfc';
-			}
-			else if (product.match_status == "no") {
-				color = '#fcc';
-			}
 						
-			product_html += '<li><a href="' + product.url + '" class="list_product_a" style="background-color:' + color + ';">';
+			product_html += '<li><a href="' + product.url + '" class="list_product_a list_product_a_match_' + product.match_status + '">';
 			product_html += '<div class="list_product_img_div">';
 			
 			if (product.image_front_thumb_url) {
