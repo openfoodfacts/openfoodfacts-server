@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 12:04\n"
+"PO-Revision-Date: 2020-11-08 16:39\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -76,7 +76,7 @@ msgstr "We gebruiken een discussiesysteem genaamd Slack waar alle projectdeelnem
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Volg ons op Slack"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -225,12 +225,12 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -274,7 +274,7 @@ msgstr "Verticale as"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Streepjescode"
+msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -671,7 +671,7 @@ msgstr "Ongeldig e-mailadres"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "Het wachtwoord moet minstens 6 karakters bevatten."
+msgstr "Het wachtwoord moet minimaal 6 tekens lang zijn."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -829,7 +829,7 @@ msgstr "Wettelijke vermeldingen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/juridisch"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1000,7 +1000,7 @@ msgstr "Fotodetail en toeschrijvingsinformatie"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "Producten die u toegevoegd heeft en nog onvolledig zijn"
+msgstr "Producten die je toegevoegd hebt en nog onvolledig zijn"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -1362,7 +1362,7 @@ msgstr "%s producten"
 
 msgctxt "name"
 msgid "Name"
-msgstr "Naam:"
+msgstr "Naam"
 
 msgctxt "names"
 msgid "Names"
@@ -1390,7 +1390,7 @@ msgstr "Product zonder barcode"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "De nutritionele informatie wordt niet op het product vermeld"
+msgstr "De voedingswaarden zijn niet op het product vermeld"
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1697,7 +1697,7 @@ msgstr "PNNS groepen 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr "PNNS groepen 1"
+msgstr "PNNS groepen 2"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
@@ -1909,7 +1909,7 @@ msgstr "met nutritionele informatie"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr "De producten die u toegevoegd of aangepast heeft"
+msgstr "De producten die je toegevoegd of aangepast hebt"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -2025,7 +2025,7 @@ msgstr "equivalent zout"
 
 msgctxt "save"
 msgid "Save"
-msgstr "Bewaar"
+msgstr "Opslaan"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2037,7 +2037,7 @@ msgstr "De gegevens worden opgeslagen."
 
 msgctxt "search"
 msgid "Search"
-msgstr "Zoek"
+msgstr "Zoeken"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2045,7 +2045,7 @@ msgstr "Zoek een product"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "Zoek"
+msgstr "Zoeken"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2346,7 +2346,7 @@ msgstr "Ingrediënten, nutritionele waarden en informatie over voedingsproducten
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2706,7 +2706,7 @@ msgstr "Houd er rekening mee dat deze tabel 's nachts wordt ververst en mogelijk
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Naam:"
+msgstr "Naam"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2824,7 +2824,7 @@ msgstr "Ouderen"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr "65+"
+msgstr ""
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -3844,7 +3844,7 @@ msgstr "Begin"
 
 msgctxt "close"
 msgid "Close"
-msgstr "Close"
+msgstr "Sluit"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -3955,7 +3955,7 @@ msgstr "Nutri-Score score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -3969,7 +3969,7 @@ msgstr "<a href=\"\">We hebben je hulp en donaties nodig</a> om door te gaan en 
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr "Hartelijk dank!"
+msgstr "Bedankt!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4130,26 +4130,6 @@ msgstr "Nutri-Score van producent"
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
 msgstr "Berekende Nutri-Score beoordeling"
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Gescande code"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Code van bestandsnaam"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Gebruik vorige code"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Je kan veldwaarden opgeven die worden toegevoegd aan alle producten waarvoor je afbeeldingen zal verzenden."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Veld toevoegen"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4476,7 +4456,7 @@ msgstr "Krachtig Voedingswaarden"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4772,7 +4752,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "Naam:"
+msgstr "Naam"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4800,7 +4780,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "Naam:"
+msgstr "Naam"
 
 msgctxt "contact_address"
 msgid "Address"
