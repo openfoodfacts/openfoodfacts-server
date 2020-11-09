@@ -3950,6 +3950,7 @@ sub display_search_results($) {
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
 		$search_api_url .= "&fields=product_name,url,image_front_thumb_url,attribute_groups";
+		$search_api_url .= "&page_size=100";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -3976,19 +3977,12 @@ JS
 	else {
 		
 		# The server generates the search results
-	
-		my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
-		if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
-			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
-			$sort_by = 'popularity_key';
-		}	
 		
 		my $query_ref = {};
 		
 		$request_ref->{current_link_query} = $current_link;
 		
-		$html .= search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 	
 	$request_ref->{content_ref} = \$html;
@@ -4107,6 +4101,10 @@ sub add_params_to_query($$) {
 		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
+		}
+		
+		elsif ($field eq "sort_by") {
+			$request_ref->{$field} = param($field);
 		}
 		
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
@@ -4431,7 +4429,7 @@ sub search_and_display_products($$$$$) {
 	
 	add_params_to_query($request_ref, $query_ref);
 
-	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
+	$log->debug("search_and_display_products", { request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by }) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4461,16 +4459,23 @@ sub search_and_display_products($$$$$) {
 	my $sort_ref = Tie::IxHash->new();
 
 	if (defined $sort_by) {
+		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
 	}
 	elsif (defined $request_ref->{sort_by}) {
 		$sort_by = $request_ref->{sort_by};
+		$log->debug("sort_by was passed through request_ref", { sort_by => $sort_by }) if $log->is_debug();
 	}
 
+	if ((not defined $sort_by)
+		or (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
+			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key'))) {
+			$sort_by = 'popularity_key';
+	}
+	
 	if (defined $sort_by) {
 		my $order = 1;
 		if ($sort_by =~ /^((.*)_t)_complete_first/) {
-			#$sort_by = $1;
-			#$sort_ref->Push(complete => -1);
 			$sort_ref->Push(sortkey => -1);
 			$order = -1;
 		}
