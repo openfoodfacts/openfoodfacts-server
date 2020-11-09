@@ -860,36 +860,34 @@ sub compute_attribute_has_tag($$$$) {
 	
 	$attribute_ref->{status} = "known";
 	
+	my $value = "";
+	
 	# If we don't have any tags for the tagtype, mark the status unknown (e.g. new products)
 	
 	if ((not defined $product_ref->{$tagtype . "_tags"}) or ($product_ref->{$tagtype . "_tags"} == 0)) {
 		
 		$attribute_ref->{status} = "unknown";
-		
+		$value = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}-unknown.svg";
 	}
 	elsif (has_tag($product_ref, $tagtype, $tagid)) {
 		
 		$attribute_ref->{match} = 100;
-		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_yes_title");
-			# Override default texts if specific texts are available
-			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_yes_description");
-			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_yes_description_short");	
-		}
-		
+		$value = "yes";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/${tag}.svg";
 	}
 	else {
 		$attribute_ref->{match} = 0;
-		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_no_title");
-			# Override default texts if specific texts are available
-			override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_no_description");
-			override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_no_description_short");
-		}
+		$value = "no";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/not-${tag}.svg";
 	}
+	
+	if ($target_lc ne "data") {
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_" . $value . "_title");
+		# Override default texts if specific texts are available
+		override_general_value($attribute_ref, $target_lc, "description", "attribute_" . $attribute_id . "_" . $value . "_description");
+		override_general_value($attribute_ref, $target_lc, "description_short", "attribute_" . $attribute_id . "_" . $value . "_description_short");
+	}	
 	
 	return $attribute_ref;
 }
