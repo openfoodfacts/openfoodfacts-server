@@ -111,7 +111,8 @@ function rank_products(products, product_preferences) {
 	$.each(products, function (key, product) {
 		
 		if (! product.initial_order) {
-			product.initial_order = initial_order++;
+			product.initial_order = initial_order;
+			initial_order += 1;
 		}
 		
 		match_product_to_preferences(product, product_preferences);
