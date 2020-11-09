@@ -46359,7 +46359,7 @@ wikidata:en:Q1182886
 en:Medjool dates
 de:Medjool Datteln
 fr:Dattes Medjool, dates medjool
-it:Datteri Medjool
+it:Datteri Medjoul, Datteri Medjool
 wikidata:en:Q16774413
 
 <en:Dates
@@ -55468,6 +55468,7 @@ nl:Auberginekaviaar
 ru:Икра из баклажанов, баклажанная икра
 wikidata:en:Q21856516
 
+<en:Potato dishes
 <en:Prepared salads
 en:Potato salads
 de:Kartoffelsalate
@@ -55482,13 +55483,14 @@ agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
 agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Potato salads
-en:Piemontese salads
-fr:Salades piémontaises
+en:Piemontese salads, Potato salad piémontaise-style
+fr:Salades piémontaises, Salade de pomme de terre à la piémontaise
 nl:Salade uit Piëmont
 wikidata:en:Q30738187
-agribalyse_proxy_food_code:en:25609
-agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
-agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
+agribalyse_food_code:en:25609
+ciqual_food_code:en:25609
+ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
+ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Potato salads
 en:Prepared potatoes salad home-made
@@ -55496,14 +55498,6 @@ fr:Salade de pommes de terre maison
 agribalyse_food_code:en:25606
 ciqual_food_code:en:25606
 ciqual_food_name:en:Prepared potatoes salad, home-made
-
-<en:Piemontese salads
-en:Potato salad piémontaise-style
-fr:Salade de pomme de terre à la piémontaise
-agribalyse_food_code:en:25609
-ciqual_food_code:en:25609
-ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
-ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Piemontese salads
 <en:Pork meals
@@ -55516,6 +55510,7 @@ nl:Salades uit Piëmont met ham
 en:Piemontese salads with chicken
 fr:Salades piémontaises au poulet, piémontaises au poulet
 
+<en:Rice dishes
 <en:Prepared salads
 en:Rice salads, Prepared rice salads
 de:Reissalate
@@ -55527,6 +55522,7 @@ ciqual_food_code:en:25614
 ciqual_food_name:en:Prepared rice salad
 ciqual_food_name:fr:Salade de riz
 
+<en:Pasta dishes
 <en:Prepared salads
 en:Pasta salads
 de:Nudelsalate
@@ -69179,7 +69175,7 @@ sv:Rårörda, rårörd
 sv:Rårörda lingon
 
 <en:Fruit and vegetable preserves
-en:Jams
+en:Jams, fruit jams
 ca:Melmelades
 da:Syltetøj, Marmelade
 de:Konfitüren, Konfitüre
