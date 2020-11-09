@@ -344,14 +344,33 @@ details.recent {
   cursor: pointer;
 }
 
+.top-bar .button, .top-bar button {
+  padding-top:0.2rem;
+  padding-bottom:0.2rem;
+}
+
+.button.small, button.small {
+  padding:0.5rem;
+}
+
+.postfix.button.small, button.postfix.small {
+  padding:0;
+}
+
 .icon {
   display: inline-block;
   fill: currentColor;
-  width: 1em;
-  height: 1em;
+  width: 24px;
+  height: 24px;
   margin-left: 0.25em;
   margin-right: 0.25em;
   overflow: hidden;
+  vertical-align:middle;
+}
+
+.tiny svg.icon {
+  width:16px;
+  height:16px;
 }
 
 .ingredients_analysis {
