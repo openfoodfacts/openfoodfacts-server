@@ -101,11 +101,18 @@ function match_product_to_preferences (product, product_preferences) {
 
 // rank_products (products, product_preferences)
 
+// keep the initial order of each result
+var initial_order = 0;
+
 function rank_products(products, product_preferences) {
 	
 	// Score all products
 	
 	$.each(products, function (key, product) {
+		
+		if (! product.initial_order) {
+			product.initial_order = initial_order++;
+		}
 		
 		match_product_to_preferences(product, product_preferences);
 		
@@ -114,7 +121,7 @@ function rank_products(products, product_preferences) {
 	// Rank all products, and return them in 3 arrays: "yes", "no", "unknown"
 	
 	products.sort(function(a, b) {
-		return b.match_score - a.match_score;
+		return (b.match_score - a.match_score) || (a.initial_order - b.initial_order);
 	});
 	
 	var product_groups = {
