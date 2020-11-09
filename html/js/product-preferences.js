@@ -88,7 +88,8 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		$( target_selection_form ).show();
 		$(document).foundation('equalizer', 'reflow');
 	});
-
+	
+	$(document).foundation('reflow');
 }
 
 
