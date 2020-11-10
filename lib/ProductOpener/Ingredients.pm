@@ -165,7 +165,7 @@ my %may_contain_regexps = (
 	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
-	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
+	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
 	sk => "Môže obsahovať",
 	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
 );
@@ -180,7 +180,7 @@ my %contains_regexps = (
 	fr => "contient",
 	it => "contengono",
 	nl => "bevat",
-	ro => "con[țţ]ine|con[țţ]in",
+	ro => "con[țţt]ine|con[țţt]in",
 	sv => "innehåller",
 );
 
@@ -1430,6 +1430,7 @@ sub parse_ingredients_text($) {
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
+								'^Conditionné[es]* sous atmosphère', # ... protectrice/contrôlée/modifiée/etc
 							],
 
 							'fi' => [
@@ -2431,10 +2432,10 @@ sub normalize_vitamins_enumeration($$) {
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') { $split_vitamins_list = "vitaminer" }
+	elsif ($lc eq 'de' || $lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
-	elsif ($lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
 	else { $split_vitamins_list = "vitamins" }
@@ -2975,6 +2976,7 @@ hr => [
 
 hu => [
 'Atlagos tápérték 100g termékben',
+'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó', # store in cool/dry/etc
 ],
 
 is => [
@@ -2993,6 +2995,7 @@ it => [
 'MODALITA D\'USO',
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
+'Una volta aperto', # once opened...
 ],
 
 ja => [
