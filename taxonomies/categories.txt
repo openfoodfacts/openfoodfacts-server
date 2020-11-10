@@ -22726,6 +22726,10 @@ fr:Barquettes à la fraise
 fr:Crêpes dentelle
 nl:Flinterdunne flensjes
 wikidata:en:Q16545117
+agribalyse_food_code:en:24370
+ciqual_food_code:en:24370
+ciqual_food_name:en:Wafer cookie
+ciqual_food_name:fr:Crêpe dentelle
 
 <fr:Crêpes dentelle
 <en:Chocolate biscuits
@@ -25345,10 +25349,15 @@ de:Katzenzungen
 fr:Biscuits cigarettes, cigarette russe, Cigarettes russes
 nl:Kattetongen
 wikidata:en:Q960635
-agribalyse_food_code:en:24441
-ciqual_food_code:en:24441
-ciqual_food_name:en:Biscuit (cookie), cat tongue type
-ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
+agribalyse_food_code:en:24360
+ciqual_food_code:en:24360
+ciqual_food_name:en:Wafer cookie
+ciqual_food_name:fr:Cigarette
+
+#agribalyse_food_code:en:24441
+#ciqual_food_code:en:24441
+#ciqual_food_name:en:Biscuit (cookie), cat tongue type
+#ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
 
 <en:Cakes
 en:Madeleines, Madeleines cakes
@@ -45034,6 +45043,22 @@ ciqual_food_code:en:13014
 ciqual_food_name:en:Strawberry, raw
 ciqual_food_name:fr:Fraise, crue
 
+#agribalyse_food_code:en:13014_3
+#ciqual_food_code:en:13014_3
+#ciqual_food_name:en:Strawberry, raw
+#ciqual_food_name:fr:Fraise, crue
+
+#agribalyse_food_code:en:13014_2
+#ciqual_food_code:en:13014_2
+#ciqual_food_name:en:Strawberry off season, raw
+#ciqual_food_name:fr:Fraise hors saison, crue
+
+#agribalyse_food_code:en:13014_1
+#ciqual_food_code:en:13014_1
+#ciqual_food_name:en:Strawberry in season, raw
+#ciqual_food_name:fr:Fraise de saison, crue
+
+
 <en:Strawberries
 <en:Fresh fruits
 en:Fresh strawberries
@@ -46531,6 +46556,30 @@ fi:kuivatut hedelmäsekoitukset
 fr:Mélanges de fruits secs
 it:Frutta essiccata mista
 nl:Gedroogde fruitmelanges
+
+<en:Dried mixed fruits
+en:Mix of grains and dried fruit, Mix of nuts and dried fruit
+fr:Mélange apéritif de graines et fruits séchés
+agribalyse_food_code:en:15048
+ciqual_food_code:en:15048
+ciqual_food_name:en:Mix of unsalted grains/nuts and dried fruit
+ciqual_food_name:fr:Mélange apéritif de graines (non salées) et fruits séchés
+
+<en:Mix of grains and dried fruit
+en:Mix of grains and raisins, Mix of nuts and raisins
+fr:Mélange apéritif de graines et raisins secs
+agribalyse_food_code:en:15049
+ciqual_food_code:en:15049
+ciqual_food_name:en:Mix of unsalted grains/nuts and raisins
+ciqual_food_name:fr:Mélange apéritif de graines (non salées) et raisins secs
+
+<en:Mix of grains and dried fruit
+en:Mix of salted grains and raisins, Mix of salted nuts and raisins
+fr:Mélange apéritif de graines salées et raisins secs
+agribalyse_food_code:en:15018
+ciqual_food_code:en:15018
+ciqual_food_name:en:Mix of salted grains/nuts and raisins
+ciqual_food_name:fr:Mélange apéritif de graines salées et raisins secs
 
 <en:Dried fruits
 en:Dried papayas
@@ -72395,6 +72444,14 @@ agribalyse_food_code:en:20019
 ciqual_food_code:en:20019
 ciqual_food_name:en:Cucumber, pulp and peel, raw
 
+#Useful for soups ?
+#en:Cucumber pulp
+#fr:Pulpe de concombre
+#agribalyse_food_code:en:20210
+#ciqual_food_code:en:20210
+#ciqual_food_name:en:Cucumber, pulp, raw
+#ciqual_food_name:fr:Concombre, pulpe, cru
+
 <en:Cucumbers
 <en:Fresh vegetables
 en:Fresh cucumbers
@@ -73182,6 +73239,7 @@ ciqual_food_code:en:20088
 ciqual_food_name:en:Sweet pepper, red, cooked
 ciqual_food_name:fr:Poivron rouge, cuit
 
+#TODO Give this poor category a parent.
 en:Bell peppers
 
 <en:Sweet Peppers
@@ -74079,6 +74137,21 @@ ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
 
+#agribalyse_food_code:en:20047_1
+#ciqual_food_code:en:20047_1
+#ciqual_food_name:en:Tomato in season, raw
+#ciqual_food_name:fr:Tomate de saison, crue
+
+#agribalyse_food_code:en:20047_2
+#ciqual_food_code:en:20047_2
+#ciqual_food_name:en:Tomato off season, raw
+#ciqual_food_name:fr:Tomate hors saison, crue
+
+#agribalyse_food_code:en:20047_3
+#ciqual_food_code:en:20047_3
+#ciqual_food_name:en:Tomato, raw
+#ciqual_food_name:fr:Tomate, crue
+
 <en:Tomatoes
 <en:Fresh vegetables
 en:Fresh tomatoes
@@ -74571,6 +74644,15 @@ it:Fagiolini
 ja:サヤインゲン
 nl:Groene bonen
 wikidata:en:Q2987371
+agribalyse_food_code:en:20061_2
+ciqual_food_code:en:20061_2
+ciqual_food_name:en:French bean, raw
+ciqual_food_name:fr:Haricot vert, cru
+
+#agribalyse_food_code:en:20061_1
+#ciqual_food_code:en:20061_1
+#ciqual_food_name:en:French bean by plane, raw
+#ciqual_food_name:fr:Haricot vert importé par avion, cru
 
 <en:Green beans
 en:French beans
@@ -76182,6 +76264,10 @@ nl:Waveltjes
 pt:Bolachas
 ro:Napilitane, Napolitană
 wikidata:en:Q1226651
+agribalyse_food_code:en:23853
+ciqual_food_code:en:23853
+ciqual_food_name:en:Wafer biscuit, crunchy (thin or dry), plain or with sugar, prepacked
+ciqual_food_name:fr:Gaufre croustillante (fine ou sèche), nature ou sucrée, préemballée
 
 <en:Wafers
 en:Thin crunchy wafer biscuit with chocolate, Dry crunchy wafer biscuit with chocolate
@@ -76753,6 +76839,31 @@ it:Alghe arame essiccate
 nl:Gedroogde Arame
 
 <en:Seaweeds and their products
+en:Gracilaria seaweeds
+la:Gracilaria verrucosa
+fr:Gracilaire, ogonori
+
+<en:Gracilaria seaweeds
+en:Dried gracilaria seaweeds, Dehydrated gracilaria seaweeds
+fr:Gracilaire séchée, déshydratée, ogonori séché, ogonori déshydraté
+agribalyse_food_code:en:20993
+ciqual_food_code:en:20993
+ciqual_food_name:en:Gracilaria seaweeds (Gracilaria verrucosa), dried or dehydrated
+ciqual_food_name:fr:Gracilaire ou ogonori (Gracilaria verrucosa), séchée ou déshydratée
+
+<en:Seaweeds and their products
+en:Toothed wrack, bladder wrack, Fucus serratus, Fucus vesiculosus
+fr:Fucus vésiculeux, Fucus serratus, Fucus vesiculosus
+
+<en:Toothed wrack
+en:dried Toothed wrack,dried bladder wrack,dried Fucus serratus,dried Fucus vesiculosus,dehydrated Toothed wrack,dehydrated bladder wrack,dehydrated Fucus serratus,dehydrated Fucus vesiculosus
+fr:Fucus vésiculeux séché, Fucus serratus séché, Fucus vesiculosus séché, Fucus vésiculeux déshydraté, Fucus serratus déshydraté, Fucus vesiculosus déshydraté
+agribalyse_food_code:en:20994
+ciqual_food_code:en:20994
+ciqual_food_name:en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus), dried or dehydrated
+ciqual_food_name:fr:Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus), séché ou déshydraté
+
+<en:Seaweeds and their products
 en:Cochayuyo seaweeds, Cochayuyo
 es:Algas cochayuyo, Cochayuyo
 fr:Algues cochayuyo, Cochayuyo
@@ -76781,6 +76892,10 @@ en:Dried dulse seaweeds
 es:Algas dulse deshidratadas
 fr:Algues dulse sèches
 nl:Gedroogde dulse algen
+agribalyse_food_code:en:20988
+ciqual_food_code:en:20988
+ciqual_food_name:en:Dulse (Palmaria palmata), dried or dehydrated
+ciqual_food_name:fr:Dulse (Palmaria palmata), séchée ou déshydratée
 
 <en:Dulse seaweeds
 <en:Ground dried seaweeds
@@ -76916,6 +77031,10 @@ es:Algas nori deshidratadas
 fi:Kuivatut nori-merilevät
 fr:Algues nori sèches
 nl:Gedroogde nori
+agribalyse_food_code:en:20987
+ciqual_food_code:en:20987
+ciqual_food_name:en:Laver (Porphyra sp.), dried or dehydrated
+ciqual_food_name:fr:Nori (Porphyra sp.), séchée ou déshydratée
 
 <en:Dried nori seaweeds
 en:Dried nori seaweed flakes
@@ -76943,6 +77062,13 @@ la:Ulva
 nl:Groenwieren
 wikidata:en:Q1109330
 
+<en:Seaweeds and their products
+fr:Ao-nori
+agribalyse_food_code:en:20995
+ciqual_food_code:en:20995
+ciqual_food_name:en:Sea lettuce (Enteromorpha sp.), dried or dehydrated
+ciqual_food_name:fr:Ao-nori (Enteromorpha sp.), séchée ou déshydratée
+
 <en:Sea lettuce seaweeds
 <en:Dried seaweeds
 en:Dried sea lettuce seaweeds
@@ -76963,6 +77089,10 @@ fr:Laitue de mer
 la:Ulva lactuca
 nl:Zeesla
 wikidata:en:Q852879
+agribalyse_food_code:en:20985
+ciqual_food_code:en:20985
+ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated)
+ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
 
 <en:Ulva lactuca seaweeds
 <en:Dried sea lettuce seaweeds
@@ -76991,6 +77121,10 @@ en:Dried sea spaghetti seaweeds
 es:Algas espagueti de mar deshidratadas
 fr:Algues spaghetti de mer sèches
 nl:Gedroogde riemwieren
+agribalyse_food_code:en:20992
+ciqual_food_code:en:20992
+ciqual_food_name:en:Sea thong (Himanthalia elongata), dried or dehydrated
+ciqual_food_name:fr:Haricot de mer (Himanthalia elongata), séchée ou déshydratée
 
 <en:Sea spaghetti seaweeds
 <en:Ground dried seaweeds
@@ -77053,6 +77187,10 @@ fr:Agar-agar, Agar
 it:Gelatina
 nl:Agar-agar, Agar
 wikidata:en:Q177998
+agribalyse_food_code:en:11084
+ciqual_food_code:en:11084
+ciqual_food_name:en:Seaweed, agar, raw
+ciqual_food_name:fr:Agar (algue), cru
 
 en:Caviar substitutes
 fr:Substituts du caviar
@@ -77836,6 +77974,7 @@ fr:Poivrons jaunes congelés
 nl:Diepvries gele paprika
 
 <en:Frozen peppers
+<en:Mixed bell peppers
 en:Frozen mixed peppers
 de:Gefrorene Pfeffergemische
 es:Mezclas de pimientos multicolores congelados
@@ -78927,10 +79066,10 @@ de:Crêpes gefüllt mit Schokolade
 fr:Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
 nl:Pannenkoeken gevuld met chocola
 oqali_family:en: fr:Biscuits et gateaux industriels - Crepes au chocolat
-agribalyse_food_code:en:23821
-ciqual_food_code:en:23821
-ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
-ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
+agribalyse_food_code:en:23829
+ciqual_food_code:en:23829
+ciqual_food_name:en:Crepe filled with chocolate, prepacked
+ciqual_food_name:fr:Crêpe préemballée, fourrée chocolat
 
 <en:Filled crêpes
 en:Crepes filled with chocolate and hazelnut spread
@@ -81317,12 +81456,11 @@ fr:livres
 <en:Open Products Facts
 en:detergents
 
+#REAL Cigarettes
 en:Cigarettes
 de:Zigaretten
 fi:savukkeet
 fr:cigarettes
-it:Biscotti a sigaretta
-nl:Chocosigaretten
 ru:Сигареты
 
 <en:Non food products
