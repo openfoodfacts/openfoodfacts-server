@@ -143,7 +143,7 @@ function rank_products(products, product_preferences) {
 
 
 function display_products(target, product_groups ) {
-	
+		
 	$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
 		+ '<div id="products_tabs_content" class="tabs-content"></div>');
 	
@@ -183,7 +183,7 @@ function display_products(target, product_groups ) {
 		
 		$("#products_tabs_titles").append(
 			'<li class="tabs tab-title' + active + '" style="border:none"><a href="#products_' + product_group_id + '">'
-			+ product_group_id + " : " + product_group.length + " products" + "</a></li>"
+			+ lang()["match_" + product_group_id] + ' <span style="color:grey">(' + product_group.length + ")</span>" + "</a></li>"
 		);
 		
 		$("#products_tabs_content").append(

@@ -3924,7 +3924,7 @@ sub display_search_results($) {
 
 	my $html = '';
 
-	my $title = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
+	$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
 	
 	my $current_link = '';
 	
@@ -3955,20 +3955,33 @@ sub display_search_results($) {
 			$search_api_url =~ s/\&/\?/;
 		}
 		
+		my $preferences_text = lang("products_are_sorted_according_to_your_preferences");
+		
+		$scripts .= <<JS
+<script type="text/javascript">
+var preferences_text = "$preferences_text";
+</script>
+JS
+;		
+		
 		$scripts .= <<JS
 <script src="/js/product-preferences.js"></script>
 <script src="/js/product-search.js"></script>
 JS
 ;
 
-		$initjs .= <<JS
+		
 
+		$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results"); });
 search_products("#search_results", "$search_api_url");
 JS
 ;
 
-		my $template_data_ref = {};
+		my $template_data_ref = {
+			lang => \&lang,
+			display_pagination => \&display_pagination,
+		};
 
 		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
@@ -8084,9 +8097,11 @@ HTML
 		compute_attributes($product_ref, $lc);
 		
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
 
 		$scripts .= <<JS
 <script type="text/javascript">
+var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
 
@@ -8096,7 +8111,6 @@ JS
 ;
 
 		$initjs .= <<JS
-
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
 display_product_summary("#product_summary", product); 
 JS
