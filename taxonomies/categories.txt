@@ -42647,6 +42647,14 @@ zh:食品添加剂
 wikidata:en:Q189567
 
 <en:Food additives
+en:Soy lecithin
+fr:Lécithine de soja
+agribalyse_food_code:en:42200
+ciqual_food_code:en:42200
+ciqual_food_name:en:Soy lecithin
+ciqual_food_name:fr:Lécithine de soja
+
+<en:Food additives
 en:baker's yeast
 de:Backhefe
 es:levaduras de pastelería, levaduras de panadería, levaduras
@@ -52063,6 +52071,14 @@ ciqual_food_code:en:25418
 ciqual_food_name:en:Croissant filled with ham
 
 <en:Puff pastry meals
+en:Ham and cheese croissants, Croissant filled with ham and cheese
+fr:Croissants au jambon fromage
+agribalyse_food_code:en:26266
+ciqual_food_code:en:26266
+ciqual_food_name:en:Croissant filled with ham and cheese
+ciqual_food_name:fr:Croissant au jambon fromage
+
+<en:Puff pastry meals
 en:Vol-au-vent, Filled vol-au-vent
 fr:Bouchée à la reine, Bouchée à la reine garnie
 nl:Vol au vent
@@ -52530,6 +52546,28 @@ fr:Saumon farci
 ciqual_food_code:en:25210
 ciqual_food_name:en:Stuffed salmon
 ciqual_food_name:fr:Saumon farci
+
+<en:Meals with fish
+en:Fish with bordelaise sauce
+fr:Poisson blanc à la bordelaise, Poisson à la bordelaise
+agribalyse_food_code:en:25086
+ciqual_food_code:en:25086
+ciqual_food_name:en:Fish w bordelaise sauce
+ciqual_food_name:fr:Poisson blanc à la bordelaise
+
+#de:Schlemmer-Filet à la Bordelaise
+
+<en:Fish with bordelaise sauce
+fr:Colin d'Alaska à la bordelaise
+
+<en:Meals with fish
+en:White fish with Parisian-style sauce, White fish with mushrooms sauce
+fr:Poisson blanc à la parisienne, Poisson blanc à la sauce aux champignons
+agribalyse_food_code:en:25143
+ciqual_food_code:en:25143
+ciqual_food_name:en:White fish with Parisian-style sauce (mushrooms sauce)
+ciqual_food_name:fr:Poisson blanc à la parisienne (sauce aux champignons)
+
 
 <en:Meals with fish
 en:Meals with tuna
@@ -58772,6 +58810,17 @@ en:Chicken drumsticks
 fi:kanan koipinuija
 fr:Manchons de poulet, manchon de poulet, pilons de poulet
 nl:Kippekluifen
+agribalyse_food_code:en:36022
+ciqual_food_code:en:36022
+ciqual_food_name:en:Chicken, drumstick, raw
+ciqual_food_name:fr:Poulet, pilon, cru
+
+<en:Chicken drumsticks
+fr:Pilons de poulet cuits au four
+agribalyse_food_code:en:36035
+ciqual_food_code:en:36035
+ciqual_food_name:en:Chicken, marinated wing, roasted/baked
+ciqual_food_name:fr:Poulet, manchons marinés, rôtis/cuits au four
 
 <en:Cooked chicken
 <en:Chicken wings
@@ -59004,9 +59053,11 @@ ciqual_food_name:fr:Dinde, escalope, rôtie/cuite au four
 
 <en:Cooked poultries
 <en:Turkey cutlets
-fr:Escalopes de dinde à la milanaise, escalopes milanaises
+fr:Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalope de dinde panée
+agribalyse_food_code:en:36318
 ciqual_food_code:en:36318
 ciqual_food_name:en:Milanese-style turkey escalope or breaded veal escalope
+ciqual_food_name:fr:Dinde, escalope viennoise ou milanaise ou escalope panée
 
 <en:Cooked poultries
 <en:Turkeys
@@ -61835,6 +61886,14 @@ agribalyse_food_code:en:6562
 ciqual_food_code:en:6562
 ciqual_food_name:en:Veal, shoulder, grilled/pan-fried
 ciqual_food_name:fr:Veau, épaule, grillée/poêlée
+
+<en:Veal shoulder
+en:Braised veal shoulder, Boiled veal shoulder
+fr:Epaule de veau braisée, Epaule de veau bouillie
+agribalyse_food_code:en:6563
+ciqual_food_code:en:6563
+ciqual_food_name:en:Veal, shoulder, braised/boiled
+ciqual_food_name:fr:Veau, épaule, braisée ou bouillie
 
 <en:Veal meat
 en:Calf foot
@@ -67227,7 +67286,11 @@ nl:Tonijnfilets
 
 <en:Fishes
 en:Greenland halibut
-fr:Flétan du Groënland 
+fr:Flétan du Groënland, flétan noir, flétan commun
+agribalyse_food_code:en:26154
+ciqual_food_code:en:26154
+ciqual_food_name:en:Greenland halibut, raw
+ciqual_food_name:fr:Flétan du Groënland ou flétan noir ou flétan commun, cru
 
 <en:Greenland halibut
 en:Steamed Greenland halibut
@@ -68116,6 +68179,10 @@ fi:tonnikalaa vedessä
 fr:Thons au naturel
 it:Tonno al naturale
 nl:Tonijn natuur
+agribalyse_food_code:en:26039
+ciqual_food_code:en:26039
+ciqual_food_name:en:Tuna, plain, canned, drained
+ciqual_food_name:fr:Thon, au naturel, appertisé, égoutté
 
 <en:Tunas
 en:Albacore
@@ -68196,6 +68263,12 @@ wikidata:en:Q633957
 agribalyse_food_code:en:26101
 ciqual_food_code:en:26101
 ciqual_food_name:en:Bonito, raw
+
+# TODO curious duplicate
+#agribalyse_food_code:en:26068
+#ciqual_food_code:en:26068
+#ciqual_food_name:en:Skipjack tuna, raw
+#ciqual_food_name:fr:Thon listao ou Bonite à ventre rayé, cru
 
 #TODO
 #ciqual_food_code:en:26068
