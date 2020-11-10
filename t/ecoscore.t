@@ -286,6 +286,7 @@ foreach my $test_ref (@tests) {
 		extract_ingredients_from_text($product_ref);
 	}
 	
+	analyze_and_combine_packaging_data($product_ref);
 	compute_ecoscore($product_ref);
 	
 	# Save the result
