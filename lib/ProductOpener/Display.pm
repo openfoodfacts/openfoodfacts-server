@@ -7634,7 +7634,7 @@ CSS
 	var allergens = /(<span class="allergen">|<\\/span>)/g;
 	divHtml = divHtml.replace(allergens, '_');
 
-    var editableText = \$('<textarea id="ingredients_list" style="height:8rem"/>');
+    var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
     editableText.val(divHtml);
     \$("#ingredients_list").replaceWith(editableText);
     editableText.focus();
