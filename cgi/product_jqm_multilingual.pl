@@ -40,7 +40,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
-
+use ProductOpener::Packaging qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -542,6 +542,13 @@ else {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];	
+	
+	analyze_and_combine_packaging_data($product_ref);
 	
 	compute_ecoscore($product_ref);
 

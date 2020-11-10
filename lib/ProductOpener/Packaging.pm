@@ -245,11 +245,6 @@ sub analyze_and_combine_packaging_data($) {
 		$product_ref->{packagings} = [];
 	}
 	
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-	
 	# Parse the packaging_text and the packaging tags field
 	
 	my @phrases = ();
