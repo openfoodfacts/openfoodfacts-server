@@ -60536,9 +60536,14 @@ ciqual_food_name:fr:Boudin noir, rayon frais
 <en:Black pudding
 en:Sautéed black pudding
 fr:Boudin noir sauté, Boudin noir poêlé
-ciqual_food_code:en:8705
-ciqual_food_name:en:Black or white pudding (blood sausage), sautéed (average)
-ciqual_food_name:fr:Boudin noir ou blanc, sauté/poêlé (aliment moyen)
+agribalyse_food_code:en:8704
+ciqual_food_code:en:8704
+ciqual_food_name:en:Black pudding (blood sausage), sautéed/pan-fried
+ciqual_food_name:fr:Boudin noir, sauté/poêlé
+
+#ciqual_food_code:en:8705
+#ciqual_food_name:en:Black or white pudding (blood sausage), sautéed (average)
+#ciqual_food_name:fr:Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
 <en:Black pudding
 en:Black pudding with onions
@@ -61042,6 +61047,15 @@ ciqual_food_name:fr:Saucisson à l'ail
 <fr:Saucissons
 fr:Saucissons cuits, saucisson cuit
 nl:Gebakken worstjes
+agribalyse_proxy_food_code:en:30701
+agribalyse_proxy_food_name:en:Cooked sausage, pure pork
+agribalyse_proxy_food_name:fr:Saucisson cuit pur porc
+
+fr:Saucissons cuits pur porc, saucisson cuit pur porc
+agribalyse_food_code:en:30701
+ciqual_food_code:en:30701
+ciqual_food_name:en:Cooked sausage, pure pork
+ciqual_food_name:fr:Saucisson cuit pur porc
 
 <fr:Saucissons
 fr:Saucissons secs, Saucisson sec
