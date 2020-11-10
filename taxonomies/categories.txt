@@ -22887,6 +22887,22 @@ ciqual_food_code:en:24000
 ciqual_food_name:en:Biscuit (cookie)
 ciqual_food_name:fr:Biscuit sec, sans précision
 
+#<en:Dry biscuits
+#en:Biscuit with vitamins content guaranteed
+#fr:Biscuit sec à teneur garantie en vitamines
+#agribalyse_food_code:en:24002
+#ciqual_food_code:en:24002
+#ciqual_food_name:en:Biscuit (cookie) vitamins content guaranteed
+#ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines
+
+#<en:Dry biscuits
+#en:Biscuit with vitamins and chemical elements content guaranteed
+#fr:Biscuit sec à teneur garantie en vitamines et minéraux
+#agribalyse_food_code:en:24003
+#ciqual_food_code:en:24003
+#ciqual_food_name:en:Biscuit (cookie) vitamins and chemical elements content guaranteed
+#ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines et minéraux
+
 <fr:Biscuits secs
 en:Plain biscuit, Plain cookie
 fr:Biscuit sec nature
@@ -30979,6 +30995,10 @@ country:en:France
 <en:Goat cheeses
 fr:Chevrotins, Chevrotin
 country:en:France
+#agribalyse_food_code:en:12846
+#ciqual_food_code:en:12846
+#ciqual_food_name:en:Chevrot cheese, from goat's milk
+#ciqual_food_name:fr:Chevrot (fromage de chèvre)
 
 <en:Goat cheeses
 en:Crottin cheese from goat's milk
@@ -31104,6 +31124,10 @@ fr:Pélardon
 country:en:France
 wikidata:en:Q965981
 oqali_family:en: fr:Fromages - Crottin de chevre
+agribalyse_food_code:en:12831
+ciqual_food_code:en:12831
+ciqual_food_name:en:Pélardon cheese, from goat's milk
+ciqual_food_name:fr:Pélardon (fromage de chèvre)
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -31163,8 +31187,11 @@ agribalyse_food_code:en:12842
 ciqual_food_code:en:12842
 ciqual_food_name:en:Sainte Maure cheese, from goat's milk
 
+# Another proxy for Sainte-Maure de Touraine
+#agribalyse_food_code:en:12807
 #ciqual_food_code:en:12807
 #ciqual_food_name:en:Goat cheese from raw milk
+#ciqual_food_name:fr:Sainte-Maure de Touraine (fromage de chèvre)
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -31715,6 +31742,11 @@ agribalyse_proxy_food_code:en:12814
 ciqual_proxy_food_code:en:12814
 ciqual_proxy_food_name:en:Soft-ripened cheese, from goat's milk, from pasteurised milk
 
+#agribalyse_food_code:en:12801
+#ciqual_food_code:en:12801
+#ciqual_food_name:en:Cheese, from goat's milk, from raw milk
+#ciqual_food_name:fr:Fromage de chèvre lactique affiné, au lait cru (type Crottin de Chavignol, Picodon, Rocamadour, Sainte-Maure de Touraine)
+
 #<en:Goat cheeses
 #<en:French cheeses
 #en:French goat cheeses
@@ -31758,6 +31790,14 @@ ciqual_food_code:en:12802
 ciqual_food_name:en:Cheese, from goat's milk, from pasteurised milk
 
 <en:Goat cheeses
+en:Fresh goat cheese
+fr:Fromage de chèvre frais
+agribalyse_food_code:en:12800
+ciqual_food_code:en:12800
+ciqual_food_name:en:Cheese, from goat's milk, fresh, from pasteurised milk
+ciqual_food_name:fr:Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
+
+<en:Fresh goat cheese
 en:Cheese from goat's milk fresh from raw milk
 fr:Fromage de chèvre frais au lait cru, palet frais de chèvre au lait cru, crottin frais de chèvre au lait cru
 agribalyse_food_code:en:12804
@@ -31766,12 +31806,20 @@ ciqual_food_name:en:Cheese, from goat's milk, fresh, from raw milk
 
 # TODO check
 
-<en:Goat cheeses
+<en:Fresh goat cheese
 en:Cheese from goat's milk fresh
 fr:Fromage de chèvre frais au lait pasteurisé ou cru, bûchette de chèvre frais, crottin de chèvre frais
 agribalyse_food_code:en:12805
 ciqual_food_code:en:12805
 ciqual_food_name:en:Cheese, from goat's milk, fresh
+
+<en:Goat cheeses
+en:Soft-ripened cheese with bloomy rind from goat's milk
+fr:Fromage de chèvre à pâte molle et croûte fleurie
+agribalyse_food_code:en:12820
+ciqual_food_code:en:12820
+ciqual_food_name:en:Soft-ripened cheese with bloomy rind, from goat's milk, Camembert-type cheese
+ciqual_food_name:fr:Fromage de chèvre à pâte molle et croûte fleurie type camembert
 
 <en:Goat cheeses
 en:Spreadable goat cheese, Spreadable cheese from goat's milk
@@ -52468,6 +52516,35 @@ en:Meals with cooked white fish
 fr:Plats préparés au poisson blanc cuit
 
 <en:Meals with cooked white fish
+fr:Poisson blanc à la marinière, Poisson blanc à la sauce aux oignons et vin blanc et moules
+en:Marinière-style white fishes, White fish with shallots and mussels and white wine sauce
+agribalyse_food_code:en:25141
+ciqual_food_code:en:25141
+ciqual_food_name:en:White fish with shallots, mussels and white wine sauce
+ciqual_food_name:fr:Poisson blanc à la marinière (sauce aux oignons, vin blanc, moules)
+
+<en:Meals with cooked white fish
+en:Fish with bordelaise sauce
+fr:Poisson blanc à la bordelaise, Poisson à la bordelaise
+agribalyse_food_code:en:25086
+ciqual_food_code:en:25086
+ciqual_food_name:en:Fish w bordelaise sauce
+ciqual_food_name:fr:Poisson blanc à la bordelaise
+
+#de:Schlemmer-Filet à la Bordelaise
+
+<en:Fish with bordelaise sauce
+fr:Colin d'Alaska à la bordelaise
+
+<en:Meals with cooked white fish
+en:White fish with Parisian-style sauce, White fish with mushrooms sauce
+fr:Poisson blanc à la parisienne, Poisson blanc à la sauce aux champignons
+agribalyse_food_code:en:25143
+ciqual_food_code:en:25143
+ciqual_food_name:en:White fish with Parisian-style sauce (mushrooms sauce)
+ciqual_food_name:fr:Poisson blanc à la parisienne (sauce aux champignons)
+
+<en:Meals with cooked white fish
 en:Cooked white fish without skin
 fr:Poisson blanc cuit, Poisson blanc cuit sans la peau
 ciqual_food_code:en:26249
@@ -52482,14 +52559,14 @@ ciqual_food_name:en:Marine fish, white, without skin, cooked
 ciqual_food_name:fr:Poisson blanc, de mer, cuit (aliment moyen)
 
 <en:Meals with cooked white fish
-en:White fish with Provencal-style tomato sauce
+en:White fish with Provencal sauce, White fish with Provencal-style tomato sauce
 fr:Poisson blanc à la provençale, Poisson blanc à la niçoise
 agribalyse_food_code:en:25128
 ciqual_food_code:en:25128
 ciqual_food_name:en:White fish with Provencal-style sauce (tomato sauce)
 
 <en:Meals with cooked white fish
-en:White fish with Florentine-style sauce, White fish with spinach sauce
+en:White fish with Florentine sauce, White fish with Florentine-style sauce, White fish with spinach sauce
 fr:Poisson blanc à la sauce florentine, Poisson blanc à la sauce aux épinards
 agribalyse_food_code:en:25140
 ciqual_food_code:en:25140
@@ -52546,27 +52623,6 @@ fr:Saumon farci
 ciqual_food_code:en:25210
 ciqual_food_name:en:Stuffed salmon
 ciqual_food_name:fr:Saumon farci
-
-<en:Meals with fish
-en:Fish with bordelaise sauce
-fr:Poisson blanc à la bordelaise, Poisson à la bordelaise
-agribalyse_food_code:en:25086
-ciqual_food_code:en:25086
-ciqual_food_name:en:Fish w bordelaise sauce
-ciqual_food_name:fr:Poisson blanc à la bordelaise
-
-#de:Schlemmer-Filet à la Bordelaise
-
-<en:Fish with bordelaise sauce
-fr:Colin d'Alaska à la bordelaise
-
-<en:Meals with fish
-en:White fish with Parisian-style sauce, White fish with mushrooms sauce
-fr:Poisson blanc à la parisienne, Poisson blanc à la sauce aux champignons
-agribalyse_food_code:en:25143
-ciqual_food_code:en:25143
-ciqual_food_name:en:White fish with Parisian-style sauce (mushrooms sauce)
-ciqual_food_name:fr:Poisson blanc à la parisienne (sauce aux champignons)
 
 
 <en:Meals with fish
