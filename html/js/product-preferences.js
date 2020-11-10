@@ -228,7 +228,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 			
 			// Redisplay user preferences
 			displayed_user_product_preferences = false;
-			display_user_product_preferences (target_selected, target_selection_form, change);
+			display_user_product_preferences(target_selected, target_selection_form, change);
 			
 			// Call the change callback if we have one (e.g. to update search results)
 			if (change) {

@@ -1,3 +1,4 @@
+/*global lang */
 
 // Will hold product data retrieved from the search API
 var products = [];
