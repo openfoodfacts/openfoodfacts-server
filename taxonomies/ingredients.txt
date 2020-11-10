@@ -9935,7 +9935,7 @@ da:revet emmentalerost
 de:geriebener Emmentaler, geriebener Emmentaler-Käse
 es:queso emmental rallado, queso emmenthal rallado
 fi:emmentalraaste
-fr:emmental râpé
+fr:emmental râpé, fromage emmental râpé
 hu:reszelt ementáli
 nl:geraspte emmentaler
 # fr:emmental-râpé has 340 products in 4 languages @2018-10-27
@@ -10883,7 +10883,7 @@ da:reblochon
 de:Reblochon
 es:reblochon
 fi:reblochon
-fr:reblochon
+fr:reblochon, fromage reblochon
 hu:reblochon, reblochon sajt
 id:reblochon
 it:reblochon
@@ -11289,7 +11289,7 @@ eu:Bitamina
 fa:ویتامین
 fi:Vitamiinit, vitamiini
 fo:Vitamin
-fr:Vitamines, vitamine
+fr:Vitamines, vitamine, mélange de vitamines
 ga:Vitimín
 gl:Vitamina
 he:ויטמין
@@ -12949,7 +12949,7 @@ pa:ਲੂਣ
 pl:sól, sól kuchenna
 ps:مالگه
 pt:sal, sal de cozinha, sal de cosina, sal de taula
-ro:sare, Sare de bucătărie
+ro:sare, Sare de bucătărie, sare de masă
 ru:соль, Поваренная соль
 rw:Umunyu
 sa:लवणम्
@@ -24080,6 +24080,10 @@ hu:teljes kiőrlésű zab
 nl:volkoren haver
 sv:fullkornshavre
 
+<en:oat
+en:gluten free oats
+fr:avoine sans gluten
+
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
@@ -25332,7 +25336,7 @@ sv:havremjöl
 
 # Question
 
-<fr:farine d'avoine
+<en:oat flour
 <en:wholemeal flour
 en:wholemeal oat flour, whole grain oat flour
 de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
@@ -25343,6 +25347,10 @@ nl:volkorenhavermeel
 pl:mąka owsiana pełnoziarnista
 pt:farinha de aveia integral
 sv:fullkornshavremjöl
+
+<en:oat flour
+en:gluten free oat flour
+fr:farine d'avoine sans gluten
 
 <en:cereal flour
 en:buckwheat flour
@@ -29866,7 +29874,7 @@ da:fedtfattig kakao
 de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
 fi:vähärasvainen kaakao
-fr:cacao maigre, cacao dégraissé
+fr:cacao maigre, cacao dégraissé, cacao réduit en matières grasses
 it:cacao magro
 nb:fedtfattig kakao
 nl:vetarme cacao, magere cacao
@@ -32030,7 +32038,7 @@ nl:gistextract
 nn:gjærekstrakt
 pl:ekstrakt drożdżowy, ekstrakt z drożdży
 pt:extrato de levedura
-ro:extract de drojdie
+ro:extract de drojdie, extract din drojdie
 ru:Дрожжевой экстракт
 sk:extrakt z droždia
 sl:izvlecek kvasa, kvasni ekstrakt
@@ -36605,7 +36613,7 @@ en:concentrated orange juice
 de:Orangensaftkonzentrat
 es:Zumo de naranja concentrado
 fi:appelsiinimehutiiviste, appelsiinitäysmehutiiviste
-fr:jus d'orange concentré, concentré de jus d'orange
+fr:jus d'orange concentré, concentré de jus d'orange, jus concentré d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
 ru:концентрированный апельсиновый сок
@@ -49156,7 +49164,7 @@ or:ବାଦାମ
 pa:ਗਿਰੀ
 pl:orzech, orzechy, inne orzechy
 pt:nozes, frutos de casca rija
-ro:nuci, fructe cu coajă lemnoasă
+ro:nuci, fructe cu coajă lemnoasă, alte fructe cu coajă lemnoasă
 ru:орех, орехи
 se:Niehtit
 sh:orašasti plod
@@ -51526,6 +51534,7 @@ fi:mausteseos
 fr:mélange d'épices
 nb:krydderimix
 nl:gemengde specerijen
+ro:amestec de condimente
 sv:kryddblandning, kryddmix
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
 
@@ -57111,7 +57120,7 @@ fi:auringonkukka
 fr:tournesol
 he:חמנית
 hr:suncokret
-hu:naprafogó
+hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
 it:girasole
@@ -57130,6 +57139,7 @@ nb:Solsikke
 nl:zonnebloem
 pl:słonecznik
 pt:Girassol
+ro:floarea soarelui
 ru:подсолнечник
 si:සූරියකාන්ත
 sl:slnečnica
