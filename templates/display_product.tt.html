@@ -224,12 +224,31 @@
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <div><span class="field">[% lang("packaging_text") %]:</span>
-            <div id="packaging_text">[% packaging_text %]</div>
+        <div><span class="field">[% lang("packaging_text") %][% sep %]:</span>
+            <p id="packaging_text">[% packaging_text %]</p>
         </div>
     </div>
     <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
 </div>
+
+[% IF packagings %]
+	<p class="field">[% lang("packaging_parts") %][% sep %]:</p>
+	<table id="packagings_table">
+	[% FOREACH property IN ["number", "shape", "material", "recycling"] %]
+		<th>[% lang("packaging_${property}") %]</th>
+	[% END %]
+	[% FOREACH packaging IN packagings %]
+		<tr>
+			<td>[% packaging.number %]</td>
+			<td>[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+				[% IF packaging.quantity %]([% packaging.quantity %])[% END %]
+			</td>
+			<td>[% display_taxonomy_tag("packaging_materials",packaging.material) %]</td>
+			<td>[% display_taxonomy_tag("packaging_recycling",packaging.recycling) %]</td>
+		</tr>
+	[% END %]
+	</table>
+[% END %]
 
 <!-- other fields -->
 [% IF other_fields != "" %]

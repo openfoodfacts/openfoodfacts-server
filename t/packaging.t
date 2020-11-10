@@ -177,6 +177,38 @@ my @tests = (
 			lc => "fr",
 			packaging_text => "bouteille en plastique pet recyclé",
 		}
+	],
+	
+	# Quantity contained and number of units
+	# the quantity contained must not be mistaken for the number of units
+	
+	[
+		'packaging_text_en_quantity_6_plastic_bottles',
+		{
+			lc => "en",
+			packaging_text => "6 plastic bottles"
+		}
+	],
+	[
+		'packaging_text_en_quantity_1_l_plastic_bottles',
+		{
+			lc => "en",
+			packaging_text => "1 L plastic bottle"
+		}
+	],
+	[
+		'packaging_text_en_quantity_25_cl_bottles',
+		{
+			lc => "en",
+			packaging_text => "25 cl bottle"
+		}
+	],
+	[
+		'packaging_text_fr_quantity_6_bouteilles_plastiques_de_25_cl',
+		{
+			lc => "fr",
+			packaging_text => "6 bouteilles plastiques de 25 cl"
+		}
 	],	
 );
 

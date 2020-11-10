@@ -7333,6 +7333,9 @@ sub display_product($)
 		lang => \&lang,
 		request_ref => $request_ref,
 		display_icon => \&display_icon,
+		display_taxonomy_tag => sub ($$) {
+			return display_taxonomy_tag($lc, $_[0], $_[1]);
+		},
 	};
 
 		$scripts .= <<SCRIPTS
@@ -7944,6 +7947,9 @@ HTML
 	
 	$template_data_ref->{packaging_text} = $packaging_text;
 	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
+
+	# packagings data structure
+	$template_data_ref->{packagings} = $product_ref->{packagings};
 	
 	# Environmental impact and Eco-Score
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
