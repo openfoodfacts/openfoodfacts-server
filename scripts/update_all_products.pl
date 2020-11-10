@@ -91,6 +91,7 @@ my $count = '';
 my $just_print_codes = '',
 my $pretend = '';
 my $process_ingredients = '';
+my $process_packagings = '';
 my $clean_ingredients = '';
 my $compute_nutrition_score = '';
 my $compute_serving_size = '';
@@ -135,6 +136,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
+			"process-packagings" => \$process_packagings,
 			"assign-categories-properties" => \$assign_categories_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
@@ -212,7 +214,7 @@ if (
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
-	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore)
+	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $process_packagings)
 	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
@@ -879,6 +881,10 @@ while (my $product_ref = $cursor->next) {
 				compute_nutrient_levels($product_ref);
 			}
 		}
+		
+		if ($process_packagings) {
+			analyze_and_combine_packaging_data($product_ref);
+		}	
 		
 		if ($compute_ecoscore) {
 			compute_ecoscore($product_ref);
