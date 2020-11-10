@@ -345,12 +345,14 @@ details.recent {
 }
 
 .top-bar .button, .top-bar button {
-  padding-top:0.2rem;
-  padding-bottom:0.2rem;
+  padding-top:0.4rem;
+  padding-bottom:0.4rem;
 }
 
-.button.small, button.small {
+.button.small, button.small, button.tiny, .button.tiny {
   padding:0.5rem;
+  padding-left:0.75rem;
+  padding-right:0.75rem;
 }
 
 .postfix.button.small, button.postfix.small {
@@ -360,17 +362,13 @@ details.recent {
 .icon {
   display: inline-block;
   fill: currentColor;
-  width: 24px;
-  height: 24px;
   margin-left: 0.25em;
   margin-right: 0.25em;
   overflow: hidden;
   vertical-align:middle;
-}
-
-.tiny svg.icon {
-  width:16px;
-  height:16px;
+  font-size:18px;
+  width:1em;
+  height:1em;
 }
 
 .ingredients_analysis {
