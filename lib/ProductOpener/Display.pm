@@ -7622,34 +7622,32 @@ CSS
 		my $ilc = $ingredients_text_lang;
 		$template_data_ref->{ilc} = $ingredients_text_lang;
 
-				$initjs .= <<JS
+		$initjs .= <<JS
 
 	var editableText;
 
-    \$("#editingredients").click({},function(event) {
+	\$("#editingredients").click({},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 
-    var divHtml = \$("#ingredients_list").html();
-	var allergens = /(<span class="allergen">|<\\/span>)/g;
-	divHtml = divHtml.replace(allergens, '_');
+		var divHtml = \$("#ingredients_list").html();
+		var allergens = /(<span class="allergen">|<\\/span>)/g;
+		divHtml = divHtml.replace(allergens, '_');
 
-    var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
-    editableText.val(divHtml);
-    \$("#ingredients_list").replaceWith(editableText);
-    editableText.focus();
-
+		var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
+		editableText.val(divHtml);
+		\$("#ingredients_list").replaceWith(editableText);
+		editableText.focus();
 
 		\$("#editingredientsbuttondiv").hide();
 		\$("#saveingredientsbuttondiv").show();
-
 
 		\$(document).foundation('equalizer', 'reflow');
 
 	});
 
 
-    \$("#saveingredients").click({},function(event) {
+	\$("#saveingredients").click({},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 
@@ -7658,14 +7656,16 @@ CSS
 		\$('div[id="saveingredientsbuttondiv_status"]').show();
 
 		\$.post('/cgi/product_jqm_multilingual.pl',
-				{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" }, function(data) {
+			{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" },
+			function(data) {
 
 				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
-						\$('div[id="saveingredientsbuttondiv"]').show();
+				\$('div[id="saveingredientsbuttondiv"]').show();
 
-
-			\$(document).foundation('equalizer', 'reflow');
-		}, 'json');
+				\$(document).foundation('equalizer', 'reflow');
+			},
+			'json'
+		);
 
 		\$(document).foundation('equalizer', 'reflow');
 
@@ -7679,14 +7679,16 @@ CSS
 		// alert(event.data.imagefield);
 		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_$ilc');
 		\$.post('/cgi/product_jqm_multilingual.pl',
-				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
-
+			{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" },
+			function(data) {
 
 				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
 				\$('div[id="ingredients_list"]').html("");
 
-			\$(document).foundation('equalizer', 'reflow');
-		}, 'json');
+				\$(document).foundation('equalizer', 'reflow');
+			},
+			'json'
+		);
 
 		\$(document).foundation('equalizer', 'reflow');
 
