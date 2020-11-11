@@ -231,11 +231,11 @@
     <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
 </div>
 
-[% IF packagings %]
-	<p class="field">[% lang("packaging_parts") %][% sep %]:</p>
+[% IF packagings && packagings.size %]
 	<table id="packagings_table">
+		<caption style="text-align:left">[% lang("packaging_parts") %][% sep %]:</caption>
 	[% FOREACH property IN ["number", "shape", "material", "recycling"] %]
-		<th>[% lang("packaging_${property}") %]</th>
+		<th scope="col">[% lang("packaging_${property}") %]</th>
 	[% END %]
 	[% FOREACH packaging IN packagings %]
 		<tr>
