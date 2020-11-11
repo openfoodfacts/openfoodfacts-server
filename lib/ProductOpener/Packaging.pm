@@ -183,12 +183,38 @@ sub parse_packaging_from_text_phrase($$) {
 							
 							$packaging_ref->{$property} = $tagid;
 						}
+						
+						# If we have a shape, check if we have a quantity contained (volume or weight)
+						# or if there is a number of units at the beginning
+						
+						if ($property eq "shape") {
+							
+							my $before = $`;
+							
+							# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
+							if ($text =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
+								$packaging_ref->{quantity} = lc($1);
+								$packaging_ref->{quantity_value} = lc($2);
+								$packaging_ref->{quantity_unit} = lc($5);
+								
+								# Remove the quantity from $before so that we don't mistake it for a number of units
+								$before =~ s/$1//g;
+							}
+							
+							# Number of units: e.g. 4 plastic bottles (but we should not match the 2 in "2 PEHD plastic bottles")
+							# match numbers starting with 1 to 9 to avoid matching 02 PEHD
+							if ($before =~ /^([1-9]\d*) /) {
+								if (not defined $packaging_ref->{number}) {
+									$packaging_ref->{number} = $1;
+								}
+							}
+						}
 					}
 				}
 			}
 		}
 	}
-	
+		
 	$log->debug("parse_packaging_from_text_phrase - result", { text => $text, text_language => $text_language, packaging_ref => $packaging_ref }) if $log->is_debug();
 	
 	return $packaging_ref;

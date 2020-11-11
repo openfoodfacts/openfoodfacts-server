@@ -872,15 +872,15 @@ sub compute_ecoscore_packaging_adjustment($) {
 
 	my $product_ref = shift;
 	
-	# Create or update the packagings data structure
-	# (can be removed from here once we systematically do it for all products)
-	
-	analyze_and_combine_packaging_data($product_ref);
-	
 	$log->debug("compute_ecoscore_packaging_adjustment - packagings data structure", { packagings => $product_ref->{packagings} }) if $log->is_debug();
 	
 	# Sum the scores of all packagings components
 	# Create a copy of the packagings structure, so that we can add Eco-score elements to it
+	
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	
 	my $packagings_ref = dclone($product_ref->{packagings});
 	
 	my $packaging_score = 0;

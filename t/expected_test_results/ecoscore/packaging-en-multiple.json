@@ -27,6 +27,7 @@
                   "ecoscore_material_score" : 91.25,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:cardboard",
+                  "number" : "1",
                   "shape" : "en:box"
                },
                {
@@ -34,6 +35,7 @@
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 0.1,
                   "material" : "en:plastic",
+                  "number" : "1",
                   "shape" : "en:film"
                },
                {
@@ -41,6 +43,10 @@
                   "ecoscore_material_score" : 75.5,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:steel",
+                  "number" : "6",
+                  "quantity" : "33cl",
+                  "quantity_unit" : "cl",
+                  "quantity_value" : "33",
                   "shape" : "en:drink-can"
                }
             ],
@@ -71,14 +77,20 @@
    "packagings" : [
       {
          "material" : "en:cardboard",
+         "number" : "1",
          "shape" : "en:box"
       },
       {
          "material" : "en:plastic",
+         "number" : "1",
          "shape" : "en:film"
       },
       {
          "material" : "en:steel",
+         "number" : "6",
+         "quantity" : "33cl",
+         "quantity_unit" : "cl",
+         "quantity_value" : "33",
          "shape" : "en:drink-can"
       }
    ]
