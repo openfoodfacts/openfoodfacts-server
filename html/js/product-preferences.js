@@ -1,8 +1,8 @@
 /*global lang */
+/*global preferences_text*/ // depends on which type of page the preferences are shown on
 
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
-
 
 function get_user_product_preferences () {
 	// Retrieve user preferences from local storage
@@ -69,18 +69,19 @@ function display_selected_preferences (target_selected, target_selection_form, p
 	});
 	
 	$( target_selected ).html(
-		'<div class="panel callout">'
-		+ '<div class="edit_button">'
-		+ '<a id="show_selection_form" class="button small">'
-		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
-		+ " " + lang().preferences_edit_your_food_preferences + '</a></div>'
-		+ "<h2>" + lang().preferences_your_preferences + "</h2>"
-		+ '<a id="preferences_link" data-dropdown="selected_preferences">'
-		+ lang().preferences_currently_selected_preferences + ' &raquo;</a>'
+		'<div style="float:left;margin-right:1em;">'
+		+ '<p><span id="preferences_title">' + preferences_text + "</span><br>"
+		+ '&raquo; ' + '<a id="preferences_link" data-dropdown="selected_preferences">'
+		+ lang().see_your_preferences + '</a></p>'
 		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
 		+ selected_preferences_html
 		+ '</div>'
 		+ '</div>'
+		+ '<div>'
+		+ '<a id="show_selection_form" class="button small">'
+		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
+		+ " " + lang().preferences_edit_your_food_preferences + '</a></div>'
+		+ '<hr style="clear:left;height:0;border:0;margin:0;padding:0;">'
 	);
 		
 	$( "#show_selection_form").click(function() {
@@ -158,7 +159,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 					
 					var checked = '';
 					
-					if (user_product_preferences[attribute.id] == preference.id) {
+					if ((! user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
 						checked = ' checked';
 					}
 					
@@ -190,6 +191,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 			+ " " + lang().close + '</a></div>'
 			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
+			+ '<a id="delete_all_preferences_button" class="button small">' + lang().delete_all_preferences + '</a>'
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
@@ -219,7 +221,21 @@ function display_user_product_preferences (target_selected, target_selection_for
 		if (target_selected) {	
 			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
 		}
+
+		$( "#delete_all_preferences_button").click(function() {
+			user_product_preferences = {};
+			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 			
+			// Redisplay user preferences
+			displayed_user_product_preferences = false;
+			display_user_product_preferences(target_selected, target_selection_form, change);
+			
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}
+		});
+
 		$( ".show_selected").click(function() {
 			$( target_selection_form ).hide();
 			$( target_selected ).show();
