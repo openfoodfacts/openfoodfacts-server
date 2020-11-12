@@ -249,10 +249,14 @@ sub analyze_and_combine_packaging_data($) {
 	
 	my @phrases = ();
 	
+	my $number_of_packaging_text_entries = 0;
+	
 	# Packaging text field (populated by OCR of the packaging image and/or contributors or producers)
 	if (defined $product_ref->{packaging_text}) {
 		
-		push (@phrases, split(/,|\n/, $product_ref->{packaging_text}));
+		my @packaging_text_entries = split(/,|\n/, $product_ref->{packaging_text});
+		push (@phrases, @packaging_text_entries);
+		$number_of_packaging_text_entries = scalar @packaging_text_entries;
 	}
 	
 	# Packaging tags field
@@ -261,14 +265,22 @@ sub analyze_and_combine_packaging_data($) {
 	}	
 	
 	# Add or merge packaging data from phrases to the existing packagings data structure
-			
+		
+	my $i = 0;	
+		
 	foreach my $phrase (@phrases) {
 		
+		$i++;
 		$phrase =~ s/^\s+//;
 		$phrase =~ s/\s+$//;
 		next if $phrase eq "";
 		
 		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
+		
+		# For phrases corresponding to the packaging text field, mark the shape as en:unrecognized if it was not identified
+		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
+			$packaging_ref->{shape} = "en:unrecognized";
+		}
 		
 		# Non empty packaging?
 		if ((scalar keys %$packaging_ref) > 0) {

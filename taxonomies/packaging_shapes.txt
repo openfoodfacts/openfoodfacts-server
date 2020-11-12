@@ -1,7 +1,10 @@
 # Containers
 
-# Use singular as the main name, and add plural as synonym
+# Special entries for packaging parts for which the shape was not recognized
+en:Unrecognized
+fr:Non-reconnue, non-reconnu
 
+# Use singular as the main name, and add plural as synonym
 en:Tray, trays
 de:Körbchen
 fr:Barquette, barquettes
@@ -172,3 +175,6 @@ fr:Assiette, assiettes
 
 en:Stick, sticks
 fr:Batonnet, bâtonnets
+
+en:label, labels
+fr:étiquette, étiquettes

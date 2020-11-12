@@ -209,7 +209,31 @@ my @tests = (
 			lc => "fr",
 			packaging_text => "6 bouteilles plastiques de 25 cl"
 		}
+	],
+	
+	# Packaging text with line feeds
+	[
+		'packaging_text_fr_line_feeds',
+		{
+			lc => "fr",
+			packaging_text => "1 bouteille en plastique opaque PE-HD de 1L à recycler
+1 bouchon en plastique opaque PE-HD à recycler
+1 opercule en métal à recycler
+1 étiquette en papier à recycler"
+		}
+	],
+	# Some unknown shape
+	[
+		'packaging_text_fr_unknown_shape',
+		{
+			lc => "fr",
+			packaging_text => "1 bouteille en plastique opaque PE-HD de 1L à recycler
+1 bouchon en plastique opaque PE-HD à recycler
+1 opercule à recycler
+1 machin en papier à recycler"
+		}
 	],	
+	
 );
 
 init_packaging_taxonomies_regexps();
