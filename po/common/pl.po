@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:06\n"
+"PO-Revision-Date: 2020-11-08 15:20\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -76,7 +76,7 @@ msgstr "Do dyskusji wykorzystujemy program Slack, gdzie wszyscy członkowie mog�
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Dołącz do nas na Slacku"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -230,7 +230,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -829,7 +829,7 @@ msgstr "Nota prawna"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1728,7 +1728,7 @@ msgstr "Istnieją %d Odkrywcy i %d Ambasadorów."
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr "Ranking"
+msgstr ""
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -2345,7 +2345,7 @@ msgstr "Tworzona wspólnie, darmowa baza danych składników, wartości odżywcz
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2823,7 +2823,7 @@ msgstr "Seniorzy"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr "65+"
+msgstr ""
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -3954,7 +3954,7 @@ msgstr "Wynik Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4129,26 +4129,6 @@ msgstr "Ocena Nutri-Score od producenta"
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
 msgstr "Obliczona ocena Nutri-Score"
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Zeskanowany kod"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Kod z nazwy pliku"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Używanie poprzedniego kodu"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Możesz określić wartości pól, które zostaną dodane do wszystkich produktów, dla których będziesz wysyłać obrazy."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Dodaj pole"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4475,7 +4455,7 @@ msgstr "Jakość żywności"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4922,4 +4902,12 @@ msgstr ""
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "wynik ekologiczny"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr "wynik ekologiczny"
 
