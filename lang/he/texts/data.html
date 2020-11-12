@@ -14,9 +14,9 @@ with the Open Food Facts community.</p>
 
 <h2>ייצוא הנתונים של Open Food Facts</h2>
 
-<p>Database dumps and exports are generated nightly. The database is very big, so you can find 
-  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
-  depending on the export flavor.</p>
+<p>היטלים ותוצרי ייצוא של מסד הנתונים נוצרים מדי לילה. מסד הנתונים גודל מאוד, לכן ניתן למצוא
+  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">דרכים שונות להשתמש בנתונים</a>, 
+  בהתאם לצורת הייצוא.</p>
 
 <p>ניתן למצוא מידע על השדות השונים של אוספי ה־MongoDB ותוצרי ה־CSV בכתובת <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
 
@@ -45,10 +45,10 @@ with the Open Food Facts community.</p>
  deleted products from your database, you will need to import the full MongoDB dump.</p>
 
 
-<h3>JSONL data export</h3>
+<h3>ייצוא נתונים ב־JSONL</h3>
 
-<p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
-  It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
+<p>מסד הנתונים השלם זמין גם ב<a href="https://jsonlines.org/">תצורתJSONL</a> (לפעמים נקרא גם LDJSON או NDJSON) בו כל שורה היא פריט JSON. 
+  הוא מייצג את אותם הנתונים כמו בייצוא של MongoDB. הקובץ דחוס ב־gzip.</p>
 
 <dl>
  <dt>קישור</dt>
@@ -57,59 +57,58 @@ with the Open Food Facts community.</p>
 </dl>
 
 
-<h3>CSV Data Export</h3>
+<h3>ייצוא נתונים ב־CSV</h3>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
+<p>ניתן להוריד נתונים לכל המוצרים או לחלקם בתצורת CSV (אפשר לקרוא אותו עם OpenOffice,‏ Excel ועוד) דרך <a href="https://world.openfoodfacts.org/cgi/search.pl">טופס החיפוש המתקדם</a>.</p>
 
 <dl>
  <dt>קישור</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>קידוד הקובץ הוא Unicode UTF-8. התו המפריד בין שדות הוא &lt;tab&gt; (טאב).</p>
 
 
 
-<h3>RDF Data Export</h3>
+<h3>ייצוא נתונים ב־RDF</h3>
 
-<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
+<p>מסד הנתונים זמין גם בתצורת RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">הכרזה בצרפתית</a>.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>קישור</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
 <h2>API חי מסוג JSON</h2>
 
-<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
+<p>API בתצורת JSON גם כן זמין לטובת קריאת נתונים על מוצר. ה־API הזה במיוחד משמש את היישומון לניידים של Open Food Facts עבור iPhone ו־Android.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>אנו משנים את ה־API במשך הזמן ואנו פועל בזהירות כדי לשמור על תאימות לאחור. נשמח לשמוע ממך אם זה משמש אותך כדי שנוכל לספר לך על שינויים אפשריים.</p>
 
-<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
+<p>כתובת לקריאת נתוני מוצר: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
 
-<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+<p>לדוגמה: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE).
-A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
-<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
-<p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
-Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
-<p>Also, sending an HTTP header with your API call is a good way we can get in touch, should any issue arise.</p>
-<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
+תיעוד נוסף <a href="https://wiki.openfoodfacts.org/API">זמין בוויקי</a>. (הערה חשובה: העמוד מחולק לתת־עמודים לטובת READ ו־WRITE - קריאה וכתיבה).
+כרגע מתבצעת עבודה על תיעוד טוב יותר, עם מקרי בוחן להצגת מוצרים ומתן האפשרות למשתמשים להוסיף את הנתונים הנדרשים כדי לקבל Nutri-Score, קבוצות NOVA ותוספים.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">ניתן לגשת אליו דרך כאן</a>.
+<p>אנו מזמינים אותך להשתמש ב־API למטרות פעילות מבצעית, כל עוד כל קריאת API שוות ערך לסריקה אמתית של משתמש.
+כל ניסיון לדלות את מסד הנתונים כולו דרך ה־API ייחסם כיוון שתוצאי ייצוא מלאים יומיים זמינים בעמוד זה ממש.</p>
+<p>כמו כן, שליחת כותרת HTTP יחד עם קריאת ה־API שלך היא רעיון טוב כיוון שנוכל להיות בקשר במקרה שיצוצו כל מיני דברים.</p>
+<p>אם משהו לא ברור לך או שיש לך שאלה (אין שאלות דביליות), אפשר לשאול אותנו דרך Slack :-)</p>
 
 <h2>יישומים לניידים מסוג Android ו־iPhone</h2>
 
-<p>The code for the Open Food Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
-The app allows users to scan the barcode of products, to view the product information, and to take and send pictures and data for missing products.</p>
+<p>הקוד ליישומון לניידים של Open Food Facts זמין ב־GitHub‏ (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> ו־<a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
+היישומון מאפשר למשתמשים לסרוק את ברקודים של מוצרים כדי לצפות בפרטי המוצרים וכדי לצלם ולשלוח תמונות ונתונים למוצרים שלוקים חסר או חסרים לחלוטין.</p>
 
-<p>The app for iOS is developed in Swift.</p>
-<p>The app for Android is developed in Java.</p>
-<p>You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.
+<p>היישומון ל־iOS מפותח ב־Swift.</p>
+<p>היישומון ל־Android מפותח ב־Java.</p>
+<p>אנו מזמינים אותך לעשות בקוד שימוש חוזר (זה קוד פתוח) ולסייע לנו לשפר אותו, למען כולם, בכל העולם.
 
-<h2>Wrappers and SDKs</h2>
-<p>We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it. If we don't, you can help create it.</p>
-<p>They will let you consume data, as well as let your users contribute new data</p>
+<h2>מעטפות ו־SDK</h2>
+<p>כנראה שיש לנו מעטפת לשפת הפיתוח המועדפת עליך. אם יש לנו, ניתן להשתמש בה ולשפר אותה. אם אין לנו, ניתן לעזור ביצירתה.</p>
+<p>הם יאפשרו לך לצרוך נתונים וגם לאפשר למשתמשים שלך לתרום נתונים חדשים</p>
 <ul>
 <li>Cordova:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (היישומון הרשמי הישן של Open Food Facts)</a></li>
 <li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
@@ -124,12 +123,12 @@ The app allows users to scan the barcode of products, to view the product inform
 </ul>
 
 <h2>דיון על נתונים, API ועל נתונים מיוצאים</h2>
-<p>You can <a href="https://slack.openfoodfacts.org">join the Open Food Facts Slack chatroom which is the preferred way to ask questions and discuss the API</a>.</p>
+<p>ניתן <a href="https://slack.openfoodfacts.org">להצטרף לחדר השיחה של Open Food Facts ב־Slack שהיא הדרך המועדפת לשאול שאלות ולדון ב־API</a>.</p>
 
-<p>You can also join the mailing list to discuss the API and exports, tell us about your re-uses, and be notified when improvements or changes are made to the API. Send an empty e-mail to
-<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> to subscribe.</p>
+<p>ניתן גם להצטרף לרשימת הדיוור כדי לדון ב־API ובייצוא, נשמח לשמוע מהן הנגזרות שעשית ולקבל התראות כאשר נערכים שיפורים או שינויים ל־API. לשלוח הודעת דוא״ל ריקה אל
+<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> כדי להירשם.</p>
 
 
 <h2>יצירת קשר</h2>
 
-<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
+<p>לשאלות בנוגע לנתונים שלך, ניתן ליצור אתנו קשר דרך <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
