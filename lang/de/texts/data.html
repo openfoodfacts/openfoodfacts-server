@@ -6,7 +6,7 @@ Die einzelnen Inhalte der Datenbank stehen unter dem Menüpunkt <a href="https:/
 Die Produktfotos sind unter der <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike Lizenz</a> verfügbar.
 Sie könnten grafische Elemente enthalten, die dem Urheberrecht oder anderen Rechten unterliegen, die in einigen Fällen vervielfältigt werden können (Zitierrechte oder Fair Use).</p>
 
-<p>Bitte lesen Sie <a href="https://world.openfoodfacts.org/terms-of-use">Nutzungsbedingungen und Wiederverwendung</a> bevor Sie die Daten wiederverwenden.</p> 
+<p>Bitte lesen Sie <a href="https://world.openfoodfacts.org/terms-of-use">Nutzungsbedingungen und Wiederverwendung</a> bevor Sie die Daten wiederverwenden.</p>
 
 
 <p>Wir sind sehr daran interessiert zu erfahren, wofür die Daten von Open Food Facts verwendet werden. Es ist nicht erforderlich, aber wir würden uns sehr freuen, wenn Sie uns <a href="mailto:contact@openfoodfacts.org">über Ihre Wiederverwendung</a> informieren würden, damit wir sie mit der Open Food Facts Gemeinschaft teilen können.</p>
@@ -37,14 +37,14 @@ Sie könnten grafische Elemente enthalten, die dem Urheberrecht oder anderen Rec
  Jede Zeile repräsentiert eine Datei, die unter <code>https://static.openfoodfacts.org/data/delta/{filename}</code> verfügbar ist.
  Der Dateiname enthält den UNIX-Zeitstempel der ersten und letzten in der JSON-Datei enthaltenen Änderung, so dass die Delta-Dateien (nach der Ausleitung) mit <code>mongoimport</code> in alphabetischer Reihenfolge importiert werden können.</p>
 <p>Bitte beachten Sie, dass die Delta-Dateien aufgrund der Natur von <code>mongoexport</code> nicht über gelöschte Produkte informieren können. Um gelöschte Produkte aus Ihrer Datenbank zu entfernen, müssen Sie den gesamten MongoDB-Datenbankauszug importieren.</p>
- 
+
 <h3>CSV-Datenexport</h3>
 
 <p>Daten für alle Produkte oder einige der Produkte können im CSV-Format (lesbar mit OpenOffice, Excel und vielen anderen Programmen) über die <a href="https://world.openfoodfacts.org/cgi/search.pl">erweiterte Suchmaske</a> heruntergeladen werden.</p>
- 
+
 <dl>
  <dt>Herunterladen</dt>
- <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/de.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
 <p>Als Dateikodierung wird Unicode UTF-8 verwendet. Als Trennzeichen für die Felder wird &lt;tab&gt; (Tabellierung) verwendet.</p>
@@ -57,7 +57,7 @@ Sie könnten grafische Elemente enthalten, die dem Urheberrecht oder anderen Rec
 
 <dl>
  <dt>Herunterladen</dt>
- <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/de.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
 <h2>Live-JSON-API</h2>
@@ -70,7 +70,7 @@ Sie könnten grafische Elemente enthalten, die dem Urheberrecht oder anderen Rec
 
 <p>Beispiel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Weitere Dokumentation ist <a href="https://wiki.openfoodfacts.org/API">im Wiki verfügbar</a>. (Wichtiger Hinweis: Die Seite ist in Unterseiten für „Lesen” und „Schreiben” unterteilt). 
+Weitere Dokumentation ist <a href="https://wiki.openfoodfacts.org/API">im Wiki verfügbar</a>. (Wichtiger Hinweis: Die Seite ist in Unterseiten für „Lesen” und „Schreiben” unterteilt).
 Es wird eine verbesserte Dokumentation entwickelt, mit Anwendungsfällen für die Anzeige eines Produkts und der Möglichkeit, dass Ihre Nutzer die Daten hinzufügen können, die für den Nutri-Score, die NOVA-Gruppen und die Zusatzstoffe erforderlich sind.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Sie können es hier aufrufen</a>.
 <p>Sie können die API gerne für Produktionsabläufe verwenden, sofern 1 API-Aufruf = 1 realer Scan durch einen Benutzer entspricht.
