@@ -4372,12 +4372,10 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
-		
 		# Eco-Score
 		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
 			compute_ecoscore($product_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
-		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
@@ -7624,6 +7622,8 @@ CSS
 	if (not defined $ingredients_text) {
 		$ingredients_text = "";
 	}
+	
+	$ingredients_text =~ s/\n/<br>/g;
 
 	# Indicate if we are displaying ingredients in another language than the language of the interface
 
@@ -7947,6 +7947,7 @@ HTML
 	# try to display packaging in the local language if available
 
 	my $packaging_text = $product_ref->{packaging_text};
+	
 	my $packaging_text_lang = $product_ref->{lc};
 
 	if ((defined $product_ref->{"packaging_text" . "_" . $lc}) and ($product_ref->{"packaging_text" . "_" . $lc} ne '')) {
@@ -7957,6 +7958,8 @@ HTML
 	if (not defined $packaging_text) {
 		$packaging_text = "";
 	}
+
+	$packaging_text =~ s/\n/<br>/g;
 	
 	$template_data_ref->{packaging_text} = $packaging_text;
 	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
