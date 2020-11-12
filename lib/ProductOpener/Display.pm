@@ -4372,11 +4372,24 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
-		
 		# Eco-Score
-		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
-			compute_ecoscore($product_ref);
-			$customized_product_ref->{$field} = $product_ref->{$field};
+		elsif ($field =~ /^ecoscore/) {
+			# 2020-11-12: the Eco-score is currently not publicly deployed, and only available to moderators on the web site
+			# and alpha testers of the Open Food Facts app
+			# Until the public launch of the Eco-score, we will disable ecoscore fields in the API,
+			# except if the app is also asking for the ecoscore_alpha field (which can be turned on by the app with a specific parameter)
+			# That way we can deploy an "Eco-score ready" app that asks for ecoscore fields,
+			# and once we turn it on on the server, the app will start to display the Eco-score instantly,
+			# without having to deploy an updated app.
+			
+			if (($server_options{ecoscore}) or (param('fields') =~ /ecoscore_alpha/)) {
+				if (not defined $product_ref->{ecoscore_data}) {
+					compute_ecoscore($product_ref);
+				}
+				if (defined $product_ref->{$field}) {
+					$customized_product_ref->{$field} = $product_ref->{$field};
+				}
+			}
 		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
