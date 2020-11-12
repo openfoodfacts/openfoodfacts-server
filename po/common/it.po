@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 12:03\n"
+"PO-Revision-Date: 2020-11-12 12:33\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4155,26 +4155,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Aggiungi un campo"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Codice scansionato"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Codice dal nome del file"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Usando il codice precedente"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Puoi specificare i valori dei campi che saranno aggiunti a tutti i prodotti per cui invierai immagini."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Aggiungi un campo"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Rimuovi tutti i prodotti"
@@ -4438,6 +4418,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "Non è un prodotto biologico"
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr "Promuove la sostenibilità e biodiversità ecologica."
@@ -4461,6 +4445,10 @@ msgstr "Prodotto del commercio equo"
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "Non un prodotto del commercio equo"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4554,7 +4542,7 @@ msgstr "NOVA non calcolato"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr "Livello di elaborazione alimentare sconosciuto"
+msgstr "Livello di trasformazione alimentare sconosciuto"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4927,4 +4915,77 @@ msgstr "Elenco di ingredienti mancante"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Dati nutrizionali mancanti"
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "Eco-score"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr "Eco-score"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_are_sorted_according_to_your_preferences"
+msgid "Products are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+# "All" as in "All products"
+msgctxt "match_all"
+msgid "All"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_yes"
+msgid "OK"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_no"
+msgid "Not OK"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_unknown"
+msgid "Maybe OK"
+msgstr ""
+
+msgctxt "products_are_being_loaded"
+msgid "Products are being loaded."
+msgstr ""
 
