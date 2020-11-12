@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:22\n"
+"PO-Revision-Date: 2020-11-12 12:58\n"
 "Language-Team: Chinese Traditional\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -230,7 +230,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -829,7 +829,7 @@ msgstr "法律"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1228,7 +1228,8 @@ msgstr "登入來新增或編輯產品。"
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "請登入來新增或編輯產品。\n"
+msgstr "<p>請登錄以添加或編輯產品。</p>\n\n"
+"<p>如果您還沒有<<site_name>>帳戶，則可以在30秒內 <a href=\"/cgi/user.pl\">註冊</a>。</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -2342,7 +2343,7 @@ msgstr "來自全球有關食品原料、營養成分、及其資訊的合作、
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -4146,26 +4147,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr ""
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr ""
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr ""
@@ -4429,6 +4410,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4451,6 +4436,10 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
 msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
@@ -4917,5 +4906,78 @@ msgstr ""
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_are_sorted_according_to_your_preferences"
+msgid "Products are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+# "All" as in "All products"
+msgctxt "match_all"
+msgid "All"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_yes"
+msgid "OK"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_no"
+msgid "Not OK"
+msgstr ""
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_unknown"
+msgid "Maybe OK"
+msgstr ""
+
+msgctxt "products_are_being_loaded"
+msgid "Products are being loaded."
 msgstr ""
 
