@@ -4,7 +4,7 @@
 <p>La base de données Open Food Facts est disponible sous <a href="https://opendatacommons.org/licenses/odbl/1.0/">licence Open Database Licence (Odbl)</a>.<br/>Les contenus individuels de la base de données sous disponibles sous licence <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License (DbCL)</a>.<br/>Les images de produits sont disponibles sous licence <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike - CC BY-SA</a>.
 Certaines données peuvent contenir des éléments graphiques soumis au droit d'auteur ou à d'autres droits, qui peuvent dans certains cas être reproduits (droits de citation, usage loyal).</p>
 
-<p>Nous vous invitons à lire les <a href="https://world.openfoodfacts.org/terms-of-use">Conditions d'utilisation et de ré-utilisation</a> avant de ré-utiliser les données.</p> 
+<p>Nous vous invitons à lire les <a href="https://world.openfoodfacts.org/terms-of-use">Conditions d'utilisation et de ré-utilisation</a> avant de ré-utiliser les données.</p>
 
 
 <p>Nous sommes vraiment très intéressé par la façon dont vous allez utiliser les données Open Food Facts. Ce n'est pas obligatoire, mais c'est un vrai plus pour nous si vous nous <a href="mailto:contact@openfoodfacts.org">partagez vos réutilisations</a>. Nous pourrons les diffuser au sein de la communauté Open Food Facts.</p>
@@ -35,11 +35,11 @@ Certaines données peuvent contenir des éléments graphiques soumis au droit d'
  Chaque ligne représente un fichier disponible sur <code> https://static.openfoodfacts.org/data/delta/{filename}</code> .
  Le nom du fichier contient un horodatage UNIX du premier et du dernier changement apporté au fichier JSON, afin que les fichiers delta puissent être importés (après extraction) avec <code>mongoimport</code> par ordre alphabétique.</p>
 <p>Veuillez noter qu'en raison de la nature de <code>mongoexport</code> , les fichiers delta ne peuvent pas vous renseigner sur les produits supprimés. Pour effacer les produits supprimés de votre base de données, vous devez importer l'entièreté du dépôt / dump MongoDB.</p>
- 
+
 <h3>Export CSV</h3>
 
 <p>Les données pour tous les produits, ou une sélection de produits, peuvent être téléchargés au format CSV (utilisable avec les logiciels OpenOffice, Excel par exemple parmi l'offre importante de logiciels de tableur existants) en utilisant le <a href="https://world-fr.openfoodfacts.org/cgi/search.pl">formulaire de recherche avancé</a>.</p>
- 
+
 <dl>
  <dt>Lien</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
@@ -68,7 +68,7 @@ Certaines données peuvent contenir des éléments graphiques soumis au droit d'
 
 <p>Exemple : <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Une documentation plus compète est <a href="https://wiki.openfoodfacts.org/API">disponible sur le Wiki</a>. (IMPORTANT : la page est divisée en sous-pages pour READ et WRITE). 
+Une documentation plus compète est <a href="https://wiki.openfoodfacts.org/API">disponible sur le Wiki</a>. (IMPORTANT : la page est divisée en sous-pages pour READ et WRITE).
 Nous sommes en train de développer une meilleure documentation, comprenant les "uses cases" pour afficher un produit, et permettant à vos utilisateurs d'ajouter les données nécessaires pour produire le Nutri-Score, les groupes NOVA et les additifs.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Vous pouvez y accéder ici</a>.
 <p>Vous avez parfaitement le droit d'utiliser l'API pour des programmes en production, tant qu'1 appel API = 1 scan par un utilisateur réel.
