@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:10\n"
+"PO-Revision-Date: 2020-11-12 12:26\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -76,7 +76,7 @@ msgstr "Nous utilisons un système de discussion appelé Slack où tous les part
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Rejoignez-nous sur Slack"
+msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -225,12 +225,12 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr "Android APK"
+msgstr ""
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -1138,7 +1138,7 @@ msgstr "Les produits qui possèdent le label %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "label"
+msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1343,7 +1343,7 @@ msgstr "Objectif :"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Missions"
+msgstr ""
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1444,7 +1444,7 @@ msgstr "repère nutritionnel"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "nutriments"
+msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -2187,7 +2187,7 @@ msgstr "choisir un nutriment..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutriments"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2351,7 +2351,7 @@ msgstr "Ingrédients, composition nutritionnelle et information sur les produits
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2455,7 +2455,7 @@ msgstr "Indiquer les ingrédients des mentions \"Peut contenir des traces de\", 
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "traces"
+msgstr ""
 
 msgctxt "traces_s"
 msgid "trace"
@@ -3776,7 +3776,7 @@ msgstr "import"
 
 msgctxt "imports"
 msgid "imports"
-msgstr "imports"
+msgstr ""
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -4156,26 +4156,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Ajouter un champ"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Code scanné"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Code à partir du nom du fichier"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Utilisation du code précédent"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Vous pouvez définir des valeurs qui seront ajoutées à tous les produits pour lesquels vous enverrez des photos."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Ajouter un champ"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Supprimer l'intégralité des produits"
@@ -4425,7 +4405,7 @@ msgstr "Les photos du produits peuvent aussi être fournies séparément, via la
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr "Labels"
+msgstr ""
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4438,6 +4418,10 @@ msgstr "Produit bio"
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "Pas un produit bio"
+
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "Information manquante : produit bio ?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4462,6 +4446,10 @@ msgstr "Produit du commerce équitable"
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "Ne provient pas du commerce équitable"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "Information manquante : produit de commerce équitable ?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4498,11 +4486,11 @@ msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score not computed"
-msgstr ""
+msgstr "Nutri-Score non calculé"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Unknown nutritional quality"
-msgstr ""
+msgstr "Qualité nutritionnelle inconnue"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4526,7 +4514,7 @@ msgstr "Mauvaise qualité nutritionnelle"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr "Préparation des aliments"
+msgstr "Transformation des aliments"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4534,11 +4522,11 @@ msgstr "Groupe NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA non calculé"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Niveau de transformation des aliments inconnu"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4551,11 +4539,11 @@ msgstr "NOVA %s"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA non calculé"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Degré de transformation des aliments inconnu"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4635,7 +4623,7 @@ msgstr "Pas ou peu d'additifs"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Additifs non calculés"
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4708,16 +4696,16 @@ msgstr "Environnement"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Éco-score"
+msgstr "Éco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr "Faible impact environnemental (Eco-Score)"
+msgstr "Faible impact environnemental (Éco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Éco-score %s"
+msgstr "Éco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4874,7 +4862,7 @@ msgstr "Ingrédients"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "Présence inconnue : %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
@@ -4919,12 +4907,86 @@ msgstr "Vos préférences alimentaires sont conservées dans votre navigateur et
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "quantité inconnue"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Liste des ingrédients manquante"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Faits nutritionnels manquants"
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "écoscore"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr "écoscore"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr "Parties de l'emballage"
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr "Numéro"
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr "Forme"
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr "Quantité contenue"
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr "Matière"
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr "Recyclage"
+
+msgctxt "products_are_sorted_according_to_your_preferences"
+msgid "Products are sorted according to your preferences:"
+msgstr "Les produits sont triés selon vos proférences :"
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr "Choisissez quelles informations vous préférez voir en premier."
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr "Voir vos préférences"
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr "Supprimer toutes les préférences"
+
+# "All" as in "All products"
+msgctxt "match_all"
+msgid "All"
+msgstr "Tous"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_yes"
+msgid "OK"
+msgstr "OK"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_no"
+msgid "Not OK"
+msgstr "Non"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_unknown"
+msgid "Maybe OK"
+msgstr "Peut-être"
+
+msgctxt "products_are_being_loaded"
+msgid "Products are being loaded."
+msgstr "Chargement des produits."
+
