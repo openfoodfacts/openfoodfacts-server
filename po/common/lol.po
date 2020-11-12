@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 12:04\n"
+"PO-Revision-Date: 2020-11-12 13:27\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4120,26 +4120,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "crwdns142642:0crwdne142642:0"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "crwdns142644:0crwdne142644:0"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "crwdns142646:0crwdne142646:0"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "crwdns142648:0crwdne142648:0"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "crwdns142650:0crwdne142650:0"
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "crwdns142652:0crwdne142652:0"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "crwdns142654:0crwdne142654:0"
@@ -4403,6 +4383,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "crwdns152714:0crwdne152714:0"
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "crwdns153806:0crwdne153806:0"
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr "crwdns152962:0crwdne152962:0"
@@ -4426,6 +4410,10 @@ msgstr "crwdns152722:0crwdne152722:0"
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "crwdns152724:0crwdne152724:0"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "crwdns153808:0crwdne153808:0"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4892,4 +4880,77 @@ msgstr "crwdns152994:0crwdne152994:0"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "crwdns152996:0crwdne152996:0"
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "crwdns153018:0crwdne153018:0"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr "crwdns153020:0crwdne153020:0"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr "crwdns153810:0crwdne153810:0"
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr "crwdns153812:0crwdne153812:0"
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr "crwdns153814:0crwdne153814:0"
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr "crwdns153816:0crwdne153816:0"
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr "crwdns153818:0crwdne153818:0"
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr "crwdns153820:0crwdne153820:0"
+
+msgctxt "products_are_sorted_according_to_your_preferences"
+msgid "Products are sorted according to your preferences:"
+msgstr "crwdns153822:0crwdne153822:0"
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr "crwdns153824:0crwdne153824:0"
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr "crwdns153826:0crwdne153826:0"
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr "crwdns153828:0crwdne153828:0"
+
+# "All" as in "All products"
+msgctxt "match_all"
+msgid "All"
+msgstr "crwdns153830:0crwdne153830:0"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_yes"
+msgid "OK"
+msgstr "crwdns153832:0crwdne153832:0"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_no"
+msgid "Not OK"
+msgstr "crwdns153834:0crwdne153834:0"
+
+# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
+msgctxt "match_unknown"
+msgid "Maybe OK"
+msgstr "crwdns153836:0crwdne153836:0"
+
+msgctxt "products_are_being_loaded"
+msgid "Products are being loaded."
+msgstr "crwdns153838:0crwdne153838:0"
 
