@@ -281,6 +281,7 @@ use vars qw();
 $static_subdomain = format_subdomain('static');
 $world_subdomain = format_subdomain('world');
 
+my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
 =head1 FUNCTIONS
 
@@ -531,6 +532,17 @@ CSS
 }
 CSS
 ;
+	}
+	
+	# Enable or disable user preferences
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (not $server_options{producers_platform})
+		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+			
+		$user_preferences = 1;
+	}
+	else {
+		$user_preferences = 0;
 	}
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
@@ -3955,11 +3967,12 @@ sub display_search_results($) {
 			$search_api_url =~ s/\&/\?/;
 		}
 		
-		my $preferences_text = lang("products_are_sorted_according_to_your_preferences");
+		my $preferences_text = lang("products_on_this_page_are_sorted_according_to_your_preferences");
 		
 		$scripts .= <<JS
 <script type="text/javascript">
 var preferences_text = "$preferences_text";
+var products;
 </script>
 JS
 ;		
@@ -3973,8 +3986,8 @@ JS
 		
 
 		$initjs .= <<JS
-display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results"); });
-search_products("#search_results", "$search_api_url");
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
+search_products("#search_results", products, "$search_api_url");
 JS
 ;
 
@@ -4300,7 +4313,13 @@ sub customize_response_for_product($) {
 	
 	my $carbon_footprint_computed = 0;
 	
-	foreach my $field (split(/,/, param('fields'))) {
+	my $fields = param('fields');
+	
+	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
+		$fields = "product_name,url,image_front_thumb_url,attribute_groups";
+	}
+	
+	foreach my $field (split(/,/, $fields)) {
 
 		# On demand carbon footprint tags
 		if ((not $carbon_footprint_computed)
@@ -4526,10 +4545,16 @@ sub search_and_display_products($$$$$) {
 
 	my $fields_ref;
 
-	#for API (json, xml, rss,...), display all fields
+	# - for API (json, xml, rss,...), display all fields
 	if (param("json") or param("jsonp") or param("xml") or param("jqm") or $request_ref->{rss}) {
 		$fields_ref = {};
-	} else {
+	}
+	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
+	elsif ($user_preferences) {
+		# when product attributes become more stable, we could try to restrict the fields
+		$fields_ref = {};
+	}
+	else {
 	#for HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
 		"lc" => 1,
@@ -4766,7 +4791,7 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
-		if ((defined $request_ref->{api}) and (defined param('fields'))) {
+		if (($user_preferences) or ((defined $request_ref->{api}) and (defined param('fields')))) {
 
 			my $customized_products = [];
 
@@ -4817,6 +4842,38 @@ sub search_and_display_products($$$$$) {
 	if ($subdomain ne $original_subdomain) {
 		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
+	}
+	
+	if ($user_preferences) {
+		
+		my $preferences_text = lang("products_on_this_page_are_sorted_according_to_your_preferences");
+		
+		my $products_json = '[]';
+		
+		if (defined $request_ref->{structured_response}{products}) {
+			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
+		}
+		
+		$scripts .= <<JS
+<script type="text/javascript">
+var preferences_text = "$preferences_text";
+var products = $products_json;
+</script>
+JS
+;		
+		
+		$scripts .= <<JS
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
+rank_and_display_products("#search_results", products);
+JS
+;
+
 	}
 
 	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
@@ -8114,9 +8171,7 @@ HTML
 	# Compute attributes and embed them as JSON
 	# enable feature for moderators
 	
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform})
-		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+	if ($user_preferences) {
 	
 		# A result summary will be computed according to user preferences on the client side
 
