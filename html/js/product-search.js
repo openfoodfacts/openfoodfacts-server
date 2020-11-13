@@ -280,7 +280,7 @@ function search_products (target, products, search_api_url) {
 		
 		if (data.products) {
 			
-			products = data.products;
+			Array.prototype.push.apply(products, data.products);
 			rank_and_display_products(target, products);
 		}		
 	});

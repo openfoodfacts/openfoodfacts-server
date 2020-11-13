@@ -3972,7 +3972,7 @@ sub display_search_results($) {
 		$scripts .= <<JS
 <script type="text/javascript">
 var preferences_text = "$preferences_text";
-var products;
+var products = [];
 </script>
 JS
 ;		
