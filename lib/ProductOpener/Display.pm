@@ -4376,6 +4376,7 @@ sub customize_response_for_product($) {
 		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
 			compute_ecoscore($product_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
