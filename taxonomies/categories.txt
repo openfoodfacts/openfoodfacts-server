@@ -38245,8 +38245,8 @@ en:Coconut butters, coconut purees, Coconut butter, coconut puree
 fr:Purées de noix de coco, Purée de noix de coco, Beurres de noix de coco, Beurre de noix de coco, Purées de coco, Purée de coco, Beurres de coco, Beurre de coco
 nl:Kokosboter' kokosboters
 
+#do not put in nut butters, peanut is not a nut
 <en:Legume butters
-<en:Nut butters
 en:Peanut butters, peanut paste
 ca:Mantega de cacauet
 de:Erdnussbutter
@@ -46459,7 +46459,7 @@ wikidata:en:Q1182886
 en:Medjool dates
 de:Medjool Datteln
 fr:Dattes Medjool, dates medjool
-it:Datteri Medjool
+it:Datteri Medjoul, Datteri Medjool
 wikidata:en:Q16774413
 
 <en:Dates
@@ -55630,6 +55630,7 @@ nl:Auberginekaviaar
 ru:Икра из баклажанов, баклажанная икра
 wikidata:en:Q21856516
 
+<en:Potato dishes
 <en:Prepared salads
 en:Potato salads
 de:Kartoffelsalate
@@ -55644,13 +55645,14 @@ agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
 agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Potato salads
-en:Piemontese salads
-fr:Salades piémontaises
+en:Piemontese salads, Potato salad piémontaise-style
+fr:Salades piémontaises, Salade de pomme de terre à la piémontaise
 nl:Salade uit Piëmont
 wikidata:en:Q30738187
-agribalyse_proxy_food_code:en:25609
-agribalyse_proxy_food_name:en:Potato salad, piémontaise-style, prepacked
-agribalyse_proxy_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
+agribalyse_food_code:en:25609
+ciqual_food_code:en:25609
+ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
+ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Potato salads
 en:Prepared potatoes salad home-made
@@ -55658,14 +55660,6 @@ fr:Salade de pommes de terre maison
 agribalyse_food_code:en:25606
 ciqual_food_code:en:25606
 ciqual_food_name:en:Prepared potatoes salad, home-made
-
-<en:Piemontese salads
-en:Potato salad piémontaise-style
-fr:Salade de pomme de terre à la piémontaise
-agribalyse_food_code:en:25609
-ciqual_food_code:en:25609
-ciqual_food_name:en:Potato salad, piémontaise-style, prepacked
-ciqual_food_name:fr:Salade de pomme de terre à la piémontaise, préemballée
 
 <en:Piemontese salads
 <en:Pork meals
@@ -55678,6 +55672,7 @@ nl:Salades uit Piëmont met ham
 en:Piemontese salads with chicken
 fr:Salades piémontaises au poulet, piémontaises au poulet
 
+<en:Rice dishes
 <en:Prepared salads
 en:Rice salads, Prepared rice salads
 de:Reissalate
@@ -55689,6 +55684,7 @@ ciqual_food_code:en:25614
 ciqual_food_name:en:Prepared rice salad
 ciqual_food_name:fr:Salade de riz
 
+<en:Pasta dishes
 <en:Prepared salads
 en:Pasta salads
 de:Nudelsalate
@@ -69423,13 +69419,13 @@ sv:Rårörda, rårörd
 sv:Rårörda lingon
 
 <en:Fruit and vegetable preserves
-en:Jams
+en:Jams, fruit jams
 ca:Melmelades
 da:Syltetøj, Marmelade
 de:Konfitüren, Konfitüre
 es:Mermeladas y confituras
 fi:hillot
-fr:Confitures
+fr:Confitures, Confitures de fruits
 he:ריבות
 hu:Dzsemek, Lekvárok
 it:Confetture, Confettura
@@ -69448,10 +69444,6 @@ ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 # strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
 # we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
-
-<en:Jams
-en:Fruit jams
-fr:Confitures de fruits
 
 <en:Artisan products
 <en:Jams
@@ -74593,15 +74585,25 @@ season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 <en:Fresh sprouts
 en:Fresh vegetables sprouts
 es:Germinados de verduras y hortalizas frescos, Brotes de verduras y hortalizas frescos
-fr:Pousses de légumes frais
+fr:Germes de légumes frais, Pousses de légumes frais
 nl:Kiemgroentes
 
 <en:Fresh vegetables sprouts
 <en:Onions and their products
 en:Fresh onion sprouts
 es:Germinados de cebolla frescos, Brotes de cebolla frescos
-fr:Pousses d'oignons frais
+fr:Germes d'oignons frais, Pousses d'oignons frais
 nl:Verse uikiemen
+
+<en:Fresh vegetables sprouts
+en:Fresh leek sprouts
+es:Germinados de puerros frescos
+fr:Germes de poireaux frais, pousses de poireaux fraîches
+
+<en:Fresh vegetables sprouts
+en:Fresh cabbage sprouts
+fr:Germes de choux frais
+es:Germinados de col frescos
 
 <en:Vegetables based foods
 <en:Dried plant-based foods
@@ -74907,7 +74909,7 @@ ciqual_food_name:fr:Luzerne, graine
 
 <en:Alfalfa seeds
 en:sprouted alfalfa seeds
-fr:Graines de Luzerne germées, Graines de luzerne cultivée
+fr:Graines de luzerne germées, Graines de luzerne cultivée
 agribalyse_food_code:en:15029
 ciqual_food_code:en:15029
 ciqual_food_name:en:Alfalfa seeds, sprouted, raw
@@ -75812,7 +75814,7 @@ nl:Peulvruchtenkiemen
 <en:Alfalfa sprouts
 en:Fresh alfalfa sprouts
 es:Germinados de alfalfa frescos, Brotes de alfalfa frescos
-fr:Pousses d'alfalfa fraîches, Pousses de luzerne cultivée fraîches
+fr:Pousses de luzerne fraîches, pousses d'alfalfa fraîches, Pousses de luzerne cultivée fraîches
 nl:Alfalfakiemen
 
 <en:Fresh legume sprouts
@@ -79538,6 +79540,10 @@ fi:vegaanijuustot
 fr:Substituts du fromage, fromages végétaux
 it:Formaggi vegani
 nl:Vegetarische kazen
+
+<en:Legumes and their products
+en:Puffed lentil cakes
+fr:Galettes de lentilles soufflées
 
 <en:Cereals and their products
 en:Rice paper
