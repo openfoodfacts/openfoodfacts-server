@@ -5115,26 +5115,23 @@ msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
 msgstr "Delete all preferences"
 
-# "All" as in "All products"
-msgctxt "match_all"
-msgid "All"
-msgstr "All" 
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr "Products are being loaded, please wait."
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_yes"
-msgid "OK"
-msgstr "OK"
+msgctxt "products_match_all"
+msgid "All products"
+msgstr "All products"
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_no"
-msgid "Not OK"
-msgstr "Not OK"
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr "Products that match your preferences"
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_unknown"
-msgid "Maybe OK"
-msgstr "Maybe OK"
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr "Products that do not match your preferences"
 
-msgctxt "products_are_being_loaded"
-msgid "Products are being loaded."
-msgstr "Products are being loaded."
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr "Products for which we currently miss data to determine if they match your preferences"
+

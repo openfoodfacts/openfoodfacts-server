@@ -174,13 +174,26 @@ function display_products(target, product_groups ) {
 		});
 		
 		var active = "";
+		var text_or_icon = "";
 		if (product_group_id == "all") {
 			active = " active";
+			if (product_group.length == 1) {
+				text_or_icon = product_group.length + ' ' + lang()["1_product"];
+			}
+			else {
+				text_or_icon = product_group.length + ' ' + lang()["products"];
+			}
+		}
+		else {
+			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
+			+ ' <span style="color:grey">' + product_group.length + "</span>"
 		}
 		
 		$("#products_tabs_titles").append(
-			'<li class="tabs tab-title' + active + '" style="border:none"><a href="#products_' + product_group_id + '">'
-			+ lang()["match_" + product_group_id] + ' <span style="color:grey">(' + product_group.length + ")</span>" + "</a></li>"
+			'<li class="tabs tab-title tab_products-title' + active + '">'
+			+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+			+ text_or_icon
+			+ "</a></li>"
 		);
 		
 		$("#products_tabs_content").append(
