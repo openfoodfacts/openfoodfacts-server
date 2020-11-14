@@ -53292,6 +53292,14 @@ agribalyse_food_code:en:7814
 ciqual_food_code:en:7814
 ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
 
+#Belgian meal
+<en:Meals
+en:Waterzooi
+de:Waterzooi
+fr:Waterzooi
+nl:Waterzooi
+wikidata:en:Q635675
+
 <en:Meals
 en:Soups
 ca:Sopes
@@ -69278,6 +69286,14 @@ sv:Bredbara pålägg, Bredbara smörgåspålägg, Smörgåspålägg
 zh:塗抺食品
 
 <en:Spreads
+en:Wine jams, Wine jellies, wine gelees
+fr:Confits de vin, Gelées de vin
+
+<en:Spreads
+en:Beer jams, Beer jellies
+fr:Confits de bière, gelées de bière
+
+<en:Spreads
 en:Spreadable fats
 ca:Greixos d'untar
 de:Streichfette (Milch- und Nichtmilcherzeugnisse)
@@ -69443,7 +69459,7 @@ hu:Dzsemek, Lekvárok
 it:Confetture, Confettura
 nl:Jams, Confituren
 pl:Dżemy, konfitury, powidła
-pt:Geléias
+pt:Doces
 ru:Варенья
 sv:Sylter, sylt
 th:แยม
@@ -69528,6 +69544,7 @@ fr:Confitures de myrtilles
 hu:Fekete áfonya lekvár
 it:Confetture di mirtilli
 nl:Bosbessenjams
+pt:Doces de mirtilo
 sv:Blåbärssylter
 
 <en:Berry jams
@@ -69582,6 +69599,7 @@ fr:Confitures de groseilles
 hu:Vörös ribizli lekvár
 it:Confetture di ribes
 nl:Aalbessenjams
+pt:Doces de groselha
 
 <en:Berry jams
 en:Gooseberries jams, gooseberry jams
@@ -69598,6 +69616,7 @@ he:ריבות פטל
 hu:Málna lekvár
 it:Confetture di lamponi
 nl:Frambozenjams
+pt:Doces de framboesa
 sv:Hallonsylter, hallonsylt
 agribalyse_food_code:en:31062
 ciqual_food_code:en:31062
@@ -69617,6 +69636,7 @@ hu:Eper lekvár
 it:Confetture di fragole
 nl:Aardbeienjam, Aardbeienjams
 pl:Dżem truskawkowy
+pt:Doces de morango
 sv:Jordgubbssylter, jordgubbssylt
 agribalyse_food_code:en:31024
 ciqual_food_code:en:31024
@@ -69650,6 +69670,7 @@ fr:Confitures de citron
 hu:Citrom lekvár
 it:Confetture di limone
 nl:Citroenjams
+pt:Doces de limão
 
 <en:Citrus jams
 en:Orange jams
@@ -69687,6 +69708,7 @@ fr:Confitures de bananes
 hu:Banán lekvár
 it:Confetture di banana
 nl:Bananenjams
+pt:Doces de banana
 
 <en:Tropical fruit jams
 en:Guava jams
@@ -69695,6 +69717,7 @@ fr:Confitures de goyaves
 hu:Guava dzsem, Guava lekvár
 it:Confetture di guaiava, confetture di guava
 nl:Guavejams
+pt:Doces de goiaba
 
 <en:Tropical fruit jams
 en:Lychee jams, Litchi jams
@@ -69709,6 +69732,7 @@ es:Mermeladas y confituras de papaya, Mermeladas de papaya, Confituras de papaya
 fr:Confitures de papayes
 it:Confetture di papaia
 nl:Papayajams
+pt:Doces de papaia
 
 <en:Tropical fruit jams
 en:Pineapple jams
@@ -69719,6 +69743,7 @@ fr:Confitures d'ananas
 hu:Ananász lekvár, Ananász dzsem
 it:Confetture di ananas
 nl:Ananasjams
+pt:Doces de ananás
 
 <en:Tropical fruit jams
 en:Mango jams
@@ -69728,6 +69753,7 @@ fr:Confitures de mangues
 hu:Mangó dzsem, Mangó lekvár
 it:Confetture di mango
 nl:Mangojams
+pt:Doces de manga
 
 <en:Jams
 en:Apple jams
@@ -69737,6 +69763,7 @@ fr:Confitures de pommes
 hu:Alma lekvár
 it:Confitture di mela
 nl:Appeljams
+pt:Doces de maçã
 sv:Äpplesylter
 agribalyse_proxy_food_code:en:31037
 ciqual_proxy_food_code:en:31037
@@ -69752,6 +69779,7 @@ fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot, Con
 hu:Sárgabarack
 it:Confetture di albicocca
 nl:Abrikozenjams
+pt:Doces de damasco
 sv:Aprikossylter
 agribalyse_food_code:en:31037
 ciqual_food_code:en:31037
@@ -69767,6 +69795,7 @@ fr:Confitures de cerises, Confiture de cerise extra
 hu:Cseresznye lekvár
 it:Confetture di ciliegie
 nl:Kersenjams
+pt:Doces de cereja
 sv:Körsbärsylter
 agribalyse_food_code:en:31038
 ciqual_food_code:en:31038
@@ -69783,6 +69812,7 @@ hu:Füge lekár, Füge dzsem
 it:Confetture di fico
 nl:Vijgenjams
 pl:Dżem z fig, Dżem figowy
+pt:Doces de figo
 sv:Fikonsylter
 
 <en:Jams
@@ -69792,6 +69822,7 @@ fr:Confitures de raisins
 hu:Szölő lekvár
 it:Confetture di uva
 nl:Druivenjams
+pt:Doces de uva
 sv:Druvasylter
 
 <en:Jams
@@ -69801,6 +69832,7 @@ fr:Confitures de melon
 hu:Dinnye lekvár
 it:Confitture di melone
 nl:Meloenjams
+pt:Doces de melão
 sv:Melonsylter
 
 <en:Jams
@@ -69812,6 +69844,7 @@ fr:Confitures de pêches
 hu:Őszibarack lekvár, Barack lekvár
 it:Confitture di pesca
 nl:Perzikkenjams
+pt:Doces de pêssego
 sv:Persikasylter
 agribalyse_proxy_food_code:en:31037
 ciqual_proxy_food_code:en:31037
@@ -69827,6 +69860,7 @@ fr:Confitures de poires
 hu:Körte lekvár
 it:Confitture di pera
 nl:Perenjams
+pt:Doces de pêra
 sv:Päronsylter
 agribalyse_proxy_food_code:en:31037
 ciqual_proxy_food_code:en:31037
@@ -69865,6 +69899,7 @@ fr:Confitures de prunes
 hu:Szilva lekvár
 it:Confetture di susina
 nl:Pruimenjams
+pt:Doces de ameixa
 sv:Plommonsylter
 agribalyse_proxy_food_code:en:31037
 ciqual_proxy_food_code:en:31037
@@ -69911,6 +69946,7 @@ es:Mermeladas y confituras de calabaza, Mermeladas de calabaza, Confituras de ca
 fr:Confitures de citrouille
 hu:Tök lekvárok
 nl:Pompoenjams
+pt:Doces de abóbora
 
 <en:Jams
 en:Rhubarb jams
@@ -69921,6 +69957,7 @@ fr:Confitures de rhubarbe
 hu:Rebarbara lekvár
 it:Confettura al rabarbaro
 nl:Rabarberjams
+pt:Doces de ruibarbo
 
 <en:Jams
 <en:Tomatoes and their products
@@ -69929,6 +69966,11 @@ es:Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
 fr:Confitures de tomates
 hu:Paradicsom lekvár
 nl:Tomatenjams
+
+<en:Jams
+en:Sweet pepper jams
+es:Mermeladas y confituras de pimiento
+fr:Confitures de poivron
 
 <en:Jams
 en:Assorted jams
@@ -70008,6 +70050,7 @@ fi:hedelmähyytelöt
 fr:Gelées de fruits, Gelées
 it:Gelatine di frutta
 nl:Vruchtengeleien
+pt:Geleias de fruta
 sv:Fruktgeléer
 agribalyse_proxy_food_code:en:31024
 ciqual_proxy_food_code:en:31024
@@ -70020,6 +70063,7 @@ de:Himbeere Gelees
 fi:Vadelmahyytelöt
 fr:Gelées de framboises
 nl:Frambozengeleien
+pt:Geleias de framboesa
 sv:Hallongeléer
 
 <en:Fruit jellies
@@ -70028,6 +70072,7 @@ de:Quitten Gelees, Quitten-Gelee
 fi:Kvittenihyytelöt
 fr:Gelées de coings
 nl:Kweepeergeleien
+pt:Geleias de marmelo
 sv:Kvittengeléer
 
 <en:Fruit jellies
@@ -70054,6 +70099,7 @@ es:Jaleas de guayaba
 fi:Guava-hyytelöt
 fr:Gelées de goyave
 nl:Guavegeleien
+pt:Geleias de goiaba
 sv:Guavageléer
 
 <en:Fruit jellies
@@ -70063,6 +70109,7 @@ es:Jaleas de limón
 fi:Sitruunahyytelöt
 fr:Gelées de citron
 nl:Citroengeleien
+pt:Geleias de limão
 sv:Citrongeléer
 
 <en:Fruit jellies
@@ -70072,6 +70119,7 @@ es:Jaleas de maracuyá, Jaleas de frutas de la pasión
 fi:Passiohedelmähyytelöt, Passionhedelmähyytelöt
 fr:Gelées de fruits de la passion, Gelées de maracudja
 nl:Passievruchtgeleien
+pt:Geleias de maracujá
 sv:Passionsfruktgeléer
 
 <en:Fruit jellies
@@ -70081,6 +70129,7 @@ es:Jaleas de grosellas
 fi:Punaherukkahyytelöt
 fr:Gelées de groseilles
 nl:Aalbessengeleien
+pt:Geleias de groselha
 sv:Vinbärsgeléer
 
 <en:Fruit jellies
@@ -70095,6 +70144,7 @@ en:Apples jellies
 de:Apfel Gelees
 fi:Omenahyytelöt
 fr:Gelées de pommes
+pt:Geleias de maçã
 sv:Äpplegeléer
 
 <en:Fruit jellies
@@ -70102,13 +70152,6 @@ en:Sea-buckthorn jellies
 de:Sanddorn Gelees
 fi:Tyrnihyytelöt
 fr:Gelées d'argousiers
-
-<en:Plant-based spreads
-<en:Salted spreads
-en:Yeast extract spreads
-es:Extractos de levadura untables
-fr:Pâtes à tartiner à base de levures
-nl:Gistgebaseerde smeerpastas
 
 <en:Sweet spreads
 fr:Pâtes à tartiner, Pâte à tartiner
@@ -70198,18 +70241,11 @@ pl:Słone smarowidła, słone pasty do smarowania
 pt:Produtos salgados para barrar
 pnns_group_2:en:Salty and fatty products
 
-<en:Plant-based spreads
-<en:Onions and their products
-en:Onion chutneys
-de:Zwiebelchutneys
-fr:Confits d'oignons, Chutneys d'oignons
-it:Chutney di cipolle
-nl:Uienchutney
-
-<en:Plant-based spreads
-<en:Tomatoes and their products
-en:Tomato chutneys
-fr:Confits de tomates
+<en:Salted spreads
+en:Yeast extract spreads
+es:Extractos de levadura untables
+fr:Pâtes à tartiner à base de levures
+nl:Gistgebaseerde smeerpastas
 
 <en:Salted spreads
 en:Artichoke spreads
@@ -70315,6 +70351,23 @@ es:Muhammara
 fr:Muhammara
 nl:Muhammara
 wikidata:en:Q3866940
+
+<en:Plant-based spreads
+<en:Onions and their products
+en:Onion chutneys
+de:Zwiebelchutneys
+fr:Confits d'oignons, Chutneys d'oignons
+it:Chutney di cipolle
+nl:Uienchutney
+
+<en:Plant-based spreads
+<en:Tomatoes and their products
+en:Tomato chutneys
+fr:Confits de tomates
+
+<en:Plant-based spreads
+en:Sweet pepper chutneys
+fr:Confits de poivrons
 
 <en:Plant-based spreads
 en:Plant-based pâtés, Vegetarian pâtés
