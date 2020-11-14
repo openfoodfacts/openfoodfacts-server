@@ -181,12 +181,12 @@ function display_products(target, product_groups ) {
 				text_or_icon = product_group.length + ' ' + lang()["1_product"];
 			}
 			else {
-				text_or_icon = product_group.length + ' ' + lang()["products"];
+				text_or_icon = product_group.length + ' ' + lang().products;
 			}
 		}
 		else {
 			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
-			+ ' <span style="color:grey">' + product_group.length + "</span>"
+			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
 		$("#products_tabs_titles").append(
