@@ -2424,9 +2424,10 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/i, $vitamins_list);
+	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
+	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
 
-	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
+	$log->debug("splitting vitamins", { vitamins_list => $vitamins_list, vitamins => \@vitamins }) if $log->is_debug();
 
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list;
@@ -4093,9 +4094,11 @@ INFO
 	$vitaminssuffixregexp =~ s/^\|//;
 
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
-	#$log->debug("vitamins text", { text => $text }) if $log->is_debug();
+	#$log->debug("vitamins text", { vitaminssuffixregexp => $vitaminssuffixregexp }) if $log->is_debug();
 	
-	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($product_lc,$3)/ieg;
+	# vitamines (B1, acide folique (B9)) <-- we need to match (B9) which is not followed by a \b boundary, hence the ((\s?((\)|\]))|\b)) in the regexp below
+	
+	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and)+)+($vitaminssuffixregexp))((\s?((\)|\]))|\b))/normalize_vitamins_enumeration($product_lc,$3)/ieg;
 
 
 	# Allergens and traces
