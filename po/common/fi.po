@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-12 12:37\n"
+"PO-Revision-Date: 2020-11-15 20:52\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4415,7 +4415,7 @@ msgstr "Ei-luomutuote"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Puuttuvat tiedot: luomutuote?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4443,7 +4443,7 @@ msgstr "Ei reilun kaupan tuote"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Puuttuvat tiedot: reilun kaupan tuote?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4922,66 +4922,66 @@ msgstr "ecoscore"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "Pakkauksen osat"
 
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "Määrä"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Muoto"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Sisällytetty määrä"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Materiaali"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "Kierrätys"
 
 msgctxt "products_are_sorted_according_to_your_preferences"
 msgid "Products are sorted according to your preferences:"
-msgstr ""
+msgstr "Tuotteet lajitellaan mieltymystesi mukaan:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "Valitse mitkä tiedot haluat nähdä ensin."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Katso mieltymyksesi"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Poista kaikki mieltymykset"
 
 # "All" as in "All products"
 msgctxt "match_all"
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 # Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
 msgctxt "match_yes"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 # Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
 msgctxt "match_no"
 msgid "Not OK"
-msgstr ""
+msgstr "Ei OK"
 
 # Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
 msgctxt "match_unknown"
 msgid "Maybe OK"
-msgstr ""
+msgstr "Ehkä OK"
 
 msgctxt "products_are_being_loaded"
 msgid "Products are being loaded."
-msgstr ""
+msgstr "Tuotteita ladataan."
 
