@@ -5539,6 +5539,7 @@ JS
             tooltip: {
 				useHTML: true,
 				followPointer : false,
+				stickOnContact: true,
 				formatter: function() {
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br>'
 						+ this.point.img + '</a><br>'
@@ -5560,7 +5561,7 @@ JS
                             }
                         }
                     },
-					tooltip : { followPointer : false },
+					tooltip : { followPointer : false, stickOnContact: true },
                     states: {
                         hover: {
                             marker: {
