@@ -956,6 +956,10 @@ sub parse_ingredients_text($) {
 					# We have found sub-ingredients
 					$between = $1;
 					$after = $';
+					
+					# Remove dot at the end
+					# e.g. (Contains milk.) -> Contains milk.
+					$between =~ s/(\s|\.)+$//;
 
 					$debug_ingredients and $log->debug("found sub-ingredients", { between => $between, after => $after }) if $log->is_debug();
 
@@ -2478,12 +2482,16 @@ sub normalize_allergen($$$) {
 	return $Lang{$type}{$lc} . " : " . $allergen;
 }
 
-sub normalize_allergens_enumeration($$$) {
+sub normalize_allergens_enumeration($$$$$) {
 
 	my $type = shift; # allergens or traces
 	my $lc = shift;
+	my $before = shift;	# may contain an opening parenthesis
 	my $allergens_list = shift;
+	my $after = shift;
 
+	$log->debug("splitting allergens", { input => $allergens_list, before => $before, after => $after }) if $log->is_debug();
+	
 	my $and = $Lang{_and_}{$lc};
 
 	$log->debug("splitting allergens", { input => $allergens_list }) if $log->is_debug();
@@ -2501,6 +2509,14 @@ sub normalize_allergens_enumeration($$$) {
 
 	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
 	# added ending . to facilite matching and removing when parsing ingredients
+	
+	# if there was a closing parenthesis after, remove it only if there is an opening parenthesis before
+	# e.g. contains (milk) -> contains milk
+	# but: (contains milk) -> (contains milk)
+	
+	if (($after eq ')') and ($before !~ /\(/)) {
+		$split_allergens_list .= $after;
+	}
 
 	$log->debug("allergens split", { input => $allergens_list, output => $split_allergens_list }) if $log->is_debug();
 
@@ -4132,7 +4148,10 @@ INFO
 			#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$and|$of)+((($allergens_regexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergens_regexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 			#$log->debug("allergens", { lc => $product_lc, may_contain_regexps => \%may_contain_regexps, contains_or_may_contain_regexp => $contains_or_may_contain_regexp, text => $text }) if $log->is_debug();
 
-			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$of)+((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$4)/ieg;
+			# warning: we should remove a parenthesis at the end only if we remove one at the beginning
+			# e.g. contains (milk, eggs) -> contains milk, eggs 
+			# chocolate (contains milk) -> chocolate (contains milk)
+			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b((:|\(|\[| |$of)+)((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$3,$5,$17)/ieg;
 			# we may have added an extra dot in order to make sure we have at least one
 			$text =~ s/\.\./\./g;
 		}

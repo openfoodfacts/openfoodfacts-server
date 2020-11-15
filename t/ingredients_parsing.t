@@ -289,6 +289,11 @@ my @lists =(
 	["fr", "vitamines B1, B6, B9, PP et E", "vitamines, vitamine B1, vitamine B6, vitamine B9, vitamine PP, vitamine E"],
 	["fr", "vitamines (B1, acide folique (B9))", "vitamines, vitamine B1, acide folique, vitamine B9"],
 
+	# (origins, contains milk)
+	["en","Chocolate (Italy, contains milk)","Chocolate (Italy, Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate (contains milk)","Chocolate ( Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."]
+
 );
 
 foreach my $test_ref (@lists) {

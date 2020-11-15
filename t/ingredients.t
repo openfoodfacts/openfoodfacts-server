@@ -291,10 +291,10 @@ my @tests = (
                 }
         ],
 	[
-		"fr-origins-emmental-france",
+		"fr-origins-emmental-allemagne-france-pays-bas-contient-lait",
 		{
 			lc => "fr",
-			ingredients_text => "emmental (Allemagne, France, Pays-Bas; contient lait)",
+			ingredients_text => "emmental (Allemagne, France, Pays-Bas, contient lait)",
 		}
 	],
 
