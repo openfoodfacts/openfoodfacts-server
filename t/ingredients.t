@@ -290,6 +290,13 @@ my @tests = (
                         ingredients_text => "Fraises (agriculture UE/Non UE)"
                 }
         ],
+	[
+		"fr-origins-emmental-allemagne-france-pays-bas-contient-lait",
+		{
+			lc => "fr",
+			ingredients_text => "emmental (Allemagne, France, Pays-Bas, contient lait)",
+		}
+	],
 
 );
 
