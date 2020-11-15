@@ -23290,6 +23290,13 @@ de:Panierter Käse
 fr:Fromages panés
 nl:Gepaneerde kazen, Gepaneerde kaas
 
+<en:Breaded cheeses
+en:Mozzarella sticks
+de:Mozzarella-Sticks
+es:Palitos de mozzarella
+fi:Mozzarellatikut
+fr:Sticks à la Mozzarella, Batonnets de Mozzarella
+
 <en:Breaded products
 en:Cheese and ham breaded
 fr:Fromage pané au jambon
@@ -23647,7 +23654,7 @@ ciqual_food_name:fr:Pain, baguette ou boule, bis (à la farine T80 ou T110)
 <en:Baguettes
 <fr:Pains de tradition française
 en:Baguette made with type T55-T110 flour, Bread ball made with type T55-T110 flour
-fr:Baguette de pains bio à la farine T55 jusqu'à T110, Boules de pain bio à la farine T55 jusqu'à T110
+fr:Pain bio en baguette, baguette de pain bio, Baguette de pains bio à la farine T55 jusqu'à T110, Boules de pain bio à la farine T55 jusqu'à T110
 agribalyse_food_code:en:7025
 ciqual_food_code:en:7025
 ciqual_food_name:en:Brear (baguette or ball), made with type T55-T110 flour
@@ -23655,8 +23662,8 @@ ciqual_food_name:fr:Pain, baguette ou boule, bio (à la farine T55 jusqu'à T110
 
 <en:Baguettes
 <fr:Pains de tradition française
-en:French bread ball 400g
-fr:Pain français 400g, Boule de pain français 400g
+en:French bread ball
+fr:Pain français, Boule de pain français
 agribalyse_food_code:en:7012
 ciqual_food_code:en:7012
 ciqual_food_name:en:Bread, French bread, ball, 400g
@@ -23664,12 +23671,21 @@ ciqual_food_name:fr:Pain courant français, 400g ou boule
 
 <en:Baguettes
 <fr:Pains de tradition française
-en:French baguette with yeast, French bread ball with yeast
-fr:Baguette de pain au levain, Boule de pain au levain
+en:French baguette with yeast
+fr:Baguette de pain au levain, Baguette au levain
 agribalyse_food_code:en:7002
 ciqual_food_code:en:7002
 ciqual_food_name:en:Bread, French bread (baguette or ball), with yeast
 ciqual_food_name:fr:Pain, baguette ou boule, au levain
+
+<fr:Pains de tradition française
+en:French bread ball with yeast
+fr:Boule de pain au levain, Boule au levain
+agribalyse_food_code:en:7002
+ciqual_food_code:en:7002
+ciqual_food_name:en:Bread, French bread (baguette or ball), with yeast
+ciqual_food_name:fr:Pain, baguette ou boule, au levain
+
 
 # description:en:BREAD CRUMBS are sliced residue of dry bread, used for breading or crumbing foods, topping casseroles, stuffing poultry, thickening stews, adding inexpensive bulk to soups, meatloaves and similar foods, and making a crisp and crunchy covering for fried foods, especially breaded cutlets like tonkatsu and schnitzel.
 
@@ -36735,6 +36751,9 @@ ciqual_food_code:en:13108
 ciqual_food_name:en:Fruits compote, miscellaneous
 ciqual_food_name:fr:Compote, tout type de fruits
 
+<en:Compotes
+fr:Compotes de framboise
+
 <en:Desserts
 <en:Fruits based foods
 en:Fruits compote with reduced sugar
@@ -37699,11 +37718,6 @@ nl:Gezoute peulvruchten
 en:Salted cashews, Salted cashew nuts
 fr:Noix de cajou salées
 
-<en:Pistachios
-<fr:Fruits à coque salés
-en:Salted pistachios
-fr:Pistaches salées
-
 <en:Peanuts
 <fr:Fruits à coque salés
 en:Salted peanuts
@@ -38138,6 +38152,11 @@ wikidata:en:Q19958754
 agribalyse_proxy_food_code:en:15044
 agribalyse_proxy_food_code:en:15044
 agribalyse_proxy_food_name:en:Pistachio nut, grilled
+
+<en:Pistachios
+<fr:Fruits à coque salés
+en:Salted pistachios
+fr:Pistaches salées
 
 <en:Plant-based spreads
 fr:Crèmes de pistaches
@@ -43073,13 +43092,6 @@ pt:Comidas fritas
 zh:油炸食物
 wikidata:en:Q300472
 
-<en:Fried foods
-en:Mozzarella sticks
-de:Mozzarella-Sticks
-es:Palitos de mozzarella
-fi:Mozzarellatikut
-fr:Sticks à la Mozzarella, Batonnets de Mozzarella
-
 en:Frozen foods, Frozen
 ca:Aliments congelats
 da:frosne fødevarer, frost
@@ -45842,6 +45854,10 @@ fr:Melons
 la:Cucumis melo
 nl:Suikermeloenen
 wikidata:en:Q81602
+agribalyse_food_code:en:13026
+ciqual_food_code:en:13026
+ciqual_food_name:en:Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
+ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
 
 <en:Muskmelons
 <en:Dried plant-based foods
@@ -45885,6 +45901,10 @@ fr:Melons Cantaloup, Cantaloup
 la:Cucumis melo var. cantalupo
 nl:Kanteloepmeloenen, Kantaloepmeloenen
 wikidata:en:Q477179
+agribalyse_food_code:en:13026
+ciqual_food_code:en:13026
+ciqual_food_name:en:Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
+ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
 
 <en:Cantaloupe melons
 en:Charentais melons
@@ -45892,6 +45912,10 @@ es:Melones Charentais
 fr:Melons Charentais
 nl:Meloenen uit de Charentais in Frankrijk
 wikidata:en:Q1063115
+agribalyse_food_code:en:13026
+ciqual_food_code:en:13026
+ciqual_food_name:en:Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
+ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
 
 <en:Cantaloupe melons
 en:Cantaloupe melon pulp
@@ -47437,10 +47461,10 @@ ciqual_food_name:fr:Coriandre, fraiche
 
 <en:Coriander leaves
 <en:Ground dried aromatic plants
-en:Ground dried coriander leaves
+en:Ground coriander leaves, Ground dried coriander leaves
 de:trocken gemahlene Korianderblätter
 es:Hojas de cilantro seco molido
-fr:Feuilles de coriandre sèche moulue
+fr:Coriandre en poudre, Coriandre moulue, Feuilles de coriandre sèche moulue
 nl:Gemalen gedroogde korianderbladeren
 
 <en:Coriander leaves
@@ -52737,9 +52761,6 @@ ciqual_food_name:fr:Poisson blanc à la bordelaise
 
 #de:Schlemmer-Filet à la Bordelaise
 
-<en:Fish with bordelaise sauce
-fr:Colin d'Alaska à la bordelaise
-
 <en:Meals with cooked white fish
 en:White fish with Parisian-style sauce, White fish with mushrooms sauce
 fr:Poisson blanc à la parisienne, Poisson blanc à la sauce aux champignons
@@ -54911,7 +54932,7 @@ nl:Tonijnlasagna
 
 <en:Prepared lasagne
 en:Lasagna with goat cheese and spinach
-fr:Lasagnes au fromage et aux épinards
+fr:Lasagnes au fromage de chèvre et aux épinards, Lasagnes chèvre épinards, Lasagnes au fromage et aux épinards
 agribalyse_food_code:en:25635
 ciqual_food_code:en:25635
 ciqual_food_name:en:Lasagna or cannelloni with goat cheese and spinach
@@ -55521,6 +55542,9 @@ en:Instant pasta with cheese, Pasta box with cheese
 fr:Pâtes instantanées au fromage, Box de pâtes au fromage
 agribalyse_proxy_food_code:en:25198
 
+<en:Instant pasta with cheese
+fr:Box de radiatori au fromage
+
 <en:Pasta dishes
 en:Pasta with cheese sauce
 fr:Pâtes en sauce aux fromages
@@ -55910,42 +55934,42 @@ fr:Salades de pâtes végétariennes
 nl:Vegetarische pasta salades
 
 <en:Pasta salads
-en:Prepared vegetarian pasta salad
-fr:Salade de pâtes végétarienne
+en:Vegetarian pasta salads, Prepared vegetarian pasta salad
+fr:Salades de pâtes végétariennes
 agribalyse_food_code:en:25615
 ciqual_food_code:en:25615
 ciqual_food_name:en:Prepared pasta salad, vegetarian
 ciqual_food_name:fr:Salade de pâtes, végétarienne
 
 <en:Pasta salads
-en:Prepared vegetable and pasta salad with fish
-fr:Salade de pâtes aux légumes avec poisson
+en:Pasta salad with fish, Prepared vegetable and pasta salad with fish
+fr:Salade de pâtes au poisson, Salade de pâtes aux légumes avec poisson
 agribalyse_food_code:en:25619
 ciqual_food_code:en:25619
 ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
-<en:Prepared vegetable and pasta salad with fish
+<en:Pasta salad with fish
 en:Surimi and pasta salads
 fr:Salades au surimi et aux pâtes
 
-<en:Prepared vegetable and pasta salad with fish
+<en:Pasta salad with fish
 en:Salmon and pasta salads
 fr:Salades au saumon et aux pâtes
 
-<en:Prepared vegetable and pasta salad with fish
+<en:Pasta salad with fish
 en:Tuna and pasta salads
 fr:Salades au thon et aux pâtes
 
 <en:Pasta salads
-en:Prepared vegetable and pasta salad with meat
-fr:Salade de pâtes aux légumes avec viande
+en:Pasta salad with meat, Prepared vegetable and pasta salad with meat
+fr:Salade de pâtes à la viande, Salade de pâtes aux légumes avec viande
 agribalyse_food_code:en:25619
 ciqual_food_code:en:25619
 ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
-<en:Prepared vegetable and pasta salad with meat
+<en:Pasta salad with meat
 en:Chicken and pasta salads
 fr:Salades au poulet et aux pâtes
 
@@ -63990,6 +64014,10 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), cuites (aliment mo
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
 <en:Stuffed pasta
+en:Pasta stuffed with fish
+fr:Pâtes farcies au poisson
+
+<en:Pasta stuffed with fish
 fr:Ravioli au saumon fumé
 
 <en:Stuffed pasta
@@ -63999,6 +64027,9 @@ fr:Pâtes farcies au fromage
 <en:Tortellini
 fr:Ravioli ricotta & épinards, Ravioli ricotta épinards
 it:Ravioli ricotta e spinaci
+agribalyse_proxy_food_code:en:25219
+agribalyse_proxy_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
+agribalyse_proxy_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
 <en:Stuffed pastas
 <en:Pasta dishes
@@ -64135,7 +64166,7 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex :
 <en:Meat ravioli
 en:Ham Ravioli, Raviolis with ham
 es:Ravioli de jamón
-fr:Ravioli au jambon
+fr:Ravioli au jambon, Raviolis au jambon
 hu:Sonkás ravioli, Ravioli sonkával
 nl:Ravioli met ham
 
@@ -64354,11 +64385,20 @@ wikidata:en:Q20057
 <en:Tortellini
 fr:Tortellini ricotta & épinards
 it:Tortellini ricotta e spinaci
+agribalyse_proxy_food_code:en:25219
+agribalyse_proxy_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
+agribalyse_proxy_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
 <en:Tortellini
+<en:Pasta stuffed with cheese
+fr:Tortellini au fromage, Tortellini fromage
+
+<en:Tortellini
+<en:Pasta stuffed with cheese
 fr:Tortellini aux quatre fromages, Tortellini 4 fromages
 
 <en:Tortellini
+<en:Pasta stuffed with meat
 fr:Tortellini au poulet
 
 <en:Stuffed Pastas
@@ -65779,38 +65819,6 @@ ciqual_food_name:en:Sandwich made with French bread, hard-boiled egg, raw vegeta
 ciqual_food_name:fr:Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
 
 <en:Sandwiches
-en:Sandwich with tuna and vegetables
-fr:Sandwich crudités-thon, Sandwich thon-crudités
-agribalyse_proxy_food_code:en:25575
-agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
-agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
-
-<en:Sandwich with tuna and vegetables
-en:Sandwich made with wholemeal loaf bread and tuna and vegetables and mayonnaise
-fr:Sandwich triangle thon crudités, Sandwich pain de mie complet thon crudités mayonnaise
-agribalyse_food_code:en:25575
-ciqual_food_code:en:25575
-ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
-ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
-
-<en:French bread sandwiches
-<en:Sandwich with tuna and vegetables
-en:Baguette sandwiches with tuna and vegetables and mayonnaise
-fr:Sandwich baguette thon crudités mayonnaise
-agribalyse_food_code:en:25431
-ciqual_food_code:en:25431
-ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomato and lettuce) and mayonnaise
-ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
-
-<en:French bread sandwiches
-en:Baguette sandwiches with tuna and sweet corn and vegetables
-fr:Sandwich baguette thon-crudités maïs
-agribalyse_food_code:en:25490
-ciqual_food_code:en:25490
-ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw vegetables
-ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
-
-<en:Sandwiches
 en:Sandwich with egg and vegetables and mayonnaise
 fr:Sandwich crudités-oeuf, Sandwich oeuf-crudités
 
@@ -66114,6 +66122,42 @@ fr:Sandwichs au thon
 it:Panini al tonno, Tramezzini al tonno, Sandwich al tonno
 nl:Tonijnsandwiches
 zh:吞拿鱼三明治
+agribalyse_proxy_food_code:en:25575
+agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
+agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
+
+<en:Tuna sandwiches
+en:Sandwich with tuna and vegetables
+fr:Sandwich crudités-thon, Sandwich thon-crudités
+agribalyse_proxy_food_code:en:25575
+agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
+agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
+
+<en:Sandwich with tuna and vegetables
+en:Sandwich made with wholemeal loaf bread and tuna and vegetables and mayonnaise
+fr:Sandwich triangle thon crudités, Sandwich pain de mie complet thon crudités mayonnaise
+agribalyse_food_code:en:25575
+ciqual_food_code:en:25575
+ciqual_food_name:en:Sandwich made with wholemeal loaf bread, tuna, raw vegetables and mayonnaise
+ciqual_food_name:fr:Sandwich pain de mie complet, thon, crudités, mayonnaise
+
+<en:French bread sandwiches
+<en:Sandwich with tuna and vegetables
+en:Baguette sandwiches with tuna and vegetables and mayonnaise
+fr:Sandwich baguette thon crudités mayonnaise
+agribalyse_food_code:en:25431
+ciqual_food_code:en:25431
+ciqual_food_name:en:Sandwich made with French bread, tuna, raw vegetables (tomato and lettuce) and mayonnaise
+ciqual_food_name:fr:Sandwich baguette, thon, crudités (tomate, salade), mayonnaise
+
+<en:French bread sandwiches
+<en:Tuna sandwiches
+en:Baguette sandwiches with tuna and sweet corn and vegetables
+fr:Sandwich baguette thon-crudités maïs
+agribalyse_food_code:en:25490
+ciqual_food_code:en:25490
+ciqual_food_name:en:Sandwich made with French bread, tuna, sweet corn and raw vegetables
+ciqual_food_name:fr:Sandwich baguette, thon, maïs, crudités
 
 <en:Fish sandwiches
 en:Salmon sandwiches
@@ -67435,6 +67479,18 @@ ciqual_food_code:en:26006
 ciqual_food_name:en:Alaska pollock, raw
 ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
 
+<en:Fish with bordelaise sauce
+#<en:Alaska pollock
+fr:Colin d'Alaska à la bordelaise
+
+<en:Meals with cooked white fish
+#<en:Alaska pollock
+fr:Colin d'Alaska à la provençale
+
+<en:Meals with cooked white fish
+#<en:Alaska pollock
+fr:Colin d'Alaska à l'oseille
+
 <en:Pollocks
 en:Smoked Alaska pollock
 fr:Lieu d'Alaska fumé, Colin d'Alaska fumé
@@ -67567,6 +67623,7 @@ ciqual_food_name:en:Capelin, raw
 ciqual_food_name:fr:Capelan, cru
 
 <en:Fish fillets
+<en:Cods
 en:Cod fillets
 de:Kabeljaufilets, Kabeljaufilet
 es:Filetes de bacalao
@@ -69279,6 +69336,10 @@ fr:Moules
 it:Mitili, cozze
 nl:Mosselen
 wikidata:en:Q15735642
+agribalyse_food_code:en:10014
+ciqual_food_code:en:10014
+ciqual_food_name:en:Mussel, common, raw
+ciqual_food_name:fr:Moule commune, crue
 
 <en:Mussels
 en:Common mussels
@@ -70899,7 +70960,7 @@ en:Brown sugars, Brown sugar
 de:braune Zucker
 es:Azúcar moreno
 fi:fariinisokerit
-fr:Sucres roux, sucre roux, Sucres blonds
+fr:Sucres roux, sucre roux, Sucres blonds, Sucre roux de canne
 it:Zucchero di canna, zucchero grezzo
 nl:Bruine suikers
 wikidata:en:Q11190742
@@ -80806,6 +80867,10 @@ fr:Terrines au Roquefort
 
 <en:Terrines
 <en:Meat-based products
+fr:Terrines au Cognac
+
+<en:Terrines
+<en:Meat-based products
 <en:Prepared meats
 fr:Terrines au bleu d'Auvergne
 
@@ -81448,14 +81513,14 @@ fr:Ravioli à la crevette
 
 <en:Ravioli
 en:Japanese ravioli, Gyoza
-fr:Ravioli japonais, Gyoza
+fr:Ravioli japonais, Gyoza, Gyosa
 
 <en:Japanese ravioli
 en:Vegetable gyoza
-fr:Gyoza aux légumes
+fr:Gyoza aux légumes, Gyosa aux légumes
 
 <en:Japanese ravioli
-fr:Gyosas aux crevettes
+fr:Gyosas aux crevettes, Gyosas aux crevettes, Gyoza à la crevette
 
 <en:Tortellini
 en:Meat tortellinis
