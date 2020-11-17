@@ -10679,7 +10679,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani, parmigiano-reggiano
-fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -10904,7 +10904,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 # ingredient/fr:reblochon has 64 products @2018-12-27
 
 <en:reblochon
-fr:Reblochon AOP
+fr:Reblochon AOP, Reblochon de Savoie AOP
 
 
 # Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
@@ -11599,7 +11599,7 @@ ca:provitamina A
 de:Provitamin A
 es:provitamina A
 fi:provitamiini A, A-vitamiinin provitamiini
-fr:pro-vitamine A
+fr:pro-vitamine A, provitamine A
 hu:A-provitamin
 it:provitamina A
 wikidata:en:Q306135
@@ -14183,7 +14183,7 @@ cy:Cig oen
 de:Schaffleisch
 es:carne de oveja
 fi:lampaanliha
-fr:viande de mouton, viande d'ovin
+fr:viande de mouton, viande d'ovin, viande ovine
 hu:birkahús, juhhús
 id:Daging domba
 it:carne ovina
@@ -14251,7 +14251,7 @@ de:Hirschfleisch
 es:Carne de venado
 fa:گوشت گوزن
 fi:hirvieläinten liha
-fr:viande de cerf
+fr:viande de cerf, viande de chevreuil
 ga:fiafheoil
 gv:feill feeaih
 hu:szarvashús
@@ -18942,7 +18942,7 @@ da:balsamicoeddike
 de:Aceto balsamico, Balsamessig
 el:βαλσαμικό ξύδι
 eo:Balzamvinagro
-es:Aceto balsámico,vinagre balsamico,vinagre balsamico de modena
+es:Aceto balsámico, vinagre balsamico
 eu:Ozpin baltsamiko
 fa:سرکه بالزامیک
 fi:balsamietikka, balsamiviinietikka, balsamico
@@ -18966,6 +18966,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
 <en:balsamic vinegar
 en:balsamic vinegar of modena, modena balsamic vinegar
 de:Balsamessig aus Modena
+es:vinagre balsamico de modena
 fr:vinaigre balsamique de modène
 it:aceto balsamico di modena
 wikidata:en:Q3604285
@@ -25403,7 +25404,7 @@ da:fuldkornsrugmel, fullkornsrugmel
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno,harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
-fr:farine de seigle complète, farine complète de seigle
+fr:farine de seigle complète, farine complète de seigle, farine de seigle complet
 it:farina di segale integrale
 hu:teljes kiőrlésű rozsliszt
 nb:fullkornsrugmel
@@ -59678,7 +59679,7 @@ es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
 it:shiitake, funghi shiitake
-la:Lentinula edodes
+la:Lentinula edodes, lentinus edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
@@ -62636,6 +62637,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yellowfin_tuna
 # ingredient/fr:thon-albacore has 172 products in 2 languages 2019-01-02
 # ingredient/fr:Thunnus-albacares has 58 products @2019-01-02
 # THON albacore (Thunnus albacares)
+
+<en:tuna
+en:bigeye tuna
+la:Thunnus obesus
+wikidata:en:Q1122241
+wikipedia:en:https://en.wikipedia.org/wiki/Bigeye_tuna
 
 # thon-au-naturel is a compound ingredient
 
@@ -68474,6 +68481,10 @@ fr:jambon de dinde cuit standard goût fumé
 <en:turkey
 en:roasted turkey including natural turkey juices
 
+<en:turkey
+en:turkey liver
+fr:foie de dinde
+
 <en:poultry
 en:quail
 fr:caille, cailles
@@ -68481,6 +68492,22 @@ nl:kwartel, kwartels
 wikidata:en:Q6072584
 wikipedia:en:https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
+
+
+<en:poultry
+en:goose
+fr:oie
+
+<en:goose
+en:goose meat
+fr:viande d'oie
+
+<en:goose
+en:goose liver
+fr:foie d'oie
+
+<en:goose liver
+fr:foie gras d'oie
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -74340,7 +74367,7 @@ et:pesto
 eu:pesto
 fa:پستو
 fi:pesto
-fr:pesto
+fr:pesto, sauce pesto
 fy:pesto
 gl:pesto
 he:פסטו
