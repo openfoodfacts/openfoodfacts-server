@@ -1,9 +1,5 @@
 /*global lang */
 
-// Will hold product data retrieved from the search API
-var products = [];
-
-
 // match_product_to_preference checks if a product matches
 // a given set of preferences and scores the product according to
 // the preferences
@@ -178,13 +174,26 @@ function display_products(target, product_groups ) {
 		});
 		
 		var active = "";
+		var text_or_icon = "";
 		if (product_group_id == "all") {
 			active = " active";
+			if (product_group.length == 1) {
+				text_or_icon = product_group.length + ' ' + lang()["1_product"];
+			}
+			else {
+				text_or_icon = product_group.length + ' ' + lang().products;
+			}
+		}
+		else {
+			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
+			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
 		$("#products_tabs_titles").append(
-			'<li class="tabs tab-title' + active + '" style="border:none"><a href="#products_' + product_group_id + '">'
-			+ lang()["match_" + product_group_id] + ' <span style="color:grey">(' + product_group.length + ")</span>" + "</a></li>"
+			'<li class="tabs tab-title tab_products-title' + active + '">'
+			+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+			+ text_or_icon
+			+ "</a></li>"
 		);
 		
 		$("#products_tabs_content").append(
@@ -260,7 +269,7 @@ function display_product_summary(target, product) {
 }
 
 
-function rank_and_display_products (target) {
+function rank_and_display_products (target, products) {
 	
 	// Retrieve user preferences from local storage
 
@@ -276,7 +285,7 @@ function rank_and_display_products (target) {
 
 /* exported search_products */
 
-function search_products (target, search_api_url) {
+function search_products (target, products, search_api_url) {
 
 	// Retrieve generic search results from the search API
 	
@@ -284,9 +293,8 @@ function search_products (target, search_api_url) {
 		
 		if (data.products) {
 			
-			products = data.products;
-			
-			rank_and_display_products(target);
+			Array.prototype.push.apply(products, data.products);
+			rank_and_display_products(target, products);
 		}		
 	});
 }

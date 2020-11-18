@@ -1,3 +1,4 @@
+
 <p>[% error %]</p>
 [% IF (current_link_query.defined) && !(jqm.defined) %]
     [% IF country != 'en:world' %]
@@ -23,7 +24,7 @@
     [% IF explore_products == 'true' %]
         <ul class="button-group">
             <li>
-                <div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">[% html_count %]</div>
+                <div style="font-weight:bold;margin-right:2em;">[% html_count %]</div>
             </li>
             <li>
                 <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
@@ -40,9 +41,14 @@
         </p>
     [% END %]
 
+	<div id="preferences_selected"></div>
+
+	<div id="preferences_selection_form" style="display:none"></div>
+
     [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
         <ul data-role="listview" data-theme="c" id="search_results_list">
     [% ELSE %]
+    <div id="search_results">
         <ul class="products">
     [% END %]
     
@@ -68,6 +74,12 @@
         [% END %]
 
     [% END %]
+    
+    [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
+        </ul>
+    [% ELSE %]
+		</ul></div>
+    [% END %]    
     
     <!-- Pagination -->
     [% display_pagination(request, page_count, page_limit, page) %]
