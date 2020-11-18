@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: yo\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-12 13:21\n"
+"PO-Revision-Date: 2020-11-18 10:00\n"
 "Language-Team: Yoruba\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4915,8 +4915,8 @@ msgctxt "packaging_recycling"
 msgid "Recycling"
 msgstr ""
 
-msgctxt "products_are_sorted_according_to_your_preferences"
-msgid "Products are sorted according to your preferences:"
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
 msgstr ""
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
@@ -4931,27 +4931,23 @@ msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
 msgstr ""
 
-# "All" as in "All products"
-msgctxt "match_all"
-msgid "All"
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
 msgstr ""
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_yes"
-msgid "OK"
+msgctxt "products_match_all"
+msgid "All products"
 msgstr ""
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_no"
-msgid "Not OK"
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
 msgstr ""
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_unknown"
-msgid "Maybe OK"
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
 msgstr ""
 
-msgctxt "products_are_being_loaded"
-msgid "Products are being loaded."
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
 msgstr ""
 
