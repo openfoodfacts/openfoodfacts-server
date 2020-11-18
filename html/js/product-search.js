@@ -18,12 +18,6 @@ function match_product_to_preferences (product, product_preferences) {
 	var score = 0;
 	var status = "yes";
 	var debug = "";
-	
-	product.match_icons = {
-		"mandatory" : [],
-		"very_important" : [],
-		"important" : []
-	};
 
 	product.match_attributes = {
 		"mandatory" : [],
@@ -75,10 +69,6 @@ function match_product_to_preferences (product, product_preferences) {
 								status = "no";
 							}
 						}
-					}
-					
-					if (attribute.icon_url) {
-						product.match_icons[product_preferences[attribute.id]].push(attribute.icon_url);
 					}
 					
 					product.match_attributes[product_preferences[attribute.id]].push(attribute);
@@ -158,14 +148,34 @@ function display_products(target, product_groups ) {
 			if (product.image_front_thumb_url) {
 				product_html += '<img src="' + product.image_front_thumb_url + '" class="list_product_img">';
 			}
+			else {
+				product_html += '<img src="/images/icons/product-silhouette-transparent.svg" class="list_product_img">';
+			}
 			
 			product_html += "</div>";
 			
-			product_html += '<div class="list_product_name">' + product.product_name + "</div>";
+			if (product.product_display_name) {
+				product_html += '<div class="list_product_name">' + product.product_display_name + "</div>";
+			}
+			else {
+				product_html += '<div class="list_product_name">' + product.code + "</div>";
+			}
 									
-			$.each(product.match_icons.mandatory.concat(product.match_icons.very_important, product.match_icons.important), function (key, icon_url) {
+			$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
 				
-				product_html += '<img class="list_product_icons" src="' + icon_url + '">';
+				if (attribute.icon_url) {
+					var title = attribute.title;
+				
+					if (attribute.description_short) {
+						title += ' - ' + attribute.description_short;
+					}
+
+					if (attribute.missing) {
+						title += " - " + attribute.missing;
+					}		
+					
+					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '">';
+				}
 			});
 			
 			product_html += "</a></li>";
