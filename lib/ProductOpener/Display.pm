@@ -3965,7 +3965,7 @@ sub display_search_results($) {
 		
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=product_name,url,image_front_thumb_url,attribute_groups";
+		$search_api_url .= "&fields=code,product_display_name,url,image_front_thumb_url,attribute_groups";
 		$search_api_url .= "&page_size=100";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
@@ -4321,7 +4321,7 @@ sub customize_response_for_product($) {
 	my $fields = param('fields');
 	
 	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
-		$fields = "product_name,url,image_front_thumb_url,attribute_groups";
+		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
 	foreach my $field (split(/,/, $fields)) {
@@ -4333,8 +4333,12 @@ sub customize_response_for_product($) {
 			$carbon_footprint_computed = 1;
 		}
 		
+		if ($field eq "product_display_name") {
+			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+		}
+		
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		if ($field eq "nutrition_table_html") {
+		elsif ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
 		
@@ -4770,7 +4774,7 @@ sub search_and_display_products($$$$$) {
 			my $code = $product_ref->{code};
 			my $img = display_image_thumb($product_ref, 'front');
 
-			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 
 			# Prevent the quantity "750 g" to be split on two lines
 			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
@@ -6772,7 +6776,7 @@ sub display_new($) {
 	else {
 		$template_data_ref->{page_type} = "other";
 	}
-
+  
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
