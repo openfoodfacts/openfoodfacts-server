@@ -1090,7 +1090,8 @@ sub display_error($$)
 	display_new( {
 		title => lang('error'),
 		content_ref => \$html,
-		status => $status
+		status => $status,
+		page_type => "error",
 	});
 	exit();
 }
@@ -1125,6 +1126,8 @@ sub display_text($)
 {
 	my $request_ref = shift;
 	my $textid = $request_ref->{text};
+
+	$request_ref->{page_type} = "text";
 
 	my $text_lang = $lang;
 
@@ -3885,6 +3888,7 @@ HTML
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
 		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc,"countries",$country);
+		$request_ref->{page_type} = "list_of_tags";
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
@@ -4012,6 +4016,7 @@ JS
 	}
 	
 	$request_ref->{content_ref} = \$html;
+	$request_ref->{page_type} = "list_of_products";
 
 	display_new($request_ref);
 
@@ -4470,6 +4475,8 @@ sub search_and_display_products($$$$$) {
 	my $sort_by = shift;
 	my $limit = shift;
 	my $page = shift;
+
+	$request_ref->{page_type} = "list_of_products";
 
 	my $template_data_ref = {
 		lang => \&lang,
@@ -6763,6 +6770,13 @@ sub display_new($) {
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
 	
+	if (defined $request_ref->{page_type}) {
+		$template_data_ref->{page_type} = $request_ref->{page_type};
+	}
+	else {
+		$template_data_ref->{page_type} = "other";
+	}
+  
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
@@ -8211,6 +8225,7 @@ JS
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
+	$request_ref->{page_type} = "product";
 
 	$log->trace("displayed product") if $log->is_trace();
 
@@ -10409,6 +10424,7 @@ sub display_recent_changes {
 
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
+	$request_ref->{page_type} = "recent_changes";
 	display_new($request_ref);
 
 	return;

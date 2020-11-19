@@ -126,7 +126,8 @@ foreach my $l ("en", "fr") {
 	$lc = $l;
 	$lang = $l;
 
-	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	# 300000 ms timeout so that we can export the whole database
+	my $cursor = get_products_collection(300000)->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
 	$cursor->immortal(1);
 
 	$langs{$l} = 0;
