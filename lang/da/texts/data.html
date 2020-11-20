@@ -45,7 +45,7 @@ with the Open Food Facts community.</p>
  deleted products from your database, you will need to import the full MongoDB dump.</p>
 
 
-<h3>JSONL-dataeksport</h3>
+<h3>CSV-dataeksport</h3>
 
 <p>Hele databasen er også tilgængelig i <a href="https://jsonlines.org/">JSONL-format</a> (undertiden betegnet LDJSON eller NDJSON), hvor hver linje er et JSON-objekt. 
   Det repræsenterer de samme data som MongoDB-eksporten. Filen komprimeres med gzip.</p>
@@ -57,7 +57,7 @@ with the Open Food Facts community.</p>
 </dl>
 
 
-<h3>CSV-dataeksport</h3>
+<h3>RDF-dataeksport</h3>
 
 <p>Data for alle produkter, eller nogle heraf, kan downloades i CSV-format (læsbart med OpenOffice, Excel og meget anden software)
  via den <a href="https://world.openfoodfacts.org/cgi/search.pl">avancerede søgeformular</a>.</p>
@@ -86,7 +86,7 @@ with the Open Food Facts community.</p>
 
 <p>API 'en modificeres over tid, men bagudkompatibilitet tilstræbes bevaret. Fortæl os, hvis du bruger den, så vi kan fortælle dig om potentielle ændringer.</p>
 
-<p>URL til at læse data for et produkt: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
+<p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 <p>Eks.: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
@@ -95,7 +95,7 @@ En bedre dokumentation er under udvikling med produktvisnings brugseksempler og 
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Du kan tilgå den hér</a>.
 <p>Du er meget velkommen til at bruge API'en til produktionssager, så længe 1 API-kald = 1 reel skanning fra en bruger.
 Ethvert forsøg på "scrap" af databasen vha. API'en blokeres sandsynligvis, da fuld daglig eksport er tilgængelig fra netop denne side.</p>
-<p>Afsendelse af en HTTP-header med dit API-kald er også en god måde, vi kan komme i kontakt på i tilfælde af problemer.</p>
+<p>Hvis du er usikker på noget eller har spørgsmål (der findes ingen fjollede spørgsmål), er du velkommen til at stille dem på Slack :-)</p>
 <p>Er du usikker på noget, eller har du et spørgsmål (dumme spørgsmål eksisterer ikke), er du velkommen til at stille det på Slack :-)</p>
 
 <h2>Android- og iPhone-app</h2>
@@ -103,21 +103,21 @@ Ethvert forsøg på "scrap" af databasen vha. API'en blokeres sandsynligvis, da 
 <p>Koden til Open Food Facts-apperne er tilgængelig via GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> og <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
 Apperne giver brugerne mulighed for at skanne produktstregkoder, se produktoplysninger samt tage og sende fotos og data for manglende produkter.</p>
 
-<p>iOS-appen er udviklet i Swift.</p>
+<p>Android-appen er udviklet i Java.</p>
 <p>Android-appen er udviklet i Java.</p>
 <p>Du er velkommen til at genbruge kildekoderne (de er open-source) og hjælpe os med at forbedre dem for alle på hele planeten.
 
 <h2>Wrappers og SDK'er</h2>
 <p>Vi har sandsynligvis en wrapper til dit yndlingsprogrammeringssprog. Har vi det, kan du bruge og forbedre den. Har vi ikke det, kan du hjælpe med at kreere den.</p>
-<p>De vil lade dig forbruge data samt lade dine brugere bidrage med nye</p>
+<p>Du kan også <a href="https://slack.openfoodfacts.org">deltage i Open Food Facts Slack-chatroom, som er den foretrukne måde at stille spørgsmål på og debattere API'en</a>.</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (gamle, officielle Open Food Facts-app)</a></li>
-<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a> - <a href="https://pub.dev/packages/openfoodfacts">Pakke på pub.dev</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
 <li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
 <li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
 <li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a></li>
 <li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
-<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
+<li>PHP (Lararel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
 <li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
 <li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
 <li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
