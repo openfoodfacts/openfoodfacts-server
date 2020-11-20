@@ -1,0 +1,52 @@
+{
+   "forest_footprint_data" : {
+      "ingredients" : [
+         {
+            "category" : "chicken",
+            "category_ingredient_id" : "en:chicken",
+            "ingredient_id" : "en:chicken"
+         }
+      ]
+   },
+   "ingredients" : [
+      {
+         "id" : "en:chicken",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "Poulet",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:chicken",
+      "en:poultry"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:chicken"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:chicken",
+      "en:poultry"
+   ],
+   "ingredients_text" : "Poulet",
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
