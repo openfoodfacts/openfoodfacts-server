@@ -45,7 +45,7 @@ with the Open Food Facts community.</p>
  deleted products from your database, you will need to import the full MongoDB dump.</p>
 
 
-<h3>ייצוא נתונים ב־JSONL</h3>
+<h3>יצוא נתונים ב־CSV</h3>
 
 <p>מסד הנתונים השלם זמין גם ב<a href="https://jsonlines.org/">תצורתJSONL</a> (לפעמים נקרא גם LDJSON או NDJSON) בו כל שורה היא פריט JSON. 
   הוא מייצג את אותם הנתונים כמו בייצוא של MongoDB. הקובץ דחוס ב־gzip.</p>
@@ -57,7 +57,7 @@ with the Open Food Facts community.</p>
 </dl>
 
 
-<h3>ייצוא נתונים ב־CSV</h3>
+<h3>יצוא נתונים ב־RDF</h3>
 
 <p>ניתן להוריד נתונים לכל המוצרים או לחלקם בתצורת CSV (אפשר לקרוא אותו עם OpenOffice,‏ Excel ועוד) דרך <a href="https://world.openfoodfacts.org/cgi/search.pl">טופס החיפוש המתקדם</a>.</p>
 
@@ -85,7 +85,7 @@ with the Open Food Facts community.</p>
 
 <p>אנו משנים את ה־API במשך הזמן ואנו פועל בזהירות כדי לשמור על תאימות לאחור. נשמח לשמוע ממך אם זה משמש אותך כדי שנוכל לספר לך על שינויים אפשריים.</p>
 
-<p>כתובת לקריאת נתוני מוצר: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
+<p>לדוגמה: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 <p>לדוגמה: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
@@ -94,7 +94,7 @@ with the Open Food Facts community.</p>
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">ניתן לגשת אליו דרך כאן</a>.
 <p>אנו מזמינים אותך להשתמש ב־API למטרות פעילות מבצעית, כל עוד כל קריאת API שוות ערך לסריקה אמתית של משתמש.
 כל ניסיון לדלות את מסד הנתונים כולו דרך ה־API ייחסם כיוון שתוצאי ייצוא מלאים יומיים זמינים בעמוד זה ממש.</p>
-<p>כמו כן, שליחת כותרת HTTP יחד עם קריאת ה־API שלך היא רעיון טוב כיוון שנוכל להיות בקשר במקרה שיצוצו כל מיני דברים.</p>
+<p>במקרה של ספק, או אם יש לך שאלות (אין דבר כזה שאלה טיפשית), ניתן לשאול ב־Slack :-)</p>
 <p>אם משהו לא ברור לך או שיש לך שאלה (אין שאלות דביליות), אפשר לשאול אותנו דרך Slack :-)</p>
 
 <h2>יישומים לניידים מסוג Android ו־iPhone</h2>
@@ -102,21 +102,21 @@ with the Open Food Facts community.</p>
 <p>הקוד ליישומון לניידים של Open Food Facts זמין ב־GitHub‏ (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> ו־<a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
 היישומון מאפשר למשתמשים לסרוק את ברקודים של מוצרים כדי לצפות בפרטי המוצרים וכדי לצלם ולשלוח תמונות ונתונים למוצרים שלוקים חסר או חסרים לחלוטין.</p>
 
-<p>היישומון ל־iOS מפותח ב־Swift.</p>
+<p>היישומון ל־Android פותח ב־Java.</p>
 <p>היישומון ל־Android מפותח ב־Java.</p>
 <p>אנו מזמינים אותך לעשות בקוד שימוש חוזר (זה קוד פתוח) ולסייע לנו לשפר אותו, למען כולם, בכל העולם.
 
 <h2>מעטפות ו־SDK</h2>
 <p>כנראה שיש לנו מעטפת לשפת הפיתוח המועדפת עליך. אם יש לנו, ניתן להשתמש בה ולשפר אותה. אם אין לנו, ניתן לעזור ביצירתה.</p>
-<p>הם יאפשרו לך לצרוך נתונים וגם לאפשר למשתמשים שלך לתרום נתונים חדשים</p>
+<p>ניתן <a href="https://slack.openfoodfacts.org">להצטרף לחדר ה־Slack של Open Food Facts שזו הדרך המועדפת לשאול שאלות ולדבר על ה־API</a>.</p>
 <ul>
 <li>Cordova:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (היישומון הרשמי הישן של Open Food Facts)</a></li>
-<li>DART:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a> ‏- <a href="https://pub.dev/packages/openfoodfacts">החבילה ב־pub.dev</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
 <li>Elixir:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
 <li>Go:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
 <li>NodeJS:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a></li>
 <li>PHP:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
-<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
+<li>PHP (Lararel):‏ <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
 <li>Python:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
 <li>React Native:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
 <li>Ruby:‏ <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
