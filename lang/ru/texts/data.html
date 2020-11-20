@@ -14,7 +14,7 @@ with the Open Food Facts community.</p>
 
 <h2>Экспорт данных Open Food Facts</h2>
 
-<p>Database dumps and exports are generated nightly. The database is very big, so you can find 
+<p>Дампы базы данных и экспорт генерируются каждую ночь. The database is very big, so you can find 
   <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
   depending on the export flavor.</p>
 
@@ -45,35 +45,35 @@ with the Open Food Facts community.</p>
  удаленные товары из вашей базы данных, вам необходимо импортировать полный дамп MongoDB.</p>
 
 
-<h3>JSONL data export</h3>
+<h3>Экспорт данных CSV</h3>
 
 <p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
   It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
 
 <dl>
  <dt>Ссылка</dt>
- <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz</a>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">URL для чтения данных о продукте: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</a>
  </dd>
 </dl>
 
 
-<h3>CSV Data Export</h3>
+<h3>Экспорт данных RDF</h3>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
+<p>Данные для всех продуктов или некоторых продуктов можно загрузить в формате CSV (для чтения с помощью OpenOffice, Excel и многих других программ)
+ через <a href="https://world.openfoodfacts.org/cgi/search.pl">форму расширенного поиска</a>.</p>
 
 <dl>
  <dt>Ссылка</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>Кодировка файла - Unicode UTF-8. Символом, который разделяет поля, является &lt;tab&gt; (табуляция).</p>
 
 
 
 <h3>RDF Data Export</h3>
 
-<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
+<p>База данных также доступна в формате RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">объявление на французском</a>.</p>
 
 <dl>
  <dt>Link</dt>
@@ -82,11 +82,11 @@ with the Open Food Facts community.</p>
 
 <h2>Live JSON API</h2>
 
-<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
+<p>JSON API также доступен для чтения данных о продукте. Этот API, в частности, используется в мобильном приложении Open Food Facts для iPhone и Android.</p>
 
-<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Пожалуйста, сообщите нам, если вы используете его, чтобы мы могли рассказать вам о возможных изменениях.</p>
 
-<p>URL to read data for a product: https://world.openfoodfacts.org/api/v0/product/<em>[barcode]</em>.json</p>
+<p>Например: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 <p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
@@ -112,12 +112,12 @@ The app allows users to scan the barcode of products, to view the product inform
 <p>They will let you consume data, as well as let your users contribute new data</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>
-<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a> - <a href="https://pub.dev/packages/openfoodfacts">Package on pub.dev</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
 <li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
 <li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
 <li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a></li>
 <li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
-<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
+<li>PHP (Lararel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
 <li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
 <li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
 <li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
