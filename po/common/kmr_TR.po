@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ku\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-08 14:59\n"
+"PO-Revision-Date: 2020-11-18 10:00\n"
 "Language-Team: Kurdish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4383,6 +4383,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4405,6 +4409,10 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
 msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
@@ -4879,5 +4887,66 @@ msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr ""
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr ""
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr ""
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr ""
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
 msgstr ""
 
