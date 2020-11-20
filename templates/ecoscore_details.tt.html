@@ -53,7 +53,7 @@
 	
 	<h4>Emballage</h4>
 	
-	[% IF adjustments.packaging.packagings %]
+	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
 		<p><strong>Composants :</strong></p>
 		<ul>
 			[% FOREACH packaging IN adjustments.packaging.packagings %]
@@ -67,13 +67,15 @@
 			[% END %]
 		</ul>
 		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
-	[% END %]	
-	
-	<p><strong>Malus : [% adjustments.packaging.value %]</strong></p>
+		
+		<p><strong>Malus : [% adjustments.packaging.value %]</strong></p>
+	[% ELSE %]
+		<p>Les informations sur l'emballage sont manquantes, son impact n'a pas pu être pris en compte.</p>
+	[% END %]
 	
 	<h3>Score final</h3>
 
 	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong></p>
-	<p><strong>[% lang('ecoscore_grade') %][% sep %]: [% grade %]</strong></p>
+	<p><strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
 
 </div>

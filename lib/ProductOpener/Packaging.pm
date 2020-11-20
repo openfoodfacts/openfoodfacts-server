@@ -114,6 +114,9 @@ sub init_packaging_taxonomies_regexps() {
 		
 		foreach my $tagid (keys %{$translations_to{$taxonomy}}) {
 			
+			# Skip entries that are just synonyms	
+			next if (defined $just_synonyms{$taxonomy}{$tagid});
+			
 			foreach my $language (keys %{$translations_to{$taxonomy}{$tagid}}) {
 				
 				defined $packaging_taxonomies_regexps{$taxonomy}{$language} or $packaging_taxonomies_regexps{$taxonomy}{$language} = [];
@@ -121,7 +124,7 @@ sub init_packaging_taxonomies_regexps() {
 				# the synonyms also contain the main translation as the first entry
 				
 				my $language_tagid = get_string_id_for_lang($language, $translations_to{$taxonomy}{$tagid}{$language});
-				
+
 				foreach my $synonym (@{$synonyms_for{$taxonomy}{$language}{$language_tagid}}) {
 					
 					push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
@@ -129,6 +132,19 @@ sub init_packaging_taxonomies_regexps() {
 					if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
 						
 						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
+					}
+				}				
+				
+				# Also add extended synonyms
+				if (defined $synonyms_for_extended{$taxonomy}{$language}{$language_tagid}) {
+					foreach my $synonym (keys %{$synonyms_for_extended{$taxonomy}{$language}{$language_tagid}}) {
+						
+						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
+						
+						if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
+							
+							push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
+						}
 					}
 				}
 			}
@@ -143,6 +159,8 @@ sub init_packaging_taxonomies_regexps() {
 		
 		$log->debug("init_packaging_taxonomies_regexps - result", { taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}  }) if $log->is_debug();
 	}
+	
+	store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
 }
 
 =head2 parse_packaging_from_text_phrase($text, $text_language)
@@ -156,6 +174,9 @@ sub parse_packaging_from_text_phrase($$) {
 	
 	my $text = shift;
 	my $text_language = shift;
+	
+	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
+	my $textid = get_string_id_for_lang($text_language, $text);	
 	
 	my $packaging_ref = {};
 	
@@ -209,6 +230,13 @@ sub parse_packaging_from_text_phrase($$) {
 								}
 							}
 						}
+					}
+					elsif ($textid =~ /(^|-)($regexp)(-|$)/) {
+						if ((not defined $packaging_ref->{$property})
+							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))) {
+							
+							$packaging_ref->{$property} = $tagid;
+						}					
 					}
 				}
 			}
