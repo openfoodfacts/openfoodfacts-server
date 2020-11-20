@@ -806,7 +806,7 @@ sub change_product_server_or_code($$$) {
 
 	$new_code = normalize_code($new_code);
 	if ($new_code !~ /^\d{4,24}$/) {
-		display_error($Lang{invalid_barcode}{$lang}, 403);
+		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
 	# check that the new code is available
