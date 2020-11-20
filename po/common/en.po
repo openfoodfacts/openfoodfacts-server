@@ -71,10 +71,6 @@ msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "Join us on Slack"
-
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
 msgstr "You can now easily import your product data and photos."
@@ -92,8 +88,8 @@ msgid "Your request to join the organization is pending approval of the organiza
 msgstr "Your request to join the organization is pending approval of the organization administrator."
 
 msgctxt "please_email_producers"
-msgid "Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question."
-msgstr "Please e-mail <a href=\"mailto:producers\@openfoodfacts.org\">producers\@openfoodfacts.org</a> if you have any question."
+msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
+msgstr "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -4144,8 +4140,8 @@ msgid "The Nutri-Score can be changed from %s to %s by changing the %s value fro
 msgstr "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
 
 msgctxt "export_products_to_public_database_email"
-msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\"">producers@openfoodfacts.org</a> to update the public database."
-msgstr "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\"">producers@openfoodfacts.org</a> to update the public database."
+msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
+msgstr "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4413,8 +4409,8 @@ msgid "You can help us recognize more ingredients and better analyze the list of
 msgstr "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others:"
 
 msgctxt "help_improve_ingredients_analysis_1"
-msgstr "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
+msgstr "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
@@ -4422,8 +4418,8 @@ msgstr "Add new entries, synonyms or translations to our multilingual lists of i
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
-msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr "If you would like to help, join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis">ingredients analysis on our wiki</a>. Thank you!"
+msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
+msgstr "If you would like to help, join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>. Thank you!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
