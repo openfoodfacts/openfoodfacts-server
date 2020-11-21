@@ -11,9 +11,10 @@ jobs:
         uses: Tar-Minyatur/gettext-validation@master
         with:
           folder: po/
-          file-ignore: po/common/lol.po
-          file-ignore: po/openfoodfacts/lol.po
-          file-ignore: po/openpetfoodfacts/lol.po
-          file-ignore: po/openproductsfacts/lol.po
-          file-ignore: po/openbeautyfacts/lol.po
-          file-ignore: po/tags/lol.po
+          paths-ignore: 
+          - 'po/common/lol.po' 
+          - 'po/openfoodfacts/lol.po'
+          - 'po/openpetfoodfacts/lol.po'
+          - 'po/openproductsfacts/lol.po'
+          - 'po/openbeautyfacts/lol.po'
+          - 'po/tags/lol.po'
