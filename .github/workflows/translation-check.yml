@@ -11,4 +11,9 @@ jobs:
         uses: Tar-Minyatur/gettext-validation@master
         with:
           folder: po/
-          file-ignore: lol.po
+          file-ignore: po/common/lol.po
+          file-ignore: po/openfoodfacts/lol.po
+          file-ignore: po/openpetfoodfacts/lol.po
+          file-ignore: po/openproductsfacts/lol.po
+          file-ignore: po/openbeautyfacts/lol.po
+          file-ignore: po/tags/lol.po
