@@ -2,6 +2,8 @@ name: Validate translation files
 on:
   push:
     branches: [l10n_master]
+    paths-ignore:
+    - 'po/*/lol.po'
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -11,10 +13,3 @@ jobs:
         uses: Tar-Minyatur/gettext-validation@master
         with:
           folder: po/
-          paths-ignore: 
-          - 'po/common/lol.po' 
-          - 'po/openfoodfacts/lol.po'
-          - 'po/openpetfoodfacts/lol.po'
-          - 'po/openproductsfacts/lol.po'
-          - 'po/openbeautyfacts/lol.po'
-          - 'po/tags/lol.po'
