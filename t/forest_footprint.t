@@ -50,19 +50,33 @@ my @tests = (
 		}
 	],		
 	[
-		'fr-lait',
+		'fr-ingredients-lait',
 		{
 			lc => "fr",
 			ingredients_text =>"Lait",
 		}
 	],
 	[
-		'fr-poulet',
+		'fr-ingredients-poulet',
 		{
 			lc => "fr",
 			ingredients_text =>"Poulet",
 		}
 	],
+	[
+		'fr-ingredients-filet-de-poulet-bio',
+		{
+			lc => "fr",
+			ingredients_text =>"Filet de poulet bio",
+		}
+	],
+	[
+		'fr-ingredients-poulet-du-gers',
+		{
+			lc => "fr",
+			ingredients_text =>"Poulet du Gers",
+		}
+	],	
 );
 
 my $json = JSON->new->allow_nonref->canonical;

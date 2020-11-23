@@ -59,11 +59,12 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
 
-my %forest_footprint_data = (ingredients => []);
+my %forest_footprint_data = (ingredients_categories => []);
 
 =head1 FUNCTIONS
 
@@ -114,10 +115,9 @@ sub load_forest_footprint_data() {
 			
 			my %type = (
 				name => $rows[0][$i],
-				transformation_factor => $rows[5][$i],
-				soy_feed_factor => $rows[6][$i],
-				soy_yield => $rows[7][$i],
-				deforestation_risk => $rows[8][$i],
+				soy_feed_factor => $rows[5][$i],
+				soy_yield => $rows[6][$i],
+				deforestation_risk => $rows[7][$i],
 				conditions => [],
 			);
 			
@@ -130,20 +130,27 @@ sub load_forest_footprint_data() {
 				my @tags = ();
 				
 				foreach my $tagtype_values (split(/;/, $rows[$j][$i])) {
-					if ($tagtype_values =~ /(\S+)_([a-z][a-z]):(.*)/) {
+					if ($tagtype_values =~ /(\S+)_([a-z][a-z])(?::|=)(.*)/) {
 						my ($tagtype, $language, $values) = ($1, $2, $3);
 						
 						foreach my $value (split(/,/, $values)) {
-							my $tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
 							
-							if (not exists_taxonomy_tag($tagtype, $tagid)) {
+							my $tagid;
 							
-								$log->error("forest footprint condition does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
-								$errors++;
+							if (defined $taxonomy_fields{$tagtype}) {
+								$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+								
+								if (not exists_taxonomy_tag($tagtype, $tagid)) {
+								
+									$log->error("forest footprint condition does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
+									$errors++;
+								}
 							}
 							else {
-								push @tags, [$tagtype, $tagid];
+								$tagid = get_string_id_for_lang($language, $value);
 							}
+							
+							push @tags, [$tagtype, $tagid];
 						}
 					}
 				}
@@ -156,14 +163,50 @@ sub load_forest_footprint_data() {
 			push @types, \%type;
 		}
 		
-		my $ingredients_category_data_ref = { category => "chicken", ingredients => ["en:chicken"], types => \@types };
+		# Starting from line 12, each line contains 1 ingredient or category and the corresponding transformation factor
+		# Critère OFF sur les ingrédients ou les catégories		Facteur de transformation
+		# ingredients_fr=poulet	1
+		# ingredients_fr=viande de poulet	0,75
+		# We will reverse the order as the most specific items come last
+		
+		my $ingredients_category_data_ref = { category => "chicken", ingredients => [], categories => [], types => \@types };
+		
+		for (my $j = 12; $j < scalar(@rows) - 1; $j++ ) {
+						
+			if ($rows[$j][0] =~ /(\S+)_([a-z][a-z])(?::|=)(.*)/) {
+				my ($tagtype, $language, $values) = ($1, $2, $3);
+				
+				my $transformation_factor = $rows[$j][1];
+			
+				foreach my $value (split(/,/, $values)) {
+							
+					my $tagid;
+					
+					if (defined $taxonomy_fields{$tagtype}) {
+						$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+						
+						if (not exists_taxonomy_tag($tagtype, $tagid)) {
+						
+							$log->error("forest footprint ingredient or category tag does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
+							$errors++;
+						}
+					}
+					else {
+						$tagid = get_string_id_for_lang($language, $value);
+					}
+					
+					# tag + transformation factor
+					unshift @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $transformation_factor];
+				}
+			}
+		}
 		
 		push @{$forest_footprint_data{ingredients_categories}}, $ingredients_category_data_ref;
 
 		$log->debug("forest footprint CSV data", { csv_file => $csv_file, ingredients_category_data_ref => $ingredients_category_data_ref }) if $log->is_debug();
 		
 		if ($errors) {
-			#die("$errors unrecognized tags in CSV $csv_file");
+			die("$errors unrecognized tags in CSV $csv_file");
 		}
 	}
 	else {
@@ -201,20 +244,120 @@ sub compute_forest_footprint($) {
 		ingredients => [],
 	};
 	
+	# If we have ingredients, analyze each ingredient
 	if (defined $product_ref->{ingredients}) {
 		$product_ref->{forest_footprint_data}{ingredients} = [];
-		compute_footprints_of_ingredients($product_ref->{forest_footprint_data}{ingredients}, $product_ref->{ingredients});
+		compute_footprints_of_ingredients($product_ref, $product_ref->{forest_footprint_data}{ingredients}, $product_ref->{ingredients});
+	}
+	# if we don't have ingredients, we may have a category that matches exactly one ingredient
+	# e.g. for a fresh whole chicken, we may not have ingredients listed
+	# in that case, we construct an ingredients structure with only one ingredient
+	else {
+		compute_footprint_of_category($product_ref, $product_ref->{forest_footprint_data}{ingredients});
+	}
+}
+
+=head2 add_footprint ( $product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref )
+
+This function is called when we have an ingredient or a category for which we have a forest footprint.
+It determines the type of the footprint based on labels, origins etc. and adds a corresponding footprint
+to the list of footprints for the products (possibly several if the product has multiple ingredients with a footprint)
+
+=head3 Synopsys
+
+add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, {
+							tag => ["ingredients", $ingredients_ref->{id}, $category_ingredient_id],
+							percent_estimate => $ingredients_ref->{percent_estimate},
+					});
+					
+=cut
+
+sub add_footprint ($$$$$) {
+	
+	my $product_ref = shift;
+	my $ingredient_ref = shift;
+	my $footprints_ref = shift;
+	my $ingredients_category_ref = shift;
+	my $footprint_ref = shift;
+
+	# Check which type has matching conditions for the product
+	
+	foreach my $type_ref (@{$ingredients_category_ref->{types}}) {
+		
+		$log->debug("compute_footprints_of_ingredients - checking type", { type => $type_ref }) if $log->is_debug();
+		
+		my $match = 1;	# The type will match if there are no conditions
+		my @conditions_tags = ();	# We will return the tags that match the conditions
+		
+		# Check all conditions
+		
+		foreach my $condition_tags_ref (@{$type_ref->{conditions}}) {
+			
+			$log->debug("compute_footprints_of_ingredients - checking condition for type", { conditions => $type_ref->{conditions}, ingredient_ref => $ingredient_ref }) if $log->is_debug();
+
+			$match = 0;
+			
+			# Check if we have a matching tag for the condition
+			
+			foreach my $tag_ref (@{$condition_tags_ref}) {
+				
+				my ($tagtype, $tagid) = @$tag_ref;
+				
+				if (has_tag($product_ref, $tagtype, $tagid)) {
+					
+					$log->debug("compute_footprints_of_ingredients - matching product tag for condition", { tag => $tag_ref, conditions => $type_ref->{conditions} }) if $log->is_debug();
+					
+					$match = 1;
+					push @conditions_tags, $tag_ref;
+					last;
+				}
+				# Also check if we have the label or origin at the ingredients level
+				elsif ((defined $ingredient_ref) and (defined $ingredient_ref->{$tagtype})
+					and ($ingredient_ref->{$tagtype} =~ /(?:^|,)$tagid(?:,|$)/)) {
+					
+					$log->debug("compute_footprints_of_ingredients - matching ingredient tag for condition", { tag => $tag_ref, conditions => $type_ref->{conditions} }) if $log->is_debug();
+					
+					$match = 1;
+					push @conditions_tags, $tag_ref;
+					last;	
+				}
+			}
+		}
+	
+		if ($match) {
+			
+			my $cloned_type_ref = dclone($type_ref);
+			delete $cloned_type_ref->{conditions};	# No need to return all the conditions
+			
+			$log->debug("compute_footprints_of_ingredients - matching type", { cloned_type => $cloned_type_ref }) if $log->is_debug();
+			
+			$footprint_ref->{type} = $cloned_type_ref;
+			$footprint_ref->{conditions_tags} = \@conditions_tags;
+			$footprint_ref->{footprint_per_kg} = ($footprint_ref->{percent} / 100)
+				/ $footprint_ref->{transformation_factor}
+				* $footprint_ref->{type}{soy_feed_factor}
+				/ $footprint_ref->{type}{soy_yield}
+				* $footprint_ref->{type}{deforestation_risk};
+
+			push @$footprints_ref, $footprint_ref;
+			
+			last;
+		}
 	}
 }
 
 
-=head2 compute_footprints_of_ingredients ( $footprints_ref, $ingredients_ref )
+=head2 compute_footprints_of_ingredients ( $product_ref, $footprints_ref, $ingredients_ref )
 
 Computes the forest footprints of the ingredients.
 
 The function is recursive and may call itself for sub-ingredients.
 
 =head3 Arguments
+
+=head4 Product reference $product_ref
+
+Used to determine the footprint type based on labels, categories, origins etc.
 
 =head4 Footprints reference $footprints_ref
 
@@ -230,10 +373,12 @@ The footprints are stored in $footprints_ref
 
 =cut
 
-sub compute_footprints_of_ingredients($$);
+# Pre-declare the function as it is recursive
+sub compute_footprints_of_ingredients($$$);
 
-sub compute_footprints_of_ingredients($$) {
+sub compute_footprints_of_ingredients($$$) {
 	
+	my $product_ref = shift;
 	my $footprints_ref = shift;
 	my $ingredients_ref = shift;
 	
@@ -269,7 +414,9 @@ sub compute_footprints_of_ingredients($$) {
 			
 			$log->debug("compute_footprints_of_ingredients - checking ingredient match - category", { ingredient_id => $ingredient_ref->{id}, category => $ingredients_category_ref->{category} }) if $log->is_debug();
 			
-			foreach my $category_ingredient_id (@{$ingredients_category_ref->{ingredients}}) {
+			foreach my $category_ingredient_ref (@{$ingredients_category_ref->{ingredients}}) {
+				
+				my ($category_ingredient_id, $transformation_factor) = @$category_ingredient_ref;
 				
 				$log->debug("compute_footprints_of_ingredients - checking ingredient match - category - category_ingredient", { ingredient_id => $ingredient_ref->{id}, category_ingredient_id => $category_ingredient_id }) if $log->is_debug();
 				
@@ -277,13 +424,22 @@ sub compute_footprints_of_ingredients($$) {
 					$log->debug("compute_footprints_of_ingredients - ingredient match", { ingredient_id => $ingredient_ref->{id}, category_ingredient_id => $category_ingredient_id }) if $log->is_debug();
 					
 					my $footprint_ref = {
-						category => $ingredients_category_ref->{category},
-						category_ingredient_id => $category_ingredient_id,
-						ingredient_id => $ingredient_ref->{id},
+						tag_type => "ingredients",
+						tag_id => $ingredient_ref->{id},
+						matching_tag_id => $category_ingredient_id,
+						transformation_factor => $transformation_factor,
 					};
 					
-					push @$footprints_ref, $footprint_ref;
+					if (defined $ingredient_ref->{percent}) {
+						$footprint_ref->{percent} = $ingredient_ref->{percent};
+					}
+					else {
+						$footprint_ref->{percent} = $ingredient_ref->{percent_estimate};
+						$footprint_ref->{percent_estimate} = $ingredient_ref->{percent_estimate};
+					}
 					
+					add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref);
+										
 					last;
 				}
 			}
@@ -297,9 +453,72 @@ sub compute_footprints_of_ingredients($$) {
 		# try the sub ingredients
 		if ((not defined $current_ingredient_category) and (defined $ingredient_ref->{ingredients})) {
 			$log->debug("compute_footprints_of_ingredients - ingredient has subingredients", { ingredient_id => $ingredient_ref->{id} }) if $log->is_debug();
-			compute_footprints_of_ingredients($footprints_ref, $ingredient_ref->{ingredients});
+			compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredient_ref->{ingredients});
+		}
+	}
+}
+
+
+=head2 compute_footprint_of_category ( $product_ref, $footprints_ref )
+
+Computes the forest footprints associated with the category of the product,
+if the product does not have ingredients (e.g. "whole chickens" category 
+for which we may not have ingredients listed)
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+Used to determine the footprint type based on labels, categories, origins etc.
+
+=head4 Footprints reference $footprints_ref
+
+Data structure to which we will add the forest footprints for the ingredients specified in $ingredients_ref
+
+=head3 Return values
+
+The footprints are stored in $footprints_ref
+
+=cut
+
+sub compute_footprint_of_category($$) {
+	
+	my $product_ref = shift;
+	my $footprints_ref = shift;
+		
+	# Check if the ingredient belongs to one of the categories for which their is a forest footprint
+	
+	$log->debug("compute_footprint_of_category - checking category match", { categories_tags => $product_ref->{categories_tags}}) if $log->is_debug();		
+	
+	my $current_ingredient_category;
+	
+	foreach my $ingredients_category_ref (@{$forest_footprint_data{ingredients_categories}}) {
+		
+		$log->debug("compute_footprint_of_category - checking category match - category", { ingredients_category => $ingredients_category_ref->{category} }) if $log->is_debug();
+		
+		foreach my $category_ref (@{$ingredients_category_ref->{categories}}) {
+			
+			my ($category_id, $transformation_factor) = @$category_ref;
+			
+			$log->debug("compute_footprint_of_category - checking category match - category - category_ingredient", { category_id => $category_id }) if $log->is_debug();
+			
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$log->debug("compute_footprint_of_category - category match", { category_id => $category_id }) if $log->is_debug();
+				
+				add_footprint($product_ref, undef, $footprints_ref, $ingredients_category_ref, {
+					tag_type => "categories",
+					tag_id => $category_id,
+					percent => 100,
+					transformation_factor => $transformation_factor,
+				});
+									
+				last;
+			}
 		}
 		
+		if (defined $current_ingredient_category) {
+			last;
+		}
 	}
 }
 

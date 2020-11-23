@@ -2,9 +2,20 @@
    "forest_footprint_data" : {
       "ingredients" : [
          {
-            "category" : "chicken",
-            "category_ingredient_id" : "en:chicken",
-            "ingredient_id" : "en:chicken"
+            "conditions_tags" : [],
+            "footprint_per_kg" : 1.81333333333333,
+            "matching_tag_id" : "en:chicken",
+            "percent" : 100,
+            "percent_estimate" : 100,
+            "tag_id" : "en:chicken",
+            "tag_type" : "ingredients",
+            "transformation_factor" : 1,
+            "type" : {
+               "deforestation_risk" : 0.68,
+               "name" : "Poulet Importé",
+               "soy_feed_factor" : 0.8,
+               "soy_yield" : 0.3
+            }
          }
       ]
    },
