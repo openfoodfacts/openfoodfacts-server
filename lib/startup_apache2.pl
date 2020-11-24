@@ -75,6 +75,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -113,8 +114,12 @@ init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
 init_packaging_taxonomies_regexps();
-load_agribalyse_data();
-load_ecoscore_data();
+
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module

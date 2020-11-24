@@ -6776,7 +6776,7 @@ sub display_new($) {
 	else {
 		$template_data_ref->{page_type} = "other";
 	}
-  
+
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
@@ -8073,6 +8073,12 @@ HTML
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
+	}
+	
+	# Forest footprint
+	if ($User{moderator}) {
+		# Forest footprint data structure
+		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
 	}
 
 	# other fields
