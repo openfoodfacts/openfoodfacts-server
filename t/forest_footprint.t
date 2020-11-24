@@ -83,7 +83,14 @@ my @tests = (
 			lc => "fr",
 			categories_tags => ["en:poulets-du-gers"],
 		}
-	],		
+	],
+	[
+		'fr-ingredients-filet-de-poulet-bio-oeuf-label-rouge-os-de-poulet-igp',
+		{
+			lc => "fr",
+			ingredients_text =>"Filet de poulet bio, oeuf label rouge, os de poulet IGP",
+		}
+	],	
 );
 
 my $json = JSON->new->allow_nonref->canonical;

@@ -81,136 +81,145 @@ sub load_forest_footprint_data() {
 	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
 	my $csv = Text::CSV->new ( $csv_options_ref )
 		or die("Cannot use CSV: " . Text::CSV->error_diag ());
-		
-	my $csv_file = $data_root . "/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.0";
-	my $encoding = "UTF-8";
 	
-	$log->debug("opening forest footprint CSV file", { file => $csv_file }) if $log->is_debug();
+	# Each file contains a category of ingredients: chicken, eggs
 	
-	my @rows = ();
-
-	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
-
-		my $row_ref;
-
-		# Load the complete file as the data for each ingredient is in columns and not in rows
-
-		while ($row_ref = $csv->getline ($io)) {
-			
-			push @rows, $row_ref;
-		}
+	for (my $k = 0; $k <= 1; $k++) {
 		
-		# 1st column: title
-		# 2nd column: unit
-		# Each of the following columns contains data for a specific ingredient type with specific conditions on categories, labels, origins etc.
-		# The 3rd column is the most generic (e.g. "chicken"), and the columns on the right are the most specific (e.g. "organic chicken with AB label")
+		my $csv_file = $data_root . "/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.$k";
+		my $encoding = "UTF-8";
 		
-		# We are going to create an array of ingredient types starting with the ones that are the most on the right,
-		# as we can select them and stop matching if their conditions are met.
+		$log->debug("opening forest footprint CSV file", { file => $csv_file }) if $log->is_debug();
 		
-		my @types = ();
-		my $errors = 0;
-		
-		for (my $i = scalar(@{$rows[0]}) - 1; $i >= 2; $i--) {
-			
-			my %type = (
-				name => $rows[0][$i],
-				soy_feed_factor => $rows[5][$i],
-				soy_yield => $rows[6][$i],
-				deforestation_risk => $rows[7][$i],
-				conditions => [],
-			);
-			
-			# Conditions are on 2 lines, each of the form:
-			# [tagtype]_[language code]:[tag value],[tag value..] ; [other tagtype values]
-			# e.g. "labels_fr:volaille française,igp,aop,poulet français ; origins_fr:france"
-			foreach my $j (2,3) {
-				next if $rows[$j][$i] eq "";
+		my @rows = ();
+
+		if (open (my $io, "<:encoding($encoding)", $csv_file)) {
+
+			my $row_ref;
+
+			# Load the complete file as the data for each ingredient is in columns and not in rows
+
+			while ($row_ref = $csv->getline ($io)) {
 				
-				my @tags = ();
+				push @rows, $row_ref;
+			}
+			
+			# 1st column: title
+			# 2nd column: unit
+			# Each of the following columns contains data for a specific ingredient type with specific conditions on categories, labels, origins etc.
+			# The 3rd column is the most generic (e.g. "chicken"), and the columns on the right are the most specific (e.g. "organic chicken with AB label")
+			
+			# We are going to create an array of ingredient types starting with the ones that are the most on the right,
+			# as we can select them and stop matching if their conditions are met.
+			
+			my @types = ();
+			my $errors = 0;
+			
+			for (my $i = scalar(@{$rows[0]}) - 1; $i >= 2; $i--) {
 				
-				foreach my $tagtype_values (split(/;/, $rows[$j][$i])) {
-					if ($tagtype_values =~ /(\S+)_([a-z][a-z])(?::|=)(.*)/) {
-						my ($tagtype, $language, $values) = ($1, $2, $3);
-						
-						foreach my $value (split(/,/, $values)) {
+				my %type = (
+					name => $rows[0][$i],
+					soy_feed_factor => $rows[5][$i],
+					soy_yield => $rows[6][$i],
+					deforestation_risk => $rows[7][$i],
+					conditions => [],
+				);
+				
+				# Conditions are on 2 lines, each of the form:
+				# [tagtype]_[language code]:[tag value],[tag value..] ; [other tagtype values]
+				# e.g. "labels_fr:volaille française,igp,aop,poulet français ; origins_fr:france"
+				foreach my $j (2,3) {
+					next if $rows[$j][$i] eq "";
+					
+					my @tags = ();
+					
+					foreach my $tagtype_values (split(/;/, $rows[$j][$i])) {
+						if ($tagtype_values =~ /(\S+)_([a-z][a-z])(?::|=)(.+)/) {
+							my ($tagtype, $language, $values) = ($1, $2, $3);
 							
-							my $tagid;
-							
-							if (defined $taxonomy_fields{$tagtype}) {
-								$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+							foreach my $value (split(/,/, $values)) {
 								
-								if (not exists_taxonomy_tag($tagtype, $tagid)) {
+								next if $value =~ /^(\s*)$/;
 								
-									$log->error("forest footprint condition does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
-									$errors++;
+								my $tagid;
+								
+								if (defined $taxonomy_fields{$tagtype}) {
+									$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+									
+									if (not exists_taxonomy_tag($tagtype, $tagid)) {
+									
+										$log->error("forest footprint condition does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid, value => $value}) if $log->is_error();
+										$errors++;
+									}
 								}
+								else {
+									$tagid = get_string_id_for_lang($language, $value);
+								}
+								
+								push @tags, [$tagtype, $tagid];
 							}
-							else {
-								$tagid = get_string_id_for_lang($language, $value);
-							}
-							
-							push @tags, [$tagtype, $tagid];
 						}
+					}
+					
+					if (scalar @tags > 0) {
+						push @{$type{conditions}}, \@tags;
 					}
 				}
 				
-				if (scalar @tags > 0) {
-					push @{$type{conditions}}, \@tags;
-				}
+				push @types, \%type;
 			}
 			
-			push @types, \%type;
-		}
-		
-		# Starting from line 12, each line contains 1 ingredient or category and the corresponding transformation factor
-		# Critère OFF sur les ingrédients ou les catégories		Facteur de transformation
-		# ingredients_fr=poulet	1
-		# ingredients_fr=viande de poulet	0,75
-		# We will reverse the order as the most specific items come last
-		
-		my $ingredients_category_data_ref = { category => "chicken", ingredients => [], categories => [], types => \@types };
-		
-		for (my $j = 12; $j < scalar(@rows) - 1; $j++ ) {
-						
-			if ($rows[$j][0] =~ /(\S+)_([a-z][a-z])(?::|=)(.*)/) {
-				my ($tagtype, $language, $values) = ($1, $2, $3);
-				
-				my $processing_factor = $rows[$j][1];
+			# Starting from line 12, each line contains 1 ingredient or category and the corresponding transformation factor
+			# Critère OFF sur les ingrédients ou les catégories		Facteur de transformation
+			# ingredients_fr=poulet	1
+			# ingredients_fr=viande de poulet	0,75
+			# We will reverse the order as the most specific items come last
 			
-				foreach my $value (split(/,/, $values)) {
+			my $ingredients_category_data_ref = { category => "chicken", ingredients => [], categories => [], types => \@types };
+			
+			for (my $j = 12; $j < scalar(@rows) - 1; $j++ ) {
 							
-					my $tagid;
+				if ($rows[$j][0] =~ /(\S+)_([a-z][a-z])(?::|=)(.+)/) {
+					my ($tagtype, $language, $values) = ($1, $2, $3);
 					
-					if (defined $taxonomy_fields{$tagtype}) {
-						$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+					my $processing_factor = $rows[$j][1];
+				
+					foreach my $value (split(/,/, $values)) {
 						
-						if (not exists_taxonomy_tag($tagtype, $tagid)) {
+						next if $value =~ /^(\s*)$/;
+								
+						my $tagid;
 						
-							$log->error("forest footprint ingredient or category tag does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
-							$errors++;
+						if (defined $taxonomy_fields{$tagtype}) {
+							$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
+							
+							if (not exists_taxonomy_tag($tagtype, $tagid)) {
+							
+								$log->error("forest footprint ingredient or category tag does not exist in taxonomy", { tagtype => $tagtype, tagid => $tagid}) if $log->is_error();
+								$errors++;
+							}
 						}
+						else {
+							$tagid = get_string_id_for_lang($language, $value);
+						}
+						
+						# tag + transformation factor
+						unshift @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $processing_factor];
 					}
-					else {
-						$tagid = get_string_id_for_lang($language, $value);
-					}
-					
-					# tag + transformation factor
-					unshift @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $processing_factor];
 				}
 			}
-		}
-		
-		push @{$forest_footprint_data{ingredients_categories}}, $ingredients_category_data_ref;
+			
+			push @{$forest_footprint_data{ingredients_categories}}, $ingredients_category_data_ref;
 
-		$log->debug("forest footprint CSV data", { csv_file => $csv_file, ingredients_category_data_ref => $ingredients_category_data_ref }) if $log->is_debug();
-		
-		if ($errors) {
-			die("$errors unrecognized tags in CSV $csv_file");
+			$log->debug("forest footprint CSV data", { csv_file => $csv_file, ingredients_category_data_ref => $ingredients_category_data_ref }) if $log->is_debug();
+			
+			if ($errors) {
+				die("$errors unrecognized tags in CSV $csv_file");
+			}
 		}
-	}
-	else {
-		die("Could not open forest footprint CSV $csv_file: $!");
+		else {
+			die("Could not open forest footprint CSV $csv_file: $!");
+		}
 	}
 }
 
