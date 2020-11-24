@@ -76,7 +76,14 @@ my @tests = (
 			lc => "fr",
 			ingredients_text =>"Poulet du Gers",
 		}
-	],	
+	],
+	[
+		'fr-category-poulets-du-gers',
+		{
+			lc => "fr",
+			categories_tags => ["en:poulets-du-gers"],
+		}
+	],		
 );
 
 my $json = JSON->new->allow_nonref->canonical;

@@ -176,7 +176,7 @@ sub load_forest_footprint_data() {
 			if ($rows[$j][0] =~ /(\S+)_([a-z][a-z])(?::|=)(.*)/) {
 				my ($tagtype, $language, $values) = ($1, $2, $3);
 				
-				my $transformation_factor = $rows[$j][1];
+				my $processing_factor = $rows[$j][1];
 			
 				foreach my $value (split(/,/, $values)) {
 							
@@ -196,7 +196,7 @@ sub load_forest_footprint_data() {
 					}
 					
 					# tag + transformation factor
-					unshift @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $transformation_factor];
+					unshift @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $processing_factor];
 				}
 			}
 		}
@@ -254,6 +254,17 @@ sub compute_forest_footprint($) {
 	# in that case, we construct an ingredients structure with only one ingredient
 	else {
 		compute_footprint_of_category($product_ref, $product_ref->{forest_footprint_data}{ingredients});
+	}
+	
+	# Compute total footprint
+	if (scalar(@{$product_ref->{forest_footprint_data}{ingredients}}) > 0) {
+		$product_ref->{forest_footprint_data}{footprint_per_kg} = 0;
+		foreach my $ingredient_ref (@{$product_ref->{forest_footprint_data}{ingredients}}) {
+			$product_ref->{forest_footprint_data}{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
+		}
+	}
+	else {
+		delete $product_ref->{forest_footprint_data};
 	}
 }
 
@@ -334,7 +345,7 @@ sub add_footprint ($$$$$) {
 			$footprint_ref->{type} = $cloned_type_ref;
 			$footprint_ref->{conditions_tags} = \@conditions_tags;
 			$footprint_ref->{footprint_per_kg} = ($footprint_ref->{percent} / 100)
-				/ $footprint_ref->{transformation_factor}
+				/ $footprint_ref->{processing_factor}
 				* $footprint_ref->{type}{soy_feed_factor}
 				/ $footprint_ref->{type}{soy_yield}
 				* $footprint_ref->{type}{deforestation_risk};
@@ -416,7 +427,7 @@ sub compute_footprints_of_ingredients($$$) {
 			
 			foreach my $category_ingredient_ref (@{$ingredients_category_ref->{ingredients}}) {
 				
-				my ($category_ingredient_id, $transformation_factor) = @$category_ingredient_ref;
+				my ($category_ingredient_id, $processing_factor) = @$category_ingredient_ref;
 				
 				$log->debug("compute_footprints_of_ingredients - checking ingredient match - category - category_ingredient", { ingredient_id => $ingredient_ref->{id}, category_ingredient_id => $category_ingredient_id }) if $log->is_debug();
 				
@@ -427,7 +438,7 @@ sub compute_footprints_of_ingredients($$$) {
 						tag_type => "ingredients",
 						tag_id => $ingredient_ref->{id},
 						matching_tag_id => $category_ingredient_id,
-						transformation_factor => $transformation_factor,
+						processing_factor => $processing_factor,
 					};
 					
 					if (defined $ingredient_ref->{percent}) {
@@ -498,7 +509,7 @@ sub compute_footprint_of_category($$) {
 		
 		foreach my $category_ref (@{$ingredients_category_ref->{categories}}) {
 			
-			my ($category_id, $transformation_factor) = @$category_ref;
+			my ($category_id, $processing_factor) = @$category_ref;
 			
 			$log->debug("compute_footprint_of_category - checking category match - category - category_ingredient", { category_id => $category_id }) if $log->is_debug();
 			
@@ -509,7 +520,7 @@ sub compute_footprint_of_category($$) {
 					tag_type => "categories",
 					tag_id => $category_id,
 					percent => 100,
-					transformation_factor => $transformation_factor,
+					processing_factor => $processing_factor,
 				});
 									
 				last;
