@@ -408,6 +408,9 @@ sub compute_footprints_of_ingredients($$$) {
 	# and ignore the same sub-ingredients listed at the end
 	my $ranked = 0;
 	
+	# Return the number of ingredients with a footprint
+	my $ingredients_with_footprint = 0;
+	
 	foreach my $ingredient_ref (@$ingredients_ref) {
 		
 		my $ingredient_origins_ref;
@@ -429,6 +432,20 @@ sub compute_footprints_of_ingredients($$$) {
 		$log->debug("compute_footprints_of_ingredients - checking ingredient match", { ingredient_id => $ingredient_ref->{id} }) if $log->is_debug();		
 		
 		my $current_ingredient_category;
+		
+		# If the ingredient has sub-ingredients, compute the forest footprint of sub-ingredients
+		# e.g. Viande de poulet en salaison (viande de poulet, eau, saumure)
+		# If we don't have a footprint for sub-ingredients, we will try on the ingredient
+		
+		if (defined $ingredient_ref->{ingredients}) {
+			$log->debug("compute_footprints_of_ingredients - ingredient has subingredients", { ingredient_id => $ingredient_ref->{id} }) if $log->is_debug();
+			my $sub_ingredients_with_footprint = compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredient_ref->{ingredients});
+			if ($sub_ingredients_with_footprint > 0) {
+				$ingredients_with_footprint += 1;
+				# If a sub-ingredient has a footprint, we do not match also on the ingredient
+				next;
+			}
+		}
 		
 		foreach my $ingredients_category_ref (@{$forest_footprint_data{ingredients_categories}}) {
 			
@@ -459,6 +476,9 @@ sub compute_footprints_of_ingredients($$$) {
 					}
 					
 					add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref);
+						
+					$current_ingredient_category = $category_ingredient_id;
+					$ingredients_with_footprint += 1;
 										
 					last;
 				}
@@ -468,14 +488,9 @@ sub compute_footprints_of_ingredients($$$) {
 				last;
 			}
 		}
-		
-		# If the ingredient does not belong to one of the ingredients categories with a forest footprint
-		# try the sub ingredients
-		if ((not defined $current_ingredient_category) and (defined $ingredient_ref->{ingredients})) {
-			$log->debug("compute_footprints_of_ingredients - ingredient has subingredients", { ingredient_id => $ingredient_ref->{id} }) if $log->is_debug();
-			compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredient_ref->{ingredients});
-		}
 	}
+	
+	return $ingredients_with_footprint;
 }
 
 

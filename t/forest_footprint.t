@@ -91,6 +91,21 @@ my @tests = (
 			ingredients_text =>"Filet de poulet bio, oeuf label rouge, os de poulet IGP",
 		}
 	],	
+	[
+		'fr-ingredients-nested-matching-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text =>"viande de poulet traitée en salaison [viande de poulet (origine : France), eau, saumure]",
+		}
+	],
+	[
+		'fr-ingredients-nested-matching-ingredient',
+		{
+			lc => "fr",
+			ingredients_text =>"viande de poulet traitée en salaison [kangourou, eau, saumure]",
+		}
+	],		
+	
 );
 
 my $json = JSON->new->allow_nonref->canonical;
