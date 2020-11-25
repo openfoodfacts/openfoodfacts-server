@@ -160,7 +160,8 @@ sub init_packaging_taxonomies_regexps() {
 		$log->debug("init_packaging_taxonomies_regexps - result", { taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}  }) if $log->is_debug();
 	}
 	
-	store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
+	# used only for debugging
+	#store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
 }
 
 =head2 parse_packaging_from_text_phrase($text, $text_language)

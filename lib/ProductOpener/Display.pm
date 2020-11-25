@@ -2159,7 +2159,7 @@ JS
 			$initjs .= $js;
 
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 ;
 
@@ -5351,6 +5351,10 @@ sub display_scatter_plot($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq "forest_footprint") {
+			$x_allowDecimals = "allowDecimals:true,\n";
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
+		}		
 		elsif ($graph_ref->{axis_x} =~ /ingredients_n/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
@@ -5365,6 +5369,10 @@ sub display_scatter_plot($$) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_y} eq "forest_footprint") {
+			$y_allowDecimals = "allowDecimals:true,\n";
+			$y_title = escape_single_quote(lang($graph_ref->{axis_y}));
+		}			
 		elsif ($graph_ref->{axis_y} =~ /ingredients_n/) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang($graph_ref->{axis_y} . "_s"));
@@ -5390,8 +5398,13 @@ sub display_scatter_plot($$) {
 
 			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
 					or
+					(($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}})) or
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}}))
+					or
+					(($graph_ref->{axis_y} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 
 				my $url = $formatted_subdomain . product_url($product_ref->{code});
@@ -5452,6 +5465,9 @@ sub display_scatter_plot($$) {
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
 						$data{$axis} = $product_ref->{$nid};
+					}
+					elsif ($nid eq "forest_footprint") {
+						$data{$axis} = $product_ref->{forest_footprint_data}{footprint_per_kg};
 					}
 					# energy-kcal is already in kcal
 					elsif ($nid eq 'energy-kcal') {
@@ -5700,6 +5716,10 @@ sub display_histogram($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq "forest_footprint") {
+			$x_allowDecimals = "allowDecimals:true,\n";
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
+		}
 		elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
@@ -5729,7 +5749,10 @@ sub display_histogram($$) {
 
 			# Keep only products that have known values for x
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}})) or
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
+				or
+					(($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+				or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 
@@ -5771,6 +5794,9 @@ sub display_histogram($$) {
 				# number of ingredients, additives etc. (ingredients_n)
 				if ($nid =~ /_n$/) {
 					$value = $product_ref->{$nid};
+				}
+				elsif ($nid eq "forest_footprint") {
+					$value = $product_ref->{forest_footprint_data}{footprint_per_kg};
 				}
 				# energy-kcal is already in kcal
 				elsif ($nid eq 'energy-kcal') {
@@ -6018,7 +6044,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 ;
 
@@ -6074,11 +6100,14 @@ sub search_and_graph_products($$$) {
 
 	foreach my $axis ('x','y') {
 		if ($graph_ref->{"axis_$axis"} ne "products_n") {
-			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
-				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
+			if ($graph_ref->{"axis_$axis"} eq "forest_footprint") {
+				$fields_ref->{"forest_footprint_data.footprint_per_kg"} = 1;
+			}
+			elsif ($graph_ref->{"axis_$axis"} =~ /_n$/) {
+				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
 			}
 			else {
-				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
+				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
 			}
 		}
 	}
