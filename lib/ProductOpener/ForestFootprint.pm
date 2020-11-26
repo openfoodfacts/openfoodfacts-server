@@ -271,9 +271,11 @@ sub compute_forest_footprint($) {
 		foreach my $ingredient_ref (@{$product_ref->{forest_footprint_data}{ingredients}}) {
 			$product_ref->{forest_footprint_data}{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
 		}
+		add_tag($product_ref,"misc","en:forest-footprint-computed");
 	}
 	else {
 		delete $product_ref->{forest_footprint_data};
+		remove_tag($product_ref,"misc","en:forest-footprint-computed");
 	}
 }
 
