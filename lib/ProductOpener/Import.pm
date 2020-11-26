@@ -1443,6 +1443,14 @@ EMAIL
 							$log->warn("cannot read image file", { error => $x, file => $file }) if $log->is_warn();
 							unlink($file);
 						}
+						# If the product has an images field, assume that the image has already been uploaded
+						# otherwise, upload it
+						# This can happen when testing: we download the images once, then delete the products and reimport them again
+						elsif (not defined $product_ref->{images}) {
+							# Assign the download image to the field
+                                                        (defined $images_ref->{$code}) or $images_ref->{$code} = {};
+                                                        $images_ref->{$code}{$imagefield} = $file;
+						}
 					}
 
 					# Download the image

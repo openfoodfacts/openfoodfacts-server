@@ -8,8 +8,12 @@ perl -i -pe 's/gs1:T3780:H87/pièces/g' $1
 # https://gs1.se/en/guides/documentation/code-lists/t0137-packaging-type-code-2/
 perl -i -pe 's/gs1:T0137:AE/aérosol/g' $1
 perl -i -pe 's/gs1:T0137:BG/sac/g' $1
+perl -i -pe 's/gs1:T0137:BPG/blister/g' $1
 perl -i -pe 's/gs1:T0137:BO/bouteille/g' $1
 perl -i -pe 's/gs1:T0137:BX/boite/g' $1
+perl -i -pe 's/gs1:T0137:BR//g' $1
+perl -i -pe 's/gs1:T0137:BK//g' $1
+perl -i -pe 's/gs1:T0137:BJ//g' $1
 perl -i -pe 's/gs1:T0137:CS//g' $1
 perl -i -pe 's/gs1:T0137:CT//g' $1
 perl -i -pe 's/gs1:T0137:CU/pot/g' $1
