@@ -42,6 +42,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -748,7 +749,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	analyze_and_combine_packaging_data($product_ref);
 	
-	compute_ecoscore($product_ref);
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 

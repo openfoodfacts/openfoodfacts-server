@@ -67887,21 +67887,20 @@ carbon_footprint_fr_foodges_value:fr:4.9
 <en:chicken
 en:free range chicken
 es:pollo de corral
+fr:poulet élevé en plein air
 
-<en:chicken
-fr:poulet fermier
+# "poulet fermier" is defined in https://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:01991R1538-20071217&from=GA
+# in English, it is "traditional free-range"
+<en:free range chicken
+en:traditional free-range chicken, farm reared chicken, farm raised chicken
+fr:poulet fermier, poulet fermier élevé en plein air
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
-
-<en:chicken
-fr:poulet déshydraté
-
-<en:chicken
-fr:machons et ailerons de poulet
 
 <en:animal protein
 <en:chicken
 en:chicken blood
 es:sangre de pollo
+fr:sang de poulet
 
 # description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
 
@@ -67991,12 +67990,6 @@ fr:viande de cuisse de poulet
 
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
-
-
-<en:chicken meat
-fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
 fr:poulet rôti
@@ -68163,6 +68156,9 @@ sv:kycklingbröstfilé
 <en:chicken meat
 en:chicken thigh,chicken drumstick
 es:muslo de pollo
+fr:cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 # description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
@@ -68674,7 +68670,7 @@ en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
 fi:ulkomunat
-fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air, œufs d'élevage en plein air
+fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
 nl:vrije uitloop ei
 
 <en:eggs
