@@ -2514,7 +2514,7 @@ sub normalize_allergens_enumeration($$$$$) {
 	# e.g. contains (milk) -> contains milk
 	# but: (contains milk) -> (contains milk)
 	
-	if (($after eq ')') and ($before !~ /\(/)) {
+	if ((defined $after) and ($after eq ')') and ($before !~ /\(/)) {
 		$split_allergens_list .= $after;
 	}
 
