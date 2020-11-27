@@ -17,7 +17,7 @@ synonyms:es:jarabe, sirope
 
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -65,17 +65,54 @@ stopwords:zh::配料
 # comment:en:These are words that end ingredient lists.
 
 #de:
+#Allergenhinweis
+#aus biologischem
+#aus biologischer
+#aus fairem
+#aus fairer
+#aus kontrolliert
+#aus kontrollierter
+#aus ökologischem
+#aus ökologischer
+#das mischungsverhältnis
+#diese packung
 #	'davon ges(â|a|ä)ttigte'
 #	'Durchschnittliche N(â|a|ä)hrwerte'
 #	'Ern(â|a|ä)hrungswerte'
 #Glutenfrei
+#Kann andere
 #Kann andere Schalenfrüchte enthalten.
+#Kann auch
+#Kann bei
+#Kann ei
+#Kann enthalten
+#Kann Erdn(ü|u)sse
+#Kann gluten
+#Kann glutenhaltige
+#Kann glutenhaltiges
+#Kann Hasseln(ü|u)sse
+#Kann Kern
+#Kann Kerne
+#Kann Mandeln
+#Kann milch
+#Kann N(ü|u)sse
+#Kann schalen 
+#kann schalenfrüchte
+#Kann sellerie
+#Kann sesamsamen
+#Kann Spuren
 #Kann spuren von Sellerie und Senf enthalen
+#kann vereinzelt
+#Kann weizen
 #Milchschokolade: Kakao: 37% mindestens
 #	'Mindestens altbar bis'
 #	'Mindestens haltbar bis'
 #	'Nâhrwerte'
+#produkt kann
+#trocken lagern
+#unter schutzatmosphäre verpackt
 #	'Vorbereitung Tipps'
+#Zubereitungsanleitung
 
 
 #en:
