@@ -22,6 +22,7 @@
 	<h4>Mode de production</h4>
 	
 	[% IF adjustments.production_system.value %]
+		<p><strong>Label : [% display_taxonomy_tag("labels",adjustments.production_system.label) %]</strong></p>
 		<p><strong>Bonus : [% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
 		<p>Pas de labels pris en compte pour le système de production.</p>
