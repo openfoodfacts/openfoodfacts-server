@@ -81965,6 +81965,9 @@ ru:Непищевые продукты, Не еда
 <en:Non food products
 en:Open Pet Food Facts, OPFF
 fr:Open Pet Food Facts, OPFF
+gpc_family_name:en:Pet Food/Drinks
+gpc_family_name:fr:Aliments/Boissons pour Animaux Domestiques
+gpc_family_code:en:10110000
 
 <en:Open Pet Food Facts
 en:Pet food, pet products, animal food
@@ -81978,9 +81981,16 @@ nl:Dierenvoer
 nl_be:Dierenvoer
 ru:Корма для домашних животных, Корм для домашних животных
 wikidata:en:Q6648982
-gpc_name:en:Pet Food/Drinks
-gpc_name:fr:Aliments/Boissons pour Animaux Domestiques
-gpc_code:en:10110000
+gpc_class_name:en:Pet Food
+gpc_class_name:fr:Aliments pour Animaux Domestiques
+gpc_class_code:en:10111600
+
+<en:Pet food
+en:Frozen pet food
+fr:Aliments surgelés pour animaux domestiques
+gpc_brick_name:en:Pet Food (Frozen)
+gpc_brick_name:fr:Aliments pour Animaux Domestiques (Surgelés)
+gpc_brick_code:en:10000507
 
 <en:Pet food
 en:Dry pet food, dry food
