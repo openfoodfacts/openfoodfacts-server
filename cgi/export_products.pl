@@ -151,6 +151,7 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 	
 	my $local_export_job_id = $results_ref->{local_export_job_id};
 	my $remote_import_job_id = $results_ref->{remote_import_job_id};
+	my $local_export_status_job_id = $results_ref->{local_export_status_job_id};
 	my $export_id = $results_ref->{export_id};
 	
 
@@ -162,6 +163,10 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 	. "<a href=\"/cgi/minion_job_status.pl?job_id=$remote_import_job_id\">Status</a>"
 	. " - <span id=\"result2\"></span></p>";
 
+	$html .= "<p>Local export status update job_id: " . $local_export_status_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_status_job_id\">Status</a>"
+	. " - <span id=\"result3\"></span></p>";
+
 	$initjs .= <<JS
 
 var poll_n1 = 0;
@@ -171,6 +176,10 @@ var job_info_state1;
 var poll_n2 = 0;
 var timeout2 = 5000;
 var job_info_state2;
+
+var poll_n3 = 0;
+var timeout3 = 5000;
+var job_info_state3;
 
 (function poll1() {
   \$.ajax({
@@ -203,7 +212,25 @@ var job_info_state2;
 		setTimeout(poll2, timeout2);
 		timeout2 += 1000;
 	}
-	  poll_n1++;
+	  poll_n2++;
+    }
+  });
+})();
+
+(function poll3() {
+  \$.ajax({
+    url: '/cgi/minion_job_status.pl?job_id=$local_export_status_job_id',
+    success: function(data) {
+      \$('#result3').html(data.job_info.state);
+	  job_info_state3 = data.job_info.state;
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+	  if ((job_info_state3 == "inactive") || (job_info_state3 == "active")) {
+		setTimeout(poll3, timeout3);
+		timeout2 += 1000;
+	}
+	  poll_n3++;
     }
   });
 })();
