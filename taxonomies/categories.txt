@@ -17792,8 +17792,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Barbera d'Alba
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1068
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano
@@ -20491,13 +20492,16 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Venezia Giulia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0977
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Verdicchio dei Castelli di Jesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0482
+protected_name_type:en: pdo
+origins:en: en:Italy
+
 
 <en:Wines from Italy
 it:Verdicchio di Matelica
@@ -23082,11 +23086,15 @@ en:Stick biscuits covered with chocolate
 fr:Biscuits bâtonnets au chocolat
 
 <en:Chocolate biscuits
+en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
 es:Galletas con tableta de chocolate
-fr:Biscuits tablette de chocolat, Petits beurres au chocolat
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat, Biscuits avec tablette de chocolat, Biscuit sec avec tablette de chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 agribalyse_food_code:en:24016
+ciqual_food_code:en:24016
+ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
+# Petit Ecolier
 
 <fr:Biscuits tablette de chocolat
 fr:Biscuits tablette fourrée
@@ -46423,6 +46431,9 @@ it:Avocado
 nl:Avocados
 pl:Awokado
 wikidata:en:Q961769
+agribalyse_proxy_food_code:en:13004
+agribalyse_proxy_food_name:en:Avocado, pulp, raw
+agribalyse_proxy_food_name:fr:Avocat, pulpe, cru
 
 <en:Avocados
 en:Avocado pulp
@@ -46509,6 +46520,9 @@ pt:Coco
 sv:Kokosnötter, kokosnöt
 zh:椰子
 wikidata:en:Q3342808
+agribalyse_proxy_food_code:en:15006
+agribalyse_proxy_food_name:en:Coconut, ripe kernel, fresh
+agribalyse_proxy_food_name:fr:Noix de coco, amande mûre, fraîche
 
 <en:Coconuts
 en:Fresh ripe coconut kernel
@@ -46549,6 +46563,9 @@ es:Guayabas
 fr:Goyaves
 nl:Guavas
 wikidata:en:Q3181909
+agribalyse_proxy_food_code:en:13083
+agribalyse_proxy_food_name:en:Guava, pulp, raw
+agribalyse_proxy_food_name:fr:Goyave, pulpe, crue
 
 <en:Tropical fruits
 en:Guava pulp
@@ -50055,6 +50072,9 @@ nl:Muntsauzen
 
 <en:Sauces
 fr:Sauces andalouses, sauce andalouse
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Brown sauces
@@ -50108,11 +50128,17 @@ en:Samourai sauces
 es:Salsa Samourai
 fr:Sauces samouraï
 nl:Samouraisauzen
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Pita sauces
 fr:Sauces Pita
 nl:Pitasausen
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Indian sauces
@@ -50264,6 +50290,12 @@ nl:Kaassauzen
 agribalyse_food_code:en:11189
 ciqual_food_code:en:11189
 ciqual_food_name:en:Cheese sauce for risotto or pasta, prepacked
+
+<en:Cheese sauces
+fr:Sauces 3 fromages
+
+<en:Cheese sauces
+fr:Sauces 4 fromages
 
 <en:Cheese sauces
 en:Roquefort sauces, Blue cheese sauce
@@ -64678,6 +64710,9 @@ en:Pasta with pork
 fr:Pâtes au porc
 
 <en:Pasta dishes
+fr:Coquillettes jambon-fromage, Coquillettes aux jambons et fromages
+
+<en:Pasta dishes
 en:Carbonara-style pasta
 fr:Pâtes à la carbonara
 agribalyse_food_code:en:25135
@@ -65068,14 +65103,6 @@ agribalyse_food_code:en:24240
 ciqual_food_code:en:24240
 ciqual_food_name:en:Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr:Goûter sec fourré (sandwiché) parfum fruits
-
-<en:Biscuits and cakes
-en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
-fr:Biscuits avec tablette de chocolat, Biscuit sec avec tablette de chocolat
-agribalyse_food_code:en:24016
-ciqual_food_code:en:24016
-ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
-# Petit Ecolier
 
 <en:Biscuits and cakes
 en:Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
