@@ -232,7 +232,31 @@ my @tests = (
 1 opercule à recycler
 1 machin en papier à recycler"
 		}
-	],	
+	],
+	
+	# Bio-based synonyms
+	[
+		'packaging_text_fr_biosource',
+		{
+			lc => "fr",
+			packaging_text => "1 bouteille en PET biosourcé, 1 couvercle en PET bio-sourcé, 1 cuillere en pet bio source",
+		}
+	],
+	[
+		'packaging_text_en_biobased',
+		{
+			lc => "en",
+			packaging_text => "1 bio-based PET bottle, 1 bio-sourced PET lid",
+		}
+	],
+[
+	'packaging_text_fr_1_etui',
+		{
+			lc => "fr",
+			packaging_text => "1 étui en carton FSC à recycler, 2 etuis en plastique, 1 etui en métal",
+		}
+	],
+
 	
 );
 

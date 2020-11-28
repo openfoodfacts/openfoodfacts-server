@@ -195,7 +195,9 @@ sub parse_packaging_from_text_phrase($$) {
 										
 					if ($text =~ /\b($regexp)\b/i) {
 						
-						$log->debug("parse_packaging_from_text_phrase - regexp match", { text => $text, language => $language, tagid => $tagid, regexp => $regexp }) if $log->is_debug();
+						my $before = $`;
+						
+						$log->debug("parse_packaging_from_text_phrase - regexp match", { before => $before, text => $text, language => $language, tagid => $tagid, regexp => $regexp }) if $log->is_debug();
 						
 						# If we already have a value for the property,
 						# apply the new value only if it is a child of the existing value
@@ -210,8 +212,6 @@ sub parse_packaging_from_text_phrase($$) {
 						# or if there is a number of units at the beginning
 						
 						if ($property eq "shape") {
-							
-							my $before = $`;
 							
 							# Quantity contained: 25cl plastic bottle, plastic bottle (25cl)
 							if ($text =~ /\b((\d+((\.|,)\d+)?)\s?(l|dl|cl|ml|g|kg))\b/i) {
