@@ -9257,9 +9257,6 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:Bourgogne
 wikidata:en:Q2922340
 
-<en:Wines from France
-fr:Vézelay
-
 <en:Burgundy wines
 <en:rosé wine
 fr:Bourgogne Clairet
@@ -18795,10 +18792,11 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Colli Etruschi Viterbesi, Tuscia
+it:Colli Etruschi Viterbesi
 protected_name_file_number:en: PDO-IT-A0703
 protected_name_type:en: pdo
 origins:en: en:Italy
+#disabled tuscia synonym since it's also an olive oil it seems
 
 <en:Wines from Italy
 it:Colli Euganei
@@ -41508,12 +41506,6 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian oils and fats
-it:Riviera Ligure
-protected_name_file_number:en: PDO-IT-1540
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
 it:Canino
 protected_name_file_number:en: PDO-IT-1506
 protected_name_type:en: pdo
@@ -41547,7 +41539,7 @@ origins:en: en:Italy
 <en:Olive oils from Italy
 fr:Huile d'olive Riviera Ligure
 it:Olio di oliva Riviera Ligure, Riviera Ligure
-protected_name_file_number:en: PDO-IT-1540-AM02
+protected_name_file_number:en: PDO-IT-1540-AM02, PDO-IT-1540
 protected_name_type:en: pdo
 origins:en: en:Italy
 
