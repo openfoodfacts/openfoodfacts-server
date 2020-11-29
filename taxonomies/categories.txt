@@ -2092,6 +2092,93 @@ protected_name_type:en: gi
 origins:en: en:France
 
 <en:Fruit brandy
+en:Hungarian fruit spirit
+
+<en:Hungarian fruit spirit
+hu:Madarasi Birspálinka
+protected_name_file_number:en: PGI-HU-02489
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Sárréti kökénypálinka
+protected_name_file_number:en: PGI-HU-02490
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykörűi cseresznyepálinka
+protected_name_file_number:en: PGI-HU-02477
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Homokháti őszibarack pálinka
+protected_name_file_number:en: PGI-HU-02471
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Vasi Vadkörte pálinka
+protected_name_file_number:en: PGI-HU-02408
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Újfehértói meggypálinka
+protected_name_file_number:en: PGI-HU-01829-AM01
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykunsági Birspálinka
+protected_name_file_number:en: PGI-HU-02233
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykunsági Szilvapálinka
+protected_name_file_number:en: PGI-HU-02232
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Újfehértói meggypálinka
+protected_name_file_number:en: PGI-HU-01829
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Gönci Barackpálinka
+protected_name_file_number:en: PGI-HU-02052
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Szatmári Szilvapálinka
+protected_name_file_number:en: PGI-HU-02047
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Békési Szilvapálinka
+protected_name_file_number:en: PGI-HU-02053
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Kecskeméti Barackpálinka
+protected_name_file_number:en: PGI-HU-02042
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Szabolcsi Almapálinka
+protected_name_file_number:en: PGI-HU-02039
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Fruit brandy
 en:Italian fruit spirit
 
 <en:Italian fruit spirit
@@ -8489,8 +8576,9 @@ region:fr:Jura
 
 <en:Wines from France
 fr:Ardèche
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number:en: PGI-FR-A1198-AM03
+protected_name_type:en: pgi
+origins:en: en:France
 wikidata:en:Q16303829
 
 <en:Wines from France
@@ -9025,8 +9113,10 @@ instanceof:fr:AOP
 wikidata:en:Q2910687
 
 <en:Wines from France
-fr:Bouches du Rhône
-country:en:France
+fr:Bouches-du-Rhône
+protected_name_file_number:en: PGI-FR-A1223-AM01
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Bordeaux wines
 fr:côtes-de-bourg, côtes de bourg, bourg, bourgeais
@@ -9162,10 +9252,13 @@ wikidata:en:Q2922360
 
 <en:Burgundy wines
 fr:bourgogne-vézelay, bourgogne vézelay, vézelay
-country:en:France
-region:fr:Bourgogne
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-02406
+protected_name_type:en: pdo
+origins:en: en:France, fr:Bourgogne
 wikidata:en:Q2922340
+
+<en:Wines from France
+fr:Vézelay
 
 <en:Burgundy wines
 <en:rosé wine
@@ -9257,7 +9350,9 @@ region:fr:Beaujolais
 
 <en:Wines from France
 fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bugey, Bugey Mousseux, Bugey Pétillant
-country:en:France
+protected_name_file_number:en: PDO-FR-A0588
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Buzet
@@ -10350,6 +10445,12 @@ wikidata:en:Q650077
 country:en:France
 
 <en:Wines from France
+fr:Corbières-Boutenac
+protected_name_file_number:en: PDO-FR-A0670
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Cornas
 wikidata:en:Q2973323
 country:en:France
@@ -10548,6 +10649,12 @@ fr:Coteaux de Pierrevert
 country:en:France
 
 <en:Wines from France
+fr:Pierrevert
+protected_name_file_number:en: PDO-FR-A0918
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Coteaux de Saumur Val de Loire
 country:en:France
 
@@ -10705,8 +10812,9 @@ country:en:France
 <en:Red wines
 fr:canon-fronsac, canon fronsac
 wikidata:en:Q775950
-country:en:France
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0924
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes Catalanes
@@ -10807,6 +10915,12 @@ wikidata:en:Q2926548
 country:en:France
 
 <en:Wines from France
+fr:Brulhois
+protected_name_file_number:en: PDO-FR-A0984
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Côtes du Forez
 wikidata:en:Q1150991
 country:en:France
@@ -10832,6 +10946,9 @@ country:en:France
 
 <fr:Côtes du Rhône
 fr:Côtes du Rhône Villages
+protected_name_file_number:en: PDO-FR-A0664
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes du Roussillon
@@ -10853,7 +10970,9 @@ instanceof:fr:IGP
 
 <en:Wines from France
 fr:Ventoux, AOP Ventoux
-country:en:France
+protected_name_file_number:en: PDO-FR-A0399
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes du Vivarais
@@ -10922,7 +11041,7 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Duché d’Uzès
 wikidata:en:Q19952392
-protected_name_file_number:en: PGI-FR-A1165-AM01
+protected_name_file_number:en: PGI-FR-A1165-AM01, PGI-FR-A1165
 protected_name_type:en: pgi
 origins:en: en:France
 
@@ -11454,8 +11573,9 @@ grapevariety:fr:sémillon, sauvignon, muscadelle
 <en:White wines
 fr:Graves supérieures
 wikidata:en:Q3115753
-country:en:France
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A1014
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Burgundy wines
 <en:Red wines
@@ -11699,7 +11819,9 @@ wikidata:en:Q3242328
 fr:Listrac-Médoc
 country:en:France
 wikidata:en:Q1516318
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0276
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Lot
@@ -13801,7 +13923,9 @@ fr:Puligny-Montrachet
 wikidata:en:Q3410751
 country:en:France
 region:fr:Bourgogne
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0308
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Puligny-Montrachet
 fr:Puligny-Montrachet Côte de Beaune
@@ -14458,8 +14582,9 @@ grapevariety:fr:merlot, cabernet sauvignon, cabernet franc
 
 <en:Wines from France
 fr:Saint-Guilhem-le-Désert
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number:en: PGI-FR-A1143
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Wines from France
 fr:Saint-Joseph
@@ -14622,6 +14747,12 @@ fr:Saône et Loire
 country:en:France
 wikidata:en:Q21427967
 instanceof:fr:IGP
+
+<en:Wines from France
+fr:Saumur
+protected_name_file_number:en: PDO-FR-A0260-AM01
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Saumur Val de Loire mousseux or pétillant, Saumur Val de Loire mousseux, Saumur Val de Loire pétillant
@@ -20894,7 +21025,9 @@ wikidata:en:Q1754670
 
 <en:Wines from Portugal
 pt:Alenquer
-country:en:Portugal
+protected_name_file_number:en: PDO-PT-A1468
+protected_name_type:en: pdo
+origins:en: en:Portugal
 wikidata:en:Q2832671
 
 <en:Wines from Portugal
@@ -21044,7 +21177,9 @@ country:en:Portugal
 
 <en:Wines from Portugal
 pt:Graciosa
-country:en:Portugal
+protected_name_file_number:en: PDO-PT-A1446, PDO-PT-A1446-AM01
+protected_name_type:en: pdo
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Lafões
@@ -21172,14 +21307,20 @@ protected_name_type:en: pdo
 origins:en: en:Portugal
 
 <en:Wines from Portugal
+pt:Trás-os-Montes
+protected_name_file_number:en: PDO-PT-A1466
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Chaves
 country:en:Portugal
 
-<en:Wines from Portugal
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Planalto Mirandês
 country:en:Portugal
 
-<en:Wines from Portugal
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Valpaços
 country:en:Portugal
 
@@ -21188,8 +21329,10 @@ pt:Vinho Licoroso Algarve
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Vinho Regional Açores
-country:en:Portugal
+pt:Açores, Vinho Regional Açores
+protected_name_file_number:en: PGI-PT-A1447-AM01
+protected_name_type:en: pgi
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Vinho Regional Alentejano
@@ -21198,6 +21341,12 @@ country:en:Portugal
 <en:Wines from Portugal
 pt:Vinho Regional Algarve
 country:en:Portugal
+
+<en:Portuguese wines
+pt:Algarve
+protected_name_file_number:en: PGI-PT-A1448-AM01
+protected_name_type:en: pgi
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Vinho Regional Duriense
@@ -21217,7 +21366,7 @@ country:en:Portugal
 
 <en:Portuguese wines
 pt:Vinho Verde
-protected_name_file_number:en: PDO-PT-A1545
+protected_name_file_number:en: PDO-PT-A1545, PDO-PT-A1545-AM01
 protected_name_type:en: pdo
 origins:en: en:Portugal
 
@@ -22705,11 +22854,17 @@ wikidata:en:Q1954039
 <fr:Muscats
 fr:Muscat de Rivesaltes, Muscats de Rivesaltes
 wikidata:en:Q474278
+protected_name_file_number:en: PDO-FR-A1102
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Muscats
 <en:Wines from France
 fr:Muscat de Saint-Jean-de-Minervois, Muscats de Saint-Jean-de-Minervois
 wikidata:en:Q18414851
+protected_name_file_number:en: PDO-FR-A0666
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Muscats
 <en:Wines from France
@@ -33144,13 +33299,15 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Canestrato di Moliterno
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-0487
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Canestrato Pugliese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0004
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Casatella Trevigiana
@@ -33197,7 +33354,9 @@ wikidata:en:Q21272237
 
 <en:Italian cheeses
 it:Formai de Mut Dell'alta Valle Brembana
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0009
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q848380
 
 <en:Italian cheeses
@@ -33214,6 +33373,9 @@ oqali_family:en: fr:Fromages - Parmesan et assimiles
 agribalyse_food_code:en:12123
 ciqual_food_code:en:12123
 ciqual_food_name:en:Grana Padano cheese, from cow's milk
+protected_name_file_number:en: PDO-IT-0011
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Montasio
@@ -33304,13 +33466,17 @@ it:Burrata di bufala
 
 <en:Italian cheeses
 it:Murazzano
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0015
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q1238105
 
 <en:Cow cheeses
 <en:Italian cheeses
 it:Nostrano Valtrompia
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0823
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q3878649
 
 <en:Italian cheeses
@@ -33322,7 +33488,9 @@ fr:Parmigiano Reggiano, parmesan
 it:Parmigiano Reggiano
 nl:Parmigiano-Reggiano, Parmezaan, Parmezaanse kaas
 wikidata:en:Q155922
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0016
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q155922
 oqali_family:en: fr:Fromages - Parmesan et assimiles
 agribalyse_food_code:en:12120
@@ -33361,8 +33529,9 @@ country:en:Italy
 
 <en:Pecorino
 it:Pecorino di Picinisco
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0859
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Pecorino
 en:Pecorino Romano
@@ -33383,7 +33552,7 @@ wikidata:en:Q592173
 
 <en:Pecorino
 it:Pecorino Siciliano
-protected_name_file_number:en: PDO-IT-0019
+protected_name_file_number:en: PDO-IT-0019, DO-IT-0019-AM01
 protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
@@ -33400,9 +33569,16 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian cheeses
+it:Ossolano
+protected_name_file_number:en: PDO-IT-02093
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian cheeses
 it:Piacentinu Ennese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0646
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 en:Piave
@@ -33494,7 +33670,9 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Squacquerone di Romagna
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0794
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q20009815
 
 <en:Italian cheeses
@@ -38839,6 +39017,12 @@ agribalyse_food_code:en:15009
 ciqual_food_code:en:15009
 ciqual_food_name:en:Pistachio nut, grilled, salted
 
+<en:Pistachios
+it:Pistacchio di Raffadali
+protected_name_file_number:en: PDO-IT-02449
+protected_name_type:en: pdo
+origins:en: en:Italy
+
 <en:Nuts
 en:Brazil nuts, Para nuts
 de:Paranüsse
@@ -39289,6 +39473,11 @@ fr:Miel wallon
 protected_name_file_number:en: PGI-BE-02409
 protected_name_type:en: pgi
 origins:en: en:Belgium
+
+<en:Honeys
+en:Italian honeys
+fr:Miels italiens
+origins:en: en:Italy
 
 <en:Honeys
 en:Spanish honeys
@@ -45992,6 +46181,18 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Apples
+it:Mele del Trentino
+protected_name_file_number:en: PGI-IT-2320
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Apples
+it:Mela di Valtellina
+protected_name_file_number:en: PGI-IT-0574-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Apples
 <en:Russet apples
 <en:Acidic apples
 en:Canada apple pulp
@@ -46429,6 +46630,48 @@ agribalyse_food_code:en:13125
 ciqual_food_code:en:13125
 ciqual_food_name:en:Lemon zest, raw
 ciqual_food_name:fr:Citron, zeste, cru
+
+<en:Lemons
+it:Limone dell'Etna
+protected_name_file_number:en: PGI-IT-02444
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Rocca Imperiale
+protected_name_file_number:en: PGI-IT-0818
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Costa d'Amalfi
+protected_name_file_number:en: PGI-IT-0116
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Sorrento
+protected_name_file_number:en: PGI-IT-0098
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Femminello del Gargano
+protected_name_file_number:en: PGI-IT-0297
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Interdonato Messina
+protected_name_file_number:en: PGI-IT-0558
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Siracusa
+protected_name_file_number:en: PGI-IT-0502
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Citrus
 en:Limes
@@ -49474,6 +49717,22 @@ fr:Sel de Salies-de-Béarn
 protected_name_file_number:en: PGI-FR-01311
 protected_name_type:en: pgi
 origins:en: en:France
+
+<en:Salts
+en:Irish salts
+fr:Sels irlandais
+
+<en:Irish salts
+en:Oriel Sea Salt
+protected_name_file_number:en: PDO-IE-01318
+protected_name_type:en: pdo
+origins:en: en:Ireland
+
+<en:Irish salts
+en:Oriel Sea Minerals
+protected_name_file_number:en: PDO-IE-01319
+protected_name_type:en: pdo
+origins:en: en:Ireland
 
 <en:Salts
 en:Portuguese salts
@@ -61894,6 +62153,21 @@ protected_name_file_number:en: PGI-GB-0876
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
+<en:Black pudding
+en:Sneem Black Pudding
+protected_name_file_number:en: PGI-IE-02353
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
+<fr:Boudins
+en:Brown puddings
+
+<en:Brown puddings
+en:Timoleague Brown Pudding
+protected_name_file_number:en: PGI-IE-0093
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
 <en:Prepared meats
 fr:Charcuteries à cuire, charcuterie à cuire
 
@@ -67724,6 +67998,17 @@ protected_name_file_number:en: PDO-GB-0885
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
 
+<en:Seafood
+en:Irish sea products
+fr:Produits de la mer irlandais
+
+<en:Irish sea products
+<en:Salmons
+ie:Clare Island Salmon
+protected_name_file_number:en: PGI-IE-0058
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
 <en:Scallop
 en:Scallops with coral
 fr:Coquilles Saint-Jacques avec noix et corail
@@ -73385,6 +73670,30 @@ it:Carciofi
 la:Cynara scolymus
 nl:Artisjokken
 
+<en:Artichokes
+it:Carciofo Spinoso di Sardegna
+protected_name_file_number:en: PDO-IT-0687
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo Brindisino
+protected_name_file_number:en: PGI-IT-0798
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo Romanesco del Lazio
+protected_name_file_number:en: PGI-IT-0183
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo di Paestum
+protected_name_file_number:en: PGI-IT-0226
+protected_name_type:en: pgi
+origins:en: en:Italy
+
 <en:French vegetables
 <en:Artichokes
 fr:Artichaut du Rousillon
@@ -73492,15 +73801,6 @@ fr:Asperges miniatures
 nl:Mini asperges
 
 <en:Asparagus
-en:Green asparagus
-de:Grüner Spargel
-es:Espárragos verdes
-fi:vihreä parsa
-fr:Asperges vertes
-it:Asparagi verdi
-nl:Groene asperges
-
-<en:Asparagus
 en:White asparagus
 de:Weißer Spargel, Weisser Spargel
 es:Espárragos blancos
@@ -73539,11 +73839,53 @@ nl:Violette asperges
 
 <en:Asparagus
 en:Green asparagus
+de:Grüner Spargel
+es:Espárragos verdes
+fi:vihreä parsa
 fr:Asperges vertes
+it:Asparagi verdi
+nl:Groene asperges
 agribalyse_food_code:en:20279
 ciqual_food_code:en:20279
 ciqual_food_name:en:Asparagus, green, raw
 ciqual_food_name:fr:Asperge, verte, crue
+
+<en:Green asparagus
+<en:Italian vegetables
+it:Asparago verde di Altedo
+protected_name_file_number:en: PGI-IT-0127-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago di Cantello
+protected_name_file_number:en: PGI-IT-01267
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago di Badoere
+protected_name_file_number:en: PGI-IT-0495-AM01, PGI-IT-0495
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago bianco di Cimadolmo
+protected_name_file_number:en: PGI-IT-0135
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago verde di Altedo
+protected_name_file_number:en: PGI-IT-0127
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago Bianco di Bassano
+protected_name_file_number:en: PDO-IT-0338
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Asparagus
 en:Wild asparagus
@@ -75120,6 +75462,42 @@ fr:Pommes de terre de Laponie
 protected_name_file_number:en: PDO-FI-1390
 protected_name_type:en: pdo
 origins:en: en:Finland
+
+<en:Potatoes
+it:Patata del Fucino
+protected_name_file_number:en: PGI-IT-01217-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata novella di Galatina
+protected_name_file_number:en: PDO-IT-1148
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata Rossa di Colfiorito
+protected_name_file_number:en: PGI-IT-1236
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata del Fucino
+protected_name_file_number:en: PGI-IT-01217
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata di Bologna
+protected_name_file_number:en: PDO-IT-0349
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata della Sila
+protected_name_file_number:en: PGI-IT-0643
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <fr:Pommes de terre Béa
 fr:Béa du Roussillon, pomme de terre primeur du Roussillon
