@@ -22763,7 +22763,7 @@ ciqual_food_name:en:Biscuit sponge cake, with chocolate, pre-packed
 fr:Barquettes à la fraise
 
 <en:Biscuits
-en:Wafer cookie
+en:Crêpes dentelle
 fr:Crêpes dentelle
 nl:Flinterdunne flensjes
 pt:Crepes dentelle
@@ -23353,7 +23353,7 @@ ciqual_food_name:fr:Pain (aliment moyen)
 fr:Pains aux noix
 
 <en:Breads
-fr:Pains aux céréales
+fr:Pains multicéréales, Pains aux céréales
 
 <en:Breads
 fr:Pains au maïs
@@ -25611,6 +25611,32 @@ th:ขนมหวาน
 pnns_group_2:en:Sweets
 
 <en:Confectioneries
+en:Fruit confectioneries
+fr:Confiseries aux fruits
+
+<en:Confectioneries
+<en:Fruits based foods
+en:Candied fruits
+de:Kandierte Früchte
+es:Frutas confitadas
+fi:sokeroidut hedelmät
+fr:Fruits confits
+nl:Gekonfijt fruit
+wikidata:en:Q1163138
+ciqual_food_code:en:31027
+ciqual_food_name:en:Candied fruits
+ciqual_food_name:fr:Fruit confit
+
+<en:Candied fruit
+en:Candied lemon
+fr:Citron confit
+de:Kandierte Zitrone
+
+<en:Fruit confectioneries
+en:Filled dates
+fr:Dattes fourrées
+
+<en:Confectioneries
 en:Candied orange zest
 fr:Zeste d'orange confit
 ciqual_food_code:en:31021
@@ -26627,6 +26653,7 @@ ciqual_food_name:en:Chocolate confectionery, filled with wafer
 ciqual_food_name:fr:Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 <en:Bonbons
+<en:Fruit confectioneries
 en:Chocolate covered fruits
 de:Früchte mit Schokoladenüberzug
 es:Frutas recubiertas de chocolate
@@ -26639,7 +26666,7 @@ wikidata:en:Q15985102
 <en:Chocolate covered fruits
 fr:Orangettes
 
-<en:Chocolate covered fruits
+<en:Bonbons
 fr:Gingembrettes
 
 <en:Chocolate covered fruits
@@ -27150,24 +27177,6 @@ en:Sunflower halva
 de:Halva mit Sonnenblumenkernen
 fr:Halvas au tournesol, Halvas de tournesol, Halva de tournesol, Halva au tournesol
 ru:Подсолнечная халва, Халва подсолнечная
-
-<en:Confectioneries
-<en:Fruits based foods
-en:Candied fruits
-de:Kandierte Früchte
-es:Frutas confitadas
-fi:sokeroidut hedelmät
-fr:Fruits confits
-nl:Gekonfijt fruit
-wikidata:en:Q1163138
-ciqual_food_code:en:31027
-ciqual_food_name:en:Candied fruits
-ciqual_food_name:fr:Fruit confit
-
-<en:Candied fruit
-en:Candied lemon
-fr:Citron confit
-de:Kandierte Zitrone
 
 <en:Confectioneries
 en:Turkish delight, lokums, lokum, loukoumi
@@ -29863,9 +29872,6 @@ nl:Gerookte kazen, Rookkaas
 wikidata:en:Q2632885
 
 <en:Cheeses
-en:Havarti cheeses
-
-<en:Cheeses
 en:Lactose-free cheeses
 es:Quesos sin lactosa
 fi:Laktoosittomat juustot
@@ -30937,7 +30943,7 @@ en:Danish cheeses
 es:Quesos daneses
 
 <en:Danish cheeses
-en:Havarti
+en:Havarti, Havarti cheeses
 da:Havarti
 de:Havarti
 es:Havarti
@@ -36703,7 +36709,7 @@ nl:Vijgenchutney
 
 <en:Fruit chutneys
 en:Mango chutneys
-fr:Chutneys de mangue
+fr:Chutneys de mangue, Confits de mangue
 
 <en:Fruits based foods
 <en:Dessert sauces
@@ -46653,12 +46659,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
 fr:Pâtes de dattes
 
 <en:Dates
-fr:Dattes fourrées
-
-<en:Dates
-fr:Dattes de Tunisie
-
-<en:Dates
 en:Pitted dates
 de:entkernte Datteln
 es:Dátiles sin hueso, Dátiles deshuesados
@@ -55995,16 +55995,16 @@ ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
 <en:Pasta salad with fish
-en:Surimi and pasta salads
-fr:Salades au surimi et aux pâtes
+en:Pasta salads with surimi, Surimi and pasta salads
+fr:Salades de pâtes au surimi, Salades au surimi et aux pâtes
 
 <en:Pasta salad with fish
-en:Salmon and pasta salads
-fr:Salades au saumon et aux pâtes
+en:Pasta salads with salmon, Salmon and pasta salads
+fr:Salades de pâtes au saumon, Salades au saumon et aux pâtes
 
 <en:Pasta salad with fish
-en:Tuna and pasta salads
-fr:Salades au thon et aux pâtes
+en:Pasta salad with tuna, Tuna and pasta salads
+fr:Salades de pâtes au thon, Salades au thon et aux pâtes
 
 <en:Pasta salads
 en:Pasta salad with meat, Prepared vegetable and pasta salad with meat
@@ -56015,8 +56015,8 @@ ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
 <en:Pasta salad with meat
-en:Chicken and pasta salads
-fr:Salades au poulet et aux pâtes
+en:Pasta salad with chicken, Chicken and pasta salads
+fr:Salades de pâtes au poulet, Salades au poulet et aux pâtes
 
 <en:Pies
 en:Two-crust Pies, 2 crust pies
@@ -59111,6 +59111,7 @@ ciqual_food_name:en:Chicken, meat and skin, raw
 fr:Poulets fermiers
 
 <en:Chickens
+en:Whole chickens
 fr:Poulets entiers
 
 <fr:Poulets fermiers
