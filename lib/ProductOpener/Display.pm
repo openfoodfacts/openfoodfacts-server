@@ -303,6 +303,7 @@ sub process_template($$$) {
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
 	$template_data_ref->{display_icon} = \&display_icon;
+	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{display_taxonomy_tab} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
 	};
@@ -3723,10 +3724,10 @@ HTML
 				];
 				
 				if (defined $user_or_org_ref->{registered_t}) {
-					$template_data_ref->{registered_t_display} = display_date_tag($user_or_org_ref->{registered_t});
+					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
 				}					
 				
-				$tt->process('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 				
 			$description .= $profile_html;
@@ -6473,7 +6474,7 @@ sub display_my_block($)
 		
 		if (defined $Org_id) {
 			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
-			. '<a id="logged_in_org_id" href="/editor/' . $Org_id . '">' . $Org{org} . "</a><br>"
+			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{org} . "</a><br>"
 			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
 		}		
 
