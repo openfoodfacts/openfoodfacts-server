@@ -17,7 +17,7 @@ synonyms:es:jarabe, sirope
 
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -65,155 +65,22 @@ stopwords:zh::配料
 # comment:en:These are words that end ingredient lists.
 
 #de:
-#	'davon ges(â|a|ä)ttigte'
-#	'Durchschnittliche N(â|a|ä)hrwerte'
-#	'Ern(â|a|ä)hrungswerte'
-#Glutenfrei
-#Kann andere Schalenfrüchte enthalten.
-#Kann spuren von Sellerie und Senf enthalen
-#Milchschokolade: Kakao: 37% mindestens
-#	'Mindestens altbar bis'
-#	'Mindestens haltbar bis'
-#	'Nâhrwerte'
-#	'Vorbereitung Tipps'
-
 
 #en:
-#allergy advice
-#	'after opening'
-#Gluten free
-#Keep in a cool and dry place.
-#May contain other nuts.
-#May contain traces of celery and mustard
-#	'nutritional values'
-#	'nutrition values'
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
-
 
 # es:
-#	'conservar en lug(a|e)r fresco y seco'
-#	'conser(y|v)ar entre'
-#	'conservaci(o|ó)n:'
-#	'consumi preferentemente antes del'
-#	'consumir preferentemente antes del'
-#	'de los cuates az(u|ü)cares'
-#	'de las cuales saturadas'
-#E producto puede contener trazas de sésamo y leche.
-#	#Envasado por:
-#	#'pa(i|í)s de transformaci(o|ó)n'
-#	'protegido de la luz'
-#	'una vez abierto'
 
 # fr:
-#Chocolat au lait: cacao: 37% minimum
-#	'(a|à) consommer de préférence'
-#	'(a|à) cons.de préférence avant'
-#	'(a|à) consommer (cuit|rapidement|dans|jusqu)'
-#Conserver au frais et au sec.
-#	'(a|à) conserver (dans|de|a|à)'
-#	'(a|à)conserver (dans|de|a|à)', #variation
-#	'(a|à)conserver entre
-#	'apport de r(e|é)ference pour un adulte type'
-#	'apr(e|è)s achat'
-#	'apr(e|è)s ouverture'
-#	'(a|à) protéger de ', # humidité, chaleur, lumière etc.
-#`Conditionné par`
-#	'conditions de conservation'
-#	'conditionn(e|é) sous atmosph(e|è)re protectrice'
-#	'conseils de pr(e|é)paration'
-#	'conseil de pr(e|é)paration'
-#Consommer cuit a coeur
-#	'dans le compartiment (a|à) gla(c|ç)ons'
-#	'dont sucres'
-#	'dontSUcres'
-#	'dont acides gras satur(e|é)s
-# 	'dont acides ras satur(e|é)s
-#	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
-#Fabriqué dans un atelier utilisant
-# Fabriqué dans un atelier utilisant : moutarde et _fruits à coque_.
-#Ingrédients issus de l'agriculture biologique
-#	'information nutritionnelle'
-#Ingrédient décongelé, ne pas recongeler
-# INFORMATIONS SUR LES ALLERGIES
-#La présence de vide au fond du pot est due au procédé de fabrication.
-#Le produit peut contenir traces de sésame et du _lait_
-#Les pourcentages sont exprimés sur les cuisses de
-#	'moyennes pour 100g'
-#	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
-#	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
-#	'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-#	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
-#	'la pr(e|é)sence de vide'
-#peut contenir des traces de fruits à coque
-#Peut contenir des traces de céleri et de moutarde
-# Peut contenir des traces de céleri, moutarde et fruits à coque.
-#peut contenir du, pourcentage exprimé sur
-#Peut contenir des traces d'_œufs_, _gluten_, _poissons_, _mollusques_, _crustacés_, _céleri_, _moutarde_ et _fruits à coque_.
-#Peut contenir des traces de céleri, moutarde et fruits à coque.
-#Pourcentages exprimés sur letotal de la recette
-#Pourcentages exprimés sur le total de la recette
-#	'pr(e|é)paration au four'
-#Présence éventuelle de poissons, cr!Ftù.es, _mollusques_, _moutarde_ et _fruits à coque_.
-#Présence éventuelle de poisson, crustacés, céleri, mollusques, moutarde et fruits à coque.
-#Présence éventuelle de _crustacés_, _soja_, graines de _sésame_, _œufs_, _moutarde_ et _fruits à coque_
-#Présence possible de lait, _gluten_, _œuf_, _moutarde_ et _fruits à coque_.
-#Produit issu de l'agriculture biologique
-#Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
-#Sans gluten
-#Sans pectine ajoutée
-#	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)'
-#	'valeur(s?) (e|é)nerg(e|é)tique'
-#	'valeurs mo(y|v)ennes'
-#	'valeurs moyennes pour 100 g'
-#	'valeur nutritionnelle moyenne par 100 g'
-#	'valeurs nutritionelles moyennes'
-#	'valeur nutritionnelle mo(y|v)enne'
-#	'valeur(s?) nutritives'
-#	`verzadigde vetzuren/ acides gras saturés`
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
-#Traces éventuelles de lait
-#Traces possible de fruits à coque
-#'waarvan suikers/dont sucres'
 
+# it:
 
-#######     it:
-#Cioccolato al latte: cacao: 37% min
-#	'consigli per la preparazione'
-#	'di cui zuccheri'
-#Può contenere tracce di sesamo e latte.
-#Può contenere tracce di sedano e senape
-#	'Valori nutritivi'
-#	'valori nutrizionali'
+#ja:
 
+#nl:
 
-#######     ja:
-#	'栄養価'
+#pt:
 
-#######     nl:
-#Gemaakt in een bedrijf waar gluten, soja, noten en sesam verwerkt worden
-#	'gemiddelde voedingswaarden'
-#	'gemiddelde voedingswaarde per 100 g'
-#	'voedingswaarden'
-#	'voorbereidingstips'
-
-
-#######     pt:
-#	'a consumir de prefer(e|ê)ncia antes do'
-#	'consumir de prefer(e|ê)ncia antes do'
-#	'conservar em local fresco'
-#	'conservar em lugar fresco'
-#	'dos quais a(ç|c)(u|ü)ares'
-#	'dos quais a(ç|c)(u|ü)cares'
-#	'informa(ç|c)(a|ã)o nutricional'
-#	'modo de prepara(ç|c)(a|ã)o'
-#Derivado da agricultura biológica
-
-#######     ro:
-#	'a se agita inainte de deschidere'
-#	'a si pastra la frigider dup(a|ă) deschidere'
-#	'declaratie nutritional(a|ă)'
-#Poate contine urme de fructe cu coajă lemnoasă
-
+#ro:
 
 fr:additifs alimentaires
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20

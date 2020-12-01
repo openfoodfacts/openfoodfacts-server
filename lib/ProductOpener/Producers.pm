@@ -68,6 +68,7 @@ BEGIN
 
 		&import_csv_file_task
 		&export_csv_file_task
+		&update_export_status_for_csv_file_task
 		&import_products_categories_from_public_database_task
 
 		);    # symbols to export on request
@@ -1347,6 +1348,7 @@ sub export_and_import_to_public_database($) {
 	$args_ref->{export_id}            = $export_id;
 	$args_ref->{comment}              = "Import from producers platform";
 	$args_ref->{include_images_paths} = 1;                                  # Export file paths to images
+	$args_ref->{exported_t}	= $started_t;
 
 
 	if (defined $Org_id) {
@@ -1379,17 +1381,27 @@ sub export_and_import_to_public_database($) {
 	else {
 		$args_ref->{no_source} = 1;
 	}
+	
+	# Local export
 
 	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_local_queue}});
 
 	$args_ref->{export_job_id} = $local_export_job_id;
 
+	# Remote import
+	
 	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+		
+	# Local export status update
+	
+	my $local_export_status_job_id = $minion->enqueue(update_export_status_for_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+	$exports_ref->{$export_id}{local_export_status_job_id} = $local_export_status_job_id;
 
 	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
 	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
@@ -1401,6 +1413,7 @@ sub export_and_import_to_public_database($) {
 			exported_file => $exported_file,
 			local_export_job_id => $local_export_job_id,
 			remote_import_job_id => $remote_import_job_id,
+			local_export_status_job_id => $local_export_status_job_id,
 	};
 }
 
@@ -1515,6 +1528,35 @@ sub import_products_categories_from_public_database_task() {
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
 	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
+	close($log);
+
+	$job->finish("done");
+
+	return;
+}
+
+
+sub update_export_status_for_csv_file_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	ProductOpener::Import::update_export_status_for_csv_file($args_ref);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "update_export_status_file_task - job: $job_id done\n";
 	close($log);
 
 	$job->finish("done");
