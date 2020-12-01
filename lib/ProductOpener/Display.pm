@@ -304,7 +304,7 @@ sub process_template($$$) {
 	$template_data_ref->{lang} = \&lang;
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{display_taxonomy_tab} = sub ($$) {
+	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
 	};
 	
