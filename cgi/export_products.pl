@@ -86,8 +86,15 @@ if ($action eq "display") {
 		}
 	}
 	
+	# Number of products matching the optional query
 	my $count = count_products({}, $query_ref);
+	
+	# Number of products matching the query with changes that have not yet been imported
+	$query_ref->{states_tags} = "en:to-be-exported";
+	my $count_to_be_exported = count_products({}, $query_ref);
+	
 	$template_data_ref->{count} = $count;
+	$template_data_ref->{count_to_be_exported} = $count_to_be_exported;
 	
 	if ($count == 0) {
 		$template_data_ref->{n_products_will_be_exported} = lang("no_products_to_export");
@@ -106,9 +113,11 @@ if ($action eq "display") {
 		$export_photos_value = "checked";
 		$replace_selected_photos_value = "checked";
 	}
+	my $only_export_products_with_changes_value = "checked";
 	
 	$template_data_ref->{export_photos_value} = $export_photos_value;
 	$template_data_ref->{replace_selected_photos_value} = $replace_selected_photos_value;
+	$template_data_ref->{only_export_products_with_changes_value} = $only_export_products_with_changes_value;
 
 	# Require moderator status to launch the export / import process,
 	# unless there is only one product specified through the ?query_code= parameter
@@ -141,8 +150,13 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 	if (not ((defined param("export_photos")) and (param("export_photos")))) {
 		$args_ref->{do_not_upload_images} = 1;
 	}
+	
 	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
 		$args_ref->{only_select_not_existing_images} = 1;
+	}
+	
+	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
+		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 	
 	# Create Minion tasks for export and import
