@@ -297,6 +297,16 @@ my @tests = (
 			ingredients_text => "emmental (Allemagne, France, Pays-Bas, contient lait)",
 		}
 	],
+	
+	# ES percent, too many loops
+
+	[
+		"es-percent-loop",
+		{
+			lc => "es",
+			ingredients_text => "Tomate, pimiento (12%), atún (10%), aceite de oliva virgen extra (4%), huevo (3%), cebolla (3%), azúcar, almidón de maíz, sal y acidulante: ácido cítrico.",
+		}
+	],	
 
 );
 
