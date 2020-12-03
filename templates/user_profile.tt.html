@@ -12,7 +12,7 @@
 	<p>email: [% email %]</p>
 [% END %]
 
-<p>[% lang("contributor_since") %][% sep %]: [% registered_t_display %]</p>
+<p>[% lang("contributor_since") %][% sep %]: [% display_date_tag(registered_t) %]</p>
 
 [% FOREACH link IN links %]
 	&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
