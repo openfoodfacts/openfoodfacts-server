@@ -570,12 +570,13 @@ EMAIL
 		}
 		
 		# If we are importing on the public platform, check if the product exists on other servers
-		# (e.g. Open Beauty Facts, Open Products Facts)
+		# (e.g. Open Beauty Facts, Open Products Facts), unless it already exists on the target server
 		
 		my $product_ref;
 		
 		if ((defined $options{other_servers})
-			and not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+			and not ((defined $server_options{private_products}) and ($server_options{private_products}))
+			and not (product_exists($product_id))) {
 			foreach my $server (sort keys %{$options{other_servers}}) {
 				next if ($server eq $options{current_server});
 								
