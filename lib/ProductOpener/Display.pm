@@ -7495,7 +7495,11 @@ sub display_product($)
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
+	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
+\$('.f-dropdown').on('opened.fndtn.dropdown', function() {
+   \$(document).foundation('equalizer', 'reflow');
+});
 JS
 ;
 
