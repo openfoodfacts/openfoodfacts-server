@@ -11,7 +11,9 @@ Bazı durumlarda çoğaltılabilen (alıntı hakkı veya adil kullanım), telif 
 
 <h2>Open Food Facts veri dışa aktarımları</h2>
 
-<p>Veritabanı dökümleri ve dışa aktarımları her gece yapılır.</p>
+<p>Veritabanı dökümleri ve dışa aktarımları her gece yapılır. The database is very big, so you can find 
+  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
+  depending on the export flavor.</p>
 
 <p>MongoDB dökümü ve CSV dışa aktarımına ilişkin farklı alanlara ilişkin bilgiler <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://tr.openfoodfacts.org/data/data-fields.txt</a> adresinde bulunabilir</p>
 
@@ -37,7 +39,20 @@ Bazı durumlarda çoğaltılabilen (alıntı hakkı veya adil kullanım), telif 
  Dosya adı, JSON dosyasında bulunan ilk ve son değişikliğin UNIX zaman damgasını içerir, böylece delta dosyaları <code>mongoimport</code> ile alfabetik sıraya göre içe aktarılabilir (çıkarma işleminden sonra).</p>
 <p>Lütfen <code>mongoexport</code>'un yapısı gereği, delta dosyalarının silinen ürünler hakkında size bilgi veremeyeceğini unutmayın. Silinen ürünleri veritabanınızdan kaldırmak için bütün MongoDB dökümünü içe aktarmanız gerekmektedir.</p>
 
+
 <h3>CSV Veri Dışa Aktarımı</h3>
+
+<p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
+  It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
+
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">Bir ürünün verilerini okumak için URL: https://world.openfoodfacts.org/api/v0/product/ <i>[barcode]</i>.json</a>
+ </dd>
+</dl>
+
+
+<h3>RDF Veri Dışa Aktarımı</h3>
 
 <p>Tüm ürünlere veya bazı ürünlere ait veriler, <a href="https://world.openfoodfacts.org/cgi/search.pl">gelişmiş arama formu</a> aracılığıyla CSV formatında (OpenOffice, Excel ve diğer birçok yazılımla okunabilir) indirilebilir.</p>
 
@@ -50,7 +65,7 @@ Bazı durumlarda çoğaltılabilen (alıntı hakkı veya adil kullanım), telif 
 
 
 
-<h3>RDF Veri Dışa Aktarımı</h3>
+<h3>RDF Data Export</h3>
 
 <p>Veritabanı RDF formatında da mevcuttur. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">Fransızca duyuru</a>.</p>
 
@@ -65,30 +80,30 @@ Bazı durumlarda çoğaltılabilen (alıntı hakkı veya adil kullanım), telif 
 
 <p>API'yi zaman içinde değiştiriyoruz, ancak geriye dönük uyumluluğu korumak konusunda dikkatliyiz. Lütfen bunu kullanırsanız bize bildirin, böylece olası değişikliklerde sizi haberdar edebiliriz.</p>
 
-<p>Bir ürünün verilerini okumak için URL: https://world.openfoodfacts.org/api/v0/product/ <i>[barcode]</i>.json</p>
-
 <p>Örnek: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 Daha fazla belge <a href="https://wiki.openfoodfacts.org/API">Wiki'de mevcuttur</a>. (Önemli not: sayfa READ ve WRITE için alt sayfalara ayrılmıştır).
 Bir ürünü sergilemek için kullanım durumları ve kullanıcılarınızın Nutri-Score, NOVA grupları ve katkı maddelerini öğrenmek için gereken verileri eklemelerine izin verecek şekilde daha iyi bir dokümantasyon geliştirilmektedir.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">Buradan erişebilirsiniz</a>.
 <p>1 API çağrısı = kullanıcı tarafından yapılan 1 gerçek tarama olduğu sürece API'yi üretim amaçlarıyla kullanmanızdan memnuniyet duyarız.
 Tüm günlük dışa aktarımlar bu sayfada mevcuttur, dolayısıyla API kullanarak veritabanını baştan sona tarama girişimleri büyük ihtimalle engellenecektir.</p>
-<p>Ayrıca, API çağrınızla birlikte br HTTP başlığı göndermeniz herhangi bir sorun halinde irtibatta bulunabilmemiz için iyi bir yoldur.</p>
 <p>Herhangi bir şey hakkında emin değilseniz, ya da herhangi bir sorunuz varsa (saçma soru diye bir şey yoktur), Slack kanalımızda sormaktan çekinmeyin :-)</p>
+<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
 
 <h2>Android ve iPhone mobil uygulaması</h2>
 
 <p>Open Food Facts mobil uygulamasının kodu GitHub'da mevcuttur (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> ve <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>).
 Uygulama, kullanıcıların ürün barkotlarını taramalarını, ürün bilgilerini görüntülemelerini ve eksik ürünler için fotoğraf ve veri çekip göndermelerini sağlar.</p>
 
-<p>iOS uygulaması Swift ile geliştirilmiştir.</p>
 <p>Android uygulaması Java ile geliştirilmiştir.</p>
+<p>The app for Android is developed in Java.</p>
 <p>Kodu (açık kaynaktır) yeniden kullanmaya ve gezegen üzerindeki herkes için iyileştirmemize yardımcı olabilirsiniz.
 
 <h2>Wrapper'lar ve SDK'lar</h2>
 <p>Muhtemelen en sevdiğiniz programlama dili için bir wrapper'ımız vardır. Eğer varsa, onu kullanabilir ve iyileştirebilirsiniz. Eğer yoksa, oluşturmamıza yardımcı olabilirsiniz.</p>
-<p>Veriyi kullanmanıza, aynı zamanda kullanıcılarınızın yeni veriler sağlamalarına olanak sağlayacaklardır</p>
+<p><a href="https://slack.openfoodfacts.org">Soru sormak ve API'yi tartışmak için tercih edilen yol olan Open Food Facts Slack sohbet odasına katılabilirsiniz</a>.</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>
 <li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
@@ -103,7 +118,7 @@ Uygulama, kullanıcıların ürün barkotlarını taramalarını, ürün bilgile
 </ul>
 
 <h2>Verileri, API'yi ve dışa aktarımları tartışmak</h2>
-<p><a href="https://slack.openfoodfacts.org">Soru sormak ve API'yi tartışmak için tercih edilen yol olan Open Food Facts Slack sohbet odasına katılabilirsiniz</a>.</p>
+<p>You can <a href="https://slack.openfoodfacts.org">join the Open Food Facts Slack chatroom which is the preferred way to ask questions and discuss the API</a>.</p>
 
 <p>Ayrıca API'yi ve dışa aktarmaları tartışmak, yeniden kullanımlarınız hakkında bize bilgi vermek ve API'de iyileştirmeler veya değişiklikler yapıldığında haberdar olmak için e-posta listesine katılabilirsiniz. Abone olmak için <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> adresine boş bir e-posta gönderin.</p>
 
