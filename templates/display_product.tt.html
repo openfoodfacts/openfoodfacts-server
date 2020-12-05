@@ -82,7 +82,24 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% html_manufacturer_source %]
+[% IF owner %]
+	<p>
+		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
+		
+		[% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
+				 - [% lang("customer_service") %][% sep %]:
+				[% IF owner_org.customer_service.email %]
+					[% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
+				[% ELSIF owner_org.customer_service.link %]
+					[% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
+				[% END %]
+				
+				[% IF owner_org.customer_service.phone %]
+					[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
+				[% END %]
+		[% END %]
+	</p>
+[% END %]
 
 <!-- product summary -->
 
@@ -344,11 +361,25 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% FOREACH source IN sources %]
-    <p>[% lang("sources_${source.lang_id}") %]</p>
-    [% IF source.url %]
-        <p><a href="\[% source.url %]\">[% lang("sources_${source.lang_id}_product_page") %]</a></p>
-    [% END %]
+[%IF sources %]
+	[% lang("list_of_sources") %]
+	<ul>
+	[% FOREACH source IN unique_sources %]
+		<li>
+			[% IF source.url %]
+				<a href="\[% source.url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.name %]
+			[% END %]
+			
+			[% IF source.source_licence_url %]
+				<a href="\[% source.source_licence_url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.source_licence %]
+			[% END %]
+		</li>
+	[% END %]
+	</ul>
 [% END %]
 
 <p class="details">
